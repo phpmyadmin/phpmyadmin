@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-08-06 00:18+0000\n"
+"POT-Creation-Date: 2023-08-13 00:16+0000\n"
 "PO-Revision-Date: 2023-05-02 08:51+0000\n"
 "Last-Translator: Xzonn <Xzonn@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -1206,37 +1206,37 @@ msgstr ""
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit 已被设为 1 MB"
 
-#: libraries/classes/Application.php:259
+#: libraries/classes/Application.php:270
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "您应升级到 %s %s 或更高版本。"
 
-#: libraries/classes/Application.php:291
+#: libraries/classes/Application.php:302
 msgid "Error: Token mismatch"
 msgstr "错误：令牌不符"
 
-#: libraries/classes/Application.php:350
+#: libraries/classes/Application.php:361
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "详情请查看%s我们的文档%s。"
 
-#: libraries/classes/Application.php:461
+#: libraries/classes/Application.php:472
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr "无法设置会话cookie。也许您使用HTTP而不是HTTPS来访问phpMyAdmin。"
 
-#: libraries/classes/Application.php:507
+#: libraries/classes/Application.php:518
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr "php.ini中禁用了ini_get和/或ini_set函数。 phpMyAdmin需要这些函数！"
 
-#: libraries/classes/Application.php:516
+#: libraries/classes/Application.php:527
 msgid "GLOBALS overwrite attempt"
 msgstr "企图覆盖 GLOBALS"
 
-#: libraries/classes/Application.php:526
+#: libraries/classes/Application.php:537
 msgid "possible exploit"
 msgstr "检测到有利用漏洞的企图"
 
@@ -1246,7 +1246,7 @@ msgstr "搜索："
 
 #: libraries/classes/BrowseForeigners.php:181
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:337
-#: libraries/classes/Controllers/Server/PrivilegesController.php:294
+#: libraries/classes/Controllers/Server/PrivilegesController.php:293
 #: libraries/classes/Normalization.php:226
 #: libraries/classes/Tracking/Tracking.php:305
 #: libraries/classes/Tracking/Tracking.php:447
@@ -1260,8 +1260,8 @@ msgstr "搜索："
 #: templates/database/routines/editor_form.twig:185
 #: templates/database/routines/execute_form.twig:55
 #: templates/display/results/table.twig:279
-#: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
-#: templates/modals/add_index.twig:10 templates/modals/change_password.twig:10
+#: templates/gis_data_editor_form.twig:211 templates/modals/add_index.twig:10
+#: templates/modals/change_password.twig:10
 #: templates/modals/create_view.twig:10
 #: templates/modals/enum_set_editor.twig:10
 #: templates/modals/index_dialog_modal.twig:10
@@ -1634,8 +1634,8 @@ msgstr "越南语"
 #: libraries/classes/Config/Forms/User/ExportForm.php:98
 #: libraries/classes/Config/Forms/User/ExportForm.php:126
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:713
-#: libraries/classes/Import/Import.php:1250 libraries/classes/Menu.php:234
-#: libraries/classes/Menu.php:334
+#: libraries/classes/Import/Import.php:1250 libraries/classes/Menu.php:236
+#: libraries/classes/Menu.php:336
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:43
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:56
 #: libraries/classes/Navigation/Nodes/NodeTable.php:295
@@ -1654,8 +1654,8 @@ msgstr "结构"
 #: libraries/classes/Config/ConfigFile.php:540
 #: libraries/classes/Config/ConfigFile.php:594
 #: libraries/classes/Config/ConfigFile.php:604
-#: libraries/classes/Config/Descriptions.php:759 libraries/classes/Menu.php:239
-#: libraries/classes/Menu.php:339 libraries/classes/Menu.php:457
+#: libraries/classes/Config/Descriptions.php:759 libraries/classes/Menu.php:241
+#: libraries/classes/Menu.php:341 libraries/classes/Menu.php:459
 #: libraries/classes/Navigation/Nodes/NodeTable.php:298
 #: libraries/classes/Util.php:1255 libraries/classes/Util.php:1690
 #: libraries/classes/Util.php:1705 libraries/classes/Util.php:1722
@@ -1665,8 +1665,8 @@ msgstr "SQL"
 #: libraries/classes/Config/ConfigFile.php:528
 #: libraries/classes/Config/ConfigFile.php:542
 #: libraries/classes/Config/ConfigFile.php:596
-#: libraries/classes/Config/ConfigFile.php:606 libraries/classes/Menu.php:243
-#: libraries/classes/Menu.php:343
+#: libraries/classes/Config/ConfigFile.php:606 libraries/classes/Menu.php:245
+#: libraries/classes/Menu.php:345
 #: libraries/classes/Navigation/Nodes/NodeTable.php:296
 #: libraries/classes/Util.php:1256 libraries/classes/Util.php:1706
 #: libraries/classes/Util.php:1723 templates/database/routines/index.twig:28
@@ -1680,7 +1680,7 @@ msgstr "搜索"
 
 #: libraries/classes/Config/ConfigFile.php:530
 #: libraries/classes/Config/ConfigFile.php:544
-#: libraries/classes/Config/ConfigFile.php:608 libraries/classes/Menu.php:250
+#: libraries/classes/Config/ConfigFile.php:608 libraries/classes/Menu.php:252
 #: libraries/classes/Navigation/Nodes/NodeTable.php:297
 #: libraries/classes/Util.php:1257 libraries/classes/Util.php:1724
 #: templates/database/structure/structure_table_row.twig:59
@@ -1690,7 +1690,7 @@ msgstr "插入"
 
 #: libraries/classes/Config/ConfigFile.php:532
 #: libraries/classes/Config/ConfigFile.php:546
-#: libraries/classes/Config/ConfigFile.php:610 libraries/classes/Menu.php:227
+#: libraries/classes/Config/ConfigFile.php:610 libraries/classes/Menu.php:229
 #: libraries/classes/Navigation/Nodes/NodeTable.php:299
 #: libraries/classes/Util.php:1258 libraries/classes/Util.php:1720
 #: templates/database/search/results.twig:32
@@ -1824,7 +1824,7 @@ msgstr "欢迎使用"
 
 #: libraries/classes/Config/ConfigFile.php:582
 #: libraries/classes/Config/Descriptions.php:732
-#: libraries/classes/Config/Descriptions.php:743 libraries/classes/Menu.php:452
+#: libraries/classes/Config/Descriptions.php:743 libraries/classes/Menu.php:454
 #: libraries/classes/Util.php:1689
 #: templates/navigation/tree/database_select.twig:10
 #: templates/server/databases/index.twig:3 templates/server/export/index.twig:7
@@ -1835,7 +1835,7 @@ msgstr "数据库"
 
 #: libraries/classes/Config/ConfigFile.php:584
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:288
-#: libraries/classes/Menu.php:462
+#: libraries/classes/Menu.php:464
 #: libraries/classes/Server/Status/Processes.php:96
 #: libraries/classes/Util.php:1691
 #: templates/database/events/editor_form.twig:30
@@ -1845,7 +1845,7 @@ msgstr "数据库"
 msgid "Status"
 msgstr "状态"
 
-#: libraries/classes/Config/ConfigFile.php:586 libraries/classes/Menu.php:519
+#: libraries/classes/Config/ConfigFile.php:586 libraries/classes/Menu.php:521
 #: libraries/classes/Server/Status/Data.php:211 libraries/classes/Util.php:1698
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:193
@@ -1853,8 +1853,8 @@ msgid "Variables"
 msgstr "变量"
 
 #: libraries/classes/Config/ConfigFile.php:588
-#: libraries/classes/Controllers/Server/PrivilegesController.php:412
-#: libraries/classes/Menu.php:273 libraries/classes/Menu.php:381
+#: libraries/classes/Controllers/Server/PrivilegesController.php:411
+#: libraries/classes/Menu.php:275 libraries/classes/Menu.php:383
 #: libraries/classes/Util.php:1711 libraries/classes/Util.php:1727
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:16
@@ -1863,8 +1863,8 @@ msgstr "变量"
 msgid "Privileges"
 msgstr "权限"
 
-#: libraries/classes/Config/ConfigFile.php:598 libraries/classes/Menu.php:284
-#: libraries/classes/Menu.php:294 libraries/classes/Menu.php:374
+#: libraries/classes/Config/ConfigFile.php:598 libraries/classes/Menu.php:286
+#: libraries/classes/Menu.php:296 libraries/classes/Menu.php:376
 #: libraries/classes/Util.php:1259 libraries/classes/Util.php:1710
 #: libraries/classes/Util.php:1728 templates/table/operations/view.twig:8
 msgid "Operations"
@@ -4373,7 +4373,7 @@ msgid "Explain SQL"
 msgstr "解析 SQL"
 
 #: libraries/classes/Config/Descriptions.php:932
-#: libraries/classes/Export/Export.php:1256
+#: libraries/classes/Export/Export.php:1258
 #: libraries/classes/Html/Generator.php:633 templates/console/display.twig:121
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
@@ -4668,8 +4668,8 @@ msgstr "OpenOffice 文档"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:148
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:386
-#: libraries/classes/Menu.php:257 libraries/classes/Menu.php:359
-#: libraries/classes/Menu.php:481 libraries/classes/Server/Privileges.php:1282
+#: libraries/classes/Menu.php:259 libraries/classes/Menu.php:361
+#: libraries/classes/Menu.php:483 libraries/classes/Server/Privileges.php:1282
 #: libraries/classes/Util.php:1693 libraries/classes/Util.php:1708
 #: libraries/classes/Util.php:1725 templates/database/events/index.twig:17
 #: templates/database/events/index.twig:18
@@ -4711,8 +4711,8 @@ msgstr "CSV 使用 LOAD DATA"
 
 #: libraries/classes/Config/Forms/User/ImportForm.php:58
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:323
-#: libraries/classes/Menu.php:266 libraries/classes/Menu.php:369
-#: libraries/classes/Menu.php:486 libraries/classes/Util.php:1694
+#: libraries/classes/Menu.php:268 libraries/classes/Menu.php:371
+#: libraries/classes/Menu.php:488 libraries/classes/Util.php:1694
 #: libraries/classes/Util.php:1709 libraries/classes/Util.php:1726
 #: templates/import.twig:3 templates/import.twig:190
 #: templates/preferences/header.twig:48
@@ -4725,24 +4725,24 @@ msgstr "导入"
 msgid "Default transformations"
 msgstr "默认转换"
 
-#: libraries/classes/Config/PageSettings.php:123
+#: libraries/classes/Config/PageSettings.php:122
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr "无法保存设置，提交的配置表单中存在错误！"
 
-#: libraries/classes/Config.php:609
+#: libraries/classes/Config.php:589
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "现有的配置文件（%s）是不可读的。"
 
-#: libraries/classes/Config.php:645
+#: libraries/classes/Config.php:625
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "配置文件权限错误，不应任何用户都能修改！"
 
-#: libraries/classes/Config.php:659
+#: libraries/classes/Config.php:639
 msgid "Failed to read configuration file!"
 msgstr "读取配置文件失败！"
 
-#: libraries/classes/Config.php:661
+#: libraries/classes/Config.php:641
 #, fuzzy
 #| msgid ""
 #| "This usually means there is a syntax error in it, please check any errors "
@@ -4977,16 +4977,9 @@ msgstr[0] "已显示 %1$d 个书签（包括私有和共享）"
 msgid "No bookmarks"
 msgstr "没有书签"
 
-#: libraries/classes/Controllers/AbstractController.php:66
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:356
-#: libraries/classes/Controllers/Server/Databases/DestroyController.php:59
-#: libraries/classes/DbTableExists.php:46
-msgid "No databases selected."
-msgstr "没有已选择的数据库。"
-
-#: libraries/classes/Controllers/AbstractController.php:121
+#: libraries/classes/Controllers/AbstractController.php:71
 #: libraries/classes/Controllers/SchemaExportController.php:35
-#: libraries/classes/Controllers/Server/UserGroupsFormController.php:44
+#: libraries/classes/Controllers/Server/UserGroupsFormController.php:45
 msgid "Missing parameter:"
 msgstr "缺少参数："
 
@@ -5017,150 +5010,174 @@ msgid "Showing rows %1$s - %2$s."
 msgstr "正在显示第 %1$s - %2$s 行。"
 
 #. l10n: The user tries to save a page with an existing name in Designer
-#: libraries/classes/Controllers/Database/DesignerController.php:91
+#: libraries/classes/Controllers/Database/DesignerController.php:95
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr "已经有名为 “%s” 的页面了，请重新命名。"
 
-#: libraries/classes/Controllers/Database/EventsController.php:132
+#: libraries/classes/Controllers/Database/DesignerController.php:158
+#: libraries/classes/Controllers/Database/DesignerController.php:163
+#: libraries/classes/Controllers/Database/EventsController.php:55
+#: libraries/classes/Controllers/Database/ExportController.php:61
+#: libraries/classes/Controllers/Database/ExportController.php:66
+#: libraries/classes/Controllers/Database/ImportController.php:61
+#: libraries/classes/Controllers/Database/ImportController.php:66
+#: libraries/classes/Controllers/Database/Operations/CollationController.php:57
+#: libraries/classes/Controllers/Database/OperationsController.php:229
+#: libraries/classes/Controllers/Database/OperationsController.php:234
+#: libraries/classes/Controllers/Database/RoutinesController.php:74
+#: libraries/classes/Controllers/Database/RoutinesController.php:95
+#: libraries/classes/Controllers/Database/SearchController.php:49
+#: libraries/classes/Controllers/Database/SearchController.php:54
+#: libraries/classes/Controllers/Database/SqlController.php:58
+#: libraries/classes/Controllers/Database/SqlController.php:63
+#: libraries/classes/Controllers/Database/StructureController.php:136
+#: libraries/classes/Controllers/Database/StructureController.php:141
+#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:85
+#: libraries/classes/Controllers/Database/Structure/RealRowCountController.php:56
+#: libraries/classes/Controllers/Database/TrackingController.php:58
+#: libraries/classes/Controllers/Database/TrackingController.php:63
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:356
+#: libraries/classes/Controllers/Server/Databases/DestroyController.php:59
+#: libraries/classes/Controllers/Table/AddFieldController.php:174
+#: libraries/classes/Controllers/Table/AddFieldController.php:179
+#: libraries/classes/Controllers/Table/ChangeController.php:67
+#: libraries/classes/Controllers/Table/ChangeController.php:72
+#: libraries/classes/Controllers/Table/ChartController.php:96
+#: libraries/classes/Controllers/Table/ChartController.php:101
+#: libraries/classes/Controllers/Table/ChartController.php:136
+#: libraries/classes/Controllers/Table/ChartController.php:141
+#: libraries/classes/Controllers/Table/ChartController.php:220
+#: libraries/classes/Controllers/Table/DeleteConfirmController.php:56
+#: libraries/classes/Controllers/Table/DeleteConfirmController.php:61
+#: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:51
+#: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:56
+#: libraries/classes/Controllers/Table/FindReplaceController.php:72
+#: libraries/classes/Controllers/Table/FindReplaceController.php:77
+#: libraries/classes/Controllers/Table/GisVisualizationController.php:52
+#: libraries/classes/Controllers/Table/GisVisualizationController.php:57
+#: libraries/classes/Controllers/Table/ImportController.php:64
+#: libraries/classes/Controllers/Table/ImportController.php:69
+#: libraries/classes/Controllers/Table/IndexesController.php:59
+#: libraries/classes/Controllers/Table/IndexesController.php:64
+#: libraries/classes/Controllers/Table/IndexRenameController.php:52
+#: libraries/classes/Controllers/Table/IndexRenameController.php:57
+#: libraries/classes/Controllers/Table/OperationsController.php:90
+#: libraries/classes/Controllers/Table/OperationsController.php:95
+#: libraries/classes/Controllers/Table/SearchController.php:170
+#: libraries/classes/Controllers/Table/SearchController.php:175
+#: libraries/classes/Controllers/Table/SqlController.php:60
+#: libraries/classes/Controllers/Table/SqlController.php:65
+#: libraries/classes/Controllers/Table/StructureController.php:114
+#: libraries/classes/Controllers/Table/StructureController.php:119
+#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:69
+#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:74
+#: libraries/classes/Controllers/Table/TrackingController.php:65
+#: libraries/classes/Controllers/Table/TrackingController.php:70
+#: libraries/classes/Controllers/Table/ZoomSearchController.php:98
+#: libraries/classes/Controllers/Table/ZoomSearchController.php:103
+#: libraries/classes/Controllers/Triggers/IndexController.php:67
+#: libraries/classes/Controllers/Triggers/IndexController.php:88
+#: libraries/classes/Controllers/View/CreateController.php:68
+#: libraries/classes/Controllers/View/CreateController.php:73
+#: libraries/classes/Controllers/View/OperationsController.php:59
+#: libraries/classes/Controllers/View/OperationsController.php:64
+msgid "No databases selected."
+msgstr "没有已选择的数据库。"
+
+#: libraries/classes/Controllers/Database/EventsController.php:138
 msgid "Add event"
 msgstr "添加事件"
 
-#: libraries/classes/Controllers/Database/EventsController.php:136
+#: libraries/classes/Controllers/Database/EventsController.php:142
 msgid "Edit event"
 msgstr "编辑事件"
 
-#: libraries/classes/Controllers/Database/EventsController.php:185
-#: libraries/classes/Controllers/Database/RoutinesController.php:255
-#: libraries/classes/Controllers/Database/RoutinesController.php:285
-#: libraries/classes/Controllers/Database/RoutinesController.php:353
-#: libraries/classes/Controllers/Triggers/IndexController.php:196
+#: libraries/classes/Controllers/Database/EventsController.php:191
+#: libraries/classes/Controllers/Database/RoutinesController.php:273
+#: libraries/classes/Controllers/Database/RoutinesController.php:303
+#: libraries/classes/Controllers/Database/RoutinesController.php:371
+#: libraries/classes/Controllers/Triggers/IndexController.php:214
 msgid "Error in processing request:"
 msgstr "处理请求时遇到错误:"
 
-#: libraries/classes/Controllers/Database/EventsController.php:187
+#: libraries/classes/Controllers/Database/EventsController.php:193
 #, php-format
 msgid "No event with name %1$s found in database %2$s."
 msgstr "在数据库 %2$s 中找不到名为 %1$s 的事件。"
 
-#: libraries/classes/Controllers/Database/EventsController.php:213
+#: libraries/classes/Controllers/Database/EventsController.php:219
 #, php-format
 msgid "Export of event %s"
 msgstr "导出事件 %s"
 
-#: libraries/classes/Controllers/Database/EventsController.php:231
+#: libraries/classes/Controllers/Database/EventsController.php:237
 #, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "处理请求时出错：在数据库 %2$s 中找不到名为 %1$s 的事件。"
 
-#: libraries/classes/Controllers/Database/ExportController.php:65
-#: libraries/classes/Controllers/Database/TrackingController.php:116
-#: libraries/classes/Controllers/Export/ExportController.php:308
+#: libraries/classes/Controllers/Database/ExportController.php:78
+#: libraries/classes/Controllers/Database/TrackingController.php:129
+#: libraries/classes/Controllers/Export/ExportController.php:307
 #: templates/database/structure/index.twig:25
 #: templates/navigation/tree/path.twig:9
 msgid "No tables found in database."
 msgstr "数据库中没有表。"
 
-#: libraries/classes/Controllers/Database/ExportController.php:131
+#: libraries/classes/Controllers/Database/ExportController.php:144
 #: libraries/classes/Controllers/Server/ExportController.php:71
 #: libraries/classes/Controllers/Table/ExportController.php:102
 msgid "Could not load export plugins, please check your installation!"
 msgstr "无法加载导出插件，请检查安装！"
 
-#: libraries/classes/Controllers/Database/ImportController.php:64
+#: libraries/classes/Controllers/Database/ImportController.php:77
 #: libraries/classes/Controllers/Import/ImportController.php:558
 #: libraries/classes/Controllers/Server/ImportController.php:60
-#: libraries/classes/Controllers/Table/ImportController.php:68
+#: libraries/classes/Controllers/Table/ImportController.php:97
 msgid "Could not load import plugins, please check your installation!"
 msgstr "无法加载导入插件，请检查您的安装！"
 
-#: libraries/classes/Controllers/Database/Operations/CollationController.php:41
-#: libraries/classes/Controllers/Table/OperationsController.php:256
+#: libraries/classes/Controllers/Database/Operations/CollationController.php:44
+#: libraries/classes/Controllers/Table/OperationsController.php:285
 msgid "No collation provided."
 msgstr "未提供排序规则。"
 
-#: libraries/classes/Controllers/Database/OperationsController.php:81
+#: libraries/classes/Controllers/Database/OperationsController.php:83
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr "不能复制数据库到相同名称。请更换名称后重试。"
 
-#: libraries/classes/Controllers/Database/OperationsController.php:160
+#: libraries/classes/Controllers/Database/OperationsController.php:162
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "已将数据库 %1$s 改名为 %2$s。"
 
-#: libraries/classes/Controllers/Database/OperationsController.php:170
+#: libraries/classes/Controllers/Database/OperationsController.php:172
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "已将数据库 %1$s 复制至 %2$s。"
 
-#: libraries/classes/Controllers/Database/OperationsController.php:260
+#: libraries/classes/Controllers/Database/OperationsController.php:272
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr "phpMyAdmin 设置存储功能已停用。%s查看原因%s。"
 
 #: libraries/classes/Controllers/Database/PrivilegesController.php:66
-#: libraries/classes/Controllers/Server/PrivilegesController.php:111
+#: libraries/classes/Controllers/Server/PrivilegesController.php:110
 #: libraries/classes/Controllers/Server/UserGroupsController.php:47
 #: libraries/classes/Controllers/Table/PrivilegesController.php:69
 msgid "No Privileges"
 msgstr "无权限"
 
 #: libraries/classes/Controllers/Database/PrivilegesController.php:75
-#: libraries/classes/Controllers/Server/PrivilegesController.php:120
+#: libraries/classes/Controllers/Server/PrivilegesController.php:119
 #: libraries/classes/Controllers/Table/PrivilegesController.php:78
 msgid "You do not have the privileges to administrate the users!"
 msgstr "您没有权限管理用户！"
 
-#: libraries/classes/Controllers/Database/RoutinesController.php:155
-msgid "Add routine"
-msgstr "添加程序"
-
-#: libraries/classes/Controllers/Database/RoutinesController.php:159
-msgid "Edit routine"
-msgstr "编辑程序"
-
-#: libraries/classes/Controllers/Database/RoutinesController.php:258
-#, php-format
-msgid ""
-"No routine with name %1$s found in database %2$s. You might be lacking the "
-"necessary privileges to edit this routine."
-msgstr "在数据库%2$s中找不到名称为%1$s的例程。您可能缺少编辑此例程的必要权限。"
-
-#: libraries/classes/Controllers/Database/RoutinesController.php:287
-#: libraries/classes/Controllers/Database/RoutinesController.php:355
-#, php-format
-msgid "No routine with name %1$s found in database %2$s."
-msgstr "在数据库 %2$s 中找不到名为 %1$s 的程序。"
-
-#: libraries/classes/Controllers/Database/RoutinesController.php:336
-#: libraries/classes/Controllers/Database/RoutinesController.php:346
-msgid "Execute routine"
-msgstr "运行程序"
-
-#: libraries/classes/Controllers/Database/RoutinesController.php:390
-#, php-format
-msgid "Export of routine %s"
-msgstr "导出程序 %s"
-
-#: libraries/classes/Controllers/Database/RoutinesController.php:409
-#, php-format
-msgid ""
-"Error in processing request: No routine with name %1$s found in database "
-"%2$s. You might be lacking the necessary privileges to view/export this "
-"routine."
-msgstr ""
-"处理请求时出错：在数据库%2$s中找不到名称为%1$s的例程。您可能缺少查看/导出此例"
-"程的必要权限。"
-
-#: libraries/classes/Controllers/Database/SearchController.php:45
-msgid ""
-"Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
-"code] configuration."
-msgstr "[code]$cfg['UseDbSearch'][/code] 配置禁用了数据库内部搜索。"
-
+#: libraries/classes/Controllers/Database/RoutinesController.php:81
 #: libraries/classes/Controllers/Database/Structure/AddPrefixController.php:20
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:39
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:39
@@ -5172,13 +5189,94 @@ msgstr "[code]$cfg['UseDbSearch'][/code] 配置禁用了数据库内部搜索。
 #: libraries/classes/Controllers/Database/Structure/ShowCreateController.php:29
 #: libraries/classes/Controllers/Export/TablesController.php:29
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:357
+#: libraries/classes/Controllers/Table/AddFieldController.php:188
+#: libraries/classes/Controllers/Table/AddFieldController.php:193
+#: libraries/classes/Controllers/Table/ChangeController.php:81
+#: libraries/classes/Controllers/Table/ChangeController.php:86
+#: libraries/classes/Controllers/Table/ChartController.php:110
+#: libraries/classes/Controllers/Table/ChartController.php:115
+#: libraries/classes/Controllers/Table/ChartController.php:228
+#: libraries/classes/Controllers/Table/DeleteConfirmController.php:70
+#: libraries/classes/Controllers/Table/DeleteConfirmController.php:75
+#: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:64
+#: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:69
+#: libraries/classes/Controllers/Table/FindReplaceController.php:86
+#: libraries/classes/Controllers/Table/FindReplaceController.php:91
+#: libraries/classes/Controllers/Table/ImportController.php:78
+#: libraries/classes/Controllers/Table/ImportController.php:83
+#: libraries/classes/Controllers/Table/IndexesController.php:73
+#: libraries/classes/Controllers/Table/IndexesController.php:78
+#: libraries/classes/Controllers/Table/IndexRenameController.php:66
+#: libraries/classes/Controllers/Table/IndexRenameController.php:71
 #: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:45
 #: libraries/classes/Controllers/Table/Maintenance/CheckController.php:45
 #: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:45
 #: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:45
 #: libraries/classes/Controllers/Table/Maintenance/RepairController.php:45
+#: libraries/classes/Controllers/Table/OperationsController.php:104
+#: libraries/classes/Controllers/Table/OperationsController.php:109
+#: libraries/classes/Controllers/Table/SearchController.php:184
+#: libraries/classes/Controllers/Table/SearchController.php:189
+#: libraries/classes/Controllers/Table/SqlController.php:74
+#: libraries/classes/Controllers/Table/SqlController.php:79
+#: libraries/classes/Controllers/Table/StructureController.php:128
+#: libraries/classes/Controllers/Table/StructureController.php:133
+#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:83
+#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:88
+#: libraries/classes/Controllers/Table/ZoomSearchController.php:112
+#: libraries/classes/Controllers/Table/ZoomSearchController.php:117
+#: libraries/classes/Controllers/Triggers/IndexController.php:74
+#: libraries/classes/Controllers/View/OperationsController.php:73
+#: libraries/classes/Controllers/View/OperationsController.php:78
 msgid "No table selected."
 msgstr "没有已选择的表。"
+
+#: libraries/classes/Controllers/Database/RoutinesController.php:173
+msgid "Add routine"
+msgstr "添加程序"
+
+#: libraries/classes/Controllers/Database/RoutinesController.php:177
+msgid "Edit routine"
+msgstr "编辑程序"
+
+#: libraries/classes/Controllers/Database/RoutinesController.php:276
+#, php-format
+msgid ""
+"No routine with name %1$s found in database %2$s. You might be lacking the "
+"necessary privileges to edit this routine."
+msgstr "在数据库%2$s中找不到名称为%1$s的例程。您可能缺少编辑此例程的必要权限。"
+
+#: libraries/classes/Controllers/Database/RoutinesController.php:305
+#: libraries/classes/Controllers/Database/RoutinesController.php:373
+#, php-format
+msgid "No routine with name %1$s found in database %2$s."
+msgstr "在数据库 %2$s 中找不到名为 %1$s 的程序。"
+
+#: libraries/classes/Controllers/Database/RoutinesController.php:354
+#: libraries/classes/Controllers/Database/RoutinesController.php:364
+msgid "Execute routine"
+msgstr "运行程序"
+
+#: libraries/classes/Controllers/Database/RoutinesController.php:408
+#, php-format
+msgid "Export of routine %s"
+msgstr "导出程序 %s"
+
+#: libraries/classes/Controllers/Database/RoutinesController.php:427
+#, php-format
+msgid ""
+"Error in processing request: No routine with name %1$s found in database "
+"%2$s. You might be lacking the necessary privileges to view/export this "
+"routine."
+msgstr ""
+"处理请求时出错：在数据库%2$s中找不到名称为%1$s的例程。您可能缺少查看/导出此例"
+"程的必要权限。"
+
+#: libraries/classes/Controllers/Database/SearchController.php:61
+msgid ""
+"Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
+"code] configuration."
+msgstr "[code]$cfg['UseDbSearch'][/code] 配置禁用了数据库内部搜索。"
 
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:49
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:49
@@ -5186,27 +5284,27 @@ msgstr "没有已选择的表。"
 msgid "Success!"
 msgstr "成功！"
 
-#: libraries/classes/Controllers/Database/StructureController.php:337
+#: libraries/classes/Controllers/Database/StructureController.php:351
 #: templates/table/operations/index.twig:451
 #: templates/table/operations/view.twig:32
 #, php-format
 msgid "View %s has been dropped."
 msgstr "已删除视图 %s。"
 
-#: libraries/classes/Controllers/Database/StructureController.php:338
+#: libraries/classes/Controllers/Database/StructureController.php:352
 #: templates/table/operations/index.twig:451
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "已删除表 %s。"
 
-#: libraries/classes/Controllers/Database/StructureController.php:385
+#: libraries/classes/Controllers/Database/StructureController.php:399
 #: templates/table/operations/index.twig:410
 #: templates/table/operations/index.twig:428
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "已清空表 %s。"
 
-#: libraries/classes/Controllers/Database/StructureController.php:552
+#: libraries/classes/Controllers/Database/StructureController.php:566
 #: libraries/classes/Display/Results.php:3685
 #, php-format
 msgid ""
@@ -5214,7 +5312,7 @@ msgid ""
 "%sdocumentation%s."
 msgstr "此视图的行数最少有这么多。请参阅%s档案%s。"
 
-#: libraries/classes/Controllers/Database/StructureController.php:732
+#: libraries/classes/Controllers/Database/StructureController.php:746
 msgid "unknown"
 msgstr "未知"
 
@@ -5223,7 +5321,7 @@ msgstr "未知"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:501
 #: libraries/classes/Controllers/Table/DeleteRowsController.php:54
 #: libraries/classes/Controllers/Table/DropColumnController.php:45
-#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:73
+#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:102
 #: libraries/classes/IndexColumn.php:154 libraries/classes/Index.php:474
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:614
 #: libraries/classes/Plugins/Export/ExportLatex.php:578
@@ -5262,61 +5360,61 @@ msgstr "是"
 #: libraries/classes/Controllers/Database/Structure/DropTableController.php:43
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:47
 #: libraries/classes/Controllers/Table/DropColumnController.php:62
-#: libraries/classes/Controllers/Table/OperationsController.php:327
+#: libraries/classes/Controllers/Table/OperationsController.php:356
 #: libraries/classes/Controllers/Table/ReplaceController.php:303
-#: libraries/classes/Core.php:596 templates/preview_sql.twig:3
+#: libraries/classes/Core.php:548 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "无更改"
 
-#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:108
+#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:119
 msgid "Favorite List is full!"
 msgstr "收藏夹数量已达上限！"
 
-#: libraries/classes/Controllers/Database/TrackingController.php:64
-#: libraries/classes/Controllers/Database/TrackingController.php:89
+#: libraries/classes/Controllers/Database/TrackingController.php:77
+#: libraries/classes/Controllers/Database/TrackingController.php:102
 msgid "Tracking data deleted successfully."
 msgstr "追踪数据删除成功。"
 
-#: libraries/classes/Controllers/Database/TrackingController.php:75
+#: libraries/classes/Controllers/Database/TrackingController.php:88
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr "已为选中的表创建版本 %1$s，对于它们的追踪已启用。"
 
-#: libraries/classes/Controllers/Database/TrackingController.php:106
+#: libraries/classes/Controllers/Database/TrackingController.php:119
 msgid "No tables selected."
 msgstr "没有已选择的表。"
 
-#: libraries/classes/Controllers/Database/TrackingController.php:143
+#: libraries/classes/Controllers/Database/TrackingController.php:156
 msgid "Database Log"
 msgstr "数据库日志"
 
-#: libraries/classes/Controllers/ErrorReportController.php:92
+#: libraries/classes/Controllers/ErrorReportController.php:93
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr "检测到了一个错误，根据您的设置已自动提交了错误报告。"
 
-#: libraries/classes/Controllers/ErrorReportController.php:96
+#: libraries/classes/Controllers/ErrorReportController.php:97
 msgid "Thank you for submitting this report."
 msgstr "感谢您发送此报告。"
 
-#: libraries/classes/Controllers/ErrorReportController.php:100
+#: libraries/classes/Controllers/ErrorReportController.php:101
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr "检测到了一个错误，错误报告已生成但发送失败。"
 
-#: libraries/classes/Controllers/ErrorReportController.php:103
+#: libraries/classes/Controllers/ErrorReportController.php:104
 msgid "If you experience any problems please submit a bug report manually."
 msgstr "如果您遇到问题，请手动提交漏洞报告。"
 
-#: libraries/classes/Controllers/ErrorReportController.php:106
+#: libraries/classes/Controllers/ErrorReportController.php:107
 msgid "You may want to refresh the page."
 msgstr "您需要刷新当前页面。"
 
 #: libraries/classes/Controllers/Export/ExportController.php:111
-#: libraries/classes/Export/Export.php:1242
+#: libraries/classes/Export/Export.php:1244
 msgid "Bad type!"
 msgstr "类型无效！"
 
@@ -5324,26 +5422,26 @@ msgstr "类型无效！"
 msgid "Bad parameters!"
 msgstr "参数无效！"
 
-#: libraries/classes/Controllers/HomeController.php:91
+#: libraries/classes/Controllers/HomeController.php:102
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
 "您已从一台服务器退出登录，要从phpMyAdmin完全退出，您需要从所有服务器退出。"
 
-#: libraries/classes/Controllers/HomeController.php:187
+#: libraries/classes/Controllers/HomeController.php:198
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr "phpMyAdmin 高级功能尚未完全设置，部分功能未激活。%s查找原因%s。 "
 
-#: libraries/classes/Controllers/HomeController.php:193
+#: libraries/classes/Controllers/HomeController.php:204
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr "或者也可以去某个数据库的“操作”选项卡那里进行设置。"
 
-#: libraries/classes/Controllers/HomeController.php:258
+#: libraries/classes/Controllers/HomeController.php:271
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -5355,7 +5453,7 @@ msgstr ""
 "中设置的 Cookies 有效期，因此您的登录会话有效期可能会比您在 phpMyAdmin 中设置"
 "的时间要更短。"
 
-#: libraries/classes/Controllers/HomeController.php:278
+#: libraries/classes/Controllers/HomeController.php:291
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -5363,7 +5461,7 @@ msgstr ""
 "phpMyAdmin 中所设置的登录 cookie 存储小于 cookie 有效期，因此您的登录过期时间"
 "将会比您在 phpMyAdmin 中设置的时间要更短。"
 
-#: libraries/classes/Controllers/HomeController.php:297
+#: libraries/classes/Controllers/HomeController.php:310
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -5372,7 +5470,7 @@ msgstr ""
 "您的服务器使用控制用户（controluser）和密码（controlpass）的默认值运行，可能"
 "会遭到入侵；你确实应该通过改变控制用户“pma”的密码来解决这个安全漏洞。"
 
-#: libraries/classes/Controllers/HomeController.php:319
+#: libraries/classes/Controllers/HomeController.php:332
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
@@ -5381,7 +5479,7 @@ msgstr ""
 "配置文件需要一个有效的密钥才能进行 Cookie 加密。已为您自动生成临时密钥。请参"
 "阅 [doc@cfg_blowfish_secret] 文档 [/doc]。"
 
-#: libraries/classes/Controllers/HomeController.php:329
+#: libraries/classes/Controllers/HomeController.php:342
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -5391,7 +5489,7 @@ msgstr ""
 "配置文件中的 Cookie 加密密钥比所需的时间长。它的长度应仅为 %d 字节。请参阅 "
 "[doc@cfg_blowfish_secret] 文档 [/doc]。"
 
-#: libraries/classes/Controllers/HomeController.php:347
+#: libraries/classes/Controllers/HomeController.php:360
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -5402,14 +5500,14 @@ msgstr ""
 "phpMyAdmin 安装后立即删除该文件夹。否则未经授权的用户都可以下载您的配置文件从"
 "而使服务器陷入危险。"
 
-#: libraries/classes/Controllers/HomeController.php:368
+#: libraries/classes/Controllers/HomeController.php:381
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr "服务器上运行了 Suhosin。请查看%s文档%s了解可能发生的问题。"
 
-#: libraries/classes/Controllers/HomeController.php:382
+#: libraries/classes/Controllers/HomeController.php:395
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -5418,7 +5516,7 @@ msgstr ""
 "变量 $cfg['TempDir'] （%s）无法访问。phpMyAdmin无法缓存模板文件，所以会运行缓"
 "慢。"
 
-#: libraries/classes/Controllers/HomeController.php:438
+#: libraries/classes/Controllers/HomeController.php:451
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -5427,7 +5525,7 @@ msgstr ""
 "没有找到 PHP 扩展 mbstring，而您现在正在使用多字节字符集。没有 mbstring 扩展"
 "的 phpMyAdmin 不能正确分割字符串并可能产生意料之外的结果。"
 
-#: libraries/classes/Controllers/HomeController.php:456
+#: libraries/classes/Controllers/HomeController.php:469
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -6047,7 +6145,7 @@ msgid "Traffic"
 msgstr "流量"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:218
-#: libraries/classes/Menu.php:491 libraries/classes/Util.php:1695
+#: libraries/classes/Menu.php:493 libraries/classes/Util.php:1695
 #: templates/server/status/monitor/index.twig:8
 msgid "Settings"
 msgstr "设置"
@@ -6747,7 +6845,7 @@ msgid "No partial dependencies selected!"
 msgstr "没有已选择的局部依赖！"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:436
-#: libraries/classes/Export/Export.php:1294
+#: libraries/classes/Export/Export.php:1296
 #: libraries/classes/Html/Generator.php:906
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:270
 #: templates/import_status.twig:2 templates/user_password.twig:2
@@ -6877,7 +6975,7 @@ msgstr "数据点内容"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:488
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:636
-#: libraries/classes/ErrorHandler.php:413 libraries/classes/InsertEdit.php:1579
+#: libraries/classes/ErrorHandler.php:408 libraries/classes/InsertEdit.php:1579
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "忽略"
@@ -7265,7 +7363,7 @@ msgid "Please look at the bottom of this window."
 msgstr "请查看此窗口的底部。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:639
-#: libraries/classes/ErrorHandler.php:418
+#: libraries/classes/ErrorHandler.php:413
 msgid "Ignore All"
 msgstr "忽略全部"
 
@@ -7441,7 +7539,7 @@ msgid "Hide"
 msgstr "隐藏"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:712
-#: libraries/classes/Controllers/Table/ChangeController.php:184
+#: libraries/classes/Controllers/Table/ChangeController.php:214
 #: templates/database/multi_table_query/form.twig:38
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
@@ -7929,23 +8027,23 @@ msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
 msgstr[0] "已成功删除 %1$d 个数据库。"
 
-#: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:49
+#: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:50
 #, php-format
 msgid "The account %s@%s has been successfully locked."
 msgstr "账户%s@%s已经成功锁定。"
 
-#: libraries/classes/Controllers/Server/Privileges/AccountUnlockController.php:49
+#: libraries/classes/Controllers/Server/Privileges/AccountUnlockController.php:50
 #, php-format
 msgid "The account %s@%s has been successfully unlocked."
 msgstr "账户%s@%s已经成功解锁。"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:136
+#: libraries/classes/Controllers/Server/PrivilegesController.php:135
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr "用户名和主机名不会更改。如果您只想更改密码，则应使用“更改密码”选项卡。"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:415
+#: libraries/classes/Controllers/Server/PrivilegesController.php:414
 #: libraries/classes/Server/Status/Processes.php:91
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
@@ -8611,7 +8709,7 @@ msgstr "线程缓存命中率 （计算值）"
 msgid "The number of threads that are not sleeping."
 msgstr "非睡眠状态的线程数量。"
 
-#: libraries/classes/Controllers/Server/UserGroupsFormController.php:56
+#: libraries/classes/Controllers/Server/UserGroupsFormController.php:57
 msgid "User groups management is not enabled."
 msgstr "未启用用户组管理。"
 
@@ -8662,7 +8760,7 @@ msgstr "已创建书签 %s。"
 msgid "Bookmark not created!"
 msgstr "未创建书签！"
 
-#: libraries/classes/Controllers/Table/AddFieldController.php:143
+#: libraries/classes/Controllers/Table/AddFieldController.php:145
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:264
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:202
 #: libraries/classes/Table/Indexes.php:91
@@ -8671,21 +8769,21 @@ msgid "Table %1$s has been altered successfully."
 msgstr "已成功修改表 %1$s。"
 
 #: libraries/classes/Controllers/Table/ChangeRowsController.php:34
-#: libraries/classes/Controllers/Table/DeleteConfirmController.php:28
+#: libraries/classes/Controllers/Table/DeleteConfirmController.php:41
 #: libraries/classes/Controllers/Table/ExportRowsController.php:35
 msgid "No row selected."
 msgstr "没有选中任何行。"
 
-#: libraries/classes/Controllers/Table/ChartController.php:56
-#: libraries/classes/Controllers/Table/GisVisualizationController.php:56
+#: libraries/classes/Controllers/Table/ChartController.php:59
+#: libraries/classes/Controllers/Table/GisVisualizationController.php:69
 msgid "No SQL query was set to fetch data."
 msgstr "没有设置SQL 查询来检索数据。"
 
-#: libraries/classes/Controllers/Table/ChartController.php:141
+#: libraries/classes/Controllers/Table/ChartController.php:180
 msgid "No numeric columns present in the table to plot."
 msgstr "在将表格转为图表时没有找到数字类型的列。"
 
-#: libraries/classes/Controllers/Table/ChartController.php:202
+#: libraries/classes/Controllers/Table/ChartController.php:255
 msgid "No data to display"
 msgstr "没有可显示数据"
 
@@ -8705,7 +8803,7 @@ msgid "Table %s already exists!"
 msgstr "数据表 %s 已存在！"
 
 #: libraries/classes/Controllers/Table/DeleteRowsController.php:75
-#: libraries/classes/Controllers/Table/FindReplaceController.php:168
+#: libraries/classes/Controllers/Table/FindReplaceController.php:198
 #: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:74
 #: libraries/classes/Controllers/Table/Maintenance/CheckController.php:74
 #: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:74
@@ -8719,21 +8817,21 @@ msgstr "数据表 %s 已存在！"
 #: libraries/classes/Controllers/Table/Partition/RepairController.php:54
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:55
 #: libraries/classes/Controllers/Table/RelationController.php:282
-#: libraries/classes/Controllers/View/OperationsController.php:83
+#: libraries/classes/Controllers/View/OperationsController.php:112
 #: libraries/classes/Database/Routines.php:974
 #: libraries/classes/Display/Results.php:3397 libraries/classes/Message.php:151
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "您的 SQL 语句已成功运行。"
 
-#: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:32
+#: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:43
 #: libraries/classes/Controllers/Table/DropColumnController.php:39
 #: libraries/classes/Controllers/Table/Structure/AbstractIndexController.php:37
 #: libraries/classes/Controllers/Table/Structure/BrowseController.php:31
 #: libraries/classes/Controllers/Table/Structure/CentralColumnsAddController.php:38
 #: libraries/classes/Controllers/Table/Structure/CentralColumnsRemoveController.php:38
 #: libraries/classes/Controllers/Table/Structure/ChangeController.php:43
-#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:44
+#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:47
 msgid "No column selected."
 msgstr "没有选中任何列。"
 
@@ -8749,7 +8847,7 @@ msgstr "表名无效"
 
 #. l10n: In case a SQL query did not pass a security check
 #: libraries/classes/Controllers/Table/GetFieldController.php:65
-#: libraries/classes/Controllers/Transformation/WrapperController.php:68
+#: libraries/classes/Controllers/Transformation/WrapperController.php:77
 msgid "There is an issue with your request."
 msgstr "您的请求有问题。"
 
@@ -8760,7 +8858,7 @@ msgstr "您的请求有问题。"
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL 返回的查询结果为空 (即零行)。"
 
-#: libraries/classes/Controllers/Table/GisVisualizationController.php:78
+#: libraries/classes/Controllers/Table/GisVisualizationController.php:91
 msgid "No spatial column found for this SQL query."
 msgstr "找不到此 SQL 查询的字段。"
 
@@ -8772,9 +8870,9 @@ msgstr "找不到此 SQL 查询的字段。"
 msgid "Maintenance operations on multiple tables are disabled."
 msgstr "对多个表的维护操作是禁用的。"
 
-#: libraries/classes/Controllers/Table/OperationsController.php:101
-#: libraries/classes/Controllers/Table/OperationsController.php:308
-#: libraries/classes/Controllers/Table/StructureController.php:79
+#: libraries/classes/Controllers/Table/OperationsController.php:130
+#: libraries/classes/Controllers/Table/OperationsController.php:337
+#: libraries/classes/Controllers/Table/StructureController.php:83
 #: libraries/classes/Navigation/Nodes/NodeView.php:29
 #: templates/database/structure/show_create.twig:35
 #: templates/database/structure/structure_table_row.twig:122
@@ -8795,7 +8893,7 @@ msgstr "分区名称必须是一个非空的字符串。"
 #: libraries/classes/Controllers/Table/Partition/DropController.php:61
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:61
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:61
-#: libraries/classes/Controllers/View/OperationsController.php:86
+#: libraries/classes/Controllers/View/OperationsController.php:115
 #: libraries/classes/Html/Generator.php:791
 #: libraries/classes/Import/Import.php:147 libraries/classes/InsertEdit.php:501
 #: libraries/classes/Message.php:169 templates/error/generic.twig:37
@@ -8821,7 +8919,7 @@ msgstr "行：%1$s，列：%2$s，错误：%3$s"
 msgid "Failed to get description of column %s!"
 msgstr "读取表 %s 的时候出现错误！"
 
-#: libraries/classes/Controllers/Table/StructureController.php:206
+#: libraries/classes/Controllers/Table/StructureController.php:236
 #: templates/columns_definitions/column_attributes.twig:112
 #: templates/database/data_dictionary/index.twig:41
 #: templates/table/structure/display_structure.twig:137
@@ -8831,7 +8929,7 @@ msgstr "读取表 %s 的时候出现错误！"
 msgid "Primary"
 msgstr "主键"
 
-#: libraries/classes/Controllers/Table/StructureController.php:210
+#: libraries/classes/Controllers/Table/StructureController.php:240
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:29
 #: templates/columns_definitions/column_attributes.twig:120
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -8865,43 +8963,43 @@ msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "已成功修改表 %1$s。已调整权限。"
 
-#: libraries/classes/Controllers/Table/TrackingController.php:78
+#: libraries/classes/Controllers/Table/TrackingController.php:89
 #, php-format
 msgid "Tracking of %s is activated."
 msgstr "%s 的追踪已启用。"
 
-#: libraries/classes/Controllers/Table/TrackingController.php:135
+#: libraries/classes/Controllers/Table/TrackingController.php:146
 msgid "SQL statements executed."
 msgstr "SQL 语句已执行。"
 
-#: libraries/classes/Controllers/Table/TrackingController.php:189
+#: libraries/classes/Controllers/Table/TrackingController.php:200
 msgid "Tracking versions deleted successfully."
 msgstr "跟踪版本已成功删除。"
 
-#: libraries/classes/Controllers/Table/TrackingController.php:194
+#: libraries/classes/Controllers/Table/TrackingController.php:205
 msgid "No versions selected."
 msgstr "没有选择版本。"
 
-#: libraries/classes/Controllers/Triggers/IndexController.php:156
+#: libraries/classes/Controllers/Triggers/IndexController.php:174
 msgid "Add trigger"
 msgstr "添加触发器"
 
-#: libraries/classes/Controllers/Triggers/IndexController.php:160
+#: libraries/classes/Controllers/Triggers/IndexController.php:178
 msgid "Edit trigger"
 msgstr "编辑触发器"
 
-#: libraries/classes/Controllers/Triggers/IndexController.php:198
+#: libraries/classes/Controllers/Triggers/IndexController.php:216
 #, php-format
 msgid "No trigger with name %1$s found in database %2$s."
 msgstr "在数据库 %2$s 中找不到名为 %1$s 的触发器。"
 
-#: libraries/classes/Controllers/Triggers/IndexController.php:222
+#: libraries/classes/Controllers/Triggers/IndexController.php:240
 #: templates/triggers/export.twig:2
 #, php-format
 msgid "Export of trigger %s"
 msgstr "导出触发器 %s"
 
-#: libraries/classes/Controllers/Triggers/IndexController.php:236
+#: libraries/classes/Controllers/Triggers/IndexController.php:254
 #, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
@@ -8919,11 +9017,11 @@ msgstr "权限不足！"
 msgid "Change password"
 msgstr "修改密码"
 
-#: libraries/classes/Controllers/View/CreateController.php:70
+#: libraries/classes/Controllers/View/CreateController.php:86
 msgid "View name can not be empty!"
 msgstr "视图名不可为空！"
 
-#: libraries/classes/Core.php:118 libraries/classes/ZipExtension.php:57
+#: libraries/classes/Core.php:114 libraries/classes/ZipExtension.php:57
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "缺少 %s 扩展。请检查 PHP 配置。"
@@ -9099,7 +9197,7 @@ msgstr "抱歉，恢复已删除的事件失败。"
 msgid "The backed up query was:"
 msgstr "已备份的查询为:"
 
-#: libraries/classes/DatabaseInterface.php:1095
+#: libraries/classes/DatabaseInterface.php:1096
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -9109,11 +9207,11 @@ msgstr ""
 "无法为服务器 %2$d 设置时区 “%1$s” 。请检查您的配置中 [em]$cfg['Servers']"
 "[%3$d]['SessionTimeZone'][/em] 字段。服务器当前使用默认时区。"
 
-#: libraries/classes/DatabaseInterface.php:1137
+#: libraries/classes/DatabaseInterface.php:1138
 msgid "Failed to set configured collation connection!"
 msgstr "无法设置配置的整理连接！"
 
-#: libraries/classes/DatabaseInterface.php:1603
+#: libraries/classes/DatabaseInterface.php:1604
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "使用配置文件中定义的控制用户连接失败。"
 
@@ -9590,15 +9688,15 @@ msgid ""
 "%sPrimeBase XT Home Page%s."
 msgstr "关于 PBXT 的文档和更多信息请参见 %sPrimeBase XT 主页%s。"
 
-#: libraries/classes/ErrorHandler.php:98
+#: libraries/classes/ErrorHandler.php:90
 msgid "Too many error messages, some are not displayed."
 msgstr "错误信息太多，部分未显示。"
 
-#: libraries/classes/ErrorHandler.php:402
+#: libraries/classes/ErrorHandler.php:397
 msgid "Report"
 msgstr "报告"
 
-#: libraries/classes/ErrorHandler.php:407 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:402 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
 msgstr "下次自动发送错误报告"
 
@@ -9985,12 +10083,12 @@ msgstr "由于超出最大长度，本次查询结果的归整化已禁用。"
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr "%1$s (<code>%2$s</code> 附近)"
 
-#: libraries/classes/Menu.php:300 libraries/classes/Menu.php:407
+#: libraries/classes/Menu.php:302 libraries/classes/Menu.php:409
 #: libraries/classes/Util.php:1715 libraries/classes/Util.php:1729
 msgid "Tracking"
 msgstr "追踪"
 
-#: libraries/classes/Menu.php:307 libraries/classes/Menu.php:400
+#: libraries/classes/Menu.php:309 libraries/classes/Menu.php:402
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:27
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:539
@@ -10004,21 +10102,21 @@ msgstr "追踪"
 msgid "Triggers"
 msgstr "触发器"
 
-#: libraries/classes/Menu.php:348 libraries/classes/Menu.php:356
-#: libraries/classes/Menu.php:364
+#: libraries/classes/Menu.php:350 libraries/classes/Menu.php:358
+#: libraries/classes/Menu.php:366
 msgid "Database seems to be empty!"
 msgstr "数据库是空的！"
 
-#: libraries/classes/Menu.php:351 libraries/classes/Util.php:1707
+#: libraries/classes/Menu.php:353 libraries/classes/Util.php:1707
 msgid "Query"
 msgstr "查询"
 
-#: libraries/classes/Menu.php:387 libraries/classes/Util.php:1712
+#: libraries/classes/Menu.php:389 libraries/classes/Util.php:1712
 #: templates/database/routines/index.twig:3
 msgid "Routines"
 msgstr "程序"
 
-#: libraries/classes/Menu.php:393
+#: libraries/classes/Menu.php:395
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:27
 #: libraries/classes/Plugins/Export/ExportSql.php:942
@@ -10027,25 +10125,25 @@ msgstr "程序"
 msgid "Events"
 msgstr "事件"
 
-#: libraries/classes/Menu.php:414 libraries/classes/Util.php:1716
+#: libraries/classes/Menu.php:416 libraries/classes/Util.php:1716
 msgid "Designer"
 msgstr "设计器"
 
-#: libraries/classes/Menu.php:421 libraries/classes/Util.php:1717
+#: libraries/classes/Menu.php:423 libraries/classes/Util.php:1717
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "文本框列"
 
-#: libraries/classes/Menu.php:475
+#: libraries/classes/Menu.php:477
 msgid "User accounts"
 msgstr "账户"
 
-#: libraries/classes/Menu.php:506 libraries/classes/Server/Status/Data.php:144
+#: libraries/classes/Menu.php:508 libraries/classes/Server/Status/Data.php:144
 #: libraries/classes/Util.php:1696 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "二进制日志"
 
-#: libraries/classes/Menu.php:513 libraries/classes/Server/Status/Data.php:149
+#: libraries/classes/Menu.php:515 libraries/classes/Server/Status/Data.php:149
 #: libraries/classes/Util.php:1697
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
@@ -10053,15 +10151,15 @@ msgstr "二进制日志"
 msgid "Replication"
 msgstr "复制"
 
-#: libraries/classes/Menu.php:524 libraries/classes/Util.php:1699
+#: libraries/classes/Menu.php:526 libraries/classes/Util.php:1699
 msgid "Charsets"
 msgstr "字符集"
 
-#: libraries/classes/Menu.php:529 libraries/classes/Util.php:1701
+#: libraries/classes/Menu.php:531 libraries/classes/Util.php:1701
 msgid "Engines"
 msgstr "引擎"
 
-#: libraries/classes/Menu.php:534 libraries/classes/Util.php:1700
+#: libraries/classes/Menu.php:536 libraries/classes/Util.php:1700
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr "插件"
@@ -10084,28 +10182,28 @@ msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
 msgstr[0] "插入了 %1$d 行。"
 
-#: libraries/classes/Navigation/Navigation.php:203
+#: libraries/classes/Navigation/Navigation.php:205
 msgid "Groups:"
 msgstr "组："
 
-#: libraries/classes/Navigation/Navigation.php:204
+#: libraries/classes/Navigation/Navigation.php:206
 msgid "Events:"
 msgstr "事件："
 
-#: libraries/classes/Navigation/Navigation.php:205
+#: libraries/classes/Navigation/Navigation.php:207
 msgid "Functions:"
 msgstr "函数："
 
-#: libraries/classes/Navigation/Navigation.php:206
+#: libraries/classes/Navigation/Navigation.php:208
 msgid "Procedures:"
 msgstr "存储过程："
 
-#: libraries/classes/Navigation/Navigation.php:207
+#: libraries/classes/Navigation/Navigation.php:209
 #: templates/database/export/index.twig:14
 msgid "Tables:"
 msgstr "数据表："
 
-#: libraries/classes/Navigation/Navigation.php:208
+#: libraries/classes/Navigation/Navigation.php:210
 msgid "Views:"
 msgstr "视图："
 
@@ -10617,13 +10715,13 @@ msgstr "无法连接：无效的设置。"
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:81
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:94
-#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:74
-#: libraries/classes/Plugins/AuthenticationPlugin.php:169
+#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:75
+#: libraries/classes/Plugins/AuthenticationPlugin.php:168
 msgid "Access denied!"
 msgstr "访问被拒绝！"
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:86
-#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:79
+#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:80
 #: templates/login/header.twig:10
 #, php-format
 msgid "Welcome to %s"
@@ -10678,11 +10776,11 @@ msgstr ""
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "您不允许登录到此服务器 ！"
 
-#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:84
+#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:85
 msgid "Wrong username/password. Access denied."
 msgstr "用户名/密码错误。拒绝访问。"
 
-#: libraries/classes/Plugins/Auth/AuthenticationSignon.php:129
+#: libraries/classes/Plugins/Auth/AuthenticationSignon.php:128
 msgid "Can not find signon authentication script:"
 msgstr "找不到 signon 认证脚本:"
 
@@ -10690,12 +10788,12 @@ msgstr "找不到 signon 认证脚本:"
 msgid "Invalid authentication method set in configuration:"
 msgstr "配置文件中设置的认证方式无效："
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:165
+#: libraries/classes/Plugins/AuthenticationPlugin.php:164
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr "空密码登录被禁止 (参见 允许空密码)"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:174
+#: libraries/classes/Plugins/AuthenticationPlugin.php:173
 #, php-format
 msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
@@ -10704,12 +10802,12 @@ msgstr ""
 "由于%s秒的闲置时间，您已自动退出。再次登录后，您应该能够从上次中断的地方继续"
 "工作。"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:187
-#: libraries/classes/Plugins/AuthenticationPlugin.php:190
+#: libraries/classes/Plugins/AuthenticationPlugin.php:186
+#: libraries/classes/Plugins/AuthenticationPlugin.php:189
 msgid "Cannot log in to the MySQL server"
 msgstr "无法登录 MySQL 服务器"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:322
+#: libraries/classes/Plugins/AuthenticationPlugin.php:321
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr "您已启用双因素身份验证，请确认您的登录信息。"
 
@@ -11735,57 +11833,57 @@ msgstr "将文本以 JSON 语法高亮显示。"
 msgid "Formats text as XML with syntax highlighting."
 msgstr "将文本以 XML 语法高亮显示。"
 
-#: libraries/classes/Plugins/TwoFactor/Application.php:127
+#: libraries/classes/Plugins/TwoFactor/Application.php:128
 msgid "Authentication Application (2FA)"
 msgstr "认证应用（双重验证）"
 
-#: libraries/classes/Plugins/TwoFactor/Application.php:136
+#: libraries/classes/Plugins/TwoFactor/Application.php:137
 msgid ""
 "Provides authentication using HOTP and TOTP applications such as FreeOTP, "
 "Google Authenticator or Authy."
 msgstr ""
 "使用HOTP和TOTP应用程序（如FreeOTP，Google身份验证器或Authy）提供身份验证。"
 
-#: libraries/classes/Plugins/TwoFactor/Key.php:201
+#: libraries/classes/Plugins/TwoFactor/Key.php:202
 msgid "Hardware Security Key (FIDO U2F)"
 msgstr "硬件安全密钥（FIDO U2F）"
 
-#: libraries/classes/Plugins/TwoFactor/Key.php:209
+#: libraries/classes/Plugins/TwoFactor/Key.php:210
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a YubiKey."
 msgstr "使用支持FIDO U2F的硬件安全令牌（如YubiKey）提供身份验证。"
 
-#: libraries/classes/Plugins/TwoFactorPlugin.php:55
+#: libraries/classes/Plugins/TwoFactorPlugin.php:56
 #, php-format
 msgid "Two-factor authentication failed: %s"
 msgstr "双因素身份验证失败：%s"
 
-#: libraries/classes/Plugins/TwoFactorPlugin.php:60
+#: libraries/classes/Plugins/TwoFactorPlugin.php:61
 msgid "Two-factor authentication failed."
 msgstr "双因素身份验证失败。"
 
-#: libraries/classes/Plugins/TwoFactorPlugin.php:108
+#: libraries/classes/Plugins/TwoFactorPlugin.php:109
 msgid "No Two-Factor Authentication"
 msgstr "不使用双因素身份验证"
 
-#: libraries/classes/Plugins/TwoFactorPlugin.php:116
+#: libraries/classes/Plugins/TwoFactorPlugin.php:117
 msgid "Login using password only."
 msgstr "仅使用密码登录。"
 
-#: libraries/classes/Plugins/TwoFactor/Simple.php:46
+#: libraries/classes/Plugins/TwoFactor/Simple.php:47
 msgid "Simple two-factor authentication"
 msgstr "简单的双因素身份验证"
 
-#: libraries/classes/Plugins/TwoFactor/Simple.php:54
+#: libraries/classes/Plugins/TwoFactor/Simple.php:55
 msgid "For testing purposes only!"
 msgstr "仅用于测试目的！"
 
-#: libraries/classes/Plugins/TwoFactor/WebAuthn.php:192
+#: libraries/classes/Plugins/TwoFactor/WebAuthn.php:176
 msgid "Hardware Security Key (WebAuthn/FIDO2)"
 msgstr "硬件安全密钥（WebAuthn/FIDO2）"
 
-#: libraries/classes/Plugins/TwoFactor/WebAuthn.php:198
+#: libraries/classes/Plugins/TwoFactor/WebAuthn.php:182
 msgid ""
 "Provides authentication using hardware security tokens supporting the "
 "WebAuthn/FIDO2 protocol, such as a YubiKey."
@@ -11833,7 +11931,7 @@ msgstr "近期访问"
 msgid "Favorites"
 msgstr "表收藏夹"
 
-#: libraries/classes/Replication/ReplicationGui.php:416
+#: libraries/classes/Replication/ReplicationGui.php:415
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
@@ -11841,71 +11939,71 @@ msgstr ""
 "与服务器的连接已被禁用，请在phpMyAdmin配置中启用"
 "$cfg['AllowArbitraryServer']。"
 
-#: libraries/classes/Replication/ReplicationGui.php:427
+#: libraries/classes/Replication/ReplicationGui.php:426
 msgid "Replication started successfully."
 msgstr "复制成功启动。"
 
-#: libraries/classes/Replication/ReplicationGui.php:428
+#: libraries/classes/Replication/ReplicationGui.php:427
 msgid "Error starting replication."
 msgstr "启动复制时出错。"
 
-#: libraries/classes/Replication/ReplicationGui.php:431
+#: libraries/classes/Replication/ReplicationGui.php:430
 msgid "Replication stopped successfully."
 msgstr "复制已成功停止。"
 
-#: libraries/classes/Replication/ReplicationGui.php:432
+#: libraries/classes/Replication/ReplicationGui.php:431
 msgid "Error stopping replication."
 msgstr "停止复制时出错。"
 
-#: libraries/classes/Replication/ReplicationGui.php:435
+#: libraries/classes/Replication/ReplicationGui.php:434
 msgid "Replication resetting successfully."
 msgstr "复制成功重置。"
 
-#: libraries/classes/Replication/ReplicationGui.php:436
+#: libraries/classes/Replication/ReplicationGui.php:435
 msgid "Error resetting replication."
 msgstr "重置复制时出错。"
 
-#: libraries/classes/Replication/ReplicationGui.php:439
+#: libraries/classes/Replication/ReplicationGui.php:438
 msgid "Success."
 msgstr "成功。"
 
-#: libraries/classes/Replication/ReplicationGui.php:440
+#: libraries/classes/Replication/ReplicationGui.php:439
 msgid "Error."
 msgstr "错误。"
 
-#: libraries/classes/Replication/ReplicationGui.php:486
+#: libraries/classes/Replication/ReplicationGui.php:484
 #, php-format
 msgid "Unable to connect to primary %s."
 msgstr "无法连接到主服务器 %s 。"
 
-#: libraries/classes/Replication/ReplicationGui.php:496
+#: libraries/classes/Replication/ReplicationGui.php:494
 msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
 msgstr "无法读取主服务器日志。主服务器的权限设置可能有问题。"
 
-#: libraries/classes/Replication/ReplicationGui.php:514
+#: libraries/classes/Replication/ReplicationGui.php:512
 msgid "Unable to change primary!"
 msgstr "无法修改主服务器！"
 
-#: libraries/classes/Replication/ReplicationGui.php:518
+#: libraries/classes/Replication/ReplicationGui.php:516
 #, php-format
 msgid "Primary server changed successfully to %s."
 msgstr "已成功修改主服务器到 %s。"
 
-#: libraries/classes/Routing/Routing.php:107
+#: libraries/classes/Routing/Routing.php:114
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr "无法写入路由缓存，您需要调整文件夹/文件“%s”的权限"
 
-#: libraries/classes/Routing/Routing.php:141
-#: libraries/classes/Routing/Routing.php:202
+#: libraries/classes/Routing/Routing.php:148
+#: libraries/classes/Routing/Routing.php:210
 #, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "404 错误！未找到页面 %s。"
 
-#: libraries/classes/Routing/Routing.php:149
+#: libraries/classes/Routing/Routing.php:156
 msgid "Error 405! Request method not allowed."
 msgstr "错误 405！请求的方法不被允许。"
 
@@ -12470,7 +12568,7 @@ msgstr "%s 在该 MySQL 服务器上被禁止了。"
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "该 MySQL 服务器不支持 %s 存储引擎。"
 
-#: libraries/classes/Table/Indexes.php:54 libraries/classes/Table.php:1974
+#: libraries/classes/Table/Indexes.php:55 libraries/classes/Table.php:1974
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "主键的名称必须称为 “PRIMARY”！"
 
@@ -13018,11 +13116,11 @@ msgstr "配置文件己更新。"
 msgid "Password is too long!"
 msgstr "密码太长！"
 
-#: libraries/classes/UserPreferences.php:163
+#: libraries/classes/UserPreferences.php:160
 msgid "Could not save configuration"
 msgstr "无法保存设置"
 
-#: libraries/classes/UserPreferences.php:174
+#: libraries/classes/UserPreferences.php:171
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr "无法访问phpMyAdmin配置存储数据库。"
 

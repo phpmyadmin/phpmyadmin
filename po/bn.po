@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-08-06 00:18+0000\n"
+"POT-Creation-Date: 2023-08-13 00:16+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1281,37 +1281,37 @@ msgstr ""
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit ১ মেবা নিধারণ করা হয়েছে"
 
-#: libraries/classes/Application.php:259
+#: libraries/classes/Application.php:270
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "আপনি অবশ্যই %s %s বা পরের কোন সংস্করনে আপগ্রেড করবেন।"
 
-#: libraries/classes/Application.php:291
+#: libraries/classes/Application.php:302
 msgid "Error: Token mismatch"
 msgstr "ভুল: টোকেন মিলে নাই"
 
-#: libraries/classes/Application.php:350
+#: libraries/classes/Application.php:361
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
 
-#: libraries/classes/Application.php:461
+#: libraries/classes/Application.php:472
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Application.php:507
+#: libraries/classes/Application.php:518
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Application.php:516
+#: libraries/classes/Application.php:527
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS পুন লিখনের চেষ্টা"
 
-#: libraries/classes/Application.php:526
+#: libraries/classes/Application.php:537
 msgid "possible exploit"
 msgstr "সাম্ভাব্য বিপদের সুযোগ"
 
@@ -1321,7 +1321,7 @@ msgstr "খুঁজ:"
 
 #: libraries/classes/BrowseForeigners.php:181
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:337
-#: libraries/classes/Controllers/Server/PrivilegesController.php:294
+#: libraries/classes/Controllers/Server/PrivilegesController.php:293
 #: libraries/classes/Normalization.php:226
 #: libraries/classes/Tracking/Tracking.php:305
 #: libraries/classes/Tracking/Tracking.php:447
@@ -1335,8 +1335,8 @@ msgstr "খুঁজ:"
 #: templates/database/routines/editor_form.twig:185
 #: templates/database/routines/execute_form.twig:55
 #: templates/display/results/table.twig:279
-#: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
-#: templates/modals/add_index.twig:10 templates/modals/change_password.twig:10
+#: templates/gis_data_editor_form.twig:211 templates/modals/add_index.twig:10
+#: templates/modals/change_password.twig:10
 #: templates/modals/create_view.twig:10
 #: templates/modals/enum_set_editor.twig:10
 #: templates/modals/index_dialog_modal.twig:10
@@ -1735,8 +1735,8 @@ msgstr "ফাইলের নাম"
 #: libraries/classes/Config/Forms/User/ExportForm.php:98
 #: libraries/classes/Config/Forms/User/ExportForm.php:126
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:713
-#: libraries/classes/Import/Import.php:1250 libraries/classes/Menu.php:234
-#: libraries/classes/Menu.php:334
+#: libraries/classes/Import/Import.php:1250 libraries/classes/Menu.php:236
+#: libraries/classes/Menu.php:336
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:43
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:56
 #: libraries/classes/Navigation/Nodes/NodeTable.php:295
@@ -1755,8 +1755,8 @@ msgstr "গঠন"
 #: libraries/classes/Config/ConfigFile.php:540
 #: libraries/classes/Config/ConfigFile.php:594
 #: libraries/classes/Config/ConfigFile.php:604
-#: libraries/classes/Config/Descriptions.php:759 libraries/classes/Menu.php:239
-#: libraries/classes/Menu.php:339 libraries/classes/Menu.php:457
+#: libraries/classes/Config/Descriptions.php:759 libraries/classes/Menu.php:241
+#: libraries/classes/Menu.php:341 libraries/classes/Menu.php:459
 #: libraries/classes/Navigation/Nodes/NodeTable.php:298
 #: libraries/classes/Util.php:1255 libraries/classes/Util.php:1690
 #: libraries/classes/Util.php:1705 libraries/classes/Util.php:1722
@@ -1766,8 +1766,8 @@ msgstr "এসকিউএল"
 #: libraries/classes/Config/ConfigFile.php:528
 #: libraries/classes/Config/ConfigFile.php:542
 #: libraries/classes/Config/ConfigFile.php:596
-#: libraries/classes/Config/ConfigFile.php:606 libraries/classes/Menu.php:243
-#: libraries/classes/Menu.php:343
+#: libraries/classes/Config/ConfigFile.php:606 libraries/classes/Menu.php:245
+#: libraries/classes/Menu.php:345
 #: libraries/classes/Navigation/Nodes/NodeTable.php:296
 #: libraries/classes/Util.php:1256 libraries/classes/Util.php:1706
 #: libraries/classes/Util.php:1723 templates/database/routines/index.twig:28
@@ -1781,7 +1781,7 @@ msgstr "খোঁজা"
 
 #: libraries/classes/Config/ConfigFile.php:530
 #: libraries/classes/Config/ConfigFile.php:544
-#: libraries/classes/Config/ConfigFile.php:608 libraries/classes/Menu.php:250
+#: libraries/classes/Config/ConfigFile.php:608 libraries/classes/Menu.php:252
 #: libraries/classes/Navigation/Nodes/NodeTable.php:297
 #: libraries/classes/Util.php:1257 libraries/classes/Util.php:1724
 #: templates/database/structure/structure_table_row.twig:59
@@ -1791,7 +1791,7 @@ msgstr "ইনর্সাট"
 
 #: libraries/classes/Config/ConfigFile.php:532
 #: libraries/classes/Config/ConfigFile.php:546
-#: libraries/classes/Config/ConfigFile.php:610 libraries/classes/Menu.php:227
+#: libraries/classes/Config/ConfigFile.php:610 libraries/classes/Menu.php:229
 #: libraries/classes/Navigation/Nodes/NodeTable.php:299
 #: libraries/classes/Util.php:1258 libraries/classes/Util.php:1720
 #: templates/database/search/results.twig:32
@@ -1929,7 +1929,7 @@ msgstr "%s এ স্বাগতম"
 
 #: libraries/classes/Config/ConfigFile.php:582
 #: libraries/classes/Config/Descriptions.php:732
-#: libraries/classes/Config/Descriptions.php:743 libraries/classes/Menu.php:452
+#: libraries/classes/Config/Descriptions.php:743 libraries/classes/Menu.php:454
 #: libraries/classes/Util.php:1689
 #: templates/navigation/tree/database_select.twig:10
 #: templates/server/databases/index.twig:3 templates/server/export/index.twig:7
@@ -1940,7 +1940,7 @@ msgstr "ডাটাবেইজ"
 
 #: libraries/classes/Config/ConfigFile.php:584
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:288
-#: libraries/classes/Menu.php:462
+#: libraries/classes/Menu.php:464
 #: libraries/classes/Server/Status/Processes.php:96
 #: libraries/classes/Util.php:1691
 #: templates/database/events/editor_form.twig:30
@@ -1950,7 +1950,7 @@ msgstr "ডাটাবেইজ"
 msgid "Status"
 msgstr "অবস্থা"
 
-#: libraries/classes/Config/ConfigFile.php:586 libraries/classes/Menu.php:519
+#: libraries/classes/Config/ConfigFile.php:586 libraries/classes/Menu.php:521
 #: libraries/classes/Server/Status/Data.php:211 libraries/classes/Util.php:1698
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:193
@@ -1958,8 +1958,8 @@ msgid "Variables"
 msgstr "চলকসমূহ"
 
 #: libraries/classes/Config/ConfigFile.php:588
-#: libraries/classes/Controllers/Server/PrivilegesController.php:412
-#: libraries/classes/Menu.php:273 libraries/classes/Menu.php:381
+#: libraries/classes/Controllers/Server/PrivilegesController.php:411
+#: libraries/classes/Menu.php:275 libraries/classes/Menu.php:383
 #: libraries/classes/Util.php:1711 libraries/classes/Util.php:1727
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:16
@@ -1968,8 +1968,8 @@ msgstr "চলকসমূহ"
 msgid "Privileges"
 msgstr "অধিকারসমূহ"
 
-#: libraries/classes/Config/ConfigFile.php:598 libraries/classes/Menu.php:284
-#: libraries/classes/Menu.php:294 libraries/classes/Menu.php:374
+#: libraries/classes/Config/ConfigFile.php:598 libraries/classes/Menu.php:286
+#: libraries/classes/Menu.php:296 libraries/classes/Menu.php:376
 #: libraries/classes/Util.php:1259 libraries/classes/Util.php:1710
 #: libraries/classes/Util.php:1728 templates/table/operations/view.twig:8
 msgid "Operations"
@@ -4780,7 +4780,7 @@ msgid "Explain SQL"
 msgstr "SQL এর ব্যাখা"
 
 #: libraries/classes/Config/Descriptions.php:932
-#: libraries/classes/Export/Export.php:1256
+#: libraries/classes/Export/Export.php:1258
 #: libraries/classes/Html/Generator.php:633 templates/console/display.twig:121
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
@@ -5096,8 +5096,8 @@ msgstr "ওপেন অফিস টেক্সট"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:148
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:386
-#: libraries/classes/Menu.php:257 libraries/classes/Menu.php:359
-#: libraries/classes/Menu.php:481 libraries/classes/Server/Privileges.php:1282
+#: libraries/classes/Menu.php:259 libraries/classes/Menu.php:361
+#: libraries/classes/Menu.php:483 libraries/classes/Server/Privileges.php:1282
 #: libraries/classes/Util.php:1693 libraries/classes/Util.php:1708
 #: libraries/classes/Util.php:1725 templates/database/events/index.twig:17
 #: templates/database/events/index.twig:18
@@ -5139,8 +5139,8 @@ msgstr "CSV LOAD DATA ব্যবহার করছে"
 
 #: libraries/classes/Config/Forms/User/ImportForm.php:58
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:323
-#: libraries/classes/Menu.php:266 libraries/classes/Menu.php:369
-#: libraries/classes/Menu.php:486 libraries/classes/Util.php:1694
+#: libraries/classes/Menu.php:268 libraries/classes/Menu.php:371
+#: libraries/classes/Menu.php:488 libraries/classes/Util.php:1694
 #: libraries/classes/Util.php:1709 libraries/classes/Util.php:1726
 #: templates/import.twig:3 templates/import.twig:190
 #: templates/preferences/header.twig:48
@@ -5155,28 +5155,28 @@ msgstr "আমদানি"
 msgid "Default transformations"
 msgstr "ব্রাউজারের রুপান্তর"
 
-#: libraries/classes/Config/PageSettings.php:123
+#: libraries/classes/Config/PageSettings.php:122
 #, fuzzy
 #| msgid "Cannot save settings, submitted form contains errors"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr "সেটিংস সংরক্ষন করা যায়নি, দেওয়া তথ্যে ভূল আছে"
 
-#: libraries/classes/Config.php:609
+#: libraries/classes/Config.php:589
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "বর্তমান কনফিগারেশন ফাইল (%s) টি পড়া যাচ্ছে না।"
 
-#: libraries/classes/Config.php:645
+#: libraries/classes/Config.php:625
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "কনফিগারেশন ফাইলে ভুল অনুমতি দেয়া, ওটা লেখার মত নয়"
 
-#: libraries/classes/Config.php:659
+#: libraries/classes/Config.php:639
 #, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
 msgstr "কনফিগারেশন ফাইল পড়া যায়নি"
 
-#: libraries/classes/Config.php:661
+#: libraries/classes/Config.php:641
 #, fuzzy
 #| msgid ""
 #| "This usually means there is a syntax error in it, please check any errors "
@@ -5477,16 +5477,9 @@ msgstr[1] ""
 msgid "No bookmarks"
 msgstr "সর্ম্পক মুছা"
 
-#: libraries/classes/Controllers/AbstractController.php:66
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:356
-#: libraries/classes/Controllers/Server/Databases/DestroyController.php:59
-#: libraries/classes/DbTableExists.php:46
-msgid "No databases selected."
-msgstr "ডাটাবেইজ নিবার্চন করা হয়নি।"
-
-#: libraries/classes/Controllers/AbstractController.php:121
+#: libraries/classes/Controllers/AbstractController.php:71
 #: libraries/classes/Controllers/SchemaExportController.php:35
-#: libraries/classes/Controllers/Server/UserGroupsFormController.php:44
+#: libraries/classes/Controllers/Server/UserGroupsFormController.php:45
 msgid "Missing parameter:"
 msgstr "parameter নাই:"
 
@@ -5517,88 +5510,158 @@ msgid "Showing rows %1$s - %2$s."
 msgstr "রো দেখাচ্ছে %1$s - %2$s."
 
 #. l10n: The user tries to save a page with an existing name in Designer
-#: libraries/classes/Controllers/Database/DesignerController.php:91
+#: libraries/classes/Controllers/Database/DesignerController.php:95
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
 
-#: libraries/classes/Controllers/Database/EventsController.php:132
+#: libraries/classes/Controllers/Database/DesignerController.php:158
+#: libraries/classes/Controllers/Database/DesignerController.php:163
+#: libraries/classes/Controllers/Database/EventsController.php:55
+#: libraries/classes/Controllers/Database/ExportController.php:61
+#: libraries/classes/Controllers/Database/ExportController.php:66
+#: libraries/classes/Controllers/Database/ImportController.php:61
+#: libraries/classes/Controllers/Database/ImportController.php:66
+#: libraries/classes/Controllers/Database/Operations/CollationController.php:57
+#: libraries/classes/Controllers/Database/OperationsController.php:229
+#: libraries/classes/Controllers/Database/OperationsController.php:234
+#: libraries/classes/Controllers/Database/RoutinesController.php:74
+#: libraries/classes/Controllers/Database/RoutinesController.php:95
+#: libraries/classes/Controllers/Database/SearchController.php:49
+#: libraries/classes/Controllers/Database/SearchController.php:54
+#: libraries/classes/Controllers/Database/SqlController.php:58
+#: libraries/classes/Controllers/Database/SqlController.php:63
+#: libraries/classes/Controllers/Database/StructureController.php:136
+#: libraries/classes/Controllers/Database/StructureController.php:141
+#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:85
+#: libraries/classes/Controllers/Database/Structure/RealRowCountController.php:56
+#: libraries/classes/Controllers/Database/TrackingController.php:58
+#: libraries/classes/Controllers/Database/TrackingController.php:63
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:356
+#: libraries/classes/Controllers/Server/Databases/DestroyController.php:59
+#: libraries/classes/Controllers/Table/AddFieldController.php:174
+#: libraries/classes/Controllers/Table/AddFieldController.php:179
+#: libraries/classes/Controllers/Table/ChangeController.php:67
+#: libraries/classes/Controllers/Table/ChangeController.php:72
+#: libraries/classes/Controllers/Table/ChartController.php:96
+#: libraries/classes/Controllers/Table/ChartController.php:101
+#: libraries/classes/Controllers/Table/ChartController.php:136
+#: libraries/classes/Controllers/Table/ChartController.php:141
+#: libraries/classes/Controllers/Table/ChartController.php:220
+#: libraries/classes/Controllers/Table/DeleteConfirmController.php:56
+#: libraries/classes/Controllers/Table/DeleteConfirmController.php:61
+#: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:51
+#: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:56
+#: libraries/classes/Controllers/Table/FindReplaceController.php:72
+#: libraries/classes/Controllers/Table/FindReplaceController.php:77
+#: libraries/classes/Controllers/Table/GisVisualizationController.php:52
+#: libraries/classes/Controllers/Table/GisVisualizationController.php:57
+#: libraries/classes/Controllers/Table/ImportController.php:64
+#: libraries/classes/Controllers/Table/ImportController.php:69
+#: libraries/classes/Controllers/Table/IndexesController.php:59
+#: libraries/classes/Controllers/Table/IndexesController.php:64
+#: libraries/classes/Controllers/Table/IndexRenameController.php:52
+#: libraries/classes/Controllers/Table/IndexRenameController.php:57
+#: libraries/classes/Controllers/Table/OperationsController.php:90
+#: libraries/classes/Controllers/Table/OperationsController.php:95
+#: libraries/classes/Controllers/Table/SearchController.php:170
+#: libraries/classes/Controllers/Table/SearchController.php:175
+#: libraries/classes/Controllers/Table/SqlController.php:60
+#: libraries/classes/Controllers/Table/SqlController.php:65
+#: libraries/classes/Controllers/Table/StructureController.php:114
+#: libraries/classes/Controllers/Table/StructureController.php:119
+#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:69
+#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:74
+#: libraries/classes/Controllers/Table/TrackingController.php:65
+#: libraries/classes/Controllers/Table/TrackingController.php:70
+#: libraries/classes/Controllers/Table/ZoomSearchController.php:98
+#: libraries/classes/Controllers/Table/ZoomSearchController.php:103
+#: libraries/classes/Controllers/Triggers/IndexController.php:67
+#: libraries/classes/Controllers/Triggers/IndexController.php:88
+#: libraries/classes/Controllers/View/CreateController.php:68
+#: libraries/classes/Controllers/View/CreateController.php:73
+#: libraries/classes/Controllers/View/OperationsController.php:59
+#: libraries/classes/Controllers/View/OperationsController.php:64
+msgid "No databases selected."
+msgstr "ডাটাবেইজ নিবার্চন করা হয়নি।"
+
+#: libraries/classes/Controllers/Database/EventsController.php:138
 msgid "Add event"
 msgstr "ইভেন্ট যোগ কর"
 
-#: libraries/classes/Controllers/Database/EventsController.php:136
+#: libraries/classes/Controllers/Database/EventsController.php:142
 msgid "Edit event"
 msgstr "ইভেন্ট সম্পাদনা"
 
-#: libraries/classes/Controllers/Database/EventsController.php:185
-#: libraries/classes/Controllers/Database/RoutinesController.php:255
-#: libraries/classes/Controllers/Database/RoutinesController.php:285
-#: libraries/classes/Controllers/Database/RoutinesController.php:353
-#: libraries/classes/Controllers/Triggers/IndexController.php:196
+#: libraries/classes/Controllers/Database/EventsController.php:191
+#: libraries/classes/Controllers/Database/RoutinesController.php:273
+#: libraries/classes/Controllers/Database/RoutinesController.php:303
+#: libraries/classes/Controllers/Database/RoutinesController.php:371
+#: libraries/classes/Controllers/Triggers/IndexController.php:214
 msgid "Error in processing request:"
 msgstr "নির্দেশ প্রক্রিয়া করনে সমস্যা হয়েছে:"
 
-#: libraries/classes/Controllers/Database/EventsController.php:187
+#: libraries/classes/Controllers/Database/EventsController.php:193
 #, fuzzy, php-format
 #| msgid "No event with name %1$s found in database %2$s"
 msgid "No event with name %1$s found in database %2$s."
 msgstr "ডাটাবেইজ %2$s এ %1$s নামের কোন ইভেন্ট পাওয়া যায়নি"
 
-#: libraries/classes/Controllers/Database/EventsController.php:213
+#: libraries/classes/Controllers/Database/EventsController.php:219
 #, php-format
 msgid "Export of event %s"
 msgstr "ইভেন্ট %s যোগ কর"
 
-#: libraries/classes/Controllers/Database/EventsController.php:231
+#: libraries/classes/Controllers/Database/EventsController.php:237
 #, fuzzy, php-format
 #| msgid "No event with name %1$s found in database %2$s"
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "ডাটাবেইজ %2$s এ %1$s নামের কোন ইভেন্ট পাওয়া যায়নি"
 
-#: libraries/classes/Controllers/Database/ExportController.php:65
-#: libraries/classes/Controllers/Database/TrackingController.php:116
-#: libraries/classes/Controllers/Export/ExportController.php:308
+#: libraries/classes/Controllers/Database/ExportController.php:78
+#: libraries/classes/Controllers/Database/TrackingController.php:129
+#: libraries/classes/Controllers/Export/ExportController.php:307
 #: templates/database/structure/index.twig:25
 #: templates/navigation/tree/path.twig:9
 msgid "No tables found in database."
 msgstr "ডাটাবেইজে কোন টেবিল নাই।"
 
-#: libraries/classes/Controllers/Database/ExportController.php:131
+#: libraries/classes/Controllers/Database/ExportController.php:144
 #: libraries/classes/Controllers/Server/ExportController.php:71
 #: libraries/classes/Controllers/Table/ExportController.php:102
 msgid "Could not load export plugins, please check your installation!"
 msgstr "রফতানী সহায়কটি লোড করা যাচ্ছে না, ইনস্টলেশন পরীক্ষা করুন!"
 
-#: libraries/classes/Controllers/Database/ImportController.php:64
+#: libraries/classes/Controllers/Database/ImportController.php:77
 #: libraries/classes/Controllers/Import/ImportController.php:558
 #: libraries/classes/Controllers/Server/ImportController.php:60
-#: libraries/classes/Controllers/Table/ImportController.php:68
+#: libraries/classes/Controllers/Table/ImportController.php:97
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "আমদানি সহায়ক (plugin) পাওয়া যাচ্ছে না, অনুগ্রহ করে আপনার ইন্সষ্টলেশন পরীক্ষা করুন!"
 
-#: libraries/classes/Controllers/Database/Operations/CollationController.php:41
-#: libraries/classes/Controllers/Table/OperationsController.php:256
+#: libraries/classes/Controllers/Database/Operations/CollationController.php:44
+#: libraries/classes/Controllers/Table/OperationsController.php:285
 msgid "No collation provided."
 msgstr ""
 
-#: libraries/classes/Controllers/Database/OperationsController.php:81
+#: libraries/classes/Controllers/Database/OperationsController.php:83
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 
-#: libraries/classes/Controllers/Database/OperationsController.php:160
+#: libraries/classes/Controllers/Database/OperationsController.php:162
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "ডেটাবেস %1$s এর নতুন নামকরণ হয়েছে %2$s."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:170
+#: libraries/classes/Controllers/Database/OperationsController.php:172
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "ডেটাবেস %1$s টি ডেটাবেস %2$s এ অনুলিপি হয়েছে."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:260
+#: libraries/classes/Controllers/Database/OperationsController.php:272
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -5606,66 +5669,21 @@ msgstr ""
 "phpMyAdmin কনফিগারেশন সংরক্ষন ব্যবস্থা কার্যকর নয়। %s কেন জানার জন্য ক্লীক করুন %s।"
 
 #: libraries/classes/Controllers/Database/PrivilegesController.php:66
-#: libraries/classes/Controllers/Server/PrivilegesController.php:111
+#: libraries/classes/Controllers/Server/PrivilegesController.php:110
 #: libraries/classes/Controllers/Server/UserGroupsController.php:47
 #: libraries/classes/Controllers/Table/PrivilegesController.php:69
 msgid "No Privileges"
 msgstr "কোন অধিকার নাই"
 
 #: libraries/classes/Controllers/Database/PrivilegesController.php:75
-#: libraries/classes/Controllers/Server/PrivilegesController.php:120
+#: libraries/classes/Controllers/Server/PrivilegesController.php:119
 #: libraries/classes/Controllers/Table/PrivilegesController.php:78
 #, fuzzy
 #| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have the privileges to administrate the users!"
 msgstr "একটি ট্রিগার তৈরীর জন্য প্রয়োজনীয় অধিকার নাই"
 
-#: libraries/classes/Controllers/Database/RoutinesController.php:155
-msgid "Add routine"
-msgstr "রুটিন যোগকর"
-
-#: libraries/classes/Controllers/Database/RoutinesController.php:159
-msgid "Edit routine"
-msgstr "রুটিন সম্পাদনা"
-
-#: libraries/classes/Controllers/Database/RoutinesController.php:258
-#, php-format
-msgid ""
-"No routine with name %1$s found in database %2$s. You might be lacking the "
-"necessary privileges to edit this routine."
-msgstr ""
-
-#: libraries/classes/Controllers/Database/RoutinesController.php:287
-#: libraries/classes/Controllers/Database/RoutinesController.php:355
-#, fuzzy, php-format
-#| msgid "No routine with name %1$s found in database %2$s"
-msgid "No routine with name %1$s found in database %2$s."
-msgstr "ডাটাবেইজ %2$s তে %1$s নামের কোন রুটিন পাওয়া যায়নি"
-
-#: libraries/classes/Controllers/Database/RoutinesController.php:336
-#: libraries/classes/Controllers/Database/RoutinesController.php:346
-msgid "Execute routine"
-msgstr "রুটিন নির্বাহ কর"
-
-#: libraries/classes/Controllers/Database/RoutinesController.php:390
-#, php-format
-msgid "Export of routine %s"
-msgstr "রুটিন %s এর রফতানী"
-
-#: libraries/classes/Controllers/Database/RoutinesController.php:409
-#, php-format
-msgid ""
-"Error in processing request: No routine with name %1$s found in database "
-"%2$s. You might be lacking the necessary privileges to view/export this "
-"routine."
-msgstr ""
-
-#: libraries/classes/Controllers/Database/SearchController.php:45
-msgid ""
-"Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
-"code] configuration."
-msgstr ""
-
+#: libraries/classes/Controllers/Database/RoutinesController.php:81
 #: libraries/classes/Controllers/Database/Structure/AddPrefixController.php:20
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:39
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:39
@@ -5677,15 +5695,95 @@ msgstr ""
 #: libraries/classes/Controllers/Database/Structure/ShowCreateController.php:29
 #: libraries/classes/Controllers/Export/TablesController.php:29
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:357
+#: libraries/classes/Controllers/Table/AddFieldController.php:188
+#: libraries/classes/Controllers/Table/AddFieldController.php:193
+#: libraries/classes/Controllers/Table/ChangeController.php:81
+#: libraries/classes/Controllers/Table/ChangeController.php:86
+#: libraries/classes/Controllers/Table/ChartController.php:110
+#: libraries/classes/Controllers/Table/ChartController.php:115
+#: libraries/classes/Controllers/Table/ChartController.php:228
+#: libraries/classes/Controllers/Table/DeleteConfirmController.php:70
+#: libraries/classes/Controllers/Table/DeleteConfirmController.php:75
+#: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:64
+#: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:69
+#: libraries/classes/Controllers/Table/FindReplaceController.php:86
+#: libraries/classes/Controllers/Table/FindReplaceController.php:91
+#: libraries/classes/Controllers/Table/ImportController.php:78
+#: libraries/classes/Controllers/Table/ImportController.php:83
+#: libraries/classes/Controllers/Table/IndexesController.php:73
+#: libraries/classes/Controllers/Table/IndexesController.php:78
+#: libraries/classes/Controllers/Table/IndexRenameController.php:66
+#: libraries/classes/Controllers/Table/IndexRenameController.php:71
 #: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:45
 #: libraries/classes/Controllers/Table/Maintenance/CheckController.php:45
 #: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:45
 #: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:45
 #: libraries/classes/Controllers/Table/Maintenance/RepairController.php:45
+#: libraries/classes/Controllers/Table/OperationsController.php:104
+#: libraries/classes/Controllers/Table/OperationsController.php:109
+#: libraries/classes/Controllers/Table/SearchController.php:184
+#: libraries/classes/Controllers/Table/SearchController.php:189
+#: libraries/classes/Controllers/Table/SqlController.php:74
+#: libraries/classes/Controllers/Table/SqlController.php:79
+#: libraries/classes/Controllers/Table/StructureController.php:128
+#: libraries/classes/Controllers/Table/StructureController.php:133
+#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:83
+#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:88
+#: libraries/classes/Controllers/Table/ZoomSearchController.php:112
+#: libraries/classes/Controllers/Table/ZoomSearchController.php:117
+#: libraries/classes/Controllers/Triggers/IndexController.php:74
+#: libraries/classes/Controllers/View/OperationsController.php:73
+#: libraries/classes/Controllers/View/OperationsController.php:78
 #, fuzzy
 #| msgid "No tables selected."
 msgid "No table selected."
 msgstr "কোনো তালিকা নিবার্চন করা হয়নি।"
+
+#: libraries/classes/Controllers/Database/RoutinesController.php:173
+msgid "Add routine"
+msgstr "রুটিন যোগকর"
+
+#: libraries/classes/Controllers/Database/RoutinesController.php:177
+msgid "Edit routine"
+msgstr "রুটিন সম্পাদনা"
+
+#: libraries/classes/Controllers/Database/RoutinesController.php:276
+#, php-format
+msgid ""
+"No routine with name %1$s found in database %2$s. You might be lacking the "
+"necessary privileges to edit this routine."
+msgstr ""
+
+#: libraries/classes/Controllers/Database/RoutinesController.php:305
+#: libraries/classes/Controllers/Database/RoutinesController.php:373
+#, fuzzy, php-format
+#| msgid "No routine with name %1$s found in database %2$s"
+msgid "No routine with name %1$s found in database %2$s."
+msgstr "ডাটাবেইজ %2$s তে %1$s নামের কোন রুটিন পাওয়া যায়নি"
+
+#: libraries/classes/Controllers/Database/RoutinesController.php:354
+#: libraries/classes/Controllers/Database/RoutinesController.php:364
+msgid "Execute routine"
+msgstr "রুটিন নির্বাহ কর"
+
+#: libraries/classes/Controllers/Database/RoutinesController.php:408
+#, php-format
+msgid "Export of routine %s"
+msgstr "রুটিন %s এর রফতানী"
+
+#: libraries/classes/Controllers/Database/RoutinesController.php:427
+#, php-format
+msgid ""
+"Error in processing request: No routine with name %1$s found in database "
+"%2$s. You might be lacking the necessary privileges to view/export this "
+"routine."
+msgstr ""
+
+#: libraries/classes/Controllers/Database/SearchController.php:61
+msgid ""
+"Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
+"code] configuration."
+msgstr ""
 
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:49
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:49
@@ -5695,27 +5793,27 @@ msgstr "কোনো তালিকা নিবার্চন করা হ�
 msgid "Success!"
 msgstr "সফল।"
 
-#: libraries/classes/Controllers/Database/StructureController.php:337
+#: libraries/classes/Controllers/Database/StructureController.php:351
 #: templates/table/operations/index.twig:451
 #: templates/table/operations/view.twig:32
 #, php-format
 msgid "View %s has been dropped."
 msgstr "ভিউ %s মুছা হয়েছে।"
 
-#: libraries/classes/Controllers/Database/StructureController.php:338
+#: libraries/classes/Controllers/Database/StructureController.php:352
 #: templates/table/operations/index.twig:451
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "টেবল %s মুছা হয়েছে।"
 
-#: libraries/classes/Controllers/Database/StructureController.php:385
+#: libraries/classes/Controllers/Database/StructureController.php:399
 #: templates/table/operations/index.twig:410
 #: templates/table/operations/index.twig:428
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "টেবিল %s খালি করা হয়েছে।"
 
-#: libraries/classes/Controllers/Database/StructureController.php:552
+#: libraries/classes/Controllers/Database/StructureController.php:566
 #: libraries/classes/Display/Results.php:3685
 #, php-format
 msgid ""
@@ -5724,7 +5822,7 @@ msgid ""
 msgstr ""
 "এই ভিউটির অন্তত পক্ষে এক সারি তথ্য রয়েছে। অনুগ্রহ করে %sdocumentation%s দেখুন।"
 
-#: libraries/classes/Controllers/Database/StructureController.php:732
+#: libraries/classes/Controllers/Database/StructureController.php:746
 msgid "unknown"
 msgstr "অজানা"
 
@@ -5733,7 +5831,7 @@ msgstr "অজানা"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:501
 #: libraries/classes/Controllers/Table/DeleteRowsController.php:54
 #: libraries/classes/Controllers/Table/DropColumnController.php:45
-#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:73
+#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:102
 #: libraries/classes/IndexColumn.php:154 libraries/classes/Index.php:474
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:614
 #: libraries/classes/Plugins/Export/ExportLatex.php:578
@@ -5772,22 +5870,22 @@ msgstr "হ্যাঁ"
 #: libraries/classes/Controllers/Database/Structure/DropTableController.php:43
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:47
 #: libraries/classes/Controllers/Table/DropColumnController.php:62
-#: libraries/classes/Controllers/Table/OperationsController.php:327
+#: libraries/classes/Controllers/Table/OperationsController.php:356
 #: libraries/classes/Controllers/Table/ReplaceController.php:303
-#: libraries/classes/Core.php:596 templates/preview_sql.twig:3
+#: libraries/classes/Core.php:548 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "পরিবর্তন নয়"
 
-#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:108
+#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:119
 msgid "Favorite List is full!"
 msgstr ""
 
-#: libraries/classes/Controllers/Database/TrackingController.php:64
-#: libraries/classes/Controllers/Database/TrackingController.php:89
+#: libraries/classes/Controllers/Database/TrackingController.php:77
+#: libraries/classes/Controllers/Database/TrackingController.php:102
 msgid "Tracking data deleted successfully."
 msgstr "অনুসরণ তথ্যের বিবরণী সফলভাবে মুছা হয়েছে।"
 
-#: libraries/classes/Controllers/Database/TrackingController.php:75
+#: libraries/classes/Controllers/Database/TrackingController.php:88
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
@@ -5795,15 +5893,15 @@ msgstr ""
 "উক্ত তালিকাগুলির জন্য %1$s সংস্করন তৈরী করা হয়েছে, তালিকাগুলির জন্য অনুসরণ কার্য "
 "চলছে।"
 
-#: libraries/classes/Controllers/Database/TrackingController.php:106
+#: libraries/classes/Controllers/Database/TrackingController.php:119
 msgid "No tables selected."
 msgstr "কোনো তালিকা নিবার্চন করা হয়নি।"
 
-#: libraries/classes/Controllers/Database/TrackingController.php:143
+#: libraries/classes/Controllers/Database/TrackingController.php:156
 msgid "Database Log"
 msgstr "ডেটাবেস লগ"
 
-#: libraries/classes/Controllers/ErrorReportController.php:92
+#: libraries/classes/Controllers/ErrorReportController.php:93
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -5811,28 +5909,28 @@ msgstr ""
 "একটি ভুল পাওয়াগেছে এবং আপনার সেটিংসের উপর ভিত্তি করে একটি প্রতিবেদন স্বয়ংক্রিয় "
 "ভাবে দাখিল করা হয়েছে।"
 
-#: libraries/classes/Controllers/ErrorReportController.php:96
+#: libraries/classes/Controllers/ErrorReportController.php:97
 msgid "Thank you for submitting this report."
 msgstr "এই প্রতিবেদনটি দাখিলের জন্য ধন্যবাদ।"
 
-#: libraries/classes/Controllers/ErrorReportController.php:100
+#: libraries/classes/Controllers/ErrorReportController.php:101
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
 "একটি ত্রুটি পাওয়া গেছে এবং একটি প্রতিবেদনও তৈরী করা হয়েছে কিন্তু পাঠানো যায়নি।"
 
-#: libraries/classes/Controllers/ErrorReportController.php:103
+#: libraries/classes/Controllers/ErrorReportController.php:104
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
 "আপনি যদি কোন সমস্যা অনুভব করেন অনুগ্রহ করে সমস্যা সর্ম্পকিত একটি প্রতিবেদন দাখিল করুন।"
 
-#: libraries/classes/Controllers/ErrorReportController.php:106
+#: libraries/classes/Controllers/ErrorReportController.php:107
 msgid "You may want to refresh the page."
 msgstr "আপনি পাতাটি রিফ্রেশ করে নিতে পারেন."
 
 #: libraries/classes/Controllers/Export/ExportController.php:111
-#: libraries/classes/Export/Export.php:1242
+#: libraries/classes/Export/Export.php:1244
 msgid "Bad type!"
 msgstr "ধরন মিলে নাই!"
 
@@ -5840,7 +5938,7 @@ msgstr "ধরন মিলে নাই!"
 msgid "Bad parameters!"
 msgstr "প্যারামিটারগুলো খারপ!"
 
-#: libraries/classes/Controllers/HomeController.php:91
+#: libraries/classes/Controllers/HomeController.php:102
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
@@ -5848,7 +5946,7 @@ msgstr ""
 "আপনি একটি সার্ভার থেকে লগ আউট হয়, তারপর আপনি Phpmyadmin থেকে জটিলতা খুঁজে পেতে "
 "পারেন, আপনি সব সার্ভার থেকে জানতে হবে।"
 
-#: libraries/classes/Controllers/HomeController.php:187
+#: libraries/classes/Controllers/HomeController.php:198
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -5857,12 +5955,12 @@ msgstr ""
 "কনফিগারেশন মজুদ ব্যবস্থা (phpMyAdmin)সর্ম্পূণভাবে সম্পন্ন হয়নি, কিছু উন্নত বিষয় "
 "অকার্যকর রয়েছে। কেন জানতে ক্লীক করুন %shere%s। "
 
-#: libraries/classes/Controllers/HomeController.php:193
+#: libraries/classes/Controllers/HomeController.php:204
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:258
+#: libraries/classes/Controllers/HomeController.php:271
 #, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
@@ -5880,7 +5978,7 @@ msgstr ""
 "phpMyAdmin এর কুকির থেকে কম স্থায়ী, এ জন্য আপনার লগইনের কার্যকাল দ্রুত শেষ হয়ে "
 "যাবে।"
 
-#: libraries/classes/Controllers/HomeController.php:278
+#: libraries/classes/Controllers/HomeController.php:291
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -5888,21 +5986,21 @@ msgstr ""
 "লগইন কুকি phpMyAdmin কুকির চাইতে কম সময় কার্যকর থাকবে এই জন্য আপনার লগইন সময় "
 "তাড়াতাড়ি শেষ হয়ে যাবে।"
 
-#: libraries/classes/Controllers/HomeController.php:297
+#: libraries/classes/Controllers/HomeController.php:310
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:319
+#: libraries/classes/Controllers/HomeController.php:332
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:329
+#: libraries/classes/Controllers/HomeController.php:342
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -5910,7 +6008,7 @@ msgid ""
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:347
+#: libraries/classes/Controllers/HomeController.php:360
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -5920,21 +6018,21 @@ msgstr ""
 "সেটআপে ব্যবহৃত ডিরেক্টরী [code]config[/code] এখনো রয়েছে। এটা অবশ্যই মুছে ফেলা "
 "প্রয়োজন।"
 
-#: libraries/classes/Controllers/HomeController.php:368
+#: libraries/classes/Controllers/HomeController.php:381
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr "সার্ভারটি Suhosin সহ কাজ করছে। প্রয়োজনে সহায়িকা %sdocumentation%s দেখুন।"
 
-#: libraries/classes/Controllers/HomeController.php:382
+#: libraries/classes/Controllers/HomeController.php:395
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:438
+#: libraries/classes/Controllers/HomeController.php:451
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -5944,7 +6042,7 @@ msgstr ""
 "করছেন। mbstring সংযোজক ছাড়া phpMyAdmin শব্দকে সঠিকভাবে খন্ড করতে পারবে না যা "
 "অপ্রত্যাশিত ফল দিতে পারে।"
 
-#: libraries/classes/Controllers/HomeController.php:456
+#: libraries/classes/Controllers/HomeController.php:469
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -6643,7 +6741,7 @@ msgid "Traffic"
 msgstr "গমনাগমন"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:218
-#: libraries/classes/Menu.php:491 libraries/classes/Util.php:1695
+#: libraries/classes/Menu.php:493 libraries/classes/Util.php:1695
 #: templates/server/status/monitor/index.twig:8
 msgid "Settings"
 msgstr "সেটিংস"
@@ -7407,7 +7505,7 @@ msgid "No partial dependencies selected!"
 msgstr "ডাটাবেইজ নিবার্চন করা হয়নি।"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:436
-#: libraries/classes/Export/Export.php:1294
+#: libraries/classes/Export/Export.php:1296
 #: libraries/classes/Html/Generator.php:906
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:270
 #: templates/import_status.twig:2 templates/user_password.twig:2
@@ -7546,7 +7644,7 @@ msgstr "প্রতিটি পয়েন্টের বিষয়"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:488
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:636
-#: libraries/classes/ErrorHandler.php:413 libraries/classes/InsertEdit.php:1579
+#: libraries/classes/ErrorHandler.php:408 libraries/classes/InsertEdit.php:1579
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "উপেক্ষা"
@@ -7995,7 +8093,7 @@ msgid "Please look at the bottom of this window."
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:639
-#: libraries/classes/ErrorHandler.php:418
+#: libraries/classes/ErrorHandler.php:413
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
@@ -8187,7 +8285,7 @@ msgid "Hide"
 msgstr "লুকাও"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:712
-#: libraries/classes/Controllers/Table/ChangeController.php:184
+#: libraries/classes/Controllers/Table/ChangeController.php:214
 #: templates/database/multi_table_query/form.twig:38
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
@@ -8824,25 +8922,25 @@ msgid_plural "%1$d databases have been dropped successfully."
 msgstr[0] "%1$d টি ডাটাবেইজ সফলভাবে মুছা হয়েছে।"
 msgstr[1] "%1$d টি ডাটাবেইজ সফলভাবে মুছা হয়েছে।"
 
-#: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:49
+#: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:50
 #, fuzzy, php-format
 #| msgid "The columns have been moved successfully."
 msgid "The account %s@%s has been successfully locked."
 msgstr "স্তম্ভগুলো সফলভাবে সরানো হয়েছে।"
 
-#: libraries/classes/Controllers/Server/Privileges/AccountUnlockController.php:49
+#: libraries/classes/Controllers/Server/Privileges/AccountUnlockController.php:50
 #, fuzzy, php-format
 #| msgid "The columns have been moved successfully."
 msgid "The account %s@%s has been successfully unlocked."
 msgstr "স্তম্ভগুলো সফলভাবে সরানো হয়েছে।"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:136
+#: libraries/classes/Controllers/Server/PrivilegesController.php:135
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr ""
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:415
+#: libraries/classes/Controllers/Server/PrivilegesController.php:414
 #: libraries/classes/Server/Status/Processes.php:91
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
@@ -9550,7 +9648,7 @@ msgstr "থ্রেড ক্যাম হিটের হার"
 msgid "The number of threads that are not sleeping."
 msgstr "থ্রেডের সংখ্যা যা ঘুমন্ত নয়।"
 
-#: libraries/classes/Controllers/Server/UserGroupsFormController.php:56
+#: libraries/classes/Controllers/Server/UserGroupsFormController.php:57
 #, fuzzy
 #| msgid "The query cache is not enabled."
 msgid "User groups management is not enabled."
@@ -9607,7 +9705,7 @@ msgstr "বুকমার্ক %s তৈরী করা হয়েছে।"
 msgid "Bookmark not created!"
 msgstr "বুকমার্ক তৈরি করা হয়নি!"
 
-#: libraries/classes/Controllers/Table/AddFieldController.php:143
+#: libraries/classes/Controllers/Table/AddFieldController.php:145
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:264
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:202
 #: libraries/classes/Table/Indexes.php:91
@@ -9616,23 +9714,23 @@ msgid "Table %1$s has been altered successfully."
 msgstr "%1$s টেবিলটি সফলভাবে পরিবর্তন করা হয়েছে।"
 
 #: libraries/classes/Controllers/Table/ChangeRowsController.php:34
-#: libraries/classes/Controllers/Table/DeleteConfirmController.php:28
+#: libraries/classes/Controllers/Table/DeleteConfirmController.php:41
 #: libraries/classes/Controllers/Table/ExportRowsController.php:35
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No row selected."
 msgstr "কোন রো নির্বাচন করা হয় নাই"
 
-#: libraries/classes/Controllers/Table/ChartController.php:56
-#: libraries/classes/Controllers/Table/GisVisualizationController.php:56
+#: libraries/classes/Controllers/Table/ChartController.php:59
+#: libraries/classes/Controllers/Table/GisVisualizationController.php:69
 msgid "No SQL query was set to fetch data."
 msgstr "তথ্য আনার জন্য কোন SQL অনুসন্ধান নির্ধারন করা হয় নাই।"
 
-#: libraries/classes/Controllers/Table/ChartController.php:141
+#: libraries/classes/Controllers/Table/ChartController.php:180
 msgid "No numeric columns present in the table to plot."
 msgstr "প্লটের জন্য টেবলে কোন গাণিতক স্তম্ভ পাওয়া যায়নি।"
 
-#: libraries/classes/Controllers/Table/ChartController.php:202
+#: libraries/classes/Controllers/Table/ChartController.php:255
 msgid "No data to display"
 msgstr "প্রর্দশনের কোন তথ্য নাই"
 
@@ -9652,7 +9750,7 @@ msgid "Table %s already exists!"
 msgstr "টেবিল %s পুর্ব থেকেই আছে!"
 
 #: libraries/classes/Controllers/Table/DeleteRowsController.php:75
-#: libraries/classes/Controllers/Table/FindReplaceController.php:168
+#: libraries/classes/Controllers/Table/FindReplaceController.php:198
 #: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:74
 #: libraries/classes/Controllers/Table/Maintenance/CheckController.php:74
 #: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:74
@@ -9666,21 +9764,21 @@ msgstr "টেবিল %s পুর্ব থেকেই আছে!"
 #: libraries/classes/Controllers/Table/Partition/RepairController.php:54
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:55
 #: libraries/classes/Controllers/Table/RelationController.php:282
-#: libraries/classes/Controllers/View/OperationsController.php:83
+#: libraries/classes/Controllers/View/OperationsController.php:112
 #: libraries/classes/Database/Routines.php:974
 #: libraries/classes/Display/Results.php:3397 libraries/classes/Message.php:151
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "আপনার SQL অনুসন্ধানটি সফলভাবে কাজ করেছে."
 
-#: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:32
+#: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:43
 #: libraries/classes/Controllers/Table/DropColumnController.php:39
 #: libraries/classes/Controllers/Table/Structure/AbstractIndexController.php:37
 #: libraries/classes/Controllers/Table/Structure/BrowseController.php:31
 #: libraries/classes/Controllers/Table/Structure/CentralColumnsAddController.php:38
 #: libraries/classes/Controllers/Table/Structure/CentralColumnsRemoveController.php:38
 #: libraries/classes/Controllers/Table/Structure/ChangeController.php:43
-#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:44
+#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:47
 msgid "No column selected."
 msgstr "কোন স্তম্ভ নির্বাচন করা হয় নাই।"
 
@@ -9699,7 +9797,7 @@ msgstr "টেবিলের নামটি অকার্যকর"
 
 #. l10n: In case a SQL query did not pass a security check
 #: libraries/classes/Controllers/Table/GetFieldController.php:65
-#: libraries/classes/Controllers/Transformation/WrapperController.php:68
+#: libraries/classes/Controllers/Transformation/WrapperController.php:77
 #, fuzzy
 #| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
@@ -9712,7 +9810,7 @@ msgstr "ইনডেক্স বিহীন জোড়ার পরিমান
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "মাইএসকিউএল কিছু পায়নি। (শুন্য তথ্য)।"
 
-#: libraries/classes/Controllers/Table/GisVisualizationController.php:78
+#: libraries/classes/Controllers/Table/GisVisualizationController.php:91
 #, fuzzy
 #| msgid "Has no effect in this MySQL version."
 msgid "No spatial column found for this SQL query."
@@ -9726,9 +9824,9 @@ msgstr "মাইএসকিউএলের এই ভার্সনে কো
 msgid "Maintenance operations on multiple tables are disabled."
 msgstr ""
 
-#: libraries/classes/Controllers/Table/OperationsController.php:101
-#: libraries/classes/Controllers/Table/OperationsController.php:308
-#: libraries/classes/Controllers/Table/StructureController.php:79
+#: libraries/classes/Controllers/Table/OperationsController.php:130
+#: libraries/classes/Controllers/Table/OperationsController.php:337
+#: libraries/classes/Controllers/Table/StructureController.php:83
 #: libraries/classes/Navigation/Nodes/NodeView.php:29
 #: templates/database/structure/show_create.twig:35
 #: templates/database/structure/structure_table_row.twig:122
@@ -9751,7 +9849,7 @@ msgstr "টেবিলের নামটি খালি!"
 #: libraries/classes/Controllers/Table/Partition/DropController.php:61
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:61
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:61
-#: libraries/classes/Controllers/View/OperationsController.php:86
+#: libraries/classes/Controllers/View/OperationsController.php:115
 #: libraries/classes/Html/Generator.php:791
 #: libraries/classes/Import/Import.php:147 libraries/classes/InsertEdit.php:501
 #: libraries/classes/Message.php:169 templates/error/generic.twig:37
@@ -9782,7 +9880,7 @@ msgstr ""
 msgid "Failed to get description of column %s!"
 msgstr "হেডার নিয়ে আসতে ব্যর্থ হয়েছে"
 
-#: libraries/classes/Controllers/Table/StructureController.php:206
+#: libraries/classes/Controllers/Table/StructureController.php:236
 #: templates/columns_definitions/column_attributes.twig:112
 #: templates/database/data_dictionary/index.twig:41
 #: templates/table/structure/display_structure.twig:137
@@ -9792,7 +9890,7 @@ msgstr "হেডার নিয়ে আসতে ব্যর্থ হয়ে�
 msgid "Primary"
 msgstr "প্রাথমিক"
 
-#: libraries/classes/Controllers/Table/StructureController.php:210
+#: libraries/classes/Controllers/Table/StructureController.php:240
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:29
 #: templates/columns_definitions/column_attributes.twig:120
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -9829,48 +9927,48 @@ msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "%1$s টেবিলটি সফলভাবে পরিবর্তন করা হয়েছে।"
 
-#: libraries/classes/Controllers/Table/TrackingController.php:78
+#: libraries/classes/Controllers/Table/TrackingController.php:89
 #, php-format
 msgid "Tracking of %s is activated."
 msgstr "%s ট্রেকিং কার্যকর করা হয়েছে।"
 
-#: libraries/classes/Controllers/Table/TrackingController.php:135
+#: libraries/classes/Controllers/Table/TrackingController.php:146
 msgid "SQL statements executed."
 msgstr "এসকিউএল নির্বাহ করা হয়েছে।"
 
-#: libraries/classes/Controllers/Table/TrackingController.php:189
+#: libraries/classes/Controllers/Table/TrackingController.php:200
 #, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "Tracking versions deleted successfully."
 msgstr "নির্বাচিত ব্যবহরকারীগনকে সফলভাবে মুছা হয়েছে।"
 
-#: libraries/classes/Controllers/Table/TrackingController.php:194
+#: libraries/classes/Controllers/Table/TrackingController.php:205
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No versions selected."
 msgstr "কোন রো নির্বাচন করা হয় নাই"
 
-#: libraries/classes/Controllers/Triggers/IndexController.php:156
+#: libraries/classes/Controllers/Triggers/IndexController.php:174
 msgid "Add trigger"
 msgstr "ট্রিগার যোগ কর"
 
-#: libraries/classes/Controllers/Triggers/IndexController.php:160
+#: libraries/classes/Controllers/Triggers/IndexController.php:178
 msgid "Edit trigger"
 msgstr "ট্রিগার সম্পাদনা"
 
-#: libraries/classes/Controllers/Triggers/IndexController.php:198
+#: libraries/classes/Controllers/Triggers/IndexController.php:216
 #, fuzzy, php-format
 #| msgid "No trigger with name %1$s found in database %2$s"
 msgid "No trigger with name %1$s found in database %2$s."
 msgstr "ডাটাবেইজ %2$s এ %1$s নামে কোন ট্রিগার পাওয়া যায়নি"
 
-#: libraries/classes/Controllers/Triggers/IndexController.php:222
+#: libraries/classes/Controllers/Triggers/IndexController.php:240
 #: templates/triggers/export.twig:2
 #, php-format
 msgid "Export of trigger %s"
 msgstr "ট্রিগার %s রফতানী"
 
-#: libraries/classes/Controllers/Triggers/IndexController.php:236
+#: libraries/classes/Controllers/Triggers/IndexController.php:254
 #, fuzzy, php-format
 #| msgid "No trigger with name %1$s found in database %2$s"
 msgid ""
@@ -9889,11 +9987,11 @@ msgstr "এই মূহুর্তে এখানে থাকার জন�
 msgid "Change password"
 msgstr "পাসওয়ার্ড পরিবর্তন"
 
-#: libraries/classes/Controllers/View/CreateController.php:70
+#: libraries/classes/Controllers/View/CreateController.php:86
 msgid "View name can not be empty!"
 msgstr ""
 
-#: libraries/classes/Core.php:118 libraries/classes/ZipExtension.php:57
+#: libraries/classes/Core.php:114 libraries/classes/ZipExtension.php:57
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s সংযোজনক পাওয়া যাচ্ছে না। পিএইছপি কনফিগারেশন দেখুন।"
@@ -10098,7 +10196,7 @@ msgstr "দুঃখিত, আমরা মুছে ফেলা ইভেন�
 msgid "The backed up query was:"
 msgstr "ব্যাকআপকৃত অনুসন্ধানটি ছিল:"
 
-#: libraries/classes/DatabaseInterface.php:1095
+#: libraries/classes/DatabaseInterface.php:1096
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -10106,13 +10204,13 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:1137
+#: libraries/classes/DatabaseInterface.php:1138
 #, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to set configured collation connection!"
 msgstr "কনফিগারেশন ফাইল পড়া যায়নি"
 
-#: libraries/classes/DatabaseInterface.php:1603
+#: libraries/classes/DatabaseInterface.php:1604
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "নিয়ন্ত্রক ব্যবহারকারীর জন্য নির্ধারিত কনফিগারেশন সংযোগে ব্যার্থ হয়েছে।"
 
@@ -10620,17 +10718,17 @@ msgid ""
 msgstr ""
 "নথিপত্রাদি এবং PBXT'র অন্যান্য তথ্য %sPrimeBase XT Home Page%s এ পাওয়া যাবে।"
 
-#: libraries/classes/ErrorHandler.php:98
+#: libraries/classes/ErrorHandler.php:90
 msgid "Too many error messages, some are not displayed."
 msgstr "অনেক বেশী ভুল সংক্রান্ত তথ্য, কতগুলো দেখানো হয় নাই।"
 
-#: libraries/classes/ErrorHandler.php:402
+#: libraries/classes/ErrorHandler.php:397
 #, fuzzy
 #| msgid "Import"
 msgid "Report"
 msgstr "আমদানি"
 
-#: libraries/classes/ErrorHandler.php:407 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:402 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
 msgstr "পরবর্তী সময়ে স্বয়ংক্রীয়ভাবে প্রতিবেদন পাঠাবে"
 
@@ -11045,12 +11143,12 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr ""
 
-#: libraries/classes/Menu.php:300 libraries/classes/Menu.php:407
+#: libraries/classes/Menu.php:302 libraries/classes/Menu.php:409
 #: libraries/classes/Util.php:1715 libraries/classes/Util.php:1729
 msgid "Tracking"
 msgstr "ট্রেকিং"
 
-#: libraries/classes/Menu.php:307 libraries/classes/Menu.php:400
+#: libraries/classes/Menu.php:309 libraries/classes/Menu.php:402
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:27
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:539
@@ -11064,21 +11162,21 @@ msgstr "ট্রেকিং"
 msgid "Triggers"
 msgstr "ট্রিগারসমূহ"
 
-#: libraries/classes/Menu.php:348 libraries/classes/Menu.php:356
-#: libraries/classes/Menu.php:364
+#: libraries/classes/Menu.php:350 libraries/classes/Menu.php:358
+#: libraries/classes/Menu.php:366
 msgid "Database seems to be empty!"
 msgstr "ডাটাবেইজটি খালি মনে হয়!"
 
-#: libraries/classes/Menu.php:351 libraries/classes/Util.php:1707
+#: libraries/classes/Menu.php:353 libraries/classes/Util.php:1707
 msgid "Query"
 msgstr "অনুসন্ধান"
 
-#: libraries/classes/Menu.php:387 libraries/classes/Util.php:1712
+#: libraries/classes/Menu.php:389 libraries/classes/Util.php:1712
 #: templates/database/routines/index.twig:3
 msgid "Routines"
 msgstr "রুটিনসমূহ"
 
-#: libraries/classes/Menu.php:393
+#: libraries/classes/Menu.php:395
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:27
 #: libraries/classes/Plugins/Export/ExportSql.php:942
@@ -11087,29 +11185,29 @@ msgstr "রুটিনসমূহ"
 msgid "Events"
 msgstr "ইভেন্টসমূহ"
 
-#: libraries/classes/Menu.php:414 libraries/classes/Util.php:1716
+#: libraries/classes/Menu.php:416 libraries/classes/Util.php:1716
 msgid "Designer"
 msgstr "নকশাকারী"
 
-#: libraries/classes/Menu.php:421 libraries/classes/Util.php:1717
+#: libraries/classes/Menu.php:423 libraries/classes/Util.php:1717
 #: templates/database/structure/check_all_tables.twig:32
 #, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns"
 msgstr "টেক্সএরিয়া স্তম্ভ"
 
-#: libraries/classes/Menu.php:475
+#: libraries/classes/Menu.php:477
 #, fuzzy
 #| msgid "User groups"
 msgid "User accounts"
 msgstr "ব্যবহারকারীর দল"
 
-#: libraries/classes/Menu.php:506 libraries/classes/Server/Status/Data.php:144
+#: libraries/classes/Menu.php:508 libraries/classes/Server/Status/Data.php:144
 #: libraries/classes/Util.php:1696 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "বাইনারী লগ"
 
-#: libraries/classes/Menu.php:513 libraries/classes/Server/Status/Data.php:149
+#: libraries/classes/Menu.php:515 libraries/classes/Server/Status/Data.php:149
 #: libraries/classes/Util.php:1697
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
@@ -11117,15 +11215,15 @@ msgstr "বাইনারী লগ"
 msgid "Replication"
 msgstr "অনুলিপি"
 
-#: libraries/classes/Menu.php:524 libraries/classes/Util.php:1699
+#: libraries/classes/Menu.php:526 libraries/classes/Util.php:1699
 msgid "Charsets"
 msgstr "বর্ণরাশী"
 
-#: libraries/classes/Menu.php:529 libraries/classes/Util.php:1701
+#: libraries/classes/Menu.php:531 libraries/classes/Util.php:1701
 msgid "Engines"
 msgstr "ব্যবস্থাসমূহ"
 
-#: libraries/classes/Menu.php:534 libraries/classes/Util.php:1700
+#: libraries/classes/Menu.php:536 libraries/classes/Util.php:1700
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr "প্লাগইন"
@@ -11151,30 +11249,30 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d টি রো প্রবেশ করেছে।"
 msgstr[1] "%1$d টি রো প্রবেশ করেছে।"
 
-#: libraries/classes/Navigation/Navigation.php:203
+#: libraries/classes/Navigation/Navigation.php:205
 #, fuzzy
 #| msgid "Group name:"
 msgid "Groups:"
 msgstr "দলের নাম:"
 
-#: libraries/classes/Navigation/Navigation.php:204
+#: libraries/classes/Navigation/Navigation.php:206
 msgid "Events:"
 msgstr "ইভেন্টসমূহ:"
 
-#: libraries/classes/Navigation/Navigation.php:205
+#: libraries/classes/Navigation/Navigation.php:207
 msgid "Functions:"
 msgstr "ফাংশনসমূহ:"
 
-#: libraries/classes/Navigation/Navigation.php:206
+#: libraries/classes/Navigation/Navigation.php:208
 msgid "Procedures:"
 msgstr "প্রোসিডিউরস:"
 
-#: libraries/classes/Navigation/Navigation.php:207
+#: libraries/classes/Navigation/Navigation.php:209
 #: templates/database/export/index.twig:14
 msgid "Tables:"
 msgstr "টেবলসমুহ:"
 
-#: libraries/classes/Navigation/Navigation.php:208
+#: libraries/classes/Navigation/Navigation.php:210
 msgid "Views:"
 msgstr "ভিউসমূহ:"
 
@@ -11698,13 +11796,13 @@ msgstr "সংযোগ করা যায়নি: অকার্যকর স�
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:81
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:94
-#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:74
-#: libraries/classes/Plugins/AuthenticationPlugin.php:169
+#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:75
+#: libraries/classes/Plugins/AuthenticationPlugin.php:168
 msgid "Access denied!"
 msgstr "প্রবেশ করা যাচ্ছে না"
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:86
-#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:79
+#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:80
 #: templates/login/header.twig:10
 #, php-format
 msgid "Welcome to %s"
@@ -11763,11 +11861,11 @@ msgstr ""
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "মাইএসকিউএল সার্ভারে লগইন করা যাচ্ছে না"
 
-#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:84
+#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:85
 msgid "Wrong username/password. Access denied."
 msgstr "ভুল নাম/পাসওয়ার্ড। প্রবেশ বাধাগ্রস্থ।"
 
-#: libraries/classes/Plugins/Auth/AuthenticationSignon.php:129
+#: libraries/classes/Plugins/Auth/AuthenticationSignon.php:128
 msgid "Can not find signon authentication script:"
 msgstr "সাইনঅন প্রমাণীকরণ স্ক্রীপট পাওয়া যাচ্ছে না:"
 
@@ -11775,24 +11873,24 @@ msgstr "সাইনঅন প্রমাণীকরণ স্ক্রীপ�
 msgid "Invalid authentication method set in configuration:"
 msgstr "কনফিগারেশনে অকার্যকর প্রমাণীকরন পদ্ধতি:"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:165
+#: libraries/classes/Plugins/AuthenticationPlugin.php:164
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr "পাসওয়ার্ড বিহীন লগইন কনফিগারেশন দ্বারা নিষিদ্ধ (see AllowNoPassword)"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:174
+#: libraries/classes/Plugins/AuthenticationPlugin.php:173
 #, php-format
 msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
 "you log in again, you should be able to resume the work where you left off."
 msgstr ""
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:187
-#: libraries/classes/Plugins/AuthenticationPlugin.php:190
+#: libraries/classes/Plugins/AuthenticationPlugin.php:186
+#: libraries/classes/Plugins/AuthenticationPlugin.php:189
 msgid "Cannot log in to the MySQL server"
 msgstr "মাইএসকিউএল সার্ভারে লগইন করা যাচ্ছে না"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:322
+#: libraries/classes/Plugins/AuthenticationPlugin.php:321
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
@@ -12906,65 +13004,65 @@ msgstr "বাক্য চিহ্নিত করনসহ SQL অনুস�
 msgid "Formats text as XML with syntax highlighting."
 msgstr "বাক্য চিহ্নিত করনসহ SQL অনুসন্ধান গঠন কর।"
 
-#: libraries/classes/Plugins/TwoFactor/Application.php:127
+#: libraries/classes/Plugins/TwoFactor/Application.php:128
 #, fuzzy
 #| msgid "Authentication"
 msgid "Authentication Application (2FA)"
 msgstr "প্রমাণীকরণ"
 
-#: libraries/classes/Plugins/TwoFactor/Application.php:136
+#: libraries/classes/Plugins/TwoFactor/Application.php:137
 msgid ""
 "Provides authentication using HOTP and TOTP applications such as FreeOTP, "
 "Google Authenticator or Authy."
 msgstr ""
 
-#: libraries/classes/Plugins/TwoFactor/Key.php:201
+#: libraries/classes/Plugins/TwoFactor/Key.php:202
 msgid "Hardware Security Key (FIDO U2F)"
 msgstr ""
 
-#: libraries/classes/Plugins/TwoFactor/Key.php:209
+#: libraries/classes/Plugins/TwoFactor/Key.php:210
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a YubiKey."
 msgstr ""
 
-#: libraries/classes/Plugins/TwoFactorPlugin.php:55
+#: libraries/classes/Plugins/TwoFactorPlugin.php:56
 #, fuzzy, php-format
 #| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed: %s"
 msgstr "যান্ত্রীক প্রমানীকরণ ব্যার্থ"
 
-#: libraries/classes/Plugins/TwoFactorPlugin.php:60
+#: libraries/classes/Plugins/TwoFactorPlugin.php:61
 #, fuzzy
 #| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
 msgstr "যান্ত্রীক প্রমানীকরণ ব্যার্থ"
 
-#: libraries/classes/Plugins/TwoFactorPlugin.php:108
+#: libraries/classes/Plugins/TwoFactorPlugin.php:109
 #, fuzzy
 #| msgid "Config authentication"
 msgid "No Two-Factor Authentication"
 msgstr "প্রমাণীকরণ কনফিগ"
 
-#: libraries/classes/Plugins/TwoFactorPlugin.php:116
+#: libraries/classes/Plugins/TwoFactorPlugin.php:117
 msgid "Login using password only."
 msgstr ""
 
-#: libraries/classes/Plugins/TwoFactor/Simple.php:46
+#: libraries/classes/Plugins/TwoFactor/Simple.php:47
 #, fuzzy
 #| msgid "Signon authentication"
 msgid "Simple two-factor authentication"
 msgstr "সাইনঅন প্রমাণীকরণ"
 
-#: libraries/classes/Plugins/TwoFactor/Simple.php:54
+#: libraries/classes/Plugins/TwoFactor/Simple.php:55
 msgid "For testing purposes only!"
 msgstr ""
 
-#: libraries/classes/Plugins/TwoFactor/WebAuthn.php:192
+#: libraries/classes/Plugins/TwoFactor/WebAuthn.php:176
 msgid "Hardware Security Key (WebAuthn/FIDO2)"
 msgstr ""
 
-#: libraries/classes/Plugins/TwoFactor/WebAuthn.php:198
+#: libraries/classes/Plugins/TwoFactor/WebAuthn.php:182
 msgid ""
 "Provides authentication using hardware security tokens supporting the "
 "WebAuthn/FIDO2 protocol, such as a YubiKey."
@@ -13021,51 +13119,51 @@ msgstr "পূর্বাবস্থায়"
 msgid "Favorites"
 msgstr "চলকসমূহ"
 
-#: libraries/classes/Replication/ReplicationGui.php:416
+#: libraries/classes/Replication/ReplicationGui.php:415
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
 
-#: libraries/classes/Replication/ReplicationGui.php:427
+#: libraries/classes/Replication/ReplicationGui.php:426
 msgid "Replication started successfully."
 msgstr "প্রতিলিপির প্রস্তুত কাজ সফলভাবে শুরু হয়েছে।"
 
-#: libraries/classes/Replication/ReplicationGui.php:428
+#: libraries/classes/Replication/ReplicationGui.php:427
 msgid "Error starting replication."
 msgstr "প্রতিলিপি তৈরীরকাজে সমস্যা হয়েছে।"
 
-#: libraries/classes/Replication/ReplicationGui.php:431
+#: libraries/classes/Replication/ReplicationGui.php:430
 msgid "Replication stopped successfully."
 msgstr "প্রতিলিপি সফলভাবে বন্ধ হয়েছে।"
 
-#: libraries/classes/Replication/ReplicationGui.php:432
+#: libraries/classes/Replication/ReplicationGui.php:431
 msgid "Error stopping replication."
 msgstr "প্রতিলিপি বন্ধে সমস্যা হয়েছে।"
 
-#: libraries/classes/Replication/ReplicationGui.php:435
+#: libraries/classes/Replication/ReplicationGui.php:434
 msgid "Replication resetting successfully."
 msgstr "প্রতিলিপি সফলভাবে পুনস্থাপন করা হয়েছে।"
 
-#: libraries/classes/Replication/ReplicationGui.php:436
+#: libraries/classes/Replication/ReplicationGui.php:435
 msgid "Error resetting replication."
 msgstr "প্রতিলিপি পুনস্থাপনে সমস্যা হয়েছে।"
 
-#: libraries/classes/Replication/ReplicationGui.php:439
+#: libraries/classes/Replication/ReplicationGui.php:438
 msgid "Success."
 msgstr "সফল।"
 
-#: libraries/classes/Replication/ReplicationGui.php:440
+#: libraries/classes/Replication/ReplicationGui.php:439
 msgid "Error."
 msgstr "ভুল।"
 
-#: libraries/classes/Replication/ReplicationGui.php:486
+#: libraries/classes/Replication/ReplicationGui.php:484
 #, fuzzy, php-format
 #| msgid "Unable to connect to master %s."
 msgid "Unable to connect to primary %s."
 msgstr "প্রধান %s সহিত সংযোগ করা যায়নি."
 
-#: libraries/classes/Replication/ReplicationGui.php:496
+#: libraries/classes/Replication/ReplicationGui.php:494
 #, fuzzy
 #| msgid ""
 #| "Unable to read master log position. Possible privilege problem on master."
@@ -13073,33 +13171,33 @@ msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
 msgstr "প্রধান লগ পড়া যায়নি। প্রধান লগে অধিকার সমস্যা."
 
-#: libraries/classes/Replication/ReplicationGui.php:514
+#: libraries/classes/Replication/ReplicationGui.php:512
 #, fuzzy
 #| msgid "Unable to change master"
 msgid "Unable to change primary!"
 msgstr "প্রধানটি পরিবর্তন করা যায়নি"
 
-#: libraries/classes/Replication/ReplicationGui.php:518
+#: libraries/classes/Replication/ReplicationGui.php:516
 #, fuzzy, php-format
 #| msgid "Master server changed successfully to %s"
 msgid "Primary server changed successfully to %s."
 msgstr "প্রধান সার্ভারটি সফলভাবে %s তে পরিবর্তন করা হয়েছে"
 
-#: libraries/classes/Routing/Routing.php:107
+#: libraries/classes/Routing/Routing.php:114
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: libraries/classes/Routing/Routing.php:141
-#: libraries/classes/Routing/Routing.php:202
+#: libraries/classes/Routing/Routing.php:148
+#: libraries/classes/Routing/Routing.php:210
 #, fuzzy, php-format
 #| msgid "Source database `%s` was not found!"
 msgid "Error 404! The page %s was not found."
 msgstr "মূল ডাটাবেইজ `%s` পাওয়া যায়নি!"
 
-#: libraries/classes/Routing/Routing.php:149
+#: libraries/classes/Routing/Routing.php:156
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
@@ -13718,7 +13816,7 @@ msgstr "%s এই সার্ভারে অকার্যকর।"
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "এই MySQL সার্ভারটি %s মজুদ ব্যবস্থা সমর্থন করে না।"
 
-#: libraries/classes/Table/Indexes.php:54 libraries/classes/Table.php:1974
+#: libraries/classes/Table/Indexes.php:55 libraries/classes/Table.php:1974
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "প্রাথমিক কী'র নাম অবশ্যই \"PRIMARY\" হতে হবে!"
 
@@ -14296,11 +14394,11 @@ msgstr "প্রোফাইল আপডেট করা হয়েছে।"
 msgid "Password is too long!"
 msgstr "Password Hashing"
 
-#: libraries/classes/UserPreferences.php:163
+#: libraries/classes/UserPreferences.php:160
 msgid "Could not save configuration"
 msgstr "কনফিগারেশন সংরক্ষন করা যায়নি।"
 
-#: libraries/classes/UserPreferences.php:174
+#: libraries/classes/UserPreferences.php:171
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "The phpMyAdmin configuration storage database could not be accessed."
