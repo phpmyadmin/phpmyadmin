@@ -526,7 +526,7 @@ class Header
      */
     private function getCspHeaders(): array
     {
-        $mapTileUrls = ' *.tile.openstreetmap.org';
+        $mapTileUrl = ' tile.openstreetmap.org';
         $captchaUrl = '';
         $cspAllow = $GLOBALS['cfg']['CSPAllow'];
 
@@ -552,7 +552,7 @@ class Header
             $captchaUrl,
             $cspAllow,
             $cspAllow,
-            $mapTileUrls,
+            $mapTileUrl,
             $captchaUrl,
         );
 
@@ -562,7 +562,7 @@ class Header
             $captchaUrl,
             $cspAllow,
             $cspAllow,
-            $mapTileUrls,
+            $mapTileUrl,
             $captchaUrl,
         );
 
@@ -576,7 +576,7 @@ class Header
             $cspAllow,
             $captchaUrl,
             $cspAllow,
-            $mapTileUrls,
+            $mapTileUrl,
             $captchaUrl,
         );
 
