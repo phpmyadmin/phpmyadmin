@@ -500,7 +500,7 @@ interface DbalInterface
      *
      * @psalm-param ConnectionType $connectionType
      */
-    public function nextResult(int $connectionType = Connection::TYPE_USER): bool;
+    public function nextResult(int $connectionType = Connection::TYPE_USER): ResultInterface|false;
 
     /**
      * Store the result returned from multi query

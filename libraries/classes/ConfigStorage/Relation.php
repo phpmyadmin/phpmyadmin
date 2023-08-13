@@ -361,11 +361,8 @@ class Relation
             // skips result sets of query as we are not interested in it
             /** @infection-ignore-all */
             do {
-                $hasResult = (
-                    $this->dbi->moreResults(Connection::TYPE_CONTROL)
-                    && $this->dbi->nextResult(Connection::TYPE_CONTROL)
-                );
-            } while ($hasResult);
+                $hasResult = $this->dbi->nextResult(Connection::TYPE_CONTROL);
+            } while ($hasResult !== false);
 
             $error = $this->dbi->getError(Connection::TYPE_CONTROL);
 

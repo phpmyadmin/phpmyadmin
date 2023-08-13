@@ -1645,13 +1645,18 @@ class DatabaseInterface implements DbalInterface
      *
      * @psalm-param ConnectionType $connectionType
      */
-    public function nextResult(int $connectionType = Connection::TYPE_USER): bool
+    public function nextResult(int $connectionType = Connection::TYPE_USER): ResultInterface|false
     {
         if (! isset($this->connections[$connectionType])) {
             return false;
         }
 
-        return $this->extension->nextResult($this->connections[$connectionType]);
+        // TODO: Figure out if we really need to check the return value of this function.
+        if (! $this->extension->nextResult($this->connections[$connectionType])) {
+            return false;
+        }
+
+        return $this->extension->storeResult($this->connections[$connectionType]);
     }
 
     /**

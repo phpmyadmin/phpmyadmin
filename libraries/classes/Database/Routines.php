@@ -846,7 +846,7 @@ class Routines
     private function getQueriesFromRoutineForm(array $routine): array
     {
         $queries = [];
-        $endQuery = [];
+        $outParams = [];
         $args = [];
         $allFunctions = $this->dbi->types->getAllFunctions();
         for ($i = 0; $i < $routine['item_num_params']; $i++) {
@@ -856,22 +856,22 @@ class Routines
                     $value = implode(',', $value);
                 }
 
-                $value = $this->dbi->escapeString($value);
                 if (
                     ! empty($_POST['funcs'][$routine['item_param_name'][$i]])
                     && in_array($_POST['funcs'][$routine['item_param_name'][$i]], $allFunctions)
                 ) {
-                    $queries[] = 'SET @p' . $i . '='
-                        . $_POST['funcs'][$routine['item_param_name'][$i]]
-                        . "('" . $value . "');\n";
+                    $queries[] = sprintf(
+                        'SET @p%d=%s(%s);',
+                        $i,
+                        $_POST['funcs'][$routine['item_param_name'][$i]],
+                        $this->dbi->quoteString($value),
+                    );
                 } else {
-                    $queries[] = 'SET @p' . $i . "='" . $value . "';\n";
+                    $queries[] = 'SET @p' . $i . '=' . $this->dbi->quoteString($value) . ';';
                 }
-
-                $args[] = '@p' . $i;
-            } else {
-                $args[] = '@p' . $i;
             }
+
+            $args[] = '@p' . $i;
 
             if ($routine['item_type'] !== 'PROCEDURE') {
                 continue;
@@ -881,131 +881,120 @@ class Routines
                 continue;
             }
 
-            $endQuery[] = '@p' . $i . ' AS '
-                . Util::backquote($routine['item_param_name'][$i]);
+            $outParams[] = '@p' . $i . ' AS ' . Util::backquote($routine['item_param_name'][$i]);
         }
 
         if ($routine['item_type'] === 'PROCEDURE') {
-            $queries[] = 'CALL ' . Util::backquote($routine['item_name'])
-                        . '(' . implode(', ', $args) . ");\n";
-            if ($endQuery !== []) {
-                $queries[] = 'SELECT ' . implode(', ', $endQuery) . ";\n";
+            $queries[] = sprintf(
+                'CALL %s(%s);',
+                Util::backquote($routine['item_name']),
+                implode(', ', $args),
+            );
+            if ($outParams !== []) {
+                $queries[] = 'SELECT ' . implode(', ', $outParams) . ';';
             }
         } else {
-            $queries[] = 'SELECT ' . Util::backquote($routine['item_name'])
-                        . '(' . implode(', ', $args) . ') '
-                        . 'AS ' . Util::backquote($routine['item_name'])
-                        . ";\n";
+            $queries[] = sprintf(
+                'SELECT %s(%s) AS %s;',
+                Util::backquote($routine['item_name']),
+                implode(', ', $args),
+                Util::backquote($routine['item_name']),
+            );
         }
 
         return $queries;
     }
 
     /**
-     * @param mixed[]|null $routine
+     * @param mixed[] $routine
      *
      * @psalm-return array{string, Message}
      */
-    public function handleExecuteRoutine(array|null $routine): array
+    public function handleExecuteRoutine(array $routine): array
     {
-        $queries = is_array($routine) ? $this->getQueriesFromRoutineForm($routine) : [];
+        $queries = $this->getQueriesFromRoutineForm($routine);
 
-        // Get all the queries as one SQL statement
-        $multipleQuery = implode('', $queries);
-
-        $outcome = true;
         $affected = 0;
-
-        // Execute query
-        if (! $this->dbi->tryMultiQuery($multipleQuery)) {
-            $outcome = false;
-        }
-
-        // Generate output
-        $output = '';
+        $resultHtmlTables = '';
         $nbResultsetToDisplay = 0;
-        if ($outcome) {
-            // Pass the SQL queries through the "pretty printer"
-            $output = Generator::formatSql(implode("\n", $queries));
 
-            // Display results
-            $output .= '<div class="card my-3"><div class="card-header">';
-            $output .= sprintf(
-                __('Execution results of routine %s'),
-                Util::backquote(htmlspecialchars($routine['item_name'])),
-            );
-            $output .= '</div><div class="card-body">';
+        foreach ($queries as $query) {
+            $result = $this->dbi->tryQuery($query);
 
-            do {
-                $result = $this->dbi->storeResult();
-
-                if ($result !== false && $result->numRows() > 0) {
-                    $output .= '<table class="table table-striped w-auto"><tr>';
+            // Generate output
+            while ($result !== false) {
+                if ($result->numRows() > 0) {
+                    $resultHtmlTables .= '<table class="table table-striped w-auto"><tr>';
                     foreach ($result->getFieldNames() as $field) {
-                        $output .= '<th>';
-                        $output .= htmlspecialchars($field);
-                        $output .= '</th>';
+                        $resultHtmlTables .= '<th>';
+                        $resultHtmlTables .= htmlspecialchars($field);
+                        $resultHtmlTables .= '</th>';
                     }
 
-                    $output .= '</tr>';
+                    $resultHtmlTables .= '</tr>';
 
                     foreach ($result as $row) {
-                        $output .= '<tr>' . $this->browseRow($row) . '</tr>';
+                        $resultHtmlTables .= '<tr>' . $this->browseRow($row) . '</tr>';
                     }
 
-                    $output .= '</table>';
+                    $resultHtmlTables .= '</table>';
                     $nbResultsetToDisplay++;
                     $affected = $result->numRows();
                 }
 
-                if (! $this->dbi->moreResults()) {
-                    break;
-                }
+                $result = $this->dbi->nextResult();
+            }
 
-                unset($result);
+            // We must check for an error after fetching the results because
+            // either tryQuery might have produced an error or any of nextResult calls.
+            if ($this->dbi->getError() !== '') {
+                $message = Message::error(
+                    sprintf(
+                        __('The following query has failed: "%s"'),
+                        htmlspecialchars($query),
+                    )
+                    . '<br><br>'
+                    . __('MySQL said: ') . $this->dbi->getError(),
+                );
 
-                $outcome = $this->dbi->nextResult();
-            } while ($outcome);
+                return ['', $message];
+            }
         }
 
-        if ($outcome) {
-            $output .= '</div></div>';
+        // Pass the SQL queries through the "pretty printer"
+        $output = Generator::formatSql(implode("\n", $queries));
+        // Display results
+        $output .= '<div class="card my-3"><div class="card-header">';
+        $output .= sprintf(
+            __('Execution results of routine %s'),
+            htmlspecialchars(Util::backquote($routine['item_name'])),
+        );
+        $output .= '</div><div class="card-body">';
+        $output .= $resultHtmlTables;
+        $output .= '</div></div>';
 
-            $message = __('Your SQL query has been executed successfully.');
-            if ($routine['item_type'] === 'PROCEDURE') {
-                $message .= '<br>';
+        $message = __('Your SQL query has been executed successfully.');
+        if ($routine['item_type'] === 'PROCEDURE') {
+            $message .= '<br>';
 
-                // TODO : message need to be modified according to the
-                // output from the routine
-                $message .= sprintf(
-                    _ngettext(
-                        '%d row affected by the last statement inside the procedure.',
-                        '%d rows affected by the last statement inside the procedure.',
-                        (int) $affected,
-                    ),
-                    $affected,
-                );
-            }
-
-            $message = Message::success($message);
-
-            if ($nbResultsetToDisplay == 0) {
-                $notice = __('MySQL returned an empty result set (i.e. zero rows).');
-                $output .= Message::notice($notice)->getDisplay();
-            }
-        } else {
-            $output = '';
-            $message = Message::error(
-                sprintf(
-                    __('The following query has failed: "%s"'),
-                    htmlspecialchars($multipleQuery),
-                )
-                . '<br><br>'
-                . __('MySQL said: ') . $this->dbi->getError(),
+            // TODO : message need to be modified according to the
+            // output from the routine
+            $message .= sprintf(
+                _ngettext(
+                    '%d row affected by the last statement inside the procedure.',
+                    '%d rows affected by the last statement inside the procedure.',
+                    (int) $affected,
+                ),
+                $affected,
             );
         }
 
-        return [$output, $message];
+        if ($nbResultsetToDisplay === 0) {
+            $notice = __('MySQL returned an empty result set (i.e. zero rows).');
+            $output .= Message::notice($notice)->getDisplay();
+        }
+
+        return [$output, Message::success($message)];
     }
 
     /**
