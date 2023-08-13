@@ -12236,11 +12236,6 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Only booleans are allowed in a ternary operator condition, array\\<int, string\\|null\\> given\\.$#"
 			count: 2
 			path: libraries/classes/Display/Results.php
@@ -24021,11 +24016,6 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Only booleans are allowed in &&, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given on the right side\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Only booleans are allowed in &&, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\> given on the left side\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
@@ -24116,17 +24106,12 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#10 \\$textDirection of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Parameter \\#12 \\$sqlQuery of method PhpMyAdmin\\\\Sql\\:\\:getQueryResponseForResultsReturned\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#14 \\$showTable of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects array\\<string, mixed\\>\\|null, array\\|null given\\.$#"
+			message: "#^Parameter \\#13 \\$showTable of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects array\\<string, mixed\\>\\|null, array\\|null given\\.$#"
 			count: 2
 			path: libraries/classes/Sql.php
 
@@ -24221,7 +24206,12 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#9 \\$queryTime of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects float, mixed given\\.$#"
+			message: "#^Parameter \\#8 \\$queryTime of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects float, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/Sql.php
+
+		-
+			message: "#^Parameter \\#9 \\$textDirection of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Sql.php
 

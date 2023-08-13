@@ -999,6 +999,7 @@ class Sql
         $scripts = $header->getScripts();
         $scripts->addFile('sql.js');
 
+        // We can only skip result fetching if the result contains no columns.
         if (($result instanceof ResultInterface && $result->numFields() === 0) || isset($extraData['error'])) {
             return $queryMessage;
         }
@@ -1127,26 +1128,20 @@ class Sql
         StatementInfo $statementInfo,
         bool $isLimitedDisplay = false,
     ): string {
-        $printView = isset($_POST['printview']) && $_POST['printview'] == '1' ? '1' : null;
+        $printView = isset($_POST['printview']) && $_POST['printview'] == '1';
         $tableHtml = '';
         $isBrowseDistinct = ! empty($_POST['is_browse_distinct']);
 
         if ($statementInfo->isProcedure) {
-            do {
-                if ($result === null) {
-                    $result = $this->dbi->storeResult();
-                }
+            if ($result === null) {
+                $result = $this->dbi->storeResult();
+            }
 
-                if ($result === false) {
-                    $result = null;
-                    continue;
-                }
-
+            while ($result !== false) {
                 $numRows = $result->numRows();
 
                 if ($numRows > 0) {
                     $fieldsMeta = $this->dbi->getFieldsMeta($result);
-                    $fieldsCount = count($fieldsMeta);
 
                     $displayResultsObject->setProperties(
                         $numRows,
@@ -1156,7 +1151,6 @@ class Sql
                         $statementInfo->isFunction,
                         $statementInfo->isAnalyse,
                         $numRows,
-                        $fieldsCount,
                         $GLOBALS['querytime'],
                         $GLOBALS['text_dir'],
                         $statementInfo->isMaint,
@@ -1186,44 +1180,39 @@ class Sql
                     );
                 }
 
-                $result = null;
-            } while ($this->dbi->moreResults() && $this->dbi->nextResult());
-        } else {
-            $fieldsMeta = [];
-            if (isset($result) && ! is_bool($result)) {
-                $fieldsMeta = $this->dbi->getFieldsMeta($result);
+                $result = $this->dbi->nextResult();
             }
 
-            $fieldsCount = count($fieldsMeta);
-            $_SESSION['is_multi_query'] = false;
-            $displayResultsObject->setProperties(
-                $unlimNumRows,
-                $fieldsMeta,
-                $statementInfo->isCount,
-                $statementInfo->isExport,
-                $statementInfo->isFunction,
-                $statementInfo->isAnalyse,
-                $numRows,
-                $fieldsCount,
-                $GLOBALS['querytime'],
-                $GLOBALS['text_dir'],
-                $statementInfo->isMaint,
-                $statementInfo->isExplain,
-                $statementInfo->isShow,
-                $showTable,
-                $printView,
-                $editable,
-                $isBrowseDistinct,
-            );
+            return $tableHtml;
+        }
 
-            if (! is_bool($result)) {
-                $tableHtml .= $displayResultsObject->getTable(
-                    $result,
-                    $displayParts,
-                    $statementInfo,
-                    $isLimitedDisplay,
-                );
-            }
+        $fieldsMeta = [];
+        if (isset($result) && ! is_bool($result)) {
+            $fieldsMeta = $this->dbi->getFieldsMeta($result);
+        }
+
+        $_SESSION['is_multi_query'] = false;
+        $displayResultsObject->setProperties(
+            $unlimNumRows,
+            $fieldsMeta,
+            $statementInfo->isCount,
+            $statementInfo->isExport,
+            $statementInfo->isFunction,
+            $statementInfo->isAnalyse,
+            $numRows,
+            $GLOBALS['querytime'],
+            $GLOBALS['text_dir'],
+            $statementInfo->isMaint,
+            $statementInfo->isExplain,
+            $statementInfo->isShow,
+            $showTable,
+            $printView,
+            $editable,
+            $isBrowseDistinct,
+        );
+
+        if (! is_bool($result)) {
+            $tableHtml .= $displayResultsObject->getTable($result, $displayParts, $statementInfo, $isLimitedDisplay);
         }
 
         return $tableHtml;
