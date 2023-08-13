@@ -31566,16 +31566,6 @@ parameters:
 			path: test/classes/Stubs/DbiDummy.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, array\\<int, array\\<int, string\\|null\\>\\>\\|null given\\.$#"
-			count: 10
-			path: test/classes/Stubs/DummyResult.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, array\\<int, string\\> given\\.$#"
-			count: 1
-			path: test/classes/Stubs/DummyResult.php
-
-		-
 			message: "#^Foreach overwrites \\$value with its value variable\\.$#"
 			count: 1
 			path: test/classes/Stubs/ResponseRenderer.php
