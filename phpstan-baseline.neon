@@ -4806,12 +4806,7 @@ parameters:
 			path: libraries/classes/Controllers/Import/ImportController.php
 
 		-
-			message: "#^Parameter \\#10 \\$goto of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndGetQueryResponse\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Parameter \\#13 \\$sqlQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndGetQueryResponse\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#12 \\$sqlQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndGetQueryResponse\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Import/ImportController.php
 
@@ -4917,6 +4912,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#5 \\$exit of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:mysqlDie\\(\\) expects bool, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Import/ImportController.php
+
+		-
+			message: "#^Parameter \\#9 \\$goto of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndGetQueryResponse\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Import/ImportController.php
 
@@ -6581,27 +6581,22 @@ parameters:
 			path: libraries/classes/Controllers/Sql/SqlController.php
 
 		-
-			message: "#^Parameter \\#10 \\$goto of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#10 \\$dispQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Sql/SqlController.php
 
 		-
-			message: "#^Parameter \\#11 \\$dispQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#11 \\$dispMessage of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects PhpMyAdmin\\\\Message\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Sql/SqlController.php
 
 		-
-			message: "#^Parameter \\#12 \\$dispMessage of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects PhpMyAdmin\\\\Message\\|string\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#12 \\$sqlQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Sql/SqlController.php
 
 		-
-			message: "#^Parameter \\#13 \\$sqlQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Sql/SqlController.php
-
-		-
-			message: "#^Parameter \\#14 \\$completeQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#13 \\$completeQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Sql/SqlController.php
 
@@ -6661,12 +6656,12 @@ parameters:
 			path: libraries/classes/Controllers/Sql/SqlController.php
 
 		-
-			message: "#^Parameter \\#7 \\$extraData of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects array\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#7 \\$messageToShow of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Sql/SqlController.php
 
 		-
-			message: "#^Parameter \\#8 \\$messageToShow of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#9 \\$goto of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Sql/SqlController.php
 
@@ -7206,22 +7201,17 @@ parameters:
 			path: libraries/classes/Controllers/Table/DeleteRowsController.php
 
 		-
-			message: "#^Parameter \\#10 \\$goto of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#10 \\$dispQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/DeleteRowsController.php
 
 		-
-			message: "#^Parameter \\#11 \\$dispQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#11 \\$dispMessage of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects PhpMyAdmin\\\\Message\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/DeleteRowsController.php
 
 		-
-			message: "#^Parameter \\#12 \\$dispMessage of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects PhpMyAdmin\\\\Message\\|string\\|null, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/DeleteRowsController.php
-
-		-
-			message: "#^Parameter \\#13 \\$sqlQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#12 \\$sqlQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/DeleteRowsController.php
 
@@ -7247,6 +7237,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#4 \\$table of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/DeleteRowsController.php
+
+		-
+			message: "#^Parameter \\#9 \\$goto of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/DeleteRowsController.php
 
@@ -8616,11 +8611,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/SearchController.php
 
 		-
-			message: "#^Parameter \\#10 \\$goto of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
 			message: "#^Parameter \\#2 \\$foreignField of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:foreignDropdown\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/SearchController.php
@@ -8657,6 +8647,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#5 \\$max of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:foreignDropdown\\(\\) expects int\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/SearchController.php
+
+		-
+			message: "#^Parameter \\#9 \\$goto of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/SearchController.php
 
@@ -24066,16 +24061,6 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#1 \\$dtResult of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTable\\(\\) expects PhpMyAdmin\\\\Dbal\\\\ResultInterface, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Message\\:\\:rawError\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Parameter \\#1 \\$rows of static method PhpMyAdmin\\\\Message\\:\\:getMessageForAffectedRows\\(\\) expects int, int\\|string given\\.$#"
 			count: 2
 			path: libraries/classes/Sql.php
@@ -24142,7 +24127,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$sqlQuery of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getMessage\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
+			count: 2
 			path: libraries/classes/Sql.php
 
 		-

@@ -3041,7 +3041,6 @@
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['disp_query']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['extra_data']]]></code>
       <code><![CDATA[$GLOBALS['find_real_end']]]></code>
       <code><![CDATA[$GLOBALS['is_gotofile']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
@@ -3053,7 +3052,6 @@
       <code><![CDATA[$GLOBALS['disp_message'] ?? null]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['extra_data'] ?? null]]></code>
       <code><![CDATA[$GLOBALS['find_real_end'] ?? null]]></code>
       <code><![CDATA[$GLOBALS['message_to_show'] ?? null]]></code>
       <code><![CDATA[$GLOBALS['sql_query']]]></code>
@@ -3071,7 +3069,6 @@
       <code><![CDATA[$GLOBALS['disp_query']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['extra_data']]]></code>
       <code><![CDATA[$GLOBALS['find_real_end']]]></code>
       <code><![CDATA[$GLOBALS['is_gotofile']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
@@ -11409,7 +11406,6 @@
       <code><![CDATA[$GLOBALS['show_as_php']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$extraData['error']]]></code>
       <code><![CDATA[$fieldInfoResult[0]['Type']]]></code>
       <code><![CDATA[$foreignData['foreign_field']]]></code>
       <code>$numberOfLine / $maxRows</code>
@@ -11495,7 +11491,6 @@
       <code><![CDATA[$statement->altered[0]->field->column]]></code>
     </PossiblyInvalidPropertyFetch>
     <PossiblyNullArgument>
-      <code>$result</code>
       <code>$row[0]</code>
       <code><![CDATA[$statementInfo->parser->list]]></code>
       <code><![CDATA[$statementInfo->parser->list]]></code>

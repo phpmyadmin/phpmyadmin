@@ -605,7 +605,6 @@ class SqlTest extends AbstractTestCase
             null,
             null,
             null,
-            null,
             'index.php?route=/sql',
             null,
             null,
