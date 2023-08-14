@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\Attributes\CoversClass;
 
@@ -26,7 +27,7 @@ class UrlTest extends AbstractTestCase
         parent::setLanguage();
 
         unset($_COOKIE['pma_lang']);
-        $GLOBALS['config']->set('URLQueryEncryption', false);
+        Config::getInstance()->set('URLQueryEncryption', false);
     }
 
     /**
@@ -179,7 +180,7 @@ class UrlTest extends AbstractTestCase
 
     public function testBuildHttpQueryWithUrlQueryEncryptionDisabled(): void
     {
-        $GLOBALS['config']->set('URLQueryEncryption', false);
+        Config::getInstance()->set('URLQueryEncryption', false);
         $params = ['db' => 'test_db', 'table' => 'test_table', 'pos' => 0];
         $this->assertEquals('db=test_db&table=test_table&pos=0', Url::buildHttpQuery($params));
     }
@@ -187,8 +188,9 @@ class UrlTest extends AbstractTestCase
     public function testBuildHttpQueryWithUrlQueryEncryptionEnabled(): void
     {
         $_SESSION = [];
-        $GLOBALS['config']->set('URLQueryEncryption', true);
-        $GLOBALS['config']->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
+        $config = Config::getInstance();
+        $config->set('URLQueryEncryption', true);
+        $config->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
 
         $params = ['db' => 'test_db', 'table' => 'test_table', 'pos' => 0];
         $query = Url::buildHttpQuery($params);
@@ -209,8 +211,9 @@ class UrlTest extends AbstractTestCase
     public function testQueryEncryption(): void
     {
         $_SESSION = [];
-        $GLOBALS['config']->set('URLQueryEncryption', true);
-        $GLOBALS['config']->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
+        $config = Config::getInstance();
+        $config->set('URLQueryEncryption', true);
+        $config->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
 
         $query = '{"db":"test_db","table":"test_table"}';
         $encrypted = Url::encryptQuery($query);

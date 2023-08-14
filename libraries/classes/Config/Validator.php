@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
@@ -71,7 +72,8 @@ class Validator
         }
 
         $validators = $cf->getDbEntry('_validators', []);
-        if ($GLOBALS['config']->get('is_setup')) {
+        $config = Config::getInstance();
+        if ($config->get('is_setup')) {
             return $validators;
         }
 
@@ -94,7 +96,7 @@ class Validator
 
                     $uv[$i] = Core::arrayRead(
                         mb_substr($uv[$i], 6),
-                        $GLOBALS['config']->baseSettings,
+                        $config->baseSettings,
                     );
                 }
             }

@@ -385,9 +385,9 @@
       <code>$prefix</code>
       <code>$prefix</code>
     </MixedOperand>
-    <PropertyNotSetInConstructor>
+    <ReferenceReusedFromConfusingScope>
       <code>$name</code>
-    </PropertyNotSetInConstructor>
+    </ReferenceReusedFromConfusingScope>
     <UnevaluatedCode>
       <code>return [];</code>
       <code>return [];</code>
@@ -4325,9 +4325,6 @@
     <MixedInferredReturnType>
       <code>bool</code>
     </MixedInferredReturnType>
-    <MixedMethodCall>
-      <code>get</code>
-    </MixedMethodCall>
     <MixedOperand>
       <code>$secret</code>
       <code>$secret</code>
@@ -4360,9 +4357,6 @@
     <RedundantCast>
       <code>(string) gmdate(DATE_RFC1123)</code>
     </RedundantCast>
-    <RedundantCondition>
-      <code><![CDATA[$GLOBALS['config'] !== null]]></code>
-    </RedundantCondition>
     <UnsupportedReferenceUsage>
       <code><![CDATA[$path[$depth] =& $path[$depth - 1][$key]]]></code>
     </UnsupportedReferenceUsage>
@@ -4505,9 +4499,6 @@
       <code>$key</code>
       <code>$key</code>
     </MixedAssignment>
-    <PossiblyNullReference>
-      <code>get</code>
-    </PossiblyNullReference>
   </file>
   <file src="libraries/classes/Database/CentralColumns.php">
     <MixedArgument>
@@ -5756,7 +5747,7 @@
       <code><![CDATA[$GLOBALS['cfg']['IconvExtraParams'] ?? '']]></code>
     </MixedOperand>
     <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['config']->getUploadTempDir()]]></code>
+      <code><![CDATA[Config::getInstance()->getUploadTempDir()]]></code>
     </PossiblyNullArgument>
     <PossiblyUnusedMethod>
       <code>setKanjiEncodings</code>
@@ -6023,11 +6014,6 @@
     <PossiblyInvalidCast>
       <code><![CDATA[$_GET['what']]]></code>
     </PossiblyInvalidCast>
-    <PossiblyNullReference>
-      <code>getUserValue</code>
-      <code>getUserValue</code>
-      <code>getUserValue</code>
-    </PossiblyNullReference>
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$GLOBALS['cfg']['Export']]]></code>
       <code><![CDATA[$GLOBALS['cfg']['Export']]]></code>
@@ -6555,8 +6541,6 @@
       <code>$menu</code>
     </PropertyNotSetInConstructor>
     <RedundantCondition>
-      <code><![CDATA[$GLOBALS['config'] !== null]]></code>
-      <code><![CDATA[$GLOBALS['config'] !== null]]></code>
       <code><![CDATA[$GLOBALS['dbi'] !== null]]></code>
     </RedundantCondition>
     <RedundantFunctionCall>
@@ -7103,26 +7087,26 @@
   </file>
   <file src="libraries/classes/LanguageManager.php">
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['config']->get('Lang')]]></code>
-      <code><![CDATA[$GLOBALS['config']->getCookie('pma_lang')]]></code>
+      <code><![CDATA[$config->get('Lang')]]></code>
+      <code><![CDATA[$config->getCookie('pma_lang')]]></code>
       <code>$lang</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$this->listLocaleDir()]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayOffset>
-      <code><![CDATA[$langs[$GLOBALS['config']->get('DefaultLang')]]]></code>
-      <code><![CDATA[$langs[$GLOBALS['config']->get('DefaultLang')]]]></code>
+      <code><![CDATA[$langs[$config->get('DefaultLang')]]]></code>
+      <code><![CDATA[$langs[$config->get('DefaultLang')]]]></code>
     </MixedArrayOffset>
     <MixedArrayTypeCoercion>
-      <code><![CDATA[$langs[$GLOBALS['config']->get('DefaultLang')]]]></code>
-      <code><![CDATA[$langs[$GLOBALS['config']->get('DefaultLang')]]]></code>
+      <code><![CDATA[$langs[$config->get('DefaultLang')]]]></code>
+      <code><![CDATA[$langs[$config->get('DefaultLang')]]]></code>
     </MixedArrayTypeCoercion>
     <MixedAssignment>
       <code>$lang</code>
     </MixedAssignment>
     <MixedOperand>
-      <code><![CDATA[$GLOBALS['config']->get('FilterLanguages')]]></code>
+      <code><![CDATA[$config->get('FilterLanguages')]]></code>
     </MixedOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_GET['lang']]]></code>
@@ -7133,8 +7117,8 @@
       <code><![CDATA[$_POST['lang']]]></code>
     </PossiblyInvalidCast>
     <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['config']->get('Lang')]]></code>
-      <code><![CDATA[$GLOBALS['config']->getCookie('pma_lang')]]></code>
+      <code><![CDATA[$config->get('Lang')]]></code>
+      <code><![CDATA[$config->getCookie('pma_lang')]]></code>
     </PossiblyNullArgument>
     <PossiblyNullArrayOffset>
       <code>$langs</code>
@@ -8016,10 +8000,6 @@
     <PossiblyInvalidPropertyAssignmentValue>
       <code>$password</code>
     </PossiblyInvalidPropertyAssignmentValue>
-    <PossiblyNullReference>
-      <code>removeCookie</code>
-      <code>removeCookie</code>
-    </PossiblyNullReference>
     <PossiblyUnusedReturnValue>
       <code>bool</code>
     </PossiblyUnusedReturnValue>
@@ -8094,9 +8074,6 @@
     <PossiblyInvalidCast>
       <code><![CDATA[$_REQUEST['guid']]]></code>
     </PossiblyInvalidCast>
-    <PossiblyNullReference>
-      <code>issetCookie</code>
-    </PossiblyNullReference>
   </file>
   <file src="libraries/classes/Plugins/AuthenticationPluginFactory.php">
     <RedundantFunctionCall>
@@ -10522,9 +10499,6 @@
     <MixedAssignment>
       <code>$url</code>
     </MixedAssignment>
-    <PossiblyNullReference>
-      <code>get</code>
-    </PossiblyNullReference>
   </file>
   <file src="libraries/classes/Plugins/UploadInterface.php">
     <PossiblyUnusedMethod>
@@ -10811,11 +10785,9 @@
       <code>$url</code>
     </MixedAssignment>
     <MixedInferredReturnType>
+      <code>bool</code>
       <code>string</code>
     </MixedInferredReturnType>
-    <MixedMethodCall>
-      <code>get</code>
-    </MixedMethodCall>
     <MixedOperand>
       <code>$found[3]</code>
       <code>$url</code>
@@ -10823,10 +10795,12 @@
     <MixedReturnStatement>
       <code>$found[0]</code>
       <code>$found[0]</code>
+      <code><![CDATA[Config::getInstance()->get('is_setup')]]></code>
+      <code><![CDATA[Config::getInstance()->get('is_setup')]]></code>
     </MixedReturnStatement>
-    <RedundantCondition>
-      <code><![CDATA[$GLOBALS['config'] !== null]]></code>
-    </RedundantCondition>
+    <NullableReturnStatement>
+      <code><![CDATA[Config::getInstance()->get('is_setup')]]></code>
+    </NullableReturnStatement>
     <TypeDoesNotContainType>
       <code><![CDATA[isset($_COOKIE[$key]) && ! is_string($_COOKIE[$key])]]></code>
     </TypeDoesNotContainType>
@@ -12083,14 +12057,14 @@
       <code>string|false</code>
     </MixedInferredReturnType>
     <MixedReturnStatement>
-      <code><![CDATA[$GLOBALS['config']->getCookie($name)]]></code>
-      <code><![CDATA[$GLOBALS['config']->getCookie($name)]]></code>
-      <code><![CDATA[$GLOBALS['config']->getCookie($name)]]></code>
-      <code><![CDATA[$GLOBALS['config']->getCookie($name)]]></code>
+      <code><![CDATA[$config->getCookie($name)]]></code>
+      <code><![CDATA[$config->getCookie($name)]]></code>
+      <code><![CDATA[$config->getCookie($name)]]></code>
+      <code><![CDATA[$config->getCookie($name)]]></code>
     </MixedReturnStatement>
     <NullableReturnStatement>
-      <code><![CDATA[$GLOBALS['config']->getCookie($name)]]></code>
-      <code><![CDATA[$GLOBALS['config']->getCookie($name)]]></code>
+      <code><![CDATA[$config->getCookie($name)]]></code>
+      <code><![CDATA[$config->getCookie($name)]]></code>
     </NullableReturnStatement>
     <PossiblyNullArrayOffset>
       <code><![CDATA[$this->themes]]></code>
@@ -12098,10 +12072,6 @@
     <PossiblyNullPropertyAssignmentValue>
       <code>$theme</code>
     </PossiblyNullPropertyAssignmentValue>
-    <PossiblyNullReference>
-      <code>issetCookie</code>
-      <code>issetCookie</code>
-    </PossiblyNullReference>
     <RedundantCondition>
       <code>$configThemeExists</code>
     </RedundantCondition>
@@ -12398,10 +12368,6 @@
             default => $separator,
         }]]></code>
     </MixedReturnStatement>
-    <PossiblyNullReference>
-      <code>get</code>
-      <code>getCookie</code>
-    </PossiblyNullReference>
   </file>
   <file src="libraries/classes/UserPassword.php">
     <PossiblyInvalidArgument>

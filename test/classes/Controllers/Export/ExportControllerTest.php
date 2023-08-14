@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Export;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Export\ExportController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
@@ -50,8 +51,9 @@ class ExportControllerTest extends AbstractTestCase
         $GLOBALS['lang'] = 'en';
         $GLOBALS['sql_indexes'] = null;
         $GLOBALS['sql_auto_increments'] = null;
-        $GLOBALS['config']->selectServer('1');
-        $GLOBALS['cfg'] = $GLOBALS['config']->settings;
+        $config = Config::getInstance();
+        $config->selectServer('1');
+        $GLOBALS['cfg'] = $config->settings;
 
         $this->dummyDbi->addResult(
             'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`',

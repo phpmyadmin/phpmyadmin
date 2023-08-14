@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Export;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
@@ -203,27 +204,26 @@ final class Options
 
     private function getFileNameTemplate(string $exportType, string|null $filename = null): string
     {
-        $GLOBALS['config'] ??= null;
-
         if ($filename !== null) {
             return $filename;
         }
 
+        $config = Config::getInstance();
         if ($exportType === 'database') {
-            return (string) $GLOBALS['config']->getUserValue(
+            return (string) $config->getUserValue(
                 'pma_db_filename_template',
                 $GLOBALS['cfg']['Export']['file_template_database'],
             );
         }
 
         if ($exportType === 'table') {
-            return (string) $GLOBALS['config']->getUserValue(
+            return (string) $config->getUserValue(
                 'pma_table_filename_template',
                 $GLOBALS['cfg']['Export']['file_template_table'],
             );
         }
 
-        return (string) $GLOBALS['config']->getUserValue(
+        return (string) $config->getUserValue(
             'pma_server_filename_template',
             $GLOBALS['cfg']['Export']['file_template_server'],
         );

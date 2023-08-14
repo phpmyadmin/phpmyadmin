@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use Exception;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Error;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Exceptions\ExitException;
@@ -295,7 +296,7 @@ class ErrorHandlerTest extends AbstractTestCase
     {
         $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['config']->set('environment', 'development');
+        Config::getInstance()->set('environment', 'development');
         $errorHandler = new ErrorHandler();
         $this->assertSame([], $errorHandler->getCurrentErrors());
         try {
@@ -320,7 +321,7 @@ class ErrorHandlerTest extends AbstractTestCase
     {
         $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['config']->set('environment', 'production');
+        Config::getInstance()->set('environment', 'production');
         $errorHandler = new ErrorHandler();
         $this->assertSame([], $errorHandler->getCurrentErrors());
         try {
@@ -344,7 +345,7 @@ class ErrorHandlerTest extends AbstractTestCase
     {
         $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['config']->set('environment', 'production');
+        Config::getInstance()->set('environment', 'production');
         $errorHandler = new ErrorHandler();
         try {
             $errorHandler->addError('Fatal error message!', E_ERROR, './file/name', 1);

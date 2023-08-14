@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server\Status\Processes;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\Processes\RefreshController;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Server\Status\Data;
@@ -39,7 +40,7 @@ class RefreshControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
 
-        $this->data = new Data($GLOBALS['dbi'], $GLOBALS['config']);
+        $this->data = new Data($GLOBALS['dbi'], Config::getInstance());
     }
 
     public function testRefresh(): void

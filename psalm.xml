@@ -232,7 +232,6 @@
             complete_query: string,
             compression: 'none'|'zip'|'gzip',
             conn_error: string,
-            config: PhpMyAdmin\Config,
             ConfigFile: PhpMyAdmin\Config\ConfigFile,
             containerBuilder: Symfony\Component\DependencyInjection\ContainerBuilder,
             csv_columns: bool,

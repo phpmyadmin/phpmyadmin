@@ -48,7 +48,7 @@ class Template
 
     public function __construct(Config|null $config = null)
     {
-        $this->config = $config ?? $GLOBALS['config'];
+        $this->config = $config ?? Config::getInstance();
     }
 
     public static function getTwigEnvironment(string|null $cacheDir): Environment

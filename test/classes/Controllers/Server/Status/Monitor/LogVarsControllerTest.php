@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server\Status\Monitor;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\Monitor\LogVarsController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
@@ -44,7 +45,7 @@ class LogVarsControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
 
-        $this->data = new Data($this->dbi, $GLOBALS['config']);
+        $this->data = new Data($this->dbi, Config::getInstance());
     }
 
     public function testLogVars(): void

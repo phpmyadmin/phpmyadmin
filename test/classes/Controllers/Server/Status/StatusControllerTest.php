@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\StatusController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
@@ -46,7 +47,7 @@ class StatusControllerTest extends AbstractTestCase
 
     public function testIndex(): void
     {
-        $data = new Data($GLOBALS['dbi'], $GLOBALS['config']);
+        $data = new Data($GLOBALS['dbi'], Config::getInstance());
 
         $bytesReceived = 100;
         $bytesSent = 200;

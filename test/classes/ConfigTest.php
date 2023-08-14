@@ -66,8 +66,8 @@ class ConfigTest extends AbstractTestCase
         $GLOBALS['server'] = 0;
         $_SESSION['git_location'] = '.git';
         $_SESSION['is_git_revision'] = true;
-        $GLOBALS['config'] = new Config();
-        $GLOBALS['config']->loadAndCheck(CONFIG_FILE);
+        Config::$instance = null;
+        Config::getInstance()->loadAndCheck(CONFIG_FILE);
         $GLOBALS['cfg']['ProxyUrl'] = '';
 
         //for testing file permissions

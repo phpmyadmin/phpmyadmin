@@ -782,11 +782,12 @@ class LanguageManager
     public function availableLocales(): array
     {
         if (! $this->availableLocales) {
-            if (! isset($GLOBALS['config']) || empty($GLOBALS['config']->get('FilterLanguages'))) {
+            $config = Config::getInstance();
+            if (empty($config->get('FilterLanguages'))) {
                 $this->availableLocales = $this->listLocaleDir();
             } else {
                 $this->availableLocales = preg_grep(
-                    '@' . $GLOBALS['config']->get('FilterLanguages') . '@',
+                    '@' . $config->get('FilterLanguages') . '@',
                     $this->listLocaleDir(),
                 );
             }
@@ -882,8 +883,9 @@ class LanguageManager
     public function selectLanguage(): Language
     {
         // check forced language
-        if (! empty($GLOBALS['config']->get('Lang'))) {
-            $lang = $this->getLanguage($GLOBALS['config']->get('Lang'));
+        $config = Config::getInstance();
+        if (! empty($config->get('Lang'))) {
+            $lang = $this->getLanguage($config->get('Lang'));
             if ($lang !== false) {
                 return $lang;
             }
@@ -913,8 +915,8 @@ class LanguageManager
         }
 
         // check previous set language
-        if (! empty($GLOBALS['config']->getCookie('pma_lang'))) {
-            $lang = $this->getLanguage($GLOBALS['config']->getCookie('pma_lang'));
+        if (! empty($config->getCookie('pma_lang'))) {
+            $lang = $this->getLanguage($config->getCookie('pma_lang'));
             if ($lang !== false) {
                 return $lang;
             }
@@ -947,8 +949,8 @@ class LanguageManager
         }
 
         // Didn't catch any valid lang : we use the default settings
-        if (isset($langs[$GLOBALS['config']->get('DefaultLang')])) {
-            return $langs[$GLOBALS['config']->get('DefaultLang')];
+        if (isset($langs[$config->get('DefaultLang')])) {
+            return $langs[$config->get('DefaultLang')];
         }
 
         // Fallback to English

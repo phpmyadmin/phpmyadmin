@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
@@ -41,7 +42,7 @@ class CoreTest extends AbstractTestCase
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
-        $GLOBALS['config']->set('URLQueryEncryption', false);
+        Config::getInstance()->set('URLQueryEncryption', false);
     }
 
     /**
@@ -608,8 +609,9 @@ class CoreTest extends AbstractTestCase
     public function testPopulateRequestWithEncryptedQueryParams(): void
     {
         $_SESSION = [];
-        $GLOBALS['config']->set('URLQueryEncryption', true);
-        $GLOBALS['config']->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
+        $config = Config::getInstance();
+        $config->set('URLQueryEncryption', true);
+        $config->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
 
         $_GET = ['pos' => '0', 'eq' => Url::encryptQuery('{"db":"test_db","table":"test_table"}')];
         $_REQUEST = $_GET;
@@ -638,8 +640,9 @@ class CoreTest extends AbstractTestCase
         array $decrypted,
     ): void {
         $_SESSION = [];
-        $GLOBALS['config']->set('URLQueryEncryption', true);
-        $GLOBALS['config']->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
+        $config = Config::getInstance();
+        $config->set('URLQueryEncryption', true);
+        $config->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
 
         $_GET = $encrypted;
         $_REQUEST = $encrypted;
@@ -668,7 +671,7 @@ class CoreTest extends AbstractTestCase
     #[RunInSeparateProcess]
     public function testDownloadHeader(): void
     {
-        $GLOBALS['config']->set('PMA_USR_BROWSER_AGENT', 'FIREFOX');
+        Config::getInstance()->set('PMA_USR_BROWSER_AGENT', 'FIREFOX');
 
         header('Cache-Control: private, max-age=10800');
 
@@ -693,7 +696,7 @@ class CoreTest extends AbstractTestCase
     #[RunInSeparateProcess]
     public function testDownloadHeader2(): void
     {
-        $GLOBALS['config']->set('PMA_USR_BROWSER_AGENT', 'FIREFOX');
+        Config::getInstance()->set('PMA_USR_BROWSER_AGENT', 'FIREFOX');
 
         header('Cache-Control: private, max-age=10800');
 

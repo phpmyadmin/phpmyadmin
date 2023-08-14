@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server\Status\Monitor;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\Monitor\QueryAnalyzerController;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Server\Status\Data;
@@ -39,7 +40,7 @@ class QueryAnalyzerControllerTest extends AbstractTestCase
         $dummyDbi = new DbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);
 
-        $statusData = new Data($dbi, $GLOBALS['config']);
+        $statusData = new Data($dbi, Config::getInstance());
         $controller = new QueryAnalyzerController($response, new Template(), $statusData, new Monitor($dbi), $dbi);
 
         $request = $this->createStub(ServerRequest::class);

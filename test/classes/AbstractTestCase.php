@@ -159,9 +159,11 @@ abstract class AbstractTestCase extends TestCase
 
     protected function setGlobalConfig(): void
     {
-        $GLOBALS['config'] = $this->createConfig();
-        $GLOBALS['config']->set('environment', 'development');
-        $GLOBALS['cfg'] = $GLOBALS['config']->settings;
+        Config::$instance = null;
+        $config = Config::getInstance();
+        $config->loadAndCheck();
+        $config->set('environment', 'development');
+        $GLOBALS['cfg'] = $config->settings;
     }
 
     protected function setTheme(): void
@@ -197,6 +199,7 @@ abstract class AbstractTestCase extends TestCase
      */
     protected function tearDown(): void
     {
+        Config::$instance = null;
         foreach (array_keys($GLOBALS) as $key) {
             if (in_array($key, $this->globalsAllowList)) {
                 continue;

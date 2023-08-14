@@ -256,11 +256,6 @@ parameters:
 			path: libraries/classes/Command/CacheWarmupCommand.php
 
 		-
-			message: "#^Cannot call method set\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Command/CacheWarmupCommand.php
-
-		-
 			message: "#^Parameter \\#1 \\$source of method PhpMyAdmin\\\\Config\\:\\:loadAndCheck\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Command/CacheWarmupCommand.php
@@ -771,17 +766,22 @@ parameters:
 			path: libraries/classes/Config/FormDisplay.php
 
 		-
-			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
-			count: 3
-			path: libraries/classes/Config/FormDisplay.php
-
-		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 2
 			path: libraries/classes/Config/FormDisplay.php
 
 		-
+			message: "#^Only booleans are allowed in &&, mixed given on the left side\\.$#"
+			count: 1
+			path: libraries/classes/Config/FormDisplay.php
+
+		-
 			message: "#^Only booleans are allowed in a negated boolean, int\\|string\\|false given\\.$#"
+			count: 1
+			path: libraries/classes/Config/FormDisplay.php
+
+		-
+			message: "#^Only booleans are allowed in a ternary operator condition, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Config/FormDisplay.php
 
@@ -796,17 +796,17 @@ parameters:
 			path: libraries/classes/Config/FormDisplay.php
 
 		-
+			message: "#^Only booleans are allowed in an if condition, mixed given\\.$#"
+			count: 3
+			path: libraries/classes/Config/FormDisplay.php
+
+		-
 			message: "#^Parameter \\#1 \\$array of function array_flip expects array\\<int\\|string\\>, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Config/FormDisplay.php
 
 		-
 			message: "#^Parameter \\#1 \\$canonicalPath of method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:getDefault\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Config/FormDisplay.php
-
-		-
-			message: "#^Parameter \\#1 \\$config of class PhpMyAdmin\\\\Config\\\\FormDisplayTemplate constructor expects PhpMyAdmin\\\\Config, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Config/FormDisplay.php
 
@@ -966,17 +966,7 @@ parameters:
 			path: libraries/classes/Config/Forms/User/FeaturesForm.php
 
 		-
-			message: "#^Cannot access property \\$baseSettings on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Config/PageSettings.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: libraries/classes/Config/PageSettings.php
-
-		-
-			message: "#^Parameter \\#1 \\$baseConfig of class PhpMyAdmin\\\\Config\\\\ConfigFile constructor expects array\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Config/PageSettings.php
 
@@ -1131,16 +1121,6 @@ parameters:
 			path: libraries/classes/Config/Validator.php
 
 		-
-			message: "#^Cannot access property \\$baseSettings on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Config/Validator.php
-
-		-
-			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Config/Validator.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 21
 			path: libraries/classes/Config/Validator.php
@@ -1186,6 +1166,11 @@ parameters:
 			path: libraries/classes/Config/Validator.php
 
 		-
+			message: "#^Only booleans are allowed in an if condition, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Config/Validator.php
+
+		-
 			message: "#^Parameter \\#1 \\$callback of function array_map expects \\(callable\\(mixed\\)\\: mixed\\)\\|null, Closure\\(string, bool\\=, bool\\=\\)\\: string given\\.$#"
 			count: 1
 			path: libraries/classes/Config/Validator.php
@@ -1213,11 +1198,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$string of function mb_substr expects string, mixed given\\.$#"
 			count: 2
-			path: libraries/classes/Config/Validator.php
-
-		-
-			message: "#^Parameter \\#2 \\$array of static method PhpMyAdmin\\\\Core\\:\\:arrayRead\\(\\) expects array, mixed given\\.$#"
-			count: 1
 			path: libraries/classes/Config/Validator.php
 
 		-
@@ -2462,11 +2442,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'handler' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/Database/ImportController.php
-
-		-
-			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Database/ImportController.php
 
@@ -5406,11 +5381,6 @@ parameters:
 			path: libraries/classes/Controllers/Preferences/MainPanelController.php
 
 		-
-			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Preferences/ManageController.php
-
-		-
 			message: "#^Cannot call method getConfigArray\\(\\) on mixed\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Preferences/ManageController.php
@@ -5882,11 +5852,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'handler' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/Server/ImportController.php
-
-		-
-			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Server/ImportController.php
 
@@ -6376,7 +6341,7 @@ parameters:
 			path: libraries/classes/Controllers/Setup/AbstractController.php
 
 		-
-			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
+			message: "#^Only booleans are allowed in a ternary operator condition, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Setup/HomeController.php
 
@@ -6828,11 +6793,6 @@ parameters:
 		-
 			message: "#^Cannot access offset \\(int\\|string\\) on mixed\\.$#"
 			count: 2
-			path: libraries/classes/Controllers/Table/ChangeController.php
-
-		-
-			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
-			count: 1
 			path: libraries/classes/Controllers/Table/ChangeController.php
 
 		-
@@ -7642,11 +7602,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'handler' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/Table/ImportController.php
-
-		-
-			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Table/ImportController.php
 
@@ -10321,11 +10276,6 @@ parameters:
 			path: libraries/classes/Core.php
 
 		-
-			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Core.php
-
-		-
 			message: "#^Cannot call method numRows\\(\\) on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
@@ -10382,6 +10332,11 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
+			count: 1
+			path: libraries/classes/Core.php
+
+		-
+			message: "#^Only booleans are allowed in an if condition, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
 
@@ -10589,11 +10544,6 @@ parameters:
 			message: "#^Parameter \\#9 \\$extra of static method PhpMyAdmin\\\\Table\\:\\:generateFieldSpec\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/CreateAddField.php
-
-		-
-			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Crypto/Crypto.php
 
 		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
@@ -12586,11 +12536,6 @@ parameters:
 			path: libraries/classes/Encoding.php
 
 		-
-			message: "#^Cannot call method getUploadTempDir\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Encoding.php
-
-		-
 			message: "#^Foreach overwrites \\$engine with its value variable\\.$#"
 			count: 1
 			path: libraries/classes/Encoding.php
@@ -12606,7 +12551,7 @@ parameters:
 			path: libraries/classes/Encoding.php
 
 		-
-			message: "#^Parameter \\#1 \\$directory of function tempnam expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$directory of function tempnam expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Encoding.php
 
@@ -12901,16 +12846,6 @@ parameters:
 			path: libraries/classes/Export/Export.php
 
 		-
-			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Export/Export.php
-
-		-
-			message: "#^Cannot call method setUserValue\\(\\) on mixed\\.$#"
-			count: 4
-			path: libraries/classes/Export/Export.php
-
-		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 3
 			path: libraries/classes/Export/Export.php
@@ -13116,11 +13051,6 @@ parameters:
 			path: libraries/classes/Export/Options.php
 
 		-
-			message: "#^Cannot call method getUserValue\\(\\) on mixed\\.$#"
-			count: 3
-			path: libraries/classes/Export/Options.php
-
-		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 5
 			path: libraries/classes/Export/Options.php
@@ -13231,11 +13161,6 @@ parameters:
 			path: libraries/classes/File.php
 
 		-
-			message: "#^Cannot call method getUploadTempDir\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/File.php
-
-		-
 			message: "#^Class PhpMyAdmin\\\\File has an uninitialized property \\$zipExtension\\. Give it default value or assign it in the constructor\\.$#"
 			count: 1
 			path: libraries/classes/File.php
@@ -13257,11 +13182,6 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in a negated boolean, resource\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/File.php
-
-		-
-			message: "#^Parameter \\#1 \\$directory of function tempnam expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/File.php
 
@@ -14141,23 +14061,8 @@ parameters:
 			path: libraries/classes/Header.php
 
 		-
-			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Header.php
-
-		-
-			message: "#^Cannot call method getRootPath\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Header.php
-
-		-
 			message: "#^Cannot call method isConnected\\(\\) on mixed\\.$#"
 			count: 2
-			path: libraries/classes/Header.php
-
-		-
-			message: "#^Cannot call method isHttps\\(\\) on mixed\\.$#"
-			count: 1
 			path: libraries/classes/Header.php
 
 		-
@@ -14173,6 +14078,11 @@ parameters:
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 9
+			path: libraries/classes/Header.php
+
+		-
+			message: "#^Only booleans are allowed in a negated boolean, mixed given\\.$#"
+			count: 1
 			path: libraries/classes/Header.php
 
 		-
@@ -15246,11 +15156,6 @@ parameters:
 			path: libraries/classes/InsertEdit.php
 
 		-
-			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
 			message: "#^Cannot cast mixed to int\\.$#"
 			count: 4
 			path: libraries/classes/InsertEdit.php
@@ -15639,16 +15544,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$path of function _bindtextdomain expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Language.php
-
-		-
-			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
-			count: 6
-			path: libraries/classes/LanguageManager.php
-
-		-
-			message: "#^Cannot call method getCookie\\(\\) on mixed\\.$#"
-			count: 2
-			path: libraries/classes/LanguageManager.php
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
@@ -17541,11 +17436,6 @@ parameters:
 			path: libraries/classes/Plugins/Auth/AuthenticationConfig.php
 
 		-
-			message: "#^Cannot access property \\$sourceMtime on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationConfig.php
-
-		-
 			message: "#^Cannot call method dispUserErrors\\(\\) on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Auth/AuthenticationConfig.php
@@ -17706,11 +17596,6 @@ parameters:
 			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
 
 		-
-			message: "#^Cannot call method getCookie\\(\\) on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
-
-		-
 			message: "#^Cannot call method getDispErrors\\(\\) on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
@@ -17718,21 +17603,6 @@ parameters:
 		-
 			message: "#^Cannot call method hasDisplayErrors\\(\\) on mixed\\.$#"
 			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
-
-		-
-			message: "#^Cannot call method issetCookie\\(\\) on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
-
-		-
-			message: "#^Cannot call method removeCookie\\(\\) on mixed\\.$#"
-			count: 5
-			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
-
-		-
-			message: "#^Cannot call method setCookie\\(\\) on mixed\\.$#"
-			count: 2
 			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
 
 		-
@@ -18106,11 +17976,6 @@ parameters:
 			path: libraries/classes/Plugins/AuthenticationPlugin.php
 
 		-
-			message: "#^Cannot call method issetCookie\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/AuthenticationPlugin.php
-
-		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/AuthenticationPlugin.php
@@ -18122,11 +17987,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$array of function array_keys expects array, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/AuthenticationPlugin.php
-
-		-
-			message: "#^Parameter \\#1 \\$config of static method PhpMyAdmin\\\\Logging\\:\\:logUser\\(\\) expects PhpMyAdmin\\\\Config, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/AuthenticationPlugin.php
 
@@ -20736,11 +20596,6 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportShp.php
 
 		-
-			message: "#^Cannot call method getTempDir\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportShp.php
-
-		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 3
 			path: libraries/classes/Plugins/Import/ImportShp.php
@@ -21941,11 +21796,6 @@ parameters:
 			path: libraries/classes/Plugins/Transformations/Abs/InlineTransformationsPlugin.php
 
 		-
-			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Transformations/Abs/InlineTransformationsPlugin.php
-
-		-
 			message: "#^Cannot cast mixed to int\\.$#"
 			count: 2
 			path: libraries/classes/Plugins/Transformations/Abs/InlineTransformationsPlugin.php
@@ -22176,11 +22026,6 @@ parameters:
 			path: libraries/classes/Plugins/TwoFactor/Key.php
 
 		-
-			message: "#^Cannot call method isHttps\\(\\) on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/TwoFactor/Key.php
-
-		-
 			message: "#^Parameter \\#1 \\$json of function json_decode expects string, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Plugins/TwoFactor/Key.php
@@ -22209,16 +22054,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$registrations of static method CodeLts\\\\U2F\\\\U2FServer\\\\U2FServer\\:\\:makeRegistration\\(\\) expects array\\<CodeLts\\\\U2F\\\\U2FServer\\\\stdClass\\>, array\\<stdClass\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/TwoFactor/Key.php
-
-		-
-			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/TwoFactorPlugin.php
-
-		-
-			message: "#^Cannot call method isHttps\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/TwoFactorPlugin.php
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
@@ -22956,11 +22791,6 @@ parameters:
 			path: libraries/classes/ResponseRenderer.php
 
 		-
-			message: "#^Cannot call method getRootPath\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/ResponseRenderer.php
-
-		-
 			message: "#^Cannot call method hasErrorsForPrompt\\(\\) on mixed\\.$#"
 			count: 1
 			path: libraries/classes/ResponseRenderer.php
@@ -23026,13 +22856,13 @@ parameters:
 			path: libraries/classes/Sanitize.php
 
 		-
-			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
-			count: 1
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 2
 			path: libraries/classes/Sanitize.php
 
 		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 2
+			message: "#^Method PhpMyAdmin\\\\Sanitize\\:\\:isSetup\\(\\) should return bool but returns mixed\\.$#"
+			count: 1
 			path: libraries/classes/Sanitize.php
 
 		-
@@ -24471,11 +24301,6 @@ parameters:
 			path: libraries/classes/SqlQueryForm.php
 
 		-
-			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/SqlQueryForm.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 5
 			path: libraries/classes/SqlQueryForm.php
@@ -25506,11 +25331,6 @@ parameters:
 			path: libraries/classes/Template.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Template\\:\\:\\$config \\(PhpMyAdmin\\\\Config\\) does not accept mixed\\.$#"
-			count: 1
-			path: libraries/classes/Template.php
-
-		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
 			count: 1
 			path: libraries/classes/Theme/Theme.php
@@ -25548,26 +25368,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'ThemePerServer' on mixed\\.$#"
 			count: 1
-			path: libraries/classes/Theme/ThemeManager.php
-
-		-
-			message: "#^Cannot call method getCookie\\(\\) on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Theme/ThemeManager.php
-
-		-
-			message: "#^Cannot call method issetCookie\\(\\) on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Theme/ThemeManager.php
-
-		-
-			message: "#^Cannot call method set\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Theme/ThemeManager.php
-
-		-
-			message: "#^Cannot call method setCookie\\(\\) on mixed\\.$#"
-			count: 2
 			path: libraries/classes/Theme/ThemeManager.php
 
 		-
@@ -26211,16 +26011,6 @@ parameters:
 			path: libraries/classes/Url.php
 
 		-
-			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Url.php
-
-		-
-			message: "#^Cannot call method getCookie\\(\\) on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Url.php
-
-		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
 			path: libraries/classes/Url.php
@@ -26233,6 +26023,11 @@ parameters:
 		-
 			message: "#^Method PhpMyAdmin\\\\Url\\:\\:getArgSeparator\\(\\) should return string but returns mixed\\.$#"
 			count: 1
+			path: libraries/classes/Url.php
+
+		-
+			message: "#^Only booleans are allowed in a negated boolean, mixed given\\.$#"
+			count: 2
 			path: libraries/classes/Url.php
 
 		-
@@ -27366,11 +27161,6 @@ parameters:
 			path: test/classes/Config/FormDisplayTest.php
 
 		-
-			message: "#^Cannot call method set\\(\\) on mixed\\.$#"
-			count: 1
-			path: test/classes/Config/FormDisplayTest.php
-
-		-
 			message: "#^Only booleans are allowed in a ternary operator condition, string given\\.$#"
 			count: 3
 			path: test/classes/Config/FormDisplayTest.php
@@ -27382,16 +27172,6 @@ parameters:
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with string will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/Config/Forms/FormListTest.php
-
-		-
-			message: "#^Cannot access property \\$baseSettings on mixed\\.$#"
-			count: 1
-			path: test/classes/Config/Forms/FormListTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$baseConfig of class PhpMyAdmin\\\\Config\\\\ConfigFile constructor expects array\\|null, mixed given\\.$#"
 			count: 1
 			path: test/classes/Config/Forms/FormListTest.php
 
@@ -27731,11 +27511,6 @@ parameters:
 			path: test/classes/Controllers/BrowseForeignersControllerTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$config of class PhpMyAdmin\\\\BrowseForeigners constructor expects PhpMyAdmin\\\\Config, mixed given\\.$#"
-			count: 1
-			path: test/classes/Controllers/BrowseForeignersControllerTest.php
-
-		-
 			message: "#^Cannot access offset 'Server' on mixed\\.$#"
 			count: 2
 			path: test/classes/Controllers/Console/Bookmark/AddControllerTest.php
@@ -27899,16 +27674,6 @@ parameters:
 			message: "#^Parameter \\#5 \\$dbi of class PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
 			count: 7
 			path: test/classes/Controllers/Database/StructureControllerTest.php
-
-		-
-			message: "#^Cannot access property \\$settings on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Export/ExportControllerTest.php
-
-		-
-			message: "#^Cannot call method selectServer\\(\\) on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Export/ExportControllerTest.php
 
 		-
 			message: "#^Cannot access offset 'Server' on mixed\\.$#"
@@ -28181,11 +27946,6 @@ parameters:
 			path: test/classes/Controllers/Server/Status/AdvisorControllerTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$config of class PhpMyAdmin\\\\Server\\\\Status\\\\Data constructor expects PhpMyAdmin\\\\Config, mixed given\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/AdvisorControllerTest.php
-
-		-
 			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Server/Status/Monitor/GeneralLogControllerTest.php
@@ -28221,11 +27981,6 @@ parameters:
 			path: test/classes/Controllers/Server/Status/Monitor/GeneralLogControllerTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$config of class PhpMyAdmin\\\\Server\\\\Status\\\\Data constructor expects PhpMyAdmin\\\\Config, mixed given\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/Monitor/GeneralLogControllerTest.php
-
-		-
 			message: "#^Parameter \\#5 \\$dbi of class PhpMyAdmin\\\\Controllers\\\\Server\\\\Status\\\\Monitor\\\\GeneralLogController constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
 			count: 1
 			path: test/classes/Controllers/Server/Status/Monitor/GeneralLogControllerTest.php
@@ -28247,11 +28002,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$dbi of class PhpMyAdmin\\\\Server\\\\Status\\\\Monitor constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/Monitor/LogVarsControllerTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$config of class PhpMyAdmin\\\\Server\\\\Status\\\\Data constructor expects PhpMyAdmin\\\\Config, mixed given\\.$#"
 			count: 1
 			path: test/classes/Controllers/Server/Status/Monitor/LogVarsControllerTest.php
 
@@ -28291,11 +28041,6 @@ parameters:
 			path: test/classes/Controllers/Server/Status/Monitor/QueryAnalyzerControllerTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$config of class PhpMyAdmin\\\\Server\\\\Status\\\\Data constructor expects PhpMyAdmin\\\\Config, mixed given\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/Monitor/QueryAnalyzerControllerTest.php
-
-		-
 			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Server/Status/Monitor/SlowLogControllerTest.php
@@ -28331,11 +28076,6 @@ parameters:
 			path: test/classes/Controllers/Server/Status/Monitor/SlowLogControllerTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$config of class PhpMyAdmin\\\\Server\\\\Status\\\\Data constructor expects PhpMyAdmin\\\\Config, mixed given\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/Monitor/SlowLogControllerTest.php
-
-		-
 			message: "#^Parameter \\#5 \\$dbi of class PhpMyAdmin\\\\Controllers\\\\Server\\\\Status\\\\Monitor\\\\SlowLogController constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
 			count: 1
 			path: test/classes/Controllers/Server/Status/Monitor/SlowLogControllerTest.php
@@ -28352,11 +28092,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/MonitorControllerTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$config of class PhpMyAdmin\\\\Server\\\\Status\\\\Data constructor expects PhpMyAdmin\\\\Config, mixed given\\.$#"
 			count: 1
 			path: test/classes/Controllers/Server/Status/MonitorControllerTest.php
 
@@ -28396,11 +28131,6 @@ parameters:
 			path: test/classes/Controllers/Server/Status/Processes/RefreshControllerTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$config of class PhpMyAdmin\\\\Server\\\\Status\\\\Data constructor expects PhpMyAdmin\\\\Config, mixed given\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/Processes/RefreshControllerTest.php
-
-		-
 			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Server/Status/ProcessesControllerTest.php
@@ -28421,11 +28151,6 @@ parameters:
 			path: test/classes/Controllers/Server/Status/ProcessesControllerTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$config of class PhpMyAdmin\\\\Server\\\\Status\\\\Data constructor expects PhpMyAdmin\\\\Config, mixed given\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/ProcessesControllerTest.php
-
-		-
 			message: "#^Parameter \\#4 \\$dbi of class PhpMyAdmin\\\\Controllers\\\\Server\\\\Status\\\\ProcessesController constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
 			count: 1
 			path: test/classes/Controllers/Server/Status/ProcessesControllerTest.php
@@ -28442,11 +28167,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/QueriesControllerTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$config of class PhpMyAdmin\\\\Server\\\\Status\\\\Data constructor expects PhpMyAdmin\\\\Config, mixed given\\.$#"
 			count: 1
 			path: test/classes/Controllers/Server/Status/QueriesControllerTest.php
 
@@ -28481,11 +28201,6 @@ parameters:
 			path: test/classes/Controllers/Server/Status/StatusControllerTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$config of class PhpMyAdmin\\\\Server\\\\Status\\\\Data constructor expects PhpMyAdmin\\\\Config, mixed given\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/StatusControllerTest.php
-
-		-
 			message: "#^Parameter \\#5 \\$dbi of class PhpMyAdmin\\\\Controllers\\\\Server\\\\Status\\\\StatusController constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
 			count: 1
 			path: test/classes/Controllers/Server/Status/StatusControllerTest.php
@@ -28502,11 +28217,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/VariablesControllerTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$config of class PhpMyAdmin\\\\Server\\\\Status\\\\Data constructor expects PhpMyAdmin\\\\Config, mixed given\\.$#"
 			count: 1
 			path: test/classes/Controllers/Server/Status/VariablesControllerTest.php
 
@@ -28561,78 +28271,13 @@ parameters:
 			path: test/classes/Controllers/Table/AddFieldControllerTest.php
 
 		-
-			message: "#^Cannot access offset 1 on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/AddFieldControllerTest.php
-
-		-
-			message: "#^Cannot access property \\$Servers on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/AddFieldControllerTest.php
-
-		-
-			message: "#^Cannot call method asArray\\(\\) on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/AddFieldControllerTest.php
-
-		-
-			message: "#^Cannot call method getSettings\\(\\) on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/AddFieldControllerTest.php
-
-		-
 			message: "#^Cannot access offset 'Server' on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Table/CreateControllerTest.php
-
-		-
-			message: "#^Cannot access offset 1 on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/CreateControllerTest.php
-
-		-
-			message: "#^Cannot access property \\$Servers on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/CreateControllerTest.php
-
-		-
-			message: "#^Cannot call method asArray\\(\\) on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/CreateControllerTest.php
-
-		-
-			message: "#^Cannot call method getSettings\\(\\) on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/CreateControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/DeleteRowsControllerTest.php
 
 		-
 			message: "#^Cannot access offset 'Server' on mixed\\.$#"
 			count: 2
-			path: test/classes/Controllers/Table/DeleteRowsControllerTest.php
-
-		-
-			message: "#^Cannot access offset 1 on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/DeleteRowsControllerTest.php
-
-		-
-			message: "#^Cannot access property \\$Servers on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/DeleteRowsControllerTest.php
-
-		-
-			message: "#^Cannot call method asArray\\(\\) on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/DeleteRowsControllerTest.php
-
-		-
-			message: "#^Cannot call method getSettings\\(\\) on mixed\\.$#"
-			count: 1
 			path: test/classes/Controllers/Table/DeleteRowsControllerTest.php
 
 		-
@@ -28641,33 +28286,8 @@ parameters:
 			path: test/classes/Controllers/Table/DropColumnConfirmationControllerTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/ExportControllerTest.php
-
-		-
 			message: "#^Cannot access offset 'Server' on mixed\\.$#"
 			count: 2
-			path: test/classes/Controllers/Table/ExportControllerTest.php
-
-		-
-			message: "#^Cannot access offset 1 on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/ExportControllerTest.php
-
-		-
-			message: "#^Cannot access property \\$Servers on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/ExportControllerTest.php
-
-		-
-			message: "#^Cannot call method asArray\\(\\) on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/ExportControllerTest.php
-
-		-
-			message: "#^Cannot call method getSettings\\(\\) on mixed\\.$#"
-			count: 1
 			path: test/classes/Controllers/Table/ExportControllerTest.php
 
 		-
@@ -28692,26 +28312,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/ImportControllerTest.php
-
-		-
-			message: "#^Cannot access offset 1 on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/ImportControllerTest.php
-
-		-
-			message: "#^Cannot access property \\$Servers on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/ImportControllerTest.php
-
-		-
-			message: "#^Cannot call method asArray\\(\\) on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/ImportControllerTest.php
-
-		-
-			message: "#^Cannot call method getSettings\\(\\) on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Table/ImportControllerTest.php
 
@@ -28761,22 +28361,7 @@ parameters:
 			path: test/classes/Controllers/Table/IndexesControllerTest.php
 
 		-
-			message: "#^Cannot access offset 'MaxDbList' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/OperationsControllerTest.php
-
-		-
-			message: "#^Cannot access property \\$settings on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/OperationsControllerTest.php
-
-		-
 			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/OperationsControllerTest.php
-
-		-
-			message: "#^Cannot call method selectServer\\(\\) on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Table/OperationsControllerTest.php
 
@@ -28951,26 +28536,6 @@ parameters:
 			path: test/classes/Controllers/Table/SqlControllerTest.php
 
 		-
-			message: "#^Cannot access offset 1 on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/SqlControllerTest.php
-
-		-
-			message: "#^Cannot access property \\$Servers on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/SqlControllerTest.php
-
-		-
-			message: "#^Cannot call method asArray\\(\\) on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/SqlControllerTest.php
-
-		-
-			message: "#^Cannot call method getSettings\\(\\) on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/SqlControllerTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$dbi of class PhpMyAdmin\\\\ConfigStorage\\\\Relation constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
 			count: 1
 			path: test/classes/Controllers/Table/SqlControllerTest.php
@@ -28991,11 +28556,6 @@ parameters:
 			path: test/classes/Controllers/Table/Structure/ChangeControllerTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/StructureControllerTest.php
-
-		-
 			message: "#^Cannot access offset 'Server' on mixed\\.$#"
 			count: 2
 			path: test/classes/Controllers/Table/StructureControllerTest.php
@@ -29007,26 +28567,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'ShowStats' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/StructureControllerTest.php
-
-		-
-			message: "#^Cannot access offset 1 on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/StructureControllerTest.php
-
-		-
-			message: "#^Cannot access property \\$Servers on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/StructureControllerTest.php
-
-		-
-			message: "#^Cannot call method asArray\\(\\) on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/StructureControllerTest.php
-
-		-
-			message: "#^Cannot call method getSettings\\(\\) on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Table/StructureControllerTest.php
 
@@ -29186,19 +28726,9 @@ parameters:
 			path: test/classes/CoreTest.php
 
 		-
-			message: "#^Cannot call method set\\(\\) on mixed\\.$#"
-			count: 7
-			path: test/classes/CoreTest.php
-
-		-
 			message: "#^Parameter \\#2 \\$array of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayNotHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
 			count: 12
 			path: test/classes/CoreTest.php
-
-		-
-			message: "#^Cannot call method set\\(\\) on mixed\\.$#"
-			count: 5
-			path: test/classes/Crypto/CryptoTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$string of function mb_strlen expects string, mixed given\\.$#"
@@ -29621,11 +29151,6 @@ parameters:
 			path: test/classes/ErrorHandlerTest.php
 
 		-
-			message: "#^Cannot call method set\\(\\) on mixed\\.$#"
-			count: 3
-			path: test/classes/ErrorHandlerTest.php
-
-		-
 			message: "#^Cannot access offset 'ProxyPass' on mixed\\.$#"
 			count: 1
 			path: test/classes/ErrorReportTest.php
@@ -29643,21 +29168,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'ServerDefault' on mixed\\.$#"
 			count: 1
-			path: test/classes/ErrorReportTest.php
-
-		-
-			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
-			count: 6
-			path: test/classes/ErrorReportTest.php
-
-		-
-			message: "#^Cannot call method set\\(\\) on mixed\\.$#"
-			count: 1
-			path: test/classes/ErrorReportTest.php
-
-		-
-			message: "#^Parameter \\#4 \\$config of class PhpMyAdmin\\\\ErrorReport constructor expects PhpMyAdmin\\\\Config, mixed given\\.$#"
-			count: 2
 			path: test/classes/ErrorReportTest.php
 
 		-
@@ -30196,11 +29706,6 @@ parameters:
 			path: test/classes/InsertEditTest.php
 
 		-
-			message: "#^Cannot call method set\\(\\) on mixed\\.$#"
-			count: 2
-			path: test/classes/InsertEditTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\InsertEditTest\\:\\:parseString\\(\\) should return string but returns mixed\\.$#"
 			count: 1
 			path: test/classes/InsertEditTest.php
@@ -30259,11 +29764,6 @@ parameters:
 			message: "#^Cannot access offset 'user' on mixed\\.$#"
 			count: 1
 			path: test/classes/IpAllowDenyTest.php
-
-		-
-			message: "#^Cannot call method set\\(\\) on mixed\\.$#"
-			count: 12
-			path: test/classes/LanguageTest.php
 
 		-
 			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
@@ -30808,11 +30308,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 1 on mixed\\.$#"
 			count: 2
-			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
-
-		-
-			message: "#^Cannot call method set\\(\\) on mixed\\.$#"
-			count: 10
 			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
 
 		-
@@ -32601,11 +32096,6 @@ parameters:
 			path: test/classes/TwoFactorTest.php
 
 		-
-			message: "#^Cannot call method set\\(\\) on mixed\\.$#"
-			count: 5
-			path: test/classes/TwoFactorTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\TwoFactorTest\\:\\:loadResultForConfig\\(\\) has parameter \\$config with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/TwoFactorTest.php
@@ -32638,11 +32128,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'ServerDefault' on mixed\\.$#"
 			count: 4
-			path: test/classes/UrlTest.php
-
-		-
-			message: "#^Cannot call method set\\(\\) on mixed\\.$#"
-			count: 6
 			path: test/classes/UrlTest.php
 
 		-
@@ -32692,11 +32177,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'userprefs' on mixed\\.$#"
-			count: 1
-			path: test/classes/UserPreferencesTest.php
-
-		-
-			message: "#^Cannot call method set\\(\\) on mixed\\.$#"
 			count: 1
 			path: test/classes/UserPreferencesTest.php
 

@@ -95,7 +95,7 @@ abstract class AuthenticationPlugin
      */
     public function showFailure(string $failure): void
     {
-        Logging::logUser($GLOBALS['config'], $this->user, $failure);
+        Logging::logUser(Config::getInstance(), $this->user, $failure);
     }
 
     /**
@@ -103,8 +103,6 @@ abstract class AuthenticationPlugin
      */
     public function logOut(): void
     {
-        $GLOBALS['config'] ??= null;
-
         /* Obtain redirect URL (before doing logout) */
         if (! empty($GLOBALS['cfg']['Server']['LogoutURL'])) {
             $redirectUrl = $GLOBALS['cfg']['Server']['LogoutURL'];
@@ -120,7 +118,7 @@ abstract class AuthenticationPlugin
         $server = 0;
         if ($GLOBALS['cfg']['LoginCookieDeleteAll'] === false && $GLOBALS['cfg']['Server']['auth_type'] === 'cookie') {
             foreach (array_keys($GLOBALS['cfg']['Servers']) as $key) {
-                if (! $GLOBALS['config']->issetCookie('pmaAuth-' . $key)) {
+                if (! Config::getInstance()->issetCookie('pmaAuth-' . $key)) {
                     continue;
                 }
 

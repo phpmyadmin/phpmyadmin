@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Auth;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\ResponseRenderer;
@@ -94,7 +95,7 @@ class AuthenticationConfig extends AuthenticationPlugin
             trigger_error(__('Access denied!'), E_USER_NOTICE);
         } else {
             // Check whether user has configured something
-            if ($GLOBALS['config']->sourceMtime == 0) {
+            if (Config::getInstance()->sourceMtime == 0) {
                 echo '<p>' , sprintf(
                     __(
                         'You probably did not create a configuration file.'

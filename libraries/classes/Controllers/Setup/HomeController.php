@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Setup;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ServerConfigChecks;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Setup\Index;
@@ -94,7 +95,7 @@ class HomeController extends AbstractController
             'has_check_page_refresh' => $hasCheckPageRefresh,
             'eol' => isset($_SESSION['eol']) && is_scalar($_SESSION['eol'])
                 ? $_SESSION['eol']
-                : ($GLOBALS['config']->get('PMA_IS_WINDOWS') ? 'win' : 'unix'),
+                : (Config::getInstance()->get('PMA_IS_WINDOWS') ? 'win' : 'unix'),
         ]);
     }
 }

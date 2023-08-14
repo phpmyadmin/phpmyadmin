@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Forms\Page\PageFormList;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -64,7 +65,7 @@ class PageSettings
 
         $this->groupName = $formGroupName;
 
-        $cf = new ConfigFile($GLOBALS['config']->baseSettings);
+        $cf = new ConfigFile(Config::getInstance()->baseSettings);
         $this->userPreferences->pageInit($cf);
 
         $formDisplay = new $formClass($cf);

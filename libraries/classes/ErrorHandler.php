@@ -219,8 +219,7 @@ class ErrorHandler
      */
     public function handleException(Throwable $exception): void
     {
-        $config = $GLOBALS['config'] ?? null;
-        $this->hideLocation = ! $config instanceof Config || $config->get('environment') !== 'development';
+        $this->hideLocation = Config::getInstance()->get('environment') !== 'development';
         $this->addError(
             $exception::class . ': ' . $exception->getMessage(),
             (int) $exception->getCode(),

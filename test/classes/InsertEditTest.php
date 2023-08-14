@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ColumnFull;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
@@ -681,7 +682,8 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetMaxUploadSize(): void
     {
-        $GLOBALS['config']->set('max_upload_size', 257);
+        $config = Config::getInstance();
+        $config->set('max_upload_size', 257);
         $pmaType = 'tinyblob';
         $result = $this->callFunction(
             $this->insertEdit,
@@ -693,7 +695,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals("(Max: 256B)\n", $result);
 
         // case 2
-        $GLOBALS['config']->set('max_upload_size', 250);
+        $config->set('max_upload_size', 250);
         $pmaType = 'tinyblob';
         $result = $this->callFunction(
             $this->insertEdit,

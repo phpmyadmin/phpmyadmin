@@ -107,7 +107,7 @@ class SqlQueryForm
             'has_bookmark' => $bookmarkFeature !== null,
             'delimiter' => $delimiter,
             'retain_query_box' => $GLOBALS['cfg']['RetainQueryBox'] !== false,
-            'is_upload' => $GLOBALS['config']->get('enable_upload'),
+            'is_upload' => Config::getInstance()->get('enable_upload'),
             'db' => $db,
             'table' => $table,
             'goto' => $goto,

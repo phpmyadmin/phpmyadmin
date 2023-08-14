@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers;
 
 use PhpMyAdmin\BrowseForeigners;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\BrowseForeignersController;
 use PhpMyAdmin\Http\ServerRequest;
@@ -156,7 +157,7 @@ HTML;
         (new BrowseForeignersController(
             $response,
             $template,
-            new BrowseForeigners($template, $GLOBALS['config']),
+            new BrowseForeigners($template, Config::getInstance()),
             new Relation($dbi),
         ))($request);
 

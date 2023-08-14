@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Config\Forms;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\BaseForm;
 use PhpMyAdmin\Config\Forms\BaseFormList;
@@ -43,7 +44,7 @@ class FormListTest extends AbstractTestCase
     #[DataProvider('formObjects')]
     public function testForms(string $class, string $prefix): void
     {
-        $cf = new ConfigFile($GLOBALS['config']->baseSettings);
+        $cf = new ConfigFile(Config::getInstance()->baseSettings);
 
         /* Static API */
         $this->assertTrue($class::isValid('Export'));

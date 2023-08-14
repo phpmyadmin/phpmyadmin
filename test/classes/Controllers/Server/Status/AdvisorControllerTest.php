@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 
 use PhpMyAdmin\Advisory\Advisor;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\AdvisorController;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Server\Status\Data;
@@ -41,7 +42,7 @@ class AdvisorControllerTest extends AbstractTestCase
 
         $this->response = new ResponseRenderer();
         $this->template = new Template();
-        $this->data = new Data($GLOBALS['dbi'], $GLOBALS['config']);
+        $this->data = new Data($GLOBALS['dbi'], Config::getInstance());
     }
 
     public function testIndexWithoutData(): void
