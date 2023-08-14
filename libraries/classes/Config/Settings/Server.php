@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Config\Settings;
 
+use function array_map;
 use function in_array;
 use function is_array;
+use function strval;
 
 /** @psalm-immutable */
 final class Server
@@ -1378,20 +1380,19 @@ final class Server
      */
     private function setOnlyDb(array $server): string|array
     {
-        $onlyDb = '';
-        if (isset($server['only_db'])) {
-            if (! is_array($server['only_db'])) {
-                $onlyDb = (string) $server['only_db'];
-            } elseif ($server['only_db'] !== []) {
-                $onlyDb = [];
-                /** @var mixed $database */
-                foreach ($server['only_db'] as $database) {
-                    $onlyDb[] = (string) $database;
-                }
-            }
+        if (! isset($server['only_db'])) {
+            return '';
         }
 
-        return $onlyDb;
+        if (! is_array($server['only_db'])) {
+            return (string) $server['only_db'];
+        }
+
+        if ($server['only_db'] === []) {
+            return '';
+        }
+
+        return array_map(strval(...), $server['only_db']);
     }
 
     /** @param array<int|string, mixed> $server */
