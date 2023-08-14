@@ -276,7 +276,7 @@ class Sanitize
         // and use type casting because the variables could have become
         // strings
         $keys = array_keys(
-            array_merge((array) $_REQUEST, (array) $_GET, (array) $_POST, (array) $_COOKIE),
+            array_merge($_REQUEST, $_GET, $_POST, $_COOKIE),
         );
 
         foreach ($keys as $key) {

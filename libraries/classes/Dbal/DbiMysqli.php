@@ -272,7 +272,7 @@ class DbiMysqli implements DbiExtension
         $mysqli = $connection->connection;
 
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        return (int) $mysqli->protocol_version;
+        return $mysqli->protocol_version;
     }
 
     /**

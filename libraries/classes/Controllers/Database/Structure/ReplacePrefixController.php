@@ -42,7 +42,7 @@ final class ReplacePrefixController extends AbstractController
             $subFromPrefix = mb_substr($current, 0, mb_strlen((string) $fromPrefix));
 
             if ($subFromPrefix === $fromPrefix) {
-                $newTableName = $toPrefix . mb_substr($current, mb_strlen((string) $fromPrefix));
+                $newTableName = $toPrefix . mb_substr($current, mb_strlen($fromPrefix));
             } else {
                 $newTableName = $current;
             }

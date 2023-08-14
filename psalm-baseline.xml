@@ -806,7 +806,6 @@
       <code><![CDATA[(string) $GLOBALS['cfg']['ForeignKeyDropdownOrder'][0]]]></code>
       <code><![CDATA[(string) $GLOBALS['cfg']['ForeignKeyDropdownOrder'][1]]]></code>
       <code><![CDATA[(string) $GLOBALS['cfg']['ForeignKeyDropdownOrder'][1]]]></code>
-      <code>(string) $table[1]</code>
     </RedundantCast>
     <RedundantCondition>
       <code><![CDATA[is_array($GLOBALS['cfg']['ForeignKeyDropdownOrder'])]]></code>
@@ -1599,9 +1598,6 @@
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
-    <RedundantCast>
-      <code>(string) $fromPrefix</code>
-    </RedundantCast>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/ShowCreateController.php">
     <MixedArgument>
@@ -5428,9 +5424,6 @@
     <PossiblyNullOperand>
       <code>$errorMessage</code>
     </PossiblyNullOperand>
-    <RedundantCast>
-      <code><![CDATA[(int) $mysqli->protocol_version]]></code>
-    </RedundantCast>
   </file>
   <file src="libraries/classes/Dbal/MysqliResult.php">
     <InvalidReturnStatement>
@@ -10890,12 +10883,6 @@
       <code>$found[0]</code>
       <code>$found[0]</code>
     </MixedReturnStatement>
-    <RedundantCast>
-      <code>(array) $_COOKIE</code>
-      <code>(array) $_GET</code>
-      <code>(array) $_POST</code>
-      <code>(array) $_REQUEST</code>
-    </RedundantCast>
     <RedundantCondition>
       <code><![CDATA[$GLOBALS['config'] !== null]]></code>
     </RedundantCondition>
