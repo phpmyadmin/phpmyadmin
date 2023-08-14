@@ -28,16 +28,6 @@ use function preg_replace;
  */
 class Menu
 {
-    /**
-     * Database name
-     */
-    private string $db;
-
-    /**
-     * Table name
-     */
-    private string $table;
-
     private Relation $relation;
 
     /**
@@ -49,11 +39,9 @@ class Menu
     public function __construct(
         private DatabaseInterface $dbi,
         private readonly Template $template,
-        string $db,
-        string $table,
+        private string $db,
+        private string $table,
     ) {
-        $this->db = $db;
-        $this->table = $table;
         $this->relation = new Relation($dbi);
     }
 

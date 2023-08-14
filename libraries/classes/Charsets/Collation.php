@@ -18,70 +18,28 @@ use function implode;
 final class Collation
 {
     /**
-     * The collation name
-     */
-    private string $name;
-
-    /**
      * A description of the collation
      */
     private string $description;
 
     /**
-     * The name of the character set with which the collation is associated
-     */
-    private string $charset;
-
-    /**
-     * The collation ID
-     */
-    private int $id;
-
-    /**
-     * Whether the collation is the default for its character set
-     */
-    private bool $isDefault;
-
-    /**
-     * Whether the character set is compiled into the server
-     */
-    private bool $isCompiled;
-
-    /**
-     * Used for determining the memory used to sort strings in this collation
-     */
-    private int $sortLength;
-
-    /**
-     * The collation pad attribute
-     */
-    private string $padAttribute;
-
-    /**
-     * @param string $name         Collation name
-     * @param string $charset      Related charset
-     * @param int    $id           Collation ID
-     * @param bool   $isDefault    Whether is the default
-     * @param bool   $isCompiled   Whether the charset is compiled
-     * @param int    $sortLength   Sort length
-     * @param string $padAttribute Pad attribute
+     * @param string $name         The collation name
+     * @param string $charset      The name of the character set with which the collation is associated
+     * @param int    $id           The collation ID
+     * @param bool   $isDefault    Whether the collation is the default for its character set
+     * @param bool   $isCompiled   Whether the character set is compiled into the server
+     * @param int    $sortLength   Used for determining the memory used to sort strings in this collation
+     * @param string $padAttribute The collation pad attribute
      */
     private function __construct(
-        string $name,
-        string $charset,
-        int $id,
-        bool $isDefault,
-        bool $isCompiled,
-        int $sortLength,
-        string $padAttribute,
+        private string $name,
+        private string $charset,
+        private int $id,
+        private bool $isDefault,
+        private bool $isCompiled,
+        private int $sortLength,
+        private string $padAttribute,
     ) {
-        $this->name = $name;
-        $this->charset = $charset;
-        $this->id = $id;
-        $this->isDefault = $isDefault;
-        $this->isCompiled = $isCompiled;
-        $this->sortLength = $sortLength;
-        $this->padAttribute = $padAttribute;
         $this->description = $this->buildDescription();
     }
 

@@ -90,23 +90,15 @@ class Table implements Stringable
     /** @var mixed[] messages */
     public array $messages = [];
 
-    /** @var string  table name */
-    protected string $name = '';
-
-    /** @var string  database name */
-    protected string $dbName = '';
-
     private Relation $relation;
 
     /**
-     * @param string            $tableName table name
-     * @param string            $dbName    database name
-     * @param DatabaseInterface $dbi       database interface for the table
+     * @param string            $name   table name
+     * @param string            $dbName database name
+     * @param DatabaseInterface $dbi    database interface for the table
      */
-    public function __construct(string $tableName, string $dbName, protected DatabaseInterface $dbi)
+    public function __construct(protected string $name, protected string $dbName, protected DatabaseInterface $dbi)
     {
-        $this->name = $tableName;
-        $this->dbName = $dbName;
         $this->relation = new Relation($this->dbi);
     }
 

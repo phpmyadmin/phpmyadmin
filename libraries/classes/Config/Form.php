@@ -37,11 +37,6 @@ class Form
     public string $name;
 
     /**
-     * Arbitrary index, doesn't affect class' behavior
-     */
-    public int|null $index;
-
-    /**
      * Form fields (paths), filled by {@link readFormPaths()}, indexed by field name
      *
      * @var mixed[]
@@ -63,11 +58,6 @@ class Form
     private array $fieldsTypes;
 
     /**
-     * ConfigFile instance
-     */
-    private ConfigFile $configFile;
-
-    /**
      * A counter for the number of groups
      */
     private static int $groupCounter = 0;
@@ -75,19 +65,17 @@ class Form
     /**
      * Reads default config values
      *
-     * @param string     $formName Form name
-     * @param mixed[]    $form     Form data
-     * @param ConfigFile $cf       Config file instance
-     * @param int|null   $index    arbitrary index, stored in Form::$index
+     * @param string     $formName   Form name
+     * @param mixed[]    $form       Form data
+     * @param ConfigFile $configFile ConfigFile instance
+     * @param int|null   $index      Arbitrary index, doesn't affect class' behavior
      */
     public function __construct(
         string $formName,
         array $form,
-        ConfigFile $cf,
-        int|null $index = null,
+        private ConfigFile $configFile,
+        public int|null $index = null,
     ) {
-        $this->index = $index;
-        $this->configFile = $cf;
         $this->loadForm($formName, $form);
     }
 

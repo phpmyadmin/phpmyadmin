@@ -17,13 +17,9 @@ use function __;
 
 final class AccountUnlockController extends AbstractController
 {
-    private AccountLocking $model;
-
-    public function __construct(ResponseRenderer $response, Template $template, AccountLocking $accountLocking)
+    public function __construct(ResponseRenderer $response, Template $template, private AccountLocking $model)
     {
         parent::__construct($response, $template);
-
-        $this->model = $accountLocking;
     }
 
     public function __invoke(ServerRequest $request): void

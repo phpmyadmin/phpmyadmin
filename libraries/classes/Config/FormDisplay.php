@@ -46,11 +46,6 @@ use const E_USER_WARNING;
 class FormDisplay
 {
     /**
-     * ConfigFile instance
-     */
-    private ConfigFile $configFile;
-
-    /**
      * Form list
      *
      * @var array<string, Form>
@@ -102,11 +97,9 @@ class FormDisplay
 
     private bool $isSetupScript;
 
-    /** @param ConfigFile $cf Config file instance */
-    public function __construct(ConfigFile $cf)
+    public function __construct(private ConfigFile $configFile)
     {
         $this->formDisplayTemplate = new FormDisplayTemplate($GLOBALS['config']);
-        $this->configFile = $cf;
         $this->isSetupScript = Sanitize::isSetup();
         // initialize validators
         Validator::getValidators($this->configFile);

@@ -358,7 +358,7 @@
       <code><![CDATA[$_SESSION[$this->id]]]></code>
     </PossiblyInvalidArrayOffset>
     <PossiblyNullArgument>
-      <code><![CDATA[$this->baseCfg]]></code>
+      <code><![CDATA[$this->baseConfig]]></code>
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Config/Form.php">
