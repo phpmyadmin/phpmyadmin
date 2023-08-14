@@ -460,7 +460,7 @@ class DatabaseInterface implements DbalInterface
                          * @param array $a
                          * @param array $b
                          */
-                        static function ($a, $b) {
+                        static function ($a, $b): int {
                             $aLength = $a['Data_length'] + $a['Index_length'];
                             $bLength = $b['Data_length'] + $b['Index_length'];
 
@@ -754,7 +754,7 @@ class DatabaseInterface implements DbalInterface
         if ($applyLimitAndOrderManual) {
             usort(
                 $databases,
-                static fn ($a, $b) => Utilities::usortComparisonCallback($a, $b, $sortBy, $sortOrder)
+                static fn ($a, $b): int => Utilities::usortComparisonCallback($a, $b, $sortBy, $sortOrder)
             );
 
             /**

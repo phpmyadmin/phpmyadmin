@@ -65,31 +65,31 @@ class Advisor
             'round',
             static function (): void {
             },
-            static fn (array $arguments, float $num) => round($num)
+            static fn (array $arguments, float $num): float => round($num)
         );
         $this->expression->register(
             'substr',
             static function (): void {
             },
-            static fn (array $arguments, string $string, int $start, int $length) => substr($string, $start, $length)
+            static fn (array $arguments, string $string, int $start, int $length): string => substr($string, $start, $length)
         );
         $this->expression->register(
             'preg_match',
             static function (): void {
             },
-            static fn (array $arguments, string $pattern, string $subject) => preg_match($pattern, $subject)
+            static fn (array $arguments, string $pattern, string $subject): int|false => preg_match($pattern, $subject)
         );
         $this->expression->register(
             'ADVISOR_bytime',
             static function (): void {
             },
-            static fn (array $arguments, float $num, int $precision) => self::byTime($num, $precision)
+            static fn (array $arguments, float $num, int $precision): string => self::byTime($num, $precision)
         );
         $this->expression->register(
             'ADVISOR_timespanFormat',
             static function (): void {
             },
-            static fn (array $arguments, string $seconds) => Util::timespanFormat((int) $seconds)
+            static fn (array $arguments, string $seconds): string => Util::timespanFormat((int) $seconds)
         );
         $this->expression->register(
             'ADVISOR_formatByteDown',
@@ -100,13 +100,13 @@ class Advisor
                 int $value,
                 int $limes = 6,
                 int $comma = 0,
-            ) => implode(' ', Util::formatByteDown($value, $limes, $comma))
+            ): string => implode(' ', Util::formatByteDown($value, $limes, $comma))
         );
         $this->expression->register(
             'fired',
             static function (): void {
             },
-            function (array $arguments, int|string $value) {
+            function (array $arguments, int|string $value): string {
                 // Did matching rule fire?
                 foreach ($this->firedRules as $rule) {
                     if ($rule['id'] == $value) {
@@ -303,19 +303,19 @@ class Advisor
         // linking to /server/variables
         $rule['recommendation'] = preg_replace_callback(
             '/\{([a-z_0-9]+)\}/Ui',
-            fn (array $matches) => $this->replaceVariable($matches),
+            fn (array $matches): string => $this->replaceVariable($matches),
             $rule['recommendation'],
         );
         $rule['issue'] = preg_replace_callback(
             '/\{([a-z_0-9]+)\}/Ui',
-            fn (array $matches) => $this->replaceVariable($matches),
+            fn (array $matches): string => $this->replaceVariable($matches),
             $rule['issue'],
         );
 
         // Replaces external Links with Core::linkURL() generated links
         $rule['recommendation'] = preg_replace_callback(
             '#href=("|\')(https?://[^"\']+)\1#i',
-            fn (array $matches) => $this->replaceLinkURL($matches),
+            fn (array $matches): string => $this->replaceLinkURL($matches),
             $rule['recommendation'],
         );
 

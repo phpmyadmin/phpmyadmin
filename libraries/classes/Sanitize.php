@@ -203,7 +203,7 @@ class Sanitize
         /* Find and replace all links */
         $message = (string) preg_replace_callback(
             $pattern,
-            static fn (array $match) => self::replaceBBLink($match),
+            static fn (array $match): string => self::replaceBBLink($match),
             $message,
         );
 

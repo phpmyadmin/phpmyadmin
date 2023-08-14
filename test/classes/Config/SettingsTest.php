@@ -1159,7 +1159,7 @@ class SettingsTest extends TestCase
         $settingsArray = $settings->asArray();
         $this->assertEquals($expected, $settings->Servers);
         $this->assertArrayHasKey('Servers', $settingsArray);
-        $expectedArray = array_map(static fn ($server) => $server->asArray(), $expected);
+        $expectedArray = array_map(static fn (Server $server): array => $server->asArray(), $expected);
         $this->assertSame($expectedArray, $settingsArray['Servers']);
     }
 
