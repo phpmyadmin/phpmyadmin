@@ -456,11 +456,7 @@ class DatabaseInterface implements DbalInterface
                 foreach ($tables as $oneDatabaseName => $oneDatabaseTables) {
                     uasort(
                         $oneDatabaseTables,
-                        /**
-                         * @param array $a
-                         * @param array $b
-                         */
-                        static function ($a, $b): int {
+                        static function (array $a, array $b): int {
                             $aLength = $a['Data_length'] + $a['Index_length'];
                             $bLength = $b['Data_length'] + $b['Index_length'];
 
