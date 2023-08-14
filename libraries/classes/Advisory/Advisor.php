@@ -71,13 +71,22 @@ class Advisor
             'substr',
             static function (): void {
             },
-            static fn (array $arguments, string $string, int $start, int $length): string => substr($string, $start, $length)
+            static fn (
+                array $arguments,
+                string $string,
+                int $start,
+                int $length,
+            ): string => substr($string, $start, $length)
         );
         $this->expression->register(
             'preg_match',
             static function (): void {
             },
-            static fn (array $arguments, string $pattern, string $subject): int|false => preg_match($pattern, $subject)
+            static fn (
+                array $arguments,
+                string $pattern,
+                string $subject,
+            ): int|bool => preg_match($pattern, $subject),
         );
         $this->expression->register(
             'ADVISOR_bytime',
