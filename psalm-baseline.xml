@@ -8130,7 +8130,6 @@
       <code><![CDATA[$_SESSION['LAST_SIGNON_URL']]]></code>
       <code>$hmacSecret</code>
       <code>$pmaToken</code>
-      <code>$sessionCookieParams[$key]</code>
       <code>$singleSignonCfgUpdate</code>
       <code>$singleSignonHost</code>
       <code>$singleSignonPort</code>

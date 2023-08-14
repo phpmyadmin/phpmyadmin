@@ -63,23 +63,17 @@ class AuthenticationSignon extends AuthenticationPlugin
             $sessionCookieParams = (array) $GLOBALS['cfg']['Server']['SignonCookieParams'];
         }
 
-        /* Sanitize cookie params */
-        $defaultCookieParams = /** @return mixed */ static function (string $key) {
-            return match ($key) {
-                'lifetime' => 0,
-                'path' => '/',
-                'domain' => '',
-                'secure', 'httponly' => false,
-                default => null,
-            };
-        };
-
         foreach (['lifetime', 'path', 'domain', 'secure', 'httponly'] as $key) {
             if (isset($sessionCookieParams[$key])) {
                 continue;
             }
 
-            $sessionCookieParams[$key] = $defaultCookieParams($key);
+            $sessionCookieParams[$key] = match ($key) {
+                'lifetime' => 0,
+                'path' => '/',
+                'domain' => '',
+                'secure', 'httponly' => false,
+            };
         }
 
         if (
