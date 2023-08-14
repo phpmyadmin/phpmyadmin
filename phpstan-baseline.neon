@@ -706,22 +706,7 @@ parameters:
 			path: libraries/classes/Config/ConfigFile.php
 
 		-
-			message: "#^Class PhpMyAdmin\\\\Config\\\\Form has an uninitialized property \\$default\\. Give it default value or assign it in the constructor\\.$#"
-			count: 1
-			path: libraries/classes/Config/Form.php
-
-		-
-			message: "#^Class PhpMyAdmin\\\\Config\\\\Form has an uninitialized property \\$fieldsTypes\\. Give it default value or assign it in the constructor\\.$#"
-			count: 1
-			path: libraries/classes/Config/Form.php
-
-		-
-			message: "#^Empty array passed to foreach\\.$#"
-			count: 1
-			path: libraries/classes/Config/Form.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Config\\\\Form\\:\\:getOptionType\\(\\) should return string\\|null but returns mixed\\.$#"
+			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
 			path: libraries/classes/Config/Form.php
 
@@ -731,17 +716,7 @@ parameters:
 			path: libraries/classes/Config/Form.php
 
 		-
-			message: "#^Parameter \\#1 \\$canonicalPath of method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:getDefault\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Config/Form.php
-
-		-
 			message: "#^Parameter \\#1 \\$keys of function array_combine expects array\\<int\\|string\\>, array\\<int\\<0, max\\>, mixed\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Config/Form.php
-
-		-
-			message: "#^Parameter \\#1 \\$path of method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:getDbEntry\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Config/Form.php
 
@@ -846,11 +821,6 @@ parameters:
 			path: libraries/classes/Config/FormDisplay.php
 
 		-
-			message: "#^Parameter \\#1 \\$optionPath of method PhpMyAdmin\\\\Config\\\\Form\\:\\:getOptionValueList\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Config/FormDisplay.php
-
-		-
 			message: "#^Parameter \\#1 \\$path of method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:getValue\\(\\) expects string, int\\|string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Config/FormDisplay.php
@@ -867,7 +837,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$path of static method PhpMyAdmin\\\\Config\\\\Descriptions\\:\\:get\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Config/FormDisplay.php
 
 		-
@@ -916,22 +886,7 @@ parameters:
 			path: libraries/classes/Config/FormDisplay.php
 
 		-
-			message: "#^Parameter \\#3 \\$canonicalPath of method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:set\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Config/FormDisplay.php
-
-		-
 			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, int\\|string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Config/FormDisplay.php
-
-		-
-			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Config/FormDisplay.php
-
-		-
-			message: "#^Parameter \\#3 \\$systemPath of method PhpMyAdmin\\\\Config\\\\FormDisplay\\:\\:displayFieldInput\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Config/FormDisplay.php
 

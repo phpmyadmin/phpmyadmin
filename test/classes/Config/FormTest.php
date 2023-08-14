@@ -124,8 +124,6 @@ class FormTest extends AbstractTestCase
 
         $this->assertEquals('preffoo/foo/bar/test', $result[0]);
 
-        $this->assertIsString($result[1]);
-
         // needs regexp because the counter is static
         $this->assertMatchesRegularExpression('/^preffoo\/foo\/bar\/\:group\:end\:\d+$/', $result[1]);
     }

@@ -370,39 +370,22 @@
       <code>$value</code>
       <code>$value</code>
     </MissingClosureParamType>
-    <MixedArgument>
-      <code>$path</code>
-      <code>$path</code>
-      <code>$path</code>
-    </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$keys</code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code>$keys[]</code>
-      <code>$path</code>
-      <code>$path</code>
       <code>$type</code>
       <code>$v</code>
       <code>$value</code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>string|null</code>
-    </MixedInferredReturnType>
     <MixedOperand>
       <code>$key</code>
       <code>$prefix</code>
       <code>$prefix</code>
       <code>$prefix</code>
     </MixedOperand>
-    <MixedReturnStatement>
-      <code><![CDATA[$this->fieldsTypes[$key] ?? null]]></code>
-      <code><![CDATA[$this->fieldsTypes[$key] ?? null]]></code>
-    </MixedReturnStatement>
     <PropertyNotSetInConstructor>
-      <code>$default</code>
-      <code>$fields</code>
-      <code>$fieldsTypes</code>
       <code>$name</code>
     </PropertyNotSetInConstructor>
     <UnevaluatedCode>
@@ -414,21 +397,14 @@
     <MixedArgument>
       <code>$canonicalPath</code>
       <code>$errorList</code>
-      <code><![CDATA[$form->fields[$field]]]></code>
       <code>$ip</code>
       <code>$key</code>
-      <code>$path</code>
-      <code>$path</code>
-      <code>$path</code>
-      <code>$systemPath</code>
-      <code>$systemPath</code>
       <code><![CDATA[$this->systemPaths[$systemPath]]]></code>
       <code>$translatedPath</code>
       <code>$userPrefsDisallow ?? []</code>
       <code>$val</code>
       <code>$validators[$path]</code>
       <code>$value</code>
-      <code>$workPath</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$field</code>
@@ -451,20 +427,7 @@
       <code>$_POST[$key]</code>
       <code>$_POST[$key]</code>
       <code>$_POST[$key]</code>
-      <code><![CDATA[$this->systemPaths[$workPath]]]></code>
-      <code><![CDATA[$this->translatedPaths[$workPath]]]></code>
-      <code><![CDATA[$this->userprefsDisallow[$path]]]></code>
-      <code><![CDATA[$this->userprefsDisallow[$systemPath]]]></code>
-      <code><![CDATA[$this->userprefsDisallow[$systemPath]]]></code>
-      <code><![CDATA[$this->userprefsKeys[$path]]]></code>
-      <code><![CDATA[$this->userprefsKeys[$systemPath]]]></code>
-      <code>$values[$path]</code>
-      <code>$values[$path]</code>
-      <code>$values[$systemPath]</code>
     </MixedArrayOffset>
-    <MixedArrayTypeCoercion>
-      <code>$values[$path]</code>
-    </MixedArrayTypeCoercion>
     <MixedAssignment>
       <code>$canonicalPath</code>
       <code>$errorList</code>
@@ -473,14 +436,7 @@
       <code>$isSetupScript</code>
       <code>$key</code>
       <code><![CDATA[$opts['errors']]]></code>
-      <code>$path</code>
-      <code>$path</code>
-      <code>$path</code>
-      <code>$path</code>
-      <code>$paths[]</code>
       <code><![CDATA[$proxies['-' . $i]]]></code>
-      <code>$systemPath</code>
-      <code>$toSave[$workPath]</code>
       <code>$translatedPath</code>
       <code>$userPrefsDisallow</code>
       <code>$v</code>
@@ -492,7 +448,6 @@
       <code>$valueDefault</code>
       <code>$valueDefaultJs</code>
       <code>$values[$path]</code>
-      <code>$workPath</code>
     </MixedAssignment>
     <MixedOperand>
       <code>$ip</code>
