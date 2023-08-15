@@ -6932,7 +6932,7 @@
       <code><![CDATA[$GLOBALS['cfg']['UploadDir']]]></code>
     </InvalidArrayOffset>
     <InvalidReturnStatement>
-      <code><![CDATA[$_POST['err_url']]]></code>
+      <code><![CDATA[$_POST['err_url'] ?? Url::getFromRoute('/table/change', $urlParams)]]></code>
       <code>$formParams</code>
     </InvalidReturnStatement>
     <InvalidReturnType>
@@ -7091,10 +7091,8 @@
     </MixedArgumentTypeCoercion>
     <MixedArrayOffset>
       <code><![CDATA[$langs[$config->get('DefaultLang')]]]></code>
-      <code><![CDATA[$langs[$config->get('DefaultLang')]]]></code>
     </MixedArrayOffset>
     <MixedArrayTypeCoercion>
-      <code><![CDATA[$langs[$config->get('DefaultLang')]]]></code>
       <code><![CDATA[$langs[$config->get('DefaultLang')]]]></code>
     </MixedArrayTypeCoercion>
     <MixedAssignment>

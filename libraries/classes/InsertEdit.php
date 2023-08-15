@@ -929,11 +929,7 @@ class InsertEdit
      */
     public function getErrorUrl(array $urlParams): string
     {
-        if (isset($_POST['err_url'])) {
-            return $_POST['err_url'];
-        }
-
-        return Url::getFromRoute('/table/change', $urlParams);
+        return $_POST['err_url'] ?? Url::getFromRoute('/table/change', $urlParams);
     }
 
     /**
