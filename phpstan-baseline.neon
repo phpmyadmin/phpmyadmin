@@ -16111,8 +16111,53 @@ parameters:
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
+			message: "#^Parameter \\#1 \\$item of class PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeColumn constructor expects array, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/NavigationTree.php
+
+		-
 			message: "#^Parameter \\#1 \\$key of function array_key_exists expects int\\|string, mixed given\\.$#"
 			count: 2
+			path: libraries/classes/Navigation/NavigationTree.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeDatabase constructor expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/NavigationTree.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeEvent constructor expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/NavigationTree.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeFunction constructor expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/NavigationTree.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeIndex constructor expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/NavigationTree.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeProcedure constructor expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/NavigationTree.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeTable constructor expects string, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/Navigation/NavigationTree.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeTrigger constructor expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/NavigationTree.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeView constructor expects string, mixed given\\.$#"
+			count: 1
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
@@ -16158,11 +16203,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$target of static method PhpMyAdmin\\\\Util\\:\\:getScriptNameForOption\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Parameter \\#2 \\$name of static method PhpMyAdmin\\\\Navigation\\\\NodeFactory\\:\\:getInstance\\(\\) expects array\\|string, mixed given\\.$#"
-			count: 10
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
@@ -16451,11 +16491,6 @@ parameters:
 			path: libraries/classes/Navigation/Nodes/NodeDatabase.php
 
 		-
-			message: "#^Cannot call method fetchAllColumn\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/Nodes/NodeDatabase.php
-
-		-
 			message: "#^Cannot call method fetchAssoc\\(\\) on mixed\\.$#"
 			count: 2
 			path: libraries/classes/Navigation/Nodes/NodeDatabase.php
@@ -16517,11 +16552,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeDatabase\\:\\:getFunctionCount\\(\\) should return int but returns mixed\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/Nodes/NodeDatabase.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeDatabase\\:\\:getHiddenItems\\(\\) should return array but returns mixed\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/Nodes/NodeDatabase.php
 

@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Navigation\Nodes;
 use PhpMyAdmin\ConfigStorage\Features\NavigationItemsHidingFeature;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -262,26 +263,14 @@ class NodeDatabase extends Node
         int $pos,
         string $searchClause = '',
     ): array {
-        $retval = [];
-        switch ($type) {
-            case 'tables':
-                $retval = $this->getTables($pos, $searchClause);
-                break;
-            case 'views':
-                $retval = $this->getViews($pos, $searchClause);
-                break;
-            case 'procedures':
-                $retval = $this->getProcedures($pos, $searchClause);
-                break;
-            case 'functions':
-                $retval = $this->getFunctions($pos, $searchClause);
-                break;
-            case 'events':
-                $retval = $this->getEvents($pos, $searchClause);
-                break;
-            default:
-                break;
-        }
+        $retval = match ($type) {
+            'tables' => $this->getTables($pos, $searchClause),
+            'views' => $this->getViews($pos, $searchClause),
+            'procedures' => $this->getProcedures($pos, $searchClause),
+            'functions' => $this->getFunctions($pos, $searchClause),
+            'events' => $this->getEvents($pos, $searchClause),
+            default => [],
+        };
 
         // Remove hidden items so that they are not displayed in navigation tree
         if ($relationParameters->navigationItemsHidingFeature !== null) {
@@ -304,7 +293,7 @@ class NodeDatabase extends Node
      * @param string $type The type of items we are looking for
      *                     ('table', 'function', 'group', etc.)
      *
-     * @return mixed[] Array containing hidden items of given type
+     * @return list<string> Array containing hidden items of given type
      */
     public function getHiddenItems(RelationParameters $relationParameters, string $type): array
     {
@@ -322,11 +311,13 @@ class NodeDatabase extends Node
             . ' AND `db_name`='
             . $GLOBALS['dbi']->quoteString($this->realName, Connection::TYPE_CONTROL);
         $result = $GLOBALS['dbi']->tryQueryAsControlUser($sqlQuery);
-        if ($result) {
-            return $result->fetchAllColumn();
+        $hiddenItems = [];
+        if ($result instanceof ResultInterface) {
+            /** @var list<string> $hiddenItems */
+            $hiddenItems = $result->fetchAllColumn();
         }
 
-        return [];
+        return $hiddenItems;
     }
 
     /**

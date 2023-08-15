@@ -15,23 +15,6 @@ use PhpMyAdmin\Navigation\Nodes\Node;
 class NodeFactory
 {
     /**
-     * Instantiates a Node object
-     *
-     * @param class-string<T> $class The name of the class to instantiate
-     * @param string|mixed[]  $name  An identifier for the new node
-     *
-     * @return T
-     *
-     * @template T of Node
-     */
-    public static function getInstance(
-        string $class,
-        string|array $name = 'default',
-    ): Node {
-        return new $class($name);
-    }
-
-    /**
      * Instantiates a Node object that will be used only for "New db/table/etc.." objects
      *
      * @param string $name    An identifier for the new node

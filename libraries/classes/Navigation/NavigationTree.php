@@ -201,7 +201,7 @@ class NavigationTree
         }
 
         // Initialize the tree by creating a root node
-        $this->tree = NodeFactory::getInstance(NodeDatabaseContainer::class, 'root');
+        $this->tree = new NodeDatabaseContainer('root');
         if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping'] || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
             return;
         }
@@ -315,7 +315,7 @@ class NavigationTree
         $data = $this->tree->getData($this->relationParameters, 'databases', $this->pos, $this->searchClause);
         $hiddenCounts = $this->tree->getNavigationHidingData($this->relationParameters->navigationItemsHidingFeature);
         foreach ($data as $db) {
-            $node = NodeFactory::getInstance(NodeDatabase::class, $db);
+            $node = new NodeDatabase($db);
             if (isset($hiddenCounts[$db])) {
                 $node->setHiddenCount((int) $hiddenCounts[$db]);
             }
@@ -388,27 +388,16 @@ class NavigationTree
         if (count($container->children) <= 1) {
             $dbData = $db->getData($this->relationParameters, $container->realName, $pos2, $this->searchClause2);
             foreach ($dbData as $item) {
-                switch ($container->realName) {
-                    case 'events':
-                        $node = NodeFactory::getInstance(NodeEvent::class, $item);
-                        break;
-                    case 'functions':
-                        $node = NodeFactory::getInstance(NodeFunction::class, $item);
-                        break;
-                    case 'procedures':
-                        $node = NodeFactory::getInstance(NodeProcedure::class, $item);
-                        break;
-                    case 'tables':
-                        $node = NodeFactory::getInstance(NodeTable::class, $item);
-                        break;
-                    case 'views':
-                        $node = NodeFactory::getInstance(NodeView::class, $item);
-                        break;
-                    default:
-                        break;
-                }
+                $node = match ($container->realName) {
+                    'events' => new NodeEvent($item),
+                    'functions' => new NodeFunction($item),
+                    'procedures' => new NodeProcedure($item),
+                    'tables' => new NodeTable($item),
+                    'views' => new NodeView($item),
+                    default => null,
+                };
 
-                if (! isset($node)) {
+                if ($node === null) {
                     continue;
                 }
 
@@ -436,7 +425,7 @@ class NavigationTree
                 return false;
             }
 
-            $node = NodeFactory::getInstance(NodeTable::class, $path[0]);
+            $node = new NodeTable($path[0]);
             if ($type2 === $container->realName) {
                 $node->pos2 = $pos2;
             }
@@ -461,21 +450,14 @@ class NavigationTree
 
         $tableData = $table->getData($this->relationParameters, $container->realName, $pos3);
         foreach ($tableData as $item) {
-            switch ($container->realName) {
-                case 'indexes':
-                    $node = NodeFactory::getInstance(NodeIndex::class, $item);
-                    break;
-                case 'columns':
-                    $node = NodeFactory::getInstance(NodeColumn::class, $item);
-                    break;
-                case 'triggers':
-                    $node = NodeFactory::getInstance(NodeTrigger::class, $item);
-                    break;
-                default:
-                    break;
-            }
+            $node = match ($container->realName) {
+                'indexes' => new NodeIndex($item),
+                'columns' => new NodeColumn($item),
+                'triggers' => new NodeTrigger($item),
+                default => null,
+            };
 
-            if (! isset($node)) {
+            if ($node === null) {
                 continue;
             }
 
@@ -512,15 +494,15 @@ class NavigationTree
         $retval = [];
         if (! $table->hasChildren()) {
             if ($table->getPresence('columns')) {
-                $retval['columns'] = NodeFactory::getInstance(NodeColumnContainer::class);
+                $retval['columns'] = new NodeColumnContainer();
             }
 
             if ($table->getPresence('indexes')) {
-                $retval['indexes'] = NodeFactory::getInstance(NodeIndexContainer::class);
+                $retval['indexes'] = new NodeIndexContainer();
             }
 
             if ($table->getPresence('triggers')) {
-                $retval['triggers'] = NodeFactory::getInstance(NodeTriggerContainer::class);
+                $retval['triggers'] = new NodeTriggerContainer();
             }
 
             // Add all new Nodes to the tree
@@ -587,23 +569,23 @@ class NavigationTree
         $retval = [];
         if (! $db->hasChildren()) {
             if (! in_array('tables', $hidden) && $db->getPresence('tables')) {
-                $retval['tables'] = NodeFactory::getInstance(NodeTableContainer::class);
+                $retval['tables'] = new NodeTableContainer();
             }
 
             if (! in_array('views', $hidden) && $db->getPresence('views')) {
-                $retval['views'] = NodeFactory::getInstance(NodeViewContainer::class);
+                $retval['views'] = new NodeViewContainer();
             }
 
             if (! in_array('functions', $hidden) && $db->getPresence('functions')) {
-                $retval['functions'] = NodeFactory::getInstance(NodeFunctionContainer::class);
+                $retval['functions'] = new NodeFunctionContainer();
             }
 
             if (! in_array('procedures', $hidden) && $db->getPresence('procedures')) {
-                $retval['procedures'] = NodeFactory::getInstance(NodeProcedureContainer::class);
+                $retval['procedures'] = new NodeProcedureContainer();
             }
 
             if (! in_array('events', $hidden) && $db->getPresence('events')) {
-                $retval['events'] = NodeFactory::getInstance(NodeEventContainer::class);
+                $retval['events'] = new NodeEventContainer();
             }
 
             // Add all new Nodes to the tree
@@ -766,13 +748,7 @@ class NavigationTree
                         continue;
                     }
 
-                    $newChild = NodeFactory::getInstance(
-                        $child::class,
-                        mb_substr(
-                            $child->name,
-                            $keySeparatorLength,
-                        ),
-                    );
+                    $newChild = new $child(mb_substr($child->name, $keySeparatorLength));
                     if ($child instanceof NodeDatabase && $child->getHiddenCount() > 0) {
                         $newChild->setHiddenCount($child->getHiddenCount());
                     }
