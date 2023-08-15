@@ -72,6 +72,8 @@ use const PHP_URL_SCHEME;
  */
 class Config
 {
+    public static self|null $instance = null;
+
     /** @var mixed[]   default configuration settings */
     public array $default;
 
@@ -105,6 +107,15 @@ class Config
         $this->default = $config;
         $this->settings = $config;
         $this->baseSettings = $config;
+    }
+
+    public static function getInstance(): self
+    {
+        if (self::$instance === null) {
+            self::$instance = new self();
+        }
+
+        return self::$instance;
     }
 
     /**

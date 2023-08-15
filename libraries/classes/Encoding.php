@@ -250,7 +250,7 @@ class Encoding
             return $file;
         }
 
-        $tmpfname = (string) tempnam($GLOBALS['config']->getUploadTempDir(), $enc);
+        $tmpfname = (string) tempnam(Config::getInstance()->getUploadTempDir(), $enc);
         $fpd = fopen($tmpfname, 'wb');
         if ($fpd === false) {
             return $file;

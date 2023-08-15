@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Table\OperationsController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
@@ -39,8 +40,9 @@ class OperationsControllerTest extends AbstractTestCase
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';
 
-        $GLOBALS['config']->selectServer('1');
-        $GLOBALS['cfg'] = $GLOBALS['config']->settings;
+        $config = Config::getInstance();
+        $config->selectServer('1');
+        $GLOBALS['cfg'] = $config->settings;
         $GLOBALS['cfg']['MaxDbList'] = 0;
 
         $this->loadDbiIntoContainerBuilder();

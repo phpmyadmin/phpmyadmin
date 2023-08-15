@@ -39,7 +39,6 @@ final class ApplicationTest extends AbstractTestCase
         $GLOBALS['errorHandler'] = null;
         $errorHandler = $this->createStub(ErrorHandler::class);
 
-        $GLOBALS['config'] = null;
         $config = $this->createMock(Config::class);
         $config->expects($this->once())->method('loadAndCheck')
             ->willThrowException(new ConfigException('Failed to load phpMyAdmin configuration.'));
@@ -56,7 +55,6 @@ final class ApplicationTest extends AbstractTestCase
 
         $output = $this->getActualOutputForAssertion();
         $this->assertSame($expected, $output);
-        $this->assertSame($config, $GLOBALS['config']);
         $this->assertSame($errorHandler, $GLOBALS['errorHandler']);
     }
 

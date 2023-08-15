@@ -129,6 +129,7 @@ class Header
     {
         $pftext = $_SESSION['tmpval']['pftext'] ?? '';
 
+        $config = Config::getInstance();
         $params = [
             // Do not add any separator, JS code will decide
             'common_query' => Url::getCommonRaw([], ''),
@@ -145,8 +146,8 @@ class Header
             'LoginCookieValidity' => $GLOBALS['cfg']['LoginCookieValidity'],
             'session_gc_maxlifetime' => (int) ini_get('session.gc_maxlifetime'),
             'logged_in' => isset($GLOBALS['dbi']) ? $GLOBALS['dbi']->isConnected() : false,
-            'is_https' => $GLOBALS['config'] !== null && $GLOBALS['config']->isHttps(),
-            'rootPath' => $GLOBALS['config'] !== null && $GLOBALS['config']->getRootPath(),
+            'is_https' => $config->isHttps(),
+            'rootPath' => $config->getRootPath(),
             'arg_separator' => Url::getArgSeparator(),
             'version' => Version::VERSION,
         ];
@@ -300,7 +301,8 @@ class Header
             $this->scripts->addFile('drag_drop_import.js');
         }
 
-        if (! $GLOBALS['config']->get('DisableShortcutKeys')) {
+        $config = Config::getInstance();
+        if (! $config->get('DisableShortcutKeys')) {
             $this->scripts->addFile('shortcuts_handler.js');
         }
 
@@ -322,7 +324,7 @@ class Header
 
         // offer to load user preferences from localStorage
         if (
-            $GLOBALS['config']->get('user_preferences') === 'session'
+            $config->get('user_preferences') === 'session'
             && ! isset($_SESSION['userprefs_autoload'])
         ) {
             $loadUserPreferences = $this->userPreferences->autoloadGetHeader();

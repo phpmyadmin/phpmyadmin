@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
@@ -126,9 +127,8 @@ class TwoFactorPlugin
      */
     public function getAppId(bool $returnUrl): string
     {
-        $GLOBALS['config'] ??= null;
-
-        $url = $GLOBALS['config']->get('PmaAbsoluteUri');
+        $config = Config::getInstance();
+        $url = $config->get('PmaAbsoluteUri');
         $parsed = [];
         if (! empty($url)) {
             $parsedUrl = parse_url($url);
@@ -139,7 +139,7 @@ class TwoFactorPlugin
         }
 
         if (! isset($parsed['scheme']) || $parsed['scheme'] === '') {
-            $parsed['scheme'] = $GLOBALS['config']->isHttps() ? 'https' : 'http';
+            $parsed['scheme'] = $config->isHttps() ? 'https' : 'http';
         }
 
         if (! isset($parsed['host']) || $parsed['host'] === '') {

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\QueriesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
@@ -48,7 +49,7 @@ class QueriesControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
 
-        $this->data = new Data($this->dbi, $GLOBALS['config']);
+        $this->data = new Data($this->dbi, Config::getInstance());
         $this->data->status['Uptime'] = 36000;
         $this->data->usedQueries = [
             'Com_change_db' => '15',

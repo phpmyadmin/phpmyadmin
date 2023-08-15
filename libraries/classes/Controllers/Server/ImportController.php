@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
@@ -84,7 +85,8 @@ final class ImportController extends AbstractController
         $options = Plugins::getOptions('Import', $importList);
         $skipQueriesDefault = Plugins::getDefault('Import', 'skip_queries');
         $isAllowInterruptChecked = Plugins::checkboxCheck('Import', 'allow_interrupt');
-        $maxUploadSize = (int) $GLOBALS['config']->get('max_upload_size');
+        $config = Config::getInstance();
+        $maxUploadSize = (int) $config->get('max_upload_size');
 
         $this->render('server/import/index', [
             'page_settings_error_html' => $pageSettingsErrorHtml,
@@ -101,7 +103,7 @@ final class ImportController extends AbstractController
             'skip_queries_default' => $skipQueriesDefault,
             'is_allow_interrupt_checked' => $isAllowInterruptChecked,
             'local_import_file' => $localImportFile,
-            'is_upload' => $GLOBALS['config']->get('enable_upload'),
+            'is_upload' => $config->get('enable_upload'),
             'upload_dir' => $GLOBALS['cfg']['UploadDir'] ?? null,
             'timeout_passed_global' => $GLOBALS['timeout_passed'] ?? null,
             'compressions' => $compressions,

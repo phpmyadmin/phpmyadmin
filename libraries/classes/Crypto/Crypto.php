@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Crypto;
 
+use PhpMyAdmin\Config;
 use Throwable;
 
 use function is_string;
@@ -20,9 +21,7 @@ final class Crypto
 {
     private function getEncryptionKey(): string
     {
-        $GLOBALS['config'] ??= null;
-
-        $key = $GLOBALS['config']->get('URLQueryEncryptionSecretKey');
+        $key = Config::getInstance()->get('URLQueryEncryptionSecretKey');
         if (is_string($key) && mb_strlen($key, '8bit') === SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
             return $key;
         }

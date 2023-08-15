@@ -260,7 +260,7 @@ class ManageController extends AbstractController
 
         $this->render('preferences/manage/main', [
             'error' => $GLOBALS['error'],
-            'max_upload_size' => $GLOBALS['config']->get('max_upload_size'),
+            'max_upload_size' => Config::getInstance()->get('max_upload_size'),
             'exists_setup_and_not_exists_config' => @file_exists(ROOT_PATH . 'setup/index.php')
                 && ! @file_exists(CONFIG_FILE),
         ]);

@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Url;
@@ -43,7 +44,7 @@ abstract class InlineTransformationsPlugin extends TransformationsPlugin
         $cfg = $GLOBALS['cfg'];
         $options = $this->getOptions($options, $cfg['DefaultTransformations']['Inline']);
 
-        if ($GLOBALS['config']->get('PMA_IS_GD2') === 1) {
+        if (Config::getInstance()->get('PMA_IS_GD2') === 1) {
             return '<a href="' . Url::getFromRoute('/transformation/wrapper', $options['wrapper_params'])
                 . '" rel="noopener noreferrer" target="_blank"><img src="'
                 . Url::getFromRoute('/transformation/wrapper', array_merge($options['wrapper_params'], [

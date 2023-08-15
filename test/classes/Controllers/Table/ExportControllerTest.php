@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\ExportController;
@@ -35,7 +36,7 @@ class ExportControllerTest extends AbstractTestCase
 
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';
-        $GLOBALS['cfg']['Server'] = $GLOBALS['config']->getSettings()->Servers[1]->asArray();
+        $GLOBALS['cfg']['Server'] = Config::getInstance()->getSettings()->Servers[1]->asArray();
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['single_table'] = '1';
 

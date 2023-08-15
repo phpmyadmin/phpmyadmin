@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Export;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Exceptions\ExportException;
@@ -117,7 +118,7 @@ class Export
             && ((! ini_get('zlib.output_compression')
                     && ! $this->isGzHandlerEnabled())
                 || $GLOBALS['save_on_server']
-                || $GLOBALS['config']->get('PMA_USR_BROWSER_AGENT') === 'CHROME');
+                || Config::getInstance()->get('PMA_USR_BROWSER_AGENT') === 'CHROME');
     }
 
     /**
@@ -346,36 +347,21 @@ class Export
         string $compression,
         string $filenameTemplate,
     ): array {
+        $config = Config::getInstance();
         if ($exportType === 'server') {
             if ($rememberTemplate !== '' && $rememberTemplate !== '0') {
-                $GLOBALS['config']->setUserValue(
-                    'pma_server_filename_template',
-                    'Export/file_template_server',
-                    $filenameTemplate,
-                );
+                $config->setUserValue('pma_server_filename_template', 'Export/file_template_server', $filenameTemplate);
             }
         } elseif ($exportType === 'database') {
             if ($rememberTemplate !== '' && $rememberTemplate !== '0') {
-                $GLOBALS['config']->setUserValue(
-                    'pma_db_filename_template',
-                    'Export/file_template_database',
-                    $filenameTemplate,
-                );
+                $config->setUserValue('pma_db_filename_template', 'Export/file_template_database', $filenameTemplate);
             }
         } elseif ($exportType === 'raw') {
             if ($rememberTemplate !== '' && $rememberTemplate !== '0') {
-                $GLOBALS['config']->setUserValue(
-                    'pma_raw_filename_template',
-                    'Export/file_template_raw',
-                    $filenameTemplate,
-                );
+                $config->setUserValue('pma_raw_filename_template', 'Export/file_template_raw', $filenameTemplate);
             }
         } elseif ($rememberTemplate !== '' && $rememberTemplate !== '0') {
-            $GLOBALS['config']->setUserValue(
-                'pma_table_filename_template',
-                'Export/file_template_table',
-                $filenameTemplate,
-            );
+            $config->setUserValue('pma_table_filename_template', 'Export/file_template_table', $filenameTemplate);
         }
 
         $filename = Util::expandUserString($filenameTemplate);

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use CodeLts\U2F\U2FServer\RegistrationRequest;
 use CodeLts\U2F\U2FServer\SignRequest;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\TwoFactor\Application;
@@ -345,19 +346,20 @@ class TwoFactorTest extends AbstractTestCase
      */
     public function testKeyAppId(): void
     {
+        $config = Config::getInstance();
         $object = $this->getTwoFactorAndLoadConfig('user', null);
-        $GLOBALS['config']->set('PmaAbsoluteUri', 'http://demo.example.com');
+        $config->set('PmaAbsoluteUri', 'http://demo.example.com');
         $this->assertEquals('http://demo.example.com', $object->getBackend()->getAppId(true));
         $this->assertEquals('demo.example.com', $object->getBackend()->getAppId(false));
-        $GLOBALS['config']->set('PmaAbsoluteUri', 'https://demo.example.com:123');
+        $config->set('PmaAbsoluteUri', 'https://demo.example.com:123');
         $this->assertEquals('https://demo.example.com:123', $object->getBackend()->getAppId(true));
         $this->assertEquals('demo.example.com', $object->getBackend()->getAppId(false));
-        $GLOBALS['config']->set('PmaAbsoluteUri', '');
-        $GLOBALS['config']->set('is_https', true);
+        $config->set('PmaAbsoluteUri', '');
+        $config->set('is_https', true);
         $_SERVER['HTTP_HOST'] = 'pma.example.com';
         $this->assertEquals('https://pma.example.com', $object->getBackend()->getAppId(true));
         $this->assertEquals('pma.example.com', $object->getBackend()->getAppId(false));
-        $GLOBALS['config']->set('is_https', false);
+        $config->set('is_https', false);
         $this->assertEquals('http://pma.example.com', $object->getBackend()->getAppId(true));
         $this->assertEquals('pma.example.com', $object->getBackend()->getAppId(false));
     }

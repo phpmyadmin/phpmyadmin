@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Config;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Form;
 use PhpMyAdmin\Config\FormDisplay;
@@ -388,7 +389,7 @@ class FormDisplayTest extends AbstractTestCase
 
         $this->assertTrue($opts['comment_warning']);
 
-        $GLOBALS['config']->set('is_setup', false);
+        Config::getInstance()->set('is_setup', false);
 
         $GLOBALS['cfg']['MaxDbList'] = 10;
         $GLOBALS['cfg']['MaxTableList'] = 10;

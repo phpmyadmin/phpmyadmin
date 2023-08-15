@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
@@ -318,7 +319,7 @@ class UserPreferencesTest extends AbstractTestCase
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
 
-        $GLOBALS['config']->set('PmaAbsoluteUri', '');
+        Config::getInstance()->set('PmaAbsoluteUri', '');
 
         $userPreferences = new UserPreferences($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template());
         $userPreferences->redirect(

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Error;
@@ -47,13 +48,14 @@ class ErrorReportTest extends AbstractTestCase
         $_SERVER['SERVER_SOFTWARE'] = 'SERVER_SOFTWARE';
         $_SERVER['HTTP_USER_AGENT'] = 'HTTP_USER_AGENT';
         $_COOKIE['pma_lang'] = 'en';
-        $GLOBALS['config']->set('is_https', false);
+        $config = Config::getInstance();
+        $config->set('is_https', false);
 
         $this->errorReport = new ErrorReport(
             new HttpRequest(),
             new Relation($this->dbi),
             new Template(),
-            $GLOBALS['config'],
+            $config,
         );
         $this->errorReport->setSubmissionUrl('http://localhost');
     }
@@ -73,11 +75,12 @@ class ErrorReportTest extends AbstractTestCase
 
         $_SESSION['prev_errors'] = [new Error(0, 'error 0', 'file', 1), new Error(1, 'error 1', 'file', 2)];
 
+        $config = Config::getInstance();
         $report = [
             'pma_version' => Version::VERSION,
-            'browser_name' => $GLOBALS['config']->get('PMA_USR_BROWSER_AGENT'),
-            'browser_version' => $GLOBALS['config']->get('PMA_USR_BROWSER_VER'),
-            'user_os' => $GLOBALS['config']->get('PMA_USR_OS'),
+            'browser_name' => $config->get('PMA_USR_BROWSER_AGENT'),
+            'browser_version' => $config->get('PMA_USR_BROWSER_VER'),
+            'user_os' => $config->get('PMA_USR_OS'),
             'server_software' => $_SERVER['SERVER_SOFTWARE'],
             'user_agent_string' => $_SERVER['HTTP_USER_AGENT'],
             'locale' => $_COOKIE['pma_lang'],
@@ -132,7 +135,7 @@ class ErrorReportTest extends AbstractTestCase
             $httpRequest,
             new Relation($this->dbi),
             new Template(),
-            $GLOBALS['config'],
+            Config::getInstance(),
         );
         $this->errorReport->setSubmissionUrl($submissionUrl);
 
@@ -176,11 +179,12 @@ class ErrorReportTest extends AbstractTestCase
         ];
         $_POST['description'] = 'description';
 
+        $config = Config::getInstance();
         $report = [
             'pma_version' => Version::VERSION,
-            'browser_name' => $GLOBALS['config']->get('PMA_USR_BROWSER_AGENT'),
-            'browser_version' => $GLOBALS['config']->get('PMA_USR_BROWSER_VER'),
-            'user_os' => $GLOBALS['config']->get('PMA_USR_OS'),
+            'browser_name' => $config->get('PMA_USR_BROWSER_AGENT'),
+            'browser_version' => $config->get('PMA_USR_BROWSER_VER'),
+            'user_os' => $config->get('PMA_USR_OS'),
             'server_software' => $_SERVER['SERVER_SOFTWARE'],
             'user_agent_string' => $_SERVER['HTTP_USER_AGENT'],
             'locale' => $_COOKIE['pma_lang'],

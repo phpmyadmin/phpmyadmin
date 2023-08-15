@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
@@ -203,7 +204,7 @@ class ChangeController extends AbstractController
 
         //Insert/Edit form
         //If table has blob fields we have to disable ajax.
-        $isUpload = $GLOBALS['config']->get('enable_upload');
+        $isUpload = Config::getInstance()->get('enable_upload');
         $htmlOutput .= $this->insertEdit->getHtmlForInsertEditFormHeader($hasBlobField, $isUpload);
 
         $htmlOutput .= Url::getHiddenInputs($formParams);

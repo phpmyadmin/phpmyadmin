@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Theme;
 
+use PhpMyAdmin\Config;
+
 use function __;
 use function array_key_exists;
 use function closedir;
@@ -161,11 +163,10 @@ class ThemeManager
      */
     public function getThemeCookie(): string|false
     {
-        $GLOBALS['config'] ??= null;
-
         $name = $this->getThemeCookieName();
-        if ($GLOBALS['config']->issetCookie($name)) {
-            return $GLOBALS['config']->getCookie($name);
+        $config = Config::getInstance();
+        if ($config->issetCookie($name)) {
+            return $config->getCookie($name);
         }
 
         return false;
@@ -178,11 +179,10 @@ class ThemeManager
      */
     public function getColorModeCookie(): string|false
     {
-        $GLOBALS['config'] ??= null;
-
         $name = $this->getColorModeCookieName();
-        if ($GLOBALS['config']->issetCookie($name)) {
-            return $GLOBALS['config']->getCookie($name);
+        $config = Config::getInstance();
+        if ($config->issetCookie($name)) {
+            return $config->getCookie($name);
         }
 
         return false;
@@ -195,19 +195,20 @@ class ThemeManager
      */
     public function setThemeCookie(): bool
     {
-        $GLOBALS['config']->setCookie(
+        $config = Config::getInstance();
+        $config->setCookie(
             $this->getThemeCookieName(),
             $this->theme->id,
             $this->themeDefault,
         );
-        $GLOBALS['config']->setCookie(
+        $config->setCookie(
             $this->getColorModeCookieName(),
             $this->theme->getColorMode(),
             $this->theme->getColorModes()[0],
         );
         // force a change of a dummy session variable to avoid problems
         // with the caching of phpmyadmin.css.php
-        $GLOBALS['config']->set('theme-update', $this->theme->id);
+        $config->set('theme-update', $this->theme->id);
 
         return true;
     }

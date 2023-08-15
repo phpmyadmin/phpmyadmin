@@ -533,7 +533,7 @@ class InsertEdit
             'longblob' => 4294967296,// yeah, really
         };
 
-        $thisFieldMaxSize = (int) $GLOBALS['config']->get('max_upload_size'); // from PHP max
+        $thisFieldMaxSize = (int) Config::getInstance()->get('max_upload_size'); // from PHP max
 
         return Util::getFormattedMaximumUploadSize(min($thisFieldMaxSize, $maxFieldSize)) . "\n";
     }

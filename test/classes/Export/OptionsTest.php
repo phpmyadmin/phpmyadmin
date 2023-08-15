@@ -49,12 +49,19 @@ class OptionsTest extends AbstractTestCase
             ->method('getUserValue')
             ->willReturn('user value for test');
 
-        $GLOBALS['config'] = $pmaconfig;
+        Config::$instance = $pmaconfig;
 
         $this->export = new Options(
             new Relation($GLOBALS['dbi']),
             new TemplateModel($GLOBALS['dbi']),
         );
+    }
+
+    protected function tearDown(): void
+    {
+        parent::tearDown();
+
+        Config::$instance = null;
     }
 
     public function testGetOptions(): void

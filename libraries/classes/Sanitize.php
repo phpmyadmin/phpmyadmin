@@ -84,7 +84,7 @@ class Sanitize
      */
     public static function isSetup(): bool
     {
-        return $GLOBALS['config'] !== null && $GLOBALS['config']->get('is_setup');
+        return Config::getInstance()->get('is_setup');
     }
 
     /**

@@ -450,7 +450,7 @@ class File
             return true;
         }
 
-        $tmpSubdir = $GLOBALS['config']->getUploadTempDir();
+        $tmpSubdir = Config::getInstance()->getUploadTempDir();
         if ($tmpSubdir === null) {
             // cannot create directory or access, point user to FAQ 1.11
             $this->errorMessage = Message::error(__(

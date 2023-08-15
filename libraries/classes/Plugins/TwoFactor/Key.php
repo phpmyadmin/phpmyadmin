@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\TwoFactor;
 
 use CodeLts\U2F\U2FServer\U2FException;
 use CodeLts\U2F\U2FServer\U2FServer;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
 use PhpMyAdmin\ResponseRenderer;
@@ -129,7 +130,7 @@ class Key extends TwoFactorPlugin
 
         return $this->template->render('login/twofactor/key', [
             'request' => json_encode($authRequest),
-            'is_https' => $GLOBALS['config']->isHttps(),
+            'is_https' => Config::getInstance()->isHttps(),
         ]);
     }
 
@@ -157,7 +158,7 @@ class Key extends TwoFactorPlugin
         return $this->template->render('login/twofactor/key_configure', [
             'request' => json_encode($registrationData['request']),
             'signatures' => json_encode($registrationData['signatures']),
-            'is_https' => $GLOBALS['config']->isHttps(),
+            'is_https' => Config::getInstance()->isHttps(),
         ]);
     }
 

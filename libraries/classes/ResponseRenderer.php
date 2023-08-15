@@ -437,7 +437,7 @@ class ResponseRenderer
          * like /phpmyadmin/index.php/ which some web servers happily accept.
          */
         if (str_starts_with($url, '.')) {
-            $url = $GLOBALS['config']->getRootPath() . substr($url, 2);
+            $url = Config::getInstance()->getRootPath() . substr($url, 2);
         }
 
         $this->addHeader('Location', $url);
