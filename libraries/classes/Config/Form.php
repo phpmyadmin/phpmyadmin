@@ -39,23 +39,23 @@ class Form
     /**
      * Form fields (paths), filled by {@link readFormPaths()}, indexed by field name
      *
-     * @var mixed[]
+     * @var string[]
      */
-    public array $fields;
+    public array $fields = [];
 
     /**
      * Stores default values for some fields (eg. pmadb tables)
      *
      * @var mixed[]
      */
-    public array $default;
+    public array $default = [];
 
     /**
      * Caches field types, indexed by field names
      *
-     * @var mixed[]
+     * @var string[]
      */
-    private array $fieldsTypes;
+    private array $fieldsTypes = [];
 
     /**
      * A counter for the number of groups
@@ -214,6 +214,7 @@ class Form
 
         // $this->fields is an array of the form: [0..n] => 'field path'
         // change numeric indexes to contain field names (last part of the path)
+        /** @var string[] $paths */
         $paths = $this->fields;
         $this->fields = [];
         foreach ($paths as $path) {
@@ -244,7 +245,7 @@ class Form
                 $type = gettype($this->configFile->getDefault($path));
             }
 
-            $this->fieldsTypes[$name] = $type;
+            $this->fieldsTypes[$name] = (string) $type;
         }
     }
 

@@ -39,7 +39,7 @@ class RecentFavoriteTable
      *
      * @var mixed[]
      */
-    private array $tables;
+    private array $tables = [];
 
     /**
      * RecentFavoriteTable instances.
