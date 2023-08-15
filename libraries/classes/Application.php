@@ -22,6 +22,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Middleware\ConfigLoading;
+use PhpMyAdmin\Middleware\EncryptedQueryParamsHandling;
 use PhpMyAdmin\Middleware\ErrorHandling;
 use PhpMyAdmin\Middleware\OutputBuffering;
 use PhpMyAdmin\Middleware\PhpExtensionsChecking;
@@ -96,6 +97,7 @@ class Application
             $this->template,
             $this->responseFactory,
         ));
+        $requestHandler->add(new EncryptedQueryParamsHandling());
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -120,8 +122,6 @@ class Application
 
         $route = $request->getRoute();
         $isMinimumCommon = $isSetupPage || $route === '/import-status' || $route === '/url' || $route === '/messages';
-
-        $request = Core::populateRequestWithEncryptedQueryParams($request);
 
         $container = Core::getContainerBuilder();
 
