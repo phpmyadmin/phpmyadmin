@@ -81,19 +81,6 @@ class DbiMysqliTest extends AbstractTestCase
     }
 
     /**
-     * Test for moreResults
-     */
-    public function testMoreResults(): void
-    {
-        $mysqli = $this->createMock(mysqli::class);
-        $mysqli->expects($this->once())
-            ->method('more_results')
-            ->willReturn(true);
-
-        $this->assertTrue($this->object->moreResults(new Connection($mysqli)));
-    }
-
-    /**
      * Test for nextResult
      */
     public function testNextResult(): void

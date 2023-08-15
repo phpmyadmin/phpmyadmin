@@ -49,7 +49,6 @@ class SqlController extends AbstractController
         $GLOBALS['unlim_num_rows'] ??= null;
         $GLOBALS['import_text'] ??= null;
         $GLOBALS['disp_query'] ??= null;
-        $GLOBALS['extra_data'] ??= null;
         $GLOBALS['message_to_show'] ??= null;
         $GLOBALS['disp_message'] ??= null;
         $GLOBALS['complete_query'] ??= null;
@@ -207,7 +206,6 @@ class SqlController extends AbstractController
             $GLOBALS['table'],
             $GLOBALS['find_real_end'] ?? null,
             $GLOBALS['import_text'] ?? null,
-            $GLOBALS['extra_data'] ?? null,
             $GLOBALS['message_to_show'] ?? null,
             null,
             $GLOBALS['goto'],

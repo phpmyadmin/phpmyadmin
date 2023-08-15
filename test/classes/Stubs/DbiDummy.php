@@ -208,14 +208,6 @@ class DbiDummy implements DbiExtension
     }
 
     /**
-     * Check if there are any more query results from a multi query
-     */
-    public function moreResults(Connection $connection): bool
-    {
-        return false;
-    }
-
-    /**
      * Prepare next result from multi_query
      */
     public function nextResult(Connection $connection): bool

@@ -35,8 +35,6 @@ use function defined;
 use function htmlspecialchars;
 use function in_array;
 use function is_array;
-use function is_bool;
-use function is_object;
 use function session_start;
 use function session_write_close;
 use function sprintf;
@@ -720,20 +718,19 @@ class Sql
     /**
      * Function to handle all aspects relating to executing the query
      *
-     * @param string       $fullSqlQuery        full sql query
-     * @param bool         $isGotoFile          whether to go to a file
-     * @param string       $db                  current database
-     * @param string|null  $table               current table
-     * @param bool|null    $findRealEnd         whether to find the real end
-     * @param string|null  $sqlQueryForBookmark sql query to be stored as bookmark
-     * @param mixed[]|null $extraData           extra data
+     * @param string      $fullSqlQuery        full sql query
+     * @param bool        $isGotoFile          whether to go to a file
+     * @param string      $db                  current database
+     * @param string|null $table               current table
+     * @param bool|null   $findRealEnd         whether to find the real end
+     * @param string|null $sqlQueryForBookmark sql query to be stored as bookmark
      *
      * @psalm-return array{
-     *  ResultInterface|false|null,
+     *  ResultInterface|false,
      *  int|numeric-string,
      *  int|numeric-string,
      *  list<array{Status: non-empty-string, Duration: numeric-string}>,
-     *  mixed[]|null
+     *  string
      * }
      */
     private function executeTheQuery(
@@ -744,87 +741,63 @@ class Sql
         string|null $table,
         bool|null $findRealEnd,
         string|null $sqlQueryForBookmark,
-        array|null $extraData,
     ): array {
         $response = ResponseRenderer::getInstance();
         $response->getHeader()->getMenu()->setTable($table ?? '');
 
-        // Only if we ask to see the php code
-        if (isset($GLOBALS['show_as_php'])) {
-            $result = null;
-            $numRows = 0;
-            $unlimNumRows = 0;
-            $profilingResults = [];
-        } else { // If we don't ask to see the php code
-            Profiling::enable($this->dbi);
+        Profiling::enable($this->dbi);
 
-            if (! defined('TESTSUITE')) {
-                // close session in case the query takes too long
-                session_write_close();
-            }
-
-            $result = $this->dbi->tryQuery($fullSqlQuery);
-            $GLOBALS['querytime'] = $this->dbi->lastQueryExecutionTime;
-
-            if (! defined('TESTSUITE')) {
-                // reopen session
-                session_start();
-            }
-
-            // Displays an error message if required and stop parsing the script
-            $error = $this->dbi->getError();
-            if ($error && $GLOBALS['cfg']['IgnoreMultiSubmitErrors']) {
-                $extraData['error'] = $error;
-            } elseif ($error) {
-                $this->handleQueryExecuteError($isGotoFile, $error, $fullSqlQuery);
-            }
-
-            // If there are no errors and bookmarklabel was given,
-            // store the query as a bookmark
-            if (! empty($_POST['bkm_label']) && $sqlQueryForBookmark) {
-                $bookmarkFeature = $this->relation->getRelationParameters()->bookmarkFeature;
-                $this->storeTheQueryAsBookmark(
-                    $bookmarkFeature,
-                    $db,
-                    $bookmarkFeature !== null ? $GLOBALS['cfg']['Server']['user'] : '',
-                    $sqlQueryForBookmark,
-                    $_POST['bkm_label'],
-                    isset($_POST['bkm_replace']),
-                );
-            }
-
-            // Gets the number of rows affected/returned
-            // (This must be done immediately after the query because
-            // mysql_affected_rows() reports about the last query done)
-            $numRows = $this->getNumberOfRowsAffectedOrChanged($statementInfo->isAffected, $result);
-
-            $profilingResults = Profiling::getInformation($this->dbi);
-
-            $justBrowsing = self::isJustBrowsing($statementInfo, $findRealEnd ?? null);
-
-            $unlimNumRows = $this->countQueryResults($numRows, $justBrowsing, $db, $table ?? '', $statementInfo);
-
-            $this->cleanupRelations($db, $table ?? '', $_POST['dropped_column'] ?? null, ! empty($_POST['purge']));
-
-            if (
-                isset($_POST['dropped_column'])
-                && $db !== '' && $table !== null && $table !== ''
-            ) {
-                // to refresh the list of indexes (Ajax mode)
-
-                $indexes = Index::getFromTable($this->dbi, $table, $db);
-                $indexesDuplicates = Index::findDuplicates($table, $db);
-                $template = new Template();
-
-                $extraData['indexes_list'] = $template->render('indexes', [
-                    'url_params' => $GLOBALS['urlParams'],
-                    'indexes' => $indexes,
-                    'indexes_duplicates' => $indexesDuplicates,
-                ]);
-            }
+        if (! defined('TESTSUITE')) {
+            // close session in case the query takes too long
+            session_write_close();
         }
 
-        return [$result, $numRows, $unlimNumRows, $profilingResults, $extraData];
+        $result = $this->dbi->tryQuery($fullSqlQuery);
+        $GLOBALS['querytime'] = $this->dbi->lastQueryExecutionTime;
+
+        if (! defined('TESTSUITE')) {
+            // reopen session
+            session_start();
+        }
+
+        $errorMessage = '';
+
+        // Displays an error message if required and stop parsing the script
+        $error = $this->dbi->getError();
+        if ($error && $GLOBALS['cfg']['IgnoreMultiSubmitErrors']) {
+            $errorMessage = $error;
+        } elseif ($error) {
+            $this->handleQueryExecuteError($isGotoFile, $error, $fullSqlQuery);
+        }
+
+        // If there are no errors and bookmarklabel was given,
+        // store the query as a bookmark
+        if (! empty($_POST['bkm_label']) && $sqlQueryForBookmark) {
+            $bookmarkFeature = $this->relation->getRelationParameters()->bookmarkFeature;
+            $this->storeTheQueryAsBookmark(
+                $bookmarkFeature,
+                $db,
+                $bookmarkFeature !== null ? $GLOBALS['cfg']['Server']['user'] : '',
+                $sqlQueryForBookmark,
+                $_POST['bkm_label'],
+                isset($_POST['bkm_replace']),
+            );
+        }
+
+        // Gets the number of rows affected/returned
+        // (This must be done immediately after the query because
+        // mysql_affected_rows() reports about the last query done)
+        $numRows = $this->getNumberOfRowsAffectedOrChanged($statementInfo->isAffected, $result);
+
+        $profilingResults = Profiling::getInformation($this->dbi);
+
+        $justBrowsing = self::isJustBrowsing($statementInfo, $findRealEnd ?? null);
+
+        $unlimNumRows = $this->countQueryResults($numRows, $justBrowsing, $db, $table ?? '', $statementInfo);
+
+        $this->cleanupRelations($db, $table ?? '', $_POST['dropped_column'] ?? null, ! empty($_POST['purge']));
+
+        return [$result, $numRows, $unlimNumRows, $profilingResults, $errorMessage];
     }
 
     /**
@@ -937,15 +910,15 @@ class Sql
      * 6-> When searching using the SEARCH tab which returns zero results
      * 7-> When changing the structure of the table except change operation
      *
-     * @param string                     $db                   current database
-     * @param string|null                $table                current table
-     * @param string|null                $messageToShow        message to show
-     * @param int|string                 $numRows              number of rows
-     * @param DisplayResults             $displayResultsObject DisplayResult instance
-     * @param mixed[]|null               $extraData            extra data
-     * @param ResultInterface|false|null $result               executed query results
-     * @param string                     $sqlQuery             sql query
-     * @param string|null                $completeQuery        complete sql query
+     * @param string                $db                   current database
+     * @param string|null           $table                current table
+     * @param string|null           $messageToShow        message to show
+     * @param int|string            $numRows              number of rows
+     * @param DisplayResults        $displayResultsObject DisplayResult instance
+     * @param string                $errorMessage         error message from tryQuery
+     * @param ResultInterface|false $result               executed query results
+     * @param string                $sqlQuery             sql query
+     * @param string|null           $completeQuery        complete sql query
      * @psalm-param int|numeric-string $numRows
      * @psalm-param list<array{Status: non-empty-string, Duration: numeric-string}> $profilingResults
      *
@@ -958,9 +931,9 @@ class Sql
         string|null $messageToShow,
         int|string $numRows,
         DisplayResults $displayResultsObject,
-        array|null $extraData,
+        string $errorMessage,
         array $profilingResults,
-        ResultInterface|false|null $result,
+        ResultInterface|false $result,
         string $sqlQuery,
         string|null $completeQuery,
     ): string {
@@ -968,8 +941,8 @@ class Sql
             $this->deleteTransformationInfo($db, $table ?? '', $statementInfo);
         }
 
-        if (isset($extraData['error'])) {
-            $message = Message::rawError($extraData['error']);
+        if ($errorMessage !== '') {
+            $message = Message::rawError($errorMessage);
         } else {
             $message = $this->getMessageForNoRowsReturned($messageToShow, $statementInfo, $numRows);
         }
@@ -980,6 +953,7 @@ class Sql
             return $queryMessage;
         }
 
+        $extraData = [];
         if (! empty($GLOBALS['reload'])) {
             $extraData['reload'] = 1;
             $extraData['db'] = $GLOBALS['db'];
@@ -993,13 +967,22 @@ class Sql
             }
         }
 
+        if (
+            isset($_POST['dropped_column'])
+            && $db !== '' && $table !== null && $table !== ''
+        ) {
+            // to refresh the list of indexes (Ajax mode)
+            $extraData['indexes_list'] = $this->getIndexList($table, $db);
+        }
+
         $response = ResponseRenderer::getInstance();
-        $response->addJSON($extraData ?? []);
+        $response->addJSON($extraData);
         $header = $response->getHeader();
         $scripts = $header->getScripts();
         $scripts->addFile('sql.js');
 
-        if (($result instanceof ResultInterface && $result->numFields() === 0) || isset($extraData['error'])) {
+        // We can only skip result fetching if the result contains no columns.
+        if (($result instanceof ResultInterface && $result->numFields() === 0) || $result === false) {
             return $queryMessage;
         }
 
@@ -1105,14 +1088,13 @@ class Sql
     /**
      * Function to get html for the sql query results table
      *
-     * @param DisplayResults             $displayResultsObject instance of DisplayResult
-     * @param bool                       $editable             whether the result table is
-     *                                                         editable or not
-     * @param int|string                 $unlimNumRows         unlimited number of rows
-     * @param int|string                 $numRows              number of rows
-     * @param mixed[]|null               $showTable            table definitions
-     * @param ResultInterface|false|null $result               result of the executed query
-     * @param bool                       $isLimitedDisplay     Show only limited operations or not
+     * @param DisplayResults  $displayResultsObject instance of DisplayResult
+     * @param bool            $editable             whether the result table is editable or not
+     * @param int|string      $unlimNumRows         unlimited number of rows
+     * @param int|string      $numRows              number of rows
+     * @param mixed[]|null    $showTable            table definitions
+     * @param ResultInterface $result               result of the executed query
+     * @param bool            $isLimitedDisplay     Show only limited operations or not
      * @psalm-param int|numeric-string $unlimNumRows
      * @psalm-param int|numeric-string $numRows
      */
@@ -1123,100 +1105,102 @@ class Sql
         int|string $unlimNumRows,
         int|string $numRows,
         array|null $showTable,
-        ResultInterface|false|null $result,
+        ResultInterface $result,
         StatementInfo $statementInfo,
         bool $isLimitedDisplay = false,
     ): string {
-        $printView = isset($_POST['printview']) && $_POST['printview'] == '1' ? '1' : null;
-        $tableHtml = '';
+        $printView = isset($_POST['printview']) && $_POST['printview'] == '1';
         $isBrowseDistinct = ! empty($_POST['is_browse_distinct']);
 
         if ($statementInfo->isProcedure) {
-            do {
-                if ($result === null) {
-                    $result = $this->dbi->storeResult();
-                }
-
-                if ($result === false) {
-                    $result = null;
-                    continue;
-                }
-
-                $numRows = $result->numRows();
-
-                if ($numRows > 0) {
-                    $fieldsMeta = $this->dbi->getFieldsMeta($result);
-                    $fieldsCount = count($fieldsMeta);
-
-                    $displayResultsObject->setProperties(
-                        $numRows,
-                        $fieldsMeta,
-                        $statementInfo->isCount,
-                        $statementInfo->isExport,
-                        $statementInfo->isFunction,
-                        $statementInfo->isAnalyse,
-                        $numRows,
-                        $fieldsCount,
-                        $GLOBALS['querytime'],
-                        $GLOBALS['text_dir'],
-                        $statementInfo->isMaint,
-                        $statementInfo->isExplain,
-                        $statementInfo->isShow,
-                        $showTable,
-                        $printView,
-                        $editable,
-                        $isBrowseDistinct,
-                    );
-
-                    $displayParts = DisplayParts::fromArray([
-                        'hasEditLink' => false,
-                        'deleteLink' => DeleteLinkEnum::NO_DELETE,
-                        'hasSortLink' => true,
-                        'hasNavigationBar' => true,
-                        'hasBookmarkForm' => true,
-                        'hasTextButton' => true,
-                        'hasPrintLink' => true,
-                    ]);
-
-                    $tableHtml .= $displayResultsObject->getTable(
-                        $result,
-                        $displayParts,
-                        $statementInfo,
-                        $isLimitedDisplay,
-                    );
-                }
-
-                $result = null;
-            } while ($this->dbi->moreResults() && $this->dbi->nextResult());
-        } else {
-            $fieldsMeta = [];
-            if (isset($result) && ! is_bool($result)) {
-                $fieldsMeta = $this->dbi->getFieldsMeta($result);
-            }
-
-            $fieldsCount = count($fieldsMeta);
-            $_SESSION['is_multi_query'] = false;
-            $displayResultsObject->setProperties(
-                $unlimNumRows,
-                $fieldsMeta,
-                $statementInfo->isCount,
-                $statementInfo->isExport,
-                $statementInfo->isFunction,
-                $statementInfo->isAnalyse,
+            return $this->getHtmlForStoredProcedureResults(
+                $result,
                 $numRows,
-                $fieldsCount,
-                $GLOBALS['querytime'],
-                $GLOBALS['text_dir'],
-                $statementInfo->isMaint,
-                $statementInfo->isExplain,
-                $statementInfo->isShow,
+                $displayResultsObject,
+                $statementInfo,
                 $showTable,
                 $printView,
                 $editable,
                 $isBrowseDistinct,
+                $displayParts,
+                $isLimitedDisplay,
             );
+        }
 
-            if (! is_bool($result)) {
+        $_SESSION['is_multi_query'] = false;
+        $displayResultsObject->setProperties(
+            $unlimNumRows,
+            $this->dbi->getFieldsMeta($result),
+            $statementInfo->isCount,
+            $statementInfo->isExport,
+            $statementInfo->isFunction,
+            $statementInfo->isAnalyse,
+            $numRows,
+            $GLOBALS['querytime'],
+            $GLOBALS['text_dir'],
+            $statementInfo->isMaint,
+            $statementInfo->isExplain,
+            $statementInfo->isShow,
+            $showTable,
+            $printView,
+            $editable,
+            $isBrowseDistinct,
+        );
+
+        return $displayResultsObject->getTable($result, $displayParts, $statementInfo, $isLimitedDisplay);
+    }
+
+    /**
+     * @param mixed[]|null $showTable table definitions
+     * @psalm-param int|numeric-string $numRows
+     */
+    private function getHtmlForStoredProcedureResults(
+        ResultInterface $result,
+        int|string $numRows,
+        DisplayResults $displayResultsObject,
+        StatementInfo $statementInfo,
+        array|null $showTable,
+        bool $printView,
+        bool $editable,
+        bool $isBrowseDistinct,
+        DisplayParts $displayParts,
+        bool $isLimitedDisplay,
+    ): string {
+        $tableHtml = '';
+
+        while ($result !== false) {
+            $numRows = $result->numRows();
+
+            if ($numRows > 0) {
+                $displayResultsObject->setProperties(
+                    $numRows,
+                    $this->dbi->getFieldsMeta($result),
+                    $statementInfo->isCount,
+                    $statementInfo->isExport,
+                    $statementInfo->isFunction,
+                    $statementInfo->isAnalyse,
+                    $numRows,
+                    $GLOBALS['querytime'],
+                    $GLOBALS['text_dir'],
+                    $statementInfo->isMaint,
+                    $statementInfo->isExplain,
+                    $statementInfo->isShow,
+                    $showTable,
+                    $printView,
+                    $editable,
+                    $isBrowseDistinct,
+                );
+
+                $displayParts = DisplayParts::fromArray([
+                    'hasEditLink' => false,
+                    'deleteLink' => DeleteLinkEnum::NO_DELETE,
+                    'hasSortLink' => true,
+                    'hasNavigationBar' => true,
+                    'hasBookmarkForm' => true,
+                    'hasTextButton' => true,
+                    'hasPrintLink' => true,
+                ]);
+
                 $tableHtml .= $displayResultsObject->getTable(
                     $result,
                     $displayParts,
@@ -1224,6 +1208,8 @@ class Sql
                     $isLimitedDisplay,
                 );
             }
+
+            $result = $this->dbi->nextResult();
         }
 
         return $tableHtml;
@@ -1305,17 +1291,17 @@ class Sql
     /**
      * Function to display results when the executed query returns non empty results
      *
-     * @param ResultInterface|false|null $result               executed query results
-     * @param string                     $db                   current database
-     * @param string|null                $table                current table
-     * @param mixed[]|null               $sqlData              sql data
-     * @param DisplayResults             $displayResultsObject Instance of DisplayResults
-     * @param int|string                 $unlimNumRows         unlimited number of rows
-     * @param int|string                 $numRows              number of rows
-     * @param string|null                $dispQuery            display query
-     * @param Message|string|null        $dispMessage          display message
-     * @param string                     $sqlQuery             sql query
-     * @param string|null                $completeQuery        complete sql query
+     * @param ResultInterface     $result               executed query results
+     * @param string              $db                   current database
+     * @param string|null         $table                current table
+     * @param mixed[]|null        $sqlData              sql data
+     * @param DisplayResults      $displayResultsObject Instance of DisplayResults
+     * @param int|string          $unlimNumRows         unlimited number of rows
+     * @param int|string          $numRows              number of rows
+     * @param string|null         $dispQuery            display query
+     * @param Message|string|null $dispMessage          display message
+     * @param string              $sqlQuery             sql query
+     * @param string|null         $completeQuery        complete sql query
      * @psalm-param int|numeric-string $unlimNumRows
      * @psalm-param int|numeric-string $numRows
      * @psalm-param list<array{Status: non-empty-string, Duration: numeric-string}> $profilingResults
@@ -1323,7 +1309,7 @@ class Sql
      * @return string html
      */
     private function getQueryResponseForResultsReturned(
-        ResultInterface|false|null $result,
+        ResultInterface $result,
         StatementInfo $statementInfo,
         string $db,
         string|null $table,
@@ -1341,16 +1327,13 @@ class Sql
 
         // If we are retrieving the full value of a truncated field or the original
         // value of a transformed field, show it here
-        if (isset($_POST['grid_edit']) && $_POST['grid_edit'] == true && is_object($result)) {
+        if (isset($_POST['grid_edit']) && $_POST['grid_edit'] == true) {
             $this->getResponseForGridEdit($result);
             ResponseRenderer::getInstance()->callExit();
         }
 
         // Gets the list of fields properties
-        $fieldsMeta = [];
-        if ($result !== null && ! is_bool($result)) {
-            $fieldsMeta = $this->dbi->getFieldsMeta($result);
-        }
+        $fieldsMeta = $this->dbi->getFieldsMeta($result);
 
         // Should be initialized these parameters before parsing
         if (! is_array($GLOBALS['showtable'])) {
@@ -1509,7 +1492,6 @@ class Sql
      * @param string|null         $table               current table
      * @param bool|null           $findRealEnd         whether to find real end or not
      * @param string|null         $sqlQueryForBookmark the sql query to be stored as bookmark
-     * @param mixed[]|null        $extraData           extra data
      * @param string|null         $messageToShow       message to show
      * @param mixed[]|null        $sqlData             sql data
      * @param string              $goto                goto page url
@@ -1525,7 +1507,6 @@ class Sql
         string|null $table,
         bool|null $findRealEnd,
         string|null $sqlQueryForBookmark,
-        array|null $extraData,
         string|null $messageToShow,
         array|null $sqlData,
         string $goto,
@@ -1548,7 +1529,6 @@ class Sql
             $table, // table
             $findRealEnd, // find_real_end
             $sqlQueryForBookmark, // sql_query_for_bookmark
-            $extraData, // extra_data
             $messageToShow, // message_to_show
             $sqlData, // sql_data
             $goto, // goto
@@ -1567,7 +1547,6 @@ class Sql
      * @param string|null         $table               current table
      * @param bool|null           $findRealEnd         whether to find real end or not
      * @param string|null         $sqlQueryForBookmark the sql query to be stored as bookmark
-     * @param mixed[]|null        $extraData           extra data
      * @param string|null         $messageToShow       message to show
      * @param mixed[]|null        $sqlData             sql data
      * @param string              $goto                goto page url
@@ -1585,7 +1564,6 @@ class Sql
         string|null $table,
         bool|null $findRealEnd,
         string|null $sqlQueryForBookmark,
-        array|null $extraData,
         string|null $messageToShow,
         array|null $sqlData,
         string $goto,
@@ -1594,9 +1572,6 @@ class Sql
         string $sqlQuery,
         string|null $completeQuery,
     ): string {
-        // Handle disable/enable foreign key checks
-        $defaultFkCheck = ForeignKey::handleDisableCheckInit();
-
         // Handle remembered sorting order, only for single table query.
         // Handling is not required when it's a union query
         // (the parser never sets the 'union' key to 0).
@@ -1635,7 +1610,23 @@ class Sql
         $GLOBALS['reload'] = $this->hasCurrentDbChanged($db);
         $this->dbi->selectDb($db);
 
-        [$result, $numRows, $unlimNumRows, $profilingResults, $extraData] = $this->executeTheQuery(
+        if (isset($GLOBALS['show_as_php'])) {
+            // Only if we ask to see the php code
+            // The following was copied from getQueryResponseForNoResultsReturned()
+            // Delete if it's not needed in this context
+            if ($this->isDeleteTransformationInfo($statementInfo)) {
+                $this->deleteTransformationInfo($db, $table ?? '', $statementInfo);
+            }
+
+            $message = $this->getMessageForNoRowsReturned($messageToShow, $statementInfo, 0);
+
+            return Generator::getMessage($message, $GLOBALS['sql_query'], 'success');
+        }
+
+        // Handle disable/enable foreign key checks
+        $defaultFkCheck = ForeignKey::handleDisableCheckInit();
+
+        [$result, $numRows, $unlimNumRows, $profilingResults, $errorMessage] = $this->executeTheQuery(
             $statementInfo,
             $fullSqlQuery,
             $isGotoFile,
@@ -1643,13 +1634,12 @@ class Sql
             $table,
             $findRealEnd,
             $sqlQueryForBookmark,
-            $extraData,
         );
 
         $warningMessages = $this->operations->getWarningMessagesArray();
 
         // No rows returned -> move back to the calling page
-        if (($numRows == 0 && $unlimNumRows == 0) || $statementInfo->isAffected) {
+        if (($numRows == 0 && $unlimNumRows == 0) || $statementInfo->isAffected || $result === false) {
             $htmlOutput = $this->getQueryResponseForNoResultsReturned(
                 $statementInfo,
                 $db,
@@ -1657,7 +1647,7 @@ class Sql
                 $messageToShow,
                 $numRows,
                 $displayResultsObject,
-                $extraData,
+                $errorMessage,
                 $profilingResults,
                 $result,
                 $sqlQuery,
@@ -1731,5 +1721,18 @@ class Sql
         }
 
         return $pos;
+    }
+
+    private function getIndexList(string $table, string $db): string
+    {
+        $indexes = Index::getFromTable($this->dbi, $table, $db);
+        $indexesDuplicates = Index::findDuplicates($table, $db);
+        $template = new Template();
+
+        return $template->render('indexes', [
+            'url_params' => $GLOBALS['urlParams'],
+            'indexes' => $indexes,
+            'indexes_duplicates' => $indexesDuplicates,
+        ]);
     }
 }

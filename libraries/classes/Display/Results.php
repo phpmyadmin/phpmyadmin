@@ -140,7 +140,7 @@ class Results
      *   is_show: bool|null,
      *   is_browse_distinct: bool|null,
      *   showtable: array<string, mixed>|null,
-     *   printview: string|null,
+     *   printview: bool,
      *   highlight_columns: array|null,
      *   display_params: array|null,
      *   mime_map: array|null,
@@ -201,7 +201,7 @@ class Results
         /* table definitions */
         'showtable' => null,
 
-        'printview' => null,
+        'printview' => false,
 
         /* column names to highlight */
         'highlight_columns' => null,
@@ -385,14 +385,13 @@ class Results
      * @param bool                      $isFunction       statement contains a function like SUM()
      * @param bool                      $isAnalyse        statement contains PROCEDURE ANALYSE
      * @param int|string                $numRows          total no. of rows returned by SQL query
-     * @param int                       $fieldsCount      total no.of fields returned by SQL query
      * @param float                     $queryTime        time taken for execute the SQL query
      * @param string                    $textDirection    text direction
      * @param bool                      $isMaintenance    statement contains a maintenance command
      * @param bool                      $isExplain        statement contains EXPLAIN
      * @param bool                      $isShow           statement contains SHOW
      * @param array<string, mixed>|null $showTable        table definitions
-     * @param string|null               $printView        print view was requested
+     * @param bool                      $printView        print view was requested
      * @param bool                      $editable         whether the results set is editable
      * @param bool                      $isBrowseDistinct whether browsing distinct values
      * @psalm-param int|numeric-string $unlimNumRows
@@ -406,14 +405,13 @@ class Results
         bool $isFunction,
         bool $isAnalyse,
         int|string $numRows,
-        int $fieldsCount,
         float $queryTime,
         string $textDirection,
         bool $isMaintenance,
         bool $isExplain,
         bool $isShow,
         array|null $showTable,
-        string|null $printView,
+        bool $printView,
         bool $editable,
         bool $isBrowseDistinct,
     ): void {
@@ -424,7 +422,7 @@ class Results
         $this->properties['is_func'] = $isFunction;
         $this->properties['is_analyse'] = $isAnalyse;
         $this->properties['num_rows'] = $numRows;
-        $this->properties['fields_cnt'] = $fieldsCount;
+        $this->properties['fields_cnt'] = count($fieldsMeta);
         $this->properties['querytime'] = $queryTime;
         $this->properties['text_dir'] = $textDirection;
         $this->properties['is_maint'] = $isMaintenance;
@@ -576,10 +574,9 @@ class Results
         $table = $this->properties['table'];
         $unlimNumRows = $this->properties['unlim_num_rows'];
         $numRows = $this->properties['num_rows'];
-        $printView = $this->properties['printview'];
 
         // 2. Updates the display parts
-        if ($printView == '1') {
+        if ($this->properties['printview']) {
             $displayParts = $this->setDisplayPartsForPrintView($displayParts);
         } elseif (
             $this->properties['is_count'] || $this->properties['is_analyse']
@@ -916,7 +913,7 @@ class Results
 
         // Display options (if we are not in print view)
         $optionsBlock = [];
-        if (! (isset($printView) && ($printView == '1')) && ! $isLimitedDisplay) {
+        if (! $printView && ! $isLimitedDisplay) {
             $optionsBlock = $this->getOptionsBlock();
 
             // prepare full/partial text button or link
@@ -3392,7 +3389,7 @@ class Results
             );
 
             $sqlQueryMessage = Generator::getMessage($message, $this->properties['sql_query'], 'success');
-        } elseif (($printView === null || $printView != '1') && ! $isLimitedDisplay) {
+        } elseif (! $printView && ! $isLimitedDisplay) {
             $sqlQueryMessage = Generator::getMessage(
                 __('Your SQL query has been executed successfully.'),
                 $this->properties['sql_query'],
@@ -3478,7 +3475,7 @@ class Results
 
         // 5. ----- Prepare "Query results operations"
         $operations = [];
-        if (($printView === null || $printView != '1') && ! $isLimitedDisplay) {
+        if (! $printView && ! $isLimitedDisplay) {
             $operations = $this->getResultsOperations($displayParts->hasPrintLink, $statementInfo);
         }
 
@@ -4093,7 +4090,6 @@ class Results
         string $originalLength = '',
     ): string {
         $relationalDisplay = $_SESSION['tmpval']['relational_display'];
-        $printView = $this->properties['printview'];
         $value = '';
         $tableDataCellClass = $this->addClass(
             $class,
@@ -4128,7 +4124,7 @@ class Results
                 $dispval = $this->getFromForeign($relation, $whereComparison);
             }
 
-            if ($printView == '1') {
+            if ($this->properties['printview']) {
                 if ($transformationPlugin !== null) {
                     $value .= $transformationPlugin->applyTransformation($data, $transformOptions, $meta);
                 } else {

@@ -276,7 +276,6 @@ class SearchController extends AbstractController
             $GLOBALS['table'], // table
             null, // find_real_end
             null, // sql_query_for_bookmark
-            null, // extra_data
             null, // message_to_show
             null, // sql_data
             $GLOBALS['goto'], // goto

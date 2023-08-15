@@ -1627,43 +1627,18 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * Check if there are any more query results from a multi query
-     *
-     * @psalm-param ConnectionType $connectionType
-     */
-    public function moreResults(int $connectionType = Connection::TYPE_USER): bool
-    {
-        if (! isset($this->connections[$connectionType])) {
-            return false;
-        }
-
-        return $this->extension->moreResults($this->connections[$connectionType]);
-    }
-
-    /**
      * Prepare next result from multi_query
      *
      * @psalm-param ConnectionType $connectionType
      */
-    public function nextResult(int $connectionType = Connection::TYPE_USER): bool
+    public function nextResult(int $connectionType = Connection::TYPE_USER): ResultInterface|false
     {
         if (! isset($this->connections[$connectionType])) {
             return false;
         }
 
-        return $this->extension->nextResult($this->connections[$connectionType]);
-    }
-
-    /**
-     * Store the result returned from multi query
-     *
-     * @psalm-param ConnectionType $connectionType
-     *
-     * @return ResultInterface|false false when empty results / result set when not empty
-     */
-    public function storeResult(int $connectionType = Connection::TYPE_USER): ResultInterface|false
-    {
-        if (! isset($this->connections[$connectionType])) {
+        // TODO: Figure out if we really need to check the return value of this function.
+        if (! $this->extension->nextResult($this->connections[$connectionType])) {
             return false;
         }
 

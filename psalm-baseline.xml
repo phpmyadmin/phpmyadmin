@@ -3041,7 +3041,6 @@
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['disp_query']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['extra_data']]]></code>
       <code><![CDATA[$GLOBALS['find_real_end']]]></code>
       <code><![CDATA[$GLOBALS['is_gotofile']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
@@ -3053,7 +3052,6 @@
       <code><![CDATA[$GLOBALS['disp_message'] ?? null]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['extra_data'] ?? null]]></code>
       <code><![CDATA[$GLOBALS['find_real_end'] ?? null]]></code>
       <code><![CDATA[$GLOBALS['message_to_show'] ?? null]]></code>
       <code><![CDATA[$GLOBALS['sql_query']]]></code>
@@ -3071,7 +3069,6 @@
       <code><![CDATA[$GLOBALS['disp_query']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['extra_data']]]></code>
       <code><![CDATA[$GLOBALS['find_real_end']]]></code>
       <code><![CDATA[$GLOBALS['is_gotofile']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
@@ -4957,7 +4954,6 @@
       <code>escapeString</code>
       <code>escapeString</code>
       <code>escapeString</code>
-      <code>escapeString</code>
     </DeprecatedMethod>
     <InvalidArgument>
       <code>$itemParamDir</code>
@@ -4972,6 +4968,7 @@
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['errors']]]></code>
+      <code><![CDATA[$_POST['funcs'][$routine['item_param_name'][$i]]]]></code>
       <code>$itemParamOpsNum[$i]</code>
       <code>$itemParamOpsText[$i]</code>
       <code>$itemParamType[$i]</code>
@@ -5000,6 +4997,7 @@
       <code><![CDATA[$routine['name']]]></code>
       <code><![CDATA[$routine['type']]]></code>
       <code><![CDATA[$routine['type']]]></code>
+      <code>$value</code>
       <code>$value</code>
       <code>$value</code>
       <code>$value</code>
@@ -5092,7 +5090,6 @@
       <code>$value</code>
     </MixedAssignment>
     <MixedOperand>
-      <code><![CDATA[$_POST['funcs'][$routine['item_param_name'][$i]]]]></code>
       <code>$itemParamLength[$i]</code>
       <code>$itemParamType[$i]</code>
       <code>$itemParamType[$i]</code>
@@ -5105,6 +5102,7 @@
       <code>$string</code>
     </MixedOperand>
     <PossiblyInvalidArgument>
+      <code><![CDATA[$_POST['funcs'][$routine['item_param_name'][$i]]]]></code>
       <code><![CDATA[$_POST['item_comment']]]></code>
       <code><![CDATA[$_POST['item_isdeterministic']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
@@ -5156,13 +5154,8 @@
     </PossiblyInvalidOperand>
     <PossiblyNullArgument>
       <code>$createRoutine</code>
-      <code><![CDATA[$routine['item_name']]]></code>
       <code><![CDATA[$stmt->return->parameters]]></code>
     </PossiblyNullArgument>
-    <PossiblyNullArrayAccess>
-      <code><![CDATA[$routine['item_name']]]></code>
-      <code><![CDATA[$routine['item_type']]]></code>
-    </PossiblyNullArrayAccess>
     <PossiblyNullIterator>
       <code><![CDATA[$stmt->return->options->options]]></code>
     </PossiblyNullIterator>
@@ -5339,6 +5332,7 @@
     </PossiblyUndefinedArrayOffset>
     <PossiblyUnusedReturnValue>
       <code>bool</code>
+      <code>bool</code>
     </PossiblyUnusedReturnValue>
     <UnsupportedReferenceUsage>
       <code><![CDATA[$resultTarget =& $resultTarget[$row[$keyIndex]]]]></code>
@@ -5347,6 +5341,7 @@
   </file>
   <file src="libraries/classes/Dbal/DbalInterface.php">
     <PossiblyUnusedReturnValue>
+      <code>bool</code>
       <code>bool</code>
     </PossiblyUnusedReturnValue>
   </file>
@@ -11411,7 +11406,6 @@
       <code><![CDATA[$GLOBALS['show_as_php']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$extraData['error']]]></code>
       <code><![CDATA[$fieldInfoResult[0]['Type']]]></code>
       <code><![CDATA[$foreignData['foreign_field']]]></code>
       <code>$numberOfLine / $maxRows</code>
@@ -11497,7 +11491,6 @@
       <code><![CDATA[$statement->altered[0]->field->column]]></code>
     </PossiblyInvalidPropertyFetch>
     <PossiblyNullArgument>
-      <code>$result</code>
       <code>$row[0]</code>
       <code><![CDATA[$statementInfo->parser->list]]></code>
       <code><![CDATA[$statementInfo->parser->list]]></code>
