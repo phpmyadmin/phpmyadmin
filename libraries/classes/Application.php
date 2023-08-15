@@ -25,6 +25,7 @@ use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Middleware\ErrorHandling;
 use PhpMyAdmin\Middleware\OutputBuffering;
 use PhpMyAdmin\Middleware\PhpExtensionsChecking;
+use PhpMyAdmin\Middleware\PhpSettingsConfiguration;
 use PhpMyAdmin\Middleware\ServerConfigurationChecking;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
@@ -40,16 +41,12 @@ use Throwable;
 
 use function __;
 use function count;
-use function date_default_timezone_get;
-use function date_default_timezone_set;
 use function define;
 use function function_exists;
 use function hash_equals;
-use function ini_set;
 use function is_array;
 use function is_scalar;
 use function is_string;
-use function mb_internal_encoding;
 use function ob_start;
 use function restore_error_handler;
 use function session_id;
@@ -87,6 +84,7 @@ class Application
         $requestHandler->add(new OutputBuffering());
         $requestHandler->add(new PhpExtensionsChecking($this, $this->template, $this->responseFactory));
         $requestHandler->add(new ServerConfigurationChecking($this->template, $this->responseFactory));
+        $requestHandler->add(new PhpSettingsConfiguration());
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -108,8 +106,6 @@ class Application
     public function handle(ServerRequest $request): Response|null
     {
         $isSetupPage = (bool) $request->getAttribute('isSetupPage');
-
-        $this->configurePhpSettings();
 
         try {
             $this->config->loadAndCheck(CONFIG_FILE);
@@ -369,32 +365,6 @@ class Application
         }
 
         Core::warnMissingExtension('hash', true);
-    }
-
-    /**
-     * Applies changes to PHP configuration.
-     */
-    private function configurePhpSettings(): void
-    {
-        /**
-         * Set utf-8 encoding for PHP
-         */
-        ini_set('default_charset', 'utf-8');
-        mb_internal_encoding('utf-8');
-
-        /**
-         * Set precision to sane value, with higher values
-         * things behave slightly unexpectedly, for example
-         * round(1.2, 2) returns 1.199999999999999956.
-         */
-        ini_set('precision', '14');
-
-        /**
-         * check timezone setting
-         * this could produce an E_WARNING - but only once,
-         * if not done here it will produce E_WARNING on every date/time function
-         */
-        date_default_timezone_set(@date_default_timezone_get());
     }
 
     private function setGotoAndBackGlobals(ContainerInterface $container, Config $config): void
