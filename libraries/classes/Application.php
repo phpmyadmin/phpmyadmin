@@ -25,6 +25,7 @@ use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Middleware\ErrorHandling;
 use PhpMyAdmin\Middleware\OutputBuffering;
 use PhpMyAdmin\Middleware\PhpExtensionsChecking;
+use PhpMyAdmin\Middleware\ServerConfigurationChecking;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 use PhpMyAdmin\Routing\Routing;
@@ -79,10 +80,13 @@ class Application
 
     public function run(bool $isSetupPage = false): void
     {
+        $GLOBALS['errorHandler'] = $this->errorHandler;
+
         $requestHandler = new QueueRequestHandler(new ApplicationHandler($this));
         $requestHandler->add(new ErrorHandling($this->errorHandler));
         $requestHandler->add(new OutputBuffering());
         $requestHandler->add(new PhpExtensionsChecking($this, $this->template, $this->responseFactory));
+        $requestHandler->add(new ServerConfigurationChecking($this->template, $this->responseFactory));
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -104,13 +108,6 @@ class Application
     public function handle(ServerRequest $request): Response|null
     {
         $isSetupPage = (bool) $request->getAttribute('isSetupPage');
-
-        $GLOBALS['errorHandler'] = $this->errorHandler;
-
-        $resultOfServerConfigurationCheck = $this->checkServerConfiguration();
-        if ($resultOfServerConfigurationCheck !== null) {
-            return $this->getGenericErrorResponse($resultOfServerConfigurationCheck);
-        }
 
         $this->configurePhpSettings();
 
@@ -498,22 +495,6 @@ class Application
         $GLOBALS['urlParams']['db'] = $GLOBALS['db'];
         $GLOBALS['urlParams']['table'] = $GLOBALS['table'];
         $container->setParameter('url_params', $GLOBALS['urlParams']);
-    }
-
-    /**
-     * Check whether PHP configuration matches our needs.
-     */
-    private function checkServerConfiguration(): string|null
-    {
-        /**
-         * The ini_set and ini_get functions can be disabled using
-         * disable_functions but we're relying quite a lot of them.
-         */
-        if (function_exists('ini_get') && function_exists('ini_set')) {
-            return null;
-        }
-
-        return __('The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin requires these functions!');
     }
 
     /**
