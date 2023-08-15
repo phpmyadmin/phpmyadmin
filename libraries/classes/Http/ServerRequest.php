@@ -274,7 +274,7 @@ class ServerRequest implements ServerRequestInterface
     /** @psalm-return non-empty-string */
     public function getRoute(): string
     {
-        $route = $this->getQueryParam('route') ?? $this->getParsedBodyParam('route');
+        $route = $this->getAttribute('route') ?? $this->getQueryParam('route') ?? $this->getParsedBodyParam('route');
         if (! is_string($route) || $route === '') {
             return '/';
         }

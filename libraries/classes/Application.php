@@ -27,6 +27,7 @@ use PhpMyAdmin\Middleware\ErrorHandling;
 use PhpMyAdmin\Middleware\OutputBuffering;
 use PhpMyAdmin\Middleware\PhpExtensionsChecking;
 use PhpMyAdmin\Middleware\PhpSettingsConfiguration;
+use PhpMyAdmin\Middleware\RouteParsing;
 use PhpMyAdmin\Middleware\ServerConfigurationChecking;
 use PhpMyAdmin\Middleware\UriSchemeUpdating;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
@@ -86,6 +87,7 @@ class Application
         $requestHandler->add(new PhpExtensionsChecking($this, $this->template, $this->responseFactory));
         $requestHandler->add(new ServerConfigurationChecking($this->template, $this->responseFactory));
         $requestHandler->add(new PhpSettingsConfiguration());
+        $requestHandler->add(new RouteParsing());
         $requestHandler->add(new ConfigLoading($this->config, $this->template, $this->responseFactory));
         $requestHandler->add(new UriSchemeUpdating($this->config));
 
@@ -111,8 +113,6 @@ class Application
         $isSetupPage = (bool) $request->getAttribute('isSetupPage');
 
         $route = $request->getRoute();
-        Routing::$route = $route;
-
         $isMinimumCommon = $isSetupPage || $route === '/import-status' || $route === '/url' || $route === '/messages';
 
         if ($route !== '/messages') {

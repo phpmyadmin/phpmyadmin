@@ -17,9 +17,6 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Application.php">
-    <DeprecatedProperty>
-      <code>Routing::$route</code>
-    </DeprecatedProperty>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['back']]]></code>
     </InvalidArrayOffset>
