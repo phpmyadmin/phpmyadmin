@@ -1556,11 +1556,6 @@ parameters:
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 1
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 23
 			path: libraries/classes/ConfigStorage/Relation.php
@@ -3537,11 +3532,6 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/Structure/ReplacePrefixController.php
-
-		-
-			message: "#^Casting to string something that's already string\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/Structure/ReplacePrefixController.php
 
@@ -11892,11 +11882,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'PersistentConnectio…' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Casting to int something that's already int\\.$#"
 			count: 1
 			path: libraries/classes/Dbal/DbiMysqli.php
 
@@ -23083,11 +23068,6 @@ parameters:
 		-
 			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
 			count: 1
-			path: libraries/classes/Sanitize.php
-
-		-
-			message: "#^Casting to array something that's already array\\.$#"
-			count: 4
 			path: libraries/classes/Sanitize.php
 
 		-

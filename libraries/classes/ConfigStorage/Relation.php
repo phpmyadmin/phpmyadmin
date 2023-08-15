@@ -1461,8 +1461,7 @@ class Relation
                 continue;
             }
 
-            // The following redundant cast is needed for PHPStan
-            $tableName = (string) $table[1];
+            $tableName = $table[1];
 
             // Replace the table name with another one
             if (isset($tableNameReplacements[$tableName])) {
