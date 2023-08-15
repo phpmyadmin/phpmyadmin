@@ -13,7 +13,6 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Exceptions\AuthenticationPluginException;
 use PhpMyAdmin\Exceptions\ConfigException;
-use PhpMyAdmin\Exceptions\SessionHandlerException;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\Handler\ApplicationHandler;
@@ -29,6 +28,7 @@ use PhpMyAdmin\Middleware\PhpExtensionsChecking;
 use PhpMyAdmin\Middleware\PhpSettingsConfiguration;
 use PhpMyAdmin\Middleware\RouteParsing;
 use PhpMyAdmin\Middleware\ServerConfigurationChecking;
+use PhpMyAdmin\Middleware\SessionHandling;
 use PhpMyAdmin\Middleware\UriSchemeUpdating;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
@@ -90,6 +90,12 @@ class Application
         $requestHandler->add(new RouteParsing());
         $requestHandler->add(new ConfigLoading($this->config, $this->template, $this->responseFactory));
         $requestHandler->add(new UriSchemeUpdating($this->config));
+        $requestHandler->add(new SessionHandling(
+            $this->config,
+            $this->errorHandler,
+            $this->template,
+            $this->responseFactory,
+        ));
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -114,15 +120,6 @@ class Application
 
         $route = $request->getRoute();
         $isMinimumCommon = $isSetupPage || $route === '/import-status' || $route === '/url' || $route === '/messages';
-
-        if ($route !== '/messages') {
-            try {
-                // Include session handling after the globals, to prevent overwriting.
-                Session::setUp($this->config, $this->errorHandler);
-            } catch (SessionHandlerException $exception) {
-                return $this->getGenericErrorResponse($exception->getMessage());
-            }
-        }
 
         $request = Core::populateRequestWithEncryptedQueryParams($request);
 
