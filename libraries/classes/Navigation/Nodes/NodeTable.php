@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\ConfigStorage\RelationParameters;
+use PhpMyAdmin\Navigation\NodeType;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -30,12 +31,12 @@ class NodeTable extends NodeDatabaseChild
     /**
      * Initialises the class
      *
-     * @param string $name    An identifier for the new node
-     * @param int    $type    Type of node, may be one of CONTAINER or OBJECT
-     * @param bool   $isGroup Whether this object has been created
-     *                        while grouping nodes
+     * @param string   $name    An identifier for the new node
+     * @param NodeType $type    Type of node, may be one of CONTAINER or OBJECT
+     * @param bool     $isGroup Whether this object has been created
+     *                          while grouping nodes
      */
-    public function __construct(string $name, int $type = Node::OBJECT, bool $isGroup = false)
+    public function __construct(string $name, NodeType $type = NodeType::Object, bool $isGroup = false)
     {
         parent::__construct($name, $type, $isGroup);
 

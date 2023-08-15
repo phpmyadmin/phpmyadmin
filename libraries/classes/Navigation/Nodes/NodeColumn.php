@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Navigation\NodeType;
+
 use function __;
 use function strlen;
 use function substr;
@@ -19,12 +21,12 @@ class NodeColumn extends Node
     /**
      * Initialises the class
      *
-     * @param mixed[] $item    array to identify the column node
-     * @param int     $type    Type of node, may be one of CONTAINER or OBJECT
-     * @param bool    $isGroup Whether this object has been created
-     *                         while grouping nodes
+     * @param mixed[]  $item    array to identify the column node
+     * @param NodeType $type    Type of node, may be one of CONTAINER or OBJECT
+     * @param bool     $isGroup Whether this object has been created
+     *                          while grouping nodes
      */
-    public function __construct(array $item, int $type = Node::OBJECT, bool $isGroup = false)
+    public function __construct(array $item, NodeType $type = NodeType::Object, bool $isGroup = false)
     {
         $this->displayName = $this->getDisplayName($item);
 

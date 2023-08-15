@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Navigation\NodeFactory;
+use PhpMyAdmin\Navigation\NodeType;
 
 use function _pgettext;
 
@@ -27,7 +28,7 @@ class NodeDatabaseContainer extends Node
         $checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
         $checkUserPrivileges->getPrivileges();
 
-        parent::__construct($name, Node::CONTAINER);
+        parent::__construct($name, NodeType::Container);
 
         if (! $GLOBALS['is_create_db_priv'] || $GLOBALS['cfg']['ShowCreateDb'] === false) {
             return;

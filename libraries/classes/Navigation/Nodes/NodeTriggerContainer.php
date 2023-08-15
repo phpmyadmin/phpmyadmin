@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
+use PhpMyAdmin\Navigation\NodeType;
 
 use function __;
 use function _pgettext;
@@ -22,7 +23,7 @@ class NodeTriggerContainer extends Node
      */
     public function __construct()
     {
-        parent::__construct(__('Triggers'), Node::CONTAINER);
+        parent::__construct(__('Triggers'), NodeType::Container);
 
         $this->icon = ['image' => 'b_triggers', 'title' => __('Triggers')];
         $this->links = [

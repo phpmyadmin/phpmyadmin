@@ -654,7 +654,7 @@ class NavigationTree
      */
     public function groupNode(Node $node): void
     {
-        if ($node->type != Node::CONTAINER || ! $GLOBALS['cfg']['NavigationTreeEnableExpansion']) {
+        if ($node->type !== NodeType::Container || ! $GLOBALS['cfg']['NavigationTreeEnableExpansion']) {
             return;
         }
 
@@ -761,7 +761,7 @@ class NavigationTree
                     $nameSubstring = mb_substr($child->name, 0, $keySeparatorLength);
                     if (
                         ($nameSubstring !== $key . $separator && $child->name !== $key)
-                        || $child->type != Node::OBJECT
+                        || $child->type !== NodeType::Object
                     ) {
                         continue;
                     }
@@ -806,7 +806,7 @@ class NavigationTree
                     $node->addChild($newChild['node']);
                 }
             } else {
-                $groups[$key] = new Node((string) $key, Node::CONTAINER, true);
+                $groups[$key] = new Node((string) $key, NodeType::Container, true);
                 $groups[$key]->separator = $node->separator;
                 $groups[$key]->separatorDepth = $node->separatorDepth - 1;
                 $groups[$key]->icon = ['image' => 'b_group', 'title' => __('Groups')];
@@ -1020,7 +1020,7 @@ class NavigationTree
     {
         $controlButtons = '';
         $paths = $node->getPaths();
-        $nodeIsContainer = $node->type === Node::CONTAINER;
+        $nodeIsContainer = $node->type === NodeType::Container;
         $liClasses = '';
 
         // Whether to show the node in the tree (true for all nodes but root)
@@ -1063,7 +1063,7 @@ class NavigationTree
             $haveAjax = ['functions', 'procedures', 'events', 'triggers', 'indexes'];
             $parent = $node->parents(false, true);
             $isNewView = $parent[0]->realName === 'views' && $node->isNew;
-            $linkHasAjaxClass = $parent[0]->type == Node::CONTAINER
+            $linkHasAjaxClass = $parent[0]->type === NodeType::Container
                 && (in_array($parent[0]->realName, $haveAjax) || $isNewView);
 
             if (! $node->isGroup) {
@@ -1260,7 +1260,7 @@ class NavigationTree
         if ($isRootNode) {
             $urlParams = ['pos' => 0];
         } else {
-            $nodeIsContainer = $node->type === Node::CONTAINER;
+            $nodeIsContainer = $node->type === NodeType::Container;
 
             $nodeIsSpecial = in_array($node->realName, self::SPECIAL_NODE_NAMES, true);
 
@@ -1336,7 +1336,7 @@ class NavigationTree
                 'pos',
                 ['dbselector'],
             );
-        } elseif ($node->type == Node::CONTAINER && ! $node->isGroup) {
+        } elseif ($node->type === NodeType::Container && ! $node->isGroup) {
             $paths = $node->getPaths();
             $level = isset($paths['aPath_clean'][4]) ? 3 : 2;
             $urlParams = [
