@@ -1067,7 +1067,12 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 59
+			count: 58
+			path: libraries/classes/Config/Settings/Server.php
+
+		-
+			message: "#^Parameter \\#1 \\$callback of function array_map expects \\(callable\\(mixed\\)\\: mixed\\)\\|null, Closure\\(bool\\|float\\|int\\|resource\\|string\\|null\\)\\: string given\\.$#"
+			count: 1
 			path: libraries/classes/Config/Settings/Server.php
 
 		-
