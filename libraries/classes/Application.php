@@ -28,6 +28,7 @@ use PhpMyAdmin\Middleware\OutputBuffering;
 use PhpMyAdmin\Middleware\PhpExtensionsChecking;
 use PhpMyAdmin\Middleware\PhpSettingsConfiguration;
 use PhpMyAdmin\Middleware\ServerConfigurationChecking;
+use PhpMyAdmin\Middleware\UriSchemeUpdating;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 use PhpMyAdmin\Routing\Routing;
@@ -86,6 +87,7 @@ class Application
         $requestHandler->add(new ServerConfigurationChecking($this->template, $this->responseFactory));
         $requestHandler->add(new PhpSettingsConfiguration());
         $requestHandler->add(new ConfigLoading($this->config, $this->template, $this->responseFactory));
+        $requestHandler->add(new UriSchemeUpdating($this->config));
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -112,8 +114,6 @@ class Application
         Routing::$route = $route;
 
         $isMinimumCommon = $isSetupPage || $route === '/import-status' || $route === '/url' || $route === '/messages';
-
-        $request = $this->updateUriScheme($this->config, $request);
 
         if ($route !== '/messages') {
             try {
@@ -575,16 +575,5 @@ class Application
             'dir' => $GLOBALS['text_dir'] ?? 'ltr',
             'error_message' => $message,
         ]));
-    }
-
-    private function updateUriScheme(Config $config, ServerRequest $request): ServerRequest
-    {
-        $uriScheme = $config->isHttps() ? 'https' : 'http';
-        $uri = $request->getUri();
-        if ($uri->getScheme() === $uriScheme) {
-            return $request;
-        }
-
-        return $request->withUri($uri->withScheme($uriScheme));
     }
 }
