@@ -31,6 +31,7 @@ use PhpMyAdmin\Middleware\RouteParsing;
 use PhpMyAdmin\Middleware\ServerConfigurationChecking;
 use PhpMyAdmin\Middleware\SessionHandling;
 use PhpMyAdmin\Middleware\UriSchemeUpdating;
+use PhpMyAdmin\Middleware\UrlParamsSetting;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 use PhpMyAdmin\Routing\Routing;
@@ -98,6 +99,7 @@ class Application
             $this->responseFactory,
         ));
         $requestHandler->add(new EncryptedQueryParamsHandling());
+        $requestHandler->add(new UrlParamsSetting($this->config));
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -125,19 +127,6 @@ class Application
 
         $container = Core::getContainerBuilder();
 
-        /**
-         * init some variables LABEL_variables_init
-         */
-
-        /**
-         * holds parameters to be passed to next page
-         *
-         * @global array $urlParams
-         */
-        $GLOBALS['urlParams'] = [];
-        $container->setParameter('url_params', $GLOBALS['urlParams']);
-
-        $this->setGotoAndBackGlobals($container, $this->config);
         $this->checkTokenRequestParam();
         $this->setDatabaseAndTableFromRequest($container, $request);
         $this->setSQLQueryGlobalFromRequest($container, $request);
@@ -354,43 +343,6 @@ class Application
         }
 
         Core::warnMissingExtension('hash', true);
-    }
-
-    private function setGotoAndBackGlobals(ContainerInterface $container, Config $config): void
-    {
-        $GLOBALS['back'] ??= null;
-        $GLOBALS['urlParams'] ??= null;
-
-        // Holds page that should be displayed.
-        $GLOBALS['goto'] = '';
-        $container->setParameter('goto', $GLOBALS['goto']);
-
-        if (isset($_REQUEST['goto']) && Core::checkPageValidity($_REQUEST['goto'])) {
-            $GLOBALS['goto'] = $_REQUEST['goto'];
-            $GLOBALS['urlParams']['goto'] = $GLOBALS['goto'];
-            $container->setParameter('goto', $GLOBALS['goto']);
-            $container->setParameter('url_params', $GLOBALS['urlParams']);
-        } else {
-            if ($config->issetCookie('goto')) {
-                $config->removeCookie('goto');
-            }
-
-            unset($_REQUEST['goto'], $_GET['goto'], $_POST['goto']);
-        }
-
-        if (isset($_REQUEST['back']) && Core::checkPageValidity($_REQUEST['back'])) {
-            // Returning page.
-            $GLOBALS['back'] = $_REQUEST['back'];
-            $container->setParameter('back', $GLOBALS['back']);
-
-            return;
-        }
-
-        if ($config->issetCookie('back')) {
-            $config->removeCookie('back');
-        }
-
-        unset($_REQUEST['back'], $_GET['back'], $_POST['back']);
     }
 
     /**
