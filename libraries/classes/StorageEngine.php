@@ -314,7 +314,7 @@ class StorageEngine
                   . '</tr>' . "\n";
         }
 
-        if (! $ret) {
+        if ($ret === '') {
             return '<p>' . "\n"
                 . '    '
                 . __('There is no detailed status information available for this storage engine.')
@@ -354,7 +354,7 @@ class StorageEngine
         $variables = $this->getVariables();
         $like = $this->getVariablesLikePattern();
 
-        if ($like) {
+        if ($like !== '') {
             $like = " LIKE '" . $like . "' ";
         } else {
             $like = '';
@@ -367,7 +367,7 @@ class StorageEngine
         foreach ($res as $row) {
             if (isset($variables[$row['Variable_name']])) {
                 $mysqlVars[$row['Variable_name']] = $variables[$row['Variable_name']];
-            } elseif (! $like && mb_stripos($row['Variable_name'], $this->engine) !== 0) {
+            } elseif ($like === '' && mb_stripos($row['Variable_name'], $this->engine) !== 0) {
                 continue;
             }
 

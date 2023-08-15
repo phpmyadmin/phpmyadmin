@@ -373,7 +373,7 @@ class ZoomSearchController extends AbstractController
                 'where_clause' => $uniqueCondition,
                 'where_clause_sign' => Core::signSqlQuery($uniqueCondition),
             ];
-            $tmpData[$dataLabel] = $dataLabel ? $row[$dataLabel] : '';
+            $tmpData[$dataLabel] = $dataLabel !== '' ? $row[$dataLabel] : '';
             $data[] = $tmpData;
         }
 
@@ -392,8 +392,8 @@ class ZoomSearchController extends AbstractController
                 $columnName,
             );
             if (
-                ! $this->foreigners
-                || ! $searchColumnInForeigners[$columnIndex]
+                $this->foreigners === []
+                || ($searchColumnInForeigners[$columnIndex] === [] || $searchColumnInForeigners[$columnIndex] === false)
                 || ! is_array($foreignData[$columnIndex]['disp_row'])
             ) {
                 continue;

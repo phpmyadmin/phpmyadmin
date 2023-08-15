@@ -111,7 +111,7 @@ class Footer
             $retval = (string) json_encode($_SESSION['debug']);
             $_SESSION['debug'] = [];
 
-            return json_last_error() ? '\'false\'' : $retval;
+            return json_last_error() !== 0 ? '\'false\'' : $retval;
         }
 
         $_SESSION['debug'] = [];
@@ -236,7 +236,7 @@ class Footer
         $this->setHistory();
         if ($this->isEnabled) {
             if (! $this->isAjax && ! $this->isMinimal) {
-                if (Core::getenv('SCRIPT_NAME')) {
+                if (Core::getenv('SCRIPT_NAME') !== '') {
                     $url = $this->getSelfUrl();
                 }
 

@@ -62,13 +62,13 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
 
         $result = $this->object->getFunctionsClass($class);
 
-        if ($includes) {
+        if ($includes !== []) {
             foreach ($includes as $value) {
                 $this->assertContains($value, $result);
             }
         }
 
-        if (! $excludes) {
+        if ($excludes === []) {
             return;
         }
 
@@ -281,13 +281,13 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
 
         $result = $this->object->getFunctions('enum');
 
-        if ($includes) {
+        if ($includes !== []) {
             foreach ($includes as $value) {
                 $this->assertContains($value, $result);
             }
         }
 
-        if (! $excludes) {
+        if ($excludes === []) {
             return;
         }
 
@@ -356,13 +356,13 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
 
         $result = $this->object->getAllFunctions();
 
-        if ($includes) {
+        if ($includes !== []) {
             foreach ($includes as $value) {
                 $this->assertContains($value, $result);
             }
         }
 
-        if (! $excludes) {
+        if ($excludes === []) {
             return;
         }
 

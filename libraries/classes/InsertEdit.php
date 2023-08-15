@@ -419,7 +419,7 @@ class InsertEdit
             . ' cols="' . $textareaCols . '"'
             . ' dir="' . $textDir . '"'
             . ' id="field_' . $this->fieldIndex . '_3"'
-            . ($onChangeClause ? ' onchange="' . htmlspecialchars($onChangeClause, ENT_COMPAT) . '"' : '')
+            . ($onChangeClause !== '' ? ' onchange="' . htmlspecialchars($onChangeClause, ENT_COMPAT) . '"' : '')
             . ' tabindex="' . $this->fieldIndex . '"'
             . ' data-type="' . $dataType . '">'
             . $specialCharsEncoded
@@ -475,7 +475,7 @@ class InsertEdit
             . ($column->isChar
                 ? ' data-maxlength="' . $fieldsize . '"'
                 : '')
-            . ($inputMinMax ? ' ' . $inputMinMax : '')
+            . ($inputMinMax !== '' ? ' ' . $inputMinMax : '')
             . ' data-type="' . $dataType . '"'
             . ' class="' . $theClass . '" onchange="' . htmlspecialchars($onChangeClause, ENT_COMPAT) . '"'
             . ' tabindex="' . $this->fieldIndex . '"'
@@ -969,7 +969,7 @@ class InsertEdit
                 $totalAffectedRows += $this->dbi->affectedRows();
 
                 $insertId = $this->dbi->insertId();
-                if ($insertId) {
+                if ($insertId !== 0) {
                     // insert_id is id of FIRST record inserted in one insert, so if we
                     // inserted multiple rows, we had to increment this
 
@@ -1070,7 +1070,7 @@ class InsertEdit
         if ($_SESSION['tmpval']['relational_display'] === 'K') {
             // user chose "relational key" in the display options, so
             // the title contains the display field
-            $title = $dispval
+            $title = $dispval !== ''
                 ? ' title="' . htmlspecialchars($dispval) . '"'
                 : '';
         } else {
@@ -1669,7 +1669,7 @@ class InsertEdit
         $gisDataTypes = Gis::getDataTypes();
 
         // Prepares the field value
-        if ($currentRow) {
+        if ($currentRow !== []) {
             // (we are editing)
             [
                 $realNullValue,
@@ -1798,7 +1798,7 @@ class InsertEdit
         $maxUploadSize = 0;
         $selectOptionForUpload = '';
         $inputFieldHtml = '';
-        if (empty($transformedHtml)) {
+        if ($transformedHtml === '') {
             if (is_array($foreignData['disp_row'])) {
                 $foreignDropdown = $this->relation->foreignDropdown(
                     $foreignData['disp_row'],

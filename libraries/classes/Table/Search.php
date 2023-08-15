@@ -108,7 +108,7 @@ final class Search
                 $tmpGeomFunc,
             );
 
-            if (! $whereClause) {
+            if ($whereClause === '') {
                 continue;
             }
 
@@ -143,7 +143,7 @@ final class Search
         string|null $geomFunc = null,
     ): string {
         // If geometry function is set
-        if (! empty($geomFunc)) {
+        if ($geomFunc !== null && $geomFunc !== '') {
             return $this->getGeomWhereClause($criteriaValues, $names, $funcType, $types, $geomFunc);
         }
 

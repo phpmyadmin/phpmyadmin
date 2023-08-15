@@ -267,7 +267,7 @@ class UserPreferences
             $urlParams = array_merge($params, $urlParams);
         }
 
-        if ($hash) {
+        if ($hash !== null && $hash !== '') {
             $hash = '#' . urlencode($hash);
         }
 

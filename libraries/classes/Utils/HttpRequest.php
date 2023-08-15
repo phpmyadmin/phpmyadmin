@@ -162,7 +162,7 @@ class HttpRequest
             $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_CUSTOMREQUEST, $method);
         }
 
-        if ($header) {
+        if ($header !== '') {
             $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_HTTPHEADER, [$header]);
         }
 
@@ -186,7 +186,7 @@ class HttpRequest
         $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_TIMEOUT, 10);
         $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_CONNECTTIMEOUT, 10);
 
-        if (! $curlStatus) {
+        if ($curlStatus === 0) {
             return null;
         }
 
@@ -226,7 +226,7 @@ class HttpRequest
             ],
             'ssl' => ['verify_peer' => true, 'verify_peer_name' => true],
         ];
-        if ($header) {
+        if ($header !== '') {
             $context['http']['header'] .= "\n" . $header;
         }
 

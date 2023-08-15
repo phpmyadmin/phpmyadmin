@@ -147,7 +147,7 @@ class IndexColumn
     public function getNull(bool $asText = false): string
     {
         if ($asText) {
-            if (! $this->null || $this->null === 'NO') {
+            if ($this->null === '' || $this->null === 'NO') {
                 return __('No');
             }
 

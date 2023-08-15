@@ -1159,7 +1159,7 @@ class UtilTest extends AbstractTestCase
         Context::load();
         foreach (Context::$keywords as $keyword => $type) {
             $expected = $keyword;
-            if ($type & Token::FLAG_KEYWORD_RESERVED) {
+            if (($type & Token::FLAG_KEYWORD_RESERVED) !== 0) {
                 $expected = '`' . $keyword . '`';
             }
 

@@ -94,12 +94,12 @@ final class SimulateDml
     {
         $tableReferences = Query::getTables($statement);
         $where = Query::getClause($statement, $parser->list, 'WHERE');
-        if (empty($where)) {
+        if ($where === '') {
             $where = '1';
         }
 
         $orderAndLimit = '';
-        if (! empty($statement->order)) {
+        if ($statement->order !== null && $statement->order !== []) {
             $orderAndLimit .= ' ORDER BY ' . Query::getClause($statement, $parser->list, 'ORDER BY');
         }
 
@@ -119,7 +119,7 @@ final class SimulateDml
     {
         $tableReferences = Query::getTables($statement);
         $where = Query::getClause($statement, $parser->list, 'WHERE');
-        if (empty($where)) {
+        if ($where === '') {
             $where = '1';
         }
 

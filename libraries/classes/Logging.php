@@ -82,7 +82,7 @@ class Logging
         }
 
         $logFile = self::getLogDestination($settings->authLog);
-        if (empty($logFile)) {
+        if ($logFile === '') {
             return;
         }
 

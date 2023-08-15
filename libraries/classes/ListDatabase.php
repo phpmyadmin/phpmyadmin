@@ -101,7 +101,7 @@ class ListDatabase extends ListAbstract
             }
         }
 
-        if ($command) {
+        if ($command !== '') {
             $databaseList = DatabaseInterface::getInstance()->fetchResult($command, null, null);
         }
 

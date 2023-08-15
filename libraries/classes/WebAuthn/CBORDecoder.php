@@ -223,7 +223,7 @@ final class CBORDecoder
             $val = $mant === 0 ? INF : NAN;
         }
 
-        return $half & 0x8000 ? -$val : $val;
+        return ($half & 0x8000) !== 0 ? -$val : $val;
     }
 
     /**

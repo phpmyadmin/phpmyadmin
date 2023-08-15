@@ -200,7 +200,7 @@ class Config
     public function checkClient(): void
     {
         $httpUserAgent = '';
-        if (Core::getenv('HTTP_USER_AGENT')) {
+        if (Core::getenv('HTTP_USER_AGENT') !== '') {
             $httpUserAgent = Core::getenv('HTTP_USER_AGENT');
         }
 
@@ -573,7 +573,7 @@ class Config
     /** @throws ConfigException */
     public function checkConfigSource(): bool
     {
-        if (! $this->getSource()) {
+        if ($this->getSource() === '') {
             // no configuration file set at all
             return false;
         }

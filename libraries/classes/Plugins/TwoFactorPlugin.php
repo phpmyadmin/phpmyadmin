@@ -52,7 +52,7 @@ class TwoFactorPlugin
     public function getError(): string
     {
         if ($this->provided) {
-            if (! empty($this->message)) {
+            if ($this->message !== '') {
                 return Message::rawError(
                     sprintf(__('Two-factor authentication failed: %s'), $this->message),
                 )->getDisplay();

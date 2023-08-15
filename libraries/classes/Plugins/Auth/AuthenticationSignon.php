@@ -192,7 +192,7 @@ class AuthenticationSignon extends AuthenticationPlugin
                     session_name($oldSession);
                 }
 
-                if (! empty($oldId)) {
+                if ($oldId !== '' && $oldId !== false) {
                     session_id($oldId);
                 }
 
@@ -221,7 +221,7 @@ class AuthenticationSignon extends AuthenticationPlugin
         }
 
         // Returns whether we get authentication settings or not
-        if (empty($this->user)) {
+        if ($this->user === '') {
             unset($_SESSION['LAST_SIGNON_URL']);
 
             return false;

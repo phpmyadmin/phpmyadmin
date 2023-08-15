@@ -106,7 +106,7 @@ class OperationsController extends AbstractController
         if (isset($GLOBALS['result'])) {
             // set to success by default, because result set could be empty
             // (for example, a table rename)
-            if (empty($message->getString())) {
+            if ($message->getString() === '') {
                 if ($GLOBALS['result']) {
                     $message->addText(
                         __('Your SQL query has been executed successfully.'),

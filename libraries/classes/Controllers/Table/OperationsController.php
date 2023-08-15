@@ -185,13 +185,12 @@ class OperationsController extends AbstractController
             return;
         }
 
+        $newMessage = '';
         $warningMessages = [];
         /**
          * Updates table comment, type and options if required
          */
         if ($request->hasBodyParam('submitoptions')) {
-            $newMessage = '';
-
             /** @var mixed $newName */
             $newName = $request->getParsedBodyParam('new_name');
             if (is_string($newName)) {
@@ -351,7 +350,7 @@ class OperationsController extends AbstractController
         unset($GLOBALS['reread_info']);
 
         if (isset($GLOBALS['result']) && empty($GLOBALS['message_to_show'])) {
-            if (empty($newMessage)) {
+            if ($newMessage === '') {
                 if (empty($GLOBALS['sql_query'])) {
                     $newMessage = Message::success(__('No change'));
                 } else {

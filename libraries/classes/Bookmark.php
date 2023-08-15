@@ -195,7 +195,7 @@ class Bookmark
             $allUsers = false;
         }
 
-        if (! $allUsers && ! strlen((string) $bkmFields['bkm_user'])) {
+        if (! $allUsers && (string) $bkmFields['bkm_user'] === '') {
             return false;
         }
 

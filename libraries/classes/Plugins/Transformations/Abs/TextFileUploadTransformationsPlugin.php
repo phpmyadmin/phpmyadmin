@@ -59,7 +59,7 @@ abstract class TextFileUploadTransformationsPlugin extends IOTransformationsPlug
         int $fieldIndex,
     ): string {
         $html = '';
-        if (! empty($value)) {
+        if ($value !== '') {
             $html = '<input type="hidden" name="fields_prev' . $columnNameAppendix
                 . '" value="' . htmlspecialchars($value) . '">';
             $html .= '<input type="hidden" name="fields' . $columnNameAppendix

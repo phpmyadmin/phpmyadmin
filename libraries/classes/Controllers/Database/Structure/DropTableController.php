@@ -59,7 +59,7 @@ final class DropTableController extends AbstractController
             $current = $selected[$i];
 
             if ($views !== [] && in_array($current, $views)) {
-                $sqlQueryViews .= (empty($sqlQueryViews) ? 'DROP VIEW ' : ', ') . Util::backquote($current);
+                $sqlQueryViews .= ($sqlQueryViews === '' ? 'DROP VIEW ' : ', ') . Util::backquote($current);
             } else {
                 $GLOBALS['sql_query'] .= (empty($GLOBALS['sql_query']) ? 'DROP TABLE ' : ', ')
                     . Util::backquote($current);
@@ -70,9 +70,9 @@ final class DropTableController extends AbstractController
 
         if (! empty($GLOBALS['sql_query'])) {
             $GLOBALS['sql_query'] .= ';';
-        } elseif (! empty($sqlQueryViews)) {
+        } elseif ($sqlQueryViews !== '') {
             $GLOBALS['sql_query'] = $sqlQueryViews . ';';
-            unset($sqlQueryViews);
+            $sqlQueryViews = '';
         }
 
         // Unset cache values for tables count, issue #14205
@@ -95,7 +95,7 @@ final class DropTableController extends AbstractController
             $GLOBALS['message'] = Message::error($this->dbi->getError());
         }
 
-        if ($result && ! empty($sqlQueryViews)) {
+        if ($result && $sqlQueryViews !== '') {
             $GLOBALS['sql_query'] .= ' ' . $sqlQueryViews . ';';
             $result = $this->dbi->tryQuery($sqlQueryViews);
             unset($sqlQueryViews);

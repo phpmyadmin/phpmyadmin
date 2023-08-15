@@ -175,7 +175,7 @@ class DbiDummy implements DbiExtension
     {
         $query = trim((string) preg_replace('/  */', ' ', str_replace("\n", ' ', $query)));
         $found = $this->findFifoQuery($query) ?? $this->findDummyQuery($query);
-        if (! $found) {
+        if ($found === null) {
             Assert::fail('Not supported query: ' . $query);
         }
 

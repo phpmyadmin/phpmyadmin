@@ -794,7 +794,7 @@ class FormDisplay
             }
 
             if (! function_exists($funcs[$systemPath][1])) {
-                $comment .= ($comment ? '; ' : '') . sprintf(
+                $comment .= ($comment !== '' ? '; ' : '') . sprintf(
                     __(
                         'Compressed export will not work due to missing function %s.',
                     ),

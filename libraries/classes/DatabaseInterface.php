@@ -517,7 +517,7 @@ class DatabaseInterface implements DbalInterface
                     $needAnd = true;
                 }
 
-                if ($tableType) {
+                if ($tableType !== null && $tableType !== '') {
                     if ($needAnd) {
                         $sql .= ' AND';
                     }
@@ -576,7 +576,7 @@ class DatabaseInterface implements DbalInterface
                     }
                 }
 
-                if ($sortValues) {
+                if ($sortValues !== []) {
                     if ($sortOrder === 'DESC') {
                         array_multisort($sortValues, SORT_DESC, $eachTables);
                     } else {
@@ -1086,7 +1086,7 @@ class DatabaseInterface implements DbalInterface
 
         /* Locale for messages */
         $locale = LanguageManager::getInstance()->getCurrentLanguage()->getMySQLLocale();
-        if ($locale) {
+        if ($locale !== '') {
             $this->query("SET lc_messages = '" . $locale . "';");
         }
 
