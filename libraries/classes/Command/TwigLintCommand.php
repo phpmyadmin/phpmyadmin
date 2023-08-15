@@ -223,7 +223,7 @@ class TwigLintCommand extends Command
     ): void {
         $line = $exception->getTemplateLine();
 
-        if ($file) {
+        if ($file !== null && $file !== '') {
             $output->text(sprintf('<error> ERROR </error> in %s (line %s)', $file, $line));
         } else {
             $output->text(sprintf('<error> ERROR </error> (line %s)', $line));

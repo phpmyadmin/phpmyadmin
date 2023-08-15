@@ -582,12 +582,12 @@ class CentralColumns
         if ($origColName == '') {
             $def = [];
             $def['Type'] = $colType;
-            if ($colLength) {
+            if ($colLength !== '') {
                 $def['Type'] .= '(' . $colLength . ')';
             }
 
             $def['Collation'] = $collation;
-            $def['Null'] = $colIsNull ? __('YES') : __('NO');
+            $def['Null'] = $colIsNull !== 0 ? __('YES') : __('NO');
             $def['Extra'] = $colExtra;
             $def['Attribute'] = $colAttribute;
             $def['Default'] = $colDefault;

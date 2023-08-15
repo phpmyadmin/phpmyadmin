@@ -66,11 +66,6 @@ parameters:
 			path: libraries/classes/Bookmark.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\<0, max\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Bookmark.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Bookmark.php
@@ -112,11 +107,6 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 1
-			path: libraries/classes/BrowseForeigners.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 1
 			path: libraries/classes/BrowseForeigners.php
 
@@ -261,11 +251,6 @@ parameters:
 			path: libraries/classes/Command/TwigLintCommand.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Command/TwigLintCommand.php
-
-		-
 			message: "#^Parameter \\#1 \\$callback of function set_error_handler expects \\(callable\\(int, string, string, int\\)\\: bool\\)\\|null, Closure\\(int, string, string, int\\)\\: mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Command/TwigLintCommand.php
@@ -406,11 +391,6 @@ parameters:
 			path: libraries/classes/Config.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, string given\\.$#"
-			count: 1
-			path: libraries/classes/Config.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, string\\|false given\\.$#"
 			count: 3
 			path: libraries/classes/Config.php
@@ -432,11 +412,6 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in an if condition, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Config.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, string given\\.$#"
 			count: 1
 			path: libraries/classes/Config.php
 
@@ -716,11 +691,6 @@ parameters:
 			path: libraries/classes/Config/FormDisplay.php
 
 		-
-			message: "#^Only booleans are allowed in a ternary operator condition, string given\\.$#"
-			count: 1
-			path: libraries/classes/Config/FormDisplay.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
 			count: 2
 			path: libraries/classes/Config/FormDisplay.php
@@ -896,11 +866,6 @@ parameters:
 			path: libraries/classes/Config/Forms/User/FeaturesForm.php
 
 		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: libraries/classes/Config/PageSettings.php
-
-		-
 			message: "#^Parameter \\#1 \\$url of method PhpMyAdmin\\\\ResponseRenderer\\:\\:redirect\\(\\) expects non\\-empty\\-string, string given\\.$#"
 			count: 1
 			path: libraries/classes/Config/PageSettings.php
@@ -913,11 +878,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in a negated boolean, mixed given\\.$#"
 			count: 6
-			path: libraries/classes/Config/ServerConfigChecks.php
-
-		-
-			message: "#^Only booleans are allowed in a ternary operator condition, string given\\.$#"
-			count: 1
 			path: libraries/classes/Config/ServerConfigChecks.php
 
 		-
@@ -1491,18 +1451,8 @@ parameters:
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, array\\|bool given\\.$#"
-			count: 1
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
 			count: 3
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, string given\\.$#"
-			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
@@ -1523,11 +1473,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in an if condition, bool\\|string\\|null given\\.$#"
 			count: 1
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, string given\\.$#"
-			count: 5
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
@@ -1618,11 +1563,6 @@ parameters:
 		-
 			message: "#^Parameter \\#2 \\$tableName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
 			count: 2
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Short ternary operator is not allowed\\. Use null coalesce operator if applicable or consider using long ternary\\.$#"
-			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
@@ -1986,11 +1926,6 @@ parameters:
 			path: libraries/classes/Controllers/Database/DesignerController.php
 
 		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/DesignerController.php
-
-		-
 			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getDatabaseTables\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/DesignerController.php
@@ -2188,11 +2123,6 @@ parameters:
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 18
-			path: libraries/classes/Controllers/Database/EventsController.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, string\\|null given\\.$#"
-			count: 1
 			path: libraries/classes/Controllers/Database/EventsController.php
 
 		-
@@ -2731,11 +2661,6 @@ parameters:
 			path: libraries/classes/Controllers/Database/RoutinesController.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, string given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/RoutinesController.php
-
-		-
 			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTables\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/RoutinesController.php
@@ -3107,7 +3032,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 5
+			count: 1
 			path: libraries/classes/Controllers/Database/Structure/DropFormController.php
 
 		-
@@ -3142,7 +3067,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 5
+			count: 2
 			path: libraries/classes/Controllers/Database/Structure/DropTableController.php
 
 		-
@@ -4856,11 +4781,6 @@ parameters:
 			path: libraries/classes/Controllers/Import/SimulateDmlController.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, string given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Import/SimulateDmlController.php
-
-		-
 			message: "#^Parameter \\#1 \\$separator of function explode expects non\\-empty\\-string, string given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Import/SimulateDmlController.php
@@ -5186,11 +5106,6 @@ parameters:
 			path: libraries/classes/Controllers/Preferences/ExportController.php
 
 		-
-			message: "#^Only booleans are allowed in a ternary operator condition, PhpMyAdmin\\\\Message\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Preferences/ExportController.php
-
-		-
 			message: "#^Parameter \\#1 \\$configArray of method PhpMyAdmin\\\\UserPreferences\\:\\:save\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Preferences/ExportController.php
@@ -5217,11 +5132,6 @@ parameters:
 
 		-
 			message: "#^Cannot call method getConfigArray\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Preferences/FeaturesController.php
-
-		-
-			message: "#^Only booleans are allowed in a ternary operator condition, PhpMyAdmin\\\\Message\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Preferences/FeaturesController.php
 
@@ -5256,11 +5166,6 @@ parameters:
 			path: libraries/classes/Controllers/Preferences/ImportController.php
 
 		-
-			message: "#^Only booleans are allowed in a ternary operator condition, PhpMyAdmin\\\\Message\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Preferences/ImportController.php
-
-		-
 			message: "#^Parameter \\#1 \\$configArray of method PhpMyAdmin\\\\UserPreferences\\:\\:save\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Preferences/ImportController.php
@@ -5287,11 +5192,6 @@ parameters:
 
 		-
 			message: "#^Cannot call method getConfigArray\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Preferences/MainPanelController.php
-
-		-
-			message: "#^Only booleans are allowed in a ternary operator condition, PhpMyAdmin\\\\Message\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Preferences/MainPanelController.php
 
@@ -5416,11 +5316,6 @@ parameters:
 			path: libraries/classes/Controllers/Preferences/NavigationController.php
 
 		-
-			message: "#^Only booleans are allowed in a ternary operator condition, PhpMyAdmin\\\\Message\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Preferences/NavigationController.php
-
-		-
 			message: "#^Parameter \\#1 \\$configArray of method PhpMyAdmin\\\\UserPreferences\\:\\:save\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Preferences/NavigationController.php
@@ -5447,11 +5342,6 @@ parameters:
 
 		-
 			message: "#^Cannot call method getConfigArray\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Preferences/SqlController.php
-
-		-
-			message: "#^Only booleans are allowed in a ternary operator condition, PhpMyAdmin\\\\Message\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Preferences/SqlController.php
 
@@ -7006,11 +6896,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/CreateController.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, array\\<array\\<string, string\\|null\\>\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/CreateController.php
-
-		-
 			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/CreateController.php
@@ -7381,11 +7266,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/GetFieldController.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, array\\<array\\<string, string\\|null\\>\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/GetFieldController.php
-
-		-
 			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/GetFieldController.php
@@ -7742,7 +7622,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 10
+			count: 9
 			path: libraries/classes/Controllers/Table/OperationsController.php
 
 		-
@@ -9636,27 +9516,12 @@ parameters:
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, array given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, array\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ZoomSearchController.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
 		-
 			message: "#^Only booleans are allowed in a negated boolean, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: "#^Only booleans are allowed in a ternary operator condition, string given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
@@ -10136,11 +10001,6 @@ parameters:
 			path: libraries/classes/Controllers/View/OperationsController.php
 
 		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/View/OperationsController.php
-
-		-
 			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/View/OperationsController.php
@@ -10576,11 +10436,6 @@ parameters:
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
-			message: "#^Only booleans are allowed in a ternary operator condition, int given\\.$#"
-			count: 1
-			path: libraries/classes/Database/CentralColumns.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Database/CentralColumns.php
@@ -10588,11 +10443,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in an if condition, mixed given\\.$#"
 			count: 3
-			path: libraries/classes/Database/CentralColumns.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, string given\\.$#"
-			count: 1
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
@@ -10887,7 +10737,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 3
+			count: 2
 			path: libraries/classes/Database/Designer/Common.php
 
 		-
@@ -10987,7 +10837,7 @@ parameters:
 
 		-
 			message: "#^Cannot access an offset on mixed\\.$#"
-			count: 9
+			count: 6
 			path: libraries/classes/Database/Events.php
 
 		-
@@ -11026,21 +10876,6 @@ parameters:
 			path: libraries/classes/Database/Events.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, array\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Events.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\<0, max\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Events.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\<0, max\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Events.php
-
-		-
 			message: "#^Parameter \\#1 \\$haystack of function str_contains expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Database/Events.php
@@ -11063,11 +10898,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, mixed given\\.$#"
 			count: 5
-			path: libraries/classes/Database/Events.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
-			count: 2
 			path: libraries/classes/Database/Events.php
 
 		-
@@ -11258,11 +11088,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
 			count: 4
-			path: libraries/classes/Database/Routines.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, array\\|null given\\.$#"
-			count: 1
 			path: libraries/classes/Database/Routines.php
 
 		-
@@ -11601,22 +11426,7 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, array\\<string\\> given\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, bool\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, string given\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
 
@@ -12072,7 +11882,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 27
+			count: 26
 			path: libraries/classes/Display/Results.php
 
 		-
@@ -12126,11 +11936,6 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, array\\<int, array\\<int, string\\|null\\>\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, bool\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
@@ -12148,11 +11953,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in a negated boolean, mixed given\\.$#"
 			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Only booleans are allowed in a ternary operator condition, array\\<int, string\\|null\\> given\\.$#"
-			count: 2
 			path: libraries/classes/Display/Results.php
 
 		-
@@ -12631,16 +12431,6 @@ parameters:
 			path: libraries/classes/ErrorHandler.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, int given\\.$#"
-			count: 1
-			path: libraries/classes/ErrorHandler.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int given\\.$#"
-			count: 1
-			path: libraries/classes/ErrorHandler.php
-
-		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/ErrorHandler.php
@@ -12777,7 +12567,7 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in a negated boolean, int\\<0, max\\>\\|false given\\.$#"
-			count: 3
+			count: 2
 			path: libraries/classes/Export/Export.php
 
 		-
@@ -13231,16 +13021,6 @@ parameters:
 			path: libraries/classes/Footer.php
 
 		-
-			message: "#^Only booleans are allowed in a ternary operator condition, int given\\.$#"
-			count: 1
-			path: libraries/classes/Footer.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, string given\\.$#"
-			count: 1
-			path: libraries/classes/Footer.php
-
-		-
 			message: "#^Parameter \\#1 \\$dbi of class PhpMyAdmin\\\\ConfigStorage\\\\Relation constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Footer.php
@@ -13282,11 +13062,6 @@ parameters:
 
 		-
 			message: "#^Only numeric types are allowed in \\-, int\\<0, max\\>\\|false given on the left side\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisGeometry.php
-
-		-
-			message: "#^Short ternary operator is not allowed\\. Use null coalesce operator if applicable or consider using long ternary\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometry.php
 
@@ -13751,11 +13526,6 @@ parameters:
 			path: libraries/classes/Git.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Git.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Git.php
@@ -13976,16 +13746,6 @@ parameters:
 			path: libraries/classes/Header.php
 
 		-
-			message: "#^Only booleans are allowed in an elseif condition, int\\<0, max\\> given\\.$#"
-			count: 2
-			path: libraries/classes/Header.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\<0, max\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Header.php
-
-		-
 			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Header\\:\\:addRecentTable\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Header.php
@@ -14008,11 +13768,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getMessage\\(\\) expects PhpMyAdmin\\\\Message\\|string, mixed given\\.$#"
 			count: 1
-			path: libraries/classes/Header.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
-			count: 3
 			path: libraries/classes/Header.php
 
 		-
@@ -14426,11 +14181,6 @@ parameters:
 			path: libraries/classes/Html/Generator.php
 
 		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: libraries/classes/Html/MySQLDocumentation.php
-
-		-
 			message: "#^Parameter \\#1 \\$method of method PhpMyAdmin\\\\Http\\\\Factory\\\\ServerRequestFactory\\:\\:createServerRequest\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Http/Factory/ServerRequestFactory.php
@@ -14777,7 +14527,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 6
+			count: 3
 			path: libraries/classes/Import/SimulateDml.php
 
 		-
@@ -14827,11 +14577,6 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in &&, int\\<0, 8\\> given on the left side\\.$#"
-			count: 1
-			path: libraries/classes/Index.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\<0, 16\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Index.php
 
@@ -14903,11 +14648,6 @@ parameters:
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
 			count: 3
-			path: libraries/classes/IndexColumn.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, string given\\.$#"
-			count: 1
 			path: libraries/classes/IndexColumn.php
 
 		-
@@ -15057,7 +14797,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 4
+			count: 3
 			path: libraries/classes/InsertEdit.php
 
 		-
@@ -15151,22 +14891,7 @@ parameters:
 			path: libraries/classes/InsertEdit.php
 
 		-
-			message: "#^Only booleans are allowed in a ternary operator condition, string given\\.$#"
-			count: 3
-			path: libraries/classes/InsertEdit.php
-
-		-
 			message: "#^Only booleans are allowed in an elseif condition, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, array given\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int given\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
@@ -15376,18 +15101,8 @@ parameters:
 			path: libraries/classes/IpAllowDeny.php
 
 		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: libraries/classes/IpAllowDeny.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
 			count: 3
-			path: libraries/classes/IpAllowDeny.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, string given\\.$#"
-			count: 1
 			path: libraries/classes/IpAllowDeny.php
 
 		-
@@ -15426,11 +15141,6 @@ parameters:
 			path: libraries/classes/Language.php
 
 		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: libraries/classes/Language.php
-
-		-
 			message: "#^Parameter \\#2 \\$path of function _bindtextdomain expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Language.php
@@ -15442,21 +15152,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\LanguageManager\\:\\:availableLocales\\(\\) should return array but returns array\\|false\\.$#"
-			count: 1
-			path: libraries/classes/LanguageManager.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, array given\\.$#"
-			count: 1
-			path: libraries/classes/LanguageManager.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, array\\<PhpMyAdmin\\\\Language\\> given\\.$#"
-			count: 1
-			path: libraries/classes/LanguageManager.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, string given\\.$#"
 			count: 1
 			path: libraries/classes/LanguageManager.php
 
@@ -15556,11 +15251,6 @@ parameters:
 			path: libraries/classes/ListDatabase.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, string given\\.$#"
-			count: 1
-			path: libraries/classes/ListDatabase.php
-
-		-
 			message: "#^Parameter \\#1 \\$array of function sort expects TArray of array\\<T\\>, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/ListDatabase.php
@@ -15594,11 +15284,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/ListDatabase.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: libraries/classes/Logging.php
 
 		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
@@ -15708,11 +15393,6 @@ parameters:
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
-			path: libraries/classes/Message.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 3
 			path: libraries/classes/Message.php
 
 		-
@@ -16081,11 +15761,6 @@ parameters:
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, int given\\.$#"
-			count: 3
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
 			message: "#^Only numeric types are allowed in \\+, int\\|false given on the left side\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/NavigationTree.php
@@ -16342,7 +16017,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 7
+			count: 5
 			path: libraries/classes/Navigation/Nodes/Node.php
 
 		-
@@ -17617,7 +17292,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 23
+			count: 22
 			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
 
 		-
@@ -17633,11 +17308,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in an elseif condition, string\\|false given\\.$#"
 			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\<0, max\\> given\\.$#"
-			count: 2
 			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
 
 		-
@@ -17687,7 +17357,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
-			count: 6
+			count: 4
 			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
 
 		-
@@ -17762,22 +17432,12 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 5
-			path: libraries/classes/Plugins/Auth/AuthenticationHttp.php
-
-		-
-			message: "#^Only booleans are allowed in an elseif condition, string given\\.$#"
-			count: 7
+			count: 4
 			path: libraries/classes/Plugins/Auth/AuthenticationHttp.php
 
 		-
 			message: "#^Only booleans are allowed in an if condition, int\\<0, max\\>\\|false given\\.$#"
 			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationHttp.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, string given\\.$#"
-			count: 2
 			path: libraries/classes/Plugins/Auth/AuthenticationHttp.php
 
 		-
@@ -17847,7 +17507,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 4
+			count: 2
 			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
 
 		-
@@ -18038,11 +17698,6 @@ parameters:
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
 			count: 1
-			path: libraries/classes/Plugins/Export/ExportCodegen.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 2
 			path: libraries/classes/Plugins/Export/ExportCodegen.php
 
 		-
@@ -18242,11 +17897,6 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportJson.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportJson.php
 
@@ -18687,7 +18337,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 8
+			count: 5
 			path: libraries/classes/Plugins/Export/ExportOdt.php
 
 		-
@@ -18827,7 +18477,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Plugins/Export/ExportPhparray.php
 
 		-
@@ -19171,16 +18821,6 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\<0, 1\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\<0, 2\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
@@ -19193,11 +18833,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in an elseif condition, mixed given\\.$#"
 			count: 1
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, array\\<int, string\\> given\\.$#"
-			count: 2
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
@@ -20076,11 +19711,6 @@ parameters:
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
 
 		-
-			message: "#^Short ternary operator is not allowed\\. Use null coalesce operator if applicable or consider using long ternary\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
 			message: "#^Variable \\$columnsCnt might not be defined\\.$#"
 			count: 6
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
@@ -20226,11 +19856,6 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportCsv.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, int\\<0, max\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportCsv.php
-
-		-
 			message: "#^Parameter \\#1 \\$csvTerminated of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportCsv\\:\\:buildErrorsForParams\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportCsv.php
@@ -20371,11 +19996,6 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportMediawiki.php
 
 		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportMediawiki.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportMediawiki\\:\\:doImport\\(\\) should return array\\<string\\> but returns mixed\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportMediawiki.php
@@ -20491,11 +20111,6 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, int given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportOds.php
-
-		-
 			message: "#^Parameter \\#1 \\$cellAttrs of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:getValue\\(\\) expects SimpleXMLElement, SimpleXMLElement\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportOds.php
@@ -20537,11 +20152,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#6 \\$maxCols of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:iterateOverRows\\(\\) expects int, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportOds.php
-
-		-
-			message: "#^Short ternary operator is not allowed\\. Use null coalesce operator if applicable or consider using long ternary\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
@@ -20821,12 +20431,12 @@ parameters:
 			path: libraries/classes/Plugins/Import/Upload/UploadProgress.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, array\\<string, int\\|string\\>\\|null given\\.$#"
+			message: "#^Parameter \\#2 \\$array of function array_key_exists expects array, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/Upload/UploadProgress.php
 
 		-
-			message: "#^Parameter \\#2 \\$array of function array_key_exists expects array, mixed given\\.$#"
+			message: "#^Strict comparison using \\!\\=\\= between array\\{upload_id\\: string, fieldname\\: string, filename\\: string, time_start\\: int, time_last\\: int, speed_average\\: int, speed_last\\: int, bytes_uploaded\\: int, \\.\\.\\.\\} and array\\{\\} will always evaluate to true\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/Upload/UploadProgress.php
 
@@ -21097,11 +20707,6 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/ExportRelationSchema.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/ExportRelationSchema.php
 
@@ -21646,11 +21251,6 @@ parameters:
 			path: libraries/classes/Plugins/Transformations/Abs/Bool2TextTransformationsPlugin.php
 
 		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Transformations/Abs/CodeMirrorEditorTransformationPlugin.php
-
-		-
 			message: "#^Binary operation \"\\-\\=\" between int\\<0, max\\>\\|string\\|false and int results in an error\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php
@@ -21871,11 +21471,6 @@ parameters:
 			path: libraries/classes/Plugins/Transformations/Abs/SubstringTransformationsPlugin.php
 
 		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Transformations/Abs/TextFileUploadTransformationsPlugin.php
-
-		-
 			message: "#^Cannot access offset 'DefaultTransformati…' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Transformations/Abs/TextImageLinkTransformationsPlugin.php
@@ -21914,16 +21509,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$defaults of method PhpMyAdmin\\\\Plugins\\\\TransformationsPlugin\\:\\:getOptions\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Transformations/Abs/TextLinkTransformationsPlugin.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptobinary.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptolong.php
 
 		-
 			message: "#^Cannot access offset 'CodemirrorEnable' on mixed\\.$#"
@@ -22057,7 +21642,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Plugins/TwoFactorPlugin.php
 
 		-
@@ -22772,11 +22357,6 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 2
-			path: libraries/classes/Replication/ReplicationInfo.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, array given\\.$#"
 			count: 1
 			path: libraries/classes/Replication/ReplicationInfo.php
 
@@ -23153,11 +22733,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
 			count: 14
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, array\\|null given\\.$#"
-			count: 1
 			path: libraries/classes/Server/Privileges.php
 
 		-
@@ -23616,11 +23191,6 @@ parameters:
 			path: libraries/classes/Server/Status/Monitor.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, int\\<0, max\\> given\\.$#"
-			count: 2
-			path: libraries/classes/Server/Status/Monitor.php
-
-		-
 			message: "#^Parameter \\#1 \\$haystack of function mb_strpos expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Server/Status/Monitor.php
@@ -23658,11 +23228,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$type of method PhpMyAdmin\\\\Server\\\\Status\\\\Monitor\\:\\:getJsonForChartingDataSwitch\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: libraries/classes/Server/Status/Monitor.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
-			count: 2
 			path: libraries/classes/Server/Status/Monitor.php
 
 		-
@@ -23992,7 +23557,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 14
+			count: 12
 			path: libraries/classes/Sql.php
 
 		-
@@ -24047,11 +23612,6 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in a negated boolean, bool\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Only booleans are allowed in an elseif condition, string given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
@@ -24291,11 +23851,6 @@ parameters:
 			path: libraries/classes/SqlQueryForm.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, bool\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/SqlQueryForm.php
-
-		-
 			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/SqlQueryForm.php
@@ -24462,16 +24017,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\StorageEngine\\:\\:getStorageEngines\\(\\) should return array\\<array\\> but returns mixed\\.$#"
-			count: 1
-			path: libraries/classes/StorageEngine.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, string given\\.$#"
-			count: 2
-			path: libraries/classes/StorageEngine.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, string given\\.$#"
 			count: 1
 			path: libraries/classes/StorageEngine.php
 
@@ -24836,11 +24381,6 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, string given\\.$#"
-			count: 3
-			path: libraries/classes/Table.php
-
-		-
 			message: "#^Only booleans are allowed in an elseif condition, int\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
@@ -24857,7 +24397,7 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in an if condition, string given\\.$#"
-			count: 3
+			count: 1
 			path: libraries/classes/Table.php
 
 		-
@@ -25211,11 +24751,6 @@ parameters:
 			path: libraries/classes/Table/Indexes.php
 
 		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: libraries/classes/Table/Maintenance.php
-
-		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
 			count: 2
 			path: libraries/classes/Table/Search.php
@@ -25232,12 +24767,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 4
-			path: libraries/classes/Table/Search.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, string given\\.$#"
-			count: 1
+			count: 3
 			path: libraries/classes/Table/Search.php
 
 		-
@@ -25696,11 +25226,6 @@ parameters:
 			path: libraries/classes/Tracking/Tracking.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, string given\\.$#"
-			count: 1
-			path: libraries/classes/Tracking/Tracking.php
-
-		-
 			message: "#^Only booleans are allowed in \\|\\|, string\\|false given on the left side\\.$#"
 			count: 1
 			path: libraries/classes/Tracking/Tracking.php
@@ -25832,7 +25357,7 @@ parameters:
 
 		-
 			message: "#^Cannot access an offset on mixed\\.$#"
-			count: 9
+			count: 6
 			path: libraries/classes/Triggers/Triggers.php
 
 		-
@@ -25866,16 +25391,6 @@ parameters:
 			path: libraries/classes/Triggers/Triggers.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\<0, max\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Triggers/Triggers.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\<0, max\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Triggers/Triggers.php
-
-		-
 			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTables\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Triggers/Triggers.php
@@ -25898,11 +25413,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getMessage\\(\\) expects PhpMyAdmin\\\\Message\\|string, mixed given\\.$#"
 			count: 1
-			path: libraries/classes/Triggers/Triggers.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
-			count: 2
 			path: libraries/classes/Triggers/Triggers.php
 
 		-
@@ -26102,11 +25612,6 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in an if condition, string\\|false\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/UserPreferences.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/UserPreferences.php
 
@@ -26416,22 +25921,12 @@ parameters:
 			path: libraries/classes/Util.php
 
 		-
-			message: "#^Only booleans are allowed in an elseif condition, string given\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, int\\<0, max\\>\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Util.php
 
 		-
 			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, string given\\.$#"
 			count: 1
 			path: libraries/classes/Util.php
 
@@ -26626,16 +26121,6 @@ parameters:
 			path: libraries/classes/Utils/HttpRequest.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, int given\\.$#"
-			count: 1
-			path: libraries/classes/Utils/HttpRequest.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, string given\\.$#"
-			count: 2
-			path: libraries/classes/Utils/HttpRequest.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Utils/HttpRequest.php
@@ -26747,7 +26232,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 4
+			count: 3
 			path: libraries/classes/VersionInformation.php
 
 		-
@@ -26794,11 +26279,6 @@ parameters:
 			message: "#^Short ternary operator is not allowed\\. Use null coalesce operator if applicable or consider using long ternary\\.$#"
 			count: 1
 			path: libraries/classes/VersionInformation.php
-
-		-
-			message: "#^Only booleans are allowed in a ternary operator condition, int\\<0, 32768\\> given\\.$#"
-			count: 1
-			path: libraries/classes/WebAuthn/CBORDecoder.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\ZipExtension\\:\\:getContents\\(\\) should return array\\{error\\: string, data\\: string\\} but returns array\\{error\\: '', data\\: string\\|false\\}\\.$#"
@@ -27143,11 +26623,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'pma_testform' on mixed\\.$#"
 			count: 1
-			path: test/classes/Config/FormDisplayTest.php
-
-		-
-			message: "#^Only booleans are allowed in a ternary operator condition, string given\\.$#"
-			count: 3
 			path: test/classes/Config/FormDisplayTest.php
 
 		-
@@ -30296,11 +29771,6 @@ parameters:
 			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
 
 		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 3
-			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
-
-		-
 			message: "#^Cannot access offset 'LogoutURL' on mixed\\.$#"
 			count: 1
 			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
@@ -31566,11 +31036,6 @@ parameters:
 			path: test/classes/Stubs/DbiDummy.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, array\\<string, array\\<int, array\\<int, float\\|int\\|string\\|null\\>\\|PhpMyAdmin\\\\FieldMetadata\\|string\\>\\|bool\\|string\\>\\|null given\\.$#"
-			count: 1
-			path: test/classes/Stubs/DbiDummy.php
-
-		-
 			message: "#^Foreach overwrites \\$value with its value variable\\.$#"
 			count: 1
 			path: test/classes/Stubs/ResponseRenderer.php
@@ -31808,16 +31273,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'user' on mixed\\.$#"
 			count: 3
-			path: test/classes/Tracking/TrackerTest.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, string\\|null given\\.$#"
-			count: 1
-			path: test/classes/Tracking/TrackerTest.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, string\\|null given\\.$#"
-			count: 1
 			path: test/classes/Tracking/TrackerTest.php
 
 		-
@@ -32091,16 +31546,6 @@ parameters:
 			path: test/classes/TypesByDatabaseVersionTest.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, array\\<string\\> given\\.$#"
-			count: 3
-			path: test/classes/TypesByDatabaseVersionTest.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, array\\<string\\> given\\.$#"
-			count: 3
-			path: test/classes/TypesByDatabaseVersionTest.php
-
-		-
 			message: "#^Cannot access offset 'ServerDefault' on mixed\\.$#"
 			count: 4
 			path: test/classes/UrlTest.php
@@ -32217,11 +31662,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\UtilTest\\:\\:providerForTestGetMySQLDocuURL\\(\\) should return array\\<int, array\\{string, string, int, string\\}\\> but returns array\\{array\\{'ALTER_TABLE', 'alter\\-table\\-index', '8\\.0\\.0', 'index\\.php\\?route\\=…'\\}, array\\{'ALTER_TABLE', 'alter\\-table\\-index', '5\\.7\\.0', 'index\\.php\\?route\\=…'\\}, array\\{'', 'alter\\-table\\-index', '5\\.6\\.0', 'index\\.php\\?route\\=…'\\}, array\\{'ALTER_TABLE', '', '5\\.5\\.0', 'index\\.php\\?route\\=…'\\}, array\\{'', '', '5\\.7\\.0', 'index\\.php\\?route\\=…'\\}\\}\\.$#"
-			count: 1
-			path: test/classes/UtilTest.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\<0, 2\\> given\\.$#"
 			count: 1
 			path: test/classes/UtilTest.php
 

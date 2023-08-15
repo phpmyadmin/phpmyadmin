@@ -702,7 +702,7 @@ class ImportCsv extends AbstractImportCsv
             return $_REQUEST['csv_new_tbl_name'];
         }
 
-        if (mb_strlen($databaseName)) {
+        if ($databaseName !== '') {
             $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
 
             // logic to get table name from filename

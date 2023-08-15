@@ -10,6 +10,7 @@ use PhpMyAdmin\Config\Forms\User\ExportForm;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme\ThemeManager;
@@ -86,7 +87,7 @@ class ExportController extends AbstractController
         $formErrors = $formDisplay->displayErrors();
 
         $this->render('preferences/forms/main', [
-            'error' => $GLOBALS['error'] ? $GLOBALS['error']->getDisplay() : '',
+            'error' => $GLOBALS['error'] instanceof Message ? $GLOBALS['error']->getDisplay() : '',
             'has_errors' => $formDisplay->hasErrors(),
             'errors' => $formErrors,
             'form' => $formDisplay->getDisplay(

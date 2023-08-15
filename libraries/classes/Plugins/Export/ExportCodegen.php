@@ -217,7 +217,7 @@ class ExportCodegen extends ExportPlugin
         $tableProperties = [];
         while ($row = $result->fetchRow()) {
             $colAs = $this->getAlias($aliases, $row[0], 'col', $db, $table);
-            if (! empty($colAs)) {
+            if ($colAs !== '') {
                 $row[0] = $colAs;
             }
 
@@ -327,7 +327,7 @@ class ExportCodegen extends ExportPlugin
 
         while ($row = $result->fetchRow()) {
             $colAs = $this->getAlias($aliases, $row[0], 'col', $db, $table);
-            if (! empty($colAs)) {
+            if ($colAs !== '') {
                 $row[0] = $colAs;
             }
 

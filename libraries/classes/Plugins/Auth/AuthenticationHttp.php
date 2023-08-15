@@ -102,22 +102,22 @@ class AuthenticationHttp extends AuthenticationPlugin
             $this->user = $GLOBALS['PHP_AUTH_USER'];
         }
 
-        if (empty($this->user)) {
-            if (Core::getenv('PHP_AUTH_USER')) {
+        if ($this->user === '') {
+            if (Core::getenv('PHP_AUTH_USER') !== '') {
                 $this->user = Core::getenv('PHP_AUTH_USER');
-            } elseif (Core::getenv('REMOTE_USER')) {
+            } elseif (Core::getenv('REMOTE_USER') !== '') {
                 // CGI, might be encoded, see below
                 $this->user = Core::getenv('REMOTE_USER');
-            } elseif (Core::getenv('REDIRECT_REMOTE_USER')) {
+            } elseif (Core::getenv('REDIRECT_REMOTE_USER') !== '') {
                 // CGI, might be encoded, see below
                 $this->user = Core::getenv('REDIRECT_REMOTE_USER');
-            } elseif (Core::getenv('AUTH_USER')) {
+            } elseif (Core::getenv('AUTH_USER') !== '') {
                 // WebSite Professional
                 $this->user = Core::getenv('AUTH_USER');
-            } elseif (Core::getenv('HTTP_AUTHORIZATION')) {
+            } elseif (Core::getenv('HTTP_AUTHORIZATION') !== '') {
                 // IIS, might be encoded, see below
                 $this->user = Core::getenv('HTTP_AUTHORIZATION');
-            } elseif (Core::getenv('Authorization')) {
+            } elseif (Core::getenv('Authorization') !== '') {
                 // FastCGI, might be encoded, see below
                 $this->user = Core::getenv('Authorization');
             }
@@ -129,12 +129,12 @@ class AuthenticationHttp extends AuthenticationPlugin
         }
 
         if ($this->password === '') {
-            if (Core::getenv('PHP_AUTH_PW')) {
+            if (Core::getenv('PHP_AUTH_PW') !== '') {
                 $this->password = Core::getenv('PHP_AUTH_PW');
-            } elseif (Core::getenv('REMOTE_PASSWORD')) {
+            } elseif (Core::getenv('REMOTE_PASSWORD') !== '') {
                 // Apache/CGI
                 $this->password = Core::getenv('REMOTE_PASSWORD');
-            } elseif (Core::getenv('AUTH_PASSWORD')) {
+            } elseif (Core::getenv('AUTH_PASSWORD') !== '') {
                 // WebSite Professional
                 $this->password = Core::getenv('AUTH_PASSWORD');
             }

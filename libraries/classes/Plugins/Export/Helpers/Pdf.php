@@ -162,7 +162,11 @@ class Pdf extends PdfLib
         if (! isset($this->headerset[$this->page])) {
             $this->setY($this->tMargin - ($this->FontSizePt / $this->k) * 5);
             $cellFontSize = $this->FontSizePt;
-            $this->setFont(PdfLib::PMA_PDF_FONT, '', ($this->titleFontSize ?: $this->FontSizePt));
+            $this->setFont(
+                PdfLib::PMA_PDF_FONT,
+                '',
+                ($this->titleFontSize !== 0 ? $this->titleFontSize : $this->FontSizePt),
+            );
             $this->Cell(0, $this->FontSizePt, $this->titleText, 0, 1, 'C');
             $this->setFont(PdfLib::PMA_PDF_FONT, '', $cellFontSize);
             $this->setY($this->tMargin - ($this->FontSizePt / $this->k) * 2.5);

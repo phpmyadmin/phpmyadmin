@@ -83,7 +83,7 @@ class BrowseForeigners
 
         $indexByDescription++;
 
-        if (! empty($currentValue)) {
+        if ($currentValue !== '') {
             $rightKeynameIsSelected = $rightKeyname == $currentValue;
             $leftKeynameIsSelected = $leftKeyname == $currentValue;
         }

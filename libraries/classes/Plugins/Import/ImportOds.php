@@ -265,7 +265,7 @@ class ImportOds extends ImportPlugin
             if ($text->count() != 0) {
                 $attr = $cell->attributes('table', true);
                 $numRepeat = (int) $attr['number-columns-repeated'];
-                $numIterations = $numRepeat ?: 1;
+                $numIterations = $numRepeat !== 0 ? $numRepeat : 1;
 
                 for ($k = 0; $k < $numIterations; $k++) {
                     $value = $this->getValue($cellAttrs, $text);
@@ -291,7 +291,7 @@ class ImportOds extends ImportPlugin
             $attr = $cell->attributes('table', true);
             $numNull = (int) $attr['number-columns-repeated'];
 
-            if ($numNull) {
+            if ($numNull !== 0) {
                 if (! $colNamesInFirstRow) {
                     for ($i = 0; $i < $numNull; ++$i) {
                         $tempRow[] = 'NULL';

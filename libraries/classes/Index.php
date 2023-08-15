@@ -155,7 +155,7 @@ class Index
                 $indexes[] = $index;
             }
 
-            if ((! ($choices & self::FULLTEXT)) || $index->getChoice() !== 'FULLTEXT') {
+            if ((($choices & self::FULLTEXT) === 0) || $index->getChoice() !== 'FULLTEXT') {
                 continue;
             }
 

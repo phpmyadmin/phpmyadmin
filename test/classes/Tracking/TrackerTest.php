@@ -340,11 +340,11 @@ class TrackerTest extends AbstractTestCase
 
         $this->assertEquals($tableName, $result['tablename']);
 
-        if ($db) {
+        if ($db !== null && $db !== '') {
             $this->assertEquals($db, $GLOBALS['db']);
         }
 
-        if (! $tableNameAfterRename) {
+        if ($tableNameAfterRename === null || $tableNameAfterRename === '') {
             return;
         }
 

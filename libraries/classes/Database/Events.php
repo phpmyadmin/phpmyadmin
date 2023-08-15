@@ -13,7 +13,6 @@ use PhpMyAdmin\Util;
 use function __;
 use function array_column;
 use function array_multisort;
-use function count;
 use function explode;
 use function htmlspecialchars;
 use function in_array;
@@ -75,7 +74,7 @@ class Events
         $itemQuery = $this->getQueryFromRequest();
 
         // set by getQueryFromRequest()
-        if (! count($GLOBALS['errors'])) {
+        if ($GLOBALS['errors'] === []) {
             // Execute the created query
             if (! empty($_POST['editor_process_edit'])) {
                 // Backup the old trigger, in case something goes wrong
@@ -138,7 +137,7 @@ class Events
             }
         }
 
-        if (count($GLOBALS['errors'])) {
+        if ($GLOBALS['errors'] !== []) {
             $GLOBALS['message'] = Message::error(
                 '<b>'
                 . __(
@@ -211,7 +210,7 @@ class Events
                  . ' AND EVENT_NAME=' . $this->dbi->quoteString($name);
         $query = 'SELECT ' . $columns . ' FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE ' . $where . ';';
         $item = $this->dbi->fetchSingleRow($query);
-        if (! $item) {
+        if ($item === null || $item === []) {
             return null;
         }
 

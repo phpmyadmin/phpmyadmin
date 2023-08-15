@@ -547,7 +547,7 @@ class Git
 
         $refHead = @file_get_contents($gitFolder . '/HEAD');
 
-        if (! $refHead) {
+        if ($refHead === '' || $refHead === false) {
             $this->hasGit = false;
 
             return null;

@@ -50,7 +50,7 @@ class GetFieldController extends AbstractController
         }
 
         /* Check if table exists */
-        if (! $this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table'])) {
+        if ($this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table']) === []) {
             Generator::mysqlDie(__('Invalid table name'));
         }
 

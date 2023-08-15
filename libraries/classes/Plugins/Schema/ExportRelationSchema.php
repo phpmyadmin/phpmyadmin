@@ -254,7 +254,7 @@ class ExportRelationSchema
     public static function dieSchema(int $pageNumber, string $type = '', string $errorMessage = ''): never
     {
         echo '<p><strong>' , __('SCHEMA ERROR: ') , $type , '</strong></p>' , "\n";
-        if (! empty($errorMessage)) {
+        if ($errorMessage !== '') {
             $errorMessage = htmlspecialchars($errorMessage);
         }
 

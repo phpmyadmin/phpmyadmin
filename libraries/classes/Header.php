@@ -494,11 +494,11 @@ class Header
     {
         if (strlen($this->title) == 0) {
             if ($GLOBALS['server'] > 0) {
-                if (strlen($GLOBALS['table'])) {
+                if ($GLOBALS['table'] !== '') {
                     $tempTitle = $GLOBALS['cfg']['TitleTable'];
-                } elseif (strlen($GLOBALS['db'])) {
+                } elseif ($GLOBALS['db'] !== '') {
                     $tempTitle = $GLOBALS['cfg']['TitleDatabase'];
-                } elseif (strlen($GLOBALS['cfg']['Server']['host'])) {
+                } elseif ($GLOBALS['cfg']['Server']['host'] !== '') {
                     $tempTitle = $GLOBALS['cfg']['TitleServer'];
                 } else {
                     $tempTitle = $GLOBALS['cfg']['TitleDefault'];

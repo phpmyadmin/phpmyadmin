@@ -493,7 +493,7 @@ class Node
     private function getDatabasesToSearch(string $searchClause): array
     {
         $databases = [];
-        if (! empty($searchClause)) {
+        if ($searchClause !== '') {
             $databases = ['%' . $GLOBALS['dbi']->escapeString($searchClause) . '%'];
         } elseif (! empty($GLOBALS['cfg']['Server']['only_db'])) {
             $databases = $GLOBALS['cfg']['Server']['only_db'];
@@ -516,7 +516,7 @@ class Node
     private function getWhereClause(string $columnName, string $searchClause = ''): string
     {
         $whereClause = 'WHERE TRUE ';
-        if (! empty($searchClause)) {
+        if ($searchClause !== '') {
             $whereClause .= 'AND ' . Util::backquote($columnName)
                 . " LIKE '%";
             $whereClause .= $GLOBALS['dbi']->escapeString($searchClause);

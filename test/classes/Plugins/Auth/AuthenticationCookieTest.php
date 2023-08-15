@@ -1026,7 +1026,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['AllowNoPassword'] = $nopass;
         $GLOBALS['cfg']['Server']['AllowDeny'] = $rules;
 
-        if (! empty($expected)) {
+        if ($expected !== '') {
             $this->getAuthErrorMockResponse();
         }
 
@@ -1040,11 +1040,11 @@ class AuthenticationCookieTest extends AbstractTestCase
 
         $result = $responseStub->getHTMLResult();
 
-        if (! empty($expected)) {
+        if ($expected !== '') {
             $this->assertInstanceOf(ExitException::class, $throwable ?? null);
         }
 
-        if (empty($expected)) {
+        if ($expected === '') {
             $this->assertEquals($expected, $result);
         } else {
             $this->assertStringContainsString($expected, $result);

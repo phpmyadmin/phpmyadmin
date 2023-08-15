@@ -60,7 +60,7 @@ class Monitor
 
         // Retrieve all required status variables
         $statusVarValues = [];
-        if (count($statusVars)) {
+        if ($statusVars !== []) {
             $statusVarValues = $this->dbi->fetchResult(
                 "SHOW GLOBAL STATUS WHERE Variable_name='"
                 . implode("' OR Variable_name='", $statusVars) . "'",
@@ -71,7 +71,7 @@ class Monitor
 
         // Retrieve all required server variables
         $serverVarValues = [];
-        if (count($serverVars)) {
+        if ($serverVars !== []) {
             $serverVarValues = $this->dbi->fetchResult(
                 "SHOW GLOBAL VARIABLES WHERE Variable_name='"
                 . implode("' OR Variable_name='", $serverVars) . "'",

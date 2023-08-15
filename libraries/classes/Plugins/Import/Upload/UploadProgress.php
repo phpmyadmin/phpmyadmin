@@ -68,7 +68,7 @@ class UploadProgress implements UploadInterface
             $status = \uploadprogress_get_info($id);
         }
 
-        if ($status) {
+        if ($status !== null && $status !== []) {
             $ret['finished'] = false;
 
             if ($status['bytes_uploaded'] == $status['bytes_total']) {

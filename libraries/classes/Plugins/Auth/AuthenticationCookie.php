@@ -145,11 +145,11 @@ class AuthenticationCookie extends AuthenticationPlugin
         $formParams = [];
         $formParams['route'] = Routing::$route;
 
-        if (strlen($GLOBALS['db'])) {
+        if ($GLOBALS['db'] !== '') {
             $formParams['db'] = $GLOBALS['db'];
         }
 
-        if (strlen($GLOBALS['table'])) {
+        if ($GLOBALS['table'] !== '') {
             $formParams['table'] = $GLOBALS['table'];
         }
 
@@ -436,7 +436,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
             if ($GLOBALS['cfg']['Server']['host'] != $GLOBALS['pma_auth_server']) {
                 $GLOBALS['cfg']['Server']['host'] = $tmpHost;
-                if (! empty($tmpPort)) {
+                if ($tmpPort !== '') {
                     $GLOBALS['cfg']['Server']['port'] = $tmpPort;
                 }
             }

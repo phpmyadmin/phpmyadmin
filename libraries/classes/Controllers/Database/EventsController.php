@@ -209,7 +209,7 @@ final class EventsController extends AbstractController
             $itemName = $_GET['item_name'];
             $exportData = Events::getDefinition($this->dbi, $GLOBALS['db'], $itemName);
 
-            if (! $exportData) {
+            if ($exportData === null || $exportData === '') {
                 $exportData = false;
             }
 

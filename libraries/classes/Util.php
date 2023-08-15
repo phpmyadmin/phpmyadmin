@@ -806,10 +806,10 @@ class Util
         $clauseIsUnique = true;
 
         $conditionArray = [];
-        if ($primaryKey) {
+        if ($primaryKey !== '') {
             $preferredCondition = $primaryKey;
             $conditionArray = $primaryKeyArray;
-        } elseif ($uniqueKey) {
+        } elseif ($uniqueKey !== '') {
             $preferredCondition = $uniqueKey;
             $conditionArray = $uniqueKeyArray;
         } elseif (! $forceUnique) {

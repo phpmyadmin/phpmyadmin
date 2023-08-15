@@ -390,7 +390,7 @@ class ServerConfigChecks
         }
 
         $functions = $this->functionExists('bzopen') ? '' : 'bzopen';
-        $functions .= $this->functionExists('bzcompress') ? '' : ($functions ? ', ' : '') . 'bzcompress';
+        $functions .= $this->functionExists('bzcompress') ? '' : ($functions !== '' ? ', ' : '') . 'bzcompress';
         SetupIndex::messagesSet(
             'error',
             'BZipDump',

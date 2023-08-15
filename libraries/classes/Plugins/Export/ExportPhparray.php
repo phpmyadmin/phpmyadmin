@@ -103,7 +103,7 @@ class ExportPhparray extends ExportPlugin
      */
     public function exportDBHeader(string $db, string $dbAlias = ''): bool
     {
-        if (empty($dbAlias)) {
+        if ($dbAlias === '') {
             $dbAlias = $db;
         }
 

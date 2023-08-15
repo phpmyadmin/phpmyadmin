@@ -68,7 +68,7 @@ class Language
      */
     public function getName(): string
     {
-        if (! empty($this->native)) {
+        if ($this->native !== '') {
             return $this->native . ' - ' . $this->name;
         }
 

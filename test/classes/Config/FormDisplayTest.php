@@ -343,7 +343,7 @@ class FormDisplayTest extends AbstractTestCase
         }
 
         if (! function_exists('gzcompress')) {
-            $comment .= ($comment ? '; ' : '') . 'Compressed export will not work ' .
+            $comment .= ($comment !== '' ? '; ' : '') . 'Compressed export will not work ' .
             'due to missing function gzcompress.';
         }
 
@@ -362,7 +362,7 @@ class FormDisplayTest extends AbstractTestCase
         }
 
         if (! function_exists('gzencode')) {
-            $comment .= ($comment ? '; ' : '') . 'Compressed export will not work ' .
+            $comment .= ($comment !== '' ? '; ' : '') . 'Compressed export will not work ' .
             'due to missing function gzencode.';
         }
 
@@ -381,7 +381,7 @@ class FormDisplayTest extends AbstractTestCase
         }
 
         if (! function_exists('bzcompress')) {
-            $comment .= ($comment ? '; ' : '') . 'Compressed export will not work ' .
+            $comment .= ($comment !== '' ? '; ' : '') . 'Compressed export will not work ' .
             'due to missing function bzcompress.';
         }
 

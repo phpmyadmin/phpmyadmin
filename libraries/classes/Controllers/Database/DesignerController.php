@@ -42,6 +42,7 @@ class DesignerController extends AbstractController
         $table = $request->getParsedBodyParam('table');
 
         if ($request->hasBodyParam('dialog')) {
+            $html = '';
             $dialog = $request->getParsedBodyParam('dialog');
             if ($dialog === 'edit') {
                 $html = $this->databaseDesigner->getHtmlForEditOrDeletePages($db, 'editPage');
@@ -72,7 +73,7 @@ class DesignerController extends AbstractController
                 );
             }
 
-            if (! empty($html)) {
+            if ($html !== '') {
                 $this->response->addHTML($html);
             }
 

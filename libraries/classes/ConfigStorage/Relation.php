@@ -872,7 +872,7 @@ class Relation
             $key = $relrow[$foreignField];
 
             // if the display field has been defined for this foreign table
-            if ($foreignDisplay) {
+            if ($foreignDisplay !== '') {
                 $value = $relrow[$foreignDisplay];
             } else {
                 $value = '';
@@ -884,7 +884,7 @@ class Relation
         // put the dropdown sections in correct order
         $top = [];
         $bottom = [];
-        if ($foreignDisplay) {
+        if ($foreignDisplay !== '') {
             if (
                 isset($GLOBALS['cfg']['ForeignKeyDropdownOrder'])
                 && is_array($GLOBALS['cfg']['ForeignKeyDropdownOrder'])
@@ -932,7 +932,7 @@ class Relation
             }
         }
 
-        if ($foreignDisplay) {
+        if ($foreignDisplay !== '') {
             $ret .= implode('', $bottom);
         }
 
@@ -973,7 +973,7 @@ class Relation
         $foreignLink = false;
         $dispRow = $foreignDisplay = $theTotal = $foreignField = null;
         do {
-            if (! $foreigners) {
+            if ($foreigners === false || $foreigners === []) {
                 break;
             }
 
@@ -1302,7 +1302,10 @@ class Relation
             . ' (db_name, page_descr)'
             . ' VALUES ('
             . $this->dbi->quoteString($db, Connection::TYPE_CONTROL) . ', '
-            . $this->dbi->quoteString($newpage ?: __('no description'), Connection::TYPE_CONTROL) . ')';
+            . $this->dbi->quoteString(
+                $newpage !== null && $newpage !== '' ? $newpage : __('no description'),
+                Connection::TYPE_CONTROL,
+            ) . ')';
         $this->dbi->tryQueryAsControlUser($insQuery);
 
         return $this->dbi->insertId(Connection::TYPE_CONTROL);
@@ -1328,7 +1331,7 @@ class Relation
                 . $this->dbi->quoteString($table)
                 . ' AND `referenced_table_schema` = '
                 . $this->dbi->quoteString($db);
-            if ($column) {
+            if ($column !== '') {
                 $relQuery .= ' AND `referenced_column_name` = '
                     . $this->dbi->quoteString($column);
             }
@@ -1482,7 +1485,7 @@ class Relation
         );
 
         $error = $this->dbi->getError(Connection::TYPE_CONTROL);
-        if (! $error) {
+        if ($error === '') {
             // Re-build the cache to show the list of tables created or not
             // This is the case when the DB could be created but no tables just after
             // So just purge the cache and show the new configuration storage state
@@ -1574,7 +1577,7 @@ class Relation
                 $this->dbi->tryQuery($createQueries[$table], Connection::TYPE_CONTROL);
 
                 $error = $this->dbi->getError(Connection::TYPE_CONTROL);
-                if ($error) {
+                if ($error !== '') {
                     $GLOBALS['message'] = $error;
 
                     return;

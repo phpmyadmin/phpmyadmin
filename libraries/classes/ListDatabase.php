@@ -101,7 +101,7 @@ class ListDatabase extends ListAbstract
             }
         }
 
-        if ($command) {
+        if ($command !== '') {
             $databaseList = $GLOBALS['dbi']->fetchResult($command, null, null);
         }
 
