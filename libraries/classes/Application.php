@@ -22,6 +22,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
+use PhpMyAdmin\Middleware\ConfigLoading;
 use PhpMyAdmin\Middleware\ErrorHandling;
 use PhpMyAdmin\Middleware\OutputBuffering;
 use PhpMyAdmin\Middleware\PhpExtensionsChecking;
@@ -54,7 +55,6 @@ use function sprintf;
 use function strlen;
 use function trigger_error;
 
-use const CONFIG_FILE;
 use const E_USER_ERROR;
 
 class Application
@@ -85,6 +85,7 @@ class Application
         $requestHandler->add(new PhpExtensionsChecking($this, $this->template, $this->responseFactory));
         $requestHandler->add(new ServerConfigurationChecking($this->template, $this->responseFactory));
         $requestHandler->add(new PhpSettingsConfiguration());
+        $requestHandler->add(new ConfigLoading($this->config, $this->template, $this->responseFactory));
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -106,15 +107,6 @@ class Application
     public function handle(ServerRequest $request): Response|null
     {
         $isSetupPage = (bool) $request->getAttribute('isSetupPage');
-
-        try {
-            $this->config->loadAndCheck(CONFIG_FILE);
-        } catch (ConfigException $exception) {
-            // Disables template caching because the cache directory is not known yet.
-            $this->template->disableCache();
-
-            return $this->getGenericErrorResponse($exception->getMessage());
-        }
 
         $route = $request->getRoute();
         Routing::$route = $route;

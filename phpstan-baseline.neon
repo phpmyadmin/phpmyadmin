@@ -96,11 +96,6 @@ parameters:
 			path: libraries/classes/Application.php
 
 		-
-			message: "#^Parameter \\#1 \\$source of method PhpMyAdmin\\\\Config\\:\\:loadAndCheck\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Application.php
-
-		-
 			message: "#^Parameter \\#1 \\$url of static method PhpMyAdmin\\\\UrlRedirector\\:\\:redirect\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Application.php
@@ -15834,6 +15829,11 @@ parameters:
 			message: "#^Parameter \\#2 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Message.php
+
+		-
+			message: "#^Parameter \\#1 \\$source of method PhpMyAdmin\\\\Config\\:\\:loadAndCheck\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Middleware/ConfigLoading.php
 
 		-
 			message: "#^Cannot access offset 'NavigationDisplayLo…' on mixed\\.$#"
