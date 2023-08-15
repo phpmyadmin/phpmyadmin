@@ -17,12 +17,11 @@ abstract class NodeDatabaseChildContainer extends NodeDatabaseChild
     /**
      * Initialises the class by setting the common variables
      *
-     * @param string   $name An identifier for the new node
-     * @param NodeType $type Type of node, may be one of CONTAINER or OBJECT
+     * @param string $name An identifier for the new node
      */
-    public function __construct(string $name, NodeType $type = NodeType::Object)
+    public function __construct(string $name)
     {
-        parent::__construct($name, $type);
+        parent::__construct($name, NodeType::Container);
 
         if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
             return;

@@ -11,7 +11,6 @@ use PhpMyAdmin\ConfigStorage\Features\NavigationItemsHidingFeature;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Navigation\NodeType;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -37,14 +36,11 @@ class NodeDatabase extends Node
     /**
      * Initialises the class
      *
-     * @param string   $name    An identifier for the new node
-     * @param NodeType $type    Type of node, may be one of CONTAINER or OBJECT
-     * @param bool     $isGroup Whether this object has been created
-     *                          while grouping nodes
+     * @param string $name An identifier for the new node
      */
-    public function __construct(string $name, NodeType $type = NodeType::Object, bool $isGroup = false)
+    public function __construct(string $name)
     {
-        parent::__construct($name, $type, $isGroup);
+        parent::__construct($name);
 
         $this->icon = ['image' => 's_db', 'title' => __('Database operations')];
 

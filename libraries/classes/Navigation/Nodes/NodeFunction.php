@@ -7,8 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
-use PhpMyAdmin\Navigation\NodeType;
-
 use function __;
 
 /**
@@ -19,14 +17,11 @@ class NodeFunction extends NodeDatabaseChild
     /**
      * Initialises the class
      *
-     * @param string   $name    An identifier for the new node
-     * @param NodeType $type    Type of node, may be one of CONTAINER or OBJECT
-     * @param bool     $isGroup Whether this object has been created
-     *                          while grouping nodes
+     * @param string $name An identifier for the new node
      */
-    public function __construct(string $name, NodeType $type = NodeType::Object, bool $isGroup = false)
+    public function __construct(string $name)
     {
-        parent::__construct($name, $type, $isGroup);
+        parent::__construct($name);
 
         $this->icon = ['image' => 'b_routines', 'title' => __('Function')];
         $this->links = [

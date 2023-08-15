@@ -17,10 +17,8 @@ class NodeFactory
     /**
      * Instantiates a Node object
      *
-     * @param class-string<T> $class   The name of the class to instantiate
-     * @param string|mixed[]  $name    An identifier for the new node
-     * @param NodeType        $type    Type of node, may be one of CONTAINER or OBJECT
-     * @param bool            $isGroup Whether this object has been created while grouping nodes
+     * @param class-string<T> $class The name of the class to instantiate
+     * @param string|mixed[]  $name  An identifier for the new node
      *
      * @return T
      *
@@ -29,10 +27,8 @@ class NodeFactory
     public static function getInstance(
         string $class,
         string|array $name = 'default',
-        NodeType $type = NodeType::Object,
-        bool $isGroup = false,
     ): Node {
-        return new $class($name, $type, $isGroup);
+        return new $class($name);
     }
 
     /**
@@ -45,7 +41,7 @@ class NodeFactory
         string $name,
         string $classes,
     ): Node {
-        $node = new Node($name, NodeType::Object, false);
+        $node = new Node($name);
         $node->title = $name;
         $node->isNew = true;
         $node->classes = $classes;

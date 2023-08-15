@@ -36,20 +36,10 @@ class Node
 {
     /**
      * @var string A non-unique identifier for the node
-     *             This may be trimmed when grouping nodes
-     */
-    public string $name = '';
-    /**
-     * @var string A non-unique identifier for the node
      *             This will never change after being assigned
      */
     public string $realName = '';
 
-    /**
-     * @var bool Whether this object has been created while grouping nodes
-     *           Only relevant if the node is of type CONTAINER
-     */
-    public bool $isGroup = false;
     /**
      * @var bool Whether to add a "display: none;" CSS
      *           rule to the node when rendering it
@@ -122,19 +112,18 @@ class Node
     /**
      * Initialises the class by setting the mandatory variables
      *
-     * @param string   $name    An identifier for the new node
+     * @param string   $name    A non-unique identifier for the node
+     *                          This may be trimmed when grouping nodes
      * @param NodeType $type    Type of node, may be one of CONTAINER or OBJECT
-     * @param bool     $isGroup Whether this object has been created
-     *                          while grouping nodes
+     * @param bool     $isGroup Whether this object has been created while grouping nodes
+     *                          Only relevant if the node is of type CONTAINER
      */
-    public function __construct(string $name, public readonly NodeType $type = NodeType::Object, bool $isGroup = false)
-    {
-        if ($name !== '') {
-            $this->name = $name;
-            $this->realName = $name;
-        }
-
-        $this->isGroup = $isGroup;
+    public function __construct(
+        public string $name = '',
+        public readonly NodeType $type = NodeType::Object,
+        public bool $isGroup = false,
+    ) {
+        $this->realName = $name;
     }
 
     /**

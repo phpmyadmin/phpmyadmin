@@ -8,7 +8,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
-use PhpMyAdmin\Navigation\NodeType;
 
 use function __;
 use function _pgettext;
@@ -23,7 +22,7 @@ class NodeProcedureContainer extends NodeDatabaseChildContainer
      */
     public function __construct()
     {
-        parent::__construct(__('Procedures'), NodeType::Container);
+        parent::__construct(__('Procedures'));
 
         $this->icon = ['image' => 'b_routines', 'title' => __('Procedures')];
         $this->links = [
