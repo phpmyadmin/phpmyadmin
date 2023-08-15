@@ -1515,6 +1515,8 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
+      <code>$favoriteTable</code>
+      <code>$favoriteTables</code>
       <code>$favoriteTables</code>
       <code><![CDATA[$value['db']]]></code>
       <code><![CDATA[$value['table']]]></code>
@@ -1532,27 +1534,12 @@
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code>$favoriteTable</code>
+      <code>$favoriteTables</code>
       <code>$favoriteTables</code>
       <code>$value</code>
       <code>$value</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code>$favoriteTable</code>
-      <code>$favoriteTable</code>
-      <code>$favoriteTable</code>
-      <code>$favoriteTable</code>
-      <code><![CDATA[$parameters['favoriteTables']]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code>$favoriteTable</code>
-      <code>$favoriteTable</code>
-      <code>$favoriteTable</code>
-      <code>$favoriteTable</code>
-      <code><![CDATA[$parameters['favoriteTables']]]></code>
-    </PossiblyInvalidCast>
-    <PossiblyInvalidOperand>
-      <code>$favoriteTable</code>
-    </PossiblyInvalidOperand>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/RealRowCountController.php">
     <InvalidArrayOffset>
