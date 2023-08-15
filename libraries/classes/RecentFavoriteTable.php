@@ -42,11 +42,6 @@ class RecentFavoriteTable
     private array $tables;
 
     /**
-     * Defines type of action, Favorite or Recent table.
-     */
-    private string $tableType;
-
-    /**
      * RecentFavoriteTable instances.
      *
      * @var array<string,RecentFavoriteTable>
@@ -58,13 +53,12 @@ class RecentFavoriteTable
     /**
      * Creates a new instance of RecentFavoriteTable
      *
-     * @param string $type the table type
-     * @phpstan-param 'favorite'|'recent' $type
+     * @param string $tableType Defines type of action, Favorite or Recent table.
+     * @phpstan-param 'favorite'|'recent' $tableType
      */
-    private function __construct(public Template $template, string $type)
+    private function __construct(public Template $template, private string $tableType)
     {
         $this->relation = new Relation($GLOBALS['dbi']);
-        $this->tableType = $type;
         $serverId = $GLOBALS['server'];
         // Code search hint: recentTables
         // Code search hint: favoriteTables
@@ -141,16 +135,10 @@ class RecentFavoriteTable
         $success = $GLOBALS['dbi']->tryQuery($sqlQuery, Connection::TYPE_CONTROL);
 
         if (! $success) {
-            $errorMsg = '';
-            switch ($this->tableType) {
-                case 'recent':
-                    $errorMsg = __('Could not save recent table!');
-                    break;
-
-                case 'favorite':
-                    $errorMsg = __('Could not save favorite table!');
-                    break;
-            }
+            $errorMsg = match ($this->tableType) {
+                 'recent' => __('Could not save recent table!'),
+                 'favorite' => __('Could not save favorite table!'),
+            };
 
             $message = Message::error($errorMsg);
             $message->addMessage(

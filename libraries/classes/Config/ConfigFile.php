@@ -42,13 +42,6 @@ class ConfigFile
     private array $cfgDb;
 
     /**
-     * Stores original PMA config, not modified by user preferences
-     *
-     * @var mixed[]|null
-     */
-    private array|null $baseCfg = null;
-
-    /**
      * Whether we are currently working in PMA Setup context
      */
     private bool $isInSetup;
@@ -81,10 +74,11 @@ class ConfigFile
 
     /**
      * @param mixed[]|null $baseConfig base configuration read from
-     *                               {@link PhpMyAdmin\Config::$base_config},
-     *                               use only when not in PMA Setup
+                             {@link PhpMyAdmin\Config::$base_config},
+                             use only when not in PMA Setup
+                             Stores original PMA config, not modified by user preferences
      */
-    public function __construct(array|null $baseConfig = null)
+    public function __construct(private array|null $baseConfig = null)
     {
         // load default config values
         $settings = new Settings([]);
@@ -92,8 +86,6 @@ class ConfigFile
 
         // load additional config information
         $this->cfgDb = $this->getAllowedValues();
-
-        $this->baseCfg = $baseConfig;
         $this->isInSetup = $baseConfig === null;
         $this->id = 'ConfigFile' . $GLOBALS['server'];
         if (isset($_SESSION[$this->id])) {
@@ -206,7 +198,7 @@ class ConfigFile
             // get original config values not overwritten by user
             // preferences to allow for overwriting options set in
             // config.inc.php with default values
-            $instanceDefaultValue = Core::arrayRead($canonicalPath, $this->baseCfg);
+            $instanceDefaultValue = Core::arrayRead($canonicalPath, $this->baseConfig);
             // remove if it has a default value and base config (config.inc.php)
             // uses default value
             $removePath = $removePath

@@ -25,11 +25,6 @@ use function is_string;
 class Search
 {
     /**
-     * Database name
-     */
-    private string $db;
-
-    /**
      * Table Names
      *
      * @var mixed[]
@@ -70,10 +65,8 @@ class Search
      */
     private string $criteriaColumnName;
 
-    /** @param string $db Database name */
-    public function __construct(private DatabaseInterface $dbi, string $db, public Template $template)
+    public function __construct(private DatabaseInterface $dbi, private string $db, public Template $template)
     {
-        $this->db = $db;
         $this->searchTypes = [
             '1' => __('at least one of the words'),
             '2' => __('all of the words'),

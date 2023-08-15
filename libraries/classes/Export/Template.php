@@ -7,17 +7,13 @@ namespace PhpMyAdmin\Export;
 /** @psalm-immutable */
 final class Template
 {
-    /** @var string JSON */
-    private string $data;
-
     private function __construct(
         private int $id,
         private string $username,
         private string $exportType,
         private string $name,
-        string $data,
+        private string $data,
     ) {
-        $this->data = $data;
     }
 
     /** @param array<string, mixed> $state */

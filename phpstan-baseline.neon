@@ -8206,12 +8206,12 @@ parameters:
 			path: libraries/classes/Controllers/Table/RelationController.php
 
 		-
-			message: "#^Parameter \\#1 \\$queryData of static method PhpMyAdmin\\\\Core\\:\\:previewSQL\\(\\) expects array\\|string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Table constructor expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/RelationController.php
 
 		-
-			message: "#^Parameter \\#1 \\$tableName of class PhpMyAdmin\\\\Table constructor expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$queryData of static method PhpMyAdmin\\\\Core\\:\\:previewSQL\\(\\) expects array\\|string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/RelationController.php
 
@@ -8471,6 +8471,11 @@ parameters:
 			path: libraries/classes/Controllers/Table/ReplaceController.php
 
 		-
+			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Table constructor expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
 			message: "#^Parameter \\#1 \\$oneWhereClause of method PhpMyAdmin\\\\InsertEdit\\:\\:setSessionForEditNext\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ReplaceController.php
@@ -8507,11 +8512,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$table of static method PhpMyAdmin\\\\Query\\\\Generator\\:\\:buildInsertSqlQuery\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ReplaceController.php
-
-		-
-			message: "#^Parameter \\#1 \\$tableName of class PhpMyAdmin\\\\Table constructor expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ReplaceController.php
 
@@ -9051,7 +9051,7 @@ parameters:
 			path: libraries/classes/Controllers/Table/Structure/PartitioningController.php
 
 		-
-			message: "#^Parameter \\#1 \\$tableName of class PhpMyAdmin\\\\Table constructor expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Table constructor expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/Structure/PartitioningController.php
 
@@ -13011,6 +13011,11 @@ parameters:
 			path: libraries/classes/Export/Export.php
 
 		-
+			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Table constructor expects string, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/Export/Export.php
+
+		-
 			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommonRaw\\(\\) expects array\\<int\\|string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
 			count: 2
 			path: libraries/classes/Export/Export.php
@@ -13022,11 +13027,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$stream of function fwrite expects resource, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Export/Export.php
-
-		-
-			message: "#^Parameter \\#1 \\$tableName of class PhpMyAdmin\\\\Table constructor expects string, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Export/Export.php
 
@@ -14946,6 +14946,11 @@ parameters:
 			path: libraries/classes/Import/Import.php
 
 		-
+			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Table constructor expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Import/Import.php
+
+		-
 			message: "#^Parameter \\#1 \\$separator of function explode expects non\\-empty\\-string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Import/Import.php
@@ -14978,11 +14983,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$string of function mb_substr expects string, mixed given\\.$#"
 			count: 2
-			path: libraries/classes/Import/Import.php
-
-		-
-			message: "#^Parameter \\#1 \\$tableName of class PhpMyAdmin\\\\Table constructor expects string, mixed given\\.$#"
-			count: 1
 			path: libraries/classes/Import/Import.php
 
 		-
@@ -22641,6 +22641,11 @@ parameters:
 			path: libraries/classes/Query/Utilities.php
 
 		-
+			message: "#^Cannot access offset 'NumFavoriteTables'\\|'NumRecentTables' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/RecentFavoriteTable.php
+
+		-
 			message: "#^Cannot access offset 'Server' on mixed\\.$#"
 			count: 2
 			path: libraries/classes/RecentFavoriteTable.php
@@ -22673,11 +22678,6 @@ parameters:
 		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
 			count: 4
-			path: libraries/classes/RecentFavoriteTable.php
-
-		-
-			message: "#^Cannot access offset non\\-falsy\\-string on mixed\\.$#"
-			count: 1
 			path: libraries/classes/RecentFavoriteTable.php
 
 		-
@@ -25366,6 +25366,11 @@ parameters:
 			path: libraries/classes/Table/ColumnsDefinition.php
 
 		-
+			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Table constructor expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Table/ColumnsDefinition.php
+
+		-
 			message: "#^Parameter \\#1 \\$str of function preg_quote expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Table/ColumnsDefinition.php
@@ -25377,11 +25382,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function trim expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Parameter \\#1 \\$tableName of class PhpMyAdmin\\\\Table constructor expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Table/ColumnsDefinition.php
 

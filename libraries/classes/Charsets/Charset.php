@@ -13,41 +13,17 @@ namespace PhpMyAdmin\Charsets;
 final class Charset
 {
     /**
-     * The character set name
-     */
-    private string $name;
-
-    /**
-     * A description of the character set
-     */
-    private string $description;
-
-    /**
-     * The default collation for the character set
-     */
-    private string $defaultCollation;
-
-    /**
-     * The maximum number of bytes required to store one character
-     */
-    private int $maxLength;
-
-    /**
-     * @param string $name             Charset name
-     * @param string $description      Description
-     * @param string $defaultCollation Default collation
-     * @param int    $maxLength        Maximum length
+     * @param string $name             The character set name
+     * @param string $description      A description of the character set
+     * @param string $defaultCollation The default collation for the character set
+     * @param int    $maxLength        The maximum number of bytes required to store one character
      */
     private function __construct(
-        string $name,
-        string $description,
-        string $defaultCollation,
-        int $maxLength,
+        private string $name,
+        private string $description,
+        private string $defaultCollation,
+        private int $maxLength,
     ) {
-        $this->name = $name;
-        $this->description = $description;
-        $this->defaultCollation = $defaultCollation;
-        $this->maxLength = $maxLength;
     }
 
     /**

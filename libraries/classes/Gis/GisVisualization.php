@@ -65,11 +65,6 @@ class GisVisualization
 
     private string|null $labelColumn;
 
-    /** Number of rows */
-    private int $rows;
-    /** Start position */
-    private int $pos;
-
     public function getWidth(): int
     {
         return $this->width;
@@ -158,11 +153,15 @@ class GisVisualization
      *                                       or an array with data.
      *                                       If it is an array row and pos are ignored
      * @param array<string,mixed> $options   Users specified options
-     * @param int                 $rows      number of rows
-     * @param int                 $pos       start position
+     * @param int                 $rows      Number of rows
+     * @param int                 $pos       Start position
      */
-    private function __construct(array|string $sqlOrData, array $options, int $rows = 0, int $pos = 0)
-    {
+    private function __construct(
+        array|string $sqlOrData,
+        array $options,
+        private int $rows = 0,
+        private int $pos = 0,
+    ) {
         $width = $options['width'] ?? null;
         Assert::positiveInteger($width);
         $this->width = $width;
@@ -178,9 +177,6 @@ class GisVisualization
         $labelColumn = $options['labelColumn'] ?? null;
         Assert::nullOrStringNotEmpty($labelColumn);
         $this->labelColumn = $labelColumn;
-
-        $this->pos = $pos;
-        $this->rows = $rows;
 
         $this->data = is_string($sqlOrData)
             ? $this->modifyQueryAndFetch($sqlOrData)

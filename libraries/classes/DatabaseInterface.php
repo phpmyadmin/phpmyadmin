@@ -94,8 +94,6 @@ class DatabaseInterface implements DbalInterface
      */
     public const GETVAR_GLOBAL = 2;
 
-    private DbiExtension $extension;
-
     /**
      * Opened database connections.
      *
@@ -133,10 +131,9 @@ class DatabaseInterface implements DbalInterface
 
     private ListDatabase|null $databaseList = null;
 
-    /** @param DbiExtension $ext Object to be used for database queries */
-    public function __construct(DbiExtension $ext)
+    /** @param DbiExtension $extension Object to be used for database queries */
+    public function __construct(private DbiExtension $extension)
     {
-        $this->extension = $ext;
         if (defined('TESTSUITE')) {
             $this->connections[Connection::TYPE_USER] = new Connection(new stdClass());
             $this->connections[Connection::TYPE_CONTROL] = new Connection(new stdClass());

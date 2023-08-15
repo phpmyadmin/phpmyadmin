@@ -21,16 +21,12 @@ use function __;
 
 final class TruncateController extends AbstractController
 {
-    private Maintenance $model;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Maintenance $maintenance,
+        private Maintenance $model,
     ) {
         parent::__construct($response, $template);
-
-        $this->model = $maintenance;
     }
 
     public function __invoke(ServerRequest $request): void

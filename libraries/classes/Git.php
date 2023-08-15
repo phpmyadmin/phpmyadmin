@@ -50,11 +50,6 @@ use const DIRECTORY_SEPARATOR;
 class Git
 {
     /**
-     * Enable Git information search and process
-     */
-    private bool $showGitRevision;
-
-    /**
      * The path where the to search for .git folders
      */
     private string $baseDir;
@@ -64,9 +59,9 @@ class Git
      */
     private bool $hasGit = false;
 
-    public function __construct(bool $showGitRevision, string|null $baseDir = null)
+    /** @param bool $showGitRevision Enable Git information search and process */
+    public function __construct(private bool $showGitRevision, string|null $baseDir = null)
     {
-        $this->showGitRevision = $showGitRevision;
         $this->baseDir = $baseDir ?? ROOT_PATH;
     }
 
