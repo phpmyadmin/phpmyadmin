@@ -67,6 +67,7 @@ class ImportControllerTest extends AbstractTestCase
             'SELECT A.* FROM table1 A WHERE A.nomEtablissement = \'Saint-Louis - Châteaulin\''
             . ' AND foo = 4 AND `:a` IS NULL LIMIT 0, 25',
             [],
+            ['nomEtablissement', 'foo'],
         );
 
         $this->dummyDbi->addResult(

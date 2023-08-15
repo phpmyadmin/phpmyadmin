@@ -206,7 +206,8 @@ class OperationsTest extends TestBase
             'USE `' . $this->databaseName . '`;'
             . 'SHOW TABLES',
             function (): void {
-                $this->assertFalse($this->isElementPresent('className', 'table_results'));
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->assertFalse($this->isElementPresent('cssSelector', '.table_results tbody tr'));
             },
         );
     }

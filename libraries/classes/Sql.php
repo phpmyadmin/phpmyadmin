@@ -999,7 +999,7 @@ class Sql
         $scripts = $header->getScripts();
         $scripts->addFile('sql.js');
 
-        if (! $statementInfo->isSelect || isset($extraData['error'])) {
+        if (($result instanceof ResultInterface && $result->numFields() === 0) || isset($extraData['error'])) {
             return $queryMessage;
         }
 
@@ -1645,10 +1645,6 @@ class Sql
             $sqlQueryForBookmark,
             $extraData,
         );
-
-        if ($this->dbi->moreResults()) {
-            $this->dbi->nextResult();
-        }
 
         $warningMessages = $this->operations->getWarningMessagesArray();
 
