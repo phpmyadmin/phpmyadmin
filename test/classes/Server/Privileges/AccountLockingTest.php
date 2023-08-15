@@ -20,7 +20,7 @@ class AccountLockingTest extends TestCase
         $dbi->expects($this->once())->method('isMariaDB')->willReturn(true);
         $dbi->expects($this->once())->method('getVersion')->willReturn(100402);
         $dbi->expects($this->exactly(2))->method('quoteString')
-            ->willReturnCallback(static fn (string $string) => "'" . $string . "'");
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with($this->equalTo('ALTER USER \'test.user\'@\'test.host\' ACCOUNT LOCK;'))
@@ -37,7 +37,7 @@ class AccountLockingTest extends TestCase
         $dbi->expects($this->once())->method('isMariaDB')->willReturn(true);
         $dbi->expects($this->once())->method('getVersion')->willReturn(100402);
         $dbi->expects($this->exactly(2))->method('quoteString')
-            ->willReturnCallback(static fn (string $string) => "'" . $string . "'");
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with($this->equalTo('ALTER USER \'test.user\'@\'test.host\' ACCOUNT LOCK;'))
@@ -75,7 +75,7 @@ class AccountLockingTest extends TestCase
         $dbi->expects($this->once())->method('isMariaDB')->willReturn(true);
         $dbi->expects($this->once())->method('getVersion')->willReturn(100402);
         $dbi->expects($this->exactly(2))->method('quoteString')
-            ->willReturnCallback(static fn (string $string) => "'" . $string . "'");
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with($this->equalTo('ALTER USER \'test.user\'@\'test.host\' ACCOUNT UNLOCK;'))
@@ -92,7 +92,7 @@ class AccountLockingTest extends TestCase
         $dbi->expects($this->once())->method('isMariaDB')->willReturn(true);
         $dbi->expects($this->once())->method('getVersion')->willReturn(100402);
         $dbi->expects($this->exactly(2))->method('quoteString')
-            ->willReturnCallback(static fn (string $string) => "'" . $string . "'");
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with($this->equalTo('ALTER USER \'test.user\'@\'test.host\' ACCOUNT UNLOCK;'))

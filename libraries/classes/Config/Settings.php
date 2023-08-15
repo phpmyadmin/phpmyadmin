@@ -2630,7 +2630,7 @@ final class Settings
             'TranslationWarningThreshold' => $this->TranslationWarningThreshold,
             'AllowThirdPartyFraming' => $this->AllowThirdPartyFraming,
             'blowfish_secret' => $this->blowfish_secret,
-            'Servers' => array_map(static fn ($server) => $server->asArray(), $this->Servers),
+            'Servers' => array_map(static fn (Server $server): array => $server->asArray(), $this->Servers),
             'ServerDefault' => $this->ServerDefault,
             'VersionCheck' => $this->VersionCheck,
             'ProxyUrl' => $this->ProxyUrl,

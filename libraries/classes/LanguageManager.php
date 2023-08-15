@@ -842,7 +842,7 @@ class LanguageManager
     public function sortedLanguages(): array
     {
         $this->availableLanguages();
-        uasort($this->availableLanguages, static fn (Language $a, Language $b) => $a->cmp($b));
+        uasort($this->availableLanguages, static fn (Language $a, Language $b): int => $a->cmp($b));
 
         return $this->availableLanguages;
     }
