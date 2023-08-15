@@ -8,7 +8,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\CheckUserPrivileges;
-use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\NodeType;
 
 use function _pgettext;
@@ -35,7 +34,7 @@ class NodeDatabaseContainer extends Node
         }
 
         $newLabel = _pgettext('Create new database', 'New');
-        $new = NodeFactory::getInstanceForNewNode($newLabel, 'new_database italics');
+        $new = $this->getInstanceForNewNode($newLabel, 'new_database italics');
         $new->icon = ['image' => 'b_newdb', 'title' => $newLabel];
         $new->links = [
             'text' => ['route' => '/server/databases', 'params' => []],

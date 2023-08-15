@@ -127,6 +127,24 @@ class Node
     }
 
     /**
+     * Instantiates a Node object that will be used only for "New db/table/etc.." objects
+     *
+     * @param string $name    An identifier for the new node
+     * @param string $classes Extra CSS classes for the node
+     */
+    public function getInstanceForNewNode(
+        string $name,
+        string $classes,
+    ): Node {
+        $node = new Node($name);
+        $node->title = $name;
+        $node->isNew = true;
+        $node->classes = $classes;
+
+        return $node;
+    }
+
+    /**
      * Adds a child node to this node
      *
      * @param Node $child A child node

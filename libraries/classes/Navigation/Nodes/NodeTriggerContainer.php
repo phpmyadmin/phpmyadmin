@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
-use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\NodeType;
 
 use function __;
@@ -33,7 +32,7 @@ class NodeTriggerContainer extends Node
         $this->realName = 'triggers';
 
         $newLabel = _pgettext('Create new trigger', 'New');
-        $new = NodeFactory::getInstanceForNewNode($newLabel, 'new_trigger italics');
+        $new = $this->getInstanceForNewNode($newLabel, 'new_trigger italics');
         $new->icon = ['image' => 'b_trigger_add', 'title' => $newLabel];
         $new->links = [
             'text' => ['route' => '/triggers', 'params' => ['add_item' => 1, 'db' => null]],

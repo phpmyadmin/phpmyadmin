@@ -7,8 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
-use PhpMyAdmin\Navigation\NodeFactory;
-
 use function __;
 use function _pgettext;
 
@@ -32,7 +30,7 @@ class NodeEventContainer extends NodeDatabaseChildContainer
         $this->realName = 'events';
 
         $newLabel = _pgettext('Create new event', 'New');
-        $new = NodeFactory::getInstanceForNewNode($newLabel, 'new_event italics');
+        $new = $this->getInstanceForNewNode($newLabel, 'new_event italics');
         $new->icon = ['image' => 'b_event_add', 'title' => $newLabel];
         $new->links = [
             'text' => ['route' => '/database/events', 'params' => ['add_item' => 1, 'db' => null]],

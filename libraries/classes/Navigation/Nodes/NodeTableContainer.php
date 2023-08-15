@@ -7,8 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
-use PhpMyAdmin\Navigation\NodeFactory;
-
 use function __;
 use function _pgettext;
 
@@ -33,7 +31,7 @@ class NodeTableContainer extends NodeDatabaseChildContainer
         $this->classes = 'tableContainer subContainer';
 
         $newLabel = _pgettext('Create new table', 'New');
-        $new = NodeFactory::getInstanceForNewNode($newLabel, 'new_table italics');
+        $new = $this->getInstanceForNewNode($newLabel, 'new_table italics');
         $new->icon = ['image' => 'b_table_add', 'title' => $newLabel];
         $new->links = [
             'text' => ['route' => '/table/create', 'params' => ['db' => null]],
