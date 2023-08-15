@@ -4191,7 +4191,7 @@ class Results
         // display the Export link).
         if (
             ($analyzedSqlResults['querytype'] === self::QUERY_TYPE_SELECT)
-            && empty($analyzedSqlResults['procedure'])
+            && empty($analyzedSqlResults['is_procedure'])
         ) {
             if (count($analyzedSqlResults['select_tables']) === 1) {
                 $urlParams['single_table'] = 'true';
@@ -4227,7 +4227,7 @@ class Results
         }
 
         return [
-            'has_procedure' => ! empty($analyzedSqlResults['procedure']),
+            'has_procedure' => ! empty($analyzedSqlResults['is_procedure']),
             'has_geometry' => $geometryFound,
             'has_print_link' => $printLink == '1',
             'has_export_link' => $analyzedSqlResults['querytype'] === self::QUERY_TYPE_SELECT,
