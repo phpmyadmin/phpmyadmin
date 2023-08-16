@@ -22,6 +22,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Middleware\ConfigLoading;
+use PhpMyAdmin\Middleware\DatabaseAndTableSetting;
 use PhpMyAdmin\Middleware\EncryptedQueryParamsHandling;
 use PhpMyAdmin\Middleware\ErrorHandling;
 use PhpMyAdmin\Middleware\OutputBuffering;
@@ -102,6 +103,7 @@ class Application
         $requestHandler->add(new EncryptedQueryParamsHandling());
         $requestHandler->add(new UrlParamsSetting($this->config));
         $requestHandler->add(new TokenRequestParamChecking($this));
+        $requestHandler->add(new DatabaseAndTableSetting($this));
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -129,7 +131,6 @@ class Application
 
         $container = Core::getContainerBuilder();
 
-        $this->setDatabaseAndTableFromRequest($container, $request);
         $this->setSQLQueryGlobalFromRequest($container, $request);
 
         //$_REQUEST['set_theme'] // checked later in this file LABEL_theme_setup
@@ -390,7 +391,7 @@ class Application
         Sanitize::removeRequestVars($allowList);
     }
 
-    private function setDatabaseAndTableFromRequest(ContainerInterface $container, ServerRequest $request): void
+    public function setDatabaseAndTableFromRequest(ContainerInterface $container, ServerRequest $request): void
     {
         $GLOBALS['urlParams'] ??= null;
 
