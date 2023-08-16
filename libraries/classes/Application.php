@@ -29,6 +29,7 @@ use PhpMyAdmin\Middleware\ErrorHandling;
 use PhpMyAdmin\Middleware\GlobalConfigSetting;
 use PhpMyAdmin\Middleware\LanguageAndThemeCookieSaving;
 use PhpMyAdmin\Middleware\LanguageLoading;
+use PhpMyAdmin\Middleware\LoginCookieValiditySetting;
 use PhpMyAdmin\Middleware\MinimumCommonRedirection;
 use PhpMyAdmin\Middleware\OutputBuffering;
 use PhpMyAdmin\Middleware\PhpExtensionsChecking;
@@ -126,6 +127,7 @@ class Application
         $requestHandler->add(new MinimumCommonRedirection($this->config, $this->responseFactory));
         $requestHandler->add(new LanguageAndThemeCookieSaving($this->config));
         $requestHandler->add(new DbiLoading());
+        $requestHandler->add(new LoginCookieValiditySetting($this->config));
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -157,8 +159,6 @@ class Application
 
         $currentServer = $this->config->getCurrentServer();
         if ($currentServer !== null) {
-            $this->config->getLoginCookieValidityFromCache($GLOBALS['server']);
-
             /** @var AuthenticationPluginFactory $authPluginFactory */
             $authPluginFactory = $container->get(AuthenticationPluginFactory::class);
             try {
