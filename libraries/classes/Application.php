@@ -7,7 +7,6 @@ namespace PhpMyAdmin;
 use Fig\Http\Message\StatusCodeInterface;
 use Laminas\HttpHandlerRunner\Emitter\SapiEmitter;
 use Laminas\HttpHandlerRunner\RequestHandlerRunner;
-use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\Connection;
@@ -35,6 +34,7 @@ use PhpMyAdmin\Middleware\RequestProblemChecking;
 use PhpMyAdmin\Middleware\RouteParsing;
 use PhpMyAdmin\Middleware\ServerConfigurationChecking;
 use PhpMyAdmin\Middleware\SessionHandling;
+use PhpMyAdmin\Middleware\SetupPageRedirection;
 use PhpMyAdmin\Middleware\SqlQueryGlobalSetting;
 use PhpMyAdmin\Middleware\ThemeInitialization;
 use PhpMyAdmin\Middleware\TokenRequestParamChecking;
@@ -59,8 +59,6 @@ use function hash_equals;
 use function is_array;
 use function is_scalar;
 use function is_string;
-use function ob_start;
-use function restore_error_handler;
 use function session_id;
 use function sprintf;
 use function strlen;
@@ -121,6 +119,7 @@ class Application
         $requestHandler->add(new GlobalConfigSetting($this->config));
         $requestHandler->add(new ThemeInitialization());
         $requestHandler->add(new UrlRedirection($this->config));
+        $requestHandler->add(new SetupPageRedirection($this->config, $this->responseFactory));
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -158,12 +157,6 @@ class Application
         if ($isMinimumCommon) {
             $this->config->loadUserPreferences($themeManager, true);
             Tracker::enable();
-
-            if ($isSetupPage) {
-                $this->setupPageBootstrap($this->config);
-
-                return Routing::callSetupController($request, $this->responseFactory);
-            }
 
             return Routing::callControllerForRoute(
                 $request,
@@ -417,36 +410,6 @@ class Application
          * main connection and phpMyAdmin issuing queries to configuration storage, which is not locked by that time.
          */
         $dbi->connect($currentServer, Connection::TYPE_USER, Connection::TYPE_CONTROL);
-    }
-
-    private function setupPageBootstrap(Config $config): void
-    {
-        // use default error handler
-        restore_error_handler();
-
-        // Save current language in a cookie, since it was not set in Common::run().
-        $config->setCookie('pma_lang', $GLOBALS['lang']);
-        $config->set('is_setup', true);
-
-        $GLOBALS['ConfigFile'] = new ConfigFile();
-        $GLOBALS['ConfigFile']->setPersistKeys([
-            'DefaultLang',
-            'ServerDefault',
-            'UploadDir',
-            'SaveDir',
-            'Servers/1/verbose',
-            'Servers/1/host',
-            'Servers/1/port',
-            'Servers/1/socket',
-            'Servers/1/auth_type',
-            'Servers/1/user',
-            'Servers/1/password',
-        ]);
-
-        $GLOBALS['dbi'] = DatabaseInterface::load();
-
-        // allows for redirection even after sending some data
-        ob_start();
     }
 
     private function getGenericErrorResponse(string $message): Response
