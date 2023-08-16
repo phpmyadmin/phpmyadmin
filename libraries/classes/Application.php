@@ -31,6 +31,7 @@ use PhpMyAdmin\Middleware\PhpSettingsConfiguration;
 use PhpMyAdmin\Middleware\RouteParsing;
 use PhpMyAdmin\Middleware\ServerConfigurationChecking;
 use PhpMyAdmin\Middleware\SessionHandling;
+use PhpMyAdmin\Middleware\SqlQueryGlobalSetting;
 use PhpMyAdmin\Middleware\TokenRequestParamChecking;
 use PhpMyAdmin\Middleware\UriSchemeUpdating;
 use PhpMyAdmin\Middleware\UrlParamsSetting;
@@ -104,6 +105,7 @@ class Application
         $requestHandler->add(new UrlParamsSetting($this->config));
         $requestHandler->add(new TokenRequestParamChecking($this));
         $requestHandler->add(new DatabaseAndTableSetting($this));
+        $requestHandler->add(new SqlQueryGlobalSetting());
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -130,8 +132,6 @@ class Application
         $isMinimumCommon = $isSetupPage || $route === '/import-status' || $route === '/url' || $route === '/messages';
 
         $container = Core::getContainerBuilder();
-
-        $this->setSQLQueryGlobalFromRequest($container, $request);
 
         //$_REQUEST['set_theme'] // checked later in this file LABEL_theme_setup
         //$_REQUEST['server']; // checked later in this file
@@ -488,21 +488,6 @@ class Application
 
         // allows for redirection even after sending some data
         ob_start();
-    }
-
-    private function setSQLQueryGlobalFromRequest(ContainerInterface $container, ServerRequest $request): void
-    {
-        $sqlQuery = '';
-        if ($request->isPost()) {
-            /** @var mixed $sqlQuery */
-            $sqlQuery = $request->getParsedBodyParam('sql_query');
-            if (! is_string($sqlQuery)) {
-                $sqlQuery = '';
-            }
-        }
-
-        $GLOBALS['sql_query'] = $sqlQuery;
-        $container->setParameter('sql_query', $sqlQuery);
     }
 
     private function setCurrentServerGlobal(
