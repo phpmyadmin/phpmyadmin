@@ -38,6 +38,7 @@ use PhpMyAdmin\Middleware\RouteParsing;
 use PhpMyAdmin\Middleware\ServerConfigurationChecking;
 use PhpMyAdmin\Middleware\SessionHandling;
 use PhpMyAdmin\Middleware\SetupPageRedirection;
+use PhpMyAdmin\Middleware\SqlDelimiterSetting;
 use PhpMyAdmin\Middleware\SqlQueryGlobalSetting;
 use PhpMyAdmin\Middleware\ThemeInitialization;
 use PhpMyAdmin\Middleware\TokenRequestParamChecking;
@@ -45,7 +46,6 @@ use PhpMyAdmin\Middleware\UriSchemeUpdating;
 use PhpMyAdmin\Middleware\UrlParamsSetting;
 use PhpMyAdmin\Middleware\UrlRedirection;
 use PhpMyAdmin\Routing\Routing;
-use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Tracking\Tracker;
 use Psr\Http\Message\ResponseInterface;
@@ -58,7 +58,6 @@ use function function_exists;
 use function hash_equals;
 use function is_array;
 use function is_scalar;
-use function is_string;
 use function session_id;
 use function sprintf;
 use function strlen;
@@ -126,6 +125,7 @@ class Application
         $requestHandler->add(new LoginCookieValiditySetting($this->config));
         $requestHandler->add(new Authentication($this->config, $this->template, $this->responseFactory));
         $requestHandler->add(new DatabaseServerVersionChecking($this->config, $this->template, $this->responseFactory));
+        $requestHandler->add(new SqlDelimiterSetting($this->config));
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -154,16 +154,7 @@ class Application
         $themeManager = $container->get(ThemeManager::class);
 
         $currentServer = $this->config->getCurrentServer();
-        if ($currentServer !== null) {
-            /** @var mixed $sqlDelimiter */
-            $sqlDelimiter = $request->getParam('sql_delimiter', '');
-            if (is_string($sqlDelimiter) && $sqlDelimiter !== '') {
-                // Sets the default delimiter (if specified).
-                Lexer::$defaultDelimiter = $sqlDelimiter;
-            }
-
-            // TODO: Set SQL modes too.
-        } else { // end server connecting
+        if ($currentServer === null) {
             $responseRenderer = ResponseRenderer::getInstance();
             $responseRenderer->setAjax($request->isAjax());
             $responseRenderer->getHeader()->disableMenuAndConsole();
