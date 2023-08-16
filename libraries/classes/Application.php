@@ -29,6 +29,7 @@ use PhpMyAdmin\Middleware\LanguageLoading;
 use PhpMyAdmin\Middleware\OutputBuffering;
 use PhpMyAdmin\Middleware\PhpExtensionsChecking;
 use PhpMyAdmin\Middleware\PhpSettingsConfiguration;
+use PhpMyAdmin\Middleware\RequestProblemChecking;
 use PhpMyAdmin\Middleware\RouteParsing;
 use PhpMyAdmin\Middleware\ServerConfigurationChecking;
 use PhpMyAdmin\Middleware\SessionHandling;
@@ -44,12 +45,10 @@ use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Tracking\Tracker;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use RuntimeException;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Throwable;
 
 use function __;
-use function count;
 use function define;
 use function function_exists;
 use function hash_equals;
@@ -113,6 +112,7 @@ class Application
             $this->template,
             $this->responseFactory,
         ));
+        $requestHandler->add(new RequestProblemChecking($this->template, $this->responseFactory));
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -139,12 +139,6 @@ class Application
         $isMinimumCommon = $isSetupPage || $route === '/import-status' || $route === '/url' || $route === '/messages';
 
         $container = Core::getContainerBuilder();
-
-        try {
-            $this->checkRequest();
-        } catch (RuntimeException $exception) {
-            return $this->getGenericErrorResponse($exception->getMessage());
-        }
 
         $this->setCurrentServerGlobal($container, $this->config, $request->getParam('server'));
 
@@ -392,25 +386,6 @@ class Application
         $GLOBALS['urlParams']['db'] = $GLOBALS['db'];
         $GLOBALS['urlParams']['table'] = $GLOBALS['table'];
         $container->setParameter('url_params', $GLOBALS['urlParams']);
-    }
-
-    /**
-     * Checks request and fails with fatal error if something problematic is found
-     */
-    private function checkRequest(): void
-    {
-        if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {
-            throw new RuntimeException(__('GLOBALS overwrite attempt'));
-        }
-
-        /**
-         * protect against possible exploits - there is no need to have so much variables
-         */
-        if (count($_REQUEST) <= 1000) {
-            return;
-        }
-
-        throw new RuntimeException(__('possible exploit'));
     }
 
     private function connectToDatabaseServer(
