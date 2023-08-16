@@ -27,6 +27,7 @@ use PhpMyAdmin\Middleware\EncryptedQueryParamsHandling;
 use PhpMyAdmin\Middleware\ErrorHandling;
 use PhpMyAdmin\Middleware\GlobalConfigSetting;
 use PhpMyAdmin\Middleware\LanguageLoading;
+use PhpMyAdmin\Middleware\MinimumCommonRedirection;
 use PhpMyAdmin\Middleware\OutputBuffering;
 use PhpMyAdmin\Middleware\PhpExtensionsChecking;
 use PhpMyAdmin\Middleware\PhpSettingsConfiguration;
@@ -120,6 +121,7 @@ class Application
         $requestHandler->add(new ThemeInitialization());
         $requestHandler->add(new UrlRedirection($this->config));
         $requestHandler->add(new SetupPageRedirection($this->config, $this->responseFactory));
+        $requestHandler->add(new MinimumCommonRedirection($this->config, $this->responseFactory));
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -140,10 +142,7 @@ class Application
 
     public function handle(ServerRequest $request): Response|null
     {
-        $isSetupPage = (bool) $request->getAttribute('isSetupPage');
-
         $route = $request->getRoute();
-        $isMinimumCommon = $isSetupPage || $route === '/import-status' || $route === '/url' || $route === '/messages';
 
         $container = Core::getContainerBuilder();
 
@@ -153,18 +152,6 @@ class Application
         $themeManager = $container->get(ThemeManager::class);
 
         $GLOBALS['dbi'] = null;
-
-        if ($isMinimumCommon) {
-            $this->config->loadUserPreferences($themeManager, true);
-            Tracker::enable();
-
-            return Routing::callControllerForRoute(
-                $request,
-                Routing::getDispatcher(),
-                $container,
-                $this->responseFactory,
-            );
-        }
 
         /**
          * save some settings in cookies
