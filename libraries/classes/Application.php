@@ -34,6 +34,7 @@ use PhpMyAdmin\Middleware\OutputBuffering;
 use PhpMyAdmin\Middleware\PhpExtensionsChecking;
 use PhpMyAdmin\Middleware\PhpSettingsConfiguration;
 use PhpMyAdmin\Middleware\RequestProblemChecking;
+use PhpMyAdmin\Middleware\ResponseRendererLoading;
 use PhpMyAdmin\Middleware\RouteParsing;
 use PhpMyAdmin\Middleware\ServerConfigurationChecking;
 use PhpMyAdmin\Middleware\SessionHandling;
@@ -126,6 +127,7 @@ class Application
         $requestHandler->add(new Authentication($this->config, $this->template, $this->responseFactory));
         $requestHandler->add(new DatabaseServerVersionChecking($this->config, $this->template, $this->responseFactory));
         $requestHandler->add(new SqlDelimiterSetting($this->config));
+        $requestHandler->add(new ResponseRendererLoading($this->config));
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -153,16 +155,7 @@ class Application
         /** @var ThemeManager $themeManager */
         $themeManager = $container->get(ThemeManager::class);
 
-        $currentServer = $this->config->getCurrentServer();
-        if ($currentServer === null) {
-            $responseRenderer = ResponseRenderer::getInstance();
-            $responseRenderer->setAjax($request->isAjax());
-            $responseRenderer->getHeader()->disableMenuAndConsole();
-            $responseRenderer->setMinimalFooter();
-        }
-
         $responseRenderer = ResponseRenderer::getInstance();
-        $responseRenderer->setAjax($request->isAjax());
 
         /**
          * There is no point in even attempting to process
