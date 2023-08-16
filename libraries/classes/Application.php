@@ -26,6 +26,7 @@ use PhpMyAdmin\Middleware\CurrentServerGlobalSetting;
 use PhpMyAdmin\Middleware\DatabaseAndTableSetting;
 use PhpMyAdmin\Middleware\EncryptedQueryParamsHandling;
 use PhpMyAdmin\Middleware\ErrorHandling;
+use PhpMyAdmin\Middleware\GlobalConfigSetting;
 use PhpMyAdmin\Middleware\LanguageLoading;
 use PhpMyAdmin\Middleware\OutputBuffering;
 use PhpMyAdmin\Middleware\PhpExtensionsChecking;
@@ -115,6 +116,7 @@ class Application
         ));
         $requestHandler->add(new RequestProblemChecking($this->template, $this->responseFactory));
         $requestHandler->add(new CurrentServerGlobalSetting($this->config));
+        $requestHandler->add(new GlobalConfigSetting($this->config));
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -142,7 +144,6 @@ class Application
 
         $container = Core::getContainerBuilder();
 
-        $GLOBALS['cfg'] = $this->config->settings;
         $settings = $this->config->getSettings();
 
         /** @var ThemeManager $themeManager */

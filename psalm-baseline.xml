@@ -18,7 +18,6 @@
   </file>
   <file src="libraries/classes/Application.php">
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['cfg']['Server']]]></code>
       <code><![CDATA[$_SESSION[' PMA_token ']]]></code>
     </MixedArgument>
     <PossiblyInvalidArgument>
