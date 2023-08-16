@@ -48,8 +48,8 @@ use PhpMyAdmin\Middleware\TokenRequestParamChecking;
 use PhpMyAdmin\Middleware\UriSchemeUpdating;
 use PhpMyAdmin\Middleware\UrlParamsSetting;
 use PhpMyAdmin\Middleware\UrlRedirection;
+use PhpMyAdmin\Middleware\UserPreferencesLoading;
 use PhpMyAdmin\Routing\Routing;
-use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Tracking\Tracker;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -132,6 +132,7 @@ class Application
         $requestHandler->add(new ResponseRendererLoading($this->config));
         $requestHandler->add(new TokenMismatchChecking());
         $requestHandler->add(new ProfilingChecking());
+        $requestHandler->add(new UserPreferencesLoading($this->config));
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -155,12 +156,6 @@ class Application
         $container = Core::getContainerBuilder();
 
         $settings = $this->config->getSettings();
-
-        /** @var ThemeManager $themeManager */
-        $themeManager = $container->get(ThemeManager::class);
-
-        // load user preferences
-        $this->config->loadUserPreferences($themeManager);
 
         /* Tell tracker that it can actually work */
         Tracker::enable();
