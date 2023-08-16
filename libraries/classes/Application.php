@@ -30,6 +30,7 @@ use PhpMyAdmin\Middleware\PhpSettingsConfiguration;
 use PhpMyAdmin\Middleware\RouteParsing;
 use PhpMyAdmin\Middleware\ServerConfigurationChecking;
 use PhpMyAdmin\Middleware\SessionHandling;
+use PhpMyAdmin\Middleware\TokenRequestParamChecking;
 use PhpMyAdmin\Middleware\UriSchemeUpdating;
 use PhpMyAdmin\Middleware\UrlParamsSetting;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
@@ -100,6 +101,7 @@ class Application
         ));
         $requestHandler->add(new EncryptedQueryParamsHandling());
         $requestHandler->add(new UrlParamsSetting($this->config));
+        $requestHandler->add(new TokenRequestParamChecking($this));
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -127,7 +129,6 @@ class Application
 
         $container = Core::getContainerBuilder();
 
-        $this->checkTokenRequestParam();
         $this->setDatabaseAndTableFromRequest($container, $request);
         $this->setSQLQueryGlobalFromRequest($container, $request);
 
