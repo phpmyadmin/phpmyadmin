@@ -21,6 +21,7 @@ use PhpMyAdmin\Middleware\ConfigErrorAndPermissionChecking;
 use PhpMyAdmin\Middleware\ConfigLoading;
 use PhpMyAdmin\Middleware\CurrentServerGlobalSetting;
 use PhpMyAdmin\Middleware\DatabaseAndTableSetting;
+use PhpMyAdmin\Middleware\DatabaseServerVersionChecking;
 use PhpMyAdmin\Middleware\DbiLoading;
 use PhpMyAdmin\Middleware\EncryptedQueryParamsHandling;
 use PhpMyAdmin\Middleware\ErrorHandling;
@@ -124,6 +125,7 @@ class Application
         $requestHandler->add(new DbiLoading());
         $requestHandler->add(new LoginCookieValiditySetting($this->config));
         $requestHandler->add(new Authentication($this->config, $this->template, $this->responseFactory));
+        $requestHandler->add(new DatabaseServerVersionChecking($this->config, $this->template, $this->responseFactory));
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -153,14 +155,6 @@ class Application
 
         $currentServer = $this->config->getCurrentServer();
         if ($currentServer !== null) {
-            if ($GLOBALS['dbi']->getVersion() < $settings->mysqlMinVersion['internal']) {
-                return $this->getGenericErrorResponse(sprintf(
-                    __('You should upgrade to %s %s or later.'),
-                    'MySQL',
-                    $settings->mysqlMinVersion['human'],
-                ));
-            }
-
             /** @var mixed $sqlDelimiter */
             $sqlDelimiter = $request->getParam('sql_delimiter', '');
             if (is_string($sqlDelimiter) && $sqlDelimiter !== '') {
@@ -325,16 +319,5 @@ class Application
         $GLOBALS['urlParams']['db'] = $GLOBALS['db'];
         $GLOBALS['urlParams']['table'] = $GLOBALS['table'];
         $container->setParameter('url_params', $GLOBALS['urlParams']);
-    }
-
-    private function getGenericErrorResponse(string $message): Response
-    {
-        $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);
-
-        return $response->write($this->template->render('error/generic', [
-            'lang' => $GLOBALS['lang'] ?? 'en',
-            'dir' => $GLOBALS['text_dir'] ?? 'ltr',
-            'error_message' => $message,
-        ]));
     }
 }
