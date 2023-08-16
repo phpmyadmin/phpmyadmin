@@ -56,7 +56,27 @@ parameters:
 			path: libraries/classes/Application.php
 
 		-
+			message: "#^Cannot call method getVersion\\(\\) on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Application.php
+
+		-
+			message: "#^Cannot call method postConnectControl\\(\\) on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Application.php
+
+		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 1
+			path: libraries/classes/Application.php
+
+		-
+			message: "#^Parameter \\#1 \\$dbi of method PhpMyAdmin\\\\Application\\:\\:connectToDatabaseServer\\(\\) expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Application.php
+
+		-
+			message: "#^Parameter \\#1 \\$dbi of static method PhpMyAdmin\\\\Profiling\\:\\:check\\(\\) expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Application.php
 

@@ -23,6 +23,7 @@ use PhpMyAdmin\Middleware\ConfigErrorAndPermissionChecking;
 use PhpMyAdmin\Middleware\ConfigLoading;
 use PhpMyAdmin\Middleware\CurrentServerGlobalSetting;
 use PhpMyAdmin\Middleware\DatabaseAndTableSetting;
+use PhpMyAdmin\Middleware\DbiLoading;
 use PhpMyAdmin\Middleware\EncryptedQueryParamsHandling;
 use PhpMyAdmin\Middleware\ErrorHandling;
 use PhpMyAdmin\Middleware\GlobalConfigSetting;
@@ -124,6 +125,7 @@ class Application
         $requestHandler->add(new SetupPageRedirection($this->config, $this->responseFactory));
         $requestHandler->add(new MinimumCommonRedirection($this->config, $this->responseFactory));
         $requestHandler->add(new LanguageAndThemeCookieSaving($this->config));
+        $requestHandler->add(new DbiLoading());
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -152,10 +154,6 @@ class Application
 
         /** @var ThemeManager $themeManager */
         $themeManager = $container->get(ThemeManager::class);
-
-        $GLOBALS['dbi'] = DatabaseInterface::load();
-        $container->set(DatabaseInterface::class, $GLOBALS['dbi']);
-        $container->setAlias('dbi', DatabaseInterface::class);
 
         $currentServer = $this->config->getCurrentServer();
         if ($currentServer !== null) {
