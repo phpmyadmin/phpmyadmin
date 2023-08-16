@@ -7,7 +7,6 @@ namespace PhpMyAdmin;
 use Fig\Http\Message\StatusCodeInterface;
 use Laminas\HttpHandlerRunner\Emitter\SapiEmitter;
 use Laminas\HttpHandlerRunner\RequestHandlerRunner;
-use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\Handler\ApplicationHandler;
@@ -50,6 +49,7 @@ use PhpMyAdmin\Middleware\UriSchemeUpdating;
 use PhpMyAdmin\Middleware\UrlParamsSetting;
 use PhpMyAdmin\Middleware\UrlRedirection;
 use PhpMyAdmin\Middleware\UserPreferencesLoading;
+use PhpMyAdmin\Middleware\ZeroConfPostConnection;
 use PhpMyAdmin\Routing\Routing;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -134,6 +134,7 @@ class Application
         $requestHandler->add(new ProfilingChecking());
         $requestHandler->add(new UserPreferencesLoading($this->config));
         $requestHandler->add(new TrackerEnabling());
+        $requestHandler->add(new ZeroConfPostConnection($this->config));
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -154,17 +155,12 @@ class Application
 
     public function handle(ServerRequest $request): Response|null
     {
-        $container = Core::getContainerBuilder();
-
-        $settings = $this->config->getSettings();
-
-        if (! empty($GLOBALS['server']) && $settings->zeroConf) {
-            /** @var Relation $relation */
-            $relation = $container->get('relation');
-            $GLOBALS['dbi']->postConnectControl($relation);
-        }
-
-        return Routing::callControllerForRoute($request, Routing::getDispatcher(), $container, $this->responseFactory);
+        return Routing::callControllerForRoute(
+            $request,
+            Routing::getDispatcher(),
+            Core::getContainerBuilder(),
+            $this->responseFactory,
+        );
     }
 
     /**
