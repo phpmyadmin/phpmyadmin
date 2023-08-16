@@ -12,7 +12,6 @@ use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Exceptions\AuthenticationPluginException;
-use PhpMyAdmin\Exceptions\ConfigException;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\Handler\ApplicationHandler;
@@ -21,6 +20,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
+use PhpMyAdmin\Middleware\ConfigErrorAndPermissionChecking;
 use PhpMyAdmin\Middleware\ConfigLoading;
 use PhpMyAdmin\Middleware\DatabaseAndTableSetting;
 use PhpMyAdmin\Middleware\EncryptedQueryParamsHandling;
@@ -108,6 +108,11 @@ class Application
         $requestHandler->add(new DatabaseAndTableSetting($this));
         $requestHandler->add(new SqlQueryGlobalSetting());
         $requestHandler->add(new LanguageLoading());
+        $requestHandler->add(new ConfigErrorAndPermissionChecking(
+            $this->config,
+            $this->template,
+            $this->responseFactory,
+        ));
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -134,17 +139,6 @@ class Application
         $isMinimumCommon = $isSetupPage || $route === '/import-status' || $route === '/url' || $route === '/messages';
 
         $container = Core::getContainerBuilder();
-
-        try {
-            /**
-             * check for errors occurred while loading configuration
-             * this check is done here after loading language files to present errors in locale
-             */
-            $this->config->checkPermissions();
-            $this->config->checkErrors();
-        } catch (ConfigException $exception) {
-            return $this->getGenericErrorResponse($exception->getMessage());
-        }
 
         try {
             $this->checkRequest();
