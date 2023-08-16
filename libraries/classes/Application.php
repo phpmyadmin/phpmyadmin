@@ -42,6 +42,7 @@ use PhpMyAdmin\Middleware\SetupPageRedirection;
 use PhpMyAdmin\Middleware\SqlDelimiterSetting;
 use PhpMyAdmin\Middleware\SqlQueryGlobalSetting;
 use PhpMyAdmin\Middleware\ThemeInitialization;
+use PhpMyAdmin\Middleware\TokenMismatchChecking;
 use PhpMyAdmin\Middleware\TokenRequestParamChecking;
 use PhpMyAdmin\Middleware\UriSchemeUpdating;
 use PhpMyAdmin\Middleware\UrlParamsSetting;
@@ -128,6 +129,7 @@ class Application
         $requestHandler->add(new DatabaseServerVersionChecking($this->config, $this->template, $this->responseFactory));
         $requestHandler->add(new SqlDelimiterSetting($this->config));
         $requestHandler->add(new ResponseRendererLoading($this->config));
+        $requestHandler->add(new TokenMismatchChecking());
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -156,20 +158,6 @@ class Application
         $themeManager = $container->get(ThemeManager::class);
 
         $responseRenderer = ResponseRenderer::getInstance();
-
-        /**
-         * There is no point in even attempting to process
-         * an ajax request if there is a token mismatch
-         */
-        if ($request->isAjax() && $request->isPost() && $GLOBALS['token_mismatch']) {
-            $responseRenderer->setRequestStatus(false);
-            $responseRenderer->addJSON(
-                'message',
-                Message::error(__('Error: Token mismatch')),
-            );
-
-            return null;
-        }
 
         Profiling::check($GLOBALS['dbi'], $responseRenderer);
 
