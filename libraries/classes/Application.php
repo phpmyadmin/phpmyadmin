@@ -40,6 +40,7 @@ use PhpMyAdmin\Middleware\ThemeInitialization;
 use PhpMyAdmin\Middleware\TokenRequestParamChecking;
 use PhpMyAdmin\Middleware\UriSchemeUpdating;
 use PhpMyAdmin\Middleware\UrlParamsSetting;
+use PhpMyAdmin\Middleware\UrlRedirection;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 use PhpMyAdmin\Routing\Routing;
@@ -119,6 +120,7 @@ class Application
         $requestHandler->add(new CurrentServerGlobalSetting($this->config));
         $requestHandler->add(new GlobalConfigSetting($this->config));
         $requestHandler->add(new ThemeInitialization());
+        $requestHandler->add(new UrlRedirection($this->config));
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -156,10 +158,6 @@ class Application
         if ($isMinimumCommon) {
             $this->config->loadUserPreferences($themeManager, true);
             Tracker::enable();
-
-            if ($route === '/url') {
-                UrlRedirector::redirect($_GET['url'] ?? '');
-            }
 
             if ($isSetupPage) {
                 $this->setupPageBootstrap($this->config);

@@ -20,12 +20,6 @@
     <MixedArgument>
       <code><![CDATA[$_SESSION[' PMA_token ']]]></code>
     </MixedArgument>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$_GET['url'] ?? '']]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_GET['url'] ?? '']]></code>
-    </PossiblyInvalidCast>
     <RedundantCast>
       <code><![CDATA[(string) $GLOBALS['lang']]]></code>
       <code><![CDATA[(string) $_POST['token']]]></code>

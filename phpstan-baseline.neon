@@ -81,11 +81,6 @@ parameters:
 			path: libraries/classes/Application.php
 
 		-
-			message: "#^Parameter \\#1 \\$url of static method PhpMyAdmin\\\\UrlRedirector\\:\\:redirect\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Application.php
-
-		-
 			message: "#^Parameter \\#2 \\$value of method PhpMyAdmin\\\\Config\\:\\:setCookie\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Application.php
