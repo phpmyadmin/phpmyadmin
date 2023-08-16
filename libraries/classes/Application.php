@@ -33,6 +33,7 @@ use PhpMyAdmin\Middleware\MinimumCommonRedirection;
 use PhpMyAdmin\Middleware\OutputBuffering;
 use PhpMyAdmin\Middleware\PhpExtensionsChecking;
 use PhpMyAdmin\Middleware\PhpSettingsConfiguration;
+use PhpMyAdmin\Middleware\ProfilingChecking;
 use PhpMyAdmin\Middleware\RequestProblemChecking;
 use PhpMyAdmin\Middleware\ResponseRendererLoading;
 use PhpMyAdmin\Middleware\RouteParsing;
@@ -130,6 +131,7 @@ class Application
         $requestHandler->add(new SqlDelimiterSetting($this->config));
         $requestHandler->add(new ResponseRendererLoading($this->config));
         $requestHandler->add(new TokenMismatchChecking());
+        $requestHandler->add(new ProfilingChecking());
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -156,12 +158,6 @@ class Application
 
         /** @var ThemeManager $themeManager */
         $themeManager = $container->get(ThemeManager::class);
-
-        $responseRenderer = ResponseRenderer::getInstance();
-
-        Profiling::check($GLOBALS['dbi'], $responseRenderer);
-
-        $container->set('response', ResponseRenderer::getInstance());
 
         // load user preferences
         $this->config->loadUserPreferences($themeManager);

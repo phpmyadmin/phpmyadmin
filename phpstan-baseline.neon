@@ -61,11 +61,6 @@ parameters:
 			path: libraries/classes/Application.php
 
 		-
-			message: "#^Parameter \\#1 \\$dbi of static method PhpMyAdmin\\\\Profiling\\:\\:check\\(\\) expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Application.php
-
-		-
 			message: "#^Parameter \\#1 \\$known_string of function hash_equals expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Application.php
@@ -15839,6 +15834,11 @@ parameters:
 			message: "#^Parameter \\#1 \\$server of method PhpMyAdmin\\\\Config\\:\\:getLoginCookieValidityFromCache\\(\\) expects int, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Middleware/LoginCookieValiditySetting.php
+
+		-
+			message: "#^Parameter \\#1 \\$dbi of static method PhpMyAdmin\\\\Profiling\\:\\:check\\(\\) expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Middleware/ProfilingChecking.php
 
 		-
 			message: "#^Parameter \\#2 \\$value of method PhpMyAdmin\\\\Config\\:\\:setCookie\\(\\) expects string, mixed given\\.$#"
