@@ -21,7 +21,6 @@
       <code><![CDATA[$_SESSION[' PMA_token ']]]></code>
     </MixedArgument>
     <RedundantCast>
-      <code><![CDATA[(string) $GLOBALS['lang']]]></code>
       <code><![CDATA[(string) $_POST['token']]]></code>
       <code><![CDATA[(string) $_POST['token']]]></code>
     </RedundantCast>
@@ -7156,6 +7155,11 @@
     <MixedReturnStatement>
       <code><![CDATA[self::$level[$this->getNumber()]]]></code>
     </MixedReturnStatement>
+  </file>
+  <file src="libraries/classes/Middleware/LanguageAndThemeCookieSaving.php">
+    <RedundantCast>
+      <code><![CDATA[(string) $GLOBALS['lang']]]></code>
+    </RedundantCast>
   </file>
   <file src="libraries/classes/Middleware/UrlParamsSetting.php">
     <PossiblyInvalidArgument>

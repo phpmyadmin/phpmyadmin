@@ -26,6 +26,7 @@ use PhpMyAdmin\Middleware\DatabaseAndTableSetting;
 use PhpMyAdmin\Middleware\EncryptedQueryParamsHandling;
 use PhpMyAdmin\Middleware\ErrorHandling;
 use PhpMyAdmin\Middleware\GlobalConfigSetting;
+use PhpMyAdmin\Middleware\LanguageAndThemeCookieSaving;
 use PhpMyAdmin\Middleware\LanguageLoading;
 use PhpMyAdmin\Middleware\MinimumCommonRedirection;
 use PhpMyAdmin\Middleware\OutputBuffering;
@@ -122,6 +123,7 @@ class Application
         $requestHandler->add(new UrlRedirection($this->config));
         $requestHandler->add(new SetupPageRedirection($this->config, $this->responseFactory));
         $requestHandler->add(new MinimumCommonRedirection($this->config, $this->responseFactory));
+        $requestHandler->add(new LanguageAndThemeCookieSaving($this->config));
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -150,15 +152,6 @@ class Application
 
         /** @var ThemeManager $themeManager */
         $themeManager = $container->get(ThemeManager::class);
-
-        $GLOBALS['dbi'] = null;
-
-        /**
-         * save some settings in cookies
-         */
-        $this->config->setCookie('pma_lang', (string) $GLOBALS['lang']);
-
-        $themeManager->setThemeCookie();
 
         $GLOBALS['dbi'] = DatabaseInterface::load();
         $container->set(DatabaseInterface::class, $GLOBALS['dbi']);
