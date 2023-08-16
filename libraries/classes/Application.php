@@ -36,6 +36,7 @@ use PhpMyAdmin\Middleware\RouteParsing;
 use PhpMyAdmin\Middleware\ServerConfigurationChecking;
 use PhpMyAdmin\Middleware\SessionHandling;
 use PhpMyAdmin\Middleware\SqlQueryGlobalSetting;
+use PhpMyAdmin\Middleware\ThemeInitialization;
 use PhpMyAdmin\Middleware\TokenRequestParamChecking;
 use PhpMyAdmin\Middleware\UriSchemeUpdating;
 use PhpMyAdmin\Middleware\UrlParamsSetting;
@@ -117,6 +118,7 @@ class Application
         $requestHandler->add(new RequestProblemChecking($this->template, $this->responseFactory));
         $requestHandler->add(new CurrentServerGlobalSetting($this->config));
         $requestHandler->add(new GlobalConfigSetting($this->config));
+        $requestHandler->add(new ThemeInitialization());
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -148,7 +150,6 @@ class Application
 
         /** @var ThemeManager $themeManager */
         $themeManager = $container->get(ThemeManager::class);
-        $GLOBALS['theme'] = $themeManager->initializeTheme();
 
         $GLOBALS['dbi'] = null;
 
