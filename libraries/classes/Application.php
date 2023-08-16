@@ -7,10 +7,7 @@ namespace PhpMyAdmin;
 use Fig\Http\Message\StatusCodeInterface;
 use Laminas\HttpHandlerRunner\Emitter\SapiEmitter;
 use Laminas\HttpHandlerRunner\RequestHandlerRunner;
-use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Dbal\Connection;
-use PhpMyAdmin\Exceptions\AuthenticationPluginException;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\Handler\ApplicationHandler;
@@ -19,6 +16,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
+use PhpMyAdmin\Middleware\Authentication;
 use PhpMyAdmin\Middleware\ConfigErrorAndPermissionChecking;
 use PhpMyAdmin\Middleware\ConfigLoading;
 use PhpMyAdmin\Middleware\CurrentServerGlobalSetting;
@@ -45,8 +43,6 @@ use PhpMyAdmin\Middleware\TokenRequestParamChecking;
 use PhpMyAdmin\Middleware\UriSchemeUpdating;
 use PhpMyAdmin\Middleware\UrlParamsSetting;
 use PhpMyAdmin\Middleware\UrlRedirection;
-use PhpMyAdmin\Plugins\AuthenticationPlugin;
-use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 use PhpMyAdmin\Routing\Routing;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\Theme\ThemeManager;
@@ -57,7 +53,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Throwable;
 
 use function __;
-use function define;
 use function function_exists;
 use function hash_equals;
 use function is_array;
@@ -128,6 +123,7 @@ class Application
         $requestHandler->add(new LanguageAndThemeCookieSaving($this->config));
         $requestHandler->add(new DbiLoading());
         $requestHandler->add(new LoginCookieValiditySetting($this->config));
+        $requestHandler->add(new Authentication($this->config, $this->template, $this->responseFactory));
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -148,8 +144,6 @@ class Application
 
     public function handle(ServerRequest $request): Response|null
     {
-        $route = $request->getRoute();
-
         $container = Core::getContainerBuilder();
 
         $settings = $this->config->getSettings();
@@ -159,32 +153,6 @@ class Application
 
         $currentServer = $this->config->getCurrentServer();
         if ($currentServer !== null) {
-            /** @var AuthenticationPluginFactory $authPluginFactory */
-            $authPluginFactory = $container->get(AuthenticationPluginFactory::class);
-            try {
-                $authPlugin = $authPluginFactory->create();
-            } catch (AuthenticationPluginException $exception) {
-                return $this->getGenericErrorResponse($exception->getMessage());
-            }
-
-            $authPlugin->authenticate();
-            $currentServer = new Server($GLOBALS['cfg']['Server']);
-
-            /* Enable LOAD DATA LOCAL INFILE for LDI plugin */
-            if ($route === '/import' && ($_POST['format'] ?? '') === 'ldi') {
-                // Switch this before the DB connection is done
-                // phpcs:disable PSR1.Files.SideEffects
-                define('PMA_ENABLE_LDI', 1);
-                // phpcs:enable
-            }
-
-            $this->connectToDatabaseServer($GLOBALS['dbi'], $authPlugin, $currentServer);
-            $authPlugin->rememberCredentials();
-            $authPlugin->checkTwoFactor($request);
-
-            /* Log success */
-            Logging::logUser($this->config, $currentServer->user);
-
             if ($GLOBALS['dbi']->getVersion() < $settings->mysqlMinVersion['internal']) {
                 return $this->getGenericErrorResponse(sprintf(
                     __('You should upgrade to %s %s or later.'),
@@ -357,37 +325,6 @@ class Application
         $GLOBALS['urlParams']['db'] = $GLOBALS['db'];
         $GLOBALS['urlParams']['table'] = $GLOBALS['table'];
         $container->setParameter('url_params', $GLOBALS['urlParams']);
-    }
-
-    private function connectToDatabaseServer(
-        DatabaseInterface $dbi,
-        AuthenticationPlugin $auth,
-        Server $currentServer,
-    ): void {
-        /**
-         * Try to connect MySQL with the control user profile (will be used to get the privileges list for the current
-         * user but the true user link must be open after this one, so it would be default one for all the scripts).
-         */
-        $controlConnection = null;
-        if ($currentServer->controlUser !== '') {
-            $controlConnection = $dbi->connect($currentServer, Connection::TYPE_CONTROL);
-        }
-
-        // Connects to the server (validates user's login)
-        $userConnection = $dbi->connect($currentServer, Connection::TYPE_USER);
-        if ($userConnection === null) {
-            $auth->showFailure('mysql-denied');
-        }
-
-        if ($controlConnection !== null) {
-            return;
-        }
-
-        /**
-         * Open separate connection for control queries, this is needed to avoid problems with table locking used in
-         * main connection and phpMyAdmin issuing queries to configuration storage, which is not locked by that time.
-         */
-        $dbi->connect($currentServer, Connection::TYPE_USER, Connection::TYPE_CONTROL);
     }
 
     private function getGenericErrorResponse(string $message): Response

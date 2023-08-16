@@ -46,11 +46,6 @@ parameters:
 			path: libraries/classes/Advisory/Advisor.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Application.php
-
-		-
 			message: "#^Cannot access offset 'table' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Application.php
@@ -71,22 +66,12 @@ parameters:
 			path: libraries/classes/Application.php
 
 		-
-			message: "#^Parameter \\#1 \\$dbi of method PhpMyAdmin\\\\Application\\:\\:connectToDatabaseServer\\(\\) expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Application.php
-
-		-
 			message: "#^Parameter \\#1 \\$dbi of static method PhpMyAdmin\\\\Profiling\\:\\:check\\(\\) expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Application.php
 
 		-
 			message: "#^Parameter \\#1 \\$known_string of function hash_equals expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Application.php
-
-		-
-			message: "#^Parameter \\#1 \\$server of class PhpMyAdmin\\\\Config\\\\Settings\\\\Server constructor expects array\\<int\\|string, mixed\\>, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Application.php
 
@@ -15814,6 +15799,21 @@ parameters:
 			message: "#^Parameter \\#2 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Message.php
+
+		-
+			message: "#^Cannot access offset 'Server' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Middleware/Authentication.php
+
+		-
+			message: "#^Parameter \\#1 \\$dbi of method PhpMyAdmin\\\\Middleware\\\\Authentication\\:\\:connectToDatabaseServer\\(\\) expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Middleware/Authentication.php
+
+		-
+			message: "#^Parameter \\#1 \\$server of class PhpMyAdmin\\\\Config\\\\Settings\\\\Server constructor expects array\\<int\\|string, mixed\\>, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Middleware/Authentication.php
 
 		-
 			message: "#^Parameter \\#1 \\$source of method PhpMyAdmin\\\\Config\\:\\:loadAndCheck\\(\\) expects string\\|null, mixed given\\.$#"
