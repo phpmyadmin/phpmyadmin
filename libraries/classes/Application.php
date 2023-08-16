@@ -25,6 +25,7 @@ use PhpMyAdmin\Middleware\ConfigLoading;
 use PhpMyAdmin\Middleware\DatabaseAndTableSetting;
 use PhpMyAdmin\Middleware\EncryptedQueryParamsHandling;
 use PhpMyAdmin\Middleware\ErrorHandling;
+use PhpMyAdmin\Middleware\LanguageLoading;
 use PhpMyAdmin\Middleware\OutputBuffering;
 use PhpMyAdmin\Middleware\PhpExtensionsChecking;
 use PhpMyAdmin\Middleware\PhpSettingsConfiguration;
@@ -106,6 +107,7 @@ class Application
         $requestHandler->add(new TokenRequestParamChecking($this));
         $requestHandler->add(new DatabaseAndTableSetting($this));
         $requestHandler->add(new SqlQueryGlobalSetting());
+        $requestHandler->add(new LanguageLoading());
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -132,18 +134,6 @@ class Application
         $isMinimumCommon = $isSetupPage || $route === '/import-status' || $route === '/url' || $route === '/messages';
 
         $container = Core::getContainerBuilder();
-
-        //$_REQUEST['set_theme'] // checked later in this file LABEL_theme_setup
-        //$_REQUEST['server']; // checked later in this file
-        //$_REQUEST['lang'];   // checked by LABEL_loading_language_file
-
-        /* loading language file                       LABEL_loading_language_file    */
-
-        /**
-         * lang detection is done here
-         */
-        $language = LanguageManager::getInstance()->selectLanguage();
-        $language->activate();
 
         try {
             /**
