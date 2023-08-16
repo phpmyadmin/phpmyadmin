@@ -45,12 +45,12 @@ use PhpMyAdmin\Middleware\SqlQueryGlobalSetting;
 use PhpMyAdmin\Middleware\ThemeInitialization;
 use PhpMyAdmin\Middleware\TokenMismatchChecking;
 use PhpMyAdmin\Middleware\TokenRequestParamChecking;
+use PhpMyAdmin\Middleware\TrackerEnabling;
 use PhpMyAdmin\Middleware\UriSchemeUpdating;
 use PhpMyAdmin\Middleware\UrlParamsSetting;
 use PhpMyAdmin\Middleware\UrlRedirection;
 use PhpMyAdmin\Middleware\UserPreferencesLoading;
 use PhpMyAdmin\Routing\Routing;
-use PhpMyAdmin\Tracking\Tracker;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -133,6 +133,7 @@ class Application
         $requestHandler->add(new TokenMismatchChecking());
         $requestHandler->add(new ProfilingChecking());
         $requestHandler->add(new UserPreferencesLoading($this->config));
+        $requestHandler->add(new TrackerEnabling());
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -156,9 +157,6 @@ class Application
         $container = Core::getContainerBuilder();
 
         $settings = $this->config->getSettings();
-
-        /* Tell tracker that it can actually work */
-        Tracker::enable();
 
         if (! empty($GLOBALS['server']) && $settings->zeroConf) {
             /** @var Relation $relation */
