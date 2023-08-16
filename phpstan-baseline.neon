@@ -51,11 +51,6 @@ parameters:
 			path: libraries/classes/Application.php
 
 		-
-			message: "#^Cannot access offset 'server' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Application.php
-
-		-
 			message: "#^Cannot access offset 'table' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Application.php
@@ -97,7 +92,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$value of method Symfony\\\\Component\\\\DependencyInjection\\\\ContainerInterface\\:\\:setParameter\\(\\) expects array\\|bool\\|float\\|int\\|string\\|UnitEnum\\|null, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Application.php
 
 		-
@@ -15824,6 +15819,16 @@ parameters:
 			message: "#^Parameter \\#1 \\$source of method PhpMyAdmin\\\\Config\\:\\:loadAndCheck\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Middleware/ConfigLoading.php
+
+		-
+			message: "#^Cannot access offset 'server' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Middleware/CurrentServerGlobalSetting.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of method Symfony\\\\Component\\\\DependencyInjection\\\\ContainerInterface\\:\\:setParameter\\(\\) expects array\\|bool\\|float\\|int\\|string\\|UnitEnum\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Middleware/CurrentServerGlobalSetting.php
 
 		-
 			message: "#^Cannot access offset 'goto' on mixed\\.$#"

@@ -22,6 +22,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Middleware\ConfigErrorAndPermissionChecking;
 use PhpMyAdmin\Middleware\ConfigLoading;
+use PhpMyAdmin\Middleware\CurrentServerGlobalSetting;
 use PhpMyAdmin\Middleware\DatabaseAndTableSetting;
 use PhpMyAdmin\Middleware\EncryptedQueryParamsHandling;
 use PhpMyAdmin\Middleware\ErrorHandling;
@@ -113,6 +114,7 @@ class Application
             $this->responseFactory,
         ));
         $requestHandler->add(new RequestProblemChecking($this->template, $this->responseFactory));
+        $requestHandler->add(new CurrentServerGlobalSetting($this->config));
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
@@ -139,8 +141,6 @@ class Application
         $isMinimumCommon = $isSetupPage || $route === '/import-status' || $route === '/url' || $route === '/messages';
 
         $container = Core::getContainerBuilder();
-
-        $this->setCurrentServerGlobal($container, $this->config, $request->getParam('server'));
 
         $GLOBALS['cfg'] = $this->config->settings;
         $settings = $this->config->getSettings();
@@ -447,18 +447,6 @@ class Application
 
         // allows for redirection even after sending some data
         ob_start();
-    }
-
-    private function setCurrentServerGlobal(
-        ContainerInterface $container,
-        Config $config,
-        mixed $serverParamFromRequest,
-    ): void {
-        $server = $config->selectServer($serverParamFromRequest);
-        $GLOBALS['server'] = $server;
-        $GLOBALS['urlParams']['server'] = $server;
-        $container->setParameter('server', $server);
-        $container->setParameter('url_params', $GLOBALS['urlParams']);
     }
 
     private function getGenericErrorResponse(string $message): Response
