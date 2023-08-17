@@ -46,21 +46,6 @@ parameters:
 			path: libraries/classes/Advisory/Advisor.php
 
 		-
-			message: "#^Cannot access offset 'table' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Application.php
-
-		-
-			message: "#^Parameter \\#1 \\$known_string of function hash_equals expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Application.php
-
-		-
-			message: "#^Parameter \\#2 \\$value of method Symfony\\\\Component\\\\DependencyInjection\\\\ContainerInterface\\:\\:setParameter\\(\\) expects array\\|bool\\|float\\|int\\|string\\|UnitEnum\\|null, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Application.php
-
-		-
 			message: "#^Cannot access offset 'AllowSharedBookmarks' on mixed\\.$#"
 			count: 3
 			path: libraries/classes/Bookmark.php
@@ -15811,6 +15796,16 @@ parameters:
 			path: libraries/classes/Middleware/CurrentServerGlobalSetting.php
 
 		-
+			message: "#^Cannot access offset 'table' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Middleware/DatabaseAndTableSetting.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of method Symfony\\\\Component\\\\DependencyInjection\\\\ContainerInterface\\:\\:setParameter\\(\\) expects array\\|bool\\|float\\|int\\|string\\|UnitEnum\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Middleware/DatabaseAndTableSetting.php
+
+		-
 			message: "#^Cannot call method getVersion\\(\\) on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Middleware/DatabaseServerVersionChecking.php
@@ -15834,6 +15829,11 @@ parameters:
 			message: "#^Parameter \\#2 \\$value of method PhpMyAdmin\\\\Config\\:\\:setCookie\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Middleware/SetupPageRedirection.php
+
+		-
+			message: "#^Parameter \\#1 \\$known_string of function hash_equals expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Middleware/TokenRequestParamChecking.php
 
 		-
 			message: "#^Cannot access offset 'goto' on mixed\\.$#"

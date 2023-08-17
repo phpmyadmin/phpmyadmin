@@ -16,15 +16,6 @@
       <code>$value</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Application.php">
-    <MixedArgument>
-      <code><![CDATA[$_SESSION[' PMA_token ']]]></code>
-    </MixedArgument>
-    <RedundantCast>
-      <code><![CDATA[(string) $_POST['token']]]></code>
-      <code><![CDATA[(string) $_POST['token']]]></code>
-    </RedundantCast>
-  </file>
   <file src="libraries/classes/Bookmark.php">
     <DeprecatedMethod>
       <code>escapeString</code>
@@ -7159,6 +7150,15 @@
       <code><![CDATA[(string) $GLOBALS['lang']]]></code>
     </RedundantCast>
   </file>
+  <file src="libraries/classes/Middleware/TokenRequestParamChecking.php">
+    <MixedArgument>
+      <code><![CDATA[$_SESSION[' PMA_token ']]]></code>
+    </MixedArgument>
+    <RedundantCast>
+      <code><![CDATA[(string) $_POST['token']]]></code>
+      <code><![CDATA[(string) $_POST['token']]]></code>
+    </RedundantCast>
+  </file>
   <file src="libraries/classes/Middleware/UrlParamsSetting.php">
     <PossiblyInvalidArgument>
       <code><![CDATA[$_REQUEST['back']]]></code>
@@ -12687,14 +12687,6 @@
     <PossiblyUnusedMethod>
       <code>providerForTestRules</code>
     </PossiblyUnusedMethod>
-  </file>
-  <file src="test/classes/ApplicationTest.php">
-    <RedundantConditionGivenDocblockType>
-      <code>assertFalse</code>
-      <code>assertTrue</code>
-      <code>assertTrue</code>
-      <code>assertTrue</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="test/classes/BrowseForeignersTest.php">
     <MixedArgument>

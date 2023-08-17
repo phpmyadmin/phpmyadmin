@@ -13,8 +13,6 @@ use PhpMyAdmin\Http\Handler\ApplicationHandler;
 use PhpMyAdmin\Http\Handler\QueueRequestHandler;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Identifiers\DatabaseName;
-use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Middleware\Authentication;
 use PhpMyAdmin\Middleware\ConfigErrorAndPermissionChecking;
 use PhpMyAdmin\Middleware\ConfigLoading;
@@ -53,20 +51,9 @@ use PhpMyAdmin\Middleware\ZeroConfPostConnection;
 use PhpMyAdmin\Routing\Routing;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Throwable;
 
-use function __;
-use function function_exists;
-use function hash_equals;
-use function is_array;
-use function is_scalar;
-use function session_id;
 use function sprintf;
-use function strlen;
-use function trigger_error;
-
-use const E_USER_ERROR;
 
 class Application
 {
@@ -93,7 +80,7 @@ class Application
         $requestHandler = new QueueRequestHandler(new ApplicationHandler($this));
         $requestHandler->add(new ErrorHandling($this->errorHandler));
         $requestHandler->add(new OutputBuffering());
-        $requestHandler->add(new PhpExtensionsChecking($this, $this->template, $this->responseFactory));
+        $requestHandler->add(new PhpExtensionsChecking($this->template, $this->responseFactory));
         $requestHandler->add(new ServerConfigurationChecking($this->template, $this->responseFactory));
         $requestHandler->add(new PhpSettingsConfiguration());
         $requestHandler->add(new RouteParsing());
@@ -107,8 +94,8 @@ class Application
         ));
         $requestHandler->add(new EncryptedQueryParamsHandling());
         $requestHandler->add(new UrlParamsSetting($this->config));
-        $requestHandler->add(new TokenRequestParamChecking($this));
-        $requestHandler->add(new DatabaseAndTableSetting($this));
+        $requestHandler->add(new TokenRequestParamChecking());
+        $requestHandler->add(new DatabaseAndTableSetting());
         $requestHandler->add(new SqlQueryGlobalSetting());
         $requestHandler->add(new LanguageLoading());
         $requestHandler->add(new ConfigErrorAndPermissionChecking(
@@ -161,120 +148,5 @@ class Application
             Core::getContainerBuilder(),
             $this->responseFactory,
         );
-    }
-
-    /**
-     * Checks that required PHP extensions are there.
-     */
-    public function checkRequiredPhpExtensions(): void
-    {
-        /**
-         * Warning about mbstring.
-         */
-        if (! function_exists('mb_detect_encoding')) {
-            Core::warnMissingExtension('mbstring');
-        }
-
-        /**
-         * We really need this one!
-         */
-        if (! function_exists('preg_replace')) {
-            Core::warnMissingExtension('pcre', true);
-        }
-
-        /**
-         * JSON is required in several places.
-         */
-        if (! function_exists('json_encode')) {
-            Core::warnMissingExtension('json', true);
-        }
-
-        /**
-         * ctype is required for Twig.
-         */
-        if (! function_exists('ctype_alpha')) {
-            Core::warnMissingExtension('ctype', true);
-        }
-
-        if (! function_exists('mysqli_connect')) {
-            $moreInfo = sprintf(__('See %sour documentation%s for more information.'), '[doc@faqmysql]', '[/doc]');
-            Core::warnMissingExtension('mysqli', true, $moreInfo);
-        }
-
-        if (! function_exists('session_name')) {
-            Core::warnMissingExtension('session', true);
-        }
-
-        /**
-         * hash is required for cookie authentication.
-         */
-        if (function_exists('hash_hmac')) {
-            return;
-        }
-
-        Core::warnMissingExtension('hash', true);
-    }
-
-    /**
-     * Check whether user supplied token is valid, if not remove any possibly
-     * dangerous stuff from request.
-     *
-     * Check for token mismatch only if the Request method is POST.
-     * GET Requests would never have token and therefore checking
-     * mis-match does not make sense.
-     */
-    public function checkTokenRequestParam(): void
-    {
-        $GLOBALS['token_mismatch'] = true;
-        $GLOBALS['token_provided'] = false;
-
-        if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST') {
-            return;
-        }
-
-        if (isset($_POST['token']) && is_scalar($_POST['token']) && strlen((string) $_POST['token']) > 0) {
-            $GLOBALS['token_provided'] = true;
-            $GLOBALS['token_mismatch'] = ! @hash_equals($_SESSION[' PMA_token '], (string) $_POST['token']);
-        }
-
-        if (! $GLOBALS['token_mismatch']) {
-            return;
-        }
-
-        // Warn in case the mismatch is result of failed setting of session cookie
-        if (isset($_POST['set_session']) && $_POST['set_session'] !== session_id()) {
-            trigger_error(
-                __(
-                    'Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to access phpMyAdmin.',
-                ),
-                E_USER_ERROR,
-            );
-        }
-
-        /**
-         * We don't allow any POST operation parameters if the token is mismatched
-         * or is not provided.
-         */
-        $allowList = ['ajax_request'];
-        Sanitize::removeRequestVars($allowList);
-    }
-
-    public function setDatabaseAndTableFromRequest(ContainerInterface $container, ServerRequest $request): void
-    {
-        $GLOBALS['urlParams'] ??= null;
-
-        $db = DatabaseName::tryFrom($request->getParam('db'));
-        $table = TableName::tryFrom($request->getParam('table'));
-
-        $GLOBALS['db'] = $db?->getName() ?? '';
-        $GLOBALS['table'] = $table?->getName() ?? '';
-
-        if (! is_array($GLOBALS['urlParams'])) {
-            $GLOBALS['urlParams'] = [];
-        }
-
-        $GLOBALS['urlParams']['db'] = $GLOBALS['db'];
-        $GLOBALS['urlParams']['table'] = $GLOBALS['table'];
-        $container->setParameter('url_params', $GLOBALS['urlParams']);
     }
 }

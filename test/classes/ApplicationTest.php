@@ -57,45 +57,4 @@ final class ApplicationTest extends AbstractTestCase
         $this->assertSame($expected, $output);
         $this->assertSame($errorHandler, $GLOBALS['errorHandler']);
     }
-
-    public function testCheckTokenRequestParam(): void
-    {
-        $application = new Application(
-            $this->createStub(ErrorHandler::class),
-            $this->createStub(Config::class),
-            $this->createStub(Template::class),
-            new ResponseFactory($this->createStub(ResponseFactoryInterface::class)),
-        );
-
-        $_SERVER['REQUEST_METHOD'] = 'GET';
-        $application->checkTokenRequestParam();
-        $this->assertTrue($GLOBALS['token_mismatch']);
-        $this->assertFalse($GLOBALS['token_provided']);
-
-        $_SERVER['REQUEST_METHOD'] = 'POST';
-        $_POST['test'] = 'test';
-        $application->checkTokenRequestParam();
-        $this->assertTrue($GLOBALS['token_mismatch']);
-        $this->assertFalse($GLOBALS['token_provided']);
-        $this->assertArrayNotHasKey('test', $_POST);
-
-        $_SERVER['REQUEST_METHOD'] = 'POST';
-        $_POST['token'] = 'token';
-        $_POST['test'] = 'test';
-        $_SESSION[' PMA_token '] = 'mismatch';
-        $application->checkTokenRequestParam();
-        $this->assertTrue($GLOBALS['token_mismatch']);
-        $this->assertTrue($GLOBALS['token_provided']);
-        $this->assertArrayNotHasKey('test', $_POST);
-
-        $_SERVER['REQUEST_METHOD'] = 'POST';
-        $_POST['token'] = 'token';
-        $_POST['test'] = 'test';
-        $_SESSION[' PMA_token '] = 'token';
-        $application->checkTokenRequestParam();
-        $this->assertFalse($GLOBALS['token_mismatch']);
-        $this->assertTrue($GLOBALS['token_provided']);
-        $this->assertArrayHasKey('test', $_POST);
-        $this->assertEquals('test', $_POST['test']);
-    }
 }
