@@ -859,11 +859,8 @@ class LanguageManager
     {
         $code = strtolower($code);
         $langs = $this->availableLanguages();
-        if (isset($langs[$code])) {
-            return $langs[$code];
-        }
 
-        return false;
+        return $langs[$code] ?? false;
     }
 
     /**
@@ -948,13 +945,8 @@ class LanguageManager
             }
         }
 
-        // Didn't catch any valid lang : we use the default settings
-        if (isset($langs[$config->get('DefaultLang')])) {
-            return $langs[$config->get('DefaultLang')];
-        }
-
         // Fallback to English
-        return $langs['en'];
+        return $langs[$config->get('DefaultLang')] ?? $langs['en'];
     }
 
     /**

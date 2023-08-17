@@ -123,11 +123,7 @@ class Index
     {
         self::loadIndexes($dbi, $table, $schema);
 
-        if (isset(self::$registry[$schema][$table])) {
-            return self::$registry[$schema][$table];
-        }
-
-        return [];
+        return self::$registry[$schema][$table] ?? [];
     }
 
     /**

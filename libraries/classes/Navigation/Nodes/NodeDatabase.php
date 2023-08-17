@@ -72,11 +72,7 @@ class NodeDatabase extends Node
      */
     public function getPresence(string $type = '', string $searchClause = ''): int
     {
-        if (isset($this->presenceCounts[$type][$searchClause])) {
-            return $this->presenceCounts[$type][$searchClause];
-        }
-
-        return $this->presenceCounts[$type][$searchClause] = match ($type) {
+        return $this->presenceCounts[$type][$searchClause] ??= match ($type) {
             'tables' => $this->getTableCount($searchClause),
             'views' => $this->getViewCount($searchClause),
             'procedures' => $this->getProcedureCount($searchClause),
