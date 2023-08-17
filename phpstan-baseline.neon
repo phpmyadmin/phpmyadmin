@@ -46,32 +46,7 @@ parameters:
 			path: libraries/classes/Advisory/Advisor.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Application.php
-
-		-
-			message: "#^Cannot access offset 'goto' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Application.php
-
-		-
-			message: "#^Cannot access offset 'server' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Application.php
-
-		-
 			message: "#^Cannot access offset 'table' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Application.php
-
-		-
-			message: "#^Cannot cast mixed to string\\.$#"
-			count: 1
-			path: libraries/classes/Application.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 1
 			path: libraries/classes/Application.php
 
@@ -81,38 +56,8 @@ parameters:
 			path: libraries/classes/Application.php
 
 		-
-			message: "#^Parameter \\#1 \\$page of static method PhpMyAdmin\\\\Core\\:\\:checkPageValidity\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Application.php
-
-		-
-			message: "#^Parameter \\#1 \\$server of class PhpMyAdmin\\\\Config\\\\Settings\\\\Server constructor expects array\\<int\\|string, mixed\\>, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Application.php
-
-		-
-			message: "#^Parameter \\#1 \\$server of method PhpMyAdmin\\\\Config\\:\\:getLoginCookieValidityFromCache\\(\\) expects int, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Application.php
-
-		-
-			message: "#^Parameter \\#1 \\$source of method PhpMyAdmin\\\\Config\\:\\:loadAndCheck\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Application.php
-
-		-
-			message: "#^Parameter \\#1 \\$url of static method PhpMyAdmin\\\\UrlRedirector\\:\\:redirect\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Application.php
-
-		-
-			message: "#^Parameter \\#2 \\$value of method PhpMyAdmin\\\\Config\\:\\:setCookie\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Application.php
-
-		-
 			message: "#^Parameter \\#2 \\$value of method Symfony\\\\Component\\\\DependencyInjection\\\\ContainerInterface\\:\\:setParameter\\(\\) expects array\\|bool\\|float\\|int\\|string\\|UnitEnum\\|null, mixed given\\.$#"
-			count: 5
+			count: 1
 			path: libraries/classes/Application.php
 
 		-
@@ -15834,6 +15779,86 @@ parameters:
 			message: "#^Parameter \\#2 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Message.php
+
+		-
+			message: "#^Cannot access offset 'Server' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Middleware/Authentication.php
+
+		-
+			message: "#^Parameter \\#1 \\$dbi of method PhpMyAdmin\\\\Middleware\\\\Authentication\\:\\:connectToDatabaseServer\\(\\) expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Middleware/Authentication.php
+
+		-
+			message: "#^Parameter \\#1 \\$server of class PhpMyAdmin\\\\Config\\\\Settings\\\\Server constructor expects array\\<int\\|string, mixed\\>, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Middleware/Authentication.php
+
+		-
+			message: "#^Parameter \\#1 \\$source of method PhpMyAdmin\\\\Config\\:\\:loadAndCheck\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Middleware/ConfigLoading.php
+
+		-
+			message: "#^Cannot access offset 'server' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Middleware/CurrentServerGlobalSetting.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of method Symfony\\\\Component\\\\DependencyInjection\\\\ContainerInterface\\:\\:setParameter\\(\\) expects array\\|bool\\|float\\|int\\|string\\|UnitEnum\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Middleware/CurrentServerGlobalSetting.php
+
+		-
+			message: "#^Cannot call method getVersion\\(\\) on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Middleware/DatabaseServerVersionChecking.php
+
+		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
+			path: libraries/classes/Middleware/LanguageAndThemeCookieSaving.php
+
+		-
+			message: "#^Parameter \\#1 \\$server of method PhpMyAdmin\\\\Config\\:\\:getLoginCookieValidityFromCache\\(\\) expects int, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Middleware/LoginCookieValiditySetting.php
+
+		-
+			message: "#^Parameter \\#1 \\$dbi of static method PhpMyAdmin\\\\Profiling\\:\\:check\\(\\) expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Middleware/ProfilingChecking.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of method PhpMyAdmin\\\\Config\\:\\:setCookie\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Middleware/SetupPageRedirection.php
+
+		-
+			message: "#^Cannot access offset 'goto' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Middleware/UrlParamsSetting.php
+
+		-
+			message: "#^Parameter \\#1 \\$page of static method PhpMyAdmin\\\\Core\\:\\:checkPageValidity\\(\\) expects string, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/Middleware/UrlParamsSetting.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of method Symfony\\\\Component\\\\DependencyInjection\\\\ContainerInterface\\:\\:setParameter\\(\\) expects array\\|bool\\|float\\|int\\|string\\|UnitEnum\\|null, mixed given\\.$#"
+			count: 3
+			path: libraries/classes/Middleware/UrlParamsSetting.php
+
+		-
+			message: "#^Cannot call method postConnectControl\\(\\) on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Middleware/ZeroConfPostConnection.php
+
+		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 1
+			path: libraries/classes/Middleware/ZeroConfPostConnection.php
 
 		-
 			message: "#^Cannot access offset 'NavigationDisplayLo…' on mixed\\.$#"

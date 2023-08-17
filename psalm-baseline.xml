@@ -17,31 +17,10 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Application.php">
-    <DeprecatedProperty>
-      <code>Routing::$route</code>
-    </DeprecatedProperty>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['back']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['cfg']['Server']]]></code>
       <code><![CDATA[$_SESSION[' PMA_token ']]]></code>
     </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['back']]]></code>
-    </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$_GET['url'] ?? '']]></code>
-      <code><![CDATA[$_REQUEST['back']]]></code>
-      <code><![CDATA[$_REQUEST['goto']]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_GET['url'] ?? '']]></code>
-      <code><![CDATA[$_REQUEST['back']]]></code>
-      <code><![CDATA[$_REQUEST['goto']]]></code>
-    </PossiblyInvalidCast>
     <RedundantCast>
-      <code><![CDATA[(string) $GLOBALS['lang']]]></code>
       <code><![CDATA[(string) $_POST['token']]]></code>
       <code><![CDATA[(string) $_POST['token']]]></code>
     </RedundantCast>
@@ -7174,6 +7153,21 @@
     <MixedReturnStatement>
       <code><![CDATA[self::$level[$this->getNumber()]]]></code>
     </MixedReturnStatement>
+  </file>
+  <file src="libraries/classes/Middleware/LanguageAndThemeCookieSaving.php">
+    <RedundantCast>
+      <code><![CDATA[(string) $GLOBALS['lang']]]></code>
+    </RedundantCast>
+  </file>
+  <file src="libraries/classes/Middleware/UrlParamsSetting.php">
+    <PossiblyInvalidArgument>
+      <code><![CDATA[$_REQUEST['back']]]></code>
+      <code><![CDATA[$_REQUEST['goto']]]></code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidCast>
+      <code><![CDATA[$_REQUEST['back']]]></code>
+      <code><![CDATA[$_REQUEST['goto']]]></code>
+    </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Navigation/Navigation.php">
     <InvalidArrayOffset>
