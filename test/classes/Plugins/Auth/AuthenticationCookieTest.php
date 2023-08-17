@@ -111,7 +111,7 @@ class AuthenticationCookieTest extends AbstractTestCase
             ->with()
             ->willReturn(true);
 
-        $GLOBALS['errorHandler'] = $mockErrorHandler;
+        ErrorHandler::$instance = $mockErrorHandler;
     }
 
     #[BackupStaticProperties(true)]
@@ -137,7 +137,6 @@ class AuthenticationCookieTest extends AbstractTestCase
         $GLOBALS['db'] = 'testDb';
         $GLOBALS['table'] = 'testTable';
         $GLOBALS['cfg']['Servers'] = [1, 2];
-        $GLOBALS['errorHandler'] = new ErrorHandler();
 
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
@@ -207,8 +206,6 @@ class AuthenticationCookieTest extends AbstractTestCase
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = 'testpubkey';
         $GLOBALS['server'] = 0;
 
-        $GLOBALS['errorHandler'] = new ErrorHandler();
-
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
@@ -270,8 +267,6 @@ class AuthenticationCookieTest extends AbstractTestCase
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = 'testpubkey';
         $GLOBALS['cfg']['CaptchaMethod'] = 'checkbox';
         $GLOBALS['server'] = 0;
-
-        $GLOBALS['errorHandler'] = new ErrorHandler();
 
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
@@ -1054,6 +1049,8 @@ class AuthenticationCookieTest extends AbstractTestCase
         } else {
             $this->assertStringContainsString($expected, $result);
         }
+
+        ErrorHandler::$instance = null;
     }
 
     /** @return mixed[] */

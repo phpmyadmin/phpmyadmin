@@ -247,7 +247,6 @@
             errno: int,
             error: bool,
             error_message: string,
-            errorHandler: PhpMyAdmin\ErrorHandler,
             excel_edition: 'win'|'mac_excel2003'|'mac_excel2008',
             file_handle: resource|null,
             finished: bool,

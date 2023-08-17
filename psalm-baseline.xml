@@ -4309,9 +4309,6 @@
     <PossiblyInvalidCast>
       <code>$_SERVER[$varName]</code>
     </PossiblyInvalidCast>
-    <PossiblyNullReference>
-      <code>addError</code>
-    </PossiblyNullReference>
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$_SERVER['SERVER_NAME']]]></code>
     </PossiblyUndefinedArrayOffset>

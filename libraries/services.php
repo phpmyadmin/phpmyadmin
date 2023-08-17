@@ -92,7 +92,7 @@ return [
             'class' => Common::class,
             'arguments' => ['$dbi' => '@dbi', '$relation' => '@relation'],
         ],
-        'error_handler' => ['class' => ErrorHandler::class],
+        'error_handler' => ['class' => ErrorHandler::class, 'factory' => [ErrorHandler::class, 'getInstance']],
         'error_report' => [
             'class' => ErrorReport::class,
             'arguments' => ['@http_request', '@relation', '@template', '@config'],

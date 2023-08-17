@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Auth;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Plugins\Auth\AuthenticationConfig;
 use PhpMyAdmin\ResponseRenderer;
@@ -82,7 +81,6 @@ class AuthenticationConfigTest extends AbstractTestCase
     #[BackupStaticProperties(true)]
     public function testAuthFails(): void
     {
-        $GLOBALS['errorHandler'] = new ErrorHandler();
         $GLOBALS['cfg']['Servers'] = [1];
         $GLOBALS['allowDeny_forbidden'] = false;
 

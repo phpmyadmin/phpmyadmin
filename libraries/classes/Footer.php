@@ -152,14 +152,15 @@ class Footer
     public function getErrorMessages(): string
     {
         $retval = '';
-        if ($GLOBALS['errorHandler']->hasDisplayErrors()) {
-            $retval .= $GLOBALS['errorHandler']->getDispErrors();
+        $errorHandler = ErrorHandler::getInstance();
+        if ($errorHandler->hasDisplayErrors()) {
+            $retval .= $errorHandler->getDispErrors();
         }
 
         /**
          * Report php errors
          */
-        $GLOBALS['errorHandler']->reportErrors();
+        $errorHandler->reportErrors();
 
         return $retval;
     }

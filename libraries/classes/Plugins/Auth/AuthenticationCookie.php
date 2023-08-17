@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Auth;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Exceptions\SessionHandlerException;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
@@ -153,8 +154,9 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         $errors = '';
-        if ($GLOBALS['errorHandler']->hasDisplayErrors()) {
-            $errors = $GLOBALS['errorHandler']->getDispErrors();
+        $errorHandler = ErrorHandler::getInstance();
+        if ($errorHandler->hasDisplayErrors()) {
+            $errors = $errorHandler->getDispErrors();
         }
 
         // close the wrapping div tag, if the request is after session timeout

@@ -105,8 +105,6 @@ class Core
         bool $fatal = false,
         string $extra = '',
     ): void {
-        $GLOBALS['errorHandler'] ??= null;
-
         $message = 'The %s extension is missing. Please check your PHP configuration.';
 
         /* Gettext does not have to be loaded yet here */
@@ -124,7 +122,7 @@ class Core
             throw new MissingExtensionException(Sanitize::sanitizeMessage($message));
         }
 
-        $GLOBALS['errorHandler']->addError($message, E_USER_WARNING, '', 0, false);
+        ErrorHandler::getInstance()->addError($message, E_USER_WARNING, '', 0, false);
     }
 
     /**

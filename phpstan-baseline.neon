@@ -10196,11 +10196,6 @@ parameters:
 			path: libraries/classes/Core.php
 
 		-
-			message: "#^Cannot call method addError\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Core.php
-
-		-
 			message: "#^Cannot call method numRows\\(\\) on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
@@ -11536,11 +11531,6 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Cannot call method setHideLocation\\(\\) on mixed\\.$#"
-			count: 2
-			path: libraries/classes/DatabaseInterface.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
@@ -12641,11 +12631,6 @@ parameters:
 			path: libraries/classes/ErrorHandler.php
 
 		-
-			message: "#^Cannot call method getCurrentErrors\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/ErrorHandler.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, int given\\.$#"
 			count: 1
 			path: libraries/classes/ErrorHandler.php
@@ -13226,22 +13211,7 @@ parameters:
 			path: libraries/classes/Footer.php
 
 		-
-			message: "#^Cannot call method getDispErrors\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Footer.php
-
-		-
-			message: "#^Cannot call method hasDisplayErrors\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Footer.php
-
-		-
 			message: "#^Cannot call method isConnected\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Footer.php
-
-		-
-			message: "#^Cannot call method reportErrors\\(\\) on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Footer.php
 
@@ -17451,11 +17421,6 @@ parameters:
 			path: libraries/classes/Plugins/Auth/AuthenticationConfig.php
 
 		-
-			message: "#^Cannot call method dispUserErrors\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationConfig.php
-
-		-
 			message: "#^Cannot call method getError\\(\\) on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Auth/AuthenticationConfig.php
@@ -17607,16 +17572,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
-
-		-
-			message: "#^Cannot call method getDispErrors\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
-
-		-
-			message: "#^Cannot call method hasDisplayErrors\\(\\) on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
 
@@ -22802,11 +22757,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'MaxCharactersInDisp…' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/ResponseRenderer.php
-
-		-
-			message: "#^Cannot call method hasErrorsForPrompt\\(\\) on mixed\\.$#"
 			count: 1
 			path: libraries/classes/ResponseRenderer.php
 
