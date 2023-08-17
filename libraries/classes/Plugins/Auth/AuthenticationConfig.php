@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Auth;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\ResponseRenderer;
@@ -132,7 +133,7 @@ class AuthenticationConfig extends AuthenticationPlugin
             echo Generator::mysqlDie($connError, '', true, '', false);
         }
 
-        $GLOBALS['errorHandler']->dispUserErrors();
+        ErrorHandler::getInstance()->dispUserErrors();
         echo '</td>
         </tr>
         <tr>

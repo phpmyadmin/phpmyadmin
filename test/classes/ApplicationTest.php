@@ -36,7 +36,6 @@ final class ApplicationTest extends AbstractTestCase
     #[BackupStaticProperties(true)]
     public function testRunWithConfigError(): void
     {
-        $GLOBALS['errorHandler'] = null;
         $errorHandler = $this->createStub(ErrorHandler::class);
 
         $config = $this->createMock(Config::class);
@@ -55,6 +54,5 @@ final class ApplicationTest extends AbstractTestCase
 
         $output = $this->getActualOutputForAssertion();
         $this->assertSame($expected, $output);
-        $this->assertSame($errorHandler, $GLOBALS['errorHandler']);
     }
 }

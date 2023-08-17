@@ -1577,9 +1577,10 @@ class DatabaseInterface implements DbalInterface
         $target ??= $connectionType;
 
         // Do not show location and backtrace for connection errors
-        $GLOBALS['errorHandler']->setHideLocation(true);
+        $errorHandler = ErrorHandler::getInstance();
+        $errorHandler->setHideLocation(true);
         $result = $this->extension->connect($server);
-        $GLOBALS['errorHandler']->setHideLocation(false);
+        $errorHandler->setHideLocation(false);
 
         if ($result !== null) {
             $this->connections[$target] = $result;

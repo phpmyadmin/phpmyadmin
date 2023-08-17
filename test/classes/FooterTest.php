@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use ArrayIterator;
-use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Footer;
 use PhpMyAdmin\Template;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -49,7 +48,6 @@ class FooterTest extends AbstractTestCase
         $this->object = new Footer(new Template());
         unset($GLOBALS['error_message']);
         unset($GLOBALS['sql_query']);
-        $GLOBALS['errorHandler'] = new ErrorHandler();
         $_POST = [];
     }
 

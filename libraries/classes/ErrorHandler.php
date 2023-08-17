@@ -41,6 +41,8 @@ use const E_WARNING;
  */
 class ErrorHandler
 {
+    public static self|null $instance = null;
+
     /**
      * holds errors to be displayed or reported later ...
      *
@@ -65,6 +67,15 @@ class ErrorHandler
         }
 
         $this->errorReporting = error_reporting();
+    }
+
+    public static function getInstance(): self
+    {
+        if (self::$instance === null) {
+            self::$instance = new self();
+        }
+
+        return self::$instance;
     }
 
     /**
@@ -519,7 +530,7 @@ class ErrorHandler
     public function savePreviousErrors(): void
     {
         unset($_SESSION['prev_errors']);
-        $_SESSION['prev_errors'] = $GLOBALS['errorHandler']->getCurrentErrors();
+        $_SESSION['prev_errors'] = $this->getCurrentErrors();
     }
 
     /**
@@ -538,7 +549,7 @@ class ErrorHandler
     /**
      * Function to report all the collected php errors.
      * Must be called at the end of each script
-     *      by the $GLOBALS['errorHandler'] only.
+     *      by the {@see getInstance()} only.
      */
     public function reportErrors(): void
     {

@@ -57,6 +57,14 @@ class ErrorHandlerTest extends AbstractTestCase
         unset($this->object);
     }
 
+    public function testUniqueness(): void
+    {
+        ErrorHandler::$instance = null;
+        $instanceOne = ErrorHandler::getInstance();
+        $instanceTwo = ErrorHandler::getInstance();
+        $this->assertSame($instanceOne, $instanceTwo);
+    }
+
     /**
      * Data provider for testHandleError
      *

@@ -307,7 +307,7 @@ class ResponseRenderer
                 $this->addJSON('errors', $errors);
             }
 
-            $promptPhpErrors = $GLOBALS['errorHandler']->hasErrorsForPrompt();
+            $promptPhpErrors = ErrorHandler::getInstance()->hasErrorsForPrompt();
             $this->addJSON('promptPhpErrors', $promptPhpErrors);
 
             if (empty($GLOBALS['error_message'])) {
