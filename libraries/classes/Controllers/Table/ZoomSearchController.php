@@ -393,7 +393,8 @@ class ZoomSearchController extends AbstractController
             );
             if (
                 $this->foreigners === []
-                || ($searchColumnInForeigners[$columnIndex] === [] || $searchColumnInForeigners[$columnIndex] === false)
+                || $searchColumnInForeigners[$columnIndex] === []
+                || $searchColumnInForeigners[$columnIndex] === false
                 || ! is_array($foreignData[$columnIndex]['disp_row'])
             ) {
                 continue;

@@ -11431,11 +11431,6 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Only booleans are allowed in \\|\\|, string\\|null given on the right side\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
 			message: "#^Parameter \\#1 \\$a of static method PhpMyAdmin\\\\Query\\\\Utilities\\:\\:usortComparisonCallback\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
@@ -24393,11 +24388,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
 			count: 2
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, string given\\.$#"
-			count: 1
 			path: libraries/classes/Table.php
 
 		-
