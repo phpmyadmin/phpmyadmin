@@ -5866,11 +5866,6 @@ parameters:
 			path: libraries/classes/Controllers/Server/ReplicationController.php
 
 		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/ShowEngineController.php
-
-		-
 			message: "#^Parameter \\#1 \\$requiredData of method PhpMyAdmin\\\\Server\\\\Status\\\\Monitor\\:\\:getJsonForChartingData\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/Status/Monitor/ChartingDataController.php
@@ -5904,11 +5899,6 @@ parameters:
 			message: "#^Cannot cast mixed to int\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Server/Status/Monitor/SlowLogController.php
-
-		-
-			message: "#^Cannot cast mixed to int\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/Status/Processes/KillController.php
 
 		-
 			message: "#^Only booleans are allowed in an if condition, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
@@ -6026,23 +6016,13 @@ parameters:
 			path: libraries/classes/Controllers/Server/Variables/GetVariableController.php
 
 		-
-			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\Providers\\\\ServerVariables\\\\ServerVariablesProviderInterface\\:\\:getVariableType\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/Variables/GetVariableController.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/Variables/GetVariableController.php
-
-		-
 			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Util\\:\\:formatByteDown\\(\\) expects float\\|int\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/Variables/GetVariableController.php
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Controllers/Server/Variables/SetVariableController.php
 
 		-

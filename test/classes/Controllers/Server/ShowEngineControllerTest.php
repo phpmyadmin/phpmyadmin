@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 use PhpMyAdmin\Controllers\Server\ShowEngineController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\MySQLDocumentation;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -48,13 +48,11 @@ class ShowEngineControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $response = new ResponseRenderer();
-        $request = $this->createMock(ServerRequest::class);
         $this->dummyDbi->addSelectDb('mysql');
+        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
+            ->withAttribute('routeVars', ['engine' => 'Pbxt', 'page' => 'page']);
 
-        (new ShowEngineController($response, new Template(), DatabaseInterface::getInstance()))($request, [
-            'engine' => 'Pbxt',
-            'page' => 'page',
-        ]);
+        (new ShowEngineController($response, new Template(), DatabaseInterface::getInstance()))($request);
 
         $this->dummyDbi->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();

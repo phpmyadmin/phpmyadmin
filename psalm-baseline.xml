@@ -2701,11 +2701,6 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Server/ShowEngineController.php">
-    <UnusedParam>
-      <code>$request</code>
-    </UnusedParam>
-  </file>
   <file src="libraries/classes/Controllers/Server/SqlController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
@@ -2921,8 +2916,6 @@
   </file>
   <file src="libraries/classes/Controllers/Server/Variables/GetVariableController.php">
     <MixedArgument>
-      <code><![CDATA[$params['name']]]></code>
-      <code><![CDATA[$params['name']]]></code>
       <code>$varValue[1]</code>
     </MixedArgument>
     <PossiblyNullArrayAccess>

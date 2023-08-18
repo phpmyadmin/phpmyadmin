@@ -162,13 +162,11 @@ class Routing
 
         /** @psalm-var class-string $controllerName */
         $controllerName = $routeInfo[1];
-        /** @var array<string, string> $vars */
-        $vars = $routeInfo[2];
 
-        /** @psalm-var callable(ServerRequest=, array<string, string>=): (Response|null) $controller */
+        /** @psalm-var callable(ServerRequest): (Response|null) $controller */
         $controller = $container->get($controllerName);
 
-        return $controller($request, $vars);
+        return $controller($request->withAttribute('routeVars', $routeInfo[2]));
     }
 
     /** @psalm-assert-if-true array[] $dispatchData */
