@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Schema\Pdf;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Pdf as PdfLib;
 use PhpMyAdmin\Util;
@@ -84,7 +85,7 @@ class Pdf extends PdfLib
     ) {
         parent::__construct($orientation, $unit, $paper);
 
-        $this->relation = new Relation($GLOBALS['dbi']);
+        $this->relation = new Relation(DatabaseInterface::getInstance());
     }
 
     /**
@@ -249,12 +250,13 @@ class Pdf extends PdfLib
         if ($this->offline || $this->pageNumber == -1 || $pdfFeature === null) {
             $pgName = __('PDF export page');
         } else {
+            $dbi = DatabaseInterface::getInstance();
             $testQuery = 'SELECT * FROM '
                 . Util::backquote($pdfFeature->database) . '.'
                 . Util::backquote($pdfFeature->pdfPages)
-                . ' WHERE db_name = ' . $GLOBALS['dbi']->quoteString($this->db, Connection::TYPE_CONTROL)
+                . ' WHERE db_name = ' . $dbi->quoteString($this->db, Connection::TYPE_CONTROL)
                 . ' AND page_nr = ' . $this->pageNumber;
-            $testRs = $GLOBALS['dbi']->queryAsControlUser($testQuery);
+            $testRs = $dbi->queryAsControlUser($testQuery);
             $pageDesc = (string) $testRs->fetchValue('page_descr');
 
             $pgName = ucfirst($pageDesc);

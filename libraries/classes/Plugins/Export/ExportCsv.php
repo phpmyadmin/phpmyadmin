@@ -9,7 +9,6 @@ namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
-use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -210,13 +209,11 @@ class ExportCsv extends ExportPlugin
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
 
+        $dbi = DatabaseInterface::getInstance();
         /**
          * Gets the data from the database
-         *
-         * @var ResultInterface $result
-         * @psalm-ignore-var
          */
-        $result = $GLOBALS['dbi']->query($sqlQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
+        $result = $dbi->query($sqlQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
 
         // If required, get fields name at the first line
         if (isset($GLOBALS['csv_columns']) && $GLOBALS['csv_columns']) {
@@ -317,7 +314,7 @@ class ExportCsv extends ExportPlugin
     public function exportRawQuery(string $errorUrl, string|null $db, string $sqlQuery): bool
     {
         if ($db !== null) {
-            $GLOBALS['dbi']->selectDb($db);
+            DatabaseInterface::getInstance()->selectDb($db);
         }
 
         return $this->exportData($db ?? '', '', $errorUrl, $sqlQuery);

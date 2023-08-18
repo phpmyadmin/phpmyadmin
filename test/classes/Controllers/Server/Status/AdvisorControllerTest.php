@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 use PhpMyAdmin\Advisory\Advisor;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\AdvisorController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
@@ -34,7 +35,7 @@ class AdvisorControllerTest extends AbstractTestCase
 
         parent::setTheme();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
 
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -42,7 +43,7 @@ class AdvisorControllerTest extends AbstractTestCase
 
         $this->response = new ResponseRenderer();
         $this->template = new Template();
-        $this->data = new Data($GLOBALS['dbi'], Config::getInstance());
+        $this->data = new Data(DatabaseInterface::getInstance(), Config::getInstance());
     }
 
     public function testIndexWithoutData(): void
@@ -53,7 +54,7 @@ class AdvisorControllerTest extends AbstractTestCase
             $this->response,
             $this->template,
             $this->data,
-            new Advisor($GLOBALS['dbi'], new ExpressionLanguage()),
+            new Advisor(DatabaseInterface::getInstance(), new ExpressionLanguage()),
         );
 
         $controller($this->createStub(ServerRequest::class));

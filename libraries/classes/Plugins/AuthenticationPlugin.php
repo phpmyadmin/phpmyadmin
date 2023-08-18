@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Exceptions\SessionHandlerException;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\IpAllowDeny;
@@ -174,7 +175,7 @@ abstract class AuthenticationPlugin
             );
         }
 
-        $dbiError = $GLOBALS['dbi']->getError();
+        $dbiError = DatabaseInterface::getInstance()->getError();
         if (! empty($dbiError)) {
             return htmlspecialchars($dbiError);
         }

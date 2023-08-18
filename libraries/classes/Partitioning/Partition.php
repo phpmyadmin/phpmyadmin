@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Partitioning;
 
+use PhpMyAdmin\DatabaseInterface;
+
 use function array_values;
 
 class Partition extends SubPartition
@@ -137,10 +139,11 @@ class Partition extends SubPartition
     public static function getPartitions(string $db, string $table): array
     {
         if (self::havePartitioning()) {
-            $result = $GLOBALS['dbi']->fetchResult(
+            $dbi = DatabaseInterface::getInstance();
+            $result = $dbi->fetchResult(
                 'SELECT * FROM `information_schema`.`PARTITIONS`'
-                . ' WHERE `TABLE_SCHEMA` = ' . $GLOBALS['dbi']->quoteString($db)
-                . ' AND `TABLE_NAME` = ' . $GLOBALS['dbi']->quoteString($table),
+                . ' WHERE `TABLE_SCHEMA` = ' . $dbi->quoteString($db)
+                . ' AND `TABLE_NAME` = ' . $dbi->quoteString($table),
             );
             if ($result) {
                 $partitionMap = [];
@@ -180,10 +183,12 @@ class Partition extends SubPartition
     public static function getPartitionNames(string $db, string $table): array
     {
         if (self::havePartitioning()) {
-            return $GLOBALS['dbi']->fetchResult(
+            $dbi = DatabaseInterface::getInstance();
+
+            return $dbi->fetchResult(
                 'SELECT DISTINCT `PARTITION_NAME` FROM `information_schema`.`PARTITIONS`'
-                . ' WHERE `TABLE_SCHEMA` = ' . $GLOBALS['dbi']->quoteString($db)
-                . ' AND `TABLE_NAME` = ' . $GLOBALS['dbi']->quoteString($table),
+                . ' WHERE `TABLE_SCHEMA` = ' . $dbi->quoteString($db)
+                . ' AND `TABLE_NAME` = ' . $dbi->quoteString($table),
             );
         }
 
@@ -201,10 +206,11 @@ class Partition extends SubPartition
     public static function getPartitionMethod(string $db, string $table): string|null
     {
         if (self::havePartitioning()) {
-            $partitionMethod = $GLOBALS['dbi']->fetchResult(
+            $dbi = DatabaseInterface::getInstance();
+            $partitionMethod = $dbi->fetchResult(
                 'SELECT `PARTITION_METHOD` FROM `information_schema`.`PARTITIONS`'
-                . ' WHERE `TABLE_SCHEMA` = ' . $GLOBALS['dbi']->quoteString($db)
-                . ' AND `TABLE_NAME` = ' . $GLOBALS['dbi']->quoteString($table)
+                . ' WHERE `TABLE_SCHEMA` = ' . $dbi->quoteString($db)
+                . ' AND `TABLE_NAME` = ' . $dbi->quoteString($table)
                 . ' LIMIT 1',
             );
             if (! empty($partitionMethod)) {
@@ -227,15 +233,16 @@ class Partition extends SubPartition
         static $alreadyChecked = false;
 
         if (! $alreadyChecked) {
-            if ($GLOBALS['dbi']->getVersion() < 50600) {
-                if ($GLOBALS['dbi']->fetchValue('SELECT @@have_partitioning;')) {
+            $dbi = DatabaseInterface::getInstance();
+            if ($dbi->getVersion() < 50600) {
+                if ($dbi->fetchValue('SELECT @@have_partitioning;')) {
                     $havePartitioning = true;
                 }
-            } elseif ($GLOBALS['dbi']->getVersion() >= 80000) {
+            } elseif ($dbi->getVersion() >= 80000) {
                 $havePartitioning = true;
             } else {
                 // see https://dev.mysql.com/doc/refman/5.6/en/partitioning.html
-                $plugins = $GLOBALS['dbi']->fetchResult('SHOW PLUGINS');
+                $plugins = $dbi->fetchResult('SHOW PLUGINS');
                 foreach ($plugins as $value) {
                     if ($value['Name'] === 'partition') {
                         $havePartitioning = true;

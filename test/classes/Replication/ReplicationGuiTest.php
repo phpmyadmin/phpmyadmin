@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Replication;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Replication\Replication;
 use PhpMyAdmin\Replication\ReplicationGui;
 use PhpMyAdmin\Replication\ReplicationInfo;
@@ -27,7 +28,7 @@ class ReplicationGuiTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
         //$_POST
         $_POST['primary_add_user'] = 'primary_add_user';
 
@@ -47,7 +48,7 @@ class ReplicationGuiTest extends AbstractTestCase
         $GLOBALS['server'] = 0;
         $GLOBALS['urlParams'] = [];
 
-        $this->replicationGui = new ReplicationGui(new Replication($GLOBALS['dbi']), new Template());
+        $this->replicationGui = new ReplicationGui(new Replication(DatabaseInterface::getInstance()), new Template());
     }
 
     #[Group('medium')]
@@ -89,7 +90,7 @@ class ReplicationGuiTest extends AbstractTestCase
 
     public function testGetHtmlForReplicaConfiguration(): void
     {
-        $replicationInfo = new ReplicationInfo($GLOBALS['dbi']);
+        $replicationInfo = new ReplicationInfo(DatabaseInterface::getInstance());
         $replicationInfo->load();
 
         //Call the test function

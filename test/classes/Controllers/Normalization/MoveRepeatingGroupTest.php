@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Normalization;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Normalization\MoveRepeatingGroup;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Normalization;
@@ -34,7 +35,7 @@ class MoveRepeatingGroupTest extends AbstractTestCase
         $dbiDummy->addResult('ALTER TABLE `test_table` DROP `col1`, DROP `col2`', true);
 
         $dbi = $this->createDatabaseInterface($dbiDummy);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
         $template = new Template();
         $request = $this->createStub(ServerRequest::class);

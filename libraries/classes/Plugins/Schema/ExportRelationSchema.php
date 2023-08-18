@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Schema;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Url;
@@ -50,7 +51,7 @@ class ExportRelationSchema
     {
         $this->setPageNumber((int) $_REQUEST['page_number']);
         $this->setOffline(isset($_REQUEST['offline_export']));
-        $this->relation = new Relation($GLOBALS['dbi']);
+        $this->relation = new Relation(DatabaseInterface::getInstance());
     }
 
     /**
@@ -236,7 +237,7 @@ class ExportRelationSchema
                 . Util::backquote($pdfFeature->database) . '.'
                 . Util::backquote($pdfFeature->pdfPages)
                 . ' WHERE page_nr = ' . $this->pageNumber;
-            $nameRs = $GLOBALS['dbi']->queryAsControlUser($nameSql);
+            $nameRs = DatabaseInterface::getInstance()->queryAsControlUser($nameSql);
             $nameRow = $nameRs->fetchRow();
             $filename = $nameRow[0] . $extension;
         }

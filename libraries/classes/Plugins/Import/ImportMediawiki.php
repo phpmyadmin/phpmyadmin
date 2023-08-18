@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
@@ -327,7 +328,7 @@ class ImportMediawiki extends ImportPlugin
             return;
         }
 
-        $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
+        $result = DatabaseInterface::getInstance()->fetchResult('SHOW TABLES');
         // todo check if the name below already exists
         $tableName = 'TABLE ' . (count($result) + 1);
     }

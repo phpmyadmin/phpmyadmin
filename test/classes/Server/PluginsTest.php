@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Server;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\Plugin;
 use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -20,7 +21,7 @@ class PluginsTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
     }
 
     public function testGetAll(): void
@@ -29,7 +30,7 @@ class PluginsTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['server'] = 0;
 
-        $this->plugins = new Plugins($GLOBALS['dbi']);
+        $this->plugins = new Plugins(DatabaseInterface::getInstance());
 
         $plugins = $this->plugins->getAll();
 
@@ -62,7 +63,7 @@ class PluginsTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['server'] = 0;
 
-        $this->plugins = new Plugins($GLOBALS['dbi']);
+        $this->plugins = new Plugins(DatabaseInterface::getInstance());
 
         $plugins = $this->plugins->getAll();
 
@@ -92,7 +93,7 @@ class PluginsTest extends AbstractTestCase
     public function testGetAuthentication(): void
     {
         $GLOBALS['server'] = 0;
-        $this->plugins = new Plugins($GLOBALS['dbi']);
+        $this->plugins = new Plugins(DatabaseInterface::getInstance());
         $plugins = $this->plugins->getAuthentication();
         $this->assertIsArray($plugins);
         $this->assertNotEmpty($plugins);

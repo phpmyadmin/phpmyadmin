@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Utils;
 
+use PhpMyAdmin\DatabaseInterface;
+
 use function array_map;
 use function bin2hex;
 use function mb_strtolower;
@@ -28,13 +30,14 @@ final class Gis
         $spatialAsText = 'ASTEXT';
         $spatialSrid = 'SRID';
         $axisOrder = '';
-        $mysqlVersionInt = $GLOBALS['dbi']->getVersion();
+        $dbi = DatabaseInterface::getInstance();
+        $mysqlVersionInt = $dbi->getVersion();
         if ($mysqlVersionInt >= 50600) {
             $spatialAsText = 'ST_ASTEXT';
             $spatialSrid = 'ST_SRID';
         }
 
-        if ($mysqlVersionInt >= 80001 && ! $GLOBALS['dbi']->isMariaDb()) {
+        if ($mysqlVersionInt >= 80001 && ! $dbi->isMariaDB()) {
             $axisOrder = ', \'axis-order=long-lat\'';
         }
 
@@ -43,7 +46,7 @@ final class Gis
             $wktsql .= ', ' . $spatialSrid . "(x'" . $hex . "')";
         }
 
-        $wktresult = $GLOBALS['dbi']->tryQuery($wktsql);
+        $wktresult = $dbi->tryQuery($wktsql);
         $wktarr = [];
         if ($wktresult) {
             $wktarr = $wktresult->fetchRow();
@@ -147,7 +150,7 @@ final class Gis
         }
 
         $spatialPrefix = '';
-        if ($GLOBALS['dbi']->getVersion() >= 50601) {
+        if (DatabaseInterface::getInstance()->getVersion() >= 50601) {
             // If MySQL version is greater than or equal 5.6.1,
             // use the ST_ prefix.
             $spatialPrefix = 'ST_';

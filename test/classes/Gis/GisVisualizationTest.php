@@ -21,7 +21,7 @@ class GisVisualizationTest extends AbstractTestCase
         parent::setUp();
 
         $this->dbi = $this->createDatabaseInterface();
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
     }
 
     /**

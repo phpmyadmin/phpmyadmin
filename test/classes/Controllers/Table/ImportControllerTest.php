@@ -9,6 +9,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\ImportController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
@@ -42,14 +43,14 @@ class ImportControllerTest extends AbstractTestCase
         $dummyDbi->addResult('SHOW TABLES LIKE \'test_table\';', [['test_table']]);
         $dummyDbi->addResult('SELECT @@local_infile;', [['1']]);
         $dbi = $this->createDatabaseInterface($dummyDbi);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $importList = Plugins::getImport('table');
         $choice = Plugins::getChoice($importList, 'xml');
         $options = Plugins::getOptions('Import', $importList);
 
         $pageSettings = new PageSettings(
-            new UserPreferences($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template()),
+            new UserPreferences($dbi, new Relation($dbi), new Template()),
         );
         $pageSettings->init('Import');
         $template = new Template();

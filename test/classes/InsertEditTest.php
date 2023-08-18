@@ -66,7 +66,7 @@ class InsertEditTest extends AbstractTestCase
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
@@ -116,6 +116,7 @@ class InsertEditTest extends AbstractTestCase
 
         $response = new ReflectionProperty(ResponseRenderer::class, 'instance');
         $response->setValue(null, null);
+        DatabaseInterface::$instance = null;
     }
 
     /**
@@ -215,10 +216,10 @@ class InsertEditTest extends AbstractTestCase
             ->method('getFieldsMeta')
             ->willReturn([], []);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $this->insertEdit = new InsertEdit(
-            $GLOBALS['dbi'],
-            new Relation($GLOBALS['dbi']),
+            $dbi,
+            new Relation($dbi),
             new Transformations(),
             new FileListing(),
             new Template(),
@@ -259,10 +260,10 @@ class InsertEditTest extends AbstractTestCase
             ->with($resultStub)
             ->willReturn([$meta]);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $this->insertEdit = new InsertEdit(
-            $GLOBALS['dbi'],
-            new Relation($GLOBALS['dbi']),
+            $dbi,
+            new Relation($dbi),
             new Transformations(),
             new FileListing(),
             new Template(),
@@ -314,10 +315,10 @@ class InsertEditTest extends AbstractTestCase
             ->with('SELECT * FROM `db`.`table` LIMIT 1;')
             ->willReturn($resultStub);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $this->insertEdit = new InsertEdit(
-            $GLOBALS['dbi'],
-            new Relation($GLOBALS['dbi']),
+            $dbi,
+            new Relation($dbi),
             new Transformations(),
             new FileListing(),
             new Template(),
@@ -1115,10 +1116,10 @@ class InsertEditTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $this->insertEdit = new InsertEdit(
-            $GLOBALS['dbi'],
-            new Relation($GLOBALS['dbi']),
+            $dbi,
+            new Relation($dbi),
             new Transformations(),
             new FileListing(),
             new Template(),
@@ -1320,12 +1321,12 @@ class InsertEditTest extends AbstractTestCase
             ->with($resultStub)
             ->willReturn([$meta]);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
         $this->insertEdit = new InsertEdit(
-            $GLOBALS['dbi'],
-            new Relation($GLOBALS['dbi']),
+            $dbi,
+            new Relation($dbi),
             new Transformations(),
             new FileListing(),
             new Template(),
@@ -1397,9 +1398,10 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['cfg']['IgnoreMultiSubmitErrors'] = false;
         $_POST['submit_type'] = '';
 
+        $dbi = DatabaseInterface::getInstance();
         $this->insertEdit = new InsertEdit(
-            $GLOBALS['dbi'],
-            new Relation($GLOBALS['dbi']),
+            $dbi,
+            new Relation($dbi),
             new Transformations(),
             new FileListing(),
             new Template(),
@@ -1418,9 +1420,10 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['cfg']['IgnoreMultiSubmitErrors'] = true;
         $_POST['submit_type'] = '';
 
+        $dbi = DatabaseInterface::getInstance();
         $this->insertEdit = new InsertEdit(
-            $GLOBALS['dbi'],
-            new Relation($GLOBALS['dbi']),
+            $dbi,
+            new Relation($dbi),
             new Transformations(),
             new FileListing(),
             new Template(),
@@ -1448,10 +1451,10 @@ class InsertEditTest extends AbstractTestCase
             ->method('getWarnings')
             ->willReturn($warnings);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $this->insertEdit = new InsertEdit(
-            $GLOBALS['dbi'],
-            new Relation($GLOBALS['dbi']),
+            $dbi,
+            new Relation($dbi),
             new Transformations(),
             new FileListing(),
             new Template(),
@@ -1497,10 +1500,10 @@ class InsertEditTest extends AbstractTestCase
             ->with(0)
             ->willReturn('2');
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $this->insertEdit = new InsertEdit(
-            $GLOBALS['dbi'],
-            new Relation($GLOBALS['dbi']),
+            $dbi,
+            new Relation($dbi),
             new Transformations(),
             new FileListing(),
             new Template(),
@@ -2237,10 +2240,10 @@ class InsertEditTest extends AbstractTestCase
             ->method('fetchValue')
             ->willReturn(false, '123', '2013-08-28 06:34:14');
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $this->insertEdit = new InsertEdit(
-            $GLOBALS['dbi'],
-            new Relation($GLOBALS['dbi']),
+            $dbi,
+            new Relation($dbi),
             new Transformations(),
             new FileListing(),
             new Template(),
@@ -2302,10 +2305,10 @@ class InsertEditTest extends AbstractTestCase
                 ],
             ]);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $this->insertEdit = new InsertEdit(
-            $GLOBALS['dbi'],
-            new Relation($GLOBALS['dbi']),
+            $dbi,
+            new Relation($dbi),
             new Transformations(),
             new FileListing(),
             new Template(),
@@ -2337,7 +2340,7 @@ class InsertEditTest extends AbstractTestCase
             ->method('query')
             ->willReturn($resultStub);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $_POST['where_clause'] = '1';
         $_SESSION['edit_next'] = '1';
         $_POST['ShowFunctionFields'] = true;
@@ -2357,8 +2360,8 @@ class InsertEditTest extends AbstractTestCase
         $response->setValue(null, $responseMock);
 
         $this->insertEdit = new InsertEdit(
-            $GLOBALS['dbi'],
-            new Relation($GLOBALS['dbi']),
+            $dbi,
+            new Relation($dbi),
             new Transformations(),
             new FileListing(),
             new Template(),
@@ -2404,12 +2407,12 @@ class InsertEditTest extends AbstractTestCase
 
         $dbi->expects($this->any())
             ->method('getTable')
-            ->willReturn(new Table('table', 'db', $GLOBALS['dbi']));
+            ->willReturn(new Table('table', 'db', $dbi));
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $this->insertEdit = new InsertEdit(
-            $GLOBALS['dbi'],
-            new Relation($GLOBALS['dbi']),
+            $dbi,
+            new Relation($dbi),
             new Transformations(),
             new FileListing(),
             new Template(),

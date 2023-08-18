@@ -202,11 +202,12 @@ class ExportOds extends ExportPlugin
         $dbAlias = $db;
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
+        $dbi = DatabaseInterface::getInstance();
         // Gets the data from the database
-        $result = $GLOBALS['dbi']->query($sqlQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
+        $result = $dbi->query($sqlQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
         $fieldsCnt = $result->numFields();
         /** @var FieldMetadata[] $fieldsMeta */
-        $fieldsMeta = $GLOBALS['dbi']->getFieldsMeta($result);
+        $fieldsMeta = $dbi->getFieldsMeta($result);
 
         $GLOBALS['ods_buffer'] .= '<table:table table:name="' . htmlspecialchars($tableAlias) . '">';
 
@@ -313,7 +314,7 @@ class ExportOds extends ExportPlugin
     public function exportRawQuery(string $errorUrl, string|null $db, string $sqlQuery): bool
     {
         if ($db !== null) {
-            $GLOBALS['dbi']->selectDb($db);
+            DatabaseInterface::getInstance()->selectDb($db);
         }
 
         return $this->exportData($db ?? '', '', $errorUrl, $sqlQuery);

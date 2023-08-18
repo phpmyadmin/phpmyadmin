@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\DropColumnConfirmationController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
@@ -19,7 +20,7 @@ class DropColumnConfirmationControllerTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
     }
 
     public function testWithValidParameters(): void
@@ -35,7 +36,7 @@ class DropColumnConfirmationControllerTest extends AbstractTestCase
         $dummyDbi->addSelectDb('test_db');
         $dummyDbi->addResult('SHOW TABLES LIKE \'test_table\';', [['test_table']]);
         $dbi = $this->createDatabaseInterface($dummyDbi);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $response = new ResponseRenderer();
         $response->setAjax(true);
@@ -47,7 +48,7 @@ class DropColumnConfirmationControllerTest extends AbstractTestCase
             'fields' => ['name', 'datetimefield'],
         ]);
 
-        (new DropColumnConfirmationController($response, $template, new DbTableExists($GLOBALS['dbi'])))($request);
+        (new DropColumnConfirmationController($response, $template, new DbTableExists($dbi)))($request);
 
         $this->assertSame(200, $response->getResponse()->getStatusCode());
         $this->assertTrue($response->hasSuccessState());
@@ -67,7 +68,11 @@ class DropColumnConfirmationControllerTest extends AbstractTestCase
         $response = new ResponseRenderer();
         $response->setAjax(true);
 
-        (new DropColumnConfirmationController($response, new Template(), new DbTableExists($GLOBALS['dbi'])))($request);
+        (new DropColumnConfirmationController(
+            $response,
+            new Template(),
+            new DbTableExists(DatabaseInterface::getInstance()),
+        ))($request);
 
         $this->assertSame(400, $response->getResponse()->getStatusCode());
         $this->assertFalse($response->hasSuccessState());
@@ -87,7 +92,11 @@ class DropColumnConfirmationControllerTest extends AbstractTestCase
         $response = new ResponseRenderer();
         $response->setAjax(true);
 
-        (new DropColumnConfirmationController($response, new Template(), new DbTableExists($GLOBALS['dbi'])))($request);
+        (new DropColumnConfirmationController(
+            $response,
+            new Template(),
+            new DbTableExists(DatabaseInterface::getInstance()),
+        ))($request);
 
         $this->assertSame(400, $response->getResponse()->getStatusCode());
         $this->assertFalse($response->hasSuccessState());

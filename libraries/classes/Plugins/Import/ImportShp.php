@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Gis\GisFactory;
 use PhpMyAdmin\Gis\GisMultiLineString;
@@ -262,7 +263,7 @@ class ImportShp extends ImportPlugin
 
         // Set table name based on the number of tables
         if (strlen((string) $GLOBALS['db']) > 0) {
-            $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
+            $result = DatabaseInterface::getInstance()->fetchResult('SHOW TABLES');
             $tableName = 'TABLE ' . (count($result) + 1);
         } else {
             $tableName = 'TBL_NAME';

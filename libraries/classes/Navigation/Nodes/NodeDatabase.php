@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\ConfigStorage\Features\NavigationItemsHidingFeature;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Html\Generator;
@@ -95,16 +96,17 @@ class NodeDatabase extends Node
             $condition = 'NOT IN';
         }
 
+        $dbi = DatabaseInterface::getInstance();
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = 'SELECT COUNT(*) ';
             $query .= 'FROM `INFORMATION_SCHEMA`.`TABLES` ';
-            $query .= 'WHERE `TABLE_SCHEMA`=' . $GLOBALS['dbi']->quoteString($this->realName) . ' ';
+            $query .= 'WHERE `TABLE_SCHEMA`=' . $dbi->quoteString($this->realName) . ' ';
             $query .= 'AND `TABLE_TYPE` ' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
             if ($searchClause !== '') {
                 $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, 'TABLE_NAME');
             }
 
-            return (int) $GLOBALS['dbi']->fetchValue($query);
+            return (int) $dbi->fetchValue($query);
         }
 
         $query = 'SHOW FULL TABLES FROM ';
@@ -114,7 +116,7 @@ class NodeDatabase extends Node
             $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, 'Tables_in_' . $this->realName);
         }
 
-        return $GLOBALS['dbi']->queryAndGetNumRows($query);
+        return $dbi->queryAndGetNumRows($query);
     }
 
     /**
@@ -147,25 +149,26 @@ class NodeDatabase extends Node
      */
     private function getProcedureCount(string $searchClause): int
     {
+        $dbi = DatabaseInterface::getInstance();
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = 'SELECT COUNT(*) ';
             $query .= 'FROM `INFORMATION_SCHEMA`.`ROUTINES` ';
             $query .= 'WHERE `ROUTINE_SCHEMA` '
-                . Util::getCollateForIS() . '=' . $GLOBALS['dbi']->quoteString($this->realName);
+                . Util::getCollateForIS() . '=' . $dbi->quoteString($this->realName);
             $query .= "AND `ROUTINE_TYPE`='PROCEDURE' ";
             if ($searchClause !== '') {
                 $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, 'ROUTINE_NAME');
             }
 
-            return (int) $GLOBALS['dbi']->fetchValue($query);
+            return (int) $dbi->fetchValue($query);
         }
 
-        $query = 'SHOW PROCEDURE STATUS WHERE `Db`=' . $GLOBALS['dbi']->quoteString($this->realName) . ' ';
+        $query = 'SHOW PROCEDURE STATUS WHERE `Db`=' . $dbi->quoteString($this->realName) . ' ';
         if ($searchClause !== '') {
             $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, 'Name');
         }
 
-        return $GLOBALS['dbi']->queryAndGetNumRows($query);
+        return $dbi->queryAndGetNumRows($query);
     }
 
     /**
@@ -176,25 +179,26 @@ class NodeDatabase extends Node
      */
     private function getFunctionCount(string $searchClause): int
     {
+        $dbi = DatabaseInterface::getInstance();
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = 'SELECT COUNT(*) ';
             $query .= 'FROM `INFORMATION_SCHEMA`.`ROUTINES` ';
             $query .= 'WHERE `ROUTINE_SCHEMA` '
-                . Util::getCollateForIS() . '=' . $GLOBALS['dbi']->quoteString($this->realName) . ' ';
+                . Util::getCollateForIS() . '=' . $dbi->quoteString($this->realName) . ' ';
             $query .= "AND `ROUTINE_TYPE`='FUNCTION' ";
             if ($searchClause !== '') {
                 $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, 'ROUTINE_NAME');
             }
 
-            return (int) $GLOBALS['dbi']->fetchValue($query);
+            return (int) $dbi->fetchValue($query);
         }
 
-        $query = 'SHOW FUNCTION STATUS WHERE `Db`=' . $GLOBALS['dbi']->quoteString($this->realName) . ' ';
+        $query = 'SHOW FUNCTION STATUS WHERE `Db`=' . $dbi->quoteString($this->realName) . ' ';
         if ($searchClause !== '') {
             $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, 'Name');
         }
 
-        return $GLOBALS['dbi']->queryAndGetNumRows($query);
+        return $dbi->queryAndGetNumRows($query);
     }
 
     /**
@@ -205,16 +209,17 @@ class NodeDatabase extends Node
      */
     private function getEventCount(string $searchClause): int
     {
+        $dbi = DatabaseInterface::getInstance();
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = 'SELECT COUNT(*) ';
             $query .= 'FROM `INFORMATION_SCHEMA`.`EVENTS` ';
             $query .= 'WHERE `EVENT_SCHEMA` '
-                . Util::getCollateForIS() . '=' . $GLOBALS['dbi']->quoteString($this->realName) . ' ';
+                . Util::getCollateForIS() . '=' . $dbi->quoteString($this->realName) . ' ';
             if ($searchClause !== '') {
                 $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, 'EVENT_NAME');
             }
 
-            return (int) $GLOBALS['dbi']->fetchValue($query);
+            return (int) $dbi->fetchValue($query);
         }
 
         $query = 'SHOW EVENTS FROM ' . Util::backquote($this->realName) . ' ';
@@ -222,7 +227,7 @@ class NodeDatabase extends Node
             $query .= 'WHERE ' . $this->getWhereClauseForSearch($searchClause, 'Name');
         }
 
-        return $GLOBALS['dbi']->queryAndGetNumRows($query);
+        return $dbi->queryAndGetNumRows($query);
     }
 
     /**
@@ -237,8 +242,10 @@ class NodeDatabase extends Node
         string $searchClause,
         string $columnName,
     ): string {
+        $dbi = DatabaseInterface::getInstance();
+
         return Util::backquote($columnName) . ' LIKE '
-            . $GLOBALS['dbi']->quoteString('%' . $GLOBALS['dbi']->escapeMysqlWildcards($searchClause) . '%');
+            . $dbi->quoteString('%' . $dbi->escapeMysqlWildcards($searchClause) . '%');
     }
 
     /**
@@ -299,14 +306,15 @@ class NodeDatabase extends Node
 
         $navTable = Util::backquote($relationParameters->navigationItemsHidingFeature->database)
             . '.' . Util::backquote($relationParameters->navigationItemsHidingFeature->navigationHiding);
+        $dbi = DatabaseInterface::getInstance();
         $sqlQuery = 'SELECT `item_name` FROM ' . $navTable
             . ' WHERE `username`='
-            . $GLOBALS['dbi']->quoteString($relationParameters->user, Connection::TYPE_CONTROL)
+            . $dbi->quoteString($relationParameters->user, Connection::TYPE_CONTROL)
             . ' AND `item_type`='
-            . $GLOBALS['dbi']->quoteString($type, Connection::TYPE_CONTROL)
+            . $dbi->quoteString($type, Connection::TYPE_CONTROL)
             . ' AND `db_name`='
-            . $GLOBALS['dbi']->quoteString($this->realName, Connection::TYPE_CONTROL);
-        $result = $GLOBALS['dbi']->tryQueryAsControlUser($sqlQuery);
+            . $dbi->quoteString($this->realName, Connection::TYPE_CONTROL);
+        $result = $dbi->tryQueryAsControlUser($sqlQuery);
         $hiddenItems = [];
         if ($result instanceof ResultInterface) {
             /** @var list<string> $hiddenItems */
@@ -334,22 +342,23 @@ class NodeDatabase extends Node
         }
 
         $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
+        $dbi = DatabaseInterface::getInstance();
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = 'SELECT `TABLE_NAME` AS `name` ';
             $query .= 'FROM `INFORMATION_SCHEMA`.`TABLES` ';
-            $query .= 'WHERE `TABLE_SCHEMA`=' . $GLOBALS['dbi']->quoteString($this->realName) . ' ';
+            $query .= 'WHERE `TABLE_SCHEMA`=' . $dbi->quoteString($this->realName) . ' ';
             $query .= 'AND `TABLE_TYPE` ' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
             if ($searchClause !== '') {
                 $query .= 'AND `TABLE_NAME` LIKE ';
-                $query .= $GLOBALS['dbi']->quoteString(
-                    '%' . $GLOBALS['dbi']->escapeMysqlWildcards($searchClause) . '%',
+                $query .= $dbi->quoteString(
+                    '%' . $dbi->escapeMysqlWildcards($searchClause) . '%',
                 );
             }
 
             $query .= 'ORDER BY `TABLE_NAME` ASC ';
             $query .= 'LIMIT ' . $pos . ', ' . $maxItems;
 
-            return $GLOBALS['dbi']->fetchResult($query);
+            return $dbi->fetchResult($query);
         }
 
         $query = ' SHOW FULL TABLES FROM ';
@@ -357,13 +366,13 @@ class NodeDatabase extends Node
         $query .= ' WHERE `Table_type` ' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
         if ($searchClause !== '') {
             $query .= 'AND ' . Util::backquote('Tables_in_' . $this->realName);
-            $query .= ' LIKE ' . $GLOBALS['dbi']->quoteString(
-                '%' . $GLOBALS['dbi']->escapeMysqlWildcards($searchClause) . '%',
+            $query .= ' LIKE ' . $dbi->quoteString(
+                '%' . $dbi->escapeMysqlWildcards($searchClause) . '%',
             );
         }
 
         $retval = [];
-        $handle = $GLOBALS['dbi']->tryQuery($query);
+        $handle = $dbi->tryQuery($query);
         if ($handle !== false) {
             $count = 0;
             if ($handle->seek($pos)) {
@@ -419,35 +428,36 @@ class NodeDatabase extends Node
     private function getRoutines(string $routineType, int $pos, string $searchClause): array
     {
         $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
+        $dbi = DatabaseInterface::getInstance();
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = 'SELECT `ROUTINE_NAME` AS `name` ';
             $query .= 'FROM `INFORMATION_SCHEMA`.`ROUTINES` ';
             $query .= 'WHERE `ROUTINE_SCHEMA` '
-                . Util::getCollateForIS() . '=' . $GLOBALS['dbi']->quoteString($this->realName);
+                . Util::getCollateForIS() . '=' . $dbi->quoteString($this->realName);
             $query .= "AND `ROUTINE_TYPE`='" . $routineType . "' ";
             if ($searchClause !== '') {
                 $query .= 'AND `ROUTINE_NAME` LIKE ';
-                $query .= $GLOBALS['dbi']->quoteString(
-                    '%' . $GLOBALS['dbi']->escapeMysqlWildcards($searchClause) . '%',
+                $query .= $dbi->quoteString(
+                    '%' . $dbi->escapeMysqlWildcards($searchClause) . '%',
                 );
             }
 
             $query .= 'ORDER BY `ROUTINE_NAME` ASC ';
             $query .= 'LIMIT ' . $pos . ', ' . $maxItems;
 
-            return $GLOBALS['dbi']->fetchResult($query);
+            return $dbi->fetchResult($query);
         }
 
-        $query = 'SHOW ' . $routineType . ' STATUS WHERE `Db`=' . $GLOBALS['dbi']->quoteString($this->realName) . ' ';
+        $query = 'SHOW ' . $routineType . ' STATUS WHERE `Db`=' . $dbi->quoteString($this->realName) . ' ';
         if ($searchClause !== '') {
             $query .= 'AND `Name` LIKE ';
-            $query .= $GLOBALS['dbi']->quoteString(
-                '%' . $GLOBALS['dbi']->escapeMysqlWildcards($searchClause) . '%',
+            $query .= $dbi->quoteString(
+                '%' . $dbi->escapeMysqlWildcards($searchClause) . '%',
             );
         }
 
         $retval = [];
-        $handle = $GLOBALS['dbi']->tryQuery($query);
+        $handle = $dbi->tryQuery($query);
         if ($handle !== false) {
             $count = 0;
             if ($handle->seek($pos)) {
@@ -502,34 +512,35 @@ class NodeDatabase extends Node
     private function getEvents(int $pos, string $searchClause): array
     {
         $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
+        $dbi = DatabaseInterface::getInstance();
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = 'SELECT `EVENT_NAME` AS `name` ';
             $query .= 'FROM `INFORMATION_SCHEMA`.`EVENTS` ';
             $query .= 'WHERE `EVENT_SCHEMA` '
-                . Util::getCollateForIS() . '=' . $GLOBALS['dbi']->quoteString($this->realName) . ' ';
+                . Util::getCollateForIS() . '=' . $dbi->quoteString($this->realName) . ' ';
             if ($searchClause !== '') {
                 $query .= 'AND `EVENT_NAME` LIKE ';
-                $query .= $GLOBALS['dbi']->quoteString(
-                    '%' . $GLOBALS['dbi']->escapeMysqlWildcards($searchClause) . '%',
+                $query .= $dbi->quoteString(
+                    '%' . $dbi->escapeMysqlWildcards($searchClause) . '%',
                 );
             }
 
             $query .= 'ORDER BY `EVENT_NAME` ASC ';
             $query .= 'LIMIT ' . $pos . ', ' . $maxItems;
 
-            return $GLOBALS['dbi']->fetchResult($query);
+            return $dbi->fetchResult($query);
         }
 
         $query = 'SHOW EVENTS FROM ' . Util::backquote($this->realName) . ' ';
         if ($searchClause !== '') {
             $query .= 'WHERE `Name` LIKE ';
-            $query .= $GLOBALS['dbi']->quoteString(
-                '%' . $GLOBALS['dbi']->escapeMysqlWildcards($searchClause) . '%',
+            $query .= $dbi->quoteString(
+                '%' . $dbi->escapeMysqlWildcards($searchClause) . '%',
             );
         }
 
         $retval = [];
-        $handle = $GLOBALS['dbi']->tryQuery($query);
+        $handle = $dbi->tryQuery($query);
         if ($handle !== false) {
             $count = 0;
             if ($handle->seek($pos)) {

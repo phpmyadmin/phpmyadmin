@@ -45,7 +45,20 @@ class IndexesControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['pmadb'] = '';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['urlParams'] = ['db' => 'db', 'server' => 1];
+    }
 
+    protected function tearDown(): void
+    {
+        parent::tearDown();
+
+        DatabaseInterface::$instance = null;
+    }
+
+    /**
+     * Tests for displayFormAction()
+     */
+    public function testDisplayFormAction(): void
+    {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -59,16 +72,8 @@ class IndexesControllerTest extends AbstractTestCase
         $dbi->expects($this->any())->method('getTableIndexes')
             ->willReturn($indexs);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
-        //$_SESSION
-    }
-
-    /**
-     * Tests for displayFormAction()
-     */
-    public function testDisplayFormAction(): void
-    {
         $table = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -79,7 +84,7 @@ class IndexesControllerTest extends AbstractTestCase
         $table->expects($this->any())->method('getNameAndTypeOfTheColumns')
             ->willReturn(['field_name' => 'field_type']);
 
-        $GLOBALS['dbi']->expects($this->any())->method('getTable')
+        $dbi->expects($this->any())->method('getTable')
             ->willReturn($table);
 
         $response = new ResponseStub();
@@ -91,9 +96,9 @@ class IndexesControllerTest extends AbstractTestCase
         $ctrl = new IndexesController(
             $response,
             $template,
-            $GLOBALS['dbi'],
-            new Indexes($response, $template, $GLOBALS['dbi']),
-            new DbTableExists($GLOBALS['dbi']),
+            $dbi,
+            new Indexes($response, $template, $dbi),
+            new DbTableExists($dbi),
         );
 
         $_POST['create_index'] = true;

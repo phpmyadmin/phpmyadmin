@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use Exception;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Error;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Exceptions\ExitException;
@@ -38,7 +39,7 @@ class ErrorHandlerTest extends AbstractTestCase
         parent::setUp();
 
         $GLOBALS['lang'] = 'en';
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
         $this->object = new ErrorHandler();
         $_SESSION['errors'] = [];
         $GLOBALS['server'] = 0;

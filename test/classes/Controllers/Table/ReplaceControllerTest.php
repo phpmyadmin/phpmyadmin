@@ -42,7 +42,7 @@ class ReplaceControllerTest extends AbstractTestCase
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
         $GLOBALS['server'] = 1;
         $GLOBALS['showtable'] = null;
         $GLOBALS['db'] = 'my_db';
@@ -151,7 +151,7 @@ class ReplaceControllerTest extends AbstractTestCase
 
         $dummyDbi = $this->createDbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $relation = new Relation($dbi);
         $transformations = new Transformations();
         $template = new Template();

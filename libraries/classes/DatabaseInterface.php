@@ -74,6 +74,8 @@ use const SORT_DESC;
  */
 class DatabaseInterface implements DbalInterface
 {
+    public static self|null $instance = null;
+
     /**
      * Force STORE_RESULT method, ignored by classic MySQL.
      */
@@ -141,6 +143,16 @@ class DatabaseInterface implements DbalInterface
 
         $this->cache = new Cache();
         $this->types = new Types($this);
+    }
+
+    /** @deprecated Use dependency injection instead. */
+    public static function getInstance(): self
+    {
+        if (self::$instance === null) {
+            self::$instance = new self(new DbiMysqli());
+        }
+
+        return self::$instance;
     }
 
     /**
@@ -1991,20 +2003,6 @@ class DatabaseInterface implements DbalInterface
 
         $this->isMariaDb = stripos($this->versionString, 'mariadb') !== false;
         $this->isPercona = stripos($this->versionComment, 'percona') !== false;
-    }
-
-    /**
-     * Load correct database driver
-     *
-     * @param DbiExtension|null $extension Force the use of an alternative extension
-     */
-    public static function load(DbiExtension|null $extension = null): self
-    {
-        if ($extension !== null) {
-            return new self($extension);
-        }
-
-        return new self(new DbiMysqli());
     }
 
     /**

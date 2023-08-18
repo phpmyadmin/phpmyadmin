@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\CreateController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Template;
@@ -33,7 +34,7 @@ class CreateControllerTest extends AbstractTestCase
         $dummyDbi->addResult('SHOW FULL COLUMNS FROM `test_db`.`new_test_table`', false);
         $dummyDbi->addResult('SHOW CREATE TABLE `test_db`.`new_test_table`', false);
         $dbi = $this->createDatabaseInterface($dummyDbi);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $contentCell = [
             'column_number' => 0,

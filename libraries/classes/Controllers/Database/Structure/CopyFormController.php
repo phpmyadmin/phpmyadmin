@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database\Structure;
 
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 
 use function __;
@@ -27,7 +28,7 @@ final class CopyFormController extends AbstractController
             $urlParams['selected'][] = $selectedValue;
         }
 
-        $databasesList = $GLOBALS['dbi']->getDatabaseList();
+        $databasesList = DatabaseInterface::getInstance()->getDatabaseList();
         foreach ($databasesList as $key => $databaseName) {
             if ($databaseName == $GLOBALS['db']) {
                 $databasesList->offsetUnset($key);

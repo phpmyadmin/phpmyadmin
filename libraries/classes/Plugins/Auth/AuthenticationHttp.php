@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Plugins\Auth;
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\ResponseRenderer;
@@ -182,7 +183,7 @@ class AuthenticationHttp extends AuthenticationPlugin
     {
         parent::showFailure($failure);
 
-        $error = $GLOBALS['dbi']->getError();
+        $error = DatabaseInterface::getInstance()->getError();
         if ($error && $GLOBALS['errno'] != 1045) {
             echo $this->template->render('error/generic', [
                 'lang' => $GLOBALS['lang'] ?? 'en',

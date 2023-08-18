@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Auth;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
@@ -70,7 +71,7 @@ class AuthenticationConfig extends AuthenticationPlugin
     {
         parent::showFailure($failure);
 
-        $connError = $GLOBALS['dbi']->getError();
+        $connError = DatabaseInterface::getInstance()->getError();
         if (! $connError) {
             $connError = __('Cannot connect: invalid settings.');
         }

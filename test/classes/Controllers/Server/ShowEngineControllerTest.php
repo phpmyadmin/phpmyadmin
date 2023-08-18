@@ -37,7 +37,7 @@ class ShowEngineControllerTest extends AbstractTestCase
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
     }
 
     public function testShowEngine(): void
@@ -51,7 +51,7 @@ class ShowEngineControllerTest extends AbstractTestCase
         $request = $this->createMock(ServerRequest::class);
         $this->dummyDbi->addSelectDb('mysql');
 
-        (new ShowEngineController($response, new Template(), $GLOBALS['dbi']))($request, [
+        (new ShowEngineController($response, new Template(), DatabaseInterface::getInstance()))($request, [
             'engine' => 'Pbxt',
             'page' => 'page',
         ]);

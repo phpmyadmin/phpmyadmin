@@ -47,7 +47,7 @@ class IndexesTest extends AbstractTestCase
         $dbi->expects($this->any())->method('getTableIndexes')
             ->willReturn($indexs);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         //$_SESSION
     }
@@ -62,13 +62,14 @@ class IndexesTest extends AbstractTestCase
         $table->expects($this->any())->method('getSqlQueryForIndexCreateOrEdit')
             ->willReturn($sqlQuery);
 
-        $GLOBALS['dbi']->expects($this->any())->method('getTable')
+        $dbi = DatabaseInterface::getInstance();
+        $dbi->expects($this->any())->method('getTable')
             ->willReturn($table);
 
         $response = new ResponseStub();
         $index = new Index();
 
-        $indexes = new Indexes($response, new Template(), $GLOBALS['dbi']);
+        $indexes = new Indexes($response, new Template(), $dbi);
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
             ->withQueryParams(['ajax_request' => '1']);

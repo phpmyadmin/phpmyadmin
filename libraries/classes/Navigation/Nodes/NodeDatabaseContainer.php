@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Navigation\NodeType;
 
 use function _pgettext;
@@ -24,7 +25,7 @@ class NodeDatabaseContainer extends Node
      */
     public function __construct(string $name)
     {
-        $checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
+        $checkUserPrivileges = new CheckUserPrivileges(DatabaseInterface::getInstance());
         $checkUserPrivileges->getPrivileges();
 
         parent::__construct($name, NodeType::Container);

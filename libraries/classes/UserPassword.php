@@ -137,22 +137,23 @@ class UserPassword
         // Or it will say: Access denied; you need (at least one of) the CREATE USER privilege(s) for this operation
         // So let's avoid stating a plugin if it's not needed/changed
 
+        $dbi = DatabaseInterface::getInstance();
         if ($serverVersion >= 50706 && $serverVersion < 50737) {
-            return 'ALTER USER ' . $GLOBALS['dbi']->quoteString($username)
-                . '@' . $GLOBALS['dbi']->quoteString($hostname)
+            return 'ALTER USER ' . $dbi->quoteString($username)
+                . '@' . $dbi->quoteString($hostname)
                 . ' IDENTIFIED WITH ' . $authPlugin . ' BY '
-                . ($password === '' ? "''" : '' . $GLOBALS['dbi']->quoteString($password) . '');
+                . ($password === '' ? "''" : '' . $dbi->quoteString($password) . '');
         }
 
-        $sqlQuery = 'ALTER USER ' . $GLOBALS['dbi']->quoteString($username)
-            . '@' . $GLOBALS['dbi']->quoteString($hostname) . ' IDENTIFIED';
+        $sqlQuery = 'ALTER USER ' . $dbi->quoteString($username)
+            . '@' . $dbi->quoteString($hostname) . ' IDENTIFIED';
 
         if ($authPluginChanged) {
             $sqlQuery .= ' WITH ' . $authPlugin;
         }
 
         return $sqlQuery . ' BY ' . (
-            $password === '' ? "''" : $GLOBALS['dbi']->quoteString($password)
+            $password === '' ? "''" : $dbi->quoteString($password)
         );
     }
 

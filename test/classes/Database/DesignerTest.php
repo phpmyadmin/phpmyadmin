@@ -27,7 +27,7 @@ class DesignerTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
 
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;
@@ -79,7 +79,7 @@ class DesignerTest extends AbstractTestCase
             ->method('escapeString')
             ->willReturnArgument(0);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
     }
 
     /**
@@ -90,7 +90,8 @@ class DesignerTest extends AbstractTestCase
         $db = 'db';
         $this->mockDatabaseInteraction($db);
 
-        $this->designer = new Designer($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template());
+        $dbi = DatabaseInterface::getInstance();
+        $this->designer = new Designer($dbi, new Relation($dbi), new Template());
 
         $method = new ReflectionMethod(Designer::class, 'getPageIdsAndNames');
         $result = $method->invokeArgs($this->designer, [$db]);
@@ -110,7 +111,8 @@ class DesignerTest extends AbstractTestCase
         $operation = 'edit';
         $this->mockDatabaseInteraction($db);
 
-        $this->designer = new Designer($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template());
+        $dbi = DatabaseInterface::getInstance();
+        $this->designer = new Designer($dbi, new Relation($dbi), new Template());
 
         $result = $this->designer->getHtmlForEditOrDeletePages($db, $operation);
         $this->assertStringContainsString('<input type="hidden" name="operation" value="' . $operation . '">', $result);
@@ -130,7 +132,8 @@ class DesignerTest extends AbstractTestCase
         $db = 'db';
         $this->mockDatabaseInteraction($db);
 
-        $this->designer = new Designer($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template());
+        $dbi = DatabaseInterface::getInstance();
+        $this->designer = new Designer($dbi, new Relation($dbi), new Template());
 
         $result = $this->designer->getHtmlForPageSaveAs($db);
         $this->assertStringContainsString('<input type="hidden" name="operation" value="savePage">', $result);
@@ -160,7 +163,8 @@ class DesignerTest extends AbstractTestCase
         $db = 'db';
         $page = 2;
 
-        $this->designer = new Designer($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template());
+        $dbi = DatabaseInterface::getInstance();
+        $this->designer = new Designer($dbi, new Relation($dbi), new Template());
 
         $result = $this->designer->getHtmlForSchemaExport($db, $page);
         // export type

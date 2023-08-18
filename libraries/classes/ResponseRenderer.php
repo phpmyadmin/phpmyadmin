@@ -289,7 +289,7 @@ class ResponseRenderer
                 $this->addJSON('title', '<title>' . $this->getHeader()->getPageTitle() . '</title>');
             }
 
-            if (isset($GLOBALS['dbi'])) {
+            if (DatabaseInterface::getInstance()->isConnected()) {
                 $this->addJSON('menu', $this->getHeader()->getMenu()->getDisplay());
             }
 

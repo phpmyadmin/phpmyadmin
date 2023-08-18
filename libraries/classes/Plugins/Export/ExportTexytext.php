@@ -9,7 +9,6 @@ namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
-use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -177,13 +176,11 @@ class ExportTexytext extends ExportPlugin
             return false;
         }
 
+        $dbi = DatabaseInterface::getInstance();
         /**
          * Gets the data from the database
-         *
-         * @var ResultInterface $result
-         * @psalm-ignore-var
          */
-        $result = $GLOBALS['dbi']->query($sqlQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
+        $result = $dbi->query($sqlQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
 
         // If required, get fields name at the first line
         if (isset($GLOBALS[$GLOBALS['what'] . '_columns'])) {
@@ -241,7 +238,7 @@ class ExportTexytext extends ExportPlugin
     public function exportRawQuery(string $errorUrl, string|null $db, string $sqlQuery): bool
     {
         if ($db !== null) {
-            $GLOBALS['dbi']->selectDb($db);
+            DatabaseInterface::getInstance()->selectDb($db);
         }
 
         return $this->exportData($db ?? '', '', $errorUrl, $sqlQuery);
@@ -264,7 +261,8 @@ class ExportTexytext extends ExportPlugin
          * Get the unique keys in the table
          */
         $uniqueKeys = [];
-        $keys = $GLOBALS['dbi']->getTableIndexes($db, $view);
+        $dbi = DatabaseInterface::getInstance();
+        $keys = $dbi->getTableIndexes($db, $view);
         foreach ($keys as $key) {
             if ($key['Non_unique'] != 0) {
                 continue;
@@ -276,7 +274,7 @@ class ExportTexytext extends ExportPlugin
         /**
          * Gets fields properties
          */
-        $GLOBALS['dbi']->selectDb($db);
+        $dbi->selectDb($db);
 
         /**
          * Displays the table structure
@@ -289,7 +287,7 @@ class ExportTexytext extends ExportPlugin
             . '|' . __('Default')
             . "\n|------\n";
 
-        $columns = $GLOBALS['dbi']->getColumns($db, $view);
+        $columns = $dbi->getColumns($db, $view);
         foreach ($columns as $column) {
             $colAs = $column['Field'] ?? null;
             if (! empty($aliases[$db]['tables'][$view]['columns'][$colAs])) {
@@ -337,7 +335,8 @@ class ExportTexytext extends ExportPlugin
          * Get the unique keys in the table
          */
         $uniqueKeys = [];
-        $keys = $GLOBALS['dbi']->getTableIndexes($db, $table);
+        $dbi = DatabaseInterface::getInstance();
+        $keys = $dbi->getTableIndexes($db, $table);
         foreach ($keys as $key) {
             if ($key['Non_unique'] != 0) {
                 continue;
@@ -349,7 +348,7 @@ class ExportTexytext extends ExportPlugin
         /**
          * Gets fields properties
          */
-        $GLOBALS['dbi']->selectDb($db);
+        $dbi->selectDb($db);
 
         // Check if we can use Relations
         $foreigners = $this->relation->getRelationsAndStatus(
@@ -383,7 +382,7 @@ class ExportTexytext extends ExportPlugin
 
         $textOutput .= "\n|------\n";
 
-        $columns = $GLOBALS['dbi']->getColumns($db, $table);
+        $columns = $dbi->getColumns($db, $table);
         foreach ($columns as $column) {
             $colAs = $column['Field'];
             if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
@@ -498,7 +497,7 @@ class ExportTexytext extends ExportPlugin
                 $dump .= $this->getTableDef($db, $table, $doRelation, $doComments, $doMime, $aliases);
                 break;
             case 'triggers':
-                $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table);
+                $triggers = Triggers::getDetails(DatabaseInterface::getInstance(), $db, $table);
                 if ($triggers !== []) {
                     $dump .= '== ' . __('Triggers') . ' ' . $tableAlias . "\n\n";
                     $dump .= $this->getTriggers($db, $table, $triggers);

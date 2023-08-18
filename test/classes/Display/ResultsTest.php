@@ -70,7 +70,7 @@ class ResultsTest extends AbstractTestCase
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
         $this->setTheme();
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
@@ -699,7 +699,7 @@ class ResultsTest extends AbstractTestCase
                 ],
             );
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $transformations = new Transformations();
         $this->object->properties['mime_map'] = $transformations->getMime('db', 'table');

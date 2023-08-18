@@ -15,9 +15,8 @@ final class UrlRedirector
     public static function redirect(string $url): never
     {
         // Load database service because services.php is not available here
-        $GLOBALS['dbi'] = DatabaseInterface::load();
         $container = Core::getContainerBuilder();
-        $container->set(DatabaseInterface::class, $GLOBALS['dbi']);
+        $container->set(DatabaseInterface::class, DatabaseInterface::getInstance());
 
         // Only output the http headers
         $response = ResponseRenderer::getInstance();

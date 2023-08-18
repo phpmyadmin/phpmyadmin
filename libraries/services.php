@@ -83,6 +83,7 @@ return [
         'central_columns' => ['class' => CentralColumns::class, 'arguments' => ['@dbi']],
         'check_user_privileges' => ['class' => CheckUserPrivileges::class, 'arguments' => ['@dbi']],
         'create_add_field' => ['class' => CreateAddField::class, 'arguments' => ['@dbi']],
+        'dbi' => ['class' => DatabaseInterface::class, 'factory' => [DatabaseInterface::class, 'getInstance']],
         DbTableExists::class => ['class' => DbTableExists::class, 'arguments' => ['@dbi']],
         'designer' => [
             'class' => Designer::class,

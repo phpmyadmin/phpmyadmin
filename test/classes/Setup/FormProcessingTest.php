@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Setup;
 
 use PhpMyAdmin\Config\FormDisplay;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Setup\FormProcessing;
@@ -39,7 +40,7 @@ class FormProcessingTest extends AbstractTestCase
     #[BackupStaticProperties(true)]
     public function testProcessFormSet(): void
     {
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
 
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Export;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\FlashMessages;
 use PhpMyAdmin\Identifiers\DatabaseName;
@@ -26,8 +27,8 @@ class ExportTest extends AbstractTestCase
 {
     public function testMergeAliases(): void
     {
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
-        $export = new Export($GLOBALS['dbi']);
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
+        $export = new Export(DatabaseInterface::getInstance());
         $aliases1 = [
             'test_db' => [
                 'alias' => 'aliastest',
@@ -59,11 +60,12 @@ class ExportTest extends AbstractTestCase
 
     public function testGetFinalFilenameAndMimetypeForFilename(): void
     {
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
-        $export = new Export($GLOBALS['dbi']);
+        $dbi = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $dbi;
+        $export = new Export($dbi);
         $exportPlugin = new ExportPhparray(
-            new Relation($GLOBALS['dbi']),
-            new Export($GLOBALS['dbi']),
+            new Relation($dbi),
+            new Export($dbi),
             new Transformations(),
         );
         $finalFileName = $export->getFinalFilenameAndMimetypeForFilename($exportPlugin, 'zip', 'myfilename');
@@ -114,7 +116,7 @@ class ExportTest extends AbstractTestCase
         // phpcs:enable
 
         $dbi = $this->createDatabaseInterface($dbiDummy);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $export = new Export($dbi);
 
         $export->exportDatabase(
@@ -197,7 +199,7 @@ SQL;
         // phpcs:enable
 
         $dbi = $this->createDatabaseInterface($dbiDummy);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $export = new Export($dbi);
 
         $export->exportServer(

@@ -44,7 +44,7 @@ class SearchControllerTest extends AbstractTestCase
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
 
         /**
          * SET these to avoid undefined index error
@@ -55,7 +55,7 @@ class SearchControllerTest extends AbstractTestCase
         $GLOBALS['db'] = 'PMA';
         $GLOBALS['table'] = 'PMA_BookMark';
         $GLOBALS['text_dir'] = 'ltr';
-        $relation = new Relation($GLOBALS['dbi']);
+        $relation = new Relation(DatabaseInterface::getInstance());
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -86,7 +86,7 @@ class SearchControllerTest extends AbstractTestCase
         $dbi->expects($this->any())->method('escapeString')
             ->willReturnArgument(0);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $relation->dbi = $dbi;
 
         $this->response = new ResponseStub();
@@ -100,7 +100,8 @@ class SearchControllerTest extends AbstractTestCase
     {
         $expected = 'SELECT MIN(`column`) AS `min`, MAX(`column`) AS `max` FROM `PMA`.`PMA_BookMark`';
 
-        $GLOBALS['dbi']->expects($this->any())
+        $dbi = DatabaseInterface::getInstance();
+        $dbi->expects($this->any())
             ->method('fetchSingleRow')
             ->with($expected)
             ->willReturn([$expected]);
@@ -108,10 +109,10 @@ class SearchControllerTest extends AbstractTestCase
         $ctrl = new SearchController(
             $this->response,
             $this->template,
-            new Search($GLOBALS['dbi']),
-            new Relation($GLOBALS['dbi']),
-            $GLOBALS['dbi'],
-            new DbTableExists($GLOBALS['dbi']),
+            new Search($dbi),
+            new Relation($dbi),
+            $dbi,
+            new DbTableExists($dbi),
         );
 
         $result = $ctrl->getColumnMinMax('column');
@@ -125,7 +126,7 @@ class SearchControllerTest extends AbstractTestCase
     {
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
         $this->loadContainerBuilder();
 
         parent::loadDbiIntoContainerBuilder();

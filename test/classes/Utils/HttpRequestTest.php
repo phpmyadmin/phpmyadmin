@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Utils;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Utils\HttpRequest;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -29,7 +30,7 @@ class HttpRequestTest extends AbstractTestCase
 
         parent::setProxySettings();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
         $this->httpRequest = new HttpRequest();
     }
 

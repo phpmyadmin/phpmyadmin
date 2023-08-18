@@ -209,7 +209,7 @@ class ExportLatex extends ExportPlugin
         $head .= "\n"
             . '% ' . __('Generation Time:') . ' '
             . Util::localisedDate() . "\n"
-            . '% ' . __('Server version:') . ' ' . $GLOBALS['dbi']->getVersionString() . "\n"
+            . '% ' . __('Server version:') . ' ' . DatabaseInterface::getInstance()->getVersionString() . "\n"
             . '% ' . __('PHP Version:') . ' ' . PHP_VERSION . "\n";
 
         return $this->export->outputHandler($head);
@@ -284,7 +284,8 @@ class ExportLatex extends ExportPlugin
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
 
-        $result = $GLOBALS['dbi']->tryQuery($sqlQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
+        $dbi = DatabaseInterface::getInstance();
+        $result = $dbi->tryQuery($sqlQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
 
         $columnsCnt = $result->numFields();
         $columns = [];
@@ -403,7 +404,7 @@ class ExportLatex extends ExportPlugin
     public function exportRawQuery(string $errorUrl, string|null $db, string $sqlQuery): bool
     {
         if ($db !== null) {
-            $GLOBALS['dbi']->selectDb($db);
+            DatabaseInterface::getInstance()->selectDb($db);
         }
 
         return $this->exportData($db ?? '', '', $errorUrl, $sqlQuery);
@@ -456,7 +457,8 @@ class ExportLatex extends ExportPlugin
          * Get the unique keys in the table
          */
         $uniqueKeys = [];
-        $keys = $GLOBALS['dbi']->getTableIndexes($db, $table);
+        $dbi = DatabaseInterface::getInstance();
+        $keys = $dbi->getTableIndexes($db, $table);
         foreach ($keys as $key) {
             if ($key['Non_unique'] != 0) {
                 continue;
@@ -468,7 +470,7 @@ class ExportLatex extends ExportPlugin
         /**
          * Gets fields properties
          */
-        $GLOBALS['dbi']->selectDb($db);
+        $dbi->selectDb($db);
 
         // Check if we can use Relations
         $foreigners = $this->relation->getRelationsAndStatus(
@@ -555,7 +557,7 @@ class ExportLatex extends ExportPlugin
             return false;
         }
 
-        $fields = $GLOBALS['dbi']->getColumns($db, $table);
+        $fields = $dbi->getColumns($db, $table);
         foreach ($fields as $row) {
             $extractedColumnSpec = Util::extractColumnSpec($row['Type']);
             $type = $extractedColumnSpec['print_type'];

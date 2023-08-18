@@ -37,7 +37,7 @@ class LogVarsControllerTest extends AbstractTestCase
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
@@ -59,12 +59,13 @@ class LogVarsControllerTest extends AbstractTestCase
 
         $response = new ResponseRenderer();
 
+        $dbi = DatabaseInterface::getInstance();
         $controller = new LogVarsController(
             $response,
             new Template(),
             $this->data,
-            new Monitor($GLOBALS['dbi']),
-            $GLOBALS['dbi'],
+            new Monitor($dbi),
+            $dbi,
         );
 
         $request = $this->createStub(ServerRequest::class);

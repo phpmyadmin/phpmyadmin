@@ -8,7 +8,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Types;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\SessionCache;
@@ -393,7 +392,7 @@ class GeneratorTest extends AbstractTestCase
         $dbiStub->types = new Types($dbiStub);
         $dbiStub->method('getVersion')->willReturn(50700);
 
-        $GLOBALS['dbi'] = $dbiStub;
+        DatabaseInterface::$instance = $dbiStub;
 
         $result = Generator::getDefaultFunctionForField(
             $trueType,
@@ -472,7 +471,7 @@ class GeneratorTest extends AbstractTestCase
         $GLOBALS['sql_query'] = 'SELECT 1;';
         $usingBookmarkMessage = Message::notice('Bookmark message');
         $GLOBALS['using_bookmark_message'] = $usingBookmarkMessage;
-        $GLOBALS['dbi'] = DatabaseInterface::load(new DbiDummy());
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';
         $GLOBALS['server'] = 2;
@@ -526,7 +525,7 @@ HTML;
         $GLOBALS['display_query'] = 'EXPLAIN SELECT 1;';
         $GLOBALS['unparsed_sql'] = null;
         $GLOBALS['sql_query'] = null;
-        $GLOBALS['dbi'] = DatabaseInterface::load(new DbiDummy());
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';
         $GLOBALS['server'] = 2;

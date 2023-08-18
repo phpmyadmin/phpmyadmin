@@ -45,7 +45,8 @@ class TrackingTest extends AbstractTestCase
 
         parent::setTheme();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        $dbi = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $dbi;
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'PMA_db';
@@ -64,10 +65,10 @@ class TrackingTest extends AbstractTestCase
 
         $template = new Template();
         $this->tracking = new Tracking(
-            new SqlQueryForm($template, $GLOBALS['dbi']),
+            new SqlQueryForm($template, $dbi),
             $template,
-            new Relation($GLOBALS['dbi']),
-            $GLOBALS['dbi'],
+            new Relation($dbi),
+            $dbi,
             $this->createStub(TrackingChecker::class),
         );
     }
@@ -588,7 +589,7 @@ class TrackingTest extends AbstractTestCase
         $tracking = new Tracking(
             $this->createStub(SqlQueryForm::class),
             $this->createStub(Template::class),
-            new Relation($GLOBALS['dbi']),
+            new Relation(DatabaseInterface::getInstance()),
             $dbi,
             $this->createStub(TrackingChecker::class),
         );
@@ -636,7 +637,7 @@ class TrackingTest extends AbstractTestCase
         $tracking = new Tracking(
             $this->createStub(SqlQueryForm::class),
             $this->createStub(Template::class),
-            new Relation($GLOBALS['dbi']),
+            new Relation(DatabaseInterface::getInstance()),
             $dbi,
             $this->createStub(TrackingChecker::class),
         );
@@ -678,7 +679,7 @@ class TrackingTest extends AbstractTestCase
         $tracking = new Tracking(
             $this->createStub(SqlQueryForm::class),
             $this->createStub(Template::class),
-            new Relation($GLOBALS['dbi']),
+            new Relation(DatabaseInterface::getInstance()),
             $dbi,
             $this->createStub(TrackingChecker::class),
         );

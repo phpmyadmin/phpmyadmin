@@ -34,7 +34,7 @@ class VariablesControllerTest extends AbstractTestCase
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
 
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = 1;
@@ -50,7 +50,7 @@ class VariablesControllerTest extends AbstractTestCase
     {
         $response = new ResponseRenderer();
 
-        $controller = new VariablesController($response, new Template(), $this->data, $GLOBALS['dbi']);
+        $controller = new VariablesController($response, new Template(), $this->data, DatabaseInterface::getInstance());
 
         $this->dummyDbi->addSelectDb('mysql');
         $controller($this->createStub(ServerRequest::class));

@@ -12,7 +12,6 @@ use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -30,7 +29,7 @@ class UserGroupsTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
 
@@ -61,7 +60,7 @@ class UserGroupsTest extends AbstractTestCase
         $resultStub->expects($this->once())
             ->method('numRows')
             ->willReturn(0);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $html = UserGroups::getHtmlForUserGroupsTable($this->configurableMenusFeature);
         $this->assertStringNotContainsString('<table id="userGroupsTable">', $html);
@@ -137,7 +136,7 @@ class UserGroupsTest extends AbstractTestCase
         $dbi->expects($this->any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         // editing a user group
         $html = UserGroups::getHtmlToEditUserGroup($this->configurableMenusFeature, 'user<br>group');
@@ -159,9 +158,9 @@ class UserGroupsTest extends AbstractTestCase
 
     public function testGetHtmlForListingUsersOfAGroupWithNoUsers(): void
     {
-        $dummyDbi = new DbiDummy();
-        $dbi = DatabaseInterface::load($dummyDbi);
-        $GLOBALS['dbi'] = $dbi;
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        DatabaseInterface::$instance = $dbi;
 
         $dummyDbi->addResult('SELECT `username` FROM `pmadb`.`users` WHERE `usergroup`=\'user<br>group\'', []);
 
@@ -172,9 +171,9 @@ class UserGroupsTest extends AbstractTestCase
 
     public function testGetHtmlForListingUsersOfAGroupWithUsers(): void
     {
-        $dummyDbi = new DbiDummy();
-        $dbi = DatabaseInterface::load($dummyDbi);
-        $GLOBALS['dbi'] = $dbi;
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        DatabaseInterface::$instance = $dbi;
 
         $dummyDbi->addResult(
             'SELECT `username` FROM `pmadb`.`users` WHERE `usergroup`=\'user<br>group\'',

@@ -59,16 +59,17 @@ class FindReplaceControllerTest extends AbstractTestCase
         $dbi->expects($this->any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
     }
 
     public function testReplace(): void
     {
+        $dbi = DatabaseInterface::getInstance();
         $tableSearch = new FindReplaceController(
             ResponseRenderer::getInstance(),
             new Template(),
-            $GLOBALS['dbi'],
-            new DbTableExists($GLOBALS['dbi']),
+            $dbi,
+            new DbTableExists($dbi),
         );
         $columnIndex = 0;
         $find = 'Field';
@@ -86,11 +87,12 @@ class FindReplaceControllerTest extends AbstractTestCase
 
     public function testReplaceWithRegex(): void
     {
+        $dbi = DatabaseInterface::getInstance();
         $tableSearch = new FindReplaceController(
             ResponseRenderer::getInstance(),
             new Template(),
-            $GLOBALS['dbi'],
-            new DbTableExists($GLOBALS['dbi']),
+            $dbi,
+            new DbTableExists($dbi),
         );
 
         $columnIndex = 0;

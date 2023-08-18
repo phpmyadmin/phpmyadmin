@@ -40,7 +40,7 @@ class ImportSql extends ImportPlugin
         $importPluginProperties->setExtension('sql');
         $importPluginProperties->setOptionsText(__('Options'));
 
-        $compats = $GLOBALS['dbi']->getCompatibilities();
+        $compats = DatabaseInterface::getInstance()->getCompatibilities();
         if ($compats !== []) {
             $values = [];
             foreach ($compats as $val) {
@@ -93,7 +93,7 @@ class ImportSql extends ImportPlugin
         $GLOBALS['timeout_passed'] ??= null;
 
         // Handle compatibility options.
-        $this->setSQLMode($GLOBALS['dbi'], $_REQUEST);
+        $this->setSQLMode(DatabaseInterface::getInstance(), $_REQUEST);
 
         $bq = new BufferedQuery();
         if (isset($_POST['sql_delimiter'])) {

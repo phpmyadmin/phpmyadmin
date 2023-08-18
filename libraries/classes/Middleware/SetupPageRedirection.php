@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Middleware;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Core;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\ServerRequest;
@@ -79,8 +78,6 @@ final class SetupPageRedirection implements MiddlewareInterface
             'Servers/1/user',
             'Servers/1/password',
         ]);
-
-        $GLOBALS['dbi'] = DatabaseInterface::load();
 
         // allows for redirection even after sending some data
         ob_start();

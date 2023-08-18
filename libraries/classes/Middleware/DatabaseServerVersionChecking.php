@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Middleware;
 
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Template;
 use Psr\Http\Message\ResponseInterface;
@@ -30,7 +31,7 @@ final class DatabaseServerVersionChecking implements MiddlewareInterface
         $settings = $this->config->getSettings();
         if (
             $this->config->getCurrentServer() !== null
-            && $GLOBALS['dbi']->getVersion() < $settings->mysqlMinVersion['internal']
+            && DatabaseInterface::getInstance()->getVersion() < $settings->mysqlMinVersion['internal']
         ) {
             $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);
 

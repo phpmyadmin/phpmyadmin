@@ -203,7 +203,7 @@ class ExportJson extends ExportPlugin
             return false;
         }
 
-        return $this->doExportForQuery($GLOBALS['dbi'], $sqlQuery, $buffer, $aliases, $db, $table);
+        return $this->doExportForQuery(DatabaseInterface::getInstance(), $sqlQuery, $buffer, $aliases, $db, $table);
     }
 
     /**
@@ -316,10 +316,11 @@ class ExportJson extends ExportPlugin
             return false;
         }
 
+        $dbi = DatabaseInterface::getInstance();
         if ($db !== null) {
-            $GLOBALS['dbi']->selectDb($db);
+            $dbi->selectDb($db);
         }
 
-        return $this->doExportForQuery($GLOBALS['dbi'], $sqlQuery, $buffer, null, $db, null);
+        return $this->doExportForQuery($dbi, $sqlQuery, $buffer, null, $db, null);
     }
 }

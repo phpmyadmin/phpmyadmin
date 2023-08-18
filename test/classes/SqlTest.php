@@ -44,7 +44,7 @@ class SqlTest extends AbstractTestCase
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
@@ -62,12 +62,12 @@ class SqlTest extends AbstractTestCase
         $GLOBALS['cfg']['enable_drag_drop_import'] = true;
         $GLOBALS['showtable'] = null;
 
-        $relation = new Relation($GLOBALS['dbi']);
+        $relation = new Relation($this->dbi);
         $this->sql = new Sql(
-            $GLOBALS['dbi'],
+            $this->dbi,
             $relation,
-            new RelationCleanup($GLOBALS['dbi'], $relation),
-            new Operations($GLOBALS['dbi'], $relation),
+            new RelationCleanup($this->dbi, $relation),
+            new Operations($this->dbi, $relation),
             new Transformations(),
             new Template(),
         );

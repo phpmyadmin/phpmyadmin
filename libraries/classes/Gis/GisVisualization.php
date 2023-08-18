@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Gis;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
@@ -205,8 +206,9 @@ class GisVisualization
         $spatialSrid = 'SRID';
         $axisOrder = '';
 
-        $mysqlVersion = $GLOBALS['dbi']->getVersion();
-        $isMariaDB = $GLOBALS['dbi']->isMariaDB();
+        $dbi = DatabaseInterface::getInstance();
+        $mysqlVersion = $dbi->getVersion();
+        $isMariaDB = $dbi->isMariaDB();
 
         if ($mysqlVersion >= 50600) {
             $spatialAsText = 'ST_ASTEXT';
@@ -254,7 +256,7 @@ class GisVisualization
      */
     private function fetchRawData(string $modifiedSql): array
     {
-        $modifiedResult = $GLOBALS['dbi']->tryQuery($modifiedSql);
+        $modifiedResult = DatabaseInterface::getInstance()->tryQuery($modifiedSql);
 
         if ($modifiedResult === false) {
             return [];

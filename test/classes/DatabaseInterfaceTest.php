@@ -27,7 +27,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
     }
 
     /**
@@ -40,6 +40,14 @@ class DatabaseInterfaceTest extends AbstractTestCase
         unset($GLOBALS['lang']);
         unset($GLOBALS['cfg']['Server']['SessionTimeZone']);
         Context::load();
+    }
+
+    public function testUniqueness(): void
+    {
+        DatabaseInterface::$instance = null;
+        $instanceOne = DatabaseInterface::getInstance();
+        $instanceTwo = DatabaseInterface::getInstance();
+        $this->assertSame($instanceOne, $instanceTwo);
     }
 
     /**
@@ -496,7 +504,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
     {
         $dummyDbi = $this->createDbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';

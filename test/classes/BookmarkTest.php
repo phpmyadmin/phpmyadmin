@@ -29,7 +29,7 @@ class BookmarkTest extends AbstractTestCase
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
         $GLOBALS['cfg']['Server']['user'] = 'root';
         $GLOBALS['cfg']['Server']['pmadb'] = 'phpmyadmin';
         $GLOBALS['cfg']['Server']['bookmarktable'] = 'pma_bookmark';
@@ -51,7 +51,7 @@ class BookmarkTest extends AbstractTestCase
         );
         $actual = Bookmark::getList(
             new BookmarkFeature(DatabaseName::from('phpmyadmin'), TableName::from('pma_bookmark')),
-            $GLOBALS['dbi'],
+            DatabaseInterface::getInstance(),
             $GLOBALS['cfg']['Server']['user'],
             'sakila',
         );
@@ -67,7 +67,7 @@ class BookmarkTest extends AbstractTestCase
         $this->dummyDbi->addSelectDb('phpmyadmin');
         $this->assertNull(
             Bookmark::get(
-                $GLOBALS['dbi'],
+                DatabaseInterface::getInstance(),
                 $GLOBALS['cfg']['Server']['user'],
                 DatabaseName::from('phpmyadmin'),
                 '1',
@@ -88,7 +88,7 @@ class BookmarkTest extends AbstractTestCase
             'bkm_label' => 'bookmark1',
         ];
 
-        $bookmark = Bookmark::createBookmark($GLOBALS['dbi'], $bookmarkData);
+        $bookmark = Bookmark::createBookmark(DatabaseInterface::getInstance(), $bookmarkData);
         $this->assertNotFalse($bookmark);
         $this->dummyDbi->addSelectDb('phpmyadmin');
         $this->assertFalse($bookmark->save());

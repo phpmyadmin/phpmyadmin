@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table\Maintenance;
 
 use PhpMyAdmin\Controllers\Table\Maintenance\ChecksumController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Table\Maintenance;
 use PhpMyAdmin\Template;
@@ -23,7 +24,7 @@ class ChecksumControllerTest extends AbstractTestCase
         $request = $this->createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['selected_tbl', null, $tables]]);
         $dbi = $this->createDatabaseInterface();
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
         $controller = new ChecksumController($response, new Template(), new Maintenance($dbi), $this->createConfig());
         $controller($request);

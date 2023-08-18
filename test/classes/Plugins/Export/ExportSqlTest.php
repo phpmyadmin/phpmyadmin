@@ -54,7 +54,8 @@ class ExportSqlTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        $dbi = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $dbi;
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
@@ -73,8 +74,8 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['sql_auto_increments'] = null;
 
         $this->object = new ExportSql(
-            new Relation($GLOBALS['dbi']),
-            new Export($GLOBALS['dbi']),
+            new Relation($dbi),
+            new Export($dbi),
             new Transformations(),
         );
         $this->object->useSqlBackquotes(false);
@@ -87,6 +88,7 @@ class ExportSqlTest extends AbstractTestCase
     {
         parent::tearDown();
 
+        DatabaseInterface::$instance = null;
         unset($this->object);
     }
 
@@ -120,7 +122,7 @@ class ExportSqlTest extends AbstractTestCase
         $dbi->expects($this->any())->method('escapeString')
             ->willReturnArgument(0);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $GLOBALS['plugin_param']['export_type'] = 'server';
         $GLOBALS['plugin_param']['single_table'] = false;
 
@@ -397,7 +399,7 @@ class ExportSqlTest extends AbstractTestCase
             ->method('query')
             ->with('SET time_zone = "GMT"');
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $this->expectOutputString('SET FOREIGN_KEY_CHECKS=1;' . "\n" . 'COMMIT;' . "\n");
 
@@ -439,7 +441,7 @@ class ExportSqlTest extends AbstractTestCase
             ->method('query')
             ->with('SET time_zone = "+00:00"');
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         ob_start();
         $this->assertTrue(
@@ -485,7 +487,7 @@ class ExportSqlTest extends AbstractTestCase
             ->with('db')
             ->willReturn('utf8_general_ci');
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $this->object->useSqlBackquotes(true);
 
@@ -521,7 +523,7 @@ class ExportSqlTest extends AbstractTestCase
             ->with('db')
             ->willReturn('testcollation');
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $this->object->useSqlBackquotes(false);
 
@@ -599,7 +601,7 @@ class ExportSqlTest extends AbstractTestCase
         $dbi->expects($this->any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         ob_start();
         $this->assertTrue(
@@ -630,7 +632,7 @@ class ExportSqlTest extends AbstractTestCase
         $dbi->expects($this->any())->method('escapeString')
             ->willReturnArgument(0);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         ob_start();
         $this->assertTrue(
@@ -657,7 +659,7 @@ class ExportSqlTest extends AbstractTestCase
             ->with('db', 'view')
             ->willReturn(['cname' => ['Type' => 'int']]);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $result = $this->object->getTableDefStandIn('db', 'view');
 
@@ -694,7 +696,7 @@ class ExportSqlTest extends AbstractTestCase
                 ],
             ]);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $GLOBALS['sql_compatibility'] = 'MSSQL';
 
         $method = new ReflectionMethod(ExportSql::class, 'getTableDefForView');
@@ -728,7 +730,7 @@ class ExportSqlTest extends AbstractTestCase
                     'Field' => 'fname',
                 ],
             ]);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $result = $method->invoke($this->object, 'db', 'view');
 
@@ -796,7 +798,7 @@ SQL;
             ['Table', 'Create Table'],
         );
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
+        DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $this->object->useSqlBackquotes(true);
@@ -845,7 +847,7 @@ SQL;
         $dbiDummy->addResult('SHOW CREATE TABLE `db`.`table`', []);
         $dbiDummy->addErrorCode('error occurred');
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
+        DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $this->object->useSqlBackquotes(false);
@@ -884,7 +886,7 @@ SQL;
                 ['fieldname' => ['values' => 'test-', 'transformation' => 'testfoo', 'mimetype' => 'test<']],
             );
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $this->object->relation = new Relation($dbi);
 
         $method = new ReflectionMethod(ExportSql::class, 'getTableComments');
@@ -1096,7 +1098,7 @@ SQL;
             ->method('getTable')
             ->willReturn($tableObj);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $GLOBALS['sql_compatibility'] = 'MSSQL';
         $GLOBALS['sql_max_query_size'] = 50000;
         $GLOBALS['sql_views_as_tables'] = true;
@@ -1196,7 +1198,7 @@ SQL;
         $dbi->expects($this->any())->method('escapeString')
             ->willReturnArgument(0);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $GLOBALS['sql_compatibility'] = 'MSSQL';
         $GLOBALS['sql_views_as_tables'] = true;
         $GLOBALS['sql_type'] = 'UPDATE';
@@ -1244,7 +1246,7 @@ SQL;
         $dbi->expects($this->any())->method('escapeString')
             ->willReturnArgument(0);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['sql_views_as_tables'] = false;
         $GLOBALS['sql_include_comments'] = true;
@@ -1295,7 +1297,7 @@ SQL;
         $dbi->expects($this->any())->method('escapeString')
             ->willReturnArgument(0);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['sql_views_as_tables'] = true;
         $GLOBALS['sql_include_comments'] = true;

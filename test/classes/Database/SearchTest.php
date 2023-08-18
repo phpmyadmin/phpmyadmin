@@ -42,7 +42,7 @@ class SearchTest extends AbstractTestCase
             ->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $this->object = new Search($dbi, 'pma_test', new Template());
     }
 
@@ -69,7 +69,7 @@ class SearchTest extends AbstractTestCase
         $_POST['criteriaSearchType'] = $type;
         $_POST['criteriaSearchString'] = 'search string';
 
-        $this->object = new Search($GLOBALS['dbi'], 'pma_test', new Template());
+        $this->object = new Search(DatabaseInterface::getInstance(), 'pma_test', new Template());
         $this->assertEquals(
             $expected,
             $this->callFunction(

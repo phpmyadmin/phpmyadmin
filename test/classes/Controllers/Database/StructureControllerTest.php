@@ -62,7 +62,7 @@ class StructureControllerTest extends AbstractTestCase
         $dbi->expects($this->any())->method('getTable')
             ->willReturn($table);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $this->template = new Template();
         $this->response = new ResponseStub();
@@ -77,15 +77,16 @@ class StructureControllerTest extends AbstractTestCase
     {
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('getValuesForInnodbTable');
+        $dbi = DatabaseInterface::getInstance();
         $controller = new StructureController(
             $this->response,
             $this->template,
             $this->relation,
             $this->replication,
-            $GLOBALS['dbi'],
+            $dbi,
             $this->createStub(TrackingChecker::class),
             $this->createStub(PageSettings::class),
-            new DbTableExists($GLOBALS['dbi']),
+            new DbTableExists($dbi),
         );
         // Showing statistics
         $property = $class->getProperty('isShowStats');
@@ -122,10 +123,10 @@ class StructureControllerTest extends AbstractTestCase
             $this->template,
             $this->relation,
             $this->replication,
-            $GLOBALS['dbi'],
+            $dbi,
             $this->createStub(TrackingChecker::class),
             $this->createStub(PageSettings::class),
-            new DbTableExists($GLOBALS['dbi']),
+            new DbTableExists($dbi),
         );
 
         $currentTable['ENGINE'] = 'InnoDB';
@@ -147,15 +148,16 @@ class StructureControllerTest extends AbstractTestCase
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('getValuesForAriaTable');
 
+        $dbi = DatabaseInterface::getInstance();
         $controller = new StructureController(
             $this->response,
             $this->template,
             $this->relation,
             $this->replication,
-            $GLOBALS['dbi'],
+            $dbi,
             $this->createStub(TrackingChecker::class),
             $this->createStub(PageSettings::class),
-            new DbTableExists($GLOBALS['dbi']),
+            new DbTableExists($dbi),
         );
         // Showing statistics
         $property = $class->getProperty('isShowStats');
@@ -184,10 +186,10 @@ class StructureControllerTest extends AbstractTestCase
             $this->template,
             $this->relation,
             $this->replication,
-            $GLOBALS['dbi'],
+            $dbi,
             $this->createStub(TrackingChecker::class),
             $this->createStub(PageSettings::class),
-            new DbTableExists($GLOBALS['dbi']),
+            new DbTableExists($dbi),
         );
         [$currentTable, , , , , , $sumSize] = $method->invokeArgs(
             $controller,
@@ -200,10 +202,10 @@ class StructureControllerTest extends AbstractTestCase
             $this->template,
             $this->relation,
             $this->replication,
-            $GLOBALS['dbi'],
+            $dbi,
             $this->createStub(TrackingChecker::class),
             $this->createStub(PageSettings::class),
-            new DbTableExists($GLOBALS['dbi']),
+            new DbTableExists($dbi),
         );
         [$currentTable] = $method->invokeArgs(
             $controller,
@@ -220,15 +222,16 @@ class StructureControllerTest extends AbstractTestCase
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('hasTable');
 
+        $dbi = DatabaseInterface::getInstance();
         $controller = new StructureController(
             $this->response,
             $this->template,
             $this->relation,
             $this->replication,
-            $GLOBALS['dbi'],
+            $dbi,
             $this->createStub(TrackingChecker::class),
             $this->createStub(PageSettings::class),
-            new DbTableExists($GLOBALS['dbi']),
+            new DbTableExists($dbi),
         );
 
         // When parameter $db is empty
@@ -261,7 +264,7 @@ class StructureControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface($dbiDummy);
 
         $GLOBALS['db'] = 'sakila';
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $dbiDummy->removeDefaultResults();
         $dbiDummy->addResult(
@@ -282,10 +285,10 @@ class StructureControllerTest extends AbstractTestCase
             $this->template,
             $this->relation,
             $this->replication,
-            $GLOBALS['dbi'],
+            $dbi,
             $this->createStub(TrackingChecker::class),
             $this->createStub(PageSettings::class),
-            new DbTableExists($GLOBALS['dbi']),
+            new DbTableExists($dbi),
         );
 
         $recentFavoriteTables = RecentFavoriteTable::getInstance('favorite');
@@ -314,15 +317,16 @@ class StructureControllerTest extends AbstractTestCase
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('displayTableList');
 
+        $dbi = DatabaseInterface::getInstance();
         $controller = new StructureController(
             $this->response,
             $this->template,
             $this->relation,
             $this->replication,
-            $GLOBALS['dbi'],
+            $dbi,
             $this->createStub(TrackingChecker::class),
             $this->createStub(PageSettings::class),
-            new DbTableExists($GLOBALS['dbi']),
+            new DbTableExists($dbi),
         );
         // Showing statistics
         $class = new ReflectionClass(StructureController::class);

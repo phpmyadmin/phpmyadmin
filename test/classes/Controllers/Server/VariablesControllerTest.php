@@ -66,7 +66,7 @@ class VariablesControllerTest extends AbstractTestCase
         $dbi->expects($this->any())->method('fetchResult')
             ->willReturnMap($fetchResult);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
     }
 
     public function testIndex(): void
@@ -76,7 +76,7 @@ class VariablesControllerTest extends AbstractTestCase
         $resultStub = $this->createMock(DummyResult::class);
 
         /** @var MockObject&DatabaseInterface $dbi */
-        $dbi = $GLOBALS['dbi'];
+        $dbi = DatabaseInterface::getInstance();
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with('SHOW SESSION VARIABLES;')
@@ -122,7 +122,11 @@ class VariablesControllerTest extends AbstractTestCase
      */
     public function testFormatVariable(): void
     {
-        $controller = new VariablesController(ResponseRenderer::getInstance(), new Template(), $GLOBALS['dbi']);
+        $controller = new VariablesController(
+            ResponseRenderer::getInstance(),
+            new Template(),
+            DatabaseInterface::getInstance(),
+        );
 
         $nameForValueByte = 'byte_variable';
         $nameForValueNotByte = 'not_a_byte_variable';
@@ -184,7 +188,11 @@ class VariablesControllerTest extends AbstractTestCase
         $response = new ReflectionProperty(ServerVariablesProvider::class, 'instance');
         $response->setValue(null, null);
 
-        $controller = new VariablesController(ResponseRenderer::getInstance(), new Template(), $GLOBALS['dbi']);
+        $controller = new VariablesController(
+            ResponseRenderer::getInstance(),
+            new Template(),
+            DatabaseInterface::getInstance(),
+        );
 
         $nameForValueByte = 'wsrep_replicated_bytes';
         $nameForValueNotByte = 'wsrep_thread_count';
@@ -233,7 +241,11 @@ class VariablesControllerTest extends AbstractTestCase
         $response = new ReflectionProperty(ServerVariablesProvider::class, 'instance');
         $response->setValue(null, new ServerVariablesVoidProvider());
 
-        $controller = new VariablesController(ResponseRenderer::getInstance(), new Template(), $GLOBALS['dbi']);
+        $controller = new VariablesController(
+            ResponseRenderer::getInstance(),
+            new Template(),
+            DatabaseInterface::getInstance(),
+        );
 
         $nameForValueByte = 'wsrep_replicated_bytes';
 

@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Export;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
@@ -59,7 +60,7 @@ final class Options
         }
 
         $databases = [];
-        foreach ($GLOBALS['dbi']->getDatabaseList() as $currentDb) {
+        foreach (DatabaseInterface::getInstance()->getDatabaseList() as $currentDb) {
             if (Utilities::isSystemSchema($currentDb, true)) {
                 continue;
             }
@@ -120,7 +121,7 @@ final class Options
 
         $default = isset($_GET['what']) ? (string) $_GET['what'] : Plugins::getDefault('Export', 'format');
         $dropdown = Plugins::getChoice($exportList, $default);
-        $tableObject = new Table($table, $db, $GLOBALS['dbi']);
+        $tableObject = new Table($table, $db, DatabaseInterface::getInstance());
         $rows = [];
 
         if ($table !== '' && $numTables === 0 && ! $tableObject->isMerge() && $exportType !== 'raw') {

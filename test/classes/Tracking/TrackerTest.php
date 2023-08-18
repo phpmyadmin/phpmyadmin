@@ -29,7 +29,7 @@ class TrackerTest extends AbstractTestCase
         parent::setUp();
 
         $this->loadContainerBuilder();
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
 
         parent::loadDbiIntoContainerBuilder();
 
@@ -210,7 +210,7 @@ class TrackerTest extends AbstractTestCase
         $dbi->expects($this->any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $this->assertTrue(Tracker::createVersion('pma_test', 'pma_tbl', '1', '11', true));
     }
 
@@ -243,7 +243,7 @@ class TrackerTest extends AbstractTestCase
         $dbi->expects($this->any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $this->assertTrue(Tracker::createDatabaseVersion('pma_test', '1', 'SHOW DATABASES'));
     }
 
@@ -283,7 +283,7 @@ class TrackerTest extends AbstractTestCase
         $dbi->expects($this->any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         if ($type === null) {
             $method = new ReflectionMethod(Tracker::class, 'changeTracking');

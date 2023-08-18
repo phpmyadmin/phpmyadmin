@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Replication;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Utilities;
@@ -72,7 +73,7 @@ class ReplicationGui
     ): string {
         if (! $hasReplicaClearScreen) {
             $primaryStatusTable = $this->getHtmlForReplicationStatusTable($connection, 'primary', true, false);
-            $replicas = $GLOBALS['dbi']->fetchResult('SHOW SLAVE HOSTS', null, null);
+            $replicas = DatabaseInterface::getInstance()->fetchResult('SHOW SLAVE HOSTS', null, null);
 
             $urlParams = $GLOBALS['urlParams'];
             $urlParams['primary_add_user'] = true;
@@ -124,7 +125,7 @@ class ReplicationGui
         array $serverReplicaReplication,
         bool $replicaConfigure,
     ): string {
-        $serverReplicaMultiReplication = $GLOBALS['dbi']->fetchResult('SHOW ALL SLAVES STATUS');
+        $serverReplicaMultiReplication = DatabaseInterface::getInstance()->fetchResult('SHOW ALL SLAVES STATUS');
         if ($serverReplicaStatus) {
             $urlParams = $GLOBALS['urlParams'];
             $urlParams['sr_take_action'] = true;
@@ -206,7 +207,7 @@ class ReplicationGui
     public function getHtmlForReplicationDbMultibox(): string
     {
         $databases = [];
-        foreach ($GLOBALS['dbi']->getDatabaseList() as $database) {
+        foreach (DatabaseInterface::getInstance()->getDatabaseList() as $database) {
             if (Utilities::isSystemSchema($database)) {
                 continue;
             }
@@ -252,7 +253,7 @@ class ReplicationGui
         bool $isHidden = false,
         bool $hasTitle = true,
     ): string {
-        $replicationInfo = new ReplicationInfo($GLOBALS['dbi']);
+        $replicationInfo = new ReplicationInfo(DatabaseInterface::getInstance());
         $replicationInfo->load($connection);
 
         $replicationVariables = $replicationInfo->primaryVariables;
@@ -310,7 +311,7 @@ class ReplicationGui
      */
     public function getUsernameHostnameLength(): array
     {
-        $fieldsInfo = $GLOBALS['dbi']->getColumns('mysql', 'user');
+        $fieldsInfo = DatabaseInterface::getInstance()->getColumns('mysql', 'user');
         $usernameLength = 16;
         $hostnameLength = 41;
         foreach ($fieldsInfo as $val) {
@@ -348,7 +349,7 @@ class ReplicationGui
             $username = $GLOBALS['new_username'] ?? $postUsername;
         }
 
-        $currentUser = $GLOBALS['dbi']->fetchValue('SELECT USER();');
+        $currentUser = DatabaseInterface::getInstance()->fetchValue('SELECT USER();');
         if (! empty($currentUser)) {
             $userHost = str_replace(
                 "'",
@@ -527,7 +528,7 @@ class ReplicationGui
     {
         if ($srReplicaAction === 'reset') {
             $qStop = $this->replication->replicaControl('STOP', null, Connection::TYPE_USER);
-            $qReset = $GLOBALS['dbi']->tryQuery('RESET SLAVE;');
+            $qReset = DatabaseInterface::getInstance()->tryQuery('RESET SLAVE;');
             $qStart = $this->replication->replicaControl('START', null, Connection::TYPE_USER);
 
             return $qStop !== false && $qStop !== -1 && $qReset !== false && $qStart !== false && $qStart !== -1;
@@ -540,8 +541,9 @@ class ReplicationGui
 
     public function handleRequestForReplicaSkipError(int $srSkipErrorsCount): bool
     {
+        $dbi = DatabaseInterface::getInstance();
         $qStop = $this->replication->replicaControl('STOP', null, Connection::TYPE_USER);
-        $qSkip = $GLOBALS['dbi']->tryQuery('SET GLOBAL SQL_SLAVE_SKIP_COUNTER = ' . $srSkipErrorsCount . ';');
+        $qSkip = $dbi->tryQuery('SET GLOBAL SQL_SLAVE_SKIP_COUNTER = ' . $srSkipErrorsCount . ';');
         $qStart = $this->replication->replicaControl('START', null, Connection::TYPE_USER);
 
         return $qStop !== false && $qStop !== -1 && $qSkip !== false && $qStart !== false && $qStart !== -1;

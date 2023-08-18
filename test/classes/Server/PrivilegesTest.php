@@ -45,7 +45,7 @@ class PrivilegesTest extends AbstractTestCase
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
     }
 
     public function testGetDataForDBInfo(): void
@@ -561,7 +561,7 @@ class PrivilegesTest extends AbstractTestCase
     {
         $GLOBALS['hostname'] = 'hostname';
         $GLOBALS['username'] = 'username';
-        $dbi = DatabaseInterface::load(new DbiDummy());
+        $dbi = $this->createDatabaseInterface();
 
         $serverPrivileges = $this->getPrivileges($dbi);
         $html = $serverPrivileges->getHtmlToDisplayPrivilegesTable();
@@ -782,7 +782,7 @@ class PrivilegesTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface();
         $serverPrivileges = $this->getPrivileges($dbi);
 
-        $dbi = DatabaseInterface::load(new DbiDummy());
+        $dbi = $this->createDatabaseInterface();
         $serverPrivileges->dbi = $dbi;
 
         $GLOBALS['username'] = 'PMA_username';
@@ -1591,7 +1591,7 @@ class PrivilegesTest extends AbstractTestCase
         // phpcs:enable
 
         $dbi = $this->createDatabaseInterface($dummyDbi);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $serverPrivileges = $this->getPrivileges($dbi);
 
         // Test case 1

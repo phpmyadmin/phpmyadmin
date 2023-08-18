@@ -52,7 +52,7 @@ class Footer
     public function __construct(private readonly Template $template)
     {
         $this->scripts = new Scripts($this->template);
-        $this->relation = new Relation($GLOBALS['dbi']);
+        $this->relation = new Relation(DatabaseInterface::getInstance());
     }
 
     /**
@@ -178,8 +178,7 @@ class Footer
             )
             || ! empty($GLOBALS['error_message'])
             || empty($GLOBALS['sql_query'])
-            || ! isset($GLOBALS['dbi'])
-            || ! $GLOBALS['dbi']->isConnected()
+            || ! DatabaseInterface::getInstance()->isConnected()
         ) {
             return;
         }

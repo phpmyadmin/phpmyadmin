@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Pdf;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Pdf as PdfLib;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
@@ -463,6 +464,7 @@ class PdfRelationSchema extends ExportRelationSchema
         $this->diagram->Cell(0, 9, __('Table of contents'), 1, 0, 'C');
         $this->diagram->Ln(15);
         $i = 1;
+        $dbi = DatabaseInterface::getInstance();
         foreach ($alltables as $table) {
             $this->diagram->customLinks['doc'][$table]['-'] = $this->diagram->AddLink();
             $this->diagram->setX(10);
@@ -489,7 +491,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 $this->diagram->customLinks['doc'][$table]['-'],
             );
             // $this->diagram->Ln(1);
-            $fields = $GLOBALS['dbi']->getColumns($this->db->getName(), $table);
+            $fields = $dbi->getColumns($this->db->getName(), $table);
             foreach ($fields as $row) {
                 $this->diagram->setX(20);
                 $fieldName = $row['Field'];
@@ -557,7 +559,7 @@ class PdfRelationSchema extends ExportRelationSchema
             /**
              * Gets table information
              */
-            $showTable = $GLOBALS['dbi']->getTable($this->db->getName(), $table)
+            $showTable = $dbi->getTable($this->db->getName(), $table)
                 ->getStatusInfo();
             $showComment = $showTable['Comment'] ?? '';
             $createTime = isset($showTable['Create_time'])
@@ -579,7 +581,7 @@ class PdfRelationSchema extends ExportRelationSchema
             /**
              * Gets fields properties
              */
-            $columns = $GLOBALS['dbi']->getColumns($this->db->getName(), $table);
+            $columns = $dbi->getColumns($this->db->getName(), $table);
 
             // Find which tables are related with the current one and write it in
             // an array

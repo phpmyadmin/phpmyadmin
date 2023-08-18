@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Types;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -21,8 +22,8 @@ class TypesTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
-        $this->object = new Types($GLOBALS['dbi']);
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
+        $this->object = new Types(DatabaseInterface::getInstance());
     }
 
     /**

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Normalization;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Normalization\CreateNewColumnController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Template;
@@ -27,7 +28,7 @@ class CreateNewColumnControllerTest extends AbstractTestCase
         $dbiDummy = $this->createDbiDummy();
 
         $dbi = $this->createDatabaseInterface($dbiDummy);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
         $template = new Template();
         $request = $this->createStub(ServerRequest::class);

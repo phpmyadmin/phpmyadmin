@@ -383,11 +383,12 @@ class Config
     private function setConnectionCollation(): void
     {
         $collationConnection = $this->get('DefaultConnectionCollation');
-        if (empty($collationConnection) || $collationConnection === $GLOBALS['dbi']->getDefaultCollation()) {
+        $dbi = DatabaseInterface::getInstance();
+        if (empty($collationConnection) || $collationConnection === $dbi->getDefaultCollation()) {
             return;
         }
 
-        $GLOBALS['dbi']->setCollation($collationConnection);
+        $dbi->setCollation($collationConnection);
     }
 
     /**
@@ -408,7 +409,8 @@ class Config
                 ! isset($_SESSION['cache'][$cacheKey]['userprefs'])
                 || $_SESSION['cache'][$cacheKey]['config_mtime'] < $this->sourceMtime
             ) {
-                $userPreferences = new UserPreferences($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template());
+                $dbi = DatabaseInterface::getInstance();
+                $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
                 $prefs = $userPreferences->load();
                 $_SESSION['cache'][$cacheKey]['userprefs'] = $userPreferences->apply($prefs['config_data']);
                 $_SESSION['cache'][$cacheKey]['userprefs_mtime'] = $prefs['mtime'];
@@ -507,7 +509,8 @@ class Config
         mixed $newCfgValue,
         string|null $defaultValue = null,
     ): bool|Message {
-        $userPreferences = new UserPreferences($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template());
+        $dbi = DatabaseInterface::getInstance();
+        $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
         $result = true;
         // use permanent user preferences if possible
         $prefsType = $this->get('user_preferences');

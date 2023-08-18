@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Normalization\FirstNormalForm;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Normalization\FirstNormalForm\SecondStepController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Template;
@@ -23,7 +24,7 @@ class SecondStepControllerTest extends AbstractTestCase
         $GLOBALS['table'] = 'test_table';
 
         $dbi = $this->createDatabaseInterface();
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
         $template = new Template();
 

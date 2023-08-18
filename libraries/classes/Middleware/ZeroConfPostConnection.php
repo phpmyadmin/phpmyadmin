@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Middleware;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -24,7 +25,7 @@ final class ZeroConfPostConnection implements MiddlewareInterface
         if (! empty($GLOBALS['server']) && $settings->zeroConf) {
             /** @var Relation $relation */
             $relation = Core::getContainerBuilder()->get('relation');
-            $GLOBALS['dbi']->postConnectControl($relation);
+            DatabaseInterface::getInstance()->postConnectControl($relation);
         }
 
         return $handler->handle($request);

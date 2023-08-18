@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -123,7 +124,8 @@ class ImportLdi extends AbstractImportCsv
             $sql .= ' LOCAL';
         }
 
-        $sql .= ' INFILE ' . $GLOBALS['dbi']->quoteString($GLOBALS['import_file']);
+        $dbi = DatabaseInterface::getInstance();
+        $sql .= ' INFILE ' . $dbi->quoteString($GLOBALS['import_file']);
         if (isset($GLOBALS['ldi_replace'])) {
             $sql .= ' REPLACE';
         } elseif (isset($GLOBALS['ldi_ignore'])) {
@@ -137,11 +139,11 @@ class ImportLdi extends AbstractImportCsv
         }
 
         if (strlen((string) $GLOBALS['ldi_enclosed']) > 0) {
-            $sql .= ' ENCLOSED BY ' . $GLOBALS['dbi']->quoteString($GLOBALS['ldi_enclosed']);
+            $sql .= ' ENCLOSED BY ' . $dbi->quoteString($GLOBALS['ldi_enclosed']);
         }
 
         if (strlen((string) $GLOBALS['ldi_escaped']) > 0) {
-            $sql .= ' ESCAPED BY ' . $GLOBALS['dbi']->quoteString($GLOBALS['ldi_escaped']);
+            $sql .= ' ESCAPED BY ' . $dbi->quoteString($GLOBALS['ldi_escaped']);
         }
 
         if (strlen((string) $GLOBALS['ldi_new_line']) > 0) {
@@ -196,7 +198,7 @@ class ImportLdi extends AbstractImportCsv
     private function setLdiLocalOptionConfig(): void
     {
         $GLOBALS['cfg']['Import']['ldi_local_option'] = false;
-        $result = $GLOBALS['dbi']->tryQuery('SELECT @@local_infile;');
+        $result = DatabaseInterface::getInstance()->tryQuery('SELECT @@local_infile;');
 
         if ($result === false || $result->numRows() <= 0) {
             return;

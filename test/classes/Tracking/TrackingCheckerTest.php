@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Tracking;
 use PhpMyAdmin\Cache;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tracking\TrackedTable;
@@ -27,7 +28,8 @@ class TrackingCheckerTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        $dbi = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $dbi;
 
         $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',
@@ -37,8 +39,8 @@ class TrackingCheckerTest extends AbstractTestCase
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $this->trackingChecker = new TrackingChecker(
-            $GLOBALS['dbi'],
-            new Relation($GLOBALS['dbi']),
+            $dbi,
+            new Relation($dbi),
         );
     }
 
