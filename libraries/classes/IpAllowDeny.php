@@ -238,7 +238,7 @@ class IpAllowDeny
     {
         // Grabs true IP of the user and returns if it can't be found
         $remoteIp = Core::getIp();
-        if (empty($remoteIp)) {
+        if ($remoteIp === '' || $remoteIp === false) {
             return false;
         }
 
@@ -259,7 +259,7 @@ class IpAllowDeny
         $shortcuts = ['all' => '0.0.0.0/0', 'localhost' => '127.0.0.1/8'];
 
         // Provide some useful shortcuts if server gives us address:
-        if (Core::getenv('SERVER_ADDR')) {
+        if (Core::getenv('SERVER_ADDR') !== '') {
             $shortcuts['localnetA'] = Core::getenv('SERVER_ADDR') . '/8';
             $shortcuts['localnetB'] = Core::getenv('SERVER_ADDR') . '/16';
             $shortcuts['localnetC'] = Core::getenv('SERVER_ADDR') . '/24';

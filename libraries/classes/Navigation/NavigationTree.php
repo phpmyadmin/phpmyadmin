@@ -493,15 +493,15 @@ class NavigationTree
     {
         $retval = [];
         if (! $table->hasChildren()) {
-            if ($table->getPresence('columns')) {
+            if ($table->getPresence('columns') !== 0) {
                 $retval['columns'] = new NodeColumnContainer();
             }
 
-            if ($table->getPresence('indexes')) {
+            if ($table->getPresence('indexes') !== 0) {
                 $retval['indexes'] = new NodeIndexContainer();
             }
 
-            if ($table->getPresence('triggers')) {
+            if ($table->getPresence('triggers') !== 0) {
                 $retval['triggers'] = new NodeTriggerContainer();
             }
 

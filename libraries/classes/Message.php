@@ -147,7 +147,7 @@ class Message implements Stringable
      */
     public static function success(string $string = ''): self
     {
-        if (empty($string)) {
+        if ($string === '') {
             $string = __('Your SQL query has been executed successfully.');
         }
 
@@ -165,7 +165,7 @@ class Message implements Stringable
      */
     public static function error(string $string = ''): self
     {
-        if (empty($string)) {
+        if ($string === '') {
             $string = __('Error');
         }
 
@@ -470,7 +470,7 @@ class Message implements Stringable
      */
     private function addMessageToList(self $message, string $separator): void
     {
-        if (! empty($separator)) {
+        if ($separator !== '') {
             $this->addedMessages[] = $separator;
         }
 

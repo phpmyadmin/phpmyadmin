@@ -175,7 +175,7 @@ class RoutinesController extends AbstractController
                 $mode = 'add';
             } elseif (! empty($_REQUEST['edit_item'])) {
                 $title = __('Edit routine');
-                if (! $operation && ! empty($_GET['item_name']) && empty($_POST['editor_process_edit'])) {
+                if ($operation === '' && ! empty($_GET['item_name']) && empty($_POST['editor_process_edit'])) {
                     $routine = $this->routines->getDataFromName($_GET['item_name'], $_GET['item_type']);
                     if ($routine !== null) {
                         $routine['item_original_name'] = $routine['item_name'];

@@ -14,7 +14,6 @@ use Webmozart\Assert\Assert;
 use function __;
 use function array_column;
 use function array_multisort;
-use function count;
 use function explode;
 use function htmlspecialchars;
 use function in_array;
@@ -69,7 +68,7 @@ class Triggers
         $itemQuery = $this->getQueryFromRequest();
 
         // set by getQueryFromRequest()
-        if (! count($GLOBALS['errors'])) {
+        if ($GLOBALS['errors'] === []) {
             // Execute the created query
             if (! empty($_POST['editor_process_edit'])) {
                 // Backup the old trigger, in case something goes wrong
@@ -132,7 +131,7 @@ class Triggers
             }
         }
 
-        if (count($GLOBALS['errors'])) {
+        if ($GLOBALS['errors'] !== []) {
             $GLOBALS['message'] = Message::error(
                 '<b>'
                 . __(

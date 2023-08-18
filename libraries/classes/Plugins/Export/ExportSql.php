@@ -569,7 +569,7 @@ class ExportSql extends ExportPlugin
             $text .= "\n"
                 . 'DELIMITER ' . $delimiter . "\n";
 
-            if ($procedureNames) {
+            if ($procedureNames !== []) {
                 $text .= $this->exportRoutineSQL(
                     $db,
                     $aliases,
@@ -580,7 +580,7 @@ class ExportSql extends ExportPlugin
                 );
             }
 
-            if ($functionNames) {
+            if ($functionNames !== []) {
                 $text .= $this->exportRoutineSQL(
                     $db,
                     $aliases,
@@ -2589,9 +2589,9 @@ class ExportSql extends ExportPlugin
                 $isKeyword = $token->type === Token::TYPE_KEYWORD;
                 $isNone = $token->type === Token::TYPE_NONE;
                 $replaceToken = $isSymbol
-                    && (! ($token->flags & Token::FLAG_SYMBOL_VARIABLE))
+                    && (($token->flags & Token::FLAG_SYMBOL_VARIABLE) === 0)
                     || ($isKeyword
-                    && (! ($token->flags & Token::FLAG_KEYWORD_RESERVED))
+                    && (($token->flags & Token::FLAG_KEYWORD_RESERVED) === 0)
                     || $isNone);
 
                 if (! $replaceToken) {

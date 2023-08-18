@@ -3539,7 +3539,7 @@ class Results
     ): string {
         $fieldsMeta = $this->properties['fields_meta']; // To use array indexes
 
-        if (empty($sortExpressionNoDirection)) {
+        if ($sortExpressionNoDirection === null || $sortExpressionNoDirection === '') {
             return '';
         }
 
@@ -3580,7 +3580,7 @@ class Results
         if ($isBlobOrGeometryOrBinary) {
             $columnForFirstRow = $this->handleNonPrintableContents(
                 $meta->getMappedType(),
-                $row ? $row[$sortedColumnIndex] : '',
+                $row !== [] ? $row[$sortedColumnIndex] : '',
                 null,
                 [],
                 $meta,
@@ -3606,7 +3606,7 @@ class Results
         if ($isBlobOrGeometryOrBinary) {
             $columnForLastRow = $this->handleNonPrintableContents(
                 $meta->getMappedType(),
-                $row ? $row[$sortedColumnIndex] : '',
+                $row !== [] ? $row[$sortedColumnIndex] : '',
                 null,
                 [],
                 $meta,
@@ -3885,7 +3885,7 @@ class Results
 
             // In case this query doesn't involve any tables,
             // implies only raw query is to be exported
-            if (! $statementInfo->selectTables) {
+            if ($statementInfo->selectTables === []) {
                 $urlParams['raw_query'] = 'true';
             }
 

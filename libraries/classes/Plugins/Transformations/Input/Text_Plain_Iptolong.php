@@ -65,7 +65,7 @@ class Text_Plain_Iptolong extends IOTransformationsPlugin
         $html = '';
         $val = '';
 
-        if (! empty($value)) {
+        if ($value !== '') {
             $val = FormatConverter::longToIp($value);
 
             if ($value !== $val) {

@@ -173,7 +173,7 @@ class ExportOdt extends ExportPlugin
      */
     public function exportDBHeader(string $db, string $dbAlias = ''): bool
     {
-        if (empty($dbAlias)) {
+        if ($dbAlias === '') {
             $dbAlias = $db;
         }
 
@@ -697,7 +697,7 @@ class ExportOdt extends ExportPlugin
      */
     protected function formatOneColumnDefinition(array $column, string $colAs = ''): string
     {
-        if (empty($colAs)) {
+        if ($colAs === '') {
             $colAs = $column['Field'];
         }
 
@@ -708,7 +708,7 @@ class ExportOdt extends ExportPlugin
 
         $extractedColumnSpec = Util::extractColumnSpec($column['Type']);
         $type = htmlspecialchars($extractedColumnSpec['print_type']);
-        if (empty($type)) {
+        if ($type === '') {
             $type = '&nbsp;';
         }
 

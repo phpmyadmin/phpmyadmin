@@ -77,7 +77,7 @@ final class SimulateDmlController extends AbstractController
             $sqlData[] = $result;
         }
 
-        if ($error) {
+        if ($error !== '') {
             $message = Message::rawError($error);
             $this->response->addJSON('message', $message);
             $this->response->addJSON('sql_data', false);

@@ -109,7 +109,7 @@ final class Maintenance
         foreach ($tables as $table) {
             $check = Index::findDuplicates($table->getName(), $db->getName());
 
-            if (empty($check)) {
+            if ($check === '') {
                 continue;
             }
 

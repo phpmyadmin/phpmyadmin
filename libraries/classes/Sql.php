@@ -342,7 +342,7 @@ class Sql
                 || $statementInfo->isFunction
                 || $statementInfo->isAnalyse)
             && $statementInfo->selectFrom
-            && (empty($statementInfo->selectExpression)
+            && ($statementInfo->selectExpression === []
                 || ((count($statementInfo->selectExpression) === 1)
                     && ($statementInfo->selectExpression[0] === '*')))
             && count($statementInfo->selectTables) === 1;
@@ -395,9 +395,8 @@ class Sql
      */
     private function isDeleteTransformationInfo(StatementInfo $statementInfo): bool
     {
-        return ! empty($statementInfo->queryType)
-            && (($statementInfo->queryType === 'ALTER')
-                || ($statementInfo->queryType === 'DROP'));
+        return $statementInfo->queryType !== '' && $statementInfo->queryType !== false
+            && ($statementInfo->queryType === 'ALTER' || $statementInfo->queryType === 'DROP');
     }
 
     /**
@@ -766,7 +765,7 @@ class Sql
         $error = $this->dbi->getError();
         if ($error && $GLOBALS['cfg']['IgnoreMultiSubmitErrors']) {
             $errorMessage = $error;
-        } elseif ($error) {
+        } elseif ($error !== '') {
             $this->handleQueryExecuteError($isGotoFile, $error, $fullSqlQuery);
         }
 

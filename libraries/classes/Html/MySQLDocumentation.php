@@ -93,7 +93,7 @@ class MySQLDocumentation
     {
         /* Construct base URL */
         $url = $page . '.html';
-        if (! empty($anchor)) {
+        if ($anchor !== '') {
             $url .= '#' . $anchor;
         }
 

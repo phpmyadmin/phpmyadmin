@@ -199,7 +199,7 @@ class ErrorHandler
              * user errors even in this case.
              * See: https://github.com/phpmyadmin/phpmyadmin/issues/16729
              */
-            $isSilenced = ! (error_reporting() & $errno);
+            $isSilenced = (error_reporting() & $errno) === 0;
 
             if (
                 isset($GLOBALS['cfg']['environment'])
@@ -471,7 +471,7 @@ class ErrorHandler
     public function countUserErrors(): int
     {
         $count = 0;
-        if ($this->countErrors()) {
+        if ($this->countErrors() !== 0) {
             foreach ($this->getErrors() as $error) {
                 if (! $error->isUserError()) {
                     continue;

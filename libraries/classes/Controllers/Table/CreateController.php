@@ -68,7 +68,7 @@ class CreateController extends AbstractController
             );
         }
 
-        if ($this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table'])) {
+        if ($this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table']) !== []) {
             // table exists already
             Generator::mysqlDie(
                 sprintf(__('Table %s already exists!'), htmlspecialchars($GLOBALS['table'])),

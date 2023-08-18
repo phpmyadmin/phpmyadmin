@@ -54,7 +54,7 @@ class SqlQueryForm
         bool|string $displayTab = false,
         string $delimiter = ';',
     ): string {
-        if (! $displayTab) {
+        if ($displayTab === false || $displayTab === '') {
             $displayTab = 'full';
         }
 

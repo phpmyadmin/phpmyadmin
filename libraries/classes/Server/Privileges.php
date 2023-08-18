@@ -2078,7 +2078,7 @@ class Privileges
         if (isset($_POST['change_copy'])) {
             $userHostCondition = $this->getUserHostCondition($oldUsername, $oldHostname);
             $row = $this->dbi->fetchSingleRow('SELECT * FROM `mysql`.`user` ' . $userHostCondition . ';');
-            if (! $row) {
+            if ($row === null || $row === []) {
                 $response = ResponseRenderer::getInstance();
                 $response->addHTML(
                     Message::notice(__('No user found.'))->getDisplay(),

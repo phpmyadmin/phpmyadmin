@@ -324,7 +324,7 @@ class ImportMediawiki extends ImportPlugin
      */
     private function setTableName(string &$tableName): void
     {
-        if (! empty($tableName)) {
+        if ($tableName !== '') {
             return;
         }
 

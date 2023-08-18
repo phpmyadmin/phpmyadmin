@@ -290,7 +290,7 @@ class ExportJson extends ExportPlugin
             }
 
             $encodedData = $this->encode($data);
-            if (! $encodedData) {
+            if ($encodedData === '' || $encodedData === false) {
                 return false;
             }
 

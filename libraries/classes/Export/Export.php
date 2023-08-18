@@ -194,7 +194,7 @@ class Export
 
                 // Here, use strlen rather than mb_strlen to get the length
                 // in bytes to compare against the number of bytes written.
-                if (! $writeResult || $writeResult != strlen($line)) {
+                if ($writeResult === 0 || $writeResult === false || $writeResult != strlen($line)) {
                     $GLOBALS['message'] = Message::error(
                         __('Insufficient space to save the file %s.'),
                     );

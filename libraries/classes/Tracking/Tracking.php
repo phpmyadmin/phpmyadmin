@@ -76,7 +76,7 @@ class Tracking
             $this->dbi->quoteString($dbName, Connection::TYPE_CONTROL),
             $this->dbi->quoteString($tableName, Connection::TYPE_CONTROL),
         );
-        if ($version) {
+        if ($version !== '') {
             $sqlQuery .= ' AND `version` = ' . $this->dbi->quoteString($version, Connection::TYPE_CONTROL);
         }
 

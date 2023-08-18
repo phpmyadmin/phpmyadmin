@@ -59,7 +59,7 @@ class PageSettings
             return;
         }
 
-        if (! empty($elemId)) {
+        if ($elemId !== null && $elemId !== '') {
             $this->elemId = $elemId;
         }
 

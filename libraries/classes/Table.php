@@ -529,11 +529,11 @@ class Table implements Stringable
             );
         }
 
-        if ($virtuality) {
+        if ($virtuality !== '') {
             $query .= ' AS (' . $expression . ') ' . $virtuality;
         }
 
-        if (! $virtuality || $isVirtualColMysql) {
+        if ($virtuality === '' || $isVirtualColMysql) {
             if ($null !== false) {
                 if ($null === 'YES') {
                     $query .= ' NULL';
@@ -542,7 +542,7 @@ class Table implements Stringable
                 }
             }
 
-            if (! $virtuality) {
+            if ($virtuality === '') {
                 switch ($defaultType) {
                     case 'USER_DEFINED':
                         if ($isTimestamp && $defaultValue === '0') {
@@ -607,7 +607,7 @@ class Table implements Stringable
             }
 
             if ($extra !== '') {
-                if ($virtuality) {
+                if ($virtuality !== '') {
                     $extra = trim((string) preg_replace('~^\s*AUTO_INCREMENT\s*~is', ' ', $extra));
                 }
 
@@ -626,7 +626,7 @@ class Table implements Stringable
             $query .= ' AFTER ' . Util::backquote($moveTo);
         }
 
-        if (! $virtuality && $extra !== '') {
+        if ($virtuality === '' && $extra !== '') {
             if ($oldColumnName === null) {
                 if (is_array($columnsWithIndex) && ! in_array($name, $columnsWithIndex)) {
                     $query .= ', add PRIMARY KEY (' . Util::backquote($name) . ')';
@@ -1980,7 +1980,7 @@ class Table implements Stringable
                     ' ADD %s',
                     $index->getChoice(),
                 );
-                if ($index->getName()) {
+                if ($index->getName() !== '') {
                     $sqlQuery .= ' ' . Util::backquote($index->getName());
                 }
 

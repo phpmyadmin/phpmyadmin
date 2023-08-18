@@ -76,10 +76,10 @@ final class ReplicationInfo
 
         $this->setPrimaryStatus();
 
-        if (! empty($connection)) {
+        if ($connection !== null && $connection !== '') {
             $this->setMultiPrimaryStatus();
 
-            if ($this->multiPrimaryStatus) {
+            if ($this->multiPrimaryStatus !== []) {
                 $this->setDefaultPrimaryConnection($connection);
                 $GLOBALS['urlParams']['primary_connection'] = $connection;
             }

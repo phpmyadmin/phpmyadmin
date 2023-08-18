@@ -907,7 +907,6 @@
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
-      <code>$html</code>
       <code>$page</code>
       <code><![CDATA[$position['dbName']]]></code>
       <code><![CDATA[$position['tableName']]]></code>
@@ -3468,10 +3467,6 @@
       <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
       <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
     </InvalidArrayOffset>
-    <MixedArgument>
-      <code>$newMessage</code>
-      <code>$newMessage</code>
-    </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$tableAlters</code>
       <code>is_array($partitionNames) ? $partitionNames : []</code>
@@ -4862,8 +4857,6 @@
       <code><![CDATA[$GLOBALS['errors']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
@@ -8991,7 +8984,7 @@
       <code><![CDATA[$this->tablewidths[$col]]]></code>
       <code><![CDATA[$this->tablewidths[$col]]]></code>
       <code><![CDATA[$this->tablewidths[$col]]]></code>
-      <code><![CDATA[$this->titleFontSize ?: $this->FontSizePt]]></code>
+      <code><![CDATA[$this->titleFontSize !== 0 ? $this->titleFontSize : $this->FontSizePt]]></code>
       <code><![CDATA[$txt ?? 'NULL']]></code>
       <code><![CDATA[$txt ?? 'NULL']]></code>
       <code><![CDATA[$txt ?? 'NULL']]></code>
@@ -9766,6 +9759,10 @@
       <code>$_SESSION</code>
       <code>$_SESSION</code>
     </PossiblyNullArrayOffset>
+    <RedundantCondition>
+      <code>$status !== []</code>
+      <code><![CDATA[$status !== null && $status !== []]]></code>
+    </RedundantCondition>
     <UnusedClass>
       <code>UploadProgress</code>
     </UnusedClass>
@@ -11444,8 +11441,6 @@
       <code>$ret[$chartId][$nodeId][$pointId]</code>
       <code>$serverVars</code>
       <code>$serverVars</code>
-      <code>$serverVars</code>
-      <code>$statusVars</code>
       <code>$statusVars</code>
       <code>$statusVars</code>
       <code>$temp[strlen($temp) - 1]</code>
@@ -12517,8 +12512,6 @@
       <code><![CDATA[$GLOBALS['errors']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
     </MixedArgument>
     <MixedArrayAssignment>

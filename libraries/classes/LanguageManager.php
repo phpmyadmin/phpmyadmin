@@ -781,7 +781,7 @@ class LanguageManager
      */
     public function availableLocales(): array
     {
-        if (! $this->availableLocales) {
+        if ($this->availableLocales === []) {
             $config = Config::getInstance();
             if (empty($config->get('FilterLanguages'))) {
                 $this->availableLocales = $this->listLocaleDir();
@@ -811,7 +811,7 @@ class LanguageManager
      */
     public function availableLanguages(): array
     {
-        if (! $this->availableLanguages) {
+        if ($this->availableLanguages === []) {
             $this->availableLanguages = [];
 
             foreach ($this->availableLocales() as $lang) {
@@ -925,7 +925,7 @@ class LanguageManager
 
         // try to find out user's language by checking its HTTP_ACCEPT_LANGUAGE variable;
         $acceptedLanguages = Core::getenv('HTTP_ACCEPT_LANGUAGE');
-        if ($acceptedLanguages) {
+        if ($acceptedLanguages !== '') {
             foreach (explode(',', $acceptedLanguages) as $header) {
                 foreach ($langs as $language) {
                     if ($language->matchesAcceptLanguage($header)) {
