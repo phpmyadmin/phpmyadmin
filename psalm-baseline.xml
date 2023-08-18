@@ -7214,8 +7214,6 @@
       <code>$item</code>
       <code>$item</code>
       <code>$item</code>
-      <code>$node</code>
-      <code>$node</code>
       <code>$path</code>
       <code>$path[0]</code>
       <code>$path[0]</code>
@@ -7250,11 +7248,6 @@
       <code>$separators[0]</code>
       <code>$separators[0]</code>
     </MixedOperand>
-    <MixedPropertyAssignment>
-      <code>$node</code>
-      <code>$node</code>
-      <code>$node</code>
-    </MixedPropertyAssignment>
     <PossiblyFalseOperand>
       <code><![CDATA[strrpos($class, '\\')]]></code>
     </PossiblyFalseOperand>
@@ -7281,6 +7274,9 @@
       <code>$database</code>
       <code>$database</code>
     </PossiblyNullArgument>
+    <PossiblyNullPropertyAssignmentValue>
+      <code><![CDATA[$container->parent->pos2]]></code>
+    </PossiblyNullPropertyAssignmentValue>
     <PossiblyNullPropertyFetch>
       <code><![CDATA[$container->parent->pos2]]></code>
     </PossiblyNullPropertyFetch>
@@ -7312,11 +7308,6 @@
     <UndefinedMethod>
       <code>setHiddenCount</code>
     </UndefinedMethod>
-  </file>
-  <file src="libraries/classes/Navigation/NodeFactory.php">
-    <UnsafeInstantiation>
-      <code>new $class($name, $type, $isGroup)</code>
-    </UnsafeInstantiation>
   </file>
   <file src="libraries/classes/Navigation/Nodes/Node.php">
     <DeprecatedMethod>
@@ -7421,11 +7412,6 @@
     <RedundantCast>
       <code><![CDATA[(int) $GLOBALS['cfg']['NavigationTreeTableLevel']]]></code>
     </RedundantCast>
-  </file>
-  <file src="libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php">
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeTable.php">
     <DeprecatedMethod>

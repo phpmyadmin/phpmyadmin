@@ -7,8 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
-use PhpMyAdmin\Navigation\NodeFactory;
-
 use function __;
 use function _pgettext;
 
@@ -22,7 +20,7 @@ class NodeProcedureContainer extends NodeDatabaseChildContainer
      */
     public function __construct()
     {
-        parent::__construct(__('Procedures'), Node::CONTAINER);
+        parent::__construct(__('Procedures'));
 
         $this->icon = ['image' => 'b_routines', 'title' => __('Procedures')];
         $this->links = [
@@ -32,7 +30,7 @@ class NodeProcedureContainer extends NodeDatabaseChildContainer
         $this->realName = 'procedures';
 
         $newLabel = _pgettext('Create new procedure', 'New');
-        $new = NodeFactory::getInstanceForNewNode($newLabel, 'new_procedure italics');
+        $new = $this->getInstanceForNewNode($newLabel, 'new_procedure italics');
         $new->icon = ['image' => 'b_routine_add', 'title' => $newLabel];
         $new->links = [
             'text' => ['route' => '/database/routines', 'params' => ['add_item' => 1, 'db' => null]],

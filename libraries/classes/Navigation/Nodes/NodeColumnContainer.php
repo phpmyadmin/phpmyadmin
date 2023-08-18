@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
-use PhpMyAdmin\Navigation\NodeFactory;
+use PhpMyAdmin\Navigation\NodeType;
 
 use function __;
 use function _pgettext;
@@ -22,7 +22,7 @@ class NodeColumnContainer extends Node
      */
     public function __construct()
     {
-        parent::__construct(__('Columns'), Node::CONTAINER);
+        parent::__construct(__('Columns'), NodeType::Container);
 
         $this->icon = ['image' => 'pause', 'title' => __('Columns')];
         $this->links = [
@@ -32,7 +32,7 @@ class NodeColumnContainer extends Node
         $this->realName = 'columns';
 
         $newLabel = _pgettext('Create new column', 'New');
-        $new = NodeFactory::getInstanceForNewNode($newLabel, 'new_column italics');
+        $new = $this->getInstanceForNewNode($newLabel, 'new_column italics');
         $new->icon = ['image' => 'b_column_add', 'title' => $newLabel];
         $new->links = [
             'text' => [

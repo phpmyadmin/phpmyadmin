@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Navigation\NodeType;
+
 /**
  * Represents container node that carries children of a database
  */
@@ -16,11 +18,10 @@ abstract class NodeDatabaseChildContainer extends NodeDatabaseChild
      * Initialises the class by setting the common variables
      *
      * @param string $name An identifier for the new node
-     * @param int    $type Type of node, may be one of CONTAINER or OBJECT
      */
-    public function __construct(string $name, int $type = Node::OBJECT)
+    public function __construct(string $name)
     {
-        parent::__construct($name, $type);
+        parent::__construct($name, NodeType::Container);
 
         if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
             return;

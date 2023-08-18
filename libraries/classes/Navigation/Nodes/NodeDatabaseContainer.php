@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\CheckUserPrivileges;
-use PhpMyAdmin\Navigation\NodeFactory;
+use PhpMyAdmin\Navigation\NodeType;
 
 use function _pgettext;
 
@@ -27,14 +27,14 @@ class NodeDatabaseContainer extends Node
         $checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
         $checkUserPrivileges->getPrivileges();
 
-        parent::__construct($name, Node::CONTAINER);
+        parent::__construct($name, NodeType::Container);
 
         if (! $GLOBALS['is_create_db_priv'] || $GLOBALS['cfg']['ShowCreateDb'] === false) {
             return;
         }
 
         $newLabel = _pgettext('Create new database', 'New');
-        $new = NodeFactory::getInstanceForNewNode($newLabel, 'new_database italics');
+        $new = $this->getInstanceForNewNode($newLabel, 'new_database italics');
         $new->icon = ['image' => 'b_newdb', 'title' => $newLabel];
         $new->links = [
             'text' => ['route' => '/server/databases', 'params' => []],

@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Navigation\Nodes;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Navigation\Nodes\Node;
+use PhpMyAdmin\Navigation\NodeType;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -20,7 +21,7 @@ final class NodeTest extends AbstractTestCase
         $node = new Node('Object Node');
         $this->assertSame('Object Node', $node->name);
         $this->assertSame('Object Node', $node->realName);
-        $this->assertSame(Node::OBJECT, $node->type);
+        $this->assertSame(NodeType::Object, $node->type);
         $this->assertFalse($node->isGroup);
     }
 
@@ -29,25 +30,25 @@ final class NodeTest extends AbstractTestCase
         $node = new Node('');
         $this->assertSame('', $node->name);
         $this->assertSame('', $node->realName);
-        $this->assertSame(Node::OBJECT, $node->type);
+        $this->assertSame(NodeType::Object, $node->type);
         $this->assertFalse($node->isGroup);
     }
 
     public function testNewContainerNode(): void
     {
-        $node = new Node('Container Node', Node::CONTAINER);
+        $node = new Node('Container Node', NodeType::Container);
         $this->assertSame('Container Node', $node->name);
         $this->assertSame('Container Node', $node->realName);
-        $this->assertSame(Node::CONTAINER, $node->type);
+        $this->assertSame(NodeType::Container, $node->type);
         $this->assertFalse($node->isGroup);
     }
 
     public function testNewGroupNode(): void
     {
-        $node = new Node('Group Node', Node::OBJECT, true);
+        $node = new Node('Group Node', NodeType::Object, true);
         $this->assertSame('Group Node', $node->name);
         $this->assertSame('Group Node', $node->realName);
-        $this->assertSame(Node::OBJECT, $node->type);
+        $this->assertSame(NodeType::Object, $node->type);
         $this->assertTrue($node->isGroup);
     }
 
@@ -109,11 +110,11 @@ final class NodeTest extends AbstractTestCase
 
     public function testParents(): void
     {
-        $dbContainer = new Node('root', Node::CONTAINER);
-        $dbGroup = new Node('db_group', Node::CONTAINER, true);
+        $dbContainer = new Node('root', NodeType::Container);
+        $dbGroup = new Node('db_group', NodeType::Container, true);
         $dbOne = new Node('db_group__one');
         $dbTwo = new Node('db_group__two');
-        $tableContainer = new Node('tables', Node::CONTAINER);
+        $tableContainer = new Node('tables', NodeType::Container);
         $table = new Node('table');
         $dbContainer->addChild($dbGroup);
         $dbGroup->addChild($dbOne);
@@ -162,8 +163,8 @@ final class NodeTest extends AbstractTestCase
     public function testNodeHasChildrenWithContainers(): void
     {
         $parent = new Node('parent');
-        $containerOne = new Node('container 1', Node::CONTAINER);
-        $containerTwo = new Node('container 2', Node::CONTAINER);
+        $containerOne = new Node('container 1', NodeType::Container);
+        $containerTwo = new Node('container 2', NodeType::Container);
         $child = new Node('child');
         $this->assertFalse($parent->hasChildren());
         $this->assertFalse($parent->hasChildren(false));
@@ -194,8 +195,8 @@ final class NodeTest extends AbstractTestCase
     {
         $parent = new Node('parent');
         $childOne = new Node('child one');
-        $containerOne = new Node('container 1', Node::CONTAINER);
-        $containerTwo = new Node('container 2', Node::CONTAINER);
+        $containerOne = new Node('container 1', NodeType::Container);
+        $containerTwo = new Node('container 2', NodeType::Container);
         $childTwo = new Node('child two');
         $parent->addChild($childOne);
         $parent->addChild($containerOne);
@@ -235,7 +236,7 @@ final class NodeTest extends AbstractTestCase
         $child->addChild(new Node('child two'));
         $this->assertSame(1, $parent->numChildren());
         // add a container, this one doesn't count wither
-        $container = new Node('container', Node::CONTAINER);
+        $container = new Node('container', NodeType::Container);
         $parent->addChild($container);
         $this->assertSame(1, $parent->numChildren());
         // add a grandchild to container, this one counts
@@ -249,9 +250,9 @@ final class NodeTest extends AbstractTestCase
     public function testGetPaths(): void
     {
         $parent = new Node('parent');
-        $group = new Node('group', Node::CONTAINER, true);
+        $group = new Node('group', NodeType::Container, true);
         $childOne = new Node('child one');
-        $container = new Node('container', Node::CONTAINER);
+        $container = new Node('container', NodeType::Container);
         $childTwo = new Node('child two');
         $parent->addChild($group);
         $group->addChild($childOne);
@@ -509,5 +510,16 @@ final class NodeTest extends AbstractTestCase
 
         $GLOBALS['dbi'] = $dbi;
         $this->assertSame(0, $node->getPresence('', 'dbname'));
+    }
+
+    public function testGetInstanceForNewNode(): void
+    {
+        $node = (new Node())->getInstanceForNewNode('New', 'new_database italics');
+        $this->assertEquals('New', $node->name);
+        $this->assertEquals(NodeType::Object, $node->type);
+        $this->assertFalse($node->isGroup);
+        $this->assertEquals('New', $node->title);
+        $this->assertTrue($node->isNew);
+        $this->assertEquals('new_database italics', $node->classes);
     }
 }

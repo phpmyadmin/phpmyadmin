@@ -7,8 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
-use PhpMyAdmin\Navigation\NodeFactory;
-
 use function __;
 use function _pgettext;
 
@@ -22,7 +20,7 @@ class NodeFunctionContainer extends NodeDatabaseChildContainer
      */
     public function __construct()
     {
-        parent::__construct(__('Functions'), Node::CONTAINER);
+        parent::__construct(__('Functions'));
 
         $this->icon = ['image' => 'b_routines', 'title' => __('Functions')];
         $this->links = [
@@ -32,7 +30,7 @@ class NodeFunctionContainer extends NodeDatabaseChildContainer
         $this->realName = 'functions';
 
         $newLabel = _pgettext('Create new function', 'New');
-        $new = NodeFactory::getInstanceForNewNode($newLabel, 'new_function italics');
+        $new = $this->getInstanceForNewNode($newLabel, 'new_function italics');
         $new->icon = ['image' => 'b_routine_add', 'title' => $newLabel];
         $new->links = [
             'text' => [

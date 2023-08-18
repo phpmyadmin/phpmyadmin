@@ -11,6 +11,7 @@ use PhpMyAdmin\ConfigStorage\Features\NavigationItemsHidingFeature;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Navigation\NodeType;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -33,25 +34,12 @@ use function strstr;
  */
 class Node
 {
-    public const CONTAINER = 0;
-    public const OBJECT = 1;
-    /**
-     * @var string A non-unique identifier for the node
-     *             This may be trimmed when grouping nodes
-     */
-    public string $name = '';
     /**
      * @var string A non-unique identifier for the node
      *             This will never change after being assigned
      */
     public string $realName = '';
-    /** @var int May be one of CONTAINER or OBJECT */
-    public int $type = self::OBJECT;
-    /**
-     * @var bool Whether this object has been created while grouping nodes
-     *           Only relevant if the node is of type CONTAINER
-     */
-    public bool $isGroup = false;
+
     /**
      * @var bool Whether to add a "display: none;" CSS
      *           rule to the node when rendering it
@@ -124,23 +112,36 @@ class Node
     /**
      * Initialises the class by setting the mandatory variables
      *
-     * @param string $name    An identifier for the new node
-     * @param int    $type    Type of node, may be one of CONTAINER or OBJECT
-     * @param bool   $isGroup Whether this object has been created
-     *                        while grouping nodes
+     * @param string   $name    A non-unique identifier for the node
+     *                          This may be trimmed when grouping nodes
+     * @param NodeType $type    Type of node, may be one of CONTAINER or OBJECT
+     * @param bool     $isGroup Whether this object has been created while grouping nodes
+     *                          Only relevant if the node is of type CONTAINER
      */
-    public function __construct(string $name, int $type = self::OBJECT, bool $isGroup = false)
-    {
-        if ($name !== '') {
-            $this->name = $name;
-            $this->realName = $name;
-        }
+    public function __construct(
+        public string $name = '',
+        public readonly NodeType $type = NodeType::Object,
+        public bool $isGroup = false,
+    ) {
+        $this->realName = $name;
+    }
 
-        if ($type === self::CONTAINER) {
-            $this->type = self::CONTAINER;
-        }
+    /**
+     * Instantiates a Node object that will be used only for "New db/table/etc.." objects
+     *
+     * @param string $name    An identifier for the new node
+     * @param string $classes Extra CSS classes for the node
+     */
+    public function getInstanceForNewNode(
+        string $name,
+        string $classes,
+    ): Node {
+        $node = new Node($name);
+        $node->title = $name;
+        $node->isNew = true;
+        $node->classes = $classes;
 
-        $this->isGroup = $isGroup;
+        return $node;
     }
 
     /**
@@ -210,7 +211,7 @@ class Node
     public function parents(bool $self = false, bool $containers = false, bool $groups = false): array
     {
         $parents = [];
-        if ($self && ($this->type != self::CONTAINER || $containers) && (! $this->isGroup || $groups)) {
+        if ($self && ($this->type !== NodeType::Container || $containers) && (! $this->isGroup || $groups)) {
             $parents[] = $this;
         }
 
@@ -221,7 +222,7 @@ class Node
         }
 
         while ($parent !== null) {
-            if (($parent->type != self::CONTAINER || $containers) && (! $parent->isGroup || $groups)) {
+            if (($parent->type !== NodeType::Container || $containers) && (! $parent->isGroup || $groups)) {
                 $parents[] = $parent;
             }
 
@@ -259,7 +260,7 @@ class Node
         }
 
         foreach ($this->children as $child) {
-            if ($child->type == self::OBJECT || $child->hasChildren(false)) {
+            if ($child->type === NodeType::Object || $child->hasChildren(false)) {
                 return true;
             }
         }
@@ -287,7 +288,7 @@ class Node
         }
 
         foreach ($this->parent->children as $child) {
-            if ($child !== $this && ($child->type == self::OBJECT || $child->hasChildren(false))) {
+            if ($child !== $this && ($child->type === NodeType::Object || $child->hasChildren(false))) {
                 return true;
             }
         }
@@ -304,7 +305,7 @@ class Node
     {
         $retval = 0;
         foreach ($this->children as $child) {
-            if ($child->type == self::OBJECT) {
+            if ($child->type === NodeType::Object) {
                 $retval++;
             } else {
                 $retval += $child->numChildren();
@@ -577,7 +578,7 @@ class Node
             $result[] = 'loaded';
         }
 
-        if ($this->type == self::CONTAINER) {
+        if ($this->type === NodeType::Container) {
             $result[] = 'container';
         }
 

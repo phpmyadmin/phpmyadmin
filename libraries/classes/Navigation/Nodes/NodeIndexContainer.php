@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
-use PhpMyAdmin\Navigation\NodeFactory;
+use PhpMyAdmin\Navigation\NodeType;
 
 use function __;
 use function _pgettext;
@@ -22,7 +22,7 @@ class NodeIndexContainer extends Node
      */
     public function __construct()
     {
-        parent::__construct(__('Indexes'), Node::CONTAINER);
+        parent::__construct(__('Indexes'), NodeType::Container);
 
         $this->icon = ['image' => 'b_index', 'title' => __('Indexes')];
         $this->links = [
@@ -32,7 +32,7 @@ class NodeIndexContainer extends Node
         $this->realName = 'indexes';
 
         $newLabel = _pgettext('Create new index', 'New');
-        $new = NodeFactory::getInstanceForNewNode($newLabel, 'new_index italics');
+        $new = $this->getInstanceForNewNode($newLabel, 'new_index italics');
         $new->icon = ['image' => 'b_index_add', 'title' => $newLabel];
         $new->links = [
             'text' => [

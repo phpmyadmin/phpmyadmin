@@ -7,8 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
-use PhpMyAdmin\Navigation\NodeFactory;
-
 use function __;
 use function _pgettext;
 
@@ -22,7 +20,7 @@ class NodeViewContainer extends NodeDatabaseChildContainer
      */
     public function __construct()
     {
-        parent::__construct(__('Views'), Node::CONTAINER);
+        parent::__construct(__('Views'));
 
         $this->icon = ['image' => 'b_views', 'title' => __('Views')];
         $this->links = [
@@ -33,7 +31,7 @@ class NodeViewContainer extends NodeDatabaseChildContainer
         $this->realName = 'views';
 
         $newLabel = _pgettext('Create new view', 'New');
-        $new = NodeFactory::getInstanceForNewNode($newLabel, 'new_view italics');
+        $new = $this->getInstanceForNewNode($newLabel, 'new_view italics');
         $new->icon = ['image' => 'b_view_add', 'title' => $newLabel];
         $new->links = [
             'text' => ['route' => '/view/create', 'params' => ['db' => null]],
