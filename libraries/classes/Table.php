@@ -529,7 +529,7 @@ class Table implements Stringable
             );
         }
 
-        if ($virtuality) {
+        if ($virtuality !== '') {
             $query .= ' AS (' . $expression . ') ' . $virtuality;
         }
 
