@@ -24,7 +24,7 @@ class DestroyControllerTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
     }
 
     public function testDropDatabases(): void

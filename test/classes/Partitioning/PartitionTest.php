@@ -19,7 +19,7 @@ class PartitionTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
     }
 
     public function testGetPartitionMethodReturnsNull(): void
@@ -46,7 +46,7 @@ class PartitionTest extends AbstractTestCase
         $mock->method('getVersion')->willReturn($version);
         $mock->method('fetchValue')->willReturn($varValue);
         $mock->method('fetchResult')->willReturn($pluginValue);
-        $GLOBALS['dbi'] = $mock;
+        DatabaseInterface::$instance = $mock;
         $this->assertSame($expected, Partition::havePartitioning());
     }
 

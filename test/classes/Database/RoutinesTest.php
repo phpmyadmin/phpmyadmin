@@ -30,7 +30,7 @@ class RoutinesTest extends AbstractTestCase
 
         parent::setTheme();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
         $GLOBALS['server'] = 0;
@@ -41,7 +41,7 @@ class RoutinesTest extends AbstractTestCase
         $GLOBALS['is_reload_priv'] = false;
         $GLOBALS['errors'] = [];
 
-        $this->routines = new Routines($GLOBALS['dbi']);
+        $this->routines = new Routines(DatabaseInterface::getInstance());
     }
 
     /**
@@ -242,7 +242,7 @@ class RoutinesTest extends AbstractTestCase
 
         $GLOBALS['errors'] = [];
 
-        $oldDbi = $GLOBALS['dbi'] ?? null;
+        $oldDbi = DatabaseInterface::getInstance();
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -254,7 +254,7 @@ class RoutinesTest extends AbstractTestCase
                 ["foo's bar", Connection::TYPE_USER, "foo\'s bar"],
                 ['', Connection::TYPE_USER, ''],
             ]);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $routines = new Routines($dbi);
 
@@ -264,7 +264,7 @@ class RoutinesTest extends AbstractTestCase
         $this->assertCount($numErr, $GLOBALS['errors']);
 
         // reset
-        $GLOBALS['dbi'] = $oldDbi;
+        DatabaseInterface::$instance = $oldDbi;
     }
 
     /**

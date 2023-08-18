@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Schema;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\Pdf\PdfRelationSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -23,7 +24,7 @@ class PdfRelationSchemaTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
         $_REQUEST['page_number'] = 33;
         $_REQUEST['pdf_show_grid'] = true;
         $_REQUEST['pdf_show_color'] = true;

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\TwoFactor;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\TwoFactor\WebAuthn;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
@@ -44,7 +45,7 @@ class WebAuthnTest extends AbstractTestCase
         $GLOBALS['lang'] = 'en';
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
 
         $uri = $this->createStub(UriInterface::class);
         $uri->method('getHost')->willReturn('test.localhost');
@@ -109,7 +110,7 @@ class WebAuthnTest extends AbstractTestCase
         $GLOBALS['lang'] = 'en';
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
 
         $uri = $this->createStub(UriInterface::class);
         $uri->method('getHost')->willReturn('test.localhost');

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\ChartController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Template;
@@ -70,7 +71,7 @@ class ChartControllerTest extends AbstractTestCase
             $fieldsMeta,
         );
         $dbi = $this->createDatabaseInterface($dummyDbi);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $response = new ResponseRenderer();
         $template = new Template();

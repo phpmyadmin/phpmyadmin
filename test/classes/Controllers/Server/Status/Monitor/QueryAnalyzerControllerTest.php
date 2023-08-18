@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server\Status\Monitor;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\Monitor\QueryAnalyzerController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
@@ -23,7 +24,7 @@ class QueryAnalyzerControllerTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
     }
 
     public function testQueryAnalyzer(): void

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Console;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Template;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -31,7 +32,7 @@ class HeaderTest extends AbstractTestCase
 
         parent::setLanguage();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
 
         $GLOBALS['server'] = 0;
         $GLOBALS['message'] = 'phpmyadminmessage';

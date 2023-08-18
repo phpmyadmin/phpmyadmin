@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Normalization\ThirdNormalForm;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Normalization\ThirdNormalForm\CreateNewTablesController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Template;
@@ -48,7 +49,7 @@ class CreateNewTablesControllerTest extends AbstractTestCase
         $dbiDummy->addResult('DROP TABLE `test_table`', true);
 
         $dbi = $this->createDatabaseInterface($dbiDummy);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
         $template = new Template();
         $request = $this->createStub(ServerRequest::class);

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Footer;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\ResponseRenderer;
@@ -19,7 +20,7 @@ class ResponseRendererTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
 
         $GLOBALS['lang'] = 'en';
         $GLOBALS['server'] = 1;

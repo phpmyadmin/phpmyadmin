@@ -78,7 +78,7 @@ class UtilTest extends AbstractTestCase
 
     public function testGetUniqueConditionWithMultipleFields(): void
     {
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
 
         $meta = [
             FieldHelper::fromArray([
@@ -224,7 +224,7 @@ class UtilTest extends AbstractTestCase
 
     public function testGetUniqueConditionWithPrimaryKey(): void
     {
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
 
         $meta = [
             FieldHelper::fromArray([
@@ -248,7 +248,7 @@ class UtilTest extends AbstractTestCase
 
     public function testGetUniqueConditionWithUniqueKey(): void
     {
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
 
         $meta = [
             FieldHelper::fromArray([
@@ -283,7 +283,7 @@ class UtilTest extends AbstractTestCase
     #[DataProvider('providerGetUniqueConditionForGroupFlag')]
     public function testGetUniqueConditionForGroupFlag(array $meta, array $row, array $expected): void
     {
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
 
         $fieldsCount = count($meta);
         $actual = Util::getUniqueCondition($fieldsCount, $meta, $row);
@@ -1312,7 +1312,7 @@ class UtilTest extends AbstractTestCase
     {
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addResult('SELECT CURRENT_USER();', []);
-        $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
+        DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
 
         $this->assertTrue(Util::currentUserHasPrivilege('EVENT'));
         $dbiDummy->assertAllQueriesConsumed();
@@ -1328,7 +1328,7 @@ SQL;
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addResult('SELECT CURRENT_USER();', [['groot_%@%']]);
         $dbiDummy->addResult($globalPrivilegeQuery, [['EVENT']]);
-        $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
+        DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
 
         $this->assertTrue(Util::currentUserHasPrivilege('EVENT'));
         $dbiDummy->assertAllQueriesConsumed();
@@ -1344,7 +1344,7 @@ SQL;
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addResult('SELECT CURRENT_USER();', [['groot_%@%']]);
         $dbiDummy->addResult($globalPrivilegeQuery, []);
-        $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
+        DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
 
         $this->assertFalse(Util::currentUserHasPrivilege('EVENT'));
         $dbiDummy->assertAllQueriesConsumed();
@@ -1364,7 +1364,7 @@ SQL;
         $dbiDummy->addResult('SELECT CURRENT_USER();', [['groot_%@%']]);
         $dbiDummy->addResult($globalPrivilegeQuery, []);
         $dbiDummy->addResult($databasePrivilegeQuery, [['EVENT']]);
-        $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
+        DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
 
         $this->assertTrue(Util::currentUserHasPrivilege('EVENT', 'my_data_base'));
         $dbiDummy->assertAllQueriesConsumed();
@@ -1384,7 +1384,7 @@ SQL;
         $dbiDummy->addResult('SELECT CURRENT_USER();', [['groot_%@%']]);
         $dbiDummy->addResult($globalPrivilegeQuery, []);
         $dbiDummy->addResult($databasePrivilegeQuery, []);
-        $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
+        DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
 
         $this->assertFalse(Util::currentUserHasPrivilege('EVENT', 'my_data_base'));
         $dbiDummy->assertAllQueriesConsumed();
@@ -1408,7 +1408,7 @@ SQL;
         $dbiDummy->addResult($globalPrivilegeQuery, []);
         $dbiDummy->addResult($databasePrivilegeQuery, []);
         $dbiDummy->addResult($tablePrivilegeQuery, [['EVENT']]);
-        $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
+        DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
 
         $this->assertTrue(Util::currentUserHasPrivilege('EVENT', 'my_data_base', 'my_data_table'));
         $dbiDummy->assertAllQueriesConsumed();
@@ -1432,7 +1432,7 @@ SQL;
         $dbiDummy->addResult($globalPrivilegeQuery, []);
         $dbiDummy->addResult($databasePrivilegeQuery, []);
         $dbiDummy->addResult($tablePrivilegeQuery, []);
-        $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
+        DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
 
         $this->assertFalse(Util::currentUserHasPrivilege('EVENT', 'my_data_base', 'my_data_table'));
         $dbiDummy->assertAllQueriesConsumed();
@@ -1575,8 +1575,9 @@ SQL;
     #[DataProvider('providerForTestGetMySQLDocuURL')]
     public function testGetMySQLDocuURL(string $link, string $anchor, string $version, string $expected): void
     {
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
-        $GLOBALS['dbi']->setVersion(['@@version' => $version, '@@version_comment' => 'MySQL Community Server (GPL)']);
+        $dbi = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $dbi;
+        $dbi->setVersion(['@@version' => $version, '@@version_comment' => 'MySQL Community Server (GPL)']);
         $this->assertSame($expected, Util::getMySQLDocuURL($link, $anchor));
     }
 
@@ -1627,6 +1628,9 @@ SQL;
 
     public function testGetDocuURL(): void
     {
+        $dbi = $this->createDatabaseInterface();
+        $dbi->setVersion(['@@version' => '5.5.0']);
+        DatabaseInterface::$instance = $dbi;
         $this->assertSame(
             'index.php?route=/url&url=https%3A%2F%2Fmariadb.com%2Fkb%2Fen%2Fdocumentation%2F',
             Util::getDocuURL(true),
@@ -1657,7 +1661,7 @@ SQL;
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addResult('SHOW TABLES FROM `test_db`;', [['test_table']], ['Tables_in_test_db']);
-        $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
+        DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
 
         $tableInfo = [
             'Name' => 'test_table',
@@ -1748,9 +1752,9 @@ SQL;
             ->method('getVersion')
             ->willReturn($version);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $this->assertEquals(Util::isUUIDSupported(), $expected);
-        unset($GLOBALS['dbi']);
+        DatabaseInterface::$instance = null;
     }
 
     /**
@@ -1769,7 +1773,7 @@ SQL;
     {
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addResult('SELECT @@lower_case_table_names', [[$lowerCaseTableNames]], ['@@lower_case_table_names']);
-        $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
+        DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
         $this->assertSame($expected, Util::getCollateForIS());
         $dbiDummy->assertAllQueriesConsumed();
     }
@@ -1785,7 +1789,7 @@ SQL;
     public function testGetSupportedDatatypes(): void
     {
         $dbiDummy = $this->createDbiDummy();
-        $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
+        DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
         $expected = [
             'INT',
             'VARCHAR',

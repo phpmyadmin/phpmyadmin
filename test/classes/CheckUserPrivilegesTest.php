@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ShowGrants;
 use PHPUnit\Framework\Attributes\CoversClass;
 
@@ -20,7 +21,7 @@ class CheckUserPrivilegesTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['col_priv'] = false;
@@ -29,7 +30,7 @@ class CheckUserPrivilegesTest extends AbstractTestCase
         $GLOBALS['table_priv'] = false;
         $GLOBALS['is_reload_priv'] = false;
 
-        $this->checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
+        $this->checkUserPrivileges = new CheckUserPrivileges(DatabaseInterface::getInstance());
     }
 
     /**

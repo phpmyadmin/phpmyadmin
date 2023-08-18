@@ -39,7 +39,7 @@ class NormalizationTest extends AbstractTestCase
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
         $GLOBALS['cfg']['LimitChars'] = 50;
         $GLOBALS['cfg']['ServerDefault'] = 'PMA_server';
         $GLOBALS['cfg']['ShowHint'] = true;
@@ -58,7 +58,7 @@ class NormalizationTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->types = new Types($dbi);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         // set expectations
         $dbi->expects($this->any())
             ->method('selectDb')
@@ -122,7 +122,7 @@ class NormalizationTest extends AbstractTestCase
         $GLOBALS['cfg']['MaxRows'] = 25;
         $GLOBALS['col_priv'] = false;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
         $db = 'testdb';
         $table = 'mytable';
         $numFields = 1;

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Table;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -17,9 +18,9 @@ class SearchTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
 
-        $this->search = new Search($GLOBALS['dbi']);
+        $this->search = new Search(DatabaseInterface::getInstance());
     }
 
     public function testBuildSqlQuery(): void

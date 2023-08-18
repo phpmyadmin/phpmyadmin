@@ -20,7 +20,7 @@ class GisTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
     }
 
     /**
@@ -56,7 +56,7 @@ class GisTest extends AbstractTestCase
             ->method('fetchRow')
             ->willReturn($returnData);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         if (! $SRIDOption) {
             // Also test default signature

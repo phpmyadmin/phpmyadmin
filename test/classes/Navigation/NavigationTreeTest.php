@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Navigation;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Navigation\NavigationTree;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -28,7 +29,8 @@ class NavigationTreeTest extends AbstractTestCase
 
         parent::setTheme();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        $dbi = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $dbi;
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['user'] = 'user';
@@ -40,7 +42,7 @@ class NavigationTreeTest extends AbstractTestCase
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = '';
 
-        $this->object = new NavigationTree(new Template(), $GLOBALS['dbi'], new Relation($GLOBALS['dbi']));
+        $this->object = new NavigationTree(new Template(), $dbi, new Relation($dbi));
     }
 
     /**
@@ -104,7 +106,7 @@ class NavigationTreeTest extends AbstractTestCase
         // phpcs:enable
 
         $dbi = $this->createDatabaseInterface($dummyDbi);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $object = new NavigationTree(new Template(), $dbi, new Relation($dbi));
         $result = $object->renderState();

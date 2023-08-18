@@ -35,7 +35,7 @@ class StructureControllerTest extends AbstractTestCase
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
     }
 
     public function testStructureController(): void
@@ -81,7 +81,7 @@ class StructureControllerTest extends AbstractTestCase
         // phpcs:enable
 
         $pageSettings = new PageSettings(
-            new UserPreferences($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template()),
+            new UserPreferences($this->dbi, new Relation($this->dbi), new Template()),
         );
         $pageSettings->init('TableStructure');
         $fields = $this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table'], true);

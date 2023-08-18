@@ -30,7 +30,8 @@ class OptionsTest extends AbstractTestCase
 
         parent::setGlobalConfig();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        $dbi = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $dbi;
 
         parent::loadDbiIntoContainerBuilder();
 
@@ -52,8 +53,8 @@ class OptionsTest extends AbstractTestCase
         Config::$instance = $pmaconfig;
 
         $this->export = new Options(
-            new Relation($GLOBALS['dbi']),
-            new TemplateModel($GLOBALS['dbi']),
+            new Relation($dbi),
+            new TemplateModel($dbi),
         );
     }
 
@@ -77,7 +78,7 @@ class OptionsTest extends AbstractTestCase
         $numTablesStr = '10';
         $unlimNumRowsStr = 'unlim_num_rows_str';
         //$single_table = "single_table";
-        $GLOBALS['dbi']->getCache()->cacheTableContent([$db, $table, 'ENGINE'], 'MERGE');
+        DatabaseInterface::getInstance()->getCache()->cacheTableContent([$db, $table, 'ENGINE'], 'MERGE');
 
         $columnsInfo = [
             'test_column1' => ['COLUMN_NAME' => 'test_column1'],
@@ -92,7 +93,7 @@ class OptionsTest extends AbstractTestCase
         $dbi->expects($this->any())->method('getCompatibilities')
             ->willReturn([]);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $exportList = Plugins::getExport($exportType, true);
         $dropdown = Plugins::getChoice($exportList, 'sql');

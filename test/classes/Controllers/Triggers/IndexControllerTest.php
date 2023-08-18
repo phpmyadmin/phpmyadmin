@@ -46,7 +46,7 @@ final class IndexControllerTest extends AbstractTestCase
         );
         // phpcs:enable
         $dbi = $this->createDatabaseInterface($dummyDbi);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $template = new Template();
         $response = new ResponseRenderer();
 
@@ -182,7 +182,7 @@ HTML;
         );
         // phpcs:enable
         $dbi = $this->createDatabaseInterface($dummyDbi);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $template = new Template();
         $response = new ResponseRenderer();
 
@@ -268,7 +268,7 @@ HTML;
         $method = (new ReflectionClass(IndexController::class))->getMethod('getDataFromRequest');
 
         $dbi = $this->createStub(DatabaseInterface::class);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $template = new Template();
         $response = new ResponseRenderer();
         $indexController = new IndexController(

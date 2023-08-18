@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Html;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Profiling;
 use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
@@ -165,7 +166,7 @@ class Generator
         string $bugReference,
     ): string {
         $return = '';
-        if (($component === 'mysql') && ($GLOBALS['dbi']->getVersion() < $minimumVersion)) {
+        if (($component === 'mysql') && (DatabaseInterface::getInstance()->getVersion() < $minimumVersion)) {
             $return .= self::showHint(
                 sprintf(
                     __('The %s functionality is affected by a known bug, see %s'),
@@ -278,15 +279,16 @@ class Generator
 
         $defaultFunction = '';
 
+        $dbi = DatabaseInterface::getInstance();
         // Can we get field class based values?
-        $currentClass = $GLOBALS['dbi']->types->getTypeClass($trueType);
+        $currentClass = $dbi->types->getTypeClass($trueType);
         if (! empty($currentClass) && isset($GLOBALS['cfg']['DefaultFunctions']['FUNC_' . $currentClass])) {
             $defaultFunction = $GLOBALS['cfg']['DefaultFunctions']['FUNC_' . $currentClass];
             // Change the configured default function to include the ST_ prefix with MySQL 5.6 and later.
             // It needs to match the function listed in the select html element.
             if (
                 $currentClass === 'SPATIAL' &&
-                $GLOBALS['dbi']->getVersion() >= 50600 &&
+                $dbi->getVersion() >= 50600 &&
                 strtoupper(substr($defaultFunction, 0, 3)) !== 'ST_'
             ) {
                 $defaultFunction = 'ST_' . $defaultFunction;
@@ -336,7 +338,7 @@ class Generator
         $retval = '<option></option>' . "\n";
         // loop on the dropdown array and print all available options for that
         // field.
-        $functions = $GLOBALS['dbi']->types->getAllFunctions();
+        $functions = DatabaseInterface::getInstance()->types->getAllFunctions();
         foreach ($functions as $function) {
             $retval .= '<option';
             if ($function === $defaultFunction && ! isset($foreignData['foreign_field'])) {
@@ -652,7 +654,7 @@ class Generator
 
         // avoid displaying a Profiling checkbox that could
         // be checked, which would re-execute an INSERT, for example
-        if ($refreshLink !== '' && Profiling::isSupported($GLOBALS['dbi'])) {
+        if ($refreshLink !== '' && Profiling::isSupported(DatabaseInterface::getInstance())) {
             $retval .= '<input type="hidden" name="profiling_form" value="1">' . "\n";
             $retval .= '<div class="form-check form-switch">' . "\n";
             $retval .= '<input type="checkbox" name="profiling" id="profilingCheckbox" role="switch"';
@@ -753,7 +755,7 @@ class Generator
 
         // Checking for any server errors.
         if ($serverMessage === '') {
-            $serverMessage = $GLOBALS['dbi']->getError();
+            $serverMessage = DatabaseInterface::getInstance()->getError();
         }
 
         // Finding the query that failed, if not specified.
@@ -1143,7 +1145,8 @@ class Generator
         // NOTE: the SELECT tag is not included in this snippet.
         $retval = '';
 
-        foreach ($GLOBALS['dbi']->types->getColumns() as $key => $value) {
+        $dbi = DatabaseInterface::getInstance();
+        foreach ($dbi->types->getColumns() as $key => $value) {
             if (is_array($value)) {
                 $retval .= '<optgroup label="' . htmlspecialchars($key) . '">';
                 foreach ($value as $subvalue) {
@@ -1154,12 +1157,12 @@ class Generator
                         continue;
                     }
 
-                    $isLengthRestricted = Compatibility::isIntegersSupportLength($subvalue, '2', $GLOBALS['dbi']);
+                    $isLengthRestricted = Compatibility::isIntegersSupportLength($subvalue, '2', $dbi);
                     $retval .= sprintf(
                         '<option data-length-restricted="%b" %s title="%s">%s</option>',
                         $isLengthRestricted ? 0 : 1,
                         $selected === $subvalue ? 'selected="selected"' : '',
-                        $GLOBALS['dbi']->types->getTypeDescription($subvalue),
+                        $dbi->types->getTypeDescription($subvalue),
                         $subvalue,
                     );
                 }
@@ -1168,12 +1171,12 @@ class Generator
                 continue;
             }
 
-            $isLengthRestricted = Compatibility::isIntegersSupportLength($value, '2', $GLOBALS['dbi']);
+            $isLengthRestricted = Compatibility::isIntegersSupportLength($value, '2', $dbi);
             $retval .= sprintf(
                 '<option data-length-restricted="%b" %s title="%s">%s</option>',
                 $isLengthRestricted ? 0 : 1,
                 $selected === $value ? 'selected="selected"' : '',
-                $GLOBALS['dbi']->types->getTypeDescription($value),
+                $dbi->types->getTypeDescription($value),
                 $value,
             );
         }

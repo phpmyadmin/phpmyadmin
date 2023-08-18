@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Triggers;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Triggers\Trigger;
 use PhpMyAdmin\Triggers\Triggers;
@@ -29,13 +30,13 @@ class TriggersTest extends AbstractTestCase
 
         parent::setTheme();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['db'] = 'pma_test';
         $GLOBALS['table'] = 'table';
 
-        $this->triggers = new Triggers($GLOBALS['dbi']);
+        $this->triggers = new Triggers(DatabaseInterface::getInstance());
     }
 
     /**

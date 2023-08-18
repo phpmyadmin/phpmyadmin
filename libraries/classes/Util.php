@@ -179,8 +179,9 @@ class Util
 
         $mysql = '5.5';
         $lang = 'en';
-        if (isset($GLOBALS['dbi'])) {
-            $serverVersion = $GLOBALS['dbi']->getVersion();
+        $dbi = DatabaseInterface::getInstance();
+        if ($dbi->isConnected()) {
+            $serverVersion = $dbi->getVersion();
             if ($serverVersion >= 80000) {
                 $mysql = '8.0';
             } elseif ($serverVersion >= 50700) {
@@ -685,7 +686,7 @@ class Util
             $conditionValue = "= b'"
                 . self::printableBitValue((int) $row, $meta->length) . "'";
         } else {
-            $conditionValue = '= ' . $GLOBALS['dbi']->quoteString((string) $row);
+            $conditionValue = '= ' . DatabaseInterface::getInstance()->quoteString((string) $row);
         }
 
         return [$conditionValue, $condition];
@@ -754,7 +755,7 @@ class Util
             // because there is some caching in the function).
             if (
                 $meta->table !== $meta->orgtable
-                && ! $GLOBALS['dbi']->getTable($GLOBALS['db'], $meta->table)->isView()
+                && ! DatabaseInterface::getInstance()->getTable($GLOBALS['db'], $meta->table)->isView()
             ) {
                 $meta->table = $meta->orgtable;
             }
@@ -1432,7 +1433,7 @@ class Util
 
         /* Fetch columns list if required */
         if (str_contains($string, '@COLUMNS@')) {
-            $columnsList = $GLOBALS['dbi']->getColumns($GLOBALS['db'], $GLOBALS['table']);
+            $columnsList = DatabaseInterface::getInstance()->getColumns($GLOBALS['db'], $GLOBALS['table']);
 
             $columnNames = [];
             foreach ($columnsList as $column) {
@@ -1461,7 +1462,7 @@ class Util
     public static function getSupportedDatatypes(): array
     {
         $retval = [];
-        foreach ($GLOBALS['dbi']->types->getColumns() as $value) {
+        foreach (DatabaseInterface::getInstance()->types->getColumns() as $value) {
             if (is_array($value)) {
                 foreach ($value as $subvalue) {
                     if ($subvalue === '-') {
@@ -1494,7 +1495,7 @@ class Util
      */
     public static function isUUIDSupported(): bool
     {
-        return Compatibility::isUUIDSupported($GLOBALS['dbi']);
+        return Compatibility::isUUIDSupported(DatabaseInterface::getInstance());
     }
 
     /**
@@ -1518,9 +1519,10 @@ class Util
      */
     public static function currentUserHasPrivilege(string $priv, string|null $db = null, string|null $tbl = null): bool
     {
+        $dbi = DatabaseInterface::getInstance();
         // Get the username for the current user in the format
         // required to use in the information schema database.
-        [$user, $host] = $GLOBALS['dbi']->getCurrentUserAndHost();
+        [$user, $host] = $dbi->getCurrentUserAndHost();
 
         // MySQL is started with --skip-grant-tables
         if ($user === '') {
@@ -1538,7 +1540,7 @@ class Util
                . "WHERE GRANTEE='%s' AND PRIVILEGE_TYPE='%s'";
 
         // Check global privileges first.
-        $userPrivileges = $GLOBALS['dbi']->fetchValue(
+        $userPrivileges = $dbi->fetchValue(
             sprintf(
                 $query,
                 'USER_PRIVILEGES',
@@ -1559,13 +1561,13 @@ class Util
         }
 
         $query .= ' AND %s LIKE `TABLE_SCHEMA`';
-        $schemaPrivileges = $GLOBALS['dbi']->fetchValue(
+        $schemaPrivileges = $dbi->fetchValue(
             sprintf(
                 $query,
                 'SCHEMA_PRIVILEGES',
                 $username,
                 $priv,
-                $GLOBALS['dbi']->quoteString($db),
+                $dbi->quoteString($db),
             ),
         );
         if ($schemaPrivileges) {
@@ -1576,14 +1578,14 @@ class Util
         // find any valid privileges, try table-wise privileges.
         if ($tbl !== null) {
             $query .= ' AND TABLE_NAME=%s';
-            $tablePrivileges = $GLOBALS['dbi']->fetchValue(
+            $tablePrivileges = $dbi->fetchValue(
                 sprintf(
                     $query,
                     'TABLE_PRIVILEGES',
                     $username,
                     $priv,
-                    $GLOBALS['dbi']->quoteString($db),
-                    $GLOBALS['dbi']->quoteString($tbl),
+                    $dbi->quoteString($db),
+                    $dbi->quoteString($tbl),
                 ),
             );
             if ($tablePrivileges) {
@@ -1607,11 +1609,12 @@ class Util
      */
     public static function getServerType(): string
     {
-        if ($GLOBALS['dbi']->isMariaDB()) {
+        $dbi = DatabaseInterface::getInstance();
+        if ($dbi->isMariaDB()) {
             return 'MariaDB';
         }
 
-        if ($GLOBALS['dbi']->isPercona()) {
+        if ($dbi->isPercona()) {
             return 'Percona Server';
         }
 
@@ -1813,7 +1816,7 @@ class Util
      */
     public static function getCollateForIS(): string
     {
-        $names = $GLOBALS['dbi']->getLowerCaseNames();
+        $names = DatabaseInterface::getInstance()->getLowerCaseNames();
         if ($names === 0) {
             return 'COLLATE utf8_bin';
         }
@@ -1889,9 +1892,10 @@ class Util
          */
         $tables = [];
 
+        $dbi = DatabaseInterface::getInstance();
         // Special speedup for newer MySQL Versions (in 4.0 format changed)
         if ($GLOBALS['cfg']['SkipLockedTables'] === true) {
-            $dbInfoResult = $GLOBALS['dbi']->query(
+            $dbInfoResult = $dbi->query(
                 'SHOW OPEN TABLES FROM ' . self::backquote($db) . ' WHERE In_use > 0;',
             );
 
@@ -1954,7 +1958,7 @@ class Util
                 if (is_string($tableGroupParam) && $tableGroupParam !== '') {
                     // only tables for selected group
                     // include the table with the exact name of the group if such exists
-                    $groupTable = $GLOBALS['dbi']->getTablesFull(
+                    $groupTable = $dbi->getTablesFull(
                         $db,
                         $tableGroupParam,
                         false,
@@ -1970,7 +1974,7 @@ class Util
                 // all tables in db
                 // - get the total number of tables
                 //  (needed for proper working of the MaxTableList feature)
-                $tables = $GLOBALS['dbi']->getTables($db);
+                $tables = $dbi->getTables($db);
                 $totalNumTables = count($tables);
                 if ($isResultLimited) {
                     // fetch the details for a possible limited subset
@@ -1980,7 +1984,7 @@ class Util
             }
 
             // We must use union operator here instead of array_merge to preserve numerical keys
-            $tables = $groupTable + $GLOBALS['dbi']->getTablesFull(
+            $tables = $groupTable + $dbi->getTablesFull(
                 $db,
                 $groupWithSeparator !== false ? $groupWithSeparator : $tables,
                 $groupWithSeparator !== false,
@@ -2023,21 +2027,22 @@ class Util
         if ($sotCache !== []) {
             $tblGroupSql = '';
             $whereAdded = false;
+            $dbi = DatabaseInterface::getInstance();
             if (
                 isset($_REQUEST['tbl_group'])
                 && is_scalar($_REQUEST['tbl_group'])
                 && strlen((string) $_REQUEST['tbl_group']) > 0
             ) {
-                $group = $GLOBALS['dbi']->escapeMysqlWildcards((string) $_REQUEST['tbl_group']);
-                $groupWithSeparator = $GLOBALS['dbi']->escapeMysqlWildcards(
+                $group = $dbi->escapeMysqlWildcards((string) $_REQUEST['tbl_group']);
+                $groupWithSeparator = $dbi->escapeMysqlWildcards(
                     $_REQUEST['tbl_group'] . $GLOBALS['cfg']['NavigationTreeTableSeparator'],
                 );
                 $tblGroupSql .= ' WHERE ('
                     . self::backquote('Tables_in_' . $db)
-                    . ' LIKE ' . $GLOBALS['dbi']->quoteString($groupWithSeparator . '%')
+                    . ' LIKE ' . $dbi->quoteString($groupWithSeparator . '%')
                     . ' OR '
                     . self::backquote('Tables_in_' . $db)
-                    . ' LIKE ' . $GLOBALS['dbi']->quoteString($group) . ')';
+                    . ' LIKE ' . $dbi->quoteString($group) . ')';
                 $whereAdded = true;
             }
 
@@ -2050,7 +2055,7 @@ class Util
                 }
             }
 
-            $dbInfoResult = $GLOBALS['dbi']->query('SHOW FULL TABLES FROM ' . self::backquote($db) . $tblGroupSql);
+            $dbInfoResult = $dbi->query('SHOW FULL TABLES FROM ' . self::backquote($db) . $tblGroupSql);
             unset($tblGroupSql, $whereAdded);
 
             if ($dbInfoResult->numRows() > 0) {
@@ -2070,7 +2075,7 @@ class Util
                 }
 
                 if ($names !== []) {
-                    $tables += $GLOBALS['dbi']->getTablesFull($db, $names);
+                    $tables += $dbi->getTablesFull($db, $names);
                 }
 
                 if ($GLOBALS['cfg']['NaturalOrder']) {

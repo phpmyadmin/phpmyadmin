@@ -37,7 +37,8 @@ class ExportXmlTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        $dbi = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $dbi;
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
@@ -49,8 +50,8 @@ class ExportXmlTest extends AbstractTestCase
         $GLOBALS['db'] = 'db';
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $this->object = new ExportXml(
-            new Relation($GLOBALS['dbi']),
-            new Export($GLOBALS['dbi']),
+            new Relation($dbi),
+            new Export($dbi),
             new Transformations(),
         );
     }
@@ -62,6 +63,7 @@ class ExportXmlTest extends AbstractTestCase
     {
         parent::tearDown();
 
+        DatabaseInterface::$instance = null;
         unset($this->object);
     }
 
@@ -219,7 +221,7 @@ class ExportXmlTest extends AbstractTestCase
         $dbi->expects($this->any())->method('escapeString')
             ->willReturnArgument(0);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $GLOBALS['tables'] = [];
         $GLOBALS['table'] = 'table';
@@ -290,7 +292,7 @@ class ExportXmlTest extends AbstractTestCase
             ->method('getTable')
             ->willReturn(new Table('table', 'd<"b', $dbi));
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $GLOBALS['tables'] = ['t1', 't2'];
 

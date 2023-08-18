@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Plugins\Export\ExportYaml;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -34,7 +35,8 @@ class ExportYamlTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        $dbi = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $dbi;
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
@@ -45,8 +47,8 @@ class ExportYamlTest extends AbstractTestCase
         $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'ltr';
         $this->object = new ExportYaml(
-            new Relation($GLOBALS['dbi']),
-            new Export($GLOBALS['dbi']),
+            new Relation($dbi),
+            new Export($dbi),
             new Transformations(),
         );
     }

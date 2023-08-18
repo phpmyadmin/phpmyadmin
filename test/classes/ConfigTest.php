@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings;
 use PhpMyAdmin\Config\Settings\Server;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -60,7 +61,7 @@ class ConfigTest extends AbstractTestCase
 
         parent::setTheme();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
         $_SERVER['HTTP_USER_AGENT'] = '';
         $this->object = $this->createConfig();
         $GLOBALS['server'] = 0;

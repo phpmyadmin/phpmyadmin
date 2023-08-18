@@ -30,7 +30,7 @@ class ListDatabase extends ListAbstract
     {
         parent::__construct();
 
-        $checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
+        $checkUserPrivileges = new CheckUserPrivileges(DatabaseInterface::getInstance());
         $checkUserPrivileges->getPrivileges();
 
         $this->build();
@@ -102,7 +102,7 @@ class ListDatabase extends ListAbstract
         }
 
         if ($command) {
-            $databaseList = $GLOBALS['dbi']->fetchResult($command, null, null);
+            $databaseList = DatabaseInterface::getInstance()->fetchResult($command, null, null);
         }
 
         if ($GLOBALS['cfg']['NaturalOrder']) {

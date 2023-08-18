@@ -40,7 +40,8 @@ class ExportLatexTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        $dbi = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $dbi;
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['output_charset_conversion'] = false;
@@ -53,8 +54,8 @@ class ExportLatexTest extends AbstractTestCase
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
         $this->object = new ExportLatex(
-            new Relation($GLOBALS['dbi']),
-            new Export($GLOBALS['dbi']),
+            new Relation($dbi),
+            new Export($dbi),
             new Transformations(),
         );
     }
@@ -66,6 +67,7 @@ class ExportLatexTest extends AbstractTestCase
     {
         parent::tearDown();
 
+        DatabaseInterface::$instance = null;
         unset($this->object);
     }
 
@@ -583,7 +585,7 @@ class ExportLatexTest extends AbstractTestCase
             ->method('fetchAssoc')
             ->willReturn(['comment' => 'testComment']);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $this->object->relation = new Relation($dbi);
         if (isset($GLOBALS['latex_caption'])) {
             unset($GLOBALS['latex_caption']);
@@ -675,7 +677,7 @@ class ExportLatexTest extends AbstractTestCase
             ->method('fetchAssoc')
             ->willReturn(['comment' => 'testComment']);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $this->object->relation = new Relation($dbi);
 
         $relationParameters = RelationParameters::fromArray([
@@ -730,7 +732,7 @@ class ExportLatexTest extends AbstractTestCase
         $dbi->expects($this->never())
             ->method('tryQuery');
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $GLOBALS['latex_caption'] = true;
         $GLOBALS['latex_structure_caption'] = 'latexstructure';

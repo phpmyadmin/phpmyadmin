@@ -41,7 +41,7 @@ class QueriesControllerTest extends AbstractTestCase
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
@@ -65,7 +65,7 @@ class QueriesControllerTest extends AbstractTestCase
     {
         $response = new ResponseRenderer();
 
-        $controller = new QueriesController($response, new Template(), $this->data, $GLOBALS['dbi']);
+        $controller = new QueriesController($response, new Template(), $this->data, DatabaseInterface::getInstance());
 
         $this->dummyDbi->addSelectDb('mysql');
         $controller($this->createStub(ServerRequest::class));

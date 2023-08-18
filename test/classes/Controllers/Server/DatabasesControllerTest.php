@@ -32,7 +32,7 @@ class DatabasesControllerTest extends AbstractTestCase
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'pma_test';
@@ -48,7 +48,7 @@ class DatabasesControllerTest extends AbstractTestCase
 
         $response = new ResponseRenderer();
 
-        $controller = new DatabasesController($response, $template, $GLOBALS['dbi']);
+        $controller = new DatabasesController($response, $template, $this->dbi);
 
         $this->dummyDbi->addResult(
             'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`',
@@ -78,7 +78,7 @@ class DatabasesControllerTest extends AbstractTestCase
 
         $response = new ResponseRenderer();
 
-        $controller = new DatabasesController($response, $template, $GLOBALS['dbi']);
+        $controller = new DatabasesController($response, $template, DatabaseInterface::getInstance());
 
         $GLOBALS['cfg']['ShowCreateDb'] = true;
         $GLOBALS['is_create_db_priv'] = true;

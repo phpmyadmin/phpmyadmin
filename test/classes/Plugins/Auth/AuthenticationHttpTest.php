@@ -38,7 +38,7 @@ class AuthenticationHttpTest extends AbstractTestCase
 
         parent::setTheme();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['cfg']['Servers'] = [];
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
@@ -284,7 +284,7 @@ class AuthenticationHttpTest extends AbstractTestCase
             ->method('getError')
             ->willReturn('error 123', 'error 321', '');
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $GLOBALS['errno'] = 31;
 
         ob_start();

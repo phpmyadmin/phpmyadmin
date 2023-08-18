@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Database\Structure;
 
 use PhpMyAdmin\Controllers\Database\Structure\RealRowCountController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Template;
@@ -29,7 +30,7 @@ class RealRowCountControllerTest extends AbstractTestCase
         $dbiDummy->addSelectDb('world');
         $dbiDummy->addSelectDb('world');
         $dbi = $this->createDatabaseInterface($dbiDummy);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $response = new ResponseStub();
 

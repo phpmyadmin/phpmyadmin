@@ -95,7 +95,7 @@ abstract class AbstractTestCase extends TestCase
 
     protected function loadDbiIntoContainerBuilder(): void
     {
-        $GLOBALS['containerBuilder']->set(DatabaseInterface::class, $GLOBALS['dbi']);
+        $GLOBALS['containerBuilder']->set(DatabaseInterface::class, DatabaseInterface::getInstance());
         $GLOBALS['containerBuilder']->setAlias('dbi', DatabaseInterface::class);
     }
 
@@ -199,6 +199,7 @@ abstract class AbstractTestCase extends TestCase
      */
     protected function tearDown(): void
     {
+        DatabaseInterface::$instance = null;
         Config::$instance = null;
         foreach (array_keys($GLOBALS) as $key) {
             if (in_array($key, $this->globalsAllowList)) {

@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\AddFieldController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Table\ColumnsDefinition;
@@ -37,7 +38,7 @@ class AddFieldControllerTest extends AbstractTestCase
         $dummyDbi->addSelectDb('test_db');
         $dummyDbi->addResult('SHOW TABLES LIKE \'test_table\';', [['test_table']]);
         $dbi = $this->createDatabaseInterface($dummyDbi);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $contentCell = [
             'column_number' => 0,

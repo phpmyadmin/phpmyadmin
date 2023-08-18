@@ -37,7 +37,7 @@ class PluginsControllerTest extends AbstractTestCase
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
@@ -77,7 +77,7 @@ class PluginsControllerTest extends AbstractTestCase
 
         $response = new ResponseRenderer();
 
-        $controller = new PluginsController($response, new Template(), new Plugins($dbi), $GLOBALS['dbi']);
+        $controller = new PluginsController($response, new Template(), new Plugins($dbi), $this->dbi);
         $this->dummyDbi->addSelectDb('mysql');
         $controller($this->createStub(ServerRequest::class));
         $this->dummyDbi->assertAllSelectsConsumed();

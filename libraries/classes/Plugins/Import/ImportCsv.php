@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
@@ -227,6 +228,7 @@ class ImportCsv extends AbstractImportCsv
         $colCount = 0;
         $maxCols = 0;
         $csvTerminatedLen = mb_strlen($GLOBALS['csv_terminated']);
+        $dbi = DatabaseInterface::getInstance();
         while (! ($GLOBALS['finished'] && $i >= $len) && ! $GLOBALS['error'] && ! $GLOBALS['timeout_passed']) {
             $data = $this->import->getNextChunk($importHandle);
             if ($data === false) {
@@ -516,7 +518,7 @@ class ImportCsv extends AbstractImportCsv
                         if ($val === null) {
                             $sql .= 'NULL';
                         } else {
-                            $sql .= $GLOBALS['dbi']->quoteString($val);
+                            $sql .= $dbi->quoteString($val);
                         }
 
                         $first = false;
@@ -593,7 +595,7 @@ class ImportCsv extends AbstractImportCsv
             if (isset($_REQUEST['csv_new_db_name']) && (string) $_REQUEST['csv_new_db_name'] !== '') {
                 $newDb = $_REQUEST['csv_new_db_name'];
             } else {
-                $result = $GLOBALS['dbi']->fetchResult('SHOW DATABASES');
+                $result = $dbi->fetchResult('SHOW DATABASES');
 
                 $newDb = 'CSV_DB ' . (count($result) + 1);
             }
@@ -703,7 +705,7 @@ class ImportCsv extends AbstractImportCsv
         }
 
         if (mb_strlen($databaseName)) {
-            $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
+            $result = DatabaseInterface::getInstance()->fetchResult('SHOW TABLES');
 
             // logic to get table name from filename
             // if no table then use filename as table name
@@ -778,7 +780,7 @@ class ImportCsv extends AbstractImportCsv
 
             $sqlTemplate .= ' INTO ' . Util::backquote($table);
 
-            $tmpFields = $GLOBALS['dbi']->getColumns($db, $table);
+            $tmpFields = DatabaseInterface::getInstance()->getColumns($db, $table);
 
             if ($csvColumns === null || $csvColumns === '') {
                 $fields = $tmpFields;

@@ -122,7 +122,7 @@ final class CacheWarmupCommand extends Command
         $config->loadAndCheck(CONFIG_FILE);
         $GLOBALS['cfg']['environment'] = $environment;
         $config->set('environment', $GLOBALS['cfg']['environment']);
-        $GLOBALS['dbi'] = new DatabaseInterface(new DbiDummy());
+        DatabaseInterface::$instance = new DatabaseInterface(new DbiDummy());
         $tmpDir = ROOT_PATH . 'twig-templates';
         $twig = Template::getTwigEnvironment($tmpDir);
 

@@ -53,7 +53,7 @@ class AuthenticationCookieTest extends AbstractTestCase
 
         parent::setGlobalConfig();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['db'] = 'db';
@@ -820,7 +820,7 @@ class AuthenticationCookieTest extends AbstractTestCase
             ->method('getError')
             ->willReturn('');
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $GLOBALS['errno'] = 42;
 
         $responseStub = new ResponseRendererStub();
@@ -860,7 +860,7 @@ class AuthenticationCookieTest extends AbstractTestCase
             ->method('getError')
             ->willReturn('');
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $GLOBALS['server'] = 2;
         $_COOKIE['pmaAuth-2'] = 'pass';
 

@@ -49,7 +49,8 @@ class ExportOdsTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        $dbi = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $dbi;
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['output_charset_conversion'] = false;
@@ -57,8 +58,8 @@ class ExportOdsTest extends AbstractTestCase
         $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
         $this->object = new ExportOds(
-            new Relation($GLOBALS['dbi']),
-            new Export($GLOBALS['dbi']),
+            new Relation($dbi),
+            new Export($dbi),
             new Transformations(),
         );
     }
@@ -70,6 +71,7 @@ class ExportOdsTest extends AbstractTestCase
     {
         parent::tearDown();
 
+        DatabaseInterface::$instance = null;
         unset($this->object);
     }
 
@@ -253,7 +255,7 @@ class ExportOdsTest extends AbstractTestCase
                 [],
             );
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $GLOBALS['mediawiki_caption'] = true;
         $GLOBALS['mediawiki_headers'] = true;
         $GLOBALS['what'] = 'foo';
@@ -328,7 +330,7 @@ class ExportOdsTest extends AbstractTestCase
             ->method('fetchRow')
             ->willReturn([]);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $GLOBALS['mediawiki_caption'] = true;
         $GLOBALS['mediawiki_headers'] = true;
         $GLOBALS['what'] = 'foo';
@@ -380,7 +382,7 @@ class ExportOdsTest extends AbstractTestCase
             ->method('fetchRow')
             ->willReturn([]);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $GLOBALS['mediawiki_caption'] = true;
         $GLOBALS['mediawiki_headers'] = true;
         $GLOBALS['what'] = 'foo';

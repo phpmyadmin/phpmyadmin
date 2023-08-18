@@ -80,7 +80,7 @@ class RelationTest extends AbstractTestCase
 
         $relation = new Relation($dbi);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $db = 'information_schema';
         $this->assertEquals(
@@ -115,7 +115,7 @@ class RelationTest extends AbstractTestCase
         $dbi->expects($this->any())
             ->method('getError')
             ->willReturn('Error', '');
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $relation = new Relation($dbi);
 
@@ -1868,7 +1868,7 @@ class RelationTest extends AbstractTestCase
 
         $dummyDbi = $this->createDbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $dummyDbi->removeDefaultResults();
         $dummyDbi->addSelectDb('PMA-storage');
@@ -1970,7 +1970,7 @@ class RelationTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['export_templates'] = '';
 
         $dbi = $this->createDatabaseInterface();
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\CreateAddField;
+use PhpMyAdmin\DatabaseInterface;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 
@@ -22,8 +23,8 @@ class CreateAddFieldTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
-        $this->createAddField = new CreateAddField($GLOBALS['dbi']);
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
+        $this->createAddField = new CreateAddField(DatabaseInterface::getInstance());
     }
 
     /**

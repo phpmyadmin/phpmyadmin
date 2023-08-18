@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\ChangeController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\FileListing;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
@@ -36,11 +37,11 @@ class ChangeControllerTest extends AbstractTestCase
         );
         $dummyDbi->addSelectDb('test_db');
         $dbi = $this->createDatabaseInterface($dummyDbi);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $response = new ResponseRenderer();
         $pageSettings = new PageSettings(
-            new UserPreferences($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template()),
+            new UserPreferences($dbi, new Relation($dbi), new Template()),
         );
         $pageSettings->init('Edit');
 

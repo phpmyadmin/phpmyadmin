@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server\Status\Processes;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\Processes\RefreshController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Processes;
@@ -27,7 +28,7 @@ class RefreshControllerTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['text_dir'] = 'ltr';
 
         parent::setGlobalConfig();
@@ -40,7 +41,7 @@ class RefreshControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
 
-        $this->data = new Data($GLOBALS['dbi'], Config::getInstance());
+        $this->data = new Data(DatabaseInterface::getInstance(), Config::getInstance());
     }
 
     public function testRefresh(): void
@@ -63,7 +64,7 @@ class RefreshControllerTest extends AbstractTestCase
             $response,
             new Template(),
             $this->data,
-            new Processes($GLOBALS['dbi']),
+            new Processes(DatabaseInterface::getInstance()),
         );
 
         $request = $this->createStub(ServerRequest::class);

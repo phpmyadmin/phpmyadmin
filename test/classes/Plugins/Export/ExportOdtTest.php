@@ -61,7 +61,7 @@ class ExportOdtTest extends AbstractTestCase
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['output_charset_conversion'] = false;
@@ -73,8 +73,8 @@ class ExportOdtTest extends AbstractTestCase
         $GLOBALS['plugin_param']['single_table'] = false;
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $this->object = new ExportOdt(
-            new Relation($GLOBALS['dbi']),
-            new Export($GLOBALS['dbi']),
+            new Relation($this->dbi),
+            new Export($this->dbi),
             new Transformations(),
         );
     }
@@ -86,6 +86,7 @@ class ExportOdtTest extends AbstractTestCase
     {
         parent::tearDown();
 
+        DatabaseInterface::$instance = null;
         unset($this->object);
     }
 
@@ -388,7 +389,7 @@ class ExportOdtTest extends AbstractTestCase
             ->method('fetchRow')
             ->willReturn([null, 'a<b', 'a>b', 'a&b'], []);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $GLOBALS['what'] = 'foo';
         $GLOBALS['foo_null'] = '&';
         unset($GLOBALS['foo_columns']);
@@ -457,7 +458,7 @@ class ExportOdtTest extends AbstractTestCase
             ->method('fetchRow')
             ->willReturn([]);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $GLOBALS['what'] = 'foo';
         $GLOBALS['foo_null'] = '&';
         $GLOBALS['foo_columns'] = true;
@@ -509,7 +510,7 @@ class ExportOdtTest extends AbstractTestCase
             ->method('fetchRow')
             ->willReturn([]);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $GLOBALS['mediawiki_caption'] = true;
         $GLOBALS['mediawiki_headers'] = true;
         $GLOBALS['what'] = 'foo';
@@ -575,7 +576,7 @@ class ExportOdtTest extends AbstractTestCase
     {
         $this->object = $this->getMockBuilder(ExportOdt::class)
             ->onlyMethods(['formatOneColumnDefinition'])
-            ->setConstructorArgs([new Relation($GLOBALS['dbi']), new Export($GLOBALS['dbi']), new Transformations()])
+            ->setConstructorArgs([new Relation($this->dbi), new Export($this->dbi), new Transformations()])
             ->getMock();
 
         // case 1
@@ -611,7 +612,7 @@ class ExportOdtTest extends AbstractTestCase
             ->method('fetchAssoc')
             ->willReturn(['comment' => 'testComment']);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $this->object->relation = new Relation($dbi);
 
         $this->object->expects($this->exactly(2))
@@ -696,7 +697,7 @@ class ExportOdtTest extends AbstractTestCase
             ->method('fetchAssoc')
             ->willReturn(['comment' => 'testComment']);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $this->object->relation = new Relation($dbi);
         $GLOBALS['odt_buffer'] = '';
         $relationParameters = RelationParameters::fromArray([

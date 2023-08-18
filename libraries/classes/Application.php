@@ -19,7 +19,6 @@ use PhpMyAdmin\Middleware\ConfigLoading;
 use PhpMyAdmin\Middleware\CurrentServerGlobalSetting;
 use PhpMyAdmin\Middleware\DatabaseAndTableSetting;
 use PhpMyAdmin\Middleware\DatabaseServerVersionChecking;
-use PhpMyAdmin\Middleware\DbiLoading;
 use PhpMyAdmin\Middleware\EncryptedQueryParamsHandling;
 use PhpMyAdmin\Middleware\ErrorHandling;
 use PhpMyAdmin\Middleware\GlobalConfigSetting;
@@ -109,7 +108,6 @@ class Application
         $requestHandler->add(new SetupPageRedirection($this->config, $this->responseFactory));
         $requestHandler->add(new MinimumCommonRedirection($this->config, $this->responseFactory));
         $requestHandler->add(new LanguageAndThemeCookieSaving($this->config));
-        $requestHandler->add(new DbiLoading());
         $requestHandler->add(new LoginCookieValiditySetting($this->config));
         $requestHandler->add(new Authentication($this->config, $this->template, $this->responseFactory));
         $requestHandler->add(new DatabaseServerVersionChecking($this->config, $this->template, $this->responseFactory));

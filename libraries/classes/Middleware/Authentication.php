@@ -68,7 +68,7 @@ final class Authentication implements MiddlewareInterface
                 // phpcs:enable
             }
 
-            $this->connectToDatabaseServer($GLOBALS['dbi'], $authPlugin, $currentServer);
+            $this->connectToDatabaseServer(DatabaseInterface::getInstance(), $authPlugin, $currentServer);
             $authPlugin->rememberCredentials();
             assert($request instanceof ServerRequest);
             $authPlugin->checkTwoFactor($request);

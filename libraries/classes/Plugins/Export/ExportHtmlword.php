@@ -9,7 +9,6 @@ namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
-use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -197,13 +196,11 @@ class ExportHtmlword extends ExportPlugin
             return false;
         }
 
+        $dbi = DatabaseInterface::getInstance();
         /**
          * Gets the data from the database
-         *
-         * @var ResultInterface $result
-         * @psalm-ignore-var
          */
-        $result = $GLOBALS['dbi']->query($sqlQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
+        $result = $dbi->query($sqlQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
 
         // If required, get fields name at the first line
         if (isset($GLOBALS['htmlword_columns'])) {
@@ -279,7 +276,8 @@ class ExportHtmlword extends ExportPlugin
          * Get the unique keys in the view
          */
         $uniqueKeys = [];
-        $keys = $GLOBALS['dbi']->getTableIndexes($db, $view);
+        $dbi = DatabaseInterface::getInstance();
+        $keys = $dbi->getTableIndexes($db, $view);
         foreach ($keys as $key) {
             if ($key['Non_unique'] != 0) {
                 continue;
@@ -288,7 +286,7 @@ class ExportHtmlword extends ExportPlugin
             $uniqueKeys[] = $key['Column_name'];
         }
 
-        $columns = $GLOBALS['dbi']->getColumns($db, $view);
+        $columns = $dbi->getColumns($db, $view);
         foreach ($columns as $column) {
             $colAs = $column['Field'];
             if (! empty($aliases[$db]['tables'][$view]['columns'][$colAs])) {
@@ -334,10 +332,11 @@ class ExportHtmlword extends ExportPlugin
 
         $schemaInsert = '';
 
+        $dbi = DatabaseInterface::getInstance();
         /**
          * Gets fields properties
          */
-        $GLOBALS['dbi']->selectDb($db);
+        $dbi->selectDb($db);
 
         // Check if we can use Relations
         $foreigners = $this->relation->getRelationsAndStatus(
@@ -386,12 +385,12 @@ class ExportHtmlword extends ExportPlugin
 
         $schemaInsert .= '</tr>';
 
-        $columns = $GLOBALS['dbi']->getColumns($db, $table);
+        $columns = $dbi->getColumns($db, $table);
         /**
          * Get the unique keys in the table
          */
         $uniqueKeys = [];
-        $keys = $GLOBALS['dbi']->getTableIndexes($db, $table);
+        $keys = $dbi->getTableIndexes($db, $table);
         foreach ($keys as $key) {
             if ($key['Non_unique'] != 0) {
                 continue;
@@ -533,7 +532,7 @@ class ExportHtmlword extends ExportPlugin
                 $dump .= $this->getTableDef($db, $table, $doRelation, $doComments, $doMime, $aliases);
                 break;
             case 'triggers':
-                $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table);
+                $triggers = Triggers::getDetails(DatabaseInterface::getInstance(), $db, $table);
                 if ($triggers !== []) {
                     $dump .= '<h2>'
                     . __('Triggers') . ' ' . htmlspecialchars($tableAlias)

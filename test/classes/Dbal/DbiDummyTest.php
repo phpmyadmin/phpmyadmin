@@ -28,7 +28,7 @@ class DbiDummyTest extends AbstractTestCase
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['IconvExtraParams'] = '';
         $GLOBALS['server'] = 1;

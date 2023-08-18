@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Schema;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Font;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\ResponseRenderer;
@@ -69,7 +70,7 @@ abstract class TableStats
         protected bool $tableDimension,
         protected bool $offline,
     ) {
-        $this->relation = new Relation($GLOBALS['dbi']);
+        $this->relation = new Relation(DatabaseInterface::getInstance());
         $this->font = new Font();
 
         // checks whether the table exists
@@ -89,14 +90,15 @@ abstract class TableStats
     protected function validateTableAndLoadFields(): void
     {
         $sql = 'DESCRIBE ' . Util::backquote($this->tableName);
-        $result = $GLOBALS['dbi']->tryQuery($sql);
+        $dbi = DatabaseInterface::getInstance();
+        $result = $dbi->tryQuery($sql);
         if (! $result || ! $result->numRows()) {
             $this->showMissingTableError();
             ResponseRenderer::getInstance()->callExit();
         }
 
         if ($this->showKeys) {
-            $indexes = Index::getFromTable($GLOBALS['dbi'], $this->tableName, $this->db);
+            $indexes = Index::getFromTable($dbi, $this->tableName, $this->db);
             $allColumns = [];
             foreach ($indexes as $index) {
                 $allColumns = array_merge(
@@ -151,7 +153,7 @@ abstract class TableStats
      */
     protected function loadPrimaryKey(): void
     {
-        $result = $GLOBALS['dbi']->query('SHOW INDEX FROM ' . Util::backquote($this->tableName) . ';');
+        $result = DatabaseInterface::getInstance()->query('SHOW INDEX FROM ' . Util::backquote($this->tableName) . ';');
         if ($result->numRows() <= 0) {
             return;
         }

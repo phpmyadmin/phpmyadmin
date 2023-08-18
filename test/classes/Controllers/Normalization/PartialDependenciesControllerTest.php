@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Normalization;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Normalization\PartialDependenciesController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Template;
@@ -34,7 +35,7 @@ class PartialDependenciesControllerTest extends AbstractTestCase
         // phpcs:enable
 
         $dbi = $this->createDatabaseInterface($dbiDummy);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
         $template = new Template();
 

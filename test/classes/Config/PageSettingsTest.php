@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Config;
 
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -30,7 +31,7 @@ class PageSettingsTest extends AbstractTestCase
 
         parent::setTheme();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = '';
@@ -43,7 +44,8 @@ class PageSettingsTest extends AbstractTestCase
      */
     public function testShowGroupNonExistent(): void
     {
-        $object = new PageSettings(new UserPreferences($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template()));
+        $dbi = DatabaseInterface::getInstance();
+        $object = new PageSettings(new UserPreferences($dbi, new Relation($dbi), new Template()));
         $object->init('NonExistent');
 
         $this->assertEquals('', $object->getHTML());
@@ -57,8 +59,9 @@ class PageSettingsTest extends AbstractTestCase
     {
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
 
+        $dbi = DatabaseInterface::getInstance();
         $object = new PageSettings(
-            new UserPreferences($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template()),
+            new UserPreferences($dbi, new Relation($dbi), new Template()),
         );
         $object->init('Browse');
 
@@ -89,8 +92,9 @@ class PageSettingsTest extends AbstractTestCase
      */
     public function testGetNaviSettings(): void
     {
+        $dbi = DatabaseInterface::getInstance();
         $pageSettings = new PageSettings(
-            new UserPreferences($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template()),
+            new UserPreferences($dbi, new Relation($dbi), new Template()),
         );
         $pageSettings->init('Navi', 'pma_navigation_settings');
 

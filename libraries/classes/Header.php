@@ -82,18 +82,17 @@ class Header
      */
     public function __construct(private readonly Template $template)
     {
-        $this->console = new Console(new Relation($GLOBALS['dbi']), $this->template);
-        if ($GLOBALS['dbi'] !== null) {
-            $this->menuEnabled = true;
-            $this->menu = new Menu($GLOBALS['dbi'], $this->template, $GLOBALS['db'] ?? '', $GLOBALS['table'] ?? '');
-        }
+        $dbi = DatabaseInterface::getInstance();
+        $this->console = new Console(new Relation($dbi), $this->template);
+        $this->menuEnabled = $dbi->isConnected();
+        $this->menu = new Menu($dbi, $this->template, $GLOBALS['db'] ?? '', $GLOBALS['table'] ?? '');
 
         $this->warningsEnabled = true;
         $this->scripts = new Scripts($this->template);
         $this->addDefaultScripts();
         $this->headerIsSent = false;
 
-        $this->userPreferences = new UserPreferences($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), $this->template);
+        $this->userPreferences = new UserPreferences($dbi, new Relation($dbi), $this->template);
     }
 
     /**
@@ -145,7 +144,7 @@ class Header
             'confirm' => $GLOBALS['cfg']['Confirm'],
             'LoginCookieValidity' => $GLOBALS['cfg']['LoginCookieValidity'],
             'session_gc_maxlifetime' => (int) ini_get('session.gc_maxlifetime'),
-            'logged_in' => isset($GLOBALS['dbi']) ? $GLOBALS['dbi']->isConnected() : false,
+            'logged_in' => DatabaseInterface::getInstance()->isConnected(),
             'is_https' => $config->isHttps(),
             'rootPath' => $config->getRootPath(),
             'arg_separator' => Url::getArgSeparator(),
@@ -311,11 +310,12 @@ class Header
         $this->scripts->addCode('ConsoleEnterExecutes=' . ($GLOBALS['cfg']['ConsoleEnterExecutes'] ? 'true' : 'false'));
         $this->scripts->addFiles($this->console->getScripts());
 
+        $dbi = DatabaseInterface::getInstance();
         if ($this->menuEnabled && $GLOBALS['server'] > 0) {
             $nav = new Navigation(
                 $this->template,
-                new Relation($GLOBALS['dbi']),
-                $GLOBALS['dbi'],
+                new Relation($dbi),
+                $dbi,
             );
             $navigation = $nav->getDisplay();
         }
@@ -336,7 +336,7 @@ class Header
 
         $console = $this->console->getDisplay();
         $messages = $this->getMessage();
-        $isLoggedIn = isset($GLOBALS['dbi']) && $GLOBALS['dbi']->isConnected();
+        $isLoggedIn = $dbi->isConnected();
 
         $this->scripts->addFile('datetimepicker.js');
         $this->scripts->addFile('validator-messages.js');

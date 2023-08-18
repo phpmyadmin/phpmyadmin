@@ -177,7 +177,7 @@ class ExportMediawiki extends ExportPlugin
 
         $output = '';
         if ($exportMode === 'create_table') {
-            $columns = $GLOBALS['dbi']->getColumns($db, $table);
+            $columns = DatabaseInterface::getInstance()->getColumns($db, $table);
             $columns = array_values($columns);
             $rowCnt = count($columns);
 
@@ -280,10 +280,11 @@ class ExportMediawiki extends ExportPlugin
             $output .= "|+'''" . $tableAlias . "'''" . $this->exportCRLF();
         }
 
+        $dbi = DatabaseInterface::getInstance();
         // Add the table headers
         if (isset($GLOBALS['mediawiki_headers'])) {
             // Get column names
-            $columnNames = $GLOBALS['dbi']->getColumnNames($db, $table);
+            $columnNames = $dbi->getColumnNames($db, $table);
 
             // Add column names as table headers
             if ($columnNames !== []) {
@@ -302,7 +303,7 @@ class ExportMediawiki extends ExportPlugin
         }
 
         // Get the table data from the database
-        $result = $GLOBALS['dbi']->query($sqlQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
+        $result = $dbi->query($sqlQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
         $fieldsCnt = $result->numFields();
 
         while ($row = $result->fetchRow()) {
@@ -331,7 +332,7 @@ class ExportMediawiki extends ExportPlugin
     public function exportRawQuery(string $errorUrl, string|null $db, string $sqlQuery): bool
     {
         if ($db !== null) {
-            $GLOBALS['dbi']->selectDb($db);
+            DatabaseInterface::getInstance()->selectDb($db);
         }
 
         return $this->exportData($db ?? '', '', $errorUrl, $sqlQuery);

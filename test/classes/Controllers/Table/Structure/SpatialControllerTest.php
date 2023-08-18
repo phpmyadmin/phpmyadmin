@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table\Structure;
 
 use PhpMyAdmin\Controllers\Table\Structure\SpatialController;
 use PhpMyAdmin\Controllers\Table\StructureController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Table\Indexes;
@@ -28,13 +29,13 @@ class SpatialControllerTest extends AbstractTestCase
         $dbiDummy->addSelectDb('test_db');
         $dbiDummy->addResult('ALTER TABLE `test_table` ADD SPATIAL(`test_field`);', true);
         $dbi = $this->createDatabaseInterface($dbiDummy);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $request = $this->createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['selected_fld', [], ['test_field']]]);
         $controllerStub = $this->createMock(StructureController::class);
         $controllerStub->expects($this->once())->method('__invoke')->with($request);
 
-        $indexes = new Indexes(new ResponseRenderer(), new Template(), $GLOBALS['dbi']);
+        $indexes = new Indexes(new ResponseRenderer(), new Template(), DatabaseInterface::getInstance());
         $controller = new SpatialController(new ResponseRenderer(), new Template(), $controllerStub, $indexes);
         $controller($request);
 
@@ -56,13 +57,13 @@ class SpatialControllerTest extends AbstractTestCase
         $dbiDummy->addSelectDb('test_db');
         $dbiDummy->addResult('ALTER TABLE `test_table` ADD SPATIAL(`test_field1`, `test_field2`);', true);
         $dbi = $this->createDatabaseInterface($dbiDummy);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $request = $this->createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['selected_fld', [], ['test_field1', 'test_field2']]]);
         $controllerStub = $this->createMock(StructureController::class);
         $controllerStub->expects($this->once())->method('__invoke')->with($request);
 
-        $indexes = new Indexes(new ResponseRenderer(), new Template(), $GLOBALS['dbi']);
+        $indexes = new Indexes(new ResponseRenderer(), new Template(), DatabaseInterface::getInstance());
         $controller = new SpatialController(new ResponseRenderer(), new Template(), $controllerStub, $indexes);
         $controller($request);
 
@@ -81,14 +82,14 @@ class SpatialControllerTest extends AbstractTestCase
         $GLOBALS['sql_query'] = null;
 
         $dbi = $this->createDatabaseInterface();
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $request = $this->createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['selected_fld', [], null]]);
         $controllerStub = $this->createMock(StructureController::class);
         $controllerStub->expects($this->never())->method('__invoke');
         $response = new ResponseRenderer();
 
-        $indexes = new Indexes(new ResponseRenderer(), new Template(), $GLOBALS['dbi']);
+        $indexes = new Indexes(new ResponseRenderer(), new Template(), DatabaseInterface::getInstance());
         $controller = new SpatialController($response, new Template(), $controllerStub, $indexes);
         $controller($request);
 
@@ -112,13 +113,13 @@ class SpatialControllerTest extends AbstractTestCase
         $dbiDummy->addResult('ALTER TABLE `test_table` ADD SPATIAL(`test_field`);', false);
         $dbiDummy->addErrorCode('#1210 - Incorrect arguments to SPATIAL INDEX');
         $dbi = $this->createDatabaseInterface($dbiDummy);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $request = $this->createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['selected_fld', [], ['test_field']]]);
         $controllerStub = $this->createMock(StructureController::class);
         $controllerStub->expects($this->once())->method('__invoke')->with($request);
 
-        $indexes = new Indexes(new ResponseRenderer(), new Template(), $GLOBALS['dbi']);
+        $indexes = new Indexes(new ResponseRenderer(), new Template(), DatabaseInterface::getInstance());
         $controller = new SpatialController(new ResponseRenderer(), new Template(), $controllerStub, $indexes);
         $controller($request);
 

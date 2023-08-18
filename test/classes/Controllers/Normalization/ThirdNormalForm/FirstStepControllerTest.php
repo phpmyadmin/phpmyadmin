@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Normalization\ThirdNormalForm;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Normalization\ThirdNormalForm\FirstStepController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Template;
@@ -26,7 +27,7 @@ class FirstStepControllerTest extends AbstractTestCase
         $dbiDummy->addSelectDb('test_db');
 
         $dbi = $this->createDatabaseInterface($dbiDummy);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
         $template = new Template();
         $request = $this->createStub(ServerRequest::class);

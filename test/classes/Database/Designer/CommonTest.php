@@ -35,7 +35,7 @@ class CommonTest extends AbstractTestCase
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
         $GLOBALS['server'] = 1;
         $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',
@@ -75,9 +75,9 @@ class CommonTest extends AbstractTestCase
                 null,
                 Connection::TYPE_CONTROL,
             );
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
-        $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
+        $this->designerCommon = new Common(DatabaseInterface::getInstance(), new Relation($dbi));
 
         $this->designerCommon->getTablePositions($pg);
     }
@@ -105,9 +105,9 @@ class CommonTest extends AbstractTestCase
                 Connection::TYPE_CONTROL,
             )
             ->willReturn($pageName);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
-        $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
+        $this->designerCommon = new Common(DatabaseInterface::getInstance(), new Relation($dbi));
 
         $result = $this->designerCommon->getPageName($pg);
 
@@ -133,8 +133,8 @@ class CommonTest extends AbstractTestCase
         $dbi->expects($this->any())->method('escapeString')
             ->willReturnArgument(0);
 
-        $GLOBALS['dbi'] = $dbi;
-        $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
+        DatabaseInterface::$instance = $dbi;
+        $this->designerCommon = new Common(DatabaseInterface::getInstance(), new Relation($dbi));
 
         $result = $this->designerCommon->deletePage($pg);
         $this->assertTrue($result);
@@ -166,8 +166,8 @@ class CommonTest extends AbstractTestCase
         $dbi->expects($this->any())->method('escapeString')
             ->willReturnArgument(0);
 
-        $GLOBALS['dbi'] = $dbi;
-        $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
+        DatabaseInterface::$instance = $dbi;
+        $this->designerCommon = new Common(DatabaseInterface::getInstance(), new Relation($dbi));
 
         $result = $this->designerCommon->getDefaultPage($db);
         $this->assertEquals($defaultPg, $result);
@@ -197,8 +197,8 @@ class CommonTest extends AbstractTestCase
         $dbi->expects($this->any())->method('escapeString')
             ->willReturnArgument(0);
 
-        $GLOBALS['dbi'] = $dbi;
-        $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
+        DatabaseInterface::$instance = $dbi;
+        $this->designerCommon = new Common(DatabaseInterface::getInstance(), new Relation($dbi));
 
         $result = $this->designerCommon->getDefaultPage($db);
         $this->assertEquals(-1, $result);
@@ -229,8 +229,8 @@ class CommonTest extends AbstractTestCase
         $dbi->expects($this->any())->method('escapeString')
             ->willReturnArgument(0);
 
-        $GLOBALS['dbi'] = $dbi;
-        $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
+        DatabaseInterface::$instance = $dbi;
+        $this->designerCommon = new Common(DatabaseInterface::getInstance(), new Relation($dbi));
 
         $result = $this->designerCommon->getLoadingPage($db);
         $this->assertEquals($defaultPg, $result);
@@ -254,8 +254,8 @@ class CommonTest extends AbstractTestCase
         $dbi->expects($this->any())->method('escapeString')
             ->willReturnArgument(0);
 
-        $GLOBALS['dbi'] = $dbi;
-        $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
+        DatabaseInterface::$instance = $dbi;
+        $this->designerCommon = new Common(DatabaseInterface::getInstance(), new Relation($dbi));
 
         $result = $this->designerCommon->getLoadingPage($db);
         $this->assertEquals($firstPg, $result);
@@ -354,7 +354,7 @@ class CommonTest extends AbstractTestCase
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
         $this->loadTestDataForRelationDeleteAddTests(
             'CREATE TABLE `table\'2` (`field\'1` int(11) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1',
         );
@@ -377,7 +377,7 @@ class CommonTest extends AbstractTestCase
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
 
         $this->loadTestDataForRelationDeleteAddTests(
             'CREATE TABLE `table\'2` (`field\'1` int(11) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1',
@@ -419,7 +419,7 @@ class CommonTest extends AbstractTestCase
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
 
         $this->loadTestDataForRelationDeleteAddTests(
             'CREATE TABLE `table\'2` ('
@@ -481,7 +481,7 @@ class CommonTest extends AbstractTestCase
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
 
         $this->loadTestDataForRelationDeleteAddTests(
             'CREATE TABLE `table\'2` (`field\'1` int(11) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1',

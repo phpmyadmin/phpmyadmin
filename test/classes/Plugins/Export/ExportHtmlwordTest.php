@@ -52,11 +52,11 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
         $GLOBALS['server'] = 0;
         $this->object = new ExportHtmlword(
-            new Relation($GLOBALS['dbi']),
-            new Export($GLOBALS['dbi']),
+            new Relation($this->dbi),
+            new Export($this->dbi),
             new Transformations(),
         );
         $GLOBALS['output_kanji_conversion'] = false;
@@ -350,7 +350,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->with('database', 'view')
             ->willReturn([['Field' => 'column']]);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $this->object->expects($this->once())
             ->method('formatOneColumnDefinition')
@@ -372,7 +372,7 @@ class ExportHtmlwordTest extends AbstractTestCase
     {
         $this->object = $this->getMockBuilder(ExportHtmlword::class)
             ->onlyMethods(['formatOneColumnDefinition'])
-            ->setConstructorArgs([new Relation($GLOBALS['dbi']), new Export($GLOBALS['dbi']), new Transformations()])
+            ->setConstructorArgs([new Relation($this->dbi), new Export($this->dbi), new Transformations()])
             ->getMock();
 
         $keys = [['Non_unique' => 0, 'Column_name' => 'name1'], ['Non_unique' => 1, 'Column_name' => 'name2']];
@@ -418,7 +418,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         $dbi->expects($this->any())->method('escapeString')
             ->willReturnArgument(0);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $this->object->relation = new Relation($dbi);
 
         $this->object->expects($this->exactly(3))
@@ -492,7 +492,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         $dbi->expects($this->any())->method('escapeString')
             ->willReturnArgument(0);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $this->object->relation = new Relation($dbi);
 
         $relationParameters = RelationParameters::fromArray([
@@ -535,7 +535,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         $dbi->expects($this->any())->method('escapeString')
             ->willReturnArgument(0);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $relationParameters = RelationParameters::fromArray([
             'db' => 'database',

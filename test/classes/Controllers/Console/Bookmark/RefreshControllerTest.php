@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Console\Bookmark;
 
 use PhpMyAdmin\Controllers\Console\Bookmark\RefreshController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -16,7 +17,7 @@ class RefreshControllerTest extends AbstractTestCase
 {
     public function testDefault(): void
     {
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
         $response = new ResponseRenderer();
         $controller = new RefreshController($response, new Template());
         $controller($this->createStub(ServerRequest::class));

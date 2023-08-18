@@ -34,7 +34,7 @@ class PrivilegesControllerTest extends AbstractTestCase
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
     }
 
     public function testIndex(): void
@@ -71,7 +71,7 @@ class PrivilegesControllerTest extends AbstractTestCase
             $response,
             new Template(),
             $serverPrivileges,
-            $GLOBALS['dbi'],
+            DatabaseInterface::getInstance(),
         ))($request);
         $actual = $response->getHTMLResult();
 

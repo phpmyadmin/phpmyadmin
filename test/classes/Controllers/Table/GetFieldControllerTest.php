@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\GetFieldController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -52,7 +53,7 @@ class GetFieldControllerTest extends AbstractTestCase
             ['file'],
         );
         $dbi = $this->createDatabaseInterface($dummyDbi);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         (new GetFieldController(new ResponseRenderer(), new Template(), $dbi))($request);
         $this->expectOutputString('46494c45');

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table\Partition;
 
 use PhpMyAdmin\Controllers\Table\Partition\TruncateController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Partitioning\Maintenance;
@@ -28,7 +29,7 @@ class TruncateControllerTest extends AbstractTestCase
         $request->method('getParsedBodyParam')->willReturnMap([['partition_name', null, $partition]]);
         $request->method('getParam')->willReturnMap([['db', null, $db], ['table', null, $table]]);
         $dbi = $this->createDatabaseInterface();
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
 
         $controller = new TruncateController($response, new Template(), new Maintenance($dbi));

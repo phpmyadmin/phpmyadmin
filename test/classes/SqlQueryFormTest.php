@@ -50,7 +50,7 @@ class SqlQueryFormTest extends AbstractTestCase
             [],
         );
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
         $this->sqlQueryForm = new SqlQueryForm(new Template(), $this->dbi);
 
         //$GLOBALS

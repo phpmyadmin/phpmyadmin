@@ -94,12 +94,13 @@ class StorageEngine
         static $storageEngines = null;
 
         if ($storageEngines == null) {
-            $storageEngines = $GLOBALS['dbi']->fetchResult('SHOW STORAGE ENGINES', 'Engine');
-            if (! $GLOBALS['dbi']->isMariaDB() && $GLOBALS['dbi']->getVersion() >= 50708) {
+            $dbi = DatabaseInterface::getInstance();
+            $storageEngines = $dbi->fetchResult('SHOW STORAGE ENGINES', 'Engine');
+            if (! $dbi->isMariaDB() && $dbi->getVersion() >= 50708) {
                 $disabled = (string) SessionCache::get(
                     'disabled_storage_engines',
                     /** @return mixed|false */
-                    static fn () => $GLOBALS['dbi']->fetchValue(
+                    static fn () => DatabaseInterface::getInstance()->fetchValue(
                         'SELECT @@disabled_storage_engines',
                     )
                 );
@@ -131,7 +132,8 @@ class StorageEngine
             return (bool) Cache::get($cacheKey, false);
         }
 
-        $supportsMroonga = $GLOBALS['dbi']->tryQuery('SELECT mroonga_command(\'object_list\');') !== false;
+        $dbi = DatabaseInterface::getInstance();
+        $supportsMroonga = $dbi->tryQuery('SELECT mroonga_command(\'object_list\');') !== false;
         Cache::set($cacheKey, $supportsMroonga);
 
         return $supportsMroonga;
@@ -149,13 +151,11 @@ class StorageEngine
     {
         $cacheKey = 'storage-engine.mroonga.object_list.' . $dbName;
 
-        $GLOBALS['dbi']->selectDb($dbName);// Needed for mroonga_command calls
+        $dbi = DatabaseInterface::getInstance();
+        $dbi->selectDb($dbName);// Needed for mroonga_command calls
 
         if (! Cache::has($cacheKey)) {
-            $result = $GLOBALS['dbi']->fetchSingleRow(
-                'SELECT mroonga_command(\'object_list\');',
-                DatabaseInterface::FETCH_NUM,
-            );
+            $result = $dbi->fetchSingleRow('SELECT mroonga_command(\'object_list\');', DatabaseInterface::FETCH_NUM);
             $objectList = (array) json_decode($result[0] ?? '', true);
             foreach ($objectList as $mroongaName => $mroongaData) {
                 /**
@@ -185,7 +185,7 @@ class StorageEngine
                 continue;
             }
 
-            $result = $GLOBALS['dbi']->fetchSingleRow(
+            $result = $dbi->fetchSingleRow(
                 'SELECT mroonga_command(\'object_inspect ' . $mroongaName . '\');',
                 DatabaseInterface::FETCH_NUM,
             );
@@ -363,7 +363,7 @@ class StorageEngine
         $mysqlVars = [];
 
         $sqlQuery = 'SHOW GLOBAL VARIABLES ' . $like . ';';
-        $res = $GLOBALS['dbi']->query($sqlQuery);
+        $res = DatabaseInterface::getInstance()->query($sqlQuery);
         foreach ($res as $row) {
             if (isset($variables[$row['Variable_name']])) {
                 $mysqlVars[$row['Variable_name']] = $variables[$row['Variable_name']];

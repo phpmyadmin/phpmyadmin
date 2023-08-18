@@ -39,7 +39,7 @@ class TwoFactorTest extends AbstractTestCase
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = 'table';
@@ -79,7 +79,7 @@ class TwoFactorTest extends AbstractTestCase
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
 
         $this->dummyDbi->removeDefaultResults();
 

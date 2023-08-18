@@ -39,7 +39,7 @@ class AuthenticationSignonTest extends AbstractTestCase
 
         parent::setTheme();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
@@ -340,7 +340,7 @@ class AuthenticationSignonTest extends AbstractTestCase
             ->method('getError')
             ->willReturn('error<123>');
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         try {
             $this->object->showFailure('');
@@ -373,7 +373,7 @@ class AuthenticationSignonTest extends AbstractTestCase
             ->method('getError')
             ->willReturn('');
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         try {
             $this->object->showFailure('');

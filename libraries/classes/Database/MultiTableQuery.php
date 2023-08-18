@@ -75,12 +75,13 @@ class MultiTableQuery
 
         $goto = Url::getFromRoute('/database/multi-table-query');
 
-        $relation = new Relation($GLOBALS['dbi']);
+        $dbi = DatabaseInterface::getInstance();
+        $relation = new Relation($dbi);
         $sql = new Sql(
-            $GLOBALS['dbi'],
+            $dbi,
             $relation,
-            new RelationCleanup($GLOBALS['dbi'], $relation),
-            new Operations($GLOBALS['dbi'], $relation),
+            new RelationCleanup($dbi, $relation),
+            new Operations($dbi, $relation),
             new Transformations(),
             new Template(),
         );

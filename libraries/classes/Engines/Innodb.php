@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Engines;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Util;
 
@@ -117,7 +118,7 @@ class Innodb extends StorageEngine
         $sql = 'SHOW STATUS'
             . ' WHERE Variable_name LIKE \'Innodb\\_buffer\\_pool\\_%\''
             . ' OR Variable_name = \'Innodb_page_size\';';
-        $status = $GLOBALS['dbi']->fetchResult($sql, 0, 1);
+        $status = DatabaseInterface::getInstance()->fetchResult($sql, 0, 1);
 
         /** @var string[] $bytes */
         $bytes = Util::formatByteDown($status['Innodb_buffer_pool_pages_total'] * $status['Innodb_page_size']);
@@ -254,7 +255,7 @@ class Innodb extends StorageEngine
     public function getPageStatus(): string
     {
         return '<pre id="pre_innodb_status">' . "\n"
-            . htmlspecialchars((string) $GLOBALS['dbi']->fetchValue(
+            . htmlspecialchars((string) DatabaseInterface::getInstance()->fetchValue(
                 'SHOW ENGINE INNODB STATUS;',
                 'Status',
             )) . "\n" . '</pre>' . "\n";
@@ -278,7 +279,7 @@ class Innodb extends StorageEngine
      */
     public function getInnodbPluginVersion(): string
     {
-        return (string) $GLOBALS['dbi']->fetchValue('SELECT @@innodb_version;');
+        return (string) DatabaseInterface::getInstance()->fetchValue('SELECT @@innodb_version;');
     }
 
     /**
@@ -290,7 +291,7 @@ class Innodb extends StorageEngine
      */
     public function getInnodbFileFormat(): string|null
     {
-        $value = $GLOBALS['dbi']->fetchValue("SHOW GLOBAL VARIABLES LIKE 'innodb_file_format';", 1);
+        $value = DatabaseInterface::getInstance()->fetchValue("SHOW GLOBAL VARIABLES LIKE 'innodb_file_format';", 1);
 
         if ($value === false) {
             // This variable does not exist anymore on MariaDB >= 10.6.0
@@ -308,6 +309,8 @@ class Innodb extends StorageEngine
      */
     public function supportsFilePerTable(): bool
     {
-        return $GLOBALS['dbi']->fetchValue("SHOW GLOBAL VARIABLES LIKE 'innodb_file_per_table';", 1) === 'ON';
+        $dbi = DatabaseInterface::getInstance();
+
+        return $dbi->fetchValue("SHOW GLOBAL VARIABLES LIKE 'innodb_file_per_table';", 1) === 'ON';
     }
 }

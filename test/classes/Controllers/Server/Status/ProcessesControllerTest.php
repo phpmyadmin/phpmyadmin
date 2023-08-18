@@ -37,7 +37,7 @@ class ProcessesControllerTest extends AbstractTestCase
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
@@ -52,12 +52,13 @@ class ProcessesControllerTest extends AbstractTestCase
     {
         $response = new ResponseRenderer();
 
+        $dbi = DatabaseInterface::getInstance();
         $controller = new ProcessesController(
             $response,
             new Template(),
             $this->data,
-            $GLOBALS['dbi'],
-            new Processes($GLOBALS['dbi']),
+            $dbi,
+            new Processes($dbi),
         );
 
         $this->dummyDbi->addSelectDb('mysql');

@@ -237,10 +237,8 @@ class VersionInformation
      */
     protected function getMySQLVersion(): string|null
     {
-        if (isset($GLOBALS['dbi'])) {
-            return $GLOBALS['dbi']->getVersionString();
-        }
+        $dbi = DatabaseInterface::getInstance();
 
-        return null;
+        return $dbi->isConnected() ? $dbi->getVersionString() : null;
     }
 }

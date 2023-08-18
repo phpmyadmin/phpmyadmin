@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Database;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\Database\RoutinesController;
 use PhpMyAdmin\Database\Routines;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Template;
@@ -95,7 +96,7 @@ final class RoutinesControllerTest extends AbstractTestCase
         // phpcs:enable
 
         $dbi = $this->createDatabaseInterface($dummyDbi);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $template = new Template();
         $response = new ResponseRenderer();
 
@@ -269,7 +270,7 @@ HTML;
         // phpcs:enable
 
         $dbi = $this->createDatabaseInterface($dummyDbi);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $template = new Template();
         $response = new ResponseRenderer();
 

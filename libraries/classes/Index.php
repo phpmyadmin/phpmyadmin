@@ -138,7 +138,7 @@ class Index
     public static function getFromTableByChoice(string $table, string $schema, int $choices = 31): array
     {
         $indexes = [];
-        foreach (self::getFromTable($GLOBALS['dbi'], $table, $schema) as $index) {
+        foreach (self::getFromTable(DatabaseInterface::getInstance(), $table, $schema) as $index) {
             if (($choices & self::PRIMARY) && $index->getChoice() === 'PRIMARY') {
                 $indexes[] = $index;
             }
@@ -421,7 +421,7 @@ class Index
 
     public function hasPrimary(): bool
     {
-        return self::getPrimary($GLOBALS['dbi'], $this->table, $this->schema) !== null;
+        return self::getPrimary(DatabaseInterface::getInstance(), $this->table, $this->schema) !== null;
     }
 
     /**
@@ -538,7 +538,7 @@ class Index
      */
     public static function findDuplicates(string $table, string $schema): string
     {
-        $indexes = self::getFromTable($GLOBALS['dbi'], $table, $schema);
+        $indexes = self::getFromTable(DatabaseInterface::getInstance(), $table, $schema);
 
         $output = '';
 

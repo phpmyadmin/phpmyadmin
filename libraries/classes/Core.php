@@ -134,7 +134,7 @@ class Core
      */
     public static function getTableCount(string $db): int
     {
-        $tables = $GLOBALS['dbi']->tryQuery('SHOW TABLES FROM ' . Util::backquote($db) . ';');
+        $tables = DatabaseInterface::getInstance()->tryQuery('SHOW TABLES FROM ' . Util::backquote($db) . ';');
 
         if ($tables) {
             return $tables->numRows();

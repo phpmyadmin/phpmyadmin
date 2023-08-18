@@ -45,7 +45,7 @@ class RelationControllerTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $this->response = new ResponseStub();
         $this->template = new Template();
@@ -69,14 +69,15 @@ class RelationControllerTest extends AbstractTestCase
         $tableMock->expects($this->any())->method('getColumns')
             ->willReturn($viewColumns);
 
-        $GLOBALS['dbi']->expects($this->any())->method('getTable')
+        $dbi = DatabaseInterface::getInstance();
+        $dbi->expects($this->any())->method('getTable')
             ->willReturn($tableMock);
 
         $ctrl = new RelationController(
             $this->response,
             $this->template,
-            new Relation($GLOBALS['dbi']),
-            $GLOBALS['dbi'],
+            new Relation($dbi),
+            $dbi,
         );
 
         $ctrl->getDropdownValueForTable();
@@ -102,14 +103,15 @@ class RelationControllerTest extends AbstractTestCase
         $tableMock->expects($this->any())->method('getIndexedColumns')
             ->willReturn($indexedColumns);
 
-        $GLOBALS['dbi']->expects($this->any())->method('getTable')
+        $dbi = DatabaseInterface::getInstance();
+        $dbi->expects($this->any())->method('getTable')
             ->willReturn($tableMock);
 
         $ctrl = new RelationController(
             $this->response,
             $this->template,
-            new Relation($GLOBALS['dbi']),
-            $GLOBALS['dbi'],
+            new Relation($dbi),
+            $dbi,
         );
 
         $ctrl->getDropdownValueForTable();
@@ -126,7 +128,8 @@ class RelationControllerTest extends AbstractTestCase
     {
         $resultStub = $this->createMock(DummyResult::class);
 
-        $GLOBALS['dbi']->expects($this->exactly(1))
+        $dbi = DatabaseInterface::getInstance();
+        $dbi->expects($this->exactly(1))
             ->method('query')
             ->willReturn($resultStub);
 
@@ -139,8 +142,8 @@ class RelationControllerTest extends AbstractTestCase
         $ctrl = new RelationController(
             $this->response,
             $this->template,
-            new Relation($GLOBALS['dbi']),
-            $GLOBALS['dbi'],
+            new Relation($dbi),
+            $dbi,
         );
 
         $_POST['foreign'] = 'true';
@@ -161,7 +164,8 @@ class RelationControllerTest extends AbstractTestCase
     {
         $resultStub = $this->createMock(DummyResult::class);
 
-        $GLOBALS['dbi']->expects($this->exactly(1))
+        $dbi = DatabaseInterface::getInstance();
+        $dbi->expects($this->exactly(1))
             ->method('query')
             ->willReturn($resultStub);
 
@@ -172,8 +176,8 @@ class RelationControllerTest extends AbstractTestCase
         $ctrl = new RelationController(
             $this->response,
             $this->template,
-            new Relation($GLOBALS['dbi']),
-            $GLOBALS['dbi'],
+            new Relation($dbi),
+            $dbi,
         );
 
         $_POST['foreign'] = 'false';

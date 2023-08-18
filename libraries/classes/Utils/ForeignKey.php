@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Utils;
 
+use PhpMyAdmin\DatabaseInterface;
+
 use function strtolower;
 use function strtoupper;
 use function substr;
@@ -25,7 +27,7 @@ final class ForeignKey
 
         if ($engine === 'NDBCLUSTER' || $engine === 'NDB') {
             $ndbver = strtolower(
-                $GLOBALS['dbi']->fetchValue('SELECT @@ndb_version_string') ?: '',
+                DatabaseInterface::getInstance()->fetchValue('SELECT @@ndb_version_string') ?: '',
             );
             if (substr($ndbver, 0, 4) === 'ndb-') {
                 $ndbver = substr($ndbver, 4);
@@ -50,7 +52,7 @@ final class ForeignKey
             return false;
         }
 
-        return $GLOBALS['dbi']->getVariable('FOREIGN_KEY_CHECKS') === 'ON';
+        return DatabaseInterface::getInstance()->getVariable('FOREIGN_KEY_CHECKS') === 'ON';
     }
 
     /**
@@ -58,14 +60,15 @@ final class ForeignKey
      */
     public static function handleDisableCheckInit(): bool
     {
-        $defaultCheckValue = $GLOBALS['dbi']->getVariable('FOREIGN_KEY_CHECKS') === 'ON';
+        $dbi = DatabaseInterface::getInstance();
+        $defaultCheckValue = $dbi->getVariable('FOREIGN_KEY_CHECKS') === 'ON';
         if (isset($_REQUEST['fk_checks'])) {
             if (empty($_REQUEST['fk_checks'])) {
                 // Disable foreign key checks
-                $GLOBALS['dbi']->setVariable('FOREIGN_KEY_CHECKS', 'OFF');
+                $dbi->setVariable('FOREIGN_KEY_CHECKS', 'OFF');
             } else {
                 // Enable foreign key checks
-                $GLOBALS['dbi']->setVariable('FOREIGN_KEY_CHECKS', 'ON');
+                $dbi->setVariable('FOREIGN_KEY_CHECKS', 'ON');
             }
         }
 
@@ -79,6 +82,6 @@ final class ForeignKey
      */
     public static function handleDisableCheckCleanup(bool $defaultCheckValue): void
     {
-        $GLOBALS['dbi']->setVariable('FOREIGN_KEY_CHECKS', $defaultCheckValue ? 'ON' : 'OFF');
+        DatabaseInterface::getInstance()->setVariable('FOREIGN_KEY_CHECKS', $defaultCheckValue ? 'ON' : 'OFF');
     }
 }

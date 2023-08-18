@@ -35,7 +35,7 @@ class EnginesControllerTest extends AbstractTestCase
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
@@ -47,7 +47,7 @@ class EnginesControllerTest extends AbstractTestCase
     {
         $response = new ResponseRenderer();
 
-        $controller = new EnginesController($response, new Template(), $GLOBALS['dbi']);
+        $controller = new EnginesController($response, new Template(), DatabaseInterface::getInstance());
 
         $this->dummyDbi->addSelectDb('mysql');
         $controller->__invoke($this->createStub(ServerRequest::class));

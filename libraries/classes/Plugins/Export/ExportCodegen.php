@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Export\Helpers\TableProperty;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -205,7 +206,7 @@ class ExportCodegen extends ExportPlugin
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
 
-        $result = $GLOBALS['dbi']->query(
+        $result = DatabaseInterface::getInstance()->query(
             sprintf(
                 'DESC %s.%s',
                 Util::backquote($db),
@@ -317,7 +318,7 @@ class ExportCodegen extends ExportPlugin
         $lines[] = '    <class '
             . 'name="' . self::cgMakeIdentifier($tableAlias) . '" '
             . 'table="' . self::cgMakeIdentifier($tableAlias) . '">';
-        $result = $GLOBALS['dbi']->query(
+        $result = DatabaseInterface::getInstance()->query(
             sprintf(
                 'DESC %s.%s',
                 Util::backquote($db),

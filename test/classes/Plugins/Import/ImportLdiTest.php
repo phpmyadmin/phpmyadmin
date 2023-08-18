@@ -25,7 +25,7 @@ class ImportLdiTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['charset_conversion'] = null;
         $GLOBALS['ldi_terminated'] = null;
         $GLOBALS['ldi_escaped'] = null;
@@ -87,7 +87,7 @@ class ImportLdiTest extends AbstractTestCase
     public function testGetPropertiesAutoLdi(): void
     {
         $dbi = $this->createMock(DatabaseInterface::class);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $resultStub = $this->createMock(DummyResult::class);
 
@@ -125,7 +125,7 @@ class ImportLdiTest extends AbstractTestCase
         $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $importHandle = new File($GLOBALS['import_file']);
         $importHandle->open();
@@ -174,7 +174,7 @@ class ImportLdiTest extends AbstractTestCase
         $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
 
         $GLOBALS['ldi_local_option'] = true;
         $GLOBALS['ldi_replace'] = true;

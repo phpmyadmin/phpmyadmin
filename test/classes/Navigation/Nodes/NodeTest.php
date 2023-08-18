@@ -271,7 +271,7 @@ final class NodeTest extends AbstractTestCase
 
     public function testGetWhereClause(): void
     {
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
         $method = new ReflectionMethod(Node::class, 'getWhereClause');
 
         // Vanilla case
@@ -352,7 +352,7 @@ final class NodeTest extends AbstractTestCase
         $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())->method('fetchResult')->with($expectedSql);
         $dbi->expects($this->any())->method('escapeString')->willReturnArgument(0);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $node->getData($relationParameters, '', 10);
     }
 
@@ -383,7 +383,7 @@ final class NodeTest extends AbstractTestCase
         $dbi->expects($this->once())->method('fetchResult')->with($expectedSql);
         $dbi->expects($this->any())->method('escapeString')->willReturnArgument(0);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $node->getData($relationParameters, '', 10);
     }
 
@@ -427,7 +427,7 @@ final class NodeTest extends AbstractTestCase
         $dbi->expects($this->any())->method('escapeString')
             ->willReturnArgument(0);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $node->getData($relationParameters, '', 0, 'db');
     }
 
@@ -452,7 +452,7 @@ final class NodeTest extends AbstractTestCase
 
         $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())->method('fetchValue')->with($query);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $this->assertSame(0, $node->getPresence());
     }
 
@@ -471,7 +471,7 @@ final class NodeTest extends AbstractTestCase
         $node = new Node('node');
         $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())->method('fetchValue')->with($query);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $this->assertSame(0, $node->getPresence());
     }
 
@@ -496,7 +496,7 @@ final class NodeTest extends AbstractTestCase
             ->willReturn($resultStub);
         $dbi->expects($this->any())->method('escapeString')->willReturnArgument(0);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $this->assertSame(0, $node->getPresence());
 
         // test with a search clause
@@ -508,7 +508,7 @@ final class NodeTest extends AbstractTestCase
         $dbi->expects($this->any())->method('escapeString')
             ->willReturnArgument(0);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $this->assertSame(0, $node->getPresence('', 'dbname'));
     }
 

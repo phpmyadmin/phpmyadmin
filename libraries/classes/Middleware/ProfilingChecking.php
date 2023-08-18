@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Middleware;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Profiling;
 use PhpMyAdmin\ResponseRenderer;
 use Psr\Http\Message\ResponseInterface;
@@ -15,7 +16,7 @@ final class ProfilingChecking implements MiddlewareInterface
 {
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        Profiling::check($GLOBALS['dbi'], ResponseRenderer::getInstance());
+        Profiling::check(DatabaseInterface::getInstance(), ResponseRenderer::getInstance());
 
         return $handler->handle($request);
     }

@@ -494,10 +494,11 @@ class Table implements Stringable
         // see https://dev.mysql.com/doc/refman/5.5/en/floating-point-types.html
         $pattern = '@^(DATE|TINYBLOB|TINYTEXT|BLOB|TEXT|'
             . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN|UUID|JSON)$@i';
+        $dbi = DatabaseInterface::getInstance();
         if (
             $length !== ''
             && ! preg_match($pattern, $type)
-            && Compatibility::isIntegersSupportLength($type, $length, $GLOBALS['dbi'])
+            && Compatibility::isIntegersSupportLength($type, $length, $dbi)
         ) {
             // Note: The variable $length here can contain several other things
             // besides length - ENUM/SET value or length of DECIMAL (eg. 12,3)
@@ -564,12 +565,12 @@ class Table implements Stringable
                                 $query .= ' DEFAULT FALSE';
                             } else {
                                 // Invalid BOOLEAN value
-                                $query .= ' DEFAULT ' . $GLOBALS['dbi']->quoteString($defaultValue);
+                                $query .= ' DEFAULT ' . $dbi->quoteString($defaultValue);
                             }
                         } elseif ($type === 'BINARY' || $type === 'VARBINARY') {
                             $query .= ' DEFAULT 0x' . $defaultValue;
                         } else {
-                            $query .= ' DEFAULT ' . $GLOBALS['dbi']->quoteString($defaultValue);
+                            $query .= ' DEFAULT ' . $dbi->quoteString($defaultValue);
                         }
 
                         break;
@@ -615,7 +616,7 @@ class Table implements Stringable
         }
 
         if ($comment !== '') {
-            $query .= ' COMMENT ' . $GLOBALS['dbi']->quoteString($comment);
+            $query .= ' COMMENT ' . $dbi->quoteString($comment);
         }
 
         // move column
@@ -823,7 +824,8 @@ class Table implements Stringable
         array $whereFields,
         array $newFields,
     ): int|bool {
-        $relation = new Relation($GLOBALS['dbi']);
+        $dbi = DatabaseInterface::getInstance();
+        $relation = new Relation($dbi);
         $relationParameters = $relation->getRelationParameters();
         $relationParams = $relationParameters->toArray();
         $lastId = -1;
@@ -842,14 +844,14 @@ class Table implements Stringable
         $whereParts = [];
         foreach ($whereFields as $where => $value) {
             $whereParts[] = Util::backquote((string) $where) . ' = '
-                . $GLOBALS['dbi']->quoteString((string) $value, Connection::TYPE_CONTROL);
+                . $dbi->quoteString((string) $value, Connection::TYPE_CONTROL);
         }
 
         $newParts = [];
         $newValueParts = [];
         foreach ($newFields as $where => $value) {
             $newParts[] = Util::backquote((string) $where);
-            $newValueParts[] = $GLOBALS['dbi']->quoteString((string) $value, Connection::TYPE_CONTROL);
+            $newValueParts[] = $dbi->quoteString((string) $value, Connection::TYPE_CONTROL);
         }
 
         $tableCopyQuery = '
@@ -860,7 +862,7 @@ class Table implements Stringable
 
         // must use DatabaseInterface::QUERY_BUFFERED here, since we execute
         // another query inside the loop
-        $tableCopyRs = $GLOBALS['dbi']->queryAsControlUser($tableCopyQuery);
+        $tableCopyRs = $dbi->queryAsControlUser($tableCopyQuery);
 
         foreach ($tableCopyRs as $tableCopyRow) {
             $valueParts = [];
@@ -869,7 +871,7 @@ class Table implements Stringable
                     continue;
                 }
 
-                $valueParts[] = $GLOBALS['dbi']->quoteString($val, Connection::TYPE_CONTROL);
+                $valueParts[] = $dbi->quoteString($val, Connection::TYPE_CONTROL);
             }
 
             $newTableQuery = 'INSERT IGNORE INTO '
@@ -880,8 +882,8 @@ class Table implements Stringable
                 . implode(', ', $valueParts) . ', '
                 . implode(', ', $newValueParts) . ')';
 
-            $GLOBALS['dbi']->queryAsControlUser($newTableQuery);
-            $lastId = $GLOBALS['dbi']->insertId();
+            $dbi->queryAsControlUser($newTableQuery);
+            $lastId = $dbi->insertId();
         }
 
         return $lastId;
@@ -909,11 +911,12 @@ class Table implements Stringable
         bool $addDropIfExists,
     ): bool {
         $GLOBALS['errorUrl'] ??= null;
-        $relation = new Relation($GLOBALS['dbi']);
+        $dbi = DatabaseInterface::getInstance();
+        $relation = new Relation($dbi);
 
         // Try moving the tables directly, using native `RENAME` statement.
         if ($move && $what === 'data') {
-            $tbl = new Table($sourceTable, $sourceDb, $GLOBALS['dbi']);
+            $tbl = new Table($sourceTable, $sourceDb, $dbi);
             if ($tbl->rename($targetTable, $targetDb)) {
                 $GLOBALS['message'] = $tbl->getLastMessage();
 
@@ -925,7 +928,7 @@ class Table implements Stringable
         $GLOBALS['asfile'] = 1;
 
         // Ensuring the target database is valid.
-        $databaseList = $GLOBALS['dbi']->getDatabaseList();
+        $databaseList = $dbi->getDatabaseList();
         if (! $databaseList->exists($sourceDb, $targetDb)) {
             if (! $databaseList->exists($sourceDb)) {
                 $GLOBALS['message'] = Message::rawError(
@@ -961,7 +964,7 @@ class Table implements Stringable
 
         // Selecting the database could avoid some problems with replicated
         // databases, when moving table from replicated one to not replicated one.
-        $GLOBALS['dbi']->selectDb($targetDb);
+        $dbi->selectDb($targetDb);
 
         /**
          * The full name of target table, quoted.
@@ -987,7 +990,7 @@ class Table implements Stringable
                 $GLOBALS['sql_auto_increment'] = $_POST['sql_auto_increment'];
             }
 
-            $isView = (new Table($sourceTable, $sourceDb, $GLOBALS['dbi']))->isView();
+            $isView = (new Table($sourceTable, $sourceDb, $dbi))->isView();
             /**
              * The old structure of the table.
              */
@@ -1006,7 +1009,7 @@ class Table implements Stringable
             // Find server's SQL mode so the builder can generate correct
             // queries.
             // One of the options that alters the behaviour is `ANSI_QUOTES`.
-            Context::setMode((string) $GLOBALS['dbi']->fetchValue('SELECT @@sql_mode'));
+            Context::setMode((string) $dbi->fetchValue('SELECT @@sql_mode'));
 
             // -----------------------------------------------------------------
             // Phase 1: Dropping existent element of the same name (if exists
@@ -1018,7 +1021,7 @@ class Table implements Stringable
                  */
                 $statement = new DropStatement();
 
-                $tbl = new Table($targetTable, $targetDb, $GLOBALS['dbi']);
+                $tbl = new Table($targetTable, $targetDb, $dbi);
 
                 $statement->options = new OptionsArray(
                     [$tbl->isView() ? 'VIEW' : 'TABLE', 'IF EXISTS'],
@@ -1030,7 +1033,7 @@ class Table implements Stringable
                 $dropQuery = $statement->build() . ';';
 
                 // Executing it.
-                $GLOBALS['dbi']->query($dropQuery);
+                $dbi->query($dropQuery);
                 $GLOBALS['sql_query'] .= "\n" . $dropQuery;
 
                 // If an existing table gets deleted, maintain any entries for
@@ -1064,11 +1067,11 @@ class Table implements Stringable
                 // This is to avoid some issues when renaming databases with views
                 // See: https://github.com/phpmyadmin/phpmyadmin/issues/16422
                 if ($move) {
-                    $GLOBALS['dbi']->selectDb($targetDb);
+                    $dbi->selectDb($targetDb);
                 }
 
                 // Executing it
-                $GLOBALS['dbi']->query($sqlStructure);
+                $dbi->query($sqlStructure);
                 $GLOBALS['sql_query'] .= "\n" . $sqlStructure;
             }
 
@@ -1104,7 +1107,7 @@ class Table implements Stringable
 
                 // Executing it.
                 if ($mode === 'one_table') {
-                    $GLOBALS['dbi']->query($GLOBALS['sql_constraints_query']);
+                    $dbi->query($GLOBALS['sql_constraints_query']);
                 }
 
                 $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_constraints_query'];
@@ -1145,7 +1148,7 @@ class Table implements Stringable
 
                     // Executing it.
                     if ($mode === 'one_table' || $mode === 'db_copy') {
-                        $GLOBALS['dbi']->query($sqlIndex);
+                        $dbi->query($sqlIndex);
                     }
 
                     $GLOBALS['sql_indexes'] .= $sqlIndex;
@@ -1175,7 +1178,7 @@ class Table implements Stringable
                     $GLOBALS['sql_auto_increments'] = $statement->build() . ';';
 
                     // Executing it.
-                    $GLOBALS['dbi']->query($GLOBALS['sql_auto_increments']);
+                    $dbi->query($GLOBALS['sql_auto_increments']);
                     $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_auto_increments'];
                 }
 
@@ -1185,14 +1188,14 @@ class Table implements Stringable
             $GLOBALS['sql_query'] = '';
         }
 
-        $table = new Table($targetTable, $targetDb, $GLOBALS['dbi']);
+        $table = new Table($targetTable, $targetDb, $dbi);
         // Copy the data unless this is a VIEW
         if (($what === 'data' || $what === 'dataonly') && ! $table->isView()) {
             $sqlSetMode = "SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO'";
-            $GLOBALS['dbi']->query($sqlSetMode);
+            $dbi->query($sqlSetMode);
             $GLOBALS['sql_query'] .= "\n\n" . $sqlSetMode . ';';
 
-            $oldTable = new Table($sourceTable, $sourceDb, $GLOBALS['dbi']);
+            $oldTable = new Table($sourceTable, $sourceDb, $dbi);
             $nonGeneratedCols = $oldTable->getNonGeneratedColumns();
             if ($nonGeneratedCols !== []) {
                 $sqlInsertData = 'INSERT INTO ' . $target . '('
@@ -1200,7 +1203,7 @@ class Table implements Stringable
                     . ') SELECT ' . implode(', ', $nonGeneratedCols)
                     . ' FROM ' . $source;
 
-                $GLOBALS['dbi']->query($sqlInsertData);
+                $dbi->query($sqlInsertData);
                 $GLOBALS['sql_query'] .= "\n\n" . $sqlInsertData . ';';
             }
         }
@@ -1211,9 +1214,9 @@ class Table implements Stringable
         if ($move) {
             // This could avoid some problems with replicated databases, when
             // moving table from replicated one to not replicated one
-            $GLOBALS['dbi']->selectDb($sourceDb);
+            $dbi->selectDb($sourceDb);
 
-            $sourceTableObj = new Table($sourceTable, $sourceDb, $GLOBALS['dbi']);
+            $sourceTableObj = new Table($sourceTable, $sourceDb, $dbi);
             if ($sourceTableObj->isView()) {
                 $sqlDropQuery = 'DROP VIEW';
             } else {
@@ -1221,7 +1224,7 @@ class Table implements Stringable
             }
 
             $sqlDropQuery .= ' ' . $source;
-            $GLOBALS['dbi']->query($sqlDropQuery);
+            $dbi->query($sqlDropQuery);
 
             // Rename table in configuration storage
             $relation->renameTable($sourceDb, $targetDb, $sourceTable, $targetTable);
@@ -1239,7 +1242,7 @@ class Table implements Stringable
 
         if ($relationParameters->columnCommentsFeature !== null) {
             // Get all comments and MIME-Types for current table
-            $commentsCopyRs = $GLOBALS['dbi']->queryAsControlUser(
+            $commentsCopyRs = $dbi->queryAsControlUser(
                 'SELECT column_name, comment'
                 . ($relationParameters->browserTransformationFeature !== null
                 ? ', mimetype, transformation, transformation_options'
@@ -1249,9 +1252,9 @@ class Table implements Stringable
                 . '.'
                 . Util::backquote($relationParameters->columnCommentsFeature->columnInfo)
                 . ' WHERE '
-                . ' db_name = ' . $GLOBALS['dbi']->quoteString($sourceDb, Connection::TYPE_CONTROL)
+                . ' db_name = ' . $dbi->quoteString($sourceDb, Connection::TYPE_CONTROL)
                 . ' AND '
-                . ' table_name = ' . $GLOBALS['dbi']->quoteString($sourceTable, Connection::TYPE_CONTROL),
+                . ' table_name = ' . $dbi->quoteString($sourceTable, Connection::TYPE_CONTROL),
             );
 
             // Write every comment as new copied entry. [MIME]
@@ -1263,24 +1266,18 @@ class Table implements Stringable
                     . ($relationParameters->browserTransformationFeature !== null
                         ? ', mimetype, transformation, transformation_options'
                         : '')
-                    . ') VALUES(' . $GLOBALS['dbi']->quoteString($targetDb, Connection::TYPE_CONTROL)
-                    . ',' . $GLOBALS['dbi']->quoteString($targetTable, Connection::TYPE_CONTROL) . ','
-                    . $GLOBALS['dbi']->quoteString($commentsCopyRow['column_name'], Connection::TYPE_CONTROL)
+                    . ') VALUES(' . $dbi->quoteString($targetDb, Connection::TYPE_CONTROL)
+                    . ',' . $dbi->quoteString($targetTable, Connection::TYPE_CONTROL) . ','
+                    . $dbi->quoteString($commentsCopyRow['column_name'], Connection::TYPE_CONTROL)
                     . ','
-                    . $GLOBALS['dbi']->quoteString($commentsCopyRow['comment'], Connection::TYPE_CONTROL)
+                    . $dbi->quoteString($commentsCopyRow['comment'], Connection::TYPE_CONTROL)
                     . ($relationParameters->browserTransformationFeature !== null
-                        ? ',' . $GLOBALS['dbi']->quoteString($commentsCopyRow['mimetype'], Connection::TYPE_CONTROL)
-                        . ',' . $GLOBALS['dbi']->quoteString(
-                            $commentsCopyRow['transformation'],
-                            Connection::TYPE_CONTROL,
-                        )
-                        . ',' . $GLOBALS['dbi']->quoteString(
-                            $commentsCopyRow['transformation_options'],
-                            Connection::TYPE_CONTROL,
-                        )
+                        ? ',' . $dbi->quoteString($commentsCopyRow['mimetype'], Connection::TYPE_CONTROL)
+                        . ',' . $dbi->quoteString($commentsCopyRow['transformation'], Connection::TYPE_CONTROL)
+                        . ',' . $dbi->quoteString($commentsCopyRow['transformation_options'], Connection::TYPE_CONTROL)
                         : '')
                     . ')';
-                $GLOBALS['dbi']->queryAsControlUser($newCommentQuery);
+                $dbi->queryAsControlUser($newCommentQuery);
             }
 
             unset($commentsCopyRs);

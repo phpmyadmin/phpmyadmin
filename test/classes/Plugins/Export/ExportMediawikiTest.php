@@ -38,7 +38,8 @@ class ExportMediawikiTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        $dbi = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $dbi;
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['output_charset_conversion'] = false;
@@ -50,8 +51,8 @@ class ExportMediawikiTest extends AbstractTestCase
         $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'ltr';
         $this->object = new ExportMediawiki(
-            new Relation($GLOBALS['dbi']),
-            new Export($GLOBALS['dbi']),
+            new Relation($dbi),
+            new Export($dbi),
             new Transformations(),
         );
     }
@@ -63,6 +64,7 @@ class ExportMediawikiTest extends AbstractTestCase
     {
         parent::tearDown();
 
+        DatabaseInterface::$instance = null;
         unset($this->object);
     }
 
@@ -242,7 +244,7 @@ class ExportMediawikiTest extends AbstractTestCase
             ->with('db', 'table')
             ->willReturn($columns);
 
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $GLOBALS['mediawiki_caption'] = true;
         $GLOBALS['mediawiki_headers'] = true;
 

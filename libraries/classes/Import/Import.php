@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Import;
 
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\File;
 use PhpMyAdmin\FileListing;
@@ -84,7 +85,7 @@ class Import
     {
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-        $checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
+        $checkUserPrivileges = new CheckUserPrivileges(DatabaseInterface::getInstance());
         $checkUserPrivileges->getPrivileges();
     }
 
@@ -130,7 +131,8 @@ class Import
         $GLOBALS['reload'] ??= null;
         $GLOBALS['msg'] ??= null;
         $GLOBALS['sql_query_disabled'] ??= null;
-        $GLOBALS['result'] = $GLOBALS['dbi']->tryQuery($sql);
+        $dbi = DatabaseInterface::getInstance();
+        $GLOBALS['result'] = $dbi->tryQuery($sql);
 
         // USE query changes the database, son need to track
         // while running multiple queries
@@ -142,7 +144,7 @@ class Import
                 $GLOBALS['my_die'] = [];
             }
 
-            $GLOBALS['my_die'][] = ['sql' => $sql, 'error' => $GLOBALS['dbi']->getError()];
+            $GLOBALS['my_die'][] = ['sql' => $sql, 'error' => $dbi->getError()];
 
             $GLOBALS['msg'] .= __('Error');
 
@@ -153,7 +155,7 @@ class Import
             }
         } else {
             $aNumRows = (int) $GLOBALS['result']->numRows();
-            $aAffectedRows = (int) @$GLOBALS['dbi']->affectedRows();
+            $aAffectedRows = (int) @$dbi->affectedRows();
             if ($aNumRows > 0) {
                 $GLOBALS['msg'] .= __('Rows') . ': ' . $aNumRows;
             } elseif ($aAffectedRows > 0) {
@@ -1083,6 +1085,7 @@ class Import
         $tempSQLStr = '';
         $colCount = 0;
         $numTables = count($tables);
+        $dbi = DatabaseInterface::getInstance();
         for ($i = 0; $i < $numTables; ++$i) {
             $numCols = count($tables[$i][self::COL_NAMES]);
             $numRows = count($tables[$i][self::ROWS]);
@@ -1127,7 +1130,7 @@ class Import
                         }
 
                         $tempSQLStr .= $isVarchar
-                            ? $GLOBALS['dbi']->quoteString((string) $tables[$i][self::ROWS][$j][$k])
+                            ? $dbi->quoteString((string) $tables[$i][self::ROWS][$j][$k])
                             : (string) $tables[$i][self::ROWS][$j][$k];
                     }
 
@@ -1243,7 +1246,7 @@ class Import
 
             unset($params);
 
-            $tableObj = new Table($table[self::TBL_NAME], $dbName, $GLOBALS['dbi']);
+            $tableObj = new Table($table[self::TBL_NAME], $dbName, $dbi);
             if (! $tableObj->isView()) {
                 $message .= sprintf(
                     '<li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">' . __(
@@ -1306,6 +1309,7 @@ class Import
             'Only INSERT, UPDATE, DELETE and REPLACE '
             . 'SQL queries containing transactional engine tables can be rolled back.',
         );
+        $dbi = DatabaseInterface::getInstance();
         foreach ($queries as $sqlQuery) {
             if ($sqlQuery === '') {
                 continue;
@@ -1316,7 +1320,7 @@ class Import
                 continue;
             }
 
-            $globalError = $GLOBALS['dbi']->getError();
+            $globalError = $dbi->getError();
             if ($globalError) {
                 $error = $globalError;
             } else {
@@ -1335,7 +1339,7 @@ class Import
         }
 
         // If everything fine, START a transaction.
-        $GLOBALS['dbi']->query('START TRANSACTION');
+        $dbi->query('START TRANSACTION');
     }
 
     /**
@@ -1397,7 +1401,8 @@ class Import
             . '.' . Util::backquote($table) . ' '
             . 'LIMIT 1';
 
-        $result = $GLOBALS['dbi']->tryQuery($checkTableQuery);
+        $dbi = DatabaseInterface::getInstance();
+        $result = $dbi->tryQuery($checkTableQuery);
 
         if (! $result) {
             return false;
@@ -1408,13 +1413,13 @@ class Import
 
         // Query to check if table is 'Transactional'.
         $checkQuery = 'SELECT `ENGINE` FROM `information_schema`.`tables` '
-            . 'WHERE `table_name` = ' . $GLOBALS['dbi']->quoteString($table) . ' '
-            . 'AND `table_schema` = ' . $GLOBALS['dbi']->quoteString($db) . ' '
+            . 'WHERE `table_name` = ' . $dbi->quoteString($table) . ' '
+            . 'AND `table_schema` = ' . $dbi->quoteString($db) . ' '
             . 'AND UPPER(`engine`) IN ("'
             . implode('", "', $transactionalEngines)
             . '")';
 
-        $result = $GLOBALS['dbi']->tryQuery($checkQuery);
+        $result = $dbi->tryQuery($checkQuery);
 
         return $result && $result->numRows() == 1;
     }

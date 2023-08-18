@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Console\Bookmark;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Controllers\Console\Bookmark\AddController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -20,7 +21,7 @@ class AddControllerTest extends AbstractTestCase
     public function testWithInvalidParams(): void
     {
         $dbi = $this->createDatabaseInterface();
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
         $request = $this->createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
@@ -39,7 +40,7 @@ class AddControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['user'] = 'user';
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
         $dbi = $this->createDatabaseInterface();
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
         $request = $this->createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
@@ -72,7 +73,7 @@ class AddControllerTest extends AbstractTestCase
             true,
         );
         $dbi = $this->createDatabaseInterface($dbiDummy);
-        $GLOBALS['dbi'] = $dbi;
+        DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
         $request = $this->createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([

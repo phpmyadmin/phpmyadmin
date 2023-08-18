@@ -58,13 +58,14 @@ class Console
     public static function getBookmarkContent(): string
     {
         $template = new Template();
-        $relation = new Relation($GLOBALS['dbi']);
+        $dbi = DatabaseInterface::getInstance();
+        $relation = new Relation($dbi);
         $bookmarkFeature = $relation->getRelationParameters()->bookmarkFeature;
         if ($bookmarkFeature === null) {
             return '';
         }
 
-        $bookmarks = Bookmark::getList($bookmarkFeature, $GLOBALS['dbi'], $GLOBALS['cfg']['Server']['user']);
+        $bookmarks = Bookmark::getList($bookmarkFeature, $dbi, $GLOBALS['cfg']['Server']['user']);
         $countBookmarks = count($bookmarks);
         if ($countBookmarks > 0) {
             $welcomeMessage = sprintf(

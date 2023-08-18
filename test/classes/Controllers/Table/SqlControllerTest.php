@@ -34,7 +34,7 @@ class SqlControllerTest extends AbstractTestCase
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
+        DatabaseInterface::$instance = $this->dbi;
     }
 
     public function testSqlController(): void
@@ -50,7 +50,7 @@ class SqlControllerTest extends AbstractTestCase
         $this->dummyDbi->addResult('SHOW TABLES LIKE \'test_table\';', [['test_table']]);
 
         $pageSettings = new PageSettings(
-            new UserPreferences($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template()),
+            new UserPreferences($this->dbi, new Relation($this->dbi), new Template()),
         );
         $pageSettings->init('Sql');
         $fields = $this->dbi->getColumns('test_db', 'test_table', true);

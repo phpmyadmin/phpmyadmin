@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Advisory;
 
 use PhpMyAdmin\Advisory\Advisor;
 use PhpMyAdmin\Advisory\Rules;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -21,7 +22,7 @@ class AdvisorTest extends AbstractTestCase
 
         parent::setGlobalConfig();
 
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['server'] = 1;
     }
 
@@ -64,7 +65,7 @@ class AdvisorTest extends AbstractTestCase
     {
         parent::setLanguage();
 
-        $advisor = new Advisor($GLOBALS['dbi'], new ExpressionLanguage());
+        $advisor = new Advisor(DatabaseInterface::getInstance(), new ExpressionLanguage());
         $advisor->setVariable('value', 0);
         $advisor->addRule('fired', $rule);
         $runResult = $advisor->getRunResult();
