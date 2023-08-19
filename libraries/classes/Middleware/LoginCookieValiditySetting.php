@@ -18,7 +18,7 @@ final class LoginCookieValiditySetting implements MiddlewareInterface
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        if ($this->config->getCurrentServer() !== null) {
+        if ($this->config->hasSelectedServer()) {
             $this->config->getLoginCookieValidityFromCache($GLOBALS['server']);
         }
 

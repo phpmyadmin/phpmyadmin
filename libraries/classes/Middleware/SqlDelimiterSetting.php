@@ -23,7 +23,7 @@ final class SqlDelimiterSetting implements MiddlewareInterface
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        if ($this->config->getCurrentServer() !== null) {
+        if ($this->config->hasSelectedServer()) {
             assert($request instanceof ServerRequest);
             /** @var mixed $sqlDelimiter */
             $sqlDelimiter = $request->getParam('sql_delimiter', '');

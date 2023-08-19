@@ -38,7 +38,7 @@ final class Authentication implements MiddlewareInterface
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        if ($this->config->getCurrentServer() === null) {
+        if (! $this->config->hasSelectedServer()) {
             return $handler->handle($request);
         }
 

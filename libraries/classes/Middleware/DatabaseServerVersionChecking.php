@@ -30,7 +30,7 @@ final class DatabaseServerVersionChecking implements MiddlewareInterface
     {
         $settings = $this->config->getSettings();
         if (
-            $this->config->getCurrentServer() !== null
+            $this->config->hasSelectedServer()
             && DatabaseInterface::getInstance()->getVersion() < $settings->mysqlMinVersion['internal']
         ) {
             $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);

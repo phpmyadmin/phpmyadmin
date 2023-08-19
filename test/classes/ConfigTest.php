@@ -697,6 +697,7 @@ PHP;
         $this->assertArrayHasKey('Server', $config->settings);
         $this->assertSame($config->settings['Server'], $expectedServer);
         $this->assertSame($expected, $config->server);
+        $this->assertSame($expected >= 1, $config->hasSelectedServer());
     }
 
     /**

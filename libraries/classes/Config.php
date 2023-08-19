@@ -100,6 +100,8 @@ class Config
     /** @var array<string,string|null> $tempDir */
     private static array $tempDir = [];
 
+    private bool $hasSelectedServer = false;
+
     public function __construct()
     {
         $this->config = new Settings([]);
@@ -1074,11 +1076,14 @@ class Config
          * and '$this->settings['ServerDefault'] = 0' is set.
          */
         if (isset($this->config->Servers[$serverNumber])) {
+            $this->hasSelectedServer = true;
             $this->settings['Server'] = $this->config->Servers[$serverNumber]->asArray();
         } elseif (isset($this->config->Servers[$this->config->ServerDefault])) {
+            $this->hasSelectedServer = true;
             $serverNumber = $this->config->ServerDefault;
             $this->settings['Server'] = $this->config->Servers[$this->config->ServerDefault]->asArray();
         } else {
+            $this->hasSelectedServer = false;
             $serverNumber = 0;
             $this->settings['Server'] = [];
         }
@@ -1190,8 +1195,8 @@ class Config
         return $this->config;
     }
 
-    public function getCurrentServer(): Server|null
+    public function hasSelectedServer(): bool
     {
-        return $this->config->Servers[$this->server] ?? null;
+        return $this->hasSelectedServer;
     }
 }
