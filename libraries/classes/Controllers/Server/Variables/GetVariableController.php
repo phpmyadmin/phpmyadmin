@@ -13,6 +13,8 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 use function implode;
+use function is_array;
+use function is_string;
 
 final class GetVariableController extends AbstractController
 {
@@ -21,24 +23,25 @@ final class GetVariableController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    /** @param mixed[] $params Request parameters */
-    public function __invoke(ServerRequest $request, array $params): void
+    public function __invoke(ServerRequest $request): void
     {
         if (! $request->isAjax()) {
             return;
         }
 
+        $name = $this->getName($request->getAttribute('routeVars'));
+
         // Send with correct charset
         $this->response->addHeader('Content-Type', 'text/html; charset=UTF-8');
         $varValue = $this->dbi->fetchSingleRow(
             'SHOW GLOBAL VARIABLES WHERE Variable_name='
-            . $this->dbi->quoteString($params['name']) . ';',
+            . $this->dbi->quoteString($name) . ';',
             DatabaseInterface::FETCH_NUM,
         );
 
         $json = ['message' => $varValue[1]];
 
-        $variableType = ServerVariablesProvider::getImplementation()->getVariableType($params['name']);
+        $variableType = ServerVariablesProvider::getImplementation()->getVariableType($name);
 
         if ($variableType === 'byte') {
             /** @var string[] $bytes */
@@ -47,5 +50,14 @@ final class GetVariableController extends AbstractController
         }
 
         $this->response->addJSON($json);
+    }
+
+    private function getName(mixed $routeVars): string
+    {
+        if (is_array($routeVars) && isset($routeVars['name']) && is_string($routeVars['name'])) {
+            return $routeVars['name'];
+        }
+
+        return '';
     }
 }

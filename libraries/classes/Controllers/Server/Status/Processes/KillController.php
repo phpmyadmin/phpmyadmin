@@ -13,6 +13,8 @@ use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 
 use function __;
+use function is_array;
+use function is_numeric;
 
 final class KillController extends AbstractController
 {
@@ -25,15 +27,14 @@ final class KillController extends AbstractController
         parent::__construct($response, $template, $data);
     }
 
-    /** @param mixed[] $params Request parameters */
-    public function __invoke(ServerRequest $request, array $params): void
+    public function __invoke(ServerRequest $request): void
     {
         if (! $request->isAjax()) {
             return;
         }
 
-        $kill = (int) $params['id'];
-        $query = $this->dbi->getKillQuery($kill);
+        $processId = $this->getProcessId($request->getAttribute('routeVars'));
+        $query = $this->dbi->getKillQuery($processId);
 
         if ($this->dbi->tryQuery($query)) {
             $message = Message::success(
@@ -49,8 +50,17 @@ final class KillController extends AbstractController
             $this->response->setRequestStatus(false);
         }
 
-        $message->addParam($kill);
+        $message->addParam($processId);
 
         $this->response->addJSON(['message' => $message]);
+    }
+
+    private function getProcessId(mixed $routeVars): int
+    {
+        if (is_array($routeVars) && isset($routeVars['id']) && is_numeric($routeVars['id'])) {
+            return (int) $routeVars['id'];
+        }
+
+        return 0;
     }
 }

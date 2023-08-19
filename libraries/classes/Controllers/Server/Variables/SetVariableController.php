@@ -15,7 +15,9 @@ use PhpMyAdmin\Util;
 use function __;
 use function htmlspecialchars;
 use function implode;
+use function is_array;
 use function is_numeric;
+use function is_string;
 use function mb_strtolower;
 use function preg_match;
 use function trim;
@@ -29,17 +31,15 @@ final class SetVariableController extends AbstractController
 
     /**
      * Handle the AJAX request for setting value for a single variable
-     *
-     * @param mixed[] $vars Request parameters
      */
-    public function __invoke(ServerRequest $request, array $vars): void
+    public function __invoke(ServerRequest $request): void
     {
         if (! $request->isAjax()) {
             return;
         }
 
         $value = (string) $request->getParsedBodyParam('varValue');
-        $variableName = (string) $vars['name'];
+        $variableName = $this->getName($request->getAttribute('routeVars'));
         $matches = [];
         $variableType = ServerVariablesProvider::getImplementation()->getVariableType($variableName);
 
@@ -117,5 +117,14 @@ final class SetVariableController extends AbstractController
         }
 
         return [$formattedValue, $isHtmlFormatted];
+    }
+
+    private function getName(mixed $routeVars): string
+    {
+        if (is_array($routeVars) && isset($routeVars['name']) && is_string($routeVars['name'])) {
+            return $routeVars['name'];
+        }
+
+        return '';
     }
 }
