@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Database\Structure;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Database\Structure\RealRowCountController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -22,7 +23,7 @@ class RealRowCountControllerTest extends AbstractTestCase
     {
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        Config::getInstance()->selectedServer['DisableIS'] = true;
         $GLOBALS['db'] = 'world';
         $_REQUEST['table'] = 'City';
 

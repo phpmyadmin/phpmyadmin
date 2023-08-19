@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Database;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Database\CentralColumns;
@@ -100,8 +101,9 @@ class CentralColumnsTest extends AbstractTestCase
 
         parent::setGlobalConfig();
 
-        $GLOBALS['cfg']['Server']['user'] = 'pma_user';
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        $config = Config::getInstance();
+        $config->selectedServer['user'] = 'pma_user';
+        $config->selectedServer['DisableIS'] = true;
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['cfg']['ServerDefault'] = 'PMA_server';
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';

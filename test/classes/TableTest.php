@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
@@ -33,14 +34,15 @@ class TableTest extends AbstractTestCase
          * SET these to avoid undefined index error
          */
         $GLOBALS['server'] = 0;
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = false;
         $GLOBALS['cfg']['MaxExactCount'] = 100;
         $GLOBALS['cfg']['MaxExactCountViews'] = 100;
-        $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
+        $config->selectedServer['pmadb'] = 'pmadb';
         $GLOBALS['sql_auto_increment'] = true;
         $GLOBALS['sql_if_not_exists'] = true;
         $GLOBALS['sql_drop_table'] = true;
-        $GLOBALS['cfg']['Server']['table_uiprefs'] = 'pma__table_uiprefs';
+        $config->selectedServer['table_uiprefs'] = 'pma__table_uiprefs';
 
         $sqlIsViewTrue = 'SELECT 1'
             . ' FROM information_schema.VIEWS'
@@ -1043,7 +1045,7 @@ class TableTest extends AbstractTestCase
      */
     public function testRename(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        Config::getInstance()->selectedServer['DisableIS'] = true;
 
         $table = 'PMA_BookMark';
         $db = 'PMA';

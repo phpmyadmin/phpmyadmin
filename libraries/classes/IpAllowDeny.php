@@ -242,12 +242,13 @@ class IpAllowDeny
             return false;
         }
 
+        $config = Config::getInstance();
         // copy username
-        $username = $GLOBALS['cfg']['Server']['user'];
+        $username = $config->selectedServer['user'];
 
         // copy rule database
-        if (isset($GLOBALS['cfg']['Server']['AllowDeny']['rules'])) {
-            $rules = $GLOBALS['cfg']['Server']['AllowDeny']['rules'];
+        if (isset($config->selectedServer['AllowDeny']['rules'])) {
+            $rules = $config->selectedServer['AllowDeny']['rules'];
             if (! is_array($rules)) {
                 $rules = [];
             }

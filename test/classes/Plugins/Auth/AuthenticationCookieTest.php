@@ -61,7 +61,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $_POST['pma_password'] = '';
         $this->object = new AuthenticationCookie();
         $_SERVER['PHP_SELF'] = '/phpmyadmin/index.php';
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['conn_error'] = null;
     }
 
@@ -322,8 +322,9 @@ class AuthenticationCookieTest extends AbstractTestCase
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
-        $GLOBALS['cfg']['Server']['LogoutURL'] = 'https://example.com/logout';
-        $GLOBALS['cfg']['Server']['auth_type'] = 'cookie';
+        $config = Config::getInstance();
+        $config->selectedServer['LogoutURL'] = 'https://example.com/logout';
+        $config->selectedServer['auth_type'] = 'cookie';
 
         $this->object->logOut();
 
@@ -335,11 +336,12 @@ class AuthenticationCookieTest extends AbstractTestCase
     #[BackupStaticProperties(true)]
     public function testAuthHeaderPartial(): void
     {
-        Config::getInstance()->set('is_https', false);
+        $config = Config::getInstance();
+        $config->set('is_https', false);
         $GLOBALS['cfg']['LoginCookieDeleteAll'] = false;
         $GLOBALS['cfg']['Servers'] = [1, 2, 3];
-        $GLOBALS['cfg']['Server']['LogoutURL'] = 'https://example.com/logout';
-        $GLOBALS['cfg']['Server']['auth_type'] = 'cookie';
+        $config->selectedServer['LogoutURL'] = 'https://example.com/logout';
+        $config->selectedServer['auth_type'] = 'cookie';
 
         $_COOKIE['pmaAuth-2'] = '';
 
@@ -418,7 +420,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config->set('is_https', false);
         $GLOBALS['cfg']['Servers'] = [1];
         $GLOBALS['server'] = 1;
-        $GLOBALS['cfg']['Server'] = ['auth_type' => 'cookie'];
+        $config->selectedServer = ['auth_type' => 'cookie'];
 
         $_COOKIE['pmaAuth-1'] = 'test';
 
@@ -602,8 +604,9 @@ class AuthenticationCookieTest extends AbstractTestCase
         $this->object->user = 'pmaUser2';
         $arr = ['host' => 'a', 'port' => 1, 'socket' => true, 'ssl' => true, 'user' => 'pmaUser2'];
 
-        $GLOBALS['cfg']['Server'] = $arr;
-        $GLOBALS['cfg']['Server']['user'] = 'pmaUser';
+        $config = Config::getInstance();
+        $config->selectedServer = $arr;
+        $config->selectedServer['user'] = 'pmaUser';
         $GLOBALS['cfg']['Servers'][1] = $arr;
         $GLOBALS['cfg']['AllowArbitraryServer'] = true;
         $GLOBALS['pma_auth_server'] = 'b 2';
@@ -611,7 +614,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $GLOBALS['server'] = 2;
         $GLOBALS['cfg']['LoginCookieStore'] = true;
         $GLOBALS['from_cookie'] = true;
-        Config::getInstance()->set('is_https', false);
+        $config->set('is_https', false);
 
         $this->object->storeCredentials();
 
@@ -624,7 +627,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $arr['password'] = 'testPW';
         $arr['host'] = 'b';
         $arr['port'] = '2';
-        $this->assertEquals($arr, $GLOBALS['cfg']['Server']);
+        $this->assertEquals($arr, $config->selectedServer);
     }
 
     public function testAuthSetUserWithHeaders(): void
@@ -632,9 +635,10 @@ class AuthenticationCookieTest extends AbstractTestCase
         $this->object->user = 'pmaUser2';
         $arr = ['host' => 'a', 'port' => 1, 'socket' => true, 'ssl' => true, 'user' => 'pmaUser2'];
 
-        $GLOBALS['cfg']['Server'] = $arr;
-        $GLOBALS['cfg']['Server']['host'] = 'b';
-        $GLOBALS['cfg']['Server']['user'] = 'pmaUser';
+        $config = Config::getInstance();
+        $config->selectedServer = $arr;
+        $config->selectedServer['host'] = 'b';
+        $config->selectedServer['user'] = 'pmaUser';
         $GLOBALS['cfg']['Servers'][1] = $arr;
         $GLOBALS['cfg']['AllowArbitraryServer'] = true;
         $GLOBALS['pma_auth_server'] = 'b 2';
@@ -974,8 +978,9 @@ class AuthenticationCookieTest extends AbstractTestCase
         $GLOBALS['cfg']['CaptchaResponseParam'] = '';
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
-        $GLOBALS['cfg']['Server']['AllowRoot'] = false;
-        $GLOBALS['cfg']['Server']['AllowNoPassword'] = false;
+        $config = Config::getInstance();
+        $config->selectedServer['AllowRoot'] = false;
+        $config->selectedServer['AllowNoPassword'] = false;
         $_REQUEST['old_usr'] = '';
         $_POST['pma_username'] = 'testUser';
         $_POST['pma_password'] = 'testPassword';
@@ -992,8 +997,8 @@ class AuthenticationCookieTest extends AbstractTestCase
         $this->assertEquals('testPassword', $this->object->password);
 
         /* Verify storeCredentials worked */
-        $this->assertEquals('testUser', $GLOBALS['cfg']['Server']['user']);
-        $this->assertEquals('testPassword', $GLOBALS['cfg']['Server']['password']);
+        $this->assertEquals('testUser', $config->selectedServer['user']);
+        $this->assertEquals('testPassword', $config->selectedServer['password']);
     }
 
     /**
@@ -1022,9 +1027,10 @@ class AuthenticationCookieTest extends AbstractTestCase
 
         $_SERVER['REMOTE_ADDR'] = $ip;
 
-        $GLOBALS['cfg']['Server']['AllowRoot'] = $root;
-        $GLOBALS['cfg']['Server']['AllowNoPassword'] = $nopass;
-        $GLOBALS['cfg']['Server']['AllowDeny'] = $rules;
+        $config = Config::getInstance();
+        $config->selectedServer['AllowRoot'] = $root;
+        $config->selectedServer['AllowNoPassword'] = $nopass;
+        $config->selectedServer['AllowDeny'] = $rules;
 
         if ($expected !== '') {
             $this->getAuthErrorMockResponse();

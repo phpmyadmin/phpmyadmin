@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Export\Template;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Export\Template\DeleteController;
 use PhpMyAdmin\DatabaseInterface;
@@ -36,7 +37,7 @@ class DeleteControllerTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
 
-        $GLOBALS['cfg']['Server']['user'] = 'user';
+        Config::getInstance()->selectedServer['user'] = 'user';
 
         $response = new ResponseRenderer();
         $request = $this->createStub(ServerRequest::class);

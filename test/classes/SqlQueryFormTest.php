@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
@@ -83,9 +84,10 @@ class SqlQueryFormTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $GLOBALS['cfg']['Server']['user'] = 'user';
-        $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
-        $GLOBALS['cfg']['Server']['bookmarktable'] = 'bookmarktable';
+        $config = Config::getInstance();
+        $config->selectedServer['user'] = 'user';
+        $config->selectedServer['pmadb'] = 'pmadb';
+        $config->selectedServer['bookmarktable'] = 'bookmarktable';
     }
 
     /**

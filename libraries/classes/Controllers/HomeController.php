@@ -109,6 +109,7 @@ class HomeController extends AbstractController
             ->getHtmlSyncFavoriteTables();
 
         $hasServer = $GLOBALS['server'] > 0 || count($GLOBALS['cfg']['Servers']) > 1;
+        $config = Config::getInstance();
         if ($hasServer) {
             $hasServerSelection = $GLOBALS['cfg']['ServerDefault'] == 0
                 || (! $GLOBALS['cfg']['NavigationDisplayServers']
@@ -122,8 +123,8 @@ class HomeController extends AbstractController
                 $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
                 $checkUserPrivileges->getPrivileges();
 
-                $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
-                $collations = Charsets::getCollations($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+                $charsets = Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
+                $collations = Charsets::getCollations($this->dbi, $config->selectedServer['DisableIS']);
                 $charsetsList = [];
                 foreach ($charsets as $charset) {
                     $collationsList = [];
@@ -153,16 +154,16 @@ class HomeController extends AbstractController
         $databaseServer = [];
         if ($GLOBALS['server'] > 0 && ($showServerInfo === true || $showServerInfo === 'database-server')) {
             $hostInfo = '';
-            if (! empty($GLOBALS['cfg']['Server']['verbose'])) {
-                $hostInfo .= $GLOBALS['cfg']['Server']['verbose'] . ' (';
+            if (! empty($config->selectedServer['verbose'])) {
+                $hostInfo .= $config->selectedServer['verbose'] . ' (';
             }
 
             $hostInfo .= $this->dbi->getHostInfo();
-            if (! empty($GLOBALS['cfg']['Server']['verbose'])) {
+            if (! empty($config->selectedServer['verbose'])) {
                 $hostInfo .= ')';
             }
 
-            $serverCharset = Charsets::getServerCharset($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+            $serverCharset = Charsets::getServerCharset($this->dbi, $config->selectedServer['DisableIS']);
             $databaseServer = [
                 'host' => $hostInfo,
                 'type' => Util::getServerType(),
@@ -235,7 +236,7 @@ class HomeController extends AbstractController
             'is_demo' => $GLOBALS['cfg']['DBG']['demo'],
             'has_server_selection' => $hasServerSelection ?? false,
             'server_selection' => $serverSelection ?? '',
-            'has_change_password_link' => ($GLOBALS['cfg']['Server']['auth_type'] ?? '') !== 'config'
+            'has_change_password_link' => ($config->selectedServer['auth_type'] ?? '') !== 'config'
                 && $GLOBALS['cfg']['ShowChgPassword'],
             'charsets' => $charsetsList ?? [],
             'available_languages' => $availableLanguages,
@@ -299,11 +300,12 @@ class HomeController extends AbstractController
         /**
          * Warning if using the default MySQL controluser account
          */
+        $config = Config::getInstance();
         if (
-            isset($GLOBALS['cfg']['Server']['controluser'], $GLOBALS['cfg']['Server']['controlpass'])
+            isset($config->selectedServer['controluser'], $config->selectedServer['controlpass'])
             && $GLOBALS['server'] != 0
-            && $GLOBALS['cfg']['Server']['controluser'] === 'pma'
-            && $GLOBALS['cfg']['Server']['controlpass'] === 'pmapass'
+            && $config->selectedServer['controluser'] === 'pma'
+            && $config->selectedServer['controlpass'] === 'pmapass'
         ) {
             $this->errors[] = [
                 'message' => __(

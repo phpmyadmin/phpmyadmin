@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Tracking;
 
 use PhpMyAdmin\Cache;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
@@ -37,12 +38,13 @@ class TrackerTest extends AbstractTestCase
          * SET these to avoid undefined index error
          */
         $GLOBALS['server'] = 1;
-        $GLOBALS['cfg']['Server']['tracking_add_drop_table'] = '';
-        $GLOBALS['cfg']['Server']['tracking_add_drop_view'] = '';
-        $GLOBALS['cfg']['Server']['tracking_add_drop_database'] = '';
-        $GLOBALS['cfg']['Server']['tracking_default_statements'] = '';
-        $GLOBALS['cfg']['Server']['tracking_version_auto_create'] = '';
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $config = Config::getInstance();
+        $config->selectedServer['tracking_add_drop_table'] = '';
+        $config->selectedServer['tracking_add_drop_view'] = '';
+        $config->selectedServer['tracking_add_drop_database'] = '';
+        $config->selectedServer['tracking_default_statements'] = '';
+        $config->selectedServer['tracking_version_auto_create'] = '';
+        $config->selectedServer['DisableIS'] = false;
         $GLOBALS['export_type'] = null;
 
         $relationParameters = RelationParameters::fromArray([
@@ -151,7 +153,7 @@ class TrackerTest extends AbstractTestCase
     public function testGetLogComment(): void
     {
         $date = Util::date('Y-m-d H:i:s');
-        $GLOBALS['cfg']['Server']['user'] = 'pma_test_user';
+        Config::getInstance()->selectedServer['user'] = 'pma_test_user';
 
         $this->assertEquals(
             '# log ' . $date . " pma_test_user\n",
@@ -164,9 +166,10 @@ class TrackerTest extends AbstractTestCase
      */
     public function testCreateVersion(): void
     {
-        $GLOBALS['cfg']['Server']['tracking_add_drop_table'] = true;
-        $GLOBALS['cfg']['Server']['tracking_add_drop_view'] = true;
-        $GLOBALS['cfg']['Server']['user'] = 'pma_test_user';
+        $config = Config::getInstance();
+        $config->selectedServer['tracking_add_drop_table'] = true;
+        $config->selectedServer['tracking_add_drop_view'] = true;
+        $config->selectedServer['user'] = 'pma_test_user';
 
         $resultStub = $this->createMock(DummyResult::class);
 
@@ -219,9 +222,10 @@ class TrackerTest extends AbstractTestCase
      */
     public function testCreateDatabaseVersion(): void
     {
-        $GLOBALS['cfg']['Server']['tracking_add_drop_table'] = true;
-        $GLOBALS['cfg']['Server']['tracking_add_drop_view'] = true;
-        $GLOBALS['cfg']['Server']['user'] = 'pma_test_user';
+        $config = Config::getInstance();
+        $config->selectedServer['tracking_add_drop_table'] = true;
+        $config->selectedServer['tracking_add_drop_view'] = true;
+        $config->selectedServer['user'] = 'pma_test_user';
 
         $resultStub = $this->createMock(DummyResult::class);
 

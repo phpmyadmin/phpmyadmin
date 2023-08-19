@@ -35,22 +35,10 @@ class OptionsTest extends AbstractTestCase
 
         parent::loadDbiIntoContainerBuilder();
 
-        $GLOBALS['cfg']['Server']['host'] = 'localhost';
-        $GLOBALS['cfg']['Server']['user'] = 'pma_user';
         $GLOBALS['server'] = 0;
 
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'PMA';
-
-        $pmaconfig = $this->getMockBuilder(Config::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $pmaconfig->expects($this->any())
-            ->method('getUserValue')
-            ->willReturn('user value for test');
-
-        Config::$instance = $pmaconfig;
 
         $this->export = new Options(
             new Relation($dbi),
@@ -98,6 +86,11 @@ class OptionsTest extends AbstractTestCase
         $exportList = Plugins::getExport($exportType, true);
         $dropdown = Plugins::getChoice($exportList, 'sql');
 
+        $config = Config::getInstance();
+        $config->selectedServer['host'] = 'localhost';
+        $config->selectedServer['user'] = 'pma_user';
+        $_POST['filename_template'] = 'user value for test';
+
         //Call the test function
         $actual = $this->export->getOptions($exportType, $db, $table, '', $numTablesStr, $unlimNumRowsStr, $exportList);
 
@@ -132,8 +125,8 @@ class OptionsTest extends AbstractTestCase
             'is_checked_export' => $GLOBALS['cfg']['Export']['onserver'],
             'is_checked_export_overwrite' => $GLOBALS['cfg']['Export']['onserver_overwrite'],
             'is_checked_remember_file_template' => $GLOBALS['cfg']['Export']['remember_file_template'],
-            'repopulate' => '',
-            'lock_tables' => '',
+            'repopulate' => false,
+            'lock_tables' => false,
             'is_encoding_supported' => true,
             'encodings' => Encoding::listEncodings(),
             'export_charset' => $GLOBALS['cfg']['Export']['charset'],

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Export\Template;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Export\TemplateModel;
@@ -34,7 +35,7 @@ final class DeleteController extends AbstractController
         $result = $this->model->delete(
             $exportTemplatesFeature->database,
             $exportTemplatesFeature->exportTemplates,
-            $GLOBALS['cfg']['Server']['user'],
+            Config::getInstance()->selectedServer['user'],
             $templateId,
         );
 

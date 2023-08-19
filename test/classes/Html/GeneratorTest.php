@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Html;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
@@ -308,13 +309,14 @@ class GeneratorTest extends AbstractTestCase
         . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
         . ' class="icon ic_b_help"></a>';
 
-        $GLOBALS['cfg']['Server'] = ['ssl' => false, 'host' => '127.0.0.1'];
+        $config = Config::getInstance();
+        $config->selectedServer = ['ssl' => false, 'host' => '127.0.0.1'];
         $this->assertEquals(
             $sslNotUsed,
             Generator::getServerSSL(),
         );
 
-        $GLOBALS['cfg']['Server'] = ['ssl' => false, 'host' => 'custom.host'];
+        $config->selectedServer = ['ssl' => false, 'host' => 'custom.host'];
         $GLOBALS['cfg']['MysqlSslWarningSafeHosts'] = ['localhost', '127.0.0.1'];
 
         $this->assertEquals(
@@ -322,7 +324,7 @@ class GeneratorTest extends AbstractTestCase
             Generator::getServerSSL(),
         );
 
-        $GLOBALS['cfg']['Server'] = ['ssl' => false, 'host' => 'custom.host'];
+        $config->selectedServer = ['ssl' => false, 'host' => 'custom.host'];
         $GLOBALS['cfg']['MysqlSslWarningSafeHosts'] = ['localhost', '127.0.0.1', 'custom.host'];
 
         $this->assertEquals(
@@ -330,14 +332,14 @@ class GeneratorTest extends AbstractTestCase
             Generator::getServerSSL(),
         );
 
-        $GLOBALS['cfg']['Server'] = ['ssl' => false, 'ssl_verify' => true, 'host' => 'custom.host'];
+        $config->selectedServer = ['ssl' => false, 'ssl_verify' => true, 'host' => 'custom.host'];
 
         $this->assertEquals(
             $sslNotUsed,
             Generator::getServerSSL(),
         );
 
-        $GLOBALS['cfg']['Server'] = ['ssl' => true, 'ssl_verify' => false, 'host' => 'custom.host'];
+        $config->selectedServer = ['ssl' => true, 'ssl_verify' => false, 'host' => 'custom.host'];
 
         $this->assertEquals(
             '<span class="text-danger">SSL is used with disabled verification</span>'
@@ -347,7 +349,7 @@ class GeneratorTest extends AbstractTestCase
             Generator::getServerSSL(),
         );
 
-        $GLOBALS['cfg']['Server'] = ['ssl' => true, 'ssl_verify' => true, 'host' => 'custom.host'];
+        $config->selectedServer = ['ssl' => true, 'ssl_verify' => true, 'host' => 'custom.host'];
 
         $this->assertEquals(
             '<span class="text-danger">SSL is used without certification authority</span>'
@@ -357,7 +359,7 @@ class GeneratorTest extends AbstractTestCase
             Generator::getServerSSL(),
         );
 
-        $GLOBALS['cfg']['Server'] = [
+        $config->selectedServer = [
             'ssl' => true,
             'ssl_verify' => true,
             'ssl_ca' => '/etc/ssl/ca.crt',

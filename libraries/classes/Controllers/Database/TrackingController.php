@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -109,7 +110,7 @@ class TrackingController extends AbstractController
                         'db' => $GLOBALS['db'],
                         'selected' => $selectedTable,
                         'type' => 'both',
-                        'default_statements' => $GLOBALS['cfg']['Server']['tracking_default_statements'],
+                        'default_statements' => Config::getInstance()->selectedServer['tracking_default_statements'],
                     ]);
 
                     return;

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
@@ -37,13 +38,13 @@ class DatabasesControllerTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'pma_test';
         $GLOBALS['table'] = '';
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['text_dir'] = 'text_dir';
     }
 
     public function testIndexAction(): void
     {
-        $GLOBALS['cfg']['Server']['only_db'] = '';
+        Config::getInstance()->selectedServer['only_db'] = '';
         $template = new Template();
 
         $response = new ResponseRenderer();

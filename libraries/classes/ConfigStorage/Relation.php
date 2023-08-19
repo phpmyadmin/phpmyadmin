@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\ConfigStorage;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Features\PdfFeature;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
@@ -152,51 +153,52 @@ class Relation
             return null;
         }
 
+        $config = Config::getInstance();
         $tabQuery = 'SHOW TABLES FROM '
-        . Util::backquote($GLOBALS['cfg']['Server']['pmadb']);
+        . Util::backquote($config->selectedServer['pmadb']);
         $tableRes = $this->dbi->tryQueryAsControlUser($tabQuery);
         if ($tableRes === false) {
             return null;
         }
 
         while ($currTable = $tableRes->fetchRow()) {
-            if ($currTable[0] == $GLOBALS['cfg']['Server']['bookmarktable']) {
+            if ($currTable[0] == $config->selectedServer['bookmarktable']) {
                 $relationParams['bookmark'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['relation']) {
+            } elseif ($currTable[0] == $config->selectedServer['relation']) {
                 $relationParams['relation'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['table_info']) {
+            } elseif ($currTable[0] == $config->selectedServer['table_info']) {
                 $relationParams['table_info'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['table_coords']) {
+            } elseif ($currTable[0] == $config->selectedServer['table_coords']) {
                 $relationParams['table_coords'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['column_info']) {
+            } elseif ($currTable[0] == $config->selectedServer['column_info']) {
                 $relationParams['column_info'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['pdf_pages']) {
+            } elseif ($currTable[0] == $config->selectedServer['pdf_pages']) {
                 $relationParams['pdf_pages'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['history']) {
+            } elseif ($currTable[0] == $config->selectedServer['history']) {
                 $relationParams['history'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['recent']) {
+            } elseif ($currTable[0] == $config->selectedServer['recent']) {
                 $relationParams['recent'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['favorite']) {
+            } elseif ($currTable[0] == $config->selectedServer['favorite']) {
                 $relationParams['favorite'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['table_uiprefs']) {
+            } elseif ($currTable[0] == $config->selectedServer['table_uiprefs']) {
                 $relationParams['table_uiprefs'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['tracking']) {
+            } elseif ($currTable[0] == $config->selectedServer['tracking']) {
                 $relationParams['tracking'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['userconfig']) {
+            } elseif ($currTable[0] == $config->selectedServer['userconfig']) {
                 $relationParams['userconfig'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['users']) {
+            } elseif ($currTable[0] == $config->selectedServer['users']) {
                 $relationParams['users'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['usergroups']) {
+            } elseif ($currTable[0] == $config->selectedServer['usergroups']) {
                 $relationParams['usergroups'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['navigationhiding']) {
+            } elseif ($currTable[0] == $config->selectedServer['navigationhiding']) {
                 $relationParams['navigationhiding'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['savedsearches']) {
+            } elseif ($currTable[0] == $config->selectedServer['savedsearches']) {
                 $relationParams['savedsearches'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['central_columns']) {
+            } elseif ($currTable[0] == $config->selectedServer['central_columns']) {
                 $relationParams['central_columns'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['designer_settings']) {
+            } elseif ($currTable[0] == $config->selectedServer['designer_settings']) {
                 $relationParams['designer_settings'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['export_templates']) {
+            } elseif ($currTable[0] == $config->selectedServer['export_templates']) {
                 $relationParams['export_templates'] = (string) $currTable[0];
             }
         }
@@ -241,21 +243,22 @@ class Relation
         $relationParams['user'] = null;
         $relationParams['db'] = null;
 
+        $config = Config::getInstance();
         if (
             $GLOBALS['server'] == 0
-            || empty($GLOBALS['cfg']['Server']['pmadb'])
-            || ! $this->dbi->selectDb($GLOBALS['cfg']['Server']['pmadb'], Connection::TYPE_CONTROL)
+            || empty($config->selectedServer['pmadb'])
+            || ! $this->dbi->selectDb($config->selectedServer['pmadb'], Connection::TYPE_CONTROL)
         ) {
             // No server selected -> no bookmark table
             // we return the array with the falses in it,
             // to avoid some 'Uninitialized string offset' errors later
-            $GLOBALS['cfg']['Server']['pmadb'] = false;
+            $config->selectedServer['pmadb'] = false;
 
             return $relationParams;
         }
 
-        $relationParams['user'] = $GLOBALS['cfg']['Server']['user'];
-        $relationParams['db'] = $GLOBALS['cfg']['Server']['pmadb'];
+        $relationParams['user'] = $config->selectedServer['user'];
+        $relationParams['db'] = $config->selectedServer['pmadb'];
 
         //  Now I just check if all tables that i need are present so I can for
         //  example enable relations but not pdf...
@@ -266,7 +269,7 @@ class Relation
 
         if ($relationParamsFilled === null) {
             // query failed ... ?
-            //$GLOBALS['cfg']['Server']['pmadb'] = false;
+            //\PhpMyAdmin\Config::getInstance()->selectedServer['pmadb'] = false;
             return $relationParams;
         }
 
@@ -282,14 +285,14 @@ class Relation
             }
 
             if (is_string($table)) {
-                if (isset($GLOBALS['cfg']['Server'][$table]) && $GLOBALS['cfg']['Server'][$table] !== false) {
+                if (isset($config->selectedServer[$table]) && $config->selectedServer[$table] !== false) {
                     $allWorks = false;
                     break;
                 }
             } else {
                 $oneNull = false;
                 foreach ($table as $t) {
-                    if (isset($GLOBALS['cfg']['Server'][$t]) && $GLOBALS['cfg']['Server'][$t] === false) {
+                    if (isset($config->selectedServer[$t]) && $config->selectedServer[$t] === false) {
                         $oneNull = true;
                         break;
                     }
@@ -328,9 +331,10 @@ class Relation
         // From 4.3, new input oriented transformation feature was introduced.
         // Check whether column_info table has input transformation columns
         $newCols = ['input_transformation', 'input_transformation_options'];
+        $config = Config::getInstance();
         $query = 'SHOW COLUMNS FROM '
-            . Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-            . '.' . Util::backquote($GLOBALS['cfg']['Server']['column_info'])
+            . Util::backquote($config->selectedServer['pmadb'])
+            . '.' . Util::backquote($config->selectedServer['column_info'])
             . ' WHERE Field IN (\'' . implode('\', \'', $newCols) . '\')';
         $result = $this->dbi->tryQueryAsControlUser($query);
         if ($result) {
@@ -352,8 +356,8 @@ class Relation
             $query = str_replace(
                 ['`phpmyadmin`', '`pma__column_info`'],
                 [
-                    Util::backquote($GLOBALS['cfg']['Server']['pmadb']),
-                    Util::backquote($GLOBALS['cfg']['Server']['column_info']),
+                    Util::backquote($config->selectedServer['pmadb']),
+                    Util::backquote($config->selectedServer['column_info']),
                 ],
                 (string) $query,
             );
@@ -1323,7 +1327,7 @@ class Relation
      */
     public function getChildReferences(string $db, string $table, string $column = ''): array
     {
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+        if (! Config::getInstance()->selectedServer['DisableIS']) {
             $relQuery = 'SELECT `column_name`, `table_name`,'
                 . ' `table_schema`, `referenced_column_name`'
                 . ' FROM `information_schema`.`key_column_usage`'
@@ -1560,8 +1564,9 @@ class Relation
         }
 
         $foundOne = false;
+        $config = Config::getInstance();
         foreach ($tablesToFeatures as $table => $feature) {
-            if (($GLOBALS['cfg']['Server'][$feature] ?? null) === false) {
+            if (($config->selectedServer[$feature] ?? null) === false) {
                 // The feature is disabled by the user in config
                 continue;
             }
@@ -1587,19 +1592,19 @@ class Relation
             $foundOne = true;
 
             // Do not override a user defined value, only fill if empty
-            if (isset($GLOBALS['cfg']['Server'][$feature]) && $GLOBALS['cfg']['Server'][$feature] !== '') {
+            if (isset($config->selectedServer[$feature]) && $config->selectedServer[$feature] !== '') {
                 continue;
             }
 
             // Fill it with the default table name
-            $GLOBALS['cfg']['Server'][$feature] = $table;
+            $config->selectedServer[$feature] = $table;
         }
 
         if (! $foundOne) {
             return;
         }
 
-        $GLOBALS['cfg']['Server']['pmadb'] = $db;
+        $config->selectedServer['pmadb'] = $db;
 
         //NOTE: I am unsure why we do that, as it defeats the purpose of the session cache
         // Unset the cache
@@ -1632,25 +1637,27 @@ class Relation
      */
     public function arePmadbTablesAllDisabled(): bool
     {
-        return ($GLOBALS['cfg']['Server']['bookmarktable'] ?? null) === false
-            && ($GLOBALS['cfg']['Server']['relation'] ?? null) === false
-            && ($GLOBALS['cfg']['Server']['table_info'] ?? null) === false
-            && ($GLOBALS['cfg']['Server']['table_coords'] ?? null) === false
-            && ($GLOBALS['cfg']['Server']['column_info'] ?? null) === false
-            && ($GLOBALS['cfg']['Server']['pdf_pages'] ?? null) === false
-            && ($GLOBALS['cfg']['Server']['history'] ?? null) === false
-            && ($GLOBALS['cfg']['Server']['recent'] ?? null) === false
-            && ($GLOBALS['cfg']['Server']['favorite'] ?? null) === false
-            && ($GLOBALS['cfg']['Server']['table_uiprefs'] ?? null) === false
-            && ($GLOBALS['cfg']['Server']['tracking'] ?? null) === false
-            && ($GLOBALS['cfg']['Server']['userconfig'] ?? null) === false
-            && ($GLOBALS['cfg']['Server']['users'] ?? null) === false
-            && ($GLOBALS['cfg']['Server']['usergroups'] ?? null) === false
-            && ($GLOBALS['cfg']['Server']['navigationhiding'] ?? null) === false
-            && ($GLOBALS['cfg']['Server']['savedsearches'] ?? null) === false
-            && ($GLOBALS['cfg']['Server']['central_columns'] ?? null) === false
-            && ($GLOBALS['cfg']['Server']['designer_settings'] ?? null) === false
-            && ($GLOBALS['cfg']['Server']['export_templates'] ?? null) === false;
+        $config = Config::getInstance();
+
+        return ($config->selectedServer['bookmarktable'] ?? null) === false
+            && ($config->selectedServer['relation'] ?? null) === false
+            && ($config->selectedServer['table_info'] ?? null) === false
+            && ($config->selectedServer['table_coords'] ?? null) === false
+            && ($config->selectedServer['column_info'] ?? null) === false
+            && ($config->selectedServer['pdf_pages'] ?? null) === false
+            && ($config->selectedServer['history'] ?? null) === false
+            && ($config->selectedServer['recent'] ?? null) === false
+            && ($config->selectedServer['favorite'] ?? null) === false
+            && ($config->selectedServer['table_uiprefs'] ?? null) === false
+            && ($config->selectedServer['tracking'] ?? null) === false
+            && ($config->selectedServer['userconfig'] ?? null) === false
+            && ($config->selectedServer['users'] ?? null) === false
+            && ($config->selectedServer['usergroups'] ?? null) === false
+            && ($config->selectedServer['navigationhiding'] ?? null) === false
+            && ($config->selectedServer['savedsearches'] ?? null) === false
+            && ($config->selectedServer['central_columns'] ?? null) === false
+            && ($config->selectedServer['designer_settings'] ?? null) === false
+            && ($config->selectedServer['export_templates'] ?? null) === false;
     }
 
     /**
@@ -1658,25 +1665,27 @@ class Relation
      */
     public function arePmadbTablesDefined(): bool
     {
-        return ! (empty($GLOBALS['cfg']['Server']['bookmarktable'])
-            || empty($GLOBALS['cfg']['Server']['relation'])
-            || empty($GLOBALS['cfg']['Server']['table_info'])
-            || empty($GLOBALS['cfg']['Server']['table_coords'])
-            || empty($GLOBALS['cfg']['Server']['column_info'])
-            || empty($GLOBALS['cfg']['Server']['pdf_pages'])
-            || empty($GLOBALS['cfg']['Server']['history'])
-            || empty($GLOBALS['cfg']['Server']['recent'])
-            || empty($GLOBALS['cfg']['Server']['favorite'])
-            || empty($GLOBALS['cfg']['Server']['table_uiprefs'])
-            || empty($GLOBALS['cfg']['Server']['tracking'])
-            || empty($GLOBALS['cfg']['Server']['userconfig'])
-            || empty($GLOBALS['cfg']['Server']['users'])
-            || empty($GLOBALS['cfg']['Server']['usergroups'])
-            || empty($GLOBALS['cfg']['Server']['navigationhiding'])
-            || empty($GLOBALS['cfg']['Server']['savedsearches'])
-            || empty($GLOBALS['cfg']['Server']['central_columns'])
-            || empty($GLOBALS['cfg']['Server']['designer_settings'])
-            || empty($GLOBALS['cfg']['Server']['export_templates']));
+        $config = Config::getInstance();
+
+        return ! (empty($config->selectedServer['bookmarktable'])
+            || empty($config->selectedServer['relation'])
+            || empty($config->selectedServer['table_info'])
+            || empty($config->selectedServer['table_coords'])
+            || empty($config->selectedServer['column_info'])
+            || empty($config->selectedServer['pdf_pages'])
+            || empty($config->selectedServer['history'])
+            || empty($config->selectedServer['recent'])
+            || empty($config->selectedServer['favorite'])
+            || empty($config->selectedServer['table_uiprefs'])
+            || empty($config->selectedServer['tracking'])
+            || empty($config->selectedServer['userconfig'])
+            || empty($config->selectedServer['users'])
+            || empty($config->selectedServer['usergroups'])
+            || empty($config->selectedServer['navigationhiding'])
+            || empty($config->selectedServer['savedsearches'])
+            || empty($config->selectedServer['central_columns'])
+            || empty($config->selectedServer['designer_settings'])
+            || empty($config->selectedServer['export_templates']));
     }
 
     /**
@@ -1708,7 +1717,7 @@ class Relation
 
     public function getConfigurationStorageDbName(): string
     {
-        $cfgStorageDbName = $GLOBALS['cfg']['Server']['pmadb'] ?? '';
+        $cfgStorageDbName = Config::getInstance()->selectedServer['pmadb'] ?? '';
 
         // Use "phpmyadmin" as a default database name to check to keep the behavior consistent
         return empty($cfgStorageDbName) ? 'phpmyadmin' : $cfgStorageDbName;
@@ -1720,7 +1729,8 @@ class Relation
      */
     public function initRelationParamsCache(): void
     {
-        $storageDbName = $GLOBALS['cfg']['Server']['pmadb'] ?? '';
+        $config = Config::getInstance();
+        $storageDbName = $config->selectedServer['pmadb'] ?? '';
         // Use "phpmyadmin" as a default database name to check to keep the behavior consistent
         $storageDbName = is_string($storageDbName) && $storageDbName !== '' ? $storageDbName : 'phpmyadmin';
 
@@ -1729,7 +1739,7 @@ class Relation
         $this->fixPmaTables($storageDbName, false);
 
         // This global will be changed if fixPmaTables did find one valid table
-        $storageDbName = $GLOBALS['cfg']['Server']['pmadb'] ?? '';
+        $storageDbName = $config->selectedServer['pmadb'] ?? '';
 
         // Empty means that until now no pmadb was found eligible
         if (! empty($storageDbName)) {
@@ -1749,12 +1759,13 @@ class Relation
         $tableNameReplacements = [];
 
         foreach ($tablesToFeatures as $table => $feature) {
-            if (empty($GLOBALS['cfg']['Server'][$feature]) || $GLOBALS['cfg']['Server'][$feature] === $table) {
+            $config = Config::getInstance();
+            if (empty($config->selectedServer[$feature]) || $config->selectedServer[$feature] === $table) {
                 continue;
             }
 
             // Set the replacement to transform the default table name into a custom name
-            $tableNameReplacements[$table] = $GLOBALS['cfg']['Server'][$feature];
+            $tableNameReplacements[$table] = $config->selectedServer[$feature];
         }
 
         return $tableNameReplacements;

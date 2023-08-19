@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\VariablesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
@@ -41,7 +42,7 @@ class VariablesControllerTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()

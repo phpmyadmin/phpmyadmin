@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Table\PrivilegesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
@@ -38,7 +39,7 @@ class PrivilegesControllerTest extends AbstractTestCase
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['server'] = 0;
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
 
         $privileges = [];
 

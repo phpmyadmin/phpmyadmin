@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Schema;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\Eps\EpsRelationSchema;
@@ -40,7 +41,7 @@ class EpsRelationSchemaTest extends AbstractTestCase
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'test_db';
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        Config::getInstance()->selectedServer['DisableIS'] = true;
 
         $this->object = new EpsRelationSchema(DatabaseName::from('test_db'));
     }

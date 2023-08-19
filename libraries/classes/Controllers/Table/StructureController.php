@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
@@ -242,7 +243,7 @@ class StructureController extends AbstractController
 
             $collation = Charsets::findCollationByName(
                 $this->dbi,
-                $GLOBALS['cfg']['Server']['DisableIS'],
+                Config::getInstance()->selectedServer['DisableIS'],
                 $field['Collation'] ?? '',
             );
             if ($collation === null) {
@@ -383,7 +384,7 @@ class StructureController extends AbstractController
         $tableCollation = [];
         $collation = Charsets::findCollationByName(
             $this->dbi,
-            $GLOBALS['cfg']['Server']['DisableIS'],
+            Config::getInstance()->selectedServer['DisableIS'],
             $GLOBALS['tbl_collation'],
         );
         if ($collation !== null) {

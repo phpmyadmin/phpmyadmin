@@ -38,12 +38,13 @@ class AdvisorControllerTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
         $GLOBALS['server'] = 1;
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['cfg']['Server']['host'] = 'localhost';
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = false;
+        $config->selectedServer['host'] = 'localhost';
 
         $this->response = new ResponseRenderer();
         $this->template = new Template();
-        $this->data = new Data(DatabaseInterface::getInstance(), Config::getInstance());
+        $this->data = new Data(DatabaseInterface::getInstance(), $config);
     }
 
     public function testIndexWithoutData(): void

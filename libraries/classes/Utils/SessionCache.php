@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Utils;
 
+use PhpMyAdmin\Config;
+
 final class SessionCache
 {
     private static function key(): string
@@ -11,8 +13,9 @@ final class SessionCache
         $GLOBALS['server'] ??= null;
         $key = 'server_' . $GLOBALS['server'];
 
-        if (isset($GLOBALS['cfg']['Server']['user'])) {
-            return $key . '_' . $GLOBALS['cfg']['Server']['user'];
+        $config = Config::getInstance();
+        if (isset($config->selectedServer['user'])) {
+            return $key . '_' . $config->selectedServer['user'];
         }
 
         return $key;

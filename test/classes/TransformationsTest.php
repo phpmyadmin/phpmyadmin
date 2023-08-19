@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
@@ -32,13 +33,14 @@ class TransformationsTest extends AbstractTestCase
         $GLOBALS['db'] = 'db';
         $GLOBALS['cfg'] = ['ServerDefault' => 1, 'ActionLinksMode' => 'icons'];
         $GLOBALS['server'] = 1;
-        $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
-        $GLOBALS['cfg']['Server']['user'] = 'user';
-        $GLOBALS['cfg']['Server']['bookmarktable'] = '';
-        $GLOBALS['cfg']['Server']['relation'] = '';
-        $GLOBALS['cfg']['Server']['table_info'] = '';
-        $GLOBALS['cfg']['Server']['table_coords'] = '';
-        $GLOBALS['cfg']['Server']['column_info'] = 'column_info';
+        $config = Config::getInstance();
+        $config->selectedServer['pmadb'] = 'pmadb';
+        $config->selectedServer['user'] = 'user';
+        $config->selectedServer['bookmarktable'] = '';
+        $config->selectedServer['relation'] = '';
+        $config->selectedServer['table_info'] = '';
+        $config->selectedServer['table_coords'] = '';
+        $config->selectedServer['column_info'] = 'column_info';
         $GLOBALS['cfg']['DBG']['sql'] = false;
 
         $this->transformations = new Transformations();

@@ -182,7 +182,7 @@ class UserPreferences
     {
         $query = 'SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '
             . $this->dbi->quoteString($database->getName());
-        if ($GLOBALS['cfg']['Server']['DisableIS']) {
+        if (Config::getInstance()->selectedServer['DisableIS']) {
             $query = 'SHOW DATABASES LIKE '
                 . $this->dbi->quoteString(
                     $this->dbi->escapeMysqlWildcards($database->getName()),

@@ -35,7 +35,8 @@ class ImportControllerTest extends AbstractTestCase
         $GLOBALS['table'] = 'test_table';
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['lang'] = 'en';
-        $GLOBALS['cfg']['Server'] = Config::getInstance()->getSettings()->Servers[1]->asArray();
+        $config = Config::getInstance();
+        $config->selectedServer = $config->getSettings()->Servers[1]->asArray();
         $_GET['format'] = 'xml';
 
         $dummyDbi = $this->createDbiDummy();

@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tracking;
 
 use PhpMyAdmin\Cache;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Features\TrackingFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
@@ -137,7 +138,7 @@ class Tracker
     public static function getLogComment(): string
     {
         $date = Util::date('Y-m-d H:i:s');
-        $user = preg_replace('/\s+/', ' ', $GLOBALS['cfg']['Server']['user']);
+        $user = preg_replace('/\s+/', ' ', Config::getInstance()->selectedServer['user']);
 
         return '# log ' . $date . ' ' . $user . "\n";
     }
@@ -163,8 +164,9 @@ class Tracker
         $dbi = DatabaseInterface::getInstance();
         $relation = new Relation($dbi);
 
+        $config = Config::getInstance();
         if ($trackingSet == '') {
-            $trackingSet = $GLOBALS['cfg']['Server']['tracking_default_statements'];
+            $trackingSet = $config->selectedServer['tracking_default_statements'];
         }
 
         $exportSqlPlugin = Plugins::getPlugin('export', 'sql', [
@@ -198,12 +200,12 @@ class Tracker
         // Get DROP TABLE / DROP VIEW and CREATE TABLE SQL statements
         $createSql = '';
 
-        if ($GLOBALS['cfg']['Server']['tracking_add_drop_table'] == true && ! $isView) {
+        if ($config->selectedServer['tracking_add_drop_table'] == true && ! $isView) {
             $createSql .= self::getLogComment()
                 . 'DROP TABLE IF EXISTS ' . Util::backquote($tableName) . ";\n";
         }
 
-        if ($GLOBALS['cfg']['Server']['tracking_add_drop_view'] == true && $isView) {
+        if ($config->selectedServer['tracking_add_drop_view'] == true && $isView) {
             $createSql .= self::getLogComment()
                 . 'DROP VIEW IF EXISTS ' . Util::backquote($tableName) . ";\n";
         }
@@ -259,13 +261,14 @@ class Tracker
 
         $date = Util::date('Y-m-d H:i:s');
 
+        $config = Config::getInstance();
         if ($trackingSet == '') {
-            $trackingSet = $GLOBALS['cfg']['Server']['tracking_default_statements'];
+            $trackingSet = $config->selectedServer['tracking_default_statements'];
         }
 
         $createSql = '';
 
-        if ($GLOBALS['cfg']['Server']['tracking_add_drop_database'] == true) {
+        if ($config->selectedServer['tracking_add_drop_database'] == true) {
             $createSql .= self::getLogComment() . 'DROP DATABASE IF EXISTS ' . Util::backquote($dbName) . ";\n";
         }
 
@@ -588,7 +591,7 @@ class Tracker
         $version = self::getVersion($dbname, $result['tablename'], $result['identifier']);
 
         // If version not exists and auto-creation is enabled
-        if ($GLOBALS['cfg']['Server']['tracking_version_auto_create'] == true && $version == -1) {
+        if (Config::getInstance()->selectedServer['tracking_version_auto_create'] == true && $version == -1) {
             // Create the version
 
             switch ($result['identifier']) {

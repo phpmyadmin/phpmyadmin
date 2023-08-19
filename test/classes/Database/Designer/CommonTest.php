@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Database\Designer;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Database\Designer\Common;
@@ -344,7 +345,7 @@ class CommonTest extends AbstractTestCase
 
     public function testRemoveRelationRelationDbNotWorking(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['cfg']['NaturalOrder'] = false;
         $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',
@@ -366,7 +367,7 @@ class CommonTest extends AbstractTestCase
 
     public function testRemoveRelationWorkingRelationDb(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['cfg']['NaturalOrder'] = false;
         $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',
@@ -408,7 +409,7 @@ class CommonTest extends AbstractTestCase
 
     public function testRemoveRelationWorkingRelationDbFoundFk(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['cfg']['NaturalOrder'] = false;
         $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',
@@ -470,7 +471,7 @@ class CommonTest extends AbstractTestCase
 
     public function testRemoveRelationWorkingRelationDbDeleteFails(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['cfg']['NaturalOrder'] = false;
         $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',

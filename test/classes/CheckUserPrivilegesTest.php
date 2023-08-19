@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ShowGrants;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -23,7 +24,7 @@ class CheckUserPrivilegesTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['server'] = 1;
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['col_priv'] = false;
         $GLOBALS['db_priv'] = false;
         $GLOBALS['proc_priv'] = false;

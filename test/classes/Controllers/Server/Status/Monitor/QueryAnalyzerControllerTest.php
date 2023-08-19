@@ -29,8 +29,9 @@ class QueryAnalyzerControllerTest extends AbstractTestCase
 
     public function testQueryAnalyzer(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['cfg']['Server']['host'] = 'localhost';
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = false;
+        $config->selectedServer['host'] = 'localhost';
         $GLOBALS['cached_affected_rows'] = 'cached_affected_rows';
         SessionCache::set('profiling_supported', true);
 
@@ -41,7 +42,7 @@ class QueryAnalyzerControllerTest extends AbstractTestCase
         $dummyDbi = new DbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);
 
-        $statusData = new Data($dbi, Config::getInstance());
+        $statusData = new Data($dbi, $config);
         $controller = new QueryAnalyzerController($response, new Template(), $statusData, new Monitor($dbi), $dbi);
 
         $request = $this->createStub(ServerRequest::class);

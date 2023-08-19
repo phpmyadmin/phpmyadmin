@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Server;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
@@ -267,7 +268,7 @@ class PrivilegesTest extends AbstractTestCase
 
     public function testAddUser(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['username'] = 'pma_username';
 
         $dummyDbi = $this->createDbiDummy();
@@ -317,7 +318,7 @@ class PrivilegesTest extends AbstractTestCase
 
     public function testAddUserOld(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addResult('SELECT \'1\' FROM `mysql`.`user` WHERE `User` = \'\' AND `Host` = \'localhost\';', []);
@@ -634,7 +635,7 @@ class PrivilegesTest extends AbstractTestCase
 
     public function testGetSqlQueriesForDisplayAndAddUserMySql8011(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addResult('SET `old_passwords` = 0;', true);
@@ -670,7 +671,7 @@ class PrivilegesTest extends AbstractTestCase
 
     public function testGetSqlQueriesForDisplayAndAddUserMySql8016(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
 
         $dbi = $this->createDatabaseInterface();
 
@@ -700,7 +701,7 @@ class PrivilegesTest extends AbstractTestCase
 
     public function testGetSqlQueriesForDisplayAndAddUser(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addResult('SET `old_passwords` = 0;', true);
@@ -1072,7 +1073,7 @@ class PrivilegesTest extends AbstractTestCase
 
     public function testGetExtraDataForAjaxBehavior(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addResult('SELECT * FROM `mysql`.`user` WHERE `User` = \'username\';', []);
@@ -1156,7 +1157,7 @@ class PrivilegesTest extends AbstractTestCase
     {
         $this->setTheme();
 
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
 
         $GLOBALS['server'] = 1;
         $relationParameters = RelationParameters::fromArray([
@@ -1457,7 +1458,7 @@ class PrivilegesTest extends AbstractTestCase
 
     public function testGetHtmlForUserOverview(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['lang'] = 'en';
         $GLOBALS['is_reload_priv'] = true;
 
@@ -1605,8 +1606,9 @@ class PrivilegesTest extends AbstractTestCase
         $this->assertStringContainsString('Table-specific privileges', $actual);
 
         // Test case 2
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['cfg']['Server']['only_db'] = '';
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = false;
+        $config->selectedServer['only_db'] = '';
         $dummyDbi->addResult(
             'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`',
             [['x'], ['y'], ['z']],

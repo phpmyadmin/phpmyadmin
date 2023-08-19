@@ -46,10 +46,11 @@ class QueriesControllerTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['cfg']['Server']['host'] = 'localhost';
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = false;
+        $config->selectedServer['host'] = 'localhost';
 
-        $this->data = new Data($this->dbi, Config::getInstance());
+        $this->data = new Data($this->dbi, $config);
         $this->data->status['Uptime'] = 36000;
         $this->data->usedQueries = [
             'Com_change_db' => '15',

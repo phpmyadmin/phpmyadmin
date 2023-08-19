@@ -44,7 +44,8 @@ class SqlControllerTest extends AbstractTestCase
         $GLOBALS['table'] = 'test_table';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['cfg']['Server'] = Config::getInstance()->getSettings()->Servers[1]->asArray();
+        $config = Config::getInstance();
+        $config->selectedServer = $config->getSettings()->Servers[1]->asArray();
 
         $this->dummyDbi->addSelectDb('test_db');
         $this->dummyDbi->addResult('SHOW TABLES LIKE \'test_table\';', [['test_table']]);

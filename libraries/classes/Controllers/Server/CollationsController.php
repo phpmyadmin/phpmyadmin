@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
@@ -38,8 +39,9 @@ class CollationsController extends AbstractController
     ) {
         parent::__construct($response, $template);
 
-        $this->charsets = $charsets ?? Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
-        $this->collations = $collations ?? Charsets::getCollations($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+        $config = Config::getInstance();
+        $this->charsets = $charsets ?? Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
+        $this->collations = $collations ?? Charsets::getCollations($this->dbi, $config->selectedServer['DisableIS']);
     }
 
     public function __invoke(ServerRequest $request): void

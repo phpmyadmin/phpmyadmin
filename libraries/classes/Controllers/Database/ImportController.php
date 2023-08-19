@@ -90,7 +90,8 @@ final class ImportController extends AbstractController
         $localImportFile = $_REQUEST['local_import_file'] ?? null;
         $compressions = Import::getCompressions();
 
-        $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+        $config = Config::getInstance();
+        $charsets = Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
 
         $idKey = $_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getIdKey();
         $hiddenInputs = [$idKey => $uploadId, 'import_type' => 'database', 'db' => $GLOBALS['db']];
@@ -102,7 +103,6 @@ final class ImportController extends AbstractController
         $options = Plugins::getOptions('Import', $importList);
         $skipQueriesDefault = Plugins::getDefault('Import', 'skip_queries');
         $isAllowInterruptChecked = Plugins::checkboxCheck('Import', 'allow_interrupt');
-        $config = Config::getInstance();
         $maxUploadSize = (int) $config->get('max_upload_size');
 
         $this->render('database/import/index', [

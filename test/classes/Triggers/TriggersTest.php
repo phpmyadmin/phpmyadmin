@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Triggers;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Triggers\Trigger;
@@ -32,7 +33,7 @@ class TriggersTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['db'] = 'pma_test';
         $GLOBALS['table'] = 'table';
 
@@ -122,7 +123,7 @@ class TriggersTest extends AbstractTestCase
 
     public function testGetDetails(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        Config::getInstance()->selectedServer['DisableIS'] = true;
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addResult(
             'SHOW TRIGGERS FROM `test_db`',
@@ -157,7 +158,7 @@ class TriggersTest extends AbstractTestCase
 
     public function testGetDetails2(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        Config::getInstance()->selectedServer['DisableIS'] = true;
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addResult(
             "SHOW TRIGGERS FROM `test_db` LIKE 'test_table2';",
@@ -181,7 +182,7 @@ class TriggersTest extends AbstractTestCase
 
     public function testGetDetails3(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
         $dbiDummy = $this->createDbiDummy();
         // phpcs:disable Generic.Files.LineLength.TooLong
         $dbiDummy->addResult(
@@ -207,7 +208,7 @@ class TriggersTest extends AbstractTestCase
 
     public function testGetDetails4(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
         $dbiDummy = $this->createDbiDummy();
         // phpcs:disable Generic.Files.LineLength.TooLong
         $dbiDummy->addResult(

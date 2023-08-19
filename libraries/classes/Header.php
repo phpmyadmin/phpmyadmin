@@ -150,10 +150,10 @@ class Header
             'arg_separator' => Url::getArgSeparator(),
             'version' => Version::VERSION,
         ];
-        if (isset($GLOBALS['cfg']['Server'], $GLOBALS['cfg']['Server']['auth_type'])) {
-            $params['auth_type'] = $GLOBALS['cfg']['Server']['auth_type'];
-            if (isset($GLOBALS['cfg']['Server']['user'])) {
-                $params['user'] = $GLOBALS['cfg']['Server']['user'];
+        if ($config->hasSelectedServer()) {
+            $params['auth_type'] = $config->selectedServer['auth_type'];
+            if (isset($config->selectedServer['user'])) {
+                $params['user'] = $config->selectedServer['user'];
             }
         }
 
@@ -498,7 +498,7 @@ class Header
                     $tempTitle = $GLOBALS['cfg']['TitleTable'];
                 } elseif ($GLOBALS['db'] !== '') {
                     $tempTitle = $GLOBALS['cfg']['TitleDatabase'];
-                } elseif ($GLOBALS['cfg']['Server']['host'] !== '') {
+                } elseif (Config::getInstance()->selectedServer['host'] !== '') {
                     $tempTitle = $GLOBALS['cfg']['TitleServer'];
                 } else {
                     $tempTitle = $GLOBALS['cfg']['TitleDefault'];

@@ -108,7 +108,7 @@ class RecentFavoriteTable
         $dbi = DatabaseInterface::getInstance();
         $sqlQuery = ' SELECT `tables` FROM ' . $this->getPmaTable()
             . ' WHERE `username` = '
-            . $dbi->quoteString($GLOBALS['cfg']['Server']['user'], Connection::TYPE_CONTROL);
+            . $dbi->quoteString(Config::getInstance()->selectedServer['user'], Connection::TYPE_CONTROL);
 
         $result = $dbi->tryQueryAsControlUser($sqlQuery);
         if ($result) {
@@ -128,7 +128,7 @@ class RecentFavoriteTable
      */
     public function saveToDb(): bool|Message
     {
-        $username = $GLOBALS['cfg']['Server']['user'];
+        $username = Config::getInstance()->selectedServer['user'];
         $dbi = DatabaseInterface::getInstance();
         $sqlQuery = ' REPLACE INTO ' . $this->getPmaTable() . ' (`username`, `tables`)'
             . ' VALUES (' . $dbi->quoteString($username) . ', '

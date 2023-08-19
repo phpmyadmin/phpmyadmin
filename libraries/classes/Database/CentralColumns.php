@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
@@ -59,10 +60,11 @@ class CentralColumns
 
     public function __construct(private DatabaseInterface $dbi)
     {
-        $this->user = $GLOBALS['cfg']['Server']['user'];
+        $config = Config::getInstance();
+        $this->user = $config->selectedServer['user'];
         $this->maxRows = (int) $GLOBALS['cfg']['MaxRows'];
         $this->charEditing = $GLOBALS['cfg']['CharEditing'];
-        $this->disableIs = (bool) $GLOBALS['cfg']['Server']['DisableIS'];
+        $this->disableIs = (bool) $config->selectedServer['DisableIS'];
 
         $this->relation = new Relation($this->dbi);
         $this->template = new Template();

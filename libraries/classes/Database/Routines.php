@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
@@ -538,7 +539,7 @@ class Routines
             return [];
         }
 
-        $allCharsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+        $allCharsets = Charsets::getCharsets($this->dbi, Config::getInstance()->selectedServer['DisableIS']);
         $charsets = [];
         foreach ($allCharsets as $charset) {
             $charsets[] = [
@@ -1223,7 +1224,7 @@ class Routines
         string|null $which = null,
         string $name = '',
     ): array {
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+        if (! Config::getInstance()->selectedServer['DisableIS']) {
             $query = QueryGenerator::getInformationSchemaRoutinesRequest(
                 $dbi->escapeString($db),
                 in_array($which, ['FUNCTION', 'PROCEDURE'], true) ? $which : null,

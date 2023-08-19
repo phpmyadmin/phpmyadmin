@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Normalization;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Normalization\AddNewPrimaryController;
 use PhpMyAdmin\DatabaseInterface;
@@ -20,7 +21,7 @@ class AddNewPrimaryControllerTest extends AbstractTestCase
 {
     public function testDefault(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['col_priv'] = false;
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';

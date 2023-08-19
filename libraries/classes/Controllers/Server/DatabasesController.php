@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
@@ -115,8 +116,9 @@ class DatabasesController extends AbstractController
 
         $charsetsList = [];
         if ($GLOBALS['cfg']['ShowCreateDb'] && $GLOBALS['is_create_db_priv']) {
-            $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
-            $collations = Charsets::getCollations($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+            $config = Config::getInstance();
+            $charsets = Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
+            $collations = Charsets::getCollations($this->dbi, $config->selectedServer['DisableIS']);
             $serverCollation = $this->dbi->getServerCollation();
             foreach ($charsets as $charset) {
                 $collationsList = [];
@@ -248,18 +250,19 @@ class DatabasesController extends AbstractController
                 ['db' => $database['SCHEMA_NAME']],
                 ! str_contains($url, '?') ? '?' : '&',
             );
+            $config = Config::getInstance();
             $databases[$database['SCHEMA_NAME']] = [
                 'name' => $database['SCHEMA_NAME'],
                 'collation' => [],
                 'statistics' => $statistics,
                 'replication' => $replication,
                 'is_system_schema' => Utilities::isSystemSchema($database['SCHEMA_NAME'], true),
-                'is_pmadb' => $database['SCHEMA_NAME'] === ($GLOBALS['cfg']['Server']['pmadb'] ?? ''),
+                'is_pmadb' => $database['SCHEMA_NAME'] === ($config->selectedServer['pmadb'] ?? ''),
                 'url' => $url,
             ];
             $collation = Charsets::findCollationByName(
                 $this->dbi,
-                $GLOBALS['cfg']['Server']['DisableIS'],
+                $config->selectedServer['DisableIS'],
                 $database['DEFAULT_COLLATION_NAME'],
             );
             if ($collation === null) {

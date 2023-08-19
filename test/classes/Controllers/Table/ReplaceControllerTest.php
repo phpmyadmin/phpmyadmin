@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
@@ -48,8 +49,9 @@ class ReplaceControllerTest extends AbstractTestCase
         $GLOBALS['db'] = 'my_db';
         $GLOBALS['table'] = 'test_tbl';
 
-        $GLOBALS['cfg']['Server']['user'] = 'user';
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $config = Config::getInstance();
+        $config->selectedServer['user'] = 'user';
+        $config->selectedServer['DisableIS'] = false;
 
         $relationParameters = RelationParameters::fromArray([
             'table_coords' => 'table_name',
@@ -146,8 +148,9 @@ class ReplaceControllerTest extends AbstractTestCase
         $GLOBALS['goto'] = 'index.php?route=/sql';
         $_POST['sql_query'] = 'SELECT 1';
         $GLOBALS['cfg']['InsertRows'] = 2;
-        $GLOBALS['cfg']['Server']['host'] = 'host.tld';
-        $GLOBALS['cfg']['Server']['verbose'] = '';
+        $config = Config::getInstance();
+        $config->selectedServer['host'] = 'host.tld';
+        $config->selectedServer['verbose'] = '';
 
         $dummyDbi = $this->createDbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);

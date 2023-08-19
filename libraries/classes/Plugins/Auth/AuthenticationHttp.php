@@ -51,16 +51,17 @@ class AuthenticationHttp extends AuthenticationPlugin
      */
     public function authForm(): never
     {
-        if (empty($GLOBALS['cfg']['Server']['auth_http_realm'])) {
-            if (empty($GLOBALS['cfg']['Server']['verbose'])) {
-                $serverMessage = $GLOBALS['cfg']['Server']['host'];
+        $config = Config::getInstance();
+        if (empty($config->selectedServer['auth_http_realm'])) {
+            if (empty($config->selectedServer['verbose'])) {
+                $serverMessage = $config->selectedServer['host'];
             } else {
-                $serverMessage = $GLOBALS['cfg']['Server']['verbose'];
+                $serverMessage = $config->selectedServer['verbose'];
             }
 
             $realmMessage = 'phpMyAdmin ' . $serverMessage;
         } else {
-            $realmMessage = $GLOBALS['cfg']['Server']['auth_http_realm'];
+            $realmMessage = $config->selectedServer['auth_http_realm'];
         }
 
         $response = ResponseRenderer::getInstance();

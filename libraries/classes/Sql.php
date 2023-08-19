@@ -441,7 +441,7 @@ class Sql
     {
         $bookmark = Bookmark::get(
             $this->dbi,
-            $GLOBALS['cfg']['Server']['user'],
+            Config::getInstance()->selectedServer['user'],
             DatabaseName::from($db),
             $table,
             'label',
@@ -537,7 +537,8 @@ class Sql
 
         // Should we replace bookmark?
         if ($bookmarkReplace && $bookmarkFeature !== null) {
-            $bookmarks = Bookmark::getList($bookmarkFeature, $this->dbi, $GLOBALS['cfg']['Server']['user'], $db);
+            $config = Config::getInstance();
+            $bookmarks = Bookmark::getList($bookmarkFeature, $this->dbi, $config->selectedServer['user'], $db);
             foreach ($bookmarks as $bookmark) {
                 if ($bookmark->getLabel() !== $bookmarkLabel) {
                     continue;
@@ -776,7 +777,7 @@ class Sql
             $this->storeTheQueryAsBookmark(
                 $bookmarkFeature,
                 $db,
-                $bookmarkFeature !== null ? $GLOBALS['cfg']['Server']['user'] : '',
+                $bookmarkFeature !== null ? Config::getInstance()->selectedServer['user'] : '',
                 $sqlQueryForBookmark,
                 $_POST['bkm_label'],
                 isset($_POST['bkm_replace']),
@@ -1030,7 +1031,7 @@ class Sql
                     'sql_query' => $sqlQuery,
                     'id_bookmark' => 1,
                 ]),
-                'user' => $GLOBALS['cfg']['Server']['user'],
+                'user' => Config::getInstance()->selectedServer['user'],
                 'sql_query' => $completeQuery ?? $sqlQuery,
                 'allow_shared_bookmarks' => $GLOBALS['cfg']['AllowSharedBookmarks'],
             ]);
@@ -1468,7 +1469,7 @@ class Sql
                     'sql_query' => $sqlQuery,
                     'id_bookmark' => 1,
                 ]),
-                'user' => $GLOBALS['cfg']['Server']['user'],
+                'user' => Config::getInstance()->selectedServer['user'],
                 'sql_query' => $completeQuery ?? $sqlQuery,
             ]);
         }

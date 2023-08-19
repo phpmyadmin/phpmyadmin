@@ -24,8 +24,9 @@ class DeleteRowsControllerTest extends AbstractTestCase
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';
         $GLOBALS['urlParams'] = [];
-        $GLOBALS['cfg']['Server'] = Config::getInstance()->getSettings()->Servers[1]->asArray();
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        $config = Config::getInstance();
+        $config->selectedServer = $config->getSettings()->Servers[1]->asArray();
+        $config->selectedServer['DisableIS'] = true;
         $_POST = [
             'db' => 'test_db',
             'table' => 'test_table',

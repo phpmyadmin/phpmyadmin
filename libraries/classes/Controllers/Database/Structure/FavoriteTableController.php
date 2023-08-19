@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database\Structure;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DbTableExists;
@@ -59,7 +60,7 @@ final class FavoriteTableController extends AbstractController
         }
 
         // Required to keep each user's preferences separate.
-        $user = sha1($GLOBALS['cfg']['Server']['user']);
+        $user = sha1(Config::getInstance()->selectedServer['user']);
 
         // Request for Synchronization of favorite tables.
         if ($request->getParam('sync_favorite_tables') !== null) {

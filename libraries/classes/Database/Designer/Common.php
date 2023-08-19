@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Database\Designer;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
@@ -686,7 +687,7 @@ class Common
         $databaseDesignerSettingsFeature = $this->relation->getRelationParameters()->databaseDesignerSettingsFeature;
         if ($databaseDesignerSettingsFeature !== null) {
             $cfgDesigner = [
-                'user' => $GLOBALS['cfg']['Server']['user'],
+                'user' => Config::getInstance()->selectedServer['user'],
                 'db' => $databaseDesignerSettingsFeature->database->getName(),
                 'table' => $databaseDesignerSettingsFeature->designerSettings->getName(),
             ];

@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Url;
@@ -84,9 +85,10 @@ class NodeTable extends NodeDatabaseChild
         $db = $this->realParent()->realName;
         $table = $this->realName;
         $dbi = DatabaseInterface::getInstance();
+        $config = Config::getInstance();
         switch ($type) {
             case 'columns':
-                if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+                if (! $config->selectedServer['DisableIS']) {
                     $db = $dbi->escapeString($db);
                     $table = $dbi->escapeString($table);
                     $query = 'SELECT COUNT(*) ';
@@ -109,7 +111,7 @@ class NodeTable extends NodeDatabaseChild
                 $retval = (int) $dbi->queryAndGetNumRows($query);
                 break;
             case 'triggers':
-                if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+                if (! $config->selectedServer['DisableIS']) {
                     $db = $dbi->escapeString($db);
                     $table = $dbi->escapeString($table);
                     $query = 'SELECT COUNT(*) ';
@@ -157,9 +159,10 @@ class NodeTable extends NodeDatabaseChild
         $db = $this->realParent()->realName;
         $table = $this->realName;
         $dbi = DatabaseInterface::getInstance();
+        $config = Config::getInstance();
         switch ($type) {
             case 'columns':
-                if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+                if (! $config->selectedServer['DisableIS']) {
                     $db = $dbi->escapeString($db);
                     $table = $dbi->escapeString($table);
                     $query = 'SELECT `COLUMN_NAME` AS `name` ';
@@ -228,7 +231,7 @@ class NodeTable extends NodeDatabaseChild
 
                 break;
             case 'triggers':
-                if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+                if (! $config->selectedServer['DisableIS']) {
                     $db = $dbi->escapeString($db);
                     $table = $dbi->escapeString($table);
                     $query = 'SELECT `TRIGGER_NAME` AS `name` ';

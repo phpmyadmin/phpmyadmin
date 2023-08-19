@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
@@ -206,15 +207,16 @@ class ExportXml extends ExportPlugin
             $charset = 'utf-8';
         }
 
+        $config = Config::getInstance();
         $head = '<?xml version="1.0" encoding="' . $charset . '"?>' . "\n"
             . '<!--' . "\n"
             . '- phpMyAdmin XML Dump' . "\n"
             . '- version ' . Version::VERSION . "\n"
             . '- https://www.phpmyadmin.net' . "\n"
             . '-' . "\n"
-            . '- ' . __('Host:') . ' ' . htmlspecialchars($GLOBALS['cfg']['Server']['host']);
-        if (! empty($GLOBALS['cfg']['Server']['port'])) {
-            $head .= ':' . $GLOBALS['cfg']['Server']['port'];
+            . '- ' . __('Host:') . ' ' . htmlspecialchars($config->selectedServer['host']);
+        if (! empty($config->selectedServer['port'])) {
+            $head .= ':' . $config->selectedServer['port'];
         }
 
         $dbi = DatabaseInterface::getInstance();

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Table\IndexesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -42,8 +43,9 @@ class IndexesControllerTest extends AbstractTestCase
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['cfg']['Server']['pmadb'] = '';
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $config = Config::getInstance();
+        $config->selectedServer['pmadb'] = '';
+        $config->selectedServer['DisableIS'] = false;
         $GLOBALS['urlParams'] = ['db' => 'db', 'server' => 1];
     }
 

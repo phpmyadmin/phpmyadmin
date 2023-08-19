@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Console\Bookmark;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Controllers\Console\Bookmark\AddController;
@@ -37,7 +38,7 @@ class AddControllerTest extends AbstractTestCase
 
     public function testWithoutRelationParameters(): void
     {
-        $GLOBALS['cfg']['Server']['user'] = 'user';
+        Config::getInstance()->selectedServer['user'] = 'user';
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
@@ -56,7 +57,7 @@ class AddControllerTest extends AbstractTestCase
 
     public function testWithValidParameters(): void
     {
-        $GLOBALS['cfg']['Server']['user'] = 'test_user';
+        Config::getInstance()->selectedServer['user'] = 'test_user';
         $GLOBALS['server'] = 1;
         $relationParameters = RelationParameters::fromArray([
             'user' => 'test_user',

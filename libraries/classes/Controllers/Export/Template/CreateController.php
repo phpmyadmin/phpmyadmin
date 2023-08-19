@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Export\Template;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Export\Template as ExportTemplate;
@@ -42,7 +43,7 @@ final class CreateController extends AbstractController
         }
 
         $template = ExportTemplate::fromArray([
-            'username' => $GLOBALS['cfg']['Server']['user'],
+            'username' => Config::getInstance()->selectedServer['user'],
             'exportType' => $exportType,
             'name' => $templateName,
             'data' => $templateData,

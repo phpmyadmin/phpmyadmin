@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Database;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Database\EventsController;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\DatabaseInterface;
@@ -24,7 +25,7 @@ final class EventsControllerTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['db'] = 'test_db';
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        Config::getInstance()->selectedServer['DisableIS'] = true;
 
         $dummyDbi = $this->createDbiDummy();
         // phpcs:disable Generic.Files.LineLength.TooLong
@@ -195,7 +196,7 @@ HTML;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['db'] = 'test_db';
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        Config::getInstance()->selectedServer['DisableIS'] = true;
 
         $dummyDbi = $this->createDbiDummy();
         // phpcs:disable Generic.Files.LineLength.TooLong

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Navigation\NavigationTree;
@@ -32,10 +33,11 @@ class NavigationTreeTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
         $GLOBALS['server'] = 1;
-        $GLOBALS['cfg']['Server']['host'] = 'localhost';
-        $GLOBALS['cfg']['Server']['user'] = 'user';
-        $GLOBALS['cfg']['Server']['pmadb'] = '';
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $config = Config::getInstance();
+        $config->selectedServer['host'] = 'localhost';
+        $config->selectedServer['user'] = 'user';
+        $config->selectedServer['pmadb'] = '';
+        $config->selectedServer['DisableIS'] = false;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
         $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'] = true;
 

@@ -607,9 +607,15 @@
     </ReferenceReusedFromConfusingScope>
   </file>
   <file src="libraries/classes/ConfigStorage/Relation.php">
+    <DocblockTypeContradiction>
+      <code><![CDATA['phpmyadmin']]></code>
+    </DocblockTypeContradiction>
     <InvalidArgument>
       <code><![CDATA[usort($tables, 'strnatcasecmp')]]></code>
     </InvalidArgument>
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[$config->selectedServer]]></code>
+    </InvalidPropertyAssignmentValue>
     <InvalidReturnStatement>
       <code>$tableNameReplacements</code>
     </InvalidReturnStatement>
@@ -711,11 +717,8 @@
      * }]]></code>
     </MoreSpecificReturnType>
     <PossiblyFalseArgument>
-      <code><![CDATA[$GLOBALS['cfg']['Server']['column_info']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Server']['column_info']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Server']['pmadb']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Server']['pmadb']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Server']['pmadb']]]></code>
+      <code><![CDATA[$config->selectedServer['column_info']]]></code>
+      <code><![CDATA[$config->selectedServer['column_info']]]></code>
     </PossiblyFalseArgument>
     <PossiblyInvalidArgument>
       <code>$foreigners</code>
@@ -748,6 +751,9 @@
       <code><![CDATA[isset($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])
                     && is_scalar($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])]]></code>
     </RedundantCondition>
+    <RedundantConditionGivenDocblockType>
+      <code>is_string($storageDbName)</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/ConfigStorage/UserGroups.php">
     <DeprecatedMethod>
@@ -1942,8 +1948,6 @@
       <code><![CDATA[$GLOBALS['cfg']['LoginCookieValidityDisableWarning']]]></code>
       <code><![CDATA[$GLOBALS['cfg']['NavigationDisplayServers']]]></code>
       <code><![CDATA[$GLOBALS['cfg']['PmaNoRelation_DisableWarning']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Server']['controlpass']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Server']['controluser']]]></code>
       <code><![CDATA[$GLOBALS['cfg']['ShowChgPassword']]]></code>
       <code><![CDATA[$GLOBALS['cfg']['ShowPhpInfo']]]></code>
       <code><![CDATA[$GLOBALS['cfg']['SuhosinDisableWarning']]]></code>
@@ -4634,9 +4638,11 @@
       <code>$field</code>
     </PossiblyNullArgument>
     <RedundantCast>
-      <code><![CDATA[(bool) $GLOBALS['cfg']['Server']['DisableIS']]]></code>
       <code><![CDATA[(int) $GLOBALS['cfg']['MaxRows']]]></code>
     </RedundantCast>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(bool) $config->selectedServer['DisableIS']]]></code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Database/Designer.php">
     <DeprecatedMethod>
@@ -5987,7 +5993,6 @@
       <code><![CDATA[$GLOBALS['single_table']]]></code>
     </InvalidArrayOffset>
     <MixedArrayAccess>
-      <code><![CDATA[$GLOBALS['cfg']['Export']['compression']]]></code>
       <code><![CDATA[$GLOBALS['cfg']['Export']['file_template_database']]]></code>
       <code><![CDATA[$GLOBALS['cfg']['Export']['file_template_server']]]></code>
       <code><![CDATA[$GLOBALS['cfg']['Export']['file_template_table']]]></code>
@@ -6004,8 +6009,6 @@
       <code><![CDATA[$_GET['what']]]></code>
     </PossiblyInvalidCast>
     <PossiblyUndefinedArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['Export']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Export']]]></code>
       <code><![CDATA[$GLOBALS['cfg']['Export']]]></code>
     </PossiblyUndefinedArrayOffset>
     <RedundantConditionGivenDocblockType>
@@ -6560,10 +6563,6 @@
       <code><![CDATA[$GLOBALS['show_as_php']]]></code>
       <code><![CDATA[$GLOBALS['special_message']]]></code>
       <code><![CDATA[$GLOBALS['using_bookmark_message']]]></code>
-      <code><![CDATA[$server['socket']]]></code>
-      <code><![CDATA[$server['ssl']]]></code>
-      <code><![CDATA[$server['ssl_ca']]]></code>
-      <code><![CDATA[$server['ssl_verify']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['special_message']]]></code>
@@ -7076,19 +7075,12 @@
     </RedundantCast>
   </file>
   <file src="libraries/classes/IpAllowDeny.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['Server']['AllowDeny']]]></code>
-    </InvalidArrayOffset>
+    <DocblockTypeContradiction>
+      <code>is_array($rules)</code>
+    </DocblockTypeContradiction>
     <InvalidOperand>
       <code>$regs[5]</code>
     </InvalidOperand>
-    <MixedArgument>
-      <code>$rule</code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code>$rule</code>
-      <code>$rules</code>
-    </MixedAssignment>
     <PossiblyInvalidArgument>
       <code>$remoteIp</code>
     </PossiblyInvalidArgument>
@@ -7153,15 +7145,9 @@
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['Server']['hide_db']]]></code>
-    </InvalidArrayOffset>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[usort($databaseList, 'strnatcasecmp')]]></code>
     </MixedArgumentTypeCoercion>
-    <MixedOperand>
-      <code><![CDATA[$GLOBALS['cfg']['Server']['hide_db']]]></code>
-    </MixedOperand>
   </file>
   <file src="libraries/classes/Menu.php">
     <DeprecatedProperty>
@@ -7400,12 +7386,7 @@
       <code>escapeString</code>
       <code>escapeString</code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['Server']['hide_db']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Server']['hide_db']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['cfg']['Server']['hide_db']]]></code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
@@ -7418,7 +7399,6 @@
       <code>$db</code>
     </MixedAssignment>
     <MixedOperand>
-      <code><![CDATA[$GLOBALS['cfg']['Server']['hide_db']]]></code>
       <code>$db</code>
       <code>$db</code>
     </MixedOperand>
@@ -7966,7 +7946,6 @@
       <code>$_GET[$opt]</code>
       <code>$_REQUEST[$opt]</code>
       <code>$val</code>
-      <code>$val</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$GLOBALS['cfg'][$section][$opt]]]></code>
@@ -8093,14 +8072,11 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['PHP_AUTH_PW']]]></code>
       <code><![CDATA[$GLOBALS['PHP_AUTH_USER']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Server']['auth_http_realm']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code>$realmMessage</code>
       <code><![CDATA[$this->user]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code>$realmMessage</code>
       <code><![CDATA[$this->password]]></code>
       <code><![CDATA[$this->user]]></code>
     </MixedAssignment>
@@ -8119,8 +8095,6 @@
       <code>$sessionCookieParams</code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['cfg']['Server']['host']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Server']['port']]]></code>
       <code><![CDATA[$_SESSION[' HMAC_secret ']]]></code>
       <code><![CDATA[$_SESSION[' PMA_token ']]]></code>
       <code><![CDATA[$_SESSION['LAST_SIGNON_URL']]]></code>
@@ -8132,37 +8106,30 @@
       <code><![CDATA[$this->password]]></code>
       <code><![CDATA[$this->user]]></code>
     </MixedAssignment>
-    <RedundantCast>
-      <code><![CDATA[(array) $GLOBALS['cfg']['Server']['SignonCookieParams']]]></code>
-    </RedundantCast>
+    <MixedPropertyTypeCoercion>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[array_merge($config->selectedServer, $singleSignonCfgUpdate)]]></code>
+    </MixedPropertyTypeCoercion>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(array) Config::getInstance()->selectedServer['SignonCookieParams']]]></code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Plugins/AuthenticationPlugin.php">
+    <ArgumentTypeCoercion>
+      <code>$redirectUrl</code>
+    </ArgumentTypeCoercion>
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['Server']['AllowDeny']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Server']['AllowNoPassword']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Server']['AllowRoot']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Server']['LogoutURL']]]></code>
-    </InvalidArrayOffset>
-    <MixedArgument>
-      <code>$redirectUrl</code>
-    </MixedArgument>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['browser_access_time'][$guid]]]></code>
     </MixedArrayAssignment>
-    <MixedAssignment>
-      <code>$redirectUrl</code>
-    </MixedAssignment>
     <PossiblyInvalidCast>
       <code><![CDATA[$_REQUEST['guid']]]></code>
     </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Plugins/AuthenticationPluginFactory.php">
-    <RedundantFunctionCall>
-      <code>strtolower</code>
-    </RedundantFunctionCall>
     <UnsafeInstantiation>
       <code>new $class()</code>
     </UnsafeInstantiation>
@@ -11410,9 +11377,9 @@
       <code>$a</code>
       <code>$b</code>
     </PossiblyUnusedParam>
-    <RedundantCast>
-      <code><![CDATA[(string) $GLOBALS['cfg']['Server']['host']]]></code>
-    </RedundantCast>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(string) $config->selectedServer['host']]]></code>
+    </RedundantCastGivenDocblockType>
     <UnusedProperty>
       <code>$dbi</code>
     </UnusedProperty>
@@ -12103,9 +12070,9 @@
     <PossiblyUnusedReturnValue>
       <code>true|Message</code>
     </PossiblyUnusedReturnValue>
-    <RedundantCast>
-      <code><![CDATA[(int) $GLOBALS['cfg']['Server']['MaxTableUiprefs']]]></code>
-    </RedundantCast>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(int) $config->selectedServer['MaxTableUiprefs']]]></code>
+    </RedundantCastGivenDocblockType>
     <ReferenceConstraintViolation>
       <code>return $sqlQuery;</code>
     </ReferenceConstraintViolation>
@@ -13328,6 +13295,119 @@
     <DocblockTypeContradiction>
       <code>assertSame</code>
     </DocblockTypeContradiction>
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code>[]</code>
+      <code>[]</code>
+      <code>[]</code>
+      <code>[]</code>
+      <code>[]</code>
+      <code>[]</code>
+    </InvalidPropertyAssignmentValue>
     <PossiblyUnusedMethod>
       <code>providerForTestRenameTable</code>
     </PossiblyUnusedMethod>
@@ -14276,6 +14356,20 @@
     </RedundantCast>
   </file>
   <file src="test/classes/Html/GeneratorTest.php">
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[[
+            'ssl' => true,
+            'ssl_verify' => true,
+            'ssl_ca' => '/etc/ssl/ca.crt',
+            'host' => 'custom.host',
+        ]]]></code>
+      <code><![CDATA[['ssl' => false, 'host' => '127.0.0.1']]]></code>
+      <code><![CDATA[['ssl' => false, 'host' => 'custom.host']]]></code>
+      <code><![CDATA[['ssl' => false, 'host' => 'custom.host']]]></code>
+      <code><![CDATA[['ssl' => false, 'ssl_verify' => true, 'host' => 'custom.host']]]></code>
+      <code><![CDATA[['ssl' => true, 'ssl_verify' => false, 'host' => 'custom.host']]]></code>
+      <code><![CDATA[['ssl' => true, 'ssl_verify' => true, 'host' => 'custom.host']]]></code>
+    </InvalidPropertyAssignmentValue>
     <MixedAssignment>
       <code>$result</code>
     </MixedAssignment>
@@ -14465,6 +14559,17 @@
       <code>providerForTestIcon</code>
     </PossiblyUnusedMethod>
   </file>
+  <file src="test/classes/Navigation/Nodes/NodeTest.php">
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code>[]</code>
+    </InvalidPropertyAssignmentValue>
+    <TypeDoesNotContainType>
+      <code><![CDATA[isset($config->selectedServer)]]></code>
+    </TypeDoesNotContainType>
+  </file>
   <file src="test/classes/NormalizationTest.php">
     <MixedArgument>
       <code><![CDATA[$result1['html']]]></code>
@@ -14501,7 +14606,20 @@
       <code><![CDATA[$pdf->getPDFData()]]></code>
     </MixedArgument>
   </file>
+  <file src="test/classes/Plugins/Auth/AuthenticationConfigTest.php">
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[['user' => 'username', 'password' => 'password']]]></code>
+    </InvalidPropertyAssignmentValue>
+  </file>
   <file src="test/classes/Plugins/Auth/AuthenticationCookieTest.php">
+    <InvalidPropertyAssignmentValue>
+      <code>$arr</code>
+      <code>$arr</code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[['auth_type' => 'cookie']]]></code>
+    </InvalidPropertyAssignmentValue>
     <MixedArgument>
       <code>$result</code>
     </MixedArgument>
@@ -14512,15 +14630,35 @@
     <MixedAssignment>
       <code>$result</code>
     </MixedAssignment>
+    <MixedPropertyTypeCoercion>
+      <code><![CDATA[$config->selectedServer]]></code>
+    </MixedPropertyTypeCoercion>
     <PossiblyUnusedMethod>
       <code>checkRulesProvider</code>
       <code>dataProviderPasswordLength</code>
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Plugins/Auth/AuthenticationHttpTest.php">
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[['host' => 'a', 'user' => 'user2']]]></code>
+      <code><![CDATA[['host' => 'a', 'user' => 'user2']]]></code>
+    </InvalidPropertyAssignmentValue>
     <PossiblyUnusedMethod>
       <code>readCredentialsProvider</code>
     </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Plugins/Auth/AuthenticationSignonTest.php">
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+    </InvalidPropertyAssignmentValue>
   </file>
   <file src="test/classes/Plugins/AuthenticationPluginFactoryTest.php">
     <PossiblyUnusedMethod>
@@ -14545,6 +14683,10 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['latex_caption']]]></code>
     </InvalidArrayOffset>
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+    </InvalidPropertyAssignmentValue>
     <PossiblyInvalidArrayOffset>
       <code><![CDATA[$GLOBALS['plugin_param']['export_type']]]></code>
       <code><![CDATA[$GLOBALS['plugin_param']['export_type']]]></code>
@@ -14575,6 +14717,9 @@
       <code><![CDATA[$GLOBALS['no_constraints_comments']]]></code>
       <code><![CDATA[$GLOBALS['sql_constraints']]]></code>
     </InvalidArrayOffset>
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[$config->selectedServer]]></code>
+    </InvalidPropertyAssignmentValue>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['sql_constraints']]]></code>
       <code><![CDATA[$GLOBALS['sql_constraints']]]></code>
@@ -14594,6 +14739,13 @@
       <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
       <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
     </PossiblyInvalidArrayOffset>
+  </file>
+  <file src="test/classes/Plugins/Export/ExportXmlTest.php">
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+    </InvalidPropertyAssignmentValue>
   </file>
   <file src="test/classes/Plugins/Export/Helpers/TablePropertyTest.php">
     <PossiblyUnusedMethod>
@@ -14963,6 +15115,14 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Tracking/TrackerTest.php">
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->selectedServer]]></code>
+    </InvalidPropertyAssignmentValue>
     <PossiblyUnusedMethod>
       <code>parseQueryData</code>
     </PossiblyUnusedMethod>
@@ -15083,6 +15243,9 @@
     </MixedArrayAccess>
   </file>
   <file src="test/classes/UtilTest.php">
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[Config::getInstance()->selectedServer]]></code>
+    </InvalidPropertyAssignmentValue>
     <InvalidReturnStatement>
       <code><![CDATA[[
             [
@@ -15218,6 +15381,13 @@
       <code><![CDATA[$_SESSION['cache']]]></code>
       <code><![CDATA[$_SESSION['cache']]]></code>
     </EmptyArrayAccess>
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[Config::getInstance()->selectedServer]]></code>
+      <code><![CDATA[Config::getInstance()->selectedServer]]></code>
+      <code><![CDATA[Config::getInstance()->selectedServer]]></code>
+      <code><![CDATA[Config::getInstance()->selectedServer]]></code>
+      <code><![CDATA[Config::getInstance()->selectedServer]]></code>
+    </InvalidPropertyAssignmentValue>
     <MixedArgument>
       <code><![CDATA[$_SESSION['cache']['server_server']]]></code>
       <code><![CDATA[$_SESSION['cache']['server_server']]]></code>

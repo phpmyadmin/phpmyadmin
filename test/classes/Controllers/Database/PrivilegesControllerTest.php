@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Database;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Database\PrivilegesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
@@ -41,7 +42,7 @@ class PrivilegesControllerTest extends AbstractTestCase
     {
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['server'] = 0;
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
 
         $this->dummyDbi->addResult(
             'SHOW TABLES FROM `test_db`;',

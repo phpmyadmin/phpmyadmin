@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\TrackingController;
 use PhpMyAdmin\DatabaseInterface;
@@ -40,8 +41,9 @@ class TrackingControllerTest extends AbstractTestCase
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
-        $GLOBALS['cfg']['Server']['tracking_default_statements'] = 'CREATE TABLE,ALTER TABLE,DROP TABLE';
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = true;
+        $config->selectedServer['tracking_default_statements'] = 'CREATE TABLE,ALTER TABLE,DROP TABLE';
 
         $this->dummyDbi->addSelectDb('test_db');
 
@@ -79,7 +81,7 @@ class TrackingControllerTest extends AbstractTestCase
             'last_version' => 0,
             'versions' => [],
             'type' => 'table',
-            'default_statements' => $GLOBALS['cfg']['Server']['tracking_default_statements'],
+            'default_statements' => $config->selectedServer['tracking_default_statements'],
             'text_dir' => 'ltr',
         ]);
         $expected = $template->render('table/tracking/index', [

@@ -40,10 +40,11 @@ class VariablesControllerTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['cfg']['Server']['host'] = 'localhost';
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = false;
+        $config->selectedServer['host'] = 'localhost';
 
-        $this->data = new Data($this->dbi, Config::getInstance());
+        $this->data = new Data($this->dbi, $config);
     }
 
     public function testIndex(): void

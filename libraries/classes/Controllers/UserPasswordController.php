@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
@@ -45,7 +46,7 @@ class UserPasswordController extends AbstractController
             $GLOBALS['cfg']['ShowChgPassword'] = $this->dbi->selectDb('mysql');
         }
 
-        if ($GLOBALS['cfg']['Server']['auth_type'] === 'config' || ! $GLOBALS['cfg']['ShowChgPassword']) {
+        if (Config::getInstance()->selectedServer['auth_type'] === 'config' || ! $GLOBALS['cfg']['ShowChgPassword']) {
             $this->response->addHTML(Message::error(
                 __('You don\'t have sufficient privileges to be here right now!'),
             )->getDisplay());

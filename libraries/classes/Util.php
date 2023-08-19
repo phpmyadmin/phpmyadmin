@@ -1026,7 +1026,7 @@ class Util
             $dir .= '/';
         }
 
-        return str_replace('%u', Core::securePath($GLOBALS['cfg']['Server']['user']), $dir);
+        return str_replace('%u', Core::securePath(Config::getInstance()->selectedServer['user']), $dir);
     }
 
     /**
@@ -1385,13 +1385,14 @@ class Util
         /* Content */
         $vars = [];
         $vars['http_host'] = Core::getenv('HTTP_HOST');
-        $vars['server_name'] = $GLOBALS['cfg']['Server']['host'];
-        $vars['server_verbose'] = $GLOBALS['cfg']['Server']['verbose'];
+        $config = Config::getInstance();
+        $vars['server_name'] = $config->selectedServer['host'];
+        $vars['server_verbose'] = $config->selectedServer['verbose'];
 
-        if (empty($GLOBALS['cfg']['Server']['verbose'])) {
-            $vars['server_verbose_or_name'] = $GLOBALS['cfg']['Server']['host'];
+        if (empty($config->selectedServer['verbose'])) {
+            $vars['server_verbose_or_name'] = $config->selectedServer['host'];
         } else {
-            $vars['server_verbose_or_name'] = $GLOBALS['cfg']['Server']['verbose'];
+            $vars['server_verbose_or_name'] = $config->selectedServer['verbose'];
         }
 
         $vars['database'] = $GLOBALS['db'];

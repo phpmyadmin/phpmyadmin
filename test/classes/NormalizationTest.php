@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
@@ -48,7 +49,7 @@ class NormalizationTest extends AbstractTestCase
         $GLOBALS['db'] = 'PMA_db';
         $GLOBALS['table'] = 'PMA_table';
         $GLOBALS['server'] = 1;
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
         $_POST['change_column'] = null;
 
         //$_SESSION
@@ -121,7 +122,7 @@ class NormalizationTest extends AbstractTestCase
         $GLOBALS['cfg']['BrowseMIME'] = true;
         $GLOBALS['cfg']['MaxRows'] = 25;
         $GLOBALS['col_priv'] = false;
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
         DatabaseInterface::$instance = $this->dbi;
         $db = 'testdb';
         $table = 'mytable';

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Preferences;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Http\ServerRequest;
@@ -33,7 +34,7 @@ class TwoFactorController extends AbstractController
             'has_config_storage' => $relationParameters->userPreferencesFeature !== null,
         ]);
 
-        $twoFactor = new TwoFactor($GLOBALS['cfg']['Server']['user']);
+        $twoFactor = new TwoFactor(Config::getInstance()->selectedServer['user']);
 
         if ($request->hasBodyParam('2fa_remove')) {
             if (! $twoFactor->check($request, true)) {

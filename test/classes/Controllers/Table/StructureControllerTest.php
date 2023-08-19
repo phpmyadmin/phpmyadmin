@@ -45,8 +45,9 @@ class StructureControllerTest extends AbstractTestCase
         $GLOBALS['table'] = 'test_table';
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['lang'] = 'en';
-        $GLOBALS['cfg']['Server'] = Config::getInstance()->getSettings()->Servers[1]->asArray();
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        $config = Config::getInstance();
+        $config->selectedServer = $config->getSettings()->Servers[1]->asArray();
+        $config->selectedServer['DisableIS'] = true;
         $GLOBALS['cfg']['ShowStats'] = false;
         $GLOBALS['cfg']['ShowPropertyComments'] = false;
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);

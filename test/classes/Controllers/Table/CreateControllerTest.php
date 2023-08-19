@@ -25,7 +25,8 @@ class CreateControllerTest extends AbstractTestCase
     {
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'new_test_table';
-        $GLOBALS['cfg']['Server'] = Config::getInstance()->getSettings()->Servers[1]->asArray();
+        $config = Config::getInstance();
+        $config->selectedServer = $config->getSettings()->Servers[1]->asArray();
         $_POST = ['db' => 'test_db', 'table' => 'new_test_table', 'num_fields' => '2'];
 
         $dummyDbi = $this->createDbiDummy();

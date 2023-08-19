@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Console;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Header;
@@ -43,11 +44,12 @@ class HeaderTest extends AbstractTestCase
         parent::setGlobalConfig();
 
         $GLOBALS['cfg']['Servers'] = [];
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
-        $GLOBALS['cfg']['Server']['pmadb'] = '';
-        $GLOBALS['cfg']['Server']['user'] = '';
-        $GLOBALS['cfg']['Server']['auth_type'] = 'cookie';
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = false;
+        $config->selectedServer['verbose'] = 'verbose host';
+        $config->selectedServer['pmadb'] = '';
+        $config->selectedServer['user'] = '';
+        $config->selectedServer['auth_type'] = 'cookie';
     }
 
     /**

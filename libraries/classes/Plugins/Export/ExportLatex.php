@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Plugins\ExportPlugin;
@@ -197,13 +198,14 @@ class ExportLatex extends ExportPlugin
      */
     public function exportHeader(): bool
     {
+        $config = Config::getInstance();
         $head = '% phpMyAdmin LaTeX Dump' . "\n"
             . '% version ' . Version::VERSION . "\n"
             . '% https://www.phpmyadmin.net/' . "\n"
             . '%' . "\n"
-            . '% ' . __('Host:') . ' ' . $GLOBALS['cfg']['Server']['host'];
-        if (! empty($GLOBALS['cfg']['Server']['port'])) {
-            $head .= ':' . $GLOBALS['cfg']['Server']['port'];
+            . '% ' . __('Host:') . ' ' . $config->selectedServer['host'];
+        if (! empty($config->selectedServer['port'])) {
+            $head .= ':' . $config->selectedServer['port'];
         }
 
         $head .= "\n"

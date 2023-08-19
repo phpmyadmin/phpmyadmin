@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Html;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
@@ -234,7 +235,7 @@ class Generator
      */
     public static function getServerSSL(): string
     {
-        $server = $GLOBALS['cfg']['Server'];
+        $server = Config::getInstance()->selectedServer;
         $class = 'text-danger';
         if (! $server['ssl']) {
             $message = __('SSL is not being used');

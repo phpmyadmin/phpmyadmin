@@ -109,12 +109,13 @@ class Menu
             $userTable = Util::backquote($configurableMenusFeature->database)
                 . '.' . Util::backquote($configurableMenusFeature->users);
 
+            $config = Config::getInstance();
             $sqlQuery = 'SELECT `tab` FROM ' . $groupTable
                 . " WHERE `allowed` = 'N'"
                 . " AND `tab` LIKE '" . $level . "%'"
                 . ' AND `usergroup` = (SELECT usergroup FROM '
                 . $userTable . ' WHERE `username` = '
-                . $this->dbi->quoteString($GLOBALS['cfg']['Server']['user'], Connection::TYPE_CONTROL) . ')';
+                . $this->dbi->quoteString($config->selectedServer['user'], Connection::TYPE_CONTROL) . ')';
 
             $result = $this->dbi->tryQueryAsControlUser($sqlQuery);
             if ($result) {
@@ -145,14 +146,15 @@ class Menu
         $database = [];
         $table = [];
 
-        if (empty($GLOBALS['cfg']['Server']['host'])) {
-            $GLOBALS['cfg']['Server']['host'] = '';
+        $config = Config::getInstance();
+        if (empty($config->selectedServer['host'])) {
+            $config->selectedServer['host'] = '';
         }
 
-        $server['name'] = ! empty($GLOBALS['cfg']['Server']['verbose'])
-            ? $GLOBALS['cfg']['Server']['verbose'] : $GLOBALS['cfg']['Server']['host'];
-        $server['name'] .= empty($GLOBALS['cfg']['Server']['port'])
-            ? '' : ':' . $GLOBALS['cfg']['Server']['port'];
+        $server['name'] = ! empty($config->selectedServer['verbose'])
+            ? $config->selectedServer['verbose'] : $config->selectedServer['host'];
+        $server['name'] .= empty($config->selectedServer['port'])
+            ? '' : ':' . $config->selectedServer['port'];
         $server['url'] = Util::getUrlForOption($GLOBALS['cfg']['DefaultTabServer'], 'server');
 
         if ($this->db !== '') {

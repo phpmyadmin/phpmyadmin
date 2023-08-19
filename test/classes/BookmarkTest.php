@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Bookmark;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Features\BookmarkFeature;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Identifiers\DatabaseName;
@@ -30,9 +31,10 @@ class BookmarkTest extends AbstractTestCase
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
-        $GLOBALS['cfg']['Server']['user'] = 'root';
-        $GLOBALS['cfg']['Server']['pmadb'] = 'phpmyadmin';
-        $GLOBALS['cfg']['Server']['bookmarktable'] = 'pma_bookmark';
+        $config = Config::getInstance();
+        $config->selectedServer['user'] = 'root';
+        $config->selectedServer['pmadb'] = 'phpmyadmin';
+        $config->selectedServer['bookmarktable'] = 'pma_bookmark';
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['server'] = 1;
@@ -52,7 +54,7 @@ class BookmarkTest extends AbstractTestCase
         $actual = Bookmark::getList(
             new BookmarkFeature(DatabaseName::from('phpmyadmin'), TableName::from('pma_bookmark')),
             DatabaseInterface::getInstance(),
-            $GLOBALS['cfg']['Server']['user'],
+            Config::getInstance()->selectedServer['user'],
             'sakila',
         );
         $this->assertContainsOnlyInstancesOf(Bookmark::class, $actual);
@@ -68,7 +70,7 @@ class BookmarkTest extends AbstractTestCase
         $this->assertNull(
             Bookmark::get(
                 DatabaseInterface::getInstance(),
-                $GLOBALS['cfg']['Server']['user'],
+                Config::getInstance()->selectedServer['user'],
                 DatabaseName::from('phpmyadmin'),
                 '1',
             ),

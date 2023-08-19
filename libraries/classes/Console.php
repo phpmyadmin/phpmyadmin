@@ -65,7 +65,7 @@ class Console
             return '';
         }
 
-        $bookmarks = Bookmark::getList($bookmarkFeature, $dbi, $GLOBALS['cfg']['Server']['user']);
+        $bookmarks = Bookmark::getList($bookmarkFeature, $dbi, Config::getInstance()->selectedServer['user']);
         $countBookmarks = count($bookmarks);
         if ($countBookmarks > 0) {
             $welcomeMessage = sprintf(
@@ -106,7 +106,7 @@ class Console
         }
 
         $bookmarkFeature = $this->relation->getRelationParameters()->bookmarkFeature;
-        $sqlHistory = $this->relation->getHistory($GLOBALS['cfg']['Server']['user']);
+        $sqlHistory = $this->relation->getHistory(Config::getInstance()->selectedServer['user']);
         $bookmarkContent = static::getBookmarkContent();
 
         return $this->template->render('console/display', [

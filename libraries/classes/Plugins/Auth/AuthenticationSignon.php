@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Auth;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Util;
@@ -36,7 +37,8 @@ class AuthenticationSignon extends AuthenticationPlugin
         $response = ResponseRenderer::getInstance();
         $response->disable();
         unset($_SESSION['LAST_SIGNON_URL']);
-        if (empty($GLOBALS['cfg']['Server']['SignonURL'])) {
+        $config = Config::getInstance();
+        if (empty($config->selectedServer['SignonURL'])) {
             echo $this->template->render('error/generic', [
                 'lang' => $GLOBALS['lang'] ?? 'en',
                 'dir' => $GLOBALS['text_dir'] ?? 'ltr',
@@ -45,7 +47,7 @@ class AuthenticationSignon extends AuthenticationPlugin
 
             $response->callExit();
         } else {
-            $response->redirect($GLOBALS['cfg']['Server']['SignonURL']);
+            $response->redirect($config->selectedServer['SignonURL']);
         }
 
         $response->callExit();
@@ -60,7 +62,7 @@ class AuthenticationSignon extends AuthenticationPlugin
     {
         /* Session cookie params from config */
         if ($sessionCookieParams === null) {
-            $sessionCookieParams = (array) $GLOBALS['cfg']['Server']['SignonCookieParams'];
+            $sessionCookieParams = (array) Config::getInstance()->selectedServer['SignonCookieParams'];
         }
 
         foreach (['lifetime', 'path', 'domain', 'secure', 'httponly'] as $key) {
@@ -92,23 +94,24 @@ class AuthenticationSignon extends AuthenticationPlugin
      */
     public function readCredentials(): bool
     {
+        $config = Config::getInstance();
         /* Check if we're using same signon server */
-        $signonUrl = $GLOBALS['cfg']['Server']['SignonURL'];
+        $signonUrl = $config->selectedServer['SignonURL'];
         if (isset($_SESSION['LAST_SIGNON_URL']) && $_SESSION['LAST_SIGNON_URL'] != $signonUrl) {
             return false;
         }
 
         /* Script name */
-        $scriptName = $GLOBALS['cfg']['Server']['SignonScript'];
+        $scriptName = $config->selectedServer['SignonScript'];
 
         /* Session name */
-        $sessionName = $GLOBALS['cfg']['Server']['SignonSession'];
+        $sessionName = $config->selectedServer['SignonSession'];
 
         /* Current host */
-        $singleSignonHost = $GLOBALS['cfg']['Server']['host'];
+        $singleSignonHost = $config->selectedServer['host'];
 
         /* Current port */
-        $singleSignonPort = $GLOBALS['cfg']['Server']['port'];
+        $singleSignonPort = $config->selectedServer['port'];
 
         /* No configuration updates */
         $singleSignonCfgUpdate = [];
@@ -127,7 +130,7 @@ class AuthenticationSignon extends AuthenticationPlugin
 
             include $scriptName;
 
-            [$this->user, $this->password] = get_login_credentials($GLOBALS['cfg']['Server']['user']);
+            [$this->user, $this->password] = get_login_credentials($config->selectedServer['user']);
         } elseif (isset($_COOKIE[$sessionName])) { /* Does session exist? */
             /* End current session */
             $oldSession = session_name();
@@ -200,13 +203,13 @@ class AuthenticationSignon extends AuthenticationPlugin
             }
 
             /* Set the single signon host */
-            $GLOBALS['cfg']['Server']['host'] = $singleSignonHost;
+            $config->selectedServer['host'] = $singleSignonHost;
 
             /* Set the single signon port */
-            $GLOBALS['cfg']['Server']['port'] = $singleSignonPort;
+            $config->selectedServer['port'] = $singleSignonPort;
 
             /* Configuration update */
-            $GLOBALS['cfg']['Server'] = array_merge($GLOBALS['cfg']['Server'], $singleSignonCfgUpdate);
+            $config->selectedServer = array_merge($config->selectedServer, $singleSignonCfgUpdate);
 
             /* Restore our token */
             if (! empty($pmaToken)) {
@@ -227,7 +230,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             return false;
         }
 
-        $_SESSION['LAST_SIGNON_URL'] = $GLOBALS['cfg']['Server']['SignonURL'];
+        $_SESSION['LAST_SIGNON_URL'] = $config->selectedServer['SignonURL'];
 
         return true;
     }
@@ -242,7 +245,7 @@ class AuthenticationSignon extends AuthenticationPlugin
         parent::showFailure($failure);
 
         /* Session name */
-        $sessionName = $GLOBALS['cfg']['Server']['SignonSession'];
+        $sessionName = Config::getInstance()->selectedServer['SignonSession'];
 
         /* Does session exist? */
         if (isset($_COOKIE[$sessionName])) {
@@ -269,6 +272,6 @@ class AuthenticationSignon extends AuthenticationPlugin
      */
     public function getLoginFormURL(): string
     {
-        return $GLOBALS['cfg']['Server']['SignonURL'];
+        return Config::getInstance()->selectedServer['SignonURL'];
     }
 }

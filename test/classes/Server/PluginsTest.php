@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Server;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\Plugin;
 use PhpMyAdmin\Server\Plugins;
@@ -27,7 +28,7 @@ class PluginsTest extends AbstractTestCase
     public function testGetAll(): void
     {
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['server'] = 0;
 
         $this->plugins = new Plugins(DatabaseInterface::getInstance());
@@ -60,7 +61,7 @@ class PluginsTest extends AbstractTestCase
     public function testGetAllWithoutInformationSchema(): void
     {
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        Config::getInstance()->selectedServer['DisableIS'] = true;
         $GLOBALS['server'] = 0;
 
         $this->plugins = new Plugins(DatabaseInterface::getInstance());

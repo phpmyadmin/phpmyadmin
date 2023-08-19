@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Import;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Import\ImportController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
@@ -38,7 +39,7 @@ class ImportControllerTest extends AbstractTestCase
         parent::setTheme();
 
         $GLOBALS['server'] = 1;
-        $GLOBALS['cfg']['Server']['user'] = 'user';
+        Config::getInstance()->selectedServer['user'] = 'user';
 
         parent::loadResponseIntoContainerBuilder();
 

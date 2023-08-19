@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Display;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
@@ -77,7 +78,7 @@ class ResultsTest extends AbstractTestCase
         $GLOBALS['table'] = 'table';
         $this->object = new DisplayResults($this->dbi, 'as', '', 0, '', '');
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
         $_SESSION[' HMAC_secret '] = 'test';
     }
 
@@ -1124,7 +1125,7 @@ class ResultsTest extends AbstractTestCase
 
     public function testGetTable(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        Config::getInstance()->selectedServer['DisableIS'] = true;
 
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';
@@ -1416,7 +1417,7 @@ class ResultsTest extends AbstractTestCase
 
     public function testGetTable2(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        Config::getInstance()->selectedServer['DisableIS'] = true;
 
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';

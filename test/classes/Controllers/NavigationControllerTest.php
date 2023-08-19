@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\NavigationController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
@@ -41,8 +42,9 @@ class NavigationControllerTest extends AbstractTestCase
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'air-balloon_burner_dev2';
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['cfg']['Server']['auth_type'] = 'cookie';
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = false;
+        $config->selectedServer['auth_type'] = 'cookie';
 
         parent::loadResponseIntoContainerBuilder();
 
@@ -190,8 +192,9 @@ class NavigationControllerTest extends AbstractTestCase
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'air-balloon_burner_dev2';
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['cfg']['Server']['auth_type'] = 'cookie';
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = false;
+        $config->selectedServer['auth_type'] = 'cookie';
 
         parent::loadResponseIntoContainerBuilder();
 
