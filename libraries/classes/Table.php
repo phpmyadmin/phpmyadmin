@@ -1682,7 +1682,7 @@ class Table implements Stringable
         // maximum rows
         $sqlQuery = 'SELECT COUNT(*) FROM ' . $table;
         $rowsCount = (int) $this->dbi->fetchValue($sqlQuery);
-        $maxRows = (int) $config->selectedServer['MaxTableUiprefs'];
+        $maxRows = $config->selectedServer['MaxTableUiprefs'];
         if ($rowsCount > $maxRows) {
             $numRowsToDelete = $rowsCount - $maxRows;
             $sqlQuery = ' DELETE FROM ' . $table . ' ORDER BY last_update ASC LIMIT ' . $numRowsToDelete;

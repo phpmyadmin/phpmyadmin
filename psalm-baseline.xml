@@ -12052,9 +12052,6 @@
     <PossiblyUnusedReturnValue>
       <code>true|Message</code>
     </PossiblyUnusedReturnValue>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(int) $config->selectedServer['MaxTableUiprefs']]]></code>
-    </RedundantCastGivenDocblockType>
     <ReferenceConstraintViolation>
       <code>return $sqlQuery;</code>
     </ReferenceConstraintViolation>

@@ -21121,11 +21121,6 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Casting to int something that's already int\\<1, max\\>\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 20
 			path: libraries/classes/Table.php
