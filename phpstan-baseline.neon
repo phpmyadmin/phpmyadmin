@@ -20086,11 +20086,6 @@ parameters:
 			path: libraries/classes/Server/Status/Data.php
 
 		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 1
-			path: libraries/classes/Server/Status/Data.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Server/Status/Data.php

@@ -11362,9 +11362,6 @@
       <code>$a</code>
       <code>$b</code>
     </PossiblyUnusedParam>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(string) $config->selectedServer['host']]]></code>
-    </RedundantCastGivenDocblockType>
     <UnusedProperty>
       <code>$dbi</code>
     </UnusedProperty>
