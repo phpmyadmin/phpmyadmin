@@ -7066,9 +7066,6 @@
     </RedundantCast>
   </file>
   <file src="libraries/classes/IpAllowDeny.php">
-    <DocblockTypeContradiction>
-      <code>is_array($rules)</code>
-    </DocblockTypeContradiction>
     <InvalidOperand>
       <code>$regs[5]</code>
     </InvalidOperand>

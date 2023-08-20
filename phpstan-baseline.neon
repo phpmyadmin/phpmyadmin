@@ -13956,11 +13956,6 @@ parameters:
 			path: libraries/classes/IpAllowDeny.php
 
 		-
-			message: "#^Call to function is_array\\(\\) with array\\<string\\> will always evaluate to true\\.$#"
-			count: 1
-			path: libraries/classes/IpAllowDeny.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
 			count: 3
 			path: libraries/classes/IpAllowDeny.php
