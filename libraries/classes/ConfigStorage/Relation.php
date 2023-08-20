@@ -246,13 +246,11 @@ class Relation
         $config = Config::getInstance();
         if (
             $GLOBALS['server'] == 0
-            || empty($config->selectedServer['pmadb'])
+            || $config->selectedServer['pmadb'] === ''
             || ! $this->dbi->selectDb($config->selectedServer['pmadb'], Connection::TYPE_CONTROL)
         ) {
             // No server selected -> no bookmark table
-            // we return the array with the falses in it,
-            // to avoid some 'Uninitialized string offset' errors later
-            $config->selectedServer['pmadb'] = false;
+            $config->selectedServer['pmadb'] = '';
 
             return $relationParams;
         }
@@ -269,7 +267,6 @@ class Relation
 
         if ($relationParamsFilled === null) {
             // query failed ... ?
-            //\PhpMyAdmin\Config::getInstance()->selectedServer['pmadb'] = false;
             return $relationParams;
         }
 
