@@ -1732,17 +1732,15 @@ class Relation
         $config = Config::getInstance();
         $storageDbName = $config->selectedServer['pmadb'] ?? '';
         // Use "phpmyadmin" as a default database name to check to keep the behavior consistent
-        $storageDbName = is_string($storageDbName) && $storageDbName !== '' ? $storageDbName : 'phpmyadmin';
+        $storageDbName = $storageDbName !== '' ? $storageDbName : 'phpmyadmin';
 
         // This will make users not having explicitly listed databases
         // have config values filled by the default phpMyAdmin storage table name values
         $this->fixPmaTables($storageDbName, false);
 
         // This global will be changed if fixPmaTables did find one valid table
-        $storageDbName = $config->selectedServer['pmadb'] ?? '';
-
         // Empty means that until now no pmadb was found eligible
-        if (! empty($storageDbName)) {
+        if ($config->selectedServer['pmadb'] !== '') {
             return;
         }
 

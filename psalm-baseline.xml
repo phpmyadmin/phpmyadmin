@@ -607,9 +607,6 @@
     </ReferenceReusedFromConfusingScope>
   </file>
   <file src="libraries/classes/ConfigStorage/Relation.php">
-    <DocblockTypeContradiction>
-      <code><![CDATA['phpmyadmin']]></code>
-    </DocblockTypeContradiction>
     <InvalidArgument>
       <code><![CDATA[usort($tables, 'strnatcasecmp')]]></code>
     </InvalidArgument>
@@ -751,9 +748,6 @@
       <code><![CDATA[isset($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])
                     && is_scalar($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])]]></code>
     </RedundantCondition>
-    <RedundantConditionGivenDocblockType>
-      <code>is_string($storageDbName)</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/ConfigStorage/UserGroups.php">
     <DeprecatedMethod>
