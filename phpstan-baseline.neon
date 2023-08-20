@@ -9666,11 +9666,6 @@ parameters:
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
-			message: "#^Casting to bool something that's already bool\\.$#"
-			count: 1
-			path: libraries/classes/Database/CentralColumns.php
-
-		-
 			message: "#^Foreach overwrites \\$table with its value variable\\.$#"
 			count: 2
 			path: libraries/classes/Database/CentralColumns.php

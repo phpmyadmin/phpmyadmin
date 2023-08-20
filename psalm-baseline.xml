@@ -4634,9 +4634,6 @@
     <RedundantCast>
       <code><![CDATA[(int) $GLOBALS['cfg']['MaxRows']]]></code>
     </RedundantCast>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(bool) $config->selectedServer['DisableIS']]]></code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Database/Designer.php">
     <DeprecatedMethod>
