@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Tracking;
 
 use DateTimeImmutable;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
@@ -53,8 +54,9 @@ class TrackingTest extends AbstractTestCase
         $GLOBALS['table'] = 'PMA_table';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
-        $GLOBALS['cfg']['Server']['tracking_default_statements'] = 'DELETE';
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = true;
+        $config->selectedServer['tracking_default_statements'] = 'DELETE';
 
         $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Utils;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Utils\SessionCache;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
@@ -14,7 +15,7 @@ class SessionCacheTest extends TestCase
     public function testGet(): void
     {
         $_SESSION = [];
-        $GLOBALS['cfg']['Server']['user'] = null;
+        Config::getInstance()->selectedServer['user'] = null;
         $GLOBALS['server'] = 'server';
 
         SessionCache::set('test_data', 5);
@@ -28,7 +29,7 @@ class SessionCacheTest extends TestCase
     public function testRemove(): void
     {
         $_SESSION = [];
-        $GLOBALS['cfg']['Server']['user'] = null;
+        Config::getInstance()->selectedServer['user'] = null;
         $GLOBALS['server'] = 'server';
 
         SessionCache::set('test_data', 25);
@@ -43,7 +44,7 @@ class SessionCacheTest extends TestCase
     public function testSet(): void
     {
         $_SESSION = [];
-        $GLOBALS['cfg']['Server']['user'] = null;
+        Config::getInstance()->selectedServer['user'] = null;
         $GLOBALS['server'] = 'server';
 
         SessionCache::set('test_data', 25);
@@ -56,7 +57,7 @@ class SessionCacheTest extends TestCase
     public function testHas(): void
     {
         $_SESSION = [];
-        $GLOBALS['cfg']['Server']['user'] = null;
+        Config::getInstance()->selectedServer['user'] = null;
         $GLOBALS['server'] = 'server';
 
         SessionCache::set('test_data', 5);
@@ -74,7 +75,7 @@ class SessionCacheTest extends TestCase
     public function testKeyWithoutUser(): void
     {
         $_SESSION = [];
-        $GLOBALS['cfg']['Server']['user'] = null;
+        Config::getInstance()->selectedServer['user'] = null;
         $GLOBALS['server'] = 123;
 
         SessionCache::set('test_data', 5);
@@ -89,7 +90,7 @@ class SessionCacheTest extends TestCase
     public function testKeyWithUser(): void
     {
         $_SESSION = [];
-        $GLOBALS['cfg']['Server']['user'] = 'test_user';
+        Config::getInstance()->selectedServer['user'] = 'test_user';
         $GLOBALS['server'] = 123;
 
         SessionCache::set('test_data', 5);

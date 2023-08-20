@@ -112,7 +112,7 @@ final class Options
             $templates = $this->templateModel->getAll(
                 $exportTemplatesFeature->database,
                 $exportTemplatesFeature->exportTemplates,
-                $GLOBALS['cfg']['Server']['user'],
+                Config::getInstance()->selectedServer['user'],
                 $exportType,
             );
 

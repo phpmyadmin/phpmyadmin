@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Table;
 
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Partitioning\Partition;
@@ -378,8 +379,9 @@ final class ColumnsDefinition
 
         $partitionDetails = TablePartitionDefinition::getDetails();
 
-        $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
-        $collations = Charsets::getCollations($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+        $config = Config::getInstance();
+        $charsets = Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
+        $collations = Charsets::getCollations($this->dbi, $config->selectedServer['DisableIS']);
         $charsetsList = [];
         foreach ($charsets as $charset) {
             $collationsList = [];
@@ -431,7 +433,7 @@ final class ColumnsDefinition
             'privs_available' => ($GLOBALS['col_priv'] ?? false) && ($GLOBALS['is_reload_priv'] ?? false),
             'max_length' => $this->dbi->getVersion() >= 50503 ? 1024 : 255,
             'have_partitioning' => Partition::havePartitioning(),
-            'disable_is' => $GLOBALS['cfg']['Server']['DisableIS'],
+            'disable_is' => $config->selectedServer['DisableIS'],
         ];
     }
 

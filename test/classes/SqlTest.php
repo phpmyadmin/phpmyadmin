@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\DatabaseInterface;
@@ -419,7 +420,7 @@ class SqlTest extends AbstractTestCase
         string|null $expectedCountQuery = null,
     ): void {
         if ($justBrowsing) {
-            $GLOBALS['cfg']['Server']['DisableIS'] = true;
+            Config::getInstance()->selectedServer['DisableIS'] = true;
         }
 
         $_SESSION['tmpval'] = $sessionTmpVal;
@@ -594,8 +595,9 @@ class SqlTest extends AbstractTestCase
         $GLOBALS['db'] = 'sakila';
         $GLOBALS['table'] = 'country';
         $GLOBALS['sql_query'] = 'SELECT * FROM `sakila`.`country` LIMIT 0, 3;';
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
-        $GLOBALS['cfg']['Server']['user'] = 'user';
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = true;
+        $config->selectedServer['user'] = 'user';
         $actual = $this->sql->executeQueryAndSendQueryResponse(
             null,
             false,

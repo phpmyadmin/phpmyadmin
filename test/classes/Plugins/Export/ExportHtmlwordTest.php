@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
@@ -68,7 +69,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         $GLOBALS['table'] = '';
         $GLOBALS['lang'] = '';
         $GLOBALS['text_dir'] = '';
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        Config::getInstance()->selectedServer['DisableIS'] = true;
     }
 
     /**

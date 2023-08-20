@@ -58,7 +58,7 @@ class SqlController extends AbstractController
         $GLOBALS['error'] = null;
         if ($formDisplay->process(false) && ! $formDisplay->hasErrors()) {
             // Load 2FA settings
-            $twoFactor = new TwoFactor($GLOBALS['cfg']['Server']['user']);
+            $twoFactor = new TwoFactor(Config::getInstance()->selectedServer['user']);
             // save settings
             $result = $this->userPreferences->save($GLOBALS['cf']->getConfigArray());
             // save back the 2FA setting only

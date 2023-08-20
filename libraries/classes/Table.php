@@ -221,7 +221,7 @@ class Table implements Stringable
         // use cached data or load information with SHOW command
         if (
             $this->dbi->getCache()->getCachedTableContent([$this->dbName, $this->name]) != null
-            || $GLOBALS['cfg']['Server']['DisableIS']
+            || Config::getInstance()->selectedServer['DisableIS']
         ) {
             $type = $this->getStatusInfo('TABLE_TYPE');
 
@@ -1632,7 +1632,7 @@ class Table implements Stringable
             'SELECT `prefs` FROM %s.%s WHERE `username` = %s AND `db_name` = %s AND `table_name` = %s',
             Util::backquote($uiPreferencesFeature->database),
             Util::backquote($uiPreferencesFeature->tableUiPrefs),
-            $this->dbi->quoteString($GLOBALS['cfg']['Server']['user'], Connection::TYPE_CONTROL),
+            $this->dbi->quoteString(Config::getInstance()->selectedServer['user'], Connection::TYPE_CONTROL),
             $this->dbi->quoteString($this->dbName, Connection::TYPE_CONTROL),
             $this->dbi->quoteString($this->name, Connection::TYPE_CONTROL),
         );
@@ -1655,7 +1655,8 @@ class Table implements Stringable
         $table = Util::backquote($uiPreferencesFeature->database) . '.'
             . Util::backquote($uiPreferencesFeature->tableUiPrefs);
 
-        $username = $GLOBALS['cfg']['Server']['user'];
+        $config = Config::getInstance();
+        $username = $config->selectedServer['user'];
         $sqlQuery = ' REPLACE INTO ' . $table
             . ' (username, db_name, table_name, prefs) VALUES ('
             . $this->dbi->quoteString($username, Connection::TYPE_CONTROL) . ', '
@@ -1681,7 +1682,7 @@ class Table implements Stringable
         // maximum rows
         $sqlQuery = 'SELECT COUNT(*) FROM ' . $table;
         $rowsCount = (int) $this->dbi->fetchValue($sqlQuery);
-        $maxRows = (int) $GLOBALS['cfg']['Server']['MaxTableUiprefs'];
+        $maxRows = (int) $config->selectedServer['MaxTableUiprefs'];
         if ($rowsCount > $maxRows) {
             $numRowsToDelete = $rowsCount - $maxRows;
             $sqlQuery = ' DELETE FROM ' . $table . ' ORDER BY last_update ASC LIMIT ' . $numRowsToDelete;
@@ -2399,7 +2400,7 @@ class Table implements Stringable
         if (
             Compatibility::isMySqlOrPerconaDb()
             && $this->dbi->getVersion() > 50705
-            && ! $GLOBALS['cfg']['Server']['DisableIS']
+            && ! Config::getInstance()->selectedServer['DisableIS']
         ) {
             $sql = 'SELECT
                 `COLUMN_NAME` AS `Field`,

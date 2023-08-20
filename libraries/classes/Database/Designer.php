@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Database;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Database\Designer\DesignerTable;
 use PhpMyAdmin\DatabaseInterface;
@@ -147,7 +148,7 @@ class Designer
                 . Util::backquote($databaseDesignerSettingsFeature->database) . '.'
                 . Util::backquote($databaseDesignerSettingsFeature->designerSettings)
                 . ' WHERE ' . Util::backquote('username') . ' = "'
-                . $this->dbi->escapeString($GLOBALS['cfg']['Server']['user'])
+                . $this->dbi->escapeString(Config::getInstance()->selectedServer['user'])
                 . '";';
 
             $result = $this->dbi->fetchSingleRow($query);

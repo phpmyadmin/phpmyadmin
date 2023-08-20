@@ -76,8 +76,9 @@ abstract class AuthenticationPlugin
     {
         $this->setSessionAccessTime();
 
-        $GLOBALS['cfg']['Server']['user'] = $this->user;
-        $GLOBALS['cfg']['Server']['password'] = $this->password;
+        $config = Config::getInstance();
+        $config->selectedServer['user'] = $this->user;
+        $config->selectedServer['password'] = $this->password;
 
         return true;
     }
@@ -104,9 +105,10 @@ abstract class AuthenticationPlugin
      */
     public function logOut(): void
     {
+        $config = Config::getInstance();
         /* Obtain redirect URL (before doing logout) */
-        if (! empty($GLOBALS['cfg']['Server']['LogoutURL'])) {
-            $redirectUrl = $GLOBALS['cfg']['Server']['LogoutURL'];
+        if (! empty($config->selectedServer['LogoutURL'])) {
+            $redirectUrl = $config->selectedServer['LogoutURL'];
         } else {
             $redirectUrl = $this->getLoginFormURL();
         }
@@ -117,9 +119,9 @@ abstract class AuthenticationPlugin
 
         // Get a logged-in server count in case of LoginCookieDeleteAll is disabled.
         $server = 0;
-        if ($GLOBALS['cfg']['LoginCookieDeleteAll'] === false && $GLOBALS['cfg']['Server']['auth_type'] === 'cookie') {
+        if ($GLOBALS['cfg']['LoginCookieDeleteAll'] === false && $config->selectedServer['auth_type'] === 'cookie') {
             foreach (array_keys($GLOBALS['cfg']['Servers']) as $key) {
-                if (! Config::getInstance()->issetCookie('pmaAuth-' . $key)) {
+                if (! $config->issetCookie('pmaAuth-' . $key)) {
                     continue;
                 }
 
@@ -266,15 +268,16 @@ abstract class AuthenticationPlugin
      */
     public function checkRules(): void
     {
+        $config = Config::getInstance();
         // Check IP-based Allow/Deny rules as soon as possible to reject the
         // user based on mod_access in Apache
-        if (isset($GLOBALS['cfg']['Server']['AllowDeny']['order'])) {
+        if (isset($config->selectedServer['AllowDeny']['order'])) {
             $allowDenyForbidden = false; // default
-            if ($GLOBALS['cfg']['Server']['AllowDeny']['order'] === 'allow,deny') {
+            if ($config->selectedServer['AllowDeny']['order'] === 'allow,deny') {
                 $allowDenyForbidden = ! ($this->ipAllowDeny->allow() && ! $this->ipAllowDeny->deny());
-            } elseif ($GLOBALS['cfg']['Server']['AllowDeny']['order'] === 'deny,allow') {
+            } elseif ($config->selectedServer['AllowDeny']['order'] === 'deny,allow') {
                 $allowDenyForbidden = $this->ipAllowDeny->deny() && ! $this->ipAllowDeny->allow();
-            } elseif ($GLOBALS['cfg']['Server']['AllowDeny']['order'] === 'explicit') {
+            } elseif ($config->selectedServer['AllowDeny']['order'] === 'explicit') {
                 $allowDenyForbidden = ! ($this->ipAllowDeny->allow() && ! $this->ipAllowDeny->deny());
             }
 
@@ -285,12 +288,12 @@ abstract class AuthenticationPlugin
         }
 
         // is root allowed?
-        if (! $GLOBALS['cfg']['Server']['AllowRoot'] && $GLOBALS['cfg']['Server']['user'] === 'root') {
+        if (! $config->selectedServer['AllowRoot'] && $config->selectedServer['user'] === 'root') {
             $this->showFailure('root-denied');
         }
 
         // is a login without password allowed?
-        if ($GLOBALS['cfg']['Server']['AllowNoPassword'] || $GLOBALS['cfg']['Server']['password'] !== '') {
+        if ($config->selectedServer['AllowNoPassword'] || $config->selectedServer['password'] !== '') {
             return;
         }
 

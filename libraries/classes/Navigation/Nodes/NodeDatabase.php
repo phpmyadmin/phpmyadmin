@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Features\NavigationItemsHidingFeature;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
@@ -97,7 +98,7 @@ class NodeDatabase extends Node
         }
 
         $dbi = DatabaseInterface::getInstance();
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+        if (! Config::getInstance()->selectedServer['DisableIS']) {
             $query = 'SELECT COUNT(*) ';
             $query .= 'FROM `INFORMATION_SCHEMA`.`TABLES` ';
             $query .= 'WHERE `TABLE_SCHEMA`=' . $dbi->quoteString($this->realName) . ' ';
@@ -150,7 +151,7 @@ class NodeDatabase extends Node
     private function getProcedureCount(string $searchClause): int
     {
         $dbi = DatabaseInterface::getInstance();
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+        if (! Config::getInstance()->selectedServer['DisableIS']) {
             $query = 'SELECT COUNT(*) ';
             $query .= 'FROM `INFORMATION_SCHEMA`.`ROUTINES` ';
             $query .= 'WHERE `ROUTINE_SCHEMA` '
@@ -180,7 +181,7 @@ class NodeDatabase extends Node
     private function getFunctionCount(string $searchClause): int
     {
         $dbi = DatabaseInterface::getInstance();
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+        if (! Config::getInstance()->selectedServer['DisableIS']) {
             $query = 'SELECT COUNT(*) ';
             $query .= 'FROM `INFORMATION_SCHEMA`.`ROUTINES` ';
             $query .= 'WHERE `ROUTINE_SCHEMA` '
@@ -210,7 +211,7 @@ class NodeDatabase extends Node
     private function getEventCount(string $searchClause): int
     {
         $dbi = DatabaseInterface::getInstance();
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+        if (! Config::getInstance()->selectedServer['DisableIS']) {
             $query = 'SELECT COUNT(*) ';
             $query .= 'FROM `INFORMATION_SCHEMA`.`EVENTS` ';
             $query .= 'WHERE `EVENT_SCHEMA` '
@@ -343,7 +344,7 @@ class NodeDatabase extends Node
 
         $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
         $dbi = DatabaseInterface::getInstance();
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+        if (! Config::getInstance()->selectedServer['DisableIS']) {
             $query = 'SELECT `TABLE_NAME` AS `name` ';
             $query .= 'FROM `INFORMATION_SCHEMA`.`TABLES` ';
             $query .= 'WHERE `TABLE_SCHEMA`=' . $dbi->quoteString($this->realName) . ' ';
@@ -429,7 +430,7 @@ class NodeDatabase extends Node
     {
         $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
         $dbi = DatabaseInterface::getInstance();
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+        if (! Config::getInstance()->selectedServer['DisableIS']) {
             $query = 'SELECT `ROUTINE_NAME` AS `name` ';
             $query .= 'FROM `INFORMATION_SCHEMA`.`ROUTINES` ';
             $query .= 'WHERE `ROUTINE_SCHEMA` '
@@ -513,7 +514,7 @@ class NodeDatabase extends Node
     {
         $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
         $dbi = DatabaseInterface::getInstance();
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+        if (! Config::getInstance()->selectedServer['DisableIS']) {
             $query = 'SELECT `EVENT_NAME` AS `name` ';
             $query .= 'FROM `INFORMATION_SCHEMA`.`EVENTS` ';
             $query .= 'WHERE `EVENT_SCHEMA` '

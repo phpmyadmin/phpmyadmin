@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Import;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportXml;
@@ -50,7 +51,7 @@ class ImportXmlTest extends AbstractTestCase
         $GLOBALS['finished'] = false;
         $GLOBALS['read_limit'] = 100000000;
         $GLOBALS['offset'] = 0;
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
 
         $GLOBALS['import_file'] = 'test/test_data/phpmyadmin_importXML_For_Testing.xml';
         $GLOBALS['import_text'] = 'ImportXml_Test';

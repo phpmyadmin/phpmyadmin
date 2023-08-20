@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Database;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Database\StructureController;
@@ -43,7 +44,7 @@ class StructureControllerTest extends AbstractTestCase
 
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = 1;
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
 

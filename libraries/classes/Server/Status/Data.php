@@ -382,11 +382,11 @@ class Data
         // Set all class properties
         $this->dbIsLocal = false;
         // can be null if $cfg['ServerDefault'] = 0;
-        $serverHostToLower = mb_strtolower((string) $GLOBALS['cfg']['Server']['host']);
+        $serverHostToLower = mb_strtolower((string) $config->selectedServer['host']);
         if (
             $serverHostToLower === 'localhost'
-            || $GLOBALS['cfg']['Server']['host'] === '127.0.0.1'
-            || $GLOBALS['cfg']['Server']['host'] === '::1'
+            || $config->selectedServer['host'] === '127.0.0.1'
+            || $config->selectedServer['host'] === '::1'
         ) {
             $this->dbIsLocal = true;
         }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Database;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
@@ -364,7 +365,7 @@ class Events
      */
     public function getDetails(string $db, string $name = ''): array
     {
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+        if (! Config::getInstance()->selectedServer['DisableIS']) {
             $query = QueryGenerator::getInformationSchemaEventsRequest(
                 $this->dbi->quoteString($db),
                 $name === '' ? null : $this->dbi->quoteString($name),

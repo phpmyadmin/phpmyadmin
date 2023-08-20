@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Server;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 
 use function __;
@@ -19,7 +20,7 @@ class Plugins
     public function getAll(): array
     {
         $sql = 'SHOW PLUGINS';
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+        if (! Config::getInstance()->selectedServer['DisableIS']) {
             $sql = 'SELECT * FROM information_schema.PLUGINS ORDER BY PLUGIN_TYPE, PLUGIN_NAME';
         }
 

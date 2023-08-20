@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
@@ -34,7 +35,7 @@ class SystemDatabaseTest extends AbstractTestCase
          * SET these to avoid undefine d index error
          */
         $GLOBALS['server'] = 1;
-        $GLOBALS['cfg']['Server']['pmadb'] = '';
+        Config::getInstance()->selectedServer['pmadb'] = '';
 
         $resultStub = $this->createMock(DummyResult::class);
 

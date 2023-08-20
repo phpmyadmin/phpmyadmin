@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
@@ -118,7 +119,7 @@ class Navigation
             'is_highlighted' => $GLOBALS['cfg']['NavigationTreePointerEnable'],
             'is_autoexpanded' => $GLOBALS['cfg']['NavigationTreeAutoexpandSingleDb'],
             'server' => $GLOBALS['server'],
-            'auth_type' => $GLOBALS['cfg']['Server']['auth_type'],
+            'auth_type' => Config::getInstance()->selectedServer['auth_type'],
             'is_servers_displayed' => $GLOBALS['cfg']['NavigationDisplayServers'],
             'servers' => $GLOBALS['cfg']['Servers'],
             'server_select' => $serverSelect ?? '',
@@ -152,7 +153,7 @@ class Navigation
         $sqlQuery = 'INSERT INTO ' . $navTable
             . '(`username`, `item_name`, `item_type`, `db_name`, `table_name`)'
             . ' VALUES ('
-            . $this->dbi->quoteString($GLOBALS['cfg']['Server']['user'], Connection::TYPE_CONTROL) . ','
+            . $this->dbi->quoteString(Config::getInstance()->selectedServer['user'], Connection::TYPE_CONTROL) . ','
             . $this->dbi->quoteString($itemName, Connection::TYPE_CONTROL) . ','
             . $this->dbi->quoteString($itemType, Connection::TYPE_CONTROL) . ','
             . $this->dbi->quoteString($dbName, Connection::TYPE_CONTROL) . ','
@@ -183,7 +184,7 @@ class Navigation
         $sqlQuery = 'DELETE FROM ' . $navTable
             . ' WHERE'
             . ' `username`='
-            . $this->dbi->quoteString($GLOBALS['cfg']['Server']['user'], Connection::TYPE_CONTROL)
+            . $this->dbi->quoteString(Config::getInstance()->selectedServer['user'], Connection::TYPE_CONTROL)
             . ' AND `item_name`=' . $this->dbi->quoteString($itemName, Connection::TYPE_CONTROL)
             . ' AND `item_type`=' . $this->dbi->quoteString($itemType, Connection::TYPE_CONTROL)
             . ' AND `db_name`=' . $this->dbi->quoteString($dbName, Connection::TYPE_CONTROL);
@@ -229,7 +230,7 @@ class Navigation
             . '.' . Util::backquote($navigationItemsHidingFeature->navigationHiding);
         $sqlQuery = 'SELECT `item_name`, `item_type` FROM ' . $navTable
             . ' WHERE `username`='
-            . $this->dbi->quoteString($GLOBALS['cfg']['Server']['user'], Connection::TYPE_CONTROL)
+            . $this->dbi->quoteString(Config::getInstance()->selectedServer['user'], Connection::TYPE_CONTROL)
             . ' AND `db_name`=' . $this->dbi->quoteString($database, Connection::TYPE_CONTROL)
             . " AND `table_name`=''";
         $result = $this->dbi->tryQueryAsControlUser($sqlQuery);

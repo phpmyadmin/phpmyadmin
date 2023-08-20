@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
@@ -239,7 +240,7 @@ class RoutinesController extends AbstractController
                     );
                 }
 
-                $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+                $charsets = Charsets::getCharsets($this->dbi, Config::getInstance()->selectedServer['DisableIS']);
 
                 $editor = $this->template->render('database/routines/editor_form', [
                     'db' => $GLOBALS['db'],

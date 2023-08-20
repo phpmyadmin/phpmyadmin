@@ -127,7 +127,7 @@ class UserPreferencesTest extends AbstractTestCase
      */
     public function testSave(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        Config::getInstance()->selectedServer['DisableIS'] = true;
         $GLOBALS['server'] = 2;
         $relationParameters = RelationParameters::fromArray([]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);

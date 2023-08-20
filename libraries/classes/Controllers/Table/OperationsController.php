@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
@@ -456,8 +457,9 @@ class OperationsController extends AbstractController
 
         $storageEngines = StorageEngine::getArray();
 
-        $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
-        $collations = Charsets::getCollations($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+        $config = Config::getInstance();
+        $charsets = Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
+        $collations = Charsets::getCollations($this->dbi, $config->selectedServer['DisableIS']);
 
         $hasPackKeys = isset($createOptions['pack_keys'])
             && $pmaTable->isEngine(['MYISAM', 'ARIA', 'ISAM']);

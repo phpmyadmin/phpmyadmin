@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
@@ -61,7 +62,7 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['table'] = '';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        Config::getInstance()->selectedServer['DisableIS'] = true;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = false;
@@ -411,8 +412,9 @@ class ExportSqlTest extends AbstractTestCase
     public function testExportHeader(): void
     {
         $GLOBALS['sql_compatibility'] = 'NONE';
-        $GLOBALS['cfg']['Server']['host'] = 'localhost';
-        $GLOBALS['cfg']['Server']['port'] = 80;
+        $config = Config::getInstance();
+        $config->selectedServer['host'] = 'localhost';
+        $config->selectedServer['port'] = 80;
         $GLOBALS['sql_disable_fk'] = true;
         $GLOBALS['sql_use_transaction'] = true;
         $GLOBALS['sql_utc_time'] = true;
@@ -510,7 +512,7 @@ class ExportSqlTest extends AbstractTestCase
 
         // case2: no backquotes
         unset($GLOBALS['sql_compatibility']);
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        Config::getInstance()->selectedServer['DisableIS'] = true;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -799,7 +801,7 @@ SQL;
         );
 
         DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
 
         $this->object->useSqlBackquotes(true);
 
@@ -848,7 +850,7 @@ SQL;
         $dbiDummy->addErrorCode('error occurred');
 
         DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
 
         $this->object->useSqlBackquotes(false);
 
@@ -1108,7 +1110,7 @@ SQL;
         $GLOBALS['sql_truncate'] = true;
         $GLOBALS['sql_insert_syntax'] = 'both';
         $GLOBALS['sql_hex_for_binary'] = true;
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
 
         $this->object->useSqlBackquotes(true);
 
@@ -1207,7 +1209,7 @@ SQL;
         $GLOBALS['sql_truncate'] = true;
         $GLOBALS['sql_insert_syntax'] = 'both';
         $GLOBALS['sql_hex_for_binary'] = true;
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
 
         $this->object->useSqlBackquotes(true);
 
@@ -1247,7 +1249,7 @@ SQL;
             ->willReturnArgument(0);
 
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['sql_views_as_tables'] = false;
         $GLOBALS['sql_include_comments'] = true;
         $oldVal = $GLOBALS['sql_compatibility'] ?? '';
@@ -1298,7 +1300,7 @@ SQL;
             ->willReturnArgument(0);
 
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['sql_views_as_tables'] = true;
         $GLOBALS['sql_include_comments'] = true;
 

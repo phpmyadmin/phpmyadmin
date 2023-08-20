@@ -43,7 +43,7 @@ class TwoFactorTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = 'table';
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['cfg']['DBG'] = ['simple2fa' => false, 'sql' => false];
         $GLOBALS['cfg']['NaturalOrder'] = true;
         $this->initStorageConfigAndData();
@@ -56,26 +56,27 @@ class TwoFactorTest extends AbstractTestCase
 
     private function initStorageConfigAndData(): void
     {
-        $GLOBALS['cfg']['Server']['user'] = 'groot';
-        $GLOBALS['cfg']['Server']['bookmarktable'] = '';
-        $GLOBALS['cfg']['Server']['relation'] = '';
-        $GLOBALS['cfg']['Server']['table_info'] = '';
-        $GLOBALS['cfg']['Server']['table_coords'] = '';
-        $GLOBALS['cfg']['Server']['column_info'] = '';
-        $GLOBALS['cfg']['Server']['pdf_pages'] = '';
-        $GLOBALS['cfg']['Server']['history'] = '';
-        $GLOBALS['cfg']['Server']['recent'] = '';
-        $GLOBALS['cfg']['Server']['favorite'] = '';
-        $GLOBALS['cfg']['Server']['table_uiprefs'] = '';
-        $GLOBALS['cfg']['Server']['tracking'] = '';
-        $GLOBALS['cfg']['Server']['userconfig'] = '';
-        $GLOBALS['cfg']['Server']['users'] = '';
-        $GLOBALS['cfg']['Server']['usergroups'] = '';
-        $GLOBALS['cfg']['Server']['navigationhiding'] = '';
-        $GLOBALS['cfg']['Server']['savedsearches'] = '';
-        $GLOBALS['cfg']['Server']['central_columns'] = '';
-        $GLOBALS['cfg']['Server']['designer_settings'] = '';
-        $GLOBALS['cfg']['Server']['export_templates'] = '';
+        $config = Config::getInstance();
+        $config->selectedServer['user'] = 'groot';
+        $config->selectedServer['bookmarktable'] = '';
+        $config->selectedServer['relation'] = '';
+        $config->selectedServer['table_info'] = '';
+        $config->selectedServer['table_coords'] = '';
+        $config->selectedServer['column_info'] = '';
+        $config->selectedServer['pdf_pages'] = '';
+        $config->selectedServer['history'] = '';
+        $config->selectedServer['recent'] = '';
+        $config->selectedServer['favorite'] = '';
+        $config->selectedServer['table_uiprefs'] = '';
+        $config->selectedServer['tracking'] = '';
+        $config->selectedServer['userconfig'] = '';
+        $config->selectedServer['users'] = '';
+        $config->selectedServer['usergroups'] = '';
+        $config->selectedServer['navigationhiding'] = '';
+        $config->selectedServer['savedsearches'] = '';
+        $config->selectedServer['central_columns'] = '';
+        $config->selectedServer['designer_settings'] = '';
+        $config->selectedServer['export_templates'] = '';
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\SearchController;
 use PhpMyAdmin\Core;
@@ -56,7 +57,7 @@ class SearchControllerTest extends AbstractTestCase
         $GLOBALS['table'] = 'PMA_BookMark';
         $GLOBALS['text_dir'] = 'ltr';
         $relation = new Relation(DatabaseInterface::getInstance());
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()

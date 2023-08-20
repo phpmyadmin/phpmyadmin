@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
@@ -48,7 +49,7 @@ class ExportXmlTest extends AbstractTestCase
         $GLOBALS['plugin_param']['export_type'] = 'table';
         $GLOBALS['plugin_param']['single_table'] = false;
         $GLOBALS['db'] = 'db';
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        Config::getInstance()->selectedServer['DisableIS'] = true;
         $this->object = new ExportXml(
             new Relation($dbi),
             new Export($dbi),
@@ -175,9 +176,10 @@ class ExportXmlTest extends AbstractTestCase
         $GLOBALS['xml_export_contents'] = 1;
         $GLOBALS['output_charset_conversion'] = 1;
         $GLOBALS['charset'] = 'iso-8859-1';
-        $GLOBALS['cfg']['Server']['port'] = 80;
-        $GLOBALS['cfg']['Server']['host'] = 'localhost';
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $config = Config::getInstance();
+        $config->selectedServer['port'] = 80;
+        $config->selectedServer['host'] = 'localhost';
+        $config->selectedServer['DisableIS'] = false;
         $GLOBALS['xml_export_tables'] = 1;
         $GLOBALS['xml_export_triggers'] = 1;
         $GLOBALS['xml_export_procedures'] = 1;

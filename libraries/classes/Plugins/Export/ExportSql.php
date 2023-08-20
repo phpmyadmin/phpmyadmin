@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
@@ -702,9 +703,10 @@ class ExportSql extends ExportPlugin
             . $this->exportComment('version ' . Version::VERSION)
             . $this->exportComment('https://www.phpmyadmin.net/')
             . $this->exportComment();
-        $hostString = __('Host:') . ' ' . $GLOBALS['cfg']['Server']['host'];
-        if (! empty($GLOBALS['cfg']['Server']['port'])) {
-            $hostString .= ':' . $GLOBALS['cfg']['Server']['port'];
+        $config = Config::getInstance();
+        $hostString = __('Host:') . ' ' . $config->selectedServer['host'];
+        if (! empty($config->selectedServer['port'])) {
+            $hostString .= ':' . $config->selectedServer['port'];
         }
 
         $head .= $this->exportComment($hostString);

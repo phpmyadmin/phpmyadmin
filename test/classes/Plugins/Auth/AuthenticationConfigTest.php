@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Auth;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Plugins\Auth\AuthenticationConfig;
@@ -65,7 +66,7 @@ class AuthenticationConfigTest extends AbstractTestCase
 
     public function testAuthCheck(): void
     {
-        $GLOBALS['cfg']['Server'] = ['user' => 'username', 'password' => 'password'];
+        Config::getInstance()->selectedServer = ['user' => 'username', 'password' => 'password'];
         $this->assertTrue(
             $this->object->readCredentials(),
         );

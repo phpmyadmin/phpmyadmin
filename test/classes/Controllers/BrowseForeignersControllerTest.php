@@ -22,7 +22,8 @@ final class BrowseForeignersControllerTest extends AbstractTestCase
     public function testBrowseForeignValues(): void
     {
         $GLOBALS['server'] = 2;
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = true;
 
         $request = $this->createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
@@ -158,7 +159,7 @@ HTML;
         (new BrowseForeignersController(
             $response,
             $template,
-            new BrowseForeigners($template, Config::getInstance()),
+            new BrowseForeigners($template, $config),
             new Relation($dbi),
         ))($request);
 

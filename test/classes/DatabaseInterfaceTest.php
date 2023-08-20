@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
@@ -38,7 +39,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         parent::tearDown();
 
         unset($GLOBALS['lang']);
-        unset($GLOBALS['cfg']['Server']['SessionTimeZone']);
+        unset(Config::getInstance()->selectedServer['SessionTimeZone']);
         Context::load();
     }
 
@@ -221,7 +222,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
             $dbi->getDbCollation('information_schema'),
         );
 
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['cfg']['DBG']['sql'] = false;
 
         $this->assertEquals(
@@ -366,7 +367,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
     {
         $dbi = $this->createDatabaseInterface();
 
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        Config::getInstance()->selectedServer['DisableIS'] = true;
 
         $expected = [
             'test_table' => [
@@ -422,7 +423,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
     {
         $dbi = $this->createDatabaseInterface();
 
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
 
         $expected = [
             'test_table' => [
@@ -509,8 +510,9 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
         $GLOBALS['server'] = 1;
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
-        $GLOBALS['cfg']['Server']['only_db'] = '';
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = true;
+        $config->selectedServer['only_db'] = '';
         $GLOBALS['cfg']['NaturalOrder'] = true;
         $dummyDbi->removeDefaultResults();
         $dummyDbi->addResult('SELECT CURRENT_USER();', []);

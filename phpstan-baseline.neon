@@ -296,6 +296,11 @@ parameters:
 			path: libraries/classes/Config.php
 
 		-
+			message: "#^Cannot access offset 'Server' on mixed\\.$#"
+			count: 3
+			path: libraries/classes/Config.php
+
+		-
 			message: "#^Cannot access offset 'ServerDefault' on mixed\\.$#"
 			count: 2
 			path: libraries/classes/Config.php
@@ -1126,6 +1131,11 @@ parameters:
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
+			message: "#^Call to function is_string\\(\\) with string will always evaluate to true\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
 			message: "#^Cannot access an offset on mixed\\.$#"
 			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
@@ -1137,11 +1147,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'DATA_TYPE' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
 
@@ -1181,68 +1186,13 @@ parameters:
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 83
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'bookmarktable' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'bookmarktable'\\|'central_columns'\\|'column_info'\\|'designer_settings'\\|'export_templates'\\|'favorite'\\|'history'\\|'navigationhiding'\\|'pdf_pages'\\|'recent'\\|'relation'\\|'savedsearches'\\|'table_coords'\\|'table_info'\\|'table_uiprefs'\\|'tracking'\\|'userconfig'\\|'usergroups'\\|'users' on mixed\\.$#"
-			count: 4
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'bookmarktable'\\|'central_columns'\\|'column_info'\\|'designer_settings'\\|'export_templates'\\|'favorite'\\|'history'\\|'navigationhiding'\\|'recent'\\|'relation'\\|'savedsearches'\\|'table_uiprefs'\\|'tracking'\\|'userconfig' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'central_columns' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'column_info' on mixed\\.$#"
-			count: 5
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
 			message: "#^Cannot access offset 'constraint' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
-			message: "#^Cannot access offset 'designer_settings' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'export_templates' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'favorite' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'history' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
 			message: "#^Cannot access offset 'index_list' on mixed\\.$#"
 			count: 1
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'navigationhiding' on mixed\\.$#"
-			count: 3
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
@@ -1253,26 +1203,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'on_update' on mixed\\.$#"
 			count: 1
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'pdf_pages' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'pdf_pages'\\|'relation'\\|'table_coords'\\|'table_info'\\|'usergroups'\\|'users' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'pmadb' on mixed\\.$#"
-			count: 11
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'recent' on mixed\\.$#"
-			count: 3
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
@@ -1291,26 +1221,6 @@ parameters:
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
-			message: "#^Cannot access offset 'relation' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'savedsearches' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'table_coords' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'table_info' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
 			message: "#^Cannot access offset 'table_name' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
@@ -1321,43 +1231,8 @@ parameters:
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
-			message: "#^Cannot access offset 'table_uiprefs' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'tracking' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'userconfig' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'usergroups' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'users' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
 			count: 1
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 3
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
@@ -1381,16 +1256,6 @@ parameters:
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:checkRelationsParam\\(\\) should return array\\<string, bool\\|string\\|null\\> but returns array\\<string, mixed\\>\\.$#"
-			count: 1
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getConfigurationStorageDbName\\(\\) should return string but returns mixed\\.$#"
-			count: 1
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getDisplayField\\(\\) should return string but returns mixed\\.$#"
 			count: 2
 			path: libraries/classes/ConfigStorage/Relation.php
@@ -1406,7 +1271,7 @@ parameters:
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getTableReplacementNames\\(\\) should return array\\<string, string\\> but returns array\\<string, mixed\\>\\.$#"
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getTableReplacementNames\\(\\) should return array\\<string, string\\> but returns array\\<string, array\\<array\\<string\\>\\|bool\\|int\\|string\\>\\|int\\<1, max\\>\\|string\\|true\\>\\.$#"
 			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
 
@@ -1422,6 +1287,11 @@ parameters:
 
 		-
 			message: "#^Offset 'Comment' does not exist on array\\{Field\\: string, Type\\: string, Collation\\?\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\?\\: string, \\.\\.\\.\\}\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Offset 'relation' on array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\} on left side of \\?\\? always exists and is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
 
@@ -1491,27 +1361,22 @@ parameters:
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
 			message: "#^Parameter \\#1 \\$foreigners of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:searchColumnInForeigners\\(\\) expects array, array\\|true given\\.$#"
 			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 12
+			count: 7
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, string\\|false given\\.$#"
+			count: 2
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
 			message: "#^Parameter \\#1 \\$minRecords of method PhpMyAdmin\\\\Table\\:\\:checkIfMinRecordsExist\\(\\) expects int, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Parameter \\#1 \\$relationParams of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:fillRelationParamsWithTableNames\\(\\) expects array\\<string, bool\\|string\\|null\\>, array\\<string, mixed\\> given\\.$#"
 			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
 
@@ -1551,6 +1416,11 @@ parameters:
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
 			message: "#^Argument of an invalid type array\\|null supplied for foreach, only iterables are supported\\.$#"
 			count: 3
 			path: libraries/classes/ConfigStorage/UserGroups.php
@@ -1586,26 +1456,6 @@ parameters:
 			path: libraries/classes/ConfigStorage/UserGroups.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Console.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Console.php
-
-		-
-			message: "#^Parameter \\#1 \\$username of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getHistory\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Console.php
-
-		-
-			message: "#^Parameter \\#3 \\$user of static method PhpMyAdmin\\\\Bookmark\\:\\:getList\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Console.php
-
-		-
 			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommonRaw\\(\\) expects array\\<int\\|string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/AbstractController.php
@@ -1639,16 +1489,6 @@ parameters:
 			message: "#^Cannot access offset 'ZeroConf' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/CheckRelationsController.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Console/Bookmark/AddController.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Console/Bookmark/AddController.php
 
 		-
 			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getColumnsNotInCentralList\\(\\) expects string, mixed given\\.$#"
@@ -2216,17 +2056,7 @@ parameters:
 			path: libraries/classes/Controllers/Database/ImportController.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/ImportController.php
-
-		-
 			message: "#^Cannot access offset 'Import' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/ImportController.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/ImportController.php
 
@@ -2267,11 +2097,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$target of static method PhpMyAdmin\\\\Util\\:\\:getScriptNameForOption\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/ImportController.php
-
-		-
-			message: "#^Parameter \\#2 \\$disableIs of static method PhpMyAdmin\\\\Charsets\\:\\:getCharsets\\(\\) expects bool, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/ImportController.php
 
@@ -2361,18 +2186,8 @@ parameters:
 			path: libraries/classes/Controllers/Database/OperationsController.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/Database/OperationsController.php
-
-		-
 			message: "#^Cannot access offset 'PmaNoRelation…' on mixed\\.$#"
 			count: 1
-			path: libraries/classes/Controllers/Database/OperationsController.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
 			path: libraries/classes/Controllers/Database/OperationsController.php
 
 		-
@@ -2501,16 +2316,6 @@ parameters:
 			path: libraries/classes/Controllers/Database/OperationsController.php
 
 		-
-			message: "#^Parameter \\#2 \\$disableIs of static method PhpMyAdmin\\\\Charsets\\:\\:getCharsets\\(\\) expects bool, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/OperationsController.php
-
-		-
-			message: "#^Parameter \\#2 \\$disableIs of static method PhpMyAdmin\\\\Charsets\\:\\:getCollations\\(\\) expects bool, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/OperationsController.php
-
-		-
 			message: "#^Parameter \\#2 \\$exportSqlPlugin of method PhpMyAdmin\\\\Operations\\:\\:getViewsAndCreateSqlViewStandIn\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql, object\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/OperationsController.php
@@ -2562,16 +2367,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'DefaultTabTable' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/RoutinesController.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/RoutinesController.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/RoutinesController.php
 
@@ -2677,11 +2472,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\Util\\:\\:currentUserHasPrivilege\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/RoutinesController.php
-
-		-
-			message: "#^Parameter \\#2 \\$disableIs of static method PhpMyAdmin\\\\Charsets\\:\\:getCharsets\\(\\) expects bool, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/RoutinesController.php
 
@@ -3111,11 +2901,6 @@ parameters:
 			path: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php
-
-		-
 			message: "#^Cannot access offset 'db' on mixed\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php
@@ -3128,11 +2913,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'table' on mixed\\.$#"
 			count: 2
-			path: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
 			path: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php
 
 		-
@@ -3172,11 +2952,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function md5 expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function sha1 expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php
 
@@ -3316,11 +3091,6 @@ parameters:
 			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/Database/StructureController.php
-
-		-
 			message: "#^Cannot access offset 'DisableMultiTableMa…' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/StructureController.php
@@ -3358,11 +3128,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'PropertiesNumColumns' on mixed\\.$#"
 			count: 7
-			path: libraries/classes/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
 			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
@@ -3576,11 +3341,6 @@ parameters:
 			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
-			message: "#^Parameter \\#2 \\$disableIs of static method PhpMyAdmin\\\\Charsets\\:\\:findCollationByName\\(\\) expects bool, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/Database/StructureController.php
-
-		-
 			message: "#^Parameter \\#2 \\$haystack of function array_search expects array, mixed given\\.$#"
 			count: 4
 			path: libraries/classes/Controllers/Database/StructureController.php
@@ -3636,22 +3396,12 @@ parameters:
 			path: libraries/classes/Controllers/Database/TrackingController.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/TrackingController.php
-
-		-
 			message: "#^Cannot access offset 'back' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/TrackingController.php
 
 		-
 			message: "#^Cannot access offset 'goto' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/TrackingController.php
-
-		-
-			message: "#^Cannot access offset 'tracking_default…' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/TrackingController.php
 
@@ -4086,64 +3836,14 @@ parameters:
 			path: libraries/classes/Controllers/Export/ExportController.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Export/Template/CreateController.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Export/Template/CreateController.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Export/Template/DeleteController.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
+			message: "#^Cannot cast mixed to int\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Export/Template/DeleteController.php
 
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
 			count: 1
-			path: libraries/classes/Controllers/Export/Template/DeleteController.php
-
-		-
-			message: "#^Parameter \\#3 \\$user of method PhpMyAdmin\\\\Export\\\\TemplateModel\\:\\:delete\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Export/Template/DeleteController.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
 			path: libraries/classes/Controllers/Export/Template/LoadController.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Export/Template/LoadController.php
-
-		-
-			message: "#^Cannot cast mixed to int\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Export/Template/LoadController.php
-
-		-
-			message: "#^Parameter \\#3 \\$user of method PhpMyAdmin\\\\Export\\\\TemplateModel\\:\\:load\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Export/Template/LoadController.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Export/Template/UpdateController.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Export/Template/UpdateController.php
 
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
@@ -4196,11 +3896,6 @@ parameters:
 			path: libraries/classes/Controllers/HomeController.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/Controllers/HomeController.php
-
-		-
 			message: "#^Cannot access offset 'Lang' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/HomeController.php
@@ -4228,11 +3923,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'PmaNoRelation…' on mixed\\.$#"
 			count: 1
-			path: libraries/classes/Controllers/HomeController.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 11
 			path: libraries/classes/Controllers/HomeController.php
 
 		-
@@ -4286,22 +3976,7 @@ parameters:
 			path: libraries/classes/Controllers/HomeController.php
 
 		-
-			message: "#^Cannot access offset 'auth_type' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/HomeController.php
-
-		-
 			message: "#^Cannot access offset 'blowfish_secret' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/HomeController.php
-
-		-
-			message: "#^Cannot access offset 'controlpass' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/HomeController.php
-
-		-
-			message: "#^Cannot access offset 'controluser' on mixed\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/HomeController.php
 
@@ -4313,11 +3988,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'pmadb' on mixed\\.$#"
 			count: 1
-			path: libraries/classes/Controllers/HomeController.php
-
-		-
-			message: "#^Cannot access offset 'verbose' on mixed\\.$#"
-			count: 3
 			path: libraries/classes/Controllers/HomeController.php
 
 		-
@@ -4361,21 +4031,6 @@ parameters:
 			path: libraries/classes/Controllers/HomeController.php
 
 		-
-			message: "#^Parameter \\#2 \\$disableIs of static method PhpMyAdmin\\\\Charsets\\:\\:getCharsets\\(\\) expects bool, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/HomeController.php
-
-		-
-			message: "#^Parameter \\#2 \\$disableIs of static method PhpMyAdmin\\\\Charsets\\:\\:getCollations\\(\\) expects bool, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/HomeController.php
-
-		-
-			message: "#^Parameter \\#2 \\$disableIs of static method PhpMyAdmin\\\\Charsets\\:\\:getServerCharset\\(\\) expects bool, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/HomeController.php
-
-		-
 			message: "#^Parameter \\#2 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/HomeController.php
@@ -4403,11 +4058,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'MemoryLimit' on mixed\\.$#"
 			count: 2
-			path: libraries/classes/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 5
 			path: libraries/classes/Controllers/Import/ImportController.php
 
 		-
@@ -4458,11 +4108,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'timeout_passed' on mixed\\.$#"
 			count: 1
-			path: libraries/classes/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 5
 			path: libraries/classes/Controllers/Import/ImportController.php
 
 		-
@@ -4626,18 +4271,8 @@ parameters:
 			path: libraries/classes/Controllers/Import/ImportController.php
 
 		-
-			message: "#^Parameter \\#2 \\$user of static method PhpMyAdmin\\\\Bookmark\\:\\:get\\(\\) expects string, mixed given\\.$#"
-			count: 3
-			path: libraries/classes/Controllers/Import/ImportController.php
-
-		-
 			message: "#^Parameter \\#2 \\$value of function ini_set expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
 			count: 1
-			path: libraries/classes/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Parameter \\#3 \\$bookmarkUser of method PhpMyAdmin\\\\Sql\\:\\:storeTheQueryAsBookmark\\(\\) expects string, mixed given\\.$#"
-			count: 2
 			path: libraries/classes/Controllers/Import/ImportController.php
 
 		-
@@ -5011,16 +4646,6 @@ parameters:
 			path: libraries/classes/Controllers/PhpInfoController.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Preferences/ExportController.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Preferences/ExportController.php
-
-		-
 			message: "#^Cannot call method getConfigArray\\(\\) on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Preferences/ExportController.php
@@ -5034,21 +4659,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$string of function ltrim expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Preferences/ExportController.php
-
-		-
-			message: "#^Parameter \\#1 \\$user of class PhpMyAdmin\\\\TwoFactor constructor expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Preferences/ExportController.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Preferences/FeaturesController.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Preferences/FeaturesController.php
 
 		-
 			message: "#^Cannot call method getConfigArray\\(\\) on mixed\\.$#"
@@ -5066,21 +4676,6 @@ parameters:
 			path: libraries/classes/Controllers/Preferences/FeaturesController.php
 
 		-
-			message: "#^Parameter \\#1 \\$user of class PhpMyAdmin\\\\TwoFactor constructor expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Preferences/FeaturesController.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Preferences/ImportController.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Preferences/ImportController.php
-
-		-
 			message: "#^Cannot call method getConfigArray\\(\\) on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Preferences/ImportController.php
@@ -5096,21 +4691,6 @@ parameters:
 			path: libraries/classes/Controllers/Preferences/ImportController.php
 
 		-
-			message: "#^Parameter \\#1 \\$user of class PhpMyAdmin\\\\TwoFactor constructor expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Preferences/ImportController.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Preferences/MainPanelController.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Preferences/MainPanelController.php
-
-		-
 			message: "#^Cannot call method getConfigArray\\(\\) on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Preferences/MainPanelController.php
@@ -5122,11 +4702,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function ltrim expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Preferences/MainPanelController.php
-
-		-
-			message: "#^Parameter \\#1 \\$user of class PhpMyAdmin\\\\TwoFactor constructor expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Preferences/MainPanelController.php
 
@@ -5221,16 +4796,6 @@ parameters:
 			path: libraries/classes/Controllers/Preferences/ManageController.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Preferences/NavigationController.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Preferences/NavigationController.php
-
-		-
 			message: "#^Cannot call method getConfigArray\\(\\) on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Preferences/NavigationController.php
@@ -5246,21 +4811,6 @@ parameters:
 			path: libraries/classes/Controllers/Preferences/NavigationController.php
 
 		-
-			message: "#^Parameter \\#1 \\$user of class PhpMyAdmin\\\\TwoFactor constructor expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Preferences/NavigationController.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Preferences/SqlController.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Preferences/SqlController.php
-
-		-
 			message: "#^Cannot call method getConfigArray\\(\\) on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Preferences/SqlController.php
@@ -5274,26 +4824,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$string of function ltrim expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Preferences/SqlController.php
-
-		-
-			message: "#^Parameter \\#1 \\$user of class PhpMyAdmin\\\\TwoFactor constructor expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Preferences/SqlController.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Preferences/TwoFactorController.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Preferences/TwoFactorController.php
-
-		-
-			message: "#^Parameter \\#1 \\$user of class PhpMyAdmin\\\\TwoFactor constructor expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Preferences/TwoFactorController.php
 
 		-
 			message: "#^Parameter \\#2 \\$name of method PhpMyAdmin\\\\TwoFactor\\:\\:configure\\(\\) expects string, mixed given\\.$#"
@@ -5321,38 +4851,8 @@ parameters:
 			path: libraries/classes/Controllers/Server/BinlogController.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/Server/CollationsController.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/Server/CollationsController.php
-
-		-
-			message: "#^Parameter \\#2 \\$disableIs of static method PhpMyAdmin\\\\Charsets\\:\\:getCharsets\\(\\) expects bool, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/CollationsController.php
-
-		-
-			message: "#^Parameter \\#2 \\$disableIs of static method PhpMyAdmin\\\\Charsets\\:\\:getCollations\\(\\) expects bool, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/CollationsController.php
-
-		-
 			message: "#^Cannot access offset 'DefaultTabDatabase' on mixed\\.$#"
 			count: 1
-			path: libraries/classes/Controllers/Server/Databases/CreateController.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/Server/Databases/CreateController.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
 			path: libraries/classes/Controllers/Server/Databases/CreateController.php
 
 		-
@@ -5362,16 +4862,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$target of static method PhpMyAdmin\\\\Util\\:\\:getScriptNameForOption\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/Databases/CreateController.php
-
-		-
-			message: "#^Parameter \\#2 \\$disableIs of static method PhpMyAdmin\\\\Charsets\\:\\:getCharsets\\(\\) expects bool, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/Databases/CreateController.php
-
-		-
-			message: "#^Parameter \\#2 \\$disableIs of static method PhpMyAdmin\\\\Charsets\\:\\:getCollations\\(\\) expects bool, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/Databases/CreateController.php
 
@@ -5421,11 +4911,6 @@ parameters:
 			path: libraries/classes/Controllers/Server/DatabasesController.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/Controllers/Server/DatabasesController.php
-
-		-
 			message: "#^Cannot access offset 'MaxDbList' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/DatabasesController.php
@@ -5436,18 +4921,8 @@ parameters:
 			path: libraries/classes/Controllers/Server/DatabasesController.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 4
-			path: libraries/classes/Controllers/Server/DatabasesController.php
-
-		-
 			message: "#^Cannot access offset 'ShowCreateDb' on mixed\\.$#"
 			count: 2
-			path: libraries/classes/Controllers/Server/DatabasesController.php
-
-		-
-			message: "#^Cannot access offset 'pmadb' on mixed\\.$#"
-			count: 1
 			path: libraries/classes/Controllers/Server/DatabasesController.php
 
 		-
@@ -5506,21 +4981,6 @@ parameters:
 			path: libraries/classes/Controllers/Server/DatabasesController.php
 
 		-
-			message: "#^Parameter \\#2 \\$disableIs of static method PhpMyAdmin\\\\Charsets\\:\\:findCollationByName\\(\\) expects bool, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/DatabasesController.php
-
-		-
-			message: "#^Parameter \\#2 \\$disableIs of static method PhpMyAdmin\\\\Charsets\\:\\:getCharsets\\(\\) expects bool, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/DatabasesController.php
-
-		-
-			message: "#^Parameter \\#2 \\$disableIs of static method PhpMyAdmin\\\\Charsets\\:\\:getCollations\\(\\) expects bool, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/DatabasesController.php
-
-		-
 			message: "#^Parameter \\#2 \\$haystack of function array_search expects array, mixed given\\.$#"
 			count: 4
 			path: libraries/classes/Controllers/Server/DatabasesController.php
@@ -5566,17 +5026,7 @@ parameters:
 			path: libraries/classes/Controllers/Server/ExportController.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/ImportController.php
-
-		-
 			message: "#^Cannot access offset 'Import' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/ImportController.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/ImportController.php
 
@@ -5608,11 +5058,6 @@ parameters:
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 2
-			path: libraries/classes/Controllers/Server/ImportController.php
-
-		-
-			message: "#^Parameter \\#2 \\$disableIs of static method PhpMyAdmin\\\\Charsets\\:\\:getCharsets\\(\\) expects bool, mixed given\\.$#"
-			count: 1
 			path: libraries/classes/Controllers/Server/ImportController.php
 
 		-
@@ -7271,17 +6716,7 @@ parameters:
 			path: libraries/classes/Controllers/Table/ImportController.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ImportController.php
-
-		-
 			message: "#^Cannot access offset 'Import' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ImportController.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ImportController.php
 
@@ -7332,11 +6767,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$target of static method PhpMyAdmin\\\\Util\\:\\:getScriptNameForOption\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ImportController.php
-
-		-
-			message: "#^Parameter \\#2 \\$disableIs of static method PhpMyAdmin\\\\Charsets\\:\\:getCharsets\\(\\) expects bool, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ImportController.php
 
@@ -7491,11 +6921,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/OperationsController.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/Table/OperationsController.php
-
-		-
 			message: "#^Cannot access offset 'MaxDbList' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/OperationsController.php
@@ -7503,11 +6928,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'Row_format' on mixed\\.$#"
 			count: 1
-			path: libraries/classes/Controllers/Table/OperationsController.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
 			path: libraries/classes/Controllers/Table/OperationsController.php
 
 		-
@@ -7617,16 +7037,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$urlParams of method PhpMyAdmin\\\\Operations\\:\\:getForeignersForReferentialIntegrityCheck\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/OperationsController.php
-
-		-
-			message: "#^Parameter \\#2 \\$disableIs of static method PhpMyAdmin\\\\Charsets\\:\\:getCharsets\\(\\) expects bool, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/OperationsController.php
-
-		-
-			message: "#^Parameter \\#2 \\$disableIs of static method PhpMyAdmin\\\\Charsets\\:\\:getCollations\\(\\) expects bool, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/OperationsController.php
 
@@ -8986,11 +8396,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/StructureController.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/Table/StructureController.php
-
-		-
 			message: "#^Cannot access offset 'Extra' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/StructureController.php
@@ -9018,11 +8423,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'Rows' on mixed\\.$#"
 			count: 1
-			path: libraries/classes/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
 			path: libraries/classes/Controllers/Table/StructureController.php
 
 		-
@@ -9153,11 +8553,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Util\\:\\:formatByteDown\\(\\) expects float\\|int\\|string\\|null, mixed given\\.$#"
 			count: 3
-			path: libraries/classes/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#2 \\$disableIs of static method PhpMyAdmin\\\\Charsets\\:\\:findCollationByName\\(\\) expects bool, mixed given\\.$#"
-			count: 2
 			path: libraries/classes/Controllers/Table/StructureController.php
 
 		-
@@ -9691,18 +9086,8 @@ parameters:
 			path: libraries/classes/Controllers/Triggers/IndexController.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/UserPasswordController.php
-
-		-
 			message: "#^Cannot access offset 'ShowChgPassword' on mixed\\.$#"
 			count: 3
-			path: libraries/classes/Controllers/UserPasswordController.php
-
-		-
-			message: "#^Cannot access offset 'auth_type' on mixed\\.$#"
-			count: 1
 			path: libraries/classes/Controllers/UserPasswordController.php
 
 		-
@@ -10231,18 +9616,8 @@ parameters:
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Database/CentralColumns.php
-
-		-
 			message: "#^Cannot access offset 'MaxRows' on mixed\\.$#"
 			count: 1
-			path: libraries/classes/Database/CentralColumns.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
@@ -10281,11 +9656,6 @@ parameters:
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Database/CentralColumns.php
-
-		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
 			count: 14
 			path: libraries/classes/Database/CentralColumns.php
@@ -10298,6 +9668,11 @@ parameters:
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 4
+			path: libraries/classes/Database/CentralColumns.php
+
+		-
+			message: "#^Casting to bool something that's already bool\\.$#"
+			count: 1
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
@@ -10486,11 +9861,6 @@ parameters:
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:\\$user \\(string\\) does not accept mixed\\.$#"
-			count: 1
-			path: libraries/classes/Database/CentralColumns.php
-
-		-
 			message: "#^Cannot access offset 'COLUMN_ID' on mixed\\.$#"
 			count: 2
 			path: libraries/classes/Database/Designer.php
@@ -10501,18 +9871,8 @@ parameters:
 			path: libraries/classes/Database/Designer.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer.php
-
-		-
 			message: "#^Cannot access offset 'TYPE' on mixed\\.$#"
 			count: 18
-			path: libraries/classes/Database/Designer.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
 			path: libraries/classes/Database/Designer.php
 
 		-
@@ -10541,11 +9901,6 @@ parameters:
 			path: libraries/classes/Database/Designer.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer.php
-
-		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Database/Designer.php
@@ -10563,11 +9918,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'ENGINE' on mixed\\.$#"
 			count: 6
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
 			path: libraries/classes/Database/Designer/Common.php
 
 		-
@@ -10612,11 +9962,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'ref_table_name' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer/Common.php
 
@@ -10697,7 +10042,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, mixed given\\.$#"
-			count: 7
+			count: 4
 			path: libraries/classes/Database/Designer/Common.php
 
 		-
@@ -10736,17 +10081,7 @@ parameters:
 			path: libraries/classes/Database/Events.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Database/Events.php
-
-		-
 			message: "#^Cannot access offset 'Name' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Database/Events.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Database/Events.php
 
@@ -10851,18 +10186,8 @@ parameters:
 			path: libraries/classes/Database/Routines.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Database/Routines.php
-
-		-
 			message: "#^Cannot access offset 'Name' on mixed\\.$#"
 			count: 1
-			path: libraries/classes/Database/Routines.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
 			path: libraries/classes/Database/Routines.php
 
 		-
@@ -11066,11 +10391,6 @@ parameters:
 			path: libraries/classes/Database/Routines.php
 
 		-
-			message: "#^Parameter \\#2 \\$disableIs of static method PhpMyAdmin\\\\Charsets\\:\\:getCharsets\\(\\) expects bool, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Routines.php
-
-		-
 			message: "#^Parameter \\#2 \\$itemParamDir of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:processParamsAndBuild\\(\\) expects array\\<string\\>, array given\\.$#"
 			count: 1
 			path: libraries/classes/Database/Routines.php
@@ -11171,11 +10491,6 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 6
-			path: libraries/classes/DatabaseInterface.php
-
-		-
 			message: "#^Cannot access offset 'Engine' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
@@ -11198,11 +10513,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'NaturalOrder' on mixed\\.$#"
 			count: 4
-			path: libraries/classes/DatabaseInterface.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 6
 			path: libraries/classes/DatabaseInterface.php
 
 		-
@@ -12516,11 +11826,6 @@ parameters:
 			path: libraries/classes/Export/Options.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Export/Options.php
-
-		-
 			message: "#^Cannot access offset 'ZipDump' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Export/Options.php
@@ -12571,11 +11876,6 @@ parameters:
 			path: libraries/classes/Export/Options.php
 
 		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Export/Options.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
 			count: 2
 			path: libraries/classes/Export/Options.php
@@ -12602,11 +11902,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$filename of method PhpMyAdmin\\\\Export\\\\Options\\:\\:getFileNameTemplate\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Export/Options.php
-
-		-
-			message: "#^Parameter \\#3 \\$user of method PhpMyAdmin\\\\Export\\\\TemplateModel\\:\\:getAll\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Export/Options.php
 
@@ -12801,22 +12096,12 @@ parameters:
 			path: libraries/classes/Footer.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Footer.php
-
-		-
 			message: "#^Cannot access offset 'demo' on mixed\\.$#"
 			count: 2
 			path: libraries/classes/Footer.php
 
 		-
 			message: "#^Cannot access offset 'sql' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Footer.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Footer.php
 
@@ -12843,11 +12128,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
 			count: 2
-			path: libraries/classes/Footer.php
-
-		-
-			message: "#^Parameter \\#3 \\$username of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:setHistory\\(\\) expects string, mixed given\\.$#"
-			count: 1
 			path: libraries/classes/Footer.php
 
 		-
@@ -13451,11 +12731,6 @@ parameters:
 			path: libraries/classes/Header.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 6
-			path: libraries/classes/Header.php
-
-		-
 			message: "#^Cannot access offset 'ShowHint' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Header.php
@@ -13481,28 +12756,13 @@ parameters:
 			path: libraries/classes/Header.php
 
 		-
-			message: "#^Cannot access offset 'auth_type' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Header.php
-
-		-
 			message: "#^Cannot access offset 'enable_drag_drop…' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Header.php
-
-		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Header.php
 
 		-
 			message: "#^Cannot access offset 'pftext' on mixed\\.$#"
 			count: 1
-			path: libraries/classes/Header.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 2
 			path: libraries/classes/Header.php
 
 		-
@@ -13646,11 +12906,6 @@ parameters:
 			path: libraries/classes/Html/Generator.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Html/Generator.php
-
-		-
 			message: "#^Cannot access offset 'ShowAsPHP' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Html/Generator.php
@@ -13676,11 +12931,6 @@ parameters:
 			path: libraries/classes/Html/Generator.php
 
 		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Html/Generator.php
-
-		-
 			message: "#^Cannot access offset 'max_rows' on mixed\\.$#"
 			count: 4
 			path: libraries/classes/Html/Generator.php
@@ -13693,26 +12943,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'pos' on mixed\\.$#"
 			count: 3
-			path: libraries/classes/Html/Generator.php
-
-		-
-			message: "#^Cannot access offset 'socket' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Html/Generator.php
-
-		-
-			message: "#^Cannot access offset 'ssl' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Html/Generator.php
-
-		-
-			message: "#^Cannot access offset 'ssl_ca' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Html/Generator.php
-
-		-
-			message: "#^Cannot access offset 'ssl_verify' on mixed\\.$#"
-			count: 1
 			path: libraries/classes/Html/Generator.php
 
 		-
@@ -13961,22 +13191,12 @@ parameters:
 			path: libraries/classes/Import/Import.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Import/Import.php
-
-		-
 			message: "#^Cannot access offset 'GZipDump' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Import/Import.php
 
 		-
 			message: "#^Cannot access offset 'IgnoreMultiSubmitEr…' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Import/Import.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Import/Import.php
 
@@ -14746,22 +13966,7 @@ parameters:
 			path: libraries/classes/IpAllowDeny.php
 
 		-
-			message: "#^Cannot access offset 'AllowDeny' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/IpAllowDeny.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/IpAllowDeny.php
-
-		-
-			message: "#^Cannot access offset 'rules' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/IpAllowDeny.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
+			message: "#^Call to function is_array\\(\\) with array\\<string\\> will always evaluate to true\\.$#"
 			count: 1
 			path: libraries/classes/IpAllowDeny.php
 
@@ -14772,16 +13977,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$ipToTest of method PhpMyAdmin\\\\IpAllowDeny\\:\\:ipMaskTest\\(\\) expects string, string\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/IpAllowDeny.php
-
-		-
-			message: "#^Parameter \\#2 \\$string of function explode expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/IpAllowDeny.php
-
-		-
-			message: "#^Parameter \\#2 \\$user_string of function hash_equals expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/IpAllowDeny.php
 
@@ -14866,28 +14061,8 @@ parameters:
 			path: libraries/classes/ListDatabase.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/ListDatabase.php
-
-		-
 			message: "#^Cannot access offset 'NaturalOrder' on mixed\\.$#"
 			count: 1
-			path: libraries/classes/ListDatabase.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 9
-			path: libraries/classes/ListDatabase.php
-
-		-
-			message: "#^Cannot access offset 'hide_db' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/ListDatabase.php
-
-		-
-			message: "#^Cannot access offset 'only_db' on mixed\\.$#"
-			count: 6
 			path: libraries/classes/ListDatabase.php
 
 		-
@@ -14906,12 +14081,17 @@ parameters:
 			path: libraries/classes/ListDatabase.php
 
 		-
-			message: "#^Parameter \\#1 \\$likeDbName of method PhpMyAdmin\\\\ListDatabase\\:\\:retrieve\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 2
+			message: "#^Parameter \\#1 \\$likeDbName of method PhpMyAdmin\\\\ListDatabase\\:\\:retrieve\\(\\) expects string\\|null, array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string given\\.$#"
+			count: 1
 			path: libraries/classes/ListDatabase.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function strtr expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$likeDbName of method PhpMyAdmin\\\\ListDatabase\\:\\:retrieve\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/ListDatabase.php
+
+		-
+			message: "#^Parameter \\#1 \\$str of function strtr expects string, array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/ListDatabase.php
 
@@ -14926,9 +14106,19 @@ parameters:
 			path: libraries/classes/ListDatabase.php
 
 		-
-			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/ListDatabase.php
+
+		-
+			message: "#^Binary operation \"\\.\" between '\\:' and non\\-empty\\-array\\<array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string\\>\\|int\\<1, max\\>\\|non\\-falsy\\-string\\|true results in an error\\.$#"
+			count: 1
+			path: libraries/classes/Menu.php
+
+		-
+			message: "#^Binary operation \"\\.\\=\" between array\\<array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string\\>\\|bool\\|int\\<1, max\\>\\|string\\|null and mixed results in an error\\.$#"
+			count: 1
+			path: libraries/classes/Menu.php
 
 		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
@@ -14951,23 +14141,8 @@ parameters:
 			path: libraries/classes/Menu.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 8
-			path: libraries/classes/Menu.php
-
-		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/Menu.php
-
-		-
 			message: "#^Cannot access offset 'icon' on mixed\\.$#"
 			count: 22
-			path: libraries/classes/Menu.php
-
-		-
-			message: "#^Cannot access offset 'port' on mixed\\.$#"
-			count: 2
 			path: libraries/classes/Menu.php
 
 		-
@@ -14988,16 +14163,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'text' on mixed\\.$#"
 			count: 6
-			path: libraries/classes/Menu.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Menu.php
-
-		-
-			message: "#^Cannot access offset 'verbose' on mixed\\.$#"
-			count: 2
 			path: libraries/classes/Menu.php
 
 		-
@@ -15022,11 +14187,6 @@ parameters:
 
 		-
 			message: "#^Only numeric types are allowed in \\+, int\\<0, max\\>\\|false given on the left side\\.$#"
-			count: 1
-			path: libraries/classes/Menu.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Menu.php
 
@@ -15059,16 +14219,6 @@ parameters:
 			message: "#^Parameter \\#2 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Message.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Middleware/Authentication.php
-
-		-
-			message: "#^Parameter \\#1 \\$server of class PhpMyAdmin\\\\Config\\\\Settings\\\\Server constructor expects array\\<int\\|string, mixed\\>, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Middleware/Authentication.php
 
 		-
 			message: "#^Parameter \\#1 \\$source of method PhpMyAdmin\\\\Config\\:\\:loadAndCheck\\(\\) expects string\\|null, mixed given\\.$#"
@@ -15176,11 +14326,6 @@ parameters:
 			path: libraries/classes/Navigation/Navigation.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 4
-			path: libraries/classes/Navigation/Navigation.php
-
-		-
 			message: "#^Cannot access offset 'Servers' on mixed\\.$#"
 			count: 2
 			path: libraries/classes/Navigation/Navigation.php
@@ -15191,18 +14336,8 @@ parameters:
 			path: libraries/classes/Navigation/Navigation.php
 
 		-
-			message: "#^Cannot access offset 'auth_type' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/Navigation.php
-
-		-
 			message: "#^Cannot access offset 'enable_drag_drop…' on mixed\\.$#"
 			count: 1
-			path: libraries/classes/Navigation/Navigation.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 3
 			path: libraries/classes/Navigation/Navigation.php
 
 		-
@@ -15218,11 +14353,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in an if condition, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
 			count: 1
-			path: libraries/classes/Navigation/Navigation.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, mixed given\\.$#"
-			count: 3
 			path: libraries/classes/Navigation/Navigation.php
 
 		-
@@ -15252,11 +14382,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'DefaultTabDatabase' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/NavigationTree.php
 
@@ -15327,11 +14452,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'NumRecentTables' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/NavigationTree.php
 
@@ -15541,18 +14661,13 @@ parameters:
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			message: "#^Argument of an invalid type array\\<array\\<string\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\<1, max\\>\\|string\\|null supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/Nodes/Node.php
 
 		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
 			count: 2
-			path: libraries/classes/Navigation/Nodes/Node.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 5
 			path: libraries/classes/Navigation/Nodes/Node.php
 
 		-
@@ -15571,28 +14686,8 @@ parameters:
 			path: libraries/classes/Navigation/Nodes/Node.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 17
-			path: libraries/classes/Navigation/Nodes/Node.php
-
-		-
 			message: "#^Cannot access offset 'ShowDatabasesNaviga…' on mixed\\.$#"
 			count: 4
-			path: libraries/classes/Navigation/Nodes/Node.php
-
-		-
-			message: "#^Cannot access offset 'hide_db' on mixed\\.$#"
-			count: 4
-			path: libraries/classes/Navigation/Nodes/Node.php
-
-		-
-			message: "#^Cannot access offset 'only_db' on mixed\\.$#"
-			count: 7
-			path: libraries/classes/Navigation/Nodes/Node.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
 			path: libraries/classes/Navigation/Nodes/Node.php
 
 		-
@@ -15631,8 +14726,13 @@ parameters:
 			path: libraries/classes/Navigation/Nodes/Node.php
 
 		-
+			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string given\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/Nodes/Node.php
+
+		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, mixed given\\.$#"
-			count: 4
+			count: 1
 			path: libraries/classes/Navigation/Nodes/Node.php
 
 		-
@@ -15696,18 +14796,8 @@ parameters:
 			path: libraries/classes/Navigation/Nodes/NodeDatabase.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 7
-			path: libraries/classes/Navigation/Nodes/NodeDatabase.php
-
-		-
 			message: "#^Cannot access offset 'MaxNavigationItems' on mixed\\.$#"
 			count: 3
-			path: libraries/classes/Navigation/Nodes/NodeDatabase.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 7
 			path: libraries/classes/Navigation/Nodes/NodeDatabase.php
 
 		-
@@ -15771,22 +14861,12 @@ parameters:
 			path: libraries/classes/Navigation/Nodes/NodeTable.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 4
-			path: libraries/classes/Navigation/Nodes/NodeTable.php
-
-		-
 			message: "#^Cannot access offset 'MaxNavigationItems' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/Nodes/NodeTable.php
 
 		-
 			message: "#^Cannot access offset 'NavigationTreeDefau…' on mixed\\.$#"
-			count: 4
-			path: libraries/classes/Navigation/Nodes/NodeTable.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
 			count: 4
 			path: libraries/classes/Navigation/Nodes/NodeTable.php
 
@@ -15836,18 +14916,8 @@ parameters:
 			path: libraries/classes/Normalization.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Normalization.php
-
-		-
 			message: "#^Cannot access offset 'MaxRows' on mixed\\.$#"
 			count: 1
-			path: libraries/classes/Normalization.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
 			path: libraries/classes/Normalization.php
 
 		-
@@ -15963,16 +15033,6 @@ parameters:
 		-
 			message: "#^Parameter \\#2 \\$array of function implode expects array\\|null, mixed given\\.$#"
 			count: 3
-			path: libraries/classes/Normalization.php
-
-		-
-			message: "#^Parameter \\#2 \\$disableIs of static method PhpMyAdmin\\\\Charsets\\:\\:getCharsets\\(\\) expects bool, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Normalization.php
-
-		-
-			message: "#^Parameter \\#2 \\$disableIs of static method PhpMyAdmin\\\\Charsets\\:\\:getCollations\\(\\) expects bool, mixed given\\.$#"
-			count: 1
 			path: libraries/classes/Normalization.php
 
 		-
@@ -16486,22 +15546,7 @@ parameters:
 			path: libraries/classes/Plugins/Auth/AuthenticationConfig.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Auth/AuthenticationConfig.php
-
-		-
 			message: "#^Cannot access offset 'Servers' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationConfig.php
-
-		-
-			message: "#^Cannot access offset 'password' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationConfig.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Auth/AuthenticationConfig.php
 
@@ -16517,16 +15562,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationConfig.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\AuthenticationPlugin\\:\\:\\$password \\(string\\) does not accept mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationConfig.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\AuthenticationPlugin\\:\\:\\$user \\(string\\) does not accept mixed\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Auth/AuthenticationConfig.php
 
@@ -16621,11 +15656,6 @@ parameters:
 			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
-
-		-
 			message: "#^Cannot access offset 'Servers' on mixed\\.$#"
 			count: 2
 			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
@@ -16637,16 +15667,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'demo' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
-
-		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
-
-		-
-			message: "#^Cannot access offset 'port' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
 
@@ -16771,6 +15791,11 @@ parameters:
 			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{host\\: mixed, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\Plugins\\\\AuthenticationPlugin\\:\\:\\$password \\(string\\) does not accept mixed\\.$#"
 			count: 2
 			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
@@ -16778,26 +15803,6 @@ parameters:
 		-
 			message: "#^Call to function base64_decode\\(\\) requires parameter \\#2 to be set\\.$#"
 			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationHttp.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 5
-			path: libraries/classes/Plugins/Auth/AuthenticationHttp.php
-
-		-
-			message: "#^Cannot access offset 'auth_http_realm' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Auth/AuthenticationHttp.php
-
-		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationHttp.php
-
-		-
-			message: "#^Cannot access offset 'verbose' on mixed\\.$#"
-			count: 2
 			path: libraries/classes/Plugins/Auth/AuthenticationHttp.php
 
 		-
@@ -16821,11 +15826,6 @@ parameters:
 			path: libraries/classes/Plugins/Auth/AuthenticationHttp.php
 
 		-
-			message: "#^Parameter \\#3 \\$subject of function preg_replace expects array\\|string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationHttp.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Plugins\\\\AuthenticationPlugin\\:\\:\\$password \\(string\\) does not accept mixed\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Auth/AuthenticationHttp.php
@@ -16841,42 +15841,7 @@ parameters:
 			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 16
-			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
-
-		-
-			message: "#^Cannot access offset 'SignonCookieParams' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
-
-		-
-			message: "#^Cannot access offset 'SignonScript' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
-
-		-
-			message: "#^Cannot access offset 'SignonSession' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
-
-		-
-			message: "#^Cannot access offset 'SignonURL' on mixed\\.$#"
-			count: 5
-			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
-
-		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
-
-		-
-			message: "#^Cannot access offset 'port' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
+			message: "#^Casting to array\\<string, bool\\|int\\|string\\> something that's already array\\<string, bool\\|int\\<0, max\\>\\|string\\>\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
 
@@ -16886,22 +15851,7 @@ parameters:
 			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Auth\\\\AuthenticationSignon\\:\\:getLoginFormURL\\(\\) should return string but returns mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
-
-		-
-			message: "#^Parameter \\#1 \\$filename of function file_exists expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
-
-		-
 			message: "#^Parameter \\#1 \\$id of function session_id expects string\\|null, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
-
-		-
-			message: "#^Parameter \\#1 \\$name of function session_name expects string\\|null, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
 
@@ -16911,22 +15861,22 @@ parameters:
 			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
 
 		-
-			message: "#^Parameter \\#1 \\$url of method PhpMyAdmin\\\\ResponseRenderer\\:\\:redirect\\(\\) expects non\\-empty\\-string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
-
-		-
-			message: "#^Parameter \\#1 \\$user of function get_login_credentials expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
-
-		-
-			message: "#^Parameter \\#1 \\.\\.\\.\\$arrays of function array_merge expects array, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
-
-		-
 			message: "#^Parameter \\#2 \\.\\.\\.\\$arrays of function array_merge expects array, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{host\\: mixed, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{host\\: string, port\\: mixed, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept non\\-empty\\-array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
 
@@ -16941,21 +15891,6 @@ parameters:
 			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
 
 		-
-			message: "#^Cannot access offset 'AllowDeny' on mixed\\.$#"
-			count: 4
-			path: libraries/classes/Plugins/AuthenticationPlugin.php
-
-		-
-			message: "#^Cannot access offset 'AllowNoPassword' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/AuthenticationPlugin.php
-
-		-
-			message: "#^Cannot access offset 'AllowRoot' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/AuthenticationPlugin.php
-
-		-
 			message: "#^Cannot access offset 'LoginCookieDeleteAll' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/AuthenticationPlugin.php
@@ -16966,38 +15901,8 @@ parameters:
 			path: libraries/classes/Plugins/AuthenticationPlugin.php
 
 		-
-			message: "#^Cannot access offset 'LogoutURL' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/AuthenticationPlugin.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 13
-			path: libraries/classes/Plugins/AuthenticationPlugin.php
-
-		-
 			message: "#^Cannot access offset 'Servers' on mixed\\.$#"
 			count: 1
-			path: libraries/classes/Plugins/AuthenticationPlugin.php
-
-		-
-			message: "#^Cannot access offset 'auth_type' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/AuthenticationPlugin.php
-
-		-
-			message: "#^Cannot access offset 'order' on mixed\\.$#"
-			count: 4
-			path: libraries/classes/Plugins/AuthenticationPlugin.php
-
-		-
-			message: "#^Cannot access offset 'password' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/AuthenticationPlugin.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 2
 			path: libraries/classes/Plugins/AuthenticationPlugin.php
 
 		-
@@ -17021,7 +15926,7 @@ parameters:
 			path: libraries/classes/Plugins/AuthenticationPlugin.php
 
 		-
-			message: "#^Parameter \\#1 \\$url of method PhpMyAdmin\\\\ResponseRenderer\\:\\:redirect\\(\\) expects non\\-empty\\-string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$url of method PhpMyAdmin\\\\ResponseRenderer\\:\\:redirect\\(\\) expects non\\-empty\\-string, string given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/AuthenticationPlugin.php
 
@@ -17029,21 +15934,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$value of function intval expects array\\|bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Plugins/AuthenticationPlugin.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/AuthenticationPluginFactory.php
-
-		-
-			message: "#^Cannot access offset 'auth_type' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/AuthenticationPluginFactory.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function strtolower expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/AuthenticationPluginFactory.php
 
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
@@ -17181,11 +16071,6 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportLatex.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/Plugins/Export/ExportLatex.php
-
-		-
 			message: "#^Cannot access offset 'columns' on mixed\\.$#"
 			count: 4
 			path: libraries/classes/Plugins/Export/ExportLatex.php
@@ -17193,16 +16078,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'export_type' on mixed\\.$#"
 			count: 1
-			path: libraries/classes/Plugins/Export/ExportLatex.php
-
-		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportLatex.php
-
-		-
-			message: "#^Cannot access offset 'port' on mixed\\.$#"
-			count: 2
 			path: libraries/classes/Plugins/Export/ExportLatex.php
 
 		-
@@ -17501,11 +16376,6 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
 			message: "#^Cannot access offset 'Type' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
@@ -17536,18 +16406,8 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
 			message: "#^Cannot access offset 'index_list' on mixed\\.$#"
 			count: 1
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Cannot access offset 'port' on mixed\\.$#"
-			count: 2
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
@@ -17896,22 +16756,7 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportXml.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/Plugins/Export/ExportXml.php
-
-		-
 			message: "#^Cannot access offset 'columns' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Export/ExportXml.php
-
-		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportXml.php
-
-		-
-			message: "#^Cannot access offset 'port' on mixed\\.$#"
 			count: 2
 			path: libraries/classes/Plugins/Export/ExportXml.php
 
@@ -17972,7 +16817,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 8
+			count: 7
 			path: libraries/classes/Plugins/Export/ExportXml.php
 
 		-
@@ -20321,11 +19166,6 @@ parameters:
 			path: libraries/classes/RecentFavoriteTable.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/RecentFavoriteTable.php
-
-		-
 			message: "#^Cannot access offset 'db' on mixed\\.$#"
 			count: 8
 			path: libraries/classes/RecentFavoriteTable.php
@@ -20343,11 +19183,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'table' on mixed\\.$#"
 			count: 8
-			path: libraries/classes/RecentFavoriteTable.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 2
 			path: libraries/classes/RecentFavoriteTable.php
 
 		-
@@ -20393,11 +19228,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\RecentFavoriteTable\\:\\:remove\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: libraries/classes/RecentFavoriteTable.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, mixed given\\.$#"
-			count: 2
 			path: libraries/classes/RecentFavoriteTable.php
 
 		-
@@ -20784,16 +19614,6 @@ parameters:
 			message: "#^Parameter \\#9 \\$description of class PhpMyAdmin\\\\Server\\\\Plugin constructor expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Server/Plugin.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Server/Plugins.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Server/Plugins.php
 
 		-
 			message: "#^Parameter \\#1 \\$description of method PhpMyAdmin\\\\Server\\\\Plugins\\:\\:getTranslatedDescription\\(\\) expects string, string\\|null given\\.$#"
@@ -21276,18 +20096,8 @@ parameters:
 			path: libraries/classes/Server/Status/Data.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/Server/Status/Data.php
-
-		-
 			message: "#^Cannot access offset 'doc' on mixed\\.$#"
 			count: 4
-			path: libraries/classes/Server/Status/Data.php
-
-		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 3
 			path: libraries/classes/Server/Status/Data.php
 
 		-
@@ -21296,7 +20106,7 @@ parameters:
 			path: libraries/classes/Server/Status/Data.php
 
 		-
-			message: "#^Cannot cast mixed to string\\.$#"
+			message: "#^Casting to string something that's already string\\.$#"
 			count: 1
 			path: libraries/classes/Server/Status/Data.php
 
@@ -21736,11 +20546,6 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 5
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Cannot access offset 'ShowSQL' on mixed\\.$#"
 			count: 2
 			path: libraries/classes/Sql.php
@@ -21768,11 +20573,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'possible_as_geometry' on mixed\\.$#"
 			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 5
 			path: libraries/classes/Sql.php
 
 		-
@@ -21941,16 +20741,6 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#2 \\$user of static method PhpMyAdmin\\\\Bookmark\\:\\:get\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#3 \\$bookmarkUser of method PhpMyAdmin\\\\Sql\\:\\:storeTheQueryAsBookmark\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Parameter \\#3 \\$column of method PhpMyAdmin\\\\Sql\\:\\:cleanupRelations\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
@@ -21962,11 +20752,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#3 \\$table of class PhpMyAdmin\\\\Display\\\\Results constructor expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#3 \\$user of static method PhpMyAdmin\\\\Bookmark\\:\\:getList\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
@@ -22041,11 +20826,6 @@ parameters:
 			path: libraries/classes/SqlQueryForm.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/SqlQueryForm.php
-
-		-
 			message: "#^Cannot access offset 'Servers' on mixed\\.$#"
 			count: 3
 			path: libraries/classes/SqlQueryForm.php
@@ -22067,11 +20847,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/SqlQueryForm.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/SqlQueryForm.php
 
@@ -22122,11 +20897,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/SqlQueryForm.php
-
-		-
-			message: "#^Parameter \\#3 \\$user of static method PhpMyAdmin\\\\Bookmark\\:\\:getList\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/SqlQueryForm.php
 
@@ -22261,11 +21031,6 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Table.php
-
-		-
 			message: "#^Cannot access offset 'Extra' on mixed\\.$#"
 			count: 3
 			path: libraries/classes/Table.php
@@ -22286,18 +21051,8 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Cannot access offset 'MaxTableUiprefs' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
 			message: "#^Cannot access offset 'Name' on mixed\\.$#"
 			count: 1
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 5
 			path: libraries/classes/Table.php
 
 		-
@@ -22361,11 +21116,6 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Table.php
-
-		-
 			message: "#^Cannot access offset \\(int\\|string\\) on mixed\\.$#"
 			count: 6
 			path: libraries/classes/Table.php
@@ -22387,12 +21137,17 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
-			count: 5
+			count: 4
 			path: libraries/classes/Table.php
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 3
+			path: libraries/classes/Table.php
+
+		-
+			message: "#^Casting to int something that's already int\\<1, max\\>\\.$#"
+			count: 1
 			path: libraries/classes/Table.php
 
 		-
@@ -22527,7 +21282,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, mixed given\\.$#"
-			count: 11
+			count: 9
 			path: libraries/classes/Table.php
 
 		-
@@ -22641,11 +21396,6 @@ parameters:
 			path: libraries/classes/Table/ColumnsDefinition.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/Table/ColumnsDefinition.php
-
-		-
 			message: "#^Cannot access offset 'Expression' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Table/ColumnsDefinition.php
@@ -22663,11 +21413,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'MaxRows' on mixed\\.$#"
 			count: 1
-			path: libraries/classes/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 3
 			path: libraries/classes/Table/ColumnsDefinition.php
 
 		-
@@ -22777,16 +21522,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$dbName of class PhpMyAdmin\\\\Table constructor expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Parameter \\#2 \\$disableIs of static method PhpMyAdmin\\\\Charsets\\:\\:getCharsets\\(\\) expects bool, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Parameter \\#2 \\$disableIs of static method PhpMyAdmin\\\\Charsets\\:\\:getCollations\\(\\) expects bool, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Table/ColumnsDefinition.php
 
@@ -23031,31 +21766,6 @@ parameters:
 			path: libraries/classes/Theme/ThemeManager.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 7
-			path: libraries/classes/Tracking/Tracker.php
-
-		-
-			message: "#^Cannot access offset 'tracking_add_drop…' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/Tracking/Tracker.php
-
-		-
-			message: "#^Cannot access offset 'tracking_default…' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Tracking/Tracker.php
-
-		-
-			message: "#^Cannot access offset 'tracking_version…' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Tracking/Tracker.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Tracking/Tracker.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
 			count: 3
 			path: libraries/classes/Tracking/Tracker.php
@@ -23117,7 +21827,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, mixed given\\.$#"
-			count: 4
+			count: 2
 			path: libraries/classes/Tracking/Tracker.php
 
 		-
@@ -23146,11 +21856,6 @@ parameters:
 			path: libraries/classes/Tracking/Tracker.php
 
 		-
-			message: "#^Parameter \\#3 \\$subject of function preg_replace expects array\\|string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Tracking/Tracker.php
-
-		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
 			count: 4
 			path: libraries/classes/Tracking/Tracking.php
@@ -23166,11 +21871,6 @@ parameters:
 			path: libraries/classes/Tracking/Tracking.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Tracking/Tracking.php
-
-		-
 			message: "#^Cannot access offset 'id' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Tracking/Tracking.php
@@ -23182,11 +21882,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'timestamp' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Tracking/Tracking.php
-
-		-
-			message: "#^Cannot access offset 'tracking_default…' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Tracking/Tracking.php
 
@@ -23293,16 +21988,6 @@ parameters:
 		-
 			message: "#^Cannot access an offset on mixed\\.$#"
 			count: 6
-			path: libraries/classes/Triggers/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Triggers/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
 			path: libraries/classes/Triggers/Triggers.php
 
 		-
@@ -23491,16 +22176,6 @@ parameters:
 			path: libraries/classes/UserPassword.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/UserPreferences.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/UserPreferences.php
-
-		-
 			message: "#^Cannot access offset 'ServerDefault' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/UserPreferences.php
@@ -23616,22 +22291,12 @@ parameters:
 			path: libraries/classes/Util.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 6
-			path: libraries/classes/Util.php
-
-		-
 			message: "#^Cannot access offset 'SkipLockedTables' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Util.php
 
 		-
 			message: "#^Cannot access offset 'Sub_part' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
 			count: 2
 			path: libraries/classes/Util.php
 
@@ -23643,16 +22308,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'table_limit_offset…' on mixed\\.$#"
 			count: 2
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Cannot access offset 'verbose' on mixed\\.$#"
-			count: 3
 			path: libraries/classes/Util.php
 
 		-
@@ -23771,11 +22426,6 @@ parameters:
 			path: libraries/classes/Util.php
 
 		-
-			message: "#^Parameter \\#1 \\$path of static method PhpMyAdmin\\\\Core\\:\\:securePath\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
 			message: "#^Parameter \\#1 \\$row of static method PhpMyAdmin\\\\Util\\:\\:getConditionValue\\(\\) expects float\\|int\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Util.php
@@ -23889,16 +22539,6 @@ parameters:
 			message: "#^Variable \\$http_response_header in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Utils/HttpRequest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Utils/SessionCache.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Utils/SessionCache.php
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
@@ -24191,37 +22831,7 @@ parameters:
 			path: test/classes/BookmarkTest.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 5
-			path: test/classes/BookmarkTest.php
-
-		-
 			message: "#^Cannot access offset 'ServerDefault' on mixed\\.$#"
-			count: 1
-			path: test/classes/BookmarkTest.php
-
-		-
-			message: "#^Cannot access offset 'bookmarktable' on mixed\\.$#"
-			count: 1
-			path: test/classes/BookmarkTest.php
-
-		-
-			message: "#^Cannot access offset 'pmadb' on mixed\\.$#"
-			count: 1
-			path: test/classes/BookmarkTest.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 3
-			path: test/classes/BookmarkTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$user of static method PhpMyAdmin\\\\Bookmark\\:\\:get\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: test/classes/BookmarkTest.php
-
-		-
-			message: "#^Parameter \\#3 \\$user of static method PhpMyAdmin\\\\Bookmark\\:\\:getList\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: test/classes/BookmarkTest.php
 
@@ -24254,16 +22864,6 @@ parameters:
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Charsets\\\\\\\\Collation' and PhpMyAdmin\\\\Charsets\\\\Collation will always evaluate to true\\.$#"
 			count: 1
 			path: test/classes/Charsets/CollationTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/CheckUserPrivilegesTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/CheckUserPrivilegesTest.php
 
 		-
 			message: "#^Class PhpMyAdmin\\\\Tests\\\\Command\\\\SetVersionCommandTest has an uninitialized property \\$command\\. Give it default value or assign it in the constructor\\.$#"
@@ -24344,16 +22944,6 @@ parameters:
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with string will always evaluate to true\\.$#"
 			count: 1
 			path: test/classes/Config/Forms/FormListTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Config/PageSettingsTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Config/PageSettingsTest.php
 
 		-
 			message: "#^Cannot access offset 'AllowArbitraryServer' on mixed\\.$#"
@@ -24496,13 +23086,13 @@ parameters:
 			path: test/classes/ConfigStorage/RelationTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with '' and '' will always evaluate to true\\.$#"
 			count: 2
 			path: test/classes/ConfigStorage/RelationTest.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 329
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with 'db_pma' and 'db_pma' will always evaluate to true\\.$#"
+			count: 1
 			path: test/classes/ConfigStorage/RelationTest.php
 
 		-
@@ -24511,108 +23101,8 @@ parameters:
 			path: test/classes/ConfigStorage/RelationTest.php
 
 		-
-			message: "#^Cannot access offset 'bookmarktable' on mixed\\.$#"
-			count: 15
-			path: test/classes/ConfigStorage/RelationTest.php
-
-		-
-			message: "#^Cannot access offset 'central_columns' on mixed\\.$#"
-			count: 15
-			path: test/classes/ConfigStorage/RelationTest.php
-
-		-
-			message: "#^Cannot access offset 'column_info' on mixed\\.$#"
-			count: 16
-			path: test/classes/ConfigStorage/RelationTest.php
-
-		-
-			message: "#^Cannot access offset 'designer_settings' on mixed\\.$#"
-			count: 15
-			path: test/classes/ConfigStorage/RelationTest.php
-
-		-
-			message: "#^Cannot access offset 'export_templates' on mixed\\.$#"
-			count: 15
-			path: test/classes/ConfigStorage/RelationTest.php
-
-		-
-			message: "#^Cannot access offset 'favorite' on mixed\\.$#"
-			count: 15
-			path: test/classes/ConfigStorage/RelationTest.php
-
-		-
-			message: "#^Cannot access offset 'history' on mixed\\.$#"
-			count: 15
-			path: test/classes/ConfigStorage/RelationTest.php
-
-		-
-			message: "#^Cannot access offset 'navigationhiding' on mixed\\.$#"
-			count: 15
-			path: test/classes/ConfigStorage/RelationTest.php
-
-		-
-			message: "#^Cannot access offset 'pdf_pages' on mixed\\.$#"
-			count: 15
-			path: test/classes/ConfigStorage/RelationTest.php
-
-		-
-			message: "#^Cannot access offset 'pmadb' on mixed\\.$#"
-			count: 18
-			path: test/classes/ConfigStorage/RelationTest.php
-
-		-
-			message: "#^Cannot access offset 'recent' on mixed\\.$#"
-			count: 15
-			path: test/classes/ConfigStorage/RelationTest.php
-
-		-
-			message: "#^Cannot access offset 'relation' on mixed\\.$#"
-			count: 15
-			path: test/classes/ConfigStorage/RelationTest.php
-
-		-
-			message: "#^Cannot access offset 'savedsearches' on mixed\\.$#"
-			count: 15
-			path: test/classes/ConfigStorage/RelationTest.php
-
-		-
-			message: "#^Cannot access offset 'table_coords' on mixed\\.$#"
-			count: 15
-			path: test/classes/ConfigStorage/RelationTest.php
-
-		-
-			message: "#^Cannot access offset 'table_info' on mixed\\.$#"
-			count: 15
-			path: test/classes/ConfigStorage/RelationTest.php
-
-		-
-			message: "#^Cannot access offset 'table_uiprefs' on mixed\\.$#"
-			count: 15
-			path: test/classes/ConfigStorage/RelationTest.php
-
-		-
-			message: "#^Cannot access offset 'tracking' on mixed\\.$#"
-			count: 15
-			path: test/classes/ConfigStorage/RelationTest.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{\\}\\.$#"
 			count: 6
-			path: test/classes/ConfigStorage/RelationTest.php
-
-		-
-			message: "#^Cannot access offset 'userconfig' on mixed\\.$#"
-			count: 15
-			path: test/classes/ConfigStorage/RelationTest.php
-
-		-
-			message: "#^Cannot access offset 'usergroups' on mixed\\.$#"
-			count: 15
-			path: test/classes/ConfigStorage/RelationTest.php
-
-		-
-			message: "#^Cannot access offset 'users' on mixed\\.$#"
-			count: 15
 			path: test/classes/ConfigStorage/RelationTest.php
 
 		-
@@ -24661,49 +23151,9 @@ parameters:
 			path: test/classes/ConfigTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/BrowseForeignersControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/BrowseForeignersControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/Console/Bookmark/AddControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/Console/Bookmark/AddControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/Database/EventsControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/Database/EventsControllerTest.php
-
-		-
 			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Database/MultiTableQuery/TablesControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Database/PrivilegesControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Database/PrivilegesControllerTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$needle of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
@@ -24716,16 +23166,6 @@ parameters:
 			path: test/classes/Controllers/Database/PrivilegesControllerTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/Database/RoutinesControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/Database/RoutinesControllerTest.php
-
-		-
 			message: "#^Cannot access offset 'favoriteTables' on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Database/Structure/FavoriteTableControllerTest.php
@@ -24736,27 +23176,12 @@ parameters:
 			path: test/classes/Controllers/Database/Structure/FavoriteTableControllerTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Database/Structure/RealRowCountControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Database/Structure/RealRowCountControllerTest.php
-
-		-
 			message: "#^Cannot access offset 'COUNTED' on mixed\\.$#"
 			count: 4
 			path: test/classes/Controllers/Database/StructureControllerTest.php
 
 		-
 			message: "#^Cannot access offset 'Data_free' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Database/StructureControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Database/StructureControllerTest.php
 
@@ -24772,11 +23197,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'Rows' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Database/StructureControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Database/StructureControllerTest.php
 
@@ -24821,74 +23241,9 @@ parameters:
 			path: test/classes/Controllers/Database/StructureControllerTest.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Export/Template/CreateControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Export/Template/CreateControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Export/Template/DeleteControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Export/Template/DeleteControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Export/Template/LoadControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Export/Template/LoadControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Export/Template/UpdateControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Export/Template/UpdateControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Import/ImportControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Import/ImportControllerTest.php
-
-		-
 			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Import/ImportControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/NavigationControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 4
-			path: test/classes/Controllers/NavigationControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'auth_type' on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/NavigationControllerTest.php
 
 		-
 			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
@@ -24901,37 +23256,7 @@ parameters:
 			path: test/classes/Controllers/NavigationControllerTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Normalization/AddNewPrimaryControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Normalization/AddNewPrimaryControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Normalization/CreateNewColumnControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Normalization/CreateNewColumnControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/BinlogControllerTest.php
-
-		-
 			message: "#^Cannot access offset 'MaxRows' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/BinlogControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Server/BinlogControllerTest.php
 
@@ -24939,26 +23264,6 @@ parameters:
 			message: "#^Cannot access offset 'ServerDefault' on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Server/BinlogControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/CollationsControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/CollationsControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Databases/CreateControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Databases/CreateControllerTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
@@ -24976,94 +23281,9 @@ parameters:
 			path: test/classes/Controllers/Server/Databases/DestroyControllerTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/DatabasesControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/Server/DatabasesControllerTest.php
-
-		-
 			message: "#^Cannot access offset 'ShowCreateDb' on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Server/DatabasesControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'only_db' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/DatabasesControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/EnginesControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/EnginesControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/PluginsControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/PluginsControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/PrivilegesControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/PrivilegesControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/ShowEngineControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/ShowEngineControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/AdvisorControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/Server/Status/AdvisorControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/AdvisorControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/Monitor/GeneralLogControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/Server/Status/Monitor/GeneralLogControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/Monitor/GeneralLogControllerTest.php
 
 		-
 			message: "#^Cannot access offset 'numRows' on mixed\\.$#"
@@ -25079,31 +23299,6 @@ parameters:
 			message: "#^Cannot access offset 'sum' on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Server/Status/Monitor/GeneralLogControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/Monitor/LogVarsControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/Server/Status/Monitor/LogVarsControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/Monitor/LogVarsControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/Monitor/QueryAnalyzerControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/Server/Status/Monitor/QueryAnalyzerControllerTest.php
 
 		-
 			message: "#^Cannot access offset 'affectedRows' on mixed\\.$#"
@@ -25116,29 +23311,9 @@ parameters:
 			path: test/classes/Controllers/Server/Status/Monitor/QueryAnalyzerControllerTest.php
 
 		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/Monitor/QueryAnalyzerControllerTest.php
-
-		-
 			message: "#^Cannot access offset 'profiling' on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Server/Status/Monitor/QueryAnalyzerControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/Monitor/SlowLogControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/Server/Status/Monitor/SlowLogControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/Monitor/SlowLogControllerTest.php
 
 		-
 			message: "#^Cannot access offset 'numRows' on mixed\\.$#"
@@ -25156,109 +23331,9 @@ parameters:
 			path: test/classes/Controllers/Server/Status/Monitor/SlowLogControllerTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/MonitorControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/Server/Status/MonitorControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/MonitorControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/Processes/RefreshControllerTest.php
-
-		-
 			message: "#^Cannot access offset 'MaxCharactersInDisp…' on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Server/Status/Processes/RefreshControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/Server/Status/Processes/RefreshControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/Processes/RefreshControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/ProcessesControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/Server/Status/ProcessesControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/ProcessesControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/QueriesControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/Server/Status/QueriesControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/QueriesControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/StatusControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/Server/Status/StatusControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/StatusControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/VariablesControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/Server/Status/VariablesControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/Status/VariablesControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/VariablesControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/VariablesControllerTest.php
 
 		-
 			message: "#^Cannot use array destructuring on mixed\\.$#"
@@ -25286,56 +23361,6 @@ parameters:
 			path: test/classes/Controllers/Sql/SetValuesControllerTest.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/AddFieldControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/CreateControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/Table/DeleteRowsControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/Table/ExportControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/FindReplaceControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/FindReplaceControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/ImportControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/IndexesControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/Table/IndexesControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'pmadb' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/IndexesControllerTest.php
-
-		-
 			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Table/OperationsControllerTest.php
@@ -25344,16 +23369,6 @@ parameters:
 			message: "#^Cannot call method setParameter\\(\\) on mixed\\.$#"
 			count: 2
 			path: test/classes/Controllers/Table/OperationsControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/PrivilegesControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/PrivilegesControllerTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
@@ -25376,16 +23391,6 @@ parameters:
 			path: test/classes/Controllers/Table/RelationControllerTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/RelationControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/RelationControllerTest.php
-
-		-
 			message: "#^Cannot call method method\\(\\) on mixed\\.$#"
 			count: 4
 			path: test/classes/Controllers/Table/RelationControllerTest.php
@@ -25396,33 +23401,8 @@ parameters:
 			path: test/classes/Controllers/Table/RelationControllerTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/ReplaceControllerTest.php
-
-		-
 			message: "#^Cannot access offset 'InsertRows' on mixed\\.$#"
 			count: 2
-			path: test/classes/Controllers/Table/ReplaceControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 4
-			path: test/classes/Controllers/Table/ReplaceControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/ReplaceControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/ReplaceControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'verbose' on mixed\\.$#"
-			count: 1
 			path: test/classes/Controllers/Table/ReplaceControllerTest.php
 
 		-
@@ -25432,16 +23412,6 @@ parameters:
 
 		-
 			message: "#^Call to an undefined method PhpMyAdmin\\\\DatabaseInterface\\:\\:expects\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/SearchControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/SearchControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Table/SearchControllerTest.php
 
@@ -25469,26 +23439,6 @@ parameters:
 			message: "#^Cannot call method with\\(\\) on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Table/SearchControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/SqlControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/Structure/ChangeControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/Structure/ChangeControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/Table/StructureControllerTest.php
 
 		-
 			message: "#^Cannot access offset 'ShowPropertyComments' on mixed\\.$#"
@@ -25541,31 +23491,6 @@ parameters:
 			path: test/classes/Controllers/Table/StructureControllerTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/TrackingControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 3
-			path: test/classes/Controllers/Table/TrackingControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'tracking_default…' on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/Table/TrackingControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/ZoomSearchControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/ZoomSearchControllerTest.php
-
-		-
 			message: "#^Cannot access offset 'ThemeManager' on mixed\\.$#"
 			count: 2
 			path: test/classes/Controllers/ThemeSetControllerTest.php
@@ -25573,16 +23498,6 @@ parameters:
 		-
 			message: "#^Call to an undefined method PhpMyAdmin\\\\Http\\\\ServerRequest&PHPUnit\\\\Framework\\\\MockObject\\\\Stub\\:\\:expects\\(\\)\\.$#"
 			count: 1
-			path: test/classes/Controllers/Triggers/IndexControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/Triggers/IndexControllerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
 			path: test/classes/Controllers/Triggers/IndexControllerTest.php
 
 		-
@@ -25676,11 +23591,6 @@ parameters:
 			path: test/classes/Database/CentralColumnsTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Database/CentralColumnsTest.php
-
-		-
 			message: "#^Cannot access offset 'LimitChars' on mixed\\.$#"
 			count: 1
 			path: test/classes/Database/CentralColumnsTest.php
@@ -25691,17 +23601,7 @@ parameters:
 			path: test/classes/Database/CentralColumnsTest.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: test/classes/Database/CentralColumnsTest.php
-
-		-
 			message: "#^Cannot access offset 'ServerDefault' on mixed\\.$#"
-			count: 1
-			path: test/classes/Database/CentralColumnsTest.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
 			count: 1
 			path: test/classes/Database/CentralColumnsTest.php
 
@@ -25736,17 +23636,7 @@ parameters:
 			path: test/classes/Database/CentralColumnsTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 4
-			path: test/classes/Database/Designer/CommonTest.php
-
-		-
 			message: "#^Cannot access offset 'NaturalOrder' on mixed\\.$#"
-			count: 4
-			path: test/classes/Database/Designer/CommonTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
 			count: 4
 			path: test/classes/Database/Designer/CommonTest.php
 
@@ -25791,27 +23681,7 @@ parameters:
 			path: test/classes/Database/DesignerTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Database/EventsTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Database/EventsTest.php
-
-		-
 			message: "#^Cannot access offset 'ActionLinksMode' on mixed\\.$#"
-			count: 1
-			path: test/classes/Database/RoutinesTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Database/RoutinesTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
 			count: 1
 			path: test/classes/Database/RoutinesTest.php
 
@@ -25836,33 +23706,13 @@ parameters:
 			path: test/classes/DatabaseInterfaceTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 4
-			path: test/classes/DatabaseInterfaceTest.php
-
-		-
 			message: "#^Cannot access offset 'NaturalOrder' on mixed\\.$#"
-			count: 1
-			path: test/classes/DatabaseInterfaceTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 6
-			path: test/classes/DatabaseInterfaceTest.php
-
-		-
-			message: "#^Cannot access offset 'SessionTimeZone' on mixed\\.$#"
 			count: 1
 			path: test/classes/DatabaseInterfaceTest.php
 
 		-
 			message: "#^Cannot access offset 'ZeroConf' on mixed\\.$#"
 			count: 2
-			path: test/classes/DatabaseInterfaceTest.php
-
-		-
-			message: "#^Cannot access offset 'only_db' on mixed\\.$#"
-			count: 1
 			path: test/classes/DatabaseInterfaceTest.php
 
 		-
@@ -25896,11 +23746,6 @@ parameters:
 			path: test/classes/Display/ResultsTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 3
-			path: test/classes/Display/ResultsTest.php
-
-		-
 			message: "#^Cannot access offset 'LimitChars' on mixed\\.$#"
 			count: 3
 			path: test/classes/Display/ResultsTest.php
@@ -25913,11 +23758,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'ProtectBinary' on mixed\\.$#"
 			count: 1
-			path: test/classes/Display/ResultsTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 3
 			path: test/classes/Display/ResultsTest.php
 
 		-
@@ -26056,21 +23896,6 @@ parameters:
 			path: test/classes/ErrorReportTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 2
-			path: test/classes/Export/ExportTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 3
-			path: test/classes/Export/ExportTest.php
-
-		-
-			message: "#^Cannot access offset 'only_db' on mixed\\.$#"
-			count: 1
-			path: test/classes/Export/ExportTest.php
-
-		-
 			message: "#^Cannot access offset 'ExecTimeLimit' on mixed\\.$#"
 			count: 1
 			path: test/classes/Export/OptionsTest.php
@@ -26091,11 +23916,6 @@ parameters:
 			path: test/classes/Export/OptionsTest.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: test/classes/Export/OptionsTest.php
-
-		-
 			message: "#^Cannot access offset 'ZipDump' on mixed\\.$#"
 			count: 2
 			path: test/classes/Export/OptionsTest.php
@@ -26112,11 +23932,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'charset' on mixed\\.$#"
-			count: 1
-			path: test/classes/Export/OptionsTest.php
-
-		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
 			count: 1
 			path: test/classes/Export/OptionsTest.php
 
@@ -26147,11 +23962,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'remember_file…' on mixed\\.$#"
-			count: 1
-			path: test/classes/Export/OptionsTest.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
 			count: 1
 			path: test/classes/Export/OptionsTest.php
 
@@ -26191,27 +24001,12 @@ parameters:
 			path: test/classes/FooterTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/FooterTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: test/classes/FooterTest.php
-
-		-
 			message: "#^Cannot access offset 'queries' on mixed\\.$#"
 			count: 1
 			path: test/classes/FooterTest.php
 
 		-
 			message: "#^Cannot access offset 'sql' on mixed\\.$#"
-			count: 1
-			path: test/classes/FooterTest.php
-
-		-
-			message: "#^Cannot access offset 'verbose' on mixed\\.$#"
 			count: 1
 			path: test/classes/FooterTest.php
 
@@ -26281,37 +24076,7 @@ parameters:
 			path: test/classes/HeaderTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/HeaderTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 5
-			path: test/classes/HeaderTest.php
-
-		-
 			message: "#^Cannot access offset 'Servers' on mixed\\.$#"
-			count: 1
-			path: test/classes/HeaderTest.php
-
-		-
-			message: "#^Cannot access offset 'auth_type' on mixed\\.$#"
-			count: 1
-			path: test/classes/HeaderTest.php
-
-		-
-			message: "#^Cannot access offset 'pmadb' on mixed\\.$#"
-			count: 1
-			path: test/classes/HeaderTest.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: test/classes/HeaderTest.php
-
-		-
-			message: "#^Cannot access offset 'verbose' on mixed\\.$#"
 			count: 1
 			path: test/classes/HeaderTest.php
 
@@ -26361,11 +24126,6 @@ parameters:
 			path: test/classes/Html/GeneratorTest.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 7
-			path: test/classes/Html/GeneratorTest.php
-
-		-
 			message: "#^Cannot access offset 'ServerDefault' on mixed\\.$#"
 			count: 1
 			path: test/classes/Html/GeneratorTest.php
@@ -26383,6 +24143,36 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$target of static method PhpMyAdmin\\\\Util\\:\\:getScriptNameForOption\\(\\) expects string, mixed given\\.$#"
 			count: 3
+			path: test/classes/Html/GeneratorTest.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{ssl\\: false, host\\: '127\\.0\\.0\\.1'\\}\\.$#"
+			count: 1
+			path: test/classes/Html/GeneratorTest.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{ssl\\: false, host\\: 'custom\\.host'\\}\\.$#"
+			count: 2
+			path: test/classes/Html/GeneratorTest.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{ssl\\: false, ssl_verify\\: true, host\\: 'custom\\.host'\\}\\.$#"
+			count: 1
+			path: test/classes/Html/GeneratorTest.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{ssl\\: true, ssl_verify\\: false, host\\: 'custom\\.host'\\}\\.$#"
+			count: 1
+			path: test/classes/Html/GeneratorTest.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{ssl\\: true, ssl_verify\\: true, host\\: 'custom\\.host'\\}\\.$#"
+			count: 1
+			path: test/classes/Html/GeneratorTest.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{ssl\\: true, ssl_verify\\: true, ssl_ca\\: '/etc/ssl/ca\\.crt', host\\: 'custom\\.host'\\}\\.$#"
+			count: 1
 			path: test/classes/Html/GeneratorTest.php
 
 		-
@@ -26586,69 +24376,9 @@ parameters:
 			path: test/classes/InternalRelationsTest.php
 
 		-
-			message: "#^Cannot access an offset on mixed\\.$#"
-			count: 7
-			path: test/classes/IpAllowDenyTest.php
-
-		-
-			message: "#^Cannot access offset 'AllowDeny' on mixed\\.$#"
-			count: 7
-			path: test/classes/IpAllowDenyTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 8
-			path: test/classes/IpAllowDenyTest.php
-
-		-
 			message: "#^Cannot access offset 'TrustedProxies' on mixed\\.$#"
 			count: 3
 			path: test/classes/IpAllowDenyTest.php
-
-		-
-			message: "#^Cannot access offset 'rules' on mixed\\.$#"
-			count: 7
-			path: test/classes/IpAllowDenyTest.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: test/classes/IpAllowDenyTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/ListDatabaseTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 3
-			path: test/classes/ListDatabaseTest.php
-
-		-
-			message: "#^Cannot access offset 'hide_db' on mixed\\.$#"
-			count: 1
-			path: test/classes/ListDatabaseTest.php
-
-		-
-			message: "#^Cannot access offset 'only_db' on mixed\\.$#"
-			count: 1
-			path: test/classes/ListDatabaseTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/MenuTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: test/classes/MenuTest.php
-
-		-
-			message: "#^Cannot access offset 'verbose' on mixed\\.$#"
-			count: 1
-			path: test/classes/MenuTest.php
 
 		-
 			message: "#^Dynamic call to static method PhpMyAdmin\\\\Message\\:\\:getMessageForAffectedRows\\(\\)\\.$#"
@@ -26671,26 +24401,6 @@ parameters:
 			path: test/classes/Navigation/NavigationTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Navigation/NavigationTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: test/classes/Navigation/NavigationTest.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: test/classes/Navigation/NavigationTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Navigation/NavigationTreeTest.php
-
-		-
 			message: "#^Cannot access offset 'NavigationTreeDbSep…' on mixed\\.$#"
 			count: 1
 			path: test/classes/Navigation/NavigationTreeTest.php
@@ -26701,27 +24411,7 @@ parameters:
 			path: test/classes/Navigation/NavigationTreeTest.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 4
-			path: test/classes/Navigation/NavigationTreeTest.php
-
-		-
 			message: "#^Cannot access offset 'ShowDatabasesNaviga…' on mixed\\.$#"
-			count: 1
-			path: test/classes/Navigation/NavigationTreeTest.php
-
-		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 1
-			path: test/classes/Navigation/NavigationTreeTest.php
-
-		-
-			message: "#^Cannot access offset 'pmadb' on mixed\\.$#"
-			count: 1
-			path: test/classes/Navigation/NavigationTreeTest.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
 			count: 1
 			path: test/classes/Navigation/NavigationTreeTest.php
 
@@ -26736,24 +24426,9 @@ parameters:
 			path: test/classes/Navigation/Nodes/NodeDatabaseChildTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 2
-			path: test/classes/Navigation/Nodes/NodeDatabaseTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: test/classes/Navigation/Nodes/NodeDatabaseTest.php
-
-		-
 			message: "#^Cannot access offset 'NavigationTreeDefau…' on mixed\\.$#"
 			count: 3
 			path: test/classes/Navigation/Nodes/NodeTableTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 6
-			path: test/classes/Navigation/Nodes/NodeTest.php
 
 		-
 			message: "#^Cannot access offset 'FirstLevelNavigatio…' on mixed\\.$#"
@@ -26771,18 +24446,8 @@ parameters:
 			path: test/classes/Navigation/Nodes/NodeTest.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 14
-			path: test/classes/Navigation/Nodes/NodeTest.php
-
-		-
-			message: "#^Cannot access offset 'hide_db' on mixed\\.$#"
-			count: 2
-			path: test/classes/Navigation/Nodes/NodeTest.php
-
-		-
-			message: "#^Cannot access offset 'only_db' on mixed\\.$#"
-			count: 4
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{\\}\\.$#"
+			count: 1
 			path: test/classes/Navigation/Nodes/NodeTest.php
 
 		-
@@ -26946,11 +24611,6 @@ parameters:
 			path: test/classes/NormalizationTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 2
-			path: test/classes/NormalizationTest.php
-
-		-
 			message: "#^Cannot access offset 'LimitChars' on mixed\\.$#"
 			count: 1
 			path: test/classes/NormalizationTest.php
@@ -26958,11 +24618,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'MaxRows' on mixed\\.$#"
 			count: 1
-			path: test/classes/NormalizationTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
 			path: test/classes/NormalizationTest.php
 
 		-
@@ -27001,12 +24656,12 @@ parameters:
 			path: test/classes/PdfTest.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
+			message: "#^Cannot access offset 'Servers' on mixed\\.$#"
 			count: 1
 			path: test/classes/Plugins/Auth/AuthenticationConfigTest.php
 
 		-
-			message: "#^Cannot access offset 'Servers' on mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{user\\: 'username', password\\: 'password'\\}\\.$#"
 			count: 1
 			path: test/classes/Plugins/Auth/AuthenticationConfigTest.php
 
@@ -27018,21 +24673,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'AllowArbitraryServer' on mixed\\.$#"
 			count: 8
-			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
-
-		-
-			message: "#^Cannot access offset 'AllowDeny' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
-
-		-
-			message: "#^Cannot access offset 'AllowNoPassword' on mixed\\.$#"
-			count: 2
-			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
-
-		-
-			message: "#^Cannot access offset 'AllowRoot' on mixed\\.$#"
-			count: 2
 			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
 
 		-
@@ -27066,11 +24706,6 @@ parameters:
 			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
-
-		-
 			message: "#^Cannot access offset 'Lang' on mixed\\.$#"
 			count: 3
 			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
@@ -27096,23 +24731,8 @@ parameters:
 			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
 
 		-
-			message: "#^Cannot access offset 'LogoutURL' on mixed\\.$#"
-			count: 2
-			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 19
-			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
-
-		-
 			message: "#^Cannot access offset 'Servers' on mixed\\.$#"
 			count: 9
-			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
-
-		-
-			message: "#^Cannot access offset 'auth_type' on mixed\\.$#"
-			count: 2
 			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
 
 		-
@@ -27126,29 +24746,24 @@ parameters:
 			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
 
 		-
-			message: "#^Cannot access offset 'password' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 2
-			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
-
-		-
 			message: "#^Cannot access offset 1 on mixed\\.$#"
 			count: 2
 			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
 
 		-
-			message: "#^Cannot access offset 'LogoutURL' on mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{auth_type\\: 'cookie'\\}\\.$#"
 			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
+			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 19
-			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{host\\: 'a', port\\: 1, socket\\: true, ssl\\: true, user\\: 'pmaUser2'\\}\\.$#"
+			count: 2
+			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\.$#"
+			count: 1
+			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
 
 		-
 			message: "#^Cannot access offset 'Servers' on mixed\\.$#"
@@ -27156,37 +24771,12 @@ parameters:
 			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
 
 		-
-			message: "#^Cannot access offset 'auth_http_realm' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
-
-		-
-			message: "#^Cannot access offset 'auth_type' on mixed\\.$#"
-			count: 4
-			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
-
-		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 4
-			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
-
-		-
-			message: "#^Cannot access offset 'password' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 2
-			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
-
-		-
-			message: "#^Cannot access offset 'verbose' on mixed\\.$#"
-			count: 2
-			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
-
-		-
 			message: "#^Cannot access offset 1 on mixed\\.$#"
+			count: 2
+			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{host\\: 'a', user\\: 'user2'\\}\\.$#"
 			count: 2
 			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
 
@@ -27196,74 +24786,9 @@ parameters:
 			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
 
 		-
-			message: "#^Cannot access offset 'LogoutURL' on mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\.$#"
 			count: 2
 			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 35
-			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
-
-		-
-			message: "#^Cannot access offset 'SignonCookieParams' on mixed\\.$#"
-			count: 3
-			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
-
-		-
-			message: "#^Cannot access offset 'SignonScript' on mixed\\.$#"
-			count: 3
-			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
-
-		-
-			message: "#^Cannot access offset 'SignonSession' on mixed\\.$#"
-			count: 8
-			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
-
-		-
-			message: "#^Cannot access offset 'SignonURL' on mixed\\.$#"
-			count: 7
-			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
-
-		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 3
-			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
-
-		-
-			message: "#^Cannot access offset 'password' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
-
-		-
-			message: "#^Cannot access offset 'port' on mixed\\.$#"
-			count: 3
-			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 4
-			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 4
-			path: test/classes/Plugins/AuthenticationPluginFactoryTest.php
-
-		-
-			message: "#^Cannot access offset 'auth_type' on mixed\\.$#"
-			count: 4
-			path: test/classes/Plugins/AuthenticationPluginFactoryTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportHtmlwordTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportHtmlwordTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
@@ -27271,23 +24796,8 @@ parameters:
 			path: test/classes/Plugins/Export/ExportHtmlwordTest.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 6
-			path: test/classes/Plugins/Export/ExportLatexTest.php
-
-		-
 			message: "#^Cannot access offset 'export_type' on mixed\\.$#"
 			count: 2
-			path: test/classes/Plugins/Export/ExportLatexTest.php
-
-		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 3
-			path: test/classes/Plugins/Export/ExportLatexTest.php
-
-		-
-			message: "#^Cannot access offset 'port' on mixed\\.$#"
-			count: 1
 			path: test/classes/Plugins/Export/ExportLatexTest.php
 
 		-
@@ -27296,19 +24806,9 @@ parameters:
 			path: test/classes/Plugins/Export/ExportLatexTest.php
 
 		-
-			message: "#^Cannot access offset 'verbose' on mixed\\.$#"
-			count: 2
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{host\\: string, port\\: 80, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\.$#"
+			count: 1
 			path: test/classes/Plugins/Export/ExportLatexTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportOdtTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportOdtTest.php
 
 		-
 			message: "#^Cannot access offset 'export_type' on mixed\\.$#"
@@ -27326,28 +24826,8 @@ parameters:
 			path: test/classes/Plugins/Export/ExportOdtTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 8
-			path: test/classes/Plugins/Export/ExportSqlTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 10
-			path: test/classes/Plugins/Export/ExportSqlTest.php
-
-		-
 			message: "#^Cannot access offset 'export_type' on mixed\\.$#"
 			count: 2
-			path: test/classes/Plugins/Export/ExportSqlTest.php
-
-		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportSqlTest.php
-
-		-
-			message: "#^Cannot access offset 'port' on mixed\\.$#"
-			count: 1
 			path: test/classes/Plugins/Export/ExportSqlTest.php
 
 		-
@@ -27361,14 +24841,9 @@ parameters:
 			path: test/classes/Plugins/Export/ExportSqlTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{host\\: string, port\\: 80, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\.$#"
 			count: 1
-			path: test/classes/Plugins/Export/ExportTexytextTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportTexytextTest.php
+			path: test/classes/Plugins/Export/ExportSqlTest.php
 
 		-
 			message: "#^Cannot access offset 'single_table' on mixed\\.$#"
@@ -27376,39 +24851,14 @@ parameters:
 			path: test/classes/Plugins/Export/ExportTexytextTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 2
-			path: test/classes/Plugins/Export/ExportXmlTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 4
-			path: test/classes/Plugins/Export/ExportXmlTest.php
-
-		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportXmlTest.php
-
-		-
-			message: "#^Cannot access offset 'port' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportXmlTest.php
-
-		-
 			message: "#^Cannot access offset 'single_table' on mixed\\.$#"
 			count: 1
 			path: test/classes/Plugins/Export/ExportXmlTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{host\\: string, port\\: 80, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\.$#"
 			count: 1
-			path: test/classes/Plugins/Import/ImportCsvTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Import/ImportCsvTest.php
+			path: test/classes/Plugins/Export/ExportXmlTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\File constructor expects bool\\|string, mixed given\\.$#"
@@ -27426,18 +24876,8 @@ parameters:
 			path: test/classes/Plugins/Import/ImportCsvTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Import/ImportLdiTest.php
-
-		-
 			message: "#^Cannot access offset 'Import' on mixed\\.$#"
 			count: 10
-			path: test/classes/Plugins/Import/ImportLdiTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
 			path: test/classes/Plugins/Import/ImportLdiTest.php
 
 		-
@@ -27496,16 +24936,6 @@ parameters:
 			path: test/classes/Plugins/Import/ImportLdiTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Import/ImportMediawikiTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Import/ImportMediawikiTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\File constructor expects bool\\|string, mixed given\\.$#"
 			count: 1
 			path: test/classes/Plugins/Import/ImportMediawikiTest.php
@@ -27514,16 +24944,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 5
 			path: test/classes/Plugins/Import/ImportMediawikiTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Import/ImportOdsTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Import/ImportOdsTest.php
 
 		-
 			message: "#^Class PhpMyAdmin\\\\Tests\\\\Plugins\\\\Import\\\\ImportOdsTest has an uninitialized property \\$dbi\\. Give it default value or assign it in the constructor\\.$#"
@@ -27541,16 +24961,6 @@ parameters:
 			path: test/classes/Plugins/Import/ImportOdsTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Import/ImportShpTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Import/ImportShpTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$importNotice of method PhpMyAdmin\\\\Tests\\\\Plugins\\\\Import\\\\ImportShpTest\\:\\:assertMessages\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: test/classes/Plugins/Import/ImportShpTest.php
@@ -27559,16 +24969,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 7
 			path: test/classes/Plugins/Import/ImportShpTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Import/ImportSqlTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Import/ImportSqlTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\File constructor expects bool\\|string, mixed given\\.$#"
@@ -27581,16 +24981,6 @@ parameters:
 			path: test/classes/Plugins/Import/ImportSqlTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Import/ImportXmlTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Import/ImportXmlTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\File constructor expects bool\\|string, mixed given\\.$#"
 			count: 1
 			path: test/classes/Plugins/Import/ImportXmlTest.php
@@ -27599,46 +24989,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 5
 			path: test/classes/Plugins/Import/ImportXmlTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Schema/DiaRelationSchemaTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Schema/DiaRelationSchemaTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Schema/EpsRelationSchemaTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Schema/EpsRelationSchemaTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Schema/PdfRelationSchemaTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Schema/PdfRelationSchemaTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Schema/SvgRelationSchemaTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Plugins/Schema/SvgRelationSchemaTest.php
 
 		-
 			message: "#^Cannot access offset 'CodemirrorEnable' on mixed\\.$#"
@@ -27766,17 +25116,7 @@ parameters:
 			path: test/classes/Server/PluginsTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 2
-			path: test/classes/Server/PluginsTest.php
-
-		-
 			message: "#^Cannot access offset 'MaxCharactersInDisp…' on mixed\\.$#"
-			count: 2
-			path: test/classes/Server/PluginsTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
 			count: 2
 			path: test/classes/Server/PluginsTest.php
 
@@ -27803,21 +25143,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'DefaultTabTable' on mixed\\.$#"
 			count: 2
-			path: test/classes/Server/PrivilegesTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 9
-			path: test/classes/Server/PrivilegesTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 10
-			path: test/classes/Server/PrivilegesTest.php
-
-		-
-			message: "#^Cannot access offset 'only_db' on mixed\\.$#"
-			count: 1
 			path: test/classes/Server/PrivilegesTest.php
 
 		-
@@ -28006,11 +25331,6 @@ parameters:
 			path: test/classes/SqlQueryFormTest.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 3
-			path: test/classes/SqlQueryFormTest.php
-
-		-
 			message: "#^Cannot access offset 'ServerDefault' on mixed\\.$#"
 			count: 1
 			path: test/classes/SqlQueryFormTest.php
@@ -28032,21 +25352,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'ZipDump' on mixed\\.$#"
-			count: 1
-			path: test/classes/SqlQueryFormTest.php
-
-		-
-			message: "#^Cannot access offset 'bookmarktable' on mixed\\.$#"
-			count: 1
-			path: test/classes/SqlQueryFormTest.php
-
-		-
-			message: "#^Cannot access offset 'pmadb' on mixed\\.$#"
-			count: 1
-			path: test/classes/SqlQueryFormTest.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
 			count: 1
 			path: test/classes/SqlQueryFormTest.php
 
@@ -28091,11 +25396,6 @@ parameters:
 			path: test/classes/SqlTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 2
-			path: test/classes/SqlTest.php
-
-		-
 			message: "#^Cannot access offset 'LimitChars' on mixed\\.$#"
 			count: 1
 			path: test/classes/SqlTest.php
@@ -28118,11 +25418,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'SendErrorReports' on mixed\\.$#"
 			count: 1
-			path: test/classes/SqlTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 3
 			path: test/classes/SqlTest.php
 
 		-
@@ -28153,11 +25448,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'tmpval' on mixed\\.$#"
 			count: 4
-			path: test/classes/SqlTest.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
 			path: test/classes/SqlTest.php
 
 		-
@@ -28206,42 +25496,7 @@ parameters:
 			path: test/classes/Stubs/ResponseRenderer.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/SystemDatabaseTest.php
-
-		-
-			message: "#^Cannot access offset 'pmadb' on mixed\\.$#"
-			count: 1
-			path: test/classes/SystemDatabaseTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Table/ColumnsDefinitionTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Table/ColumnsDefinitionTest.php
-
-		-
 			message: "#^Call to an undefined method PhpMyAdmin\\\\DatabaseInterface\\:\\:expects\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Table/IndexesTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Table/IndexesTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: test/classes/Table/IndexesTest.php
-
-		-
-			message: "#^Cannot access offset 'pmadb' on mixed\\.$#"
 			count: 1
 			path: test/classes/Table/IndexesTest.php
 
@@ -28281,11 +25536,6 @@ parameters:
 			path: test/classes/TableTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 2
-			path: test/classes/TableTest.php
-
-		-
 			message: "#^Cannot access offset 'Key_name' on mixed\\.$#"
 			count: 1
 			path: test/classes/TableTest.php
@@ -28302,21 +25552,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'SCHEMA_TABLES' on mixed\\.$#"
-			count: 1
-			path: test/classes/TableTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 4
-			path: test/classes/TableTest.php
-
-		-
-			message: "#^Cannot access offset 'pmadb' on mixed\\.$#"
-			count: 1
-			path: test/classes/TableTest.php
-
-		-
-			message: "#^Cannot access offset 'table_uiprefs' on mixed\\.$#"
 			count: 1
 			path: test/classes/TableTest.php
 
@@ -28386,53 +25621,13 @@ parameters:
 			path: test/classes/Theme/ThemeTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\.$#"
+			count: 4
 			path: test/classes/Tracking/TrackerTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 13
-			path: test/classes/Tracking/TrackerTest.php
-
-		-
-			message: "#^Cannot access offset 'tracking_add_drop…' on mixed\\.$#"
-			count: 7
-			path: test/classes/Tracking/TrackerTest.php
-
-		-
-			message: "#^Cannot access offset 'tracking_default…' on mixed\\.$#"
-			count: 1
-			path: test/classes/Tracking/TrackerTest.php
-
-		-
-			message: "#^Cannot access offset 'tracking_version…' on mixed\\.$#"
-			count: 1
-			path: test/classes/Tracking/TrackerTest.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 3
-			path: test/classes/Tracking/TrackerTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/Tracking/TrackingTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
-			path: test/classes/Tracking/TrackingTest.php
 
 		-
 			message: "#^Cannot access offset 'statement' on mixed\\.$#"
 			count: 2
-			path: test/classes/Tracking/TrackingTest.php
-
-		-
-			message: "#^Cannot access offset 'tracking_default…' on mixed\\.$#"
-			count: 1
 			path: test/classes/Tracking/TrackingTest.php
 
 		-
@@ -28456,59 +25651,9 @@ parameters:
 			path: test/classes/TransformationsTest.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 7
-			path: test/classes/TransformationsTest.php
-
-		-
-			message: "#^Cannot access offset 'bookmarktable' on mixed\\.$#"
-			count: 1
-			path: test/classes/TransformationsTest.php
-
-		-
-			message: "#^Cannot access offset 'column_info' on mixed\\.$#"
-			count: 1
-			path: test/classes/TransformationsTest.php
-
-		-
-			message: "#^Cannot access offset 'pmadb' on mixed\\.$#"
-			count: 1
-			path: test/classes/TransformationsTest.php
-
-		-
-			message: "#^Cannot access offset 'relation' on mixed\\.$#"
-			count: 1
-			path: test/classes/TransformationsTest.php
-
-		-
 			message: "#^Cannot access offset 'sql' on mixed\\.$#"
 			count: 1
 			path: test/classes/TransformationsTest.php
-
-		-
-			message: "#^Cannot access offset 'table_coords' on mixed\\.$#"
-			count: 1
-			path: test/classes/TransformationsTest.php
-
-		-
-			message: "#^Cannot access offset 'table_info' on mixed\\.$#"
-			count: 1
-			path: test/classes/TransformationsTest.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: test/classes/TransformationsTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 5
-			path: test/classes/Triggers/TriggersTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 5
-			path: test/classes/Triggers/TriggersTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\) expects Countable\\|iterable, mixed given\\.$#"
@@ -28526,123 +25671,13 @@ parameters:
 			path: test/classes/TwoFactorTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/TwoFactorTest.php
-
-		-
 			message: "#^Cannot access offset 'NaturalOrder' on mixed\\.$#"
-			count: 1
-			path: test/classes/TwoFactorTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 21
-			path: test/classes/TwoFactorTest.php
-
-		-
-			message: "#^Cannot access offset 'bookmarktable' on mixed\\.$#"
-			count: 1
-			path: test/classes/TwoFactorTest.php
-
-		-
-			message: "#^Cannot access offset 'central_columns' on mixed\\.$#"
-			count: 1
-			path: test/classes/TwoFactorTest.php
-
-		-
-			message: "#^Cannot access offset 'column_info' on mixed\\.$#"
-			count: 1
-			path: test/classes/TwoFactorTest.php
-
-		-
-			message: "#^Cannot access offset 'designer_settings' on mixed\\.$#"
-			count: 1
-			path: test/classes/TwoFactorTest.php
-
-		-
-			message: "#^Cannot access offset 'export_templates' on mixed\\.$#"
-			count: 1
-			path: test/classes/TwoFactorTest.php
-
-		-
-			message: "#^Cannot access offset 'favorite' on mixed\\.$#"
-			count: 1
-			path: test/classes/TwoFactorTest.php
-
-		-
-			message: "#^Cannot access offset 'history' on mixed\\.$#"
-			count: 1
-			path: test/classes/TwoFactorTest.php
-
-		-
-			message: "#^Cannot access offset 'navigationhiding' on mixed\\.$#"
-			count: 1
-			path: test/classes/TwoFactorTest.php
-
-		-
-			message: "#^Cannot access offset 'pdf_pages' on mixed\\.$#"
-			count: 1
-			path: test/classes/TwoFactorTest.php
-
-		-
-			message: "#^Cannot access offset 'recent' on mixed\\.$#"
-			count: 1
-			path: test/classes/TwoFactorTest.php
-
-		-
-			message: "#^Cannot access offset 'relation' on mixed\\.$#"
-			count: 1
-			path: test/classes/TwoFactorTest.php
-
-		-
-			message: "#^Cannot access offset 'savedsearches' on mixed\\.$#"
 			count: 1
 			path: test/classes/TwoFactorTest.php
 
 		-
 			message: "#^Cannot access offset 'simple2fa' on mixed\\.$#"
 			count: 6
-			path: test/classes/TwoFactorTest.php
-
-		-
-			message: "#^Cannot access offset 'table_coords' on mixed\\.$#"
-			count: 1
-			path: test/classes/TwoFactorTest.php
-
-		-
-			message: "#^Cannot access offset 'table_info' on mixed\\.$#"
-			count: 1
-			path: test/classes/TwoFactorTest.php
-
-		-
-			message: "#^Cannot access offset 'table_uiprefs' on mixed\\.$#"
-			count: 1
-			path: test/classes/TwoFactorTest.php
-
-		-
-			message: "#^Cannot access offset 'tracking' on mixed\\.$#"
-			count: 1
-			path: test/classes/TwoFactorTest.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: test/classes/TwoFactorTest.php
-
-		-
-			message: "#^Cannot access offset 'userconfig' on mixed\\.$#"
-			count: 1
-			path: test/classes/TwoFactorTest.php
-
-		-
-			message: "#^Cannot access offset 'usergroups' on mixed\\.$#"
-			count: 1
-			path: test/classes/TwoFactorTest.php
-
-		-
-			message: "#^Cannot access offset 'users' on mixed\\.$#"
-			count: 1
 			path: test/classes/TwoFactorTest.php
 
 		-
@@ -28674,16 +25709,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\UserPasswordTest\\:\\:providerSetChangePasswordMsg\\(\\) should return array\\<array\\{bool, PhpMyAdmin\\\\Message, string, string, string\\}\\> but returns array\\{array\\{false, PhpMyAdmin\\\\Message, true, '', ''\\}, array\\{true, PhpMyAdmin\\\\Message, false, '', ''\\}, array\\{true, PhpMyAdmin\\\\Message, false, 'a', ''\\}, array\\{true, PhpMyAdmin\\\\Message, false, '', 'a'\\}, array\\{true, PhpMyAdmin\\\\Message, false, 'a', 'b'\\}, array\\{true, PhpMyAdmin\\\\Message, false, literal\\-string&non\\-falsy\\-string, literal\\-string&non\\-falsy\\-string\\}, array\\{false, PhpMyAdmin\\\\Message, false, literal\\-string&non\\-falsy\\-string, literal\\-string&non\\-falsy\\-string\\}\\}\\.$#"
 			count: 1
 			path: test/classes/UserPasswordTest.php
-
-		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 1
-			path: test/classes/UserPreferencesTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/UserPreferencesTest.php
 
 		-
 			message: "#^Cannot access offset 'ServerDefault' on mixed\\.$#"
@@ -28731,18 +25756,8 @@ parameters:
 			path: test/classes/UtilTest.php
 
 		-
-			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 2
-			path: test/classes/UtilTest.php
-
-		-
 			message: "#^Cannot access offset 'LimitChars' on mixed\\.$#"
 			count: 1
-			path: test/classes/UtilTest.php
-
-		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 3
 			path: test/classes/UtilTest.php
 
 		-
@@ -28761,11 +25776,6 @@ parameters:
 			path: test/classes/UtilTest.php
 
 		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: test/classes/UtilTest.php
-
-		-
 			message: "#^Casting to string something that's already string\\.$#"
 			count: 1
 			path: test/classes/UtilTest.php
@@ -28778,6 +25788,11 @@ parameters:
 		-
 			message: "#^Parameter \\#2 \\$array of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayNotHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
 			count: 2
+			path: test/classes/UtilTest.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\.$#"
+			count: 1
 			path: test/classes/UtilTest.php
 
 		-
@@ -28806,11 +25821,6 @@ parameters:
 			path: test/classes/Utils/HttpRequestTest.php
 
 		-
-			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 6
-			path: test/classes/Utils/SessionCacheTest.php
-
-		-
 			message: "#^Cannot access offset 'server_server' on mixed\\.$#"
 			count: 4
 			path: test/classes/Utils/SessionCacheTest.php
@@ -28826,13 +25836,13 @@ parameters:
 			path: test/classes/Utils/SessionCacheTest.php
 
 		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 6
+			message: "#^Parameter \\#2 \\$array of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayNotHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
+			count: 2
 			path: test/classes/Utils/SessionCacheTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$array of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayNotHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
-			count: 2
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\.$#"
+			count: 5
 			path: test/classes/Utils/SessionCacheTest.php
 
 		-

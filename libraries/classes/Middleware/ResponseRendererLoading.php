@@ -25,7 +25,7 @@ final class ResponseRendererLoading implements MiddlewareInterface
         assert($request instanceof ServerRequest);
         $responseRenderer = ResponseRenderer::getInstance();
         $responseRenderer->setAjax($request->isAjax());
-        if ($this->config->getCurrentServer() === null) {
+        if (! $this->config->hasSelectedServer()) {
             $responseRenderer->getHeader()->disableMenuAndConsole();
             $responseRenderer->setMinimalFooter();
         }

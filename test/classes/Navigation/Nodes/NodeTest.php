@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Navigation\Nodes\Node;
@@ -284,33 +285,34 @@ final class NodeTest extends AbstractTestCase
             $method->invoke($node, 'SCHEMA_NAME', 'schemaName'),
         );
 
-        if (! isset($GLOBALS['cfg']['Server'])) {
-            $GLOBALS['cfg']['Server'] = [];
+        $config = Config::getInstance();
+        if (! isset($config->selectedServer)) {
+            $config->selectedServer = [];
         }
 
         // When hide_db regular expression is present
-        $GLOBALS['cfg']['Server']['hide_db'] = 'regexpHideDb';
+        $config->selectedServer['hide_db'] = 'regexpHideDb';
         $this->assertSame(
             "WHERE TRUE AND `SCHEMA_NAME` NOT REGEXP 'regexpHideDb' ",
             $method->invoke($node, 'SCHEMA_NAME'),
         );
-        unset($GLOBALS['cfg']['Server']['hide_db']);
+        unset($config->selectedServer['hide_db']);
 
         // When only_db directive is present and it's a single db
-        $GLOBALS['cfg']['Server']['only_db'] = 'stringOnlyDb';
+        $config->selectedServer['only_db'] = 'stringOnlyDb';
         $this->assertSame(
             "WHERE TRUE AND ( `SCHEMA_NAME` LIKE 'stringOnlyDb' ) ",
             $method->invoke($node, 'SCHEMA_NAME'),
         );
-        unset($GLOBALS['cfg']['Server']['only_db']);
+        unset($config->selectedServer['only_db']);
 
         // When only_db directive is present and it's an array of dbs
-        $GLOBALS['cfg']['Server']['only_db'] = ['onlyDbOne', 'onlyDbTwo'];
+        $config->selectedServer['only_db'] = ['onlyDbOne', 'onlyDbTwo'];
         $this->assertSame(
             'WHERE TRUE AND ( `SCHEMA_NAME` LIKE \'onlyDbOne\' OR `SCHEMA_NAME` LIKE \'onlyDbTwo\' ) ',
             $method->invoke($node, 'SCHEMA_NAME'),
         );
-        unset($GLOBALS['cfg']['Server']['only_db']);
+        unset($config->selectedServer['only_db']);
     }
 
     /**
@@ -318,7 +320,7 @@ final class NodeTest extends AbstractTestCase
      */
     public function testGetDataWithEnabledISAndGroupingEnabled(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
         $GLOBALS['cfg']['FirstLevelNavigationItems'] = 20;
         $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';
@@ -361,7 +363,7 @@ final class NodeTest extends AbstractTestCase
      */
     public function testGetDataWithEnabledISAndGroupingDisabled(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = false;
         $GLOBALS['cfg']['FirstLevelNavigationItems'] = 20;
 
@@ -392,7 +394,7 @@ final class NodeTest extends AbstractTestCase
      */
     public function testGetDataWithDisabledISAndGroupingEnabled(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        Config::getInstance()->selectedServer['DisableIS'] = true;
         $GLOBALS['dbs_to_test'] = false;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
         $GLOBALS['cfg']['FirstLevelNavigationItems'] = 10;
@@ -436,7 +438,7 @@ final class NodeTest extends AbstractTestCase
      */
     public function testGetPresenceWithEnabledISAndGroupingEnabled(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
         $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';
 
@@ -461,7 +463,7 @@ final class NodeTest extends AbstractTestCase
      */
     public function testGetPresenceWithEnabledISAndGroupingDisabled(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = false;
 
         $query = 'SELECT COUNT(*) ';
@@ -480,7 +482,7 @@ final class NodeTest extends AbstractTestCase
      */
     public function testGetPresenceWithDisabledIS(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        Config::getInstance()->selectedServer['DisableIS'] = true;
         $GLOBALS['dbs_to_test'] = false;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
 

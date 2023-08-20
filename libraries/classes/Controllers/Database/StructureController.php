@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
@@ -230,6 +231,7 @@ class StructureController extends AbstractController
         $overallApproxRows = false;
         $structureTableRows = [];
         $trackedTables = $this->trackingChecker->getTrackedTables($GLOBALS['db']);
+        $config = Config::getInstance();
         foreach ($this->tables as $currentTable) {
             // Get valid statistics whatever is the table type
 
@@ -263,7 +265,7 @@ class StructureController extends AbstractController
             if (isset($currentTable['Collation'])) {
                 $tableCollation = Charsets::findCollationByName(
                     $this->dbi,
-                    $GLOBALS['cfg']['Server']['DisableIS'],
+                    $config->selectedServer['DisableIS'],
                     $currentTable['Collation'],
                 );
                 if ($tableCollation !== null) {
@@ -442,7 +444,7 @@ class StructureController extends AbstractController
         $databaseCharset = '';
         $collation = Charsets::findCollationByName(
             $this->dbi,
-            $GLOBALS['cfg']['Server']['DisableIS'],
+            $config->selectedServer['DisableIS'],
             $this->dbi->getDbCollation($GLOBALS['db']),
         );
         if ($collation !== null) {

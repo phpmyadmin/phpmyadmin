@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Console\Bookmark;
 
 use PhpMyAdmin\Bookmark;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
@@ -36,7 +37,7 @@ final class AddController extends AbstractController
 
         $bookmarkFields = [
             'bkm_database' => $db,
-            'bkm_user' => $GLOBALS['cfg']['Server']['user'],
+            'bkm_user' => Config::getInstance()->selectedServer['user'],
             'bkm_sql_query' => $bookmarkQuery,
             'bkm_label' => $label,
         ];

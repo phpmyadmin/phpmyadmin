@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Http\ServerRequest;
@@ -67,7 +68,7 @@ class UtilTest extends AbstractTestCase
     public function testGetUniqueCondition(): void
     {
         $GLOBALS['db'] = 'db';
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
 
         $actual = Util::getUniqueCondition(0, [], []);
         $this->assertEquals(['', false, []], $actual);
@@ -444,6 +445,7 @@ class UtilTest extends AbstractTestCase
 
     public function testClearUserCache(): void
     {
+        Config::getInstance()->selectedServer['user'] = null;
         $GLOBALS['server'] = 'server';
         SessionCache::set('is_superuser', 'yes');
         $this->assertEquals('yes', $_SESSION['cache']['server_server']['is_superuser']);
@@ -501,7 +503,9 @@ class UtilTest extends AbstractTestCase
     {
         parent::setGlobalConfig();
 
-        $GLOBALS['cfg'] = ['Server' => ['host' => 'host&', 'verbose' => 'verbose']];
+        $config = Config::getInstance();
+        $config->selectedServer['host'] = 'host&';
+        $config->selectedServer['verbose'] = 'verbose';
         $GLOBALS['db'] = 'database';
         $GLOBALS['table'] = 'table';
 
@@ -1176,7 +1180,7 @@ class UtilTest extends AbstractTestCase
     #[DataProvider('providerUserDir')]
     public function testUserDir(string $a, string $e): void
     {
-        $GLOBALS['cfg']['Server']['user'] = 'root';
+        Config::getInstance()->selectedServer['user'] = 'root';
 
         $this->assertEquals($e, Util::userDir($a));
     }
@@ -1657,7 +1661,7 @@ SQL;
 
     public function testGetDbInfo(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        Config::getInstance()->selectedServer['DisableIS'] = true;
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addResult('SHOW TABLES FROM `test_db`;', [['test_table']], ['Tables_in_test_db']);

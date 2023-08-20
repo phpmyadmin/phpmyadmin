@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\ShowEngineController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\MySQLDocumentation;
@@ -45,7 +46,7 @@ class ShowEngineControllerTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
 
         $response = new ResponseRenderer();
         $this->dummyDbi->addSelectDb('mysql');

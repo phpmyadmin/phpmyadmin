@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Exceptions\AuthenticationPluginException;
 
 use function __;
@@ -23,7 +24,7 @@ class AuthenticationPluginFactory
             return $this->plugin;
         }
 
-        $authType = $GLOBALS['cfg']['Server']['auth_type'];
+        $authType = Config::getInstance()->selectedServer['auth_type'];
         $class = 'PhpMyAdmin\\Plugins\\Auth\\Authentication' . ucfirst(strtolower($authType));
         if (! class_exists($class) || ! is_subclass_of($class, AuthenticationPlugin::class)) {
             throw new AuthenticationPluginException(

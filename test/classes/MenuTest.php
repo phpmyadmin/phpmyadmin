@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Menu;
 use PhpMyAdmin\Template;
@@ -30,9 +31,10 @@ class MenuTest extends AbstractTestCase
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
 
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = false;
         $GLOBALS['server'] = 0;
-        $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
+        $config->selectedServer['verbose'] = 'verbose host';
         $GLOBALS['server'] = 'server';
         $GLOBALS['db'] = 'pma_test';
         $GLOBALS['table'] = 'table1';

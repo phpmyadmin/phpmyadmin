@@ -44,8 +44,9 @@ class ExportControllerTest extends AbstractTestCase
 
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';
-        $GLOBALS['cfg']['Server'] = Config::getInstance()->getSettings()->Servers[1]->asArray();
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        $config = Config::getInstance();
+        $config->selectedServer = $config->getSettings()->Servers[1]->asArray();
+        $config->selectedServer['DisableIS'] = true;
         $GLOBALS['single_table'] = '1';
 
         $dummyDbi = $this->createDbiDummy();

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server\Databases;
 
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
@@ -50,8 +51,9 @@ final class CreateController extends AbstractController
         $sqlQuery = 'CREATE DATABASE ' . Util::backquote($newDb);
         if (is_string($dbCollation) && $dbCollation !== '') {
             [$databaseCharset] = explode('_', $dbCollation);
-            $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
-            $collations = Charsets::getCollations($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+            $config = Config::getInstance();
+            $charsets = Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
+            $collations = Charsets::getCollations($this->dbi, $config->selectedServer['DisableIS']);
             if (
                 array_key_exists($databaseCharset, $charsets)
                 && array_key_exists($dbCollation, $collations[$databaseCharset])

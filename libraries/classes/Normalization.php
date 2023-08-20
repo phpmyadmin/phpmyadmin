@@ -143,8 +143,9 @@ class Normalization
             ];
         }
 
-        $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
-        $collations = Charsets::getCollations($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+        $config = Config::getInstance();
+        $charsets = Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
+        $collations = Charsets::getCollations($this->dbi, $config->selectedServer['DisableIS']);
         $charsetsList = [];
         foreach ($charsets as $charset) {
             $collationsList = [];

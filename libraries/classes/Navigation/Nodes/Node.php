@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Features\NavigationItemsHidingFeature;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
@@ -365,7 +366,8 @@ class Node
         int $pos,
         string $searchClause = '',
     ): array {
-        if (isset($GLOBALS['cfg']['Server']['DisableIS']) && ! $GLOBALS['cfg']['Server']['DisableIS']) {
+        $config = Config::getInstance();
+        if (isset($config->selectedServer['DisableIS']) && ! $config->selectedServer['DisableIS']) {
             return $this->getDataFromInfoSchema($pos, $searchClause);
         }
 
@@ -388,8 +390,9 @@ class Node
     public function getPresence(string $type = '', string $searchClause = ''): int
     {
         $dbi = DatabaseInterface::getInstance();
+        $config = Config::getInstance();
         if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping'] || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
-            if (isset($GLOBALS['cfg']['Server']['DisableIS']) && ! $GLOBALS['cfg']['Server']['DisableIS']) {
+            if (isset($config->selectedServer['DisableIS']) && ! $config->selectedServer['DisableIS']) {
                 $query = 'SELECT COUNT(*) ';
                 $query .= 'FROM INFORMATION_SCHEMA.SCHEMATA ';
                 $query .= $this->getWhereClause('SCHEMA_NAME', $searchClause);
@@ -414,7 +417,7 @@ class Node
         }
 
         $dbSeparator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+        if (! $config->selectedServer['DisableIS']) {
             $query = 'SELECT COUNT(*) ';
             $query .= 'FROM ( ';
             $query .= 'SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, ';
@@ -478,8 +481,10 @@ class Node
      */
     private function isHideDb(string $db): bool
     {
-        return ! empty($GLOBALS['cfg']['Server']['hide_db'])
-            && preg_match('/' . $GLOBALS['cfg']['Server']['hide_db'] . '/', $db);
+        $config = Config::getInstance();
+
+        return ! empty($config->selectedServer['hide_db'])
+            && preg_match('/' . $config->selectedServer['hide_db'] . '/', $db);
     }
 
     /**
@@ -495,10 +500,11 @@ class Node
     private function getDatabasesToSearch(string $searchClause): array
     {
         $databases = [];
+        $config = Config::getInstance();
         if ($searchClause !== '') {
             $databases = ['%' . DatabaseInterface::getInstance()->escapeString($searchClause) . '%'];
-        } elseif (! empty($GLOBALS['cfg']['Server']['only_db'])) {
-            $databases = $GLOBALS['cfg']['Server']['only_db'];
+        } elseif (! empty($config->selectedServer['only_db'])) {
+            $databases = $config->selectedServer['only_db'];
         } elseif (! empty($GLOBALS['dbs_to_test'])) {
             $databases = $GLOBALS['dbs_to_test'];
         }
@@ -526,21 +532,22 @@ class Node
             $whereClause .= "%' ";
         }
 
-        if (! empty($GLOBALS['cfg']['Server']['hide_db'])) {
+        $config = Config::getInstance();
+        if (! empty($config->selectedServer['hide_db'])) {
             $whereClause .= 'AND ' . Util::backquote($columnName)
                 . " NOT REGEXP '"
-                . $dbi->escapeString($GLOBALS['cfg']['Server']['hide_db'])
+                . $dbi->escapeString($config->selectedServer['hide_db'])
                 . "' ";
         }
 
-        if (! empty($GLOBALS['cfg']['Server']['only_db'])) {
-            if (is_string($GLOBALS['cfg']['Server']['only_db'])) {
-                $GLOBALS['cfg']['Server']['only_db'] = [$GLOBALS['cfg']['Server']['only_db']];
+        if (! empty($config->selectedServer['only_db'])) {
+            if (is_string($config->selectedServer['only_db'])) {
+                $config->selectedServer['only_db'] = [$config->selectedServer['only_db']];
             }
 
             $whereClause .= 'AND (';
             $subClauses = [];
-            foreach ($GLOBALS['cfg']['Server']['only_db'] as $eachOnlyDb) {
+            foreach ($config->selectedServer['only_db'] as $eachOnlyDb) {
                 $subClauses[] = ' ' . Util::backquote($columnName)
                     . " LIKE '"
                     . $dbi->escapeString($eachOnlyDb) . "' ";
@@ -623,7 +630,7 @@ class Node
             $dbi = DatabaseInterface::getInstance();
             $sqlQuery = 'SELECT `db_name`, COUNT(*) AS `count` FROM ' . $navTable
                 . " WHERE `username`='"
-                . $dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "'"
+                . $dbi->escapeString(Config::getInstance()->selectedServer['user']) . "'"
                 . ' GROUP BY `db_name`';
 
             return $dbi->fetchResult($sqlQuery, 'db_name', 'count', Connection::TYPE_CONTROL);

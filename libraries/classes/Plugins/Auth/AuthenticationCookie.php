@@ -434,10 +434,11 @@ class AuthenticationCookie extends AuthenticationPlugin
                 $tmpPort = '';
             }
 
-            if ($GLOBALS['cfg']['Server']['host'] != $GLOBALS['pma_auth_server']) {
-                $GLOBALS['cfg']['Server']['host'] = $tmpHost;
+            $config = Config::getInstance();
+            if ($config->selectedServer['host'] != $GLOBALS['pma_auth_server']) {
+                $config->selectedServer['host'] = $tmpHost;
                 if ($tmpPort !== '') {
-                    $GLOBALS['cfg']['Server']['port'] = $tmpPort;
+                    $config->selectedServer['port'] = $tmpPort;
                 }
             }
 

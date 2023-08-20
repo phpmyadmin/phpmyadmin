@@ -58,12 +58,13 @@ class ListDatabase extends ListAbstract
      */
     protected function checkHideDatabase(): void
     {
-        if (empty($GLOBALS['cfg']['Server']['hide_db'])) {
+        $config = Config::getInstance();
+        if (empty($config->selectedServer['hide_db'])) {
             return;
         }
 
         foreach ($this->getArrayCopy() as $key => $db) {
-            if (! preg_match('/' . $GLOBALS['cfg']['Server']['hide_db'] . '/', $db)) {
+            if (! preg_match('/' . $config->selectedServer['hide_db'] . '/', $db)) {
                 continue;
             }
 
@@ -82,7 +83,7 @@ class ListDatabase extends ListAbstract
     {
         $databaseList = [];
         $command = '';
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+        if (! Config::getInstance()->selectedServer['DisableIS']) {
             $command .= 'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`';
             if ($likeDbName !== null) {
                 $command .= " WHERE `SCHEMA_NAME` LIKE '" . $likeDbName . "'";
@@ -134,17 +135,18 @@ class ListDatabase extends ListAbstract
      */
     protected function checkOnlyDatabase(): bool
     {
-        if (is_string($GLOBALS['cfg']['Server']['only_db']) && strlen($GLOBALS['cfg']['Server']['only_db']) > 0) {
-            $GLOBALS['cfg']['Server']['only_db'] = [$GLOBALS['cfg']['Server']['only_db']];
+        $config = Config::getInstance();
+        if (is_string($config->selectedServer['only_db']) && strlen($config->selectedServer['only_db']) > 0) {
+            $config->selectedServer['only_db'] = [$config->selectedServer['only_db']];
         }
 
-        if (! is_array($GLOBALS['cfg']['Server']['only_db'])) {
+        if (! is_array($config->selectedServer['only_db'])) {
             return false;
         }
 
         $items = [];
 
-        foreach ($GLOBALS['cfg']['Server']['only_db'] as $eachOnlyDb) {
+        foreach ($config->selectedServer['only_db'] as $eachOnlyDb) {
             // check if the db name contains wildcard,
             // thus containing not escaped _ or %
             if (! preg_match('/(^|[^\\\\])(_|%)/', $eachOnlyDb)) {

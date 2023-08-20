@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
@@ -429,8 +430,9 @@ class ExportLatexTest extends AbstractTestCase
 
     public function testExportHeader(): void
     {
-        $GLOBALS['cfg']['Server']['port'] = 80;
-        $GLOBALS['cfg']['Server']['host'] = 'localhost';
+        $config = Config::getInstance();
+        $config->selectedServer['port'] = 80;
+        $config->selectedServer['host'] = 'localhost';
 
         ob_start();
         $this->assertTrue(
@@ -481,8 +483,9 @@ class ExportLatexTest extends AbstractTestCase
         $GLOBALS['latex_columns'] = true;
         $GLOBALS['latex_data_label'] = 'datalabel';
         $GLOBALS['latex_null'] = 'null';
-        $GLOBALS['cfg']['Server']['host'] = 'localhost';
-        $GLOBALS['cfg']['Server']['verbose'] = 'verb';
+        $config = Config::getInstance();
+        $config->selectedServer['host'] = 'localhost';
+        $config->selectedServer['verbose'] = 'verb';
 
         ob_start();
         $this->assertTrue($this->object->exportData(
@@ -738,8 +741,9 @@ class ExportLatexTest extends AbstractTestCase
         $GLOBALS['latex_structure_caption'] = 'latexstructure';
         $GLOBALS['latex_structure_label'] = 'latexlabel';
         $GLOBALS['latex_structure_continued_caption'] = 'latexcontinued';
-        $GLOBALS['cfg']['Server']['host'] = 'localhost';
-        $GLOBALS['cfg']['Server']['verbose'] = 'verb';
+        $config = Config::getInstance();
+        $config->selectedServer['host'] = 'localhost';
+        $config->selectedServer['verbose'] = 'verb';
 
         $relationParameters = RelationParameters::fromArray([
             'db' => 'database',

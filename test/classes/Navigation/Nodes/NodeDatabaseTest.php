@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Navigation\Nodes\NodeDatabase;
@@ -35,7 +36,7 @@ class NodeDatabaseTest extends AbstractTestCase
      */
     public function testGetPresence(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        Config::getInstance()->selectedServer['DisableIS'] = true;
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
         $parent = new NodeDatabase('default');
@@ -66,7 +67,7 @@ class NodeDatabaseTest extends AbstractTestCase
      */
     public function testGetData(): void
     {
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        Config::getInstance()->selectedServer['DisableIS'] = true;
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
         $relationParameters = RelationParameters::fromArray([

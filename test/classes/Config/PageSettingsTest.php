@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Config;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
@@ -36,7 +37,7 @@ class PageSettingsTest extends AbstractTestCase
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = '';
         $_SERVER['SCRIPT_NAME'] = 'index.php';
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
     }
 
     /**

@@ -38,7 +38,7 @@ final class Authentication implements MiddlewareInterface
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        if ($this->config->getCurrentServer() === null) {
+        if (! $this->config->hasSelectedServer()) {
             return $handler->handle($request);
         }
 
@@ -58,7 +58,7 @@ final class Authentication implements MiddlewareInterface
 
         try {
             $authPlugin->authenticate();
-            $currentServer = new Server($GLOBALS['cfg']['Server']);
+            $currentServer = new Server(Config::getInstance()->selectedServer);
 
             /* Enable LOAD DATA LOCAL INFILE for LDI plugin */
             if ($request->getAttribute('route') === '/import' && ($_POST['format'] ?? '') === 'ldi') {

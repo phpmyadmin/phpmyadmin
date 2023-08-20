@@ -693,10 +693,18 @@ PHP;
         $selectedServer = $config->selectServer($request);
         $this->assertSame($expected, $selectedServer);
         $this->assertGreaterThanOrEqual(0, $selectedServer);
-        $expectedServer = $expected >= 1 ? $config->config->Servers[$expected]->asArray() : [];
         $this->assertArrayHasKey('Server', $config->settings);
-        $this->assertSame($config->settings['Server'], $expectedServer);
         $this->assertSame($expected, $config->server);
+        if ($expected >= 1) {
+            $this->assertTrue($config->hasSelectedServer());
+            $expectedServer = $config->config->Servers[$expected]->asArray();
+            $this->assertSame($expectedServer, $config->settings['Server']);
+            $this->assertSame($expectedServer, $config->selectedServer);
+        } else {
+            $this->assertFalse($config->hasSelectedServer());
+            $this->assertSame([], $config->settings['Server']);
+            $this->assertSame((new Server())->asArray(), $config->selectedServer);
+        }
     }
 
     /**

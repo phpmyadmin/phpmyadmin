@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tracking;
 
 use DateTimeImmutable;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
@@ -171,7 +172,7 @@ class Tracking
             'last_version' => $lastVersion,
             'versions' => $versions,
             'type' => $type,
-            'default_statements' => $GLOBALS['cfg']['Server']['tracking_default_statements'],
+            'default_statements' => Config::getInstance()->selectedServer['tracking_default_statements'],
             'text_dir' => $textDir,
         ]);
     }

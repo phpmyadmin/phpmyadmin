@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Exceptions\AuthenticationPluginException;
 use PhpMyAdmin\Plugins\Auth\AuthenticationConfig;
 use PhpMyAdmin\Plugins\Auth\AuthenticationCookie;
@@ -24,7 +25,7 @@ class AuthenticationPluginFactoryTest extends AbstractTestCase
     #[DataProvider('providerForTestValidPlugins')]
     public function testValidPlugins(string $type, string $class): void
     {
-        $GLOBALS['cfg']['Server']['auth_type'] = $type;
+        Config::getInstance()->selectedServer['auth_type'] = $type;
         $plugin = (new AuthenticationPluginFactory())->create();
         $this->assertInstanceOf($class, $plugin);
     }
@@ -40,7 +41,7 @@ class AuthenticationPluginFactoryTest extends AbstractTestCase
 
     public function testInvalidPlugin(): void
     {
-        $GLOBALS['cfg']['Server']['auth_type'] = 'invalid';
+        Config::getInstance()->selectedServer['auth_type'] = 'invalid';
         $this->expectException(AuthenticationPluginException::class);
         $this->expectExceptionMessage('Invalid authentication method set in configuration: invalid');
         (new AuthenticationPluginFactory())->create();
@@ -48,14 +49,15 @@ class AuthenticationPluginFactoryTest extends AbstractTestCase
 
     public function testSameInstance(): void
     {
-        $GLOBALS['cfg']['Server']['auth_type'] = 'cookie';
+        $config = Config::getInstance();
+        $config->selectedServer['auth_type'] = 'cookie';
         $factory = new AuthenticationPluginFactory();
         $firstInstance = $factory->create();
         $secondInstance = (new AuthenticationPluginFactory())->create();
         $this->assertNotSame($firstInstance, $secondInstance);
         $thirdInstance = $factory->create();
         $this->assertSame($firstInstance, $thirdInstance);
-        $GLOBALS['cfg']['Server']['auth_type'] = 'config';
+        $config->selectedServer['auth_type'] = 'config';
         $forthInstance = $factory->create();
         $this->assertSame($firstInstance, $forthInstance);
     }

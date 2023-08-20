@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Server\PrivilegesController;
 use PhpMyAdmin\DatabaseInterface;
@@ -36,7 +37,7 @@ class PrivilegesControllerTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $this->dummyDbi->addSelectDb('mysql');

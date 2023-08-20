@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Import;
 
 use PhpMyAdmin\Bookmark;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
@@ -309,12 +310,13 @@ final class ImportController extends AbstractController
         // Bookmark Support: get a query back from bookmark if required
         $idBookmark = (int) $request->getParsedBodyParam('id_bookmark');
         $actionBookmark = (int) $request->getParsedBodyParam('action_bookmark');
+        $config = Config::getInstance();
         if ($idBookmark !== 0) {
             switch ($actionBookmark) {
                 case 0: // bookmarked query that have to be run
                     $bookmark = Bookmark::get(
                         $this->dbi,
-                        $GLOBALS['cfg']['Server']['user'],
+                        $config->selectedServer['user'],
                         DatabaseName::from($GLOBALS['db']),
                         $idBookmark,
                         'id',
@@ -346,7 +348,7 @@ final class ImportController extends AbstractController
                 case 1: // bookmarked query that have to be displayed
                     $bookmark = Bookmark::get(
                         $this->dbi,
-                        $GLOBALS['cfg']['Server']['user'],
+                        $config->selectedServer['user'],
                         DatabaseName::from($GLOBALS['db']),
                         $idBookmark,
                     );
@@ -370,7 +372,7 @@ final class ImportController extends AbstractController
                 case 2: // bookmarked query that have to be deleted
                     $bookmark = Bookmark::get(
                         $this->dbi,
-                        $GLOBALS['cfg']['Server']['user'],
+                        $config->selectedServer['user'],
                         DatabaseName::from($GLOBALS['db']),
                         $idBookmark,
                     );
@@ -757,7 +759,7 @@ final class ImportController extends AbstractController
                 $this->sql->storeTheQueryAsBookmark(
                     $relation->getRelationParameters()->bookmarkFeature,
                     $GLOBALS['db'],
-                    $GLOBALS['cfg']['Server']['user'],
+                    $config->selectedServer['user'],
                     $request->getParsedBodyParam('sql_query'),
                     $request->getParsedBodyParam('bkm_label'),
                     $request->hasBodyParam('bkm_replace'),
@@ -778,7 +780,7 @@ final class ImportController extends AbstractController
                 $this->sql->storeTheQueryAsBookmark(
                     $relation->getRelationParameters()->bookmarkFeature,
                     $GLOBALS['db'],
-                    $GLOBALS['cfg']['Server']['user'],
+                    $config->selectedServer['user'],
                     $request->getParsedBodyParam('sql_query'),
                     $request->getParsedBodyParam('bkm_label'),
                     $request->hasBodyParam('bkm_replace'),

@@ -388,7 +388,7 @@ class DatabaseInterface implements DbalInterface
             $pagingApplied = true;
         }
 
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+        if (! Config::getInstance()->selectedServer['DisableIS']) {
             $sqlWhereTable = '';
             if ($table !== [] && $table !== '') {
                 if (is_array($table)) {
@@ -660,7 +660,7 @@ class DatabaseInterface implements DbalInterface
 
         $applyLimitAndOrderManual = true;
 
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+        if (! Config::getInstance()->selectedServer['DisableIS']) {
             /**
              * if $GLOBALS['cfg']['NaturalOrder'] is enabled, we cannot use LIMIT
              * cause MySQL does not support natural ordering,
@@ -790,7 +790,7 @@ class DatabaseInterface implements DbalInterface
         string|null $column = null,
         int $connectionType = Connection::TYPE_USER,
     ): array {
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+        if (! Config::getInstance()->selectedServer['DisableIS']) {
             $sql = QueryGenerator::getInformationSchemaColumnsFullRequest(
                 $database !== null ? $this->quoteString($database, $connectionType) : null,
                 $table !== null ? $this->quoteString($table, $connectionType) : null,
@@ -1460,7 +1460,7 @@ class DatabaseInterface implements DbalInterface
 
         $hasGrantPrivilege = false;
 
-        if ($GLOBALS['cfg']['Server']['DisableIS']) {
+        if (Config::getInstance()->selectedServer['DisableIS']) {
             $grants = $this->getCurrentUserGrants();
 
             foreach ($grants as $grant) {
@@ -1500,7 +1500,7 @@ class DatabaseInterface implements DbalInterface
 
         $hasCreatePrivilege = false;
 
-        if ($GLOBALS['cfg']['Server']['DisableIS']) {
+        if (Config::getInstance()->selectedServer['DisableIS']) {
             $grants = $this->getCurrentUserGrants();
 
             foreach ($grants as $grant) {
@@ -1921,7 +1921,7 @@ class DatabaseInterface implements DbalInterface
             return 'utf8_general_ci';
         }
 
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+        if (! Config::getInstance()->selectedServer['DisableIS']) {
             // this is slow with thousands of databases
             $sql = 'SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA'
                 . ' WHERE SCHEMA_NAME = ' . $this->quoteString($db)

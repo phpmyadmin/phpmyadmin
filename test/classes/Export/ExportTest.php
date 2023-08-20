@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Export;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
@@ -88,7 +89,7 @@ class ExportTest extends AbstractTestCase
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = false;
         $GLOBALS['sql_structure_or_data'] = 'structure_and_data';
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['sql_insert_syntax'] = 'both';
         $GLOBALS['sql_max_query_size'] = '50000';
 
@@ -154,8 +155,9 @@ SQL;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = false;
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['cfg']['Server']['only_db'] = '';
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = false;
+        $config->selectedServer['only_db'] = '';
         $GLOBALS['sql_structure_or_data'] = 'structure_and_data';
         $GLOBALS['sql_insert_syntax'] = 'both';
         $GLOBALS['sql_max_query_size'] = '50000';

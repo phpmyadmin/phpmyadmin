@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Export\Template;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Controllers\Export\Template\CreateController;
@@ -46,7 +47,7 @@ class CreateControllerTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $GLOBALS['cfg']['Server']['user'] = 'user';
+        Config::getInstance()->selectedServer['user'] = 'user';
 
         $response = new ResponseRenderer();
         $template = new Template();

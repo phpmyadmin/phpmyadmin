@@ -84,8 +84,9 @@ class SqlQueryForm
         $bookmarkFeature = $relation->getRelationParameters()->bookmarkFeature;
 
         $bookmarks = [];
+        $config = Config::getInstance();
         if ($displayTab === 'full' && $bookmarkFeature !== null) {
-            $bookmarkList = Bookmark::getList($bookmarkFeature, $this->dbi, $GLOBALS['cfg']['Server']['user'], $db);
+            $bookmarkList = Bookmark::getList($bookmarkFeature, $this->dbi, $config->selectedServer['user'], $db);
 
             foreach ($bookmarkList as $bookmarkItem) {
                 $bookmarks[] = [
@@ -107,7 +108,7 @@ class SqlQueryForm
             'has_bookmark' => $bookmarkFeature !== null,
             'delimiter' => $delimiter,
             'retain_query_box' => $GLOBALS['cfg']['RetainQueryBox'] !== false,
-            'is_upload' => Config::getInstance()->get('enable_upload'),
+            'is_upload' => $config->get('enable_upload'),
             'db' => $db,
             'table' => $table,
             'goto' => $goto,

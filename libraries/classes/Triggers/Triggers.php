@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Triggers;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
@@ -40,7 +41,7 @@ class Triggers
     /** @return mixed[][] */
     private static function fetchTriggerInfo(DatabaseInterface $dbi, string $db, string $table): array
     {
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+        if (! Config::getInstance()->selectedServer['DisableIS']) {
             $query = QueryGenerator::getInformationSchemaTriggersRequest(
                 $dbi->quoteString($db),
                 $table === '' ? null : $dbi->quoteString($table),
