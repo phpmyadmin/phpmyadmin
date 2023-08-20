@@ -15826,11 +15826,6 @@ parameters:
 			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
 
 		-
-			message: "#^Casting to array\\<string, bool\\|int\\|string\\> something that's already array\\<string, bool\\|int\\<0, max\\>\\|string\\>\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 2
 			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php

@@ -8099,9 +8099,6 @@
       <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[array_merge($config->selectedServer, $singleSignonCfgUpdate)]]></code>
     </MixedPropertyTypeCoercion>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(array) Config::getInstance()->selectedServer['SignonCookieParams']]]></code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Plugins/AuthenticationPlugin.php">
     <ArgumentTypeCoercion>
