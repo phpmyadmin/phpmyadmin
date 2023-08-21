@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.14.1@b9d355e0829c397b9b3b47d0c0ed042a8a70284d">
+<files psalm-version="5.15.0@5c774aca4746caf3d239d9c8cadb9f882ca29352">
   <file src="libraries/classes/Advisory/Advisor.php">
     <ArgumentTypeCoercion>
       <code>$pattern</code>
@@ -9430,23 +9430,13 @@
       <code>count</code>
       <code>getName</code>
     </MixedMethodCall>
-    <MixedPropertyFetch>
-      <code><![CDATA[$xml->children('office', true)->{'body'}->{'spreadsheet'}]]></code>
-    </MixedPropertyFetch>
     <PossiblyNullArgument>
-      <code>$cellAttrs</code>
       <code>$sheets</code>
-      <code>$text</code>
     </PossiblyNullArgument>
     <PossiblyNullArrayAccess>
-      <code><![CDATA[$attr['number-columns-repeated']]]></code>
-      <code><![CDATA[$attr['number-columns-repeated']]]></code>
       <code><![CDATA[$tblAttr['name']]]></code>
       <code><![CDATA[$tblAttr['name']]]></code>
     </PossiblyNullArrayAccess>
-    <PossiblyNullReference>
-      <code>count</code>
-    </PossiblyNullReference>
     <PossiblyUnusedReturnValue>
       <code>string[]</code>
     </PossiblyUnusedReturnValue>
@@ -9578,7 +9568,6 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code>$attrs</code>
-      <code>$dbAttr</code>
       <code>$rowAttr</code>
       <code>$tblAttr</code>
       <code>$v2</code>
@@ -9586,31 +9575,15 @@
       <code>$val3</code>
     </MixedAssignment>
     <MixedMethodCall>
-      <code>$v1</code>
-      <code>$v1</code>
-      <code>$val1</code>
-      <code>$val1</code>
-      <code>$val2</code>
-      <code>$val2</code>
       <code>attributes</code>
       <code>attributes</code>
       <code>attributes</code>
     </MixedMethodCall>
-    <MixedPropertyFetch>
-      <code><![CDATA[$xml->children($namespaces['pma'] ?? null)
-            ->{'structure_schemas'}->{'database'}]]></code>
-    </MixedPropertyFetch>
     <PossiblyNullArrayAccess>
-      <code><![CDATA[$attrs['name']]]></code>
       <code><![CDATA[$dbAttr['charset']]]></code>
       <code><![CDATA[$dbAttr['collation']]]></code>
       <code><![CDATA[$dbAttr['name']]]></code>
       <code><![CDATA[$dbAttr['name']]]></code>
-      <code><![CDATA[$rowAttr['name']]]></code>
-      <code><![CDATA[$rowAttr['name']]]></code>
-      <code><![CDATA[$tblAttr['name']]]></code>
-      <code><![CDATA[$tblAttr['name']]]></code>
-      <code><![CDATA[$tblAttr['name']]]></code>
     </PossiblyNullArrayAccess>
     <PossiblyNullReference>
       <code>attributes</code>
