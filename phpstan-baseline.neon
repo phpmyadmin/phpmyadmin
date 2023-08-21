@@ -1131,11 +1131,6 @@ parameters:
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
-			message: "#^Call to function is_string\\(\\) with string will always evaluate to true\\.$#"
-			count: 1
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
 			message: "#^Cannot access an offset on mixed\\.$#"
 			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
@@ -1247,7 +1242,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 23
+			count: 21
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
@@ -1413,11 +1408,6 @@ parameters:
 		-
 			message: "#^Parameter \\#2 \\$tableName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
 			count: 2
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\.$#"
-			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
@@ -9671,11 +9661,6 @@ parameters:
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
-			message: "#^Casting to bool something that's already bool\\.$#"
-			count: 1
-			path: libraries/classes/Database/CentralColumns.php
-
-		-
 			message: "#^Foreach overwrites \\$table with its value variable\\.$#"
 			count: 2
 			path: libraries/classes/Database/CentralColumns.php
@@ -13966,11 +13951,6 @@ parameters:
 			path: libraries/classes/IpAllowDeny.php
 
 		-
-			message: "#^Call to function is_array\\(\\) with array\\<string\\> will always evaluate to true\\.$#"
-			count: 1
-			path: libraries/classes/IpAllowDeny.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
 			count: 3
 			path: libraries/classes/IpAllowDeny.php
@@ -15837,11 +15817,6 @@ parameters:
 
 		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
-
-		-
-			message: "#^Casting to array\\<string, bool\\|int\\|string\\> something that's already array\\<string, bool\\|int\\<0, max\\>\\|string\\>\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
 
@@ -20106,11 +20081,6 @@ parameters:
 			path: libraries/classes/Server/Status/Data.php
 
 		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 1
-			path: libraries/classes/Server/Status/Data.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Server/Status/Data.php
@@ -21143,11 +21113,6 @@ parameters:
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 3
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Casting to int something that's already int\\<1, max\\>\\.$#"
-			count: 1
 			path: libraries/classes/Table.php
 
 		-

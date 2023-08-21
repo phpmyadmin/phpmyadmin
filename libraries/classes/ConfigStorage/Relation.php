@@ -246,13 +246,11 @@ class Relation
         $config = Config::getInstance();
         if (
             $GLOBALS['server'] == 0
-            || empty($config->selectedServer['pmadb'])
+            || $config->selectedServer['pmadb'] === ''
             || ! $this->dbi->selectDb($config->selectedServer['pmadb'], Connection::TYPE_CONTROL)
         ) {
             // No server selected -> no bookmark table
-            // we return the array with the falses in it,
-            // to avoid some 'Uninitialized string offset' errors later
-            $config->selectedServer['pmadb'] = false;
+            $config->selectedServer['pmadb'] = '';
 
             return $relationParams;
         }
@@ -269,7 +267,6 @@ class Relation
 
         if ($relationParamsFilled === null) {
             // query failed ... ?
-            //\PhpMyAdmin\Config::getInstance()->selectedServer['pmadb'] = false;
             return $relationParams;
         }
 
@@ -1732,17 +1729,15 @@ class Relation
         $config = Config::getInstance();
         $storageDbName = $config->selectedServer['pmadb'] ?? '';
         // Use "phpmyadmin" as a default database name to check to keep the behavior consistent
-        $storageDbName = is_string($storageDbName) && $storageDbName !== '' ? $storageDbName : 'phpmyadmin';
+        $storageDbName = $storageDbName !== '' ? $storageDbName : 'phpmyadmin';
 
         // This will make users not having explicitly listed databases
         // have config values filled by the default phpMyAdmin storage table name values
         $this->fixPmaTables($storageDbName, false);
 
         // This global will be changed if fixPmaTables did find one valid table
-        $storageDbName = $config->selectedServer['pmadb'] ?? '';
-
         // Empty means that until now no pmadb was found eligible
-        if (! empty($storageDbName)) {
+        if ($config->selectedServer['pmadb'] !== '') {
             return;
         }
 

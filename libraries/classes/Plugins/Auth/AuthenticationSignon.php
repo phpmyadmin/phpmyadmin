@@ -61,9 +61,7 @@ class AuthenticationSignon extends AuthenticationPlugin
     public function setCookieParams(array|null $sessionCookieParams = null): void
     {
         /* Session cookie params from config */
-        if ($sessionCookieParams === null) {
-            $sessionCookieParams = (array) Config::getInstance()->selectedServer['SignonCookieParams'];
-        }
+        $sessionCookieParams ??= Config::getInstance()->selectedServer['SignonCookieParams'];
 
         foreach (['lifetime', 'path', 'domain', 'secure', 'httponly'] as $key) {
             if (isset($sessionCookieParams[$key])) {

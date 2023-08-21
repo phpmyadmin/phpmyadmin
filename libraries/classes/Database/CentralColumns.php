@@ -64,7 +64,7 @@ class CentralColumns
         $this->user = $config->selectedServer['user'];
         $this->maxRows = (int) $GLOBALS['cfg']['MaxRows'];
         $this->charEditing = $GLOBALS['cfg']['CharEditing'];
-        $this->disableIs = (bool) $config->selectedServer['DisableIS'];
+        $this->disableIs = $config->selectedServer['DisableIS'];
 
         $this->relation = new Relation($this->dbi);
         $this->template = new Template();

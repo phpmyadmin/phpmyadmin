@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.14.1@b9d355e0829c397b9b3b47d0c0ed042a8a70284d">
+<files psalm-version="5.15.0@5c774aca4746caf3d239d9c8cadb9f882ca29352">
   <file src="libraries/classes/Advisory/Advisor.php">
     <ArgumentTypeCoercion>
       <code>$pattern</code>
@@ -607,15 +607,9 @@
     </ReferenceReusedFromConfusingScope>
   </file>
   <file src="libraries/classes/ConfigStorage/Relation.php">
-    <DocblockTypeContradiction>
-      <code><![CDATA['phpmyadmin']]></code>
-    </DocblockTypeContradiction>
     <InvalidArgument>
       <code><![CDATA[usort($tables, 'strnatcasecmp')]]></code>
     </InvalidArgument>
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[$config->selectedServer]]></code>
-    </InvalidPropertyAssignmentValue>
     <InvalidReturnStatement>
       <code>$tableNameReplacements</code>
     </InvalidReturnStatement>
@@ -751,9 +745,6 @@
       <code><![CDATA[isset($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])
                     && is_scalar($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])]]></code>
     </RedundantCondition>
-    <RedundantConditionGivenDocblockType>
-      <code>is_string($storageDbName)</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/ConfigStorage/UserGroups.php">
     <DeprecatedMethod>
@@ -4640,9 +4631,6 @@
     <RedundantCast>
       <code><![CDATA[(int) $GLOBALS['cfg']['MaxRows']]]></code>
     </RedundantCast>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(bool) $config->selectedServer['DisableIS']]]></code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Database/Designer.php">
     <DeprecatedMethod>
@@ -7075,9 +7063,6 @@
     </RedundantCast>
   </file>
   <file src="libraries/classes/IpAllowDeny.php">
-    <DocblockTypeContradiction>
-      <code>is_array($rules)</code>
-    </DocblockTypeContradiction>
     <InvalidOperand>
       <code>$regs[5]</code>
     </InvalidOperand>
@@ -8111,9 +8096,6 @@
       <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[array_merge($config->selectedServer, $singleSignonCfgUpdate)]]></code>
     </MixedPropertyTypeCoercion>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(array) Config::getInstance()->selectedServer['SignonCookieParams']]]></code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Plugins/AuthenticationPlugin.php">
     <ArgumentTypeCoercion>
@@ -9448,23 +9430,13 @@
       <code>count</code>
       <code>getName</code>
     </MixedMethodCall>
-    <MixedPropertyFetch>
-      <code><![CDATA[$xml->children('office', true)->{'body'}->{'spreadsheet'}]]></code>
-    </MixedPropertyFetch>
     <PossiblyNullArgument>
-      <code>$cellAttrs</code>
       <code>$sheets</code>
-      <code>$text</code>
     </PossiblyNullArgument>
     <PossiblyNullArrayAccess>
-      <code><![CDATA[$attr['number-columns-repeated']]]></code>
-      <code><![CDATA[$attr['number-columns-repeated']]]></code>
       <code><![CDATA[$tblAttr['name']]]></code>
       <code><![CDATA[$tblAttr['name']]]></code>
     </PossiblyNullArrayAccess>
-    <PossiblyNullReference>
-      <code>count</code>
-    </PossiblyNullReference>
     <PossiblyUnusedReturnValue>
       <code>string[]</code>
     </PossiblyUnusedReturnValue>
@@ -9596,7 +9568,6 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code>$attrs</code>
-      <code>$dbAttr</code>
       <code>$rowAttr</code>
       <code>$tblAttr</code>
       <code>$v2</code>
@@ -9604,31 +9575,15 @@
       <code>$val3</code>
     </MixedAssignment>
     <MixedMethodCall>
-      <code>$v1</code>
-      <code>$v1</code>
-      <code>$val1</code>
-      <code>$val1</code>
-      <code>$val2</code>
-      <code>$val2</code>
       <code>attributes</code>
       <code>attributes</code>
       <code>attributes</code>
     </MixedMethodCall>
-    <MixedPropertyFetch>
-      <code><![CDATA[$xml->children($namespaces['pma'] ?? null)
-            ->{'structure_schemas'}->{'database'}]]></code>
-    </MixedPropertyFetch>
     <PossiblyNullArrayAccess>
-      <code><![CDATA[$attrs['name']]]></code>
       <code><![CDATA[$dbAttr['charset']]]></code>
       <code><![CDATA[$dbAttr['collation']]]></code>
       <code><![CDATA[$dbAttr['name']]]></code>
       <code><![CDATA[$dbAttr['name']]]></code>
-      <code><![CDATA[$rowAttr['name']]]></code>
-      <code><![CDATA[$rowAttr['name']]]></code>
-      <code><![CDATA[$tblAttr['name']]]></code>
-      <code><![CDATA[$tblAttr['name']]]></code>
-      <code><![CDATA[$tblAttr['name']]]></code>
     </PossiblyNullArrayAccess>
     <PossiblyNullReference>
       <code>attributes</code>
@@ -11377,9 +11332,6 @@
       <code>$a</code>
       <code>$b</code>
     </PossiblyUnusedParam>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(string) $config->selectedServer['host']]]></code>
-    </RedundantCastGivenDocblockType>
     <UnusedProperty>
       <code>$dbi</code>
     </UnusedProperty>
@@ -12070,9 +12022,6 @@
     <PossiblyUnusedReturnValue>
       <code>true|Message</code>
     </PossiblyUnusedReturnValue>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(int) $config->selectedServer['MaxTableUiprefs']]]></code>
-    </RedundantCastGivenDocblockType>
     <ReferenceConstraintViolation>
       <code>return $sqlQuery;</code>
     </ReferenceConstraintViolation>

@@ -15,7 +15,6 @@ use function hash_equals;
 use function hexdec;
 use function inet_pton;
 use function ip2long;
-use function is_array;
 use function mb_strpos;
 use function mb_strtolower;
 use function mb_substr;
@@ -247,14 +246,7 @@ class IpAllowDeny
         $username = $config->selectedServer['user'];
 
         // copy rule database
-        if (isset($config->selectedServer['AllowDeny']['rules'])) {
-            $rules = $config->selectedServer['AllowDeny']['rules'];
-            if (! is_array($rules)) {
-                $rules = [];
-            }
-        } else {
-            $rules = [];
-        }
+        $rules = $config->selectedServer['AllowDeny']['rules'];
 
         // lookup table for some name shortcuts
         $shortcuts = ['all' => '0.0.0.0/0', 'localhost' => '127.0.0.1/8'];
