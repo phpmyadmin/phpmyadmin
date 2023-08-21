@@ -616,13 +616,11 @@ class Tracker
             return;
         }
 
-        if ($result['type'] === 'DDL') {
-            $saveTo = 'schema_sql';
-        } elseif ($result['type'] === 'DML') {
-            $saveTo = 'data_sql';
-        } else {
-            $saveTo = '';
-        }
+        $saveTo = match ($result['type']) {
+            'DDL' => 'schema_sql',
+            'DML' => 'data_sql',
+            default => '',
+        };
 
         $date = Util::date('Y-m-d H:i:s');
 

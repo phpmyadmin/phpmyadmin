@@ -1156,18 +1156,15 @@ class ExportSql extends ExportPlugin
             }
 
             // remove auto_incrementing id field for some tables
-            if ($type === 'bookmark') {
-                $sqlQuery = 'SELECT `dbase`, `user`, `label`, `query` FROM ';
-            } elseif ($type === 'column_info') {
-                $sqlQuery = 'SELECT `db_name`, `table_name`, `column_name`,'
+            $sqlQuery = match ($type) {
+                'bookmark' => 'SELECT `dbase`, `user`, `label`, `query` FROM ',
+                'column_info' => 'SELECT `db_name`, `table_name`, `column_name`,'
                     . ' `comment`, `mimetype`, `transformation`,'
                     . ' `transformation_options`, `input_transformation`,'
-                    . ' `input_transformation_options` FROM';
-            } elseif ($type === 'savedsearches') {
-                $sqlQuery = 'SELECT `username`, `db_name`, `search_name`, `search_data` FROM';
-            } else {
-                $sqlQuery = 'SELECT * FROM ';
-            }
+                    . ' `input_transformation_options` FROM',
+                'savedsearches' => 'SELECT `username`, `db_name`, `search_name`, `search_data` FROM',
+                default => 'SELECT * FROM ',
+            };
 
             $sqlQuery .= Util::backquote($relationParameters->db)
                 . '.' . Util::backquote((string) $relationParams[$type])

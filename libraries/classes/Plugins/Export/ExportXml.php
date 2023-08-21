@@ -164,13 +164,11 @@ class ExportXml extends ExportPlugin
             $head .= '            <pma:' . $type . ' name="' . htmlspecialchars($name) . '">' . "\n";
 
             $dbi = DatabaseInterface::getInstance();
-            if ($type === 'function') {
-                $definition = Routines::getFunctionDefinition($dbi, $db, $name);
-            } elseif ($type === 'procedure') {
-                $definition = Routines::getProcedureDefinition($dbi, $db, $name);
-            } else {
-                $definition = Events::getDefinition($dbi, $db, $name);
-            }
+            $definition = match ($type) {
+                'function' => Routines::getFunctionDefinition($dbi, $db, $name),
+                'procedure' => Routines::getProcedureDefinition($dbi, $db, $name),
+                default => Events::getDefinition($dbi, $db, $name),
+            };
 
             // Do some formatting
             $sql = htmlspecialchars(rtrim((string) $definition));

@@ -126,13 +126,11 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
         if ($timestamp >= 0) {
             $timestamp -= (int) $options[0] * 60 * 60;
             $source = $buffer;
-            if ($options[2] === 'local') {
-                $text = Util::localisedDate($timestamp, $options[1]);
-            } elseif ($options[2] === 'utc') {
-                $text = gmdate($options[1], $timestamp);
-            } else {
-                $text = 'INVALID DATE TYPE';
-            }
+            $text = match ($options[2]) {
+                'local' => Util::localisedDate($timestamp, $options[1]),
+                'utc' => gmdate($options[1], $timestamp),
+                default => 'INVALID DATE TYPE',
+            };
 
             return '<dfn onclick="alert(' . htmlspecialchars((string) json_encode($source), ENT_COMPAT) . ');" title="'
                 . htmlspecialchars($source) . '">' . htmlspecialchars($text) . '</dfn>';
