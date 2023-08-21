@@ -56,7 +56,6 @@ class SearchControllerTest extends AbstractTestCase
         $GLOBALS['db'] = 'PMA';
         $GLOBALS['table'] = 'PMA_BookMark';
         $GLOBALS['text_dir'] = 'ltr';
-        $relation = new Relation(DatabaseInterface::getInstance());
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -88,7 +87,6 @@ class SearchControllerTest extends AbstractTestCase
             ->willReturnArgument(0);
 
         DatabaseInterface::$instance = $dbi;
-        $relation->dbi = $dbi;
 
         $this->response = new ResponseStub();
         $this->template = new Template();

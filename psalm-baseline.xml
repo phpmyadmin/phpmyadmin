@@ -13752,7 +13752,6 @@
   <file src="test/classes/Controllers/Table/SearchControllerTest.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <MixedMethodCall>
       <code>method</code>
