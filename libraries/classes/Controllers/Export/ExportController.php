@@ -29,9 +29,6 @@ use function function_exists;
 use function in_array;
 use function ini_set;
 use function is_array;
-use function ob_end_clean;
-use function ob_get_length;
-use function ob_get_level;
 use function register_shutdown_function;
 use function strlen;
 use function time;
@@ -169,14 +166,6 @@ final class ExportController extends AbstractController
          */
         if ($outputFormat === 'sendit' && ! $GLOBALS['save_on_server']) {
             $this->response->disable();
-            //Disable all active buffers (see: ob_get_status(true) at this point)
-            do {
-                if (ob_get_length() > 0 || ob_get_level() > 0) {
-                    $hasBuffer = ob_end_clean();
-                } else {
-                    $hasBuffer = false;
-                }
-            } while ($hasBuffer);
         }
 
         $GLOBALS['tables'] = [];
