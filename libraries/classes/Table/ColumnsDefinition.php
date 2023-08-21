@@ -28,6 +28,7 @@ use function mb_strtoupper;
 use function preg_quote;
 use function preg_replace;
 use function rtrim;
+use function str_ends_with;
 use function stripcslashes;
 use function substr;
 use function trim;
@@ -471,7 +472,7 @@ final class ColumnsDefinition
             default:
                 $metaDefault['DefaultValue'] = $columnMeta['Default'];
 
-                if (substr((string) $columnMeta['Type'], -4) === 'text') {
+                if (str_ends_with((string) $columnMeta['Type'], 'text')) {
                     $textDefault = substr($columnMeta['Default'], 1, -1);
                     $metaDefault['Default'] = stripcslashes($textDefault);
                 }

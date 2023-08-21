@@ -13,7 +13,7 @@ use function is_link;
 use function opendir;
 use function preg_match;
 use function readdir;
-use function substr;
+use function str_ends_with;
 
 /**
  * Functions for listing directories
@@ -41,7 +41,7 @@ class FileListing
         }
 
         $result = [];
-        if (substr($dir, -1) !== '/') {
+        if (! str_ends_with($dir, '/')) {
             $dir .= '/';
         }
 

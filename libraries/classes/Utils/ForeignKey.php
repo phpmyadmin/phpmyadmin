@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Utils;
 
 use PhpMyAdmin\DatabaseInterface;
 
+use function str_starts_with;
 use function strtolower;
 use function strtoupper;
 use function substr;
@@ -29,7 +30,7 @@ final class ForeignKey
             $ndbver = strtolower(
                 DatabaseInterface::getInstance()->fetchValue('SELECT @@ndb_version_string') ?: '',
             );
-            if (substr($ndbver, 0, 4) === 'ndb-') {
+            if (str_starts_with($ndbver, 'ndb-')) {
                 $ndbver = substr($ndbver, 4);
             }
 

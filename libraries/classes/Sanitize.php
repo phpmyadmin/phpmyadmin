@@ -21,10 +21,8 @@ use function preg_match;
 use function preg_replace;
 use function preg_replace_callback;
 use function str_starts_with;
-use function strlen;
 use function strtolower;
 use function strtr;
-use function substr;
 
 use const JSON_HEX_TAG;
 
@@ -48,7 +46,7 @@ class Sanitize
         // Adjust path to setup script location
         if ($isSetup) {
             foreach ($validStarts as $key => $value) {
-                if (substr($value, 0, 2) !== './') {
+                if (! str_starts_with($value, './')) {
                     continue;
                 }
 
@@ -71,7 +69,7 @@ class Sanitize
         }
 
         foreach ($validStarts as $val) {
-            if (substr($url, 0, strlen($val)) == $val) {
+            if (str_starts_with($url, $val)) {
                 return true;
             }
         }
@@ -116,7 +114,7 @@ class Sanitize
         }
 
         /* Construct url */
-        if (substr($found[1], 0, 4) === 'http') {
+        if (str_starts_with($found[1], 'http')) {
             $url = Core::linkURL($found[1]);
         } else {
             $url = $found[1];

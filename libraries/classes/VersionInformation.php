@@ -18,8 +18,8 @@ use function is_object;
 use function is_string;
 use function json_decode;
 use function preg_match;
+use function str_starts_with;
 use function strlen;
-use function strpos;
 use function substr;
 use function time;
 use function version_compare;
@@ -199,7 +199,7 @@ class VersionInformation
         $version = null;
         $operators = ['<=', '>=', '!=', '<>', '<', '>', '=']; // preserve order
         foreach ($operators as $oneOperator) {
-            if (strpos($condition, $oneOperator) === 0) {
+            if (str_starts_with($condition, $oneOperator)) {
                 $operator = $oneOperator;
                 $version = substr($condition, strlen($oneOperator));
                 break;
