@@ -22021,11 +22021,6 @@ parameters:
 			path: libraries/classes/Triggers/Triggers.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:configure\\(\\)\\.$#"
-			count: 1
-			path: libraries/classes/TwoFactor.php
-
-		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
 			count: 2
 			path: libraries/classes/TwoFactor.php
@@ -22046,18 +22041,8 @@ parameters:
 			path: libraries/classes/TwoFactor.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\TwoFactor\\:\\:getBackendForCurrentUser\\(\\) should return PhpMyAdmin\\\\Plugins\\\\TwoFactorPlugin but returns object\\.$#"
-			count: 1
-			path: libraries/classes/TwoFactor.php
-
-		-
 			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\TwoFactor\\:\\:getBackendClass\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: libraries/classes/TwoFactor.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\TwoFactor\\:\\:\\$backend \\(PhpMyAdmin\\\\Plugins\\\\TwoFactorPlugin\\) does not accept object\\.$#"
-			count: 2
 			path: libraries/classes/TwoFactor.php
 
 		-

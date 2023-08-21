@@ -12475,33 +12475,17 @@
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
-    <InvalidPropertyFetch>
-      <code>$cls::$id</code>
-    </InvalidPropertyFetch>
-    <LessSpecificReturnStatement>
-      <code>new $name($this)</code>
-    </LessSpecificReturnStatement>
     <MixedArgument>
       <code>$name</code>
     </MixedArgument>
     <MixedAssignment>
       <code>$name</code>
     </MixedAssignment>
-    <MixedMethodCall>
-      <code>$cls::getDescription()</code>
-      <code>$cls::getName()</code>
-      <code>configure</code>
+    <UnsafeInstantiation>
       <code>new $cls($this)</code>
       <code>new $cls($this)</code>
       <code>new $name($this)</code>
-    </MixedMethodCall>
-    <MoreSpecificReturnType>
-      <code>TwoFactorPlugin</code>
-    </MoreSpecificReturnType>
-    <PropertyTypeCoercion>
-      <code>new $cls($this)</code>
-      <code>new $cls($this)</code>
-    </PropertyTypeCoercion>
+    </UnsafeInstantiation>
   </file>
   <file src="libraries/classes/Url.php">
     <MixedArgumentTypeCoercion>
