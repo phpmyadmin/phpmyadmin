@@ -14620,6 +14620,14 @@
       <code>$result</code>
     </MixedAssignment>
   </file>
+  <file src="test/classes/Plugins/Export/ExportCsvTest.php">
+    <RedundantCondition>
+      <code>assertFalse</code>
+    </RedundantCondition>
+    <RedundantConditionGivenDocblockType>
+      <code>assertFalse</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
   <file src="test/classes/Plugins/Export/ExportHtmlwordTest.php">
     <MixedArgument>
       <code>$result</code>

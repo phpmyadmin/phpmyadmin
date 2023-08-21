@@ -251,7 +251,7 @@ class ExportCsvTest extends AbstractTestCase
 
         $this->assertEquals('"', $GLOBALS['csv_escaped']);
 
-        $this->assertEquals(true, $GLOBALS['csv_columns']);
+        $this->assertTrue($GLOBALS['csv_columns']);
 
         // case 2
 
@@ -271,7 +271,7 @@ class ExportCsvTest extends AbstractTestCase
 
         $this->assertEquals('"', $GLOBALS['csv_escaped']);
 
-        $this->assertEquals(false, $GLOBALS['csv_columns']);
+        $this->assertFalse($GLOBALS['csv_columns']);
 
         // case 3
 
@@ -289,7 +289,7 @@ class ExportCsvTest extends AbstractTestCase
 
         $this->assertEquals('"', $GLOBALS['csv_escaped']);
 
-        $this->assertEquals(false, $GLOBALS['csv_columns']);
+        $this->assertFalse($GLOBALS['csv_columns']);
 
         // case 4
 
