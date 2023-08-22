@@ -10612,9 +10612,6 @@
       <code>$loc</code>
       <code>$loc[array_shift($contentPath)]</code>
     </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code>getCache</code>
-    </PossiblyUnusedMethod>
     <UnsupportedPropertyReferenceUsage>
       <code><![CDATA[$loc = &$this->tableCache]]></code>
     </UnsupportedPropertyReferenceUsage>

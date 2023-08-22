@@ -85,12 +85,6 @@ class Cache
         return Util::getValueByKey($this->tableCache, $contentPath, $default);
     }
 
-    /** @return mixed[][] */
-    public function getCache(): array
-    {
-        return $this->tableCache;
-    }
-
     public function clearTableCache(): void
     {
         $this->tableCache = [];
