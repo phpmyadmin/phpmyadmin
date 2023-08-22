@@ -9346,11 +9346,6 @@ parameters:
 			path: libraries/classes/Core.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Core\\:\\:getTableCount\\(\\) should return int but returns int\\|string\\.$#"
-			count: 1
-			path: libraries/classes/Core.php
-
-		-
 			message: "#^Only booleans are allowed in &&, string\\|false given on the right side\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
@@ -9362,11 +9357,6 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in a negated boolean, int\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Core.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
 

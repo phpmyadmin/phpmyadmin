@@ -4247,21 +4247,12 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="libraries/classes/Core.php">
-    <DeprecatedMethod>
-      <code>DatabaseInterface::getInstance()</code>
-    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['cfg']['TrustedProxies']]]></code>
     </InvalidArrayOffset>
     <InvalidOperand>
       <code>$matches[1]</code>
     </InvalidOperand>
-    <InvalidReturnStatement>
-      <code><![CDATA[$tables->numRows()]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code>int</code>
-    </InvalidReturnType>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['cfg']['TrustedProxies'][$directIp]]]></code>
       <code>$onePostPattern</code>
@@ -4316,9 +4307,6 @@
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$_SERVER['SERVER_NAME']]]></code>
     </PossiblyUndefinedArrayOffset>
-    <PossiblyUnusedMethod>
-      <code>getTableCount</code>
-    </PossiblyUnusedMethod>
     <PossiblyUnusedParam>
       <code>$array</code>
     </PossiblyUnusedParam>
