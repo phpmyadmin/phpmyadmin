@@ -70,13 +70,13 @@ use function sprintf;
 use function str_contains;
 use function str_pad;
 use function str_replace;
+use function str_starts_with;
 use function strcasecmp;
 use function strftime;
 use function strlen;
 use function strrev;
 use function strtolower;
 use function strtr;
-use function substr;
 use function time;
 use function trim;
 use function uksort;
@@ -1798,7 +1798,7 @@ class Util
             return 'application/gzip';
         }
 
-        if ($len >= 3 && substr($test, 0, 3) === 'BZh') {
+        if ($len >= 3 && str_starts_with($test, 'BZh')) {
             return 'application/bzip2';
         }
 

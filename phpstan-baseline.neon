@@ -1436,12 +1436,12 @@ parameters:
 			path: libraries/classes/ConfigStorage/UserGroups.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function mb_substr expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$haystack of function str_starts_with expects string, string\\|null given\\.$#"
 			count: 3
 			path: libraries/classes/ConfigStorage/UserGroups.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function substr expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$string of function mb_substr expects string, string\\|null given\\.$#"
 			count: 3
 			path: libraries/classes/ConfigStorage/UserGroups.php
 
@@ -1466,7 +1466,7 @@ parameters:
 			path: libraries/classes/Controllers/ChangeLogController.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function substr expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$haystack of function str_ends_with expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/ChangeLogController.php
 
@@ -19501,7 +19501,7 @@ parameters:
 			path: libraries/classes/Sanitize.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function substr expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$haystack of function str_starts_with expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Sanitize.php
 
@@ -22431,7 +22431,7 @@ parameters:
 			path: libraries/classes/Utils/FormatConverter.php
 
 		-
-			message: "#^Parameter \\#1 \\$haystack of function strpos expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$haystack of function str_starts_with expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Utils/FormatConverter.php
 

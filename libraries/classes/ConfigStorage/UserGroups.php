@@ -22,7 +22,7 @@ use function implode;
 use function in_array;
 use function mb_substr;
 use function sprintf;
-use function substr;
+use function str_starts_with;
 
 /**
  * PhpMyAdmin\Server\UserGroups class
@@ -212,11 +212,11 @@ class UserGroups
                 foreach ($result as $row) {
                     $key = $row['tab'];
                     $value = $row['allowed'];
-                    if (substr($key, 0, 7) === 'server_' && $value === 'Y') {
+                    if (str_starts_with($key, 'server_') && $value === 'Y') {
                         $allowedTabs['server'][] = mb_substr($key, 7);
-                    } elseif (substr($key, 0, 3) === 'db_' && $value === 'Y') {
+                    } elseif (str_starts_with($key, 'db_') && $value === 'Y') {
                         $allowedTabs['db'][] = mb_substr($key, 3);
-                    } elseif (substr($key, 0, 6) === 'table_' && $value === 'Y') {
+                    } elseif (str_starts_with($key, 'table_') && $value === 'Y') {
                         $allowedTabs['table'][] = mb_substr($key, 6);
                     }
                 }

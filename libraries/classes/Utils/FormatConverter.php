@@ -15,7 +15,7 @@ use function inet_ntop;
 use function inet_pton;
 use function ip2long;
 use function long2ip;
-use function strpos;
+use function str_starts_with;
 use function substr;
 
 /**
@@ -30,7 +30,7 @@ class FormatConverter
      */
     public static function binaryToIp(mixed $buffer, bool $isBinary): false|string
     {
-        if (strpos($buffer, '0x') !== 0) {
+        if (! str_starts_with($buffer, '0x')) {
             return $isBinary ? bin2hex($buffer) : $buffer;
         }
 

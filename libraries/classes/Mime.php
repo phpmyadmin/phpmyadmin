@@ -12,7 +12,7 @@ namespace PhpMyAdmin;
 use function chr;
 use function mb_strlen;
 use function mb_substr;
-use function substr;
+use function str_starts_with;
 
 /**
  * Handles mime type detection
@@ -31,7 +31,7 @@ class Mime
             return 'image/jpeg';
         }
 
-        if ($len >= 3 && substr($test, 0, 3) === 'GIF') {
+        if ($len >= 3 && str_starts_with($test, 'GIF')) {
             return 'image/gif';
         }
 

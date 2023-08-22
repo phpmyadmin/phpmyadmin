@@ -34,9 +34,10 @@ use function json_decode;
 use function ord;
 use function preg_match;
 use function str_contains;
+use function str_ends_with;
 use function str_replace;
+use function str_starts_with;
 use function strlen;
-use function strpos;
 use function strtolower;
 use function substr;
 use function trim;
@@ -195,7 +196,7 @@ class Git
         }
 
         // check format
-        if (substr($indexData, 0, 4) != "\377tOc") {
+        if (! str_starts_with($indexData, "\377tOc")) {
             return null;
         }
 
@@ -318,7 +319,7 @@ class Git
                 foreach ($dirIterator as $fileInfo) {
                     $fileName = $fileInfo->getFilename();
                     // if this is a .pack file
-                    if (! $fileInfo->isFile() || substr($fileName, -5) !== '.pack') {
+                    if (! $fileInfo->isFile() || ! str_ends_with($fileName, '.pack')) {
                         continue;
                     }
 
@@ -449,7 +450,7 @@ class Git
 
         // remove ref: prefix
         $refHead = substr(trim($refHead), 5);
-        if (strpos($refHead, 'refs/heads/') === 0) {
+        if (str_starts_with($refHead, 'refs/heads/')) {
             $branch = substr($refHead, 11);
         } else {
             $branch = basename($refHead);

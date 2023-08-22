@@ -20,7 +20,7 @@ use function ob_start;
 use function preg_replace;
 use function printf;
 use function readgzfile;
-use function substr;
+use function str_ends_with;
 
 class ChangeLogController extends AbstractController
 {
@@ -48,7 +48,7 @@ class ChangeLogController extends AbstractController
         }
 
         // Test if the if is in a compressed format
-        if (substr($filename, -3) === '.gz') {
+        if (str_ends_with($filename, '.gz')) {
             ob_start();
             readgzfile($filename);
             $changelog = ob_get_clean();

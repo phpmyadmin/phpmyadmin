@@ -53,6 +53,7 @@ use function realpath;
 use function rtrim;
 use function setcookie;
 use function sprintf;
+use function str_ends_with;
 use function stripos;
 use function strtolower;
 use function substr;
@@ -886,7 +887,7 @@ class Config
         if (! empty($url)) {
             $path = parse_url($url, PHP_URL_PATH);
             if (! empty($path)) {
-                if (substr($path, -1) !== '/') {
+                if (! str_ends_with($path, '/')) {
                     return $path . '/';
                 }
 
@@ -899,7 +900,7 @@ class Config
         $parts = explode('/', $parsedUrlPath);
 
         /* Remove filename */
-        if (substr($parts[count($parts) - 1], -4) === '.php') {
+        if (str_ends_with($parts[count($parts) - 1], '.php')) {
             $parts = array_slice($parts, 0, count($parts) - 1);
         }
 

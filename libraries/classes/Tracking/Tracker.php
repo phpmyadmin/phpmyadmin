@@ -34,7 +34,7 @@ use function preg_quote;
 use function preg_replace;
 use function serialize;
 use function sprintf;
-use function substr;
+use function str_ends_with;
 use function trim;
 
 /**
@@ -551,7 +551,7 @@ class Tracker
             return;
         }
 
-        if (substr($query, -1) !== ';') {
+        if (! str_ends_with($query, ';')) {
             $query .= ";\n";
         }
 

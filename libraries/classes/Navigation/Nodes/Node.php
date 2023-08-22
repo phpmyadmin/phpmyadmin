@@ -28,7 +28,7 @@ use function is_string;
 use function preg_match;
 use function sort;
 use function sprintf;
-use function strpos;
+use function str_starts_with;
 use function strstr;
 
 /**
@@ -843,7 +843,7 @@ class Node
                 }
 
                 foreach ($prefixes as $prefix) {
-                    $startsWith = strpos($arr[0] . $dbSeparator, $prefix . $dbSeparator) === 0;
+                    $startsWith = str_starts_with($arr[0] . $dbSeparator, $prefix . $dbSeparator);
                     if ($startsWith) {
                         $retval[] = $arr[0];
                         break;

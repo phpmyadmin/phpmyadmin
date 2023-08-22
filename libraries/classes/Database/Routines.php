@@ -35,8 +35,9 @@ use function mb_strtoupper;
 use function preg_match;
 use function sprintf;
 use function str_contains;
+use function str_ends_with;
+use function str_starts_with;
 use function stripos;
-use function substr;
 
 use const ENT_QUOTES;
 use const SORT_ASC;
@@ -739,14 +740,14 @@ class Routines
                 $arr = explode('@', $itemDefiner);
 
                 $doBackquote = true;
-                if (substr($arr[0], 0, 1) === '`' && substr($arr[0], -1) === '`') {
+                if (str_starts_with($arr[0], '`') && str_ends_with($arr[0], '`')) {
                     $doBackquote = false;
                 }
 
                 $query .= 'DEFINER=' . Util::backquoteCompat($arr[0], 'NONE', $doBackquote);
 
                 $doBackquote = true;
-                if (substr($arr[1], 0, 1) === '`' && substr($arr[1], -1) === '`') {
+                if (str_starts_with($arr[1], '`') && str_ends_with($arr[1], '`')) {
                     $doBackquote = false;
                 }
 

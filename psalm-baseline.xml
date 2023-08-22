@@ -10927,7 +10927,6 @@
     <MixedArgument>
       <code>$found[1]</code>
       <code>$found[1]</code>
-      <code>$found[1]</code>
       <code>$found[3]</code>
     </MixedArgument>
     <MixedAssignment>
@@ -12702,7 +12701,6 @@
   </file>
   <file src="libraries/classes/Utils/FormatConverter.php">
     <MixedArgument>
-      <code>$buffer</code>
       <code>$buffer</code>
       <code>$buffer</code>
     </MixedArgument>
