@@ -11982,10 +11982,6 @@
       <code>$existrelForeign[$masterFieldMd5]</code>
       <code>$existrelForeign[$masterFieldMd5]</code>
     </PossiblyUndefinedArrayOffset>
-    <PossiblyUnusedProperty>
-      <code>$engine</code>
-      <code>$type</code>
-    </PossiblyUnusedProperty>
     <PossiblyUnusedReturnValue>
       <code>true|Message</code>
     </PossiblyUnusedReturnValue>
