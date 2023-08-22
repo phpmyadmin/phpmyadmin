@@ -160,7 +160,7 @@ class TableStatsPdf extends TableStats
         );
         $this->diagram->setXScale($this->x);
         $this->diagram->setFont($this->ff, '', $fontSize);
-        $this->diagram->setTextColor(0);
+        $this->diagram->setTextColor();
         $this->diagram->setFillColor(255);
 
         foreach ($this->fields as $field) {

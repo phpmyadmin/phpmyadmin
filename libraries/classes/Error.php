@@ -131,7 +131,7 @@ class Error extends Message
         parent::__construct();
 
         $this->setNumber($errno);
-        $this->setMessage($errstr, false);
+        $this->setMessage($errstr);
         $this->setFile($errfile);
         $this->setLine($errline);
 

@@ -103,7 +103,7 @@ class ListDatabase extends ListAbstract
         }
 
         if ($command !== '') {
-            $databaseList = DatabaseInterface::getInstance()->fetchResult($command, null, null);
+            $databaseList = DatabaseInterface::getInstance()->fetchResult($command);
         }
 
         if ($GLOBALS['cfg']['NaturalOrder']) {

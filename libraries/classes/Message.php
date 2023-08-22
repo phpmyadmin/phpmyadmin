@@ -290,7 +290,7 @@ class Message implements Stringable
      */
     public static function rawNotice(string $message): self
     {
-        return self::raw($message, self::NOTICE);
+        return self::raw($message);
     }
 
     /**

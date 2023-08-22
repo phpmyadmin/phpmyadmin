@@ -302,7 +302,7 @@ class ConfigFile
      */
     public function getValue(string $path, mixed $default = null): mixed
     {
-        $v = Core::arrayRead($path, $_SESSION[$this->id], null);
+        $v = Core::arrayRead($path, $_SESSION[$this->id]);
         if ($v !== null) {
             return $v;
         }

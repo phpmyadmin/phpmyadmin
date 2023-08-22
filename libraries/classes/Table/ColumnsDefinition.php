@@ -154,12 +154,10 @@ final class ColumnsDefinition
                         'Field' => Util::getValueByKey(
                             $_POST,
                             'field_name.' . $columnNumber,
-                            null,
                         ),
                         'Type' => Util::getValueByKey(
                             $_POST,
                             'field_type.' . $columnNumber,
-                            null,
                         ),
                         'Collation' => Util::getValueByKey(
                             $_POST,
@@ -184,7 +182,6 @@ final class ColumnsDefinition
                         'Extra' => Util::getValueByKey(
                             $_POST,
                             'field_extra.' . $columnNumber,
-                            null,
                         ),
                         'Virtuality' => Util::getValueByKey(
                             $_POST,

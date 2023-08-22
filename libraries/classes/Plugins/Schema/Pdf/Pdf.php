@@ -264,7 +264,7 @@ class Pdf extends PdfLib
 
         $this->setFont($this->ff, 'B', 14);
         $this->Cell(0, 6, $pgName, 'B', 1, 'C');
-        $this->setFont($this->ff, '');
+        $this->setFont($this->ff);
         $this->Ln();
     }
 

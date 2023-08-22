@@ -236,7 +236,7 @@ class Util
      */
     public static function backquote(Stringable|string|null $identifier): string
     {
-        return static::backquoteCompat($identifier, 'NONE', true);
+        return static::backquoteCompat($identifier, 'NONE');
     }
 
     /**

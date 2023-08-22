@@ -220,7 +220,7 @@ class ErrorHandler
             return false;
         }
 
-        $this->addError($errstr, $errno, $errfile, $errline, true);
+        $this->addError($errstr, $errno, $errfile, $errline);
 
         return false;
     }

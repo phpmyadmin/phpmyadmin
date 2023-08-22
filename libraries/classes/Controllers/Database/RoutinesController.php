@@ -341,7 +341,7 @@ class RoutinesController extends AbstractController
             /**
              * Display the execute form for a routine.
              */
-            $routine = $this->routines->getDataFromName($_GET['item_name'], $_GET['item_type'], true);
+            $routine = $this->routines->getDataFromName($_GET['item_name'], $_GET['item_type']);
             if ($routine !== null) {
                 [$routine, $params] = $this->routines->getExecuteForm($routine);
                 $form = $this->template->render('database/routines/execute_form', [

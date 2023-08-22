@@ -327,7 +327,7 @@ class Node
     {
         $aPath = [];
         $aPathClean = [];
-        foreach ($this->parents(true, true, false) as $parent) {
+        foreach ($this->parents(true, true) as $parent) {
             $aPath[] = base64_encode($parent->realName);
             $aPathClean[] = $parent->realName;
         }

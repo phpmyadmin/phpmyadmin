@@ -986,7 +986,7 @@ class Normalization
             . 'COUNT(DISTINCT ' . $partialKey . ',' . $column . ') as pkColCnt '
             . 'FROM (SELECT * FROM ' . Util::backquote($table)
             . ' LIMIT 500) as dt;';
-        $res = $this->dbi->fetchResult($query, null, null);
+        $res = $this->dbi->fetchResult($query);
         $pkColCnt = $res[0];
         if ($pkCnt && $pkCnt == $colCnt && $colCnt == $pkColCnt) {
             return true;
@@ -1021,7 +1021,7 @@ class Normalization
         $query = trim($query, ', ');
         $query .= ' FROM (SELECT * FROM ' . Util::backquote($table)
             . ' LIMIT 500) as dt;';
-        $res = $this->dbi->fetchResult($query, null, null);
+        $res = $this->dbi->fetchResult($query);
         foreach ($columns as $column) {
             if ($column === '') {
                 continue;
