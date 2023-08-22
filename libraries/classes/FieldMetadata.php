@@ -104,7 +104,7 @@ final class FieldMetadata
     /** @readonly */
     public bool $isSet;
 
-    private int|null $mappedType = null;
+    private int|null $mappedType;
 
     /** @readonly */
     public bool $isMappedTypeBit;
