@@ -80,7 +80,7 @@ class Operations
             . Util::backquote($newDatabaseName);
         if (isset($_POST['db_collation'])) {
             $localQuery .= ' DEFAULT'
-                . Util::getCharsetQueryPart($_POST['db_collation'] ?? '');
+                . Util::getCharsetQueryPart($_POST['db_collation']);
         }
 
         $localQuery .= ';';

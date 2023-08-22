@@ -7717,7 +7717,7 @@
     </MixedOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['comment']]]></code>
-      <code><![CDATA[$_POST['db_collation'] ?? '']]></code>
+      <code><![CDATA[$_POST['db_collation']]]></code>
       <code><![CDATA[$_POST['new_auto_increment']]]></code>
       <code><![CDATA[$_POST['prev_comment']]]></code>
       <code><![CDATA[$_POST['tbl_collation']]]></code>
@@ -7728,7 +7728,7 @@
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['comment']]]></code>
-      <code><![CDATA[$_POST['db_collation'] ?? '']]></code>
+      <code><![CDATA[$_POST['db_collation']]]></code>
       <code><![CDATA[$_POST['new_auto_increment']]]></code>
       <code><![CDATA[$_POST['prev_comment']]]></code>
       <code><![CDATA[$_POST['tbl_collation']]]></code>
@@ -10892,17 +10892,11 @@
       <code><![CDATA[(string) $GLOBALS['table']]]></code>
     </RedundantCast>
     <RedundantCondition>
-      <code><![CDATA[$this->footer?->getDisplay()]]></code>
-      <code><![CDATA[$this->header?->getDisplay()]]></code>
       <code><![CDATA[is_scalar($GLOBALS['db'])]]></code>
       <code><![CDATA[is_scalar($GLOBALS['table'])]]></code>
       <code><![CDATA[isset($GLOBALS['db']) && is_scalar($GLOBALS['db'])]]></code>
       <code><![CDATA[isset($GLOBALS['table']) && is_scalar($GLOBALS['table'])]]></code>
     </RedundantCondition>
-    <TypeDoesNotContainNull>
-      <code><![CDATA[$this->footer]]></code>
-      <code><![CDATA[$this->header]]></code>
-    </TypeDoesNotContainNull>
     <TypeDoesNotContainType>
       <code><![CDATA['']]></code>
       <code><![CDATA['']]></code>

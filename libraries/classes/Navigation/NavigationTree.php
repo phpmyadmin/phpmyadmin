@@ -162,7 +162,7 @@ class NavigationTree
             $this->pos2Name[0] = $_POST['pos2_name'] ?? '';
             $this->pos2Value[0] = (int) ($_POST['pos2_value'] ?? 0);
             if (isset($_POST['pos3_name'])) {
-                $this->pos3Name[0] = $_POST['pos3_name'] ?? '';
+                $this->pos3Name[0] = $_POST['pos3_name'];
                 $this->pos3Value[0] = (int) $_POST['pos3_value'];
             }
         } elseif (isset($_POST['n0_aPath'])) {

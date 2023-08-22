@@ -19421,27 +19421,12 @@ parameters:
 			path: libraries/classes/ResponseRenderer.php
 
 		-
-			message: "#^Expression on left side of \\?\\? is not nullable\\.$#"
-			count: 2
-			path: libraries/classes/ResponseRenderer.php
-
-		-
 			message: "#^Foreach overwrites \\$value with its value variable\\.$#"
 			count: 1
 			path: libraries/classes/ResponseRenderer.php
 
 		-
 			message: "#^Parameter \\#1 \\$string of function mb_strlen expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/ResponseRenderer.php
-
-		-
-			message: "#^Using nullsafe method call on non\\-nullable type PhpMyAdmin\\\\Footer\\. Use \\-\\> instead\\.$#"
-			count: 1
-			path: libraries/classes/ResponseRenderer.php
-
-		-
-			message: "#^Using nullsafe method call on non\\-nullable type PhpMyAdmin\\\\Header\\. Use \\-\\> instead\\.$#"
 			count: 1
 			path: libraries/classes/ResponseRenderer.php
 

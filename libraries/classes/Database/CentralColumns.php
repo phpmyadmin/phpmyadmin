@@ -87,7 +87,7 @@ class CentralColumns
         if ($centralColumnsFeature === null) {
             $cfgCentralColumns = false;
 
-            return $cfgCentralColumns;
+            return false;
         }
 
         $cfgCentralColumns = [

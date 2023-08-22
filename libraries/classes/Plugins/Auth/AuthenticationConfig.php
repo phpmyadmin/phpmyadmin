@@ -110,7 +110,7 @@ class AuthenticationConfig extends AuthenticationPlugin
                 ) , '</p>' , "\n";
             } elseif (
                 ! isset($GLOBALS['errno'])
-                || (isset($GLOBALS['errno']) && $GLOBALS['errno'] != 2002)
+                || $GLOBALS['errno'] != 2002
                 && $GLOBALS['errno'] != 2003
             ) {
                 // if we display the "Server not responding" error, do not confuse
