@@ -5815,9 +5815,6 @@
     <MixedAssignment>
       <code>$hash</code>
     </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code>triggerError</code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="libraries/classes/ErrorReport.php">
     <MixedArgument>

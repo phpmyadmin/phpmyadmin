@@ -18,7 +18,6 @@ use function defined;
 use function error_reporting;
 use function htmlspecialchars;
 use function sprintf;
-use function trigger_error;
 
 use const E_COMPILE_ERROR;
 use const E_COMPILE_WARNING;
@@ -303,20 +302,6 @@ class ErrorHandler
                 // FATAL error, display it and exit
                 $this->dispFatalError($error);
         }
-    }
-
-    /**
-     * trigger a custom error
-     *
-     * @param string $errorInfo   error message
-     * @param int    $errorNumber error number
-     * @psalm-param 256|512|1024|16384 $errorNumber
-     */
-    public function triggerError(string $errorInfo, int $errorNumber = E_USER_NOTICE): void
-    {
-        // we could also extract file and line from backtrace
-        // and call handleError() directly
-        trigger_error($errorInfo, $errorNumber);
     }
 
     /**
