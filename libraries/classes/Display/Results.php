@@ -93,10 +93,6 @@ class Results
     public const DISPLAY_FULL_TEXT = 'F';
     public const DISPLAY_PARTIAL_TEXT = 'P';
 
-    public const HEADER_FLIP_TYPE_AUTO = 'auto';
-    public const HEADER_FLIP_TYPE_CSS = 'css';
-    public const HEADER_FLIP_TYPE_FAKE = 'fake';
-
     public const RELATIONAL_KEY = 'K';
     public const RELATIONAL_DISPLAY_COLUMN = 'D';
 
