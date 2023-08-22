@@ -86,7 +86,7 @@ class PrivilegesTest extends AbstractTestCase
         [, , $dbname, $tablename, $routinename, $dbnameIsWildcard] = $serverPrivileges->getDataForDBInfo();
         $this->assertEquals('PMA\_pred\_dbname', $dbname);
         $this->assertEquals('PMA_pred__tablename', $tablename);
-        $this->assertEquals(false, $dbnameIsWildcard);
+        $this->assertFalse($dbnameIsWildcard);
 
         // Multiselect database - pred
         unset($_POST['pred_tablename'], $_REQUEST['tablename'], $_REQUEST['dbname']);
@@ -94,7 +94,7 @@ class PrivilegesTest extends AbstractTestCase
         [, , $dbname, $tablename, , $dbnameIsWildcard] = $serverPrivileges->getDataForDBInfo();
         $this->assertEquals(['PMA\_pred\_dbname', 'PMADbname2'], $dbname);
         $this->assertEquals(null, $tablename);
-        $this->assertEquals(false, $dbnameIsWildcard);
+        $this->assertFalse($dbnameIsWildcard);
 
         // Multiselect database
         unset($_POST['pred_tablename'], $_REQUEST['tablename'], $_POST['pred_dbname']);
@@ -102,7 +102,7 @@ class PrivilegesTest extends AbstractTestCase
         [, , $dbname, $tablename, , $dbnameIsWildcard] = $serverPrivileges->getDataForDBInfo();
         $this->assertEquals(['PMA\_dbname', 'PMADbname2'], $dbname);
         $this->assertEquals(null, $tablename);
-        $this->assertEquals(false, $dbnameIsWildcard);
+        $this->assertFalse($dbnameIsWildcard);
     }
 
     public function testWildcardEscapeForGrant(): void

@@ -1440,7 +1440,7 @@ class TableTest extends AbstractTestCase
 
         $GLOBALS['sql_query'] = '';
         $return = Table::moveCopy('aa', 'ad', 'bb', 'ad', 'structure', true, 'db_copy', true);
-        $this->assertEquals(true, $return);
+        $this->assertTrue($return);
         $this->assertStringContainsString('DROP TABLE IF EXISTS `bb`.`ad`;', $GLOBALS['sql_query']);
         $this->assertStringContainsString(
             'CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost`' .

@@ -267,7 +267,7 @@ class ImportCsvTest extends AbstractTestCase
             $GLOBALS['sql_query'],
         );
 
-        $this->assertEquals(true, $GLOBALS['finished']);
+        $this->assertTrue($GLOBALS['finished']);
         $this->dummyDbi->assertAllQueriesConsumed();
     }
 
@@ -312,7 +312,7 @@ class ImportCsvTest extends AbstractTestCase
             $GLOBALS['sql_query'],
         );
 
-        $this->assertEquals(true, $GLOBALS['finished']);
+        $this->assertTrue($GLOBALS['finished']);
         $this->dummyDbi->assertAllQueriesConsumed();
     }
 }
