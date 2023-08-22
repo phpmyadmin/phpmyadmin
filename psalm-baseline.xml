@@ -8395,9 +8395,6 @@
       <code>$row[$j]</code>
       <code>$tableAlias</code>
     </PossiblyNullArgument>
-    <UnnecessaryVarAnnotation>
-      <code>FieldMetadata[]</code>
-    </UnnecessaryVarAnnotation>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportOdt.php">
     <DeprecatedMethod>
@@ -8478,9 +8475,6 @@
     <PossiblyUnusedReturnValue>
       <code>string</code>
     </PossiblyUnusedReturnValue>
-    <UnnecessaryVarAnnotation>
-      <code>FieldMetadata[]</code>
-    </UnnecessaryVarAnnotation>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportPdf.php">
     <DeprecatedMethod>
@@ -8705,7 +8699,6 @@
     </TypeDoesNotContainType>
     <UnnecessaryVarAnnotation>
       <code>CreateDefinition</code>
-      <code>FieldMetadata[]</code>
     </UnnecessaryVarAnnotation>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportTexytext.php">
