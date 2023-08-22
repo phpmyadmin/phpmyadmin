@@ -721,9 +721,6 @@
       <code><![CDATA[$column['Comment']]]></code>
       <code><![CDATA[$column['Comment']]]></code>
     </PossiblyUndefinedArrayOffset>
-    <PossiblyUnusedMethod>
-      <code>getDbComments</code>
-    </PossiblyUnusedMethod>
     <PossiblyUnusedReturnValue>
       <code>bool</code>
     </PossiblyUnusedReturnValue>
