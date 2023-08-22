@@ -108,9 +108,6 @@ class Results
     public const ALL_ROWS = 'all';
     public const QUERY_TYPE_SELECT = 'SELECT';
 
-    public const ROUTINE_PROCEDURE = 'procedure';
-    public const ROUTINE_FUNCTION = 'function';
-
     public const ACTION_LINK_CONTENT_ICONS = 'icons';
     public const ACTION_LINK_CONTENT_TEXT = 'text';
 
