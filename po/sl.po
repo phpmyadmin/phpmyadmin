@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-01-28 03:53+0000\n"
+"PO-Revision-Date: 2023-08-22 20:55+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "sl/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -7482,6 +7482,9 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
+"Ne morete odpreti, shraniti ali izbrisati postavitve strani, ker IndexedDB v "
+"vašem brskalniku ne deluje in vaša hramba konfiguracije phpMyAdmin ni "
+"konfigurirana za to."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:706
 #, php-format
@@ -13196,12 +13199,8 @@ msgstr ""
 "predpostavljajoč običajno preslikavo naslovov IPv4 v naslove IPv6"
 
 #: libraries/classes/Types.php:445
-#, fuzzy
-#| msgid "Stores a Universally Unique Identifier (UUID)"
 msgid "128-bit UUID (Universally Unique Identifier)"
-msgstr ""
-"Shrani vsesplošno edinstven označevalnik (Universally Unique Identifier, "
-"UUID)"
+msgstr "128-bitni UUID (vsesplošno edinstven označevalnik)"
 
 #: libraries/classes/Types.php:791
 msgctxt "numeric types"
@@ -13235,13 +13234,8 @@ msgid "Could not save configuration"
 msgstr "Ne morem shraniti konfiguracije"
 
 #: libraries/classes/UserPreferences.php:192
-#, fuzzy
-#| msgid ""
-#| "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgid "The phpMyAdmin configuration storage database could not be accessed."
-msgstr ""
-"%sCreate%s tabele hrambe konfiguracije phpMyAdmin in trenutni zbirki "
-"podatkov."
+msgstr "Zbirka podatkov hrambe konfiguracije phpMyAdmin ni dostopna."
 
 #: libraries/classes/Util.php:132
 #, php-format
@@ -15792,7 +15786,7 @@ msgstr "Opozorilo"
 
 #: templates/home/index.twig:282
 msgid "Notice"
-msgstr ""
+msgstr "Obvestilo"
 
 #: templates/home/index.twig:295
 msgid "phpMyAdmin Themes"
@@ -16320,7 +16314,7 @@ msgstr "Pogled:"
 #: templates/modals/index_dialog_modal.twig:30
 #: templates/table/structure/display_structure.twig:363
 msgid "Go back"
-msgstr ""
+msgstr "Pojdi nazaj"
 
 #: templates/modals/unhide_nav_item.twig:5
 msgid "Show hidden navigation tree items."
