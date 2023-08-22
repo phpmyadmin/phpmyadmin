@@ -20,6 +20,7 @@ use Webmozart\Assert\Assert;
 use function assert;
 use function count;
 use function is_string;
+use function max;
 use function mb_strlen;
 use function mb_strtolower;
 use function mb_substr;
@@ -507,7 +508,7 @@ class GisVisualization
         // scale the visualization
         $xRatio = ($extent->maxX - $extent->minX) / $plotWidth;
         $yRatio = ($extent->maxY - $extent->minY) / $plotHeight;
-        $ratio = $xRatio > $yRatio ? $xRatio : $yRatio;
+        $ratio = max($xRatio, $yRatio);
 
         $scale = $ratio === 0.0 ? 1.0 : 1.0 / $ratio;
 

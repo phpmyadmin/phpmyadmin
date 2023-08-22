@@ -41,6 +41,7 @@ use function is_string;
 use function is_uploaded_file;
 use function mb_strlen;
 use function mb_strtolower;
+use function min;
 use function preg_match;
 use function preg_quote;
 use function preg_replace;
@@ -538,7 +539,7 @@ final class ImportController extends AbstractController
             while ($skip > 0 && ! $GLOBALS['finished']) {
                 $this->import->getNextChunk(
                     $importHandle ?? null,
-                    $skip < $GLOBALS['read_limit'] ? $skip : $GLOBALS['read_limit'],
+                    min($skip, $GLOBALS['read_limit']),
                 );
                 // Disable read progressivity, otherwise we eat all memory!
                 $GLOBALS['read_multiply'] = 1;

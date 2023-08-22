@@ -2084,7 +2084,7 @@
       <code><![CDATA[$GLOBALS['local_import_file']]]></code>
     </MixedOperand>
     <PossiblyInvalidArgument>
-      <code><![CDATA[$skip < $GLOBALS['read_limit'] ? $skip : $GLOBALS['read_limit']]]></code>
+      <code><![CDATA[min($skip, $GLOBALS['read_limit'])]]></code>
     </PossiblyInvalidArgument>
     <PossiblyUnusedMethod>
       <code>__construct</code>
@@ -6809,8 +6809,8 @@
       <code>$size</code>
       <code>$size</code>
       <code>$size[self::D]</code>
-      <code><![CDATA[$size[self::D] > $oldD ? $size[self::D] : $oldD]]></code>
-      <code><![CDATA[$size[self::M] > $oldM ? $size[self::M] : $oldM]]></code>
+      <code>max($size[self::D], $oldD)</code>
+      <code>max($size[self::M], $oldM)</code>
     </MixedOperand>
     <MixedReturnStatement>
       <code>$size[self::FULL]</code>

@@ -682,8 +682,8 @@ class Import
                 /* New val if M or D is greater than current largest */
                 if ($size[self::M] > $oldM || $size[self::D] > $oldD) {
                     /* Take the largest of both types */
-                    return ($size[self::M] > $oldM ? $size[self::M] : $oldM)
-                        . ',' . ($size[self::D] > $oldD ? $size[self::D] : $oldD);
+                    return max($size[self::M], $oldM)
+                        . ',' . max($size[self::D], $oldD);
                 }
 
                 return $lastCumulativeSize;
