@@ -2666,7 +2666,7 @@ class ExportSql extends ExportPlugin
         if ($result !== false && $result->numRows() > 0) {
             $tmpres = $result->fetchAssoc();
 
-            if ($showDates && isset($tmpres['Create_time']) && ! empty($tmpres['Create_time'])) {
+            if ($showDates && ! empty($tmpres['Create_time'])) {
                 $schemaCreate .= $this->exportComment(
                     __('Creation:') . ' '
                     . Util::localisedDate(
@@ -2676,7 +2676,7 @@ class ExportSql extends ExportPlugin
                 $newCrlf = $this->exportComment() . "\n";
             }
 
-            if ($showDates && isset($tmpres['Update_time']) && ! empty($tmpres['Update_time'])) {
+            if ($showDates && ! empty($tmpres['Update_time'])) {
                 $schemaCreate .= $this->exportComment(
                     __('Last update:') . ' '
                     . Util::localisedDate(
@@ -2686,7 +2686,7 @@ class ExportSql extends ExportPlugin
                 $newCrlf = $this->exportComment() . "\n";
             }
 
-            if ($showDates && isset($tmpres['Check_time']) && ! empty($tmpres['Check_time'])) {
+            if ($showDates && ! empty($tmpres['Check_time'])) {
                 $schemaCreate .= $this->exportComment(
                     __('Last check:') . ' '
                     . Util::localisedDate(

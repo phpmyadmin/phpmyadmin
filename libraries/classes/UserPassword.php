@@ -68,7 +68,7 @@ class UserPassword
         $origAuthPlugin = $this->serverPrivileges->getCurrentAuthenticationPlugin($username, $hostname);
         $authPluginChanged = false;
 
-        if (isset($_POST['authentication_plugin']) && ! empty($_POST['authentication_plugin'])) {
+        if (! empty($_POST['authentication_plugin'])) {
             if ($origAuthPlugin !== $_POST['authentication_plugin']) {
                 $authPluginChanged = true;
             }

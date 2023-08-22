@@ -4436,22 +4436,12 @@ parameters:
 			path: libraries/classes/Controllers/Normalization/CreateNewColumnController.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Normalization/FirstNormalForm/FirstStepController.php
-
-		-
 			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlFor1NFStep1\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Normalization/FirstNormalForm/FirstStepController.php
 
 		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlFor1NFStep1\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Normalization/FirstNormalForm/FirstStepController.php
-
-		-
-			message: "#^Parameter \\#3 \\$normalizedTo of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlFor1NFStep1\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Normalization/FirstNormalForm/FirstStepController.php
 
@@ -11807,7 +11797,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'SaveDir' on mixed\\.$#"
-			count: 3
+			count: 2
 			path: libraries/classes/Export/Options.php
 
 		-

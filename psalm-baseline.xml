@@ -2182,11 +2182,7 @@
     </UnusedParam>
   </file>
   <file src="libraries/classes/Controllers/Normalization/FirstNormalForm/FirstStepController.php">
-    <MixedArgument>
-      <code>$normalForm</code>
-    </MixedArgument>
     <MixedAssignment>
-      <code>$normalForm</code>
       <code>$normalizeTo</code>
     </MixedAssignment>
   </file>

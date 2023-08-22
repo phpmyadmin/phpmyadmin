@@ -886,7 +886,7 @@ class Operations
                     isset($_POST['drop_if_exists']) && $_POST['drop_if_exists'] === 'true',
                 );
 
-                if (isset($_POST['adjust_privileges']) && ! empty($_POST['adjust_privileges'])) {
+                if (! empty($_POST['adjust_privileges'])) {
                     if (isset($_POST['submit_move'])) {
                         $this->adjustPrivilegesRenameOrMoveTable($db, $table, $targetDb, (string) $_POST['new_name']);
                     } else {

@@ -2772,7 +2772,7 @@ class Privileges
         $changePassword = '';
         $userGroup = '';
         $changeLoginInfoFields = '';
-        if (! is_array($dbname) && $dbname === '' && ! $userDoesNotExists) {
+        if ($dbname === '' && ! $userDoesNotExists) {
             //change login information
             $changePassword = $this->getFormForChangePassword($username, $hostname, true, $route);
             $userGroup = $this->getUserGroupForUser($username);
