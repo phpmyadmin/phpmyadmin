@@ -6515,7 +6515,6 @@
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <InvalidArgument>
       <code>$urlParams</code>
@@ -6576,9 +6575,6 @@
     <PossiblyUndefinedArrayOffset>
       <code>$parts[1]</code>
     </PossiblyUndefinedArrayOffset>
-    <PossiblyUnusedMethod>
-      <code>getExternalBug</code>
-    </PossiblyUnusedMethod>
     <RedundantCast>
       <code><![CDATA[(int) $GLOBALS['cfg']['MaxRows']]]></code>
       <code><![CDATA[(string) $GLOBALS['db']]]></code>
