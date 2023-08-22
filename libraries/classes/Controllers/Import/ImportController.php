@@ -419,15 +419,12 @@ final class ImportController extends AbstractController
 
         // Calculate value of the limit
         $memoryUnit = mb_strtolower(substr((string) $GLOBALS['memory_limit'], -1));
-        if ($memoryUnit === 'm') {
-            $GLOBALS['memory_limit'] = (int) substr((string) $GLOBALS['memory_limit'], 0, -1) * 1024 * 1024;
-        } elseif ($memoryUnit === 'k') {
-            $GLOBALS['memory_limit'] = (int) substr((string) $GLOBALS['memory_limit'], 0, -1) * 1024;
-        } elseif ($memoryUnit === 'g') {
-            $GLOBALS['memory_limit'] = (int) substr((string) $GLOBALS['memory_limit'], 0, -1) * 1024 * 1024 * 1024;
-        } else {
-            $GLOBALS['memory_limit'] = (int) $GLOBALS['memory_limit'];
-        }
+        $GLOBALS['memory_limit'] = match ($memoryUnit) {
+            'm' => (int) substr((string) $GLOBALS['memory_limit'], 0, -1) * 1024 * 1024,
+            'k' => (int) substr((string) $GLOBALS['memory_limit'], 0, -1) * 1024,
+            'g' => (int) substr((string) $GLOBALS['memory_limit'], 0, -1) * 1024 * 1024 * 1024,
+            default => (int) $GLOBALS['memory_limit'],
+        };
 
         // Just to be sure, there might be lot of memory needed for uncompression
         $GLOBALS['read_limit'] = $GLOBALS['memory_limit'] / 8;

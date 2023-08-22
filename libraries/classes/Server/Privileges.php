@@ -1487,23 +1487,21 @@ class Privileges
             $dbRights[$dbRightsRow[$dbOrTableName]] = $dbRightsRow;
         }
 
-        if ($type === 'database') {
-            $sqlQuery = 'SELECT * FROM `mysql`.`db`'
-                . $userHostCondition . ' ORDER BY `Db` ASC';
-        } elseif ($type === 'table') {
-            $sqlQuery = 'SELECT `Table_name`,'
+        $sqlQuery = match ($type) {
+            'database' => 'SELECT * FROM `mysql`.`db`'
+                . $userHostCondition . ' ORDER BY `Db` ASC',
+            'table' => 'SELECT `Table_name`,'
                 . ' `Table_priv`,'
                 . ' IF(`Column_priv` = _latin1 \'\', 0, 1)'
                 . ' AS \'Column_priv\''
                 . ' FROM `mysql`.`tables_priv`'
                 . $userHostCondition
-                . ' ORDER BY `Table_name` ASC;';
-        } else {
-            $sqlQuery = 'SELECT `Routine_name`, `Proc_priv`'
+                . ' ORDER BY `Table_name` ASC;',
+            default => 'SELECT `Routine_name`, `Proc_priv`'
                 . ' FROM `mysql`.`procs_priv`'
                 . $userHostCondition
-                . ' ORDER BY `Routine_name`';
-        }
+                . ' ORDER BY `Routine_name`',
+        };
 
         $result = $this->dbi->query($sqlQuery);
 

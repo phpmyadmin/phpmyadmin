@@ -1260,21 +1260,19 @@ class Export
     private function getHTMLForBackButton(string $exportType, string $db, string $table): string
     {
         $backButton = '<p>[ <a href="';
-        if ($exportType === 'server') {
-            $backButton .= Url::getFromRoute('/server/export') . '" data-post="' . Url::getCommon([], '', false);
-        } elseif ($exportType === 'database') {
-            $backButton .= Url::getFromRoute('/database/export') . '" data-post="' . Url::getCommon(
+        $backButton .= match ($exportType) {
+            'server' => Url::getFromRoute('/server/export') . '" data-post="' . Url::getCommon([], '', false),
+            'database' => Url::getFromRoute('/database/export') . '" data-post="' . Url::getCommon(
                 ['db' => $db],
                 '',
-                false,
-            );
-        } else {
-            $backButton .= Url::getFromRoute('/table/export') . '" data-post="' . Url::getCommon(
+                    false,
+            ),
+            default => Url::getFromRoute('/table/export') . '" data-post="' . Url::getCommon(
                 ['db' => $db, 'table' => $table],
                 '',
                 false,
-            );
-        }
+            ),
+        };
 
         $postParams = array_filter($this->getPostParams($exportType), static fn ($value): bool => ! is_array($value));
         $backButton .= '&amp;' . http_build_query($postParams);
