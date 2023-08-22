@@ -55,7 +55,6 @@ class Message implements Stringable
     public const SANITIZE_NONE = 0; // 0000 0000
     public const SANITIZE_STRING = 16; // 0001 0000
     public const SANITIZE_PARAMS = 32; // 0010 0000
-    public const SANITIZE_BOOTH = 48; // 0011 0000
 
     /**
      * message levels
