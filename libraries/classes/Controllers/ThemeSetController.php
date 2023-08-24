@@ -28,6 +28,12 @@ final class ThemeSetController extends AbstractController
     {
         $theme = $request->getParsedBodyParam('set_theme');
         if (! $GLOBALS['cfg']['ThemeManager'] || ! is_string($theme) || $theme === '') {
+            if ($request->isAjax()) {
+                $this->response->addJSON('themeColorMode', '');
+
+                return;
+            }
+
             $this->response->redirect('index.php?route=/' . Url::getCommonRaw([], '&'));
 
             return;
@@ -46,6 +52,12 @@ final class ThemeSetController extends AbstractController
         $preferences = $this->userPreferences->load();
         $preferences['config_data']['ThemeDefault'] = $theme;
         $this->userPreferences->save($preferences['config_data']);
+
+        if ($request->isAjax()) {
+            $this->response->addJSON('themeColorMode', $this->themeManager->theme->getColorMode());
+
+            return;
+        }
 
         $this->response->redirect('index.php?route=/' . Url::getCommonRaw([], '&'));
     }

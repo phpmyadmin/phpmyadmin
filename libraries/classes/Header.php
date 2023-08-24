@@ -275,6 +275,8 @@ class Header
         $baseDir = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
         $themePath = $GLOBALS['theme'] instanceof Theme ? $GLOBALS['theme']->getPath() : '';
         $themeColorMode = $GLOBALS['theme'] instanceof Theme ? $GLOBALS['theme']->getColorMode() : 'light';
+        $themeColorModes = $GLOBALS['theme'] instanceof Theme ? $GLOBALS['theme']->getColorModes() : [];
+        $themeId = $GLOBALS['theme'] instanceof Theme ? $GLOBALS['theme']->getId() : '';
         $version = self::getVersionParameter();
 
         // The user preferences have been merged at this point
@@ -364,6 +366,8 @@ class Header
             'messages' => $messages,
             'recent_table' => $recentTable,
             'theme_color_mode' => $themeColorMode,
+            'theme_color_modes' => $themeColorModes,
+            'theme_id' => $themeId,
         ]);
     }
 
