@@ -152,35 +152,6 @@ class Generator
     }
 
     /**
-     * Prepare a lightbulb hint explaining a known external bug
-     * that affects a functionality
-     *
-     * @param string $functionality  localized message explaining the func.
-     * @param string $component      'mysql' (eventually, 'php')
-     * @param string $minimumVersion of this component
-     * @param string $bugReference   bug reference for this component
-     */
-    public static function getExternalBug(
-        string $functionality,
-        string $component,
-        string $minimumVersion,
-        string $bugReference,
-    ): string {
-        $return = '';
-        if (($component === 'mysql') && (DatabaseInterface::getInstance()->getVersion() < $minimumVersion)) {
-            $return .= self::showHint(
-                sprintf(
-                    __('The %s functionality is affected by a known bug, see %s'),
-                    $functionality,
-                    Core::linkURL('https://bugs.mysql.com/') . $bugReference,
-                ),
-            );
-        }
-
-        return $return;
-    }
-
-    /**
      * Returns an HTML IMG tag for a particular icon from a theme,
      * which may be an actual file or an icon from a sprite.
      * This function takes into account the ActionLinksMode

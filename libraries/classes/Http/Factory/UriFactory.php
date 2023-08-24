@@ -67,7 +67,7 @@ final class UriFactory implements UriFactoryInterface
      */
     public function fromGlobals(array $server): UriInterface
     {
-        $uri = $this->createUri('');
+        $uri = $this->createUri();
 
         $uri = $uri->withScheme(! isset($server['HTTPS']) || $server['HTTPS'] === 'off' ? 'http' : 'https');
 

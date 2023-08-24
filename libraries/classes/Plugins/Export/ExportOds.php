@@ -206,7 +206,6 @@ class ExportOds extends ExportPlugin
         // Gets the data from the database
         $result = $dbi->query($sqlQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
         $fieldsCnt = $result->numFields();
-        /** @var FieldMetadata[] $fieldsMeta */
         $fieldsMeta = $dbi->getFieldsMeta($result);
 
         $GLOBALS['ods_buffer'] .= '<table:table table:name="' . htmlspecialchars($tableAlias) . '">';

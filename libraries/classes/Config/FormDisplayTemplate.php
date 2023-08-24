@@ -77,7 +77,7 @@ class FormDisplayTemplate
             'is_setup' => $isSetupScript,
             'allows_customization' => $opts['userprefs_allow'] ?? null,
             'path' => $path,
-            'has_errors' => isset($opts['errors']) && ! empty($opts['errors']),
+            'has_errors' => ! empty($opts['errors']),
             'errors' => $opts['errors'] ?? [],
             'show_restore_default' => $opts['show_restore_default'] ?? null,
             'set_value' => $opts['setvalue'] ?? null,

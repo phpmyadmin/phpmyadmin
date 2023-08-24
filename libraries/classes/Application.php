@@ -122,9 +122,9 @@ class Application
         $runner = new RequestHandlerRunner(
             $requestHandler,
             new SapiEmitter(),
-            static function () use ($isSetupPage): ServerRequestInterface {
-                return ServerRequestFactory::create()->fromGlobals()->withAttribute('isSetupPage', $isSetupPage);
-            },
+            static fn (): ServerRequestInterface => ServerRequestFactory::create()
+                ->fromGlobals()
+                ->withAttribute('isSetupPage', $isSetupPage),
             function (Throwable $throwable): ResponseInterface {
                 $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);
                 $response->getBody()->write(sprintf('An error occurred: %s', $throwable->getMessage()));

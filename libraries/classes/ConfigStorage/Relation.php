@@ -561,31 +561,6 @@ class Relation
     }
 
     /**
-     * Gets the comment for a db
-     *
-     * @return mixed[] comments
-     */
-    public function getDbComments(): array
-    {
-        $columnCommentsFeature = $this->getRelationParameters()->columnCommentsFeature;
-
-        if ($columnCommentsFeature !== null) {
-            // pmadb internal db comment
-            $comQry = 'SELECT `db_name`, `comment`'
-                    . ' FROM ' . Util::backquote($columnCommentsFeature->database)
-                    . '.' . Util::backquote($columnCommentsFeature->columnInfo)
-                    . ' WHERE `column_name` = \'(db_comment)\'';
-            $comRs = $this->dbi->tryQueryAsControlUser($comQry);
-
-            if ($comRs && $comRs->numRows() > 0) {
-                return $comRs->fetchAllKeyPair();
-            }
-        }
-
-        return [];
-    }
-
-    /**
      * Set a database comment to a certain value.
      *
      * @param string $db      the name of the db

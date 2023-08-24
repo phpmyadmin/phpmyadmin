@@ -75,12 +75,6 @@ class Table implements Stringable
     public const PROP_COLUMN_ORDER = 'col_order';
     public const PROP_COLUMN_VISIB = 'col_visib';
 
-    /** @var string  engine (innodb, myisam, bdb, ...) */
-    public string $engine = '';
-
-    /** @var string  type (view, base table, system view) */
-    public string $type = '';
-
     /** @var mixed[] UI preferences */
     public array $uiprefs = [];
 

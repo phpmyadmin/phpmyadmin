@@ -13,7 +13,6 @@ use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
-use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -2079,7 +2078,6 @@ class ExportSql extends ExportPlugin
         $fieldsCnt = $result->numFields();
 
         // Get field information
-        /** @var FieldMetadata[] $fieldsMeta */
         $fieldsMeta = $dbi->getFieldsMeta($result);
 
         $fieldSet = [];
@@ -2668,7 +2666,7 @@ class ExportSql extends ExportPlugin
         if ($result !== false && $result->numRows() > 0) {
             $tmpres = $result->fetchAssoc();
 
-            if ($showDates && isset($tmpres['Create_time']) && ! empty($tmpres['Create_time'])) {
+            if ($showDates && ! empty($tmpres['Create_time'])) {
                 $schemaCreate .= $this->exportComment(
                     __('Creation:') . ' '
                     . Util::localisedDate(
@@ -2678,7 +2676,7 @@ class ExportSql extends ExportPlugin
                 $newCrlf = $this->exportComment() . "\n";
             }
 
-            if ($showDates && isset($tmpres['Update_time']) && ! empty($tmpres['Update_time'])) {
+            if ($showDates && ! empty($tmpres['Update_time'])) {
                 $schemaCreate .= $this->exportComment(
                     __('Last update:') . ' '
                     . Util::localisedDate(
@@ -2688,7 +2686,7 @@ class ExportSql extends ExportPlugin
                 $newCrlf = $this->exportComment() . "\n";
             }
 
-            if ($showDates && isset($tmpres['Check_time']) && ! empty($tmpres['Check_time'])) {
+            if ($showDates && ! empty($tmpres['Check_time'])) {
                 $schemaCreate .= $this->exportComment(
                     __('Last check:') . ' '
                     . Util::localisedDate(

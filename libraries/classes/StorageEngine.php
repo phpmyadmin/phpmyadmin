@@ -356,8 +356,6 @@ class StorageEngine
 
         if ($like !== '') {
             $like = " LIKE '" . $like . "' ";
-        } else {
-            $like = '';
         }
 
         $mysqlVars = [];

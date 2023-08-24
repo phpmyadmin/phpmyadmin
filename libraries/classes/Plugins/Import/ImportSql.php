@@ -102,8 +102,6 @@ class ImportSql extends ImportPlugin
 
         /**
          * Will be set in Import::getNextChunk().
-         *
-         * @global bool $GLOBALS ['finished']
          */
         $GLOBALS['finished'] = false;
 

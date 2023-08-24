@@ -310,7 +310,6 @@ class Validator
                 empty($values['Servers/1/socket']) ? '' : $values['Servers/1/socket'],
                 empty($values['Servers/1/user']) ? '' : $values['Servers/1/user'],
                 $password,
-                'Server',
             );
 
             if (is_array($test)) {

@@ -145,7 +145,6 @@ class ImportMediawiki extends ImportPlugin
                 }
 
                 $firstCharacter = $curBufferLine[0];
-                $matches = [];
 
                 // Check beginning of comment
                 if (str_starts_with($curBufferLine, '<!--')) {
@@ -184,7 +183,7 @@ class ImportMediawiki extends ImportPlugin
                     continue;
                 }
 
-                if (preg_match('/^\{\|(.*)$/', $curBufferLine, $matches)) {
+                if (preg_match('/^\{\|(.*)$/', $curBufferLine)) {
                     // Check start of table
 
                     // This will store all the column info on all rows from

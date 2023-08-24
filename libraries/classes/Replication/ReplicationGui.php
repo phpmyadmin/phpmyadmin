@@ -73,7 +73,7 @@ class ReplicationGui
     ): string {
         if (! $hasReplicaClearScreen) {
             $primaryStatusTable = $this->getHtmlForReplicationStatusTable($connection, 'primary', true, false);
-            $replicas = DatabaseInterface::getInstance()->fetchResult('SHOW SLAVE HOSTS', null, null);
+            $replicas = DatabaseInterface::getInstance()->fetchResult('SHOW SLAVE HOSTS');
 
             $urlParams = $GLOBALS['urlParams'];
             $urlParams['primary_add_user'] = true;

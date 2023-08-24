@@ -375,7 +375,7 @@ class CreateAddField
     public function getTableCreationQuery(string $db, string $table): string
     {
         // get column addition statements
-        $sqlStatement = $this->getColumnCreationStatements(true);
+        $sqlStatement = $this->getColumnCreationStatements();
 
         // Builds the 'create table' statement
         $sqlQuery = 'CREATE TABLE ' . Util::backquote($db) . '.'

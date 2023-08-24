@@ -36,7 +36,6 @@ final class SimulateDmlController extends AbstractController
         /** @var string $sqlDelimiter */
         $sqlDelimiter = $request->getParsedBodyParam('sql_delimiter', '');
         $sqlData = [];
-        /** @var string[] $queries */
         $queries = explode($sqlDelimiter, $GLOBALS['sql_query']);
         foreach ($queries as $sqlQuery) {
             if (empty($sqlQuery)) {

@@ -54,7 +54,7 @@ class Header
     /**
      * Whether to show the top menu
      */
-    private bool $menuEnabled = false;
+    private bool $menuEnabled;
     /**
      * Whether to show the warnings
      */

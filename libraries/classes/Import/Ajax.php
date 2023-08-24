@@ -40,7 +40,7 @@ final class Ajax
         /**
          * unique ID for each upload
          */
-        $uploadId = ! defined('TESTSUITE') ? uniqid('') : 'abc1234567890';
+        $uploadId = ! defined('TESTSUITE') ? uniqid() : 'abc1234567890';
 
         /**
          * list of available plugins

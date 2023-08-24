@@ -1292,7 +1292,7 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in &&, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given on the left side\\.$#"
-			count: 3
+			count: 2
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
@@ -4436,22 +4436,12 @@ parameters:
 			path: libraries/classes/Controllers/Normalization/CreateNewColumnController.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Normalization/FirstNormalForm/FirstStepController.php
-
-		-
 			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlFor1NFStep1\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Normalization/FirstNormalForm/FirstStepController.php
 
 		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlFor1NFStep1\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Normalization/FirstNormalForm/FirstStepController.php
-
-		-
-			message: "#^Parameter \\#3 \\$normalizedTo of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlFor1NFStep1\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Normalization/FirstNormalForm/FirstStepController.php
 
@@ -9356,11 +9346,6 @@ parameters:
 			path: libraries/classes/Core.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Core\\:\\:getTableCount\\(\\) should return int but returns int\\|string\\.$#"
-			count: 1
-			path: libraries/classes/Core.php
-
-		-
 			message: "#^Only booleans are allowed in &&, string\\|false given on the right side\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
@@ -9372,11 +9357,6 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in a negated boolean, int\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Core.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
 
@@ -11807,7 +11787,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'SaveDir' on mixed\\.$#"
-			count: 3
+			count: 2
 			path: libraries/classes/Export/Options.php
 
 		-
@@ -19421,27 +19401,12 @@ parameters:
 			path: libraries/classes/ResponseRenderer.php
 
 		-
-			message: "#^Expression on left side of \\?\\? is not nullable\\.$#"
-			count: 2
-			path: libraries/classes/ResponseRenderer.php
-
-		-
 			message: "#^Foreach overwrites \\$value with its value variable\\.$#"
 			count: 1
 			path: libraries/classes/ResponseRenderer.php
 
 		-
 			message: "#^Parameter \\#1 \\$string of function mb_strlen expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/ResponseRenderer.php
-
-		-
-			message: "#^Using nullsafe method call on non\\-nullable type PhpMyAdmin\\\\Footer\\. Use \\-\\> instead\\.$#"
-			count: 1
-			path: libraries/classes/ResponseRenderer.php
-
-		-
-			message: "#^Using nullsafe method call on non\\-nullable type PhpMyAdmin\\\\Header\\. Use \\-\\> instead\\.$#"
 			count: 1
 			path: libraries/classes/ResponseRenderer.php
 
@@ -22021,11 +21986,6 @@ parameters:
 			path: libraries/classes/Triggers/Triggers.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:configure\\(\\)\\.$#"
-			count: 1
-			path: libraries/classes/TwoFactor.php
-
-		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
 			count: 2
 			path: libraries/classes/TwoFactor.php
@@ -22046,18 +22006,8 @@ parameters:
 			path: libraries/classes/TwoFactor.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\TwoFactor\\:\\:getBackendForCurrentUser\\(\\) should return PhpMyAdmin\\\\Plugins\\\\TwoFactorPlugin but returns object\\.$#"
-			count: 1
-			path: libraries/classes/TwoFactor.php
-
-		-
 			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\TwoFactor\\:\\:getBackendClass\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: libraries/classes/TwoFactor.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\TwoFactor\\:\\:\\$backend \\(PhpMyAdmin\\\\Plugins\\\\TwoFactorPlugin\\) does not accept object\\.$#"
-			count: 2
 			path: libraries/classes/TwoFactor.php
 
 		-

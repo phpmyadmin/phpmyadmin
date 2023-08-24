@@ -178,7 +178,7 @@ final class Options
             'can_convert_kanji' => Encoding::canConvertKanji(),
             'exec_time_limit' => $GLOBALS['cfg']['ExecTimeLimit'],
             'rows' => $rows,
-            'has_save_dir' => isset($GLOBALS['cfg']['SaveDir']) && ! empty($GLOBALS['cfg']['SaveDir']),
+            'has_save_dir' => ! empty($GLOBALS['cfg']['SaveDir']),
             'save_dir' => Util::userDir((string) ($GLOBALS['cfg']['SaveDir'] ?? '')),
             'export_is_checked' => $this->checkboxCheck('quick_export_onserver'),
             'export_overwrite_is_checked' => $this->checkboxCheck('quick_export_onserver_overwrite'),

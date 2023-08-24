@@ -721,9 +721,6 @@
       <code><![CDATA[$column['Comment']]]></code>
       <code><![CDATA[$column['Comment']]]></code>
     </PossiblyUndefinedArrayOffset>
-    <PossiblyUnusedMethod>
-      <code>getDbComments</code>
-    </PossiblyUnusedMethod>
     <PossiblyUnusedReturnValue>
       <code>bool</code>
     </PossiblyUnusedReturnValue>
@@ -2182,11 +2179,7 @@
     </UnusedParam>
   </file>
   <file src="libraries/classes/Controllers/Normalization/FirstNormalForm/FirstStepController.php">
-    <MixedArgument>
-      <code>$normalForm</code>
-    </MixedArgument>
     <MixedAssignment>
-      <code>$normalForm</code>
       <code>$normalizeTo</code>
     </MixedAssignment>
   </file>
@@ -4251,21 +4244,12 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="libraries/classes/Core.php">
-    <DeprecatedMethod>
-      <code>DatabaseInterface::getInstance()</code>
-    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['cfg']['TrustedProxies']]]></code>
     </InvalidArrayOffset>
     <InvalidOperand>
       <code>$matches[1]</code>
     </InvalidOperand>
-    <InvalidReturnStatement>
-      <code><![CDATA[$tables->numRows()]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code>int</code>
-    </InvalidReturnType>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['cfg']['TrustedProxies'][$directIp]]]></code>
       <code>$onePostPattern</code>
@@ -4320,9 +4304,6 @@
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$_SERVER['SERVER_NAME']]]></code>
     </PossiblyUndefinedArrayOffset>
-    <PossiblyUnusedMethod>
-      <code>getTableCount</code>
-    </PossiblyUnusedMethod>
     <PossiblyUnusedParam>
       <code>$array</code>
     </PossiblyUnusedParam>
@@ -5831,9 +5812,6 @@
     <MixedAssignment>
       <code>$hash</code>
     </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code>triggerError</code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="libraries/classes/ErrorReport.php">
     <MixedArgument>
@@ -6537,7 +6515,6 @@
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <InvalidArgument>
       <code>$urlParams</code>
@@ -6598,9 +6575,6 @@
     <PossiblyUndefinedArrayOffset>
       <code>$parts[1]</code>
     </PossiblyUndefinedArrayOffset>
-    <PossiblyUnusedMethod>
-      <code>getExternalBug</code>
-    </PossiblyUnusedMethod>
     <RedundantCast>
       <code><![CDATA[(int) $GLOBALS['cfg']['MaxRows']]]></code>
       <code><![CDATA[(string) $GLOBALS['db']]]></code>
@@ -7717,7 +7691,7 @@
     </MixedOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['comment']]]></code>
-      <code><![CDATA[$_POST['db_collation'] ?? '']]></code>
+      <code><![CDATA[$_POST['db_collation']]]></code>
       <code><![CDATA[$_POST['new_auto_increment']]]></code>
       <code><![CDATA[$_POST['prev_comment']]]></code>
       <code><![CDATA[$_POST['tbl_collation']]]></code>
@@ -7728,7 +7702,7 @@
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['comment']]]></code>
-      <code><![CDATA[$_POST['db_collation'] ?? '']]></code>
+      <code><![CDATA[$_POST['db_collation']]]></code>
       <code><![CDATA[$_POST['new_auto_increment']]]></code>
       <code><![CDATA[$_POST['prev_comment']]]></code>
       <code><![CDATA[$_POST['tbl_collation']]]></code>
@@ -8395,9 +8369,6 @@
       <code>$row[$j]</code>
       <code>$tableAlias</code>
     </PossiblyNullArgument>
-    <UnnecessaryVarAnnotation>
-      <code>FieldMetadata[]</code>
-    </UnnecessaryVarAnnotation>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportOdt.php">
     <DeprecatedMethod>
@@ -8478,9 +8449,6 @@
     <PossiblyUnusedReturnValue>
       <code>string</code>
     </PossiblyUnusedReturnValue>
-    <UnnecessaryVarAnnotation>
-      <code>FieldMetadata[]</code>
-    </UnnecessaryVarAnnotation>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportPdf.php">
     <DeprecatedMethod>
@@ -8705,7 +8673,6 @@
     </TypeDoesNotContainType>
     <UnnecessaryVarAnnotation>
       <code>CreateDefinition</code>
-      <code>FieldMetadata[]</code>
     </UnnecessaryVarAnnotation>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportTexytext.php">
@@ -10645,9 +10612,6 @@
       <code>$loc</code>
       <code>$loc[array_shift($contentPath)]</code>
     </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code>getCache</code>
-    </PossiblyUnusedMethod>
     <UnsupportedPropertyReferenceUsage>
       <code><![CDATA[$loc = &$this->tableCache]]></code>
     </UnsupportedPropertyReferenceUsage>
@@ -10899,17 +10863,11 @@
       <code><![CDATA[(string) $GLOBALS['table']]]></code>
     </RedundantCast>
     <RedundantCondition>
-      <code><![CDATA[$this->footer?->getDisplay()]]></code>
-      <code><![CDATA[$this->header?->getDisplay()]]></code>
       <code><![CDATA[is_scalar($GLOBALS['db'])]]></code>
       <code><![CDATA[is_scalar($GLOBALS['table'])]]></code>
       <code><![CDATA[isset($GLOBALS['db']) && is_scalar($GLOBALS['db'])]]></code>
       <code><![CDATA[isset($GLOBALS['table']) && is_scalar($GLOBALS['table'])]]></code>
     </RedundantCondition>
-    <TypeDoesNotContainNull>
-      <code><![CDATA[$this->footer]]></code>
-      <code><![CDATA[$this->header]]></code>
-    </TypeDoesNotContainNull>
     <TypeDoesNotContainType>
       <code><![CDATA['']]></code>
       <code><![CDATA['']]></code>
@@ -12014,10 +11972,6 @@
       <code>$existrelForeign[$masterFieldMd5]</code>
       <code>$existrelForeign[$masterFieldMd5]</code>
     </PossiblyUndefinedArrayOffset>
-    <PossiblyUnusedProperty>
-      <code>$engine</code>
-      <code>$type</code>
-    </PossiblyUnusedProperty>
     <PossiblyUnusedReturnValue>
       <code>true|Message</code>
     </PossiblyUnusedReturnValue>
@@ -12475,33 +12429,17 @@
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
-    <InvalidPropertyFetch>
-      <code>$cls::$id</code>
-    </InvalidPropertyFetch>
-    <LessSpecificReturnStatement>
-      <code>new $name($this)</code>
-    </LessSpecificReturnStatement>
     <MixedArgument>
       <code>$name</code>
     </MixedArgument>
     <MixedAssignment>
       <code>$name</code>
     </MixedAssignment>
-    <MixedMethodCall>
-      <code>$cls::getDescription()</code>
-      <code>$cls::getName()</code>
-      <code>configure</code>
+    <UnsafeInstantiation>
       <code>new $cls($this)</code>
       <code>new $cls($this)</code>
       <code>new $name($this)</code>
-    </MixedMethodCall>
-    <MoreSpecificReturnType>
-      <code>TwoFactorPlugin</code>
-    </MoreSpecificReturnType>
-    <PropertyTypeCoercion>
-      <code>new $cls($this)</code>
-      <code>new $cls($this)</code>
-    </PropertyTypeCoercion>
+    </UnsafeInstantiation>
   </file>
   <file src="libraries/classes/Url.php">
     <MixedArgumentTypeCoercion>
@@ -13751,7 +13689,6 @@
   </file>
   <file src="test/classes/Controllers/Table/SearchControllerTest.php">
     <DeprecatedMethod>
-      <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <MixedMethodCall>

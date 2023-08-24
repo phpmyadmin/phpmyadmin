@@ -268,7 +268,7 @@ final class Search
         $where = '';
 
         // Get details about the geometry functions
-        $geomFuncs = Gis::getFunctions($types, true, false);
+        $geomFuncs = Gis::getFunctions($types);
 
         // If the function takes multiple parameters
         if (str_contains($funcType, 'IS NULL') || str_contains($funcType, 'IS NOT NULL')) {

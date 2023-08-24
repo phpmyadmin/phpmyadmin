@@ -253,7 +253,7 @@ class FormDisplay
             $forms[$key] = [
                 'name' => $form->name,
                 'descriptions' => [
-                    'name' => Descriptions::get('Form_' . $form->name, 'name'),
+                    'name' => Descriptions::get('Form_' . $form->name),
                     'desc' => Descriptions::get('Form_' . $form->name, 'desc'),
                 ],
                 'errors' => $this->errors[$form->name] ?? null,

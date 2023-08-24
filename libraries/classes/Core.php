@@ -126,24 +126,6 @@ class Core
     }
 
     /**
-     * returns count of tables in given db
-     *
-     * @param string $db database to count tables for
-     *
-     * @return int count of tables in $db
-     */
-    public static function getTableCount(string $db): int
-    {
-        $tables = DatabaseInterface::getInstance()->tryQuery('SHOW TABLES FROM ' . Util::backquote($db) . ';');
-
-        if ($tables) {
-            return $tables->numRows();
-        }
-
-        return 0;
-    }
-
-    /**
      * Converts numbers like 10M into bytes
      * Used with permission from Moodle (https://moodle.org) by Martin Dougiamas
      * (renamed with PMA prefix to avoid double definition when embedded

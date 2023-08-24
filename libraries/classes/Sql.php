@@ -395,8 +395,7 @@ class Sql
      */
     private function isDeleteTransformationInfo(StatementInfo $statementInfo): bool
     {
-        return $statementInfo->queryType !== '' && $statementInfo->queryType !== false
-            && ($statementInfo->queryType === 'ALTER' || $statementInfo->queryType === 'DROP');
+        return $statementInfo->queryType === 'ALTER' || $statementInfo->queryType === 'DROP';
     }
 
     /**

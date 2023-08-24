@@ -162,7 +162,7 @@ class GisMultiPolygon extends GisGeometry
             }
 
             // draw polygon
-            $pdf->Polygon($pointsArr, 'F*', [], $color, true);
+            $pdf->Polygon($pointsArr, 'F*', [], $color);
             // mark label point if applicable
             if (isset($labelPoint)) {
                 continue;

@@ -139,7 +139,7 @@ class GisPolygon extends GisGeometry
         }
 
         // draw polygon
-        $pdf->Polygon($pointsArr, 'F*', [], $color, true);
+        $pdf->Polygon($pointsArr, 'F*', [], $color);
         if ($label === '') {
             return;
         }

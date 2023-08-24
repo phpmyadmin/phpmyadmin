@@ -121,7 +121,7 @@ class OperationsController extends AbstractController
          */
         $this->dbi->selectDb($GLOBALS['db']);
 
-        $GLOBALS['reread_info'] = $pmaTable->getStatusInfo(null, false);
+        $GLOBALS['reread_info'] = $pmaTable->getStatusInfo();
         $GLOBALS['showtable'] = $pmaTable->getStatusInfo(
             null,
             (isset($GLOBALS['reread_info']) && $GLOBALS['reread_info']),

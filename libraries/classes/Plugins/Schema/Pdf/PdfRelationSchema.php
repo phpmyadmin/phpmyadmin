@@ -200,7 +200,7 @@ class PdfRelationSchema extends ExportRelationSchema
         // and finding its foreigns is OK (then we can support innodb)
         $seenARelation = false;
         foreach ($alltables as $oneTable) {
-            $existRel = $this->relation->getForeigners($this->db->getName(), $oneTable, '', 'both');
+            $existRel = $this->relation->getForeigners($this->db->getName(), $oneTable);
             if ($existRel === []) {
                 continue;
             }
@@ -677,7 +677,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 $this->diagram->setWidths([20, 20, 20, 10, 15, 15, 30, 30, 30]);
             }
 
-            $this->diagram->setFont($this->ff, '');
+            $this->diagram->setFont($this->ff);
 
             foreach ($columns as $row) {
                 $extractedColumnSpec = Util::extractColumnSpec($row['Type']);
