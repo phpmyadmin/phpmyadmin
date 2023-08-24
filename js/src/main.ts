@@ -9,6 +9,7 @@ import { Config } from './modules/config.ts';
 import checkNumberOfFields from './modules/functions/checkNumberOfFields.ts';
 import onloadNavigation from './modules/navigation/event-loader.ts';
 import { onloadFunctions, teardownFunctions } from './modules/functions/event-loader.ts';
+import { ThemeColorModeToggle } from './modules/themes-manager.ts';
 
 AJAX.registerOnload('main.js', () => AJAX.removeSubmitEvents());
 $(AJAX.loadEventHandler());
@@ -48,8 +49,14 @@ $(() => checkNumberOfFields());
 
 AJAX.registerTeardown('main.js', () => {
     PageSettings.off();
+
+    const themeColorModeToggle = document.getElementById('themeColorModeToggle') as HTMLSelectElement;
+    themeColorModeToggle?.removeEventListener('change', ThemeColorModeToggle);
 });
 
 AJAX.registerOnload('main.js', () => {
     PageSettings.on();
+
+    const themeColorModeToggle = document.getElementById('themeColorModeToggle') as HTMLSelectElement;
+    themeColorModeToggle?.addEventListener('change', ThemeColorModeToggle);
 });

@@ -11,3 +11,21 @@ export const ThemesManager = {
         });
     }
 };
+
+function setColorModeToHtmlTag (themeColorMode: string): void {
+    const htmlTag = document.querySelector('html');
+    htmlTag.dataset.bsTheme = themeColorMode;
+}
+
+export const ThemeColorModeToggle: EventListenerObject = {
+    handleEvent: (): void => {
+        const toggleSelect = document.getElementById('themeColorModeToggle') as HTMLSelectElement;
+        setColorModeToHtmlTag(toggleSelect.options.item(toggleSelect.selectedIndex).value);
+        const toggleForm = toggleSelect.form;
+        const formData = new FormData(toggleForm);
+        formData.set('ajax_request', '1');
+        $.post(toggleForm.action, Object.fromEntries(formData.entries())).done(function (data): void {
+            setColorModeToHtmlTag(data.themeColorMode);
+        });
+    }
+};
