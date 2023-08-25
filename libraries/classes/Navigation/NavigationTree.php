@@ -1037,12 +1037,6 @@ class NavigationTree
 
             $paginationParams = $this->getPaginationParamsHtml($node);
 
-            $haveAjax = ['functions', 'procedures', 'events', 'triggers', 'indexes'];
-            $parent = $node->parents(false, true);
-            $isNewView = $parent[0]->realName === 'views' && $node->isNew;
-            $linkHasAjaxClass = $parent[0]->type === NodeType::Container
-                && (in_array($parent[0]->realName, $haveAjax) || $isNewView);
-
             if (! $node->isGroup) {
                 $args = [];
                 $parents = $node->parents(true);
@@ -1061,7 +1055,6 @@ class NavigationTree
                         $node->links['icon']['params'],
                         array_intersect_key($args, $node->links['icon']['params']),
                     ),
-                    'is_ajax' => $linkHasAjaxClass,
                     'image' => $node->icon['image'],
                     'title' => $node->icon['title'],
                 ];
@@ -1073,7 +1066,6 @@ class NavigationTree
                             $node->links['second_icon']['params'],
                             array_intersect_key($args, $node->links['second_icon']['params']),
                         ),
-                        'is_ajax' => $linkHasAjaxClass,
                         'image' => $node->secondIcon['image'],
                         'title' => $node->secondIcon['title'],
                     ];
@@ -1085,7 +1077,6 @@ class NavigationTree
                         $node->links['text']['params'],
                         array_intersect_key($args, $node->links['text']['params']),
                     ),
-                    'is_ajax' => $linkHasAjaxClass,
                     'title' => $node->links['title'] ?? $node->title,
                 ];
             }

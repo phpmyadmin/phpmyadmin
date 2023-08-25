@@ -22,7 +22,7 @@
         {% endif %}
 
         <div id="navipanellinks">
-          <a href="{{ url('/') }}" title="{% trans 'Home' %}">
+          <a href="{{ url('/') }}" class="disableAjax" title="{% trans 'Home' %}">
             {{- get_image('b_home', 'Home'|trans) -}}
           </a>
 
@@ -32,11 +32,11 @@
             </a>
           {% endif %}
 
-          <a href="{{ get_docu_link('index') }}" title="{% trans 'phpMyAdmin documentation' %}" target="_blank" rel="noopener noreferrer">
+          <a href="{{ get_docu_link('index') }}" class="disableAjax" title="{% trans 'phpMyAdmin documentation' %}" target="_blank" rel="noopener noreferrer">
             {{- get_image('b_docs', 'phpMyAdmin documentation'|trans) -}}
           </a>
 
-          <a href="{{ get_docu_url(is_mariadb) }}" title="{{ is_mariadb ? 'MariaDB Documentation'|trans : 'MySQL Documentation'|trans }}" target="_blank" rel="noopener noreferrer">
+          <a href="{{ get_docu_url(is_mariadb) }}" class="disableAjax" title="{{ is_mariadb ? 'MariaDB Documentation'|trans : 'MySQL Documentation'|trans }}" target="_blank" rel="noopener noreferrer">
             {{- get_image('b_sqlhelp', is_mariadb ? 'MariaDB Documentation'|trans : 'MySQL Documentation'|trans) -}}
           </a>
 
