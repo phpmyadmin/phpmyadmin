@@ -4157,9 +4157,9 @@ class Results
                 if ($relationalDisplay === self::RELATIONAL_KEY) {
                     // user chose "relational key" in the display options, so
                     // the title contains the display field
-                    $title = htmlspecialchars($dispval ?? '');
+                    $title = $dispval ?? '';
                 } else {
-                    $title = htmlspecialchars($data);
+                    $title = $data;
                 }
 
                 $tagParams = ['title' => $title];

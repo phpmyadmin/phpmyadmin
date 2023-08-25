@@ -66,6 +66,7 @@ phpMyAdmin - ChangeLog
 - issue #14411 Fixed double tap to edit on mobile devices
 - issue        Update documentation to reflect that Node >= 12 is required to compile the JS and CSS files
 - issue #18578 Fixed PDF export NULL values gives a type error
+- issue #18650 Fixed double escaping on foreign key relation link title
 
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid
