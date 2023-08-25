@@ -2881,6 +2881,11 @@ parameters:
 			path: libraries/classes/Dbal/DbiMysqli.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:getProtoInfo\\(\\) should return string but returns int\\.$#"
+			count: 1
+			path: libraries/classes/Dbal/DbiMysqli.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:fetchAllKeyPair\\(\\) should return array\\<string, string\\|null\\> but returns array\\<int\\|string, mixed\\>\\.$#"
 			count: 2
 			path: libraries/classes/Dbal/MysqliResult.php
