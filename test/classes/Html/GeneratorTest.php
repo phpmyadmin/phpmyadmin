@@ -332,6 +332,16 @@ class GeneratorTest extends AbstractTestCase
                 100,
                 '<a href="index.php?route=/server/databases" >text</a>',
             ],
+            [
+                [
+                    'index.php',
+                    null,
+                    'text',
+                    ['title' => '"'],
+                ],
+                100,
+                '<a href="index.php" title="&quot;">text</a>',
+            ],
         ];
     }
 
