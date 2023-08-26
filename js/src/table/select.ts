@@ -273,14 +273,8 @@ AJAX.registerOnload('table/select.js', function () {
 
         // Names of input field and null checkbox
         var inputName = $span.parent('td').children('input[type=\'text\']').attr('name');
-        // Token
 
-        window.openGISEditor();
-        if (! window.gisEditorLoaded) {
-            window.loadJSAndGISEditor(value, field, type, inputName);
-        } else {
-            window.loadGISEditor(value, field, type, inputName);
-        }
+        window.openGISEditor(value, field, type, inputName);
     });
 
     /**

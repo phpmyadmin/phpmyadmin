@@ -10,7 +10,7 @@ import { ajaxShowMessage } from './modules/ajax-message.ts';
  *
  */
 
-window.gisEditorLoaded = false;
+let gisEditorLoaded = false;
 
 /**
  * Closes the GIS data editor and perform necessary clean up work.
@@ -86,42 +86,30 @@ function initGISEditorVisualization () {
 /**
  * Loads JavaScript files and the GIS editor.
  *
- * @param value      current value of the geometry field
- * @param field      field name
- * @param type       geometry type
- * @param inputName name of the input field
- * @param token      token
+ * @param {function} resolve
  */
-function loadJSAndGISEditor (value, field, type, inputName) {
-    var head = document.getElementsByTagName('head')[0];
-    var script;
+function loadJSAndGISEditor (resolve) {
+    let script;
 
     script = document.createElement('script');
     script.src = 'js/dist/table/gis_visualization.js';
-    head.appendChild(script);
+    document.head.appendChild(script);
 
     // OpenLayers.js is BIG and takes time. So asynchronous loading would not work.
     // Load the JS and do a callback to load the content for the GIS Editor.
     script = document.createElement('script');
-
-    script.onreadystatechange = function () {
-        if (this.readyState === 'complete') {
-            loadGISEditor(value, field, type, inputName);
-        }
-    };
-
-    script.onload = function () {
-        loadGISEditor(value, field, type, inputName);
-    };
-
-    script.onerror = function () {
-        loadGISEditor(value, field, type, inputName);
-    };
-
     script.src = 'js/vendor/openlayers/OpenLayers.js';
-    head.appendChild(script);
+    script.addEventListener('load', function () {
+        resolve();
+    });
 
-    window.gisEditorLoaded = true;
+    script.addEventListener('error', function () {
+        resolve();
+    });
+
+    document.head.appendChild(script);
+
+    gisEditorLoaded = true;
 }
 
 /**
@@ -153,10 +141,7 @@ function loadGISEditor (value, field, type, inputName) {
     }, 'json');
 }
 
-/**
- * Opens up the dialog for the GIS data editor.
- */
-function openGISEditor () {
+function openGISEditorInternal () {
     // Center the popup
     var windowWidth = document.documentElement.clientWidth;
     var windowHeight = document.documentElement.clientHeight;
@@ -181,6 +166,24 @@ function openGISEditor () {
     // Make it appear
     $background.fadeIn('fast');
     $gisEditor.fadeIn('fast');
+}
+
+/**
+ * Opens up the dialog for the GIS data editor.
+ *
+ * @param value      current value of the geometry field
+ * @param field      field name
+ * @param type       geometry type
+ * @param inputName name of the input field
+ */
+function openGISEditor (value, field, type, inputName) {
+    openGISEditorInternal();
+
+    if (gisEditorLoaded) {
+        loadGISEditor(value, field, type, inputName);
+    } else {
+        loadJSAndGISEditor(loadGISEditor.bind(this, value, field, type, inputName));
+    }
 }
 
 /**
@@ -397,13 +400,8 @@ AJAX.registerOnload('gis_data_editor.js', function () {
 
 declare global {
     interface Window {
-        gisEditorLoaded: boolean;
-        loadJSAndGISEditor: typeof loadJSAndGISEditor;
-        loadGISEditor: typeof loadGISEditor;
         openGISEditor: typeof openGISEditor;
     }
 }
 
-window.loadJSAndGISEditor = loadJSAndGISEditor;
-window.loadGISEditor = loadGISEditor;
 window.openGISEditor = openGISEditor;
