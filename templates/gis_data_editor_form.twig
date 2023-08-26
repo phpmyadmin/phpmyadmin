@@ -27,7 +27,7 @@
 
         {# Header section - Inclueds GIS type selector and input field for SRID #}
         <div id="gis_data_header">
-            <select name="gis_data[gis_type]" class="gis_type">
+            <select name="gis_data[gis_type]" class="gis_type{{ column_type != 'GEOMETRY' ? ' hide' }}">
                 {% for gis_type in gis_types %}
                     <option value="{{ gis_type }}"{{ geom_type == gis_type ? ' selected="selected"' }}>
                         {{ gis_type }}

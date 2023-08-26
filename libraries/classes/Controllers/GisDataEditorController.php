@@ -132,6 +132,7 @@ class GisDataEditorController extends AbstractController
             'srid' => $srid,
             'visualization' => $visualization,
             'open_layers' => $open_layers,
+            'column_type' => mb_strtoupper($type),
             'gis_types' => self::GIS_TYPES,
             'geom_type' => $geom_type,
             'geom_count' => $geom_count,
