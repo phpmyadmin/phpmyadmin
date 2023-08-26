@@ -10571,11 +10571,6 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
-			count: 3
-			path: libraries/classes/DatabaseInterface.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, bool\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php

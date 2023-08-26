@@ -66,8 +66,9 @@ class PrivilegesController extends AbstractController
             new Plugins($this->dbi),
         );
 
-        if ($relationParameters->configurableMenusFeature !== null) {
-            $this->response->addHTML('<div class="container-fluid">');
+        $this->response->addHTML('<div class="container-fluid">');
+
+        if ($relationParameters->configurableMenusFeature !== null && ! $request->isAjax()) {
             $this->render('server/privileges/subnav', [
                 'active' => 'privileges',
                 'is_super_user' => $this->dbi->isSuperUser(),
