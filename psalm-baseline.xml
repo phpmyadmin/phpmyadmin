@@ -6969,10 +6969,9 @@
       <code>$temp_point[1]</code>
       <code>$wkt</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="22">
+    <MixedArrayAccess occurrences="21">
       <code>$data_row[$i]</code>
       <code>$data_row['no_of_lines']</code>
-      <code>$gis_data[$index]['MULTILINESTRING']</code>
       <code>$point['x']</code>
       <code>$point['y']</code>
       <code>$point[0]</code>
@@ -7030,6 +7029,10 @@
       <code>$black</code>
       <code>$color</code>
     </PossiblyFalseArgument>
+    <PossiblyNullArrayAccess occurrences="2">
+      <code>$data_row[$i]</code>
+      <code>$data_row['no_of_lines']</code>
+    </PossiblyNullArrayAccess>
     <RedundantPropertyInitializationCheck occurrences="1">
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
@@ -7120,11 +7123,10 @@
       <code>$ring['points']</code>
       <code>$wkt</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="38">
+    <MixedArrayAccess occurrences="37">
       <code>$data_row[$k]</code>
       <code>$data_row[$k]</code>
       <code>$data_row['no_of_polygons']</code>
-      <code>$gis_data[$index]['MULTIPOLYGON']</code>
       <code>$innerPoint['x']</code>
       <code>$innerPoint['y']</code>
       <code>$label_point[0]</code>
@@ -7229,6 +7231,11 @@
       <code>$black</code>
       <code>$color</code>
     </PossiblyFalseArgument>
+    <PossiblyNullArrayAccess occurrences="3">
+      <code>$data_row[$k]</code>
+      <code>$data_row[$k]</code>
+      <code>$data_row['no_of_polygons']</code>
+    </PossiblyNullArrayAccess>
     <RedundantPropertyInitializationCheck occurrences="1">
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
