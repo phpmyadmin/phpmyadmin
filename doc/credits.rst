@@ -825,6 +825,7 @@ Following people have contributed to translation of phpMyAdmin:
 
 * Spanish
 
+    * Daniel Hinostroza, MD <phpmyadmin\_at\_cerebroperiferico.com>
     * Luis García Sevillano <floss.dev\_at\_gmail.com>
     * Franco <fulanodetal.github1\_at\_openaliasbox.org>
     * Luis Ruiz <luisan00\_at\_hotmail.com>
