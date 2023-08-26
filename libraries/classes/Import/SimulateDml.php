@@ -15,7 +15,6 @@ use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Url;
 
 use function implode;
-use function strtoupper;
 
 final class SimulateDml
 {
@@ -132,16 +131,11 @@ final class SimulateDml
         $diff = [];
         foreach ($statement->set as $set) {
             $columns[] = $set->column;
-            $notEqualOperator = ' <> ';
-            if (strtoupper($set->value) === 'NULL') {
-                $notEqualOperator = ' IS NOT ';
-            }
-
-            $diff[] = $set->column . $notEqualOperator . $set->value;
+            $diff[] = 'NOT ' . $set->column . ' <=> (' . $set->value . ')';
         }
 
         if (! empty($diff)) {
-            $where .= ' AND (' . implode(' OR ', $diff) . ')';
+            $where = '(' . $where . ') AND (' . implode(' OR ', $diff) . ')';
         }
 
         $orderAndLimit = '';
