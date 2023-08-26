@@ -80,17 +80,16 @@ function addZoomPanControllers () {
         return;
     }
 
-    var themeImagePath = $('#themeImagePath').val();
     $('#placeholder').append(
         // pan arrows
-        '<img class="button" id="left_arrow" src="' + themeImagePath + 'west-mini.png">',
-        '<img class="button" id="right_arrow" src="' + themeImagePath + 'east-mini.png">',
-        '<img class="button" id="up_arrow" src="' + themeImagePath + 'north-mini.png">',
-        '<img class="button" id="down_arrow" src="' + themeImagePath + 'south-mini.png">',
+        '<img class="button" id="left_arrow" src="' + window.themeImagePath + 'west-mini.png">',
+        '<img class="button" id="right_arrow" src="' + window.themeImagePath + 'east-mini.png">',
+        '<img class="button" id="up_arrow" src="' + window.themeImagePath + 'north-mini.png">',
+        '<img class="button" id="down_arrow" src="' + window.themeImagePath + 'south-mini.png">',
         // zoom controls
-        '<img class="button" id="zoom_in" src="' + themeImagePath + 'zoom-plus-mini.png">',
-        '<img class="button" id="zoom_world" src="' + themeImagePath + 'zoom-world-mini.png">',
-        '<img class="button" id="zoom_out" src="' + themeImagePath + 'zoom-minus-mini.png">'
+        '<img class="button" id="zoom_in" src="' + window.themeImagePath + 'zoom-plus-mini.png">',
+        '<img class="button" id="zoom_world" src="' + window.themeImagePath + 'zoom-world-mini.png">',
+        '<img class="button" id="zoom_out" src="' + window.themeImagePath + 'zoom-minus-mini.png">'
     );
 }
 
