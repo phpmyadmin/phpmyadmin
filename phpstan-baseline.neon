@@ -14337,7 +14337,7 @@ parameters:
 
 		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 13
+			count: 12
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
@@ -14448,11 +14448,6 @@ parameters:
 		-
 			message: "#^Casting to string something that's already string\\.$#"
 			count: 4
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Foreach overwrites \\$parent with its value variable\\.$#"
-			count: 1
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-

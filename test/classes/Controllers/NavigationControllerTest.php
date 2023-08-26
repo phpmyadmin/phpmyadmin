@@ -158,12 +158,12 @@ class NavigationControllerTest extends AbstractTestCase
             . '    ' . "\n"
             . '          <div class="block second">' . "\n"
             . '                  <a href="index.php?route=/database/operations'
-                                . '&db=air-balloon_burner_dev2&lang=en">'
+                                . '&db=air-balloon_burner_dev2&lang=en" class="disableAjax">'
                                 . '<img src="themes/dot.gif" title="Database operations"'
                                 . ' alt="Database operations" class="icon ic_s_db"></a>' . "\n"
             . '              </div>' . "\n"
             . "\n"
-            . '              <a class="hover_show_full"'
+            . '              <a class="hover_show_full disableAjax"'
                     . ' href="index.php?route=/database/structure&db=air-balloon_burner_dev2&lang=en"'
                     . ' title="Structure">air-balloon_burner_dev2</a>' . "\n"
             . '          ' . "\n"
@@ -302,13 +302,13 @@ class NavigationControllerTest extends AbstractTestCase
             . '          </div>' . "\n"
             . '    ' . "\n"
             . '          <div class="block second">' . "\n"
-            . '                  <a href="index.php?route=/database/operations&db=%s&lang=en">'
+            . '                  <a href="index.php?route=/database/operations&db=%s&lang=en" class="disableAjax">'
             . '<img src="themes/dot.gif" title="Database operations" alt="Database operations"'
             . ' class="icon ic_s_db"></a>' . "\n"
             . '              </div>' . "\n"
             . "\n"
-            . '              <a class="hover_show_full" href="index.php?route=/database/structure&db=%s&lang=en"'
-            . ' title="Structure">%s</a>' . "\n"
+            . '              <a class="hover_show_full disableAjax"'
+            . ' href="index.php?route=/database/structure&db=%s&lang=en" title="Structure">%s</a>' . "\n"
             . '          ' . "\n"
             . '    ' . "\n"
             . "\n"
@@ -331,13 +331,13 @@ class NavigationControllerTest extends AbstractTestCase
             . '          </div>' . "\n"
             . '    ' . "\n"
             . '          <div class="block second">' . "\n"
-            . '                  <a href="index.php?route=/database/operations&db=%s&lang=en">'
+            . '                  <a href="index.php?route=/database/operations&db=%s&lang=en" class="disableAjax">'
             . '<img src="themes/dot.gif" title="Database operations" alt="Database operations"'
             . ' class="icon ic_s_db"></a>' . "\n"
             . '              </div>' . "\n"
             . "\n"
-            . '              <a class="hover_show_full" href="index.php?route=/database/structure&db=%s&lang=en"'
-            . ' title="Structure">%s</a>' . "\n"
+            . '              <a class="hover_show_full disableAjax"'
+            . ' href="index.php?route=/database/structure&db=%s&lang=en" title="Structure">%s</a>' . "\n"
             . '          ' . "\n"
             . '    ' . "\n"
             . "\n"
@@ -359,13 +359,13 @@ class NavigationControllerTest extends AbstractTestCase
             . '          </div>' . "\n"
             . '    ' . "\n"
             . '          <div class="block second">' . "\n"
-            . '                  <a href="index.php?route=/database/operations&db=%s&lang=en">'
+            . '                  <a href="index.php?route=/database/operations&db=%s&lang=en" class="disableAjax">'
             . '<img src="themes/dot.gif" title="Database operations" alt="Database operations"'
             . ' class="icon ic_s_db"></a>' . "\n"
             . '              </div>' . "\n"
             . "\n"
-            . '              <a class="hover_show_full" href="index.php?route=/database/structure&db=%s&lang=en"'
-            . ' title="Structure">%s</a>' . "\n"
+            . '              <a class="hover_show_full disableAjax"'
+            . ' href="index.php?route=/database/structure&db=%s&lang=en" title="Structure">%s</a>' . "\n"
             . '          ' . "\n"
             . '    ' . "\n"
             . "\n"
