@@ -118,7 +118,6 @@ final class JavaScriptMessagesController
 
             /* For Simulate DML*/
             'strSimulateDML' => __('Simulate query'),
-            'strMatchedRows' => __('Matched rows:'),
             'strSQLQuery' => __('SQL query:'),
 
             /* Charts */
