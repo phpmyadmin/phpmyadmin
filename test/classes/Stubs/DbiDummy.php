@@ -1550,16 +1550,10 @@ class DbiDummy implements DbiExtension
                 'result' => [['PMA_table', 'InnoDB']],
             ],
             [
-                'query' => 'SELECT `id` FROM `table_1` WHERE `id` > 10 AND (`id` <> 20)',
-                'columns' => ['id'],
-                'result' => [['11'], ['12']],
-            ],
-            [
-                'query' => 'SELECT * FROM `table_1` WHERE `id` > 10',
+                'query' => 'SELECT * FROM `PMA`.`table_1` LIMIT 1',
                 'columns' => ['column'],
-                'result' => [['row1'], ['row2']],
+                'result' => [['table']],
             ],
-            ['query' => 'SELECT * FROM `PMA`.`table_1` LIMIT 1', 'columns' => ['column'], 'result' => [['table']]],
             ['query' => 'SELECT * FROM `PMA`.`table_2` LIMIT 1', 'columns' => ['column'], 'result' => [['table']]],
             [
                 'query' => 'SELECT `ENGINE` FROM `information_schema`.`tables` WHERE `table_name` = \'table_1\''

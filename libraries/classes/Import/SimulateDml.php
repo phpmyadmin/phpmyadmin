@@ -13,9 +13,12 @@ use PhpMyAdmin\SqlParser\Statements\DeleteStatement;
 use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
+use Webmozart\Assert\Assert;
 
+use function array_key_exists;
+use function array_reverse;
 use function implode;
-use function strtoupper;
 
 final class SimulateDml
 {
@@ -69,20 +72,13 @@ final class SimulateDml
      * Executes the matched_row_query and returns the resultant row count.
      *
      * @param string $matchedRowQuery SQL query
-     *
-     * @psalm-return int|numeric-string
      */
-    private function executeMatchedRowQuery(string $matchedRowQuery): int|string
+    private function executeMatchedRowQuery(string $matchedRowQuery): int
     {
         $this->dbi->selectDb($GLOBALS['db']);
-        // Execute the query.
-        $result = $this->dbi->tryQuery($matchedRowQuery);
-        if (! $result) {
-            return 0;
-        }
 
-        // Count the number of rows in the result set.
-        return $result->numRows();
+        // Execute the query.
+        return (int) $this->dbi->fetchValue($matchedRowQuery);
     }
 
     /**
@@ -93,21 +89,18 @@ final class SimulateDml
     private function getSimulatedDeleteQuery(Parser $parser, DeleteStatement $statement): string
     {
         $tableReferences = Query::getTables($statement);
-        $where = Query::getClause($statement, $parser->list, 'WHERE');
-        if ($where === '') {
-            $where = '1';
-        }
+        Assert::count($tableReferences, 1, 'No joins allowed in simulation query');
+        Assert::notNull($parser->list, 'Parser list not set');
 
-        $orderAndLimit = '';
-        if ($statement->order !== null && $statement->order !== []) {
-            $orderAndLimit .= ' ORDER BY ' . Query::getClause($statement, $parser->list, 'ORDER BY');
-        }
+        $condition = Query::getClause($statement, $parser->list, 'WHERE');
+        $where = $condition === '' ? '' : ' WHERE ' . $condition;
+        $order = $statement->order === null || $statement->order === []
+            ? ''
+            : ' ORDER BY ' . Query::getClause($statement, $parser->list, 'ORDER BY');
+        $limit = $statement->limit === null ? '' : ' LIMIT ' . Query::getClause($statement, $parser->list, 'LIMIT');
 
-        if (! empty($statement->limit)) {
-            $orderAndLimit .= ' LIMIT ' . Query::getClause($statement, $parser->list, 'LIMIT');
-        }
-
-        return 'SELECT * FROM ' . implode(', ', $tableReferences) . ' WHERE ' . $where . $orderAndLimit;
+        return 'SELECT COUNT(*) FROM (' .
+            'SELECT 1 FROM ' . $tableReferences[0] . $where . $order . $limit . ') AS `pma_tmp`';
     }
 
     /**
@@ -118,37 +111,38 @@ final class SimulateDml
     private function getSimulatedUpdateQuery(Parser $parser, UpdateStatement $statement): string
     {
         $tableReferences = Query::getTables($statement);
-        $where = Query::getClause($statement, $parser->list, 'WHERE');
-        if ($where === '') {
-            $where = '1';
-        }
-
-        $columns = [];
-        $diff = [];
-        foreach ($statement->set as $set) {
-            $columns[] = $set->column;
-            $notEqualOperator = ' <> ';
-            if (strtoupper($set->value) === 'NULL') {
-                $notEqualOperator = ' IS NOT ';
+        Assert::count($tableReferences, 1, 'No joins allowed in simulation query');
+        Assert::isNonEmptyList($statement->set, 'SET statements missing');
+        Assert::notNull($parser->list, 'Parser list not set');
+        $newValues = [];
+        $oldValues = [];
+        $newColumns = [];
+        $oldColumns = [];
+        $i = 0;
+        $handledColumns = [];
+        foreach (array_reverse($statement->set) as $set) {
+            if (array_key_exists($set->column, $handledColumns)) {
+                continue;
             }
 
-            $diff[] = $set->column . $notEqualOperator . $set->value;
+            $handledColumns[$set->column] = true;
+            $oldValues[] = $set->column . ' AS ' . ($oldColumns[] = Util::backquote('o' . $i));
+            $newValues[] = $set->value . ' AS ' . ($newColumns[] = Util::backquote('n' . $i));
+            ++$i;
         }
 
-        if ($diff !== []) {
-            $where .= ' AND (' . implode(' OR ', $diff) . ')';
-        }
+        $condition = Query::getClause($statement, $parser->list, 'WHERE');
+        $where = $condition === '' ? '' : ' WHERE ' . $condition;
+        $order = $statement->order === null || $statement->order === []
+            ? ''
+            : ' ORDER BY ' . Query::getClause($statement, $parser->list, 'ORDER BY');
+        $limit = $statement->limit === null ? '' : ' LIMIT ' . Query::getClause($statement, $parser->list, 'LIMIT');
 
-        $orderAndLimit = '';
-        if (! empty($statement->order)) {
-            $orderAndLimit .= ' ORDER BY ' . Query::getClause($statement, $parser->list, 'ORDER BY');
-        }
-
-        if (! empty($statement->limit)) {
-            $orderAndLimit .= ' LIMIT ' . Query::getClause($statement, $parser->list, 'LIMIT');
-        }
-
-        return 'SELECT ' . implode(', ', $columns) . ' FROM ' . implode(', ', $tableReferences)
-            . ' WHERE ' . $where . $orderAndLimit;
+        return 'SELECT COUNT(*)' .
+            ' FROM (SELECT ' . implode(',', $newValues) . ') AS `pma_new`' .
+            ' JOIN (' .
+            'SELECT ' . implode(', ', $oldValues) . ' FROM ' . $tableReferences[0] . $where . $order . $limit .
+            ') AS `pma_old`' .
+            ' WHERE NOT (' . implode(', ', $newColumns) . ') <=> (' . implode(', ', $oldColumns) . ')';
     }
 }

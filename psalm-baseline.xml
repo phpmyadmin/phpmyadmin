@@ -6819,40 +6819,6 @@
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
     </PossiblyNullOperand>
   </file>
-  <file src="libraries/classes/Import/SimulateDml.php">
-    <MixedArgument>
-      <code><![CDATA[$set->value]]></code>
-    </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code>$columns</code>
-    </MixedArgumentTypeCoercion>
-    <MixedAssignment>
-      <code>$columns[]</code>
-      <code>$set</code>
-    </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$set->column]]></code>
-    </MixedOperand>
-    <MixedPropertyFetch>
-      <code><![CDATA[$set->column]]></code>
-      <code><![CDATA[$set->value]]></code>
-    </MixedPropertyFetch>
-    <PossiblyNullArgument>
-      <code><![CDATA[$parser->list]]></code>
-      <code><![CDATA[$parser->list]]></code>
-      <code><![CDATA[$parser->list]]></code>
-      <code><![CDATA[$parser->list]]></code>
-      <code><![CDATA[$parser->list]]></code>
-      <code><![CDATA[$parser->list]]></code>
-    </PossiblyNullArgument>
-    <PossiblyNullIterator>
-      <code><![CDATA[$statement->set]]></code>
-    </PossiblyNullIterator>
-    <RedundantCondition>
-      <code>$diff !== []</code>
-      <code>$diff !== []</code>
-    </RedundantCondition>
-  </file>
   <file src="libraries/classes/Index.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>

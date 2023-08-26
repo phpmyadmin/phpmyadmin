@@ -13376,28 +13376,8 @@ parameters:
 			path: libraries/classes/Import/Import.php
 
 		-
-			message: "#^Argument of an invalid type array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\SetOperation\\>\\|null supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Import/SimulateDml.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 3
-			path: libraries/classes/Import/SimulateDml.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Import/SimulateDml.php
-
-		-
 			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
 			count: 1
-			path: libraries/classes/Import/SimulateDml.php
-
-		-
-			message: "#^Parameter \\#2 \\$list of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:getClause\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\TokensList, PhpMyAdmin\\\\SqlParser\\\\TokensList\\|null given\\.$#"
-			count: 6
 			path: libraries/classes/Import/SimulateDml.php
 
 		-

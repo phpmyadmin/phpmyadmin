@@ -1031,7 +1031,7 @@ AJAX.registerOnload('sql.js', function () {
                         for (var i = 0; i < len; i++) {
                             dialogContent += '<strong>' + window.Messages.strSQLQuery +
                                 '</strong>' + response.sql_data[i].sql_query +
-                                window.Messages.strMatchedRows +
+                                window.Messages.strAffectedRows +
                                 ' <a href="' + response.sql_data[i].matched_rows_url +
                                 '">' + response.sql_data[i].matched_rows + '</a><br>';
 
