@@ -375,7 +375,7 @@ AJAX.registerOnload('gis_data_editor.js', function () {
         var noOfGeoms = parseInt($noOfGeomsInput.val(), 10);
 
         var html1 = Messages.strGeometry + ' ' + (noOfGeoms + 1) + ':<br>';
-        var $geomType = $('select[name=\'gis_data[' + (noOfGeoms - 1) + '][gis_type]\']').clone();
+        var $geomType = $('#gis_type_template').contents().filter('select').clone();
         $geomType.attr('name', 'gis_data[' + noOfGeoms + '][gis_type]').val('POINT');
         var html2 = '<br>' + Messages.strPoint + ' :' +
             '<label for="x"> ' + Messages.strX + ' </label>' +
@@ -384,9 +384,7 @@ AJAX.registerOnload('gis_data_editor.js', function () {
             '<input type="text" name="gis_data[' + noOfGeoms + '][POINT][y]" value="">' +
             '<br><br>';
 
-        $a.before(html1);
-        $geomType.insertBefore($a);
-        $a.before(html2);
+        $a.before(html1, $geomType, html2);
         $noOfGeomsInput.val(noOfGeoms + 1);
     });
 });
