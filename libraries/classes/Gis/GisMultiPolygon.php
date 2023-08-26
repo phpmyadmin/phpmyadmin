@@ -301,7 +301,7 @@ class GisMultiPolygon extends GisGeometry
      */
     public function generateWkt(array $gisData, int $index, string|null $empty = ''): string
     {
-        $dataRow = $gisData[$index]['MULTIPOLYGON'];
+        $dataRow = $gisData[$index]['MULTIPOLYGON'] ?? null;
 
         $noOfPolygons = $dataRow['no_of_polygons'] ?? 1;
         if ($noOfPolygons < 1) {

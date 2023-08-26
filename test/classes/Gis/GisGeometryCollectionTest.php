@@ -77,7 +77,75 @@ class GisGeometryCollectionTest extends GisGeomTestCase
             ],
         ];
 
-        return [[$temp1, 0, null, 'GEOMETRYCOLLECTION(LINESTRING(5.02 8.45,6.14 0.15))']];
+        return [
+            [
+                [
+                    'gis_type' => 'GEOMETRYCOLLECTION',
+                    'srid' => '0',
+                    'GEOMETRYCOLLECTION' => ['geom_count' => '1'],
+                    0 => ['gis_type' => 'POINT'],
+                ],
+                0,
+                null,
+                'GEOMETRYCOLLECTION(POINT( ))',
+            ],
+            [
+                [
+                    'gis_type' => 'GEOMETRYCOLLECTION',
+                    'srid' => '0',
+                    'GEOMETRYCOLLECTION' => ['geom_count' => '1'],
+                    0 => ['gis_type' => 'LINESTRING'],
+                ],
+                0,
+                null,
+                'GEOMETRYCOLLECTION(LINESTRING( , ))',
+            ],
+            [
+                [
+                    'gis_type' => 'GEOMETRYCOLLECTION',
+                    'srid' => '0',
+                    'GEOMETRYCOLLECTION' => ['geom_count' => '1'],
+                    0 => ['gis_type' => 'POLYGON'],
+                ],
+                0,
+                null,
+                'GEOMETRYCOLLECTION(POLYGON(( , , , )))',
+            ],
+            [
+                [
+                    'gis_type' => 'GEOMETRYCOLLECTION',
+                    'srid' => '0',
+                    'GEOMETRYCOLLECTION' => ['geom_count' => '1'],
+                    0 => ['gis_type' => 'MULTIPOINT'],
+                ],
+                0,
+                null,
+                'GEOMETRYCOLLECTION(MULTIPOINT( ))',
+            ],
+            [
+                [
+                    'gis_type' => 'GEOMETRYCOLLECTION',
+                    'srid' => '0',
+                    'GEOMETRYCOLLECTION' => ['geom_count' => '1'],
+                    0 => ['gis_type' => 'MULTILINESTRING'],
+                ],
+                0,
+                null,
+                'GEOMETRYCOLLECTION(MULTILINESTRING(( , )))',
+            ],
+            [
+                [
+                    'gis_type' => 'GEOMETRYCOLLECTION',
+                    'srid' => '0',
+                    'GEOMETRYCOLLECTION' => ['geom_count' => '1'],
+                    0 => ['gis_type' => 'MULTIPOLYGON'],
+                ],
+                0,
+                null,
+                'GEOMETRYCOLLECTION(MULTIPOLYGON((( , , , ))))',
+            ],
+            [$temp1, 0, null, 'GEOMETRYCOLLECTION(LINESTRING(5.02 8.45,6.14 0.15))'],
+        ];
     }
 
     /**

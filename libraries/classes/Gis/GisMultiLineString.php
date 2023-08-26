@@ -267,7 +267,7 @@ class GisMultiLineString extends GisGeometry
      */
     public function generateWkt(array $gisData, int $index, string|null $empty = ''): string
     {
-        $dataRow = $gisData[$index]['MULTILINESTRING'];
+        $dataRow = $gisData[$index]['MULTILINESTRING'] ?? null;
 
         $noOfLines = $dataRow['no_of_lines'] ?? 1;
         if ($noOfLines < 1) {

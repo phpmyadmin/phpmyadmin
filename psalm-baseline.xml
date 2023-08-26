@@ -6185,7 +6185,6 @@
       <code>$dataRow[$i]</code>
       <code><![CDATA[$dataRow[$i]['no_of_points']]]></code>
       <code><![CDATA[$dataRow['no_of_lines']]]></code>
-      <code><![CDATA[$gisData[$index]['MULTILINESTRING']]]></code>
       <code><![CDATA[$point['x']]]></code>
       <code><![CDATA[$point['y']]]></code>
       <code><![CDATA[$rowData['parts'][$i]]]></code>
@@ -6215,6 +6214,11 @@
       <code>$black</code>
       <code>$lineColor</code>
     </PossiblyFalseArgument>
+    <PossiblyNullArrayAccess>
+      <code>$dataRow[$i]</code>
+      <code><![CDATA[$dataRow[$i]['no_of_points']]]></code>
+      <code><![CDATA[$dataRow['no_of_lines']]]></code>
+    </PossiblyNullArrayAccess>
     <RedundantPropertyInitializationCheck>
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
@@ -6266,7 +6270,6 @@
       <code><![CDATA[$dataRow[$k][$i]['no_of_points']]]></code>
       <code><![CDATA[$dataRow[$k]['no_of_lines']]]></code>
       <code><![CDATA[$dataRow['no_of_polygons']]]></code>
-      <code><![CDATA[$gisData[$index]['MULTIPOLYGON']]]></code>
       <code><![CDATA[$innerPoint['x']]]></code>
       <code><![CDATA[$innerPoint['y']]]></code>
       <code>$labelPoint[0]</code>
@@ -6340,6 +6343,14 @@
       <code>$black</code>
       <code>$fillColor</code>
     </PossiblyFalseArgument>
+    <PossiblyNullArrayAccess>
+      <code>$dataRow[$k]</code>
+      <code>$dataRow[$k]</code>
+      <code>$dataRow[$k][$i]</code>
+      <code><![CDATA[$dataRow[$k][$i]['no_of_points']]]></code>
+      <code><![CDATA[$dataRow[$k]['no_of_lines']]]></code>
+      <code><![CDATA[$dataRow['no_of_polygons']]]></code>
+    </PossiblyNullArrayAccess>
     <RedundantPropertyInitializationCheck>
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
