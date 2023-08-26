@@ -370,7 +370,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         );
 
         $this->assertEquals(
-            'Missing reCAPTCHA verification, maybe it has been blocked by adblock?',
+            'Missing Captcha verification, maybe it has been blocked by adblock?',
             $GLOBALS['conn_error'],
         );
     }
