@@ -14,6 +14,17 @@ use function is_array;
  * @link https://docs.phpmyadmin.net/en/latest/config.html#default-options-for-transformations
  *
  * @psalm-immutable
+ * @psalm-type TransformationsSettingsType = array{
+ *     Substring: array{0: int, 1: 'all'|int, 2: string},
+ *     Bool2Text: array{0: string, 1: string},
+ *     External: array{0: int, 1: string, 2: int, 3: int},
+ *     PreApPend: array{0: string, 1: string},
+ *     Hex: array{0: int<0, max>},
+ *     DateFormat: array{0: int<0, max>, 1: string, 2: 'local'|'utc'},
+ *     Inline: array{0: int<0, max>, 1: int<0, max>, wrapper_link: string|null, wrapper_params: array<string>},
+ *     TextImageLink: array{0: string|null, 1: int<0, max>, 2: int<0, max>},
+ *     TextLink: array{0: string|null, 1: string|null, 2: bool|null},
+ * }
  */
 final class Transformations
 {
@@ -188,7 +199,7 @@ final class Transformations
         $this->TextLink = $this->setTextLink($transformations);
     }
 
-    /** @return array<string, mixed> */
+    /** @psalm-return TransformationsSettingsType */
     public function asArray(): array
     {
         return [

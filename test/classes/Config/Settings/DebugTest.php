@@ -18,7 +18,6 @@ class DebugTest extends TestCase
         $debug = new Debug(['sql' => $actual]);
         $debugArray = $debug->asArray();
         $this->assertSame($expected, $debug->sql);
-        $this->assertArrayHasKey('sql', $debugArray);
         $this->assertSame($expected, $debugArray['sql']);
     }
 
@@ -28,7 +27,6 @@ class DebugTest extends TestCase
         $debug = new Debug(['sqllog' => $actual]);
         $debugArray = $debug->asArray();
         $this->assertSame($expected, $debug->sqllog);
-        $this->assertArrayHasKey('sqllog', $debugArray);
         $this->assertSame($expected, $debugArray['sqllog']);
     }
 
@@ -38,7 +36,6 @@ class DebugTest extends TestCase
         $debug = new Debug(['demo' => $actual]);
         $debugArray = $debug->asArray();
         $this->assertSame($expected, $debug->demo);
-        $this->assertArrayHasKey('demo', $debugArray);
         $this->assertSame($expected, $debugArray['demo']);
     }
 
@@ -48,7 +45,6 @@ class DebugTest extends TestCase
         $debug = new Debug(['simple2fa' => $actual]);
         $debugArray = $debug->asArray();
         $this->assertSame($expected, $debug->simple2fa);
-        $this->assertArrayHasKey('simple2fa', $debugArray);
         $this->assertSame($expected, $debugArray['simple2fa']);
     }
 

@@ -14,6 +14,18 @@ use function in_array;
  * @link https://docs.phpmyadmin.net/en/latest/config.html#console-settings
  *
  * @psalm-immutable
+ * @psalm-type ConsoleSettingsType = array{
+ *     StartHistory: bool,
+ *     AlwaysExpand: bool,
+ *     CurrentQuery: bool,
+ *     EnterExecutes: bool,
+ *     DarkTheme: bool,
+ *     Mode: 'collapse'|'info'|'show',
+ *     Height: int<1, max>,
+ *     GroupQueries: bool,
+ *     OrderBy: 'count'|'exec'|'time',
+ *     Order: 'asc'|'desc',
+ * }
  */
 final class Console
 {
@@ -138,7 +150,7 @@ final class Console
         $this->Order = $this->setOrder($console);
     }
 
-    /** @return array<string, string|bool|int> */
+    /** @psalm-return ConsoleSettingsType */
     public function asArray(): array
     {
         return [

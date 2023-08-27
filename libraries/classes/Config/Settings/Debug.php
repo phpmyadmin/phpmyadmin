@@ -8,6 +8,7 @@ namespace PhpMyAdmin\Config\Settings;
  * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DBG
  *
  * @psalm-immutable
+ * @psalm-type DebugSettingsType = array{sql: bool, sqllog: bool, demo: bool, simple2fa: bool}
  */
 final class Debug
 {
@@ -64,7 +65,7 @@ final class Debug
         $this->simple2fa = $this->setSimple2fa($debug);
     }
 
-    /** @return array<string, bool> */
+    /** @psalm-return DebugSettingsType */
     public function asArray(): array
     {
         return ['sql' => $this->sql, 'sqllog' => $this->sqllog, 'demo' => $this->demo, 'simple2fa' => $this->simple2fa];

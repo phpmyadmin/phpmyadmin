@@ -19,7 +19,6 @@ class SqlQueryBoxTest extends TestCase
         $sqlQueryBoxArray = $sqlQueryBox->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->assertSame($expected, $sqlQueryBox->Edit);
-        $this->assertArrayHasKey('Edit', $sqlQueryBoxArray);
         $this->assertSame($expected, $sqlQueryBoxArray['Edit']);
     }
 
@@ -30,7 +29,6 @@ class SqlQueryBoxTest extends TestCase
         $sqlQueryBoxArray = $sqlQueryBox->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->assertSame($expected, $sqlQueryBox->Explain);
-        $this->assertArrayHasKey('Explain', $sqlQueryBoxArray);
         $this->assertSame($expected, $sqlQueryBoxArray['Explain']);
     }
 
@@ -41,7 +39,6 @@ class SqlQueryBoxTest extends TestCase
         $sqlQueryBoxArray = $sqlQueryBox->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->assertSame($expected, $sqlQueryBox->ShowAsPHP);
-        $this->assertArrayHasKey('ShowAsPHP', $sqlQueryBoxArray);
         $this->assertSame($expected, $sqlQueryBoxArray['ShowAsPHP']);
     }
 
@@ -52,7 +49,6 @@ class SqlQueryBoxTest extends TestCase
         $sqlQueryBoxArray = $sqlQueryBox->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->assertSame($expected, $sqlQueryBox->Refresh);
-        $this->assertArrayHasKey('Refresh', $sqlQueryBoxArray);
         $this->assertSame($expected, $sqlQueryBoxArray['Refresh']);
     }
 

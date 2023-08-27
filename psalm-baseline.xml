@@ -202,6 +202,12 @@
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[$this->settings]]></code>
+      <code><![CDATA[$this->settings]]></code>
+      <code><![CDATA[$this->settings]]></code>
+      <code><![CDATA[$this->settings]]></code>
+    </InvalidPropertyAssignmentValue>
     <MixedArgument>
       <code>$collationConnection</code>
       <code>$configData</code>
@@ -245,12 +251,20 @@
       <code>$url</code>
       <code>$value</code>
     </MixedAssignment>
+    <MixedPropertyTypeCoercion>
+      <code><![CDATA[$this->settings]]></code>
+      <code><![CDATA[array_replace_recursive($this->settings, $configData)]]></code>
+      <code><![CDATA[array_replace_recursive($this->settings, $this->config->asArray())]]></code>
+    </MixedPropertyTypeCoercion>
     <PossiblyInvalidArgument>
       <code>$defaultValue</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidArrayOffset>
       <code><![CDATA[$_COOKIE[$this->getCookieName($cookieName)]]]></code>
     </PossiblyInvalidArrayOffset>
+    <PropertyTypeCoercion>
+      <code><![CDATA[$this->settings]]></code>
+    </PropertyTypeCoercion>
     <TypeDoesNotContainType>
       <code>md5($verboseToLower) === $serverToLower</code>
     </TypeDoesNotContainType>
@@ -3069,7 +3083,6 @@
       <code><![CDATA[$_POST['field_input_transformation_options'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_transformation'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_transformation_options'][$fieldindex]]]></code>
-      <code><![CDATA[$cfg['DefaultTabTable']]]></code>
     </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['active_page']]]></code>
@@ -12900,12 +12913,14 @@
   <file src="test/classes/Config/DescriptionTest.php">
     <MixedAssignment>
       <code>$second</code>
-      <code>$val</code>
       <code>$val2</code>
     </MixedAssignment>
     <MixedOperand>
       <code>$second</code>
     </MixedOperand>
+    <PossiblyNullIterator>
+      <code>$val</code>
+    </PossiblyNullIterator>
     <PossiblyUnusedMethod>
       <code>getValues</code>
     </PossiblyUnusedMethod>
@@ -13287,6 +13302,8 @@
     </InvalidArgument>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['cfg']['NavigationWidth']]]></code>
+      <code><![CDATA[$config->settings['Server']]]></code>
+      <code><![CDATA[$config->settings['Server']]]></code>
     </InvalidArrayOffset>
     <InvalidCast>
       <code>$v</code>
@@ -13303,6 +13320,9 @@
       <code>selectServerProvider</code>
       <code>userAgentProvider</code>
     </PossiblyUnusedMethod>
+    <RedundantConditionGivenDocblockType>
+      <code>assertIsArray</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="test/classes/ConsoleTest.php">
     <DeprecatedMethod>
@@ -14412,15 +14432,15 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Navigation/Nodes/NodeTest.php">
+    <DocblockTypeContradiction>
+      <code><![CDATA[isset($config->selectedServer)]]></code>
+    </DocblockTypeContradiction>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[$config->selectedServer]]></code>
       <code>[]</code>
     </InvalidPropertyAssignmentValue>
-    <TypeDoesNotContainType>
-      <code><![CDATA[isset($config->selectedServer)]]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="test/classes/NormalizationTest.php">
     <MixedArgument>

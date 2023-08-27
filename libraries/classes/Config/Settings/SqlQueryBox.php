@@ -12,6 +12,7 @@ namespace PhpMyAdmin\Config\Settings;
  * @link https://docs.phpmyadmin.net/en/latest/config.html#sql-query-box-settings
  *
  * @psalm-immutable
+ * @psalm-type SqlQueryBoxSettingsType = array{Edit: bool, Explain: bool, ShowAsPHP: bool, Refresh: bool}
  */
 final class SqlQueryBox
 {
@@ -68,7 +69,7 @@ final class SqlQueryBox
         $this->Refresh = $this->setRefresh($sqlQueryBox);
     }
 
-    /** @return array<string, bool> */
+    /** @psalm-return SqlQueryBoxSettingsType */
     public function asArray(): array
     {
         return [

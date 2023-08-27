@@ -476,6 +476,16 @@ parameters:
 			path: libraries/classes/Config.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\.$#"
+			count: 2
+			path: libraries/classes/Config.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept non\\-empty\\-array\\<string, mixed\\>\\.$#"
+			count: 1
+			path: libraries/classes/Config.php
+
+		-
 			message: "#^Cannot access offset 'AvailableCharsets' on mixed\\.$#"
 			count: 2
 			path: libraries/classes/Config/ConfigFile.php
@@ -5816,11 +5826,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/AddFieldController.php
 
 		-
-			message: "#^Only booleans are allowed in &&, mixed given on the right side\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/AddFieldController.php
-
-		-
 			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Transformations\\:\\:setMime\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/AddFieldController.php
@@ -5837,11 +5842,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\CreateAddField\\:\\:getColumnCreationQuery\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/AddFieldController.php
-
-		-
-			message: "#^Parameter \\#1 \\$target of static method PhpMyAdmin\\\\Util\\:\\:getScriptNameForOption\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/AddFieldController.php
 
@@ -6208,11 +6208,6 @@ parameters:
 		-
 			message: "#^Cannot access offset \\(int\\|string\\) on mixed\\.$#"
 			count: 7
-			path: libraries/classes/Controllers/Table/CreateController.php
-
-		-
-			message: "#^Only booleans are allowed in &&, mixed given on the right side\\.$#"
-			count: 1
 			path: libraries/classes/Controllers/Table/CreateController.php
 
 		-
@@ -22781,12 +22776,17 @@ parameters:
 			path: test/classes/Config/ConfigFileTest.php
 
 		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			message: "#^Argument of an invalid type array\\<array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string\\>\\|bool\\|int\\|string\\|null supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: test/classes/Config/DescriptionTest.php
 
 		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
+			count: 1
+			path: test/classes/Config/DescriptionTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string will always evaluate to true\\.$#"
 			count: 1
 			path: test/classes/Config/DescriptionTest.php
 
@@ -22989,6 +22989,16 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{\\}\\.$#"
 			count: 6
 			path: test/classes/ConfigStorage/RelationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'Server' and array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\} will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/ConfigTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int\\<1, max\\>, array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\> will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/ConfigTest.php
 
 		-
 			message: "#^Cannot access offset 'NavigationWidth' on mixed\\.$#"

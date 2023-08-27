@@ -70,6 +70,8 @@ use const PHP_URL_SCHEME;
  * Configuration handling
  *
  * @psalm-import-type ConnectionType from Connection
+ * @psalm-import-type ServerSettingsType from Server
+ * @psalm-import-type SettingsType from Settings
  */
 class Config
 {
@@ -81,7 +83,7 @@ class Config
     /** @var mixed[]   configuration settings, without user preferences applied */
     public array $baseSettings;
 
-    /** @var mixed[]   configuration settings */
+    /** @psalm-var SettingsType */
     public array $settings;
 
     /** @var string  config source */
@@ -103,86 +105,7 @@ class Config
 
     private bool $hasSelectedServer = false;
 
-    /**
-     * @psalm-var array{
-     *      host: string,
-     *      port: string,
-     *      socket: string,
-     *      ssl: bool,
-     *      ssl_key: string|null,
-     *      ssl_cert: string|null,
-     *      ssl_ca: string|null,
-     *      ssl_ca_path: string|null,
-     *      ssl_ciphers: string|null,
-     *      ssl_verify: bool,
-     *      compress: bool,
-     *      controlhost: string,
-     *      controlport: string,
-     *      controluser: string,
-     *      controlpass: string,
-     *      control_socket: string|null,
-     *      control_ssl: bool|null,
-     *      control_ssl_key: string|null,
-     *      control_ssl_cert: string|null,
-     *      control_ssl_ca: string|null,
-     *      control_ssl_ca_path: string|null,
-     *      control_ssl_ciphers: string|null,
-     *      control_ssl_verify: bool|null,
-     *      control_compress: bool|null,
-     *      control_hide_connection_errors: bool|null,
-     *      auth_type: non-empty-string,
-     *      auth_http_realm: string,
-     *      user: string,
-     *      password: string,
-     *      SignonSession: string,
-     *      SignonCookieParams: array{
-     *          lifetime: int<0, max>,
-     *          path: string,
-     *          domain: string,
-     *          secure: bool,
-     *          httponly: bool,
-     *          samesite?: 'Lax'|'Strict',
-     *      },
-     *      SignonScript: string,
-     *      SignonURL: string,
-     *      LogoutURL: string,
-     *      only_db: string|string[],
-     *      hide_db: string,
-     *      verbose: string,
-     *      pmadb: string,
-     *      bookmarktable: string|false,
-     *      relation: string|false,
-     *      table_info: string|false,
-     *      table_coords: string|false,
-     *      pdf_pages: string|false,
-     *      column_info: string|false,
-     *      history: string|false,
-     *      recent: string|false,
-     *      favorite: string|false,
-     *      table_uiprefs: string|false,
-     *      tracking: string|false,
-     *      userconfig: string|false,
-     *      users: string|false,
-     *      usergroups: string|false,
-     *      navigationhiding: string|false,
-     *      savedsearches: string|false,
-     *      central_columns: string|false,
-     *      designer_settings: string|false,
-     *      export_templates: string|false,
-     *      MaxTableUiprefs: int<1, max>,
-     *      SessionTimeZone: string,
-     *      AllowRoot: bool,
-     *      AllowNoPassword: bool,
-     *      AllowDeny: array{order: ''|'deny,allow'|'allow,deny'|'explicit', rules: string[]},
-     *      DisableIS: bool,
-     *      tracking_version_auto_create: bool,
-     *      tracking_default_statements: string,
-     *      tracking_add_drop_view: bool,
-     *      tracking_add_drop_table: bool,
-     *      tracking_add_drop_database: bool,
-     *      hide_connection_errors: bool,
-     *  }
-     */
+    /** @psalm-var ServerSettingsType */
     public array $selectedServer;
 
     public function __construct()

@@ -244,21 +244,6 @@ class SettingsTest extends TestCase
         'FirstDayOfCalendar' => 0,
     ];
 
-    public function testAsArray(): void
-    {
-        $settings = new Settings([]);
-        $config = $settings->asArray();
-        $this->assertIsArray($config['Console']);
-        $this->assertIsArray($config['DBG']);
-        $this->assertIsArray($config['Export']);
-        $this->assertIsArray($config['Import']);
-        $this->assertIsArray($config['Schema']);
-        $this->assertIsArray($config['SQLQuery']);
-        $this->assertIsArray($config['DefaultTransformations']);
-        $this->assertIsArray($config['Servers']);
-        $this->assertIsArray($config['Servers'][1]);
-    }
-
     /**
      * @param mixed[][] $values
      * @psalm-param (array{0: string, 1: mixed, 2: mixed})[] $values
@@ -1010,7 +995,6 @@ class SettingsTest extends TestCase
         $settings = new Settings(['PmaAbsoluteUri' => $actual]);
         $settingsArray = $settings->asArray();
         $this->assertSame($expected, $settings->PmaAbsoluteUri);
-        $this->assertArrayHasKey('PmaAbsoluteUri', $settingsArray);
         $this->assertSame($expected, $settingsArray['PmaAbsoluteUri']);
     }
 
@@ -1029,7 +1013,6 @@ class SettingsTest extends TestCase
         $settings = new Settings(['AuthLog' => $actual]);
         $settingsArray = $settings->asArray();
         $this->assertSame($expected, $settings->authLog);
-        $this->assertArrayHasKey('AuthLog', $settingsArray);
         $this->assertSame($expected, $settingsArray['AuthLog']);
     }
 
@@ -1048,7 +1031,6 @@ class SettingsTest extends TestCase
         $settings = new Settings(['AuthLogSuccess' => $actual]);
         $settingsArray = $settings->asArray();
         $this->assertSame($expected, $settings->authLogSuccess);
-        $this->assertArrayHasKey('AuthLogSuccess', $settingsArray);
         $this->assertSame($expected, $settingsArray['AuthLogSuccess']);
     }
 
@@ -1058,7 +1040,6 @@ class SettingsTest extends TestCase
         $settings = new Settings(['PmaNoRelation_DisableWarning' => $actual]);
         $settingsArray = $settings->asArray();
         $this->assertSame($expected, $settings->PmaNoRelation_DisableWarning);
-        $this->assertArrayHasKey('PmaNoRelation_DisableWarning', $settingsArray);
         $this->assertSame($expected, $settingsArray['PmaNoRelation_DisableWarning']);
     }
 
@@ -1068,7 +1049,6 @@ class SettingsTest extends TestCase
         $settings = new Settings(['SuhosinDisableWarning' => $actual]);
         $settingsArray = $settings->asArray();
         $this->assertSame($expected, $settings->SuhosinDisableWarning);
-        $this->assertArrayHasKey('SuhosinDisableWarning', $settingsArray);
         $this->assertSame($expected, $settingsArray['SuhosinDisableWarning']);
     }
 
@@ -1078,7 +1058,6 @@ class SettingsTest extends TestCase
         $settings = new Settings(['LoginCookieValidityDisableWarning' => $actual]);
         $settingsArray = $settings->asArray();
         $this->assertSame($expected, $settings->LoginCookieValidityDisableWarning);
-        $this->assertArrayHasKey('LoginCookieValidityDisableWarning', $settingsArray);
         $this->assertSame($expected, $settingsArray['LoginCookieValidityDisableWarning']);
     }
 
@@ -1088,7 +1067,6 @@ class SettingsTest extends TestCase
         $settings = new Settings(['ReservedWordDisableWarning' => $actual]);
         $settingsArray = $settings->asArray();
         $this->assertSame($expected, $settings->ReservedWordDisableWarning);
-        $this->assertArrayHasKey('ReservedWordDisableWarning', $settingsArray);
         $this->assertSame($expected, $settingsArray['ReservedWordDisableWarning']);
     }
 
@@ -1098,7 +1076,6 @@ class SettingsTest extends TestCase
         $settings = new Settings(['TranslationWarningThreshold' => $actual]);
         $settingsArray = $settings->asArray();
         $this->assertSame($expected, $settings->TranslationWarningThreshold);
-        $this->assertArrayHasKey('TranslationWarningThreshold', $settingsArray);
         $this->assertSame($expected, $settingsArray['TranslationWarningThreshold']);
     }
 
@@ -1118,7 +1095,6 @@ class SettingsTest extends TestCase
         $settings = new Settings(['AllowThirdPartyFraming' => $actual]);
         $settingsArray = $settings->asArray();
         $this->assertSame($expected, $settings->AllowThirdPartyFraming);
-        $this->assertArrayHasKey('AllowThirdPartyFraming', $settingsArray);
         $this->assertSame($expected, $settingsArray['AllowThirdPartyFraming']);
     }
 
@@ -1138,7 +1114,6 @@ class SettingsTest extends TestCase
         $settings = new Settings(['blowfish_secret' => $actual]);
         $settingsArray = $settings->asArray();
         $this->assertSame($expected, $settings->blowfish_secret);
-        $this->assertArrayHasKey('blowfish_secret', $settingsArray);
         $this->assertSame($expected, $settingsArray['blowfish_secret']);
     }
 
@@ -1158,7 +1133,6 @@ class SettingsTest extends TestCase
         $settings = new Settings(['Servers' => $actual]);
         $settingsArray = $settings->asArray();
         $this->assertEquals($expected, $settings->Servers);
-        $this->assertArrayHasKey('Servers', $settingsArray);
         $expectedArray = array_map(static fn (Server $server): array => $server->asArray(), $expected);
         $this->assertSame($expectedArray, $settingsArray['Servers']);
     }
@@ -1187,7 +1161,6 @@ class SettingsTest extends TestCase
         $settings = new Settings(['ServerDefault' => $actual]);
         $settingsArray = $settings->asArray();
         $this->assertSame($expected, $settings->ServerDefault);
-        $this->assertArrayHasKey('ServerDefault', $settingsArray);
         $this->assertSame($expected, $settingsArray['ServerDefault']);
     }
 
@@ -1206,7 +1179,6 @@ class SettingsTest extends TestCase
         $settings = new Settings(['VersionCheck' => $actual]);
         $settingsArray = $settings->asArray();
         $this->assertSame($expected, $settings->VersionCheck);
-        $this->assertArrayHasKey('VersionCheck', $settingsArray);
         $this->assertSame($expected, $settingsArray['VersionCheck']);
     }
 
@@ -1216,7 +1188,6 @@ class SettingsTest extends TestCase
         $settings = new Settings(['ProxyUrl' => $actual]);
         $settingsArray = $settings->asArray();
         $this->assertSame($expected, $settings->ProxyUrl);
-        $this->assertArrayHasKey('ProxyUrl', $settingsArray);
         $this->assertSame($expected, $settingsArray['ProxyUrl']);
     }
 
@@ -1235,7 +1206,6 @@ class SettingsTest extends TestCase
         $settings = new Settings(['ProxyUser' => $actual]);
         $settingsArray = $settings->asArray();
         $this->assertSame($expected, $settings->ProxyUser);
-        $this->assertArrayHasKey('ProxyUser', $settingsArray);
         $this->assertSame($expected, $settingsArray['ProxyUser']);
     }
 
@@ -1254,7 +1224,6 @@ class SettingsTest extends TestCase
         $settings = new Settings(['ProxyPass' => $actual]);
         $settingsArray = $settings->asArray();
         $this->assertSame($expected, $settings->ProxyPass);
-        $this->assertArrayHasKey('ProxyPass', $settingsArray);
         $this->assertSame($expected, $settingsArray['ProxyPass']);
     }
 
@@ -1273,7 +1242,6 @@ class SettingsTest extends TestCase
         $settings = new Settings(['MaxDbList' => $actual]);
         $settingsArray = $settings->asArray();
         $this->assertSame($expected, $settings->MaxDbList);
-        $this->assertArrayHasKey('MaxDbList', $settingsArray);
         $this->assertSame($expected, $settingsArray['MaxDbList']);
     }
 
@@ -1292,7 +1260,6 @@ class SettingsTest extends TestCase
         $settings = new Settings(['MaxTableList' => $actual]);
         $settingsArray = $settings->asArray();
         $this->assertSame($expected, $settings->MaxTableList);
-        $this->assertArrayHasKey('MaxTableList', $settingsArray);
         $this->assertSame($expected, $settingsArray['MaxTableList']);
     }
 
@@ -1311,7 +1278,6 @@ class SettingsTest extends TestCase
         $settings = new Settings(['ShowHint' => $actual]);
         $settingsArray = $settings->asArray();
         $this->assertSame($expected, $settings->ShowHint);
-        $this->assertArrayHasKey('ShowHint', $settingsArray);
         $this->assertSame($expected, $settingsArray['ShowHint']);
     }
 
@@ -1321,7 +1287,6 @@ class SettingsTest extends TestCase
         $settings = new Settings(['MaxCharactersInDisplayedSQL' => $actual]);
         $settingsArray = $settings->asArray();
         $this->assertSame($expected, $settings->MaxCharactersInDisplayedSQL);
-        $this->assertArrayHasKey('MaxCharactersInDisplayedSQL', $settingsArray);
         $this->assertSame($expected, $settingsArray['MaxCharactersInDisplayedSQL']);
     }
 
@@ -1340,7 +1305,6 @@ class SettingsTest extends TestCase
         $settings = new Settings(['OBGzip' => $actual]);
         $settingsArray = $settings->asArray();
         $this->assertSame($expected, $settings->OBGzip);
-        $this->assertArrayHasKey('OBGzip', $settingsArray);
         $this->assertSame($expected, $settingsArray['OBGzip']);
     }
 
@@ -1360,7 +1324,6 @@ class SettingsTest extends TestCase
         $settings = new Settings(['PersistentConnections' => $actual]);
         $settingsArray = $settings->asArray();
         $this->assertSame($expected, $settings->PersistentConnections);
-        $this->assertArrayHasKey('PersistentConnections', $settingsArray);
         $this->assertSame($expected, $settingsArray['PersistentConnections']);
     }
 
@@ -1370,7 +1333,6 @@ class SettingsTest extends TestCase
         $settings = new Settings(['ExecTimeLimit' => $actual]);
         $settingsArray = $settings->asArray();
         $this->assertSame($expected, $settings->ExecTimeLimit);
-        $this->assertArrayHasKey('ExecTimeLimit', $settingsArray);
         $this->assertSame($expected, $settingsArray['ExecTimeLimit']);
     }
 
@@ -1389,7 +1351,6 @@ class SettingsTest extends TestCase
         $settings = new Settings(['SessionSavePath' => $actual]);
         $settingsArray = $settings->asArray();
         $this->assertSame($expected, $settings->SessionSavePath);
-        $this->assertArrayHasKey('SessionSavePath', $settingsArray);
         $this->assertSame($expected, $settingsArray['SessionSavePath']);
     }
 
@@ -1408,7 +1369,6 @@ class SettingsTest extends TestCase
         $settings = new Settings(['ShowAll' => $actual]);
         $settingsArray = $settings->asArray();
         $this->assertSame($expected, $settings->showAll);
-        $this->assertArrayHasKey('ShowAll', $settingsArray);
         $this->assertSame($expected, $settingsArray['ShowAll']);
     }
 
@@ -1427,7 +1387,6 @@ class SettingsTest extends TestCase
         $settings = new Settings(['MaxRows' => $actual]);
         $settingsArray = $settings->asArray();
         $this->assertSame($expected, $settings->maxRows);
-        $this->assertArrayHasKey('MaxRows', $settingsArray);
         $this->assertSame($expected, $settingsArray['MaxRows']);
     }
 
@@ -1446,7 +1405,6 @@ class SettingsTest extends TestCase
         $settings = new Settings(['LimitChars' => $actual]);
         $settingsArray = $settings->asArray();
         $this->assertSame($expected, $settings->limitChars);
-        $this->assertArrayHasKey('LimitChars', $settingsArray);
         $this->assertSame($expected, $settingsArray['LimitChars']);
     }
 
@@ -1465,7 +1423,6 @@ class SettingsTest extends TestCase
         $settings = new Settings(['RepeatCells' => $actual]);
         $settingsArray = $settings->asArray();
         $this->assertSame($expected, $settings->repeatCells);
-        $this->assertArrayHasKey('RepeatCells', $settingsArray);
         $this->assertSame($expected, $settingsArray['RepeatCells']);
     }
 
@@ -1484,7 +1441,6 @@ class SettingsTest extends TestCase
         $settings = new Settings(['ZeroConf' => $actual]);
         $settingsArray = $settings->asArray();
         $this->assertSame($expected, $settings->zeroConf);
-        $this->assertArrayHasKey('ZeroConf', $settingsArray);
         $this->assertSame($expected, $settingsArray['ZeroConf']);
     }
 
@@ -1504,7 +1460,6 @@ class SettingsTest extends TestCase
         $settings = new Settings(['MysqlMinVersion' => $actual]);
         $settingsArray = $settings->asArray();
         $this->assertSame($expected, $settings->mysqlMinVersion);
-        $this->assertArrayHasKey('MysqlMinVersion', $settingsArray);
         $this->assertSame($expected, $settingsArray['MysqlMinVersion']);
     }
 
