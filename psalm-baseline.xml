@@ -10914,11 +10914,6 @@
     </PossiblyNullArrayOffset>
   </file>
   <file src="libraries/classes/Server/Privileges.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['Grant_priv']]]></code>
       <code><![CDATA[$GLOBALS['Grant_priv']]]></code>
@@ -11076,10 +11071,6 @@
       <code>$extraData</code>
       <code>(string|bool)[]</code>
     </MixedReturnTypeCoercion>
-    <NullArgument>
-      <code>null</code>
-      <code>null</code>
-    </NullArgument>
     <PossiblyFalseOperand>
       <code><![CDATA[mb_strpos($row1['Type'], '(')]]></code>
       <code><![CDATA[mb_strpos($row1['Type'], '(')]]></code>

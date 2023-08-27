@@ -3055,12 +3055,12 @@ class Privileges
      */
     public function getSqlQueriesForDisplayAndAddUser(string $username, string $hostname, string $password): array
     {
-        $slashedUsername = $this->dbi->escapeString($username);
-        $slashedHostname = $this->dbi->escapeString($hostname);
-        $slashedPassword = $this->dbi->escapeString($password);
+        $slashedUsername = $this->dbi->quoteString($username);
+        $slashedHostname = $this->dbi->quoteString($hostname);
+        $slashedPassword = $this->dbi->quoteString($password);
         $serverVersion = $this->dbi->getVersion();
 
-        $createUserStmt = sprintf('CREATE USER \'%s\'@\'%s\'', $slashedUsername, $slashedHostname);
+        $createUserStmt = sprintf('CREATE USER %s@%s', $slashedUsername, $slashedHostname);
         $isMariaDBPwdPluginActive = $this->checkIfMariaDBPwdCheckPluginActive();
 
         // See https://github.com/phpmyadmin/phpmyadmin/pull/11560#issuecomment-147158219
@@ -3088,11 +3088,11 @@ class Privileges
         $createUserReal = $createUserStmt;
         $createUserShow = $createUserStmt;
 
-        $passwordSetStmt = 'SET PASSWORD FOR \'%s\'@\'%s\' = \'%s\'';
-        $passwordSetShow = sprintf($passwordSetStmt, $slashedUsername, $slashedHostname, '***');
+        $passwordSetStmt = 'SET PASSWORD FOR %s@%s = %s';
+        $passwordSetShow = sprintf($passwordSetStmt, $slashedUsername, $slashedHostname, '\'***\'');
 
         $sqlQueryStmt = sprintf(
-            'GRANT %s ON *.* TO \'%s\'@\'%s\'',
+            'GRANT %s ON *.* TO %s@%s',
             implode(', ', $this->extractPrivInfo()),
             $slashedUsername,
             $slashedHostname,
@@ -3120,24 +3120,24 @@ class Privileges
             // MariaDB uses 'USING' whereas MySQL uses 'AS'
             // but MariaDB with validation plugin needs cleartext password
             if (Compatibility::isMariaDb() && ! $isMariaDBPwdPluginActive) {
-                $createUserStmt .= ' USING \'%s\'';
+                $createUserStmt .= ' USING %s';
             } elseif (Compatibility::isMariaDb()) {
-                $createUserStmt .= ' IDENTIFIED BY \'%s\'';
+                $createUserStmt .= ' IDENTIFIED BY %s';
             } elseif (Compatibility::isMySqlOrPerconaDb() && $serverVersion >= 80011) {
                 if (! str_contains($createUserStmt, 'IDENTIFIED')) {
                     // Maybe the authentication_plugin was not posted and then a part is missing
-                    $createUserStmt .= ' IDENTIFIED BY \'%s\'';
+                    $createUserStmt .= ' IDENTIFIED BY %s';
                 } else {
-                    $createUserStmt .= ' BY \'%s\'';
+                    $createUserStmt .= ' BY %s';
                 }
             } else {
-                $createUserStmt .= ' AS \'%s\'';
+                $createUserStmt .= ' AS %s';
             }
 
             if ($_POST['pred_password'] === 'keep') {
                 $createUserReal = sprintf($createUserStmt, $slashedPassword);
             } elseif ($_POST['pred_password'] === 'none') {
-                $createUserReal = sprintf($createUserStmt, null);
+                $createUserReal = sprintf($createUserStmt, '');
             } else {
                 if (
                     ! ((Compatibility::isMariaDb() && $isMariaDBPwdPluginActive)
@@ -3152,13 +3152,13 @@ class Privileges
                 $createUserReal = sprintf($createUserStmt, $hashedPassword);
             }
 
-            $createUserShow = sprintf($createUserStmt, '***');
+            $createUserShow = sprintf($createUserStmt, '\'***\'');
         } elseif ($_POST['pred_password'] === 'keep') {
             // Use 'SET PASSWORD' syntax for pre-5.7.6 MySQL versions
             // and pre-5.2.0 MariaDB versions
             $passwordSetReal = sprintf($passwordSetStmt, $slashedUsername, $slashedHostname, $slashedPassword);
         } elseif ($_POST['pred_password'] === 'none') {
-            $passwordSetReal = sprintf($passwordSetStmt, $slashedUsername, $slashedHostname, null);
+            $passwordSetReal = sprintf($passwordSetStmt, $slashedUsername, $slashedHostname, '');
         } else {
             $hashedPassword = $this->getHashedPassword($_POST['pma_pw']);
             $passwordSetReal = sprintf($passwordSetStmt, $slashedUsername, $slashedHostname, $hashedPassword);
@@ -3178,7 +3178,7 @@ class Privileges
             $realSqlQuery .= $sqlQueryStmt;
             $sqlQuery .= $sqlQueryStmt;
 
-            $alterSqlQueryStmt = sprintf('ALTER USER \'%s\'@\'%s\'', $slashedUsername, $slashedHostname);
+            $alterSqlQueryStmt = sprintf('ALTER USER %s@%s', $slashedUsername, $slashedHostname);
             $alterRealSqlQuery = $alterSqlQueryStmt;
             $alterSqlQuery = $alterSqlQueryStmt;
         }
