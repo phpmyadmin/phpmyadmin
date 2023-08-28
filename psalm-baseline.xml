@@ -14300,8 +14300,6 @@
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[['auth_type' => 'cookie']]]></code>
     </InvalidPropertyAssignmentValue>
     <MixedArgument>
@@ -14322,6 +14320,8 @@
       <code>dataProviderPasswordLength</code>
     </PossiblyUnusedMethod>
     <PropertyTypeCoercion>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>

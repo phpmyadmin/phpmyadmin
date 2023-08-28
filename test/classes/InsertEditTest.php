@@ -335,10 +335,10 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals($resultStub, $result);
     }
 
-    /** @return list<array{int|string, array<false>}> */
+    /** @return list<array{int, array<false>}> */
     public static function dataProviderConfigValueInsertRows(): array
     {
-        return [[2, [false, false]], ['2', [false, false]], [3, [false, false, false]], ['3', [false, false, false]]];
+        return [[2, [false, false]], [3, [false, false, false]]];
     }
 
     /**
@@ -347,7 +347,7 @@ class InsertEditTest extends AbstractTestCase
      * @param array<false> $rowsValue
      */
     #[DataProvider('dataProviderConfigValueInsertRows')]
-    public function testGetInsertRows(string|int $configValue, array $rowsValue): void
+    public function testGetInsertRows(int $configValue, array $rowsValue): void
     {
         Config::getInstance()->settings['InsertRows'] = $configValue;
 
