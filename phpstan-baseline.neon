@@ -8366,11 +8366,6 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Negated boolean expression is always false\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function substr expects string, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Table.php
