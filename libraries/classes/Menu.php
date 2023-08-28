@@ -155,14 +155,14 @@ class Menu
             ? $config->selectedServer['verbose'] : $config->selectedServer['host'];
         $server['name'] .= empty($config->selectedServer['port'])
             ? '' : ':' . $config->selectedServer['port'];
-        $server['url'] = Util::getUrlForOption($GLOBALS['cfg']['DefaultTabServer'], 'server');
+        $server['url'] = Util::getUrlForOption($config->settings['DefaultTabServer'], 'server');
 
         if ($this->db !== '') {
             $database['name'] = $this->db;
-            $database['url'] = Util::getUrlForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+            $database['url'] = Util::getUrlForOption($config->settings['DefaultTabDatabase'], 'database');
             if ($this->table !== '') {
                 $table['name'] = $this->table;
-                $table['url'] = Util::getUrlForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+                $table['url'] = Util::getUrlForOption($config->settings['DefaultTabTable'], 'table');
                 $tableObj = $this->dbi->getTable($this->db, $this->table);
                 $table['is_view'] = $tableObj->isView();
                 $table['comment'] = '';

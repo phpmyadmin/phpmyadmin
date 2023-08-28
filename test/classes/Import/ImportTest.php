@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Import;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -28,7 +29,7 @@ class ImportTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
-        $GLOBALS['cfg']['ServerDefault'] = '';
+        Config::getInstance()->settings['ServerDefault'] = '';
         $GLOBALS['complete_query'] = null;
         $GLOBALS['display_query'] = null;
         $GLOBALS['skip_queries'] = null;

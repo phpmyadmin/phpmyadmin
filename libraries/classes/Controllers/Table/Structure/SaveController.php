@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table\Structure;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Table\StructureController;
@@ -275,7 +276,11 @@ final class SaveController extends AbstractController
         }
 
         // update mime types
-        if (isset($_POST['field_mimetype']) && is_array($_POST['field_mimetype']) && $GLOBALS['cfg']['BrowseMIME']) {
+        if (
+            isset($_POST['field_mimetype'])
+            && is_array($_POST['field_mimetype'])
+            && Config::getInstance()->settings['BrowseMIME']
+        ) {
             foreach ($_POST['field_mimetype'] as $fieldindex => $mimetype) {
                 if (! isset($_POST['field_name'][$fieldindex]) || strlen($_POST['field_name'][$fieldindex]) <= 0) {
                     continue;

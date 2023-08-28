@@ -41,10 +41,11 @@ abstract class InlineTransformationsPlugin extends TransformationsPlugin
      */
     public function applyTransformation(string $buffer, array $options = [], FieldMetadata|null $meta = null): string
     {
-        $cfg = $GLOBALS['cfg'];
+        $config = Config::getInstance();
+        $cfg = $config->settings;
         $options = $this->getOptions($options, $cfg['DefaultTransformations']['Inline']);
 
-        if (Config::getInstance()->get('PMA_IS_GD2') === 1) {
+        if ($config->get('PMA_IS_GD2') === 1) {
             return '<a href="' . Url::getFromRoute('/transformation/wrapper', $options['wrapper_params'])
                 . '" rel="noopener noreferrer" target="_blank"><img src="'
                 . Url::getFromRoute('/transformation/wrapper', array_merge($options['wrapper_params'], [

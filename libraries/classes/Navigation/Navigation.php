@@ -52,8 +52,9 @@ class Navigation
      */
     public function getDisplay(): string
     {
+        $config = Config::getInstance();
         $logo = [
-            'is_displayed' => $GLOBALS['cfg']['NavigationDisplayLogo'],
+            'is_displayed' => $config->settings['NavigationDisplayLogo'],
             'has_link' => false,
             'link' => '#',
             'attributes' => ' target="_blank" rel="noopener noreferrer"',
@@ -63,13 +64,13 @@ class Navigation
         $response = ResponseRenderer::getInstance();
         if (! $response->isAjax()) {
             $logo['source'] = $this->getLogoSource();
-            $logo['has_link'] = (string) $GLOBALS['cfg']['NavigationLogoLink'] !== '';
-            $logo['link'] = trim((string) $GLOBALS['cfg']['NavigationLogoLink']);
+            $logo['has_link'] = (string) $config->settings['NavigationLogoLink'] !== '';
+            $logo['link'] = trim((string) $config->settings['NavigationLogoLink']);
             if (! Sanitize::checkLink($logo['link'], true)) {
                 $logo['link'] = 'index.php';
             }
 
-            if ($GLOBALS['cfg']['NavigationLogoLinkWindow'] === 'main') {
+            if ($config->settings['NavigationLogoLinkWindow'] === 'main') {
                 if (empty(parse_url($logo['link'], PHP_URL_HOST))) {
                     $hasStartChar = strpos($logo['link'], '?');
                     $logo['link'] .= Url::getCommon(
@@ -85,7 +86,7 @@ class Navigation
                 }
             }
 
-            if ($GLOBALS['cfg']['NavigationDisplayServers'] && count($GLOBALS['cfg']['Servers']) > 1) {
+            if ($config->settings['NavigationDisplayServers'] && count($config->settings['Servers']) > 1) {
                 $serverSelect = Select::render(true);
             }
 
@@ -100,7 +101,7 @@ class Navigation
         }
 
         if (! $response->isAjax() || ! empty($_POST['full']) || ! empty($_POST['reload'])) {
-            if ($GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
+            if ($config->settings['ShowDatabasesNavigationAsTree']) {
                 // provide database tree in navigation
                 $navRender = $this->tree->renderState();
             } else {
@@ -114,19 +115,19 @@ class Navigation
         return $this->template->render('navigation/main', [
             'is_ajax' => $response->isAjax(),
             'logo' => $logo,
-            'config_navigation_width' => $GLOBALS['cfg']['NavigationWidth'],
-            'is_synced' => $GLOBALS['cfg']['NavigationLinkWithMainPanel'],
-            'is_highlighted' => $GLOBALS['cfg']['NavigationTreePointerEnable'],
-            'is_autoexpanded' => $GLOBALS['cfg']['NavigationTreeAutoexpandSingleDb'],
+            'config_navigation_width' => $config->settings['NavigationWidth'],
+            'is_synced' => $config->settings['NavigationLinkWithMainPanel'],
+            'is_highlighted' => $config->settings['NavigationTreePointerEnable'],
+            'is_autoexpanded' => $config->settings['NavigationTreeAutoexpandSingleDb'],
             'server' => $GLOBALS['server'],
-            'auth_type' => Config::getInstance()->selectedServer['auth_type'],
-            'is_servers_displayed' => $GLOBALS['cfg']['NavigationDisplayServers'],
-            'servers' => $GLOBALS['cfg']['Servers'],
+            'auth_type' => $config->selectedServer['auth_type'],
+            'is_servers_displayed' => $config->settings['NavigationDisplayServers'],
+            'servers' => $config->settings['Servers'],
             'server_select' => $serverSelect ?? '',
             'navigation_tree' => $navRender,
             'is_navigation_settings_enabled' => ! defined('PMA_DISABLE_NAVI_SETTINGS'),
             'navigation_settings' => $navigationSettings ?? '',
-            'is_drag_drop_import_enabled' => $GLOBALS['cfg']['enable_drag_drop_import'] === true,
+            'is_drag_drop_import_enabled' => $config->settings['enable_drag_drop_import'] === true,
             'is_mariadb' => $this->dbi->isMariaDB(),
         ]);
     }

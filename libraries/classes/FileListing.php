@@ -96,11 +96,12 @@ class FileListing
     {
         $compressions = '';
 
-        if ($GLOBALS['cfg']['GZipDump'] && function_exists('gzopen')) {
+        $config = Config::getInstance();
+        if ($config->settings['GZipDump'] && function_exists('gzopen')) {
             $compressions = 'gz';
         }
 
-        if ($GLOBALS['cfg']['BZipDump'] && function_exists('bzopen')) {
+        if ($config->settings['BZipDump'] && function_exists('bzopen')) {
             if ($compressions !== '') {
                 $compressions .= '|';
             }
@@ -108,7 +109,7 @@ class FileListing
             $compressions .= 'bz2';
         }
 
-        if ($GLOBALS['cfg']['ZipDump'] && function_exists('gzinflate')) {
+        if ($config->settings['ZipDump'] && function_exists('gzinflate')) {
             if ($compressions !== '') {
                 $compressions .= '|';
             }

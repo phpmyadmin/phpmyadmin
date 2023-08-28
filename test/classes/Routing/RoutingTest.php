@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Routing;
 
 use FastRoute\Dispatcher;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\Routing\Routing;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -29,7 +30,8 @@ class RoutingTest extends AbstractTestCase
         $cacheFilename = CACHE_DIR . 'routes.cache.php';
         $validCacheFilename = TEST_PATH . 'test/test_data/routes/routes-valid.cache.txt';
         $invalidCacheFilename = TEST_PATH . 'test/test_data/routes/routes-invalid.cache.txt';
-        $GLOBALS['cfg']['environment'] = null;
+        $config = Config::getInstance();
+        $config->settings['environment'] = null;
 
         $this->assertDirectoryIsWritable(CACHE_DIR);
 
@@ -55,7 +57,7 @@ class RoutingTest extends AbstractTestCase
         $this->assertFileExists($cacheFilename);
 
         // Without a cache file.
-        $GLOBALS['cfg']['environment'] = 'development';
+        $config->settings['environment'] = 'development';
         $dispatcher = Routing::getDispatcher();
         $this->assertSame($expected, $dispatcher->dispatch('GET', '/'));
     }

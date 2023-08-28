@@ -49,7 +49,8 @@ class TrackingController extends AbstractController
 
         $this->checkParameters(['db']);
 
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+        $config = Config::getInstance();
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
         $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
@@ -110,7 +111,7 @@ class TrackingController extends AbstractController
                         'db' => $GLOBALS['db'],
                         'selected' => $selectedTable,
                         'type' => 'both',
-                        'default_statements' => Config::getInstance()->selectedServer['tracking_default_statements'],
+                        'default_statements' => $config->selectedServer['tracking_default_statements'],
                     ]);
 
                     return;

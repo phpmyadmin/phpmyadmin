@@ -43,9 +43,10 @@ class TwoFactorTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = 'table';
-        Config::getInstance()->selectedServer['DisableIS'] = false;
-        $GLOBALS['cfg']['DBG'] = ['simple2fa' => false, 'sql' => false];
-        $GLOBALS['cfg']['NaturalOrder'] = true;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = false;
+        $config->settings['DBG'] = ['simple2fa' => false, 'sql' => false];
+        $config->settings['NaturalOrder'] = true;
         $this->initStorageConfigAndData();
     }
 
@@ -185,11 +186,12 @@ class TwoFactorTest extends AbstractTestCase
     public function testSimple(): void
     {
         $request = new ServerRequest($this->createStub(ServerRequestInterface::class));
-        $GLOBALS['cfg']['DBG']['simple2fa'] = true;
+        $config = Config::getInstance();
+        $config->settings['DBG']['simple2fa'] = true;
         $object = $this->getTwoFactorAndLoadConfig('user', ['type' => 'db', 'backend' => 'simple']);
         $backend = $object->getBackend();
         $this->assertEquals('simple', $backend::$id);
-        $GLOBALS['cfg']['DBG']['simple2fa'] = false;
+        $config->settings['DBG']['simple2fa'] = false;
 
         unset($_POST['2fa_confirm']);
         $this->assertFalse($object->check($request, true));
@@ -213,7 +215,8 @@ class TwoFactorTest extends AbstractTestCase
     public function testConfigureSimple(): void
     {
         $request = new ServerRequest($this->createStub(ServerRequestInterface::class));
-        $GLOBALS['cfg']['DBG']['simple2fa'] = true;
+        $config = Config::getInstance();
+        $config->settings['DBG']['simple2fa'] = true;
         $object = $this->getTwoFactorAndLoadConfig('user', null);
 
         $this->dummyDbi->assertAllQueriesConsumed();
@@ -238,7 +241,7 @@ class TwoFactorTest extends AbstractTestCase
 
         $this->initStorageConfigAndData();// Needs a re-init
 
-        $GLOBALS['cfg']['DBG']['simple2fa'] = false;
+        $config->settings['DBG']['simple2fa'] = false;
         $object = $this->getTwoFactorAndLoadConfig('user', null);
         $this->assertFalse($object->configure($request, 'simple'));
         $this->dummyDbi->assertAllQueriesConsumed();
@@ -492,13 +495,14 @@ class TwoFactorTest extends AbstractTestCase
      */
     public function testBackends(): void
     {
-        $GLOBALS['cfg']['DBG']['simple2fa'] = true;
+        $config = Config::getInstance();
+        $config->settings['DBG']['simple2fa'] = true;
         $object = $this->getTwoFactorAndLoadConfig('user', null);
         $backends = $object->getAllBackends();
         $this->assertCount(
             count($object->getAvailable()) + 1,
             $backends,
         );
-        $GLOBALS['cfg']['DBG']['simple2fa'] = false;
+        $config->settings['DBG']['simple2fa'] = false;
     }
 }

@@ -1426,9 +1426,10 @@ class PrivilegesTest extends AbstractTestCase
             __('Database'),
             $actual,
         );
+        $config = Config::getInstance();
         $this->assertStringContainsString(
             Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabDatabase'],
+                $config->settings['DefaultTabDatabase'],
                 'database',
             ),
             $actual,
@@ -1444,7 +1445,7 @@ class PrivilegesTest extends AbstractTestCase
         );
         $this->assertStringContainsString(
             Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabTable'],
+                $config->settings['DefaultTabTable'],
                 'table',
             ),
             $actual,
@@ -1452,7 +1453,7 @@ class PrivilegesTest extends AbstractTestCase
         $item = Url::getCommon(['db' => 'sakila', 'table' => 'actor', 'reload' => 1], '');
         $this->assertStringContainsString($item, $actual);
         $this->assertStringContainsString('table', $actual);
-        $item = Util::getTitleForTarget($GLOBALS['cfg']['DefaultTabTable']);
+        $item = Util::getTitleForTarget($config->settings['DefaultTabTable']);
         $this->assertStringContainsString((string) $item, $actual);
     }
 

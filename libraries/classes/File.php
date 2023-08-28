@@ -399,16 +399,17 @@ class File
      */
     public function setLocalSelectedFile(string $name): bool
     {
-        if (empty($GLOBALS['cfg']['UploadDir'])) {
+        $config = Config::getInstance();
+        if (empty($config->settings['UploadDir'])) {
             return false;
         }
 
-        if (! is_string($GLOBALS['cfg']['UploadDir'])) {
+        if (! is_string($config->settings['UploadDir'])) {
             return false;
         }
 
         $this->setName(
-            Util::userDir($GLOBALS['cfg']['UploadDir']) . Core::securePath($name),
+            Util::userDir($config->settings['UploadDir']) . Core::securePath($name),
         );
         if (@is_link((string) $this->getName())) {
             $this->errorMessage = Message::error(__('File is a symbolic link'));
@@ -577,12 +578,13 @@ class File
             $this->handle = @fopen((string) $this->getName(), 'r');
         }
 
+        $config = Config::getInstance();
         switch ($this->getCompression()) {
             case false:
                 return false;
 
             case 'application/bzip2':
-                if (! $GLOBALS['cfg']['BZipDump'] || ! function_exists('bzopen')) {
+                if (! $config->settings['BZipDump'] || ! function_exists('bzopen')) {
                     $this->errorUnsupported();
 
                     return false;
@@ -591,7 +593,7 @@ class File
                 $this->handle = @bzopen($this->getName(), 'r');
                 break;
             case 'application/gzip':
-                if (! $GLOBALS['cfg']['GZipDump'] || ! function_exists('gzopen')) {
+                if (! $config->settings['GZipDump'] || ! function_exists('gzopen')) {
                     $this->errorUnsupported();
 
                     return false;
@@ -600,7 +602,7 @@ class File
                 $this->handle = @gzopen((string) $this->getName(), 'r');
                 break;
             case 'application/zip':
-                if ($GLOBALS['cfg']['ZipDump'] && function_exists('zip_open')) {
+                if ($config->settings['ZipDump'] && function_exists('zip_open')) {
                     return $this->openZip();
                 }
 

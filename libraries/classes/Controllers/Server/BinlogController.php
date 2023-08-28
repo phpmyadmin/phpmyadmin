@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
@@ -57,7 +58,8 @@ class BinlogController extends AbstractController
             $urlParams['is_full_query'] = 1;
         }
 
-        $sqlQuery = $this->getSqlQuery($log ?? '', $position, (int) $GLOBALS['cfg']['MaxRows']);
+        $config = Config::getInstance();
+        $sqlQuery = $this->getSqlQuery($log ?? '', $position, (int) $config->settings['MaxRows']);
         $result = $this->dbi->query($sqlQuery);
 
         $numRows = $result->numRows();
@@ -67,8 +69,8 @@ class BinlogController extends AbstractController
         $nextParams = $urlParams;
         if ($position > 0) {
             $fullQueriesParams['pos'] = $position;
-            if ($position > $GLOBALS['cfg']['MaxRows']) {
-                $previousParams['pos'] = $position - $GLOBALS['cfg']['MaxRows'];
+            if ($position > $config->settings['MaxRows']) {
+                $previousParams['pos'] = $position - $config->settings['MaxRows'];
             }
         }
 
@@ -77,8 +79,8 @@ class BinlogController extends AbstractController
             unset($fullQueriesParams['is_full_query']);
         }
 
-        if ($numRows >= $GLOBALS['cfg']['MaxRows']) {
-            $nextParams['pos'] = $position + $GLOBALS['cfg']['MaxRows'];
+        if ($numRows >= $config->settings['MaxRows']) {
+            $nextParams['pos'] = $position + $config->settings['MaxRows'];
         }
 
         $values = $result->fetchAllAssoc();
@@ -90,7 +92,7 @@ class BinlogController extends AbstractController
             'sql_message' => Generator::getMessage(Message::success(), $sqlQuery),
             'values' => $values,
             'has_previous' => $position > 0,
-            'has_next' => $numRows >= $GLOBALS['cfg']['MaxRows'],
+            'has_next' => $numRows >= $config->settings['MaxRows'],
             'previous_params' => $previousParams,
             'full_queries_params' => $fullQueriesParams,
             'next_params' => $nextParams,

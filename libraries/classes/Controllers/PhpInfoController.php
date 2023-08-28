@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Http\ServerRequest;
 
 use function phpinfo;
@@ -25,7 +26,7 @@ class PhpInfoController extends AbstractController
         $this->response->disable();
         $this->response->getHeader()->sendHttpHeaders();
 
-        if (! $GLOBALS['cfg']['ShowPhpInfo']) {
+        if (! Config::getInstance()->settings['ShowPhpInfo']) {
             return;
         }
 

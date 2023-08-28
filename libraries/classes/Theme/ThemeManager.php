@@ -62,21 +62,22 @@ class ThemeManager
 
     public function initializeTheme(): Theme
     {
-        $this->setThemePerServer($GLOBALS['cfg']['ThemePerServer']);
+        $config = Config::getInstance();
+        $this->setThemePerServer($config->settings['ThemePerServer']);
 
         $this->loadThemes();
 
-        $configThemeExists = $this->checkTheme($GLOBALS['cfg']['ThemeDefault']);
+        $configThemeExists = $this->checkTheme($config->settings['ThemeDefault']);
         if (! $configThemeExists) {
             trigger_error(
                 sprintf(
                     __('Default theme %s not found!'),
-                    htmlspecialchars($GLOBALS['cfg']['ThemeDefault']),
+                    htmlspecialchars($config->settings['ThemeDefault']),
                 ),
                 E_USER_ERROR,
             );
         } else {
-            $this->themeDefault = $GLOBALS['cfg']['ThemeDefault'];
+            $this->themeDefault = $config->settings['ThemeDefault'];
         }
 
         // check if user have a theme cookie

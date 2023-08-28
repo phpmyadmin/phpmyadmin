@@ -40,7 +40,7 @@ class AuthenticationHttpTest extends AbstractTestCase
         parent::setTheme();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $GLOBALS['cfg']['Servers'] = [];
+        Config::getInstance()->settings['Servers'] = [];
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
@@ -239,7 +239,7 @@ class AuthenticationHttpTest extends AbstractTestCase
         // case 2
         $this->object->user = 'testUser';
         $this->object->password = 'testPass';
-        $GLOBALS['cfg']['Servers'][1] = ['host' => 'a', 'user' => 'testUser', 'foo' => 'bar'];
+        $config->settings['Servers'][1] = ['host' => 'a', 'user' => 'testUser', 'foo' => 'bar'];
 
         $config->selectedServer = ['host' => 'a', 'user' => 'user2'];
 
@@ -258,7 +258,7 @@ class AuthenticationHttpTest extends AbstractTestCase
         $GLOBALS['server'] = 3;
         $this->object->user = 'testUser';
         $this->object->password = 'testPass';
-        $GLOBALS['cfg']['Servers'][1] = ['host' => 'a', 'user' => 'testUsers', 'foo' => 'bar'];
+        $config->settings['Servers'][1] = ['host' => 'a', 'user' => 'testUsers', 'foo' => 'bar'];
 
         $config->selectedServer = ['host' => 'a', 'user' => 'user2'];
 

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Transformations;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\Transformations\Input\Image_JPEG_Upload;
 use PhpMyAdmin\Plugins\Transformations\Input\Text_Plain_FileUpload;
@@ -71,7 +72,7 @@ class TransformationPluginsTest extends AbstractTestCase
     /** @return array<array{0: TransformationsPlugin, 1: string, 2: mixed, 3?: mixed[]}> */
     public static function multiDataProvider(): array
     {
-        $GLOBALS['cfg']['CodemirrorEnable'] = false;
+        Config::getInstance()->settings['CodemirrorEnable'] = false;
 
         return [
             // Test data for PhpMyAdmin\Plugins\Transformations\Input\Image_JPEG_Upload plugin
@@ -383,7 +384,7 @@ class TransformationPluginsTest extends AbstractTestCase
      */
     public static function transformationDataProvider(): array
     {
-        $GLOBALS['cfg']['CodemirrorEnable'] = false;
+        Config::getInstance()->settings['CodemirrorEnable'] = false;
 
         $result = [
             [new Image_JPEG_Upload(), ['test', [150, 100]], 'test'],

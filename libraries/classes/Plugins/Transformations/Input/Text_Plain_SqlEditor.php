@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Input;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Plugins\Transformations\Abs\CodeMirrorEditorTransformationPlugin;
 
 use function __;
@@ -33,7 +34,7 @@ class Text_Plain_SqlEditor extends CodeMirrorEditorTransformationPlugin
     public function getScripts(): array
     {
         $scripts = [];
-        if ($GLOBALS['cfg']['CodemirrorEnable']) {
+        if (Config::getInstance()->settings['CodemirrorEnable']) {
             $scripts[] = 'vendor/codemirror/lib/codemirror.js';
             $scripts[] = 'vendor/codemirror/mode/sql/sql.js';
             $scripts[] = 'transformations/sql_editor.js';

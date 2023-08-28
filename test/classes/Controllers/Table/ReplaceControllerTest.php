@@ -147,8 +147,8 @@ class ReplaceControllerTest extends AbstractTestCase
         $GLOBALS['urlParams'] = [];
         $GLOBALS['goto'] = 'index.php?route=/sql';
         $_POST['sql_query'] = 'SELECT 1';
-        $GLOBALS['cfg']['InsertRows'] = 2;
         $config = Config::getInstance();
+        $config->settings['InsertRows'] = 2;
         $config->selectedServer['host'] = 'host.tld';
         $config->selectedServer['verbose'] = '';
 
@@ -194,7 +194,7 @@ class ReplaceControllerTest extends AbstractTestCase
         $replaceController($request);
         $output = $response->getHTMLResult();
         $this->dummyDbi->assertAllSelectsConsumed();
-        $this->assertEquals(5, $GLOBALS['cfg']['InsertRows']);
+        $this->assertEquals(5, $config->settings['InsertRows']);
         $this->assertStringContainsString(
             '<form id="continueForm" method="post" '
             . 'action="index.php?route=/table/replace&lang=en" name="continueForm">',

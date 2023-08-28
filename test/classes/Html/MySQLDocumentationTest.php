@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Html;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -14,7 +15,7 @@ class MySQLDocumentationTest extends AbstractTestCase
     public function testShowDocumentation(): void
     {
         $GLOBALS['server'] = '99';
-        $GLOBALS['cfg']['ServerDefault'] = 1;
+        Config::getInstance()->settings['ServerDefault'] = 1;
 
         $this->assertEquals(
             '<a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen'

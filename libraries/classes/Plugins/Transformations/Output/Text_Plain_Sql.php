@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Output;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Plugins\Transformations\Abs\SQLTransformationsPlugin;
 use PhpMyAdmin\ResponseRenderer;
 
@@ -17,7 +18,7 @@ class Text_Plain_Sql extends SQLTransformationsPlugin
 {
     public function __construct()
     {
-        if (empty($GLOBALS['cfg']['CodemirrorEnable'])) {
+        if (empty(Config::getInstance()->settings['CodemirrorEnable'])) {
             return;
         }
 

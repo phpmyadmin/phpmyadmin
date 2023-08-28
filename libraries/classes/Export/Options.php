@@ -36,8 +36,10 @@ final class Options
      */
     private function checkboxCheck(string $str): bool
     {
-        return isset($GLOBALS['cfg']['Export'][$str])
-            && $GLOBALS['cfg']['Export'][$str];
+        $config = Config::getInstance();
+
+        return isset($config->settings['Export'][$str])
+            && $config->settings['Export'][$str];
     }
 
     /**
@@ -108,11 +110,12 @@ final class Options
 
         $templates = [];
 
+        $config = Config::getInstance();
         if ($exportTemplatesFeature !== null) {
             $templates = $this->templateModel->getAll(
                 $exportTemplatesFeature->database,
                 $exportTemplatesFeature->exportTemplates,
-                Config::getInstance()->selectedServer['user'],
+                $config->selectedServer['user'],
                 $exportType,
             );
 
@@ -139,9 +142,11 @@ final class Options
         unset($_SESSION['tmpval']['aliases']);
         $filenameTemplate = $this->getFileNameTemplate($exportType, $_POST['filename_template'] ?? null);
         $isEncodingSupported = Encoding::isSupported();
-        $selectedCompression = $_POST['compression'] ?? $GLOBALS['cfg']['Export']['compression'] ?? 'none';
+        $selectedCompression = $_POST['compression'] ?? $config->settings['Export']['compression'] ?? 'none';
 
-        if (isset($GLOBALS['cfg']['Export']['as_separate_files']) && $GLOBALS['cfg']['Export']['as_separate_files']) {
+        if (
+            isset($config->settings['Export']['as_separate_files']) && $config->settings['Export']['as_separate_files']
+        ) {
             $selectedCompression = 'zip';
         }
 
@@ -149,7 +154,7 @@ final class Options
             'db' => $db,
             'table' => $table,
             'export_type' => $exportType,
-            'export_method' => $_POST['export_method'] ?? $GLOBALS['cfg']['Export']['method'] ?? 'quick',
+            'export_method' => $_POST['export_method'] ?? $config->settings['Export']['method'] ?? 'quick',
             'template_id' => $_POST['template_id'] ?? '',
         ];
 
@@ -172,14 +177,14 @@ final class Options
             ],
             'sql_query' => $sqlQuery,
             'hidden_inputs' => $hiddenInputs,
-            'export_method' => $_POST['quick_or_custom'] ?? $GLOBALS['cfg']['Export']['method'] ?? '',
+            'export_method' => $_POST['quick_or_custom'] ?? $config->settings['Export']['method'] ?? '',
             'plugins_choice' => $dropdown,
             'options' => Plugins::getOptions('Export', $exportList),
             'can_convert_kanji' => Encoding::canConvertKanji(),
-            'exec_time_limit' => $GLOBALS['cfg']['ExecTimeLimit'],
+            'exec_time_limit' => $config->settings['ExecTimeLimit'],
             'rows' => $rows,
-            'has_save_dir' => ! empty($GLOBALS['cfg']['SaveDir']),
-            'save_dir' => Util::userDir((string) ($GLOBALS['cfg']['SaveDir'] ?? '')),
+            'has_save_dir' => ! empty($config->settings['SaveDir']),
+            'save_dir' => Util::userDir((string) ($config->settings['SaveDir'] ?? '')),
             'export_is_checked' => $this->checkboxCheck('quick_export_onserver'),
             'export_overwrite_is_checked' => $this->checkboxCheck('quick_export_onserver_overwrite'),
             'has_aliases' => $hasAliases,
@@ -194,10 +199,10 @@ final class Options
             'lock_tables' => isset($_POST['lock_tables']),
             'is_encoding_supported' => $isEncodingSupported,
             'encodings' => $isEncodingSupported ? Encoding::listEncodings() : [],
-            'export_charset' => $GLOBALS['cfg']['Export']['charset'],
-            'export_asfile' => $GLOBALS['cfg']['Export']['asfile'],
-            'has_zip' => $GLOBALS['cfg']['ZipDump'] && function_exists('gzcompress'),
-            'has_gzip' => $GLOBALS['cfg']['GZipDump'] && function_exists('gzencode'),
+            'export_charset' => $config->settings['Export']['charset'],
+            'export_asfile' => $config->settings['Export']['asfile'],
+            'has_zip' => $config->settings['ZipDump'] && function_exists('gzcompress'),
+            'has_gzip' => $config->settings['GZipDump'] && function_exists('gzencode'),
             'selected_compression' => $selectedCompression,
             'filename_template' => $filenameTemplate,
         ];
@@ -213,20 +218,20 @@ final class Options
         if ($exportType === 'database') {
             return (string) $config->getUserValue(
                 'pma_db_filename_template',
-                $GLOBALS['cfg']['Export']['file_template_database'],
+                $config->settings['Export']['file_template_database'],
             );
         }
 
         if ($exportType === 'table') {
             return (string) $config->getUserValue(
                 'pma_table_filename_template',
-                $GLOBALS['cfg']['Export']['file_template_table'],
+                $config->settings['Export']['file_template_table'],
             );
         }
 
         return (string) $config->getUserValue(
             'pma_server_filename_template',
-            $GLOBALS['cfg']['Export']['file_template_server'],
+            $config->settings['Export']['file_template_server'],
         );
     }
 }

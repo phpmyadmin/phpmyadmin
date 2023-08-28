@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\FileListing;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
@@ -85,26 +86,29 @@ class FileListingTest extends AbstractTestCase
 
     public function testSupportedDecompressionsEmptyList(): void
     {
-        $GLOBALS['cfg']['ZipDump'] = false;
-        $GLOBALS['cfg']['GZipDump'] = false;
-        $GLOBALS['cfg']['BZipDump'] = false;
+        $config = Config::getInstance();
+        $config->settings['ZipDump'] = false;
+        $config->settings['GZipDump'] = false;
+        $config->settings['BZipDump'] = false;
         $this->assertEmpty($this->fileListing->supportedDecompressions());
     }
 
     #[RequiresPhpExtension('bz2')]
     public function testSupportedDecompressionsFull(): void
     {
-        $GLOBALS['cfg']['ZipDump'] = true;
-        $GLOBALS['cfg']['GZipDump'] = true;
-        $GLOBALS['cfg']['BZipDump'] = true;
+        $config = Config::getInstance();
+        $config->settings['ZipDump'] = true;
+        $config->settings['GZipDump'] = true;
+        $config->settings['BZipDump'] = true;
         $this->assertEquals('gz|bz2|zip', $this->fileListing->supportedDecompressions());
     }
 
     public function testSupportedDecompressionsPartial(): void
     {
-        $GLOBALS['cfg']['ZipDump'] = true;
-        $GLOBALS['cfg']['GZipDump'] = true;
-        $GLOBALS['cfg']['BZipDump'] = true;
+        $config = Config::getInstance();
+        $config->settings['ZipDump'] = true;
+        $config->settings['GZipDump'] = true;
+        $config->settings['BZipDump'] = true;
         $extensionString = 'gz';
         if (extension_loaded('bz2')) {
             $extensionString .= '|bz2';

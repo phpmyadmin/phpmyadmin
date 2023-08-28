@@ -82,8 +82,9 @@ class Encoding
     public static function initEngine(): void
     {
         $engine = 'auto';
-        if (isset($GLOBALS['cfg']['RecodingEngine'])) {
-            $engine = $GLOBALS['cfg']['RecodingEngine'];
+        $config = Config::getInstance();
+        if (isset($config->settings['RecodingEngine'])) {
+            $engine = $config->settings['RecodingEngine'];
         }
 
         /* Use user configuration */
@@ -156,7 +157,10 @@ class Encoding
         }
 
         return match (self::$engine) {
-            self::ENGINE_ICONV => iconv($srcCharset, $destCharset . ($GLOBALS['cfg']['IconvExtraParams'] ?? ''), $what),
+            self::ENGINE_ICONV => iconv(
+                $srcCharset,
+                $destCharset . (Config::getInstance()->settings['IconvExtraParams'] ?? ''), $what,
+            ),
             self::ENGINE_MB => mb_convert_encoding($what, $destCharset, $srcCharset),
             default => $what,
         };
@@ -304,13 +308,14 @@ class Encoding
         }
 
         /* Most engines do not support listing */
+        $config = Config::getInstance();
         if (self::$engine != self::ENGINE_MB) {
-            return $GLOBALS['cfg']['AvailableCharsets'];
+            return $config->settings['AvailableCharsets'];
         }
 
         return array_intersect(
             array_map(strtolower(...), mb_list_encodings()),
-            $GLOBALS['cfg']['AvailableCharsets'],
+            $config->settings['AvailableCharsets'],
         );
     }
 }

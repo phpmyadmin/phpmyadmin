@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Config\Forms\User;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Forms\BaseForm;
 
 use function __;
@@ -68,7 +69,7 @@ class FeaturesForm extends BaseForm
             ],
         ];
         // skip Developer form if no setting is available
-        if ($GLOBALS['cfg']['UserprefsDeveloperTab']) {
+        if (Config::getInstance()->settings['UserprefsDeveloperTab']) {
             $result['Developer'] = ['DBG/sql'];
         }
 

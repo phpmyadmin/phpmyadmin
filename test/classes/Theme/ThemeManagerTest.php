@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Theme;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Theme\ThemeManager;
@@ -21,9 +22,10 @@ class ThemeManagerTest extends AbstractTestCase
 
         parent::setGlobalConfig();
 
-        $GLOBALS['cfg']['ThemePerServer'] = false;
-        $GLOBALS['cfg']['ThemeDefault'] = 'pmahomme';
-        $GLOBALS['cfg']['ServerDefault'] = 0;
+        $config = Config::getInstance();
+        $config->settings['ThemePerServer'] = false;
+        $config->settings['ThemeDefault'] = 'pmahomme';
+        $config->settings['ServerDefault'] = 0;
         $GLOBALS['server'] = 99;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

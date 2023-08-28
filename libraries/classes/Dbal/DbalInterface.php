@@ -130,7 +130,7 @@ interface DbalInterface
      * @param string      $sortBy      column to order by
      * @param string      $sortOrder   ASC or DESC
      * @param int         $limitOffset starting offset for LIMIT
-     * @param bool|int    $limitCount  row count for LIMIT or true for $GLOBALS['cfg']['MaxDbList']
+     * @param bool|int    $limitCount  row count for LIMIT or true for $cfg['MaxDbList']
      * @psalm-param ConnectionType $connectionType
      *
      * @return mixed[]

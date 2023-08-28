@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Utils;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Utils\ForeignKey;
@@ -51,17 +52,18 @@ class ForeignKeyTest extends AbstractTestCase
     {
         $GLOBALS['server'] = 1;
 
-        $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'enable';
+        $config = Config::getInstance();
+        $config->settings['DefaultForeignKeyChecks'] = 'enable';
         $this->assertTrue(
             ForeignKey::isCheckEnabled(),
         );
 
-        $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'disable';
+        $config->settings['DefaultForeignKeyChecks'] = 'disable';
         $this->assertFalse(
             ForeignKey::isCheckEnabled(),
         );
 
-        $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'default';
+        $config->settings['DefaultForeignKeyChecks'] = 'default';
         $this->assertTrue(
             ForeignKey::isCheckEnabled(),
         );

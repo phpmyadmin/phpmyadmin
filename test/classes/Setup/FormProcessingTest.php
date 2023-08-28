@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Setup;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\FormDisplay;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Exceptions\ExitException;
@@ -34,7 +35,7 @@ class FormProcessingTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
-        $GLOBALS['cfg']['ServerDefault'] = 1;
+        Config::getInstance()->settings['ServerDefault'] = 1;
     }
 
     #[BackupStaticProperties(true)]

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Message;
@@ -43,7 +44,7 @@ class ImportLdi extends AbstractImportCsv
             return $importPluginProperties;
         }
 
-        if ($GLOBALS['cfg']['Import']['ldi_local_option'] === 'auto') {
+        if (Config::getInstance()->settings['Import']['ldi_local_option'] === 'auto') {
             $this->setLdiLocalOptionConfig();
         }
 
@@ -197,7 +198,8 @@ class ImportLdi extends AbstractImportCsv
 
     private function setLdiLocalOptionConfig(): void
     {
-        $GLOBALS['cfg']['Import']['ldi_local_option'] = false;
+        $config = Config::getInstance();
+        $config->settings['Import']['ldi_local_option'] = false;
         $result = DatabaseInterface::getInstance()->tryQuery('SELECT @@local_infile;');
 
         if ($result === false || $result->numRows() <= 0) {
@@ -209,6 +211,6 @@ class ImportLdi extends AbstractImportCsv
             return;
         }
 
-        $GLOBALS['cfg']['Import']['ldi_local_option'] = true;
+        $config->settings['Import']['ldi_local_option'] = true;
     }
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Replication;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Replication\Replication;
 use PhpMyAdmin\Replication\ReplicationGui;
@@ -33,16 +34,17 @@ class ReplicationGuiTest extends AbstractTestCase
         $_POST['primary_add_user'] = 'primary_add_user';
 
         //$GLOBALS
-        $GLOBALS['cfg']['MaxRows'] = 10;
-        $GLOBALS['cfg']['ServerDefault'] = 'server';
-        $GLOBALS['cfg']['RememberSorting'] = true;
-        $GLOBALS['cfg']['SQP'] = [];
-        $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
-        $GLOBALS['cfg']['ShowSQL'] = true;
-        $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
-        $GLOBALS['cfg']['LimitChars'] = 100;
-        $GLOBALS['cfg']['DBG']['sql'] = false;
-        $GLOBALS['cfg']['ShowHint'] = true;
+        $config = Config::getInstance();
+        $config->settings['MaxRows'] = 10;
+        $config->settings['ServerDefault'] = 'server';
+        $config->settings['RememberSorting'] = true;
+        $config->settings['SQP'] = [];
+        $config->settings['MaxCharactersInDisplayedSQL'] = 1000;
+        $config->settings['ShowSQL'] = true;
+        $config->settings['TableNavigationLinksMode'] = 'icons';
+        $config->settings['LimitChars'] = 100;
+        $config->settings['DBG']['sql'] = false;
+        $config->settings['ShowHint'] = true;
 
         $GLOBALS['table'] = 'table';
         $GLOBALS['server'] = 0;

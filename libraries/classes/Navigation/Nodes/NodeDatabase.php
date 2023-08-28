@@ -49,7 +49,7 @@ class NodeDatabase extends Node
 
         $this->links = [
             'text' => [
-                'route' => Util::getUrlForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database'),
+                'route' => Util::getUrlForOption(Config::getInstance()->settings['DefaultTabDatabase'], 'database'),
                 'params' => ['db' => null],
             ],
             'icon' => ['route' => '/database/operations', 'params' => ['db' => null]],
@@ -342,9 +342,10 @@ class NodeDatabase extends Node
             $condition = 'NOT IN';
         }
 
-        $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
+        $config = Config::getInstance();
+        $maxItems = $config->settings['MaxNavigationItems'];
         $dbi = DatabaseInterface::getInstance();
-        if (! Config::getInstance()->selectedServer['DisableIS']) {
+        if (! $config->selectedServer['DisableIS']) {
             $query = 'SELECT `TABLE_NAME` AS `name` ';
             $query .= 'FROM `INFORMATION_SCHEMA`.`TABLES` ';
             $query .= 'WHERE `TABLE_SCHEMA`=' . $dbi->quoteString($this->realName) . ' ';
@@ -428,9 +429,10 @@ class NodeDatabase extends Node
      */
     private function getRoutines(string $routineType, int $pos, string $searchClause): array
     {
-        $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
+        $config = Config::getInstance();
+        $maxItems = $config->settings['MaxNavigationItems'];
         $dbi = DatabaseInterface::getInstance();
-        if (! Config::getInstance()->selectedServer['DisableIS']) {
+        if (! $config->selectedServer['DisableIS']) {
             $query = 'SELECT `ROUTINE_NAME` AS `name` ';
             $query .= 'FROM `INFORMATION_SCHEMA`.`ROUTINES` ';
             $query .= 'WHERE `ROUTINE_SCHEMA` '
@@ -512,9 +514,10 @@ class NodeDatabase extends Node
      */
     private function getEvents(int $pos, string $searchClause): array
     {
-        $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
+        $config = Config::getInstance();
+        $maxItems = $config->settings['MaxNavigationItems'];
         $dbi = DatabaseInterface::getInstance();
-        if (! Config::getInstance()->selectedServer['DisableIS']) {
+        if (! $config->selectedServer['DisableIS']) {
             $query = 'SELECT `EVENT_NAME` AS `name` ';
             $query .= 'FROM `INFORMATION_SCHEMA`.`EVENTS` ';
             $query .= 'WHERE `EVENT_SCHEMA` '

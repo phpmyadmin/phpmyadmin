@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Sql;
 
 use PhpMyAdmin\Bookmark;
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
@@ -80,11 +81,12 @@ class SqlController extends AbstractController
          * Defines the url to return to in case of error in a sql statement
          */
         $GLOBALS['is_gotofile'] = true;
+        $config = Config::getInstance();
         if (empty($GLOBALS['goto'])) {
             if (empty($GLOBALS['table'])) {
-                $GLOBALS['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+                $GLOBALS['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
             } else {
-                $GLOBALS['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+                $GLOBALS['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
             }
         }
 
@@ -157,7 +159,7 @@ class SqlController extends AbstractController
         if (
             $this->sql->hasNoRightsToDropDatabase(
                 $statementInfo,
-                $GLOBALS['cfg']['AllowUserDropDatabase'],
+                $config->settings['AllowUserDropDatabase'],
                 $this->dbi->isSuperUser(),
             )
         ) {

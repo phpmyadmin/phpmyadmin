@@ -238,7 +238,7 @@ class Sql
             $foreignData['foreign_field'],
             $foreignData['foreign_display'],
             $currentValue,
-            $GLOBALS['cfg']['ForeignKeyMaxLimit'],
+            Config::getInstance()->settings['ForeignKeyMaxLimit'],
         );
 
         return '<select>' . $dropdown . '</select>';
@@ -336,7 +336,7 @@ class Sql
      */
     private function isRememberSortingOrder(StatementInfo $statementInfo): bool
     {
-        return $GLOBALS['cfg']['RememberSorting']
+        return Config::getInstance()->settings['RememberSorting']
             && ! ($statementInfo->isCount
                 || $statementInfo->isExport
                 || $statementInfo->isFunction
@@ -438,9 +438,10 @@ class Sql
      */
     public function getDefaultSqlQueryForBrowse(string $db, string $table): string
     {
+        $config = Config::getInstance();
         $bookmark = Bookmark::get(
             $this->dbi,
-            Config::getInstance()->selectedServer['user'],
+            $config->selectedServer['user'],
             DatabaseName::from($db),
             $table,
             'label',
@@ -463,8 +464,8 @@ class Sql
         $defaultOrderByClause = '';
 
         if (
-            isset($GLOBALS['cfg']['TablePrimaryKeyOrder'])
-            && ($GLOBALS['cfg']['TablePrimaryKeyOrder'] !== 'NONE')
+            isset($config->settings['TablePrimaryKeyOrder'])
+            && ($config->settings['TablePrimaryKeyOrder'] !== 'NONE')
         ) {
             $primaryKey = null;
             $primary = Index::getPrimary($this->dbi, $table, $db);
@@ -481,7 +482,7 @@ class Sql
                     $defaultOrderByClause = ' ORDER BY '
                         . Util::backquote($table) . '.'
                         . Util::backquote($primaryKey) . ' '
-                        . $GLOBALS['cfg']['TablePrimaryKeyOrder'];
+                        . $config->settings['TablePrimaryKeyOrder'];
                 }
             }
         }
@@ -676,7 +677,7 @@ class Sql
                  *       (in this case there would be no need for getting
                  *       an exact count)?
                  */
-                if ($unlimNumRows < $GLOBALS['cfg']['MaxExactCount']) {
+                if ($unlimNumRows < Config::getInstance()->settings['MaxExactCount']) {
                     // Get the exact count if approximate count
                     // is less than MaxExactCount
                     /**
@@ -763,7 +764,8 @@ class Sql
 
         // Displays an error message if required and stop parsing the script
         $error = $this->dbi->getError();
-        if ($error && $GLOBALS['cfg']['IgnoreMultiSubmitErrors']) {
+        $config = Config::getInstance();
+        if ($error && $config->settings['IgnoreMultiSubmitErrors']) {
             $errorMessage = $error;
         } elseif ($error !== '') {
             $this->handleQueryExecuteError($isGotoFile, $error, $fullSqlQuery);
@@ -776,7 +778,7 @@ class Sql
             $this->storeTheQueryAsBookmark(
                 $bookmarkFeature,
                 $db,
-                $bookmarkFeature !== null ? Config::getInstance()->selectedServer['user'] : '',
+                $bookmarkFeature !== null ? $config->selectedServer['user'] : '',
                 $sqlQueryForBookmark,
                 $_POST['bkm_label'],
                 isset($_POST['bkm_replace']),
@@ -959,9 +961,10 @@ class Sql
         }
 
         // For ajax requests add message and sql_query as JSON
+        $config = Config::getInstance();
         if (empty($_REQUEST['ajax_page_request'])) {
             $extraData['message'] = $message;
-            if ($GLOBALS['cfg']['ShowSQL']) {
+            if ($config->settings['ShowSQL']) {
                 $extraData['sql_query'] = $queryMessage;
             }
         }
@@ -1030,9 +1033,9 @@ class Sql
                     'sql_query' => $sqlQuery,
                     'id_bookmark' => 1,
                 ]),
-                'user' => Config::getInstance()->selectedServer['user'],
+                'user' => $config->selectedServer['user'],
                 'sql_query' => $completeQuery ?? $sqlQuery,
-                'allow_shared_bookmarks' => $GLOBALS['cfg']['AllowSharedBookmarks'],
+                'allow_shared_bookmarks' => $config->settings['AllowSharedBookmarks'],
             ]);
         }
 
@@ -1371,8 +1374,9 @@ class Sql
 
         $hasUnique = $table !== null && $this->resultSetContainsUniqueKey($db, $table, $fieldsMeta);
 
+        $config = Config::getInstance();
         $editable = ($hasUnique
-            || $GLOBALS['cfg']['RowActionLinksWithoutUnique']
+            || $config->settings['RowActionLinksWithoutUnique']
             || $updatableView)
             && $justOneTable
             && ! Utilities::isSystemSchema($db);
@@ -1424,7 +1428,7 @@ class Sql
 
         $previousUpdateQueryHtml = $this->getHtmlForPreviousUpdateQuery(
             $dispQuery,
-            (bool) $GLOBALS['cfg']['ShowSQL'],
+            (bool) $config->settings['ShowSQL'],
             $sqlData ?? [],
             $dispMessage ?? '',
         );
@@ -1468,7 +1472,7 @@ class Sql
                     'sql_query' => $sqlQuery,
                     'id_bookmark' => 1,
                 ]),
-                'user' => Config::getInstance()->selectedServer['user'],
+                'user' => $config->selectedServer['user'],
                 'sql_query' => $completeQuery ?? $sqlQuery,
             ]);
         }

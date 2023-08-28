@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 
 use function __;
@@ -498,6 +499,8 @@ class ConfigFile
      */
     public function getAllowedValues(): array
     {
+        $config = Config::getInstance();
+
         return [
             'Servers' => [
                 1 => [
@@ -633,7 +636,7 @@ class ConfigFile
                     // SQL
                     'sql',
                 ],
-                'charset' => array_merge([''], $GLOBALS['cfg']['AvailableCharsets'] ?? []),
+                'charset' => array_merge([''], $config->settings['AvailableCharsets'] ?? []),
                 'sql_compatibility' => [
                     'NONE',
                     'ANSI',
@@ -684,7 +687,7 @@ class ConfigFile
                     'yaml',
                 ],
                 'compression' => ['none', 'zip', 'gzip'],
-                'charset' => array_merge([''], $GLOBALS['cfg']['AvailableCharsets'] ?? []),
+                'charset' => array_merge([''], $config->settings['AvailableCharsets'] ?? []),
                 'sql_compatibility' => [
                     'NONE',
                     'ANSI',

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\DatabaseInterface;
@@ -39,7 +40,8 @@ class SearchController extends AbstractController
 
         $this->checkParameters(['db']);
 
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+        $config = Config::getInstance();
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
         $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
@@ -56,7 +58,7 @@ class SearchController extends AbstractController
             return;
         }
 
-        if (! $GLOBALS['cfg']['UseDbSearch']) {
+        if (! $config->settings['UseDbSearch']) {
             $errorMessage = __(
                 'Searching inside the database is disabled by the [code]$cfg[\'UseDbSearch\'][/code] configuration.',
             );

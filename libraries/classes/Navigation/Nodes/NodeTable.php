@@ -38,30 +38,31 @@ class NodeTable extends NodeDatabaseChild
     {
         parent::__construct($name);
 
+        $config = Config::getInstance();
         $icon = $this->addIcon(
-            Util::getScriptNameForOption($GLOBALS['cfg']['NavigationTreeDefaultTabTable'], 'table'),
+            Util::getScriptNameForOption($config->settings['NavigationTreeDefaultTabTable'], 'table'),
         );
         if ($icon !== null) {
             $this->icon = $icon;
         }
 
         $this->secondIcon = $this->addIcon(
-            Util::getScriptNameForOption($GLOBALS['cfg']['NavigationTreeDefaultTabTable2'], 'table'),
+            Util::getScriptNameForOption($config->settings['NavigationTreeDefaultTabTable2'], 'table'),
         );
-        $title = (string) Util::getTitleForTarget($GLOBALS['cfg']['DefaultTabTable']);
+        $title = (string) Util::getTitleForTarget($config->settings['DefaultTabTable']);
         $this->title = $title;
 
         $this->links = [
             'text' => [
-                'route' => Util::getUrlForOption($GLOBALS['cfg']['DefaultTabTable'], 'table'),
+                'route' => Util::getUrlForOption($config->settings['DefaultTabTable'], 'table'),
                 'params' => ['pos' => 0, 'db' => null, 'table' => null],
             ],
             'icon' => [
-                'route' => Util::getUrlForOption($GLOBALS['cfg']['NavigationTreeDefaultTabTable'], 'table'),
+                'route' => Util::getUrlForOption($config->settings['NavigationTreeDefaultTabTable'], 'table'),
                 'params' => ['db' => null, 'table' => null],
             ],
             'second_icon' => [
-                'route' => Util::getUrlForOption($GLOBALS['cfg']['NavigationTreeDefaultTabTable2'], 'table'),
+                'route' => Util::getUrlForOption($config->settings['NavigationTreeDefaultTabTable2'], 'table'),
                 'params' => ['db' => null, 'table' => null],
             ],
             'title' => $this->title,
@@ -154,12 +155,12 @@ class NodeTable extends NodeDatabaseChild
         int $pos,
         string $searchClause = '',
     ): array {
-        $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
+        $config = Config::getInstance();
+        $maxItems = $config->settings['MaxNavigationItems'];
         $retval = [];
         $db = $this->realParent()->realName;
         $table = $this->realName;
         $dbi = DatabaseInterface::getInstance();
-        $config = Config::getInstance();
         switch ($type) {
             case 'columns':
                 if (! $config->selectedServer['DisableIS']) {

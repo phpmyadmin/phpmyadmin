@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\VersionInformation;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -60,7 +61,7 @@ class VersionInformationTest extends AbstractTestCase
     public function testGetLatestVersion(): void
     {
         $this->setProxySettings();
-        $GLOBALS['cfg']['VersionCheck'] = true;
+        Config::getInstance()->settings['VersionCheck'] = true;
         unset($_SESSION['cache']['version_check']);
         $versionInformation = new VersionInformation();
         $version = $versionInformation->getLatestVersion();
@@ -120,7 +121,7 @@ class VersionInformationTest extends AbstractTestCase
      */
     public function testGetLatestCompatibleVersionWithSingleServer(): void
     {
-        $GLOBALS['cfg']['Servers'] = [[]];
+        Config::getInstance()->settings['Servers'] = [[]];
 
         $mockVersionInfo = $this->createPartialMock(VersionInformation::class, ['getPHPVersion', 'getMySQLVersion']);
         $mockVersionInfo->expects($this->exactly(6))->method('getPHPVersion')->willReturn('5.6.0');
@@ -136,7 +137,7 @@ class VersionInformationTest extends AbstractTestCase
      */
     public function testGetLatestCompatibleVersionWithMultipleServers(): void
     {
-        $GLOBALS['cfg']['Servers'] = [[], []];
+        Config::getInstance()->settings['Servers'] = [[], []];
 
         $mockVersionInfo = $this->createPartialMock(VersionInformation::class, ['getPHPVersion', 'getMySQLVersion']);
         $mockVersionInfo->expects($this->exactly(6))->method('getPHPVersion')->willReturn('5.6.0');
@@ -152,7 +153,7 @@ class VersionInformationTest extends AbstractTestCase
      */
     public function testGetLatestCompatibleVersionWithOldPHPVersion(): void
     {
-        $GLOBALS['cfg']['Servers'] = [[], []];
+        Config::getInstance()->settings['Servers'] = [[], []];
 
         $mockVersionInfo = $this->createPartialMock(VersionInformation::class, ['getPHPVersion', 'getMySQLVersion']);
         $mockVersionInfo->expects($this->exactly(4))->method('getPHPVersion')->willReturn('5.2.1');
@@ -176,7 +177,7 @@ class VersionInformationTest extends AbstractTestCase
         array $conditions,
         string|null $matchedLastVersion,
     ): void {
-        $GLOBALS['cfg']['Servers'] = [];
+        Config::getInstance()->settings['Servers'] = [];
 
         $mockVersionInfo = $this->createPartialMock(VersionInformation::class, ['getPHPVersion', 'getMySQLVersion']);
         $mockVersionInfo->expects($this->exactly($conditions[0]))->method('getPHPVersion')->willReturn($conditions[1]);

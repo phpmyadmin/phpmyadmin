@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Utils;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 
 use function str_starts_with;
@@ -45,11 +46,12 @@ final class ForeignKey
      */
     public static function isCheckEnabled(): bool
     {
-        if ($GLOBALS['cfg']['DefaultForeignKeyChecks'] === 'enable') {
+        $config = Config::getInstance();
+        if ($config->settings['DefaultForeignKeyChecks'] === 'enable') {
             return true;
         }
 
-        if ($GLOBALS['cfg']['DefaultForeignKeyChecks'] === 'disable') {
+        if ($config->settings['DefaultForeignKeyChecks'] === 'disable') {
             return false;
         }
 

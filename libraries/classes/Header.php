@@ -132,17 +132,17 @@ class Header
         $params = [
             // Do not add any separator, JS code will decide
             'common_query' => Url::getCommonRaw([], ''),
-            'opendb_url' => Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database'),
+            'opendb_url' => Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database'),
             'lang' => $GLOBALS['lang'],
             'server' => $GLOBALS['server'],
             'table' => $GLOBALS['table'] ?? '',
             'db' => $GLOBALS['db'] ?? '',
             'token' => $_SESSION[' PMA_token '],
             'text_dir' => $GLOBALS['text_dir'],
-            'LimitChars' => $GLOBALS['cfg']['LimitChars'],
+            'LimitChars' => $config->settings['LimitChars'],
             'pftext' => $pftext,
-            'confirm' => $GLOBALS['cfg']['Confirm'],
-            'LoginCookieValidity' => $GLOBALS['cfg']['LoginCookieValidity'],
+            'confirm' => $config->settings['Confirm'],
+            'LoginCookieValidity' => $config->settings['LoginCookieValidity'],
             'session_gc_maxlifetime' => (int) ini_get('session.gc_maxlifetime'),
             'logged_in' => DatabaseInterface::getInstance()->isConnected(),
             'is_https' => $config->isHttps(),
@@ -281,35 +281,37 @@ class Header
 
         // The user preferences have been merged at this point
         // so we can conditionally add CodeMirror, other scripts and settings
-        if ($GLOBALS['cfg']['CodemirrorEnable']) {
+        $config = Config::getInstance();
+        if ($config->settings['CodemirrorEnable']) {
             $this->scripts->addFile('vendor/codemirror/lib/codemirror.js');
             $this->scripts->addFile('vendor/codemirror/mode/sql/sql.js');
             $this->scripts->addFile('vendor/codemirror/addon/runmode/runmode.js');
             $this->scripts->addFile('vendor/codemirror/addon/hint/show-hint.js');
             $this->scripts->addFile('vendor/codemirror/addon/hint/sql-hint.js');
-            if ($GLOBALS['cfg']['LintEnable']) {
+            if ($config->settings['LintEnable']) {
                 $this->scripts->addFile('vendor/codemirror/addon/lint/lint.js');
                 $this->scripts->addFile('codemirror/addon/lint/sql-lint.js');
             }
         }
 
-        if ($GLOBALS['cfg']['SendErrorReports'] !== 'never') {
+        if ($config->settings['SendErrorReports'] !== 'never') {
             $this->scripts->addFile('vendor/tracekit.js');
             $this->scripts->addFile('error_report.js');
         }
 
-        if ($GLOBALS['cfg']['enable_drag_drop_import'] === true) {
+        if ($config->settings['enable_drag_drop_import'] === true) {
             $this->scripts->addFile('drag_drop_import.js');
         }
 
-        $config = Config::getInstance();
         if (! $config->get('DisableShortcutKeys')) {
             $this->scripts->addFile('shortcuts_handler.js');
         }
 
         $this->scripts->addCode($this->getVariablesForJavaScript());
 
-        $this->scripts->addCode('ConsoleEnterExecutes=' . ($GLOBALS['cfg']['ConsoleEnterExecutes'] ? 'true' : 'false'));
+        $this->scripts->addCode(
+            'ConsoleEnterExecutes=' . ($config->settings['ConsoleEnterExecutes'] ? 'true' : 'false'),
+        );
         $this->scripts->addFiles($this->console->getScripts());
 
         $dbi = DatabaseInterface::getInstance();
@@ -345,7 +347,7 @@ class Header
 
         return $this->template->render('header', [
             'lang' => $GLOBALS['lang'],
-            'allow_third_party_framing' => $GLOBALS['cfg']['AllowThirdPartyFraming'],
+            'allow_third_party_framing' => $config->settings['AllowThirdPartyFraming'],
             'base_dir' => $baseDir,
             'theme_path' => $themePath,
             'version' => $version,
@@ -357,7 +359,7 @@ class Header
             'navigation' => $navigation ?? '',
             'custom_header' => $customHeader,
             'load_user_preferences' => $loadUserPreferences ?? '',
-            'show_hint' => $GLOBALS['cfg']['ShowHint'],
+            'show_hint' => $config->settings['ShowHint'],
             'is_warnings_enabled' => $this->warningsEnabled,
             'is_menu_enabled' => $this->menuEnabled,
             'is_logged_in' => $isLoggedIn,
@@ -429,9 +431,10 @@ class Header
         $headers = [];
 
         /* Prevent against ClickJacking by disabling framing */
-        if (strtolower((string) $GLOBALS['cfg']['AllowThirdPartyFraming']) === 'sameorigin') {
+        $config = Config::getInstance();
+        if (strtolower((string) $config->settings['AllowThirdPartyFraming']) === 'sameorigin') {
             $headers['X-Frame-Options'] = 'SAMEORIGIN';
-        } elseif ($GLOBALS['cfg']['AllowThirdPartyFraming'] !== true) {
+        } elseif ($config->settings['AllowThirdPartyFraming'] !== true) {
             $headers['X-Frame-Options'] = 'DENY';
         }
 
@@ -498,14 +501,15 @@ class Header
     {
         if (strlen($this->title) == 0) {
             if ($GLOBALS['server'] > 0) {
+                $config = Config::getInstance();
                 if ($GLOBALS['table'] !== '') {
-                    $tempTitle = $GLOBALS['cfg']['TitleTable'];
+                    $tempTitle = $config->settings['TitleTable'];
                 } elseif ($GLOBALS['db'] !== '') {
-                    $tempTitle = $GLOBALS['cfg']['TitleDatabase'];
-                } elseif (Config::getInstance()->selectedServer['host'] !== '') {
-                    $tempTitle = $GLOBALS['cfg']['TitleServer'];
+                    $tempTitle = $config->settings['TitleDatabase'];
+                } elseif ($config->selectedServer['host'] !== '') {
+                    $tempTitle = $config->settings['TitleServer'];
                 } else {
-                    $tempTitle = $GLOBALS['cfg']['TitleDefault'];
+                    $tempTitle = $config->settings['TitleDefault'];
                 }
 
                 $this->title = htmlspecialchars(
@@ -528,16 +532,17 @@ class Header
     {
         $mapTileUrl = ' tile.openstreetmap.org';
         $captchaUrl = '';
-        $cspAllow = $GLOBALS['cfg']['CSPAllow'];
+        $config = Config::getInstance();
+        $cspAllow = $config->settings['CSPAllow'];
 
         if (
-            ! empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
-            && ! empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
-            && ! empty($GLOBALS['cfg']['CaptchaApi'])
-            && ! empty($GLOBALS['cfg']['CaptchaRequestParam'])
-            && ! empty($GLOBALS['cfg']['CaptchaResponseParam'])
+            ! empty($config->settings['CaptchaLoginPrivateKey'])
+            && ! empty($config->settings['CaptchaLoginPublicKey'])
+            && ! empty($config->settings['CaptchaApi'])
+            && ! empty($config->settings['CaptchaRequestParam'])
+            && ! empty($config->settings['CaptchaResponseParam'])
         ) {
-            $captchaUrl = ' ' . $GLOBALS['cfg']['CaptchaCsp'] . ' ';
+            $captchaUrl = ' ' . $config->settings['CaptchaCsp'] . ' ';
         }
 
         $headers = [];
@@ -591,7 +596,7 @@ class Header
      */
     private function addRecentTable(string $db, string $table): string
     {
-        if ($this->menuEnabled && $table !== '' && $GLOBALS['cfg']['NumRecentTables'] > 0) {
+        if ($this->menuEnabled && $table !== '' && Config::getInstance()->settings['NumRecentTables'] > 0) {
             $error = RecentFavoriteTable::getInstance('recent')->add($db, $table);
             if ($error === true) {
                 return RecentFavoriteTable::getHtmlUpdateRecentTables();
@@ -620,7 +625,7 @@ class Header
         $maxInputVarsValue = $maxInputVars === false || $maxInputVars === '' ? 'false' : (int) $maxInputVars;
 
         return $this->template->render('javascript/variables', [
-            'first_day_of_calendar' => $GLOBALS['cfg']['FirstDayOfCalendar'] ?? 0,
+            'first_day_of_calendar' => Config::getInstance()->settings['FirstDayOfCalendar'] ?? 0,
             'max_input_vars' => $maxInputVarsValue,
         ]);
     }

@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Navigation\NodeType;
 
 /**
@@ -23,12 +24,13 @@ abstract class NodeDatabaseChildContainer extends NodeDatabaseChild
     {
         parent::__construct($name, NodeType::Container);
 
-        if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
+        $config = Config::getInstance();
+        if (! $config->settings['NavigationTreeEnableGrouping']) {
             return;
         }
 
-        $this->separator = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
-        $this->separatorDepth = (int) $GLOBALS['cfg']['NavigationTreeTableLevel'];
+        $this->separator = $config->settings['NavigationTreeTableSeparator'];
+        $this->separatorDepth = (int) $config->settings['NavigationTreeTableLevel'];
     }
 
     /**

@@ -37,9 +37,10 @@ class BinlogControllerTest extends AbstractTestCase
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
 
-        $GLOBALS['cfg']['MaxRows'] = 10;
-        $GLOBALS['cfg']['ServerDefault'] = 'server';
-        Config::getInstance()->selectedServer['DisableIS'] = false;
+        $config = Config::getInstance();
+        $config->settings['MaxRows'] = 10;
+        $config->settings['ServerDefault'] = 'server';
+        $config->selectedServer['DisableIS'] = false;
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';

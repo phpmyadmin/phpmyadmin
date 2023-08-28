@@ -50,7 +50,7 @@ class UserPreferences
         $cf->setCfgUpdateReadMapping(
             ['Server/hide_db' => 'Servers/1/hide_db', 'Server/only_db' => 'Servers/1/only_db'],
         );
-        $cf->updateWithGlobalConfig($GLOBALS['cfg']);
+        $cf->updateWithGlobalConfig(Config::getInstance()->settings);
     }
 
     /**
@@ -113,7 +113,7 @@ class UserPreferences
     public function save(array $configArray): bool|Message
     {
         $relationParameters = $this->relation->getRelationParameters();
-        $server = $GLOBALS['server'] ?? $GLOBALS['cfg']['ServerDefault'];
+        $server = $GLOBALS['server'] ?? Config::getInstance()->settings['ServerDefault'];
         $cacheKey = 'server_' . $server;
         if (
             $relationParameters->userPreferencesFeature === null
@@ -203,7 +203,7 @@ class UserPreferences
     public function apply(array $configData): array
     {
         $cfg = [];
-        $excludeList = array_flip($GLOBALS['cfg']['UserprefsDisallow']);
+        $excludeList = array_flip(Config::getInstance()->settings['UserprefsDisallow']);
         $allowList = array_flip(UserFormList::getFields());
         // allow some additional fields which are custom handled
         $allowList['ThemeDefault'] = true;

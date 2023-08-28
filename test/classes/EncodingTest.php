@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Encoding;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Group;
@@ -78,8 +79,9 @@ class EncodingTest extends AbstractTestCase
 
         _setlocale(LC_ALL, 'POSIX');
 
+        $config = Config::getInstance();
         if (PHP_INT_SIZE === 8) {
-            $GLOBALS['cfg']['IconvExtraParams'] = '//TRANSLIT';
+            $config->settings['IconvExtraParams'] = '//TRANSLIT';
             Encoding::setEngine(Encoding::ENGINE_ICONV);
             $this->assertEquals(
                 "This is the Euro symbol 'EUR'.",
@@ -92,7 +94,7 @@ class EncodingTest extends AbstractTestCase
         } elseif (PHP_INT_SIZE === 4) {
             // NOTE: this does not work on 32bit systems and requires "//IGNORE"
             // NOTE: or it will throw "iconv(): Detected an illegal character in input string"
-            $GLOBALS['cfg']['IconvExtraParams'] = '//TRANSLIT//IGNORE';
+            $config->settings['IconvExtraParams'] = '//TRANSLIT//IGNORE';
             Encoding::setEngine(Encoding::ENGINE_ICONV);
             $this->assertEquals(
                 "This is the Euro symbol ''.",
@@ -193,7 +195,7 @@ class EncodingTest extends AbstractTestCase
 
     public function testListEncodings(): void
     {
-        $GLOBALS['cfg']['AvailableCharsets'] = ['utf-8'];
+        Config::getInstance()->settings['AvailableCharsets'] = ['utf-8'];
         $result = Encoding::listEncodings();
         $this->assertContains('utf-8', $result);
     }

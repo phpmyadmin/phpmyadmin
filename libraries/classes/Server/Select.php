@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Server;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -25,9 +26,10 @@ class Select
      */
     public static function render(bool $notOnlyOptions): string
     {
+        $config = Config::getInstance();
         // Show as list?
         if ($notOnlyOptions) {
-            $list = $GLOBALS['cfg']['DisplayServersList'];
+            $list = $config->settings['DisplayServersList'];
             $notOnlyOptions = ! $list;
         } else {
             $list = false;
@@ -35,12 +37,12 @@ class Select
 
         $formAction = '';
         if ($notOnlyOptions) {
-            $formAction = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabServer'], 'server');
+            $formAction = Util::getScriptNameForOption($config->settings['DefaultTabServer'], 'server');
         }
 
         /** @var array{list: list<array<string, mixed>>, select: list<array<string, mixed>>} $servers */
         $servers = ['list' => [], 'select' => []];
-        foreach ($GLOBALS['cfg']['Servers'] as $key => $server) {
+        foreach ($config->settings['Servers'] as $key => $server) {
             if (empty($server['host'])) {
                 continue;
             }
@@ -73,7 +75,7 @@ class Select
                 if ($selected) {
                     $servers['list'][] = ['selected' => true, 'href' => '', 'label' => $label];
                 } else {
-                    $scriptName = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabServer'], 'server');
+                    $scriptName = Util::getScriptNameForOption($config->settings['DefaultTabServer'], 'server');
                     $href = $scriptName . Url::getCommon(
                         ['server' => $key],
                         ! str_contains($scriptName, '?') ? '?' : '&',

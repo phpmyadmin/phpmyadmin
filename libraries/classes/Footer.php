@@ -104,7 +104,9 @@ class Footer
     public function getDebugMessage(): string
     {
         $retval = '\'false\'';
-        if ($GLOBALS['cfg']['DBG']['sql'] && empty($_REQUEST['no_debug']) && ! empty($_SESSION['debug'])) {
+        if (
+            Config::getInstance()->settings['DBG']['sql'] && empty($_REQUEST['no_debug']) && ! empty($_SESSION['debug'])
+        ) {
             // Remove recursions and iterators from $_SESSION['debug']
             self::removeRecursion($_SESSION['debug']);
 
@@ -235,6 +237,7 @@ class Footer
     {
         $this->setHistory();
         if ($this->isEnabled) {
+            $config = Config::getInstance();
             if (! $this->isAjax && ! $this->isMinimal) {
                 if (Core::getenv('SCRIPT_NAME') !== '') {
                     $url = $this->getSelfUrl();
@@ -244,7 +247,7 @@ class Footer
                 $errorMessages = $this->getErrorMessages();
                 $scripts = $this->scripts->getDisplay();
 
-                if ($GLOBALS['cfg']['DBG']['demo']) {
+                if ($config->settings['DBG']['demo']) {
                     $gitRevisionInfo = $this->getGitRevisionInfo();
                 }
 
@@ -257,7 +260,7 @@ class Footer
                 'self_url' => $url ?? null,
                 'error_messages' => $errorMessages ?? '',
                 'scripts' => $scripts ?? '',
-                'is_demo' => $GLOBALS['cfg']['DBG']['demo'],
+                'is_demo' => $config->settings['DBG']['demo'],
                 'git_revision_info' => $gitRevisionInfo ?? [],
                 'footer' => $footer ?? '',
             ]);

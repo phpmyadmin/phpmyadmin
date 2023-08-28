@@ -391,7 +391,9 @@ class Node
     {
         $dbi = DatabaseInterface::getInstance();
         $config = Config::getInstance();
-        if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping'] || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
+        if (
+            ! $config->settings['NavigationTreeEnableGrouping'] || ! $config->settings['ShowDatabasesNavigationAsTree']
+        ) {
             if (isset($config->selectedServer['DisableIS']) && ! $config->selectedServer['DisableIS']) {
                 $query = 'SELECT COUNT(*) ';
                 $query .= 'FROM INFORMATION_SCHEMA.SCHEMATA ';
@@ -416,7 +418,7 @@ class Node
             return $retval;
         }
 
-        $dbSeparator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
+        $dbSeparator = $config->settings['NavigationTreeDbSeparator'];
         if (! $config->selectedServer['DisableIS']) {
             $query = 'SELECT COUNT(*) ';
             $query .= 'FROM ( ';
@@ -578,7 +580,7 @@ class Node
      */
     public function getCssClasses(bool $match): string
     {
-        if (! $GLOBALS['cfg']['NavigationTreeEnableExpansion']) {
+        if (! Config::getInstance()->settings['NavigationTreeEnableExpansion']) {
             return '';
         }
 
@@ -604,7 +606,7 @@ class Node
      */
     public function getIcon(bool $match): string
     {
-        if (! $GLOBALS['cfg']['NavigationTreeEnableExpansion']) {
+        if (! Config::getInstance()->settings['NavigationTreeEnableExpansion']) {
             return '';
         }
 
@@ -647,9 +649,12 @@ class Node
      */
     private function getDataFromInfoSchema(int $pos, string $searchClause): array
     {
-        $maxItems = $GLOBALS['cfg']['FirstLevelNavigationItems'];
+        $config = Config::getInstance();
+        $maxItems = $config->settings['FirstLevelNavigationItems'];
         $dbi = DatabaseInterface::getInstance();
-        if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping'] || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
+        if (
+            ! $config->settings['NavigationTreeEnableGrouping'] || ! $config->settings['ShowDatabasesNavigationAsTree']
+        ) {
             $query = sprintf(
                 'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA` %sORDER BY `SCHEMA_NAME` LIMIT %d, %d',
                 $this->getWhereClause('SCHEMA_NAME', $searchClause),
@@ -660,7 +665,7 @@ class Node
             return $dbi->fetchResult($query);
         }
 
-        $dbSeparator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
+        $dbSeparator = $config->settings['NavigationTreeDbSeparator'];
         $query = sprintf(
             'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level'
                 . ' FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, \'%1$s\', 1) DB_first_level'
@@ -685,9 +690,12 @@ class Node
      */
     private function getDataFromShowDatabases(int $pos, string $searchClause): array
     {
-        $maxItems = $GLOBALS['cfg']['FirstLevelNavigationItems'];
+        $config = Config::getInstance();
+        $maxItems = $config->settings['FirstLevelNavigationItems'];
         $dbi = DatabaseInterface::getInstance();
-        if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping'] || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
+        if (
+            ! $config->settings['NavigationTreeEnableGrouping'] || ! $config->settings['ShowDatabasesNavigationAsTree']
+        ) {
             $handle = $dbi->tryQuery(sprintf(
                 'SHOW DATABASES %s',
                 $this->getWhereClause('Database', $searchClause),
@@ -714,7 +722,7 @@ class Node
             return $retval;
         }
 
-        $dbSeparator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
+        $dbSeparator = $config->settings['NavigationTreeDbSeparator'];
         $handle = $dbi->tryQuery(sprintf(
             'SHOW DATABASES %s',
             $this->getWhereClause('Database', $searchClause),
@@ -764,9 +772,12 @@ class Node
      */
     private function getDataFromShowDatabasesLike(int $pos, string $searchClause): array
     {
-        $maxItems = $GLOBALS['cfg']['FirstLevelNavigationItems'];
+        $config = Config::getInstance();
+        $maxItems = $config->settings['FirstLevelNavigationItems'];
         $dbi = DatabaseInterface::getInstance();
-        if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping'] || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
+        if (
+            ! $config->settings['NavigationTreeEnableGrouping'] || ! $config->settings['ShowDatabasesNavigationAsTree']
+        ) {
             $retval = [];
             $count = 0;
             foreach ($this->getDatabasesToSearch($searchClause) as $db) {
@@ -798,7 +809,7 @@ class Node
             return $retval;
         }
 
-        $dbSeparator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
+        $dbSeparator = $config->settings['NavigationTreeDbSeparator'];
         $retval = [];
         $prefixMap = [];
         $total = $pos + $maxItems;

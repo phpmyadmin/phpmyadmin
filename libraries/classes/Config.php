@@ -408,8 +408,8 @@ class Config
     {
         // index.php should load these settings, so that phpmyadmin.css.php
         // will have everything available in session cache
-        $server = $GLOBALS['server'] ?? (! empty($GLOBALS['cfg']['ServerDefault'])
-                ? $GLOBALS['cfg']['ServerDefault']
+        $server = $GLOBALS['server'] ?? (! empty($this->settings['ServerDefault'])
+                ? $this->settings['ServerDefault']
                 : 0);
         $cacheKey = 'server_' . $server;
         if ($server > 0 && ! $isMinimumCommon) {
@@ -444,7 +444,6 @@ class Config
 
         // load config array
         $this->settings = array_replace_recursive($this->settings, $configData);
-        $GLOBALS['cfg'] = array_replace_recursive($GLOBALS['cfg'], $configData);
         $this->config = new Settings($this->settings);
 
         if ($isMinimumCommon) {
@@ -545,7 +544,6 @@ class Config
             $this->setCookie($cookieName, (string) $newCfgValue, $defaultValue);
         }
 
-        Core::arrayWrite($cfgPath, $GLOBALS['cfg'], $newCfgValue);
         Core::arrayWrite($cfgPath, $this->settings, $newCfgValue);
 
         return $result;
@@ -1202,7 +1200,7 @@ class Config
 
         $value = $_SESSION['cache'][$cacheKey]['userprefs']['LoginCookieValidity'];
         $this->set('LoginCookieValidity', $value);
-        $GLOBALS['cfg']['LoginCookieValidity'] = $value;
+        $this->settings['LoginCookieValidity'] = $value;
     }
 
     public function getSettings(): Settings

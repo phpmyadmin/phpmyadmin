@@ -57,7 +57,7 @@ class RefreshControllerTest extends AbstractTestCase
             'State' => 'State1',
             'Time' => 'Time1',
         ];
-        $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 12;
+        Config::getInstance()->settings['MaxCharactersInDisplayedSQL'] = 12;
 
         $response = new ResponseRenderer();
 

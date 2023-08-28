@@ -118,7 +118,8 @@ class Normalization
         $contentCells = [];
         $availableMime = [];
         $mimeMap = [];
-        if ($relationParameters->browserTransformationFeature !== null && $GLOBALS['cfg']['BrowseMIME']) {
+        $config = Config::getInstance();
+        if ($relationParameters->browserTransformationFeature !== null && $config->settings['BrowseMIME']) {
             $mimeMap = $this->transformations->getMime($db, $table);
             $availableMime = $this->transformations->getAvailableMimeTypes();
         }
@@ -143,7 +144,6 @@ class Normalization
             ];
         }
 
-        $config = Config::getInstance();
         $charsets = Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
         $collations = Charsets::getCollations($this->dbi, $config->selectedServer['DisableIS']);
         $charsetsList = [];
@@ -167,13 +167,13 @@ class Normalization
             'content_cells' => $contentCells,
             'change_column' => $_POST['change_column'] ?? $_GET['change_column'] ?? null,
             'is_virtual_columns_supported' => Compatibility::isVirtualColumnsSupported($this->dbi->getVersion()),
-            'browse_mime' => $GLOBALS['cfg']['BrowseMIME'],
+            'browse_mime' => $config->settings['BrowseMIME'],
             'supports_stored_keyword' => Compatibility::supportsStoredKeywordForVirtualColumns(
                 $this->dbi->getVersion(),
             ),
             'server_version' => $this->dbi->getVersion(),
-            'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
-            'char_editing' => $GLOBALS['cfg']['CharEditing'],
+            'max_rows' => intval($config->settings['MaxRows']),
+            'char_editing' => $config->settings['CharEditing'],
             'attribute_types' => $this->dbi->types->getAttributes(),
             'privs_available' => $GLOBALS['col_priv'] && $GLOBALS['is_reload_priv'],
             'max_length' => $this->dbi->getVersion() >= 50503 ? 1024 : 255,

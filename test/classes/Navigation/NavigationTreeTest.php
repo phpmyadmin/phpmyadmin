@@ -38,8 +38,8 @@ class NavigationTreeTest extends AbstractTestCase
         $config->selectedServer['user'] = 'user';
         $config->selectedServer['pmadb'] = '';
         $config->selectedServer['DisableIS'] = false;
-        $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
-        $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'] = true;
+        $config->settings['NavigationTreeEnableGrouping'] = true;
+        $config->settings['ShowDatabasesNavigationAsTree'] = true;
 
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = '';
@@ -88,7 +88,7 @@ class NavigationTreeTest extends AbstractTestCase
     public function testDatabaseGrouping(): void
     {
         $GLOBALS['db'] = '';
-        $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '__';
+        Config::getInstance()->settings['NavigationTreeDbSeparator'] = '__';
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $dummyDbi = $this->createDbiDummy();

@@ -21,7 +21,6 @@ use PhpMyAdmin\Middleware\DatabaseAndTableSetting;
 use PhpMyAdmin\Middleware\DatabaseServerVersionChecking;
 use PhpMyAdmin\Middleware\EncryptedQueryParamsHandling;
 use PhpMyAdmin\Middleware\ErrorHandling;
-use PhpMyAdmin\Middleware\GlobalConfigSetting;
 use PhpMyAdmin\Middleware\LanguageAndThemeCookieSaving;
 use PhpMyAdmin\Middleware\LanguageLoading;
 use PhpMyAdmin\Middleware\LoginCookieValiditySetting;
@@ -102,7 +101,6 @@ class Application
         ));
         $requestHandler->add(new RequestProblemChecking($this->template, $this->responseFactory));
         $requestHandler->add(new CurrentServerGlobalSetting($this->config));
-        $requestHandler->add(new GlobalConfigSetting($this->config));
         $requestHandler->add(new ThemeInitialization());
         $requestHandler->add(new UrlRedirection($this->config));
         $requestHandler->add(new SetupPageRedirection($this->config, $this->responseFactory));

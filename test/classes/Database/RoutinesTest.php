@@ -32,8 +32,9 @@ class RoutinesTest extends AbstractTestCase
         parent::setTheme();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-        Config::getInstance()->selectedServer['DisableIS'] = false;
-        $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = false;
+        $config->settings['ActionLinksMode'] = 'icons';
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
@@ -239,7 +240,7 @@ class RoutinesTest extends AbstractTestCase
     #[DataProvider('providerGetQueryFromRequest')]
     public function testGetQueryFromRequest(array $request, string $query, int $numErr): void
     {
-        $GLOBALS['cfg']['ShowFunctionFields'] = false;
+        Config::getInstance()->settings['ShowFunctionFields'] = false;
 
         $GLOBALS['errors'] = [];
 

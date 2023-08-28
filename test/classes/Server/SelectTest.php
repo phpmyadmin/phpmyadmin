@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Server;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Util;
@@ -27,21 +28,22 @@ class SelectTest extends AbstractTestCase
         $_REQUEST['pos'] = 3;
 
         //$GLOBALS
-        $GLOBALS['cfg']['MaxRows'] = 10;
+        $config = Config::getInstance();
+        $config->settings['MaxRows'] = 10;
         $GLOBALS['server'] = 1;
-        $GLOBALS['cfg']['ServerDefault'] = 'server';
-        $GLOBALS['cfg']['RememberSorting'] = true;
-        $GLOBALS['cfg']['SQP'] = [];
-        $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
-        $GLOBALS['cfg']['ShowSQL'] = true;
-        $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
-        $GLOBALS['cfg']['LimitChars'] = 100;
+        $config->settings['ServerDefault'] = 'server';
+        $config->settings['RememberSorting'] = true;
+        $config->settings['SQP'] = [];
+        $config->settings['MaxCharactersInDisplayedSQL'] = 1000;
+        $config->settings['ShowSQL'] = true;
+        $config->settings['TableNavigationLinksMode'] = 'icons';
+        $config->settings['LimitChars'] = 100;
 
         $GLOBALS['table'] = 'table';
 
-        $GLOBALS['cfg']['DefaultTabServer'] = 'welcome';
+        $config->settings['DefaultTabServer'] = 'welcome';
 
-        $GLOBALS['cfg']['Servers'] = [
+        $config->settings['Servers'] = [
             '0' => [
                 'host' => 'host0',
                 'port' => 'port0',
@@ -66,17 +68,18 @@ class SelectTest extends AbstractTestCase
     #[DataProvider('renderDataProvider')]
     public function testRender(bool $notOnlyOptions): void
     {
+        $config = Config::getInstance();
         if ($notOnlyOptions) {
-            $GLOBALS['cfg']['DisplayServersList'] = null;
+            $config->settings['DisplayServersList'] = null;
         }
 
         $html = Select::render($notOnlyOptions);
-        $server = $GLOBALS['cfg']['Servers']['0'];
+        $server = $config->settings['Servers']['0'];
 
         if ($notOnlyOptions) {
             $this->assertStringContainsString(
                 Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['DefaultTabServer'],
+                    $config->settings['DefaultTabServer'],
                     'server',
                 ),
                 $html,

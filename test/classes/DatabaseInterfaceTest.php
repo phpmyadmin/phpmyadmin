@@ -106,7 +106,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
     public function testPostConnectControlWithZeroConf(): void
     {
-        $GLOBALS['cfg']['ZeroConf'] = true;
+        Config::getInstance()->settings['ZeroConf'] = true;
         $dbi = $this->createDatabaseInterface();
         $relationMock = $this->createMock(Relation::class);
         $relationMock->expects($this->once())->method('initRelationParamsCache');
@@ -115,7 +115,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
     public function testPostConnectControlWithoutZeroConf(): void
     {
-        $GLOBALS['cfg']['ZeroConf'] = false;
+        Config::getInstance()->settings['ZeroConf'] = false;
         $dbi = $this->createDatabaseInterface();
         $relationMock = $this->createMock(Relation::class);
         $relationMock->expects($this->never())->method('initRelationParamsCache');
@@ -222,8 +222,9 @@ class DatabaseInterfaceTest extends AbstractTestCase
             $dbi->getDbCollation('information_schema'),
         );
 
-        Config::getInstance()->selectedServer['DisableIS'] = false;
-        $GLOBALS['cfg']['DBG']['sql'] = false;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = false;
+        $config->settings['DBG']['sql'] = false;
 
         $this->assertEquals(
             'utf8_general_ci',
@@ -238,7 +239,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
     {
         $dbi = $this->createDatabaseInterface();
         $GLOBALS['server'] = 1;
-        $GLOBALS['cfg']['DBG']['sql'] = true;
+        Config::getInstance()->settings['DBG']['sql'] = true;
         $this->assertEquals('utf8_general_ci', $dbi->getServerCollation());
     }
 
@@ -513,7 +514,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = true;
         $config->selectedServer['only_db'] = '';
-        $GLOBALS['cfg']['NaturalOrder'] = true;
+        $config->settings['NaturalOrder'] = true;
         $dummyDbi->removeDefaultResults();
         $dummyDbi->addResult('SELECT CURRENT_USER();', []);
         $dummyDbi->addResult('SHOW DATABASES', [['db1'], ['db2']], ['Database']);

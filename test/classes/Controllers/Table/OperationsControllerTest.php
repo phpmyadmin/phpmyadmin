@@ -42,8 +42,7 @@ class OperationsControllerTest extends AbstractTestCase
 
         $config = Config::getInstance();
         $config->selectServer('1');
-        $GLOBALS['cfg'] = $config->settings;
-        $GLOBALS['cfg']['MaxDbList'] = 0;
+        $config->settings['MaxDbList'] = 0;
 
         $this->loadDbiIntoContainerBuilder();
         $this->loadResponseIntoContainerBuilder();

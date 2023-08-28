@@ -44,7 +44,8 @@ class DatabasesControllerTest extends AbstractTestCase
 
     public function testIndexAction(): void
     {
-        Config::getInstance()->selectedServer['only_db'] = '';
+        $config = Config::getInstance();
+        $config->selectedServer['only_db'] = '';
         $template = new Template();
 
         $response = new ResponseRenderer();
@@ -81,7 +82,7 @@ class DatabasesControllerTest extends AbstractTestCase
 
         $controller = new DatabasesController($response, $template, DatabaseInterface::getInstance());
 
-        $GLOBALS['cfg']['ShowCreateDb'] = true;
+        $config->settings['ShowCreateDb'] = true;
         $GLOBALS['is_create_db_priv'] = true;
         $_REQUEST['statistics'] = '1';
         $_REQUEST['sort_by'] = 'SCHEMA_TABLES';

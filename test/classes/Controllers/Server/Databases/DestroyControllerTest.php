@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server\Databases;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Server\Databases\DestroyController;
@@ -38,7 +39,7 @@ class DestroyControllerTest extends AbstractTestCase
 
         $response = new ResponseRenderer();
 
-        $GLOBALS['cfg']['AllowUserDropDatabase'] = true;
+        Config::getInstance()->settings['AllowUserDropDatabase'] = true;
 
         $controller = new DestroyController(
             $response,

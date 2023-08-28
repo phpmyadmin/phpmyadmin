@@ -191,7 +191,7 @@ class Bookmark
             return false;
         }
 
-        if (! $GLOBALS['cfg']['AllowSharedBookmarks']) {
+        if (! Config::getInstance()->settings['AllowSharedBookmarks']) {
             $allUsers = false;
         }
 
@@ -237,7 +237,7 @@ class Bookmark
         string $user,
         string|false $db = false,
     ): array {
-        $exactUserMatch = ! $GLOBALS['cfg']['AllowSharedBookmarks'];
+        $exactUserMatch = ! Config::getInstance()->settings['AllowSharedBookmarks'];
 
         $query = 'SELECT * FROM ' . Util::backquote($bookmarkFeature->database)
             . '.' . Util::backquote($bookmarkFeature->bookmark)
@@ -292,7 +292,7 @@ class Bookmark
             return null;
         }
 
-        if (! $GLOBALS['cfg']['AllowSharedBookmarks']) {
+        if (! Config::getInstance()->settings['AllowSharedBookmarks']) {
             $exactUserMatch = true;
         }
 

@@ -126,6 +126,9 @@
     </PossiblyUnusedProperty>
   </file>
   <file src="libraries/classes/Command/CacheWarmupCommand.php">
+    <PropertyTypeCoercion>
+      <code><![CDATA[$config->settings]]></code>
+    </PropertyTypeCoercion>
     <UnusedClass>
       <code>CacheWarmupCommand</code>
     </UnusedClass>
@@ -211,7 +214,6 @@
     <MixedArgument>
       <code>$collationConnection</code>
       <code>$configData</code>
-      <code>$configData</code>
       <code><![CDATA[$configData['lang']]]></code>
       <code>$defaultValue</code>
       <code><![CDATA[$gdInfo['GD Version']]]></code>
@@ -238,7 +240,6 @@
       <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs_type']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['cfg']['LoginCookieValidity']]]></code>
       <code>$collationConnection</code>
       <code>$configData</code>
       <code>$defaultValue</code>
@@ -252,6 +253,7 @@
       <code>$value</code>
     </MixedAssignment>
     <MixedPropertyTypeCoercion>
+      <code><![CDATA[$this->settings]]></code>
       <code><![CDATA[$this->settings]]></code>
       <code><![CDATA[array_replace_recursive($this->settings, $configData)]]></code>
       <code><![CDATA[array_replace_recursive($this->settings, $this->config->asArray())]]></code>
@@ -738,24 +740,24 @@
     <PossiblyUnusedReturnValue>
       <code>bool</code>
     </PossiblyUnusedReturnValue>
-    <RedundantCast>
-      <code><![CDATA[(int) $GLOBALS['cfg']['LimitChars']]]></code>
-      <code><![CDATA[(string) $GLOBALS['cfg']['ForeignKeyDropdownOrder'][0]]]></code>
-      <code><![CDATA[(string) $GLOBALS['cfg']['ForeignKeyDropdownOrder'][0]]]></code>
-      <code><![CDATA[(string) $GLOBALS['cfg']['ForeignKeyDropdownOrder'][1]]]></code>
-      <code><![CDATA[(string) $GLOBALS['cfg']['ForeignKeyDropdownOrder'][1]]]></code>
-    </RedundantCast>
-    <RedundantCondition>
-      <code><![CDATA[is_array($GLOBALS['cfg']['ForeignKeyDropdownOrder'])]]></code>
-      <code><![CDATA[is_scalar($GLOBALS['cfg']['ForeignKeyDropdownOrder'][0])]]></code>
-      <code><![CDATA[is_scalar($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])]]></code>
-      <code><![CDATA[isset($GLOBALS['cfg']['ForeignKeyDropdownOrder'])
-                && is_array($GLOBALS['cfg']['ForeignKeyDropdownOrder'])]]></code>
-      <code><![CDATA[isset($GLOBALS['cfg']['ForeignKeyDropdownOrder'][0])
-                    && is_scalar($GLOBALS['cfg']['ForeignKeyDropdownOrder'][0])]]></code>
-      <code><![CDATA[isset($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])
-                    && is_scalar($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])]]></code>
-    </RedundantCondition>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(int) $config->settings['LimitChars']]]></code>
+      <code><![CDATA[(string) $config->settings['ForeignKeyDropdownOrder'][0]]]></code>
+      <code><![CDATA[(string) $config->settings['ForeignKeyDropdownOrder'][0]]]></code>
+      <code><![CDATA[(string) $config->settings['ForeignKeyDropdownOrder'][1]]]></code>
+      <code><![CDATA[(string) $config->settings['ForeignKeyDropdownOrder'][1]]]></code>
+    </RedundantCastGivenDocblockType>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[is_array($config->settings['ForeignKeyDropdownOrder'])]]></code>
+      <code><![CDATA[is_scalar($config->settings['ForeignKeyDropdownOrder'][0])]]></code>
+      <code><![CDATA[is_scalar($config->settings['ForeignKeyDropdownOrder'][1])]]></code>
+      <code><![CDATA[isset($config->settings['ForeignKeyDropdownOrder'])
+                && is_array($config->settings['ForeignKeyDropdownOrder'])]]></code>
+      <code><![CDATA[isset($config->settings['ForeignKeyDropdownOrder'][0])
+                    && is_scalar($config->settings['ForeignKeyDropdownOrder'][0])]]></code>
+      <code><![CDATA[isset($config->settings['ForeignKeyDropdownOrder'][1])
+                    && is_scalar($config->settings['ForeignKeyDropdownOrder'][1])]]></code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/ConfigStorage/UserGroups.php">
     <DeprecatedMethod>
@@ -884,9 +886,9 @@
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
-    <RedundantCast>
-      <code><![CDATA[(int) $GLOBALS['cfg']['MaxRows']]]></code>
-    </RedundantCast>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(int) Config::getInstance()->settings['MaxRows']]]></code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/Database/DataDictionaryController.php">
     <MixedAssignment>
@@ -1051,7 +1053,6 @@
   </file>
   <file src="libraries/classes/Controllers/Database/ImportController.php">
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['UploadDir']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
     </InvalidArrayOffset>
@@ -1073,6 +1074,9 @@
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(string) ($config->settings['UploadDir'] ?? '')]]></code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/Database/MultiTableQuery/QueryController.php">
     <MixedArgument>
@@ -1118,8 +1122,6 @@
       <code>$exportSqlPlugin</code>
     </ArgumentTypeCoercion>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['AllowUserDropDatabase']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['PmaNoRelation_DisableWarning']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['reload']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
@@ -1249,7 +1251,6 @@
   </file>
   <file src="libraries/classes/Controllers/Database/SearchController.php">
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['UseDbSearch']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
     <MixedAssignment>
@@ -1260,9 +1261,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="libraries/classes/Controllers/Database/SqlAutoCompleteController.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['EnableAutocompleteForTablesAndColumns']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code>$db</code>
     </MixedArgument>
@@ -1703,13 +1701,8 @@
       <code>$exportPlugin</code>
       <code>$exportPlugin</code>
     </ArgumentTypeCoercion>
-    <InvalidArgument>
-      <code><![CDATA[$GLOBALS['asfile']]]></code>
-    </InvalidArgument>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['active_page']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['MemoryLimit']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['SaveDir']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
@@ -1721,8 +1714,6 @@
       <code><![CDATA[$GLOBALS['what']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['cfg']['MemoryLimit']]]></code>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
@@ -1924,12 +1915,14 @@
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
     </PossiblyNullArgument>
     <RedundantCondition>
       <code><![CDATA[! $GLOBALS['save_on_server']]]></code>
       <code><![CDATA[$outputFormat === 'sendit' && ! $GLOBALS['save_on_server']]]></code>
     </RedundantCondition>
+    <TypeDoesNotContainType>
+      <code><![CDATA[$GLOBALS['compression'] === 'gzip']]></code>
+    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Controllers/Export/TablesController.php">
     <PossiblyUnusedMethod>
@@ -1946,15 +1939,6 @@
   </file>
   <file src="libraries/classes/Controllers/HomeController.php">
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['Lang']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['LoginCookieValidityDisableWarning']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['NavigationDisplayServers']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['PmaNoRelation_DisableWarning']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['ShowChgPassword']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['ShowPhpInfo']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['SuhosinDisableWarning']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['ThemeManager']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['TranslationWarningThreshold']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['language_stats']]]></code>
       <code><![CDATA[$GLOBALS['language_stats']]]></code>
@@ -1978,9 +1962,9 @@
     <PossiblyNullArrayOffset>
       <code><![CDATA[$GLOBALS['language_stats']]]></code>
     </PossiblyNullArrayOffset>
-    <RedundantCondition>
-      <code><![CDATA[is_string($GLOBALS['cfg']['blowfish_secret'])]]></code>
-    </RedundantCondition>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[is_string($config->settings['blowfish_secret'])]]></code>
+    </RedundantConditionGivenDocblockType>
     <TypeDoesNotContainType>
       <code><![CDATA[$GLOBALS['server'] == 0]]></code>
     </TypeDoesNotContainType>
@@ -1995,9 +1979,6 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['ajax_reload']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['AllowUserDropDatabase']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['MemoryLimit']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['UploadDir']]]></code>
       <code><![CDATA[$GLOBALS['charset_conversion']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['executed_queries']]]></code>
@@ -2017,8 +1998,6 @@
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['cfg']['AllowUserDropDatabase']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['MemoryLimit']]]></code>
       <code><![CDATA[$GLOBALS['format']]]></code>
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
       <code><![CDATA[$GLOBALS['local_import_file']]]></code>
@@ -2100,6 +2079,9 @@
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
+    <RedundantCast>
+      <code><![CDATA[(string) $config->settings['UploadDir']]]></code>
+    </RedundantCast>
     <RedundantCondition>
       <code><![CDATA[! $GLOBALS['finished']]]></code>
       <code><![CDATA[$GLOBALS['go_sql']]]></code>
@@ -2297,9 +2279,6 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/PhpInfoController.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['ShowPhpInfo']]]></code>
-    </InvalidArrayOffset>
     <PossiblyUnusedParam>
       <code>$request</code>
     </PossiblyUnusedParam>
@@ -2488,9 +2467,9 @@
       <code>$log</code>
       <code><![CDATA[$urlParams['log']]]></code>
     </MixedAssignment>
-    <RedundantCast>
-      <code><![CDATA[(int) $GLOBALS['cfg']['MaxRows']]]></code>
-    </RedundantCast>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(int) $config->settings['MaxRows']]]></code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/Server/CollationsController.php">
     <PossiblyUnusedParam>
@@ -2504,7 +2483,6 @@
   </file>
   <file src="libraries/classes/Controllers/Server/Databases/DestroyController.php">
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['AllowUserDropDatabase']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['reload']]]></code>
       <code><![CDATA[$GLOBALS['selected']]]></code>
@@ -2521,7 +2499,6 @@
   </file>
   <file src="libraries/classes/Controllers/Server/DatabasesController.php">
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['AllowUserDropDatabase']]]></code>
       <code><![CDATA[$GLOBALS['db_to_create']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -2615,7 +2592,6 @@
   </file>
   <file src="libraries/classes/Controllers/Server/ImportController.php">
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['UploadDir']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
     </InvalidArrayOffset>
@@ -2637,6 +2613,9 @@
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(string) ($config->settings['UploadDir'] ?? '')]]></code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/Server/PluginsController.php">
     <PossiblyUnusedParam>
@@ -3023,7 +3002,6 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['ajax_reload']]]></code>
       <code><![CDATA[$GLOBALS['back']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['AllowUserDropDatabase']]]></code>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['disp_query']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
@@ -3034,7 +3012,6 @@
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['cfg']['AllowUserDropDatabase']]]></code>
       <code><![CDATA[$GLOBALS['disp_message'] ?? null]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
@@ -3384,9 +3361,9 @@
     <PossiblyInvalidCast>
       <code><![CDATA[$_GET['fileFormat']]]></code>
     </PossiblyInvalidCast>
-    <RedundantCast>
-      <code><![CDATA[(int) $GLOBALS['cfg']['MaxRows']]]></code>
-    </RedundantCast>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(int) Config::getInstance()->settings['MaxRows']]]></code>
+    </RedundantCastGivenDocblockType>
     <RiskyCast>
       <code><![CDATA[$_POST['pos'] ?? $_GET['pos'] ?? $_SESSION['tmpval']['pos']]]></code>
       <code><![CDATA[$_POST['session_max_rows'] ?? $_GET['session_max_rows']]]></code>
@@ -3394,7 +3371,6 @@
   </file>
   <file src="libraries/classes/Controllers/Table/ImportController.php">
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['UploadDir']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
     </InvalidArrayOffset>
@@ -3413,6 +3389,9 @@
     <MixedMethodCall>
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getIdKey()]]></code>
     </MixedMethodCall>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(string) ($config->settings['UploadDir'] ?? '')]]></code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/Table/IndexRenameController.php">
     <InvalidArrayOffset>
@@ -3666,6 +3645,9 @@
     <PossiblyUndefinedVariable>
       <code>$extraData</code>
     </PossiblyUndefinedVariable>
+    <PropertyTypeCoercion>
+      <code><![CDATA[$config->settings]]></code>
+    </PropertyTypeCoercion>
   </file>
   <file src="libraries/classes/Controllers/Table/SearchController.php">
     <MixedArgument>
@@ -4095,11 +4077,6 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/ThemeSetController.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['ThemeManager']]]></code>
-    </InvalidArrayOffset>
-  </file>
   <file src="libraries/classes/Controllers/ThemesController.php">
     <PossiblyUnusedMethod>
       <code>__construct</code>
@@ -4163,7 +4140,6 @@
   </file>
   <file src="libraries/classes/Controllers/UserPasswordController.php">
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['ShowChgPassword']]]></code>
       <code><![CDATA[$GLOBALS['change_password_message']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
     </InvalidArrayOffset>
@@ -4257,20 +4233,15 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="libraries/classes/Core.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['TrustedProxies']]]></code>
-    </InvalidArrayOffset>
     <InvalidOperand>
       <code>$matches[1]</code>
     </InvalidOperand>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['cfg']['TrustedProxies'][$directIp]]]></code>
       <code>$onePostPattern</code>
       <code>$path[$depth + 1]</code>
       <code>$query</code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$GLOBALS['cfg']['TrustedProxies'][$directIp]]]></code>
       <code>$a[$key]</code>
       <code>$path[$depth - 1][$key]</code>
       <code>$path[$depth][$keysLast]</code>
@@ -4622,9 +4593,9 @@
     <PossiblyNullArgument>
       <code>$field</code>
     </PossiblyNullArgument>
-    <RedundantCast>
-      <code><![CDATA[(int) $GLOBALS['cfg']['MaxRows']]]></code>
-    </RedundantCast>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(int) $config->settings['MaxRows']]]></code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Database/Designer.php">
     <DeprecatedMethod>
@@ -5349,8 +5320,6 @@
       <code>$sortExpressionNoDirection</code>
     </InvalidArgument>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['Order']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['RowActionType']]]></code>
       <code><![CDATA[$GLOBALS['is_header_sent']]]></code>
       <code><![CDATA[$GLOBALS['row']]]></code>
       <code><![CDATA[$GLOBALS['theme']]]></code>
@@ -5395,10 +5364,6 @@
       <code><![CDATA[$rel['foreign_table']]]></code>
       <code>$row[$i]</code>
       <code>$row[$i]</code>
-      <code>$sortDirection[$index]</code>
-      <code>$sortDirection[$index]</code>
-      <code>$sortDirection[$index]</code>
-      <code>$sortDirection[$index]</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
@@ -5596,7 +5561,6 @@
       <code>$rel</code>
       <code>$relationalDisplay</code>
       <code><![CDATA[$rowInfo[mb_strtolower($fieldsMeta[$m]->orgname)]]]></code>
-      <code>$sortDirection[$specialIndex]</code>
       <code>$sqlQuery</code>
       <code>$sqlQueryAdd</code>
       <code>$tableCreateTime</code>
@@ -5663,11 +5627,11 @@
       <code>$dispval</code>
       <code><![CDATA[$o->expr->expr]]></code>
     </PossiblyNullOperand>
-    <RedundantCast>
-      <code><![CDATA[(int) $GLOBALS['cfg']['LimitChars']]]></code>
-      <code><![CDATA[(int) $GLOBALS['cfg']['LimitChars']]]></code>
-      <code><![CDATA[(int) $GLOBALS['cfg']['LimitChars']]]></code>
-    </RedundantCast>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(int) $config->settings['LimitChars']]]></code>
+      <code><![CDATA[(int) $config->settings['LimitChars']]]></code>
+      <code><![CDATA[(int) $config->settings['LimitChars']]]></code>
+    </RedundantCastGivenDocblockType>
     <RedundantCondition>
       <code><![CDATA[empty($statementInfo->statement->from)]]></code>
     </RedundantCondition>
@@ -5679,10 +5643,6 @@
     </UnusedParam>
   </file>
   <file src="libraries/classes/Encoding.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['IconvExtraParams']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['RecodingEngine']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code>self::$enginemap[$engine][0]</code>
       <code>self::$enginemap[$engine][0]</code>
@@ -5698,20 +5658,12 @@
     <MixedArrayOffset>
       <code>self::$enginemap[$engine]</code>
       <code>self::$enginemap[$engine]</code>
-      <code>self::$enginemap[$engine]</code>
     </MixedArrayOffset>
-    <MixedArrayTypeCoercion>
-      <code>self::$enginemap[$engine]</code>
-    </MixedArrayTypeCoercion>
     <MixedAssignment>
-      <code>$engine</code>
       <code>$engine</code>
       <code>self::$engine</code>
       <code>self::$engine</code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$GLOBALS['cfg']['IconvExtraParams'] ?? '']]></code>
-    </MixedOperand>
     <PossiblyNullArgument>
       <code><![CDATA[Config::getInstance()->getUploadTempDir()]]></code>
     </PossiblyNullArgument>
@@ -5808,9 +5760,6 @@
     </MixedReturnStatement>
   </file>
   <file src="libraries/classes/ErrorHandler.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['environment']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$_SESSION['errors']]]></code>
     </MixedArgument>
@@ -5873,7 +5822,6 @@
   </file>
   <file src="libraries/classes/Export/Export.php">
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['SaveDir']]]></code>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
       <code><![CDATA[$GLOBALS['sql_create_table']]]></code>
       <code><![CDATA[$GLOBALS['sql_create_trigger']]]></code>
@@ -5950,6 +5898,9 @@
     <PossiblyNullArgument>
       <code><![CDATA[$GLOBALS['file_handle']]]></code>
     </PossiblyNullArgument>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(string) (Config::getInstance()->settings['SaveDir'] ?? '')]]></code>
+    </RedundantCastGivenDocblockType>
     <RedundantCondition>
       <code>mb_strtolower($userExtension) !== $requiredExtension</code>
       <code>mb_strtolower($userExtension) !== $requiredExtension</code>
@@ -5961,25 +5912,13 @@
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['Export']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Export']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Export']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Export']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Export']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Export']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['SaveDir']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['SaveDir']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
     </InvalidArrayOffset>
     <MixedArrayAccess>
-      <code><![CDATA[$GLOBALS['cfg']['Export']['file_template_database']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Export']['file_template_server']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Export']['file_template_table']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['aliases']]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
       <code>$aliases</code>
-      <code>$selectedCompression</code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['filename_template'] ?? null]]></code>
@@ -5987,9 +5926,9 @@
     <PossiblyInvalidCast>
       <code><![CDATA[$_GET['what']]]></code>
     </PossiblyInvalidCast>
-    <PossiblyUndefinedArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['Export']]]></code>
-    </PossiblyUndefinedArrayOffset>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(string) ($config->settings['SaveDir'] ?? '')]]></code>
+    </RedundantCastGivenDocblockType>
     <RedundantConditionGivenDocblockType>
       <code>is_array($dbSelect)</code>
       <code><![CDATA[isset($dbSelect) && is_array($dbSelect)]]></code>
@@ -6009,7 +5948,6 @@
       <code><![CDATA[$this->detectCompression()]]></code>
     </FalsableReturnStatement>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['UploadDir']]]></code>
       <code><![CDATA[$_FILES['fields_upload']['name']['multi_edit']]]></code>
     </InvalidArrayOffset>
     <InvalidFalsableReturnType>
@@ -6058,6 +5996,9 @@
       <code>bool</code>
       <code>bool</code>
     </PossiblyUnusedReturnValue>
+    <TypeDoesNotContainType>
+      <code><![CDATA[is_string($config->settings['UploadDir'])]]></code>
+    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/FlashMessages.php">
     <MixedArrayAssignment>
@@ -6498,39 +6439,20 @@
     </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['buffer_message']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['CSPAllow']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['CaptchaCsp']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['CaptchaLoginPrivateKey']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['FirstDayOfCalendar']]]></code>
       <code><![CDATA[$GLOBALS['theme']]]></code>
     </InvalidArrayOffset>
-    <MixedArgument>
-      <code>$cspAllow</code>
-      <code>$cspAllow</code>
-      <code>$cspAllow</code>
-      <code>$cspAllow</code>
-      <code>$cspAllow</code>
-      <code>$cspAllow</code>
-      <code>$cspAllow</code>
-      <code>$cspAllow</code>
-      <code>$cspAllow</code>
-    </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['buffer_message']]]></code>
       <code><![CDATA[$GLOBALS['theme']]]></code>
       <code>$bufferMessage</code>
-      <code>$cspAllow</code>
       <code>$pftext</code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$GLOBALS['cfg']['CaptchaCsp']]]></code>
-    </MixedOperand>
     <PossiblyInvalidArgument>
       <code>$message</code>
     </PossiblyInvalidArgument>
-    <RedundantFunctionCall>
+    <RedundantFunctionCallGivenDocblockType>
       <code>strtolower</code>
-    </RedundantFunctionCall>
+    </RedundantFunctionCallGivenDocblockType>
   </file>
   <file src="libraries/classes/Html/Generator.php">
     <DeprecatedMethod>
@@ -6545,10 +6467,6 @@
       <code>$urlParams</code>
     </InvalidArgument>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['DefaultFunctions']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['DefaultFunctions']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['DefaultFunctions']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['SQLQuery']]]></code>
       <code><![CDATA[$GLOBALS['show_as_php']]]></code>
       <code><![CDATA[$GLOBALS['special_message']]]></code>
       <code><![CDATA[$GLOBALS['using_bookmark_message']]]></code>
@@ -6556,17 +6474,11 @@
     <MixedArgument>
       <code><![CDATA[$GLOBALS['special_message']]]></code>
       <code>$alt</code>
-      <code>$defaultFunction</code>
       <code>$title</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$key</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess>
-      <code><![CDATA[$GLOBALS['cfg']['DefaultFunctions']['FUNC_' . $currentClass]]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['DefaultFunctions']['FUNC_UUID']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['DefaultFunctions']['first_timestamp']]]></code>
-    </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['Import_message']['go_back_url']]]></code>
       <code><![CDATA[$_SESSION['Import_message']['message']]]></code>
@@ -6575,14 +6487,9 @@
     </MixedArrayAssignment>
     <MixedAssignment>
       <code>$alt</code>
-      <code>$defaultFunction</code>
-      <code>$defaultFunction</code>
       <code>$title</code>
       <code>$value</code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>string</code>
-    </MixedInferredReturnType>
     <MixedMethodCall>
       <code>getDisplay</code>
     </MixedMethodCall>
@@ -6591,18 +6498,15 @@
       <code><![CDATA[$attributes['class']]]></code>
       <code>$value</code>
     </MixedOperand>
-    <MixedReturnStatement>
-      <code><![CDATA[$GLOBALS['cfg']['DefaultFunctions']['FUNC_UUID']]]></code>
-      <code>$defaultFunction</code>
-      <code>$defaultFunction</code>
-    </MixedReturnStatement>
     <PossiblyUndefinedArrayOffset>
       <code>$parts[1]</code>
     </PossiblyUndefinedArrayOffset>
     <RedundantCast>
-      <code><![CDATA[(int) $GLOBALS['cfg']['MaxRows']]]></code>
       <code><![CDATA[(string) $GLOBALS['db']]]></code>
     </RedundantCast>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(int) Config::getInstance()->settings['MaxRows']]]></code>
+    </RedundantCastGivenDocblockType>
     <RiskyCast>
       <code><![CDATA[$_REQUEST['pos']]]></code>
       <code><![CDATA[$_REQUEST['session_max_rows']]]></code>
@@ -6649,7 +6553,6 @@
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['UploadDir']]]></code>
       <code><![CDATA[$GLOBALS['charset_conversion']]]></code>
       <code><![CDATA[$GLOBALS['charset_of_file']]]></code>
       <code><![CDATA[$GLOBALS['executed_queries']]]></code>
@@ -6842,6 +6745,9 @@
       <code><![CDATA[$GLOBALS['read_multiply']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
     </PossiblyNullOperand>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(string) (Config::getInstance()->settings['UploadDir'] ?? '')]]></code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Index.php">
     <DeprecatedMethod>
@@ -6895,10 +6801,10 @@
     <InvalidArgument>
       <code>$urlParams</code>
     </InvalidArgument>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['UploadDir']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['UploadDir']]]></code>
-    </InvalidArrayOffset>
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+    </InvalidPropertyAssignmentValue>
     <InvalidReturnStatement>
       <code><![CDATA[$_POST['err_url'] ?? Url::getFromRoute('/table/change', $urlParams)]]></code>
       <code>$formParams</code>
@@ -7022,9 +6928,13 @@
       <code><![CDATA[$column['Comment']]]></code>
       <code><![CDATA[$column['Privileges']]]></code>
     </PossiblyUndefinedArrayOffset>
-    <RedundantCast>
-      <code><![CDATA[(int) $GLOBALS['cfg']['InsertRows']]]></code>
-    </RedundantCast>
+    <PropertyTypeCoercion>
+      <code><![CDATA[$config->settings]]></code>
+    </PropertyTypeCoercion>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(int) Config::getInstance()->settings['InsertRows']]]></code>
+      <code><![CDATA[(string) (Config::getInstance()->settings['UploadDir'] ?? '')]]></code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/IpAllowDeny.php">
     <InvalidOperand>
@@ -7094,9 +7004,15 @@
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
+    <MixedArgument>
+      <code>$db</code>
+    </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[usort($databaseList, 'strnatcasecmp')]]></code>
     </MixedArgumentTypeCoercion>
+    <MixedAssignment>
+      <code>$db</code>
+    </MixedAssignment>
   </file>
   <file src="libraries/classes/Menu.php">
     <DeprecatedProperty>
@@ -7177,13 +7093,6 @@
   </file>
   <file src="libraries/classes/Navigation/Navigation.php">
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['NavigationDisplayLogo']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['NavigationDisplayServers']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['NavigationLogoLink']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['NavigationLogoLinkWindow']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['NavigationTreeAutoexpandSingleDb']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['NavigationTreePointerEnable']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['NavigationWidth']]]></code>
       <code><![CDATA[$GLOBALS['theme']]]></code>
     </InvalidArrayOffset>
     <MixedAssignment>
@@ -7193,9 +7102,10 @@
       <code>$hidden</code>
       <code>$hidden</code>
     </PossiblyNullArrayOffset>
-    <PossiblyUndefinedArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['NavigationDisplayServers']]]></code>
-    </PossiblyUndefinedArrayOffset>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(string) $config->settings['NavigationLogoLink']]]></code>
+      <code><![CDATA[(string) $config->settings['NavigationLogoLink']]]></code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Navigation/NavigationTree.php">
     <ArgumentTypeCoercion>
@@ -7293,16 +7203,18 @@
       <code>int</code>
     </PossiblyUnusedReturnValue>
     <RedundantCast>
-      <code><![CDATA[(int) $GLOBALS['cfg']['FirstLevelNavigationItems']]]></code>
-      <code><![CDATA[(int) $GLOBALS['cfg']['FirstLevelNavigationItems']]]></code>
-      <code><![CDATA[(int) $GLOBALS['cfg']['FirstLevelNavigationItems']]]></code>
-      <code><![CDATA[(int) $GLOBALS['cfg']['NavigationTreeDisplayDbFilterMinimum']]]></code>
-      <code><![CDATA[(int) $GLOBALS['cfg']['NavigationTreeDisplayItemFilterMinimum']]]></code>
       <code>(string) $key</code>
       <code>(string) $key</code>
       <code>(string) $key</code>
       <code>(string) $key</code>
     </RedundantCast>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(int) $config->settings['FirstLevelNavigationItems']]]></code>
+      <code><![CDATA[(int) $config->settings['FirstLevelNavigationItems']]]></code>
+      <code><![CDATA[(int) $config->settings['FirstLevelNavigationItems']]]></code>
+      <code><![CDATA[(int) $config->settings['NavigationTreeDisplayDbFilterMinimum']]]></code>
+      <code><![CDATA[(int) $config->settings['NavigationTreeDisplayItemFilterMinimum']]]></code>
+    </RedundantCastGivenDocblockType>
     <RiskyCast>
       <code><![CDATA[$_GET['pos']]]></code>
       <code><![CDATA[$_POST['n' . $count . '_pos2_value']]]></code>
@@ -7430,9 +7342,9 @@
     </PossiblyInvalidPropertyFetch>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeDatabaseChildContainer.php">
-    <RedundantCast>
-      <code><![CDATA[(int) $GLOBALS['cfg']['NavigationTreeTableLevel']]]></code>
-    </RedundantCast>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(int) $config->settings['NavigationTreeTableLevel']]]></code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php">
     <DeprecatedMethod>
@@ -7858,9 +7770,6 @@
     </ParamNameMismatch>
   </file>
   <file src="libraries/classes/Plugins.php">
-    <InvalidArgument>
-      <code>$GLOBALS[$match]</code>
-    </InvalidArgument>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
@@ -7878,13 +7787,13 @@
       <code>$doc[2]</code>
       <code>$val</code>
       <code>$val</code>
-      <code>$val</code>
-      <code>$val</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code>$GLOBALS[$match]</code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code>$doc</code>
       <code>$propertyItem</code>
-      <code>$val</code>
       <code>$val</code>
       <code>$val</code>
     </MixedAssignment>
@@ -7895,10 +7804,11 @@
       <code>$_GET[$opt]</code>
       <code>$_REQUEST[$opt]</code>
       <code>$val</code>
+      <code>$val</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
-      <code><![CDATA[$GLOBALS['cfg'][$section][$opt]]]></code>
-      <code><![CDATA[$GLOBALS['cfg'][$section][$opt]]]></code>
+      <code><![CDATA[$config->settings[$section][$opt]]]></code>
+      <code><![CDATA[$config->settings[$section][$opt]]]></code>
     </PossiblyInvalidCast>
     <PossiblyNullOperand>
       <code><![CDATA[$pitem->getName()]]></code>
@@ -7954,20 +7864,7 @@
     <DocblockTypeContradiction>
       <code>$resp == null</code>
     </DocblockTypeContradiction>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['CaptchaLoginPrivateKey']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['CaptchaLoginPrivateKey']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['CaptchaMethod']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['CaptchaSiteVerifyURL']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Lang']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['cfg']['CaptchaLoginPrivateKey']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['CaptchaLoginPrivateKey']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['CaptchaLoginPrivateKey']]]></code>
-      <code>$captchaSiteVerifyURL</code>
-      <code>$captchaSiteVerifyURL</code>
-      <code>$captchaSiteVerifyURL</code>
       <code>$serverCookie</code>
       <code>$serverCookie</code>
     </MixedArgument>
@@ -7979,8 +7876,6 @@
     </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['pma_auth_server']]]></code>
-      <code>$captchaSiteVerifyURL</code>
-      <code>$captchaSiteVerifyURL</code>
       <code>$key</code>
       <code>$serverCookie</code>
       <code>$serverCookie</code>
@@ -7988,7 +7883,7 @@
       <code>$value</code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
-      <code><![CDATA[$_POST[$GLOBALS['cfg']['CaptchaResponseParam']]]]></code>
+      <code><![CDATA[$_POST[$config->settings['CaptchaResponseParam']]]]></code>
       <code><![CDATA[$_POST['pma_username']]]></code>
       <code><![CDATA[$_POST['pma_username']]]></code>
       <code><![CDATA[$_REQUEST['pma_servername']]]></code>
@@ -7998,7 +7893,7 @@
       <code>Core::getIp()</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
-      <code><![CDATA[$_POST[$GLOBALS['cfg']['CaptchaResponseParam']]]]></code>
+      <code><![CDATA[$_POST[$config->settings['CaptchaResponseParam']]]]></code>
       <code><![CDATA[$_POST['pma_username']]]></code>
       <code><![CDATA[$_REQUEST['pma_servername']]]></code>
       <code>$tmpHost</code>
@@ -8010,9 +7905,11 @@
       <code>bool</code>
     </PossiblyUnusedReturnValue>
     <RedundantCast>
-      <code><![CDATA[(int) $GLOBALS['cfg']['LoginCookieStore']]]></code>
       <code><![CDATA[(string) $GLOBALS['conn_error']]]></code>
     </RedundantCast>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(int) $config->settings['LoginCookieStore']]]></code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Plugins/Auth/AuthenticationHttp.php">
     <DeprecatedMethod>
@@ -8496,9 +8393,6 @@
       <code><![CDATA[$GLOBALS['sql_if_not_exists']]]></code>
     </InvalidArgument>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['Export']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Export']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Export']]]></code>
       <code><![CDATA[$GLOBALS['no_constraints_comments']]]></code>
       <code><![CDATA[$GLOBALS['no_constraints_comments']]]></code>
       <code><![CDATA[$GLOBALS['sql_auto_increment']]]></code>
@@ -8556,9 +8450,6 @@
       <code>$compats</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
-      <code><![CDATA[$GLOBALS['cfg']['Export']['remove_definer_from_definitions']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Export']['remove_definer_from_definitions']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Export']['remove_definer_from_definitions']]]></code>
       <code><![CDATA[$aliases[$oldDatabase]['tables']]]></code>
       <code><![CDATA[$aliases[$oldDatabase]['tables'][$oldTable]]]></code>
       <code><![CDATA[$aliases[$oldDatabase]['tables'][$oldTable]['columns']]]></code>
@@ -9401,7 +9292,6 @@
   <file src="libraries/classes/Plugins/Import/ImportShp.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['buffer']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['UploadDir']]]></code>
       <code><![CDATA[$GLOBALS['eof']]]></code>
       <code><![CDATA[$GLOBALS['importHandle']]]></code>
       <code><![CDATA[$GLOBALS['local_import_file']]]></code>
@@ -9443,6 +9333,7 @@
       <code>$analyses[]</code>
       <code>$c</code>
       <code>$colNames[]</code>
+      <code>$config</code>
       <code>$dbfFileName</code>
       <code>$dbfFileName</code>
       <code>$dbfHeader</code>
@@ -9457,6 +9348,7 @@
       <code>$temp</code>
     </MixedOperand>
     <MixedPropertyFetch>
+      <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$record->dbfData]]></code>
       <code><![CDATA[$record->shpData]]></code>
     </MixedPropertyFetch>
@@ -10485,22 +10377,11 @@
     </UnusedClass>
   </file>
   <file src="libraries/classes/Plugins/Transformations/Output/Text_Plain_Json.php">
-    <InvalidArgument>
-      <code><![CDATA[$GLOBALS['cfg']['CodemirrorEnable']]]></code>
-    </InvalidArgument>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Plugins/Transformations/Output/Text_Plain_Sql.php">
-    <InvalidArgument>
-      <code><![CDATA[$GLOBALS['cfg']['CodemirrorEnable']]]></code>
-    </InvalidArgument>
-  </file>
   <file src="libraries/classes/Plugins/Transformations/Output/Text_Plain_Xml.php">
-    <InvalidArgument>
-      <code><![CDATA[$GLOBALS['cfg']['CodemirrorEnable']]]></code>
-    </InvalidArgument>
     <UnusedClass>
       <code>Text_Plain_Xml</code>
     </UnusedClass>
@@ -10864,9 +10745,6 @@
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Routing/Routing.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['environment']]]></code>
-    </InvalidArrayOffset>
     <MixedArrayAccess>
       <code><![CDATA[$dispatchData[0]['GET']['/']]]></code>
     </MixedArrayAccess>
@@ -11196,25 +11074,12 @@
     </RiskyCast>
   </file>
   <file src="libraries/classes/Server/Select.php">
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[$server['only_db']]]></code>
-    </MixedArgumentTypeCoercion>
-    <MixedAssignment>
-      <code>$label</code>
-      <code>$label</code>
-    </MixedAssignment>
-    <MixedOperand>
-      <code>$label</code>
-      <code>$label</code>
-      <code>$label</code>
-      <code>$label</code>
-      <code><![CDATA[$server['only_db']]]></code>
-      <code><![CDATA[$server['port']]]></code>
-      <code><![CDATA[$server['user']]]></code>
-    </MixedOperand>
     <RedundantCast>
       <code><![CDATA[(int) $GLOBALS['server']]]></code>
     </RedundantCast>
+    <RedundantCastGivenDocblockType>
+      <code>(int) $key</code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Server/Status/Data.php">
     <MixedArgumentTypeCoercion>
@@ -11486,7 +11351,6 @@
       <code>escapeString</code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['TablePrimaryKeyOrder']]]></code>
       <code><![CDATA[$GLOBALS['reload']]]></code>
       <code><![CDATA[$GLOBALS['show_as_php']]]></code>
       <code><![CDATA[$GLOBALS['show_as_php']]]></code>
@@ -11536,7 +11400,6 @@
       <code>string</code>
     </MixedInferredReturnType>
     <MixedOperand>
-      <code><![CDATA[$GLOBALS['cfg']['TablePrimaryKeyOrder']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
@@ -11587,9 +11450,9 @@
     <PossiblyUndefinedArrayOffset>
       <code>$row[0]</code>
     </PossiblyUndefinedArrayOffset>
-    <RedundantCast>
-      <code><![CDATA[(bool) $GLOBALS['cfg']['ShowSQL']]]></code>
-    </RedundantCast>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(bool) $config->settings['ShowSQL']]]></code>
+    </RedundantCastGivenDocblockType>
     <UndefinedPropertyAssignment>
       <code><![CDATA[$statement->expr]]></code>
       <code><![CDATA[$statement->limit]]></code>
@@ -11600,11 +11463,6 @@
     </UndefinedPropertyFetch>
   </file>
   <file src="libraries/classes/SqlQueryForm.php">
-    <MixedArgument>
-      <code><![CDATA[! empty($GLOBALS['cfg']['Servers'][$GLOBALS['server']]['verbose'])
-                    ? $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['verbose']
-                    : $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['host']]]></code>
-    </MixedArgument>
     <PossiblyInvalidArgument>
       <code>$query</code>
     </PossiblyInvalidArgument>
@@ -11873,7 +11731,6 @@
       <code>has</code>
     </MixedMethodCall>
     <MixedOperand>
-      <code><![CDATA[$GLOBALS['cfg']['MaxExactCountViews']]]></code>
       <code>$backquoted ? Util::backquote($column) : $column</code>
       <code>$index[0]</code>
     </MixedOperand>
@@ -12118,11 +11975,6 @@
       <code>$geomFunc</code>
       <code>$geomFunc</code>
     </PossiblyNullOperand>
-  </file>
-  <file src="libraries/classes/Template.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['environment']]]></code>
-    </InvalidArrayOffset>
   </file>
   <file src="libraries/classes/Theme/Theme.php">
     <MixedArgument>
@@ -12508,7 +12360,6 @@
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['SkipLockedTables']]]></code>
       <code>$byteUnits[$d]</code>
       <code>$units[$d]</code>
     </InvalidArrayOffset>
@@ -12590,25 +12441,27 @@
       <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
     </MixedReturnStatement>
     <PossiblyFalseOperand>
-      <code><![CDATA[$GLOBALS['cfg']['NavigationTreeTableSeparator']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['NavigationTreeTableSeparator']]]></code>
+      <code><![CDATA[$config->settings['NavigationTreeTableSeparator']]]></code>
+      <code><![CDATA[$config->settings['NavigationTreeTableSeparator']]]></code>
       <code><![CDATA[mb_strpos($value, '.')]]></code>
       <code><![CDATA[mb_strrpos($columnSpecification, ')')]]></code>
     </PossiblyFalseOperand>
     <PossiblyInvalidOperand>
-      <code><![CDATA[$GLOBALS['cfg']['NavigationTreeTableSeparator']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['NavigationTreeTableSeparator']]]></code>
+      <code><![CDATA[$config->settings['NavigationTreeTableSeparator']]]></code>
+      <code><![CDATA[$config->settings['NavigationTreeTableSeparator']]]></code>
     </PossiblyInvalidOperand>
     <PossiblyNullArrayOffset>
       <code>$sotCache</code>
       <code>$tables</code>
     </PossiblyNullArrayOffset>
     <RedundantCast>
-      <code><![CDATA[(int) $GLOBALS['cfg']['ExecTimeLimit']]]></code>
-      <code><![CDATA[(int) $GLOBALS['cfg']['LimitChars']]]></code>
       <code><![CDATA[(string) $_REQUEST['tbl_group']]]></code>
       <code><![CDATA[(string) $_REQUEST['tbl_group']]]></code>
     </RedundantCast>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(int) $config->settings['LimitChars']]]></code>
+      <code><![CDATA[(int) Config::getInstance()->settings['ExecTimeLimit']]]></code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Utils/ForeignKey.php">
     <DeprecatedMethod>
@@ -12643,20 +12496,12 @@
     </PossiblyNullOperand>
   </file>
   <file src="libraries/classes/Utils/HttpRequest.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['ProxyPass']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['ProxyUrl']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['ProxyUser']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code>$httpStatus</code>
     </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$context['http']['content']]]></code>
       <code>$httpStatus</code>
-      <code><![CDATA[$this->proxyPass]]></code>
-      <code><![CDATA[$this->proxyUrl]]></code>
-      <code><![CDATA[$this->proxyUser]]></code>
     </MixedAssignment>
     <MixedInferredReturnType>
       <code>string|bool|null</code>
@@ -13301,7 +13146,6 @@
       <code>$v</code>
     </InvalidArgument>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['NavigationWidth']]]></code>
       <code><![CDATA[$config->settings['Server']]]></code>
       <code><![CDATA[$config->settings['Server']]]></code>
     </InvalidArrayOffset>
@@ -13424,6 +13268,9 @@
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[$config->settings]]></code>
+    </InvalidPropertyAssignmentValue>
   </file>
   <file src="test/classes/Controllers/Server/CollationsControllerTest.php">
     <DeprecatedMethod>
@@ -13610,6 +13457,11 @@
     <PossiblyUnusedMethod>
       <code>providerForTestNoTableSelected</code>
     </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Controllers/Table/OperationsControllerTest.php">
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[$config->settings]]></code>
+    </InvalidPropertyAssignmentValue>
   </file>
   <file src="test/classes/Controllers/Table/Partition/AnalyzeControllerTest.php">
     <PossiblyUnusedMethod>
@@ -13805,6 +13657,12 @@
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+    </InvalidPropertyAssignmentValue>
     <MixedArgument>
       <code><![CDATA[$this->callFunction(
                 $this->centralColumns,
@@ -14010,6 +13868,11 @@
       <code>dataProviderSortOrder</code>
       <code>providerSetConfigParamsForDisplayTable</code>
     </PossiblyUnusedMethod>
+    <PropertyTypeCoercion>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[Config::getInstance()->settings]]></code>
+      <code><![CDATA[Config::getInstance()->settings]]></code>
+    </PropertyTypeCoercion>
   </file>
   <file src="test/classes/Engines/PbxtTest.php">
     <PossiblyUnusedMethod>
@@ -14052,17 +13915,12 @@
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['Export']['as_separate_files']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Export']['asfile']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Export']['charset']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Export']['lock_tables']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Export']['onserver']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Export']['onserver_overwrite']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Export']['quick_export_onserver']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Export']['quick_export_onserver_overwrite']]]></code>
-      <code><![CDATA[$GLOBALS['cfg']['Export']['remember_file_template']]]></code>
-    </InvalidArrayOffset>
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+    </InvalidPropertyAssignmentValue>
   </file>
   <file src="test/classes/FileTest.php">
     <PossiblyUnusedMethod>
@@ -14223,6 +14081,13 @@
     <PossiblyUnusedMethod>
       <code>providerForTestGetHttpHeaders</code>
     </PossiblyUnusedMethod>
+    <PropertyTypeCoercion>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+    </PropertyTypeCoercion>
     <RedundantCast>
       <code>(string) gmdate(DATE_RFC1123)</code>
     </RedundantCast>
@@ -14249,6 +14114,9 @@
       <code>linksOrButtons</code>
       <code>providerForTestGetDefaultFunctionForField</code>
     </PossiblyUnusedMethod>
+    <PropertyTypeCoercion>
+      <code><![CDATA[$config->settings]]></code>
+    </PropertyTypeCoercion>
   </file>
   <file src="test/classes/Http/Factory/ResponseFactoryTest.php">
     <PossiblyUnusedMethod>
@@ -14307,6 +14175,9 @@
       <code>assertSame</code>
       <code>assertSame</code>
     </DocblockTypeContradiction>
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[Config::getInstance()->settings]]></code>
+    </InvalidPropertyAssignmentValue>
     <PossiblyUnusedMethod>
       <code>provDetectType</code>
       <code>provGetColumnAlphaName</code>
@@ -14342,6 +14213,17 @@
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+    </InvalidPropertyAssignmentValue>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['tmpval']['relational_display']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['relational_display']]]></code>
@@ -14378,6 +14260,9 @@
       <code>dataProviderConfigValueInsertRows</code>
       <code>providerForTestGetSpecialCharsForInsertingMode</code>
     </PossiblyUnusedMethod>
+    <PropertyTypeCoercion>
+      <code><![CDATA[Config::getInstance()->settings]]></code>
+    </PropertyTypeCoercion>
   </file>
   <file src="test/classes/InternalRelationsTest.php">
     <MixedAssignment>
@@ -14391,7 +14276,7 @@
   </file>
   <file src="test/classes/IpAllowDenyTest.php">
     <PossiblyNullArrayOffset>
-      <code><![CDATA[$GLOBALS['cfg']['TrustedProxies']]]></code>
+      <code><![CDATA[$config->settings['TrustedProxies']]]></code>
     </PossiblyNullArrayOffset>
     <PossiblyUnusedMethod>
       <code>proxyIPs</code>
@@ -14443,6 +14328,12 @@
     </InvalidPropertyAssignmentValue>
   </file>
   <file src="test/classes/NormalizationTest.php">
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+    </InvalidPropertyAssignmentValue>
     <MixedArgument>
       <code><![CDATA[$result1['html']]]></code>
     </MixedArgument>
@@ -14480,6 +14371,7 @@
   </file>
   <file src="test/classes/Plugins/Auth/AuthenticationConfigTest.php">
     <InvalidPropertyAssignmentValue>
+      <code><![CDATA[Config::getInstance()->settings]]></code>
       <code><![CDATA[['user' => 'username', 'password' => 'password']]]></code>
     </InvalidPropertyAssignmentValue>
   </file>
@@ -14490,6 +14382,27 @@
       <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[['auth_type' => 'cookie']]]></code>
     </InvalidPropertyAssignmentValue>
     <MixedArgument>
@@ -14509,9 +14422,17 @@
       <code>checkRulesProvider</code>
       <code>dataProviderPasswordLength</code>
     </PossiblyUnusedMethod>
+    <PropertyTypeCoercion>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+    </PropertyTypeCoercion>
   </file>
   <file src="test/classes/Plugins/Auth/AuthenticationHttpTest.php">
     <InvalidPropertyAssignmentValue>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[['host' => 'a', 'user' => 'user2']]]></code>
       <code><![CDATA[['host' => 'a', 'user' => 'user2']]]></code>
     </InvalidPropertyAssignmentValue>
@@ -14530,6 +14451,7 @@
       <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[$config->selectedServer]]></code>
+      <code><![CDATA[$config->settings]]></code>
     </InvalidPropertyAssignmentValue>
   </file>
   <file src="test/classes/Plugins/AuthenticationPluginFactoryTest.php">
@@ -14732,6 +14654,9 @@
     <PossiblyUnusedMethod>
       <code>providerForTestGetDefault</code>
     </PossiblyUnusedMethod>
+    <PropertyTypeCoercion>
+      <code><![CDATA[Config::getInstance()->settings]]></code>
+    </PropertyTypeCoercion>
     <RedundantCondition>
       <code>assertIsArray</code>
       <code>assertIsArray</code>
@@ -14774,8 +14699,22 @@
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+    </InvalidPropertyAssignmentValue>
   </file>
   <file src="test/classes/Routing/RoutingTest.php">
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[$config->settings]]></code>
+    </InvalidPropertyAssignmentValue>
     <PossiblyUnusedMethod>
       <code>providerForTestCleanupPathInfo</code>
     </PossiblyUnusedMethod>
@@ -14832,12 +14771,27 @@
     </UnusedVariable>
   </file>
   <file src="test/classes/Server/SelectTest.php">
-    <MixedArgument>
-      <code><![CDATA[$server['host']]]></code>
+    <InvalidArrayOffset>
+      <code><![CDATA[$config->settings['Servers']['0']]]></code>
+    </InvalidArrayOffset>
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+    </InvalidPropertyAssignmentValue>
+    <PossiblyInvalidArgument>
       <code><![CDATA[$server['only_db']]]></code>
-      <code><![CDATA[$server['port']]]></code>
-      <code><![CDATA[$server['user']]]></code>
-    </MixedArgument>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidCast>
+      <code><![CDATA[$server['only_db']]]></code>
+    </PossiblyInvalidCast>
     <PossiblyUnusedMethod>
       <code>renderDataProvider</code>
     </PossiblyUnusedMethod>
@@ -14858,6 +14812,20 @@
       <code><![CDATA[$_SESSION['messages']['type']]]></code>
       <code><![CDATA[$_SESSION['messages']['type']['123']]]></code>
     </MixedArrayAccess>
+  </file>
+  <file src="test/classes/SqlQueryFormTest.php">
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+    </InvalidPropertyAssignmentValue>
   </file>
   <file src="test/classes/SqlTest.php">
     <MixedAssignment>
@@ -15031,6 +14999,10 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/TransformationsTest.php">
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[['ServerDefault' => 1, 'ActionLinksMode' => 'icons']]]></code>
+    </InvalidPropertyAssignmentValue>
     <PossiblyUnusedMethod>
       <code>fixupData</code>
       <code>getOptionsData</code>
@@ -15053,6 +15025,10 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/TwoFactorTest.php">
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+    </InvalidPropertyAssignmentValue>
     <MixedArgument>
       <code><![CDATA[$object->config['settings']['secret']]]></code>
       <code><![CDATA[$object->config['settings']['secret']]]></code>
@@ -15077,6 +15053,14 @@
       <code>providerFortTestGetFunctionsClass</code>
       <code>providerFortTestGetTypeClass</code>
     </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/UrlTest.php">
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[Config::getInstance()->settings]]></code>
+      <code><![CDATA[Config::getInstance()->settings]]></code>
+      <code><![CDATA[Config::getInstance()->settings]]></code>
+      <code><![CDATA[Config::getInstance()->settings]]></code>
+    </InvalidPropertyAssignmentValue>
   </file>
   <file src="test/classes/UserPasswordTest.php">
     <InvalidReturnStatement>
@@ -15114,6 +15098,12 @@
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[['Server/hide_db' => 'testval123', 'Server/port' => '213']]]></code>
+    </InvalidPropertyAssignmentValue>
     <MixedArgument>
       <code><![CDATA[$_SESSION['userconfig']]]></code>
     </MixedArgument>
@@ -15282,6 +15272,11 @@
     </MixedArrayAccess>
   </file>
   <file src="test/classes/VersionInformationTest.php">
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[Config::getInstance()->settings]]></code>
+      <code><![CDATA[Config::getInstance()->settings]]></code>
+      <code><![CDATA[Config::getInstance()->settings]]></code>
+    </InvalidPropertyAssignmentValue>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['cache']['version_check']]]></code>
     </MixedArrayAccess>

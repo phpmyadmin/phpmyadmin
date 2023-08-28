@@ -516,7 +516,7 @@ class ExportSql extends ExportPlugin
             }
 
             $createQuery = $this->replaceWithAliases($definition, $aliases, $db, $flag);
-            if ($createQuery !== '' && $GLOBALS['cfg']['Export']['remove_definer_from_definitions']) {
+            if ($createQuery !== '' && Config::getInstance()->settings['Export']['remove_definer_from_definitions']) {
                 // Remove definer clause from routine definitions
                 $parser = new Parser($createQuery);
                 $statement = $parser->statements[0];
@@ -959,7 +959,7 @@ class ExportSql extends ExportPlugin
                 if (
                     $eventDef !== null
                     && $eventDef !== ''
-                    && $GLOBALS['cfg']['Export']['remove_definer_from_definitions']
+                    && Config::getInstance()->settings['Export']['remove_definer_from_definitions']
                 ) {
                     // remove definer clause from the event definition
                     $parser = new Parser($eventDef);
@@ -1443,7 +1443,7 @@ class ExportSql extends ExportPlugin
 
                 // exclude definition of current user
                 if (
-                    $GLOBALS['cfg']['Export']['remove_definer_from_definitions']
+                    Config::getInstance()->settings['Export']['remove_definer_from_definitions']
                     || isset($GLOBALS['sql_view_current_user'])
                 ) {
                     $statement->options->remove('DEFINER');

@@ -119,7 +119,7 @@ class TwoFactor
     public function getAvailableBackends(): array
     {
         $result = [];
-        if ($GLOBALS['cfg']['DBG']['simple2fa']) {
+        if (Config::getInstance()->settings['DBG']['simple2fa']) {
             $result[] = 'simple';
         }
 

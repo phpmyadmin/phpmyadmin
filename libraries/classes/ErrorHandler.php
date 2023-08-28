@@ -200,9 +200,10 @@ class ErrorHandler
              */
             $isSilenced = (error_reporting() & $errno) === 0;
 
+            $config = Config::getInstance();
             if (
-                isset($GLOBALS['cfg']['environment'])
-                && $GLOBALS['cfg']['environment'] === 'development'
+                isset($config->settings['environment'])
+                && $config->settings['environment'] === 'development'
                 && ! $isSilenced
             ) {
                 throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
@@ -359,7 +360,8 @@ class ErrorHandler
     {
         $retval = '';
         // display errors if SendErrorReports is set to 'ask'.
-        if ($GLOBALS['cfg']['SendErrorReports'] !== 'never') {
+        $config = Config::getInstance();
+        if ($config->settings['SendErrorReports'] !== 'never') {
             foreach ($this->getErrors() as $error) {
                 if ($error->isDisplayed()) {
                     continue;
@@ -373,11 +375,11 @@ class ErrorHandler
 
         // if preference is not 'never' and
         // there are 'actual' errors to be reported
-        if ($GLOBALS['cfg']['SendErrorReports'] !== 'never' && $this->countErrors() !== $this->countUserErrors()) {
+        if ($config->settings['SendErrorReports'] !== 'never' && $this->countErrors() !== $this->countUserErrors()) {
             // add report button.
             $retval .= '<form method="post" action="' . Url::getFromRoute('/error-report')
                     . '" id="pma_report_errors_form"';
-            if ($GLOBALS['cfg']['SendErrorReports'] === 'always') {
+            if ($config->settings['SendErrorReports'] === 'always') {
                 // in case of 'always', generate 'invisible' form.
                 $retval .= ' class="hide"';
             }
@@ -397,7 +399,7 @@ class ErrorHandler
                     . __('Automatically send report next time')
                     . '</label>';
 
-            if ($GLOBALS['cfg']['SendErrorReports'] === 'ask') {
+            if ($config->settings['SendErrorReports'] === 'ask') {
                 // add ignore buttons
                 $retval .= '<input type="submit" value="'
                         . __('Ignore')
@@ -492,7 +494,7 @@ class ErrorHandler
      */
     public function countDisplayErrors(): int
     {
-        if ($GLOBALS['cfg']['SendErrorReports'] !== 'never') {
+        if (Config::getInstance()->settings['SendErrorReports'] !== 'never') {
             return $this->countErrors();
         }
 
@@ -527,7 +529,7 @@ class ErrorHandler
      */
     public function hasErrorsForPrompt(): bool
     {
-        return $GLOBALS['cfg']['SendErrorReports'] !== 'never'
+        return Config::getInstance()->settings['SendErrorReports'] !== 'never'
             && $this->countErrors() !== $this->countUserErrors();
     }
 
@@ -548,7 +550,8 @@ class ErrorHandler
         $this->savePreviousErrors();
         $response = ResponseRenderer::getInstance();
         $jsCode = '';
-        if ($GLOBALS['cfg']['SendErrorReports'] === 'always') {
+        $config = Config::getInstance();
+        if ($config->settings['SendErrorReports'] === 'always') {
             if ($response->isAjax()) {
                 // set flag for automatic report submission.
                 $response->addJSON('sendErrorAlways', '1');
@@ -563,7 +566,7 @@ class ErrorHandler
                                 scrollTop:$(document).height()
                             }, "slow");';
             }
-        } elseif ($GLOBALS['cfg']['SendErrorReports'] === 'ask') {
+        } elseif ($config->settings['SendErrorReports'] === 'ask') {
             //ask user whether to submit errors or not.
             if (! $response->isAjax()) {
                 // js code to show appropriate msgs, event binding & focusing.

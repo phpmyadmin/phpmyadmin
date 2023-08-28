@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Query;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Error;
 use PhpMyAdmin\Url;
@@ -139,7 +140,7 @@ class Utilities
 
         // produces f.e.:
         // return -1 * strnatcasecmp($a['SCHEMA_TABLES'], $b['SCHEMA_TABLES'])
-        $compare = $GLOBALS['cfg']['NaturalOrder'] ? strnatcasecmp(
+        $compare = Config::getInstance()->settings['NaturalOrder'] ? strnatcasecmp(
             (string) $a[$sortBy],
             (string) $b[$sortBy],
         ) : strcasecmp((string) $a[$sortBy], (string) $b[$sortBy]);

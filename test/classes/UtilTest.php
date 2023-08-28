@@ -549,7 +549,7 @@ class UtilTest extends AbstractTestCase
     #[DataProvider('providerExtractColumnSpec')]
     public function testExtractColumnSpec(string $in, array $out): void
     {
-        $GLOBALS['cfg']['LimitChars'] = 1000;
+        Config::getInstance()->settings['LimitChars'] = 1000;
 
         $this->assertEquals(
             $out,
@@ -1558,21 +1558,23 @@ SQL;
 
     public function testShowIcons(): void
     {
-        $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
+        $config = Config::getInstance();
+        $config->settings['ActionLinksMode'] = 'icons';
         $this->assertTrue(Util::showIcons('ActionLinksMode'));
-        $GLOBALS['cfg']['ActionLinksMode'] = 'both';
+        $config->settings['ActionLinksMode'] = 'both';
         $this->assertTrue(Util::showIcons('ActionLinksMode'));
-        $GLOBALS['cfg']['ActionLinksMode'] = 'text';
+        $config->settings['ActionLinksMode'] = 'text';
         $this->assertFalse(Util::showIcons('ActionLinksMode'));
     }
 
     public function testShowText(): void
     {
-        $GLOBALS['cfg']['ActionLinksMode'] = 'text';
+        $config = Config::getInstance();
+        $config->settings['ActionLinksMode'] = 'text';
         $this->assertTrue(Util::showText('ActionLinksMode'));
-        $GLOBALS['cfg']['ActionLinksMode'] = 'both';
+        $config->settings['ActionLinksMode'] = 'both';
         $this->assertTrue(Util::showText('ActionLinksMode'));
-        $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
+        $config->settings['ActionLinksMode'] = 'icons';
         $this->assertFalse(Util::showText('ActionLinksMode'));
     }
 

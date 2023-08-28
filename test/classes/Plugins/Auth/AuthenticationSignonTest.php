@@ -301,7 +301,8 @@ class AuthenticationSignonTest extends AbstractTestCase
 
     public function testAuthFailsTimeout(): void
     {
-        Config::getInstance()->selectedServer['SignonSession'] = 'newSession';
+        $config = Config::getInstance();
+        $config->selectedServer['SignonSession'] = 'newSession';
         $_COOKIE['newSession'] = '42';
 
         $this->object = $this->getMockBuilder(AuthenticationSignon::class)
@@ -313,7 +314,7 @@ class AuthenticationSignonTest extends AbstractTestCase
             ->method('showLoginForm')
             ->willThrowException(new ExitException());
 
-        $GLOBALS['cfg']['LoginCookieValidity'] = '1440';
+        $config->settings['LoginCookieValidity'] = '1440';
 
         try {
             $this->object->showFailure('no-activity');

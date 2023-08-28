@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Export;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\ExportController as DatabaseExportController;
 use PhpMyAdmin\Core;
@@ -114,15 +115,16 @@ final class ExportController extends AbstractController
             $exportPlugin->useSqlBackquotes(true);
         }
 
+        $config = Config::getInstance();
         /**
          * valid compression methods
          */
         $compressionMethods = [];
-        if ($GLOBALS['cfg']['ZipDump'] && function_exists('gzcompress')) {
+        if ($config->settings['ZipDump'] && function_exists('gzcompress')) {
             $compressionMethods[] = 'zip';
         }
 
-        if ($GLOBALS['cfg']['GZipDump'] && function_exists('gzencode')) {
+        if ($config->settings['GZipDump'] && function_exists('gzencode')) {
             $compressionMethods[] = 'gzip';
         }
 
@@ -156,7 +158,7 @@ final class ExportController extends AbstractController
 
             if (($isQuickExport && $quickExportOnServer) || (! $isQuickExport && $onServerParam)) {
                 // Will we save dump on server?
-                $GLOBALS['save_on_server'] = ! empty($GLOBALS['cfg']['SaveDir']);
+                $GLOBALS['save_on_server'] = ! empty($config->settings['SaveDir']);
             }
         }
 
@@ -208,8 +210,8 @@ final class ExportController extends AbstractController
          * Increase time limit for script execution and initializes some variables
          */
         Util::setTimeLimit();
-        if (! empty($GLOBALS['cfg']['MemoryLimit'])) {
-            ini_set('memory_limit', $GLOBALS['cfg']['MemoryLimit']);
+        if (! empty($config->settings['MemoryLimit'])) {
+            ini_set('memory_limit', $config->settings['MemoryLimit']);
         }
 
         register_shutdown_function([$this->export, 'shutdown']);
@@ -231,7 +233,7 @@ final class ExportController extends AbstractController
             && isset($GLOBALS['charset']) && $GLOBALS['charset'] !== 'utf-8';
 
         // Use on the fly compression?
-        $GLOBALS['onfly_compression'] = $GLOBALS['cfg']['CompressOnFly']
+        $GLOBALS['onfly_compression'] = $config->settings['CompressOnFly']
             && $GLOBALS['compression'] === 'gzip';
         if ($GLOBALS['onfly_compression']) {
             $GLOBALS['memory_limit'] = $this->export->getMemoryLimit();

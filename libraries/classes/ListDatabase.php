@@ -83,7 +83,8 @@ class ListDatabase extends ListAbstract
     {
         $databaseList = [];
         $command = '';
-        if (! Config::getInstance()->selectedServer['DisableIS']) {
+        $config = Config::getInstance();
+        if (! $config->selectedServer['DisableIS']) {
             $command .= 'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`';
             if ($likeDbName !== null) {
                 $command .= " WHERE `SCHEMA_NAME` LIKE '" . $likeDbName . "'";
@@ -106,7 +107,7 @@ class ListDatabase extends ListAbstract
             $databaseList = DatabaseInterface::getInstance()->fetchResult($command);
         }
 
-        if ($GLOBALS['cfg']['NaturalOrder']) {
+        if ($config->settings['NaturalOrder']) {
             usort($databaseList, 'strnatcasecmp');
         } else {
             // need to sort anyway, otherwise information_schema

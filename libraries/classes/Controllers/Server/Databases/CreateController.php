@@ -49,9 +49,9 @@ final class CreateController extends AbstractController
          * Builds and executes the db creation sql query
          */
         $sqlQuery = 'CREATE DATABASE ' . Util::backquote($newDb);
+        $config = Config::getInstance();
         if (is_string($dbCollation) && $dbCollation !== '') {
             [$databaseCharset] = explode('_', $dbCollation);
-            $config = Config::getInstance();
             $charsets = Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
             $collations = Charsets::getCollations($this->dbi, $config->selectedServer['DisableIS']);
             if (
@@ -81,7 +81,7 @@ final class CreateController extends AbstractController
             $message = Message::success(__('Database %1$s has been created.'));
             $message->addParam($newDb);
 
-            $scriptName = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+            $scriptName = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
 
             $json = [
                 'message' => $message,

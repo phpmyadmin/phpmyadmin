@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Command;
 
 use PhpMyAdmin\Command\TwigLintCommand;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Symfony\Component\Console\Command\Command;
@@ -32,7 +33,7 @@ class TwigLintCommandTest extends AbstractTestCase
 
         parent::setUp();
 
-        $GLOBALS['cfg']['environment'] = 'development';
+        Config::getInstance()->settings['environment'] = 'development';
 
         $this->command = new TwigLintCommand();
     }

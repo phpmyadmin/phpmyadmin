@@ -1045,7 +1045,7 @@ class Routines
                 continue;
             }
 
-            if ($GLOBALS['cfg']['ShowFunctionFields']) {
+            if (Config::getInstance()->settings['ShowFunctionFields']) {
                 if (
                     stripos($routine['item_param_type'][$i], 'enum') !== false
                     || stripos($routine['item_param_type'][$i], 'set') !== false

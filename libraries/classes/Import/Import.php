@@ -149,7 +149,7 @@ class Import
 
             $GLOBALS['msg'] .= __('Error');
 
-            if (! $GLOBALS['cfg']['IgnoreMultiSubmitErrors']) {
+            if (! Config::getInstance()->settings['IgnoreMultiSubmitErrors']) {
                 $GLOBALS['error'] = true;
 
                 return;
@@ -1430,15 +1430,16 @@ class Import
     {
         $compressions = [];
 
-        if ($GLOBALS['cfg']['GZipDump'] && function_exists('gzopen')) {
+        $config = Config::getInstance();
+        if ($config->settings['GZipDump'] && function_exists('gzopen')) {
             $compressions[] = 'gzip';
         }
 
-        if ($GLOBALS['cfg']['BZipDump'] && function_exists('bzopen')) {
+        if ($config->settings['BZipDump'] && function_exists('bzopen')) {
             $compressions[] = 'bzip2';
         }
 
-        if ($GLOBALS['cfg']['ZipDump'] && function_exists('zip_open')) {
+        if ($config->settings['ZipDump'] && function_exists('zip_open')) {
             $compressions[] = 'zip';
         }
 
@@ -1466,7 +1467,7 @@ class Import
             : '';
 
         return $fileListing->getFileSelectOptions(
-            Util::userDir((string) ($GLOBALS['cfg']['UploadDir'] ?? '')),
+            Util::userDir((string) (Config::getInstance()->settings['UploadDir'] ?? '')),
             $matcher,
             $active,
         );

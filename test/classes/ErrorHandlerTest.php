@@ -43,8 +43,9 @@ class ErrorHandlerTest extends AbstractTestCase
         $this->object = new ErrorHandler();
         $_SESSION['errors'] = [];
         $GLOBALS['server'] = 0;
-        $GLOBALS['cfg']['environment'] = 'production';
-        $GLOBALS['cfg']['SendErrorReports'] = 'always';
+        $config = Config::getInstance();
+        $config->settings['environment'] = 'production';
+        $config->settings['SendErrorReports'] = 'always';
     }
 
     /**
@@ -100,7 +101,7 @@ class ErrorHandlerTest extends AbstractTestCase
         string $outputHide,
     ): void {
         // TODO: Add other test cases for all combination of 'sendErrorReports'
-        $GLOBALS['cfg']['SendErrorReports'] = 'never';
+        Config::getInstance()->settings['SendErrorReports'] = 'never';
 
         $this->object->handleError($errno, $errstr, $errfile, $errline);
 

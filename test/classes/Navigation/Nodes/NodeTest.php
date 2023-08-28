@@ -320,10 +320,11 @@ final class NodeTest extends AbstractTestCase
      */
     public function testGetDataWithEnabledISAndGroupingEnabled(): void
     {
-        Config::getInstance()->selectedServer['DisableIS'] = false;
-        $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
-        $GLOBALS['cfg']['FirstLevelNavigationItems'] = 20;
-        $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = false;
+        $config->settings['NavigationTreeEnableGrouping'] = true;
+        $config->settings['FirstLevelNavigationItems'] = 20;
+        $config->settings['NavigationTreeDbSeparator'] = '_';
 
         $expectedSql = 'SELECT `SCHEMA_NAME` ';
         $expectedSql .= 'FROM `INFORMATION_SCHEMA`.`SCHEMATA`, ';
@@ -363,9 +364,10 @@ final class NodeTest extends AbstractTestCase
      */
     public function testGetDataWithEnabledISAndGroupingDisabled(): void
     {
-        Config::getInstance()->selectedServer['DisableIS'] = false;
-        $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = false;
-        $GLOBALS['cfg']['FirstLevelNavigationItems'] = 20;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = false;
+        $config->settings['NavigationTreeEnableGrouping'] = false;
+        $config->settings['FirstLevelNavigationItems'] = 20;
 
         $expectedSql = 'SELECT `SCHEMA_NAME` ';
         $expectedSql .= 'FROM `INFORMATION_SCHEMA`.`SCHEMATA` ';
@@ -394,11 +396,12 @@ final class NodeTest extends AbstractTestCase
      */
     public function testGetDataWithDisabledISAndGroupingEnabled(): void
     {
-        Config::getInstance()->selectedServer['DisableIS'] = true;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = true;
         $GLOBALS['dbs_to_test'] = false;
-        $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
-        $GLOBALS['cfg']['FirstLevelNavigationItems'] = 10;
-        $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';
+        $config->settings['NavigationTreeEnableGrouping'] = true;
+        $config->settings['FirstLevelNavigationItems'] = 10;
+        $config->settings['NavigationTreeDbSeparator'] = '_';
 
         $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',
@@ -438,9 +441,10 @@ final class NodeTest extends AbstractTestCase
      */
     public function testGetPresenceWithEnabledISAndGroupingEnabled(): void
     {
-        Config::getInstance()->selectedServer['DisableIS'] = false;
-        $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
-        $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = false;
+        $config->settings['NavigationTreeEnableGrouping'] = true;
+        $config->settings['NavigationTreeDbSeparator'] = '_';
 
         $query = 'SELECT COUNT(*) ';
         $query .= 'FROM ( ';
@@ -463,8 +467,9 @@ final class NodeTest extends AbstractTestCase
      */
     public function testGetPresenceWithEnabledISAndGroupingDisabled(): void
     {
-        Config::getInstance()->selectedServer['DisableIS'] = false;
-        $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = false;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = false;
+        $config->settings['NavigationTreeEnableGrouping'] = false;
 
         $query = 'SELECT COUNT(*) ';
         $query .= 'FROM INFORMATION_SCHEMA.SCHEMATA ';
@@ -482,9 +487,10 @@ final class NodeTest extends AbstractTestCase
      */
     public function testGetPresenceWithDisabledIS(): void
     {
-        Config::getInstance()->selectedServer['DisableIS'] = true;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = true;
         $GLOBALS['dbs_to_test'] = false;
-        $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
+        $config->settings['NavigationTreeEnableGrouping'] = true;
 
         $node = new Node('node');
 

@@ -52,7 +52,8 @@ final class ImportController extends AbstractController
 
         $this->checkParameters(['db']);
 
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+        $config = Config::getInstance();
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
         $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
@@ -90,7 +91,6 @@ final class ImportController extends AbstractController
         $localImportFile = $_REQUEST['local_import_file'] ?? null;
         $compressions = Import::getCompressions();
 
-        $config = Config::getInstance();
         $charsets = Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
 
         $idKey = $_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getIdKey();
@@ -121,18 +121,18 @@ final class ImportController extends AbstractController
             'is_allow_interrupt_checked' => $isAllowInterruptChecked,
             'local_import_file' => $localImportFile,
             'is_upload' => $config->get('enable_upload'),
-            'upload_dir' => $GLOBALS['cfg']['UploadDir'] ?? null,
+            'upload_dir' => $config->settings['UploadDir'] ?? null,
             'timeout_passed_global' => $GLOBALS['timeout_passed'] ?? null,
             'compressions' => $compressions,
             'is_encoding_supported' => Encoding::isSupported(),
             'encodings' => Encoding::listEncodings(),
-            'import_charset' => $GLOBALS['cfg']['Import']['charset'] ?? null,
+            'import_charset' => $config->settings['Import']['charset'] ?? null,
             'timeout_passed' => $timeoutPassed,
             'offset' => $offset,
             'can_convert_kanji' => Encoding::canConvertKanji(),
             'charsets' => $charsets,
             'is_foreign_key_check' => ForeignKey::isCheckEnabled(),
-            'user_upload_dir' => Util::userDir((string) ($GLOBALS['cfg']['UploadDir'] ?? '')),
+            'user_upload_dir' => Util::userDir((string) ($config->settings['UploadDir'] ?? '')),
             'local_files' => Import::getLocalFiles($importList),
         ]);
     }

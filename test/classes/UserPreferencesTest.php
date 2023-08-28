@@ -45,9 +45,10 @@ class UserPreferencesTest extends AbstractTestCase
      */
     public function testPageInit(): void
     {
-        $GLOBALS['cfg'] = ['Server/hide_db' => 'testval123', 'Server/port' => '213'];
-        $GLOBALS['cfg']['AvailableCharsets'] = [];
-        $GLOBALS['cfg']['UserprefsDeveloperTab'] = null;
+        $config = Config::getInstance();
+        $config->settings = ['Server/hide_db' => 'testval123', 'Server/port' => '213'];
+        $config->settings['AvailableCharsets'] = [];
+        $config->settings['UserprefsDeveloperTab'] = null;
 
         $dbi = DatabaseInterface::getInstance();
         $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
@@ -245,8 +246,9 @@ class UserPreferencesTest extends AbstractTestCase
      */
     public function testApply(): void
     {
-        $GLOBALS['cfg']['UserprefsDisallow'] = ['test' => 'val', 'foo' => 'bar'];
-        $GLOBALS['cfg']['UserprefsDeveloperTab'] = null;
+        $config = Config::getInstance();
+        $config->settings['UserprefsDisallow'] = ['test' => 'val', 'foo' => 'bar'];
+        $config->settings['UserprefsDeveloperTab'] = null;
 
         $dbi = DatabaseInterface::getInstance();
         $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
@@ -271,7 +273,7 @@ class UserPreferencesTest extends AbstractTestCase
      */
     public function testApplyDevel(): void
     {
-        $GLOBALS['cfg']['UserprefsDeveloperTab'] = true;
+        Config::getInstance()->settings['UserprefsDeveloperTab'] = true;
 
         $dbi = DatabaseInterface::getInstance();
         $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
@@ -358,7 +360,7 @@ class UserPreferencesTest extends AbstractTestCase
         $this->assertTrue($_SESSION['userprefs_autoload']);
 
         $_REQUEST['prefs_autoload'] = 'nohide';
-        $GLOBALS['cfg']['ServerDefault'] = 1;
+        Config::getInstance()->settings['ServerDefault'] = 1;
         $result = $userPreferences->autoloadGetHeader();
 
         $this->assertStringContainsString(

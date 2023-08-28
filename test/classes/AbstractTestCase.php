@@ -163,7 +163,6 @@ abstract class AbstractTestCase extends TestCase
         $config = Config::getInstance();
         $config->loadAndCheck();
         $config->set('environment', 'development');
-        $GLOBALS['cfg'] = $config->settings;
     }
 
     protected function setTheme(): void

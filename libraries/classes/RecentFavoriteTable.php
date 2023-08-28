@@ -161,7 +161,7 @@ class RecentFavoriteTable
     public function trim(): bool
     {
         $max = max(
-            $GLOBALS['cfg']['Num' . ucfirst($this->tableType) . 'Tables'],
+            Config::getInstance()->settings['Num' . ucfirst($this->tableType) . 'Tables'],
             0,
         );
         $trimmingOccurred = count($this->tables) > $max;

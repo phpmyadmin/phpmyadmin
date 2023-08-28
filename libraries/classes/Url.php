@@ -55,11 +55,12 @@ class Url
             }
         }
 
-        if (! empty($GLOBALS['server']) && $GLOBALS['server'] != $GLOBALS['cfg']['ServerDefault']) {
+        $config = Config::getInstance();
+        if (! empty($GLOBALS['server']) && $GLOBALS['server'] != $config->settings['ServerDefault']) {
             $params['server'] = $GLOBALS['server'];
         }
 
-        if (empty(Config::getInstance()->getCookie('pma_lang')) && ! empty($GLOBALS['lang'])) {
+        if (empty($config->getCookie('pma_lang')) && ! empty($GLOBALS['lang'])) {
             $params['lang'] = $GLOBALS['lang'];
         }
 
@@ -208,7 +209,7 @@ class Url
         $config = Config::getInstance();
         if (
             isset($GLOBALS['server'])
-            && $GLOBALS['server'] != $GLOBALS['cfg']['ServerDefault']
+            && $GLOBALS['server'] != $config->settings['ServerDefault']
             && ! isset($params['server'])
             && ! $config->get('is_setup')
         ) {

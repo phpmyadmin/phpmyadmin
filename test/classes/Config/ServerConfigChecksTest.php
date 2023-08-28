@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Config;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\ServerConfigChecks;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -29,8 +30,9 @@ class ServerConfigChecksTest extends AbstractTestCase
 
         parent::setGlobalConfig();
 
-        $GLOBALS['cfg']['AvailableCharsets'] = [];
-        $GLOBALS['cfg']['ServerDefault'] = 0;
+        $config = Config::getInstance();
+        $config->settings['AvailableCharsets'] = [];
+        $config->settings['ServerDefault'] = 0;
         $GLOBALS['server'] = 0;
 
         $cf = new ConfigFile();

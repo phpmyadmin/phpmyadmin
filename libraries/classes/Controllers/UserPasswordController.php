@@ -38,15 +38,16 @@ class UserPasswordController extends AbstractController
 
         $this->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn-ts.js']);
 
+        $config = Config::getInstance();
         /**
          * Displays an error message and exits if the user isn't allowed to use this
          * script
          */
-        if (! $GLOBALS['cfg']['ShowChgPassword']) {
-            $GLOBALS['cfg']['ShowChgPassword'] = $this->dbi->selectDb('mysql');
+        if (! $config->settings['ShowChgPassword']) {
+            $config->settings['ShowChgPassword'] = $this->dbi->selectDb('mysql');
         }
 
-        if (Config::getInstance()->selectedServer['auth_type'] === 'config' || ! $GLOBALS['cfg']['ShowChgPassword']) {
+        if ($config->selectedServer['auth_type'] === 'config' || ! $config->settings['ShowChgPassword']) {
             $this->response->addHTML(Message::error(
                 __('You don\'t have sufficient privileges to be here right now!'),
             )->getDisplay());

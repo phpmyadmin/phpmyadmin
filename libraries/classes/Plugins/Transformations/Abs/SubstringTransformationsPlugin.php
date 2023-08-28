@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 
@@ -46,7 +47,7 @@ abstract class SubstringTransformationsPlugin extends TransformationsPlugin
         // possibly use a global transform and feed it with special options
 
         // further operations on $buffer using the $options[] array.
-        $cfg = $GLOBALS['cfg'];
+        $cfg = Config::getInstance()->settings;
         $options = $this->getOptions($options, $cfg['DefaultTransformations']['Substring']);
 
         $optionZero = (int) $options[0];
