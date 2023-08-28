@@ -64,8 +64,8 @@ class Navigation
         $response = ResponseRenderer::getInstance();
         if (! $response->isAjax()) {
             $logo['source'] = $this->getLogoSource();
-            $logo['has_link'] = (string) $config->settings['NavigationLogoLink'] !== '';
-            $logo['link'] = trim((string) $config->settings['NavigationLogoLink']);
+            $logo['has_link'] = $config->settings['NavigationLogoLink'] !== '';
+            $logo['link'] = trim($config->settings['NavigationLogoLink']);
             if (! Sanitize::checkLink($logo['link'], true)) {
                 $logo['link'] = 'index.php';
             }

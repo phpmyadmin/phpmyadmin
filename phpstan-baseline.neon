@@ -1146,21 +1146,6 @@ parameters:
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
-			message: "#^Casting to int something that's already int\\<1, max\\>\\.$#"
-			count: 1
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 4
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Comparison operation \"\\>\" between 10 and 0 is always true\\.$#"
-			count: 2
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 21
 			path: libraries/classes/ConfigStorage/Relation.php
@@ -1207,11 +1192,6 @@ parameters:
 
 		-
 			message: "#^Offset 'relation' on array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\} on left side of \\?\\? always exists and is not nullable\\.$#"
-			count: 1
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Offset 0 on array\\{0\\: 'content\\-id'\\|'id\\-content', 1\\?\\: 'content\\-id'\\|'id\\-content'\\} in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
 
@@ -1331,16 +1311,6 @@ parameters:
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
-			message: "#^Result of && is always true\\.$#"
-			count: 1
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Right side of && is always true\\.$#"
-			count: 3
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
 			message: "#^Argument of an invalid type array\\|null supplied for foreach, only iterables are supported\\.$#"
 			count: 3
 			path: libraries/classes/ConfigStorage/UserGroups.php
@@ -1414,11 +1384,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getColumnsNotInCentralList\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/CentralColumns/PopulateColumnsController.php
-
-		-
-			message: "#^Casting to int something that's already int\\<1, max\\>\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/CentralColumnsController.php
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
@@ -1947,11 +1912,6 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/ImportController.php
-
-		-
-			message: "#^Casting to string something that's already string\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/ImportController.php
 
@@ -3536,6 +3496,11 @@ parameters:
 			path: libraries/classes/Controllers/HomeController.php
 
 		-
+			message: "#^Parameter \\#1 \\$string of function mb_strlen expects string, array\\<array\\<int\\|string, array\\<array\\<string\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string\\|null\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/HomeController.php
+
+		-
 			message: "#^Parameter \\#2 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/HomeController.php
@@ -3607,12 +3572,12 @@ parameters:
 
 		-
 			message: "#^Casting to string something that's already string\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Controllers/Import/ImportController.php
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 15
+			count: 14
 			path: libraries/classes/Controllers/Import/ImportController.php
 
 		-
@@ -4291,11 +4256,6 @@ parameters:
 			path: libraries/classes/Controllers/Server/BinlogController.php
 
 		-
-			message: "#^Casting to int something that's already int\\<1, max\\>\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/BinlogController.php
-
-		-
 			message: "#^Parameter \\#1 \\$key of function array_key_exists expects int\\|string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/BinlogController.php
@@ -4457,11 +4417,6 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/ImportController.php
-
-		-
-			message: "#^Casting to string something that's already string\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/ImportController.php
 
@@ -5981,11 +5936,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/GisVisualizationController.php
 
 		-
-			message: "#^Casting to int something that's already int\\<1, max\\>\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/GisVisualizationController.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\GisVisualizationController\\:\\:getVisualizationSettings\\(\\) should return array\\{spatialColumn\\: non\\-empty\\-string, labelColumn\\?\\: non\\-empty\\-string\\} but returns array\\{labelColumn\\?\\: non\\-empty\\-string, spatialColumn\\: mixed\\}\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/GisVisualizationController.php
@@ -6027,11 +5977,6 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ImportController.php
-
-		-
-			message: "#^Casting to string something that's already string\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ImportController.php
 
@@ -8666,11 +8611,6 @@ parameters:
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
-			message: "#^Casting to int something that's already int\\<1, max\\>\\.$#"
-			count: 1
-			path: libraries/classes/Database/CentralColumns.php
-
-		-
 			message: "#^Foreach overwrites \\$table with its value variable\\.$#"
 			count: 2
 			path: libraries/classes/Database/CentralColumns.php
@@ -9916,11 +9856,6 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Casting to int something that's already int\\<1, max\\>\\.$#"
-			count: 3
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 26
 			path: libraries/classes/Display/Results.php
@@ -10512,7 +10447,7 @@ parameters:
 
 		-
 			message: "#^Casting to string something that's already string\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Export/Export.php
 
 		-
@@ -10626,11 +10561,6 @@ parameters:
 			path: libraries/classes/Export/Options.php
 
 		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 1
-			path: libraries/classes/Export/Options.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 2
 			path: libraries/classes/Export/Options.php
@@ -10707,16 +10637,11 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 4
+			count: 3
 			path: libraries/classes/File.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\File\\:\\:getCompression\\(\\) should return string but returns string\\|false\\.$#"
-			count: 1
-			path: libraries/classes/File.php
-
-		-
-			message: "#^Negated boolean expression is always false\\.$#"
 			count: 1
 			path: libraries/classes/File.php
 
@@ -11431,11 +11356,6 @@ parameters:
 			path: libraries/classes/Html/Generator.php
 
 		-
-			message: "#^Casting to int something that's already int\\<1, max\\>\\.$#"
-			count: 1
-			path: libraries/classes/Html/Generator.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 17
 			path: libraries/classes/Html/Generator.php
@@ -11678,11 +11598,6 @@ parameters:
 		-
 			message: "#^Casting to int something that's already int\\.$#"
 			count: 2
-			path: libraries/classes/Import/Import.php
-
-		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 1
 			path: libraries/classes/Import/Import.php
 
 		-
@@ -12003,16 +11918,6 @@ parameters:
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 3
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Casting to int something that's already int\\<1, max\\>\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 1
 			path: libraries/classes/InsertEdit.php
 
 		-
@@ -12596,11 +12501,6 @@ parameters:
 			path: libraries/classes/Middleware/ZeroConfPostConnection.php
 
 		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 2
-			path: libraries/classes/Navigation/Navigation.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 3
 			path: libraries/classes/Navigation/Navigation.php
@@ -12663,11 +12563,6 @@ parameters:
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
 			count: 7
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Casting to int something that's already int\\<1, max\\>\\.$#"
-			count: 5
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
@@ -12934,11 +12829,6 @@ parameters:
 			message: "#^Cannot access property \\$realName on PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php
-
-		-
-			message: "#^Casting to int something that's already int\\<1, max\\>\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/Nodes/NodeDatabaseChildContainer.php
 
 		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
@@ -13601,13 +13491,8 @@ parameters:
 			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
 
 		-
-			message: "#^Casting to int something that's already int\\<0, max\\>\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 22
+			count: 21
 			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
 
 		-
@@ -17656,11 +17541,6 @@ parameters:
 			path: libraries/classes/Server/Select.php
 
 		-
-			message: "#^Casting to int something that's already int\\<1, max\\>\\.$#"
-			count: 1
-			path: libraries/classes/Server/Select.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 6
 			path: libraries/classes/Server/Select.php
@@ -18128,11 +18008,6 @@ parameters:
 		-
 			message: "#^Cannot access property \\$table on mixed\\.$#"
 			count: 4
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Casting to bool something that's already bool\\.$#"
-			count: 1
 			path: libraries/classes/Sql.php
 
 		-
@@ -19632,16 +19507,6 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Casting to int something that's already int\\<0, max\\>\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Casting to int something that's already int\\<1, max\\>\\.$#"
 			count: 1
 			path: libraries/classes/Util.php
 
@@ -21327,7 +21192,7 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
-			count: 12
+			count: 10
 			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
 
 		-

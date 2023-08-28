@@ -32,8 +32,6 @@ use function file_get_contents;
 use function htmlspecialchars;
 use function implode;
 use function in_array;
-use function is_array;
-use function is_scalar;
 use function is_string;
 use function ksort;
 use function mb_check_encoding;
@@ -793,7 +791,7 @@ class Relation
                         mb_substr(
                             $value,
                             0,
-                            (int) $config->settings['LimitChars'],
+                            $config->settings['LimitChars'],
                         ) . '...',
                     );
                 }
@@ -862,39 +860,14 @@ class Relation
         }
 
         // put the dropdown sections in correct order
-        $top = [];
         $bottom = [];
         if ($foreignDisplay !== '') {
-            if (
-                isset($config->settings['ForeignKeyDropdownOrder'])
-                && is_array($config->settings['ForeignKeyDropdownOrder'])
-            ) {
-                if (
-                    isset($config->settings['ForeignKeyDropdownOrder'][0])
-                    && is_scalar($config->settings['ForeignKeyDropdownOrder'][0])
-                    && strlen((string) $config->settings['ForeignKeyDropdownOrder'][0]) > 0
-                ) {
-                    $top = $this->buildForeignDropdown(
-                        $foreign,
-                        $data,
-                        (string) $config->settings['ForeignKeyDropdownOrder'][0],
-                    );
-                }
+            $top = $this->buildForeignDropdown($foreign, $data, $config->settings['ForeignKeyDropdownOrder'][0]);
 
-                if (
-                    isset($config->settings['ForeignKeyDropdownOrder'][1])
-                    && is_scalar($config->settings['ForeignKeyDropdownOrder'][1])
-                    && strlen((string) $config->settings['ForeignKeyDropdownOrder'][1]) > 0
-                ) {
-                    $bottom = $this->buildForeignDropdown(
-                        $foreign,
-                        $data,
-                        (string) $config->settings['ForeignKeyDropdownOrder'][1],
-                    );
-                }
-            } else {
-                $top = $this->buildForeignDropdown($foreign, $data, 'id-content');
-                $bottom = $this->buildForeignDropdown($foreign, $data, 'content-id');
+            if (
+                isset($config->settings['ForeignKeyDropdownOrder'][1])
+            ) {
+                $bottom = $this->buildForeignDropdown($foreign, $data, $config->settings['ForeignKeyDropdownOrder'][1]);
             }
         } else {
             $top = $this->buildForeignDropdown($foreign, $data, 'id-only');

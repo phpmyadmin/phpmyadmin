@@ -59,7 +59,7 @@ class BinlogController extends AbstractController
         }
 
         $config = Config::getInstance();
-        $sqlQuery = $this->getSqlQuery($log ?? '', $position, (int) $config->settings['MaxRows']);
+        $sqlQuery = $this->getSqlQuery($log ?? '', $position, $config->settings['MaxRows']);
         $result = $this->dbi->query($sqlQuery);
 
         $numRows = $result->numRows();

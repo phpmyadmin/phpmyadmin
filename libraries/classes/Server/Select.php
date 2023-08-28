@@ -47,7 +47,7 @@ class Select
                 continue;
             }
 
-            $selected = ! empty($GLOBALS['server']) && (int) $GLOBALS['server'] === (int) $key;
+            $selected = ! empty($GLOBALS['server']) && (int) $GLOBALS['server'] === $key;
 
             if (! empty($server['verbose'])) {
                 $label = $server['verbose'];

@@ -3600,7 +3600,7 @@ class Results
             mb_substr(
                 (string) $columnForFirstRow,
                 0,
-                (int) $config->settings['LimitChars'],
+                $config->settings['LimitChars'],
             ) . '...',
         );
 
@@ -3626,7 +3626,7 @@ class Results
             mb_substr(
                 (string) $columnForLastRow,
                 0,
-                (int) $config->settings['LimitChars'],
+                $config->settings['LimitChars'],
             ) . '...',
         );
 
@@ -4223,7 +4223,7 @@ class Results
             $originalLength > $config->settings['LimitChars']
             && $_SESSION['tmpval']['pftext'] === self::DISPLAY_PARTIAL_TEXT
         ) {
-            $str = mb_substr($str, 0, (int) $config->settings['LimitChars']) . '...';
+            $str = mb_substr($str, 0, $config->settings['LimitChars']) . '...';
             $truncated = true;
         } else {
             $truncated = false;

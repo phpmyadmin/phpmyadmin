@@ -184,7 +184,7 @@ final class Options
             'exec_time_limit' => $config->settings['ExecTimeLimit'],
             'rows' => $rows,
             'has_save_dir' => ! empty($config->settings['SaveDir']),
-            'save_dir' => Util::userDir((string) ($config->settings['SaveDir'] ?? '')),
+            'save_dir' => Util::userDir(($config->settings['SaveDir'] ?? '')),
             'export_is_checked' => $this->checkboxCheck('quick_export_onserver'),
             'export_overwrite_is_checked' => $this->checkboxCheck('quick_export_onserver_overwrite'),
             'has_aliases' => $hasAliases,

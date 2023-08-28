@@ -621,7 +621,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $GLOBALS['pma_auth_server'] = 'b 2';
         $this->object->password = 'testPW';
         $GLOBALS['server'] = 2;
-        $config->settings['LoginCookieStore'] = true;
+        $config->settings['LoginCookieStore'] = 100;
         $GLOBALS['from_cookie'] = true;
         $config->set('is_https', false);
 
@@ -653,7 +653,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $GLOBALS['pma_auth_server'] = 'b 2';
         $this->object->password = 'testPW';
         $GLOBALS['server'] = 2;
-        $config->settings['LoginCookieStore'] = true;
+        $config->settings['LoginCookieStore'] = 100;
         $GLOBALS['from_cookie'] = false;
 
         $responseStub = new ResponseRendererStub();

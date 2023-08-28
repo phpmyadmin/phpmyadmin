@@ -77,7 +77,7 @@ final class ReplaceController extends AbstractController
         if (is_numeric($insertRows) && $insertRows != $config->settings['InsertRows']) {
             // check whether insert row mode, if so include /table/change
             $this->addScriptFiles(['vendor/jquery/additional-methods.js', 'table/change.js']);
-            $config->settings['InsertRows'] = $insertRows;
+            $config->settings['InsertRows'] = (int) $insertRows;
             /** @var ChangeController $controller */
             $controller = Core::getContainerBuilder()->get(ChangeController::class);
             $controller($request);

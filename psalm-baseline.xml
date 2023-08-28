@@ -740,24 +740,6 @@
     <PossiblyUnusedReturnValue>
       <code>bool</code>
     </PossiblyUnusedReturnValue>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(int) $config->settings['LimitChars']]]></code>
-      <code><![CDATA[(string) $config->settings['ForeignKeyDropdownOrder'][0]]]></code>
-      <code><![CDATA[(string) $config->settings['ForeignKeyDropdownOrder'][0]]]></code>
-      <code><![CDATA[(string) $config->settings['ForeignKeyDropdownOrder'][1]]]></code>
-      <code><![CDATA[(string) $config->settings['ForeignKeyDropdownOrder'][1]]]></code>
-    </RedundantCastGivenDocblockType>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[is_array($config->settings['ForeignKeyDropdownOrder'])]]></code>
-      <code><![CDATA[is_scalar($config->settings['ForeignKeyDropdownOrder'][0])]]></code>
-      <code><![CDATA[is_scalar($config->settings['ForeignKeyDropdownOrder'][1])]]></code>
-      <code><![CDATA[isset($config->settings['ForeignKeyDropdownOrder'])
-                && is_array($config->settings['ForeignKeyDropdownOrder'])]]></code>
-      <code><![CDATA[isset($config->settings['ForeignKeyDropdownOrder'][0])
-                    && is_scalar($config->settings['ForeignKeyDropdownOrder'][0])]]></code>
-      <code><![CDATA[isset($config->settings['ForeignKeyDropdownOrder'][1])
-                    && is_scalar($config->settings['ForeignKeyDropdownOrder'][1])]]></code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/ConfigStorage/UserGroups.php">
     <DeprecatedMethod>
@@ -886,9 +868,6 @@
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(int) Config::getInstance()->settings['MaxRows']]]></code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/Database/DataDictionaryController.php">
     <MixedAssignment>
@@ -1074,9 +1053,6 @@
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(string) ($config->settings['UploadDir'] ?? '')]]></code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/Database/MultiTableQuery/QueryController.php">
     <MixedArgument>
@@ -1962,9 +1938,6 @@
     <PossiblyNullArrayOffset>
       <code><![CDATA[$GLOBALS['language_stats']]]></code>
     </PossiblyNullArrayOffset>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[is_string($config->settings['blowfish_secret'])]]></code>
-    </RedundantConditionGivenDocblockType>
     <TypeDoesNotContainType>
       <code><![CDATA[$GLOBALS['server'] == 0]]></code>
     </TypeDoesNotContainType>
@@ -2079,9 +2052,6 @@
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
-    <RedundantCast>
-      <code><![CDATA[(string) $config->settings['UploadDir']]]></code>
-    </RedundantCast>
     <RedundantCondition>
       <code><![CDATA[! $GLOBALS['finished']]]></code>
       <code><![CDATA[$GLOBALS['go_sql']]]></code>
@@ -2467,9 +2437,6 @@
       <code>$log</code>
       <code><![CDATA[$urlParams['log']]]></code>
     </MixedAssignment>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(int) $config->settings['MaxRows']]]></code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/Server/CollationsController.php">
     <PossiblyUnusedParam>
@@ -2613,9 +2580,6 @@
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(string) ($config->settings['UploadDir'] ?? '')]]></code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/Server/PluginsController.php">
     <PossiblyUnusedParam>
@@ -3361,9 +3325,6 @@
     <PossiblyInvalidCast>
       <code><![CDATA[$_GET['fileFormat']]]></code>
     </PossiblyInvalidCast>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(int) Config::getInstance()->settings['MaxRows']]]></code>
-    </RedundantCastGivenDocblockType>
     <RiskyCast>
       <code><![CDATA[$_POST['pos'] ?? $_GET['pos'] ?? $_SESSION['tmpval']['pos']]]></code>
       <code><![CDATA[$_POST['session_max_rows'] ?? $_GET['session_max_rows']]]></code>
@@ -3389,9 +3350,6 @@
     <MixedMethodCall>
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getIdKey()]]></code>
     </MixedMethodCall>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(string) ($config->settings['UploadDir'] ?? '')]]></code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/Table/IndexRenameController.php">
     <InvalidArrayOffset>
@@ -4593,9 +4551,6 @@
     <PossiblyNullArgument>
       <code>$field</code>
     </PossiblyNullArgument>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(int) $config->settings['MaxRows']]]></code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Database/Designer.php">
     <DeprecatedMethod>
@@ -5627,11 +5582,6 @@
       <code>$dispval</code>
       <code><![CDATA[$o->expr->expr]]></code>
     </PossiblyNullOperand>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(int) $config->settings['LimitChars']]]></code>
-      <code><![CDATA[(int) $config->settings['LimitChars']]]></code>
-      <code><![CDATA[(int) $config->settings['LimitChars']]]></code>
-    </RedundantCastGivenDocblockType>
     <RedundantCondition>
       <code><![CDATA[empty($statementInfo->statement->from)]]></code>
     </RedundantCondition>
@@ -5898,9 +5848,6 @@
     <PossiblyNullArgument>
       <code><![CDATA[$GLOBALS['file_handle']]]></code>
     </PossiblyNullArgument>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(string) (Config::getInstance()->settings['SaveDir'] ?? '')]]></code>
-    </RedundantCastGivenDocblockType>
     <RedundantCondition>
       <code>mb_strtolower($userExtension) !== $requiredExtension</code>
       <code>mb_strtolower($userExtension) !== $requiredExtension</code>
@@ -5926,9 +5873,6 @@
     <PossiblyInvalidCast>
       <code><![CDATA[$_GET['what']]]></code>
     </PossiblyInvalidCast>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(string) ($config->settings['SaveDir'] ?? '')]]></code>
-    </RedundantCastGivenDocblockType>
     <RedundantConditionGivenDocblockType>
       <code>is_array($dbSelect)</code>
       <code><![CDATA[isset($dbSelect) && is_array($dbSelect)]]></code>
@@ -5996,9 +5940,6 @@
       <code>bool</code>
       <code>bool</code>
     </PossiblyUnusedReturnValue>
-    <TypeDoesNotContainType>
-      <code><![CDATA[is_string($config->settings['UploadDir'])]]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/FlashMessages.php">
     <MixedArrayAssignment>
@@ -6504,9 +6445,6 @@
     <RedundantCast>
       <code><![CDATA[(string) $GLOBALS['db']]]></code>
     </RedundantCast>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(int) Config::getInstance()->settings['MaxRows']]]></code>
-    </RedundantCastGivenDocblockType>
     <RiskyCast>
       <code><![CDATA[$_REQUEST['pos']]]></code>
       <code><![CDATA[$_REQUEST['session_max_rows']]]></code>
@@ -6745,9 +6683,6 @@
       <code><![CDATA[$GLOBALS['read_multiply']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
     </PossiblyNullOperand>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(string) (Config::getInstance()->settings['UploadDir'] ?? '')]]></code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Index.php">
     <DeprecatedMethod>
@@ -6931,10 +6866,6 @@
     <PropertyTypeCoercion>
       <code><![CDATA[$config->settings]]></code>
     </PropertyTypeCoercion>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(int) Config::getInstance()->settings['InsertRows']]]></code>
-      <code><![CDATA[(string) (Config::getInstance()->settings['UploadDir'] ?? '')]]></code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/IpAllowDeny.php">
     <InvalidOperand>
@@ -7102,10 +7033,6 @@
       <code>$hidden</code>
       <code>$hidden</code>
     </PossiblyNullArrayOffset>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(string) $config->settings['NavigationLogoLink']]]></code>
-      <code><![CDATA[(string) $config->settings['NavigationLogoLink']]]></code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Navigation/NavigationTree.php">
     <ArgumentTypeCoercion>
@@ -7208,13 +7135,6 @@
       <code>(string) $key</code>
       <code>(string) $key</code>
     </RedundantCast>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(int) $config->settings['FirstLevelNavigationItems']]]></code>
-      <code><![CDATA[(int) $config->settings['FirstLevelNavigationItems']]]></code>
-      <code><![CDATA[(int) $config->settings['FirstLevelNavigationItems']]]></code>
-      <code><![CDATA[(int) $config->settings['NavigationTreeDisplayDbFilterMinimum']]]></code>
-      <code><![CDATA[(int) $config->settings['NavigationTreeDisplayItemFilterMinimum']]]></code>
-    </RedundantCastGivenDocblockType>
     <RiskyCast>
       <code><![CDATA[$_GET['pos']]]></code>
       <code><![CDATA[$_POST['n' . $count . '_pos2_value']]]></code>
@@ -7340,11 +7260,6 @@
     <PossiblyInvalidPropertyFetch>
       <code><![CDATA[$this->realParent()->realName]]></code>
     </PossiblyInvalidPropertyFetch>
-  </file>
-  <file src="libraries/classes/Navigation/Nodes/NodeDatabaseChildContainer.php">
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(int) $config->settings['NavigationTreeTableLevel']]]></code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php">
     <DeprecatedMethod>
@@ -7907,9 +7822,6 @@
     <RedundantCast>
       <code><![CDATA[(string) $GLOBALS['conn_error']]]></code>
     </RedundantCast>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(int) $config->settings['LoginCookieStore']]]></code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Plugins/Auth/AuthenticationHttp.php">
     <DeprecatedMethod>
@@ -11077,9 +10989,6 @@
     <RedundantCast>
       <code><![CDATA[(int) $GLOBALS['server']]]></code>
     </RedundantCast>
-    <RedundantCastGivenDocblockType>
-      <code>(int) $key</code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Server/Status/Data.php">
     <MixedArgumentTypeCoercion>
@@ -11450,9 +11359,6 @@
     <PossiblyUndefinedArrayOffset>
       <code>$row[0]</code>
     </PossiblyUndefinedArrayOffset>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(bool) $config->settings['ShowSQL']]]></code>
-    </RedundantCastGivenDocblockType>
     <UndefinedPropertyAssignment>
       <code><![CDATA[$statement->expr]]></code>
       <code><![CDATA[$statement->limit]]></code>
@@ -11919,7 +11825,6 @@
       <code>$criteriaValues[0]</code>
       <code>$operator</code>
       <code>$operator</code>
-      <code>$tmpGeomFunc</code>
       <code>$value</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
@@ -11928,7 +11833,6 @@
     <MixedAssignment>
       <code>$column</code>
       <code>$operator</code>
-      <code>$tmpGeomFunc</code>
       <code>$value</code>
     </MixedAssignment>
     <MixedOperand>
@@ -11952,7 +11856,6 @@
       <code><![CDATA[$_POST['criteriaColumnNames'][$columnIndex]]]></code>
       <code><![CDATA[$_POST['criteriaColumnTypes'][$columnIndex]]]></code>
       <code><![CDATA[$_POST['criteriaValues'][$columnIndex]]]></code>
-      <code><![CDATA[$_POST['geom_func'][$columnIndex]]]></code>
     </PossiblyInvalidArrayOffset>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['criteriaColumnNames'][$columnIndex]]]></code>
@@ -12458,10 +12361,6 @@
       <code><![CDATA[(string) $_REQUEST['tbl_group']]]></code>
       <code><![CDATA[(string) $_REQUEST['tbl_group']]]></code>
     </RedundantCast>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(int) $config->settings['LimitChars']]]></code>
-      <code><![CDATA[(int) Config::getInstance()->settings['ExecTimeLimit']]]></code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Utils/ForeignKey.php">
     <DeprecatedMethod>
@@ -14401,8 +14300,6 @@
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[['auth_type' => 'cookie']]]></code>
     </InvalidPropertyAssignmentValue>
     <MixedArgument>
@@ -14423,6 +14320,8 @@
       <code>dataProviderPasswordLength</code>
     </PossiblyUnusedMethod>
     <PropertyTypeCoercion>
+      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>

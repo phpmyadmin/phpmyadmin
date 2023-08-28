@@ -370,7 +370,7 @@ class Generator
         } elseif (isset($_SESSION['tmpval']['max_rows']) && $_SESSION['tmpval']['max_rows'] !== 'all') {
             $rows = (int) $_SESSION['tmpval']['max_rows'];
         } else {
-            $rows = (int) Config::getInstance()->settings['MaxRows'];
+            $rows = Config::getInstance()->settings['MaxRows'];
             $_SESSION['tmpval']['max_rows'] = $rows;
         }
 

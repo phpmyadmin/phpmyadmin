@@ -400,11 +400,7 @@ class File
     public function setLocalSelectedFile(string $name): bool
     {
         $config = Config::getInstance();
-        if (empty($config->settings['UploadDir'])) {
-            return false;
-        }
-
-        if (! is_string($config->settings['UploadDir'])) {
+        if ($config->settings['UploadDir'] === '') {
             return false;
         }
 
