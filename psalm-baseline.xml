@@ -740,17 +740,6 @@
     <PossiblyUnusedReturnValue>
       <code>bool</code>
     </PossiblyUnusedReturnValue>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[is_array($config->settings['ForeignKeyDropdownOrder'])]]></code>
-      <code><![CDATA[is_scalar($config->settings['ForeignKeyDropdownOrder'][0])]]></code>
-      <code><![CDATA[is_scalar($config->settings['ForeignKeyDropdownOrder'][1])]]></code>
-      <code><![CDATA[isset($config->settings['ForeignKeyDropdownOrder'])
-                && is_array($config->settings['ForeignKeyDropdownOrder'])]]></code>
-      <code><![CDATA[isset($config->settings['ForeignKeyDropdownOrder'][0])
-                    && is_scalar($config->settings['ForeignKeyDropdownOrder'][0])]]></code>
-      <code><![CDATA[isset($config->settings['ForeignKeyDropdownOrder'][1])
-                    && is_scalar($config->settings['ForeignKeyDropdownOrder'][1])]]></code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/ConfigStorage/UserGroups.php">
     <DeprecatedMethod>

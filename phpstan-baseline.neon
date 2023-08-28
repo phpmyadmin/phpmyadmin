@@ -1146,11 +1146,6 @@ parameters:
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
-			message: "#^Comparison operation \"\\>\" between 10 and 0 is always true\\.$#"
-			count: 2
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 21
 			path: libraries/classes/ConfigStorage/Relation.php
@@ -1197,11 +1192,6 @@ parameters:
 
 		-
 			message: "#^Offset 'relation' on array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\} on left side of \\?\\? always exists and is not nullable\\.$#"
-			count: 1
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Offset 0 on array\\{0\\: 'content\\-id'\\|'id\\-content', 1\\?\\: 'content\\-id'\\|'id\\-content'\\} in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
 
@@ -1318,16 +1308,6 @@ parameters:
 		-
 			message: "#^Parameter \\#2 \\$tableName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
 			count: 2
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Result of && is always true\\.$#"
-			count: 1
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Right side of && is always true\\.$#"
-			count: 3
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
