@@ -90,9 +90,12 @@ final class Search
         // If there are no search criteria set or no unary criteria operators,
         // return
         if (
-            ! isset($_POST['criteriaValues'])
-            && ! isset($_POST['criteriaColumnOperators'])
-            && ! isset($_POST['geom_func'])
+            ! isset($_POST['criteriaColumnOperators'])
+            || (
+                ! isset($_POST['criteriaValues'])
+                && ! isset($_POST['criteriaColumnOperators'])
+                && ! isset($_POST['geom_func'])
+            )
         ) {
             return '';
         }
