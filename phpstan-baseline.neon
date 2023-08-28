@@ -3587,12 +3587,12 @@ parameters:
 
 		-
 			message: "#^Casting to string something that's already string\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Controllers/Import/ImportController.php
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 15
+			count: 14
 			path: libraries/classes/Controllers/Import/ImportController.php
 
 		-
@@ -10652,16 +10652,11 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 4
+			count: 3
 			path: libraries/classes/File.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\File\\:\\:getCompression\\(\\) should return string but returns string\\|false\\.$#"
-			count: 1
-			path: libraries/classes/File.php
-
-		-
-			message: "#^Negated boolean expression is always false\\.$#"
 			count: 1
 			path: libraries/classes/File.php
 

@@ -2066,9 +2066,6 @@
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
-    <RedundantCast>
-      <code><![CDATA[(string) $config->settings['UploadDir']]]></code>
-    </RedundantCast>
     <RedundantCondition>
       <code><![CDATA[! $GLOBALS['finished']]]></code>
       <code><![CDATA[$GLOBALS['go_sql']]]></code>
@@ -5957,9 +5954,6 @@
       <code>bool</code>
       <code>bool</code>
     </PossiblyUnusedReturnValue>
-    <TypeDoesNotContainType>
-      <code><![CDATA[is_string($config->settings['UploadDir'])]]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/FlashMessages.php">
     <MixedArrayAssignment>

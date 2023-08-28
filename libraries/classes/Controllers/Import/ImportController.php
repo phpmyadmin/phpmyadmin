@@ -443,11 +443,11 @@ final class ImportController extends AbstractController
             $GLOBALS['import_file_name'] = $_FILES['import_file']['name'];
         }
 
-        if (! empty($GLOBALS['local_import_file']) && ! empty($config->settings['UploadDir'])) {
+        if (! empty($GLOBALS['local_import_file']) && $config->settings['UploadDir'] !== '') {
             // sanitize $local_import_file as it comes from a POST
             $GLOBALS['local_import_file'] = Core::securePath($GLOBALS['local_import_file']);
 
-            $GLOBALS['import_file'] = Util::userDir((string) $config->settings['UploadDir'])
+            $GLOBALS['import_file'] = Util::userDir($config->settings['UploadDir'])
                 . $GLOBALS['local_import_file'];
 
             /**
