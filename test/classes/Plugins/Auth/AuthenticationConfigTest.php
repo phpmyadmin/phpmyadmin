@@ -82,7 +82,7 @@ class AuthenticationConfigTest extends AbstractTestCase
     #[BackupStaticProperties(true)]
     public function testAuthFails(): void
     {
-        $GLOBALS['cfg']['Servers'] = [1];
+        Config::getInstance()->settings['Servers'] = [1];
         $GLOBALS['allowDeny_forbidden'] = false;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

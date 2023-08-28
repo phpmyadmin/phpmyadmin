@@ -20,7 +20,6 @@ class TransformationsTest extends TestCase
         $transformationsArray = $transformations->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->assertSame($expected, $transformations->Substring);
-        $this->assertArrayHasKey('Substring', $transformationsArray);
         $this->assertSame($expected, $transformationsArray['Substring']);
     }
 
@@ -46,7 +45,6 @@ class TransformationsTest extends TestCase
         $transformationsArray = $transformations->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->assertSame($expected, $transformations->Bool2Text);
-        $this->assertArrayHasKey('Bool2Text', $transformationsArray);
         $this->assertSame($expected, $transformationsArray['Bool2Text']);
     }
 
@@ -70,7 +68,6 @@ class TransformationsTest extends TestCase
         $transformationsArray = $transformations->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->assertSame($expected, $transformations->External);
-        $this->assertArrayHasKey('External', $transformationsArray);
         $this->assertSame($expected, $transformationsArray['External']);
     }
 
@@ -97,7 +94,6 @@ class TransformationsTest extends TestCase
         $transformationsArray = $transformations->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->assertSame($expected, $transformations->PreApPend);
-        $this->assertArrayHasKey('PreApPend', $transformationsArray);
         $this->assertSame($expected, $transformationsArray['PreApPend']);
     }
 
@@ -121,7 +117,6 @@ class TransformationsTest extends TestCase
         $transformationsArray = $transformations->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->assertSame($expected, $transformations->Hex);
-        $this->assertArrayHasKey('Hex', $transformationsArray);
         $this->assertSame($expected, $transformationsArray['Hex']);
     }
 
@@ -144,7 +139,6 @@ class TransformationsTest extends TestCase
         $transformationsArray = $transformations->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->assertSame($expected, $transformations->DateFormat);
-        $this->assertArrayHasKey('DateFormat', $transformationsArray);
         $this->assertSame($expected, $transformationsArray['DateFormat']);
     }
 
@@ -170,7 +164,6 @@ class TransformationsTest extends TestCase
         $transformationsArray = $transformations->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->assertSame($expected, $transformations->Inline);
-        $this->assertArrayHasKey('Inline', $transformationsArray);
         $this->assertSame($expected, $transformationsArray['Inline']);
     }
 
@@ -203,7 +196,6 @@ class TransformationsTest extends TestCase
         $transformationsArray = $transformations->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->assertSame($expected, $transformations->TextImageLink);
-        $this->assertArrayHasKey('TextImageLink', $transformationsArray);
         $this->assertSame($expected, $transformationsArray['TextImageLink']);
     }
 
@@ -229,7 +221,6 @@ class TransformationsTest extends TestCase
         $transformationsArray = $transformations->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->assertSame($expected, $transformations->TextLink);
-        $this->assertArrayHasKey('TextLink', $transformationsArray);
         $this->assertSame($expected, $transformationsArray['TextLink']);
     }
 

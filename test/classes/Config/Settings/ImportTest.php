@@ -19,7 +19,6 @@ class ImportTest extends TestCase
         $import = new Import(['format' => $actual]);
         $importArray = $import->asArray();
         $this->assertSame($expected, $import->format);
-        $this->assertArrayHasKey('format', $importArray);
         $this->assertSame($expected, $importArray['format']);
     }
 
@@ -40,7 +39,6 @@ class ImportTest extends TestCase
         $import = new Import(['charset' => $actual]);
         $importArray = $import->asArray();
         $this->assertSame($expected, $import->charset);
-        $this->assertArrayHasKey('charset', $importArray);
         $this->assertSame($expected, $importArray['charset']);
     }
 
@@ -59,7 +57,6 @@ class ImportTest extends TestCase
         $import = new Import(['allow_interrupt' => $actual]);
         $importArray = $import->asArray();
         $this->assertSame($expected, $import->allow_interrupt);
-        $this->assertArrayHasKey('allow_interrupt', $importArray);
         $this->assertSame($expected, $importArray['allow_interrupt']);
     }
 
@@ -78,7 +75,6 @@ class ImportTest extends TestCase
         $import = new Import(['skip_queries' => $actual]);
         $importArray = $import->asArray();
         $this->assertSame($expected, $import->skip_queries);
-        $this->assertArrayHasKey('skip_queries', $importArray);
         $this->assertSame($expected, $importArray['skip_queries']);
     }
 
@@ -98,7 +94,6 @@ class ImportTest extends TestCase
         $import = new Import(['sql_compatibility' => $actual]);
         $importArray = $import->asArray();
         $this->assertSame($expected, $import->sql_compatibility);
-        $this->assertArrayHasKey('sql_compatibility', $importArray);
         $this->assertSame($expected, $importArray['sql_compatibility']);
     }
 
@@ -125,7 +120,6 @@ class ImportTest extends TestCase
         $import = new Import(['sql_no_auto_value_on_zero' => $actual]);
         $importArray = $import->asArray();
         $this->assertSame($expected, $import->sql_no_auto_value_on_zero);
-        $this->assertArrayHasKey('sql_no_auto_value_on_zero', $importArray);
         $this->assertSame($expected, $importArray['sql_no_auto_value_on_zero']);
     }
 
@@ -135,7 +129,6 @@ class ImportTest extends TestCase
         $import = new Import(['sql_read_as_multibytes' => $actual]);
         $importArray = $import->asArray();
         $this->assertSame($expected, $import->sql_read_as_multibytes);
-        $this->assertArrayHasKey('sql_read_as_multibytes', $importArray);
         $this->assertSame($expected, $importArray['sql_read_as_multibytes']);
     }
 
@@ -154,7 +147,6 @@ class ImportTest extends TestCase
         $import = new Import(['csv_replace' => $actual]);
         $importArray = $import->asArray();
         $this->assertSame($expected, $import->csv_replace);
-        $this->assertArrayHasKey('csv_replace', $importArray);
         $this->assertSame($expected, $importArray['csv_replace']);
     }
 
@@ -164,7 +156,6 @@ class ImportTest extends TestCase
         $import = new Import(['csv_ignore' => $actual]);
         $importArray = $import->asArray();
         $this->assertSame($expected, $import->csv_ignore);
-        $this->assertArrayHasKey('csv_ignore', $importArray);
         $this->assertSame($expected, $importArray['csv_ignore']);
     }
 
@@ -174,7 +165,6 @@ class ImportTest extends TestCase
         $import = new Import(['csv_terminated' => $actual]);
         $importArray = $import->asArray();
         $this->assertSame($expected, $import->csv_terminated);
-        $this->assertArrayHasKey('csv_terminated', $importArray);
         $this->assertSame($expected, $importArray['csv_terminated']);
     }
 
@@ -193,7 +183,6 @@ class ImportTest extends TestCase
         $import = new Import(['csv_enclosed' => $actual]);
         $importArray = $import->asArray();
         $this->assertSame($expected, $import->csv_enclosed);
-        $this->assertArrayHasKey('csv_enclosed', $importArray);
         $this->assertSame($expected, $importArray['csv_enclosed']);
     }
 
@@ -212,7 +201,6 @@ class ImportTest extends TestCase
         $import = new Import(['csv_escaped' => $actual]);
         $importArray = $import->asArray();
         $this->assertSame($expected, $import->csv_escaped);
-        $this->assertArrayHasKey('csv_escaped', $importArray);
         $this->assertSame($expected, $importArray['csv_escaped']);
     }
 
@@ -231,7 +219,6 @@ class ImportTest extends TestCase
         $import = new Import(['csv_new_line' => $actual]);
         $importArray = $import->asArray();
         $this->assertSame($expected, $import->csv_new_line);
-        $this->assertArrayHasKey('csv_new_line', $importArray);
         $this->assertSame($expected, $importArray['csv_new_line']);
     }
 
@@ -250,7 +237,6 @@ class ImportTest extends TestCase
         $import = new Import(['csv_columns' => $actual]);
         $importArray = $import->asArray();
         $this->assertSame($expected, $import->csv_columns);
-        $this->assertArrayHasKey('csv_columns', $importArray);
         $this->assertSame($expected, $importArray['csv_columns']);
     }
 
@@ -269,7 +255,6 @@ class ImportTest extends TestCase
         $import = new Import(['csv_col_names' => $actual]);
         $importArray = $import->asArray();
         $this->assertSame($expected, $import->csv_col_names);
-        $this->assertArrayHasKey('csv_col_names', $importArray);
         $this->assertSame($expected, $importArray['csv_col_names']);
     }
 
@@ -279,7 +264,6 @@ class ImportTest extends TestCase
         $import = new Import(['ldi_replace' => $actual]);
         $importArray = $import->asArray();
         $this->assertSame($expected, $import->ldi_replace);
-        $this->assertArrayHasKey('ldi_replace', $importArray);
         $this->assertSame($expected, $importArray['ldi_replace']);
     }
 
@@ -289,7 +273,6 @@ class ImportTest extends TestCase
         $import = new Import(['ldi_ignore' => $actual]);
         $importArray = $import->asArray();
         $this->assertSame($expected, $import->ldi_ignore);
-        $this->assertArrayHasKey('ldi_ignore', $importArray);
         $this->assertSame($expected, $importArray['ldi_ignore']);
     }
 
@@ -299,7 +282,6 @@ class ImportTest extends TestCase
         $import = new Import(['ldi_terminated' => $actual]);
         $importArray = $import->asArray();
         $this->assertSame($expected, $import->ldi_terminated);
-        $this->assertArrayHasKey('ldi_terminated', $importArray);
         $this->assertSame($expected, $importArray['ldi_terminated']);
     }
 
@@ -318,7 +300,6 @@ class ImportTest extends TestCase
         $import = new Import(['ldi_enclosed' => $actual]);
         $importArray = $import->asArray();
         $this->assertSame($expected, $import->ldi_enclosed);
-        $this->assertArrayHasKey('ldi_enclosed', $importArray);
         $this->assertSame($expected, $importArray['ldi_enclosed']);
     }
 
@@ -337,7 +318,6 @@ class ImportTest extends TestCase
         $import = new Import(['ldi_escaped' => $actual]);
         $importArray = $import->asArray();
         $this->assertSame($expected, $import->ldi_escaped);
-        $this->assertArrayHasKey('ldi_escaped', $importArray);
         $this->assertSame($expected, $importArray['ldi_escaped']);
     }
 
@@ -356,7 +336,6 @@ class ImportTest extends TestCase
         $import = new Import(['ldi_new_line' => $actual]);
         $importArray = $import->asArray();
         $this->assertSame($expected, $import->ldi_new_line);
-        $this->assertArrayHasKey('ldi_new_line', $importArray);
         $this->assertSame($expected, $importArray['ldi_new_line']);
     }
 
@@ -375,7 +354,6 @@ class ImportTest extends TestCase
         $import = new Import(['ldi_columns' => $actual]);
         $importArray = $import->asArray();
         $this->assertSame($expected, $import->ldi_columns);
-        $this->assertArrayHasKey('ldi_columns', $importArray);
         $this->assertSame($expected, $importArray['ldi_columns']);
     }
 
@@ -394,7 +372,6 @@ class ImportTest extends TestCase
         $import = new Import(['ldi_local_option' => $actual]);
         $importArray = $import->asArray();
         $this->assertSame($expected, $import->ldi_local_option);
-        $this->assertArrayHasKey('ldi_local_option', $importArray);
         $this->assertSame($expected, $importArray['ldi_local_option']);
     }
 
@@ -414,7 +391,6 @@ class ImportTest extends TestCase
         $import = new Import(['ods_col_names' => $actual]);
         $importArray = $import->asArray();
         $this->assertSame($expected, $import->ods_col_names);
-        $this->assertArrayHasKey('ods_col_names', $importArray);
         $this->assertSame($expected, $importArray['ods_col_names']);
     }
 
@@ -424,7 +400,6 @@ class ImportTest extends TestCase
         $import = new Import(['ods_empty_rows' => $actual]);
         $importArray = $import->asArray();
         $this->assertSame($expected, $import->ods_empty_rows);
-        $this->assertArrayHasKey('ods_empty_rows', $importArray);
         $this->assertSame($expected, $importArray['ods_empty_rows']);
     }
 
@@ -434,7 +409,6 @@ class ImportTest extends TestCase
         $import = new Import(['ods_recognize_percentages' => $actual]);
         $importArray = $import->asArray();
         $this->assertSame($expected, $import->ods_recognize_percentages);
-        $this->assertArrayHasKey('ods_recognize_percentages', $importArray);
         $this->assertSame($expected, $importArray['ods_recognize_percentages']);
     }
 
@@ -444,7 +418,6 @@ class ImportTest extends TestCase
         $import = new Import(['ods_recognize_currency' => $actual]);
         $importArray = $import->asArray();
         $this->assertSame($expected, $import->ods_recognize_currency);
-        $this->assertArrayHasKey('ods_recognize_currency', $importArray);
         $this->assertSame($expected, $importArray['ods_recognize_currency']);
     }
 }

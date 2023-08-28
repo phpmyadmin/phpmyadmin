@@ -598,7 +598,8 @@ class Core
         $directIp = $_SERVER['REMOTE_ADDR'];
 
         /* Do we trust this IP as a proxy? If yes we will use it's header. */
-        if (! isset($GLOBALS['cfg']['TrustedProxies'][$directIp])) {
+        $config = Config::getInstance();
+        if (! isset($config->settings['TrustedProxies'][$directIp])) {
             /* Return true IP */
             return $directIp;
         }
@@ -608,7 +609,7 @@ class Core
          * X-Forwarded-For: client, proxy1, proxy2
          */
         // Get header content
-        $value = self::getenv($GLOBALS['cfg']['TrustedProxies'][$directIp]);
+        $value = self::getenv($config->settings['TrustedProxies'][$directIp]);
         // Grab first element what is client adddress
         $value = explode(',', $value)[0];
         // checks that the header contains only one IP address,
@@ -753,7 +754,7 @@ class Core
     {
         $secret = $_SESSION[' HMAC_secret '] ?? '';
 
-        return hash_hmac('sha256', $sqlQuery, $secret . $GLOBALS['cfg']['blowfish_secret']);
+        return hash_hmac('sha256', $sqlQuery, $secret . Config::getInstance()->settings['blowfish_secret']);
     }
 
     /**
@@ -765,7 +766,7 @@ class Core
     public static function checkSqlQuerySignature(string $sqlQuery, string $signature): bool
     {
         $secret = $_SESSION[' HMAC_secret '] ?? '';
-        $hmac = hash_hmac('sha256', $sqlQuery, $secret . $GLOBALS['cfg']['blowfish_secret']);
+        $hmac = hash_hmac('sha256', $sqlQuery, $secret . Config::getInstance()->settings['blowfish_secret']);
 
         return hash_equals($hmac, $signature);
     }

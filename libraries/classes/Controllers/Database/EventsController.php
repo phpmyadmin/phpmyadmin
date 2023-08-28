@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\DatabaseInterface;
@@ -47,7 +48,10 @@ final class EventsController extends AbstractController
         if (! $request->isAjax()) {
             $this->checkParameters(['db']);
 
-            $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+            $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
+                Config::getInstance()->settings['DefaultTabDatabase'],
+                'database',
+            );
             $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
             $databaseName = DatabaseName::tryFrom($request->getParam('db'));

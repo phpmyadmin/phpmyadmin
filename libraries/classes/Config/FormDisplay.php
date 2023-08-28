@@ -745,9 +745,10 @@ class FormDisplay
 
         $this->userprefsKeys = array_flip(UserFormList::getFields());
         // read real config for user preferences display
-        $userPrefsDisallow = Config::getInstance()->get('is_setup')
+        $config = Config::getInstance();
+        $userPrefsDisallow = $config->get('is_setup')
             ? $this->configFile->get('UserprefsDisallow', [])
-            : $GLOBALS['cfg']['UserprefsDisallow'];
+            : $config->settings['UserprefsDisallow'];
         $this->userprefsDisallow = array_flip($userPrefsDisallow ?? []);
     }
 
@@ -806,7 +807,8 @@ class FormDisplay
             $opts['comment_warning'] = true;
         }
 
-        if (Config::getInstance()->get('is_setup')) {
+        $config = Config::getInstance();
+        if ($config->get('is_setup')) {
             return;
         }
 
@@ -816,7 +818,7 @@ class FormDisplay
 
         $opts['comment'] = sprintf(
             __('maximum %s'),
-            $GLOBALS['cfg'][$systemPath],
+            $config->settings[$systemPath],
         );
     }
 

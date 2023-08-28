@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Stubs;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\DbiExtension;
@@ -2229,6 +2230,6 @@ class DbiDummy implements DbiExtension
         ];
 
         /* Some basic setup for dummy driver */
-        $GLOBALS['cfg']['DBG']['sql'] = false;
+        Config::getInstance()->settings['DBG']['sql'] = false;
     }
 }

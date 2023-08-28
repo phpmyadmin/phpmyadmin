@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Navigation\Nodes\NodeTable;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -17,8 +18,9 @@ class NodeTableTest extends AbstractTestCase
      */
     public function testConstructor(): void
     {
-        $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = 'search';
-        $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'] = 'insert';
+        $config = Config::getInstance();
+        $config->settings['NavigationTreeDefaultTabTable'] = 'search';
+        $config->settings['NavigationTreeDefaultTabTable2'] = 'insert';
 
         $parent = new NodeTable('default');
         $this->assertEquals(
@@ -42,7 +44,7 @@ class NodeTableTest extends AbstractTestCase
     #[DataProvider('providerForTestIcon')]
     public function testIcon(string $target, string $imageName, string $imageTitle): void
     {
-        $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = $target;
+        Config::getInstance()->settings['NavigationTreeDefaultTabTable'] = $target;
         $node = new NodeTable('default');
         $this->assertEquals($imageName, $node->icon['image']);
         $this->assertEquals($imageTitle, $node->icon['title']);

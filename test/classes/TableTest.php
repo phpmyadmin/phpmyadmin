@@ -36,8 +36,8 @@ class TableTest extends AbstractTestCase
         $GLOBALS['server'] = 0;
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
-        $GLOBALS['cfg']['MaxExactCount'] = 100;
-        $GLOBALS['cfg']['MaxExactCountViews'] = 100;
+        $config->settings['MaxExactCount'] = 100;
+        $config->settings['MaxExactCountViews'] = 100;
         $config->selectedServer['pmadb'] = 'pmadb';
         $GLOBALS['sql_auto_increment'] = true;
         $GLOBALS['sql_if_not_exists'] = true;

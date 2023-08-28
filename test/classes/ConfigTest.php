@@ -68,8 +68,9 @@ class ConfigTest extends AbstractTestCase
         $_SESSION['git_location'] = '.git';
         $_SESSION['is_git_revision'] = true;
         Config::$instance = null;
-        Config::getInstance()->loadAndCheck(CONFIG_FILE);
-        $GLOBALS['cfg']['ProxyUrl'] = '';
+        $config = Config::getInstance();
+        $config->loadAndCheck(CONFIG_FILE);
+        $config->settings['ProxyUrl'] = '';
 
         //for testing file permissions
         $this->permTestObj = new Config();
@@ -566,7 +567,7 @@ PHP;
             'cfg_val_1',
         );
         $this->object->setUserValue(null, 'NavigationWidth', 300);
-        $this->assertSame($GLOBALS['cfg']['NavigationWidth'], 300);
+        $this->assertSame($this->object->settings['NavigationWidth'], 300);
     }
 
     /**

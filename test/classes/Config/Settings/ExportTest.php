@@ -19,7 +19,6 @@ class ExportTest extends TestCase
         $export = new Export(['format' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->format);
-        $this->assertArrayHasKey('format', $exportArray);
         $this->assertSame($expected, $exportArray['format']);
     }
 
@@ -49,7 +48,6 @@ class ExportTest extends TestCase
         $export = new Export(['method' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->method);
-        $this->assertArrayHasKey('method', $exportArray);
         $this->assertSame($expected, $exportArray['method']);
     }
 
@@ -69,7 +67,6 @@ class ExportTest extends TestCase
         $export = new Export(['compression' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->compression);
-        $this->assertArrayHasKey('compression', $exportArray);
         $this->assertSame($expected, $exportArray['compression']);
     }
 
@@ -89,7 +86,6 @@ class ExportTest extends TestCase
         $export = new Export(['lock_tables' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->lock_tables);
-        $this->assertArrayHasKey('lock_tables', $exportArray);
         $this->assertSame($expected, $exportArray['lock_tables']);
     }
 
@@ -108,7 +104,6 @@ class ExportTest extends TestCase
         $export = new Export(['as_separate_files' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->as_separate_files);
-        $this->assertArrayHasKey('as_separate_files', $exportArray);
         $this->assertSame($expected, $exportArray['as_separate_files']);
     }
 
@@ -118,7 +113,6 @@ class ExportTest extends TestCase
         $export = new Export(['asfile' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->asfile);
-        $this->assertArrayHasKey('asfile', $exportArray);
         $this->assertSame($expected, $exportArray['asfile']);
     }
 
@@ -137,7 +131,6 @@ class ExportTest extends TestCase
         $export = new Export(['charset' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->charset);
-        $this->assertArrayHasKey('charset', $exportArray);
         $this->assertSame($expected, $exportArray['charset']);
     }
 
@@ -156,7 +149,6 @@ class ExportTest extends TestCase
         $export = new Export(['onserver' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->onserver);
-        $this->assertArrayHasKey('onserver', $exportArray);
         $this->assertSame($expected, $exportArray['onserver']);
     }
 
@@ -166,7 +158,6 @@ class ExportTest extends TestCase
         $export = new Export(['onserver_overwrite' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->onserver_overwrite);
-        $this->assertArrayHasKey('onserver_overwrite', $exportArray);
         $this->assertSame($expected, $exportArray['onserver_overwrite']);
     }
 
@@ -176,7 +167,6 @@ class ExportTest extends TestCase
         $export = new Export(['quick_export_onserver' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->quick_export_onserver);
-        $this->assertArrayHasKey('quick_export_onserver', $exportArray);
         $this->assertSame($expected, $exportArray['quick_export_onserver']);
     }
 
@@ -186,7 +176,6 @@ class ExportTest extends TestCase
         $export = new Export(['quick_export_onserver_overwrite' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->quick_export_onserver_overwrite);
-        $this->assertArrayHasKey('quick_export_onserver_overwrite', $exportArray);
         $this->assertSame($expected, $exportArray['quick_export_onserver_overwrite']);
     }
 
@@ -196,7 +185,6 @@ class ExportTest extends TestCase
         $export = new Export(['remember_file_template' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->remember_file_template);
-        $this->assertArrayHasKey('remember_file_template', $exportArray);
         $this->assertSame($expected, $exportArray['remember_file_template']);
     }
 
@@ -206,7 +194,6 @@ class ExportTest extends TestCase
         $export = new Export(['file_template_table' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->file_template_table);
-        $this->assertArrayHasKey('file_template_table', $exportArray);
         $this->assertSame($expected, $exportArray['file_template_table']);
     }
 
@@ -225,7 +212,6 @@ class ExportTest extends TestCase
         $export = new Export(['file_template_database' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->file_template_database);
-        $this->assertArrayHasKey('file_template_database', $exportArray);
         $this->assertSame($expected, $exportArray['file_template_database']);
     }
 
@@ -244,7 +230,6 @@ class ExportTest extends TestCase
         $export = new Export(['file_template_server' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->file_template_server);
-        $this->assertArrayHasKey('file_template_server', $exportArray);
         $this->assertSame($expected, $exportArray['file_template_server']);
     }
 
@@ -263,7 +248,6 @@ class ExportTest extends TestCase
         $export = new Export(['codegen_structure_or_data' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->codegen_structure_or_data);
-        $this->assertArrayHasKey('codegen_structure_or_data', $exportArray);
         $this->assertSame($expected, $exportArray['codegen_structure_or_data']);
     }
 
@@ -283,7 +267,6 @@ class ExportTest extends TestCase
         $export = new Export(['codegen_format' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->codegen_format);
-        $this->assertArrayHasKey('codegen_format', $exportArray);
         $this->assertSame($expected, $exportArray['codegen_format']);
     }
 
@@ -304,7 +287,6 @@ class ExportTest extends TestCase
         $export = new Export(['ods_columns' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->ods_columns);
-        $this->assertArrayHasKey('ods_columns', $exportArray);
         $this->assertSame($expected, $exportArray['ods_columns']);
     }
 
@@ -314,7 +296,6 @@ class ExportTest extends TestCase
         $export = new Export(['ods_null' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->ods_null);
-        $this->assertArrayHasKey('ods_null', $exportArray);
         $this->assertSame($expected, $exportArray['ods_null']);
     }
 
@@ -333,7 +314,6 @@ class ExportTest extends TestCase
         $export = new Export(['odt_structure_or_data' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->odt_structure_or_data);
-        $this->assertArrayHasKey('odt_structure_or_data', $exportArray);
         $this->assertSame($expected, $exportArray['odt_structure_or_data']);
     }
 
@@ -353,7 +333,6 @@ class ExportTest extends TestCase
         $export = new Export(['odt_columns' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->odt_columns);
-        $this->assertArrayHasKey('odt_columns', $exportArray);
         $this->assertSame($expected, $exportArray['odt_columns']);
     }
 
@@ -363,7 +342,6 @@ class ExportTest extends TestCase
         $export = new Export(['odt_relation' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->odt_relation);
-        $this->assertArrayHasKey('odt_relation', $exportArray);
         $this->assertSame($expected, $exportArray['odt_relation']);
     }
 
@@ -373,7 +351,6 @@ class ExportTest extends TestCase
         $export = new Export(['odt_comments' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->odt_comments);
-        $this->assertArrayHasKey('odt_comments', $exportArray);
         $this->assertSame($expected, $exportArray['odt_comments']);
     }
 
@@ -383,7 +360,6 @@ class ExportTest extends TestCase
         $export = new Export(['odt_mime' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->odt_mime);
-        $this->assertArrayHasKey('odt_mime', $exportArray);
         $this->assertSame($expected, $exportArray['odt_mime']);
     }
 
@@ -393,7 +369,6 @@ class ExportTest extends TestCase
         $export = new Export(['odt_null' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->odt_null);
-        $this->assertArrayHasKey('odt_null', $exportArray);
         $this->assertSame($expected, $exportArray['odt_null']);
     }
 
@@ -412,7 +387,6 @@ class ExportTest extends TestCase
         $export = new Export(['htmlword_structure_or_data' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->htmlword_structure_or_data);
-        $this->assertArrayHasKey('htmlword_structure_or_data', $exportArray);
         $this->assertSame($expected, $exportArray['htmlword_structure_or_data']);
     }
 
@@ -422,7 +396,6 @@ class ExportTest extends TestCase
         $export = new Export(['htmlword_columns' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->htmlword_columns);
-        $this->assertArrayHasKey('htmlword_columns', $exportArray);
         $this->assertSame($expected, $exportArray['htmlword_columns']);
     }
 
@@ -432,7 +405,6 @@ class ExportTest extends TestCase
         $export = new Export(['htmlword_null' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->htmlword_null);
-        $this->assertArrayHasKey('htmlword_null', $exportArray);
         $this->assertSame($expected, $exportArray['htmlword_null']);
     }
 
@@ -451,7 +423,6 @@ class ExportTest extends TestCase
         $export = new Export(['texytext_structure_or_data' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->texytext_structure_or_data);
-        $this->assertArrayHasKey('texytext_structure_or_data', $exportArray);
         $this->assertSame($expected, $exportArray['texytext_structure_or_data']);
     }
 
@@ -461,7 +432,6 @@ class ExportTest extends TestCase
         $export = new Export(['texytext_columns' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->texytext_columns);
-        $this->assertArrayHasKey('texytext_columns', $exportArray);
         $this->assertSame($expected, $exportArray['texytext_columns']);
     }
 
@@ -471,7 +441,6 @@ class ExportTest extends TestCase
         $export = new Export(['texytext_null' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->texytext_null);
-        $this->assertArrayHasKey('texytext_null', $exportArray);
         $this->assertSame($expected, $exportArray['texytext_null']);
     }
 
@@ -490,7 +459,6 @@ class ExportTest extends TestCase
         $export = new Export(['csv_columns' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->csv_columns);
-        $this->assertArrayHasKey('csv_columns', $exportArray);
         $this->assertSame($expected, $exportArray['csv_columns']);
     }
 
@@ -500,7 +468,6 @@ class ExportTest extends TestCase
         $export = new Export(['csv_structure_or_data' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->csv_structure_or_data);
-        $this->assertArrayHasKey('csv_structure_or_data', $exportArray);
         $this->assertSame($expected, $exportArray['csv_structure_or_data']);
     }
 
@@ -510,7 +477,6 @@ class ExportTest extends TestCase
         $export = new Export(['csv_null' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->csv_null);
-        $this->assertArrayHasKey('csv_null', $exportArray);
         $this->assertSame($expected, $exportArray['csv_null']);
     }
 
@@ -529,7 +495,6 @@ class ExportTest extends TestCase
         $export = new Export(['csv_separator' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->csv_separator);
-        $this->assertArrayHasKey('csv_separator', $exportArray);
         $this->assertSame($expected, $exportArray['csv_separator']);
     }
 
@@ -548,7 +513,6 @@ class ExportTest extends TestCase
         $export = new Export(['csv_enclosed' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->csv_enclosed);
-        $this->assertArrayHasKey('csv_enclosed', $exportArray);
         $this->assertSame($expected, $exportArray['csv_enclosed']);
     }
 
@@ -567,7 +531,6 @@ class ExportTest extends TestCase
         $export = new Export(['csv_escaped' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->csv_escaped);
-        $this->assertArrayHasKey('csv_escaped', $exportArray);
         $this->assertSame($expected, $exportArray['csv_escaped']);
     }
 
@@ -586,7 +549,6 @@ class ExportTest extends TestCase
         $export = new Export(['csv_terminated' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->csv_terminated);
-        $this->assertArrayHasKey('csv_terminated', $exportArray);
         $this->assertSame($expected, $exportArray['csv_terminated']);
     }
 
@@ -605,7 +567,6 @@ class ExportTest extends TestCase
         $export = new Export(['csv_removeCRLF' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->csv_removeCRLF);
-        $this->assertArrayHasKey('csv_removeCRLF', $exportArray);
         $this->assertSame($expected, $exportArray['csv_removeCRLF']);
     }
 
@@ -615,7 +576,6 @@ class ExportTest extends TestCase
         $export = new Export(['excel_columns' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->excel_columns);
-        $this->assertArrayHasKey('excel_columns', $exportArray);
         $this->assertSame($expected, $exportArray['excel_columns']);
     }
 
@@ -625,7 +585,6 @@ class ExportTest extends TestCase
         $export = new Export(['excel_null' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->excel_null);
-        $this->assertArrayHasKey('excel_null', $exportArray);
         $this->assertSame($expected, $exportArray['excel_null']);
     }
 
@@ -644,7 +603,6 @@ class ExportTest extends TestCase
         $export = new Export(['excel_edition' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->excel_edition);
-        $this->assertArrayHasKey('excel_edition', $exportArray);
         $this->assertSame($expected, $exportArray['excel_edition']);
     }
 
@@ -664,7 +622,6 @@ class ExportTest extends TestCase
         $export = new Export(['excel_removeCRLF' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->excel_removeCRLF);
-        $this->assertArrayHasKey('excel_removeCRLF', $exportArray);
         $this->assertSame($expected, $exportArray['excel_removeCRLF']);
     }
 
@@ -674,7 +631,6 @@ class ExportTest extends TestCase
         $export = new Export(['excel_structure_or_data' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->excel_structure_or_data);
-        $this->assertArrayHasKey('excel_structure_or_data', $exportArray);
         $this->assertSame($expected, $exportArray['excel_structure_or_data']);
     }
 
@@ -684,7 +640,6 @@ class ExportTest extends TestCase
         $export = new Export(['latex_structure_or_data' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->latex_structure_or_data);
-        $this->assertArrayHasKey('latex_structure_or_data', $exportArray);
         $this->assertSame($expected, $exportArray['latex_structure_or_data']);
     }
 
@@ -694,7 +649,6 @@ class ExportTest extends TestCase
         $export = new Export(['latex_columns' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->latex_columns);
-        $this->assertArrayHasKey('latex_columns', $exportArray);
         $this->assertSame($expected, $exportArray['latex_columns']);
     }
 
@@ -704,7 +658,6 @@ class ExportTest extends TestCase
         $export = new Export(['latex_relation' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->latex_relation);
-        $this->assertArrayHasKey('latex_relation', $exportArray);
         $this->assertSame($expected, $exportArray['latex_relation']);
     }
 
@@ -714,7 +667,6 @@ class ExportTest extends TestCase
         $export = new Export(['latex_comments' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->latex_comments);
-        $this->assertArrayHasKey('latex_comments', $exportArray);
         $this->assertSame($expected, $exportArray['latex_comments']);
     }
 
@@ -724,7 +676,6 @@ class ExportTest extends TestCase
         $export = new Export(['latex_mime' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->latex_mime);
-        $this->assertArrayHasKey('latex_mime', $exportArray);
         $this->assertSame($expected, $exportArray['latex_mime']);
     }
 
@@ -734,7 +685,6 @@ class ExportTest extends TestCase
         $export = new Export(['latex_null' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->latex_null);
-        $this->assertArrayHasKey('latex_null', $exportArray);
         $this->assertSame($expected, $exportArray['latex_null']);
     }
 
@@ -753,7 +703,6 @@ class ExportTest extends TestCase
         $export = new Export(['latex_caption' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->latex_caption);
-        $this->assertArrayHasKey('latex_caption', $exportArray);
         $this->assertSame($expected, $exportArray['latex_caption']);
     }
 
@@ -763,7 +712,6 @@ class ExportTest extends TestCase
         $export = new Export(['latex_structure_caption' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->latex_structure_caption);
-        $this->assertArrayHasKey('latex_structure_caption', $exportArray);
         $this->assertSame($expected, $exportArray['latex_structure_caption']);
     }
 
@@ -782,7 +730,6 @@ class ExportTest extends TestCase
         $export = new Export(['latex_structure_continued_caption' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->latex_structure_continued_caption);
-        $this->assertArrayHasKey('latex_structure_continued_caption', $exportArray);
         $this->assertSame($expected, $exportArray['latex_structure_continued_caption']);
     }
 
@@ -801,7 +748,6 @@ class ExportTest extends TestCase
         $export = new Export(['latex_data_caption' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->latex_data_caption);
-        $this->assertArrayHasKey('latex_data_caption', $exportArray);
         $this->assertSame($expected, $exportArray['latex_data_caption']);
     }
 
@@ -820,7 +766,6 @@ class ExportTest extends TestCase
         $export = new Export(['latex_data_continued_caption' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->latex_data_continued_caption);
-        $this->assertArrayHasKey('latex_data_continued_caption', $exportArray);
         $this->assertSame($expected, $exportArray['latex_data_continued_caption']);
     }
 
@@ -839,7 +784,6 @@ class ExportTest extends TestCase
         $export = new Export(['latex_data_label' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->latex_data_label);
-        $this->assertArrayHasKey('latex_data_label', $exportArray);
         $this->assertSame($expected, $exportArray['latex_data_label']);
     }
 
@@ -858,7 +802,6 @@ class ExportTest extends TestCase
         $export = new Export(['latex_structure_label' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->latex_structure_label);
-        $this->assertArrayHasKey('latex_structure_label', $exportArray);
         $this->assertSame($expected, $exportArray['latex_structure_label']);
     }
 
@@ -877,7 +820,6 @@ class ExportTest extends TestCase
         $export = new Export(['mediawiki_structure_or_data' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->mediawiki_structure_or_data);
-        $this->assertArrayHasKey('mediawiki_structure_or_data', $exportArray);
         $this->assertSame($expected, $exportArray['mediawiki_structure_or_data']);
     }
 
@@ -887,7 +829,6 @@ class ExportTest extends TestCase
         $export = new Export(['mediawiki_caption' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->mediawiki_caption);
-        $this->assertArrayHasKey('mediawiki_caption', $exportArray);
         $this->assertSame($expected, $exportArray['mediawiki_caption']);
     }
 
@@ -897,7 +838,6 @@ class ExportTest extends TestCase
         $export = new Export(['mediawiki_headers' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->mediawiki_headers);
-        $this->assertArrayHasKey('mediawiki_headers', $exportArray);
         $this->assertSame($expected, $exportArray['mediawiki_headers']);
     }
 
@@ -907,7 +847,6 @@ class ExportTest extends TestCase
         $export = new Export(['ods_structure_or_data' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->ods_structure_or_data);
-        $this->assertArrayHasKey('ods_structure_or_data', $exportArray);
         $this->assertSame($expected, $exportArray['ods_structure_or_data']);
     }
 
@@ -917,7 +856,6 @@ class ExportTest extends TestCase
         $export = new Export(['pdf_structure_or_data' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->pdf_structure_or_data);
-        $this->assertArrayHasKey('pdf_structure_or_data', $exportArray);
         $this->assertSame($expected, $exportArray['pdf_structure_or_data']);
     }
 
@@ -927,7 +865,6 @@ class ExportTest extends TestCase
         $export = new Export(['phparray_structure_or_data' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->phparray_structure_or_data);
-        $this->assertArrayHasKey('phparray_structure_or_data', $exportArray);
         $this->assertSame($expected, $exportArray['phparray_structure_or_data']);
     }
 
@@ -937,7 +874,6 @@ class ExportTest extends TestCase
         $export = new Export(['json_structure_or_data' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->json_structure_or_data);
-        $this->assertArrayHasKey('json_structure_or_data', $exportArray);
         $this->assertSame($expected, $exportArray['json_structure_or_data']);
     }
 
@@ -947,7 +883,6 @@ class ExportTest extends TestCase
         $export = new Export(['json_pretty_print' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->json_pretty_print);
-        $this->assertArrayHasKey('json_pretty_print', $exportArray);
         $this->assertSame($expected, $exportArray['json_pretty_print']);
     }
 
@@ -957,7 +892,6 @@ class ExportTest extends TestCase
         $export = new Export(['json_unicode' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->json_unicode);
-        $this->assertArrayHasKey('json_unicode', $exportArray);
         $this->assertSame($expected, $exportArray['json_unicode']);
     }
 
@@ -967,7 +901,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_structure_or_data' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_structure_or_data);
-        $this->assertArrayHasKey('sql_structure_or_data', $exportArray);
         $this->assertSame($expected, $exportArray['sql_structure_or_data']);
     }
 
@@ -977,7 +910,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_compatibility' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_compatibility);
-        $this->assertArrayHasKey('sql_compatibility', $exportArray);
         $this->assertSame($expected, $exportArray['sql_compatibility']);
     }
 
@@ -1004,7 +936,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_include_comments' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_include_comments);
-        $this->assertArrayHasKey('sql_include_comments', $exportArray);
         $this->assertSame($expected, $exportArray['sql_include_comments']);
     }
 
@@ -1014,7 +945,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_disable_fk' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_disable_fk);
-        $this->assertArrayHasKey('sql_disable_fk', $exportArray);
         $this->assertSame($expected, $exportArray['sql_disable_fk']);
     }
 
@@ -1024,7 +954,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_views_as_tables' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_views_as_tables);
-        $this->assertArrayHasKey('sql_views_as_tables', $exportArray);
         $this->assertSame($expected, $exportArray['sql_views_as_tables']);
     }
 
@@ -1034,7 +963,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_metadata' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_metadata);
-        $this->assertArrayHasKey('sql_metadata', $exportArray);
         $this->assertSame($expected, $exportArray['sql_metadata']);
     }
 
@@ -1044,7 +972,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_use_transaction' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_use_transaction);
-        $this->assertArrayHasKey('sql_use_transaction', $exportArray);
         $this->assertSame($expected, $exportArray['sql_use_transaction']);
     }
 
@@ -1054,7 +981,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_create_database' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_create_database);
-        $this->assertArrayHasKey('sql_create_database', $exportArray);
         $this->assertSame($expected, $exportArray['sql_create_database']);
     }
 
@@ -1064,7 +990,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_drop_database' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_drop_database);
-        $this->assertArrayHasKey('sql_drop_database', $exportArray);
         $this->assertSame($expected, $exportArray['sql_drop_database']);
     }
 
@@ -1074,7 +999,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_drop_table' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_drop_table);
-        $this->assertArrayHasKey('sql_drop_table', $exportArray);
         $this->assertSame($expected, $exportArray['sql_drop_table']);
     }
 
@@ -1084,7 +1008,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_if_not_exists' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_if_not_exists);
-        $this->assertArrayHasKey('sql_if_not_exists', $exportArray);
         $this->assertSame($expected, $exportArray['sql_if_not_exists']);
     }
 
@@ -1094,7 +1017,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_view_current_user' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_view_current_user);
-        $this->assertArrayHasKey('sql_view_current_user', $exportArray);
         $this->assertSame($expected, $exportArray['sql_view_current_user']);
     }
 
@@ -1104,7 +1026,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_or_replace_view' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_or_replace_view);
-        $this->assertArrayHasKey('sql_or_replace_view', $exportArray);
         $this->assertSame($expected, $exportArray['sql_or_replace_view']);
     }
 
@@ -1114,7 +1035,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_procedure_function' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_procedure_function);
-        $this->assertArrayHasKey('sql_procedure_function', $exportArray);
         $this->assertSame($expected, $exportArray['sql_procedure_function']);
     }
 
@@ -1124,7 +1044,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_create_table' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_create_table);
-        $this->assertArrayHasKey('sql_create_table', $exportArray);
         $this->assertSame($expected, $exportArray['sql_create_table']);
     }
 
@@ -1134,7 +1053,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_create_view' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_create_view);
-        $this->assertArrayHasKey('sql_create_view', $exportArray);
         $this->assertSame($expected, $exportArray['sql_create_view']);
     }
 
@@ -1144,7 +1062,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_create_trigger' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_create_trigger);
-        $this->assertArrayHasKey('sql_create_trigger', $exportArray);
         $this->assertSame($expected, $exportArray['sql_create_trigger']);
     }
 
@@ -1154,7 +1071,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_auto_increment' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_auto_increment);
-        $this->assertArrayHasKey('sql_auto_increment', $exportArray);
         $this->assertSame($expected, $exportArray['sql_auto_increment']);
     }
 
@@ -1164,7 +1080,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_backquotes' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_backquotes);
-        $this->assertArrayHasKey('sql_backquotes', $exportArray);
         $this->assertSame($expected, $exportArray['sql_backquotes']);
     }
 
@@ -1174,7 +1089,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_dates' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_dates);
-        $this->assertArrayHasKey('sql_dates', $exportArray);
         $this->assertSame($expected, $exportArray['sql_dates']);
     }
 
@@ -1184,7 +1098,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_relation' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_relation);
-        $this->assertArrayHasKey('sql_relation', $exportArray);
         $this->assertSame($expected, $exportArray['sql_relation']);
     }
 
@@ -1194,7 +1107,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_truncate' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_truncate);
-        $this->assertArrayHasKey('sql_truncate', $exportArray);
         $this->assertSame($expected, $exportArray['sql_truncate']);
     }
 
@@ -1204,7 +1116,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_delayed' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_delayed);
-        $this->assertArrayHasKey('sql_delayed', $exportArray);
         $this->assertSame($expected, $exportArray['sql_delayed']);
     }
 
@@ -1214,7 +1125,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_ignore' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_ignore);
-        $this->assertArrayHasKey('sql_ignore', $exportArray);
         $this->assertSame($expected, $exportArray['sql_ignore']);
     }
 
@@ -1224,7 +1134,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_utc_time' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_utc_time);
-        $this->assertArrayHasKey('sql_utc_time', $exportArray);
         $this->assertSame($expected, $exportArray['sql_utc_time']);
     }
 
@@ -1234,7 +1143,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_hex_for_binary' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_hex_for_binary);
-        $this->assertArrayHasKey('sql_hex_for_binary', $exportArray);
         $this->assertSame($expected, $exportArray['sql_hex_for_binary']);
     }
 
@@ -1244,7 +1152,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_type' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_type);
-        $this->assertArrayHasKey('sql_type', $exportArray);
         $this->assertSame($expected, $exportArray['sql_type']);
     }
 
@@ -1264,7 +1171,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_max_query_size' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_max_query_size);
-        $this->assertArrayHasKey('sql_max_query_size', $exportArray);
         $this->assertSame($expected, $exportArray['sql_max_query_size']);
     }
 
@@ -1283,7 +1189,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_mime' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_mime);
-        $this->assertArrayHasKey('sql_mime', $exportArray);
         $this->assertSame($expected, $exportArray['sql_mime']);
     }
 
@@ -1293,7 +1198,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_header_comment' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_header_comment);
-        $this->assertArrayHasKey('sql_header_comment', $exportArray);
         $this->assertSame($expected, $exportArray['sql_header_comment']);
     }
 
@@ -1312,7 +1216,6 @@ class ExportTest extends TestCase
         $export = new Export(['sql_insert_syntax' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->sql_insert_syntax);
-        $this->assertArrayHasKey('sql_insert_syntax', $exportArray);
         $this->assertSame($expected, $exportArray['sql_insert_syntax']);
     }
 
@@ -1334,7 +1237,6 @@ class ExportTest extends TestCase
         $export = new Export(['pdf_report_title' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->pdf_report_title);
-        $this->assertArrayHasKey('pdf_report_title', $exportArray);
         $this->assertSame($expected, $exportArray['pdf_report_title']);
     }
 
@@ -1353,7 +1255,6 @@ class ExportTest extends TestCase
         $export = new Export(['xml_structure_or_data' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->xml_structure_or_data);
-        $this->assertArrayHasKey('xml_structure_or_data', $exportArray);
         $this->assertSame($expected, $exportArray['xml_structure_or_data']);
     }
 
@@ -1363,7 +1264,6 @@ class ExportTest extends TestCase
         $export = new Export(['xml_export_struc' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->xml_export_struc);
-        $this->assertArrayHasKey('xml_export_struc', $exportArray);
         $this->assertSame($expected, $exportArray['xml_export_struc']);
     }
 
@@ -1373,7 +1273,6 @@ class ExportTest extends TestCase
         $export = new Export(['xml_export_events' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->xml_export_events);
-        $this->assertArrayHasKey('xml_export_events', $exportArray);
         $this->assertSame($expected, $exportArray['xml_export_events']);
     }
 
@@ -1383,7 +1282,6 @@ class ExportTest extends TestCase
         $export = new Export(['xml_export_functions' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->xml_export_functions);
-        $this->assertArrayHasKey('xml_export_functions', $exportArray);
         $this->assertSame($expected, $exportArray['xml_export_functions']);
     }
 
@@ -1393,7 +1291,6 @@ class ExportTest extends TestCase
         $export = new Export(['xml_export_procedures' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->xml_export_procedures);
-        $this->assertArrayHasKey('xml_export_procedures', $exportArray);
         $this->assertSame($expected, $exportArray['xml_export_procedures']);
     }
 
@@ -1403,7 +1300,6 @@ class ExportTest extends TestCase
         $export = new Export(['xml_export_tables' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->xml_export_tables);
-        $this->assertArrayHasKey('xml_export_tables', $exportArray);
         $this->assertSame($expected, $exportArray['xml_export_tables']);
     }
 
@@ -1413,7 +1309,6 @@ class ExportTest extends TestCase
         $export = new Export(['xml_export_triggers' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->xml_export_triggers);
-        $this->assertArrayHasKey('xml_export_triggers', $exportArray);
         $this->assertSame($expected, $exportArray['xml_export_triggers']);
     }
 
@@ -1423,7 +1318,6 @@ class ExportTest extends TestCase
         $export = new Export(['xml_export_views' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->xml_export_views);
-        $this->assertArrayHasKey('xml_export_views', $exportArray);
         $this->assertSame($expected, $exportArray['xml_export_views']);
     }
 
@@ -1433,7 +1327,6 @@ class ExportTest extends TestCase
         $export = new Export(['xml_export_contents' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->xml_export_contents);
-        $this->assertArrayHasKey('xml_export_contents', $exportArray);
         $this->assertSame($expected, $exportArray['xml_export_contents']);
     }
 
@@ -1443,7 +1336,6 @@ class ExportTest extends TestCase
         $export = new Export(['yaml_structure_or_data' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->yaml_structure_or_data);
-        $this->assertArrayHasKey('yaml_structure_or_data', $exportArray);
         $this->assertSame($expected, $exportArray['yaml_structure_or_data']);
     }
 
@@ -1453,7 +1345,6 @@ class ExportTest extends TestCase
         $export = new Export(['remove_definer_from_definitions' => $actual]);
         $exportArray = $export->asArray();
         $this->assertSame($expected, $export->remove_definer_from_definitions);
-        $this->assertArrayHasKey('remove_definer_from_definitions', $exportArray);
         $this->assertSame($expected, $exportArray['remove_definer_from_definitions']);
     }
 }

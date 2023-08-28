@@ -109,7 +109,8 @@ class ImportShp extends ImportPlugin
         $tempDbfFile = false;
         // We need dbase extension to handle .dbf file
         if (extension_loaded('dbase')) {
-            $temp = Config::getInstance()->getTempDir('shp');
+            $config = Config::getInstance();
+            $temp = $config->getTempDir('shp');
             // If we can extract the zip archive to 'TempDir'
             // and use the files in it for import
             if ($compression === 'application/zip' && $temp !== null) {
@@ -142,7 +143,7 @@ class ImportShp extends ImportPlugin
                 }
             } elseif (
                 ! empty($GLOBALS['local_import_file'])
-                && ! empty($GLOBALS['cfg']['UploadDir'])
+                && ! empty($config->settings['UploadDir'])
                 && $compression === 'none'
             ) {
                 // If file is in UploadDir, use .dbf file in the same UploadDir

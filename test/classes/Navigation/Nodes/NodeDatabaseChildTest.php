@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Navigation\Nodes\NodeDatabase;
@@ -36,9 +37,10 @@ class NodeDatabaseChildTest extends AbstractTestCase
 
         parent::setLanguage();
 
-        $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
+        $config = Config::getInstance();
+        $config->settings['DefaultTabDatabase'] = 'structure';
         $GLOBALS['server'] = 1;
-        $GLOBALS['cfg']['ServerDefault'] = 1;
+        $config->settings['ServerDefault'] = 1;
         $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',
             'navwork' => true,

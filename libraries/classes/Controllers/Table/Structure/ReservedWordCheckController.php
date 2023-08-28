@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table\Structure;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\SqlParser\Context;
@@ -18,7 +19,7 @@ final class ReservedWordCheckController extends AbstractController
 {
     public function __invoke(ServerRequest $request): void
     {
-        if ($GLOBALS['cfg']['ReservedWordDisableWarning'] !== false) {
+        if (Config::getInstance()->settings['ReservedWordDisableWarning'] !== false) {
             $this->response->setRequestStatus(false);
 
             return;

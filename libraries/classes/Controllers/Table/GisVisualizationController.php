@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
@@ -42,7 +43,10 @@ final class GisVisualizationController extends AbstractController
     {
         $this->checkParameters(['db']);
 
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
+            Config::getInstance()->settings['DefaultTabDatabase'],
+            'database',
+        );
         $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
@@ -121,7 +125,10 @@ final class GisVisualizationController extends AbstractController
          * Displays the page
          */
         $urlParams = $GLOBALS['urlParams'] ?? [];
-        $urlParams['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+        $urlParams['goto'] = Util::getScriptNameForOption(
+            Config::getInstance()->settings['DefaultTabDatabase'],
+            'database',
+        );
         $urlParams['back'] = Url::getFromRoute('/sql');
         $urlParams['sql_query'] = $sqlQuery;
         $urlParams['sql_signature'] = Core::signSqlQuery($sqlQuery);
@@ -227,7 +234,7 @@ final class GisVisualizationController extends AbstractController
         }
 
         if ($_SESSION['tmpval']['max_rows'] === 'all') {
-            return (int) $GLOBALS['cfg']['MaxRows'];
+            return (int) Config::getInstance()->settings['MaxRows'];
         }
 
         return (int) $_SESSION['tmpval']['max_rows'];

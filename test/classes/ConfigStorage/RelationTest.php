@@ -66,8 +66,9 @@ class RelationTest extends AbstractTestCase
      */
     public function testPMAGetComments(): void
     {
-        Config::getInstance()->selectedServer['DisableIS'] = false;
-        $GLOBALS['cfg']['ServerDefault'] = 0;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = false;
+        $config->settings['ServerDefault'] = 0;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()

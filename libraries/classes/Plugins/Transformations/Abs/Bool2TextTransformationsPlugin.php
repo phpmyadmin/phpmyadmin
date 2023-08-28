@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 
@@ -37,7 +38,7 @@ abstract class Bool2TextTransformationsPlugin extends TransformationsPlugin
      */
     public function applyTransformation(string $buffer, array $options = [], FieldMetadata|null $meta = null): string
     {
-        $cfg = $GLOBALS['cfg'];
+        $cfg = Config::getInstance()->settings;
         $options = $this->getOptions($options, $cfg['DefaultTransformations']['Bool2Text']);
 
         if ($buffer == '0') {

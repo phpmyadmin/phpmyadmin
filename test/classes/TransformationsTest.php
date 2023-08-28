@@ -31,9 +31,9 @@ class TransformationsTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
-        $GLOBALS['cfg'] = ['ServerDefault' => 1, 'ActionLinksMode' => 'icons'];
-        $GLOBALS['server'] = 1;
         $config = Config::getInstance();
+        $config->settings = ['ServerDefault' => 1, 'ActionLinksMode' => 'icons'];
+        $GLOBALS['server'] = 1;
         $config->selectedServer['pmadb'] = 'pmadb';
         $config->selectedServer['user'] = 'user';
         $config->selectedServer['bookmarktable'] = '';
@@ -41,7 +41,7 @@ class TransformationsTest extends AbstractTestCase
         $config->selectedServer['table_info'] = '';
         $config->selectedServer['table_coords'] = '';
         $config->selectedServer['column_info'] = 'column_info';
-        $GLOBALS['cfg']['DBG']['sql'] = false;
+        $config->settings['DBG']['sql'] = false;
 
         $this->transformations = new Transformations();
     }

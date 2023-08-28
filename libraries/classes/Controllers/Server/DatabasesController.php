@@ -115,8 +115,8 @@ class DatabasesController extends AbstractController
         $databases = $this->getDatabases($primaryInfo, $replicaInfo);
 
         $charsetsList = [];
-        if ($GLOBALS['cfg']['ShowCreateDb'] && $GLOBALS['is_create_db_priv']) {
-            $config = Config::getInstance();
+        $config = Config::getInstance();
+        if ($config->settings['ShowCreateDb'] && $GLOBALS['is_create_db_priv']) {
             $charsets = Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
             $collations = Charsets::getCollations($this->dbi, $config->selectedServer['DisableIS']);
             $serverCollation = $this->dbi->getServerCollation();
@@ -141,7 +141,7 @@ class DatabasesController extends AbstractController
         $headerStatistics = $this->getStatisticsColumns();
 
         $this->render('server/databases/index', [
-            'is_create_database_shown' => $GLOBALS['cfg']['ShowCreateDb'],
+            'is_create_database_shown' => $config->settings['ShowCreateDb'],
             'has_create_database_privileges' => $GLOBALS['is_create_db_priv'],
             'has_statistics' => $this->hasStatistics,
             'database_to_create' => $GLOBALS['db_to_create'],
@@ -152,10 +152,10 @@ class DatabasesController extends AbstractController
             'database_count' => $this->databaseCount,
             'pos' => $position,
             'url_params' => $urlParams,
-            'max_db_list' => $GLOBALS['cfg']['MaxDbList'],
+            'max_db_list' => $config->settings['MaxDbList'],
             'has_primary_replication' => $primaryInfo['status'],
             'has_replica_replication' => $replicaInfo['status'],
-            'is_drop_allowed' => $this->dbi->isSuperUser() || $GLOBALS['cfg']['AllowUserDropDatabase'],
+            'is_drop_allowed' => $this->dbi->isSuperUser() || $config->settings['AllowUserDropDatabase'],
             'text_dir' => $GLOBALS['text_dir'],
         ]);
     }
@@ -245,12 +245,12 @@ class DatabasesController extends AbstractController
                 }
             }
 
-            $url = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+            $config = Config::getInstance();
+            $url = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
             $url .= Url::getCommonRaw(
                 ['db' => $database['SCHEMA_NAME']],
                 ! str_contains($url, '?') ? '?' : '&',
             );
-            $config = Config::getInstance();
             $databases[$database['SCHEMA_NAME']] = [
                 'name' => $database['SCHEMA_NAME'],
                 'collation' => [],

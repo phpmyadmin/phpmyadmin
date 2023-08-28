@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -27,7 +28,7 @@ final class ThemeSetController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $theme = $request->getParsedBodyParam('set_theme');
-        if (! $GLOBALS['cfg']['ThemeManager'] || ! is_string($theme) || $theme === '') {
+        if (! Config::getInstance()->settings['ThemeManager'] || ! is_string($theme) || $theme === '') {
             if ($request->isAjax()) {
                 $this->response->addJSON('themeColorMode', '');
 

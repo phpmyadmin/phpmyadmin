@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
@@ -88,7 +89,8 @@ class ZoomSearchController extends AbstractController
         $this->checkParameters(['db', 'table']);
 
         $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+        $config = Config::getInstance();
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
         $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
@@ -175,7 +177,7 @@ class ZoomSearchController extends AbstractController
         }
 
         if (! isset($GLOBALS['goto'])) {
-            $GLOBALS['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+            $GLOBALS['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
         }
 
         $this->zoomSubmitAction($dataLabel, $GLOBALS['goto']);
@@ -239,8 +241,9 @@ class ZoomSearchController extends AbstractController
      */
     public function displaySelectionFormAction(string $dataLabel): void
     {
+        $config = Config::getInstance();
         if (! isset($GLOBALS['goto'])) {
-            $GLOBALS['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+            $GLOBALS['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
         }
 
         $criteriaColumnNames = $_POST['criteriaColumnNames'] ?? null;
@@ -271,7 +274,7 @@ class ZoomSearchController extends AbstractController
             'criteria_column_types' => $_POST['criteriaColumnTypes'] ?? null,
             'max_plot_limit' => ! empty($_POST['maxPlotLimit'])
                 ? intval($_POST['maxPlotLimit'])
-                : intval($GLOBALS['cfg']['maxRowPlotLimit']),
+                : intval($config->settings['maxRowPlotLimit']),
         ]);
     }
 
@@ -405,7 +408,7 @@ class ZoomSearchController extends AbstractController
                 (string) $foreignData[$columnIndex]['foreign_field'],
                 $foreignData[$columnIndex]['foreign_display'],
                 '',
-                $GLOBALS['cfg']['ForeignKeyMaxLimit'],
+                Config::getInstance()->settings['ForeignKeyMaxLimit'],
             );
         }
 
@@ -488,7 +491,7 @@ class ZoomSearchController extends AbstractController
                 $foreignData['foreign_field'],
                 $foreignData['foreign_display'],
                 '',
-                $GLOBALS['cfg']['ForeignKeyMaxLimit'],
+                Config::getInstance()->settings['ForeignKeyMaxLimit'],
             );
         }
 

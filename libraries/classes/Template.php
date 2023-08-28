@@ -63,7 +63,7 @@ class Template
 
         $twig->addRuntimeLoader(new ContainerRuntimeLoader(Core::getContainerBuilder()));
 
-        if (($GLOBALS['cfg']['environment'] ?? '') === 'development') {
+        if ((Config::getInstance()->settings['environment'] ?? '') === 'development') {
             $twig->enableDebug();
             $twig->enableStrictVariables();
             $twig->addExtension(new DebugExtension());

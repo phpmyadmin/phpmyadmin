@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 
@@ -39,7 +40,7 @@ abstract class PreApPendTransformationsPlugin extends TransformationsPlugin
      */
     public function applyTransformation(string $buffer, array $options = [], FieldMetadata|null $meta = null): string
     {
-        $cfg = $GLOBALS['cfg'];
+        $cfg = Config::getInstance()->settings;
         $options = $this->getOptions($options, $cfg['DefaultTransformations']['PreApPend']);
 
         //just prepend and/or append the options to the original text

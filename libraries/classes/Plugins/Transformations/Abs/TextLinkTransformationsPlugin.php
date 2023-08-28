@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Sanitize;
@@ -40,7 +41,7 @@ abstract class TextLinkTransformationsPlugin extends TransformationsPlugin
      */
     public function applyTransformation(string $buffer, array $options = [], FieldMetadata|null $meta = null): string
     {
-        $cfg = $GLOBALS['cfg'];
+        $cfg = Config::getInstance()->settings;
         $options = $this->getOptions($options, $cfg['DefaultTransformations']['TextLink']);
         $url = ($options[0] ?? '') . (isset($options[2]) && $options[2] ? '' : $buffer);
         /* Do not allow javascript links */

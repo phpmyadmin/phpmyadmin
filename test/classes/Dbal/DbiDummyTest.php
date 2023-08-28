@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Dbal;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -29,8 +30,9 @@ class DbiDummyTest extends AbstractTestCase
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
-        $GLOBALS['cfg']['DBG']['sql'] = false;
-        $GLOBALS['cfg']['IconvExtraParams'] = '';
+        $config = Config::getInstance();
+        $config->settings['DBG']['sql'] = false;
+        $config->settings['IconvExtraParams'] = '';
         $GLOBALS['server'] = 1;
     }
 

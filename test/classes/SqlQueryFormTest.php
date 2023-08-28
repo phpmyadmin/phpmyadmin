@@ -60,19 +60,20 @@ class SqlQueryFormTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'text_dir';
         $GLOBALS['server'] = 0;
 
-        $GLOBALS['cfg']['GZipDump'] = false;
-        $GLOBALS['cfg']['BZipDump'] = false;
-        $GLOBALS['cfg']['ZipDump'] = false;
-        $GLOBALS['cfg']['ServerDefault'] = 'default';
-        $GLOBALS['cfg']['TextareaAutoSelect'] = true;
-        $GLOBALS['cfg']['TextareaRows'] = 100;
-        $GLOBALS['cfg']['TextareaCols'] = 11;
-        $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
-        $GLOBALS['cfg']['RetainQueryBox'] = true;
-        $GLOBALS['cfg']['ActionLinksMode'] = 'both';
-        $GLOBALS['cfg']['DefaultTabTable'] = 'browse';
-        $GLOBALS['cfg']['CodemirrorEnable'] = true;
-        $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'default';
+        $config = Config::getInstance();
+        $config->settings['GZipDump'] = false;
+        $config->settings['BZipDump'] = false;
+        $config->settings['ZipDump'] = false;
+        $config->settings['ServerDefault'] = 'default';
+        $config->settings['TextareaAutoSelect'] = true;
+        $config->settings['TextareaRows'] = 100;
+        $config->settings['TextareaCols'] = 11;
+        $config->settings['DefaultTabDatabase'] = 'structure';
+        $config->settings['RetainQueryBox'] = true;
+        $config->settings['ActionLinksMode'] = 'both';
+        $config->settings['DefaultTabTable'] = 'browse';
+        $config->settings['CodemirrorEnable'] = true;
+        $config->settings['DefaultForeignKeyChecks'] = 'default';
 
         $relationParameters = RelationParameters::fromArray([
             'table_coords' => 'table_name',
@@ -84,7 +85,6 @@ class SqlQueryFormTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $config = Config::getInstance();
         $config->selectedServer['user'] = 'user';
         $config->selectedServer['pmadb'] = 'pmadb';
         $config->selectedServer['bookmarktable'] = 'bookmarktable';

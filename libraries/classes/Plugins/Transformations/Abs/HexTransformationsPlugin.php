@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 
@@ -42,7 +43,7 @@ abstract class HexTransformationsPlugin extends TransformationsPlugin
     public function applyTransformation(string $buffer, array $options = [], FieldMetadata|null $meta = null): string
     {
         // possibly use a global transform and feed it with special options
-        $cfg = $GLOBALS['cfg'];
+        $cfg = Config::getInstance()->settings;
         $options = $this->getOptions($options, $cfg['DefaultTransformations']['Hex']);
         $options[0] = intval($options[0]);
 

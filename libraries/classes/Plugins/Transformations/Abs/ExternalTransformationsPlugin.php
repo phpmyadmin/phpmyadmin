@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 
@@ -107,7 +108,7 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
             return $buffer;
         }
 
-        $cfg = $GLOBALS['cfg'];
+        $cfg = Config::getInstance()->settings;
         $options = $this->getOptions($options, $cfg['DefaultTransformations']['External']);
 
         if (isset($allowedPrograms[$options[0]])) {

@@ -107,7 +107,8 @@ final class ColumnsDefinition
         }
 
         $availableMime = [];
-        if ($relationParameters->browserTransformationFeature !== null && $GLOBALS['cfg']['BrowseMIME']) {
+        $config = Config::getInstance();
+        if ($relationParameters->browserTransformationFeature !== null && $config->settings['BrowseMIME']) {
             $GLOBALS['mime_map'] = $this->transformations->getMime($GLOBALS['db'], $GLOBALS['table']);
             $availableMime = $this->transformations->getAvailableMimeTypes();
         }
@@ -377,7 +378,6 @@ final class ColumnsDefinition
 
         $partitionDetails = TablePartitionDefinition::getDetails();
 
-        $config = Config::getInstance();
         $charsets = Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
         $collations = Charsets::getCollations($this->dbi, $config->selectedServer['DisableIS']);
         $charsetsList = [];
@@ -420,13 +420,13 @@ final class ColumnsDefinition
             'change_column' => $_POST['change_column'] ?? $_GET['change_column'] ?? null,
             'is_virtual_columns_supported' => Compatibility::isVirtualColumnsSupported($this->dbi->getVersion()),
             'is_integers_length_restricted' => $isIntegersLengthRestricted,
-            'browse_mime' => $GLOBALS['cfg']['BrowseMIME'] ?? null,
+            'browse_mime' => $config->settings['BrowseMIME'] ?? null,
             'supports_stored_keyword' => Compatibility::supportsStoredKeywordForVirtualColumns(
                 $this->dbi->getVersion(),
             ),
             'server_version' => $this->dbi->getVersion(),
-            'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
-            'char_editing' => $GLOBALS['cfg']['CharEditing'] ?? null,
+            'max_rows' => intval($config->settings['MaxRows']),
+            'char_editing' => $config->settings['CharEditing'] ?? null,
             'attribute_types' => $this->dbi->types->getAttributes(),
             'privs_available' => ($GLOBALS['col_priv'] ?? false) && ($GLOBALS['is_reload_priv'] ?? false),
             'max_length' => $this->dbi->getVersion() >= 50503 ? 1024 : 255,

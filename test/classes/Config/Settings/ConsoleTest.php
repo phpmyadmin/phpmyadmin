@@ -19,7 +19,6 @@ class ConsoleTest extends TestCase
         $consoleArray = $console->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->assertSame($expected, $console->StartHistory);
-        $this->assertArrayHasKey('StartHistory', $consoleArray);
         $this->assertSame($expected, $consoleArray['StartHistory']);
     }
 
@@ -39,7 +38,6 @@ class ConsoleTest extends TestCase
         $consoleArray = $console->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->assertSame($expected, $console->AlwaysExpand);
-        $this->assertArrayHasKey('AlwaysExpand', $consoleArray);
         $this->assertSame($expected, $consoleArray['AlwaysExpand']);
     }
 
@@ -50,7 +48,6 @@ class ConsoleTest extends TestCase
         $consoleArray = $console->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->assertSame($expected, $console->CurrentQuery);
-        $this->assertArrayHasKey('CurrentQuery', $consoleArray);
         $this->assertSame($expected, $consoleArray['CurrentQuery']);
     }
 
@@ -70,7 +67,6 @@ class ConsoleTest extends TestCase
         $consoleArray = $console->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->assertSame($expected, $console->EnterExecutes);
-        $this->assertArrayHasKey('EnterExecutes', $consoleArray);
         $this->assertSame($expected, $consoleArray['EnterExecutes']);
     }
 
@@ -81,7 +77,6 @@ class ConsoleTest extends TestCase
         $consoleArray = $console->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->assertSame($expected, $console->DarkTheme);
-        $this->assertArrayHasKey('DarkTheme', $consoleArray);
         $this->assertSame($expected, $consoleArray['DarkTheme']);
     }
 
@@ -92,7 +87,6 @@ class ConsoleTest extends TestCase
         $consoleArray = $console->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->assertSame($expected, $console->Mode);
-        $this->assertArrayHasKey('Mode', $consoleArray);
         $this->assertSame($expected, $consoleArray['Mode']);
     }
 
@@ -113,7 +107,6 @@ class ConsoleTest extends TestCase
         $consoleArray = $console->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->assertSame($expected, $console->Height);
-        $this->assertArrayHasKey('Height', $consoleArray);
         $this->assertSame($expected, $consoleArray['Height']);
     }
 
@@ -133,7 +126,6 @@ class ConsoleTest extends TestCase
         $consoleArray = $console->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->assertSame($expected, $console->GroupQueries);
-        $this->assertArrayHasKey('GroupQueries', $consoleArray);
         $this->assertSame($expected, $consoleArray['GroupQueries']);
     }
 
@@ -144,7 +136,6 @@ class ConsoleTest extends TestCase
         $consoleArray = $console->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->assertSame($expected, $console->OrderBy);
-        $this->assertArrayHasKey('OrderBy', $consoleArray);
         $this->assertSame($expected, $consoleArray['OrderBy']);
     }
 
@@ -165,7 +156,6 @@ class ConsoleTest extends TestCase
         $consoleArray = $console->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->assertSame($expected, $console->Order);
-        $this->assertArrayHasKey('Order', $consoleArray);
         $this->assertSame($expected, $consoleArray['Order']);
     }
 

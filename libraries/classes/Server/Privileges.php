@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Server;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Features\ConfigurableMenusFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
@@ -2764,10 +2765,11 @@ class Privileges
             }
         }
 
-        $databaseUrl = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
-        $databaseUrlTitle = Util::getTitleForTarget($GLOBALS['cfg']['DefaultTabDatabase']);
-        $tableUrl = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
-        $tableUrlTitle = Util::getTitleForTarget($GLOBALS['cfg']['DefaultTabTable']);
+        $config = Config::getInstance();
+        $databaseUrl = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
+        $databaseUrlTitle = Util::getTitleForTarget($config->settings['DefaultTabDatabase']);
+        $tableUrl = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
+        $tableUrlTitle = Util::getTitleForTarget($config->settings['DefaultTabTable']);
 
         $changePassword = '';
         $userGroup = '';

@@ -10,6 +10,7 @@ use FastRoute\Dispatcher\GroupCountBased as DispatcherGroupCountBased;
 use FastRoute\RouteCollector;
 use FastRoute\RouteParser\Std as RouteParserStd;
 use Fig\Http\Message\StatusCodeInterface;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\Controllers\Setup\MainController;
 use PhpMyAdmin\Controllers\Setup\ShowConfigController;
@@ -62,7 +63,7 @@ class Routing
 
     public static function skipCache(): bool
     {
-        return ($GLOBALS['cfg']['environment'] ?? '') === 'development';
+        return (Config::getInstance()->settings['environment'] ?? '') === 'development';
     }
 
     public static function canWriteCache(): bool

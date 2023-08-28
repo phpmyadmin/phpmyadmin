@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -64,8 +65,9 @@ class SpecialSchemaLinks
      */
     public static function get(): array
     {
-        $defaultPageDatabase = './' . Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
-        $defaultPageTable = './' . Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+        $config = Config::getInstance();
+        $defaultPageDatabase = './' . Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
+        $defaultPageTable = './' . Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
 
         return [
             'mysql' => [

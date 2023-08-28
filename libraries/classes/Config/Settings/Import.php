@@ -14,6 +14,35 @@ use function in_array;
  * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Import
  *
  * @psalm-immutable
+ * @psalm-type ImportSettingsType = array{
+ *     format: string,
+ *     charset: string,
+ *     allow_interrupt: bool,
+ *     skip_queries: int<0, max>,
+ *     sql_compatibility: string,
+ *     sql_no_auto_value_on_zero: bool,
+ *     sql_read_as_multibytes: bool,
+ *     csv_replace: bool,
+ *     csv_ignore: bool,
+ *     csv_terminated: string,
+ *     csv_enclosed: string,
+ *     csv_escaped: string,
+ *     csv_new_line: string,
+ *     csv_columns: string,
+ *     csv_col_names: bool,
+ *     ldi_replace: bool,
+ *     ldi_ignore: bool,
+ *     ldi_terminated: string,
+ *     ldi_enclosed: string,
+ *     ldi_escaped: string,
+ *     ldi_new_line: string,
+ *     ldi_columns: string,
+ *     ldi_local_option: 'auto'|bool,
+ *     ods_col_names: bool,
+ *     ods_empty_rows: bool,
+ *     ods_recognize_percentages: bool,
+ *     ods_recognize_currency: bool,
+ * }
  */
 final class Import
 {
@@ -252,7 +281,7 @@ final class Import
         $this->ods_recognize_currency = $this->setOdsRecognizeCurrency($import);
     }
 
-    /** @return array<string, string|bool|int> */
+    /** @psalm-return ImportSettingsType */
     public function asArray(): array
     {
         return [

@@ -192,7 +192,7 @@ class Plugins
      * should be set by config or request
      *
      * @param string $section name of config section in
-     *                        $GLOBALS['cfg'][$section] for plugin
+     *                        \PhpMyAdmin\Config::getInstance()->settings[$section] for plugin
      * @param string $opt     name of option
      * @psalm-param 'Export'|'Import'|'Schema' $section
      *
@@ -205,7 +205,7 @@ class Plugins
             isset($_GET[$opt])
             || ! isset($_GET['repopulate'])
             && ((! empty($GLOBALS['timeout_passed']) && isset($_REQUEST[$opt]))
-                || ! empty($GLOBALS['cfg'][$section][$opt]))
+                || ! empty(Config::getInstance()->settings[$section][$opt]))
         ) {
             return ' checked="checked"';
         }
@@ -217,7 +217,7 @@ class Plugins
      * Returns default value for option $opt
      *
      * @param string $section name of config section in
-     *                        $GLOBALS['cfg'][$section] for plugin
+     *                        \PhpMyAdmin\Config::getInstance()->settings[$section] for plugin
      * @param string $opt     name of option
      * @psalm-param 'Export'|'Import'|'Schema' $section
      *
@@ -234,17 +234,18 @@ class Plugins
             return htmlspecialchars($_REQUEST[$opt]);
         }
 
-        if (! isset($GLOBALS['cfg'][$section][$opt])) {
+        $config = Config::getInstance();
+        if (! isset($config->settings[$section][$opt])) {
             return '';
         }
 
         $matches = [];
         /* Possibly replace localised texts */
-        if (! preg_match_all('/(str[A-Z][A-Za-z0-9]*)/', (string) $GLOBALS['cfg'][$section][$opt], $matches)) {
-            return htmlspecialchars((string) $GLOBALS['cfg'][$section][$opt]);
+        if (! preg_match_all('/(str[A-Z][A-Za-z0-9]*)/', (string) $config->settings[$section][$opt], $matches)) {
+            return htmlspecialchars((string) $config->settings[$section][$opt]);
         }
 
-        $val = $GLOBALS['cfg'][$section][$opt];
+        $val = $config->settings[$section][$opt];
         foreach ($matches[0] as $match) {
             if (! isset($GLOBALS[$match])) {
                 continue;
@@ -282,7 +283,7 @@ class Plugins
     /**
      * Returns single option in a list element
      *
-     * @param string              $section       name of config section in $GLOBALS['cfg'][$section] for plugin
+     * @param string              $section       name of config section in $cfg[$section] for plugin
      * @param string              $pluginName    unique plugin name
      * @param OptionsPropertyItem $propertyGroup options property main group instance
      * @param bool                $isSubgroup    if this group is a subgroup
@@ -396,8 +397,7 @@ class Plugins
     /**
      * Get HTML for properties items
      *
-     * @param string              $section      name of config section in
-     *                                                            $GLOBALS['cfg'][$section] for plugin
+     * @param string              $section      name of config section in $cfg[$section] for plugin
      * @param string              $pluginName   unique plugin name
      * @param OptionsPropertyItem $propertyItem Property item
      * @psalm-param 'Export'|'Import'|'Schema' $section
@@ -558,7 +558,7 @@ class Plugins
     /**
      * Returns html div with editable options for plugin
      *
-     * @param string                                       $section name of config section in $GLOBALS['cfg'][$section]
+     * @param string                                       $section name of config section in $cfg[$section]
      * @param ExportPlugin[]|ImportPlugin[]|SchemaPlugin[] $list    array with plugin instances
      * @psalm-param 'Export'|'Import'|'Schema' $section
      *

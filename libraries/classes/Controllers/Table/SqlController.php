@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DbTableExists;
@@ -50,7 +51,10 @@ final class SqlController extends AbstractController
         $this->checkParameters(['db', 'table']);
 
         $urlParams = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
+            Config::getInstance()->settings['DefaultTabTable'],
+            'table',
+        );
         $GLOBALS['errorUrl'] .= Url::getCommon($urlParams, '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));

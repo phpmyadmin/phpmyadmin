@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
@@ -160,7 +161,10 @@ class SearchController extends AbstractController
         $this->checkParameters(['db', 'table']);
 
         $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
+            Config::getInstance()->settings['DefaultTabTable'],
+            'table',
+        );
         $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
@@ -291,8 +295,9 @@ class SearchController extends AbstractController
      */
     public function displaySelectionFormAction(): void
     {
+        $config = Config::getInstance();
         if (! isset($GLOBALS['goto'])) {
-            $GLOBALS['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+            $GLOBALS['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
         }
 
         $this->render('table/search/index', [
@@ -304,8 +309,8 @@ class SearchController extends AbstractController
             'column_names' => $this->columnNames,
             'column_types' => $this->columnTypes,
             'column_collations' => $this->columnCollations,
-            'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
-            'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
+            'default_sliders_state' => $config->settings['InitialSlidersState'],
+            'max_rows' => intval($config->settings['MaxRows']),
         ]);
     }
 
@@ -399,7 +404,7 @@ class SearchController extends AbstractController
                 $foreignData['foreign_field'],
                 $foreignData['foreign_display'],
                 '',
-                $GLOBALS['cfg']['ForeignKeyMaxLimit'],
+                Config::getInstance()->settings['ForeignKeyMaxLimit'],
             );
         }
 

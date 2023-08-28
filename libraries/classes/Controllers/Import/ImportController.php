@@ -279,8 +279,9 @@ final class ImportController extends AbstractController
         }
 
         Util::setTimeLimit();
-        if (! empty($GLOBALS['cfg']['MemoryLimit'])) {
-            ini_set('memory_limit', $GLOBALS['cfg']['MemoryLimit']);
+        $config = Config::getInstance();
+        if (! empty($config->settings['MemoryLimit'])) {
+            ini_set('memory_limit', $config->settings['MemoryLimit']);
         }
 
         $GLOBALS['timestamp'] = time();
@@ -311,7 +312,7 @@ final class ImportController extends AbstractController
         // Bookmark Support: get a query back from bookmark if required
         $idBookmark = (int) $request->getParsedBodyParam('id_bookmark');
         $actionBookmark = (int) $request->getParsedBodyParam('action_bookmark');
-        $config = Config::getInstance();
+        $config = $config;
         if ($idBookmark !== 0) {
             switch ($actionBookmark) {
                 case 0: // bookmarked query that have to be run
@@ -442,11 +443,11 @@ final class ImportController extends AbstractController
             $GLOBALS['import_file_name'] = $_FILES['import_file']['name'];
         }
 
-        if (! empty($GLOBALS['local_import_file']) && ! empty($GLOBALS['cfg']['UploadDir'])) {
+        if (! empty($GLOBALS['local_import_file']) && ! empty($config->settings['UploadDir'])) {
             // sanitize $local_import_file as it comes from a POST
             $GLOBALS['local_import_file'] = Core::securePath($GLOBALS['local_import_file']);
 
-            $GLOBALS['import_file'] = Util::userDir((string) $GLOBALS['cfg']['UploadDir'])
+            $GLOBALS['import_file'] = Util::userDir((string) $config->settings['UploadDir'])
                 . $GLOBALS['local_import_file'];
 
             /**
@@ -669,7 +670,7 @@ final class ImportController extends AbstractController
         // (but if the query is too large, in case of an imported file, the parser
         //  can choke on it so avoid parsing)
         $sqlLength = mb_strlen($GLOBALS['sql_query']);
-        if ($sqlLength <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
+        if ($sqlLength <= $config->settings['MaxCharactersInDisplayedSQL']) {
             [$statementInfo, $GLOBALS['db'], $tableFromSql] = ParseAnalyze::sqlQuery(
                 $GLOBALS['sql_query'],
                 $GLOBALS['db'],
@@ -713,7 +714,7 @@ final class ImportController extends AbstractController
                 if (
                     $this->sql->hasNoRightsToDropDatabase(
                         $statementInfo,
-                        $GLOBALS['cfg']['AllowUserDropDatabase'],
+                        $config->settings['AllowUserDropDatabase'],
                         $this->dbi->isSuperUser(),
                     )
                 ) {

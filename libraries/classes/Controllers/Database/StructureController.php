@@ -104,7 +104,7 @@ class StructureController extends AbstractController
         /**
          * whether to display extended stats
          */
-        $this->isShowStats = $GLOBALS['cfg']['ShowStats'];
+        $this->isShowStats = Config::getInstance()->settings['ShowStats'];
 
         /**
          * whether selected db is information_schema
@@ -127,7 +127,8 @@ class StructureController extends AbstractController
 
         $this->checkParameters(['db']);
 
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+        $config = Config::getInstance();
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
         $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
@@ -155,7 +156,7 @@ class StructureController extends AbstractController
         if ($this->totalNumTables > 0 && $this->position > $this->totalNumTables) {
             $this->redirect('/database/structure', [
                 'db' => $GLOBALS['db'],
-                'pos' => max(0, $this->totalNumTables - $GLOBALS['cfg']['MaxTableList']),
+                'pos' => max(0, $this->totalNumTables - $config->settings['MaxTableList']),
                 'reload' => 1,
             ]);
         }
@@ -183,7 +184,7 @@ class StructureController extends AbstractController
                 $urlParams,
                 Url::getFromRoute('/database/structure'),
                 'frame_content',
-                $GLOBALS['cfg']['MaxTableList'],
+                $config->settings['MaxTableList'],
             );
 
             $tableList = $this->displayTableList($replicaInfo);
@@ -220,8 +221,9 @@ class StructureController extends AbstractController
         $createTimeAll = '';
         $updateTimeAll = '';
         $checkTimeAll = '';
-        $numColumns = $GLOBALS['cfg']['PropertiesNumColumns'] > 1
-            ? ceil($this->numTables / $GLOBALS['cfg']['PropertiesNumColumns']) + 1
+        $config = Config::getInstance();
+        $numColumns = $config->settings['PropertiesNumColumns'] > 1
+            ? ceil($this->numTables / $config->settings['PropertiesNumColumns']) + 1
             : 0;
         $rowCount = 0;
         $sumSize = 0;
@@ -231,7 +233,6 @@ class StructureController extends AbstractController
         $overallApproxRows = false;
         $structureTableRows = [];
         $trackedTables = $this->trackingChecker->getTrackedTables($GLOBALS['db']);
-        $config = Config::getInstance();
         foreach ($this->tables as $currentTable) {
             // Get valid statistics whatever is the table type
 
@@ -289,28 +290,28 @@ class StructureController extends AbstractController
                 }
             }
 
-            if ($GLOBALS['cfg']['ShowDbStructureCharset']) {
+            if ($config->settings['ShowDbStructureCharset']) {
                 $charset = '';
                 if (isset($tableCollation)) {
                     $charset = $tableCollation->getCharset();
                 }
             }
 
-            if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
+            if ($config->settings['ShowDbStructureCreation']) {
                 $createTime = $currentTable['Create_time'] ?? '';
                 if ($createTime && (! $createTimeAll || $createTime < $createTimeAll)) {
                     $createTimeAll = $createTime;
                 }
             }
 
-            if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
+            if ($config->settings['ShowDbStructureLastUpdate']) {
                 $updateTime = $currentTable['Update_time'] ?? '';
                 if ($updateTime && (! $updateTimeAll || $updateTime < $updateTimeAll)) {
                     $updateTimeAll = $updateTime;
                 }
             }
 
-            if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
+            if ($config->settings['ShowDbStructureLastCheck']) {
                 $checkTime = $currentTable['Check_time'] ?? '';
                 if ($checkTime && (! $checkTimeAll || $checkTime < $checkTimeAll)) {
                     $checkTimeAll = $checkTime;
@@ -367,14 +368,14 @@ class StructureController extends AbstractController
                     'db' => $GLOBALS['db'],
                     'db_is_system_schema' => $this->dbIsSystemSchema,
                     'replication' => $replicaInfo['status'],
-                    'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
+                    'properties_num_columns' => $config->settings['PropertiesNumColumns'],
                     'is_show_stats' => $this->isShowStats,
-                    'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
-                    'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
-                    'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],
-                    'show_last_update' => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
-                    'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
-                    'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
+                    'show_charset' => $config->settings['ShowDbStructureCharset'],
+                    'show_comment' => $config->settings['ShowDbStructureComment'],
+                    'show_creation' => $config->settings['ShowDbStructureCreation'],
+                    'show_last_update' => $config->settings['ShowDbStructureLastUpdate'],
+                    'show_last_check' => $config->settings['ShowDbStructureLastCheck'],
+                    'num_favorite_tables' => $config->settings['NumFavoriteTables'],
                     'structure_table_rows' => $structureTableRows,
                 ]);
                 $structureTableRows = [];
@@ -427,14 +428,14 @@ class StructureController extends AbstractController
                 'approx_rows' => $approxRows,
                 'show_superscript' => $showSuperscript,
                 'already_favorite' => $this->checkFavoriteTable($currentTable['TABLE_NAME']),
-                'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
-                'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
-                'limit_chars' => $GLOBALS['cfg']['LimitChars'],
-                'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
-                'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
-                'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],
-                'show_last_update' => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
-                'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
+                'num_favorite_tables' => $config->settings['NumFavoriteTables'],
+                'properties_num_columns' => $config->settings['PropertiesNumColumns'],
+                'limit_chars' => $config->settings['LimitChars'],
+                'show_charset' => $config->settings['ShowDbStructureCharset'],
+                'show_comment' => $config->settings['ShowDbStructureComment'],
+                'show_creation' => $config->settings['ShowDbStructureCreation'],
+                'show_last_update' => $config->settings['ShowDbStructureLastUpdate'],
+                'show_last_check' => $config->settings['ShowDbStructureLastCheck'],
             ];
 
             $overallApproxRows = $overallApproxRows || $approxRows;
@@ -455,7 +456,7 @@ class StructureController extends AbstractController
         $relationParameters = $this->relation->getRelationParameters();
 
         $defaultStorageEngine = '';
-        if ($GLOBALS['cfg']['PropertiesNumColumns'] < 2) {
+        if ($config->settings['PropertiesNumColumns'] < 2) {
             // MySQL <= 5.5.2
             $defaultStorageEngine = $this->dbi->fetchValue('SELECT @@storage_engine;');
             if (! is_string($defaultStorageEngine) || $defaultStorageEngine === '') {
@@ -468,14 +469,14 @@ class StructureController extends AbstractController
             'db' => $GLOBALS['db'],
             'db_is_system_schema' => $this->dbIsSystemSchema,
             'replication' => $replicaInfo['status'],
-            'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
+            'properties_num_columns' => $config->settings['PropertiesNumColumns'],
             'is_show_stats' => $this->isShowStats,
-            'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
-            'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
-            'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],
-            'show_last_update' => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
-            'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
-            'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
+            'show_charset' => $config->settings['ShowDbStructureCharset'],
+            'show_comment' => $config->settings['ShowDbStructureComment'],
+            'show_creation' => $config->settings['ShowDbStructureCreation'],
+            'show_last_update' => $config->settings['ShowDbStructureLastUpdate'],
+            'show_last_check' => $config->settings['ShowDbStructureLastCheck'],
+            'num_favorite_tables' => $config->settings['NumFavoriteTables'],
             'structure_table_rows' => $structureTableRows,
             'body_for_table_summary' => [
                 'num_tables' => $this->numTables,
@@ -491,22 +492,22 @@ class StructureController extends AbstractController
                 'update_time_all' => $updateTimeAll ? Util::localisedDate(strtotime($updateTimeAll)) : '-',
                 'check_time_all' => $checkTimeAll ? Util::localisedDate(strtotime($checkTimeAll)) : '-',
                 'approx_rows' => $overallApproxRows,
-                'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
+                'num_favorite_tables' => $config->settings['NumFavoriteTables'],
                 'db' => $GLOBALS['db'],
-                'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
+                'properties_num_columns' => $config->settings['PropertiesNumColumns'],
                 'default_storage_engine' => $defaultStorageEngine,
-                'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
-                'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
-                'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],
-                'show_last_update' => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
-                'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
+                'show_charset' => $config->settings['ShowDbStructureCharset'],
+                'show_comment' => $config->settings['ShowDbStructureComment'],
+                'show_creation' => $config->settings['ShowDbStructureCreation'],
+                'show_last_update' => $config->settings['ShowDbStructureLastUpdate'],
+                'show_last_check' => $config->settings['ShowDbStructureLastCheck'],
             ],
             'check_all_tables' => [
                 'text_dir' => $GLOBALS['text_dir'],
                 'overhead_check' => $overheadCheck,
                 'db_is_system_schema' => $this->dbIsSystemSchema,
                 'hidden_fields' => $hiddenFields,
-                'disable_multi_table' => $GLOBALS['cfg']['DisableMultiTableMaintenance'],
+                'disable_multi_table' => $config->settings['DisableMultiTableMaintenance'],
                 'central_columns_work' => $relationParameters->centralColumnsFeature !== null,
             ],
         ]);
@@ -559,7 +560,7 @@ class StructureController extends AbstractController
                 && in_array($currentTable['ENGINE'], ['InnoDB', 'TokuDB'])
                 && ! $currentTable['COUNTED'];
 
-            if ($tableIsView && $currentTable['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews']) {
+            if ($tableIsView && $currentTable['TABLE_ROWS'] >= Config::getInstance()->settings['MaxExactCountViews']) {
                 $approxRows = true;
                 $showSuperscript = Generator::showHint(
                     Sanitize::sanitizeMessage(
@@ -828,7 +829,7 @@ class StructureController extends AbstractController
 
         if (
             (in_array($currentTable['ENGINE'], ['InnoDB', 'TokuDB'])
-            && $currentTable['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount'])
+            && $currentTable['TABLE_ROWS'] < Config::getInstance()->settings['MaxExactCount'])
             || ! isset($currentTable['TABLE_ROWS'])
         ) {
             $currentTable['COUNTED'] = true;

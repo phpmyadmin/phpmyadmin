@@ -220,7 +220,8 @@ class OperationsController extends AbstractController
 
         $this->checkParameters(['db']);
 
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+        $config = Config::getInstance();
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
         $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
@@ -259,16 +260,15 @@ class OperationsController extends AbstractController
         $hasAdjustPrivileges = $GLOBALS['db_priv'] && $GLOBALS['table_priv']
             && $GLOBALS['col_priv'] && $GLOBALS['proc_priv'] && $GLOBALS['is_reload_priv'];
 
-        $isDropDatabaseAllowed = ($this->dbi->isSuperUser() || $GLOBALS['cfg']['AllowUserDropDatabase'])
+        $isDropDatabaseAllowed = ($this->dbi->isSuperUser() || $config->settings['AllowUserDropDatabase'])
             && $GLOBALS['db'] !== 'mysql';
 
         $switchToNew = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];
 
-        $config = Config::getInstance();
         $charsets = Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
         $collations = Charsets::getCollations($this->dbi, $config->selectedServer['DisableIS']);
 
-        if (! $relationParameters->hasAllFeatures() && $GLOBALS['cfg']['PmaNoRelation_DisableWarning'] == false) {
+        if (! $relationParameters->hasAllFeatures() && $config->settings['PmaNoRelation_DisableWarning'] == false) {
             $GLOBALS['message'] = Message::notice(
                 __(
                     'The phpMyAdmin configuration storage has been deactivated. %sFind out why%s.',
@@ -280,7 +280,7 @@ class OperationsController extends AbstractController
             );
             $GLOBALS['message']->addParamHtml('</a>');
             /* Show error if user has configured something, notice elsewhere */
-            if (! empty($GLOBALS['cfg']['Servers'][$GLOBALS['server']]['pmadb'])) {
+            if (! empty($config->settings['Servers'][$GLOBALS['server']]['pmadb'])) {
                 $GLOBALS['message']->isError(true);
             }
         }

@@ -367,7 +367,7 @@ class ResultsTest extends AbstractTestCase
     public function testGetPartialText(string $pftext, int $limitChars, string $str, array $output): void
     {
         $_SESSION['tmpval']['pftext'] = $pftext;
-        $GLOBALS['cfg']['LimitChars'] = $limitChars;
+        Config::getInstance()->settings['LimitChars'] = $limitChars;
         $this->assertEquals(
             $output,
             $this->callFunction(
@@ -446,7 +446,7 @@ class ResultsTest extends AbstractTestCase
     ): void {
         $_SESSION['tmpval']['display_binary'] = $displayBinary;
         $_SESSION['tmpval']['display_blob'] = $displayBlob;
-        $GLOBALS['cfg']['LimitChars'] = 50;
+        Config::getInstance()->settings['LimitChars'] = 50;
         $this->assertStringContainsString(
             $output,
             $this->callFunction(
@@ -619,8 +619,9 @@ class ResultsTest extends AbstractTestCase
         $_SESSION['tmpval']['display_binary'] = true;
         $_SESSION['tmpval']['display_blob'] = false;
         $_SESSION['tmpval']['relational_display'] = false;
-        $GLOBALS['cfg']['LimitChars'] = 50;
-        $GLOBALS['cfg']['ProtectBinary'] = $protectBinary;
+        $config = Config::getInstance();
+        $config->settings['LimitChars'] = 50;
+        $config->settings['ProtectBinary'] = $protectBinary;
         $statementInfo = $this->createStub(StatementInfo::class);
         $this->assertStringContainsString(
             $output,
@@ -659,7 +660,7 @@ class ResultsTest extends AbstractTestCase
             'column_info' => 'column_info',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
-        $GLOBALS['cfg']['BrowseMIME'] = true;
+        Config::getInstance()->settings['BrowseMIME'] = true;
 
         // Basic data
         $query = 'SELECT 1';
@@ -1737,7 +1738,7 @@ class ResultsTest extends AbstractTestCase
         string $querySortDirection,
         int $metaType,
     ): void {
-        $GLOBALS['cfg']['Order'] = $orderSetting;
+        Config::getInstance()->settings['Order'] = $orderSetting;
 
         $data = $this->callFunction(
             $this->object,

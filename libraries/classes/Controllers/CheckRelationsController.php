@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
@@ -49,7 +50,7 @@ class CheckRelationsController extends AbstractController
 
         $this->render('relation/check_relations', [
             'db' => $db?->getName() ?? '',
-            'zero_conf' => $GLOBALS['cfg']['ZeroConf'],
+            'zero_conf' => Config::getInstance()->settings['ZeroConf'],
             'relation_parameters' => $relationParameters->toArray(),
             'sql_dir' => SQL_DIR,
             'config_storage_database_name' => $cfgStorageDbName,

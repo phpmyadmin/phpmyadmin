@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -42,7 +43,10 @@ final class IndexRenameController extends AbstractController
             $this->checkParameters(['db', 'table']);
 
             $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
-            $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+            $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
+                Config::getInstance()->settings['DefaultTabTable'],
+                'table',
+            );
             $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
             $databaseName = DatabaseName::tryFrom($request->getParam('db'));

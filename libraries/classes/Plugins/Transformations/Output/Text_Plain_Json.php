@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Output;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\ResponseRenderer;
@@ -21,7 +22,7 @@ class Text_Plain_Json extends TransformationsPlugin
 {
     public function __construct()
     {
-        if (empty($GLOBALS['cfg']['CodemirrorEnable'])) {
+        if (empty(Config::getInstance()->settings['CodemirrorEnable'])) {
             return;
         }
 

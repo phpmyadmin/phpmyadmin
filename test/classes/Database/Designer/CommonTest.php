@@ -345,8 +345,9 @@ class CommonTest extends AbstractTestCase
 
     public function testRemoveRelationRelationDbNotWorking(): void
     {
-        Config::getInstance()->selectedServer['DisableIS'] = false;
-        $GLOBALS['cfg']['NaturalOrder'] = false;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = false;
+        $config->settings['NaturalOrder'] = false;
         $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',
             'relation' => 'rel db',
@@ -367,8 +368,9 @@ class CommonTest extends AbstractTestCase
 
     public function testRemoveRelationWorkingRelationDb(): void
     {
-        Config::getInstance()->selectedServer['DisableIS'] = false;
-        $GLOBALS['cfg']['NaturalOrder'] = false;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = false;
+        $config->settings['NaturalOrder'] = false;
         $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',
             'relwork' => true,
@@ -409,8 +411,9 @@ class CommonTest extends AbstractTestCase
 
     public function testRemoveRelationWorkingRelationDbFoundFk(): void
     {
-        Config::getInstance()->selectedServer['DisableIS'] = false;
-        $GLOBALS['cfg']['NaturalOrder'] = false;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = false;
+        $config->settings['NaturalOrder'] = false;
         $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',
             'relwork' => true,
@@ -471,8 +474,9 @@ class CommonTest extends AbstractTestCase
 
     public function testRemoveRelationWorkingRelationDbDeleteFails(): void
     {
-        Config::getInstance()->selectedServer['DisableIS'] = false;
-        $GLOBALS['cfg']['NaturalOrder'] = false;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = false;
+        $config->settings['NaturalOrder'] = false;
         $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',
             'relwork' => true,

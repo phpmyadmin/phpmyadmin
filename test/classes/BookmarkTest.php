@@ -35,8 +35,8 @@ class BookmarkTest extends AbstractTestCase
         $config->selectedServer['user'] = 'root';
         $config->selectedServer['pmadb'] = 'phpmyadmin';
         $config->selectedServer['bookmarktable'] = 'pma_bookmark';
-        $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
-        $GLOBALS['cfg']['ServerDefault'] = 1;
+        $config->settings['MaxCharactersInDisplayedSQL'] = 1000;
+        $config->settings['ServerDefault'] = 1;
         $GLOBALS['server'] = 1;
     }
 

@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Navigation\NodeType;
 
@@ -30,7 +31,7 @@ class NodeDatabaseContainer extends Node
 
         parent::__construct($name, NodeType::Container);
 
-        if (! $GLOBALS['is_create_db_priv'] || $GLOBALS['cfg']['ShowCreateDb'] === false) {
+        if (! $GLOBALS['is_create_db_priv'] || Config::getInstance()->settings['ShowCreateDb'] === false) {
             return;
         }
 

@@ -107,7 +107,7 @@ class Generator
      */
     public static function showHint(string $message): string
     {
-        if ($GLOBALS['cfg']['ShowHint']) {
+        if (Config::getInstance()->settings['ShowHint']) {
             $classClause = ' class="pma_hint"';
         } else {
             $classClause = '';
@@ -136,7 +136,7 @@ class Generator
             $database = $GLOBALS['db'];
         }
 
-        $scriptName = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+        $scriptName = Util::getScriptNameForOption(Config::getInstance()->settings['DefaultTabDatabase'], 'database');
 
         return '<a href="'
             . $scriptName
@@ -206,11 +206,14 @@ class Generator
      */
     public static function getServerSSL(): string
     {
-        $server = Config::getInstance()->selectedServer;
+        $config = Config::getInstance();
+        $server = $config->selectedServer;
         $class = 'text-danger';
         if (! $server['ssl']) {
             $message = __('SSL is not being used');
-            if (! empty($server['socket']) || in_array($server['host'], $GLOBALS['cfg']['MysqlSslWarningSafeHosts'])) {
+            if (
+                ! empty($server['socket']) || in_array($server['host'], $config->settings['MysqlSslWarningSafeHosts'])
+            ) {
                 $class = '';
             }
         } elseif (! $server['ssl_verify']) {
@@ -254,8 +257,9 @@ class Generator
         $dbi = DatabaseInterface::getInstance();
         // Can we get field class based values?
         $currentClass = $dbi->types->getTypeClass($trueType);
-        if (! empty($currentClass) && isset($GLOBALS['cfg']['DefaultFunctions']['FUNC_' . $currentClass])) {
-            $defaultFunction = $GLOBALS['cfg']['DefaultFunctions']['FUNC_' . $currentClass];
+        $config = Config::getInstance();
+        if (! empty($currentClass) && isset($config->settings['DefaultFunctions']['FUNC_' . $currentClass])) {
+            $defaultFunction = $config->settings['DefaultFunctions']['FUNC_' . $currentClass];
             // Change the configured default function to include the ST_ prefix with MySQL 5.6 and later.
             // It needs to match the function listed in the select html element.
             if (
@@ -280,7 +284,7 @@ class Generator
             && $extra !== 'on update CURRENT_TIMESTAMP'
             && ! $isNull
         ) {
-            $defaultFunction = $GLOBALS['cfg']['DefaultFunctions']['first_timestamp'];
+            $defaultFunction = $config->settings['DefaultFunctions']['first_timestamp'];
         }
 
         // For primary keys of type char(36) or varchar(36) UUID if the default
@@ -291,7 +295,7 @@ class Generator
             && $key === 'PRI'
             && ($type === 'char(36)' || $type === 'varchar(36)')
         ) {
-            return $GLOBALS['cfg']['DefaultFunctions']['FUNC_UUID'];
+            return $config->settings['DefaultFunctions']['FUNC_UUID'];
         }
 
         return $defaultFunction;
@@ -366,7 +370,7 @@ class Generator
         } elseif (isset($_SESSION['tmpval']['max_rows']) && $_SESSION['tmpval']['max_rows'] !== 'all') {
             $rows = (int) $_SESSION['tmpval']['max_rows'];
         } else {
-            $rows = (int) $GLOBALS['cfg']['MaxRows'];
+            $rows = (int) Config::getInstance()->settings['MaxRows'];
             $_SESSION['tmpval']['max_rows'] = $rows;
         }
 
@@ -415,7 +419,8 @@ class Generator
             }
         }
 
-        $renderSql = $GLOBALS['cfg']['ShowSQL'] == true && ! empty($sqlQuery) && $sqlQuery !== ';';
+        $config = Config::getInstance();
+        $renderSql = $config->settings['ShowSQL'] == true && ! empty($sqlQuery) && $sqlQuery !== ';';
 
         if (isset($GLOBALS['using_bookmark_message'])) {
             $retval .= $GLOBALS['using_bookmark_message']->getDisplay();
@@ -461,11 +466,11 @@ class Generator
         $queryTooBig = false;
 
         $queryLength = mb_strlen($sqlQuery);
-        if ($queryLength > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
+        if ($queryLength > $config->settings['MaxCharactersInDisplayedSQL']) {
             // when the query is large (for example an INSERT of binary
             // data), the parser chokes; so avoid parsing the query
             $queryTooBig = true;
-            $queryBase = mb_substr($sqlQuery, 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) . '[...]';
+            $queryBase = mb_substr($sqlQuery, 0, $config->settings['MaxCharactersInDisplayedSQL']) . '[...]';
         } else {
             $queryBase = $sqlQuery;
         }
@@ -515,7 +520,7 @@ class Generator
         /* SQL-Parser-Analyzer */
         $explainLink = '';
         $isSelect = preg_match('@^SELECT[[:space:]]+@i', $sqlQuery);
-        if (! empty($GLOBALS['cfg']['SQLQuery']['Explain']) && ! $queryTooBig) {
+        if (! empty($config->settings['SQLQuery']['Explain']) && ! $queryTooBig) {
             $explainParams = $urlParams;
             if ($isSelect) {
                 $explainParams['sql_query'] = 'EXPLAIN ' . $sqlQuery;
@@ -543,7 +548,7 @@ class Generator
 
         // even if the query is big and was truncated, offer the chance
         // to edit it (unless it's enormous, see linkOrButton() )
-        if (! empty($GLOBALS['cfg']['SQLQuery']['Edit']) && empty($GLOBALS['show_as_php'])) {
+        if (! empty($config->settings['SQLQuery']['Edit']) && empty($GLOBALS['show_as_php'])) {
             $editLink = '<div class="col-auto">'
                 . self::linkOrButton(
                     Url::getFromRoute($editLinkRoute, $urlParams),
@@ -558,7 +563,7 @@ class Generator
 
         // Also we would like to get the SQL formed in some nice
         // php-code
-        if (! empty($GLOBALS['cfg']['SQLQuery']['ShowAsPHP']) && ! $queryTooBig) {
+        if (! empty($config->settings['SQLQuery']['ShowAsPHP']) && ! $queryTooBig) {
             if (! empty($GLOBALS['show_as_php'])) {
                 $phpLink = '<div class="col-auto">'
                     . self::linkOrButton(
@@ -595,7 +600,7 @@ class Generator
 
         // Refresh query
         if (
-            ! empty($GLOBALS['cfg']['SQLQuery']['Refresh'])
+            ! empty($config->settings['SQLQuery']['Refresh'])
             && ! isset($GLOBALS['show_as_php']) // 'Submit query' does the same
             && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $sqlQuery)
         ) {
@@ -641,7 +646,7 @@ class Generator
         /**
          * TODO: Should we have $cfg['SQLQuery']['InlineEdit']?
          */
-        if (! empty($GLOBALS['cfg']['SQLQuery']['Edit']) && ! $queryTooBig && empty($GLOBALS['show_as_php'])) {
+        if (! empty($config->settings['SQLQuery']['Edit']) && ! $queryTooBig && empty($GLOBALS['show_as_php'])) {
             $inlineEditLink = '<div class="col-auto">'
                 . self::linkOrButton(
                     '#',
@@ -974,7 +979,8 @@ class Generator
 
         // Suhosin: Check that each query parameter is not above maximum
         $inSuhosinLimits = true;
-        if (strlen($url) <= $GLOBALS['cfg']['LinkLengthLimit']) {
+        $config = Config::getInstance();
+        if (strlen($url) <= $config->settings['LinkLengthLimit']) {
             $suhosinGetMaxValueLength = ini_get('suhosin.get.max_value_length');
             if ($suhosinGetMaxValueLength) {
                 $queryParts = Util::splitURLQuery($url);
@@ -993,7 +999,7 @@ class Generator
         }
 
         $tagParamsStrings = [];
-        $isDataPostFormatSupported = (strlen($url) > $GLOBALS['cfg']['LinkLengthLimit'])
+        $isDataPostFormatSupported = (strlen($url) > $config->settings['LinkLengthLimit'])
             || ! $inSuhosinLimits
             || (
                 // Has as sql_query without a signature, to be accepted it needs to be sent using POST
@@ -1096,8 +1102,9 @@ class Generator
      */
     public static function formatSql(string $sqlQuery, bool $truncate = false): string
     {
-        if ($truncate && mb_strlen($sqlQuery) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
-            $sqlQuery = mb_substr($sqlQuery, 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) . '[...]';
+        $config = Config::getInstance();
+        if ($truncate && mb_strlen($sqlQuery) > $config->settings['MaxCharactersInDisplayedSQL']) {
+            $sqlQuery = mb_substr($sqlQuery, 0, $config->settings['MaxCharactersInDisplayedSQL']) . '[...]';
         }
 
         return '<code class="sql" dir="ltr"><pre>' . "\n"

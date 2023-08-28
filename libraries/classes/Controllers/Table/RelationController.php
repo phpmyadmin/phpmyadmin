@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Features\DisplayFeature;
 use PhpMyAdmin\ConfigStorage\Features\RelationFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
@@ -132,7 +133,8 @@ final class RelationController extends AbstractController
             $columnHashArray[$column['Field']] = md5($column['Field']);
         }
 
-        if ($GLOBALS['cfg']['NaturalOrder']) {
+        $config = Config::getInstance();
+        if ($config->settings['NaturalOrder']) {
             uksort($columnArray, 'strnatcasecmp');
         }
 
@@ -209,7 +211,7 @@ final class RelationController extends AbstractController
             'url_params' => $GLOBALS['urlParams'],
             'databases' => $this->dbi->getDatabaseList(),
             'dbi' => $this->dbi,
-            'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
+            'default_sliders_state' => $config->settings['InitialSlidersState'],
             'route' => $request->getRoute(),
             'display_field' => $this->relation->getDisplayField($GLOBALS['db'], $GLOBALS['table']),
             'foreign_key_row' => $foreignKeyRow,
@@ -335,7 +337,7 @@ final class RelationController extends AbstractController
             $columnList = $tableObj->getIndexedColumns(false, false);
         }
 
-        if ($GLOBALS['cfg']['NaturalOrder']) {
+        if (Config::getInstance()->settings['NaturalOrder']) {
             usort($columnList, 'strnatcasecmp');
         }
 
@@ -378,7 +380,7 @@ final class RelationController extends AbstractController
             $tables = $tablesRs->fetchAllColumn();
         }
 
-        if ($GLOBALS['cfg']['NaturalOrder']) {
+        if (Config::getInstance()->settings['NaturalOrder']) {
             usort($tables, 'strnatcasecmp');
         }
 

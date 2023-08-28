@@ -202,7 +202,8 @@ class DatabaseInterface implements DbalInterface
         int $options = self::QUERY_BUFFERED,
         bool $cacheAffectedRows = true,
     ): ResultInterface|false {
-        $debug = isset($GLOBALS['cfg']['DBG']) && $GLOBALS['cfg']['DBG']['sql'];
+        $config = Config::getInstance();
+        $debug = isset($config->settings['DBG']) && $config->settings['DBG']['sql'];
         if (! isset($this->connections[$connectionType])) {
             return false;
         }
@@ -227,7 +228,7 @@ class DatabaseInterface implements DbalInterface
                 $result,
                 $this->lastQueryExecutionTime,
             );
-            if ($GLOBALS['cfg']['DBG']['sqllog']) {
+            if ($config->settings['DBG']['sqllog']) {
                 openlog('phpMyAdmin', LOG_NDELAY | LOG_PID, LOG_USER);
 
                 syslog(
@@ -326,7 +327,7 @@ class DatabaseInterface implements DbalInterface
             0,
             $connectionType,
         );
-        if ($GLOBALS['cfg']['NaturalOrder']) {
+        if (Config::getInstance()->settings['NaturalOrder']) {
             usort($tables, 'strnatcasecmp');
         }
 
@@ -372,8 +373,9 @@ class DatabaseInterface implements DbalInterface
         string|null $tableType = null,
         int $connectionType = Connection::TYPE_USER,
     ): array {
+        $config = Config::getInstance();
         if ($limitCount === true) {
-            $limitCount = $GLOBALS['cfg']['MaxTableList'];
+            $limitCount = $config->settings['MaxTableList'];
         }
 
         $tables = [];
@@ -388,7 +390,7 @@ class DatabaseInterface implements DbalInterface
             $pagingApplied = true;
         }
 
-        if (! Config::getInstance()->selectedServer['DisableIS']) {
+        if (! $config->selectedServer['DisableIS']) {
             $sqlWhereTable = '';
             if ($table !== [] && $table !== '') {
                 if (is_array($table)) {
@@ -449,7 +451,7 @@ class DatabaseInterface implements DbalInterface
                 }
             }
 
-            if ($sortBy === 'Name' && $GLOBALS['cfg']['NaturalOrder']) {
+            if ($sortBy === 'Name' && $config->settings['NaturalOrder']) {
                 // here, the array's first key is by schema name
                 foreach ($tables as $oneDatabaseName => $oneDatabaseTables) {
                     uksort($oneDatabaseTables, 'strnatcasecmp');
@@ -551,7 +553,7 @@ class DatabaseInterface implements DbalInterface
 
             // Sort naturally if the config allows it and we're sorting
             // the Name column.
-            if ($sortBy === 'Name' && $GLOBALS['cfg']['NaturalOrder']) {
+            if ($sortBy === 'Name' && $config->settings['NaturalOrder']) {
                 uksort($eachTables, 'strnatcasecmp');
 
                 if ($sortOrder === 'DESC') {
@@ -636,7 +638,7 @@ class DatabaseInterface implements DbalInterface
      * @param string      $sortBy      column to order by
      * @param string      $sortOrder   ASC or DESC
      * @param int         $limitOffset starting offset for LIMIT
-     * @param bool|int    $limitCount  row count for LIMIT or true for $GLOBALS['cfg']['MaxDbList']
+     * @param bool|int    $limitCount  row count for LIMIT or true for $cfg['MaxDbList']
      * @psalm-param ConnectionType $connectionType
      *
      * @return mixed[]
@@ -654,20 +656,21 @@ class DatabaseInterface implements DbalInterface
     ): array {
         $sortOrder = strtoupper($sortOrder);
 
+        $config = Config::getInstance();
         if ($limitCount === true) {
-            $limitCount = $GLOBALS['cfg']['MaxDbList'];
+            $limitCount = $config->settings['MaxDbList'];
         }
 
         $applyLimitAndOrderManual = true;
 
-        if (! Config::getInstance()->selectedServer['DisableIS']) {
+        if (! $config->selectedServer['DisableIS']) {
             /**
-             * if $GLOBALS['cfg']['NaturalOrder'] is enabled, we cannot use LIMIT
+             * if \PhpMyAdmin\Config::getInstance()->settings['NaturalOrder'] is enabled, we cannot use LIMIT
              * cause MySQL does not support natural ordering,
              * we have to do it afterward
              */
             $limit = '';
-            if (! $GLOBALS['cfg']['NaturalOrder']) {
+            if (! $config->settings['NaturalOrder']) {
                 if ($limitCount) {
                     $limit = ' LIMIT ' . $limitCount . ' OFFSET ' . $limitOffset;
                 }
@@ -754,7 +757,7 @@ class DatabaseInterface implements DbalInterface
 
         /**
          * apply limit and order manually now
-         * (caused by older MySQL < 5 or $GLOBALS['cfg']['NaturalOrder'])
+         * (caused by older MySQL < 5 or \PhpMyAdmin\Config::getInstance()->settings['NaturalOrder'])
          */
         if ($applyLimitAndOrderManual) {
             usort(
@@ -1156,7 +1159,7 @@ class DatabaseInterface implements DbalInterface
     public function postConnectControl(Relation $relation): void
     {
         // If Zero configuration mode enabled, check PMA tables in current db.
-        if (! $GLOBALS['cfg']['ZeroConf']) {
+        if (! Config::getInstance()->settings['ZeroConf']) {
             return;
         }
 

@@ -47,7 +47,7 @@ class GeneratorTest extends AbstractTestCase
         $this->assertEquals(
             '<a href="'
             . Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabDatabase'],
+                Config::getInstance()->settings['DefaultTabDatabase'],
                 'database',
             )
             . '&db=' . $database
@@ -68,7 +68,7 @@ class GeneratorTest extends AbstractTestCase
         $database = 'test_database';
         $this->assertEquals(
             '<a href="' . Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabDatabase'],
+                Config::getInstance()->settings['DefaultTabDatabase'],
                 'database',
             )
             . '&db=' . $database
@@ -89,7 +89,7 @@ class GeneratorTest extends AbstractTestCase
         $this->assertEquals(
             '<a href="'
             . Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabDatabase'],
+                Config::getInstance()->settings['DefaultTabDatabase'],
                 'database',
             )
             . '&db='
@@ -106,7 +106,7 @@ class GeneratorTest extends AbstractTestCase
      */
     public function testGetIconWithoutActionLinksMode(): void
     {
-        $GLOBALS['cfg']['ActionLinksMode'] = 'text';
+        Config::getInstance()->settings['ActionLinksMode'] = 'text';
 
         $this->assertEquals(
             '<span class="text-nowrap"></span>',
@@ -119,7 +119,7 @@ class GeneratorTest extends AbstractTestCase
      */
     public function testGetIconWithActionLinksMode(): void
     {
-        $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
+        Config::getInstance()->settings['ActionLinksMode'] = 'icons';
 
         $this->assertEquals(
             '<span class="text-nowrap"><img src="themes/dot.gif" title="" alt="" class="icon ic_b_comment"></span>',
@@ -132,7 +132,7 @@ class GeneratorTest extends AbstractTestCase
      */
     public function testGetIconAlternate(): void
     {
-        $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
+        Config::getInstance()->settings['ActionLinksMode'] = 'icons';
         $alternateText = 'alt_str';
 
         $this->assertEquals(
@@ -148,7 +148,7 @@ class GeneratorTest extends AbstractTestCase
      */
     public function testGetIconWithForceText(): void
     {
-        $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
+        Config::getInstance()->settings['ActionLinksMode'] = 'icons';
         $alternateText = 'alt_str';
 
         // Here we are checking for an icon embedded inside a span (i.e not a menu
@@ -167,7 +167,7 @@ class GeneratorTest extends AbstractTestCase
     public function testShowPHPDocumentation(): void
     {
         $GLOBALS['server'] = 99;
-        $GLOBALS['cfg']['ServerDefault'] = 0;
+        Config::getInstance()->settings['ServerDefault'] = 0;
 
         $target = 'docu';
         $lang = _pgettext('PHP documentation language', 'en');
@@ -192,8 +192,9 @@ class GeneratorTest extends AbstractTestCase
     #[DataProvider('linksOrButtons')]
     public function testLinkOrButton(array $params, int $limit, string $match): void
     {
-        $restore = $GLOBALS['cfg']['LinkLengthLimit'] ?? 1000;
-        $GLOBALS['cfg']['LinkLengthLimit'] = $limit;
+        $config = Config::getInstance();
+        $restore = $config->settings['LinkLengthLimit'] ?? 1000;
+        $config->settings['LinkLengthLimit'] = $limit;
         try {
             $result = call_user_func_array(
                 [Generator::class, 'linkOrButton'],
@@ -201,7 +202,7 @@ class GeneratorTest extends AbstractTestCase
             );
             $this->assertEquals($match, $result);
         } finally {
-            $GLOBALS['cfg']['LinkLengthLimit'] = $restore;
+            $config->settings['LinkLengthLimit'] = $restore;
         }
     }
 
@@ -294,7 +295,7 @@ class GeneratorTest extends AbstractTestCase
             Generator::formatSql('SELECT 1 < 2'),
         );
 
-        $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 6;
+        Config::getInstance()->settings['MaxCharactersInDisplayedSQL'] = 6;
 
         $this->assertEquals(
             '<code class="sql" dir="ltr"><pre>' . "\n"
@@ -327,7 +328,7 @@ class GeneratorTest extends AbstractTestCase
         );
 
         $config->selectedServer = ['ssl' => false, 'host' => 'custom.host'];
-        $GLOBALS['cfg']['MysqlSslWarningSafeHosts'] = ['localhost', '127.0.0.1'];
+        $config->settings['MysqlSslWarningSafeHosts'] = ['localhost', '127.0.0.1'];
 
         $this->assertEquals(
             $sslNotUsedCaution,
@@ -335,7 +336,7 @@ class GeneratorTest extends AbstractTestCase
         );
 
         $config->selectedServer = ['ssl' => false, 'host' => 'custom.host'];
-        $GLOBALS['cfg']['MysqlSslWarningSafeHosts'] = ['localhost', '127.0.0.1', 'custom.host'];
+        $config->settings['MysqlSslWarningSafeHosts'] = ['localhost', '127.0.0.1', 'custom.host'];
 
         $this->assertEquals(
             $sslNotUsed,
@@ -477,7 +478,7 @@ class GeneratorTest extends AbstractTestCase
 
     public function testGetMessage(): void
     {
-        $GLOBALS['cfg']['ShowSQL'] = true;
+        Config::getInstance()->settings['ShowSQL'] = true;
         $GLOBALS['display_query'] = null;
         $GLOBALS['unparsed_sql'] = null;
         $GLOBALS['sql_query'] = 'SELECT 1;';
@@ -531,9 +532,10 @@ HTML;
 
     public function testGetMessage2(): void
     {
-        $GLOBALS['cfg']['ShowSQL'] = true;
-        $GLOBALS['cfg']['SQLQuery']['Edit'] = false;
-        $GLOBALS['cfg']['SQLQuery']['Refresh'] = true;
+        $config = Config::getInstance();
+        $config->settings['ShowSQL'] = true;
+        $config->settings['SQLQuery']['Edit'] = false;
+        $config->settings['SQLQuery']['Refresh'] = true;
         $GLOBALS['display_query'] = 'EXPLAIN SELECT 1;';
         $GLOBALS['unparsed_sql'] = null;
         $GLOBALS['sql_query'] = null;

@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Replication;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Message;
@@ -410,7 +411,7 @@ class ReplicationGui
         $messageSuccess = '';
         $messageError = '';
 
-        if ($replicaChangePrimary && ! $GLOBALS['cfg']['AllowArbitraryServer']) {
+        if ($replicaChangePrimary && ! Config::getInstance()->settings['AllowArbitraryServer']) {
             $_SESSION['replication']['sr_action_status'] = 'error';
             $_SESSION['replication']['sr_action_info'] = __(
                 'Connection to server is disabled, please enable'

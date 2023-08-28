@@ -38,7 +38,7 @@ class VersionInformation
      */
     public function getLatestVersion(): stdClass|null
     {
-        if (! $GLOBALS['cfg']['VersionCheck']) {
+        if (! Config::getInstance()->settings['VersionCheck']) {
             return null;
         }
 
@@ -162,7 +162,7 @@ class VersionInformation
 
             // We evaluate MySQL version constraint if there are only
             // one server configured.
-            if (count($GLOBALS['cfg']['Servers']) === 1) {
+            if (count(Config::getInstance()->settings['Servers']) === 1) {
                 // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
                 $mysqlVersions = $release->mysql_versions;
                 $mysqlConditions = explode(',', $mysqlVersions);

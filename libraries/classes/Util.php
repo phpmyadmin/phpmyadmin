@@ -99,7 +99,7 @@ class Util
      */
     public static function showIcons(string $value): bool
     {
-        return in_array($GLOBALS['cfg'][$value], ['icons', 'both']);
+        return in_array(Config::getInstance()->settings[$value], ['icons', 'both']);
     }
 
     /**
@@ -109,7 +109,7 @@ class Util
      */
     public static function showText(string $value): bool
     {
-        return in_array($GLOBALS['cfg'][$value], ['text', 'both']);
+        return in_array(Config::getInstance()->settings[$value], ['text', 'both']);
     }
 
     /**
@@ -1197,13 +1197,14 @@ class Util
 
         // for the case ENUM('&#8211;','&ldquo;')
         $displayedType = htmlspecialchars($printType, ENT_COMPAT);
-        if (mb_strlen($printType) > $GLOBALS['cfg']['LimitChars']) {
+        $config = Config::getInstance();
+        if (mb_strlen($printType) > $config->settings['LimitChars']) {
             $displayedType = '<abbr title="' . htmlspecialchars($printType) . '">';
             $displayedType .= htmlspecialchars(
                 mb_substr(
                     $printType,
                     0,
-                    (int) $GLOBALS['cfg']['LimitChars'],
+                    (int) $config->settings['LimitChars'],
                 ) . '...',
                 ENT_COMPAT,
             );
@@ -1894,8 +1895,9 @@ class Util
         $tables = [];
 
         $dbi = DatabaseInterface::getInstance();
+        $config = Config::getInstance();
         // Special speedup for newer MySQL Versions (in 4.0 format changed)
-        if ($GLOBALS['cfg']['SkipLockedTables'] === true) {
+        if ($config->settings['SkipLockedTables'] === true) {
             $dbInfoResult = $dbi->query(
                 'SHOW OPEN TABLES FROM ' . self::backquote($db) . ' WHERE In_use > 0;',
             );
@@ -1969,7 +1971,7 @@ class Util
                         $sortOrder,
                         $tableType,
                     );
-                    $groupWithSeparator = $tableGroupParam . $GLOBALS['cfg']['NavigationTreeTableSeparator'];
+                    $groupWithSeparator = $tableGroupParam . $config->settings['NavigationTreeTableSeparator'];
                 }
             } else {
                 // all tables in db
@@ -2029,6 +2031,7 @@ class Util
             $tblGroupSql = '';
             $whereAdded = false;
             $dbi = DatabaseInterface::getInstance();
+            $config = Config::getInstance();
             if (
                 isset($_REQUEST['tbl_group'])
                 && is_scalar($_REQUEST['tbl_group'])
@@ -2036,7 +2039,7 @@ class Util
             ) {
                 $group = $dbi->escapeMysqlWildcards((string) $_REQUEST['tbl_group']);
                 $groupWithSeparator = $dbi->escapeMysqlWildcards(
-                    $_REQUEST['tbl_group'] . $GLOBALS['cfg']['NavigationTreeTableSeparator'],
+                    $_REQUEST['tbl_group'] . $config->settings['NavigationTreeTableSeparator'],
                 );
                 $tblGroupSql .= ' WHERE ('
                     . self::backquote('Tables_in_' . $db)
@@ -2079,7 +2082,7 @@ class Util
                     $tables += $dbi->getTablesFull($db, $names);
                 }
 
-                if ($GLOBALS['cfg']['NaturalOrder']) {
+                if ($config->settings['NaturalOrder']) {
                     uksort($tables, 'strnatcasecmp');
                 }
             }
@@ -2181,7 +2184,7 @@ class Util
             return;
         }
 
-        @set_time_limit((int) $GLOBALS['cfg']['ExecTimeLimit']);
+        @set_time_limit((int) Config::getInstance()->settings['ExecTimeLimit']);
     }
 
     /**

@@ -608,7 +608,8 @@ class Relation
      */
     public function setHistory(string $db, string $table, string $username, string $sqlquery): void
     {
-        $maxCharactersInDisplayedSQL = $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'];
+        $config = Config::getInstance();
+        $maxCharactersInDisplayedSQL = $config->settings['MaxCharactersInDisplayedSQL'];
         // Prevent to run this automatically on Footer class destroying in testsuite
         if (mb_strlen($sqlquery) > $maxCharactersInDisplayedSQL) {
             return;
@@ -622,12 +623,12 @@ class Relation
 
         $_SESSION['sql_history'][] = ['db' => $db, 'table' => $table, 'sqlquery' => $sqlquery];
 
-        if (count($_SESSION['sql_history']) > $GLOBALS['cfg']['QueryHistoryMax']) {
+        if (count($_SESSION['sql_history']) > $config->settings['QueryHistoryMax']) {
             // history should not exceed a maximum count
             array_shift($_SESSION['sql_history']);
         }
 
-        if ($sqlHistoryFeature === null || ! $GLOBALS['cfg']['QueryHistoryDB']) {
+        if ($sqlHistoryFeature === null || ! $config->settings['QueryHistoryDB']) {
             return;
         }
 
@@ -669,7 +670,7 @@ class Relation
          * if db-based history is disabled but there exists a session-based
          * history, use it
          */
-        if (! $GLOBALS['cfg']['QueryHistoryDB']) {
+        if (! Config::getInstance()->settings['QueryHistoryDB']) {
             if (isset($_SESSION['sql_history'])) {
                 return array_reverse($_SESSION['sql_history']);
             }
@@ -701,7 +702,8 @@ class Relation
     public function purgeHistory(string $username): void
     {
         $sqlHistoryFeature = $this->getRelationParameters()->sqlHistoryFeature;
-        if (! $GLOBALS['cfg']['QueryHistoryDB'] || $sqlHistoryFeature === null) {
+        $config = Config::getInstance();
+        if (! $config->settings['QueryHistoryDB'] || $sqlHistoryFeature === null) {
             return;
         }
 
@@ -711,7 +713,7 @@ class Relation
                 . '.' . Util::backquote($sqlHistoryFeature->history) . '
             WHERE `username` = ' . $this->dbi->quoteString($username) . '
             ORDER BY `timevalue` DESC
-            LIMIT ' . $GLOBALS['cfg']['QueryHistoryMax'] . ', 1';
+            LIMIT ' . $config->settings['QueryHistoryMax'] . ', 1';
 
         $maxTime = $this->dbi->fetchValue($searchQuery, 0, Connection::TYPE_CONTROL);
 
@@ -742,18 +744,19 @@ class Relation
     {
         $reloptions = [];
 
+        $config = Config::getInstance();
         // id-only is a special mode used when no foreign display column
         // is available
         if ($mode === 'id-content' || $mode === 'id-only') {
             // sort for id-content
-            if ($GLOBALS['cfg']['NaturalOrder']) {
+            if ($config->settings['NaturalOrder']) {
                 uksort($foreign, 'strnatcasecmp');
             } else {
                 ksort($foreign);
             }
         } elseif ($mode === 'content-id') {
             // sort for content-id
-            if ($GLOBALS['cfg']['NaturalOrder']) {
+            if ($config->settings['NaturalOrder']) {
                 natcasesort($foreign);
             } else {
                 asort($foreign);
@@ -781,7 +784,7 @@ class Relation
                 mb_check_encoding($value, 'utf-8')
                 && ! preg_match('/[\x00-\x08\x0B\x0C\x0E-\x1F\x80-\x9F]/u', $value)
             ) {
-                if (mb_strlen($value) <= $GLOBALS['cfg']['LimitChars']) {
+                if (mb_strlen($value) <= $config->settings['LimitChars']) {
                     // show as text if it's valid utf-8
                     $value = htmlspecialchars($value);
                 } else {
@@ -790,7 +793,7 @@ class Relation
                         mb_substr(
                             $value,
                             0,
-                            (int) $GLOBALS['cfg']['LimitChars'],
+                            (int) $config->settings['LimitChars'],
                         ) . '...',
                     );
                 }
@@ -837,8 +840,9 @@ class Relation
         string $data,
         int|null $max = null,
     ): string {
+        $config = Config::getInstance();
         if ($max === null) {
-            $max = $GLOBALS['cfg']['ForeignKeyMaxLimit'];
+            $max = $config->settings['ForeignKeyMaxLimit'];
         }
 
         $foreign = [];
@@ -862,30 +866,30 @@ class Relation
         $bottom = [];
         if ($foreignDisplay !== '') {
             if (
-                isset($GLOBALS['cfg']['ForeignKeyDropdownOrder'])
-                && is_array($GLOBALS['cfg']['ForeignKeyDropdownOrder'])
+                isset($config->settings['ForeignKeyDropdownOrder'])
+                && is_array($config->settings['ForeignKeyDropdownOrder'])
             ) {
                 if (
-                    isset($GLOBALS['cfg']['ForeignKeyDropdownOrder'][0])
-                    && is_scalar($GLOBALS['cfg']['ForeignKeyDropdownOrder'][0])
-                    && strlen((string) $GLOBALS['cfg']['ForeignKeyDropdownOrder'][0]) > 0
+                    isset($config->settings['ForeignKeyDropdownOrder'][0])
+                    && is_scalar($config->settings['ForeignKeyDropdownOrder'][0])
+                    && strlen((string) $config->settings['ForeignKeyDropdownOrder'][0]) > 0
                 ) {
                     $top = $this->buildForeignDropdown(
                         $foreign,
                         $data,
-                        (string) $GLOBALS['cfg']['ForeignKeyDropdownOrder'][0],
+                        (string) $config->settings['ForeignKeyDropdownOrder'][0],
                     );
                 }
 
                 if (
-                    isset($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])
-                    && is_scalar($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])
-                    && strlen((string) $GLOBALS['cfg']['ForeignKeyDropdownOrder'][1]) > 0
+                    isset($config->settings['ForeignKeyDropdownOrder'][1])
+                    && is_scalar($config->settings['ForeignKeyDropdownOrder'][1])
+                    && strlen((string) $config->settings['ForeignKeyDropdownOrder'][1]) > 0
                 ) {
                     $bottom = $this->buildForeignDropdown(
                         $foreign,
                         $data,
-                        (string) $GLOBALS['cfg']['ForeignKeyDropdownOrder'][1],
+                        (string) $config->settings['ForeignKeyDropdownOrder'][1],
                     );
                 }
             } else {
@@ -971,9 +975,9 @@ class Relation
             // the current value of the field is one of the choices.
 
             // Check if table has more rows than specified by
-            // $GLOBALS['cfg']['ForeignKeyMaxLimit']
+            // \PhpMyAdmin\Config::getInstance()->settings['ForeignKeyMaxLimit']
             $moreThanLimit = $this->dbi->getTable($foreignDb, $foreignTable)
-                ->checkIfMinRecordsExist($GLOBALS['cfg']['ForeignKeyMaxLimit']);
+                ->checkIfMinRecordsExist(Config::getInstance()->settings['ForeignKeyMaxLimit']);
 
             if ($overrideTotal || ! $moreThanLimit) {
                 // foreign_display can be false if no display field defined:
@@ -1680,7 +1684,7 @@ class Relation
             $tables[] = $row[0];
         }
 
-        if ($GLOBALS['cfg']['NaturalOrder']) {
+        if (Config::getInstance()->settings['NaturalOrder']) {
             usort($tables, 'strnatcasecmp');
         }
 

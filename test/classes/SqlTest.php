@@ -49,18 +49,19 @@ class SqlTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
-        $GLOBALS['cfg']['AllowThirdPartyFraming'] = false;
-        $GLOBALS['cfg']['SendErrorReports'] = 'ask';
-        $GLOBALS['cfg']['ServerDefault'] = 1;
-        $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
-        $GLOBALS['cfg']['DefaultTabTable'] = 'browse';
-        $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'] = true;
-        $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = 'structure';
-        $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'] = '';
-        $GLOBALS['cfg']['LimitChars'] = 50;
-        $GLOBALS['cfg']['Confirm'] = true;
-        $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
-        $GLOBALS['cfg']['enable_drag_drop_import'] = true;
+        $config = Config::getInstance();
+        $config->settings['AllowThirdPartyFraming'] = false;
+        $config->settings['SendErrorReports'] = 'ask';
+        $config->settings['ServerDefault'] = 1;
+        $config->settings['DefaultTabDatabase'] = 'structure';
+        $config->settings['DefaultTabTable'] = 'browse';
+        $config->settings['ShowDatabasesNavigationAsTree'] = true;
+        $config->settings['NavigationTreeDefaultTabTable'] = 'structure';
+        $config->settings['NavigationTreeDefaultTabTable2'] = '';
+        $config->settings['LimitChars'] = 50;
+        $config->settings['Confirm'] = true;
+        $config->settings['LoginCookieValidity'] = 1440;
+        $config->settings['enable_drag_drop_import'] = true;
         $GLOBALS['showtable'] = null;
 
         $relation = new Relation($this->dbi);
@@ -97,7 +98,7 @@ class SqlTest extends AbstractTestCase
     public function testIsRememberSortingOrder(): void
     {
         // Test environment.
-        $GLOBALS['cfg']['RememberSorting'] = true;
+        Config::getInstance()->settings['RememberSorting'] = true;
 
         $this->assertTrue(
             $this->callFunction($this->sql, Sql::class, 'isRememberSortingOrder', [

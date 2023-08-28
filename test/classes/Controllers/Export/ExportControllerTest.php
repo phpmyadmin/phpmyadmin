@@ -60,7 +60,6 @@ class ExportControllerTest extends AbstractTestCase
         $GLOBALS['sql_auto_increments'] = null;
         $config = Config::getInstance();
         $config->selectServer('1');
-        $GLOBALS['cfg'] = $config->settings;
 
         $this->dummyDbi->addResult(
             'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`',

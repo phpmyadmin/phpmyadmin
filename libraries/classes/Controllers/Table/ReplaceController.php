@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\SqlController as DatabaseSqlController;
@@ -72,10 +73,11 @@ final class ReplaceController extends AbstractController
         $this->addScriptFiles(['makegrid.js', 'sql.js', 'gis_data_editor.js']);
 
         $insertRows = $request->getParsedBodyParam('insert_rows');
-        if (is_numeric($insertRows) && $insertRows != $GLOBALS['cfg']['InsertRows']) {
+        $config = Config::getInstance();
+        if (is_numeric($insertRows) && $insertRows != $config->settings['InsertRows']) {
             // check whether insert row mode, if so include /table/change
             $this->addScriptFiles(['vendor/jquery/additional-methods.js', 'table/change.js']);
-            $GLOBALS['cfg']['InsertRows'] = $insertRows;
+            $config->settings['InsertRows'] = $insertRows;
             /** @var ChangeController $controller */
             $controller = Core::getContainerBuilder()->get(ChangeController::class);
             $controller($request);

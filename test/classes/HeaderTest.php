@@ -43,8 +43,8 @@ class HeaderTest extends AbstractTestCase
 
         parent::setGlobalConfig();
 
-        $GLOBALS['cfg']['Servers'] = [];
         $config = Config::getInstance();
+        $config->settings['Servers'] = [];
         $config->selectedServer['DisableIS'] = false;
         $config->selectedServer['verbose'] = 'verbose host';
         $config->selectedServer['pmadb'] = '';
@@ -152,11 +152,12 @@ class HeaderTest extends AbstractTestCase
         $header = new Header(new Template());
         $date = (string) gmdate(DATE_RFC1123);
 
-        $GLOBALS['cfg']['AllowThirdPartyFraming'] = $frameOptions;
-        $GLOBALS['cfg']['CSPAllow'] = $cspAllow;
-        $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = $privateKey;
-        $GLOBALS['cfg']['CaptchaLoginPublicKey'] = $publicKey;
-        $GLOBALS['cfg']['CaptchaCsp'] = $captchaCsp;
+        $config = Config::getInstance();
+        $config->settings['AllowThirdPartyFraming'] = $frameOptions;
+        $config->settings['CSPAllow'] = $cspAllow;
+        $config->settings['CaptchaLoginPrivateKey'] = $privateKey;
+        $config->settings['CaptchaLoginPublicKey'] = $publicKey;
+        $config->settings['CaptchaCsp'] = $captchaCsp;
 
         $expected = [
             'X-Frame-Options' => $expectedFrameOptions,

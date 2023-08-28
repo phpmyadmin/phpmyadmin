@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Database;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Database\Designer;
@@ -30,11 +31,12 @@ class DesignerTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
         $GLOBALS['server'] = 1;
-        $GLOBALS['cfg']['ServerDefault'] = 1;
-        $GLOBALS['cfg']['PDFPageSizes'] = ['A3', 'A4'];
-        $GLOBALS['cfg']['PDFDefaultPageSize'] = 'A4';
-        $GLOBALS['cfg']['Schema']['pdf_orientation'] = 'L';
-        $GLOBALS['cfg']['Schema']['pdf_paper'] = 'A4';
+        $config = Config::getInstance();
+        $config->settings['ServerDefault'] = 1;
+        $config->settings['PDFPageSizes'] = ['A3', 'A4'];
+        $config->settings['PDFDefaultPageSize'] = 'A4';
+        $config->settings['Schema']['pdf_orientation'] = 'L';
+        $config->settings['Schema']['pdf_paper'] = 'A4';
 
         $_SESSION = [' PMA_token ' => 'token'];
         $relationParameters = RelationParameters::fromArray([

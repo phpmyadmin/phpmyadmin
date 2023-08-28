@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Triggers;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -52,6 +53,7 @@ final class IndexController extends AbstractController
         $this->addScriptFiles(['triggers.js']);
 
         if (! $request->isAjax()) {
+            $config = Config::getInstance();
             /**
              * Displays the header and tabs
              */
@@ -59,7 +61,7 @@ final class IndexController extends AbstractController
                 $this->checkParameters(['db', 'table']);
 
                 $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
-                $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+                $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
                 $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
                 $databaseName = DatabaseName::tryFrom($request->getParam('db'));
@@ -80,7 +82,10 @@ final class IndexController extends AbstractController
 
                 $this->checkParameters(['db']);
 
-                $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+                $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
+                    $config->settings['DefaultTabDatabase'],
+                    'database',
+                );
                 $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
                 $databaseName = DatabaseName::tryFrom($request->getParam('db'));

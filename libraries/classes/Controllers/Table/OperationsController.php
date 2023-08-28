@@ -81,7 +81,8 @@ class OperationsController extends AbstractController
 
         $isSystemSchema = Utilities::isSystemSchema($GLOBALS['db']);
         $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+        $config = Config::getInstance();
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
         $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
@@ -457,7 +458,6 @@ class OperationsController extends AbstractController
 
         $storageEngines = StorageEngine::getArray();
 
-        $config = Config::getInstance();
         $charsets = Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
         $collations = Charsets::getCollations($this->dbi, $config->selectedServer['DisableIS']);
 
@@ -472,7 +472,7 @@ class OperationsController extends AbstractController
 
         $databaseList = [];
         $listDatabase = $this->dbi->getDatabaseList();
-        if (count($listDatabase) <= $GLOBALS['cfg']['MaxDbList']) {
+        if (count($listDatabase) <= $config->settings['MaxDbList']) {
             $databaseList = $listDatabase->getList();
         }
 

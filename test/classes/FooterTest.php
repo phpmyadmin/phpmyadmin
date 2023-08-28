@@ -71,7 +71,7 @@ class FooterTest extends AbstractTestCase
     #[Group('medium')]
     public function testGetDebugMessage(): void
     {
-        $GLOBALS['cfg']['DBG']['sql'] = true;
+        Config::getInstance()->settings['DBG']['sql'] = true;
         $_SESSION['debug']['queries'] = [
             ['count' => 1, 'time' => 0.2, 'query' => 'SELECT * FROM `pma_bookmark` WHERE 1'],
             ['count' => 1, 'time' => 2.5, 'query' => 'SELECT * FROM `db` WHERE 1'],

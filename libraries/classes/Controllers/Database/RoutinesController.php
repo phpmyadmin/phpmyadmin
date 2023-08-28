@@ -59,6 +59,7 @@ class RoutinesController extends AbstractController
 
         $this->checkUserPrivileges->getPrivileges();
 
+        $config = Config::getInstance();
         if (! $request->isAjax()) {
             /**
              * Displays the header and tabs
@@ -67,7 +68,7 @@ class RoutinesController extends AbstractController
                 $this->checkParameters(['db', 'table']);
 
                 $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
-                $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+                $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
                 $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
                 $databaseName = DatabaseName::tryFrom($request->getParam('db'));
@@ -88,7 +89,10 @@ class RoutinesController extends AbstractController
 
                 $this->checkParameters(['db']);
 
-                $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+                $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
+                    $config->settings['DefaultTabDatabase'],
+                    'database',
+                );
                 $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
                 $databaseName = DatabaseName::tryFrom($request->getParam('db'));
@@ -240,7 +244,7 @@ class RoutinesController extends AbstractController
                     );
                 }
 
-                $charsets = Charsets::getCharsets($this->dbi, Config::getInstance()->selectedServer['DisableIS']);
+                $charsets = Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
 
                 $editor = $this->template->render('database/routines/editor_form', [
                     'db' => $GLOBALS['db'],
@@ -348,7 +352,7 @@ class RoutinesController extends AbstractController
                     'db' => $GLOBALS['db'],
                     'routine' => $routine,
                     'ajax' => $request->isAjax(),
-                    'show_function_fields' => $GLOBALS['cfg']['ShowFunctionFields'],
+                    'show_function_fields' => $config->settings['ShowFunctionFields'],
                     'params' => $params,
                 ]);
                 if ($request->isAjax()) {

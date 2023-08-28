@@ -45,7 +45,8 @@ class ImportLdiTest extends AbstractTestCase
         $GLOBALS['finished'] = false;
         $GLOBALS['read_limit'] = 100000000;
         $GLOBALS['offset'] = 0;
-        Config::getInstance()->selectedServer['DisableIS'] = false;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = false;
 
         $GLOBALS['import_file'] = 'test/test_data/db_test_ldi.csv';
         $GLOBALS['import_text'] = 'ImportLdi_Test';
@@ -53,14 +54,14 @@ class ImportLdiTest extends AbstractTestCase
         $GLOBALS['import_type'] = 'csv';
 
         //setting for Ldi
-        $GLOBALS['cfg']['Import']['ldi_replace'] = false;
-        $GLOBALS['cfg']['Import']['ldi_ignore'] = false;
-        $GLOBALS['cfg']['Import']['ldi_terminated'] = ';';
-        $GLOBALS['cfg']['Import']['ldi_enclosed'] = '"';
-        $GLOBALS['cfg']['Import']['ldi_escaped'] = '\\';
-        $GLOBALS['cfg']['Import']['ldi_new_line'] = 'auto';
-        $GLOBALS['cfg']['Import']['ldi_columns'] = '';
-        $GLOBALS['cfg']['Import']['ldi_local_option'] = false;
+        $config->settings['Import']['ldi_replace'] = false;
+        $config->settings['Import']['ldi_ignore'] = false;
+        $config->settings['Import']['ldi_terminated'] = ';';
+        $config->settings['Import']['ldi_enclosed'] = '"';
+        $config->settings['Import']['ldi_escaped'] = '\\';
+        $config->settings['Import']['ldi_new_line'] = 'auto';
+        $config->settings['Import']['ldi_columns'] = '';
+        $config->settings['Import']['ldi_local_option'] = false;
         $GLOBALS['table'] = 'phpmyadmintest';
     }
 
@@ -101,9 +102,10 @@ class ImportLdiTest extends AbstractTestCase
         $resultStub->expects($this->any())->method('fetchValue')
             ->willReturn('ON');
 
-        $GLOBALS['cfg']['Import']['ldi_local_option'] = 'auto';
+        $config = Config::getInstance();
+        $config->settings['Import']['ldi_local_option'] = 'auto';
         $properties = (new ImportLdi())->getProperties();
-        $this->assertTrue($GLOBALS['cfg']['Import']['ldi_local_option']);
+        $this->assertTrue($config->settings['Import']['ldi_local_option']);
         $this->assertEquals(
             __('CSV using LOAD DATA'),
             $properties->getText(),

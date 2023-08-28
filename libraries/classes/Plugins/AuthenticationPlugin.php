@@ -119,8 +119,8 @@ abstract class AuthenticationPlugin
 
         // Get a logged-in server count in case of LoginCookieDeleteAll is disabled.
         $server = 0;
-        if ($GLOBALS['cfg']['LoginCookieDeleteAll'] === false && $config->selectedServer['auth_type'] === 'cookie') {
-            foreach (array_keys($GLOBALS['cfg']['Servers']) as $key) {
+        if ($config->settings['LoginCookieDeleteAll'] === false && $config->selectedServer['auth_type'] === 'cookie') {
+            foreach (array_keys($config->settings['Servers']) as $key) {
                 if (! $config->issetCookie('pmaAuth-' . $key)) {
                     continue;
                 }
@@ -173,7 +173,7 @@ abstract class AuthenticationPlugin
             return sprintf(
                 __('You have been automatically logged out due to inactivity of %s seconds.'
                 . ' Once you log in again, you should be able to resume the work where you left off.'),
-                intval($GLOBALS['cfg']['LoginCookieValidity']),
+                intval(Config::getInstance()->settings['LoginCookieValidity']),
             );
         }
 
@@ -219,7 +219,10 @@ abstract class AuthenticationPlugin
             //
             // Negative values can cause session expiry extension
             // Too big values can cause overflow and lead to same
-            $time = time() - min(max(0, intval($_REQUEST['access_time'])), $GLOBALS['cfg']['LoginCookieValidity'] + 1);
+            $time = time() - min(
+                max(0, intval($_REQUEST['access_time'])),
+                Config::getInstance()->settings['LoginCookieValidity'] + 1,
+            );
         } else {
             $time = time();
         }

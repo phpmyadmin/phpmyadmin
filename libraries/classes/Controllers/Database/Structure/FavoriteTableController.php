@@ -43,7 +43,8 @@ final class FavoriteTableController extends AbstractController
             return;
         }
 
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+        $config = Config::getInstance();
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
         $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
         if (! $request->isAjax()) {
@@ -60,7 +61,7 @@ final class FavoriteTableController extends AbstractController
         }
 
         // Required to keep each user's preferences separate.
-        $user = sha1(Config::getInstance()->selectedServer['user']);
+        $user = sha1($config->selectedServer['user']);
 
         // Request for Synchronization of favorite tables.
         if ($request->getParam('sync_favorite_tables') !== null) {
@@ -97,7 +98,7 @@ final class FavoriteTableController extends AbstractController
         } elseif (isset($_REQUEST['add_favorite'])) {
             if (! $alreadyFavorite) {
                 $numTables = count($favoriteInstance->getTables());
-                if ($numTables == $GLOBALS['cfg']['NumFavoriteTables']) {
+                if ($numTables == $config->settings['NumFavoriteTables']) {
                     $changes = false;
                 } else {
                     // Otherwise add to favorite list.

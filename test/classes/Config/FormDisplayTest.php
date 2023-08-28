@@ -389,11 +389,12 @@ class FormDisplayTest extends AbstractTestCase
 
         $this->assertTrue($opts['comment_warning']);
 
-        Config::getInstance()->set('is_setup', false);
+        $config = Config::getInstance();
+        $config->set('is_setup', false);
 
-        $GLOBALS['cfg']['MaxDbList'] = 10;
-        $GLOBALS['cfg']['MaxTableList'] = 10;
-        $GLOBALS['cfg']['QueryHistoryMax'] = 10;
+        $config->settings['MaxDbList'] = 10;
+        $config->settings['MaxTableList'] = 10;
+        $config->settings['QueryHistoryMax'] = 10;
 
         $method->invokeArgs(
             $this->object,

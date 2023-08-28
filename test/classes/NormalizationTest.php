@@ -41,15 +41,16 @@ class NormalizationTest extends AbstractTestCase
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
-        $GLOBALS['cfg']['LimitChars'] = 50;
-        $GLOBALS['cfg']['ServerDefault'] = 'PMA_server';
-        $GLOBALS['cfg']['ShowHint'] = true;
-        $GLOBALS['cfg']['CharEditing'] = '';
-        $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
+        $config = Config::getInstance();
+        $config->settings['LimitChars'] = 50;
+        $config->settings['ServerDefault'] = 'PMA_server';
+        $config->settings['ShowHint'] = true;
+        $config->settings['CharEditing'] = '';
+        $config->settings['ActionLinksMode'] = 'icons';
         $GLOBALS['db'] = 'PMA_db';
         $GLOBALS['table'] = 'PMA_table';
         $GLOBALS['server'] = 1;
-        Config::getInstance()->selectedServer['DisableIS'] = false;
+        $config->selectedServer['DisableIS'] = false;
         $_POST['change_column'] = null;
 
         //$_SESSION
@@ -119,10 +120,11 @@ class NormalizationTest extends AbstractTestCase
      */
     public function testGetHtmlForCreateNewColumn(): void
     {
-        $GLOBALS['cfg']['BrowseMIME'] = true;
-        $GLOBALS['cfg']['MaxRows'] = 25;
+        $config = Config::getInstance();
+        $config->settings['BrowseMIME'] = true;
+        $config->settings['MaxRows'] = 25;
         $GLOBALS['col_priv'] = false;
-        Config::getInstance()->selectedServer['DisableIS'] = false;
+        $config->selectedServer['DisableIS'] = false;
         DatabaseInterface::$instance = $this->dbi;
         $db = 'testdb';
         $table = 'mytable';

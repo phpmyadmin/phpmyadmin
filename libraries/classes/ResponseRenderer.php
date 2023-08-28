@@ -314,7 +314,7 @@ class ResponseRenderer
                 // set current db, table and sql query in the querywindow
                 // (this is for the bottom console)
                 $query = '';
-                $maxChars = $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'];
+                $maxChars = Config::getInstance()->settings['MaxCharactersInDisplayedSQL'];
                 if (isset($GLOBALS['sql_query']) && mb_strlen($GLOBALS['sql_query']) < $maxChars) {
                     $query = $GLOBALS['sql_query'];
                 }

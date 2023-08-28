@@ -48,8 +48,8 @@ class StructureControllerTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer = $config->getSettings()->Servers[1]->asArray();
         $config->selectedServer['DisableIS'] = true;
-        $GLOBALS['cfg']['ShowStats'] = false;
-        $GLOBALS['cfg']['ShowPropertyComments'] = false;
+        $config->settings['ShowStats'] = false;
+        $config->settings['ShowPropertyComments'] = false;
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
         (new ReflectionProperty(Template::class, 'twig'))->setValue(null, null);
 

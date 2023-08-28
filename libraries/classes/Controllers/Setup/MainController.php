@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Setup;
 
 use Fig\Http\Message\StatusCodeInterface;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
@@ -26,7 +27,7 @@ final class MainController
 
     public function __invoke(ServerRequest $request): Response
     {
-        if (@file_exists(CONFIG_FILE) && ! $GLOBALS['cfg']['DBG']['demo']) {
+        if (@file_exists(CONFIG_FILE) && ! Config::getInstance()->settings['DBG']['demo']) {
             $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_NOT_FOUND);
 
             return $response->write($this->template->render('error/generic', [

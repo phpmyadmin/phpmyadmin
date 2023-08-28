@@ -204,22 +204,23 @@ class ChangeController extends AbstractController
 
         //Insert/Edit form
         //If table has blob fields we have to disable ajax.
-        $isUpload = Config::getInstance()->get('enable_upload');
+        $config = Config::getInstance();
+        $isUpload = $config->get('enable_upload');
         $htmlOutput .= $this->insertEdit->getHtmlForInsertEditFormHeader($hasBlobField, $isUpload);
 
         $htmlOutput .= Url::getHiddenInputs($formParams);
 
         // user can toggle the display of Function column and column types
         // (currently does not work for multi-edits)
-        if (! $GLOBALS['cfg']['ShowFunctionFields'] || ! $GLOBALS['cfg']['ShowFieldTypesInDataEditView']) {
+        if (! $config->settings['ShowFunctionFields'] || ! $config->settings['ShowFieldTypesInDataEditView']) {
             $htmlOutput .= __('Show');
         }
 
-        if (! $GLOBALS['cfg']['ShowFunctionFields']) {
+        if (! $config->settings['ShowFunctionFields']) {
             $htmlOutput .= $this->insertEdit->showTypeOrFunction('function', $GLOBALS['urlParams'], false);
         }
 
-        if (! $GLOBALS['cfg']['ShowFieldTypesInDataEditView']) {
+        if (! $config->settings['ShowFieldTypesInDataEditView']) {
             $htmlOutput .= $this->insertEdit->showTypeOrFunction('type', $GLOBALS['urlParams'], false);
         }
 

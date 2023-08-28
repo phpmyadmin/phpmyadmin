@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Databases;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
@@ -42,7 +43,7 @@ final class DestroyController extends AbstractController
 
         if (
             ! $request->isAjax()
-            || (! $this->dbi->isSuperUser() && ! $GLOBALS['cfg']['AllowUserDropDatabase'])
+            || (! $this->dbi->isSuperUser() && ! Config::getInstance()->settings['AllowUserDropDatabase'])
         ) {
             $message = Message::error();
             $json = ['message' => $message];

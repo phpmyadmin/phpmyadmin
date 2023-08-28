@@ -100,14 +100,14 @@ class SqlQueryForm
 
         return $this->template->render('sql/query', [
             'legend' => $legend ?? '',
-            'textarea_cols' => $GLOBALS['cfg']['TextareaCols'],
-            'textarea_rows' => $GLOBALS['cfg']['TextareaRows'],
-            'textarea_auto_select' => $GLOBALS['cfg']['TextareaAutoSelect'],
+            'textarea_cols' => $config->settings['TextareaCols'],
+            'textarea_rows' => $config->settings['TextareaRows'],
+            'textarea_auto_select' => $config->settings['TextareaAutoSelect'],
             'columns_list' => $columnsList ?? [],
-            'codemirror_enable' => $GLOBALS['cfg']['CodemirrorEnable'],
+            'codemirror_enable' => $config->settings['CodemirrorEnable'],
             'has_bookmark' => $bookmarkFeature !== null,
             'delimiter' => $delimiter,
-            'retain_query_box' => $GLOBALS['cfg']['RetainQueryBox'] !== false,
+            'retain_query_box' => $config->settings['RetainQueryBox'] !== false,
             'is_upload' => $config->get('enable_upload'),
             'db' => $db,
             'table' => $table,
@@ -117,7 +117,7 @@ class SqlQueryForm
             'bookmarks' => $bookmarks,
             'can_convert_kanji' => Encoding::canConvertKanji(),
             'is_foreign_key_check' => ForeignKey::isCheckEnabled(),
-            'allow_shared_bookmarks' => $GLOBALS['cfg']['AllowSharedBookmarks'],
+            'allow_shared_bookmarks' => $config->settings['AllowSharedBookmarks'],
         ]);
     }
 
@@ -131,28 +131,29 @@ class SqlQueryForm
     public function init(string $query): array
     {
         $columnsList = [];
+        $config = Config::getInstance();
         if ($GLOBALS['db'] === '') {
             // prepare for server related
             $legend = sprintf(
                 __('Run SQL query/queries on server “%s”'),
                 htmlspecialchars(
-                    ! empty($GLOBALS['cfg']['Servers'][$GLOBALS['server']]['verbose'])
-                    ? $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['verbose']
-                    : $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['host'],
+                    ! empty($config->settings['Servers'][$GLOBALS['server']]['verbose'])
+                    ? $config->settings['Servers'][$GLOBALS['server']]['verbose']
+                    : $config->settings['Servers'][$GLOBALS['server']]['host'],
                 ),
             );
         } elseif ($GLOBALS['table'] === '') {
             // prepare for db related
             $db = $GLOBALS['db'];
             // if you want navigation:
-            $scriptName = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+            $scriptName = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
             $tmpDbLink = '<a href="' . $scriptName
                 . Url::getCommon(['db' => $db], ! str_contains($scriptName, '?') ? '?' : '&')
                 . '">';
             $tmpDbLink .= htmlspecialchars($db) . '</a>';
             $legend = sprintf(__('Run SQL query/queries on database %s'), $tmpDbLink);
             if ($query === '') {
-                $query = Util::expandUserString($GLOBALS['cfg']['DefaultQueryDatabase'], Util::backquote(...));
+                $query = Util::expandUserString($config->settings['DefaultQueryDatabase'], Util::backquote(...));
             }
         } else {
             $db = $GLOBALS['db'];
@@ -162,12 +163,12 @@ class SqlQueryForm
             // trying to synchronize and the table has not yet been created
             $columnsList = $this->dbi->getColumns($db, $GLOBALS['table'], true);
 
-            $scriptName = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+            $scriptName = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
             $tmpTblLink = '<a href="' . $scriptName . Url::getCommon(['db' => $db, 'table' => $table], '&') . '">';
             $tmpTblLink .= htmlspecialchars($db) . '.' . htmlspecialchars($table) . '</a>';
             $legend = sprintf(__('Run SQL query/queries on table %s'), $tmpTblLink);
             if ($query === '') {
-                $query = Util::expandUserString($GLOBALS['cfg']['DefaultQueryTable'], Util::backquote(...));
+                $query = Util::expandUserString($config->settings['DefaultQueryTable'], Util::backquote(...));
             }
         }
 

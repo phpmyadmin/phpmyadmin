@@ -41,14 +41,14 @@ class ErrorReportTest extends AbstractTestCase
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
         $GLOBALS['server'] = 1;
-        $GLOBALS['cfg']['ServerDefault'] = 1;
-        $GLOBALS['cfg']['ProxyUrl'] = '';
-        $GLOBALS['cfg']['ProxyUser'] = '';
-        $GLOBALS['cfg']['ProxyPass'] = '';
+        $config = Config::getInstance();
+        $config->settings['ServerDefault'] = 1;
+        $config->settings['ProxyUrl'] = '';
+        $config->settings['ProxyUser'] = '';
+        $config->settings['ProxyPass'] = '';
         $_SERVER['SERVER_SOFTWARE'] = 'SERVER_SOFTWARE';
         $_SERVER['HTTP_USER_AGENT'] = 'HTTP_USER_AGENT';
         $_COOKIE['pma_lang'] = 'en';
-        $config = Config::getInstance();
         $config->set('is_https', false);
 
         $this->errorReport = new ErrorReport(

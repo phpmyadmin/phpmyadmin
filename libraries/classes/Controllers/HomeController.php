@@ -108,13 +108,13 @@ class HomeController extends AbstractController
         $syncFavoriteTables = RecentFavoriteTable::getInstance('favorite')
             ->getHtmlSyncFavoriteTables();
 
-        $hasServer = $GLOBALS['server'] > 0 || count($GLOBALS['cfg']['Servers']) > 1;
         $config = Config::getInstance();
+        $hasServer = $GLOBALS['server'] > 0 || count($config->settings['Servers']) > 1;
         if ($hasServer) {
-            $hasServerSelection = $GLOBALS['cfg']['ServerDefault'] == 0
-                || (! $GLOBALS['cfg']['NavigationDisplayServers']
-                && (count($GLOBALS['cfg']['Servers']) > 1
-                || ($GLOBALS['server'] == 0 && count($GLOBALS['cfg']['Servers']) === 1)));
+            $hasServerSelection = $config->settings['ServerDefault'] == 0
+                || (! $config->settings['NavigationDisplayServers']
+                && (count($config->settings['Servers']) > 1
+                || ($GLOBALS['server'] == 0 && count($config->settings['Servers']) === 1)));
             if ($hasServerSelection) {
                 $serverSelection = Select::render(true);
             }
@@ -146,11 +146,11 @@ class HomeController extends AbstractController
         }
 
         $availableLanguages = [];
-        if (empty($GLOBALS['cfg']['Lang']) && $languageManager->hasChoice()) {
+        if (empty($config->settings['Lang']) && $languageManager->hasChoice()) {
             $availableLanguages = $languageManager->sortedLanguages();
         }
 
-        $showServerInfo = $GLOBALS['cfg']['ShowServerInfo'];
+        $showServerInfo = $config->settings['ShowServerInfo'];
         $databaseServer = [];
         if ($GLOBALS['server'] > 0 && ($showServerInfo === true || $showServerInfo === 'database-server')) {
             $hostInfo = '';
@@ -194,13 +194,13 @@ class HomeController extends AbstractController
         $relation = new Relation($this->dbi);
         if ($GLOBALS['server'] > 0 && $relation->arePmadbTablesAllDisabled() === false) {
             $relationParameters = $relation->getRelationParameters();
-            if (! $relationParameters->hasAllFeatures() && $GLOBALS['cfg']['PmaNoRelation_DisableWarning'] == false) {
+            if (! $relationParameters->hasAllFeatures() && $config->settings['PmaNoRelation_DisableWarning'] == false) {
                 $messageText = __(
                     'The phpMyAdmin configuration storage is not completely '
                     . 'configured, some extended features have been deactivated. '
                     . '%sFind out why%s. ',
                 );
-                if ($GLOBALS['cfg']['ZeroConf'] == true) {
+                if ($config->settings['ZeroConf'] == true) {
                     $messageText .= '<br>'
                         . __('Or alternately go to \'Operations\' tab of any database to set it up there.');
                 }
@@ -212,7 +212,7 @@ class HomeController extends AbstractController
                 );
                 $messageInstance->addParamHtml('</a>');
                 /* Show error if user has configured something, notice elsewhere */
-                if (! empty($GLOBALS['cfg']['Servers'][$GLOBALS['server']]['pmadb'])) {
+                if (! empty($config->settings['Servers'][$GLOBALS['server']]['pmadb'])) {
                     $messageInstance->isError(true);
                 }
 
@@ -233,21 +233,21 @@ class HomeController extends AbstractController
             'server' => $GLOBALS['server'],
             'sync_favorite_tables' => $syncFavoriteTables,
             'has_server' => $hasServer,
-            'is_demo' => $GLOBALS['cfg']['DBG']['demo'],
+            'is_demo' => $config->settings['DBG']['demo'],
             'has_server_selection' => $hasServerSelection ?? false,
             'server_selection' => $serverSelection ?? '',
             'has_change_password_link' => ($config->selectedServer['auth_type'] ?? '') !== 'config'
-                && $GLOBALS['cfg']['ShowChgPassword'],
+                && $config->settings['ShowChgPassword'],
             'charsets' => $charsetsList ?? [],
             'available_languages' => $availableLanguages,
             'database_server' => $databaseServer,
             'web_server' => $webServer,
-            'show_php_info' => $GLOBALS['cfg']['ShowPhpInfo'],
-            'is_version_checked' => $GLOBALS['cfg']['VersionCheck'],
+            'show_php_info' => $config->settings['ShowPhpInfo'],
+            'is_version_checked' => $config->settings['VersionCheck'],
             'phpmyadmin_version' => Version::VERSION,
             'phpmyadmin_major_version' => Version::SERIES,
             'config_storage_message' => $configStorageMessage ?? '',
-            'has_theme_manager' => $GLOBALS['cfg']['ThemeManager'],
+            'has_theme_manager' => $config->settings['ThemeManager'],
             'themes' => $this->themeManager->getThemesArray(),
             'errors' => $this->errors,
         ]);
@@ -261,12 +261,13 @@ class HomeController extends AbstractController
 
         $this->checkPhpExtensionsRequirements();
 
-        if ($GLOBALS['cfg']['LoginCookieValidityDisableWarning'] == false) {
+        $config = Config::getInstance();
+        if ($config->settings['LoginCookieValidityDisableWarning'] == false) {
             /**
              * Check whether session.gc_maxlifetime limits session validity.
              */
             $gcTime = (int) ini_get('session.gc_maxlifetime');
-            if ($gcTime < $GLOBALS['cfg']['LoginCookieValidity']) {
+            if ($gcTime < $config->settings['LoginCookieValidity']) {
                 $this->errors[] = [
                     'message' => __(
                         'Your PHP parameter [a@https://www.php.net/manual/en/session.' .
@@ -284,8 +285,8 @@ class HomeController extends AbstractController
          * Check whether LoginCookieValidity is limited by LoginCookieStore.
          */
         if (
-            $GLOBALS['cfg']['LoginCookieStore'] != 0
-            && $GLOBALS['cfg']['LoginCookieStore'] < $GLOBALS['cfg']['LoginCookieValidity']
+            $config->settings['LoginCookieStore'] != 0
+            && $config->settings['LoginCookieStore'] < $config->settings['LoginCookieValidity']
         ) {
             $this->errors[] = [
                 'message' => __(
@@ -300,7 +301,6 @@ class HomeController extends AbstractController
         /**
          * Warning if using the default MySQL controluser account
          */
-        $config = Config::getInstance();
         if (
             isset($config->selectedServer['controluser'], $config->selectedServer['controlpass'])
             && $GLOBALS['server'] != 0
@@ -324,8 +324,8 @@ class HomeController extends AbstractController
         if (! empty($_SESSION['encryption_key'])) {
             $encryptionKeyLength = 0;
             // This can happen if the user did use getenv() to set blowfish_secret
-            if (is_string($GLOBALS['cfg']['blowfish_secret'])) {
-                $encryptionKeyLength = mb_strlen($GLOBALS['cfg']['blowfish_secret'], '8bit');
+            if (is_string($config->settings['blowfish_secret'])) {
+                $encryptionKeyLength = mb_strlen($config->settings['blowfish_secret'], '8bit');
             }
 
             if ($encryptionKeyLength < SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
@@ -373,7 +373,7 @@ class HomeController extends AbstractController
          * Warning about Suhosin only if its simulation mode is not enabled
          */
         if (
-            $GLOBALS['cfg']['SuhosinDisableWarning'] == false
+            $config->settings['SuhosinDisableWarning'] == false
             && ini_get('suhosin.request.max_value_length')
             && ini_get('suhosin.simulation') == '0'
         ) {
@@ -422,9 +422,10 @@ class HomeController extends AbstractController
 
         /** @psalm-suppress MissingFile */
         include ROOT_PATH . 'libraries/language_stats.inc.php';
+        $config = Config::getInstance();
         if (
             ! isset($GLOBALS['language_stats'][$GLOBALS['lang']])
-            || $GLOBALS['language_stats'][$GLOBALS['lang']] >= $GLOBALS['cfg']['TranslationWarningThreshold']
+            || $GLOBALS['language_stats'][$GLOBALS['lang']] >= $config->settings['TranslationWarningThreshold']
         ) {
             return;
         }

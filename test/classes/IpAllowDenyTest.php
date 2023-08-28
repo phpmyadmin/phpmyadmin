@@ -52,7 +52,8 @@ class IpAllowDenyTest extends AbstractTestCase
     ): void {
         unset($_SERVER['REMOTE_ADDR']);
         unset($_SERVER['TEST_FORWARDED_HEADER']);
-        $GLOBALS['cfg']['TrustedProxies'] = [];
+        $config = Config::getInstance();
+        $config->settings['TrustedProxies'] = [];
 
         if ($remote !== null) {
             $_SERVER['REMOTE_ADDR'] = $remote;
@@ -63,7 +64,7 @@ class IpAllowDenyTest extends AbstractTestCase
                 $proxyip = $remote;
             }
 
-            $GLOBALS['cfg']['TrustedProxies'][$proxyip] = 'TEST_FORWARDED_HEADER';
+            $config->settings['TrustedProxies'][$proxyip] = 'TEST_FORWARDED_HEADER';
             $_SERVER['TEST_FORWARDED_HEADER'] = $header;
         }
 
@@ -74,7 +75,7 @@ class IpAllowDenyTest extends AbstractTestCase
 
         unset($_SERVER['REMOTE_ADDR']);
         unset($_SERVER['TEST_FORWARDED_HEADER']);
-        $GLOBALS['cfg']['TrustedProxies'] = [];
+        $config->settings['TrustedProxies'] = [];
     }
 
     /**

@@ -98,9 +98,10 @@ class AuthenticationCookie extends AuthenticationPlugin
             $response->addJSON('logged_in', 0);
         }
 
+        $config = Config::getInstance();
         // No recall if blowfish secret is not configured as it would produce
         // garbage
-        if ($GLOBALS['cfg']['LoginCookieRecall'] && ! empty($GLOBALS['cfg']['blowfish_secret'])) {
+        if ($config->settings['LoginCookieRecall'] && ! empty($config->settings['blowfish_secret'])) {
             $defaultUser = $this->user;
             $defaultServer = $GLOBALS['pma_auth_server'];
             $hasAutocomplete = true;
@@ -132,12 +133,12 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $languageManager = LanguageManager::getInstance();
         $availableLanguages = [];
-        if (empty($GLOBALS['cfg']['Lang']) && $languageManager->hasChoice()) {
+        if (empty($config->settings['Lang']) && $languageManager->hasChoice()) {
             $availableLanguages = $languageManager->sortedLanguages();
         }
 
         $serversOptions = '';
-        $hasServers = count($GLOBALS['cfg']['Servers']) > 1;
+        $hasServers = count($config->settings['Servers']) > 1;
         if ($hasServers) {
             $serversOptions = Select::render(false);
         }
@@ -170,29 +171,29 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $response->addHTML($this->template->render('login/form', [
             'login_header' => $loginHeader,
-            'is_demo' => $GLOBALS['cfg']['DBG']['demo'],
+            'is_demo' => $config->settings['DBG']['demo'],
             'error_messages' => $errorMessages,
             'available_languages' => $availableLanguages,
             'is_session_expired' => $sessionExpired,
             'has_autocomplete' => $hasAutocomplete,
             'session_id' => session_id(),
-            'is_arbitrary_server_allowed' => $GLOBALS['cfg']['AllowArbitraryServer'],
+            'is_arbitrary_server_allowed' => $config->settings['AllowArbitraryServer'],
             'default_server' => $defaultServer,
             'default_user' => $defaultUser,
             'has_servers' => $hasServers,
             'server_options' => $serversOptions,
             'server' => $GLOBALS['server'],
             'lang' => $GLOBALS['lang'],
-            'has_captcha' => ! empty($GLOBALS['cfg']['CaptchaApi'])
-                && ! empty($GLOBALS['cfg']['CaptchaRequestParam'])
-                && ! empty($GLOBALS['cfg']['CaptchaResponseParam'])
-                && ! empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
-                && ! empty($GLOBALS['cfg']['CaptchaLoginPublicKey']),
-            'use_captcha_checkbox' => ($GLOBALS['cfg']['CaptchaMethod'] ?? '') === 'checkbox',
-            'captcha_api' => $GLOBALS['cfg']['CaptchaApi'],
-            'captcha_req' => $GLOBALS['cfg']['CaptchaRequestParam'],
-            'captcha_resp' => $GLOBALS['cfg']['CaptchaResponseParam'],
-            'captcha_key' => $GLOBALS['cfg']['CaptchaLoginPublicKey'],
+            'has_captcha' => ! empty($config->settings['CaptchaApi'])
+                && ! empty($config->settings['CaptchaRequestParam'])
+                && ! empty($config->settings['CaptchaResponseParam'])
+                && ! empty($config->settings['CaptchaLoginPrivateKey'])
+                && ! empty($config->settings['CaptchaLoginPublicKey']),
+            'use_captcha_checkbox' => ($config->settings['CaptchaMethod'] ?? '') === 'checkbox',
+            'captcha_api' => $config->settings['CaptchaApi'],
+            'captcha_req' => $config->settings['CaptchaRequestParam'],
+            'captcha_resp' => $config->settings['CaptchaResponseParam'],
+            'captcha_key' => $config->settings['CaptchaLoginPublicKey'],
             'form_params' => $formParams,
             'errors' => $errors,
             'login_footer' => $loginFooter,
@@ -230,43 +231,44 @@ class AuthenticationCookie extends AuthenticationPlugin
         $this->user = $this->password = '';
         $GLOBALS['from_cookie'] = false;
 
+        $config = Config::getInstance();
         if (isset($_POST['pma_username']) && strlen($_POST['pma_username']) > 0) {
             // Verify Captcha if it is required.
             if (
-                ! empty($GLOBALS['cfg']['CaptchaApi'])
-                && ! empty($GLOBALS['cfg']['CaptchaRequestParam'])
-                && ! empty($GLOBALS['cfg']['CaptchaResponseParam'])
-                && ! empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
-                && ! empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
+                ! empty($config->settings['CaptchaApi'])
+                && ! empty($config->settings['CaptchaRequestParam'])
+                && ! empty($config->settings['CaptchaResponseParam'])
+                && ! empty($config->settings['CaptchaLoginPrivateKey'])
+                && ! empty($config->settings['CaptchaLoginPublicKey'])
             ) {
-                if (empty($_POST[$GLOBALS['cfg']['CaptchaResponseParam']])) {
+                if (empty($_POST[$config->settings['CaptchaResponseParam']])) {
                     $GLOBALS['conn_error'] = __('Missing Captcha verification, maybe it has been blocked by adblock?');
 
                     return false;
                 }
 
-                $captchaSiteVerifyURL = $GLOBALS['cfg']['CaptchaSiteVerifyURL'] ?? '';
+                $captchaSiteVerifyURL = $config->settings['CaptchaSiteVerifyURL'] ?? '';
                 $captchaSiteVerifyURL = empty($captchaSiteVerifyURL) ? null : $captchaSiteVerifyURL;
                 if (function_exists('curl_init')) {
                     $reCaptcha = new ReCaptcha\ReCaptcha(
-                        $GLOBALS['cfg']['CaptchaLoginPrivateKey'],
+                        $config->settings['CaptchaLoginPrivateKey'],
                         new ReCaptcha\RequestMethod\CurlPost(null, $captchaSiteVerifyURL),
                     );
                 } elseif (ini_get('allow_url_fopen')) {
                     $reCaptcha = new ReCaptcha\ReCaptcha(
-                        $GLOBALS['cfg']['CaptchaLoginPrivateKey'],
+                        $config->settings['CaptchaLoginPrivateKey'],
                         new ReCaptcha\RequestMethod\Post($captchaSiteVerifyURL),
                     );
                 } else {
                     $reCaptcha = new ReCaptcha\ReCaptcha(
-                        $GLOBALS['cfg']['CaptchaLoginPrivateKey'],
+                        $config->settings['CaptchaLoginPrivateKey'],
                         new ReCaptcha\RequestMethod\SocketPost(null, $captchaSiteVerifyURL),
                     );
                 }
 
                 // verify captcha status.
                 $resp = $reCaptcha->verify(
-                    $_POST[$GLOBALS['cfg']['CaptchaResponseParam']],
+                    $_POST[$config->settings['CaptchaResponseParam']],
                     Core::getIp(),
                 );
 
@@ -297,8 +299,8 @@ class AuthenticationCookie extends AuthenticationPlugin
 
             $this->password = $password;
 
-            if ($GLOBALS['cfg']['AllowArbitraryServer'] && isset($_REQUEST['pma_servername'])) {
-                if ($GLOBALS['cfg']['ArbitraryServerRegexp']) {
+            if ($config->settings['AllowArbitraryServer'] && isset($_REQUEST['pma_servername'])) {
+                if ($config->settings['ArbitraryServerRegexp']) {
                     $parts = explode(' ', $_REQUEST['pma_servername']);
                     if (count($parts) === 2) {
                         $tmpHost = $parts[0];
@@ -306,7 +308,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                         $tmpHost = $_REQUEST['pma_servername'];
                     }
 
-                    $match = preg_match($GLOBALS['cfg']['ArbitraryServerRegexp'], $tmpHost);
+                    $match = preg_match($config->settings['ArbitraryServerRegexp'], $tmpHost);
                     if (! $match) {
                         $GLOBALS['conn_error'] = __('You are not allowed to log in to this MySQL server!');
 
@@ -338,7 +340,6 @@ class AuthenticationCookie extends AuthenticationPlugin
         // and $this->password variables from cookies
 
         // check cookies
-        $config = Config::getInstance();
         $serverCookie = $config->getCookie('pmaUser-' . $GLOBALS['server']);
         if (empty($serverCookie)) {
             return false;
@@ -360,7 +361,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         // User inactive too long
-        $lastAccessTime = time() - $GLOBALS['cfg']['LoginCookieValidity'];
+        $lastAccessTime = time() - $config->settings['LoginCookieValidity'];
         foreach ($_SESSION['browser_access_time'] as $key => $value) {
             if ($value >= $lastAccessTime) {
                 continue;
@@ -405,7 +406,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         $this->password = $authData['password'];
-        if ($GLOBALS['cfg']['AllowArbitraryServer'] && ! empty($authData['server'])) {
+        if ($config->settings['AllowArbitraryServer'] && ! empty($authData['server'])) {
             $GLOBALS['pma_auth_server'] = $authData['server'];
         }
 
@@ -421,7 +422,8 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function storeCredentials(): bool
     {
-        if ($GLOBALS['cfg']['AllowArbitraryServer'] && ! empty($GLOBALS['pma_auth_server'])) {
+        $config = Config::getInstance();
+        if ($config->settings['AllowArbitraryServer'] && ! empty($GLOBALS['pma_auth_server'])) {
             /* Allow to specify 'host port' */
             $parts = explode(' ', $GLOBALS['pma_auth_server']);
             if (count($parts) === 2) {
@@ -432,7 +434,6 @@ class AuthenticationCookie extends AuthenticationPlugin
                 $tmpPort = '';
             }
 
-            $config = Config::getInstance();
             if ($config->selectedServer['host'] != $GLOBALS['pma_auth_server']) {
                 $config->selectedServer['host'] = $tmpHost;
                 if ($tmpPort !== '') {
@@ -528,19 +529,20 @@ class AuthenticationCookie extends AuthenticationPlugin
     public function storePasswordCookie(string $password): void
     {
         $payload = ['password' => $password];
-        if ($GLOBALS['cfg']['AllowArbitraryServer'] && ! empty($GLOBALS['pma_auth_server'])) {
+        $config = Config::getInstance();
+        if ($config->settings['AllowArbitraryServer'] && ! empty($GLOBALS['pma_auth_server'])) {
             $payload['server'] = $GLOBALS['pma_auth_server'];
         }
 
         // Duration = as configured
-        Config::getInstance()->setCookie(
+        $config->setCookie(
             'pmaAuth-' . $GLOBALS['server'],
             $this->cookieEncrypt(
                 (string) json_encode($payload),
                 $this->getSessionEncryptionSecret(),
             ),
             null,
-            (int) $GLOBALS['cfg']['LoginCookieStore'],
+            (int) $config->settings['LoginCookieStore'],
         );
     }
 
@@ -578,7 +580,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     private function getEncryptionSecret(): string
     {
         /** @var mixed $key */
-        $key = $GLOBALS['cfg']['blowfish_secret'] ?? null;
+        $key = Config::getInstance()->settings['blowfish_secret'] ?? null;
         if (! is_string($key)) {
             return $this->getSessionEncryptionSecret();
         }
@@ -657,10 +659,10 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function logOut(): void
     {
-        // -> delete password cookie(s)
         $config = Config::getInstance();
-        if ($GLOBALS['cfg']['LoginCookieDeleteAll']) {
-            foreach (array_keys($GLOBALS['cfg']['Servers']) as $key) {
+        // -> delete password cookie(s)
+        if ($config->settings['LoginCookieDeleteAll']) {
+            foreach (array_keys($config->settings['Servers']) as $key) {
                 $config->removeCookie('pmaAuth-' . $key);
                 if (! $config->issetCookie('pmaAuth-' . $key)) {
                     continue;

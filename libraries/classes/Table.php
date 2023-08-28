@@ -700,7 +700,8 @@ class Table implements Stringable
         }
 
         // for a VIEW, $row_count is always false at this point
-        if ($rowCount !== null && $rowCount >= $GLOBALS['cfg']['MaxExactCount']) {
+        $config = Config::getInstance();
+        if ($rowCount !== null && $rowCount >= $config->settings['MaxExactCount']) {
             return (int) $rowCount;
         }
 
@@ -708,7 +709,7 @@ class Table implements Stringable
             $rowCount = $this->dbi->fetchValue(
                 'SELECT COUNT(*) FROM ' . Util::backquote($this->dbName) . '.' . Util::backquote($this->name),
             );
-        } elseif ($GLOBALS['cfg']['MaxExactCountViews'] == 0) {
+        } elseif ($config->settings['MaxExactCountViews'] == 0) {
             // For complex views, even trying to get a partial record
             // count could bring down a server, so we offer an
             // alternative: setting MaxExactCountViews to 0 will bypass
@@ -722,7 +723,7 @@ class Table implements Stringable
             $result = $this->dbi->tryQuery(
                 'SELECT 1 FROM ' . Util::backquote($this->dbName) . '.'
                 . Util::backquote($this->name) . ' LIMIT '
-                . $GLOBALS['cfg']['MaxExactCountViews'],
+                . $config->settings['MaxExactCountViews'],
             );
             if ($result) {
                 $rowCount = $result->numRows();

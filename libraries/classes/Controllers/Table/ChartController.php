@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -79,6 +80,7 @@ class ChartController extends AbstractController
 
         $urlParams = [];
 
+        $config = Config::getInstance();
         /**
          * Runs common work
          */
@@ -86,7 +88,7 @@ class ChartController extends AbstractController
             $this->checkParameters(['db', 'table']);
 
             $urlParams = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
-            $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+            $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
             $GLOBALS['errorUrl'] .= Url::getCommon($urlParams, '&');
 
             $databaseName = DatabaseName::tryFrom($request->getParam('db'));
@@ -117,16 +119,16 @@ class ChartController extends AbstractController
                 return;
             }
 
-            $urlParams['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+            $urlParams['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
             $urlParams['back'] = Url::getFromRoute('/table/sql');
             $this->dbi->selectDb($GLOBALS['db']);
         } elseif (strlen($GLOBALS['db']) > 0) {
-            $urlParams['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+            $urlParams['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
             $urlParams['back'] = Url::getFromRoute('/sql');
 
             $this->checkParameters(['db']);
 
-            $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+            $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
             $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
             $databaseName = DatabaseName::tryFrom($request->getParam('db'));
@@ -143,7 +145,7 @@ class ChartController extends AbstractController
                 return;
             }
         } else {
-            $urlParams['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabServer'], 'server');
+            $urlParams['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabServer'], 'server');
             $urlParams['back'] = Url::getFromRoute('/sql');
             $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
@@ -211,7 +213,10 @@ class ChartController extends AbstractController
             $this->checkParameters(['db', 'table']);
 
             $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
-            $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+            $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
+                Config::getInstance()->settings['DefaultTabTable'],
+                'table',
+            );
             $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
             $databaseName = DatabaseName::tryFrom($request->getParam('db'));

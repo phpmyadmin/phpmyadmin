@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
@@ -23,7 +24,7 @@ class SqlAutoCompleteController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $sqlAutocomplete = [];
-        if ($GLOBALS['cfg']['EnableAutocompleteForTablesAndColumns']) {
+        if (Config::getInstance()->settings['EnableAutocompleteForTablesAndColumns']) {
             $db = $request->getParam('db', $GLOBALS['db']);
             if ($db) {
                 $tableNames = $this->dbi->getTables($db);

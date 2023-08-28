@@ -105,7 +105,10 @@ class StructureController extends AbstractController
 
         $isSystemSchema = Utilities::isSystemSchema($GLOBALS['db']);
         $urlParams = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
+            Config::getInstance()->settings['DefaultTabTable'],
+            'table',
+        );
         $GLOBALS['errorUrl'] .= Url::getCommon($urlParams, '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
@@ -181,9 +184,10 @@ class StructureController extends AbstractController
         $commentsMap = [];
         $mimeMap = [];
 
-        if ($GLOBALS['cfg']['ShowPropertyComments']) {
+        $config = Config::getInstance();
+        if ($config->settings['ShowPropertyComments']) {
             $commentsMap = $this->relation->getComments($GLOBALS['db'], $GLOBALS['table']);
-            if ($relationParameters->browserTransformationFeature !== null && $GLOBALS['cfg']['BrowseMIME']) {
+            if ($relationParameters->browserTransformationFeature !== null && $config->settings['BrowseMIME']) {
                 $mimeMap = $this->transformations->getMime($GLOBALS['db'], $GLOBALS['table'], true);
             }
         }
@@ -196,7 +200,7 @@ class StructureController extends AbstractController
          */
         // BEGIN - Calc Table Space
         // Get valid statistics whatever is the table type
-        if ($GLOBALS['cfg']['ShowStats']) {
+        if ($config->settings['ShowStats']) {
             //get table stats in HTML format
             $tablestats = $this->getTableStats($isSystemSchema);
             //returning the response in JSON format to be used by Ajax
@@ -243,7 +247,7 @@ class StructureController extends AbstractController
 
             $collation = Charsets::findCollationByName(
                 $this->dbi,
-                Config::getInstance()->selectedServer['DisableIS'],
+                $config->selectedServer['DisableIS'],
                 $field['Collation'] ?? '',
             );
             if ($collation === null) {
@@ -264,7 +268,7 @@ class StructureController extends AbstractController
             'indexes' => Index::getFromTable($this->dbi, $GLOBALS['table'], $GLOBALS['db']),
             'indexes_duplicates' => Index::findDuplicates($GLOBALS['table'], $GLOBALS['db']),
             'relation_parameters' => $relationParameters,
-            'hide_structure_actions' => $GLOBALS['cfg']['HideStructureActions'] === true,
+            'hide_structure_actions' => $config->settings['HideStructureActions'] === true,
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
             'db_is_system_schema' => $isSystemSchema,
@@ -280,9 +284,9 @@ class StructureController extends AbstractController
             'columns_with_index' => $columnsWithIndex,
             'central_list' => $centralList,
             'comments_map' => $commentsMap,
-            'browse_mime' => $GLOBALS['cfg']['BrowseMIME'],
-            'show_column_comments' => $GLOBALS['cfg']['ShowColumnComments'],
-            'show_stats' => $GLOBALS['cfg']['ShowStats'],
+            'browse_mime' => $config->settings['BrowseMIME'],
+            'show_column_comments' => $config->settings['ShowColumnComments'],
+            'show_stats' => $config->settings['ShowStats'],
             'mysql_int_version' => $this->dbi->getVersion(),
             'is_mariadb' => $this->dbi->isMariaDB(),
             'text_dir' => $GLOBALS['text_dir'],
@@ -290,7 +294,7 @@ class StructureController extends AbstractController
             'have_partitioning' => Partition::havePartitioning(),
             'partitions' => Partition::getPartitions($GLOBALS['db'], $GLOBALS['table']),
             'partition_names' => Partition::getPartitionNames($GLOBALS['db'], $GLOBALS['table']),
-            'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
+            'default_sliders_state' => $config->settings['InitialSlidersState'],
             'attributes' => $attributes,
             'displayed_fields' => $displayedFields,
             'row_comments' => $rowComments,

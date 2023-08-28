@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
@@ -74,7 +75,7 @@ class PluginsTest extends AbstractTestCase
         $GLOBALS['strLatexContinued'] = '(continued)';
         $GLOBALS['strLatexStructure'] = 'Structure of table @TABLE@';
         /** @psalm-suppress InvalidArrayOffset, PossiblyInvalidArrayAssignment */
-        $GLOBALS['cfg'][$section][$option] = $actualConfig;
+        Config::getInstance()->settings[$section][$option] = $actualConfig;
         $default = Plugins::getDefault($section, $option);
         $this->assertSame($expected, $default);
     }

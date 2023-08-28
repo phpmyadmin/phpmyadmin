@@ -12,6 +12,27 @@ use function in_array;
  * Schema export defaults
  *
  * @psalm-immutable
+ * @psalm-type SchemaSettingsType = array{
+ *     format: string,
+ *     pdf_show_color: bool,
+ *     pdf_show_keys: bool,
+ *     pdf_all_tables_same_width: bool,
+ *     pdf_orientation: 'L'|'P',
+ *     pdf_paper: string,
+ *     pdf_show_grid: bool,
+ *     pdf_with_doc: bool,
+ *     pdf_table_order: ''|'name_asc'|'name_desc',
+ *     dia_show_color: bool, dia_show_keys: bool,
+ *     dia_orientation: 'L'|'P',
+ *     dia_paper: string,
+ *     eps_show_color: bool,
+ *     eps_show_keys: bool,
+ *     eps_all_tables_same_width: bool,
+ *     eps_orientation: 'L'|'P',
+ *     svg_show_color: bool,
+ *     svg_show_keys: bool,
+ *     svg_all_tables_same_width: bool,
+ * }
  */
 final class Schema
 {
@@ -190,7 +211,7 @@ final class Schema
         $this->svg_all_tables_same_width = $this->setSvgAllTablesSameWidth($schema);
     }
 
-    /** @return array<string, string|bool> */
+    /** @psalm-return SchemaSettingsType */
     public function asArray(): array
     {
         return [

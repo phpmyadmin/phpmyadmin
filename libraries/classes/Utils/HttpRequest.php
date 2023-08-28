@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Utils;
 
 use Composer\CaBundle\CaBundle;
+use PhpMyAdmin\Config;
 
 use function base64_encode;
 use function curl_exec;
@@ -55,9 +56,10 @@ class HttpRequest
 
     public function __construct()
     {
-        $this->proxyUrl = $GLOBALS['cfg']['ProxyUrl'];
-        $this->proxyUser = $GLOBALS['cfg']['ProxyUser'];
-        $this->proxyPass = $GLOBALS['cfg']['ProxyPass'];
+        $config = Config::getInstance();
+        $this->proxyUrl = $config->settings['ProxyUrl'];
+        $this->proxyUser = $config->settings['ProxyUser'];
+        $this->proxyPass = $config->settings['ProxyPass'];
     }
 
     public static function setProxySettingsFromEnv(): void
@@ -68,10 +70,11 @@ class HttpRequest
             return;
         }
 
-        $GLOBALS['cfg']['ProxyUrl'] = ($urlInfo['host'] ?? '')
+        $config = Config::getInstance();
+        $config->settings['ProxyUrl'] = ($urlInfo['host'] ?? '')
             . (isset($urlInfo['port']) ? ':' . $urlInfo['port'] : '');
-        $GLOBALS['cfg']['ProxyUser'] = $urlInfo['user'] ?? '';
-        $GLOBALS['cfg']['ProxyPass'] = $urlInfo['pass'] ?? '';
+        $config->settings['ProxyUser'] = $urlInfo['user'] ?? '';
+        $config->settings['ProxyPass'] = $urlInfo['pass'] ?? '';
     }
 
     /**

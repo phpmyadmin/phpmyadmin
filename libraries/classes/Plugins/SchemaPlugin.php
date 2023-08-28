@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
@@ -80,7 +81,7 @@ abstract class SchemaPlugin implements Plugin
     protected function getPaperSizeArray(): array
     {
         $ret = [];
-        foreach ($GLOBALS['cfg']['PDFPageSizes'] as $val) {
+        foreach (Config::getInstance()->settings['PDFPageSizes'] as $val) {
             $ret[$val] = $val;
         }
 

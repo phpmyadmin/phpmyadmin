@@ -94,11 +94,12 @@ class AuthenticationConfig extends AuthenticationPlugin
     <table class="table table-borderless text-start w-75 mx-auto">
         <tr>
             <td>';
+        $config = Config::getInstance();
         if (isset($GLOBALS['allowDeny_forbidden']) && $GLOBALS['allowDeny_forbidden']) {
             trigger_error(__('Access denied!'), E_USER_NOTICE);
         } else {
             // Check whether user has configured something
-            if (Config::getInstance()->sourceMtime == 0) {
+            if ($config->sourceMtime == 0) {
                 echo '<p>' , sprintf(
                     __(
                         'You probably did not create a configuration file.'
@@ -141,13 +142,13 @@ class AuthenticationConfig extends AuthenticationPlugin
         <tr>
             <td>' , "\n";
         echo '<a href="'
-            , Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabServer'], 'server')
+            , Util::getScriptNameForOption($config->settings['DefaultTabServer'], 'server')
             , '" class="btn btn-primary mt-1 mb-1 disableAjax">'
             , __('Retry to connect')
             , '</a>' , "\n";
         echo '</td>
         </tr>' , "\n";
-        if (count($GLOBALS['cfg']['Servers']) > 1) {
+        if (count($config->settings['Servers']) > 1) {
             // offer a chance to login to other servers if the current one failed
             echo '<tr>' , "\n";
             echo ' <td>' , "\n";

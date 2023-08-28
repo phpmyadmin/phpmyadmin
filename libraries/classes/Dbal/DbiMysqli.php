@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Dbal;
 
 use mysqli;
 use mysqli_sql_exception;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Identifiers\DatabaseName;
@@ -89,7 +90,7 @@ class DbiMysqli implements DbiExtension
             }
         }
 
-        if ($GLOBALS['cfg']['PersistentConnections']) {
+        if (Config::getInstance()->settings['PersistentConnections']) {
             $host = 'p:' . $server->host;
         } else {
             $host = $server->host;

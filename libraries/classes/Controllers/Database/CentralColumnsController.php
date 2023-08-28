@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\Http\ServerRequest;
@@ -137,7 +138,7 @@ class CentralColumnsController extends AbstractController
         $GLOBALS['num_cols'] = $this->centralColumns->getColumnsCount(
             $GLOBALS['db'],
             $pos,
-            (int) $GLOBALS['cfg']['MaxRows'],
+            (int) Config::getInstance()->settings['MaxRows'],
         );
         $GLOBALS['message'] = Message::success(
             sprintf(__('Showing rows %1$s - %2$s.'), $pos + 1, $pos + $GLOBALS['num_cols']),

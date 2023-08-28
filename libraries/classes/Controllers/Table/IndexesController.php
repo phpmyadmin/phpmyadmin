@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -49,7 +50,10 @@ class IndexesController extends AbstractController
             $this->checkParameters(['db', 'table']);
 
             $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
-            $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+            $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
+                Config::getInstance()->settings['DefaultTabTable'],
+                'table',
+            );
             $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
             $databaseName = DatabaseName::tryFrom($request->getParam('db'));
@@ -169,7 +173,7 @@ class IndexesController extends AbstractController
             'form_params' => $formParams,
             'add_fields' => $addFields,
             'create_edit_table' => isset($_POST['create_edit_table']),
-            'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
+            'default_sliders_state' => Config::getInstance()->settings['InitialSlidersState'],
             'is_from_nav' => isset($_POST['is_from_nav']),
         ]);
     }

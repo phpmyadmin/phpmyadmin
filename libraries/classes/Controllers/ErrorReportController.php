@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ErrorHandler;
@@ -51,6 +52,7 @@ class ErrorReportController extends AbstractController
             return;
         }
 
+        $config = Config::getInstance();
         if ($request->hasBodyParam('send_error_report')) {
             if ($exceptionType === 'php') {
                 /**
@@ -88,7 +90,7 @@ class ErrorReportController extends AbstractController
 
                 /* Message to show to the user */
                 if ($success) {
-                    if ($automatic === 'true' || $GLOBALS['cfg']['SendErrorReports'] === 'always') {
+                    if ($automatic === 'true' || $config->settings['SendErrorReports'] === 'always') {
                         $msg = __(
                             'An error has been detected and an error report has been '
                             . 'automatically submitted based on your settings.',
@@ -139,7 +141,7 @@ class ErrorReportController extends AbstractController
                 }
             }
         } elseif ($request->hasBodyParam('get_settings')) {
-            $this->response->addJSON('report_setting', $GLOBALS['cfg']['SendErrorReports']);
+            $this->response->addJSON('report_setting', $config->settings['SendErrorReports']);
         } elseif ($exceptionType === 'js') {
             $this->response->addJSON('report_modal', $this->errorReport->getEmptyModal());
             $this->response->addHTML($this->errorReport->getForm());
