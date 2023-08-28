@@ -542,7 +542,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 $this->getSessionEncryptionSecret(),
             ),
             null,
-            (int) $config->settings['LoginCookieStore'],
+            $config->settings['LoginCookieStore'],
         );
     }
 

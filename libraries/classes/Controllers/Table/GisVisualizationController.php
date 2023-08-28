@@ -234,7 +234,7 @@ final class GisVisualizationController extends AbstractController
         }
 
         if ($_SESSION['tmpval']['max_rows'] === 'all') {
-            return (int) Config::getInstance()->settings['MaxRows'];
+            return Config::getInstance()->settings['MaxRows'];
         }
 
         return (int) $_SESSION['tmpval']['max_rows'];

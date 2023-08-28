@@ -30,7 +30,7 @@ abstract class NodeDatabaseChildContainer extends NodeDatabaseChild
         }
 
         $this->separator = $config->settings['NavigationTreeTableSeparator'];
-        $this->separatorDepth = (int) $config->settings['NavigationTreeTableLevel'];
+        $this->separatorDepth = $config->settings['NavigationTreeTableLevel'];
     }
 
     /**

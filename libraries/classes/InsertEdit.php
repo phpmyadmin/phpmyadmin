@@ -237,7 +237,7 @@ class InsertEdit
     private function getInsertRows(): array
     {
         // Can be a string on some old configuration storage settings
-        return array_fill(0, (int) Config::getInstance()->settings['InsertRows'], false);
+        return array_fill(0, Config::getInstance()->settings['InsertRows'], false);
     }
 
     /**
@@ -496,7 +496,7 @@ class InsertEdit
     private function getSelectOptionForUpload(string $vkey, string $fieldHashMd5): string
     {
         $files = $this->fileListing->getFileSelectOptions(
-            Util::userDir((string) (Config::getInstance()->settings['UploadDir'] ?? '')),
+            Util::userDir((Config::getInstance()->settings['UploadDir'] ?? '')),
         );
 
         if ($files === false) {

@@ -1428,7 +1428,7 @@ class Sql
 
         $previousUpdateQueryHtml = $this->getHtmlForPreviousUpdateQuery(
             $dispQuery,
-            (bool) $config->settings['ShowSQL'],
+            $config->settings['ShowSQL'],
             $sqlData ?? [],
             $dispMessage ?? '',
         );

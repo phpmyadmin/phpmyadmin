@@ -138,7 +138,7 @@ class CentralColumnsController extends AbstractController
         $GLOBALS['num_cols'] = $this->centralColumns->getColumnsCount(
             $GLOBALS['db'],
             $pos,
-            (int) Config::getInstance()->settings['MaxRows'],
+            Config::getInstance()->settings['MaxRows'],
         );
         $GLOBALS['message'] = Message::success(
             sprintf(__('Showing rows %1$s - %2$s.'), $pos + 1, $pos + $GLOBALS['num_cols']),

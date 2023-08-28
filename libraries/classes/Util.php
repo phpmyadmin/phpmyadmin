@@ -1204,7 +1204,7 @@ class Util
                 mb_substr(
                     $printType,
                     0,
-                    (int) $config->settings['LimitChars'],
+                    $config->settings['LimitChars'],
                 ) . '...',
                 ENT_COMPAT,
             );
@@ -2184,7 +2184,7 @@ class Util
             return;
         }
 
-        @set_time_limit((int) Config::getInstance()->settings['ExecTimeLimit']);
+        @set_time_limit(Config::getInstance()->settings['ExecTimeLimit']);
     }
 
     /**

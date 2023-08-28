@@ -238,8 +238,8 @@ class NavigationTree
             return (int) $this->dbi->fetchValue(
                 sprintf(
                     $query,
-                    (int) $config->settings['FirstLevelNavigationItems'],
-                    (int) $config->settings['FirstLevelNavigationItems'],
+                    $config->settings['FirstLevelNavigationItems'],
+                    $config->settings['FirstLevelNavigationItems'],
                     $this->dbi->quoteString($config->settings['NavigationTreeDbSeparator']),
                     $this->dbi->quoteString($GLOBALS['db']),
                 ),
@@ -290,7 +290,7 @@ class NavigationTree
             }
         }
 
-        $navItems = (int) $config->settings['FirstLevelNavigationItems'];
+        $navItems = $config->settings['FirstLevelNavigationItems'];
 
         return (int) floor(count($prefixMap) / $navItems) * $navItems;
     }
@@ -1228,8 +1228,8 @@ class NavigationTree
     private function fastFilterHtml(Node $node): string
     {
         $config = Config::getInstance();
-        $filterDbMin = (int) $config->settings['NavigationTreeDisplayDbFilterMinimum'];
-        $filterItemMin = (int) $config->settings['NavigationTreeDisplayItemFilterMinimum'];
+        $filterDbMin = $config->settings['NavigationTreeDisplayDbFilterMinimum'];
+        $filterItemMin = $config->settings['NavigationTreeDisplayItemFilterMinimum'];
         $urlParams = [];
 
         $isRootNode = $node === $this->tree && $this->tree->getPresence() >= $filterDbMin;

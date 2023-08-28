@@ -793,7 +793,7 @@ class Relation
                         mb_substr(
                             $value,
                             0,
-                            (int) $config->settings['LimitChars'],
+                            $config->settings['LimitChars'],
                         ) . '...',
                     );
                 }
@@ -872,24 +872,24 @@ class Relation
                 if (
                     isset($config->settings['ForeignKeyDropdownOrder'][0])
                     && is_scalar($config->settings['ForeignKeyDropdownOrder'][0])
-                    && strlen((string) $config->settings['ForeignKeyDropdownOrder'][0]) > 0
+                    && strlen($config->settings['ForeignKeyDropdownOrder'][0]) > 0
                 ) {
                     $top = $this->buildForeignDropdown(
                         $foreign,
                         $data,
-                        (string) $config->settings['ForeignKeyDropdownOrder'][0],
+                        $config->settings['ForeignKeyDropdownOrder'][0],
                     );
                 }
 
                 if (
                     isset($config->settings['ForeignKeyDropdownOrder'][1])
                     && is_scalar($config->settings['ForeignKeyDropdownOrder'][1])
-                    && strlen((string) $config->settings['ForeignKeyDropdownOrder'][1]) > 0
+                    && strlen($config->settings['ForeignKeyDropdownOrder'][1]) > 0
                 ) {
                     $bottom = $this->buildForeignDropdown(
                         $foreign,
                         $data,
-                        (string) $config->settings['ForeignKeyDropdownOrder'][1],
+                        $config->settings['ForeignKeyDropdownOrder'][1],
                     );
                 }
             } else {
