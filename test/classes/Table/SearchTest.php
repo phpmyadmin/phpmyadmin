@@ -186,4 +186,21 @@ class SearchTest extends AbstractTestCase
             $this->search->buildSqlQuery(),
         );
     }
+
+    public function testBuildSqlQueryWithoutConditions(): void
+    {
+        $_POST['db'] = 'opengis';
+        $_POST['table'] = 'world_cities';
+        $_POST['back'] = 'index.php?route=/table/search';
+        $_POST['geom_func'] = [2 => ' '];
+        $_POST['customWhereClause'] = '';
+        $_POST['session_max_rows'] = '25';
+        $_POST['orderByColumn'] = '--nil--';
+        $_POST['order'] = 'ASC';
+        $_POST['submit'] = 'Go';
+        $_POST['ajax_request'] = 'true';
+        $_POST['displayAllColumns'] = 'true';
+
+        $this->assertSame('SELECT *  FROM `world_cities`', $this->search->buildSqlQuery());
+    }
 }
