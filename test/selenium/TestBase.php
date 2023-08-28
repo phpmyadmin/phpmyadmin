@@ -644,6 +644,7 @@ abstract class TestBase extends TestCase
             $this->byXPath('//*[contains(@class,"nav-item") and contains(., "SQL")]')->click();
             $this->waitAjax();
             $this->typeInTextArea($query);
+            $this->scrollIntoView('button_submit_query');
             $this->byId('button_submit_query')->click();
             if ($afterSubmit !== null) {
                 $afterSubmit->call($this);
