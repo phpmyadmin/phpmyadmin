@@ -1938,9 +1938,6 @@
     <PossiblyNullArrayOffset>
       <code><![CDATA[$GLOBALS['language_stats']]]></code>
     </PossiblyNullArrayOffset>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[is_string($config->settings['blowfish_secret'])]]></code>
-    </RedundantConditionGivenDocblockType>
     <TypeDoesNotContainType>
       <code><![CDATA[$GLOBALS['server'] == 0]]></code>
     </TypeDoesNotContainType>

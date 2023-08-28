@@ -101,7 +101,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         $config = Config::getInstance();
         // No recall if blowfish secret is not configured as it would produce
         // garbage
-        if ($config->settings['LoginCookieRecall'] && ! empty($config->settings['blowfish_secret'])) {
+        if ($config->settings['LoginCookieRecall'] && $config->settings['blowfish_secret'] !== '') {
             $defaultUser = $this->user;
             $defaultServer = $GLOBALS['pma_auth_server'];
             $hasAutocomplete = true;
@@ -579,11 +579,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     private function getEncryptionSecret(): string
     {
-        /** @var mixed $key */
-        $key = Config::getInstance()->settings['blowfish_secret'] ?? null;
-        if (! is_string($key)) {
-            return $this->getSessionEncryptionSecret();
-        }
+        $key = Config::getInstance()->settings['blowfish_secret'];
 
         $length = mb_strlen($key, '8bit');
         if ($length === SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {

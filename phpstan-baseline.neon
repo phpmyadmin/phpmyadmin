@@ -3496,6 +3496,11 @@ parameters:
 			path: libraries/classes/Controllers/HomeController.php
 
 		-
+			message: "#^Parameter \\#1 \\$string of function mb_strlen expects string, array\\<array\\<int\\|string, array\\<array\\<string\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string\\|null\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/HomeController.php
+
+		-
 			message: "#^Parameter \\#2 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/HomeController.php
@@ -13487,7 +13492,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 22
+			count: 21
 			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
 
 		-
