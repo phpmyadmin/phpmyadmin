@@ -1135,15 +1135,10 @@ Functions.setQuery = function (query) {
  * @return {void}
  */
 Functions.handleSimulateQueryButton = function () {
-    var updateRegExp = new RegExp('^\\s*UPDATE\\s+((`[^`]+`)|([A-Za-z0-9_$]+))\\s+SET\\s', 'i');
-    var deleteRegExp = new RegExp('^\\s*DELETE\\s+FROM\\s', 'i');
-    var query = '';
+    var updateRegExp = /^\s*UPDATE\b\s*(((`([^`]|``)+`)|([a-z0-9_$]+))\s*\.\s*)?((`([^`]|``)+`)|([a-z0-9_$]+))\s*\bSET\b/i;
+    var deleteRegExp = /^\s*DELETE\b\s*((((`([^`]|``)+`)|([a-z0-9_$]+))\s*\.\s*)?((`([^`]|``)+`)|([a-z0-9_$]+))\s*)?\bFROM\b/i;
 
-    if (codeMirrorEditor) {
-        query = codeMirrorEditor.getValue();
-    } else {
-        query = $('#sqlquery').val();
-    }
+    var query = codeMirrorEditor ? codeMirrorEditor.getValue() : $('#sqlquery').val();
 
     var $simulateDml = $('#simulate_dml');
     if (updateRegExp.test(query) || deleteRegExp.test(query)) {
