@@ -124,7 +124,7 @@ class Transformations
         $subDirs = ['Input/' => 'input_', 'Output/' => '', '' => ''];
 
         foreach ($subDirs as $sd => $prefix) {
-            $handle = opendir(ROOT_PATH . 'libraries/classes/Plugins/Transformations/' . $sd);
+            $handle = opendir(ROOT_PATH . 'src/Plugins/Transformations/' . $sd);
 
             if (! $handle) {
                 $stack[$prefix . 'transformation'] = [];
@@ -188,7 +188,7 @@ class Transformations
      */
     public function getClassName(string $filename): string
     {
-        return 'PhpMyAdmin\\' . str_replace('/', '\\', mb_substr(explode('.php', $filename)[0], 18));
+        return 'PhpMyAdmin\\' . str_replace('/', '\\', mb_substr(explode('.php', $filename)[0], strlen('src/')));
     }
 
     /**
@@ -200,7 +200,7 @@ class Transformations
      */
     public function getDescription(string $file): string
     {
-        $includeFile = 'libraries/classes/Plugins/Transformations/' . $file;
+        $includeFile = 'src/Plugins/Transformations/' . $file;
         /** @psalm-var class-string<TransformationsInterface> $className */
         $className = $this->getClassName($includeFile);
         if (class_exists($className)) {
@@ -219,7 +219,7 @@ class Transformations
      */
     public function getName(string $file): string
     {
-        $includeFile = 'libraries/classes/Plugins/Transformations/' . $file;
+        $includeFile = 'src/Plugins/Transformations/' . $file;
         /** @psalm-var class-string<TransformationsInterface> $className */
         $className = $this->getClassName($includeFile);
         if (class_exists($className)) {

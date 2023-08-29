@@ -45,7 +45,7 @@ rm -rf twig-templates/
 
 # Keep in sync with create-release.sh
 fetchReleaseFromFile() {
-    php -r "define('VERSION_SUFFIX', ''); require_once('libraries/classes/Version.php'); echo \PhpMyAdmin\Version::VERSION;"
+    php -r "define('VERSION_SUFFIX', ''); require_once('src/Version.php'); echo \PhpMyAdmin\Version::VERSION;"
 }
 
 ver="$(fetchReleaseFromFile)"

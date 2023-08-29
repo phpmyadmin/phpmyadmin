@@ -496,7 +496,7 @@ class Error extends Message
 
         $hereParts = explode(
             DIRECTORY_SEPARATOR,
-            (string) realpath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..'),
+            (string) realpath(__DIR__ . DIRECTORY_SEPARATOR . '..'),
         );
         $destParts = explode(DIRECTORY_SEPARATOR, $dest);
 
@@ -505,7 +505,7 @@ class Error extends Message
         while (implode(DIRECTORY_SEPARATOR, $destParts) !== implode(DIRECTORY_SEPARATOR, $hereParts)) {
             if (count($hereParts) > count($destParts)) {
                 array_pop($hereParts);
-                $result .= DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..';
+                $result .= DIRECTORY_SEPARATOR . '..';
             } else {
                 array_pop($destParts);
             }

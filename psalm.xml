@@ -16,6 +16,7 @@
     <projectFiles>
         <directory name="libraries"/>
         <directory name="public/setup"/>
+        <directory name="src"/>
         <directory name="test/classes"/>
         <directory name="test/selenium"/>
         <file name="public/index.php"/>

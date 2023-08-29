@@ -110,6 +110,11 @@ validateExtension() {
             fi
         ;;
         libraries/*)
+            if [ "${extension}" != "php" ]; then
+                foundFileExt
+            fi
+        ;;
+        src/*)
             if [ \
                 "${extension}" != "php" -a "${extension}" != "md" \
                 -a "${filename}" != "README" \

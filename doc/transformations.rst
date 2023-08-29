@@ -103,9 +103,9 @@ File structure
 ++++++++++++++
 
 All specific transformations for mimetypes are defined through class
-files in the directory :file:`libraries/classes/Plugins/Transformations/`. Each of
+files in the directory :file:`src/Plugins/Transformations/`. Each of
 them extends a certain transformation abstract class declared in
-:file:`libraries/classes/Plugins/Transformations/Abs`.
+:file:`src/Plugins/Transformations/Abs`.
 
 They are stored in files to ease customization and to allow easy adding of
 new or custom transformations.
@@ -115,7 +115,7 @@ the transformations will always work. It makes no sense to apply a
 transformation to a mimetype the transform-function doesn't know to
 handle.
 
-There is a file called :file:`libraries/classes/Plugins/Transformations.php` that provides some
+There is a file called :file:`src/Plugins/Transformations.php` that provides some
 basic functions which can be included by any other transform function.
 
 The file name convention is ``[Mimetype]_[Subtype]_[Transformation
@@ -133,8 +133,8 @@ getInfo() returns the transformation's description and possible
 options it may receive and applyTransformation() is the method that
 does the actual work of the transformation plug-in.
 
-Please see the :file:`libraries/classes/Plugins/Transformations/TEMPLATE` and
-:file:`libraries/classes/Plugins/Transformations/TEMPLATE\_ABSTRACT` files for adding
+Please see the :file:`src/Plugins/Transformations/TEMPLATE` and
+:file:`src/Plugins/Transformations/TEMPLATE\_ABSTRACT` files for adding
 your own transformation plug-in. You can also generate a new
 transformation plug-in (with or without the abstract transformation
 class), by using

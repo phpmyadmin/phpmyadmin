@@ -267,22 +267,22 @@ class Results
     private function setDefaultTransformations(): void
     {
         $jsonHighlightingData = [
-            'libraries/classes/Plugins/Transformations/Output/Text_Plain_Json.php',
+            'src/Plugins/Transformations/Output/Text_Plain_Json.php',
             Text_Plain_Json::class,
             'Text_Plain',
         ];
         $sqlHighlightingData = [
-            'libraries/classes/Plugins/Transformations/Output/Text_Plain_Sql.php',
+            'src/Plugins/Transformations/Output/Text_Plain_Sql.php',
             Text_Plain_Sql::class,
             'Text_Plain',
         ];
         $blobSqlHighlightingData = [
-            'libraries/classes/Plugins/Transformations/Output/Text_Octetstream_Sql.php',
+            'src/Plugins/Transformations/Output/Text_Octetstream_Sql.php',
             Text_Octetstream_Sql::class,
             'Text_Octetstream',
         ];
         $linkData = [
-            'libraries/classes/Plugins/Transformations/Text_Plain_Link.php',
+            'src/Plugins/Transformations/Text_Plain_Link.php',
             Text_Plain_Link::class,
             'Text_Plain',
         ];
@@ -2309,7 +2309,7 @@ class Results
                 && ! empty($mediaTypeMap[$orgFullColName]['transformation'])
             ) {
                 $file = $mediaTypeMap[$orgFullColName]['transformation'];
-                $includeFile = 'libraries/classes/Plugins/Transformations/' . $file;
+                $includeFile = 'src/Plugins/Transformations/' . $file;
 
                 if (@file_exists(ROOT_PATH . $includeFile)) {
                     $className = $this->transformations->getClassName($includeFile);

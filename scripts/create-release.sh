@@ -344,7 +344,7 @@ CODE
 # Ensure we have tracking branch
 ensure_local_branch $branch
 
-VERSION_FILE=libraries/classes/Version.php
+VERSION_FILE=src/Version.php
 
 # Keep in sync with update-po script
 fetchReleaseFromFile() {

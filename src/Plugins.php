@@ -131,7 +131,7 @@ class Plugins
     private static function getPlugins(string $type): array
     {
         try {
-            $files = new FilesystemIterator(ROOT_PATH . 'libraries/classes/Plugins/' . $type);
+            $files = new FilesystemIterator(ROOT_PATH . 'src/Plugins/' . $type);
         } catch (Throwable) {
             return [];
         }

@@ -1135,7 +1135,7 @@ class InsertEdit
         array $extraData,
         string $type,
     ): array {
-        $includeFile = 'libraries/classes/Plugins/Transformations/' . $file;
+        $includeFile = 'src/Plugins/Transformations/' . $file;
         if (is_file(ROOT_PATH . $includeFile)) {
             // $cfg['SaveCellsAtOnce'] = true; JS code sends an array
             $whereClause = is_array($_POST['where_clause']) ? $_POST['where_clause'][0] : $_POST['where_clause'];
@@ -1749,7 +1749,7 @@ class InsertEdit
         $transformedHtml = '';
         if (! empty($columnMime['input_transformation'])) {
             $file = $columnMime['input_transformation'];
-            $includeFile = 'libraries/classes/Plugins/Transformations/' . $file;
+            $includeFile = 'src/Plugins/Transformations/' . $file;
             if (is_file(ROOT_PATH . $includeFile)) {
                 $className = $this->transformations->getClassName($includeFile);
                 if (class_exists($className)) {

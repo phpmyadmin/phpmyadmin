@@ -22,7 +22,7 @@
     "non-feature-branches": ["RELEASE_.*"],
     "autoload": {
         "psr-4": {
-            "PhpMyAdmin\\": "libraries/classes"
+            "PhpMyAdmin\\": "src"
         },
         "files": ["vendor/phpmyadmin/motranslator/src/functions.php"],
         "exclude-from-classmap": [
