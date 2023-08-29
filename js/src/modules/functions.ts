@@ -1446,11 +1446,12 @@ function checkReservedWordColumns ($form) {
  * Copy text to clipboard
  *
  * @param {string | number | string[]} text to copy to clipboard
+ * @param {string} inputType input type like: <input>,<textarea>, etc...
  *
  * @return {boolean}
  */
-function copyToClipboard (text) {
-    var $temp = $('<input>');
+function copyToClipboard(text, inputType = '<input>') {
+    var $temp = $(inputType);
     $temp.css({
         'position': 'fixed',
         'width': '2em',
