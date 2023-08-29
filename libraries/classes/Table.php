@@ -977,6 +977,8 @@ class Table implements Stringable
                 'export_type' => 'table',
                 'single_table' => false,
             ]);
+            // It is better that all identifiers are quoted
+            $exportSqlPlugin->useSqlBackquotes(true);
 
             $noConstraintsComments = true;
             $GLOBALS['sql_constraints_query'] = '';
