@@ -10056,6 +10056,11 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
+			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Util\\:\\:formatNumber\\(\\) expects float\\|int\\|string, int\\|string\\|false given\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
 			message: "#^Parameter \\#2 \\$columnValue of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getSpecialLinkUrl\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
