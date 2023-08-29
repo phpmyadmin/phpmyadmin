@@ -13727,8 +13727,7 @@
     <ReferenceConstraintViolation occurrences="1">
       <code>return $sqlQuery;</code>
     </ReferenceConstraintViolation>
-    <TypeDoesNotContainType occurrences="2">
-      <code>! $this-&gt;dbi-&gt;query($GLOBALS['sql_query'])</code>
+    <TypeDoesNotContainType occurrences="1">
       <code>$rowFields[$key] != 'cc'</code>
     </TypeDoesNotContainType>
     <UnusedVariable occurrences="1">
@@ -13815,7 +13814,7 @@
     </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Table/Search.php">
-    <MixedArgument occurrences="16">
+    <MixedArgument occurrences="15">
       <code>$_POST['criteriaColumnNames'][$column_index]</code>
       <code>$_POST['criteriaColumnTypes'][$column_index]</code>
       <code>$column</code>
@@ -13830,16 +13829,14 @@
       <code>$criteriaValues[0]</code>
       <code>$operator</code>
       <code>$operator</code>
-      <code>$tmp_geom_func</code>
       <code>$value</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$values</code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="4">
+    <MixedAssignment occurrences="3">
       <code>$column</code>
       <code>$operator</code>
-      <code>$tmp_geom_func</code>
       <code>$value</code>
     </MixedAssignment>
     <MixedOperand occurrences="5">
@@ -13849,28 +13846,17 @@
       <code>$values[0] ?? ''</code>
       <code>$values[1] ?? ''</code>
     </MixedOperand>
-    <PossiblyInvalidArgument occurrences="8">
-      <code>$_POST['criteriaColumnNames'][$column_index]</code>
-      <code>$_POST['criteriaColumnTypes'][$column_index]</code>
+    <PossiblyInvalidArgument occurrences="4">
       <code>$_POST['customWhereClause']</code>
       <code>$_POST['orderByColumn']</code>
       <code>$_POST['table']</code>
-      <code>$operator</code>
-      <code>$operator</code>
       <code>$tmp_geom_func</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayOffset occurrences="4">
+    <PossiblyInvalidArrayOffset occurrences="3">
       <code>$_POST['criteriaColumnNames'][$column_index]</code>
       <code>$_POST['criteriaColumnTypes'][$column_index]</code>
       <code>$_POST['criteriaValues'][$column_index]</code>
-      <code>$_POST['geom_func'][$column_index]</code>
     </PossiblyInvalidArrayOffset>
-    <PossiblyInvalidCast occurrences="4">
-      <code>$_POST['criteriaColumnNames'][$column_index]</code>
-      <code>$_POST['criteriaColumnTypes'][$column_index]</code>
-      <code>$operator</code>
-      <code>$operator</code>
-    </PossiblyInvalidCast>
     <PossiblyInvalidIterator occurrences="2">
       <code>$_POST['criteriaColumnOperators']</code>
       <code>$columnsToDisplay</code>
