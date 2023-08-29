@@ -8,8 +8,12 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Import\SimulateDml;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statements\DeleteStatement;
+use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
+
+use function count;
 
 /**
  * @covers \PhpMyAdmin\Import\SimulateDml
@@ -17,17 +21,22 @@ use PhpMyAdmin\Url;
 class SimulateDmlTest extends AbstractTestCase
 {
     /**
+     * @param list<string>                $columns
+     * @param list<list<string|int|null>> $result
+     *
      * @dataProvider providerForTestGetMatchedRows
      */
-    public function testGetMatchedRows(string $sqlQuery, string $simulatedQuery, int $expectedMatches): void
+    public function testGetMatchedRows(string $sqlQuery, string $simulatedQuery, array $columns, array $result): void
     {
         $GLOBALS['db'] = 'PMA';
         $object = new SimulateDml($this->dbi);
         $parser = new Parser($sqlQuery);
         $this->dummyDbi->addSelectDb('PMA');
-        $this->dummyDbi->addResult($simulatedQuery, [[$expectedMatches]], ['COUNT(*)']);
+        $this->dummyDbi->addResult($simulatedQuery, $result, $columns);
 
-        $simulatedData = $object->getMatchedRows($sqlQuery, $parser, $parser->statements[0]);
+        /** @var DeleteStatement|UpdateStatement $statement */
+        $statement = $parser->statements[0];
+        $simulatedData = $object->getMatchedRows($sqlQuery, $parser, $statement);
 
         $matchedRowsUrl = Url::getFromRoute('/sql', [
             'db' => 'PMA',
@@ -39,71 +48,109 @@ class SimulateDmlTest extends AbstractTestCase
         $this->assertAllQueriesConsumed();
         $this->assertEquals([
             'sql_query' => Generator::formatSql($sqlQuery),
-            'matched_rows' => $expectedMatches,
+            'matched_rows' => count($result),
             'matched_rows_url' => $matchedRowsUrl,
         ], $simulatedData);
     }
 
     /**
-     * @return array<string, array{string, string, int}>
+     * @return array<string, array{string, string, list<string>, list<list<string|int|null>>}>
      */
     public function providerForTestGetMatchedRows(): array
     {
+        // Data from table:
+        // CREATE TABLE `t` AS
+        // SELECT 1 AS `id`, 2 AS `a`, 'test' AS `b` UNION ALL
+        // SELECT 2 AS `id`, 1 AS `a`,  NULL  AS `b` UNION ALL
+        // SELECT 3 AS `id`, 1 AS `a`,  NULL  AS `b` UNION ALL
+        // SELECT 4 AS `id`, 1 AS `a`,  NULL  AS `b` UNION ALL
+        // SELECT 5 AS `id`, 2 AS `a`, 'test' AS `b` UNION ALL
+        // SELECT 6 AS `id`, 2 AS `a`,  NULL  AS `b`
         return [
+            'update statement set null' => [
+                'UPDATE t SET `b` = NULL, a = a ORDER BY id DESC LIMIT 3',
+                'SELECT * FROM (' .
+                    'SELECT *, a AS `a ``new```, NULL AS `b ``new``` FROM `t` ORDER BY id DESC LIMIT 3' .
+                    ') AS `pma_tmp`' .
+                    ' WHERE NOT (`a`, `b`) <=> (`a ``new```, `b ``new```)',
+                ['id', 'a', 'b', 'a `new`', 'b `new`'],
+                [[5, 2, 'test', 2, null]],
+            ],
             'update statement' => [
-                'UPDATE `table_1` SET `id` = 20 WHERE `id` > 10',
-                'SELECT COUNT(*)' .
-                    ' FROM (SELECT 20 AS `n0`) AS `pma_new`' .
-                    ' JOIN (SELECT `id` AS `o0` FROM `table_1` WHERE `id` > 10) AS `pma_old`' .
-                    ' WHERE NOT (`n0`) <=> (`o0`)',
-                2,
+                'UPDATE `t` SET `a` = 20 WHERE `id` > 4',
+                'SELECT *' .
+                    ' FROM (SELECT *, 20 AS `a ``new``` FROM `t` WHERE `id` > 4) AS `pma_tmp`' .
+                    ' WHERE NOT (`a`) <=> (`a ``new```)',
+                ['id', 'a', 'b', 'a `new`'],
+                [
+                    [5, 2, 'test', 20],
+                    [6, 2, null, 20],
+                ],
             ],
-            'update statement_false_condition' => [
-                'UPDATE `table_1` SET `id` = 20 WHERE 0',
-                'SELECT COUNT(*)' .
-                    ' FROM (SELECT 20 AS `n0`) AS `pma_new`' .
-                    ' JOIN (SELECT `id` AS `o0` FROM `table_1` WHERE 0) AS `pma_old`' .
-                    ' WHERE NOT (`n0`) <=> (`o0`)',
-                0,
+            'update statement false condition' => [
+                'UPDATE `t` SET `a` = 20 WHERE 0',
+                'SELECT *' .
+                    ' FROM (SELECT *, 20 AS `a ``new``` FROM `t` WHERE 0) AS `pma_tmp`' .
+                    ' WHERE NOT (`a`) <=> (`a ``new```)',
+                ['id', 'a', 'b', 'a `new`'],
+                [],
             ],
-            'update statement_no_condition' => [
-                'UPDATE `table_1` SET `id` = 20',
-                'SELECT COUNT(*)' .
-                    ' FROM (SELECT 20 AS `n0`) AS `pma_new`' .
-                    ' JOIN (SELECT `id` AS `o0` FROM `table_1`) AS `pma_old`' .
-                    ' WHERE NOT (`n0`) <=> (`o0`)',
-                7,
+            'update statement no condition' => [
+                'UPDATE `t` SET `a` = 2',
+                'SELECT *' .
+                    ' FROM (SELECT *, 2 AS `a ``new``` FROM `t`) AS `pma_tmp`' .
+                    ' WHERE NOT (`a`) <=> (`a ``new```)',
+                ['id', 'a', 'b', 'a `new`'],
+                [
+                    [2, 1, null, 2],
+                    [3, 1, null, 2],
+                    [4, 1, null, 2],
+                ],
             ],
             'update order by limit' => [
-                'UPDATE `table_1` SET `id` = 20 ORDER BY `id` ASC LIMIT 3',
-                'SELECT COUNT(*)' .
-                    ' FROM (SELECT 20 AS `n0`) AS `pma_new`' .
-                    ' JOIN (SELECT `id` AS `o0` FROM `table_1` ORDER BY `id` ASC LIMIT 3) AS `pma_old`' .
-                    ' WHERE NOT (`n0`) <=> (`o0`)',
-                3,
+                'UPDATE `t` SET `id` = 20 ORDER BY `id` ASC LIMIT 3',
+                'SELECT *' .
+                    ' FROM (SELECT *, 20 AS `id ``new``` FROM `t` ORDER BY `id` ASC LIMIT 3) AS `pma_tmp`' .
+                    ' WHERE NOT (`id`) <=> (`id ``new```)',
+                ['id', 'a', 'b', 'id `new`'],
+                [
+                    [1, 2, 'test', 20],
+                    [2, 1, null, 20],
+                    [3, 1, null, 20],
+                ],
             ],
             'update duplicate set' => [
-                'UPDATE `table_1` SET `id` = 2, `id` = 1 WHERE `id` = 1',
-                'SELECT COUNT(*)' .
-                    ' FROM (SELECT 1 AS `n0`) AS `pma_new`' .
-                    ' JOIN (SELECT `id` AS `o0` FROM `table_1` WHERE `id` = 1) AS `pma_old`' .
-                    ' WHERE NOT (`n0`) <=> (`o0`)',
-                0,
+                'UPDATE `t` SET `id` = 2, `id` = 1 WHERE `id` = 1',
+                'SELECT *' .
+                    ' FROM (SELECT *, 1 AS `id ``new``` FROM `t` WHERE `id` = 1) AS `pma_tmp`' .
+                    ' WHERE NOT (`id`) <=> (`id ``new```)',
+                ['id', 'a', 'b', 'id `new`'],
+                [],
             ],
             'delete statement' => [
-                'DELETE FROM `table_1` WHERE `id` > 10',
-                'SELECT COUNT(*) FROM (SELECT 1 FROM `table_1` WHERE `id` > 10) AS `pma_tmp`',
-                2,
+                'DELETE FROM `t` WHERE `id` > 4',
+                'SELECT * FROM `t` WHERE `id` > 4',
+                ['id', 'a', 'b'],
+                [
+                    [5, 2, 'test'],
+                    [6, 2, null],
+                ],
             ],
-            'delete statement_false_condition' => [
-                'DELETE FROM `table_1` WHERE 0',
-                'SELECT COUNT(*) FROM (SELECT 1 FROM `table_1` WHERE 0) AS `pma_tmp`',
-                0,
+            'delete statement false condition' => [
+                'DELETE FROM `t` WHERE 0',
+                'SELECT * FROM `t` WHERE 0',
+                ['id', 'a', 'b'],
+                [],
             ],
             'delete statement order by limit' => [
-                'DELETE FROM `table_1` ORDER BY `id` ASC LIMIT 3',
-                'SELECT COUNT(*) FROM (SELECT 1 FROM `table_1` ORDER BY `id` ASC LIMIT 3) AS `pma_tmp`',
-                2,
+                'DELETE FROM `t` ORDER BY `id` ASC LIMIT 3',
+                'SELECT * FROM `t` ORDER BY `id` ASC LIMIT 3',
+                ['id', 'a', 'b'],
+                [
+                    [1, 2, 'test'],
+                    [2, 1, null],
+                    [3, 1, null],
+                ],
             ],
         ];
     }
