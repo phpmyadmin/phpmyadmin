@@ -3709,13 +3709,13 @@ class Results
         if ($messageViewWarning === false) {
             if ($unlimNumRows != $total) {
                 $messageTotal = Message::notice(
-                    $preCount . __('%1$d total, %2$d in query'),
+                    $preCount . __('%1$s total, %2$s in query'),
                 );
-                $messageTotal->addParam($total);
-                $messageTotal->addParam($unlimNumRows);
+                $messageTotal->addParam(Util::formatNumber($total, 0));
+                $messageTotal->addParam(Util::formatNumber($unlimNumRows, 0));
             } else {
-                $messageTotal = Message::notice($preCount . __('%d total'));
-                $messageTotal->addParam($total);
+                $messageTotal = Message::notice($preCount . __('%s total'));
+                $messageTotal->addParam(Util::formatNumber($total, 0));
             }
 
             if ($afterCount !== '') {
