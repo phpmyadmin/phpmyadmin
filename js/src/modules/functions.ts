@@ -1450,7 +1450,7 @@ function checkReservedWordColumns ($form) {
  * @return {boolean}
  */
 function copyToClipboard (text) {
-    var $temp = $('<input>');
+    var $temp = $('<textarea>');
     $temp.css({
         'position': 'fixed',
         'width': '2em',
@@ -1516,17 +1516,34 @@ function dismissNotifications () {
 
         $(document).on('click', 'a.copyQueryBtn', function (event) {
             event.preventDefault();
-            var res = Functions.copyToClipboard($(this).attr('data-text'));
-            if (res) {
-                $(this).after('<span id=\'copyStatus\'> (' + window.Messages.strCopyQueryButtonSuccess + ')</span>');
+            var copyStatus = Functions.copyToClipboard($(this).attr('data-text'));
+            displayCopyStatus(this, copyStatus);
+        });
+
+        $(document).on('click', 'a.copyExportBtn', function (event) {
+            event.preventDefault();
+            var copyTarget = $(this).attr('data-target');
+            var copyStatus = Functions.copyToClipboard($(copyTarget).val());
+            displayCopyStatus(this, copyStatus);
+        });
+
+        /**
+         * displaying status of copy to clipboard action next to the copy button
+         *
+         * @param {JQuery<HTMLInputElement>} copyButton jQuery the clicked button object
+         * @param {boolean} copyStatus status of copyToClipboard
+         */
+        function displayCopyStatus (copyButton: JQuery<HTMLInputElement>, copyStatus: boolean) {
+            if (copyStatus) {
+                $(copyButton).after('<span id=\'copyStatus\'> (' + window.Messages.strCopyQueryButtonSuccess + ')</span>');
             } else {
-                $(this).after('<span id=\'copyStatus\'> (' + window.Messages.strCopyQueryButtonFailure + ')</span>');
+                $(copyButton).after('<span id=\'copyStatus\'> (' + window.Messages.strCopyQueryButtonFailure + ')</span>');
             }
 
             setTimeout(function () {
                 $('#copyStatus').remove();
             }, 2000);
-        });
+        }
     };
 }
 

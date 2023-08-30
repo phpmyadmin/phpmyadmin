@@ -240,6 +240,7 @@ class Export
         return '</textarea>'
             . '    </form>'
             . '<br>'
+            . $this->getHTMLForCopyButton()
             // bottom back button
             . $this->getHTMLForBackButton($exportType, $db, $table)
             . $this->getHTMLForRefreshButton($exportType)
@@ -526,6 +527,7 @@ class Export
             . $this->getHTMLForBackButton($exportType, $db, $table)
             . $this->getHTMLForRefreshButton($exportType)
             . '<br>'
+            . $this->getHTMLForCopyButton()
             . '<form name="nofunction">'
             . '<textarea name="sqldump" cols="50" rows="30" '
             . 'id="textSQLDUMP" wrap="OFF">';
@@ -1280,6 +1282,12 @@ class Export
         $backButton .= '&amp;repopulate=1">' . __('Back') . '</a> ]</p>';
 
         return $backButton;
+    }
+
+    private function getHTMLForCopyButton(): string
+    {
+        return '[ <a href="#" class="copyExportBtn" data-target="#textSQLDUMP">'
+            . __('Copy') . '</a> ]';
     }
 
     /** @return mixed[] */
