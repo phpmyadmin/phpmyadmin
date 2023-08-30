@@ -1050,7 +1050,10 @@ class TableTest extends AbstractTestCase
         $table = 'PMA_BookMark';
         $db = 'PMA';
 
-        $table = new Table($table, $db, DatabaseInterface::getInstance());
+        $dbi = DatabaseInterface::getInstance();
+        $dbi->expects($this->any())->method('tryQuery')->willReturn($this->createMock(DummyResult::class));
+
+        $table = new Table($table, $db, $dbi);
 
         //rename to same name
         $tableNew = 'PMA_BookMark';

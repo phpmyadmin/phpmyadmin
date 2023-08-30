@@ -14821,6 +14821,8 @@
       <code>method</code>
       <code>method</code>
       <code>method</code>
+      <code>method</code>
+      <code>willReturn</code>
       <code>willReturn</code>
       <code>willReturnMap</code>
       <code>willReturnMap</code>
@@ -14829,6 +14831,7 @@
       <code>dataValidateName</code>
     </PossiblyUnusedMethod>
     <UndefinedMethod>
+      <code>expects</code>
       <code>expects</code>
       <code>expects</code>
       <code>expects</code>

@@ -21627,7 +21627,7 @@ parameters:
 
 		-
 			message: "#^Call to an undefined method PhpMyAdmin\\\\DatabaseInterface\\:\\:expects\\(\\)\\.$#"
-			count: 3
+			count: 4
 			path: test/classes/TableTest.php
 
 		-
@@ -21647,12 +21647,12 @@ parameters:
 
 		-
 			message: "#^Cannot call method method\\(\\) on mixed\\.$#"
-			count: 3
+			count: 4
 			path: test/classes/TableTest.php
 
 		-
 			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
-			count: 1
+			count: 2
 			path: test/classes/TableTest.php
 
 		-
