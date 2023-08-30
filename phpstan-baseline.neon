@@ -18516,11 +18516,6 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Negated boolean expression is always false\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
 			message: "#^Only booleans are allowed in &&, int\\|false given on the right side\\.$#"
 			count: 3
 			path: libraries/classes/Table.php
@@ -18528,11 +18523,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in &&, string given on the left side\\.$#"
 			count: 2
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\\\Dbal\\\\ResultInterface given\\.$#"
-			count: 1
 			path: libraries/classes/Table.php
 
 		-

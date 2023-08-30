@@ -1396,8 +1396,9 @@ class Table implements Stringable
             RENAME TABLE ' . $this->getFullName(true) . '
                   TO ' . $newTable->getFullName(true) . ';';
         // I don't think a specific error message for views is necessary
-        if (! $this->dbi->query($GLOBALS['sql_query'])) {
-            // TODO: this is dead code, should it be removed?
+        if ($this->dbi->tryQuery($GLOBALS['sql_query']) === false) {
+            $this->errors[] = $this->dbi->getError();
+
             // Restore triggers in the old database
             if ($handleTriggers) {
                 $this->dbi->selectDb($this->getDbName());
@@ -1405,12 +1406,6 @@ class Table implements Stringable
                     $this->dbi->query($trigger->getCreateSql(''));
                 }
             }
-
-            $this->errors[] = sprintf(
-                __('Failed to rename table %1$s to %2$s!'),
-                $this->getFullName(),
-                $newTable->getFullName(),
-            );
 
             return false;
         }

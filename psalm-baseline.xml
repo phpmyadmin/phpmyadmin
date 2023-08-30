@@ -11722,9 +11722,6 @@
     <ReferenceConstraintViolation>
       <code>return $sqlQuery;</code>
     </ReferenceConstraintViolation>
-    <TypeDoesNotContainType>
-      <code><![CDATA[! $this->dbi->query($GLOBALS['sql_query'])]]></code>
-    </TypeDoesNotContainType>
     <UnsupportedPropertyReferenceUsage>
       <code><![CDATA[$this->uiprefs =& $_SESSION['tmpval']['table_uiprefs'][$serverId][$this->dbName][$this->name]]]></code>
     </UnsupportedPropertyReferenceUsage>
@@ -15210,6 +15207,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="test/selenium/TestBase.php">
+    <DeprecatedConstant>
+      <code>ChromeOptions::CAPABILITY_W3C</code>
+    </DeprecatedConstant>
     <DocblockTypeContradiction>
       <code><![CDATA['']]></code>
       <code><![CDATA['']]></code>

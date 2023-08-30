@@ -66,7 +66,7 @@ jobs:
     continue-on-error: ${{ matrix.experimental }}
     strategy:
       matrix:
-        php-version: ["8.1", "8.2"]
+        php-version: ["8.1", "8.2", "8.3"]
         experimental: [false]
         os: [ubuntu-latest]
         php-extensions: ['mbstring, iconv, mysqli, zip, gd, bz2']
