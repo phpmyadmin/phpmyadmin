@@ -62,8 +62,9 @@ class OperationsTest extends TestBase
         $newDbName = $this->databaseName . 'rename';
 
         $this->scrollIntoView('createTableMinimalForm');
-        $this->byCssSelector('form#rename_db_form input[name=newname]')
-            ->sendKeys($newDbName);
+        $newNameInput = $this->byCssSelector('form#rename_db_form input[name=newname]');
+        $newNameInput->clear();
+        $newNameInput->sendKeys($newDbName);
 
         $this->byCssSelector("form#rename_db_form input[type='submit']")->click();
 
@@ -101,8 +102,9 @@ class OperationsTest extends TestBase
         $this->reloadPage();// Reload or scrolling will not work ..
         $newDbName = $this->databaseName . 'copy';
         $this->scrollIntoView('renameDbNameInput');
-        $this->byCssSelector('form#copy_db_form input[name=newname]')
-            ->sendKeys($newDbName);
+        $newNameInput = $this->byCssSelector('form#copy_db_form input[name=newname]');
+        $newNameInput->clear();
+        $newNameInput->sendKeys($newDbName);
 
         $this->scrollIntoView('copy_db_form', -150);
         $this->byCssSelector('form#copy_db_form input[name="submit_copy"]')->click();
