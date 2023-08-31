@@ -31,7 +31,7 @@ final class UrlRedirector
         ) {
             $response->redirect('./');
 
-            $response->callExit();
+            return $response->response();
         }
 
         /**
