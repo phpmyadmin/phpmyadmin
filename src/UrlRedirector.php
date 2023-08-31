@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Http\Response;
+
 use function __;
 use function preg_match;
 
@@ -12,7 +14,7 @@ use function preg_match;
  */
 final class UrlRedirector
 {
-    public static function redirect(string $url): never
+    public static function redirect(string $url): Response
     {
         // Load database service because services.php is not available here
         $container = Core::getContainerBuilder();
@@ -30,7 +32,7 @@ final class UrlRedirector
         ) {
             $response->redirect('./');
 
-            $response->callExit();
+            return $response->response();
         }
 
         /**
@@ -45,6 +47,6 @@ final class UrlRedirector
         // Do not display the value of $_GET['url'] to avoid showing injected content
         echo __('Taking you to the target site.');
 
-        $response->callExit();
+        return $response->response();
     }
 }

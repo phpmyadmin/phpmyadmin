@@ -33,7 +33,8 @@ final class UrlRedirection implements MiddlewareInterface
         $themeManager = $container->get(ThemeManager::class);
         $this->config->loadUserPreferences($themeManager, true);
         Tracker::enable();
-        UrlRedirector::redirect($this->getUrlParam($request->getQueryParams()['url'] ?? null));
+
+        return UrlRedirector::redirect($this->getUrlParam($request->getQueryParams()['url'] ?? null));
     }
 
     private function getUrlParam(mixed $url): string
