@@ -3615,7 +3615,7 @@ Various display setting
 
     Contains names of configuration options (keys in ``$cfg`` array) that
     users can't set through user preferences. For possible values, refer
-    to classes under :file:`libraries/classes/Config/Forms/User/`.
+    to classes under :file:`src/Config/Forms/User/`.
 
 .. config:option:: $cfg['UserprefsDeveloperTab']
 

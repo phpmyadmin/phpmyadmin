@@ -11,6 +11,7 @@
     <file>./libraries</file>
     <file>./public</file>
     <file>./scripts</file>
+    <file>./src</file>
     <file>./test</file>
     <file>./config.sample.inc.php</file>
 
@@ -35,7 +36,7 @@
     </rule>
 
     <rule ref="Squiz.Classes.ValidClassName.NotCamelCaps">
-        <exclude-pattern>*/libraries/classes/Plugins/Transformations/*</exclude-pattern>
+        <exclude-pattern>*/src/Plugins/Transformations/*</exclude-pattern>
     </rule>
 
     <!-- Rules that should be followed, but are not required -->

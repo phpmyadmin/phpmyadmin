@@ -5,6 +5,7 @@ parameters:
     paths:
         - libraries
         - public
+        - src
         - test
     scanFiles:
         - libraries/constants.php

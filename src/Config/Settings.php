@@ -2201,7 +2201,7 @@ final class Settings
 
     /**
      * User preferences: disallow these settings
-     * For possible setting names look in libraries/classes/Config/Forms/User/
+     * For possible setting names look in src/Config/Forms/User/
      *
      * ```php
      * $cfg['UserprefsDisallow'] = [];

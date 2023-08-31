@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="5.15.0@5c774aca4746caf3d239d9c8cadb9f882ca29352">
-  <file src="libraries/classes/Advisory/Advisor.php">
+  <file src="libraries/services_loader.php">
+    <MixedArgument>
+      <code>$argumentName</code>
+      <code>$argumentName</code>
+      <code>$serviceName</code>
+      <code>$serviceName</code>
+      <code><![CDATA[$service['arguments']]]></code>
+      <code><![CDATA[$service['class'] ?? null]]></code>
+      <code><![CDATA[$service['factory']]]></code>
+    </MixedArgument>
+    <MixedArrayAccess>
+      <code>$argumentName[0]</code>
+      <code><![CDATA[$service['arguments']]]></code>
+      <code><![CDATA[$service['arguments']]]></code>
+      <code><![CDATA[$service['class']]]></code>
+      <code><![CDATA[$service['factory']]]></code>
+    </MixedArrayAccess>
+    <MixedAssignment>
+      <code>$argumentName</code>
+      <code>$service</code>
+      <code>$serviceName</code>
+    </MixedAssignment>
+  </file>
+  <file src="src/Advisory/Advisor.php">
     <ArgumentTypeCoercion>
       <code>$pattern</code>
     </ArgumentTypeCoercion>
@@ -16,7 +39,7 @@
       <code>$value</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Bookmark.php">
+  <file src="src/Bookmark.php">
     <DeprecatedMethod>
       <code>escapeString</code>
     </DeprecatedMethod>
@@ -44,7 +67,7 @@
       <code>bool</code>
     </PossiblyUnusedReturnValue>
   </file>
-  <file src="libraries/classes/BrowseForeigners.php">
+  <file src="src/BrowseForeigners.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['theme']]]></code>
     </InvalidArrayOffset>
@@ -90,12 +113,12 @@
       <code><![CDATA[$foreignData['foreign_display']]]></code>
     </PossiblyUndefinedArrayOffset>
   </file>
-  <file src="libraries/classes/Cache.php">
+  <file src="src/Cache.php">
     <MixedAssignment>
       <code>self::$cacheData[$cacheKey]</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Charsets.php">
+  <file src="src/Charsets.php">
     <InvalidArgument>
       <code>$row</code>
       <code>$row</code>
@@ -106,7 +129,7 @@
       <code><![CDATA[self::$collations[$row['Charset']]]]></code>
     </PossiblyNullArrayOffset>
   </file>
-  <file src="libraries/classes/CheckUserPrivileges.php">
+  <file src="src/CheckUserPrivileges.php">
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['col_priv']]]></code>
       <code><![CDATA[$GLOBALS['db_priv']]]></code>
@@ -118,14 +141,14 @@
       <code><![CDATA[$GLOBALS['table_priv']]]></code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/ColumnFull.php">
+  <file src="src/ColumnFull.php">
     <PossiblyUnusedProperty>
       <code>$collation</code>
       <code>$comment</code>
       <code>$privileges</code>
     </PossiblyUnusedProperty>
   </file>
-  <file src="libraries/classes/Command/CacheWarmupCommand.php">
+  <file src="src/Command/CacheWarmupCommand.php">
     <PropertyTypeCoercion>
       <code><![CDATA[$config->settings]]></code>
     </PropertyTypeCoercion>
@@ -133,7 +156,7 @@
       <code>CacheWarmupCommand</code>
     </UnusedClass>
   </file>
-  <file src="libraries/classes/Command/FixPoTwigCommand.php">
+  <file src="src/Command/FixPoTwigCommand.php">
     <MixedArrayAccess>
       <code>$replace[0]</code>
       <code>$replace[0]</code>
@@ -153,7 +176,7 @@
       <code>FixPoTwigCommand</code>
     </UnusedClass>
   </file>
-  <file src="libraries/classes/Command/TwigLintCommand.php">
+  <file src="src/Command/TwigLintCommand.php">
     <MixedArgument>
       <code>$code</code>
       <code>$file</code>
@@ -199,7 +222,7 @@
       <code>$prevErrorHandler</code>
     </UnusedVariable>
   </file>
-  <file src="libraries/classes/Config.php">
+  <file src="src/Config.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -271,7 +294,7 @@
       <code>md5($verboseToLower) === $serverToLower</code>
     </TypeDoesNotContainType>
   </file>
-  <file src="libraries/classes/Config/ConfigFile.php">
+  <file src="src/Config/ConfigFile.php">
     <MixedArgument>
       <code><![CDATA[$_SESSION[$this->id]]]></code>
       <code><![CDATA[$_SESSION[$this->id]]]></code>
@@ -352,7 +375,7 @@
       <code><![CDATA[$this->baseConfig]]></code>
     </PossiblyNullArgument>
   </file>
-  <file src="libraries/classes/Config/Form.php">
+  <file src="src/Config/Form.php">
     <MissingClosureParamType>
       <code>$key</code>
       <code>$key</code>
@@ -384,7 +407,7 @@
       <code>return [];</code>
     </UnevaluatedCode>
   </file>
-  <file src="libraries/classes/Config/FormDisplay.php">
+  <file src="src/Config/FormDisplay.php">
     <MixedArgument>
       <code>$canonicalPath</code>
       <code>$errorList</code>
@@ -477,7 +500,7 @@
                 )]]></code>
     </PossiblyNullOperand>
   </file>
-  <file src="libraries/classes/Config/FormDisplayTemplate.php">
+  <file src="src/Config/FormDisplayTemplate.php">
     <MixedAssignment>
       <code>$isSetupScript</code>
       <code>$vName</code>
@@ -487,7 +510,7 @@
       <code>$vName</code>
     </MixedOperand>
   </file>
-  <file src="libraries/classes/Config/Forms/BaseForm.php">
+  <file src="src/Config/Forms/BaseForm.php">
     <MixedArgument>
       <code>$form</code>
     </MixedArgument>
@@ -506,34 +529,34 @@
       <code>string[]</code>
     </MixedReturnTypeCoercion>
   </file>
-  <file src="libraries/classes/Config/Forms/Setup/FeaturesForm.php">
+  <file src="src/Config/Forms/Setup/FeaturesForm.php">
     <MixedArgument>
       <code><![CDATA[$result['Databases']]]></code>
     </MixedArgument>
   </file>
-  <file src="libraries/classes/Config/Forms/Setup/MainForm.php">
+  <file src="src/Config/Forms/Setup/MainForm.php">
     <MixedArrayAssignment>
       <code><![CDATA[$result['Startup'][]]]></code>
       <code><![CDATA[$result['Startup'][]]]></code>
     </MixedArrayAssignment>
   </file>
-  <file src="libraries/classes/Config/Forms/Setup/SqlForm.php">
+  <file src="src/Config/Forms/Setup/SqlForm.php">
     <MixedArrayAssignment>
       <code><![CDATA[$result['Sql_queries'][]]]></code>
       <code><![CDATA[$result['Sql_queries'][]]]></code>
     </MixedArrayAssignment>
   </file>
-  <file src="libraries/classes/Config/PageSettings.php">
+  <file src="src/Config/PageSettings.php">
     <ArgumentTypeCoercion>
       <code><![CDATA[$response->getSelfUrl()]]></code>
     </ArgumentTypeCoercion>
   </file>
-  <file src="libraries/classes/Config/ServerConfigChecks.php">
+  <file src="src/Config/ServerConfigChecks.php">
     <MixedAssignment>
       <code>$loginCookieValidity</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Config/Validator.php">
+  <file src="src/Config/Validator.php">
     <MixedArgument>
       <code>$ip</code>
       <code>$password</code>
@@ -622,7 +645,7 @@
       <code>$vid</code>
     </ReferenceReusedFromConfusingScope>
   </file>
-  <file src="libraries/classes/ConfigStorage/Relation.php">
+  <file src="src/ConfigStorage/Relation.php">
     <InvalidArgument>
       <code><![CDATA[usort($tables, 'strnatcasecmp')]]></code>
     </InvalidArgument>
@@ -741,7 +764,7 @@
       <code>bool</code>
     </PossiblyUnusedReturnValue>
   </file>
-  <file src="libraries/classes/ConfigStorage/UserGroups.php">
+  <file src="src/ConfigStorage/UserGroups.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -780,17 +803,17 @@
       <code>$tabs</code>
     </PossiblyNullIterator>
   </file>
-  <file src="libraries/classes/Console.php">
+  <file src="src/Console.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="libraries/classes/Controllers/AbstractController.php">
+  <file src="src/Controllers/AbstractController.php">
     <MixedArgumentTypeCoercion>
       <code>$params</code>
     </MixedArgumentTypeCoercion>
   </file>
-  <file src="libraries/classes/Controllers/ChangeLogController.php">
+  <file src="src/Controllers/ChangeLogController.php">
     <PossiblyUnusedParam>
       <code>$request</code>
     </PossiblyUnusedParam>
@@ -798,27 +821,27 @@
       <code>readgzfile</code>
     </UnusedFunctionCall>
   </file>
-  <file src="libraries/classes/Controllers/ColumnController.php">
+  <file src="src/Controllers/ColumnController.php">
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Config/GetConfigController.php">
+  <file src="src/Controllers/Config/GetConfigController.php">
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Config/SetConfigController.php">
+  <file src="src/Controllers/Config/SetConfigController.php">
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Console/Bookmark/RefreshController.php">
+  <file src="src/Controllers/Console/Bookmark/RefreshController.php">
     <UnusedParam>
       <code>$request</code>
     </UnusedParam>
   </file>
-  <file src="libraries/classes/Controllers/Database/CentralColumns/PopulateColumnsController.php">
+  <file src="src/Controllers/Database/CentralColumns/PopulateColumnsController.php">
     <MixedArgument>
       <code><![CDATA[$request->getParsedBodyParam('selectedTable')]]></code>
     </MixedArgument>
@@ -826,7 +849,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Database/CentralColumnsController.php">
+  <file src="src/Controllers/Database/CentralColumnsController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['num_cols']]]></code>
     </InvalidArrayOffset>
@@ -869,7 +892,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Database/DataDictionaryController.php">
+  <file src="src/Controllers/Database/DataDictionaryController.php">
     <MixedAssignment>
       <code>$relation</code>
     </MixedAssignment>
@@ -884,7 +907,7 @@
       <code>$request</code>
     </PossiblyUnusedParam>
   </file>
-  <file src="libraries/classes/Controllers/Database/DesignerController.php">
+  <file src="src/Controllers/Database/DesignerController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -951,7 +974,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Database/EventsController.php">
+  <file src="src/Controllers/Database/EventsController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
@@ -990,7 +1013,7 @@
       <code><![CDATA[count($GLOBALS['errors'])]]></code>
     </TypeDoesNotContainType>
   </file>
-  <file src="libraries/classes/Controllers/Database/ExportController.php">
+  <file src="src/Controllers/Database/ExportController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
@@ -1030,7 +1053,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Database/ImportController.php">
+  <file src="src/Controllers/Database/ImportController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
@@ -1054,18 +1077,18 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Database/MultiTableQuery/QueryController.php">
+  <file src="src/Controllers/Database/MultiTableQuery/QueryController.php">
     <MixedArgument>
       <code><![CDATA[$request->getParam('db')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('sql_query')]]></code>
     </MixedArgument>
   </file>
-  <file src="libraries/classes/Controllers/Database/MultiTableQuery/TablesController.php">
+  <file src="src/Controllers/Database/MultiTableQuery/TablesController.php">
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Database/MultiTableQueryController.php">
+  <file src="src/Controllers/Database/MultiTableQueryController.php">
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
@@ -1073,7 +1096,7 @@
       <code>$request</code>
     </PossiblyUnusedParam>
   </file>
-  <file src="libraries/classes/Controllers/Database/Operations/CollationController.php">
+  <file src="src/Controllers/Database/Operations/CollationController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -1093,7 +1116,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Database/OperationsController.php">
+  <file src="src/Controllers/Database/OperationsController.php">
     <ArgumentTypeCoercion>
       <code>$exportSqlPlugin</code>
     </ArgumentTypeCoercion>
@@ -1120,7 +1143,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Database/RoutinesController.php">
+  <file src="src/Controllers/Database/RoutinesController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
@@ -1225,7 +1248,7 @@
       <code><![CDATA[$GLOBALS['errors'] !== []]]></code>
     </TypeDoesNotContainType>
   </file>
-  <file src="libraries/classes/Controllers/Database/SearchController.php">
+  <file src="src/Controllers/Database/SearchController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -1236,7 +1259,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Database/SqlAutoCompleteController.php">
+  <file src="src/Controllers/Database/SqlAutoCompleteController.php">
     <MixedArgument>
       <code>$db</code>
     </MixedArgument>
@@ -1247,7 +1270,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Database/SqlController.php">
+  <file src="src/Controllers/Database/SqlController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['back']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
@@ -1264,14 +1287,14 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Database/Structure/AddPrefixController.php">
+  <file src="src/Controllers/Database/Structure/AddPrefixController.php">
     <MixedAssignment>
       <code><![CDATA[$params['selected'][]]]></code>
       <code>$selected</code>
       <code>$selectedValue</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/Database/Structure/AddPrefixTableController.php">
+  <file src="src/Controllers/Database/Structure/AddPrefixTableController.php">
     <MixedArgument>
       <code>$selected</code>
       <code>$selected[$i]</code>
@@ -1290,17 +1313,17 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php">
+  <file src="src/Controllers/Database/Structure/CentralColumns/AddController.php">
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php">
+  <file src="src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php">
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Database/Structure/CentralColumns/RemoveController.php">
+  <file src="src/Controllers/Database/Structure/CentralColumns/RemoveController.php">
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['db']]]></code>
     </PossiblyInvalidArgument>
@@ -1311,14 +1334,14 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Database/Structure/ChangePrefixFormController.php">
+  <file src="src/Controllers/Database/Structure/ChangePrefixFormController.php">
     <MixedAssignment>
       <code>$selected</code>
       <code>$selectedValue</code>
       <code><![CDATA[$urlParams['selected'][]]]></code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/Database/Structure/CopyFormController.php">
+  <file src="src/Controllers/Database/Structure/CopyFormController.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
@@ -1328,7 +1351,7 @@
       <code><![CDATA[$urlParams['selected'][]]]></code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/Database/Structure/CopyTableController.php">
+  <file src="src/Controllers/Database/Structure/CopyTableController.php">
     <MixedArgument>
       <code><![CDATA[$request->getParsedBodyParam('what')]]></code>
       <code>$selected</code>
@@ -1352,7 +1375,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Database/Structure/CopyTableWithPrefixController.php">
+  <file src="src/Controllers/Database/Structure/CopyTableWithPrefixController.php">
     <MixedArgument>
       <code>$current</code>
       <code>$current</code>
@@ -1374,7 +1397,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Database/Structure/DropFormController.php">
+  <file src="src/Controllers/Database/Structure/DropFormController.php">
     <MixedArgument>
       <code>$current</code>
       <code>$current</code>
@@ -1390,7 +1413,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Database/Structure/DropTableController.php">
+  <file src="src/Controllers/Database/Structure/DropTableController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['reload']]]></code>
     </InvalidArrayOffset>
@@ -1414,7 +1437,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Database/Structure/EmptyFormController.php">
+  <file src="src/Controllers/Database/Structure/EmptyFormController.php">
     <MixedArgument>
       <code>$selectedValue</code>
     </MixedArgument>
@@ -1423,7 +1446,7 @@
       <code>$selectedValue</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/Database/Structure/EmptyTableController.php">
+  <file src="src/Controllers/Database/Structure/EmptyTableController.php">
     <InvalidArgument>
       <code><![CDATA[$_REQUEST['pos']]]></code>
     </InvalidArgument>
@@ -1435,7 +1458,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Database/Structure/FavoriteTableController.php">
+  <file src="src/Controllers/Database/Structure/FavoriteTableController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -1466,7 +1489,7 @@
       <code>$value</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/Database/Structure/RealRowCountController.php">
+  <file src="src/Controllers/Database/Structure/RealRowCountController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -1485,7 +1508,7 @@
       <code><![CDATA[$parameters['table']]]></code>
     </PossiblyInvalidCast>
   </file>
-  <file src="libraries/classes/Controllers/Database/Structure/ReplacePrefixController.php">
+  <file src="src/Controllers/Database/Structure/ReplacePrefixController.php">
     <MixedArgument>
       <code>$current</code>
       <code>$current</code>
@@ -1511,7 +1534,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Database/Structure/ShowCreateController.php">
+  <file src="src/Controllers/Database/Structure/ShowCreateController.php">
     <MixedArgument>
       <code>$selected</code>
     </MixedArgument>
@@ -1522,7 +1545,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Database/StructureController.php">
+  <file src="src/Controllers/Database/StructureController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -1619,7 +1642,7 @@
       <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
     </MixedOperand>
   </file>
-  <file src="libraries/classes/Controllers/Database/TrackingController.php">
+  <file src="src/Controllers/Database/TrackingController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -1642,7 +1665,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/DatabaseController.php">
+  <file src="src/Controllers/DatabaseController.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
@@ -1650,7 +1673,7 @@
       <code>$request</code>
     </UnusedParam>
   </file>
-  <file src="libraries/classes/Controllers/ErrorReportController.php">
+  <file src="src/Controllers/ErrorReportController.php">
     <MixedArrayAccess>
       <code><![CDATA[$decodedResponse['success']]]></code>
     </MixedArrayAccess>
@@ -1666,7 +1689,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Export/ExportController.php">
+  <file src="src/Controllers/Export/ExportController.php">
     <ArgumentTypeCoercion>
       <code>$exportPlugin</code>
       <code>$exportPlugin</code>
@@ -1900,12 +1923,12 @@
       <code><![CDATA[$GLOBALS['compression'] === 'gzip']]></code>
     </TypeDoesNotContainType>
   </file>
-  <file src="libraries/classes/Controllers/Export/TablesController.php">
+  <file src="src/Controllers/Export/TablesController.php">
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/GitInfoController.php">
+  <file src="src/Controllers/GitInfoController.php">
     <MixedArgument>
       <code><![CDATA[$this->config->get('ShowGitRevision') ?? true]]></code>
     </MixedArgument>
@@ -1913,7 +1936,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/HomeController.php">
+  <file src="src/Controllers/HomeController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['language_stats']]]></code>
@@ -1945,7 +1968,7 @@
       <code>$collationsList</code>
     </UnusedVariable>
   </file>
-  <file src="libraries/classes/Controllers/Import/ImportController.php">
+  <file src="src/Controllers/Import/ImportController.php">
     <DocblockTypeContradiction>
       <code>$importPlugin == null</code>
     </DocblockTypeContradiction>
@@ -2084,7 +2107,7 @@
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
     </TypeDoesNotContainType>
   </file>
-  <file src="libraries/classes/Controllers/Import/SimulateDmlController.php">
+  <file src="src/Controllers/Import/SimulateDmlController.php">
     <ArgumentTypeCoercion>
       <code>$sqlDelimiter</code>
     </ArgumentTypeCoercion>
@@ -2092,7 +2115,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Import/StatusController.php">
+  <file src="src/Controllers/Import/StatusController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
     </InvalidArrayOffset>
@@ -2110,17 +2133,17 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/LicenseController.php">
+  <file src="src/Controllers/LicenseController.php">
     <PossiblyUnusedParam>
       <code>$request</code>
     </PossiblyUnusedParam>
   </file>
-  <file src="libraries/classes/Controllers/LintController.php">
+  <file src="src/Controllers/LintController.php">
     <MixedAssignment>
       <code>$options</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/NavigationController.php">
+  <file src="src/Controllers/NavigationController.php">
     <MixedArgument>
       <code>$dbName</code>
       <code>$dbName</code>
@@ -2139,42 +2162,42 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Normalization/AddNewPrimaryController.php">
+  <file src="src/Controllers/Normalization/AddNewPrimaryController.php">
     <UnusedParam>
       <code>$request</code>
     </UnusedParam>
   </file>
-  <file src="libraries/classes/Controllers/Normalization/FirstNormalForm/FirstStepController.php">
+  <file src="src/Controllers/Normalization/FirstNormalForm/FirstStepController.php">
     <MixedAssignment>
       <code>$normalizeTo</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/Normalization/FirstNormalForm/FourthStepController.php">
+  <file src="src/Controllers/Normalization/FirstNormalForm/FourthStepController.php">
     <UnusedParam>
       <code>$request</code>
     </UnusedParam>
   </file>
-  <file src="libraries/classes/Controllers/Normalization/FirstNormalForm/SecondStepController.php">
+  <file src="src/Controllers/Normalization/FirstNormalForm/SecondStepController.php">
     <UnusedParam>
       <code>$request</code>
     </UnusedParam>
   </file>
-  <file src="libraries/classes/Controllers/Normalization/FirstNormalForm/ThirdStepController.php">
+  <file src="src/Controllers/Normalization/FirstNormalForm/ThirdStepController.php">
     <UnusedParam>
       <code>$request</code>
     </UnusedParam>
   </file>
-  <file src="libraries/classes/Controllers/Normalization/GetColumnsController.php">
+  <file src="src/Controllers/Normalization/GetColumnsController.php">
     <UnusedParam>
       <code>$request</code>
     </UnusedParam>
   </file>
-  <file src="libraries/classes/Controllers/Normalization/MainController.php">
+  <file src="src/Controllers/Normalization/MainController.php">
     <PossiblyUnusedParam>
       <code>$request</code>
     </PossiblyUnusedParam>
   </file>
-  <file src="libraries/classes/Controllers/Normalization/MoveRepeatingGroup.php">
+  <file src="src/Controllers/Normalization/MoveRepeatingGroup.php">
     <MixedArgument>
       <code>$newColumn</code>
       <code>$newTable</code>
@@ -2188,12 +2211,12 @@
       <code>$repeatingColumns</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/Normalization/PartialDependenciesController.php">
+  <file src="src/Controllers/Normalization/PartialDependenciesController.php">
     <UnusedParam>
       <code>$request</code>
     </UnusedParam>
   </file>
-  <file src="libraries/classes/Controllers/Normalization/SecondNormalForm/CreateNewTablesController.php">
+  <file src="src/Controllers/Normalization/SecondNormalForm/CreateNewTablesController.php">
     <MixedArgument>
       <code>$partialDependencies</code>
       <code><![CDATA[$request->getParsedBodyParam('newTablesName')]]></code>
@@ -2205,12 +2228,12 @@
       <code>$tablesName</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/Normalization/SecondNormalForm/FirstStepController.php">
+  <file src="src/Controllers/Normalization/SecondNormalForm/FirstStepController.php">
     <UnusedParam>
       <code>$request</code>
     </UnusedParam>
   </file>
-  <file src="libraries/classes/Controllers/Normalization/SecondNormalForm/NewTablesController.php">
+  <file src="src/Controllers/Normalization/SecondNormalForm/NewTablesController.php">
     <MixedArgument>
       <code>$partialDependencies</code>
       <code><![CDATA[$request->getParsedBodyParam('pd')]]></code>
@@ -2219,7 +2242,7 @@
       <code>$partialDependencies</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/Normalization/ThirdNormalForm/CreateNewTablesController.php">
+  <file src="src/Controllers/Normalization/ThirdNormalForm/CreateNewTablesController.php">
     <MixedArgument>
       <code>$newtables</code>
       <code><![CDATA[$request->getParsedBodyParam('newTables')]]></code>
@@ -2228,7 +2251,7 @@
       <code>$newtables</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/Normalization/ThirdNormalForm/FirstStepController.php">
+  <file src="src/Controllers/Normalization/ThirdNormalForm/FirstStepController.php">
     <MixedArgument>
       <code>$tables</code>
     </MixedArgument>
@@ -2236,7 +2259,7 @@
       <code>$tables</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/Normalization/ThirdNormalForm/NewTablesController.php">
+  <file src="src/Controllers/Normalization/ThirdNormalForm/NewTablesController.php">
     <MixedArgument>
       <code>$dependencies</code>
       <code><![CDATA[$request->getParsedBodyParam('pd')]]></code>
@@ -2248,12 +2271,12 @@
       <code>$tables</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/PhpInfoController.php">
+  <file src="src/Controllers/PhpInfoController.php">
     <PossiblyUnusedParam>
       <code>$request</code>
     </PossiblyUnusedParam>
   </file>
-  <file src="libraries/classes/Controllers/Preferences/ExportController.php">
+  <file src="src/Controllers/Preferences/ExportController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['cf']]]></code>
       <code><![CDATA[$GLOBALS['hash']]]></code>
@@ -2272,7 +2295,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Preferences/FeaturesController.php">
+  <file src="src/Controllers/Preferences/FeaturesController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['cf']]]></code>
       <code><![CDATA[$GLOBALS['hash']]]></code>
@@ -2291,7 +2314,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Preferences/ImportController.php">
+  <file src="src/Controllers/Preferences/ImportController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['cf']]]></code>
       <code><![CDATA[$GLOBALS['hash']]]></code>
@@ -2310,7 +2333,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Preferences/MainPanelController.php">
+  <file src="src/Controllers/Preferences/MainPanelController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['cf']]]></code>
       <code><![CDATA[$GLOBALS['hash']]]></code>
@@ -2329,7 +2352,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Preferences/ManageController.php">
+  <file src="src/Controllers/Preferences/ManageController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['cf']]]></code>
       <code><![CDATA[$GLOBALS['query']]]></code>
@@ -2382,7 +2405,7 @@
       <code><![CDATA[is_string($_FILES['import_file']['tmp_name'])]]></code>
     </RedundantCondition>
   </file>
-  <file src="libraries/classes/Controllers/Preferences/NavigationController.php">
+  <file src="src/Controllers/Preferences/NavigationController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['cf']]]></code>
       <code><![CDATA[$GLOBALS['hash']]]></code>
@@ -2401,7 +2424,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Preferences/SqlController.php">
+  <file src="src/Controllers/Preferences/SqlController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['cf']]]></code>
       <code><![CDATA[$GLOBALS['hash']]]></code>
@@ -2420,7 +2443,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Preferences/TwoFactorController.php">
+  <file src="src/Controllers/Preferences/TwoFactorController.php">
     <MixedArgument>
       <code><![CDATA[$request->getParsedBodyParam('2fa_configure')]]></code>
     </MixedArgument>
@@ -2428,7 +2451,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Server/BinlogController.php">
+  <file src="src/Controllers/Server/BinlogController.php">
     <MixedArgument>
       <code>$log</code>
       <code><![CDATA[$log ?? '']]></code>
@@ -2438,17 +2461,17 @@
       <code><![CDATA[$urlParams['log']]]></code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/Server/CollationsController.php">
+  <file src="src/Controllers/Server/CollationsController.php">
     <PossiblyUnusedParam>
       <code>$request</code>
     </PossiblyUnusedParam>
   </file>
-  <file src="libraries/classes/Controllers/Server/Databases/CreateController.php">
+  <file src="src/Controllers/Server/Databases/CreateController.php">
     <MixedAssignment>
       <code>$dbCollation</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/Server/Databases/DestroyController.php">
+  <file src="src/Controllers/Server/Databases/DestroyController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['reload']]]></code>
@@ -2464,7 +2487,7 @@
       <code>$database</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/Server/DatabasesController.php">
+  <file src="src/Controllers/Server/DatabasesController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['db_to_create']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
@@ -2528,12 +2551,12 @@
       <code><![CDATA[$params['pos']]]></code>
     </RiskyCast>
   </file>
-  <file src="libraries/classes/Controllers/Server/EnginesController.php">
+  <file src="src/Controllers/Server/EnginesController.php">
     <PossiblyUnusedParam>
       <code>$request</code>
     </PossiblyUnusedParam>
   </file>
-  <file src="libraries/classes/Controllers/Server/ExportController.php">
+  <file src="src/Controllers/Server/ExportController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['num_tables']]]></code>
       <code><![CDATA[$GLOBALS['select_item']]]></code>
@@ -2557,7 +2580,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Server/ImportController.php">
+  <file src="src/Controllers/Server/ImportController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
@@ -2581,12 +2604,12 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Server/PluginsController.php">
+  <file src="src/Controllers/Server/PluginsController.php">
     <PossiblyUnusedParam>
       <code>$request</code>
     </PossiblyUnusedParam>
   </file>
-  <file src="libraries/classes/Controllers/Server/PrivilegesController.php">
+  <file src="src/Controllers/Server/PrivilegesController.php">
     <InvalidArgument>
       <code><![CDATA[$GLOBALS['sql_query']]]></code>
     </InvalidArgument>
@@ -2626,7 +2649,7 @@
       <code>$key</code>
     </UnusedVariable>
   </file>
-  <file src="libraries/classes/Controllers/Server/ReplicationController.php">
+  <file src="src/Controllers/Server/ReplicationController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -2646,7 +2669,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Server/SqlController.php">
+  <file src="src/Controllers/Server/SqlController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -2660,12 +2683,12 @@
       <code>$request</code>
     </PossiblyUnusedParam>
   </file>
-  <file src="libraries/classes/Controllers/Server/Status/AdvisorController.php">
+  <file src="src/Controllers/Server/Status/AdvisorController.php">
     <PossiblyUnusedParam>
       <code>$request</code>
     </PossiblyUnusedParam>
   </file>
-  <file src="libraries/classes/Controllers/Server/Status/Monitor/ChartingDataController.php">
+  <file src="src/Controllers/Server/Status/Monitor/ChartingDataController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -2680,7 +2703,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Server/Status/Monitor/GeneralLogController.php">
+  <file src="src/Controllers/Server/Status/Monitor/GeneralLogController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -2688,7 +2711,7 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/Server/Status/Monitor/LogVarsController.php">
+  <file src="src/Controllers/Server/Status/Monitor/LogVarsController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -2700,7 +2723,7 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/Server/Status/Monitor/QueryAnalyzerController.php">
+  <file src="src/Controllers/Server/Status/Monitor/QueryAnalyzerController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -2712,7 +2735,7 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/Server/Status/Monitor/SlowLogController.php">
+  <file src="src/Controllers/Server/Status/Monitor/SlowLogController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -2720,17 +2743,17 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/Server/Status/MonitorController.php">
+  <file src="src/Controllers/Server/Status/MonitorController.php">
     <PossiblyUnusedParam>
       <code>$request</code>
     </PossiblyUnusedParam>
   </file>
-  <file src="libraries/classes/Controllers/Server/Status/Processes/KillController.php">
+  <file src="src/Controllers/Server/Status/Processes/KillController.php">
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Server/Status/QueriesController.php">
+  <file src="src/Controllers/Server/Status/QueriesController.php">
     <MixedArgumentTypeCoercion>
       <code>$key</code>
     </MixedArgumentTypeCoercion>
@@ -2759,7 +2782,7 @@
       <code>$request</code>
     </PossiblyUnusedParam>
   </file>
-  <file src="libraries/classes/Controllers/Server/Status/StatusController.php">
+  <file src="src/Controllers/Server/Status/StatusController.php">
     <MixedArgument>
       <code>$primaryConnection</code>
       <code>$primaryConnection</code>
@@ -2801,7 +2824,7 @@
       <code><![CDATA[$this->data->status['Uptime']]]></code>
     </MixedOperand>
   </file>
-  <file src="libraries/classes/Controllers/Server/Status/VariablesController.php">
+  <file src="src/Controllers/Server/Status/VariablesController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -2840,7 +2863,7 @@
       <code>$linkName</code>
     </UnusedVariable>
   </file>
-  <file src="libraries/classes/Controllers/Server/UserGroupsController.php">
+  <file src="src/Controllers/Server/UserGroupsController.php">
     <MixedArgument>
       <code><![CDATA[$request->getParsedBodyParam('userGroup')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('userGroup')]]></code>
@@ -2851,7 +2874,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Server/UserGroupsFormController.php">
+  <file src="src/Controllers/Server/UserGroupsFormController.php">
     <PossiblyNullArrayOffset>
       <code>$allUserGroups</code>
     </PossiblyNullArrayOffset>
@@ -2859,7 +2882,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Server/Variables/GetVariableController.php">
+  <file src="src/Controllers/Server/Variables/GetVariableController.php">
     <MixedArgument>
       <code>$varValue[1]</code>
     </MixedArgument>
@@ -2870,7 +2893,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Server/Variables/SetVariableController.php">
+  <file src="src/Controllers/Server/Variables/SetVariableController.php">
     <MixedArgument>
       <code>$formattedValue</code>
       <code>$varValue[1]</code>
@@ -2888,18 +2911,18 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Server/VariablesController.php">
+  <file src="src/Controllers/Server/VariablesController.php">
     <MixedAssignment>
       <code>$filterValue</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/Setup/HomeController.php">
+  <file src="src/Controllers/Setup/HomeController.php">
     <MixedArgumentTypeCoercion>
       <code>$id</code>
       <code>$id</code>
     </MixedArgumentTypeCoercion>
   </file>
-  <file src="libraries/classes/Controllers/Sql/ColumnPreferencesController.php">
+  <file src="src/Controllers/Sql/ColumnPreferencesController.php">
     <MixedAssignment>
       <code>$colorder</code>
       <code>$colvisib</code>
@@ -2908,7 +2931,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Sql/DefaultForeignKeyCheckValueController.php">
+  <file src="src/Controllers/Sql/DefaultForeignKeyCheckValueController.php">
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
@@ -2916,7 +2939,7 @@
       <code>$request</code>
     </UnusedParam>
   </file>
-  <file src="libraries/classes/Controllers/Sql/EnumValuesController.php">
+  <file src="src/Controllers/Sql/EnumValuesController.php">
     <MixedArgument>
       <code>$column</code>
       <code>$currValue</code>
@@ -2929,7 +2952,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Sql/RelationalValuesController.php">
+  <file src="src/Controllers/Sql/RelationalValuesController.php">
     <MixedArgument>
       <code>$column</code>
       <code>$currValue</code>
@@ -2947,7 +2970,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Sql/SetValuesController.php">
+  <file src="src/Controllers/Sql/SetValuesController.php">
     <MixedArgument>
       <code>$column</code>
       <code>$currentValue</code>
@@ -2962,7 +2985,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Sql/SqlController.php">
+  <file src="src/Controllers/Sql/SqlController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['ajax_reload']]]></code>
       <code><![CDATA[$GLOBALS['back']]]></code>
@@ -3010,7 +3033,7 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedOperand>
   </file>
-  <file src="libraries/classes/Controllers/Table/AddFieldController.php">
+  <file src="src/Controllers/Table/AddFieldController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
@@ -3048,7 +3071,7 @@
       <code>$mimetype</code>
     </PossiblyInvalidCast>
   </file>
-  <file src="libraries/classes/Controllers/Table/ChangeController.php">
+  <file src="src/Controllers/Table/ChangeController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['current_result']]]></code>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
@@ -3092,7 +3115,7 @@
       <code>$isUpload</code>
     </PossiblyNullArgument>
   </file>
-  <file src="libraries/classes/Controllers/Table/ChangeRowsController.php">
+  <file src="src/Controllers/Table/ChangeRowsController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['where_clause']]]></code>
@@ -3102,7 +3125,7 @@
       <code><![CDATA[$GLOBALS['where_clause']]]></code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/Table/ChartController.php">
+  <file src="src/Controllers/Table/ChartController.php">
     <InvalidArgument>
       <code><![CDATA[$_REQUEST['pos']]]></code>
       <code><![CDATA[$_REQUEST['session_max_rows']]]></code>
@@ -3124,7 +3147,7 @@
       <code><![CDATA[$statement->limit->rowCount]]></code>
     </PossiblyInvalidOperand>
   </file>
-  <file src="libraries/classes/Controllers/Table/CreateController.php">
+  <file src="src/Controllers/Table/CreateController.php">
     <MixedArgument>
       <code><![CDATA[$_POST['field_input_transformation'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_input_transformation_options'][$fieldindex]]]></code>
@@ -3158,7 +3181,7 @@
       <code>$request</code>
     </PossiblyUnusedParam>
   </file>
-  <file src="libraries/classes/Controllers/Table/DeleteConfirmController.php">
+  <file src="src/Controllers/Table/DeleteConfirmController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -3166,7 +3189,7 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/Table/DeleteRowsController.php">
+  <file src="src/Controllers/Table/DeleteRowsController.php">
     <InvalidArgument>
       <code><![CDATA[$_REQUEST['pos']]]></code>
     </InvalidArgument>
@@ -3192,7 +3215,7 @@
       <code>$selected</code>
     </PossiblyInvalidIterator>
   </file>
-  <file src="libraries/classes/Controllers/Table/DropColumnController.php">
+  <file src="src/Controllers/Table/DropColumnController.php">
     <MixedArgument>
       <code>$field</code>
       <code><![CDATA[$message->getMessage()]]></code>
@@ -3214,7 +3237,7 @@
       <code>$request</code>
     </UnusedParam>
   </file>
-  <file src="libraries/classes/Controllers/Table/ExportController.php">
+  <file src="src/Controllers/Table/ExportController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['num_tables']]]></code>
@@ -3246,7 +3269,7 @@
       <code><![CDATA[$parser->list]]></code>
     </PossiblyNullArgument>
   </file>
-  <file src="libraries/classes/Controllers/Table/ExportRowsController.php">
+  <file src="src/Controllers/Table/ExportRowsController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
@@ -3258,7 +3281,7 @@
       <code><![CDATA[$GLOBALS['where_clause']]]></code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/Table/FindReplaceController.php">
+  <file src="src/Controllers/Table/FindReplaceController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -3309,12 +3332,12 @@
       <code><![CDATA[$_POST['columnIndex']]]></code>
     </RiskyCast>
   </file>
-  <file src="libraries/classes/Controllers/Table/GetFieldController.php">
+  <file src="src/Controllers/Table/GetFieldController.php">
     <PossiblyNullArgument>
       <code>$result</code>
     </PossiblyNullArgument>
   </file>
-  <file src="libraries/classes/Controllers/Table/GisVisualizationController.php">
+  <file src="src/Controllers/Table/GisVisualizationController.php">
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
@@ -3330,7 +3353,7 @@
       <code><![CDATA[$_POST['session_max_rows'] ?? $_GET['session_max_rows']]]></code>
     </RiskyCast>
   </file>
-  <file src="libraries/classes/Controllers/Table/ImportController.php">
+  <file src="src/Controllers/Table/ImportController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
@@ -3351,7 +3374,7 @@
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getIdKey()]]></code>
     </MixedMethodCall>
   </file>
-  <file src="libraries/classes/Controllers/Table/IndexRenameController.php">
+  <file src="src/Controllers/Table/IndexRenameController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -3363,7 +3386,7 @@
       <code>$oldIndexName</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/Table/IndexesController.php">
+  <file src="src/Controllers/Table/IndexesController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -3386,7 +3409,7 @@
       <code>$addFields</code>
     </PossiblyInvalidOperand>
   </file>
-  <file src="libraries/classes/Controllers/Table/OperationsController.php">
+  <file src="src/Controllers/Table/OperationsController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['auto_increment']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
@@ -3423,33 +3446,33 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Table/Partition/AnalyzeController.php">
+  <file src="src/Controllers/Table/Partition/AnalyzeController.php">
     <MixedArgument>
       <code>$query</code>
     </MixedArgument>
   </file>
-  <file src="libraries/classes/Controllers/Table/Partition/CheckController.php">
+  <file src="src/Controllers/Table/Partition/CheckController.php">
     <MixedArgument>
       <code>$query</code>
     </MixedArgument>
   </file>
-  <file src="libraries/classes/Controllers/Table/Partition/DropController.php">
+  <file src="src/Controllers/Table/Partition/DropController.php">
     <MixedArgument>
       <code>$query</code>
       <code>$query</code>
     </MixedArgument>
   </file>
-  <file src="libraries/classes/Controllers/Table/Partition/OptimizeController.php">
+  <file src="src/Controllers/Table/Partition/OptimizeController.php">
     <MixedArgument>
       <code>$query</code>
     </MixedArgument>
   </file>
-  <file src="libraries/classes/Controllers/Table/Partition/RepairController.php">
+  <file src="src/Controllers/Table/Partition/RepairController.php">
     <MixedArgument>
       <code>$query</code>
     </MixedArgument>
   </file>
-  <file src="libraries/classes/Controllers/Table/RelationController.php">
+  <file src="src/Controllers/Table/RelationController.php">
     <InvalidArgument>
       <code><![CDATA[usort($tables, 'strnatcasecmp')]]></code>
     </InvalidArgument>
@@ -3501,7 +3524,7 @@
       <code>$foreignTable</code>
     </PossiblyInvalidCast>
   </file>
-  <file src="libraries/classes/Controllers/Table/ReplaceController.php">
+  <file src="src/Controllers/Table/ReplaceController.php">
     <InvalidArgument>
       <code>$insertErrors</code>
     </InvalidArgument>
@@ -3607,7 +3630,7 @@
       <code><![CDATA[$config->settings]]></code>
     </PropertyTypeCoercion>
   </file>
-  <file src="libraries/classes/Controllers/Table/SearchController.php">
+  <file src="src/Controllers/Table/SearchController.php">
     <MixedArgument>
       <code><![CDATA[$foreignData['foreign_field']]]></code>
     </MixedArgument>
@@ -3634,7 +3657,7 @@
       <code>getColumnProperties</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Table/SqlController.php">
+  <file src="src/Controllers/Table/SqlController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['back']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
@@ -3649,12 +3672,12 @@
       <code>$delimiter</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/Table/Structure/AbstractIndexController.php">
+  <file src="src/Controllers/Table/Structure/AbstractIndexController.php">
     <MixedArgumentTypeCoercion>
       <code>$selected</code>
     </MixedArgumentTypeCoercion>
   </file>
-  <file src="libraries/classes/Controllers/Table/Structure/AddKeyController.php">
+  <file src="src/Controllers/Table/Structure/AddKeyController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['reload']]]></code>
     </InvalidArrayOffset>
@@ -3665,7 +3688,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Table/Structure/BrowseController.php">
+  <file src="src/Controllers/Table/Structure/BrowseController.php">
     <MixedArgument>
       <code>$sval</code>
     </MixedArgument>
@@ -3685,17 +3708,17 @@
       <code>$request</code>
     </UnusedParam>
   </file>
-  <file src="libraries/classes/Controllers/Table/Structure/CentralColumnsAddController.php">
+  <file src="src/Controllers/Table/Structure/CentralColumnsAddController.php">
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Table/Structure/CentralColumnsRemoveController.php">
+  <file src="src/Controllers/Table/Structure/CentralColumnsRemoveController.php">
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Table/Structure/ChangeController.php">
+  <file src="src/Controllers/Table/Structure/ChangeController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['num_fields']]]></code>
     </InvalidArrayOffset>
@@ -3707,7 +3730,7 @@
       <code><![CDATA[$GLOBALS['num_fields']]]></code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/Table/Structure/MoveColumnsController.php">
+  <file src="src/Controllers/Table/Structure/MoveColumnsController.php">
     <MixedArgument>
       <code>$column</code>
       <code>$column</code>
@@ -3755,7 +3778,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Table/Structure/PartitioningController.php">
+  <file src="src/Controllers/Table/Structure/PartitioningController.php">
     <PossiblyNullArgument>
       <code><![CDATA[$stmt->partitions]]></code>
       <code><![CDATA[$stmt->partitions[0]->subpartitions]]></code>
@@ -3770,7 +3793,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Table/Structure/PrimaryController.php">
+  <file src="src/Controllers/Table/Structure/PrimaryController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -3781,7 +3804,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Table/Structure/ReservedWordCheckController.php">
+  <file src="src/Controllers/Table/Structure/ReservedWordCheckController.php">
     <MixedArgument>
       <code>$column</code>
     </MixedArgument>
@@ -3790,7 +3813,7 @@
       <code>$columnsNames</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/Table/Structure/SaveController.php">
+  <file src="src/Controllers/Table/Structure/SaveController.php">
     <InvalidArgument>
       <code>$adjustPrivileges</code>
     </InvalidArgument>
@@ -3873,7 +3896,7 @@
       <code><![CDATA[$_POST['field_virtuality'][$i]]]></code>
     </PossiblyInvalidOperand>
   </file>
-  <file src="libraries/classes/Controllers/Table/StructureController.php">
+  <file src="src/Controllers/Table/StructureController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['reread_info']]]></code>
@@ -3968,7 +3991,7 @@
       <code><![CDATA[$GLOBALS['showtable']['Rows']]]></code>
     </PossiblyNullOperand>
   </file>
-  <file src="libraries/classes/Controllers/Table/TrackingController.php">
+  <file src="src/Controllers/Table/TrackingController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -3990,7 +4013,7 @@
       <code><![CDATA[$GLOBALS['text_dir']]]></code>
     </PossiblyNullArgument>
   </file>
-  <file src="libraries/classes/Controllers/Table/ZoomSearchController.php">
+  <file src="src/Controllers/Table/ZoomSearchController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$row[$_POST['criteriaColumnNames'][0]]]]></code>
@@ -4027,7 +4050,7 @@
       <code><![CDATA[$_POST['where_clause']]]></code>
     </PossiblyInvalidOperand>
   </file>
-  <file src="libraries/classes/Controllers/TableController.php">
+  <file src="src/Controllers/TableController.php">
     <MixedArgument>
       <code><![CDATA[$request->getParsedBodyParam('db')]]></code>
     </MixedArgument>
@@ -4035,12 +4058,12 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/ThemesController.php">
+  <file src="src/Controllers/ThemesController.php">
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Transformation/OverviewController.php">
+  <file src="src/Controllers/Transformation/OverviewController.php">
     <MixedArgument>
       <code><![CDATA[$types[$type . '_file'][$key]]]></code>
     </MixedArgument>
@@ -4060,12 +4083,12 @@
       <code>$request</code>
     </PossiblyUnusedParam>
   </file>
-  <file src="libraries/classes/Controllers/Transformation/WrapperController.php">
+  <file src="src/Controllers/Transformation/WrapperController.php">
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/Triggers/IndexController.php">
+  <file src="src/Controllers/Triggers/IndexController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
@@ -4096,7 +4119,7 @@
       <code><![CDATA[count($GLOBALS['errors'])]]></code>
     </TypeDoesNotContainType>
   </file>
-  <file src="libraries/classes/Controllers/UserPasswordController.php">
+  <file src="src/Controllers/UserPasswordController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['change_password_message']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
@@ -4123,7 +4146,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Controllers/VersionCheckController.php">
+  <file src="src/Controllers/VersionCheckController.php">
     <MixedArgument>
       <code><![CDATA[$versionDetails->releases]]></code>
     </MixedArgument>
@@ -4135,7 +4158,7 @@
       <code>$request</code>
     </PossiblyUnusedParam>
   </file>
-  <file src="libraries/classes/Controllers/View/CreateController.php">
+  <file src="src/Controllers/View/CreateController.php">
     <DocblockTypeContradiction>
       <code><![CDATA[$viewData['as']]]></code>
     </DocblockTypeContradiction>
@@ -4174,7 +4197,7 @@
       <code><![CDATA[isset($stmt->body)]]></code>
     </RedundantConditionGivenDocblockType>
   </file>
-  <file src="libraries/classes/Controllers/View/OperationsController.php">
+  <file src="src/Controllers/View/OperationsController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['reload']]]></code>
@@ -4190,7 +4213,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Core.php">
+  <file src="src/Core.php">
     <InvalidOperand>
       <code>$matches[1]</code>
     </InvalidOperand>
@@ -4256,7 +4279,7 @@
       <code><![CDATA[$path[$depth] =& $path[$depth - 1][$key]]]></code>
     </UnsupportedReferenceUsage>
   </file>
-  <file src="libraries/classes/CreateAddField.php">
+  <file src="src/CreateAddField.php">
     <DeprecatedMethod>
       <code>escapeString</code>
       <code>escapeString</code>
@@ -4389,13 +4412,13 @@
       <code><![CDATA[$index['Index_choice']]]></code>
     </PossiblyUndefinedArrayOffset>
   </file>
-  <file src="libraries/classes/Crypto/Crypto.php">
+  <file src="src/Crypto/Crypto.php">
     <MixedAssignment>
       <code>$key</code>
       <code>$key</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Database/CentralColumns.php">
+  <file src="src/Database/CentralColumns.php">
     <MixedArgument>
       <code>$centralListTable</code>
       <code>$centralListTable</code>
@@ -4552,7 +4575,7 @@
       <code>$field</code>
     </PossiblyNullArgument>
   </file>
-  <file src="libraries/classes/Database/Designer.php">
+  <file src="src/Database/Designer.php">
     <DeprecatedMethod>
       <code>escapeString</code>
       <code>escapeString</code>
@@ -4641,7 +4664,7 @@
       <code><![CDATA[$_GET['export_type']]]></code>
     </PossiblyInvalidCast>
   </file>
-  <file src="libraries/classes/Database/Designer/Common.php">
+  <file src="src/Database/Designer/Common.php">
     <DeprecatedMethod>
       <code>escapeString</code>
       <code>escapeString</code>
@@ -4753,12 +4776,12 @@
       <code>$indexArray2</code>
     </PossiblyNullArrayOffset>
   </file>
-  <file src="libraries/classes/Database/Designer/DesignerTable.php">
+  <file src="src/Database/Designer/DesignerTable.php">
     <PossiblyUnusedMethod>
       <code>getTableEngine</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Database/Events.php">
+  <file src="src/Database/Events.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
@@ -4831,12 +4854,12 @@
       <code><![CDATA[$GLOBALS['errors']]]></code>
     </PossiblyUndefinedArrayOffset>
   </file>
-  <file src="libraries/classes/Database/MultiTableQuery.php">
+  <file src="src/Database/MultiTableQuery.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="libraries/classes/Database/Routines.php">
+  <file src="src/Database/Routines.php">
     <DeprecatedMethod>
       <code>escapeString</code>
       <code>escapeString</code>
@@ -5075,7 +5098,7 @@
       <code><![CDATA[$routine['item_param_name']]]></code>
     </PossiblyUndefinedArrayOffset>
   </file>
-  <file src="libraries/classes/Database/Search.php">
+  <file src="src/Database/Search.php">
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[array_intersect($_POST['criteriaTables'], $this->tablesNamesOnly)]]></code>
     </InvalidPropertyAssignmentValue>
@@ -5083,7 +5106,7 @@
       <code><![CDATA[$this->searchTypeDescription]]></code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/DatabaseInterface.php">
+  <file src="src/DatabaseInterface.php">
     <DeprecatedMethod>
       <code>escapeString</code>
       <code>escapeString</code>
@@ -5236,13 +5259,13 @@
       <code><![CDATA[$resultTarget =& $resultTarget[]]]></code>
     </UnsupportedReferenceUsage>
   </file>
-  <file src="libraries/classes/Dbal/DbalInterface.php">
+  <file src="src/Dbal/DbalInterface.php">
     <PossiblyUnusedReturnValue>
       <code>bool</code>
       <code>bool</code>
     </PossiblyUnusedReturnValue>
   </file>
-  <file src="libraries/classes/Dbal/DbiMysqli.php">
+  <file src="src/Dbal/DbiMysqli.php">
     <PossiblyNullArgument>
       <code>$errorMessage</code>
     </PossiblyNullArgument>
@@ -5250,7 +5273,7 @@
       <code>$errorMessage</code>
     </PossiblyNullOperand>
   </file>
-  <file src="libraries/classes/Dbal/MysqliResult.php">
+  <file src="src/Dbal/MysqliResult.php">
     <InvalidReturnStatement>
       <code><![CDATA[$this->result->fetch_all(MYSQLI_ASSOC)]]></code>
       <code>is_array($row) ? $row : []</code>
@@ -5268,7 +5291,7 @@
       <code><![CDATA[list<string|null>]]></code>
     </MixedReturnTypeCoercion>
   </file>
-  <file src="libraries/classes/Display/Results.php">
+  <file src="src/Display/Results.php">
     <InvalidArgument>
       <code>$added[$orgFullTableName]</code>
       <code>$multiOrderUrlParams</code>
@@ -5592,7 +5615,7 @@
       <code>$total</code>
     </UnusedParam>
   </file>
-  <file src="libraries/classes/Encoding.php">
+  <file src="src/Encoding.php">
     <MixedArgument>
       <code>self::$enginemap[$engine][0]</code>
       <code>self::$enginemap[$engine][0]</code>
@@ -5621,7 +5644,7 @@
       <code>setKanjiEncodings</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Engines/Innodb.php">
+  <file src="src/Engines/Innodb.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -5653,7 +5676,7 @@
       <code><![CDATA[$status['Innodb_buffer_pool_wait_free']]]></code>
     </MixedOperand>
   </file>
-  <file src="libraries/classes/Engines/Pbxt.php">
+  <file src="src/Engines/Pbxt.php">
     <ParamNameMismatch>
       <code>$formattedSize</code>
     </ParamNameMismatch>
@@ -5661,7 +5684,7 @@
       <code>getPageDocumentation</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Error.php">
+  <file src="src/Error.php">
     <MixedArgument>
       <code>$arg</code>
       <code>$step</code>
@@ -5709,7 +5732,7 @@
       <code><![CDATA[self::$errortype[$this->getNumber()]]]></code>
     </MixedReturnStatement>
   </file>
-  <file src="libraries/classes/ErrorHandler.php">
+  <file src="src/ErrorHandler.php">
     <MixedArgument>
       <code><![CDATA[$_SESSION['errors']]]></code>
     </MixedArgument>
@@ -5725,7 +5748,7 @@
       <code>$hash</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/ErrorReport.php">
+  <file src="src/ErrorReport.php">
     <MixedArgument>
       <code><![CDATA[$level['url']]]></code>
       <code>$line</code>
@@ -5770,7 +5793,7 @@
       <code><![CDATA[$_SERVER['HTTP_USER_AGENT']]]></code>
     </PossiblyUndefinedArrayOffset>
   </file>
-  <file src="libraries/classes/Export/Export.php">
+  <file src="src/Export/Export.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
       <code><![CDATA[$GLOBALS['sql_create_table']]]></code>
@@ -5853,7 +5876,7 @@
       <code>mb_strtolower($userExtension) !== $requiredExtension</code>
     </RedundantCondition>
   </file>
-  <file src="libraries/classes/Export/Options.php">
+  <file src="src/Export/Options.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -5878,7 +5901,7 @@
       <code><![CDATA[isset($dbSelect) && is_array($dbSelect)]]></code>
     </RedundantConditionGivenDocblockType>
   </file>
-  <file src="libraries/classes/Export/Template.php">
+  <file src="src/Export/Template.php">
     <MixedArgument>
       <code><![CDATA[$state['data']]]></code>
       <code><![CDATA[$state['exportType'] ?? '']]></code>
@@ -5887,7 +5910,7 @@
       <code><![CDATA[$state['username']]]></code>
     </MixedArgument>
   </file>
-  <file src="libraries/classes/File.php">
+  <file src="src/File.php">
     <FalsableReturnStatement>
       <code><![CDATA[$this->detectCompression()]]></code>
     </FalsableReturnStatement>
@@ -5941,7 +5964,7 @@
       <code>bool</code>
     </PossiblyUnusedReturnValue>
   </file>
-  <file src="libraries/classes/FlashMessages.php">
+  <file src="src/FlashMessages.php">
     <MixedArrayAssignment>
       <code><![CDATA[$this->storage[self::STORAGE_KEY][$key]]]></code>
       <code><![CDATA[$this->storage[self::STORAGE_KEY][$key]]]></code>
@@ -5950,7 +5973,7 @@
       <code><![CDATA[$this->previousMessages]]></code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Font.php">
+  <file src="src/Font.php">
     <MixedArgument>
       <code><![CDATA[$charList['chars']]]></code>
       <code>$textWidth * $modifier</code>
@@ -5975,7 +5998,7 @@
                 ) * $charList['modifier']]]></code>
     </MixedOperand>
   </file>
-  <file src="libraries/classes/Footer.php">
+  <file src="src/Footer.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -6013,18 +6036,18 @@
       <code>mixed</code>
     </UnusedReturnValue>
   </file>
-  <file src="libraries/classes/Gis/Ds/Polygon.php">
+  <file src="src/Gis/Ds/Polygon.php">
     <NullArgument>
       <code>$polygon</code>
     </NullArgument>
   </file>
-  <file src="libraries/classes/Gis/GisGeometry.php">
+  <file src="src/Gis/GisGeometry.php">
     <PossiblyFalseOperand>
       <code>$lastComma</code>
       <code>$lastComma</code>
     </PossiblyFalseOperand>
   </file>
-  <file src="libraries/classes/Gis/GisGeometryCollection.php">
+  <file src="src/Gis/GisGeometryCollection.php">
     <MixedArgument>
       <code>$type</code>
     </MixedArgument>
@@ -6036,7 +6059,7 @@
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
   </file>
-  <file src="libraries/classes/Gis/GisLineString.php">
+  <file src="src/Gis/GisLineString.php">
     <MixedArgument>
       <code>$tempPoint[0]</code>
       <code>$tempPoint[0]</code>
@@ -6069,7 +6092,7 @@
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
   </file>
-  <file src="libraries/classes/Gis/GisMultiLineString.php">
+  <file src="src/Gis/GisMultiLineString.php">
     <MixedArgument>
       <code>$tempPoint[0]</code>
       <code>$tempPoint[0]</code>
@@ -6118,7 +6141,7 @@
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
   </file>
-  <file src="libraries/classes/Gis/GisMultiPoint.php">
+  <file src="src/Gis/GisMultiPoint.php">
     <MixedArrayAccess>
       <code><![CDATA[$gisData[$index]['MULTIPOINT']['no_of_points']]]></code>
       <code><![CDATA[$rowData['points'][$i]]]></code>
@@ -6147,7 +6170,7 @@
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
   </file>
-  <file src="libraries/classes/Gis/GisMultiPolygon.php">
+  <file src="src/Gis/GisMultiPolygon.php">
     <ArgumentTypeCoercion>
       <code>$pointsArr</code>
     </ArgumentTypeCoercion>
@@ -6250,7 +6273,7 @@
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
   </file>
-  <file src="libraries/classes/Gis/GisPoint.php">
+  <file src="src/Gis/GisPoint.php">
     <MixedArrayAccess>
       <code><![CDATA[$gisData[$index]['POINT']['x']]]></code>
       <code><![CDATA[$gisData[$index]['POINT']['x']]]></code>
@@ -6275,7 +6298,7 @@
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
   </file>
-  <file src="libraries/classes/Gis/GisPolygon.php">
+  <file src="src/Gis/GisPolygon.php">
     <ArgumentTypeCoercion>
       <code>$pointsArr</code>
     </ArgumentTypeCoercion>
@@ -6305,7 +6328,7 @@
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
   </file>
-  <file src="libraries/classes/Gis/GisVisualization.php">
+  <file src="src/Gis/GisVisualization.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -6315,7 +6338,7 @@
       <code>mb_strtolower($userExtension) !== $requiredExtension</code>
     </RedundantCondition>
   </file>
-  <file src="libraries/classes/Git.php">
+  <file src="src/Git.php">
     <MixedArgument>
       <code>$commit</code>
       <code><![CDATA[$commitJson->message]]></code>
@@ -6372,7 +6395,7 @@
       <code>$datalinearr[1]</code>
     </PossiblyUndefinedArrayOffset>
   </file>
-  <file src="libraries/classes/Header.php">
+  <file src="src/Header.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -6395,7 +6418,7 @@
       <code>strtolower</code>
     </RedundantFunctionCallGivenDocblockType>
   </file>
-  <file src="libraries/classes/Html/Generator.php">
+  <file src="src/Html/Generator.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -6451,7 +6474,7 @@
       <code><![CDATA[$_REQUEST['unlim_num_rows']]]></code>
     </RiskyCast>
   </file>
-  <file src="libraries/classes/Image/ImageWrapper.php">
+  <file src="src/Image/ImageWrapper.php">
     <PossiblyUnusedReturnValue>
       <code>bool</code>
       <code>bool</code>
@@ -6464,7 +6487,7 @@
       <code><![CDATA[imagefilledpolygon($this->image, $points, $color)]]></code>
     </TooFewArguments>
   </file>
-  <file src="libraries/classes/Import/Ajax.php">
+  <file src="src/Import/Ajax.php">
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']]]></code>
     </MixedArrayAccess>
@@ -6479,7 +6502,7 @@
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
     </PossiblyInvalidArrayOffset>
   </file>
-  <file src="libraries/classes/Import/Import.php">
+  <file src="src/Import/Import.php">
     <ArgumentTypeCoercion>
       <code>$sqlDelimiter</code>
     </ArgumentTypeCoercion>
@@ -6684,7 +6707,7 @@
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
     </PossiblyNullOperand>
   </file>
-  <file src="libraries/classes/Index.php">
+  <file src="src/Index.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -6720,7 +6743,7 @@
       <code>isPacked</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/IndexColumn.php">
+  <file src="src/IndexColumn.php">
     <MixedAssignment>
       <code><![CDATA[$this->collation]]></code>
       <code><![CDATA[$this->expression]]></code>
@@ -6732,7 +6755,7 @@
       <code>hasExpression</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/InsertEdit.php">
+  <file src="src/InsertEdit.php">
     <InvalidArgument>
       <code>$urlParams</code>
     </InvalidArgument>
@@ -6867,7 +6890,7 @@
       <code><![CDATA[$config->settings]]></code>
     </PropertyTypeCoercion>
   </file>
-  <file src="libraries/classes/IpAllowDeny.php">
+  <file src="src/IpAllowDeny.php">
     <InvalidOperand>
       <code>$regs[5]</code>
     </InvalidOperand>
@@ -6879,7 +6902,7 @@
       <code>$ruleData[2]</code>
     </PossiblyUndefinedArrayOffset>
   </file>
-  <file src="libraries/classes/LanguageManager.php">
+  <file src="src/LanguageManager.php">
     <MixedArgument>
       <code><![CDATA[$config->get('Lang')]]></code>
       <code><![CDATA[$config->getCookie('pma_lang')]]></code>
@@ -6916,7 +6939,7 @@
       <code>$langs</code>
     </PossiblyNullArrayOffset>
   </file>
-  <file src="libraries/classes/Linter.php">
+  <file src="src/Linter.php">
     <InvalidOperand>
       <code>$error[3]</code>
     </InvalidOperand>
@@ -6930,7 +6953,7 @@
       <code>$error[3]</code>
     </PossiblyNullOperand>
   </file>
-  <file src="libraries/classes/ListDatabase.php">
+  <file src="src/ListDatabase.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -6945,7 +6968,7 @@
       <code>$db</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Menu.php">
+  <file src="src/Menu.php">
     <DeprecatedProperty>
       <code>Routing::$route</code>
       <code>Routing::$route</code>
@@ -6964,7 +6987,7 @@
       <code><![CDATA[mb_strpos($tab, '_')]]></code>
     </PossiblyFalseOperand>
   </file>
-  <file src="libraries/classes/Message.php">
+  <file src="src/Message.php">
     <MixedArgument>
       <code><![CDATA[$this->params]]></code>
     </MixedArgument>
@@ -6978,27 +7001,27 @@
       <code><![CDATA[self::$level[$this->getNumber()]]]></code>
     </MixedReturnStatement>
   </file>
-  <file src="libraries/classes/Middleware/Authentication.php">
+  <file src="src/Middleware/Authentication.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="libraries/classes/Middleware/DatabaseServerVersionChecking.php">
+  <file src="src/Middleware/DatabaseServerVersionChecking.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="libraries/classes/Middleware/LanguageAndThemeCookieSaving.php">
+  <file src="src/Middleware/LanguageAndThemeCookieSaving.php">
     <RedundantCast>
       <code><![CDATA[(string) $GLOBALS['lang']]]></code>
     </RedundantCast>
   </file>
-  <file src="libraries/classes/Middleware/ProfilingChecking.php">
+  <file src="src/Middleware/ProfilingChecking.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="libraries/classes/Middleware/TokenRequestParamChecking.php">
+  <file src="src/Middleware/TokenRequestParamChecking.php">
     <MixedArgument>
       <code><![CDATA[$_SESSION[' PMA_token ']]]></code>
     </MixedArgument>
@@ -7007,7 +7030,7 @@
       <code><![CDATA[(string) $_POST['token']]]></code>
     </RedundantCast>
   </file>
-  <file src="libraries/classes/Middleware/UrlParamsSetting.php">
+  <file src="src/Middleware/UrlParamsSetting.php">
     <PossiblyInvalidArgument>
       <code><![CDATA[$_REQUEST['back']]]></code>
       <code><![CDATA[$_REQUEST['goto']]]></code>
@@ -7017,12 +7040,12 @@
       <code><![CDATA[$_REQUEST['goto']]]></code>
     </PossiblyInvalidCast>
   </file>
-  <file src="libraries/classes/Middleware/ZeroConfPostConnection.php">
+  <file src="src/Middleware/ZeroConfPostConnection.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="libraries/classes/Navigation/Navigation.php">
+  <file src="src/Navigation/Navigation.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['theme']]]></code>
     </InvalidArrayOffset>
@@ -7034,7 +7057,7 @@
       <code>$hidden</code>
     </PossiblyNullArrayOffset>
   </file>
-  <file src="libraries/classes/Navigation/NavigationTree.php">
+  <file src="src/Navigation/NavigationTree.php">
     <ArgumentTypeCoercion>
       <code>$table</code>
     </ArgumentTypeCoercion>
@@ -7150,7 +7173,7 @@
       <code>setHiddenCount</code>
     </UndefinedMethod>
   </file>
-  <file src="libraries/classes/Navigation/Nodes/Node.php">
+  <file src="src/Navigation/Nodes/Node.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -7209,7 +7232,7 @@
       <code>(string) $prefix</code>
     </RedundantCastGivenDocblockType>
   </file>
-  <file src="libraries/classes/Navigation/Nodes/NodeColumn.php">
+  <file src="src/Navigation/Nodes/NodeColumn.php">
     <MixedArgument>
       <code><![CDATA[$item['key']]]></code>
       <code><![CDATA[$item['name']]]></code>
@@ -7228,7 +7251,7 @@
       <code>$retval</code>
     </MixedOperand>
   </file>
-  <file src="libraries/classes/Navigation/Nodes/NodeDatabase.php">
+  <file src="src/Navigation/Nodes/NodeDatabase.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -7256,17 +7279,17 @@
       <code>$item</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Navigation/Nodes/NodeDatabaseChild.php">
+  <file src="src/Navigation/Nodes/NodeDatabaseChild.php">
     <PossiblyInvalidPropertyFetch>
       <code><![CDATA[$this->realParent()->realName]]></code>
     </PossiblyInvalidPropertyFetch>
   </file>
-  <file src="libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php">
+  <file src="src/Navigation/Nodes/NodeDatabaseContainer.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="libraries/classes/Navigation/Nodes/NodeTable.php">
+  <file src="src/Navigation/Nodes/NodeTable.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -7292,7 +7315,7 @@
       <code>$secondIcon</code>
     </PossiblyUnusedProperty>
   </file>
-  <file src="libraries/classes/Normalization.php">
+  <file src="src/Normalization.php">
     <InvalidReturnStatement>
       <code><![CDATA[[
             'legendText' => __('End of step'),
@@ -7387,7 +7410,7 @@
       <code>(string) $dependon</code>
     </RedundantCast>
   </file>
-  <file src="libraries/classes/Operations.php">
+  <file src="src/Operations.php">
     <DeprecatedMethod>
       <code>escapeString</code>
       <code>escapeString</code>
@@ -7551,7 +7574,7 @@
       <code><![CDATA['data']]></code>
     </TypeDoesNotContainNull>
   </file>
-  <file src="libraries/classes/Partitioning/Maintenance.php">
+  <file src="src/Partitioning/Maintenance.php">
     <MixedArrayAccess>
       <code><![CDATA[$row['Table']]]></code>
       <code><![CDATA[$row['Table']]]></code>
@@ -7575,7 +7598,7 @@
       <code><![CDATA[$rows[$row['Table']][]]]></code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Partitioning/Partition.php">
+  <file src="src/Partitioning/Partition.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -7612,7 +7635,7 @@
       <code>hasSubPartitions</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Partitioning/SubPartition.php">
+  <file src="src/Partitioning/SubPartition.php">
     <MixedAssignment>
       <code><![CDATA[$this->comment]]></code>
       <code><![CDATA[$this->expression]]></code>
@@ -7620,7 +7643,7 @@
       <code><![CDATA[$this->name]]></code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Partitioning/TablePartitionDefinition.php">
+  <file src="src/Partitioning/TablePartitionDefinition.php">
     <InvalidArrayOffset>
       <code><![CDATA[$partition['engine']]]></code>
       <code><![CDATA[$partition['name']]]></code>
@@ -7664,7 +7687,7 @@
       <code><![CDATA[$partition['value_type']]]></code>
     </PossiblyInvalidArrayOffset>
   </file>
-  <file src="libraries/classes/Pdf.php">
+  <file src="src/Pdf.php">
     <MixedArgument>
       <code><![CDATA[$this->CurrentFont]]></code>
       <code><![CDATA[$this->pages]]></code>
@@ -7684,7 +7707,7 @@
       <code>$errorMessage</code>
     </ParamNameMismatch>
   </file>
-  <file src="libraries/classes/Plugins.php">
+  <file src="src/Plugins.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
@@ -7763,7 +7786,7 @@
       <code>getProperties</code>
     </UndefinedMethod>
   </file>
-  <file src="libraries/classes/Plugins/Auth/AuthenticationConfig.php">
+  <file src="src/Plugins/Auth/AuthenticationConfig.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
@@ -7771,7 +7794,7 @@
       <code><![CDATA[$GLOBALS['allowDeny_forbidden']]]></code>
     </InvalidArrayOffset>
   </file>
-  <file src="libraries/classes/Plugins/Auth/AuthenticationCookie.php">
+  <file src="src/Plugins/Auth/AuthenticationCookie.php">
     <DeprecatedProperty>
       <code>Routing::$route</code>
       <code>Routing::$route</code>
@@ -7823,7 +7846,7 @@
       <code><![CDATA[(string) $GLOBALS['conn_error']]]></code>
     </RedundantCast>
   </file>
-  <file src="libraries/classes/Plugins/Auth/AuthenticationHttp.php">
+  <file src="src/Plugins/Auth/AuthenticationHttp.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
@@ -7845,7 +7868,7 @@
       <code>$oldUser</code>
     </PossiblyInvalidCast>
   </file>
-  <file src="libraries/classes/Plugins/Auth/AuthenticationSignon.php">
+  <file src="src/Plugins/Auth/AuthenticationSignon.php">
     <MixedArgument>
       <code>$singleSignonCfgUpdate</code>
     </MixedArgument>
@@ -7870,7 +7893,7 @@
       <code><![CDATA[array_merge($config->selectedServer, $singleSignonCfgUpdate)]]></code>
     </MixedPropertyTypeCoercion>
   </file>
-  <file src="libraries/classes/Plugins/AuthenticationPlugin.php">
+  <file src="src/Plugins/AuthenticationPlugin.php">
     <ArgumentTypeCoercion>
       <code>$redirectUrl</code>
     </ArgumentTypeCoercion>
@@ -7884,12 +7907,12 @@
       <code><![CDATA[$_REQUEST['guid']]]></code>
     </PossiblyInvalidCast>
   </file>
-  <file src="libraries/classes/Plugins/AuthenticationPluginFactory.php">
+  <file src="src/Plugins/AuthenticationPluginFactory.php">
     <UnsafeInstantiation>
       <code>new $class()</code>
     </UnsafeInstantiation>
   </file>
-  <file src="libraries/classes/Plugins/Export/ExportCodegen.php">
+  <file src="src/Plugins/Export/ExportCodegen.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -7913,7 +7936,7 @@
       <code>$format === self::HANDLER_NHIBERNATE_XML</code>
     </RedundantCondition>
   </file>
-  <file src="libraries/classes/Plugins/Export/ExportCsv.php">
+  <file src="src/Plugins/Export/ExportCsv.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -7970,7 +7993,7 @@
       <code><![CDATA[$GLOBALS['csv_terminated']]]></code>
     </PossiblyNullOperand>
   </file>
-  <file src="libraries/classes/Plugins/Export/ExportHtmlword.php">
+  <file src="src/Plugins/Export/ExportHtmlword.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -8034,7 +8057,7 @@
       <code>bool</code>
     </PossiblyUnusedReturnValue>
   </file>
-  <file src="libraries/classes/Plugins/Export/ExportJson.php">
+  <file src="src/Plugins/Export/ExportJson.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -8047,7 +8070,7 @@
       <code>$aliases</code>
     </MixedArgumentTypeCoercion>
   </file>
-  <file src="libraries/classes/Plugins/Export/ExportLatex.php">
+  <file src="src/Plugins/Export/ExportLatex.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -8109,7 +8132,7 @@
       <code>$tableAlias</code>
     </PossiblyNullOperand>
   </file>
-  <file src="libraries/classes/Plugins/Export/ExportMediawiki.php">
+  <file src="src/Plugins/Export/ExportMediawiki.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -8141,7 +8164,7 @@
       <code>$tableAlias</code>
     </PossiblyNullOperand>
   </file>
-  <file src="libraries/classes/Plugins/Export/ExportOds.php">
+  <file src="src/Plugins/Export/ExportOds.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -8169,7 +8192,7 @@
       <code>$tableAlias</code>
     </PossiblyNullArgument>
   </file>
-  <file src="libraries/classes/Plugins/Export/ExportOdt.php">
+  <file src="src/Plugins/Export/ExportOdt.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -8249,7 +8272,7 @@
       <code>string</code>
     </PossiblyUnusedReturnValue>
   </file>
-  <file src="libraries/classes/Plugins/Export/ExportPdf.php">
+  <file src="src/Plugins/Export/ExportPdf.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
@@ -8268,7 +8291,7 @@
       <code>$pdf</code>
     </PropertyNotSetInConstructor>
   </file>
-  <file src="libraries/classes/Plugins/Export/ExportPhparray.php">
+  <file src="src/Plugins/Export/ExportPhparray.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -8282,7 +8305,7 @@
       <code>$tableAlias</code>
     </PossiblyNullArgument>
   </file>
-  <file src="libraries/classes/Plugins/Export/ExportSql.php">
+  <file src="src/Plugins/Export/ExportSql.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -8468,7 +8491,7 @@
       <code>CreateDefinition</code>
     </UnnecessaryVarAnnotation>
   </file>
-  <file src="libraries/classes/Plugins/Export/ExportTexytext.php">
+  <file src="src/Plugins/Export/ExportTexytext.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -8532,7 +8555,7 @@
       <code>$mimeMap</code>
     </PossiblyUndefinedVariable>
   </file>
-  <file src="libraries/classes/Plugins/Export/ExportXml.php">
+  <file src="src/Plugins/Export/ExportXml.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -8585,7 +8608,7 @@
       <code>$tableAlias</code>
     </PossiblyNullArgument>
   </file>
-  <file src="libraries/classes/Plugins/Export/ExportYaml.php">
+  <file src="src/Plugins/Export/ExportYaml.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -8603,7 +8626,7 @@
       <code>$tableAlias</code>
     </PossiblyNullOperand>
   </file>
-  <file src="libraries/classes/Plugins/Export/Helpers/Pdf.php">
+  <file src="src/Plugins/Export/Helpers/Pdf.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -8879,7 +8902,7 @@
       <code>Pdf</code>
     </PropertyNotSetInConstructor>
   </file>
-  <file src="libraries/classes/Plugins/ExportPlugin.php">
+  <file src="src/Plugins/ExportPlugin.php">
     <MixedArrayAccess>
       <code><![CDATA[$db['alias']]]></code>
       <code><![CDATA[$db['tables']]]></code>
@@ -8926,7 +8949,7 @@
       <code>bool</code>
     </PossiblyUnusedReturnValue>
   </file>
-  <file src="libraries/classes/Plugins/Import/ImportCsv.php">
+  <file src="src/Plugins/Import/ImportCsv.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -9030,7 +9053,7 @@
       <code><![CDATA[(string) $GLOBALS['db']]]></code>
     </RedundantCast>
   </file>
-  <file src="libraries/classes/Plugins/Import/ImportLdi.php">
+  <file src="src/Plugins/Import/ImportLdi.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -9079,7 +9102,7 @@
       <code>string[]</code>
     </PossiblyUnusedReturnValue>
   </file>
-  <file src="libraries/classes/Plugins/Import/ImportMediawiki.php">
+  <file src="src/Plugins/Import/ImportMediawiki.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
@@ -9113,7 +9136,7 @@
       <code>$sqlStatements</code>
     </ReferenceConstraintViolation>
   </file>
-  <file src="libraries/classes/Plugins/Import/ImportOds.php">
+  <file src="src/Plugins/Import/ImportOds.php">
     <InvalidArgument>
       <code>$sqlStatements</code>
     </InvalidArgument>
@@ -9201,7 +9224,7 @@
       <code>string[]</code>
     </PossiblyUnusedReturnValue>
   </file>
-  <file src="libraries/classes/Plugins/Import/ImportShp.php">
+  <file src="src/Plugins/Import/ImportShp.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['buffer']]]></code>
       <code><![CDATA[$GLOBALS['eof']]]></code>
@@ -9281,7 +9304,7 @@
       <code><![CDATA[(string) $GLOBALS['db']]]></code>
     </RedundantCast>
   </file>
-  <file src="libraries/classes/Plugins/Import/ImportSql.php">
+  <file src="src/Plugins/Import/ImportSql.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -9314,7 +9337,7 @@
       <code><![CDATA[! $GLOBALS['timeout_passed']]]></code>
     </RedundantCondition>
   </file>
-  <file src="libraries/classes/Plugins/Import/ImportXml.php">
+  <file src="src/Plugins/Import/ImportXml.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
     </InvalidArrayOffset>
@@ -9358,7 +9381,7 @@
       <code>$val3</code>
     </UnusedVariable>
   </file>
-  <file src="libraries/classes/Plugins/Import/ShapeFileImport.php">
+  <file src="src/Plugins/Import/ShapeFileImport.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['eof']]]></code>
     </InvalidArrayOffset>
@@ -9366,7 +9389,7 @@
       <code><![CDATA[$GLOBALS['eof']]]></code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Plugins/Import/Upload/UploadNoplugin.php">
+  <file src="src/Plugins/Import/Upload/UploadNoplugin.php">
     <MixedArgument>
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
     </MixedArgument>
@@ -9395,7 +9418,7 @@
       <code>UploadNoplugin</code>
     </UnusedClass>
   </file>
-  <file src="libraries/classes/Plugins/Import/Upload/UploadProgress.php">
+  <file src="src/Plugins/Import/Upload/UploadProgress.php">
     <MixedArgument>
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
     </MixedArgument>
@@ -9443,7 +9466,7 @@
       <code>UploadProgress</code>
     </UnusedClass>
   </file>
-  <file src="libraries/classes/Plugins/Import/Upload/UploadSession.php">
+  <file src="src/Plugins/Import/Upload/UploadSession.php">
     <MixedArgument>
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
     </MixedArgument>
@@ -9499,12 +9522,12 @@
       <code>UploadSession</code>
     </UnusedClass>
   </file>
-  <file src="libraries/classes/Plugins/Plugin.php">
+  <file src="src/Plugins/Plugin.php">
     <PossiblyUnusedMethod>
       <code>getName</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php">
+  <file src="src/Plugins/Schema/Dia/DiaRelationSchema.php">
     <MixedArgument>
       <code>$oneField</code>
       <code><![CDATA[$oneKey['ref_index_list'][$index]]]></code>
@@ -9545,7 +9568,7 @@
       <code>$topMargin</code>
     </UnusedProperty>
   </file>
-  <file src="libraries/classes/Plugins/Schema/Dia/RelationStatsDia.php">
+  <file src="src/Plugins/Schema/Dia/RelationStatsDia.php">
     <InvalidOperand>
       <code>$pos</code>
       <code>$pos</code>
@@ -9567,7 +9590,7 @@
       <code>$pos</code>
     </PossiblyFalseOperand>
   </file>
-  <file src="libraries/classes/Plugins/Schema/Dia/TableStatsDia.php">
+  <file src="src/Plugins/Schema/Dia/TableStatsDia.php">
     <MixedAssignment>
       <code>$field</code>
     </MixedAssignment>
@@ -9575,12 +9598,12 @@
       <code>$field</code>
     </MixedOperand>
   </file>
-  <file src="libraries/classes/Plugins/Schema/Eps/Eps.php">
+  <file src="src/Plugins/Schema/Eps/Eps.php">
     <PossiblyUnusedMethod>
       <code>line</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php">
+  <file src="src/Plugins/Schema/Eps/EpsRelationSchema.php">
     <MixedArgument>
       <code>$oneField</code>
       <code><![CDATA[$oneKey['ref_index_list'][$index]]]></code>
@@ -9614,7 +9637,7 @@
       <code><![CDATA[$_REQUEST['eps_orientation']]]></code>
     </PossiblyInvalidCast>
   </file>
-  <file src="libraries/classes/Plugins/Schema/Eps/RelationStatsEps.php">
+  <file src="src/Plugins/Schema/Eps/RelationStatsEps.php">
     <MixedMethodCall>
       <code>line</code>
       <code>line</code>
@@ -9645,7 +9668,7 @@
       <code><![CDATA[$this->ySrc]]></code>
     </MixedOperand>
   </file>
-  <file src="libraries/classes/Plugins/Schema/Eps/TableStatsEps.php">
+  <file src="src/Plugins/Schema/Eps/TableStatsEps.php">
     <MixedArgument>
       <code>$field</code>
       <code>$field</code>
@@ -9670,7 +9693,7 @@
       <code>$height</code>
     </PossiblyUnusedProperty>
   </file>
-  <file src="libraries/classes/Plugins/Schema/ExportRelationSchema.php">
+  <file src="src/Plugins/Schema/ExportRelationSchema.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -9700,7 +9723,7 @@
       <code><![CDATA[$_REQUEST['page_number']]]></code>
     </RiskyCast>
   </file>
-  <file src="libraries/classes/Plugins/Schema/Pdf/Pdf.php">
+  <file src="src/Plugins/Schema/Pdf/Pdf.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -9751,7 +9774,7 @@
       <code><![CDATA[$cw = &$this->CurrentFont['cw']]]></code>
     </UnsupportedPropertyReferenceUsage>
   </file>
-  <file src="libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php">
+  <file src="src/Plugins/Schema/Pdf/PdfRelationSchema.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
@@ -9864,7 +9887,7 @@
       <code>$rightMargin</code>
     </UnusedProperty>
   </file>
-  <file src="libraries/classes/Plugins/Schema/Pdf/RelationStatsPdf.php">
+  <file src="src/Plugins/Schema/Pdf/RelationStatsPdf.php">
     <InvalidArrayOffset>
       <code>$case[$d]</code>
     </InvalidArrayOffset>
@@ -9912,7 +9935,7 @@
       <code><![CDATA[$this->ySrc]]></code>
     </MixedOperand>
   </file>
-  <file src="libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php">
+  <file src="src/Plugins/Schema/Pdf/TableStatsPdf.php">
     <MixedArgument>
       <code>$field</code>
       <code><![CDATA[$this->diagram->customLinks['RT'][$this->tableName][$field]]]></code>
@@ -9959,7 +9982,7 @@
       <code><![CDATA[max($this->width, $this->diagram->GetStringWidth($field))]]></code>
     </PossiblyInvalidPropertyAssignmentValue>
   </file>
-  <file src="libraries/classes/Plugins/Schema/RelationStats.php">
+  <file src="src/Plugins/Schema/RelationStats.php">
     <InvalidOperand>
       <code>$pos</code>
     </InvalidOperand>
@@ -9989,27 +10012,27 @@
       <code>$pos</code>
     </PossiblyFalseOperand>
   </file>
-  <file src="libraries/classes/Plugins/Schema/SchemaDia.php">
+  <file src="src/Plugins/Schema/SchemaDia.php">
     <UnusedClass>
       <code>SchemaDia</code>
     </UnusedClass>
   </file>
-  <file src="libraries/classes/Plugins/Schema/SchemaEps.php">
+  <file src="src/Plugins/Schema/SchemaEps.php">
     <UnusedClass>
       <code>SchemaEps</code>
     </UnusedClass>
   </file>
-  <file src="libraries/classes/Plugins/Schema/SchemaPdf.php">
+  <file src="src/Plugins/Schema/SchemaPdf.php">
     <UnusedClass>
       <code>SchemaPdf</code>
     </UnusedClass>
   </file>
-  <file src="libraries/classes/Plugins/Schema/SchemaSvg.php">
+  <file src="src/Plugins/Schema/SchemaSvg.php">
     <UnusedClass>
       <code>SchemaSvg</code>
     </UnusedClass>
   </file>
-  <file src="libraries/classes/Plugins/Schema/Svg/RelationStatsSvg.php">
+  <file src="src/Plugins/Schema/Svg/RelationStatsSvg.php">
     <MixedMethodCall>
       <code>printElementLine</code>
       <code>printElementLine</code>
@@ -10038,7 +10061,7 @@
       <code><![CDATA[$this->ySrc]]></code>
     </MixedOperand>
   </file>
-  <file src="libraries/classes/Plugins/Schema/Svg/Svg.php">
+  <file src="src/Plugins/Schema/Svg/Svg.php">
     <PossiblyUnusedMethod>
       <code>printElementLine</code>
     </PossiblyUnusedMethod>
@@ -10047,7 +10070,7 @@
       <code>$title</code>
     </PossiblyUnusedProperty>
   </file>
-  <file src="libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php">
+  <file src="src/Plugins/Schema/Svg/SvgRelationSchema.php">
     <MixedArgument>
       <code>$oneField</code>
       <code><![CDATA[$oneKey['ref_index_list'][$index]]]></code>
@@ -10081,7 +10104,7 @@
       <code><![CDATA[$this->tables[$table]->width = &$this->tablewidth]]></code>
     </UnsupportedPropertyReferenceUsage>
   </file>
-  <file src="libraries/classes/Plugins/Schema/Svg/TableStatsSvg.php">
+  <file src="src/Plugins/Schema/Svg/TableStatsSvg.php">
     <MixedArgument>
       <code>$field</code>
       <code>$field</code>
@@ -10101,7 +10124,7 @@
       <code><![CDATA[$this->y + 14 + $this->currentCell]]></code>
     </PossiblyInvalidArgument>
   </file>
-  <file src="libraries/classes/Plugins/Schema/TableStats.php">
+  <file src="src/Plugins/Schema/TableStats.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -10133,7 +10156,7 @@
       <code><![CDATA[$_POST['t_y'][$key]]]></code>
     </RiskyCast>
   </file>
-  <file src="libraries/classes/Plugins/Transformations/Abs/Bool2TextTransformationsPlugin.php">
+  <file src="src/Plugins/Transformations/Abs/Bool2TextTransformationsPlugin.php">
     <MixedInferredReturnType>
       <code>string</code>
     </MixedInferredReturnType>
@@ -10142,7 +10165,7 @@
       <code>$options[1]</code>
     </MixedReturnStatement>
   </file>
-  <file src="libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php">
+  <file src="src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php">
     <InvalidOperand>
       <code>$timestamp</code>
     </InvalidOperand>
@@ -10152,7 +10175,7 @@
       <code>$options[2]</code>
     </MixedArgument>
   </file>
-  <file src="libraries/classes/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php">
+  <file src="src/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['fields_meta']]]></code>
       <code><![CDATA[$GLOBALS['row']]]></code>
@@ -10186,7 +10209,7 @@
       <code><![CDATA[$GLOBALS['fields_meta']]]></code>
     </PossiblyNullIterator>
   </file>
-  <file src="libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php">
+  <file src="src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php">
     <MixedArrayAccess>
       <code>$allowedPrograms[$options[0]]</code>
       <code>$allowedPrograms[0]</code>
@@ -10204,46 +10227,46 @@
       <code>$program</code>
     </MixedOperand>
   </file>
-  <file src="libraries/classes/Plugins/Transformations/Abs/ImageLinkTransformationsPlugin.php">
+  <file src="src/Plugins/Transformations/Abs/ImageLinkTransformationsPlugin.php">
     <MixedArgument>
       <code><![CDATA[$options['wrapper_params']]]></code>
     </MixedArgument>
   </file>
-  <file src="libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php">
+  <file src="src/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php">
     <MixedArgument>
       <code><![CDATA[$options['wrapper_params']]]></code>
     </MixedArgument>
   </file>
-  <file src="libraries/classes/Plugins/Transformations/Abs/InlineTransformationsPlugin.php">
+  <file src="src/Plugins/Transformations/Abs/InlineTransformationsPlugin.php">
     <MixedArgument>
       <code><![CDATA[$options['wrapper_params']]]></code>
       <code><![CDATA[$options['wrapper_params']]]></code>
       <code><![CDATA[$options['wrapper_params']]]></code>
     </MixedArgument>
   </file>
-  <file src="libraries/classes/Plugins/Transformations/Abs/PreApPendTransformationsPlugin.php">
+  <file src="src/Plugins/Transformations/Abs/PreApPendTransformationsPlugin.php">
     <MixedArgument>
       <code>$options[0]</code>
       <code>$options[1]</code>
     </MixedArgument>
   </file>
-  <file src="libraries/classes/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php">
+  <file src="src/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php">
     <MixedArgument>
       <code>$options[0]</code>
     </MixedArgument>
   </file>
-  <file src="libraries/classes/Plugins/Transformations/Abs/SubstringTransformationsPlugin.php">
+  <file src="src/Plugins/Transformations/Abs/SubstringTransformationsPlugin.php">
     <MixedOperand>
       <code>$options[2]</code>
       <code>$options[2]</code>
     </MixedOperand>
   </file>
-  <file src="libraries/classes/Plugins/Transformations/Abs/TextImageLinkTransformationsPlugin.php">
+  <file src="src/Plugins/Transformations/Abs/TextImageLinkTransformationsPlugin.php">
     <MixedOperand>
       <code>$options[0]</code>
     </MixedOperand>
   </file>
-  <file src="libraries/classes/Plugins/Transformations/Abs/TextLinkTransformationsPlugin.php">
+  <file src="src/Plugins/Transformations/Abs/TextLinkTransformationsPlugin.php">
     <MixedArgument>
       <code>$options[1] ?? $buffer</code>
       <code><![CDATA[$options[1] ?? '']]></code>
@@ -10252,27 +10275,27 @@
       <code><![CDATA[$options[0] ?? '']]></code>
     </MixedOperand>
   </file>
-  <file src="libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptobinary.php">
+  <file src="src/Plugins/Transformations/Input/Text_Plain_Iptobinary.php">
     <UnusedClass>
       <code>Text_Plain_Iptobinary</code>
     </UnusedClass>
   </file>
-  <file src="libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php">
+  <file src="src/Plugins/Transformations/Input/Text_Plain_JsonEditor.php">
     <UnusedClass>
       <code>Text_Plain_JsonEditor</code>
     </UnusedClass>
   </file>
-  <file src="libraries/classes/Plugins/Transformations/Input/Text_Plain_SqlEditor.php">
+  <file src="src/Plugins/Transformations/Input/Text_Plain_SqlEditor.php">
     <UnusedClass>
       <code>Text_Plain_SqlEditor</code>
     </UnusedClass>
   </file>
-  <file src="libraries/classes/Plugins/Transformations/Input/Text_Plain_XmlEditor.php">
+  <file src="src/Plugins/Transformations/Input/Text_Plain_XmlEditor.php">
     <UnusedClass>
       <code>Text_Plain_XmlEditor</code>
     </UnusedClass>
   </file>
-  <file src="libraries/classes/Plugins/Transformations/Output/Text_Plain_Binarytoip.php">
+  <file src="src/Plugins/Transformations/Output/Text_Plain_Binarytoip.php">
     <FalsableReturnStatement>
       <code>FormatConverter::binaryToIp($buffer, $isBinary)</code>
     </FalsableReturnStatement>
@@ -10283,35 +10306,35 @@
       <code>Text_Plain_Binarytoip</code>
     </UnusedClass>
   </file>
-  <file src="libraries/classes/Plugins/Transformations/Output/Text_Plain_Bool2Text.php">
+  <file src="src/Plugins/Transformations/Output/Text_Plain_Bool2Text.php">
     <UnusedClass>
       <code>Text_Plain_Bool2Text</code>
     </UnusedClass>
   </file>
-  <file src="libraries/classes/Plugins/Transformations/Output/Text_Plain_Json.php">
+  <file src="src/Plugins/Transformations/Output/Text_Plain_Json.php">
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Plugins/Transformations/Output/Text_Plain_Xml.php">
+  <file src="src/Plugins/Transformations/Output/Text_Plain_Xml.php">
     <UnusedClass>
       <code>Text_Plain_Xml</code>
     </UnusedClass>
   </file>
-  <file src="libraries/classes/Plugins/TransformationsInterface.php">
+  <file src="src/Plugins/TransformationsInterface.php">
     <PossiblyUnusedMethod>
       <code>getMIMESubtype</code>
       <code>getMIMEType</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Plugins/TransformationsPlugin.php">
+  <file src="src/Plugins/TransformationsPlugin.php">
     <MixedAssignment>
       <code>$result[$key]</code>
       <code>$result[$key]</code>
       <code>$value</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Plugins/TwoFactor/Application.php">
+  <file src="src/Plugins/TwoFactor/Application.php">
     <MixedArgument>
       <code>$secret</code>
       <code><![CDATA[$this->twofactor->config['settings']['secret']]]></code>
@@ -10329,7 +10352,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Plugins/TwoFactor/Key.php">
+  <file src="src/Plugins/TwoFactor/Key.php">
     <InvalidArgument>
       <code><![CDATA[$this->getRegistrations()]]></code>
       <code><![CDATA[$this->getRegistrations()]]></code>
@@ -10366,12 +10389,12 @@
       <code><![CDATA[$_POST['u2f_registration_response']]]></code>
     </PossiblyInvalidCast>
   </file>
-  <file src="libraries/classes/Plugins/TwoFactor/Simple.php">
+  <file src="src/Plugins/TwoFactor/Simple.php">
     <UnusedClass>
       <code>Simple</code>
     </UnusedClass>
   </file>
-  <file src="libraries/classes/Plugins/TwoFactorPlugin.php">
+  <file src="src/Plugins/TwoFactorPlugin.php">
     <MixedArgument>
       <code>$url</code>
     </MixedArgument>
@@ -10379,12 +10402,12 @@
       <code>$url</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Plugins/UploadInterface.php">
+  <file src="src/Plugins/UploadInterface.php">
     <PossiblyUnusedMethod>
       <code>getUploadStatus</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="libraries/classes/Query/Cache.php">
+  <file src="src/Query/Cache.php">
     <MixedArrayOffset>
       <code>$loc[$key]</code>
       <code>$loc[$key]</code>
@@ -10399,7 +10422,7 @@
       <code><![CDATA[$loc = &$this->tableCache]]></code>
     </UnsupportedPropertyReferenceUsage>
   </file>
-  <file src="libraries/classes/Query/Compatibility.php">
+  <file src="src/Query/Compatibility.php">
     <MixedArgument>
       <code><![CDATA[$eachTables[$tableName]['Comment'] ?? '']]></code>
     </MixedArgument>
@@ -10463,12 +10486,12 @@
       <code>$tableInfo</code>
     </UnusedForeachValue>
   </file>
-  <file src="libraries/classes/Query/Utilities.php">
+  <file src="src/Query/Utilities.php">
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['debug']['queries']]]></code>
     </MixedArrayAssignment>
   </file>
-  <file src="libraries/classes/RecentFavoriteTable.php">
+  <file src="src/RecentFavoriteTable.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -10535,7 +10558,7 @@
       <code><![CDATA[$this->tables =& $_SESSION['tmpval'][$this->tableType . 'Tables'][$serverId]]]></code>
     </UnsupportedReferenceUsage>
   </file>
-  <file src="libraries/classes/Replication/Replication.php">
+  <file src="src/Replication/Replication.php">
     <MixedArgument>
       <code><![CDATA[$pos['File']]]></code>
     </MixedArgument>
@@ -10555,7 +10578,7 @@
       <code><![CDATA[array{'File'?: string, 'Position'?: string}]]></code>
     </MixedReturnTypeCoercion>
   </file>
-  <file src="libraries/classes/Replication/ReplicationGui.php">
+  <file src="src/Replication/ReplicationGui.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -10625,12 +10648,12 @@
       <code>strtok</code>
     </UnusedFunctionCall>
   </file>
-  <file src="libraries/classes/Replication/ReplicationInfo.php">
+  <file src="src/Replication/ReplicationInfo.php">
     <MixedArgument>
       <code>$status[0][$key]</code>
     </MixedArgument>
   </file>
-  <file src="libraries/classes/ResponseRenderer.php">
+  <file src="src/ResponseRenderer.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
@@ -10656,12 +10679,12 @@
       <code><![CDATA['']]></code>
     </TypeDoesNotContainType>
   </file>
-  <file src="libraries/classes/Routing/Routing.php">
+  <file src="src/Routing/Routing.php">
     <MixedArrayAccess>
       <code><![CDATA[$dispatchData[0]['GET']['/']]]></code>
     </MixedArrayAccess>
   </file>
-  <file src="libraries/classes/Sanitize.php">
+  <file src="src/Sanitize.php">
     <MixedArgument>
       <code>$found[1]</code>
       <code>$found[1]</code>
@@ -10691,7 +10714,7 @@
       <code><![CDATA[isset($_COOKIE[$key]) && ! is_string($_COOKIE[$key])]]></code>
     </TypeDoesNotContainType>
   </file>
-  <file src="libraries/classes/Server/Plugin.php">
+  <file src="src/Server/Plugin.php">
     <MixedArgument>
       <code><![CDATA[$state['authVersion'] ?? null]]></code>
       <code><![CDATA[$state['author'] ?? null]]></code>
@@ -10708,7 +10731,7 @@
       <code><![CDATA[$state['version'] ?? null]]></code>
     </MixedArgument>
   </file>
-  <file src="libraries/classes/Server/Plugins.php">
+  <file src="src/Server/Plugins.php">
     <PossiblyNullArgument>
       <code><![CDATA[$row['PLUGIN_DESCRIPTION']]]></code>
     </PossiblyNullArgument>
@@ -10716,7 +10739,7 @@
       <code>$plugins</code>
     </PossiblyNullArrayOffset>
   </file>
-  <file src="libraries/classes/Server/Privileges.php">
+  <file src="src/Server/Privileges.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['Grant_priv']]]></code>
       <code><![CDATA[$GLOBALS['Grant_priv']]]></code>
@@ -10985,12 +11008,12 @@
       <code><![CDATA[$_POST['max_user_connections']]]></code>
     </RiskyCast>
   </file>
-  <file src="libraries/classes/Server/Select.php">
+  <file src="src/Server/Select.php">
     <RedundantCast>
       <code><![CDATA[(int) $GLOBALS['server']]]></code>
     </RedundantCast>
   </file>
-  <file src="libraries/classes/Server/Status/Data.php">
+  <file src="src/Server/Status/Data.php">
     <MixedArgumentTypeCoercion>
       <code>$filter</code>
       <code>$name</code>
@@ -11048,7 +11071,7 @@
       <code>$dbi</code>
     </UnusedProperty>
   </file>
-  <file src="libraries/classes/Server/Status/Monitor.php">
+  <file src="src/Server/Status/Monitor.php">
     <InvalidArrayAccess>
       <code>$temp[strlen($temp) - 1]</code>
     </InvalidArrayAccess>
@@ -11150,17 +11173,17 @@
       <code><![CDATA[$row['#']]]></code>
     </PossiblyNullOperand>
   </file>
-  <file src="libraries/classes/Server/Status/Processes.php">
+  <file src="src/Server/Status/Processes.php">
     <RedundantCondition>
       <code>0 !== --$sortableColCount</code>
     </RedundantCondition>
   </file>
-  <file src="libraries/classes/Server/SysInfo/SunOs.php">
+  <file src="src/Server/SysInfo/SunOs.php">
     <PossiblyUndefinedArrayOffset>
       <code>$value</code>
     </PossiblyUndefinedArrayOffset>
   </file>
-  <file src="libraries/classes/Session.php">
+  <file src="src/Session.php">
     <MixedArgument>
       <code><![CDATA[$config->getCookie('phpMyAdmin')]]></code>
       <code><![CDATA[$error->getMessage()]]></code>
@@ -11177,7 +11200,7 @@
       <code>session_save_path</code>
     </UnusedFunctionCall>
   </file>
-  <file src="libraries/classes/Setup/ConfigGenerator.php">
+  <file src="src/Setup/ConfigGenerator.php">
     <LessSpecificReturnStatement>
       <code>$key</code>
     </LessSpecificReturnStatement>
@@ -11216,7 +11239,7 @@
       <code><![CDATA[self::getServerPart($cf, $eol, $conf['Servers'])]]></code>
     </PossiblyNullOperand>
   </file>
-  <file src="libraries/classes/Setup/Index.php">
+  <file src="src/Setup/Index.php">
     <MixedArgument>
       <code>$date</code>
       <code>$date</code>
@@ -11255,7 +11278,7 @@
       <code>$version</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Sql.php">
+  <file src="src/Sql.php">
     <DeprecatedMethod>
       <code>escapeString</code>
     </DeprecatedMethod>
@@ -11368,7 +11391,7 @@
       <code><![CDATA[$statement->expr]]></code>
     </UndefinedPropertyFetch>
   </file>
-  <file src="libraries/classes/SqlQueryForm.php">
+  <file src="src/SqlQueryForm.php">
     <PossiblyInvalidArgument>
       <code>$query</code>
     </PossiblyInvalidArgument>
@@ -11376,7 +11399,7 @@
       <code>$query</code>
     </PossiblyInvalidCast>
   </file>
-  <file src="libraries/classes/StorageEngine.php">
+  <file src="src/StorageEngine.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -11452,7 +11475,7 @@
       <code>$variables</code>
     </PossiblyNullArrayOffset>
   </file>
-  <file src="libraries/classes/SystemDatabase.php">
+  <file src="src/SystemDatabase.php">
     <PossiblyNullArgument>
       <code><![CDATA[$dataRow['comment']]]></code>
       <code><![CDATA[$dataRow['mimetype']]]></code>
@@ -11460,7 +11483,7 @@
       <code><![CDATA[$dataRow['transformation_options']]]></code>
     </PossiblyNullArgument>
   </file>
-  <file src="libraries/classes/Table.php">
+  <file src="src/Table.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -11729,7 +11752,7 @@
       <code>$maintainRelations</code>
     </UnusedVariable>
   </file>
-  <file src="libraries/classes/Table/ColumnsDefinition.php">
+  <file src="src/Table/ColumnsDefinition.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['mime_map']]]></code>
     </InvalidArrayOffset>
@@ -11800,7 +11823,7 @@
       <code><![CDATA[$columnMeta['DefaultValue']]]></code>
     </PossiblyUndefinedArrayOffset>
   </file>
-  <file src="libraries/classes/Table/Search.php">
+  <file src="src/Table/Search.php">
     <DeprecatedMethod>
       <code>escapeString</code>
       <code>escapeString</code>
@@ -11876,7 +11899,7 @@
       <code>$geomFunc</code>
     </PossiblyNullOperand>
   </file>
-  <file src="libraries/classes/Theme/Theme.php">
+  <file src="src/Theme/Theme.php">
     <MixedArgument>
       <code><![CDATA[$data['name']]]></code>
       <code><![CDATA[$data['version']]]></code>
@@ -11888,7 +11911,7 @@
       <code>return false;</code>
     </UnevaluatedCode>
   </file>
-  <file src="libraries/classes/Theme/ThemeManager.php">
+  <file src="src/Theme/ThemeManager.php">
     <MixedInferredReturnType>
       <code>string|false</code>
       <code>string|false</code>
@@ -11916,7 +11939,7 @@
       <code>return false;</code>
     </UnevaluatedCode>
   </file>
-  <file src="libraries/classes/Tracking/Tracker.php">
+  <file src="src/Tracking/Tracker.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -11995,7 +12018,7 @@
       <code><![CDATA[$tokens[2]->value]]></code>
     </PossiblyNullPropertyFetch>
   </file>
-  <file src="libraries/classes/Tracking/Tracking.php">
+  <file src="src/Tracking/Tracking.php">
     <MixedArgument>
       <code>$columns</code>
       <code>$ddlogCount</code>
@@ -12053,12 +12076,12 @@
       <code>$versionNumber</code>
     </PossiblyNullArgument>
   </file>
-  <file src="libraries/classes/Tracking/TrackingChecker.php">
+  <file src="src/Tracking/TrackingChecker.php">
     <MixedAssignment>
       <code>$trackingEnabled</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Transformations.php">
+  <file src="src/Transformations.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -12101,7 +12124,7 @@
       <code>bool</code>
     </PossiblyUnusedReturnValue>
   </file>
-  <file src="libraries/classes/Triggers/Triggers.php">
+  <file src="src/Triggers/Triggers.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
@@ -12150,7 +12173,7 @@
       <code><![CDATA[$GLOBALS['errors']]]></code>
     </PossiblyUndefinedArrayOffset>
   </file>
-  <file src="libraries/classes/Twig/AssetExtension.php">
+  <file src="src/Twig/AssetExtension.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['theme']]]></code>
     </InvalidArrayOffset>
@@ -12158,7 +12181,7 @@
       <code><![CDATA[$GLOBALS['theme']]]></code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/TwoFactor.php">
+  <file src="src/TwoFactor.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
@@ -12174,7 +12197,7 @@
       <code>new $name($this)</code>
     </UnsafeInstantiation>
   </file>
-  <file src="libraries/classes/Url.php">
+  <file src="src/Url.php">
     <MixedArgumentTypeCoercion>
       <code>$additionalParameters</code>
       <code>$name</code>
@@ -12203,12 +12226,12 @@
         }]]></code>
     </MixedReturnStatement>
   </file>
-  <file src="libraries/classes/UrlRedirector.php">
+  <file src="src/UrlRedirector.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="libraries/classes/UserPassword.php">
+  <file src="src/UserPassword.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
@@ -12223,7 +12246,7 @@
       <code>$origAuthPlugin</code>
     </PossiblyInvalidCast>
   </file>
-  <file src="libraries/classes/UserPreferences.php">
+  <file src="src/UserPreferences.php">
     <MixedArgumentTypeCoercion>
       <code>$path</code>
       <code>$urlParams</code>
@@ -12242,7 +12265,7 @@
       <code>$hash</code>
     </PossiblyNullOperand>
   </file>
-  <file src="libraries/classes/Util.php">
+  <file src="src/Util.php">
     <ArgumentTypeCoercion>
       <code>$separator</code>
     </ArgumentTypeCoercion>
@@ -12359,7 +12382,7 @@
       <code><![CDATA[(string) $_REQUEST['tbl_group']]]></code>
     </RedundantCast>
   </file>
-  <file src="libraries/classes/Utils/ForeignKey.php">
+  <file src="src/Utils/ForeignKey.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -12367,7 +12390,7 @@
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="libraries/classes/Utils/FormatConverter.php">
+  <file src="src/Utils/FormatConverter.php">
     <MixedArgument>
       <code>$buffer</code>
       <code>$buffer</code>
@@ -12382,7 +12405,7 @@
       <code>(string) long2ip((int) $bufferAsFloat)</code>
     </RedundantCast>
   </file>
-  <file src="libraries/classes/Utils/Gis.php">
+  <file src="src/Utils/Gis.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -12391,7 +12414,7 @@
       <code>$srid</code>
     </PossiblyNullOperand>
   </file>
-  <file src="libraries/classes/Utils/HttpRequest.php">
+  <file src="src/Utils/HttpRequest.php">
     <MixedArgument>
       <code>$httpStatus</code>
     </MixedArgument>
@@ -12406,7 +12429,7 @@
       <code>$response</code>
     </MixedReturnStatement>
   </file>
-  <file src="libraries/classes/Utils/SessionCache.php">
+  <file src="src/Utils/SessionCache.php">
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['cache'][self::key()]]]></code>
       <code><![CDATA[$_SESSION['cache'][self::key()]]]></code>
@@ -12425,7 +12448,7 @@
       <code><![CDATA[$GLOBALS['server']]]></code>
     </PossiblyNullOperand>
   </file>
-  <file src="libraries/classes/VersionInformation.php">
+  <file src="src/VersionInformation.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
@@ -12470,7 +12493,7 @@
       <code>$response</code>
     </PossiblyInvalidArgument>
   </file>
-  <file src="libraries/classes/WebAuthn/CustomServer.php">
+  <file src="src/WebAuthn/CustomServer.php">
     <InvalidReturnStatement>
       <code>$decoded</code>
     </InvalidReturnStatement>
@@ -12492,7 +12515,7 @@
      * }]]></code>
     </MoreSpecificReturnType>
   </file>
-  <file src="libraries/classes/ZipExtension.php">
+  <file src="src/ZipExtension.php">
     <ArgumentTypeCoercion>
       <code>$regex</code>
       <code>$specificEntry</code>
@@ -12517,29 +12540,6 @@
       <code>$tempName</code>
       <code>$tempName</code>
     </PossiblyInvalidOperand>
-  </file>
-  <file src="libraries/services_loader.php">
-    <MixedArgument>
-      <code>$argumentName</code>
-      <code>$argumentName</code>
-      <code>$serviceName</code>
-      <code>$serviceName</code>
-      <code><![CDATA[$service['arguments']]]></code>
-      <code><![CDATA[$service['class'] ?? null]]></code>
-      <code><![CDATA[$service['factory']]]></code>
-    </MixedArgument>
-    <MixedArrayAccess>
-      <code>$argumentName[0]</code>
-      <code><![CDATA[$service['arguments']]]></code>
-      <code><![CDATA[$service['arguments']]]></code>
-      <code><![CDATA[$service['class']]]></code>
-      <code><![CDATA[$service['factory']]]></code>
-    </MixedArrayAccess>
-    <MixedAssignment>
-      <code>$argumentName</code>
-      <code>$service</code>
-      <code>$serviceName</code>
-    </MixedAssignment>
   </file>
   <file src="test/classes/AbstractTestCase.php">
     <DeprecatedMethod>

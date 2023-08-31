@@ -178,7 +178,7 @@ final class ReplaceController extends AbstractController
                     ! empty($mimeMap[$columnName])
                     && ! empty($mimeMap[$columnName]['input_transformation'])
                 ) {
-                    $filename = 'libraries/classes/Plugins/Transformations/'
+                    $filename = 'src/Plugins/Transformations/'
                         . $mimeMap[$columnName]['input_transformation'];
                     if (is_file(ROOT_PATH . $filename)) {
                         $className = $this->transformations->getClassName($filename);

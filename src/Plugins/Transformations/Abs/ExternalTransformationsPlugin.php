@@ -41,7 +41,7 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
             . ' data via standard input. Returns the standard output of the'
             . ' application. The default is Tidy, to pretty-print HTML code.'
             . ' For security reasons, you have to manually edit the file'
-            . ' libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php'
+            . ' src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php'
             . ' and list the tools you want to make available.'
             . ' The first option is then the number of the program you want to'
             . ' use. The second option should be blank for historical reasons.'
@@ -124,7 +124,7 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
                     . ' options field, which has been deprecated for security reasons.'
                     . ' Add all command line options directly to the definition in %s.',
                 ),
-                '[code]libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php[/code]',
+                '[code]src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php[/code]',
             ), E_USER_DEPRECATED);
         }
 
