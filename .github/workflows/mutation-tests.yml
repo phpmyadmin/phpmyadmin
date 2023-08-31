@@ -7,12 +7,14 @@ on:
     branches:
       - master
     paths:
-      - '*/classes/**.php'
+      - 'src/**.php'
+      - 'test/classes/**.php'
   pull_request:
     branches:
       - master
     paths:
-      - '*/classes/**.php'
+      - 'src/**.php'
+      - 'test/classes/**.php'
   workflow_dispatch:
   schedule:
     - cron: '0 0 * * *'
