@@ -1,7 +1,7 @@
 {
     "source": {
         "directories": [
-            "libraries\/classes"
+            "src"
         ]
     },
     "logs": {
