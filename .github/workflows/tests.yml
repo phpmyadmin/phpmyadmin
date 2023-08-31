@@ -68,8 +68,8 @@ jobs:
       matrix:
         php-version: ['8.1', '8.2']
         experimental: [false]
-        os: [ubuntu-latest]
-        php-extensions: ['mbstring, iconv, mysqli, zip, gd, bz2']
+        os: [ubuntu-latest, windows-latest]
+        php-extensions: ['mbstring, iconv, mysqli, zip, gd, bz2, sodium']
         include:
           - php-version: '8.3'
             experimental: true
@@ -89,9 +89,11 @@ jobs:
           fetch-depth: 15
 
       - name: Install gettext
+        if: matrix.os == 'ubuntu-latest'
         run: sudo apt-get install -y gettext
 
       - name: Generate mo files
+        if: matrix.os == 'ubuntu-latest'
         run: ./scripts/generate-mo --quiet
 
       - name: Set up PHP ${{ matrix.php-version }}
@@ -108,7 +110,7 @@ jobs:
           composer-options: ${{ matrix.composer-options }}
 
       - name: Run PHP tests
-        run: composer run phpunit -- --testsuite unit --display-deprecations --display-notices --display-warnings --display-errors
+        run: vendor/bin/phpunit --testsuite unit --no-coverage --no-logging --display-deprecations --display-notices --display-warnings --display-errors
 
       - name: Send coverage
         uses: codecov/codecov-action@v3
