@@ -66,12 +66,17 @@ jobs:
     continue-on-error: ${{ matrix.experimental }}
     strategy:
       matrix:
-        php-version: ["8.1", "8.2", "8.3"]
+        php-version: ['8.1', '8.2']
         experimental: [false]
         os: [ubuntu-latest]
         php-extensions: ['mbstring, iconv, mysqli, zip, gd, bz2']
         include:
-          - php-version: 'nightly'
+          - php-version: '8.3'
+            experimental: true
+            os: ubuntu-latest
+            composer-options: '--ignore-platform-req=php+'
+            php-extensions: 'mbstring, iconv, mysqli, zip, bz2'
+          - php-version: '8.4'
             experimental: true
             os: ubuntu-latest
             composer-options: '--ignore-platform-req=php+'
@@ -168,7 +173,7 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           flags: ${{ matrix.extension }}-extension
-          name: php-7.2-${{ matrix.extension }}-enabled
+          name: php-${{ matrix.php-version }}-${{ matrix.extension }}-enabled
 
       - name: Send coverage to Scrutinizer
         uses: sudo-bot/action-scrutinizer@latest
