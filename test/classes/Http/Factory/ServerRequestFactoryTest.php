@@ -151,8 +151,10 @@ final class ServerRequestFactoryTest extends TestCase
         (new ReflectionProperty(UriFactory::class, 'providers'))->setValue(null, [$uriFactoryProvider]);
         $serverRequestFactory = new ServerRequestFactory(new $provider());
 
+        $_GET = [];
         $_GET['foo'] = 'bar';
         $_GET['blob'] = 'baz';
+        $_POST = [];
         $_POST['input1'] = 'value1';
         $_POST['input2'] = 'value2';
         $_POST['input3'] = '';
