@@ -11,6 +11,9 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
+use function array_map;
+use function array_values;
+
 /**
  * Table/Column autocomplete in SQL editors.
  */
@@ -29,7 +32,17 @@ class SqlAutoCompleteController extends AbstractController
             if ($db) {
                 $tableNames = $this->dbi->getTables($db);
                 foreach ($tableNames as $tableName) {
-                    $sqlAutocomplete[$tableName] = $this->dbi->getColumns($db, $tableName);
+                    $sqlAutocomplete[$tableName] = array_map(
+                        static fn (array $field): array => [
+                            'field' => $field['Field'],
+                            'columnHint' => $field['Type'] . match ($field['Key']) {
+                                'PRI' => ' | Primary',
+                                'UNI' => ' | Unique',
+                                default=> ''
+                            },
+                        ],
+                        array_values($this->dbi->getColumns($db, $tableName)),
+                    );
                 }
             }
         }
