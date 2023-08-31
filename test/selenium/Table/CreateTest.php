@@ -18,11 +18,7 @@ class CreateTest extends TestBase
         parent::setUp();
 
         $this->login();
-        $this->waitForElement('partialLinkText', 'Databases')->click();
-        $this->waitAjax();
-
-        // go to specific database page
-        $this->waitForElement('partialLinkText', $this->databaseName)->click();
+        $this->navigateDatabase($this->databaseName);
     }
 
     /**
