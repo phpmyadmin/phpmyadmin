@@ -29,11 +29,13 @@ use function floatval;
 use function htmlspecialchars;
 use function ini_get;
 use function ini_set;
+use function is_readable;
 use function str_repeat;
 use function str_replace;
 use function strlen;
 
 use const LC_ALL;
+use const LOCALE_PATH;
 use const MYSQLI_NUM_FLAG;
 use const MYSQLI_PRI_KEY_FLAG;
 use const MYSQLI_TYPE_BIT;
@@ -947,6 +949,10 @@ class UtilTest extends AbstractTestCase
     #[DataProvider('providerLocalisedDate')]
     public function testLocalisedDate(int $a, string $b, string $e, string $tz, string $locale): void
     {
+        if (! is_readable(LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo')) {
+            $this->markTestSkipped('Missing compiled locales.');
+        }
+
         parent::setLanguage();
 
         // A test case for #15830 could be added for using the php setlocale on a Windows CI
