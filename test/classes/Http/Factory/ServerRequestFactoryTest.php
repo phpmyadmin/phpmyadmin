@@ -20,6 +20,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PHPUnit\Framework\Attributes\BackupStaticProperties;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Medium;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ServerRequestFactoryInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -35,6 +36,7 @@ use Slim\Psr7\Uri;
 use function class_exists;
 
 #[CoversClass(ServerRequestFactory::class)]
+#[Medium]
 final class ServerRequestFactoryTest extends TestCase
 {
     /**

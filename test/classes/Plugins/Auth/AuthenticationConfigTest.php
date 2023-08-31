@@ -12,6 +12,7 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\BackupStaticProperties;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionProperty;
 use Throwable;
 
@@ -19,6 +20,7 @@ use function ob_get_clean;
 use function ob_start;
 
 #[CoversClass(AuthenticationConfig::class)]
+#[Medium]
 class AuthenticationConfigTest extends AbstractTestCase
 {
     protected AuthenticationConfig $object;

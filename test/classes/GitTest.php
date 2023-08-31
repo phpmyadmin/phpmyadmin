@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Git;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 
 use function file_put_contents;
 use function mkdir;
@@ -20,6 +21,7 @@ use const DIRECTORY_SEPARATOR;
 
 #[CoversClass(Git::class)]
 #[Group('git-revision')]
+#[Medium]
 class GitTest extends AbstractTestCase
 {
     protected Git $object;

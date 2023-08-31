@@ -12,6 +12,7 @@ use PhpMyAdmin\Http\Factory\UriFactory;
 use PHPUnit\Framework\Attributes\BackupStaticProperties;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Medium;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\UriFactoryInterface;
 use Psr\Http\Message\UriInterface;
@@ -23,6 +24,7 @@ use Slim\Psr7\Uri;
 use function class_exists;
 
 #[CoversClass(UriFactory::class)]
+#[Medium]
 final class UriFactoryTest extends TestCase
 {
     /**

@@ -16,6 +16,7 @@ use PHPUnit\Framework\Attributes\BackupStaticProperties;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionException;
 use ReflectionMethod;
 use ReflectionProperty;
@@ -36,6 +37,7 @@ use function time;
 use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 
 #[CoversClass(AuthenticationCookie::class)]
+#[Medium]
 class AuthenticationCookieTest extends AbstractTestCase
 {
     protected AuthenticationCookie $object;

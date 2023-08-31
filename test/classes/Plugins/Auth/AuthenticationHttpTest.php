@@ -15,6 +15,7 @@ use PHPUnit\Framework\Attributes\BackupStaticProperties;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use ReflectionProperty;
 use Throwable;
@@ -24,6 +25,7 @@ use function ob_get_clean;
 use function ob_start;
 
 #[CoversClass(AuthenticationHttp::class)]
+#[Medium]
 class AuthenticationHttpTest extends AbstractTestCase
 {
     protected AuthenticationHttp $object;
