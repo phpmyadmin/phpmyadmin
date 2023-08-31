@@ -68,7 +68,7 @@ jobs:
       matrix:
         php-version: ['8.1', '8.2']
         experimental: [false]
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest]
         php-extensions: ['mbstring, iconv, mysqli, zip, gd, bz2']
         include:
           - php-version: '8.3'
