@@ -3719,6 +3719,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Table/Structure/ChangeController.php">
+    <InvalidArgument>
+      <code>$fieldsMeta</code>
+    </InvalidArgument>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['num_fields']]]></code>
     </InvalidArrayOffset>
@@ -11759,10 +11762,8 @@
     <MixedArgument>
       <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']] ?? []]]></code>
       <code><![CDATA[$availableMime[$mimeType . '_file'][$mimekey]]]></code>
-      <code>$columnMeta</code>
       <code><![CDATA[$columnMeta['Default']]]></code>
       <code><![CDATA[$columnMeta['DefaultValue']]]></code>
-      <code><![CDATA[$columnMeta['Field']]]></code>
       <code><![CDATA[$columnMeta['Field']]]></code>
       <code><![CDATA[$columnMeta['Type']]]></code>
       <code><![CDATA[$extractedColumnSpec['attribute'] ?? '']]></code>
@@ -11774,26 +11775,18 @@
     <MixedArrayAccess>
       <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
       <code><![CDATA[$availableMime[$mimeType . '_file'][$mimekey]]]></code>
-      <code><![CDATA[$columnMeta['Extra']]]></code>
-      <code><![CDATA[$columnMeta['Field']]]></code>
-      <code><![CDATA[$columnMeta['Field']]]></code>
-      <code><![CDATA[$columnMeta['column_status']['isEditable']]]></code>
-      <code><![CDATA[$columnMeta['column_status']['isEditable']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
       <code><![CDATA[$availableMime[$mimeType . '_file_quoted'][$mimekey]]]></code>
-      <code><![CDATA[$columnMeta['Expression']]]></code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
       <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
       <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
       <code><![CDATA[$commentsMap[$columnMeta['Field']]]]></code>
-      <code><![CDATA[$expressions[$columnMeta['Field']]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['mime_map']]]></code>
-      <code>$columnMeta</code>
       <code><![CDATA[$columnMeta['Default']]]></code>
       <code><![CDATA[$columnMeta['Default']]]></code>
       <code><![CDATA[$columnMeta['Expression']]]></code>
@@ -11820,6 +11813,7 @@
       <code><![CDATA[$formParams['table']]]></code>
     </PossiblyInvalidCast>
     <PossiblyUndefinedArrayOffset>
+      <code><![CDATA[$columnMeta['Default']]]></code>
       <code><![CDATA[$columnMeta['DefaultValue']]]></code>
     </PossiblyUndefinedArrayOffset>
   </file>

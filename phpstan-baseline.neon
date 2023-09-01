@@ -7076,6 +7076,11 @@ parameters:
 			path: src/Controllers/Table/Structure/ChangeController.php
 
 		-
+			message: "#^Parameter \\#5 \\$fieldsMeta of method PhpMyAdmin\\\\Table\\\\ColumnsDefinition\\:\\:displayForm\\(\\) expects array\\<int, array\\{Field\\: string, Type\\: string, Collation\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\: string, \\.\\.\\.\\}\\>\\|null, array\\<int, array\\{Field\\: string, Type\\: string, Collation\\?\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\?\\: string, \\.\\.\\.\\}\\> given\\.$#"
+			count: 1
+			path: src/Controllers/Table/Structure/ChangeController.php
+
+		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/MoveColumnsController.php
@@ -18771,26 +18776,6 @@ parameters:
 			path: src/Table/ColumnsDefinition.php
 
 		-
-			message: "#^Cannot access offset 'Expression' on mixed\\.$#"
-			count: 1
-			path: src/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Cannot access offset 'Extra' on mixed\\.$#"
-			count: 1
-			path: src/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Cannot access offset 'Field' on mixed\\.$#"
-			count: 2
-			path: src/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Cannot access offset 'isEditable' on mixed\\.$#"
-			count: 2
-			path: src/Table/ColumnsDefinition.php
-
-		-
 			message: "#^Cannot access offset \\(int\\|string\\) on mixed\\.$#"
 			count: 2
 			path: src/Table/ColumnsDefinition.php
@@ -18811,18 +18796,18 @@ parameters:
 			path: src/Table/ColumnsDefinition.php
 
 		-
+			message: "#^Offset 'Default' does not exist on array\\{Field\\: mixed, Type\\: mixed, Collation\\: mixed, Null\\: mixed, DefaultType\\: mixed, DefaultValue\\: mixed, Extra\\: mixed, Virtuality\\: mixed, \\.\\.\\.\\}\\|array\\{Field\\: string, Type\\: string, Collation\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\: string, \\.\\.\\.\\}\\.$#"
+			count: 1
+			path: src/Table/ColumnsDefinition.php
+
+		-
+			message: "#^Offset 'DefaultValue' does not exist on array\\{Field\\: mixed, Type\\: mixed, Collation\\: mixed, Null\\: mixed, DefaultType\\: mixed, DefaultValue\\: mixed, Extra\\: mixed, Virtuality\\: mixed, \\.\\.\\.\\}\\|array\\{Field\\: string, Type\\: string, Collation\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\: string, \\.\\.\\.\\}\\|array\\{Type\\: ''\\}\\.$#"
+			count: 1
+			path: src/Table/ColumnsDefinition.php
+
+		-
 			message: "#^Parameter \\#1 \\$bitDefaultValue of static method PhpMyAdmin\\\\Util\\:\\:convertBitDefaultValue\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 2
-			path: src/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Parameter \\#1 \\$column of method PhpMyAdmin\\\\Table\\:\\:getColumnGenerationExpression\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Parameter \\#1 \\$columnMeta of static method PhpMyAdmin\\\\Table\\\\ColumnsDefinition\\:\\:decorateColumnMetaDefault\\(\\) expects array\\<string, string\\|null\\>, mixed given\\.$#"
-			count: 1
 			path: src/Table/ColumnsDefinition.php
 
 		-
@@ -18882,7 +18867,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\.\\.\\.\\$arrays of function array_merge expects array, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: src/Table/ColumnsDefinition.php
 
 		-
