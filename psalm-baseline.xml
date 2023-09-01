@@ -8982,15 +8982,11 @@
       <code><![CDATA[$GLOBALS['csv_new_line']]]></code>
       <code>$colName</code>
       <code>$columnNames</code>
-      <code><![CDATA[$field['Field']]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$result</code>
       <code>$result</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess>
-      <code><![CDATA[$field['Field']]]></code>
-    </MixedArrayAccess>
     <MixedArrayAssignment>
       <code>$columnNames[$key]</code>
       <code>$columnNames[]</code>
@@ -9004,20 +9000,12 @@
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code>$colName</code>
       <code>$columnNames</code>
-      <code>$field</code>
       <code>$fields[]</code>
       <code>$key</code>
-      <code>$sql</code>
     </MixedAssignment>
     <MixedInferredReturnType>
       <code>mixed[]</code>
     </MixedInferredReturnType>
-    <MixedOperand>
-      <code>$sql</code>
-      <code>$sql</code>
-      <code>$sql</code>
-      <code>$sql</code>
-    </MixedOperand>
     <MixedReturnStatement>
       <code>$columnNames</code>
       <code>$columnNames</code>
