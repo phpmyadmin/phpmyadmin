@@ -1212,24 +1212,15 @@ function codeMirrorAutoCompleteOnInputRead (instance) {
                                     columns: []
                                 };
 
-                                for (var column in columns) {
-                                    if (columns.hasOwnProperty(column)) {
-                                        var displayText = columns[column].Type;
-                                        if (columns[column].Key === 'PRI') {
-                                            displayText += ' | Primary';
-                                        } else if (columns[column].Key === 'UNI') {
-                                            displayText += ' | Unique';
-                                        }
-
-                                        // @ts-ignore
-                                        table.columns.push({
-                                            text: column,
-                                            displayText: column + ' | ' + displayText,
-                                            columnName: column,
-                                            columnHint: displayText,
-                                            render: columnHintRender
-                                        });
-                                    }
+                                for (let column of columns) {
+                                    // @ts-ignore
+                                    table.columns.push({
+                                        text: column.field,
+                                        displayText: column.field + ' | ' + column.columnHint,
+                                        columnName: column.field,
+                                        columnHint: column.columnHint,
+                                        render: columnHintRender
+                                    });
                                 }
                             }
 
