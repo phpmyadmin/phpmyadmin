@@ -241,6 +241,9 @@ class PrivilegesTest extends AbstractTestCase
         $ret = $this->serverPrivileges->rangeOfUsers('INIT');
         $this->assertEquals(" WHERE `User` LIKE 'INIT%' OR `User` LIKE 'init%'", $ret);
 
+        $ret = $this->serverPrivileges->rangeOfUsers('%');
+        $this->assertEquals(' WHERE `User` LIKE \'\\%%\' OR `User` LIKE \'\\%%\'', $ret);
+
         $ret = $this->serverPrivileges->rangeOfUsers();
         $this->assertEquals('', $ret);
     }
@@ -1681,10 +1684,10 @@ class PrivilegesTest extends AbstractTestCase
             ->will($this->returnValue($resultStub));
         $resultStub->expects($this->atLeastOnce())
             ->method('fetchRow')
-            ->will($this->onConsecutiveCalls(['-'], []));
+            ->will($this->onConsecutiveCalls(['-'], ['"'], ['%'], ['\\'], []));
         $this->serverPrivileges->dbi = $dbi;
 
-        $actual = $this->serverPrivileges->getHtmlForInitials(['"' => true]);
+        $actual = $this->serverPrivileges->getHtmlForInitials();
         $this->assertStringContainsString(
             '<a class="page-link" href="#" tabindex="-1" aria-disabled="true">A</a>',
             $actual
@@ -1699,6 +1702,14 @@ class PrivilegesTest extends AbstractTestCase
         );
         $this->assertStringContainsString(
             '<a class="page-link" href="index.php?route=/server/privileges&initial=%22&lang=en">&quot;</a>',
+            $actual
+        );
+        $this->assertStringContainsString(
+            '<a class="page-link" href="index.php?route=/server/privileges&initial=%25&lang=en">%</a>',
+            $actual
+        );
+        $this->assertStringContainsString(
+            '<a class="page-link" href="index.php?route=/server/privileges&initial=%5C&lang=en">\\</a>',
             $actual
         );
         $this->assertStringContainsString('Show all', $actual);
