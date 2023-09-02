@@ -41,6 +41,9 @@
   </file>
   <file src="src/Bookmark.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>escapeString</code>
     </DeprecatedMethod>
     <MixedArgument>
@@ -149,6 +152,9 @@
     </PossiblyUnusedProperty>
   </file>
   <file src="src/Command/CacheWarmupCommand.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <PropertyTypeCoercion>
       <code><![CDATA[$config->settings]]></code>
     </PropertyTypeCoercion>
@@ -295,6 +301,9 @@
     </TypeDoesNotContainType>
   </file>
   <file src="src/Config/ConfigFile.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$_SESSION[$this->id]]]></code>
       <code><![CDATA[$_SESSION[$this->id]]]></code>
@@ -408,6 +417,12 @@
     </UnevaluatedCode>
   </file>
   <file src="src/Config/FormDisplay.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgument>
       <code>$canonicalPath</code>
       <code>$errorList</code>
@@ -546,17 +561,34 @@
       <code><![CDATA[$result['Sql_queries'][]]]></code>
     </MixedArrayAssignment>
   </file>
+  <file src="src/Config/Forms/User/FeaturesForm.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="src/Config/PageSettings.php">
     <ArgumentTypeCoercion>
       <code><![CDATA[$response->getSelfUrl()]]></code>
     </ArgumentTypeCoercion>
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
   </file>
   <file src="src/Config/ServerConfigChecks.php">
     <MixedAssignment>
       <code>$loginCookieValidity</code>
     </MixedAssignment>
   </file>
+  <file src="src/Config/SpecialSchemaLinks.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="src/Config/Validator.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgument>
       <code>$ip</code>
       <code>$password</code>
@@ -646,6 +678,25 @@
     </ReferenceReusedFromConfusingScope>
   </file>
   <file src="src/ConfigStorage/Relation.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArgument>
       <code><![CDATA[usort($tables, 'strnatcasecmp')]]></code>
     </InvalidArgument>
@@ -805,6 +856,8 @@
   </file>
   <file src="src/Console.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
@@ -821,6 +874,11 @@
       <code>readgzfile</code>
     </UnusedFunctionCall>
   </file>
+  <file src="src/Controllers/CheckRelationsController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="src/Controllers/ColumnController.php">
     <PossiblyUnusedMethod>
       <code>__construct</code>
@@ -836,6 +894,11 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
+  <file src="src/Controllers/Console/Bookmark/AddController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="src/Controllers/Console/Bookmark/RefreshController.php">
     <UnusedParam>
       <code>$request</code>
@@ -850,6 +913,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/CentralColumnsController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['num_cols']]]></code>
     </InvalidArrayOffset>
@@ -908,6 +974,9 @@
     </PossiblyUnusedParam>
   </file>
   <file src="src/Controllers/Database/DesignerController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -975,6 +1044,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/EventsController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
@@ -1014,6 +1086,9 @@
     </TypeDoesNotContainType>
   </file>
   <file src="src/Controllers/Database/ExportController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
@@ -1054,6 +1129,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/ImportController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
@@ -1097,6 +1175,9 @@
     </PossiblyUnusedParam>
   </file>
   <file src="src/Controllers/Database/Operations/CollationController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -1120,6 +1201,9 @@
     <ArgumentTypeCoercion>
       <code>$exportSqlPlugin</code>
     </ArgumentTypeCoercion>
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['reload']]]></code>
@@ -1143,7 +1227,15 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
+  <file src="src/Controllers/Database/PrivilegesController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="src/Controllers/Database/RoutinesController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
@@ -1249,6 +1341,9 @@
     </TypeDoesNotContainType>
   </file>
   <file src="src/Controllers/Database/SearchController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -1260,6 +1355,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/SqlAutoCompleteController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgument>
       <code>$db</code>
     </MixedArgument>
@@ -1271,6 +1369,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/SqlController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['back']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
@@ -1459,6 +1560,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/Structure/FavoriteTableController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -1490,6 +1594,9 @@
     </MixedAssignment>
   </file>
   <file src="src/Controllers/Database/Structure/RealRowCountController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -1546,6 +1653,13 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/StructureController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -1643,6 +1757,9 @@
     </MixedOperand>
   </file>
   <file src="src/Controllers/Database/TrackingController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -1674,6 +1791,9 @@
     </UnusedParam>
   </file>
   <file src="src/Controllers/ErrorReportController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArrayAccess>
       <code><![CDATA[$decodedResponse['success']]]></code>
     </MixedArrayAccess>
@@ -1700,6 +1820,9 @@
       <code>$exportPlugin</code>
       <code>$exportPlugin</code>
     </ArgumentTypeCoercion>
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
@@ -1928,6 +2051,26 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
+  <file src="src/Controllers/Export/Template/CreateController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="src/Controllers/Export/Template/DeleteController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="src/Controllers/Export/Template/LoadController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="src/Controllers/Export/Template/UpdateController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="src/Controllers/GitInfoController.php">
     <MixedArgument>
       <code><![CDATA[$this->config->get('ShowGitRevision') ?? true]]></code>
@@ -1937,6 +2080,11 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/HomeController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['language_stats']]]></code>
@@ -1969,6 +2117,9 @@
     </UnusedVariable>
   </file>
   <file src="src/Controllers/Import/ImportController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <DocblockTypeContradiction>
       <code>$importPlugin == null</code>
     </DocblockTypeContradiction>
@@ -2272,11 +2423,17 @@
     </MixedAssignment>
   </file>
   <file src="src/Controllers/PhpInfoController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <PossiblyUnusedParam>
       <code>$request</code>
     </PossiblyUnusedParam>
   </file>
   <file src="src/Controllers/Preferences/ExportController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['cf']]]></code>
       <code><![CDATA[$GLOBALS['hash']]]></code>
@@ -2296,6 +2453,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Preferences/FeaturesController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['cf']]]></code>
       <code><![CDATA[$GLOBALS['hash']]]></code>
@@ -2315,6 +2475,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Preferences/ImportController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['cf']]]></code>
       <code><![CDATA[$GLOBALS['hash']]]></code>
@@ -2334,6 +2497,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Preferences/MainPanelController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['cf']]]></code>
       <code><![CDATA[$GLOBALS['hash']]]></code>
@@ -2353,6 +2519,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Preferences/ManageController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['cf']]]></code>
       <code><![CDATA[$GLOBALS['query']]]></code>
@@ -2406,6 +2575,9 @@
     </RedundantCondition>
   </file>
   <file src="src/Controllers/Preferences/NavigationController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['cf']]]></code>
       <code><![CDATA[$GLOBALS['hash']]]></code>
@@ -2425,6 +2597,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Preferences/SqlController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['cf']]]></code>
       <code><![CDATA[$GLOBALS['hash']]]></code>
@@ -2444,6 +2619,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Preferences/TwoFactorController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$request->getParsedBodyParam('2fa_configure')]]></code>
     </MixedArgument>
@@ -2452,6 +2630,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Server/BinlogController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgument>
       <code>$log</code>
       <code><![CDATA[$log ?? '']]></code>
@@ -2462,16 +2643,25 @@
     </MixedAssignment>
   </file>
   <file src="src/Controllers/Server/CollationsController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <PossiblyUnusedParam>
       <code>$request</code>
     </PossiblyUnusedParam>
   </file>
   <file src="src/Controllers/Server/Databases/CreateController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedAssignment>
       <code>$dbCollation</code>
     </MixedAssignment>
   </file>
   <file src="src/Controllers/Server/Databases/DestroyController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['reload']]]></code>
@@ -2488,6 +2678,10 @@
     </MixedAssignment>
   </file>
   <file src="src/Controllers/Server/DatabasesController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['db_to_create']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
@@ -2581,6 +2775,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Server/ImportController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
@@ -2917,10 +3114,18 @@
     </MixedAssignment>
   </file>
   <file src="src/Controllers/Setup/HomeController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgumentTypeCoercion>
       <code>$id</code>
       <code>$id</code>
     </MixedArgumentTypeCoercion>
+  </file>
+  <file src="src/Controllers/Setup/MainController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
   </file>
   <file src="src/Controllers/Sql/ColumnPreferencesController.php">
     <MixedAssignment>
@@ -2986,6 +3191,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Sql/SqlController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['ajax_reload']]]></code>
       <code><![CDATA[$GLOBALS['back']]]></code>
@@ -3072,6 +3280,9 @@
     </PossiblyInvalidCast>
   </file>
   <file src="src/Controllers/Table/ChangeController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['current_result']]]></code>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
@@ -3126,6 +3337,10 @@
     </MixedAssignment>
   </file>
   <file src="src/Controllers/Table/ChartController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArgument>
       <code><![CDATA[$_REQUEST['pos']]]></code>
       <code><![CDATA[$_REQUEST['session_max_rows']]]></code>
@@ -3182,6 +3397,9 @@
     </PossiblyUnusedParam>
   </file>
   <file src="src/Controllers/Table/DeleteConfirmController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -3238,6 +3456,9 @@
     </UnusedParam>
   </file>
   <file src="src/Controllers/Table/ExportController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['num_tables']]]></code>
@@ -3282,6 +3503,10 @@
     </MixedAssignment>
   </file>
   <file src="src/Controllers/Table/FindReplaceController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -3338,6 +3563,11 @@
     </PossiblyNullArgument>
   </file>
   <file src="src/Controllers/Table/GisVisualizationController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
@@ -3354,6 +3584,9 @@
     </RiskyCast>
   </file>
   <file src="src/Controllers/Table/ImportController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
@@ -3375,6 +3608,9 @@
     </MixedMethodCall>
   </file>
   <file src="src/Controllers/Table/IndexRenameController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -3387,6 +3623,10 @@
     </MixedAssignment>
   </file>
   <file src="src/Controllers/Table/IndexesController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -3410,6 +3650,9 @@
     </PossiblyInvalidOperand>
   </file>
   <file src="src/Controllers/Table/OperationsController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['auto_increment']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
@@ -3472,7 +3715,17 @@
       <code>$query</code>
     </MixedArgument>
   </file>
+  <file src="src/Controllers/Table/PrivilegesController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="src/Controllers/Table/RelationController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArgument>
       <code><![CDATA[usort($tables, 'strnatcasecmp')]]></code>
     </InvalidArgument>
@@ -3525,6 +3778,9 @@
     </PossiblyInvalidCast>
   </file>
   <file src="src/Controllers/Table/ReplaceController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArgument>
       <code>$insertErrors</code>
     </InvalidArgument>
@@ -3631,6 +3887,11 @@
     </PropertyTypeCoercion>
   </file>
   <file src="src/Controllers/Table/SearchController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$foreignData['foreign_field']]]></code>
     </MixedArgument>
@@ -3658,6 +3919,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Table/SqlController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['back']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
@@ -3794,6 +4058,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Table/Structure/PrimaryController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -3805,6 +4072,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Table/Structure/ReservedWordCheckController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgument>
       <code>$column</code>
     </MixedArgument>
@@ -3814,6 +4084,9 @@
     </MixedAssignment>
   </file>
   <file src="src/Controllers/Table/Structure/SaveController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArgument>
       <code>$adjustPrivileges</code>
     </InvalidArgument>
@@ -3897,6 +4170,11 @@
     </PossiblyInvalidOperand>
   </file>
   <file src="src/Controllers/Table/StructureController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['reread_info']]]></code>
@@ -3992,6 +4270,9 @@
     </PossiblyNullOperand>
   </file>
   <file src="src/Controllers/Table/TrackingController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
@@ -4014,6 +4295,12 @@
     </PossiblyNullArgument>
   </file>
   <file src="src/Controllers/Table/ZoomSearchController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$row[$_POST['criteriaColumnNames'][0]]]]></code>
@@ -4058,6 +4345,11 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
+  <file src="src/Controllers/ThemeSetController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="src/Controllers/ThemesController.php">
     <PossiblyUnusedMethod>
       <code>__construct</code>
@@ -4089,6 +4381,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Triggers/IndexController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
@@ -4120,6 +4415,9 @@
     </TypeDoesNotContainType>
   </file>
   <file src="src/Controllers/UserPasswordController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['change_password_message']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
@@ -4159,6 +4457,9 @@
     </PossiblyUnusedParam>
   </file>
   <file src="src/Controllers/View/CreateController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <DocblockTypeContradiction>
       <code><![CDATA[$viewData['as']]]></code>
     </DocblockTypeContradiction>
@@ -4198,6 +4499,9 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Controllers/View/OperationsController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['reload']]]></code>
@@ -4214,6 +4518,12 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Core.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidOperand>
       <code>$matches[1]</code>
     </InvalidOperand>
@@ -4413,12 +4723,18 @@
     </PossiblyUndefinedArrayOffset>
   </file>
   <file src="src/Crypto/Crypto.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedAssignment>
       <code>$key</code>
       <code>$key</code>
     </MixedAssignment>
   </file>
   <file src="src/Database/CentralColumns.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgument>
       <code>$centralListTable</code>
       <code>$centralListTable</code>
@@ -4577,6 +4893,7 @@
   </file>
   <file src="src/Database/Designer.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>escapeString</code>
       <code>escapeString</code>
     </DeprecatedMethod>
@@ -4666,6 +4983,7 @@
   </file>
   <file src="src/Database/Designer/Common.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>escapeString</code>
       <code>escapeString</code>
       <code>escapeString</code>
@@ -4782,6 +5100,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Database/Events.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
@@ -4861,6 +5182,9 @@
   </file>
   <file src="src/Database/Routines.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>escapeString</code>
       <code>escapeString</code>
       <code>escapeString</code>
@@ -5108,6 +5432,15 @@
   </file>
   <file src="src/DatabaseInterface.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>escapeString</code>
       <code>escapeString</code>
       <code>escapeString</code>
@@ -5266,6 +5599,9 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Dbal/DbiMysqli.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <PossiblyNullArgument>
       <code>$errorMessage</code>
     </PossiblyNullArgument>
@@ -5292,6 +5628,25 @@
     </MixedReturnTypeCoercion>
   </file>
   <file src="src/Display/Results.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArgument>
       <code>$added[$orgFullTableName]</code>
       <code>$multiOrderUrlParams</code>
@@ -5616,6 +5971,12 @@
     </UnusedParam>
   </file>
   <file src="src/Encoding.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgument>
       <code>self::$enginemap[$engine][0]</code>
       <code>self::$enginemap[$engine][0]</code>
@@ -5733,6 +6094,14 @@
     </MixedReturnStatement>
   </file>
   <file src="src/ErrorHandler.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$_SESSION['errors']]]></code>
     </MixedArgument>
@@ -5794,6 +6163,11 @@
     </PossiblyUndefinedArrayOffset>
   </file>
   <file src="src/Export/Export.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
       <code><![CDATA[$GLOBALS['sql_create_table']]]></code>
@@ -5878,6 +6252,9 @@
   </file>
   <file src="src/Export/Options.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
@@ -5911,6 +6288,11 @@
     </MixedArgument>
   </file>
   <file src="src/File.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <FalsableReturnStatement>
       <code><![CDATA[$this->detectCompression()]]></code>
     </FalsableReturnStatement>
@@ -5964,6 +6346,11 @@
       <code>bool</code>
     </PossiblyUnusedReturnValue>
   </file>
+  <file src="src/FileListing.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="src/FlashMessages.php">
     <MixedArrayAssignment>
       <code><![CDATA[$this->storage[self::STORAGE_KEY][$key]]]></code>
@@ -6000,6 +6387,9 @@
   </file>
   <file src="src/Footer.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
@@ -6330,6 +6720,7 @@
   </file>
   <file src="src/Gis/GisVisualization.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
@@ -6397,6 +6788,13 @@
   </file>
   <file src="src/Header.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -6420,6 +6818,14 @@
   </file>
   <file src="src/Html/Generator.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -6507,6 +6913,10 @@
       <code>$sqlDelimiter</code>
     </ArgumentTypeCoercion>
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -6756,6 +7166,24 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/InsertEdit.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArgument>
       <code>$urlParams</code>
     </InvalidArgument>
@@ -6891,6 +7319,9 @@
     </PropertyTypeCoercion>
   </file>
   <file src="src/IpAllowDeny.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidOperand>
       <code>$regs[5]</code>
     </InvalidOperand>
@@ -6903,6 +7334,10 @@
     </PossiblyUndefinedArrayOffset>
   </file>
   <file src="src/LanguageManager.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$config->get('Lang')]]></code>
       <code><![CDATA[$config->getCookie('pma_lang')]]></code>
@@ -6955,6 +7390,9 @@
   </file>
   <file src="src/ListDatabase.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
@@ -6969,6 +7407,10 @@
     </MixedAssignment>
   </file>
   <file src="src/Menu.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <DeprecatedProperty>
       <code>Routing::$route</code>
       <code>Routing::$route</code>
@@ -7003,6 +7445,7 @@
   </file>
   <file src="src/Middleware/Authentication.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
@@ -7046,6 +7489,12 @@
     </DeprecatedMethod>
   </file>
   <file src="src/Navigation/Navigation.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['theme']]]></code>
     </InvalidArrayOffset>
@@ -7061,6 +7510,21 @@
     <ArgumentTypeCoercion>
       <code>$table</code>
     </ArgumentTypeCoercion>
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$this->pos2Name]]></code>
       <code><![CDATA[$this->pos2Name]]></code>
@@ -7175,6 +7639,17 @@
   </file>
   <file src="src/Navigation/Nodes/Node.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -7253,6 +7728,14 @@
   </file>
   <file src="src/Navigation/Nodes/NodeDatabase.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -7284,13 +7767,22 @@
       <code><![CDATA[$this->realParent()->realName]]></code>
     </PossiblyInvalidPropertyFetch>
   </file>
+  <file src="src/Navigation/Nodes/NodeDatabaseChildContainer.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="src/Navigation/Nodes/NodeDatabaseContainer.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
   <file src="src/Navigation/Nodes/NodeTable.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>escapeString</code>
@@ -7316,6 +7808,9 @@
     </PossiblyUnusedProperty>
   </file>
   <file src="src/Normalization.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidReturnStatement>
       <code><![CDATA[[
             'legendText' => __('End of step'),
@@ -7708,6 +8203,10 @@
     </ParamNameMismatch>
   </file>
   <file src="src/Plugins.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
@@ -7788,6 +8287,8 @@
   </file>
   <file src="src/Plugins/Auth/AuthenticationConfig.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
@@ -7795,6 +8296,16 @@
     </InvalidArrayOffset>
   </file>
   <file src="src/Plugins/Auth/AuthenticationCookie.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <DeprecatedProperty>
       <code>Routing::$route</code>
       <code>Routing::$route</code>
@@ -7848,6 +8359,7 @@
   </file>
   <file src="src/Plugins/Auth/AuthenticationHttp.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
@@ -7869,6 +8381,13 @@
     </PossiblyInvalidCast>
   </file>
   <file src="src/Plugins/Auth/AuthenticationSignon.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgument>
       <code>$singleSignonCfgUpdate</code>
     </MixedArgument>
@@ -7898,6 +8417,12 @@
       <code>$redirectUrl</code>
     </ArgumentTypeCoercion>
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <MixedArrayAssignment>
@@ -7908,6 +8433,9 @@
     </PossiblyInvalidCast>
   </file>
   <file src="src/Plugins/AuthenticationPluginFactory.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <UnsafeInstantiation>
       <code>new $class()</code>
     </UnsafeInstantiation>
@@ -8072,6 +8600,7 @@
   </file>
   <file src="src/Plugins/Export/ExportLatex.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -8307,6 +8836,10 @@
   </file>
   <file src="src/Plugins/Export/ExportSql.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -8557,6 +9090,7 @@
   </file>
   <file src="src/Plugins/Export/ExportXml.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -9055,6 +9589,8 @@
   </file>
   <file src="src/Plugins/Import/ImportLdi.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
@@ -10156,7 +10692,15 @@
       <code><![CDATA[$_POST['t_y'][$key]]]></code>
     </RiskyCast>
   </file>
+  <file src="src/Plugins/SchemaPlugin.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="src/Plugins/Transformations/Abs/Bool2TextTransformationsPlugin.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedInferredReturnType>
       <code>string</code>
     </MixedInferredReturnType>
@@ -10166,6 +10710,9 @@
     </MixedReturnStatement>
   </file>
   <file src="src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidOperand>
       <code>$timestamp</code>
     </InvalidOperand>
@@ -10210,6 +10757,9 @@
     </PossiblyNullIterator>
   </file>
   <file src="src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArrayAccess>
       <code>$allowedPrograms[$options[0]]</code>
       <code>$allowedPrograms[0]</code>
@@ -10227,6 +10777,11 @@
       <code>$program</code>
     </MixedOperand>
   </file>
+  <file src="src/Plugins/Transformations/Abs/HexTransformationsPlugin.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="src/Plugins/Transformations/Abs/ImageLinkTransformationsPlugin.php">
     <MixedArgument>
       <code><![CDATA[$options['wrapper_params']]]></code>
@@ -10238,6 +10793,9 @@
     </MixedArgument>
   </file>
   <file src="src/Plugins/Transformations/Abs/InlineTransformationsPlugin.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$options['wrapper_params']]]></code>
       <code><![CDATA[$options['wrapper_params']]]></code>
@@ -10245,6 +10803,9 @@
     </MixedArgument>
   </file>
   <file src="src/Plugins/Transformations/Abs/PreApPendTransformationsPlugin.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgument>
       <code>$options[0]</code>
       <code>$options[1]</code>
@@ -10256,17 +10817,26 @@
     </MixedArgument>
   </file>
   <file src="src/Plugins/Transformations/Abs/SubstringTransformationsPlugin.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedOperand>
       <code>$options[2]</code>
       <code>$options[2]</code>
     </MixedOperand>
   </file>
   <file src="src/Plugins/Transformations/Abs/TextImageLinkTransformationsPlugin.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedOperand>
       <code>$options[0]</code>
     </MixedOperand>
   </file>
   <file src="src/Plugins/Transformations/Abs/TextLinkTransformationsPlugin.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgument>
       <code>$options[1] ?? $buffer</code>
       <code><![CDATA[$options[1] ?? '']]></code>
@@ -10281,16 +10851,25 @@
     </UnusedClass>
   </file>
   <file src="src/Plugins/Transformations/Input/Text_Plain_JsonEditor.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <UnusedClass>
       <code>Text_Plain_JsonEditor</code>
     </UnusedClass>
   </file>
   <file src="src/Plugins/Transformations/Input/Text_Plain_SqlEditor.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <UnusedClass>
       <code>Text_Plain_SqlEditor</code>
     </UnusedClass>
   </file>
   <file src="src/Plugins/Transformations/Input/Text_Plain_XmlEditor.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <UnusedClass>
       <code>Text_Plain_XmlEditor</code>
     </UnusedClass>
@@ -10312,11 +10891,22 @@
     </UnusedClass>
   </file>
   <file src="src/Plugins/Transformations/Output/Text_Plain_Json.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
+  <file src="src/Plugins/Transformations/Output/Text_Plain_Sql.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="src/Plugins/Transformations/Output/Text_Plain_Xml.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <UnusedClass>
       <code>Text_Plain_Xml</code>
     </UnusedClass>
@@ -10353,6 +10943,10 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Plugins/TwoFactor/Key.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArgument>
       <code><![CDATA[$this->getRegistrations()]]></code>
       <code><![CDATA[$this->getRegistrations()]]></code>
@@ -10395,6 +10989,9 @@
     </UnusedClass>
   </file>
   <file src="src/Plugins/TwoFactorPlugin.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgument>
       <code>$url</code>
     </MixedArgument>
@@ -10487,12 +11084,18 @@
     </UnusedForeachValue>
   </file>
   <file src="src/Query/Utilities.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['debug']['queries']]]></code>
     </MixedArrayAssignment>
   </file>
   <file src="src/RecentFavoriteTable.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -10580,6 +11183,7 @@
   </file>
   <file src="src/Replication/ReplicationGui.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -10655,6 +11259,8 @@
   </file>
   <file src="src/ResponseRenderer.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
@@ -10680,11 +11286,17 @@
     </TypeDoesNotContainType>
   </file>
   <file src="src/Routing/Routing.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArrayAccess>
       <code><![CDATA[$dispatchData[0]['GET']['/']]]></code>
     </MixedArrayAccess>
   </file>
   <file src="src/Sanitize.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgument>
       <code>$found[1]</code>
       <code>$found[1]</code>
@@ -10732,6 +11344,9 @@
     </MixedArgument>
   </file>
   <file src="src/Server/Plugins.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <PossiblyNullArgument>
       <code><![CDATA[$row['PLUGIN_DESCRIPTION']]]></code>
     </PossiblyNullArgument>
@@ -10740,6 +11355,9 @@
     </PossiblyNullArrayOffset>
   </file>
   <file src="src/Server/Privileges.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['Grant_priv']]]></code>
       <code><![CDATA[$GLOBALS['Grant_priv']]]></code>
@@ -11009,6 +11627,9 @@
     </RiskyCast>
   </file>
   <file src="src/Server/Select.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <RedundantCast>
       <code><![CDATA[(int) $GLOBALS['server']]]></code>
     </RedundantCast>
@@ -11280,6 +11901,14 @@
   </file>
   <file src="src/Sql.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>escapeString</code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
@@ -11392,6 +12021,10 @@
     </UndefinedPropertyFetch>
   </file>
   <file src="src/SqlQueryForm.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <PossiblyInvalidArgument>
       <code>$query</code>
     </PossiblyInvalidArgument>
@@ -11485,6 +12118,11 @@
   </file>
   <file src="src/Table.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -11753,6 +12391,9 @@
     </UnusedVariable>
   </file>
   <file src="src/Table/ColumnsDefinition.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['mime_map']]]></code>
     </InvalidArrayOffset>
@@ -11899,6 +12540,12 @@
       <code>$geomFunc</code>
     </PossiblyNullOperand>
   </file>
+  <file src="src/Template.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="src/Theme/Theme.php">
     <MixedArgument>
       <code><![CDATA[$data['name']]]></code>
@@ -11912,6 +12559,12 @@
     </UnevaluatedCode>
   </file>
   <file src="src/Theme/ThemeManager.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedInferredReturnType>
       <code>string|false</code>
       <code>string|false</code>
@@ -11941,6 +12594,10 @@
   </file>
   <file src="src/Tracking/Tracker.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -12019,6 +12676,9 @@
     </PossiblyNullPropertyFetch>
   </file>
   <file src="src/Tracking/Tracking.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgument>
       <code>$columns</code>
       <code>$ddlogCount</code>
@@ -12125,6 +12785,9 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Triggers/Triggers.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
@@ -12183,6 +12846,7 @@
   </file>
   <file src="src/TwoFactor.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <MixedArgument>
@@ -12198,6 +12862,11 @@
     </UnsafeInstantiation>
   </file>
   <file src="src/Url.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgumentTypeCoercion>
       <code>$additionalParameters</code>
       <code>$name</code>
@@ -12247,6 +12916,12 @@
     </PossiblyInvalidCast>
   </file>
   <file src="src/UserPreferences.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgumentTypeCoercion>
       <code>$path</code>
       <code>$urlParams</code>
@@ -12270,6 +12945,14 @@
       <code>$separator</code>
     </ArgumentTypeCoercion>
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -12384,6 +13067,7 @@
   </file>
   <file src="src/Utils/ForeignKey.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -12415,6 +13099,10 @@
     </PossiblyNullOperand>
   </file>
   <file src="src/Utils/HttpRequest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgument>
       <code>$httpStatus</code>
     </MixedArgument>
@@ -12430,6 +13118,9 @@
     </MixedReturnStatement>
   </file>
   <file src="src/Utils/SessionCache.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['cache'][self::key()]]]></code>
       <code><![CDATA[$_SESSION['cache'][self::key()]]]></code>
@@ -12450,6 +13141,8 @@
   </file>
   <file src="src/VersionInformation.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <LessSpecificReturnStatement>
@@ -12543,6 +13236,7 @@
   </file>
   <file src="test/classes/AbstractTestCase.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <PossiblyUndefinedArrayOffset>
@@ -12569,6 +13263,9 @@
   </file>
   <file src="test/classes/BookmarkTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -12594,6 +13291,7 @@
   </file>
   <file src="test/classes/CheckUserPrivilegesTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <RedundantConditionGivenDocblockType>
@@ -12615,6 +13313,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Command/TwigLintCommandTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgument>
       <code>$filesFound</code>
       <code>$filesInfos</code>
@@ -12667,6 +13368,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Config/FormDisplayTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArrayAccess>
       <code><![CDATA[$forms['pma_testform']]]></code>
       <code><![CDATA[$opts['comment']]]></code>
@@ -12684,6 +13388,9 @@
     </MixedAssignment>
   </file>
   <file src="test/classes/Config/Forms/FormListTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidReturnStatement>
       <code>[
             [User\UserFormList::class, User\ExportForm::class],
@@ -12700,12 +13407,16 @@
   </file>
   <file src="test/classes/Config/PageSettingsTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
   <file src="test/classes/Config/ServerConfigChecksTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$_SESSION['messages']['error']]]></code>
       <code><![CDATA[$_SESSION['messages']['notice']]]></code>
@@ -12901,6 +13612,23 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/ConfigStorage/RelationTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <DocblockTypeContradiction>
       <code>assertSame</code>
     </DocblockTypeContradiction>
@@ -13038,6 +13766,9 @@
     </TypeDoesNotContainType>
   </file>
   <file src="test/classes/ConfigTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArgument>
       <code>$v</code>
     </InvalidArgument>
@@ -13069,9 +13800,33 @@
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
+  <file src="test/classes/Controllers/BrowseForeignersControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="test/classes/Controllers/Console/Bookmark/AddControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="test/classes/Controllers/Database/EventsControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="test/classes/Controllers/Database/PrivilegesControllerTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="test/classes/Controllers/Database/RoutinesControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
   <file src="test/classes/Controllers/Database/Structure/FavoriteTableControllerTest.php">
@@ -13085,8 +13840,16 @@
       <code>$json</code>
     </MixedAssignment>
   </file>
+  <file src="test/classes/Controllers/Database/Structure/RealRowCountControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="test/classes/Controllers/Database/StructureControllerTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -13140,12 +13903,46 @@
       <code>[$currentTable]</code>
     </MixedAssignment>
   </file>
+  <file src="test/classes/Controllers/Export/ExportControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="test/classes/Controllers/Export/Template/CreateControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="test/classes/Controllers/Export/Template/DeleteControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="test/classes/Controllers/Export/Template/LoadControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="test/classes/Controllers/Export/Template/UpdateControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="test/classes/Controllers/GisDataEditorControllerTest.php">
     <PossiblyUnusedMethod>
       <code>providerForTestValidateGisData</code>
     </PossiblyUnusedMethod>
   </file>
+  <file src="test/classes/Controllers/Import/ImportControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="test/classes/Controllers/NavigationControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgument>
       <code>$responseMessage</code>
       <code>$responseMessage</code>
@@ -13155,6 +13952,16 @@
       <code>$responseMessage</code>
     </MixedAssignment>
   </file>
+  <file src="test/classes/Controllers/Normalization/AddNewPrimaryControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="test/classes/Controllers/Normalization/CreateNewColumnControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="test/classes/Controllers/Normalization/FirstNormalForm/FirstStepControllerTest.php">
     <PossiblyUnusedMethod>
       <code>providerForTestDefault</code>
@@ -13162,6 +13969,7 @@
   </file>
   <file src="test/classes/Controllers/Server/BinlogControllerTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <InvalidPropertyAssignmentValue>
@@ -13170,10 +13978,14 @@
   </file>
   <file src="test/classes/Controllers/Server/CollationsControllerTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
   <file src="test/classes/Controllers/Server/Databases/CreateControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$actual['message']]]></code>
       <code><![CDATA[$actual['message']]]></code>
@@ -13181,6 +13993,9 @@
     </MixedArgument>
   </file>
   <file src="test/classes/Controllers/Server/Databases/DestroyControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$actual['message']]]></code>
       <code><![CDATA[$actual['message']]]></code>
@@ -13188,27 +14003,43 @@
   </file>
   <file src="test/classes/Controllers/Server/DatabasesControllerTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
   <file src="test/classes/Controllers/Server/EnginesControllerTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="test/classes/Controllers/Server/PluginsControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="test/classes/Controllers/Server/PrivilegesControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
   <file src="test/classes/Controllers/Server/ShowEngineControllerTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
   <file src="test/classes/Controllers/Server/Status/AdvisorControllerTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
   <file src="test/classes/Controllers/Server/Status/Monitor/GeneralLogControllerTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <MixedArrayAccess>
@@ -13219,10 +14050,14 @@
   </file>
   <file src="test/classes/Controllers/Server/Status/Monitor/LogVarsControllerTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
   <file src="test/classes/Controllers/Server/Status/Monitor/QueryAnalyzerControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArrayAccess>
       <code><![CDATA[$ret['message']['affectedRows']]]></code>
       <code><![CDATA[$ret['message']['explain']]]></code>
@@ -13231,6 +14066,7 @@
   </file>
   <file src="test/classes/Controllers/Server/Status/Monitor/SlowLogControllerTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <MixedArrayAccess>
@@ -13241,22 +14077,27 @@
   </file>
   <file src="test/classes/Controllers/Server/Status/MonitorControllerTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
   <file src="test/classes/Controllers/Server/Status/Processes/RefreshControllerTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
   <file src="test/classes/Controllers/Server/Status/ProcessesControllerTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
   <file src="test/classes/Controllers/Server/Status/QueriesControllerTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <MixedArgument>
@@ -13274,6 +14115,8 @@
   </file>
   <file src="test/classes/Controllers/Server/Status/StatusControllerTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -13281,11 +14124,13 @@
   </file>
   <file src="test/classes/Controllers/Server/Status/VariablesControllerTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
   <file src="test/classes/Controllers/Server/VariablesControllerTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -13317,16 +14162,47 @@
       <code>[$formattedValue, $isHtmlFormatted]</code>
     </MixedAssignment>
   </file>
+  <file src="test/classes/Controllers/Table/AddFieldControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="test/classes/Controllers/Table/CreateControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="test/classes/Controllers/Table/DeleteRowsControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="test/classes/Controllers/Table/DropColumnConfirmationControllerTest.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
+  <file src="test/classes/Controllers/Table/ExportControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="test/classes/Controllers/Table/FindReplaceControllerTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="test/classes/Controllers/Table/ImportControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="test/classes/Controllers/Table/IndexesControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
   <file src="test/classes/Controllers/Table/Maintenance/AnalyzeControllerTest.php">
@@ -13355,6 +14231,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Controllers/Table/OperationsControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$config->settings]]></code>
     </InvalidPropertyAssignmentValue>
@@ -13396,11 +14275,13 @@
   </file>
   <file src="test/classes/Controllers/Table/PrivilegesControllerTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
   <file src="test/classes/Controllers/Table/RelationControllerTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -13423,8 +14304,15 @@
       <code>expects</code>
     </UndefinedMethod>
   </file>
+  <file src="test/classes/Controllers/Table/ReplaceControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="test/classes/Controllers/Table/SearchControllerTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <MixedMethodCall>
@@ -13435,6 +14323,16 @@
     <UndefinedMethod>
       <code>expects</code>
     </UndefinedMethod>
+  </file>
+  <file src="test/classes/Controllers/Table/SqlControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="test/classes/Controllers/Table/Structure/ChangeControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
   </file>
   <file src="test/classes/Controllers/Table/Structure/SpatialControllerTest.php">
     <DeprecatedMethod>
@@ -13452,12 +14350,35 @@
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
+  <file src="test/classes/Controllers/Table/StructureControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="test/classes/Controllers/Table/TrackingControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="test/classes/Controllers/Table/ZoomSearchControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="test/classes/Controllers/ThemeSetControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <PossiblyUnusedMethod>
       <code>providerForTestWithoutTheme</code>
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Controllers/Triggers/IndexControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedAssignment>
       <code>$output</code>
     </MixedAssignment>
@@ -13473,6 +14394,14 @@
     </UndefinedInterfaceMethod>
   </file>
   <file src="test/classes/CoreTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$arr['arr']]]></code>
       <code><![CDATA[$arr['arr']]]></code>
@@ -13534,6 +14463,12 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Crypto/CryptoTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <EmptyArrayAccess>
       <code><![CDATA[$_SESSION['URLQueryEncryptionSecretKey']]]></code>
     </EmptyArrayAccess>
@@ -13543,6 +14478,7 @@
   </file>
   <file src="test/classes/Database/CentralColumnsTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -13620,6 +14556,10 @@
   </file>
   <file src="test/classes/Database/Designer/CommonTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -13631,6 +14571,7 @@
   </file>
   <file src="test/classes/Database/DesignerTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -13642,6 +14583,7 @@
   </file>
   <file src="test/classes/Database/EventsTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <PossiblyUnusedMethod>
@@ -13651,6 +14593,8 @@
   </file>
   <file src="test/classes/Database/RoutinesTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
@@ -13674,6 +14618,14 @@
   </file>
   <file src="test/classes/DatabaseInterfaceTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
@@ -13688,6 +14640,7 @@
   </file>
   <file src="test/classes/Dbal/DbiDummyTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>escapeString</code>
       <code>escapeString</code>
     </DeprecatedMethod>
@@ -13702,6 +14655,16 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Display/ResultsTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <DocblockTypeContradiction>
       <code>assertSame</code>
     </DocblockTypeContradiction>
@@ -13770,12 +14733,25 @@
       <code><![CDATA[Config::getInstance()->settings]]></code>
     </PropertyTypeCoercion>
   </file>
+  <file src="test/classes/EncodingTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="test/classes/Engines/PbxtTest.php">
     <PossiblyUnusedMethod>
       <code>providerFortTestResolveTypeSize</code>
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/ErrorHandlerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidScalarArgument>
       <code>$_SESSION</code>
     </InvalidScalarArgument>
@@ -13787,6 +14763,12 @@
     </RedundantCondition>
   </file>
   <file src="test/classes/ErrorReportTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$_SERVER['HTTP_USER_AGENT']]]></code>
       <code><![CDATA[$_SERVER['HTTP_USER_AGENT']]]></code>
@@ -13804,11 +14786,14 @@
   </file>
   <file src="test/classes/Export/ExportTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
   <file src="test/classes/Export/OptionsTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <InvalidPropertyAssignmentValue>
@@ -13817,6 +14802,13 @@
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
     </InvalidPropertyAssignmentValue>
+  </file>
+  <file src="test/classes/FileListingTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
   </file>
   <file src="test/classes/FileTest.php">
     <PossiblyUnusedMethod>
@@ -13837,6 +14829,10 @@
     </MixedArrayAccess>
   </file>
   <file src="test/classes/FooterTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['debug']['queries']]]></code>
     </MixedArrayAssignment>
@@ -13974,6 +14970,10 @@
     </MixedAssignment>
   </file>
   <file src="test/classes/HeaderTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <PossiblyUnusedMethod>
       <code>providerForTestGetHttpHeaders</code>
     </PossiblyUnusedMethod>
@@ -13989,6 +14989,21 @@
     </RedundantCast>
   </file>
   <file src="test/classes/Html/GeneratorTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[[
             'ssl' => true,
@@ -14013,6 +15028,11 @@
     <PropertyTypeCoercion>
       <code><![CDATA[$config->settings]]></code>
     </PropertyTypeCoercion>
+  </file>
+  <file src="test/classes/Html/MySQLDocumentationTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
   </file>
   <file src="test/classes/Http/Factory/ResponseFactoryTest.php">
     <PossiblyUnusedMethod>
@@ -14063,6 +15083,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Import/ImportTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <DocblockTypeContradiction>
       <code>assertSame</code>
       <code>assertSame</code>
@@ -14106,6 +15129,28 @@
   </file>
   <file src="test/classes/InsertEditTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
@@ -14171,6 +15216,10 @@
     </RedundantCondition>
   </file>
   <file src="test/classes/IpAllowDenyTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <PossiblyNullArrayOffset>
       <code><![CDATA[$config->settings['TrustedProxies']]]></code>
     </PossiblyNullArrayOffset>
@@ -14179,6 +15228,14 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/LanguageTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <PossiblyUnusedMethod>
       <code>listLocales</code>
       <code>selectDataProvider</code>
@@ -14188,6 +15245,17 @@
     <PossiblyUnusedMethod>
       <code>lintProvider</code>
     </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/ListDatabaseTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="test/classes/MenuTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
   </file>
   <file src="test/classes/MessageTest.php">
     <PossiblyUnusedMethod>
@@ -14202,17 +15270,48 @@
       <code>providerForTestDetect</code>
     </PossiblyUnusedMethod>
   </file>
+  <file src="test/classes/Navigation/NavigationTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="test/classes/Navigation/NavigationTreeTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="test/classes/Navigation/Nodes/NodeDatabaseChildTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>getMockForAbstractClass</code>
     </DeprecatedMethod>
   </file>
+  <file src="test/classes/Navigation/Nodes/NodeDatabaseTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="test/classes/Navigation/Nodes/NodeTableTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <PossiblyUnusedMethod>
       <code>providerForTestIcon</code>
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Navigation/Nodes/NodeTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <DocblockTypeContradiction>
       <code><![CDATA[isset($config->selectedServer)]]></code>
     </DocblockTypeContradiction>
@@ -14224,6 +15323,10 @@
     </InvalidPropertyAssignmentValue>
   </file>
   <file src="test/classes/NormalizationTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
@@ -14266,12 +15369,42 @@
     </MixedArgument>
   </file>
   <file src="test/classes/Plugins/Auth/AuthenticationConfigTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[Config::getInstance()->settings]]></code>
       <code><![CDATA[['user' => 'username', 'password' => 'password']]]></code>
     </InvalidPropertyAssignmentValue>
   </file>
   <file src="test/classes/Plugins/Auth/AuthenticationCookieTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidPropertyAssignmentValue>
       <code>$arr</code>
       <code>$arr</code>
@@ -14326,6 +15459,15 @@
     </PropertyTypeCoercion>
   </file>
   <file src="test/classes/Plugins/Auth/AuthenticationHttpTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
@@ -14337,6 +15479,21 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Plugins/Auth/AuthenticationSignonTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[$config->selectedServer]]></code>
@@ -14351,6 +15508,11 @@
     </InvalidPropertyAssignmentValue>
   </file>
   <file src="test/classes/Plugins/AuthenticationPluginFactoryTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <PossiblyUnusedMethod>
       <code>providerForTestValidPlugins</code>
     </PossiblyUnusedMethod>
@@ -14370,6 +15532,9 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="test/classes/Plugins/Export/ExportHtmlwordTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgument>
       <code>$result</code>
     </MixedArgument>
@@ -14378,6 +15543,11 @@
     </MixedAssignment>
   </file>
   <file src="test/classes/Plugins/Export/ExportLatexTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['latex_caption']]]></code>
     </InvalidArrayOffset>
@@ -14393,6 +15563,9 @@
     </PossiblyInvalidArrayOffset>
   </file>
   <file src="test/classes/Plugins/Export/ExportOdtTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['foo_columns']]]></code>
     </InvalidArrayOffset>
@@ -14410,6 +15583,17 @@
     </PossiblyInvalidArrayOffset>
   </file>
   <file src="test/classes/Plugins/Export/ExportSqlTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['no_constraints_comments']]]></code>
       <code><![CDATA[$GLOBALS['no_constraints_comments']]]></code>
@@ -14438,7 +15622,16 @@
       <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
     </PossiblyInvalidArrayOffset>
   </file>
+  <file src="test/classes/Plugins/Export/ExportTexytextTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="test/classes/Plugins/Export/ExportXmlTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[$config->selectedServer]]></code>
@@ -14453,12 +15646,24 @@
       <code>isUniqueProvider</code>
     </PossiblyUnusedMethod>
   </file>
+  <file src="test/classes/Plugins/Import/ImportCsvTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="test/classes/Plugins/Import/ImportLdiTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <TypeDoesNotContainType>
       <code>assertTrue</code>
     </TypeDoesNotContainType>
   </file>
   <file src="test/classes/Plugins/Import/ImportMediawikiTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
     </InvalidArrayOffset>
@@ -14471,6 +15676,9 @@
     </MixedArgument>
   </file>
   <file src="test/classes/Plugins/Import/ImportOdsTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
@@ -14492,6 +15700,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Plugins/Import/ImportShpTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
@@ -14503,7 +15714,15 @@
       <code>assertFalse</code>
     </RedundantCondition>
   </file>
+  <file src="test/classes/Plugins/Import/ImportSqlTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="test/classes/Plugins/Import/ImportXmlTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
     </InvalidArrayOffset>
@@ -14515,7 +15734,31 @@
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
     </MixedArgument>
   </file>
+  <file src="test/classes/Plugins/Schema/DiaRelationSchemaTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="test/classes/Plugins/Schema/EpsRelationSchemaTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="test/classes/Plugins/Schema/PdfRelationSchemaTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="test/classes/Plugins/Schema/SvgRelationSchemaTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="test/classes/Plugins/Transformations/TransformationPluginsTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <PossiblyUnusedMethod>
       <code>multiDataProvider</code>
       <code>transformationDataProvider</code>
@@ -14523,6 +15766,7 @@
   </file>
   <file src="test/classes/PluginsTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <InvalidReturnStatement>
@@ -14592,6 +15836,7 @@
   </file>
   <file src="test/classes/Replication/ReplicationGuiTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
@@ -14608,6 +15853,9 @@
     </InvalidPropertyAssignmentValue>
   </file>
   <file src="test/classes/Routing/RoutingTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$config->settings]]></code>
     </InvalidPropertyAssignmentValue>
@@ -14624,6 +15872,8 @@
   </file>
   <file src="test/classes/Server/PluginsTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -14636,6 +15886,16 @@
   </file>
   <file src="test/classes/Server/PrivilegesTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>escapeString</code>
       <code>escapeString</code>
       <code>escapeString</code>
@@ -14667,6 +15927,10 @@
     </UnusedVariable>
   </file>
   <file src="test/classes/Server/SelectTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$config->settings['Servers']['0']]]></code>
     </InvalidArrayOffset>
@@ -14703,13 +15967,24 @@
       <code>$result</code>
     </MixedAssignment>
   </file>
+  <file src="test/classes/Setup/FormProcessingTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="test/classes/Setup/IndexTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['messages']['type']]]></code>
       <code><![CDATA[$_SESSION['messages']['type']['123']]]></code>
     </MixedArrayAccess>
   </file>
   <file src="test/classes/SqlQueryFormTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
@@ -14724,6 +15999,12 @@
     </InvalidPropertyAssignmentValue>
   </file>
   <file src="test/classes/SqlTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedAssignment>
       <code>$result</code>
     </MixedAssignment>
@@ -14738,6 +16019,11 @@
     <PossiblyUnusedMethod>
       <code>providerGetEngine</code>
     </PossiblyUnusedMethod>
+  </file>
+  <file src="test/classes/Stubs/DbiDummy.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
   </file>
   <file src="test/classes/Stubs/DummyResult.php">
     <InvalidReturnStatement>
@@ -14755,13 +16041,22 @@
       <code>$value</code>
     </MixedAssignment>
   </file>
+  <file src="test/classes/SystemDatabaseTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="test/classes/Table/ColumnsDefinitionTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <PossiblyUnusedMethod>
       <code>providerColumnMetaDefault</code>
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Table/IndexesTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <MixedArgument>
@@ -14787,6 +16082,8 @@
   </file>
   <file src="test/classes/TableTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -14838,6 +16135,9 @@
     </UndefinedMethod>
   </file>
   <file src="test/classes/TemplateTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <PossiblyUnusedMethod>
       <code>providerTestDynamicRender</code>
       <code>providerTestRender</code>
@@ -14846,6 +16146,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Theme/ThemeManagerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <RedundantCondition>
       <code>assertIsArray</code>
     </RedundantCondition>
@@ -14862,6 +16165,12 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Tracking/TrackerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[$config->selectedServer]]></code>
@@ -14876,6 +16185,7 @@
   </file>
   <file src="test/classes/Tracking/TrackingTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -14898,6 +16208,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/TransformationsTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[['ServerDefault' => 1, 'ActionLinksMode' => 'icons']]]></code>
@@ -14917,6 +16230,11 @@
   </file>
   <file src="test/classes/Triggers/TriggersTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <PossiblyUnusedMethod>
@@ -14924,6 +16242,14 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/TwoFactorTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
@@ -14954,6 +16280,16 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/UrlTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[Config::getInstance()->settings]]></code>
       <code><![CDATA[Config::getInstance()->settings]]></code>
@@ -14988,6 +16324,12 @@
   </file>
   <file src="test/classes/UserPreferencesTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -15012,6 +16354,16 @@
     </MixedArrayAccess>
   </file>
   <file src="test/classes/UtilTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[Config::getInstance()->selectedServer]]></code>
     </InvalidPropertyAssignmentValue>
@@ -15097,6 +16449,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Utils/ForeignKeyTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <PossiblyUnusedMethod>
       <code>providerCheckCleanup</code>
       <code>providerCheckInit</code>
@@ -15144,6 +16499,14 @@
     </TypeDoesNotContainType>
   </file>
   <file src="test/classes/Utils/SessionCacheTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <EmptyArrayAccess>
       <code><![CDATA[$_SESSION['cache']]]></code>
       <code><![CDATA[$_SESSION['cache']]]></code>
@@ -15171,6 +16534,13 @@
     </MixedArrayAccess>
   </file>
   <file src="test/classes/VersionInformationTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[Config::getInstance()->settings]]></code>
       <code><![CDATA[Config::getInstance()->settings]]></code>

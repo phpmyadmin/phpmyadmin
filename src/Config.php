@@ -118,6 +118,7 @@ class Config
         $this->selectedServer = (new Server())->asArray();
     }
 
+    /** @deprecated Use dependency injection instead. */
     public static function getInstance(): self
     {
         if (self::$instance === null) {
