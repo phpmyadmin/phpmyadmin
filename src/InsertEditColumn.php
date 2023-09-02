@@ -64,10 +64,10 @@ final class InsertEditColumn
          * this kept track of how many timestamps are in the table.
          */
 
-        /** 
-         * Fix: By setting 'firstTimestamp' to false, we no longer make the assumption 
-         * that all fields of type "timestamp" should be set to NOW(). 
-         * This resolves the issue of incorrectly updating "timestamp" fields that do not have 
+        /**
+         * Fix: By setting 'firstTimestamp' to false, we no longer make the assumption
+         * that all fields of type "timestamp" should be set to NOW().
+         * This resolves the issue of incorrectly updating "timestamp" fields that do not have
          * a default value of "CURRENT_TIMESTAMP" or an "extra" attribute of "ON UPDATE CURRENT_TIMESTAMP".
          */
         $this->firstTimestamp = false; // $this->trueType === 'timestamp';
