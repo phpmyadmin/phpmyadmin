@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Database;
 
+use PhpMyAdmin\Column;
 use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Template;
@@ -36,7 +37,10 @@ class SearchTest extends AbstractTestCase
         $dbi->expects($this->any())
             ->method('getColumns')
             ->with('pma', 'table1')
-            ->willReturn([['Field' => 'column1'], ['Field' => 'column2']]);
+            ->willReturn([
+                new Column('column1', '', false, '', null, ''),
+                new Column('column2', '', false, '', null, ''),
+            ]);
 
         $dbi->expects($this->any())
             ->method('quoteString')

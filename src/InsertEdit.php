@@ -15,6 +15,7 @@ use function __;
 use function array_fill;
 use function array_key_exists;
 use function array_merge;
+use function array_values;
 use function bin2hex;
 use function class_exists;
 use function count;
@@ -1439,22 +1440,7 @@ class InsertEdit
     {
         $this->dbi->selectDb($db);
 
-        $columns = [];
-        foreach ($this->dbi->getColumns($db, $table, true) as $column) {
-            $columns[] = new ColumnFull(
-                $column['Field'],
-                $column['Type'],
-                $column['Collation'],
-                $column['Null'] === 'YES',
-                $column['Key'],
-                $column['Default'],
-                $column['Extra'],
-                $column['Privileges'],
-                $column['Comment'],
-            );
-        }
-
-        return $columns;
+        return array_values($this->dbi->getColumns($db, $table, true));
     }
 
     /**

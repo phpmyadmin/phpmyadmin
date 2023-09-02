@@ -62,9 +62,9 @@
                   <label class="visually-hidden" for="fieldsSelect">{% trans 'Columns' %}</label>
                   <select class="form-select resize-vertical" id="fieldsSelect" name="dummy" size="{{ textarea_rows }}" multiple>
                     {% for field in columns_list %}
-                      <option value="{{ backquote(field['Field']) }}"
-                        {{- field['Field'] is not null and field['Comment'] is not null and field['Field']|length > 0 ? ' title="' ~ field['Comment'] ~ '"' }}>
-                        {{ field['Field'] }}
+                      <option value="{{ backquote(field.field) }}"
+                        {{- field.field|length > 0 ? ' title="' ~ field.comment ~ '"' }}>
+                        {{ field.field }}
                       </option>
                     {% endfor %}
                   </select>

@@ -561,26 +561,20 @@ class ExportLatex extends ExportPlugin
 
         $fields = $dbi->getColumns($db, $table);
         foreach ($fields as $row) {
-            $extractedColumnSpec = Util::extractColumnSpec($row['Type']);
+            $extractedColumnSpec = Util::extractColumnSpec($row->type);
             $type = $extractedColumnSpec['print_type'];
             if (empty($type)) {
                 $type = ' ';
             }
 
-            if (! isset($row['Default'])) {
-                if ($row['Null'] !== 'NO') {
-                    $row['Default'] = 'NULL';
-                }
-            }
-
-            $fieldName = $colAs = $row['Field'];
+            $fieldName = $colAs = $row->field;
             if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
                 $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
             }
 
             $localBuffer = $colAs . "\000" . $type . "\000"
-                . ($row['Null'] === 'NO' ? __('No') : __('Yes'))
-                . "\000" . ($row['Default'] ?? '');
+                . (! $row->isNull ? __('No') : __('Yes'))
+                . "\000" . ($row->default ?? ($row->isNull ? 'NULL' : ''));
 
             if ($doRelation && $foreigners !== []) {
                 $localBuffer .= "\000";
@@ -602,7 +596,7 @@ class ExportLatex extends ExportPlugin
             }
 
             $localBuffer = self::texEscape($localBuffer);
-            if ($row['Key'] === 'PRI') {
+            if ($row->key === 'PRI') {
                 $pos = (int) mb_strpos($localBuffer, "\000");
                 $localBuffer = '\\textit{' . mb_substr($localBuffer, 0, $pos) . '}' . mb_substr($localBuffer, $pos);
             }

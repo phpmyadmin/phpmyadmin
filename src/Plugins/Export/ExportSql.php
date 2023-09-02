@@ -1260,35 +1260,35 @@ class ExportSql extends ExportPlugin
 
         $firstCol = true;
         foreach ($columns as $column) {
-            $colAlias = $column['Field'];
+            $colAlias = $column->field;
             if (! empty($aliases[$db]['tables'][$view]['columns'][$colAlias])) {
                 $colAlias = $aliases[$db]['tables'][$view]['columns'][$colAlias];
             }
 
-            $extractedColumnspec = Util::extractColumnSpec($column['Type']);
+            $extractedColumnspec = Util::extractColumnSpec($column->type);
 
             if (! $firstCol) {
                 $createQuery .= ',' . "\n";
             }
 
             $createQuery .= '    ' . Util::backquote($colAlias);
-            $createQuery .= ' ' . $column['Type'];
-            if ($extractedColumnspec['can_contain_collation'] && ! empty($column['Collation'])) {
-                $createQuery .= ' COLLATE ' . $column['Collation'];
+            $createQuery .= ' ' . $column->type;
+            if ($extractedColumnspec['can_contain_collation'] && ! empty($column->collation)) {
+                $createQuery .= ' COLLATE ' . $column->collation;
             }
 
-            if ($column['Null'] === 'NO') {
+            if (! $column->isNull) {
                 $createQuery .= ' NOT NULL';
             }
 
-            if (isset($column['Default'])) {
-                $createQuery .= ' DEFAULT ' . $dbi->quoteString($column['Default']);
-            } elseif ($column['Null'] === 'YES') {
+            if ($column->default !== null) {
+                $createQuery .= ' DEFAULT ' . $dbi->quoteString($column->default);
+            } elseif ($column->isNull) {
                 $createQuery .= ' DEFAULT NULL';
             }
 
-            if (! empty($column['Comment'])) {
-                $createQuery .= ' COMMENT ' . $dbi->quoteString($column['Comment']);
+            if ($column->comment !== '') {
+                $createQuery .= ' COMMENT ' . $dbi->quoteString($column->comment);
             }
 
             $firstCol = false;

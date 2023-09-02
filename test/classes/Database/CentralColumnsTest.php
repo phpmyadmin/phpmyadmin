@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Database;
 
+use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
@@ -136,9 +137,9 @@ class CentralColumnsTest extends AbstractTestCase
         $dbi->expects($this->any())
             ->method('getColumns')
             ->willReturn([
-                'id' => ['Field' => 'id', 'Type' => 'integer', 'Null' => 'NO'],
-                'col1' => ['Field' => 'col1', 'Type' => 'varchar(100)', 'Null' => 'YES'],
-                'col2' => ['Field' => 'col2', 'Type' => 'DATETIME', 'Null' => 'NO'],
+                'id' => new ColumnFull('id', 'integer', null, false, '', null, '', '', ''),
+                'col1' => new ColumnFull('col1', 'varchar(100)', null, true, '', null, '', '', ''),
+                'col2' => new ColumnFull('col2', 'DATETIME', null, false, '', null, '', '', ''),
             ]);
         $dbi->expects($this->any())
             ->method('getColumnNames')
@@ -312,7 +313,7 @@ class CentralColumnsTest extends AbstractTestCase
                 '',
                 '',
                 '',
-                0,
+                false,
                 '',
                 '',
                 '',
@@ -326,7 +327,7 @@ class CentralColumnsTest extends AbstractTestCase
                 '',
                 '',
                 '',
-                0,
+                false,
                 '',
                 '',
                 '',

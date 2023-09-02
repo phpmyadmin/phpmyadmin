@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
+use PhpMyAdmin\Column;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
@@ -595,11 +596,11 @@ class ExportOdtTest extends AbstractTestCase
                 ['fieldname' => ['values' => 'test-', 'transformation' => 'testfoo', 'mimetype' => 'test<']],
             );
 
-        $columns = ['Field' => 'fieldname'];
+        $column = new Column('fieldname', '', false, '', null, '');
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('database', '')
-            ->willReturn([$columns]);
+            ->willReturn([$column]);
 
         $dbi->expects($this->once())
             ->method('tryQueryAsControlUser')
@@ -618,7 +619,7 @@ class ExportOdtTest extends AbstractTestCase
 
         $this->object->expects($this->exactly(2))
             ->method('formatOneColumnDefinition')
-            ->with(['Field' => 'fieldname'])
+            ->with($column)
             ->willReturn('1');
 
         $relationParameters = RelationParameters::fromArray([
@@ -679,12 +680,11 @@ class ExportOdtTest extends AbstractTestCase
                 ['field' => ['values' => 'test-', 'transformation' => 'testfoo', 'mimetype' => 'test<']],
             );
 
-        $columns = ['Field' => 'fieldname'];
-
+        $column = new Column('fieldname', '', false, '', null, '');
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('database', '')
-            ->willReturn([$columns]);
+            ->willReturn([$column]);
 
         $dbi->expects($this->once())
             ->method('tryQueryAsControlUser')
@@ -913,7 +913,7 @@ class ExportOdtTest extends AbstractTestCase
     {
         $method = new ReflectionMethod(ExportOdt::class, 'formatOneColumnDefinition');
 
-        $cols = ['Null' => 'Yes', 'Field' => 'field', 'Key' => 'PRI', 'Type' => 'set(abc)enum123'];
+        $column = new Column('field', 'set(abc)enum123', true, 'PRI', null, '');
 
         $colAlias = 'alias';
 
@@ -924,10 +924,10 @@ class ExportOdtTest extends AbstractTestCase
             '-cell><table:table-cell office:value-type="string"><text:p>Yes' .
             '</text:p></table:table-cell><table:table-cell office:value-typ' .
             'e="string"><text:p>NULL</text:p></table:table-cell>',
-            $method->invoke($this->object, $cols, $colAlias),
+            $method->invoke($this->object, $column, $colAlias),
         );
 
-        $cols = ['Null' => 'NO', 'Field' => 'fields', 'Key' => 'COMP', 'Type' => '', 'Default' => 'def'];
+        $column = new Column('fields', '', false, 'COMP', 'def', '');
 
         $this->assertEquals(
             '<table:table-row><table:table-cell office:value-type="string">' .
@@ -936,7 +936,7 @@ class ExportOdtTest extends AbstractTestCase
             '-cell><table:table-cell office:value-type="string"><text:p>No' .
             '</text:p></table:table-cell><table:table-cell office:value-type=' .
             '"string"><text:p>def</text:p></table:table-cell>',
-            $method->invoke($this->object, $cols, ''),
+            $method->invoke($this->object, $column, ''),
         );
     }
 }

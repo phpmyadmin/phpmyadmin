@@ -845,20 +845,12 @@ class DatabaseInterface implements DbalInterface
      * @param string $database name of database
      * @param string $table    name of table to retrieve columns from
      * @param string $column   name of column
-     * @param bool   $full     whether to return full info or only column names
+     * @param T      $full     whether to return full info or only column names
      * @psalm-param ConnectionType $connectionType
      *
-     * @return array{
-     *  Field: string,
-     *  Type: string,
-     *  Collation?: string|null,
-     *  Null:'YES'|'NO',
-     *  Key: string,
-     *  Default: string|null,
-     *  Extra: string,
-     *  Privileges?: string,
-     *  Comment?: string
-     * }|null
+     * @psalm-return (T is true ? ColumnFull : Column)|null
+     *
+     * @template T of bool
      */
     public function getColumn(
         string $database,
@@ -866,7 +858,7 @@ class DatabaseInterface implements DbalInterface
         string $column,
         bool $full = false,
         int $connectionType = Connection::TYPE_USER,
-    ): array|null {
+    ): ColumnFull|Column|null {
         $sql = QueryGenerator::getColumnsSql(
             $database,
             $table,
@@ -876,7 +868,22 @@ class DatabaseInterface implements DbalInterface
         /** @var (string|null)[][] $fields */
         $fields = $this->fetchResult($sql, 'Field', null, $connectionType);
 
+        /**
+         * @var array{
+         *  Field: string,
+         *  Type: string,
+         *  Collation: string|null,
+         *  Null:'YES'|'NO',
+         *  Key: string,
+         *  Default: string|null,
+         *  Extra: string,
+         *  Privileges: string,
+         *  Comment: string
+         * }[] $columns
+         */
         $columns = $this->attachIndexInfoToColumns($database, $table, $fields);
+
+        $columns = $this->convertToColumns($columns, $full);
 
         return array_shift($columns);
     }
@@ -886,20 +893,13 @@ class DatabaseInterface implements DbalInterface
      *
      * @param string $database name of database
      * @param string $table    name of table to retrieve columns from
-     * @param bool   $full     whether to return full info or only column names
+     * @param T      $full     whether to return full info or only column names
      * @psalm-param ConnectionType $connectionType
      *
-     * @return array{
-     *  Field: string,
-     *  Type: string,
-     *  Collation?: string|null,
-     *  Null:'YES'|'NO',
-     *  Key: string,
-     *  Default: string|null,
-     *  Extra: string,
-     *  Privileges?: string,
-     *  Comment?: string
-     * }[] array indexed by column names
+     * @return ColumnFull[]|Column[]
+     * @psalm-return (T is true ? ColumnFull[] : Column[])
+     *
+     * @template T of bool
      */
     public function getColumns(
         string $database,
@@ -911,7 +911,22 @@ class DatabaseInterface implements DbalInterface
         /** @var (string|null)[][] $fields */
         $fields = $this->fetchResult($sql, 'Field', null, $connectionType);
 
-        return $this->attachIndexInfoToColumns($database, $table, $fields);
+        /**
+         * @var array{
+         *  Field: string,
+         *  Type: string,
+         *  Collation: string|null,
+         *  Null:'YES'|'NO',
+         *  Key: string,
+         *  Default: string|null,
+         *  Extra: string,
+         *  Privileges: string,
+         *  Comment: string
+         * }[] $columns
+         */
+        $columns = $this->attachIndexInfoToColumns($database, $table, $fields);
+
+        return $this->convertToColumns($columns, $full);
     }
 
     /**
@@ -958,6 +973,48 @@ class DatabaseInterface implements DbalInterface
         }
 
         return $fields;
+    }
+
+    /**
+     * @psalm-param array{
+     *  Field: string,
+     *  Type: string,
+     *  Collation: string|null,
+     *  Null:'YES'|'NO',
+     *  Key: string,
+     *  Default: string|null,
+     *  Extra: string,
+     *  Privileges: string,
+     *  Comment: string
+     * }[] $fields   column array indexed by their names
+     *
+     * @return (ColumnFull|Column)[]
+     */
+    private function convertToColumns(array $fields, bool $full = false): array
+    {
+        $columns = [];
+        foreach ($fields as $field => $column) {
+            $columns[$field] = $full ? new ColumnFull(
+                $column['Field'],
+                $column['Type'],
+                $column['Collation'],
+                $column['Null'] === 'YES',
+                $column['Key'],
+                $column['Default'],
+                $column['Extra'],
+                $column['Privileges'],
+                $column['Comment'],
+            ) : new Column(
+                $column['Field'],
+                $column['Type'],
+                $column['Null'] === 'YES',
+                $column['Key'],
+                $column['Default'],
+                $column['Extra'],
+            );
+        }
+
+        return $columns;
     }
 
     /**

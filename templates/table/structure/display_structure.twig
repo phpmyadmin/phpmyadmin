@@ -42,14 +42,14 @@
             {% set rownum = rownum + 1 %}
 
             {% set extracted_columnspec = extracted_columnspecs[rownum] %}
-            {% set field_name = row['Field']|e %}
+            {% set field_name = row.field|e %}
             {# For column comments #}
             {% set comments = row_comments[rownum] %}
             {# Underline commented fields and display a hover-title (CSS only) #}
 
         <tr>
             <td class="text-center d-print-none">
-                <input type="checkbox" class="checkall" name="selected_fld[]" value="{{ row['Field'] }}" id="checkbox_row_{{ rownum }}">
+                <input type="checkbox" class="checkall" name="selected_fld[]" value="{{ row.field }}" id="checkbox_row_{{ rownum }}">
             </td>
             <td class="text-end">{{ rownum }}</td>
             <th class="text-nowrap">
@@ -66,26 +66,26 @@
                 <bdo dir="ltr" lang="en">
                     {{ extracted_columnspec['displayed_type']|raw }}
                     {% if relation_parameters.columnCommentsFeature is not null and relation_parameters.browserTransformationFeature is not null and browse_mime
-                        and mime_map[row['Field']]['mimetype'] is defined %}
-                        <br>{% trans 'Media type:' %} {{ mime_map[row['Field']]['mimetype']|replace({'_': '/'})|lower }}
+                        and mime_map[row.field]['mimetype'] is defined %}
+                        <br>{% trans 'Media type:' %} {{ mime_map[row.field]['mimetype']|replace({'_': '/'})|lower }}
                     {% endif %}
                 </bdo>
             </td>
             <td>
-            {% if row['Collation'] is not empty %}
-                <dfn title="{{ collations[row['Collation']].description }}">{{ collations[row['Collation']].name }}</dfn>
+            {% if row.collation is not empty %}
+                <dfn title="{{ collations[row.collation].description }}">{{ collations[row.collation].name }}</dfn>
             {% endif %}
             </td>
             <td class="column_attribute text-nowrap">{{ attributes[rownum] }}</td>
-            <td>{{ row['Null'] == 'YES' ? 'Yes'|trans : 'No'|trans }}</td>
+            <td>{{ row.isNull ? 'Yes'|trans : 'No'|trans }}</td>
             <td class="text-nowrap">
-                {%- if row['Default'] is not null -%}
+                {%- if row.default is not null -%}
                     {%- if extracted_columnspec['type'] == 'bit' -%}
-                        {{- row['Default']|convert_bit_default_value -}}
+                        {{- row.default|convert_bit_default_value -}}
                     {%- else -%}
-                        {{- row['Default'] -}}
+                        {{- row.default -}}
                     {%- endif -%}
-                {%- elseif row['Null'] == 'YES' -%}
+                {%- elseif row.isNull -%}
                     <em>NULL</em>
                 {%- else -%}
                     <em>{% trans %}None{% context %}None for default{% endtrans %}</em>
@@ -96,13 +96,13 @@
                     {{ comments }}
                 </td>
             {% endif %}
-            <td class="text-nowrap">{{ row['Extra']|upper }}</td>
+            <td class="text-nowrap">{{ row.extra|upper }}</td>
             {% if not tbl_is_view and not db_is_system_schema %}
                 <td class="edit text-center d-print-none">
                     <a class="change_column_anchor ajax" href="{{ url('/table/structure/change', {
                       'db': db,
                       'table': table,
-                      'field': row['Field'],
+                      'field': row.field,
                       'change_column': 1
                     }) }}">
                       {{ get_icon('b_edit', 'Change'|trans) }}
@@ -112,10 +112,10 @@
                     <a class="drop_column_anchor ajax" href="{{ url('/sql') }}" data-post="{{ get_common({
                       'db': db,
                       'table': table,
-                      'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' DROP ' ~ backquote(row['Field']) ~ ';',
-                      'dropped_column': row['Field'],
+                      'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' DROP ' ~ backquote(row.field) ~ ';',
+                      'dropped_column': row.field,
                       'purge': true,
-                      'message_to_show': 'Column %s has been dropped.'|trans|format(row['Field']|e)
+                      'message_to_show': 'Column %s has been dropped.'|trans|format(row.field|e)
                     }, '', false) }}">
                       {{ get_icon('b_drop', 'Drop'|trans) }}
                     </a>
@@ -139,8 +139,8 @@
                             <a rel="samepage" class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }} ajax add_key d-print-none add_primary_key_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
                               'db': db,
                               'table': table,
-                              'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ (primary ? ' DROP PRIMARY KEY,') ~ ' ADD PRIMARY KEY(' ~ backquote(row['Field']) ~ ');',
-                              'message_to_show': 'A primary key has been added on %s.'|trans|format(row['Field']|e)
+                              'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ (primary ? ' DROP PRIMARY KEY,') ~ ' ADD PRIMARY KEY(' ~ backquote(row.field) ~ ');',
+                              'message_to_show': 'A primary key has been added on %s.'|trans|format(row.field|e)
                             }, '', false) }}">
                               {{ get_icon('b_primary', 'Primary'|trans) }}
                             </a>
@@ -154,8 +154,8 @@
                             <a rel="samepage" class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }} ajax add_key d-print-none add_unique_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
                               'db': db,
                               'table': table,
-                              'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD UNIQUE(' ~ backquote(row['Field']) ~ ');',
-                              'message_to_show': 'An index has been added on %s.'|trans|format(row['Field']|e)
+                              'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD UNIQUE(' ~ backquote(row.field) ~ ');',
+                              'message_to_show': 'An index has been added on %s.'|trans|format(row.field|e)
                             }, '', false) }}">
                               {{ get_icon('b_unique', 'Unique'|trans) }}
                             </a>
@@ -169,8 +169,8 @@
                             <a rel="samepage" class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }} ajax add_key d-print-none add_index_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
                               'db': db,
                               'table': table,
-                              'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD INDEX(' ~ backquote(row['Field']) ~ ');',
-                              'message_to_show': 'An index has been added on %s.'|trans|format(row['Field']|e)
+                              'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD INDEX(' ~ backquote(row.field) ~ ');',
+                              'message_to_show': 'An index has been added on %s.'|trans|format(row.field|e)
                             }, '', false) }}">
                               {{ get_icon('b_index', 'Index'|trans) }}
                             </a>
@@ -194,8 +194,8 @@
                             <a rel="samepage" class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }} ajax add_key d-print-none add_spatial_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
                               'db': db,
                               'table': table,
-                              'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD SPATIAL(' ~ backquote(row['Field']) ~ ');',
-                              'message_to_show': 'An index has been added on %s.'|trans|format(row['Field']|e)
+                              'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD SPATIAL(' ~ backquote(row.field) ~ ');',
+                              'message_to_show': 'An index has been added on %s.'|trans|format(row.field|e)
                             }, '', false) }}">
                               {{ get_icon('b_spatial', 'Spatial'|trans) }}
                             </a>
@@ -213,8 +213,8 @@
                             <a rel="samepage" class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }} ajax add_key add_fulltext_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
                               'db': db,
                               'table': table,
-                              'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD FULLTEXT(' ~ backquote(row['Field']) ~ ');',
-                              'message_to_show': 'An index has been added on %s.'|trans|format(row['Field']|e)
+                              'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD FULLTEXT(' ~ backquote(row.field) ~ ');',
+                              'message_to_show': 'An index has been added on %s.'|trans|format(row.field|e)
                             }, '', false) }}">
                               {{ get_icon('b_ftext', 'Fulltext'|trans) }}
                             </a>
@@ -229,10 +229,10 @@
                               'db': db,
                               'table': table,
                               'sql_query': 'SELECT COUNT(*) AS ' ~ backquote('Rows'|trans)
-                                ~ ', ' ~ backquote(row['Field'])
+                                ~ ', ' ~ backquote(row.field)
                                 ~ ' FROM ' ~ backquote(table)
-                                ~ ' GROUP BY ' ~ backquote(row['Field'])
-                                ~ ' ORDER BY ' ~ backquote(row['Field']),
+                                ~ ' GROUP BY ' ~ backquote(row.field)
+                                ~ ' ORDER BY ' ~ backquote(row.field),
                               'is_browse_distinct': true
                             }, '', false) }}">
                               {{ get_icon('b_browse', 'Distinct values'|trans) }}
@@ -240,11 +240,11 @@
                         </li>
                         {% if relation_parameters.centralColumnsFeature is not null %}
                             <li class="{{ not hide_structure_actions ? 'nav-item ' }}browse text-nowrap">
-                            {% if row['Field'] in central_list %}
+                            {% if row.field in central_list %}
                                 <a class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }}" href="{{ url('/table/structure/central-columns-remove') }}" data-post="{{ get_common({
                                   'db': db,
                                   'table': table,
-                                  'selected_fld': [row['Field']],
+                                  'selected_fld': [row.field],
                                 }) }}">
                                     {{ get_icon('centralColumns_delete', 'Remove from central columns'|trans) }}
                                 </a>
@@ -252,7 +252,7 @@
                                 <a class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }}" href="{{ url('/table/structure/central-columns-add') }}" data-post="{{ get_common({
                                   'db': db,
                                   'table': table,
-                                  'selected_fld': [row['Field']],
+                                  'selected_fld': [row.field],
                                 }) }}">
                                     {{ get_icon('centralColumns_add', 'Add to central columns'|trans) }}
                                 </a>

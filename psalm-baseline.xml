@@ -144,13 +144,6 @@
       <code><![CDATA[$GLOBALS['table_priv']]]></code>
     </MixedAssignment>
   </file>
-  <file src="src/ColumnFull.php">
-    <PossiblyUnusedProperty>
-      <code>$collation</code>
-      <code>$comment</code>
-      <code>$privileges</code>
-    </PossiblyUnusedProperty>
-  </file>
   <file src="src/Command/CacheWarmupCommand.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
@@ -807,10 +800,6 @@
     <PossiblyInvalidArgument>
       <code>$foreigners</code>
     </PossiblyInvalidArgument>
-    <PossiblyUndefinedArrayOffset>
-      <code><![CDATA[$column['Comment']]]></code>
-      <code><![CDATA[$column['Comment']]]></code>
-    </PossiblyUndefinedArrayOffset>
     <PossiblyUnusedReturnValue>
       <code>bool</code>
     </PossiblyUnusedReturnValue>
@@ -4200,10 +4189,6 @@
       <code><![CDATA[$GLOBALS['showtable']['Index_length']]]></code>
       <code><![CDATA[$GLOBALS['showtable']['Update_time']]]></code>
       <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
-      <code><![CDATA[$field['Collation'] ?? '']]></code>
-      <code><![CDATA[$field['Extra']]]></code>
-      <code><![CDATA[$field['Field']]]></code>
-      <code><![CDATA[$field['Type']]]></code>
       <code><![CDATA[($GLOBALS['showtable']['Data_length']
                 + $GLOBALS['showtable']['Index_length'])
                 / $GLOBALS['showtable']['Rows']]]></code>
@@ -4212,25 +4197,11 @@
       <code><![CDATA[$GLOBALS['showtable']['Data_length']]]></code>
       <code><![CDATA[$GLOBALS['showtable']['Index_length']]]></code>
       <code><![CDATA[$GLOBALS['showtable']['Rows']]]></code>
-      <code><![CDATA[$field['Collation']]]></code>
-      <code><![CDATA[$field['Extra']]]></code>
-      <code><![CDATA[$field['Field']]]></code>
-      <code><![CDATA[$field['Field']]]></code>
-      <code><![CDATA[$field['Field']]]></code>
-      <code><![CDATA[$field['Field']]]></code>
-      <code><![CDATA[$field['Field']]]></code>
-      <code><![CDATA[$field['Field']]]></code>
-      <code><![CDATA[$field['Type']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$GLOBALS['showtable']['Data_length']]]></code>
       <code><![CDATA[$GLOBALS['showtable']['Index_length']]]></code>
     </MixedArrayAssignment>
-    <MixedArrayOffset>
-      <code><![CDATA[$commentsMap[$field['Field']]]]></code>
-      <code><![CDATA[$commentsMap[$field['Field']]]]></code>
-      <code><![CDATA[$commentsMap[$field['Field']]]]></code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['reread_info']]]></code>
@@ -4245,8 +4216,6 @@
       <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
       <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
       <code>$attributes[$rownum]</code>
-      <code>$columnsList[]</code>
-      <code>$field</code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$GLOBALS['showtable']['Data_length']]]></code>
@@ -4751,13 +4720,10 @@
       <code>$centralTable</code>
       <code><![CDATA[$cfgCentralColumns['db']]]></code>
       <code><![CDATA[$cfgCentralColumns['db']]]></code>
-      <code>$collation</code>
       <code>$columnDefault[$i]</code>
       <code>$columnExtra[$i]</code>
       <code><![CDATA[$column['col_name']]]></code>
       <code><![CDATA[$column['col_name']]]></code>
-      <code><![CDATA[$def['Type']]]></code>
-      <code>$default</code>
       <code><![CDATA[$extractedColumnSpec['attribute']]]></code>
       <code><![CDATA[$meta['DefaultValue']]]></code>
       <code><![CDATA[$meta['DefaultValue']]]></code>
@@ -4782,7 +4748,7 @@
       <code>$type</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code>[$extra, $attribute]</code>
+      <code>$cols</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code>$columnDefault[$i]</code>
@@ -4821,7 +4787,6 @@
       <code><![CDATA[$row['col_extra']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code>$attribute</code>
       <code>$centralListTable</code>
       <code>$centralListTable</code>
       <code>$centralListTable</code>
@@ -4830,15 +4795,14 @@
       <code>$centralListTable</code>
       <code>$centralTable</code>
       <code>$centralTable</code>
-      <code>$collation</code>
+      <code>$cols[]</code>
       <code>$column</code>
       <code>$columnDefault</code>
       <code>$columnDefault[$i]</code>
       <code>$columnExtra[$i]</code>
-      <code>$default</code>
       <code>$defaultValue</code>
       <code>$defaultValues[$rowNum]</code>
-      <code>$extra</code>
+      <code>$field</code>
       <code>$length</code>
       <code><![CDATA[$meta['DefaultValue']]]></code>
       <code>$pmadb</code>
@@ -5515,7 +5479,6 @@
       <code>reset($columns)</code>
     </MixedReturnStatement>
     <MixedReturnTypeCoercion>
-      <code><![CDATA[$this->attachIndexInfoToColumns($database, $table, $fields)]]></code>
       <code><![CDATA[$this->fetchResult($sql, null, 'Field', $connectionType)]]></code>
       <code><![CDATA[$this->fetchResult($sql, null, null, $connectionType)]]></code>
       <code><![CDATA[array<int, array{
@@ -5536,29 +5499,6 @@
      *   Visible?: string,
      *   Expression?: string|null
      * }>]]></code>
-      <code>array_shift($columns)</code>
-      <code><![CDATA[array{
-     *  Field: string,
-     *  Type: string,
-     *  Collation?: string|null,
-     *  Null:'YES'|'NO',
-     *  Key: string,
-     *  Default: string|null,
-     *  Extra: string,
-     *  Privileges?: string,
-     *  Comment?: string
-     * }[]]]></code>
-      <code><![CDATA[array{
-     *  Field: string,
-     *  Type: string,
-     *  Collation?: string|null,
-     *  Null:'YES'|'NO',
-     *  Key: string,
-     *  Default: string|null,
-     *  Extra: string,
-     *  Privileges?: string,
-     *  Comment?: string
-     * }|null]]></code>
       <code>string[]</code>
     </MixedReturnTypeCoercion>
     <NullableReturnStatement>
@@ -7309,11 +7249,6 @@
     <PossiblyInvalidOperand>
       <code><![CDATA[$_POST['where_clause'][0]]]></code>
     </PossiblyInvalidOperand>
-    <PossiblyUndefinedArrayOffset>
-      <code><![CDATA[$column['Collation']]]></code>
-      <code><![CDATA[$column['Comment']]]></code>
-      <code><![CDATA[$column['Privileges']]]></code>
-    </PossiblyUndefinedArrayOffset>
     <PropertyTypeCoercion>
       <code><![CDATA[$config->settings]]></code>
     </PropertyTypeCoercion>
@@ -7847,13 +7782,13 @@
       <code>$dependents</code>
       <code><![CDATA[$dropCols['nonpk']]]></code>
       <code><![CDATA[$dropCols['pk']]]></code>
+      <code><![CDATA[$extractedColumnSpec['type']]]></code>
       <code>$key</code>
       <code>$table</code>
       <code>$table</code>
       <code><![CDATA[$tablesName->$key]]></code>
       <code><![CDATA[$tablesName->$key]]></code>
       <code>$totalRows</code>
-      <code>$type</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$dependents</code>
@@ -7892,15 +7827,10 @@
       <code>$table</code>
       <code>$tablesList</code>
       <code>$totalRows</code>
-      <code>$type</code>
     </MixedAssignment>
     <MixedOperand>
       <code>$element</code>
     </MixedOperand>
-    <PossiblyNullArgument>
-      <code><![CDATA[$def['Type']]]></code>
-      <code><![CDATA[$def['Type']]]></code>
-    </PossiblyNullArgument>
     <RedundantCast>
       <code>(string) $dependon</code>
     </RedundantCast>
@@ -8533,12 +8463,9 @@
       <code><![CDATA[$GLOBALS['what']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code>$colAlias</code>
       <code>$colAs</code>
       <code>$colAs</code>
       <code>$colAs</code>
-      <code><![CDATA[$column['Default'] ?? '']]></code>
-      <code><![CDATA[$column['Type']]]></code>
       <code>$comments[$fieldName]</code>
       <code><![CDATA[$extractedColumnSpec['print_type']]]></code>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
@@ -8550,7 +8477,6 @@
     </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['what']]]></code>
-      <code>$colAlias</code>
       <code>$colAs</code>
       <code>$colAs</code>
       <code>$colAs</code>
@@ -8687,7 +8613,6 @@
       <code>$doRelation</code>
     </ParamNameMismatch>
     <PossiblyNullOperand>
-      <code><![CDATA[$columns[$i]['Default']]]></code>
       <code>$row[$i]</code>
       <code>$tableAlias</code>
       <code>$tableAlias</code>
@@ -8737,9 +8662,6 @@
       <code>$colAs</code>
       <code>$colAs</code>
       <code>$colAs</code>
-      <code>$colAs</code>
-      <code><![CDATA[$column['Default']]]></code>
-      <code><![CDATA[$column['Type']]]></code>
       <code>$comments[$fieldName]</code>
       <code><![CDATA[$extractedColumnSpec['print_type']]]></code>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
@@ -8754,7 +8676,6 @@
     </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['what']]]></code>
-      <code>$colAs</code>
       <code>$colAs</code>
       <code>$colAs</code>
       <code>$colAs</code>
@@ -8783,7 +8704,6 @@
       <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
     </PossiblyInvalidArrayOffset>
     <PossiblyNullArgument>
-      <code>$colAs</code>
       <code>$row[$j]</code>
       <code>$tableAlias</code>
       <code>$tableAlias</code>
@@ -9036,12 +8956,9 @@
       <code><![CDATA[$GLOBALS['what']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code>$colAlias</code>
       <code>$colAs</code>
       <code>$colAs</code>
       <code>$colAs</code>
-      <code><![CDATA[$column['Default'] ?? '']]></code>
-      <code><![CDATA[$column['Type']]]></code>
       <code>$comments[$fieldName]</code>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
       <code>$type</code>
@@ -9054,7 +8971,6 @@
     </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['what']]]></code>
-      <code>$colAlias</code>
       <code>$colAs</code>
       <code>$colAs</code>
       <code>$colAs</code>
@@ -9074,9 +8990,6 @@
       <code>$value</code>
       <code><![CDATA[str_replace('_', '/', $mimeMap[$fieldName]['mimetype'])]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument>
-      <code>$colAs</code>
-    </PossiblyNullArgument>
     <PossiblyNullOperand>
       <code>$tableAlias</code>
       <code>$tableAlias</code>
@@ -9513,15 +9426,11 @@
       <code><![CDATA[$GLOBALS['csv_new_line']]]></code>
       <code>$colName</code>
       <code>$columnNames</code>
-      <code><![CDATA[$field['Field']]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$result</code>
       <code>$result</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess>
-      <code><![CDATA[$field['Field']]]></code>
-    </MixedArrayAccess>
     <MixedArrayAssignment>
       <code>$columnNames[$key]</code>
       <code>$columnNames[]</code>
@@ -9535,20 +9444,12 @@
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code>$colName</code>
       <code>$columnNames</code>
-      <code>$field</code>
       <code>$fields[]</code>
       <code>$key</code>
-      <code>$sql</code>
     </MixedAssignment>
     <MixedInferredReturnType>
       <code>mixed[]</code>
     </MixedInferredReturnType>
-    <MixedOperand>
-      <code>$sql</code>
-      <code>$sql</code>
-      <code>$sql</code>
-      <code>$sql</code>
-    </MixedOperand>
     <MixedReturnStatement>
       <code>$columnNames</code>
       <code>$columnNames</code>
@@ -12400,10 +12301,8 @@
     <MixedArgument>
       <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']] ?? []]]></code>
       <code><![CDATA[$availableMime[$mimeType . '_file'][$mimekey]]]></code>
-      <code>$columnMeta</code>
       <code><![CDATA[$columnMeta['Default']]]></code>
       <code><![CDATA[$columnMeta['DefaultValue']]]></code>
-      <code><![CDATA[$columnMeta['Field']]]></code>
       <code><![CDATA[$columnMeta['Field']]]></code>
       <code><![CDATA[$columnMeta['Type']]]></code>
       <code><![CDATA[$extractedColumnSpec['attribute'] ?? '']]></code>
@@ -12415,26 +12314,18 @@
     <MixedArrayAccess>
       <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
       <code><![CDATA[$availableMime[$mimeType . '_file'][$mimekey]]]></code>
-      <code><![CDATA[$columnMeta['Extra']]]></code>
-      <code><![CDATA[$columnMeta['Field']]]></code>
-      <code><![CDATA[$columnMeta['Field']]]></code>
-      <code><![CDATA[$columnMeta['column_status']['isEditable']]]></code>
-      <code><![CDATA[$columnMeta['column_status']['isEditable']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
       <code><![CDATA[$availableMime[$mimeType . '_file_quoted'][$mimekey]]]></code>
-      <code><![CDATA[$columnMeta['Expression']]]></code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
       <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
       <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
       <code><![CDATA[$commentsMap[$columnMeta['Field']]]]></code>
-      <code><![CDATA[$expressions[$columnMeta['Field']]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['mime_map']]]></code>
-      <code>$columnMeta</code>
       <code><![CDATA[$columnMeta['Default']]]></code>
       <code><![CDATA[$columnMeta['Default']]]></code>
       <code><![CDATA[$columnMeta['Expression']]]></code>
@@ -12461,6 +12352,7 @@
       <code><![CDATA[$formParams['table']]]></code>
     </PossiblyInvalidCast>
     <PossiblyUndefinedArrayOffset>
+      <code><![CDATA[$columnMeta['Default']]]></code>
       <code><![CDATA[$columnMeta['DefaultValue']]]></code>
     </PossiblyUndefinedArrayOffset>
   </file>

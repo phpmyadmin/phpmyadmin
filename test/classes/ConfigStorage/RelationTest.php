@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\ConfigStorage;
 
+use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
@@ -75,8 +76,8 @@ class RelationTest extends AbstractTestCase
             ->getMock();
 
         $getColumnsResult = [
-            ['Field' => 'field1', 'Type' => 'int(11)', 'Comment' => 'Comment1'],
-            ['Field' => 'field2', 'Type' => 'text', 'Comment' => 'Comment1'],
+            new ColumnFull('field1', 'int(11)', null, false, '', null, '', '', 'Comment1'),
+            new ColumnFull('field2', 'text', null, false, '', null, '', '', 'Comment1'),
         ];
         $dbi->expects($this->any())->method('getColumns')
             ->willReturn($getColumnsResult);

@@ -494,7 +494,7 @@ class PdfRelationSchema extends ExportRelationSchema
             $fields = $dbi->getColumns($this->db->getName(), $table);
             foreach ($fields as $row) {
                 $this->diagram->setX(20);
-                $fieldName = $row['Field'];
+                $fieldName = $row->field;
                 $this->diagram->customLinks['doc'][$table][$fieldName] = $this->diagram->AddLink();
             }
 
@@ -680,16 +680,11 @@ class PdfRelationSchema extends ExportRelationSchema
             $this->diagram->setFont($this->ff);
 
             foreach ($columns as $row) {
-                $extractedColumnSpec = Util::extractColumnSpec($row['Type']);
+                $extractedColumnSpec = Util::extractColumnSpec($row->type);
                 $type = $extractedColumnSpec['print_type'];
                 $attribute = $extractedColumnSpec['attribute'];
-                if (! isset($row['Default'])) {
-                    if ($row['Null'] !== 'NO') {
-                        $row['Default'] = 'NULL';
-                    }
-                }
 
-                $fieldName = $row['Field'];
+                $fieldName = $row->field;
                 // $this->diagram->Ln();
                 $this->diagram->customLinks['RT'][$table][$fieldName] = $this->diagram->AddLink();
                 $this->diagram->Bookmark($fieldName, 1, -1);
@@ -716,11 +711,9 @@ class PdfRelationSchema extends ExportRelationSchema
                     $fieldName,
                     $type,
                     $attribute,
-                    $row['Null'] === 'NO'
-                        ? __('No')
-                        : __('Yes'),
-                    $row['Default'] ?? '',
-                    $row['Extra'],
+                    ! $row->isNull ? __('No') : __('Yes'),
+                    $row->default ?? ($row->isNull ? 'NULL' : ''),
+                    $row->extra,
                     $linksTo,
                     $comments[$fieldName] ?? '',
                     isset($mimeMap, $mimeMap[$fieldName])

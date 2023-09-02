@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
+use PhpMyAdmin\Column;
+use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Identifiers\TriggerName;
@@ -285,19 +288,22 @@ class ExportTexytextTest extends AbstractTestCase
             ->method('fetchValue')
             ->willReturn('SELECT a FROM b');
 
-        $columns = ['Field' => 'fname', 'Comment' => 'comm'];
+        $column = new Column('fname', '', false, '', null, '');
+        $columnFull = new ColumnFull('fname', '', null, false, '', null, '', '', 'comm');
 
         $dbi->expects($this->exactly(2))
             ->method('getColumns')
-            ->with('db', 'table')
-            ->willReturn([$columns]);
+            ->willReturnMap([
+                ['db', 'table', false, Connection::TYPE_USER, [$column]],
+                ['db', 'table', true, Connection::TYPE_USER, [$columnFull]],
+            ]);
 
         DatabaseInterface::$instance = $dbi;
         $this->object->relation = new Relation($dbi);
 
         $this->object->expects($this->exactly(1))
             ->method('formatOneColumnDefinition')
-            ->with(['Field' => 'fname', 'Comment' => 'comm'], ['cname'])
+            ->with($column, ['cname'])
             ->willReturn('1');
 
         $relationParameters = RelationParameters::fromArray([
@@ -441,7 +447,7 @@ class ExportTexytextTest extends AbstractTestCase
 
     public function testFormatOneColumnDefinition(): void
     {
-        $cols = ['Null' => 'Yes', 'Field' => 'field', 'Key' => 'PRI', 'Type' => 'set(abc)enum123'];
+        $cols = new Column('field', 'set(abc)enum123', true, 'PRI', null, '');
 
         $uniqueKeys = ['field'];
 
@@ -450,7 +456,7 @@ class ExportTexytextTest extends AbstractTestCase
             $this->object->formatOneColumnDefinition($cols, $uniqueKeys),
         );
 
-        $cols = ['Null' => 'NO', 'Field' => 'fields', 'Key' => 'COMP', 'Type' => '', 'Default' => 'def'];
+        $cols = new Column('fields', '', false, 'COMP', 'def', '');
 
         $uniqueKeys = ['field'];
 

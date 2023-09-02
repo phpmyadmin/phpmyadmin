@@ -13,7 +13,7 @@
             <label class="visually-hidden" for="tableOrderFieldSelect">{% trans 'Column' %}</label>
             <select id="tableOrderFieldSelect" class="form-select" name="order_field" aria-describedby="tableOrderFieldSelectHelp">
               {% for column in columns %}
-                <option value="{{ column.Field }}">{{ column.Field }}</option>
+                <option value="{{ column.field }}">{{ column.field }}</option>
               {% endfor %}
             </select>
             <small id="tableOrderFieldSelectHelp" class="form-text text-body-secondary">

@@ -61,11 +61,11 @@ class DataDictionaryController extends AbstractController
             $columns = $this->dbi->getColumns($GLOBALS['db'], $tableName);
             $rows = [];
             foreach ($columns as $row) {
-                $extractedColumnSpec = Util::extractColumnSpec($row['Type']);
+                $extractedColumnSpec = Util::extractColumnSpec($row->type);
 
                 $relation = '';
                 if ($foreigners !== []) {
-                    $foreigner = $this->relation->searchColumnInForeigners($foreigners, $row['Field']);
+                    $foreigner = $this->relation->searchColumnInForeigners($foreigners, $row->field);
                     if (is_array($foreigner) && isset($foreigner['foreign_table'], $foreigner['foreign_field'])) {
                         $relation = $foreigner['foreign_table'];
                         $relation .= ' -> ';
@@ -76,19 +76,19 @@ class DataDictionaryController extends AbstractController
                 $mime = '';
                 if ($relationParameters->browserTransformationFeature !== null) {
                     $mimeMap = $this->transformations->getMime($GLOBALS['db'], $tableName, true);
-                    if (is_array($mimeMap) && isset($mimeMap[$row['Field']]['mimetype'])) {
-                        $mime = str_replace('_', '/', $mimeMap[$row['Field']]['mimetype']);
+                    if (is_array($mimeMap) && isset($mimeMap[$row->field]['mimetype'])) {
+                        $mime = str_replace('_', '/', $mimeMap[$row->field]['mimetype']);
                     }
                 }
 
-                $rows[$row['Field']] = [
-                    'name' => $row['Field'],
-                    'has_primary_key' => isset($primaryKeys[$row['Field']]),
+                $rows[$row->field] = [
+                    'name' => $row->field,
+                    'has_primary_key' => isset($primaryKeys[$row->field]),
                     'type' => $extractedColumnSpec['type'],
                     'print_type' => $extractedColumnSpec['print_type'],
-                    'is_nullable' => $row['Null'] !== 'NO',
-                    'default' => $row['Default'] ?? null,
-                    'comment' => $columnsComments[$row['Field']] ?? '',
+                    'is_nullable' => $row->isNull,
+                    'default' => $row->default,
+                    'comment' => $columnsComments[$row->field] ?? '',
                     'mime' => $mime,
                     'relation' => $relation,
                 ];

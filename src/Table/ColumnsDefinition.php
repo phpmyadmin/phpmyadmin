@@ -49,7 +49,17 @@ final class ColumnsDefinition
      * @param int          $numFields  The number of fields
      * @param string|null  $regenerate Use regeneration
      * @param mixed[]|null $selected   Selected
-     * @param mixed[]|null $fieldsMeta Fields meta
+     * @psalm-param list<array{
+     *  Field: string,
+     *  Type: string,
+     *  Collation: string|null,
+     *  Null:'YES'|'NO',
+     *  Key: string,
+     *  Default: string|null,
+     *  Extra: string,
+     *  Privileges: string,
+     *  Comment: string
+     * }>|null $fieldsMeta Fields meta
      * @psalm-param '/table/create'|'/table/add-field'|'/table/structure/save' $action
      *
      * @return array<string, mixed>
@@ -102,7 +112,7 @@ final class ColumnsDefinition
         $commentsMap = $this->relation->getComments($GLOBALS['db'], $GLOBALS['table']);
 
         $moveColumns = [];
-        if (isset($fieldsMeta)) {
+        if ($fieldsMeta !== null) {
             $moveColumns = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table'])->getColumnsMeta();
         }
 
@@ -262,7 +272,11 @@ final class ColumnsDefinition
                     $columnMeta['Expression'] = is_array($expressions) ? $expressions[$columnMeta['Field']] : null;
                 }
 
-                $columnMetaDefault = self::decorateColumnMetaDefault($columnMeta);
+                $columnMetaDefault = self::decorateColumnMetaDefault(
+                    $columnMeta['Type'],
+                    $columnMeta['Default'],
+                    $columnMeta['Null'] === 'YES',
+                );
                 $columnMeta = array_merge($columnMeta, $columnMetaDefault);
             }
 
@@ -438,18 +452,15 @@ final class ColumnsDefinition
     /**
      * Set default type and default value according to the column metadata
      *
-     * @param array $columnMeta Column Metadata
-     * @phpstan-param array<string, string|null> $columnMeta
-     *
-     * @return non-empty-array<array-key, mixed>
+     * @return array{DefaultType:string, DefaultValue: string, Default?: string}
      */
-    public static function decorateColumnMetaDefault(array $columnMeta): array
+    public static function decorateColumnMetaDefault(string $type, string|null $default, bool $isNull): array
     {
         $metaDefault = ['DefaultType' => 'USER_DEFINED', 'DefaultValue' => ''];
 
-        switch ($columnMeta['Default']) {
+        switch ($default) {
             case null:
-                if ($columnMeta['Null'] === 'YES') {
+                if ($isNull) {
                     $metaDefault['DefaultType'] = 'NULL';
                 } else {
                     $metaDefault['DefaultType'] = 'NONE';
@@ -467,10 +478,10 @@ final class ColumnsDefinition
 
                 break;
             default:
-                $metaDefault['DefaultValue'] = $columnMeta['Default'];
+                $metaDefault['DefaultValue'] = $default;
 
-                if (str_ends_with((string) $columnMeta['Type'], 'text')) {
-                    $textDefault = substr($columnMeta['Default'], 1, -1);
+                if (str_ends_with($type, 'text')) {
+                    $textDefault = substr($default, 1, -1);
                     $metaDefault['Default'] = stripcslashes($textDefault);
                 }
 

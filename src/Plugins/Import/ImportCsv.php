@@ -186,11 +186,13 @@ class ImportCsv extends AbstractImportCsv
             (string) $GLOBALS['errorUrl'],
         );
 
-        [$sqlTemplate, $requiredFields, $fields] = $this->getSqlTemplateAndRequiredFields(
+        [$sqlTemplate, $fields] = $this->getSqlTemplateAndRequiredFields(
             $GLOBALS['db'],
             $GLOBALS['table'],
             $GLOBALS['csv_columns'],
         );
+
+        $requiredFields = count($fields);
 
         $sqlStatements = [];
 
@@ -492,7 +494,7 @@ class ImportCsv extends AbstractImportCsv
                     $tempRow = [];
                 } else {
                     // Do we have correct count of values?
-                    if (count($values) != $requiredFields) {
+                    if (count($values) !== $requiredFields) {
                         // Hack for excel
                         if ($values[count($values) - 1] !== ';') {
                             $GLOBALS['message'] = Message::error(
@@ -528,7 +530,7 @@ class ImportCsv extends AbstractImportCsv
                     if (isset($_POST['csv_replace'])) {
                         $sql .= ' ON DUPLICATE KEY UPDATE ';
                         foreach ($fields as $field) {
-                            $fieldName = Util::backquote($field['Field']);
+                            $fieldName = Util::backquote($field);
                             $sql .= $fieldName . ' = VALUES(' . $fieldName
                                 . '), ';
                         }
@@ -760,7 +762,7 @@ class ImportCsv extends AbstractImportCsv
         return $columnNames;
     }
 
-    /** @return mixed[] */
+    /** @return array{string, string[]} */
     private function getSqlTemplateAndRequiredFields(
         string|null $db,
         string|null $table,
@@ -769,7 +771,6 @@ class ImportCsv extends AbstractImportCsv
         $GLOBALS['error'] ??= null;
         $GLOBALS['message'] ??= null;
 
-        $requiredFields = 0;
         $sqlTemplate = '';
         $fields = [];
         if (! $this->getAnalyze() && $db !== null && $table !== null) {
@@ -780,7 +781,7 @@ class ImportCsv extends AbstractImportCsv
 
             $sqlTemplate .= ' INTO ' . Util::backquote($table);
 
-            $tmpFields = DatabaseInterface::getInstance()->getColumns($db, $table);
+            $tmpFields = DatabaseInterface::getInstance()->getColumnNames($db, $table);
 
             if ($csvColumns === null || $csvColumns === '') {
                 $fields = $tmpFields;
@@ -800,7 +801,7 @@ class ImportCsv extends AbstractImportCsv
                     $val = trim($val, " \t\r\n\0\x0B`");
                     $found = false;
                     foreach ($tmpFields as $field) {
-                        if ($field['Field'] == $val) {
+                        if ($field === $val) {
                             $found = true;
                             break;
                         }
@@ -829,12 +830,10 @@ class ImportCsv extends AbstractImportCsv
                 $sqlTemplate .= ') ';
             }
 
-            $requiredFields = count($fields);
-
             $sqlTemplate .= ' VALUES (';
         }
 
-        return [$sqlTemplate, $requiredFields, $fields];
+        return [$sqlTemplate, $fields];
     }
 
     /**

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
+use PhpMyAdmin\Column;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
@@ -228,15 +229,8 @@ class ExportMediawikiTest extends AbstractTestCase
             ->getMock();
 
         $columns = [
-            [
-                'Null' => 'Yes',
-                'Field' => 'name1',
-                'Key' => 'PRI',
-                'Type' => 'set(abc)enum123',
-                'Default' => '',
-                'Extra' => '',
-            ],
-            ['Null' => 'NO', 'Field' => 'fields', 'Key' => 'COMP', 'Type' => '', 'Default' => 'def', 'Extra' => 'ext'],
+            new Column('name1', 'set(abc)enum123', true, 'PRI', '', ''),
+            new Column('fields', '', false, 'COMP', 'def', 'ext'),
         ];
 
         $dbi->expects($this->once())
@@ -277,7 +271,7 @@ class ExportMediawikiTest extends AbstractTestCase
             " | \n" .
             "|-\n" .
             "! Null\n" .
-            " | Yes\n" .
+            " | YES\n" .
             " | NO\n" .
             "|-\n" .
             "! Default\n" .

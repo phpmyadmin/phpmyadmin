@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
+use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
@@ -688,14 +689,17 @@ class ExportSqlTest extends AbstractTestCase
             ->method('getColumns')
             ->with('db', 'view')
             ->willReturn([
-                'cname' => [
-                    'Type' => 'char',
-                    'Collation' => 'utf-8',
-                    'Null' => 'NO',
-                    'Default' => 'a',
-                    'Comment' => 'cmt',
-                    'Field' => 'fname',
-                ],
+                new ColumnFull(
+                    'fname',
+                    'char',
+                    'utf-8',
+                    false,
+                    '',
+                    'a',
+                    '',
+                    '',
+                    'cmt',
+                ),
             ]);
 
         DatabaseInterface::$instance = $dbi;
@@ -724,13 +728,17 @@ class ExportSqlTest extends AbstractTestCase
             ->method('getColumns')
             ->with('db', 'view')
             ->willReturn([
-                'cname' => [
-                    'Type' => 'char',
-                    'Collation' => 'utf-8',
-                    'Null' => 'YES',
-                    'Comment' => 'cmt',
-                    'Field' => 'fname',
-                ],
+                new ColumnFull(
+                    'fname',
+                    'char',
+                    'utf-8',
+                    true,
+                    '',
+                    null,
+                    '',
+                    '',
+                    'cmt',
+                ),
             ]);
         DatabaseInterface::$instance = $dbi;
 

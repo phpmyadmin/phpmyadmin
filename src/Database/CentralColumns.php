@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
@@ -208,43 +209,32 @@ class CentralColumns
      * build the insert query for central columns list given PMA storage
      * db, central_columns table, column name and corresponding definition to be added
      *
-     * @param string  $column           column to add into central list
-     * @param mixed[] $def              list of attributes of the column being added
-     * @param string  $db               PMA configuration storage database name
-     * @param string  $centralListTable central columns configuration storage table name
+     * @param ColumnFull $def              list of attributes of the column being added
+     * @param string     $db               PMA configuration storage database name
+     * @param string     $centralListTable central columns configuration storage table name
      *
      * @return string query string to insert the given column
      * with definition into central list
      */
     private function getInsertQuery(
-        string $column,
-        array $def,
+        ColumnFull $def,
         string $db,
         string $centralListTable,
     ): string {
-        $type = '';
-        $length = 0;
-        $attribute = '';
-        if (isset($def['Type'])) {
-            $extractedColumnSpec = Util::extractColumnSpec($def['Type']);
-            $attribute = trim($extractedColumnSpec['attribute']);
-            $type = $extractedColumnSpec['type'];
-            $length = $extractedColumnSpec['spec_in_brackets'];
-        }
+        $extractedColumnSpec = Util::extractColumnSpec($def->type);
+        $attribute = trim($extractedColumnSpec['attribute']);
+        $type = $extractedColumnSpec['type'];
+        $length = $extractedColumnSpec['spec_in_brackets'];
 
-        if (isset($def['Attribute'])) {
-            $attribute = $def['Attribute'];
-        }
-
-        $collation = $def['Collation'] ?? '';
-        $isNull = $def['Null'] === 'NO' ? '0' : '1';
-        $extra = $def['Extra'] ?? '';
-        $default = $def['Default'] ?? '';
+        $collation = $def->collation ?? '';
+        $isNull = ! $def->isNull ? '0' : '1';
+        $extra = $def->extra;
+        $default = $def->default ?? '';
 
         return 'INSERT INTO '
             . Util::backquote($centralListTable) . ' '
             . 'VALUES ( ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL) . ' ,'
-            . $this->dbi->quoteString($column, Connection::TYPE_CONTROL) . ','
+            . $this->dbi->quoteString($def->field, Connection::TYPE_CONTROL) . ','
             . $this->dbi->quoteString($type, Connection::TYPE_CONTROL) . ','
             . $this->dbi->quoteString((string) $length, Connection::TYPE_CONTROL) . ','
             . $this->dbi->quoteString($collation, Connection::TYPE_CONTROL) . ','
@@ -298,10 +288,10 @@ class CentralColumns
             $hasList = $this->findExistingColNames($db, $cols);
             foreach ($fieldSelect as $table) {
                 foreach ($fields[$table] as $def) {
-                    $field = $def['Field'];
+                    $field = $def->field;
                     if (! in_array($field, $hasList)) {
                         $hasList[] = $field;
-                        $insQuery[] = $this->getInsertQuery($field, $def, $db, $centralListTable);
+                        $insQuery[] = $this->getInsertQuery($def, $db, $centralListTable);
                     } else {
                         $existingCols[] = "'" . $field . "'";
                     }
@@ -317,7 +307,7 @@ class CentralColumns
                 if (! in_array($column, $hasList)) {
                     $hasList[] = $column;
                     $field = $this->dbi->getColumn($db, $table, $column, true);
-                    $insQuery[] = $this->getInsertQuery($column, $field, $db, $centralListTable);
+                    $insQuery[] = $this->getInsertQuery($field, $db, $centralListTable);
                 } else {
                     $existingCols[] = "'" . $column . "'";
                 }
@@ -553,7 +543,7 @@ class CentralColumns
      * @param string $colType      new column type
      * @param string $colAttribute new column attribute
      * @param string $colLength    new column length
-     * @param int    $colIsNull    value 1 if new column isNull is true, 0 otherwise
+     * @param bool   $colIsNull    value 1 if new column isNull is true, 0 otherwise
      * @param string $collation    new column collation
      * @param string $colExtra     new column extra property
      * @param string $colDefault   new column default value
@@ -567,7 +557,7 @@ class CentralColumns
         string $colType,
         string $colAttribute,
         string $colLength,
-        int $colIsNull,
+        bool $colIsNull,
         string $collation,
         string $colExtra,
         string $colDefault,
@@ -582,18 +572,18 @@ class CentralColumns
         $centralTable = $cfgCentralColumns['table'];
         $this->dbi->selectDb($cfgCentralColumns['db'], Connection::TYPE_CONTROL);
         if ($origColName == '') {
-            $def = [];
-            $def['Type'] = $colType;
-            if ($colLength !== '') {
-                $def['Type'] .= '(' . $colLength . ')';
-            }
-
-            $def['Collation'] = $collation;
-            $def['Null'] = $colIsNull !== 0 ? __('YES') : __('NO');
-            $def['Extra'] = $colExtra;
-            $def['Attribute'] = $colAttribute;
-            $def['Default'] = $colDefault;
-            $query = $this->getInsertQuery($colName, $def, $db, $centralTable);
+            $def = new ColumnFull(
+                $colName,
+                $colType . ($colLength !== '' ? '(' . $colLength . ')' : ''),
+                $collation,
+                $colIsNull,
+                '',
+                $colDefault,
+                $colExtra,
+                '',
+                '',
+            );
+            $query = $this->getInsertQuery($def, $db, $centralTable);
         } else {
             $query = 'UPDATE ' . Util::backquote($centralTable)
                 . ' SET col_type = ' . $this->dbi->quoteString($colType, Connection::TYPE_CONTROL)
@@ -629,7 +619,7 @@ class CentralColumns
         $columnExtra = [];
         $numberCentralFields = count($params['orig_col_name']);
         for ($i = 0; $i < $numberCentralFields; $i++) {
-            $columnIsNull[$i] = isset($params['field_null'][$i]) ? 1 : 0;
+            $columnIsNull[$i] = isset($params['field_null'][$i]);
             $columnExtra[$i] = $params['col_extra'][$i] ?? '';
 
             if ($columnDefault[$i] === 'NONE') {

@@ -1435,15 +1435,15 @@ class Util
 
         /* Fetch columns list if required */
         if (str_contains($string, '@COLUMNS@')) {
-            $columnsList = DatabaseInterface::getInstance()->getColumns($GLOBALS['db'], $GLOBALS['table']);
+            $columnsList = DatabaseInterface::getInstance()->getColumnNames($GLOBALS['db'], $GLOBALS['table']);
 
             $columnNames = [];
-            foreach ($columnsList as $column) {
-                if ($escape !== null) {
-                    $columnNames[] = self::$escape($column['Field']);
-                } else {
-                    $columnNames[] = $column['Field'];
+            if ($escape !== null) {
+                foreach ($columnsList as $column) {
+                    $columnNames[] = self::$escape($column);
                 }
+            } else {
+                $columnNames = $columnsList;
             }
 
             $replace['@COLUMNS@'] = implode(',', $columnNames);
