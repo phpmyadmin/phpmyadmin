@@ -685,6 +685,11 @@ Server connection settings
     login is still tried first, but as fallback, no password method is
     tried.
 
+    .. note::
+
+        It is possible to allow logging in with no password with
+        the :config:option:`$cfg['Servers'][$i]['AllowNoPassword']` directive.
+
 .. _servers_only_db:
 .. config:option:: $cfg['Servers'][$i]['only_db']
 
