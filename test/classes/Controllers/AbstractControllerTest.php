@@ -7,14 +7,12 @@ namespace PhpMyAdmin\Tests\Controllers;
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
-use Throwable;
 
 #[CoversClass(AbstractController::class)]
 class AbstractControllerTest extends AbstractTestCase
@@ -34,9 +32,9 @@ class AbstractControllerTest extends AbstractTestCase
         $template = new Template();
         $controller = new class ($response, $template) extends AbstractController {
             /** @psalm-param non-empty-list<non-empty-string> $params */
-            public function testCheckParameters(array $params): void
+            public function testCheckParameters(array $params): bool
             {
-                parent::checkParameters($params);
+                return parent::checkParameters($params);
             }
         };
 
@@ -50,12 +48,7 @@ class AbstractControllerTest extends AbstractTestCase
         $message .= '[br]';
         $expected = Message::error($message)->getDisplay();
 
-        try {
-            $controller->testCheckParameters(['param1', 'param2']);
-        } catch (Throwable $throwable) {
-        }
-
-        $this->assertInstanceOf(ExitException::class, $throwable ?? null);
+        $this->assertFalse($controller->testCheckParameters(['param1', 'param2']));
         $this->assertSame($expected, $response->getHTMLResult());
         $this->assertSame(400, $response->getResponse()->getStatusCode());
     }
@@ -67,9 +60,9 @@ class AbstractControllerTest extends AbstractTestCase
         $response = new ResponseRenderer();
         $controller = new class ($response, new Template()) extends AbstractController {
             /** @psalm-param non-empty-list<non-empty-string> $params */
-            public function testCheckParameters(array $params): void
+            public function testCheckParameters(array $params): bool
             {
-                parent::checkParameters($params);
+                return parent::checkParameters($params);
             }
         };
 
@@ -78,8 +71,7 @@ class AbstractControllerTest extends AbstractTestCase
         $GLOBALS['param1'] = 'param1';
         $GLOBALS['param2'] = 'param2';
 
-        $controller->testCheckParameters(['param1', 'param2']);
-
+        $this->assertTrue($controller->testCheckParameters(['param1', 'param2']));
         $this->assertSame(200, $response->getResponse()->getStatusCode());
     }
 

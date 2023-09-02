@@ -47,7 +47,9 @@ final class CollationController extends AbstractController
             return;
         }
 
-        $this->checkParameters(['db']);
+        if (! $this->checkParameters(['db'])) {
+            return;
+        }
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
             Config::getInstance()->settings['DefaultTabDatabase'],

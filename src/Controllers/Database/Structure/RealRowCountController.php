@@ -42,7 +42,9 @@ final class RealRowCountController extends AbstractController
             'table' => $_REQUEST['table'] ?? null,
         ];
 
-        $this->checkParameters(['db']);
+        if (! $this->checkParameters(['db'])) {
+            return;
+        }
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
             Config::getInstance()->settings['DefaultTabDatabase'],

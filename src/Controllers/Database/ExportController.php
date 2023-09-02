@@ -50,7 +50,9 @@ final class ExportController extends AbstractController
 
         $this->addScriptFiles(['export.js']);
 
-        $this->checkParameters(['db']);
+        if (! $this->checkParameters(['db'])) {
+            return;
+        }
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
             Config::getInstance()->settings['DefaultTabDatabase'],

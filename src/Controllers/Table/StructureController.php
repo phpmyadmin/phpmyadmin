@@ -101,7 +101,9 @@ class StructureController extends AbstractController
 
         $relationParameters = $this->relation->getRelationParameters();
 
-        $this->checkParameters(['db', 'table']);
+        if (! $this->checkParameters(['db', 'table'])) {
+            return;
+        }
 
         $isSystemSchema = Utilities::isSystemSchema($GLOBALS['db']);
         $urlParams = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];

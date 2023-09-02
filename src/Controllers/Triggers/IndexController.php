@@ -58,7 +58,9 @@ final class IndexController extends AbstractController
              * Displays the header and tabs
              */
             if (! empty($GLOBALS['table']) && in_array($GLOBALS['table'], $this->dbi->getTables($GLOBALS['db']))) {
-                $this->checkParameters(['db', 'table']);
+                if (! $this->checkParameters(['db', 'table'])) {
+                    return;
+                }
 
                 $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
                 $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
@@ -80,7 +82,9 @@ final class IndexController extends AbstractController
             } else {
                 $GLOBALS['table'] = '';
 
-                $this->checkParameters(['db']);
+                if (! $this->checkParameters(['db'])) {
+                    return;
+                }
 
                 $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
                     $config->settings['DefaultTabDatabase'],

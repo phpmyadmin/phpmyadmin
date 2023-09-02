@@ -57,7 +57,9 @@ final class PrimaryController extends AbstractController
         $deletionConfirmed = $request->getParsedBodyParam('mult_btn');
 
         if ($hasPrimary && $deletionConfirmed === null) {
-            $this->checkParameters(['db', 'table']);
+            if (! $this->checkParameters(['db', 'table'])) {
+                return;
+            }
 
             $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption(

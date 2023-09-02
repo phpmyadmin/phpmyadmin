@@ -241,7 +241,9 @@ final class ImportController extends AbstractController
 
         Core::setPostAsGlobal($postPatterns);
 
-        $this->checkParameters(['import_type', 'format']);
+        if (! $this->checkParameters(['import_type', 'format'])) {
+            return;
+        }
 
         // We don't want anything special in format
         $GLOBALS['format'] = Core::securePath($GLOBALS['format']);

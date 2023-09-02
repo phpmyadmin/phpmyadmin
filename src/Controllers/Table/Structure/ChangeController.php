@@ -31,6 +31,10 @@ final class ChangeController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         if ($request->getParam('change_column') !== null) {
+            if (! $this->checkParameters(['server', 'db', 'table', 'num_fields'])) {
+                return;
+            }
+
             $this->displayHtmlForColumnChange([$request->getParam('field')]);
 
             return;
@@ -42,6 +46,10 @@ final class ChangeController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 
+            return;
+        }
+
+        if (! $this->checkParameters(['server', 'db', 'table', 'num_fields'])) {
             return;
         }
 
@@ -81,8 +89,6 @@ final class ChangeController extends AbstractController
         $checkUserPrivileges->getPrivileges();
 
         $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
-
-        $this->checkParameters(['server', 'db', 'table', 'num_fields']);
 
         $templateData = $this->columnsDefinition->displayForm(
             '/table/structure/save',
