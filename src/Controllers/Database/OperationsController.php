@@ -218,7 +218,9 @@ class OperationsController extends AbstractController
             $this->relation->setDbComment($GLOBALS['db'], $request->getParsedBodyParam('comment'));
         }
 
-        $this->checkParameters(['db']);
+        if (! $this->checkParameters(['db'])) {
+            return;
+        }
 
         $config = Config::getInstance();
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');

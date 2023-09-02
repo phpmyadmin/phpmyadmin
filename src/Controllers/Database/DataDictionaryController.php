@@ -31,7 +31,9 @@ class DataDictionaryController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $this->checkParameters(['db'], true);
+        if (! $this->checkParameters(['db'], true)) {
+            return;
+        }
 
         $relationParameters = $this->relation->getRelationParameters();
 

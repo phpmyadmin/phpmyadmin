@@ -59,7 +59,9 @@ final class ReplaceController extends AbstractController
     {
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['message'] ??= null;
-        $this->checkParameters(['db', 'table', 'goto']);
+        if (! $this->checkParameters(['db', 'table', 'goto'])) {
+            return;
+        }
 
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['unsaved_values'] ??= null;

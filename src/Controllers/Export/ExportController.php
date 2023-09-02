@@ -95,7 +95,9 @@ final class ExportController extends AbstractController
         // sanitize this parameter which will be used below in a file inclusion
         $GLOBALS['what'] = Core::securePath($whatParam);
 
-        $this->checkParameters(['what', 'export_type']);
+        if (! $this->checkParameters(['what', 'export_type'])) {
+            return;
+        }
 
         // export class instance, not array of properties, as before
         $exportPlugin = Plugins::getPlugin('export', $GLOBALS['what'], [

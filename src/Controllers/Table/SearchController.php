@@ -158,7 +158,9 @@ class SearchController extends AbstractController
      */
     public function __invoke(ServerRequest $request): void
     {
-        $this->checkParameters(['db', 'table']);
+        if (! $this->checkParameters(['db', 'table'])) {
+            return;
+        }
 
         $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(

@@ -48,6 +48,12 @@ class ChartController extends AbstractController
         $GLOBALS['errorUrl'] ??= null;
 
         if (isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $request->isAjax()) {
+            if (
+                strlen($GLOBALS['table']) > 0 && strlen($GLOBALS['db']) > 0 && ! $this->checkParameters(['db', 'table'])
+            ) {
+                return;
+            }
+
             $this->ajax($request);
 
             return;
@@ -85,7 +91,9 @@ class ChartController extends AbstractController
          * Runs common work
          */
         if (strlen($GLOBALS['table']) > 0) {
-            $this->checkParameters(['db', 'table']);
+            if (! $this->checkParameters(['db', 'table'])) {
+                return;
+            }
 
             $urlParams = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
@@ -126,7 +134,9 @@ class ChartController extends AbstractController
             $urlParams['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
             $urlParams['back'] = Url::getFromRoute('/sql');
 
-            $this->checkParameters(['db']);
+            if (! $this->checkParameters(['db'])) {
+                return;
+            }
 
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
             $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
@@ -210,8 +220,6 @@ class ChartController extends AbstractController
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
         if (strlen($GLOBALS['table']) > 0 && strlen($GLOBALS['db']) > 0) {
-            $this->checkParameters(['db', 'table']);
-
             $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
                 Config::getInstance()->settings['DefaultTabTable'],

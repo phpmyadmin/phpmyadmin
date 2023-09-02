@@ -47,7 +47,9 @@ class OperationsController extends AbstractController
         $GLOBALS['errorUrl'] ??= null;
         $this->addScriptFiles(['table/operations.js']);
 
-        $this->checkParameters(['db', 'table']);
+        if (! $this->checkParameters(['db', 'table'])) {
+            return;
+        }
 
         $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(

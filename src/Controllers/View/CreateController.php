@@ -54,7 +54,10 @@ class CreateController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $this->checkParameters(['db']);
+        if (! $this->checkParameters(['db'])) {
+            return;
+        }
+
         $GLOBALS['text_dir'] ??= null;
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['message'] ??= null;

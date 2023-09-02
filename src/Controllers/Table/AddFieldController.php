@@ -60,7 +60,9 @@ class AddFieldController extends AbstractController
 
         $this->addScriptFiles(['table/structure.js']);
 
-        $this->checkParameters(['db', 'table']);
+        if (! $this->checkParameters(['db', 'table'])) {
+            return;
+        }
 
         $cfg = $this->config->settings;
 
@@ -199,7 +201,9 @@ class AddFieldController extends AbstractController
 
         $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
 
-        $this->checkParameters(['server', 'db', 'table', 'num_fields']);
+        if (! $this->checkParameters(['server', 'db', 'table', 'num_fields'])) {
+            return;
+        }
 
         $templateData = $this->columnsDefinition->displayForm(
             '/table/add-field',

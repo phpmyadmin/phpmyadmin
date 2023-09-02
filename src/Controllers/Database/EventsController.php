@@ -46,7 +46,9 @@ final class EventsController extends AbstractController
         $this->addScriptFiles(['database/events.js']);
 
         if (! $request->isAjax()) {
-            $this->checkParameters(['db']);
+            if (! $this->checkParameters(['db'])) {
+                return;
+            }
 
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
                 Config::getInstance()->settings['DefaultTabDatabase'],

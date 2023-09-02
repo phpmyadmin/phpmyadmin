@@ -47,7 +47,9 @@ class SqlController extends AbstractController
         $this->response->addHTML($this->pageSettings->getErrorHTML());
         $this->response->addHTML($this->pageSettings->getHTML());
 
-        $this->checkParameters(['db']);
+        if (! $this->checkParameters(['db'])) {
+            return;
+        }
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
             Config::getInstance()->settings['DefaultTabDatabase'],

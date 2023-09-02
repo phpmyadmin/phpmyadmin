@@ -52,7 +52,9 @@ final class ImportController extends AbstractController
 
         $this->addScriptFiles(['import.js']);
 
-        $this->checkParameters(['db', 'table']);
+        if (! $this->checkParameters(['db', 'table'])) {
+            return;
+        }
 
         $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
         $config = Config::getInstance();

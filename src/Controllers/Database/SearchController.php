@@ -38,7 +38,9 @@ class SearchController extends AbstractController
 
         $this->addScriptFiles(['database/search.js', 'sql.js', 'makegrid.js']);
 
-        $this->checkParameters(['db']);
+        if (! $this->checkParameters(['db'])) {
+            return;
+        }
 
         $config = Config::getInstance();
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');

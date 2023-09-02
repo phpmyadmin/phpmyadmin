@@ -86,7 +86,9 @@ class ZoomSearchController extends AbstractController
         $GLOBALS['goto'] ??= null;
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
-        $this->checkParameters(['db', 'table']);
+        if (! $this->checkParameters(['db', 'table'])) {
+            return;
+        }
 
         $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
         $config = Config::getInstance();

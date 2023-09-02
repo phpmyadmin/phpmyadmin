@@ -46,13 +46,12 @@ abstract class AbstractController
 
     /**
      * Function added to avoid path disclosures.
-     * Called by each script that needs parameters, it displays
-     * an error message and, by default, stops the execution.
+     * Called by each script that needs parameters.
      *
      * @param bool $request Check parameters in request
      * @psalm-param non-empty-list<non-empty-string> $params The names of the parameters needed by the calling script
      */
-    protected function checkParameters(array $params, bool $request = false): void
+    protected function checkParameters(array $params, bool $request = false): bool
     {
         $foundError = false;
         $errorMessage = '';
@@ -75,15 +74,13 @@ abstract class AbstractController
             $foundError = true;
         }
 
-        if (! $foundError) {
-            return;
+        if ($foundError) {
+            $this->response->setStatusCode(StatusCodeInterface::STATUS_BAD_REQUEST);
+            $this->response->setRequestStatus(false);
+            $this->response->addHTML(Message::error($errorMessage)->getDisplay());
         }
 
-        $this->response->setStatusCode(StatusCodeInterface::STATUS_BAD_REQUEST);
-        $this->response->setRequestStatus(false);
-        $this->response->addHTML(Message::error($errorMessage)->getDisplay());
-
-        $this->response->callExit();
+        return ! $foundError;
     }
 
     /** @psalm-param StatusCodeInterface::STATUS_* $statusCode */

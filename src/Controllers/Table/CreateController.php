@@ -42,7 +42,9 @@ class CreateController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $this->checkParameters(['db']);
+        if (! $this->checkParameters(['db'])) {
+            return;
+        }
 
         $cfg = $this->config->settings;
 
@@ -139,7 +141,9 @@ class CreateController extends AbstractController
 
         $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
 
-        $this->checkParameters(['server', 'db']);
+        if (! $this->checkParameters(['server', 'db'])) {
+            return;
+        }
 
         $templateData = $this->columnsDefinition->displayForm('/table/create', $numFields);
 
