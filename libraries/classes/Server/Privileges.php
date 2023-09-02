@@ -51,6 +51,7 @@ use function sprintf;
 use function str_contains;
 use function str_replace;
 use function strlen;
+use function strtr;
 use function trim;
 use function uksort;
 
@@ -132,16 +133,20 @@ class Privileges
      *
      * @return string   the generated condition
      */
-    public function rangeOfUsers($initial = '')
+    public function rangeOfUsers(?string $initial = null)
     {
-        // strtolower() is used because the User field
-        // might be BINARY, so LIKE would be case sensitive
-        if ($initial === null || $initial === '') {
+        if ($initial === null) {
             return '';
+        }
+
+        if ($initial === '') {
+            return " WHERE `User` = ''";
         }
 
         $like = strtr($initial, ['_' => '\\_', '%' => '\\%', '\\' => '\\\\']) . '%';
 
+        // strtolower() is used because the User field
+        // might be BINARY, so LIKE would be case sensitive
         return " WHERE `User` LIKE '"
             . $this->dbi->escapeString($like) . "'"
             . " OR `User` LIKE '"

@@ -28,6 +28,7 @@ use function __;
 use function _pgettext;
 use function htmlspecialchars;
 use function implode;
+use function preg_quote;
 
 /**
  * @covers \PhpMyAdmin\Server\Privileges
@@ -243,6 +244,9 @@ class PrivilegesTest extends AbstractTestCase
 
         $ret = $this->serverPrivileges->rangeOfUsers('%');
         $this->assertEquals(' WHERE `User` LIKE \'\\%%\' OR `User` LIKE \'\\%%\'', $ret);
+
+        $ret = $this->serverPrivileges->rangeOfUsers('');
+        $this->assertEquals(" WHERE `User` = ''", $ret);
 
         $ret = $this->serverPrivileges->rangeOfUsers();
         $this->assertEquals('', $ret);
@@ -1684,7 +1688,7 @@ class PrivilegesTest extends AbstractTestCase
             ->will($this->returnValue($resultStub));
         $resultStub->expects($this->atLeastOnce())
             ->method('fetchRow')
-            ->will($this->onConsecutiveCalls(['-'], ['"'], ['%'], ['\\'], []));
+            ->will($this->onConsecutiveCalls(['-'], ['"'], ['%'], ['\\'], [''], []));
         $this->serverPrivileges->dbi = $dbi;
 
         $actual = $this->serverPrivileges->getHtmlForInitials();
@@ -1696,20 +1700,26 @@ class PrivilegesTest extends AbstractTestCase
             '<a class="page-link" href="#" tabindex="-1" aria-disabled="true">Z</a>',
             $actual
         );
-        $this->assertStringContainsString(
-            '<a class="page-link" href="index.php?route=/server/privileges&initial=-&lang=en">-</a>',
+        $this->assertMatchesRegularExpression(
+            '/<a class="page-link" href="index.php\?route=\/server\/privileges&initial=-&lang=en">\s*-\s*<\/a>/',
             $actual
         );
-        $this->assertStringContainsString(
-            '<a class="page-link" href="index.php?route=/server/privileges&initial=%22&lang=en">&quot;</a>',
+        $this->assertMatchesRegularExpression(
+            '/<a class="page-link" href="index.php\?route=\/server\/privileges&initial=%22&lang=en">\s*&quot;\s*<\/a>/',
             $actual
         );
-        $this->assertStringContainsString(
-            '<a class="page-link" href="index.php?route=/server/privileges&initial=%25&lang=en">%</a>',
+        $this->assertMatchesRegularExpression(
+            '/<a class="page-link" href="index.php\?route=\/server\/privileges&initial=%25&lang=en">\s*%\s*<\/a>/',
             $actual
         );
-        $this->assertStringContainsString(
-            '<a class="page-link" href="index.php?route=/server/privileges&initial=%5C&lang=en">\\</a>',
+        $this->assertMatchesRegularExpression(
+            '/<a class="page-link" href="index.php\?route=\/server\/privileges&initial=%5C&lang=en">\s*\\\\\s*<\/a>/',
+            $actual
+        );
+        $this->assertMatchesRegularExpression(
+            '/<a class="page-link" href="index.php\?route=\/server\/privileges&initial=&lang=en">\s*' .
+                '<span class="text-danger text-nowrap">' . preg_quote(__('Any')) . '<\/span>' .
+                '\s*<\/a>/',
             $actual
         );
         $this->assertStringContainsString('Show all', $actual);
