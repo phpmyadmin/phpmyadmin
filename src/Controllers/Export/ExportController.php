@@ -303,7 +303,8 @@ final class ExportController extends AbstractController
                     /** @var DatabaseExportController $controller */
                     $controller = Core::getContainerBuilder()->get(DatabaseExportController::class);
                     $controller($request);
-                    $this->response->callExit();
+
+                    return;
                 }
             }
 

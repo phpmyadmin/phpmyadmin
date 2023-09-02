@@ -38,7 +38,8 @@ final class ShowConfigController
             // drop post data
             $response->addHeader('Location', '../setup/index.php' . Url::getCommonRaw(['route' => '/setup']));
             $response->setStatusCode(StatusCodeInterface::STATUS_SEE_OTHER);
-            $response->callExit();
+
+            return;
         }
 
         /** @var mixed $submitDownload */
@@ -58,6 +59,5 @@ final class ShowConfigController
             '../setup/index.php' . Url::getCommonRaw(['route' => '/setup', 'page' => 'config']),
         );
         $response->setStatusCode(StatusCodeInterface::STATUS_SEE_OTHER);
-        $response->callExit();
     }
 }
