@@ -27,7 +27,10 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
+use function array_fill_keys;
 use function array_filter;
+use function array_intersect;
+use function array_keys;
 use function array_map;
 use function array_merge;
 use function array_unique;
@@ -41,7 +44,6 @@ use function is_string;
 use function json_decode;
 use function ksort;
 use function max;
-use function mb_chr;
 use function mb_strpos;
 use function mb_strrpos;
 use function mb_strtolower;
@@ -49,6 +51,7 @@ use function mb_strtoupper;
 use function mb_substr;
 use function preg_match;
 use function preg_replace;
+use function range;
 use function sprintf;
 use function str_contains;
 use function str_replace;
@@ -141,14 +144,14 @@ class Privileges
         }
 
         if ($initial === '') {
-            return " WHERE `User` = ''";
+            return "WHERE `User` = ''";
         }
 
-        $like = strtr($initial, ['_' => '\\_', '%' => '\\%', '\\' => '\\\\']) . '%';
+        $like = $this->dbi->escapeMysqlWildcards($initial) . '%';
 
         // strtolower() is used because the User field
         // might be BINARY, so LIKE would be case sensitive
-        return ' WHERE `User` LIKE '
+        return 'WHERE `User` LIKE '
             . $this->dbi->quoteString($like)
             . ' OR `User` LIKE '
             . $this->dbi->quoteString(mb_strtolower($like));
@@ -1816,76 +1819,57 @@ class Privileges
     }
 
     /**
-     * Get HTML for Displays the initials
-     *
-     * @return string HTML snippet
+     * Displays the initials if there are many privileges
      */
     public function getHtmlForInitials(): string
     {
-        $arrayInitials = [];
-
-        // initialize to false the letters A-Z
-        /** @infection-ignore-all */
-        for ($letterCounter = 1; $letterCounter < 27; $letterCounter++) {
-            $arrayInitials[mb_chr($letterCounter + 64)] = false;
+        $usersCount = $this->dbi->fetchValue('SELECT COUNT(*) FROM `mysql`.`user`');
+        if ($usersCount === false || $usersCount <= 20) {
+            return '';
         }
 
-        $initials = $this->dbi->tryQuery(
-            'SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user` ORDER BY UPPER(LEFT(`User`,1)) ASC',
-        );
-        if ($initials) {
-            while ($tmpInitial = $initials->fetchRow()) {
-                $arrayInitials[$tmpInitial[0]] = true;
-            }
+        $result = $this->dbi->tryQuery('SELECT DISTINCT UPPER(LEFT(`User`, 1)) FROM `user`');
+        if ($result === false) {
+            return '';
         }
 
+        $initials = $result->fetchAllColumn();
         // Display the initials, which can be any characters, not
         // just letters. For letters A-Z, we add the non-used letters
         // as greyed out.
-
-        uksort($arrayInitials, 'strnatcasecmp');
+        $initialsMap = array_fill_keys($initials, true) + array_fill_keys(range('A', 'Z'), false);
+        uksort($initialsMap, 'strnatcasecmp');
 
         return $this->template->render('server/privileges/initials_row', [
-            'array_initials' => $arrayInitials,
-            'initial' => $_GET['initial'] ?? null,
+            'array_initials' => $initialsMap,
+            'selected_initial' => $_GET['initial'] ?? null,
         ]);
     }
 
     /**
      * Get the database rights array for Display user overview
      *
-     * @return (string|string[]|null)[][][]    database rights array
+     * @return (string|string[])[][][]    database rights array
      */
     public function getDbRightsForUserOverview(string|null $initial): array
     {
         // we also want users not in table `user` but in other table
-        $tables = $this->dbi->fetchResult('SHOW TABLES FROM `mysql`;');
-
-        $tablesSearchForUsers = ['user', 'db', 'tables_priv', 'columns_priv', 'procs_priv'];
-
-        $dbRightsSqls = [];
-        foreach ($tablesSearchForUsers as $tableSearchIn) {
-            if (! in_array($tableSearchIn, $tables)) {
-                continue;
-            }
-
-            $dbRightsSqls[] = 'SELECT DISTINCT `User`, `Host` FROM `mysql`.`'
-                . $tableSearchIn . '` ' . $this->rangeOfUsers($initial);
+        $mysqlTables = $this->dbi->fetchResult('SHOW TABLES FROM `mysql`');
+        $userTables = ['user', 'db', 'tables_priv', 'columns_priv', 'procs_priv'];
+        $whereUser = $this->rangeOfUsers($initial);
+        $sqls = [];
+        foreach (array_intersect($userTables, $mysqlTables) as $table) {
+            $sqls[] = '(SELECT DISTINCT `User`, `Host` FROM `mysql`.`' . $table . '` ' . $whereUser . ')';
         }
 
+        $sql = implode(' UNION ', $sqls) . ' ORDER BY `User` ASC, `Host` ASC';
+        $result = $this->dbi->query($sql);
+
         $userDefaults = ['User' => '', 'Host' => '%', 'Password' => '?', 'Grant_priv' => 'N', 'privs' => ['USAGE']];
-
-        // for the rights
         $dbRights = [];
-
-        $dbRightsSql = '(' . implode(') UNION (', $dbRightsSqls) . ')'
-            . ' ORDER BY `User` ASC, `Host` ASC';
-
-        $dbRightsResult = $this->dbi->query($dbRightsSql);
-
-        while ($dbRightsRow = $dbRightsResult->fetchAssoc()) {
-            $dbRightsRow = array_merge($userDefaults, $dbRightsRow);
-            $dbRights[$dbRightsRow['User']][$dbRightsRow['Host']] = $dbRightsRow;
+        while (($row = $result->fetchAssoc())) {
+            /** @psalm-var array{User: string, Host: string} $row */
+            $dbRights[$row['User']][$row['Host']] = array_merge($userDefaults, $row);
         }
 
         ksort($dbRights);
@@ -2599,49 +2583,27 @@ class Privileges
      */
     public function getHtmlForUserOverview(string $textDir, string|null $initial): string
     {
-        $passwordColumn = 'Password';
         $serverVersion = $this->dbi->getVersion();
-        if (Compatibility::isMySqlOrPerconaDb() && $serverVersion >= 50706) {
-            $passwordColumn = 'authentication_string';
-        }
+        $passwordColumn = Compatibility::isMySqlOrPerconaDb() && $serverVersion >= 50706
+            ? 'authentication_string'
+            : 'Password';
 
-        // $sql_query is for the initial-filtered,
-        // $sql_query_all is for counting the total no. of users
+        // $sql is for the initial-filtered
+        $sql = 'SELECT *, IF(`' . $passwordColumn . "` = _latin1 '', 'N', 'Y') AS `Password`" .
+            ' FROM `mysql`.`user` ' . $this->rangeOfUsers($initial) . ' ORDER BY `User` ASC, `Host` ASC';
 
-        $sqlQuery = $sqlQueryAll = 'SELECT *, IF(`' . $passwordColumn
-            . "` = _latin1 '', 'N', 'Y') AS 'Password' FROM `mysql`.`user`";
-
-        $sqlQuery .= $this->rangeOfUsers($initial);
-
-        $sqlQuery .= ' ORDER BY `User` ASC, `Host` ASC;';
-        $sqlQueryAll .= ' ;';
-
-        $res = $this->dbi->tryQuery($sqlQuery);
-        $resAll = $this->dbi->tryQuery($sqlQueryAll);
-
-        $errorMessages = '';
-        if (! $res) {
+        $res = $this->dbi->tryQuery($sql);
+        if ($res === false) {
             $errorMessages = $this->checkStructureOfPrivilegeTable();
         } else {
             $dbRights = $this->getDbRightsForUserOverview($initial);
             $emptyUserNotice = $this->getEmptyUserNotice($dbRights);
+            $initialsHtml = $this->getHtmlForInitials();
 
-            /**
-             * Displays the initials
-             * Also not necessary if there is less than 20 privileges
-             */
-            if ($resAll && $resAll->numRows() > 20) {
-                // for all initials, even non A-Z
-                $initials = $this->getHtmlForInitials();
-            }
-
-            /**
-            * Display the user overview
-            * (if less than 50 users, display them immediately)
-            */
+            // Display the user overview (if less than 50 users, display them immediately)
             if (isset($_GET['initial']) || isset($_GET['showall']) || $res->numRows() < 50) {
-                $usersOverview = $this->getUsersOverview($res, $dbRights, $textDir);
-                $usersOverview .= $this->template->render('export_modal');
+                $usersOverview = $this->getUsersOverview($res, $dbRights, $textDir) .
+                    $this->template->render('export_modal');
             }
 
             $response = ResponseRenderer::getInstance();
@@ -2688,9 +2650,9 @@ class Privileges
         }
 
         return $this->template->render('server/privileges/user_overview', [
-            'error_messages' => $errorMessages,
+            'error_messages' => $errorMessages ?? '',
             'empty_user_notice' => $emptyUserNotice ?? '',
-            'initials' => $initials ?? '',
+            'initials' => $initialsHtml ?? '',
             'users_overview' => $usersOverview ?? '',
             'is_createuser' => $this->dbi->isCreateUser(),
             'flush_notice' => $flushNotice ?? '',
@@ -3394,12 +3356,12 @@ class Privileges
         return (bool) $this->dbi->fetchValue($sql);
     }
 
-    /** @param (string|string[]|null)[][][] $dbRights */
+    /** @param array<array<array<mixed>>> $dbRights */
     private function getEmptyUserNotice(array $dbRights): string
     {
-        foreach ($dbRights as $right) {
-            foreach ($right as $account) {
-                if (empty($account['User']) && $account['Host'] === 'localhost') {
+        foreach ($dbRights as $user => $userRights) {
+            foreach (array_keys($userRights) as $host) {
+                if ($user === '' && $host === 'localhost') {
                     return Message::notice(
                         __(
                             'A user account allowing any user from localhost to '
