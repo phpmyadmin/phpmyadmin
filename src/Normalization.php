@@ -306,8 +306,8 @@ class Normalization
         $extra = $this->getHtmlForColumnsList($db, $table, 'all', 'checkbox') . '<br>'
             . '<input class="btn btn-secondary" type="submit" id="removeRedundant" value="'
             . __('Remove selected') . '">'
-            . '<input class="btn btn-secondary" type="submit" value="' . __('No redundant column')
-            . '" onclick="goToFinish1NF();">';
+            . '<input class="btn btn-secondary" type="submit" id="noRedundantColumn" value="'
+            . __('No redundant column') . '">';
 
         return ['legendText' => $legendText, 'headText' => $headText, 'subText' => $subText, 'extra' => $extra];
     }
@@ -340,7 +340,7 @@ class Normalization
             . '<input class="btn btn-secondary" type="submit" id="moveRepeatingGroup" value="'
             . __('Done') . '">'
             . '<input class="btn btn-secondary" type="submit" value="' . __('No repeating group')
-            . '" onclick="goToStep4();">';
+            . '" id="noRepeatingGroup">';
         $primary = Index::getPrimary($this->dbi, $table, $db);
         $primarycols = $primary === null ? [] : $primary->getColumns();
         $pk = [];
