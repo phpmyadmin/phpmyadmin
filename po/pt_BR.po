@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-03-21 06:25+0000\n"
+"PO-Revision-Date: 2023-09-03 13:55+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-2/pt_BR/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.16.2-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -7439,7 +7439,7 @@ msgstr "Executar esta consulta novamente?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:654
 msgid "Do you really want to delete this bookmark?"
-msgstr "Você realmente deseja excluir a busca \"%s\"?"
+msgstr "Você realmente deseja excluir este marcador?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:655
 msgid "Some error occurred while getting SQL debug info."
