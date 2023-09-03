@@ -85,7 +85,7 @@
             <tbody>
               {% set saved_row_cnt = save_row|length - 1 %}
               {% for i in 0..saved_row_cnt %}
-                {% set myfield = save_row[i]['Field'] %}
+                {% set myfield = save_row[i] %}
                 {# Use an md5 as array index to avoid having special characters in the name attribute (see bug #1746964 ) #}
                 {% set myfield_md5 = column_hash_array[myfield] %}
 
@@ -163,12 +163,12 @@
           <label class="form-label" for="displayFieldSelect">{% trans 'Choose column to display:' %}</label>
           <select class="form-select" name="display_field" id="displayFieldSelect">
             <option value="">---</option>
-            {% for row in save_row %}
-              <option value="{{ row['Field'] }}"
-                {%- if display_field is defined and row['Field'] == display_field %}
+            {% for field in save_row %}
+              <option value="{{ field }}"
+                {%- if display_field is defined and field == display_field %}
                 selected="selected"
                 {%- endif %}>
-                {{ row['Field'] }}
+                {{ field }}
               </option>
             {% endfor %}
           </select>
