@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-09-03 00:17+0000\n"
-"PO-Revision-Date: 2023-04-17 17:35+0000\n"
+"PO-Revision-Date: 2023-09-04 10:27+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/pt_BR/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #: src/Advisory/Advisor.php:207
 #, php-format
@@ -2637,6 +2637,8 @@ msgstr ""
 #: src/Config/Descriptions.php:332
 msgid "Allow users to create bookmarks that are available for all other users"
 msgstr ""
+"Permitir que os usuários criem marcadores que estejam disponíveis para todos "
+"os outros usuários"
 
 #: src/Config/Descriptions.php:334
 msgid ""
@@ -4195,7 +4197,7 @@ msgstr "Tamanho do histórico de consultas"
 
 #: src/Config/Descriptions.php:855
 msgid "Allow shared bookmarks between users"
-msgstr ""
+msgstr "Permitir marcadores compartilhados entre usuários"
 
 #: src/Config/Descriptions.php:856
 msgid "Recoding engine"
@@ -4880,14 +4882,8 @@ msgid "Failed to read configuration file!"
 msgstr "Falhou ao ler o arquivo de configuração!"
 
 #: src/Config.php:668
-#, fuzzy
-#| msgid ""
-#| "This usually means there is a syntax error in it, please check any errors "
-#| "shown below."
 msgid "This usually means there is a syntax error in it."
-msgstr ""
-"Isso geralmente significa que há um erro de sintaxe, por favor cheque "
-"qualquer erro mostrado abaixo."
+msgstr "Isso geralmente significa que há um erro de sintaxe."
 
 #: src/Config/ServerConfigChecks.php:52
 #, php-format
@@ -7665,7 +7661,7 @@ msgstr "Executar esta consulta novamente?"
 
 #: src/Controllers/JavaScriptMessagesController.php:656
 msgid "Do you really want to delete this bookmark?"
-msgstr "Você realmente deseja excluir a busca \"%s\"?"
+msgstr "Você realmente deseja excluir este marcador?"
 
 #: src/Controllers/JavaScriptMessagesController.php:657
 msgid "Some error occurred while getting SQL debug info."
@@ -9665,16 +9661,14 @@ msgid "Showing rows %1s - %2s"
 msgstr "Mostrando registros %1s - %2s"
 
 #: src/Display/Results.php:3712
-#, fuzzy, php-format
-#| msgid "%1$d total, %2$d in query"
+#, php-format
 msgid "%1$s total, %2$s in query"
-msgstr "%1$d no total, %2$d na consulta"
+msgstr "%1$s no total, %2$s na consulta"
 
 #: src/Display/Results.php:3717
-#, fuzzy, php-format
-#| msgid "%d total"
+#, php-format
 msgid "%s total"
-msgstr "%d no total"
+msgstr "%s no total"
 
 #: src/Display/Results.php:3730 src/Sql.php:890
 #, php-format
@@ -10280,22 +10274,17 @@ msgid "The table name cannot end with a space character."
 msgstr "O nome da tabela não pode terminar com um caractere de espaço."
 
 #: src/Identifiers/InvalidTriggerName.php:14
-#, fuzzy
-#| msgid "View name can not be empty!"
 msgid "The trigger name must not be empty."
-msgstr "Nome da VIEW não pode ser em branco!"
+msgstr "O nome do acionador não deve estar em branco."
 
 #: src/Identifiers/InvalidTriggerName.php:20
-#, fuzzy, php-format
-#| msgid "The table name cannot be longer than %d characters."
+#, php-format
 msgid "The trigger name cannot be longer than %d characters."
-msgstr "O nome da tabela não pode ter mais de %d caracteres."
+msgstr "O nome do acionador não pode ter mais de %d caracteres."
 
 #: src/Identifiers/InvalidTriggerName.php:25
-#, fuzzy
-#| msgid "The table name cannot end with a space character."
 msgid "The trigger name cannot end with a space character."
-msgstr "O nome da tabela não pode terminar com um caractere de espaço."
+msgstr "O nome do acionador não pode terminar com um caractere de espaço."
 
 #: src/Import/Import.php:288 src/Sql.php:898
 msgid "[ROLLBACK occurred.]"
@@ -11152,12 +11141,9 @@ msgid "Your session has expired. Please log in again."
 msgstr "Sua sessão expirou. Por favor, faça login novamente."
 
 #: src/Plugins/Auth/AuthenticationCookie.php:245
-#, fuzzy
-#| msgid ""
-#| "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
 msgstr ""
-"Faltando verificação do reCAPTCHA, talvez tenha sido bloqueada pelo adblock?"
+"Faltando verificação do Captcha, talvez tenha sido bloqueada pelo adblock?"
 
 #: src/Plugins/Auth/AuthenticationCookie.php:280
 msgid "Failed to connect to the reCAPTCHA service!"
@@ -12056,18 +12042,6 @@ msgstr ""
 "vazia."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:40
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Abs/ExternalTransformationsPlugin.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use. The second option should be blank for historical reasons. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -12083,8 +12057,8 @@ msgstr ""
 "SOMENTE LINUX: Executa uma aplicação externa e alimenta-a com dados da "
 "coluna através da entrada padrão. Retorna a saída padrão do aplicativo. O "
 "padrão é Organizado, para impressão bonita do código HTML. Por razões de "
-"segurança, você tem que editar manualmente o arquivo libraries/classes/"
-"Plugins/Transformations/Abs/ExternalTransformationsPlugin.php e listar as "
+"segurança, você tem que editar manualmente o arquivo src/Plugins/"
+"Transformations/Abs/ExternalTransformationsPlugin.php e listar as "
 "ferramentas que você queira tornar disponível. A primeira opção é então o "
 "número do programa que você deseja usar. A segunda opção deve estar em "
 "branco por razões históricas. A terceira opção, se configurada para 1, irá "
@@ -14481,10 +14455,8 @@ msgid "Select page"
 msgstr "Selecionar página"
 
 #: templates/database/designer/schema_export.twig:6
-#, fuzzy
-#| msgid "Select Export Relational Type"
 msgid "Select export relational type:"
-msgstr "Selecione o tipo de exportação relacional"
+msgstr "Selecione o tipo de exportação relacional:"
 
 #: templates/database/events/editor_form.twig:10
 #: templates/database/routines/editor_form.twig:11
@@ -17146,10 +17118,8 @@ msgid "Save changes"
 msgstr "Salvar alterações"
 
 #: templates/server/replication/change_primary.twig:7
-#, fuzzy
-#| msgid "Change or reconfigure primary server"
 msgid "Replica configuration - Change or reconfigure primary server"
-msgstr "Alterar ou reconfigurar o servidor primário"
+msgstr "Configuração da réplica - Alterar ou reconfigurar o servidor primário"
 
 #: templates/server/replication/change_primary.twig:12
 msgid ""
@@ -17449,14 +17419,10 @@ msgid "Advisor"
 msgstr "Assessor"
 
 #: templates/server/status/monitor/index.twig:4
-#, fuzzy
-#| msgid "System memory"
 msgid "System monitor"
-msgstr "Memória do sistema"
+msgstr "Monitor do sistema"
 
 #: templates/server/status/monitor/index.twig:7
-#, fuzzy
-#| msgid "Start Monitor"
 msgid "Start monitor"
 msgstr "Iniciar monitor"
 
@@ -17992,10 +17958,8 @@ msgid "ø Time"
 msgstr "ø Tempo"
 
 #: templates/sql/profiling_chart.twig:66
-#, fuzzy
-#| msgid "Profiling results"
 msgid "Pie chart with profiling results."
-msgstr "Representação dos resultados"
+msgstr "Gráfico de pizza com resultados do perfil."
 
 #: templates/sql/query.twig:44
 msgid "Get auto-saved query"
