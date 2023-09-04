@@ -144,6 +144,15 @@ class ProceduresTest extends TestBase
             'READS SQL DATA',
         );
 
+        $action = $this->webDriver->action();
+        // Resize the too big text box to access Go button
+        $element = $this->byXPath('//*[@class="ui-resizable-handle ui-resizable-s"]');
+        $action->moveToElement($element)
+            ->clickAndHold()
+            ->moveByOffset(0, -120)// Resize
+            ->click()// Click to free the mouse
+            ->perform();
+
         $this->byCssSelector('div.ui-dialog-buttonset button:nth-child(1)')->click();
 
         $success = $this->waitForElement('cssSelector', '.alert-success');
