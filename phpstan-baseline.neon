@@ -5626,6 +5626,11 @@ parameters:
 			path: src/Controllers/Table/CreateController.php
 
 		-
+			message: "#^Parameter \\#1 \\$value of function intval expects array\\|bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
+			count: 5
+			path: src/Controllers/Table/CreateController.php
+
+		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\CreateAddField\\:\\:getTableCreationQuery\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/CreateController.php
@@ -8528,11 +8533,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 1
-			path: src/CreateAddField.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of function intval expects array\\|bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
-			count: 5
 			path: src/CreateAddField.php
 
 		-

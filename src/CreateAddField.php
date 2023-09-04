@@ -10,9 +10,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use function count;
 use function implode;
 use function in_array;
-use function intval;
 use function json_decode;
-use function min;
 use function preg_replace;
 use function trim;
 
@@ -410,30 +408,6 @@ class CreateAddField
         $sqlQuery .= ';';
 
         return $sqlQuery;
-    }
-
-    /**
-     * Function to get the number of fields for the table creation form
-     */
-    public function getNumberOfFieldsFromRequest(): int
-    {
-        // Limit to 4096 fields (MySQL maximal value)
-        $mysqlLimit = 4096;
-
-        if (isset($_POST['submit_num_fields'])) { // adding new fields
-            $numberOfFields = intval($_POST['orig_num_fields']) + intval($_POST['added_fields']);
-        } elseif (isset($_POST['orig_num_fields'])) { // retaining existing fields
-            $numberOfFields = intval($_POST['orig_num_fields']);
-        } elseif (
-            isset($_POST['num_fields'])
-            && intval($_POST['num_fields']) > 0
-        ) { // new table with specified number of fields
-            $numberOfFields = intval($_POST['num_fields']);
-        } else { // new table with unspecified number of fields
-            $numberOfFields = 4;
-        }
-
-        return min($numberOfFields, $mysqlLimit);
     }
 
     /**

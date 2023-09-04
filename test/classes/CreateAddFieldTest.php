@@ -293,30 +293,6 @@ class CreateAddFieldTest extends AbstractTestCase
     }
 
     /**
-     * Test for getNumberOfFieldsFromRequest
-     *
-     * @param int     $expected Expected result
-     * @param mixed[] $request  $_REQUEST array
-     */
-    #[DataProvider('providerGetNumberOfFieldsFromRequest')]
-    public function testGetNumberOfFieldsFromRequest(int $expected, array $request): void
-    {
-        $_POST = $request;
-        $actual = $this->createAddField->getNumberOfFieldsFromRequest();
-        $this->assertEquals($expected, $actual);
-    }
-
-    /**
-     * Data provider for testGetNumberOfFieldsFromRequest
-     *
-     * @return array<array{int, mixed[]}>
-     */
-    public static function providerGetNumberOfFieldsFromRequest(): array
-    {
-        return [[4, []]];
-    }
-
-    /**
      * Data provider for testGetColumnCreationQuery
      *
      * @return list<array{string, array<string, string|string[]|false>}>

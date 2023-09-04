@@ -19,8 +19,10 @@ use PhpMyAdmin\Url;
 
 use function __;
 use function htmlspecialchars;
+use function intval;
 use function is_array;
 use function mb_strtolower;
+use function min;
 use function sprintf;
 use function strlen;
 
@@ -82,7 +84,7 @@ class CreateController extends AbstractController
 
         $createAddField = new CreateAddField($this->dbi);
 
-        $numFields = $createAddField->getNumberOfFieldsFromRequest();
+        $numFields = $this->getNumberOfFieldsFromRequest($request);
 
         /**
          * The form used to define the structure of the table has been submitted
@@ -148,5 +150,27 @@ class CreateController extends AbstractController
         $templateData = $this->columnsDefinition->displayForm('/table/create', $numFields);
 
         $this->render('columns_definitions/column_definitions_form', $templateData);
+    }
+
+    /**
+     * Function to get the number of fields for the table creation form
+     */
+    private function getNumberOfFieldsFromRequest(ServerRequest $request): int
+    {
+        $origNumFields = $request->getParsedBodyParam('orig_num_fields');
+        $numFields = $request->getParsedBodyParam('num_fields');
+
+        if ($request->hasBodyParam('submit_num_fields')) { // adding new fields
+            $numberOfFields = intval($origNumFields) + intval($request->getParsedBodyParam('added_fields'));
+        } elseif ($origNumFields !== null) { // retaining existing fields
+            $numberOfFields = intval($origNumFields);
+        } elseif ($numFields !== null && intval($numFields) > 0) { // new table with specified number of fields
+            $numberOfFields = intval($numFields);
+        } else { // new table with unspecified number of fields
+            $numberOfFields = 4;
+        }
+
+        // Limit to 4096 fields (MySQL maximal value)
+        return min($numberOfFields, 4096);
     }
 }

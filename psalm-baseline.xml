@@ -3356,6 +3356,10 @@
       <code><![CDATA[$_POST['field_transformation'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_transformation_options'][$fieldindex]]]></code>
     </MixedArgument>
+    <MixedAssignment>
+      <code>$numFields</code>
+      <code>$origNumFields</code>
+    </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['field_input_transformation'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_input_transformation_options'][$fieldindex]]]></code>
@@ -3379,9 +3383,6 @@
       <code><![CDATA[$_POST['field_transformation_options'][$fieldindex]]]></code>
       <code>$mimetype</code>
     </PossiblyInvalidCast>
-    <PossiblyUnusedParam>
-      <code>$request</code>
-    </PossiblyUnusedParam>
   </file>
   <file src="src/Controllers/Table/DeleteConfirmController.php">
     <DeprecatedMethod>
@@ -14341,7 +14342,6 @@
     </DeprecatedMethod>
     <PossiblyUnusedMethod>
       <code>providerGetColumnCreationQueryRequest</code>
-      <code>providerGetNumberOfFieldsFromRequest</code>
       <code>providerGetPartitionsDefinition</code>
       <code>providerGetTableCreationQuery</code>
     </PossiblyUnusedMethod>
