@@ -1,4 +1,5 @@
-<div class="container-fluid">
+<div class="container my-3">
+  <h2>{{ 'Table operations'|trans }}</h2>
 
 {% if not hide_order_table %}
   <form method="post" id="alterTableOrderby" action="{{ url('/table/operations') }}">
