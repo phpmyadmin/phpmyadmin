@@ -21,9 +21,9 @@ use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
+use function array_column;
 use function array_key_exists;
 use function array_keys;
-use function array_values;
 use function mb_strtoupper;
 use function md5;
 use function strtoupper;
@@ -247,7 +247,7 @@ final class RelationController extends AbstractController
             'options_array' => $options,
             'column_array' => $columnArray,
             'column_hash_array' => $columnHashArray,
-            'save_row' => array_values($columns),
+            'save_row' => array_column($columns, 'field'),
             'url_params' => $GLOBALS['urlParams'],
             'databases' => $this->dbi->getDatabaseList(),
             'dbi' => $this->dbi,
