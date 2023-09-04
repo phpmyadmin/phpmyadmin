@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-09-03 00:17+0000\n"
-"PO-Revision-Date: 2023-05-09 14:50+0000\n"
+"PO-Revision-Date: 2023-09-04 10:27+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #: src/Advisory/Advisor.php:207
 #, php-format
@@ -4841,14 +4841,8 @@ msgid "Failed to read configuration file!"
 msgstr "Yapılandırma dosyasını okuma başarısız!"
 
 #: src/Config.php:668
-#, fuzzy
-#| msgid ""
-#| "This usually means there is a syntax error in it, please check any errors "
-#| "shown below."
 msgid "This usually means there is a syntax error in it."
-msgstr ""
-"Bu genellikle bir sözdizimi hatası var anlamına gelir, lütfen aşağıda "
-"gösterilen her hatayı denetleyin."
+msgstr "Bu genellikle bir sözdizimi hatası var anlamına gelir."
 
 #: src/Config/ServerConfigChecks.php:52
 #, php-format
@@ -9590,16 +9584,14 @@ msgid "Showing rows %1s - %2s"
 msgstr "Gösterilen satır %1s - %2s"
 
 #: src/Display/Results.php:3712
-#, fuzzy, php-format
-#| msgid "%1$d total, %2$d in query"
+#, php-format
 msgid "%1$s total, %2$s in query"
-msgstr "%1$d toplam, %2$d sorguda"
+msgstr "%1$s toplam, %2$s sorguda"
 
 #: src/Display/Results.php:3717
-#, fuzzy, php-format
-#| msgid "%d total"
+#, php-format
 msgid "%s total"
-msgstr "toplam %d"
+msgstr "toplam %s"
 
 #: src/Display/Results.php:3730 src/Sql.php:890
 #, php-format
@@ -10120,7 +10112,7 @@ msgstr "Sorguyu gönder"
 #: src/Html/Generator.php:640 templates/console/display.twig:43
 #: templates/console/display.twig:201 templates/sql/profiling_chart.twig:3
 msgid "Profiling"
-msgstr "Profil çıkart"
+msgstr "Profil çıkarma"
 
 #: src/Html/Generator.php:654
 msgctxt "Inline edit query"
@@ -10201,22 +10193,17 @@ msgid "The table name cannot end with a space character."
 msgstr "Tablo adı bir boşluk karakteriyle bitemez."
 
 #: src/Identifiers/InvalidTriggerName.php:14
-#, fuzzy
-#| msgid "View name can not be empty!"
 msgid "The trigger name must not be empty."
-msgstr "Görünüm adı boş olamaz!"
+msgstr "Tetikleyici adı boş olmamak zorundadır."
 
 #: src/Identifiers/InvalidTriggerName.php:20
-#, fuzzy, php-format
-#| msgid "The table name cannot be longer than %d characters."
+#, php-format
 msgid "The trigger name cannot be longer than %d characters."
-msgstr "Tablo adı %d karakterden uzun olamaz."
+msgstr "Tetikleyici adı %d karakterden uzun olamaz."
 
 #: src/Identifiers/InvalidTriggerName.php:25
-#, fuzzy
-#| msgid "The table name cannot end with a space character."
 msgid "The trigger name cannot end with a space character."
-msgstr "Tablo adı bir boşluk karakteriyle bitemez."
+msgstr "Tetikleyici adı bir boşluk karakteriyle bitemez."
 
 #: src/Import/Import.php:288 src/Sql.php:898
 msgid "[ROLLBACK occurred.]"
@@ -11065,13 +11052,9 @@ msgid "Your session has expired. Please log in again."
 msgstr "Oturumunuzun süresi doldu. Lütfen tekrar oturum açın."
 
 #: src/Plugins/Auth/AuthenticationCookie.php:245
-#, fuzzy
-#| msgid ""
-#| "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
 msgstr ""
-"reCAPTCHA doğrulaması eksik, belki adblock tarafından engellenmiş olabilir "
-"mi?"
+"Captcha doğrulaması eksik, belki adblock tarafından engellenmiş olabilir mi?"
 
 #: src/Plugins/Auth/AuthenticationCookie.php:280
 msgid "Failed to connect to the reCAPTCHA service!"
@@ -11968,18 +11951,6 @@ msgstr ""
 "ayarlamanız gerekir."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:40
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Abs/ExternalTransformationsPlugin.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use. The second option should be blank for historical reasons. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -11994,8 +11965,8 @@ msgid ""
 msgstr ""
 "SADECE LINUX: Harici bir uygulama çalıştırır ve sütun verisini standart "
 "girdi yoluyla besler. Uygulamanın standart çıktısı döner. Düzgün HTML kodu "
-"baskısı için varsayılan düzenlidir. Güvenlik nedenleriyle libraries/classes/"
-"Plugins/Transformations/Abs/ExternalTransformationsPlugin.php dosyasını elle "
+"baskısı için varsayılan düzenlidir. Güvenlik nedenleriyle src/Plugins/"
+"Transformations/Abs/ExternalTransformationsPlugin.php dosyasını elle "
 "düzenlemek ve kullanılabilir olmasını istediğiniz araçları listelemek "
 "zorundasınız. İlk seçenek, daha sonra kullanmak istediğiniz programın "
 "sayısıdır. İkinci seçenek, geçmişteki nedenlerden dolayı boş olmalıdır. "
@@ -14392,10 +14363,8 @@ msgid "Select page"
 msgstr "Sayfa seç"
 
 #: templates/database/designer/schema_export.twig:6
-#, fuzzy
-#| msgid "Select Export Relational Type"
 msgid "Select export relational type:"
-msgstr "Dışa Aktarma İlişkisel Türü Seç"
+msgstr "Dışa aktarma ilişkisel türünü seçin:"
 
 #: templates/database/events/editor_form.twig:10
 #: templates/database/routines/editor_form.twig:11
@@ -17043,10 +17012,9 @@ msgid "Save changes"
 msgstr "Değişiklikleri kaydet"
 
 #: templates/server/replication/change_primary.twig:7
-#, fuzzy
-#| msgid "Change or reconfigure primary server"
 msgid "Replica configuration - Change or reconfigure primary server"
-msgstr "Birincil sunucuyu değiştir veya yeniden yapılandır"
+msgstr ""
+"Çoğaltma yapılandırması - Birincil sunucuyu değiştir veya yeniden yapılandır"
 
 #: templates/server/replication/change_primary.twig:12
 msgid ""
@@ -17347,14 +17315,10 @@ msgid "Advisor"
 msgstr "Danışman"
 
 #: templates/server/status/monitor/index.twig:4
-#, fuzzy
-#| msgid "System memory"
 msgid "System monitor"
-msgstr "Sistem belleği"
+msgstr "Sistem izleme"
 
 #: templates/server/status/monitor/index.twig:7
-#, fuzzy
-#| msgid "Start Monitor"
 msgid "Start monitor"
 msgstr "İzlemeyi başlat"
 
@@ -17884,10 +17848,8 @@ msgid "ø Time"
 msgstr "ø Süre"
 
 #: templates/sql/profiling_chart.twig:66
-#, fuzzy
-#| msgid "Profiling results"
 msgid "Pie chart with profiling results."
-msgstr "Sonuçların profili çıkarılıyor"
+msgstr "Sonuçların çıkarılan profilini içeren dilim çizelgesi."
 
 #: templates/sql/query.twig:44
 msgid "Get auto-saved query"
