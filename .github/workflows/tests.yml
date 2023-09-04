@@ -29,7 +29,7 @@ jobs:
           - { php-version: '8', experimental: false, arch: 's390x', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Write script
         # tcpdf allowed memory exhausted needs the memory_limit workaround
@@ -81,7 +81,7 @@ jobs:
             php-extensions: 'mbstring, iconv, mysqli, zip, bz2'
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           # Fetch some commits for Scrutinizer coverage upload
           fetch-depth: 15
@@ -141,7 +141,7 @@ jobs:
         extension: ["dbase", "recode"]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           # Fetch some commits for Scrutinizer coverage upload
           fetch-depth: 15
@@ -204,7 +204,7 @@ jobs:
           - {psr-7-library: 'laminas/laminas-diactoros', php-version: '8.0'}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           # Fetch some commits for Scrutinizer coverage upload
           fetch-depth: 15
@@ -264,7 +264,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node
         uses: actions/setup-node@v3
