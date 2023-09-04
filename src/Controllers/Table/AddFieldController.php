@@ -51,7 +51,6 @@ class AddFieldController extends AbstractController
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['message'] ??= null;
         $GLOBALS['active_page'] ??= null;
-        $GLOBALS['num_fields'] ??= null;
         $GLOBALS['regenerate'] ??= null;
         $GLOBALS['result'] ??= null;
 
@@ -81,15 +80,15 @@ class AddFieldController extends AbstractController
                 $_POST['field_where'] = $_POST['orig_field_where'];
             }
 
-            $GLOBALS['num_fields'] = min(
+            $numFields = min(
                 intval($_POST['orig_num_fields']) + intval($_POST['added_fields']),
                 4096,
             );
             $GLOBALS['regenerate'] = true;
         } elseif (is_numeric($numberOfFields) && $numberOfFields > 0) {
-            $GLOBALS['num_fields'] = min(4096, (int) $numberOfFields);
+            $numFields = min(4096, (int) $numberOfFields);
         } else {
-            $GLOBALS['num_fields'] = 1;
+            $numFields = 1;
         }
 
         if (isset($_POST['do_save_data'])) {
@@ -201,15 +200,11 @@ class AddFieldController extends AbstractController
 
         $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
 
-        if (! $this->checkParameters(['server', 'db', 'table', 'num_fields'])) {
+        if (! $this->checkParameters(['server', 'db', 'table'])) {
             return;
         }
 
-        $templateData = $this->columnsDefinition->displayForm(
-            '/table/add-field',
-            $GLOBALS['num_fields'],
-            $GLOBALS['regenerate'],
-        );
+        $templateData = $this->columnsDefinition->displayForm('/table/add-field', $numFields, $GLOBALS['regenerate']);
 
         $this->render('columns_definitions/column_definitions_form', $templateData);
     }

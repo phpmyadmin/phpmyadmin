@@ -5256,11 +5256,6 @@ parameters:
 			path: src/Controllers/Table/AddFieldController.php
 
 		-
-			message: "#^Parameter \\#2 \\$numFields of method PhpMyAdmin\\\\Table\\\\ColumnsDefinition\\:\\:displayForm\\(\\) expects int, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/AddFieldController.php
-
-		-
 			message: "#^Parameter \\#2 \\$sqlQuery of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getMessage\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/AddFieldController.php

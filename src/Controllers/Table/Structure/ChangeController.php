@@ -34,11 +34,11 @@ final class ChangeController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        if ($request->getParam('change_column') !== null) {
-            if (! $this->checkParameters(['server', 'db', 'table', 'num_fields'])) {
-                return;
-            }
+        if (! $this->checkParameters(['server', 'db', 'table'])) {
+            return;
+        }
 
+        if ($request->getParam('change_column') !== null) {
             $this->displayHtmlForColumnChange([$request->getParam('field')]);
 
             return;
@@ -53,10 +53,6 @@ final class ChangeController extends AbstractController
             return;
         }
 
-        if (! $this->checkParameters(['server', 'db', 'table', 'num_fields'])) {
-            return;
-        }
-
         $this->displayHtmlForColumnChange($selected);
     }
 
@@ -67,8 +63,6 @@ final class ChangeController extends AbstractController
      */
     private function displayHtmlForColumnChange(array $selected): void
     {
-        $GLOBALS['num_fields'] ??= null;
-
         $fieldsMeta = $this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table'], true);
         $fieldsMeta = array_values(array_filter(
             $fieldsMeta,
@@ -87,8 +81,6 @@ final class ChangeController extends AbstractController
             'Comment' => $column->comment,
         ], $fieldsMeta);
 
-        $GLOBALS['num_fields'] = count($fieldsMeta);
-
         /**
          * Form for changing properties.
          */
@@ -99,7 +91,7 @@ final class ChangeController extends AbstractController
 
         $templateData = $this->columnsDefinition->displayForm(
             '/table/structure/save',
-            $GLOBALS['num_fields'],
+            count($fieldsMeta),
             null,
             $selected,
             $fieldsMeta,
