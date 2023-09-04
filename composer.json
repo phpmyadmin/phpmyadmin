@@ -5,6 +5,7 @@
     "keywords": ["phpmyadmin","mysql","web"],
     "homepage": "https://www.phpmyadmin.net/",
     "support": {
+        "security": "https://www.phpmyadmin.net/security/",
         "forum": "https://www.phpmyadmin.net/support/",
         "issues": "https://github.com/phpmyadmin/phpmyadmin/issues",
         "wiki": "https://wiki.phpmyadmin.net/",
