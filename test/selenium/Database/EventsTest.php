@@ -145,11 +145,11 @@ class EventsTest extends TestBase
 
         sleep(2);
         $this->dbQuery(
-            'SELECT val FROM `' . $this->databaseName . '`.`test_table`',
+            'SELECT * FROM `' . $this->databaseName . '`.`test_table`',
             function (): void {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 // [ ] | Edit | Copy | Delete | 1 | <number>
-                $this->assertGreaterThan(2, (int) $this->getCellByTableClass('table_results', 1, 5));
+                $this->assertGreaterThan(2, (int) $this->getCellByTableClass('table_results', 1, 6));
             },
         );
     }
@@ -180,11 +180,11 @@ class EventsTest extends TestBase
 
         sleep(2);
         $this->dbQuery(
-            'SELECT val FROM `' . $this->databaseName . '`.`test_table`',
+            'SELECT * FROM `' . $this->databaseName . '`.`test_table`',
             function (): void {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 // [ ] | Edit | Copy | Delete | 4
-                $this->assertGreaterThan(3, (int) $this->getCellByTableClass('table_results', 1, 5));
+                $this->assertGreaterThan(3, (int) $this->getCellByTableClass('table_results', 1, 6));
             },
         );
     }
