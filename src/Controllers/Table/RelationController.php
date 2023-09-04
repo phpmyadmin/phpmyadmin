@@ -97,7 +97,47 @@ final class RelationController extends AbstractController
         }
 
         // updates for foreign keys
-        $this->updateForForeignKeys($table, $options, $relationsForeign);
+        $multiEditColumnsName = $_POST['foreign_key_fields_name'] ?? null;
+        $previewSqlData = '';
+        $seenError = false;
+
+        // (for now, one index name only; we keep the definitions if the
+        // foreign db is not the same)
+        if (
+            isset($_POST['destination_foreign_db'], $_POST['destination_foreign_table'])
+            && isset($_POST['destination_foreign_column'])
+        ) {
+            [$html, $previewSqlData, $displayQuery, $seenError] = $table->updateForeignKeys(
+                $_POST['destination_foreign_db'],
+                $multiEditColumnsName,
+                $_POST['destination_foreign_table'],
+                $_POST['destination_foreign_column'],
+                $options,
+                $GLOBALS['table'],
+                array_key_exists('foreign_keys_data', $relationsForeign)
+                    ? $relationsForeign['foreign_keys_data']
+                    : [],
+            );
+            $this->response->addHTML($html);
+        }
+
+        // If there is a request for SQL previewing.
+        if (isset($_POST['preview_sql'])) {
+            Core::previewSQL($previewSqlData);
+
+            return;
+        }
+
+        if (! empty($displayQuery) && ! $seenError) {
+            $GLOBALS['display_query'] = $displayQuery;
+            $this->response->addHTML(
+                Generator::getMessage(
+                    __('Your SQL query has been executed successfully.'),
+                    null,
+                    'success',
+                ),
+            );
+        }
 
         // Updates for display field
         if ($relationParameters->displayFeature !== null && isset($_POST['display_field'])) {
@@ -229,60 +269,6 @@ final class RelationController extends AbstractController
             Generator::getMessage(
                 __('Display column was successfully updated.'),
                 '',
-                'success',
-            ),
-        );
-    }
-
-    /**
-     * Update for FK
-     *
-     * @param Table   $table            Table
-     * @param mixed[] $options          Options
-     * @param mixed[] $relationsForeign External relations
-     */
-    private function updateForForeignKeys(Table $table, array $options, array $relationsForeign): void
-    {
-        $multiEditColumnsName = $_POST['foreign_key_fields_name'] ?? null;
-        $previewSqlData = '';
-        $seenError = false;
-
-        // (for now, one index name only; we keep the definitions if the
-        // foreign db is not the same)
-        if (
-            isset($_POST['destination_foreign_db'], $_POST['destination_foreign_table'])
-            && isset($_POST['destination_foreign_column'])
-        ) {
-            [$html, $previewSqlData, $displayQuery, $seenError] = $table->updateForeignKeys(
-                $_POST['destination_foreign_db'],
-                $multiEditColumnsName,
-                $_POST['destination_foreign_table'],
-                $_POST['destination_foreign_column'],
-                $options,
-                $GLOBALS['table'],
-                array_key_exists('foreign_keys_data', $relationsForeign)
-                    ? $relationsForeign['foreign_keys_data']
-                    : [],
-            );
-            $this->response->addHTML($html);
-        }
-
-        // If there is a request for SQL previewing.
-        if (isset($_POST['preview_sql'])) {
-            Core::previewSQL($previewSqlData);
-
-            $this->response->callExit();
-        }
-
-        if (empty($displayQuery) || $seenError) {
-            return;
-        }
-
-        $GLOBALS['display_query'] = $displayQuery;
-        $this->response->addHTML(
-            Generator::getMessage(
-                __('Your SQL query has been executed successfully.'),
-                null,
                 'success',
             ),
         );

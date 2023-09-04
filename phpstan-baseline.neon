@@ -6386,7 +6386,7 @@ parameters:
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: "#^Only booleans are allowed in \\|\\|, mixed given on the right side\\.$#"
+			message: "#^Only booleans are allowed in a negated boolean, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/RelationController.php
 
