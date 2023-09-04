@@ -3972,16 +3972,10 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Table/Structure/ChangeController.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['num_fields']]]></code>
-    </InvalidArrayOffset>
     <MixedArgumentTypeCoercion>
       <code>$selected</code>
       <code><![CDATA[[$request->getParam('field')]]]></code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['num_fields']]]></code>
-    </MixedAssignment>
   </file>
   <file src="src/Controllers/Table/Structure/MoveColumnsController.php">
     <MixedArgument>
