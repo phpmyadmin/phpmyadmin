@@ -30,7 +30,6 @@ class AddFieldControllerTest extends AbstractTestCase
         $_POST = [
             'db' => 'test_db',
             'table' => 'test_table',
-            'num_fields' => '1',
             'field_where' => 'after',
             'after_field' => 'datetimefield',
         ];

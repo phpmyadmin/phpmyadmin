@@ -3234,7 +3234,6 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['num_fields']]]></code>
       <code><![CDATA[$GLOBALS['regenerate']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
     </InvalidArrayOffset>
@@ -3248,7 +3247,6 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['num_fields']]]></code>
       <code><![CDATA[$GLOBALS['regenerate']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
     </MixedAssignment>
