@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-09-03 00:17+0000\n"
-"PO-Revision-Date: 2023-05-12 09:11+0000\n"
-"Last-Translator: Kamil Monicz <kamil.monicz@outlook.com>\n"
+"PO-Revision-Date: 2023-09-05 16:52+0000\n"
+"Last-Translator: sebastians17 <sebastians117.ss@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "pl/>\n"
 "Language: pl\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #: src/Advisory/Advisor.php:207
 #, php-format
@@ -2636,8 +2636,8 @@ msgid ""
 "Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Pozostaw puste bez uwag typu kolumn/media, zasugerował: "
-"[kbd]pma_column_info[/kbd]."
+"Pozostaw puste, jeśli nie ma komentarzy do kolumn/sugerowanych typów "
+"multimediów: [kbd]pma__column_info[/kbd]."
 
 #: src/Config/Descriptions.php:343
 msgid ""
@@ -4889,8 +4889,8 @@ msgid ""
 "based protection may not be reliable if your IP belongs to an ISP where "
 "thousands of users, including you, are connected to."
 msgstr ""
-"Jeśli uważasz, że jest to konieczne, użyj dodatkowych ustawień ochrony — "
-"ustawień %1$shost uwierzytelniania%2$s i listy %3$szaufanych serwerów "
+"Jeśli uważasz, że jest to konieczne, użyj dodatkowych ustawień ochrony - "
+"ustawień %1$shost uwierzytelniania%2$s i %3$slisty zaufanych serwerów "
 "proxy%4$s. Jednak ochrona oparta na IP może nie być niezawodna, jeśli Twój "
 "adres IP należy do dostawcy usług internetowych, z którym połączone są "
 "tysiące użytkowników, w tym Ty."
@@ -5153,7 +5153,7 @@ msgstr "Pokazano wiersze %1$s - %2$s."
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
-msgstr "Strona o nazwie \"%s\" już istnieje, zmień jej nazwę na inną."
+msgstr "Istnieje już strona nazwana \"%s\", proszę zmień nazwę na inną."
 
 #: src/Controllers/Database/DesignerController.php:165
 #: src/Controllers/Database/DesignerController.php:170
@@ -9579,8 +9579,8 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
-"Błąd 1045: Odmowa dostępu dla użytkownika. Dodatkowe informacje o błędach "
-"mogą być dostępne, ale są ukrywane przez dyrektywę konfiguracyjną %s."
+"Błąd 1045: Brak dostępu dla użytkownika. Dodatkowe informacje na temat błędu "
+"mogą być dostępne, ale są ukryte przez %s dyrektywę konfiguracji."
 
 #: src/Display/Results.php:1236 templates/display/results/table.twig:212
 msgid "Partial texts"
@@ -13515,8 +13515,7 @@ msgstr "Nie można zapisać konfiguracji"
 #: src/UserPreferences.php:171
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr ""
-"Nie można uzyskać dostępu do bazy danych przechowywania konfiguracji "
-"phpMyAdmin."
+"Brak dostępu do magazynu konfiguracji phpMyAdmin w bieżącej bazie danych."
 
 #: src/Util.php:128
 #, php-format
