@@ -5076,7 +5076,7 @@ parameters:
 			path: src/Controllers/Sql/SetValuesController.php
 
 		-
-			message: "#^Parameter \\#3 \\$column of method PhpMyAdmin\\\\Sql\\:\\:getValuesForColumn\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#3 \\$columnName of method PhpMyAdmin\\\\Sql\\:\\:getValuesForColumn\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Sql/SetValuesController.php
 
@@ -17941,11 +17941,6 @@ parameters:
 			path: src/Sql.php
 
 		-
-			message: "#^Cannot access offset 'Type' on mixed\\.$#"
-			count: 1
-			path: src/Sql.php
-
-		-
 			message: "#^Cannot access offset 'max_rows' on mixed\\.$#"
 			count: 4
 			path: src/Sql.php
@@ -18042,11 +18037,6 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in an if condition, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
-			count: 1
-			path: src/Sql.php
-
-		-
-			message: "#^Parameter \\#1 \\$definition of static method PhpMyAdmin\\\\Util\\:\\:parseEnumSetValues\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Sql.php
 
