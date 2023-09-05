@@ -63,7 +63,7 @@ class EnumValuesControllerTest extends AbstractTestCase
             [
                 [
                     'set',
-                    'set(\'<script>alert("ok")</script>\',\'a&b\',\'b&c\',\'vrai&amp\',\'\')',
+                    "set('<script>alert(\"ok\")</script>','a&b','b&c','vrai&amp','','漢字','''','\\','\\\"\\\\''')",
                     'No',
                     '',
                     'NULL',
@@ -107,6 +107,10 @@ class EnumValuesControllerTest extends AbstractTestCase
                     . '      <option value="b&amp;c" selected>b&amp;c</option>' . "\n"
                     . '      <option value="vrai&amp;amp">vrai&amp;amp</option>' . "\n"
                     . '      <option value=""></option>' . "\n"
+                    . '      <option value="漢字">漢字</option>' . "\n"
+                    . '      <option value="&#039;">&#039;</option>' . "\n"
+                    . '      <option value="\">\</option>' . "\n"
+                    . '      <option value="\&quot;\&#039;">\&quot;\&#039;</option>' . "\n"
                     . '  </select>' . "\n",
             ],
             $this->getResponseJsonResult()

@@ -809,14 +809,14 @@ class UtilTest extends AbstractTestCase
                 ],
             ],
             [
-                "ENUM('a&b', 'b''c\\'d', 'e\\\\f')",
+                "ENUM('a&b','b''c\\'d','e\\\\f')",
                 [
                     'type' => 'enum',
                     'print_type' => "enum('a&b', 'b''c\\'d', 'e\\\\f')",
                     'binary' => false,
                     'unsigned' => false,
                     'zerofill' => false,
-                    'spec_in_brackets' => "'a&b', 'b''c\\'d', 'e\\\\f'",
+                    'spec_in_brackets' => "'a&b','b''c\\'d','e\\\\f'",
                     'enum_set_values' => [
                         'a&b',
                         'b\'c\'d',
