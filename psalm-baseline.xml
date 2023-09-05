@@ -11803,7 +11803,6 @@
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
-      <code>escapeString</code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['reload']]]></code>
@@ -11812,7 +11811,6 @@
       <code><![CDATA[$GLOBALS['show_as_php']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$fieldInfoResult[0]['Type']]]></code>
       <code><![CDATA[$foreignData['foreign_field']]]></code>
       <code>$numberOfLine / $maxRows</code>
       <code>$sortCol</code>
@@ -11830,7 +11828,6 @@
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
-      <code><![CDATA[$fieldInfoResult[0]['Type']]]></code>
       <code><![CDATA[$statementInfo->statement->where[0]]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>

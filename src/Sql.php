@@ -14,7 +14,6 @@ use PhpMyAdmin\Display\Results as DisplayResults;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Identifiers\DatabaseName;
-use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Statements\AlterStatement;
@@ -313,23 +312,21 @@ class Sql
     /**
      * Get all the values for a enum column or set column in a table
      *
-     * @param string $db     current database
-     * @param string $table  current table
-     * @param string $column current column
+     * @param string $db         current database
+     * @param string $table      current table
+     * @param string $columnName current column
      *
      * @return mixed[]|null array containing the value list for the column, null on failure
      */
-    public function getValuesForColumn(string $db, string $table, string $column): array|null
+    public function getValuesForColumn(string $db, string $table, string $columnName): array|null
     {
-        $fieldInfoQuery = QueryGenerator::getColumnsSql($db, $table, $this->dbi->escapeString($column));
+        $column = $this->dbi->getColumn($db, $table, $columnName);
 
-        $fieldInfoResult = $this->dbi->fetchResult($fieldInfoQuery);
-
-        if (! isset($fieldInfoResult[0])) {
+        if ($column === null) {
             return null;
         }
 
-        return Util::parseEnumSetValues($fieldInfoResult[0]['Type']);
+        return Util::parseEnumSetValues($column->type);
     }
 
     /**

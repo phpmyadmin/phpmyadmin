@@ -39,6 +39,7 @@ class EnumValuesControllerTest extends AbstractTestCase
     public function testGetEnumValuesError(): void
     {
         $this->dummyDbi->addResult('SHOW COLUMNS FROM `cvv`.`enums` LIKE \'set\'', false);
+        $this->dummyDbi->addResult('SHOW INDEXES FROM `cvv`.`enums`', false);
 
         $GLOBALS['db'] = 'cvv';
         $GLOBALS['table'] = 'enums';
@@ -81,6 +82,7 @@ class EnumValuesControllerTest extends AbstractTestCase
             ],
             ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
         );
+        $this->dummyDbi->addResult('SHOW INDEXES FROM `cvv`.`enums`', []);
 
         $GLOBALS['db'] = 'cvv';
         $GLOBALS['table'] = 'enums';

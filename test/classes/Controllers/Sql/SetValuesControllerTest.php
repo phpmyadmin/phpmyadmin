@@ -39,6 +39,7 @@ class SetValuesControllerTest extends AbstractTestCase
     public function testError(): void
     {
         $this->dummyDbi->addResult('SHOW COLUMNS FROM `cvv`.`enums` LIKE \'set\'', false);
+        $this->dummyDbi->addResult('SHOW INDEXES FROM `cvv`.`enums`', false);
 
         $request = $this->createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
@@ -82,6 +83,7 @@ class SetValuesControllerTest extends AbstractTestCase
             ],
             ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
         );
+        $this->dummyDbi->addResult('SHOW INDEXES FROM `cvv`.`enums`', []);
 
         $request = $this->createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
