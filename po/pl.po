@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2022-02-17 10:34+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2023-09-05 16:52+0000\n"
+"Last-Translator: sebastians17 <sebastians117.ss@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-1/pl/"
 ">\n"
 "Language: pl\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -2333,8 +2333,8 @@ msgid ""
 "Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Pozostaw puste bez uwag typu kolumn/media, zasugerował: "
-"[kbd]pma_column_info[/kbd]."
+"Pozostaw puste, jeśli nie ma komentarzy do kolumn/sugerowanych typów "
+"multimediów: [kbd]pma__column_info[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:354
 msgid ""
@@ -4861,18 +4861,18 @@ msgid "You should use SSL connections if your database server supports it."
 msgstr "Należy używać połączeń SSL, jeśli serwer bazy danych je obsługuje."
 
 #: libraries/classes/Config/ServerConfigChecks.php:175
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
 "authentication%2$s settings and %3$strusted proxies list%4$s. However, IP-"
 "based protection may not be reliable if your IP belongs to an ISP where "
 "thousands of users, including you, are connected to."
 msgstr ""
-"Jeśli uważasz, że jest to konieczne, użyj dodatkowych ustawień ochrony — "
-"ustawień %1$shost uwierzytelniania%2$s i listy zaufanych serwerów proxy %3$"
-"%4$s. Jednak ochrona oparta na IP może nie być niezawodna, jeśli Twój adres "
-"IP należy do dostawcy usług internetowych, z którym połączone są tysiące "
-"użytkowników, w tym Ty."
+"Jeśli uważasz, że jest to konieczne, użyj dodatkowych ustawień ochrony - "
+"ustawień %1$shost uwierzytelniania%2$s i %3$slisty zaufanych serwerów "
+"proxy%4$s. Jednak ochrona oparta na IP może nie być niezawodna, jeśli Twój "
+"adres IP należy do dostawcy usług internetowych, z którym połączone są "
+"tysiące użytkowników, w tym Ty."
 
 #: libraries/classes/Config/ServerConfigChecks.php:200
 #, php-format
@@ -5075,7 +5075,7 @@ msgstr "Pokazano wiersze %1$s - %2$s."
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
-msgstr ""
+msgstr "Istnieje już strona nazwana \"%s\", proszę zmień nazwę na inną."
 
 #: libraries/classes/Controllers/Database/ExportController.php:78
 #: libraries/classes/Controllers/Database/TrackingController.php:128
@@ -9371,6 +9371,8 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+"Błąd 1045: Brak dostępu dla użytkownika. Dodatkowe informacje na temat błędu "
+"mogą być dostępne, ale są ukryte przez %s dyrektywę konfiguracji."
 
 #: libraries/classes/Display/Results.php:907
 #: libraries/classes/Html/Generator.php:1254
@@ -13584,11 +13586,9 @@ msgid "Could not save configuration"
 msgstr "Nie można zapisać konfiguracji"
 
 #: libraries/classes/UserPreferences.php:178
-#, fuzzy
-#| msgid ""
-#| "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgid "The phpMyAdmin configuration storage database could not be accessed."
-msgstr "%sUtwórz%s magazyn konfiguracji phpMyAdmina w bieżącej bazie danych."
+msgstr ""
+"Brak dostępu do magazynu konfiguracji phpMyAdmin w bieżącej bazie danych."
 
 #: libraries/classes/Util.php:138
 #, php-format
@@ -15975,9 +15975,8 @@ msgstr "Klucz %s został usunięty."
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: templates/javascript/variables.twig:8
-#, fuzzy
 msgid "calendar-month-year"
-msgstr "calendar-month-year"
+msgstr "kalendarz-miesiąc-rok"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: templates/javascript/variables.twig:11
@@ -17852,7 +17851,7 @@ msgstr "Dodaj nowy serwer"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "Coś poszło nie tak."
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
