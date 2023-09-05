@@ -6,12 +6,13 @@ namespace PhpMyAdmin\Controllers\Setup;
 
 use PhpMyAdmin\Config\Validator;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use stdClass;
 
 use function __;
 use function explode;
-use function header;
 use function implode;
 use function is_string;
 use function json_decode;
@@ -20,10 +21,15 @@ use function sprintf;
 
 final class ValidateController
 {
-    public function __invoke(ServerRequest $request): void
+    public function __construct(private readonly ResponseFactory $responseFactory)
     {
+    }
+
+    public function __invoke(ServerRequest $request): Response
+    {
+        $response = $this->responseFactory->createResponse();
         foreach (Core::headerJSON() as $name => $value) {
-            header(sprintf('%s: %s', $name, $value));
+            $response = $response->withHeader($name, $value);
         }
 
         /** @var mixed $id */
@@ -34,9 +40,7 @@ final class ValidateController
         $valuesParam = $request->getParsedBodyParam('values');
         $values = json_decode(is_string($valuesParam) ? $valuesParam : '');
         if (! ($values instanceof stdClass)) {
-            echo json_encode(['success' => false, 'message' => __('Wrong data')]);
-
-            return;
+            return $response->write((string) json_encode(['success' => false, 'message' => __('Wrong data')]));
         }
 
         $values = (array) $values;
@@ -48,6 +52,6 @@ final class ValidateController
             );
         }
 
-        echo $result !== true ? json_encode($result) : '';
+        return $response->write($result !== true ? (string) json_encode($result) : '');
     }
 }

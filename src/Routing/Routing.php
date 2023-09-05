@@ -180,7 +180,7 @@ class Routing
             && $dispatchData[0]['GET']['/'] === HomeController::class;
     }
 
-    public static function callSetupController(ServerRequest $request, ResponseFactory $responseFactory): Response|null
+    public static function callSetupController(ServerRequest $request, ResponseFactory $responseFactory): Response
     {
         $route = $request->getRoute();
         $template = new Template();
@@ -189,15 +189,11 @@ class Routing
         }
 
         if ($route === '/setup/show-config') {
-            (new ShowConfigController())($request);
-
-            return null;
+            return (new ShowConfigController())($request);
         }
 
         if ($route === '/setup/validate') {
-            (new ValidateController())($request);
-
-            return null;
+            return (new ValidateController($responseFactory))($request);
         }
 
         $response = $responseFactory->createResponse(StatusCodeInterface::STATUS_NOT_FOUND);

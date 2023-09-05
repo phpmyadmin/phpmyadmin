@@ -44,15 +44,10 @@ final class SetupPageRedirection implements MiddlewareInterface
         assert($request instanceof ServerRequest);
 
         try {
-            $response = Routing::callSetupController($request, $this->responseFactory);
-            if ($response === null) {
-                throw new ExitException();
-            }
+            return Routing::callSetupController($request, $this->responseFactory);
         } catch (ExitException) {
-            $response = ResponseRenderer::getInstance()->response();
+            return ResponseRenderer::getInstance()->response();
         }
-
-        return $response;
     }
 
     private function setupPageBootstrap(): void
