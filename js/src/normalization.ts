@@ -850,12 +850,12 @@ AJAX.registerOnload('normalization.js', function () {
         }
     });
 
-    $('#extra').on('click', '#noRepeatingGroup', function(evt) {
+    $('#extra').on('click', '#noRepeatingGroup', function (evt) {
         evt.preventDefault();
         goToStep4();
     });
 
-    $('#extra').on('click', '#noRedundantColumn', function(evt) {
+    $('#extra').on('click', '#noRedundantColumn', function (evt) {
         evt.preventDefault();
         goToFinish1NF();
     });
