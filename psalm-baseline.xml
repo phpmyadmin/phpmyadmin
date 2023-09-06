@@ -8124,6 +8124,10 @@
     <ParamNameMismatch>
       <code>$errorMessage</code>
     </ParamNameMismatch>
+    <PropertyNotSetInConstructor>
+      <code>Pdf</code>
+      <code>Pdf</code>
+    </PropertyNotSetInConstructor>
   </file>
   <file src="src/Plugins.php">
     <DeprecatedMethod>
@@ -9340,6 +9344,8 @@
       <code>$results</code>
       <code>Pdf</code>
       <code>Pdf</code>
+      <code>Pdf</code>
+      <code>Pdf</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/Plugins/ExportPlugin.php">
@@ -10199,6 +10205,8 @@
     <PropertyNotSetInConstructor>
       <code>Pdf</code>
       <code>Pdf</code>
+      <code>Pdf</code>
+      <code>Pdf</code>
     </PropertyNotSetInConstructor>
     <UnsupportedPropertyReferenceUsage>
       <code><![CDATA[$cw = &$this->CurrentFont['cw']]]></code>
@@ -10401,16 +10409,6 @@
     <MixedOperand>
       <code>$field</code>
     </MixedOperand>
-    <PossiblyInvalidOperand>
-      <code><![CDATA[$this->diagram->GetStringWidth('      ')]]></code>
-      <code><![CDATA[$this->width]]></code>
-      <code>5</code>
-    </PossiblyInvalidOperand>
-    <PossiblyInvalidPropertyAssignmentValue>
-      <code><![CDATA[$this->width += $this->diagram->GetStringWidth('      ')]]></code>
-      <code><![CDATA[$this->width += 5]]></code>
-      <code><![CDATA[max($this->width, $this->diagram->GetStringWidth($field))]]></code>
-    </PossiblyInvalidPropertyAssignmentValue>
   </file>
   <file src="src/Plugins/Schema/RelationStats.php">
     <InvalidOperand>

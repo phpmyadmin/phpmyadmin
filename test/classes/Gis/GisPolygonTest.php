@@ -196,9 +196,7 @@ class GisPolygonTest extends GisGeomTestCase
         $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
 
         $fileExpected = $this->testDir . '/polygon-expected.pdf';
-        $fileActual = $this->testDir . '/polygon-actual.pdf';
-        $pdf->Output($fileActual, 'F');
-        $this->assertFileEquals($fileExpected, $fileActual);
+        $this->assertStringEqualsFile($fileExpected, $pdf->Output(dest: 'S'));
     }
 
     /**

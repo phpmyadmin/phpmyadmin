@@ -191,9 +191,7 @@ class GisPointTest extends GisGeomTestCase
         $fileExpectedArch = $this->testDir . '/point-expected-' . $this->getArch() . '.pdf';
         $fileExpectedGeneric = $this->testDir . '/point-expected.pdf';
         $fileExpected = file_exists($fileExpectedArch) ? $fileExpectedArch : $fileExpectedGeneric;
-        $fileActual = $this->testDir . '/point-actual.pdf';
-        $pdf->Output($fileActual, 'F');
-        $this->assertFileEquals($fileExpected, $fileActual);
+        $this->assertStringEqualsFile($fileExpected, $pdf->Output(dest: 'S'));
     }
 
     /**

@@ -15906,11 +15906,6 @@ parameters:
 			path: src/Plugins/Schema/Pdf/RelationStatsPdf.php
 
 		-
-			message: "#^Binary operation \"\\+\\=\" between float\\|int and array\\<float\\>\\|float results in an error\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
-
-		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
 			count: 1
 			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
@@ -15943,16 +15938,6 @@ parameters:
 		-
 			message: "#^Parameter \\#8 \\$link of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:cellScale\\(\\) expects string, mixed given\\.$#"
 			count: 2
-			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$width \\(float\\|int\\) does not accept array\\<float\\>\\|float\\|int\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$width \\(float\\|int\\) does not accept mixed\\.$#"
-			count: 1
 			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-

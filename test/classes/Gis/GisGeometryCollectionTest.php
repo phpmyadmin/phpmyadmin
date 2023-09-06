@@ -321,9 +321,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
         $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
 
         $fileExpected = $this->testDir . '/geometrycollection-expected.pdf';
-        $fileActual = $this->testDir . '/geometrycollection-actual.pdf';
-        $pdf->Output($fileActual, 'F');
-        $this->assertFileEquals($fileExpected, $fileActual);
+        $this->assertStringEqualsFile($fileExpected, $pdf->Output(dest: 'S'));
     }
 
     /**

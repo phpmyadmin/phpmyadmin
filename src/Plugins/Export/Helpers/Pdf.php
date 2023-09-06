@@ -696,7 +696,6 @@ class Pdf extends PdfLib
                 $colAs = $this->aliases[$db]['tables'][$table]['columns'][$colAs];
             }
 
-            /** @var float $stringWidth */
             $stringWidth = $this->GetStringWidth($colAs);
             $stringWidth += 6;
             // save the real title's width
@@ -751,7 +750,6 @@ class Pdf extends PdfLib
         /** @todo force here a LIMIT to avoid reading all rows */
         while ($row = $this->results->fetchRow()) {
             foreach ($colFits as $key => $val) {
-                /** @var float $stringWidth */
                 $stringWidth = $this->GetStringWidth($row[$key] ?? 'NULL');
                 $stringWidth += 6;
                 if ($adjustingMode && ($stringWidth > $sColWidth)) {

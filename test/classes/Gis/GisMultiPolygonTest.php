@@ -287,9 +287,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
         $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
 
         $fileExpected = $this->testDir . '/multipolygon-expected.pdf';
-        $fileActual = $this->testDir . '/multipolygon-actual.pdf';
-        $pdf->Output($fileActual, 'F');
-        $this->assertFileEquals($fileExpected, $fileActual);
+        $this->assertStringEqualsFile($fileExpected, $pdf->Output(dest: 'S'));
     }
 
     /**

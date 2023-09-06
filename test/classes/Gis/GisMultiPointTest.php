@@ -180,9 +180,7 @@ class GisMultiPointTest extends GisGeomTestCase
         $fileExpectedArch = $this->testDir . '/multipoint-expected-' . $this->getArch() . '.pdf';
         $fileExpectedGeneric = $this->testDir . '/multipoint-expected.pdf';
         $fileExpected = file_exists($fileExpectedArch) ? $fileExpectedArch : $fileExpectedGeneric;
-        $fileActual = $this->testDir . '/multipoint-actual.pdf';
-        $pdf->Output($fileActual, 'F');
-        $this->assertFileEquals($fileExpected, $fileActual);
+        $this->assertStringEqualsFile($fileExpected, $pdf->Output(dest: 'S'));
     }
 
     /**
