@@ -10,9 +10,10 @@ use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Plugins\Auth\AuthenticationConfig;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PHPUnit\Framework\Attributes\BackupStaticProperties;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Medium;
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use ReflectionProperty;
 use Throwable;
 
@@ -57,7 +58,8 @@ class AuthenticationConfigTest extends AbstractTestCase
         unset($this->object);
     }
 
-    #[BackupStaticProperties(true)]
+    #[RunInSeparateProcess]
+    #[PreserveGlobalState(false)]
     public function testAuth(): void
     {
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
@@ -81,7 +83,8 @@ class AuthenticationConfigTest extends AbstractTestCase
         );
     }
 
-    #[BackupStaticProperties(true)]
+    #[RunInSeparateProcess]
+    #[PreserveGlobalState(false)]
     public function testAuthFails(): void
     {
         Config::getInstance()->settings['Servers'] = [1];

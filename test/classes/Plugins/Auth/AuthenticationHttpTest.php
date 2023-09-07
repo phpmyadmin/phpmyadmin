@@ -11,11 +11,11 @@ use PhpMyAdmin\Plugins\Auth\AuthenticationHttp;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseRendererStub;
-use PHPUnit\Framework\Attributes\BackupStaticProperties;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Medium;
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
 use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use ReflectionProperty;
 use Throwable;
@@ -63,7 +63,8 @@ class AuthenticationHttpTest extends AbstractTestCase
         unset($this->object);
     }
 
-    #[BackupStaticProperties(true)]
+    #[RunInSeparateProcess]
+    #[PreserveGlobalState(false)]
     public function testAuthLogoutUrl(): void
     {
         $config = Config::getInstance();
@@ -80,7 +81,8 @@ class AuthenticationHttpTest extends AbstractTestCase
         $this->assertSame(302, $response->getStatusCode());
     }
 
-    #[BackupStaticProperties(true)]
+    #[RunInSeparateProcess]
+    #[PreserveGlobalState(false)]
     public function testAuthVerbose(): void
     {
         $config = Config::getInstance();
@@ -101,7 +103,8 @@ class AuthenticationHttpTest extends AbstractTestCase
         $this->assertSame(401, $response->getStatusCode());
     }
 
-    #[BackupStaticProperties(true)]
+    #[RunInSeparateProcess]
+    #[PreserveGlobalState(false)]
     public function testAuthHost(): void
     {
         $config = Config::getInstance();
@@ -123,7 +126,8 @@ class AuthenticationHttpTest extends AbstractTestCase
         $this->assertSame(401, $response->getStatusCode());
     }
 
-    #[BackupStaticProperties(true)]
+    #[RunInSeparateProcess]
+    #[PreserveGlobalState(false)]
     public function testAuthRealm(): void
     {
         $config = Config::getInstance();
@@ -278,6 +282,7 @@ class AuthenticationHttpTest extends AbstractTestCase
 
     #[Group('medium')]
     #[RunInSeparateProcess]
+    #[PreserveGlobalState(false)]
     public function testAuthFails(): void
     {
         $config = Config::getInstance();
