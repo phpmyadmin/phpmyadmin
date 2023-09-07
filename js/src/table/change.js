@@ -302,8 +302,11 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
     }
 
     // Remove possible blocking rules if the user changed functions
+    $('#' + target.id).rules('remove', 'validationFunctionForNumeric');
     $('#' + target.id).rules('remove', 'validationFunctionForMd5');
     $('#' + target.id).rules('remove', 'validationFunctionForAesDesEncrypt');
+    $('#' + target.id).rules('remove', 'validationFunctionForDateTime');
+    $('#' + target.id).rules('remove', 'maxlength');
 
     if (target.value === 'MD5') {
         $('#' + target.id).rules('add', {
@@ -357,10 +360,11 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
         // @todo: put back attributes if corresponding function is deselected
     }
 
-    if ($thisInput.data('rulesadded') === null && ! functionSelected) {
+    if ( ! functionSelected) {
         // call validate before adding rules
         $($thisInput[0].form).validate();
         // validate for date time
+
         if (theType === 'datetime' || theType === 'time' || theType === 'date' || theType === 'timestamp') {
             $thisInput.rules('add', {
                 validationFunctionForDateTime: {
@@ -371,11 +375,18 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
                 }
             });
         }
-        // validation for integer type
-        if ($thisInput.data('type') === 'INT') {
-            validateIntField($thisInput, checkForCheckbox(multiEdit));
-            // validation for CHAR types
-        } else if ($thisInput.data('type') === 'CHAR') {
+        if (theType.startsWith('float') || theType.startsWith('decimal') || theType.startsWith('int')) {
+            $thisInput.rules('add', {
+                validationFunctionForNumeric: {
+                    param: theType,
+                    depends: function () {
+                        return checkForCheckbox(multiEdit);
+                    }
+                }
+            });
+        }
+        
+        if ($thisInput.data('type') === 'CHAR') {
             var maxlen = $thisInput.data('maxlength');
             if (typeof maxlen !== 'undefined') {
                 if (maxlen <= 4) {
@@ -437,6 +448,10 @@ AJAX.registerTeardown('table/change.js', function () {
  */
 AJAX.registerOnload('table/change.js', function () {
     if ($('#insertForm').length) {
+
+
+        // Custom validation rules:
+        // --------
         // validate the comment form when it is submitted
         $('#insertForm').validate();
         jQuery.validator.addMethod('validationFunctionForHex', function (value) {
@@ -447,6 +462,10 @@ AJAX.registerOnload('table/change.js', function () {
             return !(value.substring(0, 3) === 'MD5' &&
                 typeof options.data('maxlength') !== 'undefined' &&
                 options.data('maxlength') < 32);
+        });
+
+        jQuery.validator.addMethod('validationFunctionForNumeric', function (value) {
+            return !isNaN(value);
         });
 
         jQuery.validator.addMethod('validationFunctionForAesDesEncrypt', function (value, element, options) {
