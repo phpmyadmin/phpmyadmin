@@ -17,10 +17,11 @@ use Nyholm\Psr7\ServerRequest as NyholmServerRequest;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\Factory\UriFactory;
 use PhpMyAdmin\Http\ServerRequest;
-use PHPUnit\Framework\Attributes\BackupStaticProperties;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Medium;
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ServerRequestFactoryInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -70,7 +71,8 @@ final class ServerRequestFactoryTest extends TestCase
 
     /** @psalm-param class-string<ServerRequestFactoryInterface> $provider */
     #[DataProvider('providerForTestCreate')]
-    #[BackupStaticProperties(true)]
+    #[RunInSeparateProcess]
+    #[PreserveGlobalState(false)]
     public function testCreate(string $provider): void
     {
         $this->skipIfNotAvailable($provider);
@@ -91,7 +93,8 @@ final class ServerRequestFactoryTest extends TestCase
         yield 'httpsoft/http-message' => [HttpSoftServerRequestFactory::class];
     }
 
-    #[BackupStaticProperties(true)]
+    #[RunInSeparateProcess]
+    #[PreserveGlobalState(false)]
     public function testCreateWithoutProvider(): void
     {
         (new ReflectionProperty(ServerRequestFactory::class, 'providers'))
@@ -107,7 +110,8 @@ final class ServerRequestFactoryTest extends TestCase
      * @psalm-param class-string<UriInterface> $expectedUri
      */
     #[DataProvider('providerForTestFromGlobals')]
-    #[BackupStaticProperties(true)]
+    #[RunInSeparateProcess]
+    #[PreserveGlobalState(false)]
     public function testFromGlobals(string $provider, string $uriFactoryProvider, string $expectedUri): void
     {
         $this->skipIfNotAvailable($provider);
@@ -145,7 +149,8 @@ final class ServerRequestFactoryTest extends TestCase
      * @psalm-param class-string<UriInterface> $expectedUri
      */
     #[DataProvider('providerForTestFromGlobals')]
-    #[BackupStaticProperties(true)]
+    #[RunInSeparateProcess]
+    #[PreserveGlobalState(false)]
     public function testFromGlobals2(string $provider, string $uriFactoryProvider, string $expectedUri): void
     {
         $this->skipIfNotAvailable($provider);
@@ -198,7 +203,8 @@ final class ServerRequestFactoryTest extends TestCase
      * @psalm-param class-string<UriInterface> $expectedUri
      */
     #[DataProvider('providerForTestFromGlobals')]
-    #[BackupStaticProperties(true)]
+    #[RunInSeparateProcess]
+    #[PreserveGlobalState(false)]
     public function testFromGlobals3(string $provider, string $uriFactoryProvider, string $expectedUri): void
     {
         $this->skipIfNotAvailable($provider);
