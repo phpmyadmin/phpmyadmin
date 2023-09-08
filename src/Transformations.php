@@ -296,8 +296,8 @@ class Transformations
                     . '`input_transformation_options`'
             . ' FROM ' . Util::backquote($browserTransformationFeature->database) . '.'
             . Util::backquote($browserTransformationFeature->columnInfo)
-            . ' WHERE `db_name` = \'' . $dbi->escapeString($db) . '\''
-            . ' AND `table_name` = \'' . $dbi->escapeString($table) . '\''
+            . ' WHERE `db_name` = ' . $dbi->quoteString($db, Connection::TYPE_CONTROL)
+            . ' AND `table_name` = ' . $dbi->quoteString($table, Connection::TYPE_CONTROL)
             . ' AND ( `mimetype` != \'\'' . (! $strict ?
                 ' OR `transformation` != \'\''
                 . ' OR `transformation_options` != \'\''
@@ -388,9 +388,9 @@ class Transformations
                     `comment`
                FROM ' . Util::backquote($browserTransformationFeature->database) . '.'
             . Util::backquote($browserTransformationFeature->columnInfo) . '
-              WHERE `db_name`     = \'' . $dbi->escapeString($db) . '\'
-                AND `table_name`  = \'' . $dbi->escapeString($table) . '\'
-                AND `column_name` = \'' . $dbi->escapeString($key) . '\'';
+              WHERE `db_name`     = ' . $dbi->quoteString($db, Connection::TYPE_CONTROL) . '
+                AND `table_name`  = ' . $dbi->quoteString($table, Connection::TYPE_CONTROL) . '
+                AND `column_name` = ' . $dbi->quoteString($key, Connection::TYPE_CONTROL);
 
         $testRs = $dbi->queryAsControlUser($testQry);
 
@@ -402,16 +402,16 @@ class Transformations
                     . Util::backquote($browserTransformationFeature->database) . '.'
                     . Util::backquote($browserTransformationFeature->columnInfo)
                     . ' SET '
-                    . '`mimetype` = \''
-                    . $dbi->escapeString($mimetype) . '\', '
-                    . '`transformation` = \''
-                    . $dbi->escapeString($transformation) . '\', '
-                    . '`transformation_options` = \''
-                    . $dbi->escapeString($transformationOpts) . '\', '
-                    . '`input_transformation` = \''
-                    . $dbi->escapeString($inputTransform) . '\', '
-                    . '`input_transformation_options` = \''
-                    . $dbi->escapeString($inputTransformOpts) . '\'';
+                    . '`mimetype` = '
+                    . $dbi->quoteString($mimetype, Connection::TYPE_CONTROL) . ', '
+                    . '`transformation` = '
+                    . $dbi->quoteString($transformation, Connection::TYPE_CONTROL) . ', '
+                    . '`transformation_options` = '
+                    . $dbi->quoteString($transformationOpts, Connection::TYPE_CONTROL) . ', '
+                    . '`input_transformation` = '
+                    . $dbi->quoteString($inputTransform, Connection::TYPE_CONTROL) . ', '
+                    . '`input_transformation_options` = '
+                    . $dbi->quoteString($inputTransformOpts, Connection::TYPE_CONTROL);
             } else {
                 $updQuery = 'DELETE FROM '
                     . Util::backquote($browserTransformationFeature->database)
@@ -419,11 +419,9 @@ class Transformations
             }
 
             $updQuery .= '
-                WHERE `db_name`     = \'' . $dbi->escapeString($db) . '\'
-                  AND `table_name`  = \'' . $dbi->escapeString($table)
-                    . '\'
-                  AND `column_name` = \'' . $dbi->escapeString($key)
-                    . '\'';
+                WHERE `db_name`     = ' . $dbi->quoteString($db, Connection::TYPE_CONTROL) . '
+                  AND `table_name`  = ' . $dbi->quoteString($table, Connection::TYPE_CONTROL) . '
+                  AND `column_name` = ' . $dbi->quoteString($key, Connection::TYPE_CONTROL);
         } elseif ($hasValue) {
             $updQuery = 'INSERT INTO '
                 . Util::backquote($browserTransformationFeature->database)
@@ -432,14 +430,14 @@ class Transformations
                 . 'transformation, transformation_options, '
                 . 'input_transformation, input_transformation_options) '
                 . ' VALUES('
-                . '\'' . $dbi->escapeString($db) . '\','
-                . '\'' . $dbi->escapeString($table) . '\','
-                . '\'' . $dbi->escapeString($key) . '\','
-                . '\'' . $dbi->escapeString($mimetype) . '\','
-                . '\'' . $dbi->escapeString($transformation) . '\','
-                . '\'' . $dbi->escapeString($transformationOpts) . '\','
-                . '\'' . $dbi->escapeString($inputTransform) . '\','
-                . '\'' . $dbi->escapeString($inputTransformOpts) . '\')';
+                . $dbi->quoteString($db, Connection::TYPE_CONTROL) . ','
+                . $dbi->quoteString($table, Connection::TYPE_CONTROL) . ','
+                . $dbi->quoteString($key, Connection::TYPE_CONTROL) . ','
+                . $dbi->quoteString($mimetype, Connection::TYPE_CONTROL) . ','
+                . $dbi->quoteString($transformation, Connection::TYPE_CONTROL) . ','
+                . $dbi->quoteString($transformationOpts, Connection::TYPE_CONTROL) . ','
+                . $dbi->quoteString($inputTransform, Connection::TYPE_CONTROL) . ','
+                . $dbi->quoteString($inputTransformOpts, Connection::TYPE_CONTROL) . ')';
         }
 
         if (isset($updQuery)) {
