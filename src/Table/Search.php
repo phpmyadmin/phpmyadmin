@@ -162,14 +162,8 @@ final class Search
             // (like INT), for a LIKE we always quote the value. MySQL converts
             // strings to numbers and numbers to strings as necessary
             // during the comparison
-            if (
-                preg_match('@char|binary|blob|text|set|date|time|year|uuid@i', $types)
-                || mb_strpos(' ' . $funcType, 'LIKE')
-            ) {
-                $quot = '\'';
-            } else {
-                $quot = '';
-            }
+            $needsQuoting = preg_match('@char|binary|blob|text|set|date|time|year|uuid@i', $types)
+                || mb_strpos(' ' . $funcType, 'LIKE');
 
             // LIKE %...%
             if ($funcType === 'LIKE %...%') {
@@ -193,8 +187,8 @@ final class Search
                 && $funcType !== 'BETWEEN'
                 && $funcType !== 'NOT BETWEEN'
             ) {
-                return $backquotedName . ' ' . $funcType . ' ' . $quot
-                    . $this->dbi->escapeString($criteriaValues) . $quot;
+                return $backquotedName . ' ' . $funcType . ' '
+                    . ($needsQuoting ? $this->dbi->quoteString($criteriaValues) : $criteriaValues);
             }
 
             $funcType = str_replace(' (...)', '', $funcType);
@@ -209,15 +203,18 @@ final class Search
 
             // quote values one by one
             $emptyKey = false;
-            foreach ($values as $key => &$value) {
+            foreach ($values as $key => $value) {
                 if ($value === '') {
                     $emptyKey = $key;
-                    $value = 'NULL';
+                    $values[$key] = 'NULL';
                     continue;
                 }
 
-                $value = $quot . $this->dbi->escapeString(trim($value))
-                    . $quot;
+                if (! $needsQuoting) {
+                    continue;
+                }
+
+                $values[$key] = $this->dbi->quoteString(trim($value));
             }
 
             if ($funcType === 'BETWEEN' || $funcType === 'NOT BETWEEN') {
@@ -334,11 +331,9 @@ final class Search
             $parensClose = '';
         }
 
-        $enumWhere = '\''
-            . $this->dbi->escapeString($criteriaValues[0]) . '\'';
+        $enumWhere = $this->dbi->quoteString($criteriaValues[0]);
         for ($e = 1; $e < $enumSelectedCount; $e++) {
-            $enumWhere .= ', \''
-                . $this->dbi->escapeString($criteriaValues[$e]) . '\'';
+            $enumWhere .= ', ' . $this->dbi->quoteString($criteriaValues[$e]);
         }
 
         return ' ' . $funcType . ' ' . $parensOpen
