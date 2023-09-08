@@ -536,6 +536,8 @@ AJAX.registerTeardown('normalization.js', function () {
     $('#mainContent').off('click', '#backEditPd');
     $('#mainContent').off('click', '#showPossiblePd');
     $('#mainContent').off('click', '.pickPd');
+    $('#extra').off('click', '#noRepeatingGroup');
+    $('#extra').off('click', '#noRedundantColumn');
 });
 
 AJAX.registerOnload('normalization.js', function () {
@@ -846,5 +848,15 @@ AJAX.registerOnload('normalization.js', function () {
                 $('form[data-colname="' + colsRight[i].trim() + '"] input[value="' + colsLeft[j].trim() + '"]').prop('checked', true);
             }
         }
+    });
+
+    $('#extra').on('click', '#noRepeatingGroup', function (evt) {
+        evt.preventDefault();
+        goToStep4();
+    });
+
+    $('#extra').on('click', '#noRedundantColumn', function (evt) {
+        evt.preventDefault();
+        goToFinish1NF();
     });
 });
