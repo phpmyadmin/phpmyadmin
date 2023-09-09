@@ -20,6 +20,7 @@ use ReflectionClass;
 
 use function array_keys;
 use function in_array;
+use function method_exists;
 
 use const DIRECTORY_SEPARATOR;
 
@@ -118,6 +119,32 @@ abstract class AbstractTestCase extends TestCase
         }
 
         $this->fail('Some error codes where not used !');
+    }
+
+    /**
+     * PHPUnit 8 compatibility
+     */
+    public static function assertMatchesRegularExpression(string $pattern, string $string, string $message = ''): void
+    {
+        if (method_exists(TestCase::class, 'assertMatchesRegularExpression')) {
+            parent::assertMatchesRegularExpression($pattern, $string, $message);
+        } else {
+            /** @psalm-suppress DeprecatedMethod */
+            self::assertRegExp($pattern, $string, $message);
+        }
+    }
+
+    /**
+     * PHPUnit 8 compatibility
+     */
+    public static function assertFileDoesNotExist(string $filename, string $message = ''): void
+    {
+        if (method_exists(TestCase::class, 'assertFileDoesNotExist')) {
+            parent::assertFileDoesNotExist($filename, $message);
+        } else {
+            /** @psalm-suppress DeprecatedMethod */
+            parent::assertFileNotExists($filename, $message);
+        }
     }
 
     protected function loadContainerBuilder(): void
