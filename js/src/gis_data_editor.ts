@@ -11,12 +11,29 @@ import { ajaxShowMessage } from './modules/ajax-message.ts';
 
 let gisEditorLoaded = false;
 
+let visualizationController;
+
+function disposeGISEditorVisualization () {
+    if (visualizationController) {
+        visualizationController.dispose();
+        visualizationController = undefined;
+    }
+}
+
+/**
+ * Initialize the visualization in the GIS data editor.
+ */
+function initGISEditorVisualization () {
+    visualizationController = new window.GisVisualizationController();
+}
+
 /**
  * Closes the GIS data editor and perform necessary clean up work.
  */
 function closeGISEditor () {
     $('#popup_background').fadeOut('fast');
     $('#gis_editor').fadeOut('fast', function () {
+        disposeGISEditorVisualization();
         $(this).empty();
     });
 }
@@ -235,20 +252,6 @@ function makeGeometryInputs (gisData): string {
 }
 
 /**
- * Initialize the visualization in the GIS data editor.
- */
-function initGISEditorVisualization () {
-    window.storeGisSvgRef();
-    // Loads either SVG or OSM visualization based on the choice
-    window.selectVisualization();
-    // Adds necessary styles to the div that contains the openStreetMap
-    window.styleOSM();
-    // Adds controllers for zooming and panning
-    window.addZoomPanControllers();
-    window.zoomAndPan();
-}
-
-/**
  * Loads JavaScript files and the GIS editor.
  *
  * @param {function} resolve
@@ -301,6 +304,8 @@ function loadGISEditor (value, field, type, inputName) {
 
             return;
         }
+
+        disposeGISEditorVisualization();
 
         $gisEditor.html(data.gis_editor);
         initGISEditorVisualization();
@@ -360,11 +365,13 @@ function insertDataAndClose () {
     const argsep = CommonParams.get('arg_separator');
     const params = $form.serialize() + argsep + 'generate=true' + argsep + 'ajax_request=true';
     $.post('index.php?route=/gis-data-editor', params, function (data) {
-        if (typeof data !== 'undefined' && data.success === true) {
-            $('input[name=\'' + inputName + '\']').val(data.result);
-        } else {
+        if (typeof data === 'undefined' || data.success !== true) {
             ajaxShowMessage(data.error, false);
+
+            return;
         }
+
+        $('input[name=\'' + inputName + '\']').val(data.result);
     }, 'json');
 
     closeGISEditor();
@@ -377,9 +384,11 @@ function onCoordinateEdit (data) {
         return;
     }
 
+    disposeGISEditorVisualization();
+
+    $('#visualization-placeholder > .visualization-target-svg').html(data.visualization);
     $('#gis_data_textarea').val(data.result);
-    $('#placeholder').empty().removeClass('hasSVG').html(data.visualization);
-    $('#openlayersmap').empty();
+
     /* TODO: the gis_data_editor should rather return JSON than JS code to eval */
     // eslint-disable-next-line no-eval
     eval(data.openLayers);

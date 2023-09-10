@@ -1368,20 +1368,6 @@ input#auto_increment_opt {
   width: min-content;
 }
 
-#placeholder {
-  .button {
-    position: absolute;
-    cursor: pointer;
-  }
-
-  div.button {
-    font-size: smaller;
-    color: #999;
-    background-color: #eee;
-    padding: 2px;
-  }
-}
-
 .wrapper {
   float: left;
   margin-bottom: 1.5em;
@@ -1444,54 +1430,69 @@ input#auto_increment_opt {
   }
 }
 
-#placeholder {
-  position: relative;
-  border: 1px solid #aaa;
-  float: right;
-  overflow: hidden;
-
-  .button {
-    position: absolute;
-  }
-}
-
 .placeholderDrag {
   cursor: move;
 }
 
-#left_arrow {
-  left: 8px;
-  top: 26px;
+#visualization-placeholder {
+  position: relative;
+  border: 1px solid #aaa;
+  overflow: hidden;
+  box-sizing: content-box;
+
+  .visualization-target {
+    height: 100%;
+  }
+
+  .visualization-target-svg {
+    .button {
+      position: absolute;
+      cursor: pointer;
+    }
+
+    .left_arrow {
+      left: 8px;
+      top: 26px;
+    }
+
+    .right_arrow {
+      left: 26px;
+      top: 26px;
+    }
+
+    .up_arrow {
+      left: 17px;
+      top: 8px;
+    }
+
+    .down_arrow {
+      left: 17px;
+      top: 44px;
+    }
+
+    .zoom_in {
+      left: 17px;
+      top: 67px;
+    }
+
+    .zoom_world {
+      left: 17px;
+      top: 85px;
+    }
+
+    .zoom_out {
+      left: 17px;
+      top: 103px;
+    }
+  }
 }
 
-#right_arrow {
-  left: 26px;
-  top: 26px;
-}
-
-#up_arrow {
-  left: 17px;
-  top: 8px;
-}
-
-#down_arrow {
-  left: 17px;
-  top: 44px;
-}
-
-#zoom_in {
-  left: 17px;
-  top: 67px;
-}
-
-#zoom_world {
-  left: 17px;
-  top: 85px;
-}
-
-#zoom_out {
-  left: 17px;
-  top: 103px;
+#tooltip {
+  position: absolute;
+  border: 1px solid #fdd;
+  padding: 2px;
+  background-color: #fee;
+  opacity: 0.9;
 }
 
 .colborder {

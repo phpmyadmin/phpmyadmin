@@ -319,7 +319,7 @@ class GisVisualization
             . ' xmlns="http://www.w3.org/2000/svg"'
             . ' width="' . $this->width . '"'
             . ' height="' . $this->height . '">'
-            . '<g id="groupPanel">' . $svg . '</g>'
+            . '<g>' . $svg . '</g>'
             . '</svg>';
     }
 
@@ -393,13 +393,13 @@ class GisVisualization
     {
         $olCode = $this->prepareDataSet($this->data, 'ol');
 
-        return 'function drawOpenLayers() {'
+        return 'window.drawOpenLayers = function drawOpenLayers(target) {'
             . 'if (typeof ol === "undefined") { return undefined; }'
             . 'var olCss = "js/vendor/openlayers/theme/ol.css";'
             . '$(\'head\').append(\'<link rel="stylesheet" type="text/css" href=\'+olCss+\'>\');'
             . 'var vectorSource = new ol.source.Vector({});'
             . 'var map = new ol.Map({'
-            . 'target: \'openlayersmap\','
+            . 'target: target,'
             . 'layers: ['
             . 'new ol.layer.Tile({'
             . 'source: new ol.source.OSM()'
