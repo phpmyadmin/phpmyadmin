@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-09-03 00:17+0000\n"
+"POT-Creation-Date: 2023-09-10 00:17+0000\n"
 "PO-Revision-Date: 2023-02-17 01:47+0000\n"
 "Last-Translator: Anders Johansson <johansson@aljmedia.se>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1365,10 +1365,10 @@ msgstr "Sök:"
 #: templates/columns_definitions/column_definitions_form.twig:42
 #: templates/database/designer/main.twig:1102
 #: templates/database/events/editor_form.twig:120
-#: templates/database/operations/index.twig:19
-#: templates/database/operations/index.twig:75
-#: templates/database/operations/index.twig:185
-#: templates/database/operations/index.twig:225
+#: templates/database/operations/index.twig:20
+#: templates/database/operations/index.twig:76
+#: templates/database/operations/index.twig:186
+#: templates/database/operations/index.twig:226
 #: templates/database/routines/editor_form.twig:185
 #: templates/database/routines/execute_form.twig:55
 #: templates/display/results/table.twig:279
@@ -1396,11 +1396,11 @@ msgstr "Sök:"
 #: templates/table/insert/actions_panel.twig:38
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:15
 #: templates/table/normalization/normalization.twig:26
-#: templates/table/operations/index.twig:38
-#: templates/table/operations/index.twig:86
-#: templates/table/operations/index.twig:241
-#: templates/table/operations/index.twig:328
-#: templates/table/operations/index.twig:505
+#: templates/table/operations/index.twig:39
+#: templates/table/operations/index.twig:87
+#: templates/table/operations/index.twig:242
+#: templates/table/operations/index.twig:329
+#: templates/table/operations/index.twig:506
 #: templates/table/operations/view.twig:20
 #: templates/table/search/index.twig:172 templates/table/search/index.twig:196
 #: templates/table/start_and_number_of_rows_fieldset.twig:15
@@ -1908,7 +1908,7 @@ msgstr "Inget"
 #: templates/server/databases/index.twig:126
 #: templates/server/databases/index.twig:145
 #: templates/server/status/processes/list.twig:14
-#: templates/table/operations/index.twig:27
+#: templates/table/operations/index.twig:28
 #: templates/table/search/index.twig:159
 msgid "Ascending"
 msgstr "Stigande"
@@ -1920,7 +1920,7 @@ msgstr "Stigande"
 #: templates/server/databases/index.twig:128
 #: templates/server/databases/index.twig:147
 #: templates/server/status/processes/list.twig:12
-#: templates/table/operations/index.twig:31
+#: templates/table/operations/index.twig:32
 #: templates/table/search/index.twig:163
 msgid "Descending"
 msgstr "Fallande"
@@ -3784,9 +3784,9 @@ msgstr "Kom ihåg mall för filnamn"
 msgid "Remove DEFINER clause from definitions"
 msgstr "Ta bort kolumner från huvudlista"
 
-#: src/Config/Descriptions.php:691 templates/database/operations/index.twig:160
-#: templates/table/operations/index.twig:72
-#: templates/table/operations/index.twig:300
+#: src/Config/Descriptions.php:691 templates/database/operations/index.twig:161
+#: templates/table/operations/index.twig:73
+#: templates/table/operations/index.twig:301
 msgid "Add AUTO_INCREMENT value"
 msgstr "Lägg till AUTO_INCREMENT-värde"
 
@@ -3821,8 +3821,8 @@ msgstr "Exportera relaterade metadata från sparade inställningar i phpMyAdmin"
 #: src/Config/Descriptions.php:699 src/Config/Descriptions.php:700
 #: src/Config/Descriptions.php:702 src/Config/Descriptions.php:705
 #: src/Config/Descriptions.php:706 src/Config/Descriptions.php:707
-#: src/Config/Descriptions.php:719 templates/database/operations/index.twig:155
-#: templates/table/operations/index.twig:295
+#: src/Config/Descriptions.php:719 templates/database/operations/index.twig:156
+#: templates/table/operations/index.twig:296
 #, php-format
 msgid "Add %s"
 msgstr "Lägg till %s"
@@ -4456,7 +4456,7 @@ msgstr "Lösenord för config auth"
 msgid "PDF schema: pages table"
 msgstr "PDF-schema: Tabell för sidor"
 
-#: src/Config/Descriptions.php:889 templates/database/operations/index.twig:122
+#: src/Config/Descriptions.php:889 templates/database/operations/index.twig:123
 #: templates/server/databases/index.twig:24
 msgid "Database name"
 msgstr "Databasnamn"
@@ -4688,10 +4688,10 @@ msgstr "Textarea rader"
 #: templates/server/privileges/privileges_table.twig:258
 #: templates/server/privileges/user_properties.twig:22
 #: templates/server/privileges/user_properties.twig:70
-#: templates/table/operations/index.twig:56
-#: templates/table/operations/index.twig:62
-#: templates/table/operations/index.twig:257
-#: templates/table/operations/index.twig:263
+#: templates/table/operations/index.twig:57
+#: templates/table/operations/index.twig:63
+#: templates/table/operations/index.twig:258
+#: templates/table/operations/index.twig:264
 #: templates/table/relation/common_form.twig:38
 #: templates/table/relation/common_form.twig:130
 #: templates/table/relation/foreign_key_row.twig:91
@@ -4717,8 +4717,8 @@ msgstr "Server"
 #: templates/server/privileges/user_properties.twig:37
 #: templates/server/privileges/user_properties.twig:81
 #: templates/table/maintenance/checksum.twig:12
-#: templates/table/operations/index.twig:65
-#: templates/table/operations/index.twig:266
+#: templates/table/operations/index.twig:66
+#: templates/table/operations/index.twig:267
 #: templates/table/relation/common_form.twig:39
 #: templates/table/relation/common_form.twig:137
 #: templates/table/relation/foreign_key_row.twig:102
@@ -5371,8 +5371,8 @@ msgstr ""
 #: src/Controllers/Database/TrackingController.php:67
 #: src/Controllers/JavaScriptMessagesController.php:355
 #: src/Controllers/Server/Databases/DestroyController.php:60
-#: src/Controllers/Table/AddFieldController.php:176
-#: src/Controllers/Table/AddFieldController.php:181
+#: src/Controllers/Table/AddFieldController.php:175
+#: src/Controllers/Table/AddFieldController.php:180
 #: src/Controllers/Table/ChangeController.php:68
 #: src/Controllers/Table/ChangeController.php:73
 #: src/Controllers/Table/ChartController.php:106
@@ -5526,8 +5526,8 @@ msgstr "Du har inte den nödvändiga behörigheten att skapa en trigger"
 #: src/Controllers/Database/Structure/ShowCreateController.php:29
 #: src/Controllers/Export/TablesController.php:29
 #: src/Controllers/JavaScriptMessagesController.php:356
-#: src/Controllers/Table/AddFieldController.php:190
-#: src/Controllers/Table/AddFieldController.php:195
+#: src/Controllers/Table/AddFieldController.php:189
+#: src/Controllers/Table/AddFieldController.php:194
 #: src/Controllers/Table/ChangeController.php:82
 #: src/Controllers/Table/ChangeController.php:87
 #: src/Controllers/Table/ChartController.php:120
@@ -5623,21 +5623,21 @@ msgid "Success!"
 msgstr "Lyckades!"
 
 #: src/Controllers/Database/StructureController.php:356
-#: templates/table/operations/index.twig:451
+#: templates/table/operations/index.twig:452
 #: templates/table/operations/view.twig:32
 #, php-format
 msgid "View %s has been dropped."
 msgstr "Vyn %s har tagits bort."
 
 #: src/Controllers/Database/StructureController.php:357
-#: templates/table/operations/index.twig:451
+#: templates/table/operations/index.twig:452
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "Tabellen %s har tagits bort."
 
 #: src/Controllers/Database/StructureController.php:404
-#: templates/table/operations/index.twig:410
-#: templates/table/operations/index.twig:428
+#: templates/table/operations/index.twig:411
+#: templates/table/operations/index.twig:429
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Tabellen %s har tömts."
@@ -9322,16 +9322,16 @@ msgstr "Osäker anslutning"
 msgid "Configuration already exists, setup is disabled!"
 msgstr ""
 
-#: src/Controllers/Setup/ValidateController.php:37
+#: src/Controllers/Setup/ValidateController.php:43
 msgid "Wrong data"
 msgstr "Felaktigt data"
 
-#: src/Controllers/Setup/ValidateController.php:46
+#: src/Controllers/Setup/ValidateController.php:50
 #, php-format
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:240 src/Sql.php:1082
+#: src/Controllers/Sql/SqlController.php:240 src/Sql.php:1079
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Bokmärket %s har skapats."
@@ -9340,7 +9340,7 @@ msgstr "Bokmärket %s har skapats."
 msgid "Bookmark not created!"
 msgstr "Bokmärke ej skapat!"
 
-#: src/Controllers/Table/AddFieldController.php:147
+#: src/Controllers/Table/AddFieldController.php:146
 #: src/Controllers/Table/Structure/PartitioningController.php:264
 #: src/Controllers/Table/Structure/SaveController.php:203
 #: src/Table/Indexes.php:91
@@ -9367,17 +9367,17 @@ msgstr "Det finns inga numeriska kolumner att plotta i tabellen."
 msgid "No data to display"
 msgstr "Ingen data att visa"
 
-#: src/Controllers/Table/CreateController.php:54
+#: src/Controllers/Table/CreateController.php:56
 msgid "The database name is empty!"
 msgstr "Databasens namn är tomt!"
 
-#: src/Controllers/Table/CreateController.php:66
+#: src/Controllers/Table/CreateController.php:68
 #: src/Controllers/Table/GetFieldController.php:48
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "Databasen '%s' existerar inte."
 
-#: src/Controllers/Table/CreateController.php:76
+#: src/Controllers/Table/CreateController.php:78
 #, php-format
 msgid "Table %s already exists!"
 msgstr "Tabell %s finns redan!"
@@ -9396,7 +9396,7 @@ msgstr "Tabell %s finns redan!"
 #: src/Controllers/Table/Partition/RebuildController.php:51
 #: src/Controllers/Table/Partition/RepairController.php:50
 #: src/Controllers/Table/Partition/TruncateController.php:51
-#: src/Controllers/Table/RelationController.php:284
+#: src/Controllers/Table/RelationController.php:135
 #: src/Controllers/View/OperationsController.php:118
 #: src/Database/Routines.php:978 src/Display/Results.php:3398
 #: src/Message.php:150 templates/sql/query.twig:7
@@ -9437,7 +9437,7 @@ msgstr "Det finns för många JOINS som saknar index."
 
 #: src/Controllers/Table/GetFieldController.php:82
 #: src/Database/Routines.php:995 src/Import/Import.php:166
-#: src/InsertEdit.php:202 src/Sql.php:884
+#: src/InsertEdit.php:202 src/Sql.php:881
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL returnerade ett tomt resultat (dvs inga rader)."
 
@@ -9487,11 +9487,11 @@ msgstr "Tabellnamnet är tomt!"
 msgid "Error"
 msgstr "Fel"
 
-#: src/Controllers/Table/RelationController.php:230
+#: src/Controllers/Table/RelationController.php:270
 msgid "Display column was successfully updated."
 msgstr "Kolumnen har uppdaterats."
 
-#: src/Controllers/Table/RelationController.php:318
+#: src/Controllers/Table/RelationController.php:304
 #, fuzzy
 #| msgid "Internal relations were successfully updated."
 msgid "Internal relationships were successfully updated."
@@ -9944,7 +9944,7 @@ msgstr "%1$d totalt, %2$d i fråga"
 msgid "%s total"
 msgstr "%d totalt"
 
-#: src/Display/Results.php:3730 src/Sql.php:890
+#: src/Display/Results.php:3730 src/Sql.php:887
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Frågan tog %01.4f sekunder."
@@ -10564,7 +10564,7 @@ msgstr "Ange inte mer än {0} tecken"
 msgid "The trigger name cannot end with a space character."
 msgstr "Ord separeras av ett mellanslag (\" \")."
 
-#: src/Import/Import.php:288 src/Sql.php:898
+#: src/Import/Import.php:288 src/Sql.php:895
 msgid "[ROLLBACK occurred.]"
 msgstr "[ÅTERTOG tidigare version]"
 
@@ -10707,11 +10707,11 @@ msgstr "Eller"
 msgid "web server upload directory:"
 msgstr "Uppladdningskatalog på webbserver:"
 
-#: src/InsertEdit.php:962 src/Sql.php:881
+#: src/InsertEdit.php:962 src/Sql.php:878
 msgid "Showing SQL query"
 msgstr "Visar SQL-fråga"
 
-#: src/InsertEdit.php:986 src/Sql.php:861
+#: src/InsertEdit.php:986 src/Sql.php:858
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Infogade rad-id: %1$d"
@@ -10897,7 +10897,7 @@ msgstr "Ny"
 #: templates/database/data_dictionary/index.twig:77 templates/indexes.twig:21
 #: templates/table/index_form.twig:141
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:5
-#: templates/table/operations/index.twig:13
+#: templates/table/operations/index.twig:14
 #: templates/table/relation/common_form.twig:20
 #: templates/table/relation/common_form.twig:25
 #: templates/table/relation/common_form.twig:40
@@ -10920,6 +10920,7 @@ msgid "New"
 msgstr "Ny"
 
 #: src/Navigation/Nodes/NodeDatabase.php:48
+#: templates/database/operations/index.twig:2
 msgid "Database operations"
 msgstr "Databasoperationer"
 
@@ -11095,7 +11096,7 @@ msgstr ""
 msgid "Remove selected"
 msgstr "Ta bort markerade"
 
-#: src/Normalization.php:305
+#: src/Normalization.php:306
 msgid "No redundant column"
 msgstr "Ingen överflödig kolumn"
 
@@ -12700,7 +12701,7 @@ msgid ""
 "the folder/file \"%s\""
 msgstr ""
 
-#: src/Routing/Routing.php:149 src/Routing/Routing.php:209
+#: src/Routing/Routing.php:149 src/Routing/Routing.php:205
 #, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "Fel 404! Sidan %s hittades inte."
@@ -13230,16 +13231,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Ingen nyare stabil version finns tillgänglig"
 
-#: src/Sql.php:455
+#: src/Sql.php:452
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Använd bokmärket \"%s\" som standard webbläsarfråga."
 
-#: src/Sql.php:878
+#: src/Sql.php:875
 msgid "Showing as PHP code"
 msgstr "Visar som PHP-kod"
 
-#: src/Sql.php:1265
+#: src/Sql.php:1262
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -13249,7 +13250,7 @@ msgstr ""
 "rutnätsredigera, kryssruta, redigera, kopiera och radera är inte "
 "tillgängliga. %s"
 
-#: src/Sql.php:1279
+#: src/Sql.php:1276
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -13430,21 +13431,21 @@ msgstr "Ta bort spårning för denna rapport"
 msgid "No data"
 msgstr "Inget data"
 
-#: src/Tracking/Tracking.php:291 templates/database/operations/index.twig:131
+#: src/Tracking/Tracking.php:291 templates/database/operations/index.twig:132
 #: templates/database/structure/copy_form.twig:21
-#: templates/table/operations/index.twig:275
+#: templates/table/operations/index.twig:276
 msgid "Structure only"
 msgstr "Enbart struktur"
 
-#: src/Tracking/Tracking.php:294 templates/database/operations/index.twig:143
+#: src/Tracking/Tracking.php:294 templates/database/operations/index.twig:144
 #: templates/database/structure/copy_form.twig:25
-#: templates/table/operations/index.twig:287
+#: templates/table/operations/index.twig:288
 msgid "Data only"
 msgstr "Enbart data"
 
-#: src/Tracking/Tracking.php:297 templates/database/operations/index.twig:137
+#: src/Tracking/Tracking.php:297 templates/database/operations/index.twig:138
 #: templates/database/structure/copy_form.twig:17
-#: templates/table/operations/index.twig:281
+#: templates/table/operations/index.twig:282
 msgid "Structure and data"
 msgstr "Struktur och data"
 
@@ -13993,7 +13994,7 @@ msgstr "efter %s"
 
 #: templates/columns_definitions/column_definitions_form.twig:22
 #: templates/database/create_table.twig:6
-#: templates/database/operations/index.twig:30
+#: templates/database/operations/index.twig:31
 msgid "Table name"
 msgstr "Tabellnamn"
 
@@ -14024,7 +14025,7 @@ msgstr "Anslutning:"
 
 #: templates/columns_definitions/column_definitions_form.twig:112
 #: templates/columns_definitions/partitions.twig:137
-#: templates/table/operations/index.twig:133
+#: templates/table/operations/index.twig:134
 #, fuzzy
 #| msgid "Storage Engines"
 msgid "Storage engine"
@@ -14109,7 +14110,7 @@ msgid "Subpartitions:"
 msgstr "partitionerad"
 
 #: templates/columns_definitions/partitions.twig:76
-#: templates/table/operations/index.twig:480
+#: templates/table/operations/index.twig:481
 #: templates/table/structure/display_partitions.twig:25
 #, fuzzy
 #| msgid "Partition %s"
@@ -14214,14 +14215,14 @@ msgstr ""
 #: templates/database/central_columns/main.twig:32
 #: templates/database/central_columns/main.twig:242
 #: templates/database/data_dictionary/index.twig:79
-#: templates/database/operations/index.twig:194
-#: templates/database/operations/index.twig:198
+#: templates/database/operations/index.twig:195
+#: templates/database/operations/index.twig:199
 #: templates/database/structure/table_header.twig:31
 #: templates/home/index.twig:65 templates/indexes.twig:23
 #: templates/server/databases/index.twig:29
 #: templates/server/databases/index.twig:30
 #: templates/server/databases/index.twig:123
-#: templates/table/operations/index.twig:151
+#: templates/table/operations/index.twig:152
 #: templates/table/search/index.twig:40
 #: templates/table/structure/display_structure.twig:23
 #: templates/table/structure/display_structure.twig:481
@@ -14233,13 +14234,13 @@ msgid "Collation"
 msgstr "Kollationering"
 
 #: templates/columns_definitions/table_fields_definitions.twig:36
-#: templates/database/operations/index.twig:68
-#: templates/database/operations/index.twig:173
+#: templates/database/operations/index.twig:69
+#: templates/database/operations/index.twig:174
 #: templates/database/routines/editor_form.twig:133
 #: templates/database/structure/copy_form.twig:45
-#: templates/table/operations/index.twig:79
-#: templates/table/operations/index.twig:115
-#: templates/table/operations/index.twig:315
+#: templates/table/operations/index.twig:80
+#: templates/table/operations/index.twig:116
+#: templates/table/operations/index.twig:316
 msgid "Adjust privileges"
 msgstr "Ändra privilegier"
 
@@ -14551,19 +14552,19 @@ msgid "Action"
 msgstr "Åtgärd"
 
 #: templates/database/create_table.twig:3
-#: templates/database/operations/index.twig:27
+#: templates/database/operations/index.twig:28
 #, fuzzy
 #| msgid "Create table"
 msgid "Create new table"
 msgstr "Skapa tabell"
 
 #: templates/database/create_table.twig:10
-#: templates/database/operations/index.twig:34
+#: templates/database/operations/index.twig:35
 msgid "Number of columns"
 msgstr "Antal kolumner"
 
 #: templates/database/create_table.twig:14
-#: templates/database/operations/index.twig:39 templates/export.twig:35
+#: templates/database/operations/index.twig:40 templates/export.twig:35
 #: templates/server/databases/index.twig:46
 msgid "Create"
 msgstr "Skapa"
@@ -15058,24 +15059,24 @@ msgstr "+ Lägg till kolumn"
 msgid "Update query"
 msgstr "Uppdatera fråga"
 
-#: templates/database/operations/index.twig:9
-#: templates/database/operations/index.twig:13
+#: templates/database/operations/index.twig:10
+#: templates/database/operations/index.twig:14
 msgid "Database comment"
 msgstr "Databaskommentar"
 
-#: templates/database/operations/index.twig:54
+#: templates/database/operations/index.twig:55
 msgid "Rename database to"
 msgstr "Byt namn på databasen till"
 
-#: templates/database/operations/index.twig:58 templates/export.twig:286
+#: templates/database/operations/index.twig:59 templates/export.twig:286
 msgid "New database name"
 msgstr "Nytt Databasnamn"
 
-#: templates/database/operations/index.twig:66
-#: templates/database/operations/index.twig:171
-#: templates/table/operations/index.twig:77
-#: templates/table/operations/index.twig:113
-#: templates/table/operations/index.twig:313
+#: templates/database/operations/index.twig:67
+#: templates/database/operations/index.twig:172
+#: templates/table/operations/index.twig:78
+#: templates/table/operations/index.twig:114
+#: templates/table/operations/index.twig:314
 #, fuzzy
 #| msgid ""
 #| "You don't have sufficient privileges to perform this operation; Please "
@@ -15087,44 +15088,44 @@ msgstr ""
 "Du har inte tillräcklig behörighet att utföra åtgärden; Se dokumentationen "
 "för mer information"
 
-#: templates/database/operations/index.twig:83
+#: templates/database/operations/index.twig:84
 msgid "Remove database"
 msgstr "Radera databasen"
 
-#: templates/database/operations/index.twig:89
+#: templates/database/operations/index.twig:90
 #, php-format
 msgid "Database %s has been dropped."
 msgstr "Databasen %s har tagits bort."
 
-#: templates/database/operations/index.twig:94
+#: templates/database/operations/index.twig:95
 msgid "Drop the database (DROP)"
 msgstr "Tag bort databasen (DROP)"
 
-#: templates/database/operations/index.twig:118
+#: templates/database/operations/index.twig:119
 msgid "Copy database to"
 msgstr "Kopiera databasen till"
 
-#: templates/database/operations/index.twig:150
+#: templates/database/operations/index.twig:151
 msgid "CREATE DATABASE before copying"
 msgstr "CREATE DATABASE före kopiering"
 
-#: templates/database/operations/index.twig:165
+#: templates/database/operations/index.twig:166
 #: templates/database/structure/copy_form.twig:39
-#: templates/table/operations/index.twig:306
+#: templates/table/operations/index.twig:307
 msgid "Add constraints"
 msgstr "Lägg till restriktioner"
 
-#: templates/database/operations/index.twig:180
+#: templates/database/operations/index.twig:181
 msgid "Switch to copied database"
 msgstr "Byt till den kopierade databasen"
 
-#: templates/database/operations/index.twig:216
+#: templates/database/operations/index.twig:217
 #, fuzzy
 #| msgid "Change all column collations"
 msgid "Change all tables collations"
 msgstr "Ändra alla kolumners sortering"
 
-#: templates/database/operations/index.twig:220
+#: templates/database/operations/index.twig:221
 #, fuzzy
 #| msgid "Change all column collations"
 msgid "Change all tables columns collations"
@@ -15395,7 +15396,7 @@ msgid "Show create"
 msgstr "Visa/Skapa"
 
 #: templates/database/structure/check_all_tables.twig:14
-#: templates/table/operations/index.twig:403
+#: templates/table/operations/index.twig:404
 #: templates/table/operations/view.twig:26
 msgid "Delete data or table"
 msgstr "Ta bort data eller tabell"
@@ -15406,38 +15407,38 @@ msgid "Empty"
 msgstr "Töm"
 
 #: templates/database/structure/check_all_tables.twig:18
-#: templates/table/operations/index.twig:334
+#: templates/table/operations/index.twig:335
 msgid "Table maintenance"
 msgstr "Tabellunderhåll"
 
 #: templates/database/structure/check_all_tables.twig:19
 #: templates/table/maintenance/analyze.twig:3
-#: templates/table/operations/index.twig:339
+#: templates/table/operations/index.twig:340
 msgid "Analyze table"
 msgstr "Analysera tabell"
 
 #: templates/database/structure/check_all_tables.twig:20
 #: templates/table/maintenance/check.twig:3
-#: templates/table/operations/index.twig:348
+#: templates/table/operations/index.twig:349
 msgid "Check table"
 msgstr "Kontrollera tabell"
 
 #: templates/database/structure/check_all_tables.twig:21
 #: templates/table/maintenance/checksum.twig:3
-#: templates/table/operations/index.twig:356
+#: templates/table/operations/index.twig:357
 msgid "Checksum table"
 msgstr "Kontrollsumma tabell"
 
 #: templates/database/structure/check_all_tables.twig:22
 #: templates/table/maintenance/optimize.twig:3
-#: templates/table/operations/index.twig:384
+#: templates/table/operations/index.twig:385
 #: templates/table/structure/display_table_stats.twig:68
 msgid "Optimize table"
 msgstr "Optimera tabell"
 
 #: templates/database/structure/check_all_tables.twig:23
 #: templates/table/maintenance/repair.twig:3
-#: templates/table/operations/index.twig:393
+#: templates/table/operations/index.twig:394
 msgid "Repair table"
 msgstr "Reparera tabell"
 
@@ -19014,86 +19015,92 @@ msgstr "Andra steget av normalisering (1NF + 2NF)"
 msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "Tredje steget i normalisering (1NF + 2NF + 3NF)"
 
-#: templates/table/operations/index.twig:9
+#: templates/table/operations/index.twig:2
+#, fuzzy
+#| msgid "Table options"
+msgid "Table operations"
+msgstr "Tabellalternativ"
+
+#: templates/table/operations/index.twig:10
 msgid "Alter table order by"
 msgstr "Sortera om tabellen efter"
 
-#: templates/table/operations/index.twig:20
+#: templates/table/operations/index.twig:21
 #, fuzzy
 #| msgid "(singly)"
 msgctxt "Alter table order by a single field."
 msgid "(singly)"
 msgstr "(var för sig)"
 
-#: templates/table/operations/index.twig:50
+#: templates/table/operations/index.twig:51
 #, fuzzy
 #| msgid "Move table to (database<b>.</b>table)"
 msgid "Move table to (database.table)"
 msgstr "Flytta tabellen till (databas<b>.</b>tabell)"
 
-#: templates/table/operations/index.twig:101
+#: templates/table/operations/index.twig:102
 msgid "Table options"
 msgstr "Tabellalternativ"
 
-#: templates/table/operations/index.twig:105
+#: templates/table/operations/index.twig:106
 msgid "Rename table to"
 msgstr "Döp om tabellen till"
 
-#: templates/table/operations/index.twig:123
+#: templates/table/operations/index.twig:124
 msgid "Table comments"
 msgstr "Tabellkommentarer"
 
-#: templates/table/operations/index.twig:170
+#: templates/table/operations/index.twig:171
 msgid "Change all column collations"
 msgstr "Ändra alla kolumners sortering"
 
-#: templates/table/operations/index.twig:251
+#: templates/table/operations/index.twig:252
 #, fuzzy
 #| msgid "Copy table to (database<b>.</b>table)"
 msgid "Copy table to (database.table)"
 msgstr "Kopiera tabellen till (databas<b>.</b>tabell)"
 
-#: templates/table/operations/index.twig:322
+#: templates/table/operations/index.twig:323
 msgid "Switch to copied table"
 msgstr "Byt till kopierad tabell"
 
-#: templates/table/operations/index.twig:364
+#: templates/table/operations/index.twig:365
 msgid "Defragment table"
 msgstr "Defragmentera tabell"
 
-#: templates/table/operations/index.twig:372
+#: templates/table/operations/index.twig:373
 #, php-format
 msgid "Table %s has been flushed."
 msgstr "Tabellen %s har rensats."
 
-#: templates/table/operations/index.twig:376
+#: templates/table/operations/index.twig:377
 msgid "Flush the table (FLUSH)"
 msgstr "Rensa tabellen (flush)"
 
-#: templates/table/operations/index.twig:413
+#: templates/table/operations/index.twig:414
 msgid "Empty the table (TRUNCATE)"
 msgstr "Töm tabellen (TRUNCATE)"
 
-#: templates/table/operations/index.twig:431
+#: templates/table/operations/index.twig:432
 #, fuzzy
 #| msgid "Empty the table (TRUNCATE)"
 msgid "Empty the table (DELETE FROM)"
 msgstr "Töm tabellen (TRUNCATE)"
 
-#: templates/table/operations/index.twig:452
+#: templates/table/operations/index.twig:453
 msgid "Delete the table (DROP)"
 msgstr "Ta bort tabellen (DROP)"
 
-#: templates/table/operations/index.twig:474
+#: templates/table/operations/index.twig:475
 msgid "Partition maintenance"
 msgstr "Underhåll av partition"
 
-#: templates/table/operations/index.twig:500
+#: templates/table/operations/index.twig:501
 #: templates/table/structure/display_partitions.twig:202
 msgid "Remove partitioning"
 msgstr "Ta bort partitionering"
 
-#: templates/table/operations/index.twig:513
+#: templates/table/operations/index.twig:514
 #, fuzzy
 #| msgid "Check referential integrity:"
 msgid "Check referential integrity"

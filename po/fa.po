@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-09-03 00:17+0000\n"
+"POT-Creation-Date: 2023-09-10 00:17+0000\n"
 "PO-Revision-Date: 2023-05-04 20:50+0000\n"
 "Last-Translator: M <bafandehmajid@gmail.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1199,10 +1199,10 @@ msgstr "جستجو"
 #: templates/columns_definitions/column_definitions_form.twig:42
 #: templates/database/designer/main.twig:1102
 #: templates/database/events/editor_form.twig:120
-#: templates/database/operations/index.twig:19
-#: templates/database/operations/index.twig:75
-#: templates/database/operations/index.twig:185
-#: templates/database/operations/index.twig:225
+#: templates/database/operations/index.twig:20
+#: templates/database/operations/index.twig:76
+#: templates/database/operations/index.twig:186
+#: templates/database/operations/index.twig:226
 #: templates/database/routines/editor_form.twig:185
 #: templates/database/routines/execute_form.twig:55
 #: templates/display/results/table.twig:279
@@ -1230,11 +1230,11 @@ msgstr "جستجو"
 #: templates/table/insert/actions_panel.twig:38
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:15
 #: templates/table/normalization/normalization.twig:26
-#: templates/table/operations/index.twig:38
-#: templates/table/operations/index.twig:86
-#: templates/table/operations/index.twig:241
-#: templates/table/operations/index.twig:328
-#: templates/table/operations/index.twig:505
+#: templates/table/operations/index.twig:39
+#: templates/table/operations/index.twig:87
+#: templates/table/operations/index.twig:242
+#: templates/table/operations/index.twig:329
+#: templates/table/operations/index.twig:506
 #: templates/table/operations/view.twig:20
 #: templates/table/search/index.twig:172 templates/table/search/index.twig:196
 #: templates/table/start_and_number_of_rows_fieldset.twig:15
@@ -1715,7 +1715,7 @@ msgstr "هیچ یک"
 #: templates/server/databases/index.twig:126
 #: templates/server/databases/index.twig:145
 #: templates/server/status/processes/list.twig:14
-#: templates/table/operations/index.twig:27
+#: templates/table/operations/index.twig:28
 #: templates/table/search/index.twig:159
 msgid "Ascending"
 msgstr "صعودي"
@@ -1727,7 +1727,7 @@ msgstr "صعودي"
 #: templates/server/databases/index.twig:128
 #: templates/server/databases/index.twig:147
 #: templates/server/status/processes/list.twig:12
-#: templates/table/operations/index.twig:31
+#: templates/table/operations/index.twig:32
 #: templates/table/search/index.twig:163
 msgid "Descending"
 msgstr "نزولي"
@@ -3458,9 +3458,9 @@ msgstr "Select Tables"
 msgid "Remove DEFINER clause from definitions"
 msgstr ""
 
-#: src/Config/Descriptions.php:691 templates/database/operations/index.twig:160
-#: templates/table/operations/index.twig:72
-#: templates/table/operations/index.twig:300
+#: src/Config/Descriptions.php:691 templates/database/operations/index.twig:161
+#: templates/table/operations/index.twig:73
+#: templates/table/operations/index.twig:301
 msgid "Add AUTO_INCREMENT value"
 msgstr "مقدار افزایشی خودکار اضافه شود"
 
@@ -3497,8 +3497,8 @@ msgstr ""
 #: src/Config/Descriptions.php:699 src/Config/Descriptions.php:700
 #: src/Config/Descriptions.php:702 src/Config/Descriptions.php:705
 #: src/Config/Descriptions.php:706 src/Config/Descriptions.php:707
-#: src/Config/Descriptions.php:719 templates/database/operations/index.twig:155
-#: templates/table/operations/index.twig:295
+#: src/Config/Descriptions.php:719 templates/database/operations/index.twig:156
+#: templates/table/operations/index.twig:296
 #, php-format
 msgid "Add %s"
 msgstr "افزودن %s"
@@ -4174,7 +4174,7 @@ msgstr ""
 msgid "PDF schema: pages table"
 msgstr ""
 
-#: src/Config/Descriptions.php:889 templates/database/operations/index.twig:122
+#: src/Config/Descriptions.php:889 templates/database/operations/index.twig:123
 #: templates/server/databases/index.twig:24
 msgid "Database name"
 msgstr "نام پايگاه داده"
@@ -4419,10 +4419,10 @@ msgstr ""
 #: templates/server/privileges/privileges_table.twig:258
 #: templates/server/privileges/user_properties.twig:22
 #: templates/server/privileges/user_properties.twig:70
-#: templates/table/operations/index.twig:56
-#: templates/table/operations/index.twig:62
-#: templates/table/operations/index.twig:257
-#: templates/table/operations/index.twig:263
+#: templates/table/operations/index.twig:57
+#: templates/table/operations/index.twig:63
+#: templates/table/operations/index.twig:258
+#: templates/table/operations/index.twig:264
 #: templates/table/relation/common_form.twig:38
 #: templates/table/relation/common_form.twig:130
 #: templates/table/relation/foreign_key_row.twig:91
@@ -4448,8 +4448,8 @@ msgstr "سرور"
 #: templates/server/privileges/user_properties.twig:37
 #: templates/server/privileges/user_properties.twig:81
 #: templates/table/maintenance/checksum.twig:12
-#: templates/table/operations/index.twig:65
-#: templates/table/operations/index.twig:266
+#: templates/table/operations/index.twig:66
+#: templates/table/operations/index.twig:267
 #: templates/table/relation/common_form.twig:39
 #: templates/table/relation/common_form.twig:137
 #: templates/table/relation/foreign_key_row.twig:102
@@ -5078,8 +5078,8 @@ msgstr ""
 #: src/Controllers/Database/TrackingController.php:67
 #: src/Controllers/JavaScriptMessagesController.php:355
 #: src/Controllers/Server/Databases/DestroyController.php:60
-#: src/Controllers/Table/AddFieldController.php:176
-#: src/Controllers/Table/AddFieldController.php:181
+#: src/Controllers/Table/AddFieldController.php:175
+#: src/Controllers/Table/AddFieldController.php:180
 #: src/Controllers/Table/ChangeController.php:68
 #: src/Controllers/Table/ChangeController.php:73
 #: src/Controllers/Table/ChartController.php:106
@@ -5237,8 +5237,8 @@ msgstr ""
 #: src/Controllers/Database/Structure/ShowCreateController.php:29
 #: src/Controllers/Export/TablesController.php:29
 #: src/Controllers/JavaScriptMessagesController.php:356
-#: src/Controllers/Table/AddFieldController.php:190
-#: src/Controllers/Table/AddFieldController.php:195
+#: src/Controllers/Table/AddFieldController.php:189
+#: src/Controllers/Table/AddFieldController.php:194
 #: src/Controllers/Table/ChangeController.php:82
 #: src/Controllers/Table/ChangeController.php:87
 #: src/Controllers/Table/ChartController.php:120
@@ -5335,7 +5335,7 @@ msgid "Success!"
 msgstr "موفق!"
 
 #: src/Controllers/Database/StructureController.php:356
-#: templates/table/operations/index.twig:451
+#: templates/table/operations/index.twig:452
 #: templates/table/operations/view.twig:32
 #, fuzzy, php-format
 #| msgid "View %s has been dropped."
@@ -5343,15 +5343,15 @@ msgid "View %s has been dropped."
 msgstr "نمای %s حذف شد"
 
 #: src/Controllers/Database/StructureController.php:357
-#: templates/table/operations/index.twig:451
+#: templates/table/operations/index.twig:452
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
 msgstr "جدول %s حذف شد"
 
 #: src/Controllers/Database/StructureController.php:404
-#: templates/table/operations/index.twig:410
-#: templates/table/operations/index.twig:428
+#: templates/table/operations/index.twig:411
+#: templates/table/operations/index.twig:429
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "جدول %s خالی شد."
@@ -9079,18 +9079,18 @@ msgstr ""
 msgid "Configuration already exists, setup is disabled!"
 msgstr ""
 
-#: src/Controllers/Setup/ValidateController.php:37
+#: src/Controllers/Setup/ValidateController.php:43
 #, fuzzy
 #| msgid "No databases"
 msgid "Wrong data"
 msgstr "No databases"
 
-#: src/Controllers/Setup/ValidateController.php:46
+#: src/Controllers/Setup/ValidateController.php:50
 #, php-format
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:240 src/Sql.php:1082
+#: src/Controllers/Sql/SqlController.php:240 src/Sql.php:1079
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "نشانه گذاری %s ایجاد شده است."
@@ -9101,7 +9101,7 @@ msgstr "نشانه گذاری %s ایجاد شده است."
 msgid "Bookmark not created!"
 msgstr "بوک مارک  %s ایجاد شده"
 
-#: src/Controllers/Table/AddFieldController.php:147
+#: src/Controllers/Table/AddFieldController.php:146
 #: src/Controllers/Table/Structure/PartitioningController.php:264
 #: src/Controllers/Table/Structure/SaveController.php:203
 #: src/Table/Indexes.php:91
@@ -9132,17 +9132,17 @@ msgstr ""
 msgid "No data to display"
 msgstr "اطلاعاتی یافت نشد"
 
-#: src/Controllers/Table/CreateController.php:54
+#: src/Controllers/Table/CreateController.php:56
 msgid "The database name is empty!"
 msgstr "نام پایگاه داده وارد نشده‌ است!"
 
-#: src/Controllers/Table/CreateController.php:66
+#: src/Controllers/Table/CreateController.php:68
 #: src/Controllers/Table/GetFieldController.php:48
 #, php-format
 msgid "'%s' database does not exist."
 msgstr ""
 
-#: src/Controllers/Table/CreateController.php:76
+#: src/Controllers/Table/CreateController.php:78
 #, php-format
 msgid "Table %s already exists!"
 msgstr ""
@@ -9161,7 +9161,7 @@ msgstr ""
 #: src/Controllers/Table/Partition/RebuildController.php:51
 #: src/Controllers/Table/Partition/RepairController.php:50
 #: src/Controllers/Table/Partition/TruncateController.php:51
-#: src/Controllers/Table/RelationController.php:284
+#: src/Controllers/Table/RelationController.php:135
 #: src/Controllers/View/OperationsController.php:118
 #: src/Database/Routines.php:978 src/Display/Results.php:3398
 #: src/Message.php:150 templates/sql/query.twig:7
@@ -9202,7 +9202,7 @@ msgstr ""
 
 #: src/Controllers/Table/GetFieldController.php:82
 #: src/Database/Routines.php:995 src/Import/Import.php:166
-#: src/InsertEdit.php:202 src/Sql.php:884
+#: src/InsertEdit.php:202 src/Sql.php:881
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL يك نتيجه خالي داد. (مثلا 0 سطر)."
 
@@ -9250,11 +9250,11 @@ msgstr "نام جدول وارد نشده‌است !"
 msgid "Error"
 msgstr "خطا"
 
-#: src/Controllers/Table/RelationController.php:230
+#: src/Controllers/Table/RelationController.php:270
 msgid "Display column was successfully updated."
 msgstr ""
 
-#: src/Controllers/Table/RelationController.php:318
+#: src/Controllers/Table/RelationController.php:304
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationships were successfully updated."
@@ -9725,7 +9725,7 @@ msgstr ""
 msgid "%s total"
 msgstr "جمع كل"
 
-#: src/Display/Results.php:3730 src/Sql.php:890
+#: src/Display/Results.php:3730 src/Sql.php:887
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr ""
@@ -10314,7 +10314,7 @@ msgstr "كلمات با علامت فاصله (\" \") جدا مي‌شوند."
 msgid "The trigger name cannot end with a space character."
 msgstr "كلمات با علامت فاصله (\" \") جدا مي‌شوند."
 
-#: src/Import/Import.php:288 src/Sql.php:898
+#: src/Import/Import.php:288 src/Sql.php:895
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -10455,11 +10455,11 @@ msgstr "يا"
 msgid "web server upload directory:"
 msgstr "انتخاب از مسیر آپلود در سرور <b>%s</b>:"
 
-#: src/InsertEdit.php:962 src/Sql.php:881
+#: src/InsertEdit.php:962 src/Sql.php:878
 msgid "Showing SQL query"
 msgstr "نمایش پرس و جو SQL"
 
-#: src/InsertEdit.php:986 src/Sql.php:861
+#: src/InsertEdit.php:986 src/Sql.php:858
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "درج شناسه ردیف: %1$d"
@@ -10652,7 +10652,7 @@ msgstr "جدید"
 #: templates/database/data_dictionary/index.twig:77 templates/indexes.twig:21
 #: templates/table/index_form.twig:141
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:5
-#: templates/table/operations/index.twig:13
+#: templates/table/operations/index.twig:14
 #: templates/table/relation/common_form.twig:20
 #: templates/table/relation/common_form.twig:25
 #: templates/table/relation/common_form.twig:40
@@ -10677,6 +10677,7 @@ msgid "New"
 msgstr "جدید"
 
 #: src/Navigation/Nodes/NodeDatabase.php:48
+#: templates/database/operations/index.twig:2
 #, fuzzy
 #| msgid "Database export options"
 msgid "Database operations"
@@ -10872,7 +10873,7 @@ msgstr ""
 msgid "Remove selected"
 msgstr "حذف کاربران انتخاب شده"
 
-#: src/Normalization.php:305
+#: src/Normalization.php:306
 #, fuzzy
 msgid "No redundant column"
 msgstr "افزودن ستون جديد"
@@ -12422,7 +12423,7 @@ msgid ""
 "the folder/file \"%s\""
 msgstr ""
 
-#: src/Routing/Routing.php:149 src/Routing/Routing.php:209
+#: src/Routing/Routing.php:149 src/Routing/Routing.php:205
 #, fuzzy, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "جستجو در پايگاه‌داده"
@@ -12930,16 +12931,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr ""
 
-#: src/Sql.php:455
+#: src/Sql.php:452
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: src/Sql.php:878
+#: src/Sql.php:875
 msgid "Showing as PHP code"
 msgstr ""
 
-#: src/Sql.php:1265
+#: src/Sql.php:1262
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12951,7 +12952,7 @@ msgstr ""
 "این جدول هیچ مقدار کلیدی ندارد. امکانات ویرایش جدولی، چک باکس ها ، ویرایش ، "
 "کپی و حذف ممکن است کار نکنند."
 
-#: src/Sql.php:1279
+#: src/Sql.php:1276
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -13143,21 +13144,21 @@ msgstr ""
 msgid "No data"
 msgstr "No databases"
 
-#: src/Tracking/Tracking.php:291 templates/database/operations/index.twig:131
+#: src/Tracking/Tracking.php:291 templates/database/operations/index.twig:132
 #: templates/database/structure/copy_form.twig:21
-#: templates/table/operations/index.twig:275
+#: templates/table/operations/index.twig:276
 msgid "Structure only"
 msgstr "فقط ساختار"
 
-#: src/Tracking/Tracking.php:294 templates/database/operations/index.twig:143
+#: src/Tracking/Tracking.php:294 templates/database/operations/index.twig:144
 #: templates/database/structure/copy_form.twig:25
-#: templates/table/operations/index.twig:287
+#: templates/table/operations/index.twig:288
 msgid "Data only"
 msgstr "فقط داده‌ها"
 
-#: src/Tracking/Tracking.php:297 templates/database/operations/index.twig:137
+#: src/Tracking/Tracking.php:297 templates/database/operations/index.twig:138
 #: templates/database/structure/copy_form.twig:17
-#: templates/table/operations/index.twig:281
+#: templates/table/operations/index.twig:282
 msgid "Structure and data"
 msgstr "ساختار و داده‌ها"
 
@@ -13664,7 +13665,7 @@ msgstr "بعد از %s"
 
 #: templates/columns_definitions/column_definitions_form.twig:22
 #: templates/database/create_table.twig:6
-#: templates/database/operations/index.twig:30
+#: templates/database/operations/index.twig:31
 msgid "Table name"
 msgstr ""
 
@@ -13703,7 +13704,7 @@ msgstr "اتصالات"
 
 #: templates/columns_definitions/column_definitions_form.twig:112
 #: templates/columns_definitions/partitions.twig:137
-#: templates/table/operations/index.twig:133
+#: templates/table/operations/index.twig:134
 #, fuzzy
 #| msgid "Storage Engines"
 msgid "Storage engine"
@@ -13793,7 +13794,7 @@ msgid "Subpartitions:"
 msgstr "موقعیت"
 
 #: templates/columns_definitions/partitions.twig:76
-#: templates/table/operations/index.twig:480
+#: templates/table/operations/index.twig:481
 #: templates/table/structure/display_partitions.twig:25
 #, fuzzy
 #| msgid "Position"
@@ -13903,14 +13904,14 @@ msgstr ""
 #: templates/database/central_columns/main.twig:32
 #: templates/database/central_columns/main.twig:242
 #: templates/database/data_dictionary/index.twig:79
-#: templates/database/operations/index.twig:194
-#: templates/database/operations/index.twig:198
+#: templates/database/operations/index.twig:195
+#: templates/database/operations/index.twig:199
 #: templates/database/structure/table_header.twig:31
 #: templates/home/index.twig:65 templates/indexes.twig:23
 #: templates/server/databases/index.twig:29
 #: templates/server/databases/index.twig:30
 #: templates/server/databases/index.twig:123
-#: templates/table/operations/index.twig:151
+#: templates/table/operations/index.twig:152
 #: templates/table/search/index.twig:40
 #: templates/table/structure/display_structure.twig:23
 #: templates/table/structure/display_structure.twig:481
@@ -13922,13 +13923,13 @@ msgid "Collation"
 msgstr "مقایسه"
 
 #: templates/columns_definitions/table_fields_definitions.twig:36
-#: templates/database/operations/index.twig:68
-#: templates/database/operations/index.twig:173
+#: templates/database/operations/index.twig:69
+#: templates/database/operations/index.twig:174
 #: templates/database/routines/editor_form.twig:133
 #: templates/database/structure/copy_form.twig:45
-#: templates/table/operations/index.twig:79
-#: templates/table/operations/index.twig:115
-#: templates/table/operations/index.twig:315
+#: templates/table/operations/index.twig:80
+#: templates/table/operations/index.twig:116
+#: templates/table/operations/index.twig:316
 msgid "Adjust privileges"
 msgstr "تنظیم امتیازات"
 
@@ -14298,19 +14299,19 @@ msgid "Action"
 msgstr "عمل"
 
 #: templates/database/create_table.twig:3
-#: templates/database/operations/index.twig:27
+#: templates/database/operations/index.twig:28
 #, fuzzy
 #| msgid "Create table"
 msgid "Create new table"
 msgstr "ساختن جدول"
 
 #: templates/database/create_table.twig:10
-#: templates/database/operations/index.twig:34
+#: templates/database/operations/index.twig:35
 msgid "Number of columns"
 msgstr "تعداد سطرها در هر صفحه"
 
 #: templates/database/create_table.twig:14
-#: templates/database/operations/index.twig:39 templates/export.twig:35
+#: templates/database/operations/index.twig:40 templates/export.twig:35
 #: templates/server/databases/index.twig:46
 msgid "Create"
 msgstr "ساختن"
@@ -14845,71 +14846,71 @@ msgstr "افزودن ستون جديد"
 msgid "Update query"
 msgstr "به‌هنگام سازي پرس و جو"
 
-#: templates/database/operations/index.twig:9
-#: templates/database/operations/index.twig:13
+#: templates/database/operations/index.twig:10
+#: templates/database/operations/index.twig:14
 msgid "Database comment"
 msgstr "توضيحات پایگاه داده"
 
-#: templates/database/operations/index.twig:54
+#: templates/database/operations/index.twig:55
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Rename database to"
 msgstr "تغییر نام پایگاه داده به"
 
-#: templates/database/operations/index.twig:58 templates/export.twig:286
+#: templates/database/operations/index.twig:59 templates/export.twig:286
 #, fuzzy
 #| msgid "Database name"
 msgid "New database name"
 msgstr "نام پايگاه داده"
 
-#: templates/database/operations/index.twig:66
-#: templates/database/operations/index.twig:171
-#: templates/table/operations/index.twig:77
-#: templates/table/operations/index.twig:113
-#: templates/table/operations/index.twig:313
+#: templates/database/operations/index.twig:67
+#: templates/database/operations/index.twig:172
+#: templates/table/operations/index.twig:78
+#: templates/table/operations/index.twig:114
+#: templates/table/operations/index.twig:314
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
 msgstr ""
 
-#: templates/database/operations/index.twig:83
+#: templates/database/operations/index.twig:84
 msgid "Remove database"
 msgstr "حذف پایگاه داده"
 
-#: templates/database/operations/index.twig:89
+#: templates/database/operations/index.twig:90
 #, php-format
 msgid "Database %s has been dropped."
 msgstr "پايگاه داده %s حذف گرديد."
 
-#: templates/database/operations/index.twig:94
+#: templates/database/operations/index.twig:95
 msgid "Drop the database (DROP)"
 msgstr "حذف پایگاه داده"
 
-#: templates/database/operations/index.twig:118
+#: templates/database/operations/index.twig:119
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copy database to"
 msgstr "کپی کردن پابگاه داده به"
 
-#: templates/database/operations/index.twig:150
+#: templates/database/operations/index.twig:151
 msgid "CREATE DATABASE before copying"
 msgstr "پیش از کپی پایگاه داده ایجاد شود"
 
-#: templates/database/operations/index.twig:165
+#: templates/database/operations/index.twig:166
 #: templates/database/structure/copy_form.twig:39
-#: templates/table/operations/index.twig:306
+#: templates/table/operations/index.twig:307
 msgid "Add constraints"
 msgstr "اعمال محدودیت ها"
 
-#: templates/database/operations/index.twig:180
+#: templates/database/operations/index.twig:181
 msgid "Switch to copied database"
 msgstr "تعویض به پایگاه داده ی کپی شده"
 
-#: templates/database/operations/index.twig:216
+#: templates/database/operations/index.twig:217
 msgid "Change all tables collations"
 msgstr ""
 
-#: templates/database/operations/index.twig:220
+#: templates/database/operations/index.twig:221
 msgid "Change all tables columns collations"
 msgstr ""
 
@@ -15191,7 +15192,7 @@ msgid "Show create"
 msgstr "نمايش رنگ"
 
 #: templates/database/structure/check_all_tables.twig:14
-#: templates/table/operations/index.twig:403
+#: templates/table/operations/index.twig:404
 #: templates/table/operations/view.twig:26
 #, fuzzy
 #| msgid "Dumping data for table"
@@ -15204,25 +15205,25 @@ msgid "Empty"
 msgstr "خالي"
 
 #: templates/database/structure/check_all_tables.twig:18
-#: templates/table/operations/index.twig:334
+#: templates/table/operations/index.twig:335
 msgid "Table maintenance"
 msgstr "نگهداشت جدول"
 
 #: templates/database/structure/check_all_tables.twig:19
 #: templates/table/maintenance/analyze.twig:3
-#: templates/table/operations/index.twig:339
+#: templates/table/operations/index.twig:340
 msgid "Analyze table"
 msgstr "انالیز جدول"
 
 #: templates/database/structure/check_all_tables.twig:20
 #: templates/table/maintenance/check.twig:3
-#: templates/table/operations/index.twig:348
+#: templates/table/operations/index.twig:349
 msgid "Check table"
 msgstr "بررسي جدول"
 
 #: templates/database/structure/check_all_tables.twig:21
 #: templates/table/maintenance/checksum.twig:3
-#: templates/table/operations/index.twig:356
+#: templates/table/operations/index.twig:357
 #, fuzzy
 #| msgid "Check table"
 msgid "Checksum table"
@@ -15230,14 +15231,14 @@ msgstr "بررسي جدول"
 
 #: templates/database/structure/check_all_tables.twig:22
 #: templates/table/maintenance/optimize.twig:3
-#: templates/table/operations/index.twig:384
+#: templates/table/operations/index.twig:385
 #: templates/table/structure/display_table_stats.twig:68
 msgid "Optimize table"
 msgstr "بهينه‌سازي جدول"
 
 #: templates/database/structure/check_all_tables.twig:23
 #: templates/table/maintenance/repair.twig:3
-#: templates/table/operations/index.twig:393
+#: templates/table/operations/index.twig:394
 msgid "Repair table"
 msgstr "بازسازی جدول"
 
@@ -18830,89 +18831,95 @@ msgstr ""
 msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr ""
 
-#: templates/table/operations/index.twig:9
+#: templates/table/operations/index.twig:2
+#, fuzzy
+#| msgid "Database export options"
+msgid "Table operations"
+msgstr "آمار پايگاههاي داده"
+
+#: templates/table/operations/index.twig:10
 msgid "Alter table order by"
 msgstr "تغيير جدول مرتب شده با"
 
-#: templates/table/operations/index.twig:20
+#: templates/table/operations/index.twig:21
 #, fuzzy
 #| msgid "(singly)"
 msgctxt "Alter table order by a single field."
 msgid "(singly)"
 msgstr "(تنها)"
 
-#: templates/table/operations/index.twig:50
+#: templates/table/operations/index.twig:51
 #, fuzzy
 #| msgid "Move table to (database<b>.</b>table)"
 msgid "Move table to (database.table)"
 msgstr "انتقال جدول به (پايگاه داده<b>.</b>جدول)"
 
-#: templates/table/operations/index.twig:101
+#: templates/table/operations/index.twig:102
 msgid "Table options"
 msgstr ""
 
-#: templates/table/operations/index.twig:105
+#: templates/table/operations/index.twig:106
 msgid "Rename table to"
 msgstr "بازناميدن جدول به"
 
-#: templates/table/operations/index.twig:123
+#: templates/table/operations/index.twig:124
 msgid "Table comments"
 msgstr "توضيحات جدول"
 
-#: templates/table/operations/index.twig:170
+#: templates/table/operations/index.twig:171
 msgid "Change all column collations"
 msgstr ""
 
-#: templates/table/operations/index.twig:251
+#: templates/table/operations/index.twig:252
 #, fuzzy
 #| msgid "Copy table to (database<b>.</b>table)"
 msgid "Copy table to (database.table)"
 msgstr "كپي كردن جدول به (پايگاه داده<b>.</b>جدول)"
 
-#: templates/table/operations/index.twig:322
+#: templates/table/operations/index.twig:323
 msgid "Switch to copied table"
 msgstr ""
 
-#: templates/table/operations/index.twig:364
+#: templates/table/operations/index.twig:365
 msgid "Defragment table"
 msgstr ""
 
-#: templates/table/operations/index.twig:372
+#: templates/table/operations/index.twig:373
 #, fuzzy, php-format
 msgid "Table %s has been flushed."
 msgstr "جدول %s حذف گرديد"
 
-#: templates/table/operations/index.twig:376
+#: templates/table/operations/index.twig:377
 #, fuzzy
 #| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
 msgstr "Flush the table (\"FLUSH\")"
 
-#: templates/table/operations/index.twig:413
+#: templates/table/operations/index.twig:414
 msgid "Empty the table (TRUNCATE)"
 msgstr ""
 
-#: templates/table/operations/index.twig:431
+#: templates/table/operations/index.twig:432
 #, fuzzy
 msgid "Empty the table (DELETE FROM)"
 msgstr "No databases"
 
-#: templates/table/operations/index.twig:452
+#: templates/table/operations/index.twig:453
 #, fuzzy
 msgid "Delete the table (DROP)"
 msgstr "No databases"
 
-#: templates/table/operations/index.twig:474
+#: templates/table/operations/index.twig:475
 #, fuzzy
 msgid "Partition maintenance"
 msgstr "نگهداشت جدول"
 
-#: templates/table/operations/index.twig:500
+#: templates/table/operations/index.twig:501
 #: templates/table/structure/display_partitions.twig:202
 msgid "Remove partitioning"
 msgstr ""
 
-#: templates/table/operations/index.twig:513
+#: templates/table/operations/index.twig:514
 msgid "Check referential integrity"
 msgstr ""
 
