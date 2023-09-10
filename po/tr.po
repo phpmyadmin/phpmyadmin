@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-09-10 00:17+0000\n"
-"PO-Revision-Date: 2023-09-04 10:27+0000\n"
+"PO-Revision-Date: 2023-09-11 06:59+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -18204,10 +18204,8 @@ msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "Normalleştirmenin üçüncü adımı (1NF+2NF+3NF)"
 
 #: templates/table/operations/index.twig:2
-#, fuzzy
-#| msgid "Table options"
 msgid "Table operations"
-msgstr "Tablo seçenekleri"
+msgstr "Tablo işlemleri"
 
 #: templates/table/operations/index.twig:10
 msgid "Alter table order by"
