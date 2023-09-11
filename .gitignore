@@ -65,3 +65,6 @@ infection.json5
 /js/dist/
 /setup/
 /themes/
+# Yarn 2
+.yarn/*
+.yarnrc.yml
