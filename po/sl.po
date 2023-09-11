@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-09-10 00:17+0000\n"
-"PO-Revision-Date: 2023-05-09 14:50+0000\n"
+"PO-Revision-Date: 2023-09-12 22:57+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #: src/Advisory/Advisor.php:207
 #, php-format
@@ -4823,14 +4823,8 @@ msgid "Failed to read configuration file!"
 msgstr "Ne morem prebrati konfiguracijske datoteke!"
 
 #: src/Config.php:668
-#, fuzzy
-#| msgid ""
-#| "This usually means there is a syntax error in it, please check any errors "
-#| "shown below."
 msgid "This usually means there is a syntax error in it."
-msgstr ""
-"To po navadi pomeni, da ima skladenjsko napako; prosimo, preverite vse "
-"spodaj prikazane napake."
+msgstr "To po navadi pomeni, da ima skladenjsko napako."
 
 #: src/Config/ServerConfigChecks.php:52
 #, php-format
@@ -9568,16 +9562,14 @@ msgid "Showing rows %1s - %2s"
 msgstr "Prikazujem vrstice %1s–%2s"
 
 #: src/Display/Results.php:3712
-#, fuzzy, php-format
-#| msgid "%1$d total, %2$d in query"
+#, php-format
 msgid "%1$s total, %2$s in query"
-msgstr "skupno %1$d, %2$d v poizvedbi"
+msgstr "skupno %1$s, %2$s v poizvedbi"
 
 #: src/Display/Results.php:3717
-#, fuzzy, php-format
-#| msgid "%d total"
+#, php-format
 msgid "%s total"
-msgstr "skupaj %d"
+msgstr "skupaj %s"
 
 #: src/Display/Results.php:3730 src/Sql.php:887
 #, php-format
@@ -10176,22 +10168,17 @@ msgid "The table name cannot end with a space character."
 msgstr "Ime tabele se ne more končati s presledkom."
 
 #: src/Identifiers/InvalidTriggerName.php:14
-#, fuzzy
-#| msgid "View name can not be empty!"
 msgid "The trigger name must not be empty."
-msgstr "Ime pogleda ne more biti prazno!"
+msgstr "Ime sprožilca ne more biti prazno."
 
 #: src/Identifiers/InvalidTriggerName.php:20
-#, fuzzy, php-format
-#| msgid "The table name cannot be longer than %d characters."
+#, php-format
 msgid "The trigger name cannot be longer than %d characters."
-msgstr "Ime tabele ne more biti daljše od %d znakov."
+msgstr "Ime sprožilca ne more biti daljše od %d znakov."
 
 #: src/Identifiers/InvalidTriggerName.php:25
-#, fuzzy
-#| msgid "The table name cannot end with a space character."
 msgid "The trigger name cannot end with a space character."
-msgstr "Ime tabele se ne more končati s presledkom."
+msgstr "Ime sprožilca se ne more končati s presledkom."
 
 #: src/Import/Import.php:288 src/Sql.php:895
 msgid "[ROLLBACK occurred.]"
@@ -11045,11 +11032,8 @@ msgid "Your session has expired. Please log in again."
 msgstr "Vaša seja je potekla. Prosimo, prijavite se znova."
 
 #: src/Plugins/Auth/AuthenticationCookie.php:245
-#, fuzzy
-#| msgid ""
-#| "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
-msgstr "Manjka preverjanje reCAPTCHA; morda ga je blokiral adblock?"
+msgstr "Manjka preverjanje Captcha; morda ga je blokiral adblock?"
 
 #: src/Plugins/Auth/AuthenticationCookie.php:280
 msgid "Failed to connect to the reCAPTCHA service!"
@@ -11941,18 +11925,6 @@ msgstr ""
 "možnost prazna."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:40
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Abs/ExternalTransformationsPlugin.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use. The second option should be blank for historical reasons. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -11968,13 +11940,13 @@ msgstr ""
 "SAMO ZA LINUX: Zažene zunanjo aplikacijo in poda podatke stopcev prek "
 "standardnega vhoda. Vrne standardni izhod aplikacije. Privzeto je Tidy, za "
 "lep izpis kode HTML. Zaradi varnostnih razlogov morate ročno urediti "
-"datoteko libraries/classes/Plugins/Transformations/Abs/"
-"ExternalTransformationsPlugin.php in navesti orodja, ki jih želite "
-"omogočiti. Prva možnost je številka programa, ki ga želite uporabiti. Druga "
-"možnost naj bo prazna, iz zgodovinskih razlogov. Če tretji parameter "
-"nastavite na 1, bo s pomočjo htmlspecialchars() pretvoril izhod (Privzeto "
-"1). Če nastavite četrti parameter na 1, bo preprečil prelamljanje in "
-"zagotovil, da se celotni izhod prikaže v eni vrstici (Privzeto 1)."
+"datoteko src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php "
+"in navesti orodja, ki jih želite omogočiti. Prva možnost je številka "
+"programa, ki ga želite uporabiti. Druga možnost naj bo prazna, iz "
+"zgodovinskih razlogov. Če tretji parameter nastavite na 1, bo s pomočjo "
+"htmlspecialchars() pretvoril izhod (Privzeto 1). Če nastavite četrti "
+"parameter na 1, bo preprečil prelamljanje in zagotovil, da se celotni izhod "
+"prikaže v eni vrstici (Privzeto 1)."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:123
 #, php-format
@@ -14362,10 +14334,8 @@ msgid "Select page"
 msgstr "Izberi stran"
 
 #: templates/database/designer/schema_export.twig:6
-#, fuzzy
-#| msgid "Select Export Relational Type"
 msgid "Select export relational type:"
-msgstr "Izberite relacijsko vrsto izvoza"
+msgstr "Izberite relacijsko vrsto izvoza:"
 
 #: templates/database/events/editor_form.twig:10
 #: templates/database/routines/editor_form.twig:11
@@ -17014,10 +16984,9 @@ msgid "Save changes"
 msgstr "Shrani spremembe"
 
 #: templates/server/replication/change_primary.twig:7
-#, fuzzy
-#| msgid "Change or reconfigure primary server"
 msgid "Replica configuration - Change or reconfigure primary server"
-msgstr "Spremeni ali ponovno konfiguriraj glavni strežnik"
+msgstr ""
+"Konfiguracija replike – Spremeni ali ponovno konfiguriraj glavni strežnik"
 
 #: templates/server/replication/change_primary.twig:12
 msgid ""
@@ -17316,14 +17285,10 @@ msgid "Advisor"
 msgstr "Svetovalec"
 
 #: templates/server/status/monitor/index.twig:4
-#, fuzzy
-#| msgid "System memory"
 msgid "System monitor"
-msgstr "Sistemski pomnilnik"
+msgstr "Sistemski nadzornik"
 
 #: templates/server/status/monitor/index.twig:7
-#, fuzzy
-#| msgid "Start Monitor"
 msgid "Start monitor"
 msgstr "Začni nadziranje"
 
@@ -17851,10 +17816,8 @@ msgid "ø Time"
 msgstr "ø časa"
 
 #: templates/sql/profiling_chart.twig:66
-#, fuzzy
-#| msgid "Profiling results"
 msgid "Pie chart with profiling results."
-msgstr "Profiliranje rezultatov"
+msgstr "Tortni diagram z rezultati profiliranja."
 
 #: templates/sql/query.twig:44
 msgid "Get auto-saved query"
@@ -18207,10 +18170,8 @@ msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "Tretja stopnja normalizacije (1NF+2NF+3NF)"
 
 #: templates/table/operations/index.twig:2
-#, fuzzy
-#| msgid "Table options"
 msgid "Table operations"
-msgstr "Možnosti tabele"
+msgstr "Dejanja tabele"
 
 #: templates/table/operations/index.twig:10
 msgid "Alter table order by"
