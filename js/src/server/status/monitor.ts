@@ -570,7 +570,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     });
 
     $('#monitorAddNewChartButton').on('click', function (event) {
-        $('#addChartButton').on('click', function () {
+        $('#addChartButton').one('click', function () {
             var type = $('input[name="chartType"]:checked').val();
 
             if (type === 'preset') {
@@ -583,6 +583,16 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                     alert(window.Messages.strAddOneSeriesWarning);
 
                     return;
+                }
+            }
+
+            var numCharts = $('#chartGrid').find('.monitorChart').length;
+
+            /* Checking for duplicate charts */
+            for (let i = 0; i < numCharts; i++) {
+                if($('#' + 'gridchart' + i).find('.jqplot-title').text() === escapeHtml(newChart.title)) {
+                    alert('A chart with the same name exists');
+                    return
                 }
             }
 
