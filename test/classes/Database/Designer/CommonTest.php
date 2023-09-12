@@ -164,8 +164,8 @@ class CommonTest extends AbstractTestCase
                 Connection::TYPE_CONTROL,
             )
             ->willReturn($defaultPg);
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->expects($this->any())->method('quoteString')
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;
         $this->designerCommon = new Common(DatabaseInterface::getInstance(), new Relation($dbi));
@@ -195,8 +195,8 @@ class CommonTest extends AbstractTestCase
                 Connection::TYPE_CONTROL,
             )
             ->willReturn(false);
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->expects($this->any())->method('quoteString')
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;
         $this->designerCommon = new Common(DatabaseInterface::getInstance(), new Relation($dbi));
@@ -227,8 +227,8 @@ class CommonTest extends AbstractTestCase
                 Connection::TYPE_CONTROL,
             )
             ->willReturn($defaultPg);
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->expects($this->any())->method('quoteString')
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;
         $this->designerCommon = new Common(DatabaseInterface::getInstance(), new Relation($dbi));

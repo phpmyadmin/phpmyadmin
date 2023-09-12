@@ -9006,8 +9006,13 @@ parameters:
 			path: src/Database/Designer/Common.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, mixed given\\.$#"
 			count: 4
+			path: src/Database/Designer/Common.php
+
+		-
+			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, string\\|false given\\.$#"
+			count: 2
 			path: src/Database/Designer/Common.php
 
 		-
