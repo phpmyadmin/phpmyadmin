@@ -9658,7 +9658,6 @@
       <code>$c[0]</code>
       <code>$dbfHeader[$n]</code>
       <code>$dbfHeader[$n][0]</code>
-      <code><![CDATA[$record->dbfData[$c[0]]]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code>$analyses[$tableNo][Import::FORMATTEDSQL]</code>
@@ -9685,7 +9684,6 @@
       <code>$dbfFileName</code>
       <code>$dbfHeader</code>
       <code>$extracted</code>
-      <code>$record</code>
       <code>$result</code>
       <code>$temp</code>
     </MixedAssignment>
@@ -9696,8 +9694,6 @@
     </MixedOperand>
     <MixedPropertyFetch>
       <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$record->dbfData]]></code>
-      <code><![CDATA[$record->shpData]]></code>
     </MixedPropertyFetch>
     <MixedReturnTypeCoercion>
       <code>$sqlStatements</code>

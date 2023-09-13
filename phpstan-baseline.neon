@@ -15196,21 +15196,6 @@ parameters:
 			path: src/Plugins/Import/ImportShp.php
 
 		-
-			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportShp.php
-
-		-
-			message: "#^Cannot access property \\$dbfData on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportShp.php
-
-		-
-			message: "#^Cannot access property \\$shpData on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportShp.php
-
-		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 3
 			path: src/Plugins/Import/ImportShp.php
@@ -15252,11 +15237,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$importHandle of method PhpMyAdmin\\\\Import\\\\Import\\:\\:getNextChunk\\(\\) expects PhpMyAdmin\\\\File\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportShp.php
-
-		-
-			message: "#^Parameter \\#1 \\$rowData of method PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\:\\:getShape\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: src/Plugins/Import/ImportShp.php
 

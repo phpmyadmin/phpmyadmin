@@ -209,36 +209,33 @@ class ImportShp extends ImportPlugin
             $gisObj = null;
         }
 
-        $numRows = count($shp->records);
         // If .dbf file is loaded, the number of extra data columns
         $numDataCols = $shp->getDBFHeader() !== null ? count($shp->getDBFHeader()) : 0;
 
         $rows = [];
         $colNames = [];
-        if ($numRows != 0) {
-            foreach ($shp->records as $record) {
-                $tempRow = [];
-                if ($gisObj == null || ! method_exists($gisObj, 'getShape')) {
-                    $tempRow[] = null;
-                } else {
-                    $tempRow[] = "GeomFromText('"
-                        . $gisObj->getShape($record->shpData) . "')";
-                }
-
-                if ($shp->getDBFHeader() !== null) {
-                    foreach ($shp->getDBFHeader() as $c) {
-                        $cell = trim((string) $record->dbfData[$c[0]]);
-
-                        if ($cell === '') {
-                            $cell = 'NULL';
-                        }
-
-                        $tempRow[] = $cell;
-                    }
-                }
-
-                $rows[] = $tempRow;
+        foreach ($shp->records as $record) {
+            $tempRow = [];
+            if ($gisObj == null || ! method_exists($gisObj, 'getShape')) {
+                $tempRow[] = null;
+            } else {
+                $tempRow[] = "GeomFromText('"
+                    . $gisObj->getShape($record->shpData) . "')";
             }
+
+            if ($shp->getDBFHeader() !== null) {
+                foreach ($shp->getDBFHeader() as $c) {
+                    $cell = trim((string) $record->dbfData[$c[0]]);
+
+                    if ($cell === '') {
+                        $cell = 'NULL';
+                    }
+
+                    $tempRow[] = $cell;
+                }
+            }
+
+            $rows[] = $tempRow;
         }
 
         if ($rows === []) {
