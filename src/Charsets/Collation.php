@@ -176,7 +176,12 @@ final class Collation
             }
 
             /* Suffixes */
-            $suffixes = $this->addSuffixes($suffixes, $part);
+            $suffix = $this->addSuffixes($part);
+            if ($suffix === null) {
+                continue;
+            }
+
+            $suffixes[] = $suffix;
         }
 
         return $this->buildName($name, $variant, $suffixes);
@@ -207,42 +212,19 @@ final class Collation
         };
     }
 
-    /**
-     * @param string[] $suffixes
-     *
-     * @return string[]
-     */
-    private function addSuffixes(array $suffixes, string $part): array
+    private function addSuffixes(string $part): string|null
     {
-        switch ($part) {
-            case 'ci':
-                $suffixes[] = _pgettext('Collation variant', 'case-insensitive');
-                break;
-            case 'cs':
-                $suffixes[] = _pgettext('Collation variant', 'case-sensitive');
-                break;
-            case 'ai':
-                $suffixes[] = _pgettext('Collation variant', 'accent-insensitive');
-                break;
-            case 'as':
-                $suffixes[] = _pgettext('Collation variant', 'accent-sensitive');
-                break;
-            case 'ks':
-                $suffixes[] = _pgettext('Collation variant', 'kana-sensitive');
-                break;
-            case 'w2':
-            case 'l2':
-                $suffixes[] = _pgettext('Collation variant', 'multi-level');
-                break;
-            case 'bin':
-                $suffixes[] = _pgettext('Collation variant', 'binary');
-                break;
-            case 'nopad':
-                $suffixes[] = _pgettext('Collation variant', 'no-pad');
-                break;
-        }
-
-        return $suffixes;
+        return match ($part) {
+            'ci' => _pgettext('Collation variant', 'case-insensitive'),
+            'cs' => _pgettext('Collation variant', 'case-sensitive'),
+            'ai' => _pgettext('Collation variant', 'accent-insensitive'),
+            'as' => _pgettext('Collation variant', 'accent-sensitive'),
+            'ks' => _pgettext('Collation variant', 'kana-sensitive'),
+            'w2','l2' => _pgettext('Collation variant', 'multi-level'),
+            'bin' => _pgettext('Collation variant', 'binary'),
+            'nopad' => _pgettext('Collation variant', 'no-pad'),
+            default => null,
+        };
     }
 
     /**
