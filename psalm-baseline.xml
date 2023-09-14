@@ -12307,12 +12307,6 @@
     </PossiblyUndefinedArrayOffset>
   </file>
   <file src="src/Table/Search.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$_POST['criteriaColumnNames'][$columnIndex]]]></code>
       <code><![CDATA[$_POST['criteriaColumnTypes'][$columnIndex]]]></code>
@@ -12342,6 +12336,7 @@
       <code>$criteriaValues</code>
       <code>$criteriaValues</code>
       <code>$criteriaValues</code>
+      <code><![CDATA[$needsQuoting ? $this->dbi->quoteString($criteriaValues) : $criteriaValues]]></code>
       <code><![CDATA[$values[0] ?? '']]></code>
       <code><![CDATA[$values[1] ?? '']]></code>
     </MixedOperand>

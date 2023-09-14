@@ -18816,7 +18816,7 @@ parameters:
 			path: src/Table/Search.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, mixed given\\.$#"
 			count: 3
 			path: src/Table/Search.php
 
