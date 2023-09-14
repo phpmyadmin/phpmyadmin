@@ -115,7 +115,9 @@ class ZoomSearchController extends AbstractController
             'vendor/jqplot/plugins/jqplot.highlighter.js',
             'vendor/jqplot/plugins/jqplot.cursor.js',
             'table/zoom_plot_jqplot.js',
+            'table/select.js',
             'table/change.js',
+            'gis_data_editor.js',
         ]);
 
         /**
