@@ -163,15 +163,9 @@ final class Collation
                 /* Next will be suffix */
                 $level = 5;
                 /* Variant */
-                $found = true;
                 $variantFound = $this->getVariant($part);
-                if ($variantFound === null) {
-                    $found = false;
-                } else {
+                if ($variantFound !== null) {
                     $variant = $variantFound;
-                }
-
-                if ($found) {
                     continue;
                 }
                 // Not parsed token, fall to next level
