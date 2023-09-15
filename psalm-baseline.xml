@@ -9313,6 +9313,10 @@
     <ParamNameMismatch occurrences="1">
       <code>$error_message</code>
     </ParamNameMismatch>
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>Pdf</code>
+      <code>Pdf</code>
+    </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Plugins.php">
     <InvalidArgument occurrences="1">
@@ -10562,7 +10566,7 @@
       <code>$res_rel</code>
       <code>$res_rel</code>
     </PossiblyUndefinedVariable>
-    <PropertyNotSetInConstructor occurrences="21">
+    <PropertyNotSetInConstructor occurrences="23">
       <code>$aliases</code>
       <code>$cellFontSize</code>
       <code>$colAlign</code>
@@ -10584,7 +10588,13 @@
       <code>$titleText</code>
       <code>Pdf</code>
       <code>Pdf</code>
+      <code>Pdf</code>
+      <code>Pdf</code>
     </PropertyNotSetInConstructor>
+    <UnnecessaryVarAnnotation occurrences="2">
+      <code>float</code>
+      <code>float</code>
+    </UnnecessaryVarAnnotation>
   </file>
   <file src="libraries/classes/Plugins/ExportPlugin.php">
     <MixedArrayAccess occurrences="5">
@@ -11287,7 +11297,9 @@
       <code>$w</code>
       <code>($w - 2 * $this-&gt;cMargin) * 1000</code>
     </MixedOperand>
-    <PropertyNotSetInConstructor occurrences="2">
+    <PropertyNotSetInConstructor occurrences="4">
+      <code>Pdf</code>
+      <code>Pdf</code>
       <code>Pdf</code>
       <code>Pdf</code>
     </PropertyNotSetInConstructor>
@@ -11567,11 +11579,6 @@
       <code>$field</code>
       <code>$this-&gt;width</code>
     </MixedOperand>
-    <PossiblyInvalidOperand occurrences="3">
-      <code>$this-&gt;diagram-&gt;GetStringWidth('      ')</code>
-      <code>$this-&gt;width</code>
-      <code>5</code>
-    </PossiblyInvalidOperand>
     <PossiblyInvalidPropertyAssignmentValue occurrences="1">
       <code>max($this-&gt;width, $this-&gt;diagram-&gt;GetStringWidth($field))</code>
     </PossiblyInvalidPropertyAssignmentValue>
