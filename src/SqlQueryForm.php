@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Bookmarks\Bookmark;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Utils\ForeignKey;

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Console\Bookmark;
 
-use PhpMyAdmin\Bookmark;
+use PhpMyAdmin\Bookmarks\Bookmark;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
