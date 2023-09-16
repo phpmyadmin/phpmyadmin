@@ -1562,19 +1562,19 @@ class ExportSql extends ExportPlugin
                 foreach ($statement->fields as $key => $field) {
                     if ($field->isConstraint) {
                         // Creating the parts that add constraints.
-                        $constraints[] = $field::build($field);
+                        $constraints[] = $field->build();
                         unset($statement->fields[$key]);
                     } elseif ($field->key !== null) {
                         // Creating the parts that add indexes (must not be
                         // constraints).
                         if ($field->key->type === 'FULLTEXT KEY') {
-                            $indexesFulltext[] = $field::build($field);
+                            $indexesFulltext[] = $field->build();
                             unset($statement->fields[$key]);
                         } elseif (empty($GLOBALS['sql_if_not_exists'])) {
                             $indexes[] = str_replace(
                                 'COMMENT=\'',
                                 'COMMENT \'',
-                                $field::build($field),
+                                $field->build(),
                             );
                             unset($statement->fields[$key]);
                         }
@@ -1595,7 +1595,7 @@ class ExportSql extends ExportPlugin
                         continue;
                     }
 
-                    $autoIncrement[] = $field::build($field);
+                    $autoIncrement[] = $field->build();
                     $field->options->remove('AUTO_INCREMENT');
                 }
 
