@@ -1745,8 +1745,8 @@ class DbiDummy implements DbiExtension
             ['query' => 'SELECT LAST_INSERT_ID();', 'result' => []],
             ['query' => 'SHOW WARNINGS', 'result' => []],
             [
-                'query' => 'SELECT * FROM `information_schema`.`bookmark` WHERE dbase = \'my_db\''
-                . ' AND (user = \'user\') AND `label` = \'test_tbl\' LIMIT 1',
+                'query' => 'SELECT * FROM `information_schema`.`bookmark` WHERE `label` = \'test_tbl\''
+                . ' AND dbase = \'my_db\' AND (user = \'user\') LIMIT 1',
                 'result' => [],
             ],
             [

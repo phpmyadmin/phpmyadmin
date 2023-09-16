@@ -267,20 +267,19 @@ class Bookmark
     /**
      * Retrieve a specific bookmark
      *
-     * @param string       $user              Current user
-     * @param DatabaseName $db                the current database name
-     * @param int|string   $id                an identifier of the bookmark to get
-     * @param string       $idField           which field to look up the identifier
-     * @param bool         $actionBookmarkAll true: get all bookmarks regardless
-     *                                          of the owning user
-     * @param bool         $exactUserMatch    whether to ignore bookmarks with no user
+     * @param string            $user              Current user
+     * @param DatabaseName|null $db                the current database name
+     * @param int|string        $id                an identifier of the bookmark to get
+     * @param string            $idField           which field to look up the identifier
+     * @param bool              $actionBookmarkAll true: get all bookmarks regardless of the owning user
+     * @param bool              $exactUserMatch    whether to ignore bookmarks with no user
      *
      * @return Bookmark|null the bookmark
      */
     public static function get(
         DatabaseInterface $dbi,
         string $user,
-        DatabaseName $db,
+        DatabaseName|null $db,
         int|string $id,
         string $idField = 'id',
         bool $actionBookmarkAll = false,
@@ -298,7 +297,12 @@ class Bookmark
 
         $query = 'SELECT * FROM ' . Util::backquote($bookmarkFeature->database)
             . '.' . Util::backquote($bookmarkFeature->bookmark)
-            . ' WHERE dbase = ' . $dbi->quoteString($db->getName());
+            . ' WHERE ' . Util::backquote($idField)
+            . ' = ' . $dbi->quoteString((string) $id);
+        if ($db !== null) {
+            $query .= ' AND dbase = ' . $dbi->quoteString($db->getName());
+        }
+
         if (! $actionBookmarkAll) {
             $query .= ' AND (user = ' . $dbi->quoteString($user);
             if (! $exactUserMatch) {
@@ -308,8 +312,7 @@ class Bookmark
             $query .= ')';
         }
 
-        $query .= ' AND ' . Util::backquote($idField)
-            . ' = ' . $dbi->quoteString((string) $id) . ' LIMIT 1';
+        $query .= ' LIMIT 1';
 
         $result = $dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, Connection::TYPE_CONTROL);
         if ($result !== null) {

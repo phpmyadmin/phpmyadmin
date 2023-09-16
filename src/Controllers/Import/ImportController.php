@@ -377,7 +377,7 @@ final class ImportController extends AbstractController
                     $bookmark = Bookmark::get(
                         $this->dbi,
                         $config->selectedServer['user'],
-                        DatabaseName::from($GLOBALS['db']),
+                        DatabaseName::tryFrom($GLOBALS['db']),
                         $idBookmark,
                     );
                     if (! $bookmark instanceof Bookmark) {
