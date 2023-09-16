@@ -1076,6 +1076,11 @@ parameters:
 			path: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php
 
 		-
+			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Util\\:\\:formatNumber\\(\\) expects float\\|int\\|string, int\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/Structure/RealRowCountController.php
+
+		-
 			message: "#^Cannot use array destructuring on array\\|null\\.$#"
 			count: 4
 			path: libraries/classes/Controllers/Database/StructureController.php
