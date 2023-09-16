@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
@@ -49,6 +50,7 @@ final class DeleteRowsController extends AbstractController
             new Operations($this->dbi, $relation),
             new Transformations(),
             $this->template,
+            new BookmarkRepository($this->dbi, $relation),
         );
 
         if ($multBtn === __('Yes')) {

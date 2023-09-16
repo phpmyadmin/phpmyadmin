@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Controllers\Console\Bookmark;
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -17,8 +16,11 @@ use function is_string;
 
 final class AddController extends AbstractController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private DatabaseInterface $dbi)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        private readonly BookmarkRepository $bookmarkRepository,
+    ) {
         parent::__construct($response, $template);
     }
 
@@ -35,8 +37,7 @@ final class AddController extends AbstractController
             return;
         }
 
-        $bookmark = BookmarkRepository::createBookmark(
-            $this->dbi,
+        $bookmark = $this->bookmarkRepository->createBookmark(
             $bookmarkQuery,
             $label,
             Config::getInstance()->selectedServer['user'],

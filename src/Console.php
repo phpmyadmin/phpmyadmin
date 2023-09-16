@@ -30,8 +30,11 @@ class Console
      */
     private bool $isAjax = false;
 
-    public function __construct(private Relation $relation, public Template $template)
-    {
+    public function __construct(
+        private readonly Relation $relation,
+        private readonly Template $template,
+        private readonly BookmarkRepository $bookmarkRepository,
+    ) {
     }
 
     /**
@@ -56,17 +59,14 @@ class Console
     /**
      * Renders the bookmark content
      */
-    public static function getBookmarkContent(): string
+    public function getBookmarkContent(): string
     {
-        $template = new Template();
-        $dbi = DatabaseInterface::getInstance();
-        $relation = new Relation($dbi);
-        $bookmarkFeature = $relation->getRelationParameters()->bookmarkFeature;
+        $bookmarkFeature = $this->relation->getRelationParameters()->bookmarkFeature;
         if ($bookmarkFeature === null) {
             return '';
         }
 
-        $bookmarks = BookmarkRepository::getList($bookmarkFeature, $dbi, Config::getInstance()->selectedServer['user']);
+        $bookmarks = $this->bookmarkRepository->getList(Config::getInstance()->selectedServer['user']);
         $countBookmarks = count($bookmarks);
         if ($countBookmarks > 0) {
             $welcomeMessage = sprintf(
@@ -81,7 +81,7 @@ class Console
             $welcomeMessage = __('No bookmarks');
         }
 
-        return $template->render('console/bookmark_content', [
+        return $this->template->render('console/bookmark_content', [
             'welcome_message' => $welcomeMessage,
             'bookmarks' => $bookmarks,
         ]);
@@ -108,7 +108,7 @@ class Console
 
         $bookmarkFeature = $this->relation->getRelationParameters()->bookmarkFeature;
         $sqlHistory = $this->relation->getHistory(Config::getInstance()->selectedServer['user']);
-        $bookmarkContent = static::getBookmarkContent();
+        $bookmarkContent = $this->getBookmarkContent();
 
         return $this->template->render('console/display', [
             'has_bookmark_feature' => $bookmarkFeature !== null,

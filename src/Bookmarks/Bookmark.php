@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Bookmarks;
 
-use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\Features\BookmarkFeature;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Util;
@@ -33,7 +33,7 @@ class Bookmark
      */
     public function __construct(
         private DatabaseInterface $dbi,
-        private Relation $relation,
+        private BookmarkFeature $bookmarkFeature,
         private string $database,
         private string $currentUser,
         private string $label,
@@ -87,13 +87,8 @@ class Bookmark
      */
     public function save(): bool
     {
-        $bookmarkFeature = $this->relation->getRelationParameters()->bookmarkFeature;
-        if ($bookmarkFeature === null) {
-            return false;
-        }
-
-        $query = 'INSERT INTO ' . Util::backquote($bookmarkFeature->database)
-            . '.' . Util::backquote($bookmarkFeature->bookmark)
+        $query = 'INSERT INTO ' . Util::backquote($this->bookmarkFeature->database)
+            . '.' . Util::backquote($this->bookmarkFeature->bookmark)
             . ' (id, dbase, user, query, label) VALUES (NULL, '
             . $this->dbi->quoteString($this->database) . ', '
             . $this->dbi->quoteString($this->currentUser) . ', '
@@ -108,13 +103,8 @@ class Bookmark
      */
     public function delete(): bool
     {
-        $bookmarkFeature = $this->relation->getRelationParameters()->bookmarkFeature;
-        if ($bookmarkFeature === null) {
-            return false;
-        }
-
-        $query = 'DELETE FROM ' . Util::backquote($bookmarkFeature->database)
-            . '.' . Util::backquote($bookmarkFeature->bookmark)
+        $query = 'DELETE FROM ' . Util::backquote($this->bookmarkFeature->database)
+            . '.' . Util::backquote($this->bookmarkFeature->bookmark)
             . ' WHERE id = ' . $this->id;
 
         return (bool) $this->dbi->tryQuery($query, Connection::TYPE_CONTROL);

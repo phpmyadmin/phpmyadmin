@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\TrackingController;
@@ -53,13 +54,15 @@ class TrackingControllerTest extends AbstractTestCase
         $response = new ResponseRenderer();
         $template = new Template();
         $trackingChecker = $this->createStub(TrackingChecker::class);
+        $relation = new Relation($this->dbi);
+        $bookmarkRepository = new BookmarkRepository($this->dbi, $relation);
         (new TrackingController(
             $response,
             $template,
             new Tracking(
-                new SqlQueryForm($template, $this->dbi),
+                new SqlQueryForm($template, $this->dbi, $bookmarkRepository),
                 $template,
-                new Relation($this->dbi),
+                $relation,
                 $this->dbi,
                 $trackingChecker,
             ),

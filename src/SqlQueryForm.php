@@ -28,8 +28,11 @@ use function str_contains;
  */
 class SqlQueryForm
 {
-    public function __construct(private Template $template, private DatabaseInterface $dbi)
-    {
+    public function __construct(
+        private Template $template,
+        private DatabaseInterface $dbi,
+        private readonly BookmarkRepository $bookmarkRepository,
+    ) {
     }
 
     /**
@@ -87,7 +90,7 @@ class SqlQueryForm
         $bookmarks = [];
         $config = Config::getInstance();
         if ($displayTab === 'full' && $bookmarkFeature !== null) {
-            $bookmarkList = BookmarkRepository::getList($bookmarkFeature, $this->dbi, $config->selectedServer['user'], $db);
+            $bookmarkList = $this->bookmarkRepository->getList($config->selectedServer['user'], $db);
 
             foreach ($bookmarkList as $bookmarkItem) {
                 $bookmarks[] = [

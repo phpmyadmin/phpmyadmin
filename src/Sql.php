@@ -55,6 +55,7 @@ class Sql
         private Operations $operations,
         private Transformations $transformations,
         private Template $template,
+        private readonly BookmarkRepository $bookmarkRepository,
     ) {
     }
 
@@ -438,8 +439,7 @@ class Sql
     public function getDefaultSqlQueryForBrowse(string $db, string $table): string
     {
         $config = Config::getInstance();
-        $bookmark = BookmarkRepository::getByLabel(
-            $this->dbi,
+        $bookmark = $this->bookmarkRepository->getByLabel(
             $config->selectedServer['user'],
             DatabaseName::from($db),
             $table,
@@ -527,7 +527,7 @@ class Sql
         // Should we replace bookmark?
         if ($bookmarkReplace && $bookmarkFeature !== null) {
             $config = Config::getInstance();
-            $bookmarks = BookmarkRepository::getList($bookmarkFeature, $this->dbi, $config->selectedServer['user'], $db);
+            $bookmarks = $this->bookmarkRepository->getList($config->selectedServer['user'], $db);
             foreach ($bookmarks as $bookmark) {
                 if ($bookmark->getLabel() !== $bookmarkLabel) {
                     continue;
@@ -537,8 +537,7 @@ class Sql
             }
         }
 
-        $bookmark = BookmarkRepository::createBookmark(
-            $this->dbi,
+        $bookmark = $this->bookmarkRepository->createBookmark(
             $sqlQueryForBookmark,
             $bookmarkLabel,
             $bookmarkUser,

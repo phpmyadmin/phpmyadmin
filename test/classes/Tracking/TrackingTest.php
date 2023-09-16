@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Tracking;
 
 use DateTimeImmutable;
+use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
@@ -66,10 +67,12 @@ class TrackingTest extends AbstractTestCase
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $template = new Template();
+        $relation = new Relation($dbi);
+        $bookmarkRepository = new BookmarkRepository($dbi, $relation);
         $this->tracking = new Tracking(
-            new SqlQueryForm($template, $dbi),
+            new SqlQueryForm($template, $dbi, $bookmarkRepository),
             $template,
-            new Relation($dbi),
+            $relation,
             $dbi,
             $this->createStub(TrackingChecker::class),
         );

@@ -8,6 +8,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use Fig\Http\Message\StatusCodeInterface;
+use PhpMyAdmin\Bookmarks\BookmarkRepository;
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
@@ -145,7 +147,12 @@ class ResponseRenderer
     private function __construct()
     {
         $this->template = new Template();
-        $this->header = new Header($this->template);
+        $dbi = DatabaseInterface::getInstance();
+        $relation = new Relation($dbi);
+        $this->header = new Header(
+            $this->template,
+            new Console($relation, $this->template, new BookmarkRepository($dbi, $relation)),
+        );
         $this->footer = new Footer($this->template);
         $this->response = ResponseFactory::create()->createResponse();
 

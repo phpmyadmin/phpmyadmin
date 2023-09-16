@@ -11,6 +11,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Stubs;
 
+use PhpMyAdmin\Bookmarks\BookmarkRepository;
+use PhpMyAdmin\Config;
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Console;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Footer;
 use PhpMyAdmin\Header;
@@ -49,7 +54,15 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
         $GLOBALS['server'] ??= 1;
         $GLOBALS['text_dir'] ??= 'ltr';
         $this->template = new Template();
-        $this->header = new Header($this->template);
+        Config::getInstance()->selectedServer['pmadb'] = 'phpmyadmin';
+        $dummyDbi = new DbiDummy();
+        $dummyDbi->addSelectDb('phpmyadmin');
+        $dbi = new DatabaseInterface($dummyDbi);
+        $relation = new Relation($dbi);
+        $this->header = new Header(
+            $this->template,
+            new Console($relation, $this->template, new BookmarkRepository($dbi, $relation)),
+        );
         $this->footer = new Footer($this->template);
         $this->response = ResponseFactory::create()->createResponse();
     }

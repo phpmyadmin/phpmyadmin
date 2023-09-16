@@ -20,8 +20,11 @@ use PhpMyAdmin\Util;
  */
 final class BookmarkRepository
 {
-    public function __construct(private DatabaseInterface $dbi, private Relation $relation)
+    private BookmarkFeature|null $bookmarkFeature;
+
+    public function __construct(private DatabaseInterface $dbi, Relation $relation)
     {
+        $this->bookmarkFeature = $relation->getRelationParameters()->bookmarkFeature;
     }
 
     /**
@@ -29,14 +32,17 @@ final class BookmarkRepository
      *
      * @param bool $shared whether to make the bookmark available for all users
      */
-    public static function createBookmark(
-        DatabaseInterface $dbi,
+    public function createBookmark(
         string $sqlQuery,
         string $label,
         string $user,
         string $database,
         bool $shared = false,
     ): Bookmark|false {
+        if ($this->bookmarkFeature === null) {
+            return false;
+        }
+
         if ($sqlQuery === '' || $label === '') {
             return false;
         }
@@ -49,14 +55,7 @@ final class BookmarkRepository
             return false;
         }
 
-        return new Bookmark(
-            $dbi,
-            new Relation($dbi),
-            $database,
-            $shared ? '' : $user,
-            $label,
-            $sqlQuery,
-        );
+        return new Bookmark($this->dbi, $this->bookmarkFeature, $database, $shared ? '' : $user, $label, $sqlQuery);
     }
 
     /**
@@ -69,17 +68,19 @@ final class BookmarkRepository
      *
      * @infection-ignore-all
      */
-    public static function getList(
-        BookmarkFeature $bookmarkFeature,
-        DatabaseInterface $dbi,
+    public function getList(
         string $user,
         string|false $db = false,
     ): array {
+        if ($this->bookmarkFeature === null) {
+            return [];
+        }
+
         $exactUserMatch = ! Config::getInstance()->settings['AllowSharedBookmarks'];
 
-        $query = 'SELECT * FROM ' . Util::backquote($bookmarkFeature->database)
-            . '.' . Util::backquote($bookmarkFeature->bookmark)
-            . ' WHERE (`user` = ' . $dbi->quoteString($user);
+        $query = 'SELECT * FROM ' . Util::backquote($this->bookmarkFeature->database)
+            . '.' . Util::backquote($this->bookmarkFeature->bookmark)
+            . ' WHERE (`user` = ' . $this->dbi->quoteString($user);
         if (! $exactUserMatch) {
             $query .= " OR `user` = ''";
         }
@@ -87,16 +88,16 @@ final class BookmarkRepository
         $query .= ')';
 
         if ($db !== false) {
-            $query .= ' AND dbase = ' . $dbi->quoteString($db);
+            $query .= ' AND dbase = ' . $this->dbi->quoteString($db);
         }
 
         $query .= ' ORDER BY label ASC';
 
-        $result = $dbi->fetchResult($query, null, null, Connection::TYPE_CONTROL);
+        $result = $this->dbi->fetchResult($query, null, null, Connection::TYPE_CONTROL);
 
         $bookmarks = [];
         foreach ($result as $row) {
-            $bookmarks[] = self::createFromRow($dbi, $row);
+            $bookmarks[] = $this->createFromRow($row);
         }
 
         return $bookmarks;
@@ -105,23 +106,20 @@ final class BookmarkRepository
     /**
      * Retrieve a specific bookmark
      */
-    public static function get(
-        DatabaseInterface $dbi,
+    public function get(
         string|null $user,
         int $id,
     ): Bookmark|null {
-        $relation = new Relation($dbi);
-        $bookmarkFeature = $relation->getRelationParameters()->bookmarkFeature;
-        if ($bookmarkFeature === null) {
+        if ($this->bookmarkFeature === null) {
             return null;
         }
 
-        $query = 'SELECT * FROM ' . Util::backquote($bookmarkFeature->database)
-            . '.' . Util::backquote($bookmarkFeature->bookmark)
+        $query = 'SELECT * FROM ' . Util::backquote($this->bookmarkFeature->database)
+            . '.' . Util::backquote($this->bookmarkFeature->bookmark)
             . ' WHERE `id` = ' . $id;
 
         if ($user !== null) {
-            $query .= ' AND (user = ' . $dbi->quoteString($user);
+            $query .= ' AND (user = ' . $this->dbi->quoteString($user);
 
             $exactUserMatch = ! Config::getInstance()->settings['AllowSharedBookmarks'];
             if (! $exactUserMatch) {
@@ -133,9 +131,9 @@ final class BookmarkRepository
 
         $query .= ' LIMIT 1';
 
-        $result = $dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, Connection::TYPE_CONTROL);
+        $result = $this->dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, Connection::TYPE_CONTROL);
         if ($result !== null) {
-            return self::createFromRow($dbi, $result);
+            return $this->createFromRow($result);
         }
 
         return null;
@@ -144,40 +142,37 @@ final class BookmarkRepository
     /**
      * Retrieve a specific bookmark by its label
      */
-    public static function getByLabel(
-        DatabaseInterface $dbi,
+    public function getByLabel(
         string $user,
         DatabaseName $db,
         string $label,
     ): Bookmark|null {
-        $relation = new Relation($dbi);
-        $bookmarkFeature = $relation->getRelationParameters()->bookmarkFeature;
-        if ($bookmarkFeature === null) {
+        if ($this->bookmarkFeature === null) {
             return null;
         }
 
-        $query = 'SELECT * FROM ' . Util::backquote($bookmarkFeature->database)
-            . '.' . Util::backquote($bookmarkFeature->bookmark)
+        $query = 'SELECT * FROM ' . Util::backquote($this->bookmarkFeature->database)
+            . '.' . Util::backquote($this->bookmarkFeature->bookmark)
             . ' WHERE `label`'
-            . ' = ' . $dbi->quoteString($label)
-            . ' AND dbase = ' . $dbi->quoteString($db->getName())
-            . ' AND user = ' . $dbi->quoteString($user)
+            . ' = ' . $this->dbi->quoteString($label)
+            . ' AND dbase = ' . $this->dbi->quoteString($db->getName())
+            . ' AND user = ' . $this->dbi->quoteString($user)
             . ' LIMIT 1';
 
-        $result = $dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, Connection::TYPE_CONTROL);
+        $result = $this->dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, Connection::TYPE_CONTROL);
         if ($result !== null) {
-            return self::createFromRow($dbi, $result);
+            return $this->createFromRow($result);
         }
 
         return null;
     }
 
     /** @param string[] $row Resource used to build the bookmark */
-    private static function createFromRow(DatabaseInterface $dbi, array $row): Bookmark
+    private function createFromRow(array $row): Bookmark
     {
         return new Bookmark(
-            $dbi,
-            new Relation($dbi),
+            $this->dbi,
+            $this->bookmarkFeature,
             $row['dbase'],
             $row['user'],
             $row['label'],

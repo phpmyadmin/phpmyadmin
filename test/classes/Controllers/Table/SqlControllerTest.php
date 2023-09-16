@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
@@ -89,10 +90,12 @@ class SqlControllerTest extends AbstractTestCase
             ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
 
         $response = new ResponseRenderer();
+        $relation = new Relation($this->dbi);
+        $bookmarkRepository = new BookmarkRepository($this->dbi, $relation);
         (new SqlController(
             $response,
             $template,
-            new SqlQueryForm($template, $this->dbi),
+            new SqlQueryForm($template, $this->dbi, $bookmarkRepository),
             $pageSettings,
             new DbTableExists($this->dbi),
         ))($request);

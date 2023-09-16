@@ -36,6 +36,7 @@ class SqlController extends AbstractController
         private CheckUserPrivileges $checkUserPrivileges,
         private DatabaseInterface $dbi,
         private PageSettings $pageSettings,
+        private readonly BookmarkRepository $bookmarkRepository,
     ) {
         parent::__construct($response, $template);
     }
@@ -223,8 +224,7 @@ class SqlController extends AbstractController
     /** @param array<string> $bkmFields */
     private function addBookmark(string $goto, array $bkmFields, bool $bkmAllUsers): void
     {
-        $bookmark = BookmarkRepository::createBookmark(
-            $this->dbi,
+        $bookmark = $this->bookmarkRepository->createBookmark(
             $bkmFields['bkm_sql_query'],
             $bkmFields['bkm_label'],
             $bkmFields['bkm_user'],

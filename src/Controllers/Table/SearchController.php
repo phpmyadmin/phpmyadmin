@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
@@ -273,6 +274,7 @@ class SearchController extends AbstractController
             new Operations($this->dbi, $this->relation),
             new Transformations(),
             $this->template,
+            new BookmarkRepository($this->dbi, $this->relation),
         );
 
         $this->response->addHTML($sql->executeQueryAndSendQueryResponse(

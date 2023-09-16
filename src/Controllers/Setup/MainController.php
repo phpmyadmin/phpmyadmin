@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Setup;
 
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Console;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
@@ -21,8 +22,11 @@ use const CONFIG_FILE;
 
 final class MainController
 {
-    public function __construct(private readonly ResponseFactory $responseFactory, private readonly Template $template)
-    {
+    public function __construct(
+        private readonly ResponseFactory $responseFactory,
+        private readonly Template $template,
+        private readonly Console $console,
+    ) {
     }
 
     public function __invoke(ServerRequest $request): Response
@@ -42,7 +46,7 @@ final class MainController
         $page = in_array($pageParam, ['form', 'config', 'servers'], true) ? $pageParam : 'index';
 
         $response = $this->responseFactory->createResponse();
-        $header = new Header($this->template);
+        $header = new Header($this->template, $this->console);
         foreach ($header->getHttpHeaders() as $name => $value) {
             // Sent security-related headers
             $response = $response->withHeader($name, $value);

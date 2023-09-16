@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Advisory\Advisor;
 use PhpMyAdmin\Application;
+use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
+use PhpMyAdmin\Console;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\Database\Designer;
@@ -164,11 +166,23 @@ return [
         ],
         'sql' => [
             'class' => Sql::class,
-            'arguments' => ['@dbi', '@relation', '@relation_cleanup', '@operations', '@transformations', '@template'],
+            'arguments' => [
+                '@dbi',
+                '@relation',
+                '@relation_cleanup',
+                '@operations',
+                '@transformations',
+                '@template',
+                '@bookmarkRepository',
+            ],
         ],
         'sql_query_form' => [
             'class' => SqlQueryForm::class,
-            'arguments' => ['$template' => '@template', '$dbi' => '@dbi'],
+            'arguments' => [
+                '$template' => '@template',
+                '$dbi' => '@dbi',
+                '$bookmarkRepository' => '@bookmarkRepository',
+            ],
         ],
         'status_data' => ['class' => Data::class, 'arguments' => ['@dbi','@config']],
         'status_monitor' => ['class' => Monitor::class, 'arguments' => ['@dbi']],
@@ -210,5 +224,7 @@ return [
         DatabaseInterface::class => 'dbi',
         PhpMyAdmin\FlashMessages::class => 'flash',
         PhpMyAdmin\ResponseRenderer::class => 'response',
+        'bookmarkRepository' => ['class' => BookmarkRepository::class, 'arguments' => ['@dbi', '@relation']],
+        'console' => ['class' => Console::class, 'arguments' => [ '@relation', '@template', '@bookmarkRepository']],
     ],
 ];
