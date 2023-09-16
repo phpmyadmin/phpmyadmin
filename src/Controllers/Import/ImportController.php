@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Import;
 
 use PhpMyAdmin\Bookmarks\Bookmark;
+use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
@@ -317,7 +318,7 @@ final class ImportController extends AbstractController
         if ($idBookmark !== 0) {
             switch ($actionBookmark) {
                 case 0: // bookmarked query that have to be run
-                    $bookmark = Bookmark::get(
+                    $bookmark = BookmarkRepository::get(
                         $this->dbi,
                         $request->hasBodyParam('action_bookmark_all') ? null : $config->selectedServer['user'],
                         $idBookmark,
@@ -346,7 +347,7 @@ final class ImportController extends AbstractController
 
                     break;
                 case 1: // bookmarked query that have to be displayed
-                    $bookmark = Bookmark::get($this->dbi, $config->selectedServer['user'], $idBookmark);
+                    $bookmark = BookmarkRepository::get($this->dbi, $config->selectedServer['user'], $idBookmark);
                     if (! $bookmark instanceof Bookmark) {
                         break;
                     }
@@ -365,7 +366,7 @@ final class ImportController extends AbstractController
                     $GLOBALS['run_query'] = false;
                     break;
                 case 2: // bookmarked query that have to be deleted
-                    $bookmark = Bookmark::get($this->dbi, $config->selectedServer['user'], $idBookmark);
+                    $bookmark = BookmarkRepository::get($this->dbi, $config->selectedServer['user'], $idBookmark);
                     if (! $bookmark instanceof Bookmark) {
                         break;
                     }

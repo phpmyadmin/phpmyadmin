@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Bookmarks\Bookmark;
+use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Utils\ForeignKey;
@@ -87,7 +87,7 @@ class SqlQueryForm
         $bookmarks = [];
         $config = Config::getInstance();
         if ($displayTab === 'full' && $bookmarkFeature !== null) {
-            $bookmarkList = Bookmark::getList($bookmarkFeature, $this->dbi, $config->selectedServer['user'], $db);
+            $bookmarkList = BookmarkRepository::getList($bookmarkFeature, $this->dbi, $config->selectedServer['user'], $db);
 
             foreach ($bookmarkList as $bookmarkItem) {
                 $bookmarks[] = [

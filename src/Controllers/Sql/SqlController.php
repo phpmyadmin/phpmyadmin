@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Sql;
 
-use PhpMyAdmin\Bookmarks\Bookmark;
+use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
@@ -223,7 +223,7 @@ class SqlController extends AbstractController
     /** @param array<string> $bkmFields */
     private function addBookmark(string $goto, array $bkmFields, bool $bkmAllUsers): void
     {
-        $bookmark = Bookmark::createBookmark(
+        $bookmark = BookmarkRepository::createBookmark(
             $this->dbi,
             $bkmFields['bkm_sql_query'],
             $bkmFields['bkm_label'],
@@ -233,7 +233,7 @@ class SqlController extends AbstractController
         );
 
         $result = null;
-        if ($bookmark instanceof Bookmark) {
+        if ($bookmark !== false) {
             $result = $bookmark->save();
         }
 

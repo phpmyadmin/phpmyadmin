@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Bookmarks\Bookmark;
+use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\ConfigStorage\Relation;
 
 use function __;
@@ -66,7 +66,7 @@ class Console
             return '';
         }
 
-        $bookmarks = Bookmark::getList($bookmarkFeature, $dbi, Config::getInstance()->selectedServer['user']);
+        $bookmarks = BookmarkRepository::getList($bookmarkFeature, $dbi, Config::getInstance()->selectedServer['user']);
         $countBookmarks = count($bookmarks);
         if ($countBookmarks > 0) {
             $welcomeMessage = sprintf(

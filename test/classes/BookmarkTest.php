@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Bookmarks\Bookmark;
+use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Features\BookmarkFeature;
 use PhpMyAdmin\DatabaseInterface;
@@ -41,7 +42,7 @@ class BookmarkTest extends AbstractTestCase
     }
 
     /**
-     * Tests for Bookmark::getList()
+     * Tests for BookmarkRepository::getList()
      */
     public function testGetList(): void
     {
@@ -51,7 +52,7 @@ class BookmarkTest extends AbstractTestCase
             [['1', 'sakila', 'root', 'label', 'SELECT * FROM `actor` WHERE `actor_id` < 10;']],
             ['id', 'dbase', 'user', 'label', 'query'],
         );
-        $actual = Bookmark::getList(
+        $actual = BookmarkRepository::getList(
             new BookmarkFeature(DatabaseName::from('phpmyadmin'), TableName::from('pma_bookmark')),
             DatabaseInterface::getInstance(),
             Config::getInstance()->selectedServer['user'],
@@ -62,13 +63,13 @@ class BookmarkTest extends AbstractTestCase
     }
 
     /**
-     * Tests for Bookmark::get()
+     * Tests for BookmarkRepository::get()
      */
     public function testGet(): void
     {
         $this->dummyDbi->addSelectDb('phpmyadmin');
         $this->assertNull(
-            Bookmark::get(
+            BookmarkRepository::get(
                 DatabaseInterface::getInstance(),
                 Config::getInstance()->selectedServer['user'],
                 1,
@@ -82,7 +83,7 @@ class BookmarkTest extends AbstractTestCase
      */
     public function testSave(): void
     {
-        $bookmark = Bookmark::createBookmark(
+        $bookmark = BookmarkRepository::createBookmark(
             DatabaseInterface::getInstance(),
             'SELECT "phpmyadmin"',
             'bookmark1',

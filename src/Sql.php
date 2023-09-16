@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Bookmarks\Bookmark;
+use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\ConfigStorage\Features\BookmarkFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
@@ -438,7 +438,7 @@ class Sql
     public function getDefaultSqlQueryForBrowse(string $db, string $table): string
     {
         $config = Config::getInstance();
-        $bookmark = Bookmark::getByLabel(
+        $bookmark = BookmarkRepository::getByLabel(
             $this->dbi,
             $config->selectedServer['user'],
             DatabaseName::from($db),
@@ -527,7 +527,7 @@ class Sql
         // Should we replace bookmark?
         if ($bookmarkReplace && $bookmarkFeature !== null) {
             $config = Config::getInstance();
-            $bookmarks = Bookmark::getList($bookmarkFeature, $this->dbi, $config->selectedServer['user'], $db);
+            $bookmarks = BookmarkRepository::getList($bookmarkFeature, $this->dbi, $config->selectedServer['user'], $db);
             foreach ($bookmarks as $bookmark) {
                 if ($bookmark->getLabel() !== $bookmarkLabel) {
                     continue;
@@ -537,7 +537,7 @@ class Sql
             }
         }
 
-        $bookmark = Bookmark::createBookmark(
+        $bookmark = BookmarkRepository::createBookmark(
             $this->dbi,
             $sqlQueryForBookmark,
             $bookmarkLabel,

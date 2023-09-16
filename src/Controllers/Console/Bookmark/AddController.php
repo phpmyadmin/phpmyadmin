@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Console\Bookmark;
 
-use PhpMyAdmin\Bookmarks\Bookmark;
+use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
@@ -35,7 +35,7 @@ final class AddController extends AbstractController
             return;
         }
 
-        $bookmark = Bookmark::createBookmark(
+        $bookmark = BookmarkRepository::createBookmark(
             $this->dbi,
             $bookmarkQuery,
             $label,
