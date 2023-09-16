@@ -71,8 +71,7 @@ class BookmarkTest extends AbstractTestCase
             Bookmark::get(
                 DatabaseInterface::getInstance(),
                 Config::getInstance()->selectedServer['user'],
-                DatabaseName::from('phpmyadmin'),
-                '1',
+                1,
             ),
         );
         $this->dummyDbi->assertAllSelectsConsumed();

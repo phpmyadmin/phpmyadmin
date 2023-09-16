@@ -14,7 +14,6 @@ use PhpMyAdmin\Encoding;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ParseAnalyze;
@@ -320,11 +319,8 @@ final class ImportController extends AbstractController
                 case 0: // bookmarked query that have to be run
                     $bookmark = Bookmark::get(
                         $this->dbi,
-                        $config->selectedServer['user'],
-                        DatabaseName::from($GLOBALS['db']),
+                        $request->hasBodyParam('action_bookmark_all') ? null : $config->selectedServer['user'],
                         $idBookmark,
-                        'id',
-                        $request->hasBodyParam('action_bookmark_all'),
                     );
                     if (! $bookmark instanceof Bookmark) {
                         break;
@@ -350,12 +346,7 @@ final class ImportController extends AbstractController
 
                     break;
                 case 1: // bookmarked query that have to be displayed
-                    $bookmark = Bookmark::get(
-                        $this->dbi,
-                        $config->selectedServer['user'],
-                        DatabaseName::from($GLOBALS['db']),
-                        $idBookmark,
-                    );
+                    $bookmark = Bookmark::get($this->dbi, $config->selectedServer['user'], $idBookmark);
                     if (! $bookmark instanceof Bookmark) {
                         break;
                     }
@@ -374,12 +365,7 @@ final class ImportController extends AbstractController
                     $GLOBALS['run_query'] = false;
                     break;
                 case 2: // bookmarked query that have to be deleted
-                    $bookmark = Bookmark::get(
-                        $this->dbi,
-                        $config->selectedServer['user'],
-                        DatabaseName::tryFrom($GLOBALS['db']),
-                        $idBookmark,
-                    );
+                    $bookmark = Bookmark::get($this->dbi, $config->selectedServer['user'], $idBookmark);
                     if (! $bookmark instanceof Bookmark) {
                         break;
                     }

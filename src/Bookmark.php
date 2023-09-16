@@ -266,24 +266,11 @@ class Bookmark
 
     /**
      * Retrieve a specific bookmark
-     *
-     * @param string            $user              Current user
-     * @param DatabaseName|null $db                the current database name
-     * @param int|string        $id                an identifier of the bookmark to get
-     * @param string            $idField           which field to look up the identifier
-     * @param bool              $actionBookmarkAll true: get all bookmarks regardless of the owning user
-     * @param bool              $exactUserMatch    whether to ignore bookmarks with no user
-     *
-     * @return Bookmark|null the bookmark
      */
     public static function get(
         DatabaseInterface $dbi,
-        string $user,
-        DatabaseName|null $db,
-        int|string $id,
-        string $idField = 'id',
-        bool $actionBookmarkAll = false,
-        bool $exactUserMatch = false,
+        string|null $user,
+        int $id,
     ): self|null {
         $relation = new Relation($dbi);
         $bookmarkFeature = $relation->getRelationParameters()->bookmarkFeature;
@@ -291,20 +278,14 @@ class Bookmark
             return null;
         }
 
-        if (! Config::getInstance()->settings['AllowSharedBookmarks']) {
-            $exactUserMatch = true;
-        }
-
         $query = 'SELECT * FROM ' . Util::backquote($bookmarkFeature->database)
             . '.' . Util::backquote($bookmarkFeature->bookmark)
-            . ' WHERE ' . Util::backquote($idField)
-            . ' = ' . $dbi->quoteString((string) $id);
-        if ($db !== null) {
-            $query .= ' AND dbase = ' . $dbi->quoteString($db->getName());
-        }
+            . ' WHERE `id` = ' . $id;
 
-        if (! $actionBookmarkAll) {
+        if ($user !== null) {
             $query .= ' AND (user = ' . $dbi->quoteString($user);
+
+            $exactUserMatch = ! Config::getInstance()->settings['AllowSharedBookmarks'];
             if (! $exactUserMatch) {
                 $query .= " OR user = ''";
             }
@@ -313,6 +294,37 @@ class Bookmark
         }
 
         $query .= ' LIMIT 1';
+
+        $result = $dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, Connection::TYPE_CONTROL);
+        if ($result !== null) {
+            return self::createFromRow($dbi, $result);
+        }
+
+        return null;
+    }
+
+    /**
+     * Retrieve a specific bookmark by its label
+     */
+    public static function getByLabel(
+        DatabaseInterface $dbi,
+        string $user,
+        DatabaseName $db,
+        string $label,
+    ): self|null {
+        $relation = new Relation($dbi);
+        $bookmarkFeature = $relation->getRelationParameters()->bookmarkFeature;
+        if ($bookmarkFeature === null) {
+            return null;
+        }
+
+        $query = 'SELECT * FROM ' . Util::backquote($bookmarkFeature->database)
+            . '.' . Util::backquote($bookmarkFeature->bookmark)
+            . ' WHERE `label`'
+            . ' = ' . $dbi->quoteString($label)
+            . ' AND dbase = ' . $dbi->quoteString($db->getName())
+            . ' AND user = ' . $dbi->quoteString($user)
+            . ' LIMIT 1';
 
         $result = $dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, Connection::TYPE_CONTROL);
         if ($result !== null) {

@@ -437,14 +437,11 @@ class Sql
     public function getDefaultSqlQueryForBrowse(string $db, string $table): string
     {
         $config = Config::getInstance();
-        $bookmark = Bookmark::get(
+        $bookmark = Bookmark::getByLabel(
             $this->dbi,
             $config->selectedServer['user'],
             DatabaseName::from($db),
             $table,
-            'label',
-            false,
-            true,
         );
 
         if ($bookmark !== null && $bookmark->getQuery() !== '') {
