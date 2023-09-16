@@ -82,14 +82,13 @@ class BookmarkTest extends AbstractTestCase
      */
     public function testSave(): void
     {
-        $bookmarkData = [
-            'bkm_database' => 'phpmyadmin',
-            'bkm_user' => 'root',
-            'bkm_sql_query' => 'SELECT "phpmyadmin"',
-            'bkm_label' => 'bookmark1',
-        ];
-
-        $bookmark = Bookmark::createBookmark(DatabaseInterface::getInstance(), $bookmarkData);
+        $bookmark = Bookmark::createBookmark(
+            DatabaseInterface::getInstance(),
+            'SELECT "phpmyadmin"',
+            'bookmark1',
+            'root',
+            'phpmyadmin',
+        );
         $this->assertNotFalse($bookmark);
         $this->dummyDbi->addSelectDb('phpmyadmin');
         $this->assertFalse($bookmark->save());

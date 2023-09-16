@@ -35,18 +35,26 @@ final class AddController extends AbstractController
             return;
         }
 
+        $bookmark = Bookmark::createBookmark(
+            $this->dbi,
+            $bookmarkQuery,
+            $label,
+            Config::getInstance()->selectedServer['user'],
+            $db,
+            $shared === 'true',
+        );
+        if ($bookmark === false || ! $bookmark->save()) {
+            $this->response->addJSON('message', __('Failed'));
+
+            return;
+        }
+
         $bookmarkFields = [
             'bkm_database' => $db,
             'bkm_user' => Config::getInstance()->selectedServer['user'],
             'bkm_sql_query' => $bookmarkQuery,
             'bkm_label' => $label,
         ];
-        $bookmark = Bookmark::createBookmark($this->dbi, $bookmarkFields, $shared === 'true');
-        if ($bookmark === false || ! $bookmark->save()) {
-            $this->response->addJSON('message', __('Failed'));
-
-            return;
-        }
 
         $this->response->addJSON('message', __('Succeeded'));
         $this->response->addJSON('data', $bookmarkFields);

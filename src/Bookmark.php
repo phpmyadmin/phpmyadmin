@@ -16,7 +16,6 @@ use function count;
 use function preg_match_all;
 use function preg_replace;
 use function str_replace;
-use function strlen;
 
 use const PREG_SET_ORDER;
 
@@ -175,35 +174,33 @@ class Bookmark
     /**
      * Creates a Bookmark object from the parameters
      *
-     * @param mixed[] $bkmFields the properties of the bookmark to add; here, $bkmFields['bkm_sql_query'] is urlencoded
-     * @param bool    $allUsers  whether to make the bookmark available for all users
+     * @param bool $shared whether to make the bookmark available for all users
      */
     public static function createBookmark(
         DatabaseInterface $dbi,
-        array $bkmFields,
-        bool $allUsers = false,
+        string $sqlQuery,
+        string $label,
+        string $user,
+        string $database,
+        bool $shared = false,
     ): Bookmark|false {
-        if (
-            ! (isset($bkmFields['bkm_sql_query'], $bkmFields['bkm_label'])
-            && strlen($bkmFields['bkm_sql_query']) > 0
-            && strlen($bkmFields['bkm_label']) > 0)
-        ) {
+        if ($sqlQuery === '' || $label === '') {
             return false;
         }
 
         if (! Config::getInstance()->settings['AllowSharedBookmarks']) {
-            $allUsers = false;
+            $shared = false;
         }
 
-        if (! $allUsers && (string) $bkmFields['bkm_user'] === '') {
+        if (! $shared && $user === '') {
             return false;
         }
 
         $bookmark = new Bookmark($dbi, new Relation($dbi));
-        $bookmark->database = $bkmFields['bkm_database'];
-        $bookmark->label = $bkmFields['bkm_label'];
-        $bookmark->query = $bkmFields['bkm_sql_query'];
-        $bookmark->currentUser = $allUsers ? '' : $bkmFields['bkm_user'];
+        $bookmark->database = $database;
+        $bookmark->label = $label;
+        $bookmark->query = $sqlQuery;
+        $bookmark->currentUser = $shared ? '' : $user;
 
         return $bookmark;
     }

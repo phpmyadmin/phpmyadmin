@@ -523,13 +523,6 @@ class Sql
         string $bookmarkLabel,
         bool $bookmarkReplace,
     ): void {
-        $bfields = [
-            'bkm_database' => $db,
-            'bkm_user' => $bookmarkUser,
-            'bkm_sql_query' => $sqlQueryForBookmark,
-            'bkm_label' => $bookmarkLabel,
-        ];
-
         // Should we replace bookmark?
         if ($bookmarkReplace && $bookmarkFeature !== null) {
             $config = Config::getInstance();
@@ -543,7 +536,14 @@ class Sql
             }
         }
 
-        $bookmark = Bookmark::createBookmark($this->dbi, $bfields, isset($_POST['bkm_all_users']));
+        $bookmark = Bookmark::createBookmark(
+            $this->dbi,
+            $sqlQueryForBookmark,
+            $bookmarkLabel,
+            $bookmarkUser,
+            $db,
+            isset($_POST['bkm_all_users']),
+        );
 
         if ($bookmark === false) {
             return;

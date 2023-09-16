@@ -47,19 +47,13 @@
       <code>escapeString</code>
     </DeprecatedMethod>
     <MixedArgument>
-      <code><![CDATA[$bkmFields['bkm_label']]]></code>
-      <code><![CDATA[$bkmFields['bkm_sql_query']]]></code>
       <code>$row</code>
       <code>$variables[$i]</code>
     </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$bookmark->currentUser]]></code>
-      <code><![CDATA[$bookmark->currentUser]]></code>
-      <code><![CDATA[$bookmark->database]]></code>
       <code><![CDATA[$bookmark->database]]></code>
       <code><![CDATA[$bookmark->label]]></code>
-      <code><![CDATA[$bookmark->label]]></code>
-      <code><![CDATA[$bookmark->query]]></code>
       <code><![CDATA[$bookmark->query]]></code>
       <code>$row</code>
     </MixedAssignment>
@@ -885,6 +879,7 @@
   </file>
   <file src="src/Controllers/Console/Bookmark/AddController.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>

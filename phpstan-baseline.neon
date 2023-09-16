@@ -126,11 +126,6 @@ parameters:
 			path: src/Bookmark.php
 
 		-
-			message: "#^Cannot cast mixed to string\\.$#"
-			count: 1
-			path: src/Bookmark.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 1
 			path: src/Bookmark.php
@@ -141,33 +136,28 @@ parameters:
 			path: src/Bookmark.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
-			count: 2
-			path: src/Bookmark.php
-
-		-
 			message: "#^Parameter \\#2 \\$row of static method PhpMyAdmin\\\\Bookmark\\:\\:createFromRow\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: src/Bookmark.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Bookmark\\:\\:\\$currentUser \\(string\\) does not accept mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Bookmark.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Bookmark\\:\\:\\$database \\(string\\) does not accept mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Bookmark.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Bookmark\\:\\:\\$label \\(string\\) does not accept mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Bookmark.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Bookmark\\:\\:\\$query \\(string\\) does not accept mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Bookmark.php
 
 		-
