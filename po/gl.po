@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-09-10 00:17+0000\n"
+"POT-Creation-Date: 2023-09-17 00:17+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1906,7 +1906,7 @@ msgstr "Nome do ficheiro"
 #: src/Import/Import.php:1254 src/Menu.php:226 src/Menu.php:326
 #: src/Navigation/Nodes/NodeColumn.php:40
 #: src/Navigation/Nodes/NodeDatabase.php:56
-#: src/Navigation/Nodes/NodeTable.php:299 src/Util.php:1256 src/Util.php:1709
+#: src/Navigation/Nodes/NodeTable.php:289 src/Util.php:1256 src/Util.php:1709
 #: src/Util.php:1726
 #: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/database/central_columns/edit.twig:3
@@ -1920,14 +1920,14 @@ msgstr "Estrutura"
 #: src/Config/ConfigFile.php:521 src/Config/ConfigFile.php:535
 #: src/Config/ConfigFile.php:589 src/Config/ConfigFile.php:599
 #: src/Config/Descriptions.php:759 src/Menu.php:231 src/Menu.php:331
-#: src/Menu.php:449 src/Navigation/Nodes/NodeTable.php:302 src/Util.php:1257
+#: src/Menu.php:449 src/Navigation/Nodes/NodeTable.php:292 src/Util.php:1257
 #: src/Util.php:1695 src/Util.php:1710 src/Util.php:1727
 msgid "SQL"
 msgstr "SQL"
 
 #: src/Config/ConfigFile.php:523 src/Config/ConfigFile.php:537
 #: src/Config/ConfigFile.php:591 src/Config/ConfigFile.php:601 src/Menu.php:235
-#: src/Menu.php:335 src/Navigation/Nodes/NodeTable.php:300 src/Util.php:1258
+#: src/Menu.php:335 src/Navigation/Nodes/NodeTable.php:290 src/Util.php:1258
 #: src/Util.php:1711 src/Util.php:1728
 #: templates/database/routines/index.twig:28
 #: templates/database/routines/index.twig:29
@@ -1940,7 +1940,7 @@ msgstr "Buscar"
 
 #: src/Config/ConfigFile.php:525 src/Config/ConfigFile.php:539
 #: src/Config/ConfigFile.php:603 src/Menu.php:242
-#: src/Navigation/Nodes/NodeTable.php:301 src/Util.php:1259 src/Util.php:1729
+#: src/Navigation/Nodes/NodeTable.php:291 src/Util.php:1259 src/Util.php:1729
 #: templates/database/structure/structure_table_row.twig:59
 #: templates/sql/query.twig:75
 msgid "Insert"
@@ -1948,7 +1948,7 @@ msgstr "Inserir"
 
 #: src/Config/ConfigFile.php:527 src/Config/ConfigFile.php:541
 #: src/Config/ConfigFile.php:605 src/Menu.php:219
-#: src/Navigation/Nodes/NodeTable.php:303 src/Util.php:1260 src/Util.php:1725
+#: src/Navigation/Nodes/NodeTable.php:293 src/Util.php:1260 src/Util.php:1725
 #: templates/database/search/results.twig:32
 #: templates/database/structure/structure_table_row.twig:43
 #: templates/table/structure/display_structure.twig:282
@@ -12551,7 +12551,7 @@ msgstr "Produciuse un erro ao importar o ficheiro shapefile da ESRI: «%s»."
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "A Extensión Espacial do MySQL non recoñece o tipo «%s» da ESRI."
 
-#: src/Plugins/Import/ImportShp.php:247
+#: src/Plugins/Import/ImportShp.php:244
 #, fuzzy
 #| msgid "The imported file does not contain any data"
 msgid "The imported file does not contain any data!"
