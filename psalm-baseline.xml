@@ -4422,9 +4422,6 @@
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
-    <DocblockTypeContradiction>
-      <code><![CDATA[$viewData['as']]]></code>
-    </DocblockTypeContradiction>
     <MixedArgument>
       <code>$db</code>
       <code>$table</code>
@@ -4441,7 +4438,6 @@
       <code>$db</code>
       <code>$table</code>
       <code><![CDATA[$viewData['as']]]></code>
-      <code><![CDATA[$viewData['as']]]></code>
       <code><![CDATA[$viewData['definer']]]></code>
       <code><![CDATA[$viewData['sql_security']]]></code>
       <code><![CDATA[$viewData['with']]]></code>
@@ -4456,9 +4452,6 @@
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[isset($stmt->body)]]></code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Controllers/View/OperationsController.php">
     <DeprecatedMethod>
@@ -12475,9 +12468,6 @@
       <code>self::$trackingCache[$dbName][$tableName]</code>
     </MixedReturnStatement>
     <PossiblyInvalidPropertyFetch>
-      <code><![CDATA[$statement->body[2]->value]]></code>
-      <code><![CDATA[$statement->body[3]->value]]></code>
-      <code><![CDATA[$statement->body[4]->value]]></code>
       <code><![CDATA[$statement->into->dest->table]]></code>
     </PossiblyInvalidPropertyFetch>
     <PossiblyNullArrayAccess>

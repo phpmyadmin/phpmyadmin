@@ -8296,11 +8296,6 @@ parameters:
 			path: src/Controllers/View/CreateController.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$body \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Token\\>\\|string\\) in isset\\(\\) is not nullable\\.$#"
-			count: 1
-			path: src/Controllers/View/CreateController.php
-
-		-
 			message: "#^Cannot access offset 'back' on mixed\\.$#"
 			count: 1
 			path: src/Controllers/View/OperationsController.php
@@ -18943,11 +18938,6 @@ parameters:
 		-
 			message: "#^Cannot access property \\$tokens on PhpMyAdmin\\\\SqlParser\\\\TokensList\\|null\\.$#"
 			count: 1
-			path: src/Tracking/Tracker.php
-
-		-
-			message: "#^Cannot access property \\$value on PhpMyAdmin\\\\SqlParser\\\\Token\\|string\\.$#"
-			count: 3
 			path: src/Tracking/Tracker.php
 
 		-

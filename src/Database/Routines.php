@@ -438,7 +438,7 @@ class Routines
         $stmt = $parser->statements[0];
 
         // Do not use $routine['ROUTINE_DEFINITION'] because of a MySQL escaping issue: #15370
-        $body = TokensList::build($stmt->body);
+        $body = TokensList::buildFromArray($stmt->body);
         if ($body === '') {
             // Fallback just in case the parser fails
             $body = (string) $routine['ROUTINE_DEFINITION'];
