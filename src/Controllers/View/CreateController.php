@@ -176,7 +176,7 @@ class CreateController extends AbstractController
                 $parser = new Parser($createView);
                 /** @var CreateStatement $stmt */
                 $stmt = $parser->statements[0];
-                $viewData['as'] = isset($stmt->body) ? TokensList::build($stmt->body) : $viewData['as'];
+                $viewData['as'] = TokensList::buildFromArray($stmt->body);
             }
         }
 

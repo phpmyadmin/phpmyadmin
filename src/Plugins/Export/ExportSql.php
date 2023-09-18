@@ -2571,13 +2571,7 @@ class ExportSql extends ExportPlugin
         ) {
             // Replacing the body.
             /** @infection-ignore-all */
-            for ($i = 0, $count = count((array) $statement->body); $i < $count; ++$i) {
-
-                /**
-                 * Token parsed at this moment.
-                 *
-                 * @var Token $token
-                 */
+            for ($i = 0, $count = count($statement->body); $i < $count; ++$i) {
                 $token = $statement->body[$i];
 
                 // Replacing only symbols (that are not variables) and unknown
