@@ -14,8 +14,6 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PHPUnit\Framework\Attributes\CoversClass;
 
-use function json_encode;
-
 #[CoversClass(RealRowCountController::class)]
 class RealRowCountControllerTest extends AbstractTestCase
 {
@@ -49,11 +47,11 @@ class RealRowCountControllerTest extends AbstractTestCase
 
         $json = $response->getJSONResult();
         $expected = [
-            ['table' => 'City', 'row_count' => 4079],
-            ['table' => 'Country', 'row_count' => 239],
-            ['table' => 'CountryLanguage', 'row_count' => 984],
+            ['table' => 'City', 'row_count' => '4,079'],
+            ['table' => 'Country', 'row_count' => '239'],
+            ['table' => 'CountryLanguage', 'row_count' => '984'],
         ];
-        $this->assertEquals(json_encode($expected), $json['real_row_count_all']);
+        $this->assertEquals($expected, $json['real_row_count_all']);
 
         $dbiDummy->assertAllSelectsConsumed();
     }

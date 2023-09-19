@@ -1603,6 +1603,9 @@
     <PossiblyInvalidCast>
       <code><![CDATA[$parameters['table']]]></code>
     </PossiblyInvalidCast>
+    <PossiblyNullArgument occurrences="1">
+      <code>$rowCount</code>
+    </PossiblyNullArgument>
   </file>
   <file src="src/Controllers/Database/Structure/ReplacePrefixController.php">
     <MixedArgument>

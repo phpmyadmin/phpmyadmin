@@ -2766,6 +2766,11 @@ parameters:
 			path: src/Controllers/Database/Structure/RealRowCountController.php
 
 		-
+			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Util\\:\\:formatNumber\\(\\) expects float\\|int\\|string, int\\|null given\\.$#"
+			count: 1
+			path: src/Controllers/Database/Structure/RealRowCountController.php
+
+		-
 			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\Util\\:\\:getDbInfo\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/RealRowCountController.php

@@ -17,7 +17,6 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
-use function json_encode;
 
 /**
  * Handles request for real row count on database level view page.
@@ -87,9 +86,9 @@ final class RealRowCountController extends AbstractController
             $rowCount = $this->dbi
                 ->getTable($GLOBALS['db'], $table['TABLE_NAME'])
                 ->getRealRowCountTable();
-            $realRowCountAll[] = ['table' => $table['TABLE_NAME'], 'row_count' => $rowCount];
+            $realRowCountAll[] = ['table' => $table['TABLE_NAME'], 'row_count' => Util::formatNumber($rowCount, 0)];
         }
 
-        $this->response->addJSON(['real_row_count_all' => json_encode($realRowCountAll)]);
+        $this->response->addJSON(['real_row_count_all' => $realRowCountAll]);
     }
 }
