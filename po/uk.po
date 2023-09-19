@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-09-19 22:00+0000\n"
-"Last-Translator: Yevhen Bronza <zhenya.bronza@gmail.com>\n"
+"PO-Revision-Date: 2023-09-20 11:57+0000\n"
+"Last-Translator: Kipя <yankirill@icloud.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "uk/>\n"
 "Language: uk\n"
@@ -7492,8 +7492,8 @@ msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
-"WebAuthn недоступний. Будь ласка, використовуйте браузер, що підтримується, "
-"у безпечному контексті (HTTPS)."
+"WebAuthn недоступний. Будь ласка, використовуйте підтримуваний браузер у "
+"безпечному контексті (HTTPS)."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:701
 msgid ""
@@ -12081,7 +12081,7 @@ msgid ""
 "the folder/file \"%s\""
 msgstr ""
 "Не вдалося записати кеш маршрутизації, вам потрібно налаштувати права "
-"доступу до теки/файлу \"%s\""
+"доступу до папки/файлу \"%s\""
 
 #: libraries/classes/Routing.php:162
 #, php-format
@@ -13047,8 +13047,8 @@ msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Мітка часу, інтервал від 1970-01-01: 00: 00: 01 UTC до 2038-01-09 03: 14: 07 "
-"UTC у кількості секунд з початку епохи (1970-01-01 00: 00: 00 UTC)"
+"Мітка часу, інтервал від 1970-01-01 00:00:01 UTC до 2038-01-09 03:14:07 UTC "
+"у кількості секунд з початку епохи (1970-01-01 00:00:00 UTC)"
 
 #: libraries/classes/Types.php:313
 #, php-format
@@ -16571,8 +16571,8 @@ msgstr ""
 msgid ""
 "Please install optional dependencies to enable more authentication backends."
 msgstr ""
-"Будь ласка, встановіть необов'язкові залежності, щоб увімкнути більше "
-"механізмів автентифікації."
+"Будь ласка, встановіть додаткові залежності, щоб увімкнути більше внутрішніх "
+"компонентів автентифікації."
 
 #: templates/preferences/two_factor/main.twig:37
 msgid ""
