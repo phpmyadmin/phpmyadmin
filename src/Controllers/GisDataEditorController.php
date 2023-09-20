@@ -41,7 +41,7 @@ class GisDataEditorController extends AbstractController
         /** @var array|null $gisDataParam */
         $gisDataParam = $request->getParsedBodyParam('gis_data');
         /** @var string $type */
-        $type = $request->getParsedBodyParam('type', '');
+        $type = $request->getParsedBodyParam('type', 'GEOMETRY');
         /** @var string|null $value */
         $value = $request->getParsedBodyParam('value');
         /** @var string|null $inputName */

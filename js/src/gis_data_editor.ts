@@ -63,10 +63,14 @@ function prepareJSVersion () {
 function addDataPoint (pointNumber, prefix) {
     return '<br>' +
         window.sprintf(window.Messages.strPointN, (pointNumber + 1)) + ': ' +
-        '<label for="x">' + window.Messages.strX + '</label>' +
-        '<input type="text" name="' + prefix + '[' + pointNumber + '][x]" value="">' +
-        '<label for="y">' + window.Messages.strY + '</label>' +
-        '<input type="text" name="' + prefix + '[' + pointNumber + '][y]" value="">';
+        '<label>' +
+        window.Messages.strX +
+        ' <input type="text" name="' + prefix + '[' + pointNumber + '][x]" value="">' +
+        '</label>' +
+        ' <label>' +
+        window.Messages.strY +
+        ' <input type="text" name="' + prefix + '[' + pointNumber + '][y]" value="">' +
+        '</label> ';
 }
 
 /**
@@ -216,7 +220,7 @@ AJAX.registerTeardown('gis_data_editor.js', function () {
     $(document).off('change', '#gis_editor select.gis_type');
     $(document).off('click', '#gis_editor a.close_gis_editor, #gis_editor a.cancel_gis_editor');
     $(document).off('click', '#gis_editor a.addJs.addPoint');
-    $(document).off('click', '#gis_editor a.addLine.addJs');
+    $(document).off('click', '#gis_editor a.addJs.addLine');
     $(document).off('click', '#gis_editor a.addJs.addPolygon');
     $(document).off('click', '#gis_editor a.addJs.addGeom');
 });
@@ -305,7 +309,7 @@ AJAX.registerOnload('gis_data_editor.js', function () {
     /**
      * Handles adding linestrings and inner rings
      */
-    $(document).on('click', '#gis_editor a.addLine.addJs', function () {
+    $(document).on('click', '#gis_editor a.addJs.addLine', function () {
         var $a = $(this);
         var name = $a.attr('name');
 
@@ -333,7 +337,7 @@ AJAX.registerOnload('gis_data_editor.js', function () {
             html += addDataPoint(i, (prefix + '[' + noOfLines + ']'));
         }
 
-        html += '<a class="addPoint addJs" name="' + prefix + '[' + noOfLines + '][add_point]" href="#">+ ' +
+        html += '<a class="btn btn-secondary addPoint addJs" name="' + prefix + '[' + noOfLines + '][add_point]" href="#">+ ' +
             window.Messages.strAddPoint + '</a><br>';
 
         $a.before(html);
@@ -362,9 +366,9 @@ AJAX.registerOnload('gis_data_editor.js', function () {
             html += addDataPoint(i, (prefix + '[' + noOfPolygons + '][0]'));
         }
 
-        html += '<a class="addPoint addJs" name="' + prefix + '[' + noOfPolygons + '][0][add_point]" href="#">+ ' +
+        html += '<a class="btn btn-secondary addPoint addJs" name="' + prefix + '[' + noOfPolygons + '][0][add_point]" href="#">+ ' +
             window.Messages.strAddPoint + '</a><br>' +
-            '<a class="addLine addJs" name="' + prefix + '[' + noOfPolygons + '][add_line]" href="#">+ ' +
+            '<a class="btn btn-secondary addLine addJs" name="' + prefix + '[' + noOfPolygons + '][add_line]" href="#">+ ' +
             window.Messages.strAddInnerRing + '</a><br><br>';
 
         $a.before(html);
@@ -384,11 +388,15 @@ AJAX.registerOnload('gis_data_editor.js', function () {
         var html1 = window.Messages.strGeometry + ' ' + (noOfGeoms + 1) + ':<br>';
         var $geomType = $('#gis_type_template').contents().filter('select').clone();
         $geomType.attr('name', 'gis_data[' + noOfGeoms + '][gis_type]').val('POINT');
-        var html2 = '<br>' + window.Messages.strPoint + ' :' +
-            '<label for="x"> ' + window.Messages.strX + ' </label>' +
-            '<input type="text" name="gis_data[' + noOfGeoms + '][POINT][x]" value="">' +
-            '<label for="y"> ' + window.Messages.strY + ' </label>' +
-            '<input type="text" name="gis_data[' + noOfGeoms + '][POINT][y]" value="">' +
+        var html2 = '<br>' + window.Messages.strPoint + ': ' +
+            '<label>' +
+            window.Messages.strX +
+            ' <input type="text" name="gis_data[' + noOfGeoms + '][POINT][x]" value="">' +
+            '</label>' +
+            ' <label>' +
+            window.Messages.strY +
+            ' <input type="text" name="gis_data[' + noOfGeoms + '][POINT][y]" value="">' +
+            '</label>' +
             '<br><br>';
 
         $a.before(html1, $geomType, html2);
