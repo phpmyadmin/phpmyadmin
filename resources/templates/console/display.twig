@@ -19,9 +19,11 @@
           <span>{{ 'Bookmarks'|trans }}</span>
         </div>
       {% endif %}
-      <div class="button debug hide">
-        <span>{{ 'Debug SQL'|trans }}</span>
-      </div>
+      {% if debug %}
+        <div class="button debug hide">
+          <span>{{ 'Debug SQL'|trans }}</span>
+        </div>
+      {% endif %}
     </div>
 
     {# Console messages #}
