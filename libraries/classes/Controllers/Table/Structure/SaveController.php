@@ -185,9 +185,9 @@ final class SaveController extends AbstractController
                     && $_POST['field_collation'][$i] !== $_POST['field_collation_orig'][$i]
                     && ! in_array($_POST['field_orig'][$i], $columns_with_index)
                 ) {
-                    if ($_POST['field_type_orig'][$i] == 'MEDIUMTEXT') {
+                    if ($_POST['field_type_orig'][$i] === 'MEDIUMTEXT') {
                       $blob_type = 'MEDIUMBLOB';
-                    } elseif ($_POST['field_type_orig'][$i] == 'LONGTEXT') {
+                    } elseif ($_POST['field_type_orig'][$i] === 'LONGTEXT') {
                       $blob_type = 'LONGBLOB';
                     } else {
                       $blob_type = 'BLOB';
