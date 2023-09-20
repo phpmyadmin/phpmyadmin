@@ -105,13 +105,15 @@ const GitInfo = {
                 'server': CommonParams.get('server'),
                 'ajax_request': true,
                 'no_debug': true
-            },
-            function (data) {
-                if (typeof data !== 'undefined' && data.success === true) {
-                    $(data.message).insertAfter('#li_pma_version');
-                }
             }
-        );
+        ).done(function (data) {
+            if (typeof data !== 'undefined' && data.success === true) {
+                $(data.message).insertAfter('#li_pma_version');
+            }
+        }).fail(function () {
+            const gitHashInfoLi = '<li id="li_pma_version_git" class="list-group-item">' + window.Messages.errorLoadingGitInformation + '</li>';
+            $(gitHashInfoLi).insertAfter('#li_pma_version');
+        });
     }
 };
 
