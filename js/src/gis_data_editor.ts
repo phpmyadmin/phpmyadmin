@@ -23,37 +23,6 @@ function closeGISEditor () {
 }
 
 /**
- * Prepares the HTML received via AJAX.
- */
-function prepareJSVersion () {
-    // Change the text on the submit button
-    $('#gis_editor').find('input[name=\'gis_data[save]\']')
-        .val(window.Messages.strCopy)
-        .insertAfter($('#gis_data_textarea'))
-        .before('<br><br>');
-
-    // Add close and cancel links
-    $('#gis_data_editor').prepend('<a class="close_gis_editor" href="#">' + window.Messages.strClose + '</a>');
-    $('<a class="cancel_gis_editor" href="#"> ' + window.Messages.strCancel + '</a>')
-        .insertAfter($('input[name=\'gis_data[save]\']'));
-
-    // Remove the unnecessary text
-    $('div#gis_data_output p').remove();
-
-    // Remove 'add' buttons and add links
-    $('#gis_editor').find('input.add').each(function () {
-        var $button = $(this);
-        $button.addClass('addJs').removeClass('add');
-        var classes = $button.attr('class');
-        $button.replaceWith(
-            '<a class="' + classes +
-            '" name="' + $button.attr('name') +
-            '" href="#">+ ' + $button.val() + '</a>'
-        );
-    });
-}
-
-/**
  * Returns the HTML for a data point.
  *
  * @param {number} pointNumber point number
@@ -138,7 +107,6 @@ function loadGISEditor (value, field, type, inputName) {
         if (typeof data !== 'undefined' && data.success === true) {
             $gisEditor.html(data.gis_editor);
             initGISEditorVisualization();
-            prepareJSVersion();
         } else {
             ajaxShowMessage(data.error, false);
         }
@@ -260,7 +228,6 @@ AJAX.registerOnload('gis_data_editor.js', function () {
             if (typeof data !== 'undefined' && data.success === true) {
                 $gisEditor.html(data.gis_editor);
                 initGISEditorVisualization();
-                prepareJSVersion();
             } else {
                 ajaxShowMessage(data.error, false);
             }

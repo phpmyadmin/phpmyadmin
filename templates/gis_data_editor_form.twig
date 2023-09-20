@@ -1,5 +1,6 @@
 <form id="gis_data_editor_form" action="{{ url('/gis-data-editor') }}" method="post">
     <div id="gis_data_editor">
+        <a class="close_gis_editor" href="#">{{ 'Close'|trans }}</a>
         <h3>{{ 'Value for the column "%s"'|trans|format(field) }}</h3>
 
         <input type="hidden" name="field" value="{{ field }}">
@@ -108,7 +109,7 @@
                             {% trans 'Y' %}
                                 <input type="text" name="gis_data[{{ a }}][{{ type }}][{{ i }}][y]" value="{{ gis_data[a][type][i]['y'] ?? '' }}"></label>
                             {% endfor %}
-                            <input type="submit" name="gis_data[{{ a }}][{{ type }}][add_point]" class="btn btn-secondary add addPoint" value="{% trans 'Add a point' %}">
+                            <a href="#" name="gis_data[{{ a }}][{{ type }}][add_point]" class="btn btn-secondary addJs addPoint">{% trans '+ Add a point' %}</a>
                         {% elseif type == 'MULTILINESTRING' or type == 'POLYGON' %}
                             {% set no_of_lines = gis_data[a][type]['no_of_lines'] ?? 1 %}
                             {% if no_of_lines < 1 %}
@@ -146,11 +147,12 @@
                                 {% trans 'Y' %}
                                     <input type="text" name="gis_data[{{ a }}][{{ type }}][{{ i }}][{{ j }}][y]" value="{{ gis_data[a][type][i][j]['y'] ?? '' }}"></label>
                                 {% endfor %}
-                                <input type="submit" name="gis_data[{{ a }}][{{ type }}][{{ i }}][add_point]" class="btn btn-secondary add addPoint" value="{% trans 'Add a point' %}">
+                                <a href="#" name="gis_data[{{ a }}][{{ type }}][{{ i }}][add_point]" class="btn btn-secondary addJs addPoint">+ {% trans 'Add a point' %}</a>
                             {% endfor %}
                             <br>
-                            <input type="submit" name="gis_data[{{ a }}][{{ type }}][add_line]" class="btn btn-secondary add addLine" value="
-                                {{- type == 'MULTILINESTRING' ? 'Add a linestring'|trans : 'Add an inner ring'|trans }}">
+                            <a href="#" name="gis_data[{{ a }}][{{ type }}][add_line]" class="btn btn-secondary addJs addLine">
+                                + {{- type == 'MULTILINESTRING' ? 'Add a linestring'|trans : 'Add an inner ring'|trans }}
+                            </a>
                         {% elseif type == 'MULTIPOLYGON' %}
                             {% set no_of_polygons = gis_data[a][type]['no_of_polygons'] ?? 1 %}
                             {% if no_of_polygons < 1 %}
@@ -192,34 +194,34 @@
                                     {% trans 'Y' %}
                                         <input type="text" name="gis_data[{{ a }}][{{ type }}][{{ k }}][{{ i }}][{{ j }}][y]" value="{{ gis_data[a][type][k][i][j]['y'] ?? '' }}"></label>
                                     {% endfor %}
-                                    <input type="submit" name="gis_data[{{ a }}][{{ type }}][{{ k }}][{{ i }}][add_point]" class="btn btn-secondary add addPoint" value="{% trans 'Add a point' %}">
+                                    <a href="#" name="gis_data[{{ a }}][{{ type }}][{{ k }}][{{ i }}][add_point]" class="btn btn-secondary addJs addPoint">+ {% trans 'Add a point' %}</a>
                                 {% endfor %}
                                 <br>
-                                <input type="submit" name="gis_data[{{ a }}][{{ type }}][{{ k }}][add_line]" class="btn btn-secondary add addLine" value="{% trans 'Add an inner ring' %}">
+                                <a href="#" name="gis_data[{{ a }}][{{ type }}][{{ k }}][add_line]" class="btn btn-secondary addJs addLine">+ {% trans 'Add an inner ring' %}</a>
                                 <br>
                             {% endfor %}
                             <br>
-                            <input type="submit" name="gis_data[{{ a }}][{{ type }}][add_polygon]" class="btn btn-secondary add addPolygon" value="{% trans 'Add a polygon' %}">
+                            <a href="#" name="gis_data[{{ a }}][{{ type }}][add_polygon]" class="btn btn-secondary addJs addPolygon">+ {% trans 'Add a polygon' %}</a>
                         {% endif %}
                     {% endif %}
                 {% endfor %}
             {% endif %}
             {% if geom_type == 'GEOMETRYCOLLECTION' %}
                 <br><br>
-                <input type="submit" name="gis_data[GEOMETRYCOLLECTION][add_geom]" class="btn btn-secondary add addGeom" value="{% trans 'Add geometry' %}">
+                <a href="#" name="gis_data[GEOMETRYCOLLECTION][add_geom]" class="btn btn-secondary addJs addGeom">+ {% trans 'Add geometry' %}</a>
             {% endif %}
         </div>
         {# End of data section #}
 
         <br>
-        <input class="btn btn-primary" type="submit" name="gis_data[save]" value="{% trans 'Go' %}">
 
         <div id="gis_data_output">
             <h3>{% trans 'Output' %}</h3>
-            <p>
-                {% trans 'Choose "GeomFromText" from the "Function" column and paste the string below into the "Value" field.' %}
-            </p>
             <textarea id="gis_data_textarea" rows="5">{{ result }}</textarea>
+            <br>
+            <br>
+            <input class="btn btn-primary" type="submit" name="gis_data[save]" value="{{ 'Copy'|trans }}">
+            <a class="cancel_gis_editor" href="#"> {{ 'Cancel'|trans }}</a>
         </div>
     </div>
 </form>
