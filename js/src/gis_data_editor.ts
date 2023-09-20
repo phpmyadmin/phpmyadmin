@@ -146,30 +146,15 @@ function loadGISEditor (value, field, type, inputName) {
 }
 
 function openGISEditorInternal () {
-    // Center the popup
-    var windowWidth = document.documentElement.clientWidth;
-    var windowHeight = document.documentElement.clientHeight;
-    var popupWidth = windowWidth * 0.9;
-    var popupHeight = windowHeight * 0.9;
-    var popupOffsetTop = windowHeight / 2 - popupHeight / 2;
-    var popupOffsetLeft = windowWidth / 2 - popupWidth / 2;
-
-    var $gisEditor = $('#gis_editor');
-    var $background = $('#popup_background');
-
-    $gisEditor.css({ 'top': popupOffsetTop, 'left': popupOffsetLeft, 'width': popupWidth, 'height': popupHeight });
-    $background.css({ 'opacity': '0.7' });
-
-    $gisEditor.append(
-        '<div id="gis_data_editor">' +
-        '<img class="ajaxIcon" id="loadingMonitorIcon" src="' +
-        window.themeImagePath + 'ajax_clock_small.gif" alt="">' +
-        '</div>'
-    );
-
-    // Make it appear
-    $background.fadeIn('fast');
-    $gisEditor.fadeIn('fast');
+    $('#popup_background').fadeIn('fast');
+    $('#gis_editor')
+        .append(
+            '<div id="gis_data_editor">' +
+            '<img class="ajaxIcon" id="loadingMonitorIcon" src="' +
+            window.themeImagePath + 'ajax_clock_small.gif" alt="">' +
+            '</div>'
+        )
+        .fadeIn('fast');
 }
 
 /**
