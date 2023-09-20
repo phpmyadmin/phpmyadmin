@@ -4,6 +4,7 @@
         <h3>{{ 'Value for the column "%s"'|trans|format(field) }}</h3>
 
         <input type="hidden" name="field" value="{{ field }}">
+        <input type="hidden" name="type" value="{{ column_type }}">
         {# The input field to which the final result should be added and corresponding null checkbox #}
         {% if input_name is not null %}
             <input type="hidden" name="input_name" value="{{ input_name }}">
