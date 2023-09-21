@@ -186,11 +186,11 @@ final class SaveController extends AbstractController
                     && ! in_array($_POST['field_orig'][$i], $columns_with_index)
                 ) {
                     if ($_POST['field_type_orig'][$i] === 'MEDIUMTEXT') {
-                      $blob_type = 'MEDIUMBLOB';
+                        $blob_type = 'MEDIUMBLOB';
                     } elseif ($_POST['field_type_orig'][$i] === 'LONGTEXT') {
-                      $blob_type = 'LONGBLOB';
+                        $blob_type = 'LONGBLOB';
                     } else {
-                      $blob_type = 'BLOB';
+                        $blob_type = 'BLOB';
                     }
                     
                     $secondary_query = 'ALTER TABLE ' . Util::backquote($this->table)
