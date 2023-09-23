@@ -237,7 +237,7 @@ class GisGeometryCollection extends GisGeometry
      */
     public function generateWkt(array $gisData, int $index, string|null $empty = ''): string
     {
-        $geomCount = $gisData['GEOMETRYCOLLECTION']['geom_count'] ?? 1;
+        $geomCount = $gisData['GEOMETRYCOLLECTION']['data_length'] ?? 1;
         $wkt = 'GEOMETRYCOLLECTION(';
         /** @infection-ignore-all */
         for ($i = 0; $i < $geomCount; $i++) {
@@ -283,7 +283,7 @@ class GisGeometryCollection extends GisGeometry
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $geomCol = mb_substr($wkt, 19, -1);
         $wktGeometries = $this->explodeGeomCol($geomCol);
-        $params = ['srid' => $data['srid'], 'GEOMETRYCOLLECTION' => ['geom_count' => count($wktGeometries)]];
+        $params = ['srid' => $data['srid'], 'GEOMETRYCOLLECTION' => ['data_length' => count($wktGeometries)]];
 
         foreach ($wktGeometries as $wktGeometry) {
             $gisObj = GisFactory::fromWkt($wktGeometry);

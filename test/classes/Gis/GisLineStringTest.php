@@ -30,7 +30,7 @@ class GisLineStringTest extends GisGeomTestCase
         $temp1 = [
             0 => [
                 'LINESTRING' => [
-                    'no_of_points' => 2,
+                    'data_length' => 2,
                     0 => ['x' => 5.02, 'y' => 8.45],
                     1 => ['x' => 6.14, 'y' => 0.15],
                 ],
@@ -38,21 +38,21 @@ class GisLineStringTest extends GisGeomTestCase
         ];
 
         $temp2 = $temp1;
-        $temp2[0]['LINESTRING']['no_of_points'] = 3;
+        $temp2[0]['LINESTRING']['data_length'] = 3;
         $temp2[0]['LINESTRING'][2] = ['x' => 1.56];
 
         $temp3 = $temp2;
-        $temp3[0]['LINESTRING']['no_of_points'] = -1;
+        $temp3[0]['LINESTRING']['data_length'] = -1;
 
         $temp4 = $temp3;
-        $temp4[0]['LINESTRING']['no_of_points'] = 3;
+        $temp4[0]['LINESTRING']['data_length'] = 3;
         unset($temp4[0]['LINESTRING'][2]['x']);
 
         return [
             [$temp1, 0, null, 'LINESTRING(5.02 8.45,6.14 0.15)'],
             // if a coordinate is missing, default is empty string
             [$temp2, 0, null, 'LINESTRING(5.02 8.45,6.14 0.15,1.56 )'],
-            // if no_of_points is not valid, it is considered as 2
+            // if data_length is not valid, it is considered as 2
             [$temp3, 0, null, 'LINESTRING(5.02 8.45,6.14 0.15)'],
             // missing coordinates are replaced with provided values (3rd parameter)
             [$temp4, 0, '0', 'LINESTRING(5.02 8.45,6.14 0.15,0 0)'],
@@ -101,7 +101,7 @@ class GisLineStringTest extends GisGeomTestCase
                     'srid' => 124,
                     0 => [
                         'LINESTRING' => [
-                            'no_of_points' => 2,
+                            'data_length' => 2,
                             0 => ['x' => 5.02, 'y' => 8.45],
                             1 => ['x' => 6.14, 'y' => 0.15],
                         ],
@@ -114,7 +114,7 @@ class GisLineStringTest extends GisGeomTestCase
                     'srid' => 0,
                     0 => [
                         'LINESTRING' => [
-                            'no_of_points' => 1,
+                            'data_length' => 1,
                             0 => [
                                 'x' => 0,
                                 'y' => 0,

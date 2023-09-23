@@ -240,7 +240,7 @@ class GisLineString extends GisGeometry
      */
     public function generateWkt(array $gisData, int $index, string|null $empty = ''): string
     {
-        $noOfPoints = $gisData[$index]['LINESTRING']['no_of_points'] ?? 2;
+        $noOfPoints = $gisData[$index]['LINESTRING']['data_length'] ?? 2;
         if ($noOfPoints < 2) {
             $noOfPoints = 2;
         }
@@ -275,7 +275,7 @@ class GisLineString extends GisGeometry
         $pointsArr = $this->extractPoints1d($linestring, null);
 
         $noOfPoints = count($pointsArr);
-        $coords = ['no_of_points' => $noOfPoints];
+        $coords = ['data_length' => $noOfPoints];
         /** @infection-ignore-all */
         for ($i = 0; $i < $noOfPoints; $i++) {
             $coords[$i] = ['x' => $pointsArr[$i][0], 'y' => $pointsArr[$i][1]];

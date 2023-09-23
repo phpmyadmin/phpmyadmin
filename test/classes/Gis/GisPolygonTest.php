@@ -29,9 +29,9 @@ class GisPolygonTest extends GisGeomTestCase
     {
         return [
             'POLYGON' => [
-                'no_of_lines' => 2,
+                'data_length' => 2,
                 0 => [
-                    'no_of_points' => 5,
+                    'data_length' => 5,
                     0 => ['x' => 35, 'y' => 10],
                     1 => ['x' => 10, 'y' => 20],
                     2 => ['x' => 15, 'y' => 40],
@@ -39,7 +39,7 @@ class GisPolygonTest extends GisGeomTestCase
                     4 => ['x' => 35, 'y' => 10],
                 ],
                 1 => [
-                    'no_of_points' => 4,
+                    'data_length' => 4,
                     0 => ['x' => 20, 'y' => 30],
                     1 => ['x' => 35, 'y' => 32],
                     2 => ['x' => 30, 'y' => 20],
@@ -77,10 +77,10 @@ class GisPolygonTest extends GisGeomTestCase
         unset($temp1[0]['POLYGON'][1][3]['y']);
 
         $temp2 = $temp;
-        $temp2[0]['POLYGON']['no_of_lines'] = 0;
+        $temp2[0]['POLYGON']['data_length'] = 0;
 
         $temp3 = $temp;
-        $temp3[0]['POLYGON'][1]['no_of_points'] = 3;
+        $temp3[0]['POLYGON'][1]['data_length'] = 3;
 
         return [
             [$temp, 0, null, 'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30))'],

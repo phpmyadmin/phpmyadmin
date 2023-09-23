@@ -32,7 +32,7 @@ class GisMultiPointTest extends GisGeomTestCase
         $gisData1 = [
             0 => [
                 'MULTIPOINT' => [
-                    'no_of_points' => 2,
+                    'data_length' => 2,
                     0 => ['x' => 5.02, 'y' => 8.45],
                     1 => ['x' => 1.56, 'y' => 4.36],
                 ],
@@ -40,7 +40,7 @@ class GisMultiPointTest extends GisGeomTestCase
         ];
 
         $gisData2 = $gisData1;
-        $gisData2[0]['MULTIPOINT']['no_of_points'] = -1;
+        $gisData2[0]['MULTIPOINT']['data_length'] = -1;
 
         return [
             [$gisData1, 0, null, 'MULTIPOINT(5.02 8.45,1.56 4.36)'],
@@ -101,7 +101,7 @@ class GisMultiPointTest extends GisGeomTestCase
                     'srid' => 124,
                     0 => [
                         'MULTIPOINT' => [
-                            'no_of_points' => 2,
+                            'data_length' => 2,
                             0 => ['x' => 5.02, 'y' => 8.45],
                             1 => ['x' => 6.14, 'y' => 0.15],
                         ],

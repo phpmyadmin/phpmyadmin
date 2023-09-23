@@ -264,7 +264,7 @@ class GisPolygon extends GisGeometry
      */
     public function generateWkt(array $gisData, int $index, string|null $empty = ''): string
     {
-        $noOfLines = $gisData[$index]['POLYGON']['no_of_lines'] ?? 1;
+        $noOfLines = $gisData[$index]['POLYGON']['data_length'] ?? 1;
         if ($noOfLines < 1) {
             $noOfLines = 1;
         }
@@ -272,7 +272,7 @@ class GisPolygon extends GisGeometry
         $wkt = 'POLYGON(';
         /** @infection-ignore-all */
         for ($i = 0; $i < $noOfLines; $i++) {
-            $noOfPoints = $gisData[$index]['POLYGON'][$i]['no_of_points'] ?? 4;
+            $noOfPoints = $gisData[$index]['POLYGON'][$i]['data_length'] ?? 4;
             if ($noOfPoints < 4) {
                 $noOfPoints = 4;
             }
@@ -308,12 +308,12 @@ class GisPolygon extends GisGeometry
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $wktPolygon = mb_substr($wkt, 9, -2);
         $wktRings = explode('),(', $wktPolygon);
-        $coords = ['no_of_lines' => count($wktRings)];
+        $coords = ['data_length' => count($wktRings)];
 
         foreach ($wktRings as $j => $wktRing) {
             $points = $this->extractPoints1d($wktRing, null);
             $noOfPoints = count($points);
-            $coords[$j] = ['no_of_points' => $noOfPoints];
+            $coords[$j] = ['data_length' => $noOfPoints];
             /** @infection-ignore-all */
             for ($i = 0; $i < $noOfPoints; $i++) {
                 $coords[$j][$i] = ['x' => $points[$i][0], 'y' => $points[$i][1]];

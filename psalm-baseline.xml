@@ -6362,7 +6362,7 @@
       <code>$tempPoint[1]</code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$gisData[$index]['LINESTRING']['no_of_points']]]></code>
+      <code><![CDATA[$gisData[$index]['LINESTRING']['data_length']]]></code>
       <code>$tempPoint[0]</code>
       <code>$tempPoint[0]</code>
       <code>$tempPoint[1]</code>
@@ -6396,8 +6396,8 @@
     </MixedArgument>
     <MixedArrayAccess>
       <code>$dataRow[$i]</code>
-      <code><![CDATA[$dataRow[$i]['no_of_points']]]></code>
-      <code><![CDATA[$dataRow['no_of_lines']]]></code>
+      <code><![CDATA[$dataRow[$i]['data_length']]]></code>
+      <code><![CDATA[$dataRow['data_length']]]></code>
       <code><![CDATA[$point['x']]]></code>
       <code><![CDATA[$point['y']]]></code>
       <code><![CDATA[$rowData['parts'][$i]]]></code>
@@ -6429,8 +6429,8 @@
     </PossiblyFalseArgument>
     <PossiblyNullArrayAccess>
       <code>$dataRow[$i]</code>
-      <code><![CDATA[$dataRow[$i]['no_of_points']]]></code>
-      <code><![CDATA[$dataRow['no_of_lines']]]></code>
+      <code><![CDATA[$dataRow[$i]['data_length']]]></code>
+      <code><![CDATA[$dataRow['data_length']]]></code>
     </PossiblyNullArrayAccess>
     <RedundantPropertyInitializationCheck>
       <code>isset(self::$instance)</code>
@@ -6438,7 +6438,7 @@
   </file>
   <file src="src/Gis/GisMultiPoint.php">
     <MixedArrayAccess>
-      <code><![CDATA[$gisData[$index]['MULTIPOINT']['no_of_points']]]></code>
+      <code><![CDATA[$gisData[$index]['MULTIPOINT']['data_length']]]></code>
       <code><![CDATA[$rowData['points'][$i]]]></code>
       <code><![CDATA[$rowData['points'][$i]]]></code>
       <code><![CDATA[$rowData['points'][$i]['x']]]></code>
@@ -6480,9 +6480,9 @@
       <code>$dataRow[$k]</code>
       <code>$dataRow[$k]</code>
       <code>$dataRow[$k][$i]</code>
-      <code><![CDATA[$dataRow[$k][$i]['no_of_points']]]></code>
-      <code><![CDATA[$dataRow[$k]['no_of_lines']]]></code>
-      <code><![CDATA[$dataRow['no_of_polygons']]]></code>
+      <code><![CDATA[$dataRow[$k][$i]['data_length']]]></code>
+      <code><![CDATA[$dataRow[$k]['data_length']]]></code>
+      <code><![CDATA[$dataRow['data_length']]]></code>
       <code><![CDATA[$innerPoint['x']]]></code>
       <code><![CDATA[$innerPoint['y']]]></code>
       <code>$labelPoint[0]</code>
@@ -6560,9 +6560,9 @@
       <code>$dataRow[$k]</code>
       <code>$dataRow[$k]</code>
       <code>$dataRow[$k][$i]</code>
-      <code><![CDATA[$dataRow[$k][$i]['no_of_points']]]></code>
-      <code><![CDATA[$dataRow[$k]['no_of_lines']]]></code>
-      <code><![CDATA[$dataRow['no_of_polygons']]]></code>
+      <code><![CDATA[$dataRow[$k][$i]['data_length']]]></code>
+      <code><![CDATA[$dataRow[$k]['data_length']]]></code>
+      <code><![CDATA[$dataRow['data_length']]]></code>
     </PossiblyNullArrayAccess>
     <RedundantPropertyInitializationCheck>
       <code>isset(self::$instance)</code>
@@ -6600,8 +6600,8 @@
     <MixedArrayAccess>
       <code><![CDATA[$gisData[$index]['POLYGON']]]></code>
       <code><![CDATA[$gisData[$index]['POLYGON'][$i]]]></code>
-      <code><![CDATA[$gisData[$index]['POLYGON'][$i]['no_of_points']]]></code>
-      <code><![CDATA[$gisData[$index]['POLYGON']['no_of_lines']]]></code>
+      <code><![CDATA[$gisData[$index]['POLYGON'][$i]['data_length']]]></code>
+      <code><![CDATA[$gisData[$index]['POLYGON']['data_length']]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
       <code>$noOfLines</code>
@@ -14657,8 +14657,8 @@
       <code><![CDATA[$temp['POLYGON'][1]]]></code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$temp['POLYGON'][0]['no_of_points']]]></code>
-      <code><![CDATA[$temp['POLYGON'][1]['no_of_points']]]></code>
+      <code><![CDATA[$temp['POLYGON'][0]['data_length']]]></code>
+      <code><![CDATA[$temp['POLYGON'][1]['data_length']]]></code>
     </MixedArrayAccess>
     <PossiblyUnusedMethod>
       <code>providerForIsOuterRing</code>

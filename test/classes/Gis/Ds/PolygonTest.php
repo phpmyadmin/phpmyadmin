@@ -22,9 +22,9 @@ class PolygonTest extends AbstractTestCase
     {
         return [
             'POLYGON' => [
-                'no_of_lines' => 2,
+                'data_length' => 2,
                 0 => [
-                    'no_of_points' => 5,
+                    'data_length' => 5,
                     0 => ['x' => 35, 'y' => 10],
                     1 => ['x' => 10, 'y' => 20],
                     2 => ['x' => 15, 'y' => 40],
@@ -32,7 +32,7 @@ class PolygonTest extends AbstractTestCase
                     4 => ['x' => 35, 'y' => 10],
                 ],
                 1 => [
-                    'no_of_points' => 4,
+                    'data_length' => 4,
                     0 => ['x' => 20, 'y' => 30],
                     1 => ['x' => 35, 'y' => 32],
                     2 => ['x' => 30, 'y' => 20],
@@ -145,8 +145,8 @@ class PolygonTest extends AbstractTestCase
     public static function providerForTestGetPointOnSurface(): array
     {
         $temp = self::getData();
-        unset($temp['POLYGON'][0]['no_of_points']);
-        unset($temp['POLYGON'][1]['no_of_points']);
+        unset($temp['POLYGON'][0]['data_length']);
+        unset($temp['POLYGON'][1]['data_length']);
 
         return [[Polygon::fromXYArray($temp['POLYGON'][0])], [Polygon::fromXYArray($temp['POLYGON'][1])]];
     }

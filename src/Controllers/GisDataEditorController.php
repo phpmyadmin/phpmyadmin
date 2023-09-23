@@ -13,7 +13,6 @@ use PhpMyAdmin\Http\ServerRequest;
 
 use function array_merge;
 use function in_array;
-use function intval;
 use function is_array;
 use function mb_strtoupper;
 use function preg_match;
@@ -88,15 +87,6 @@ class GisDataEditorController extends AbstractController
             return;
         }
 
-        $geomCount = 1;
-        if ($geomType === 'GEOMETRYCOLLECTION') {
-            $geomCount = isset($gisData[$geomType]['geom_count'])
-                ? intval($gisData[$geomType]['geom_count']) : 1;
-            if (isset($gisData[$geomType]['add_geom'])) {
-                $geomCount++;
-            }
-        }
-
         $templateOutput = $this->template->render('gis_data_editor_form', [
             'width' => $visualization->getWidth(),
             'height' => $visualization->getHeight(),
@@ -108,7 +98,6 @@ class GisDataEditorController extends AbstractController
             'column_type' => mb_strtoupper($type),
             'gis_types' => self::GIS_TYPES,
             'geom_type' => $geomType,
-            'geom_count' => $geomCount,
             'gis_data' => $gisData,
             'result' => $result,
         ]);
