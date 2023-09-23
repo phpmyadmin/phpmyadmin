@@ -60,15 +60,21 @@ function makeCoordinateInputs (prefix: string, data): string {
 
 function makePointNInputs (prefix: string, index: number, data): string {
     return (
+        '<div class="gis-coordinates">' +
         window.Messages.strPoint + ' ' + (index + 1) + ': ' +
-        makeCoordinateInputs(withIndex(prefix, index), data)
+        makeCoordinateInputs(withIndex(prefix, index), data) +
+        '</div>'
     );
 }
 
 function makePointInputs (prefix: string, data): string {
     return (
+        '<div class="gis-coordinates-list">' +
+        '<div class="gis-coordinates">' +
         window.Messages.strPoint + ': ' +
-        makeCoordinateInputs(prefix, data)
+        makeCoordinateInputs(prefix, data) +
+        '</div>' +
+        '</div>'
     );
 }
 
@@ -82,9 +88,11 @@ function makeMultiPointInputs (prefix: string, data): string {
     }
 
     return (
-        inputs.join('<br>') +
+        '<div class="gis-coordinates-list">' +
+        inputs.join('') +
         makeDataLengthInput(prefix, i) +
-        makeAddButton(prefix, 'addPoint', window.Messages.strAddPoint, 'POINT')
+        makeAddButton(prefix, 'addPoint', window.Messages.strAddPoint, 'POINT') +
+        '</div>'
     );
 }
 
@@ -99,9 +107,11 @@ function makeLineStringInputs (prefix: string, data, type: string): string {
     }
 
     return (
-        inputs.join('<br>') +
+        '<div class="gis-coordinates-list">' +
+        inputs.join('') +
         makeDataLengthInput(prefix, i) +
-        makeAddButton(prefix, 'addPoint', window.Messages.strAddPoint, 'LINESTRING')
+        makeAddButton(prefix, 'addPoint', window.Messages.strAddPoint, 'LINESTRING') +
+        '</div>'
     );
 }
 
@@ -119,9 +129,11 @@ function makeMultiLineStringInputs (prefix: string, data): string {
     }
 
     return (
-        inputs.join('<br>') +
-        makeDataLengthInput(prefix, i) + '<br>' +
-        makeAddButton(prefix, 'addLine', window.Messages.strAddLineString, 'MULTILINESTRING')
+        '<div class="gis-coordinates-list">' +
+        inputs.join('') +
+        makeDataLengthInput(prefix, i) +
+        makeAddButton(prefix, 'addLine', window.Messages.strAddLineString, 'MULTILINESTRING') +
+        '</div>'
     );
 }
 
@@ -139,9 +151,11 @@ function makePolygonInputs (prefix: string, data, type: string): string {
     }
 
     return (
-        inputs.join('<br>') +
-        makeDataLengthInput(prefix, i) + '<br>' +
-        makeAddButton(prefix, 'addLine', window.Messages.strAddInnerRing, 'POLYGON')
+        '<div class="gis-coordinates-list">' +
+        inputs.join('') +
+        makeDataLengthInput(prefix, i) +
+        makeAddButton(prefix, 'addLine', window.Messages.strAddInnerRing, 'POLYGON') +
+        '</div>'
     );
 }
 
@@ -159,9 +173,11 @@ function makeMultiPolygonInputs (prefix: string, data): string {
     }
 
     return (
-        inputs.join('<br>') +
-        makeDataLengthInput(prefix, i) + '<br>' +
-        makeAddButton(prefix, 'addPolygon', window.Messages.strAddPolygon, 'MULTIPOLYGON')
+        '<div class="gis-coordinates-list">' +
+        inputs.join('') +
+        makeDataLengthInput(prefix, i) +
+        makeAddButton(prefix, 'addPolygon', window.Messages.strAddPolygon, 'MULTIPOLYGON') +
+        '</div>'
     );
 }
 
@@ -184,9 +200,12 @@ function makeGeometryCollectionGeometryInputs (prefix: string, index: number, da
     select.setAttribute('name', withIndex(prefix, index, 'gis_type'));
 
     return (
-        window.Messages.strGeometry + ' ' + (index + 1) + ': ' +
-        select.outerHTML + '<br>' +
-        fn(withIndex(prefix, index, type), data ? data[type] : null, type)
+        '<div class="gis-geometry">' +
+        '<div class="gis-geometry-type">' +
+        window.Messages.strGeometry + ' ' + (index + 1) + ': ' + select.outerHTML +
+        '</div>' +
+        fn(withIndex(prefix, index, type), data ? data[type] : null, type) +
+        '</div>'
     );
 }
 
@@ -199,9 +218,11 @@ function makeGeometryCollectionInputs (prefix: string, data): string {
     }
 
     return (
-        inputs.join('<br>') +
-        makeDataLengthInput('gis_data[GEOMETRYCOLLECTION]', i) + '<br>' +
-        makeAddButton(prefix, 'addGeom', window.Messages.strAddGeometry, 'GEOMETRYCOLLECTION')
+        '<div class="gis-geometry-list">' +
+        inputs.join('') +
+        makeDataLengthInput('gis_data[GEOMETRYCOLLECTION]', i) +
+        makeAddButton(prefix, 'addGeom', window.Messages.strAddGeometry, 'GEOMETRYCOLLECTION') +
+        '</div>'
     );
 }
 
@@ -380,7 +401,7 @@ function addPoint () {
 
     // Add the new data point
     const html = makePointNInputs(prefix, noOfPoints, null);
-    $a.before('<br>', html);
+    $a.before(html);
     $noOfPointsInput.val(noOfPoints + 1);
 
     updateResult();
@@ -402,7 +423,7 @@ function addLineStringOrInnerRing () {
 
     const n = type === 'MULTILINESTRING' ? noOfLines + 1 : noOfLines;
     const html = makeLineStringInputs(withIndex(prefix, noOfLines), null, type);
-    $a.before(label + ' ' + n + ':<br>', html, '<br>');
+    $a.before('<div class="gis-geometry-type">' + label + ' ' + n + ':</div>', html);
     $noOfLinesInput.val(noOfLines + 1);
 
     updateResult();
@@ -419,7 +440,7 @@ function addPolygon () {
     const noOfPolygons = parseInt(($noOfPolygonsInput.val() as string), 10);
 
     const html = makePolygonInputs(withIndex(prefix, noOfPolygons), null, 'MULTIPOLYGON');
-    $a.before(window.Messages.strPolygon + ' ' + (noOfPolygons +  1) + ':<br>', html, '<br>');
+    $a.before('<div class="gis-geometry-type">' + window.Messages.strPolygon + ' ' + (noOfPolygons +  1) + ':</div>', html);
     $noOfPolygonsInput.val(noOfPolygons + 1);
 
     updateResult();
@@ -434,7 +455,7 @@ function addGeometry () {
     const noOfGeoms = parseInt(($noOfGeomsInput.val() as string), 10);
 
     const html = makeGeometryCollectionGeometryInputs('gis_data', noOfGeoms, null);
-    $a.before(html, '<br>');
+    $a.before(html);
     $noOfGeomsInput.val(noOfGeoms + 1);
 
     updateResult();
@@ -444,56 +465,22 @@ function addGeometry () {
  * Update the form on change of the GIS type.
  */
 function onGeometryTypeChange () {
-    const $gisEditor = $('#gis_editor');
-    const prefix = $(this).attr('name').match(/^(.*)\[gis_type\]$/)[1];
+    const typeSelect = this as HTMLSelectElement;
+    const prefix = typeSelect.getAttribute('name').match(/^(.*)\[gis_type\]$/)[1];
+    const isSubGeom = prefix !== 'gis_data';
+    const type = typeSelect.value;
 
-    const inputs = $('[name^="' + prefix + '"]', $gisEditor).toArray();
-    const type = $(this).val() as string;
-    const match = $(this).attr('name').match(/^gis_data\[(\d+)\]/);
-    const parent = inputs[0].parentNode;
-    if (match) { // Geometry of GeometryCollection changed
-        const last = inputs[inputs.length - 1];
-        for (;;) {
-            const next = inputs[0].nextSibling;
-            parent.removeChild(next);
-            if (next.nodeType === Node.ELEMENT_NODE && next.contains(last)) {
-                break;
-            }
-        }
-
-        for (;;) {
-            const next = inputs[0].nextSibling;
-            if (
-                !next ||
-                (next.nodeType === Node.TEXT_NODE && !/^\s+$/.test(next.textContent)) ||
-                (next.nodeType !== Node.TEXT_NODE &&
-                    next.nodeName !== 'A' &&
-                    next.nodeName !== 'BR' &&
-                    !(next as HTMLElement).classList.contains('addGeom'))
-            ) {
-                break;
-            }
-
-            parent.removeChild(next);
-        }
-
-        const index = Number(match[1]);
-        $(inputs[0] as HTMLSelectElement).attr('name', withIndex('gis_data', index, 'gis_type'));
-
+    let html;
+    if (isSubGeom) {
         const fn = INPUTS_GENERATOR[type];
-        const html = fn(withIndex(prefix, type), null, type);
-        $(inputs[0]).after('<br>', html, '<br>');
-    } else { // Entire geometry changed
-        let html;
-        if (type === 'GEOMETRYCOLLECTION') {
-            html = makeGeometryCollectionInputs(prefix, {});
-        } else {
-            html = makeGeometryInputs({ 'gis_type': type, '0': {} });
-        }
-
-        const template = $('#gis_data > template');
-        $('#gis_data').empty().append(template, html);
+        html = fn(withIndex(prefix, type), null, type);
+    } else {
+        html = type === 'GEOMETRYCOLLECTION'
+            ? makeGeometryCollectionInputs(prefix, {})
+            : makeGeometryInputs({ 'gis_type': type, '0': {} });
     }
+
+    $(typeSelect.parentElement.nextElementSibling).replaceWith(html);
 
     updateResult();
 }

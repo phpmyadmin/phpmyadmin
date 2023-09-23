@@ -26,23 +26,8 @@
         <script>{{ open_layers|raw }}</script>
         {# End of visualization section #}
 
-        {# Header section - Inclueds GIS type selector and input field for SRID #}
-        <div id="gis_data_header">
-            <select name="gis_data[gis_type]" class="gis_type{{ column_type != 'GEOMETRY' ? ' hide' }}">
-                {% for gis_type in gis_types %}
-                    <option value="{{ gis_type }}"{{ geom_type == gis_type ? ' selected="selected"' }}>
-                        {{ gis_type }}
-                    </option>
-                {% endfor %}
-            </select>
-
-            <label for="srid">{% trans %}SRID:{% context %}Spatial Reference System Identifier{% endtrans %}</label>
-            <input id="srid" name="gis_data[srid]" type="text" value="{{ srid }}">
-        </div>
-        {# End of header section #}
-
         {# Data section #}
-        <div id="gis_data" data-gis-data="{{ gis_data|json_encode }}">
+        <div id="gis_data" class="gis-geometry" data-gis-data="{{ gis_data|json_encode }}">
             <template id="gis_type_template">
                 <select class="gis_type">
                     {% for gis_type in gis_types|slice(0, 6) %}
@@ -50,16 +35,28 @@
                     {% endfor %}
                 </select>
             </template>
+
+            {# Header section - Inclueds GIS type selector and input field for SRID #}
+            <div class="gis-geometry-type">
+                <select name="gis_data[gis_type]" class="gis_type{{ column_type != 'GEOMETRY' ? ' hide' }}">
+                    {% for gis_type in gis_types %}
+                        <option value="{{ gis_type }}"{{ geom_type == gis_type ? ' selected="selected"' }}>
+                            {{ gis_type }}
+                        </option>
+                    {% endfor %}
+                </select>
+
+                <label for="srid">{% trans %}SRID:{% context %}Spatial Reference System Identifier{% endtrans %}</label>
+                <input id="srid" name="gis_data[srid]" type="text" value="{{ srid }}">
+            </div>
+            {# End of header section #}
+
         </div>
         {# End of data section #}
 
-        <br>
-
-        <div id="gis_data_output">
+        <div class="gis_data_output">
             <h3>{% trans 'Output' %}</h3>
-            <textarea id="gis_data_textarea" rows="5">{{ result }}</textarea>
-            <br>
-            <br>
+            <textarea id="gis_data_textarea" class="mb-3" rows="5">{{ result }}</textarea>
             <input class="btn btn-primary" type="submit" name="gis_data[save]" value="{{ 'Copy'|trans }}">
             <a class="cancel_gis_editor" href="#"> {{ 'Cancel'|trans }}</a>
         </div>

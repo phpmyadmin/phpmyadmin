@@ -18,6 +18,12 @@ a.close_gis_editor {
   overflow-x: hidden;
 }
 
+.gis-coordinates-list {
+  padding-left: 10px;
+  border-left: 2px solid grey;
+  margin-bottom: 10px;
+}
+
 #gis_data {
   min-height: 230px;
 }
