@@ -392,15 +392,11 @@ function onCoordinateEdit (data) {
 function addPoint () {
     const $a = $(this);
     const prefix = $a.data('prefix');
+    const dataLength = this.parentElement.querySelectorAll(':scope > .gis-coordinates').length;
+    $('input[name=\'' + prefix + '[data_length]' + '\']').val(dataLength + 1);
 
-    // Find the number of points
-    const $noOfPointsInput = $('input[name=\'' + prefix + '[data_length]' + '\']');
-    const noOfPoints = parseInt(($noOfPointsInput.val() as string), 10);
-
-    // Add the new data point
-    const html = makePointNInputs(prefix, noOfPoints, null);
+    const html = makePointNInputs(prefix, dataLength, null);
     $a.before(html);
-    $noOfPointsInput.val(noOfPoints + 1);
 
     updateResult();
 }
@@ -412,17 +408,13 @@ function addLineStringOrInnerRing () {
     const $a = $(this);
     const prefix = $a.data('prefix');
     const type = $a.data('geometryType');
-
-    // Find the number of lines
-    const $noOfLinesInput = $('input[name=\'' + prefix + '[data_length]' + '\']');
-    const noOfLines = parseInt(($noOfLinesInput.val() as string), 10);
+    const dataLength = this.parentElement.querySelectorAll(':scope > .gis-coordinates-list').length;
+    $('input[name=\'' + prefix + '[data_length]' + '\']').val(dataLength + 1);
 
     const label = type === 'MULTILINESTRING' ? window.Messages.strLineString : window.Messages.strInnerRing;
-
-    const n = type === 'MULTILINESTRING' ? noOfLines + 1 : noOfLines;
-    const html = makeLineStringInputs(withIndex(prefix, noOfLines), null, type);
+    const n = type === 'MULTILINESTRING' ? dataLength + 1 : dataLength;
+    const html = makeLineStringInputs(withIndex(prefix, dataLength), null, type);
     $a.before('<div class="gis-geometry-type">' + label + ' ' + n + ':</div>', html);
-    $noOfLinesInput.val(noOfLines + 1);
 
     updateResult();
 }
@@ -433,13 +425,11 @@ function addLineStringOrInnerRing () {
 function addPolygon () {
     const $a = $(this);
     const prefix = $a.data('prefix');
-    // Find the number of polygons
-    const $noOfPolygonsInput = $('input[name=\'' + prefix + '[data_length]' + '\']');
-    const noOfPolygons = parseInt(($noOfPolygonsInput.val() as string), 10);
+    const dataLength = this.parentElement.querySelectorAll(':scope > .gis-coordinates-list').length;
+    $('input[name=\'' + prefix + '[data_length]' + '\']').val(dataLength + 1);
 
-    const html = makePolygonInputs(withIndex(prefix, noOfPolygons), null, 'MULTIPOLYGON');
-    $a.before('<div class="gis-geometry-type">' + window.Messages.strPolygon + ' ' + (noOfPolygons +  1) + ':</div>', html);
-    $noOfPolygonsInput.val(noOfPolygons + 1);
+    const html = makePolygonInputs(withIndex(prefix, dataLength), null, 'MULTIPOLYGON');
+    $a.before('<div class="gis-geometry-type">' + window.Messages.strPolygon + ' ' + (dataLength +  1) + ':</div>', html);
 
     updateResult();
 }
@@ -448,13 +438,11 @@ function addPolygon () {
  * Handles adding geoms
  */
 function addGeometry () {
-    const $a = $(this);
-    const $noOfGeomsInput = $('input[name="gis_data[GEOMETRYCOLLECTION][data_length]"]');
-    const noOfGeoms = parseInt(($noOfGeomsInput.val() as string), 10);
+    const dataLength = this.parentElement.querySelectorAll(':scope > .gis-geometry').length;
+    $('input[name="gis_data[GEOMETRYCOLLECTION][data_length]"]').val(dataLength + 1);
 
-    const html = makeGeometryCollectionGeometryInputs('gis_data', noOfGeoms, null);
-    $a.before(html);
-    $noOfGeomsInput.val(noOfGeoms + 1);
+    const html = makeGeometryCollectionGeometryInputs('gis_data', dataLength, null);
+    $(this).before(html);
 
     updateResult();
 }
