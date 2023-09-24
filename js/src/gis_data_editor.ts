@@ -36,12 +36,12 @@ function makeDataLengthInput (prefix: string, length: number): string {
 
 function makeAddButton (prefix: string, cls: string, label: string, type: string): string {
     return (
-        '<a href="#"' +
+        '<button type="button"' +
         ' data-prefix="' + prefix + '"' +
         ' data-geometry-type="' + type + '"' +
         ' class="btn btn-secondary addJs ' + cls + '">' +
         '+ ' + label +
-        '</a>'
+        '</button>'
     );
 }
 
@@ -353,9 +353,7 @@ function openGISEditor (value, field, type, inputName) {
  * Prepare and insert the GIS data in Well Known Text format
  * to the input field.
  */
-function insertDataAndClose (event) {
-    event.preventDefault();
-
+function insertDataAndClose () {
     const $form = $('form#gis_data_editor_form');
     const inputName = $form.find('input[name=\'input_name\']').val();
 
@@ -499,33 +497,27 @@ function updateResult () {
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('gis_data_editor.js', function () {
-    $(document).off('click', '#gis_editor input[name=\'gis_data[save]\']');
-    $(document).off('submit', '#gis_editor');
+    $(document).off('click', '#gis_editor button.gis-copy-data');
     $(document).off('change', '#gis_editor input[type=\'text\']');
     $(document).off('change', '#gis_editor select.gis_type');
-    $(document).off('click', '#gis_editor a.close_gis_editor, #gis_editor a.cancel_gis_editor');
-    $(document).off('click', '#gis_editor a.addJs.addPoint');
-    $(document).off('click', '#gis_editor a.addJs.addLine');
-    $(document).off('click', '#gis_editor a.addJs.addPolygon');
-    $(document).off('click', '#gis_editor a.addJs.addGeom');
+    $(document).off('click', '#gis_editor button.cancel_gis_editor');
+    $(document).off('click', '#gis_editor button.addJs.addPoint');
+    $(document).off('click', '#gis_editor button.addJs.addLine');
+    $(document).off('click', '#gis_editor button.addJs.addPolygon');
+    $(document).off('click', '#gis_editor button.addJs.addGeom');
 });
 
 AJAX.registerOnload('gis_data_editor.js', function () {
-    $(document).on('click', '#gis_editor input[name=\'gis_data[save]\']', insertDataAndClose);
-    $(document).on('submit', '#gis_editor', insertDataAndClose);
+    $(document).on('click', '#gis_editor button.gis-copy-data', insertDataAndClose);
 
     $(document).on('change', '#gis_editor input[type=\'text\']', updateResult);
     $(document).on('change', '#gis_editor select.gis_type', onGeometryTypeChange);
-    $(document).on(
-        'click',
-        '#gis_editor a.close_gis_editor, #gis_editor a.cancel_gis_editor',
-        () => closeGISEditor()
-    );
+    $(document).on('click', '#gis_editor button.cancel_gis_editor', () => closeGISEditor());
 
-    $(document).on('click', '#gis_editor a.addJs.addPoint', addPoint);
-    $(document).on('click', '#gis_editor a.addJs.addLine', addLineStringOrInnerRing);
-    $(document).on('click', '#gis_editor a.addJs.addPolygon', addPolygon);
-    $(document).on('click', '#gis_editor a.addJs.addGeom', addGeometry);
+    $(document).on('click', '#gis_editor button.addJs.addPoint', addPoint);
+    $(document).on('click', '#gis_editor button.addJs.addLine', addLineStringOrInnerRing);
+    $(document).on('click', '#gis_editor button.addJs.addPolygon', addPolygon);
+    $(document).on('click', '#gis_editor button.addJs.addGeom', addGeometry);
 });
 
 declare global {

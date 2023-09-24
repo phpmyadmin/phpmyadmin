@@ -478,7 +478,7 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
 AJAX.registerTeardown('table/change.js', function () {
     $(document).off('click', 'span.open_gis_editor');
     $(document).off('click', 'input[name^=\'insert_ignore_\']');
-    $(document).off('click', 'input[name=\'gis_data[save]\']');
+    $(document).off('click', 'button.gis-copy-data');
     $(document).off('click', 'input.checkbox_null');
     $('select[name="submit_type"]').off('change');
     $(document).off('change', '#insert_rows');
@@ -602,7 +602,7 @@ AJAX.registerOnload('table/change.js', function () {
     /**
      * Uncheck the null checkbox as geometry data is placed on the input field
      */
-    $(document).on('click', 'input[name=\'gis_data[save]\']', function () {
+    $(document).on('click', 'button.gis-copy-data', function () {
         var inputName = $('form#gis_data_editor_form').find('input[name=\'input_name\']').val();
         var currentRow = $('input[name=\'' + inputName + '\']').parents('tr');
         var $nullCheckbox = currentRow.find('.checkbox_null');
