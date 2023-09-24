@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-09-17 00:17+0000\n"
+"POT-Creation-Date: 2023-09-24 00:19+0000\n"
 "PO-Revision-Date: 2021-12-28 12:53+0000\n"
 "Last-Translator: Xuan Hung <mr.hungdx@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1154,7 +1154,7 @@ msgstr "Tìm kiếm:"
 #: templates/database/routines/editor_form.twig:185
 #: templates/database/routines/execute_form.twig:55
 #: templates/display/results/table.twig:279
-#: templates/gis_data_editor_form.twig:202 templates/modals/add_index.twig:10
+#: templates/gis_data_editor_form.twig:215 templates/modals/add_index.twig:10
 #: templates/modals/change_password.twig:10
 #: templates/modals/create_view.twig:10
 #: templates/modals/enum_set_editor.twig:10
@@ -1189,7 +1189,7 @@ msgstr "Tìm kiếm:"
 #: templates/table/structure/display_structure.twig:343
 #: templates/table/structure/display_structure.twig:454
 #: templates/table/structure/display_structure.twig:572
-#: templates/table/zoom_search/index.twig:152
+#: templates/table/zoom_search/index.twig:155
 #: templates/triggers/editor_form.twig:74 templates/view_create.twig:118
 msgid "Go"
 msgstr "Thực hiện"
@@ -5036,7 +5036,7 @@ msgstr ""
 #: src/Controllers/Database/StructureController.php:140
 #: src/Controllers/Database/StructureController.php:145
 #: src/Controllers/Database/Structure/FavoriteTableController.php:83
-#: src/Controllers/Database/Structure/RealRowCountController.php:62
+#: src/Controllers/Database/Structure/RealRowCountController.php:61
 #: src/Controllers/Database/TrackingController.php:62
 #: src/Controllers/Database/TrackingController.php:67
 #: src/Controllers/JavaScriptMessagesController.php:355
@@ -7043,18 +7043,18 @@ msgid "Copy"
 msgstr "Chép"
 
 #: src/Controllers/JavaScriptMessagesController.php:489
-#: templates/gis_data_editor_form.twig:82
-#: templates/gis_data_editor_form.twig:99
-#: templates/gis_data_editor_form.twig:134
-#: templates/gis_data_editor_form.twig:177
+#: templates/gis_data_editor_form.twig:84
+#: templates/gis_data_editor_form.twig:104
+#: templates/gis_data_editor_form.twig:142
+#: templates/gis_data_editor_form.twig:188
 msgid "X"
 msgstr "X"
 
 #: src/Controllers/JavaScriptMessagesController.php:490
-#: templates/gis_data_editor_form.twig:84
-#: templates/gis_data_editor_form.twig:101
-#: templates/gis_data_editor_form.twig:136
-#: templates/gis_data_editor_form.twig:179
+#: templates/gis_data_editor_form.twig:88
+#: templates/gis_data_editor_form.twig:108
+#: templates/gis_data_editor_form.twig:146
+#: templates/gis_data_editor_form.twig:192
 msgid "Y"
 msgstr "Y"
 
@@ -7089,15 +7089,15 @@ msgid "Outer ring"
 msgstr "Vòng ngoài"
 
 #: src/Controllers/JavaScriptMessagesController.php:498
-#: templates/gis_data_editor_form.twig:104
-#: templates/gis_data_editor_form.twig:139
-#: templates/gis_data_editor_form.twig:182
+#: templates/gis_data_editor_form.twig:111
+#: templates/gis_data_editor_form.twig:149
+#: templates/gis_data_editor_form.twig:195
 msgid "Add a point"
 msgstr "Thêm điểm"
 
 #: src/Controllers/JavaScriptMessagesController.php:499
-#: templates/gis_data_editor_form.twig:143
-#: templates/gis_data_editor_form.twig:185
+#: templates/gis_data_editor_form.twig:153
+#: templates/gis_data_editor_form.twig:198
 msgid "Add an inner ring"
 msgstr "Thêm một vòng trong"
 
@@ -11441,22 +11441,22 @@ msgstr ""
 msgid "Error reading data for table %s:"
 msgstr "Gặp lỗi khi đọc dữ liệu:"
 
-#: src/Plugins/Export/ExportSql.php:2671
+#: src/Plugins/Export/ExportSql.php:2665
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:610
 msgid "Creation:"
 msgstr "Tạo:"
 
-#: src/Plugins/Export/ExportSql.php:2681
+#: src/Plugins/Export/ExportSql.php:2675
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:621
 msgid "Last update:"
 msgstr "Cập nhật lần cuối:"
 
-#: src/Plugins/Export/ExportSql.php:2691
+#: src/Plugins/Export/ExportSql.php:2685
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:632
 msgid "Last check:"
 msgstr "Lần kiểm tra cuối:"
 
-#: src/Plugins/Export/ExportSql.php:2714
+#: src/Plugins/Export/ExportSql.php:2708
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
@@ -15338,73 +15338,73 @@ msgstr "Thiếu thông tin git!"
 msgid "Value for the column \"%s\""
 msgstr "Giá trị cho cột \"%s\""
 
-#: templates/gis_data_editor_form.twig:21
+#: templates/gis_data_editor_form.twig:22
 #: templates/table/gis_visualization/gis_visualization.twig:34
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Dùng OpenStreetMaps như là lớp cơ sở"
 
-#: templates/gis_data_editor_form.twig:37
+#: templates/gis_data_editor_form.twig:38
 #, fuzzy
 #| msgid "SRID:"
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
 msgstr "SRID:"
 
-#: templates/gis_data_editor_form.twig:61
+#: templates/gis_data_editor_form.twig:62
 #, php-format
 msgid "Geometry %d:"
 msgstr "Hình dạng %d:"
 
-#: templates/gis_data_editor_form.twig:81
+#: templates/gis_data_editor_form.twig:82
 msgid "Point:"
 msgstr "Tọa độ:"
 
-#: templates/gis_data_editor_form.twig:98
-#: templates/gis_data_editor_form.twig:133
-#: templates/gis_data_editor_form.twig:176
+#: templates/gis_data_editor_form.twig:102
+#: templates/gis_data_editor_form.twig:140
+#: templates/gis_data_editor_form.twig:186
 #, fuzzy, php-format
 #| msgid "Point %d"
 msgid "Point %d:"
 msgstr "Điểm %d"
 
-#: templates/gis_data_editor_form.twig:115
+#: templates/gis_data_editor_form.twig:122
 #, php-format
 msgid "Linestring %d:"
 msgstr "Chuỗi-dòng %d:"
 
-#: templates/gis_data_editor_form.twig:117
-#: templates/gis_data_editor_form.twig:163
+#: templates/gis_data_editor_form.twig:124
+#: templates/gis_data_editor_form.twig:173
 msgid "Outer ring:"
 msgstr "Vòng ngoài:"
 
-#: templates/gis_data_editor_form.twig:119
-#: templates/gis_data_editor_form.twig:165
+#: templates/gis_data_editor_form.twig:126
+#: templates/gis_data_editor_form.twig:175
 #, php-format
 msgid "Inner ring %d:"
 msgstr "Vòng trong %d:"
 
-#: templates/gis_data_editor_form.twig:143
+#: templates/gis_data_editor_form.twig:153
 msgid "Add a linestring"
 msgstr "Thêm một chuỗi-dòng"
 
-#: templates/gis_data_editor_form.twig:153
+#: templates/gis_data_editor_form.twig:163
 #, php-format
 msgid "Polygon %d:"
 msgstr "Hình đa giác %d:"
 
-#: templates/gis_data_editor_form.twig:189
+#: templates/gis_data_editor_form.twig:202
 msgid "Add a polygon"
 msgstr "Thêm hình đa giác"
 
-#: templates/gis_data_editor_form.twig:196
+#: templates/gis_data_editor_form.twig:209
 msgid "Add geometry"
 msgstr "Thêm dạng hình"
 
-#: templates/gis_data_editor_form.twig:205
+#: templates/gis_data_editor_form.twig:218
 msgid "Output"
 msgstr "Kết xuất"
 
-#: templates/gis_data_editor_form.twig:207
+#: templates/gis_data_editor_form.twig:220
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
@@ -18213,8 +18213,8 @@ msgstr "Bởi vì chiều dài của nó,<br> cột này có thể không sửa 
 msgid "Binary - do not edit"
 msgstr "Nhị phân (Binary) - đừng sửa"
 
-#: templates/table/insert/column_row.twig:122
-#: templates/table/search/input_box.twig:31
+#: templates/table/insert/column_row.twig:123
+#: templates/table/search/input_box.twig:32
 msgid "Edit/Insert"
 msgstr "Sửa/Chèn"
 

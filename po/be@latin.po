@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-09-17 00:17+0000\n"
+"POT-Creation-Date: 2023-09-24 00:19+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Belarusian (latin) <https://hosted.weblate.org/projects/"
@@ -1275,7 +1275,7 @@ msgstr "Pošuk"
 #: templates/database/routines/editor_form.twig:185
 #: templates/database/routines/execute_form.twig:55
 #: templates/display/results/table.twig:279
-#: templates/gis_data_editor_form.twig:202 templates/modals/add_index.twig:10
+#: templates/gis_data_editor_form.twig:215 templates/modals/add_index.twig:10
 #: templates/modals/change_password.twig:10
 #: templates/modals/create_view.twig:10
 #: templates/modals/enum_set_editor.twig:10
@@ -1310,7 +1310,7 @@ msgstr "Pošuk"
 #: templates/table/structure/display_structure.twig:343
 #: templates/table/structure/display_structure.twig:454
 #: templates/table/structure/display_structure.twig:572
-#: templates/table/zoom_search/index.twig:152
+#: templates/table/zoom_search/index.twig:155
 #: templates/triggers/editor_form.twig:74 templates/view_create.twig:118
 msgid "Go"
 msgstr "Paniesłasia"
@@ -5256,7 +5256,7 @@ msgstr ""
 #: src/Controllers/Database/StructureController.php:140
 #: src/Controllers/Database/StructureController.php:145
 #: src/Controllers/Database/Structure/FavoriteTableController.php:83
-#: src/Controllers/Database/Structure/RealRowCountController.php:62
+#: src/Controllers/Database/Structure/RealRowCountController.php:61
 #: src/Controllers/Database/TrackingController.php:62
 #: src/Controllers/Database/TrackingController.php:67
 #: src/Controllers/JavaScriptMessagesController.php:355
@@ -7456,18 +7456,18 @@ msgid "Copy"
 msgstr "Skapijavać"
 
 #: src/Controllers/JavaScriptMessagesController.php:489
-#: templates/gis_data_editor_form.twig:82
-#: templates/gis_data_editor_form.twig:99
-#: templates/gis_data_editor_form.twig:134
-#: templates/gis_data_editor_form.twig:177
+#: templates/gis_data_editor_form.twig:84
+#: templates/gis_data_editor_form.twig:104
+#: templates/gis_data_editor_form.twig:142
+#: templates/gis_data_editor_form.twig:188
 msgid "X"
 msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:490
-#: templates/gis_data_editor_form.twig:84
-#: templates/gis_data_editor_form.twig:101
-#: templates/gis_data_editor_form.twig:136
-#: templates/gis_data_editor_form.twig:179
+#: templates/gis_data_editor_form.twig:88
+#: templates/gis_data_editor_form.twig:108
+#: templates/gis_data_editor_form.twig:146
+#: templates/gis_data_editor_form.twig:192
 msgid "Y"
 msgstr ""
 
@@ -7508,17 +7508,17 @@ msgid "Outer ring"
 msgstr "Radki padzielenyja"
 
 #: src/Controllers/JavaScriptMessagesController.php:498
-#: templates/gis_data_editor_form.twig:104
-#: templates/gis_data_editor_form.twig:139
-#: templates/gis_data_editor_form.twig:182
+#: templates/gis_data_editor_form.twig:111
+#: templates/gis_data_editor_form.twig:149
+#: templates/gis_data_editor_form.twig:195
 #, fuzzy
 #| msgid "Add new field"
 msgid "Add a point"
 msgstr "Dadać novaje pole"
 
 #: src/Controllers/JavaScriptMessagesController.php:499
-#: templates/gis_data_editor_form.twig:143
-#: templates/gis_data_editor_form.twig:185
+#: templates/gis_data_editor_form.twig:153
+#: templates/gis_data_editor_form.twig:198
 msgid "Add an inner ring"
 msgstr ""
 
@@ -12310,28 +12310,28 @@ msgstr ""
 msgid "Error reading data for table %s:"
 msgstr "Dazvalaje čytać dadzienyja."
 
-#: src/Plugins/Export/ExportSql.php:2671
+#: src/Plugins/Export/ExportSql.php:2665
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:610
 #, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
 msgstr "Stvoranaja"
 
-#: src/Plugins/Export/ExportSql.php:2681
+#: src/Plugins/Export/ExportSql.php:2675
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:621
 #, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
 msgstr "Apošniaje abnaŭleńnie"
 
-#: src/Plugins/Export/ExportSql.php:2691
+#: src/Plugins/Export/ExportSql.php:2685
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:632
 #, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
 msgstr "Apošniaja pravierka"
 
-#: src/Plugins/Export/ExportSql.php:2714
+#: src/Plugins/Export/ExportSql.php:2708
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
@@ -16653,79 +16653,79 @@ msgstr "Infarmacyja pra versiju"
 msgid "Value for the column \"%s\""
 msgstr ""
 
-#: templates/gis_data_editor_form.twig:21
+#: templates/gis_data_editor_form.twig:22
 #: templates/table/gis_visualization/gis_visualization.twig:34
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr ""
 
-#: templates/gis_data_editor_form.twig:37
+#: templates/gis_data_editor_form.twig:38
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
 msgstr ""
 
-#: templates/gis_data_editor_form.twig:61
+#: templates/gis_data_editor_form.twig:62
 #, php-format
 msgid "Geometry %d:"
 msgstr ""
 
-#: templates/gis_data_editor_form.twig:81
+#: templates/gis_data_editor_form.twig:82
 msgid "Point:"
 msgstr ""
 
-#: templates/gis_data_editor_form.twig:98
-#: templates/gis_data_editor_form.twig:133
-#: templates/gis_data_editor_form.twig:176
+#: templates/gis_data_editor_form.twig:102
+#: templates/gis_data_editor_form.twig:140
+#: templates/gis_data_editor_form.twig:186
 #, fuzzy, php-format
 #| msgid "Add %s field(s)"
 msgid "Point %d:"
 msgstr "Dadać %s novyja pali"
 
-#: templates/gis_data_editor_form.twig:115
+#: templates/gis_data_editor_form.twig:122
 #, fuzzy, php-format
 #| msgid "Lines terminated by"
 msgid "Linestring %d:"
 msgstr "Radki padzielenyja"
 
-#: templates/gis_data_editor_form.twig:117
-#: templates/gis_data_editor_form.twig:163
+#: templates/gis_data_editor_form.twig:124
+#: templates/gis_data_editor_form.twig:173
 msgid "Outer ring:"
 msgstr ""
 
-#: templates/gis_data_editor_form.twig:119
-#: templates/gis_data_editor_form.twig:165
+#: templates/gis_data_editor_form.twig:126
+#: templates/gis_data_editor_form.twig:175
 #, php-format
 msgid "Inner ring %d:"
 msgstr ""
 
-#: templates/gis_data_editor_form.twig:143
+#: templates/gis_data_editor_form.twig:153
 #, fuzzy
 #| msgid "Add constraints"
 msgid "Add a linestring"
 msgstr "Dadać abmiežavańni"
 
-#: templates/gis_data_editor_form.twig:153
+#: templates/gis_data_editor_form.twig:163
 #, fuzzy, php-format
 #| msgid "Add %s field(s)"
 msgid "Polygon %d:"
 msgstr "Dadać %s novyja pali"
 
-#: templates/gis_data_editor_form.twig:189
+#: templates/gis_data_editor_form.twig:202
 #, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add a polygon"
 msgstr "Dadać %s novyja pali"
 
-#: templates/gis_data_editor_form.twig:196
+#: templates/gis_data_editor_form.twig:209
 #, fuzzy
 #| msgid "Add a new User"
 msgid "Add geometry"
 msgstr "Dadać novaha karystalnika"
 
-#: templates/gis_data_editor_form.twig:205
+#: templates/gis_data_editor_form.twig:218
 msgid "Output"
 msgstr ""
 
-#: templates/gis_data_editor_form.twig:207
+#: templates/gis_data_editor_form.twig:220
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
@@ -19693,8 +19693,8 @@ msgstr "Z-za vialikaj daŭžyni, hetaje pole nia moža być adredagavanaje "
 msgid "Binary - do not edit"
 msgstr "Dvajkovyja dadzienyja — nie redagujucca"
 
-#: templates/table/insert/column_row.twig:122
-#: templates/table/search/input_box.twig:31
+#: templates/table/insert/column_row.twig:123
+#: templates/table/search/input_box.twig:32
 #, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
