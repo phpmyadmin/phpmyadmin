@@ -1746,7 +1746,7 @@ class DbiDummy implements DbiExtension
             ['query' => 'SHOW WARNINGS', 'result' => []],
             [
                 'query' => 'SELECT * FROM `information_schema`.`bookmark` WHERE `label` = \'test_tbl\''
-                . ' AND dbase = \'my_db\' AND (user = \'user\') LIMIT 1',
+                . ' AND dbase = \'my_db\' AND user = \'user\' LIMIT 1',
                 'result' => [],
             ],
             [

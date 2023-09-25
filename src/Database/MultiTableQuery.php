@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Database;
 
+use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\DatabaseInterface;
@@ -74,6 +75,7 @@ class MultiTableQuery
 
         $dbi = DatabaseInterface::getInstance();
         $relation = new Relation($dbi);
+        $bookmarkRepository = new BookmarkRepository($dbi, $relation);
         $sql = new Sql(
             $dbi,
             $relation,
@@ -81,6 +83,7 @@ class MultiTableQuery
             new Operations($dbi, $relation),
             new Transformations(),
             new Template(),
+            $bookmarkRepository,
         );
 
         return $sql->executeQueryAndSendQueryResponse(

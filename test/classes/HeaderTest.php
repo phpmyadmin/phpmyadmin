@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Console;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Header;
@@ -52,12 +54,21 @@ class HeaderTest extends AbstractTestCase
         $config->selectedServer['auth_type'] = 'cookie';
     }
 
+    private function getNewHeaderInstance(): Header
+    {
+        $dbi = DatabaseInterface::getInstance();
+        $relation = new Relation($dbi);
+        $template = new Template();
+
+        return new Header($template, new Console($relation, $template, new BookmarkRepository($dbi, $relation)));
+    }
+
     /**
      * Test for disable
      */
     public function testDisable(): void
     {
-        $header = new Header(new Template());
+        $header = $this->getNewHeaderInstance();
         $header->disable();
         $this->assertEquals(
             '',
@@ -71,7 +82,7 @@ class HeaderTest extends AbstractTestCase
     public function testEnable(): void
     {
         $GLOBALS['server'] = 0;
-        $header = new Header(new Template());
+        $header = $this->getNewHeaderInstance();
         $this->assertStringContainsString(
             '<title>phpMyAdmin</title>',
             $header->getDisplay(),
@@ -83,7 +94,7 @@ class HeaderTest extends AbstractTestCase
      */
     public function testSetBodyId(): void
     {
-        $header = new Header(new Template());
+        $header = $this->getNewHeaderInstance();
         $header->setBodyId('PMA_header_id');
         $this->assertStringContainsString(
             'PMA_header_id',
@@ -96,7 +107,7 @@ class HeaderTest extends AbstractTestCase
      */
     public function testGetJsParams(): void
     {
-        $header = new Header(new Template());
+        $header = $this->getNewHeaderInstance();
         $this->assertArrayHasKey(
             'common_query',
             $header->getJsParams(),
@@ -105,7 +116,7 @@ class HeaderTest extends AbstractTestCase
 
     public function testGetJsParamsCode(): void
     {
-        $header = new Header(new Template());
+        $header = $this->getNewHeaderInstance();
         $this->assertStringContainsString(
             'window.Navigation.update(window.CommonParams.setAll(',
             $header->getJsParamsCode(),
@@ -117,7 +128,7 @@ class HeaderTest extends AbstractTestCase
      */
     public function testGetMessage(): void
     {
-        $header = new Header(new Template());
+        $header = $this->getNewHeaderInstance();
         $this->assertStringContainsString(
             'phpmyadminmessage',
             $header->getMessage(),
@@ -131,7 +142,7 @@ class HeaderTest extends AbstractTestCase
     {
         $reflection = new ReflectionProperty(Header::class, 'warningsEnabled');
 
-        $header = new Header(new Template());
+        $header = $this->getNewHeaderInstance();
         $header->disableWarnings();
 
         $this->assertFalse($reflection->getValue($header));
@@ -149,7 +160,7 @@ class HeaderTest extends AbstractTestCase
         string $expectedXCsp,
         string $expectedWebKitCsp,
     ): void {
-        $header = new Header(new Template());
+        $header = $this->getNewHeaderInstance();
         $date = (string) gmdate(DATE_RFC1123);
 
         $config = Config::getInstance();
@@ -250,7 +261,7 @@ class HeaderTest extends AbstractTestCase
 
     public function testAddedDefaultScripts(): void
     {
-        $header = new Header(new Template());
+        $header = $this->getNewHeaderInstance();
         $scripts = $header->getScripts();
         $expected = [
             ['name' => 'runtime.js', 'fire' => 0],
@@ -273,7 +284,7 @@ class HeaderTest extends AbstractTestCase
 
     public function testSetAjax(): void
     {
-        $header = new Header(new Template());
+        $header = $this->getNewHeaderInstance();
         $console = (new ReflectionProperty(Header::class, 'console'))->getValue($header);
         $this->assertInstanceOf(Console::class, $console);
         $isAjax = new ReflectionProperty(Header::class, 'isAjax');

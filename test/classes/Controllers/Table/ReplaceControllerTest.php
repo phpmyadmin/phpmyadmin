@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
@@ -111,6 +112,7 @@ class ReplaceControllerTest extends AbstractTestCase
         );
 
         $pageSettings = $this->createStub(PageSettings::class);
+        $bookmarkRepository = new BookmarkRepository($dbi, $relation);
         $sqlController = new SqlController(
             $response,
             $template,
@@ -121,10 +123,12 @@ class ReplaceControllerTest extends AbstractTestCase
                 new Operations($dbi, $relation),
                 $transformations,
                 $template,
+                $bookmarkRepository,
             ),
             new CheckUserPrivileges($dbi),
             $dbi,
             $pageSettings,
+            $bookmarkRepository,
         );
         $GLOBALS['containerBuilder'] = $this->createStub(ContainerBuilder::class);
         $GLOBALS['containerBuilder']->method('get')->willReturn($sqlController);

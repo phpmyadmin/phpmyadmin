@@ -80,10 +80,10 @@ class Header
     /**
      * Creates a new class instance
      */
-    public function __construct(private readonly Template $template)
+    public function __construct(private readonly Template $template, Console $console)
     {
         $dbi = DatabaseInterface::getInstance();
-        $this->console = new Console(new Relation($dbi), $this->template);
+        $this->console = $console;
         $this->menuEnabled = $dbi->isConnected();
         $this->menu = new Menu($dbi, $this->template, $GLOBALS['db'] ?? '', $GLOBALS['table'] ?? '');
 

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
@@ -72,6 +73,7 @@ class SqlTest extends AbstractTestCase
             new Operations($this->dbi, $relation),
             new Transformations(),
             new Template(),
+            new BookmarkRepository($this->dbi, $relation),
         );
     }
 

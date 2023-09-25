@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\ConfigStorage\Features\BookmarkFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
@@ -54,6 +55,7 @@ class Sql
         private Operations $operations,
         private Transformations $transformations,
         private Template $template,
+        private readonly BookmarkRepository $bookmarkRepository,
     ) {
     }
 
@@ -437,14 +439,10 @@ class Sql
     public function getDefaultSqlQueryForBrowse(string $db, string $table): string
     {
         $config = Config::getInstance();
-        $bookmark = Bookmark::get(
-            $this->dbi,
+        $bookmark = $this->bookmarkRepository->getByLabel(
             $config->selectedServer['user'],
             DatabaseName::from($db),
             $table,
-            'label',
-            false,
-            true,
         );
 
         if ($bookmark !== null && $bookmark->getQuery() !== '') {
@@ -526,17 +524,10 @@ class Sql
         string $bookmarkLabel,
         bool $bookmarkReplace,
     ): void {
-        $bfields = [
-            'bkm_database' => $db,
-            'bkm_user' => $bookmarkUser,
-            'bkm_sql_query' => $sqlQueryForBookmark,
-            'bkm_label' => $bookmarkLabel,
-        ];
-
         // Should we replace bookmark?
         if ($bookmarkReplace && $bookmarkFeature !== null) {
             $config = Config::getInstance();
-            $bookmarks = Bookmark::getList($bookmarkFeature, $this->dbi, $config->selectedServer['user'], $db);
+            $bookmarks = $this->bookmarkRepository->getList($config->selectedServer['user'], $db);
             foreach ($bookmarks as $bookmark) {
                 if ($bookmark->getLabel() !== $bookmarkLabel) {
                     continue;
@@ -546,7 +537,13 @@ class Sql
             }
         }
 
-        $bookmark = Bookmark::createBookmark($this->dbi, $bfields, isset($_POST['bkm_all_users']));
+        $bookmark = $this->bookmarkRepository->createBookmark(
+            $sqlQueryForBookmark,
+            $bookmarkLabel,
+            $bookmarkUser,
+            $db,
+            isset($_POST['bkm_all_users']),
+        );
 
         if ($bookmark === false) {
             return;

@@ -81,11 +81,15 @@ return [
         ],
         Console\Bookmark\AddController::class => [
             'class' => Console\Bookmark\AddController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$bookmarkRepository' => '@bookmarkRepository',
+            ],
         ],
         Console\Bookmark\RefreshController::class => [
             'class' => Console\Bookmark\RefreshController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template'],
+            'arguments' => ['$response' => '@response', '$template' => '@template', '$console' => '@console'],
         ],
         Database\CentralColumns\PopulateColumnsController::class => [
             'class' => Database\CentralColumns\PopulateColumnsController::class,
@@ -479,6 +483,7 @@ return [
                 '$import' => '@import',
                 '$sql' => '@sql',
                 '$dbi' => '@dbi',
+                '$bookmarkRepository' => '@bookmarkRepository',
             ],
         ],
         Import\SimulateDmlController::class => [
@@ -1049,6 +1054,7 @@ return [
                 '$checkUserPrivileges' => '@check_user_privileges',
                 '$dbi' => '@dbi',
                 '$pageSettings' => '@' . PageSettings::class,
+                '$bookmarkRepository' => '@bookmarkRepository',
             ],
         ],
         Table\AddFieldController::class => [

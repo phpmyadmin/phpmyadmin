@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Console\Bookmark;
 
+use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
@@ -31,7 +32,9 @@ class AddControllerTest extends AbstractTestCase
             ['bookmark_query', null, null],
             ['shared', null, null],
         ]);
-        $controller = new AddController($response, new Template(), $dbi);
+        $relation = new Relation($dbi);
+        $bookmarkRepository = new BookmarkRepository($dbi, $relation);
+        $controller = new AddController($response, new Template(), $bookmarkRepository);
         $controller($request);
         $this->assertSame(['message' => 'Incomplete params'], $response->getJSONResult());
     }
@@ -50,7 +53,9 @@ class AddControllerTest extends AbstractTestCase
             ['bookmark_query', null, 'test'],
             ['shared', null, 'test'],
         ]);
-        $controller = new AddController($response, new Template(), $dbi);
+        $relation = new Relation($dbi);
+        $bookmarkRepository = new BookmarkRepository($dbi, $relation);
+        $controller = new AddController($response, new Template(), $bookmarkRepository);
         $controller($request);
         $this->assertSame(['message' => 'Failed'], $response->getJSONResult());
     }
@@ -83,7 +88,9 @@ class AddControllerTest extends AbstractTestCase
             ['bookmark_query', null, 'test_query'],
             ['shared', null, 'true'],
         ]);
-        $controller = new AddController($response, new Template(), $dbi);
+        $relation = new Relation($dbi);
+        $bookmarkRepository = new BookmarkRepository($dbi, $relation);
+        $controller = new AddController($response, new Template(), $bookmarkRepository);
         $controller($request);
         $this->assertSame(
             [

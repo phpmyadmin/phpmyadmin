@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
@@ -52,7 +53,9 @@ class SqlQueryFormTest extends AbstractTestCase
         );
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
-        $this->sqlQueryForm = new SqlQueryForm(new Template(), $this->dbi);
+        $relation = new Relation($this->dbi);
+        $bookmarkRepository = new BookmarkRepository($this->dbi, $relation);
+        $this->sqlQueryForm = new SqlQueryForm(new Template(), $this->dbi, $bookmarkRepository);
 
         //$GLOBALS
         $GLOBALS['db'] = 'PMA_db';

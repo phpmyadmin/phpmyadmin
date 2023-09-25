@@ -39,36 +39,39 @@
       <code>$value</code>
     </MixedAssignment>
   </file>
-  <file src="src/Bookmark.php">
+  <file src="src/Bookmarks/Bookmark.php">
     <DeprecatedMethod>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
       <code>escapeString</code>
     </DeprecatedMethod>
     <MixedArgument>
-      <code><![CDATA[$bkmFields['bkm_label']]]></code>
-      <code><![CDATA[$bkmFields['bkm_sql_query']]]></code>
-      <code>$row</code>
       <code>$variables[$i]</code>
     </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$bookmark->currentUser]]></code>
-      <code><![CDATA[$bookmark->currentUser]]></code>
-      <code><![CDATA[$bookmark->database]]></code>
-      <code><![CDATA[$bookmark->database]]></code>
-      <code><![CDATA[$bookmark->label]]></code>
-      <code><![CDATA[$bookmark->label]]></code>
-      <code><![CDATA[$bookmark->query]]></code>
-      <code><![CDATA[$bookmark->query]]></code>
-      <code>$row</code>
-    </MixedAssignment>
     <PossiblyUnusedMethod>
       <code>getDatabase</code>
     </PossiblyUnusedMethod>
     <PossiblyUnusedReturnValue>
       <code>bool</code>
     </PossiblyUnusedReturnValue>
+  </file>
+  <file src="src/Bookmarks/BookmarkRepository.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+    <MixedArgument>
+      <code>$row</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code>$result</code>
+      <code>$result</code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment>
+      <code>$row</code>
+    </MixedAssignment>
+    <PossiblyNullArgument>
+      <code><![CDATA[$this->bookmarkFeature]]></code>
+    </PossiblyNullArgument>
   </file>
   <file src="src/BrowseForeigners.php">
     <InvalidArrayOffset>
@@ -847,7 +850,6 @@
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
   <file src="src/Controllers/AbstractController.php">
@@ -885,6 +887,7 @@
   </file>
   <file src="src/Controllers/Console/Bookmark/AddController.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
@@ -1603,7 +1606,7 @@
     <PossiblyInvalidCast>
       <code><![CDATA[$parameters['table']]]></code>
     </PossiblyInvalidCast>
-    <PossiblyNullArgument occurrences="1">
+    <PossiblyNullArgument>
       <code>$rowCount</code>
     </PossiblyNullArgument>
   </file>
@@ -11112,6 +11115,7 @@
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
+      <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['focus_querywindow']]]></code>
@@ -11138,6 +11142,7 @@
   <file src="src/Routing/Routing.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
+      <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <MixedArrayAccess>
       <code><![CDATA[$dispatchData[0]['GET']['/']]]></code>
@@ -13614,10 +13619,20 @@
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
+  <file src="test/classes/Controllers/CheckRelationsControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="test/classes/Controllers/Console/Bookmark/AddControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="test/classes/Controllers/Console/Bookmark/RefreshControllerTest.php">
+    <DeprecatedMethod>
+      <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
   <file src="test/classes/Controllers/Database/EventsControllerTest.php">
@@ -14781,6 +14796,7 @@
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
+      <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <PossiblyUnusedMethod>
       <code>providerForTestGetHttpHeaders</code>
@@ -15845,6 +15861,9 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="test/classes/Stubs/ResponseRenderer.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <MixedAssignment>
       <code>$value</code>
     </MixedAssignment>

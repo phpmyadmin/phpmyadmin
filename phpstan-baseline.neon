@@ -121,54 +121,29 @@ parameters:
 			path: src/Advisory/Advisor.php
 
 		-
-			message: "#^Cannot cast mixed to int\\.$#"
-			count: 1
-			path: src/Bookmark.php
-
-		-
-			message: "#^Cannot cast mixed to string\\.$#"
-			count: 1
-			path: src/Bookmark.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 1
-			path: src/Bookmark.php
+			path: src/Bookmarks/Bookmark.php
 
 		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: src/Bookmark.php
+			path: src/Bookmarks/Bookmark.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$row of method PhpMyAdmin\\\\Bookmarks\\\\BookmarkRepository\\:\\:createFromRow\\(\\) expects array\\<string\\>, array given\\.$#"
 			count: 2
-			path: src/Bookmark.php
+			path: src/Bookmarks/BookmarkRepository.php
 
 		-
-			message: "#^Parameter \\#2 \\$row of static method PhpMyAdmin\\\\Bookmark\\:\\:createFromRow\\(\\) expects array, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$row of method PhpMyAdmin\\\\Bookmarks\\\\BookmarkRepository\\:\\:createFromRow\\(\\) expects array\\<string\\>, mixed given\\.$#"
 			count: 1
-			path: src/Bookmark.php
+			path: src/Bookmarks/BookmarkRepository.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Bookmark\\:\\:\\$currentUser \\(string\\) does not accept mixed\\.$#"
-			count: 2
-			path: src/Bookmark.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Bookmark\\:\\:\\$database \\(string\\) does not accept mixed\\.$#"
-			count: 2
-			path: src/Bookmark.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Bookmark\\:\\:\\$label \\(string\\) does not accept mixed\\.$#"
-			count: 2
-			path: src/Bookmark.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Bookmark\\:\\:\\$query \\(string\\) does not accept mixed\\.$#"
-			count: 2
-			path: src/Bookmark.php
+			message: "#^Parameter \\#2 \\$bookmarkFeature of class PhpMyAdmin\\\\Bookmarks\\\\Bookmark constructor expects PhpMyAdmin\\\\ConfigStorage\\\\Features\\\\BookmarkFeature, PhpMyAdmin\\\\ConfigStorage\\\\Features\\\\BookmarkFeature\\|null given\\.$#"
+			count: 1
+			path: src/Bookmarks/BookmarkRepository.php
 
 		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"

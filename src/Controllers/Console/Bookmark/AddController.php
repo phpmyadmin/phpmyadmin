@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Console\Bookmark;
 
-use PhpMyAdmin\Bookmark;
+use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -17,8 +16,11 @@ use function is_string;
 
 final class AddController extends AbstractController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private DatabaseInterface $dbi)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        private readonly BookmarkRepository $bookmarkRepository,
+    ) {
         parent::__construct($response, $template);
     }
 
@@ -35,18 +37,25 @@ final class AddController extends AbstractController
             return;
         }
 
+        $bookmark = $this->bookmarkRepository->createBookmark(
+            $bookmarkQuery,
+            $label,
+            Config::getInstance()->selectedServer['user'],
+            $db,
+            $shared === 'true',
+        );
+        if ($bookmark === false || ! $bookmark->save()) {
+            $this->response->addJSON('message', __('Failed'));
+
+            return;
+        }
+
         $bookmarkFields = [
             'bkm_database' => $db,
             'bkm_user' => Config::getInstance()->selectedServer['user'],
             'bkm_sql_query' => $bookmarkQuery,
             'bkm_label' => $label,
         ];
-        $bookmark = Bookmark::createBookmark($this->dbi, $bookmarkFields, $shared === 'true');
-        if ($bookmark === false || ! $bookmark->save()) {
-            $this->response->addJSON('message', __('Failed'));
-
-            return;
-        }
 
         $this->response->addJSON('message', __('Succeeded'));
         $this->response->addJSON('data', $bookmarkFields);

@@ -10,12 +10,16 @@ use FastRoute\Dispatcher\GroupCountBased as DispatcherGroupCountBased;
 use FastRoute\RouteCollector;
 use FastRoute\RouteParser\Std as RouteParserStd;
 use Fig\Http\Message\StatusCodeInterface;
+use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Console;
 use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\Controllers\Setup\MainController;
 use PhpMyAdmin\Controllers\Setup\ShowConfigController;
 use PhpMyAdmin\Controllers\Setup\ValidateController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -185,7 +189,11 @@ class Routing
         $route = $request->getRoute();
         $template = new Template();
         if ($route === '/setup' || $route === '/') {
-            return (new MainController($responseFactory, $template))($request);
+            $dbi = DatabaseInterface::getInstance();
+            $relation = new Relation($dbi);
+            $console = new Console($relation, $template, new BookmarkRepository($dbi, $relation));
+
+            return (new MainController($responseFactory, $template, $console))($request);
         }
 
         if ($route === '/setup/show-config') {

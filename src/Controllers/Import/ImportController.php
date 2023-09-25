@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Import;
 
-use PhpMyAdmin\Bookmark;
+use PhpMyAdmin\Bookmarks\Bookmark;
+use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
@@ -14,7 +15,6 @@ use PhpMyAdmin\Encoding;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ParseAnalyze;
@@ -58,6 +58,7 @@ final class ImportController extends AbstractController
         private Import $import,
         private Sql $sql,
         private DatabaseInterface $dbi,
+        private readonly BookmarkRepository $bookmarkRepository,
     ) {
         parent::__construct($response, $template);
     }
@@ -318,13 +319,9 @@ final class ImportController extends AbstractController
         if ($idBookmark !== 0) {
             switch ($actionBookmark) {
                 case 0: // bookmarked query that have to be run
-                    $bookmark = Bookmark::get(
-                        $this->dbi,
-                        $config->selectedServer['user'],
-                        DatabaseName::from($GLOBALS['db']),
+                    $bookmark = $this->bookmarkRepository->get(
+                        $request->hasBodyParam('action_bookmark_all') ? null : $config->selectedServer['user'],
                         $idBookmark,
-                        'id',
-                        $request->hasBodyParam('action_bookmark_all'),
                     );
                     if (! $bookmark instanceof Bookmark) {
                         break;
@@ -350,12 +347,7 @@ final class ImportController extends AbstractController
 
                     break;
                 case 1: // bookmarked query that have to be displayed
-                    $bookmark = Bookmark::get(
-                        $this->dbi,
-                        $config->selectedServer['user'],
-                        DatabaseName::from($GLOBALS['db']),
-                        $idBookmark,
-                    );
+                    $bookmark = $this->bookmarkRepository->get($config->selectedServer['user'], $idBookmark);
                     if (! $bookmark instanceof Bookmark) {
                         break;
                     }
@@ -374,12 +366,7 @@ final class ImportController extends AbstractController
                     $GLOBALS['run_query'] = false;
                     break;
                 case 2: // bookmarked query that have to be deleted
-                    $bookmark = Bookmark::get(
-                        $this->dbi,
-                        $config->selectedServer['user'],
-                        DatabaseName::tryFrom($GLOBALS['db']),
-                        $idBookmark,
-                    );
+                    $bookmark = $this->bookmarkRepository->get($config->selectedServer['user'], $idBookmark);
                     if (! $bookmark instanceof Bookmark) {
                         break;
                     }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\CheckRelationsController;
 use PhpMyAdmin\DatabaseInterface;
@@ -13,6 +14,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
+use ReflectionProperty;
 
 #[CoversClass(CheckRelationsController::class)]
 class CheckRelationsControllerTest extends AbstractTestCase
@@ -25,7 +27,6 @@ class CheckRelationsControllerTest extends AbstractTestCase
     {
         parent::setUp();
 
-        DatabaseInterface::$instance = $this->createDatabaseInterface();
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
@@ -46,6 +47,8 @@ class CheckRelationsControllerTest extends AbstractTestCase
         ]);
 
         $response = new ResponseRenderer();
+        Config::getInstance()->selectedServer['pmadb'] = '';
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
         $controller = new CheckRelationsController($response, new Template(), new Relation($this->dbi));
         $controller($request);
 
