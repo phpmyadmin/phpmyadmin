@@ -30,9 +30,9 @@ class GisMultiLineStringTest extends GisGeomTestCase
         $temp = [
             0 => [
                 'MULTILINESTRING' => [
-                    'no_of_lines' => 2,
-                    0 => ['no_of_points' => 2, 0 => ['x' => 5.02, 'y' => 8.45], 1 => ['x' => 6.14, 'y' => 0.15]],
-                    1 => ['no_of_points' => 2, 0 => ['x' => 1.23, 'y' => 4.25], 1 => ['x' => 9.15, 'y' => 0.47]],
+                    'data_length' => 2,
+                    0 => ['data_length' => 2, 0 => ['x' => 5.02, 'y' => 8.45], 1 => ['x' => 6.14, 'y' => 0.15]],
+                    1 => ['data_length' => 2, 0 => ['x' => 1.23, 'y' => 4.25], 1 => ['x' => 9.15, 'y' => 0.47]],
                 ],
             ],
         ];
@@ -41,10 +41,10 @@ class GisMultiLineStringTest extends GisGeomTestCase
         unset($temp1[0]['MULTILINESTRING'][1][1]['y']);
 
         $temp2 = $temp;
-        $temp2[0]['MULTILINESTRING']['no_of_lines'] = 0;
+        $temp2[0]['MULTILINESTRING']['data_length'] = 0;
 
         $temp3 = $temp;
-        $temp3[0]['MULTILINESTRING'][1]['no_of_points'] = 1;
+        $temp3[0]['MULTILINESTRING'][1]['data_length'] = 1;
 
         return [
             [$temp, 0, null, 'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 0.47))'],
@@ -121,9 +121,9 @@ class GisMultiLineStringTest extends GisGeomTestCase
                     'srid' => 124,
                     0 => [
                         'MULTILINESTRING' => [
-                            'no_of_lines' => 2,
-                            0 => ['no_of_points' => 2, 0 => ['x' => 5.02,'y' => 8.45], 1 => ['x' => 6.14,'y' => 0.15]],
-                            1 => ['no_of_points' => 2, 0 => ['x' => 1.23,'y' => 4.25], 1 => ['x' => 9.15,'y' => 0.47]],
+                            'data_length' => 2,
+                            0 => ['data_length' => 2, 0 => ['x' => 5.02,'y' => 8.45], 1 => ['x' => 6.14,'y' => 0.15]],
+                            1 => ['data_length' => 2, 0 => ['x' => 1.23,'y' => 4.25], 1 => ['x' => 9.15,'y' => 0.47]],
                         ],
                     ],
                 ],

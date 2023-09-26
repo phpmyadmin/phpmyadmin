@@ -7,7 +7,6 @@ import { ajaxShowMessage } from './modules/ajax-message.ts';
  * @fileoverview    functions used in GIS data editor
  *
  * @requires    jQuery
- *
  */
 
 let gisEditorLoaded = false;
@@ -22,55 +21,217 @@ function closeGISEditor () {
     });
 }
 
-/**
- * Prepares the HTML received via AJAX.
- */
-function prepareJSVersion () {
-    // Change the text on the submit button
-    $('#gis_editor').find('input[name=\'gis_data[save]\']')
-        .val(window.Messages.strCopy)
-        .insertAfter($('#gis_data_textarea'))
-        .before('<br><br>');
+function withIndex (prefix: string, ...index: Array<string|number>): string {
+    let result = prefix;
+    for (let i = 0; i < index.length; ++i) {
+        result += '[' + index[i] + ']';
+    }
 
-    // Add close and cancel links
-    $('#gis_data_editor').prepend('<a class="close_gis_editor" href="#">' + window.Messages.strClose + '</a>');
-    $('<a class="cancel_gis_editor" href="#"> ' + window.Messages.strCancel + '</a>')
-        .insertAfter($('input[name=\'gis_data[save]\']'));
-
-    // Remove the unnecessary text
-    $('div#gis_data_output p').remove();
-
-    // Remove 'add' buttons and add links
-    $('#gis_editor').find('input.add').each(function () {
-        var $button = $(this);
-        $button.addClass('addJs').removeClass('add');
-        var classes = $button.attr('class');
-        $button.replaceWith(
-            '<a class="' + classes +
-            '" name="' + $button.attr('name') +
-            '" href="#">+ ' + $button.val() + '</a>'
-        );
-    });
+    return result;
 }
 
-/**
- * Returns the HTML for a data point.
- *
- * @param {number} pointNumber point number
- * @param {string} prefix      prefix of the name
- * @return {string} the HTML for a data point
- */
-function addDataPoint (pointNumber, prefix) {
-    return '<br>' +
-        window.sprintf(window.Messages.strPointN, (pointNumber + 1)) + ': ' +
+function makeDataLengthInput (prefix: string, length: number): string {
+    return '<input type="hidden" name="' + prefix + '[data_length]" value="' + length + '">';
+}
+
+function makeAddButton (prefix: string, cls: string, label: string, type: string): string {
+    return (
+        '<button type="button"' +
+        ' data-prefix="' + prefix + '"' +
+        ' data-geometry-type="' + type + '"' +
+        ' class="btn btn-secondary addJs ' + cls + '">' +
+        '+ ' + label +
+        '</button>'
+    );
+}
+
+function makeCoordinateInputs (prefix: string, data): string {
+    return (
         '<label>' +
         window.Messages.strX +
-        ' <input type="text" name="' + prefix + '[' + pointNumber + '][x]" value="">' +
+        ' <input type="text" name="' + prefix + '[x]" value="' + (data ? data.x : '') +  '">' +
         '</label>' +
         ' <label>' +
         window.Messages.strY +
-        ' <input type="text" name="' + prefix + '[' + pointNumber + '][y]" value="">' +
-        '</label> ';
+        ' <input type="text" name="' + prefix + '[y]" value="' + (data ? data.y : '') + '">' +
+        '</label> '
+    );
+}
+
+function makePointNInputs (prefix: string, index: number, data): string {
+    return (
+        '<div class="gis-coordinates">' +
+        window.Messages.strPoint + ' ' + (index + 1) + ': ' +
+        makeCoordinateInputs(withIndex(prefix, index), data) +
+        '</div>'
+    );
+}
+
+function makePointInputs (prefix: string, data): string {
+    return (
+        '<div class="gis-coordinates-list">' +
+        '<div class="gis-coordinates">' +
+        window.Messages.strPoint + ': ' +
+        makeCoordinateInputs(prefix, data) +
+        '</div>' +
+        '</div>'
+    );
+}
+
+function makeMultiPointInputs (prefix: string, data): string {
+    const d = data || [];
+    const inputs = [];
+    let i = 0;
+    while (d[i] || i < 1) {
+        inputs.push(makePointNInputs(prefix, i, d[i]));
+        ++i;
+    }
+
+    return (
+        '<div class="gis-coordinates-list">' +
+        inputs.join('') +
+        makeDataLengthInput(prefix, i) +
+        makeAddButton(prefix, 'addPoint', window.Messages.strAddPoint, 'POINT') +
+        '</div>'
+    );
+}
+
+function makeLineStringInputs (prefix: string, data, type: string): string {
+    const d = data || [];
+    const inputs = [];
+    let i = 0;
+    const min = type === 'POLYGON' || type === 'MULTIPOLYGON' ? 4 : 2;
+    while (d[i] || i < min) {
+        inputs.push(makePointNInputs(prefix, i, d[i]));
+        ++i;
+    }
+
+    return (
+        '<div class="gis-coordinates-list">' +
+        inputs.join('') +
+        makeDataLengthInput(prefix, i) +
+        makeAddButton(prefix, 'addPoint', window.Messages.strAddPoint, 'LINESTRING') +
+        '</div>'
+    );
+}
+
+function makeMultiLineStringInputs (prefix: string, data): string {
+    const d = data || [];
+    const inputs = [];
+    let i = 0;
+    while (d[i] || i < 1) {
+        inputs.push(
+            window.Messages.strLineString + ' ' + (i + 1) + ':',
+            makeLineStringInputs(withIndex(prefix, i), d[i], 'MULTILINESTRING')
+        );
+
+        ++i;
+    }
+
+    return (
+        '<div class="gis-coordinates-list">' +
+        inputs.join('') +
+        makeDataLengthInput(prefix, i) +
+        makeAddButton(prefix, 'addLine', window.Messages.strAddLineString, 'MULTILINESTRING') +
+        '</div>'
+    );
+}
+
+function makePolygonInputs (prefix: string, data, type: string): string {
+    const d = data || [];
+    const inputs = [];
+    let i = 0;
+    while (d[i] || i < 1) {
+        inputs.push(
+            (i === 0 ? window.Messages.strOuterRing : window.Messages.strInnerRing + ' ' + i) + ':',
+            makeLineStringInputs(withIndex(prefix, i), d[i], type)
+        );
+
+        ++i;
+    }
+
+    return (
+        '<div class="gis-coordinates-list">' +
+        inputs.join('') +
+        makeDataLengthInput(prefix, i) +
+        makeAddButton(prefix, 'addLine', window.Messages.strAddInnerRing, 'POLYGON') +
+        '</div>'
+    );
+}
+
+function makeMultiPolygonInputs (prefix: string, data): string {
+    const d = data || [];
+    const inputs = [];
+    let i = 0;
+    while (d[i] || i < 1) {
+        inputs.push(
+            window.Messages.strPolygon + ' ' + (i + 1) + ':',
+            makePolygonInputs(withIndex(prefix, i), d[i], 'MULTIPOLYGON')
+        );
+
+        ++i;
+    }
+
+    return (
+        '<div class="gis-coordinates-list">' +
+        inputs.join('') +
+        makeDataLengthInput(prefix, i) +
+        makeAddButton(prefix, 'addPolygon', window.Messages.strAddPolygon, 'MULTIPOLYGON') +
+        '</div>'
+    );
+}
+
+const INPUTS_GENERATOR = {
+    POINT: makePointInputs,
+    MULTIPOINT: makeMultiPointInputs,
+    LINESTRING: makeLineStringInputs,
+    MULTILINESTRING: makeMultiLineStringInputs,
+    POLYGON: makePolygonInputs,
+    MULTIPOLYGON: makeMultiPolygonInputs,
+};
+
+function makeGeometryCollectionGeometryInputs (prefix: string, index: number, data): string {
+    const type = data ? data.gis_type : 'POINT';
+    const fn = INPUTS_GENERATOR[type];
+    const $geomType = $('#gis_type_template').contents().filter('select').clone();
+    const select = $geomType.get(0) as HTMLSelectElement;
+    select.value = type || 'POINT';
+    select.selectedOptions[0].setAttribute('selected', 'selected');
+    select.setAttribute('name', withIndex(prefix, index, 'gis_type'));
+
+    return (
+        '<div class="gis-geometry">' +
+        '<div class="gis-geometry-type">' +
+        window.Messages.strGeometry + ' ' + (index + 1) + ': ' + select.outerHTML +
+        '</div>' +
+        fn(withIndex(prefix, index, type), data ? data[type] : null, type) +
+        '</div>'
+    );
+}
+
+function makeGeometryCollectionInputs (prefix: string, data): string {
+    let i = 0;
+    let inputs = [];
+    while (data[i]) {
+        inputs.push(makeGeometryCollectionGeometryInputs(prefix, i, data[i]));
+        ++i;
+    }
+
+    return (
+        '<div class="gis-geometry-list">' +
+        inputs.join('') +
+        makeDataLengthInput('gis_data[GEOMETRYCOLLECTION]', i) +
+        makeAddButton(prefix, 'addGeom', window.Messages.strAddGeometry, 'GEOMETRYCOLLECTION') +
+        '</div>'
+    );
+}
+
+function makeGeometryInputs (gisData): string {
+    const type = gisData.gis_type;
+    const geometry = gisData[0][type];
+    const fn = INPUTS_GENERATOR[type];
+
+    return fn(withIndex('gis_data', 0, type), geometry, type);
 }
 
 /**
@@ -125,22 +286,35 @@ function loadJSAndGISEditor (resolve) {
  * @param inputName name of the input field
  */
 function loadGISEditor (value, field, type, inputName) {
-    var $gisEditor = $('#gis_editor');
-    $.post('index.php?route=/gis-data-editor', {
+    const $gisEditor = $('#gis_editor');
+    const data = {
         'field': field,
         'value': value,
         'type': type,
         'input_name': inputName,
-        'get_gis_editor': true,
         'ajax_request': true,
-        'server': CommonParams.get('server')
-    }, function (data) {
-        if (typeof data !== 'undefined' && data.success === true) {
-            $gisEditor.html(data.gis_editor);
-            initGISEditorVisualization();
-            prepareJSVersion();
-        } else {
+        'server': CommonParams.get('server'),
+    };
+    $.post('index.php?route=/gis-data-editor', data, function (data) {
+        if (typeof data === 'undefined' || data.success !== true) {
             ajaxShowMessage(data.error, false);
+
+            return;
+        }
+
+        $gisEditor.html(data.gis_editor);
+        initGISEditorVisualization();
+
+        const gisData = $('#gis_data').data('gisData');
+        if (gisData) {
+            let html;
+            if (gisData.gis_type === 'GEOMETRYCOLLECTION') {
+                html = makeGeometryCollectionInputs('gis_data', gisData);
+            } else {
+                html = makeGeometryInputs(gisData);
+            }
+
+            $('#gis_data').append(html);
         }
     }, 'json');
 }
@@ -180,11 +354,12 @@ function openGISEditor (value, field, type, inputName) {
  * to the input field.
  */
 function insertDataAndClose () {
-    var $form = $('form#gis_data_editor_form');
-    var inputName = $form.find('input[name=\'input_name\']').val();
+    const $form = $('form#gis_data_editor_form');
+    const inputName = $form.find('input[name=\'input_name\']').val();
 
-    var argsep = CommonParams.get('arg_separator');
-    $.post('index.php?route=/gis-data-editor', $form.serialize() + argsep + 'generate=true' + argsep + 'ajax_request=true', function (data) {
+    const argsep = CommonParams.get('arg_separator');
+    const params = $form.serialize() + argsep + 'generate=true' + argsep + 'ajax_request=true';
+    $.post('index.php?route=/gis-data-editor', params, function (data) {
         if (typeof data !== 'undefined' && data.success === true) {
             $('input[name=\'' + inputName + '\']').val(data.result);
         } else {
@@ -195,198 +370,142 @@ function insertDataAndClose () {
     closeGISEditor();
 }
 
+function onCoordinateEdit (data) {
+    if (typeof data === 'undefined' || data.success !== true) {
+        ajaxShowMessage(data.error, false);
+
+        return;
+    }
+
+    $('#gis_data_textarea').val(data.result);
+    $('#placeholder').empty().removeClass('hasSVG').html(data.visualization);
+    $('#openlayersmap').empty();
+    /* TODO: the gis_data_editor should rather return JSON than JS code to eval */
+    // eslint-disable-next-line no-eval
+    eval(data.openLayers);
+    initGISEditorVisualization();
+}
+
+/**
+ * Handles adding data points
+ */
+function addPoint () {
+    const $a = $(this);
+    const prefix = $a.data('prefix');
+    const dataLength = this.parentElement.querySelectorAll(':scope > .gis-coordinates').length;
+    $('input[name=\'' + prefix + '[data_length]' + '\']').val(dataLength + 1);
+
+    const html = makePointNInputs(prefix, dataLength, null);
+    $a.before(html);
+
+    updateResult();
+}
+
+/**
+ * Handles adding linestrings and inner rings
+ */
+function addLineStringOrInnerRing () {
+    const $a = $(this);
+    const prefix = $a.data('prefix');
+    const type = $a.data('geometryType');
+    const dataLength = this.parentElement.querySelectorAll(':scope > .gis-coordinates-list').length;
+    $('input[name=\'' + prefix + '[data_length]' + '\']').val(dataLength + 1);
+
+    const label = type === 'MULTILINESTRING' ? window.Messages.strLineString : window.Messages.strInnerRing;
+    const n = type === 'MULTILINESTRING' ? dataLength + 1 : dataLength;
+    const html = makeLineStringInputs(withIndex(prefix, dataLength), null, type);
+    $a.before('<div class="gis-geometry-type">' + label + ' ' + n + ':</div>', html);
+
+    updateResult();
+}
+
+/**
+ * Handles adding polygons
+ */
+function addPolygon () {
+    const $a = $(this);
+    const prefix = $a.data('prefix');
+    const dataLength = this.parentElement.querySelectorAll(':scope > .gis-coordinates-list').length;
+    $('input[name=\'' + prefix + '[data_length]' + '\']').val(dataLength + 1);
+
+    const html = makePolygonInputs(withIndex(prefix, dataLength), null, 'MULTIPOLYGON');
+    $a.before('<div class="gis-geometry-type">' + window.Messages.strPolygon + ' ' + (dataLength +  1) + ':</div>', html);
+
+    updateResult();
+}
+
+/**
+ * Handles adding geoms
+ */
+function addGeometry () {
+    const dataLength = this.parentElement.querySelectorAll(':scope > .gis-geometry').length;
+    $('input[name="gis_data[GEOMETRYCOLLECTION][data_length]"]').val(dataLength + 1);
+
+    const html = makeGeometryCollectionGeometryInputs('gis_data', dataLength, null);
+    $(this).before(html);
+
+    updateResult();
+}
+
+/**
+ * Update the form on change of the GIS type.
+ */
+function onGeometryTypeChange () {
+    const typeSelect = this as HTMLSelectElement;
+    const prefix = typeSelect.getAttribute('name').match(/^(.*)\[gis_type\]$/)[1];
+    const isSubGeom = prefix !== 'gis_data';
+    const type = typeSelect.value;
+
+    let html;
+    if (isSubGeom) {
+        const fn = INPUTS_GENERATOR[type];
+        html = fn(withIndex(prefix, type), null, type);
+    } else {
+        html = type === 'GEOMETRYCOLLECTION'
+            ? makeGeometryCollectionInputs(prefix, {})
+            : makeGeometryInputs({ 'gis_type': type, '0': {} });
+    }
+
+    $(typeSelect.parentElement.nextElementSibling).replaceWith(html);
+
+    updateResult();
+}
+
+/**
+ * Trigger asynchronous calls on data change and update the output.
+ */
+function updateResult () {
+    const $form = $('form#gis_data_editor_form');
+    const argsep = CommonParams.get('arg_separator');
+    const data = $form.serialize() + argsep + 'generate=true' + argsep + 'ajax_request=true';
+    $.post('index.php?route=/gis-data-editor', data, onCoordinateEdit, 'json');
+}
+
 /**
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('gis_data_editor.js', function () {
-    $(document).off('click', '#gis_editor input[name=\'gis_data[save]\']');
-    $(document).off('submit', '#gis_editor');
+    $(document).off('click', '#gis_editor button.gis-copy-data');
     $(document).off('change', '#gis_editor input[type=\'text\']');
     $(document).off('change', '#gis_editor select.gis_type');
-    $(document).off('click', '#gis_editor a.close_gis_editor, #gis_editor a.cancel_gis_editor');
-    $(document).off('click', '#gis_editor a.addJs.addPoint');
-    $(document).off('click', '#gis_editor a.addJs.addLine');
-    $(document).off('click', '#gis_editor a.addJs.addPolygon');
-    $(document).off('click', '#gis_editor a.addJs.addGeom');
+    $(document).off('click', '#gis_editor button.cancel_gis_editor');
+    $(document).off('click', '#gis_editor button.addJs.addPoint');
+    $(document).off('click', '#gis_editor button.addJs.addLine');
+    $(document).off('click', '#gis_editor button.addJs.addPolygon');
+    $(document).off('click', '#gis_editor button.addJs.addGeom');
 });
 
 AJAX.registerOnload('gis_data_editor.js', function () {
-    /**
-     * Prepares and insert the GIS data to the input field on clicking 'copy'.
-     */
-    $(document).on('click', '#gis_editor input[name=\'gis_data[save]\']', function (event) {
-        event.preventDefault();
-        insertDataAndClose();
-    });
+    $(document).on('click', '#gis_editor button.gis-copy-data', insertDataAndClose);
 
-    /**
-     * Prepares and insert the GIS data to the input field on pressing 'enter'.
-     */
-    $(document).on('submit', '#gis_editor', function (event) {
-        event.preventDefault();
-        insertDataAndClose();
-    });
+    $(document).on('change', '#gis_editor input[type=\'text\']', updateResult);
+    $(document).on('change', '#gis_editor select.gis_type', onGeometryTypeChange);
+    $(document).on('click', '#gis_editor button.cancel_gis_editor', () => closeGISEditor());
 
-    /**
-     * Trigger asynchronous calls on data change and update the output.
-     */
-    $(document).on('change', '#gis_editor input[type=\'text\']', function () {
-        var $form = $('form#gis_data_editor_form');
-        var argsep = CommonParams.get('arg_separator');
-        $.post('index.php?route=/gis-data-editor', $form.serialize() + argsep + 'generate=true' + argsep + 'ajax_request=true', function (data) {
-            if (typeof data !== 'undefined' && data.success === true) {
-                $('#gis_data_textarea').val(data.result);
-                $('#placeholder').empty().removeClass('hasSVG').html(data.visualization);
-                $('#openlayersmap').empty();
-                /* TODO: the gis_data_editor should rather return JSON than JS code to eval */
-                // eslint-disable-next-line no-eval
-                eval(data.openLayers);
-                initGISEditorVisualization();
-            } else {
-                ajaxShowMessage(data.error, false);
-            }
-        }, 'json');
-    });
-
-    /**
-     * Update the form on change of the GIS type.
-     */
-    $(document).on('change', '#gis_editor select.gis_type', function () {
-        var $gisEditor = $('#gis_editor');
-        var $form = $('form#gis_data_editor_form');
-
-        var argsep = CommonParams.get('arg_separator');
-        $.post('index.php?route=/gis-data-editor', $form.serialize() + argsep + 'get_gis_editor=true' + argsep + 'ajax_request=true', function (data) {
-            if (typeof data !== 'undefined' && data.success === true) {
-                $gisEditor.html(data.gis_editor);
-                initGISEditorVisualization();
-                prepareJSVersion();
-            } else {
-                ajaxShowMessage(data.error, false);
-            }
-        }, 'json');
-    });
-
-    /**
-     * Handles closing of the GIS data editor.
-     */
-    $(document).on('click', '#gis_editor a.close_gis_editor, #gis_editor a.cancel_gis_editor', function () {
-        closeGISEditor();
-    });
-
-    /**
-     * Handles adding data points
-     */
-    $(document).on('click', '#gis_editor a.addJs.addPoint', function () {
-        var $a = $(this);
-        var name = $a.attr('name');
-        // Eg. name = gis_data[0][MULTIPOINT][add_point] => prefix = gis_data[0][MULTIPOINT]
-        var prefix = name.substring(0, name.length - 11);
-        // Find the number of points
-        var $noOfPointsInput = $('input[name=\'' + prefix + '[no_of_points]' + '\']');
-        var noOfPoints = parseInt(($noOfPointsInput.val() as string), 10);
-        // Add the new data point
-        var html = addDataPoint(noOfPoints, prefix);
-        $a.before(html);
-        $noOfPointsInput.val(noOfPoints + 1);
-    });
-
-    /**
-     * Handles adding linestrings and inner rings
-     */
-    $(document).on('click', '#gis_editor a.addJs.addLine', function () {
-        var $a = $(this);
-        var name = $a.attr('name');
-
-        // Eg. name = gis_data[0][MULTILINESTRING][add_line] => prefix = gis_data[0][MULTILINESTRING]
-        var prefix = name.substring(0, name.length - 10);
-        var type = prefix.slice(prefix.lastIndexOf('[') + 1, prefix.lastIndexOf(']'));
-
-        // Find the number of lines
-        var $noOfLinesInput = $('input[name=\'' + prefix + '[no_of_lines]' + '\']');
-        var noOfLines = parseInt(($noOfLinesInput.val() as string), 10);
-
-        // Add the new linesting of inner ring based on the type
-        var html = '<br>';
-        var noOfPoints;
-        if (type === 'MULTILINESTRING') {
-            html += window.Messages.strLineString + ' ' + (noOfLines + 1) + ':';
-            noOfPoints = 2;
-        } else {
-            html += window.Messages.strInnerRing + ' ' + noOfLines + ':';
-            noOfPoints = 4;
-        }
-
-        html += '<input type="hidden" name="' + prefix + '[' + noOfLines + '][no_of_points]" value="' + noOfPoints + '">';
-        for (var i = 0; i < noOfPoints; i++) {
-            html += addDataPoint(i, (prefix + '[' + noOfLines + ']'));
-        }
-
-        html += '<a class="btn btn-secondary addPoint addJs" name="' + prefix + '[' + noOfLines + '][add_point]" href="#">+ ' +
-            window.Messages.strAddPoint + '</a><br>';
-
-        $a.before(html);
-        $noOfLinesInput.val(noOfLines + 1);
-    });
-
-    /**
-     * Handles adding polygons
-     */
-    $(document).on('click', '#gis_editor a.addJs.addPolygon', function () {
-        var $a = $(this);
-        var name = $a.attr('name');
-        // Eg. name = gis_data[0][MULTIPOLYGON][add_polygon] => prefix = gis_data[0][MULTIPOLYGON]
-        var prefix = name.substring(0, name.length - 13);
-        // Find the number of polygons
-        var $noOfPolygonsInput = $('input[name=\'' + prefix + '[no_of_polygons]' + '\']');
-        var noOfPolygons = parseInt(($noOfPolygonsInput.val() as string), 10);
-
-        // Add the new polygon
-        var html = window.Messages.strPolygon + ' ' + (noOfPolygons + 1) + ':<br>';
-        html += '<input type="hidden" name="' + prefix + '[' + noOfPolygons + '][no_of_lines]" value="1">' +
-            '<br>' + window.Messages.strOuterRing + ':' +
-            '<input type="hidden" name="' + prefix + '[' + noOfPolygons + '][0][no_of_points]" value="4">';
-
-        for (var i = 0; i < 4; i++) {
-            html += addDataPoint(i, (prefix + '[' + noOfPolygons + '][0]'));
-        }
-
-        html += '<a class="btn btn-secondary addPoint addJs" name="' + prefix + '[' + noOfPolygons + '][0][add_point]" href="#">+ ' +
-            window.Messages.strAddPoint + '</a><br>' +
-            '<a class="btn btn-secondary addLine addJs" name="' + prefix + '[' + noOfPolygons + '][add_line]" href="#">+ ' +
-            window.Messages.strAddInnerRing + '</a><br><br>';
-
-        $a.before(html);
-        $noOfPolygonsInput.val(noOfPolygons + 1);
-    });
-
-    /**
-     * Handles adding geoms
-     */
-    $(document).on('click', '#gis_editor a.addJs.addGeom', function () {
-        var $a = $(this);
-        var prefix = 'gis_data[GEOMETRYCOLLECTION]';
-        // Find the number of geoms
-        var $noOfGeomsInput = $('input[name=\'' + prefix + '[geom_count]' + '\']');
-        var noOfGeoms = parseInt(($noOfGeomsInput.val() as string), 10);
-
-        var html1 = window.Messages.strGeometry + ' ' + (noOfGeoms + 1) + ':<br>';
-        var $geomType = $('#gis_type_template').contents().filter('select').clone();
-        $geomType.attr('name', 'gis_data[' + noOfGeoms + '][gis_type]').val('POINT');
-        var html2 = '<br>' + window.Messages.strPoint + ': ' +
-            '<label>' +
-            window.Messages.strX +
-            ' <input type="text" name="gis_data[' + noOfGeoms + '][POINT][x]" value="">' +
-            '</label>' +
-            ' <label>' +
-            window.Messages.strY +
-            ' <input type="text" name="gis_data[' + noOfGeoms + '][POINT][y]" value="">' +
-            '</label>' +
-            '<br><br>';
-
-        $a.before(html1, $geomType, html2);
-        $noOfGeomsInput.val(noOfGeoms + 1);
-    });
+    $(document).on('click', '#gis_editor button.addJs.addPoint', addPoint);
+    $(document).on('click', '#gis_editor button.addJs.addLine', addLineStringOrInnerRing);
+    $(document).on('click', '#gis_editor button.addJs.addPolygon', addPolygon);
+    $(document).on('click', '#gis_editor button.addJs.addGeom', addGeometry);
 });
 
 declare global {

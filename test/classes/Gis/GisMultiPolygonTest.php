@@ -29,11 +29,11 @@ class GisMultiPolygonTest extends GisGeomTestCase
     {
         return [
             'MULTIPOLYGON' => [
-                'no_of_polygons' => 2,
+                'data_length' => 2,
                 0 => [
-                    'no_of_lines' => 2,
+                    'data_length' => 2,
                     0 => [
-                        'no_of_points' => 5,
+                        'data_length' => 5,
                         0 => ['x' => 35, 'y' => 10],
                         1 => ['x' => 10, 'y' => 20],
                         2 => ['x' => 15, 'y' => 40],
@@ -41,7 +41,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
                         4 => ['x' => 35, 'y' => 10],
                     ],
                     1 => [
-                        'no_of_points' => 4,
+                        'data_length' => 4,
                         0 => ['x' => 20, 'y' => 30],
                         1 => ['x' => 35, 'y' => 32],
                         2 => ['x' => 30, 'y' => 20],
@@ -49,9 +49,9 @@ class GisMultiPolygonTest extends GisGeomTestCase
                     ],
                 ],
                 1 => [
-                    'no_of_lines' => 1,
+                    'data_length' => 1,
                     0 => [
-                        'no_of_points' => 4,
+                        'data_length' => 4,
                         0 => ['x' => 123, 'y' => 0],
                         1 => ['x' => 23, 'y' => 30],
                         2 => ['x' => 17, 'y' => 63],
@@ -87,13 +87,13 @@ class GisMultiPolygonTest extends GisGeomTestCase
         $temp = [0 => self::getData()];
 
         $temp1 = $temp;
-        $temp1[0]['MULTIPOLYGON']['no_of_polygons'] = 0;
+        $temp1[0]['MULTIPOLYGON']['data_length'] = 0;
 
         $temp2 = $temp;
-        $temp2[0]['MULTIPOLYGON'][1]['no_of_lines'] = 0;
+        $temp2[0]['MULTIPOLYGON'][1]['data_length'] = 0;
 
         $temp3 = $temp;
-        $temp3[0]['MULTIPOLYGON'][1][0]['no_of_points'] = 3;
+        $temp3[0]['MULTIPOLYGON'][1][0]['data_length'] = 3;
 
         return [
             [

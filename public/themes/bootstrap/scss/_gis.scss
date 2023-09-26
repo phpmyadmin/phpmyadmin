@@ -1,7 +1,7 @@
 /**
  * GIS data editor styles
  */
-a.close_gis_editor {
+.close_gis_editor {
   float: right;
 }
 
@@ -16,6 +16,12 @@ a.close_gis_editor {
   z-index: 1001;
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+.gis-coordinates-list {
+  padding-left: 10px;
+  border-left: 2px solid grey;
+  margin-bottom: 10px;
 }
 
 #gis_data {

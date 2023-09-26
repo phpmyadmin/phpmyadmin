@@ -3471,16 +3471,6 @@ parameters:
 			path: src/Controllers/Export/Template/UpdateController.php
 
 		-
-			message: "#^Cannot access offset 'add_geom' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/GisDataEditorController.php
-
-		-
-			message: "#^Cannot access offset 'geom_count' on mixed\\.$#"
-			count: 2
-			path: src/Controllers/GisDataEditorController.php
-
-		-
 			message: "#^Cannot cast mixed to int\\.$#"
 			count: 1
 			path: src/Controllers/GisDataEditorController.php
@@ -3492,11 +3482,6 @@ parameters:
 
 		-
 			message: "#^PHPDoc tag @var for variable \\$gisDataParam has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Controllers/GisDataEditorController.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of function intval expects array\\|bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/GisDataEditorController.php
 
@@ -10796,7 +10781,7 @@ parameters:
 			path: src/Gis/GisGeometry.php
 
 		-
-			message: "#^Cannot access offset 'geom_count' on mixed\\.$#"
+			message: "#^Cannot access offset 'data_length' on mixed\\.$#"
 			count: 1
 			path: src/Gis/GisGeometryCollection.php
 
@@ -10816,7 +10801,7 @@ parameters:
 			path: src/Gis/GisLineString.php
 
 		-
-			message: "#^Cannot access offset 'no_of_points' on mixed\\.$#"
+			message: "#^Cannot access offset 'data_length' on mixed\\.$#"
 			count: 1
 			path: src/Gis/GisLineString.php
 
@@ -10861,13 +10846,8 @@ parameters:
 			path: src/Gis/GisMultiLineString.php
 
 		-
-			message: "#^Cannot access offset 'no_of_lines' on mixed\\.$#"
-			count: 1
-			path: src/Gis/GisMultiLineString.php
-
-		-
-			message: "#^Cannot access offset 'no_of_points' on mixed\\.$#"
-			count: 1
+			message: "#^Cannot access offset 'data_length' on mixed\\.$#"
+			count: 2
 			path: src/Gis/GisMultiLineString.php
 
 		-
@@ -10891,7 +10871,7 @@ parameters:
 			path: src/Gis/GisMultiLineString.php
 
 		-
-			message: "#^Cannot access offset int\\<0, max\\> on non\\-empty\\-array\\<'no_of_points'\\|int\\<0, max\\>, array\\{x\\: float, y\\: float\\}\\|int\\<0, max\\>\\>\\|int\\<1, max\\>\\.$#"
+			message: "#^Cannot access offset int\\<0, max\\> on non\\-empty\\-array\\<'data_length'\\|int\\<0, max\\>, array\\{x\\: float, y\\: float\\}\\|int\\<0, max\\>\\>\\|int\\<1, max\\>\\.$#"
 			count: 1
 			path: src/Gis/GisMultiLineString.php
 
@@ -10916,7 +10896,7 @@ parameters:
 			path: src/Gis/GisMultiPoint.php
 
 		-
-			message: "#^Cannot access offset 'no_of_points' on mixed\\.$#"
+			message: "#^Cannot access offset 'data_length' on mixed\\.$#"
 			count: 1
 			path: src/Gis/GisMultiPoint.php
 
@@ -10966,6 +10946,11 @@ parameters:
 			path: src/Gis/GisMultiPolygon.php
 
 		-
+			message: "#^Cannot access offset 'data_length' on mixed\\.$#"
+			count: 3
+			path: src/Gis/GisMultiPolygon.php
+
+		-
 			message: "#^Cannot access offset 'inner' on mixed\\.$#"
 			count: 5
 			path: src/Gis/GisMultiPolygon.php
@@ -10973,21 +10958,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'isOuter' on mixed\\.$#"
 			count: 5
-			path: src/Gis/GisMultiPolygon.php
-
-		-
-			message: "#^Cannot access offset 'no_of_lines' on mixed\\.$#"
-			count: 1
-			path: src/Gis/GisMultiPolygon.php
-
-		-
-			message: "#^Cannot access offset 'no_of_points' on mixed\\.$#"
-			count: 1
-			path: src/Gis/GisMultiPolygon.php
-
-		-
-			message: "#^Cannot access offset 'no_of_polygons' on mixed\\.$#"
-			count: 1
 			path: src/Gis/GisMultiPolygon.php
 
 		-
@@ -11011,7 +10981,7 @@ parameters:
 			path: src/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Cannot access offset int on non\\-empty\\-array\\<'no_of_lines'\\|int, array\\{no_of_points\\: int\\<0, max\\>, 0\\?\\: array\\{x\\: float, y\\: float\\}\\}\\|int\\<1, max\\>\\>\\|int\\<1, max\\>\\.$#"
+			message: "#^Cannot access offset int on non\\-empty\\-array\\<'data_length'\\|int, array\\{data_length\\: int\\<0, max\\>, 0\\?\\: array\\{x\\: float, y\\: float\\}\\}\\|int\\<1, max\\>\\>\\|int\\<1, max\\>\\.$#"
 			count: 1
 			path: src/Gis/GisMultiPolygon.php
 
@@ -11021,7 +10991,7 @@ parameters:
 			path: src/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Cannot access offset int\\<0, max\\> on non\\-empty\\-array\\<'no_of_points'\\|int\\<0, max\\>, array\\{x\\: float, y\\: float\\}\\|int\\<0, max\\>\\>\\|int\\<1, max\\>\\.$#"
+			message: "#^Cannot access offset int\\<0, max\\> on non\\-empty\\-array\\<'data_length'\\|int\\<0, max\\>, array\\{x\\: float, y\\: float\\}\\|int\\<0, max\\>\\>\\|int\\<1, max\\>\\.$#"
 			count: 1
 			path: src/Gis/GisMultiPolygon.php
 
@@ -11096,13 +11066,8 @@ parameters:
 			path: src/Gis/GisPolygon.php
 
 		-
-			message: "#^Cannot access offset 'no_of_lines' on mixed\\.$#"
-			count: 1
-			path: src/Gis/GisPolygon.php
-
-		-
-			message: "#^Cannot access offset 'no_of_points' on mixed\\.$#"
-			count: 1
+			message: "#^Cannot access offset 'data_length' on mixed\\.$#"
+			count: 2
 			path: src/Gis/GisPolygon.php
 
 		-
@@ -11121,7 +11086,7 @@ parameters:
 			path: src/Gis/GisPolygon.php
 
 		-
-			message: "#^Cannot access offset int\\<0, max\\> on non\\-empty\\-array\\<'no_of_points'\\|int\\<0, max\\>, array\\{x\\: float, y\\: float\\}\\|int\\<0, max\\>\\>\\|int\\<1, max\\>\\.$#"
+			message: "#^Cannot access offset int\\<0, max\\> on non\\-empty\\-array\\<'data_length'\\|int\\<0, max\\>, array\\{x\\: float, y\\: float\\}\\|int\\<0, max\\>\\>\\|int\\<1, max\\>\\.$#"
 			count: 1
 			path: src/Gis/GisPolygon.php
 
@@ -20606,7 +20571,7 @@ parameters:
 			path: test/classes/FooterTest.php
 
 		-
-			message: "#^Cannot access offset 'no_of_points' on mixed\\.$#"
+			message: "#^Cannot access offset 'data_length' on mixed\\.$#"
 			count: 2
 			path: test/classes/Gis/Ds/PolygonTest.php
 
@@ -20616,13 +20581,8 @@ parameters:
 			path: test/classes/Gis/Ds/PolygonTest.php
 
 		-
-			message: "#^Cannot access offset 'no_of_lines' on mixed\\.$#"
-			count: 1
-			path: test/classes/Gis/GisMultiPolygonTest.php
-
-		-
-			message: "#^Cannot access offset 'no_of_points' on mixed\\.$#"
-			count: 1
+			message: "#^Cannot access offset 'data_length' on mixed\\.$#"
+			count: 2
 			path: test/classes/Gis/GisMultiPolygonTest.php
 
 		-
@@ -20631,7 +20591,7 @@ parameters:
 			path: test/classes/Gis/GisMultiPolygonTest.php
 
 		-
-			message: "#^Cannot access offset 'no_of_points' on mixed\\.$#"
+			message: "#^Cannot access offset 'data_length' on mixed\\.$#"
 			count: 1
 			path: test/classes/Gis/GisPolygonTest.php
 

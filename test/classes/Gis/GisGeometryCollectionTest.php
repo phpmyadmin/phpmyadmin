@@ -73,7 +73,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
         $temp1 = [
             0 => [
                 'gis_type' => 'LINESTRING',
-                'LINESTRING' => ['no_of_points' => 2, 0 => ['x' => 5.02,'y' => 8.45], 1 => ['x' => 6.14,'y' => 0.15]],
+                'LINESTRING' => ['data_length' => 2, 0 => ['x' => 5.02,'y' => 8.45], 1 => ['x' => 6.14,'y' => 0.15]],
             ],
         ];
 
@@ -82,7 +82,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                 [
                     'gis_type' => 'GEOMETRYCOLLECTION',
                     'srid' => '0',
-                    'GEOMETRYCOLLECTION' => ['geom_count' => '1'],
+                    'GEOMETRYCOLLECTION' => ['data_length' => '1'],
                     0 => ['gis_type' => 'POINT'],
                 ],
                 0,
@@ -93,7 +93,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                 [
                     'gis_type' => 'GEOMETRYCOLLECTION',
                     'srid' => '0',
-                    'GEOMETRYCOLLECTION' => ['geom_count' => '1'],
+                    'GEOMETRYCOLLECTION' => ['data_length' => '1'],
                     0 => ['gis_type' => 'LINESTRING'],
                 ],
                 0,
@@ -104,7 +104,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                 [
                     'gis_type' => 'GEOMETRYCOLLECTION',
                     'srid' => '0',
-                    'GEOMETRYCOLLECTION' => ['geom_count' => '1'],
+                    'GEOMETRYCOLLECTION' => ['data_length' => '1'],
                     0 => ['gis_type' => 'POLYGON'],
                 ],
                 0,
@@ -115,7 +115,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                 [
                     'gis_type' => 'GEOMETRYCOLLECTION',
                     'srid' => '0',
-                    'GEOMETRYCOLLECTION' => ['geom_count' => '1'],
+                    'GEOMETRYCOLLECTION' => ['data_length' => '1'],
                     0 => ['gis_type' => 'MULTIPOINT'],
                 ],
                 0,
@@ -126,7 +126,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                 [
                     'gis_type' => 'GEOMETRYCOLLECTION',
                     'srid' => '0',
-                    'GEOMETRYCOLLECTION' => ['geom_count' => '1'],
+                    'GEOMETRYCOLLECTION' => ['data_length' => '1'],
                     0 => ['gis_type' => 'MULTILINESTRING'],
                 ],
                 0,
@@ -137,7 +137,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                 [
                     'gis_type' => 'GEOMETRYCOLLECTION',
                     'srid' => '0',
-                    'GEOMETRYCOLLECTION' => ['geom_count' => '1'],
+                    'GEOMETRYCOLLECTION' => ['data_length' => '1'],
                     0 => ['gis_type' => 'MULTIPOLYGON'],
                 ],
                 0,
@@ -181,11 +181,11 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                 . ')',
                 [
                     'srid' => 0,
-                    'GEOMETRYCOLLECTION' => ['geom_count' => 6],
+                    'GEOMETRYCOLLECTION' => ['data_length' => 6],
                     0 => [
                         'gis_type' => 'LINESTRING',
                         'LINESTRING' => [
-                            'no_of_points' => 2,
+                            'data_length' => 2,
                             0 => ['x' => 5.02, 'y' => 8.45],
                             1 => ['x' => 6.14, 'y' => 0.15],
                         ],
@@ -193,15 +193,15 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                     1 => [
                         'gis_type' => 'MULTILINESTRING',
                         'MULTILINESTRING' => [
-                            'no_of_lines' => 2,
+                            'data_length' => 2,
                             0 => [
-                                'no_of_points' => 3,
+                                'data_length' => 3,
                                 0 => ['x' => 36.0, 'y' => 14.0],
                                 1 => ['x' => 47.0, 'y' => 23.0],
                                 2 => ['x' => 62.0, 'y' => 75.0],
                             ],
                             1 => [
-                                'no_of_points' => 3,
+                                'data_length' => 3,
                                 0 => ['x' => 36.0, 'y' => 10.0],
                                 1 => ['x' => 17.0, 'y' => 23.0],
                                 2 => ['x' => 178.0, 'y' => 53.0],
@@ -211,7 +211,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                     2 => [
                         'gis_type' => 'MULTIPOINT',
                         'MULTIPOINT' => [
-                            'no_of_points' => 2,
+                            'data_length' => 2,
                             0 => ['x' => 5.02, 'y' => 8.45],
                             1 => ['x' => 6.14, 'y' => 0.15],
                         ],
@@ -219,11 +219,11 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                     3 => [
                         'gis_type' => 'MULTIPOLYGON',
                         'MULTIPOLYGON' => [
-                            'no_of_polygons' => 2,
+                            'data_length' => 2,
                             0 => [
-                                'no_of_lines' => 2,
+                                'data_length' => 2,
                                 0 => [
-                                    'no_of_points' => 5,
+                                    'data_length' => 5,
                                     0 => ['x' => 35.0, 'y' => 10.0],
                                     1 => ['x' => 10.0, 'y' => 20.0],
                                     2 => ['x' => 15.0, 'y' => 40.0],
@@ -231,7 +231,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                                     4 => ['x' => 35.0, 'y' => 10.0],
                                 ],
                                 1 => [
-                                    'no_of_points' => 4,
+                                    'data_length' => 4,
                                     0 => ['x' => 20.0, 'y' => 30.0],
                                     1 => ['x' => 35.0, 'y' => 32.0],
                                     2 => ['x' => 30.0, 'y' => 20.0],
@@ -239,9 +239,9 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                                 ],
                             ],
                             1 => [
-                                'no_of_lines' => 1,
+                                'data_length' => 1,
                                 0 => [
-                                    'no_of_points' => 4,
+                                    'data_length' => 4,
                                     0 => ['x' => 123.0, 'y' => 0.0],
                                     1 => ['x' => 23.0, 'y' => 30.0],
                                     2 => ['x' => 17.0, 'y' => 63.0],
@@ -254,9 +254,9 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                     5 => [
                         'gis_type' => 'POLYGON',
                         'POLYGON' => [
-                            'no_of_lines' => 2,
+                            'data_length' => 2,
                             0 => [
-                                'no_of_points' => 5,
+                                'data_length' => 5,
                                 0 => ['x' => 35.0, 'y' => 10.0],
                                 1 => ['x' => 10.0, 'y' => 20.0],
                                 2 => ['x' => 15.0, 'y' => 40.0],
@@ -264,7 +264,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                                 4 => ['x' => 35.0, 'y' => 10.0],
                             ],
                             1 => [
-                                'no_of_points' => 4,
+                                'data_length' => 4,
                                 0 => ['x' => 20.0, 'y' => 30.0],
                                 1 => ['x' => 35.0, 'y' => 32.0],
                                 2 => ['x' => 30.0, 'y' => 20.0],

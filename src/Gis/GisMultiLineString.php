@@ -269,7 +269,7 @@ class GisMultiLineString extends GisGeometry
     {
         $dataRow = $gisData[$index]['MULTILINESTRING'] ?? null;
 
-        $noOfLines = $dataRow['no_of_lines'] ?? 1;
+        $noOfLines = $dataRow['data_length'] ?? 1;
         if ($noOfLines < 1) {
             $noOfLines = 1;
         }
@@ -277,7 +277,7 @@ class GisMultiLineString extends GisGeometry
         $wkt = 'MULTILINESTRING(';
         /** @infection-ignore-all */
         for ($i = 0; $i < $noOfLines; $i++) {
-            $noOfPoints = $dataRow[$i]['no_of_points'] ?? 2;
+            $noOfPoints = $dataRow[$i]['data_length'] ?? 2;
             if ($noOfPoints < 2) {
                 $noOfPoints = 2;
             }
@@ -339,12 +339,12 @@ class GisMultiLineString extends GisGeometry
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
         $wktMultilinestring = mb_substr($wkt, 17, -2);
         $wktLinestrings = explode('),(', $wktMultilinestring);
-        $coords = ['no_of_lines' => count($wktLinestrings)];
+        $coords = ['data_length' => count($wktLinestrings)];
 
         foreach ($wktLinestrings as $j => $wktLinestring) {
             $points = $this->extractPoints1d($wktLinestring, null);
             $noOfPoints = count($points);
-            $coords[$j] = ['no_of_points' => $noOfPoints];
+            $coords[$j] = ['data_length' => $noOfPoints];
             /** @infection-ignore-all */
             for ($i = 0; $i < $noOfPoints; $i++) {
                 $coords[$j][$i] = ['x' => $points[$i][0], 'y' => $points[$i][1]];

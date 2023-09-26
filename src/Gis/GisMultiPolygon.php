@@ -303,7 +303,7 @@ class GisMultiPolygon extends GisGeometry
     {
         $dataRow = $gisData[$index]['MULTIPOLYGON'] ?? null;
 
-        $noOfPolygons = $dataRow['no_of_polygons'] ?? 1;
+        $noOfPolygons = $dataRow['data_length'] ?? 1;
         if ($noOfPolygons < 1) {
             $noOfPolygons = 1;
         }
@@ -311,14 +311,14 @@ class GisMultiPolygon extends GisGeometry
         $wkt = 'MULTIPOLYGON(';
         /** @infection-ignore-all */
         for ($k = 0; $k < $noOfPolygons; $k++) {
-            $noOfLines = $dataRow[$k]['no_of_lines'] ?? 1;
+            $noOfLines = $dataRow[$k]['data_length'] ?? 1;
             if ($noOfLines < 1) {
                 $noOfLines = 1;
             }
 
             $wkt .= '(';
             for ($i = 0; $i < $noOfLines; $i++) {
-                $noOfPoints = $dataRow[$k][$i]['no_of_points'] ?? 4;
+                $noOfPoints = $dataRow[$k][$i]['data_length'] ?? 4;
                 if ($noOfPoints < 4) {
                     $noOfPoints = 4;
                 }
@@ -448,15 +448,15 @@ class GisMultiPolygon extends GisGeometry
         // Trim to remove leading 'MULTIPOLYGON(((' and trailing ')))'
         $wktMultiPolygon = mb_substr($wkt, 15, -3);
         $wktPolygons = explode(')),((', $wktMultiPolygon);
-        $coords = ['no_of_polygons' => count($wktPolygons)];
+        $coords = ['data_length' => count($wktPolygons)];
 
         foreach ($wktPolygons as $k => $wktPolygon) {
             $wktRings = explode('),(', $wktPolygon);
-            $coords[$k] = ['no_of_lines' => count($wktRings)];
+            $coords[$k] = ['data_length' => count($wktRings)];
             foreach ($wktRings as $j => $wktRing) {
                 $points = $this->extractPoints1d($wktRing, null);
                 $noOfPoints = count($points);
-                $coords[$k][$j] = ['no_of_points' => $noOfPoints];
+                $coords[$k][$j] = ['data_length' => $noOfPoints];
                 /** @infection-ignore-all */
                 for ($i = 0; $i < $noOfPoints; $i++) {
                     $coords[$k][$j][$i] = ['x' => $points[$i][0], 'y' => $points[$i][1]];
