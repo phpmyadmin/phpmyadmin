@@ -9626,6 +9626,13 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Plugins/Import/ImportShp.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>DatabaseInterface::getInstance()</code>
+    </DeprecatedMethod>
+    <InvalidArgument>
+      <code>$sqlStatements</code>
+    </InvalidArgument>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['buffer']]]></code>
       <code><![CDATA[$GLOBALS['eof']]]></code>
@@ -9636,22 +9643,16 @@
       <code><![CDATA[$GLOBALS['buffer']]]></code>
       <code><![CDATA[$GLOBALS['buffer']]]></code>
       <code><![CDATA[$GLOBALS['importHandle']]]></code>
-      <code>$dbfFileName</code>
       <code>$dbfFilePath</code>
       <code>$dbfFilePath</code>
-      <code>$extracted</code>
-      <code>$result</code>
-      <code><![CDATA[$shp->getDBFHeader()]]></code>
+      <code>$gisType</code>
     </MixedArgument>
     <MixedArrayAccess>
       <code>$c[0]</code>
-      <code>$dbfHeader[$n]</code>
       <code>$dbfHeader[$n][0]</code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
-      <code>$analyses[$tableNo][Import::FORMATTEDSQL]</code>
       <code>$analyses[$tableNo][Import::FORMATTEDSQL][$spatialCol]</code>
-      <code>$analyses[$tableNo][Import::TYPES]</code>
       <code>$analyses[$tableNo][Import::TYPES][$spatialCol]</code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
@@ -9662,38 +9663,29 @@
       <code><![CDATA[$GLOBALS['eof']]]></code>
       <code><![CDATA[$GLOBALS['importHandle']]]></code>
       <code><![CDATA[$GLOBALS['local_import_file']]]></code>
-      <code><![CDATA[$GLOBALS['message']]]></code>
-      <code><![CDATA[$GLOBALS['message']]]></code>
-      <code><![CDATA[$GLOBALS['message']]]></code>
-      <code>$analyses[]</code>
       <code>$c</code>
       <code>$colNames[]</code>
-      <code>$config</code>
-      <code>$dbfFileName</code>
-      <code>$dbfFileName</code>
-      <code>$dbfHeader</code>
-      <code>$extracted</code>
-      <code>$result</code>
-      <code>$temp</code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$GLOBALS['buffer']]]></code>
-      <code>$dbfFileName</code>
-      <code>$temp</code>
+      <code><![CDATA[$gisObj->getShape($record->shpData)]]></code>
     </MixedOperand>
-    <MixedPropertyFetch>
-      <code><![CDATA[$config->settings]]></code>
-    </MixedPropertyFetch>
-    <MixedReturnTypeCoercion>
-      <code>$sqlStatements</code>
-      <code>string[]</code>
-    </MixedReturnTypeCoercion>
+    <PossiblyInvalidArrayAssignment>
+      <code>$analyses[$tableNo][Import::FORMATTEDSQL]</code>
+      <code>$analyses[$tableNo][Import::TYPES]</code>
+    </PossiblyInvalidArrayAssignment>
     <PossiblyNullArgument>
       <code><![CDATA[$GLOBALS['buffer']]]></code>
       <code><![CDATA[$GLOBALS['buffer']]]></code>
       <code><![CDATA[$GLOBALS['import_file']]]></code>
       <code><![CDATA[$GLOBALS['import_file']]]></code>
+      <code><![CDATA[$GLOBALS['import_file']]]></code>
+      <code><![CDATA[$GLOBALS['import_file']]]></code>
+      <code><![CDATA[$shp->getDBFHeader()]]></code>
     </PossiblyNullArgument>
+    <PossiblyNullIterator>
+      <code><![CDATA[$shp->getDBFHeader()]]></code>
+    </PossiblyNullIterator>
     <PossiblyUnusedReturnValue>
       <code>string[]</code>
     </PossiblyUnusedReturnValue>
@@ -15532,6 +15524,7 @@
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
+      <code><![CDATA[$GLOBALS['import_notice']]]></code>
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
     </MixedArgument>
     <RedundantCondition>

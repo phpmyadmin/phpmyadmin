@@ -29,6 +29,7 @@ use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Token;
+use PhpMyAdmin\SqlParser\TokenType;
 use PhpMyAdmin\Triggers\Triggers;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Version;
@@ -36,7 +37,6 @@ use PhpMyAdmin\Version;
 use function __;
 use function array_keys;
 use function bin2hex;
-use function count;
 use function defined;
 use function explode;
 use function implode;
@@ -2570,21 +2570,14 @@ class ExportSql extends ExportPlugin
             || $statement->options->has('VIEW')
         ) {
             // Replacing the body.
-            /** @infection-ignore-all */
-            for ($i = 0, $count = count($statement->body); $i < $count; ++$i) {
-                $token = $statement->body[$i];
-
-                // Replacing only symbols (that are not variables) and unknown
-                // identifiers.
-                $isSymbol = $token->type === Token::TYPE_SYMBOL;
-                $isKeyword = $token->type === Token::TYPE_KEYWORD;
-                $isNone = $token->type === Token::TYPE_NONE;
-                $replaceToken = $isSymbol
-                    && (($token->flags & Token::FLAG_SYMBOL_VARIABLE) === 0)
-                    || ($isKeyword
-                    && (($token->flags & Token::FLAG_KEYWORD_RESERVED) === 0)
-                    || $isNone);
-
+            foreach ($statement->body as $token) {
+                // Replacing only symbols (that are not variables) and unknown identifiers.
+                $isSymbol = $token->type === TokenType::Symbol;
+                $isKeyword = $token->type === TokenType::Keyword;
+                $isNone = $token->type === TokenType::None;
+                $replaceToken = $isSymbol && ($token->flags & Token::FLAG_SYMBOL_VARIABLE) === 0
+                    || $isKeyword && ($token->flags & Token::FLAG_KEYWORD_RESERVED) === 0
+                    || $isNone;
                 if (! $replaceToken) {
                     continue;
                 }
