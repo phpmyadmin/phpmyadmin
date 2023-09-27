@@ -54,7 +54,12 @@ window.centralColumnList = [];
 function addNoCacheToAjaxRequests (options: JQuery.AjaxSettings, originalOptions: JQuery.AjaxSettings): void {
     const nocache = new Date().getTime() + '' + Math.floor(Math.random() * 1000000);
     if (typeof options.data === 'string') {
-        options.data += '&_nocache=' + nocache + '&token=' + encodeURIComponent(CommonParams.get('token'));
+        if(options.data.includes("&token") === false){
+            options.data += '&token=' + encodeURIComponent(CommonParams.get('token'));
+        }
+        if(options.data.includes("&_nocache") === false){
+            options.data += '&_nocache=' + nocache;
+        }
     } else if (typeof options.data === 'object') {
         options.data = $.extend(originalOptions.data, {
             '_nocache': nocache,
