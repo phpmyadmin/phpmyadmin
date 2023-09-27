@@ -116,10 +116,6 @@ class Charsets
             . ' `TABLE_NAME`=\'COLLATION_CHARACTER_SET_APPLICABILITY\' AND'
             . ' `COLUMN_NAME`=\'FULL_COLLATION_NAME\'';
         
-        if ($disableIs) {
-            $sql = 'SHOW COLUMNS FROM `information_schema`.`COLLATION_CHARACTER_SET_APPLICABILITY` LIKE \'FULL_COLLATION_NAME\'';
-        }
-        
         $check = $dbi->query($sql);
         
         if ($check !== []) {
