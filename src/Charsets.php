@@ -77,6 +77,38 @@ class Charsets
             return;
         }
 
+        $sql = 'SELECT `CHARACTER_SET_NAME` AS `Charset`,'
+            . ' `DEFAULT_COLLATE_NAME` AS `Default collation`,'
+            . ' `DESCRIPTION` AS `Description`,'
+            . ' `MAXLEN` AS `Maxlen`'
+            . ' FROM `information_schema`.`CHARACTER_SETS`';
+
+        if ($disableIs) {
+            $sql = 'SHOW CHARACTER SET';
+        }
+
+        $res = $dbi->query($sql);
+
+        self::$charsets = [];
+        foreach ($res as $row) {
+            self::$charsets[$row['Charset']] = Charset::fromServer($row);
+        }
+
+        ksort(self::$charsets, SORT_STRING);
+    }
+
+    /**
+     * Loads collation data from the server
+     *
+     * @param bool $disableIs Disable use of INFORMATION_SCHEMA
+     */
+    private static function loadCollations(DatabaseInterface $dbi, bool $disableIs): void
+    {
+        /* Data already loaded */
+        if (self::$collations !== []) {
+            return;
+        }
+
         /* Check if we have `FULL_COLLATION_NAME`, which mean that we have MariaDB 10.10 or newer.
         Refer https://jira.mariadb.org/browse/MDEV-27009 */
         $sql = 'SELECT `COLUMN_NAME` FROM `information_schema`.`COLUMNS`'
@@ -90,7 +122,7 @@ class Charsets
         
         $check = $dbi->query($sql);
         
-        if (!empty($check)) {
+        if ($check !== []) {
             /* Use query to accomodate new structure of MariaDB collations
             Note, that SHOW COLLATION command is not applicable at the time of writing*/
             $sql = 'SELECT `collapp`.`FULL_COLLATION_NAME` AS `Collation`,'
@@ -114,40 +146,6 @@ class Charsets
             if ($disableIs) {
                 $sql = 'SHOW COLLATION';
             }
-        }
-        
-        $res = $dbi->query($sql);
-
-        self::$charsets = [];
-        foreach ($res as $row) {
-            self::$charsets[$row['Charset']] = Charset::fromServer($row);
-        }
-
-        ksort(self::$charsets, SORT_STRING);
-    }
-
-    /**
-     * Loads collation data from the server
-     *
-     * @param bool $disableIs Disable use of INFORMATION_SCHEMA
-     */
-    private static function loadCollations(DatabaseInterface $dbi, bool $disableIs): void
-    {
-        /* Data already loaded */
-        if (self::$collations !== []) {
-            return;
-        }
-
-        $sql = 'SELECT `COLLATION_NAME` AS `Collation`,'
-            . ' `CHARACTER_SET_NAME` AS `Charset`,'
-            . ' `ID` AS `Id`,'
-            . ' `IS_DEFAULT` AS `Default`,'
-            . ' `IS_COMPILED` AS `Compiled`,'
-            . ' `SORTLEN` AS `Sortlen`'
-            . ' FROM `information_schema`.`COLLATIONS`';
-
-        if ($disableIs) {
-            $sql = 'SHOW COLLATION';
         }
 
         $res = $dbi->query($sql);
