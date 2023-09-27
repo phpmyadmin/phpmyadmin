@@ -3335,9 +3335,6 @@
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
     <InvalidArgument>
-      <code><![CDATA[$_REQUEST['pos']]]></code>
-      <code><![CDATA[$_REQUEST['session_max_rows']]]></code>
-      <code>$rows</code>
       <code>$start</code>
     </InvalidArgument>
     <InvalidArrayOffset>
@@ -3348,6 +3345,11 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedAssignment>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[$_REQUEST['pos']]]></code>
+      <code><![CDATA[$_REQUEST['session_max_rows']]]></code>
+      <code>$rows</code>
+    </PossiblyInvalidArgument>
     <PossiblyInvalidOperand>
       <code><![CDATA[$_REQUEST['pos']]]></code>
       <code><![CDATA[$_REQUEST['pos']]]></code>

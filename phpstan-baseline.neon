@@ -5491,6 +5491,16 @@ parameters:
 			path: src/Controllers/Table/ChangeController.php
 
 		-
+			message: "#^Binary operation \"\\+\" between int\\|string and mixed results in an error\\.$#"
+			count: 1
+			path: src/Controllers/Table/ChartController.php
+
+		-
+			message: "#^Binary operation \"\\-\" between int\\|string and mixed results in an error\\.$#"
+			count: 1
+			path: src/Controllers/Table/ChartController.php
+
+		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 1
 			path: src/Controllers/Table/ChartController.php
@@ -5521,7 +5531,7 @@ parameters:
 			path: src/Controllers/Table/ChartController.php
 
 		-
-			message: "#^Parameter \\#1 \\$rowCount of class PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit constructor expects int, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$rowCount of class PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit constructor expects int\\|string, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Table/ChartController.php
 
@@ -5536,13 +5546,8 @@ parameters:
 			path: src/Controllers/Table/ChartController.php
 
 		-
-			message: "#^Parameter \\#2 \\$offset of class PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit constructor expects int, \\(float\\|int\\) given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ChartController.php
-
-		-
-			message: "#^Parameter \\#2 \\$offset of class PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit constructor expects int, mixed given\\.$#"
-			count: 1
+			message: "#^Parameter \\#2 \\$offset of class PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit constructor expects int\\|string, mixed given\\.$#"
+			count: 2
 			path: src/Controllers/Table/ChartController.php
 
 		-
