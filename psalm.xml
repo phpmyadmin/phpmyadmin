@@ -30,7 +30,6 @@
     </projectFiles>
 
     <stubs>
-        <file name="test/stubs/Query.stub"/>
         <file name="test/stubs/uploadprogress.stub"/>
     </stubs>
 

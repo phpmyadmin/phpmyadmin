@@ -7959,6 +7959,11 @@
       <code><![CDATA['data']]></code>
     </TypeDoesNotContainNull>
   </file>
+  <file src="src/ParseAnalyze.php">
+    <ArgumentTypeCoercion>
+      <code>$info</code>
+    </ArgumentTypeCoercion>
+  </file>
   <file src="src/Partitioning/Maintenance.php">
     <MixedArrayAccess>
       <code><![CDATA[$row['Table']]]></code>
@@ -9628,13 +9633,6 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Plugins/Import/ImportShp.php">
-    <DeprecatedMethod>
-      <code>Config::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-    </DeprecatedMethod>
-    <InvalidArgument>
-      <code>$sqlStatements</code>
-    </InvalidArgument>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['buffer']]]></code>
       <code><![CDATA[$GLOBALS['eof']]]></code>
@@ -9645,16 +9643,22 @@
       <code><![CDATA[$GLOBALS['buffer']]]></code>
       <code><![CDATA[$GLOBALS['buffer']]]></code>
       <code><![CDATA[$GLOBALS['importHandle']]]></code>
+      <code>$dbfFileName</code>
       <code>$dbfFilePath</code>
       <code>$dbfFilePath</code>
-      <code>$gisType</code>
+      <code>$extracted</code>
+      <code>$result</code>
+      <code><![CDATA[$shp->getDBFHeader()]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code>$c[0]</code>
+      <code>$dbfHeader[$n]</code>
       <code>$dbfHeader[$n][0]</code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
+      <code>$analyses[$tableNo][Import::FORMATTEDSQL]</code>
       <code>$analyses[$tableNo][Import::FORMATTEDSQL][$spatialCol]</code>
+      <code>$analyses[$tableNo][Import::TYPES]</code>
       <code>$analyses[$tableNo][Import::TYPES][$spatialCol]</code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
@@ -9665,29 +9669,38 @@
       <code><![CDATA[$GLOBALS['eof']]]></code>
       <code><![CDATA[$GLOBALS['importHandle']]]></code>
       <code><![CDATA[$GLOBALS['local_import_file']]]></code>
+      <code><![CDATA[$GLOBALS['message']]]></code>
+      <code><![CDATA[$GLOBALS['message']]]></code>
+      <code><![CDATA[$GLOBALS['message']]]></code>
+      <code>$analyses[]</code>
       <code>$c</code>
       <code>$colNames[]</code>
+      <code>$config</code>
+      <code>$dbfFileName</code>
+      <code>$dbfFileName</code>
+      <code>$dbfHeader</code>
+      <code>$extracted</code>
+      <code>$result</code>
+      <code>$temp</code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$GLOBALS['buffer']]]></code>
-      <code><![CDATA[$gisObj->getShape($record->shpData)]]></code>
+      <code>$dbfFileName</code>
+      <code>$temp</code>
     </MixedOperand>
-    <PossiblyInvalidArrayAssignment>
-      <code>$analyses[$tableNo][Import::FORMATTEDSQL]</code>
-      <code>$analyses[$tableNo][Import::TYPES]</code>
-    </PossiblyInvalidArrayAssignment>
+    <MixedPropertyFetch>
+      <code><![CDATA[$config->settings]]></code>
+    </MixedPropertyFetch>
+    <MixedReturnTypeCoercion>
+      <code>$sqlStatements</code>
+      <code>string[]</code>
+    </MixedReturnTypeCoercion>
     <PossiblyNullArgument>
       <code><![CDATA[$GLOBALS['buffer']]]></code>
       <code><![CDATA[$GLOBALS['buffer']]]></code>
       <code><![CDATA[$GLOBALS['import_file']]]></code>
       <code><![CDATA[$GLOBALS['import_file']]]></code>
-      <code><![CDATA[$GLOBALS['import_file']]]></code>
-      <code><![CDATA[$GLOBALS['import_file']]]></code>
-      <code><![CDATA[$shp->getDBFHeader()]]></code>
     </PossiblyNullArgument>
-    <PossiblyNullIterator>
-      <code><![CDATA[$shp->getDBFHeader()]]></code>
-    </PossiblyNullIterator>
     <PossiblyUnusedReturnValue>
       <code>string[]</code>
     </PossiblyUnusedReturnValue>
@@ -11749,6 +11762,9 @@
     </MixedAssignment>
   </file>
   <file src="src/Sql.php">
+    <ArgumentTypeCoercion>
+      <code>Query::getAll($fullSqlQuery)</code>
+    </ArgumentTypeCoercion>
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -14472,6 +14488,11 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Display/ResultsTest.php">
+    <ArgumentTypeCoercion>
+      <code>Query::getAll($query)</code>
+      <code>Query::getAll($query)</code>
+      <code><![CDATA[Query::getAll('SELECT * FROM pma')]]></code>
+    </ArgumentTypeCoercion>
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -15526,7 +15547,6 @@
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
     </MixedArgument>
     <RedundantCondition>

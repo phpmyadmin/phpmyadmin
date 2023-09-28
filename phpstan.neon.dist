@@ -13,7 +13,6 @@ parameters:
     bootstrapFiles:
         - test/phpstan-constants.php
     stubFiles:
-        - test/stubs/Query.stub
         - test/stubs/uploadprogress.stub
     excludePaths:
         - libraries/cache/*
