@@ -615,6 +615,7 @@ final class JavaScriptMessagesController
             /* l10n: Latest available phpMyAdmin version */
             'strLatestAvailable' => __(', latest stable version:'),
             'strUpToDate' => __('up to date'),
+            'errorLoadingGitInformation' => __('There was an error in loading the Git information.'),
 
             /* Error Reporting */
             'strErrorOccurred' => __('A fatal JavaScript error has occurred. Would you like to send an error report?'),

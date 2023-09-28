@@ -125,14 +125,34 @@ const GitInfo = {
                 'server': CommonParams.get('server'),
                 'ajax_request': true,
                 'no_debug': true
+            }
+        ).done(function (data) {
+            if (typeof data !== 'undefined' && data.success === true) {
+                $(data.message).insertAfter('#li_pma_version');
+            }
+        }).fail(function () {
+            const gitHashInfoLi = '<li id="li_pma_version_git" class="list-group-item">' + window.Messages.errorLoadingGitInformation + '</li>';
+            $(gitHashInfoLi).insertAfter('#li_pma_version');
+        });
+    }
+};
+
+AJAX.registerTeardown('home.js', function () {
+    $('#themesModal').off('show.bs.modal');
+});
+
+AJAX.registerOnload('home.js', function () {
+    $('#themesModal').on('show.bs.modal', function () {
+        $.get(
+            'index.php?route=/themes',
+            {
+                'server': CommonParams.get('server'),
             },
-            data => {
-                if (typeof data !== 'undefined' && data.success === true) {
-                    $(data.message).insertAfter('#li_pma_version');
-                }
+            function (data) {
+                $('#themesModal .modal-body').html(data.themes);
             }
         );
-    },
+    });
 
     /**
      * Load version information asynchronously.
