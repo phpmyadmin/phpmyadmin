@@ -105,23 +105,23 @@ class AuthenticationHttp extends AuthenticationPlugin
         }
 
         if ($this->user === '') {
-            if (Core::getenv('PHP_AUTH_USER') !== '') {
-                $this->user = Core::getenv('PHP_AUTH_USER');
-            } elseif (Core::getenv('REMOTE_USER') !== '') {
+            if (Core::getEnv('PHP_AUTH_USER') !== '') {
+                $this->user = Core::getEnv('PHP_AUTH_USER');
+            } elseif (Core::getEnv('REMOTE_USER') !== '') {
                 // CGI, might be encoded, see below
-                $this->user = Core::getenv('REMOTE_USER');
-            } elseif (Core::getenv('REDIRECT_REMOTE_USER') !== '') {
+                $this->user = Core::getEnv('REMOTE_USER');
+            } elseif (Core::getEnv('REDIRECT_REMOTE_USER') !== '') {
                 // CGI, might be encoded, see below
-                $this->user = Core::getenv('REDIRECT_REMOTE_USER');
-            } elseif (Core::getenv('AUTH_USER') !== '') {
+                $this->user = Core::getEnv('REDIRECT_REMOTE_USER');
+            } elseif (Core::getEnv('AUTH_USER') !== '') {
                 // WebSite Professional
-                $this->user = Core::getenv('AUTH_USER');
-            } elseif (Core::getenv('HTTP_AUTHORIZATION') !== '') {
+                $this->user = Core::getEnv('AUTH_USER');
+            } elseif (Core::getEnv('HTTP_AUTHORIZATION') !== '') {
                 // IIS, might be encoded, see below
-                $this->user = Core::getenv('HTTP_AUTHORIZATION');
-            } elseif (Core::getenv('Authorization') !== '') {
+                $this->user = Core::getEnv('HTTP_AUTHORIZATION');
+            } elseif (Core::getEnv('Authorization') !== '') {
                 // FastCGI, might be encoded, see below
-                $this->user = Core::getenv('Authorization');
+                $this->user = Core::getEnv('Authorization');
             }
         }
 
@@ -131,14 +131,14 @@ class AuthenticationHttp extends AuthenticationPlugin
         }
 
         if ($this->password === '') {
-            if (Core::getenv('PHP_AUTH_PW') !== '') {
-                $this->password = Core::getenv('PHP_AUTH_PW');
-            } elseif (Core::getenv('REMOTE_PASSWORD') !== '') {
+            if (Core::getEnv('PHP_AUTH_PW') !== '') {
+                $this->password = Core::getEnv('PHP_AUTH_PW');
+            } elseif (Core::getEnv('REMOTE_PASSWORD') !== '') {
                 // Apache/CGI
-                $this->password = Core::getenv('REMOTE_PASSWORD');
-            } elseif (Core::getenv('AUTH_PASSWORD') !== '') {
+                $this->password = Core::getEnv('REMOTE_PASSWORD');
+            } elseif (Core::getEnv('AUTH_PASSWORD') !== '') {
                 // WebSite Professional
-                $this->password = Core::getenv('AUTH_PASSWORD');
+                $this->password = Core::getEnv('AUTH_PASSWORD');
             }
         }
 

@@ -21,6 +21,7 @@ use stdClass;
 use function _pgettext;
 use function hash;
 use function header;
+use function putenv;
 use function serialize;
 use function str_repeat;
 
@@ -715,5 +716,25 @@ class CoreTest extends AbstractTestCase
         $this->assertNotContains('Content-Encoding: gzip', $headersList);
         $this->assertContains('Content-Transfer-Encoding: binary', $headersList);
         $this->assertNotContains('Content-Length: 0', $headersList);
+    }
+
+    public function testGetEnv(): void
+    {
+        self::assertSame('', Core::getEnv('PHPMYADMIN_GET_ENV_TEST'));
+
+        $_SERVER['PHPMYADMIN_GET_ENV_TEST'] = 'value_from_server_global';
+        $_ENV['PHPMYADMIN_GET_ENV_TEST'] = 'value_from_env_global';
+        putenv('PHPMYADMIN_GET_ENV_TEST=value_from_getenv');
+
+        self::assertSame('value_from_server_global', Core::getEnv('PHPMYADMIN_GET_ENV_TEST'));
+        unset($_SERVER['PHPMYADMIN_GET_ENV_TEST']);
+
+        self::assertSame('value_from_env_global', Core::getEnv('PHPMYADMIN_GET_ENV_TEST'));
+        unset($_ENV['PHPMYADMIN_GET_ENV_TEST']);
+
+        self::assertSame('value_from_getenv', Core::getEnv('PHPMYADMIN_GET_ENV_TEST'));
+        putenv('PHPMYADMIN_GET_ENV_TEST');
+
+        self::assertSame('', Core::getEnv('PHPMYADMIN_GET_ENV_TEST'));
     }
 }

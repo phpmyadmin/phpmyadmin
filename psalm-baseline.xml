@@ -4481,6 +4481,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Core.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA[$config->settings['TrustedProxies'][$directIp]]]></code>
+    </ArgumentTypeCoercion>
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -4536,9 +4539,6 @@
     <PossiblyInvalidArrayOffset>
       <code>$path[$depth - 1]</code>
     </PossiblyInvalidArrayOffset>
-    <PossiblyInvalidCast>
-      <code>$_SERVER[$varName]</code>
-    </PossiblyInvalidCast>
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$_SERVER['SERVER_NAME']]]></code>
     </PossiblyUndefinedArrayOffset>

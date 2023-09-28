@@ -72,7 +72,7 @@ class ManageController extends AbstractController
         if ($request->hasBodyParam('submit_export') && $request->getParsedBodyParam('export_type') === 'text_file') {
             // export to JSON file
             $this->response->disable();
-            $filename = 'phpMyAdmin-config-' . urlencode(Core::getenv('HTTP_HOST')) . '.json';
+            $filename = 'phpMyAdmin-config-' . urlencode(Core::getEnv('HTTP_HOST')) . '.json';
             Core::downloadHeader($filename, 'application/json');
             $settings = $this->userPreferences->load();
             echo json_encode($settings['config_data'], JSON_PRETTY_PRINT);
@@ -83,7 +83,7 @@ class ManageController extends AbstractController
         if ($request->hasBodyParam('submit_export') && $request->getParsedBodyParam('export_type') === 'php_file') {
             // export to JSON file
             $this->response->disable();
-            $filename = 'phpMyAdmin-config-' . urlencode(Core::getenv('HTTP_HOST')) . '.php';
+            $filename = 'phpMyAdmin-config-' . urlencode(Core::getEnv('HTTP_HOST')) . '.php';
             Core::downloadHeader($filename, 'application/php');
             $settings = $this->userPreferences->load();
             echo '/* ' . __('phpMyAdmin configuration snippet') . " */\n\n";

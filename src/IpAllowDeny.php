@@ -252,10 +252,10 @@ class IpAllowDeny
         $shortcuts = ['all' => '0.0.0.0/0', 'localhost' => '127.0.0.1/8'];
 
         // Provide some useful shortcuts if server gives us address:
-        if (Core::getenv('SERVER_ADDR') !== '') {
-            $shortcuts['localnetA'] = Core::getenv('SERVER_ADDR') . '/8';
-            $shortcuts['localnetB'] = Core::getenv('SERVER_ADDR') . '/16';
-            $shortcuts['localnetC'] = Core::getenv('SERVER_ADDR') . '/24';
+        if (Core::getEnv('SERVER_ADDR') !== '') {
+            $shortcuts['localnetA'] = Core::getEnv('SERVER_ADDR') . '/8';
+            $shortcuts['localnetB'] = Core::getEnv('SERVER_ADDR') . '/16';
+            $shortcuts['localnetC'] = Core::getEnv('SERVER_ADDR') . '/24';
         }
 
         foreach ($rules as $rule) {

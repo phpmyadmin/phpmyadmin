@@ -145,7 +145,7 @@ class Footer
             $params['single_table'] = $_REQUEST['single_table'];
         }
 
-        return basename(Core::getenv('SCRIPT_NAME')) . Url::getCommonRaw($params);
+        return basename(Core::getEnv('SCRIPT_NAME')) . Url::getCommonRaw($params);
     }
 
     /**
@@ -239,7 +239,7 @@ class Footer
         if ($this->isEnabled) {
             $config = Config::getInstance();
             if (! $this->isAjax && ! $this->isMinimal) {
-                if (Core::getenv('SCRIPT_NAME') !== '') {
+                if (Core::getEnv('SCRIPT_NAME') !== '') {
                     $url = $this->getSelfUrl();
                 }
 

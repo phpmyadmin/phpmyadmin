@@ -30,6 +30,7 @@ use function http_build_query;
 use function in_array;
 use function intval;
 use function is_array;
+use function is_scalar;
 use function is_string;
 use function json_decode;
 use function mb_strpos;
@@ -203,31 +204,21 @@ class Core
     }
 
     /**
-     * tries to find the value for the given environment variable name
+     * Tries to find the value for the given environment variable name
      *
-     * searches in $_SERVER, $_ENV then tries getenv() and apache_getenv()
-     * in this order
+     * Searches in $_SERVER, $_ENV then tries getenv() and apache_getenv() in this order.
      *
-     * @param string $varName variable name
-     *
-     * @return string  value of $var or empty string
+     * @psalm-param non-empty-string $variableName
      */
-    public static function getenv(string $varName): string
+    public static function getEnv(string $variableName): string
     {
-        if (isset($_SERVER[$varName])) {
-            return (string) $_SERVER[$varName];
+        $value = $_SERVER[$variableName] ?? $_ENV[$variableName] ?? getenv($variableName);
+        if (is_scalar($value) && (string) $value !== '') {
+            return (string) $value;
         }
 
-        if (isset($_ENV[$varName])) {
-            return (string) $_ENV[$varName];
-        }
-
-        if (getenv($varName)) {
-            return (string) getenv($varName);
-        }
-
-        if (function_exists('apache_getenv') && apache_getenv($varName, true)) {
-            return (string) apache_getenv($varName, true);
+        if (function_exists('apache_getenv')) {
+            return (string) apache_getenv($variableName, true); // @codeCoverageIgnore
         }
 
         return '';
@@ -609,7 +600,7 @@ class Core
          * X-Forwarded-For: client, proxy1, proxy2
          */
         // Get header content
-        $value = self::getenv($config->settings['TrustedProxies'][$directIp]);
+        $value = self::getEnv($config->settings['TrustedProxies'][$directIp]);
         // Grab first element what is client adddress
         $value = explode(',', $value)[0];
         // checks that the header contains only one IP address,

@@ -143,7 +143,7 @@ class TwoFactorPlugin
         }
 
         if (! isset($parsed['host']) || $parsed['host'] === '') {
-            $parsed['host'] = Core::getenv('HTTP_HOST');
+            $parsed['host'] = Core::getEnv('HTTP_HOST');
         }
 
         if ($returnUrl) {
