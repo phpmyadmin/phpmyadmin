@@ -309,7 +309,7 @@ JQPlotLineChart.prototype.populateOptions = function (dataTable, options) {
     if (optional.axes.xaxis.ticks.length === 0) {
         var data = dataTable.getData();
         for (var j = 0; j < data.length; j++) {
-            optional.axes.xaxis.ticks.push(data[j][0].toString());
+            optional.axes.xaxis.ticks.push(data[j][0]?.toString());
         }
     }
 
