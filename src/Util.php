@@ -1385,7 +1385,7 @@ class Util
     ): string {
         /* Content */
         $vars = [];
-        $vars['http_host'] = Core::getenv('HTTP_HOST');
+        $vars['http_host'] = Core::getEnv('HTTP_HOST');
         $config = Config::getInstance();
         $vars['server_name'] = $config->selectedServer['host'];
         $vars['server_verbose'] = $config->selectedServer['verbose'];

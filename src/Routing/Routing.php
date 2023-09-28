@@ -222,12 +222,12 @@ class Routing
      */
     public static function getCleanPathInfo(): string
     {
-        $pmaPhpSelf = Core::getenv('PHP_SELF');
+        $pmaPhpSelf = Core::getEnv('PHP_SELF');
         if ($pmaPhpSelf === '') {
-            $pmaPhpSelf = urldecode(Core::getenv('REQUEST_URI'));
+            $pmaPhpSelf = urldecode(Core::getEnv('REQUEST_URI'));
         }
 
-        $pathInfo = Core::getenv('PATH_INFO');
+        $pathInfo = Core::getEnv('PATH_INFO');
         if ($pathInfo !== '' && $pmaPhpSelf !== '') {
             $questionPos = mb_strpos($pmaPhpSelf, '?');
             if ($questionPos != false) {

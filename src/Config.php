@@ -210,8 +210,8 @@ class Config
     public function checkClient(): void
     {
         $httpUserAgent = '';
-        if (Core::getenv('HTTP_USER_AGENT') !== '') {
-            $httpUserAgent = Core::getenv('HTTP_USER_AGENT');
+        if (Core::getEnv('HTTP_USER_AGENT') !== '') {
+            $httpUserAgent = Core::getEnv('HTTP_USER_AGENT');
         }
 
         // 1. Platform
@@ -771,26 +771,26 @@ class Config
         $isHttps = false;
         if (! empty($url) && parse_url($url, PHP_URL_SCHEME) === 'https') {
             $isHttps = true;
-        } elseif (strtolower(Core::getenv('HTTP_SCHEME')) === 'https') {
+        } elseif (strtolower(Core::getEnv('HTTP_SCHEME')) === 'https') {
             $isHttps = true;
-        } elseif (strtolower(Core::getenv('HTTPS')) === 'on') {
+        } elseif (strtolower(Core::getEnv('HTTPS')) === 'on') {
             $isHttps = true;
-        } elseif (strtolower(substr(Core::getenv('REQUEST_URI'), 0, 6)) === 'https:') {
+        } elseif (strtolower(substr(Core::getEnv('REQUEST_URI'), 0, 6)) === 'https:') {
             $isHttps = true;
-        } elseif (strtolower(Core::getenv('HTTP_HTTPS_FROM_LB')) === 'on') {
+        } elseif (strtolower(Core::getEnv('HTTP_HTTPS_FROM_LB')) === 'on') {
             // A10 Networks load balancer
             $isHttps = true;
-        } elseif (strtolower(Core::getenv('HTTP_FRONT_END_HTTPS')) === 'on') {
+        } elseif (strtolower(Core::getEnv('HTTP_FRONT_END_HTTPS')) === 'on') {
             $isHttps = true;
-        } elseif (strtolower(Core::getenv('HTTP_X_FORWARDED_PROTO')) === 'https') {
+        } elseif (strtolower(Core::getEnv('HTTP_X_FORWARDED_PROTO')) === 'https') {
             $isHttps = true;
-        } elseif (strtolower(Core::getenv('HTTP_CLOUDFRONT_FORWARDED_PROTO')) === 'https') {
+        } elseif (strtolower(Core::getEnv('HTTP_CLOUDFRONT_FORWARDED_PROTO')) === 'https') {
             // Amazon CloudFront, issue #15621
             $isHttps = true;
-        } elseif (Util::getProtoFromForwardedHeader(Core::getenv('HTTP_FORWARDED')) === 'https') {
+        } elseif (Util::getProtoFromForwardedHeader(Core::getEnv('HTTP_FORWARDED')) === 'https') {
             // RFC 7239 Forwarded header
             $isHttps = true;
-        } elseif (Core::getenv('SERVER_PORT') == 443) {
+        } elseif (Core::getEnv('SERVER_PORT') == 443) {
             $isHttps = true;
         }
 
