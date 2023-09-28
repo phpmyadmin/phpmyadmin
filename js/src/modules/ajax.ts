@@ -933,10 +933,14 @@ const AJAX = {
      * @return {function(JQuery.Event, JQuery.jqXHR): void}
      */
     getFatalErrorHandler: function () {
-        return function (event, request) {
+        return function (event, request, settings) {
             if (AJAX.debug) {
                 // eslint-disable-next-line no-console
                 console.log('AJAX error: status=' + request.status + ', text=' + request.statusText);
+            }
+
+            if (settings.url.includes('/git-revision')) {
+                return;
             }
 
             // Don't handle aborted requests

@@ -17,7 +17,6 @@ use function feof;
 use function fgets;
 use function fwrite;
 use function htmlspecialchars;
-use function is_resource;
 use function proc_close;
 use function proc_open;
 use function sprintf;
@@ -132,7 +131,7 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
         $newstring = '';
         $descriptorspec = [0 => ['pipe', 'r'], 1 => ['pipe', 'w']];
         $process = proc_open($program . ' ' . $options[1], $descriptorspec, $pipes);
-        if (is_resource($process)) {
+        if ($process !== false) {
             fwrite($pipes[0], $buffer);
             fclose($pipes[0]);
 
