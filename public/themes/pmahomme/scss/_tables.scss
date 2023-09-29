@@ -20,6 +20,13 @@
     background-image: linear-gradient(#fff, #ccc);
   }
 
+  tbody {
+    th,
+    td {
+      border-right: 1px solid #00000017;
+    }
+  }
+
   caption {
     background-color: $th-background;
     font-weight: bold;
