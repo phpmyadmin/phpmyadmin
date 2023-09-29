@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Url;
 
 use function is_string;
-use function method_exists;
 use function parse_str;
 use function str_repeat;
 use function urldecode;
@@ -214,12 +213,7 @@ class UrlTest extends AbstractTestCase
         $this->assertSame('0', $queryParams['pos']);
         $this->assertTrue(is_string($queryParams['eq']));
         $this->assertNotSame('', $queryParams['eq']);
-        if (method_exists($this, 'assertMatchesRegularExpression')) {
-            $this->assertMatchesRegularExpression('/^[a-zA-Z0-9-_=]+$/', $queryParams['eq']);
-        } else {
-            /** @psalm-suppress DeprecatedMethod */
-            $this->assertRegExp('/^[a-zA-Z0-9-_=]+$/', $queryParams['eq']);
-        }
+        $this->assertMatchesRegularExpression('/^[a-zA-Z0-9-_=]+$/', $queryParams['eq']);
 
         $decrypted = Url::decryptQuery($queryParams['eq']);
         $this->assertNotNull($decrypted);
@@ -242,12 +236,7 @@ class UrlTest extends AbstractTestCase
         $encrypted = Url::encryptQuery($query);
         $this->assertNotSame($query, $encrypted);
         $this->assertNotSame('', $encrypted);
-        if (method_exists($this, 'assertMatchesRegularExpression')) {
-            $this->assertMatchesRegularExpression('/^[a-zA-Z0-9-_=]+$/', $encrypted);
-        } else {
-            /** @psalm-suppress DeprecatedMethod */
-            $this->assertRegExp('/^[a-zA-Z0-9-_=]+$/', $encrypted);
-        }
+        $this->assertMatchesRegularExpression('/^[a-zA-Z0-9-_=]+$/', $encrypted);
 
         $decrypted = Url::decryptQuery($encrypted);
         $this->assertSame($query, $decrypted);

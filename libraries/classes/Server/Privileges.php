@@ -51,6 +51,7 @@ use function sprintf;
 use function str_contains;
 use function str_replace;
 use function strlen;
+use function strtr;
 use function trim;
 use function uksort;
 
@@ -132,19 +133,25 @@ class Privileges
      *
      * @return string   the generated condition
      */
-    public function rangeOfUsers($initial = '')
+    public function rangeOfUsers(?string $initial = null)
     {
-        // strtolower() is used because the User field
-        // might be BINARY, so LIKE would be case sensitive
-        if ($initial === null || $initial === '') {
+        if ($initial === null) {
             return '';
         }
 
+        if ($initial === '') {
+            return " WHERE `User` = ''";
+        }
+
+        $like = strtr($initial, ['_' => '\\_', '%' => '\\%', '\\' => '\\\\']) . '%';
+
+        // strtolower() is used because the User field
+        // might be BINARY, so LIKE would be case sensitive
         return " WHERE `User` LIKE '"
-            . $this->dbi->escapeString($initial) . "%'"
+            . $this->dbi->escapeString($like) . "'"
             . " OR `User` LIKE '"
-            . $this->dbi->escapeString(mb_strtolower($initial))
-            . "%'";
+            . $this->dbi->escapeString(mb_strtolower($like))
+            . "'";
     }
 
     /**
@@ -2062,18 +2069,14 @@ class Privileges
     /**
      * Get HTML for Displays the initials
      *
-     * @param array $arrayInitials array for all initials, even non A-Z
-     *
      * @return string HTML snippet
      */
-    public function getHtmlForInitials(array $arrayInitials)
+    public function getHtmlForInitials()
     {
+        $arrayInitials = [];
+
         // initialize to false the letters A-Z
         for ($letterCounter = 1; $letterCounter < 27; $letterCounter++) {
-            if (isset($arrayInitials[mb_chr($letterCounter + 64)])) {
-                continue;
-            }
-
             $arrayInitials[mb_chr($letterCounter + 64)] = false;
         }
 
@@ -2971,9 +2974,6 @@ class Privileges
             unset($res);
         } else {
             $dbRights = $this->getDbRightsForUserOverview();
-            // for all initials, even non A-Z
-            $arrayInitials = [];
-
             foreach ($dbRights as $right) {
                 foreach ($right as $account) {
                     if (empty($account['User']) && $account['Host'] === 'localhost') {
@@ -2996,7 +2996,8 @@ class Privileges
              * Also not necessary if there is less than 20 privileges
              */
             if ($resAll && $resAll->numRows() > 20) {
-                $initials = $this->getHtmlForInitials($arrayInitials);
+                // for all initials, even non A-Z
+                $initials = $this->getHtmlForInitials();
             }
 
             /**

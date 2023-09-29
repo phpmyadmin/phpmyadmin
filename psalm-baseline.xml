@@ -12473,6 +12473,9 @@
     <InvalidReturnType occurrences="1">
       <code>array</code>
     </InvalidReturnType>
+    <InvalidScalarArgument occurrences="1">
+      <code>uksort($arrayInitials, 'strnatcasecmp')</code>
+    </InvalidScalarArgument>
     <MixedArgument occurrences="42">
       <code>$GLOBALS['dbname']</code>
       <code>$alterRealSqlQuery</code>
@@ -12517,7 +12520,7 @@
       <code>$username</code>
       <code>$username</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="12">
+    <MixedArgumentTypeCoercion occurrences="11">
       <code>$queries</code>
       <code>$this-&gt;extractPrivInfo($privs, true)</code>
       <code>$this-&gt;extractPrivInfo($row)</code>
@@ -12529,7 +12532,6 @@
       <code>$this-&gt;extractPrivInfo(null, true)</code>
       <code>$this-&gt;extractPrivInfo(null, true)</code>
       <code>$tmpPrivs1</code>
-      <code>uksort($arrayInitials, 'strnatcasecmp')</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="49">
       <code>$account['Host']</code>
