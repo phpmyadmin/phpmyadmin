@@ -6361,39 +6361,7 @@
   </file>
   <file src="src/Gis/GisLineString.php">
     <MixedArgument>
-      <code>$tempPoint[0]</code>
-      <code>$tempPoint[0]</code>
-      <code>$tempPoint[1]</code>
-      <code>$tempPoint[1]</code>
-    </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$gisData[$index]['LINESTRING']['data_length']]]></code>
-      <code>$tempPoint[0]</code>
-      <code>$tempPoint[0]</code>
-      <code>$tempPoint[1]</code>
-      <code>$tempPoint[1]</code>
-    </MixedArrayAccess>
-    <MixedAssignment>
-      <code>$noOfPoints</code>
-    </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[isset($gisData[$index]['LINESTRING'][$i]['x'])
-                    && trim((string) $gisData[$index]['LINESTRING'][$i]['x']) != ''
-                    ? $gisData[$index]['LINESTRING'][$i]['x'] : $empty]]></code>
-      <code><![CDATA[isset($gisData[$index]['LINESTRING'][$i]['y'])
-                    && trim((string) $gisData[$index]['LINESTRING'][$i]['y']) != ''
-                    ? $gisData[$index]['LINESTRING'][$i]['y'] : $empty]]></code>
-    </MixedOperand>
-    <PossiblyFalseArgument>
-      <code>$black</code>
-      <code>$lineColor</code>
-    </PossiblyFalseArgument>
-    <RedundantPropertyInitializationCheck>
-      <code>isset(self::$instance)</code>
-    </RedundantPropertyInitializationCheck>
-  </file>
-  <file src="src/Gis/GisMultiLineString.php">
-    <MixedArgument>
+      <code>$dataRow[$i] ?? null</code>
       <code>$tempPoint[0]</code>
       <code>$tempPoint[0]</code>
       <code>$tempPoint[1]</code>
@@ -6401,6 +6369,40 @@
     </MixedArgument>
     <MixedArrayAccess>
       <code>$dataRow[$i]</code>
+      <code><![CDATA[$dataRow['data_length']]]></code>
+      <code>$tempPoint[0]</code>
+      <code>$tempPoint[0]</code>
+      <code>$tempPoint[1]</code>
+      <code>$tempPoint[1]</code>
+    </MixedArrayAccess>
+    <MixedAssignment>
+      <code>$dataRow</code>
+      <code>$noOfPoints</code>
+    </MixedAssignment>
+    <PossiblyFalseArgument>
+      <code>$black</code>
+      <code>$lineColor</code>
+    </PossiblyFalseArgument>
+    <PossiblyNullArrayAccess>
+      <code>$dataRow[$i]</code>
+      <code><![CDATA[$dataRow['data_length']]]></code>
+    </PossiblyNullArrayAccess>
+    <RedundantPropertyInitializationCheck>
+      <code>isset(self::$instance)</code>
+    </RedundantPropertyInitializationCheck>
+  </file>
+  <file src="src/Gis/GisMultiLineString.php">
+    <MixedArgument>
+      <code>$dataRow[$i][$j] ?? null</code>
+      <code>$tempPoint[0]</code>
+      <code>$tempPoint[0]</code>
+      <code>$tempPoint[1]</code>
+      <code>$tempPoint[1]</code>
+    </MixedArgument>
+    <MixedArrayAccess>
+      <code>$dataRow[$i]</code>
+      <code>$dataRow[$i]</code>
+      <code>$dataRow[$i][$j]</code>
       <code><![CDATA[$dataRow[$i]['data_length']]]></code>
       <code><![CDATA[$dataRow['data_length']]]></code>
       <code><![CDATA[$point['x']]]></code>
@@ -6421,12 +6423,6 @@
     <MixedOperand>
       <code><![CDATA[$point['x']]]></code>
       <code><![CDATA[$point['y']]]></code>
-      <code><![CDATA[isset($dataRow[$i][$j]['x'])
-                        && trim((string) $dataRow[$i][$j]['x']) != ''
-                        ? $dataRow[$i][$j]['x'] : $empty]]></code>
-      <code><![CDATA[isset($dataRow[$i][$j]['y'])
-                        && trim((string) $dataRow[$i][$j]['y']) != ''
-                        ? $dataRow[$i][$j]['y'] : $empty]]></code>
     </MixedOperand>
     <PossiblyFalseArgument>
       <code>$black</code>
@@ -6434,6 +6430,8 @@
     </PossiblyFalseArgument>
     <PossiblyNullArrayAccess>
       <code>$dataRow[$i]</code>
+      <code>$dataRow[$i]</code>
+      <code>$dataRow[$i][$j]</code>
       <code><![CDATA[$dataRow[$i]['data_length']]]></code>
       <code><![CDATA[$dataRow['data_length']]]></code>
     </PossiblyNullArrayAccess>
@@ -6442,30 +6440,33 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="src/Gis/GisMultiPoint.php">
+    <MixedArgument>
+      <code>$dataRow[$i] ?? null</code>
+    </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$gisData[$index]['MULTIPOINT']['data_length']]]></code>
+      <code>$dataRow[$i]</code>
+      <code><![CDATA[$dataRow['data_length']]]></code>
       <code><![CDATA[$rowData['points'][$i]]]></code>
       <code><![CDATA[$rowData['points'][$i]]]></code>
       <code><![CDATA[$rowData['points'][$i]['x']]]></code>
       <code><![CDATA[$rowData['points'][$i]['y']]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
+      <code>$dataRow</code>
       <code>$noOfPoints</code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$rowData['points'][$i]['x']]]></code>
       <code><![CDATA[$rowData['points'][$i]['y']]]></code>
-      <code><![CDATA[isset($gisData[$index]['MULTIPOINT'][$i]['x'])
-                    && trim((string) $gisData[$index]['MULTIPOINT'][$i]['x']) != ''
-                    ? $gisData[$index]['MULTIPOINT'][$i]['x'] : '']]></code>
-      <code><![CDATA[isset($gisData[$index]['MULTIPOINT'][$i]['y'])
-                    && trim((string) $gisData[$index]['MULTIPOINT'][$i]['y']) != ''
-                    ? $gisData[$index]['MULTIPOINT'][$i]['y'] : '']]></code>
     </MixedOperand>
     <PossiblyFalseArgument>
       <code>$black</code>
       <code>$pointColor</code>
     </PossiblyFalseArgument>
+    <PossiblyNullArrayAccess>
+      <code>$dataRow[$i]</code>
+      <code><![CDATA[$dataRow['data_length']]]></code>
+    </PossiblyNullArrayAccess>
     <RedundantPropertyInitializationCheck>
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
@@ -6475,6 +6476,7 @@
       <code>$pointsArr</code>
     </ArgumentTypeCoercion>
     <MixedArgument>
+      <code>$dataRow[$k][$i][$j] ?? null</code>
       <code>$labelPoint[0]</code>
       <code>$labelPoint[0]</code>
       <code>$labelPoint[1]</code>
@@ -6484,7 +6486,10 @@
     <MixedArrayAccess>
       <code>$dataRow[$k]</code>
       <code>$dataRow[$k]</code>
+      <code>$dataRow[$k]</code>
       <code>$dataRow[$k][$i]</code>
+      <code>$dataRow[$k][$i]</code>
+      <code>$dataRow[$k][$i][$j]</code>
       <code><![CDATA[$dataRow[$k][$i]['data_length']]]></code>
       <code><![CDATA[$dataRow[$k]['data_length']]]></code>
       <code><![CDATA[$dataRow['data_length']]]></code>
@@ -6550,12 +6555,6 @@
       <code><![CDATA[$innerPoint['y']]]></code>
       <code><![CDATA[$point['x']]]></code>
       <code><![CDATA[$point['y']]]></code>
-      <code><![CDATA[isset($dataRow[$k][$i][$j]['x'])
-                            && trim((string) $dataRow[$k][$i][$j]['x']) != ''
-                            ? $dataRow[$k][$i][$j]['x'] : $empty]]></code>
-      <code><![CDATA[isset($dataRow[$k][$i][$j]['y'])
-                            && trim((string) $dataRow[$k][$i][$j]['y']) != ''
-                            ? $dataRow[$k][$i][$j]['y'] : $empty]]></code>
     </MixedOperand>
     <PossiblyFalseArgument>
       <code>$black</code>
@@ -6564,7 +6563,10 @@
     <PossiblyNullArrayAccess>
       <code>$dataRow[$k]</code>
       <code>$dataRow[$k]</code>
+      <code>$dataRow[$k]</code>
       <code>$dataRow[$k][$i]</code>
+      <code>$dataRow[$k][$i]</code>
+      <code>$dataRow[$k][$i][$j]</code>
       <code><![CDATA[$dataRow[$k][$i]['data_length']]]></code>
       <code><![CDATA[$dataRow[$k]['data_length']]]></code>
       <code><![CDATA[$dataRow['data_length']]]></code>
@@ -6574,21 +6576,12 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="src/Gis/GisPoint.php">
-    <MixedArrayAccess>
-      <code><![CDATA[$gisData[$index]['POINT']['x']]]></code>
-      <code><![CDATA[$gisData[$index]['POINT']['x']]]></code>
-      <code><![CDATA[$gisData[$index]['POINT']['y']]]></code>
-      <code><![CDATA[$gisData[$index]['POINT']['y']]]></code>
-    </MixedArrayAccess>
+    <MixedArgument>
+      <code><![CDATA[$gisData[$index]['POINT'] ?? null]]></code>
+    </MixedArgument>
     <MixedOperand>
       <code><![CDATA[$rowData['x'] ?? '']]></code>
       <code><![CDATA[$rowData['y'] ?? '']]></code>
-      <code><![CDATA[isset($gisData[$index]['POINT']['x'])
-            && trim((string) $gisData[$index]['POINT']['x']) != ''
-            ? $gisData[$index]['POINT']['x'] : '']]></code>
-      <code><![CDATA[isset($gisData[$index]['POINT']['y'])
-            && trim((string) $gisData[$index]['POINT']['y']) != ''
-            ? $gisData[$index]['POINT']['y'] : '']]></code>
     </MixedOperand>
     <PossiblyFalseArgument>
       <code>$black</code>
@@ -6602,28 +6595,32 @@
     <ArgumentTypeCoercion>
       <code>$pointsArr</code>
     </ArgumentTypeCoercion>
+    <MixedArgument>
+      <code>$dataRow[$i][$j] ?? null</code>
+    </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$gisData[$index]['POLYGON']]]></code>
-      <code><![CDATA[$gisData[$index]['POLYGON'][$i]]]></code>
-      <code><![CDATA[$gisData[$index]['POLYGON'][$i]['data_length']]]></code>
-      <code><![CDATA[$gisData[$index]['POLYGON']['data_length']]]></code>
+      <code>$dataRow[$i]</code>
+      <code>$dataRow[$i]</code>
+      <code>$dataRow[$i][$j]</code>
+      <code><![CDATA[$dataRow[$i]['data_length']]]></code>
+      <code><![CDATA[$dataRow['data_length']]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
+      <code>$dataRow</code>
       <code>$noOfLines</code>
       <code>$noOfPoints</code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[isset($gisData[$index]['POLYGON'][$i][$j]['x'])
-                        && trim((string) $gisData[$index]['POLYGON'][$i][$j]['x']) != ''
-                        ? $gisData[$index]['POLYGON'][$i][$j]['x'] : $empty]]></code>
-      <code><![CDATA[isset($gisData[$index]['POLYGON'][$i][$j]['y'])
-                        && trim((string) $gisData[$index]['POLYGON'][$i][$j]['y']) != ''
-                        ? $gisData[$index]['POLYGON'][$i][$j]['y'] : $empty]]></code>
-    </MixedOperand>
     <PossiblyFalseArgument>
       <code>$black</code>
       <code>$fillColor</code>
     </PossiblyFalseArgument>
+    <PossiblyNullArrayAccess>
+      <code>$dataRow[$i]</code>
+      <code>$dataRow[$i]</code>
+      <code>$dataRow[$i][$j]</code>
+      <code><![CDATA[$dataRow[$i]['data_length']]]></code>
+      <code><![CDATA[$dataRow['data_length']]]></code>
+    </PossiblyNullArrayAccess>
     <RedundantPropertyInitializationCheck>
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>

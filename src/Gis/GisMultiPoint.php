@@ -13,11 +13,12 @@ use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
 use function count;
+use function implode;
 use function json_encode;
+use function max;
 use function mb_substr;
 use function round;
 use function sprintf;
-use function trim;
 
 /**
  * Handles actions related to GIS MULTIPOINT objects
@@ -245,33 +246,24 @@ class GisMultiPoint extends GisGeometry
     /**
      * Generate the WKT with the set of parameters passed by the GIS editor.
      *
-     * @param mixed[]     $gisData GIS data
-     * @param int         $index   Index into the parameter object
-     * @param string|null $empty   Multipoint does not adhere to this
+     * @param mixed[] $gisData GIS data
+     * @param int     $index   Index into the parameter object
+     * @param string  $empty   Multipoint does not adhere to this
      *
      * @return string WKT with the set of parameters passed by the GIS editor
      */
-    public function generateWkt(array $gisData, int $index, string|null $empty = ''): string
+    public function generateWkt(array $gisData, int $index, string $empty = ''): string
     {
-        $noOfPoints = $gisData[$index]['MULTIPOINT']['data_length'] ?? 1;
-        if ($noOfPoints < 1) {
-            $noOfPoints = 1;
-        }
+        $dataRow = $gisData[$index]['MULTIPOINT'] ?? null;
+        $noOfPoints = max(1, $dataRow['data_length'] ?? 0);
 
-        $wkt = 'MULTIPOINT(';
+        $wktPoints = [];
         /** @infection-ignore-all */
         for ($i = 0; $i < $noOfPoints; $i++) {
-            $wkt .= (isset($gisData[$index]['MULTIPOINT'][$i]['x'])
-                    && trim((string) $gisData[$index]['MULTIPOINT'][$i]['x']) != ''
-                    ? $gisData[$index]['MULTIPOINT'][$i]['x'] : '')
-                . ' ' . (isset($gisData[$index]['MULTIPOINT'][$i]['y'])
-                    && trim((string) $gisData[$index]['MULTIPOINT'][$i]['y']) != ''
-                    ? $gisData[$index]['MULTIPOINT'][$i]['y'] : '') . ',';
+            $wktPoints[] = $this->getWktCoord($dataRow[$i] ?? null, '');
         }
 
-        $wkt = mb_substr($wkt, 0, -1);
-
-        return $wkt . ')';
+        return 'MULTIPOINT(' . implode(',', $wktPoints) . ')';
     }
 
     /**

@@ -16,11 +16,12 @@ use function array_merge;
 use function array_slice;
 use function count;
 use function explode;
+use function implode;
 use function json_encode;
+use function max;
 use function mb_substr;
 use function round;
 use function sprintf;
-use function trim;
 
 /**
  * Handles actions related to GIS POLYGON objects
@@ -256,44 +257,31 @@ class GisPolygon extends GisGeometry
     /**
      * Generate the WKT with the set of parameters passed by the GIS editor.
      *
-     * @param mixed[]     $gisData GIS data
-     * @param int         $index   Index into the parameter object
-     * @param string|null $empty   Value for empty points
+     * @param mixed[] $gisData GIS data
+     * @param int     $index   Index into the parameter object
+     * @param string  $empty   Value for empty points
      *
      * @return string WKT with the set of parameters passed by the GIS editor
      */
-    public function generateWkt(array $gisData, int $index, string|null $empty = ''): string
+    public function generateWkt(array $gisData, int $index, string $empty = ''): string
     {
-        $noOfLines = $gisData[$index]['POLYGON']['data_length'] ?? 1;
-        if ($noOfLines < 1) {
-            $noOfLines = 1;
-        }
+        $dataRow = $gisData[$index]['POLYGON'] ?? null;
+        $noOfLines = max(1, $dataRow['data_length'] ?? 0);
 
-        $wkt = 'POLYGON(';
+        $wktRings = [];
         /** @infection-ignore-all */
         for ($i = 0; $i < $noOfLines; $i++) {
-            $noOfPoints = $gisData[$index]['POLYGON'][$i]['data_length'] ?? 4;
-            if ($noOfPoints < 4) {
-                $noOfPoints = 4;
-            }
+            $noOfPoints = max(4, $dataRow[$i]['data_length'] ?? 0);
 
-            $wkt .= '(';
+            $wktPoints = [];
             for ($j = 0; $j < $noOfPoints; $j++) {
-                $wkt .= (isset($gisData[$index]['POLYGON'][$i][$j]['x'])
-                        && trim((string) $gisData[$index]['POLYGON'][$i][$j]['x']) != ''
-                        ? $gisData[$index]['POLYGON'][$i][$j]['x'] : $empty)
-                    . ' ' . (isset($gisData[$index]['POLYGON'][$i][$j]['y'])
-                        && trim((string) $gisData[$index]['POLYGON'][$i][$j]['y']) != ''
-                        ? $gisData[$index]['POLYGON'][$i][$j]['y'] : $empty) . ',';
+                $wktPoints[] = $this->getWktCoord($dataRow[$i][$j] ?? null, $empty);
             }
 
-            $wkt = mb_substr($wkt, 0, -1);
-            $wkt .= '),';
+            $wktRings[] = '(' . implode(',', $wktPoints) . ')';
         }
 
-        $wkt = mb_substr($wkt, 0, -1);
-
-        return $wkt . ')';
+        return 'POLYGON(' . implode(',', $wktRings) . ')';
     }
 
     /**
