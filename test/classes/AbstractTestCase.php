@@ -127,6 +127,7 @@ abstract class AbstractTestCase extends TestCase
     public static function assertMatchesRegularExpression(string $pattern, string $string, string $message = ''): void
     {
         if (method_exists(TestCase::class, 'assertMatchesRegularExpression')) {
+            /** @phpstan-ignore-next-line */
             parent::assertMatchesRegularExpression($pattern, $string, $message);
         } else {
             /** @psalm-suppress DeprecatedMethod */
@@ -140,6 +141,7 @@ abstract class AbstractTestCase extends TestCase
     public static function assertFileDoesNotExist(string $filename, string $message = ''): void
     {
         if (method_exists(TestCase::class, 'assertFileDoesNotExist')) {
+            /** @phpstan-ignore-next-line */
             parent::assertFileDoesNotExist($filename, $message);
         } else {
             /** @psalm-suppress DeprecatedMethod */
