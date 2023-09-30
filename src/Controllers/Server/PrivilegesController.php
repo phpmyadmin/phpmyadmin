@@ -365,7 +365,7 @@ class PrivilegesController extends AbstractController
                 $this->response->addHTML(
                     $serverPrivileges->getHtmlForUserOverview(
                         $GLOBALS['text_dir'],
-                        $request->getQueryParam('initial', ''),
+                        $request->getQueryParam('initial'),
                     ),
                 );
             } elseif (! empty($routinename)) {

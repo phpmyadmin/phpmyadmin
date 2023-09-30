@@ -4566,7 +4566,7 @@ parameters:
 			path: src/Controllers/Server/PrivilegesController.php
 
 		-
-			message: "#^Parameter \\#2 \\$initial of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getHtmlForUserOverview\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$initial of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getHtmlForUserOverview\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Server/PrivilegesController.php
 

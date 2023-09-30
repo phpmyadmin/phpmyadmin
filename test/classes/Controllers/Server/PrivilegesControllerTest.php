@@ -73,7 +73,7 @@ class PrivilegesControllerTest extends AbstractTestCase
 
         $request->method('getParsedBodyParam')->willReturnMap([['old_username', '', ''], ['old_hostname', '', '']]);
 
-        $request->method('getQueryParam')->willReturnMap([['initial', '', '']]);
+        $request->method('getQueryParam')->willReturnMap([['initial', null, null]]);
 
         $response = new ResponseRenderer();
         (new PrivilegesController($response, new Template(), new Relation($this->dbi), $this->dbi))($request);

@@ -130,22 +130,28 @@ class Privileges
     /**
      * Generates a condition on the user name
      *
-     * @param string $initial the user's initial
+     * @param string|null $initial the user's initial
      *
      * @return string   the generated condition
      */
-    public function rangeOfUsers(string $initial): string
+    public function rangeOfUsers(string|null $initial = null): string
     {
-        // strtolower() is used because the User field
-        // might be BINARY, so LIKE would be case sensitive
-        if ($initial === '') {
+        if ($initial === null) {
             return '';
         }
 
+        if ($initial === '') {
+            return " WHERE `User` = ''";
+        }
+
+        $like = strtr($initial, ['_' => '\\_', '%' => '\\%', '\\' => '\\\\']) . '%';
+
+        // strtolower() is used because the User field
+        // might be BINARY, so LIKE would be case sensitive
         return ' WHERE `User` LIKE '
-            . $this->dbi->quoteString($initial . '%')
+            . $this->dbi->quoteString($like)
             . ' OR `User` LIKE '
-            . $this->dbi->quoteString(mb_strtolower($initial) . '%');
+            . $this->dbi->quoteString(mb_strtolower($like));
     }
 
     /**
@@ -1812,19 +1818,15 @@ class Privileges
     /**
      * Get HTML for Displays the initials
      *
-     * @param mixed[] $arrayInitials array for all initials, even non A-Z
-     *
      * @return string HTML snippet
      */
-    public function getHtmlForInitials(array $arrayInitials): string
+    public function getHtmlForInitials(): string
     {
+        $arrayInitials = [];
+
         // initialize to false the letters A-Z
         /** @infection-ignore-all */
         for ($letterCounter = 1; $letterCounter < 27; $letterCounter++) {
-            if (isset($arrayInitials[mb_chr($letterCounter + 64)])) {
-                continue;
-            }
-
             $arrayInitials[mb_chr($letterCounter + 64)] = false;
         }
 
@@ -1854,7 +1856,7 @@ class Privileges
      *
      * @return (string|string[]|null)[][][]    database rights array
      */
-    public function getDbRightsForUserOverview(string $initial): array
+    public function getDbRightsForUserOverview(string|null $initial): array
     {
         // we also want users not in table `user` but in other table
         $tables = $this->dbi->fetchResult('SHOW TABLES FROM `mysql`;');
@@ -2595,7 +2597,7 @@ class Privileges
      *
      * @param string $textDir text directory
      */
-    public function getHtmlForUserOverview(string $textDir, string $initial): string
+    public function getHtmlForUserOverview(string $textDir, string|null $initial): string
     {
         $passwordColumn = 'Password';
         $serverVersion = $this->dbi->getVersion();
@@ -2622,9 +2624,6 @@ class Privileges
             $errorMessages = $this->checkStructureOfPrivilegeTable();
         } else {
             $dbRights = $this->getDbRightsForUserOverview($initial);
-            // for all initials, even non A-Z
-            $arrayInitials = [];
-
             $emptyUserNotice = $this->getEmptyUserNotice($dbRights);
 
             /**
@@ -2632,7 +2631,8 @@ class Privileges
              * Also not necessary if there is less than 20 privileges
              */
             if ($resAll && $resAll->numRows() > 20) {
-                $initials = $this->getHtmlForInitials($arrayInitials);
+                // for all initials, even non A-Z
+                $initials = $this->getHtmlForInitials();
             }
 
             /**

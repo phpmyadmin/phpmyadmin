@@ -2821,7 +2821,7 @@
       <code><![CDATA[$request->getParsedBodyParam('old_username')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('old_username', '')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('userGroup', '')]]></code>
-      <code><![CDATA[$request->getQueryParam('initial', '')]]></code>
+      <code><![CDATA[$request->getQueryParam('initial')]]></code>
       <code><![CDATA[$urlDbname ?? '']]></code>
       <code><![CDATA[$urlDbname ?? '']]></code>
     </MixedArgument>
@@ -11236,6 +11236,9 @@
       <code><![CDATA[$GLOBALS['x509_issuer']]]></code>
       <code><![CDATA[$GLOBALS['x509_subject']]]></code>
     </InvalidArrayOffset>
+    <InvalidScalarArgument>
+      <code><![CDATA[uksort($arrayInitials, 'strnatcasecmp')]]></code>
+    </InvalidScalarArgument>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['dbname']]]></code>
       <code>$alterRealSqlQuery</code>
@@ -11272,7 +11275,6 @@
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$queries</code>
-      <code><![CDATA[uksort($arrayInitials, 'strnatcasecmp')]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$groupAssignment[$host['User']]]]></code>

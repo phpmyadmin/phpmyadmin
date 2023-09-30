@@ -32,6 +32,7 @@ use function __;
 use function _pgettext;
 use function htmlspecialchars;
 use function implode;
+use function preg_quote;
 
 #[CoversClass(Privileges::class)]
 class PrivilegesTest extends AbstractTestCase
@@ -132,7 +133,13 @@ class PrivilegesTest extends AbstractTestCase
         $ret = $serverPrivileges->rangeOfUsers('INIT');
         $this->assertEquals(' WHERE `User` LIKE \'INIT%\' OR `User` LIKE \'init%\'', $ret);
 
+        $ret = $serverPrivileges->rangeOfUsers('%');
+        $this->assertEquals(' WHERE `User` LIKE \'\\\\%%\' OR `User` LIKE \'\\\\%%\'', $ret);
+
         $ret = $serverPrivileges->rangeOfUsers('');
+        $this->assertEquals(" WHERE `User` = ''", $ret);
+
+        $ret = $serverPrivileges->rangeOfUsers();
         $this->assertEquals('', $ret);
     }
 
@@ -1496,7 +1503,7 @@ class PrivilegesTest extends AbstractTestCase
         $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
 
         $_REQUEST = ['ajax_page_request' => '1'];
-        $actual = $serverPrivileges->getHtmlForUserOverview('ltr', '');
+        $actual = $serverPrivileges->getHtmlForUserOverview('ltr', null);
         $this->assertStringContainsString('Note: MySQL privilege names are expressed in English.', $actual);
         $this->assertStringContainsString(
             'Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege tables.',
@@ -1516,7 +1523,7 @@ class PrivilegesTest extends AbstractTestCase
         );
         $dummyDbi->addResult('SELECT 1 FROM `mysql`.`user`', false);
         $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
-        $html = $serverPrivileges->getHtmlForUserOverview('ltr', '');
+        $html = $serverPrivileges->getHtmlForUserOverview('ltr', null);
 
         $this->assertStringContainsString(
             Url::getCommon(['adduser' => 1], ''),
@@ -1547,7 +1554,7 @@ class PrivilegesTest extends AbstractTestCase
             [['1']],
         );
         $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
-        $actual = $serverPrivileges->getHtmlForUserOverview('ltr', '');
+        $actual = $serverPrivileges->getHtmlForUserOverview('ltr', null);
 
         $this->assertStringContainsString('Your privilege table structure seems to be older than'
             . ' this MySQL version!<br>'
@@ -1630,13 +1637,13 @@ class PrivilegesTest extends AbstractTestCase
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addResult(
             'SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user` ORDER BY UPPER(LEFT(`User`,1)) ASC',
-            [['-']],
+            [['-'], ['"'], ['%'], ['\\'], ['']],
         );
 
         $dbi = $this->createDatabaseInterface($dummyDbi);
         $serverPrivileges = $this->getPrivileges($dbi);
 
-        $actual = $serverPrivileges->getHtmlForInitials(['"' => true]);
+        $actual = $serverPrivileges->getHtmlForInitials();
         $this->assertStringContainsString(
             '<a class="page-link" href="#" tabindex="-1" aria-disabled="true">A</a>',
             $actual,
@@ -1645,12 +1652,26 @@ class PrivilegesTest extends AbstractTestCase
             '<a class="page-link" href="#" tabindex="-1" aria-disabled="true">Z</a>',
             $actual,
         );
-        $this->assertStringContainsString(
-            '<a class="page-link" href="index.php?route=/server/privileges&initial=-&lang=en">-</a>',
+        $this->assertMatchesRegularExpression(
+            '/<a class="page-link" href="index.php\?route=\/server\/privileges&initial=-&lang=en">\s*-\s*<\/a>/',
             $actual,
         );
-        $this->assertStringContainsString(
-            '<a class="page-link" href="index.php?route=/server/privileges&initial=%22&lang=en">&quot;</a>',
+        $this->assertMatchesRegularExpression(
+            '/<a class="page-link" href="index.php\?route=\/server\/privileges&initial=%22&lang=en">\s*&quot;\s*<\/a>/',
+            $actual,
+        );
+        $this->assertMatchesRegularExpression(
+            '/<a class="page-link" href="index.php\?route=\/server\/privileges&initial=%25&lang=en">\s*%\s*<\/a>/',
+            $actual,
+        );
+        $this->assertMatchesRegularExpression(
+            '/<a class="page-link" href="index.php\?route=\/server\/privileges&initial=%5C&lang=en">\s*\\\\\s*<\/a>/',
+            $actual,
+        );
+        $this->assertMatchesRegularExpression(
+            '/<a class="page-link" href="index.php\?route=\/server\/privileges&initial=&lang=en">\s*' .
+                '<span class="text-danger text-nowrap">' . preg_quote(__('Any')) . '<\/span>' .
+                '\s*<\/a>/',
             $actual,
         );
         $this->assertStringContainsString('Show all', $actual);
