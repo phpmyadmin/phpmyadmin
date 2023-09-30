@@ -9571,11 +9571,6 @@ parameters:
 			path: src/Dbal/DbalInterface.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:affectedRows\\(\\) should return int\\|numeric\\-string but returns int\\|string\\.$#"
-			count: 1
-			path: src/Dbal/DbiMysqli.php
-
-		-
 			message: "#^Parameter \\#1 \\$haystack of function stripos expects string, string\\|null given\\.$#"
 			count: 1
 			path: src/Dbal/DbiMysqli.php
@@ -9602,11 +9597,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:getFieldNames\\(\\) should return array\\<int, non\\-empty\\-string\\> but returns array\\<int, mixed\\>\\.$#"
-			count: 1
-			path: src/Dbal/MysqliResult.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:numRows\\(\\) should return int\\|numeric\\-string but returns int\\|string\\.$#"
 			count: 1
 			path: src/Dbal/MysqliResult.php
 
@@ -12442,6 +12432,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Message\\:\\:sanitize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Message.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Message\\:\\:sanitize\\(\\) should return array\\<array, array\\>\\|string but returns array\\.$#"
 			count: 1
 			path: src/Message.php
 
