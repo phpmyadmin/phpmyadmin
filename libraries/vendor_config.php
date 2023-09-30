@@ -68,7 +68,7 @@ return [
     /**
      * Define the cache directory for routing cache and other cache files
      */
-    'cacheDir' => ROOT_PATH . 'libraries' . DIRECTORY_SEPARATOR . 'cache' . DIRECTORY_SEPARATOR,
+    'cacheDir' => ROOT_PATH . 'cache' . DIRECTORY_SEPARATOR,
 
     /**
      * Suffix to add to the phpMyAdmin version
