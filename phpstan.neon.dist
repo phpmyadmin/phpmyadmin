@@ -15,7 +15,7 @@ parameters:
     stubFiles:
         - test/stubs/uploadprogress.stub
     excludePaths:
-        - libraries/cache/*
+        - cache/*
         - test/doctum-config.php
     dynamicConstantNames:
         - ROOT_PATH

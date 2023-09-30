@@ -905,4 +905,30 @@ PHP;
             '12345',
         ];
     }
+
+    public function testVendorConfigFile(): void
+    {
+        $vendorConfig = include ROOT_PATH . 'libraries/vendor_config.php';
+        $expected = [
+            'autoloadFile' => ROOT_PATH . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php',
+            'tempDir' => ROOT_PATH . 'tmp' . DIRECTORY_SEPARATOR,
+            'changeLogFile' => ROOT_PATH . 'ChangeLog',
+            'licenseFile' => ROOT_PATH . 'LICENSE',
+            'sqlDir' => ROOT_PATH . 'sql' . DIRECTORY_SEPARATOR,
+            'configFile' => ROOT_PATH . 'config.inc.php',
+            'customHeaderFile' => ROOT_PATH . 'config.header.inc.php',
+            'customFooterFile' => ROOT_PATH . 'config.footer.inc.php',
+            'versionCheckDefault' => true,
+            'localePath' => ROOT_PATH . 'locale' . DIRECTORY_SEPARATOR,
+            'cacheDir' => ROOT_PATH . 'cache' . DIRECTORY_SEPARATOR,
+            'versionSuffix' => '',
+        ];
+        self::assertSame($expected, $vendorConfig);
+        self::assertFileExists($vendorConfig['autoloadFile']);
+        self::assertFileExists($vendorConfig['changeLogFile']);
+        self::assertFileExists($vendorConfig['licenseFile']);
+        self::assertDirectoryExists($vendorConfig['sqlDir']);
+        self::assertDirectoryExists($vendorConfig['localePath']);
+        self::assertDirectoryExists($vendorConfig['cacheDir']);
+    }
 }

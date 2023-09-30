@@ -22,8 +22,8 @@
       <directory suffix=".php">.</directory>
     </include>
     <exclude>
+      <directory>cache</directory>
       <directory>examples</directory>
-      <directory>libraries/cache</directory>
       <directory>node_modules</directory>
       <directory>test</directory>
       <directory>tmp</directory>
