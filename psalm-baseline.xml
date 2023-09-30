@@ -11220,6 +11220,9 @@
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
+    <InvalidArgument>
+      <code>$initials</code>
+    </InvalidArgument>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['Grant_priv']]]></code>
       <code><![CDATA[$GLOBALS['Grant_priv']]]></code>
@@ -11236,9 +11239,6 @@
       <code><![CDATA[$GLOBALS['x509_issuer']]]></code>
       <code><![CDATA[$GLOBALS['x509_subject']]]></code>
     </InvalidArrayOffset>
-    <InvalidScalarArgument>
-      <code><![CDATA[uksort($arrayInitials, 'strnatcasecmp')]]></code>
-    </InvalidScalarArgument>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['dbname']]]></code>
       <code>$alterRealSqlQuery</code>
@@ -11455,7 +11455,6 @@
       <code><![CDATA[$row['@@old_passwords']]]></code>
     </PossiblyNullArrayAccess>
     <PossiblyNullArrayOffset>
-      <code>$arrayInitials</code>
       <code>$columns</code>
       <code>$columns</code>
       <code>$dbRights</code>
@@ -11464,8 +11463,6 @@
       <code>$dbRights</code>
       <code>$dbRights</code>
       <code>$dbRights</code>
-      <code>$dbRights</code>
-      <code><![CDATA[$dbRights[$dbRightsRow['User']]]]></code>
       <code><![CDATA[$dbRights[$row['User']]]]></code>
       <code>$groupAssignment</code>
       <code>$row</code>

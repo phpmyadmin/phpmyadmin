@@ -131,13 +131,13 @@ class PrivilegesTest extends AbstractTestCase
         $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface());
 
         $ret = $serverPrivileges->rangeOfUsers('INIT');
-        $this->assertEquals(' WHERE `User` LIKE \'INIT%\' OR `User` LIKE \'init%\'', $ret);
+        $this->assertEquals('WHERE `User` LIKE \'INIT%\' OR `User` LIKE \'init%\'', $ret);
 
         $ret = $serverPrivileges->rangeOfUsers('%');
-        $this->assertEquals(' WHERE `User` LIKE \'\\\\%%\' OR `User` LIKE \'\\\\%%\'', $ret);
+        $this->assertEquals('WHERE `User` LIKE \'\\\\%%\' OR `User` LIKE \'\\\\%%\'', $ret);
 
         $ret = $serverPrivileges->rangeOfUsers('');
-        $this->assertEquals(" WHERE `User` = ''", $ret);
+        $this->assertEquals("WHERE `User` = ''", $ret);
 
         $ret = $serverPrivileges->rangeOfUsers();
         $this->assertEquals('', $ret);
@@ -1473,23 +1473,16 @@ class PrivilegesTest extends AbstractTestCase
         $dummyDbi = $this->createDbiDummy();
         // phpcs:disable Generic.Files.LineLength.TooLong
         $dummyDbi->addResult(
-            'SELECT *, IF(`authentication_string` = _latin1 \'\', \'N\', \'Y\') AS \'Password\' FROM `mysql`.`user` ORDER BY `User` ASC, `Host` ASC;',
+            'SELECT *, IF(`authentication_string` = _latin1 \'\', \'N\', \'Y\') AS `Password` FROM `mysql`.`user` ORDER BY `User` ASC, `Host` ASC',
             [
                 ['localhost', 'pma', 'password', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', '', '', '', '', '0', '0', '0', '0', 'mysql_native_password', 'password', 'N', 'N', '', '0.000000', 'Y'],
                 ['localhost', 'root', 'password', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '', '', '', '', '0', '0', '0', '0', 'mysql_native_password', 'password', 'N', 'N', '', '0.000000', 'Y'],
             ],
             ['Host', 'User', 'Password', 'Select_priv', 'Insert_priv', 'Update_priv', 'Delete_priv', 'Create_priv', 'Drop_priv', 'Reload_priv', 'Shutdown_priv', 'Process_priv', 'File_priv', 'Grant_priv', 'References_priv', 'Index_priv', 'Alter_priv', 'Show_db_priv', 'Super_priv', 'Create_tmp_table_priv', 'Lock_tables_priv', 'Execute_priv', 'Repl_slave_priv', 'Repl_client_priv', 'Create_view_priv', 'Show_view_priv', 'Create_routine_priv', 'Alter_routine_priv', 'Create_user_priv', 'Event_priv', 'Trigger_priv', 'Create_tablespace_priv', 'Delete_history_priv', 'ssl_type', 'ssl_cipher', 'x509_issuer', 'x509_subject', 'max_questions', 'max_updates', 'max_connections', 'max_user_connections', 'plugin', 'authentication_string', 'password_expired', 'is_role', 'default_role', 'max_statement_time', 'Password'],
         );
+        $dummyDbi->addResult('SELECT COUNT(*) FROM `mysql`.`user`', [[2]]);
         $dummyDbi->addResult(
-            'SELECT *, IF(`authentication_string` = _latin1 \'\', \'N\', \'Y\') AS \'Password\' FROM `mysql`.`user` ;',
-            [
-                ['localhost', 'root', 'password', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '', '', '', '', '0', '0', '0', '0', 'mysql_native_password', 'password', 'N', 'N', '', '0.000000', 'Y'],
-                ['localhost', 'pma', 'password', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', '', '', '', '', '0', '0', '0', '0', 'mysql_native_password', 'password', 'N', 'N', '', '0.000000', 'Y'],
-            ],
-            ['Host', 'User', 'Password', 'Select_priv', 'Insert_priv', 'Update_priv', 'Delete_priv', 'Create_priv', 'Drop_priv', 'Reload_priv', 'Shutdown_priv', 'Process_priv', 'File_priv', 'Grant_priv', 'References_priv', 'Index_priv', 'Alter_priv', 'Show_db_priv', 'Super_priv', 'Create_tmp_table_priv', 'Lock_tables_priv', 'Execute_priv', 'Repl_slave_priv', 'Repl_client_priv', 'Create_view_priv', 'Show_view_priv', 'Create_routine_priv', 'Alter_routine_priv', 'Create_user_priv', 'Event_priv', 'Trigger_priv', 'Create_tablespace_priv', 'Delete_history_priv', 'ssl_type', 'ssl_cipher', 'x509_issuer', 'x509_subject', 'max_questions', 'max_updates', 'max_connections', 'max_user_connections', 'plugin', 'authentication_string', 'password_expired', 'is_role', 'default_role', 'max_statement_time', 'Password'],
-        );
-        $dummyDbi->addResult(
-            'SHOW TABLES FROM `mysql`;',
+            'SHOW TABLES FROM `mysql`',
             [['columns_priv'], ['db'], ['tables_priv'], ['user']],
             ['Tables_in_mysql'],
         );
@@ -1514,11 +1507,11 @@ class PrivilegesTest extends AbstractTestCase
         $dummyDbi = $this->createDbiDummy();
         // phpcs:disable Generic.Files.LineLength.TooLong
         $dummyDbi->addResult(
-            'SELECT *, IF(`authentication_string` = _latin1 \'\', \'N\', \'Y\') AS \'Password\' FROM `mysql`.`user` ORDER BY `User` ASC, `Host` ASC;',
+            'SELECT *, IF(`authentication_string` = _latin1 \'\', \'N\', \'Y\') AS `Password` FROM `mysql`.`user` ORDER BY `User` ASC, `Host` ASC',
             false,
         );
         $dummyDbi->addResult(
-            'SELECT *, IF(`authentication_string` = _latin1 \'\', \'N\', \'Y\') AS \'Password\' FROM `mysql`.`user` ;',
+            'SELECT *, IF(`authentication_string` = _latin1 \'\', \'N\', \'Y\') AS `Password` FROM `mysql`.`user` ',
             false,
         );
         $dummyDbi->addResult('SELECT 1 FROM `mysql`.`user`', false);
@@ -1542,17 +1535,14 @@ class PrivilegesTest extends AbstractTestCase
         $dummyDbi = $this->createDbiDummy();
         // phpcs:disable Generic.Files.LineLength.TooLong
         $dummyDbi->addResult(
-            'SELECT *, IF(`authentication_string` = _latin1 \'\', \'N\', \'Y\') AS \'Password\' FROM `mysql`.`user` ORDER BY `User` ASC, `Host` ASC;',
+            'SELECT *, IF(`authentication_string` = _latin1 \'\', \'N\', \'Y\') AS `Password` FROM `mysql`.`user` ORDER BY `User` ASC, `Host` ASC',
             false,
         );
         $dummyDbi->addResult(
-            'SELECT *, IF(`authentication_string` = _latin1 \'\', \'N\', \'Y\') AS \'Password\' FROM `mysql`.`user` ;',
+            'SELECT *, IF(`authentication_string` = _latin1 \'\', \'N\', \'Y\') AS `Password` FROM `mysql`.`user` ',
             false,
         );
-        $dummyDbi->addResult(
-            'SELECT 1 FROM `mysql`.`user`',
-            [['1']],
-        );
+        $dummyDbi->addResult('SELECT 1 FROM `mysql`.`user`', [[1]]);
         $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
         $actual = $serverPrivileges->getHtmlForUserOverview('ltr', null);
 
@@ -1635,9 +1625,10 @@ class PrivilegesTest extends AbstractTestCase
         $GLOBALS['lang'] = 'en';
 
         $dummyDbi = $this->createDbiDummy();
+        $dummyDbi->addResult('SELECT COUNT(*) FROM `mysql`.`user`', [[21]]);
         $dummyDbi->addResult(
-            'SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user` ORDER BY UPPER(LEFT(`User`,1)) ASC',
-            [['-'], ['"'], ['%'], ['\\'], ['']],
+            'SELECT DISTINCT UPPER(LEFT(`User`, 1)) FROM `user`',
+            [['C'], ['-'], ['"'], ['%'], ['\\'], ['']],
         );
 
         $dbi = $this->createDatabaseInterface($dummyDbi);
@@ -1646,6 +1637,10 @@ class PrivilegesTest extends AbstractTestCase
         $actual = $serverPrivileges->getHtmlForInitials();
         $this->assertStringContainsString(
             '<a class="page-link" href="#" tabindex="-1" aria-disabled="true">A</a>',
+            $actual,
+        );
+        $this->assertMatchesRegularExpression(
+            '/<a class="page-link" href="index.php\?route=\/server\/privileges&initial=C&lang=en">\s*C\s*<\/a>/',
             $actual,
         );
         $this->assertStringContainsString(
