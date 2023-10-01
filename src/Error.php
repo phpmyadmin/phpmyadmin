@@ -51,54 +51,6 @@ use const PATH_SEPARATOR;
 class Error extends Message
 {
     /**
-     * Error types
-     *
-     * @var mixed[]
-     */
-    public static array $errortype = [
-        0 => 'Internal error',
-        E_ERROR => 'Error',
-        E_WARNING => 'Warning',
-        E_PARSE => 'Parsing Error',
-        E_NOTICE => 'Notice',
-        E_CORE_ERROR => 'Core Error',
-        E_CORE_WARNING => 'Core Warning',
-        E_COMPILE_ERROR => 'Compile Error',
-        E_COMPILE_WARNING => 'Compile Warning',
-        E_USER_ERROR => 'User Error',
-        E_USER_WARNING => 'User Warning',
-        E_USER_NOTICE => 'User Notice',
-        E_STRICT => 'Runtime Notice',
-        E_DEPRECATED => 'Deprecation Notice',
-        E_USER_DEPRECATED => 'Deprecation Notice',
-        E_RECOVERABLE_ERROR => 'Catchable Fatal Error',
-    ];
-
-    /**
-     * Error levels
-     *
-     * @var mixed[]
-     */
-    public static array $errorlevel = [
-        0 => 'error',
-        E_ERROR => 'error',
-        E_WARNING => 'error',
-        E_PARSE => 'error',
-        E_NOTICE => 'notice',
-        E_CORE_ERROR => 'error',
-        E_CORE_WARNING => 'error',
-        E_COMPILE_ERROR => 'error',
-        E_COMPILE_WARNING => 'error',
-        E_USER_ERROR => 'error',
-        E_USER_WARNING => 'error',
-        E_USER_NOTICE => 'notice',
-        E_STRICT => 'notice',
-        E_DEPRECATED => 'notice',
-        E_USER_DEPRECATED => 'notice',
-        E_RECOVERABLE_ERROR => 'error',
-    ];
-
-    /**
      * The file in which the error occurred
      */
     protected string $file = '';
@@ -305,7 +257,24 @@ class Error extends Message
      */
     public function getType(): string
     {
-        return self::$errortype[$this->getNumber()];
+        return match ($this->getNumber()) {
+            0 => 'Internal error',
+            E_ERROR => 'Error',
+            E_WARNING => 'Warning',
+            E_PARSE => 'Parsing Error',
+            E_NOTICE => 'Notice',
+            E_CORE_ERROR => 'Core Error',
+            E_CORE_WARNING => 'Core Warning',
+            E_COMPILE_ERROR => 'Compile Error',
+            E_COMPILE_WARNING => 'Compile Warning',
+            E_USER_ERROR => 'User Error',
+            E_USER_WARNING => 'User Warning',
+            E_USER_NOTICE => 'User Notice',
+            E_STRICT => 'Runtime Notice',
+            E_DEPRECATED => 'Deprecation Notice',
+            E_USER_DEPRECATED => 'Deprecation Notice',
+            E_RECOVERABLE_ERROR => 'Catchable Fatal Error',
+        };
     }
 
     /**
@@ -315,7 +284,24 @@ class Error extends Message
      */
     public function getLevel(): string
     {
-        return self::$errorlevel[$this->getNumber()];
+        return match ($this->getNumber()) {
+            0 => 'error',
+            E_ERROR => 'error',
+            E_WARNING => 'error',
+            E_PARSE => 'error',
+            E_NOTICE => 'notice',
+            E_CORE_ERROR => 'error',
+            E_CORE_WARNING => 'error',
+            E_COMPILE_ERROR => 'error',
+            E_COMPILE_WARNING => 'error',
+            E_USER_ERROR => 'error',
+            E_USER_WARNING => 'error',
+            E_USER_NOTICE => 'notice',
+            E_STRICT => 'notice',
+            E_DEPRECATED => 'notice',
+            E_USER_DEPRECATED => 'notice',
+            E_RECOVERABLE_ERROR => 'error',
+        };
     }
 
     /**

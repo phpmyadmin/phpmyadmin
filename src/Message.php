@@ -52,13 +52,6 @@ class Message implements Stringable
     public const ERROR = 8; // 1000
 
     /**
-     * message levels
-     *
-     * @var mixed[]
-     */
-    public static array $level = [self::SUCCESS => 'success', self::NOTICE => 'notice', self::ERROR => 'error'];
-
-    /**
      * The message number
      */
     protected int $number = self::NOTICE;
@@ -621,7 +614,20 @@ class Message implements Stringable
      */
     public function getLevel(): string
     {
-        return self::$level[$this->getNumber()];
+        return match ($this->number) {
+            self::SUCCESS => 'success',
+            self::NOTICE => 'notice',
+            self::ERROR => 'error'
+        };
+    }
+
+    public function getContext(): string
+    {
+        return match ($this->getLevel()) {
+            'error' => 'danger',
+            'success' => 'success',
+            default => 'primary',
+        };
     }
 
     /**
@@ -633,13 +639,7 @@ class Message implements Stringable
     {
         $this->isDisplayed(true);
 
-        $context = 'primary';
-        $level = $this->getLevel();
-        if ($level === 'error') {
-            $context = 'danger';
-        } elseif ($level === 'success') {
-            $context = 'success';
-        }
+        $context = $this->getContext();
 
         $template = new Template();
 

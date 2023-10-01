@@ -449,13 +449,7 @@ class Generator
 
         $retval .= '<div class="card mb-3 result_query">' . "\n";
 
-        $context = 'primary';
-        $level = $message->getLevel();
-        if ($level === 'error') {
-            $context = 'danger';
-        } elseif ($level === 'success') {
-            $context = 'success';
-        }
+        $context = $message->getContext();
 
         $message->isDisplayed(true);
         $retval .= '<div class="alert alert-' . $context;
