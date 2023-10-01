@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-09-24 00:19+0000\n"
+"POT-Creation-Date: 2023-10-01 00:20+0000\n"
 "PO-Revision-Date: 2022-02-15 16:20+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1117,8 +1117,7 @@ msgstr "தேடுக:"
 #: templates/database/operations/index.twig:226
 #: templates/database/routines/editor_form.twig:185
 #: templates/database/routines/execute_form.twig:55
-#: templates/display/results/table.twig:279
-#: templates/gis_data_editor_form.twig:215 templates/modals/add_index.twig:10
+#: templates/display/results/table.twig:279 templates/modals/add_index.twig:10
 #: templates/modals/change_password.twig:10
 #: templates/modals/create_view.twig:10
 #: templates/modals/enum_set_editor.twig:10
@@ -1180,9 +1179,9 @@ msgid "Page number:"
 msgstr "பக்க எண்:"
 
 #: src/BrowseForeigners.php:301
-#: src/Controllers/JavaScriptMessagesController.php:573
+#: src/Controllers/JavaScriptMessagesController.php:575
 #: templates/display/results/table.twig:99
-#: templates/server/privileges/initials_row.twig:17
+#: templates/server/privileges/initials_row.twig:21
 #: templates/table/browse_foreigners/show_all.twig:4
 msgid "Show all"
 msgstr "அனைத்தையும் காட்டு"
@@ -1191,285 +1190,285 @@ msgstr "அனைத்தையும் காட்டு"
 msgid "Unknown"
 msgstr ""
 
-#: src/Charsets/Collation.php:141 src/Charsets/Collation.php:430
+#: src/Charsets/Collation.php:141 src/Charsets/Collation.php:406
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr ""
 
-#: src/Charsets/Collation.php:145 src/Charsets/Collation.php:427
+#: src/Charsets/Collation.php:145 src/Charsets/Collation.php:403
 #, fuzzy
 #| msgid "Data Dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "தரவு அகராதி"
 
-#: src/Charsets/Collation.php:154 src/Charsets/Collation.php:505
+#: src/Charsets/Collation.php:154 src/Charsets/Collation.php:481
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr ""
 
-#: src/Charsets/Collation.php:158 src/Charsets/Collation.php:498
+#: src/Charsets/Collation.php:158 src/Charsets/Collation.php:474
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr ""
 
-#: src/Charsets/Collation.php:225
+#: src/Charsets/Collation.php:218
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr ""
 
-#: src/Charsets/Collation.php:228
+#: src/Charsets/Collation.php:219
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr ""
 
-#: src/Charsets/Collation.php:231
+#: src/Charsets/Collation.php:220
 msgctxt "Collation variant"
 msgid "accent-insensitive"
 msgstr ""
 
-#: src/Charsets/Collation.php:234
+#: src/Charsets/Collation.php:221
 msgctxt "Collation variant"
 msgid "accent-sensitive"
 msgstr ""
 
-#: src/Charsets/Collation.php:237
+#: src/Charsets/Collation.php:222
 msgctxt "Collation variant"
 msgid "kana-sensitive"
 msgstr ""
 
-#: src/Charsets/Collation.php:241
+#: src/Charsets/Collation.php:223
 msgctxt "Collation variant"
 msgid "multi-level"
 msgstr ""
 
-#: src/Charsets/Collation.php:244
+#: src/Charsets/Collation.php:224
 msgctxt "Collation variant"
 msgid "binary"
 msgstr ""
 
-#: src/Charsets/Collation.php:247
+#: src/Charsets/Collation.php:225
 msgctxt "Collation variant"
 msgid "no-pad"
 msgstr ""
 
-#: src/Charsets/Collation.php:266
+#: src/Charsets/Collation.php:242
 msgctxt "Collation"
 msgid "Binary"
 msgstr ""
 
-#: src/Charsets/Collation.php:279 src/Charsets/Collation.php:529
+#: src/Charsets/Collation.php:255 src/Charsets/Collation.php:505
 msgctxt "Collation"
 msgid "Unicode"
 msgstr ""
 
-#: src/Charsets/Collation.php:289 src/Charsets/Collation.php:476
+#: src/Charsets/Collation.php:265 src/Charsets/Collation.php:452
 msgctxt "Collation"
 msgid "West European"
 msgstr ""
 
-#: src/Charsets/Collation.php:296
+#: src/Charsets/Collation.php:272
 #, fuzzy
 #| msgid "Central columns"
 msgctxt "Collation"
 msgid "Central European"
 msgstr "மைய நெடுவரிசைகள்"
 
-#: src/Charsets/Collation.php:301 src/Charsets/Collation.php:483
+#: src/Charsets/Collation.php:277 src/Charsets/Collation.php:459
 msgctxt "Collation"
 msgid "Russian"
 msgstr ""
 
-#: src/Charsets/Collation.php:306
+#: src/Charsets/Collation.php:282
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr ""
 
-#: src/Charsets/Collation.php:309
+#: src/Charsets/Collation.php:285
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr ""
 
-#: src/Charsets/Collation.php:312 src/Charsets/Collation.php:398
+#: src/Charsets/Collation.php:288 src/Charsets/Collation.php:374
 msgctxt "Collation"
 msgid "Chinese"
 msgstr ""
 
-#: src/Charsets/Collation.php:320 src/Charsets/Collation.php:447
+#: src/Charsets/Collation.php:296 src/Charsets/Collation.php:423
 msgctxt "Collation"
 msgid "Japanese"
 msgstr ""
 
-#: src/Charsets/Collation.php:325
+#: src/Charsets/Collation.php:301
 msgctxt "Collation"
 msgid "Baltic"
 msgstr ""
 
-#: src/Charsets/Collation.php:330
+#: src/Charsets/Collation.php:306
 msgctxt "Collation"
 msgid "Armenian"
 msgstr ""
 
-#: src/Charsets/Collation.php:333
+#: src/Charsets/Collation.php:309
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr ""
 
-#: src/Charsets/Collation.php:336
+#: src/Charsets/Collation.php:312
 msgctxt "Collation"
 msgid "Arabic"
 msgstr ""
 
-#: src/Charsets/Collation.php:339 src/Charsets/Collation.php:462
+#: src/Charsets/Collation.php:315 src/Charsets/Collation.php:438
 msgctxt "Collation"
 msgid "Korean"
 msgstr ""
 
-#: src/Charsets/Collation.php:342
+#: src/Charsets/Collation.php:318
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr ""
 
-#: src/Charsets/Collation.php:345
+#: src/Charsets/Collation.php:321
 msgctxt "Collation"
 msgid "Georgian"
 msgstr ""
 
-#: src/Charsets/Collation.php:348
+#: src/Charsets/Collation.php:324
 msgctxt "Collation"
 msgid "Greek"
 msgstr ""
 
-#: src/Charsets/Collation.php:351
+#: src/Charsets/Collation.php:327
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr ""
 
-#: src/Charsets/Collation.php:354 src/Charsets/Collation.php:521
+#: src/Charsets/Collation.php:330 src/Charsets/Collation.php:497
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr ""
 
-#: src/Charsets/Collation.php:357 src/Charsets/Collation.php:517
+#: src/Charsets/Collation.php:333 src/Charsets/Collation.php:493
 msgctxt "Collation"
 msgid "Turkish"
 msgstr ""
 
-#: src/Charsets/Collation.php:360 src/Charsets/Collation.php:509
+#: src/Charsets/Collation.php:336 src/Charsets/Collation.php:485
 msgctxt "Collation"
 msgid "Swedish"
 msgstr ""
 
-#: src/Charsets/Collation.php:363 src/Charsets/Collation.php:513
+#: src/Charsets/Collation.php:339 src/Charsets/Collation.php:489
 msgctxt "Collation"
 msgid "Thai"
 msgstr ""
 
-#: src/Charsets/Collation.php:366
+#: src/Charsets/Collation.php:342
 msgctxt "Collation"
 msgid "Unknown"
 msgstr ""
 
-#: src/Charsets/Collation.php:392
+#: src/Charsets/Collation.php:368
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr ""
 
-#: src/Charsets/Collation.php:404
+#: src/Charsets/Collation.php:380
 msgctxt "Collation"
 msgid "Croatian"
 msgstr ""
 
-#: src/Charsets/Collation.php:408
+#: src/Charsets/Collation.php:384
 msgctxt "Collation"
 msgid "Czech"
 msgstr ""
 
-#: src/Charsets/Collation.php:412
+#: src/Charsets/Collation.php:388
 msgctxt "Collation"
 msgid "Danish"
 msgstr ""
 
-#: src/Charsets/Collation.php:416
+#: src/Charsets/Collation.php:392
 msgctxt "Collation"
 msgid "English"
 msgstr ""
 
-#: src/Charsets/Collation.php:420
+#: src/Charsets/Collation.php:396
 #, fuzzy
 #| msgid "Operations"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "செயல்பாடுகள்"
 
-#: src/Charsets/Collation.php:424
+#: src/Charsets/Collation.php:400
 msgctxt "Collation"
 msgid "Estonian"
 msgstr ""
 
-#: src/Charsets/Collation.php:439
+#: src/Charsets/Collation.php:415
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr ""
 
-#: src/Charsets/Collation.php:443
+#: src/Charsets/Collation.php:419
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr ""
 
-#: src/Charsets/Collation.php:450
+#: src/Charsets/Collation.php:426
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr ""
 
-#: src/Charsets/Collation.php:454
+#: src/Charsets/Collation.php:430
 msgctxt "Collation"
 msgid "Latvian"
 msgstr ""
 
-#: src/Charsets/Collation.php:458
+#: src/Charsets/Collation.php:434
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr ""
 
-#: src/Charsets/Collation.php:466
+#: src/Charsets/Collation.php:442
 msgctxt "Collation"
 msgid "Burmese"
 msgstr ""
 
-#: src/Charsets/Collation.php:469
+#: src/Charsets/Collation.php:445
 #, fuzzy
 #| msgid "Version"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "பதிப்பு"
 
-#: src/Charsets/Collation.php:473
+#: src/Charsets/Collation.php:449
 msgctxt "Collation"
 msgid "Polish"
 msgstr ""
 
-#: src/Charsets/Collation.php:480
+#: src/Charsets/Collation.php:456
 msgctxt "Collation"
 msgid "Romanian"
 msgstr ""
 
-#: src/Charsets/Collation.php:487
+#: src/Charsets/Collation.php:463
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr ""
 
-#: src/Charsets/Collation.php:491
+#: src/Charsets/Collation.php:467
 msgctxt "Collation"
 msgid "Slovak"
 msgstr ""
 
-#: src/Charsets/Collation.php:495
+#: src/Charsets/Collation.php:471
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr ""
 
-#: src/Charsets/Collation.php:525
+#: src/Charsets/Collation.php:501
 #, fuzzy
 #| msgid "File name"
 msgctxt "Collation"
@@ -1481,7 +1480,7 @@ msgstr "கோப்பின் பெயர்"
 #: src/Config/Forms/User/ExportForm.php:53
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
-#: src/Controllers/JavaScriptMessagesController.php:712
+#: src/Controllers/JavaScriptMessagesController.php:715
 #: src/Import/Import.php:1254 src/Menu.php:226 src/Menu.php:326
 #: src/Navigation/Nodes/NodeColumn.php:40
 #: src/Navigation/Nodes/NodeDatabase.php:56
@@ -1702,7 +1701,7 @@ msgid "Closed"
 msgstr "மூடப்பட்டது"
 
 #: src/Config/ConfigFile.php:609
-#: src/Controllers/JavaScriptMessagesController.php:739
+#: src/Controllers/JavaScriptMessagesController.php:742
 #, fuzzy
 #| msgid "Monday"
 msgctxt "Week day name"
@@ -1710,7 +1709,7 @@ msgid "Monday"
 msgstr "திங்கள்"
 
 #: src/Config/ConfigFile.php:610
-#: src/Controllers/JavaScriptMessagesController.php:740
+#: src/Controllers/JavaScriptMessagesController.php:743
 #, fuzzy
 #| msgid "Tuesday"
 msgctxt "Week day name"
@@ -1718,7 +1717,7 @@ msgid "Tuesday"
 msgstr "செவ்வாய்"
 
 #: src/Config/ConfigFile.php:611
-#: src/Controllers/JavaScriptMessagesController.php:741
+#: src/Controllers/JavaScriptMessagesController.php:744
 #, fuzzy
 #| msgid "Wednesday"
 msgctxt "Week day name"
@@ -1726,7 +1725,7 @@ msgid "Wednesday"
 msgstr "புதன்"
 
 #: src/Config/ConfigFile.php:612
-#: src/Controllers/JavaScriptMessagesController.php:742
+#: src/Controllers/JavaScriptMessagesController.php:745
 #, fuzzy
 #| msgid "Thursday"
 msgctxt "Week day name"
@@ -1734,7 +1733,7 @@ msgid "Thursday"
 msgstr "வியாழன்"
 
 #: src/Config/ConfigFile.php:613
-#: src/Controllers/JavaScriptMessagesController.php:743
+#: src/Controllers/JavaScriptMessagesController.php:746
 #, fuzzy
 #| msgid "Friday"
 msgctxt "Week day name"
@@ -1742,7 +1741,7 @@ msgid "Friday"
 msgstr "வெள்ளி"
 
 #: src/Config/ConfigFile.php:614
-#: src/Controllers/JavaScriptMessagesController.php:744
+#: src/Controllers/JavaScriptMessagesController.php:747
 #, fuzzy
 #| msgid "Saturday"
 msgctxt "Week day name"
@@ -1750,7 +1749,7 @@ msgid "Saturday"
 msgstr "சனி"
 
 #: src/Config/ConfigFile.php:615
-#: src/Controllers/JavaScriptMessagesController.php:738
+#: src/Controllers/JavaScriptMessagesController.php:741
 #, fuzzy
 #| msgid "Sunday"
 msgctxt "Week day name"
@@ -3643,7 +3642,7 @@ msgid "Navigation panel width"
 msgstr "வழிசெலுத்தல் பலகம்"
 
 #: src/Config/Descriptions.php:815
-#: src/Controllers/JavaScriptMessagesController.php:605
+#: src/Controllers/JavaScriptMessagesController.php:607
 #: src/Navigation/NavigationTree.php:1281
 msgid "Link with main panel"
 msgstr "முதன்மை பலகத்துடன் இணைக்க"
@@ -4184,8 +4183,8 @@ msgstr ""
 
 #: src/Config/Descriptions.php:938 src/Plugins/Export/ExportHtmlword.php:138
 #: src/Plugins/Export/ExportOdt.php:182
-#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1566
-#: src/Server/Privileges.php:1568 src/Server/Status/Processes.php:93
+#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1575
+#: src/Server/Privileges.php:1577 src/Server/Status/Processes.php:93
 #: templates/console/bookmark_content.twig:12 templates/console/display.twig:48
 #: templates/console/display.twig:206 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4211,7 +4210,7 @@ msgid "Server"
 msgstr "வழங்கி"
 
 #: src/Config/Descriptions.php:941 src/Plugins/Export/ExportXml.php:449
-#: src/Server/Privileges.php:1572 src/Server/Privileges.php:1574
+#: src/Server/Privileges.php:1581 src/Server/Privileges.php:1583
 #: templates/database/structure/show_create.twig:11
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
@@ -4369,7 +4368,7 @@ msgid "Missing data for %s"
 msgstr ""
 
 #: src/Config/FormDisplay.php:619 src/Config/Validator.php:586
-#: src/Controllers/JavaScriptMessagesController.php:822
+#: src/Controllers/JavaScriptMessagesController.php:825
 msgid "Incorrect value!"
 msgstr ""
 
@@ -4447,7 +4446,7 @@ msgstr "கட்டற்றஆவண உரை"
 
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:385 src/Menu.php:249
-#: src/Menu.php:351 src/Menu.php:473 src/Server/Privileges.php:1283
+#: src/Menu.php:351 src/Menu.php:473 src/Server/Privileges.php:1292
 #: src/Util.php:1698 src/Util.php:1713 src/Util.php:1730
 #: templates/database/events/index.twig:17
 #: templates/database/events/index.twig:18
@@ -4705,34 +4704,34 @@ msgid "Incorrect IP address: %s"
 msgstr ""
 
 #: src/Config/Validator.php:521
-#: src/Controllers/JavaScriptMessagesController.php:821
+#: src/Controllers/JavaScriptMessagesController.php:824
 msgid "Not a valid port number!"
 msgstr ""
 
 #: src/Config/Validator.php:543
-#: src/Controllers/JavaScriptMessagesController.php:819
+#: src/Controllers/JavaScriptMessagesController.php:822
 msgid "Not a positive number!"
 msgstr ""
 
 #: src/Config/Validator.php:565
-#: src/Controllers/JavaScriptMessagesController.php:820
+#: src/Controllers/JavaScriptMessagesController.php:823
 msgid "Not a non-negative number!"
 msgstr ""
 
 #: src/Config/Validator.php:604
-#: src/Controllers/JavaScriptMessagesController.php:823
+#: src/Controllers/JavaScriptMessagesController.php:826
 #, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr ""
 
-#: src/Console.php:73
+#: src/Console.php:74
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Console.php:80
+#: src/Console.php:81
 msgid "No bookmarks"
 msgstr "புத்தகக்குறிகள் இல்லை"
 
@@ -4750,16 +4749,16 @@ msgid ""
 "information."
 msgstr "இந்த %s கோப்பு அமைப்பில் இல்லை, மேலும் தகவலுக்கு %s செல்லுங்கள்."
 
-#: src/Controllers/Console/Bookmark/AddController.php:33
+#: src/Controllers/Console/Bookmark/AddController.php:35
 msgid "Incomplete params"
 msgstr "முழுமையடையா மதிப்புருபுகள்"
 
-#: src/Controllers/Console/Bookmark/AddController.php:46
-#: src/Controllers/JavaScriptMessagesController.php:587
+#: src/Controllers/Console/Bookmark/AddController.php:48
+#: src/Controllers/JavaScriptMessagesController.php:589
 msgid "Failed"
 msgstr "தோல்வியடைந்தது"
 
-#: src/Controllers/Console/Bookmark/AddController.php:51
+#: src/Controllers/Console/Bookmark/AddController.php:60
 msgid "Succeeded"
 msgstr "நிறைவுற்றது"
 
@@ -4824,8 +4823,8 @@ msgstr ""
 #: src/Controllers/Table/IndexRenameController.php:63
 #: src/Controllers/Table/OperationsController.php:94
 #: src/Controllers/Table/OperationsController.php:99
-#: src/Controllers/Table/SearchController.php:176
-#: src/Controllers/Table/SearchController.php:181
+#: src/Controllers/Table/SearchController.php:177
+#: src/Controllers/Table/SearchController.php:182
 #: src/Controllers/Table/SqlController.php:66
 #: src/Controllers/Table/SqlController.php:71
 #: src/Controllers/Table/StructureController.php:121
@@ -4894,7 +4893,7 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 
 #: src/Controllers/Database/ImportController.php:81
-#: src/Controllers/Import/ImportController.php:561
+#: src/Controllers/Import/ImportController.php:548
 #: src/Controllers/Server/ImportController.php:61
 #: src/Controllers/Table/ImportController.php:101
 msgid "Could not load import plugins, please check your installation!"
@@ -4978,8 +4977,8 @@ msgstr ""
 #: src/Controllers/Table/Maintenance/RepairController.php:45
 #: src/Controllers/Table/OperationsController.php:108
 #: src/Controllers/Table/OperationsController.php:113
-#: src/Controllers/Table/SearchController.php:190
-#: src/Controllers/Table/SearchController.php:195
+#: src/Controllers/Table/SearchController.php:191
+#: src/Controllers/Table/SearchController.php:196
 #: src/Controllers/Table/SqlController.php:80
 #: src/Controllers/Table/SqlController.php:85
 #: src/Controllers/Table/StructureController.php:135
@@ -5082,9 +5081,9 @@ msgid "unknown"
 msgstr ""
 
 #: src/Controllers/Database/Structure/DropTableController.php:42
-#: src/Controllers/Database/Structure/EmptyTableController.php:46
-#: src/Controllers/JavaScriptMessagesController.php:500
-#: src/Controllers/Table/DeleteRowsController.php:54
+#: src/Controllers/Database/Structure/EmptyTableController.php:47
+#: src/Controllers/JavaScriptMessagesController.php:502
+#: src/Controllers/Table/DeleteRowsController.php:56
 #: src/Controllers/Table/DropColumnController.php:45
 #: src/Controllers/Table/Structure/PrimaryController.php:108
 #: src/IndexColumn.php:154 src/Index.php:470
@@ -5122,10 +5121,10 @@ msgid "Yes"
 msgstr "ஆம்"
 
 #: src/Controllers/Database/Structure/DropTableController.php:43
-#: src/Controllers/Database/Structure/EmptyTableController.php:47
+#: src/Controllers/Database/Structure/EmptyTableController.php:48
 #: src/Controllers/Table/DropColumnController.php:62
 #: src/Controllers/Table/OperationsController.php:359
-#: src/Controllers/Table/ReplaceController.php:307 src/Core.php:528
+#: src/Controllers/Table/ReplaceController.php:307 src/Core.php:519
 #: templates/preview_sql.twig:3
 msgid "No change"
 msgstr ""
@@ -5307,7 +5306,7 @@ msgstr ""
 "curl நீட்டிப்பு மற்றும் allow_url_fopen  முடக்கப்பட்டுள்ளது. இதனால் தவறு அறிக்கை, "
 "பதிப்பு சோதனை போன்ற அம்சங்கள் முடக்கப்பட்டுள்ளது."
 
-#: src/Controllers/Import/ImportController.php:203
+#: src/Controllers/Import/ImportController.php:204
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -5316,23 +5315,23 @@ msgstr ""
 "நீங்கள் பதிவேற்ற முயன்ற கோப்பு மிகப்பெரியதாக இருக்கலாம். இவ்வரம்பின் மாற்ற தயவுசெய்து %s "
 "ஆவணஉரையை %s பார்வையிடவும்."
 
-#: src/Controllers/Import/ImportController.php:235
+#: src/Controllers/Import/ImportController.php:236
 #, fuzzy
 #| msgid "Remove last parameter"
 msgid "Incorrect format parameter"
 msgstr "கடைசி மதிப்புருவை நீக்குக"
 
-#: src/Controllers/Import/ImportController.php:365
-#: src/Controllers/Import/ImportController.php:601
+#: src/Controllers/Import/ImportController.php:357
+#: src/Controllers/Import/ImportController.php:588
 msgid "Showing bookmark"
 msgstr "புத்தகக்குறி காட்டப்படுகிறது"
 
-#: src/Controllers/Import/ImportController.php:390
-#: src/Controllers/Import/ImportController.php:597
+#: src/Controllers/Import/ImportController.php:377
+#: src/Controllers/Import/ImportController.php:584
 msgid "The bookmark has been deleted."
 msgstr "புத்தகக்குறி அழிக்கப்பட்டது."
 
-#: src/Controllers/Import/ImportController.php:509
+#: src/Controllers/Import/ImportController.php:496
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5342,14 +5341,14 @@ msgstr ""
 "கோப்பின் அளவு PHP உள்ளமைப்பின் கோப்பு பதிவேற்ற மீயளவு இசைவு வரம்பை கடந்திருக்கும். "
 "[doc@faq1-16] FAQ 1.16 [/doc]யினை காண்க."
 
-#: src/Controllers/Import/ImportController.php:609
+#: src/Controllers/Import/ImportController.php:596
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "உள்ளேற்றம் வெற்றிகரமாக முடிந்தது, %d வினவல்கள் செயல்படுத்தப்பட்டன."
 msgstr[1] "உள்ளேற்றம் வெற்றிகரமாக முடிந்தது, %d வினவல்கள் செயல்படுத்தப்பட்டன."
 
-#: src/Controllers/Import/ImportController.php:646
+#: src/Controllers/Import/ImportController.php:633
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5358,7 +5357,7 @@ msgstr ""
 "செயல்நிரலுக்கான செயலாக்க நேரம் கடந்தது, உள்ளேற்ற செயல்பாட்டை மீளேற்றி முடிக்க "
 "%sஅதேகோப்பினை மீண்டும் அனுப்புக%s."
 
-#: src/Controllers/Import/ImportController.php:656
+#: src/Controllers/Import/ImportController.php:643
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5366,8 +5365,8 @@ msgstr ""
 "முந்தைய செயலாக்கம் எந்த தரவையும் தரவில்லை, பொதுவாக இது நீங்கள் PHPயின் செயலாக்க "
 "காலவரையை மாற்றாமல் PHPMyAdmin னால் இந்த தரவிறக்கத்தை முடிக்கவியலாததை குறிக்கிறது."
 
-#: src/Controllers/Import/ImportController.php:724
-#: src/Controllers/Sql/SqlController.php:169
+#: src/Controllers/Import/ImportController.php:711
+#: src/Controllers/Sql/SqlController.php:170
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" கூற்றுகள் முடக்கப்பட்டுள்ளன."
 
@@ -5656,12 +5655,12 @@ msgid "The user name is empty!"
 msgstr "பயனர் பெயர் வெறுமையாக உள்ளது!"
 
 #: src/Controllers/JavaScriptMessagesController.php:144
-#: src/Server/Privileges.php:756 src/UserPassword.php:39
+#: src/Server/Privileges.php:765 src/UserPassword.php:39
 msgid "The password is empty!"
 msgstr "கடவுச்சொல் வெறுமையாக உள்ளது!"
 
 #: src/Controllers/JavaScriptMessagesController.php:145
-#: src/Server/Privileges.php:754 src/UserPassword.php:43
+#: src/Server/Privileges.php:763 src/UserPassword.php:43
 msgid "The passwords aren't the same!"
 msgstr "கடவுச்சொற்கள் பொருந்தவில்லை!"
 
@@ -6332,7 +6331,8 @@ msgstr "ஒவ்வாத பண்புகூறுகள்!"
 #: templates/database/structure/check_all_tables.twig:49
 #: templates/database/structure/check_all_tables.twig:55
 #: templates/error/report_modal.twig:6 templates/error/report_modal.twig:11
-#: templates/modals/add_index.twig:11 templates/modals/change_password.twig:11
+#: templates/gis_data_editor_form.twig:62 templates/modals/add_index.twig:11
+#: templates/modals/change_password.twig:11
 #: templates/modals/page_settings.twig:11
 #: templates/server/databases/index.twig:316
 #: templates/server/databases/index.twig:320
@@ -6672,7 +6672,7 @@ msgstr "சீராக்கலின் இரண்டாம் படிந�
 
 #. l10n: Display text for calendar close link
 #: src/Controllers/JavaScriptMessagesController.php:427
-#: src/Controllers/JavaScriptMessagesController.php:771
+#: src/Controllers/JavaScriptMessagesController.php:774
 #: src/Normalization.php:337
 msgid "Done"
 msgstr "முடிந்த"
@@ -6827,7 +6827,7 @@ msgid "Data point content"
 msgstr "தரவுப்புள்ளி உள்ளடக்கம்"
 
 #: src/Controllers/JavaScriptMessagesController.php:487
-#: src/Controllers/JavaScriptMessagesController.php:635
+#: src/Controllers/JavaScriptMessagesController.php:638
 #: src/ErrorHandler.php:405 src/InsertEdit.php:1567
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
@@ -6837,22 +6837,15 @@ msgstr "புறக்கணி"
 #: src/Display/Results.php:2706 src/Html/Generator.php:79
 #: templates/display/results/table.twig:323
 #: templates/display/results/table.twig:324
+#: templates/gis_data_editor_form.twig:61
 msgid "Copy"
 msgstr "படியெடு"
 
 #: src/Controllers/JavaScriptMessagesController.php:489
-#: templates/gis_data_editor_form.twig:84
-#: templates/gis_data_editor_form.twig:104
-#: templates/gis_data_editor_form.twig:142
-#: templates/gis_data_editor_form.twig:188
 msgid "X"
 msgstr "கு"
 
 #: src/Controllers/JavaScriptMessagesController.php:490
-#: templates/gis_data_editor_form.twig:88
-#: templates/gis_data_editor_form.twig:108
-#: templates/gis_data_editor_form.twig:146
-#: templates/gis_data_editor_form.twig:192
 msgid "Y"
 msgstr "நெ"
 
@@ -6861,63 +6854,65 @@ msgid "Point"
 msgstr "புள்ளி"
 
 #: src/Controllers/JavaScriptMessagesController.php:492
-#, php-format
-msgid "Point %d"
-msgstr "புள்ளி %d"
-
-#: src/Controllers/JavaScriptMessagesController.php:493
 msgid "Linestring"
 msgstr "வரிச்சரம்"
 
-#: src/Controllers/JavaScriptMessagesController.php:494
+#: src/Controllers/JavaScriptMessagesController.php:493
 msgid "Polygon"
 msgstr "பல்கோணி"
 
-#: src/Controllers/JavaScriptMessagesController.php:495
+#: src/Controllers/JavaScriptMessagesController.php:494
 #: templates/display/results/table.twig:263
 msgid "Geometry"
 msgstr "கேத்திர கணிதம்"
 
-#: src/Controllers/JavaScriptMessagesController.php:496
+#: src/Controllers/JavaScriptMessagesController.php:495
 #, fuzzy
 #| msgid "Inner Ring"
 msgid "Inner ring"
 msgstr "உள்ப்புற வளையம்"
 
-#: src/Controllers/JavaScriptMessagesController.php:497
+#: src/Controllers/JavaScriptMessagesController.php:496
 #, fuzzy
 #| msgid "Outer ring:"
 msgid "Outer ring"
 msgstr "வெளிப்புற வளையம்:"
 
-#: src/Controllers/JavaScriptMessagesController.php:498
-#: templates/gis_data_editor_form.twig:111
-#: templates/gis_data_editor_form.twig:149
-#: templates/gis_data_editor_form.twig:195
+#: src/Controllers/JavaScriptMessagesController.php:497
 msgid "Add a point"
 msgstr "ஒரு புள்ளியை சேர்"
 
+#: src/Controllers/JavaScriptMessagesController.php:498
+msgid "Add a linestring"
+msgstr "வரிச்சரம் சேர்க்க"
+
 #: src/Controllers/JavaScriptMessagesController.php:499
-#: templates/gis_data_editor_form.twig:153
-#: templates/gis_data_editor_form.twig:198
 msgid "Add an inner ring"
 msgstr "உட்புற வளையத்தை சேர்"
 
+#: src/Controllers/JavaScriptMessagesController.php:500
+msgid "Add a polygon"
+msgstr "ஒரு பல்கோணியை சேர்"
+
 #: src/Controllers/JavaScriptMessagesController.php:501
+msgid "Add geometry"
+msgstr "வரையமைப்பை சேர்க்க"
+
+#: src/Controllers/JavaScriptMessagesController.php:503
 msgid "Do you want to copy encryption key?"
 msgstr "மறைகுறியாக்க குறிப்பெழுத்தை படியெடுக்க வேண்டுமா?"
 
-#: src/Controllers/JavaScriptMessagesController.php:502
+#: src/Controllers/JavaScriptMessagesController.php:504
 msgid "Encryption key"
 msgstr "மறைகுறியாக்க குறிப்பெழுத்து"
 
-#: src/Controllers/JavaScriptMessagesController.php:505
+#: src/Controllers/JavaScriptMessagesController.php:507
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:510
+#: src/Controllers/JavaScriptMessagesController.php:512
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
@@ -6925,37 +6920,37 @@ msgstr ""
 "MySQL நகர்வானால் தேர்ந்தெடுக்கப்படாத கூடுதல் மதிப்புகளை ஏற்றுக்கொள்கிறது; நேரடியாக அந்த "
 "மதிப்புகள் முக்கியமாக விரும்பினால்"
 
-#: src/Controllers/JavaScriptMessagesController.php:516
+#: src/Controllers/JavaScriptMessagesController.php:518
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:522
+#: src/Controllers/JavaScriptMessagesController.php:524
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:527
+#: src/Controllers/JavaScriptMessagesController.php:529
 msgid "Select referenced key"
 msgstr "மேற்கோள்காட்டப்பட்ட குறிப்பெழுத்தை தேர்ந்தெடுக்க"
 
-#: src/Controllers/JavaScriptMessagesController.php:528
+#: src/Controllers/JavaScriptMessagesController.php:530
 msgid "Select Foreign Key"
 msgstr "அயல் குறிப்பெழுத்தை தேர்ந்தெடுக்க"
 
-#: src/Controllers/JavaScriptMessagesController.php:529
+#: src/Controllers/JavaScriptMessagesController.php:531
 msgid "Please select the primary key or a unique key!"
 msgstr "முதனிலை குறிப்பெழுத்து அல்லது தனித்த குறிப்பெழுத்தை தேர்ந்தெடுக்க!"
 
-#: src/Controllers/JavaScriptMessagesController.php:530
+#: src/Controllers/JavaScriptMessagesController.php:532
 #: templates/database/designer/main.twig:98
 #: templates/database/designer/main.twig:101
 msgid "Choose column to display"
 msgstr "காட்டுவதற்க்கான நிரல்வரிசையை தேர்ந்தெடுக்க"
 
-#: src/Controllers/JavaScriptMessagesController.php:532
+#: src/Controllers/JavaScriptMessagesController.php:534
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -6963,11 +6958,11 @@ msgstr ""
 "நீங்கள் திட்டஅமைப்பில் செய்த மாற்றங்களை சேமிக்கவில்லை.எனவே அவற்றை இழக்கநேரிடும். "
 "தொடரவேண்டுமா?"
 
-#: src/Controllers/JavaScriptMessagesController.php:535
+#: src/Controllers/JavaScriptMessagesController.php:537
 msgid "value/subQuery is empty"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:536
+#: src/Controllers/JavaScriptMessagesController.php:538
 #: templates/database/designer/main.twig:40
 #: templates/database/designer/main.twig:43
 #, fuzzy
@@ -6975,17 +6970,17 @@ msgstr ""
 msgid "Add tables from other databases"
 msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
 
-#: src/Controllers/JavaScriptMessagesController.php:537
+#: src/Controllers/JavaScriptMessagesController.php:539
 msgid "Page name"
 msgstr "பக்கத்தின் பெயர்"
 
-#: src/Controllers/JavaScriptMessagesController.php:538
+#: src/Controllers/JavaScriptMessagesController.php:540
 #: templates/database/designer/main.twig:63
 #: templates/database/designer/main.twig:66
 msgid "Save page"
 msgstr "பக்கத்தை சேமிக்க"
 
-#: src/Controllers/JavaScriptMessagesController.php:539
+#: src/Controllers/JavaScriptMessagesController.php:541
 #: templates/database/designer/main.twig:70
 #: templates/database/designer/main.twig:73
 #, fuzzy
@@ -6993,73 +6988,73 @@ msgstr "பக்கத்தை சேமிக்க"
 msgid "Save page as"
 msgstr "பக்கத்தை சேமிக்க"
 
-#: src/Controllers/JavaScriptMessagesController.php:540
+#: src/Controllers/JavaScriptMessagesController.php:542
 #: templates/database/designer/main.twig:56
 #: templates/database/designer/main.twig:59
 msgid "Open page"
 msgstr "பக்கத்தை திறக்க"
 
-#: src/Controllers/JavaScriptMessagesController.php:541
+#: src/Controllers/JavaScriptMessagesController.php:543
 msgid "Delete page"
 msgstr "பக்கத்தை அழிக்க"
 
 #. l10n: When the user opens a page saved in the Designer
-#: src/Controllers/JavaScriptMessagesController.php:543
+#: src/Controllers/JavaScriptMessagesController.php:545
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:544
+#: src/Controllers/JavaScriptMessagesController.php:546
 #: templates/database/designer/main.twig:10
 msgid "Untitled"
 msgstr "பெயரிடாதது"
 
-#: src/Controllers/JavaScriptMessagesController.php:545
+#: src/Controllers/JavaScriptMessagesController.php:547
 msgid "Please select a page to continue"
 msgstr "தொடர்வதற்கு ஒரு பக்கத்தை தேர்ந்தெடுக்க"
 
-#: src/Controllers/JavaScriptMessagesController.php:546
+#: src/Controllers/JavaScriptMessagesController.php:548
 msgid "Please enter a valid page name"
 msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
 
-#: src/Controllers/JavaScriptMessagesController.php:547
+#: src/Controllers/JavaScriptMessagesController.php:549
 msgid "Do you want to save the changes to the current page?"
 msgstr "இப்பக்கத்தில் செய்த மாற்றங்களை சேமிக்கவேண்டுமா?"
 
-#: src/Controllers/JavaScriptMessagesController.php:548
+#: src/Controllers/JavaScriptMessagesController.php:550
 msgid "Successfully deleted the page"
 msgstr "பக்கம் நீக்கப்பட்டது"
 
-#: src/Controllers/JavaScriptMessagesController.php:549
+#: src/Controllers/JavaScriptMessagesController.php:551
 msgid "Export relational schema"
 msgstr "தொடர்புசார் ஒழுங்கமைப்பை தரவேற்றுக"
 
-#: src/Controllers/JavaScriptMessagesController.php:550
+#: src/Controllers/JavaScriptMessagesController.php:552
 msgid "Modifications have been saved"
 msgstr "மாற்றங்களை சேமிக்க"
 
-#: src/Controllers/JavaScriptMessagesController.php:553
+#: src/Controllers/JavaScriptMessagesController.php:555
 #, php-format
 msgid "%d object(s) created."
 msgstr "%d கருப்பொதிவு(கள்) உருவாக்கப்பட்டன."
 
-#: src/Controllers/JavaScriptMessagesController.php:554
+#: src/Controllers/JavaScriptMessagesController.php:556
 #, fuzzy
 #| msgid "Copy column name."
 msgid "Column name"
 msgstr "நிரல்வரிசை பெயரை படியெடுக்கவும்."
 
-#: src/Controllers/JavaScriptMessagesController.php:555
+#: src/Controllers/JavaScriptMessagesController.php:557
 #: templates/modals/build_query.twig:17 templates/sql/query.twig:180
 msgid "Submit"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:558
+#: src/Controllers/JavaScriptMessagesController.php:560
 #, fuzzy
 #| msgid "Press escape to cancel editing."
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr "தொகுப்பதை நிறுத்த Esc அழுத்தவும்."
 
-#: src/Controllers/JavaScriptMessagesController.php:560
+#: src/Controllers/JavaScriptMessagesController.php:562
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -7067,15 +7062,15 @@ msgstr ""
 "நீங்கள் சில தரவுகளை தொகுத்துள்ளீர்கள். தரவை செமிக்காமல் இப்பக்கத்தைவிட்டு வெளியேறவேண்டுமா "
 "என உறுதிசெய்க?"
 
-#: src/Controllers/JavaScriptMessagesController.php:563
+#: src/Controllers/JavaScriptMessagesController.php:565
 msgid "Drag to reorder."
 msgstr "மறுவரிசைப்படுத்த இழுக்கவும்."
 
-#: src/Controllers/JavaScriptMessagesController.php:564
+#: src/Controllers/JavaScriptMessagesController.php:566
 msgid "Click to sort results by this column."
 msgstr "இந்நெடுவரிசையை பொருத்து முடிவுகளை வரிசைப்படுத்த சொடுக்குக."
 
-#: src/Controllers/JavaScriptMessagesController.php:566
+#: src/Controllers/JavaScriptMessagesController.php:568
 #, fuzzy
 #| msgid ""
 #| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
@@ -7088,19 +7083,19 @@ msgstr ""
 "இந்நெடுவரிசையை ORDER BY உறுப்புரையில் சேர்க்க அல்லது ASC/DESCஐ மாற்ற "
 "shift+சொடுக்கவும். <br/>- ORDER BY உறுப்புரையிலிருந்து  நீக்க Ctrl+சொடுக்கவும்"
 
-#: src/Controllers/JavaScriptMessagesController.php:570
+#: src/Controllers/JavaScriptMessagesController.php:572
 msgid "Click to mark/unmark."
 msgstr "சேர்க்க/நீக்க சொடுக்கவும்."
 
-#: src/Controllers/JavaScriptMessagesController.php:571
+#: src/Controllers/JavaScriptMessagesController.php:573
 msgid "Double-click to copy column name."
 msgstr "நிரல்வரிசை பெயரை படியெடுக்க இருமுறை சொடுக்குக."
 
-#: src/Controllers/JavaScriptMessagesController.php:572
+#: src/Controllers/JavaScriptMessagesController.php:574
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr "நிரல்வரிசையின் காட்சிப்பண்பை <br>மாற்ற கீழிறங்கு குறியை சொடுக்குக."
 
-#: src/Controllers/JavaScriptMessagesController.php:575
+#: src/Controllers/JavaScriptMessagesController.php:577
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -7108,84 +7103,84 @@ msgstr ""
 "இவ்வட்டவணையில் தனித்தநிரல்வரிசை இல்லை.சேமித்த பின்னர் நெய்யரியில் தொகுத்தல், தேர்வுபெட்டி, "
 "தொகுத்தல், படியெடுத்தல், மற்றும் நீக்கல் வசதிகள் செயல்படாமல் போகலாம்."
 
-#: src/Controllers/JavaScriptMessagesController.php:578
+#: src/Controllers/JavaScriptMessagesController.php:580
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr "சரியான அறுபதின்ம சரத்தை உள்ளிடவும்.௦-9,A-F ஆகியவை ஏற்ற உள்ளீடுகள்."
 
-#: src/Controllers/JavaScriptMessagesController.php:580
+#: src/Controllers/JavaScriptMessagesController.php:582
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:582
+#: src/Controllers/JavaScriptMessagesController.php:584
 #, fuzzy
 #| msgid "Original string"
 msgid "Original length"
 msgstr "மெய் சரம்"
 
-#: src/Controllers/JavaScriptMessagesController.php:585
+#: src/Controllers/JavaScriptMessagesController.php:587
 msgid "cancel"
 msgstr "விலக்கு"
 
-#: src/Controllers/JavaScriptMessagesController.php:586
+#: src/Controllers/JavaScriptMessagesController.php:588
 #: src/Controllers/Server/Status/StatusController.php:181
 msgid "Aborted"
 msgstr "கைவிடப்பட்டது"
 
-#: src/Controllers/JavaScriptMessagesController.php:588
+#: src/Controllers/JavaScriptMessagesController.php:590
 msgid "Success"
 msgstr "வெற்றி"
 
-#: src/Controllers/JavaScriptMessagesController.php:589
+#: src/Controllers/JavaScriptMessagesController.php:591
 msgid "Import status"
 msgstr "தரவிறக்க நிலை"
 
-#: src/Controllers/JavaScriptMessagesController.php:590
+#: src/Controllers/JavaScriptMessagesController.php:592
 #: templates/navigation/main.twig:84
 msgid "Drop files here"
 msgstr "கோப்புகளை இங்கு விடுக"
 
-#: src/Controllers/JavaScriptMessagesController.php:591
+#: src/Controllers/JavaScriptMessagesController.php:593
 msgid "Select database first"
 msgstr "ஒரு தரவுத்தளத்தை முதலில் தேர்வுசெய்க"
 
-#: src/Controllers/JavaScriptMessagesController.php:593
+#: src/Controllers/JavaScriptMessagesController.php:595
 msgid "Go to link:"
 msgstr "இணைப்புக்கு செல்:"
 
-#: src/Controllers/JavaScriptMessagesController.php:596
+#: src/Controllers/JavaScriptMessagesController.php:598
 msgid "Generate password"
 msgstr "கடவுச்சொல்லை இயற்று"
 
-#: src/Controllers/JavaScriptMessagesController.php:597
+#: src/Controllers/JavaScriptMessagesController.php:599
 #: templates/server/replication/primary_add_replica_user.twig:73
 msgid "Generate"
 msgstr "இயற்று"
 
-#: src/Controllers/JavaScriptMessagesController.php:600
+#: src/Controllers/JavaScriptMessagesController.php:602
 #: templates/table/structure/display_structure.twig:130
 msgid "More"
 msgstr "மேலும்"
 
-#: src/Controllers/JavaScriptMessagesController.php:603
+#: src/Controllers/JavaScriptMessagesController.php:605
 #, fuzzy
 #| msgid "Show Panel"
 msgid "Show panel"
 msgstr "பலகத்தை காட்டு"
 
-#: src/Controllers/JavaScriptMessagesController.php:604
+#: src/Controllers/JavaScriptMessagesController.php:606
 #, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "பலகத்தை மறை"
 
-#: src/Controllers/JavaScriptMessagesController.php:606
+#: src/Controllers/JavaScriptMessagesController.php:608
 #: src/Navigation/NavigationTree.php:1284
 msgid "Unlink from main panel"
 msgstr "முதன்மை பலகத்திலிருந்து பிரிக்க"
 
-#: src/Controllers/JavaScriptMessagesController.php:610 src/Setup/Index.php:153
+#: src/Controllers/JavaScriptMessagesController.php:612 src/Setup/Index.php:153
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -7195,41 +7190,47 @@ msgstr ""
 "கருத்தில் கொள்ளவும்.மிக அண்மைய பதிப்பு %s,%s அன்று வெளியிடப்பட்டது."
 
 #. l10n: Latest available phpMyAdmin version
-#: src/Controllers/JavaScriptMessagesController.php:614
+#: src/Controllers/JavaScriptMessagesController.php:616
 msgid ", latest stable version:"
 msgstr ", புதிய நிலைப்பதிப்பு:"
 
-#: src/Controllers/JavaScriptMessagesController.php:615
+#: src/Controllers/JavaScriptMessagesController.php:617
 msgid "up to date"
 msgstr "இன்றுவரை"
 
 #: src/Controllers/JavaScriptMessagesController.php:618
+#, fuzzy
+#| msgid "There was an error importing the ESRI shape file: \"%s\"."
+msgid "There was an error in loading the Git information."
+msgstr "ESRI வடிவகோப்பை \"%s\" தரவிறக்குவதில் பிழை நிகழ்ந்துள்ளது."
+
+#: src/Controllers/JavaScriptMessagesController.php:621
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 "ஒரு ஆபத்தான ஜாவா ஸ்க்ரிப்ட் பிழை நிகழ்ந்துள்ளது. பிழை அறிக்கை அளிக்க விரும்புகிறீர்களா?"
 
-#: src/Controllers/JavaScriptMessagesController.php:619
+#: src/Controllers/JavaScriptMessagesController.php:622
 #, fuzzy
 #| msgid "Change Report Settings"
 msgid "Change report settings"
 msgstr "அறிக்கை அமைப்புக்களை மாற்றுக"
 
-#: src/Controllers/JavaScriptMessagesController.php:620
+#: src/Controllers/JavaScriptMessagesController.php:623
 #, fuzzy
 #| msgid "Show Report Details"
 msgid "Show report details"
 msgstr "அறிவிக்கை விவரங்களை காட்டுக"
 
-#: src/Controllers/JavaScriptMessagesController.php:621
+#: src/Controllers/JavaScriptMessagesController.php:624
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 "PHPயின் நிலையில் குறைந்த செயலாக்கநேர வரம்பின் விளைவாக உங்கள் தரவேற்றம் முடிவுறவில்லை!"
 
-#: src/Controllers/JavaScriptMessagesController.php:624
+#: src/Controllers/JavaScriptMessagesController.php:627
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -7238,85 +7239,85 @@ msgstr ""
 "எச்சரிக்கை: இப்பக்கத்திலுள்ள ஒரு படிவத்தில் %dஐ விட அதிகமான கலங்கள் உள்ளன.PHPயின் "
 "max_input_vars அமைப்பாக்கத்தின் விளைவாக அனுப்பும்போது சில கலங்கள் விடப்படலாம்."
 
-#: src/Controllers/JavaScriptMessagesController.php:630
-#: src/Controllers/JavaScriptMessagesController.php:643
+#: src/Controllers/JavaScriptMessagesController.php:633
+#: src/Controllers/JavaScriptMessagesController.php:646
 msgid "Some errors have been detected on the server!"
 msgstr "சேவையகத்தில் சில பிழைகள் கண்டறியப்பட்டுள்ளன!"
 
-#: src/Controllers/JavaScriptMessagesController.php:632
+#: src/Controllers/JavaScriptMessagesController.php:635
 msgid "Please look at the bottom of this window."
 msgstr "இச்சாளரத்தின் கீழ்பக்கம் பார்க்கவும்."
 
-#: src/Controllers/JavaScriptMessagesController.php:638
+#: src/Controllers/JavaScriptMessagesController.php:641
 #: src/ErrorHandler.php:410
 msgid "Ignore All"
 msgstr "அனைத்தையும் புறக்கணி"
 
-#: src/Controllers/JavaScriptMessagesController.php:645
+#: src/Controllers/JavaScriptMessagesController.php:648
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr "உங்கள் அமைவுகளின்படி,தற்பொழுது அவை அனுப்பபட்டுகொண்டிருக்கிறன.காத்திருக்கவும்."
 
-#: src/Controllers/JavaScriptMessagesController.php:649
+#: src/Controllers/JavaScriptMessagesController.php:652
 msgid "Column name successfully copied to clipboard!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:650
+#: src/Controllers/JavaScriptMessagesController.php:653
 msgid "Column name copying to clipboard failed!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:651
+#: src/Controllers/JavaScriptMessagesController.php:654
 #, fuzzy
 #| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
 msgstr "பக்கம் நீக்கப்பட்டது"
 
-#: src/Controllers/JavaScriptMessagesController.php:652
+#: src/Controllers/JavaScriptMessagesController.php:655
 #, fuzzy
 #| msgid "Copying Database"
 msgid "Copying failed!"
 msgstr "தரவுத்தளம் நகல் எடுக்கபடுகின்றது"
 
-#: src/Controllers/JavaScriptMessagesController.php:655
+#: src/Controllers/JavaScriptMessagesController.php:658
 msgid "Execute this query again?"
 msgstr "இந்த வினவலை மீண்டும் செயல்படுத்த வேண்டுமா?"
 
-#: src/Controllers/JavaScriptMessagesController.php:656
+#: src/Controllers/JavaScriptMessagesController.php:659
 msgid "Do you really want to delete this bookmark?"
 msgstr "உங்களுக்கு உண்மையிலேயே புத்தகக்குறியை நீக்க வேண்டுமா?"
 
-#: src/Controllers/JavaScriptMessagesController.php:657
+#: src/Controllers/JavaScriptMessagesController.php:660
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:658
+#: src/Controllers/JavaScriptMessagesController.php:661
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:659
+#: src/Controllers/JavaScriptMessagesController.php:662
 #, php-format
 msgid "%s argument(s) passed"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:660
+#: src/Controllers/JavaScriptMessagesController.php:663
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
 msgstr "அட்டவணைக் கருத்துரைகள்"
 
-#: src/Controllers/JavaScriptMessagesController.php:661
+#: src/Controllers/JavaScriptMessagesController.php:664
 #, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
 msgstr "தேடல் முடிவுகளை மறை"
 
-#: src/Controllers/JavaScriptMessagesController.php:662
+#: src/Controllers/JavaScriptMessagesController.php:665
 #: templates/console/display.twig:109
 msgid "Time taken:"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:664
+#: src/Controllers/JavaScriptMessagesController.php:667
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -7325,99 +7326,99 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:671
+#: src/Controllers/JavaScriptMessagesController.php:674
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
 msgstr "தரவுதளத்தை இப்படி படியெடுக்க"
 
-#: src/Controllers/JavaScriptMessagesController.php:672
+#: src/Controllers/JavaScriptMessagesController.php:675
 #, fuzzy
 #| msgid "Add table prefix:"
 msgid "Add table prefix"
 msgstr "அட்டவணையின் முன்னொட்டு சேர்க்க:"
 
-#: src/Controllers/JavaScriptMessagesController.php:673
+#: src/Controllers/JavaScriptMessagesController.php:676
 #, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table with prefix"
 msgstr "அட்டவணை முன்னொட்டை பதிலிடு"
 
-#: src/Controllers/JavaScriptMessagesController.php:674
+#: src/Controllers/JavaScriptMessagesController.php:677
 #: templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:677
+#: src/Controllers/JavaScriptMessagesController.php:680
 msgid "Extremely weak"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:678
+#: src/Controllers/JavaScriptMessagesController.php:681
 msgid "Very weak"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:679
+#: src/Controllers/JavaScriptMessagesController.php:682
 msgid "Weak"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:680
+#: src/Controllers/JavaScriptMessagesController.php:683
 msgid "Good"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:681
+#: src/Controllers/JavaScriptMessagesController.php:684
 msgid "Strong"
 msgstr ""
 
 #. l10n: error code 5 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:685
+#: src/Controllers/JavaScriptMessagesController.php:688
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr ""
 
 #. l10n: error code 2 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:687
+#: src/Controllers/JavaScriptMessagesController.php:690
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr ""
 
 #. l10n: unknown error code (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:689
+#: src/Controllers/JavaScriptMessagesController.php:692
 msgctxt "U2F error"
 msgid "Unknown security key error."
 msgstr ""
 
 #. l10n: error code 3 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:691
+#: src/Controllers/JavaScriptMessagesController.php:694
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on register
-#: src/Controllers/JavaScriptMessagesController.php:693
+#: src/Controllers/JavaScriptMessagesController.php:696
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: src/Controllers/JavaScriptMessagesController.php:695
+#: src/Controllers/JavaScriptMessagesController.php:698
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:698
+#: src/Controllers/JavaScriptMessagesController.php:701
 msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:703
+#: src/Controllers/JavaScriptMessagesController.php:706
 msgid ""
 "You can not open, save or delete your page layout, as IndexedDB is not "
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:708
+#: src/Controllers/JavaScriptMessagesController.php:711
 #, fuzzy, php-format
 #| msgid "Table %s already exists!"
 msgctxt ""
@@ -7425,12 +7426,12 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "%s இந்த அட்டவணை ஏற்கனவே உள்ளது!"
 
-#: src/Controllers/JavaScriptMessagesController.php:710 src/InsertEdit.php:281
+#: src/Controllers/JavaScriptMessagesController.php:713 src/InsertEdit.php:281
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:711
+#: src/Controllers/JavaScriptMessagesController.php:714
 #: src/Controllers/Table/ChangeController.php:216
 #: templates/database/multi_table_query/form.twig:38
 #: templates/database/tracking/tables.twig:19
@@ -7438,273 +7439,273 @@ msgstr ""
 msgid "Show"
 msgstr "காண்பி"
 
-#: src/Controllers/JavaScriptMessagesController.php:714
+#: src/Controllers/JavaScriptMessagesController.php:717
 #, fuzzy
 #| msgid "January"
 msgctxt "Month name"
 msgid "January"
 msgstr "ஜனவரி"
 
-#: src/Controllers/JavaScriptMessagesController.php:715
+#: src/Controllers/JavaScriptMessagesController.php:718
 #, fuzzy
 #| msgid "February"
 msgctxt "Month name"
 msgid "February"
 msgstr "பெப்ரவரி"
 
-#: src/Controllers/JavaScriptMessagesController.php:716
+#: src/Controllers/JavaScriptMessagesController.php:719
 #, fuzzy
 #| msgid "March"
 msgctxt "Month name"
 msgid "March"
 msgstr "மார்ச்"
 
-#: src/Controllers/JavaScriptMessagesController.php:717
+#: src/Controllers/JavaScriptMessagesController.php:720
 #, fuzzy
 #| msgid "April"
 msgctxt "Month name"
 msgid "April"
 msgstr "ஏப்ரல்"
 
-#: src/Controllers/JavaScriptMessagesController.php:718
+#: src/Controllers/JavaScriptMessagesController.php:721
 #, fuzzy
 #| msgid "May"
 msgctxt "Month name"
 msgid "May"
 msgstr "மே"
 
-#: src/Controllers/JavaScriptMessagesController.php:719
+#: src/Controllers/JavaScriptMessagesController.php:722
 #, fuzzy
 #| msgid "June"
 msgctxt "Month name"
 msgid "June"
 msgstr "ஜூன்"
 
-#: src/Controllers/JavaScriptMessagesController.php:720
+#: src/Controllers/JavaScriptMessagesController.php:723
 #, fuzzy
 #| msgid "July"
 msgctxt "Month name"
 msgid "July"
 msgstr "ஜூலை"
 
-#: src/Controllers/JavaScriptMessagesController.php:721
+#: src/Controllers/JavaScriptMessagesController.php:724
 #, fuzzy
 #| msgid "August"
 msgctxt "Month name"
 msgid "August"
 msgstr "ஆகஸ்ட்"
 
-#: src/Controllers/JavaScriptMessagesController.php:722
+#: src/Controllers/JavaScriptMessagesController.php:725
 #, fuzzy
 #| msgid "September"
 msgctxt "Month name"
 msgid "September"
 msgstr "செப்டம்பர்"
 
-#: src/Controllers/JavaScriptMessagesController.php:723
+#: src/Controllers/JavaScriptMessagesController.php:726
 #, fuzzy
 #| msgid "October"
 msgctxt "Month name"
 msgid "October"
 msgstr "அக்டோபர்"
 
-#: src/Controllers/JavaScriptMessagesController.php:724
+#: src/Controllers/JavaScriptMessagesController.php:727
 #, fuzzy
 #| msgid "November"
 msgctxt "Month name"
 msgid "November"
 msgstr "நவம்பர்"
 
-#: src/Controllers/JavaScriptMessagesController.php:725
+#: src/Controllers/JavaScriptMessagesController.php:728
 #, fuzzy
 #| msgid "December"
 msgctxt "Month name"
 msgid "December"
 msgstr "டிசம்பர்"
 
-#: src/Controllers/JavaScriptMessagesController.php:726 src/Util.php:501
+#: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:501
 #, fuzzy
 #| msgid "Jan"
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "தை"
 
-#: src/Controllers/JavaScriptMessagesController.php:727 src/Util.php:502
+#: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:502
 #, fuzzy
 #| msgid "Feb"
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "மாசி"
 
-#: src/Controllers/JavaScriptMessagesController.php:728 src/Util.php:503
+#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:503
 #, fuzzy
 #| msgid "Mar"
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "பங்குனி"
 
-#: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:504
+#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:504
 #, fuzzy
 #| msgid "Apr"
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "சித்திரை"
 
-#: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:505
+#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:505
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "மே"
 
-#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:506
+#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:506
 #, fuzzy
 #| msgid "Jun"
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "ஆணி"
 
-#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:507
+#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:507
 #, fuzzy
 #| msgid "Jul"
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "ஆடி"
 
-#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:508
+#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:508
 #, fuzzy
 #| msgid "Aug"
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "ஆவணி"
 
-#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:509
+#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:509
 #, fuzzy
 #| msgid "Sep"
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "புரட்டாதி"
 
-#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:510
+#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:510
 #, fuzzy
 #| msgid "Oct"
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "ஐப்பசி"
 
-#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:511
+#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:511
 #, fuzzy
 #| msgid "Nov"
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "காத்திகை"
 
-#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:512
+#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:512
 #, fuzzy
 #| msgid "Dec"
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "மார்கழி"
 
-#: src/Controllers/JavaScriptMessagesController.php:745 src/Util.php:515
+#: src/Controllers/JavaScriptMessagesController.php:748 src/Util.php:515
 #, fuzzy
 #| msgid "Sun"
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "ஞாயிறு"
 
-#: src/Controllers/JavaScriptMessagesController.php:746 src/Util.php:516
+#: src/Controllers/JavaScriptMessagesController.php:749 src/Util.php:516
 #, fuzzy
 #| msgid "Mon"
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "திங்"
 
-#: src/Controllers/JavaScriptMessagesController.php:747 src/Util.php:517
+#: src/Controllers/JavaScriptMessagesController.php:750 src/Util.php:517
 #, fuzzy
 #| msgid "Tue"
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "செவ்"
 
-#: src/Controllers/JavaScriptMessagesController.php:748 src/Util.php:518
+#: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:518
 #, fuzzy
 #| msgid "Wed"
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "புத"
 
-#: src/Controllers/JavaScriptMessagesController.php:749 src/Util.php:519
+#: src/Controllers/JavaScriptMessagesController.php:752 src/Util.php:519
 #, fuzzy
 #| msgid "Thu"
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "வியா"
 
-#: src/Controllers/JavaScriptMessagesController.php:750 src/Util.php:520
+#: src/Controllers/JavaScriptMessagesController.php:753 src/Util.php:520
 #, fuzzy
 #| msgid "Fri"
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "வெள்"
 
-#: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:521
+#: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:521
 #, fuzzy
 #| msgid "Sat"
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "சனி"
 
-#: src/Controllers/JavaScriptMessagesController.php:752
+#: src/Controllers/JavaScriptMessagesController.php:755
 #, fuzzy
 #| msgid "Su"
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "ஞாயி"
 
-#: src/Controllers/JavaScriptMessagesController.php:753
+#: src/Controllers/JavaScriptMessagesController.php:756
 #, fuzzy
 #| msgid "Mo"
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "திங்"
 
-#: src/Controllers/JavaScriptMessagesController.php:754
+#: src/Controllers/JavaScriptMessagesController.php:757
 #, fuzzy
 #| msgid "Tu"
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "செவ்"
 
-#: src/Controllers/JavaScriptMessagesController.php:755
+#: src/Controllers/JavaScriptMessagesController.php:758
 #, fuzzy
 #| msgid "We"
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "புத"
 
-#: src/Controllers/JavaScriptMessagesController.php:756
+#: src/Controllers/JavaScriptMessagesController.php:759
 #, fuzzy
 #| msgid "Th"
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "வியா"
 
-#: src/Controllers/JavaScriptMessagesController.php:757
+#: src/Controllers/JavaScriptMessagesController.php:760
 #, fuzzy
 #| msgid "Fr"
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "வெள்"
 
-#: src/Controllers/JavaScriptMessagesController.php:758
+#: src/Controllers/JavaScriptMessagesController.php:761
 #, fuzzy
 #| msgid "Sa"
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "சனி"
 
-#: src/Controllers/JavaScriptMessagesController.php:759
+#: src/Controllers/JavaScriptMessagesController.php:762
 #, fuzzy
 #| msgid "Wk"
 msgctxt "Column header for week of the year in calendar"
@@ -7712,13 +7713,13 @@ msgid "Wk"
 msgstr "கிழமை"
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
-#: src/Controllers/JavaScriptMessagesController.php:761
+#: src/Controllers/JavaScriptMessagesController.php:764
 #, fuzzy
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
-#: src/Controllers/JavaScriptMessagesController.php:762
+#: src/Controllers/JavaScriptMessagesController.php:765
 #, fuzzy
 #| msgctxt "Year suffix"
 #| msgid "none"
@@ -7726,49 +7727,49 @@ msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "எதுவுமில்லை"
 
-#: src/Controllers/JavaScriptMessagesController.php:763
+#: src/Controllers/JavaScriptMessagesController.php:766
 #, fuzzy
 #| msgid "Time"
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "நேரம்"
 
-#: src/Controllers/JavaScriptMessagesController.php:764
+#: src/Controllers/JavaScriptMessagesController.php:767
 #, fuzzy
 #| msgid "Hour"
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "மணித்தியாலம்"
 
-#: src/Controllers/JavaScriptMessagesController.php:765
+#: src/Controllers/JavaScriptMessagesController.php:768
 #, fuzzy
 #| msgid "Minute"
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "நிமிடம்"
 
-#: src/Controllers/JavaScriptMessagesController.php:766
+#: src/Controllers/JavaScriptMessagesController.php:769
 #, fuzzy
 #| msgid "Second"
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "வினாடிகள்"
 
-#: src/Controllers/JavaScriptMessagesController.php:767
+#: src/Controllers/JavaScriptMessagesController.php:770
 #, fuzzy
 #| msgid "per second"
 msgctxt "Unit of time"
 msgid "Millisecond"
 msgstr "ஒரு வினாடிக்கு"
 
-#: src/Controllers/JavaScriptMessagesController.php:768
+#: src/Controllers/JavaScriptMessagesController.php:771
 #, fuzzy
 #| msgid "per second"
 msgctxt "Unit of time"
 msgid "Microsecond"
 msgstr "ஒரு வினாடிக்கு"
 
-#: src/Controllers/JavaScriptMessagesController.php:769
+#: src/Controllers/JavaScriptMessagesController.php:772
 #, fuzzy
 #| msgid "Time"
 msgctxt "The time zone for a time of day"
@@ -7776,7 +7777,7 @@ msgid "Time zone"
 msgstr "நேரம்"
 
 #. l10n: Display text for previous month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:773
+#: src/Controllers/JavaScriptMessagesController.php:776
 #, fuzzy
 #| msgctxt "Previous month"
 #| msgid "Prev"
@@ -7785,7 +7786,7 @@ msgid "Prev"
 msgstr "பின்"
 
 #. l10n: Display text for next month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:775
+#: src/Controllers/JavaScriptMessagesController.php:778
 #, fuzzy
 #| msgctxt "Next month"
 #| msgid "Next"
@@ -7794,155 +7795,155 @@ msgid "Next"
 msgstr "அடுத்த"
 
 #. l10n: Display text for current month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:777
+#: src/Controllers/JavaScriptMessagesController.php:780
 msgid "Today"
 msgstr "இன்று"
 
-#: src/Controllers/JavaScriptMessagesController.php:780
+#: src/Controllers/JavaScriptMessagesController.php:783
 msgid "This field is required"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:781
+#: src/Controllers/JavaScriptMessagesController.php:784
 #, fuzzy
 #| msgid "Use text field:"
 msgid "Please fix this field"
 msgstr "உரைபுலத்தின் மூலமாக:"
 
-#: src/Controllers/JavaScriptMessagesController.php:782
+#: src/Controllers/JavaScriptMessagesController.php:785
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid email address"
 msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
 
-#: src/Controllers/JavaScriptMessagesController.php:783
+#: src/Controllers/JavaScriptMessagesController.php:786
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid URL"
 msgstr "தயவுசெய்து ஒரு சரியான எண்ணை இடுக!"
 
-#: src/Controllers/JavaScriptMessagesController.php:784
+#: src/Controllers/JavaScriptMessagesController.php:787
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date"
 msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
 
-#: src/Controllers/JavaScriptMessagesController.php:785
+#: src/Controllers/JavaScriptMessagesController.php:788
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date ( ISO )"
 msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
 
-#: src/Controllers/JavaScriptMessagesController.php:786
+#: src/Controllers/JavaScriptMessagesController.php:789
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid number"
 msgstr "தயவுசெய்து ஒரு சரியான எண்ணை இடுக!"
 
-#: src/Controllers/JavaScriptMessagesController.php:787
+#: src/Controllers/JavaScriptMessagesController.php:790
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid credit card number"
 msgstr "தயவுசெய்து ஒரு சரியான எண்ணை இடுக!"
 
-#: src/Controllers/JavaScriptMessagesController.php:788
+#: src/Controllers/JavaScriptMessagesController.php:791
 #, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter only digits"
 msgstr "தயவுசெய்து ஒரு சரியான நீளத்தை இடுக!"
 
-#: src/Controllers/JavaScriptMessagesController.php:789
+#: src/Controllers/JavaScriptMessagesController.php:792
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter the same value again"
 msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
 
-#: src/Controllers/JavaScriptMessagesController.php:790
+#: src/Controllers/JavaScriptMessagesController.php:793
 msgid "Please enter no more than {0} characters"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:791
+#: src/Controllers/JavaScriptMessagesController.php:794
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter at least {0} characters"
 msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
 
-#: src/Controllers/JavaScriptMessagesController.php:792
+#: src/Controllers/JavaScriptMessagesController.php:795
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:793
+#: src/Controllers/JavaScriptMessagesController.php:796
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value between {0} and {1}"
 msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
 
-#: src/Controllers/JavaScriptMessagesController.php:794
+#: src/Controllers/JavaScriptMessagesController.php:797
 #, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter a value less than or equal to {0}"
 msgstr "தயவுசெய்து ஒரு சரியான நீளத்தை இடுக!"
 
-#: src/Controllers/JavaScriptMessagesController.php:795
+#: src/Controllers/JavaScriptMessagesController.php:798
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
 
-#: src/Controllers/JavaScriptMessagesController.php:796
+#: src/Controllers/JavaScriptMessagesController.php:799
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date or time"
 msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
 
-#: src/Controllers/JavaScriptMessagesController.php:797
+#: src/Controllers/JavaScriptMessagesController.php:800
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
 msgstr "தயவுசெய்து ஒரு சரியான எண்ணை இடுக!"
 
 #. l10n: To validate the usage of a MD5 function on the column
-#: src/Controllers/JavaScriptMessagesController.php:799
+#: src/Controllers/JavaScriptMessagesController.php:802
 msgid "This column can not contain a 32 chars value"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:802
+#: src/Controllers/JavaScriptMessagesController.php:805
 msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:807
+#: src/Controllers/JavaScriptMessagesController.php:810
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:809
+#: src/Controllers/JavaScriptMessagesController.php:812
 #, php-format
 msgid "%s of %s"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:810
+#: src/Controllers/JavaScriptMessagesController.php:813
 #, php-format
 msgid "%s/sec."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:811
+#: src/Controllers/JavaScriptMessagesController.php:814
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:812
+#: src/Controllers/JavaScriptMessagesController.php:815
 msgid "About %SEC sec. remaining."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:813
+#: src/Controllers/JavaScriptMessagesController.php:816
 msgid "The file is being processed, please be patient."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:814
+#: src/Controllers/JavaScriptMessagesController.php:817
 msgid "Uploading your import file…"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:816
+#: src/Controllers/JavaScriptMessagesController.php:819
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
@@ -8693,7 +8694,7 @@ msgstr ""
 msgid "Insecure connection"
 msgstr "பாதுகாப்பற்ற இணைப்பு"
 
-#: src/Controllers/Setup/MainController.php:36
+#: src/Controllers/Setup/MainController.php:40
 msgid "Configuration already exists, setup is disabled!"
 msgstr ""
 
@@ -8706,12 +8707,12 @@ msgstr "தவறான தரவு"
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:240 src/Sql.php:1079
+#: src/Controllers/Sql/SqlController.php:247 src/Sql.php:1076
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "புத்தகக்குறி %s குறிக்கப்பட்டது."
 
-#: src/Controllers/Sql/SqlController.php:247
+#: src/Controllers/Sql/SqlController.php:254
 msgid "Bookmark not created!"
 msgstr ""
 
@@ -8759,7 +8760,7 @@ msgstr ""
 msgid "Table %s already exists!"
 msgstr "%s இந்த அட்டவணை ஏற்கனவே உள்ளது!"
 
-#: src/Controllers/Table/DeleteRowsController.php:75
+#: src/Controllers/Table/DeleteRowsController.php:77
 #: src/Controllers/Table/FindReplaceController.php:207
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:74
 #: src/Controllers/Table/Maintenance/CheckController.php:74
@@ -8812,7 +8813,7 @@ msgstr ""
 
 #: src/Controllers/Table/GetFieldController.php:82
 #: src/Database/Routines.php:995 src/Import/Import.php:166
-#: src/InsertEdit.php:202 src/Sql.php:881
+#: src/InsertEdit.php:202 src/Sql.php:878
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 
@@ -8984,7 +8985,7 @@ msgstr "கடவுச்சொல்லை மாற்றவும்"
 msgid "View name can not be empty!"
 msgstr ""
 
-#: src/Core.php:112 src/ZipExtension.php:57
+#: src/Core.php:113 src/ZipExtension.php:57
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
@@ -9310,7 +9311,7 @@ msgstr "இவ்வினவலில் %1$d மொத்தம், - %2$d"
 msgid "%s total"
 msgstr "%d மொத்தம்"
 
-#: src/Display/Results.php:3730 src/Sql.php:887
+#: src/Display/Results.php:3730 src/Sql.php:884
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "வினவல் %01.4f நொடிகள் எடுத்துக்கொண்டது."
@@ -9888,7 +9889,7 @@ msgstr "சொற்கள் ஓர் இடைவெளி எழுத்த
 msgid "The trigger name cannot end with a space character."
 msgstr "சொற்கள் ஓர் இடைவெளி எழுத்தால் (\" \") பிரிக்கப்பட்டிருக்கும்."
 
-#: src/Import/Import.php:288 src/Sql.php:895
+#: src/Import/Import.php:288 src/Sql.php:892
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -10025,11 +10026,11 @@ msgstr "அல்லது"
 msgid "web server upload directory:"
 msgstr ""
 
-#: src/InsertEdit.php:962 src/Sql.php:878
+#: src/InsertEdit.php:962 src/Sql.php:875
 msgid "Showing SQL query"
 msgstr ""
 
-#: src/InsertEdit.php:986 src/Sql.php:858
+#: src/InsertEdit.php:986 src/Sql.php:855
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -11247,22 +11248,22 @@ msgstr ""
 msgid "Error reading data for table %s:"
 msgstr "தரவை அல்லது அட்டவணையை அழி"
 
-#: src/Plugins/Export/ExportSql.php:2665
+#: src/Plugins/Export/ExportSql.php:2658
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:610
 msgid "Creation:"
 msgstr "உருவாக்கம்:"
 
-#: src/Plugins/Export/ExportSql.php:2675
+#: src/Plugins/Export/ExportSql.php:2668
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:621
 msgid "Last update:"
 msgstr "கடைசி நிகழ்நிலையாக்கம்:"
 
-#: src/Plugins/Export/ExportSql.php:2685
+#: src/Plugins/Export/ExportSql.php:2678
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:632
 msgid "Last check:"
 msgstr "கடைசி சரிபார்ப்பு:"
 
-#: src/Plugins/Export/ExportSql.php:2708
+#: src/Plugins/Export/ExportSql.php:2701
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
@@ -11562,7 +11563,7 @@ msgid ""
 "need to set the first option to the empty string."
 msgstr ""
 
-#: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:40
+#: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:39
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -11576,7 +11577,7 @@ msgid ""
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
 
-#: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:123
+#: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:122
 #, php-format
 msgid ""
 "You are using the external transformation command line options field, which "
@@ -11872,24 +11873,24 @@ msgstr ""
 msgid "Primary server changed successfully to %s."
 msgstr ""
 
-#: src/Routing/Routing.php:115
+#: src/Routing/Routing.php:119
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: src/Routing/Routing.php:149 src/Routing/Routing.php:205
+#: src/Routing/Routing.php:153 src/Routing/Routing.php:213
 #, php-format
 msgid "Error 404! The page %s was not found."
 msgstr ""
 
-#: src/Routing/Routing.php:157
+#: src/Routing/Routing.php:161
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
-#: src/Server/Plugins.php:53 src/Server/Privileges.php:623
-#: src/Server/Privileges.php:3312
+#: src/Server/Plugins.php:53 src/Server/Privileges.php:632
+#: src/Server/Privileges.php:3274
 #, fuzzy
 #| msgid "Authentication"
 msgid "Native MySQL authentication"
@@ -11924,15 +11925,15 @@ msgstr "உறுதிப்படுத்தல்"
 msgid "Account locking is not supported."
 msgstr ""
 
-#: src/Server/Privileges.php:256
+#: src/Server/Privileges.php:265
 msgid "No privileges."
 msgstr ""
 
-#: src/Server/Privileges.php:262
+#: src/Server/Privileges.php:271
 msgid "Includes all privileges except GRANT."
 msgstr ""
 
-#: src/Server/Privileges.php:279 src/Server/Privileges.php:302
+#: src/Server/Privileges.php:288 src/Server/Privileges.php:311
 #: templates/server/privileges/privileges_table.twig:125
 #: templates/server/privileges/privileges_table.twig:128
 #: templates/server/privileges/privileges_table.twig:326
@@ -11940,7 +11941,7 @@ msgstr ""
 msgid "Allows deleting data."
 msgstr ""
 
-#: src/Server/Privileges.php:280
+#: src/Server/Privileges.php:289
 #: templates/server/privileges/privileges_table.twig:137
 #: templates/server/privileges/privileges_table.twig:140
 #: templates/server/privileges/privileges_table.twig:367
@@ -11948,7 +11949,7 @@ msgstr ""
 msgid "Allows creating new tables."
 msgstr ""
 
-#: src/Server/Privileges.php:281
+#: src/Server/Privileges.php:290
 #: templates/server/privileges/privileges_table.twig:149
 #: templates/server/privileges/privileges_table.twig:152
 #: templates/server/privileges/privileges_table.twig:415
@@ -11956,7 +11957,7 @@ msgstr ""
 msgid "Allows dropping tables."
 msgstr ""
 
-#: src/Server/Privileges.php:282 src/Server/Privileges.php:310
+#: src/Server/Privileges.php:291 src/Server/Privileges.php:319
 #: templates/server/privileges/privileges_table.twig:174
 #: templates/server/privileges/privileges_table.twig:177
 #: templates/server/privileges/privileges_table.twig:399
@@ -11964,7 +11965,7 @@ msgstr ""
 msgid "Allows creating and dropping indexes."
 msgstr ""
 
-#: src/Server/Privileges.php:283 src/Server/Privileges.php:311
+#: src/Server/Privileges.php:292 src/Server/Privileges.php:320
 #: templates/server/privileges/privileges_table.twig:186
 #: templates/server/privileges/privileges_table.twig:189
 #: templates/server/privileges/privileges_table.twig:386
@@ -11972,8 +11973,8 @@ msgstr ""
 msgid "Allows altering the structure of existing tables."
 msgstr ""
 
-#: src/Server/Privileges.php:284 src/Server/Privileges.php:330
-#: src/Server/Privileges.php:334
+#: src/Server/Privileges.php:293 src/Server/Privileges.php:339
+#: src/Server/Privileges.php:343
 #: templates/server/privileges/privileges_table.twig:198
 #: templates/server/privileges/privileges_table.twig:201
 #: templates/server/privileges/privileges_table.twig:500
@@ -11983,8 +11984,8 @@ msgstr ""
 msgid "Allows creating new views."
 msgstr ""
 
-#: src/Server/Privileges.php:285 src/Server/Privileges.php:335
-#: src/Server/Privileges.php:337
+#: src/Server/Privileges.php:294 src/Server/Privileges.php:344
+#: src/Server/Privileges.php:346
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:213
 #: templates/server/privileges/privileges_table.twig:447
@@ -11992,7 +11993,7 @@ msgstr ""
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr ""
 
-#: src/Server/Privileges.php:286 src/Server/Privileges.php:332
+#: src/Server/Privileges.php:295 src/Server/Privileges.php:341
 #: templates/server/privileges/privileges_table.twig:222
 #: templates/server/privileges/privileges_table.twig:225
 #: templates/server/privileges/privileges_table.twig:543
@@ -12000,76 +12001,76 @@ msgstr ""
 msgid "Allows creating and dropping triggers."
 msgstr ""
 
-#: src/Server/Privileges.php:299
+#: src/Server/Privileges.php:308
 #: templates/server/privileges/privileges_table.twig:16
 #: templates/server/privileges/privileges_table.twig:287
 #: templates/server/privileges/privileges_table.twig:290
 msgid "Allows reading data."
 msgstr ""
 
-#: src/Server/Privileges.php:300
+#: src/Server/Privileges.php:309
 #: templates/server/privileges/privileges_table.twig:43
 #: templates/server/privileges/privileges_table.twig:300
 #: templates/server/privileges/privileges_table.twig:303
 msgid "Allows inserting and replacing data."
 msgstr ""
 
-#: src/Server/Privileges.php:301
+#: src/Server/Privileges.php:310
 #: templates/server/privileges/privileges_table.twig:70
 #: templates/server/privileges/privileges_table.twig:313
 #: templates/server/privileges/privileges_table.twig:316
 msgid "Allows changing data."
 msgstr ""
 
-#: src/Server/Privileges.php:303
+#: src/Server/Privileges.php:312
 #: templates/server/privileges/privileges_table.twig:365
 #: templates/server/privileges/privileges_table.twig:373
 msgid "Allows creating new databases and tables."
 msgstr ""
 
-#: src/Server/Privileges.php:304
+#: src/Server/Privileges.php:313
 #: templates/server/privileges/privileges_table.twig:413
 #: templates/server/privileges/privileges_table.twig:421
 msgid "Allows dropping databases and tables."
 msgstr ""
 
-#: src/Server/Privileges.php:305
+#: src/Server/Privileges.php:314
 #: templates/server/privileges/privileges_table.twig:610
 #: templates/server/privileges/privileges_table.twig:613
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 
-#: src/Server/Privileges.php:306
+#: src/Server/Privileges.php:315
 #: templates/server/privileges/privileges_table.twig:623
 #: templates/server/privileges/privileges_table.twig:626
 msgid "Allows shutting down the server."
 msgstr ""
 
-#: src/Server/Privileges.php:307
+#: src/Server/Privileges.php:316
 #: templates/server/privileges/privileges_table.twig:597
 #: templates/server/privileges/privileges_table.twig:600
 msgid "Allows viewing processes of all users."
 msgstr ""
 
-#: src/Server/Privileges.php:308
+#: src/Server/Privileges.php:317
 #: templates/server/privileges/privileges_table.twig:340
 #: templates/server/privileges/privileges_table.twig:343
 msgid "Allows importing data from and exporting data into files."
 msgstr ""
 
-#: src/Server/Privileges.php:309
+#: src/Server/Privileges.php:318
 #: templates/server/privileges/privileges_table.twig:97
 #: templates/server/privileges/privileges_table.twig:677
 msgid "Has no effect in this MySQL version."
 msgstr ""
 
-#: src/Server/Privileges.php:312
+#: src/Server/Privileges.php:321
 #: templates/server/privileges/privileges_table.twig:636
 #: templates/server/privileges/privileges_table.twig:639
 msgid "Gives access to the complete list of databases."
 msgstr ""
 
-#: src/Server/Privileges.php:317
+#: src/Server/Privileges.php:326
 #: templates/server/privileges/privileges_table.twig:583
 #: templates/server/privileges/privileges_table.twig:587
 msgid ""
@@ -12078,38 +12079,38 @@ msgid ""
 "killing threads of other users."
 msgstr ""
 
-#: src/Server/Privileges.php:322
+#: src/Server/Privileges.php:331
 #: templates/server/privileges/privileges_table.twig:434
 #: templates/server/privileges/privileges_table.twig:437
 msgid "Allows creating temporary tables."
 msgstr ""
 
-#: src/Server/Privileges.php:323
+#: src/Server/Privileges.php:332
 #: templates/server/privileges/privileges_table.twig:664
 #: templates/server/privileges/privileges_table.twig:667
 msgid "Allows locking tables for the current thread."
 msgstr ""
 
-#: src/Server/Privileges.php:324
+#: src/Server/Privileges.php:333
 #: templates/server/privileges/privileges_table.twig:705
 #: templates/server/privileges/privileges_table.twig:708
 msgid "Needed for the replication replicas."
 msgstr ""
 
-#: src/Server/Privileges.php:328
+#: src/Server/Privileges.php:337
 #: templates/server/privileges/privileges_table.twig:692
 #: templates/server/privileges/privileges_table.twig:695
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr ""
 
-#: src/Server/Privileges.php:331
+#: src/Server/Privileges.php:340
 #: templates/server/privileges/privileges_table.twig:530
 #: templates/server/privileges/privileges_table.twig:533
 msgid "Allows to set up events for the event scheduler."
 msgstr ""
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
-#: src/Server/Privileges.php:343 src/Server/Privileges.php:352
+#: src/Server/Privileges.php:352 src/Server/Privileges.php:361
 #: templates/server/privileges/privileges_table.twig:235
 #: templates/server/privileges/privileges_table.twig:239
 #, fuzzy
@@ -12117,46 +12118,46 @@ msgstr ""
 msgid "Allows deleting historical rows."
 msgstr "விதி நிரைகளை சேர்க்க/ நீக்க"
 
-#: src/Server/Privileges.php:354
+#: src/Server/Privileges.php:363
 #: templates/server/privileges/privileges_table.twig:460
 #: templates/server/privileges/privileges_table.twig:463
 msgid "Allows creating stored routines."
 msgstr ""
 
-#: src/Server/Privileges.php:355
+#: src/Server/Privileges.php:364
 #: templates/server/privileges/privileges_table.twig:473
 #: templates/server/privileges/privileges_table.twig:476
 msgid "Allows altering and dropping stored routines."
 msgstr ""
 
-#: src/Server/Privileges.php:356
+#: src/Server/Privileges.php:365
 #: templates/server/privileges/privileges_table.twig:718
 #: templates/server/privileges/privileges_table.twig:721
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
 
-#: src/Server/Privileges.php:357
+#: src/Server/Privileges.php:366
 #: templates/server/privileges/privileges_table.twig:486
 #: templates/server/privileges/privileges_table.twig:489
 msgid "Allows executing stored routines."
 msgstr ""
 
-#: src/Server/Privileges.php:883
+#: src/Server/Privileges.php:892
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr ""
 
-#: src/Server/Privileges.php:931
+#: src/Server/Privileges.php:940
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr ""
 
-#: src/Server/Privileges.php:1219 templates/database/privileges/index.twig:122
+#: src/Server/Privileges.php:1228 templates/database/privileges/index.twig:122
 #: templates/table/privileges/index.twig:126
 msgid "Not enough privilege to view users."
 msgstr ""
 
-#: src/Server/Privileges.php:1275 templates/database/privileges/index.twig:80
+#: src/Server/Privileges.php:1284 templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:75
 #: templates/table/privileges/index.twig:84
@@ -12165,23 +12166,23 @@ msgstr ""
 msgid "Edit privileges"
 msgstr "புதிய பயனாளரை சேர்க்க->தனிச்சலுகையை தொகுக்க:"
 
-#: src/Server/Privileges.php:1279
+#: src/Server/Privileges.php:1288
 msgid "Revoke"
 msgstr ""
 
-#: src/Server/Privileges.php:1567
+#: src/Server/Privileges.php:1576
 #: templates/server/privileges/privileges_table.twig:265
 msgid "Database-specific privileges"
 msgstr ""
 
-#: src/Server/Privileges.php:1573
+#: src/Server/Privileges.php:1582
 #: templates/server/privileges/privileges_summary.twig:19
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:267
 msgid "Table-specific privileges"
 msgstr ""
 
-#: src/Server/Privileges.php:1578 src/Server/Privileges.php:1580
+#: src/Server/Privileges.php:1587 src/Server/Privileges.php:1589
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:59
@@ -12190,55 +12191,55 @@ msgstr ""
 msgid "Routine"
 msgstr "%s களத்தை சேர்க்க->செயல்முறை"
 
-#: src/Server/Privileges.php:1579
+#: src/Server/Privileges.php:1588
 #: templates/server/privileges/edit_routine_privileges.twig:47
 #, fuzzy
 #| msgid "Check Privileges"
 msgid "Routine-specific privileges"
 msgstr "தனிசலுகைகளை சரிபார்க்க"
 
-#: src/Server/Privileges.php:1905
+#: src/Server/Privileges.php:1891
 msgid "No users selected for deleting!"
 msgstr ""
 
-#: src/Server/Privileges.php:1908
+#: src/Server/Privileges.php:1894
 msgid "Reloading the privileges"
 msgstr ""
 
-#: src/Server/Privileges.php:1933
+#: src/Server/Privileges.php:1919
 msgid "The selected users have been deleted successfully."
 msgstr ""
 
-#: src/Server/Privileges.php:2007
+#: src/Server/Privileges.php:1993
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr ""
 
-#: src/Server/Privileges.php:2083 templates/database/privileges/index.twig:102
+#: src/Server/Privileges.php:2069 templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr ""
 
-#: src/Server/Privileges.php:2164
+#: src/Server/Privileges.php:2150
 #, php-format
 msgid "Deleting %s"
 msgstr ""
 
-#: src/Server/Privileges.php:2195
+#: src/Server/Privileges.php:2181
 msgid "The privileges were reloaded successfully."
 msgstr ""
 
-#: src/Server/Privileges.php:2296
+#: src/Server/Privileges.php:2282
 #, php-format
 msgid "The user %s already exists!"
 msgstr ""
 
-#: src/Server/Privileges.php:2540
+#: src/Server/Privileges.php:2526
 #, php-format
 msgid "Privileges for %s"
 msgstr ""
 
-#: src/Server/Privileges.php:2652
+#: src/Server/Privileges.php:2614
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -12247,7 +12248,7 @@ msgid ""
 "%sreload the privileges%s before you continue."
 msgstr ""
 
-#: src/Server/Privileges.php:2668
+#: src/Server/Privileges.php:2630
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12256,11 +12257,11 @@ msgid ""
 "privilege."
 msgstr ""
 
-#: src/Server/Privileges.php:2956
+#: src/Server/Privileges.php:2918
 msgid "You have added a new user."
 msgstr "நீங்கள் புதிய பயனாளரை சேர்த்துள்ளீர்கள்."
 
-#: src/Server/Privileges.php:3405
+#: src/Server/Privileges.php:3367
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -12379,16 +12380,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "புதிய நிலையான பதிப்புகள் ஏதுமில்லை"
 
-#: src/Sql.php:452
+#: src/Sql.php:450
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: src/Sql.php:875
+#: src/Sql.php:872
 msgid "Showing as PHP code"
 msgstr ""
 
-#: src/Sql.php:1262
+#: src/Sql.php:1259
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12400,7 +12401,7 @@ msgstr ""
 "இவ்வட்டவணையில் தனித்தநிரல்வரிசை இல்லை.சேமித்த பின்னர் நெய்யரியில் தொகுத்தல், தேர்வுபெட்டி, "
 "தொகுத்தல், படியெடுத்தல், மற்றும் நீக்கல் வசதிகள் செயல்படாமல் போகலாம்."
 
-#: src/Sql.php:1276
+#: src/Sql.php:1273
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12412,18 +12413,18 @@ msgstr ""
 "இவ்வட்டவணையில் தனித்தநிரல்வரிசை இல்லை.சேமித்த பின்னர் நெய்யரியில் தொகுத்தல், தேர்வுபெட்டி, "
 "தொகுத்தல், படியெடுத்தல், மற்றும் நீக்கல் வசதிகள் செயல்படாமல் போகலாம்."
 
-#: src/SqlQueryForm.php:138
+#: src/SqlQueryForm.php:142
 #, fuzzy, php-format
 #| msgid "Run SQL query/queries on server %s"
 msgid "Run SQL query/queries on server “%s”"
 msgstr "SQL வினவலை/களை %s வழங்கியில் செயலாக்குக"
 
-#: src/SqlQueryForm.php:154
+#: src/SqlQueryForm.php:158
 #, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr "SQL வினவலை/களை %s தரவுத்தளத்தில் செயலாக்குக"
 
-#: src/SqlQueryForm.php:169
+#: src/SqlQueryForm.php:173
 #, fuzzy, php-format
 #| msgid "Run SQL query/queries on database %s"
 msgid "Run SQL query/queries on table %s"
@@ -14254,6 +14255,7 @@ msgid "Grant"
 msgstr ""
 
 #: templates/database/privileges/index.twig:36
+#: templates/server/privileges/initials_row.twig:8
 #: templates/server/privileges/new_user_ajax.twig:9
 #: templates/server/privileges/users_overview.twig:36
 #: templates/table/privileges/index.twig:38
@@ -15111,84 +15113,26 @@ msgstr "தற்போது Git %2$s கிளையிலிருந்�
 msgid "Git information missing!"
 msgstr "Git தகவல் காணவில்லை!"
 
-#: templates/gis_data_editor_form.twig:3
+#: templates/gis_data_editor_form.twig:4
 #, php-format
 msgid "Value for the column \"%s\""
 msgstr "\"%s\" நிரல்வரிசையின் மதிப்பு"
 
-#: templates/gis_data_editor_form.twig:22
+#: templates/gis_data_editor_form.twig:23
 #: templates/table/gis_visualization/gis_visualization.twig:34
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "கீழடுக்காக OpenStreetMaps ஐ பயன்படுத்தவும்"
 
-#: templates/gis_data_editor_form.twig:38
+#: templates/gis_data_editor_form.twig:49
 #, fuzzy
 #| msgid "SRID:"
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
 msgstr "SRID (இடம்சார்ந்த குறியீடு அமைப்பு காட்டி) :"
 
-#: templates/gis_data_editor_form.twig:62
-#, php-format
-msgid "Geometry %d:"
-msgstr "வடிவளவு %d:"
-
-#: templates/gis_data_editor_form.twig:82
-msgid "Point:"
-msgstr "புள்ளி:"
-
-#: templates/gis_data_editor_form.twig:102
-#: templates/gis_data_editor_form.twig:140
-#: templates/gis_data_editor_form.twig:186
-#, fuzzy, php-format
-#| msgid "Point %d"
-msgid "Point %d:"
-msgstr "புள்ளி %d"
-
-#: templates/gis_data_editor_form.twig:122
-#, php-format
-msgid "Linestring %d:"
-msgstr "வரிச்சரம் %d:"
-
-#: templates/gis_data_editor_form.twig:124
-#: templates/gis_data_editor_form.twig:173
-msgid "Outer ring:"
-msgstr "வெளிப்புற வளையம்:"
-
-#: templates/gis_data_editor_form.twig:126
-#: templates/gis_data_editor_form.twig:175
-#, php-format
-msgid "Inner ring %d:"
-msgstr "உட்புற வளையம் %d:"
-
-#: templates/gis_data_editor_form.twig:153
-msgid "Add a linestring"
-msgstr "வரிச்சரம் சேர்க்க"
-
-#: templates/gis_data_editor_form.twig:163
-#, php-format
-msgid "Polygon %d:"
-msgstr "பல்கோணி %d:"
-
-#: templates/gis_data_editor_form.twig:202
-msgid "Add a polygon"
-msgstr "ஒரு பல்கோணியை சேர்"
-
-#: templates/gis_data_editor_form.twig:209
-msgid "Add geometry"
-msgstr "வரையமைப்பை சேர்க்க"
-
-#: templates/gis_data_editor_form.twig:218
+#: templates/gis_data_editor_form.twig:58
 msgid "Output"
 msgstr "வெளியீடு"
-
-#: templates/gis_data_editor_form.twig:220
-msgid ""
-"Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field."
-msgstr ""
-"\"செயல்கூறு\" நிரல்வரிசையிலிருந்து \"GeomFromText (எழுத்திலிருந்து வடிவை)\"ஐ  "
-"தேர்ந்தெடுத்தபின்னர் கீழுள்ள \"மதிப்பு\" களத்தில் சரத்தை ஒட்டுக."
 
 #: templates/header.twig:36 templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -18501,6 +18445,44 @@ msgstr "பெயரை பார்"
 #: templates/view_create.twig:84
 msgid "Column names"
 msgstr ""
+
+#, php-format
+#~ msgid "Point %d"
+#~ msgstr "புள்ளி %d"
+
+#, php-format
+#~ msgid "Geometry %d:"
+#~ msgstr "வடிவளவு %d:"
+
+#~ msgid "Point:"
+#~ msgstr "புள்ளி:"
+
+#, fuzzy, php-format
+#~| msgid "Point %d"
+#~ msgid "Point %d:"
+#~ msgstr "புள்ளி %d"
+
+#, php-format
+#~ msgid "Linestring %d:"
+#~ msgstr "வரிச்சரம் %d:"
+
+#~ msgid "Outer ring:"
+#~ msgstr "வெளிப்புற வளையம்:"
+
+#, php-format
+#~ msgid "Inner ring %d:"
+#~ msgstr "உட்புற வளையம் %d:"
+
+#, php-format
+#~ msgid "Polygon %d:"
+#~ msgstr "பல்கோணி %d:"
+
+#~ msgid ""
+#~ "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+#~ "below into the \"Value\" field."
+#~ msgstr ""
+#~ "\"செயல்கூறு\" நிரல்வரிசையிலிருந்து \"GeomFromText (எழுத்திலிருந்து வடிவை)\"ஐ  "
+#~ "தேர்ந்தெடுத்தபின்னர் கீழுள்ள \"மதிப்பு\" களத்தில் சரத்தை ஒட்டுக."
 
 #, fuzzy, php-format
 #~| msgid "Failed to get real row count."

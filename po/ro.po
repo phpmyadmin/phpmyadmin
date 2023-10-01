@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-09-24 00:19+0000\n"
+"POT-Creation-Date: 2023-10-01 00:20+0000\n"
 "PO-Revision-Date: 2023-03-13 13:06+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1363,8 +1363,7 @@ msgstr "Caută:"
 #: templates/database/operations/index.twig:226
 #: templates/database/routines/editor_form.twig:185
 #: templates/database/routines/execute_form.twig:55
-#: templates/display/results/table.twig:279
-#: templates/gis_data_editor_form.twig:215 templates/modals/add_index.twig:10
+#: templates/display/results/table.twig:279 templates/modals/add_index.twig:10
 #: templates/modals/change_password.twig:10
 #: templates/modals/create_view.twig:10
 #: templates/modals/enum_set_editor.twig:10
@@ -1426,9 +1425,9 @@ msgid "Page number:"
 msgstr "Număr pagină:"
 
 #: src/BrowseForeigners.php:301
-#: src/Controllers/JavaScriptMessagesController.php:573
+#: src/Controllers/JavaScriptMessagesController.php:575
 #: templates/display/results/table.twig:99
-#: templates/server/privileges/initials_row.twig:17
+#: templates/server/privileges/initials_row.twig:21
 #: templates/table/browse_foreigners/show_all.twig:4
 msgid "Show all"
 msgstr "Arată tot"
@@ -1437,278 +1436,278 @@ msgstr "Arată tot"
 msgid "Unknown"
 msgstr "Necunoscut"
 
-#: src/Charsets/Collation.php:141 src/Charsets/Collation.php:430
+#: src/Charsets/Collation.php:141 src/Charsets/Collation.php:406
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr "Germană (uzuală)"
 
-#: src/Charsets/Collation.php:145 src/Charsets/Collation.php:427
+#: src/Charsets/Collation.php:145 src/Charsets/Collation.php:403
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "Germană (literară)"
 
-#: src/Charsets/Collation.php:154 src/Charsets/Collation.php:505
+#: src/Charsets/Collation.php:154 src/Charsets/Collation.php:481
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr "Spaniolă (tradițională)"
 
-#: src/Charsets/Collation.php:158 src/Charsets/Collation.php:498
+#: src/Charsets/Collation.php:158 src/Charsets/Collation.php:474
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "Spaniolă (modernă)"
 
-#: src/Charsets/Collation.php:225
+#: src/Charsets/Collation.php:218
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "insensibil la majuscule"
 
-#: src/Charsets/Collation.php:228
+#: src/Charsets/Collation.php:219
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "sensibil la majuscule"
 
-#: src/Charsets/Collation.php:231
+#: src/Charsets/Collation.php:220
 msgctxt "Collation variant"
 msgid "accent-insensitive"
 msgstr "insensibil la accent"
 
-#: src/Charsets/Collation.php:234
+#: src/Charsets/Collation.php:221
 msgctxt "Collation variant"
 msgid "accent-sensitive"
 msgstr "sensibil la accent"
 
-#: src/Charsets/Collation.php:237
+#: src/Charsets/Collation.php:222
 #, fuzzy
 msgctxt "Collation variant"
 msgid "kana-sensitive"
 msgstr "sensibil la accent"
 
-#: src/Charsets/Collation.php:241
+#: src/Charsets/Collation.php:223
 msgctxt "Collation variant"
 msgid "multi-level"
 msgstr "mai multe niveluri"
 
-#: src/Charsets/Collation.php:244
+#: src/Charsets/Collation.php:224
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "binar"
 
-#: src/Charsets/Collation.php:247
+#: src/Charsets/Collation.php:225
 msgctxt "Collation variant"
 msgid "no-pad"
 msgstr ""
 
-#: src/Charsets/Collation.php:266
+#: src/Charsets/Collation.php:242
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Binar"
 
-#: src/Charsets/Collation.php:279 src/Charsets/Collation.php:529
+#: src/Charsets/Collation.php:255 src/Charsets/Collation.php:505
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicod"
 
-#: src/Charsets/Collation.php:289 src/Charsets/Collation.php:476
+#: src/Charsets/Collation.php:265 src/Charsets/Collation.php:452
 msgctxt "Collation"
 msgid "West European"
 msgstr "Vest European"
 
-#: src/Charsets/Collation.php:296
+#: src/Charsets/Collation.php:272
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Central European"
 
-#: src/Charsets/Collation.php:301 src/Charsets/Collation.php:483
+#: src/Charsets/Collation.php:277 src/Charsets/Collation.php:459
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Rusă"
 
-#: src/Charsets/Collation.php:306
+#: src/Charsets/Collation.php:282
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Chineză simplificată"
 
-#: src/Charsets/Collation.php:309
+#: src/Charsets/Collation.php:285
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Chineză tradițională"
 
-#: src/Charsets/Collation.php:312 src/Charsets/Collation.php:398
+#: src/Charsets/Collation.php:288 src/Charsets/Collation.php:374
 msgctxt "Collation"
 msgid "Chinese"
 msgstr "Chineză"
 
-#: src/Charsets/Collation.php:320 src/Charsets/Collation.php:447
+#: src/Charsets/Collation.php:296 src/Charsets/Collation.php:423
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Japoneză"
 
-#: src/Charsets/Collation.php:325
+#: src/Charsets/Collation.php:301
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Baltică"
 
-#: src/Charsets/Collation.php:330
+#: src/Charsets/Collation.php:306
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Armeană"
 
-#: src/Charsets/Collation.php:333
+#: src/Charsets/Collation.php:309
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Chirilică"
 
-#: src/Charsets/Collation.php:336
+#: src/Charsets/Collation.php:312
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Arabă"
 
-#: src/Charsets/Collation.php:339 src/Charsets/Collation.php:462
+#: src/Charsets/Collation.php:315 src/Charsets/Collation.php:438
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Coreeană"
 
-#: src/Charsets/Collation.php:342
+#: src/Charsets/Collation.php:318
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Ebraică"
 
-#: src/Charsets/Collation.php:345
+#: src/Charsets/Collation.php:321
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Georgiană"
 
-#: src/Charsets/Collation.php:348
+#: src/Charsets/Collation.php:324
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Greacă"
 
-#: src/Charsets/Collation.php:351
+#: src/Charsets/Collation.php:327
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Cehoslovacă"
 
-#: src/Charsets/Collation.php:354 src/Charsets/Collation.php:521
+#: src/Charsets/Collation.php:330 src/Charsets/Collation.php:497
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ucraineană"
 
-#: src/Charsets/Collation.php:357 src/Charsets/Collation.php:517
+#: src/Charsets/Collation.php:333 src/Charsets/Collation.php:493
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Turcă"
 
-#: src/Charsets/Collation.php:360 src/Charsets/Collation.php:509
+#: src/Charsets/Collation.php:336 src/Charsets/Collation.php:485
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Suedeză"
 
-#: src/Charsets/Collation.php:363 src/Charsets/Collation.php:513
+#: src/Charsets/Collation.php:339 src/Charsets/Collation.php:489
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Thailandeză"
 
-#: src/Charsets/Collation.php:366
+#: src/Charsets/Collation.php:342
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "Necunoscută"
 
-#: src/Charsets/Collation.php:392
+#: src/Charsets/Collation.php:368
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Bulgară"
 
-#: src/Charsets/Collation.php:404
+#: src/Charsets/Collation.php:380
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Croată"
 
-#: src/Charsets/Collation.php:408
+#: src/Charsets/Collation.php:384
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Cehă"
 
-#: src/Charsets/Collation.php:412
+#: src/Charsets/Collation.php:388
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Daneză"
 
-#: src/Charsets/Collation.php:416
+#: src/Charsets/Collation.php:392
 msgctxt "Collation"
 msgid "English"
 msgstr "Engleză"
 
-#: src/Charsets/Collation.php:420
+#: src/Charsets/Collation.php:396
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: src/Charsets/Collation.php:424
+#: src/Charsets/Collation.php:400
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Estoniană"
 
-#: src/Charsets/Collation.php:439
+#: src/Charsets/Collation.php:415
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Maghiară"
 
-#: src/Charsets/Collation.php:443
+#: src/Charsets/Collation.php:419
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Islandeză"
 
-#: src/Charsets/Collation.php:450
+#: src/Charsets/Collation.php:426
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr "Latină clasică"
 
-#: src/Charsets/Collation.php:454
+#: src/Charsets/Collation.php:430
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Letonă"
 
-#: src/Charsets/Collation.php:458
+#: src/Charsets/Collation.php:434
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Lituaniană"
 
-#: src/Charsets/Collation.php:466
+#: src/Charsets/Collation.php:442
 msgctxt "Collation"
 msgid "Burmese"
 msgstr "Birmaneză"
 
-#: src/Charsets/Collation.php:469
+#: src/Charsets/Collation.php:445
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Persană"
 
-#: src/Charsets/Collation.php:473
+#: src/Charsets/Collation.php:449
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Poloneză"
 
-#: src/Charsets/Collation.php:480
+#: src/Charsets/Collation.php:456
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Română"
 
-#: src/Charsets/Collation.php:487
+#: src/Charsets/Collation.php:463
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "Singaleză"
 
-#: src/Charsets/Collation.php:491
+#: src/Charsets/Collation.php:467
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Slovacă"
 
-#: src/Charsets/Collation.php:495
+#: src/Charsets/Collation.php:471
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Slovenă"
 
-#: src/Charsets/Collation.php:525
+#: src/Charsets/Collation.php:501
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnameză"
@@ -1718,7 +1717,7 @@ msgstr "Vietnameză"
 #: src/Config/Forms/User/ExportForm.php:53
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
-#: src/Controllers/JavaScriptMessagesController.php:712
+#: src/Controllers/JavaScriptMessagesController.php:715
 #: src/Import/Import.php:1254 src/Menu.php:226 src/Menu.php:326
 #: src/Navigation/Nodes/NodeColumn.php:40
 #: src/Navigation/Nodes/NodeDatabase.php:56
@@ -1935,43 +1934,43 @@ msgid "Closed"
 msgstr "Închis"
 
 #: src/Config/ConfigFile.php:609
-#: src/Controllers/JavaScriptMessagesController.php:739
+#: src/Controllers/JavaScriptMessagesController.php:742
 msgctxt "Week day name"
 msgid "Monday"
 msgstr "Luni"
 
 #: src/Config/ConfigFile.php:610
-#: src/Controllers/JavaScriptMessagesController.php:740
+#: src/Controllers/JavaScriptMessagesController.php:743
 msgctxt "Week day name"
 msgid "Tuesday"
 msgstr "Marți"
 
 #: src/Config/ConfigFile.php:611
-#: src/Controllers/JavaScriptMessagesController.php:741
+#: src/Controllers/JavaScriptMessagesController.php:744
 msgctxt "Week day name"
 msgid "Wednesday"
 msgstr "Miercuri"
 
 #: src/Config/ConfigFile.php:612
-#: src/Controllers/JavaScriptMessagesController.php:742
+#: src/Controllers/JavaScriptMessagesController.php:745
 msgctxt "Week day name"
 msgid "Thursday"
 msgstr "Joi"
 
 #: src/Config/ConfigFile.php:613
-#: src/Controllers/JavaScriptMessagesController.php:743
+#: src/Controllers/JavaScriptMessagesController.php:746
 msgctxt "Week day name"
 msgid "Friday"
 msgstr "Vineri"
 
 #: src/Config/ConfigFile.php:614
-#: src/Controllers/JavaScriptMessagesController.php:744
+#: src/Controllers/JavaScriptMessagesController.php:747
 msgctxt "Week day name"
 msgid "Saturday"
 msgstr "Sâmbătă"
 
 #: src/Config/ConfigFile.php:615
-#: src/Controllers/JavaScriptMessagesController.php:738
+#: src/Controllers/JavaScriptMessagesController.php:741
 msgctxt "Week day name"
 msgid "Sunday"
 msgstr "Duminică"
@@ -4061,7 +4060,7 @@ msgid "Navigation panel width"
 msgstr "Lățime panou de navigare"
 
 #: src/Config/Descriptions.php:815
-#: src/Controllers/JavaScriptMessagesController.php:605
+#: src/Controllers/JavaScriptMessagesController.php:607
 #: src/Navigation/NavigationTree.php:1281
 msgid "Link with main panel"
 msgstr "Leagă la panoul principal"
@@ -4581,8 +4580,8 @@ msgstr "Rânduri zonă text"
 
 #: src/Config/Descriptions.php:938 src/Plugins/Export/ExportHtmlword.php:138
 #: src/Plugins/Export/ExportOdt.php:182
-#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1566
-#: src/Server/Privileges.php:1568 src/Server/Status/Processes.php:93
+#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1575
+#: src/Server/Privileges.php:1577 src/Server/Status/Processes.php:93
 #: templates/console/bookmark_content.twig:12 templates/console/display.twig:48
 #: templates/console/display.twig:206 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4608,7 +4607,7 @@ msgid "Server"
 msgstr "Server"
 
 #: src/Config/Descriptions.php:941 src/Plugins/Export/ExportXml.php:449
-#: src/Server/Privileges.php:1572 src/Server/Privileges.php:1574
+#: src/Server/Privileges.php:1581 src/Server/Privileges.php:1583
 #: templates/database/structure/show_create.twig:11
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
@@ -4755,7 +4754,7 @@ msgid "Missing data for %s"
 msgstr "Lipsesc date pentru %s"
 
 #: src/Config/FormDisplay.php:619 src/Config/Validator.php:586
-#: src/Controllers/JavaScriptMessagesController.php:822
+#: src/Controllers/JavaScriptMessagesController.php:825
 msgid "Incorrect value!"
 msgstr "Valoare incorectă!"
 
@@ -4833,7 +4832,7 @@ msgstr "Text OpenDocument"
 
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:385 src/Menu.php:249
-#: src/Menu.php:351 src/Menu.php:473 src/Server/Privileges.php:1283
+#: src/Menu.php:351 src/Menu.php:473 src/Server/Privileges.php:1292
 #: src/Util.php:1698 src/Util.php:1713 src/Util.php:1730
 #: templates/database/events/index.twig:17
 #: templates/database/events/index.twig:18
@@ -5132,27 +5131,27 @@ msgid "Incorrect IP address: %s"
 msgstr "Adresă IP incorectă: %s"
 
 #: src/Config/Validator.php:521
-#: src/Controllers/JavaScriptMessagesController.php:821
+#: src/Controllers/JavaScriptMessagesController.php:824
 msgid "Not a valid port number!"
 msgstr "Nu este un număr valid de port!"
 
 #: src/Config/Validator.php:543
-#: src/Controllers/JavaScriptMessagesController.php:819
+#: src/Controllers/JavaScriptMessagesController.php:822
 msgid "Not a positive number!"
 msgstr "Nu este un număr pozitiv!"
 
 #: src/Config/Validator.php:565
-#: src/Controllers/JavaScriptMessagesController.php:820
+#: src/Controllers/JavaScriptMessagesController.php:823
 msgid "Not a non-negative number!"
 msgstr "Nu este un număr negativ!"
 
 #: src/Config/Validator.php:604
-#: src/Controllers/JavaScriptMessagesController.php:823
+#: src/Controllers/JavaScriptMessagesController.php:826
 #, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr "Valoarea trebuie să fie mai mică sau egală cu %s!"
 
-#: src/Console.php:73
+#: src/Console.php:74
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
@@ -5160,7 +5159,7 @@ msgstr[0] "Arăt un semn de carte (atât privat cât și partajat)"
 msgstr[1] "Arăt %1$d semne de carte (atât private cât și partajate)"
 msgstr[2] "Arăt %1$d de semne de carte (atât private cât și partajate)"
 
-#: src/Console.php:80
+#: src/Console.php:81
 msgid "No bookmarks"
 msgstr "Niciun semn de carte"
 
@@ -5180,16 +5179,16 @@ msgstr ""
 "Fișierul %s nu este disponibil în acest sistem, te rog vizitează %s pentru "
 "mai multe informații."
 
-#: src/Controllers/Console/Bookmark/AddController.php:33
+#: src/Controllers/Console/Bookmark/AddController.php:35
 msgid "Incomplete params"
 msgstr "Parametrii incompleți"
 
-#: src/Controllers/Console/Bookmark/AddController.php:46
-#: src/Controllers/JavaScriptMessagesController.php:587
+#: src/Controllers/Console/Bookmark/AddController.php:48
+#: src/Controllers/JavaScriptMessagesController.php:589
 msgid "Failed"
 msgstr "A eșuat"
 
-#: src/Controllers/Console/Bookmark/AddController.php:51
+#: src/Controllers/Console/Bookmark/AddController.php:60
 msgid "Succeeded"
 msgstr "A reușit"
 
@@ -5254,8 +5253,8 @@ msgstr "Există deja o pagină numită „%s”. Te rog să o redenumești în a
 #: src/Controllers/Table/IndexRenameController.php:63
 #: src/Controllers/Table/OperationsController.php:94
 #: src/Controllers/Table/OperationsController.php:99
-#: src/Controllers/Table/SearchController.php:176
-#: src/Controllers/Table/SearchController.php:181
+#: src/Controllers/Table/SearchController.php:177
+#: src/Controllers/Table/SearchController.php:182
 #: src/Controllers/Table/SqlController.php:66
 #: src/Controllers/Table/SqlController.php:71
 #: src/Controllers/Table/StructureController.php:121
@@ -5322,7 +5321,7 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "Nu am putut încărca modulele de export, te rog verifică-ți instalarea!"
 
 #: src/Controllers/Database/ImportController.php:81
-#: src/Controllers/Import/ImportController.php:561
+#: src/Controllers/Import/ImportController.php:548
 #: src/Controllers/Server/ImportController.php:61
 #: src/Controllers/Table/ImportController.php:101
 msgid "Could not load import plugins, please check your installation!"
@@ -5409,8 +5408,8 @@ msgstr "Nu ai privilegii pentru a gestiona utilizatorii!"
 #: src/Controllers/Table/Maintenance/RepairController.php:45
 #: src/Controllers/Table/OperationsController.php:108
 #: src/Controllers/Table/OperationsController.php:113
-#: src/Controllers/Table/SearchController.php:190
-#: src/Controllers/Table/SearchController.php:195
+#: src/Controllers/Table/SearchController.php:191
+#: src/Controllers/Table/SearchController.php:196
 #: src/Controllers/Table/SqlController.php:80
 #: src/Controllers/Table/SqlController.php:85
 #: src/Controllers/Table/StructureController.php:135
@@ -5515,9 +5514,9 @@ msgid "unknown"
 msgstr "necunoscut"
 
 #: src/Controllers/Database/Structure/DropTableController.php:42
-#: src/Controllers/Database/Structure/EmptyTableController.php:46
-#: src/Controllers/JavaScriptMessagesController.php:500
-#: src/Controllers/Table/DeleteRowsController.php:54
+#: src/Controllers/Database/Structure/EmptyTableController.php:47
+#: src/Controllers/JavaScriptMessagesController.php:502
+#: src/Controllers/Table/DeleteRowsController.php:56
 #: src/Controllers/Table/DropColumnController.php:45
 #: src/Controllers/Table/Structure/PrimaryController.php:108
 #: src/IndexColumn.php:154 src/Index.php:470
@@ -5555,10 +5554,10 @@ msgid "Yes"
 msgstr "Da"
 
 #: src/Controllers/Database/Structure/DropTableController.php:43
-#: src/Controllers/Database/Structure/EmptyTableController.php:47
+#: src/Controllers/Database/Structure/EmptyTableController.php:48
 #: src/Controllers/Table/DropColumnController.php:62
 #: src/Controllers/Table/OperationsController.php:359
-#: src/Controllers/Table/ReplaceController.php:307 src/Core.php:528
+#: src/Controllers/Table/ReplaceController.php:307 src/Core.php:519
 #: templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Nicio modificare"
@@ -5744,7 +5743,7 @@ msgstr ""
 "această cauză, unele funcționalități, cum ar fi raportarea erorilor sau "
 "verificarea versiunii, sunt dezactivate."
 
-#: src/Controllers/Import/ImportController.php:203
+#: src/Controllers/Import/ImportController.php:204
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -5753,22 +5752,22 @@ msgstr ""
 "Probabil ai încercat să încarci un fișier care este prea mare. Te rog "
 "consultă %sdocumentația%s pentru o soluție ocolitoare pentru această limită."
 
-#: src/Controllers/Import/ImportController.php:235
+#: src/Controllers/Import/ImportController.php:236
 #, fuzzy
 msgid "Incorrect format parameter"
 msgstr "Formular specificat incorect!"
 
-#: src/Controllers/Import/ImportController.php:365
-#: src/Controllers/Import/ImportController.php:601
+#: src/Controllers/Import/ImportController.php:357
+#: src/Controllers/Import/ImportController.php:588
 msgid "Showing bookmark"
 msgstr "Arăt semn de carte"
 
-#: src/Controllers/Import/ImportController.php:390
-#: src/Controllers/Import/ImportController.php:597
+#: src/Controllers/Import/ImportController.php:377
+#: src/Controllers/Import/ImportController.php:584
 msgid "The bookmark has been deleted."
 msgstr "Semnul de carte a fost șters."
 
-#: src/Controllers/Import/ImportController.php:509
+#: src/Controllers/Import/ImportController.php:496
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5778,7 +5777,7 @@ msgstr ""
 "fie dimensiunea fișierului a depășit dimensiunea maximă permisă de "
 "configurarea ta PHP. Vezi [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: src/Controllers/Import/ImportController.php:609
+#: src/Controllers/Import/ImportController.php:596
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
@@ -5786,7 +5785,7 @@ msgstr[0] "Importul a fost finalizat cu succes, o interogare executată."
 msgstr[1] "Importul a fost finalizat cu succes, %d interogări executate."
 msgstr[2] "Importul a fost finalizat cu succes, %d de interogări executate."
 
-#: src/Controllers/Import/ImportController.php:646
+#: src/Controllers/Import/ImportController.php:633
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5795,7 +5794,7 @@ msgstr ""
 "Timpul de executare a scriptului a expirat, dacă vrei să termini importul, "
 "te rog %sretrimite același fișier%s și importul va fi reluat."
 
-#: src/Controllers/Import/ImportController.php:656
+#: src/Controllers/Import/ImportController.php:643
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5804,8 +5803,8 @@ msgstr ""
 "obicei asta înseamnă că phpMyAdmin nu va putea finaliza acest import decât "
 "dacă mărești limitele de timp php."
 
-#: src/Controllers/Import/ImportController.php:724
-#: src/Controllers/Sql/SqlController.php:169
+#: src/Controllers/Import/ImportController.php:711
+#: src/Controllers/Sql/SqlController.php:170
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Declarațiile „ELIMINĂ BAZA DE DATE” sunt dezactivate."
 
@@ -6081,12 +6080,12 @@ msgid "The user name is empty!"
 msgstr "Numele de utilizator este gol!"
 
 #: src/Controllers/JavaScriptMessagesController.php:144
-#: src/Server/Privileges.php:756 src/UserPassword.php:39
+#: src/Server/Privileges.php:765 src/UserPassword.php:39
 msgid "The password is empty!"
 msgstr "Parola este goală!"
 
 #: src/Controllers/JavaScriptMessagesController.php:145
-#: src/Server/Privileges.php:754 src/UserPassword.php:43
+#: src/Server/Privileges.php:763 src/UserPassword.php:43
 msgid "The passwords aren't the same!"
 msgstr "Parolele nu sunt identice!"
 
@@ -6735,7 +6734,8 @@ msgstr "Niciun parametru găsit!"
 #: templates/database/structure/check_all_tables.twig:49
 #: templates/database/structure/check_all_tables.twig:55
 #: templates/error/report_modal.twig:6 templates/error/report_modal.twig:11
-#: templates/modals/add_index.twig:11 templates/modals/change_password.twig:11
+#: templates/gis_data_editor_form.twig:62 templates/modals/add_index.twig:11
+#: templates/modals/change_password.twig:11
 #: templates/modals/page_settings.twig:11
 #: templates/server/databases/index.twig:316
 #: templates/server/databases/index.twig:320
@@ -7052,7 +7052,7 @@ msgstr "Al doilea pas de normalizare (2NF)"
 
 #. l10n: Display text for calendar close link
 #: src/Controllers/JavaScriptMessagesController.php:427
-#: src/Controllers/JavaScriptMessagesController.php:771
+#: src/Controllers/JavaScriptMessagesController.php:774
 #: src/Normalization.php:337
 msgid "Done"
 msgstr "Gata"
@@ -7210,7 +7210,7 @@ msgid "Data point content"
 msgstr "Conținut punct de date"
 
 #: src/Controllers/JavaScriptMessagesController.php:487
-#: src/Controllers/JavaScriptMessagesController.php:635
+#: src/Controllers/JavaScriptMessagesController.php:638
 #: src/ErrorHandler.php:405 src/InsertEdit.php:1567
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
@@ -7220,22 +7220,15 @@ msgstr "Ignoră"
 #: src/Display/Results.php:2706 src/Html/Generator.php:79
 #: templates/display/results/table.twig:323
 #: templates/display/results/table.twig:324
+#: templates/gis_data_editor_form.twig:61
 msgid "Copy"
 msgstr "Copiază"
 
 #: src/Controllers/JavaScriptMessagesController.php:489
-#: templates/gis_data_editor_form.twig:84
-#: templates/gis_data_editor_form.twig:104
-#: templates/gis_data_editor_form.twig:142
-#: templates/gis_data_editor_form.twig:188
 msgid "X"
 msgstr "X"
 
 #: src/Controllers/JavaScriptMessagesController.php:490
-#: templates/gis_data_editor_form.twig:88
-#: templates/gis_data_editor_form.twig:108
-#: templates/gis_data_editor_form.twig:146
-#: templates/gis_data_editor_form.twig:192
 msgid "Y"
 msgstr "Y"
 
@@ -7244,53 +7237,55 @@ msgid "Point"
 msgstr "Punct"
 
 #: src/Controllers/JavaScriptMessagesController.php:492
-#, php-format
-msgid "Point %d"
-msgstr "Punct %d"
-
-#: src/Controllers/JavaScriptMessagesController.php:493
 msgid "Linestring"
 msgstr "Șir de linii"
 
-#: src/Controllers/JavaScriptMessagesController.php:494
+#: src/Controllers/JavaScriptMessagesController.php:493
 msgid "Polygon"
 msgstr "Poligon"
 
-#: src/Controllers/JavaScriptMessagesController.php:495
+#: src/Controllers/JavaScriptMessagesController.php:494
 #: templates/display/results/table.twig:263
 msgid "Geometry"
 msgstr "Geometrie"
 
-#: src/Controllers/JavaScriptMessagesController.php:496
+#: src/Controllers/JavaScriptMessagesController.php:495
 msgid "Inner ring"
 msgstr "Inel interior"
 
-#: src/Controllers/JavaScriptMessagesController.php:497
+#: src/Controllers/JavaScriptMessagesController.php:496
 msgid "Outer ring"
 msgstr "Inel exterior"
 
-#: src/Controllers/JavaScriptMessagesController.php:498
-#: templates/gis_data_editor_form.twig:111
-#: templates/gis_data_editor_form.twig:149
-#: templates/gis_data_editor_form.twig:195
+#: src/Controllers/JavaScriptMessagesController.php:497
 msgid "Add a point"
 msgstr "Adaugă un punct"
 
+#: src/Controllers/JavaScriptMessagesController.php:498
+msgid "Add a linestring"
+msgstr "Adaugă un șir de linii"
+
 #: src/Controllers/JavaScriptMessagesController.php:499
-#: templates/gis_data_editor_form.twig:153
-#: templates/gis_data_editor_form.twig:198
 msgid "Add an inner ring"
 msgstr "Adăugă un inel interior"
 
+#: src/Controllers/JavaScriptMessagesController.php:500
+msgid "Add a polygon"
+msgstr "Adaugă un poligon"
+
 #: src/Controllers/JavaScriptMessagesController.php:501
+msgid "Add geometry"
+msgstr "Adaugă geometrie"
+
+#: src/Controllers/JavaScriptMessagesController.php:503
 msgid "Do you want to copy encryption key?"
 msgstr "Vrei să copiezi cheia de criptare?"
 
-#: src/Controllers/JavaScriptMessagesController.php:502
+#: src/Controllers/JavaScriptMessagesController.php:504
 msgid "Encryption key"
 msgstr "Cheie de criptare"
 
-#: src/Controllers/JavaScriptMessagesController.php:505
+#: src/Controllers/JavaScriptMessagesController.php:507
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
@@ -7298,7 +7293,7 @@ msgstr ""
 "Funcția HEX va trata întregul ca un șir în timp ce calculează valoarea "
 "hexazecimală"
 
-#: src/Controllers/JavaScriptMessagesController.php:510
+#: src/Controllers/JavaScriptMessagesController.php:512
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
@@ -7306,7 +7301,7 @@ msgstr ""
 "MySQL acceptă valori suplimentare care nu pot fi selectate prin cursor; "
 "tastează direct aceste valori, dacă le vrei"
 
-#: src/Controllers/JavaScriptMessagesController.php:516
+#: src/Controllers/JavaScriptMessagesController.php:518
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
@@ -7314,7 +7309,7 @@ msgstr ""
 "MySQL acceptă valori suplimentare care nu pot fi selectate prin selectorul "
 "de date; tastează direct aceste valori, dacă le vrei"
 
-#: src/Controllers/JavaScriptMessagesController.php:522
+#: src/Controllers/JavaScriptMessagesController.php:524
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
@@ -7322,25 +7317,25 @@ msgstr ""
 "Indică că ai făcut modificări în această pagină; ți se va cere confirmarea "
 "înainte de abandonare"
 
-#: src/Controllers/JavaScriptMessagesController.php:527
+#: src/Controllers/JavaScriptMessagesController.php:529
 msgid "Select referenced key"
 msgstr "Selectează cheia de referință"
 
-#: src/Controllers/JavaScriptMessagesController.php:528
+#: src/Controllers/JavaScriptMessagesController.php:530
 msgid "Select Foreign Key"
 msgstr "Selectează cheia străină"
 
-#: src/Controllers/JavaScriptMessagesController.php:529
+#: src/Controllers/JavaScriptMessagesController.php:531
 msgid "Please select the primary key or a unique key!"
 msgstr "Te rog selectează cheia principală sau o cheie unică!"
 
-#: src/Controllers/JavaScriptMessagesController.php:530
+#: src/Controllers/JavaScriptMessagesController.php:532
 #: templates/database/designer/main.twig:98
 #: templates/database/designer/main.twig:101
 msgid "Choose column to display"
 msgstr "Alege coloana pentru afișare"
 
-#: src/Controllers/JavaScriptMessagesController.php:532
+#: src/Controllers/JavaScriptMessagesController.php:534
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -7348,99 +7343,99 @@ msgstr ""
 "Nu ai salvat modificările în aranjament. Ele vor fi pierdute dacă nu le "
 "salvezi. Vrei să continui?"
 
-#: src/Controllers/JavaScriptMessagesController.php:535
+#: src/Controllers/JavaScriptMessagesController.php:537
 msgid "value/subQuery is empty"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:536
+#: src/Controllers/JavaScriptMessagesController.php:538
 #: templates/database/designer/main.twig:40
 #: templates/database/designer/main.twig:43
 msgid "Add tables from other databases"
 msgstr "Adaugă tabele din alte baze de date"
 
-#: src/Controllers/JavaScriptMessagesController.php:537
+#: src/Controllers/JavaScriptMessagesController.php:539
 msgid "Page name"
 msgstr "Nume pagină"
 
-#: src/Controllers/JavaScriptMessagesController.php:538
+#: src/Controllers/JavaScriptMessagesController.php:540
 #: templates/database/designer/main.twig:63
 #: templates/database/designer/main.twig:66
 msgid "Save page"
 msgstr "Salvează pagina"
 
-#: src/Controllers/JavaScriptMessagesController.php:539
+#: src/Controllers/JavaScriptMessagesController.php:541
 #: templates/database/designer/main.twig:70
 #: templates/database/designer/main.twig:73
 msgid "Save page as"
 msgstr "Salvează pagina ca"
 
-#: src/Controllers/JavaScriptMessagesController.php:540
+#: src/Controllers/JavaScriptMessagesController.php:542
 #: templates/database/designer/main.twig:56
 #: templates/database/designer/main.twig:59
 msgid "Open page"
 msgstr "Deschide pagina"
 
-#: src/Controllers/JavaScriptMessagesController.php:541
+#: src/Controllers/JavaScriptMessagesController.php:543
 msgid "Delete page"
 msgstr "Șterge pagina"
 
 #. l10n: When the user opens a page saved in the Designer
-#: src/Controllers/JavaScriptMessagesController.php:543
+#: src/Controllers/JavaScriptMessagesController.php:545
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
 "Este posibil ca unele tabele salvate în această pagină să fi fost redenumite "
 "sau șterse."
 
-#: src/Controllers/JavaScriptMessagesController.php:544
+#: src/Controllers/JavaScriptMessagesController.php:546
 #: templates/database/designer/main.twig:10
 msgid "Untitled"
 msgstr "Fără titlu"
 
-#: src/Controllers/JavaScriptMessagesController.php:545
+#: src/Controllers/JavaScriptMessagesController.php:547
 msgid "Please select a page to continue"
 msgstr "Te rog selectează o pagină pentru a continua"
 
-#: src/Controllers/JavaScriptMessagesController.php:546
+#: src/Controllers/JavaScriptMessagesController.php:548
 msgid "Please enter a valid page name"
 msgstr "Te rog introdu un nume de pagină valid"
 
-#: src/Controllers/JavaScriptMessagesController.php:547
+#: src/Controllers/JavaScriptMessagesController.php:549
 msgid "Do you want to save the changes to the current page?"
 msgstr "Vrei să salvezi modificările în pagina actuală?"
 
-#: src/Controllers/JavaScriptMessagesController.php:548
+#: src/Controllers/JavaScriptMessagesController.php:550
 msgid "Successfully deleted the page"
 msgstr "Pagină ștearsă cu succes"
 
-#: src/Controllers/JavaScriptMessagesController.php:549
+#: src/Controllers/JavaScriptMessagesController.php:551
 msgid "Export relational schema"
 msgstr "Exportă schema relațională"
 
-#: src/Controllers/JavaScriptMessagesController.php:550
+#: src/Controllers/JavaScriptMessagesController.php:552
 msgid "Modifications have been saved"
 msgstr "Modificările au fost salvate"
 
-#: src/Controllers/JavaScriptMessagesController.php:553
+#: src/Controllers/JavaScriptMessagesController.php:555
 #, php-format
 msgid "%d object(s) created."
 msgstr "Un obiect creat (%d obiecte create)."
 
-#: src/Controllers/JavaScriptMessagesController.php:554
+#: src/Controllers/JavaScriptMessagesController.php:556
 #, fuzzy
 msgid "Column name"
 msgstr "Nume coloane"
 
-#: src/Controllers/JavaScriptMessagesController.php:555
+#: src/Controllers/JavaScriptMessagesController.php:557
 #: templates/modals/build_query.twig:17 templates/sql/query.twig:180
 msgid "Submit"
 msgstr "Trimite"
 
-#: src/Controllers/JavaScriptMessagesController.php:558
+#: src/Controllers/JavaScriptMessagesController.php:560
 #, fuzzy
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr "Apasă Esc pentru a anula editarea."
 
-#: src/Controllers/JavaScriptMessagesController.php:560
+#: src/Controllers/JavaScriptMessagesController.php:562
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -7448,15 +7443,15 @@ msgstr ""
 "Ai editat unele date și ele nu au fost salvate. Sigur vrei să părăsești "
 "această pagină înainte de salvarea datele?"
 
-#: src/Controllers/JavaScriptMessagesController.php:563
+#: src/Controllers/JavaScriptMessagesController.php:565
 msgid "Drag to reorder."
 msgstr "Trage pentru a reordona."
 
-#: src/Controllers/JavaScriptMessagesController.php:564
+#: src/Controllers/JavaScriptMessagesController.php:566
 msgid "Click to sort results by this column."
 msgstr "Dă clic pentru a sorta rezultatele după această coloană."
 
-#: src/Controllers/JavaScriptMessagesController.php:566
+#: src/Controllers/JavaScriptMessagesController.php:568
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
@@ -7466,19 +7461,19 @@ msgstr ""
 "comuta ASC/DESC.<br>- Ctrl+Clic sau Alt+Clic (Mac: Shift+Option+Clic) pentru "
 "a înlătura coloana din ORDONEAZĂ DUPĂ"
 
-#: src/Controllers/JavaScriptMessagesController.php:570
+#: src/Controllers/JavaScriptMessagesController.php:572
 msgid "Click to mark/unmark."
 msgstr "Dă clic pentru a marca/anula marcarea."
 
-#: src/Controllers/JavaScriptMessagesController.php:571
+#: src/Controllers/JavaScriptMessagesController.php:573
 msgid "Double-click to copy column name."
 msgstr "Dă dublu clic pentru a copia numele coloanei."
 
-#: src/Controllers/JavaScriptMessagesController.php:572
+#: src/Controllers/JavaScriptMessagesController.php:574
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr "Dă clic pe săgeată jos<br>pentru a comuta vizibilitatea coloanei."
 
-#: src/Controllers/JavaScriptMessagesController.php:575
+#: src/Controllers/JavaScriptMessagesController.php:577
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -7487,12 +7482,12 @@ msgstr ""
 "legăturile de editare grilă, bife, editare, copiere și ștergere ar putea să "
 "nu funcționeze după salvare."
 
-#: src/Controllers/JavaScriptMessagesController.php:578
+#: src/Controllers/JavaScriptMessagesController.php:580
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 "Te rog introdu un șir hexazecimal valid. Caracterele valide sunt 0-9, A-F."
 
-#: src/Controllers/JavaScriptMessagesController.php:580
+#: src/Controllers/JavaScriptMessagesController.php:582
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -7500,68 +7495,68 @@ msgstr ""
 "Chiar vrei să vezi toate rândurile? Un tabel foarte mare ar putea prăbuși "
 "navigatorul."
 
-#: src/Controllers/JavaScriptMessagesController.php:582
+#: src/Controllers/JavaScriptMessagesController.php:584
 msgid "Original length"
 msgstr "Lungime originală"
 
-#: src/Controllers/JavaScriptMessagesController.php:585
+#: src/Controllers/JavaScriptMessagesController.php:587
 msgid "cancel"
 msgstr "anulează"
 
-#: src/Controllers/JavaScriptMessagesController.php:586
+#: src/Controllers/JavaScriptMessagesController.php:588
 #: src/Controllers/Server/Status/StatusController.php:181
 msgid "Aborted"
 msgstr "Anulată"
 
-#: src/Controllers/JavaScriptMessagesController.php:588
+#: src/Controllers/JavaScriptMessagesController.php:590
 msgid "Success"
 msgstr "Succes"
 
-#: src/Controllers/JavaScriptMessagesController.php:589
+#: src/Controllers/JavaScriptMessagesController.php:591
 msgid "Import status"
 msgstr "Stare import"
 
-#: src/Controllers/JavaScriptMessagesController.php:590
+#: src/Controllers/JavaScriptMessagesController.php:592
 #: templates/navigation/main.twig:84
 msgid "Drop files here"
 msgstr "Aruncă fișiere aici"
 
-#: src/Controllers/JavaScriptMessagesController.php:591
+#: src/Controllers/JavaScriptMessagesController.php:593
 msgid "Select database first"
 msgstr "Mai întâi selectează baza de date"
 
-#: src/Controllers/JavaScriptMessagesController.php:593
+#: src/Controllers/JavaScriptMessagesController.php:595
 msgid "Go to link:"
 msgstr "Du-te la legătura:"
 
-#: src/Controllers/JavaScriptMessagesController.php:596
+#: src/Controllers/JavaScriptMessagesController.php:598
 msgid "Generate password"
 msgstr "Generează parola"
 
-#: src/Controllers/JavaScriptMessagesController.php:597
+#: src/Controllers/JavaScriptMessagesController.php:599
 #: templates/server/replication/primary_add_replica_user.twig:73
 msgid "Generate"
 msgstr "Generează"
 
-#: src/Controllers/JavaScriptMessagesController.php:600
+#: src/Controllers/JavaScriptMessagesController.php:602
 #: templates/table/structure/display_structure.twig:130
 msgid "More"
 msgstr "Mai mult"
 
-#: src/Controllers/JavaScriptMessagesController.php:603
+#: src/Controllers/JavaScriptMessagesController.php:605
 msgid "Show panel"
 msgstr "Arată panoul"
 
-#: src/Controllers/JavaScriptMessagesController.php:604
+#: src/Controllers/JavaScriptMessagesController.php:606
 msgid "Hide panel"
 msgstr "Ascunde panoul"
 
-#: src/Controllers/JavaScriptMessagesController.php:606
+#: src/Controllers/JavaScriptMessagesController.php:608
 #: src/Navigation/NavigationTree.php:1284
 msgid "Unlink from main panel"
 msgstr "Anulează legătura din panoul principal"
 
-#: src/Controllers/JavaScriptMessagesController.php:610 src/Setup/Index.php:153
+#: src/Controllers/JavaScriptMessagesController.php:612 src/Setup/Index.php:153
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -7571,30 +7566,36 @@ msgstr ""
 "actualizarea. Noua versiune %s a fost lansată pe %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: src/Controllers/JavaScriptMessagesController.php:614
+#: src/Controllers/JavaScriptMessagesController.php:616
 msgid ", latest stable version:"
 msgstr ", ultima versiune stabilă:"
 
-#: src/Controllers/JavaScriptMessagesController.php:615
+#: src/Controllers/JavaScriptMessagesController.php:617
 msgid "up to date"
 msgstr "la zi"
 
 #: src/Controllers/JavaScriptMessagesController.php:618
+#, fuzzy
+#| msgid "There was an error importing the ESRI shape file: \"%s\"."
+msgid "There was an error in loading the Git information."
+msgstr "A apărut o eroare la importarea ESRI Shapefile: „%s”."
+
+#: src/Controllers/JavaScriptMessagesController.php:621
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 "A apărut o eroare JavaScript fatală. Vrei să trimiți un raport de erori?"
 
-#: src/Controllers/JavaScriptMessagesController.php:619
+#: src/Controllers/JavaScriptMessagesController.php:622
 msgid "Change report settings"
 msgstr "Modifică setări rapoarte"
 
-#: src/Controllers/JavaScriptMessagesController.php:620
+#: src/Controllers/JavaScriptMessagesController.php:623
 msgid "Show report details"
 msgstr "Arată detalii raport"
 
-#: src/Controllers/JavaScriptMessagesController.php:621
+#: src/Controllers/JavaScriptMessagesController.php:624
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
@@ -7602,7 +7603,7 @@ msgstr ""
 "Exportul tău este incomplet din cauza unei limite de execuție reduse la "
 "nivel de PHP!"
 
-#: src/Controllers/JavaScriptMessagesController.php:624
+#: src/Controllers/JavaScriptMessagesController.php:627
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -7612,78 +7613,78 @@ msgstr ""
 "trimitere, unele dintre câmpuri pot fi ignorate datorită configurării PHP "
 "max_input_vars."
 
-#: src/Controllers/JavaScriptMessagesController.php:630
-#: src/Controllers/JavaScriptMessagesController.php:643
+#: src/Controllers/JavaScriptMessagesController.php:633
+#: src/Controllers/JavaScriptMessagesController.php:646
 msgid "Some errors have been detected on the server!"
 msgstr "Au fost detectate unele erori pe server!"
 
-#: src/Controllers/JavaScriptMessagesController.php:632
+#: src/Controllers/JavaScriptMessagesController.php:635
 msgid "Please look at the bottom of this window."
 msgstr "Te rog uită-te în partea de jos a acestei ferestre."
 
-#: src/Controllers/JavaScriptMessagesController.php:638
+#: src/Controllers/JavaScriptMessagesController.php:641
 #: src/ErrorHandler.php:410
 msgid "Ignore All"
 msgstr "Ignoră tot"
 
-#: src/Controllers/JavaScriptMessagesController.php:645
+#: src/Controllers/JavaScriptMessagesController.php:648
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 "În funcție de setările tale, aceste sunt trimise acum, te rog ai răbdare."
 
-#: src/Controllers/JavaScriptMessagesController.php:649
+#: src/Controllers/JavaScriptMessagesController.php:652
 msgid "Column name successfully copied to clipboard!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:650
+#: src/Controllers/JavaScriptMessagesController.php:653
 msgid "Column name copying to clipboard failed!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:651
+#: src/Controllers/JavaScriptMessagesController.php:654
 msgid "Successfully copied!"
 msgstr "Copiat cu succes!"
 
-#: src/Controllers/JavaScriptMessagesController.php:652
+#: src/Controllers/JavaScriptMessagesController.php:655
 msgid "Copying failed!"
 msgstr "Copiere eșuată!"
 
-#: src/Controllers/JavaScriptMessagesController.php:655
+#: src/Controllers/JavaScriptMessagesController.php:658
 msgid "Execute this query again?"
 msgstr "Execuți această interogare din nou?"
 
-#: src/Controllers/JavaScriptMessagesController.php:656
+#: src/Controllers/JavaScriptMessagesController.php:659
 msgid "Do you really want to delete this bookmark?"
 msgstr "Sigur vrei să ștergi acest semn de carte?"
 
-#: src/Controllers/JavaScriptMessagesController.php:657
+#: src/Controllers/JavaScriptMessagesController.php:660
 msgid "Some error occurred while getting SQL debug info."
 msgstr "Au apărut erori în timpul obținerii informațiilor de depanare SQL."
 
-#: src/Controllers/JavaScriptMessagesController.php:658
+#: src/Controllers/JavaScriptMessagesController.php:661
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s interogări executate de %s ori în %s secunde."
 
-#: src/Controllers/JavaScriptMessagesController.php:659
+#: src/Controllers/JavaScriptMessagesController.php:662
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "Un argument trecut (%s argumente trecute)"
 
-#: src/Controllers/JavaScriptMessagesController.php:660
+#: src/Controllers/JavaScriptMessagesController.php:663
 msgid "Show arguments"
 msgstr "Arată argumente"
 
-#: src/Controllers/JavaScriptMessagesController.php:661
+#: src/Controllers/JavaScriptMessagesController.php:664
 msgid "Hide arguments"
 msgstr "Ascunde argumente"
 
-#: src/Controllers/JavaScriptMessagesController.php:662
+#: src/Controllers/JavaScriptMessagesController.php:665
 #: templates/console/display.twig:109
 msgid "Time taken:"
 msgstr "Timp luat:"
 
-#: src/Controllers/JavaScriptMessagesController.php:664
+#: src/Controllers/JavaScriptMessagesController.php:667
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -7692,88 +7693,88 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:671
+#: src/Controllers/JavaScriptMessagesController.php:674
 msgid "Copy tables to"
 msgstr "Copiază tabelele în"
 
-#: src/Controllers/JavaScriptMessagesController.php:672
+#: src/Controllers/JavaScriptMessagesController.php:675
 msgid "Add table prefix"
 msgstr "Adaugă prefix tabel"
 
-#: src/Controllers/JavaScriptMessagesController.php:673
+#: src/Controllers/JavaScriptMessagesController.php:676
 msgid "Replace table with prefix"
 msgstr "Înlocuiește tabelul cu prefix"
 
-#: src/Controllers/JavaScriptMessagesController.php:674
+#: src/Controllers/JavaScriptMessagesController.php:677
 #: templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "Copiază tabelul cu prefix"
 
-#: src/Controllers/JavaScriptMessagesController.php:677
+#: src/Controllers/JavaScriptMessagesController.php:680
 msgid "Extremely weak"
 msgstr "Extrem de slabă"
 
-#: src/Controllers/JavaScriptMessagesController.php:678
+#: src/Controllers/JavaScriptMessagesController.php:681
 msgid "Very weak"
 msgstr "Foarte slabă"
 
-#: src/Controllers/JavaScriptMessagesController.php:679
+#: src/Controllers/JavaScriptMessagesController.php:682
 msgid "Weak"
 msgstr "Slabă"
 
-#: src/Controllers/JavaScriptMessagesController.php:680
+#: src/Controllers/JavaScriptMessagesController.php:683
 msgid "Good"
 msgstr "Bună"
 
-#: src/Controllers/JavaScriptMessagesController.php:681
+#: src/Controllers/JavaScriptMessagesController.php:684
 msgid "Strong"
 msgstr "Puternică"
 
 #. l10n: error code 5 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:685
+#: src/Controllers/JavaScriptMessagesController.php:688
 #, fuzzy
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr "A expirat așteptarea pentru activarea cheii de securitate."
 
 #. l10n: error code 2 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:687
+#: src/Controllers/JavaScriptMessagesController.php:690
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr "Cerere nevalidă trimisă către cheia de securitate."
 
 #. l10n: unknown error code (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:689
+#: src/Controllers/JavaScriptMessagesController.php:692
 msgctxt "U2F error"
 msgid "Unknown security key error."
 msgstr "Eroare cheie de securitate necunoscută."
 
 #. l10n: error code 3 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:691
+#: src/Controllers/JavaScriptMessagesController.php:694
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr "Clientul nu suportă cheie de securitate."
 
 #. l10n: error code 4 (from U2F API) on register
-#: src/Controllers/JavaScriptMessagesController.php:693
+#: src/Controllers/JavaScriptMessagesController.php:696
 #, fuzzy
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr "Activarea cheii de securitate a eșuat (%s)."
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: src/Controllers/JavaScriptMessagesController.php:695
+#: src/Controllers/JavaScriptMessagesController.php:698
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "Cheie de securitate invalidă."
 
-#: src/Controllers/JavaScriptMessagesController.php:698
+#: src/Controllers/JavaScriptMessagesController.php:701
 msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:703
+#: src/Controllers/JavaScriptMessagesController.php:706
 msgid ""
 "You can not open, save or delete your page layout, as IndexedDB is not "
 "working in your browser and your phpMyAdmin configuration storage is not "
@@ -7783,19 +7784,19 @@ msgstr ""
 "funcționează în navigator și spațiul de stocare al configurației phpMyAdmin "
 "nu este configurat pentru acesta."
 
-#: src/Controllers/JavaScriptMessagesController.php:708
+#: src/Controllers/JavaScriptMessagesController.php:711
 #, fuzzy, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
 msgstr "Tabelul %s există deja!"
 
-#: src/Controllers/JavaScriptMessagesController.php:710 src/InsertEdit.php:281
+#: src/Controllers/JavaScriptMessagesController.php:713 src/InsertEdit.php:281
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Ascunde"
 
-#: src/Controllers/JavaScriptMessagesController.php:711
+#: src/Controllers/JavaScriptMessagesController.php:714
 #: src/Controllers/Table/ChangeController.php:216
 #: templates/database/multi_table_query/form.twig:38
 #: templates/database/tracking/tables.twig:19
@@ -7803,354 +7804,354 @@ msgstr "Ascunde"
 msgid "Show"
 msgstr "Arată"
 
-#: src/Controllers/JavaScriptMessagesController.php:714
+#: src/Controllers/JavaScriptMessagesController.php:717
 msgctxt "Month name"
 msgid "January"
 msgstr "Ianuarie"
 
-#: src/Controllers/JavaScriptMessagesController.php:715
+#: src/Controllers/JavaScriptMessagesController.php:718
 msgctxt "Month name"
 msgid "February"
 msgstr "Februarie"
 
-#: src/Controllers/JavaScriptMessagesController.php:716
+#: src/Controllers/JavaScriptMessagesController.php:719
 msgctxt "Month name"
 msgid "March"
 msgstr "Martie"
 
-#: src/Controllers/JavaScriptMessagesController.php:717
+#: src/Controllers/JavaScriptMessagesController.php:720
 msgctxt "Month name"
 msgid "April"
 msgstr "Aprilie"
 
-#: src/Controllers/JavaScriptMessagesController.php:718
+#: src/Controllers/JavaScriptMessagesController.php:721
 msgctxt "Month name"
 msgid "May"
 msgstr "Mai"
 
-#: src/Controllers/JavaScriptMessagesController.php:719
+#: src/Controllers/JavaScriptMessagesController.php:722
 msgctxt "Month name"
 msgid "June"
 msgstr "Iunie"
 
-#: src/Controllers/JavaScriptMessagesController.php:720
+#: src/Controllers/JavaScriptMessagesController.php:723
 msgctxt "Month name"
 msgid "July"
 msgstr "Iulie"
 
-#: src/Controllers/JavaScriptMessagesController.php:721
+#: src/Controllers/JavaScriptMessagesController.php:724
 msgctxt "Month name"
 msgid "August"
 msgstr "August"
 
-#: src/Controllers/JavaScriptMessagesController.php:722
+#: src/Controllers/JavaScriptMessagesController.php:725
 msgctxt "Month name"
 msgid "September"
 msgstr "Septembrie"
 
-#: src/Controllers/JavaScriptMessagesController.php:723
+#: src/Controllers/JavaScriptMessagesController.php:726
 msgctxt "Month name"
 msgid "October"
 msgstr "Octombrie"
 
-#: src/Controllers/JavaScriptMessagesController.php:724
+#: src/Controllers/JavaScriptMessagesController.php:727
 msgctxt "Month name"
 msgid "November"
 msgstr "Noiembrie"
 
-#: src/Controllers/JavaScriptMessagesController.php:725
+#: src/Controllers/JavaScriptMessagesController.php:728
 msgctxt "Month name"
 msgid "December"
 msgstr "Decembrie"
 
-#: src/Controllers/JavaScriptMessagesController.php:726 src/Util.php:501
+#: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:501
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "ian."
 
-#: src/Controllers/JavaScriptMessagesController.php:727 src/Util.php:502
+#: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:502
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "feb."
 
-#: src/Controllers/JavaScriptMessagesController.php:728 src/Util.php:503
+#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:503
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "mart."
 
-#: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:504
+#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:504
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "apr."
 
-#: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:505
+#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:505
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "mai"
 
-#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:506
+#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:506
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "iun."
 
-#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:507
+#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:507
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "iul."
 
-#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:508
+#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:508
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "aug."
 
-#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:509
+#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:509
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "sept."
 
-#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:510
+#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:510
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "oct."
 
-#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:511
+#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:511
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "nov."
 
-#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:512
+#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:512
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "dec."
 
-#: src/Controllers/JavaScriptMessagesController.php:745 src/Util.php:515
+#: src/Controllers/JavaScriptMessagesController.php:748 src/Util.php:515
 #, fuzzy
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "D"
 
-#: src/Controllers/JavaScriptMessagesController.php:746 src/Util.php:516
+#: src/Controllers/JavaScriptMessagesController.php:749 src/Util.php:516
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "L"
 
-#: src/Controllers/JavaScriptMessagesController.php:747 src/Util.php:517
+#: src/Controllers/JavaScriptMessagesController.php:750 src/Util.php:517
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "Ma"
 
-#: src/Controllers/JavaScriptMessagesController.php:748 src/Util.php:518
+#: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:518
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "Mi"
 
-#: src/Controllers/JavaScriptMessagesController.php:749 src/Util.php:519
+#: src/Controllers/JavaScriptMessagesController.php:752 src/Util.php:519
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "J"
 
-#: src/Controllers/JavaScriptMessagesController.php:750 src/Util.php:520
+#: src/Controllers/JavaScriptMessagesController.php:753 src/Util.php:520
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "V"
 
-#: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:521
+#: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:521
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "S"
 
-#: src/Controllers/JavaScriptMessagesController.php:752
+#: src/Controllers/JavaScriptMessagesController.php:755
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "D"
 
-#: src/Controllers/JavaScriptMessagesController.php:753
+#: src/Controllers/JavaScriptMessagesController.php:756
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "L"
 
-#: src/Controllers/JavaScriptMessagesController.php:754
+#: src/Controllers/JavaScriptMessagesController.php:757
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "M"
 
-#: src/Controllers/JavaScriptMessagesController.php:755
+#: src/Controllers/JavaScriptMessagesController.php:758
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "M"
 
-#: src/Controllers/JavaScriptMessagesController.php:756
+#: src/Controllers/JavaScriptMessagesController.php:759
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "J"
 
-#: src/Controllers/JavaScriptMessagesController.php:757
+#: src/Controllers/JavaScriptMessagesController.php:760
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "V"
 
-#: src/Controllers/JavaScriptMessagesController.php:758
+#: src/Controllers/JavaScriptMessagesController.php:761
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "S"
 
-#: src/Controllers/JavaScriptMessagesController.php:759
+#: src/Controllers/JavaScriptMessagesController.php:762
 msgctxt "Column header for week of the year in calendar"
 msgid "Wk"
 msgstr "Săpt."
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
-#: src/Controllers/JavaScriptMessagesController.php:761
+#: src/Controllers/JavaScriptMessagesController.php:764
 #, fuzzy
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
-#: src/Controllers/JavaScriptMessagesController.php:762
+#: src/Controllers/JavaScriptMessagesController.php:765
 #, fuzzy
 msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "niciunul"
 
-#: src/Controllers/JavaScriptMessagesController.php:763
+#: src/Controllers/JavaScriptMessagesController.php:766
 #, fuzzy
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "Oră"
 
-#: src/Controllers/JavaScriptMessagesController.php:764
+#: src/Controllers/JavaScriptMessagesController.php:767
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "Oră"
 
-#: src/Controllers/JavaScriptMessagesController.php:765
+#: src/Controllers/JavaScriptMessagesController.php:768
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "Minut"
 
-#: src/Controllers/JavaScriptMessagesController.php:766
+#: src/Controllers/JavaScriptMessagesController.php:769
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "Secundă"
 
-#: src/Controllers/JavaScriptMessagesController.php:767
+#: src/Controllers/JavaScriptMessagesController.php:770
 msgctxt "Unit of time"
 msgid "Millisecond"
 msgstr "Milisecundă"
 
-#: src/Controllers/JavaScriptMessagesController.php:768
+#: src/Controllers/JavaScriptMessagesController.php:771
 msgctxt "Unit of time"
 msgid "Microsecond"
 msgstr "Microsecundă"
 
-#: src/Controllers/JavaScriptMessagesController.php:769
+#: src/Controllers/JavaScriptMessagesController.php:772
 #, fuzzy
 msgctxt "The time zone for a time of day"
 msgid "Time zone"
 msgstr "Cronologie"
 
 #. l10n: Display text for previous month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:773
+#: src/Controllers/JavaScriptMessagesController.php:776
 #, fuzzy
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Anterior"
 
 #. l10n: Display text for next month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:775
+#: src/Controllers/JavaScriptMessagesController.php:778
 msgctxt "Next month"
 msgid "Next"
 msgstr "Următor"
 
 #. l10n: Display text for current month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:777
+#: src/Controllers/JavaScriptMessagesController.php:780
 msgid "Today"
 msgstr "Azi"
 
-#: src/Controllers/JavaScriptMessagesController.php:780
+#: src/Controllers/JavaScriptMessagesController.php:783
 msgid "This field is required"
 msgstr "Acest câmp este obligatoriu"
 
-#: src/Controllers/JavaScriptMessagesController.php:781
+#: src/Controllers/JavaScriptMessagesController.php:784
 msgid "Please fix this field"
 msgstr "Te rog corectează acest câmp"
 
-#: src/Controllers/JavaScriptMessagesController.php:782
+#: src/Controllers/JavaScriptMessagesController.php:785
 msgid "Please enter a valid email address"
 msgstr "Te rog introdu o adresă de email validă"
 
-#: src/Controllers/JavaScriptMessagesController.php:783
+#: src/Controllers/JavaScriptMessagesController.php:786
 msgid "Please enter a valid URL"
 msgstr "Te rog introdu un URL valid"
 
-#: src/Controllers/JavaScriptMessagesController.php:784
+#: src/Controllers/JavaScriptMessagesController.php:787
 msgid "Please enter a valid date"
 msgstr "Te rog introdu o dată validă"
 
-#: src/Controllers/JavaScriptMessagesController.php:785
+#: src/Controllers/JavaScriptMessagesController.php:788
 msgid "Please enter a valid date ( ISO )"
 msgstr "Te rog introdu o dată validă (ISO)"
 
-#: src/Controllers/JavaScriptMessagesController.php:786
+#: src/Controllers/JavaScriptMessagesController.php:789
 msgid "Please enter a valid number"
 msgstr "Te rog introdu un număr valid"
 
-#: src/Controllers/JavaScriptMessagesController.php:787
+#: src/Controllers/JavaScriptMessagesController.php:790
 msgid "Please enter a valid credit card number"
 msgstr "Te rog introdu un număr de card de credit valid"
 
-#: src/Controllers/JavaScriptMessagesController.php:788
+#: src/Controllers/JavaScriptMessagesController.php:791
 msgid "Please enter only digits"
 msgstr "Te rog introdu numai cifre"
 
-#: src/Controllers/JavaScriptMessagesController.php:789
+#: src/Controllers/JavaScriptMessagesController.php:792
 msgid "Please enter the same value again"
 msgstr "Te rog introdu din nou aceeași valoare"
 
-#: src/Controllers/JavaScriptMessagesController.php:790
+#: src/Controllers/JavaScriptMessagesController.php:793
 msgid "Please enter no more than {0} characters"
 msgstr "Te rog introdu nu mai mult de {0} caractere"
 
-#: src/Controllers/JavaScriptMessagesController.php:791
+#: src/Controllers/JavaScriptMessagesController.php:794
 msgid "Please enter at least {0} characters"
 msgstr "Te rog introdu cel puțin {0} caractere"
 
-#: src/Controllers/JavaScriptMessagesController.php:792
+#: src/Controllers/JavaScriptMessagesController.php:795
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr "Te rog introdu o valoare între {0} și {1} caractere ca lungime"
 
-#: src/Controllers/JavaScriptMessagesController.php:793
+#: src/Controllers/JavaScriptMessagesController.php:796
 msgid "Please enter a value between {0} and {1}"
 msgstr "Te rog introdu o valoare între {0} și {1}"
 
-#: src/Controllers/JavaScriptMessagesController.php:794
+#: src/Controllers/JavaScriptMessagesController.php:797
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Te rog introdu o valoare mai mică sau egală cu {0}"
 
-#: src/Controllers/JavaScriptMessagesController.php:795
+#: src/Controllers/JavaScriptMessagesController.php:798
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Te rog introdu o valoare mai mare sau egală cu {0}"
 
-#: src/Controllers/JavaScriptMessagesController.php:796
+#: src/Controllers/JavaScriptMessagesController.php:799
 msgid "Please enter a valid date or time"
 msgstr "Te rog introdu o dată sau o oră validă"
 
-#: src/Controllers/JavaScriptMessagesController.php:797
+#: src/Controllers/JavaScriptMessagesController.php:800
 msgid "Please enter a valid HEX input"
 msgstr "Te rog introdu o intrare HEX validă"
 
 #. l10n: To validate the usage of a MD5 function on the column
-#: src/Controllers/JavaScriptMessagesController.php:799
+#: src/Controllers/JavaScriptMessagesController.php:802
 msgid "This column can not contain a 32 chars value"
 msgstr "Această coloană nu poate conține o valoare de 32 de caractere"
 
-#: src/Controllers/JavaScriptMessagesController.php:802
+#: src/Controllers/JavaScriptMessagesController.php:805
 msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:807
+#: src/Controllers/JavaScriptMessagesController.php:810
 #, fuzzy
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size."
@@ -8159,33 +8160,33 @@ msgstr ""
 "sau aceasta este o eroare cunoscută în navigatoarele bazate pe webkit "
 "(Safari, Google Chrome, Arora etc.)."
 
-#: src/Controllers/JavaScriptMessagesController.php:809
+#: src/Controllers/JavaScriptMessagesController.php:812
 #, php-format
 msgid "%s of %s"
 msgstr "%s din %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:810
+#: src/Controllers/JavaScriptMessagesController.php:813
 #, php-format
 msgid "%s/sec."
 msgstr "%s/sec."
 
-#: src/Controllers/JavaScriptMessagesController.php:811
+#: src/Controllers/JavaScriptMessagesController.php:814
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr "Cam %MIN min. %SEC sec. rămase."
 
-#: src/Controllers/JavaScriptMessagesController.php:812
+#: src/Controllers/JavaScriptMessagesController.php:815
 msgid "About %SEC sec. remaining."
 msgstr "Cam %SEC sec. rămase."
 
-#: src/Controllers/JavaScriptMessagesController.php:813
+#: src/Controllers/JavaScriptMessagesController.php:816
 msgid "The file is being processed, please be patient."
 msgstr "Fișierul este procesat, te rog ai răbdare."
 
-#: src/Controllers/JavaScriptMessagesController.php:814
+#: src/Controllers/JavaScriptMessagesController.php:817
 msgid "Uploading your import file…"
 msgstr "Încarc fișierul tău de import…"
 
-#: src/Controllers/JavaScriptMessagesController.php:816
+#: src/Controllers/JavaScriptMessagesController.php:819
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
@@ -9014,7 +9015,7 @@ msgstr ""
 msgid "Insecure connection"
 msgstr "Conexiune nesigură"
 
-#: src/Controllers/Setup/MainController.php:36
+#: src/Controllers/Setup/MainController.php:40
 msgid "Configuration already exists, setup is disabled!"
 msgstr "Configurarea există deja, inițializarea este dezactivată!"
 
@@ -9027,12 +9028,12 @@ msgstr "Date greșite"
 msgid "Wrong data or no validation for %s"
 msgstr "Date greșite sau nicio validare pentru %s"
 
-#: src/Controllers/Sql/SqlController.php:240 src/Sql.php:1079
+#: src/Controllers/Sql/SqlController.php:247 src/Sql.php:1076
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Semnul de carte %s a fost creat."
 
-#: src/Controllers/Sql/SqlController.php:247
+#: src/Controllers/Sql/SqlController.php:254
 msgid "Bookmark not created!"
 msgstr "Semn de carte necreat!"
 
@@ -9078,7 +9079,7 @@ msgstr "Baza de date „%s” nu există."
 msgid "Table %s already exists!"
 msgstr "Tabelul %s există deja!"
 
-#: src/Controllers/Table/DeleteRowsController.php:75
+#: src/Controllers/Table/DeleteRowsController.php:77
 #: src/Controllers/Table/FindReplaceController.php:207
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:74
 #: src/Controllers/Table/Maintenance/CheckController.php:74
@@ -9131,7 +9132,7 @@ msgstr "Există prea multe asocieri fără indexuri."
 
 #: src/Controllers/Table/GetFieldController.php:82
 #: src/Database/Routines.php:995 src/Import/Import.php:166
-#: src/InsertEdit.php:202 src/Sql.php:881
+#: src/InsertEdit.php:202 src/Sql.php:878
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL a returnat un set de rezultate gol (adică zero rânduri)."
 
@@ -9297,7 +9298,7 @@ msgstr "Schimbă parola"
 msgid "View name can not be empty!"
 msgstr "Numele vizualizării nu poate fi gol!"
 
-#: src/Core.php:112 src/ZipExtension.php:57
+#: src/Core.php:113 src/ZipExtension.php:57
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Extensia %s lipsește. Te rog verifică-ți configurarea PHP."
@@ -9617,7 +9618,7 @@ msgstr "%1$d în total, %2$d în interogare"
 msgid "%s total"
 msgstr "Total %d"
 
-#: src/Display/Results.php:3730 src/Sql.php:887
+#: src/Display/Results.php:3730 src/Sql.php:884
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Interogarea a durat %01.4f secunde."
@@ -10241,7 +10242,7 @@ msgstr "Numele tabelului nu poate fi mai lung de %d caractere."
 msgid "The trigger name cannot end with a space character."
 msgstr "Cuvintele sunt separate printr-un caracter spațiu („ ”)."
 
-#: src/Import/Import.php:288 src/Sql.php:895
+#: src/Import/Import.php:288 src/Sql.php:892
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK s-a făcut.]"
 
@@ -10382,11 +10383,11 @@ msgstr "Sau"
 msgid "web server upload directory:"
 msgstr "director încărcare pe server web:"
 
-#: src/InsertEdit.php:962 src/Sql.php:878
+#: src/InsertEdit.php:962 src/Sql.php:875
 msgid "Showing SQL query"
 msgstr "Arăt interogarea SQL"
 
-#: src/InsertEdit.php:986 src/Sql.php:858
+#: src/InsertEdit.php:986 src/Sql.php:855
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID rând inserat: %1$d"
@@ -11668,22 +11669,22 @@ msgstr "(Vezi mai jos vizualizarea actuală)"
 msgid "Error reading data for table %s:"
 msgstr "Eroare la citirea datelor pentru tabelul %s:"
 
-#: src/Plugins/Export/ExportSql.php:2665
+#: src/Plugins/Export/ExportSql.php:2658
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:610
 msgid "Creation:"
 msgstr "Creare:"
 
-#: src/Plugins/Export/ExportSql.php:2675
+#: src/Plugins/Export/ExportSql.php:2668
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:621
 msgid "Last update:"
 msgstr "Ultima actualizare:"
 
-#: src/Plugins/Export/ExportSql.php:2685
+#: src/Plugins/Export/ExportSql.php:2678
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:632
 msgid "Last check:"
 msgstr "Ultima verificare:"
 
-#: src/Plugins/Export/ExportSql.php:2708
+#: src/Plugins/Export/ExportSql.php:2701
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
@@ -11997,7 +11998,7 @@ msgstr ""
 "fișierului. Dacă folosești a doua opțiune, trebuie să setezi prima opțiune "
 "ca șir gol."
 
-#: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:40
+#: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:39
 #, fuzzy
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
@@ -12022,7 +12023,7 @@ msgstr ""
 "dacă este stabilit la 1, va aplica NOWRAP la conținut, astfel încît întregul "
 "output va fi afișat fără reformatare (implicit 1)"
 
-#: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:123
+#: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:122
 #, php-format
 msgid ""
 "You are using the external transformation command line options field, which "
@@ -12352,24 +12353,24 @@ msgstr "Nu pot schimba master-ul!"
 msgid "Primary server changed successfully to %s."
 msgstr "Serverul master schimbat cu succes în %s."
 
-#: src/Routing/Routing.php:115
+#: src/Routing/Routing.php:119
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: src/Routing/Routing.php:149 src/Routing/Routing.php:205
+#: src/Routing/Routing.php:153 src/Routing/Routing.php:213
 #, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "Eroare 404! Pagina %s nu a fost găsită."
 
-#: src/Routing/Routing.php:157
+#: src/Routing/Routing.php:161
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
-#: src/Server/Plugins.php:53 src/Server/Privileges.php:623
-#: src/Server/Privileges.php:3312
+#: src/Server/Plugins.php:53 src/Server/Privileges.php:632
+#: src/Server/Privileges.php:3274
 msgid "Native MySQL authentication"
 msgstr "Autentificare nativă MySQL"
 
@@ -12397,15 +12398,15 @@ msgstr "Autentificare nativă MySQL"
 msgid "Account locking is not supported."
 msgstr ""
 
-#: src/Server/Privileges.php:256
+#: src/Server/Privileges.php:265
 msgid "No privileges."
 msgstr "Niciun privilegiu."
 
-#: src/Server/Privileges.php:262
+#: src/Server/Privileges.php:271
 msgid "Includes all privileges except GRANT."
 msgstr "Include toate privilegiile, cu excepția ACORDĂ."
 
-#: src/Server/Privileges.php:279 src/Server/Privileges.php:302
+#: src/Server/Privileges.php:288 src/Server/Privileges.php:311
 #: templates/server/privileges/privileges_table.twig:125
 #: templates/server/privileges/privileges_table.twig:128
 #: templates/server/privileges/privileges_table.twig:326
@@ -12413,7 +12414,7 @@ msgstr "Include toate privilegiile, cu excepția ACORDĂ."
 msgid "Allows deleting data."
 msgstr "Permite ștergerea datelor."
 
-#: src/Server/Privileges.php:280
+#: src/Server/Privileges.php:289
 #: templates/server/privileges/privileges_table.twig:137
 #: templates/server/privileges/privileges_table.twig:140
 #: templates/server/privileges/privileges_table.twig:367
@@ -12421,7 +12422,7 @@ msgstr "Permite ștergerea datelor."
 msgid "Allows creating new tables."
 msgstr "Permite crearea de tabele noi."
 
-#: src/Server/Privileges.php:281
+#: src/Server/Privileges.php:290
 #: templates/server/privileges/privileges_table.twig:149
 #: templates/server/privileges/privileges_table.twig:152
 #: templates/server/privileges/privileges_table.twig:415
@@ -12429,7 +12430,7 @@ msgstr "Permite crearea de tabele noi."
 msgid "Allows dropping tables."
 msgstr "Permite eliminarea tabelelor."
 
-#: src/Server/Privileges.php:282 src/Server/Privileges.php:310
+#: src/Server/Privileges.php:291 src/Server/Privileges.php:319
 #: templates/server/privileges/privileges_table.twig:174
 #: templates/server/privileges/privileges_table.twig:177
 #: templates/server/privileges/privileges_table.twig:399
@@ -12437,7 +12438,7 @@ msgstr "Permite eliminarea tabelelor."
 msgid "Allows creating and dropping indexes."
 msgstr "Permite crearea și eliminarea indexurilor."
 
-#: src/Server/Privileges.php:283 src/Server/Privileges.php:311
+#: src/Server/Privileges.php:292 src/Server/Privileges.php:320
 #: templates/server/privileges/privileges_table.twig:186
 #: templates/server/privileges/privileges_table.twig:189
 #: templates/server/privileges/privileges_table.twig:386
@@ -12445,8 +12446,8 @@ msgstr "Permite crearea și eliminarea indexurilor."
 msgid "Allows altering the structure of existing tables."
 msgstr "Permite modificarea structurii tabelelor existente."
 
-#: src/Server/Privileges.php:284 src/Server/Privileges.php:330
-#: src/Server/Privileges.php:334
+#: src/Server/Privileges.php:293 src/Server/Privileges.php:339
+#: src/Server/Privileges.php:343
 #: templates/server/privileges/privileges_table.twig:198
 #: templates/server/privileges/privileges_table.twig:201
 #: templates/server/privileges/privileges_table.twig:500
@@ -12456,8 +12457,8 @@ msgstr "Permite modificarea structurii tabelelor existente."
 msgid "Allows creating new views."
 msgstr "Permite crearea de vizualizări noi."
 
-#: src/Server/Privileges.php:285 src/Server/Privileges.php:335
-#: src/Server/Privileges.php:337
+#: src/Server/Privileges.php:294 src/Server/Privileges.php:344
+#: src/Server/Privileges.php:346
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:213
 #: templates/server/privileges/privileges_table.twig:447
@@ -12465,7 +12466,7 @@ msgstr "Permite crearea de vizualizări noi."
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Permite executarea interogărilor ARATĂ CREARE VIZUALIZARE."
 
-#: src/Server/Privileges.php:286 src/Server/Privileges.php:332
+#: src/Server/Privileges.php:295 src/Server/Privileges.php:341
 #: templates/server/privileges/privileges_table.twig:222
 #: templates/server/privileges/privileges_table.twig:225
 #: templates/server/privileges/privileges_table.twig:543
@@ -12473,40 +12474,40 @@ msgstr "Permite executarea interogărilor ARATĂ CREARE VIZUALIZARE."
 msgid "Allows creating and dropping triggers."
 msgstr "Permite crearea și eliminarea declanșatorilor."
 
-#: src/Server/Privileges.php:299
+#: src/Server/Privileges.php:308
 #: templates/server/privileges/privileges_table.twig:16
 #: templates/server/privileges/privileges_table.twig:287
 #: templates/server/privileges/privileges_table.twig:290
 msgid "Allows reading data."
 msgstr "Permite citirea datelor."
 
-#: src/Server/Privileges.php:300
+#: src/Server/Privileges.php:309
 #: templates/server/privileges/privileges_table.twig:43
 #: templates/server/privileges/privileges_table.twig:300
 #: templates/server/privileges/privileges_table.twig:303
 msgid "Allows inserting and replacing data."
 msgstr "Permite inserarea și înlocuirea datelor."
 
-#: src/Server/Privileges.php:301
+#: src/Server/Privileges.php:310
 #: templates/server/privileges/privileges_table.twig:70
 #: templates/server/privileges/privileges_table.twig:313
 #: templates/server/privileges/privileges_table.twig:316
 msgid "Allows changing data."
 msgstr "Permite modificarea datelor."
 
-#: src/Server/Privileges.php:303
+#: src/Server/Privileges.php:312
 #: templates/server/privileges/privileges_table.twig:365
 #: templates/server/privileges/privileges_table.twig:373
 msgid "Allows creating new databases and tables."
 msgstr "Permite crearea de baze de date și tabele noi."
 
-#: src/Server/Privileges.php:304
+#: src/Server/Privileges.php:313
 #: templates/server/privileges/privileges_table.twig:413
 #: templates/server/privileges/privileges_table.twig:421
 msgid "Allows dropping databases and tables."
 msgstr "Permite eliminarea bazelor de date și tabelelor."
 
-#: src/Server/Privileges.php:305
+#: src/Server/Privileges.php:314
 #: templates/server/privileges/privileges_table.twig:610
 #: templates/server/privileges/privileges_table.twig:613
 msgid "Allows reloading server settings and flushing the server's caches."
@@ -12514,37 +12515,37 @@ msgstr ""
 "Permite reîncărcarea setărilor serverului și golirea memoriei cache a "
 "serverului."
 
-#: src/Server/Privileges.php:306
+#: src/Server/Privileges.php:315
 #: templates/server/privileges/privileges_table.twig:623
 #: templates/server/privileges/privileges_table.twig:626
 msgid "Allows shutting down the server."
 msgstr "Permite oprirea serverului."
 
-#: src/Server/Privileges.php:307
+#: src/Server/Privileges.php:316
 #: templates/server/privileges/privileges_table.twig:597
 #: templates/server/privileges/privileges_table.twig:600
 msgid "Allows viewing processes of all users."
 msgstr "Permite vizualizarea proceselor pentru toți utilizatorii."
 
-#: src/Server/Privileges.php:308
+#: src/Server/Privileges.php:317
 #: templates/server/privileges/privileges_table.twig:340
 #: templates/server/privileges/privileges_table.twig:343
 msgid "Allows importing data from and exporting data into files."
 msgstr "Permite importul datelor din fișiere și exportul datelor în fișiere."
 
-#: src/Server/Privileges.php:309
+#: src/Server/Privileges.php:318
 #: templates/server/privileges/privileges_table.twig:97
 #: templates/server/privileges/privileges_table.twig:677
 msgid "Has no effect in this MySQL version."
 msgstr "Nu are niciun efect în această versiune MySQL."
 
-#: src/Server/Privileges.php:312
+#: src/Server/Privileges.php:321
 #: templates/server/privileges/privileges_table.twig:636
 #: templates/server/privileges/privileges_table.twig:639
 msgid "Gives access to the complete list of databases."
 msgstr "Dă acces la lista completă de baze de date."
 
-#: src/Server/Privileges.php:317
+#: src/Server/Privileges.php:326
 #: templates/server/privileges/privileges_table.twig:583
 #: templates/server/privileges/privileges_table.twig:587
 msgid ""
@@ -12556,33 +12557,33 @@ msgstr ""
 "necesară pentru majoritatea operațiunilor administrative, cum ar fi setarea "
 "variabilelor globale sau oprirea firelor de execuție a altor utilizatori."
 
-#: src/Server/Privileges.php:322
+#: src/Server/Privileges.php:331
 #: templates/server/privileges/privileges_table.twig:434
 #: templates/server/privileges/privileges_table.twig:437
 msgid "Allows creating temporary tables."
 msgstr "Permite crearea tabelelor temporare."
 
-#: src/Server/Privileges.php:323
+#: src/Server/Privileges.php:332
 #: templates/server/privileges/privileges_table.twig:664
 #: templates/server/privileges/privileges_table.twig:667
 msgid "Allows locking tables for the current thread."
 msgstr "Permite blocarea tabelelor pentru firul de execuție curent."
 
-#: src/Server/Privileges.php:324
+#: src/Server/Privileges.php:333
 #: templates/server/privileges/privileges_table.twig:705
 #: templates/server/privileges/privileges_table.twig:708
 #, fuzzy
 msgid "Needed for the replication replicas."
 msgstr "Necesară pentru sclavii de replicare."
 
-#: src/Server/Privileges.php:328
+#: src/Server/Privileges.php:337
 #: templates/server/privileges/privileges_table.twig:692
 #: templates/server/privileges/privileges_table.twig:695
 #, fuzzy
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr "Permite utilizatorului să întrebe unde sunt serverele sclav/master."
 
-#: src/Server/Privileges.php:331
+#: src/Server/Privileges.php:340
 #: templates/server/privileges/privileges_table.twig:530
 #: templates/server/privileges/privileges_table.twig:533
 msgid "Allows to set up events for the event scheduler."
@@ -12590,129 +12591,129 @@ msgstr ""
 "Permite inițializarea evenimentelor pentru programatorul de evenimente."
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
-#: src/Server/Privileges.php:343 src/Server/Privileges.php:352
+#: src/Server/Privileges.php:352 src/Server/Privileges.php:361
 #: templates/server/privileges/privileges_table.twig:235
 #: templates/server/privileges/privileges_table.twig:239
 #, fuzzy
 msgid "Allows deleting historical rows."
 msgstr "Permite ștergerea datelor."
 
-#: src/Server/Privileges.php:354
+#: src/Server/Privileges.php:363
 #: templates/server/privileges/privileges_table.twig:460
 #: templates/server/privileges/privileges_table.twig:463
 msgid "Allows creating stored routines."
 msgstr "Permite crearea de rutine stocate."
 
-#: src/Server/Privileges.php:355
+#: src/Server/Privileges.php:364
 #: templates/server/privileges/privileges_table.twig:473
 #: templates/server/privileges/privileges_table.twig:476
 msgid "Allows altering and dropping stored routines."
 msgstr "Permite modificarea și eliminarea rutinelor stocate."
 
-#: src/Server/Privileges.php:356
+#: src/Server/Privileges.php:365
 #: templates/server/privileges/privileges_table.twig:718
 #: templates/server/privileges/privileges_table.twig:721
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Permite crearea, eliminarea și redenumirea conturilor utilizatorilor."
 
-#: src/Server/Privileges.php:357
+#: src/Server/Privileges.php:366
 #: templates/server/privileges/privileges_table.twig:486
 #: templates/server/privileges/privileges_table.twig:489
 msgid "Allows executing stored routines."
 msgstr "Permite executarea rutinelor stocate."
 
-#: src/Server/Privileges.php:883
+#: src/Server/Privileges.php:892
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Parola pentru %s a fost schimbată cu succes."
 
-#: src/Server/Privileges.php:931
+#: src/Server/Privileges.php:940
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Ai revocat privilegiile pentru %s."
 
-#: src/Server/Privileges.php:1219 templates/database/privileges/index.twig:122
+#: src/Server/Privileges.php:1228 templates/database/privileges/index.twig:122
 #: templates/table/privileges/index.twig:126
 msgid "Not enough privilege to view users."
 msgstr "Nu ai privilegii suficiente pentru a vedea utilizatorii."
 
-#: src/Server/Privileges.php:1275 templates/database/privileges/index.twig:80
+#: src/Server/Privileges.php:1284 templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:75
 #: templates/table/privileges/index.twig:84
 msgid "Edit privileges"
 msgstr "Editează privilegiile"
 
-#: src/Server/Privileges.php:1279
+#: src/Server/Privileges.php:1288
 msgid "Revoke"
 msgstr "Revocă"
 
-#: src/Server/Privileges.php:1567
+#: src/Server/Privileges.php:1576
 #: templates/server/privileges/privileges_table.twig:265
 msgid "Database-specific privileges"
 msgstr "Privilegii specifice bazei de date"
 
-#: src/Server/Privileges.php:1573
+#: src/Server/Privileges.php:1582
 #: templates/server/privileges/privileges_summary.twig:19
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:267
 msgid "Table-specific privileges"
 msgstr "Privilegii specifice tabelului"
 
-#: src/Server/Privileges.php:1578 src/Server/Privileges.php:1580
+#: src/Server/Privileges.php:1587 src/Server/Privileges.php:1589
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:59
 msgid "Routine"
 msgstr "Rutină"
 
-#: src/Server/Privileges.php:1579
+#: src/Server/Privileges.php:1588
 #: templates/server/privileges/edit_routine_privileges.twig:47
 msgid "Routine-specific privileges"
 msgstr "Privilegii specifice rutinei"
 
-#: src/Server/Privileges.php:1905
+#: src/Server/Privileges.php:1891
 msgid "No users selected for deleting!"
 msgstr "Niciun utilizator selectat pentru ștergere!"
 
-#: src/Server/Privileges.php:1908
+#: src/Server/Privileges.php:1894
 msgid "Reloading the privileges"
 msgstr "Reîncarc privilegiile"
 
-#: src/Server/Privileges.php:1933
+#: src/Server/Privileges.php:1919
 msgid "The selected users have been deleted successfully."
 msgstr "Utilizatorii selectați au fost șterși cu succes."
 
-#: src/Server/Privileges.php:2007
+#: src/Server/Privileges.php:1993
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Ai actualizat privilegiile pentru %s."
 
-#: src/Server/Privileges.php:2083 templates/database/privileges/index.twig:102
+#: src/Server/Privileges.php:2069 templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "Niciun utilizator găsit."
 
-#: src/Server/Privileges.php:2164
+#: src/Server/Privileges.php:2150
 #, php-format
 msgid "Deleting %s"
 msgstr "Șterg %s"
 
-#: src/Server/Privileges.php:2195
+#: src/Server/Privileges.php:2181
 msgid "The privileges were reloaded successfully."
 msgstr "Privilegiile au fost reîncărcate cu succes."
 
-#: src/Server/Privileges.php:2296
+#: src/Server/Privileges.php:2282
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Utilizatorul %s există deja!"
 
-#: src/Server/Privileges.php:2540
+#: src/Server/Privileges.php:2526
 #, php-format
 msgid "Privileges for %s"
 msgstr "Privilegii pentru %s"
 
-#: src/Server/Privileges.php:2652
+#: src/Server/Privileges.php:2614
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -12725,7 +12726,7 @@ msgstr ""
 "privilegiile pe care le utilizează serverul, dacă au fost modificate manual. "
 "În acest caz, ar trebui %ssă reîncarci privilegiile%s înainte de a continua."
 
-#: src/Server/Privileges.php:2668
+#: src/Server/Privileges.php:2630
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12739,11 +12740,11 @@ msgstr ""
 "În acest caz, privilegiile ar trebui să fie reîncărcate, dar în prezent nu "
 "ai privilegiul REÎNCARCĂ."
 
-#: src/Server/Privileges.php:2956
+#: src/Server/Privileges.php:2918
 msgid "You have added a new user."
 msgstr "Ai adăugat un utilizator nou."
 
-#: src/Server/Privileges.php:3405
+#: src/Server/Privileges.php:3367
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -12864,16 +12865,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Nu este disponibilă nicio versiune stabilă mai nouă"
 
-#: src/Sql.php:452
+#: src/Sql.php:450
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Folosește semnul de carte „%s” ca interogare de răsfoire implicită."
 
-#: src/Sql.php:875
+#: src/Sql.php:872
 msgid "Showing as PHP code"
 msgstr "Arăt drept cod PHP"
 
-#: src/Sql.php:1262
+#: src/Sql.php:1259
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12882,7 +12883,7 @@ msgstr ""
 "Selecția actuală nu conține o coloană unică. Funcționalitățile editare "
 "grilă, bifă, editează, copiază și șterge nu sunt disponibile. %s"
 
-#: src/Sql.php:1276
+#: src/Sql.php:1273
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -12892,17 +12893,17 @@ msgstr ""
 "grilă, bifă, editează, copiază și șterge pot duce la un comportament "
 "nedorit. %s"
 
-#: src/SqlQueryForm.php:138
+#: src/SqlQueryForm.php:142
 #, php-format
 msgid "Run SQL query/queries on server “%s”"
 msgstr "Execută o interogare/interogări SQL pe serverul „%s”"
 
-#: src/SqlQueryForm.php:154
+#: src/SqlQueryForm.php:158
 #, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr "Execută o interogare/interogări SQL în baza de date %s"
 
-#: src/SqlQueryForm.php:169
+#: src/SqlQueryForm.php:173
 #, php-format
 msgid "Run SQL query/queries on table %s"
 msgstr "Execută o interogare/interogări SQL în tabelul %s"
@@ -14699,6 +14700,7 @@ msgid "Grant"
 msgstr "Acordă"
 
 #: templates/database/privileges/index.twig:36
+#: templates/server/privileges/initials_row.twig:8
 #: templates/server/privileges/new_user_ajax.twig:9
 #: templates/server/privileges/users_overview.twig:36
 #: templates/table/privileges/index.twig:38
@@ -15523,82 +15525,25 @@ msgstr "În prezent se rulează revizia Git %1$s din ramura %2$s."
 msgid "Git information missing!"
 msgstr "Informațiile despre Git lipsesc!"
 
-#: templates/gis_data_editor_form.twig:3
+#: templates/gis_data_editor_form.twig:4
 #, php-format
 msgid "Value for the column \"%s\""
 msgstr "Valoare pentru coloana „%s”"
 
-#: templates/gis_data_editor_form.twig:22
+#: templates/gis_data_editor_form.twig:23
 #: templates/table/gis_visualization/gis_visualization.twig:34
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Folosește OpenStreetMaps ca strat de bază"
 
-#: templates/gis_data_editor_form.twig:38
+#: templates/gis_data_editor_form.twig:49
 #, fuzzy
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
 msgstr "SRID:"
 
-#: templates/gis_data_editor_form.twig:62
-#, php-format
-msgid "Geometry %d:"
-msgstr "Geometrie %d:"
-
-#: templates/gis_data_editor_form.twig:82
-msgid "Point:"
-msgstr "Punct:"
-
-#: templates/gis_data_editor_form.twig:102
-#: templates/gis_data_editor_form.twig:140
-#: templates/gis_data_editor_form.twig:186
-#, php-format
-msgid "Point %d:"
-msgstr "Punct %d:"
-
-#: templates/gis_data_editor_form.twig:122
-#, php-format
-msgid "Linestring %d:"
-msgstr "Șir de linii %d:"
-
-#: templates/gis_data_editor_form.twig:124
-#: templates/gis_data_editor_form.twig:173
-msgid "Outer ring:"
-msgstr "Inel exterior:"
-
-#: templates/gis_data_editor_form.twig:126
-#: templates/gis_data_editor_form.twig:175
-#, php-format
-msgid "Inner ring %d:"
-msgstr "Inel interior %d:"
-
-#: templates/gis_data_editor_form.twig:153
-msgid "Add a linestring"
-msgstr "Adaugă un șir de linii"
-
-#: templates/gis_data_editor_form.twig:163
-#, php-format
-msgid "Polygon %d:"
-msgstr "Poligon %d:"
-
-#: templates/gis_data_editor_form.twig:202
-msgid "Add a polygon"
-msgstr "Adaugă un poligon"
-
-#: templates/gis_data_editor_form.twig:209
-msgid "Add geometry"
-msgstr "Adaugă geometrie"
-
-#: templates/gis_data_editor_form.twig:218
+#: templates/gis_data_editor_form.twig:58
 msgid "Output"
 msgstr "Ieșire"
-
-#: templates/gis_data_editor_form.twig:220
-msgid ""
-"Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field."
-msgstr ""
-"Alege „GeomFromText” din coloana „Funcție” și plasează șirul mai jos în "
-"câmpul „Valoare”."
 
 #: templates/header.twig:36 templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -18867,6 +18812,43 @@ msgstr "Nume VIZUALIZARE"
 #: templates/view_create.twig:84
 msgid "Column names"
 msgstr "Nume coloane"
+
+#, php-format
+#~ msgid "Point %d"
+#~ msgstr "Punct %d"
+
+#, php-format
+#~ msgid "Geometry %d:"
+#~ msgstr "Geometrie %d:"
+
+#~ msgid "Point:"
+#~ msgstr "Punct:"
+
+#, php-format
+#~ msgid "Point %d:"
+#~ msgstr "Punct %d:"
+
+#, php-format
+#~ msgid "Linestring %d:"
+#~ msgstr "Șir de linii %d:"
+
+#~ msgid "Outer ring:"
+#~ msgstr "Inel exterior:"
+
+#, php-format
+#~ msgid "Inner ring %d:"
+#~ msgstr "Inel interior %d:"
+
+#, php-format
+#~ msgid "Polygon %d:"
+#~ msgstr "Poligon %d:"
+
+#~ msgid ""
+#~ "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+#~ "below into the \"Value\" field."
+#~ msgstr ""
+#~ "Alege „GeomFromText” din coloana „Funcție” și plasează șirul mai jos în "
+#~ "câmpul „Valoare”."
 
 #, php-format
 #~ msgid "Failed to get description of column %s!"

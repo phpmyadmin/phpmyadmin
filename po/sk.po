@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-09-24 00:19+0000\n"
+"POT-Creation-Date: 2023-10-01 00:20+0000\n"
 "PO-Revision-Date: 2022-03-03 21:56+0000\n"
 "Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1218,8 +1218,7 @@ msgstr "Hľadať:"
 #: templates/database/operations/index.twig:226
 #: templates/database/routines/editor_form.twig:185
 #: templates/database/routines/execute_form.twig:55
-#: templates/display/results/table.twig:279
-#: templates/gis_data_editor_form.twig:215 templates/modals/add_index.twig:10
+#: templates/display/results/table.twig:279 templates/modals/add_index.twig:10
 #: templates/modals/change_password.twig:10
 #: templates/modals/create_view.twig:10
 #: templates/modals/enum_set_editor.twig:10
@@ -1281,9 +1280,9 @@ msgid "Page number:"
 msgstr "Číslo stránky:"
 
 #: src/BrowseForeigners.php:301
-#: src/Controllers/JavaScriptMessagesController.php:573
+#: src/Controllers/JavaScriptMessagesController.php:575
 #: templates/display/results/table.twig:99
-#: templates/server/privileges/initials_row.twig:17
+#: templates/server/privileges/initials_row.twig:21
 #: templates/table/browse_foreigners/show_all.twig:4
 msgid "Show all"
 msgstr "Zobraziť všetko"
@@ -1292,321 +1291,321 @@ msgstr "Zobraziť všetko"
 msgid "Unknown"
 msgstr "Neznámy"
 
-#: src/Charsets/Collation.php:141 src/Charsets/Collation.php:430
+#: src/Charsets/Collation.php:141 src/Charsets/Collation.php:406
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr ""
 
-#: src/Charsets/Collation.php:145 src/Charsets/Collation.php:427
+#: src/Charsets/Collation.php:145 src/Charsets/Collation.php:403
 #, fuzzy
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "Dátový slovník"
 
-#: src/Charsets/Collation.php:154 src/Charsets/Collation.php:505
+#: src/Charsets/Collation.php:154 src/Charsets/Collation.php:481
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr ""
 
-#: src/Charsets/Collation.php:158 src/Charsets/Collation.php:498
+#: src/Charsets/Collation.php:158 src/Charsets/Collation.php:474
 #, fuzzy
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "Španielština"
 
-#: src/Charsets/Collation.php:225
+#: src/Charsets/Collation.php:218
 #, fuzzy
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "nerozlišovať veľké a malé písmená"
 
-#: src/Charsets/Collation.php:228
+#: src/Charsets/Collation.php:219
 #, fuzzy
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "rozlišovať veľké a malé písmená"
 
-#: src/Charsets/Collation.php:231
+#: src/Charsets/Collation.php:220
 #, fuzzy
 msgctxt "Collation variant"
 msgid "accent-insensitive"
 msgstr "nerozlišovať veľké a malé písmená"
 
-#: src/Charsets/Collation.php:234
+#: src/Charsets/Collation.php:221
 #, fuzzy
 msgctxt "Collation variant"
 msgid "accent-sensitive"
 msgstr "rozlišovať veľké a malé písmená"
 
-#: src/Charsets/Collation.php:237
+#: src/Charsets/Collation.php:222
 #, fuzzy
 msgctxt "Collation variant"
 msgid "kana-sensitive"
 msgstr "rozlišovať veľké a malé písmená"
 
-#: src/Charsets/Collation.php:241
+#: src/Charsets/Collation.php:223
 #, fuzzy
 msgctxt "Collation variant"
 msgid "multi-level"
 msgstr "mnohojazyčný"
 
-#: src/Charsets/Collation.php:244
+#: src/Charsets/Collation.php:224
 #, fuzzy
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "Binárny"
 
-#: src/Charsets/Collation.php:247
+#: src/Charsets/Collation.php:225
 msgctxt "Collation variant"
 msgid "no-pad"
 msgstr ""
 
-#: src/Charsets/Collation.php:266
+#: src/Charsets/Collation.php:242
 #, fuzzy
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Binárny"
 
-#: src/Charsets/Collation.php:279 src/Charsets/Collation.php:529
+#: src/Charsets/Collation.php:255 src/Charsets/Collation.php:505
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
 
-#: src/Charsets/Collation.php:289 src/Charsets/Collation.php:476
+#: src/Charsets/Collation.php:265 src/Charsets/Collation.php:452
 msgctxt "Collation"
 msgid "West European"
 msgstr "Západoeurópsky"
 
-#: src/Charsets/Collation.php:296
+#: src/Charsets/Collation.php:272
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Stredoeurópsky"
 
-#: src/Charsets/Collation.php:301 src/Charsets/Collation.php:483
+#: src/Charsets/Collation.php:277 src/Charsets/Collation.php:459
 #, fuzzy
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Ruština"
 
-#: src/Charsets/Collation.php:306
+#: src/Charsets/Collation.php:282
 #, fuzzy
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Zjednodušená Čínština"
 
-#: src/Charsets/Collation.php:309
+#: src/Charsets/Collation.php:285
 #, fuzzy
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Tradičná Čínština"
 
-#: src/Charsets/Collation.php:312 src/Charsets/Collation.php:398
+#: src/Charsets/Collation.php:288 src/Charsets/Collation.php:374
 msgctxt "Collation"
 msgid "Chinese"
 msgstr ""
 
-#: src/Charsets/Collation.php:320 src/Charsets/Collation.php:447
+#: src/Charsets/Collation.php:296 src/Charsets/Collation.php:423
 #, fuzzy
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Japončina"
 
-#: src/Charsets/Collation.php:325
+#: src/Charsets/Collation.php:301
 #, fuzzy
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Baltické"
 
-#: src/Charsets/Collation.php:330
+#: src/Charsets/Collation.php:306
 #, fuzzy
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Arménština"
 
-#: src/Charsets/Collation.php:333
+#: src/Charsets/Collation.php:309
 #, fuzzy
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Cyrilika"
 
-#: src/Charsets/Collation.php:336
+#: src/Charsets/Collation.php:312
 #, fuzzy
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Arabština"
 
-#: src/Charsets/Collation.php:339 src/Charsets/Collation.php:462
+#: src/Charsets/Collation.php:315 src/Charsets/Collation.php:438
 #, fuzzy
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Kórejčina"
 
-#: src/Charsets/Collation.php:342
+#: src/Charsets/Collation.php:318
 #, fuzzy
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Hebrejsky"
 
-#: src/Charsets/Collation.php:345
+#: src/Charsets/Collation.php:321
 #, fuzzy
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Gruzínčina"
 
-#: src/Charsets/Collation.php:348
+#: src/Charsets/Collation.php:324
 #, fuzzy
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Gréčtina"
 
-#: src/Charsets/Collation.php:351
+#: src/Charsets/Collation.php:327
 #, fuzzy
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Čeština/Slovenčina"
 
-#: src/Charsets/Collation.php:354 src/Charsets/Collation.php:521
+#: src/Charsets/Collation.php:330 src/Charsets/Collation.php:497
 #, fuzzy
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ukrajinsky"
 
-#: src/Charsets/Collation.php:357 src/Charsets/Collation.php:517
+#: src/Charsets/Collation.php:333 src/Charsets/Collation.php:493
 #, fuzzy
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Turecky"
 
-#: src/Charsets/Collation.php:360 src/Charsets/Collation.php:509
+#: src/Charsets/Collation.php:336 src/Charsets/Collation.php:485
 #, fuzzy
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Švédština"
 
-#: src/Charsets/Collation.php:363 src/Charsets/Collation.php:513
+#: src/Charsets/Collation.php:339 src/Charsets/Collation.php:489
 #, fuzzy
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Thajčina"
 
-#: src/Charsets/Collation.php:366
+#: src/Charsets/Collation.php:342
 #, fuzzy
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "neznámy"
 
-#: src/Charsets/Collation.php:392
+#: src/Charsets/Collation.php:368
 #, fuzzy
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Bulharština"
 
-#: src/Charsets/Collation.php:404
+#: src/Charsets/Collation.php:380
 #, fuzzy
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Chorvátsky"
 
-#: src/Charsets/Collation.php:408
+#: src/Charsets/Collation.php:384
 #, fuzzy
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Čeština"
 
-#: src/Charsets/Collation.php:412
+#: src/Charsets/Collation.php:388
 #, fuzzy
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Dánština"
 
-#: src/Charsets/Collation.php:416
+#: src/Charsets/Collation.php:392
 #, fuzzy
 msgctxt "Collation"
 msgid "English"
 msgstr "Anglicky"
 
-#: src/Charsets/Collation.php:420
+#: src/Charsets/Collation.php:396
 #, fuzzy
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: src/Charsets/Collation.php:424
+#: src/Charsets/Collation.php:400
 #, fuzzy
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Estónsky"
 
-#: src/Charsets/Collation.php:439
+#: src/Charsets/Collation.php:415
 #, fuzzy
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Maďarsky"
 
-#: src/Charsets/Collation.php:443
+#: src/Charsets/Collation.php:419
 #, fuzzy
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Islandčina"
 
-#: src/Charsets/Collation.php:450
+#: src/Charsets/Collation.php:426
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr ""
 
-#: src/Charsets/Collation.php:454
+#: src/Charsets/Collation.php:430
 #, fuzzy
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Lotyšstina"
 
-#: src/Charsets/Collation.php:458
+#: src/Charsets/Collation.php:434
 #, fuzzy
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Litovsky"
 
-#: src/Charsets/Collation.php:466
+#: src/Charsets/Collation.php:442
 msgctxt "Collation"
 msgid "Burmese"
 msgstr ""
 
-#: src/Charsets/Collation.php:469
+#: src/Charsets/Collation.php:445
 #, fuzzy
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Perština"
 
-#: src/Charsets/Collation.php:473
+#: src/Charsets/Collation.php:449
 #, fuzzy
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Poľština"
 
-#: src/Charsets/Collation.php:480
+#: src/Charsets/Collation.php:456
 #, fuzzy
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Rumunština"
 
-#: src/Charsets/Collation.php:487
+#: src/Charsets/Collation.php:463
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr ""
 
-#: src/Charsets/Collation.php:491
+#: src/Charsets/Collation.php:467
 #, fuzzy
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Slovenčina"
 
-#: src/Charsets/Collation.php:495
+#: src/Charsets/Collation.php:471
 #, fuzzy
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Slovinčina"
 
-#: src/Charsets/Collation.php:525
+#: src/Charsets/Collation.php:501
 #, fuzzy
 msgctxt "Collation"
 msgid "Vietnamese"
@@ -1617,7 +1616,7 @@ msgstr "Vietnamčina"
 #: src/Config/Forms/User/ExportForm.php:53
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
-#: src/Controllers/JavaScriptMessagesController.php:712
+#: src/Controllers/JavaScriptMessagesController.php:715
 #: src/Import/Import.php:1254 src/Menu.php:226 src/Menu.php:326
 #: src/Navigation/Nodes/NodeColumn.php:40
 #: src/Navigation/Nodes/NodeDatabase.php:56
@@ -1834,7 +1833,7 @@ msgid "Closed"
 msgstr "Zatvorené"
 
 #: src/Config/ConfigFile.php:609
-#: src/Controllers/JavaScriptMessagesController.php:739
+#: src/Controllers/JavaScriptMessagesController.php:742
 #, fuzzy
 #| msgid "Monday"
 msgctxt "Week day name"
@@ -1842,7 +1841,7 @@ msgid "Monday"
 msgstr "Pondelok"
 
 #: src/Config/ConfigFile.php:610
-#: src/Controllers/JavaScriptMessagesController.php:740
+#: src/Controllers/JavaScriptMessagesController.php:743
 #, fuzzy
 #| msgid "Tuesday"
 msgctxt "Week day name"
@@ -1850,7 +1849,7 @@ msgid "Tuesday"
 msgstr "Utorok"
 
 #: src/Config/ConfigFile.php:611
-#: src/Controllers/JavaScriptMessagesController.php:741
+#: src/Controllers/JavaScriptMessagesController.php:744
 #, fuzzy
 #| msgid "Wednesday"
 msgctxt "Week day name"
@@ -1858,7 +1857,7 @@ msgid "Wednesday"
 msgstr "Streda"
 
 #: src/Config/ConfigFile.php:612
-#: src/Controllers/JavaScriptMessagesController.php:742
+#: src/Controllers/JavaScriptMessagesController.php:745
 #, fuzzy
 #| msgid "Thursday"
 msgctxt "Week day name"
@@ -1866,7 +1865,7 @@ msgid "Thursday"
 msgstr "Štvrtok"
 
 #: src/Config/ConfigFile.php:613
-#: src/Controllers/JavaScriptMessagesController.php:743
+#: src/Controllers/JavaScriptMessagesController.php:746
 #, fuzzy
 #| msgid "Friday"
 msgctxt "Week day name"
@@ -1874,7 +1873,7 @@ msgid "Friday"
 msgstr "Piatok"
 
 #: src/Config/ConfigFile.php:614
-#: src/Controllers/JavaScriptMessagesController.php:744
+#: src/Controllers/JavaScriptMessagesController.php:747
 #, fuzzy
 #| msgid "Saturday"
 msgctxt "Week day name"
@@ -1882,7 +1881,7 @@ msgid "Saturday"
 msgstr "Sobota"
 
 #: src/Config/ConfigFile.php:615
-#: src/Controllers/JavaScriptMessagesController.php:738
+#: src/Controllers/JavaScriptMessagesController.php:741
 #, fuzzy
 #| msgid "Sunday"
 msgctxt "Week day name"
@@ -3933,7 +3932,7 @@ msgid "Navigation panel width"
 msgstr "Navigačný panel"
 
 #: src/Config/Descriptions.php:815
-#: src/Controllers/JavaScriptMessagesController.php:605
+#: src/Controllers/JavaScriptMessagesController.php:607
 #: src/Navigation/NavigationTree.php:1281
 msgid "Link with main panel"
 msgstr "Prepojiť s hlavným panelom"
@@ -4442,8 +4441,8 @@ msgstr "Riadkov v textovej oblasti"
 
 #: src/Config/Descriptions.php:938 src/Plugins/Export/ExportHtmlword.php:138
 #: src/Plugins/Export/ExportOdt.php:182
-#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1566
-#: src/Server/Privileges.php:1568 src/Server/Status/Processes.php:93
+#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1575
+#: src/Server/Privileges.php:1577 src/Server/Status/Processes.php:93
 #: templates/console/bookmark_content.twig:12 templates/console/display.twig:48
 #: templates/console/display.twig:206 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4469,7 +4468,7 @@ msgid "Server"
 msgstr "Server"
 
 #: src/Config/Descriptions.php:941 src/Plugins/Export/ExportXml.php:449
-#: src/Server/Privileges.php:1572 src/Server/Privileges.php:1574
+#: src/Server/Privileges.php:1581 src/Server/Privileges.php:1583
 #: templates/database/structure/show_create.twig:11
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
@@ -4620,7 +4619,7 @@ msgid "Missing data for %s"
 msgstr "Chýba hodnota pre %s"
 
 #: src/Config/FormDisplay.php:619 src/Config/Validator.php:586
-#: src/Controllers/JavaScriptMessagesController.php:822
+#: src/Controllers/JavaScriptMessagesController.php:825
 msgid "Incorrect value!"
 msgstr "Nesprávna hodnota!"
 
@@ -4698,7 +4697,7 @@ msgstr "Open Document Text"
 
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:385 src/Menu.php:249
-#: src/Menu.php:351 src/Menu.php:473 src/Server/Privileges.php:1283
+#: src/Menu.php:351 src/Menu.php:473 src/Server/Privileges.php:1292
 #: src/Util.php:1698 src/Util.php:1713 src/Util.php:1730
 #: templates/database/events/index.twig:17
 #: templates/database/events/index.twig:18
@@ -4982,27 +4981,27 @@ msgid "Incorrect IP address: %s"
 msgstr "Nesprávna IP adresa: %s"
 
 #: src/Config/Validator.php:521
-#: src/Controllers/JavaScriptMessagesController.php:821
+#: src/Controllers/JavaScriptMessagesController.php:824
 msgid "Not a valid port number!"
 msgstr "Neplatné číslo portu!"
 
 #: src/Config/Validator.php:543
-#: src/Controllers/JavaScriptMessagesController.php:819
+#: src/Controllers/JavaScriptMessagesController.php:822
 msgid "Not a positive number!"
 msgstr "Nie je kladné číslo!"
 
 #: src/Config/Validator.php:565
-#: src/Controllers/JavaScriptMessagesController.php:820
+#: src/Controllers/JavaScriptMessagesController.php:823
 msgid "Not a non-negative number!"
 msgstr "Nie je nezáporné číslo!"
 
 #: src/Config/Validator.php:604
-#: src/Controllers/JavaScriptMessagesController.php:823
+#: src/Controllers/JavaScriptMessagesController.php:826
 #, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr "Hodnota musí byť rovná alebo menšia ako %s!"
 
-#: src/Console.php:73
+#: src/Console.php:74
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
@@ -5010,7 +5009,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/Console.php:80
+#: src/Console.php:81
 msgid "No bookmarks"
 msgstr "Žiadne záložky"
 
@@ -5030,16 +5029,16 @@ msgstr ""
 "Súbor %s nie je dostupný na tomto systéme. Viac informácií nájdete na "
 "stránke %s."
 
-#: src/Controllers/Console/Bookmark/AddController.php:33
+#: src/Controllers/Console/Bookmark/AddController.php:35
 msgid "Incomplete params"
 msgstr "Nekompletné parametre"
 
-#: src/Controllers/Console/Bookmark/AddController.php:46
-#: src/Controllers/JavaScriptMessagesController.php:587
+#: src/Controllers/Console/Bookmark/AddController.php:48
+#: src/Controllers/JavaScriptMessagesController.php:589
 msgid "Failed"
 msgstr "Neúspešný"
 
-#: src/Controllers/Console/Bookmark/AddController.php:51
+#: src/Controllers/Console/Bookmark/AddController.php:60
 msgid "Succeeded"
 msgstr "Úspešný"
 
@@ -5104,8 +5103,8 @@ msgstr ""
 #: src/Controllers/Table/IndexRenameController.php:63
 #: src/Controllers/Table/OperationsController.php:94
 #: src/Controllers/Table/OperationsController.php:99
-#: src/Controllers/Table/SearchController.php:176
-#: src/Controllers/Table/SearchController.php:181
+#: src/Controllers/Table/SearchController.php:177
+#: src/Controllers/Table/SearchController.php:182
 #: src/Controllers/Table/SqlController.php:66
 #: src/Controllers/Table/SqlController.php:71
 #: src/Controllers/Table/StructureController.php:121
@@ -5173,7 +5172,7 @@ msgstr ""
 "Nepodarilo sa načítať exportné pluginy, skontrolujte prosím vašu inštaláciu!"
 
 #: src/Controllers/Database/ImportController.php:81
-#: src/Controllers/Import/ImportController.php:561
+#: src/Controllers/Import/ImportController.php:548
 #: src/Controllers/Server/ImportController.php:61
 #: src/Controllers/Table/ImportController.php:101
 msgid "Could not load import plugins, please check your installation!"
@@ -5260,8 +5259,8 @@ msgstr "Nemáte potrebné oprávnenia na vytvorenie triggera"
 #: src/Controllers/Table/Maintenance/RepairController.php:45
 #: src/Controllers/Table/OperationsController.php:108
 #: src/Controllers/Table/OperationsController.php:113
-#: src/Controllers/Table/SearchController.php:190
-#: src/Controllers/Table/SearchController.php:195
+#: src/Controllers/Table/SearchController.php:191
+#: src/Controllers/Table/SearchController.php:196
 #: src/Controllers/Table/SqlController.php:80
 #: src/Controllers/Table/SqlController.php:85
 #: src/Controllers/Table/StructureController.php:135
@@ -5362,9 +5361,9 @@ msgid "unknown"
 msgstr "neznámy"
 
 #: src/Controllers/Database/Structure/DropTableController.php:42
-#: src/Controllers/Database/Structure/EmptyTableController.php:46
-#: src/Controllers/JavaScriptMessagesController.php:500
-#: src/Controllers/Table/DeleteRowsController.php:54
+#: src/Controllers/Database/Structure/EmptyTableController.php:47
+#: src/Controllers/JavaScriptMessagesController.php:502
+#: src/Controllers/Table/DeleteRowsController.php:56
 #: src/Controllers/Table/DropColumnController.php:45
 #: src/Controllers/Table/Structure/PrimaryController.php:108
 #: src/IndexColumn.php:154 src/Index.php:470
@@ -5402,10 +5401,10 @@ msgid "Yes"
 msgstr "Áno"
 
 #: src/Controllers/Database/Structure/DropTableController.php:43
-#: src/Controllers/Database/Structure/EmptyTableController.php:47
+#: src/Controllers/Database/Structure/EmptyTableController.php:48
 #: src/Controllers/Table/DropColumnController.php:62
 #: src/Controllers/Table/OperationsController.php:359
-#: src/Controllers/Table/ReplaceController.php:307 src/Core.php:528
+#: src/Controllers/Table/ReplaceController.php:307 src/Core.php:519
 #: templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Žiadna zmena"
@@ -5585,7 +5584,7 @@ msgstr ""
 "Rozšírenie curl nebolo nájdené a allow_url_fopen je vzpnuté. Z toho dôvodu "
 "sp niektoré funkcie, ako je hlásenie chýb alebo kontrola verzie, vypnuté."
 
-#: src/Controllers/Import/ImportController.php:203
+#: src/Controllers/Import/ImportController.php:204
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -5594,23 +5593,23 @@ msgstr ""
 "Pravdepodobne ste sa pokúsili uploadnuť príliš veľký súbor. Prečítajte si "
 "prosím %sdokumentáciu%s, ako sa dá toto obmedzenie obísť."
 
-#: src/Controllers/Import/ImportController.php:235
+#: src/Controllers/Import/ImportController.php:236
 #, fuzzy
 #| msgid "Remove last parameter"
 msgid "Incorrect format parameter"
 msgstr "Odstrániť posledný parameter"
 
-#: src/Controllers/Import/ImportController.php:365
-#: src/Controllers/Import/ImportController.php:601
+#: src/Controllers/Import/ImportController.php:357
+#: src/Controllers/Import/ImportController.php:588
 msgid "Showing bookmark"
 msgstr "Zobrazujem obľúbený príkaz"
 
-#: src/Controllers/Import/ImportController.php:390
-#: src/Controllers/Import/ImportController.php:597
+#: src/Controllers/Import/ImportController.php:377
+#: src/Controllers/Import/ImportController.php:584
 msgid "The bookmark has been deleted."
 msgstr "Záznam z obľúbených bol zmazaný."
 
-#: src/Controllers/Import/ImportController.php:509
+#: src/Controllers/Import/ImportController.php:496
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5620,7 +5619,7 @@ msgstr ""
 "jeho veľkosť prekročila maximálnu veľkosť povolenú v PHP konfigurácii. Pozri "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 
-#: src/Controllers/Import/ImportController.php:609
+#: src/Controllers/Import/ImportController.php:596
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
@@ -5628,7 +5627,7 @@ msgstr[0] "Import bol úspešne ukončený, bol vykonaný %d dopyt."
 msgstr[1] "Import bol úspešne ukončený, boli vykonané %d dopyty."
 msgstr[2] "Import bol úspešne ukončený, bolo vykonaných %d dopytov."
 
-#: src/Controllers/Import/ImportController.php:646
+#: src/Controllers/Import/ImportController.php:633
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5637,7 +5636,7 @@ msgstr ""
 "Časový limit behu skriptu vypršal. Ak chcete import súboru dokončiť, "
 "%sodošlite znovu rovnaký súbor%s a import bude pokračovať."
 
-#: src/Controllers/Import/ImportController.php:656
+#: src/Controllers/Import/ImportController.php:643
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5646,8 +5645,8 @@ msgstr ""
 "že phpMyAdmin nebude schopný dokončiť tento import, pokiaľ nebude zvýšený "
 "časový limit behu skriptu v php."
 
-#: src/Controllers/Import/ImportController.php:724
-#: src/Controllers/Sql/SqlController.php:169
+#: src/Controllers/Import/ImportController.php:711
+#: src/Controllers/Sql/SqlController.php:170
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Príkaz \"DROP DATABASE\" je zakázaný."
 
@@ -5916,12 +5915,12 @@ msgid "The user name is empty!"
 msgstr "Meno používateľa je prázdne!"
 
 #: src/Controllers/JavaScriptMessagesController.php:144
-#: src/Server/Privileges.php:756 src/UserPassword.php:39
+#: src/Server/Privileges.php:765 src/UserPassword.php:39
 msgid "The password is empty!"
 msgstr "Heslo je prázdne!"
 
 #: src/Controllers/JavaScriptMessagesController.php:145
-#: src/Server/Privileges.php:754 src/UserPassword.php:43
+#: src/Server/Privileges.php:763 src/UserPassword.php:43
 msgid "The passwords aren't the same!"
 msgstr "Heslá sa nezhodujú!"
 
@@ -6572,7 +6571,8 @@ msgstr "Parametre neboli nájdené!"
 #: templates/database/structure/check_all_tables.twig:49
 #: templates/database/structure/check_all_tables.twig:55
 #: templates/error/report_modal.twig:6 templates/error/report_modal.twig:11
-#: templates/modals/add_index.twig:11 templates/modals/change_password.twig:11
+#: templates/gis_data_editor_form.twig:62 templates/modals/add_index.twig:11
+#: templates/modals/change_password.twig:11
 #: templates/modals/page_settings.twig:11
 #: templates/server/databases/index.twig:316
 #: templates/server/databases/index.twig:320
@@ -6883,7 +6883,7 @@ msgstr "Druhý krok normalizácie (2NF)"
 
 #. l10n: Display text for calendar close link
 #: src/Controllers/JavaScriptMessagesController.php:427
-#: src/Controllers/JavaScriptMessagesController.php:771
+#: src/Controllers/JavaScriptMessagesController.php:774
 #: src/Normalization.php:337
 msgid "Done"
 msgstr "Hotovo"
@@ -7039,7 +7039,7 @@ msgid "Data point content"
 msgstr "Obsah datového bodu"
 
 #: src/Controllers/JavaScriptMessagesController.php:487
-#: src/Controllers/JavaScriptMessagesController.php:635
+#: src/Controllers/JavaScriptMessagesController.php:638
 #: src/ErrorHandler.php:405 src/InsertEdit.php:1567
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
@@ -7049,22 +7049,15 @@ msgstr "Ignorovať"
 #: src/Display/Results.php:2706 src/Html/Generator.php:79
 #: templates/display/results/table.twig:323
 #: templates/display/results/table.twig:324
+#: templates/gis_data_editor_form.twig:61
 msgid "Copy"
 msgstr "Kopírovať"
 
 #: src/Controllers/JavaScriptMessagesController.php:489
-#: templates/gis_data_editor_form.twig:84
-#: templates/gis_data_editor_form.twig:104
-#: templates/gis_data_editor_form.twig:142
-#: templates/gis_data_editor_form.twig:188
 msgid "X"
 msgstr "X"
 
 #: src/Controllers/JavaScriptMessagesController.php:490
-#: templates/gis_data_editor_form.twig:88
-#: templates/gis_data_editor_form.twig:108
-#: templates/gis_data_editor_form.twig:146
-#: templates/gis_data_editor_form.twig:192
 msgid "Y"
 msgstr "Y"
 
@@ -7073,71 +7066,73 @@ msgid "Point"
 msgstr "Bod"
 
 #: src/Controllers/JavaScriptMessagesController.php:492
-#, php-format
-msgid "Point %d"
-msgstr "Bod %d"
-
-#: src/Controllers/JavaScriptMessagesController.php:493
 msgid "Linestring"
 msgstr "Linka"
 
-#: src/Controllers/JavaScriptMessagesController.php:494
+#: src/Controllers/JavaScriptMessagesController.php:493
 msgid "Polygon"
 msgstr "Polygón"
 
-#: src/Controllers/JavaScriptMessagesController.php:495
+#: src/Controllers/JavaScriptMessagesController.php:494
 #: templates/display/results/table.twig:263
 msgid "Geometry"
 msgstr "Geometria"
 
-#: src/Controllers/JavaScriptMessagesController.php:496
+#: src/Controllers/JavaScriptMessagesController.php:495
 msgid "Inner ring"
 msgstr "Vnútorný obrys"
 
-#: src/Controllers/JavaScriptMessagesController.php:497
+#: src/Controllers/JavaScriptMessagesController.php:496
 msgid "Outer ring"
 msgstr "Vonkajší obrys"
 
-#: src/Controllers/JavaScriptMessagesController.php:498
-#: templates/gis_data_editor_form.twig:111
-#: templates/gis_data_editor_form.twig:149
-#: templates/gis_data_editor_form.twig:195
+#: src/Controllers/JavaScriptMessagesController.php:497
 msgid "Add a point"
 msgstr "Pridať bod"
 
+#: src/Controllers/JavaScriptMessagesController.php:498
+msgid "Add a linestring"
+msgstr "Pridať linku"
+
 #: src/Controllers/JavaScriptMessagesController.php:499
-#: templates/gis_data_editor_form.twig:153
-#: templates/gis_data_editor_form.twig:198
 msgid "Add an inner ring"
 msgstr "Pridať vnútorný obrys"
 
+#: src/Controllers/JavaScriptMessagesController.php:500
+msgid "Add a polygon"
+msgstr "Pridať polygón"
+
 #: src/Controllers/JavaScriptMessagesController.php:501
+msgid "Add geometry"
+msgstr "Pridať geometriu"
+
+#: src/Controllers/JavaScriptMessagesController.php:503
 msgid "Do you want to copy encryption key?"
 msgstr "Chcete skopírovať šifrovací kľúč?"
 
-#: src/Controllers/JavaScriptMessagesController.php:502
+#: src/Controllers/JavaScriptMessagesController.php:504
 msgid "Encryption key"
 msgstr "Šifrovací kľúč"
 
-#: src/Controllers/JavaScriptMessagesController.php:505
+#: src/Controllers/JavaScriptMessagesController.php:507
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:510
+#: src/Controllers/JavaScriptMessagesController.php:512
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:516
+#: src/Controllers/JavaScriptMessagesController.php:518
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:522
+#: src/Controllers/JavaScriptMessagesController.php:524
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
@@ -7145,25 +7140,25 @@ msgstr ""
 "Hovorí, že ste vykonali zmeny na tejto stránke; budete vyzvaní k potvrdeniu "
 "pred zahodením zmien"
 
-#: src/Controllers/JavaScriptMessagesController.php:527
+#: src/Controllers/JavaScriptMessagesController.php:529
 msgid "Select referenced key"
 msgstr "Zvoliť odkazovaný kľúč"
 
-#: src/Controllers/JavaScriptMessagesController.php:528
+#: src/Controllers/JavaScriptMessagesController.php:530
 msgid "Select Foreign Key"
 msgstr "Zvoliť cudzí kľúč"
 
-#: src/Controllers/JavaScriptMessagesController.php:529
+#: src/Controllers/JavaScriptMessagesController.php:531
 msgid "Please select the primary key or a unique key!"
 msgstr "Zvoľte, prosím, primárny alebo unikátny kľúč!"
 
-#: src/Controllers/JavaScriptMessagesController.php:530
+#: src/Controllers/JavaScriptMessagesController.php:532
 #: templates/database/designer/main.twig:98
 #: templates/database/designer/main.twig:101
 msgid "Choose column to display"
 msgstr "Zvoľte, ktoré polia zobraziť"
 
-#: src/Controllers/JavaScriptMessagesController.php:532
+#: src/Controllers/JavaScriptMessagesController.php:534
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -7171,132 +7166,132 @@ msgstr ""
 "Neuložili ste zmeny v schéme. Ak ich neuložíte, tieto zmeny budú stratené. "
 "Chcete pokračovať?"
 
-#: src/Controllers/JavaScriptMessagesController.php:535
+#: src/Controllers/JavaScriptMessagesController.php:537
 msgid "value/subQuery is empty"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:536
+#: src/Controllers/JavaScriptMessagesController.php:538
 #: templates/database/designer/main.twig:40
 #: templates/database/designer/main.twig:43
 #, fuzzy
 msgid "Add tables from other databases"
 msgstr "Neboli nájdené žiadne tabuľky v tejto databáze."
 
-#: src/Controllers/JavaScriptMessagesController.php:537
+#: src/Controllers/JavaScriptMessagesController.php:539
 msgid "Page name"
 msgstr "Názov stránky"
 
-#: src/Controllers/JavaScriptMessagesController.php:538
+#: src/Controllers/JavaScriptMessagesController.php:540
 #: templates/database/designer/main.twig:63
 #: templates/database/designer/main.twig:66
 msgid "Save page"
 msgstr "Uložiť stránku"
 
-#: src/Controllers/JavaScriptMessagesController.php:539
+#: src/Controllers/JavaScriptMessagesController.php:541
 #: templates/database/designer/main.twig:70
 #: templates/database/designer/main.twig:73
 msgid "Save page as"
 msgstr "Uložiť stránku ako"
 
-#: src/Controllers/JavaScriptMessagesController.php:540
+#: src/Controllers/JavaScriptMessagesController.php:542
 #: templates/database/designer/main.twig:56
 #: templates/database/designer/main.twig:59
 msgid "Open page"
 msgstr "Otvoriť stránku"
 
-#: src/Controllers/JavaScriptMessagesController.php:541
+#: src/Controllers/JavaScriptMessagesController.php:543
 msgid "Delete page"
 msgstr "Zmazať stránku"
 
 #. l10n: When the user opens a page saved in the Designer
-#: src/Controllers/JavaScriptMessagesController.php:543
+#: src/Controllers/JavaScriptMessagesController.php:545
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:544
+#: src/Controllers/JavaScriptMessagesController.php:546
 #: templates/database/designer/main.twig:10
 msgid "Untitled"
 msgstr "Nepomenovaná"
 
-#: src/Controllers/JavaScriptMessagesController.php:545
+#: src/Controllers/JavaScriptMessagesController.php:547
 msgid "Please select a page to continue"
 msgstr "Prosím zvoľte si stránku, kde chcete pokračovať"
 
-#: src/Controllers/JavaScriptMessagesController.php:546
+#: src/Controllers/JavaScriptMessagesController.php:548
 msgid "Please enter a valid page name"
 msgstr "Prosím zadajte platný názov stránky"
 
-#: src/Controllers/JavaScriptMessagesController.php:547
+#: src/Controllers/JavaScriptMessagesController.php:549
 msgid "Do you want to save the changes to the current page?"
 msgstr "Chcete uložiť zmeny aktuálnej stránky?"
 
-#: src/Controllers/JavaScriptMessagesController.php:548
+#: src/Controllers/JavaScriptMessagesController.php:550
 msgid "Successfully deleted the page"
 msgstr "Stránka bola odstránená"
 
-#: src/Controllers/JavaScriptMessagesController.php:549
+#: src/Controllers/JavaScriptMessagesController.php:551
 msgid "Export relational schema"
 msgstr "Exportovať relačnú schému"
 
-#: src/Controllers/JavaScriptMessagesController.php:550
+#: src/Controllers/JavaScriptMessagesController.php:552
 msgid "Modifications have been saved"
 msgstr "Zmeny boli uložené"
 
-#: src/Controllers/JavaScriptMessagesController.php:553
+#: src/Controllers/JavaScriptMessagesController.php:555
 #, php-format
 msgid "%d object(s) created."
 msgstr "Bolo vytvorených %d objektov."
 
-#: src/Controllers/JavaScriptMessagesController.php:554
+#: src/Controllers/JavaScriptMessagesController.php:556
 #, fuzzy
 msgid "Column name"
 msgstr "Názvy stĺpcov"
 
-#: src/Controllers/JavaScriptMessagesController.php:555
+#: src/Controllers/JavaScriptMessagesController.php:557
 #: templates/modals/build_query.twig:17 templates/sql/query.twig:180
 msgid "Submit"
 msgstr "Odošli"
 
-#: src/Controllers/JavaScriptMessagesController.php:558
+#: src/Controllers/JavaScriptMessagesController.php:560
 #, fuzzy
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr "Klávesou ESC ukončíte upravovanie."
 
-#: src/Controllers/JavaScriptMessagesController.php:560
+#: src/Controllers/JavaScriptMessagesController.php:562
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr "Na stránke sú neuložené zmeny. Naozaj ju chcete opustiť?"
 
-#: src/Controllers/JavaScriptMessagesController.php:563
+#: src/Controllers/JavaScriptMessagesController.php:565
 msgid "Drag to reorder."
 msgstr "Usporiadajte pretiahnutím."
 
-#: src/Controllers/JavaScriptMessagesController.php:564
+#: src/Controllers/JavaScriptMessagesController.php:566
 msgid "Click to sort results by this column."
 msgstr "Kliknutím zoradíte výsledky podľa tohto stĺpca."
 
-#: src/Controllers/JavaScriptMessagesController.php:566
+#: src/Controllers/JavaScriptMessagesController.php:568
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:570
+#: src/Controllers/JavaScriptMessagesController.php:572
 msgid "Click to mark/unmark."
 msgstr "Kliknite pre označenie/odznačenie."
 
-#: src/Controllers/JavaScriptMessagesController.php:571
+#: src/Controllers/JavaScriptMessagesController.php:573
 msgid "Double-click to copy column name."
 msgstr "Dvakrát kliknite pre skopírovanie názvu stĺpca."
 
-#: src/Controllers/JavaScriptMessagesController.php:572
+#: src/Controllers/JavaScriptMessagesController.php:574
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr ""
 "Kliknite na šípku rozbaľovacieho zoznamu<br>pre zmenu viditeľnosti stĺpca."
 
-#: src/Controllers/JavaScriptMessagesController.php:575
+#: src/Controllers/JavaScriptMessagesController.php:577
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -7305,11 +7300,11 @@ msgstr ""
 "zaškrtávanie, úprava, kopírovanie a mazanie liniek nemusí fungovať po "
 "uložení."
 
-#: src/Controllers/JavaScriptMessagesController.php:578
+#: src/Controllers/JavaScriptMessagesController.php:580
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr "Zadajte platný šestnástkový reťazec. Platné znaky sú 0-9, A-F."
 
-#: src/Controllers/JavaScriptMessagesController.php:580
+#: src/Controllers/JavaScriptMessagesController.php:582
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -7317,68 +7312,68 @@ msgstr ""
 "Skutočne chcete zobraziť všetky riadky? Pri veľkej tabuľke môže dôjsť k pádu "
 "prehliadača."
 
-#: src/Controllers/JavaScriptMessagesController.php:582
+#: src/Controllers/JavaScriptMessagesController.php:584
 msgid "Original length"
 msgstr "Originálna dĺžka"
 
-#: src/Controllers/JavaScriptMessagesController.php:585
+#: src/Controllers/JavaScriptMessagesController.php:587
 msgid "cancel"
 msgstr "zrušiť"
 
-#: src/Controllers/JavaScriptMessagesController.php:586
+#: src/Controllers/JavaScriptMessagesController.php:588
 #: src/Controllers/Server/Status/StatusController.php:181
 msgid "Aborted"
 msgstr "Prerušené"
 
-#: src/Controllers/JavaScriptMessagesController.php:588
+#: src/Controllers/JavaScriptMessagesController.php:590
 msgid "Success"
 msgstr "Úspech"
 
-#: src/Controllers/JavaScriptMessagesController.php:589
+#: src/Controllers/JavaScriptMessagesController.php:591
 msgid "Import status"
 msgstr "Stav importu"
 
-#: src/Controllers/JavaScriptMessagesController.php:590
+#: src/Controllers/JavaScriptMessagesController.php:592
 #: templates/navigation/main.twig:84
 msgid "Drop files here"
 msgstr "Presuňte súbory sem"
 
-#: src/Controllers/JavaScriptMessagesController.php:591
+#: src/Controllers/JavaScriptMessagesController.php:593
 msgid "Select database first"
 msgstr "Najprv vyberte databázu"
 
-#: src/Controllers/JavaScriptMessagesController.php:593
+#: src/Controllers/JavaScriptMessagesController.php:595
 msgid "Go to link:"
 msgstr "Prejsť na odkaz:"
 
-#: src/Controllers/JavaScriptMessagesController.php:596
+#: src/Controllers/JavaScriptMessagesController.php:598
 msgid "Generate password"
 msgstr "Vytvoriť heslo"
 
-#: src/Controllers/JavaScriptMessagesController.php:597
+#: src/Controllers/JavaScriptMessagesController.php:599
 #: templates/server/replication/primary_add_replica_user.twig:73
 msgid "Generate"
 msgstr "Vytvoriť"
 
-#: src/Controllers/JavaScriptMessagesController.php:600
+#: src/Controllers/JavaScriptMessagesController.php:602
 #: templates/table/structure/display_structure.twig:130
 msgid "More"
 msgstr "Viac"
 
-#: src/Controllers/JavaScriptMessagesController.php:603
+#: src/Controllers/JavaScriptMessagesController.php:605
 msgid "Show panel"
 msgstr "Zobraziť panel"
 
-#: src/Controllers/JavaScriptMessagesController.php:604
+#: src/Controllers/JavaScriptMessagesController.php:606
 msgid "Hide panel"
 msgstr "Skryť panel"
 
-#: src/Controllers/JavaScriptMessagesController.php:606
+#: src/Controllers/JavaScriptMessagesController.php:608
 #: src/Navigation/NavigationTree.php:1284
 msgid "Unlink from main panel"
 msgstr "Zrušiť prepojenie s hlavným panelom"
 
-#: src/Controllers/JavaScriptMessagesController.php:610 src/Setup/Index.php:153
+#: src/Controllers/JavaScriptMessagesController.php:612 src/Setup/Index.php:153
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -7388,29 +7383,35 @@ msgstr ""
 "Najnovšia verzia je %s a bola vydaná %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: src/Controllers/JavaScriptMessagesController.php:614
+#: src/Controllers/JavaScriptMessagesController.php:616
 msgid ", latest stable version:"
 msgstr ", posledná stabilná verzia:"
 
-#: src/Controllers/JavaScriptMessagesController.php:615
+#: src/Controllers/JavaScriptMessagesController.php:617
 msgid "up to date"
 msgstr "aktuálna"
 
 #: src/Controllers/JavaScriptMessagesController.php:618
+#, fuzzy
+#| msgid "There was an error importing the ESRI shape file: \"%s\"."
+msgid "There was an error in loading the Git information."
+msgstr "Vyskytla sa chyba pri importe ESRI shape súboru : \"%s\"."
+
+#: src/Controllers/JavaScriptMessagesController.php:621
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr "Vyskytla sa chyba JavaScriptu. Chcete odoslať chybové hlásenie?"
 
-#: src/Controllers/JavaScriptMessagesController.php:619
+#: src/Controllers/JavaScriptMessagesController.php:622
 msgid "Change report settings"
 msgstr "Zmeniť nastavenia hlásení"
 
-#: src/Controllers/JavaScriptMessagesController.php:620
+#: src/Controllers/JavaScriptMessagesController.php:623
 msgid "Show report details"
 msgstr "Zobraziť podrobnosti hlásenia"
 
-#: src/Controllers/JavaScriptMessagesController.php:621
+#: src/Controllers/JavaScriptMessagesController.php:624
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
@@ -7418,7 +7419,7 @@ msgstr ""
 "Export nie je kompletný kvôli krátkemu času vykonávania (execution time) v "
 "nastaveniach PHP!"
 
-#: src/Controllers/JavaScriptMessagesController.php:624
+#: src/Controllers/JavaScriptMessagesController.php:627
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -7427,79 +7428,79 @@ msgstr ""
 "Varovanie: formulár na tejto stránke má viac než %d polí. Pri odoslaní, "
 "niektoré polia môžu byť ignorované kvôli nastaveniu PHP max_input_vars."
 
-#: src/Controllers/JavaScriptMessagesController.php:630
-#: src/Controllers/JavaScriptMessagesController.php:643
+#: src/Controllers/JavaScriptMessagesController.php:633
+#: src/Controllers/JavaScriptMessagesController.php:646
 msgid "Some errors have been detected on the server!"
 msgstr "Na serveri boli zistené chyby!"
 
-#: src/Controllers/JavaScriptMessagesController.php:632
+#: src/Controllers/JavaScriptMessagesController.php:635
 msgid "Please look at the bottom of this window."
 msgstr "Prosím, pozrite sa na spodnú časť okna."
 
-#: src/Controllers/JavaScriptMessagesController.php:638
+#: src/Controllers/JavaScriptMessagesController.php:641
 #: src/ErrorHandler.php:410
 msgid "Ignore All"
 msgstr "Ignorovať všetko"
 
-#: src/Controllers/JavaScriptMessagesController.php:645
+#: src/Controllers/JavaScriptMessagesController.php:648
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:649
+#: src/Controllers/JavaScriptMessagesController.php:652
 msgid "Column name successfully copied to clipboard!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:650
+#: src/Controllers/JavaScriptMessagesController.php:653
 msgid "Column name copying to clipboard failed!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:651
+#: src/Controllers/JavaScriptMessagesController.php:654
 #, fuzzy
 msgid "Successfully copied!"
 msgstr "Stránka bola odstránená"
 
-#: src/Controllers/JavaScriptMessagesController.php:652
+#: src/Controllers/JavaScriptMessagesController.php:655
 #, fuzzy
 msgid "Copying failed!"
 msgstr "Kopírujem databázu"
 
-#: src/Controllers/JavaScriptMessagesController.php:655
+#: src/Controllers/JavaScriptMessagesController.php:658
 msgid "Execute this query again?"
 msgstr "Vykonať tento dopyt znovu?"
 
-#: src/Controllers/JavaScriptMessagesController.php:656
+#: src/Controllers/JavaScriptMessagesController.php:659
 msgid "Do you really want to delete this bookmark?"
 msgstr "Naozaj chcete odstrániť túto záložku?"
 
-#: src/Controllers/JavaScriptMessagesController.php:657
+#: src/Controllers/JavaScriptMessagesController.php:660
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:658
+#: src/Controllers/JavaScriptMessagesController.php:661
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s dopytov bolo vykonaných %s krát za %s sekúnd."
 
-#: src/Controllers/JavaScriptMessagesController.php:659
+#: src/Controllers/JavaScriptMessagesController.php:662
 #, php-format
 msgid "%s argument(s) passed"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:660
+#: src/Controllers/JavaScriptMessagesController.php:663
 msgid "Show arguments"
 msgstr "Zobraziť argumenty"
 
-#: src/Controllers/JavaScriptMessagesController.php:661
+#: src/Controllers/JavaScriptMessagesController.php:664
 msgid "Hide arguments"
 msgstr "Skryť argumenty"
 
-#: src/Controllers/JavaScriptMessagesController.php:662
+#: src/Controllers/JavaScriptMessagesController.php:665
 #: templates/console/display.twig:109
 msgid "Time taken:"
 msgstr "Ubehnutý čas:"
 
-#: src/Controllers/JavaScriptMessagesController.php:664
+#: src/Controllers/JavaScriptMessagesController.php:667
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -7508,107 +7509,107 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:671
+#: src/Controllers/JavaScriptMessagesController.php:674
 msgid "Copy tables to"
 msgstr "Skopírovať tabuľky do"
 
-#: src/Controllers/JavaScriptMessagesController.php:672
+#: src/Controllers/JavaScriptMessagesController.php:675
 msgid "Add table prefix"
 msgstr "Pridať prefix tabuľky"
 
-#: src/Controllers/JavaScriptMessagesController.php:673
+#: src/Controllers/JavaScriptMessagesController.php:676
 msgid "Replace table with prefix"
 msgstr "Nahradiť predponu tabuľky"
 
-#: src/Controllers/JavaScriptMessagesController.php:674
+#: src/Controllers/JavaScriptMessagesController.php:677
 #: templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "Skopírovať tabuľku s predponou"
 
-#: src/Controllers/JavaScriptMessagesController.php:677
+#: src/Controllers/JavaScriptMessagesController.php:680
 msgid "Extremely weak"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:678
+#: src/Controllers/JavaScriptMessagesController.php:681
 msgid "Very weak"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:679
+#: src/Controllers/JavaScriptMessagesController.php:682
 msgid "Weak"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:680
+#: src/Controllers/JavaScriptMessagesController.php:683
 msgid "Good"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:681
+#: src/Controllers/JavaScriptMessagesController.php:684
 msgid "Strong"
 msgstr ""
 
 #. l10n: error code 5 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:685
+#: src/Controllers/JavaScriptMessagesController.php:688
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr ""
 
 #. l10n: error code 2 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:687
+#: src/Controllers/JavaScriptMessagesController.php:690
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr ""
 
 #. l10n: unknown error code (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:689
+#: src/Controllers/JavaScriptMessagesController.php:692
 #, fuzzy
 msgctxt "U2F error"
 msgid "Unknown security key error."
 msgstr "Neznáma chyba"
 
 #. l10n: error code 3 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:691
+#: src/Controllers/JavaScriptMessagesController.php:694
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on register
-#: src/Controllers/JavaScriptMessagesController.php:693
+#: src/Controllers/JavaScriptMessagesController.php:696
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: src/Controllers/JavaScriptMessagesController.php:695
+#: src/Controllers/JavaScriptMessagesController.php:698
 #, fuzzy
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "Chybný typ exportu"
 
-#: src/Controllers/JavaScriptMessagesController.php:698
+#: src/Controllers/JavaScriptMessagesController.php:701
 msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:703
+#: src/Controllers/JavaScriptMessagesController.php:706
 msgid ""
 "You can not open, save or delete your page layout, as IndexedDB is not "
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:708
+#: src/Controllers/JavaScriptMessagesController.php:711
 #, fuzzy, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
 msgstr "Tabuľka %s už existuje!"
 
-#: src/Controllers/JavaScriptMessagesController.php:710 src/InsertEdit.php:281
+#: src/Controllers/JavaScriptMessagesController.php:713 src/InsertEdit.php:281
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Skryť"
 
-#: src/Controllers/JavaScriptMessagesController.php:711
+#: src/Controllers/JavaScriptMessagesController.php:714
 #: src/Controllers/Table/ChangeController.php:216
 #: templates/database/multi_table_query/form.twig:38
 #: templates/database/tracking/tables.twig:19
@@ -7616,272 +7617,272 @@ msgstr "Skryť"
 msgid "Show"
 msgstr "Ukázať"
 
-#: src/Controllers/JavaScriptMessagesController.php:714
+#: src/Controllers/JavaScriptMessagesController.php:717
 #, fuzzy
 #| msgid "January"
 msgctxt "Month name"
 msgid "January"
 msgstr "Január"
 
-#: src/Controllers/JavaScriptMessagesController.php:715
+#: src/Controllers/JavaScriptMessagesController.php:718
 #, fuzzy
 #| msgid "February"
 msgctxt "Month name"
 msgid "February"
 msgstr "Február"
 
-#: src/Controllers/JavaScriptMessagesController.php:716
+#: src/Controllers/JavaScriptMessagesController.php:719
 #, fuzzy
 #| msgid "March"
 msgctxt "Month name"
 msgid "March"
 msgstr "Marec"
 
-#: src/Controllers/JavaScriptMessagesController.php:717
+#: src/Controllers/JavaScriptMessagesController.php:720
 #, fuzzy
 #| msgid "April"
 msgctxt "Month name"
 msgid "April"
 msgstr "Apríl"
 
-#: src/Controllers/JavaScriptMessagesController.php:718
+#: src/Controllers/JavaScriptMessagesController.php:721
 #, fuzzy
 #| msgid "May"
 msgctxt "Month name"
 msgid "May"
 msgstr "Máj"
 
-#: src/Controllers/JavaScriptMessagesController.php:719
+#: src/Controllers/JavaScriptMessagesController.php:722
 #, fuzzy
 #| msgid "June"
 msgctxt "Month name"
 msgid "June"
 msgstr "Jún"
 
-#: src/Controllers/JavaScriptMessagesController.php:720
+#: src/Controllers/JavaScriptMessagesController.php:723
 #, fuzzy
 #| msgid "July"
 msgctxt "Month name"
 msgid "July"
 msgstr "Júl"
 
-#: src/Controllers/JavaScriptMessagesController.php:721
+#: src/Controllers/JavaScriptMessagesController.php:724
 #, fuzzy
 #| msgid "August"
 msgctxt "Month name"
 msgid "August"
 msgstr "August"
 
-#: src/Controllers/JavaScriptMessagesController.php:722
+#: src/Controllers/JavaScriptMessagesController.php:725
 #, fuzzy
 #| msgid "September"
 msgctxt "Month name"
 msgid "September"
 msgstr "September"
 
-#: src/Controllers/JavaScriptMessagesController.php:723
+#: src/Controllers/JavaScriptMessagesController.php:726
 #, fuzzy
 #| msgid "October"
 msgctxt "Month name"
 msgid "October"
 msgstr "Október"
 
-#: src/Controllers/JavaScriptMessagesController.php:724
+#: src/Controllers/JavaScriptMessagesController.php:727
 #, fuzzy
 #| msgid "November"
 msgctxt "Month name"
 msgid "November"
 msgstr "November"
 
-#: src/Controllers/JavaScriptMessagesController.php:725
+#: src/Controllers/JavaScriptMessagesController.php:728
 #, fuzzy
 #| msgid "December"
 msgctxt "Month name"
 msgid "December"
 msgstr "December"
 
-#: src/Controllers/JavaScriptMessagesController.php:726 src/Util.php:501
+#: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:501
 #, fuzzy
 #| msgid "Jan"
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "Jan"
 
-#: src/Controllers/JavaScriptMessagesController.php:727 src/Util.php:502
+#: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:502
 #, fuzzy
 #| msgid "Feb"
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "Feb"
 
-#: src/Controllers/JavaScriptMessagesController.php:728 src/Util.php:503
+#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:503
 #, fuzzy
 #| msgid "Mar"
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "Mar"
 
-#: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:504
+#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:504
 #, fuzzy
 #| msgid "Apr"
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "Apr"
 
-#: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:505
+#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:505
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "Máj"
 
-#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:506
+#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:506
 #, fuzzy
 #| msgid "Jun"
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "Jún"
 
-#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:507
+#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:507
 #, fuzzy
 #| msgid "Jul"
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "Júl"
 
-#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:508
+#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:508
 #, fuzzy
 #| msgid "Aug"
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "Aug"
 
-#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:509
+#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:509
 #, fuzzy
 #| msgid "Sep"
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "Sep"
 
-#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:510
+#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:510
 #, fuzzy
 #| msgid "Oct"
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "Okt"
 
-#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:511
+#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:511
 #, fuzzy
 #| msgid "Nov"
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "Nov"
 
-#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:512
+#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:512
 #, fuzzy
 #| msgid "Dec"
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "Dec"
 
-#: src/Controllers/JavaScriptMessagesController.php:745 src/Util.php:515
+#: src/Controllers/JavaScriptMessagesController.php:748 src/Util.php:515
 #, fuzzy
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "Ned"
 
-#: src/Controllers/JavaScriptMessagesController.php:746 src/Util.php:516
+#: src/Controllers/JavaScriptMessagesController.php:749 src/Util.php:516
 #, fuzzy
 #| msgid "Mon"
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "Po"
 
-#: src/Controllers/JavaScriptMessagesController.php:747 src/Util.php:517
+#: src/Controllers/JavaScriptMessagesController.php:750 src/Util.php:517
 #, fuzzy
 #| msgid "Tue"
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "Út"
 
-#: src/Controllers/JavaScriptMessagesController.php:748 src/Util.php:518
+#: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:518
 #, fuzzy
 #| msgid "Wed"
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "St"
 
-#: src/Controllers/JavaScriptMessagesController.php:749 src/Util.php:519
+#: src/Controllers/JavaScriptMessagesController.php:752 src/Util.php:519
 #, fuzzy
 #| msgid "Thu"
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "Št"
 
-#: src/Controllers/JavaScriptMessagesController.php:750 src/Util.php:520
+#: src/Controllers/JavaScriptMessagesController.php:753 src/Util.php:520
 #, fuzzy
 #| msgid "Fri"
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "Pi"
 
-#: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:521
+#: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:521
 #, fuzzy
 #| msgid "Sat"
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "So"
 
-#: src/Controllers/JavaScriptMessagesController.php:752
+#: src/Controllers/JavaScriptMessagesController.php:755
 #, fuzzy
 #| msgid "Su"
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "Ne"
 
-#: src/Controllers/JavaScriptMessagesController.php:753
+#: src/Controllers/JavaScriptMessagesController.php:756
 #, fuzzy
 #| msgid "Mo"
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "Po"
 
-#: src/Controllers/JavaScriptMessagesController.php:754
+#: src/Controllers/JavaScriptMessagesController.php:757
 #, fuzzy
 #| msgid "Tu"
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "Ut"
 
-#: src/Controllers/JavaScriptMessagesController.php:755
+#: src/Controllers/JavaScriptMessagesController.php:758
 #, fuzzy
 #| msgid "We"
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "St"
 
-#: src/Controllers/JavaScriptMessagesController.php:756
+#: src/Controllers/JavaScriptMessagesController.php:759
 #, fuzzy
 #| msgid "Th"
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "Št"
 
-#: src/Controllers/JavaScriptMessagesController.php:757
+#: src/Controllers/JavaScriptMessagesController.php:760
 #, fuzzy
 #| msgid "Fr"
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "Pi"
 
-#: src/Controllers/JavaScriptMessagesController.php:758
+#: src/Controllers/JavaScriptMessagesController.php:761
 #, fuzzy
 #| msgid "Sa"
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "So"
 
-#: src/Controllers/JavaScriptMessagesController.php:759
+#: src/Controllers/JavaScriptMessagesController.php:762
 #, fuzzy
 #| msgid "Wk"
 msgctxt "Column header for week of the year in calendar"
@@ -7889,61 +7890,61 @@ msgid "Wk"
 msgstr "Týž"
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
-#: src/Controllers/JavaScriptMessagesController.php:761
+#: src/Controllers/JavaScriptMessagesController.php:764
 #, fuzzy
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
-#: src/Controllers/JavaScriptMessagesController.php:762
+#: src/Controllers/JavaScriptMessagesController.php:765
 #, fuzzy
 msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "žiadny"
 
-#: src/Controllers/JavaScriptMessagesController.php:763
+#: src/Controllers/JavaScriptMessagesController.php:766
 #, fuzzy
 #| msgid "Time"
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "Čas"
 
-#: src/Controllers/JavaScriptMessagesController.php:764
+#: src/Controllers/JavaScriptMessagesController.php:767
 #, fuzzy
 #| msgid "Hour"
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "Hodiny"
 
-#: src/Controllers/JavaScriptMessagesController.php:765
+#: src/Controllers/JavaScriptMessagesController.php:768
 #, fuzzy
 #| msgid "Minute"
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "Minúty"
 
-#: src/Controllers/JavaScriptMessagesController.php:766
+#: src/Controllers/JavaScriptMessagesController.php:769
 #, fuzzy
 #| msgid "Second"
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "Sekundy"
 
-#: src/Controllers/JavaScriptMessagesController.php:767
+#: src/Controllers/JavaScriptMessagesController.php:770
 #, fuzzy
 #| msgid "seconds"
 msgctxt "Unit of time"
 msgid "Millisecond"
 msgstr "Sekundy"
 
-#: src/Controllers/JavaScriptMessagesController.php:768
+#: src/Controllers/JavaScriptMessagesController.php:771
 #, fuzzy
 #| msgid "per second"
 msgctxt "Unit of time"
 msgid "Microsecond"
 msgstr "za sekundu"
 
-#: src/Controllers/JavaScriptMessagesController.php:769
+#: src/Controllers/JavaScriptMessagesController.php:772
 #, fuzzy
 #| msgctxt "Chart type"
 #| msgid "Timeline"
@@ -7952,107 +7953,107 @@ msgid "Time zone"
 msgstr "Časová os"
 
 #. l10n: Display text for previous month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:773
+#: src/Controllers/JavaScriptMessagesController.php:776
 #, fuzzy
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Predchádzajúci"
 
 #. l10n: Display text for next month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:775
+#: src/Controllers/JavaScriptMessagesController.php:778
 msgctxt "Next month"
 msgid "Next"
 msgstr "Ďalší"
 
 #. l10n: Display text for current month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:777
+#: src/Controllers/JavaScriptMessagesController.php:780
 msgid "Today"
 msgstr "Dnes"
 
-#: src/Controllers/JavaScriptMessagesController.php:780
+#: src/Controllers/JavaScriptMessagesController.php:783
 msgid "This field is required"
 msgstr "Toto pole je povinné"
 
-#: src/Controllers/JavaScriptMessagesController.php:781
+#: src/Controllers/JavaScriptMessagesController.php:784
 msgid "Please fix this field"
 msgstr "Prosím opravte toto pole"
 
-#: src/Controllers/JavaScriptMessagesController.php:782
+#: src/Controllers/JavaScriptMessagesController.php:785
 msgid "Please enter a valid email address"
 msgstr "Prosím zadajte platnú emailovú adresu"
 
-#: src/Controllers/JavaScriptMessagesController.php:783
+#: src/Controllers/JavaScriptMessagesController.php:786
 msgid "Please enter a valid URL"
 msgstr "Prosím zdajte platnú adresu URL"
 
-#: src/Controllers/JavaScriptMessagesController.php:784
+#: src/Controllers/JavaScriptMessagesController.php:787
 msgid "Please enter a valid date"
 msgstr "Prosím zadajte platný dátum"
 
-#: src/Controllers/JavaScriptMessagesController.php:785
+#: src/Controllers/JavaScriptMessagesController.php:788
 msgid "Please enter a valid date ( ISO )"
 msgstr "Prosím zadajte platný dátum ( ISO )"
 
-#: src/Controllers/JavaScriptMessagesController.php:786
+#: src/Controllers/JavaScriptMessagesController.php:789
 msgid "Please enter a valid number"
 msgstr "Prosím zadajte platné číslo"
 
-#: src/Controllers/JavaScriptMessagesController.php:787
+#: src/Controllers/JavaScriptMessagesController.php:790
 msgid "Please enter a valid credit card number"
 msgstr "Prosím zadajte platné číslo kreditnej karty"
 
-#: src/Controllers/JavaScriptMessagesController.php:788
+#: src/Controllers/JavaScriptMessagesController.php:791
 msgid "Please enter only digits"
 msgstr "Prosím zadajte iba čísla"
 
-#: src/Controllers/JavaScriptMessagesController.php:789
+#: src/Controllers/JavaScriptMessagesController.php:792
 msgid "Please enter the same value again"
 msgstr "Prosím zadajte tú istú hodnotu ešte raz"
 
-#: src/Controllers/JavaScriptMessagesController.php:790
+#: src/Controllers/JavaScriptMessagesController.php:793
 msgid "Please enter no more than {0} characters"
 msgstr "Prosím zadajte nie viac ako {0} znakov"
 
-#: src/Controllers/JavaScriptMessagesController.php:791
+#: src/Controllers/JavaScriptMessagesController.php:794
 msgid "Please enter at least {0} characters"
 msgstr "Prosím zadajte najmenej {0} znakov"
 
-#: src/Controllers/JavaScriptMessagesController.php:792
+#: src/Controllers/JavaScriptMessagesController.php:795
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr "Prosím zadajte počet znakov medzi {0} a {1}"
 
-#: src/Controllers/JavaScriptMessagesController.php:793
+#: src/Controllers/JavaScriptMessagesController.php:796
 msgid "Please enter a value between {0} and {1}"
 msgstr "Prosím zadajte hodnotu medzi {0} a {1}"
 
-#: src/Controllers/JavaScriptMessagesController.php:794
+#: src/Controllers/JavaScriptMessagesController.php:797
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Prosím zadajte hodnotu menšiu alebo rovnú {0}"
 
-#: src/Controllers/JavaScriptMessagesController.php:795
+#: src/Controllers/JavaScriptMessagesController.php:798
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Prosím zadajte hodnotu väčšiu alebo rovnú {0}"
 
-#: src/Controllers/JavaScriptMessagesController.php:796
+#: src/Controllers/JavaScriptMessagesController.php:799
 msgid "Please enter a valid date or time"
 msgstr "Prosím zadajte platný dátum alebo čas"
 
-#: src/Controllers/JavaScriptMessagesController.php:797
+#: src/Controllers/JavaScriptMessagesController.php:800
 msgid "Please enter a valid HEX input"
 msgstr "Prosím zdajte platný HEX vstup"
 
 #. l10n: To validate the usage of a MD5 function on the column
-#: src/Controllers/JavaScriptMessagesController.php:799
+#: src/Controllers/JavaScriptMessagesController.php:802
 msgid "This column can not contain a 32 chars value"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:802
+#: src/Controllers/JavaScriptMessagesController.php:805
 msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:807
+#: src/Controllers/JavaScriptMessagesController.php:810
 #, fuzzy
 #| msgid ""
 #| "The file being uploaded is probably larger than the maximum allowed size "
@@ -8065,33 +8066,33 @@ msgstr ""
 "alebo je toto známa chyba v prehliadačoch založených na gecko (Safari, "
 "Google Chrome, Arora etc.)."
 
-#: src/Controllers/JavaScriptMessagesController.php:809
+#: src/Controllers/JavaScriptMessagesController.php:812
 #, php-format
 msgid "%s of %s"
 msgstr "%s z %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:810
+#: src/Controllers/JavaScriptMessagesController.php:813
 #, php-format
 msgid "%s/sec."
 msgstr "%s/sek."
 
-#: src/Controllers/JavaScriptMessagesController.php:811
+#: src/Controllers/JavaScriptMessagesController.php:814
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:812
+#: src/Controllers/JavaScriptMessagesController.php:815
 msgid "About %SEC sec. remaining."
 msgstr "Zostáva približne %SEC sekúnd."
 
-#: src/Controllers/JavaScriptMessagesController.php:813
+#: src/Controllers/JavaScriptMessagesController.php:816
 msgid "The file is being processed, please be patient."
 msgstr "Súbor sa spracováva, buďte prosím trpezliví."
 
-#: src/Controllers/JavaScriptMessagesController.php:814
+#: src/Controllers/JavaScriptMessagesController.php:817
 msgid "Uploading your import file…"
 msgstr "Nahrávam váš súbor s importom…"
 
-#: src/Controllers/JavaScriptMessagesController.php:816
+#: src/Controllers/JavaScriptMessagesController.php:819
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
@@ -8956,7 +8957,7 @@ msgstr ""
 msgid "Insecure connection"
 msgstr "Nezabezpečené pripojenie"
 
-#: src/Controllers/Setup/MainController.php:36
+#: src/Controllers/Setup/MainController.php:40
 msgid "Configuration already exists, setup is disabled!"
 msgstr ""
 
@@ -8969,12 +8970,12 @@ msgstr "Nesprávne dáta"
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:240 src/Sql.php:1079
+#: src/Controllers/Sql/SqlController.php:247 src/Sql.php:1076
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Príkaz %s bol zaradený medzi obľúbené."
 
-#: src/Controllers/Sql/SqlController.php:247
+#: src/Controllers/Sql/SqlController.php:254
 msgid "Bookmark not created!"
 msgstr "Záložka nebola vytvorená!"
 
@@ -9020,7 +9021,7 @@ msgstr "'%s' databáza neexistuje."
 msgid "Table %s already exists!"
 msgstr "Tabuľka %s už existuje!"
 
-#: src/Controllers/Table/DeleteRowsController.php:75
+#: src/Controllers/Table/DeleteRowsController.php:77
 #: src/Controllers/Table/FindReplaceController.php:207
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:74
 #: src/Controllers/Table/Maintenance/CheckController.php:74
@@ -9073,7 +9074,7 @@ msgstr "Je príliš veľa spojení bez indexov."
 
 #: src/Controllers/Table/GetFieldController.php:82
 #: src/Database/Routines.php:995 src/Import/Import.php:166
-#: src/InsertEdit.php:202 src/Sql.php:881
+#: src/InsertEdit.php:202 src/Sql.php:878
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL vrátil prázdny výsledok (tj. nulový počet riadkov)."
 
@@ -9239,7 +9240,7 @@ msgstr "Zmeniť heslo"
 msgid "View name can not be empty!"
 msgstr ""
 
-#: src/Core.php:112 src/ZipExtension.php:57
+#: src/Core.php:113 src/ZipExtension.php:57
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Chýba rozšírenie %s. Skontrolujte prosín nastavenia PHP."
@@ -9554,7 +9555,7 @@ msgstr "%1$d celkom, %2$d v dotaze"
 msgid "%s total"
 msgstr "celkom %d"
 
-#: src/Display/Results.php:3730 src/Sql.php:887
+#: src/Display/Results.php:3730 src/Sql.php:884
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Dopyt zabral %01.4f sekúnd."
@@ -10143,7 +10144,7 @@ msgstr "Prosím zadajte nie viac ako {0} znakov"
 msgid "The trigger name cannot end with a space character."
 msgstr "Slová sú rozdelené medzerou (\" \")."
 
-#: src/Import/Import.php:288 src/Sql.php:895
+#: src/Import/Import.php:288 src/Sql.php:892
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -10282,11 +10283,11 @@ msgstr "Alebo"
 msgid "web server upload directory:"
 msgstr "upload adresár web serveru:"
 
-#: src/InsertEdit.php:962 src/Sql.php:878
+#: src/InsertEdit.php:962 src/Sql.php:875
 msgid "Showing SQL query"
 msgstr "Zobrazujem SQL dotaz"
 
-#: src/InsertEdit.php:986 src/Sql.php:858
+#: src/InsertEdit.php:986 src/Sql.php:855
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Vložený riadok id: %1$d"
@@ -11497,22 +11498,22 @@ msgstr ""
 msgid "Error reading data for table %s:"
 msgstr "Chyba pri čítaní dát:"
 
-#: src/Plugins/Export/ExportSql.php:2665
+#: src/Plugins/Export/ExportSql.php:2658
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:610
 msgid "Creation:"
 msgstr "Vytvorené:"
 
-#: src/Plugins/Export/ExportSql.php:2675
+#: src/Plugins/Export/ExportSql.php:2668
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:621
 msgid "Last update:"
 msgstr "Posledná zmena:"
 
-#: src/Plugins/Export/ExportSql.php:2685
+#: src/Plugins/Export/ExportSql.php:2678
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:632
 msgid "Last check:"
 msgstr "Posledná kontrola:"
 
-#: src/Plugins/Export/ExportSql.php:2708
+#: src/Plugins/Export/ExportSql.php:2701
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
@@ -11804,7 +11805,7 @@ msgstr ""
 "súboru alebo druhá je použiť meno stĺpca v tabuľke obsahujúceho meno súboru. "
 "Ak použijete druhú možnosť, prvé pole musí byť prázdne."
 
-#: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:40
+#: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:39
 #, fuzzy
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
@@ -11829,7 +11830,7 @@ msgstr ""
 "výstupnému textu parameter NOWRAP, čím zabezpečí zachovanie formátovania "
 "(predvolený je 1)."
 
-#: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:123
+#: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:122
 #, php-format
 msgid ""
 "You are using the external transformation command line options field, which "
@@ -12137,24 +12138,24 @@ msgstr ""
 msgid "Primary server changed successfully to %s."
 msgstr "Master server zmenený úspešne na %s."
 
-#: src/Routing/Routing.php:115
+#: src/Routing/Routing.php:119
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: src/Routing/Routing.php:149 src/Routing/Routing.php:205
+#: src/Routing/Routing.php:153 src/Routing/Routing.php:213
 #, fuzzy, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "Zdrojová databáza `%s` nebola nájdená!"
 
-#: src/Routing/Routing.php:157
+#: src/Routing/Routing.php:161
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
-#: src/Server/Plugins.php:53 src/Server/Privileges.php:623
-#: src/Server/Privileges.php:3312
+#: src/Server/Plugins.php:53 src/Server/Privileges.php:632
+#: src/Server/Privileges.php:3274
 msgid "Native MySQL authentication"
 msgstr "Natívne MySQL overovanie"
 
@@ -12182,15 +12183,15 @@ msgstr "Natívne MySQL overovanie"
 msgid "Account locking is not supported."
 msgstr ""
 
-#: src/Server/Privileges.php:256
+#: src/Server/Privileges.php:265
 msgid "No privileges."
 msgstr "Žiadne práva."
 
-#: src/Server/Privileges.php:262
+#: src/Server/Privileges.php:271
 msgid "Includes all privileges except GRANT."
 msgstr "Všetky oprávnenia okrem GRANT."
 
-#: src/Server/Privileges.php:279 src/Server/Privileges.php:302
+#: src/Server/Privileges.php:288 src/Server/Privileges.php:311
 #: templates/server/privileges/privileges_table.twig:125
 #: templates/server/privileges/privileges_table.twig:128
 #: templates/server/privileges/privileges_table.twig:326
@@ -12198,7 +12199,7 @@ msgstr "Všetky oprávnenia okrem GRANT."
 msgid "Allows deleting data."
 msgstr "Povolí mazanie dát."
 
-#: src/Server/Privileges.php:280
+#: src/Server/Privileges.php:289
 #: templates/server/privileges/privileges_table.twig:137
 #: templates/server/privileges/privileges_table.twig:140
 #: templates/server/privileges/privileges_table.twig:367
@@ -12206,7 +12207,7 @@ msgstr "Povolí mazanie dát."
 msgid "Allows creating new tables."
 msgstr "Povolí vytváranie nových tabuliek."
 
-#: src/Server/Privileges.php:281
+#: src/Server/Privileges.php:290
 #: templates/server/privileges/privileges_table.twig:149
 #: templates/server/privileges/privileges_table.twig:152
 #: templates/server/privileges/privileges_table.twig:415
@@ -12214,7 +12215,7 @@ msgstr "Povolí vytváranie nových tabuliek."
 msgid "Allows dropping tables."
 msgstr "Povolí odstraňovanie tabuliek."
 
-#: src/Server/Privileges.php:282 src/Server/Privileges.php:310
+#: src/Server/Privileges.php:291 src/Server/Privileges.php:319
 #: templates/server/privileges/privileges_table.twig:174
 #: templates/server/privileges/privileges_table.twig:177
 #: templates/server/privileges/privileges_table.twig:399
@@ -12222,7 +12223,7 @@ msgstr "Povolí odstraňovanie tabuliek."
 msgid "Allows creating and dropping indexes."
 msgstr "Povolí vytváranie a mazanie indexov."
 
-#: src/Server/Privileges.php:283 src/Server/Privileges.php:311
+#: src/Server/Privileges.php:292 src/Server/Privileges.php:320
 #: templates/server/privileges/privileges_table.twig:186
 #: templates/server/privileges/privileges_table.twig:189
 #: templates/server/privileges/privileges_table.twig:386
@@ -12230,8 +12231,8 @@ msgstr "Povolí vytváranie a mazanie indexov."
 msgid "Allows altering the structure of existing tables."
 msgstr "Povolí meniť štruktúru existujúcich tabuliek."
 
-#: src/Server/Privileges.php:284 src/Server/Privileges.php:330
-#: src/Server/Privileges.php:334
+#: src/Server/Privileges.php:293 src/Server/Privileges.php:339
+#: src/Server/Privileges.php:343
 #: templates/server/privileges/privileges_table.twig:198
 #: templates/server/privileges/privileges_table.twig:201
 #: templates/server/privileges/privileges_table.twig:500
@@ -12241,8 +12242,8 @@ msgstr "Povolí meniť štruktúru existujúcich tabuliek."
 msgid "Allows creating new views."
 msgstr "Umožňuje vytvárať nové pohľady."
 
-#: src/Server/Privileges.php:285 src/Server/Privileges.php:335
-#: src/Server/Privileges.php:337
+#: src/Server/Privileges.php:294 src/Server/Privileges.php:344
+#: src/Server/Privileges.php:346
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:213
 #: templates/server/privileges/privileges_table.twig:447
@@ -12250,7 +12251,7 @@ msgstr "Umožňuje vytvárať nové pohľady."
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Umožňuje spúšťať príkazy so SHOW CREATE VIEW."
 
-#: src/Server/Privileges.php:286 src/Server/Privileges.php:332
+#: src/Server/Privileges.php:295 src/Server/Privileges.php:341
 #: templates/server/privileges/privileges_table.twig:222
 #: templates/server/privileges/privileges_table.twig:225
 #: templates/server/privileges/privileges_table.twig:543
@@ -12258,40 +12259,40 @@ msgstr "Umožňuje spúšťať príkazy so SHOW CREATE VIEW."
 msgid "Allows creating and dropping triggers."
 msgstr "Povolí vytváranie a mazanie spúšťačov."
 
-#: src/Server/Privileges.php:299
+#: src/Server/Privileges.php:308
 #: templates/server/privileges/privileges_table.twig:16
 #: templates/server/privileges/privileges_table.twig:287
 #: templates/server/privileges/privileges_table.twig:290
 msgid "Allows reading data."
 msgstr "Povolí čítanie dát."
 
-#: src/Server/Privileges.php:300
+#: src/Server/Privileges.php:309
 #: templates/server/privileges/privileges_table.twig:43
 #: templates/server/privileges/privileges_table.twig:300
 #: templates/server/privileges/privileges_table.twig:303
 msgid "Allows inserting and replacing data."
 msgstr "Povolí vkladanie a nahradzovanie dát."
 
-#: src/Server/Privileges.php:301
+#: src/Server/Privileges.php:310
 #: templates/server/privileges/privileges_table.twig:70
 #: templates/server/privileges/privileges_table.twig:313
 #: templates/server/privileges/privileges_table.twig:316
 msgid "Allows changing data."
 msgstr "Povolí menenie dát."
 
-#: src/Server/Privileges.php:303
+#: src/Server/Privileges.php:312
 #: templates/server/privileges/privileges_table.twig:365
 #: templates/server/privileges/privileges_table.twig:373
 msgid "Allows creating new databases and tables."
 msgstr "Povolí vytváranie nových databáz a tabuliek."
 
-#: src/Server/Privileges.php:304
+#: src/Server/Privileges.php:313
 #: templates/server/privileges/privileges_table.twig:413
 #: templates/server/privileges/privileges_table.twig:421
 msgid "Allows dropping databases and tables."
 msgstr "Povolí odstraňovanie databáz a tabuliek."
 
-#: src/Server/Privileges.php:305
+#: src/Server/Privileges.php:314
 #: templates/server/privileges/privileges_table.twig:610
 #: templates/server/privileges/privileges_table.twig:613
 msgid "Allows reloading server settings and flushing the server's caches."
@@ -12299,37 +12300,37 @@ msgstr ""
 "Povolí znovunačítanie nastavení a vyprázdňovanie vyrovnávacích pamätí "
 "serveru."
 
-#: src/Server/Privileges.php:306
+#: src/Server/Privileges.php:315
 #: templates/server/privileges/privileges_table.twig:623
 #: templates/server/privileges/privileges_table.twig:626
 msgid "Allows shutting down the server."
 msgstr "Povolí vypnutie serveru."
 
-#: src/Server/Privileges.php:307
+#: src/Server/Privileges.php:316
 #: templates/server/privileges/privileges_table.twig:597
 #: templates/server/privileges/privileges_table.twig:600
 msgid "Allows viewing processes of all users."
 msgstr ""
 
-#: src/Server/Privileges.php:308
+#: src/Server/Privileges.php:317
 #: templates/server/privileges/privileges_table.twig:340
 #: templates/server/privileges/privileges_table.twig:343
 msgid "Allows importing data from and exporting data into files."
 msgstr "Povolí importovanie a exportovanie dát zo/do súborov na serveri."
 
-#: src/Server/Privileges.php:309
+#: src/Server/Privileges.php:318
 #: templates/server/privileges/privileges_table.twig:97
 #: templates/server/privileges/privileges_table.twig:677
 msgid "Has no effect in this MySQL version."
 msgstr "Nefunguje v tejto verzii MySQL."
 
-#: src/Server/Privileges.php:312
+#: src/Server/Privileges.php:321
 #: templates/server/privileges/privileges_table.twig:636
 #: templates/server/privileges/privileges_table.twig:639
 msgid "Gives access to the complete list of databases."
 msgstr "Povolí prístup ku kompletnému zoznamu databáz."
 
-#: src/Server/Privileges.php:317
+#: src/Server/Privileges.php:326
 #: templates/server/privileges/privileges_table.twig:583
 #: templates/server/privileges/privileges_table.twig:587
 msgid ""
@@ -12341,163 +12342,163 @@ msgstr ""
 "Potrebné pre väčšinu operácií pri správe serveru ako nastavovanie globálny "
 "premenných alebo zabíjanie procesov iných používateľov."
 
-#: src/Server/Privileges.php:322
+#: src/Server/Privileges.php:331
 #: templates/server/privileges/privileges_table.twig:434
 #: templates/server/privileges/privileges_table.twig:437
 msgid "Allows creating temporary tables."
 msgstr "Povolí vytváranie dočasných tabuliek."
 
-#: src/Server/Privileges.php:323
+#: src/Server/Privileges.php:332
 #: templates/server/privileges/privileges_table.twig:664
 #: templates/server/privileges/privileges_table.twig:667
 msgid "Allows locking tables for the current thread."
 msgstr "Povolí zmaknutie tabuliek pre aktuálne vlákno."
 
-#: src/Server/Privileges.php:324
+#: src/Server/Privileges.php:333
 #: templates/server/privileges/privileges_table.twig:705
 #: templates/server/privileges/privileges_table.twig:708
 #, fuzzy
 msgid "Needed for the replication replicas."
 msgstr "Potrebné pre replikáciu pomocných serverov."
 
-#: src/Server/Privileges.php:328
+#: src/Server/Privileges.php:337
 #: templates/server/privileges/privileges_table.twig:692
 #: templates/server/privileges/privileges_table.twig:695
 #, fuzzy
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr "Povolí používateľovi zistiť kde je hlavný / pomocný server."
 
-#: src/Server/Privileges.php:331
+#: src/Server/Privileges.php:340
 #: templates/server/privileges/privileges_table.twig:530
 #: templates/server/privileges/privileges_table.twig:533
 msgid "Allows to set up events for the event scheduler."
 msgstr "Umožňuje plánovať udalosti pomocou plánovača."
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
-#: src/Server/Privileges.php:343 src/Server/Privileges.php:352
+#: src/Server/Privileges.php:352 src/Server/Privileges.php:361
 #: templates/server/privileges/privileges_table.twig:235
 #: templates/server/privileges/privileges_table.twig:239
 #, fuzzy
 msgid "Allows deleting historical rows."
 msgstr "Povolí mazanie dát."
 
-#: src/Server/Privileges.php:354
+#: src/Server/Privileges.php:363
 #: templates/server/privileges/privileges_table.twig:460
 #: templates/server/privileges/privileges_table.twig:463
 msgid "Allows creating stored routines."
 msgstr "Umožňuje vytvárať uložené procedúry."
 
-#: src/Server/Privileges.php:355
+#: src/Server/Privileges.php:364
 #: templates/server/privileges/privileges_table.twig:473
 #: templates/server/privileges/privileges_table.twig:476
 msgid "Allows altering and dropping stored routines."
 msgstr "Umožňuje upravovať a odstraňovať uložené procedúry."
 
-#: src/Server/Privileges.php:356
+#: src/Server/Privileges.php:365
 #: templates/server/privileges/privileges_table.twig:718
 #: templates/server/privileges/privileges_table.twig:721
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Umožňuje vytvárať, odstraňovať a premenovávať používateľské kontá."
 
-#: src/Server/Privileges.php:357
+#: src/Server/Privileges.php:366
 #: templates/server/privileges/privileges_table.twig:486
 #: templates/server/privileges/privileges_table.twig:489
 msgid "Allows executing stored routines."
 msgstr "Umožňuje spúšťať uložené procedúry."
 
-#: src/Server/Privileges.php:883
+#: src/Server/Privileges.php:892
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Heslo pre %s bolo úspešne zmenené."
 
-#: src/Server/Privileges.php:931
+#: src/Server/Privileges.php:940
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Boli zrušené oprávnenia pre %s."
 
-#: src/Server/Privileges.php:1219 templates/database/privileges/index.twig:122
+#: src/Server/Privileges.php:1228 templates/database/privileges/index.twig:122
 #: templates/table/privileges/index.twig:126
 msgid "Not enough privilege to view users."
 msgstr ""
 
-#: src/Server/Privileges.php:1275 templates/database/privileges/index.twig:80
+#: src/Server/Privileges.php:1284 templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:75
 #: templates/table/privileges/index.twig:84
 msgid "Edit privileges"
 msgstr "Upraviť oprávnenia"
 
-#: src/Server/Privileges.php:1279
+#: src/Server/Privileges.php:1288
 msgid "Revoke"
 msgstr "Zrušiť"
 
-#: src/Server/Privileges.php:1567
+#: src/Server/Privileges.php:1576
 #: templates/server/privileges/privileges_table.twig:265
 msgid "Database-specific privileges"
 msgstr "Oprávnenia pre jednotlivé databázy"
 
-#: src/Server/Privileges.php:1573
+#: src/Server/Privileges.php:1582
 #: templates/server/privileges/privileges_summary.twig:19
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:267
 msgid "Table-specific privileges"
 msgstr "Oprávnenia pre jednotlivé tabuľky"
 
-#: src/Server/Privileges.php:1578 src/Server/Privileges.php:1580
+#: src/Server/Privileges.php:1587 src/Server/Privileges.php:1589
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:59
 msgid "Routine"
 msgstr "Rutina"
 
-#: src/Server/Privileges.php:1579
+#: src/Server/Privileges.php:1588
 #: templates/server/privileges/edit_routine_privileges.twig:47
 #, fuzzy
 msgid "Routine-specific privileges"
 msgstr "Oprávnenia pre jednotlivé stĺpce"
 
-#: src/Server/Privileges.php:1905
+#: src/Server/Privileges.php:1891
 msgid "No users selected for deleting!"
 msgstr "Na odstránenie neboli vybraní žiadni používatelia!"
 
-#: src/Server/Privileges.php:1908
+#: src/Server/Privileges.php:1894
 msgid "Reloading the privileges"
 msgstr "Znovunačítanie práv"
 
-#: src/Server/Privileges.php:1933
+#: src/Server/Privileges.php:1919
 msgid "The selected users have been deleted successfully."
 msgstr "Vybraní používatelia bol úspešne odstránený."
 
-#: src/Server/Privileges.php:2007
+#: src/Server/Privileges.php:1993
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Boli aktualizované oprávnenia pre %s."
 
-#: src/Server/Privileges.php:2083 templates/database/privileges/index.twig:102
+#: src/Server/Privileges.php:2069 templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "Nebol nájdený žiadny používateľ."
 
-#: src/Server/Privileges.php:2164
+#: src/Server/Privileges.php:2150
 #, php-format
 msgid "Deleting %s"
 msgstr "Odstraňuje sa %s"
 
-#: src/Server/Privileges.php:2195
+#: src/Server/Privileges.php:2181
 msgid "The privileges were reloaded successfully."
 msgstr "Práva boli úspešne znovunačítané."
 
-#: src/Server/Privileges.php:2296
+#: src/Server/Privileges.php:2282
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Používateľ %s už existuje!"
 
-#: src/Server/Privileges.php:2540
+#: src/Server/Privileges.php:2526
 #, php-format
 msgid "Privileges for %s"
 msgstr "Oprávnenia pre %s"
 
-#: src/Server/Privileges.php:2652
+#: src/Server/Privileges.php:2614
 #, fuzzy, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -12510,7 +12511,7 @@ msgstr ""
 "tieto tabuľky ručne upravené. V tomto prípade sa odporúča vykonať "
 "%sznovunačítanie práv%s predtým ako budete pokračovať."
 
-#: src/Server/Privileges.php:2668
+#: src/Server/Privileges.php:2630
 #, fuzzy
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -12524,11 +12525,11 @@ msgstr ""
 "tieto tabuľky ručne upravené. V tom prípade je potrebné znovu načítanie "
 "práv. Nemáte oprávnenie na RELOAD ."
 
-#: src/Server/Privileges.php:2956
+#: src/Server/Privileges.php:2918
 msgid "You have added a new user."
 msgstr "Používateľ bol pridaný."
 
-#: src/Server/Privileges.php:3405
+#: src/Server/Privileges.php:3367
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -12644,16 +12645,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr ""
 
-#: src/Sql.php:452
+#: src/Sql.php:450
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: src/Sql.php:875
+#: src/Sql.php:872
 msgid "Showing as PHP code"
 msgstr "Zobrazujem ako PHP kód"
 
-#: src/Sql.php:1262
+#: src/Sql.php:1259
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12662,7 +12663,7 @@ msgstr ""
 "Aktuálny výber neobsahuje unikátny stĺpec. Úprava gridu, zaškrtávanie, "
 "editácia, kopírovanie a mazanie nie sú dostupné. %s"
 
-#: src/Sql.php:1276
+#: src/Sql.php:1273
 #, fuzzy, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -12671,17 +12672,17 @@ msgstr ""
 "Aktuálny výber neobsahuje unikátny stĺpec. Úprava gridu, zaškrtávanie, "
 "editácia, kopírovanie a mazanie nie sú dostupné."
 
-#: src/SqlQueryForm.php:138
+#: src/SqlQueryForm.php:142
 #, fuzzy, php-format
 msgid "Run SQL query/queries on server “%s”"
 msgstr "Spustiť SQL príkaz(y) na serveri %s"
 
-#: src/SqlQueryForm.php:154
+#: src/SqlQueryForm.php:158
 #, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr "Spustiť SQL dopyt/dopyty na databázu %s"
 
-#: src/SqlQueryForm.php:169
+#: src/SqlQueryForm.php:173
 #, php-format
 msgid "Run SQL query/queries on table %s"
 msgstr "Spustiť SQL dopyt/dopyty na tabuľke %s"
@@ -14503,6 +14504,7 @@ msgid "Grant"
 msgstr "Prideliť"
 
 #: templates/database/privileges/index.twig:36
+#: templates/server/privileges/initials_row.twig:8
 #: templates/server/privileges/new_user_ajax.twig:9
 #: templates/server/privileges/users_overview.twig:36
 #: templates/table/privileges/index.twig:38
@@ -15328,82 +15330,25 @@ msgstr "Aktuálne bežiaca Git revízia %1$s z vetvy %2$s."
 msgid "Git information missing!"
 msgstr "Chýbajú informácie o Git-e!"
 
-#: templates/gis_data_editor_form.twig:3
+#: templates/gis_data_editor_form.twig:4
 #, php-format
 msgid "Value for the column \"%s\""
 msgstr "Hodnota pre pole \"%s\""
 
-#: templates/gis_data_editor_form.twig:22
+#: templates/gis_data_editor_form.twig:23
 #: templates/table/gis_visualization/gis_visualization.twig:34
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Použíť OpenStreetMap ako základnú vrstvu"
 
-#: templates/gis_data_editor_form.twig:38
+#: templates/gis_data_editor_form.twig:49
 #, fuzzy
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
 msgstr "SRID:"
 
-#: templates/gis_data_editor_form.twig:62
-#, php-format
-msgid "Geometry %d:"
-msgstr "Geometria %d:"
-
-#: templates/gis_data_editor_form.twig:82
-msgid "Point:"
-msgstr "Bod:"
-
-#: templates/gis_data_editor_form.twig:102
-#: templates/gis_data_editor_form.twig:140
-#: templates/gis_data_editor_form.twig:186
-#, fuzzy, php-format
-msgid "Point %d:"
-msgstr "Bod %d"
-
-#: templates/gis_data_editor_form.twig:122
-#, php-format
-msgid "Linestring %d:"
-msgstr "Čiara %d:"
-
-#: templates/gis_data_editor_form.twig:124
-#: templates/gis_data_editor_form.twig:173
-msgid "Outer ring:"
-msgstr "Vonkajší obrys:"
-
-#: templates/gis_data_editor_form.twig:126
-#: templates/gis_data_editor_form.twig:175
-#, php-format
-msgid "Inner ring %d:"
-msgstr "Vnútorný obrys %d:"
-
-#: templates/gis_data_editor_form.twig:153
-msgid "Add a linestring"
-msgstr "Pridať linku"
-
-#: templates/gis_data_editor_form.twig:163
-#, php-format
-msgid "Polygon %d:"
-msgstr "Polygón %d:"
-
-#: templates/gis_data_editor_form.twig:202
-msgid "Add a polygon"
-msgstr "Pridať polygón"
-
-#: templates/gis_data_editor_form.twig:209
-msgid "Add geometry"
-msgstr "Pridať geometriu"
-
-#: templates/gis_data_editor_form.twig:218
+#: templates/gis_data_editor_form.twig:58
 msgid "Output"
 msgstr "Výstup"
-
-#: templates/gis_data_editor_form.twig:220
-msgid ""
-"Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field."
-msgstr ""
-"Z voľby „Funkcie“ zvoľte „GeomFromText“ a vložte nižšie uvedený text ako "
-"hodnotu."
 
 #: templates/header.twig:36 templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -18609,6 +18554,43 @@ msgstr "Meno pohľadu"
 #: templates/view_create.twig:84
 msgid "Column names"
 msgstr "Názvy stĺpcov"
+
+#, php-format
+#~ msgid "Point %d"
+#~ msgstr "Bod %d"
+
+#, php-format
+#~ msgid "Geometry %d:"
+#~ msgstr "Geometria %d:"
+
+#~ msgid "Point:"
+#~ msgstr "Bod:"
+
+#, fuzzy, php-format
+#~ msgid "Point %d:"
+#~ msgstr "Bod %d"
+
+#, php-format
+#~ msgid "Linestring %d:"
+#~ msgstr "Čiara %d:"
+
+#~ msgid "Outer ring:"
+#~ msgstr "Vonkajší obrys:"
+
+#, php-format
+#~ msgid "Inner ring %d:"
+#~ msgstr "Vnútorný obrys %d:"
+
+#, php-format
+#~ msgid "Polygon %d:"
+#~ msgstr "Polygón %d:"
+
+#~ msgid ""
+#~ "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+#~ "below into the \"Value\" field."
+#~ msgstr ""
+#~ "Z voľby „Funkcie“ zvoľte „GeomFromText“ a vložte nižšie uvedený text ako "
+#~ "hodnotu."
 
 #, fuzzy, php-format
 #~ msgid "Failed to get description of column %s!"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-09-24 00:19+0000\n"
+"POT-Creation-Date: 2023-10-01 00:20+0000\n"
 "PO-Revision-Date: 2023-05-02 08:51+0000\n"
 "Last-Translator: Xzonn <Xzonn@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -1202,8 +1202,7 @@ msgstr "搜索："
 #: templates/database/operations/index.twig:226
 #: templates/database/routines/editor_form.twig:185
 #: templates/database/routines/execute_form.twig:55
-#: templates/display/results/table.twig:279
-#: templates/gis_data_editor_form.twig:215 templates/modals/add_index.twig:10
+#: templates/display/results/table.twig:279 templates/modals/add_index.twig:10
 #: templates/modals/change_password.twig:10
 #: templates/modals/create_view.twig:10
 #: templates/modals/enum_set_editor.twig:10
@@ -1265,9 +1264,9 @@ msgid "Page number:"
 msgstr "页码："
 
 #: src/BrowseForeigners.php:301
-#: src/Controllers/JavaScriptMessagesController.php:573
+#: src/Controllers/JavaScriptMessagesController.php:575
 #: templates/display/results/table.twig:99
-#: templates/server/privileges/initials_row.twig:17
+#: templates/server/privileges/initials_row.twig:21
 #: templates/table/browse_foreigners/show_all.twig:4
 msgid "Show all"
 msgstr "显示全部"
@@ -1276,277 +1275,277 @@ msgstr "显示全部"
 msgid "Unknown"
 msgstr "未知"
 
-#: src/Charsets/Collation.php:141 src/Charsets/Collation.php:430
+#: src/Charsets/Collation.php:141 src/Charsets/Collation.php:406
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr "德语（电话簿排序）"
 
-#: src/Charsets/Collation.php:145 src/Charsets/Collation.php:427
+#: src/Charsets/Collation.php:145 src/Charsets/Collation.php:403
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "德语（字典顺序）"
 
-#: src/Charsets/Collation.php:154 src/Charsets/Collation.php:505
+#: src/Charsets/Collation.php:154 src/Charsets/Collation.php:481
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr "西班牙语（传统）"
 
-#: src/Charsets/Collation.php:158 src/Charsets/Collation.php:498
+#: src/Charsets/Collation.php:158 src/Charsets/Collation.php:474
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "西班牙语（现代）"
 
-#: src/Charsets/Collation.php:225
+#: src/Charsets/Collation.php:218
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "不区分大小写"
 
-#: src/Charsets/Collation.php:228
+#: src/Charsets/Collation.php:219
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "区分大小写"
 
-#: src/Charsets/Collation.php:231
+#: src/Charsets/Collation.php:220
 msgctxt "Collation variant"
 msgid "accent-insensitive"
 msgstr "不区分重音"
 
-#: src/Charsets/Collation.php:234
+#: src/Charsets/Collation.php:221
 msgctxt "Collation variant"
 msgid "accent-sensitive"
 msgstr "区分重音"
 
-#: src/Charsets/Collation.php:237
+#: src/Charsets/Collation.php:222
 msgctxt "Collation variant"
 msgid "kana-sensitive"
 msgstr "区分假名"
 
-#: src/Charsets/Collation.php:241
+#: src/Charsets/Collation.php:223
 msgctxt "Collation variant"
 msgid "multi-level"
 msgstr "多层级"
 
-#: src/Charsets/Collation.php:244
+#: src/Charsets/Collation.php:224
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "二进制"
 
-#: src/Charsets/Collation.php:247
+#: src/Charsets/Collation.php:225
 msgctxt "Collation variant"
 msgid "no-pad"
 msgstr "无填充"
 
-#: src/Charsets/Collation.php:266
+#: src/Charsets/Collation.php:242
 msgctxt "Collation"
 msgid "Binary"
 msgstr "二进制"
 
-#: src/Charsets/Collation.php:279 src/Charsets/Collation.php:529
+#: src/Charsets/Collation.php:255 src/Charsets/Collation.php:505
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
 
-#: src/Charsets/Collation.php:289 src/Charsets/Collation.php:476
+#: src/Charsets/Collation.php:265 src/Charsets/Collation.php:452
 msgctxt "Collation"
 msgid "West European"
 msgstr "西欧"
 
-#: src/Charsets/Collation.php:296
+#: src/Charsets/Collation.php:272
 msgctxt "Collation"
 msgid "Central European"
 msgstr "中欧"
 
-#: src/Charsets/Collation.php:301 src/Charsets/Collation.php:483
+#: src/Charsets/Collation.php:277 src/Charsets/Collation.php:459
 msgctxt "Collation"
 msgid "Russian"
 msgstr "俄语"
 
-#: src/Charsets/Collation.php:306
+#: src/Charsets/Collation.php:282
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "简体中文"
 
-#: src/Charsets/Collation.php:309
+#: src/Charsets/Collation.php:285
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "繁体中文"
 
-#: src/Charsets/Collation.php:312 src/Charsets/Collation.php:398
+#: src/Charsets/Collation.php:288 src/Charsets/Collation.php:374
 msgctxt "Collation"
 msgid "Chinese"
 msgstr "中文"
 
-#: src/Charsets/Collation.php:320 src/Charsets/Collation.php:447
+#: src/Charsets/Collation.php:296 src/Charsets/Collation.php:423
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "日语"
 
-#: src/Charsets/Collation.php:325
+#: src/Charsets/Collation.php:301
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "巴拉克语"
 
-#: src/Charsets/Collation.php:330
+#: src/Charsets/Collation.php:306
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "亚美尼亚语"
 
-#: src/Charsets/Collation.php:333
+#: src/Charsets/Collation.php:309
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "西里尔语"
 
-#: src/Charsets/Collation.php:336
+#: src/Charsets/Collation.php:312
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "阿拉伯语"
 
-#: src/Charsets/Collation.php:339 src/Charsets/Collation.php:462
+#: src/Charsets/Collation.php:315 src/Charsets/Collation.php:438
 msgctxt "Collation"
 msgid "Korean"
 msgstr "朝鲜语"
 
-#: src/Charsets/Collation.php:342
+#: src/Charsets/Collation.php:318
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "希伯来语"
 
-#: src/Charsets/Collation.php:345
+#: src/Charsets/Collation.php:321
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "乔治亚语"
 
-#: src/Charsets/Collation.php:348
+#: src/Charsets/Collation.php:324
 msgctxt "Collation"
 msgid "Greek"
 msgstr "希腊语"
 
-#: src/Charsets/Collation.php:351
+#: src/Charsets/Collation.php:327
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "捷克斯洛伐克语"
 
-#: src/Charsets/Collation.php:354 src/Charsets/Collation.php:521
+#: src/Charsets/Collation.php:330 src/Charsets/Collation.php:497
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "乌克兰语"
 
-#: src/Charsets/Collation.php:357 src/Charsets/Collation.php:517
+#: src/Charsets/Collation.php:333 src/Charsets/Collation.php:493
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "土耳其语"
 
-#: src/Charsets/Collation.php:360 src/Charsets/Collation.php:509
+#: src/Charsets/Collation.php:336 src/Charsets/Collation.php:485
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "瑞典语"
 
-#: src/Charsets/Collation.php:363 src/Charsets/Collation.php:513
+#: src/Charsets/Collation.php:339 src/Charsets/Collation.php:489
 msgctxt "Collation"
 msgid "Thai"
 msgstr "泰语"
 
-#: src/Charsets/Collation.php:366
+#: src/Charsets/Collation.php:342
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "未知"
 
-#: src/Charsets/Collation.php:392
+#: src/Charsets/Collation.php:368
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "保加利亚语"
 
-#: src/Charsets/Collation.php:404
+#: src/Charsets/Collation.php:380
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "克罗地亚语"
 
-#: src/Charsets/Collation.php:408
+#: src/Charsets/Collation.php:384
 msgctxt "Collation"
 msgid "Czech"
 msgstr "捷克语"
 
-#: src/Charsets/Collation.php:412
+#: src/Charsets/Collation.php:388
 msgctxt "Collation"
 msgid "Danish"
 msgstr "丹麦语"
 
-#: src/Charsets/Collation.php:416
+#: src/Charsets/Collation.php:392
 msgctxt "Collation"
 msgid "English"
 msgstr "英语"
 
-#: src/Charsets/Collation.php:420
+#: src/Charsets/Collation.php:396
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "世界语"
 
-#: src/Charsets/Collation.php:424
+#: src/Charsets/Collation.php:400
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "爱沙尼亚语"
 
-#: src/Charsets/Collation.php:439
+#: src/Charsets/Collation.php:415
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "匈牙利语"
 
-#: src/Charsets/Collation.php:443
+#: src/Charsets/Collation.php:419
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "冰岛语"
 
-#: src/Charsets/Collation.php:450
+#: src/Charsets/Collation.php:426
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr "古典拉丁语"
 
-#: src/Charsets/Collation.php:454
+#: src/Charsets/Collation.php:430
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "拉脱维亚语"
 
-#: src/Charsets/Collation.php:458
+#: src/Charsets/Collation.php:434
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "立陶宛语"
 
-#: src/Charsets/Collation.php:466
+#: src/Charsets/Collation.php:442
 msgctxt "Collation"
 msgid "Burmese"
 msgstr "缅甸语"
 
-#: src/Charsets/Collation.php:469
+#: src/Charsets/Collation.php:445
 msgctxt "Collation"
 msgid "Persian"
 msgstr "波斯语"
 
-#: src/Charsets/Collation.php:473
+#: src/Charsets/Collation.php:449
 msgctxt "Collation"
 msgid "Polish"
 msgstr "波兰语"
 
-#: src/Charsets/Collation.php:480
+#: src/Charsets/Collation.php:456
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "罗马尼亚语"
 
-#: src/Charsets/Collation.php:487
+#: src/Charsets/Collation.php:463
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "僧伽罗语"
 
-#: src/Charsets/Collation.php:491
+#: src/Charsets/Collation.php:467
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "斯洛伐克语"
 
-#: src/Charsets/Collation.php:495
+#: src/Charsets/Collation.php:471
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "斯洛文尼亚语"
 
-#: src/Charsets/Collation.php:525
+#: src/Charsets/Collation.php:501
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "越南语"
@@ -1556,7 +1555,7 @@ msgstr "越南语"
 #: src/Config/Forms/User/ExportForm.php:53
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
-#: src/Controllers/JavaScriptMessagesController.php:712
+#: src/Controllers/JavaScriptMessagesController.php:715
 #: src/Import/Import.php:1254 src/Menu.php:226 src/Menu.php:326
 #: src/Navigation/Nodes/NodeColumn.php:40
 #: src/Navigation/Nodes/NodeDatabase.php:56
@@ -1773,43 +1772,43 @@ msgid "Closed"
 msgstr "关闭"
 
 #: src/Config/ConfigFile.php:609
-#: src/Controllers/JavaScriptMessagesController.php:739
+#: src/Controllers/JavaScriptMessagesController.php:742
 msgctxt "Week day name"
 msgid "Monday"
 msgstr "星期一"
 
 #: src/Config/ConfigFile.php:610
-#: src/Controllers/JavaScriptMessagesController.php:740
+#: src/Controllers/JavaScriptMessagesController.php:743
 msgctxt "Week day name"
 msgid "Tuesday"
 msgstr "星期二"
 
 #: src/Config/ConfigFile.php:611
-#: src/Controllers/JavaScriptMessagesController.php:741
+#: src/Controllers/JavaScriptMessagesController.php:744
 msgctxt "Week day name"
 msgid "Wednesday"
 msgstr "星期三"
 
 #: src/Config/ConfigFile.php:612
-#: src/Controllers/JavaScriptMessagesController.php:742
+#: src/Controllers/JavaScriptMessagesController.php:745
 msgctxt "Week day name"
 msgid "Thursday"
 msgstr "星期四"
 
 #: src/Config/ConfigFile.php:613
-#: src/Controllers/JavaScriptMessagesController.php:743
+#: src/Controllers/JavaScriptMessagesController.php:746
 msgctxt "Week day name"
 msgid "Friday"
 msgstr "星期五"
 
 #: src/Config/ConfigFile.php:614
-#: src/Controllers/JavaScriptMessagesController.php:744
+#: src/Controllers/JavaScriptMessagesController.php:747
 msgctxt "Week day name"
 msgid "Saturday"
 msgstr "星期六"
 
 #: src/Config/ConfigFile.php:615
-#: src/Controllers/JavaScriptMessagesController.php:738
+#: src/Controllers/JavaScriptMessagesController.php:741
 msgctxt "Week day name"
 msgid "Sunday"
 msgstr "星期日"
@@ -3699,7 +3698,7 @@ msgid "Navigation panel width"
 msgstr "导航面板宽度"
 
 #: src/Config/Descriptions.php:815
-#: src/Controllers/JavaScriptMessagesController.php:605
+#: src/Controllers/JavaScriptMessagesController.php:607
 #: src/Navigation/NavigationTree.php:1281
 msgid "Link with main panel"
 msgstr "与主面板链接"
@@ -4206,8 +4205,8 @@ msgstr "文本框行"
 
 #: src/Config/Descriptions.php:938 src/Plugins/Export/ExportHtmlword.php:138
 #: src/Plugins/Export/ExportOdt.php:182
-#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1566
-#: src/Server/Privileges.php:1568 src/Server/Status/Processes.php:93
+#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1575
+#: src/Server/Privileges.php:1577 src/Server/Status/Processes.php:93
 #: templates/console/bookmark_content.twig:12 templates/console/display.twig:48
 #: templates/console/display.twig:206 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4233,7 +4232,7 @@ msgid "Server"
 msgstr "服务器"
 
 #: src/Config/Descriptions.php:941 src/Plugins/Export/ExportXml.php:449
-#: src/Server/Privileges.php:1572 src/Server/Privileges.php:1574
+#: src/Server/Privileges.php:1581 src/Server/Privileges.php:1583
 #: templates/database/structure/show_create.twig:11
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
@@ -4379,7 +4378,7 @@ msgid "Missing data for %s"
 msgstr "缺少 %s 的数据"
 
 #: src/Config/FormDisplay.php:619 src/Config/Validator.php:586
-#: src/Controllers/JavaScriptMessagesController.php:822
+#: src/Controllers/JavaScriptMessagesController.php:825
 msgid "Incorrect value!"
 msgstr "值错误！"
 
@@ -4457,7 +4456,7 @@ msgstr "OpenOffice 文档"
 
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:385 src/Menu.php:249
-#: src/Menu.php:351 src/Menu.php:473 src/Server/Privileges.php:1283
+#: src/Menu.php:351 src/Menu.php:473 src/Server/Privileges.php:1292
 #: src/Util.php:1698 src/Util.php:1713 src/Util.php:1730
 #: templates/database/events/index.twig:17
 #: templates/database/events/index.twig:18
@@ -4733,33 +4732,33 @@ msgid "Incorrect IP address: %s"
 msgstr "IP 地址错误：%s"
 
 #: src/Config/Validator.php:521
-#: src/Controllers/JavaScriptMessagesController.php:821
+#: src/Controllers/JavaScriptMessagesController.php:824
 msgid "Not a valid port number!"
 msgstr "请输入有效的端口号！"
 
 #: src/Config/Validator.php:543
-#: src/Controllers/JavaScriptMessagesController.php:819
+#: src/Controllers/JavaScriptMessagesController.php:822
 msgid "Not a positive number!"
 msgstr "请输入正数！"
 
 #: src/Config/Validator.php:565
-#: src/Controllers/JavaScriptMessagesController.php:820
+#: src/Controllers/JavaScriptMessagesController.php:823
 msgid "Not a non-negative number!"
 msgstr "请输入非负数！"
 
 #: src/Config/Validator.php:604
-#: src/Controllers/JavaScriptMessagesController.php:823
+#: src/Controllers/JavaScriptMessagesController.php:826
 #, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr "值应小于或等于 %s！"
 
-#: src/Console.php:73
+#: src/Console.php:74
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
 msgstr[0] "已显示 %1$d 个书签（包括私有和共享）"
 
-#: src/Console.php:80
+#: src/Console.php:81
 msgid "No bookmarks"
 msgstr "没有书签"
 
@@ -4777,16 +4776,16 @@ msgid ""
 "information."
 msgstr "该系统上没有文件 %s，请访问 %s 获取更多信息。"
 
-#: src/Controllers/Console/Bookmark/AddController.php:33
+#: src/Controllers/Console/Bookmark/AddController.php:35
 msgid "Incomplete params"
 msgstr "不完整的参数"
 
-#: src/Controllers/Console/Bookmark/AddController.php:46
-#: src/Controllers/JavaScriptMessagesController.php:587
+#: src/Controllers/Console/Bookmark/AddController.php:48
+#: src/Controllers/JavaScriptMessagesController.php:589
 msgid "Failed"
 msgstr "失败"
 
-#: src/Controllers/Console/Bookmark/AddController.php:51
+#: src/Controllers/Console/Bookmark/AddController.php:60
 msgid "Succeeded"
 msgstr "成功"
 
@@ -4851,8 +4850,8 @@ msgstr "已经有名为 “%s” 的页面了，请重新命名。"
 #: src/Controllers/Table/IndexRenameController.php:63
 #: src/Controllers/Table/OperationsController.php:94
 #: src/Controllers/Table/OperationsController.php:99
-#: src/Controllers/Table/SearchController.php:176
-#: src/Controllers/Table/SearchController.php:181
+#: src/Controllers/Table/SearchController.php:177
+#: src/Controllers/Table/SearchController.php:182
 #: src/Controllers/Table/SqlController.php:66
 #: src/Controllers/Table/SqlController.php:71
 #: src/Controllers/Table/StructureController.php:121
@@ -4919,7 +4918,7 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "无法加载导出插件，请检查安装！"
 
 #: src/Controllers/Database/ImportController.php:81
-#: src/Controllers/Import/ImportController.php:561
+#: src/Controllers/Import/ImportController.php:548
 #: src/Controllers/Server/ImportController.php:61
 #: src/Controllers/Table/ImportController.php:101
 msgid "Could not load import plugins, please check your installation!"
@@ -5001,8 +5000,8 @@ msgstr "您没有权限管理用户！"
 #: src/Controllers/Table/Maintenance/RepairController.php:45
 #: src/Controllers/Table/OperationsController.php:108
 #: src/Controllers/Table/OperationsController.php:113
-#: src/Controllers/Table/SearchController.php:190
-#: src/Controllers/Table/SearchController.php:195
+#: src/Controllers/Table/SearchController.php:191
+#: src/Controllers/Table/SearchController.php:196
 #: src/Controllers/Table/SqlController.php:80
 #: src/Controllers/Table/SqlController.php:85
 #: src/Controllers/Table/StructureController.php:135
@@ -5103,9 +5102,9 @@ msgid "unknown"
 msgstr "未知"
 
 #: src/Controllers/Database/Structure/DropTableController.php:42
-#: src/Controllers/Database/Structure/EmptyTableController.php:46
-#: src/Controllers/JavaScriptMessagesController.php:500
-#: src/Controllers/Table/DeleteRowsController.php:54
+#: src/Controllers/Database/Structure/EmptyTableController.php:47
+#: src/Controllers/JavaScriptMessagesController.php:502
+#: src/Controllers/Table/DeleteRowsController.php:56
 #: src/Controllers/Table/DropColumnController.php:45
 #: src/Controllers/Table/Structure/PrimaryController.php:108
 #: src/IndexColumn.php:154 src/Index.php:470
@@ -5143,10 +5142,10 @@ msgid "Yes"
 msgstr "是"
 
 #: src/Controllers/Database/Structure/DropTableController.php:43
-#: src/Controllers/Database/Structure/EmptyTableController.php:47
+#: src/Controllers/Database/Structure/EmptyTableController.php:48
 #: src/Controllers/Table/DropColumnController.php:62
 #: src/Controllers/Table/OperationsController.php:359
-#: src/Controllers/Table/ReplaceController.php:307 src/Core.php:528
+#: src/Controllers/Table/ReplaceController.php:307 src/Core.php:519
 #: templates/preview_sql.twig:3
 msgid "No change"
 msgstr "无更改"
@@ -5317,28 +5316,28 @@ msgstr ""
 "curl 扩展未找到并且 allow_url_fopen 已禁用。因此一些功能如错误报告和版本检查"
 "已禁用。"
 
-#: src/Controllers/Import/ImportController.php:203
+#: src/Controllers/Import/ImportController.php:204
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr "您想要上传的文件可能太大了，请参考%s文档%s来寻找解决方法。"
 
-#: src/Controllers/Import/ImportController.php:235
+#: src/Controllers/Import/ImportController.php:236
 msgid "Incorrect format parameter"
 msgstr "格式参数不正确"
 
-#: src/Controllers/Import/ImportController.php:365
-#: src/Controllers/Import/ImportController.php:601
+#: src/Controllers/Import/ImportController.php:357
+#: src/Controllers/Import/ImportController.php:588
 msgid "Showing bookmark"
 msgstr "显示书签"
 
-#: src/Controllers/Import/ImportController.php:390
-#: src/Controllers/Import/ImportController.php:597
+#: src/Controllers/Import/ImportController.php:377
+#: src/Controllers/Import/ImportController.php:584
 msgid "The bookmark has been deleted."
 msgstr "已删除书签。"
 
-#: src/Controllers/Import/ImportController.php:509
+#: src/Controllers/Import/ImportController.php:496
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5347,13 +5346,13 @@ msgstr ""
 "没有接收到要导入的数据。可能是文件名没有提交，也可能是文件大小超出 PHP 限制。"
 "参见[doc@faq1-16]常见问题 1.16[/doc]。"
 
-#: src/Controllers/Import/ImportController.php:609
+#: src/Controllers/Import/ImportController.php:596
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "导入成功，执行了 %d 个查询。"
 
-#: src/Controllers/Import/ImportController.php:646
+#: src/Controllers/Import/ImportController.php:633
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5361,7 +5360,7 @@ msgid ""
 msgstr ""
 "脚本超时，如果您要完成导入，请%s重新提交相同的文件%s，导入将会继续进行。"
 
-#: src/Controllers/Import/ImportController.php:656
+#: src/Controllers/Import/ImportController.php:643
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5369,8 +5368,8 @@ msgstr ""
 "在最后一次执行时没有数据被解析，建议您增加 PHP 运行时间限制，否则 phpMyAdmin "
 "将无法完成导入操作。"
 
-#: src/Controllers/Import/ImportController.php:724
-#: src/Controllers/Sql/SqlController.php:169
+#: src/Controllers/Import/ImportController.php:711
+#: src/Controllers/Sql/SqlController.php:170
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "已禁用“删除数据库”语句。"
 
@@ -5639,12 +5638,12 @@ msgid "The user name is empty!"
 msgstr "用户名不能为空！"
 
 #: src/Controllers/JavaScriptMessagesController.php:144
-#: src/Server/Privileges.php:756 src/UserPassword.php:39
+#: src/Server/Privileges.php:765 src/UserPassword.php:39
 msgid "The password is empty!"
 msgstr "密码不能为空！"
 
 #: src/Controllers/JavaScriptMessagesController.php:145
-#: src/Server/Privileges.php:754 src/UserPassword.php:43
+#: src/Server/Privileges.php:763 src/UserPassword.php:43
 msgid "The passwords aren't the same!"
 msgstr "两次密码不一致！"
 
@@ -6272,7 +6271,8 @@ msgstr "未找到参数！"
 #: templates/database/structure/check_all_tables.twig:49
 #: templates/database/structure/check_all_tables.twig:55
 #: templates/error/report_modal.twig:6 templates/error/report_modal.twig:11
-#: templates/modals/add_index.twig:11 templates/modals/change_password.twig:11
+#: templates/gis_data_editor_form.twig:62 templates/modals/add_index.twig:11
+#: templates/modals/change_password.twig:11
 #: templates/modals/page_settings.twig:11
 #: templates/server/databases/index.twig:316
 #: templates/server/databases/index.twig:320
@@ -6583,7 +6583,7 @@ msgstr "标准化第二步（2NF）"
 
 #. l10n: Display text for calendar close link
 #: src/Controllers/JavaScriptMessagesController.php:427
-#: src/Controllers/JavaScriptMessagesController.php:771
+#: src/Controllers/JavaScriptMessagesController.php:774
 #: src/Normalization.php:337
 msgid "Done"
 msgstr "完成"
@@ -6735,7 +6735,7 @@ msgid "Data point content"
 msgstr "数据点内容"
 
 #: src/Controllers/JavaScriptMessagesController.php:487
-#: src/Controllers/JavaScriptMessagesController.php:635
+#: src/Controllers/JavaScriptMessagesController.php:638
 #: src/ErrorHandler.php:405 src/InsertEdit.php:1567
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
@@ -6745,22 +6745,15 @@ msgstr "忽略"
 #: src/Display/Results.php:2706 src/Html/Generator.php:79
 #: templates/display/results/table.twig:323
 #: templates/display/results/table.twig:324
+#: templates/gis_data_editor_form.twig:61
 msgid "Copy"
 msgstr "复制"
 
 #: src/Controllers/JavaScriptMessagesController.php:489
-#: templates/gis_data_editor_form.twig:84
-#: templates/gis_data_editor_form.twig:104
-#: templates/gis_data_editor_form.twig:142
-#: templates/gis_data_editor_form.twig:188
 msgid "X"
 msgstr "X"
 
 #: src/Controllers/JavaScriptMessagesController.php:490
-#: templates/gis_data_editor_form.twig:88
-#: templates/gis_data_editor_form.twig:108
-#: templates/gis_data_editor_form.twig:146
-#: templates/gis_data_editor_form.twig:192
 msgid "Y"
 msgstr "Y"
 
@@ -6769,203 +6762,205 @@ msgid "Point"
 msgstr "点"
 
 #: src/Controllers/JavaScriptMessagesController.php:492
-#, php-format
-msgid "Point %d"
-msgstr "点 %d"
-
-#: src/Controllers/JavaScriptMessagesController.php:493
 msgid "Linestring"
 msgstr "线"
 
-#: src/Controllers/JavaScriptMessagesController.php:494
+#: src/Controllers/JavaScriptMessagesController.php:493
 msgid "Polygon"
 msgstr "多边形"
 
-#: src/Controllers/JavaScriptMessagesController.php:495
+#: src/Controllers/JavaScriptMessagesController.php:494
 #: templates/display/results/table.twig:263
 msgid "Geometry"
 msgstr "几何体"
 
-#: src/Controllers/JavaScriptMessagesController.php:496
+#: src/Controllers/JavaScriptMessagesController.php:495
 msgid "Inner ring"
 msgstr "内环"
 
-#: src/Controllers/JavaScriptMessagesController.php:497
+#: src/Controllers/JavaScriptMessagesController.php:496
 msgid "Outer ring"
 msgstr "外环"
 
-#: src/Controllers/JavaScriptMessagesController.php:498
-#: templates/gis_data_editor_form.twig:111
-#: templates/gis_data_editor_form.twig:149
-#: templates/gis_data_editor_form.twig:195
+#: src/Controllers/JavaScriptMessagesController.php:497
 msgid "Add a point"
 msgstr "添加点"
 
+#: src/Controllers/JavaScriptMessagesController.php:498
+msgid "Add a linestring"
+msgstr "添加线"
+
 #: src/Controllers/JavaScriptMessagesController.php:499
-#: templates/gis_data_editor_form.twig:153
-#: templates/gis_data_editor_form.twig:198
 msgid "Add an inner ring"
 msgstr "添加内环"
 
+#: src/Controllers/JavaScriptMessagesController.php:500
+msgid "Add a polygon"
+msgstr "添加多边形"
+
 #: src/Controllers/JavaScriptMessagesController.php:501
+msgid "Add geometry"
+msgstr "添加几何体"
+
+#: src/Controllers/JavaScriptMessagesController.php:503
 msgid "Do you want to copy encryption key?"
 msgstr "是否要复制加密密匙？"
 
-#: src/Controllers/JavaScriptMessagesController.php:502
+#: src/Controllers/JavaScriptMessagesController.php:504
 msgid "Encryption key"
 msgstr "加密密匙"
 
-#: src/Controllers/JavaScriptMessagesController.php:505
+#: src/Controllers/JavaScriptMessagesController.php:507
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr "HEX函数在计算十六进制值时会将整数视为字符串"
 
-#: src/Controllers/JavaScriptMessagesController.php:510
+#: src/Controllers/JavaScriptMessagesController.php:512
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr "MySQL 可接受滑动条上不可选的其他值；如果需要直接键入这些值"
 
-#: src/Controllers/JavaScriptMessagesController.php:516
+#: src/Controllers/JavaScriptMessagesController.php:518
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr "MySQL 可接受日期选择器无法选取的其他值；如果需要直接键入这些值"
 
-#: src/Controllers/JavaScriptMessagesController.php:522
+#: src/Controllers/JavaScriptMessagesController.php:524
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr "检测到您已经对页面做出了修改。因此在您放弃改动时会提示您确认"
 
-#: src/Controllers/JavaScriptMessagesController.php:527
+#: src/Controllers/JavaScriptMessagesController.php:529
 msgid "Select referenced key"
 msgstr "选择外键"
 
-#: src/Controllers/JavaScriptMessagesController.php:528
+#: src/Controllers/JavaScriptMessagesController.php:530
 msgid "Select Foreign Key"
 msgstr "选择外键"
 
-#: src/Controllers/JavaScriptMessagesController.php:529
+#: src/Controllers/JavaScriptMessagesController.php:531
 msgid "Please select the primary key or a unique key!"
 msgstr "请选择主键或唯一键！"
 
-#: src/Controllers/JavaScriptMessagesController.php:530
+#: src/Controllers/JavaScriptMessagesController.php:532
 #: templates/database/designer/main.twig:98
 #: templates/database/designer/main.twig:101
 msgid "Choose column to display"
 msgstr "选择要显示的字段"
 
-#: src/Controllers/JavaScriptMessagesController.php:532
+#: src/Controllers/JavaScriptMessagesController.php:534
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr "尚未保存当前布局。如果继续将会丢失本次的修改。是否继续？"
 
-#: src/Controllers/JavaScriptMessagesController.php:535
+#: src/Controllers/JavaScriptMessagesController.php:537
 msgid "value/subQuery is empty"
 msgstr "值/子查询为空"
 
-#: src/Controllers/JavaScriptMessagesController.php:536
+#: src/Controllers/JavaScriptMessagesController.php:538
 #: templates/database/designer/main.twig:40
 #: templates/database/designer/main.twig:43
 msgid "Add tables from other databases"
 msgstr "从其他数据库中添加表"
 
-#: src/Controllers/JavaScriptMessagesController.php:537
+#: src/Controllers/JavaScriptMessagesController.php:539
 msgid "Page name"
 msgstr "页面名称"
 
-#: src/Controllers/JavaScriptMessagesController.php:538
+#: src/Controllers/JavaScriptMessagesController.php:540
 #: templates/database/designer/main.twig:63
 #: templates/database/designer/main.twig:66
 msgid "Save page"
 msgstr "保存页面"
 
-#: src/Controllers/JavaScriptMessagesController.php:539
+#: src/Controllers/JavaScriptMessagesController.php:541
 #: templates/database/designer/main.twig:70
 #: templates/database/designer/main.twig:73
 msgid "Save page as"
 msgstr "保存页面为"
 
-#: src/Controllers/JavaScriptMessagesController.php:540
+#: src/Controllers/JavaScriptMessagesController.php:542
 #: templates/database/designer/main.twig:56
 #: templates/database/designer/main.twig:59
 msgid "Open page"
 msgstr "打开页面"
 
-#: src/Controllers/JavaScriptMessagesController.php:541
+#: src/Controllers/JavaScriptMessagesController.php:543
 msgid "Delete page"
 msgstr "删除页面"
 
 #. l10n: When the user opens a page saved in the Designer
-#: src/Controllers/JavaScriptMessagesController.php:543
+#: src/Controllers/JavaScriptMessagesController.php:545
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr "此页面中保存的某些表可能已重命名或删除。"
 
-#: src/Controllers/JavaScriptMessagesController.php:544
+#: src/Controllers/JavaScriptMessagesController.php:546
 #: templates/database/designer/main.twig:10
 msgid "Untitled"
 msgstr "未命名"
 
-#: src/Controllers/JavaScriptMessagesController.php:545
+#: src/Controllers/JavaScriptMessagesController.php:547
 msgid "Please select a page to continue"
 msgstr "请选择一个页面"
 
-#: src/Controllers/JavaScriptMessagesController.php:546
+#: src/Controllers/JavaScriptMessagesController.php:548
 msgid "Please enter a valid page name"
 msgstr "请输入有效页面名称"
 
-#: src/Controllers/JavaScriptMessagesController.php:547
+#: src/Controllers/JavaScriptMessagesController.php:549
 msgid "Do you want to save the changes to the current page?"
 msgstr "是否保存对该页面的更改？"
 
-#: src/Controllers/JavaScriptMessagesController.php:548
+#: src/Controllers/JavaScriptMessagesController.php:550
 msgid "Successfully deleted the page"
 msgstr "成功删除页面"
 
-#: src/Controllers/JavaScriptMessagesController.php:549
+#: src/Controllers/JavaScriptMessagesController.php:551
 msgid "Export relational schema"
 msgstr "导出关系模式"
 
-#: src/Controllers/JavaScriptMessagesController.php:550
+#: src/Controllers/JavaScriptMessagesController.php:552
 msgid "Modifications have been saved"
 msgstr "已保存修改"
 
-#: src/Controllers/JavaScriptMessagesController.php:553
+#: src/Controllers/JavaScriptMessagesController.php:555
 #, php-format
 msgid "%d object(s) created."
 msgstr "已创建 %d 个对象。"
 
-#: src/Controllers/JavaScriptMessagesController.php:554
+#: src/Controllers/JavaScriptMessagesController.php:556
 msgid "Column name"
 msgstr "字段名"
 
-#: src/Controllers/JavaScriptMessagesController.php:555
+#: src/Controllers/JavaScriptMessagesController.php:557
 #: templates/modals/build_query.twig:17 templates/sql/query.twig:180
 msgid "Submit"
 msgstr "提交"
 
-#: src/Controllers/JavaScriptMessagesController.php:558
+#: src/Controllers/JavaScriptMessagesController.php:560
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr "按 Esc 键取消编辑。<br>- 使用 Shift+Enter 进行换行。"
 
-#: src/Controllers/JavaScriptMessagesController.php:560
+#: src/Controllers/JavaScriptMessagesController.php:562
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr "您已修改了一些数据但尚未保存。您真的要放弃保存并离开吗？"
 
-#: src/Controllers/JavaScriptMessagesController.php:563
+#: src/Controllers/JavaScriptMessagesController.php:565
 msgid "Drag to reorder."
 msgstr "拖拽以调整顺序。"
 
-#: src/Controllers/JavaScriptMessagesController.php:564
+#: src/Controllers/JavaScriptMessagesController.php:566
 msgid "Click to sort results by this column."
 msgstr "点此排序此列的结果。"
 
-#: src/Controllers/JavaScriptMessagesController.php:566
+#: src/Controllers/JavaScriptMessagesController.php:568
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
@@ -6975,19 +6970,19 @@ msgstr ""
 "<br>使用 Ctrl+Click 或者 Alt+Click （Mac：Shift+Option+Click ）即可将列从 "
 "ORDER BY 语句中移除"
 
-#: src/Controllers/JavaScriptMessagesController.php:570
+#: src/Controllers/JavaScriptMessagesController.php:572
 msgid "Click to mark/unmark."
 msgstr "点击以标记/取消标记。"
 
-#: src/Controllers/JavaScriptMessagesController.php:571
+#: src/Controllers/JavaScriptMessagesController.php:573
 msgid "Double-click to copy column name."
 msgstr "双击以复制字段名。"
 
-#: src/Controllers/JavaScriptMessagesController.php:572
+#: src/Controllers/JavaScriptMessagesController.php:574
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr "点击下箭头<br>以设置显示的字段。"
 
-#: src/Controllers/JavaScriptMessagesController.php:575
+#: src/Controllers/JavaScriptMessagesController.php:577
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -6995,78 +6990,78 @@ msgstr ""
 "该表没有唯一字段。在保存后单元格编辑、多选、编辑、复制和删除等功能可能无法正"
 "常使用。"
 
-#: src/Controllers/JavaScriptMessagesController.php:578
+#: src/Controllers/JavaScriptMessagesController.php:580
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr "请输入一个有效的十六进制字符串。只有0-9和A-F为有效字符。"
 
-#: src/Controllers/JavaScriptMessagesController.php:580
+#: src/Controllers/JavaScriptMessagesController.php:582
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr "您真的想要查看所有的行吗？若表过大可能会导致浏览器崩溃。"
 
-#: src/Controllers/JavaScriptMessagesController.php:582
+#: src/Controllers/JavaScriptMessagesController.php:584
 msgid "Original length"
 msgstr "原始长度"
 
-#: src/Controllers/JavaScriptMessagesController.php:585
+#: src/Controllers/JavaScriptMessagesController.php:587
 msgid "cancel"
 msgstr "取消"
 
-#: src/Controllers/JavaScriptMessagesController.php:586
+#: src/Controllers/JavaScriptMessagesController.php:588
 #: src/Controllers/Server/Status/StatusController.php:181
 msgid "Aborted"
 msgstr "已取消"
 
-#: src/Controllers/JavaScriptMessagesController.php:588
+#: src/Controllers/JavaScriptMessagesController.php:590
 msgid "Success"
 msgstr "成功"
 
-#: src/Controllers/JavaScriptMessagesController.php:589
+#: src/Controllers/JavaScriptMessagesController.php:591
 msgid "Import status"
 msgstr "导入状态"
 
-#: src/Controllers/JavaScriptMessagesController.php:590
+#: src/Controllers/JavaScriptMessagesController.php:592
 #: templates/navigation/main.twig:84
 msgid "Drop files here"
 msgstr "将文件拖动至此"
 
-#: src/Controllers/JavaScriptMessagesController.php:591
+#: src/Controllers/JavaScriptMessagesController.php:593
 msgid "Select database first"
 msgstr "先选择数据库"
 
-#: src/Controllers/JavaScriptMessagesController.php:593
+#: src/Controllers/JavaScriptMessagesController.php:595
 msgid "Go to link:"
 msgstr "前往："
 
-#: src/Controllers/JavaScriptMessagesController.php:596
+#: src/Controllers/JavaScriptMessagesController.php:598
 msgid "Generate password"
 msgstr "生成密码"
 
-#: src/Controllers/JavaScriptMessagesController.php:597
+#: src/Controllers/JavaScriptMessagesController.php:599
 #: templates/server/replication/primary_add_replica_user.twig:73
 msgid "Generate"
 msgstr "生成"
 
-#: src/Controllers/JavaScriptMessagesController.php:600
+#: src/Controllers/JavaScriptMessagesController.php:602
 #: templates/table/structure/display_structure.twig:130
 msgid "More"
 msgstr "更多"
 
-#: src/Controllers/JavaScriptMessagesController.php:603
+#: src/Controllers/JavaScriptMessagesController.php:605
 msgid "Show panel"
 msgstr "显示导航面板"
 
-#: src/Controllers/JavaScriptMessagesController.php:604
+#: src/Controllers/JavaScriptMessagesController.php:606
 msgid "Hide panel"
 msgstr "隐藏导航面板"
 
-#: src/Controllers/JavaScriptMessagesController.php:606
+#: src/Controllers/JavaScriptMessagesController.php:608
 #: src/Navigation/NavigationTree.php:1284
 msgid "Unlink from main panel"
 msgstr "从主面板取消链接"
 
-#: src/Controllers/JavaScriptMessagesController.php:610 src/Setup/Index.php:153
+#: src/Controllers/JavaScriptMessagesController.php:612 src/Setup/Index.php:153
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -7075,35 +7070,41 @@ msgstr ""
 "phpMyAdmin 的新版本已出，您应当考虑升级了。最新的版本是 %s，于 %s 发布。"
 
 #. l10n: Latest available phpMyAdmin version
-#: src/Controllers/JavaScriptMessagesController.php:614
+#: src/Controllers/JavaScriptMessagesController.php:616
 msgid ", latest stable version:"
 msgstr "，最新稳定版本："
 
-#: src/Controllers/JavaScriptMessagesController.php:615
+#: src/Controllers/JavaScriptMessagesController.php:617
 msgid "up to date"
 msgstr "已是最新"
 
 #: src/Controllers/JavaScriptMessagesController.php:618
+#, fuzzy
+#| msgid "There was an error importing the ESRI shape file: \"%s\"."
+msgid "There was an error in loading the Git information."
+msgstr "导入 ESRI 图形文件时出错: \"%s\"。"
+
+#: src/Controllers/JavaScriptMessagesController.php:621
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr "发生致命JavaScript错误。是否发送错误报告？"
 
-#: src/Controllers/JavaScriptMessagesController.php:619
+#: src/Controllers/JavaScriptMessagesController.php:622
 msgid "Change report settings"
 msgstr "更改报告设置"
 
-#: src/Controllers/JavaScriptMessagesController.php:620
+#: src/Controllers/JavaScriptMessagesController.php:623
 msgid "Show report details"
 msgstr "显示报告详细信息"
 
-#: src/Controllers/JavaScriptMessagesController.php:621
+#: src/Controllers/JavaScriptMessagesController.php:624
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr "由于PHP设置的执行限制时间过低，您的导入未能完成！"
 
-#: src/Controllers/JavaScriptMessagesController.php:624
+#: src/Controllers/JavaScriptMessagesController.php:627
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -7112,77 +7113,77 @@ msgstr ""
 "警告：当前表单包含的字段多于 %d，受限于 PHP 中 max_input_vars 值的配置，该次"
 "提交有可能忽略其中一部分。"
 
-#: src/Controllers/JavaScriptMessagesController.php:630
-#: src/Controllers/JavaScriptMessagesController.php:643
+#: src/Controllers/JavaScriptMessagesController.php:633
+#: src/Controllers/JavaScriptMessagesController.php:646
 msgid "Some errors have been detected on the server!"
 msgstr "在服务上检测到错误！"
 
-#: src/Controllers/JavaScriptMessagesController.php:632
+#: src/Controllers/JavaScriptMessagesController.php:635
 msgid "Please look at the bottom of this window."
 msgstr "请查看此窗口的底部。"
 
-#: src/Controllers/JavaScriptMessagesController.php:638
+#: src/Controllers/JavaScriptMessagesController.php:641
 #: src/ErrorHandler.php:410
 msgid "Ignore All"
 msgstr "忽略全部"
 
-#: src/Controllers/JavaScriptMessagesController.php:645
+#: src/Controllers/JavaScriptMessagesController.php:648
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr "正在提交您的设置，请耐心等待。"
 
-#: src/Controllers/JavaScriptMessagesController.php:649
+#: src/Controllers/JavaScriptMessagesController.php:652
 msgid "Column name successfully copied to clipboard!"
 msgstr "字段名已成功复制到剪贴板！"
 
-#: src/Controllers/JavaScriptMessagesController.php:650
+#: src/Controllers/JavaScriptMessagesController.php:653
 msgid "Column name copying to clipboard failed!"
 msgstr "字段名复制到剪贴板失败！"
 
-#: src/Controllers/JavaScriptMessagesController.php:651
+#: src/Controllers/JavaScriptMessagesController.php:654
 msgid "Successfully copied!"
 msgstr "成功复制！"
 
-#: src/Controllers/JavaScriptMessagesController.php:652
+#: src/Controllers/JavaScriptMessagesController.php:655
 msgid "Copying failed!"
 msgstr "复制失败！"
 
-#: src/Controllers/JavaScriptMessagesController.php:655
+#: src/Controllers/JavaScriptMessagesController.php:658
 msgid "Execute this query again?"
 msgstr "再次执行该查询？"
 
-#: src/Controllers/JavaScriptMessagesController.php:656
+#: src/Controllers/JavaScriptMessagesController.php:659
 msgid "Do you really want to delete this bookmark?"
 msgstr "您真的要删除该书签吗？"
 
-#: src/Controllers/JavaScriptMessagesController.php:657
+#: src/Controllers/JavaScriptMessagesController.php:660
 msgid "Some error occurred while getting SQL debug info."
 msgstr "获取SQL调试信息时出错。"
 
-#: src/Controllers/JavaScriptMessagesController.php:658
+#: src/Controllers/JavaScriptMessagesController.php:661
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s查询已执行%s次，耗时%s秒。"
 
-#: src/Controllers/JavaScriptMessagesController.php:659
+#: src/Controllers/JavaScriptMessagesController.php:662
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "%s 个参数已传递"
 
-#: src/Controllers/JavaScriptMessagesController.php:660
+#: src/Controllers/JavaScriptMessagesController.php:663
 msgid "Show arguments"
 msgstr "显示注释"
 
-#: src/Controllers/JavaScriptMessagesController.php:661
+#: src/Controllers/JavaScriptMessagesController.php:664
 msgid "Hide arguments"
 msgstr "隐藏注释"
 
-#: src/Controllers/JavaScriptMessagesController.php:662
+#: src/Controllers/JavaScriptMessagesController.php:665
 #: templates/console/display.twig:109
 msgid "Time taken:"
 msgstr "用时："
 
-#: src/Controllers/JavaScriptMessagesController.php:664
+#: src/Controllers/JavaScriptMessagesController.php:667
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -7196,86 +7197,86 @@ msgstr ""
 "线网站数据”可能会解决这个问题。对于Safari浏览器，这个问题通常是由于“隐私浏览"
 "模式”导致的。"
 
-#: src/Controllers/JavaScriptMessagesController.php:671
+#: src/Controllers/JavaScriptMessagesController.php:674
 msgid "Copy tables to"
 msgstr "复制数据表到"
 
-#: src/Controllers/JavaScriptMessagesController.php:672
+#: src/Controllers/JavaScriptMessagesController.php:675
 msgid "Add table prefix"
 msgstr "添加表前缀"
 
-#: src/Controllers/JavaScriptMessagesController.php:673
+#: src/Controllers/JavaScriptMessagesController.php:676
 msgid "Replace table with prefix"
 msgstr "替换表前缀"
 
-#: src/Controllers/JavaScriptMessagesController.php:674
+#: src/Controllers/JavaScriptMessagesController.php:677
 #: templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "复制表为新前缀"
 
-#: src/Controllers/JavaScriptMessagesController.php:677
+#: src/Controllers/JavaScriptMessagesController.php:680
 msgid "Extremely weak"
 msgstr "极弱"
 
-#: src/Controllers/JavaScriptMessagesController.php:678
+#: src/Controllers/JavaScriptMessagesController.php:681
 msgid "Very weak"
 msgstr "很弱"
 
-#: src/Controllers/JavaScriptMessagesController.php:679
+#: src/Controllers/JavaScriptMessagesController.php:682
 msgid "Weak"
 msgstr "弱"
 
-#: src/Controllers/JavaScriptMessagesController.php:680
+#: src/Controllers/JavaScriptMessagesController.php:683
 msgid "Good"
 msgstr "优"
 
-#: src/Controllers/JavaScriptMessagesController.php:681
+#: src/Controllers/JavaScriptMessagesController.php:684
 msgid "Strong"
 msgstr "强"
 
 #. l10n: error code 5 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:685
+#: src/Controllers/JavaScriptMessagesController.php:688
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr "等待安全密钥激活超时。"
 
 #. l10n: error code 2 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:687
+#: src/Controllers/JavaScriptMessagesController.php:690
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr "发送到安全密钥的请求无效。"
 
 #. l10n: unknown error code (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:689
+#: src/Controllers/JavaScriptMessagesController.php:692
 msgctxt "U2F error"
 msgid "Unknown security key error."
 msgstr "未知的安全密钥错误。"
 
 #. l10n: error code 3 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:691
+#: src/Controllers/JavaScriptMessagesController.php:694
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr "客户端不支持安全密钥。"
 
 #. l10n: error code 4 (from U2F API) on register
-#: src/Controllers/JavaScriptMessagesController.php:693
+#: src/Controllers/JavaScriptMessagesController.php:696
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr "安全密钥激活失败。"
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: src/Controllers/JavaScriptMessagesController.php:695
+#: src/Controllers/JavaScriptMessagesController.php:698
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "无效的安全密钥。"
 
-#: src/Controllers/JavaScriptMessagesController.php:698
+#: src/Controllers/JavaScriptMessagesController.php:701
 msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr "WebAuthn 不可用。请在安全上下文 （HTTPS） 中使用受支持的浏览器。"
 
-#: src/Controllers/JavaScriptMessagesController.php:703
+#: src/Controllers/JavaScriptMessagesController.php:706
 msgid ""
 "You can not open, save or delete your page layout, as IndexedDB is not "
 "working in your browser and your phpMyAdmin configuration storage is not "
@@ -7284,19 +7285,19 @@ msgstr ""
 "您无法打开、保存或删除页面布局，因为IndexedDB在浏览器中不工作，并且您的"
 "phpMyAdmin配置存储未为此进行配置。"
 
-#: src/Controllers/JavaScriptMessagesController.php:708
+#: src/Controllers/JavaScriptMessagesController.php:711
 #, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
 msgstr "数据表 %s 已存在！"
 
-#: src/Controllers/JavaScriptMessagesController.php:710 src/InsertEdit.php:281
+#: src/Controllers/JavaScriptMessagesController.php:713 src/InsertEdit.php:281
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "隐藏"
 
-#: src/Controllers/JavaScriptMessagesController.php:711
+#: src/Controllers/JavaScriptMessagesController.php:714
 #: src/Controllers/Table/ChangeController.php:216
 #: templates/database/multi_table_query/form.twig:38
 #: templates/database/tracking/tables.twig:19
@@ -7304,342 +7305,342 @@ msgstr "隐藏"
 msgid "Show"
 msgstr "显示"
 
-#: src/Controllers/JavaScriptMessagesController.php:714
+#: src/Controllers/JavaScriptMessagesController.php:717
 msgctxt "Month name"
 msgid "January"
 msgstr "一月"
 
-#: src/Controllers/JavaScriptMessagesController.php:715
+#: src/Controllers/JavaScriptMessagesController.php:718
 msgctxt "Month name"
 msgid "February"
 msgstr "二月"
 
-#: src/Controllers/JavaScriptMessagesController.php:716
+#: src/Controllers/JavaScriptMessagesController.php:719
 msgctxt "Month name"
 msgid "March"
 msgstr "三月"
 
-#: src/Controllers/JavaScriptMessagesController.php:717
+#: src/Controllers/JavaScriptMessagesController.php:720
 msgctxt "Month name"
 msgid "April"
 msgstr "四月"
 
-#: src/Controllers/JavaScriptMessagesController.php:718
+#: src/Controllers/JavaScriptMessagesController.php:721
 msgctxt "Month name"
 msgid "May"
 msgstr "五月"
 
-#: src/Controllers/JavaScriptMessagesController.php:719
+#: src/Controllers/JavaScriptMessagesController.php:722
 msgctxt "Month name"
 msgid "June"
 msgstr "六月"
 
-#: src/Controllers/JavaScriptMessagesController.php:720
+#: src/Controllers/JavaScriptMessagesController.php:723
 msgctxt "Month name"
 msgid "July"
 msgstr "七月"
 
-#: src/Controllers/JavaScriptMessagesController.php:721
+#: src/Controllers/JavaScriptMessagesController.php:724
 msgctxt "Month name"
 msgid "August"
 msgstr "八月"
 
-#: src/Controllers/JavaScriptMessagesController.php:722
+#: src/Controllers/JavaScriptMessagesController.php:725
 msgctxt "Month name"
 msgid "September"
 msgstr "九月"
 
-#: src/Controllers/JavaScriptMessagesController.php:723
+#: src/Controllers/JavaScriptMessagesController.php:726
 msgctxt "Month name"
 msgid "October"
 msgstr "十月"
 
-#: src/Controllers/JavaScriptMessagesController.php:724
+#: src/Controllers/JavaScriptMessagesController.php:727
 msgctxt "Month name"
 msgid "November"
 msgstr "十一月"
 
-#: src/Controllers/JavaScriptMessagesController.php:725
+#: src/Controllers/JavaScriptMessagesController.php:728
 msgctxt "Month name"
 msgid "December"
 msgstr "十二月"
 
-#: src/Controllers/JavaScriptMessagesController.php:726 src/Util.php:501
+#: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:501
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "一月"
 
-#: src/Controllers/JavaScriptMessagesController.php:727 src/Util.php:502
+#: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:502
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "二月"
 
-#: src/Controllers/JavaScriptMessagesController.php:728 src/Util.php:503
+#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:503
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "三月"
 
-#: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:504
+#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:504
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "四月"
 
-#: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:505
+#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:505
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "五月"
 
-#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:506
+#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:506
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "六月"
 
-#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:507
+#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:507
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "七月"
 
-#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:508
+#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:508
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "八月"
 
-#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:509
+#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:509
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "九月"
 
-#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:510
+#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:510
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "十月"
 
-#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:511
+#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:511
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "十一月"
 
-#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:512
+#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:512
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "十二月"
 
-#: src/Controllers/JavaScriptMessagesController.php:745 src/Util.php:515
+#: src/Controllers/JavaScriptMessagesController.php:748 src/Util.php:515
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "周日"
 
-#: src/Controllers/JavaScriptMessagesController.php:746 src/Util.php:516
+#: src/Controllers/JavaScriptMessagesController.php:749 src/Util.php:516
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "周一"
 
-#: src/Controllers/JavaScriptMessagesController.php:747 src/Util.php:517
+#: src/Controllers/JavaScriptMessagesController.php:750 src/Util.php:517
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "周二"
 
-#: src/Controllers/JavaScriptMessagesController.php:748 src/Util.php:518
+#: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:518
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "周三"
 
-#: src/Controllers/JavaScriptMessagesController.php:749 src/Util.php:519
+#: src/Controllers/JavaScriptMessagesController.php:752 src/Util.php:519
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "周四"
 
-#: src/Controllers/JavaScriptMessagesController.php:750 src/Util.php:520
+#: src/Controllers/JavaScriptMessagesController.php:753 src/Util.php:520
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "周五"
 
-#: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:521
+#: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:521
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "周六"
 
-#: src/Controllers/JavaScriptMessagesController.php:752
+#: src/Controllers/JavaScriptMessagesController.php:755
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "日"
 
-#: src/Controllers/JavaScriptMessagesController.php:753
+#: src/Controllers/JavaScriptMessagesController.php:756
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "一"
 
-#: src/Controllers/JavaScriptMessagesController.php:754
+#: src/Controllers/JavaScriptMessagesController.php:757
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "二"
 
-#: src/Controllers/JavaScriptMessagesController.php:755
+#: src/Controllers/JavaScriptMessagesController.php:758
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "三"
 
-#: src/Controllers/JavaScriptMessagesController.php:756
+#: src/Controllers/JavaScriptMessagesController.php:759
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "四"
 
-#: src/Controllers/JavaScriptMessagesController.php:757
+#: src/Controllers/JavaScriptMessagesController.php:760
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "五"
 
-#: src/Controllers/JavaScriptMessagesController.php:758
+#: src/Controllers/JavaScriptMessagesController.php:761
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "六"
 
-#: src/Controllers/JavaScriptMessagesController.php:759
+#: src/Controllers/JavaScriptMessagesController.php:762
 msgctxt "Column header for week of the year in calendar"
 msgid "Wk"
 msgstr "周"
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
-#: src/Controllers/JavaScriptMessagesController.php:761
+#: src/Controllers/JavaScriptMessagesController.php:764
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "calendar-year-month"
 
-#: src/Controllers/JavaScriptMessagesController.php:762
+#: src/Controllers/JavaScriptMessagesController.php:765
 msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "年"
 
-#: src/Controllers/JavaScriptMessagesController.php:763
+#: src/Controllers/JavaScriptMessagesController.php:766
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "时间"
 
-#: src/Controllers/JavaScriptMessagesController.php:764
+#: src/Controllers/JavaScriptMessagesController.php:767
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "时"
 
-#: src/Controllers/JavaScriptMessagesController.php:765
+#: src/Controllers/JavaScriptMessagesController.php:768
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "分"
 
-#: src/Controllers/JavaScriptMessagesController.php:766
+#: src/Controllers/JavaScriptMessagesController.php:769
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "秒"
 
-#: src/Controllers/JavaScriptMessagesController.php:767
+#: src/Controllers/JavaScriptMessagesController.php:770
 msgctxt "Unit of time"
 msgid "Millisecond"
 msgstr "毫秒"
 
-#: src/Controllers/JavaScriptMessagesController.php:768
+#: src/Controllers/JavaScriptMessagesController.php:771
 msgctxt "Unit of time"
 msgid "Microsecond"
 msgstr "微秒"
 
-#: src/Controllers/JavaScriptMessagesController.php:769
+#: src/Controllers/JavaScriptMessagesController.php:772
 msgctxt "The time zone for a time of day"
 msgid "Time zone"
 msgstr "时区"
 
 #. l10n: Display text for previous month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:773
+#: src/Controllers/JavaScriptMessagesController.php:776
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "上个月"
 
 #. l10n: Display text for next month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:775
+#: src/Controllers/JavaScriptMessagesController.php:778
 msgctxt "Next month"
 msgid "Next"
 msgstr "下个月"
 
 #. l10n: Display text for current month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:777
+#: src/Controllers/JavaScriptMessagesController.php:780
 msgid "Today"
 msgstr "今天"
 
-#: src/Controllers/JavaScriptMessagesController.php:780
+#: src/Controllers/JavaScriptMessagesController.php:783
 msgid "This field is required"
 msgstr "此字段为必须字段"
 
-#: src/Controllers/JavaScriptMessagesController.php:781
+#: src/Controllers/JavaScriptMessagesController.php:784
 msgid "Please fix this field"
 msgstr "请修改这个字段"
 
-#: src/Controllers/JavaScriptMessagesController.php:782
+#: src/Controllers/JavaScriptMessagesController.php:785
 msgid "Please enter a valid email address"
 msgstr "请输入有效的Email地址"
 
-#: src/Controllers/JavaScriptMessagesController.php:783
+#: src/Controllers/JavaScriptMessagesController.php:786
 msgid "Please enter a valid URL"
 msgstr "请输入一个有效的链接地址"
 
-#: src/Controllers/JavaScriptMessagesController.php:784
+#: src/Controllers/JavaScriptMessagesController.php:787
 msgid "Please enter a valid date"
 msgstr "请输入有效的日期"
 
-#: src/Controllers/JavaScriptMessagesController.php:785
+#: src/Controllers/JavaScriptMessagesController.php:788
 msgid "Please enter a valid date ( ISO )"
 msgstr "请输入有效的日期（ISO标准格式）"
 
-#: src/Controllers/JavaScriptMessagesController.php:786
+#: src/Controllers/JavaScriptMessagesController.php:789
 msgid "Please enter a valid number"
 msgstr "请输入一个有效的数字"
 
-#: src/Controllers/JavaScriptMessagesController.php:787
+#: src/Controllers/JavaScriptMessagesController.php:790
 msgid "Please enter a valid credit card number"
 msgstr "请输入一个有效的银行卡号码"
 
-#: src/Controllers/JavaScriptMessagesController.php:788
+#: src/Controllers/JavaScriptMessagesController.php:791
 msgid "Please enter only digits"
 msgstr "请输入纯数字"
 
-#: src/Controllers/JavaScriptMessagesController.php:789
+#: src/Controllers/JavaScriptMessagesController.php:792
 msgid "Please enter the same value again"
 msgstr "请重输一遍"
 
-#: src/Controllers/JavaScriptMessagesController.php:790
+#: src/Controllers/JavaScriptMessagesController.php:793
 msgid "Please enter no more than {0} characters"
 msgstr "请输入不超过{0}位字符"
 
-#: src/Controllers/JavaScriptMessagesController.php:791
+#: src/Controllers/JavaScriptMessagesController.php:794
 msgid "Please enter at least {0} characters"
 msgstr "请输入大于{0}位字符"
 
-#: src/Controllers/JavaScriptMessagesController.php:792
+#: src/Controllers/JavaScriptMessagesController.php:795
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr "请输入一个 {0} 和 {1} 字符长度之间的值"
 
-#: src/Controllers/JavaScriptMessagesController.php:793
+#: src/Controllers/JavaScriptMessagesController.php:796
 msgid "Please enter a value between {0} and {1}"
 msgstr "请输入 {0} 和 {1}之间的一个值"
 
-#: src/Controllers/JavaScriptMessagesController.php:794
+#: src/Controllers/JavaScriptMessagesController.php:797
 msgid "Please enter a value less than or equal to {0}"
 msgstr "请输入一个小于或等于 {0} 的值"
 
-#: src/Controllers/JavaScriptMessagesController.php:795
+#: src/Controllers/JavaScriptMessagesController.php:798
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "请输入一个大于或等于 {0} 的值"
 
-#: src/Controllers/JavaScriptMessagesController.php:796
+#: src/Controllers/JavaScriptMessagesController.php:799
 msgid "Please enter a valid date or time"
 msgstr "请输入有效的日期或时间"
 
-#: src/Controllers/JavaScriptMessagesController.php:797
+#: src/Controllers/JavaScriptMessagesController.php:800
 msgid "Please enter a valid HEX input"
 msgstr "请输入一个有效的HEX值"
 
 #. l10n: To validate the usage of a MD5 function on the column
-#: src/Controllers/JavaScriptMessagesController.php:799
+#: src/Controllers/JavaScriptMessagesController.php:802
 msgid "This column can not contain a 32 chars value"
 msgstr "这个字段无法容纳一个 32 字符长度的值"
 
-#: src/Controllers/JavaScriptMessagesController.php:802
+#: src/Controllers/JavaScriptMessagesController.php:805
 msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
@@ -7647,38 +7648,38 @@ msgstr ""
 "这些函数是要返回二进制结果的。为避免结果不一致，您应将其存储在BINARY，"
 "VARBINARY或BLOB字段中。"
 
-#: src/Controllers/JavaScriptMessagesController.php:807
+#: src/Controllers/JavaScriptMessagesController.php:810
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size."
 msgstr "上传的文件可能超过了最大大小。"
 
-#: src/Controllers/JavaScriptMessagesController.php:809
+#: src/Controllers/JavaScriptMessagesController.php:812
 #, php-format
 msgid "%s of %s"
 msgstr "%s 之 %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:810
+#: src/Controllers/JavaScriptMessagesController.php:813
 #, php-format
 msgid "%s/sec."
 msgstr "%s/秒。"
 
-#: src/Controllers/JavaScriptMessagesController.php:811
+#: src/Controllers/JavaScriptMessagesController.php:814
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr "大约 %MIN 分钟. 还剩下 %SEC 秒."
 
-#: src/Controllers/JavaScriptMessagesController.php:812
+#: src/Controllers/JavaScriptMessagesController.php:815
 msgid "About %SEC sec. remaining."
 msgstr "约还需 %SEC 秒。"
 
-#: src/Controllers/JavaScriptMessagesController.php:813
+#: src/Controllers/JavaScriptMessagesController.php:816
 msgid "The file is being processed, please be patient."
 msgstr "正在处理，请稍候。"
 
-#: src/Controllers/JavaScriptMessagesController.php:814
+#: src/Controllers/JavaScriptMessagesController.php:817
 msgid "Uploading your import file…"
 msgstr "正在上传您的导入文件…"
 
-#: src/Controllers/JavaScriptMessagesController.php:816
+#: src/Controllers/JavaScriptMessagesController.php:819
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
@@ -8475,7 +8476,7 @@ msgstr "如果你的服务器已经配置好支持 HTTPS，请点击这里使用
 msgid "Insecure connection"
 msgstr "非安全连接"
 
-#: src/Controllers/Setup/MainController.php:36
+#: src/Controllers/Setup/MainController.php:40
 msgid "Configuration already exists, setup is disabled!"
 msgstr "配置已存在，设置已禁用！"
 
@@ -8488,12 +8489,12 @@ msgstr "无效数据"
 msgid "Wrong data or no validation for %s"
 msgstr "%s是错误的数据或没有验证"
 
-#: src/Controllers/Sql/SqlController.php:240 src/Sql.php:1079
+#: src/Controllers/Sql/SqlController.php:247 src/Sql.php:1076
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "已创建书签 %s。"
 
-#: src/Controllers/Sql/SqlController.php:247
+#: src/Controllers/Sql/SqlController.php:254
 msgid "Bookmark not created!"
 msgstr "未创建书签！"
 
@@ -8539,7 +8540,7 @@ msgstr "数据库 '%s' 不存在。"
 msgid "Table %s already exists!"
 msgstr "数据表 %s 已存在！"
 
-#: src/Controllers/Table/DeleteRowsController.php:75
+#: src/Controllers/Table/DeleteRowsController.php:77
 #: src/Controllers/Table/FindReplaceController.php:207
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:74
 #: src/Controllers/Table/Maintenance/CheckController.php:74
@@ -8589,7 +8590,7 @@ msgstr "您的请求有问题。"
 
 #: src/Controllers/Table/GetFieldController.php:82
 #: src/Database/Routines.php:995 src/Import/Import.php:166
-#: src/InsertEdit.php:202 src/Sql.php:881
+#: src/InsertEdit.php:202 src/Sql.php:878
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL 返回的查询结果为空 (即零行)。"
 
@@ -8750,7 +8751,7 @@ msgstr "修改密码"
 msgid "View name can not be empty!"
 msgstr "视图名不可为空！"
 
-#: src/Core.php:112 src/ZipExtension.php:57
+#: src/Core.php:113 src/ZipExtension.php:57
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "缺少 %s 扩展。请检查 PHP 配置。"
@@ -9049,7 +9050,7 @@ msgstr "总数为 %1$d，查询包含 %2$d"
 msgid "%s total"
 msgstr "共 %d 行"
 
-#: src/Display/Results.php:3730 src/Sql.php:887
+#: src/Display/Results.php:3730 src/Sql.php:884
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "查询花费 %01.4f 秒。"
@@ -9625,7 +9626,7 @@ msgstr "表名长度不可超过%d位字符。"
 msgid "The trigger name cannot end with a space character."
 msgstr "表名不能以空格字符结尾。"
 
-#: src/Import/Import.php:288 src/Sql.php:895
+#: src/Import/Import.php:288 src/Sql.php:892
 msgid "[ROLLBACK occurred.]"
 msgstr "[发生 ROLLBACK.]"
 
@@ -9764,11 +9765,11 @@ msgstr "或"
 msgid "web server upload directory:"
 msgstr "网站服务器上传文件夹："
 
-#: src/InsertEdit.php:962 src/Sql.php:878
+#: src/InsertEdit.php:962 src/Sql.php:875
 msgid "Showing SQL query"
 msgstr "显示 SQL 查询"
 
-#: src/InsertEdit.php:986 src/Sql.php:858
+#: src/InsertEdit.php:986 src/Sql.php:855
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "插入的行 id: %1$d"
@@ -10984,22 +10985,22 @@ msgstr "（参见下面的实际视图）"
 msgid "Error reading data for table %s:"
 msgstr "读取表 %s 的数据时发生错误："
 
-#: src/Plugins/Export/ExportSql.php:2665
+#: src/Plugins/Export/ExportSql.php:2658
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:610
 msgid "Creation:"
 msgstr "创建时间："
 
-#: src/Plugins/Export/ExportSql.php:2675
+#: src/Plugins/Export/ExportSql.php:2668
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:621
 msgid "Last update:"
 msgstr "最后更新："
 
-#: src/Plugins/Export/ExportSql.php:2685
+#: src/Plugins/Export/ExportSql.php:2678
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:632
 msgid "Last check:"
 msgstr "最后检查："
 
-#: src/Plugins/Export/ExportSql.php:2708
+#: src/Plugins/Export/ExportSql.php:2701
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr "最大程度兼容数据库系统或旧版本的 MySQL 服务器："
@@ -11299,7 +11300,7 @@ msgstr ""
 "字段中显示一个二进制数据的下载连接。第一个选项是文件名，或使用第二个选项，用"
 "表中的一个字段值作为文件名。如果想使用字段值作为文件名，第一个选项必须留空。"
 
-#: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:40
+#: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:39
 #, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the column data "
@@ -11332,7 +11333,7 @@ msgstr ""
 "理输出 (默认为 1)。第四个参数如果设为 1 的话，将禁止换行，确保所有内容显示在"
 "一行中 (默认为 1)。"
 
-#: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:123
+#: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:122
 #, php-format
 msgid ""
 "You are using the external transformation command line options field, which "
@@ -11641,24 +11642,24 @@ msgstr "无法修改主服务器！"
 msgid "Primary server changed successfully to %s."
 msgstr "已成功修改主服务器到 %s。"
 
-#: src/Routing/Routing.php:115
+#: src/Routing/Routing.php:119
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr "无法写入路由缓存，您需要调整文件夹/文件“%s”的权限"
 
-#: src/Routing/Routing.php:149 src/Routing/Routing.php:205
+#: src/Routing/Routing.php:153 src/Routing/Routing.php:213
 #, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "404 错误！未找到页面 %s。"
 
-#: src/Routing/Routing.php:157
+#: src/Routing/Routing.php:161
 msgid "Error 405! Request method not allowed."
 msgstr "错误 405！请求的方法不被允许。"
 
-#: src/Server/Plugins.php:53 src/Server/Privileges.php:623
-#: src/Server/Privileges.php:3312
+#: src/Server/Plugins.php:53 src/Server/Privileges.php:632
+#: src/Server/Privileges.php:3274
 msgid "Native MySQL authentication"
 msgstr "MySQL自带身份验证"
 
@@ -11683,15 +11684,15 @@ msgstr "旧的 MySQL-4.0 的身份验证"
 msgid "Account locking is not supported."
 msgstr "不支持账户锁定。"
 
-#: src/Server/Privileges.php:256
+#: src/Server/Privileges.php:265
 msgid "No privileges."
 msgstr "无权限。"
 
-#: src/Server/Privileges.php:262
+#: src/Server/Privileges.php:271
 msgid "Includes all privileges except GRANT."
 msgstr "除了授权 (GRANT) 以外的所有权限。"
 
-#: src/Server/Privileges.php:279 src/Server/Privileges.php:302
+#: src/Server/Privileges.php:288 src/Server/Privileges.php:311
 #: templates/server/privileges/privileges_table.twig:125
 #: templates/server/privileges/privileges_table.twig:128
 #: templates/server/privileges/privileges_table.twig:326
@@ -11699,7 +11700,7 @@ msgstr "除了授权 (GRANT) 以外的所有权限。"
 msgid "Allows deleting data."
 msgstr "允许删除数据。"
 
-#: src/Server/Privileges.php:280
+#: src/Server/Privileges.php:289
 #: templates/server/privileges/privileges_table.twig:137
 #: templates/server/privileges/privileges_table.twig:140
 #: templates/server/privileges/privileges_table.twig:367
@@ -11707,7 +11708,7 @@ msgstr "允许删除数据。"
 msgid "Allows creating new tables."
 msgstr "允许创建新数据表。"
 
-#: src/Server/Privileges.php:281
+#: src/Server/Privileges.php:290
 #: templates/server/privileges/privileges_table.twig:149
 #: templates/server/privileges/privileges_table.twig:152
 #: templates/server/privileges/privileges_table.twig:415
@@ -11715,7 +11716,7 @@ msgstr "允许创建新数据表。"
 msgid "Allows dropping tables."
 msgstr "允许删除数据表。"
 
-#: src/Server/Privileges.php:282 src/Server/Privileges.php:310
+#: src/Server/Privileges.php:291 src/Server/Privileges.php:319
 #: templates/server/privileges/privileges_table.twig:174
 #: templates/server/privileges/privileges_table.twig:177
 #: templates/server/privileges/privileges_table.twig:399
@@ -11723,7 +11724,7 @@ msgstr "允许删除数据表。"
 msgid "Allows creating and dropping indexes."
 msgstr "允许创建和删除索引。"
 
-#: src/Server/Privileges.php:283 src/Server/Privileges.php:311
+#: src/Server/Privileges.php:292 src/Server/Privileges.php:320
 #: templates/server/privileges/privileges_table.twig:186
 #: templates/server/privileges/privileges_table.twig:189
 #: templates/server/privileges/privileges_table.twig:386
@@ -11731,8 +11732,8 @@ msgstr "允许创建和删除索引。"
 msgid "Allows altering the structure of existing tables."
 msgstr "允许修改现有数据表的结构。"
 
-#: src/Server/Privileges.php:284 src/Server/Privileges.php:330
-#: src/Server/Privileges.php:334
+#: src/Server/Privileges.php:293 src/Server/Privileges.php:339
+#: src/Server/Privileges.php:343
 #: templates/server/privileges/privileges_table.twig:198
 #: templates/server/privileges/privileges_table.twig:201
 #: templates/server/privileges/privileges_table.twig:500
@@ -11742,8 +11743,8 @@ msgstr "允许修改现有数据表的结构。"
 msgid "Allows creating new views."
 msgstr "允许创建视图。"
 
-#: src/Server/Privileges.php:285 src/Server/Privileges.php:335
-#: src/Server/Privileges.php:337
+#: src/Server/Privileges.php:294 src/Server/Privileges.php:344
+#: src/Server/Privileges.php:346
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:213
 #: templates/server/privileges/privileges_table.twig:447
@@ -11751,7 +11752,7 @@ msgstr "允许创建视图。"
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "允许执行 SHOW CREATE VIEW 查询。"
 
-#: src/Server/Privileges.php:286 src/Server/Privileges.php:332
+#: src/Server/Privileges.php:295 src/Server/Privileges.php:341
 #: templates/server/privileges/privileges_table.twig:222
 #: templates/server/privileges/privileges_table.twig:225
 #: templates/server/privileges/privileges_table.twig:543
@@ -11759,76 +11760,76 @@ msgstr "允许执行 SHOW CREATE VIEW 查询。"
 msgid "Allows creating and dropping triggers."
 msgstr "允许创建和删除触发器。"
 
-#: src/Server/Privileges.php:299
+#: src/Server/Privileges.php:308
 #: templates/server/privileges/privileges_table.twig:16
 #: templates/server/privileges/privileges_table.twig:287
 #: templates/server/privileges/privileges_table.twig:290
 msgid "Allows reading data."
 msgstr "允许读取数据。"
 
-#: src/Server/Privileges.php:300
+#: src/Server/Privileges.php:309
 #: templates/server/privileges/privileges_table.twig:43
 #: templates/server/privileges/privileges_table.twig:300
 #: templates/server/privileges/privileges_table.twig:303
 msgid "Allows inserting and replacing data."
 msgstr "允许插入和替换数据。"
 
-#: src/Server/Privileges.php:301
+#: src/Server/Privileges.php:310
 #: templates/server/privileges/privileges_table.twig:70
 #: templates/server/privileges/privileges_table.twig:313
 #: templates/server/privileges/privileges_table.twig:316
 msgid "Allows changing data."
 msgstr "允许修改数据。"
 
-#: src/Server/Privileges.php:303
+#: src/Server/Privileges.php:312
 #: templates/server/privileges/privileges_table.twig:365
 #: templates/server/privileges/privileges_table.twig:373
 msgid "Allows creating new databases and tables."
 msgstr "允许创建新数据库和数据表。"
 
-#: src/Server/Privileges.php:304
+#: src/Server/Privileges.php:313
 #: templates/server/privileges/privileges_table.twig:413
 #: templates/server/privileges/privileges_table.twig:421
 msgid "Allows dropping databases and tables."
 msgstr "允许删除数据库和数据表。"
 
-#: src/Server/Privileges.php:305
+#: src/Server/Privileges.php:314
 #: templates/server/privileges/privileges_table.twig:610
 #: templates/server/privileges/privileges_table.twig:613
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr "允许重新载入服务器设置并刷新服务器的缓存。"
 
-#: src/Server/Privileges.php:306
+#: src/Server/Privileges.php:315
 #: templates/server/privileges/privileges_table.twig:623
 #: templates/server/privileges/privileges_table.twig:626
 msgid "Allows shutting down the server."
 msgstr "允许关闭服务器。"
 
-#: src/Server/Privileges.php:307
+#: src/Server/Privileges.php:316
 #: templates/server/privileges/privileges_table.twig:597
 #: templates/server/privileges/privileges_table.twig:600
 msgid "Allows viewing processes of all users."
 msgstr "允许查看所有用户的进程。"
 
-#: src/Server/Privileges.php:308
+#: src/Server/Privileges.php:317
 #: templates/server/privileges/privileges_table.twig:340
 #: templates/server/privileges/privileges_table.twig:343
 msgid "Allows importing data from and exporting data into files."
 msgstr "允许从文件中导入数据以及将数据导出至文件。"
 
-#: src/Server/Privileges.php:309
+#: src/Server/Privileges.php:318
 #: templates/server/privileges/privileges_table.twig:97
 #: templates/server/privileges/privileges_table.twig:677
 msgid "Has no effect in this MySQL version."
 msgstr "在此版本的 MySQL 中无效。"
 
-#: src/Server/Privileges.php:312
+#: src/Server/Privileges.php:321
 #: templates/server/privileges/privileges_table.twig:636
 #: templates/server/privileges/privileges_table.twig:639
 msgid "Gives access to the complete list of databases."
 msgstr "允许访问完整的数据库列表。"
 
-#: src/Server/Privileges.php:317
+#: src/Server/Privileges.php:326
 #: templates/server/privileges/privileges_table.twig:583
 #: templates/server/privileges/privileges_table.twig:587
 msgid ""
@@ -11839,159 +11840,159 @@ msgstr ""
 "允许在达到最大连接数时连接，对于大多数像设置全局变量或杀死其它用户线程这样的"
 "管理操作是必需的。"
 
-#: src/Server/Privileges.php:322
+#: src/Server/Privileges.php:331
 #: templates/server/privileges/privileges_table.twig:434
 #: templates/server/privileges/privileges_table.twig:437
 msgid "Allows creating temporary tables."
 msgstr "允许创建临时表。"
 
-#: src/Server/Privileges.php:323
+#: src/Server/Privileges.php:332
 #: templates/server/privileges/privileges_table.twig:664
 #: templates/server/privileges/privileges_table.twig:667
 msgid "Allows locking tables for the current thread."
 msgstr "允许锁定当前线程的表。"
 
-#: src/Server/Privileges.php:324
+#: src/Server/Privileges.php:333
 #: templates/server/privileges/privileges_table.twig:705
 #: templates/server/privileges/privileges_table.twig:708
 msgid "Needed for the replication replicas."
 msgstr "回复从服务器所需。"
 
-#: src/Server/Privileges.php:328
+#: src/Server/Privileges.php:337
 #: templates/server/privileges/privileges_table.twig:692
 #: templates/server/privileges/privileges_table.twig:695
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr "允许用户询问从服务器/主服务器在哪里。"
 
-#: src/Server/Privileges.php:331
+#: src/Server/Privileges.php:340
 #: templates/server/privileges/privileges_table.twig:530
 #: templates/server/privileges/privileges_table.twig:533
 msgid "Allows to set up events for the event scheduler."
 msgstr "允许为事件触发器设置事件。"
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
-#: src/Server/Privileges.php:343 src/Server/Privileges.php:352
+#: src/Server/Privileges.php:352 src/Server/Privileges.php:361
 #: templates/server/privileges/privileges_table.twig:235
 #: templates/server/privileges/privileges_table.twig:239
 msgid "Allows deleting historical rows."
 msgstr "允许删除历史行。"
 
-#: src/Server/Privileges.php:354
+#: src/Server/Privileges.php:363
 #: templates/server/privileges/privileges_table.twig:460
 #: templates/server/privileges/privileges_table.twig:463
 msgid "Allows creating stored routines."
 msgstr "允许创建存储过程。"
 
-#: src/Server/Privileges.php:355
+#: src/Server/Privileges.php:364
 #: templates/server/privileges/privileges_table.twig:473
 #: templates/server/privileges/privileges_table.twig:476
 msgid "Allows altering and dropping stored routines."
 msgstr "允许修改或删除储存过程。"
 
-#: src/Server/Privileges.php:356
+#: src/Server/Privileges.php:365
 #: templates/server/privileges/privileges_table.twig:718
 #: templates/server/privileges/privileges_table.twig:721
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "允许创建、删除和重命名用户账户。"
 
-#: src/Server/Privileges.php:357
+#: src/Server/Privileges.php:366
 #: templates/server/privileges/privileges_table.twig:486
 #: templates/server/privileges/privileges_table.twig:489
 msgid "Allows executing stored routines."
 msgstr "允许运行存储过程。"
 
-#: src/Server/Privileges.php:883
+#: src/Server/Privileges.php:892
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "%s 的密码已修改。"
 
-#: src/Server/Privileges.php:931
+#: src/Server/Privileges.php:940
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "您已撤销 %s 的权限。"
 
-#: src/Server/Privileges.php:1219 templates/database/privileges/index.twig:122
+#: src/Server/Privileges.php:1228 templates/database/privileges/index.twig:122
 #: templates/table/privileges/index.twig:126
 msgid "Not enough privilege to view users."
 msgstr "没有足够的权限来查看用户。"
 
-#: src/Server/Privileges.php:1275 templates/database/privileges/index.twig:80
+#: src/Server/Privileges.php:1284 templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:75
 #: templates/table/privileges/index.twig:84
 msgid "Edit privileges"
 msgstr "修改权限"
 
-#: src/Server/Privileges.php:1279
+#: src/Server/Privileges.php:1288
 msgid "Revoke"
 msgstr "撤销"
 
-#: src/Server/Privileges.php:1567
+#: src/Server/Privileges.php:1576
 #: templates/server/privileges/privileges_table.twig:265
 msgid "Database-specific privileges"
 msgstr "按数据库指定权限"
 
-#: src/Server/Privileges.php:1573
+#: src/Server/Privileges.php:1582
 #: templates/server/privileges/privileges_summary.twig:19
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:267
 msgid "Table-specific privileges"
 msgstr "按表指定权限"
 
-#: src/Server/Privileges.php:1578 src/Server/Privileges.php:1580
+#: src/Server/Privileges.php:1587 src/Server/Privileges.php:1589
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:59
 msgid "Routine"
 msgstr "例程"
 
-#: src/Server/Privileges.php:1579
+#: src/Server/Privileges.php:1588
 #: templates/server/privileges/edit_routine_privileges.twig:47
 msgid "Routine-specific privileges"
 msgstr "按例程指定权限"
 
-#: src/Server/Privileges.php:1905
+#: src/Server/Privileges.php:1891
 msgid "No users selected for deleting!"
 msgstr "没有选择要删除的用户！"
 
-#: src/Server/Privileges.php:1908
+#: src/Server/Privileges.php:1894
 msgid "Reloading the privileges"
 msgstr "重新载入权限"
 
-#: src/Server/Privileges.php:1933
+#: src/Server/Privileges.php:1919
 msgid "The selected users have been deleted successfully."
 msgstr "已成功删除选中的用户。"
 
-#: src/Server/Privileges.php:2007
+#: src/Server/Privileges.php:1993
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "您已更新了 %s 的权限。"
 
-#: src/Server/Privileges.php:2083 templates/database/privileges/index.twig:102
+#: src/Server/Privileges.php:2069 templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "未找到用户。"
 
-#: src/Server/Privileges.php:2164
+#: src/Server/Privileges.php:2150
 #, php-format
 msgid "Deleting %s"
 msgstr "正在删除 %s"
 
-#: src/Server/Privileges.php:2195
+#: src/Server/Privileges.php:2181
 msgid "The privileges were reloaded successfully."
 msgstr "已成功重新载入权限。"
 
-#: src/Server/Privileges.php:2296
+#: src/Server/Privileges.php:2282
 #, php-format
 msgid "The user %s already exists!"
 msgstr "用户 %s 己存在！"
 
-#: src/Server/Privileges.php:2540
+#: src/Server/Privileges.php:2526
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s 的权限"
 
-#: src/Server/Privileges.php:2652
+#: src/Server/Privileges.php:2614
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -12003,7 +12004,7 @@ msgstr ""
 "将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权"
 "限%s。"
 
-#: src/Server/Privileges.php:2668
+#: src/Server/Privileges.php:2630
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12015,11 +12016,11 @@ msgstr ""
 "内容将可能与服务器使用的用户权限有异。在这种情况下，应当重新载入权限表，但您"
 "没有RELOAD权限。"
 
-#: src/Server/Privileges.php:2956
+#: src/Server/Privileges.php:2918
 msgid "You have added a new user."
 msgstr "您已添加了一个新用户。"
 
-#: src/Server/Privileges.php:3405
+#: src/Server/Privileges.php:3367
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -12136,16 +12137,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "没有新的稳定版本可用"
 
-#: src/Sql.php:452
+#: src/Sql.php:450
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "使用书签 \"%s\" 作为默认的查询。"
 
-#: src/Sql.php:875
+#: src/Sql.php:872
 msgid "Showing as PHP code"
 msgstr "显示为 PHP 代码"
 
-#: src/Sql.php:1262
+#: src/Sql.php:1259
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12154,7 +12155,7 @@ msgstr ""
 "当前所选内容没有包含唯一字段。单元格编辑、复选框、编辑、复制和删除无法正常使"
 "用。%s"
 
-#: src/Sql.php:1276
+#: src/Sql.php:1273
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -12163,17 +12164,17 @@ msgstr ""
 "当前所选内容没有包含唯一字段。单元格编辑、复选框、编辑、复制和删除可能会导致"
 "无法预料的情形发生。%s"
 
-#: src/SqlQueryForm.php:138
+#: src/SqlQueryForm.php:142
 #, php-format
 msgid "Run SQL query/queries on server “%s”"
 msgstr "在服务器 “%s” 运行 SQL 查询"
 
-#: src/SqlQueryForm.php:154
+#: src/SqlQueryForm.php:158
 #, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr "在数据库 %s 运行 SQL 查询"
 
-#: src/SqlQueryForm.php:169
+#: src/SqlQueryForm.php:173
 #, php-format
 msgid "Run SQL query/queries on table %s"
 msgstr "在表 %s 运行 SQL 查询"
@@ -13910,6 +13911,7 @@ msgid "Grant"
 msgstr "授权"
 
 #: templates/database/privileges/index.twig:36
+#: templates/server/privileges/initials_row.twig:8
 #: templates/server/privileges/new_user_ajax.twig:9
 #: templates/server/privileges/users_overview.twig:36
 #: templates/table/privileges/index.twig:38
@@ -14707,79 +14709,24 @@ msgstr "当前为 Git %2$s 分支 %1$s 版。"
 msgid "Git information missing!"
 msgstr "缺少 Git 信息！"
 
-#: templates/gis_data_editor_form.twig:3
+#: templates/gis_data_editor_form.twig:4
 #, php-format
 msgid "Value for the column \"%s\""
 msgstr "字段“%s”的值"
 
-#: templates/gis_data_editor_form.twig:22
+#: templates/gis_data_editor_form.twig:23
 #: templates/table/gis_visualization/gis_visualization.twig:34
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "以 OpenStreetMaps 为背景"
 
-#: templates/gis_data_editor_form.twig:38
+#: templates/gis_data_editor_form.twig:49
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
 msgstr "空间参照标识符："
 
-#: templates/gis_data_editor_form.twig:62
-#, php-format
-msgid "Geometry %d:"
-msgstr "几何体 %d："
-
-#: templates/gis_data_editor_form.twig:82
-msgid "Point:"
-msgstr "点："
-
-#: templates/gis_data_editor_form.twig:102
-#: templates/gis_data_editor_form.twig:140
-#: templates/gis_data_editor_form.twig:186
-#, php-format
-msgid "Point %d:"
-msgstr "点 %d:"
-
-#: templates/gis_data_editor_form.twig:122
-#, php-format
-msgid "Linestring %d:"
-msgstr "线 %d："
-
-#: templates/gis_data_editor_form.twig:124
-#: templates/gis_data_editor_form.twig:173
-msgid "Outer ring:"
-msgstr "外环："
-
-#: templates/gis_data_editor_form.twig:126
-#: templates/gis_data_editor_form.twig:175
-#, php-format
-msgid "Inner ring %d:"
-msgstr "内环 %d："
-
-#: templates/gis_data_editor_form.twig:153
-msgid "Add a linestring"
-msgstr "添加线"
-
-#: templates/gis_data_editor_form.twig:163
-#, php-format
-msgid "Polygon %d:"
-msgstr "多边形 %d："
-
-#: templates/gis_data_editor_form.twig:202
-msgid "Add a polygon"
-msgstr "添加多边形"
-
-#: templates/gis_data_editor_form.twig:209
-msgid "Add geometry"
-msgstr "添加几何体"
-
-#: templates/gis_data_editor_form.twig:218
+#: templates/gis_data_editor_form.twig:58
 msgid "Output"
 msgstr "输出"
-
-#: templates/gis_data_editor_form.twig:220
-msgid ""
-"Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field."
-msgstr "从“函数”列中选择“GeomFromText”并粘贴下列内容到“值”中。"
 
 #: templates/header.twig:36 templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -17842,6 +17789,41 @@ msgstr "视图名"
 #: templates/view_create.twig:84
 msgid "Column names"
 msgstr "字段名"
+
+#, php-format
+#~ msgid "Point %d"
+#~ msgstr "点 %d"
+
+#, php-format
+#~ msgid "Geometry %d:"
+#~ msgstr "几何体 %d："
+
+#~ msgid "Point:"
+#~ msgstr "点："
+
+#, php-format
+#~ msgid "Point %d:"
+#~ msgstr "点 %d:"
+
+#, php-format
+#~ msgid "Linestring %d:"
+#~ msgstr "线 %d："
+
+#~ msgid "Outer ring:"
+#~ msgstr "外环："
+
+#, php-format
+#~ msgid "Inner ring %d:"
+#~ msgstr "内环 %d："
+
+#, php-format
+#~ msgid "Polygon %d:"
+#~ msgstr "多边形 %d："
+
+#~ msgid ""
+#~ "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+#~ "below into the \"Value\" field."
+#~ msgstr "从“函数”列中选择“GeomFromText”并粘贴下列内容到“值”中。"
 
 #, php-format
 #~ msgid "Failed to get description of column %s!"

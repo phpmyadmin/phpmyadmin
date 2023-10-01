@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-09-24 00:19+0000\n"
+"POT-Creation-Date: 2023-10-01 00:20+0000\n"
 "PO-Revision-Date: 2023-09-20 11:57+0000\n"
 "Last-Translator: Kipя <yankirill@icloud.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1339,8 +1339,7 @@ msgstr "Пошук:"
 #: templates/database/operations/index.twig:226
 #: templates/database/routines/editor_form.twig:185
 #: templates/database/routines/execute_form.twig:55
-#: templates/display/results/table.twig:279
-#: templates/gis_data_editor_form.twig:215 templates/modals/add_index.twig:10
+#: templates/display/results/table.twig:279 templates/modals/add_index.twig:10
 #: templates/modals/change_password.twig:10
 #: templates/modals/create_view.twig:10
 #: templates/modals/enum_set_editor.twig:10
@@ -1402,9 +1401,9 @@ msgid "Page number:"
 msgstr "Номер сторінки:"
 
 #: src/BrowseForeigners.php:301
-#: src/Controllers/JavaScriptMessagesController.php:573
+#: src/Controllers/JavaScriptMessagesController.php:575
 #: templates/display/results/table.twig:99
-#: templates/server/privileges/initials_row.twig:17
+#: templates/server/privileges/initials_row.twig:21
 #: templates/table/browse_foreigners/show_all.twig:4
 msgid "Show all"
 msgstr "Показати все"
@@ -1413,277 +1412,277 @@ msgstr "Показати все"
 msgid "Unknown"
 msgstr "Невідомо"
 
-#: src/Charsets/Collation.php:141 src/Charsets/Collation.php:430
+#: src/Charsets/Collation.php:141 src/Charsets/Collation.php:406
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr "Німецька (телефонна книга замовлення)"
 
-#: src/Charsets/Collation.php:145 src/Charsets/Collation.php:427
+#: src/Charsets/Collation.php:145 src/Charsets/Collation.php:403
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "Німецька (словник замовлення)"
 
-#: src/Charsets/Collation.php:154 src/Charsets/Collation.php:505
+#: src/Charsets/Collation.php:154 src/Charsets/Collation.php:481
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr "Іспанська (традиційна)"
 
-#: src/Charsets/Collation.php:158 src/Charsets/Collation.php:498
+#: src/Charsets/Collation.php:158 src/Charsets/Collation.php:474
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "Іспанська"
 
-#: src/Charsets/Collation.php:225
+#: src/Charsets/Collation.php:218
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "нечутливий до регістру"
 
-#: src/Charsets/Collation.php:228
+#: src/Charsets/Collation.php:219
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "чутливий до регістру"
 
-#: src/Charsets/Collation.php:231
+#: src/Charsets/Collation.php:220
 msgctxt "Collation variant"
 msgid "accent-insensitive"
 msgstr "нечутливий до акценту"
 
-#: src/Charsets/Collation.php:234
+#: src/Charsets/Collation.php:221
 msgctxt "Collation variant"
 msgid "accent-sensitive"
 msgstr "чутливий до акценту"
 
-#: src/Charsets/Collation.php:237
+#: src/Charsets/Collation.php:222
 msgctxt "Collation variant"
 msgid "kana-sensitive"
 msgstr "чутливий до Кани"
 
-#: src/Charsets/Collation.php:241
+#: src/Charsets/Collation.php:223
 msgctxt "Collation variant"
 msgid "multi-level"
 msgstr "багаторівневий"
 
-#: src/Charsets/Collation.php:244
+#: src/Charsets/Collation.php:224
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "двійковий"
 
-#: src/Charsets/Collation.php:247
+#: src/Charsets/Collation.php:225
 msgctxt "Collation variant"
 msgid "no-pad"
 msgstr "без заповнення"
 
-#: src/Charsets/Collation.php:266
+#: src/Charsets/Collation.php:242
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Двійковий"
 
-#: src/Charsets/Collation.php:279 src/Charsets/Collation.php:529
+#: src/Charsets/Collation.php:255 src/Charsets/Collation.php:505
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Юнікод"
 
-#: src/Charsets/Collation.php:289 src/Charsets/Collation.php:476
+#: src/Charsets/Collation.php:265 src/Charsets/Collation.php:452
 msgctxt "Collation"
 msgid "West European"
 msgstr "Західноєвропейська"
 
-#: src/Charsets/Collation.php:296
+#: src/Charsets/Collation.php:272
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Центрально-Європейська"
 
-#: src/Charsets/Collation.php:301 src/Charsets/Collation.php:483
+#: src/Charsets/Collation.php:277 src/Charsets/Collation.php:459
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Російська"
 
-#: src/Charsets/Collation.php:306
+#: src/Charsets/Collation.php:282
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Китайська спрощена"
 
-#: src/Charsets/Collation.php:309
+#: src/Charsets/Collation.php:285
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Китайська традиційна"
 
-#: src/Charsets/Collation.php:312 src/Charsets/Collation.php:398
+#: src/Charsets/Collation.php:288 src/Charsets/Collation.php:374
 msgctxt "Collation"
 msgid "Chinese"
 msgstr "Китайська"
 
-#: src/Charsets/Collation.php:320 src/Charsets/Collation.php:447
+#: src/Charsets/Collation.php:296 src/Charsets/Collation.php:423
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Японська"
 
-#: src/Charsets/Collation.php:325
+#: src/Charsets/Collation.php:301
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Балтійська"
 
-#: src/Charsets/Collation.php:330
+#: src/Charsets/Collation.php:306
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Вірменська"
 
-#: src/Charsets/Collation.php:333
+#: src/Charsets/Collation.php:309
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Кирилиця"
 
-#: src/Charsets/Collation.php:336
+#: src/Charsets/Collation.php:312
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Арабська"
 
-#: src/Charsets/Collation.php:339 src/Charsets/Collation.php:462
+#: src/Charsets/Collation.php:315 src/Charsets/Collation.php:438
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Корейська"
 
-#: src/Charsets/Collation.php:342
+#: src/Charsets/Collation.php:318
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Іврит"
 
-#: src/Charsets/Collation.php:345
+#: src/Charsets/Collation.php:321
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Грузинська"
 
-#: src/Charsets/Collation.php:348
+#: src/Charsets/Collation.php:324
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Грецька"
 
-#: src/Charsets/Collation.php:351
+#: src/Charsets/Collation.php:327
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Чехословацька"
 
-#: src/Charsets/Collation.php:354 src/Charsets/Collation.php:521
+#: src/Charsets/Collation.php:330 src/Charsets/Collation.php:497
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Українська"
 
-#: src/Charsets/Collation.php:357 src/Charsets/Collation.php:517
+#: src/Charsets/Collation.php:333 src/Charsets/Collation.php:493
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Турецька"
 
-#: src/Charsets/Collation.php:360 src/Charsets/Collation.php:509
+#: src/Charsets/Collation.php:336 src/Charsets/Collation.php:485
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Шведська"
 
-#: src/Charsets/Collation.php:363 src/Charsets/Collation.php:513
+#: src/Charsets/Collation.php:339 src/Charsets/Collation.php:489
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Тайська"
 
-#: src/Charsets/Collation.php:366
+#: src/Charsets/Collation.php:342
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "Невідомо"
 
-#: src/Charsets/Collation.php:392
+#: src/Charsets/Collation.php:368
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Болгарська"
 
-#: src/Charsets/Collation.php:404
+#: src/Charsets/Collation.php:380
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Хорватська"
 
-#: src/Charsets/Collation.php:408
+#: src/Charsets/Collation.php:384
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Чеська"
 
-#: src/Charsets/Collation.php:412
+#: src/Charsets/Collation.php:388
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Датська"
 
-#: src/Charsets/Collation.php:416
+#: src/Charsets/Collation.php:392
 msgctxt "Collation"
 msgid "English"
 msgstr "Англійська"
 
-#: src/Charsets/Collation.php:420
+#: src/Charsets/Collation.php:396
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Есперанто"
 
-#: src/Charsets/Collation.php:424
+#: src/Charsets/Collation.php:400
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Естонська"
 
-#: src/Charsets/Collation.php:439
+#: src/Charsets/Collation.php:415
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Угорська"
 
-#: src/Charsets/Collation.php:443
+#: src/Charsets/Collation.php:419
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Ісландська"
 
-#: src/Charsets/Collation.php:450
+#: src/Charsets/Collation.php:426
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr "Класична латинь"
 
-#: src/Charsets/Collation.php:454
+#: src/Charsets/Collation.php:430
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Латвійська"
 
-#: src/Charsets/Collation.php:458
+#: src/Charsets/Collation.php:434
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Литовська"
 
-#: src/Charsets/Collation.php:466
+#: src/Charsets/Collation.php:442
 msgctxt "Collation"
 msgid "Burmese"
 msgstr "Бірманська"
 
-#: src/Charsets/Collation.php:469
+#: src/Charsets/Collation.php:445
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Перська"
 
-#: src/Charsets/Collation.php:473
+#: src/Charsets/Collation.php:449
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Польська"
 
-#: src/Charsets/Collation.php:480
+#: src/Charsets/Collation.php:456
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Румунська"
 
-#: src/Charsets/Collation.php:487
+#: src/Charsets/Collation.php:463
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "Cингальська"
 
-#: src/Charsets/Collation.php:491
+#: src/Charsets/Collation.php:467
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Словацька"
 
-#: src/Charsets/Collation.php:495
+#: src/Charsets/Collation.php:471
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Словенська"
 
-#: src/Charsets/Collation.php:525
+#: src/Charsets/Collation.php:501
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "В'єтнамська"
@@ -1693,7 +1692,7 @@ msgstr "В'єтнамська"
 #: src/Config/Forms/User/ExportForm.php:53
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
-#: src/Controllers/JavaScriptMessagesController.php:712
+#: src/Controllers/JavaScriptMessagesController.php:715
 #: src/Import/Import.php:1254 src/Menu.php:226 src/Menu.php:326
 #: src/Navigation/Nodes/NodeColumn.php:40
 #: src/Navigation/Nodes/NodeDatabase.php:56
@@ -1910,7 +1909,7 @@ msgid "Closed"
 msgstr "Закрити"
 
 #: src/Config/ConfigFile.php:609
-#: src/Controllers/JavaScriptMessagesController.php:739
+#: src/Controllers/JavaScriptMessagesController.php:742
 #, fuzzy
 #| msgid "Monday"
 msgctxt "Week day name"
@@ -1918,7 +1917,7 @@ msgid "Monday"
 msgstr "Понеділок"
 
 #: src/Config/ConfigFile.php:610
-#: src/Controllers/JavaScriptMessagesController.php:740
+#: src/Controllers/JavaScriptMessagesController.php:743
 #, fuzzy
 #| msgid "Tuesday"
 msgctxt "Week day name"
@@ -1926,7 +1925,7 @@ msgid "Tuesday"
 msgstr "Вівторок"
 
 #: src/Config/ConfigFile.php:611
-#: src/Controllers/JavaScriptMessagesController.php:741
+#: src/Controllers/JavaScriptMessagesController.php:744
 #, fuzzy
 #| msgid "Wednesday"
 msgctxt "Week day name"
@@ -1934,7 +1933,7 @@ msgid "Wednesday"
 msgstr "Середа"
 
 #: src/Config/ConfigFile.php:612
-#: src/Controllers/JavaScriptMessagesController.php:742
+#: src/Controllers/JavaScriptMessagesController.php:745
 #, fuzzy
 #| msgid "Thursday"
 msgctxt "Week day name"
@@ -1942,7 +1941,7 @@ msgid "Thursday"
 msgstr "Четвер"
 
 #: src/Config/ConfigFile.php:613
-#: src/Controllers/JavaScriptMessagesController.php:743
+#: src/Controllers/JavaScriptMessagesController.php:746
 #, fuzzy
 #| msgid "Friday"
 msgctxt "Week day name"
@@ -1950,7 +1949,7 @@ msgid "Friday"
 msgstr "П'ятниця"
 
 #: src/Config/ConfigFile.php:614
-#: src/Controllers/JavaScriptMessagesController.php:744
+#: src/Controllers/JavaScriptMessagesController.php:747
 #, fuzzy
 #| msgid "Saturday"
 msgctxt "Week day name"
@@ -1958,7 +1957,7 @@ msgid "Saturday"
 msgstr "Субота"
 
 #: src/Config/ConfigFile.php:615
-#: src/Controllers/JavaScriptMessagesController.php:738
+#: src/Controllers/JavaScriptMessagesController.php:741
 #, fuzzy
 #| msgid "Sunday"
 msgctxt "Week day name"
@@ -4014,7 +4013,7 @@ msgid "Navigation panel width"
 msgstr "Ширина навігаційної панелі"
 
 #: src/Config/Descriptions.php:815
-#: src/Controllers/JavaScriptMessagesController.php:605
+#: src/Controllers/JavaScriptMessagesController.php:607
 #: src/Navigation/NavigationTree.php:1281
 msgid "Link with main panel"
 msgstr "Зв'язати з головною панеллю"
@@ -4521,8 +4520,8 @@ msgstr "Текстове поле рядків"
 
 #: src/Config/Descriptions.php:938 src/Plugins/Export/ExportHtmlword.php:138
 #: src/Plugins/Export/ExportOdt.php:182
-#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1566
-#: src/Server/Privileges.php:1568 src/Server/Status/Processes.php:93
+#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1575
+#: src/Server/Privileges.php:1577 src/Server/Status/Processes.php:93
 #: templates/console/bookmark_content.twig:12 templates/console/display.twig:48
 #: templates/console/display.twig:206 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4548,7 +4547,7 @@ msgid "Server"
 msgstr "Сервер"
 
 #: src/Config/Descriptions.php:941 src/Plugins/Export/ExportXml.php:449
-#: src/Server/Privileges.php:1572 src/Server/Privileges.php:1574
+#: src/Server/Privileges.php:1581 src/Server/Privileges.php:1583
 #: templates/database/structure/show_create.twig:11
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
@@ -4696,7 +4695,7 @@ msgid "Missing data for %s"
 msgstr "Відсутні дані для %s"
 
 #: src/Config/FormDisplay.php:619 src/Config/Validator.php:586
-#: src/Controllers/JavaScriptMessagesController.php:822
+#: src/Controllers/JavaScriptMessagesController.php:825
 msgid "Incorrect value!"
 msgstr "Некоректне значення!"
 
@@ -4774,7 +4773,7 @@ msgstr "Текст OpenDocument"
 
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:385 src/Menu.php:249
-#: src/Menu.php:351 src/Menu.php:473 src/Server/Privileges.php:1283
+#: src/Menu.php:351 src/Menu.php:473 src/Server/Privileges.php:1292
 #: src/Util.php:1698 src/Util.php:1713 src/Util.php:1730
 #: templates/database/events/index.twig:17
 #: templates/database/events/index.twig:18
@@ -5089,27 +5088,27 @@ msgid "Incorrect IP address: %s"
 msgstr "Некоректно введена IP адреса: %s"
 
 #: src/Config/Validator.php:521
-#: src/Controllers/JavaScriptMessagesController.php:821
+#: src/Controllers/JavaScriptMessagesController.php:824
 msgid "Not a valid port number!"
 msgstr "Не припустимим номер порту!"
 
 #: src/Config/Validator.php:543
-#: src/Controllers/JavaScriptMessagesController.php:819
+#: src/Controllers/JavaScriptMessagesController.php:822
 msgid "Not a positive number!"
 msgstr "Не додатнє число!"
 
 #: src/Config/Validator.php:565
-#: src/Controllers/JavaScriptMessagesController.php:820
+#: src/Controllers/JavaScriptMessagesController.php:823
 msgid "Not a non-negative number!"
 msgstr "Не від'ємне число!"
 
 #: src/Config/Validator.php:604
-#: src/Controllers/JavaScriptMessagesController.php:823
+#: src/Controllers/JavaScriptMessagesController.php:826
 #, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr "Значення має дорівнювати або бути меншим ніж %s!"
 
-#: src/Console.php:73
+#: src/Console.php:74
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
@@ -5117,7 +5116,7 @@ msgstr[0] "Показати %1$d закладку (приватні та заг�
 msgstr[1] "Показати %1$d закладки (приватні та загальні)"
 msgstr[2] "Показати %1$d закладок (приватні та загальні)"
 
-#: src/Console.php:80
+#: src/Console.php:81
 msgid "No bookmarks"
 msgstr "Немає закладок"
 
@@ -5137,16 +5136,16 @@ msgstr ""
 "Файл %s недоступний у цiй системi, будь ласка завітайте на %s за додатковою "
 "інформацією."
 
-#: src/Controllers/Console/Bookmark/AddController.php:33
+#: src/Controllers/Console/Bookmark/AddController.php:35
 msgid "Incomplete params"
 msgstr "Неповні параметри"
 
-#: src/Controllers/Console/Bookmark/AddController.php:46
-#: src/Controllers/JavaScriptMessagesController.php:587
+#: src/Controllers/Console/Bookmark/AddController.php:48
+#: src/Controllers/JavaScriptMessagesController.php:589
 msgid "Failed"
 msgstr "Помилка"
 
-#: src/Controllers/Console/Bookmark/AddController.php:51
+#: src/Controllers/Console/Bookmark/AddController.php:60
 msgid "Succeeded"
 msgstr "Успішно"
 
@@ -5211,8 +5210,8 @@ msgstr "Сторінка з іменем \"%s\" вже існує; вибері�
 #: src/Controllers/Table/IndexRenameController.php:63
 #: src/Controllers/Table/OperationsController.php:94
 #: src/Controllers/Table/OperationsController.php:99
-#: src/Controllers/Table/SearchController.php:176
-#: src/Controllers/Table/SearchController.php:181
+#: src/Controllers/Table/SearchController.php:177
+#: src/Controllers/Table/SearchController.php:182
 #: src/Controllers/Table/SqlController.php:66
 #: src/Controllers/Table/SqlController.php:71
 #: src/Controllers/Table/StructureController.php:121
@@ -5280,7 +5279,7 @@ msgstr ""
 "Відсутні плагіни експорту. Будь ласка, перевірте правильність установки!"
 
 #: src/Controllers/Database/ImportController.php:81
-#: src/Controllers/Import/ImportController.php:561
+#: src/Controllers/Import/ImportController.php:548
 #: src/Controllers/Server/ImportController.php:61
 #: src/Controllers/Table/ImportController.php:101
 msgid "Could not load import plugins, please check your installation!"
@@ -5366,8 +5365,8 @@ msgstr "У вас немає привілеїв для адмініструва�
 #: src/Controllers/Table/Maintenance/RepairController.php:45
 #: src/Controllers/Table/OperationsController.php:108
 #: src/Controllers/Table/OperationsController.php:113
-#: src/Controllers/Table/SearchController.php:190
-#: src/Controllers/Table/SearchController.php:195
+#: src/Controllers/Table/SearchController.php:191
+#: src/Controllers/Table/SearchController.php:196
 #: src/Controllers/Table/SqlController.php:80
 #: src/Controllers/Table/SqlController.php:85
 #: src/Controllers/Table/StructureController.php:135
@@ -5474,9 +5473,9 @@ msgid "unknown"
 msgstr "невідоме"
 
 #: src/Controllers/Database/Structure/DropTableController.php:42
-#: src/Controllers/Database/Structure/EmptyTableController.php:46
-#: src/Controllers/JavaScriptMessagesController.php:500
-#: src/Controllers/Table/DeleteRowsController.php:54
+#: src/Controllers/Database/Structure/EmptyTableController.php:47
+#: src/Controllers/JavaScriptMessagesController.php:502
+#: src/Controllers/Table/DeleteRowsController.php:56
 #: src/Controllers/Table/DropColumnController.php:45
 #: src/Controllers/Table/Structure/PrimaryController.php:108
 #: src/IndexColumn.php:154 src/Index.php:470
@@ -5514,10 +5513,10 @@ msgid "Yes"
 msgstr "Так"
 
 #: src/Controllers/Database/Structure/DropTableController.php:43
-#: src/Controllers/Database/Structure/EmptyTableController.php:47
+#: src/Controllers/Database/Structure/EmptyTableController.php:48
 #: src/Controllers/Table/DropColumnController.php:62
 #: src/Controllers/Table/OperationsController.php:359
-#: src/Controllers/Table/ReplaceController.php:307 src/Core.php:528
+#: src/Controllers/Table/ReplaceController.php:307 src/Core.php:519
 #: templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Змін немає"
@@ -5702,7 +5701,7 @@ msgstr ""
 "Розширення curl не знайдено i allow_url_fopen вимкнено. Тому деякi функцiї "
 "такi як звiт про помилку або перевiрка версiї вимкнено."
 
-#: src/Controllers/Import/ImportController.php:203
+#: src/Controllers/Import/ImportController.php:204
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -5712,21 +5711,21 @@ msgstr ""
 "зверніться до %sдокументації%s для знаходження шляхів вирішення цієї "
 "проблеми."
 
-#: src/Controllers/Import/ImportController.php:235
+#: src/Controllers/Import/ImportController.php:236
 msgid "Incorrect format parameter"
 msgstr "Неправильний параметр формату"
 
-#: src/Controllers/Import/ImportController.php:365
-#: src/Controllers/Import/ImportController.php:601
+#: src/Controllers/Import/ImportController.php:357
+#: src/Controllers/Import/ImportController.php:588
 msgid "Showing bookmark"
 msgstr "Показані закладки"
 
-#: src/Controllers/Import/ImportController.php:390
-#: src/Controllers/Import/ImportController.php:597
+#: src/Controllers/Import/ImportController.php:377
+#: src/Controllers/Import/ImportController.php:584
 msgid "The bookmark has been deleted."
 msgstr "Закладка видалена."
 
-#: src/Controllers/Import/ImportController.php:509
+#: src/Controllers/Import/ImportController.php:496
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5736,7 +5735,7 @@ msgstr ""
 "допустимий максимум для вашої PHP конфігурації. Дивіться [doc@faq1-16]FAQ "
 "1.16[/doc]."
 
-#: src/Controllers/Import/ImportController.php:609
+#: src/Controllers/Import/ImportController.php:596
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
@@ -5744,7 +5743,7 @@ msgstr[0] "Імпорт завершився вдало, %d запит вико�
 msgstr[1] "Імпорт завершився вдало, %d запити виконано."
 msgstr[2] "Імпорт завершився вдало, %d запитів виконано."
 
-#: src/Controllers/Import/ImportController.php:646
+#: src/Controllers/Import/ImportController.php:633
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5753,7 +5752,7 @@ msgstr ""
 "Вийшов час очікування виконання сценарію. Якщо Ви бажаєте завершити імпорт, "
 "будь ласка %s повторно відправте файл %s і імпорт буде відновлено."
 
-#: src/Controllers/Import/ImportController.php:656
+#: src/Controllers/Import/ImportController.php:643
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5762,8 +5761,8 @@ msgstr ""
 "що phpMyAdmin не зможе завершити процес імпорту до тих пір, поки не буде "
 "збільшено обмеження часу виконання php скриптів."
 
-#: src/Controllers/Import/ImportController.php:724
-#: src/Controllers/Sql/SqlController.php:169
+#: src/Controllers/Import/ImportController.php:711
+#: src/Controllers/Sql/SqlController.php:170
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Оператор \"DROP DATABASE\" вимкнений."
 
@@ -6043,12 +6042,12 @@ msgid "The user name is empty!"
 msgstr "Відсутнє ім'я користувача!"
 
 #: src/Controllers/JavaScriptMessagesController.php:144
-#: src/Server/Privileges.php:756 src/UserPassword.php:39
+#: src/Server/Privileges.php:765 src/UserPassword.php:39
 msgid "The password is empty!"
 msgstr "Відсутній пароль!"
 
 #: src/Controllers/JavaScriptMessagesController.php:145
-#: src/Server/Privileges.php:754 src/UserPassword.php:43
+#: src/Server/Privileges.php:763 src/UserPassword.php:43
 msgid "The passwords aren't the same!"
 msgstr "Паролі не співпадають!"
 
@@ -6690,7 +6689,8 @@ msgstr "Параметри не знайдені!"
 #: templates/database/structure/check_all_tables.twig:49
 #: templates/database/structure/check_all_tables.twig:55
 #: templates/error/report_modal.twig:6 templates/error/report_modal.twig:11
-#: templates/modals/add_index.twig:11 templates/modals/change_password.twig:11
+#: templates/gis_data_editor_form.twig:62 templates/modals/add_index.twig:11
+#: templates/modals/change_password.twig:11
 #: templates/modals/page_settings.twig:11
 #: templates/server/databases/index.twig:316
 #: templates/server/databases/index.twig:320
@@ -7009,7 +7009,7 @@ msgstr "Другий етап нормалізації (2NF)"
 
 #. l10n: Display text for calendar close link
 #: src/Controllers/JavaScriptMessagesController.php:427
-#: src/Controllers/JavaScriptMessagesController.php:771
+#: src/Controllers/JavaScriptMessagesController.php:774
 #: src/Normalization.php:337
 msgid "Done"
 msgstr "Готово"
@@ -7169,7 +7169,7 @@ msgid "Data point content"
 msgstr "Вміст точки даних"
 
 #: src/Controllers/JavaScriptMessagesController.php:487
-#: src/Controllers/JavaScriptMessagesController.php:635
+#: src/Controllers/JavaScriptMessagesController.php:638
 #: src/ErrorHandler.php:405 src/InsertEdit.php:1567
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
@@ -7179,22 +7179,15 @@ msgstr "Ігнорувати"
 #: src/Display/Results.php:2706 src/Html/Generator.php:79
 #: templates/display/results/table.twig:323
 #: templates/display/results/table.twig:324
+#: templates/gis_data_editor_form.twig:61
 msgid "Copy"
 msgstr "Копіювати"
 
 #: src/Controllers/JavaScriptMessagesController.php:489
-#: templates/gis_data_editor_form.twig:84
-#: templates/gis_data_editor_form.twig:104
-#: templates/gis_data_editor_form.twig:142
-#: templates/gis_data_editor_form.twig:188
 msgid "X"
 msgstr "X"
 
 #: src/Controllers/JavaScriptMessagesController.php:490
-#: templates/gis_data_editor_form.twig:88
-#: templates/gis_data_editor_form.twig:108
-#: templates/gis_data_editor_form.twig:146
-#: templates/gis_data_editor_form.twig:192
 msgid "Y"
 msgstr "Y"
 
@@ -7203,53 +7196,55 @@ msgid "Point"
 msgstr "Точка"
 
 #: src/Controllers/JavaScriptMessagesController.php:492
-#, php-format
-msgid "Point %d"
-msgstr "Точка %d"
-
-#: src/Controllers/JavaScriptMessagesController.php:493
 msgid "Linestring"
 msgstr "Відрізок"
 
-#: src/Controllers/JavaScriptMessagesController.php:494
+#: src/Controllers/JavaScriptMessagesController.php:493
 msgid "Polygon"
 msgstr "Багатокутник"
 
-#: src/Controllers/JavaScriptMessagesController.php:495
+#: src/Controllers/JavaScriptMessagesController.php:494
 #: templates/display/results/table.twig:263
 msgid "Geometry"
 msgstr "Геометрія"
 
-#: src/Controllers/JavaScriptMessagesController.php:496
+#: src/Controllers/JavaScriptMessagesController.php:495
 msgid "Inner ring"
 msgstr "Внутрішнє кільце"
 
-#: src/Controllers/JavaScriptMessagesController.php:497
+#: src/Controllers/JavaScriptMessagesController.php:496
 msgid "Outer ring"
 msgstr "Зовнішнє кільце"
 
-#: src/Controllers/JavaScriptMessagesController.php:498
-#: templates/gis_data_editor_form.twig:111
-#: templates/gis_data_editor_form.twig:149
-#: templates/gis_data_editor_form.twig:195
+#: src/Controllers/JavaScriptMessagesController.php:497
 msgid "Add a point"
 msgstr "Додати точку"
 
+#: src/Controllers/JavaScriptMessagesController.php:498
+msgid "Add a linestring"
+msgstr "Додати відрізок"
+
 #: src/Controllers/JavaScriptMessagesController.php:499
-#: templates/gis_data_editor_form.twig:153
-#: templates/gis_data_editor_form.twig:198
 msgid "Add an inner ring"
 msgstr "Додати внутрішнє кільце"
 
+#: src/Controllers/JavaScriptMessagesController.php:500
+msgid "Add a polygon"
+msgstr "Додати багатокутник"
+
 #: src/Controllers/JavaScriptMessagesController.php:501
+msgid "Add geometry"
+msgstr "Додати геометрію"
+
+#: src/Controllers/JavaScriptMessagesController.php:503
 msgid "Do you want to copy encryption key?"
 msgstr "Ви хочете скопіювати ключ шифрування?"
 
-#: src/Controllers/JavaScriptMessagesController.php:502
+#: src/Controllers/JavaScriptMessagesController.php:504
 msgid "Encryption key"
 msgstr "Ключ шифрування"
 
-#: src/Controllers/JavaScriptMessagesController.php:505
+#: src/Controllers/JavaScriptMessagesController.php:507
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
@@ -7257,7 +7252,7 @@ msgstr ""
 "Функція HEX розглядатиме ціле число як рядок під час обчислення "
 "шістнадцяткового значення"
 
-#: src/Controllers/JavaScriptMessagesController.php:510
+#: src/Controllers/JavaScriptMessagesController.php:512
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
@@ -7265,7 +7260,7 @@ msgstr ""
 "В MySQL можливе додавання значень не через вибір у колонці вибору. При "
 "необхідності це можна зробити безпосередньо з клавіатури"
 
-#: src/Controllers/JavaScriptMessagesController.php:516
+#: src/Controllers/JavaScriptMessagesController.php:518
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
@@ -7273,7 +7268,7 @@ msgstr ""
 "В MySQL додаткові значення, які неможливо вибрати через інтерфейс, при "
 "необхідності введіть безпосередньо з клавіатури"
 
-#: src/Controllers/JavaScriptMessagesController.php:522
+#: src/Controllers/JavaScriptMessagesController.php:524
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
@@ -7281,25 +7276,25 @@ msgstr ""
 "Вказує, що ви внесли зміни в цю сторінку; Вам буде запропоновано "
 "підтвердити, перш ніж відмовитися від змін"
 
-#: src/Controllers/JavaScriptMessagesController.php:527
+#: src/Controllers/JavaScriptMessagesController.php:529
 msgid "Select referenced key"
 msgstr "Виберіть системний ключ"
 
-#: src/Controllers/JavaScriptMessagesController.php:528
+#: src/Controllers/JavaScriptMessagesController.php:530
 msgid "Select Foreign Key"
 msgstr "Виберіть зовнішній ключ"
 
-#: src/Controllers/JavaScriptMessagesController.php:529
+#: src/Controllers/JavaScriptMessagesController.php:531
 msgid "Please select the primary key or a unique key!"
 msgstr "Будь ласка, виберіть первинний ключ або унікальний ключ!"
 
-#: src/Controllers/JavaScriptMessagesController.php:530
+#: src/Controllers/JavaScriptMessagesController.php:532
 #: templates/database/designer/main.twig:98
 #: templates/database/designer/main.twig:101
 msgid "Choose column to display"
 msgstr "Виберіть стовпець для відображення"
 
-#: src/Controllers/JavaScriptMessagesController.php:532
+#: src/Controllers/JavaScriptMessagesController.php:534
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -7307,98 +7302,98 @@ msgstr ""
 "Ви не зберегли зміни в макет. Вони будуть втрачені, якщо ви не збережете їх. "
 "Бажаєте продовжити?"
 
-#: src/Controllers/JavaScriptMessagesController.php:535
+#: src/Controllers/JavaScriptMessagesController.php:537
 msgid "value/subQuery is empty"
 msgstr "значення/підзапит пусті"
 
-#: src/Controllers/JavaScriptMessagesController.php:536
+#: src/Controllers/JavaScriptMessagesController.php:538
 #: templates/database/designer/main.twig:40
 #: templates/database/designer/main.twig:43
 msgid "Add tables from other databases"
 msgstr "Додайте таблиці з інших баз даних"
 
-#: src/Controllers/JavaScriptMessagesController.php:537
+#: src/Controllers/JavaScriptMessagesController.php:539
 msgid "Page name"
 msgstr "Назва сторінки"
 
-#: src/Controllers/JavaScriptMessagesController.php:538
+#: src/Controllers/JavaScriptMessagesController.php:540
 #: templates/database/designer/main.twig:63
 #: templates/database/designer/main.twig:66
 msgid "Save page"
 msgstr "Зберегти сторінку"
 
-#: src/Controllers/JavaScriptMessagesController.php:539
+#: src/Controllers/JavaScriptMessagesController.php:541
 #: templates/database/designer/main.twig:70
 #: templates/database/designer/main.twig:73
 msgid "Save page as"
 msgstr "Зберегти сторінку як"
 
-#: src/Controllers/JavaScriptMessagesController.php:540
+#: src/Controllers/JavaScriptMessagesController.php:542
 #: templates/database/designer/main.twig:56
 #: templates/database/designer/main.twig:59
 msgid "Open page"
 msgstr "Відкрити сторінку"
 
-#: src/Controllers/JavaScriptMessagesController.php:541
+#: src/Controllers/JavaScriptMessagesController.php:543
 msgid "Delete page"
 msgstr "Видалити сторінку"
 
 #. l10n: When the user opens a page saved in the Designer
-#: src/Controllers/JavaScriptMessagesController.php:543
+#: src/Controllers/JavaScriptMessagesController.php:545
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
 "Деякі таблиці, збережені на цій сторінці, можливо, були перейменовані або "
 "видалені."
 
-#: src/Controllers/JavaScriptMessagesController.php:544
+#: src/Controllers/JavaScriptMessagesController.php:546
 #: templates/database/designer/main.twig:10
 msgid "Untitled"
 msgstr "Без назви"
 
-#: src/Controllers/JavaScriptMessagesController.php:545
+#: src/Controllers/JavaScriptMessagesController.php:547
 msgid "Please select a page to continue"
 msgstr "Будь ласка, виберіть сторінку для продовження"
 
-#: src/Controllers/JavaScriptMessagesController.php:546
+#: src/Controllers/JavaScriptMessagesController.php:548
 msgid "Please enter a valid page name"
 msgstr "Будь-ласка, введіть допустиме ім`я сторінки"
 
-#: src/Controllers/JavaScriptMessagesController.php:547
+#: src/Controllers/JavaScriptMessagesController.php:549
 msgid "Do you want to save the changes to the current page?"
 msgstr "Ви хочете зберегти зміни до поточної сторінки?"
 
-#: src/Controllers/JavaScriptMessagesController.php:548
+#: src/Controllers/JavaScriptMessagesController.php:550
 msgid "Successfully deleted the page"
 msgstr "Сторінка успішно видалена"
 
-#: src/Controllers/JavaScriptMessagesController.php:549
+#: src/Controllers/JavaScriptMessagesController.php:551
 msgid "Export relational schema"
 msgstr "Експортувати схему зв'язків"
 
-#: src/Controllers/JavaScriptMessagesController.php:550
+#: src/Controllers/JavaScriptMessagesController.php:552
 msgid "Modifications have been saved"
 msgstr "Зміни збережені"
 
-#: src/Controllers/JavaScriptMessagesController.php:553
+#: src/Controllers/JavaScriptMessagesController.php:555
 #, php-format
 msgid "%d object(s) created."
 msgstr "Створено %d об'єкт(ів)."
 
-#: src/Controllers/JavaScriptMessagesController.php:554
+#: src/Controllers/JavaScriptMessagesController.php:556
 msgid "Column name"
 msgstr "Ім'я стовпця"
 
-#: src/Controllers/JavaScriptMessagesController.php:555
+#: src/Controllers/JavaScriptMessagesController.php:557
 #: templates/modals/build_query.twig:17 templates/sql/query.twig:180
 msgid "Submit"
 msgstr "Виконати"
 
-#: src/Controllers/JavaScriptMessagesController.php:558
+#: src/Controllers/JavaScriptMessagesController.php:560
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr ""
 "Натисніть Escape для відміни редагування.<br>- Shift+Enter для нового рядка."
 
-#: src/Controllers/JavaScriptMessagesController.php:560
+#: src/Controllers/JavaScriptMessagesController.php:562
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -7406,15 +7401,15 @@ msgstr ""
 "Ви змінили деякі дані, і вони не були збережені. Ви впевнені, що хочете "
 "залишити цю сторінку перед збереженням даних?"
 
-#: src/Controllers/JavaScriptMessagesController.php:563
+#: src/Controllers/JavaScriptMessagesController.php:565
 msgid "Drag to reorder."
 msgstr "Перетягніть для зміни порядку."
 
-#: src/Controllers/JavaScriptMessagesController.php:564
+#: src/Controllers/JavaScriptMessagesController.php:566
 msgid "Click to sort results by this column."
 msgstr "Натисніть для сортування за цим стовпцем."
 
-#: src/Controllers/JavaScriptMessagesController.php:566
+#: src/Controllers/JavaScriptMessagesController.php:568
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
@@ -7424,19 +7419,19 @@ msgstr ""
 "ASC/DESC.<br>- Ctrl+клік чи Alt+клік (для Mac: Shift+Option+клік) для "
 "видалення стовпця з списку ORDER BY"
 
-#: src/Controllers/JavaScriptMessagesController.php:570
+#: src/Controllers/JavaScriptMessagesController.php:572
 msgid "Click to mark/unmark."
 msgstr "Натисніть для встановлення/зняття позначки."
 
-#: src/Controllers/JavaScriptMessagesController.php:571
+#: src/Controllers/JavaScriptMessagesController.php:573
 msgid "Double-click to copy column name."
 msgstr "Натисніть двічі, щоб скопіювати назву стовпця."
 
-#: src/Controllers/JavaScriptMessagesController.php:572
+#: src/Controllers/JavaScriptMessagesController.php:574
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr "Натисніть на випадаючу стрілку<br> для перемикання видимості стовпця."
 
-#: src/Controllers/JavaScriptMessagesController.php:575
+#: src/Controllers/JavaScriptMessagesController.php:577
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -7445,13 +7440,13 @@ msgstr ""
 "редагування, прапорцем, посиланнями Редагувати, Копіювати та Видаляти можуть "
 "не працювати після збереження."
 
-#: src/Controllers/JavaScriptMessagesController.php:578
+#: src/Controllers/JavaScriptMessagesController.php:580
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 "Будь-ласка введіть допустимий шістнадцятковий рядок. Допустимі символи: 0-9, "
 "A-F."
 
-#: src/Controllers/JavaScriptMessagesController.php:580
+#: src/Controllers/JavaScriptMessagesController.php:582
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -7459,68 +7454,68 @@ msgstr ""
 "Ви дійсно хочете побачити усі рядки? Для великих таблиць це може призвести "
 "до зависання браузера."
 
-#: src/Controllers/JavaScriptMessagesController.php:582
+#: src/Controllers/JavaScriptMessagesController.php:584
 msgid "Original length"
 msgstr "Початкова довжина"
 
-#: src/Controllers/JavaScriptMessagesController.php:585
+#: src/Controllers/JavaScriptMessagesController.php:587
 msgid "cancel"
 msgstr "скасувати"
 
-#: src/Controllers/JavaScriptMessagesController.php:586
+#: src/Controllers/JavaScriptMessagesController.php:588
 #: src/Controllers/Server/Status/StatusController.php:181
 msgid "Aborted"
 msgstr "Перервано"
 
-#: src/Controllers/JavaScriptMessagesController.php:588
+#: src/Controllers/JavaScriptMessagesController.php:590
 msgid "Success"
 msgstr "Успішно"
 
-#: src/Controllers/JavaScriptMessagesController.php:589
+#: src/Controllers/JavaScriptMessagesController.php:591
 msgid "Import status"
 msgstr "Статус імпорту"
 
-#: src/Controllers/JavaScriptMessagesController.php:590
+#: src/Controllers/JavaScriptMessagesController.php:592
 #: templates/navigation/main.twig:84
 msgid "Drop files here"
 msgstr "Скинути файли сюди"
 
-#: src/Controllers/JavaScriptMessagesController.php:591
+#: src/Controllers/JavaScriptMessagesController.php:593
 msgid "Select database first"
 msgstr "Спочатку оберіть базу даних"
 
-#: src/Controllers/JavaScriptMessagesController.php:593
+#: src/Controllers/JavaScriptMessagesController.php:595
 msgid "Go to link:"
 msgstr "Перейти за посиланням:"
 
-#: src/Controllers/JavaScriptMessagesController.php:596
+#: src/Controllers/JavaScriptMessagesController.php:598
 msgid "Generate password"
 msgstr "Згенерувати пароль"
 
-#: src/Controllers/JavaScriptMessagesController.php:597
+#: src/Controllers/JavaScriptMessagesController.php:599
 #: templates/server/replication/primary_add_replica_user.twig:73
 msgid "Generate"
 msgstr "Згенерувати"
 
-#: src/Controllers/JavaScriptMessagesController.php:600
+#: src/Controllers/JavaScriptMessagesController.php:602
 #: templates/table/structure/display_structure.twig:130
 msgid "More"
 msgstr "Більше"
 
-#: src/Controllers/JavaScriptMessagesController.php:603
+#: src/Controllers/JavaScriptMessagesController.php:605
 msgid "Show panel"
 msgstr "Показати панель"
 
-#: src/Controllers/JavaScriptMessagesController.php:604
+#: src/Controllers/JavaScriptMessagesController.php:606
 msgid "Hide panel"
 msgstr "Приховати панель"
 
-#: src/Controllers/JavaScriptMessagesController.php:606
+#: src/Controllers/JavaScriptMessagesController.php:608
 #: src/Navigation/NavigationTree.php:1284
 msgid "Unlink from main panel"
 msgstr "Видалити зв'язок з головною панеллю"
 
-#: src/Controllers/JavaScriptMessagesController.php:610 src/Setup/Index.php:153
+#: src/Controllers/JavaScriptMessagesController.php:612 src/Setup/Index.php:153
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -7530,30 +7525,36 @@ msgstr ""
 "Нава версія %s, випущена %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: src/Controllers/JavaScriptMessagesController.php:614
+#: src/Controllers/JavaScriptMessagesController.php:616
 msgid ", latest stable version:"
 msgstr ", остання стабільна версія:"
 
-#: src/Controllers/JavaScriptMessagesController.php:615
+#: src/Controllers/JavaScriptMessagesController.php:617
 msgid "up to date"
 msgstr "оновлено"
 
 #: src/Controllers/JavaScriptMessagesController.php:618
+#, fuzzy
+#| msgid "There was an error importing the ESRI shape file: \"%s\"."
+msgid "There was an error in loading the Git information."
+msgstr "При імпорті файлу ESRI сталася помилка: \"%s\"."
+
+#: src/Controllers/JavaScriptMessagesController.php:621
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 "Трапилася фатальна помилка JavaScript. Ви хочете відіслати звіт про неї?"
 
-#: src/Controllers/JavaScriptMessagesController.php:619
+#: src/Controllers/JavaScriptMessagesController.php:622
 msgid "Change report settings"
 msgstr "Змінити налаштування звіту"
 
-#: src/Controllers/JavaScriptMessagesController.php:620
+#: src/Controllers/JavaScriptMessagesController.php:623
 msgid "Show report details"
 msgstr "Показати подробиці звіту"
 
-#: src/Controllers/JavaScriptMessagesController.php:621
+#: src/Controllers/JavaScriptMessagesController.php:624
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
@@ -7561,7 +7562,7 @@ msgstr ""
 "Ваш експорт є неповним у зв'язку з низьким часовим лімітом для виконання на "
 "рівні PHP!"
 
-#: src/Controllers/JavaScriptMessagesController.php:624
+#: src/Controllers/JavaScriptMessagesController.php:627
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -7571,77 +7572,77 @@ msgstr ""
 "надсилання деякі поля може бути проігноровано через значення РНР "
 "max_input_vars."
 
-#: src/Controllers/JavaScriptMessagesController.php:630
-#: src/Controllers/JavaScriptMessagesController.php:643
+#: src/Controllers/JavaScriptMessagesController.php:633
+#: src/Controllers/JavaScriptMessagesController.php:646
 msgid "Some errors have been detected on the server!"
 msgstr "На сервері були виявлені деякі помилки!"
 
-#: src/Controllers/JavaScriptMessagesController.php:632
+#: src/Controllers/JavaScriptMessagesController.php:635
 msgid "Please look at the bottom of this window."
 msgstr "Будь-ласка зверніть увагу на нижню частину цього вікна."
 
-#: src/Controllers/JavaScriptMessagesController.php:638
+#: src/Controllers/JavaScriptMessagesController.php:641
 #: src/ErrorHandler.php:410
 msgid "Ignore All"
 msgstr "Ігнорувати все"
 
-#: src/Controllers/JavaScriptMessagesController.php:645
+#: src/Controllers/JavaScriptMessagesController.php:648
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr "Згідно ваших налаштувань, що наразі вносяться, будьте терплячими."
 
-#: src/Controllers/JavaScriptMessagesController.php:649
+#: src/Controllers/JavaScriptMessagesController.php:652
 msgid "Column name successfully copied to clipboard!"
 msgstr "Назву стовпця успішно скопійовано в буфер обміну!"
 
-#: src/Controllers/JavaScriptMessagesController.php:650
+#: src/Controllers/JavaScriptMessagesController.php:653
 msgid "Column name copying to clipboard failed!"
 msgstr "Не вдалося скопіювати назву стовпця в буфер обміну!"
 
-#: src/Controllers/JavaScriptMessagesController.php:651
+#: src/Controllers/JavaScriptMessagesController.php:654
 msgid "Successfully copied!"
 msgstr "Успішно скопійовано!"
 
-#: src/Controllers/JavaScriptMessagesController.php:652
+#: src/Controllers/JavaScriptMessagesController.php:655
 msgid "Copying failed!"
 msgstr "Копіювання не вдалося!"
 
-#: src/Controllers/JavaScriptMessagesController.php:655
+#: src/Controllers/JavaScriptMessagesController.php:658
 msgid "Execute this query again?"
 msgstr "Виконати цей запит ще раз?"
 
-#: src/Controllers/JavaScriptMessagesController.php:656
+#: src/Controllers/JavaScriptMessagesController.php:659
 msgid "Do you really want to delete this bookmark?"
 msgstr "Ви дійсно бажаєте видалити цю закладку?"
 
-#: src/Controllers/JavaScriptMessagesController.php:657
+#: src/Controllers/JavaScriptMessagesController.php:660
 msgid "Some error occurred while getting SQL debug info."
 msgstr "Сталася помилка при отриманні відомостей про налагодження SQL."
 
-#: src/Controllers/JavaScriptMessagesController.php:658
+#: src/Controllers/JavaScriptMessagesController.php:661
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s запитів виконано %s раз(и) за %s секунд(и)."
 
-#: src/Controllers/JavaScriptMessagesController.php:659
+#: src/Controllers/JavaScriptMessagesController.php:662
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "%s аргумент(ів) передано"
 
-#: src/Controllers/JavaScriptMessagesController.php:660
+#: src/Controllers/JavaScriptMessagesController.php:663
 msgid "Show arguments"
 msgstr "Показати аргументи"
 
-#: src/Controllers/JavaScriptMessagesController.php:661
+#: src/Controllers/JavaScriptMessagesController.php:664
 msgid "Hide arguments"
 msgstr "Сховати аргументи"
 
-#: src/Controllers/JavaScriptMessagesController.php:662
+#: src/Controllers/JavaScriptMessagesController.php:665
 #: templates/console/display.twig:109
 msgid "Time taken:"
 msgstr "Час створення:"
 
-#: src/Controllers/JavaScriptMessagesController.php:664
+#: src/Controllers/JavaScriptMessagesController.php:667
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -7656,80 +7657,80 @@ msgstr ""
 "сайту\" може допомогти. В Safari, такі проблеми часто викликані установкою "
 "\"Приватний режим перегляду\"."
 
-#: src/Controllers/JavaScriptMessagesController.php:671
+#: src/Controllers/JavaScriptMessagesController.php:674
 msgid "Copy tables to"
 msgstr "Копіювати таблицю до"
 
-#: src/Controllers/JavaScriptMessagesController.php:672
+#: src/Controllers/JavaScriptMessagesController.php:675
 msgid "Add table prefix"
 msgstr "Додати префікс таблиці"
 
-#: src/Controllers/JavaScriptMessagesController.php:673
+#: src/Controllers/JavaScriptMessagesController.php:676
 msgid "Replace table with prefix"
 msgstr "Змінити префікс таблиці"
 
-#: src/Controllers/JavaScriptMessagesController.php:674
+#: src/Controllers/JavaScriptMessagesController.php:677
 #: templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "Копіювати таблицю з префіксом"
 
-#: src/Controllers/JavaScriptMessagesController.php:677
+#: src/Controllers/JavaScriptMessagesController.php:680
 msgid "Extremely weak"
 msgstr "Надзвичайно слабкий"
 
-#: src/Controllers/JavaScriptMessagesController.php:678
+#: src/Controllers/JavaScriptMessagesController.php:681
 msgid "Very weak"
 msgstr "Дуже слабкий"
 
-#: src/Controllers/JavaScriptMessagesController.php:679
+#: src/Controllers/JavaScriptMessagesController.php:682
 msgid "Weak"
 msgstr "Слабкий"
 
-#: src/Controllers/JavaScriptMessagesController.php:680
+#: src/Controllers/JavaScriptMessagesController.php:683
 msgid "Good"
 msgstr "Хороший"
 
-#: src/Controllers/JavaScriptMessagesController.php:681
+#: src/Controllers/JavaScriptMessagesController.php:684
 msgid "Strong"
 msgstr "Надійний"
 
 #. l10n: error code 5 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:685
+#: src/Controllers/JavaScriptMessagesController.php:688
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr "Час очікування активації ключа безпеки."
 
 #. l10n: error code 2 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:687
+#: src/Controllers/JavaScriptMessagesController.php:690
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr "До ключа безпеки надіслано недійсний запит."
 
 #. l10n: unknown error code (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:689
+#: src/Controllers/JavaScriptMessagesController.php:692
 msgctxt "U2F error"
 msgid "Unknown security key error."
 msgstr "Невідома помилка ключа безпеки."
 
 #. l10n: error code 3 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:691
+#: src/Controllers/JavaScriptMessagesController.php:694
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr "Клієнт не підтримує ключ безпеки."
 
 #. l10n: error code 4 (from U2F API) on register
-#: src/Controllers/JavaScriptMessagesController.php:693
+#: src/Controllers/JavaScriptMessagesController.php:696
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr "Не вдалося активізувати ключ безпеки."
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: src/Controllers/JavaScriptMessagesController.php:695
+#: src/Controllers/JavaScriptMessagesController.php:698
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "Невірний ключ безпеки."
 
-#: src/Controllers/JavaScriptMessagesController.php:698
+#: src/Controllers/JavaScriptMessagesController.php:701
 msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
@@ -7737,7 +7738,7 @@ msgstr ""
 "WebAuthn недоступний. Будь ласка, використовуйте підтримуваний браузер у "
 "безпечному контексті (HTTPS)."
 
-#: src/Controllers/JavaScriptMessagesController.php:703
+#: src/Controllers/JavaScriptMessagesController.php:706
 msgid ""
 "You can not open, save or delete your page layout, as IndexedDB is not "
 "working in your browser and your phpMyAdmin configuration storage is not "
@@ -7747,19 +7748,19 @@ msgstr ""
 "IndexedDB не працює у вашому браузері, а сховище конфігурації phpMyAdmin не "
 "налаштовано для цього."
 
-#: src/Controllers/JavaScriptMessagesController.php:708
+#: src/Controllers/JavaScriptMessagesController.php:711
 #, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
 msgstr "Таблиця %s вже існує!"
 
-#: src/Controllers/JavaScriptMessagesController.php:710 src/InsertEdit.php:281
+#: src/Controllers/JavaScriptMessagesController.php:713 src/InsertEdit.php:281
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Приховати"
 
-#: src/Controllers/JavaScriptMessagesController.php:711
+#: src/Controllers/JavaScriptMessagesController.php:714
 #: src/Controllers/Table/ChangeController.php:216
 #: templates/database/multi_table_query/form.twig:38
 #: templates/database/tracking/tables.twig:19
@@ -7767,271 +7768,271 @@ msgstr "Приховати"
 msgid "Show"
 msgstr "Показати"
 
-#: src/Controllers/JavaScriptMessagesController.php:714
+#: src/Controllers/JavaScriptMessagesController.php:717
 #, fuzzy
 #| msgid "January"
 msgctxt "Month name"
 msgid "January"
 msgstr "Січень"
 
-#: src/Controllers/JavaScriptMessagesController.php:715
+#: src/Controllers/JavaScriptMessagesController.php:718
 #, fuzzy
 #| msgid "February"
 msgctxt "Month name"
 msgid "February"
 msgstr "Лютий"
 
-#: src/Controllers/JavaScriptMessagesController.php:716
+#: src/Controllers/JavaScriptMessagesController.php:719
 #, fuzzy
 #| msgid "March"
 msgctxt "Month name"
 msgid "March"
 msgstr "Березень"
 
-#: src/Controllers/JavaScriptMessagesController.php:717
+#: src/Controllers/JavaScriptMessagesController.php:720
 #, fuzzy
 #| msgid "April"
 msgctxt "Month name"
 msgid "April"
 msgstr "Квітень"
 
-#: src/Controllers/JavaScriptMessagesController.php:718
+#: src/Controllers/JavaScriptMessagesController.php:721
 #, fuzzy
 #| msgid "May"
 msgctxt "Month name"
 msgid "May"
 msgstr "Травень"
 
-#: src/Controllers/JavaScriptMessagesController.php:719
+#: src/Controllers/JavaScriptMessagesController.php:722
 #, fuzzy
 #| msgid "June"
 msgctxt "Month name"
 msgid "June"
 msgstr "Червень"
 
-#: src/Controllers/JavaScriptMessagesController.php:720
+#: src/Controllers/JavaScriptMessagesController.php:723
 #, fuzzy
 #| msgid "July"
 msgctxt "Month name"
 msgid "July"
 msgstr "Липень"
 
-#: src/Controllers/JavaScriptMessagesController.php:721
+#: src/Controllers/JavaScriptMessagesController.php:724
 #, fuzzy
 #| msgid "August"
 msgctxt "Month name"
 msgid "August"
 msgstr "Серпень"
 
-#: src/Controllers/JavaScriptMessagesController.php:722
+#: src/Controllers/JavaScriptMessagesController.php:725
 #, fuzzy
 #| msgid "September"
 msgctxt "Month name"
 msgid "September"
 msgstr "Вересень"
 
-#: src/Controllers/JavaScriptMessagesController.php:723
+#: src/Controllers/JavaScriptMessagesController.php:726
 #, fuzzy
 #| msgid "October"
 msgctxt "Month name"
 msgid "October"
 msgstr "Жовтень"
 
-#: src/Controllers/JavaScriptMessagesController.php:724
+#: src/Controllers/JavaScriptMessagesController.php:727
 #, fuzzy
 #| msgid "November"
 msgctxt "Month name"
 msgid "November"
 msgstr "Листопад"
 
-#: src/Controllers/JavaScriptMessagesController.php:725
+#: src/Controllers/JavaScriptMessagesController.php:728
 #, fuzzy
 #| msgid "December"
 msgctxt "Month name"
 msgid "December"
 msgstr "Грудень"
 
-#: src/Controllers/JavaScriptMessagesController.php:726 src/Util.php:501
+#: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:501
 #, fuzzy
 #| msgid "Jan"
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "Січ"
 
-#: src/Controllers/JavaScriptMessagesController.php:727 src/Util.php:502
+#: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:502
 #, fuzzy
 #| msgid "Feb"
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "Лют"
 
-#: src/Controllers/JavaScriptMessagesController.php:728 src/Util.php:503
+#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:503
 #, fuzzy
 #| msgid "Mar"
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "Бер"
 
-#: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:504
+#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:504
 #, fuzzy
 #| msgid "Apr"
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "Квт"
 
-#: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:505
+#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:505
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "Травень"
 
-#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:506
+#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:506
 #, fuzzy
 #| msgid "Jun"
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "Чрв"
 
-#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:507
+#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:507
 #, fuzzy
 #| msgid "Jul"
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "Лип"
 
-#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:508
+#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:508
 #, fuzzy
 #| msgid "Aug"
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "Сер"
 
-#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:509
+#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:509
 #, fuzzy
 #| msgid "Sep"
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "Вер"
 
-#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:510
+#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:510
 #, fuzzy
 #| msgid "Oct"
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "Жов"
 
-#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:511
+#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:511
 #, fuzzy
 #| msgid "Nov"
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "Лис"
 
-#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:512
+#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:512
 #, fuzzy
 #| msgid "Dec"
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "Гру"
 
-#: src/Controllers/JavaScriptMessagesController.php:745 src/Util.php:515
+#: src/Controllers/JavaScriptMessagesController.php:748 src/Util.php:515
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "Нд"
 
-#: src/Controllers/JavaScriptMessagesController.php:746 src/Util.php:516
+#: src/Controllers/JavaScriptMessagesController.php:749 src/Util.php:516
 #, fuzzy
 #| msgid "Mon"
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "Пон"
 
-#: src/Controllers/JavaScriptMessagesController.php:747 src/Util.php:517
+#: src/Controllers/JavaScriptMessagesController.php:750 src/Util.php:517
 #, fuzzy
 #| msgid "Tue"
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "Вт"
 
-#: src/Controllers/JavaScriptMessagesController.php:748 src/Util.php:518
+#: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:518
 #, fuzzy
 #| msgid "Wed"
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "Сер"
 
-#: src/Controllers/JavaScriptMessagesController.php:749 src/Util.php:519
+#: src/Controllers/JavaScriptMessagesController.php:752 src/Util.php:519
 #, fuzzy
 #| msgid "Thu"
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "Чт"
 
-#: src/Controllers/JavaScriptMessagesController.php:750 src/Util.php:520
+#: src/Controllers/JavaScriptMessagesController.php:753 src/Util.php:520
 #, fuzzy
 #| msgid "Fri"
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "Пт"
 
-#: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:521
+#: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:521
 #, fuzzy
 #| msgid "Sat"
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "Сб"
 
-#: src/Controllers/JavaScriptMessagesController.php:752
+#: src/Controllers/JavaScriptMessagesController.php:755
 #, fuzzy
 #| msgid "Su"
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "Нд"
 
-#: src/Controllers/JavaScriptMessagesController.php:753
+#: src/Controllers/JavaScriptMessagesController.php:756
 #, fuzzy
 #| msgid "Mo"
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "Пн"
 
-#: src/Controllers/JavaScriptMessagesController.php:754
+#: src/Controllers/JavaScriptMessagesController.php:757
 #, fuzzy
 #| msgid "Tu"
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "Вт"
 
-#: src/Controllers/JavaScriptMessagesController.php:755
+#: src/Controllers/JavaScriptMessagesController.php:758
 #, fuzzy
 #| msgid "We"
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "Ср"
 
-#: src/Controllers/JavaScriptMessagesController.php:756
+#: src/Controllers/JavaScriptMessagesController.php:759
 #, fuzzy
 #| msgid "Th"
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "Чт"
 
-#: src/Controllers/JavaScriptMessagesController.php:757
+#: src/Controllers/JavaScriptMessagesController.php:760
 #, fuzzy
 #| msgid "Fr"
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "Пт"
 
-#: src/Controllers/JavaScriptMessagesController.php:758
+#: src/Controllers/JavaScriptMessagesController.php:761
 #, fuzzy
 #| msgid "Sa"
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "Сб"
 
-#: src/Controllers/JavaScriptMessagesController.php:759
+#: src/Controllers/JavaScriptMessagesController.php:762
 #, fuzzy
 #| msgid "Wk"
 msgctxt "Column header for week of the year in calendar"
@@ -8039,63 +8040,63 @@ msgid "Wk"
 msgstr "Тж"
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
-#: src/Controllers/JavaScriptMessagesController.php:761
+#: src/Controllers/JavaScriptMessagesController.php:764
 #, fuzzy
 #| msgid "calendar-month-year"
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "календар-місяць-рік"
 
-#: src/Controllers/JavaScriptMessagesController.php:762
+#: src/Controllers/JavaScriptMessagesController.php:765
 #, fuzzy
 #| msgid "none"
 msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "none"
 
-#: src/Controllers/JavaScriptMessagesController.php:763
+#: src/Controllers/JavaScriptMessagesController.php:766
 #, fuzzy
 #| msgid "Time"
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "Час"
 
-#: src/Controllers/JavaScriptMessagesController.php:764
+#: src/Controllers/JavaScriptMessagesController.php:767
 #, fuzzy
 #| msgid "Hour"
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "Година"
 
-#: src/Controllers/JavaScriptMessagesController.php:765
+#: src/Controllers/JavaScriptMessagesController.php:768
 #, fuzzy
 #| msgid "Minute"
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "Хвилина"
 
-#: src/Controllers/JavaScriptMessagesController.php:766
+#: src/Controllers/JavaScriptMessagesController.php:769
 #, fuzzy
 #| msgid "Second"
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "Секунда"
 
-#: src/Controllers/JavaScriptMessagesController.php:767
+#: src/Controllers/JavaScriptMessagesController.php:770
 #, fuzzy
 #| msgid "seconds"
 msgctxt "Unit of time"
 msgid "Millisecond"
 msgstr "Секунда"
 
-#: src/Controllers/JavaScriptMessagesController.php:768
+#: src/Controllers/JavaScriptMessagesController.php:771
 #, fuzzy
 #| msgid "per second"
 msgctxt "Unit of time"
 msgid "Microsecond"
 msgstr "за секунду"
 
-#: src/Controllers/JavaScriptMessagesController.php:769
+#: src/Controllers/JavaScriptMessagesController.php:772
 #, fuzzy
 #| msgctxt "Chart type"
 #| msgid "Timeline"
@@ -8104,7 +8105,7 @@ msgid "Time zone"
 msgstr "Часова шкала"
 
 #. l10n: Display text for previous month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:773
+#: src/Controllers/JavaScriptMessagesController.php:776
 #, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
@@ -8112,94 +8113,94 @@ msgid "Prev"
 msgstr "Попередній"
 
 #. l10n: Display text for next month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:775
+#: src/Controllers/JavaScriptMessagesController.php:778
 msgctxt "Next month"
 msgid "Next"
 msgstr "Наступна"
 
 #. l10n: Display text for current month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:777
+#: src/Controllers/JavaScriptMessagesController.php:780
 msgid "Today"
 msgstr "Сьогодні"
 
-#: src/Controllers/JavaScriptMessagesController.php:780
+#: src/Controllers/JavaScriptMessagesController.php:783
 msgid "This field is required"
 msgstr "Це поле є обов'язковим"
 
-#: src/Controllers/JavaScriptMessagesController.php:781
+#: src/Controllers/JavaScriptMessagesController.php:784
 msgid "Please fix this field"
 msgstr "Будь ласка, виправте це поле"
 
-#: src/Controllers/JavaScriptMessagesController.php:782
+#: src/Controllers/JavaScriptMessagesController.php:785
 msgid "Please enter a valid email address"
 msgstr "Будь ласка, введіть дійсну адресу електронної пошти"
 
-#: src/Controllers/JavaScriptMessagesController.php:783
+#: src/Controllers/JavaScriptMessagesController.php:786
 msgid "Please enter a valid URL"
 msgstr "Введіть дійсний URL"
 
-#: src/Controllers/JavaScriptMessagesController.php:784
+#: src/Controllers/JavaScriptMessagesController.php:787
 msgid "Please enter a valid date"
 msgstr "Будь ласка, введіть дійсну дату"
 
-#: src/Controllers/JavaScriptMessagesController.php:785
+#: src/Controllers/JavaScriptMessagesController.php:788
 msgid "Please enter a valid date ( ISO )"
 msgstr "Будь ласка, введіть правильну дату (ISO)"
 
-#: src/Controllers/JavaScriptMessagesController.php:786
+#: src/Controllers/JavaScriptMessagesController.php:789
 msgid "Please enter a valid number"
 msgstr "Будь ласка, введіть дійсний номер"
 
-#: src/Controllers/JavaScriptMessagesController.php:787
+#: src/Controllers/JavaScriptMessagesController.php:790
 msgid "Please enter a valid credit card number"
 msgstr "Будь ласка, введіть дійсний номер кредитної картки"
 
-#: src/Controllers/JavaScriptMessagesController.php:788
+#: src/Controllers/JavaScriptMessagesController.php:791
 msgid "Please enter only digits"
 msgstr "Будь ласка, введіть лише цифри"
 
-#: src/Controllers/JavaScriptMessagesController.php:789
+#: src/Controllers/JavaScriptMessagesController.php:792
 msgid "Please enter the same value again"
 msgstr "Будь ласка, введіть те ж значення знову"
 
-#: src/Controllers/JavaScriptMessagesController.php:790
+#: src/Controllers/JavaScriptMessagesController.php:793
 msgid "Please enter no more than {0} characters"
 msgstr "Будь ласка, введіть не більше {0} символів"
 
-#: src/Controllers/JavaScriptMessagesController.php:791
+#: src/Controllers/JavaScriptMessagesController.php:794
 msgid "Please enter at least {0} characters"
 msgstr "Будь ласка, введіть принаймні {0} символів"
 
-#: src/Controllers/JavaScriptMessagesController.php:792
+#: src/Controllers/JavaScriptMessagesController.php:795
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr "Будь ласка, введіть значення довжиною від {0} до {1} символів"
 
-#: src/Controllers/JavaScriptMessagesController.php:793
+#: src/Controllers/JavaScriptMessagesController.php:796
 msgid "Please enter a value between {0} and {1}"
 msgstr "Будь ласка, введіть значення між {0} і {1}"
 
-#: src/Controllers/JavaScriptMessagesController.php:794
+#: src/Controllers/JavaScriptMessagesController.php:797
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Будь ласка, введіть значення менше або дорівнює {0}"
 
-#: src/Controllers/JavaScriptMessagesController.php:795
+#: src/Controllers/JavaScriptMessagesController.php:798
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Будь ласка, введіть значення більше або дорівнює {0}"
 
-#: src/Controllers/JavaScriptMessagesController.php:796
+#: src/Controllers/JavaScriptMessagesController.php:799
 msgid "Please enter a valid date or time"
 msgstr "Будь ласка, введіть дійсну дату або час"
 
-#: src/Controllers/JavaScriptMessagesController.php:797
+#: src/Controllers/JavaScriptMessagesController.php:800
 msgid "Please enter a valid HEX input"
 msgstr "Будь ласка, введіть правильний вхід HEX"
 
 #. l10n: To validate the usage of a MD5 function on the column
-#: src/Controllers/JavaScriptMessagesController.php:799
+#: src/Controllers/JavaScriptMessagesController.php:802
 msgid "This column can not contain a 32 chars value"
 msgstr "Цей стовпець не може містити 32 символи"
 
-#: src/Controllers/JavaScriptMessagesController.php:802
+#: src/Controllers/JavaScriptMessagesController.php:805
 msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
@@ -8208,7 +8209,7 @@ msgstr ""
 "суперечливих результатів, ви повинні зберігати його в стовпці BINARY, "
 "VARBINARY або BLOB."
 
-#: src/Controllers/JavaScriptMessagesController.php:807
+#: src/Controllers/JavaScriptMessagesController.php:810
 #, fuzzy
 #| msgid ""
 #| "The file being uploaded is probably larger than the maximum allowed size "
@@ -8221,33 +8222,33 @@ msgstr ""
 "або помилка пов’язана з використанням веб-орієнтованих браузерів (Safari, "
 "Google Chrome, Arora та ін.)."
 
-#: src/Controllers/JavaScriptMessagesController.php:809
+#: src/Controllers/JavaScriptMessagesController.php:812
 #, php-format
 msgid "%s of %s"
 msgstr "%s з %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:810
+#: src/Controllers/JavaScriptMessagesController.php:813
 #, php-format
 msgid "%s/sec."
 msgstr "%s/сек."
 
-#: src/Controllers/JavaScriptMessagesController.php:811
+#: src/Controllers/JavaScriptMessagesController.php:814
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr "Залишилося %MIN хв. %SEC сек."
 
-#: src/Controllers/JavaScriptMessagesController.php:812
+#: src/Controllers/JavaScriptMessagesController.php:815
 msgid "About %SEC sec. remaining."
 msgstr "Залишилося приблизно %SEC секунд."
 
-#: src/Controllers/JavaScriptMessagesController.php:813
+#: src/Controllers/JavaScriptMessagesController.php:816
 msgid "The file is being processed, please be patient."
 msgstr "Файл обробляється, будь ласка, будьте терплячими."
 
-#: src/Controllers/JavaScriptMessagesController.php:814
+#: src/Controllers/JavaScriptMessagesController.php:817
 msgid "Uploading your import file…"
 msgstr "Завантаження файлу імпорту…"
 
-#: src/Controllers/JavaScriptMessagesController.php:816
+#: src/Controllers/JavaScriptMessagesController.php:819
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
@@ -9123,7 +9124,7 @@ msgstr ""
 msgid "Insecure connection"
 msgstr "Незахищене з'єднання"
 
-#: src/Controllers/Setup/MainController.php:36
+#: src/Controllers/Setup/MainController.php:40
 msgid "Configuration already exists, setup is disabled!"
 msgstr "Конфігурації вже існує, установка відключена!"
 
@@ -9136,12 +9137,12 @@ msgstr "Неправильні дані"
 msgid "Wrong data or no validation for %s"
 msgstr "Невірні чи не підтверджені дані для %s"
 
-#: src/Controllers/Sql/SqlController.php:240 src/Sql.php:1079
+#: src/Controllers/Sql/SqlController.php:247 src/Sql.php:1076
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Закладку %s створено."
 
-#: src/Controllers/Sql/SqlController.php:247
+#: src/Controllers/Sql/SqlController.php:254
 msgid "Bookmark not created!"
 msgstr "Закладка не створена!"
 
@@ -9187,7 +9188,7 @@ msgstr "Бази даних \"%s\" не існує."
 msgid "Table %s already exists!"
 msgstr "Таблиця %s вже існує!"
 
-#: src/Controllers/Table/DeleteRowsController.php:75
+#: src/Controllers/Table/DeleteRowsController.php:77
 #: src/Controllers/Table/FindReplaceController.php:207
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:74
 #: src/Controllers/Table/Maintenance/CheckController.php:74
@@ -9239,7 +9240,7 @@ msgstr "Виникла проблема з вашим запитом."
 
 #: src/Controllers/Table/GetFieldController.php:82
 #: src/Database/Routines.php:995 src/Import/Import.php:166
-#: src/InsertEdit.php:202 src/Sql.php:881
+#: src/InsertEdit.php:202 src/Sql.php:878
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL повернула пустий результат (тобто нуль рядків)."
 
@@ -9405,7 +9406,7 @@ msgstr "Змінити пароль"
 msgid "View name can not be empty!"
 msgstr "Ім'я подання не може бути пустим!"
 
-#: src/Core.php:112 src/ZipExtension.php:57
+#: src/Core.php:113 src/ZipExtension.php:57
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
@@ -9718,7 +9719,7 @@ msgstr "%1$d всього, %2$d в запиті"
 msgid "%s total"
 msgstr "всього %d"
 
-#: src/Display/Results.php:3730 src/Sql.php:887
+#: src/Display/Results.php:3730 src/Sql.php:884
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Запит виконувався %01.4f секунди."
@@ -10332,7 +10333,7 @@ msgstr "Ім’я таблиці не може перевищувати %d си�
 msgid "The trigger name cannot end with a space character."
 msgstr "Ім'я таблиці не може закінчуватися пробілом."
 
-#: src/Import/Import.php:288 src/Sql.php:895
+#: src/Import/Import.php:288 src/Sql.php:892
 msgid "[ROLLBACK occurred.]"
 msgstr "[відбувся відкат]"
 
@@ -10474,11 +10475,11 @@ msgstr "Або"
 msgid "web server upload directory:"
 msgstr "каталог завантаження веб-сервера:"
 
-#: src/InsertEdit.php:962 src/Sql.php:878
+#: src/InsertEdit.php:962 src/Sql.php:875
 msgid "Showing SQL query"
 msgstr "Показ SQL-запиту"
 
-#: src/InsertEdit.php:986 src/Sql.php:858
+#: src/InsertEdit.php:986 src/Sql.php:855
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Ідентифікатор вставленого рядка: %1$d"
@@ -11751,22 +11752,22 @@ msgstr "(Див. нижче для фактичного подання)"
 msgid "Error reading data for table %s:"
 msgstr "Помилка читання даних таблиці %s:"
 
-#: src/Plugins/Export/ExportSql.php:2665
+#: src/Plugins/Export/ExportSql.php:2658
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:610
 msgid "Creation:"
 msgstr "Створення:"
 
-#: src/Plugins/Export/ExportSql.php:2675
+#: src/Plugins/Export/ExportSql.php:2668
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:621
 msgid "Last update:"
 msgstr "Останнє оновлення:"
 
-#: src/Plugins/Export/ExportSql.php:2685
+#: src/Plugins/Export/ExportSql.php:2678
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:632
 msgid "Last check:"
 msgstr "Остання перевірка:"
 
-#: src/Plugins/Export/ExportSql.php:2708
+#: src/Plugins/Export/ExportSql.php:2701
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
@@ -12080,7 +12081,7 @@ msgstr ""
 "використання другого параметра, перший необхідно встановити у вигляді "
 "порожнього рядка."
 
-#: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:40
+#: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:39
 #, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the column data "
@@ -12116,7 +12117,7 @@ msgstr ""
 "htmlspecialchars() (типово: 1). Четверта опція, встановлена в 1, "
 "запобігатиме перенесенню рядка і виведе усі дані одним рядком (типово: 1)."
 
-#: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:123
+#: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:122
 #, php-format
 msgid ""
 "You are using the external transformation command line options field, which "
@@ -12458,7 +12459,7 @@ msgstr "Неможливо змінити головний сервер!"
 msgid "Primary server changed successfully to %s."
 msgstr "Головний сервер змінений на %s вдало."
 
-#: src/Routing/Routing.php:115
+#: src/Routing/Routing.php:119
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
@@ -12467,17 +12468,17 @@ msgstr ""
 "Не вдалося записати кеш маршрутизації, вам потрібно налаштувати права "
 "доступу до папки/файлу \"%s\""
 
-#: src/Routing/Routing.php:149 src/Routing/Routing.php:205
+#: src/Routing/Routing.php:153 src/Routing/Routing.php:213
 #, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "Помилка 404! Сторінку %s не знайдено."
 
-#: src/Routing/Routing.php:157
+#: src/Routing/Routing.php:161
 msgid "Error 405! Request method not allowed."
 msgstr "Помилка 405! Метод запиту не дозволений."
 
-#: src/Server/Plugins.php:53 src/Server/Privileges.php:623
-#: src/Server/Privileges.php:3312
+#: src/Server/Plugins.php:53 src/Server/Privileges.php:632
+#: src/Server/Privileges.php:3274
 msgid "Native MySQL authentication"
 msgstr "Власна авторизація MySQL"
 
@@ -12502,15 +12503,15 @@ msgstr "Застаріла автентифікація MySQL-4.0"
 msgid "Account locking is not supported."
 msgstr "Блокування облікового запису не підтримується."
 
-#: src/Server/Privileges.php:256
+#: src/Server/Privileges.php:265
 msgid "No privileges."
 msgstr "Немає прав."
 
-#: src/Server/Privileges.php:262
+#: src/Server/Privileges.php:271
 msgid "Includes all privileges except GRANT."
 msgstr "Містить всі права за винятком GRANT."
 
-#: src/Server/Privileges.php:279 src/Server/Privileges.php:302
+#: src/Server/Privileges.php:288 src/Server/Privileges.php:311
 #: templates/server/privileges/privileges_table.twig:125
 #: templates/server/privileges/privileges_table.twig:128
 #: templates/server/privileges/privileges_table.twig:326
@@ -12518,7 +12519,7 @@ msgstr "Містить всі права за винятком GRANT."
 msgid "Allows deleting data."
 msgstr "Дозволяє видалення даних."
 
-#: src/Server/Privileges.php:280
+#: src/Server/Privileges.php:289
 #: templates/server/privileges/privileges_table.twig:137
 #: templates/server/privileges/privileges_table.twig:140
 #: templates/server/privileges/privileges_table.twig:367
@@ -12526,7 +12527,7 @@ msgstr "Дозволяє видалення даних."
 msgid "Allows creating new tables."
 msgstr "Дозволяє створювати нові таблиці."
 
-#: src/Server/Privileges.php:281
+#: src/Server/Privileges.php:290
 #: templates/server/privileges/privileges_table.twig:149
 #: templates/server/privileges/privileges_table.twig:152
 #: templates/server/privileges/privileges_table.twig:415
@@ -12534,7 +12535,7 @@ msgstr "Дозволяє створювати нові таблиці."
 msgid "Allows dropping tables."
 msgstr "Дозволяє знищувати таблиці."
 
-#: src/Server/Privileges.php:282 src/Server/Privileges.php:310
+#: src/Server/Privileges.php:291 src/Server/Privileges.php:319
 #: templates/server/privileges/privileges_table.twig:174
 #: templates/server/privileges/privileges_table.twig:177
 #: templates/server/privileges/privileges_table.twig:399
@@ -12542,7 +12543,7 @@ msgstr "Дозволяє знищувати таблиці."
 msgid "Allows creating and dropping indexes."
 msgstr "Дозволити створення та знищення індексів."
 
-#: src/Server/Privileges.php:283 src/Server/Privileges.php:311
+#: src/Server/Privileges.php:292 src/Server/Privileges.php:320
 #: templates/server/privileges/privileges_table.twig:186
 #: templates/server/privileges/privileges_table.twig:189
 #: templates/server/privileges/privileges_table.twig:386
@@ -12550,8 +12551,8 @@ msgstr "Дозволити створення та знищення індекс
 msgid "Allows altering the structure of existing tables."
 msgstr "Дозволяє змінювати структуру наявних таблиць."
 
-#: src/Server/Privileges.php:284 src/Server/Privileges.php:330
-#: src/Server/Privileges.php:334
+#: src/Server/Privileges.php:293 src/Server/Privileges.php:339
+#: src/Server/Privileges.php:343
 #: templates/server/privileges/privileges_table.twig:198
 #: templates/server/privileges/privileges_table.twig:201
 #: templates/server/privileges/privileges_table.twig:500
@@ -12561,8 +12562,8 @@ msgstr "Дозволяє змінювати структуру наявних т
 msgid "Allows creating new views."
 msgstr "Дозволяє створення нових уявлень (CREATE VIEW)."
 
-#: src/Server/Privileges.php:285 src/Server/Privileges.php:335
-#: src/Server/Privileges.php:337
+#: src/Server/Privileges.php:294 src/Server/Privileges.php:344
+#: src/Server/Privileges.php:346
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:213
 #: templates/server/privileges/privileges_table.twig:447
@@ -12570,7 +12571,7 @@ msgstr "Дозволяє створення нових уявлень (CREATE VI
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Дозволяє виконувати SHOW CREATE VIEW запити."
 
-#: src/Server/Privileges.php:286 src/Server/Privileges.php:332
+#: src/Server/Privileges.php:295 src/Server/Privileges.php:341
 #: templates/server/privileges/privileges_table.twig:222
 #: templates/server/privileges/privileges_table.twig:225
 #: templates/server/privileges/privileges_table.twig:543
@@ -12578,76 +12579,76 @@ msgstr "Дозволяє виконувати SHOW CREATE VIEW запити."
 msgid "Allows creating and dropping triggers."
 msgstr "Дозволяє створення та видалення тригерів."
 
-#: src/Server/Privileges.php:299
+#: src/Server/Privileges.php:308
 #: templates/server/privileges/privileges_table.twig:16
 #: templates/server/privileges/privileges_table.twig:287
 #: templates/server/privileges/privileges_table.twig:290
 msgid "Allows reading data."
 msgstr "Дозволити читання даних."
 
-#: src/Server/Privileges.php:300
+#: src/Server/Privileges.php:309
 #: templates/server/privileges/privileges_table.twig:43
 #: templates/server/privileges/privileges_table.twig:300
 #: templates/server/privileges/privileges_table.twig:303
 msgid "Allows inserting and replacing data."
 msgstr "Дозволити вставку та заміну даних."
 
-#: src/Server/Privileges.php:301
+#: src/Server/Privileges.php:310
 #: templates/server/privileges/privileges_table.twig:70
 #: templates/server/privileges/privileges_table.twig:313
 #: templates/server/privileges/privileges_table.twig:316
 msgid "Allows changing data."
 msgstr "Дозволити зміну даних."
 
-#: src/Server/Privileges.php:303
+#: src/Server/Privileges.php:312
 #: templates/server/privileges/privileges_table.twig:365
 #: templates/server/privileges/privileges_table.twig:373
 msgid "Allows creating new databases and tables."
 msgstr "Дозволяє створювати нові бази даних і таблиці."
 
-#: src/Server/Privileges.php:304
+#: src/Server/Privileges.php:313
 #: templates/server/privileges/privileges_table.twig:413
 #: templates/server/privileges/privileges_table.twig:421
 msgid "Allows dropping databases and tables."
 msgstr "Дозволяє видалення баз даних та таблиць."
 
-#: src/Server/Privileges.php:305
+#: src/Server/Privileges.php:314
 #: templates/server/privileges/privileges_table.twig:610
 #: templates/server/privileges/privileges_table.twig:613
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr "Дозволити перезавантаження установок та очищення кешу сервера."
 
-#: src/Server/Privileges.php:306
+#: src/Server/Privileges.php:315
 #: templates/server/privileges/privileges_table.twig:623
 #: templates/server/privileges/privileges_table.twig:626
 msgid "Allows shutting down the server."
 msgstr "Дозволити вимкнення сервера."
 
-#: src/Server/Privileges.php:307
+#: src/Server/Privileges.php:316
 #: templates/server/privileges/privileges_table.twig:597
 #: templates/server/privileges/privileges_table.twig:600
 msgid "Allows viewing processes of all users."
 msgstr "Дозволяє перегляд процесів усіх користувачів."
 
-#: src/Server/Privileges.php:308
+#: src/Server/Privileges.php:317
 #: templates/server/privileges/privileges_table.twig:340
 #: templates/server/privileges/privileges_table.twig:343
 msgid "Allows importing data from and exporting data into files."
 msgstr "Дозволити імпорт даних з файлів, та експорт у файли."
 
-#: src/Server/Privileges.php:309
+#: src/Server/Privileges.php:318
 #: templates/server/privileges/privileges_table.twig:97
 #: templates/server/privileges/privileges_table.twig:677
 msgid "Has no effect in this MySQL version."
 msgstr "Неефективно для цієї версії MySQL."
 
-#: src/Server/Privileges.php:312
+#: src/Server/Privileges.php:321
 #: templates/server/privileges/privileges_table.twig:636
 #: templates/server/privileges/privileges_table.twig:639
 msgid "Gives access to the complete list of databases."
 msgstr "Надає доступ до повного списку баз даних."
 
-#: src/Server/Privileges.php:317
+#: src/Server/Privileges.php:326
 #: templates/server/privileges/privileges_table.twig:583
 #: templates/server/privileges/privileges_table.twig:587
 msgid ""
@@ -12659,57 +12660,57 @@ msgstr ""
 "під'єднань; обов'язково для більшості адміністративних операцій таких як "
 "встановлення глобальних змінних чи припинення процесів інших користувачів."
 
-#: src/Server/Privileges.php:322
+#: src/Server/Privileges.php:331
 #: templates/server/privileges/privileges_table.twig:434
 #: templates/server/privileges/privileges_table.twig:437
 msgid "Allows creating temporary tables."
 msgstr "Дозволяє створювати тимчасові таблиці."
 
-#: src/Server/Privileges.php:323
+#: src/Server/Privileges.php:332
 #: templates/server/privileges/privileges_table.twig:664
 #: templates/server/privileges/privileges_table.twig:667
 msgid "Allows locking tables for the current thread."
 msgstr "Дозволити блокування таблиць для біжучих потоків."
 
-#: src/Server/Privileges.php:324
+#: src/Server/Privileges.php:333
 #: templates/server/privileges/privileges_table.twig:705
 #: templates/server/privileges/privileges_table.twig:708
 msgid "Needed for the replication replicas."
 msgstr "Необхідно для реплікації підпорядкованого сереверу."
 
-#: src/Server/Privileges.php:328
+#: src/Server/Privileges.php:337
 #: templates/server/privileges/privileges_table.twig:692
 #: templates/server/privileges/privileges_table.twig:695
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr ""
 "Надати користувачу право запитувати де є підпорядковані/головні сервери."
 
-#: src/Server/Privileges.php:331
+#: src/Server/Privileges.php:340
 #: templates/server/privileges/privileges_table.twig:530
 #: templates/server/privileges/privileges_table.twig:533
 msgid "Allows to set up events for the event scheduler."
 msgstr "Дозволяє налаштувати події планувальника подій."
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
-#: src/Server/Privileges.php:343 src/Server/Privileges.php:352
+#: src/Server/Privileges.php:352 src/Server/Privileges.php:361
 #: templates/server/privileges/privileges_table.twig:235
 #: templates/server/privileges/privileges_table.twig:239
 msgid "Allows deleting historical rows."
 msgstr "Дозволяє видаляти рядки історії."
 
-#: src/Server/Privileges.php:354
+#: src/Server/Privileges.php:363
 #: templates/server/privileges/privileges_table.twig:460
 #: templates/server/privileges/privileges_table.twig:463
 msgid "Allows creating stored routines."
 msgstr "Дозволяє створення збережених процедур."
 
-#: src/Server/Privileges.php:355
+#: src/Server/Privileges.php:364
 #: templates/server/privileges/privileges_table.twig:473
 #: templates/server/privileges/privileges_table.twig:476
 msgid "Allows altering and dropping stored routines."
 msgstr "Дозволяє зміну та видалення збережених процедур."
 
-#: src/Server/Privileges.php:356
+#: src/Server/Privileges.php:365
 #: templates/server/privileges/privileges_table.twig:718
 #: templates/server/privileges/privileges_table.twig:721
 msgid "Allows creating, dropping and renaming user accounts."
@@ -12717,104 +12718,104 @@ msgstr ""
 "Дозволяє створення, видалення та перейменування облікових записів "
 "користувачів."
 
-#: src/Server/Privileges.php:357
+#: src/Server/Privileges.php:366
 #: templates/server/privileges/privileges_table.twig:486
 #: templates/server/privileges/privileges_table.twig:489
 msgid "Allows executing stored routines."
 msgstr "Дозволяє виконання збережених процедур."
 
-#: src/Server/Privileges.php:883
+#: src/Server/Privileges.php:892
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Пароль для %s змінено вдало."
 
-#: src/Server/Privileges.php:931
+#: src/Server/Privileges.php:940
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Ви відмінили привілеї для %s."
 
-#: src/Server/Privileges.php:1219 templates/database/privileges/index.twig:122
+#: src/Server/Privileges.php:1228 templates/database/privileges/index.twig:122
 #: templates/table/privileges/index.twig:126
 msgid "Not enough privilege to view users."
 msgstr "Не достатньо привілеїв для перегляду користувачів."
 
-#: src/Server/Privileges.php:1275 templates/database/privileges/index.twig:80
+#: src/Server/Privileges.php:1284 templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:75
 #: templates/table/privileges/index.twig:84
 msgid "Edit privileges"
 msgstr "Редагувати привілеї"
 
-#: src/Server/Privileges.php:1279
+#: src/Server/Privileges.php:1288
 msgid "Revoke"
 msgstr "Відмінити"
 
-#: src/Server/Privileges.php:1567
+#: src/Server/Privileges.php:1576
 #: templates/server/privileges/privileges_table.twig:265
 msgid "Database-specific privileges"
 msgstr "Права, які стосуються бази даних"
 
-#: src/Server/Privileges.php:1573
+#: src/Server/Privileges.php:1582
 #: templates/server/privileges/privileges_summary.twig:19
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:267
 msgid "Table-specific privileges"
 msgstr "Права, які стосуються таблиці"
 
-#: src/Server/Privileges.php:1578 src/Server/Privileges.php:1580
+#: src/Server/Privileges.php:1587 src/Server/Privileges.php:1589
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:59
 msgid "Routine"
 msgstr "Процедура"
 
-#: src/Server/Privileges.php:1579
+#: src/Server/Privileges.php:1588
 #: templates/server/privileges/edit_routine_privileges.twig:47
 msgid "Routine-specific privileges"
 msgstr "Привілеї процедур"
 
-#: src/Server/Privileges.php:1905
+#: src/Server/Privileges.php:1891
 msgid "No users selected for deleting!"
 msgstr "Жодного користувача не обрано для видалення!"
 
-#: src/Server/Privileges.php:1908
+#: src/Server/Privileges.php:1894
 msgid "Reloading the privileges"
 msgstr "Перезавантаження прав"
 
-#: src/Server/Privileges.php:1933
+#: src/Server/Privileges.php:1919
 msgid "The selected users have been deleted successfully."
 msgstr "Обраних користувачів видалено вдало."
 
-#: src/Server/Privileges.php:2007
+#: src/Server/Privileges.php:1993
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Ви оновили привілеї для %s."
 
-#: src/Server/Privileges.php:2083 templates/database/privileges/index.twig:102
+#: src/Server/Privileges.php:2069 templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "Користувача не знайдено."
 
-#: src/Server/Privileges.php:2164
+#: src/Server/Privileges.php:2150
 #, php-format
 msgid "Deleting %s"
 msgstr "Видалення %s"
 
-#: src/Server/Privileges.php:2195
+#: src/Server/Privileges.php:2181
 msgid "The privileges were reloaded successfully."
 msgstr "Привілеї перезавантажено вдало."
 
-#: src/Server/Privileges.php:2296
+#: src/Server/Privileges.php:2282
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Користувач %s вже існує!"
 
-#: src/Server/Privileges.php:2540
+#: src/Server/Privileges.php:2526
 #, php-format
 msgid "Privileges for %s"
 msgstr "Привілеї для %s"
 
-#: src/Server/Privileges.php:2652
+#: src/Server/Privileges.php:2614
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -12828,7 +12829,7 @@ msgstr ""
 "Вам необхідно перед продовженням %sперезавантажити привілеї%s , щоб зміни "
 "вступили в силу."
 
-#: src/Server/Privileges.php:2668
+#: src/Server/Privileges.php:2630
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12842,11 +12843,11 @@ msgstr ""
 "Вам необхідно перед продовженням перезавантажити привілеї, щоб зміни "
 "вступили в силу. На даний час, у Вас не має ПЕРЕЗАВАНТАЖЕНИХ привілей."
 
-#: src/Server/Privileges.php:2956
+#: src/Server/Privileges.php:2918
 msgid "You have added a new user."
 msgstr "Ви додали нового користувача."
 
-#: src/Server/Privileges.php:3405
+#: src/Server/Privileges.php:3367
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -12967,16 +12968,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Нова стабільна версія відсутня"
 
-#: src/Sql.php:452
+#: src/Sql.php:450
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Як стандартний запит на огляд даних використовується закладка \"%s\"."
 
-#: src/Sql.php:875
+#: src/Sql.php:872
 msgid "Showing as PHP code"
 msgstr "Показ у вигляді коду PHP"
 
-#: src/Sql.php:1262
+#: src/Sql.php:1259
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12985,7 +12986,7 @@ msgstr ""
 "Поточний вибір не містить унікального стовпця. Використання функцій "
 "редагування сітки, прапоців, Редагувати, Копіювати та Видалити недоступні. %s"
 
-#: src/Sql.php:1276
+#: src/Sql.php:1273
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -12995,17 +12996,17 @@ msgstr ""
 "редагування сітки, Редагувати, Копіювати та Видалити може призвести до "
 "небажаних результатів. %s"
 
-#: src/SqlQueryForm.php:138
+#: src/SqlQueryForm.php:142
 #, php-format
 msgid "Run SQL query/queries on server “%s”"
 msgstr "Запустити SQL запит/запити на сервері “%s”"
 
-#: src/SqlQueryForm.php:154
+#: src/SqlQueryForm.php:158
 #, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr "Виконати SQL запит/запити у базі даних %s"
 
-#: src/SqlQueryForm.php:169
+#: src/SqlQueryForm.php:173
 #, php-format
 msgid "Run SQL query/queries on table %s"
 msgstr "Виконати SQL запит(и) у базі даних %s"
@@ -14796,6 +14797,7 @@ msgid "Grant"
 msgstr "Надати"
 
 #: templates/database/privileges/index.twig:36
+#: templates/server/privileges/initials_row.twig:8
 #: templates/server/privileges/new_user_ajax.twig:9
 #: templates/server/privileges/users_overview.twig:36
 #: templates/table/privileges/index.twig:38
@@ -15612,82 +15614,25 @@ msgstr "Запущена Git ревізія %1$s з гілки %2$s."
 msgid "Git information missing!"
 msgstr "Відсутня інформація про Git!"
 
-#: templates/gis_data_editor_form.twig:3
+#: templates/gis_data_editor_form.twig:4
 #, php-format
 msgid "Value for the column \"%s\""
 msgstr "Значення для стовпця \"%s\""
 
-#: templates/gis_data_editor_form.twig:22
+#: templates/gis_data_editor_form.twig:23
 #: templates/table/gis_visualization/gis_visualization.twig:34
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Використовуйте OpenStreetMaps як базовий пласт"
 
 # Ідентифікатор просторової системи координат
-#: templates/gis_data_editor_form.twig:38
+#: templates/gis_data_editor_form.twig:49
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
 msgstr "SRID:"
 
-#: templates/gis_data_editor_form.twig:62
-#, php-format
-msgid "Geometry %d:"
-msgstr "Геометрія %d:"
-
-#: templates/gis_data_editor_form.twig:82
-msgid "Point:"
-msgstr "Точка:"
-
-#: templates/gis_data_editor_form.twig:102
-#: templates/gis_data_editor_form.twig:140
-#: templates/gis_data_editor_form.twig:186
-#, php-format
-msgid "Point %d:"
-msgstr "Точка %d:"
-
-#: templates/gis_data_editor_form.twig:122
-#, php-format
-msgid "Linestring %d:"
-msgstr "Відрізок %d:"
-
-#: templates/gis_data_editor_form.twig:124
-#: templates/gis_data_editor_form.twig:173
-msgid "Outer ring:"
-msgstr "Зовнішнє кільце:"
-
-#: templates/gis_data_editor_form.twig:126
-#: templates/gis_data_editor_form.twig:175
-#, php-format
-msgid "Inner ring %d:"
-msgstr "Внутрішнє кільце %d:"
-
-#: templates/gis_data_editor_form.twig:153
-msgid "Add a linestring"
-msgstr "Додати відрізок"
-
-#: templates/gis_data_editor_form.twig:163
-#, php-format
-msgid "Polygon %d:"
-msgstr "Багатокутник %d:"
-
-#: templates/gis_data_editor_form.twig:202
-msgid "Add a polygon"
-msgstr "Додати багатокутник"
-
-#: templates/gis_data_editor_form.twig:209
-msgid "Add geometry"
-msgstr "Додати геометрію"
-
-#: templates/gis_data_editor_form.twig:218
+#: templates/gis_data_editor_form.twig:58
 msgid "Output"
 msgstr "Вивід"
-
-#: templates/gis_data_editor_form.twig:220
-msgid ""
-"Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field."
-msgstr ""
-"Оберіть \"GeomFromText\" зі стовпця \"Функції\" та вставте нижче у поле "
-"\"Значення\"."
 
 #: templates/header.twig:36 templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -18877,6 +18822,43 @@ msgstr "Назва подання"
 #: templates/view_create.twig:84
 msgid "Column names"
 msgstr "Ім'я стовпців"
+
+#, php-format
+#~ msgid "Point %d"
+#~ msgstr "Точка %d"
+
+#, php-format
+#~ msgid "Geometry %d:"
+#~ msgstr "Геометрія %d:"
+
+#~ msgid "Point:"
+#~ msgstr "Точка:"
+
+#, php-format
+#~ msgid "Point %d:"
+#~ msgstr "Точка %d:"
+
+#, php-format
+#~ msgid "Linestring %d:"
+#~ msgstr "Відрізок %d:"
+
+#~ msgid "Outer ring:"
+#~ msgstr "Зовнішнє кільце:"
+
+#, php-format
+#~ msgid "Inner ring %d:"
+#~ msgstr "Внутрішнє кільце %d:"
+
+#, php-format
+#~ msgid "Polygon %d:"
+#~ msgstr "Багатокутник %d:"
+
+#~ msgid ""
+#~ "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+#~ "below into the \"Value\" field."
+#~ msgstr ""
+#~ "Оберіть \"GeomFromText\" зі стовпця \"Функції\" та вставте нижче у поле "
+#~ "\"Значення\"."
 
 #, php-format
 #~ msgid "Failed to get description of column %s!"
