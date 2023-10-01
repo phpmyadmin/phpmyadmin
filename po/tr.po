@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-10-01 00:20+0000\n"
-"PO-Revision-Date: 2023-09-11 06:59+0000\n"
+"PO-Revision-Date: 2023-10-02 10:01+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.1-dev\n"
 
 #: src/Advisory/Advisor.php:207
 #, php-format
@@ -7524,10 +7524,8 @@ msgid "up to date"
 msgstr "güncel"
 
 #: src/Controllers/JavaScriptMessagesController.php:618
-#, fuzzy
-#| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
-msgstr "ESRI şekil dosyasının içe aktarılmasında hata var: \"%s\"."
+msgstr "Git bilgileri yüklenirken bir hata oldu."
 
 #: src/Controllers/JavaScriptMessagesController.php:621
 msgid ""
