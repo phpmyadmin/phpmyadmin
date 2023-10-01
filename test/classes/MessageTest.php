@@ -31,8 +31,8 @@ class MessageTest extends AbstractTestCase
      */
     public function testToString(): void
     {
-        $this->object->setMessage('test<&>', true);
-        $this->assertEquals('test&lt;&amp;&gt;', (string) $this->object);
+        $this->object->setMessage('test<&>');
+        $this->assertEquals('test<&>', (string) $this->object);
     }
 
     /**
@@ -137,10 +137,8 @@ class MessageTest extends AbstractTestCase
      */
     public function testSetMessage(): void
     {
-        $this->object->setMessage('test&<>', false);
+        $this->object->setMessage('test&<>');
         $this->assertEquals('test&<>', $this->object->getMessage());
-        $this->object->setMessage('test&<>', true);
-        $this->assertEquals('test&amp;&lt;&gt;', $this->object->getMessage());
     }
 
     /**
@@ -148,10 +146,8 @@ class MessageTest extends AbstractTestCase
      */
     public function testSetString(): void
     {
-        $this->object->setString('test&<>', false);
+        $this->object->setString('test&<>');
         $this->assertEquals('test&<>', $this->object->getString());
-        $this->object->setString('test&<>', true);
-        $this->assertEquals('test&amp;&lt;&gt;', $this->object->getString());
     }
 
     /**
@@ -273,24 +269,6 @@ class MessageTest extends AbstractTestCase
     {
         $this->object->setParams(['test&<>']);
         $this->assertEquals(['test&<>'], $this->object->getParams());
-        $this->object->setParams(['test&<>'], true);
-        $this->assertEquals(['test&amp;&lt;&gt;'], $this->object->getParams());
-    }
-
-    /**
-     * testing sanitize method
-     */
-    public function testSanitize(): void
-    {
-        $this->object->setString('test&string<>', false);
-        $this->assertEquals(
-            'test&amp;string&lt;&gt;',
-            Message::sanitize($this->object),
-        );
-        $this->assertEquals(
-            ['test&amp;string&lt;&gt;', 'test&amp;string&lt;&gt;'],
-            Message::sanitize([$this->object, $this->object]),
-        );
     }
 
     /**
@@ -349,8 +327,8 @@ class MessageTest extends AbstractTestCase
      */
     public function testGetHash(): void
     {
-        $this->object->setString('<&>test', false);
-        $this->object->setMessage('<&>test', false);
+        $this->object->setString('<&>test');
+        $this->object->setMessage('<&>test');
         $this->assertEquals(
             md5(Message::NOTICE . '<&>test<&>test'),
             $this->object->getHash(),

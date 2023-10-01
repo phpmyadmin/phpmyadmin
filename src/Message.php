@@ -9,7 +9,6 @@ use Stringable;
 use function __;
 use function _ngettext;
 use function htmlspecialchars;
-use function is_array;
 use function is_float;
 use function is_int;
 use function md5;
@@ -51,10 +50,6 @@ class Message implements Stringable
     public const SUCCESS = 1; // 0001
     public const NOTICE = 2; // 0010
     public const ERROR = 8; // 1000
-
-    public const SANITIZE_NONE = 0; // 0000 0000
-    public const SANITIZE_STRING = 16; // 0001 0000
-    public const SANITIZE_PARAMS = 32; // 0010 0000
 
     /**
      * message levels
@@ -108,21 +103,19 @@ class Message implements Stringable
     protected array $addedMessages = [];
 
     /**
-     * @param string  $string   The message to be displayed
-     * @param int     $number   A numeric representation of the type of message
-     * @param mixed[] $params   An array of parameters to use in the message
-     * @param int     $sanitize A flag to indicate what to sanitize, see
-     *                          constant definitions above
+     * @param string  $string The message to be displayed
+     * @param int     $number A numeric representation of the type of message
+     * @param mixed[] $params An array of parameters to use in the message
+     *                        constant definitions above
      */
     public function __construct(
         string $string = '',
         int $number = self::NOTICE,
         array $params = [],
-        int $sanitize = self::SANITIZE_NONE,
     ) {
-        $this->setString($string, $sanitize & self::SANITIZE_STRING);
+        $this->setString($string);
         $this->setNumber($number);
-        $this->setParams($params, $sanitize & self::SANITIZE_PARAMS);
+        $this->setParams($params);
     }
 
     /**
@@ -364,30 +357,20 @@ class Message implements Stringable
     /**
      * set raw message (overrides string)
      *
-     * @param string $message  A localized string
-     * @param bool   $sanitize Whether to sanitize $message or not
+     * @param string $message A localized string
      */
-    public function setMessage(string $message, bool $sanitize = false): void
+    public function setMessage(string $message): void
     {
-        if ($sanitize) {
-            $message = self::sanitize($message);
-        }
-
         $this->message = $message;
     }
 
     /**
      * set string (does not take effect if raw message is set)
      *
-     * @param string   $string   string to set
-     * @param bool|int $sanitize whether to sanitize $string or not
+     * @param string $string string to set
      */
-    public function setString(string $string, bool|int $sanitize = true): void
+    public function setString(string $string): void
     {
-        if ($sanitize) {
-            $string = self::sanitize($string);
-        }
-
         $this->string = $string;
     }
 
@@ -512,15 +495,10 @@ class Message implements Stringable
     /**
      * set all params at once, usually used in conjunction with string
      *
-     * @param mixed[]  $params   parameters to set
-     * @param bool|int $sanitize whether to sanitize params
+     * @param mixed[] $params parameters to set
      */
-    public function setParams(array $params, bool|int $sanitize = false): void
+    public function setParams(array $params): void
     {
-        if ($sanitize) {
-            $params = self::sanitize($params);
-        }
-
         $this->params = $params;
     }
 
@@ -542,29 +520,6 @@ class Message implements Stringable
     public function getAddedMessages(): array
     {
         return $this->addedMessages;
-    }
-
-    /**
-     * Sanitizes $message
-     *
-     * @param T $message the message(s)
-     *
-     * @return string|mixed[]  the sanitized message(s)
-     * @psalm-return (T is array ? array : string)
-     *
-     * @template T of array|mixed
-     */
-    public static function sanitize(mixed $message): string|array
-    {
-        if (is_array($message)) {
-            foreach ($message as $key => $val) {
-                $message[$key] = self::sanitize($val);
-            }
-
-            return $message;
-        }
-
-        return htmlspecialchars((string) $message);
     }
 
     /**

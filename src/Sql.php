@@ -1674,7 +1674,7 @@ class Sql
         ForeignKey::handleDisableCheckCleanup($defaultFkCheck);
 
         foreach ($warningMessages as $warning) {
-            $message = Message::notice(Message::sanitize($warning));
+            $message = Message::notice(htmlspecialchars($warning));
             $htmlOutput .= $message->getDisplay();
         }
 

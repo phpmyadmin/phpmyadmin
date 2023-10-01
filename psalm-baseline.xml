@@ -7380,9 +7380,6 @@
     <MixedArgument>
       <code><![CDATA[$this->params]]></code>
     </MixedArgument>
-    <MixedAssignment>
-      <code>$val</code>
-    </MixedAssignment>
     <MixedInferredReturnType>
       <code>string</code>
     </MixedInferredReturnType>
