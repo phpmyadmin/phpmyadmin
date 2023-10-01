@@ -384,7 +384,7 @@ class OperationsController extends AbstractController
             if ($warningMessages !== []) {
                 $newMessage = new Message();
                 $newMessage->addMessagesString($warningMessages);
-                $newMessage->isError(true);
+                $newMessage->setType(Message::ERROR);
                 if ($request->isAjax()) {
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', $newMessage);

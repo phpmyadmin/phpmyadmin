@@ -109,7 +109,8 @@ class MessageTest extends AbstractTestCase
     public function testIsSuccess(): void
     {
         $this->assertFalse($this->object->isSuccess());
-        $this->assertTrue($this->object->isSuccess(true));
+        $this->object->setType(Message::SUCCESS);
+        $this->assertTrue($this->object->isSuccess());
     }
 
     /**
@@ -118,9 +119,10 @@ class MessageTest extends AbstractTestCase
     public function testIsNotice(): void
     {
         $this->assertTrue($this->object->isNotice());
-        $this->object->isError(true);
+        $this->object->setType(Message::ERROR);
         $this->assertFalse($this->object->isNotice());
-        $this->assertTrue($this->object->isNotice(true));
+        $this->object->setType(Message::NOTICE);
+        $this->assertTrue($this->object->isNotice());
     }
 
     /**
@@ -129,7 +131,8 @@ class MessageTest extends AbstractTestCase
     public function testIsError(): void
     {
         $this->assertFalse($this->object->isError());
-        $this->assertTrue($this->object->isError(true));
+        $this->object->setType(Message::ERROR);
+        $this->assertTrue($this->object->isError());
     }
 
     /**
@@ -382,9 +385,9 @@ class MessageTest extends AbstractTestCase
     public function testGetLevel(): void
     {
         $this->assertEquals('notice', $this->object->getLevel());
-        $this->object->setNumber(Message::SUCCESS);
+        $this->object->setType(Message::SUCCESS);
         $this->assertEquals('success', $this->object->getLevel());
-        $this->object->setNumber(Message::ERROR);
+        $this->object->setType(Message::ERROR);
         $this->assertEquals('error', $this->object->getLevel());
     }
 

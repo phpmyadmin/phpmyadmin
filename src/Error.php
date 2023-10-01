@@ -73,16 +73,14 @@ class Error extends Message
     protected bool $hideLocation = false;
 
     /**
-     * @param int    $errno   error number
      * @param string $errstr  error message
      * @param string $errfile file
      * @param int    $errline line
      */
-    public function __construct(int $errno, string $errstr, string $errfile, int $errline)
+    public function __construct(private int $errorNumber, string $errstr, string $errfile, int $errline)
     {
         parent::__construct();
 
-        $this->setNumber($errno);
         $this->setMessage($errstr);
         $this->setFile($errfile);
         $this->setLine($errline);
@@ -201,7 +199,7 @@ class Error extends Message
 
         if ($this->hash === null) {
             $this->hash = md5(
-                $this->getNumber() .
+                $this->errorNumber .
                 $this->getMessage() .
                 $this->getFile() .
                 $this->getLine() .
@@ -257,7 +255,7 @@ class Error extends Message
      */
     public function getType(): string
     {
-        return match ($this->getNumber()) {
+        return match ($this->errorNumber) {
             0 => 'Internal error',
             E_ERROR => 'Error',
             E_WARNING => 'Warning',
@@ -284,7 +282,7 @@ class Error extends Message
      */
     public function getLevel(): string
     {
-        return match ($this->getNumber()) {
+        return match ($this->errorNumber) {
             0 => 'error',
             E_ERROR => 'error',
             E_WARNING => 'error',
@@ -458,7 +456,12 @@ class Error extends Message
     public function isUserError(): bool
     {
         return $this->hideLocation
-            || ($this->getNumber() & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_DEPRECATED));
+            || ($this->errorNumber & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_DEPRECATED));
+    }
+
+    public function getErrorNumber(): int
+    {
+        return $this->errorNumber;
     }
 
     /**

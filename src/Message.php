@@ -52,11 +52,6 @@ class Message implements Stringable
     public const ERROR = 8; // 1000
 
     /**
-     * The message number
-     */
-    protected int $number = self::NOTICE;
-
-    /**
      * The locale string identifier
      */
     protected string $string = '';
@@ -97,17 +92,17 @@ class Message implements Stringable
 
     /**
      * @param string  $string The message to be displayed
-     * @param int     $number A numeric representation of the type of message
+     * @param int     $type   A numeric representation of the type of message
      * @param mixed[] $params An array of parameters to use in the message
      *                        constant definitions above
+     * @psalm-param self::SUCCESS|self::NOTICE|self::ERROR $type
      */
     public function __construct(
         string $string = '',
-        int $number = self::NOTICE,
+        private int $type = self::NOTICE,
         array $params = [],
     ) {
         $this->setString($string);
-        $this->setNumber($number);
         $this->setParams($params);
     }
 
@@ -181,6 +176,7 @@ class Message implements Stringable
      *
      * @param string $message A localized string
      * @param int    $type    A numeric representation of the type of message
+     * @psalm-param self::SUCCESS|self::NOTICE|self::ERROR $type
      *
      * @return Message
      */
@@ -194,7 +190,7 @@ class Message implements Stringable
     }
 
     /**
-     * get Message for number of affected rows
+     * get Message for type of affected rows
      *
      * shorthand for getting a customized message
      *
@@ -213,7 +209,7 @@ class Message implements Stringable
     }
 
     /**
-     * get Message for number of deleted rows
+     * get Message for type of deleted rows
      *
      * shorthand for getting a customized message
      *
@@ -232,7 +228,7 @@ class Message implements Stringable
     }
 
     /**
-     * get Message for number of inserted rows
+     * get Message for type of inserted rows
      *
      * shorthand for getting a customized message
      *
@@ -292,49 +288,19 @@ class Message implements Stringable
         return self::raw($message, self::SUCCESS);
     }
 
-    /**
-     * returns whether this message is a success message or not
-     * and optionally makes this message a success message
-     *
-     * @param bool $set Whether to make this message of SUCCESS type
-     */
-    public function isSuccess(bool $set = false): bool
+    public function isSuccess(): bool
     {
-        if ($set) {
-            $this->setNumber(self::SUCCESS);
-        }
-
-        return $this->getNumber() === self::SUCCESS;
+        return $this->type === self::SUCCESS;
     }
 
-    /**
-     * returns whether this message is a notice message or not
-     * and optionally makes this message a notice message
-     *
-     * @param bool $set Whether to make this message of NOTICE type
-     */
-    public function isNotice(bool $set = false): bool
+    public function isNotice(): bool
     {
-        if ($set) {
-            $this->setNumber(self::NOTICE);
-        }
-
-        return $this->getNumber() === self::NOTICE;
+        return $this->type === self::NOTICE;
     }
 
-    /**
-     * returns whether this message is an error message or not
-     * and optionally makes this message an error message
-     *
-     * @param bool $set Whether to make this message of ERROR type
-     */
-    public function isError(bool $set = false): bool
+    public function isError(): bool
     {
-        if ($set) {
-            $this->setNumber(self::ERROR);
-        }
-
-        return $this->getNumber() === self::ERROR;
+        return $this->type === self::ERROR;
     }
 
     /**
@@ -368,13 +334,14 @@ class Message implements Stringable
     }
 
     /**
-     * set message type number
+     * set message type type
      *
-     * @param int $number message type number to set
+     * @param int $type message type type to set
+     * @psalm-param self::SUCCESS|self::NOTICE|self::ERROR $type
      */
-    public function setNumber(int $number): void
+    public function setType(int $type): void
     {
-        $this->number = $number;
+        $this->type = $type;
     }
 
     /**
@@ -536,11 +503,7 @@ class Message implements Stringable
     public function getHash(): string
     {
         if ($this->hash === null) {
-            $this->hash = md5(
-                $this->getNumber() .
-                $this->string .
-                $this->message,
-            );
+            $this->hash = md5($this->type . $this->string . $this->message);
         }
 
         return $this->hash;
@@ -598,23 +561,13 @@ class Message implements Stringable
     }
 
     /**
-     * returns Message::$number
-     *
-     * @return int Message::$number
-     */
-    public function getNumber(): int
-    {
-        return $this->number;
-    }
-
-    /**
      * returns level of message
      *
      * @return string level of message
      */
     public function getLevel(): string
     {
-        return match ($this->number) {
+        return match ($this->type) {
             self::SUCCESS => 'success',
             self::NOTICE => 'notice',
             self::ERROR => 'error'

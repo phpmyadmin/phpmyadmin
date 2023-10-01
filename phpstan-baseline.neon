@@ -6591,13 +6591,13 @@ parameters:
 			path: src/Controllers/Table/ReplaceController.php
 
 		-
-			message: "#^Cannot call method isError\\(\\) on mixed\\.$#"
-			count: 3
+			message: "#^Cannot call method isSuccess\\(\\) on mixed\\.$#"
+			count: 1
 			path: src/Controllers/Table/ReplaceController.php
 
 		-
-			message: "#^Cannot call method isSuccess\\(\\) on mixed\\.$#"
-			count: 1
+			message: "#^Cannot call method setType\\(\\) on mixed\\.$#"
+			count: 3
 			path: src/Controllers/Table/ReplaceController.php
 
 		-
@@ -12387,11 +12387,6 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 1
-			path: src/Message.php
-
-		-
-			message: "#^Match expression does not handle remaining values\\: int\\<min, 0\\>\\|int\\<3, 7\\>\\|int\\<9, max\\>$#"
 			count: 1
 			path: src/Message.php
 

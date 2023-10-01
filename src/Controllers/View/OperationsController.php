@@ -127,7 +127,7 @@ class OperationsController extends AbstractController
 
             if ($warningMessages !== []) {
                 $message->addMessagesString($warningMessages);
-                $message->isError(true);
+                $message->setType(Message::ERROR);
             }
 
             $this->response->addHTML(Generator::getMessage(

@@ -272,12 +272,12 @@ class ErrorHandler
         $error->setHideLocation($this->hideLocation);
 
         // Deprecation errors will be shown in development environment, as they will have a different number.
-        if ($error->getNumber() !== E_DEPRECATED) {
+        if ($error->getErrorNumber() !== E_DEPRECATED) {
             // do not repeat errors
             $this->errors[$error->getHash()] = $error;
         }
 
-        switch ($error->getNumber()) {
+        switch ($error->getErrorNumber()) {
             case E_STRICT:
             case E_DEPRECATED:
             case E_NOTICE:

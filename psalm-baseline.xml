@@ -6035,7 +6035,6 @@
       <code><![CDATA[$level['uri']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code>$errorObj</code>
       <code><![CDATA[$exception['uri']]]></code>
       <code><![CDATA[$exception['uri']]]></code>
       <code>$level</code>
