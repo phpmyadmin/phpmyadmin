@@ -19,7 +19,6 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
-use function array_key_exists;
 use function is_array;
 use function mb_strtolower;
 use function preg_match;
@@ -99,16 +98,30 @@ class FindReplaceController extends AbstractController
             return;
         }
 
-        if (isset($_POST['find'])) {
-            $this->findAction();
+        $useRegex = (bool) $request->getParsedBodyParam('useRegex');
+        $replaceWith = (string) $request->getParsedBodyParam('replaceWith');
+        $columnIndex = (int) $request->getParsedBodyParam('columnIndex');
+
+        if ($request->hasBodyParam('find')) {
+            $find = (string) $request->getParsedBodyParam('find');
+            $preview = $this->getReplacePreview($columnIndex, $find, $replaceWith, $useRegex, $this->connectionCharSet);
+            $this->response->addJSON('preview', $preview);
 
             return;
         }
 
         $this->addScriptFiles(['table/find_replace.js']);
 
-        if (isset($_POST['replace'])) {
-            $this->replaceAction();
+        if ($request->hasBodyParam('replace')) {
+            $findString = (string) $request->getParsedBodyParam('findString');
+            $this->replace($columnIndex, $findString, $replaceWith, $useRegex, $this->connectionCharSet);
+            $this->response->addHTML(
+                Generator::getMessage(
+                    __('Your SQL query has been executed successfully.'),
+                    null,
+                    'success',
+                ),
+            );
         }
 
         // Displays the find and replace form
@@ -176,39 +189,6 @@ class FindReplaceController extends AbstractController
             'types' => $types,
             'sql_types' => $this->dbi->types,
         ]);
-    }
-
-    public function findAction(): void
-    {
-        $useRegex = array_key_exists('useRegex', $_POST)
-            && $_POST['useRegex'] === 'on';
-
-        $preview = $this->getReplacePreview(
-            (int) $_POST['columnIndex'],
-            $_POST['find'],
-            $_POST['replaceWith'],
-            $useRegex,
-            $this->connectionCharSet,
-        );
-        $this->response->addJSON('preview', $preview);
-    }
-
-    public function replaceAction(): void
-    {
-        $this->replace(
-            (int) $_POST['columnIndex'],
-            $_POST['findString'],
-            $_POST['replaceWith'],
-            (bool) $_POST['useRegex'],
-            $this->connectionCharSet,
-        );
-        $this->response->addHTML(
-            Generator::getMessage(
-                __('Your SQL query has been executed successfully.'),
-                null,
-                'success',
-            ),
-        );
     }
 
     /**

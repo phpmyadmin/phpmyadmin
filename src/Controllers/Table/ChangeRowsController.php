@@ -29,7 +29,10 @@ final class ChangeRowsController extends AbstractController
         $GLOBALS['active_page'] ??= null;
         $GLOBALS['where_clause'] ??= null;
 
-        if (isset($_POST['goto']) && (! isset($_POST['rows_to_delete']) || ! is_array($_POST['rows_to_delete']))) {
+        $rowsToDelete = $request->getParsedBodyParam('rows_to_delete');
+
+        if ((! $request->hasBodyParam('rows_to_delete') || ! is_array($rowsToDelete))
+            && $request->hasBodyParam('goto')) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No row selected.'));
 
@@ -41,8 +44,8 @@ final class ChangeRowsController extends AbstractController
         // indicating WHERE clause. Then we build the array which is used
         // for the /table/change script.
         $GLOBALS['where_clause'] = [];
-        if (isset($_POST['rows_to_delete']) && is_array($_POST['rows_to_delete'])) {
-            $GLOBALS['where_clause'] = array_values($_POST['rows_to_delete']);
+        if (is_array($rowsToDelete)) {
+            $GLOBALS['where_clause'] = array_values($rowsToDelete);
         }
 
         $GLOBALS['active_page'] = Url::getFromRoute('/table/change');
