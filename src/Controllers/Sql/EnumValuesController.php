@@ -12,10 +12,7 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 
 use function __;
-use function htmlentities;
 use function strval;
-
-use const ENT_COMPAT;
 
 final class EnumValuesController extends AbstractController
 {
@@ -46,12 +43,9 @@ final class EnumValuesController extends AbstractController
             return;
         }
 
-        // Converts characters of $curr_value to HTML entities.
-        $convertedCurrentValue = htmlentities(strval($currValue), ENT_COMPAT, 'UTF-8');
-
         $dropdown = $this->template->render('sql/enum_column_dropdown', [
             'values' => $values,
-            'selected_values' => [$convertedCurrentValue],
+            'selected_values' => [strval($currValue)],
         ]);
 
         $this->response->addJSON('dropdown', $dropdown);

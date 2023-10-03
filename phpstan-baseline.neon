@@ -5021,7 +5021,7 @@ parameters:
 			path: src/Controllers/Sql/SetValuesController.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function htmlentities expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$string of function explode expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Sql/SetValuesController.php
 
@@ -13066,12 +13066,12 @@ parameters:
 			path: src/ParseAnalyze.php
 
 		-
-			message: "#^Offset 'select_tables' on array\\{distinct\\?\\: bool, drop_database\\?\\: bool, group\\?\\: bool, having\\?\\: bool, is_affected\\?\\: bool, is_analyse\\?\\: bool, is_count\\?\\: bool, is_delete\\?\\: bool, \\.\\.\\.\\}&array\\{select_expr\\?\\: array\\<string\\|null\\>, select_tables\\?\\: array\\<array\\{string, string\\|null\\}\\>, statement\\?\\: PhpMyAdmin\\\\SqlParser\\\\Statement\\|null, parser\\?\\: PhpMyAdmin\\\\SqlParser\\\\Parser\\} in empty\\(\\) does not exist\\.$#"
+			message: "#^Offset 'select_tables' on array\\{distinct\\?\\: bool, drop_database\\?\\: bool, group\\?\\: bool, having\\?\\: bool, is_affected\\?\\: bool, is_analyse\\?\\: bool, is_count\\?\\: bool, is_delete\\?\\: bool, \\.\\.\\.\\} in empty\\(\\) does not exist\\.$#"
 			count: 1
 			path: src/ParseAnalyze.php
 
 		-
-			message: "#^Parameter \\#1 \\$info of static method PhpMyAdmin\\\\StatementInfo\\:\\:fromArray\\(\\) expects array\\{distinct\\: bool, drop_database\\: bool, group\\: bool, having\\: bool, is_affected\\: bool, is_analyse\\: bool, is_count\\: bool, is_delete\\: bool, \\.\\.\\.\\}, array\\{distinct\\?\\: bool, drop_database\\?\\: bool, group\\?\\: bool, having\\?\\: bool, is_affected\\?\\: bool, is_analyse\\?\\: bool, is_count\\?\\: bool, is_delete\\?\\: bool, \\.\\.\\.\\}&array\\{select_expr\\?\\: array\\<string\\|null\\>, select_tables\\?\\: array\\<array\\{string, string\\|null\\}\\>, statement\\?\\: PhpMyAdmin\\\\SqlParser\\\\Statement\\|null, parser\\?\\: PhpMyAdmin\\\\SqlParser\\\\Parser\\} given\\.$#"
+			message: "#^Parameter \\#1 \\$info of static method PhpMyAdmin\\\\StatementInfo\\:\\:fromArray\\(\\) expects array\\{distinct\\: bool, drop_database\\: bool, group\\: bool, having\\: bool, is_affected\\: bool, is_analyse\\: bool, is_count\\: bool, is_delete\\: bool, \\.\\.\\.\\}, array\\{distinct\\?\\: bool, drop_database\\?\\: bool, group\\?\\: bool, having\\?\\: bool, is_affected\\?\\: bool, is_analyse\\?\\: bool, is_count\\?\\: bool, is_delete\\?\\: bool, \\.\\.\\.\\} given\\.$#"
 			count: 1
 			path: src/ParseAnalyze.php
 
@@ -17911,7 +17911,7 @@ parameters:
 			path: src/Sql.php
 
 		-
-			message: "#^Parameter \\#1 \\$info of static method PhpMyAdmin\\\\StatementInfo\\:\\:fromArray\\(\\) expects array\\{distinct\\: bool, drop_database\\: bool, group\\: bool, having\\: bool, is_affected\\: bool, is_analyse\\: bool, is_count\\: bool, is_delete\\: bool, \\.\\.\\.\\}, array\\{distinct\\?\\: bool, drop_database\\?\\: bool, group\\?\\: bool, having\\?\\: bool, is_affected\\?\\: bool, is_analyse\\?\\: bool, is_count\\?\\: bool, is_delete\\?\\: bool, \\.\\.\\.\\}&array\\{select_expr\\?\\: array\\<string\\|null\\>, select_tables\\?\\: array\\<array\\{string, string\\|null\\}\\>, statement\\?\\: PhpMyAdmin\\\\SqlParser\\\\Statement\\|null, parser\\?\\: PhpMyAdmin\\\\SqlParser\\\\Parser\\} given\\.$#"
+			message: "#^Parameter \\#1 \\$info of static method PhpMyAdmin\\\\StatementInfo\\:\\:fromArray\\(\\) expects array\\{distinct\\: bool, drop_database\\: bool, group\\: bool, having\\: bool, is_affected\\: bool, is_analyse\\: bool, is_count\\: bool, is_delete\\: bool, \\.\\.\\.\\}, array\\{distinct\\?\\: bool, drop_database\\?\\: bool, group\\?\\: bool, having\\?\\: bool, is_affected\\?\\: bool, is_analyse\\?\\: bool, is_count\\?\\: bool, is_delete\\?\\: bool, \\.\\.\\.\\} given\\.$#"
 			count: 1
 			path: src/Sql.php
 
@@ -20486,7 +20486,7 @@ parameters:
 			path: test/classes/Display/ResultsTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$info of static method PhpMyAdmin\\\\StatementInfo\\:\\:fromArray\\(\\) expects array\\{distinct\\: bool, drop_database\\: bool, group\\: bool, having\\: bool, is_affected\\: bool, is_analyse\\: bool, is_count\\: bool, is_delete\\: bool, \\.\\.\\.\\}, array\\{distinct\\?\\: bool, drop_database\\?\\: bool, group\\?\\: bool, having\\?\\: bool, is_affected\\?\\: bool, is_analyse\\?\\: bool, is_count\\?\\: bool, is_delete\\?\\: bool, \\.\\.\\.\\}&array\\{select_expr\\?\\: array\\<string\\|null\\>, select_tables\\?\\: array\\<array\\{string, string\\|null\\}\\>, statement\\?\\: PhpMyAdmin\\\\SqlParser\\\\Statement\\|null, parser\\?\\: PhpMyAdmin\\\\SqlParser\\\\Parser\\} given\\.$#"
+			message: "#^Parameter \\#1 \\$info of static method PhpMyAdmin\\\\StatementInfo\\:\\:fromArray\\(\\) expects array\\{distinct\\: bool, drop_database\\: bool, group\\: bool, having\\: bool, is_affected\\: bool, is_analyse\\: bool, is_count\\: bool, is_delete\\: bool, \\.\\.\\.\\}, array\\{distinct\\?\\: bool, drop_database\\?\\: bool, group\\?\\: bool, having\\?\\: bool, is_affected\\?\\: bool, is_analyse\\?\\: bool, is_count\\?\\: bool, is_delete\\?\\: bool, \\.\\.\\.\\} given\\.$#"
 			count: 3
 			path: test/classes/Display/ResultsTest.php
 

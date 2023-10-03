@@ -195,15 +195,10 @@ const onlyOnceElements = [];
  * Handles 'Simulate query' button on SQL query box.
  */
 const handleSimulateQueryButton = function (): void {
-    const updateRegExp = new RegExp('^\\s*UPDATE\\s+((`[^`]+`)|([A-Za-z0-9_$]+))\\s+SET\\s', 'i');
-    const deleteRegExp = new RegExp('^\\s*DELETE\\s+FROM\\s', 'i');
-    let query = '';
+    const updateRegExp = /^\s*UPDATE\b\s*(((`([^`]|``)+`)|([a-z0-9_$]+))\s*\.\s*)?((`([^`]|``)+`)|([a-z0-9_$]+))\s*\bSET\b/i;
+    const deleteRegExp = /^\s*DELETE\b\s*((((`([^`]|``)+`)|([a-z0-9_$]+))\s*\.\s*)?((`([^`]|``)+`)|([a-z0-9_$]+))\s*)?\bFROM\b/i;
 
-    if (window.codeMirrorEditor) {
-        query = window.codeMirrorEditor.getValue();
-    } else {
-        query = ($('#sqlquery').val() as string);
-    }
+    const query = window.codeMirrorEditor ? window.codeMirrorEditor.getValue() : ($('#sqlquery').val() as string);
 
     const $simulateDml = $('#simulate_dml');
     if (updateRegExp.test(query) || deleteRegExp.test(query)) {
