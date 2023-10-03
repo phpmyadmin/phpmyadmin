@@ -5987,10 +5987,6 @@
       <code>$step</code>
       <code>$step</code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>string</code>
-      <code>string</code>
-    </MixedInferredReturnType>
     <MixedOperand>
       <code>$arg</code>
       <code>$arg</code>
@@ -5998,10 +5994,6 @@
       <code><![CDATA[$step['function']]]></code>
       <code><![CDATA[$step['line']]]></code>
     </MixedOperand>
-    <MixedReturnStatement>
-      <code><![CDATA[self::$errorlevel[$this->getNumber()]]]></code>
-      <code><![CDATA[self::$errortype[$this->getNumber()]]]></code>
-    </MixedReturnStatement>
   </file>
   <file src="src/ErrorHandler.php">
     <DeprecatedMethod>
@@ -6043,7 +6035,6 @@
       <code><![CDATA[$level['uri']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code>$errorObj</code>
       <code><![CDATA[$exception['uri']]]></code>
       <code><![CDATA[$exception['uri']]]></code>
       <code>$level</code>
@@ -7380,15 +7371,6 @@
     <MixedArgument>
       <code><![CDATA[$this->params]]></code>
     </MixedArgument>
-    <MixedAssignment>
-      <code>$val</code>
-    </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>string</code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement>
-      <code><![CDATA[self::$level[$this->getNumber()]]]></code>
-    </MixedReturnStatement>
   </file>
   <file src="src/Navigation/Navigation.php">
     <DeprecatedMethod>

@@ -31,8 +31,8 @@ class MessageTest extends AbstractTestCase
      */
     public function testToString(): void
     {
-        $this->object->setMessage('test<&>', true);
-        $this->assertEquals('test&lt;&amp;&gt;', (string) $this->object);
+        $this->object->setMessage('test<&>');
+        $this->assertEquals('test<&>', (string) $this->object);
     }
 
     /**
@@ -109,7 +109,8 @@ class MessageTest extends AbstractTestCase
     public function testIsSuccess(): void
     {
         $this->assertFalse($this->object->isSuccess());
-        $this->assertTrue($this->object->isSuccess(true));
+        $this->object->setType(Message::SUCCESS);
+        $this->assertTrue($this->object->isSuccess());
     }
 
     /**
@@ -118,9 +119,10 @@ class MessageTest extends AbstractTestCase
     public function testIsNotice(): void
     {
         $this->assertTrue($this->object->isNotice());
-        $this->object->isError(true);
+        $this->object->setType(Message::ERROR);
         $this->assertFalse($this->object->isNotice());
-        $this->assertTrue($this->object->isNotice(true));
+        $this->object->setType(Message::NOTICE);
+        $this->assertTrue($this->object->isNotice());
     }
 
     /**
@@ -129,7 +131,8 @@ class MessageTest extends AbstractTestCase
     public function testIsError(): void
     {
         $this->assertFalse($this->object->isError());
-        $this->assertTrue($this->object->isError(true));
+        $this->object->setType(Message::ERROR);
+        $this->assertTrue($this->object->isError());
     }
 
     /**
@@ -137,10 +140,8 @@ class MessageTest extends AbstractTestCase
      */
     public function testSetMessage(): void
     {
-        $this->object->setMessage('test&<>', false);
+        $this->object->setMessage('test&<>');
         $this->assertEquals('test&<>', $this->object->getMessage());
-        $this->object->setMessage('test&<>', true);
-        $this->assertEquals('test&amp;&lt;&gt;', $this->object->getMessage());
     }
 
     /**
@@ -148,10 +149,8 @@ class MessageTest extends AbstractTestCase
      */
     public function testSetString(): void
     {
-        $this->object->setString('test&<>', false);
+        $this->object->setString('test&<>');
         $this->assertEquals('test&<>', $this->object->getString());
-        $this->object->setString('test&<>', true);
-        $this->assertEquals('test&amp;&lt;&gt;', $this->object->getString());
     }
 
     /**
@@ -273,24 +272,6 @@ class MessageTest extends AbstractTestCase
     {
         $this->object->setParams(['test&<>']);
         $this->assertEquals(['test&<>'], $this->object->getParams());
-        $this->object->setParams(['test&<>'], true);
-        $this->assertEquals(['test&amp;&lt;&gt;'], $this->object->getParams());
-    }
-
-    /**
-     * testing sanitize method
-     */
-    public function testSanitize(): void
-    {
-        $this->object->setString('test&string<>', false);
-        $this->assertEquals(
-            'test&amp;string&lt;&gt;',
-            Message::sanitize($this->object),
-        );
-        $this->assertEquals(
-            ['test&amp;string&lt;&gt;', 'test&amp;string&lt;&gt;'],
-            Message::sanitize([$this->object, $this->object]),
-        );
     }
 
     /**
@@ -349,8 +330,8 @@ class MessageTest extends AbstractTestCase
      */
     public function testGetHash(): void
     {
-        $this->object->setString('<&>test', false);
-        $this->object->setMessage('<&>test', false);
+        $this->object->setString('<&>test');
+        $this->object->setMessage('<&>test');
         $this->assertEquals(
             md5(Message::NOTICE . '<&>test<&>test'),
             $this->object->getHash(),
@@ -404,9 +385,9 @@ class MessageTest extends AbstractTestCase
     public function testGetLevel(): void
     {
         $this->assertEquals('notice', $this->object->getLevel());
-        $this->object->setNumber(Message::SUCCESS);
+        $this->object->setType(Message::SUCCESS);
         $this->assertEquals('success', $this->object->getLevel());
-        $this->object->setNumber(Message::ERROR);
+        $this->object->setType(Message::ERROR);
         $this->assertEquals('error', $this->object->getLevel());
     }
 

@@ -349,19 +349,19 @@ final class ReplaceController extends AbstractController
         if ($rowSkipped) {
             $gotoInclude = '/table/change';
             $GLOBALS['message']->addMessagesString($insertErrors, '<br>');
-            $GLOBALS['message']->isError(true);
+            $GLOBALS['message']->setType(Message::ERROR);
         }
 
         $GLOBALS['message']->addMessages($lastMessages, '<br>');
 
         if (! empty($warningMessages)) {
             $GLOBALS['message']->addMessagesString($warningMessages, '<br>');
-            $GLOBALS['message']->isError(true);
+            $GLOBALS['message']->setType(Message::ERROR);
         }
 
         if (! empty($errorMessages)) {
             $GLOBALS['message']->addMessagesString($errorMessages);
-            $GLOBALS['message']->isError(true);
+            $GLOBALS['message']->setType(Message::ERROR);
         }
 
         /**

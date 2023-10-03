@@ -283,7 +283,7 @@ class OperationsController extends AbstractController
             $GLOBALS['message']->addParamHtml('</a>');
             /* Show error if user has configured something, notice elsewhere */
             if (! empty($config->settings['Servers'][$GLOBALS['server']]['pmadb'])) {
-                $GLOBALS['message']->isError(true);
+                $GLOBALS['message']->setType(Message::ERROR);
             }
         }
 

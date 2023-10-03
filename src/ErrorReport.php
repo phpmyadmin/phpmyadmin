@@ -112,9 +112,11 @@ class ErrorReport
                 return [];
             }
 
+            /** @var Error $errorObj */
             foreach ($_SESSION['prev_errors'] as $errorObj) {
-                /** @var Error $errorObj */
-                if (! $errorObj->getLine() || ! $errorObj->getType() || $errorObj->getNumber() == E_USER_WARNING) {
+                if (
+                    ! $errorObj->getLine() || ! $errorObj->getType() || $errorObj->getErrorNumber() === E_USER_WARNING
+                ) {
                     continue;
                 }
 

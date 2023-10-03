@@ -212,7 +212,7 @@ class HomeController extends AbstractController
                 $messageInstance->addParamHtml('</a>');
                 /* Show error if user has configured something, notice elsewhere */
                 if (! empty($config->settings['Servers'][$GLOBALS['server']]['pmadb'])) {
-                    $messageInstance->isError(true);
+                    $messageInstance->setType(Message::ERROR);
                 }
 
                 $configStorageMessage = $messageInstance->getDisplay();
