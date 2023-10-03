@@ -338,7 +338,7 @@ class Sql
             return null;
         }
 
-        return Util::parseEnumSetValues($fieldInfoResult[0]['Type']);
+        return Util::parseEnumSetValues($fieldInfoResult[0]['Type'], false);
     }
 
     /**

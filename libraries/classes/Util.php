@@ -37,7 +37,6 @@ use function floatval;
 use function floor;
 use function fread;
 use function function_exists;
-use function html_entity_decode;
 use function htmlentities;
 use function htmlspecialchars;
 use function htmlspecialchars_decode;
@@ -1903,46 +1902,16 @@ class Util
      */
     public static function parseEnumSetValues($definition, $escapeHtml = true)
     {
-        $valuesString = htmlentities($definition, ENT_COMPAT, 'UTF-8');
         // There is a JS port of the below parser in functions.js
         // If you are fixing something here,
         // you need to also update the JS port.
+
+        preg_match('|\((.*)\)|', $definition, $matches);
+
         $values = [];
-        $inString = false;
-        $buffer = '';
-
-        for ($i = 0, $length = mb_strlen($valuesString); $i < $length; $i++) {
-            $curr = mb_substr($valuesString, $i, 1);
-            $next = $i == mb_strlen($valuesString) - 1
-                ? ''
-                : mb_substr($valuesString, $i + 1, 1);
-
-            if (! $inString && $curr == "'") {
-                $inString = true;
-            } elseif (($inString && $curr === '\\') && $next === '\\') {
-                $buffer .= '&#92;';
-                $i++;
-            } elseif (($inString && $next == "'") && ($curr == "'" || $curr === '\\')) {
-                $buffer .= '&#39;';
-                $i++;
-            } elseif ($inString && $curr == "'") {
-                $inString = false;
-                $values[] = $buffer;
-                $buffer = '';
-            } elseif ($inString) {
-                $buffer .= $curr;
-            }
-        }
-
-        if (strlen($buffer) > 0) {
-            // The leftovers in the buffer are the last value (if any)
-            $values[] = $buffer;
-        }
-
-        if (! $escapeHtml) {
-            foreach ($values as $key => $value) {
-                $values[$key] = html_entity_decode($value, ENT_QUOTES, 'UTF-8');
-            }
+        foreach (explode(',', $matches[1]) as $value) {
+            $value = strtr(substr($value, 1, -1), ["''" => "'", "\\'" => "'", '\\\\' => '\\']);
+            $values[] = $escapeHtml ? htmlspecialchars($value, ENT_QUOTES, 'UTF-8') : $value;
         }
 
         return $values;

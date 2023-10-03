@@ -2837,11 +2837,10 @@
     </MixedArgument>
     <PossiblyInvalidArgument occurrences="2">
       <code>$column</code>
-      <code>$curr_value</code>
+      <code>$currValue</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="2">
+    <PossiblyInvalidCast occurrences="1">
       <code>$column</code>
-      <code>$curr_value</code>
     </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/Sql/RelationalValuesController.php">
