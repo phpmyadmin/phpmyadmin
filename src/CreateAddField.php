@@ -182,7 +182,7 @@ class CreateAddField
         }
 
         if ($index['Index_comment']) {
-            $sqlQuery .= " COMMENT '" . $this->dbi->escapeString($index['Index_comment']) . "'";
+            $sqlQuery .= ' COMMENT ' . $this->dbi->quoteString($index['Index_comment']);
         }
 
         return $sqlQuery;

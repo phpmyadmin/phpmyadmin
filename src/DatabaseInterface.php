@@ -681,8 +681,7 @@ class DatabaseInterface implements DbalInterface
             // get table information from information_schema
             $sqlWhereSchema = '';
             if ($database !== null) {
-                $sqlWhereSchema = 'WHERE `SCHEMA_NAME` LIKE \''
-                    . $this->escapeString($database, $connectionType) . '\'';
+                $sqlWhereSchema = 'WHERE `SCHEMA_NAME` LIKE ' . $this->quoteString($database, $connectionType);
             }
 
             $sql = QueryGenerator::getInformationSchemaDatabasesFullRequest(
@@ -825,7 +824,7 @@ class DatabaseInterface implements DbalInterface
         $sql = 'SHOW FULL COLUMNS FROM '
             . Util::backquote($database) . '.' . Util::backquote($table);
         if ($column !== null) {
-            $sql .= " LIKE '" . $this->escapeString($column, $connectionType) . "'";
+            $sql .= ' LIKE ' . $this->quoteString($column, $connectionType);
         }
 
         $columns = $this->fetchResult($sql, 'Field', null, $connectionType);
@@ -862,7 +861,7 @@ class DatabaseInterface implements DbalInterface
         $sql = QueryGenerator::getColumnsSql(
             $database,
             $table,
-            $this->escapeString($this->escapeMysqlWildcards($column)),
+            $this->quoteString($this->escapeMysqlWildcards($column)),
             $full,
         );
         /** @var (string|null)[][] $fields */

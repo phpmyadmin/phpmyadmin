@@ -86,7 +86,7 @@ class Designer
         $pageQuery = 'SELECT `page_nr`, `page_descr` FROM '
             . Util::backquote($pdfFeature->database) . '.'
             . Util::backquote($pdfFeature->pdfPages)
-            . " WHERE db_name = '" . $this->dbi->escapeString($db) . "'"
+            . ' WHERE db_name = ' . $this->dbi->quoteString($db)
             . ' ORDER BY `page_descr`';
         $pageRs = $this->dbi->tryQueryAsControlUser($pageQuery);
 
@@ -147,9 +147,9 @@ class Designer
             $query = 'SELECT `settings_data` FROM '
                 . Util::backquote($databaseDesignerSettingsFeature->database) . '.'
                 . Util::backquote($databaseDesignerSettingsFeature->designerSettings)
-                . ' WHERE ' . Util::backquote('username') . ' = "'
-                . $this->dbi->escapeString(Config::getInstance()->selectedServer['user'])
-                . '";';
+                . ' WHERE ' . Util::backquote('username') . ' = '
+                . $this->dbi->quoteString(Config::getInstance()->selectedServer['user'])
+                . ';';
 
             $result = $this->dbi->fetchSingleRow($query);
             if (is_array($result)) {

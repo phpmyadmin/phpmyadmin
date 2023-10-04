@@ -411,7 +411,7 @@ class Node
 
             $retval = 0;
             foreach ($this->getDatabasesToSearch($searchClause) as $db) {
-                $query = "SHOW DATABASES LIKE '" . $db . "'";
+                $query = 'SHOW DATABASES LIKE ' . $dbi->quoteString($db);
                 $retval += (int) $dbi->queryAndGetNumRows($query);
             }
 
@@ -435,7 +435,7 @@ class Node
         if ($GLOBALS['dbs_to_test'] !== false) {
             $prefixMap = [];
             foreach ($this->getDatabasesToSearch($searchClause) as $db) {
-                $query = "SHOW DATABASES LIKE '" . $db . "'";
+                $query = 'SHOW DATABASES LIKE ' . $dbi->quoteString($db);
                 $handle = $dbi->tryQuery($query);
                 if ($handle === false) {
                     continue;
@@ -504,7 +504,7 @@ class Node
         $databases = [];
         $config = Config::getInstance();
         if ($searchClause !== '') {
-            $databases = ['%' . DatabaseInterface::getInstance()->escapeString($searchClause) . '%'];
+            $databases = ['%' . DatabaseInterface::getInstance()->escapeMysqlWildcards($searchClause) . '%'];
         } elseif (! empty($config->selectedServer['only_db'])) {
             $databases = $config->selectedServer['only_db'];
         } elseif (! empty($GLOBALS['dbs_to_test'])) {
@@ -529,17 +529,13 @@ class Node
         $dbi = DatabaseInterface::getInstance();
         if ($searchClause !== '') {
             $whereClause .= 'AND ' . Util::backquote($columnName)
-                . " LIKE '%";
-            $whereClause .= $dbi->escapeString($searchClause);
-            $whereClause .= "%' ";
+                . ' LIKE ' . $dbi->quoteString('%' . $dbi->escapeMysqlWildcards($searchClause) . '%') . ' ';
         }
 
         $config = Config::getInstance();
         if (! empty($config->selectedServer['hide_db'])) {
             $whereClause .= 'AND ' . Util::backquote($columnName)
-                . " NOT REGEXP '"
-                . $dbi->escapeString($config->selectedServer['hide_db'])
-                . "' ";
+                . ' NOT REGEXP ' . $dbi->quoteString($config->selectedServer['hide_db']) . ' ';
         }
 
         if (! empty($config->selectedServer['only_db'])) {
@@ -551,8 +547,7 @@ class Node
             $subClauses = [];
             foreach ($config->selectedServer['only_db'] as $eachOnlyDb) {
                 $subClauses[] = ' ' . Util::backquote($columnName)
-                    . " LIKE '"
-                    . $dbi->escapeString($eachOnlyDb) . "' ";
+                    . ' LIKE ' . $dbi->quoteString($eachOnlyDb) . ' ';
             }
 
             $whereClause .= implode('OR', $subClauses) . ') ';
@@ -631,8 +626,8 @@ class Node
                 . '.' . Util::backquote($navigationItemsHidingFeature->navigationHiding);
             $dbi = DatabaseInterface::getInstance();
             $sqlQuery = 'SELECT `db_name`, COUNT(*) AS `count` FROM ' . $navTable
-                . " WHERE `username`='"
-                . $dbi->escapeString(Config::getInstance()->selectedServer['user']) . "'"
+                . ' WHERE `username`='
+                . $dbi->quoteString(Config::getInstance()->selectedServer['user'])
                 . ' GROUP BY `db_name`';
 
             return $dbi->fetchResult($sqlQuery, 'db_name', 'count', Connection::TYPE_CONTROL);
@@ -668,12 +663,12 @@ class Node
         $dbSeparator = $config->settings['NavigationTreeDbSeparator'];
         $query = sprintf(
             'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level'
-                . ' FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, \'%1$s\', 1) DB_first_level'
+                . ' FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, %1$s, 1) DB_first_level'
                 . ' FROM INFORMATION_SCHEMA.SCHEMATA %2$s) t'
                 . ' ORDER BY DB_first_level ASC LIMIT %3$d, %4$d) t2'
-                . ' %2$sAND 1 = LOCATE(CONCAT(DB_first_level, \'%1$s\'),'
-                . ' CONCAT(SCHEMA_NAME, \'%1$s\')) ORDER BY SCHEMA_NAME ASC',
-            $dbi->escapeString($dbSeparator),
+                . ' %2$sAND 1 = LOCATE(CONCAT(DB_first_level, %1$s),'
+                . ' CONCAT(SCHEMA_NAME, %1$s)) ORDER BY SCHEMA_NAME ASC',
+            $dbi->quoteString($dbSeparator),
             $this->getWhereClause('SCHEMA_NAME', $searchClause),
             $pos,
             $maxItems,
@@ -749,9 +744,9 @@ class Node
         $subClauses = [];
         foreach ($prefixes as $prefix) {
             $subClauses[] = sprintf(
-                ' LOCATE(\'%1$s%2$s\', CONCAT(`Database`, \'%2$s\')) = 1 ',
-                $dbi->escapeString((string) $prefix),
-                $dbSeparator,
+                ' LOCATE(%s, CONCAT(`Database`, %s)) = 1 ',
+                $dbi->quoteString($prefix . $dbSeparator),
+                $dbi->quoteString($dbSeparator),
             );
         }
 
@@ -781,7 +776,7 @@ class Node
             $retval = [];
             $count = 0;
             foreach ($this->getDatabasesToSearch($searchClause) as $db) {
-                $handle = $dbi->tryQuery(sprintf('SHOW DATABASES LIKE \'%s\'', $db));
+                $handle = $dbi->tryQuery(sprintf('SHOW DATABASES LIKE %s', $dbi->quoteString($db)));
                 if ($handle === false) {
                     continue;
                 }
@@ -814,7 +809,7 @@ class Node
         $prefixMap = [];
         $total = $pos + $maxItems;
         foreach ($this->getDatabasesToSearch($searchClause) as $db) {
-            $handle = $dbi->tryQuery(sprintf('SHOW DATABASES LIKE \'%s\'', $db));
+            $handle = $dbi->tryQuery(sprintf('SHOW DATABASES LIKE %s', $dbi->quoteString($db)));
             if ($handle === false) {
                 continue;
             }
@@ -839,7 +834,7 @@ class Node
         $prefixes = array_slice(array_keys($prefixMap), $pos);
 
         foreach ($this->getDatabasesToSearch($searchClause) as $db) {
-            $handle = $dbi->tryQuery(sprintf('SHOW DATABASES LIKE \'%s\'', $db));
+            $handle = $dbi->tryQuery(sprintf('SHOW DATABASES LIKE %s', $dbi->quoteString($db)));
             if ($handle === false) {
                 continue;
             }

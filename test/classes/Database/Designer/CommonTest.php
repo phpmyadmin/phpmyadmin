@@ -57,8 +57,6 @@ class CommonTest extends AbstractTestCase
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
 
         $dbi->expects($this->once())
             ->method('fetchResult')
@@ -94,8 +92,6 @@ class CommonTest extends AbstractTestCase
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
 
         $dbi->expects($this->once())
             ->method('fetchValue')
@@ -131,8 +127,6 @@ class CommonTest extends AbstractTestCase
         $dbi->expects($this->exactly(2))
             ->method('queryAsControlUser')
             ->willReturn($resultStub, $resultStub);
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
 
         DatabaseInterface::$instance = $dbi;
         $this->designerCommon = new Common(DatabaseInterface::getInstance(), new Relation($dbi));
@@ -252,8 +246,6 @@ class CommonTest extends AbstractTestCase
         $dbi->expects($this->exactly(2))
             ->method('fetchValue')
             ->willReturn(false, $firstPg);
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
 
         DatabaseInterface::$instance = $dbi;
         $this->designerCommon = new Common(DatabaseInterface::getInstance(), new Relation($dbi));

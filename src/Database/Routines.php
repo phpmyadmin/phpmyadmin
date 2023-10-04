@@ -406,10 +406,9 @@ class Routines
         $fields = 'SPECIFIC_NAME, ROUTINE_TYPE, DTD_IDENTIFIER, '
                  . 'ROUTINE_DEFINITION, IS_DETERMINISTIC, SQL_DATA_ACCESS, '
                  . 'ROUTINE_COMMENT, SECURITY_TYPE';
-        $where = 'ROUTINE_SCHEMA ' . Util::getCollateForIS() . '='
-                 . "'" . $this->dbi->escapeString($GLOBALS['db']) . "' "
-                 . "AND SPECIFIC_NAME='" . $this->dbi->escapeString($name) . "'"
-                 . "AND ROUTINE_TYPE='" . $this->dbi->escapeString($type) . "'";
+        $where = 'ROUTINE_SCHEMA ' . Util::getCollateForIS() . '=' . $this->dbi->quoteString($GLOBALS['db'])
+                 . ' AND SPECIFIC_NAME=' . $this->dbi->quoteString($name)
+                 . ' AND ROUTINE_TYPE=' . $this->dbi->quoteString($type);
         $query = 'SELECT ' . $fields . ' FROM INFORMATION_SCHEMA.ROUTINES WHERE ' . $where . ';';
 
         $routine = $this->dbi->fetchSingleRow($query);
@@ -808,8 +807,7 @@ class Routines
         }
 
         if (! empty($_POST['item_comment'])) {
-            $query .= "COMMENT '" . $this->dbi->escapeString($_POST['item_comment'])
-                . "' ";
+            $query .= 'COMMENT ' . $this->dbi->quoteString($_POST['item_comment']) . ' ';
         }
 
         if (isset($_POST['item_isdeterministic'])) {
@@ -1115,10 +1113,9 @@ class Routines
 
         // this is for our purpose to decide whether to
         // show the edit link or not, so we need the DEFINER for the routine
-        $where = 'ROUTINE_SCHEMA ' . Util::getCollateForIS() . '='
-            . "'" . $this->dbi->escapeString($GLOBALS['db']) . "' "
-            . "AND SPECIFIC_NAME='" . $this->dbi->escapeString($routine['name']) . "'"
-            . "AND ROUTINE_TYPE='" . $this->dbi->escapeString($routine['type']) . "'";
+        $where = 'ROUTINE_SCHEMA ' . Util::getCollateForIS() . '=' . $this->dbi->quoteString($GLOBALS['db'])
+            . ' AND SPECIFIC_NAME=' . $this->dbi->quoteString($routine['name'])
+            . ' AND ROUTINE_TYPE=' . $this->dbi->quoteString($routine['type']);
         $query = 'SELECT `DEFINER` FROM INFORMATION_SCHEMA.ROUTINES WHERE ' . $where . ';';
         $routineDefiner = $this->dbi->fetchValue($query);
 
@@ -1227,29 +1224,27 @@ class Routines
     ): array {
         if (! Config::getInstance()->selectedServer['DisableIS']) {
             $query = QueryGenerator::getInformationSchemaRoutinesRequest(
-                $dbi->escapeString($db),
+                $dbi->quoteString($db),
                 in_array($which, ['FUNCTION', 'PROCEDURE'], true) ? $which : null,
-                $name === '' ? null : $dbi->escapeString($name),
+                $name === '' ? null : $dbi->quoteString($name),
             );
             $routines = $dbi->fetchResult($query);
         } else {
             $routines = [];
 
             if ($which === 'FUNCTION' || $which == null) {
-                $query = 'SHOW FUNCTION STATUS'
-                    . " WHERE `Db` = '" . $dbi->escapeString($db) . "'";
+                $query = 'SHOW FUNCTION STATUS WHERE `Db` = ' . $dbi->quoteString($db);
                 if ($name !== '') {
-                    $query .= " AND `Name` = '" . $dbi->escapeString($name) . "'";
+                    $query .= ' AND `Name` = ' . $dbi->quoteString($name);
                 }
 
                 $routines = $dbi->fetchResult($query);
             }
 
             if ($which === 'PROCEDURE' || $which == null) {
-                $query = 'SHOW PROCEDURE STATUS'
-                    . " WHERE `Db` = '" . $dbi->escapeString($db) . "'";
+                $query = 'SHOW PROCEDURE STATUS WHERE `Db` = ' . $dbi->quoteString($db);
                 if ($name !== '') {
-                    $query .= " AND `Name` = '" . $dbi->escapeString($name) . "'";
+                    $query .= ' AND `Name` = ' . $dbi->quoteString($name);
                 }
 
                 $routines = array_merge($routines, $dbi->fetchResult($query));

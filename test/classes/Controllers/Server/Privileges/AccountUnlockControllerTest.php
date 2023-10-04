@@ -40,7 +40,6 @@ class AccountUnlockControllerTest extends AbstractTestCase
 
         $this->dbiStub = $this->createStub(DatabaseInterface::class);
         $this->dbiStub->method('isMariaDB')->willReturn(true);
-        $this->dbiStub->method('escapeString')->willReturnArgument(0);
 
         $this->requestStub = $this->createStub(ServerRequest::class);
         $this->requestStub->method('isAjax')->willReturn(true);

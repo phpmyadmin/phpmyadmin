@@ -419,9 +419,6 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->method('fetchAssoc')
             ->willReturn(['comment' => 'testComment']);
 
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
-
         DatabaseInterface::$instance = $dbi;
         $this->object->relation = new Relation($dbi);
 
@@ -493,9 +490,6 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->method('fetchAssoc')
             ->willReturn(['comment' => 'testComment']);
 
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
-
         DatabaseInterface::$instance = $dbi;
         $this->object->relation = new Relation($dbi);
 
@@ -535,9 +529,6 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $dbi->expects($this->never())
             ->method('tryQuery');
-
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
 
         DatabaseInterface::$instance = $dbi;
 

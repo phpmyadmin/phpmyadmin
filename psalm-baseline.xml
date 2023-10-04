@@ -4556,7 +4556,6 @@
     <DeprecatedMethod>
       <code>escapeString</code>
       <code>escapeString</code>
-      <code>escapeString</code>
     </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$_POST['field_name'][$column['col_index']]]]></code>
@@ -4852,8 +4851,6 @@
   <file src="src/Database/Designer.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
     </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$tabColumn[$tableName]['COLUMN_ID']]]></code>
@@ -5119,19 +5116,6 @@
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
     </DeprecatedMethod>
     <InvalidArgument>
       <code>$itemParamDir</code>
@@ -5375,9 +5359,6 @@
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
     </DeprecatedMethod>
     <DeprecatedProperty>
       <code>Routing::$route</code>
@@ -7541,15 +7522,10 @@
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
     </DeprecatedMethod>
     <MixedArgument>
+      <code>$db</code>
+      <code>$db</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
@@ -7561,10 +7537,6 @@
       <code>$db</code>
       <code>$db</code>
     </MixedAssignment>
-    <MixedOperand>
-      <code>$db</code>
-      <code>$db</code>
-    </MixedOperand>
     <PossiblyInvalidArgument>
       <code>$databases</code>
     </PossiblyInvalidArgument>
@@ -7587,9 +7559,6 @@
     <PossiblyNullOperand>
       <code>$arr[0]</code>
     </PossiblyNullOperand>
-    <RedundantCastGivenDocblockType>
-      <code>(string) $prefix</code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="src/Navigation/Nodes/NodeColumn.php">
     <MixedArgument>
@@ -15713,13 +15682,6 @@
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
     </DeprecatedMethod>
     <MixedArgument>
       <code>$realSqlQuery</code>

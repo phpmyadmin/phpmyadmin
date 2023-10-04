@@ -84,8 +84,6 @@ class SearchControllerTest extends AbstractTestCase
 
         $dbi->expects($this->any())->method('fetchValue')
             ->willReturn($showCreateTable);
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
 
         DatabaseInterface::$instance = $dbi;
 

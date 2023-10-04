@@ -25,7 +25,7 @@ class GeneratorTest extends AbstractTestCase
             Generator::getColumnsSql(
                 'mydb',
                 'mytable',
-                '_idcolumn',
+                "'_idcolumn'",
             ),
         );
         $this->assertEquals(
@@ -42,7 +42,7 @@ class GeneratorTest extends AbstractTestCase
             Generator::getColumnsSql(
                 'mydb',
                 'mytable',
-                '_idcolumn',
+                "'_idcolumn'",
                 true,
             ),
         );

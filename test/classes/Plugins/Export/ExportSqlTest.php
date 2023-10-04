@@ -121,9 +121,6 @@ class ExportSqlTest extends AbstractTestCase
             ->method('getCompatibilities')
             ->willReturn(['v1', 'v2']);
 
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
-
         DatabaseInterface::$instance = $dbi;
         $GLOBALS['plugin_param']['export_type'] = 'server';
         $GLOBALS['plugin_param']['single_table'] = false;
@@ -482,8 +479,6 @@ class ExportSqlTest extends AbstractTestCase
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
 
         $dbi->expects($this->once())
             ->method('getDbCollation')
@@ -518,8 +513,6 @@ class ExportSqlTest extends AbstractTestCase
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
 
         $dbi->expects($this->once())
             ->method('getDbCollation')
@@ -632,8 +625,6 @@ class ExportSqlTest extends AbstractTestCase
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
 
         DatabaseInterface::$instance = $dbi;
 
@@ -654,8 +645,6 @@ class ExportSqlTest extends AbstractTestCase
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
 
         $dbi->expects($this->once())
             ->method('getColumnsFull')
@@ -885,9 +874,6 @@ SQL;
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
 
         $dbi->expects($this->exactly(2))
             ->method('fetchResult')
@@ -1205,8 +1191,6 @@ SQL;
         $dbi->expects($this->any())
             ->method('getTable')
             ->willReturn($tableObj);
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
 
         DatabaseInterface::$instance = $dbi;
         $GLOBALS['sql_compatibility'] = 'MSSQL';
@@ -1253,8 +1237,6 @@ SQL;
         $dbi->expects($this->any())
             ->method('getTable')
             ->willReturn($tableObj);
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
 
         DatabaseInterface::$instance = $dbi;
         Config::getInstance()->selectedServer['DisableIS'] = false;
@@ -1304,8 +1286,6 @@ SQL;
         $dbi->expects($this->any())
             ->method('getTable')
             ->willReturn($tableObj);
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
 
         DatabaseInterface::$instance = $dbi;
         Config::getInstance()->selectedServer['DisableIS'] = false;

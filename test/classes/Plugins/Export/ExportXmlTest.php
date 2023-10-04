@@ -220,8 +220,6 @@ class ExportXmlTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getTable')
             ->willReturn(new Table('table', 'd<"b', $dbi));
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
 
         DatabaseInterface::$instance = $dbi;
 

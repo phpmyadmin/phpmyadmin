@@ -54,12 +54,6 @@ class TrackerTest extends AbstractTestCase
             'tracking' => 'tracking',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
     }
 
     /**

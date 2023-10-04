@@ -134,26 +134,26 @@ class Generator
     /**
      * Returns SQL query for fetching columns for a table
      *
-     * @param string      $database      name of database
-     * @param string      $table         name of table to retrieve columns from
-     * @param string|null $escapedColumn name of column, null to show all columns
-     * @param bool        $full          whether to return full info or only column names
+     * @param string      $database     name of database
+     * @param string      $table        name of table to retrieve columns from
+     * @param string|null $quotedColumn name of column, null to show all columns
+     * @param bool        $full         whether to return full info or only column names
      */
     public static function getColumnsSql(
         string $database,
         string $table,
-        string|null $escapedColumn = null,
+        string|null $quotedColumn = null,
         bool $full = false,
     ): string {
         return 'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS FROM '
             . Util::backquote($database) . '.' . Util::backquote($table)
-            . ($escapedColumn !== null ? " LIKE '" . $escapedColumn . "'" : '');
+            . ($quotedColumn !== null ? ' LIKE ' . $quotedColumn : '');
     }
 
     public static function getInformationSchemaRoutinesRequest(
-        string $escapedDb,
+        string $quotedDbName,
         string|null $routineType,
-        string|null $escapedRoutineName,
+        string|null $quotedRoutineName,
     ): string {
         $query = 'SELECT'
             . ' `ROUTINE_SCHEMA` AS `Db`,'
@@ -170,13 +170,13 @@ class Generator
             . ' `DTD_IDENTIFIER`'
             . ' FROM `information_schema`.`ROUTINES`'
             . ' WHERE `ROUTINE_SCHEMA` ' . Util::getCollateForIS()
-            . " = '" . $escapedDb . "'";
+            . ' = ' . $quotedDbName;
         if ($routineType !== null) {
             $query .= " AND `ROUTINE_TYPE` = '" . $routineType . "'";
         }
 
-        if ($escapedRoutineName !== null) {
-            $query .= ' AND `SPECIFIC_NAME`' . " = '" . $escapedRoutineName . "'";
+        if ($quotedRoutineName !== null) {
+            $query .= ' AND `SPECIFIC_NAME` = ' . $quotedRoutineName;
         }
 
         return $query;
