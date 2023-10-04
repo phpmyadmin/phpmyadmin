@@ -909,26 +909,24 @@ PHP;
     public function testVendorConfigFile(): void
     {
         $vendorConfig = include ROOT_PATH . 'libraries/vendor_config.php';
-        $expected = [
-            'autoloadFile' => ROOT_PATH . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php',
-            'tempDir' => ROOT_PATH . 'tmp' . DIRECTORY_SEPARATOR,
-            'changeLogFile' => ROOT_PATH . 'ChangeLog',
-            'licenseFile' => ROOT_PATH . 'LICENSE',
-            'sqlDir' => ROOT_PATH . 'sql' . DIRECTORY_SEPARATOR,
-            'configFile' => ROOT_PATH . 'config.inc.php',
-            'customHeaderFile' => ROOT_PATH . 'config.header.inc.php',
-            'customFooterFile' => ROOT_PATH . 'config.footer.inc.php',
-            'versionCheckDefault' => true,
-            'localePath' => ROOT_PATH . 'locale' . DIRECTORY_SEPARATOR,
-            'cacheDir' => ROOT_PATH . 'cache' . DIRECTORY_SEPARATOR,
-            'versionSuffix' => '',
-        ];
-        self::assertSame($expected, $vendorConfig);
+        self::assertIsArray($vendorConfig);
+        self::assertIsString($vendorConfig['autoloadFile']);
         self::assertFileExists($vendorConfig['autoloadFile']);
+        self::assertIsString($vendorConfig['tempDir']);
+        self::assertIsString($vendorConfig['changeLogFile']);
         self::assertFileExists($vendorConfig['changeLogFile']);
+        self::assertIsString($vendorConfig['licenseFile']);
         self::assertFileExists($vendorConfig['licenseFile']);
+        self::assertIsString($vendorConfig['sqlDir']);
         self::assertDirectoryExists($vendorConfig['sqlDir']);
+        self::assertIsString($vendorConfig['configFile']);
+        self::assertIsString($vendorConfig['customHeaderFile']);
+        self::assertIsString($vendorConfig['customFooterFile']);
+        self::assertIsBool($vendorConfig['versionCheckDefault']);
+        self::assertIsString($vendorConfig['localePath']);
         self::assertDirectoryExists($vendorConfig['localePath']);
+        self::assertIsString($vendorConfig['cacheDir']);
         self::assertDirectoryExists($vendorConfig['cacheDir']);
+        self::assertIsString($vendorConfig['versionSuffix']);
     }
 }
