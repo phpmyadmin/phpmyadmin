@@ -50,8 +50,6 @@ jobs:
 
       - name: Install Composer dependencies
         uses: ramsey/composer-install@v2
-        with:
-          dependency-versions: highest
 
       - name: Set up Node
         uses: actions/setup-node@v3

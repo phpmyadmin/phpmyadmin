@@ -52,8 +52,6 @@ jobs:
 
       - name: Install Composer dependencies
         uses: ramsey/composer-install@v2
-        with:
-          dependency-versions: highest
 
       - name: Install Yarn modules
         run: yarn install --non-interactive

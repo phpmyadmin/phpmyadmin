@@ -46,7 +46,7 @@ jobs:
           musl-locales musl-locales-lang \
           gettext composer git && \
           composer config version "$(php -r "define('VERSION_SUFFIX', ''); require_once('src/Version.php'); echo \PhpMyAdmin\Version::VERSION;")" && \
-          composer update && \
+          composer install && \
           ./scripts/generate-mo && \
           php\$V -d memory_limit=512M ./vendor/bin/phpunit --no-logging --no-coverage --testsuite unit --exclude-group=%s" \
           "${{ matrix.php-version }}" "${{ matrix.exclude-phpunit-groups }}" > ./do-tests.sh
@@ -61,19 +61,19 @@ jobs:
         run: docker run -v $PWD:/app --workdir /app --rm ${{ matrix.arch }}/alpine:3.17 sh /app/do-tests.sh
 
   test-php:
-    name: Test on PHP ${{ matrix.php-version }} and ${{ matrix.os }}
+    name: Test on PHP ${{ matrix.php-version }}, ${{ matrix.composer-dependency }} and ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
-    continue-on-error: ${{ matrix.experimental }}
+    continue-on-error: ${{ matrix.php-version == '8.4' }}
     strategy:
       matrix:
         php-version: ['8.1', '8.2', '8.3']
-        experimental: [false]
         os: [ubuntu-latest]
+        composer-dependency: [locked, highest]
         php-extensions: ['mbstring, iconv, mysqli, zip, gd, bz2']
         include:
           - php-version: '8.4'
-            experimental: true
             os: ubuntu-latest
+            composer-dependency: locked
             composer-options: '--ignore-platform-req=php+'
             php-extensions: 'mbstring, iconv, mysqli, zip, bz2'
     steps:
@@ -99,7 +99,7 @@ jobs:
       - name: Install Composer dependencies
         uses: ramsey/composer-install@v2
         with:
-          dependency-versions: highest
+          dependency-versions: ${{ matrix.composer-dependency }}
           composer-options: ${{ matrix.composer-options }}
 
       - name: Run PHP tests
@@ -158,8 +158,6 @@ jobs:
 
       - name: Install Composer dependencies
         uses: ramsey/composer-install@v2
-        with:
-          dependency-versions: highest
 
       - name: Run PHP tests
         run: composer run phpunit -- --testsuite unit
