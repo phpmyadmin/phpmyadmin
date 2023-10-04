@@ -265,9 +265,6 @@ class TableTest extends AbstractTestCase
         $resultStub->expects($this->any())->method('fetchRow')
             ->willReturn([]);
 
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
-
         $dbi->expects($this->any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 

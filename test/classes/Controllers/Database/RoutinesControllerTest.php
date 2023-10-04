@@ -50,7 +50,7 @@ final class RoutinesControllerTest extends AbstractTestCase
         );
         $dummyDbi->addResult('SELECT @@lower_case_table_names', []);
         $dummyDbi->addResult(
-            "SELECT `DEFINER` FROM INFORMATION_SCHEMA.ROUTINES WHERE ROUTINE_SCHEMA COLLATE utf8_bin='test_db' AND SPECIFIC_NAME='test_func'AND ROUTINE_TYPE='FUNCTION';",
+            "SELECT `DEFINER` FROM INFORMATION_SCHEMA.ROUTINES WHERE ROUTINE_SCHEMA COLLATE utf8_bin='test_db' AND SPECIFIC_NAME='test_func' AND ROUTINE_TYPE='FUNCTION';",
             [['definer@localhost']],
             ['DEFINER'],
         );
@@ -70,7 +70,7 @@ final class RoutinesControllerTest extends AbstractTestCase
             ['Function', 'Create Function'],
         );
         $dummyDbi->addResult(
-            "SELECT `DEFINER` FROM INFORMATION_SCHEMA.ROUTINES WHERE ROUTINE_SCHEMA COLLATE utf8_bin='test_db' AND SPECIFIC_NAME='test_proc'AND ROUTINE_TYPE='PROCEDURE';",
+            "SELECT `DEFINER` FROM INFORMATION_SCHEMA.ROUTINES WHERE ROUTINE_SCHEMA COLLATE utf8_bin='test_db' AND SPECIFIC_NAME='test_proc' AND ROUTINE_TYPE='PROCEDURE';",
             [['definer@localhost']],
             ['DEFINER'],
         );

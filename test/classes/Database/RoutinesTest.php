@@ -250,11 +250,10 @@ class RoutinesTest extends AbstractTestCase
             ->getMock();
         $dbi->types = new Types($dbi);
         $dbi->expects($this->any())
-            ->method('escapeString')
+            ->method('quoteString')
             ->willReturnMap([
-                ['foo', Connection::TYPE_USER, 'foo'],
-                ["foo's bar", Connection::TYPE_USER, "foo\'s bar"],
-                ['', Connection::TYPE_USER, ''],
+                ['foo', Connection::TYPE_USER, "'foo'"],
+                ["foo's bar", Connection::TYPE_USER, "'foo\'s bar'"],
             ]);
         DatabaseInterface::$instance = $dbi;
 

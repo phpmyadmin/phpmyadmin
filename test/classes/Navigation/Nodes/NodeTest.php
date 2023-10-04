@@ -354,7 +354,8 @@ final class NodeTest extends AbstractTestCase
 
         $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())->method('fetchResult')->with($expectedSql);
-        $dbi->expects($this->any())->method('escapeString')->willReturnArgument(0);
+        $dbi->expects($this->any())->method('quoteString')
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         DatabaseInterface::$instance = $dbi;
         $node->getData($relationParameters, '', 10);
     }
@@ -385,7 +386,6 @@ final class NodeTest extends AbstractTestCase
 
         $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())->method('fetchResult')->with($expectedSql);
-        $dbi->expects($this->any())->method('escapeString')->willReturnArgument(0);
 
         DatabaseInterface::$instance = $dbi;
         $node->getData($relationParameters, '', 10);
@@ -429,8 +429,10 @@ final class NodeTest extends AbstractTestCase
                 . " LOCATE('db_', CONCAT(`Database`, '_')) = 1"
                 . " OR LOCATE('aa_', CONCAT(`Database`, '_')) = 1 )",
             );
-        $dbi->expects($this->any())->method('escapeString')
+        $dbi->expects($this->any())->method('escapeMysqlWildcards')
             ->willReturnArgument(0);
+        $dbi->expects($this->any())->method('quoteString')
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;
         $node->getData($relationParameters, '', 0, 'db');
@@ -502,7 +504,6 @@ final class NodeTest extends AbstractTestCase
             ->method('tryQuery')
             ->with('SHOW DATABASES WHERE TRUE ')
             ->willReturn($resultStub);
-        $dbi->expects($this->any())->method('escapeString')->willReturnArgument(0);
 
         DatabaseInterface::$instance = $dbi;
         $this->assertSame(0, $node->getPresence());
@@ -513,8 +514,10 @@ final class NodeTest extends AbstractTestCase
             ->method('tryQuery')
             ->with("SHOW DATABASES WHERE TRUE AND `Database` LIKE '%dbname%' ")
             ->willReturn($resultStub);
-        $dbi->expects($this->any())->method('escapeString')
+        $dbi->expects($this->any())->method('escapeMysqlWildcards')
             ->willReturnArgument(0);
+        $dbi->expects($this->any())->method('quoteString')
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;
         $this->assertSame(0, $node->getPresence('', 'dbname'));

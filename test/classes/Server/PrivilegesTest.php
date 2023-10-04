@@ -186,8 +186,8 @@ class PrivilegesTest extends AbstractTestCase
         //$db == '*'
         $ret = $serverPrivileges->getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname);
         $sql = 'SELECT * FROM `mysql`.`user`'
-            . " WHERE `User` = '" . $dbi->escapeString($username) . "'"
-            . " AND `Host` = '" . $dbi->escapeString($hostname) . "';";
+            . ' WHERE `User` = ' . $dbi->quoteString($username)
+            . ' AND `Host` = ' . $dbi->quoteString($hostname) . ';';
         $this->assertEquals($sql, $ret);
 
         //$table == '*'
@@ -195,8 +195,8 @@ class PrivilegesTest extends AbstractTestCase
         $table = '*';
         $ret = $serverPrivileges->getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname);
         $sql = 'SELECT * FROM `mysql`.`db`'
-            . " WHERE `User` = '" . $dbi->escapeString($username) . "'"
-            . " AND `Host` = '" . $dbi->escapeString($hostname) . "'"
+            . ' WHERE `User` = ' . $dbi->quoteString($username)
+            . ' AND `Host` = ' . $dbi->quoteString($hostname)
             . ' AND `Db` = \'' . $db . '\'';
 
         $this->assertEquals($sql, $ret);
@@ -207,10 +207,10 @@ class PrivilegesTest extends AbstractTestCase
         $ret = $serverPrivileges->getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname);
         $sql = 'SELECT `Table_priv`'
             . ' FROM `mysql`.`tables_priv`'
-            . " WHERE `User` = '" . $dbi->escapeString($username) . "'"
-            . " AND `Host` = '" . $dbi->escapeString($hostname) . "'"
+            . ' WHERE `User` = ' . $dbi->quoteString($username)
+            . ' AND `Host` = ' . $dbi->quoteString($hostname)
             . " AND `Db` = '" . $serverPrivileges->unescapeGrantWildcards($db) . "'"
-            . " AND `Table_name` = '" . $dbi->escapeString($table) . "';";
+            . ' AND `Table_name` = ' . $dbi->quoteString($table) . ';';
         $this->assertEquals($sql, $ret);
 
         // SQL escaping

@@ -155,9 +155,6 @@ class EventsTest extends AbstractTestCase
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $dbi->expects($this->any())
-            ->method('escapeString')
-            ->willReturnArgument(0);
         DatabaseInterface::$instance = $dbi;
 
         $this->assertEquals($query, $this->events->getQueryFromRequest());
