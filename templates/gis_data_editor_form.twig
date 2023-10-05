@@ -12,15 +12,16 @@
         {{ get_hidden_inputs() }}
 
         {# Visualization section #}
-        <div id="placeholder">
-            {{ visualization|raw }}
-        </div>
+        <div class="float-end">
+            <div id="visualization-placeholder" style="width: {{ width }}px; height: {{ height }}px;">
+                <div class="visualization-target visualization-target-svg hide">{{ visualization|raw }}</div>
+                <div class="visualization-target visualization-target-ol hide"></div>
+            </div>
 
-        <div id="openlayersmap" style="width: {{width}}px; height: {{height}}px;"{{ srid == 0 ? ' class="hide"' }}></div>
-
-        <div class="choice float-end">
-            <input type="checkbox" id="choice" value="useBaseLayer">
-            <label for="choice">{% trans "Use OpenStreetMaps as Base Layer" %}</label>
+            <div class="choice form-switch mt-1">
+                <input type="checkbox" id="choice" class="form-check-input" value="useBaseLayer"{{ srid != 0 ? ' checked="checked"' }}>
+                <label for="choice">{% trans "Use OpenStreetMaps as Base Layer" %}</label>
+            </div>
         </div>
 
         <script>{{ open_layers|raw }}</script>
