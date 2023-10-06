@@ -8,7 +8,7 @@
   </td>
   {% if table is empty %}
     <td>
-      <a href="{{ url('/triggers', {'db': db, 'table': trigger.table.getName() }) }}">{{ trigger.table }}</a>
+      <a href="{{ url('/triggers', {'db': db, 'table': trigger.table.getName()}) }}">{{ trigger.table }}</a>
     </td>
   {% endif %}
   <td>

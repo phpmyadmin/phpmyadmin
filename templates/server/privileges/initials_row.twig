@@ -5,7 +5,7 @@
         <li class="page-item{{ selected_initial is same as(initial) ? ' active' }}"{{ selected_initial is same as(initial) ? ' aria-current="page"' }}>
           <a class="page-link" href="{{ url('/server/privileges', {'initial': initial}) }}">
           {% if initial is same as('') %}
-            <span class="text-danger text-nowrap">{{ 'Any' |trans }}</span>
+            <span class="text-danger text-nowrap">{{ 'Any'|trans }}</span>
           {% else %}
             {{ initial }}
           {% endif %}

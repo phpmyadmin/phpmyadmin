@@ -3,7 +3,7 @@
     <a href="#">
         <span>{{ (total_rows > 0) ? '+' : '-' }}</span>{% trans 'Add new column' %}
     </a>
-    <form id="add_new" class="new_central_col{{ (total_rows != 0) ? ' hide' : ''}}"
+    <form id="add_new" class="new_central_col{{ (total_rows != 0) ? ' hide' : '' }}"
         method="post" action="{{ url('/database/central-columns') }}">
         {{ get_hidden_inputs(db) }}
         <input type="hidden" name="add_new_column" value="add_new_column">
@@ -147,7 +147,7 @@
                     <form action="{{ url('/database/central-columns') }}" method="post">
                         {{ get_hidden_inputs(db) }}
                         <input type="hidden" name="total_rows" value="{{ total_rows }}">
-                        {{ tn_page_selector | raw }}
+                        {{ tn_page_selector|raw }}
                     </form>
                 </td>
             {% endif %}
@@ -181,9 +181,9 @@
     <tr>
         <td class="navigation_separator largescreenonly"></td>
         <td class="central_columns_navigation">
-            {{ get_icon('centralColumns_add', 'Add column' | trans)|raw }}
+            {{ get_icon('centralColumns_add', 'Add column'|trans)|raw }}
             <form id="add_column" action="{{ url('/database/central-columns') }}" method="post">
-                {{ get_hidden_inputs(db) | raw }}
+                {{ get_hidden_inputs(db)|raw }}
                 <input type="hidden" name="add_column" value="add">
                 <input type="hidden" name="pos" value="{{ pos }}">
                 <input type="hidden" name="total_rows" value="{{ total_rows }}">
@@ -216,7 +216,7 @@
         <form name="tableslistcontainer">
             <table id="table_columns" class="table table-striped table-hover tablesorter w-auto">
                 {% set class = 'column_heading' %}
-                {% set title = 'Click to sort.' | trans %}
+                {% set title = 'Click to sort.'|trans %}
                 <thead>
                     <tr>
                         <th class="{{ class }}"></th>
@@ -268,13 +268,13 @@
                                 value="{{ row['col_name'] }}" id="{{ 'checkbox_row_' ~ row_num }}">
                             </td>
                             <td id="{{ 'edit_' ~ row_num }}" class="edit text-center">
-                                <a href="#"> {{ get_icon('b_edit', 'Edit' | trans) | raw }}</a>
+                                <a href="#"> {{ get_icon('b_edit', 'Edit'|trans)|raw }}</a>
                             </td>
                             <td class="del_row" data-rownum = "{{ row_num }}">
-                                <a href="#">{{ get_icon('b_drop', 'Delete' | trans) }}</a>
+                                <a href="#">{{ get_icon('b_drop', 'Delete'|trans) }}</a>
                                 <input type="submit" data-rownum = "{{ row_num }}" class="btn btn-secondary edit_cancel_form" value="{{ 'Cancel'|trans }}">
                             </td>
-                            <td id="{{ 'save_' ~ row_num  }}" class="hide">
+                            <td id="{{ 'save_' ~ row_num }}" class="hide">
                                 <input type="submit" data-rownum="{{ row_num }}" class="btn btn-primary edit_save_form" value="{{ 'Save'|trans }}">
                             </td>
                             <td name="col_name" class="text-nowrap">
@@ -298,7 +298,7 @@
                               </select>
                             </td>
                             <td class="text-nowrap" name="col_length">
-                              <span>{{ (row['col_length']?(row['col_length']):'') }}</span>
+                              <span>{{ (row['col_length'] ? (row['col_length']) : '') }}</span>
                               <input id="field_{{ row_num }}_2" type="text" name="field_length[{{ row_num }}]" size="8" value="{{ row['col_length'] }}" class="textfield">
                               <p class="enum_notice" id="enum_notice_{{ row_num }}_2">
                                 <a href="#" class="open_enum_editor">{% trans 'Edit ENUM/SET values' %}</a>
@@ -347,7 +347,7 @@
                                 </select>
                             </td>
                             <td class="text-nowrap" name="col_attribute">
-                                <span>{{ row['col_attribute']?(row['col_attribute']):"" }}</span>
+                                <span>{{ row['col_attribute'] ? (row['col_attribute']) : "" }}</span>
                                 {% include 'columns_definitions/column_attribute.twig' with {
                                     'column_number': row_num,
                                     'ci': 5,
@@ -359,7 +359,7 @@
                                 } only %}
                             </td>
                             <td class="text-nowrap" name="col_isNull">
-                                <span>{{ row['col_isNull'] ? 'Yes' | trans : 'No' | trans }}</span>
+                                <span>{{ row['col_isNull'] ? 'Yes'|trans : 'No'|trans }}</span>
                                 <input name="field_null[{{ row_num }}]" id="field_{{ row_num }}_6" type="checkbox" value="YES" class="allow_null"
                                   {{- row['col_isNull'] is not empty and row['col_isNull'] != 'NO' and row['col_isNull'] != 'NOT NULL' ? ' checked' }}>
                             </td>

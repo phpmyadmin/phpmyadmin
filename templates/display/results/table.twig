@@ -311,7 +311,7 @@
 
 {% if has_bulk_links is defined and has_bulk_links %}
     <div class="d-print-none">
-      {{ get_image('select_all_arrow', 'With selected:'|trans, { 'dir': text_dir, 'width': '38', 'height': '22' }) }}
+      {{ get_image('select_all_arrow', 'With selected:'|trans, {'dir': text_dir, 'width': '38', 'height': '22'}) }}
       <input type="checkbox" id="resultsForm_{{ unique_id }}_checkall" class="checkall_box" title="{% trans 'Check all' %}">
       <label for="resultsForm_{{ unique_id }}_checkall">{% trans 'Check all' %}</label>
       <em class="with-selected">{% trans 'With selected:' %}</em>
