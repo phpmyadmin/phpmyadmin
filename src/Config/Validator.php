@@ -143,6 +143,8 @@ class Validator
             $vids[] = $vid;
         }
 
+        unset($vid);
+
         if ($vids === []) {
             return false;
         }
