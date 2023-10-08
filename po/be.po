@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-10-01 00:20+0000\n"
+"POT-Creation-Date: 2023-10-08 00:18+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1172,7 +1172,7 @@ msgstr "Пошук:"
 #: templates/table/structure/display_structure.twig:454
 #: templates/table/structure/display_structure.twig:572
 #: templates/table/zoom_search/index.twig:155
-#: templates/triggers/editor_form.twig:74 templates/view_create.twig:118
+#: templates/triggers/editor_form.twig:74 templates/view_create.twig:123
 msgid "Go"
 msgstr "Панеслася"
 
@@ -1496,8 +1496,8 @@ msgstr "В'етнамская"
 #: src/Import/Import.php:1254 src/Menu.php:226 src/Menu.php:326
 #: src/Navigation/Nodes/NodeColumn.php:40
 #: src/Navigation/Nodes/NodeDatabase.php:56
-#: src/Navigation/Nodes/NodeTable.php:289 src/Util.php:1256 src/Util.php:1709
-#: src/Util.php:1726
+#: src/Navigation/Nodes/NodeTable.php:289 src/Util.php:1256 src/Util.php:1678
+#: src/Util.php:1695
 #: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/database/central_columns/edit.twig:3
 #: templates/database/export/index.twig:23
@@ -1511,14 +1511,14 @@ msgstr "Структура"
 #: src/Config/ConfigFile.php:589 src/Config/ConfigFile.php:599
 #: src/Config/Descriptions.php:759 src/Menu.php:231 src/Menu.php:331
 #: src/Menu.php:449 src/Navigation/Nodes/NodeTable.php:292 src/Util.php:1257
-#: src/Util.php:1695 src/Util.php:1710 src/Util.php:1727
+#: src/Util.php:1664 src/Util.php:1679 src/Util.php:1696
 msgid "SQL"
 msgstr "SQL"
 
 #: src/Config/ConfigFile.php:523 src/Config/ConfigFile.php:537
 #: src/Config/ConfigFile.php:591 src/Config/ConfigFile.php:601 src/Menu.php:235
 #: src/Menu.php:335 src/Navigation/Nodes/NodeTable.php:290 src/Util.php:1258
-#: src/Util.php:1711 src/Util.php:1728
+#: src/Util.php:1680 src/Util.php:1697
 #: templates/database/routines/index.twig:28
 #: templates/database/routines/index.twig:29
 #: templates/database/search/main.twig:66
@@ -1530,7 +1530,7 @@ msgstr "Пошук"
 
 #: src/Config/ConfigFile.php:525 src/Config/ConfigFile.php:539
 #: src/Config/ConfigFile.php:603 src/Menu.php:242
-#: src/Navigation/Nodes/NodeTable.php:291 src/Util.php:1259 src/Util.php:1729
+#: src/Navigation/Nodes/NodeTable.php:291 src/Util.php:1259 src/Util.php:1698
 #: templates/database/structure/structure_table_row.twig:59
 #: templates/sql/query.twig:75
 msgid "Insert"
@@ -1538,7 +1538,7 @@ msgstr "Уставіць"
 
 #: src/Config/ConfigFile.php:527 src/Config/ConfigFile.php:541
 #: src/Config/ConfigFile.php:605 src/Menu.php:219
-#: src/Navigation/Nodes/NodeTable.php:293 src/Util.php:1260 src/Util.php:1725
+#: src/Navigation/Nodes/NodeTable.php:293 src/Util.php:1260 src/Util.php:1694
 #: templates/database/search/results.twig:32
 #: templates/database/structure/structure_table_row.twig:43
 #: templates/table/structure/display_structure.twig:282
@@ -1591,7 +1591,7 @@ msgid "None"
 msgstr "Няма"
 
 #: src/Config/ConfigFile.php:555 src/Display/Results.php:1590
-#: src/Display/Results.php:1597 src/Util.php:2250 src/Util.php:2267
+#: src/Display/Results.php:1597 src/Util.php:2219 src/Util.php:2236
 #: templates/database/multi_table_query/form.twig:57
 #: templates/server/databases/index.twig:109
 #: templates/server/databases/index.twig:126
@@ -1603,7 +1603,7 @@ msgid "Ascending"
 msgstr "прамы"
 
 #: src/Config/ConfigFile.php:555 src/Display/Results.php:1585
-#: src/Display/Results.php:1602 src/Util.php:2255 src/Util.php:2272
+#: src/Display/Results.php:1602 src/Util.php:2224 src/Util.php:2241
 #: templates/database/multi_table_query/form.twig:58
 #: templates/server/databases/index.twig:111
 #: templates/server/databases/index.twig:128
@@ -1659,7 +1659,7 @@ msgid "Welcome"
 msgstr "Вітаем"
 
 #: src/Config/ConfigFile.php:577 src/Config/Descriptions.php:732
-#: src/Config/Descriptions.php:743 src/Menu.php:444 src/Util.php:1694
+#: src/Config/Descriptions.php:743 src/Menu.php:444 src/Util.php:1663
 #: templates/navigation/tree/database_select.twig:10
 #: templates/server/databases/index.twig:3 templates/server/export/index.twig:7
 #: templates/server/export/index.twig:14
@@ -1669,7 +1669,7 @@ msgstr "Базы дадзеных"
 
 #: src/Config/ConfigFile.php:579
 #: src/Controllers/JavaScriptMessagesController.php:287 src/Menu.php:454
-#: src/Server/Status/Processes.php:96 src/Util.php:1696
+#: src/Server/Status/Processes.php:96 src/Util.php:1665
 #: templates/database/events/editor_form.twig:30
 #: templates/database/events/index.twig:46
 #: templates/database/tracking/tables.twig:17
@@ -1678,7 +1678,7 @@ msgid "Status"
 msgstr "Стан"
 
 #: src/Config/ConfigFile.php:581 src/Menu.php:511
-#: src/Server/Status/Data.php:211 src/Util.php:1703
+#: src/Server/Status/Data.php:211 src/Util.php:1672
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:193
 msgid "Variables"
@@ -1686,7 +1686,7 @@ msgstr "Зьменныя"
 
 #: src/Config/ConfigFile.php:583
 #: src/Controllers/Server/PrivilegesController.php:412 src/Menu.php:265
-#: src/Menu.php:373 src/Util.php:1716 src/Util.php:1732
+#: src/Menu.php:373 src/Util.php:1685 src/Util.php:1701
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:16
 #: templates/server/sub_page_header.twig:2
@@ -1695,7 +1695,7 @@ msgid "Privileges"
 msgstr "Прывілеі"
 
 #: src/Config/ConfigFile.php:593 src/Menu.php:276 src/Menu.php:286
-#: src/Menu.php:366 src/Util.php:1261 src/Util.php:1715 src/Util.php:1733
+#: src/Menu.php:366 src/Util.php:1261 src/Util.php:1684 src/Util.php:1702
 #: templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "Апэрацыі"
@@ -4054,8 +4054,8 @@ msgstr "Прапускаць заблакаваныя табліцы"
 
 #: src/Config/Descriptions.php:930 src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:400
-#: src/Display/Results.php:2702 src/Html/Generator.php:556
-#: src/Html/Generator.php:819 templates/console/bookmark_content.twig:10
+#: src/Display/Results.php:2702 src/Html/Generator.php:550
+#: src/Html/Generator.php:813 templates/console/bookmark_content.twig:10
 #: templates/console/display.twig:41 templates/console/display.twig:199
 #: templates/database/central_columns/main.twig:271
 #: templates/database/central_columns/main.twig:382
@@ -4075,18 +4075,18 @@ msgstr "Прапускаць заблакаваныя табліцы"
 msgid "Edit"
 msgstr "Рэдагаваць"
 
-#: src/Config/Descriptions.php:931 src/Html/Generator.php:531
+#: src/Config/Descriptions.php:931 src/Html/Generator.php:525
 msgid "Explain SQL"
 msgstr "Тлумачыць SQL"
 
 #: src/Config/Descriptions.php:932 src/Export/Export.php:1244
-#: src/Html/Generator.php:612 templates/console/display.twig:121
+#: src/Html/Generator.php:606 templates/console/display.twig:121
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
 msgid "Refresh"
 msgstr "Абнавіць"
 
-#: src/Config/Descriptions.php:933 src/Html/Generator.php:592
+#: src/Config/Descriptions.php:933 src/Html/Generator.php:586
 msgid "Create PHP code"
 msgstr "Стварыць PHP-код"
 
@@ -4360,7 +4360,7 @@ msgstr "Тэкст OpenDocument"
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:385 src/Menu.php:249
 #: src/Menu.php:351 src/Menu.php:473 src/Server/Privileges.php:1292
-#: src/Util.php:1698 src/Util.php:1713 src/Util.php:1730
+#: src/Util.php:1667 src/Util.php:1682 src/Util.php:1699
 #: templates/database/events/index.twig:17
 #: templates/database/events/index.twig:18
 #: templates/database/events/index.twig:88
@@ -4401,8 +4401,8 @@ msgstr "CSV з выкарыстаньнем LOAD DATA"
 
 #: src/Config/Forms/User/ImportForm.php:58
 #: src/Controllers/JavaScriptMessagesController.php:322 src/Menu.php:258
-#: src/Menu.php:361 src/Menu.php:478 src/Util.php:1699 src/Util.php:1714
-#: src/Util.php:1731 templates/import.twig:3 templates/import.twig:190
+#: src/Menu.php:361 src/Menu.php:478 src/Util.php:1668 src/Util.php:1683
+#: src/Util.php:1700 templates/import.twig:3 templates/import.twig:190
 #: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
 #: templates/server/status/monitor/index.twig:61
@@ -5510,7 +5510,7 @@ msgid "Simulate query"
 msgstr "Сімуляваць запыт"
 
 #: src/Controllers/JavaScriptMessagesController.php:132
-#: src/Html/Generator.php:794 templates/export.twig:75
+#: src/Html/Generator.php:788 templates/export.twig:75
 msgid "SQL query:"
 msgstr "SQL-запыт:"
 
@@ -5592,7 +5592,7 @@ msgstr "Выдаленне абраных карыстальнікаў"
 #: templates/table/structure/display_structure.twig:373
 #: templates/table/zoom_search/result_form.twig:27
 #: templates/table/zoom_search/result_form.twig:80
-#: templates/table/zoom_search/result_form.twig:97
+#: templates/table/zoom_search/result_form.twig:96
 msgid "Close"
 msgstr ""
 
@@ -5814,7 +5814,7 @@ msgid "Traffic"
 msgstr "Трафік"
 
 #: src/Controllers/JavaScriptMessagesController.php:217 src/Menu.php:483
-#: src/Util.php:1700 templates/server/status/monitor/index.twig:8
+#: src/Util.php:1669 templates/server/status/monitor/index.twig:8
 msgid "Settings"
 msgstr "Налады"
 
@@ -6169,7 +6169,7 @@ msgstr "Параметры не знойдзены!"
 #: templates/database/structure/check_all_tables.twig:49
 #: templates/database/structure/check_all_tables.twig:55
 #: templates/error/report_modal.twig:6 templates/error/report_modal.twig:11
-#: templates/gis_data_editor_form.twig:62 templates/modals/add_index.twig:11
+#: templates/gis_data_editor_form.twig:63 templates/modals/add_index.twig:11
 #: templates/modals/change_password.twig:11
 #: templates/modals/page_settings.twig:11
 #: templates/server/databases/index.twig:316
@@ -6212,8 +6212,8 @@ msgid "Request failed!!"
 msgstr "Няўдалы запыт!!"
 
 #: src/Controllers/JavaScriptMessagesController.php:348
-#: src/Controllers/Sql/EnumValuesController.php:43
-#: src/Controllers/Sql/SetValuesController.php:44
+#: src/Controllers/Sql/EnumValuesController.php:40
+#: src/Controllers/Sql/SetValuesController.php:42
 msgid "Error in processing request"
 msgstr "Памылка апрацоўкі запыту"
 
@@ -6504,7 +6504,7 @@ msgid "No partial dependencies selected!"
 msgstr "Ня выбраны частковыя залежнасці!"
 
 #: src/Controllers/JavaScriptMessagesController.php:435
-#: src/Export/Export.php:1280 src/Html/Generator.php:885
+#: src/Export/Export.php:1280 src/Html/Generator.php:879
 #: src/Plugins/Schema/ExportRelationSchema.php:271
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -6563,7 +6563,7 @@ msgstr "Ня выбраны залежнасці!"
 #: templates/database/central_columns/main.twig:119
 #: templates/database/central_columns/main.twig:278
 #: templates/server/variables/index.twig:12
-#: templates/table/gis_visualization/gis_visualization.twig:40
+#: templates/table/gis_visualization/gis_visualization.twig:43
 #: templates/table/insert/actions_panel.twig:8
 #: templates/table/relation/common_form.twig:180
 #: templates/table/structure/partition_definition_form.twig:13
@@ -6642,7 +6642,7 @@ msgstr "Ігнараваць"
 #: src/Display/Results.php:2706 src/Html/Generator.php:79
 #: templates/display/results/table.twig:323
 #: templates/display/results/table.twig:324
-#: templates/gis_data_editor_form.twig:61
+#: templates/gis_data_editor_form.twig:62
 msgid "Copy"
 msgstr "Скапіяваць"
 
@@ -8625,8 +8625,8 @@ msgstr "Табліца %s ужо існуе!"
 #: src/Controllers/Table/Partition/TruncateController.php:51
 #: src/Controllers/Table/RelationController.php:135
 #: src/Controllers/View/OperationsController.php:118
-#: src/Database/Routines.php:978 src/Display/Results.php:3398
-#: src/Message.php:150 templates/sql/query.twig:7
+#: src/Database/Routines.php:976 src/Display/Results.php:3398
+#: src/Message.php:131 templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "Ваш SQL-запыт быў паспяхова выкананы."
 
@@ -8664,7 +8664,7 @@ msgid "There is an issue with your request."
 msgstr "Занадта шмат злучэнняў без індэксаў."
 
 #: src/Controllers/Table/GetFieldController.php:82
-#: src/Database/Routines.php:995 src/Import/Import.php:166
+#: src/Database/Routines.php:993 src/Import/Import.php:166
 #: src/InsertEdit.php:202 src/Sql.php:878
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL вярнула пусты вынік (то бок нуль радкоў)."
@@ -8708,8 +8708,8 @@ msgstr "Пустая назва табліцы!"
 #: src/Controllers/Table/Partition/DropController.php:57
 #: src/Controllers/Table/Partition/RebuildController.php:57
 #: src/Controllers/Table/Partition/TruncateController.php:57
-#: src/Controllers/View/OperationsController.php:121 src/Html/Generator.php:770
-#: src/Import/Import.php:150 src/InsertEdit.php:504 src/Message.php:168
+#: src/Controllers/View/OperationsController.php:121 src/Html/Generator.php:764
+#: src/Import/Import.php:150 src/InsertEdit.php:504 src/Message.php:149
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:372
 msgid "Error"
@@ -8923,7 +8923,7 @@ msgstr "Немагчыма загрузіць плагіны схемы, кал�
 #: src/Database/Events.php:89 src/Database/Events.php:98
 #: src/Database/Events.php:124 src/Database/Routines.php:99
 #: src/Database/Routines.php:124 src/Database/Routines.php:202
-#: src/Database/Routines.php:955 src/Triggers/Triggers.php:82
+#: src/Database/Routines.php:953 src/Triggers/Triggers.php:82
 #: src/Triggers/Triggers.php:91 src/Triggers/Triggers.php:118
 #, php-format
 msgid "The following query has failed: \"%s\""
@@ -8932,8 +8932,8 @@ msgstr ""
 #: src/Database/Events.php:93 src/Database/Events.php:102
 #: src/Database/Events.php:128 src/Database/Events.php:353
 #: src/Database/Routines.php:103 src/Database/Routines.php:128
-#: src/Database/Routines.php:206 src/Database/Routines.php:959
-#: src/Database/Routines.php:1207 src/Html/Generator.php:835
+#: src/Database/Routines.php:206 src/Database/Routines.php:957
+#: src/Database/Routines.php:1204 src/Html/Generator.php:829
 #: src/Triggers/Triggers.php:86 src/Triggers/Triggers.php:95
 #: src/Triggers/Triggers.php:122 src/Triggers/Triggers.php:239
 msgid "MySQL said: "
@@ -8954,7 +8954,7 @@ msgstr "Падзея %1$s створаная."
 msgid "One or more errors have occurred while processing your request:"
 msgstr ""
 
-#: src/Database/Events.php:260 src/Database/Routines.php:756
+#: src/Database/Events.php:260 src/Database/Routines.php:755
 #: src/Triggers/Triggers.php:183
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr ""
@@ -8983,12 +8983,12 @@ msgstr ""
 msgid "Sorry, we failed to restore the dropped event."
 msgstr ""
 
-#: src/Database/Events.php:351 src/Database/Routines.php:1205
+#: src/Database/Events.php:351 src/Database/Routines.php:1202
 #: src/Triggers/Triggers.php:237
 msgid "The backed up query was:"
 msgstr ""
 
-#: src/DatabaseInterface.php:1161
+#: src/DatabaseInterface.php:1160
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -8996,17 +8996,17 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: src/DatabaseInterface.php:1203
+#: src/DatabaseInterface.php:1202
 msgid "Failed to set configured collation connection!"
 msgstr "Не атрымалася ўстанавіць кафігурацыю параўноўвання злучэння!"
 
-#: src/DatabaseInterface.php:1657
+#: src/DatabaseInterface.php:1656
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Не атрымалася ўсталяваць злучэньне для controluser, вызначанае ў вашым "
 "канфігурацыйным файле."
 
-#: src/Database/Routines.php:80 src/Database/Routines.php:764
+#: src/Database/Routines.php:80 src/Database/Routines.php:763
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Некарэктны тып працэдуры: «%s»"
@@ -9026,39 +9026,39 @@ msgstr "Працэдура %1$s была змененая. Прывілеі аб
 msgid "Routine %1$s has been modified."
 msgstr "Працэдура %1$s была змененая."
 
-#: src/Database/Routines.php:597
+#: src/Database/Routines.php:596
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
 
-#: src/Database/Routines.php:615
+#: src/Database/Routines.php:614
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr ""
 
-#: src/Database/Routines.php:635 src/Database/Routines.php:702
+#: src/Database/Routines.php:634 src/Database/Routines.php:701
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
 
-#: src/Database/Routines.php:684
+#: src/Database/Routines.php:683
 msgid "You must provide a valid return type for the routine."
 msgstr ""
 
-#: src/Database/Routines.php:772
+#: src/Database/Routines.php:771
 msgid "You must provide a routine name!"
 msgstr "Неабходна задаць назву працэдуры!"
 
-#: src/Database/Routines.php:837
+#: src/Database/Routines.php:835
 msgid "You must provide a routine definition."
 msgstr ""
 
-#: src/Database/Routines.php:971
+#: src/Database/Routines.php:969
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Вынікі выканання працэдуры %s"
 
-#: src/Database/Routines.php:986
+#: src/Database/Routines.php:984
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
@@ -9066,7 +9066,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/Database/Routines.php:1204
+#: src/Database/Routines.php:1201
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr ""
 
@@ -9482,7 +9482,7 @@ msgstr ""
 "гэтае значэньне, старыя файлы логу будуць выдаленыя. У іншым выпадку яны "
 "будуць перайменаваныя і ім будзе дадзены чарговы найвышэйшы нумар."
 
-#: src/Engines/Pbxt.php:169 src/Html/Generator.php:704
+#: src/Engines/Pbxt.php:169 src/Html/Generator.php:698
 #: src/Html/MySQLDocumentation.php:49 src/Sanitize.php:193
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:267
 #: templates/server/variables/index.twig:17 templates/setup/home/index.twig:116
@@ -9642,34 +9642,34 @@ msgstr ""
 msgid "password_hash() PHP function"
 msgstr ""
 
-#: src/Html/Generator.php:540
+#: src/Html/Generator.php:534
 msgid "Skip Explain SQL"
 msgstr "Не тлумачыць SQL"
 
-#: src/Html/Generator.php:572
+#: src/Html/Generator.php:566
 msgid "Without PHP code"
 msgstr "Без PHP-коду"
 
-#: src/Html/Generator.php:581
+#: src/Html/Generator.php:575
 #: templates/database/multi_table_query/form.twig:166
 msgid "Submit query"
 msgstr "Выканаць запыт"
 
-#: src/Html/Generator.php:640 templates/console/display.twig:43
+#: src/Html/Generator.php:634 templates/console/display.twig:43
 #: templates/console/display.twig:201 templates/sql/profiling_chart.twig:3
 msgid "Profiling"
 msgstr "Прафіляваньне"
 
-#: src/Html/Generator.php:654
+#: src/Html/Generator.php:648
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Радковае рэдагаванне"
 
-#: src/Html/Generator.php:777
+#: src/Html/Generator.php:771
 msgid "Static analysis:"
 msgstr ""
 
-#: src/Html/Generator.php:780
+#: src/Html/Generator.php:774
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr ""
@@ -9922,7 +9922,7 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr ""
 
-#: src/Menu.php:292 src/Menu.php:399 src/Util.php:1720 src/Util.php:1734
+#: src/Menu.php:292 src/Menu.php:399 src/Util.php:1689 src/Util.php:1703
 msgid "Tracking"
 msgstr ""
 
@@ -9933,7 +9933,7 @@ msgstr ""
 #: src/Plugins/Export/ExportOdt.php:661 src/Plugins/Export/ExportPdf.php:254
 #: src/Plugins/Export/ExportSql.php:1925
 #: src/Plugins/Export/ExportTexytext.php:503
-#: src/Plugins/Export/ExportXml.php:120 src/Util.php:1719 src/Util.php:1735
+#: src/Plugins/Export/ExportXml.php:120 src/Util.php:1688 src/Util.php:1704
 #: templates/triggers/list.twig:3
 msgid "Triggers"
 msgstr "Трыгеры"
@@ -9942,26 +9942,26 @@ msgstr "Трыгеры"
 msgid "Database seems to be empty!"
 msgstr "База дадзеных — пустая!"
 
-#: src/Menu.php:343 src/Util.php:1712
+#: src/Menu.php:343 src/Util.php:1681
 msgid "Query"
 msgstr "Запыт згодна прыкладу"
 
-#: src/Menu.php:379 src/Util.php:1717 templates/database/routines/index.twig:3
+#: src/Menu.php:379 src/Util.php:1686 templates/database/routines/index.twig:3
 msgid "Routines"
 msgstr "Працэдуры"
 
 #: src/Menu.php:385 src/Navigation/Nodes/NodeEventContainer.php:23
 #: src/Navigation/Nodes/NodeEventContainer.php:25
 #: src/Plugins/Export/ExportSql.php:948 src/Plugins/Export/ExportXml.php:100
-#: src/Util.php:1718 templates/database/events/index.twig:3
+#: src/Util.php:1687 templates/database/events/index.twig:3
 msgid "Events"
 msgstr "Падзеі"
 
-#: src/Menu.php:406 src/Util.php:1721
+#: src/Menu.php:406 src/Util.php:1690
 msgid "Designer"
 msgstr "Дызайнэр"
 
-#: src/Menu.php:413 src/Util.php:1722
+#: src/Menu.php:413 src/Util.php:1691
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "Галоўныя слупкі"
@@ -9970,31 +9970,31 @@ msgstr "Галоўныя слупкі"
 msgid "User accounts"
 msgstr "Уліковыя запісы"
 
-#: src/Menu.php:498 src/Server/Status/Data.php:144 src/Util.php:1701
+#: src/Menu.php:498 src/Server/Status/Data.php:144 src/Util.php:1670
 #: templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "Двайковы лог"
 
-#: src/Menu.php:505 src/Server/Status/Data.php:149 src/Util.php:1702
+#: src/Menu.php:505 src/Server/Status/Data.php:149 src/Util.php:1671
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:5
 msgid "Replication"
 msgstr "Рэплікацыя"
 
-#: src/Menu.php:516 src/Util.php:1704
+#: src/Menu.php:516 src/Util.php:1673
 msgid "Charsets"
 msgstr "Кадыроўкі"
 
-#: src/Menu.php:521 src/Util.php:1706
+#: src/Menu.php:521 src/Util.php:1675
 msgid "Engines"
 msgstr "Машыны"
 
-#: src/Menu.php:526 src/Util.php:1705 templates/server/plugins/index.twig:4
+#: src/Menu.php:526 src/Util.php:1674 templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr ""
 
-#: src/Message.php:222
+#: src/Message.php:204
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
@@ -10002,7 +10002,7 @@ msgstr[0] "%1$d радок закрануты."
 msgstr[1] "%1$d радкі закранутыя."
 msgstr[2] "%1$d радкоў закранутыя."
 
-#: src/Message.php:241
+#: src/Message.php:223
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
@@ -10010,7 +10010,7 @@ msgstr[0] "%1$d радок выдалены."
 msgstr[1] "%1$d радкі выдаленыя."
 msgstr[2] "%1$d радкоў выдаленыя."
 
-#: src/Message.php:260
+#: src/Message.php:242
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
@@ -10152,7 +10152,7 @@ msgctxt "Create new index"
 msgid "New"
 msgstr ""
 
-#: src/Navigation/Nodes/Node.php:619
+#: src/Navigation/Nodes/Node.php:614
 msgid "Expand/Collapse"
 msgstr ""
 
@@ -12891,11 +12891,11 @@ msgstr ""
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s дзён, %s гадзінаў, %s хвілінаў і %s сэкундаў"
 
-#: src/Util.php:1697
+#: src/Util.php:1666
 msgid "Users"
 msgstr "Карыстальнікі"
 
-#: src/Util.php:2242 templates/database/multi_table_query/form.twig:56
+#: src/Util.php:2211 templates/database/multi_table_query/form.twig:56
 msgid "Sort"
 msgstr "Парадак"
 
@@ -13041,7 +13041,7 @@ msgstr ""
 #: templates/table/insert/actions_panel.twig:48
 #: templates/table/relation/common_form.twig:188
 #: templates/table/zoom_search/result_form.twig:26
-#: templates/table/zoom_search/result_form.twig:96
+#: templates/table/zoom_search/result_form.twig:95
 #, fuzzy
 #| msgid "Loading…"
 msgid "Loading"
@@ -13839,7 +13839,7 @@ msgstr "Па завяршэнні захавання"
 
 #: templates/database/events/editor_form.twig:101
 #: templates/database/routines/editor_form.twig:147
-#: templates/triggers/editor_form.twig:66 templates/view_create.twig:50
+#: templates/triggers/editor_form.twig:66 templates/view_create.twig:55
 msgid "Definer"
 msgstr ""
 
@@ -14918,16 +14918,16 @@ msgid "Value for the column \"%s\""
 msgstr ""
 
 #: templates/gis_data_editor_form.twig:23
-#: templates/table/gis_visualization/gis_visualization.twig:34
+#: templates/table/gis_visualization/gis_visualization.twig:39
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr ""
 
-#: templates/gis_data_editor_form.twig:49
+#: templates/gis_data_editor_form.twig:50
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
 msgstr ""
 
-#: templates/gis_data_editor_form.twig:58
+#: templates/gis_data_editor_form.twig:59
 msgid "Output"
 msgstr ""
 
@@ -18184,11 +18184,11 @@ msgstr "Стварыць сувязь"
 msgid "There are no triggers to display."
 msgstr "Няма трыгераў для адлюстравання."
 
-#: templates/view_create.twig:70
+#: templates/view_create.twig:75
 msgid "VIEW name"
 msgstr "Назва прагляду"
 
-#: templates/view_create.twig:84
+#: templates/view_create.twig:89
 msgid "Column names"
 msgstr "Назвы калёнак"
 
