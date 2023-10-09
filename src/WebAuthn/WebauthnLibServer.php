@@ -4,32 +4,58 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\WebAuthn;
 
+use Cose\Algorithm\Manager;
+use Cose\Algorithm\Signature\ECDSA\ES256;
+use Cose\Algorithm\Signature\ECDSA\ES256K;
+use Cose\Algorithm\Signature\ECDSA\ES384;
+use Cose\Algorithm\Signature\ECDSA\ES512;
+use Cose\Algorithm\Signature\EdDSA\Ed256;
+use Cose\Algorithm\Signature\EdDSA\Ed512;
+use Cose\Algorithm\Signature\RSA\PS256;
+use Cose\Algorithm\Signature\RSA\PS384;
+use Cose\Algorithm\Signature\RSA\PS512;
+use Cose\Algorithm\Signature\RSA\RS256;
+use Cose\Algorithm\Signature\RSA\RS384;
+use Cose\Algorithm\Signature\RSA\RS512;
 use PhpMyAdmin\TwoFactor;
 use Psr\Http\Message\ServerRequestInterface;
+use Webauthn\AttestationStatement\AttestationObjectLoader;
+use Webauthn\AttestationStatement\AttestationStatementSupportManager;
+use Webauthn\AttestationStatement\NoneAttestationStatementSupport;
+use Webauthn\AuthenticationExtensions\ExtensionOutputCheckerHandler;
+use Webauthn\AuthenticatorAssertionResponse;
+use Webauthn\AuthenticatorAssertionResponseValidator;
+use Webauthn\AuthenticatorAttestationResponse;
+use Webauthn\AuthenticatorAttestationResponseValidator;
 use Webauthn\AuthenticatorSelectionCriteria;
 use Webauthn\PublicKeyCredentialCreationOptions;
 use Webauthn\PublicKeyCredentialDescriptor;
+use Webauthn\PublicKeyCredentialLoader;
+use Webauthn\PublicKeyCredentialParameters;
 use Webauthn\PublicKeyCredentialRequestOptions;
 use Webauthn\PublicKeyCredentialRpEntity;
 use Webauthn\PublicKeyCredentialSource;
-use Webauthn\PublicKeyCredentialSourceRepository;
 use Webauthn\PublicKeyCredentialUserEntity;
-use Webauthn\Server as WebauthnServer;
 use Webauthn\TrustPath\EmptyTrustPath;
 use Webmozart\Assert\Assert;
 
 use function array_map;
 use function base64_encode;
-use function json_decode;
+use function random_bytes;
+use function rtrim;
 use function sodium_base642bin;
 use function sodium_bin2base64;
+use function str_ends_with;
 
 use const SODIUM_BASE64_VARIANT_ORIGINAL;
 use const SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING;
 
 final class WebauthnLibServer implements Server
 {
-    public function __construct(private TwoFactor $twofactor)
+    private const CHALLENGE_SIZE = 32;
+    private const TIMEOUT = 60000;
+
+    public function __construct(private TwoFactor $twoFactor)
     {
     }
 
@@ -38,34 +64,48 @@ final class WebauthnLibServer implements Server
     {
         $userEntity = new PublicKeyCredentialUserEntity($userName, $userId, $userName);
         $relyingPartyEntity = new PublicKeyCredentialRpEntity('phpMyAdmin (' . $relyingPartyId . ')', $relyingPartyId);
-        $publicKeyCredentialSourceRepository = $this->createPublicKeyCredentialSourceRepository();
-        $server = new WebauthnServer($relyingPartyEntity, $publicKeyCredentialSourceRepository);
-        $publicKeyCredentialCreationOptions = $server->generatePublicKeyCredentialCreationOptions(
+
+        $publicKeyCredentialCreationOptions = PublicKeyCredentialCreationOptions::create(
+            $relyingPartyEntity,
             $userEntity,
+            random_bytes(self::CHALLENGE_SIZE),
+            $this->getPublicKeyCredentialParametersList(),
+            AuthenticatorSelectionCriteria::create(
+                AuthenticatorSelectionCriteria::AUTHENTICATOR_ATTACHMENT_CROSS_PLATFORM,
+                AuthenticatorSelectionCriteria::USER_VERIFICATION_REQUIREMENT_DISCOURAGED,
+            ),
             PublicKeyCredentialCreationOptions::ATTESTATION_CONVEYANCE_PREFERENCE_NONE,
-            [],
-            AuthenticatorSelectionCriteria::createFromArray([
-                'authenticatorAttachment' => 'cross-platform',
-                'userVerification' => 'discouraged',
-            ]),
+            timeout: self::TIMEOUT,
         );
-        /** @psalm-var array{
-         *   challenge: non-empty-string,
-         *   rp: array{name: non-empty-string, id: non-empty-string},
-         *   user: array{id: non-empty-string, name: non-empty-string, displayName: non-empty-string},
-         *   pubKeyCredParams: list<array{alg: int, type: 'public-key'}>,
-         *   authenticatorSelection: array<string, string>,
-         *   timeout: positive-int,
-         *   attestation: non-empty-string
-         * } $creationOptions */
-        $creationOptions = $publicKeyCredentialCreationOptions->jsonSerialize();
-        $creationOptions['challenge'] = sodium_bin2base64(
-            sodium_base642bin($creationOptions['challenge'], SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING),
+
+        $encodedChallenge = sodium_bin2base64(
+            $publicKeyCredentialCreationOptions->challenge,
             SODIUM_BASE64_VARIANT_ORIGINAL,
         );
-        Assert::stringNotEmpty($creationOptions['challenge']);
+        Assert::stringNotEmpty($encodedChallenge);
+        Assert::notNull($publicKeyCredentialCreationOptions->authenticatorSelection);
 
-        return $creationOptions;
+        return [
+            'challenge' => $encodedChallenge,
+            'rp' => [
+                'name' => $publicKeyCredentialCreationOptions->rp->name,
+                'id' => $publicKeyCredentialCreationOptions->rp->id,
+            ],
+            'user' => [
+                'id' => sodium_bin2base64(
+                    $publicKeyCredentialCreationOptions->user->id,
+                    SODIUM_BASE64_VARIANT_ORIGINAL,
+                ),
+                'name' => $publicKeyCredentialCreationOptions->user->name,
+                'displayName' => $publicKeyCredentialCreationOptions->user->displayName,
+            ],
+            'pubKeyCredParams' => array_map(static function (PublicKeyCredentialParameters $object): array {
+                return $object->jsonSerialize();
+            }, $publicKeyCredentialCreationOptions->pubKeyCredParams),
+            'authenticatorSelection' => $publicKeyCredentialCreationOptions->authenticatorSelection->jsonSerialize(),
+            'timeout' => $publicKeyCredentialCreationOptions->timeout,
+            'attestation' => $publicKeyCredentialCreationOptions->attestation,
+        ];
     }
 
     /** @inheritDoc */
@@ -77,36 +117,41 @@ final class WebauthnLibServer implements Server
     ): array {
         $userEntity = new PublicKeyCredentialUserEntity($userName, $userId, $userName);
         $relyingPartyEntity = new PublicKeyCredentialRpEntity('phpMyAdmin (' . $relyingPartyId . ')', $relyingPartyId);
-        $publicKeyCredentialSourceRepository = $this->createPublicKeyCredentialSourceRepository();
-        $server = new WebauthnServer($relyingPartyEntity, $publicKeyCredentialSourceRepository);
-        $credentialSources = $publicKeyCredentialSourceRepository->findAllForUserEntity($userEntity);
+        $credentialSources = $this->findAllForUserEntity($userEntity);
         $allowedCredentials = array_map(
             static fn (
                 PublicKeyCredentialSource $credential,
             ): PublicKeyCredentialDescriptor => $credential->getPublicKeyCredentialDescriptor(),
             $credentialSources,
         );
-        $publicKeyCredentialRequestOptions = $server->generatePublicKeyCredentialRequestOptions(
-            'discouraged',
+
+        $publicKeyCredentialRequestOptions = PublicKeyCredentialRequestOptions::create(
+            random_bytes(self::CHALLENGE_SIZE),
+            $relyingPartyEntity->id,
             $allowedCredentials,
+            PublicKeyCredentialRequestOptions::USER_VERIFICATION_REQUIREMENT_DISCOURAGED,
+            self::TIMEOUT,
         );
-        /**
-         * @psalm-var array{
-         *   challenge: string,
-         *   allowCredentials?: list<array{id: non-empty-string, type: non-empty-string}>
-         * } $requestOptions
-         */
-        $requestOptions = $publicKeyCredentialRequestOptions->jsonSerialize();
-        $requestOptions['challenge'] = sodium_bin2base64(
-            sodium_base642bin($requestOptions['challenge'], SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING),
-            SODIUM_BASE64_VARIANT_ORIGINAL,
-        );
-        if (isset($requestOptions['allowCredentials'])) {
-            foreach ($requestOptions['allowCredentials'] as $key => $credential) {
-                $requestOptions['allowCredentials'][$key]['id'] = sodium_bin2base64(
-                    sodium_base642bin($credential['id'], SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING),
-                    SODIUM_BASE64_VARIANT_ORIGINAL,
-                );
+
+        $requestOptions = [
+            'challenge' => sodium_bin2base64(
+                $publicKeyCredentialRequestOptions->challenge,
+                SODIUM_BASE64_VARIANT_ORIGINAL,
+            ),
+            'rpId' => (string) $publicKeyCredentialRequestOptions->rpId,
+            'userVerification' => (string) $publicKeyCredentialRequestOptions->userVerification,
+            'timeout' => (int) $publicKeyCredentialRequestOptions->timeout,
+        ];
+
+        if ($publicKeyCredentialRequestOptions->allowCredentials !== []) {
+            $requestOptions['allowCredentials'] = [];
+            foreach ($publicKeyCredentialRequestOptions->allowCredentials as $credential) {
+                $allowedCredential = [
+                    'type' => $credential->type,
+                    'id' => sodium_bin2base64($credential->id, SODIUM_BASE64_VARIANT_ORIGINAL),
+                ];
+
+                $requestOptions['allowCredentials'][] = $allowedCredential;
             }
         }
 
@@ -120,24 +165,36 @@ final class WebauthnLibServer implements Server
         string $challenge,
         ServerRequestInterface $request,
     ): void {
-        Assert::string($this->twofactor->config['settings']['userHandle']);
+        Assert::string($this->twoFactor->config['settings']['userHandle']);
         $userHandle = sodium_base642bin(
-            $this->twofactor->config['settings']['userHandle'],
+            $this->twoFactor->config['settings']['userHandle'],
             SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING,
         );
-        $userEntity = new PublicKeyCredentialUserEntity($this->twofactor->user, $userHandle, $this->twofactor->user);
-        $host = $request->getUri()->getHost();
-        $relyingPartyEntity = new PublicKeyCredentialRpEntity('phpMyAdmin (' . $host . ')', $host);
-        $publicKeyCredentialSourceRepository = $this->createPublicKeyCredentialSourceRepository();
-        $server = new WebauthnServer($relyingPartyEntity, $publicKeyCredentialSourceRepository);
-        $requestOptions = PublicKeyCredentialRequestOptions::createFromArray([
-            'challenge' => $challenge,
-            'allowCredentials' => $allowedCredentials,
-            'rpId' => $host,
-            'timeout' => 60000,
-        ]);
-        Assert::isInstanceOf($requestOptions, PublicKeyCredentialRequestOptions::class);
-        $server->loadAndCheckAssertionResponse($assertionResponseJson, $requestOptions, $userEntity, $request);
+
+        $attestationStatementSupportManager = AttestationStatementSupportManager::create();
+        $attestationStatementSupportManager->add(NoneAttestationStatementSupport::create());
+        $attestationObjectLoader = AttestationObjectLoader::create($attestationStatementSupportManager);
+        $publicKeyCredentialLoader = PublicKeyCredentialLoader::create($attestationObjectLoader);
+        $publicKeyCredential = $publicKeyCredentialLoader->load($assertionResponseJson);
+        $authenticatorAssertionResponse = $publicKeyCredential->response;
+        Assert::isInstanceOf($authenticatorAssertionResponse, AuthenticatorAssertionResponse::class);
+
+        $credentialSource = $this->findOneByCredentialId($publicKeyCredential->rawId);
+        Assert::notNull($credentialSource);
+
+        $authenticatorAssertionResponseValidator = AuthenticatorAssertionResponseValidator::create(
+            null,
+            null,
+            ExtensionOutputCheckerHandler::create(),
+            $this->getAlgorithmManager(),
+        );
+        $authenticatorAssertionResponseValidator->check(
+            $credentialSource,
+            $authenticatorAssertionResponse,
+            PublicKeyCredentialRequestOptions::createFromString($assertionResponseJson),
+            $request->getUri()->getHost(),
+            $userHandle,
+        );
     }
 
     /** @inheritDoc */
@@ -146,114 +203,103 @@ final class WebauthnLibServer implements Server
         string $credentialCreationOptions,
         ServerRequestInterface $request,
     ): array {
-        $creationOptions = json_decode($credentialCreationOptions, true);
-        Assert::isArray($creationOptions);
-        Assert::keyExists($creationOptions, 'challenge');
-        Assert::keyExists($creationOptions, 'user');
-        Assert::isArray($creationOptions['user']);
-        Assert::keyExists($creationOptions['user'], 'id');
-        $host = $request->getUri()->getHost();
-        $relyingPartyEntity = new PublicKeyCredentialRpEntity('phpMyAdmin (' . $host . ')', $host);
-        $publicKeyCredentialSourceRepository = $this->createPublicKeyCredentialSourceRepository();
-        $server = new WebauthnServer($relyingPartyEntity, $publicKeyCredentialSourceRepository);
-        $creationOptionsArray = [
-            'rp' => ['name' => 'phpMyAdmin (' . $host . ')', 'id' => $host],
-            'pubKeyCredParams' => [
-                ['alg' => -257, 'type' => 'public-key'], // RS256
-                ['alg' => -259, 'type' => 'public-key'], // RS512
-                ['alg' => -37, 'type' => 'public-key'], // PS256
-                ['alg' => -39, 'type' => 'public-key'], // PS512
-                ['alg' => -7, 'type' => 'public-key'], // ES256
-                ['alg' => -36, 'type' => 'public-key'], // ES512
-                ['alg' => -8, 'type' => 'public-key'], // EdDSA
-            ],
-            'challenge' => $creationOptions['challenge'],
-            'attestation' => 'none',
-            'user' => [
-                'name' => $this->twofactor->user,
-                'id' => $creationOptions['user']['id'],
-                'displayName' => $this->twofactor->user,
-            ],
-            'authenticatorSelection' => [
-                'authenticatorAttachment' => 'cross-platform',
-                'userVerification' => 'discouraged',
-            ],
-            'timeout' => 60000,
-        ];
-        $credentialCreationOptions = PublicKeyCredentialCreationOptions::createFromArray($creationOptionsArray);
-        Assert::isInstanceOf($credentialCreationOptions, PublicKeyCredentialCreationOptions::class);
-        $publicKeyCredentialSource = $server->loadAndCheckAttestationResponse(
-            $attestationResponse,
-            $credentialCreationOptions,
-            $request,
+        $attestationStatementSupportManager = AttestationStatementSupportManager::create();
+        $attestationStatementSupportManager->add(NoneAttestationStatementSupport::create());
+        $attestationObjectLoader = AttestationObjectLoader::create($attestationStatementSupportManager);
+        $publicKeyCredentialLoader = PublicKeyCredentialLoader::create($attestationObjectLoader);
+        $publicKeyCredential = $publicKeyCredentialLoader->load($attestationResponse);
+        $authenticatorAttestationResponse = $publicKeyCredential->response;
+        Assert::isInstanceOf($authenticatorAttestationResponse, AuthenticatorAttestationResponse::class);
+
+        $authenticatorAttestationResponseValidator = AuthenticatorAttestationResponseValidator::create(
+            $attestationStatementSupportManager,
+            null,
+            null,
+            ExtensionOutputCheckerHandler::create(),
+        );
+        $publicKeyCredentialSource = $authenticatorAttestationResponseValidator->check(
+            $authenticatorAttestationResponse,
+            PublicKeyCredentialCreationOptions::createFromString($credentialCreationOptions),
+            $request->getUri()->getHost(),
         );
 
         return $publicKeyCredentialSource->jsonSerialize();
     }
 
-    /** @infection-ignore-all */
-    private function createPublicKeyCredentialSourceRepository(): PublicKeyCredentialSourceRepository
+    private function findOneByCredentialId(string $publicKeyCredentialId): PublicKeyCredentialSource|null
     {
-        return new class ($this->twofactor) implements PublicKeyCredentialSourceRepository {
-            public function __construct(private TwoFactor $twoFactor)
-            {
+        $encodedId = base64_encode($publicKeyCredentialId);
+        $data = $this->read();
+
+        return isset($data[$encodedId]) ? PublicKeyCredentialSource::createFromArray($data[$encodedId]) : null;
+    }
+
+    /** @return PublicKeyCredentialSource[] */
+    private function findAllForUserEntity(PublicKeyCredentialUserEntity $publicKeyCredentialUserEntity): array
+    {
+        $sources = [];
+        foreach ($this->read() as $data) {
+            $source = PublicKeyCredentialSource::createFromArray($data);
+            if ($source->userHandle !== $publicKeyCredentialUserEntity->id) {
+                continue;
             }
 
-            public function findOneByCredentialId(string $publicKeyCredentialId): PublicKeyCredentialSource|null
-            {
-                $data = $this->read();
-                if (isset($data[base64_encode($publicKeyCredentialId)])) {
-                    return PublicKeyCredentialSource::createFromArray($data[base64_encode($publicKeyCredentialId)]);
-                }
+            $sources[] = $source;
+        }
 
-                return null;
+        return $sources;
+    }
+
+    /** @return mixed[][] */
+    private function read(): array
+    {
+        /** @psalm-var list<mixed[]> $credentials */
+        $credentials = $this->twoFactor->config['settings']['credentials'];
+        foreach ($credentials as &$credential) {
+            if (str_ends_with($credential['userHandle'], '=')) {
+                $credential['userHandle'] = rtrim($credential['userHandle'], '=');
             }
 
-            /** @return PublicKeyCredentialSource[] */
-            public function findAllForUserEntity(PublicKeyCredentialUserEntity $publicKeyCredentialUserEntity): array
-            {
-                $sources = [];
-                foreach ($this->read() as $data) {
-                    $source = PublicKeyCredentialSource::createFromArray($data);
-                    if ($source->getUserHandle() !== $publicKeyCredentialUserEntity->getId()) {
-                        continue;
-                    }
-
-                    $sources[] = $source;
-                }
-
-                return $sources;
+            if (isset($credential['trustPath'])) {
+                continue;
             }
 
-            public function saveCredentialSource(PublicKeyCredentialSource $publicKeyCredentialSource): void
-            {
-                $data = $this->read();
-                $id = $publicKeyCredentialSource->getPublicKeyCredentialId();
-                $data[base64_encode($id)] = $publicKeyCredentialSource->jsonSerialize();
-                $this->write($data);
-            }
+            $credential['trustPath'] = ['type' => EmptyTrustPath::class];
+        }
 
-            /** @return mixed[][] */
-            private function read(): array
-            {
-                /** @psalm-var list<mixed[]> $credentials */
-                $credentials = $this->twoFactor->config['settings']['credentials'];
-                foreach ($credentials as &$credential) {
-                    if (isset($credential['trustPath'])) {
-                        continue;
-                    }
+        return $credentials;
+    }
 
-                    $credential['trustPath'] = ['type' => EmptyTrustPath::class];
-                }
+    private function getAlgorithmManager(): Manager
+    {
+        return Manager::create()->add(
+            ES256::create(),
+            ES256K::create(),
+            ES384::create(),
+            ES512::create(),
+            RS256::create(),
+            RS384::create(),
+            RS512::create(),
+            PS256::create(),
+            PS384::create(),
+            PS512::create(),
+            Ed256::create(),
+            Ed512::create(),
+        );
+    }
 
-                return $credentials;
-            }
+    /** @return PublicKeyCredentialParameters[] */
+    private function getPublicKeyCredentialParametersList(): array
+    {
+        $algorithmManager = $this->getAlgorithmManager();
+        $publicKeyCredentialParametersList = [];
+        foreach ($algorithmManager->all() as $algorithm) {
+            $publicKeyCredentialParametersList[] = new PublicKeyCredentialParameters(
+                PublicKeyCredentialDescriptor::CREDENTIAL_TYPE_PUBLIC_KEY,
+                $algorithm::identifier(),
+            );
+        }
 
-            /** @param mixed[] $data */
-            private function write(array $data): void
-            {
-                $this->twoFactor->config['settings']['credentials'] = $data;
-            }
-        };
+        return $publicKeyCredentialParametersList;
     }
 }

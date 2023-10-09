@@ -8,7 +8,7 @@ use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\WebAuthn\WebauthnLibServer;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
-use Webauthn\Server as WebauthnServer;
+use Webauthn\PublicKeyCredential;
 
 use function base64_encode;
 use function class_exists;
@@ -20,7 +20,7 @@ class WebauthnLibServerTest extends TestCase
     {
         parent::setUp();
 
-        if (class_exists(WebauthnServer::class)) {
+        if (class_exists(PublicKeyCredential::class)) {
             return;
         }
 
@@ -72,6 +72,7 @@ class WebauthnLibServerTest extends TestCase
         $options = $server->getCredentialRequestOptions('user_name', 'userHandle1', 'test.localhost', []);
         $this->assertNotEmpty($options['challenge']);
         $this->assertSame('test.localhost', $options['rpId']);
+        $this->assertSame('discouraged', $options['userVerification']);
         $this->assertEquals(
             [['type' => 'public-key', 'id' => 'cHVibGljS2V5Q3JlZGVudGlhbElkMQ==']],
             $options['allowCredentials'],
