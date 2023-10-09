@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Exceptions\SessionHandlerException;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\IpAllowDeny;
@@ -306,6 +307,8 @@ abstract class AuthenticationPlugin
     /**
      * Checks whether two factor authentication is active
      * for given user and performs it.
+     *
+     * @throws ExitException
      */
     public function checkTwoFactor(ServerRequest $request): void
     {
@@ -321,7 +324,7 @@ abstract class AuthenticationPlugin
             $response->callExit();
         }
 
-        $response->addHTML($this->template->render('login/header'));
+        $response->addHTML($this->template->render('login/header', ['session_expired' => false]));
         $response->addHTML(Message::rawNotice(
             __('You have enabled two factor authentication, please confirm your login.'),
         )->getDisplay());

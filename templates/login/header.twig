@@ -1,7 +1,7 @@
-{% if session_expired == true %}
-    <div id="modalOverlay">
+{% if session_expired %}
+  <div id="modalOverlay">
 {% endif %}
-<div class="container{{ add_class }}">
+<div class="container{{ session_expired ? ' modal_form' }}">
 <div class="row">
 <div class="col-12">
 <a href="{{ 'https://www.phpmyadmin.net/'|link }}" target="_blank" rel="noopener noreferrer" class="logo" tabindex="-1">

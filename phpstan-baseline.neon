@@ -19101,11 +19101,6 @@ parameters:
 			path: src/TwoFactor.php
 
 		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: src/TwoFactor.php
-
-		-
 			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\TwoFactor\\:\\:getBackendClass\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/TwoFactor.php

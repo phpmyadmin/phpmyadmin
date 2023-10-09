@@ -112,14 +112,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         // wrap the login form in a div which overlays the whole page.
-        if ($sessionExpired) {
-            $loginHeader = $this->template->render('login/header', [
-                'add_class' => ' modal_form',
-                'session_expired' => 1,
-            ]);
-        } else {
-            $loginHeader = $this->template->render('login/header', ['add_class' => '', 'session_expired' => 0]);
-        }
+        $loginHeader = $this->template->render('login/header', ['session_expired' => $sessionExpired]);
 
         $errorMessages = '';
         // Show error message
