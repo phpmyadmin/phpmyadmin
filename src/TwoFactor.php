@@ -23,6 +23,7 @@ use function class_exists;
 use function extension_loaded;
 use function in_array;
 use function is_array;
+use function is_bool;
 use function is_string;
 use function ucfirst;
 
@@ -204,11 +205,11 @@ class TwoFactor
             return $this->backend->check($request);
         }
 
-        if (empty($_SESSION['two_factor_check'])) {
+        if (! isset($_SESSION['two_factor_check']) || ! is_bool($_SESSION['two_factor_check'])) {
             $_SESSION['two_factor_check'] = $this->backend->check($request);
         }
 
-        return (bool) $_SESSION['two_factor_check'];
+        return $_SESSION['two_factor_check'];
     }
 
     /**
