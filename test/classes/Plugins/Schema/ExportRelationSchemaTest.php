@@ -14,7 +14,6 @@ use PHPUnit\Framework\Attributes\Group;
 #[CoversClass(ExportRelationSchema::class)]
 class ExportRelationSchemaTest extends AbstractTestCase
 {
-    /** @var ExportRelationSchema<null> */
     protected ExportRelationSchema $object;
 
     /**
@@ -27,7 +26,7 @@ class ExportRelationSchemaTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $_REQUEST['page_number'] = 33;
-        $this->object = new ExportRelationSchema(DatabaseName::from('test_db'), null);
+        $this->object = new ExportRelationSchema(DatabaseName::from('test_db'));
     }
 
     /**

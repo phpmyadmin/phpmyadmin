@@ -23,8 +23,6 @@ use function rawurldecode;
  * This class is inherited by all schema classes
  * It contains those methods which are common in them
  * it works like factory pattern
- *
- * @template T
  */
 class ExportRelationSchema
 {
@@ -46,8 +44,7 @@ class ExportRelationSchema
 
     protected Relation $relation;
 
-    /** @param T $diagram */
-    public function __construct(protected DatabaseName $db, protected $diagram)
+    public function __construct(protected DatabaseName $db)
     {
         $this->setPageNumber((int) $_REQUEST['page_number']);
         $this->setOffline(isset($_REQUEST['offline_export']));
