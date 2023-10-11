@@ -144,7 +144,7 @@ class PdfRelationSchema extends ExportRelationSchema
         if ($this->withDoc) {
             $this->pdf->setLink($this->pdf->customLinks['RT']['-'], -1);
             $this->pdf->Bookmark(__('Relational schema'));
-            $this->pdf->setAlias('{00}', $this->pdf->PageNo());
+            $this->pdf->setAlias('{00}', (string) $this->pdf->PageNo());
             $this->topMargin = 28;
             $this->bottomMargin = 28;
         }
@@ -522,7 +522,7 @@ class PdfRelationSchema extends ExportRelationSchema
             $this->pdf->Bookmark($table);
             $this->pdf->setAlias(
                 '{' . sprintf('%02d', $z) . '}',
-                $this->pdf->PageNo(),
+                (string) $this->pdf->PageNo(),
             );
             $this->pdf->customLinks['RT'][$table]['-'] = $this->pdf->AddLink();
             $this->pdf->setLink($this->pdf->customLinks['doc'][$table]['-'], -1);

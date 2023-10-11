@@ -10131,10 +10131,6 @@
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
-    <InvalidArgument>
-      <code><![CDATA[$this->pdf->PageNo()]]></code>
-      <code><![CDATA[$this->pdf->PageNo()]]></code>
-    </InvalidArgument>
     <MixedArgument>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
       <code>$oneField</code>
