@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Pdf;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Pdf as PdfLib;
@@ -87,9 +88,9 @@ class PdfRelationSchema extends ExportRelationSchema
     private Pdf $pdf;
 
     /** @see Pdf */
-    public function __construct(DatabaseName $db)
+    public function __construct(Relation $relation, DatabaseName $db)
     {
-        parent::__construct($db);
+        parent::__construct($relation, $db);
 
         $this->transformations = new Transformations();
 

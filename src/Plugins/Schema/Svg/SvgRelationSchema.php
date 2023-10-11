@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Svg;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Version;
@@ -55,9 +56,9 @@ class SvgRelationSchema extends ExportRelationSchema
      *
      * @see Svg
      */
-    public function __construct(DatabaseName $db)
+    public function __construct(Relation $relation, DatabaseName $db)
     {
-        parent::__construct($db);
+        parent::__construct($relation, $db);
 
         $this->svg = new Svg();
 

@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Dia;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 
@@ -52,9 +53,9 @@ class DiaRelationSchema extends ExportRelationSchema
      * @see TableStatsDia
      * @see RelationStatsDia
      */
-    public function __construct(DatabaseName $db)
+    public function __construct(Relation $relation, DatabaseName $db)
     {
-        parent::__construct($db);
+        parent::__construct($relation, $db);
 
         $this->dia = new Dia();
 

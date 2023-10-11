@@ -42,13 +42,10 @@ class ExportRelationSchema
 
     protected bool $offline = false;
 
-    protected Relation $relation;
-
-    public function __construct(protected DatabaseName $db)
+    public function __construct(protected Relation $relation, protected DatabaseName $db)
     {
         $this->setPageNumber((int) $_REQUEST['page_number']);
         $this->setOffline(isset($_REQUEST['offline_export']));
-        $this->relation = new Relation(DatabaseInterface::getInstance());
     }
 
     /**

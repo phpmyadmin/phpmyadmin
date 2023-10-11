@@ -10048,7 +10048,6 @@
   <file src="src/Plugins/Schema/ExportRelationSchema.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <MixedArgument>
       <code>$table</code>
@@ -10357,21 +10356,33 @@
     </PossiblyFalseOperand>
   </file>
   <file src="src/Plugins/Schema/SchemaDia.php">
+    <DeprecatedMethod>
+      <code>DatabaseInterface::getInstance()</code>
+    </DeprecatedMethod>
     <UnusedClass>
       <code>SchemaDia</code>
     </UnusedClass>
   </file>
   <file src="src/Plugins/Schema/SchemaEps.php">
+    <DeprecatedMethod>
+      <code>DatabaseInterface::getInstance()</code>
+    </DeprecatedMethod>
     <UnusedClass>
       <code>SchemaEps</code>
     </UnusedClass>
   </file>
   <file src="src/Plugins/Schema/SchemaPdf.php">
+    <DeprecatedMethod>
+      <code>DatabaseInterface::getInstance()</code>
+    </DeprecatedMethod>
     <UnusedClass>
       <code>SchemaPdf</code>
     </UnusedClass>
   </file>
   <file src="src/Plugins/Schema/SchemaSvg.php">
+    <DeprecatedMethod>
+      <code>DatabaseInterface::getInstance()</code>
+    </DeprecatedMethod>
     <UnusedClass>
       <code>SchemaSvg</code>
     </UnusedClass>

@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Eps;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Version;
@@ -46,9 +47,9 @@ class EpsRelationSchema extends ExportRelationSchema
      *
      * @see Eps
      */
-    public function __construct(DatabaseName $db)
+    public function __construct(Relation $relation, DatabaseName $db)
     {
-        parent::__construct($db);
+        parent::__construct($relation, $db);
 
         $this->eps = new Eps();
 
