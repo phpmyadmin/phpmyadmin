@@ -10048,7 +10048,6 @@
   <file src="src/Plugins/Schema/ExportRelationSchema.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <MixedArgument>
       <code>$table</code>
@@ -10132,10 +10131,6 @@
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
-    <InvalidArgument>
-      <code><![CDATA[$this->diagram->PageNo()]]></code>
-      <code><![CDATA[$this->diagram->PageNo()]]></code>
-    </InvalidArgument>
     <MixedArgument>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
       <code>$oneField</code>
@@ -10149,9 +10144,9 @@
       <code>$table</code>
       <code>$table</code>
       <code>$table</code>
-      <code><![CDATA[$this->diagram->customLinks['RT']['-']]]></code>
-      <code><![CDATA[$this->diagram->customLinks['doc'][$table][$fieldName]]]></code>
-      <code><![CDATA[$this->diagram->customLinks['doc'][$table]['-']]]></code>
+      <code><![CDATA[$this->pdf->customLinks['RT']['-']]]></code>
+      <code><![CDATA[$this->pdf->customLinks['doc'][$table][$fieldName]]]></code>
+      <code><![CDATA[$this->pdf->customLinks['doc'][$table]['-']]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$masterField</code>
@@ -10172,33 +10167,33 @@
       <code><![CDATA[$showTable['Comment']]]></code>
       <code><![CDATA[$showTable['Create_time']]]></code>
       <code><![CDATA[$showTable['Update_time']]]></code>
-      <code><![CDATA[$this->diagram->customLinks['RT']['-']]]></code>
-      <code><![CDATA[$this->diagram->customLinks['doc'][$foreigner['foreign_table']]]]></code>
-      <code><![CDATA[$this->diagram->customLinks['doc'][$table]]]></code>
-      <code><![CDATA[$this->diagram->customLinks['doc'][$table]]]></code>
-      <code><![CDATA[$this->diagram->customLinks['doc'][$table][$fieldName]]]></code>
-      <code><![CDATA[$this->diagram->customLinks['doc'][$table]['-']]]></code>
+      <code><![CDATA[$this->pdf->customLinks['RT']['-']]]></code>
+      <code><![CDATA[$this->pdf->customLinks['doc'][$foreigner['foreign_table']]]]></code>
+      <code><![CDATA[$this->pdf->customLinks['doc'][$table]]]></code>
+      <code><![CDATA[$this->pdf->customLinks['doc'][$table]]]></code>
+      <code><![CDATA[$this->pdf->customLinks['doc'][$table][$fieldName]]]></code>
+      <code><![CDATA[$this->pdf->customLinks['doc'][$table]['-']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
-      <code><![CDATA[$this->diagram->customLinks['RT'][$table]]]></code>
-      <code><![CDATA[$this->diagram->customLinks['RT'][$table]]]></code>
-      <code><![CDATA[$this->diagram->customLinks['RT'][$table][$fieldName]]]></code>
-      <code><![CDATA[$this->diagram->customLinks['RT'][$table]['-']]]></code>
-      <code><![CDATA[$this->diagram->customLinks['RT']['-']]]></code>
-      <code><![CDATA[$this->diagram->customLinks['doc'][$table]]]></code>
-      <code><![CDATA[$this->diagram->customLinks['doc'][$table]]]></code>
-      <code><![CDATA[$this->diagram->customLinks['doc'][$table][$fieldName]]]></code>
-      <code><![CDATA[$this->diagram->customLinks['doc'][$table]['-']]]></code>
+      <code><![CDATA[$this->pdf->customLinks['RT'][$table]]]></code>
+      <code><![CDATA[$this->pdf->customLinks['RT'][$table]]]></code>
+      <code><![CDATA[$this->pdf->customLinks['RT'][$table][$fieldName]]]></code>
+      <code><![CDATA[$this->pdf->customLinks['RT'][$table]['-']]]></code>
+      <code><![CDATA[$this->pdf->customLinks['RT']['-']]]></code>
+      <code><![CDATA[$this->pdf->customLinks['doc'][$table]]]></code>
+      <code><![CDATA[$this->pdf->customLinks['doc'][$table]]]></code>
+      <code><![CDATA[$this->pdf->customLinks['doc'][$table][$fieldName]]]></code>
+      <code><![CDATA[$this->pdf->customLinks['doc'][$table]['-']]]></code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
       <code><![CDATA[$foreignTable[$foreigner['foreign_field']]]]></code>
       <code><![CDATA[$oneKey['ref_index_list'][$index]]]></code>
-      <code><![CDATA[$this->diagram->customLinks['RT'][$table]]]></code>
-      <code><![CDATA[$this->diagram->customLinks['doc'][$foreigner['foreign_table']]]]></code>
-      <code><![CDATA[$this->diagram->customLinks['doc'][$foreigner['foreign_table']]]]></code>
-      <code><![CDATA[$this->diagram->customLinks['doc'][$foreigner['foreign_table']][$foreigner['foreign_field']]]]></code>
-      <code><![CDATA[$this->diagram->customLinks['doc'][$table]]]></code>
-      <code><![CDATA[$this->diagram->customLinks['doc'][$table]]]></code>
+      <code><![CDATA[$this->pdf->customLinks['RT'][$table]]]></code>
+      <code><![CDATA[$this->pdf->customLinks['doc'][$foreigner['foreign_table']]]]></code>
+      <code><![CDATA[$this->pdf->customLinks['doc'][$foreigner['foreign_table']]]]></code>
+      <code><![CDATA[$this->pdf->customLinks['doc'][$foreigner['foreign_table']][$foreigner['foreign_field']]]]></code>
+      <code><![CDATA[$this->pdf->customLinks['doc'][$table]]]></code>
+      <code><![CDATA[$this->pdf->customLinks['doc'][$table]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
       <code>$attribute</code>
@@ -10357,21 +10352,33 @@
     </PossiblyFalseOperand>
   </file>
   <file src="src/Plugins/Schema/SchemaDia.php">
+    <DeprecatedMethod>
+      <code>DatabaseInterface::getInstance()</code>
+    </DeprecatedMethod>
     <UnusedClass>
       <code>SchemaDia</code>
     </UnusedClass>
   </file>
   <file src="src/Plugins/Schema/SchemaEps.php">
+    <DeprecatedMethod>
+      <code>DatabaseInterface::getInstance()</code>
+    </DeprecatedMethod>
     <UnusedClass>
       <code>SchemaEps</code>
     </UnusedClass>
   </file>
   <file src="src/Plugins/Schema/SchemaPdf.php">
+    <DeprecatedMethod>
+      <code>DatabaseInterface::getInstance()</code>
+    </DeprecatedMethod>
     <UnusedClass>
       <code>SchemaPdf</code>
     </UnusedClass>
   </file>
   <file src="src/Plugins/Schema/SchemaSvg.php">
+    <DeprecatedMethod>
+      <code>DatabaseInterface::getInstance()</code>
+    </DeprecatedMethod>
     <UnusedClass>
       <code>SchemaSvg</code>
     </UnusedClass>

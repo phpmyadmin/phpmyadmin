@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Pdf;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Pdf as PdfLib;
@@ -45,8 +46,6 @@ if (getcwd() == __DIR__) {
  *
  * This class inherits ExportRelationSchema class has common functionality added
  * to this class
- *
- * @extends ExportRelationSchema<Pdf>
  */
 class PdfRelationSchema extends ExportRelationSchema
 {
@@ -86,9 +85,13 @@ class PdfRelationSchema extends ExportRelationSchema
 
     private Transformations $transformations;
 
+    private Pdf $pdf;
+
     /** @see Pdf */
-    public function __construct(DatabaseName $db)
+    public function __construct(Relation $relation, DatabaseName $db)
     {
+        parent::__construct($relation, $db);
+
         $this->transformations = new Transformations();
 
         $this->setShowGrid(isset($_REQUEST['pdf_show_grid']));
@@ -101,29 +104,25 @@ class PdfRelationSchema extends ExportRelationSchema
         $this->setOrientation((string) $_REQUEST['pdf_orientation']);
         $this->setPaper((string) $_REQUEST['pdf_paper']);
 
-        // Initializes a new document
-        parent::__construct(
-            $db,
-            new Pdf(
-                $this->orientation,
-                'mm',
-                $this->paper,
-                $this->pageNumber,
-                $this->withDoc,
-                $db->getName(),
-            ),
+        $this->pdf = new Pdf(
+            $this->orientation,
+            'mm',
+            $this->paper,
+            $this->pageNumber,
+            $this->withDoc,
+            $db->getName(),
         );
 
-        $this->diagram->setTitle(
+        $this->pdf->setTitle(
             sprintf(
                 __('Schema of the %s database'),
                 $this->db->getName(),
             ),
         );
-        $this->diagram->setCMargin(0);
-        $this->diagram->Open();
-        $this->diagram->setAutoPageBreak(true);
-        $this->diagram->setOffline($this->offline);
+        $this->pdf->setCMargin(0);
+        $this->pdf->Open();
+        $this->pdf->setAutoPageBreak(true);
+        $this->pdf->setOffline($this->offline);
 
         $alltables = $this->getTablesFromRequest();
         if ($this->getTableOrder() === 'name_asc') {
@@ -133,19 +132,19 @@ class PdfRelationSchema extends ExportRelationSchema
         }
 
         if ($this->withDoc) {
-            $this->diagram->setAutoPageBreak(true, 15);
-            $this->diagram->setCMargin(1);
+            $this->pdf->setAutoPageBreak(true, 15);
+            $this->pdf->setCMargin(1);
             $this->dataDictionaryDoc($alltables);
-            $this->diagram->setAutoPageBreak(true);
-            $this->diagram->setCMargin(0);
+            $this->pdf->setAutoPageBreak(true);
+            $this->pdf->setCMargin(0);
         }
 
-        $this->diagram->AddPage();
+        $this->pdf->AddPage();
 
         if ($this->withDoc) {
-            $this->diagram->setLink($this->diagram->customLinks['RT']['-'], -1);
-            $this->diagram->Bookmark(__('Relational schema'));
-            $this->diagram->setAlias('{00}', $this->diagram->PageNo());
+            $this->pdf->setLink($this->pdf->customLinks['RT']['-'], -1);
+            $this->pdf->Bookmark(__('Relational schema'));
+            $this->pdf->setAlias('{00}', (string) $this->pdf->PageNo());
             $this->topMargin = 28;
             $this->bottomMargin = 28;
         }
@@ -154,7 +153,7 @@ class PdfRelationSchema extends ExportRelationSchema
         foreach ($alltables as $table) {
             if (! isset($this->tables[$table])) {
                 $this->tables[$table] = new TableStatsPdf(
-                    $this->diagram,
+                    $this->pdf,
                     $this->db->getName(),
                     $table,
                     null,
@@ -174,9 +173,9 @@ class PdfRelationSchema extends ExportRelationSchema
         }
 
         // Defines the scale factor
-        $innerWidth = $this->diagram->getPageWidth() - $this->rightMargin
+        $innerWidth = $this->pdf->getPageWidth() - $this->rightMargin
             - $this->leftMargin;
-        $innerHeight = $this->diagram->getPageHeight() - $this->topMargin
+        $innerHeight = $this->pdf->getPageHeight() - $this->topMargin
             - $this->bottomMargin;
         $this->scale = ceil(
             max(
@@ -185,16 +184,16 @@ class PdfRelationSchema extends ExportRelationSchema
             ) * 100,
         ) / 100;
 
-        $this->diagram->setScale($this->scale, $this->xMin, $this->yMin, $this->leftMargin, $this->topMargin);
+        $this->pdf->setScale($this->scale, $this->xMin, $this->yMin, $this->leftMargin, $this->topMargin);
         // Builds and save the PDF document
-        $this->diagram->setLineWidthScale(0.1);
+        $this->pdf->setLineWidthScale(0.1);
 
         if ($this->showGrid) {
-            $this->diagram->setFontSize(10);
+            $this->pdf->setFontSize(10);
             $this->strokeGrid();
         }
 
-        $this->diagram->setFontSizeScale(14);
+        $this->pdf->setFontSizeScale(14);
         // previous logic was checking master tables and foreign tables
         // but I think that looping on every table of the pdf page as a master
         // and finding its foreigns is OK (then we can support innodb)
@@ -302,7 +301,7 @@ class PdfRelationSchema extends ExportRelationSchema
     /** @return array{fileName: non-empty-string, fileData: string} */
     public function getExportInfo(): array
     {
-        return ['fileName' => $this->getFileName('.pdf'), 'fileData' => $this->diagram->getOutputData()];
+        return ['fileName' => $this->getFileName('.pdf'), 'fileData' => $this->pdf->getOutputData()];
     }
 
     /**
@@ -336,7 +335,7 @@ class PdfRelationSchema extends ExportRelationSchema
     ): void {
         if (! isset($this->tables[$masterTable])) {
             $this->tables[$masterTable] = new TableStatsPdf(
-                $this->diagram,
+                $this->pdf,
                 $this->db->getName(),
                 $masterTable,
                 null,
@@ -350,7 +349,7 @@ class PdfRelationSchema extends ExportRelationSchema
 
         if (! isset($this->tables[$foreignTable])) {
             $this->tables[$foreignTable] = new TableStatsPdf(
-                $this->diagram,
+                $this->pdf,
                 $this->db->getName(),
                 $foreignTable,
                 null,
@@ -363,7 +362,7 @@ class PdfRelationSchema extends ExportRelationSchema
         }
 
         $this->relations[] = new RelationStatsPdf(
-            $this->diagram,
+            $this->pdf,
             $this->tables[$masterTable],
             $masterField,
             $this->tables[$foreignTable],
@@ -389,16 +388,16 @@ class PdfRelationSchema extends ExportRelationSchema
             $bottomSpace = 0;
         }
 
-        $this->diagram->setMargins(0, 0);
-        $this->diagram->setDrawColor(200, 200, 200);
+        $this->pdf->setMargins(0, 0);
+        $this->pdf->setDrawColor(200, 200, 200);
         // Draws horizontal lines
-        $innerHeight = $this->diagram->getPageHeight() - $topSpace - $bottomSpace;
+        $innerHeight = $this->pdf->getPageHeight() - $topSpace - $bottomSpace;
         /** @infection-ignore-all */
         for ($l = 0, $size = intval($innerHeight / $gridSize); $l <= $size; $l++) {
-            $this->diagram->line(
+            $this->pdf->line(
                 0,
                 $l * $gridSize + $topSpace,
-                $this->diagram->getPageWidth(),
+                $this->pdf->getPageWidth(),
                 $l * $gridSize + $topSpace,
             );
             // Avoid duplicates
@@ -406,23 +405,23 @@ class PdfRelationSchema extends ExportRelationSchema
                 continue;
             }
 
-            $this->diagram->setXY(0, $l * $gridSize + $topSpace);
+            $this->pdf->setXY(0, $l * $gridSize + $topSpace);
             $label = sprintf('%.0f', ($l * $gridSize + $topSpace - $this->topMargin) * $this->scale + $this->yMin);
-            $this->diagram->Cell($labelWidth, $labelHeight, ' ' . $label);
+            $this->pdf->Cell($labelWidth, $labelHeight, ' ' . $label);
         }
 
         // Draws vertical lines
         /** @infection-ignore-all */
-        for ($j = 0, $size = intval($this->diagram->getPageWidth() / $gridSize); $j <= $size; $j++) {
-            $this->diagram->line(
+        for ($j = 0, $size = intval($this->pdf->getPageWidth() / $gridSize); $j <= $size; $j++) {
+            $this->pdf->line(
                 $j * $gridSize,
                 $topSpace,
                 $j * $gridSize,
-                $this->diagram->getPageHeight() - $bottomSpace,
+                $this->pdf->getPageHeight() - $bottomSpace,
             );
-            $this->diagram->setXY($j * $gridSize, $topSpace);
+            $this->pdf->setXY($j * $gridSize, $topSpace);
             $label = sprintf('%.0f', ($j * $gridSize - $this->leftMargin) * $this->scale + $this->xMin);
-            $this->diagram->Cell($labelWidth, $labelHeight, $label);
+            $this->pdf->Cell($labelWidth, $labelHeight, $label);
         }
     }
 
@@ -460,16 +459,16 @@ class PdfRelationSchema extends ExportRelationSchema
     public function dataDictionaryDoc(array $alltables): void
     {
         // TOC
-        $this->diagram->AddPage($this->orientation);
-        $this->diagram->Cell(0, 9, __('Table of contents'), 1, 0, 'C');
-        $this->diagram->Ln(15);
+        $this->pdf->AddPage($this->orientation);
+        $this->pdf->Cell(0, 9, __('Table of contents'), 1, 0, 'C');
+        $this->pdf->Ln(15);
         $i = 1;
         $dbi = DatabaseInterface::getInstance();
         foreach ($alltables as $table) {
-            $this->diagram->customLinks['doc'][$table]['-'] = $this->diagram->AddLink();
-            $this->diagram->setX(10);
+            $this->pdf->customLinks['doc'][$table]['-'] = $this->pdf->AddLink();
+            $this->pdf->setX(10);
             // $this->diagram->Ln(1);
-            $this->diagram->Cell(
+            $this->pdf->Cell(
                 0,
                 6,
                 __('Page number:') . ' {' . sprintf('%02d', $i) . '}',
@@ -477,33 +476,24 @@ class PdfRelationSchema extends ExportRelationSchema
                 0,
                 'R',
                 false,
-                $this->diagram->customLinks['doc'][$table]['-'],
+                $this->pdf->customLinks['doc'][$table]['-'],
             );
-            $this->diagram->setX(10);
-            $this->diagram->Cell(
-                0,
-                6,
-                $i . ' ' . $table,
-                0,
-                1,
-                'L',
-                false,
-                $this->diagram->customLinks['doc'][$table]['-'],
-            );
+            $this->pdf->setX(10);
+            $this->pdf->Cell(0, 6, $i . ' ' . $table, 0, 1, 'L', false, $this->pdf->customLinks['doc'][$table]['-']);
             // $this->diagram->Ln(1);
             $fields = $dbi->getColumns($this->db->getName(), $table);
             foreach ($fields as $row) {
-                $this->diagram->setX(20);
+                $this->pdf->setX(20);
                 $fieldName = $row->field;
-                $this->diagram->customLinks['doc'][$table][$fieldName] = $this->diagram->AddLink();
+                $this->pdf->customLinks['doc'][$table][$fieldName] = $this->pdf->AddLink();
             }
 
             $i++;
         }
 
-        $this->diagram->customLinks['RT']['-'] = $this->diagram->AddLink();
-        $this->diagram->setX(10);
-        $this->diagram->Cell(
+        $this->pdf->customLinks['RT']['-'] = $this->pdf->AddLink();
+        $this->pdf->setX(10);
+        $this->pdf->Cell(
             0,
             6,
             __('Page number:') . ' {00}',
@@ -511,10 +501,10 @@ class PdfRelationSchema extends ExportRelationSchema
             0,
             'R',
             false,
-            $this->diagram->customLinks['RT']['-'],
+            $this->pdf->customLinks['RT']['-'],
         );
-        $this->diagram->setX(10);
-        $this->diagram->Cell(
+        $this->pdf->setX(10);
+        $this->pdf->Cell(
             0,
             6,
             $i . ' ' . __('Relational schema'),
@@ -522,33 +512,24 @@ class PdfRelationSchema extends ExportRelationSchema
             1,
             'L',
             false,
-            $this->diagram->customLinks['RT']['-'],
+            $this->pdf->customLinks['RT']['-'],
         );
         $z = 0;
         foreach ($alltables as $table) {
             $z++;
-            $this->diagram->setAutoPageBreak(true, 15);
-            $this->diagram->AddPage($this->orientation);
-            $this->diagram->Bookmark($table);
-            $this->diagram->setAlias(
+            $this->pdf->setAutoPageBreak(true, 15);
+            $this->pdf->AddPage($this->orientation);
+            $this->pdf->Bookmark($table);
+            $this->pdf->setAlias(
                 '{' . sprintf('%02d', $z) . '}',
-                $this->diagram->PageNo(),
+                (string) $this->pdf->PageNo(),
             );
-            $this->diagram->customLinks['RT'][$table]['-'] = $this->diagram->AddLink();
-            $this->diagram->setLink($this->diagram->customLinks['doc'][$table]['-'], -1);
-            $this->diagram->setFont($this->ff, 'B', 18);
-            $this->diagram->Cell(
-                0,
-                8,
-                $z . ' ' . $table,
-                1,
-                1,
-                'C',
-                false,
-                $this->diagram->customLinks['RT'][$table]['-'],
-            );
-            $this->diagram->setFont($this->ff, '', 8);
-            $this->diagram->Ln();
+            $this->pdf->customLinks['RT'][$table]['-'] = $this->pdf->AddLink();
+            $this->pdf->setLink($this->pdf->customLinks['doc'][$table]['-'], -1);
+            $this->pdf->setFont($this->ff, 'B', 18);
+            $this->pdf->Cell(0, 8, $z . ' ' . $table, 1, 1, 'C', false, $this->pdf->customLinks['RT'][$table]['-']);
+            $this->pdf->setFont($this->ff, '', 8);
+            $this->pdf->Ln();
 
             $relationParameters = $this->relation->getRelationParameters();
             $comments = $this->relation->getComments($this->db->getName(), $table);
@@ -593,7 +574,7 @@ class PdfRelationSchema extends ExportRelationSchema
 
             $break = false;
             if (! empty($showComment)) {
-                $this->diagram->Cell(
+                $this->pdf->Cell(
                     0,
                     3,
                     __('Table comments:') . ' ' . $showComment,
@@ -604,7 +585,7 @@ class PdfRelationSchema extends ExportRelationSchema
             }
 
             if ($createTime !== '') {
-                $this->diagram->Cell(
+                $this->pdf->Cell(
                     0,
                     3,
                     __('Creation:') . ' ' . $createTime,
@@ -615,7 +596,7 @@ class PdfRelationSchema extends ExportRelationSchema
             }
 
             if ($updateTime !== '') {
-                $this->diagram->Cell(
+                $this->pdf->Cell(
                     0,
                     3,
                     __('Last update:') . ' ' . $updateTime,
@@ -626,7 +607,7 @@ class PdfRelationSchema extends ExportRelationSchema
             }
 
             if ($checkTime !== '') {
-                $this->diagram->Cell(
+                $this->pdf->Cell(
                     0,
                     3,
                     __('Last check:') . ' ' . $checkTime,
@@ -637,19 +618,19 @@ class PdfRelationSchema extends ExportRelationSchema
             }
 
             if ($break == true) {
-                $this->diagram->Cell(0, 3, '', 0, 1);
-                $this->diagram->Ln();
+                $this->pdf->Cell(0, 3, '', 0, 1);
+                $this->pdf->Ln();
             }
 
-            $this->diagram->setFont($this->ff, 'B');
+            $this->pdf->setFont($this->ff, 'B');
             if ($this->orientation === 'L') {
-                $this->diagram->Cell(25, 8, __('Column'), 1, 0, 'C');
-                $this->diagram->Cell(20, 8, __('Type'), 1, 0, 'C');
-                $this->diagram->Cell(20, 8, __('Attributes'), 1, 0, 'C');
-                $this->diagram->Cell(10, 8, __('Null'), 1, 0, 'C');
-                $this->diagram->Cell(20, 8, __('Default'), 1, 0, 'C');
-                $this->diagram->Cell(25, 8, __('Extra'), 1, 0, 'C');
-                $this->diagram->Cell(45, 8, __('Links to'), 1, 0, 'C');
+                $this->pdf->Cell(25, 8, __('Column'), 1, 0, 'C');
+                $this->pdf->Cell(20, 8, __('Type'), 1, 0, 'C');
+                $this->pdf->Cell(20, 8, __('Attributes'), 1, 0, 'C');
+                $this->pdf->Cell(10, 8, __('Null'), 1, 0, 'C');
+                $this->pdf->Cell(20, 8, __('Default'), 1, 0, 'C');
+                $this->pdf->Cell(25, 8, __('Extra'), 1, 0, 'C');
+                $this->pdf->Cell(45, 8, __('Links to'), 1, 0, 'C');
 
                 if ($this->paper === 'A4') {
                     $commentsWidth = 67;
@@ -659,25 +640,25 @@ class PdfRelationSchema extends ExportRelationSchema
                     $commentsWidth = 50;
                 }
 
-                $this->diagram->Cell($commentsWidth, 8, __('Comments'), 1, 0, 'C');
-                $this->diagram->Cell(45, 8, 'MIME', 1, 1, 'C');
-                $this->diagram->setWidths(
+                $this->pdf->Cell($commentsWidth, 8, __('Comments'), 1, 0, 'C');
+                $this->pdf->Cell(45, 8, 'MIME', 1, 1, 'C');
+                $this->pdf->setWidths(
                     [25, 20, 20, 10, 20, 25, 45, $commentsWidth, 45],
                 );
             } else {
-                $this->diagram->Cell(20, 8, __('Column'), 1, 0, 'C');
-                $this->diagram->Cell(20, 8, __('Type'), 1, 0, 'C');
-                $this->diagram->Cell(20, 8, __('Attributes'), 1, 0, 'C');
-                $this->diagram->Cell(10, 8, __('Null'), 1, 0, 'C');
-                $this->diagram->Cell(15, 8, __('Default'), 1, 0, 'C');
-                $this->diagram->Cell(15, 8, __('Extra'), 1, 0, 'C');
-                $this->diagram->Cell(30, 8, __('Links to'), 1, 0, 'C');
-                $this->diagram->Cell(30, 8, __('Comments'), 1, 0, 'C');
-                $this->diagram->Cell(30, 8, 'MIME', 1, 1, 'C');
-                $this->diagram->setWidths([20, 20, 20, 10, 15, 15, 30, 30, 30]);
+                $this->pdf->Cell(20, 8, __('Column'), 1, 0, 'C');
+                $this->pdf->Cell(20, 8, __('Type'), 1, 0, 'C');
+                $this->pdf->Cell(20, 8, __('Attributes'), 1, 0, 'C');
+                $this->pdf->Cell(10, 8, __('Null'), 1, 0, 'C');
+                $this->pdf->Cell(15, 8, __('Default'), 1, 0, 'C');
+                $this->pdf->Cell(15, 8, __('Extra'), 1, 0, 'C');
+                $this->pdf->Cell(30, 8, __('Links to'), 1, 0, 'C');
+                $this->pdf->Cell(30, 8, __('Comments'), 1, 0, 'C');
+                $this->pdf->Cell(30, 8, 'MIME', 1, 1, 'C');
+                $this->pdf->setWidths([20, 20, 20, 10, 15, 15, 30, 30, 30]);
             }
 
-            $this->diagram->setFont($this->ff);
+            $this->pdf->setFont($this->ff);
 
             foreach ($columns as $row) {
                 $extractedColumnSpec = Util::extractColumnSpec($row->type);
@@ -686,9 +667,9 @@ class PdfRelationSchema extends ExportRelationSchema
 
                 $fieldName = $row->field;
                 // $this->diagram->Ln();
-                $this->diagram->customLinks['RT'][$table][$fieldName] = $this->diagram->AddLink();
-                $this->diagram->Bookmark($fieldName, 1, -1);
-                $this->diagram->setLink($this->diagram->customLinks['doc'][$table][$fieldName], -1);
+                $this->pdf->customLinks['RT'][$table][$fieldName] = $this->pdf->AddLink();
+                $this->pdf->Bookmark($fieldName, 1, -1);
+                $this->pdf->setLink($this->pdf->customLinks['doc'][$table][$fieldName], -1);
                 $foreigner = $this->relation->searchColumnInForeigners($resRel, $fieldName);
 
                 $linksTo = '';
@@ -721,21 +702,21 @@ class PdfRelationSchema extends ExportRelationSchema
                         : '',
                 ];
                 $links = [];
-                $links[0] = $this->diagram->customLinks['RT'][$table][$fieldName];
+                $links[0] = $this->pdf->customLinks['RT'][$table][$fieldName];
                 if (
                     $foreigner
                     && isset(
-                        $this->diagram->customLinks['doc'][$foreigner['foreign_table']][$foreigner['foreign_field']],
+                        $this->pdf->customLinks['doc'][$foreigner['foreign_table']][$foreigner['foreign_field']],
                     )
                 ) {
-                    $foreignTable = $this->diagram->customLinks['doc'][$foreigner['foreign_table']];
+                    $foreignTable = $this->pdf->customLinks['doc'][$foreigner['foreign_table']];
                     $links[6] = $foreignTable[$foreigner['foreign_field']];
                 }
 
-                $this->diagram->row($diagramRow, $links);
+                $this->pdf->row($diagramRow, $links);
             }
 
-            $this->diagram->setFont($this->ff, '', 14);
+            $this->pdf->setFont($this->ff, '', 14);
         }
     }
 }

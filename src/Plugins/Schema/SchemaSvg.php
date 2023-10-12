@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema;
 
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\Svg\SvgRelationSchema;
 use PhpMyAdmin\Plugins\SchemaPlugin;
@@ -67,7 +69,7 @@ class SchemaSvg extends SchemaPlugin
     /** @return array{fileName: non-empty-string, mediaType: non-empty-string, fileData: string} */
     public function getExportInfo(DatabaseName $db): array
     {
-        $export = new SvgRelationSchema($db);
+        $export = new SvgRelationSchema(new Relation(DatabaseInterface::getInstance()), $db);
         $exportInfo = $export->getExportInfo();
 
         return [
