@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2022-05-20 11:19+0000\n"
-"Last-Translator: Vladimir Belozyorov <vladimir.belozyorov@gmail.com>\n"
+"PO-Revision-Date: 2023-10-14 18:02+0000\n"
+"Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.13-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -613,10 +613,9 @@ msgstr "Максимальный % буфера ключей MyISAM, котор�
 
 #: libraries/advisory_rules_generic.php:378
 #: libraries/advisory_rules_generic.php:395
-#, fuzzy, no-php-format
-#| msgid "MyISAM key buffer (index cache) %% used is low."
+#, no-php-format
 msgid "MyISAM key buffer (index cache) % used is low."
-msgstr "Низкий %% использования буфера ключей MyISAM (кеш индекса)."
+msgstr "Малый % использования буфера ключей MyISAM (кеш индекса)."
 
 #: libraries/advisory_rules_generic.php:380
 #: libraries/advisory_rules_generic.php:397
@@ -653,10 +652,9 @@ msgid "Percentage of index reads from memory"
 msgstr "Процент чтения индексов из памяти"
 
 #: libraries/advisory_rules_generic.php:411
-#, fuzzy, no-php-format
-#| msgid "The %% of indexes that use the MyISAM key buffer is low."
+#, no-php-format
 msgid "The % of indexes that use the MyISAM key buffer is low."
-msgstr "Малый %% индексов использует буфер ключей MyISAM."
+msgstr "Малый % индексов использует буфер ключей MyISAM."
 
 #: libraries/advisory_rules_generic.php:412
 msgid "You may need to increase {key_buffer_size}."
@@ -6022,7 +6020,7 @@ msgstr "Пожалуйста, добавьте в серию хотя бы од�
 #: templates/table/zoom_search/index.twig:64
 #: templates/table/zoom_search/index.twig:124
 msgid "None"
-msgstr "Ниодного"
+msgstr "Нет"
 
 #. l10n: SQL Query on modal to show exported query
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:203
@@ -14070,11 +14068,9 @@ msgid "PARTITION definition:"
 msgstr "Определение разделов (PARTITION):"
 
 #: templates/columns_definitions/column_definitions_form.twig:154
-#, fuzzy
-#| msgid "Enclose export in a transaction"
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
-msgstr "Заключить экспорт в транзакцию"
+msgstr "Транзакция в режиме онлайн"
 
 #: templates/columns_definitions/column_name.twig:4
 #, php-format
@@ -18251,8 +18247,6 @@ msgid "Alter table order by"
 msgstr "Изменить сортировку таблицы"
 
 #: templates/table/operations/index.twig:20
-#, fuzzy
-#| msgid "(singly)"
 msgctxt "Alter table order by a single field."
 msgid "(singly)"
 msgstr "(столбец)"
@@ -18336,46 +18330,32 @@ msgid "Relation view"
 msgstr "Связи"
 
 #: templates/table/partition/analyze.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Analyze partition"
-msgstr "разделён"
+msgstr "Анализировать раздел"
 
 #: templates/table/partition/check.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Check partition"
-msgstr "разделён"
+msgstr "Проверить раздел"
 
 #: templates/table/partition/drop.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Drop partition"
-msgstr "разделён"
+msgstr "Скинуть раздел"
 
 #: templates/table/partition/optimize.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Optimize partition"
-msgstr "Удалить разбиение"
+msgstr "Оптимизировать раздел"
 
 #: templates/table/partition/rebuild.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Rebuild partition"
-msgstr "Подраздел"
+msgstr "Перестроить раздел"
 
 #: templates/table/partition/repair.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Repair partition"
-msgstr "Удалить разбиение"
+msgstr "Починить раздел"
 
 #: templates/table/partition/truncate.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Truncate partition"
-msgstr "Подраздел"
+msgstr "Усечь раздел"
 
 #: templates/table/privileges/index.twig:57
 msgid "table-specific"
