@@ -115,9 +115,9 @@ class Charsets
             . ' WHERE `TABLE_SCHEMA`=\'information_schema\' AND'
             . ' `TABLE_NAME`=\'COLLATION_CHARACTER_SET_APPLICABILITY\' AND'
             . ' `COLUMN_NAME`=\'FULL_COLLATION_NAME\'';
-        
+
         $check = $dbi->query($sql);
-        
+
         if ($check !== []) {
             /* Use query to accomodate new structure of MariaDB collations
             Note, that SHOW COLLATION command is not applicable at the time of writing*/
@@ -138,7 +138,7 @@ class Charsets
                 . ' `IS_COMPILED` AS `Compiled`,'
                 . ' `SORTLEN` AS `Sortlen`'
                 . ' FROM `information_schema`.`COLLATIONS`';
-    
+
             if ($disableIs) {
                 $sql = 'SHOW COLLATION';
             }
