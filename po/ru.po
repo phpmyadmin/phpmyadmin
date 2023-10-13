@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-10-13 10:03+0000\n"
+"PO-Revision-Date: 2023-10-14 18:04+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "ru/>\n"
@@ -17538,10 +17538,8 @@ msgid "Generate password:"
 msgstr "Создать пароль:"
 
 #: templates/server/replication/primary_configuration.twig:2
-#, fuzzy
-#| msgid "Server configuration"
 msgid "Primary configuration"
-msgstr "Параметры сервера"
+msgstr "Основная конфигурация"
 
 #: templates/server/replication/primary_configuration.twig:4
 #, fuzzy
@@ -17643,10 +17641,8 @@ msgid "Control replica:"
 msgstr "Контролировать подчинённый сервер:"
 
 #: templates/server/replication/replica_configuration.twig:48
-#, fuzzy
-#| msgid "Not replicated"
 msgid "Reset replica"
-msgstr "Не реплицировано"
+msgstr "Сбросить реплику"
 
 #: templates/server/replication/replica_configuration.twig:54
 msgid "Start SQL Thread only"
@@ -17693,10 +17689,8 @@ msgstr ""
 "Хотите %sнастроить%s это?"
 
 #: templates/server/replication/status_table.twig:6
-#, fuzzy
-#| msgid "Import status"
 msgid "Primary status"
-msgstr "Импортировать состояние"
+msgstr "Основное состояние"
 
 #: templates/server/replication/status_table.twig:8
 msgid "Replica status"
@@ -18658,8 +18652,6 @@ msgid "Alter table order by"
 msgstr "Изменить сортировку таблицы"
 
 #: templates/table/operations/index.twig:20
-#, fuzzy
-#| msgid "(singly)"
 msgctxt "Alter table order by a single field."
 msgid "(singly)"
 msgstr "(столбец)"
@@ -18743,46 +18735,32 @@ msgid "Relation view"
 msgstr "Связи"
 
 #: templates/table/partition/analyze.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Analyze partition"
-msgstr "разделён"
+msgstr "Анализировать раздел"
 
 #: templates/table/partition/check.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Check partition"
-msgstr "разделён"
+msgstr "Проверить раздел"
 
 #: templates/table/partition/drop.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Drop partition"
-msgstr "разделён"
+msgstr "Скинуть раздел"
 
 #: templates/table/partition/optimize.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Optimize partition"
-msgstr "Удалить разбиение"
+msgstr "Оптимизировать раздел"
 
 #: templates/table/partition/rebuild.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Rebuild partition"
-msgstr "Подраздел"
+msgstr "Перестроить раздел"
 
 #: templates/table/partition/repair.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Repair partition"
-msgstr "Удалить разбиение"
+msgstr "Починить раздел"
 
 #: templates/table/partition/truncate.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Truncate partition"
-msgstr "Подраздел"
+msgstr "Усечь раздел"
 
 #: templates/table/privileges/index.twig:57
 msgid "table-specific"
