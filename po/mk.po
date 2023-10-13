@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2022-04-08 08:32+0000\n"
-"Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
-"Language-Team: Macedonian <https://hosted.weblate.org/projects/"
-"phpmyadmin/5-1/mk/>\n"
+"PO-Revision-Date: 2023-10-14 18:02+0000\n"
+"Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
+"Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
+"5-1/mk/>\n"
 "Language: mk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 5.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -7028,10 +7028,8 @@ msgstr ""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:535
 #: templates/database/designer/main.twig:40
 #: templates/database/designer/main.twig:43
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "Табелите не се пронајдени во базата на податоци."
+msgstr "Додади табели од други датабази"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:536
 #, fuzzy
@@ -8777,9 +8775,9 @@ msgid "Event %1$s has been modified."
 msgstr "Табелата %s е избришана"
 
 #: libraries/classes/Database/Events.php:150
-#, fuzzy, php-format
+#, php-format
 msgid "Event %1$s has been created."
-msgstr "Табелата %s е избришана"
+msgstr "Настанот %1$s беше создаден"
 
 #: libraries/classes/Database/Events.php:164
 #: libraries/classes/Database/Routines.php:272
@@ -10481,12 +10479,11 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/classes/Message.php:276
-#, fuzzy, php-format
-#| msgid "No rows selected"
+#, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "Нема селектирани записи"
-msgstr[1] "Нема селектирани записи"
+msgstr[0] "%1$d редица избришана"
+msgstr[1] "%1$d редици избришани"
 
 #: libraries/classes/Message.php:297
 #, fuzzy, php-format
@@ -17263,9 +17260,9 @@ msgid "Slave replication"
 msgstr ""
 
 #: templates/server/databases/index.twig:184
-#, fuzzy, php-format
+#, php-format
 msgid "Jump to database '%s'"
-msgstr "Базата на податоци не постои"
+msgstr "Прескокни во базата на податоци '%s'"
 
 #: templates/server/databases/index.twig:245
 #, php-format
