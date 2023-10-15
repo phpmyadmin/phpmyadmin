@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-10-08 00:18+0000\n"
+"POT-Creation-Date: 2023-10-15 00:18+0000\n"
 "PO-Revision-Date: 2023-05-02 08:51+0000\n"
 "Last-Translator: Xzonn <Xzonn@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -1257,8 +1257,8 @@ msgid "Description"
 msgstr "说明"
 
 #: src/BrowseForeigners.php:287 src/Language.php:182 src/Pdf.php:83
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:475
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:509
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:474
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:499
 #: templates/list_navigator.twig:4
 msgid "Page number:"
 msgstr "页码："
@@ -1639,7 +1639,7 @@ msgstr "右侧"
 #: src/Config/ConfigFile.php:555
 #: src/Controllers/JavaScriptMessagesController.php:220
 #: src/Display/Results.php:1039 src/Plugins/Export/ExportSql.php:2052
-#: src/Plugins/Schema/SchemaPdf.php:94
+#: src/Plugins/Schema/SchemaPdf.php:96
 #: templates/columns_definitions/column_attributes.twig:216
 #: templates/columns_definitions/column_attributes.twig:239
 #: templates/config/form_display/input.twig:43
@@ -3079,8 +3079,8 @@ msgstr "删除语句确认"
 msgid "Debug SQL"
 msgstr "调试 SQL"
 
-#: src/Config/Descriptions.php:620 src/Plugins/Schema/SchemaDia.php:62
-#: src/Plugins/Schema/SchemaPdf.php:72
+#: src/Config/Descriptions.php:620 src/Plugins/Schema/SchemaDia.php:64
+#: src/Plugins/Schema/SchemaPdf.php:74
 msgid "Paper size"
 msgstr "纸张大小"
 
@@ -3258,8 +3258,8 @@ msgstr "包含表说明"
 #: src/Plugins/Export/ExportLatex.php:517 src/Plugins/Export/ExportOdt.php:473
 #: src/Plugins/Export/ExportTexytext.php:375
 #: src/Plugins/Export/Helpers/Pdf.php:512
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:662
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:675
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:643
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:656
 #: templates/columns_definitions/table_fields_definitions.twig:54
 #: templates/database/data_dictionary/index.twig:29
 #: templates/table/structure/display_structure.twig:28
@@ -5111,7 +5111,7 @@ msgstr "未知"
 #: src/Plugins/Export/ExportHtmlword.php:606
 #: src/Plugins/Export/ExportLatex.php:576 src/Plugins/Export/ExportOdt.php:720
 #: src/Plugins/Export/ExportTexytext.php:560
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:714
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:695
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:362
 #: templates/database/data_dictionary/index.twig:47
@@ -6380,7 +6380,7 @@ msgstr "正在修改字符集"
 #: src/Plugins/Export/ExportHtmlword.php:606
 #: src/Plugins/Export/ExportLatex.php:576 src/Plugins/Export/ExportOdt.php:720
 #: src/Plugins/Export/ExportTexytext.php:560
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:714
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:695
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:362
 #: templates/database/data_dictionary/index.twig:47
@@ -6608,7 +6608,7 @@ msgstr "没有已选择的局部依赖！"
 
 #: src/Controllers/JavaScriptMessagesController.php:435
 #: src/Export/Export.php:1280 src/Html/Generator.php:879
-#: src/Plugins/Schema/ExportRelationSchema.php:271
+#: src/Plugins/Schema/ExportRelationSchema.php:265
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
 msgstr "返回"
@@ -9724,8 +9724,8 @@ msgstr "函数"
 #: src/Plugins/Export/ExportTexytext.php:286
 #: src/Plugins/Export/ExportTexytext.php:367
 #: src/Plugins/Export/Helpers/Pdf.php:491
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:647
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:669
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:628
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:650
 #: templates/columns_definitions/table_fields_definitions.twig:12
 #: templates/database/central_columns/edit.twig:9
 #: templates/database/central_columns/main.twig:20
@@ -9940,8 +9940,8 @@ msgstr "新建"
 #: src/Plugins/Export/ExportTexytext.php:285
 #: src/Plugins/Export/ExportTexytext.php:366
 #: src/Plugins/Export/Helpers/Pdf.php:489
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:646
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:668
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:627
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:649
 #: templates/columns_definitions/column_name.twig:16
 #: templates/database/data_dictionary/index.twig:22
 #: templates/database/data_dictionary/index.twig:77 templates/indexes.twig:21
@@ -10396,7 +10396,7 @@ msgstr "无法连接：无效的设置。"
 #: src/Plugins/Auth/AuthenticationConfig.php:85
 #: src/Plugins/Auth/AuthenticationConfig.php:99
 #: src/Plugins/Auth/AuthenticationHttp.php:77
-#: src/Plugins/AuthenticationPlugin.php:169
+#: src/Plugins/AuthenticationPlugin.php:170
 msgid "Access denied!"
 msgstr "访问被拒绝！"
 
@@ -10428,33 +10428,33 @@ msgstr ""
 msgid "Retry to connect"
 msgstr "重试连接"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:130
+#: src/Plugins/Auth/AuthenticationCookie.php:123
 msgid "Your session has expired. Please log in again."
 msgstr "您的Session已过期，请再次登录。"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:245
+#: src/Plugins/Auth/AuthenticationCookie.php:238
 #, fuzzy
 #| msgid ""
 #| "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
 msgstr "缺少reCAPTCHA验证，也许它被adblock阻止了或者您没有科学上网？"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:280
+#: src/Plugins/Auth/AuthenticationCookie.php:273
 msgid "Failed to connect to the reCAPTCHA service!"
 msgstr "无法连接到reCAPTCHA服务！"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:282
+#: src/Plugins/Auth/AuthenticationCookie.php:275
 msgid "Entered captcha is wrong, try again!"
 msgstr "输入的验证码有误，请再试一次！"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:294
+#: src/Plugins/Auth/AuthenticationCookie.php:287
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
 msgstr ""
 "您的密码太长。为了防止拒绝服务攻击，phpMyAdmin将密码限制为少于2000个字符。"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:313
+#: src/Plugins/Auth/AuthenticationCookie.php:306
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "您不允许登录到此服务器 ！"
 
@@ -10470,12 +10470,12 @@ msgstr "找不到 signon 认证脚本:"
 msgid "Invalid authentication method set in configuration:"
 msgstr "配置文件中设置的认证方式无效："
 
-#: src/Plugins/AuthenticationPlugin.php:165
+#: src/Plugins/AuthenticationPlugin.php:166
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr "空密码登录被禁止 (参见 允许空密码)"
 
-#: src/Plugins/AuthenticationPlugin.php:174
+#: src/Plugins/AuthenticationPlugin.php:175
 #, php-format
 msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
@@ -10484,12 +10484,12 @@ msgstr ""
 "由于%s秒的闲置时间，您已自动退出。再次登录后，您应该能够从上次中断的地方继续"
 "工作。"
 
-#: src/Plugins/AuthenticationPlugin.php:187
-#: src/Plugins/AuthenticationPlugin.php:190
+#: src/Plugins/AuthenticationPlugin.php:188
+#: src/Plugins/AuthenticationPlugin.php:191
 msgid "Cannot log in to the MySQL server"
 msgstr "无法登录 MySQL 服务器"
 
-#: src/Plugins/AuthenticationPlugin.php:326
+#: src/Plugins/AuthenticationPlugin.php:329
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr "您已启用双因素身份验证，请确认您的登录信息。"
 
@@ -10553,8 +10553,8 @@ msgstr "转存表中的数据"
 #: src/Plugins/Export/ExportTexytext.php:287
 #: src/Plugins/Export/ExportTexytext.php:368
 #: src/Plugins/Export/Helpers/Pdf.php:493
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:649
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:671
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:630
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:652
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/database/central_columns/edit.twig:14
 #: templates/database/central_columns/main.twig:40
@@ -10577,8 +10577,8 @@ msgstr "空"
 #: src/Plugins/Export/ExportTexytext.php:288
 #: src/Plugins/Export/ExportTexytext.php:369
 #: src/Plugins/Export/Helpers/Pdf.php:495
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:650
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:672
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:631
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:653
 #: templates/columns_definitions/table_fields_definitions.twig:20
 #: templates/database/central_columns/edit.twig:11
 #: templates/database/central_columns/main.twig:28
@@ -10595,8 +10595,8 @@ msgstr "默认"
 #: src/Plugins/Export/ExportLatex.php:513 src/Plugins/Export/ExportOdt.php:467
 #: src/Plugins/Export/ExportTexytext.php:371
 #: src/Plugins/Export/Helpers/Pdf.php:504
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:652
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:674
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:633
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:655
 #: templates/database/data_dictionary/index.twig:27
 msgid "Links to"
 msgstr "链接到"
@@ -10986,17 +10986,17 @@ msgid "Error reading data for table %s:"
 msgstr "读取表 %s 的数据时发生错误："
 
 #: src/Plugins/Export/ExportSql.php:2658
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:610
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:591
 msgid "Creation:"
 msgstr "创建时间："
 
 #: src/Plugins/Export/ExportSql.php:2668
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:621
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
 msgid "Last update:"
 msgstr "最后更新："
 
 #: src/Plugins/Export/ExportSql.php:2678
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:632
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:613
 msgid "Last check:"
 msgstr "最后检查："
 
@@ -11160,13 +11160,13 @@ msgstr "该格式没有选项"
 msgid "The %s table doesn't exist!"
 msgstr "数据表 %s 不存在！"
 
-#: src/Plugins/Schema/Eps/EpsRelationSchema.php:61
-#: src/Plugins/Schema/Svg/SvgRelationSchema.php:69
+#: src/Plugins/Schema/Eps/EpsRelationSchema.php:64
+#: src/Plugins/Schema/Svg/SvgRelationSchema.php:72
 #, php-format
 msgid "Schema of the %s database - Page %s"
 msgstr "数据库 %s 的大纲 - 第 %s 页"
 
-#: src/Plugins/Schema/ExportRelationSchema.php:257
+#: src/Plugins/Schema/ExportRelationSchema.php:251
 msgid "SCHEMA ERROR: "
 msgstr "大纲错误: "
 
@@ -11174,37 +11174,37 @@ msgstr "大纲错误: "
 msgid "PDF export page"
 msgstr "PDF导出页面"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:119
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:118
 #, php-format
 msgid "Schema of the %s database"
 msgstr "数据库 %s 的大纲"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:147
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:520
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:146
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:510
 msgid "Relational schema"
 msgstr "关系大纲"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:464
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:463
 msgid "Table of contents"
 msgstr "目录"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:599
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:580
 #: templates/columns_definitions/column_definitions_form.twig:71
 #: templates/database/data_dictionary/index.twig:16
 #: templates/table/structure/display_table_stats.twig:6
 msgid "Table comments:"
 msgstr "表注释："
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:648
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:670
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:629
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:651
 #: templates/columns_definitions/table_fields_definitions.twig:27
 #: templates/database/central_columns/edit.twig:13
 #: templates/table/structure/display_structure.twig:24
 msgid "Attributes"
 msgstr "属性"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:651
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:673
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:632
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:654
 #: templates/table/structure/display_structure.twig:30
 #: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
@@ -11218,44 +11218,44 @@ msgstr "显示颜色"
 msgid "Only show keys"
 msgstr "仅显示键"
 
-#: src/Plugins/Schema/SchemaDia.php:53 src/Plugins/Schema/SchemaEps.php:61
-#: src/Plugins/Schema/SchemaPdf.php:63
+#: src/Plugins/Schema/SchemaDia.php:55 src/Plugins/Schema/SchemaEps.php:63
+#: src/Plugins/Schema/SchemaPdf.php:65
 msgid "Orientation"
 msgstr "方向"
 
-#: src/Plugins/Schema/SchemaDia.php:56 src/Plugins/Schema/SchemaEps.php:64
-#: src/Plugins/Schema/SchemaPdf.php:66
+#: src/Plugins/Schema/SchemaDia.php:58 src/Plugins/Schema/SchemaEps.php:66
+#: src/Plugins/Schema/SchemaPdf.php:68
 msgid "Landscape"
 msgstr "横向"
 
-#: src/Plugins/Schema/SchemaDia.php:56 src/Plugins/Schema/SchemaEps.php:64
-#: src/Plugins/Schema/SchemaPdf.php:66
+#: src/Plugins/Schema/SchemaDia.php:58 src/Plugins/Schema/SchemaEps.php:66
+#: src/Plugins/Schema/SchemaPdf.php:68
 msgid "Portrait"
 msgstr "纵向"
 
-#: src/Plugins/Schema/SchemaEps.php:55 src/Plugins/Schema/SchemaPdf.php:57
-#: src/Plugins/Schema/SchemaSvg.php:54
+#: src/Plugins/Schema/SchemaEps.php:57 src/Plugins/Schema/SchemaPdf.php:59
+#: src/Plugins/Schema/SchemaSvg.php:56
 msgid "Same width for all tables"
 msgstr "所有表格的宽度相同"
 
-#: src/Plugins/Schema/SchemaPdf.php:79
+#: src/Plugins/Schema/SchemaPdf.php:81
 msgid "Show grid"
 msgstr "显示网格"
 
-#: src/Plugins/Schema/SchemaPdf.php:85
+#: src/Plugins/Schema/SchemaPdf.php:87
 #: templates/database/structure/index.twig:21
 msgid "Data dictionary"
 msgstr "数据字典"
 
-#: src/Plugins/Schema/SchemaPdf.php:91
+#: src/Plugins/Schema/SchemaPdf.php:93
 msgid "Order of the tables"
 msgstr "表的顺序"
 
-#: src/Plugins/Schema/SchemaPdf.php:94
+#: src/Plugins/Schema/SchemaPdf.php:96
 msgid "Name (Ascending)"
 msgstr "名称（升序）"
 
-#: src/Plugins/Schema/SchemaPdf.php:94
+#: src/Plugins/Schema/SchemaPdf.php:96
 msgid "Name (Descending)"
 msgstr "名称（降序）"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-10-08 00:18+0000\n"
+"POT-Creation-Date: 2023-10-15 00:18+0000\n"
 "PO-Revision-Date: 2022-10-12 10:26+0000\n"
 "Last-Translator: Yun Minseo <ddugi1214@naver.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1324,8 +1324,8 @@ msgid "Description"
 msgstr "설명"
 
 #: src/BrowseForeigners.php:287 src/Language.php:182 src/Pdf.php:83
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:475
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:509
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:474
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:499
 #: templates/list_navigator.twig:4
 msgid "Page number:"
 msgstr "페이지 번호:"
@@ -1707,7 +1707,7 @@ msgstr "오른쪽"
 #: src/Config/ConfigFile.php:555
 #: src/Controllers/JavaScriptMessagesController.php:220
 #: src/Display/Results.php:1039 src/Plugins/Export/ExportSql.php:2052
-#: src/Plugins/Schema/SchemaPdf.php:94
+#: src/Plugins/Schema/SchemaPdf.php:96
 #: templates/columns_definitions/column_attributes.twig:216
 #: templates/columns_definitions/column_attributes.twig:239
 #: templates/config/form_display/input.twig:43
@@ -3266,8 +3266,8 @@ msgstr "DROP 쿼리 확인"
 msgid "Debug SQL"
 msgstr "SQL 디버그"
 
-#: src/Config/Descriptions.php:620 src/Plugins/Schema/SchemaDia.php:62
-#: src/Plugins/Schema/SchemaPdf.php:72
+#: src/Config/Descriptions.php:620 src/Plugins/Schema/SchemaDia.php:64
+#: src/Plugins/Schema/SchemaPdf.php:74
 msgid "Paper size"
 msgstr "용지 크기"
 
@@ -3454,8 +3454,8 @@ msgstr "테이블 설명 포함하기"
 #: src/Plugins/Export/ExportLatex.php:517 src/Plugins/Export/ExportOdt.php:473
 #: src/Plugins/Export/ExportTexytext.php:375
 #: src/Plugins/Export/Helpers/Pdf.php:512
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:662
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:675
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:643
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:656
 #: templates/columns_definitions/table_fields_definitions.twig:54
 #: templates/database/data_dictionary/index.twig:29
 #: templates/table/structure/display_structure.twig:28
@@ -5351,7 +5351,7 @@ msgstr "알수없음"
 #: src/Plugins/Export/ExportHtmlword.php:606
 #: src/Plugins/Export/ExportLatex.php:576 src/Plugins/Export/ExportOdt.php:720
 #: src/Plugins/Export/ExportTexytext.php:560
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:714
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:695
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:362
 #: templates/database/data_dictionary/index.twig:47
@@ -6655,7 +6655,7 @@ msgstr "문자셋 변경 중"
 #: src/Plugins/Export/ExportHtmlword.php:606
 #: src/Plugins/Export/ExportLatex.php:576 src/Plugins/Export/ExportOdt.php:720
 #: src/Plugins/Export/ExportTexytext.php:560
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:714
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:695
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:362
 #: templates/database/data_dictionary/index.twig:47
@@ -6889,7 +6889,7 @@ msgstr "부분 의존성이 선택되지 않았습니다!"
 
 #: src/Controllers/JavaScriptMessagesController.php:435
 #: src/Export/Export.php:1280 src/Html/Generator.php:879
-#: src/Plugins/Schema/ExportRelationSchema.php:271
+#: src/Plugins/Schema/ExportRelationSchema.php:265
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
 msgstr "뒤로"
@@ -10135,8 +10135,8 @@ msgstr "함수"
 #: src/Plugins/Export/ExportTexytext.php:286
 #: src/Plugins/Export/ExportTexytext.php:367
 #: src/Plugins/Export/Helpers/Pdf.php:491
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:647
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:669
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:628
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:650
 #: templates/columns_definitions/table_fields_definitions.twig:12
 #: templates/database/central_columns/edit.twig:9
 #: templates/database/central_columns/main.twig:20
@@ -10352,8 +10352,8 @@ msgstr "새"
 #: src/Plugins/Export/ExportTexytext.php:285
 #: src/Plugins/Export/ExportTexytext.php:366
 #: src/Plugins/Export/Helpers/Pdf.php:489
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:646
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:668
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:627
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:649
 #: templates/columns_definitions/column_name.twig:16
 #: templates/database/data_dictionary/index.twig:22
 #: templates/database/data_dictionary/index.twig:77 templates/indexes.twig:21
@@ -10797,7 +10797,7 @@ msgstr "연결할 수 없습니다: 잘못된 설정."
 #: src/Plugins/Auth/AuthenticationConfig.php:85
 #: src/Plugins/Auth/AuthenticationConfig.php:99
 #: src/Plugins/Auth/AuthenticationHttp.php:77
-#: src/Plugins/AuthenticationPlugin.php:169
+#: src/Plugins/AuthenticationPlugin.php:170
 msgid "Access denied!"
 msgstr "접근이 거부되었습니다!"
 
@@ -10831,29 +10831,29 @@ msgstr ""
 msgid "Retry to connect"
 msgstr "재접속"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:130
+#: src/Plugins/Auth/AuthenticationCookie.php:123
 msgid "Your session has expired. Please log in again."
 msgstr "세션유효기간이 만료되었습니다. 다시 로그인하세요."
 
-#: src/Plugins/Auth/AuthenticationCookie.php:245
+#: src/Plugins/Auth/AuthenticationCookie.php:238
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
 msgstr ""
 
-#: src/Plugins/Auth/AuthenticationCookie.php:280
+#: src/Plugins/Auth/AuthenticationCookie.php:273
 msgid "Failed to connect to the reCAPTCHA service!"
 msgstr "리캡챠 서비스에 접속할 수 없습니다!"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:282
+#: src/Plugins/Auth/AuthenticationCookie.php:275
 msgid "Entered captcha is wrong, try again!"
 msgstr "캡차 값이 틀렸습니다. 다시 해보세요!"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:294
+#: src/Plugins/Auth/AuthenticationCookie.php:287
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
 msgstr ""
 
-#: src/Plugins/Auth/AuthenticationCookie.php:313
+#: src/Plugins/Auth/AuthenticationCookie.php:306
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "MySQL 서버에 로그인 할 권한이 없습니다!"
 
@@ -10869,26 +10869,26 @@ msgstr "접근관련 인증 스크립트를 찾을수 없습니다:"
 msgid "Invalid authentication method set in configuration:"
 msgstr "설정 파일에 잘못된 인증 방식 설정되어 있습니다.:"
 
-#: src/Plugins/AuthenticationPlugin.php:165
+#: src/Plugins/AuthenticationPlugin.php:166
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "암호가 없는 로그인이 설정으로 차단되어 있습니다 (AllowNoLogin 항목을 참조하세"
 "요)"
 
-#: src/Plugins/AuthenticationPlugin.php:174
+#: src/Plugins/AuthenticationPlugin.php:175
 #, php-format
 msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
 "you log in again, you should be able to resume the work where you left off."
 msgstr ""
 
-#: src/Plugins/AuthenticationPlugin.php:187
-#: src/Plugins/AuthenticationPlugin.php:190
+#: src/Plugins/AuthenticationPlugin.php:188
+#: src/Plugins/AuthenticationPlugin.php:191
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL 서버에 로그인할 수 없습니다"
 
-#: src/Plugins/AuthenticationPlugin.php:326
+#: src/Plugins/AuthenticationPlugin.php:329
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
@@ -10952,8 +10952,8 @@ msgstr "테이블의 덤프 데이터"
 #: src/Plugins/Export/ExportTexytext.php:287
 #: src/Plugins/Export/ExportTexytext.php:368
 #: src/Plugins/Export/Helpers/Pdf.php:493
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:649
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:671
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:630
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:652
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/database/central_columns/edit.twig:14
 #: templates/database/central_columns/main.twig:40
@@ -10976,8 +10976,8 @@ msgstr "Null"
 #: src/Plugins/Export/ExportTexytext.php:288
 #: src/Plugins/Export/ExportTexytext.php:369
 #: src/Plugins/Export/Helpers/Pdf.php:495
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:650
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:672
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:631
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:653
 #: templates/columns_definitions/table_fields_definitions.twig:20
 #: templates/database/central_columns/edit.twig:11
 #: templates/database/central_columns/main.twig:28
@@ -10994,8 +10994,8 @@ msgstr "기본값"
 #: src/Plugins/Export/ExportLatex.php:513 src/Plugins/Export/ExportOdt.php:467
 #: src/Plugins/Export/ExportTexytext.php:371
 #: src/Plugins/Export/Helpers/Pdf.php:504
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:652
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:674
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:633
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:655
 #: templates/database/data_dictionary/index.twig:27
 msgid "Links to"
 msgstr "링크 대상"
@@ -11389,17 +11389,17 @@ msgid "Error reading data for table %s:"
 msgstr "데이터 읽기 오류:"
 
 #: src/Plugins/Export/ExportSql.php:2658
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:610
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:591
 msgid "Creation:"
 msgstr "생성:"
 
 #: src/Plugins/Export/ExportSql.php:2668
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:621
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
 msgid "Last update:"
 msgstr "마지막 업데이트:"
 
 #: src/Plugins/Export/ExportSql.php:2678
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:632
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:613
 msgid "Last check:"
 msgstr "마지막 검사:"
 
@@ -11565,13 +11565,13 @@ msgstr "이 형식은 옵션이 없음"
 msgid "The %s table doesn't exist!"
 msgstr "%s 테이블이 존재하지 않습니다!"
 
-#: src/Plugins/Schema/Eps/EpsRelationSchema.php:61
-#: src/Plugins/Schema/Svg/SvgRelationSchema.php:69
+#: src/Plugins/Schema/Eps/EpsRelationSchema.php:64
+#: src/Plugins/Schema/Svg/SvgRelationSchema.php:72
 #, php-format
 msgid "Schema of the %s database - Page %s"
 msgstr "데이터베이스 %s의 스키마 - 페이지 %s"
 
-#: src/Plugins/Schema/ExportRelationSchema.php:257
+#: src/Plugins/Schema/ExportRelationSchema.php:251
 msgid "SCHEMA ERROR: "
 msgstr "스키마 에러: "
 
@@ -11579,37 +11579,37 @@ msgstr "스키마 에러: "
 msgid "PDF export page"
 msgstr "PDF 내보내기 페이지"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:119
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:118
 #, php-format
 msgid "Schema of the %s database"
 msgstr "데이터베이스 %s의 스키마"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:147
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:520
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:146
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:510
 msgid "Relational schema"
 msgstr "릴레이션 스키마"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:464
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:463
 msgid "Table of contents"
 msgstr "목차(차례)"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:599
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:580
 #: templates/columns_definitions/column_definitions_form.twig:71
 #: templates/database/data_dictionary/index.twig:16
 #: templates/table/structure/display_table_stats.twig:6
 msgid "Table comments:"
 msgstr "테이블 설명:"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:648
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:670
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:629
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:651
 #: templates/columns_definitions/table_fields_definitions.twig:27
 #: templates/database/central_columns/edit.twig:13
 #: templates/table/structure/display_structure.twig:24
 msgid "Attributes"
 msgstr "보기"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:651
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:673
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:632
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:654
 #: templates/table/structure/display_structure.twig:30
 #: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
@@ -11623,44 +11623,44 @@ msgstr "색깔 보기"
 msgid "Only show keys"
 msgstr "키만 보기"
 
-#: src/Plugins/Schema/SchemaDia.php:53 src/Plugins/Schema/SchemaEps.php:61
-#: src/Plugins/Schema/SchemaPdf.php:63
+#: src/Plugins/Schema/SchemaDia.php:55 src/Plugins/Schema/SchemaEps.php:63
+#: src/Plugins/Schema/SchemaPdf.php:65
 msgid "Orientation"
 msgstr "화면 방향"
 
-#: src/Plugins/Schema/SchemaDia.php:56 src/Plugins/Schema/SchemaEps.php:64
-#: src/Plugins/Schema/SchemaPdf.php:66
+#: src/Plugins/Schema/SchemaDia.php:58 src/Plugins/Schema/SchemaEps.php:66
+#: src/Plugins/Schema/SchemaPdf.php:68
 msgid "Landscape"
 msgstr "가로"
 
-#: src/Plugins/Schema/SchemaDia.php:56 src/Plugins/Schema/SchemaEps.php:64
-#: src/Plugins/Schema/SchemaPdf.php:66
+#: src/Plugins/Schema/SchemaDia.php:58 src/Plugins/Schema/SchemaEps.php:66
+#: src/Plugins/Schema/SchemaPdf.php:68
 msgid "Portrait"
 msgstr "세로"
 
-#: src/Plugins/Schema/SchemaEps.php:55 src/Plugins/Schema/SchemaPdf.php:57
-#: src/Plugins/Schema/SchemaSvg.php:54
+#: src/Plugins/Schema/SchemaEps.php:57 src/Plugins/Schema/SchemaPdf.php:59
+#: src/Plugins/Schema/SchemaSvg.php:56
 msgid "Same width for all tables"
 msgstr ""
 
-#: src/Plugins/Schema/SchemaPdf.php:79
+#: src/Plugins/Schema/SchemaPdf.php:81
 msgid "Show grid"
 msgstr "그리드 표시"
 
-#: src/Plugins/Schema/SchemaPdf.php:85
+#: src/Plugins/Schema/SchemaPdf.php:87
 #: templates/database/structure/index.twig:21
 msgid "Data dictionary"
 msgstr "데이터 사전"
 
-#: src/Plugins/Schema/SchemaPdf.php:91
+#: src/Plugins/Schema/SchemaPdf.php:93
 msgid "Order of the tables"
 msgstr "테이블 정렬 순서"
 
-#: src/Plugins/Schema/SchemaPdf.php:94
+#: src/Plugins/Schema/SchemaPdf.php:96
 msgid "Name (Ascending)"
 msgstr "이름 (오름차순)"
 
-#: src/Plugins/Schema/SchemaPdf.php:94
+#: src/Plugins/Schema/SchemaPdf.php:96
 msgid "Name (Descending)"
 msgstr "이름 (내림차순)"
 

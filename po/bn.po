@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-10-08 00:18+0000\n"
+"POT-Creation-Date: 2023-10-15 00:18+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1332,8 +1332,8 @@ msgid "Description"
 msgstr "বর্ণনা"
 
 #: src/BrowseForeigners.php:287 src/Language.php:182 src/Pdf.php:83
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:475
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:509
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:474
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:499
 #: templates/list_navigator.twig:4
 msgid "Page number:"
 msgstr "পাতার সংখ্যা:"
@@ -1740,7 +1740,7 @@ msgstr "ডান"
 #: src/Config/ConfigFile.php:555
 #: src/Controllers/JavaScriptMessagesController.php:220
 #: src/Display/Results.php:1039 src/Plugins/Export/ExportSql.php:2052
-#: src/Plugins/Schema/SchemaPdf.php:94
+#: src/Plugins/Schema/SchemaPdf.php:96
 #: templates/columns_definitions/column_attributes.twig:216
 #: templates/columns_definitions/column_attributes.twig:239
 #: templates/config/form_display/input.twig:43
@@ -3398,8 +3398,8 @@ msgstr "অনুসন্ধান মুছা নিশ্চত করুন
 msgid "Debug SQL"
 msgstr "SQL ত্রুটিমুক্ত করন"
 
-#: src/Config/Descriptions.php:620 src/Plugins/Schema/SchemaDia.php:62
-#: src/Plugins/Schema/SchemaPdf.php:72
+#: src/Config/Descriptions.php:620 src/Plugins/Schema/SchemaDia.php:64
+#: src/Plugins/Schema/SchemaPdf.php:74
 msgid "Paper size"
 msgstr "পাতার আকার"
 
@@ -3599,8 +3599,8 @@ msgstr "টেবিলের শিরোনামসহ"
 #: src/Plugins/Export/ExportLatex.php:517 src/Plugins/Export/ExportOdt.php:473
 #: src/Plugins/Export/ExportTexytext.php:375
 #: src/Plugins/Export/Helpers/Pdf.php:512
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:662
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:675
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:643
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:656
 #: templates/columns_definitions/table_fields_definitions.twig:54
 #: templates/database/data_dictionary/index.twig:29
 #: templates/table/structure/display_structure.twig:28
@@ -5621,7 +5621,7 @@ msgstr "অজানা"
 #: src/Plugins/Export/ExportHtmlword.php:606
 #: src/Plugins/Export/ExportLatex.php:576 src/Plugins/Export/ExportOdt.php:720
 #: src/Plugins/Export/ExportTexytext.php:560
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:714
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:695
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:362
 #: templates/database/data_dictionary/index.twig:47
@@ -7020,7 +7020,7 @@ msgstr "বর্ণ রাশি পরিবর্তন করছি"
 #: src/Plugins/Export/ExportHtmlword.php:606
 #: src/Plugins/Export/ExportLatex.php:576 src/Plugins/Export/ExportOdt.php:720
 #: src/Plugins/Export/ExportTexytext.php:560
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:714
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:695
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:362
 #: templates/database/data_dictionary/index.twig:47
@@ -7266,7 +7266,7 @@ msgstr "ডাটাবেইজ নিবার্চন করা হয়নি
 
 #: src/Controllers/JavaScriptMessagesController.php:435
 #: src/Export/Export.php:1280 src/Html/Generator.php:879
-#: src/Plugins/Schema/ExportRelationSchema.php:271
+#: src/Plugins/Schema/ExportRelationSchema.php:265
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
 msgstr "পিছনে"
@@ -10781,8 +10781,8 @@ msgstr "ফাংশন"
 #: src/Plugins/Export/ExportTexytext.php:286
 #: src/Plugins/Export/ExportTexytext.php:367
 #: src/Plugins/Export/Helpers/Pdf.php:491
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:647
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:669
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:628
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:650
 #: templates/columns_definitions/table_fields_definitions.twig:12
 #: templates/database/central_columns/edit.twig:9
 #: templates/database/central_columns/main.twig:20
@@ -11011,8 +11011,8 @@ msgstr "নতুন"
 #: src/Plugins/Export/ExportTexytext.php:285
 #: src/Plugins/Export/ExportTexytext.php:366
 #: src/Plugins/Export/Helpers/Pdf.php:489
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:646
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:668
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:627
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:649
 #: templates/columns_definitions/column_name.twig:16
 #: templates/database/data_dictionary/index.twig:22
 #: templates/database/data_dictionary/index.twig:77 templates/indexes.twig:21
@@ -11474,7 +11474,7 @@ msgstr "সংযোগ করা যায়নি: অকার্যকর স�
 #: src/Plugins/Auth/AuthenticationConfig.php:85
 #: src/Plugins/Auth/AuthenticationConfig.php:99
 #: src/Plugins/Auth/AuthenticationHttp.php:77
-#: src/Plugins/AuthenticationPlugin.php:169
+#: src/Plugins/AuthenticationPlugin.php:170
 msgid "Access denied!"
 msgstr "প্রবেশ করা যাচ্ছে না"
 
@@ -11507,31 +11507,31 @@ msgstr ""
 msgid "Retry to connect"
 msgstr "পুনরায় সংযোগের চেষ্ট কর"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:130
+#: src/Plugins/Auth/AuthenticationCookie.php:123
 msgid "Your session has expired. Please log in again."
 msgstr "আপনার সেশন শেষ হয়ে গেছে। আবার লগইন করুন।"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:245
+#: src/Plugins/Auth/AuthenticationCookie.php:238
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
 msgstr ""
 
-#: src/Plugins/Auth/AuthenticationCookie.php:280
+#: src/Plugins/Auth/AuthenticationCookie.php:273
 #, fuzzy
 #| msgid "Could not connect to the database server!"
 msgid "Failed to connect to the reCAPTCHA service!"
 msgstr "ডাটাবেইজ সার্ভারে সংযোগ করা যায়নি"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:282
+#: src/Plugins/Auth/AuthenticationCookie.php:275
 msgid "Entered captcha is wrong, try again!"
 msgstr ""
 
-#: src/Plugins/Auth/AuthenticationCookie.php:294
+#: src/Plugins/Auth/AuthenticationCookie.php:287
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
 msgstr ""
 
-#: src/Plugins/Auth/AuthenticationCookie.php:313
+#: src/Plugins/Auth/AuthenticationCookie.php:306
 #, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
@@ -11549,24 +11549,24 @@ msgstr "সাইনঅন প্রমাণীকরণ স্ক্রীপ�
 msgid "Invalid authentication method set in configuration:"
 msgstr "কনফিগারেশনে অকার্যকর প্রমাণীকরন পদ্ধতি:"
 
-#: src/Plugins/AuthenticationPlugin.php:165
+#: src/Plugins/AuthenticationPlugin.php:166
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr "পাসওয়ার্ড বিহীন লগইন কনফিগারেশন দ্বারা নিষিদ্ধ (see AllowNoPassword)"
 
-#: src/Plugins/AuthenticationPlugin.php:174
+#: src/Plugins/AuthenticationPlugin.php:175
 #, php-format
 msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
 "you log in again, you should be able to resume the work where you left off."
 msgstr ""
 
-#: src/Plugins/AuthenticationPlugin.php:187
-#: src/Plugins/AuthenticationPlugin.php:190
+#: src/Plugins/AuthenticationPlugin.php:188
+#: src/Plugins/AuthenticationPlugin.php:191
 msgid "Cannot log in to the MySQL server"
 msgstr "মাইএসকিউএল সার্ভারে লগইন করা যাচ্ছে না"
 
-#: src/Plugins/AuthenticationPlugin.php:326
+#: src/Plugins/AuthenticationPlugin.php:329
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
@@ -11630,8 +11630,8 @@ msgstr "টেবলের জন্য তথ্য স্তুপ করছ�
 #: src/Plugins/Export/ExportTexytext.php:287
 #: src/Plugins/Export/ExportTexytext.php:368
 #: src/Plugins/Export/Helpers/Pdf.php:493
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:649
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:671
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:630
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:652
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/database/central_columns/edit.twig:14
 #: templates/database/central_columns/main.twig:40
@@ -11654,8 +11654,8 @@ msgstr "নাল"
 #: src/Plugins/Export/ExportTexytext.php:288
 #: src/Plugins/Export/ExportTexytext.php:369
 #: src/Plugins/Export/Helpers/Pdf.php:495
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:650
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:672
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:631
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:653
 #: templates/columns_definitions/table_fields_definitions.twig:20
 #: templates/database/central_columns/edit.twig:11
 #: templates/database/central_columns/main.twig:28
@@ -11672,8 +11672,8 @@ msgstr "ডিফল্ট"
 #: src/Plugins/Export/ExportLatex.php:513 src/Plugins/Export/ExportOdt.php:467
 #: src/Plugins/Export/ExportTexytext.php:371
 #: src/Plugins/Export/Helpers/Pdf.php:504
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:652
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:674
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:633
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:655
 #: templates/database/data_dictionary/index.twig:27
 msgid "Links to"
 msgstr "এর সংযোগ"
@@ -12103,17 +12103,17 @@ msgid "Error reading data for table %s:"
 msgstr "তথ্য পড়ার ভুল:"
 
 #: src/Plugins/Export/ExportSql.php:2658
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:610
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:591
 msgid "Creation:"
 msgstr "প্রস্তুত:"
 
 #: src/Plugins/Export/ExportSql.php:2668
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:621
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
 msgid "Last update:"
 msgstr "সর্বশেষ আপডেট:"
 
 #: src/Plugins/Export/ExportSql.php:2678
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:632
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:613
 msgid "Last check:"
 msgstr "সর্বশেষ যাচাই:"
 
@@ -12284,13 +12284,13 @@ msgstr "এই গঠনের কোন অপশন নাই"
 msgid "The %s table doesn't exist!"
 msgstr "%s টেবলটি নাই!"
 
-#: src/Plugins/Schema/Eps/EpsRelationSchema.php:61
-#: src/Plugins/Schema/Svg/SvgRelationSchema.php:69
+#: src/Plugins/Schema/Eps/EpsRelationSchema.php:64
+#: src/Plugins/Schema/Svg/SvgRelationSchema.php:72
 #, php-format
 msgid "Schema of the %s database - Page %s"
 msgstr "%s ডাটাবেইজের রূপরেখা - পাতা %s"
 
-#: src/Plugins/Schema/ExportRelationSchema.php:257
+#: src/Plugins/Schema/ExportRelationSchema.php:251
 msgid "SCHEMA ERROR: "
 msgstr "রূপরেখায় ভুল : "
 
@@ -12300,38 +12300,38 @@ msgstr "রূপরেখায় ভুল : "
 msgid "PDF export page"
 msgstr "রফতানীর ধরন সঠিক নয়"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:119
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:118
 #, fuzzy, php-format
 #| msgid "Schema of the %s database - Page %s"
 msgid "Schema of the %s database"
 msgstr "%s ডাটাবেইজের রূপরেখা - পাতা %s"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:147
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:520
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:146
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:510
 msgid "Relational schema"
 msgstr "সর্ম্পকের রূপরেখা"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:464
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:463
 msgid "Table of contents"
 msgstr "সুচিপত্র"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:599
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:580
 #: templates/columns_definitions/column_definitions_form.twig:71
 #: templates/database/data_dictionary/index.twig:16
 #: templates/table/structure/display_table_stats.twig:6
 msgid "Table comments:"
 msgstr "টেবিলের মন্তব্য সমূহ:"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:648
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:670
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:629
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:651
 #: templates/columns_definitions/table_fields_definitions.twig:27
 #: templates/database/central_columns/edit.twig:13
 #: templates/table/structure/display_structure.twig:24
 msgid "Attributes"
 msgstr "গুনাবলী"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:651
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:673
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:632
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:654
 #: templates/table/structure/display_structure.twig:30
 #: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
@@ -12345,50 +12345,50 @@ msgstr "রং দেখাও"
 msgid "Only show keys"
 msgstr "শুধু কী দেখাও"
 
-#: src/Plugins/Schema/SchemaDia.php:53 src/Plugins/Schema/SchemaEps.php:61
-#: src/Plugins/Schema/SchemaPdf.php:63
+#: src/Plugins/Schema/SchemaDia.php:55 src/Plugins/Schema/SchemaEps.php:63
+#: src/Plugins/Schema/SchemaPdf.php:65
 msgid "Orientation"
 msgstr "পরিস্থিতি"
 
-#: src/Plugins/Schema/SchemaDia.php:56 src/Plugins/Schema/SchemaEps.php:64
-#: src/Plugins/Schema/SchemaPdf.php:66
+#: src/Plugins/Schema/SchemaDia.php:58 src/Plugins/Schema/SchemaEps.php:66
+#: src/Plugins/Schema/SchemaPdf.php:68
 msgid "Landscape"
 msgstr "আড়াআড়ীভাবে"
 
-#: src/Plugins/Schema/SchemaDia.php:56 src/Plugins/Schema/SchemaEps.php:64
-#: src/Plugins/Schema/SchemaPdf.php:66
+#: src/Plugins/Schema/SchemaDia.php:58 src/Plugins/Schema/SchemaEps.php:66
+#: src/Plugins/Schema/SchemaPdf.php:68
 msgid "Portrait"
 msgstr "লম্বাকৃতিতে"
 
-#: src/Plugins/Schema/SchemaEps.php:55 src/Plugins/Schema/SchemaPdf.php:57
-#: src/Plugins/Schema/SchemaSvg.php:54
+#: src/Plugins/Schema/SchemaEps.php:57 src/Plugins/Schema/SchemaPdf.php:59
+#: src/Plugins/Schema/SchemaSvg.php:56
 msgid "Same width for all tables"
 msgstr ""
 
-#: src/Plugins/Schema/SchemaPdf.php:79
+#: src/Plugins/Schema/SchemaPdf.php:81
 msgid "Show grid"
 msgstr "গ্রীড দেখাও"
 
-#: src/Plugins/Schema/SchemaPdf.php:85
+#: src/Plugins/Schema/SchemaPdf.php:87
 #: templates/database/structure/index.twig:21
 #, fuzzy
 #| msgid "Data Dictionary"
 msgid "Data dictionary"
 msgstr "তথ্য অভিধান"
 
-#: src/Plugins/Schema/SchemaPdf.php:91
+#: src/Plugins/Schema/SchemaPdf.php:93
 #, fuzzy
 #| msgid "neither of the above"
 msgid "Order of the tables"
 msgstr "উপরের কোনটি নয়"
 
-#: src/Plugins/Schema/SchemaPdf.php:94
+#: src/Plugins/Schema/SchemaPdf.php:96
 #, fuzzy
 #| msgid "Ascending"
 msgid "Name (Ascending)"
 msgstr "উর্ধ্ব মূখী"
 
-#: src/Plugins/Schema/SchemaPdf.php:94
+#: src/Plugins/Schema/SchemaPdf.php:96
 #, fuzzy
 #| msgid "Descending"
 msgid "Name (Descending)"
