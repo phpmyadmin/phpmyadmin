@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-10-15 00:18+0000\n"
-"PO-Revision-Date: 2023-10-14 18:04+0000\n"
+"PO-Revision-Date: 2023-10-16 09:07+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
@@ -2114,46 +2114,38 @@ msgid "Enable bzip2 compression for import operations."
 msgstr "Включить bzip2 сжатие для операций импорта."
 
 #: src/Config/Descriptions.php:93
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
-msgstr "Введите ваш закрытый ключ для сервиса reCaptcha вашего домена."
+msgstr "Введите URL-адрес вашего API, совместимого с reCAPTCHA v2."
 
 #: src/Config/Descriptions.php:94
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
-msgstr "Введите ваш закрытый ключ для сервиса reCaptcha вашего домена."
+msgstr ""
+"Введите фрагмент Content-Security-Policy вашего API, совместимого с "
+"reCAPTCHA v2."
 
 #: src/Config/Descriptions.php:95
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
-msgstr "Введите ваш закрытый ключ для сервиса reCaptcha вашего домена."
+msgstr ""
+"Введите параметр запроса, используемый вашим API, совместимым с reCAPTCHA v2."
 
 #: src/Config/Descriptions.php:96
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
-msgstr "Введите ваш закрытый ключ для сервиса reCaptcha вашего домена."
+msgstr ""
+"Введите параметр ответа, используемый вашим API, совместимым с reCAPTCHA v2."
 
 #: src/Config/Descriptions.php:97
-#, fuzzy
-#| msgid "Enter your public key for your domain reCaptcha service."
 msgid "Enter your public key for the reCAPTCHA service on your domain."
-msgstr "Введите ваш публичный ключ для сервиса reCaptcha вашего домена."
+msgstr "Введите открытый ключ для службы reCAPTCHA на вашем домене."
 
 #: src/Config/Descriptions.php:98
 msgid "Enter your private key for your domain reCAPTCHA service."
 msgstr "Введите ваш закрытый ключ для сервиса reCAPTCHA вашего домена."
 
 #: src/Config/Descriptions.php:99
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your siteverify URL for your reCAPTCHA service."
-msgstr "Введите ваш закрытый ключ для сервиса reCaptcha вашего домена."
+msgstr "Введите URL-адрес проверки сайта для вашей службы reCAPTCHA."
 
 #: src/Config/Descriptions.php:101
 msgid ""
@@ -2640,6 +2632,8 @@ msgstr ""
 #: src/Config/Descriptions.php:332
 msgid "Allow users to create bookmarks that are available for all other users"
 msgstr ""
+"Разрешить пользователям создавать закладки, доступные для всех остальных "
+"пользователей"
 
 #: src/Config/Descriptions.php:334
 msgid ""
@@ -3652,10 +3646,8 @@ msgid "Remember filename template"
 msgstr "Запомнить шаблон имени файла"
 
 #: src/Config/Descriptions.php:690
-#, fuzzy
-#| msgid "Remove columns from central list"
 msgid "Remove DEFINER clause from definitions"
-msgstr "Удалить столбцы из центрального списка"
+msgstr "Убрать предложение DEFINER из определений"
 
 #: src/Config/Descriptions.php:691 templates/database/operations/index.twig:161
 #: templates/table/operations/index.twig:73
@@ -4191,7 +4183,7 @@ msgstr "Длина истории запросов"
 
 #: src/Config/Descriptions.php:855
 msgid "Allow shared bookmarks between users"
-msgstr ""
+msgstr "Разрешить совместные закладки между пользователями"
 
 #: src/Config/Descriptions.php:856
 msgid "Recoding engine"
@@ -4875,14 +4867,8 @@ msgid "Failed to read configuration file!"
 msgstr "Ошибка при чтении конфигурационного файла!"
 
 #: src/Config.php:668
-#, fuzzy
-#| msgid ""
-#| "This usually means there is a syntax error in it, please check any errors "
-#| "shown below."
 msgid "This usually means there is a syntax error in it."
-msgstr ""
-"Обычно это означает наличие синтаксических ошибок, пожалуйста, проверьте "
-"выведенные ниже ошибки."
+msgstr "Обычно это означает, что в нём допущена синтаксическая ошибка."
 
 #: src/Config/ServerConfigChecks.php:52
 #, php-format
