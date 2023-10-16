@@ -31,8 +31,10 @@ final class ChangeRowsController extends AbstractController
 
         $rowsToDelete = $request->getParsedBodyParam('rows_to_delete');
 
-        if ((! $request->hasBodyParam('rows_to_delete') || ! is_array($rowsToDelete))
-            && $request->hasBodyParam('goto')) {
+        if (
+            (! $request->hasBodyParam('rows_to_delete') || ! is_array($rowsToDelete))
+            && $request->hasBodyParam('goto')
+        ) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No row selected.'));
 
