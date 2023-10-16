@@ -12,6 +12,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\SqlParser\Translator;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Theme\Theme;
@@ -200,6 +201,7 @@ abstract class AbstractTestCase extends TestCase
     {
         DatabaseInterface::$instance = null;
         Config::$instance = null;
+        (new ReflectionProperty(Template::class, 'twig'))->setValue(null, null);
         foreach (array_keys($GLOBALS) as $key) {
             if (in_array($key, $this->globalsAllowList)) {
                 continue;
