@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Controllers\Table\ChangeController;
 use PhpMyAdmin\Controllers\Table\ChangeRowsController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -29,9 +29,9 @@ class ChangeRowsControllerTest extends AbstractTestCase
 
     public function testChangeRowsController(): void
     {
-        $_POST['rows_to_delete'] = 'row';
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody(['rows_to_delete' => 'row']);
 
-        $request = $this->createStub(ServerRequest::class);
         $mock = $this->createMock(ChangeController::class);
         $mock->expects($this->once())->method('__invoke')->with($request);
 
@@ -45,9 +45,9 @@ class ChangeRowsControllerTest extends AbstractTestCase
 
     public function testWithoutRowsToDelete(): void
     {
-        $_POST['goto'] = 'goto';
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody(['goto' => 'goto']);
 
-        $request = $this->createStub(ServerRequest::class);
         $mock = $this->createMock(ChangeController::class);
         $mock->expects($this->never())->method('__invoke')->with($request);
 
@@ -64,10 +64,9 @@ class ChangeRowsControllerTest extends AbstractTestCase
 
     public function testWithRowsToDelete(): void
     {
-        $_POST['goto'] = 'goto';
-        $_POST['rows_to_delete'] = ['key1' => 'row1', 'key2' => 'row2'];
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody(['goto' => 'goto', 'rows_to_delete' => ['key1' => 'row1', 'key2' => 'row2']]);
 
-        $request = $this->createStub(ServerRequest::class);
         $mock = $this->createMock(ChangeController::class);
         $mock->expects($this->once())->method('__invoke')->with($request);
 

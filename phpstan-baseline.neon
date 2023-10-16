@@ -5837,7 +5837,12 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
-			count: 2
+			count: 1
+			path: src/Controllers/Table/FindReplaceController.php
+
+		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 3
 			path: src/Controllers/Table/FindReplaceController.php
 
 		-
@@ -5866,27 +5871,7 @@ parameters:
 			path: src/Controllers/Table/FindReplaceController.php
 
 		-
-			message: "#^Parameter \\#2 \\$find of method PhpMyAdmin\\\\Controllers\\\\Table\\\\FindReplaceController\\:\\:getReplacePreview\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/FindReplaceController.php
-
-		-
-			message: "#^Parameter \\#2 \\$find of method PhpMyAdmin\\\\Controllers\\\\Table\\\\FindReplaceController\\:\\:replace\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/FindReplaceController.php
-
-		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/FindReplaceController.php
-
-		-
-			message: "#^Parameter \\#3 \\$replaceWith of method PhpMyAdmin\\\\Controllers\\\\Table\\\\FindReplaceController\\:\\:getReplacePreview\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/FindReplaceController.php
-
-		-
-			message: "#^Parameter \\#3 \\$replaceWith of method PhpMyAdmin\\\\Controllers\\\\Table\\\\FindReplaceController\\:\\:replace\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/FindReplaceController.php
 

@@ -3327,6 +3327,7 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['where_clause']]]></code>
+      <code>$rowsToDelete</code>
     </MixedAssignment>
   </file>
   <file src="src/Controllers/Table/ChartController.php">
@@ -3536,22 +3537,6 @@
       <code>$row</code>
       <code>$row</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$_POST['find']]]></code>
-      <code><![CDATA[$_POST['findString']]]></code>
-      <code><![CDATA[$_POST['replaceWith']]]></code>
-      <code><![CDATA[$_POST['replaceWith']]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['find']]]></code>
-      <code><![CDATA[$_POST['findString']]]></code>
-      <code><![CDATA[$_POST['replaceWith']]]></code>
-      <code><![CDATA[$_POST['replaceWith']]]></code>
-    </PossiblyInvalidCast>
-    <RiskyCast>
-      <code><![CDATA[$_POST['columnIndex']]]></code>
-      <code><![CDATA[$_POST['columnIndex']]]></code>
-    </RiskyCast>
   </file>
   <file src="src/Controllers/Table/GetFieldController.php">
     <PossiblyNullArgument>
