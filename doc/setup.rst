@@ -104,14 +104,14 @@ Additionally you need to install dependencies using `Composer <https://getcompos
 
 .. code-block:: sh
 
-    composer update
+    composer install
 
 If you do not intend to develop, you can skip the installation of developer tools
 by invoking:
 
 .. code-block:: sh
 
-    composer update --no-dev
+    composer install --no-dev
 
 Finally, you'll need to use `Yarn`_ to install some JavaScript dependencies:
 

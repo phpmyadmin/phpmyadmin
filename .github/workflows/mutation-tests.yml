@@ -59,8 +59,6 @@ jobs:
 
       - name: Install Composer dependencies
         uses: ramsey/composer-install@v2
-        with:
-          dependency-versions: highest
 
       - name: Run Infection for changed files only
         if: github.event_name == 'push' || github.event_name == 'pull_request'

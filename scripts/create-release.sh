@@ -495,16 +495,9 @@ rm README.rst
 
 if [ -f ./scripts/console ]; then
     # Update the vendors to have the dev vendors
-    composer update --no-interaction
+    composer install --no-interaction
     # Warm up the routing cache for 5.1+ releases
     ./scripts/console cache:warmup --routing
-fi
-
-PHP_REQ=$(sed -n '/"php"/ s/.*"\^\([0-9]\.[0-9]\.[0-9]\|[0-9]\.[0-9]\).*/\1/p' composer.json)
-
-if [ -z "$PHP_REQ" ] ; then
-    echo "Failed to figure out required PHP version from composer.json"
-    exit 2
 fi
 
 echo "* Writing the version to composer.json (version: $version)"
@@ -516,8 +509,7 @@ composer config version "$version"
 cp composer.json composer.json.backup
 COMPOSER_VERSION="$(composer --version)"
 echo "* Running composer (version: $COMPOSER_VERSION)"
-composer config platform.php "$PHP_REQ"
-composer update --no-interaction --no-dev
+composer install --no-interaction --no-dev
 
 # Parse the required versions from composer.json
 PACKAGES_VERSIONS=''
@@ -531,7 +523,7 @@ done
 
 echo "* Installing composer packages '$PACKAGES_VERSIONS'"
 
-composer require --no-interaction --update-no-dev $PACKAGES_VERSIONS
+composer require --no-interaction $PACKAGES_VERSIONS
 
 echo "* Running a security checkup"
 security_checkup
@@ -551,11 +543,6 @@ autoload_checkup
 
 echo "* Running a security checkup"
 security_checkup
-if [ $do_tag -eq 1 ] ; then
-    echo "* Commiting composer.lock"
-    git add --force composer.lock
-    git commit -s -m "Adding composer lock for $version"
-fi
 
 if [ -f package.json ] ; then
     echo "* Running Yarn"
@@ -724,15 +711,6 @@ if [ $do_tag -eq 1 ] ; then
     echo "* Tagging release as $tagname"
     git tag -s -a -m "Released $version" $tagname $branch
     echo "   Dont forget to push tags using: git push --tags"
-    echo "* Cleanup of $branch"
-    # Remove composer.lock, but we need to create fresh worktree for that
-    git worktree add --force $workdir $branch
-    cd $workdir
-    git rm --force composer.lock
-    git commit -s -m "Removing composer.lock"
-    cd ../..
-    rm -r $workdir
-    git worktree prune
 fi
 
 # Mark as stable release
