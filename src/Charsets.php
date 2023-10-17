@@ -124,7 +124,7 @@ class Charsets
                 . ' FROM `information_schema`.`COLLATION_CHARACTER_SET_APPLICABILITY` `collapp`'
                 . ' LEFT JOIN `information_schema`.`COLLATIONS` `coll`'
                 . ' ON `collapp`.`COLLATION_NAME`=`coll`.`COLLATION_NAME`';
-         } else {
+        } else {
             $sql = 'SELECT `COLLATION_NAME` AS `Collation`,'
                 . ' `CHARACTER_SET_NAME` AS `Charset`,'
                 . ' `ID` AS `Id`,'
