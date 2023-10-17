@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
 "PO-Revision-Date: 2023-10-19 15:01+0000\n"
-"Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
+"Last-Translator: Daniel Dimitrov <dimitrov.daniel@hotmail.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/mk/>\n"
 "Language: mk\n"
@@ -5087,7 +5087,7 @@ msgstr ""
 #: libraries/classes/Controllers/Import/ImportController.php:372
 #: libraries/classes/Controllers/Import/ImportController.php:610
 msgid "Showing bookmark"
-msgstr "Прикажување белешка"
+msgstr "Прикажување ознака"
 
 #: libraries/classes/Controllers/Import/ImportController.php:393
 #: libraries/classes/Controllers/Import/ImportController.php:606
