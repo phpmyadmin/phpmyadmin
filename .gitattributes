@@ -10,7 +10,6 @@
 .eslintignore export-ignore
 .weblate export-ignore
 codecov.yml export-ignore
-build.xml export-ignore
 infection.json5.dist export-ignore
 phpcs.xml.dist export-ignore
 phpstan.neon.dist export-ignore

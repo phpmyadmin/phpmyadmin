@@ -620,7 +620,7 @@ for kit in $KITS ; do
         rm -r test/
         # Template test files
         rm -r templates/test/
-        rm phpunit.xml.* build.xml
+        rm phpunit.xml.*
         rm .editorconfig .browserslistrc .eslintignore .jshintrc .eslintrc.json .stylelintrc.json psalm.xml psalm-baseline.xml phpstan.neon.dist phpstan-baseline.neon phpcs.xml.dist jest.config.cjs infection.json5.dist
         # Gettext po files (if they were not removed by ./scripts/lang-cleanup.sh)
         rm -rf po
