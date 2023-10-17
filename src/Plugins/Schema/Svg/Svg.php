@@ -171,10 +171,10 @@ class Svg extends XMLWriter
      * @see XMLWriter::endElement()
      *
      * @param string      $name   RelationStatsSvg element name
-     * @param int         $x      The x attr defines the left position of the element
+     * @param int|float   $x      The x attr defines the left position of the element
      *                            (e.g. x="0" places the element 0 pixels from the
      *                            left of the browser window)
-     * @param int         $y      The y attribute defines the top position of the
+     * @param int|float   $y      The y attribute defines the top position of the
      *                            element (e.g. y="0" places the element 0 pixels
      *                            from the top of the browser window)
      * @param int|float   $width  The width attribute defines the width the element
@@ -185,8 +185,8 @@ class Svg extends XMLWriter
      */
     public function printElement(
         string $name,
-        int $x,
-        int $y,
+        int|float $x,
+        int|float $y,
         int|float $width,
         int $height,
         string|null $text = '',
@@ -218,16 +218,21 @@ class Svg extends XMLWriter
      * @see XMLWriter::writeAttribute()
      * @see XMLWriter::endElement()
      *
-     * @param string $name   RelationStatsSvg element name i.e line
-     * @param int    $x1     Defines the start of the line on the x-axis
-     * @param int    $y1     Defines the start of the line on the y-axis
-     * @param int    $x2     Defines the end of the line on the x-axis
-     * @param int    $y2     Defines the end of the line on the y-axis
-     * @param string $styles The style attribute defines the style the element
-     *                       styles can be defined like CSS styles
+     * @param string    $name   RelationStatsSvg element name i.e line
+     * @param int|float $x1     Defines the start of the line on the x-axis
+     * @param int|float $y1     Defines the start of the line on the y-axis
+     * @param int|float $x2     Defines the end of the line on the x-axis
+     * @param int|float $y2     Defines the end of the line on the y-axis
+     * @param string    $styles The style attribute defines the style the element styles can be defined like CSS styles
      */
-    public function printElementLine(string $name, int $x1, int $y1, int $x2, int $y2, string $styles): void
-    {
+    public function printElementLine(
+        string $name,
+        int|float $x1,
+        int|float $y1,
+        int|float $x2,
+        int|float $y2,
+        string $styles,
+    ): void {
         $this->startElement($name);
         $this->writeAttribute('x1', (string) $x1);
         $this->writeAttribute('y1', (string) $y1);

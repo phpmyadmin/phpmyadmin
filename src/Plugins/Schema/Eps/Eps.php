@@ -122,21 +122,17 @@ class Eps
      * drawing the lines from x,y source to x,y destination and set the
      * width of the line. lines helps in showing relationships of tables
      *
-     * @param int $xFrom     The x_from attribute defines the start
-     *                        left position of the element
-     * @param int $yFrom     The y_from attribute defines the start
-     *                        right position of the element
-     * @param int $xTo       The x_to attribute defines the end
-     *                        left position of the element
-     * @param int $yTo       The y_to attribute defines the end
-     *                        right position of the element
-     * @param int $lineWidth Sets the width of the line e.g 2
+     * @param int|float $xFrom     The x_from attribute defines the start left position of the element
+     * @param int|float $yFrom     The y_from attribute defines the start right position of the element
+     * @param int|float $xTo       The x_to attribute defines the end left position of the element
+     * @param int|float $yTo       The y_to attribute defines the end right position of the element
+     * @param int       $lineWidth Sets the width of the line e.g 2
      */
     public function line(
-        int $xFrom = 0,
-        int $yFrom = 0,
-        int $xTo = 0,
-        int $yTo = 0,
+        int|float $xFrom = 0,
+        int|float $yFrom = 0,
+        int|float $xTo = 0,
+        int|float $yTo = 0,
         int $lineWidth = 0,
     ): void {
         $this->stringCommands .= $lineWidth . " setlinewidth  \n";
@@ -151,17 +147,13 @@ class Eps
      * drawing the rectangle from x,y source to x,y destination and set the
      * width of the line. rectangles drawn around the text shown of fields
      *
-     * @param int $xFrom     The x_from attribute defines the start
-     *                        left position of the element
-     * @param int $yFrom     The y_from attribute defines the start
-     *                        right position of the element
-     * @param int $xTo       The x_to attribute defines the end
-     *                        left position of the element
-     * @param int $yTo       The y_to attribute defines the end
-     *                        right position of the element
-     * @param int $lineWidth Sets the width of the line e.g 2
+     * @param int|float $xFrom     The x_from attribute defines the start left position of the element
+     * @param int|float $yFrom     The y_from attribute defines the start right position of the element
+     * @param int|float $xTo       The x_to attribute defines the end left position of the element
+     * @param int|float $yTo       The y_to attribute defines the end right position of the element
+     * @param int       $lineWidth Sets the width of the line e.g 2
      */
-    public function rect(int $xFrom, int $yFrom, int $xTo, int $yTo, int $lineWidth): void
+    public function rect(int|float $xFrom, int|float $yFrom, int|float $xTo, int|float $yTo, int $lineWidth): void
     {
         $this->stringCommands .= $lineWidth . " setlinewidth  \n";
         $this->stringCommands .= "newpath \n";
@@ -180,10 +172,10 @@ class Eps
      * them as x and y coordinates to which to move. The coordinates
      * specified become the current point.
      *
-     * @param int $x The x attribute defines the left position of the element
-     * @param int $y The y attribute defines the right position of the element
+     * @param int|float $x The x attribute defines the left position of the element
+     * @param int|float $y The y attribute defines the right position of the element
      */
-    public function moveTo(int $x, int $y): void
+    public function moveTo(int|float $x, int|float $y): void
     {
         $this->stringCommands .= $x . ' ' . $y . " moveto \n";
     }
@@ -201,11 +193,11 @@ class Eps
     /**
      * Output the text at specified co-ordinates
      *
-     * @param string $text String to be displayed
-     * @param int    $x    X attribute defines the left position of the element
-     * @param int    $y    Y attribute defines the right position of the element
+     * @param string    $text String to be displayed
+     * @param int|float $x    X attribute defines the left position of the element
+     * @param int|float $y    Y attribute defines the right position of the element
      */
-    public function showXY(string $text, int $x, int $y): void
+    public function showXY(string $text, int|float $x, int|float $y): void
     {
         $this->moveTo($x, $y);
         $this->show($text);

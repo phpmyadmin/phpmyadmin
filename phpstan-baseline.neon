@@ -15501,31 +15501,6 @@ parameters:
 			path: src/Plugins/Schema/Eps/TableStatsEps.php
 
 		-
-			message: "#^Parameter \\#1 \\$xFrom of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\:\\:rect\\(\\) expects int, float\\|int given\\.$#"
-			count: 2
-			path: src/Plugins/Schema/Eps/TableStatsEps.php
-
-		-
-			message: "#^Parameter \\#2 \\$x of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\:\\:showXY\\(\\) expects int, float\\|int given\\.$#"
-			count: 2
-			path: src/Plugins/Schema/Eps/TableStatsEps.php
-
-		-
-			message: "#^Parameter \\#2 \\$yFrom of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\:\\:rect\\(\\) expects int, float\\|int given\\.$#"
-			count: 2
-			path: src/Plugins/Schema/Eps/TableStatsEps.php
-
-		-
-			message: "#^Parameter \\#3 \\$xTo of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\:\\:rect\\(\\) expects int, float\\|int given\\.$#"
-			count: 2
-			path: src/Plugins/Schema/Eps/TableStatsEps.php
-
-		-
-			message: "#^Parameter \\#3 \\$y of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\:\\:showXY\\(\\) expects int, float\\|int given\\.$#"
-			count: 2
-			path: src/Plugins/Schema/Eps/TableStatsEps.php
-
-		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: src/Plugins/Schema/ExportRelationSchema.php
@@ -15781,6 +15756,11 @@ parameters:
 			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 2
+			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
+
+		-
 			message: "#^Parameter \\#1 \\$link of method TCPDF\\:\\:setLink\\(\\) expects int, mixed given\\.$#"
 			count: 2
 			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
@@ -15788,11 +15768,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$s of method TCPDF\\:\\:GetStringWidth\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
-
-		-
-			message: "#^Parameter \\#8 \\$link of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:cellScale\\(\\) expects string, mixed given\\.$#"
-			count: 2
 			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-
@@ -15878,16 +15853,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$text of method PhpMyAdmin\\\\Font\\:\\:getStringWidth\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: src/Plugins/Schema/Svg/TableStatsSvg.php
-
-		-
-			message: "#^Parameter \\#2 \\$x of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:printElement\\(\\) expects int, float\\|int given\\.$#"
-			count: 4
-			path: src/Plugins/Schema/Svg/TableStatsSvg.php
-
-		-
-			message: "#^Parameter \\#3 \\$y of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:printElement\\(\\) expects int, float\\|int given\\.$#"
-			count: 4
 			path: src/Plugins/Schema/Svg/TableStatsSvg.php
 
 		-
