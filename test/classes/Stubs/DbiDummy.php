@@ -2246,14 +2246,6 @@ class DbiDummy implements DbiExtension
                     ['latin1_swedish_ci', 'latin1', '8', 'Yes', 'Yes', '1'],
                 ],
             ],
-            [
-                'query' => 'SELECT `COLUMN_NAME` FROM `information_schema`.`COLUMNS`'
-                        . ' WHERE `TABLE_SCHEMA`=\'information_schema\' AND'
-                        . ' `TABLE_NAME`=\'COLLATION_CHARACTER_SET_APPLICABILITY\' AND'
-                        . ' `COLUMN_NAME`=\'FULL_COLLATION_NAME\'',
-                'columns' => ['COLUMN_NAME'],
-                'result' => true,
-            ],
         ];
 
         /* Some basic setup for dummy driver */
