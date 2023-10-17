@@ -127,7 +127,7 @@ class TwigLintCommand extends Command
         }
 
         try {
-            $filesInfo = $this->getFilesInfo(ROOT_PATH . 'templates');
+            $filesInfo = $this->getFilesInfo(ROOT_PATH . 'resources/templates');
         } finally {
             if ($showDeprecations) {
                 restore_error_handler();

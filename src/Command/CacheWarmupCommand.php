@@ -166,7 +166,7 @@ final class CacheWarmupCommand extends Command
             // Generate line map
             /** @psalm-suppress InternalMethod */
             $cacheFilename = $twigCache->generateKey($name, $twig->getTemplateClass($name));
-            $templateFile = 'templates/' . $name;
+            $templateFile = 'resources/templates/' . $name;
             $cacheFile = str_replace($tmpDir, 'twig-templates', $cacheFilename);
             /** @psalm-suppress InternalMethod */
             $replacements[$cacheFile] = [$templateFile, $template->getDebugInfo()];

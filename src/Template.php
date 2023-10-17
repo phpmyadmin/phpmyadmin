@@ -42,7 +42,7 @@ class Template
      */
     protected static Environment|null $twig = null;
 
-    public const TEMPLATES_FOLDER = ROOT_PATH . 'templates';
+    public const TEMPLATES_FOLDER = ROOT_PATH . 'resources/templates';
 
     private Config $config;
 
