@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-10-15 00:18+0000\n"
-"PO-Revision-Date: 2023-10-14 18:04+0000\n"
+"PO-Revision-Date: 2023-10-19 15:01+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 5.1-dev\n"
+"X-Generator: Weblate 5.1\n"
 
 #: src/Advisory/Advisor.php:207
 #, php-format
@@ -5025,7 +5025,7 @@ msgstr "Датабазата %1$s беше копирана во %2$s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"Конфигурационото складирање на phpMyAdmin беше исклучено. %sДознајте зошто%s."
+"Конфигурационото складирање на phpMyAdmin е исклучено. %sДознајте зошто%s."
 
 #: src/Controllers/Database/PrivilegesController.php:67
 #: src/Controllers/Server/PrivilegesController.php:111
@@ -5271,8 +5271,8 @@ msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
-"Пронајдена е грешка и генериран е извештај за грешки, но испраќањето не "
-"успеа."
+"Пронајдена е грешка и генериран е извештај за грешки, но не успеа да се "
+"испрати."
 
 #: src/Controllers/ErrorReportController.php:106
 msgid "If you experience any problems please submit a bug report manually."
@@ -5401,7 +5401,7 @@ msgstr "Неточни параметри за форматирање"
 #: src/Controllers/Import/ImportController.php:357
 #: src/Controllers/Import/ImportController.php:588
 msgid "Showing bookmark"
-msgstr "Прикажување белешка"
+msgstr "Прикажување ознака"
 
 #: src/Controllers/Import/ImportController.php:377
 #: src/Controllers/Import/ImportController.php:584
@@ -9006,7 +9006,7 @@ msgstr "Настанот %1$s беше променет."
 #: src/Database/Events.php:131
 #, php-format
 msgid "Event %1$s has been created."
-msgstr "Настанот %1$s беше создаден"
+msgstr "Настанот %1$s беше создаден."
 
 #: src/Database/Events.php:145 src/Database/Routines.php:144
 #: src/Triggers/Triggers.php:139
@@ -10038,8 +10038,8 @@ msgstr[1] ""
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "%1$d редица избришана"
-msgstr[1] "%1$d редици избришани"
+msgstr[0] "%1$d редица избришана."
+msgstr[1] "%1$d редици избришани."
 
 #: src/Message.php:242
 #, php-format
@@ -17631,9 +17631,8 @@ msgstr "Пребарување"
 #: templates/table/find_replace/index.twig:10
 #: templates/table/search/index.twig:10
 #: templates/table/zoom_search/index.twig:10
-#, fuzzy
 msgid "Zoom search"
-msgstr "Пребарување"
+msgstr "Зум на пребарување"
 
 #: templates/table/find_replace/index.twig:16
 #: templates/table/find_replace/index.twig:27
@@ -17938,9 +17937,8 @@ msgid "Delete the view (DROP)"
 msgstr "Базата на податоци не постои"
 
 #: templates/table/page_with_secondary_tabs.twig:11
-#, fuzzy
 msgid "Relation view"
-msgstr "Релационен поглед"
+msgstr "Поглед на релации"
 
 #: templates/table/partition/analyze.twig:2
 #, fuzzy
@@ -18040,9 +18038,9 @@ msgid "Choose column to display:"
 msgstr "Избери полиња за прикажување"
 
 #: templates/table/relation/foreign_key_row.twig:15
-#, fuzzy, php-format
+#, php-format
 msgid "Foreign key constraint %s has been dropped"
-msgstr "Исклучи проверка на надворешни клучеви"
+msgstr "Ограничувањето на странски клуч %s беше избришанo"
 
 #: templates/table/relation/foreign_key_row.twig:33
 #, fuzzy
