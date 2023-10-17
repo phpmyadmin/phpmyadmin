@@ -23,7 +23,7 @@ use function sprintf;
  * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the Tables in PDF document.
  *
- * @see     Schema\Pdf
+ * @see Pdf
  *
  * @property Pdf $diagram
  */
@@ -34,9 +34,9 @@ class TableStatsPdf extends TableStats
     private string $ff = PdfLib::PMA_PDF_FONT;
 
     /**
-     * @see PMA_Schema_PDF
+     * @see Pdf
      * @see TableStatsPdf::setWidthTable
-     * @see PhpMyAdmin\Plugins\Schema\Pdf\TableStatsPdf::setHeightTable
+     * @see TableStatsPdf::setHeightTable
      *
      * @param Pdf      $diagram        The PDF diagram
      * @param string   $db             The database name
@@ -96,7 +96,7 @@ class TableStatsPdf extends TableStats
     /**
      * Sets the width of the table
      *
-     * @see    PMA_Schema_PDF
+     * @see Pdf
      *
      * @param int|null $fontSize The font size
      */
@@ -127,7 +127,7 @@ class TableStatsPdf extends TableStats
     /**
      * Do draw the table
      *
-     * @see    Schema\Pdf
+     * @see Pdf
      *
      * @param int|null $fontSize The font size or null to use the default value
      * @param bool     $withDoc  Whether to include links to documentation
@@ -156,7 +156,7 @@ class TableStatsPdf extends TableStats
             1,
             'C',
             $setColor,
-            $this->diagram->customLinks['doc'][$this->tableName]['-'],
+            (string) $this->diagram->customLinks['doc'][$this->tableName]['-'],
         );
         $this->diagram->setXScale($this->x);
         $this->diagram->setFont($this->ff, '', $fontSize);
@@ -188,7 +188,7 @@ class TableStatsPdf extends TableStats
                 1,
                 'L',
                 $setColor,
-                $this->diagram->customLinks['doc'][$this->tableName][$field],
+                (string) $this->diagram->customLinks['doc'][$this->tableName][$field],
             );
             $this->diagram->setXScale($this->x);
             $this->diagram->setFillColor(255);

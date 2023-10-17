@@ -10014,18 +10014,6 @@
       <code>$field</code>
       <code>$field</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$this->width]]></code>
-      <code><![CDATA[$this->width]]></code>
-      <code><![CDATA[$this->x]]></code>
-      <code><![CDATA[$this->x]]></code>
-      <code><![CDATA[$this->x + 5]]></code>
-      <code><![CDATA[$this->x + 5]]></code>
-      <code><![CDATA[$this->y + 12]]></code>
-      <code><![CDATA[$this->y + 12 + $this->currentCell]]></code>
-      <code><![CDATA[$this->y + 14]]></code>
-      <code><![CDATA[$this->y + 14 + $this->currentCell]]></code>
-    </PossiblyInvalidArgument>
     <PossiblyUnusedProperty>
       <code>$height</code>
     </PossiblyUnusedProperty>
@@ -10274,8 +10262,6 @@
       <code>$field</code>
       <code><![CDATA[$this->diagram->customLinks['RT'][$this->tableName][$field]]]></code>
       <code><![CDATA[$this->diagram->customLinks['RT'][$this->tableName]['-']]]></code>
-      <code><![CDATA[$this->diagram->customLinks['doc'][$this->tableName][$field]]]></code>
-      <code><![CDATA[$this->diagram->customLinks['doc'][$this->tableName]['-']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$this->diagram->customLinks['RT'][$this->tableName]]]></code>
@@ -10449,16 +10435,6 @@
       <code>$field</code>
       <code>$field</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$this->x]]></code>
-      <code><![CDATA[$this->x]]></code>
-      <code><![CDATA[$this->x + 5]]></code>
-      <code><![CDATA[$this->x + 5]]></code>
-      <code><![CDATA[$this->y]]></code>
-      <code><![CDATA[$this->y + $this->currentCell]]></code>
-      <code><![CDATA[$this->y + 14]]></code>
-      <code><![CDATA[$this->y + 14 + $this->currentCell]]></code>
-    </PossiblyInvalidArgument>
   </file>
   <file src="src/Plugins/Schema/TableStats.php">
     <DeprecatedMethod>

@@ -165,7 +165,7 @@ class EpsRelationSchema extends ExportRelationSchema
      *
      * @see _setMinMax
      * @see TableStatsEps::__construct()
-     * @see PhpMyAdmin\Plugins\Schema\Eps\RelationStatsEps::__construct()
+     * @see RelationStatsEps::__construct
      *
      * @param string $masterTable    The master table name
      * @param string $font           The font

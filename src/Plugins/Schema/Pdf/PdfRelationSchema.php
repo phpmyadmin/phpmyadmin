@@ -373,7 +373,7 @@ class PdfRelationSchema extends ExportRelationSchema
     /**
      * Draws the grid
      *
-     * @see PMA_Schema_PDF
+     * @see Pdf
      */
     private function strokeGrid(): void
     {
