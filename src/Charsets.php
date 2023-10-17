@@ -110,7 +110,7 @@ class Charsets
             return;
         }
 
-       if ($dbi->isMariaDB() && version_compare($dbi->getVersionString(), '10.10', 'ge')) {
+        if ($dbi->isMariaDB() && version_compare($dbi->getVersionString(), '10.10', 'ge')) {
             /* Use query to accommodate new structure of MariaDB collations.
             Note, that SHOW COLLATION command is not applicable at the time of writing.
             Refer https://jira.mariadb.org/browse/MDEV-27009
@@ -124,7 +124,7 @@ class Charsets
                 . ' FROM `information_schema`.`COLLATION_CHARACTER_SET_APPLICABILITY` `collapp`'
                 . ' LEFT JOIN `information_schema`.`COLLATIONS` `coll`'
                 . ' ON `collapp`.`COLLATION_NAME`=`coll`.`COLLATION_NAME`';
-        } else {
+         } else {
             $sql = 'SELECT `COLLATION_NAME` AS `Collation`,'
                 . ' `CHARACTER_SET_NAME` AS `Charset`,'
                 . ' `ID` AS `Id`,'
