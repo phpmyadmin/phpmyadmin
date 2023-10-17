@@ -12,7 +12,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'arguments' on mixed\\.$#"
-			count: 3
+			count: 1
 			path: libraries/services_loader.php
 
 		-
@@ -22,7 +22,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'factory' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: libraries/services_loader.php
 
 		-
@@ -252,7 +252,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'file' on mixed\\.$#"
-			count: 3
+			count: 2
 			path: src/Command/TwigLintCommand.php
 
 		-
@@ -337,17 +337,17 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'LoginCookieValidity' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Config.php
 
 		-
 			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 3
+			count: 1
 			path: src/Config.php
 
 		-
 			message: "#^Cannot access offset 'ThemeDefault' on mixed\\.$#"
-			count: 3
+			count: 2
 			path: src/Config.php
 
 		-
@@ -357,12 +357,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'lang' on mixed\\.$#"
-			count: 5
+			count: 3
 			path: src/Config.php
 
 		-
 			message: "#^Cannot access offset 'userprefs' on mixed\\.$#"
-			count: 6
+			count: 5
 			path: src/Config.php
 
 		-
@@ -377,7 +377,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset non\\-falsy\\-string on mixed\\.$#"
-			count: 12
+			count: 10
 			path: src/Config.php
 
 		-
@@ -527,12 +527,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'ServerDefault' on mixed\\.$#"
-			count: 3
+			count: 1
 			path: src/Config/ConfigFile.php
 
 		-
 			message: "#^Cannot access offset 'Servers' on mixed\\.$#"
-			count: 9
+			count: 8
 			path: src/Config/ConfigFile.php
 
 		-
@@ -687,7 +687,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'wrapper_params' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Config/FormDisplay.php
 
 		-
@@ -992,7 +992,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 3
+			count: 2
 			path: src/Config/Validator.php
 
 		-
@@ -2527,12 +2527,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'table_limit_offset' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Controllers/Database/Structure/DropTableController.php
 
 		-
 			message: "#^Cannot access offset 'table_limit_offset…' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Controllers/Database/Structure/DropTableController.php
 
 		-
@@ -2817,7 +2817,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'Collation' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Controllers/Database/StructureController.php
 
 		-
@@ -2847,7 +2847,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'TABLE_TYPE' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Controllers/Database/StructureController.php
 
 		-
@@ -3497,7 +3497,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Controllers/HomeController.php
 
 		-
@@ -3812,7 +3812,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'go_back_url' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Controllers/Import/StatusController.php
 
 		-
@@ -5187,7 +5187,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset \\(int\\|string\\) on mixed\\.$#"
-			count: 7
+			count: 5
 			path: src/Controllers/Table/AddFieldController.php
 
 		-
@@ -5282,7 +5282,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset \\(int\\|string\\) on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Controllers/Table/ChangeController.php
 
 		-
@@ -5547,7 +5547,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset \\(int\\|string\\) on mixed\\.$#"
-			count: 7
+			count: 5
 			path: src/Controllers/Table/CreateController.php
 
 		-
@@ -5932,7 +5932,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'max_rows' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Controllers/Table/GisVisualizationController.php
 
 		-
@@ -6052,7 +6052,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'names' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Controllers/Table/IndexesController.php
 
 		-
@@ -7037,7 +7037,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'Default' on mixed\\.$#"
-			count: 7
+			count: 5
 			path: src/Controllers/Table/Structure/MoveColumnsController.php
 
 		-
@@ -7047,7 +7047,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'Extra' on mixed\\.$#"
-			count: 8
+			count: 3
 			path: src/Controllers/Table/Structure/MoveColumnsController.php
 
 		-
@@ -7057,7 +7057,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'Type' on mixed\\.$#"
-			count: 4
+			count: 3
 			path: src/Controllers/Table/Structure/MoveColumnsController.php
 
 		-
@@ -7267,7 +7267,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset \\(int\\|string\\) on mixed\\.$#"
-			count: 9
+			count: 7
 			path: src/Controllers/Table/Structure/SaveController.php
 
 		-
@@ -7277,7 +7277,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
-			count: 30
+			count: 25
 			path: src/Controllers/Table/Structure/SaveController.php
 
 		-
@@ -7472,17 +7472,17 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'Check_time' on mixed\\.$#"
-			count: 3
+			count: 1
 			path: src/Controllers/Table/StructureController.php
 
 		-
 			message: "#^Cannot access offset 'Create_time' on mixed\\.$#"
-			count: 3
+			count: 1
 			path: src/Controllers/Table/StructureController.php
 
 		-
 			message: "#^Cannot access offset 'Data_free' on mixed\\.$#"
-			count: 3
+			count: 1
 			path: src/Controllers/Table/StructureController.php
 
 		-
@@ -7492,7 +7492,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'Index_length' on mixed\\.$#"
-			count: 7
+			count: 2
 			path: src/Controllers/Table/StructureController.php
 
 		-
@@ -7502,12 +7502,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'Type' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Controllers/Table/StructureController.php
 
 		-
 			message: "#^Cannot access offset 'Update_time' on mixed\\.$#"
-			count: 3
+			count: 1
 			path: src/Controllers/Table/StructureController.php
 
 		-
@@ -7792,12 +7792,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 0 on mixed\\.$#"
-			count: 4
+			count: 3
 			path: src/Controllers/Table/ZoomSearchController.php
 
 		-
 			message: "#^Cannot access offset 1 on mixed\\.$#"
-			count: 4
+			count: 3
 			path: src/Controllers/Table/ZoomSearchController.php
 
 		-
@@ -7807,7 +7807,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset int\\<0, 3\\> on mixed\\.$#"
-			count: 4
+			count: 1
 			path: src/Controllers/Table/ZoomSearchController.php
 
 		-
@@ -8287,7 +8287,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 10
+			count: 8
 			path: src/Core.php
 
 		-
@@ -8382,12 +8382,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'size' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/CreateAddField.php
 
 		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
-			count: 13
+			count: 12
 			path: src/CreateAddField.php
 
 		-
@@ -8537,7 +8537,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'col_default' on mixed\\.$#"
-			count: 12
+			count: 2
 			path: src/Database/CentralColumns.php
 
 		-
@@ -8552,7 +8552,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'col_length' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Database/CentralColumns.php
 
 		-
@@ -8567,7 +8567,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
-			count: 14
+			count: 11
 			path: src/Database/CentralColumns.php
 
 		-
@@ -8817,7 +8817,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'ENGINE' on mixed\\.$#"
-			count: 6
+			count: 5
 			path: src/Database/Designer/Common.php
 
 		-
@@ -9142,12 +9142,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
-			count: 22
+			count: 16
 			path: src/Database/Routines.php
 
 		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 12
+			count: 9
 			path: src/Database/Routines.php
 
 		-
@@ -9652,7 +9652,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'geoOption' on mixed\\.$#"
-			count: 10
+			count: 8
 			path: src/Display/Results.php
 
 		-
@@ -9672,12 +9672,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'max_rows' on mixed\\.$#"
-			count: 22
+			count: 18
 			path: src/Display/Results.php
 
 		-
 			message: "#^Cannot access offset 'mimetype' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Display/Results.php
 
 		-
@@ -9692,12 +9692,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'possible_as_geometry' on mixed\\.$#"
-			count: 3
+			count: 2
 			path: src/Display/Results.php
 
 		-
 			message: "#^Cannot access offset 'query' on mixed\\.$#"
-			count: 7
+			count: 5
 			path: src/Display/Results.php
 
 		-
@@ -9722,7 +9722,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'repeat_cells' on mixed\\.$#"
-			count: 6
+			count: 5
 			path: src/Display/Results.php
 
 		-
@@ -9732,7 +9732,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'transformation' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Display/Results.php
 
 		-
@@ -9747,7 +9747,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset int on mixed\\.$#"
-			count: 9
+			count: 8
 			path: src/Display/Results.php
 
 		-
@@ -9757,12 +9757,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 10
+			count: 6
 			path: src/Display/Results.php
 
 		-
 			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 5
+			count: 4
 			path: src/Display/Results.php
 
 		-
@@ -10202,22 +10202,22 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'args' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Error.php
 
 		-
 			message: "#^Cannot access offset 'class' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Error.php
 
 		-
 			message: "#^Cannot access offset 'class'\\|'function'\\|'line'\\|'type' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Error.php
 
 		-
 			message: "#^Cannot access offset 'file' on mixed\\.$#"
-			count: 4
+			count: 2
 			path: src/Error.php
 
 		-
@@ -10227,7 +10227,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'line' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Error.php
 
 		-
@@ -10307,7 +10307,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'stack' on mixed\\.$#"
-			count: 3
+			count: 1
 			path: src/ErrorReport.php
 
 		-
@@ -10317,7 +10317,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'url' on mixed\\.$#"
-			count: 5
+			count: 4
 			path: src/ErrorReport.php
 
 		-
@@ -10372,17 +10372,17 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'alias' on mixed\\.$#"
-			count: 14
+			count: 6
 			path: src/Export/Export.php
 
 		-
 			message: "#^Cannot access offset 'columns' on mixed\\.$#"
-			count: 3
+			count: 2
 			path: src/Export/Export.php
 
 		-
 			message: "#^Cannot access offset 'tables' on mixed\\.$#"
-			count: 4
+			count: 3
 			path: src/Export/Export.php
 
 		-
@@ -10502,7 +10502,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'aliases' on mixed\\.$#"
-			count: 4
+			count: 3
 			path: src/Export/Options.php
 
 		-
@@ -10562,7 +10562,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'multi_edit' on mixed\\.$#"
-			count: 9
+			count: 7
 			path: src/File.php
 
 		-
@@ -10572,12 +10572,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 15
+			count: 13
 			path: src/File.php
 
 		-
 			message: "#^Cannot access offset string\\|null on mixed\\.$#"
-			count: 3
+			count: 1
 			path: src/File.php
 
 		-
@@ -10657,7 +10657,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 3
+			count: 2
 			path: src/FlashMessages.php
 
 		-
@@ -10667,7 +10667,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'chars' on mixed\\.$#"
-			count: 3
+			count: 2
 			path: src/Font.php
 
 		-
@@ -10742,7 +10742,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'gis_type' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Gis/GisGeometryCollection.php
 
 		-
@@ -10897,12 +10897,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'inner' on mixed\\.$#"
-			count: 5
+			count: 4
 			path: src/Gis/GisMultiPolygon.php
 
 		-
 			message: "#^Cannot access offset 'isOuter' on mixed\\.$#"
-			count: 5
+			count: 4
 			path: src/Gis/GisMultiPolygon.php
 
 		-
@@ -11227,7 +11227,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'max_rows' on mixed\\.$#"
-			count: 4
+			count: 2
 			path: src/Html/Generator.php
 
 		-
@@ -11237,7 +11237,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'pos' on mixed\\.$#"
-			count: 3
+			count: 2
 			path: src/Html/Generator.php
 
 		-
@@ -11497,7 +11497,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'handler' on mixed\\.$#"
-			count: 3
+			count: 2
 			path: src/Import/Ajax.php
 
 		-
@@ -11527,12 +11527,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 2 on mixed\\.$#"
-			count: 10
+			count: 9
 			path: src/Import/Import.php
 
 		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
-			count: 22
+			count: 21
 			path: src/Import/Import.php
 
 		-
@@ -11857,12 +11857,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'relational_display' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/InsertEdit.php
 
 		-
 			message: "#^Cannot access offset \\(int\\|string\\) on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/InsertEdit.php
 
 		-
@@ -11872,7 +11872,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 3
+			count: 2
 			path: src/InsertEdit.php
 
 		-
@@ -12422,7 +12422,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset \\(int\\|string\\) on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Navigation/NavigationTree.php
 
 		-
@@ -13022,12 +13022,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 0 on mixed\\.$#"
-			count: 4
+			count: 3
 			path: src/ParseAnalyze.php
 
 		-
 			message: "#^Cannot access offset 1 on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/ParseAnalyze.php
 
 		-
@@ -13202,7 +13202,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'subpartitions' on mixed\\.$#"
-			count: 4
+			count: 3
 			path: src/Partitioning/TablePartitionDefinition.php
 
 		-
@@ -13602,22 +13602,22 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'columns' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportCsv.php
 
 		-
 			message: "#^Cannot access offset 'tables' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportCsv.php
 
 		-
 			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportCsv.php
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportCsv.php
 
 		-
@@ -13657,22 +13657,22 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'columns' on mixed\\.$#"
-			count: 6
+			count: 3
 			path: src/Plugins/Export/ExportHtmlword.php
 
 		-
 			message: "#^Cannot access offset 'tables' on mixed\\.$#"
-			count: 6
+			count: 3
 			path: src/Plugins/Export/ExportHtmlword.php
 
 		-
 			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportHtmlword.php
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 10
+			count: 5
 			path: src/Plugins/Export/ExportHtmlword.php
 
 		-
@@ -13712,7 +13712,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'columns' on mixed\\.$#"
-			count: 4
+			count: 2
 			path: src/Plugins/Export/ExportLatex.php
 
 		-
@@ -13727,17 +13727,17 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'tables' on mixed\\.$#"
-			count: 4
-			path: src/Plugins/Export/ExportLatex.php
-
-		-
-			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
 			count: 2
 			path: src/Plugins/Export/ExportLatex.php
 
 		-
+			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
+			count: 1
+			path: src/Plugins/Export/ExportLatex.php
+
+		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 6
+			count: 3
 			path: src/Plugins/Export/ExportLatex.php
 
 		-
@@ -13777,17 +13777,17 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'columns' on mixed\\.$#"
-			count: 4
+			count: 2
 			path: src/Plugins/Export/ExportMediawiki.php
 
 		-
 			message: "#^Cannot access offset 'tables' on mixed\\.$#"
-			count: 4
+			count: 2
 			path: src/Plugins/Export/ExportMediawiki.php
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 8
+			count: 4
 			path: src/Plugins/Export/ExportMediawiki.php
 
 		-
@@ -13802,22 +13802,22 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'columns' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportOds.php
 
 		-
 			message: "#^Cannot access offset 'tables' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportOds.php
 
 		-
 			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportOds.php
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportOds.php
 
 		-
@@ -13842,12 +13842,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'alias' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportOdt.php
 
 		-
 			message: "#^Cannot access offset 'columns' on mixed\\.$#"
-			count: 8
+			count: 4
 			path: src/Plugins/Export/ExportOdt.php
 
 		-
@@ -13862,22 +13862,22 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'tables' on mixed\\.$#"
-			count: 10
+			count: 5
 			path: src/Plugins/Export/ExportOdt.php
 
 		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 6
+			count: 3
 			path: src/Plugins/Export/ExportOdt.php
 
 		-
 			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportOdt.php
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 10
+			count: 5
 			path: src/Plugins/Export/ExportOdt.php
 
 		-
@@ -13942,22 +13942,22 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'columns' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportPhparray.php
 
 		-
 			message: "#^Cannot access offset 'tables' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportPhparray.php
 
 		-
 			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportPhparray.php
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportPhparray.php
 
 		-
@@ -14007,17 +14007,17 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'alias' on mixed\\.$#"
-			count: 8
+			count: 4
 			path: src/Plugins/Export/ExportSql.php
 
 		-
 			message: "#^Cannot access offset 'columns' on mixed\\.$#"
-			count: 16
+			count: 8
 			path: src/Plugins/Export/ExportSql.php
 
 		-
 			message: "#^Cannot access offset 'export_type' on mixed\\.$#"
-			count: 4
+			count: 2
 			path: src/Plugins/Export/ExportSql.php
 
 		-
@@ -14052,32 +14052,32 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'tables' on mixed\\.$#"
-			count: 22
+			count: 11
 			path: src/Plugins/Export/ExportSql.php
 
 		-
 			message: "#^Cannot access offset \\(int\\|string\\) on mixed\\.$#"
-			count: 4
-			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 3
-			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
 			count: 2
 			path: src/Plugins/Export/ExportSql.php
 
 		-
+			message: "#^Cannot access offset mixed on mixed\\.$#"
+			count: 2
+			path: src/Plugins/Export/ExportSql.php
+
+		-
+			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
+			count: 1
+			path: src/Plugins/Export/ExportSql.php
+
+		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 16
+			count: 9
 			path: src/Plugins/Export/ExportSql.php
 
 		-
 			message: "#^Cannot access offset string\\|null on mixed\\.$#"
-			count: 14
+			count: 7
 			path: src/Plugins/Export/ExportSql.php
 
 		-
@@ -14322,22 +14322,22 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'columns' on mixed\\.$#"
-			count: 6
+			count: 3
 			path: src/Plugins/Export/ExportTexytext.php
 
 		-
 			message: "#^Cannot access offset 'tables' on mixed\\.$#"
-			count: 6
+			count: 3
 			path: src/Plugins/Export/ExportTexytext.php
 
 		-
 			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportTexytext.php
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 10
+			count: 5
 			path: src/Plugins/Export/ExportTexytext.php
 
 		-
@@ -14367,12 +14367,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'columns' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportXml.php
 
 		-
 			message: "#^Cannot access offset 'tables' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportXml.php
 
 		-
@@ -14382,12 +14382,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportXml.php
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportXml.php
 
 		-
@@ -14472,22 +14472,22 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'columns' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportYaml.php
 
 		-
 			message: "#^Cannot access offset 'tables' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportYaml.php
 
 		-
 			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportYaml.php
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportYaml.php
 
 		-
@@ -14497,7 +14497,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'columns' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
@@ -14522,7 +14522,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'tables' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
@@ -14537,12 +14537,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
@@ -14687,32 +14687,32 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'alias' on mixed\\.$#"
-			count: 10
+			count: 5
 			path: src/Plugins/ExportPlugin.php
 
 		-
 			message: "#^Cannot access offset 'columns' on mixed\\.$#"
-			count: 4
+			count: 2
 			path: src/Plugins/ExportPlugin.php
 
 		-
 			message: "#^Cannot access offset 'tables' on mixed\\.$#"
-			count: 11
+			count: 4
 			path: src/Plugins/ExportPlugin.php
 
 		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 6
+			count: 3
 			path: src/Plugins/ExportPlugin.php
 
 		-
 			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/ExportPlugin.php
 
 		-
 			message: "#^Cannot access offset string\\|null on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/ExportPlugin.php
 
 		-
@@ -15217,7 +15217,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Import/Upload/UploadNoplugin.php
 
 		-
@@ -15237,12 +15237,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'complete' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Import/Upload/UploadProgress.php
 
 		-
 			message: "#^Cannot access offset 'finished' on mixed\\.$#"
-			count: 3
+			count: 1
 			path: src/Plugins/Import/Upload/UploadProgress.php
 
 		-
@@ -15252,12 +15252,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'total' on mixed\\.$#"
-			count: 5
+			count: 4
 			path: src/Plugins/Import/Upload/UploadProgress.php
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 3
+			count: 1
 			path: src/Plugins/Import/Upload/UploadProgress.php
 
 		-
@@ -15302,7 +15302,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'finished' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Import/Upload/UploadSession.php
 
 		-
@@ -15312,12 +15312,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'total' on mixed\\.$#"
-			count: 5
+			count: 4
 			path: src/Plugins/Import/Upload/UploadSession.php
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 3
+			count: 1
 			path: src/Plugins/Import/Upload/UploadSession.php
 
 		-
@@ -15602,7 +15602,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'Check_time' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
@@ -15612,12 +15612,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'Create_time' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
 			message: "#^Cannot access offset 'Update_time' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
@@ -15647,7 +15647,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 15
+			count: 14
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
@@ -16362,7 +16362,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'Engine' on mixed\\.$#"
-			count: 6
+			count: 5
 			path: src/Query/Compatibility.php
 
 		-
@@ -16492,7 +16492,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'Type' on mixed\\.$#"
-			count: 5
+			count: 4
 			path: src/Query/Compatibility.php
 
 		-
@@ -16542,7 +16542,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'db' on mixed\\.$#"
-			count: 8
+			count: 6
 			path: src/RecentFavoriteTable.php
 
 		-
@@ -16557,12 +16557,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'table' on mixed\\.$#"
-			count: 8
+			count: 6
 			path: src/RecentFavoriteTable.php
 
 		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 4
+			count: 3
 			path: src/RecentFavoriteTable.php
 
 		-
@@ -16647,17 +16647,17 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'Slave_IO_Running' on mixed\\.$#"
-			count: 3
+			count: 1
 			path: src/Replication/ReplicationGui.php
 
 		-
 			message: "#^Cannot access offset 'Slave_SQL_Running' on mixed\\.$#"
-			count: 3
+			count: 1
 			path: src/Replication/ReplicationGui.php
 
 		-
 			message: "#^Cannot access offset 'm_correct' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Replication/ReplicationGui.php
 
 		-
@@ -16697,12 +16697,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'sr_action_info' on mixed\\.$#"
-			count: 8
+			count: 6
 			path: src/Replication/ReplicationGui.php
 
 		-
 			message: "#^Cannot access offset 'sr_action_status' on mixed\\.$#"
-			count: 11
+			count: 7
 			path: src/Replication/ReplicationGui.php
 
 		-
@@ -16787,7 +16787,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Replication/ReplicationInfo.php
 
 		-
@@ -16817,12 +16817,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset '/' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Routing/Routing.php
 
 		-
 			message: "#^Cannot access offset 'GET' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Routing/Routing.php
 
 		-
@@ -16977,7 +16977,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'COLUMN_NAME' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Server/Privileges.php
 
 		-
@@ -18042,7 +18042,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'desc' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/StorageEngine.php
 
 		-
@@ -18207,12 +18207,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'on_delete' on mixed\\.$#"
-			count: 3
+			count: 2
 			path: src/Table.php
 
 		-
 			message: "#^Cannot access offset 'on_update' on mixed\\.$#"
-			count: 3
+			count: 2
 			path: src/Table.php
 
 		-
@@ -18792,7 +18792,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 3
+			count: 2
 			path: src/Tracking/Tracker.php
 
 		-
@@ -19162,12 +19162,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'userprefs' on mixed\\.$#"
-			count: 4
+			count: 2
 			path: src/UserPreferences.php
 
 		-
 			message: "#^Cannot access offset non\\-falsy\\-string on mixed\\.$#"
-			count: 4
+			count: 2
 			path: src/UserPreferences.php
 
 		-
@@ -19217,7 +19217,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'Cardinality' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Util.php
 
 		-
@@ -19232,7 +19232,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'Key_name' on mixed\\.$#"
-			count: 9
+			count: 1
 			path: src/Util.php
 
 		-
@@ -19247,7 +19247,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'Sub_part' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Util.php
 
 		-
@@ -19262,7 +19262,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Util.php
 
 		-
@@ -19487,7 +19487,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'version_check' on mixed\\.$#"
-			count: 4
+			count: 2
 			path: src/VersionInformation.php
 
 		-
@@ -20417,7 +20417,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'pftext' on mixed\\.$#"
-			count: 5
+			count: 4
 			path: test/classes/Display/ResultsTest.php
 
 		-
@@ -20627,7 +20627,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'relational_display' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: test/classes/InsertEditTest.php
 
 		-
@@ -21642,7 +21642,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'Servers' on mixed\\.$#"
-			count: 4
+			count: 3
 			path: test/config.e2e.inc.php
 
 		-
