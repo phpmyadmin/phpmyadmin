@@ -38,7 +38,7 @@ return [
     /**
      * Directory where SQL scripts to create/upgrade configuration storage reside.
      */
-    'sqlDir' => ROOT_PATH . 'sql' . DIRECTORY_SEPARATOR,
+    'sqlDir' => ROOT_PATH . 'resources' . DIRECTORY_SEPARATOR . 'sql' . DIRECTORY_SEPARATOR,
 
     /**
      * Filename of a configuration file.

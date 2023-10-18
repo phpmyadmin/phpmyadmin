@@ -80,7 +80,7 @@ validateExtension() {
                 foundFileExt
             fi
         ;;
-        sql/*)
+        resources/sql/*)
             if [ "${extension}" != "sql" ]; then
                 foundFileExt
             fi

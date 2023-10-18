@@ -693,7 +693,7 @@ A list of files and corresponding functionality which degrade gracefully when re
 * :file:`./doc/` (documentation)
 * :file:`./setup/` (setup script)
 * :file:`./examples/` (configuration examples)
-* :file:`./sql/` (SQL scripts to configure advanced functionalities)
+* :file:`./resources/sql/` (SQL scripts to configure advanced functionalities)
 * :file:`./js/src/` (Source files to re-build `./js/dist/`)
 * :file:`./js/global.d.ts` JS type declaration file
 * Run `rm -rv vendor/tecnickcom/tcpdf && composer dump-autoload --no-interaction --optimize --dev` (exporting to PDF)
