@@ -9859,11 +9859,6 @@
       <code>UploadSession</code>
     </UnusedClass>
   </file>
-  <file src="src/Plugins/Plugin.php">
-    <PossiblyUnusedMethod>
-      <code>getName</code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/Plugins/Schema/Dia/DiaRelationSchema.php">
     <MixedArgument>
       <code>$oneField</code>
@@ -10326,33 +10321,21 @@
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
-    <UnusedClass>
-      <code>SchemaDia</code>
-    </UnusedClass>
   </file>
   <file src="src/Plugins/Schema/SchemaEps.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
-    <UnusedClass>
-      <code>SchemaEps</code>
-    </UnusedClass>
   </file>
   <file src="src/Plugins/Schema/SchemaPdf.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
-    <UnusedClass>
-      <code>SchemaPdf</code>
-    </UnusedClass>
   </file>
   <file src="src/Plugins/Schema/SchemaSvg.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
-    <UnusedClass>
-      <code>SchemaSvg</code>
-    </UnusedClass>
   </file>
   <file src="src/Plugins/Schema/Svg/RelationStatsSvg.php">
     <MixedMethodCall>
