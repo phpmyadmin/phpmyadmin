@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2023-10-14 18:02+0000\n"
+"PO-Revision-Date: 2023-10-19 15:01+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-1/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 5.1-dev\n"
+"X-Generator: Weblate 5.1\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5076,6 +5076,8 @@ msgstr "Името на базата на податоци е празно!"
 #: libraries/classes/Controllers/Database/OperationsController.php:106
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
+"Не може да се ископира базата на податоци со исто име. Сменете го името и "
+"пробајте повторно."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:197
 #, fuzzy, php-format
@@ -5090,15 +5092,11 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "Базата на податоци %s е ископирана во %s"
 
 #: libraries/classes/Controllers/Database/OperationsController.php:324
-#, fuzzy, php-format
-#| msgid ""
-#| " additional features for working with linked tables have been ctivated. "
-#| "To find out why click %shere%s."
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"Дополнителните можности за работа со поврзаните табели се исклучени. За да "
-"дознаете зошто, кликнете %sовде%s."
+"Конфигурационото складирање на phpMyAdmin е исклучено. %sДознајте зошто%s."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:363
 #: libraries/classes/Controllers/Table/OperationsController.php:272
@@ -5182,9 +5180,8 @@ msgid "No tables selected."
 msgstr "Не е избрана ниту една табела."
 
 #: libraries/classes/Controllers/Database/TrackingController.php:157
-#, fuzzy
 msgid "Database Log"
-msgstr "База на податоци"
+msgstr "Журнал на базата на податоци"
 
 #: libraries/classes/Controllers/ErrorReportController.php:101
 msgid ""
@@ -5203,6 +5200,8 @@ msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
+"Пронајдена е грешка и генериран е извештај за грешки, но не успеа да се "
+"испрати."
 
 #: libraries/classes/Controllers/ErrorReportController.php:114
 msgid "If you experience any problems please submit a bug report manually."
@@ -5336,7 +5335,7 @@ msgstr ""
 #: libraries/classes/Controllers/ImportController.php:423
 #: libraries/classes/Controllers/ImportController.php:659
 msgid "Showing bookmark"
-msgstr ""
+msgstr "Прикажување ознака"
 
 #: libraries/classes/Controllers/ImportController.php:447
 #: libraries/classes/Controllers/ImportController.php:655
@@ -5932,9 +5931,8 @@ msgstr "%s табела"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:196
-#, fuzzy
 msgid "Questions"
-msgstr "Персиски"
+msgstr "Прашања"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:197
 #: templates/server/status/status/index.twig:14
@@ -6105,7 +6103,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:244
 msgid "Unit"
-msgstr ""
+msgstr "Единица"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:246
 msgid "From slow log"
@@ -6929,7 +6927,7 @@ msgstr "Линиите се завршуваат со"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:493
 msgid "Polygon"
-msgstr ""
+msgstr "Полигон"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:494
 #: templates/display/results/table.twig:159
@@ -8777,7 +8775,7 @@ msgstr "Табелата %s е избришана"
 #: libraries/classes/Database/Events.php:150
 #, php-format
 msgid "Event %1$s has been created."
-msgstr "Настанот %1$s беше создаден"
+msgstr "Настанот %1$s беше создаден."
 
 #: libraries/classes/Database/Events.php:164
 #: libraries/classes/Database/Routines.php:272
@@ -10482,8 +10480,8 @@ msgstr[1] ""
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "%1$d редица избришана"
-msgstr[1] "%1$d редици избришани"
+msgstr[0] "%1$d редица избришана."
+msgstr[1] "%1$d редици избришани."
 
 #: libraries/classes/Message.php:297
 #, fuzzy, php-format
@@ -18838,10 +18836,8 @@ msgstr "Пребарување"
 #: templates/table/find_replace/index.twig:10
 #: templates/table/search/index.twig:10
 #: templates/table/zoom_search/index.twig:10
-#, fuzzy
-#| msgid "Search"
 msgid "Zoom search"
-msgstr "Пребарување"
+msgstr "Зум на пребарување"
 
 #: templates/table/find_replace/index.twig:16
 #: templates/table/find_replace/index.twig:29
@@ -19057,10 +19053,8 @@ msgid "Delete the view (DROP)"
 msgstr "Базата на податоци не постои"
 
 #: templates/table/page_with_secondary_tabs.twig:11
-#, fuzzy
-#| msgid "Relation view"
 msgid "Relation view"
-msgstr "Релационен поглед"
+msgstr "Поглед на релации"
 
 #: templates/table/partition/analyze.twig:2
 #, fuzzy
@@ -19174,10 +19168,9 @@ msgid "Choose column to display:"
 msgstr "Избери полиња за прикажување"
 
 #: templates/table/relation/foreign_key_row.twig:15
-#, fuzzy, php-format
-#| msgid "Disable foreign key checks"
+#, php-format
 msgid "Foreign key constraint %s has been dropped"
-msgstr "Исклучи проверка на надворешни клучеви"
+msgstr "Ограничувањето на странски клуч %s беше избришанo"
 
 #: templates/table/relation/foreign_key_row.twig:33
 #, fuzzy
