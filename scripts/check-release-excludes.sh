@@ -104,7 +104,7 @@ validateExtension() {
                 foundFileExt
             fi
         ;;
-        templates/*)
+        resources/templates/*)
             if [ "${extension}" != "twig" ]; then
                 foundFileExt
             fi
