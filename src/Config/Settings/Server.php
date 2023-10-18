@@ -476,7 +476,7 @@ final class Server
 
     /**
      * Database used for Relation, Bookmark and PDF Features
-     * (see sql/create_tables.sql)
+     * (see resources/sql/create_tables.sql)
      *   - leave blank for no support
      *     SUGGESTED: 'phpmyadmin'
      *
