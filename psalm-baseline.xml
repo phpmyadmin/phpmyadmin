@@ -5525,6 +5525,8 @@
     </DeprecatedMethod>
     <InvalidArgument>
       <code>$added[$orgFullTableName]</code>
+      <code>$linkingUrlParams</code>
+      <code>$linkingUrlParams</code>
       <code>$multiOrderUrlParams</code>
       <code>$sortExpressionNoDirection</code>
     </InvalidArgument>
@@ -5585,7 +5587,6 @@
       <code><![CDATA[empty($field->database) ? $this->properties['db'] : $field->database]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code>$linkingUrlParams</code>
       <code>$row</code>
       <code>$sortDirection</code>
       <code>$sortExpression</code>
