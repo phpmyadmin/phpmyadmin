@@ -110,11 +110,10 @@ class Charsets
             return;
         }
 
-        if ($dbi->isMariaDB() && version_compare($dbi->getVersionString(), '10.10', 'ge')) {
+        if ($dbi->isMariaDB() && $dbi->getVersion() >= 101000) {
             /* Use query to accommodate new structure of MariaDB collations.
             Note, that SHOW COLLATION command is not applicable at the time of writing.
-            Refer https://jira.mariadb.org/browse/MDEV-27009
-            getVersionString() is used instead of getVersion() because of possibly variable integer length.*/
+            Refer https://jira.mariadb.org/browse/MDEV-27009 */
             $sql = 'SELECT `collapp`.`FULL_COLLATION_NAME` AS `Collation`,'
                 . ' `collapp`.`CHARACTER_SET_NAME` AS `Charset`,'
                 . ' `collapp`.`ID` AS `Id`,'
