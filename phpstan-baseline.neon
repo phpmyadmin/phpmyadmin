@@ -7821,12 +7821,7 @@ parameters:
 			path: src/Controllers/Table/ZoomSearchController.php
 
 		-
-			message: "#^Only booleans are allowed in &&, array given on the left side\\.$#"
-			count: 1
-			path: src/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: "#^Only booleans are allowed in &&, array\\|false given on the right side\\.$#"
+			message: "#^Only booleans are allowed in &&, array\\|false given on the left side\\.$#"
 			count: 1
 			path: src/Controllers/Table/ZoomSearchController.php
 
@@ -7837,6 +7832,11 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in a negated boolean, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Table/ZoomSearchController.php
+
+		-
+			message: "#^Only booleans are allowed in an if condition, array given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ZoomSearchController.php
 

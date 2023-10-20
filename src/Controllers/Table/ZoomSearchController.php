@@ -151,7 +151,7 @@ class ZoomSearchController extends AbstractController
          * Handle AJAX request for changing field information
          * (value,collation,operators,field values) in input form
          */
-        if (isset($_POST['change_tbl_info']) && $_POST['change_tbl_info'] == true) {
+        if ($request->hasBodyParam('change_tbl_info')) {
             $this->changeTableInfoAction();
 
             return;
@@ -483,20 +483,22 @@ class ZoomSearchController extends AbstractController
         $htmlAttributes .= ' onfocus="return '
                         . 'verifyAfterSearchFieldChange(' . $searchIndex . ', \'#zoom_search_form\')"';
 
+        $searchColumnInForeigners = false;
         $foreignDropdown = '';
-
-        if (
-            $this->foreigners
-            && $this->relation->searchColumnInForeigners($this->foreigners, $this->columnNames[$columnIndex])
-            && is_array($foreignData['disp_row'])
-        ) {
-            $foreignDropdown = $this->relation->foreignDropdown(
-                $foreignData['disp_row'],
-                $foreignData['foreign_field'],
-                $foreignData['foreign_display'],
-                '',
-                Config::getInstance()->settings['ForeignKeyMaxLimit'],
+        if ($this->foreigners) {
+            $searchColumnInForeigners = $this->relation->searchColumnInForeigners(
+                $this->foreigners,
+                $this->columnNames[$columnIndex],
             );
+            if ($searchColumnInForeigners && is_array($foreignData['disp_row'])) {
+                $foreignDropdown = $this->relation->foreignDropdown(
+                    $foreignData['disp_row'],
+                    $foreignData['foreign_field'],
+                    $foreignData['foreign_display'],
+                    '',
+                    Config::getInstance()->settings['ForeignKeyMaxLimit'],
+                );
+            }
         }
 
         $value = $this->template->render('table/search/input_box', [
@@ -516,6 +518,7 @@ class ZoomSearchController extends AbstractController
             'db' => $GLOBALS['db'],
             'in_fbs' => true,
             'foreign_dropdown' => $foreignDropdown,
+            'search_column_in_foreigners' => $searchColumnInForeigners,
             'is_integer' => $isInteger,
             'is_float' => $isFloat,
         ]);

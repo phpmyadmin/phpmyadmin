@@ -14095,6 +14095,7 @@
   <file src="test/classes/Controllers/Table/ZoomSearchControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
   <file src="test/classes/Controllers/ThemeSetControllerTest.php">
