@@ -15,7 +15,6 @@ use function array_keys;
 use function explode;
 use function is_string;
 use function ksort;
-use function version_compare;
 
 use const SORT_STRING;
 
