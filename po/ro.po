@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-10-15 00:18+0000\n"
-"PO-Revision-Date: 2023-03-13 13:06+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2023-10-21 03:00+0000\n"
+"Last-Translator: Vlăduț Ilie <vladilie94@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ro/>\n"
 "Language: ro\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 4.16.2-dev\n"
+"X-Generator: Weblate 5.1\n"
 
 #: src/Advisory/Advisor.php:207
 #, php-format
@@ -3940,7 +3940,7 @@ msgstr "Ignoră erorile pentru mai multe declarații"
 
 #: src/Config/Descriptions.php:774
 msgid "Enable drag and drop import"
-msgstr ""
+msgstr "Activează încărcarea prin trage și plasează"
 
 #: src/Config/Descriptions.php:775
 msgid "Partial import: allow interrupt"
