@@ -5573,8 +5573,6 @@
       <code><![CDATA[$rel['foreign_field']]]></code>
       <code><![CDATA[$rel['foreign_table']]]></code>
       <code><![CDATA[$rel['foreign_table']]]></code>
-      <code>$row[$i]</code>
-      <code>$row[$i]</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
@@ -5587,7 +5585,6 @@
       <code><![CDATA[empty($field->database) ? $this->properties['db'] : $field->database]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code>$row</code>
       <code>$sortDirection</code>
       <code>$sortExpression</code>
       <code>$urlParams</code>
@@ -5759,7 +5756,6 @@
       <code>$i</code>
       <code>$identifier</code>
       <code>$index</code>
-      <code><![CDATA[$linkingUrlParams[$newParam['param_info']]]]></code>
       <code>$m</code>
       <code><![CDATA[$meta->name]]></code>
       <code><![CDATA[$multipleUrlParams['sql_query']]]></code>
@@ -5770,7 +5766,6 @@
       <code>$query</code>
       <code>$rel</code>
       <code>$relationalDisplay</code>
-      <code><![CDATA[$rowInfo[mb_strtolower($fieldsMeta[$m]->orgname)]]]></code>
       <code>$sqlQuery</code>
       <code>$sqlQueryAdd</code>
       <code>$tableCreateTime</code>

@@ -2218,7 +2218,7 @@ class Results
      *
      * @see     getTableBody()
      *
-     * @param mixed[]                  $row         current row data
+     * @param list<string|null>        $row         current row data
      * @param int                      $rowNumber   the index of current row
      * @param mixed[]|false            $colOrder    the column order false when
      *                                             a property not found false
@@ -2339,7 +2339,7 @@ class Results
             if (
                 ! empty($this->transformationInfo[$dbLower][$tblLower][$nameLower])
                 && isset($row[$i])
-                && (trim($row[$i]) != '')
+                && (trim($row[$i]) !== '')
                 && ! $_SESSION['tmpval']['hide_transformation']
             ) {
                 /** @psalm-suppress UnresolvableInclude */
@@ -2425,7 +2425,7 @@ class Results
                 // n u m e r i c
 
                 $displayParams['data'][$rowNumber][$i] = $this->getDataCellForNumericColumns(
-                    $row[$i] === null ? null : (string) $row[$i],
+                    $row[$i],
                     'text-end ' . $class,
                     $conditionField,
                     $meta,
@@ -2442,7 +2442,7 @@ class Results
                 $class = str_replace('grid_edit', '', $class);
 
                 $displayParams['data'][$rowNumber][$i] = $this->getDataCellForGeometryColumns(
-                    $row[$i] === null ? null : (string) $row[$i],
+                    $row[$i],
                     $class,
                     $meta,
                     $map,
@@ -2456,7 +2456,7 @@ class Results
                 // n o t   n u m e r i c
 
                 $displayParams['data'][$rowNumber][$i] = $this->getDataCellForNonNumericColumns(
-                    $row[$i] === null ? null : (string) $row[$i],
+                    $row[$i],
                     $class,
                     $meta,
                     $map,
@@ -2487,7 +2487,7 @@ class Results
      * Get link for display special schema links
      *
      * @param array<string,array<int,array<string,string>>|string> $linkRelations
-     * @param mixed[]                                              $rowInfo       information about row
+     * @param array<string|null>                                   $rowInfo       information about row
      * @phpstan-param array{
      *                         'link_param': string,
      *                         'link_dependancy_params'?: array<
@@ -2496,8 +2496,6 @@ class Results
      *                                                     >,
      *                         'default_page': string
      *                     } $linkRelations
-     *
-     * @return string generated link
      */
     private function getSpecialLinkUrl(
         array $linkRelations,
@@ -2536,10 +2534,10 @@ class Results
     /**
      * Prepare row information for display special links
      *
-     * @param mixed[]      $row      current row data
-     * @param mixed[]|bool $colOrder the column order
+     * @param list<string|null> $row      current row data
+     * @param mixed[]|bool      $colOrder the column order
      *
-     * @return array<string, mixed> associative array with column nama -> value
+     * @return array<string|null> associative array with column nama -> value
      */
     private function getRowInfoForSpecialLinks(array $row, array|bool $colOrder): array
     {

@@ -9801,11 +9801,6 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: "#^Cannot cast mixed to string\\.$#"
-			count: 3
-			path: src/Display/Results.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 26
 			path: src/Display/Results.php
@@ -9976,23 +9971,13 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommonRaw\\(\\) expects array\\<int\\|string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 1
-			path: src/Display/Results.php
-
-		-
 			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommonRaw\\(\\) expects array\\<int\\|string, bool\\|int\\|string\\>, array\\<string, string\\|null\\> given\\.$#"
-			count: 1
+			count: 2
 			path: src/Display/Results.php
 
 		-
 			message: "#^Parameter \\#1 \\$sqlQuery of static method PhpMyAdmin\\\\Core\\:\\:signSqlQuery\\(\\) expects string, mixed given\\.$#"
 			count: 4
-			path: src/Display/Results.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function trim expects string, mixed given\\.$#"
-			count: 1
 			path: src/Display/Results.php
 
 		-
@@ -10012,11 +9997,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Util\\:\\:formatNumber\\(\\) expects float\\|int\\|string, int\\|string\\|false given\\.$#"
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: "#^Parameter \\#2 \\$columnValue of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getSpecialLinkUrl\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Display/Results.php
 
@@ -10072,11 +10052,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#3 \\$numEmptyColumnsAfter of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getRepeatingHeaders\\(\\) expects int, mixed given\\.$#"
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: "#^Parameter \\#3 \\$row of static method PhpMyAdmin\\\\Util\\:\\:getUniqueCondition\\(\\) expects array\\<int, mixed\\>, array given\\.$#"
 			count: 1
 			path: src/Display/Results.php
 

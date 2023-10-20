@@ -711,7 +711,7 @@ class ResultsTest extends AbstractTestCase
             $this->object,
             DisplayResults::class,
             'getRowValues',
-            [[3600, 'true'], 0, false, [], 'disabled', false, $query, StatementInfo::fromArray(Query::getAll($query))],
+            [['3600', 'true'], 0, false, [], 'disabled', false, $query, StatementInfo::fromArray(Query::getAll($query))],
         );
 
         // Dateformat
