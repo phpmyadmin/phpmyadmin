@@ -2590,6 +2590,9 @@ class Results
      */
     private function getColumnParams(StatementInfo $statementInfo): array
     {
+        $colOrder = false;
+        $colVisib = false;
+
         if ($this->isSelect($statementInfo)) {
             $pmatable = new Table($this->properties['table'], $this->properties['db'], $this->dbi);
             $colOrder = $pmatable->getUiProp(Table::PROP_COLUMN_ORDER);
@@ -2597,12 +2600,10 @@ class Results
             /* Validate the value */
             if (is_array($colOrder)) {
                 foreach ($colOrder as $value) {
-                    if ($value < $fieldsCount) {
-                        continue;
+                    if ($value >= $fieldsCount) {
+                        $pmatable->removeUiProp(Table::PROP_COLUMN_ORDER);
+                        break;
                     }
-
-                    $pmatable->removeUiProp(Table::PROP_COLUMN_ORDER);
-                    break;
                 }
 
                 if ($fieldsCount !== count($colOrder)) {
@@ -2616,9 +2617,6 @@ class Results
                 $pmatable->removeUiProp(Table::PROP_COLUMN_VISIB);
                 $colVisib = false;
             }
-        } else {
-            $colOrder = false;
-            $colVisib = false;
         }
 
         return [$colOrder, $colVisib];
