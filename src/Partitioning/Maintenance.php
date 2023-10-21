@@ -134,17 +134,34 @@ final class Maintenance
      * @return array<int, bool|string>
      * @psalm-return array{bool, string}
      */
-    public function truncate(DatabaseName $db, TableName $table, string $partition): array
+    public function isView(DatabaseName $db, TableName $table): bool
     {
         $query = sprintf(
-            'ALTER TABLE %s TRUNCATE PARTITION %s;',
-            Util::backquote($table->getName()),
-            Util::backquote($partition),
+            'SELECT TABLE_NAME FROM INFORMATION_SCHEMA.VIEWS WHERE TABLE_SCHEMA = %s AND TABLE_NAME = %s;',
+            $this->dbi->$db->getName(),
+            $this->dbi->$table->getName()
         );
 
-        $this->dbi->selectDb($db);
-        $result = $this->dbi->tryQuery($query);
-
-        return [(bool) $result, $query];
+        $result = $this->dbi->fetchResult($query);
+        return !empty($result);
+    }
+    
+    public function truncate(DatabaseName $db, TableName $table, string $partition): array
+    {
+        if ($this->isView($db, $table)) {
+            return [false, 'Cannot TRUNCATE a view'];
+        }
+        else{
+            $query = sprintf(
+                'ALTER TABLE %s TRUNCATE PARTITION %s;',
+                Util::backquote($table->getName()),
+                Util::backquote($partition),
+            );
+    
+            $this->dbi->selectDb($db);
+            $result = $this->dbi->tryQuery($query);
+    
+            return [(bool) $result, $query];
+        }
     }
 }
