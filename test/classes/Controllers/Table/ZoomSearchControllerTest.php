@@ -7,32 +7,17 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\ZoomSearchController;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(ZoomSearchController::class)]
-class ZoomSearchControllerTest extends AbstractTestCase
+final class ZoomSearchControllerTest extends AbstractTestCase
 {
-    protected DatabaseInterface $dbi;
-
-    protected DbiDummy $dummyDbi;
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->dummyDbi = $this->createDbiDummy();
-        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        DatabaseInterface::$instance = $this->dbi;
-    }
-
     public function testZoomSearchController(): void
     {
         $GLOBALS['server'] = 2;
@@ -41,8 +26,11 @@ class ZoomSearchControllerTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'ltr';
         Config::getInstance()->selectedServer['DisableIS'] = true;
 
-        $this->dummyDbi->addSelectDb('test_db');
-        $this->dummyDbi->addResult('SHOW TABLES LIKE \'test_table\';', [['test_table']]);
+        $dbiDummy = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+
+        $dbiDummy->addSelectDb('test_db');
+        $dbiDummy->addResult('SHOW TABLES LIKE \'test_table\';', [['test_table']]);
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
             ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
@@ -52,10 +40,10 @@ class ZoomSearchControllerTest extends AbstractTestCase
         $controller = new ZoomSearchController(
             $response,
             $template,
-            new Search($this->dbi),
-            new Relation($this->dbi),
-            $this->dbi,
-            new DbTableExists($this->dbi),
+            new Search($dbi),
+            new Relation($dbi),
+            $dbi,
+            new DbTableExists($dbi),
         );
         $controller($request);
 
@@ -74,5 +62,67 @@ class ZoomSearchControllerTest extends AbstractTestCase
         ]);
 
         $this->assertSame($expected, $response->getHTMLResult());
+    }
+
+    public function testChangeTableInfoAction(): void
+    {
+        $GLOBALS['db'] = 'test_db';
+        $GLOBALS['table'] = 'test_table';
+        Config::getInstance()->selectedServer['DisableIS'] = true;
+
+        $_POST['field'] = 'datetimefield';
+
+        $dbiDummy = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+
+        $dbiDummy->addSelectDb('test_db');
+        $dbiDummy->addResult('SHOW TABLES LIKE \'test_table\';', [['test_table']]);
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withQueryParams(['db' => 'test_db', 'table' => 'test_table'])
+            ->withParsedBody(['change_tbl_info' => '1']);
+
+        $response = new ResponseRenderer();
+        $template = new Template();
+        $controller = new ZoomSearchController(
+            $response,
+            $template,
+            new Search($dbi),
+            new Relation($dbi),
+            $dbi,
+            new DbTableExists($dbi),
+        );
+        $controller($request);
+
+        // phpcs:disable Generic.Files.LineLength.TooLong
+        $operators = <<<'HTML'
+<select class="column-operator" id="ColumnOperator0" name="criteriaColumnOperators[0]">
+  <option value="=">=</option><option value="&gt;">&gt;</option><option value="&gt;=">&gt;=</option><option value="&lt;">&lt;</option><option value="&lt;=">&lt;=</option><option value="!=">!=</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="NOT LIKE %...%">NOT LIKE %...%</option><option value="IN (...)">IN (...)</option><option value="NOT IN (...)">NOT IN (...)</option><option value="BETWEEN">BETWEEN</option><option value="NOT BETWEEN">NOT BETWEEN</option>
+</select>
+
+HTML;
+        // phpcs:enable
+
+        $value = <<<'HTML'
+                        <input
+                    type="text"
+        name="criteriaValues[0]"
+        data-type="DATETIME"
+         onfocus="return verifyAfterSearchFieldChange(0, '#zoom_search_form')"
+        size="40"
+        class="textfield datetimefield"
+        id="fieldID_0"
+        >
+
+HTML;
+
+        $expected = [
+            'field_type' => 'datetime',
+            'field_collation' => '',
+            'field_operators' => $operators,
+            'field_value' => $value,
+        ];
+
+        $this->assertSame($expected, $response->getJSONResult());
     }
 }
