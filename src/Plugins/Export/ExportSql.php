@@ -31,6 +31,7 @@ use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokenType;
 use PhpMyAdmin\Triggers\Triggers;
+use PhpMyAdmin\UniqueCondition;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Version;
 
@@ -2259,9 +2260,7 @@ class ExportSql extends ExportPlugin
                     $insertLine .= $fieldSet[$i] . ' = ' . $values[$i];
                 }
 
-                [$tmpUniqueCondition] = Util::getUniqueCondition($fieldsMeta, $row);
-                $insertLine .= ' WHERE ' . $tmpUniqueCondition;
-                unset($tmpUniqueCondition);
+                $insertLine .= ' WHERE ' . (new UniqueCondition($fieldsMeta, $row))->getWhereClause();
             } elseif ($GLOBALS['sql_insert_syntax'] === 'extended' || $GLOBALS['sql_insert_syntax'] === 'both') {
                 // Extended inserts case
                 if ($currentRow === 1) {

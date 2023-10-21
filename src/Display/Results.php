@@ -30,6 +30,7 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme\Theme;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\UniqueCondition;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\Gis;
@@ -1918,13 +1919,16 @@ class Results
                  *       with only one field and it's a BLOB; in this case,
                  *       avoid to display the delete and edit links
                  */
-                [$whereClause, $clauseIsUnique, $conditionArray] = Util::getUniqueCondition(
+                $uniqueCondition = new UniqueCondition(
                     $this->fieldsMeta,
                     $GLOBALS['row'],
                     false,
                     $this->table,
                     $expressions,
                 );
+                $whereClause = $uniqueCondition->getWhereClause();
+                $clauseIsUnique = $uniqueCondition->isClauseUnique();
+                $conditionArray = $uniqueCondition->getConditionArray();
                 $this->whereClauseMap[$rowNumber][$this->table] = $whereClause;
 
                 // 1.2.1 Modify link(s) - update row case
@@ -2282,19 +2286,18 @@ class Results
             /**
              * The result set can have columns from more than one table,
              * this is why we have to check for the unique conditions
-             * related to this table; however getUniqueCondition() is
+             * related to this table; however getting UniqueCondition is
              * costly and does not need to be called if we already know
              * the conditions for the current table.
              */
             if (! isset($this->whereClauseMap[$rowNumber][$meta->orgtable])) {
-                [$uniqueConditions] = Util::getUniqueCondition(
+                $this->whereClauseMap[$rowNumber][$meta->orgtable] = (new UniqueCondition(
                     $this->fieldsMeta,
                     $row,
                     false,
                     $meta->orgtable,
                     $expressions,
-                );
-                $this->whereClauseMap[$rowNumber][$meta->orgtable] = $uniqueConditions;
+                ))->getWhereClause();
             }
 
             $urlParams = [
@@ -3662,7 +3665,7 @@ class Results
          * $clauseIsUnique is needed by getTable() to generate the proper param
          * in the multi-edit and multi-delete form
          */
-        [, $clauseIsUnique] = Util::getUniqueCondition($this->fieldsMeta, $row, expressions: $expressions);
+        $clauseIsUnique = (new UniqueCondition($this->fieldsMeta, $row, expressions: $expressions))->isClauseUnique();
 
         // reset to first row for the loop in getTableBody()
         $dtResult->seek(0);

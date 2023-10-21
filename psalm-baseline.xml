@@ -12540,6 +12540,18 @@
       <code>new $name($this)</code>
     </UnsafeInstantiation>
   </file>
+  <file src="src/UniqueCondition.php">
+    <DeprecatedMethod>
+      <code>DatabaseInterface::getInstance()</code>
+      <code>DatabaseInterface::getInstance()</code>
+    </DeprecatedMethod>
+    <MixedArgument>
+      <code>$row[$i] ?? null</code>
+    </MixedArgument>
+    <MixedArrayTypeCoercion>
+      <code>$row[$i]</code>
+    </MixedArrayTypeCoercion>
+  </file>
   <file src="src/Url.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
@@ -12641,16 +12653,11 @@
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
       <code>$byteUnits[$d]</code>
       <code>$units[$d]</code>
     </InvalidArrayOffset>
-    <MixedArgument>
-      <code>$row[$i] ?? null</code>
-    </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$columnNames</code>
       <code><![CDATA[uksort($tables, 'strnatcasecmp')]]></code>
@@ -15970,6 +15977,14 @@
       <code>providerFortTestGetTypeClass</code>
     </PossiblyUnusedMethod>
   </file>
+  <file src="test/classes/UniqueConditionTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+    <PossiblyUnusedMethod>
+      <code>providerGetUniqueConditionForGroupFlag</code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="test/classes/UrlTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
@@ -16053,7 +16068,6 @@
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
     </DeprecatedMethod>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[Config::getInstance()->selectedServer]]></code>
@@ -16129,7 +16143,6 @@
       <code>providerForwardedHeaders</code>
       <code>providerGetFormattedMaximumUploadSize</code>
       <code>providerGetTitleForTarget</code>
-      <code>providerGetUniqueConditionForGroupFlag</code>
       <code>providerIsInteger</code>
       <code>providerLocalisedDate</code>
       <code>providerPrintableBitValue</code>

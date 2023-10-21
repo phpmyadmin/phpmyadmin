@@ -11981,7 +11981,7 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: "#^Parameter \\#2 \\$row of static method PhpMyAdmin\\\\Util\\:\\:getUniqueCondition\\(\\) expects array\\<int, mixed\\>, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$row of class PhpMyAdmin\\\\UniqueCondition constructor expects array\\<int, mixed\\>, mixed given\\.$#"
 			count: 1
 			path: src/InsertEdit.php
 
@@ -18936,6 +18936,26 @@ parameters:
 			path: src/Types.php
 
 		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 4
+			path: src/UniqueCondition.php
+
+		-
+			message: "#^Only booleans are allowed in &&, bool\\|string given on the left side\\.$#"
+			count: 1
+			path: src/UniqueCondition.php
+
+		-
+			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/UniqueCondition.php
+
+		-
+			message: "#^Parameter \\#1 \\$row of method PhpMyAdmin\\\\UniqueCondition\\:\\:getConditionValue\\(\\) expects float\\|int\\|string\\|null, mixed given\\.$#"
+			count: 1
+			path: src/UniqueCondition.php
+
+		-
 			message: "#^Call to function base64_decode\\(\\) requires parameter \\#2 to be set\\.$#"
 			count: 1
 			path: src/Url.php
@@ -19117,7 +19137,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 6
+			count: 2
 			path: src/Util.php
 
 		-
@@ -19132,16 +19152,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Util\\:\\:getTableListPosition\\(\\) should return int but returns mixed\\.$#"
-			count: 1
-			path: src/Util.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Util\\:\\:getUniqueCondition\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Util.php
-
-		-
-			message: "#^Only booleans are allowed in &&, bool\\|string given on the left side\\.$#"
 			count: 1
 			path: src/Util.php
 
@@ -19202,16 +19212,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumnNames\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Util.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Util.php
-
-		-
-			message: "#^Parameter \\#1 \\$row of static method PhpMyAdmin\\\\Util\\:\\:getConditionValue\\(\\) expects float\\|int\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Util.php
 

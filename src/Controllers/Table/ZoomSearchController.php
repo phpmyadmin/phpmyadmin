@@ -17,6 +17,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\UniqueCondition;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\Gis;
@@ -358,12 +359,12 @@ class ZoomSearchController extends AbstractController
         $fieldsMeta = $this->dbi->getFieldsMeta($result);
         $data = [];
         while ($row = $result->fetchAssoc()) {
-            //Need a row with indexes as 0,1,2 for the getUniqueCondition
+            //Need a row with indexes as 0,1,2 for the UniqueCondition
             // hence using a temporary array
             $tmpRow = array_values($row);
 
             //Get unique condition on each row (will be needed for row update)
-            [$uniqueCondition] = Util::getUniqueCondition($fieldsMeta, $tmpRow, true);
+            $uniqueCondition = (new UniqueCondition($fieldsMeta, $tmpRow, true))->getWhereClause();
             //Append it to row array as where_clause
             $row['where_clause'] = $uniqueCondition;
             $row['where_clause_sign'] = Core::signSqlQuery($uniqueCondition);
