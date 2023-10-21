@@ -2259,7 +2259,7 @@ class ExportSql extends ExportPlugin
                     $insertLine .= $fieldSet[$i] . ' = ' . $values[$i];
                 }
 
-                [$tmpUniqueCondition] = Util::getUniqueCondition($fieldsCnt, $fieldsMeta, $row);
+                [$tmpUniqueCondition] = Util::getUniqueCondition($fieldsMeta, $row);
                 $insertLine .= ' WHERE ' . $tmpUniqueCondition;
                 unset($tmpUniqueCondition);
             } elseif ($GLOBALS['sql_insert_syntax'] === 'extended' || $GLOBALS['sql_insert_syntax'] === 'both') {

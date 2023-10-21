@@ -1919,7 +1919,6 @@ class Results
                  *       avoid to display the delete and edit links
                  */
                 [$whereClause, $clauseIsUnique, $conditionArray] = Util::getUniqueCondition(
-                    count($this->fieldsMeta),
                     $this->fieldsMeta,
                     $GLOBALS['row'],
                     false,
@@ -2289,7 +2288,6 @@ class Results
              */
             if (! isset($this->whereClauseMap[$rowNumber][$meta->orgtable])) {
                 [$uniqueConditions] = Util::getUniqueCondition(
-                    count($this->fieldsMeta),
                     $this->fieldsMeta,
                     $row,
                     false,
@@ -3664,14 +3662,7 @@ class Results
          * $clauseIsUnique is needed by getTable() to generate the proper param
          * in the multi-edit and multi-delete form
          */
-        [, $clauseIsUnique] = Util::getUniqueCondition(
-            count($this->fieldsMeta),
-            $this->fieldsMeta,
-            $row,
-            false,
-            false,
-            $expressions,
-        );
+        [, $clauseIsUnique] = Util::getUniqueCondition($this->fieldsMeta, $row, expressions: $expressions);
 
         // reset to first row for the loop in getTableBody()
         $dtResult->seek(0);

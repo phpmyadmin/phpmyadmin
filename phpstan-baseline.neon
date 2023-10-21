@@ -11981,6 +11981,11 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
+			message: "#^Parameter \\#2 \\$row of static method PhpMyAdmin\\\\Util\\:\\:getUniqueCondition\\(\\) expects array\\<int, mixed\\>, mixed given\\.$#"
+			count: 1
+			path: src/InsertEdit.php
+
+		-
 			message: "#^Parameter \\#2 \\$signature of static method PhpMyAdmin\\\\Core\\:\\:checkSqlQuerySignature\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/InsertEdit.php
@@ -11997,11 +12002,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getDisplayField\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/InsertEdit.php
-
-		-
-			message: "#^Parameter \\#3 \\$row of static method PhpMyAdmin\\\\Util\\:\\:getUniqueCondition\\(\\) expects array\\<int, mixed\\>, mixed given\\.$#"
 			count: 1
 			path: src/InsertEdit.php
 

@@ -24,7 +24,6 @@ use PhpMyAdmin\Utils\Gis;
 use function __;
 use function array_search;
 use function array_values;
-use function count;
 use function htmlspecialchars;
 use function in_array;
 use function intval;
@@ -364,12 +363,7 @@ class ZoomSearchController extends AbstractController
             $tmpRow = array_values($row);
 
             //Get unique condition on each row (will be needed for row update)
-            [$uniqueCondition] = Util::getUniqueCondition(
-                count($this->columnNames),
-                $fieldsMeta,
-                $tmpRow,
-                true,
-            );
+            [$uniqueCondition] = Util::getUniqueCondition($fieldsMeta, $tmpRow, true);
             //Append it to row array as where_clause
             $row['where_clause'] = $uniqueCondition;
             $row['where_clause_sign'] = Core::signSqlQuery($uniqueCondition);

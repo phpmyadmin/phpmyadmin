@@ -695,7 +695,6 @@ class Util
     /**
      * Function to generate unique condition for specified row.
      *
-     * @param int             $fieldsCount     number of fields
      * @param FieldMetadata[] $fieldsMeta      meta information about fields
      * @param array           $row             current row
      * @param bool            $forceUnique     generate condition only on pk or unique
@@ -707,13 +706,13 @@ class Util
      * @psalm-return array{string, bool, array}
      */
     public static function getUniqueCondition(
-        int $fieldsCount,
         array $fieldsMeta,
         array $row,
         bool $forceUnique = false,
         string|bool $restrictToTable = false,
         array $expressions = [],
     ): array {
+        $fieldsCount = count($fieldsMeta);
         $primaryKey = '';
         $uniqueKey = '';
         $nonPrimaryCondition = '';
@@ -723,9 +722,7 @@ class Util
         $nonPrimaryConditionArray = [];
 
         /** @infection-ignore-all */
-        for ($i = 0; $i < $fieldsCount; ++$i) {
-            $meta = $fieldsMeta[$i];
-
+        foreach ($fieldsMeta as $i => $meta) {
             // do not use a column alias in a condition
             if ($meta->orgname === '') {
                 $meta->orgname = $meta->name;

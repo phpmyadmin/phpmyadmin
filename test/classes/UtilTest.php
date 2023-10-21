@@ -21,7 +21,6 @@ use Psr\Http\Message\ServerRequestInterface;
 
 use function __;
 use function _setlocale;
-use function count;
 use function date_default_timezone_get;
 use function date_default_timezone_set;
 use function file_exists;
@@ -72,10 +71,10 @@ class UtilTest extends AbstractTestCase
         $GLOBALS['db'] = 'db';
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
-        $actual = Util::getUniqueCondition(0, [], []);
+        $actual = Util::getUniqueCondition([], []);
         $this->assertEquals(['', false, []], $actual);
 
-        $actual = Util::getUniqueCondition(0, [], [], true);
+        $actual = Util::getUniqueCondition([], [], true);
         $this->assertEquals(['', true, []], $actual);
     }
 
@@ -166,7 +165,7 @@ class UtilTest extends AbstractTestCase
             ]),
         ];
 
-        $actual = Util::getUniqueCondition(count($meta), $meta, [
+        $actual = Util::getUniqueCondition($meta, [
             null,
             'value\'s',
             123456,
@@ -218,7 +217,7 @@ class UtilTest extends AbstractTestCase
             ]),
         ];
 
-        $actual = Util::getUniqueCondition(1, $meta, [str_repeat('*', 1001)]);
+        $actual = Util::getUniqueCondition($meta, [str_repeat('*', 1001)]);
         $this->assertEquals(
             ['CHAR_LENGTH(`table`.`field`)  = 1001', false, ['`table`.`field`' => ' = 1001']],
             $actual,
@@ -245,7 +244,7 @@ class UtilTest extends AbstractTestCase
             ]),
         ];
 
-        $actual = Util::getUniqueCondition(count($meta), $meta, [1, 'value']);
+        $actual = Util::getUniqueCondition($meta, [1, 'value']);
         $this->assertEquals(['`table`.`id` = 1', true, ['`table`.`id`' => '= 1']], $actual);
     }
 
@@ -269,7 +268,7 @@ class UtilTest extends AbstractTestCase
             ]),
         ];
 
-        $actual = Util::getUniqueCondition(count($meta), $meta, ['unique', 'value']);
+        $actual = Util::getUniqueCondition($meta, ['unique', 'value']);
         $this->assertEquals(['`table`.`id` = \'unique\'', true, ['`table`.`id`' => '= \'unique\'']], $actual);
     }
 
@@ -288,8 +287,7 @@ class UtilTest extends AbstractTestCase
     {
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
-        $fieldsCount = count($meta);
-        $actual = Util::getUniqueCondition($fieldsCount, $meta, $row);
+        $actual = Util::getUniqueCondition($meta, $row);
 
         $this->assertEquals($expected, $actual);
     }
