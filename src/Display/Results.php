@@ -2487,7 +2487,6 @@ class Results
      * Get link for display special schema links
      *
      * @param array<string,array<int,array<string,string>>|string> $linkRelations
-     * @param string                                               $columnValue   column value
      * @param mixed[]                                              $rowInfo       information about row
      * @phpstan-param array{
      *                         'link_param': string,
@@ -2502,7 +2501,7 @@ class Results
      */
     private function getSpecialLinkUrl(
         array $linkRelations,
-        string $columnValue,
+        string|null $columnValue,
         array $rowInfo,
     ): string {
         $linkingUrlParams = [];
