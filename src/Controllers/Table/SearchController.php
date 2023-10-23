@@ -35,7 +35,6 @@ use function md5;
 use function preg_match;
 use function preg_replace;
 use function str_ireplace;
-use function str_replace;
 use function strncasecmp;
 use function strtoupper;
 
