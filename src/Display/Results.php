@@ -471,7 +471,6 @@ class Results
         $deleteLink = $displayParts->deleteLink;
         $hasPrintLink = $displayParts->hasPrintLink;
 
-        /** @infection-ignore-all */
         foreach ($this->fieldsMeta as $field) {
             $isLink = $hasEditLink || $deleteLink !== DeleteLinkEnum::NO_DELETE || $displayParts->hasSortLink;
 
@@ -2068,7 +2067,6 @@ class Results
         $added = [];
         $relationParameters = $this->relation->getRelationParameters();
 
-        /** @infection-ignore-all */
         foreach ($this->fieldsMeta as $field) {
             $orgFullTableName = $this->db . '.' . $field->orgtable;
 

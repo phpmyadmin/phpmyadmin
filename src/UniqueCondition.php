@@ -46,7 +46,6 @@ class UniqueCondition
         $uniqueKeyArray = [];
         $nonPrimaryConditionArray = [];
 
-        /** @infection-ignore-all */
         foreach ($fieldsMeta as $i => $meta) {
             // do not use a column alias in a condition
             if ($meta->orgname === '') {
