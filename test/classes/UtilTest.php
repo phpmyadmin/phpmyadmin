@@ -34,10 +34,6 @@ use function strlen;
 use const LC_ALL;
 use const LOCALE_PATH;
 
-const FIELD_TYPE_INTEGER = 1;
-const FIELD_TYPE_VARCHAR = 253;
-const FIELD_TYPE_UNKNOWN = -1;
-
 #[CoversClass(Util::class)]
 class UtilTest extends AbstractTestCase
 {

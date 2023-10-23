@@ -20,11 +20,9 @@ use const MYSQLI_TYPE_GEOMETRY;
 use const MYSQLI_TYPE_LONG;
 use const MYSQLI_TYPE_SHORT;
 use const MYSQLI_TYPE_STRING;
+use const MYSQLI_TYPE_TINY;
+use const MYSQLI_TYPE_VAR_STRING;
 use const MYSQLI_UNIQUE_KEY_FLAG;
-
-const FIELD_TYPE_INTEGER = 1;
-const FIELD_TYPE_VARCHAR = 253;
-const FIELD_TYPE_UNKNOWN = -1;
 
 #[CoversClass(UniqueCondition::class)]
 class UniqueConditionTest extends AbstractTestCase
@@ -286,7 +284,7 @@ class UniqueConditionTest extends AbstractTestCase
             'field type is integer, value is number - not escape string' => [
                 [
                     FieldHelper::fromArray([
-                        'type' => FIELD_TYPE_INTEGER,
+                        'type' => MYSQLI_TYPE_TINY,
                         'flags' => MYSQLI_NUM_FLAG,
                         'name' => 'col',
                         'table' => 'table',
@@ -299,7 +297,7 @@ class UniqueConditionTest extends AbstractTestCase
             'field type is unknown, value is string - escape string' => [
                 [
                     FieldHelper::fromArray([
-                        'type' => FIELD_TYPE_UNKNOWN,
+                        'type' => -1,
                         'flags' => MYSQLI_NUM_FLAG,
                         'name' => 'col',
                         'table' => 'table',
@@ -312,7 +310,7 @@ class UniqueConditionTest extends AbstractTestCase
             'field type is varchar, value is string - escape string' => [
                 [
                     FieldHelper::fromArray([
-                        'type' => FIELD_TYPE_VARCHAR,
+                        'type' => MYSQLI_TYPE_VAR_STRING,
                         'flags' => MYSQLI_NUM_FLAG,
                         'name' => 'col',
                         'table' => 'table',
@@ -325,7 +323,7 @@ class UniqueConditionTest extends AbstractTestCase
             'field type is varchar, value is string with double quote - escape string' => [
                 [
                     FieldHelper::fromArray([
-                        'type' => FIELD_TYPE_VARCHAR,
+                        'type' => MYSQLI_TYPE_VAR_STRING,
                         'flags' => MYSQLI_NUM_FLAG,
                         'name' => 'col',
                         'table' => 'table',
@@ -338,7 +336,7 @@ class UniqueConditionTest extends AbstractTestCase
             'field type is varchar, value is string with single quote - escape string' => [
                 [
                     FieldHelper::fromArray([
-                        'type' => FIELD_TYPE_VARCHAR,
+                        'type' => MYSQLI_TYPE_VAR_STRING,
                         'flags' => MYSQLI_NUM_FLAG,
                         'name' => 'col',
                         'table' => 'table',
@@ -351,14 +349,14 @@ class UniqueConditionTest extends AbstractTestCase
             'group by multiple columns and field type is mixed' => [
                 [
                     FieldHelper::fromArray([
-                        'type' => FIELD_TYPE_VARCHAR,
+                        'type' => MYSQLI_TYPE_VAR_STRING,
                         'flags' => MYSQLI_NUM_FLAG,
                         'name' => 'col',
                         'table' => 'table',
                         'orgtable' => 'table',
                     ]),
                     FieldHelper::fromArray([
-                        'type' => FIELD_TYPE_INTEGER,
+                        'type' => MYSQLI_TYPE_TINY,
                         'flags' => MYSQLI_NUM_FLAG,
                         'name' => 'status_id',
                         'table' => 'table',
