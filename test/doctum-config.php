@@ -13,7 +13,7 @@ $root = realpath(__DIR__ . '/../') . '/';
 $iterator = Finder::create()
     ->files()
     ->name('*.php')
-    ->in($root . 'libraries');
+    ->in($root . 'src');
 
 return new Doctum($iterator, [
     'title'                => json_decode(file_get_contents($root . 'composer.json'))->description,

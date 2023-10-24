@@ -19,8 +19,8 @@ THRESHOLD=40
 #
 # Generated output file
 #
-TMPOUTPUTFILE=libraries/language_stats.inc.php.tmp
-OUTPUTFILE=libraries/language_stats.inc.php
+TMPOUTPUTFILE=app/language_stats.inc.php.tmp
+OUTPUTFILE=app/language_stats.inc.php
 
 if [ ! -z "$1" ] ; then
     THRESHOLD=$1

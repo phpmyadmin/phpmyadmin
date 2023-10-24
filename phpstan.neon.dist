@@ -3,19 +3,19 @@ includes:
 parameters:
     level: max
     paths:
-        - libraries
+        - app
         - public
         - src
         - test
     scanFiles:
-        - libraries/constants.php
+        - app/constants.php
         - examples/signon-script.php
     bootstrapFiles:
         - test/phpstan-constants.php
     stubFiles:
         - test/stubs/uploadprogress.stub
     excludePaths:
-        - cache/*
+        - app/cache/*
         - test/doctum-config.php
     dynamicConstantNames:
         - ROOT_PATH

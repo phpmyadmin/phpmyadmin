@@ -41,8 +41,8 @@ return static function (ContainerConfigurator $configurator): void {
         }
     };
 
-    $servicesFile = include ROOT_PATH . 'libraries/services.php';
+    $servicesFile = include ROOT_PATH . 'app/services.php';
     $loadServices($servicesFile, $services);
-    $servicesFile = include ROOT_PATH . 'libraries/services_controllers.php';
+    $servicesFile = include ROOT_PATH . 'app/services_controllers.php';
     $loadServices($servicesFile, $services);
 };

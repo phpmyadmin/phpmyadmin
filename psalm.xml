@@ -14,14 +14,14 @@
     errorBaseline="psalm-baseline.xml"
 >
     <projectFiles>
-        <directory name="libraries"/>
+        <directory name="app"/>
         <directory name="public/setup"/>
         <directory name="src"/>
         <directory name="test/classes"/>
         <directory name="test/selenium"/>
         <file name="public/index.php"/>
         <ignoreFiles>
-            <directory name="cache"/>
+            <directory name="app/cache"/>
             <directory name="vendor"/>
         </ignoreFiles>
         <ignoreFiles allowMissingFiles="true">

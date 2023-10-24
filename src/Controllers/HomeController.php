@@ -412,12 +412,12 @@ class HomeController extends AbstractController
          *
          * The data file is created while creating release by ./scripts/remove-incomplete-mo
          */
-        if (! @file_exists(ROOT_PATH . 'libraries/language_stats.inc.php')) {
+        if (! @file_exists(ROOT_PATH . 'app/language_stats.inc.php')) {
             return;
         }
 
         /** @psalm-suppress MissingFile */
-        include ROOT_PATH . 'libraries/language_stats.inc.php';
+        include ROOT_PATH . 'app/language_stats.inc.php';
         $config = Config::getInstance();
         if (
             ! isset($GLOBALS['language_stats'][$GLOBALS['lang']])

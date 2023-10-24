@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="5.15.0@5c774aca4746caf3d239d9c8cadb9f882ca29352">
-  <file src="libraries/services_loader.php">
+  <file src="app/services_loader.php">
     <MixedArgument>
       <code>$argumentName</code>
       <code>$argumentName</code>

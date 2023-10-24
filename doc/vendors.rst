@@ -7,7 +7,7 @@ distribution or some all in one package including web server and MySQL
 server.
 
 Generally, you can customize some basic aspects (paths to some files and
-behavior) in :file:`libraries/vendor_config.php`.
+behavior) in :file:`app/vendor_config.php`.
 
 For example, if you want setup script to generate a config file in var, change
 ``SETUP_CONFIG_FILE`` to :file:`/var/lib/phpmyadmin/config.inc.php` and you
