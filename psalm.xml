@@ -21,7 +21,7 @@
         <directory name="test/selenium"/>
         <file name="public/index.php"/>
         <ignoreFiles>
-            <directory name="cache"/>
+            <directory name="app/cache"/>
             <directory name="vendor"/>
         </ignoreFiles>
         <ignoreFiles allowMissingFiles="true">
