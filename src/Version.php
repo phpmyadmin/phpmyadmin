@@ -13,7 +13,7 @@ use const VERSION_SUFFIX;
  */
 final class Version
 {
-    // The VERSION_SUFFIX constant is defined at libraries/constants.php
+    // The VERSION_SUFFIX constant is defined at ./app/constants.php
     public const VERSION = '6.0.0-dev' . VERSION_SUFFIX;
     public const SERIES = '6.0';
     public const MAJOR = 6;

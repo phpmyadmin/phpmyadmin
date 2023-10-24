@@ -17,7 +17,7 @@ if (! defined('ROOT_PATH')) {
 }
 
 define('PHPMYADMIN', true);
-require_once ROOT_PATH . 'libraries/constants.php';
+require_once ROOT_PATH . 'app/constants.php';
 require_once AUTOLOAD_FILE;
 
 if (! class_exists(Application::class)) {

@@ -770,7 +770,7 @@ class Core
         }
 
         $containerBuilder = new ContainerBuilder();
-        $loader = new PhpFileLoader($containerBuilder, new FileLocator(ROOT_PATH . 'libraries'));
+        $loader = new PhpFileLoader($containerBuilder, new FileLocator(ROOT_PATH . 'app'));
         $loader->load('services_loader.php');
 
         $GLOBALS['containerBuilder'] = $containerBuilder;

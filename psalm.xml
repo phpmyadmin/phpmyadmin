@@ -14,7 +14,7 @@
     errorBaseline="psalm-baseline.xml"
 >
     <projectFiles>
-        <directory name="libraries"/>
+        <directory name="app"/>
         <directory name="public/setup"/>
         <directory name="src"/>
         <directory name="test/classes"/>

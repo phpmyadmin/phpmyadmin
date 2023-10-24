@@ -192,7 +192,7 @@ use const VERSION_SUFFIX;
  */
 final class Version
 {
-    // The VERSION_SUFFIX constant is defined at libraries/constants.php
+    // The VERSION_SUFFIX constant is defined at ./app/constants.php
 %s
 }
 

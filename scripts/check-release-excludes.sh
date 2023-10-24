@@ -109,7 +109,7 @@ validateExtension() {
                 foundFileExt
             fi
         ;;
-        libraries/*)
+        app/*)
             if [ "${extension}" != "php" ]; then
                 foundFileExt
             fi

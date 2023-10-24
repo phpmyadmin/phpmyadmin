@@ -6,7 +6,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-$vendorConfig = require_once ROOT_PATH . 'libraries/vendor_config.php';
+$vendorConfig = require_once ROOT_PATH . 'app/vendor_config.php';
 if (
     ! is_array($vendorConfig) || ! isset(
         $vendorConfig['autoloadFile'],

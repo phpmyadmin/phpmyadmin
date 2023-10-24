@@ -3,12 +3,12 @@ includes:
 parameters:
     level: max
     paths:
-        - libraries
+        - app
         - public
         - src
         - test
     scanFiles:
-        - libraries/constants.php
+        - app/constants.php
         - examples/signon-script.php
     bootstrapFiles:
         - test/phpstan-constants.php

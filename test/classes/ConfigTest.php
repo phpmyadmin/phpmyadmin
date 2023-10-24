@@ -908,7 +908,7 @@ PHP;
 
     public function testVendorConfigFile(): void
     {
-        $vendorConfig = include ROOT_PATH . 'libraries/vendor_config.php';
+        $vendorConfig = include ROOT_PATH . 'app/vendor_config.php';
         self::assertIsArray($vendorConfig);
         self::assertIsString($vendorConfig['autoloadFile']);
         self::assertFileExists($vendorConfig['autoloadFile']);

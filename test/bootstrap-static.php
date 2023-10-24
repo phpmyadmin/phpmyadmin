@@ -31,7 +31,7 @@ if (! defined('TESTSUITE')) {
 // phpcs:enable
 
 include_once ROOT_PATH . 'examples/signon-script.php';
-require_once ROOT_PATH . 'libraries/constants.php';
+require_once ROOT_PATH . 'app/constants.php';
 require_once AUTOLOAD_FILE;
 
 $GLOBALS['server'] = 0;

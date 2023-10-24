@@ -422,8 +422,8 @@ fi
 
 if [ $do_daily -eq 1 ] ; then
     echo '* setting the version suffix for the snapshot'
-    sed -i "s/'versionSuffix' => '.*'/'versionSuffix' => '+$today_date.$git_head_short'/" libraries/vendor_config.php
-    php -l libraries/vendor_config.php
+    sed -i "s/'versionSuffix' => '.*'/'versionSuffix' => '+$today_date.$git_head_short'/" app/vendor_config.php
+    php -l app/vendor_config.php
 
     # Fetch it back and refresh $version
     VERSION_FROM_FILE="$(fetchReleaseFromFile "+$today_date.$git_head_short")"

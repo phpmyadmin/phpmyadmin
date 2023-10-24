@@ -7,18 +7,18 @@
     <arg name="colors"/>
     <arg name="extensions" value="php"/>
 
+    <file>./app</file>
     <file>./examples</file>
-    <file>./libraries</file>
     <file>./public</file>
     <file>./scripts</file>
     <file>./src</file>
     <file>./test</file>
     <file>./config.sample.inc.php</file>
 
+    <exclude-pattern>*/app/language_stats.inc.php</exclude-pattern>
     <exclude-pattern>*/build/*</exclude-pattern>
     <exclude-pattern>*/cache/*</exclude-pattern>
     <exclude-pattern>*/config.inc.php</exclude-pattern>
-    <exclude-pattern>*/libraries/language_stats.inc.php</exclude-pattern>
     <exclude-pattern>*/node_modules/*</exclude-pattern>
     <exclude-pattern>*/test/doctum-config.php</exclude-pattern>
     <exclude-pattern>*/tmp/*</exclude-pattern>
