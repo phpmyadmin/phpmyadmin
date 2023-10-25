@@ -3,19 +3,19 @@
 module.exports = {
     extensionsToTreatAsEsm: ['.ts'],
     coverageDirectory: '<rootDir>/build/javascript/',
-    collectCoverageFrom: ['<rootDir>/js/src/**/*.ts'],
+    collectCoverageFrom: ['<rootDir>/resources/js/src/**/*.ts'],
     projects: [
         {
             coveragePathIgnorePatterns: [
                 '<rootDir>/node_modules/',
-                '<rootDir>/js/vendor/',
+                '<rootDir>/public/js/vendor/',
             ],
             displayName: 'phpMyAdmin',
             testMatch: ['<rootDir>/test/javascript/**/*.ts'],
             transform: { '\\.[jt]sx?$': 'babel-jest' },
             moduleNameMapper: {
-                '^phpmyadmin/(.*)$': '<rootDir>/js/src/$1',
-                '^@vendor/(.*)$': '<rootDir>/js/vendor/$1',
+                '^phpmyadmin/(.*)$': '<rootDir>/resources/js/src/$1',
+                '^@vendor/(.*)$': '<rootDir>/public/js/vendor/$1',
             },
             testEnvironment: 'jsdom',
         }

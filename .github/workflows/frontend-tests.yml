@@ -4,7 +4,7 @@ on:
   push:
   pull_request:
     paths:
-      - 'js/**'
+      - 'resources/js/**'
       - '**.s?css'
       - 'test/javascript/**'
       - '.browserslistrc'
