@@ -49,7 +49,7 @@ fi
 # for instance), and while that's more precise this should work with less to fix if a line changes.
 # This method wasn't selected for any particular strength.
 
-oldVersion="$(grep 'version =' ${dir}doc/conf.py | cut -d "'" -f2)"
+oldVersion="$(grep 'version =' "${dir}"doc/conf.py | cut -d "'" -f2)"
 
 echo "Changing from ${oldVersion} to ${newVersion}..."
 

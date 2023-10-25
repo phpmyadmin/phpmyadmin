@@ -76,13 +76,13 @@ while [ $# -gt 0 ] ; do
         *)
             do_test=1
             if [ -z "$version" ] ; then
-                version=`echo $1 | tr -d -c '0-9a-z.+-'`
+                version=$(echo "$1" | tr -d -c '0-9a-z.+-')
                 if [ "x$version" != "x$1" ] ; then
                     echo "Invalid version: $1"
                     exit 1
                 fi
             elif [ -z "$branch" ] ; then
-                branch=`echo $1 | tr -d -c '/0-9A-Za-z_-'`
+                branch=$(echo "$1" | tr -d -c '/0-9A-Za-z_-')
                 if [ "x$branch" != "x$1" ] ; then
                     echo "Invalid branch: $1"
                     exit 1
@@ -100,7 +100,7 @@ if [ -z "$branch" ]; then
     exit 1
 fi
 
-if [ -z "$version" -a $do_ci -eq 0 ]; then
+if [ -z "$version" ] && [ $do_ci -eq 0 ]; then
     echo "Version must be specified!"
     exit 1
 fi
@@ -110,7 +110,7 @@ kit_prefix="phpMyAdmin-$version"
 # Checks whether remote branch has local tracking branch
 ensure_local_branch() {
     if ! git branch | grep -q '^..'"$1"'$' ; then
-        git branch --track $1 origin/$1
+        git branch --track "$1" origin/"$1"
     fi
 }
 
@@ -120,9 +120,9 @@ mark_as_release() {
     branch=$1
     rel_branch=$2
     echo "* Marking release as $rel_branch"
-    ensure_local_branch $rel_branch
-    git checkout $rel_branch
-    git merge -s recursive -X theirs $branch
+    ensure_local_branch "$rel_branch"
+    git checkout "$rel_branch"
+    git merge -s recursive -X theirs "$branch"
     git checkout master
 }
 
@@ -257,7 +257,7 @@ backup_vendor_folder() {
 }
 
 restore_vendor_folder() {
-    if [ ! -d ${TEMP_FOLDER} ]; then
+    if [ ! -d "${TEMP_FOLDER}" ]; then
         echo 'No backup to restore'
         exit 1;
     fi
@@ -279,7 +279,7 @@ create_phpunit_sandbox() {
 }
 
 delete_phpunit_sandbox() {
-    if [ ! -d ${TEMP_PHPUNIT_FOLDER} ]; then
+    if [ ! -d "${TEMP_PHPUNIT_FOLDER}" ]; then
         echo 'No phpunit sandbox to delete'
         exit 1;
     fi
@@ -342,7 +342,7 @@ CODE
 }
 
 # Ensure we have tracking branch
-ensure_local_branch $branch
+ensure_local_branch "$branch"
 
 VERSION_FILE=src/Version.php
 
@@ -374,7 +374,7 @@ fi
 echo "The actual configured release is: $VERSION_FROM_FILE"
 echo "The actual configured release series is: $VERSION_SERIES_FROM_FILE"
 
-if [ $do_ci -eq 0 -a $do_daily -eq 0 ] ; then
+if [ $do_ci -eq 0 ] && [ $do_daily -eq 0 ] ; then
     cat <<END
 
 Please ensure you have incremented rc count or version in the repository :
@@ -390,7 +390,7 @@ Please ensure you have incremented rc count or version in the repository :
 
 Continue (y/n)?
 END
-    read do_release
+    read -r do_release
 
     if [ "$do_release" != 'y' ]; then
         exit 100
@@ -403,21 +403,21 @@ mkdir -p release
 git worktree prune
 workdir_name=phpMyAdmin-$version
 workdir=release/$workdir_name
-if [ -d $workdir ] ; then
+if [ -d "$workdir" ] ; then
     echo "Working directory '$workdir' already exists, please move it out of the way"
     exit 1
 fi
 
 # Add worktree with chosen branch
-git worktree add --force $workdir $branch
-cd $workdir
+git worktree add --force "$workdir" "$branch"
+cd "$workdir"
 if [ $do_pull -eq 1 ] ; then
     git pull -q
 fi
 if [ $do_daily -eq 1 ] ; then
-    git_head=`git log -n 1 --format=%H`
-    git_head_short=`git log -n 1 --format=%h`
-    today_date=`date +'%Y%m%d' -u`
+    git_head=$(git log -n 1 --format=%H)
+    git_head_short=$(git log -n 1 --format=%h)
+    today_date=$(date +'%Y%m%d' -u)
 fi
 
 if [ $do_daily -eq 1 ] ; then
@@ -432,7 +432,7 @@ if [ $do_daily -eq 1 ] ; then
 fi
 
 # Check release version
-if [ $do_ci -eq 0 -a -$do_daily -eq 0 ] ; then
+if [ $do_ci -eq 0 ] && [ -$do_daily -eq 0 ] ; then
     if ! grep -q "VERSION = '$version'" $VERSION_FILE ; then
         echo "There seems to be wrong version in $VERSION_FILE!"
         exit 2
@@ -453,9 +453,9 @@ fi
 
 # Save the build date
 if [ $do_daily -eq 1 ] ; then
-    LC_ALL=C date -u > RELEASE-DATE-$VERSION_SERIES_FROM_FILE+snapshot
+    LC_ALL=C date -u > RELEASE-DATE-"$VERSION_SERIES_FROM_FILE"+snapshot
 else
-    LC_ALL=C date -u > RELEASE-DATE-$version
+    LC_ALL=C date -u > RELEASE-DATE-"$version"
 fi
 
 # Building documentation
@@ -523,6 +523,8 @@ done
 
 echo "* Installing composer packages '$PACKAGES_VERSIONS'"
 
+# Allows word splitting
+# shellcheck disable=SC2086
 composer require --no-interaction $PACKAGES_VERSIONS
 
 echo "* Running a security checkup"
@@ -565,7 +567,7 @@ if [ $do_test -eq 1 ] ; then
     test_ret=$?
     if [ $do_ci -eq 1 ] ; then
         cd ../..
-        rm -r $workdir
+        rm -r "$workdir"
         git worktree prune
         if [ "$branch" = "ci" ] ; then
             git branch -D ci
@@ -594,14 +596,14 @@ for kit in $KITS ; do
     echo "* Building kit: $kit"
     # Copy all files
     name=$kit_prefix-$kit
-    cp -r $workdir_name $name
+    cp -r "$workdir_name" "$name"
 
     # Cleanup translations
-    cd $name
-    ./scripts/lang-cleanup.sh $kit
+    cd "$name"
+    ./scripts/lang-cleanup.sh "$kit"
 
     # Remove tests, source code,...
-    if [ $kit != source ] ; then
+    if [ "$kit" != source ] ; then
         echo "* Removing source files"
         # Testsuite
         rm -r test/
@@ -632,28 +634,28 @@ for kit in $KITS ; do
     cd ..
 
     # Remove tar file possibly left from previous run
-    rm -f $name.tar
+    rm -f "$name".tar
 
     # Prepare distributions
     for comp in $COMPRESSIONS ; do
         case $comp in
             tbz|tgz|txz)
-                if [ ! -f $name.tar ] ; then
+                if [ ! -f "$name".tar ] ; then
                     echo "* Creating $name.tar"
-                    tar --owner=root --group=root --numeric-owner --sort=name -cf $name.tar $name
+                    tar --owner=root --group=root --numeric-owner --sort=name -cf "$name".tar "$name"
                 fi
-                if [ $comp = txz ] ; then
+                if [ "$comp" = txz ] ; then
                     echo "* Creating $name.tar.xz"
-                    xz -9k $name.tar
+                    xz -9k "$name".tar
                 fi
-                if [ $comp = tgz ] ; then
+                if [ "$comp" = tgz ] ; then
                     echo "* Creating $name.tar.gz"
-                    gzip -9c $name.tar > $name.tar.gz
+                    gzip -9c "$name".tar > "$name".tar.gz
                 fi
                 ;;
             zip-7z)
                 echo "* Creating $name.zip"
-                7za a -bd -tzip $name.zip $name > /dev/null
+                7za a -bd -tzip "$name".zip "$name" > /dev/null
                 ;;
             *)
                 echo "WARNING: ignoring compression '$comp', not known!"
@@ -663,29 +665,29 @@ for kit in $KITS ; do
 
 
     # Cleanup
-    rm -f $name.tar
+    rm -f "$name".tar
     # Remove directory with current dist set
-    rm -r $name
+    rm -r "$name"
 done
 
 # Cleanup
-rm -r $workdir_name
+rm -r "$workdir_name"
 git worktree prune
 
 # Signing of files with default GPG key
 echo "* Signing files"
-for file in $kit_prefix-*.gz $kit_prefix-*.zip $kit_prefix-*.xz ; do
+for file in "$kit_prefix"-*.gz "$kit_prefix"-*.zip "$kit_prefix"-*.xz ; do
     if [ $do_sign -eq 1 ] ; then
-        gpg --detach-sign --armor $file
+        gpg --detach-sign --armor "$file"
     fi
-    sha1sum $file > $file.sha1
-    sha256sum $file > $file.sha256
+    sha1sum "$file" > "$file".sha1
+    sha256sum "$file" > "$file".sha256
 done
 
 if [ $do_daily -eq 1 ] ; then
-    cat > $kit_prefix.json << EOT
+    cat > "$kit_prefix".json << EOT
 {
-    "date": "`date --iso-8601=seconds`",
+    "date": "$(date --iso-8601=seconds)",
     "commit": "$git_head"
 }
 EOT
@@ -699,7 +701,7 @@ echo ""
 echo "Files:"
 echo "------"
 
-ls -la *.gz *.zip *.xz
+ls -la -- *.gz *.zip *.xz
 
 cd ..
 
@@ -707,15 +709,15 @@ cd ..
 if [ $do_tag -eq 1 ] ; then
     echo
     echo "Additional tasks:"
-    tagname=RELEASE_`echo $version | tr . _ | tr '[:lower:]' '[:upper:]' | tr -d -`
+    tagname=RELEASE_$(echo "$version" | tr . _ | tr '[:lower:]' '[:upper:]' | tr -d -)
     echo "* Tagging release as $tagname"
-    git tag -s -a -m "Released $version" $tagname $branch
+    git tag -s -a -m "Released $version" "$tagname" "$branch"
     echo "   Dont forget to push tags using: git push --tags"
 fi
 
 # Mark as stable release
 if [ $do_stable -eq 1 ] ; then
-    mark_as_release $branch STABLE
+    mark_as_release "$branch" STABLE
 fi
 
 cat <<END

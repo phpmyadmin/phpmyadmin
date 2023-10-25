@@ -37,34 +37,28 @@ validateExtension() {
 
     case $pathWithoutFirst in
         doc/*)
-            if [ \
-                "${extension}" != "png" -a "${extension}" != "txt" \
-                -a "${extension}" != "html" -a "${extension}" != "js" \
-                -a "${extension}" != "css" -a "${extension}" != "gif" \
-            ]; then
+            if [ "${extension}" != "png" ] && [ "${extension}" != "txt" ] &&
+                [ "${extension}" != "html" ] && [ "${extension}" != "js" ] &&
+                [ "${extension}" != "css" ] && [ "${extension}" != "gif" ]; then
                 foundFileExt
             fi
         ;;
         resources/js/global.d.ts)
         ;;
         public/js/vendor/*)
-            if [ \
-                "${extension}" != "js" -a "${extension}" != "map" \
-                -a "${extension}" != "css" -a "${filename}" != "LICENSE" \
-                -a "${extension}" != "txt" \
-            ]; then
+            if [ "${extension}" != "js" ] && [ "${extension}" != "map" ] &&
+                [ "${extension}" != "css" ] && [ "${filename}" != "LICENSE" ] &&
+                [ "${extension}" != "txt" ]; then
                 foundFileExt
             fi
         ;;
         public/js/dist/*)
-            if [ "${extension}" != "js" -a "${extension}" != "map" ];then
+            if [ "${extension}" != "js" ] && [ "${extension}" != "map" ]; then
                 foundFileExt
             fi
         ;;
         resources/js/src/*)
-            if [ \
-                "${extension}" != "ts" -a "${extension}" != "mjs"  \
-            ]; then
+            if [ "${extension}" != "ts" ] && [ "${extension}" != "mjs" ]; then
                 foundFileExt
             fi
         ;;
@@ -84,11 +78,9 @@ validateExtension() {
             fi
         ;;
         public/setup/*)
-            if [ \
-                "${extension}" != "php" -a "${extension}" != "twig" \
-                -a "${extension}" != "css" \
-                -a "${extension}" != "scss" -a "${extension}" != "gif" -a "${extension}" != "map" \
-            ]; then
+            if [ "${extension}" != "php" ] && [ "${extension}" != "twig" ] &&
+                [ "${extension}" != "css" ] && [ "${extension}" != "scss" ] &&
+                [ "${extension}" != "gif" ] && [ "${extension}" != "map" ]; then
                 foundFileExt
             fi
         ;;
@@ -103,21 +95,17 @@ validateExtension() {
             fi
         ;;
         src/*)
-            if [ \
-                "${extension}" != "php" -a "${extension}" != "md" \
-                -a "${filename}" != "README" \
-                -a "${filename}" != "TEMPLATE" -a "${filename}" != "TEMPLATE_ABSTRACT" \
-            ]; then
+            if [ "${extension}" != "php" ] && [ "${extension}" != "md" ] &&
+                [ "${filename}" != "README" ] && [ "${filename}" != "TEMPLATE" ] &&
+                [ "${filename}" != "TEMPLATE_ABSTRACT" ]; then
                 foundFileExt
             fi
         ;;
         public/themes/*)
-            if [ \
-                "${extension}" != "css" -a "${extension}" != "png" \
-                -a "${extension}" != "scss" -a "${extension}" != "map" \
-                -a "${extension}" != "svg" -a "${extension}" != "ico" \
-                -a "${extension}" != "gif" -a "${extension}" != "json" \
-            ]; then
+            if [ "${extension}" != "css" ] && [ "${extension}" != "png" ] &&
+                [ "${extension}" != "scss" ] && [ "${extension}" != "map" ] &&
+                [ "${extension}" != "svg" ] && [ "${extension}" != "ico" ] &&
+                [ "${extension}" != "gif" ] && [ "${extension}" != "json" ]; then
                 foundFileExt
             fi
         ;;
@@ -135,25 +123,21 @@ validateExtension() {
         vendor/composer/installed.json)
         ;;
         vendor/tecnickcom/tcpdf/*)
-            if [ \
-                "${extension}" != "php" -a "${filename}" != "LICENSE.TXT" \
-                -a "${filename}" != "README.md" -a "${filename}" != "CHANGELOG.TXT" \
-                -a "${filename}" != "VERSION" -a "${filename}" != "composer.json" \
-                -a "${extension}" != "z" \
-            ]; then
+            if [ "${extension}" != "php" ] && [ "${filename}" != "LICENSE.TXT" ] &&
+                [ "${filename}" != "README.md" ] && [ "${filename}" != "CHANGELOG.TXT" ] &&
+                [ "${filename}" != "VERSION" ] && [ "${filename}" != "composer.json" ] &&
+                [ "${extension}" != "z" ]; then
                 foundFileExt
             fi
         ;;
         vendor/*)
-            if [ \
-                "${extension}" != "php" -a "${filename}" != "LICENSE" \
-                -a "${filename}" != "README" -a "${filename}" != "CHANGELOG" \
-                -a "${filename}" != "composer.json" -a "${filename}" != "CHANGELOG.md" \
-                -a "${filename}" != "README.md" -a "${filename}" != "BACKERS.md" \
-                -a "${filename}" != "LICENSE.md" -a "${filename}" != "ARCHITECTURE.md" \
-                -a "${filename}" != "LICENSE.txt" -a "${filename}" != "AUTHORS" \
-                -a "${filename}" != "LICENCE.md" -a "${filename}" != "LICENCE" \
-            ]; then
+            if [ "${extension}" != "php" ] && [ "${filename}" != "LICENSE" ] &&
+                [ "${filename}" != "README" ] && [ "${filename}" != "CHANGELOG" ] &&
+                [ "${filename}" != "composer.json" ] && [ "${filename}" != "CHANGELOG.md" ] &&
+                [ "${filename}" != "README.md" ] && [ "${filename}" != "BACKERS.md" ] &&
+                [ "${filename}" != "LICENSE.md" ] && [ "${filename}" != "ARCHITECTURE.md" ] &&
+                [ "${filename}" != "LICENSE.txt" ] && [ "${filename}" != "AUTHORS" ] &&
+                [ "${filename}" != "LICENCE.md" ] && [ "${filename}" != "LICENCE" ]; then
                 foundFileExt
             fi
         ;;
@@ -239,10 +223,6 @@ for filePath in ${FILE_LIST}; do
         foundFile;;
         */.php_cs.cache)
         foundFile;;
-        */psalm.xml)
-        foundFile;;
-        */phpstan.neon)
-        foundFile;;
         */phpstan.neon)
         foundFile;;
         */phpcs.xml.dist)
@@ -266,8 +246,6 @@ for filePath in ${FILE_LIST}; do
         */infection.json5)
         foundFile;;
         */makefile)
-        foundFile;;
-        */Makefile)
         foundFile;;
         */.phpunit.result.cache)
         foundFile;;

@@ -17,8 +17,7 @@ if [ -n "$GATEWAY_INTERFACE" ] ; then
     exit 1
 fi
 
-echo $#
-if [ $# -ne 3 -a $# -ne 4 ]; then
+if [ $# -ne 3 ] && [ $# -ne 4 ]; then
   echo -e "Usage: ./generator_plugin.sh MIMEType MIMESubtype TransformationName [Description]\n"
   exit 65
 fi
@@ -27,35 +26,31 @@ fi
 # are in the correct format
 
 # make all names lowercase
-MT="`echo $1 | tr [:upper:] [:lower:]`"
-MS="`echo $2 | tr [:upper:] [:lower:]`"
-TN="`echo $3 | tr [:upper:] [:lower:]`"
+MT="$(echo "$1" | tr '[:upper:]' '[:lower:]')"
+MS="$(echo "$2" | tr '[:upper:]' '[:lower:]')"
+TN="$(echo "$3" | tr '[:upper:]' '[:lower:]')"
 # make first letter uppercase
 MT="${MT^}"
 MS="${MS^}"
 TN="${TN^}"
-# make the first letter after each underscore uppercase
-MT="`echo $MT`"
-MT="`echo $MT |  sed -e 's/_./\U&\E/g'`"
-MS="`echo $MS`"
-MS="`echo $MS |  sed -e 's/_./\U&\E/g'`"
-TN="`echo $TN`"
-TN="`echo $TN |  sed -e 's/_./\U&\E/g'`"
 
+# make the first letter after each underscore uppercase
 # define the name of the main class file and of its template
-ClassFile=$MT\_$MS\_$TN.php
-Template=TEMPLATE
+CLASS_NAME=$(echo "$MT"_"$MS"_"$TN" | sed -e 's/_./\U&\E/g')
+BASE_DIR="./src/Plugins/Transformations"
+ClassFile="$BASE_DIR"/"$CLASS_NAME".php
+Template="$BASE_DIR"/TEMPLATE
 # define the name of the abstract class file and its template
-AbstractClassFile=abs/"$TN"TransformationsPlugin.php
-AbstractTemplate=TEMPLATE_ABSTRACT
+AbstractClassFile="$BASE_DIR"/Abs/"$TN"TransformationsPlugin.php
+AbstractTemplate="$BASE_DIR"/TEMPLATE_ABSTRACT
 # replace template names with argument names
-sed "s/\[MIMEType]/$MT/; s/\[MIMESubtype\]/$MS/; s/\[TransformationName\]/$TN/;" < $Template > $ClassFile
+sed "s/\[MIMEType]/$MT/; s/\[MIMESubtype\]/$MS/; s/\[TransformationName\]/$TN/;" < $Template > "$ClassFile"
 echo "Created $ClassFile"
 
 GenerateAbstractClass=1
-if [ -n $4 ]; then
+if [ -n "$4" ]; then
     if [ "$4" == "--generate_only_main_class" ]; then
-        if [ -e $AbstractClassFile ]; then
+        if [ -e "$AbstractClassFile" ]; then
             GenerateAbstractClass=0
         fi
     fi
@@ -63,8 +58,6 @@ fi
 
 if [ $GenerateAbstractClass -eq 1 ]; then
     # replace template names with argument names
-    sed "s/\[TransformationName\]/$TN/; s/Description of the transformation./$4/;" < $AbstractTemplate > $AbstractClassFile
+    sed "s/\[TransformationName\]/$TN/; s/Description of the transformation./$4/;" < $AbstractTemplate > "$AbstractClassFile"
     echo "Created $AbstractClassFile"
 fi
-
-echo ""

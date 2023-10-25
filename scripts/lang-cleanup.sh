@@ -42,6 +42,7 @@ for type in "$@" ; do
 done
 
 # Delete unwanted languages
+# shellcheck disable=SC2086
 find po locale vendor/phpmyadmin/sql-parser/locale -type f $match -print0 | xargs -0r rm
 
 # Delete empty directories
