@@ -24,7 +24,7 @@ one we ship.
 
 Currently known list of external libraries:
 
-js/vendor
+public/js/vendor
     jQuery js framework libraries and various js libraries.
 
 vendor/

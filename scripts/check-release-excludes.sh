@@ -45,7 +45,7 @@ validateExtension() {
                 foundFileExt
             fi
         ;;
-        js/global.d.ts)
+        resources/js/global.d.ts)
         ;;
         public/js/vendor/*)
             if [ \
@@ -56,24 +56,12 @@ validateExtension() {
                 foundFileExt
             fi
         ;;
-        js/dist/*)
-            if [ \
-                "${extension}" != "js" -a "${extension}" != "map" \
-            ]; then
-                foundFileExt
-            fi
-        ;;
-        js/config/*)
-            if [ "${extension}" != "js" ];then
-                foundFileExt
-            fi
-        ;;
         public/js/dist/*)
             if [ "${extension}" != "js" -a "${extension}" != "map" ];then
                 foundFileExt
             fi
         ;;
-        js/src/*)
+        resources/js/src/*)
             if [ \
                 "${extension}" != "ts" -a "${extension}" != "mjs"  \
             ]; then

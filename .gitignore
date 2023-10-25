@@ -61,6 +61,6 @@ phpstan.neon
 # Infection
 infection.json5
 /public/build/
-/js/dist/
+/js/
 /setup/
 /themes/
