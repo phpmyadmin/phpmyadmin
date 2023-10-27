@@ -25,7 +25,6 @@
         "psr-4": {
             "PhpMyAdmin\\": "src"
         },
-        "files": ["vendor/phpmyadmin/motranslator/src/functions.php"],
         "exclude-from-classmap": [
             "/test/",
             "/vendor/tecnickcom/tcpdf/tcpdf_barcodes_*.php",
