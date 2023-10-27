@@ -5,7 +5,7 @@ if [ -n "$GATEWAY_INTERFACE" ] ; then
     exit 1
 fi
 
-if [ x$1 = x--quiet ] ; then
+if [ "$1" = --quiet ] ; then
     stats=""
     shift
 else
@@ -13,26 +13,26 @@ else
 fi
 
 compile() {
-    lang=`echo $1 | sed 's@po/\(.*\)\.po@\1@'`
-    if [ ! -z "$stats" ] ; then
-        echo -n "$lang: "
+    lang=$(echo "$1" | sed 's@po/\(.*\)\.po@\1@')
+    if [ -n "$stats" ] ; then
+        printf "%s: " "$lang"
     fi
-    mkdir -p locale/$lang/LC_MESSAGES
-    msgfmt $stats --check -o locale/$lang/LC_MESSAGES/phpmyadmin.mo $1
+    mkdir -p locale/"$lang"/LC_MESSAGES
+    msgfmt $stats --check -o locale/"$lang"/LC_MESSAGES/phpmyadmin.mo "$1"
     return $?
 }
 
-if [ ! -z "$1" ] ; then
-    compile po/$1.po
+if [ -n "$1" ] ; then
+    compile po/"$1".po
     exit $?
 fi
 
 result=0
 for x in po/*.po  ; do
-    compile $x
+    compile "$x"
     ret=$?
     if [ $ret != 0 ] ; then
-        echo Error when compiling $x  >&2
+        echo Error when compiling "$x"  >&2
         result=$ret
     fi
 done

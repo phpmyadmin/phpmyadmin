@@ -16,14 +16,17 @@ rm -rf twig-templates/
 php scripts/console cache:warmup --twig-po --env development
 
 # Update pot (template), ensure that advisor is at the end
-LOCS=`ls po/*.po | sed 's@.*/\(.*\)\.po@\1@'`
+LOCS=$(find po -name '*.po' | sed 's@.*/\(.*\)\.po@\1@')
 
 find . -name '*.php' -not -path './test/*' -not -path './po/*' -not -path './tmp/*' -not -path './release/*' -not -path './node_modules/*' -not -path './vendor/*' > twig-templates/filesList
 
 php ./scripts/match-twig-cache
-cat ./twig-templates/filesList | sort --dictionary-order --ignore-case --output ./twig-templates/filesList
+sort --dictionary-order --ignore-case --output ./twig-templates/filesListTemp < ./twig-templates/filesList
+mv ./twig-templates/filesListTemp ./twig-templates/filesList
 php ./scripts/match-twig-cache --reverse
 
+# Allows word splitting for files list.
+# shellcheck disable=SC2046
 xgettext \
     -d phpmyadmin \
     --msgid-bugs-address=translators@phpmyadmin.net \
@@ -35,7 +38,7 @@ xgettext \
     --from-code=utf-8 \
     --keyword=__ --keyword=_gettext --keyword=_pgettext:1c,2 --keyword=_ngettext:1,2 \
     --copyright-holder="phpMyAdmin devel team" \
-    `cat ./twig-templates/filesList`
+    $(cat ./twig-templates/filesList)
 
 # Fixup filenames for Twig templates
 php scripts/console fix-po-twig
@@ -53,8 +56,8 @@ ver="$(fetchReleaseFromFile)"
 sed -i.~ '
     s/SOME DESCRIPTIVE TITLE/phpMyAdmin translation/;
     s/PACKAGE/phpMyAdmin/;
-    s/(C) YEAR/(C) 2003 - '`date +%Y`'/;
-    s/VERSION/'$ver'/;
+    s/(C) YEAR/(C) 2003 - '"$(date +%Y)"'/;
+    s/VERSION/'"$ver"'/;
     ' po/phpmyadmin.pot
 
 # Update po files (translations)
@@ -62,11 +65,11 @@ for loc in $LOCS ; do
     sed -i.~ '
         s/SOME DESCRIPTIVE TITLE/phpMyAdmin translation/;
         s/PACKAGE/phpMyAdmin/;
-        s/(C) YEAR/(C) 2003 - '`date +%Y`'/;
-        s/VERSION/'$ver'/;
-        s/Project-Id-Version: phpMyAdmin .*/Project-Id-Version: phpMyAdmin '$ver'\\n"/;
-        ' po/$loc.po
-    msgmerge --previous -U po/$loc.po po/phpmyadmin.pot
+        s/(C) YEAR/(C) 2003 - '"$(date +%Y)"'/;
+        s/VERSION/'"$ver"'/;
+        s/Project-Id-Version: phpMyAdmin .*/Project-Id-Version: phpMyAdmin '"$ver"'\\n"/;
+        ' po/"$loc".po
+    msgmerge --previous -U po/"$loc".po po/phpmyadmin.pot
 done
 
 # Commit changes
