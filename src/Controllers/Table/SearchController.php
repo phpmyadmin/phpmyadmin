@@ -35,7 +35,6 @@ use function md5;
 use function preg_match;
 use function preg_replace;
 use function str_ireplace;
-use function str_replace;
 use function strncasecmp;
 use function strtoupper;
 
@@ -125,9 +124,7 @@ class SearchController extends AbstractController
             }
 
             // reformat mysql query output
-            if (strncasecmp($type, 'set', 3) == 0 || strncasecmp($type, 'enum', 4) == 0) {
-                $type = str_replace(',', ', ', $type);
-            } else {
+            if (strncasecmp($type, 'set', 3) !== 0 && strncasecmp($type, 'enum', 4) !== 0) {
                 // strip the "BINARY" attribute, except if we find "BINARY(" because
                 // this would be a BINARY or VARBINARY column type
                 if (! preg_match('@BINARY[\(]@i', $type)) {
