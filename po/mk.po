@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2023-10-31 15:04+0000\n"
+"PO-Revision-Date: 2023-11-02 07:01+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-1/mk/>\n"
@@ -19392,10 +19392,9 @@ msgid "Activate now"
 msgstr ""
 
 #: templates/table/tracking/main.twig:107
-#, fuzzy, php-format
-#| msgid "Delete tracking data for this table"
+#, php-format
 msgid "Deactivate tracking for %s"
-msgstr "Избришете го податоците за тракирање од табелава"
+msgstr "Исклучете тракирање за %s"
 
 #: templates/table/tracking/main.twig:109
 msgid "Deactivate now"
