@@ -103,10 +103,8 @@ class CharsetsTest extends AbstractTestCase
 
     public function testGetCollationsMariaDB(): void
     {
-        DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $dbi = $this->createStub(DatabaseInterface::class);
-        $dbi->method('isMariaDB')->willReturn(true);
-        $dbi->method('getVersion')->willReturn(101000);
+        $dbi = $this->createDatabaseInterface();
+        $dbi->setVersion(['@@version' => '10.10.0-MariaDB']);
         $collations = Charsets::getCollations($dbi, false);
         $this->assertCount(4, $collations);
         $this->assertContainsOnly('array', $collations);
