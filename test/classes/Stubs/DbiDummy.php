@@ -3084,6 +3084,25 @@ class DbiDummy implements DbiExtension
                 'columns' => ['row_count'],
                 'result' => [['984']],
             ],
+            [
+                'query' => 'SELECT `collapp`.`FULL_COLLATION_NAME` AS `Collation`,'
+                        . ' `collapp`.`CHARACTER_SET_NAME` AS `Charset`,'
+                        . ' `collapp`.`ID` AS `Id`,'
+                        . ' `collapp`.`IS_DEFAULT` AS `Default`,'
+                        . ' `coll`.`IS_COMPILED` AS `Compiled`,'
+                        . ' `coll`.`SORTLEN` AS `Sortlen`'
+                        . ' FROM `information_schema`.`COLLATION_CHARACTER_SET_APPLICABILITY` `collapp`'
+                        . ' LEFT JOIN `information_schema`.`COLLATIONS` `coll`'
+                        . ' ON `collapp`.`COLLATION_NAME`=`coll`.`COLLATION_NAME`',
+                'columns' => ['Collation', 'Charset', 'Id', 'Default', 'Compiled', 'Sortlen'],
+                'result' => [
+                    ['utf8mb4_general_ci', 'utf8mb4', '45', 'Yes', 'Yes', '1'],
+                    ['armscii8_general_ci', 'armscii8', '32', 'Yes', 'Yes', '1'],
+                    ['utf8_general_ci', 'utf8', '33', 'Yes', 'Yes', '1'],
+                    ['utf8_bin', 'utf8', '83', '', 'Yes', '1'],
+                    ['latin1_swedish_ci', 'latin1', '8', 'Yes', 'Yes', '1'],
+                ],
+            ],
         ];
 
         /* Some basic setup for dummy driver */

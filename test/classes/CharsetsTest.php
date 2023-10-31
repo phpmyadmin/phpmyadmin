@@ -87,4 +87,15 @@ class CharsetsTest extends AbstractTestCase
 
         $this->assertSame('utf8_general_ci', $actual->getName());
     }
+
+    public function testGetCollationsMariaDB(): void
+    {
+        $this->dbi->setVersion(['@@version' => '10.10.0-MariaDB']);
+        $collations = Charsets::getCollations($this->dbi, false);
+        $this->assertCount(4, $collations);
+        $this->assertContainsOnly('array', $collations);
+        foreach ($collations as $collation) {
+            $this->assertContainsOnlyInstancesOf(Charsets\Collation::class, $collation);
+        }
+    }
 }
