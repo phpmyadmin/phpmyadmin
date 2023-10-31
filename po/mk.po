@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-10-29 00:17+0000\n"
-"PO-Revision-Date: 2023-10-19 15:01+0000\n"
+"PO-Revision-Date: 2023-10-31 15:04+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 5.1\n"
+"X-Generator: Weblate 5.2-dev\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:31
 #: resources/templates/database/central_columns/edit_table_row.twig:23
@@ -26,10 +26,9 @@ msgstr ""
 #: resources/templates/database/central_columns/edit_table_row.twig:30
 #: resources/templates/database/central_columns/main.twig:76
 #: resources/templates/database/central_columns/main.twig:315
-#, fuzzy
 msgctxt "for default"
 msgid "None"
-msgstr "нема"
+msgstr "Никои"
 
 #: resources/templates/columns_definitions/column_attributes.twig:41
 #: resources/templates/database/central_columns/edit_table_row.twig:33
@@ -432,9 +431,8 @@ msgid "Subpartition"
 msgstr "Позиција"
 
 #: resources/templates/columns_definitions/partitions.twig:84
-#, fuzzy
 msgid "Engine"
-msgstr "Складишта"
+msgstr "Мотор"
 
 #: resources/templates/columns_definitions/partitions.twig:85
 #: resources/templates/config/form_display/input.twig:53
@@ -696,9 +694,8 @@ msgstr "Додади/избриши колона"
 #: src/Plugins/Export/ExportOdt.php:480
 #: src/Plugins/Export/ExportTexytext.php:380
 #: src/Plugins/Export/Helpers/Pdf.php:520
-#, fuzzy
 msgid "Media type"
-msgstr "MIME-типови"
+msgstr "Медиа тип"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:75
 #: resources/templates/columns_definitions/table_fields_definitions.twig:86
@@ -3482,9 +3479,8 @@ msgstr ""
 #: resources/templates/header.twig:68
 #: resources/templates/modals/page_settings.twig:5
 #: src/Controllers/JavaScriptMessagesController.php:340
-#, fuzzy
 msgid "Page-related settings"
-msgstr "Општи особини на релациите"
+msgstr "Подесувања за Страници"
 
 #: resources/templates/header.twig:70
 msgid "Click on the bar to scroll to top of page"
@@ -11571,14 +11567,12 @@ msgstr "Microsoft Word 2000"
 
 #: src/Config/Forms/User/ExportForm.php:120
 #: src/Config/Forms/User/ImportForm.php:46
-#, fuzzy
 msgid "OpenDocument Spreadsheet"
-msgstr "Документација"
+msgstr "OpenDocument Spreadsheet"
 
 #: src/Config/Forms/User/ExportForm.php:124
-#, fuzzy
 msgid "OpenDocument Text"
-msgstr "Документација"
+msgstr "OpenDocument Текст"
 
 #: src/Config/Forms/User/ImportForm.php:37
 msgid "CSV using LOAD DATA"
@@ -17049,14 +17043,14 @@ msgid "Metadata for table %s"
 msgstr "Метадата за табела %s"
 
 #: src/Plugins/Export/ExportSql.php:1073
-#, fuzzy, php-format
+#, php-format
 msgid "Metadata for database %s"
-msgstr "Креирај нова табела во базата на податоци %s"
+msgstr "Метадата за датабаза %s"
 
 #: src/Plugins/Export/ExportSql.php:1390
 #, php-format
 msgid "Error reading structure for table %s:"
-msgstr "Грешка при читање на структура на табелата %s:"
+msgstr "Грешка при читање на структурата за табелата %s:"
 
 #: src/Plugins/Export/ExportSql.php:1475
 msgid "It appears your database uses views;"
