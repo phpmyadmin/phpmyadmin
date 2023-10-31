@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-10-19 15:01+0000\n"
-"Last-Translator: Daniel Dimitrov <dimitrov.daniel@hotmail.com>\n"
+"PO-Revision-Date: 2023-10-31 15:04+0000\n"
+"Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/mk/>\n"
 "Language: mk\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 5.1\n"
+"X-Generator: Weblate 5.2-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -3052,9 +3052,8 @@ msgstr "Ознака на клучот"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:556
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #: templates/database/data_dictionary/index.twig:31
-#, fuzzy
 msgid "Media type"
-msgstr "MIME-типови"
+msgstr "Медиа тип"
 
 #: libraries/classes/Config/Descriptions.php:686
 #: libraries/classes/Config/Descriptions.php:698
@@ -4390,14 +4389,12 @@ msgstr "Microsoft Word 2000"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:122
 #: libraries/classes/Config/Forms/User/ImportForm.php:52
-#, fuzzy
 msgid "OpenDocument Spreadsheet"
-msgstr "Документација"
+msgstr "OpenDocument Spreadsheet"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:126
-#, fuzzy
 msgid "OpenDocument Text"
-msgstr "Документација"
+msgstr "OpenDocument Текст"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:153
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:373
@@ -6101,9 +6098,8 @@ msgstr "Откажи"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:328
 #: templates/header.twig:44
-#, fuzzy
 msgid "Page-related settings"
-msgstr "Општи особини на релациите"
+msgstr "Подесувања за Страници"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:329
 #: templates/config/form_display/display.twig:46
@@ -10787,9 +10783,9 @@ msgid "Metadata for table %s"
 msgstr "Метадата за табела %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1141
-#, fuzzy, php-format
+#, php-format
 msgid "Metadata for database %s"
-msgstr "Креирај нова табела во базата на податоци %s"
+msgstr "Метадата за датабаза %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1458
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:631
@@ -10809,7 +10805,7 @@ msgstr "Последна проверка:"
 #: libraries/classes/Plugins/Export/ExportSql.php:1529
 #, php-format
 msgid "Error reading structure for table %s:"
-msgstr "Грешка при читање на структура на табелата %s:"
+msgstr "Грешка при читање на структурата за табелата %s:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1611
 msgid "It appears your database uses views;"
@@ -13016,10 +13012,9 @@ msgstr ""
 #: templates/database/central_columns/edit_table_row.twig:30
 #: templates/database/central_columns/main.twig:76
 #: templates/database/central_columns/main.twig:309
-#, fuzzy
 msgctxt "for default"
 msgid "None"
-msgstr "нема"
+msgstr "Никои"
 
 #: templates/columns_definitions/column_attributes.twig:41
 #: templates/database/central_columns/edit_table_row.twig:33
@@ -13199,9 +13194,8 @@ msgid "Subpartition"
 msgstr "Позиција"
 
 #: templates/columns_definitions/partitions.twig:84
-#, fuzzy
 msgid "Engine"
-msgstr "Складишта"
+msgstr "Мотор"
 
 #: templates/columns_definitions/partitions.twig:85
 #: templates/config/form_display/input.twig:53
