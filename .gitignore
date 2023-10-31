@@ -67,3 +67,4 @@ infection.log
 /setup/styles.rtl.css
 /test/test_data/gis/
 /public/
+/app/
