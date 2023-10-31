@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\DatabaseInterface;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\PreserveGlobalState;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
@@ -92,6 +93,18 @@ class CharsetsTest extends AbstractTestCase
     public function testGetCollationsWithIS(): void
     {
         $dbi = $this->createDatabaseInterface();
+        $collations = Charsets::getCollations($dbi, false);
+        $this->assertCount(4, $collations);
+        $this->assertContainsOnly('array', $collations);
+        foreach ($collations as $collation) {
+            $this->assertContainsOnlyInstancesOf(Charsets\Collation::class, $collation);
+        }
+    }
+
+    public function testGetCollationsMariaDB(): void
+    {
+        $dbi = $this->createDatabaseInterface();
+        $dbi->setVersion(['@@version' => '10.10.0-MariaDB']);
         $collations = Charsets::getCollations($dbi, false);
         $this->assertCount(4, $collations);
         $this->assertContainsOnly('array', $collations);
