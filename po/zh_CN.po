@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-10-29 00:17+0000\n"
-"PO-Revision-Date: 2023-05-02 08:51+0000\n"
-"Last-Translator: Xzonn <Xzonn@outlook.com>\n"
+"PO-Revision-Date: 2023-11-02 07:04+0000\n"
+"Last-Translator: White Night <1602699904@qq.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.2-dev\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:31
 #: resources/templates/database/central_columns/edit_table_row.twig:23
@@ -1618,10 +1618,8 @@ msgid "Select page"
 msgstr "选择页"
 
 #: resources/templates/database/designer/schema_export.twig:6
-#, fuzzy
-#| msgid "Select Export Relational Type"
 msgid "Select export relational type:"
-msgstr "选择导出关系类型"
+msgstr "选择导出关系类型："
 
 #: resources/templates/database/events/editor_form.twig:10
 #: resources/templates/database/routines/editor_form.twig:11
@@ -5108,8 +5106,6 @@ msgid "Save changes"
 msgstr "保存修改"
 
 #: resources/templates/server/replication/change_primary.twig:7
-#, fuzzy
-#| msgid "Change or reconfigure primary server"
 msgid "Replica configuration - Change or reconfigure primary server"
 msgstr "修改或重新配置主服务器"
 
@@ -5431,14 +5427,10 @@ msgid "Advisor"
 msgstr "建议"
 
 #: resources/templates/server/status/monitor/index.twig:4
-#, fuzzy
-#| msgid "System memory"
 msgid "System monitor"
-msgstr "系统内存"
+msgstr "系统监控"
 
 #: resources/templates/server/status/monitor/index.twig:7
-#, fuzzy
-#| msgid "Start Monitor"
 msgid "Start monitor"
 msgstr "启动监控"
 
@@ -6022,10 +6014,8 @@ msgid "ø Time"
 msgstr "ø 时间"
 
 #: resources/templates/sql/profiling_chart.twig:66
-#, fuzzy
-#| msgid "Profiling results"
 msgid "Pie chart with profiling results."
-msgstr "性能分析结果"
+msgstr "性能分析结果。"
 
 #: resources/templates/sql/query.twig:7
 #: src/Controllers/Table/DeleteRowsController.php:77
@@ -6447,8 +6437,6 @@ msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "规范化的第三步（第一范式 + 第二范式 + 第三范式）"
 
 #: resources/templates/table/operations/index.twig:2
-#, fuzzy
-#| msgid "Table options"
 msgid "Table operations"
 msgstr "表选项"
 
@@ -11055,12 +11043,8 @@ msgid "Failed to read configuration file!"
 msgstr "读取配置文件失败！"
 
 #: src/Config.php:668
-#, fuzzy
-#| msgid ""
-#| "This usually means there is a syntax error in it, please check any errors "
-#| "shown below."
 msgid "This usually means there is a syntax error in it."
-msgstr "这通常意味着文件中有语法错误，请检查下面显示出的错误。"
+msgstr "这通常意味着文件中有语法错误。"
 
 #: src/Config/ServerConfigChecks.php:52
 #, php-format
@@ -13120,10 +13104,8 @@ msgid "up to date"
 msgstr "已是最新"
 
 #: src/Controllers/JavaScriptMessagesController.php:618
-#, fuzzy
-#| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
-msgstr "导入 ESRI 图形文件时出错: \"%s\"。"
+msgstr "加载Git信息时出错。"
 
 #: src/Controllers/JavaScriptMessagesController.php:621
 msgid ""
@@ -14918,16 +14900,14 @@ msgid "Showing rows %1s - %2s"
 msgstr "正在显示第 %1s - %2s 行"
 
 #: src/Display/Results.php:3558
-#, fuzzy, php-format
-#| msgid "%1$d total, %2$d in query"
+#, php-format
 msgid "%1$s total, %2$s in query"
-msgstr "总数为 %1$d，查询包含 %2$d"
+msgstr "总数为 %1$s，查询包含 %2$s"
 
 #: src/Display/Results.php:3563
-#, fuzzy, php-format
-#| msgid "%d total"
+#, php-format
 msgid "%s total"
-msgstr "共 %d 行"
+msgstr "共 %s 行"
 
 #: src/Display/Results.php:3576 src/Sql.php:884
 #, php-format
@@ -15466,22 +15446,17 @@ msgid "The table name cannot end with a space character."
 msgstr "表名不能以空格字符结尾。"
 
 #: src/Identifiers/InvalidTriggerName.php:14
-#, fuzzy
-#| msgid "View name can not be empty!"
 msgid "The trigger name must not be empty."
-msgstr "视图名不可为空！"
+msgstr "视图名不可为空。"
 
 #: src/Identifiers/InvalidTriggerName.php:20
-#, fuzzy, php-format
-#| msgid "The table name cannot be longer than %d characters."
+#, php-format
 msgid "The trigger name cannot be longer than %d characters."
-msgstr "表名长度不可超过%d位字符。"
+msgstr "视图名长度不可超过%d位字符。"
 
 #: src/Identifiers/InvalidTriggerName.php:25
-#, fuzzy
-#| msgid "The table name cannot end with a space character."
 msgid "The trigger name cannot end with a space character."
-msgstr "表名不能以空格字符结尾。"
+msgstr "视图名不能以空格字符结尾。"
 
 #: src/Import/Import.php:288 src/Sql.php:892
 msgid "[ROLLBACK occurred.]"
@@ -16052,11 +16027,8 @@ msgid "Your session has expired. Please log in again."
 msgstr "您的Session已过期，请再次登录。"
 
 #: src/Plugins/Auth/AuthenticationCookie.php:238
-#, fuzzy
-#| msgid ""
-#| "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
-msgstr "缺少reCAPTCHA验证，也许它被adblock阻止了或者您没有科学上网？"
+msgstr "缺少CAPTCHA验证，也许它被adblock阻止了或者您没有科学上网？"
 
 #: src/Plugins/Auth/AuthenticationCookie.php:273
 msgid "Failed to connect to the reCAPTCHA service!"
@@ -16784,18 +16756,6 @@ msgstr ""
 "表中的一个字段值作为文件名。如果想使用字段值作为文件名，第一个选项必须留空。"
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:39
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Abs/ExternalTransformationsPlugin.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use. The second option should be blank for historical reasons. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -16809,12 +16769,12 @@ msgid ""
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
 "仅 LINUX：调用外部程序并通过标准输入传入字段数据。返回此应用程序的标准输出。"
-"默认为 Tidy，可以很好的打印 HTML 代码。为了安全起见，您需要手动编辑 "
-"libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin."
-"php 文件来加入可以运行的工具。第一个选项是您想要使用的程序编号，由于历史的原"
-"因，第二个选项应该为空。第三个参数如果设为 1 的话将会用 htmlspecialchars() 处"
-"理输出 (默认为 1)。第四个参数如果设为 1 的话，将禁止换行，确保所有内容显示在"
-"一行中 (默认为 1)。"
+"默认为 Tidy，可以很好的打印 HTML 代码。为了安全起见，您需要手动编辑 src/"
+"Plugins/Transformations/Abs/ExternalTransformationsPlugin.php 文件来加入可以"
+"运行的工具。第一个选项是您想要使用的程序编号，由于历史的原因，第二个选项应该"
+"为空。第三个参数如果设为 1 的话将会用 htmlspecialchars() 处理输出 (默认为 "
+"1)。第四个参数如果设为 1 的话，将禁止换行，确保所有内容显示在一行中 (默认为 "
+"1)。"
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:122
 #, php-format
