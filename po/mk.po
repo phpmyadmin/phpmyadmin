@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2023-11-02 07:01+0000\n"
+"PO-Revision-Date: 2023-11-03 23:34+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-1/mk/>\n"
@@ -12291,10 +12291,8 @@ msgid "Formats text as XML with syntax highlighting."
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:143
-#, fuzzy
-#| msgid "Documentation"
 msgid "Authentication Application (2FA)"
-msgstr "Документација"
+msgstr "Апликација за автентикација (2FA)"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:154
 msgid ""
@@ -14137,12 +14135,12 @@ msgid "As defined:"
 msgstr ""
 
 #: templates/columns_definitions/column_attributes.twig:97
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
-msgstr "Немате право на пристап овде!"
+msgstr ""
+"Немате доволно привилегии за да ја извршите оваа операција; Ве молиме "
+"погледнете во документацијата за повеќе детали"
 
 #: templates/columns_definitions/column_attributes.twig:111
 #: templates/database/data_dictionary/index.twig:67 templates/indexes.twig:17
@@ -14170,10 +14168,8 @@ msgstr ""
 
 #: templates/columns_definitions/column_attributes.twig:156
 #: templates/table/structure/display_partitions.twig:26
-#, fuzzy
-#| msgid "Compression"
 msgid "Expression"
-msgstr "Компресија"
+msgstr "Израз"
 
 #: templates/columns_definitions/column_attributes.twig:177
 msgid "first"
@@ -14181,10 +14177,9 @@ msgstr ""
 
 #: templates/columns_definitions/column_attributes.twig:182
 #: templates/table/structure/display_structure.twig:391
-#, fuzzy, php-format
-#| msgid "After %s"
+#, php-format
 msgid "after %s"
-msgstr "после полето %s"
+msgstr "после %s"
 
 #: templates/columns_definitions/column_definitions_form.twig:23
 msgid "Table name"
@@ -14194,16 +14189,12 @@ msgstr ""
 #: templates/console/display.twig:99
 #: templates/database/central_columns/main.twig:198 templates/export.twig:244
 #: templates/export.twig:258 templates/export.twig:272
-#, fuzzy
-#| msgid "And"
 msgid "Add"
-msgstr "и"
+msgstr "Додади"
 
 #: templates/columns_definitions/column_definitions_form.twig:40
-#, fuzzy
-#| msgid "Column names"
 msgid "column(s)"
-msgstr "Имиња на колони"
+msgstr "колона/и"
 
 #: templates/columns_definitions/column_definitions_form.twig:74
 #, fuzzy
@@ -14226,21 +14217,17 @@ msgstr "Конекции"
 #: templates/columns_definitions/column_definitions_form.twig:113
 #: templates/columns_definitions/partitions.twig:137
 #: templates/table/operations/index.twig:128
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engine"
-msgstr "Видови на складишта"
+msgstr "Мотор на складиште"
 
 #: templates/columns_definitions/column_definitions_form.twig:136
 msgid "PARTITION definition:"
 msgstr ""
 
 #: templates/columns_definitions/column_definitions_form.twig:154
-#, fuzzy
-#| msgid "Enclose export in a transaction"
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
-msgstr "Изврши извоз во трансакција"
+msgstr "Онлајн трансакција"
 
 #: templates/columns_definitions/column_name.twig:4
 #, php-format
@@ -16982,10 +16969,8 @@ msgid "Manage your settings"
 msgstr "Општи особини на релациите"
 
 #: templates/preferences/header.twig:12
-#, fuzzy
-#| msgid "Documentation"
 msgid "Two-factor authentication"
-msgstr "Документација"
+msgstr "Дво-факторна автентикација"
 
 #: templates/preferences/header.twig:55
 #: templates/preferences/manage/main.twig:72
