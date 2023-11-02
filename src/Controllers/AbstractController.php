@@ -12,7 +12,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
 use function __;
-use function defined;
 
 abstract class AbstractController
 {
@@ -37,10 +36,6 @@ abstract class AbstractController
     /** @param array<string, mixed> $params */
     protected function redirect(string $route, array $params = []): void
     {
-        if (defined('TESTSUITE')) {
-            return;
-        }
-
         $this->response->redirect('./index.php?route=' . $route . Url::getCommonRaw($params, '&'));
     }
 

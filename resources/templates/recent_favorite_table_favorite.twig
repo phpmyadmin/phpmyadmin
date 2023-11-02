@@ -8,7 +8,7 @@
   >
     {{ get_icon('b_favorite') }}
   </a>
-  <a href="{{ url('/table/recent-favorite', table.table_parameters) }}">
+  <a class="disableAjax" href="{{ url('/table/recent-favorite', table.table_parameters) }}">
     `{{ table.table_parameters.db }}`.`{{ table.table_parameters.table }}`
   </a>
 </li>
