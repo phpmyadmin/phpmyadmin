@@ -19991,16 +19991,6 @@ parameters:
 			path: test/classes/Controllers/Table/PrivilegesControllerTest.php
 
 		-
-			message: "#^Cannot access offset 'favoriteTables' on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/Table/RecentFavoriteControllerTest.php
-
-		-
-			message: "#^Cannot access offset 2 on mixed\\.$#"
-			count: 4
-			path: test/classes/Controllers/Table/RecentFavoriteControllerTest.php
-
-		-
 			message: "#^Call to an undefined method PhpMyAdmin\\\\DatabaseInterface\\:\\:expects\\(\\)\\.$#"
 			count: 4
 			path: test/classes/Controllers/Table/RelationControllerTest.php

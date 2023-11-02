@@ -5,101 +5,114 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Controllers\Sql\SqlController;
 use PhpMyAdmin\Controllers\Table\RecentFavoriteController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\PreserveGlobalState;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 use ReflectionProperty;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 #[CoversClass(RecentFavoriteController::class)]
 #[PreserveGlobalState(false)]
 #[RunTestsInSeparateProcesses]
 class RecentFavoriteControllerTest extends AbstractTestCase
 {
-    protected DatabaseInterface $dbi;
-
-    protected DbiDummy $dummyDbi;
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->dummyDbi = $this->createDbiDummy();
-        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        DatabaseInterface::$instance = $this->dbi;
-    }
-
     public function testRecentFavoriteControllerWithValidDbAndTable(): void
     {
         $GLOBALS['server'] = 2;
         $GLOBALS['text_dir'] = 'ltr';
-        $_REQUEST['db'] = 'test_db';
-        $_REQUEST['table'] = 'test_table';
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 
-        $_SESSION['tmpval'] = [];
-        $_SESSION['tmpval']['recentTables'][2] = [['db' => 'test_db', 'table' => 'test_table']];
-        $_SESSION['tmpval']['favoriteTables'][2] = [['db' => 'test_db', 'table' => 'test_table']];
+        $_SESSION['tmpval'] = [
+            'recentTables' => [2 => [['db' => 'test_db', 'table' => 'test_table']]],
+            'favoriteTables' => [2 => [['db' => 'test_db', 'table' => 'test_table']]],
+        ];
 
-        $controller = $this->createMock(SqlController::class);
-        $controller->expects($this->once())->method('__invoke');
-
-        $container = $this->createMock(ContainerBuilder::class);
-        $container->expects($this->once())->method('get')->with(SqlController::class)->willReturn($controller);
-        $GLOBALS['containerBuilder'] = $container;
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
 
         $recent = RecentFavoriteTable::getInstance('recent');
         $favorite = RecentFavoriteTable::getInstance('favorite');
 
-        $this->assertSame([['db' => 'test_db', 'table' => 'test_table']], $recent->getTables());
-        $this->assertSame([['db' => 'test_db', 'table' => 'test_table']], $favorite->getTables());
+        self::assertSame([['db' => 'test_db', 'table' => 'test_table']], $recent->getTables());
+        self::assertSame([['db' => 'test_db', 'table' => 'test_table']], $favorite->getTables());
 
-        (new RecentFavoriteController(new ResponseRenderer(), new Template()))($this->createStub(ServerRequest::class));
+        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
+            ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
 
-        $this->assertSame([['db' => 'test_db', 'table' => 'test_table']], $recent->getTables());
-        $this->assertSame([['db' => 'test_db', 'table' => 'test_table']], $favorite->getTables());
+        $responseRenderer = new ResponseRenderer();
+        (new RecentFavoriteController($responseRenderer, new Template()))($request);
+
+        $response = $responseRenderer->getResponse();
+        self::assertSame(302, $response->getStatusCode());
+        self::assertStringEndsWith(
+            'index.php?route=/sql&db=test_db&table=test_table&server=2&lang=en',
+            $response->getHeaderLine('Location'),
+        );
+
+        self::assertSame([['db' => 'test_db', 'table' => 'test_table']], $recent->getTables());
+        self::assertSame([['db' => 'test_db', 'table' => 'test_table']], $favorite->getTables());
     }
 
     public function testRecentFavoriteControllerWithInvalidDbAndTable(): void
     {
         $GLOBALS['server'] = 2;
         $GLOBALS['text_dir'] = 'ltr';
-        $_REQUEST['db'] = 'invalid_db';
-        $_REQUEST['table'] = 'invalid_table';
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 
-        $_SESSION['tmpval'] = [];
-        $_SESSION['tmpval']['recentTables'][2] = [['db' => 'invalid_db', 'table' => 'invalid_table']];
-        $_SESSION['tmpval']['favoriteTables'][2] = [['db' => 'invalid_db', 'table' => 'invalid_table']];
+        $_SESSION['tmpval'] = [
+            'recentTables' => [2 => [['db' => 'invalid_db', 'table' => 'invalid_table']]],
+            'favoriteTables' => [2 => [['db' => 'invalid_db', 'table' => 'invalid_table']]],
+        ];
 
-        $this->dummyDbi->addResult('SHOW COLUMNS FROM `invalid_db`.`invalid_table`', false);
-        $this->dummyDbi->addResult('SHOW COLUMNS FROM `invalid_db`.`invalid_table`', false);
-
-        $controller = $this->createMock(SqlController::class);
-        $controller->expects($this->once())->method('__invoke');
-
-        $container = $this->createMock(ContainerBuilder::class);
-        $container->expects($this->once())->method('get')->with(SqlController::class)->willReturn($controller);
-        $GLOBALS['containerBuilder'] = $container;
+        $dbiDummy = $this->createDbiDummy();
+        DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
+        $dbiDummy->addResult('SHOW COLUMNS FROM `invalid_db`.`invalid_table`', false);
+        $dbiDummy->addResult('SHOW COLUMNS FROM `invalid_db`.`invalid_table`', false);
 
         $recent = RecentFavoriteTable::getInstance('recent');
         $favorite = RecentFavoriteTable::getInstance('favorite');
 
-        $this->assertSame([['db' => 'invalid_db', 'table' => 'invalid_table']], $recent->getTables());
-        $this->assertSame([['db' => 'invalid_db', 'table' => 'invalid_table']], $favorite->getTables());
+        self::assertSame([['db' => 'invalid_db', 'table' => 'invalid_table']], $recent->getTables());
+        self::assertSame([['db' => 'invalid_db', 'table' => 'invalid_table']], $favorite->getTables());
 
-        (new RecentFavoriteController(new ResponseRenderer(), new Template()))($this->createStub(ServerRequest::class));
+        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
+            ->withQueryParams(['db' => 'invalid_db', 'table' => 'invalid_table']);
 
-        $this->assertSame([], $recent->getTables());
-        $this->assertSame([], $favorite->getTables());
+        $responseRenderer = new ResponseRenderer();
+        (new RecentFavoriteController($responseRenderer, new Template()))($request);
+
+        $response = $responseRenderer->getResponse();
+        self::assertSame(302, $response->getStatusCode());
+        self::assertStringEndsWith(
+            'index.php?route=/sql&db=invalid_db&table=invalid_table&server=2&lang=en',
+            $response->getHeaderLine('Location'),
+        );
+
+        self::assertSame([], $recent->getTables());
+        self::assertSame([], $favorite->getTables());
+    }
+
+    public function testRecentFavoriteControllerWithInvalidDbAndTableName(): void
+    {
+        $GLOBALS['server'] = 2;
+        $GLOBALS['text_dir'] = 'ltr';
+
+        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
+            ->withQueryParams(['db' => '', 'table' => '']);
+
+        $responseRenderer = new ResponseRenderer();
+        (new RecentFavoriteController($responseRenderer, new Template()))($request);
+
+        $response = $responseRenderer->getResponse();
+        self::assertSame(302, $response->getStatusCode());
+        self::assertStringEndsWith(
+            'index.php?route=/&message=Invalid+database+or+table+name.&server=2&lang=en',
+            $response->getHeaderLine('Location'),
+        );
     }
 }
