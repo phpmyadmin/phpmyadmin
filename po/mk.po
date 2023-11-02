@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-10-29 00:17+0000\n"
-"PO-Revision-Date: 2023-11-02 07:04+0000\n"
+"PO-Revision-Date: 2023-11-03 23:37+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -38,11 +38,12 @@ msgid "As defined:"
 msgstr ""
 
 #: resources/templates/columns_definitions/column_attributes.twig:102
-#, fuzzy
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
-msgstr "Немате право на пристап овде!"
+msgstr ""
+"Немате доволно привилегии за да ја извршите оваа операција; Ве молиме "
+"погледнете во документацијата за повеќе детали"
 
 #: resources/templates/columns_definitions/column_attributes.twig:112
 #: resources/templates/database/data_dictionary/index.twig:41
@@ -93,9 +94,8 @@ msgstr ""
 
 #: resources/templates/columns_definitions/column_attributes.twig:165
 #: resources/templates/table/structure/display_partitions.twig:27
-#, fuzzy
 msgid "Expression"
-msgstr "Компресија"
+msgstr "Израз"
 
 #: resources/templates/columns_definitions/column_attributes.twig:185
 msgid "first"
@@ -103,9 +103,9 @@ msgstr ""
 
 #: resources/templates/columns_definitions/column_attributes.twig:190
 #: resources/templates/table/structure/display_structure.twig:450
-#, fuzzy, php-format
+#, php-format
 msgid "after %s"
-msgstr "после полето %s"
+msgstr "после %s"
 
 #: resources/templates/columns_definitions/column_attributes.twig:216
 #: resources/templates/columns_definitions/column_attributes.twig:239
@@ -136,14 +136,12 @@ msgstr ""
 #: resources/templates/database/central_columns/main.twig:202
 #: resources/templates/export.twig:289 resources/templates/export.twig:305
 #: resources/templates/export.twig:321
-#, fuzzy
 msgid "Add"
-msgstr "и"
+msgstr "Додади"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:39
-#, fuzzy
 msgid "column(s)"
-msgstr "Имиња на колони"
+msgstr "колона/и"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:42
 #: resources/templates/database/designer/main.twig:1102
@@ -224,19 +222,17 @@ msgstr "Конекциja:"
 #: resources/templates/columns_definitions/column_definitions_form.twig:112
 #: resources/templates/columns_definitions/partitions.twig:137
 #: resources/templates/table/operations/index.twig:134
-#, fuzzy
 msgid "Storage engine"
-msgstr "Видови на складишта"
+msgstr "Мотор на складиште"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:135
 msgid "PARTITION definition:"
 msgstr ""
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:154
-#, fuzzy
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
-msgstr "Изврши извоз во трансакција"
+msgstr "Онлајн трансакција"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:157
 #: resources/templates/modals/index_dialog_modal.twig:11
@@ -284,9 +280,8 @@ msgstr ""
 #: resources/templates/table/relation/common_form.twig:188
 #: resources/templates/table/zoom_search/result_form.twig:26
 #: resources/templates/table/zoom_search/result_form.twig:95
-#, fuzzy
 msgid "Loading"
-msgstr "Локален"
+msgstr "Вчитување"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:177
 #: resources/templates/columns_definitions/column_definitions_form.twig:182
@@ -4086,9 +4081,8 @@ msgid "Manage your settings"
 msgstr "Општи особини на релациите"
 
 #: resources/templates/preferences/header.twig:12
-#, fuzzy
 msgid "Two-factor authentication"
-msgstr "Документација"
+msgstr "Дво-факторна автентикација"
 
 #: resources/templates/preferences/header.twig:18
 #: src/Config/Forms/User/FeaturesForm.php:81
@@ -17573,9 +17567,8 @@ msgid "Formats text as XML with syntax highlighting."
 msgstr ""
 
 #: src/Plugins/TwoFactor/Application.php:128
-#, fuzzy
 msgid "Authentication Application (2FA)"
-msgstr "Документација"
+msgstr "Апликација за автентикација (2FA)"
 
 #: src/Plugins/TwoFactor/Application.php:137
 msgid ""
