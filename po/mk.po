@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-11-01 23:01+0000\n"
+"PO-Revision-Date: 2023-11-03 23:32+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -9022,12 +9022,12 @@ msgstr "Преименувај ја базата на податоци во"
 #: libraries/classes/Operations.php:878 libraries/classes/Operations.php:965
 #: libraries/classes/Operations.php:1324
 #: templates/columns_definitions/column_adjust_privileges.twig:15
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
-msgstr "Немате право на пристап овде!"
+msgstr ""
+"Немате доволно привилегии за да ја извршите оваа операција; Ве молиме "
+"погледнете во документацијата за повеќе детали"
 
 #: libraries/classes/Operations.php:158
 #, php-format
@@ -10392,10 +10392,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:146
-#, fuzzy
-#| msgid "Documentation"
 msgid "Authentication Application (2FA)"
-msgstr "Документација"
+msgstr "Апликација за автентикација (2FA)"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:156
 msgid ""
@@ -14222,10 +14220,8 @@ msgid "Manage your settings"
 msgstr "Општи особини на релациите"
 
 #: libraries/user_preferences.inc.php:38
-#, fuzzy
-#| msgid "Documentation"
 msgid "Two-factor authentication"
-msgstr "Документација"
+msgstr "Дво-факторна автентикација"
 
 #: libraries/user_preferences.inc.php:63 prefs_manage.php:298
 #, fuzzy
@@ -14890,10 +14886,8 @@ msgstr "Додади ново поле"
 #: templates/columns_definitions/column_definitions_form.twig:32
 #: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
 #: templates/export/alias_add.twig:46
-#, fuzzy
-#| msgid "And"
 msgid "Add"
-msgstr "и"
+msgstr "Додади"
 
 #: templates/console/display.twig:112
 #, fuzzy
@@ -14937,10 +14931,8 @@ msgstr "Додади/избриши колона"
 
 #: templates/columns_definitions/column_virtuality.twig:29
 #: templates/table/structure/display_partitions.twig:26
-#, fuzzy
-#| msgid "Compression"
 msgid "Expression"
-msgstr "Компресија"
+msgstr "Израз"
 
 #: templates/privileges/add_user_fieldset.twig:2
 msgctxt "Create new user"
@@ -15041,10 +15033,9 @@ msgstr "на почетокот од табелата"
 
 #: templates/table/structure/add_column.twig:19
 #: templates/columns_definitions/move_column.twig:12
-#, fuzzy, php-format
-#| msgid "After %s"
+#, php-format
 msgid "after %s"
-msgstr "после полето %s"
+msgstr "после %s"
 
 #: templates/database/designer/database_tables.twig:37
 #, fuzzy
@@ -15644,10 +15635,8 @@ msgid "Table name"
 msgstr ""
 
 #: templates/columns_definitions/column_definitions_form.twig:40
-#, fuzzy
-#| msgid "Column names"
 msgid "column(s)"
-msgstr "Имиња на колони"
+msgstr "колона/и"
 
 #: templates/columns_definitions/column_definitions_form.twig:74
 msgid "Collation:"
