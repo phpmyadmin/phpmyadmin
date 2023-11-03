@@ -49,6 +49,10 @@ final class ReplaceController extends AbstractController
         private Transformations $transformations,
         private Relation $relation,
         private DatabaseInterface $dbi,
+        private readonly SqlController $sqlController,
+        private readonly DatabaseSqlController $databaseSqlController,
+        private readonly ChangeController $changeController,
+        private readonly TableSqlController $tableSqlController,
     ) {
         parent::__construct($response, $template);
     }
@@ -475,44 +479,25 @@ final class ReplaceController extends AbstractController
     private function moveBackToCallingScript(string $gotoInclude, ServerRequest $request): void
     {
         $GLOBALS['active_page'] = $gotoInclude;
-        $container = Core::getContainerBuilder();
         if ($gotoInclude === '/sql') {
-            /** @var SqlController $controller */
-            $controller = $container->get(SqlController::class);
-            $controller($request);
+            ($this->sqlController)($request);
 
             return;
         }
 
         if ($gotoInclude === '/database/sql') {
-            /** @var DatabaseSqlController $controller */
-            $controller = $container->get(DatabaseSqlController::class);
-            $controller($request);
-
-            return;
-        }
-
-        if ($gotoInclude === '/table/change') {
-            /** @var ChangeController $controller */
-            $controller = $container->get(ChangeController::class);
-            $controller($request);
+            ($this->databaseSqlController)($request);
 
             return;
         }
 
         if ($gotoInclude === '/table/sql') {
-            /** @var TableSqlController $controller */
-            $controller = $container->get(TableSqlController::class);
-            $controller($request);
+            ($this->tableSqlController)($request);
 
             return;
         }
 
-        /**
-         * Load target page.
-         */
-        /** @psalm-suppress UnresolvableInclude */
-        require ROOT_PATH . Core::securePath($gotoInclude);
+        ($this->changeController)($request);
     }
 
     /**

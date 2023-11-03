@@ -1352,6 +1352,10 @@ return [
                 '$transformations' => '@transformations',
                 '$relation' => '@relation',
                 '$dbi' => '@dbi',
+                '$sqlController' => '@' . Sql\SqlController::class,
+                '$databaseSqlController' => '@' . Database\SqlController::class,
+                '$changeController' => '@' . Table\ChangeController::class,
+                '$tableSqlController' => '@' . Table\SqlController::class,
             ],
         ],
         Table\SearchController::class => [

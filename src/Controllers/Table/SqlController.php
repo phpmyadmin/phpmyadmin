@@ -24,7 +24,7 @@ use function htmlspecialchars;
 /**
  * Table SQL executor
  */
-final class SqlController extends AbstractController
+class SqlController extends AbstractController
 {
     public function __construct(
         ResponseRenderer $response,
