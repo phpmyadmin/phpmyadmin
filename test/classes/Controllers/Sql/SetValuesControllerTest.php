@@ -53,8 +53,6 @@ class SetValuesControllerTest extends AbstractTestCase
         $GLOBALS['db'] = 'cvv';
         $GLOBALS['table'] = 'enums';
 
-        $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
-        $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
         /** @var SetValuesController $sqlController */
         $sqlController = $GLOBALS['containerBuilder']->get(SetValuesController::class);
         $sqlController($request);
@@ -97,8 +95,6 @@ class SetValuesControllerTest extends AbstractTestCase
         $GLOBALS['db'] = 'cvv';
         $GLOBALS['table'] = 'enums';
 
-        $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
-        $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
         /** @var SetValuesController $sqlController */
         $sqlController = $GLOBALS['containerBuilder']->get(SetValuesController::class);
         $sqlController($request);

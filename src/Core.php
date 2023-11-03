@@ -560,7 +560,6 @@ class Core
      */
     public static function setPostAsGlobal(array $postPatterns): void
     {
-        $container = self::getContainerBuilder();
         foreach (array_keys($_POST) as $postKey) {
             foreach ($postPatterns as $onePostPattern) {
                 if (! preg_match($onePostPattern, $postKey)) {
@@ -568,7 +567,6 @@ class Core
                 }
 
                 $GLOBALS[$postKey] = $_POST[$postKey];
-                $container->setParameter($postKey, $GLOBALS[$postKey]);
             }
         }
     }

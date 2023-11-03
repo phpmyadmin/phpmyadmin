@@ -153,9 +153,6 @@ class SearchControllerTest extends AbstractTestCase
             ],
         );
 
-        $GLOBALS['containerBuilder']->setParameter('db', 'PMA');
-        $GLOBALS['containerBuilder']->setParameter('table', 'PMA_BookMark');
-
         /** @var SearchController $ctrl */
         $ctrl = $GLOBALS['containerBuilder']->get(SearchController::class);
 

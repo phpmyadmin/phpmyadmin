@@ -8326,11 +8326,6 @@ parameters:
 			path: src/Core.php
 
 		-
-			message: "#^Parameter \\#1 \\$name of method Symfony\\\\Component\\\\DependencyInjection\\\\Container\\:\\:setParameter\\(\\) expects string, \\(int\\|string\\) given\\.$#"
-			count: 1
-			path: src/Core.php
-
-		-
 			message: "#^Parameter \\#1 \\$pattern of function preg_match expects string, mixed given\\.$#"
 			count: 1
 			path: src/Core.php
@@ -8352,11 +8347,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, \\(int\\|string\\) given\\.$#"
-			count: 1
-			path: src/Core.php
-
-		-
-			message: "#^Parameter \\#2 \\$value of method Symfony\\\\Component\\\\DependencyInjection\\\\Container\\:\\:setParameter\\(\\) expects array\\|bool\\|float\\|int\\|string\\|UnitEnum\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Core.php
 
@@ -11261,17 +11251,7 @@ parameters:
 			path: src/Http/Middleware/CurrentServerGlobalSetting.php
 
 		-
-			message: "#^Parameter \\#2 \\$value of method Symfony\\\\Component\\\\DependencyInjection\\\\ContainerInterface\\:\\:setParameter\\(\\) expects array\\|bool\\|float\\|int\\|string\\|UnitEnum\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Http/Middleware/CurrentServerGlobalSetting.php
-
-		-
 			message: "#^Cannot access offset 'table' on mixed\\.$#"
-			count: 1
-			path: src/Http/Middleware/DatabaseAndTableSetting.php
-
-		-
-			message: "#^Parameter \\#2 \\$value of method Symfony\\\\Component\\\\DependencyInjection\\\\ContainerInterface\\:\\:setParameter\\(\\) expects array\\|bool\\|float\\|int\\|string\\|UnitEnum\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Http/Middleware/DatabaseAndTableSetting.php
 
@@ -11303,11 +11283,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$page of static method PhpMyAdmin\\\\Core\\:\\:checkPageValidity\\(\\) expects string, mixed given\\.$#"
 			count: 2
-			path: src/Http/Middleware/UrlParamsSetting.php
-
-		-
-			message: "#^Parameter \\#2 \\$value of method Symfony\\\\Component\\\\DependencyInjection\\\\ContainerInterface\\:\\:setParameter\\(\\) expects array\\|bool\\|float\\|int\\|string\\|UnitEnum\\|null, mixed given\\.$#"
-			count: 3
 			path: src/Http/Middleware/UrlParamsSetting.php
 
 		-
@@ -19841,11 +19816,6 @@ parameters:
 			path: test/classes/Controllers/Database/StructureControllerTest.php
 
 		-
-			message: "#^Cannot call method setParameter\\(\\) on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/Database/StructureControllerTest.php
-
-		-
 			message: "#^Cannot use array destructuring on mixed\\.$#"
 			count: 8
 			path: test/classes/Controllers/Database/StructureControllerTest.php
@@ -19951,28 +19921,13 @@ parameters:
 			path: test/classes/Controllers/Sql/EnumValuesControllerTest.php
 
 		-
-			message: "#^Cannot call method setParameter\\(\\) on mixed\\.$#"
-			count: 4
-			path: test/classes/Controllers/Sql/EnumValuesControllerTest.php
-
-		-
 			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
 			count: 2
-			path: test/classes/Controllers/Sql/SetValuesControllerTest.php
-
-		-
-			message: "#^Cannot call method setParameter\\(\\) on mixed\\.$#"
-			count: 4
 			path: test/classes/Controllers/Sql/SetValuesControllerTest.php
 
 		-
 			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
 			count: 1
-			path: test/classes/Controllers/Table/OperationsControllerTest.php
-
-		-
-			message: "#^Cannot call method setParameter\\(\\) on mixed\\.$#"
-			count: 2
 			path: test/classes/Controllers/Table/OperationsControllerTest.php
 
 		-
@@ -20018,11 +19973,6 @@ parameters:
 		-
 			message: "#^Cannot call method method\\(\\) on mixed\\.$#"
 			count: 1
-			path: test/classes/Controllers/Table/SearchControllerTest.php
-
-		-
-			message: "#^Cannot call method setParameter\\(\\) on mixed\\.$#"
-			count: 2
 			path: test/classes/Controllers/Table/SearchControllerTest.php
 
 		-

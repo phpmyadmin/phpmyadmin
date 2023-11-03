@@ -47,9 +47,6 @@ class OperationsControllerTest extends AbstractTestCase
         $this->loadDbiIntoContainerBuilder();
         $this->loadResponseIntoContainerBuilder();
 
-        $GLOBALS['containerBuilder']->setParameter('db', 'test_db');
-        $GLOBALS['containerBuilder']->setParameter('table', 'test_table');
-
         $this->dummyDbi->addResult(
             'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`',
             [['test_db']],

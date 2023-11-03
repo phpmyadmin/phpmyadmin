@@ -52,8 +52,6 @@ class EnumValuesControllerTest extends AbstractTestCase
             ['curr_value', null, 'b&c'],
         ]);
 
-        $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
-        $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
         /** @var EnumValuesController $sqlController */
         $sqlController = $GLOBALS['containerBuilder']->get(EnumValuesController::class);
         $sqlController($request);
@@ -95,8 +93,6 @@ class EnumValuesControllerTest extends AbstractTestCase
             ['curr_value', null, 'b&c'],
         ]);
 
-        $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
-        $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
         /** @var EnumValuesController $sqlController */
         $sqlController = $GLOBALS['containerBuilder']->get(EnumValuesController::class);
         $sqlController($request);

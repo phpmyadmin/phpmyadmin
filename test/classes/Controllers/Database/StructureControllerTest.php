@@ -379,9 +379,6 @@ class StructureControllerTest extends AbstractTestCase
         $GLOBALS['db'] = 'testdb';
         $GLOBALS['table'] = 'mytable';
 
-        $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
-        $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
-
         /** @var StructureController $structureController */
         $structureController = $GLOBALS['containerBuilder']->get(StructureController::class);
 
