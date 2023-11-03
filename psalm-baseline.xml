@@ -3273,9 +3273,6 @@
     </PossiblyInvalidCast>
   </file>
   <file src="src/Controllers/Table/ChangeController.php">
-    <DeprecatedMethod>
-      <code>Config::getInstance()</code>
-    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['current_result']]]></code>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
@@ -3759,9 +3756,6 @@
     </PossiblyInvalidCast>
   </file>
   <file src="src/Controllers/Table/ReplaceController.php">
-    <DeprecatedMethod>
-      <code>Config::getInstance()</code>
-    </DeprecatedMethod>
     <InvalidArgument>
       <code>$insertErrors</code>
     </InvalidArgument>
@@ -3831,7 +3825,6 @@
       <code>$columnName</code>
       <code>$currRelField</code>
       <code>$fields</code>
-      <code>$insertRows</code>
       <code>$multiEditAutoIncrement</code>
       <code>$multiEditColumns</code>
       <code>$multiEditColumnsName</code>
@@ -3863,9 +3856,6 @@
     <PossiblyUndefinedVariable>
       <code>$extraData</code>
     </PossiblyUndefinedVariable>
-    <PropertyTypeCoercion>
-      <code><![CDATA[$config->settings]]></code>
-    </PropertyTypeCoercion>
   </file>
   <file src="src/Controllers/Table/SearchController.php">
     <DeprecatedMethod>
@@ -13863,6 +13853,12 @@
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
+  <file src="test/classes/Controllers/Table/ChangeControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="test/classes/Controllers/Table/CreateControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
@@ -14002,7 +13998,6 @@
   </file>
   <file src="test/classes/Controllers/Table/ReplaceControllerTest.php">
     <DeprecatedMethod>
-      <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>

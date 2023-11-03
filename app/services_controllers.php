@@ -1078,6 +1078,7 @@ return [
                 '$relation' => '@relation',
                 '$pageSettings' => '@' . PageSettings::class,
                 '$dbTableExists' => '@' . DbTableExists::class,
+                '$config' => '@config',
             ],
         ],
         Table\ChangeRowsController::class => [

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\SqlController as DatabaseSqlController;
@@ -34,7 +33,6 @@ use function implode;
 use function in_array;
 use function is_array;
 use function is_file;
-use function is_numeric;
 use function method_exists;
 use function parse_str;
 use function sprintf;
@@ -73,19 +71,6 @@ final class ReplaceController extends AbstractController
         $this->dbi->selectDb($GLOBALS['db']);
 
         $this->addScriptFiles(['makegrid.js', 'sql.js', 'gis_data_editor.js']);
-
-        $insertRows = $request->getParsedBodyParam('insert_rows');
-        $config = Config::getInstance();
-        if (is_numeric($insertRows) && $insertRows != $config->settings['InsertRows']) {
-            // check whether insert row mode, if so include /table/change
-            $this->addScriptFiles(['vendor/jquery/additional-methods.js', 'table/change.js']);
-            $config->settings['InsertRows'] = (int) $insertRows;
-            /** @var ChangeController $controller */
-            $controller = Core::getContainerBuilder()->get(ChangeController::class);
-            $controller($request);
-
-            return;
-        }
 
         $afterInsertActions = ['new_insert', 'same_insert', 'edit_next'];
         $afterInsert = $request->getParsedBodyParam('after_insert');

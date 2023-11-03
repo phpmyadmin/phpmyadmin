@@ -984,8 +984,8 @@ class InsertEditTest extends AbstractTestCase
         $result = $this->insertEdit->getContinueInsertionForm('tbl', 'db', $whereClauseArray, 'localhost');
 
         $this->assertStringContainsString(
-            '<form id="continueForm" method="post" action="' . Url::getFromRoute('/table/replace')
-            . '" name="continueForm">',
+            '<form id="continueForm" method="post" action="' . Url::getFromRoute('/table/change')
+            . '" name="continueForm" class="row g-3">',
             $result,
         );
 
