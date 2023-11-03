@@ -6,31 +6,24 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Application;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Exceptions\ConfigException;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Template;
 use PHPUnit\Framework\Attributes\BackupStaticProperties;
 use PHPUnit\Framework\Attributes\CoversClass;
-use Psr\Http\Message\ResponseFactoryInterface;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 #[CoversClass(Application::class)]
 final class ApplicationTest extends AbstractTestCase
 {
     public function testInit(): void
     {
-        $application = new Application(
-            $this->createStub(ErrorHandler::class),
-            $this->createStub(Config::class),
-            $this->createStub(Template::class),
-            new ResponseFactory($this->createStub(ResponseFactoryInterface::class)),
-        );
-        $container = $this->createMock(ContainerBuilder::class);
-        $container->expects($this->once())->method('get')
-            ->with($this->identicalTo(Application::class))->willReturn($application);
-        $GLOBALS['containerBuilder'] = $container;
-        $this->assertSame($application, Application::init());
+        $GLOBALS['containerBuilder'] = null;
+        $application = Core::getContainerBuilder()->get(Application::class);
+        self::assertInstanceOf(Application::class, $application);
+        self::assertSame($application, Application::init());
+        $GLOBALS['containerBuilder'] = null;
     }
 
     #[BackupStaticProperties(true)]
