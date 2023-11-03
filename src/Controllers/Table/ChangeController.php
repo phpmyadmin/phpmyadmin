@@ -24,6 +24,7 @@ use function __;
 use function array_fill;
 use function count;
 use function is_array;
+use function is_numeric;
 use function is_string;
 use function str_contains;
 use function str_starts_with;
@@ -42,6 +43,7 @@ class ChangeController extends AbstractController
         private Relation $relation,
         private PageSettings $pageSettings,
         private readonly DbTableExists $dbTableExists,
+        private readonly Config $config,
     ) {
         parent::__construct($response, $template);
     }
@@ -88,6 +90,8 @@ class ChangeController extends AbstractController
 
             return;
         }
+
+        $this->setInsertRowsParam($request->getParsedBodyParam('insert_rows'));
 
         if ($request->hasQueryParam('where_clause') && $request->hasQueryParam('where_clause_signature')) {
             $whereClause = $request->getQueryParam('where_clause');
@@ -204,23 +208,24 @@ class ChangeController extends AbstractController
 
         //Insert/Edit form
         //If table has blob fields we have to disable ajax.
-        $config = Config::getInstance();
-        $isUpload = $config->get('enable_upload');
+        $isUpload = $this->config->get('enable_upload');
         $htmlOutput .= $this->insertEdit->getHtmlForInsertEditFormHeader($hasBlobField, $isUpload);
 
         $htmlOutput .= Url::getHiddenInputs($formParams);
 
         // user can toggle the display of Function column and column types
         // (currently does not work for multi-edits)
-        if (! $config->settings['ShowFunctionFields'] || ! $config->settings['ShowFieldTypesInDataEditView']) {
+        if (
+            ! $this->config->settings['ShowFunctionFields'] || ! $this->config->settings['ShowFieldTypesInDataEditView']
+        ) {
             $htmlOutput .= __('Show');
         }
 
-        if (! $config->settings['ShowFunctionFields']) {
+        if (! $this->config->settings['ShowFunctionFields']) {
             $htmlOutput .= $this->insertEdit->showTypeOrFunction('function', $GLOBALS['urlParams'], false);
         }
 
-        if (! $config->settings['ShowFieldTypesInDataEditView']) {
+        if (! $this->config->settings['ShowFieldTypesInDataEditView']) {
             $htmlOutput .= $this->insertEdit->showTypeOrFunction('type', $GLOBALS['urlParams'], false);
         }
 
@@ -310,5 +315,18 @@ class ChangeController extends AbstractController
         }
 
         return $urlParams;
+    }
+
+    private function setInsertRowsParam(mixed $insertRows): void
+    {
+        if (
+            ! is_numeric($insertRows)
+            || (int) $insertRows === $this->config->settings['InsertRows']
+            || (int) $insertRows < 1
+        ) {
+            return;
+        }
+
+        $this->config->set('InsertRows', (int) $insertRows);
     }
 }

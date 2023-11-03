@@ -12,12 +12,9 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Controllers\Sql\SqlController;
-use PhpMyAdmin\Controllers\Table\ChangeController;
 use PhpMyAdmin\Controllers\Table\ReplaceController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\FileListing;
-use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Operations;
@@ -144,71 +141,6 @@ class ReplaceControllerTest extends AbstractTestCase
             $output,
         );
         $this->assertStringContainsString('SELECT * FROM `test_tbl`', $output);
-    }
-
-    public function testIsInsertRow(): void
-    {
-        $GLOBALS['urlParams'] = [];
-        $GLOBALS['goto'] = 'index.php?route=/sql';
-        $_POST['sql_query'] = 'SELECT 1';
-        $config = Config::getInstance();
-        $config->settings['InsertRows'] = 2;
-        $config->selectedServer['host'] = 'host.tld';
-        $config->selectedServer['verbose'] = '';
-
-        $dummyDbi = $this->createDbiDummy();
-        $dbi = $this->createDatabaseInterface($dummyDbi);
-        DatabaseInterface::$instance = $dbi;
-        $relation = new Relation($dbi);
-        $transformations = new Transformations();
-        $template = new Template();
-        $response = new ResponseRenderer();
-        $insertEdit = new InsertEdit($dbi, $relation, $transformations, new FileListing(), $template);
-        $replaceController = new ReplaceController(
-            $response,
-            $template,
-            $insertEdit,
-            $transformations,
-            $relation,
-            $dbi,
-        );
-
-        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
-            ->withQueryParams(['db' => 'my_db', 'table' => 'test_tbl'])
-            ->withParsedBody(['insert_rows' => '5', 'sql_query' => 'SELECT 1']);
-
-        $pageSettings = $this->createStub(PageSettings::class);
-        $changeController = new ChangeController(
-            $response,
-            $template,
-            $insertEdit,
-            $relation,
-            $pageSettings,
-            new DbTableExists($dbi),
-        );
-        $GLOBALS['containerBuilder'] = $this->createStub(ContainerBuilder::class);
-        $GLOBALS['containerBuilder']->method('get')->willReturn($changeController);
-
-        $dummyDbi->addSelectDb('my_db');
-        $dummyDbi->addSelectDb('my_db');
-        $dummyDbi->addResult('SHOW TABLES LIKE \'test_tbl\';', [['test_tbl']]);
-        $dummyDbi->addResult('SELECT * FROM `my_db`.`test_tbl` LIMIT 1;', []);
-        $dummyDbi->addSelectDb('my_db');
-
-        $replaceController($request);
-        $output = $response->getHTMLResult();
-        $this->dummyDbi->assertAllSelectsConsumed();
-        $this->assertEquals(5, $config->settings['InsertRows']);
-        $this->assertStringContainsString(
-            '<form id="continueForm" method="post" '
-            . 'action="index.php?route=/table/replace&lang=en" name="continueForm">',
-            $output,
-        );
-        $this->assertStringContainsString(
-            'Continue insertion with         <input type="number" '
-            . 'name="insert_rows" id="insert_rows" value="5" min="1">',
-            $output,
-        );
     }
 
     /**
