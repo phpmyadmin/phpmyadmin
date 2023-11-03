@@ -27,7 +27,6 @@ class ExportControllerTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->loadContainerBuilder();
         DatabaseInterface::$instance = $this->createDatabaseInterface();
     }
 

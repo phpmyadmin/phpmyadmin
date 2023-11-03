@@ -30,7 +30,6 @@ class TrackerTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->loadContainerBuilder();
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
         parent::loadDbiIntoContainerBuilder();

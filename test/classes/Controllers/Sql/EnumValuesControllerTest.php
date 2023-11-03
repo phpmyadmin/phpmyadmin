@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Sql;
 
 use PhpMyAdmin\Controllers\Sql\EnumValuesController;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -25,8 +26,6 @@ class EnumValuesControllerTest extends AbstractTestCase
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
-
-        parent::loadContainerBuilder();
 
         parent::loadDbiIntoContainerBuilder();
 
@@ -53,7 +52,7 @@ class EnumValuesControllerTest extends AbstractTestCase
         ]);
 
         /** @var EnumValuesController $sqlController */
-        $sqlController = $GLOBALS['containerBuilder']->get(EnumValuesController::class);
+        $sqlController = Core::getContainerBuilder()->get(EnumValuesController::class);
         $sqlController($request);
 
         $this->assertResponseWasNotSuccessfull();
@@ -94,7 +93,7 @@ class EnumValuesControllerTest extends AbstractTestCase
         ]);
 
         /** @var EnumValuesController $sqlController */
-        $sqlController = $GLOBALS['containerBuilder']->get(EnumValuesController::class);
+        $sqlController = Core::getContainerBuilder()->get(EnumValuesController::class);
         $sqlController($request);
 
         $this->assertResponseWasSuccessfull();

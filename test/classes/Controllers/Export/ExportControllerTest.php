@@ -36,7 +36,6 @@ class ExportControllerTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->loadContainerBuilder();
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;

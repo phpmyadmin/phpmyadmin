@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Database\MultiTableQuery;
 
 use PhpMyAdmin\Controllers\Database\MultiTableQuery\TablesController;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -28,8 +29,6 @@ class TablesControllerTest extends AbstractTestCase
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
 
-        parent::loadContainerBuilder();
-
         parent::loadDbiIntoContainerBuilder();
 
         $GLOBALS['server'] = 1;
@@ -43,7 +42,7 @@ class TablesControllerTest extends AbstractTestCase
         $_GET['db'] = 'test';
 
         /** @var TablesController $multiTableQueryController */
-        $multiTableQueryController = $GLOBALS['containerBuilder']->get(TablesController::class);
+        $multiTableQueryController = Core::getContainerBuilder()->get(TablesController::class);
         $request = $this->createStub(ServerRequest::class);
         $request->method('getQueryParam')->willReturn($_GET['tables'], $_GET['db']);
         $multiTableQueryController($request);

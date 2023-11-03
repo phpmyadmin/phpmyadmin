@@ -19416,21 +19416,6 @@ parameters:
 			path: test/classes/AbstractTestCase.php
 
 		-
-			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
-			count: 4
-			path: test/classes/AbstractTestCase.php
-
-		-
-			message: "#^Cannot call method set\\(\\) on mixed\\.$#"
-			count: 2
-			path: test/classes/AbstractTestCase.php
-
-		-
-			message: "#^Cannot call method setAlias\\(\\) on mixed\\.$#"
-			count: 2
-			path: test/classes/AbstractTestCase.php
-
-		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'formula' and array\\{id\\: non\\-empty\\-string, name\\: string, precondition\\?\\: non\\-empty\\-string, formula\\: non\\-empty\\-string, test\\: non\\-empty\\-string, issue\\: string, recommendation\\: string, justification\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
 			count: 1
 			path: test/classes/Advisory/RulesTest.php
@@ -19761,11 +19746,6 @@ parameters:
 			path: test/classes/ConfigTest.php
 
 		-
-			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Database/MultiTableQuery/TablesControllerTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$needle of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: test/classes/Controllers/Database/PrivilegesControllerTest.php
@@ -19811,11 +19791,6 @@ parameters:
 			path: test/classes/Controllers/Database/StructureControllerTest.php
 
 		-
-			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Database/StructureControllerTest.php
-
-		-
 			message: "#^Cannot use array destructuring on mixed\\.$#"
 			count: 8
 			path: test/classes/Controllers/Database/StructureControllerTest.php
@@ -19834,16 +19809,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringNotContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: test/classes/Controllers/Database/StructureControllerTest.php
-
-		-
-			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Import/ImportControllerTest.php
-
-		-
-			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/NavigationControllerTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
@@ -19916,21 +19881,6 @@ parameters:
 			path: test/classes/Controllers/Server/VariablesControllerTest.php
 
 		-
-			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/Sql/EnumValuesControllerTest.php
-
-		-
-			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
-			count: 2
-			path: test/classes/Controllers/Sql/SetValuesControllerTest.php
-
-		-
-			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/OperationsControllerTest.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 1
 			path: test/classes/Controllers/Table/OperationsControllerTest.php
@@ -19962,11 +19912,6 @@ parameters:
 
 		-
 			message: "#^Call to an undefined method PhpMyAdmin\\\\DatabaseInterface\\:\\:expects\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/SearchControllerTest.php
-
-		-
-			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Table/SearchControllerTest.php
 

@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Table\OperationsController;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\StorageEngine;
@@ -26,7 +27,6 @@ class OperationsControllerTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->loadContainerBuilder();
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
@@ -121,7 +121,7 @@ class OperationsControllerTest extends AbstractTestCase
             ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
 
         /** @var OperationsController $controller */
-        $controller = $GLOBALS['containerBuilder']->get(OperationsController::class);
+        $controller = Core::getContainerBuilder()->get(OperationsController::class);
         $controller($request);
 
         $this->assertEquals($expectedOutput, $this->getResponseHtmlResult());

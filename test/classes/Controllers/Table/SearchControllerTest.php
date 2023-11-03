@@ -125,7 +125,6 @@ class SearchControllerTest extends AbstractTestCase
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
-        $this->loadContainerBuilder();
 
         parent::loadDbiIntoContainerBuilder();
 
@@ -154,7 +153,7 @@ class SearchControllerTest extends AbstractTestCase
         );
 
         /** @var SearchController $ctrl */
-        $ctrl = $GLOBALS['containerBuilder']->get(SearchController::class);
+        $ctrl = Core::getContainerBuilder()->get(SearchController::class);
 
         $_POST['db'] = 'PMA';
         $_POST['table'] = 'PMA_BookMark';

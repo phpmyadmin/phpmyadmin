@@ -57,6 +57,8 @@ use const FILTER_VALIDATE_IP;
  */
 class Core
 {
+    public static ContainerBuilder|null $containerBuilder = null;
+
     /**
      * Removes insecure parts in a path; used before include() or
      * require() when a part of the path comes from an insecure source
@@ -762,18 +764,15 @@ class Core
 
     public static function getContainerBuilder(): ContainerBuilder
     {
-        $containerBuilder = $GLOBALS['containerBuilder'] ?? null;
-        if ($containerBuilder instanceof ContainerBuilder) {
-            return $containerBuilder;
+        if (self::$containerBuilder !== null) {
+            return self::$containerBuilder;
         }
 
-        $containerBuilder = new ContainerBuilder();
-        $loader = new PhpFileLoader($containerBuilder, new FileLocator(ROOT_PATH . 'app'));
+        self::$containerBuilder = new ContainerBuilder();
+        $loader = new PhpFileLoader(self::$containerBuilder, new FileLocator(ROOT_PATH . 'app'));
         $loader->load('services_loader.php');
 
-        $GLOBALS['containerBuilder'] = $containerBuilder;
-
-        return $containerBuilder;
+        return self::$containerBuilder;
     }
 
     public static function populateRequestWithEncryptedQueryParams(ServerRequest $request): ServerRequest

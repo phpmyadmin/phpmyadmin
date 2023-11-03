@@ -37,8 +37,6 @@ class TemplateTest extends AbstractTestCase
      */
     public function testGetTwigEnvironment(): void
     {
-        $this->loadContainerBuilder();
-
         $config = Config::getInstance();
         $config->settings['environment'] = 'production';
         $twig = Template::getTwigEnvironment(null);
