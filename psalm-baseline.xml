@@ -4509,7 +4509,6 @@
     </MixedReturnStatement>
     <PossiblyInvalidArgument>
       <code>$postKey</code>
-      <code>$postKey</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidArrayOffset>
       <code>$path[$depth - 1]</code>

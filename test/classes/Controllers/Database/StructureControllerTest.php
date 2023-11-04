@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Database\StructureController;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
@@ -372,18 +373,13 @@ class StructureControllerTest extends AbstractTestCase
      */
     public function testGetValuesForMroongaTable(): void
     {
-        parent::loadContainerBuilder();
-
         parent::loadDbiIntoContainerBuilder();
 
         $GLOBALS['db'] = 'testdb';
         $GLOBALS['table'] = 'mytable';
 
-        $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
-        $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
-
         /** @var StructureController $structureController */
-        $structureController = $GLOBALS['containerBuilder']->get(StructureController::class);
+        $structureController = Core::getContainerBuilder()->get(StructureController::class);
 
         $this->assertSame(
             [[], '', '', 0],

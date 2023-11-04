@@ -38,7 +38,5 @@ final class CurrentServerGlobalSetting implements MiddlewareInterface
         $server = $config->selectServer($serverParamFromRequest);
         $GLOBALS['server'] = $server;
         $GLOBALS['urlParams']['server'] = $server;
-        $container->setParameter('server', $server);
-        $container->setParameter('url_params', $GLOBALS['urlParams']);
     }
 }

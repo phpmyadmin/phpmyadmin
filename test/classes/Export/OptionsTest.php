@@ -24,8 +24,6 @@ class OptionsTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->loadContainerBuilder();
-
         parent::setLanguage();
 
         parent::setGlobalConfig();

@@ -10,7 +10,6 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 final class UrlParamsSetting implements MiddlewareInterface
 {
@@ -20,27 +19,21 @@ final class UrlParamsSetting implements MiddlewareInterface
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        $container = Core::getContainerBuilder();
-
         $GLOBALS['urlParams'] = [];
-        $container->setParameter('url_params', $GLOBALS['urlParams']);
 
-        $this->setGotoAndBackGlobals($container);
+        $this->setGotoAndBackGlobals();
 
         return $handler->handle($request);
     }
 
-    private function setGotoAndBackGlobals(ContainerInterface $container): void
+    private function setGotoAndBackGlobals(): void
     {
         // Holds page that should be displayed.
         $GLOBALS['goto'] = '';
-        $container->setParameter('goto', $GLOBALS['goto']);
 
         if (isset($_REQUEST['goto']) && Core::checkPageValidity($_REQUEST['goto'])) {
             $GLOBALS['goto'] = $_REQUEST['goto'];
             $GLOBALS['urlParams']['goto'] = $GLOBALS['goto'];
-            $container->setParameter('goto', $GLOBALS['goto']);
-            $container->setParameter('url_params', $GLOBALS['urlParams']);
         } else {
             if ($this->config->issetCookie('goto')) {
                 $this->config->removeCookie('goto');
@@ -52,7 +45,6 @@ final class UrlParamsSetting implements MiddlewareInterface
         if (isset($_REQUEST['back']) && Core::checkPageValidity($_REQUEST['back'])) {
             // Returning page.
             $GLOBALS['back'] = $_REQUEST['back'];
-            $container->setParameter('back', $GLOBALS['back']);
 
             return;
         }

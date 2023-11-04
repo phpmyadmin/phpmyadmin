@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Sql;
 
 use PhpMyAdmin\Controllers\Sql\SetValuesController;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -25,8 +26,6 @@ class SetValuesControllerTest extends AbstractTestCase
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
-
-        parent::loadContainerBuilder();
 
         parent::loadDbiIntoContainerBuilder();
 
@@ -53,10 +52,8 @@ class SetValuesControllerTest extends AbstractTestCase
         $GLOBALS['db'] = 'cvv';
         $GLOBALS['table'] = 'enums';
 
-        $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
-        $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
         /** @var SetValuesController $sqlController */
-        $sqlController = $GLOBALS['containerBuilder']->get(SetValuesController::class);
+        $sqlController = Core::getContainerBuilder()->get(SetValuesController::class);
         $sqlController($request);
 
         $this->assertResponseWasNotSuccessfull();
@@ -97,10 +94,8 @@ class SetValuesControllerTest extends AbstractTestCase
         $GLOBALS['db'] = 'cvv';
         $GLOBALS['table'] = 'enums';
 
-        $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
-        $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
         /** @var SetValuesController $sqlController */
-        $sqlController = $GLOBALS['containerBuilder']->get(SetValuesController::class);
+        $sqlController = Core::getContainerBuilder()->get(SetValuesController::class);
         $sqlController($request);
 
         $this->assertResponseWasSuccessfull();

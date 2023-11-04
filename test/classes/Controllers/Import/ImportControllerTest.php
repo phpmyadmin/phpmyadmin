@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Import;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Import\ImportController;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -30,8 +31,6 @@ class ImportControllerTest extends AbstractTestCase
 
     public function testIndexParametrized(): void
     {
-        parent::loadContainerBuilder();
-
         parent::loadDbiIntoContainerBuilder();
 
         parent::setLanguage();
@@ -82,7 +81,7 @@ class ImportControllerTest extends AbstractTestCase
         );
 
         /** @var ImportController $importController */
-        $importController = $GLOBALS['containerBuilder']->get(ImportController::class);
+        $importController = Core::getContainerBuilder()->get(ImportController::class);
         $this->dummyDbi->addSelectDb('pma_test');
         $this->dummyDbi->addSelectDb('pma_test');
         $importController($request);

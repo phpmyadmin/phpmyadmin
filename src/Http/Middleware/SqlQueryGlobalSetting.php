@@ -38,6 +38,5 @@ final class SqlQueryGlobalSetting implements MiddlewareInterface
         }
 
         $GLOBALS['sql_query'] = $sqlQuery;
-        $container->setParameter('sql_query', $sqlQuery);
     }
 }

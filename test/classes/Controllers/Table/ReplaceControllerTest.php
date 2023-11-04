@@ -11,8 +11,11 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
+use PhpMyAdmin\Controllers\Database\SqlController as DatabaseSqlController;
 use PhpMyAdmin\Controllers\Sql\SqlController;
+use PhpMyAdmin\Controllers\Table\ChangeController;
 use PhpMyAdmin\Controllers\Table\ReplaceController;
+use PhpMyAdmin\Controllers\Table\SqlController as TableSqlController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FileListing;
 use PhpMyAdmin\Http\ServerRequest;
@@ -26,7 +29,6 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionProperty;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 #[CoversClass(ReplaceController::class)]
 class ReplaceControllerTest extends AbstractTestCase
@@ -99,14 +101,6 @@ class ReplaceControllerTest extends AbstractTestCase
         $transformations = new Transformations();
         $template = new Template();
         $response = new ResponseRenderer();
-        $replaceController = new ReplaceController(
-            $response,
-            $template,
-            new InsertEdit($dbi, $relation, $transformations, new FileListing(), $template),
-            $transformations,
-            $relation,
-            $dbi,
-        );
 
         $pageSettings = $this->createStub(PageSettings::class);
         $bookmarkRepository = new BookmarkRepository($dbi, $relation);
@@ -127,8 +121,19 @@ class ReplaceControllerTest extends AbstractTestCase
             $pageSettings,
             $bookmarkRepository,
         );
-        $GLOBALS['containerBuilder'] = $this->createStub(ContainerBuilder::class);
-        $GLOBALS['containerBuilder']->method('get')->willReturn($sqlController);
+
+        $replaceController = new ReplaceController(
+            $response,
+            $template,
+            new InsertEdit($dbi, $relation, $transformations, new FileListing(), $template),
+            $transformations,
+            $relation,
+            $dbi,
+            $sqlController,
+            self::createStub(DatabaseSqlController::class),
+            self::createStub(ChangeController::class),
+            self::createStub(TableSqlController::class),
+        );
 
         $GLOBALS['goto'] = 'index.php?route=/sql';
         $dummyDbi->addSelectDb('my_db');
@@ -155,12 +160,16 @@ class ReplaceControllerTest extends AbstractTestCase
         ]);
 
         $replaceController = new ReplaceController(
-            $this->createStub(ResponseRenderer::class),
-            $this->createStub(Template::class),
-            $this->createStub(InsertEdit::class),
-            $this->createStub(Transformations::class),
-            $this->createStub(Relation::class),
-            $this->createStub(DatabaseInterface::class),
+            self::createStub(ResponseRenderer::class),
+            self::createStub(Template::class),
+            self::createStub(InsertEdit::class),
+            self::createStub(Transformations::class),
+            self::createStub(Relation::class),
+            self::createStub(DatabaseInterface::class),
+            self::createStub(SqlController::class),
+            self::createStub(DatabaseSqlController::class),
+            self::createStub(ChangeController::class),
+            self::createStub(TableSqlController::class),
         );
 
         /** @var array $result */

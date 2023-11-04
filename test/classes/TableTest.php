@@ -1435,7 +1435,6 @@ class TableTest extends AbstractTestCase
                 'utf8mb4_unicode_ci',
             ]);
 
-        $this->loadContainerBuilder();
         $this->loadDbiIntoContainerBuilder();
 
         $GLOBALS['sql_query'] = '';

@@ -19,11 +19,9 @@ final class ApplicationTest extends AbstractTestCase
 {
     public function testInit(): void
     {
-        $GLOBALS['containerBuilder'] = null;
         $application = Core::getContainerBuilder()->get(Application::class);
         self::assertInstanceOf(Application::class, $application);
         self::assertSame($application, Application::init());
-        $GLOBALS['containerBuilder'] = null;
     }
 
     #[BackupStaticProperties(true)]

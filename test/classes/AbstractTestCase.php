@@ -87,30 +87,28 @@ abstract class AbstractTestCase extends TestCase
         Cache::purge();
 
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
-    }
-
-    protected function loadContainerBuilder(): void
-    {
-        $GLOBALS['containerBuilder'] = Core::getContainerBuilder();
+        Core::$containerBuilder = null;
     }
 
     protected function loadDbiIntoContainerBuilder(): void
     {
-        $GLOBALS['containerBuilder']->set(DatabaseInterface::class, DatabaseInterface::getInstance());
-        $GLOBALS['containerBuilder']->setAlias('dbi', DatabaseInterface::class);
+        $containerBuilder = Core::getContainerBuilder();
+        $containerBuilder->set(DatabaseInterface::class, DatabaseInterface::getInstance());
+        $containerBuilder->setAlias('dbi', DatabaseInterface::class);
     }
 
     protected function loadResponseIntoContainerBuilder(): void
     {
         $response = new ResponseRenderer();
-        $GLOBALS['containerBuilder']->set(ResponseRenderer::class, $response);
-        $GLOBALS['containerBuilder']->setAlias('response', ResponseRenderer::class);
+        $containerBuilder = Core::getContainerBuilder();
+        $containerBuilder->set(ResponseRenderer::class, $response);
+        $containerBuilder->setAlias('response', ResponseRenderer::class);
     }
 
     protected function getResponseHtmlResult(): string
     {
         /** @var ResponseRenderer $response */
-        $response = $GLOBALS['containerBuilder']->get(ResponseRenderer::class);
+        $response = Core::getContainerBuilder()->get(ResponseRenderer::class);
 
         return $response->getHTMLResult();
     }
@@ -119,7 +117,7 @@ abstract class AbstractTestCase extends TestCase
     protected function getResponseJsonResult(): array
     {
         /** @var ResponseRenderer $response */
-        $response = $GLOBALS['containerBuilder']->get(ResponseRenderer::class);
+        $response = Core::getContainerBuilder()->get(ResponseRenderer::class);
 
         return $response->getJSONResult();
     }
@@ -127,7 +125,7 @@ abstract class AbstractTestCase extends TestCase
     protected function assertResponseWasNotSuccessfull(): void
     {
         /** @var ResponseRenderer $response */
-        $response = $GLOBALS['containerBuilder']->get(ResponseRenderer::class);
+        $response = Core::getContainerBuilder()->get(ResponseRenderer::class);
 
         $this->assertFalse($response->hasSuccessState(), 'expected the request to fail');
     }
@@ -135,7 +133,7 @@ abstract class AbstractTestCase extends TestCase
     protected function assertResponseWasSuccessfull(): void
     {
         /** @var ResponseRenderer $response */
-        $response = $GLOBALS['containerBuilder']->get(ResponseRenderer::class);
+        $response = Core::getContainerBuilder()->get(ResponseRenderer::class);
 
         $this->assertTrue($response->hasSuccessState(), 'expected the request not to fail');
     }
@@ -199,6 +197,7 @@ abstract class AbstractTestCase extends TestCase
      */
     protected function tearDown(): void
     {
+        Core::$containerBuilder = null;
         DatabaseInterface::$instance = null;
         Config::$instance = null;
         (new ReflectionProperty(Template::class, 'twig'))->setValue(null, null);

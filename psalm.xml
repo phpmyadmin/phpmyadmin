@@ -51,7 +51,6 @@
             compression: 'none'|'zip'|'gzip',
             conn_error: string,
             ConfigFile: PhpMyAdmin\Config\ConfigFile,
-            containerBuilder: Symfony\Component\DependencyInjection\ContainerBuilder,
             csv_columns: bool,
             csv_enclosed: string,
             csv_escaped: string,

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\NavigationController;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -32,8 +33,6 @@ class NavigationControllerTest extends AbstractTestCase
 
     public function testIndex(): void
     {
-        parent::loadContainerBuilder();
-
         parent::loadDbiIntoContainerBuilder();
 
         parent::setLanguage();
@@ -125,7 +124,7 @@ class NavigationControllerTest extends AbstractTestCase
         );
 
         /** @var NavigationController $navigationController */
-        $navigationController = $GLOBALS['containerBuilder']->get(NavigationController::class);
+        $navigationController = Core::getContainerBuilder()->get(NavigationController::class);
         $_POST['full'] = '1';
 
         $request = $this->createStub(ServerRequest::class);
@@ -184,8 +183,6 @@ class NavigationControllerTest extends AbstractTestCase
 
     public function testIndexWithPosAndValue(): void
     {
-        parent::loadContainerBuilder();
-
         parent::loadDbiIntoContainerBuilder();
 
         parent::setLanguage();
@@ -277,7 +274,7 @@ class NavigationControllerTest extends AbstractTestCase
         );
 
         /** @var NavigationController $navigationController */
-        $navigationController = $GLOBALS['containerBuilder']->get(NavigationController::class);
+        $navigationController = Core::getContainerBuilder()->get(NavigationController::class);
         $_POST['full'] = '1';
 
         $request = $this->createStub(ServerRequest::class);

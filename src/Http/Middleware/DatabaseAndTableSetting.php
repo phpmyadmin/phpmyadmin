@@ -44,6 +44,5 @@ final class DatabaseAndTableSetting implements MiddlewareInterface
 
         $GLOBALS['urlParams']['db'] = $GLOBALS['db'];
         $GLOBALS['urlParams']['table'] = $GLOBALS['table'];
-        $container->setParameter('url_params', $GLOBALS['urlParams']);
     }
 }
