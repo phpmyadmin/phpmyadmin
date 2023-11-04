@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-10-29 00:17+0000\n"
-"PO-Revision-Date: 2023-11-03 23:37+0000\n"
+"PO-Revision-Date: 2023-11-05 00:19+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -10694,7 +10694,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:754
 msgid "Basic settings"
-msgstr ""
+msgstr "Основни подесувања"
 
 #: src/Config/Descriptions.php:755
 #, fuzzy
@@ -11562,7 +11562,7 @@ msgstr "Microsoft Word 2000"
 #: src/Config/Forms/User/ExportForm.php:120
 #: src/Config/Forms/User/ImportForm.php:46
 msgid "OpenDocument Spreadsheet"
-msgstr "OpenDocument Spreadsheet"
+msgstr "OpenDocument Табела"
 
 #: src/Config/Forms/User/ExportForm.php:124
 msgid "OpenDocument Text"
@@ -17605,9 +17605,8 @@ msgid "Login using password only."
 msgstr ""
 
 #: src/Plugins/TwoFactor/Simple.php:47
-#, fuzzy
 msgid "Simple two-factor authentication"
-msgstr "Промена на лозинка"
+msgstr "Едноставна дво-факторна автентикација"
 
 #: src/Plugins/TwoFactor/Simple.php:55
 msgid "For testing purposes only!"
