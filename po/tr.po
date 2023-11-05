@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-10-29 00:17+0000\n"
+"POT-Creation-Date: 2023-11-05 00:19+0000\n"
 "PO-Revision-Date: 2023-10-02 10:01+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1900,7 +1900,7 @@ msgstr "sütun seç"
 #: resources/templates/database/tracking/tables.twig:19
 #: resources/templates/table/tracking/main.twig:33
 #: src/Controllers/JavaScriptMessagesController.php:714
-#: src/Controllers/Table/ChangeController.php:216
+#: src/Controllers/Table/ChangeController.php:221
 msgid "Show"
 msgstr "Göster"
 
@@ -4105,7 +4105,7 @@ msgstr "İki etkenli kimlik doğrulamasını etkinleştirdiniz."
 #: src/Controllers/Database/Structure/EmptyTableController.php:48
 #: src/Controllers/Table/DropColumnController.php:62
 #: src/Controllers/Table/OperationsController.php:359
-#: src/Controllers/Table/ReplaceController.php:307 src/Core.php:519
+#: src/Controllers/Table/ReplaceController.php:296 src/Core.php:521
 msgid "No change"
 msgstr "Değişiklik yok"
 
@@ -6552,10 +6552,9 @@ msgstr "İkili değer - düzenlemeyin"
 msgid "Edit/Insert"
 msgstr "Düzenle/Ekle"
 
-#: resources/templates/table/insert/continue_insertion_form.twig:18
-#, php-format
-msgid "Continue insertion with %s rows"
-msgstr "%s satırla eklemeye devam et"
+#: resources/templates/table/insert/continue_insertion_form.twig:14
+msgid "Amount of rows to insert"
+msgstr ""
 
 #: resources/templates/table/maintenance/checksum.twig:13
 msgid "Checksum"
@@ -8502,7 +8501,7 @@ msgstr "query_cache_limit 1 MiB'a ayarlı"
 msgid "Search:"
 msgstr "Arama:"
 
-#: src/Charsets/Collation.php:109 src/Charsets.php:169
+#: src/Charsets/Collation.php:109 src/Charsets.php:184
 msgid "Unknown"
 msgstr "Bilinmiyor"
 
@@ -11776,7 +11775,7 @@ msgstr[1] "%1$d yer işareti gösteriliyor (hem özel hem de paylaşılan)"
 msgid "No bookmarks"
 msgstr "Yer işaretleri yok"
 
-#: src/Controllers/AbstractController.php:70
+#: src/Controllers/AbstractController.php:65
 #: src/Controllers/SchemaExportController.php:35
 #: src/Controllers/Server/UserGroupsFormController.php:45
 msgid "Missing parameter:"
@@ -11844,8 +11843,8 @@ msgstr ""
 #: src/Controllers/Server/Databases/DestroyController.php:60
 #: src/Controllers/Table/AddFieldController.php:175
 #: src/Controllers/Table/AddFieldController.php:180
-#: src/Controllers/Table/ChangeController.php:68
-#: src/Controllers/Table/ChangeController.php:73
+#: src/Controllers/Table/ChangeController.php:70
+#: src/Controllers/Table/ChangeController.php:75
 #: src/Controllers/Table/ChartController.php:106
 #: src/Controllers/Table/ChartController.php:111
 #: src/Controllers/Table/ChartController.php:148
@@ -11987,8 +11986,8 @@ msgstr "Kullanıcıları yönetmek için yetkilere sahip değilsiniz!"
 #: src/Controllers/JavaScriptMessagesController.php:356
 #: src/Controllers/Table/AddFieldController.php:189
 #: src/Controllers/Table/AddFieldController.php:194
-#: src/Controllers/Table/ChangeController.php:82
-#: src/Controllers/Table/ChangeController.php:87
+#: src/Controllers/Table/ChangeController.php:84
+#: src/Controllers/Table/ChangeController.php:89
 #: src/Controllers/Table/ChartController.php:120
 #: src/Controllers/Table/ChartController.php:125
 #: src/Controllers/Table/ChartController.php:241
@@ -15253,6 +15252,12 @@ msgstr "Birden çok tablodaki bakım işlemleri etkisizleştirildi."
 msgid "The partition name must be a non-empty string."
 msgstr "Bölüm adı boş olmayan bir dizgi olmak zorundadır."
 
+#: src/Controllers/Table/RecentFavoriteController.php:27
+#, fuzzy
+#| msgid "Invalid table name"
+msgid "Invalid database or table name."
+msgstr "Geçersiz tablo adı"
+
 #: src/Controllers/Table/RelationController.php:270
 msgid "Display column was successfully updated."
 msgstr "Sütun görüntüleme başarılı olarak güncellendi."
@@ -15261,7 +15266,7 @@ msgstr "Sütun görüntüleme başarılı olarak güncellendi."
 msgid "Internal relationships were successfully updated."
 msgstr "İç ilişkiler başarılı olarak güncellendi."
 
-#: src/Controllers/Table/ReplaceController.php:206
+#: src/Controllers/Table/ReplaceController.php:195
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Satır: %1$s, Sütun: %2$s, Hata: %3$s"
@@ -15336,7 +15341,7 @@ msgstr "Burada bulunmak için yeterli yetkilere sahip değilsiniz!"
 msgid "View name can not be empty!"
 msgstr "Görünüm adı boş olamaz!"
 
-#: src/Core.php:113 src/ZipExtension.php:57
+#: src/Core.php:115 src/ZipExtension.php:57
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s uzantısı eksik. Lütfen PHP yapılandırmanızı denetleyin."
@@ -18820,6 +18825,10 @@ msgstr "ZIP arşivinde hata:"
 #: src/ZipExtension.php:75
 msgid "No files found inside ZIP archive!"
 msgstr "ZIP arşivi içinde bulunan dosya yok!"
+
+#, php-format
+#~ msgid "Continue insertion with %s rows"
+#~ msgstr "%s satırla eklemeye devam et"
 
 #, php-format
 #~ msgid "Point %d"

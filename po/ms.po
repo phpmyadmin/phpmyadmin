@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-10-29 00:17+0000\n"
+"POT-Creation-Date: 2023-11-05 00:19+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Malay <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -2101,7 +2101,7 @@ msgstr "Tambah/Padam Kolum Medan"
 #: resources/templates/database/tracking/tables.twig:19
 #: resources/templates/table/tracking/main.twig:33
 #: src/Controllers/JavaScriptMessagesController.php:714
-#: src/Controllers/Table/ChangeController.php:216
+#: src/Controllers/Table/ChangeController.php:221
 msgid "Show"
 msgstr "Papar"
 
@@ -4521,7 +4521,7 @@ msgstr ""
 #: src/Controllers/Database/Structure/EmptyTableController.php:48
 #: src/Controllers/Table/DropColumnController.php:62
 #: src/Controllers/Table/OperationsController.php:359
-#: src/Controllers/Table/ReplaceController.php:307 src/Core.php:519
+#: src/Controllers/Table/ReplaceController.php:296 src/Core.php:521
 msgid "No change"
 msgstr "Tiada perubahan"
 
@@ -7164,9 +7164,8 @@ msgstr "Binari - jgn diubah"
 msgid "Edit/Insert"
 msgstr "Selit"
 
-#: resources/templates/table/insert/continue_insertion_form.twig:18
-#, php-format
-msgid "Continue insertion with %s rows"
+#: resources/templates/table/insert/continue_insertion_form.twig:14
+msgid "Amount of rows to insert"
 msgstr ""
 
 #: resources/templates/table/maintenance/checksum.twig:13
@@ -9067,7 +9066,7 @@ msgstr ""
 msgid "Search:"
 msgstr "Cari"
 
-#: src/Charsets/Collation.php:109 src/Charsets.php:169
+#: src/Charsets/Collation.php:109 src/Charsets.php:184
 #, fuzzy
 #| msgid "unknown"
 msgid "Unknown"
@@ -12296,7 +12295,7 @@ msgstr[0] ""
 msgid "No bookmarks"
 msgstr "Cari"
 
-#: src/Controllers/AbstractController.php:70
+#: src/Controllers/AbstractController.php:65
 #: src/Controllers/SchemaExportController.php:35
 #: src/Controllers/Server/UserGroupsFormController.php:45
 msgid "Missing parameter:"
@@ -12367,8 +12366,8 @@ msgstr ""
 #: src/Controllers/Server/Databases/DestroyController.php:60
 #: src/Controllers/Table/AddFieldController.php:175
 #: src/Controllers/Table/AddFieldController.php:180
-#: src/Controllers/Table/ChangeController.php:68
-#: src/Controllers/Table/ChangeController.php:73
+#: src/Controllers/Table/ChangeController.php:70
+#: src/Controllers/Table/ChangeController.php:75
 #: src/Controllers/Table/ChartController.php:106
 #: src/Controllers/Table/ChartController.php:111
 #: src/Controllers/Table/ChartController.php:148
@@ -12518,8 +12517,8 @@ msgstr "Anda tidak mempunyai hak mencukupi untuk berada disini sekarang!"
 #: src/Controllers/JavaScriptMessagesController.php:356
 #: src/Controllers/Table/AddFieldController.php:189
 #: src/Controllers/Table/AddFieldController.php:194
-#: src/Controllers/Table/ChangeController.php:82
-#: src/Controllers/Table/ChangeController.php:87
+#: src/Controllers/Table/ChangeController.php:84
+#: src/Controllers/Table/ChangeController.php:89
 #: src/Controllers/Table/ChartController.php:120
 #: src/Controllers/Table/ChartController.php:125
 #: src/Controllers/Table/ChartController.php:241
@@ -15824,6 +15823,12 @@ msgstr ""
 msgid "The partition name must be a non-empty string."
 msgstr "Nama jadual adalah kosong!"
 
+#: src/Controllers/Table/RecentFavoriteController.php:27
+#, fuzzy
+#| msgid "Inside tables:"
+msgid "Invalid database or table name."
+msgstr "Di dalam jadual:"
+
 #: src/Controllers/Table/RelationController.php:270
 #, fuzzy
 #| msgid "Thread %s was successfully killed."
@@ -15835,7 +15840,7 @@ msgstr "Bebenang %s telah berjaya dimatikan."
 msgid "Internal relationships were successfully updated."
 msgstr "Ciri-ciri hubungan am"
 
-#: src/Controllers/Table/ReplaceController.php:206
+#: src/Controllers/Table/ReplaceController.php:195
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
@@ -15920,7 +15925,7 @@ msgstr "Anda tidak mempunyai hak mencukupi untuk berada disini sekarang!"
 msgid "View name can not be empty!"
 msgstr ""
 
-#: src/Core.php:113 src/ZipExtension.php:57
+#: src/Core.php:115 src/ZipExtension.php:57
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""

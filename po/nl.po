@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-10-29 00:17+0000\n"
+"POT-Creation-Date: 2023-11-05 00:19+0000\n"
 "PO-Revision-Date: 2023-05-09 14:50+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1906,7 +1906,7 @@ msgstr "selecteer kolom"
 #: resources/templates/database/tracking/tables.twig:19
 #: resources/templates/table/tracking/main.twig:33
 #: src/Controllers/JavaScriptMessagesController.php:714
-#: src/Controllers/Table/ChangeController.php:216
+#: src/Controllers/Table/ChangeController.php:221
 msgid "Show"
 msgstr "Toon"
 
@@ -4110,7 +4110,7 @@ msgstr "U hebt tweeweg authentificatie geactiveerd."
 #: src/Controllers/Database/Structure/EmptyTableController.php:48
 #: src/Controllers/Table/DropColumnController.php:62
 #: src/Controllers/Table/OperationsController.php:359
-#: src/Controllers/Table/ReplaceController.php:307 src/Core.php:519
+#: src/Controllers/Table/ReplaceController.php:296 src/Core.php:521
 msgid "No change"
 msgstr "Geen verandering"
 
@@ -6589,10 +6589,9 @@ msgstr "Binair - niet aanpassen"
 msgid "Edit/Insert"
 msgstr "Aanpassen/Invoegen"
 
-#: resources/templates/table/insert/continue_insertion_form.twig:18
-#, php-format
-msgid "Continue insertion with %s rows"
-msgstr "Herstart invoegen met %s rijen"
+#: resources/templates/table/insert/continue_insertion_form.twig:14
+msgid "Amount of rows to insert"
+msgstr ""
 
 #: resources/templates/table/maintenance/checksum.twig:13
 msgid "Checksum"
@@ -8582,7 +8581,7 @@ msgstr "query_cache_limit is 1 Mib"
 msgid "Search:"
 msgstr "Zoeken:"
 
-#: src/Charsets/Collation.php:109 src/Charsets.php:169
+#: src/Charsets/Collation.php:109 src/Charsets.php:184
 msgid "Unknown"
 msgstr "Onbekend"
 
@@ -11869,7 +11868,7 @@ msgstr[1] "Toont %1$d bladwijzers (zowel privé als gedeeld)"
 msgid "No bookmarks"
 msgstr "Geen bladwijzers"
 
-#: src/Controllers/AbstractController.php:70
+#: src/Controllers/AbstractController.php:65
 #: src/Controllers/SchemaExportController.php:35
 #: src/Controllers/Server/UserGroupsFormController.php:45
 msgid "Missing parameter:"
@@ -11937,8 +11936,8 @@ msgstr ""
 #: src/Controllers/Server/Databases/DestroyController.php:60
 #: src/Controllers/Table/AddFieldController.php:175
 #: src/Controllers/Table/AddFieldController.php:180
-#: src/Controllers/Table/ChangeController.php:68
-#: src/Controllers/Table/ChangeController.php:73
+#: src/Controllers/Table/ChangeController.php:70
+#: src/Controllers/Table/ChangeController.php:75
 #: src/Controllers/Table/ChartController.php:106
 #: src/Controllers/Table/ChartController.php:111
 #: src/Controllers/Table/ChartController.php:148
@@ -12086,8 +12085,8 @@ msgstr "U heeft niet voldoende rechten om de gebruikers te administreren!"
 #: src/Controllers/JavaScriptMessagesController.php:356
 #: src/Controllers/Table/AddFieldController.php:189
 #: src/Controllers/Table/AddFieldController.php:194
-#: src/Controllers/Table/ChangeController.php:82
-#: src/Controllers/Table/ChangeController.php:87
+#: src/Controllers/Table/ChangeController.php:84
+#: src/Controllers/Table/ChangeController.php:89
 #: src/Controllers/Table/ChartController.php:120
 #: src/Controllers/Table/ChartController.php:125
 #: src/Controllers/Table/ChartController.php:241
@@ -15393,6 +15392,12 @@ msgstr "Onderhoud op meervoudige tabellen is uitgeschakeld."
 msgid "The partition name must be a non-empty string."
 msgstr "De partitienaam mag geen leeg tekstveld zijn."
 
+#: src/Controllers/Table/RecentFavoriteController.php:27
+#, fuzzy
+#| msgid "Invalid table name"
+msgid "Invalid database or table name."
+msgstr "Ongeldige tabelnaam"
+
 #: src/Controllers/Table/RelationController.php:270
 msgid "Display column was successfully updated."
 msgstr "De weergavekolom is succesvol bijgewerkt."
@@ -15401,7 +15406,7 @@ msgstr "De weergavekolom is succesvol bijgewerkt."
 msgid "Internal relationships were successfully updated."
 msgstr "Interne relaties zijn succesvol bijgewerkt."
 
-#: src/Controllers/Table/ReplaceController.php:206
+#: src/Controllers/Table/ReplaceController.php:195
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Rij: %1$s, Kolom: %2$s, Fout: %3$s"
@@ -15476,7 +15481,7 @@ msgstr "U heeft niet genoeg rechten om hier te zijn!"
 msgid "View name can not be empty!"
 msgstr "View naam kan niet leeg zijn!"
 
-#: src/Core.php:113 src/ZipExtension.php:57
+#: src/Core.php:115 src/ZipExtension.php:57
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "De extensie %s ontbreekt. Controleer uw PHP-configuratie."
@@ -19020,6 +19025,10 @@ msgstr "Fout in het ZIP-archief:"
 #: src/ZipExtension.php:75
 msgid "No files found inside ZIP archive!"
 msgstr "Geen bestanden gevonden in ZIP-archief!"
+
+#, php-format
+#~ msgid "Continue insertion with %s rows"
+#~ msgstr "Herstart invoegen met %s rijen"
 
 #, php-format
 #~ msgid "Point %d"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-10-29 00:17+0000\n"
+"POT-Creation-Date: 2023-11-05 00:19+0000\n"
 "PO-Revision-Date: 2021-12-28 12:53+0000\n"
 "Last-Translator: Xuan Hung <mr.hungdx@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1946,7 +1946,7 @@ msgstr "Chọn một cột."
 #: resources/templates/database/tracking/tables.twig:19
 #: resources/templates/table/tracking/main.twig:33
 #: src/Controllers/JavaScriptMessagesController.php:714
-#: src/Controllers/Table/ChangeController.php:216
+#: src/Controllers/Table/ChangeController.php:221
 msgid "Show"
 msgstr "Hiện"
 
@@ -4258,7 +4258,7 @@ msgstr ""
 #: src/Controllers/Database/Structure/EmptyTableController.php:48
 #: src/Controllers/Table/DropColumnController.php:62
 #: src/Controllers/Table/OperationsController.php:359
-#: src/Controllers/Table/ReplaceController.php:307 src/Core.php:519
+#: src/Controllers/Table/ReplaceController.php:296 src/Core.php:521
 msgid "No change"
 msgstr "Không thay đổi gì"
 
@@ -6844,10 +6844,9 @@ msgstr "Nhị phân (Binary) - đừng sửa"
 msgid "Edit/Insert"
 msgstr "Sửa/Chèn"
 
-#: resources/templates/table/insert/continue_insertion_form.twig:18
-#, php-format
-msgid "Continue insertion with %s rows"
-msgstr "Tiếp tục chèn với %s hàng"
+#: resources/templates/table/insert/continue_insertion_form.twig:14
+msgid "Amount of rows to insert"
+msgstr ""
 
 #: resources/templates/table/maintenance/checksum.twig:13
 #, fuzzy
@@ -8657,7 +8656,7 @@ msgstr "query_cache_limit được đặt thành 1 MiB"
 msgid "Search:"
 msgstr "Tìm kiếm:"
 
-#: src/Charsets/Collation.php:109 src/Charsets.php:169
+#: src/Charsets/Collation.php:109 src/Charsets.php:184
 msgid "Unknown"
 msgstr "Không xác định"
 
@@ -11974,7 +11973,7 @@ msgstr[0] "Hiển thị %1$d dấu trang (cả riêng tư và chia sẻ chung)"
 msgid "No bookmarks"
 msgstr "Không có đánh dấu nào"
 
-#: src/Controllers/AbstractController.php:70
+#: src/Controllers/AbstractController.php:65
 #: src/Controllers/SchemaExportController.php:35
 #: src/Controllers/Server/UserGroupsFormController.php:45
 msgid "Missing parameter:"
@@ -12041,8 +12040,8 @@ msgstr ""
 #: src/Controllers/Server/Databases/DestroyController.php:60
 #: src/Controllers/Table/AddFieldController.php:175
 #: src/Controllers/Table/AddFieldController.php:180
-#: src/Controllers/Table/ChangeController.php:68
-#: src/Controllers/Table/ChangeController.php:73
+#: src/Controllers/Table/ChangeController.php:70
+#: src/Controllers/Table/ChangeController.php:75
 #: src/Controllers/Table/ChartController.php:106
 #: src/Controllers/Table/ChartController.php:111
 #: src/Controllers/Table/ChartController.php:148
@@ -12190,8 +12189,8 @@ msgstr "Bạn không có đủ thẩm quyền cần thiết để tạo một b�
 #: src/Controllers/JavaScriptMessagesController.php:356
 #: src/Controllers/Table/AddFieldController.php:189
 #: src/Controllers/Table/AddFieldController.php:194
-#: src/Controllers/Table/ChangeController.php:82
-#: src/Controllers/Table/ChangeController.php:87
+#: src/Controllers/Table/ChangeController.php:84
+#: src/Controllers/Table/ChangeController.php:89
 #: src/Controllers/Table/ChartController.php:120
 #: src/Controllers/Table/ChartController.php:125
 #: src/Controllers/Table/ChartController.php:241
@@ -15464,6 +15463,12 @@ msgstr ""
 msgid "The partition name must be a non-empty string."
 msgstr "Tên bảng còn để trống!"
 
+#: src/Controllers/Table/RecentFavoriteController.php:27
+#, fuzzy
+#| msgid "Invalid table name"
+msgid "Invalid database or table name."
+msgstr "Tên bảng không hợp lệ"
+
 #: src/Controllers/Table/RelationController.php:270
 msgid "Display column was successfully updated."
 msgstr "Cột trình bày đã được cập nhật thành công."
@@ -15474,7 +15479,7 @@ msgstr "Cột trình bày đã được cập nhật thành công."
 msgid "Internal relationships were successfully updated."
 msgstr "Các quan hệ nội tại đã được cập nhật thành công."
 
-#: src/Controllers/Table/ReplaceController.php:206
+#: src/Controllers/Table/ReplaceController.php:195
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Hàng: %1$s, Cột: %2$s, Lỗi: %3$s"
@@ -15548,7 +15553,7 @@ msgstr "Bạn không có đủ đặc quyền cần thiết để có quyền xe
 msgid "View name can not be empty!"
 msgstr ""
 
-#: src/Core.php:113 src/ZipExtension.php:57
+#: src/Core.php:115 src/ZipExtension.php:57
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
@@ -18912,6 +18917,10 @@ msgstr "Lỗi trong kho nén ZIP:"
 #: src/ZipExtension.php:75
 msgid "No files found inside ZIP archive!"
 msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
+
+#, php-format
+#~ msgid "Continue insertion with %s rows"
+#~ msgstr "Tiếp tục chèn với %s hàng"
 
 #, php-format
 #~ msgid "Point %d"

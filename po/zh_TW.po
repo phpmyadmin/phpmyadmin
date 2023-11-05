@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-10-29 00:17+0000\n"
+"POT-Creation-Date: 2023-11-05 00:19+0000\n"
 "PO-Revision-Date: 2023-03-13 13:06+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -1918,7 +1918,7 @@ msgstr "選擇欄位"
 #: resources/templates/database/tracking/tables.twig:19
 #: resources/templates/table/tracking/main.twig:33
 #: src/Controllers/JavaScriptMessagesController.php:714
-#: src/Controllers/Table/ChangeController.php:216
+#: src/Controllers/Table/ChangeController.php:221
 msgid "Show"
 msgstr "顯示"
 
@@ -4113,7 +4113,7 @@ msgstr "已啟用雙因素認證。"
 #: src/Controllers/Database/Structure/EmptyTableController.php:48
 #: src/Controllers/Table/DropColumnController.php:62
 #: src/Controllers/Table/OperationsController.php:359
-#: src/Controllers/Table/ReplaceController.php:307 src/Core.php:519
+#: src/Controllers/Table/ReplaceController.php:296 src/Core.php:521
 msgid "No change"
 msgstr "無更改"
 
@@ -6594,10 +6594,9 @@ msgstr "二進位 - 無法編輯"
 msgid "Edit/Insert"
 msgstr "修改／新增"
 
-#: resources/templates/table/insert/continue_insertion_form.twig:18
-#, php-format
-msgid "Continue insertion with %s rows"
-msgstr "繼續新增 %s 列"
+#: resources/templates/table/insert/continue_insertion_form.twig:14
+msgid "Amount of rows to insert"
+msgstr ""
 
 #: resources/templates/table/maintenance/checksum.twig:13
 #, fuzzy
@@ -8465,7 +8464,7 @@ msgstr "query_cache_limit 目前設定為 1 MB"
 msgid "Search:"
 msgstr "搜尋："
 
-#: src/Charsets/Collation.php:109 src/Charsets.php:169
+#: src/Charsets/Collation.php:109 src/Charsets.php:184
 msgid "Unknown"
 msgstr "不明"
 
@@ -11592,7 +11591,7 @@ msgstr[0] "顯示 %1$d 個書籤 (含私有與共用)"
 msgid "No bookmarks"
 msgstr "無書籤"
 
-#: src/Controllers/AbstractController.php:70
+#: src/Controllers/AbstractController.php:65
 #: src/Controllers/SchemaExportController.php:35
 #: src/Controllers/Server/UserGroupsFormController.php:45
 msgid "Missing parameter:"
@@ -11657,8 +11656,8 @@ msgstr ""
 #: src/Controllers/Server/Databases/DestroyController.php:60
 #: src/Controllers/Table/AddFieldController.php:175
 #: src/Controllers/Table/AddFieldController.php:180
-#: src/Controllers/Table/ChangeController.php:68
-#: src/Controllers/Table/ChangeController.php:73
+#: src/Controllers/Table/ChangeController.php:70
+#: src/Controllers/Table/ChangeController.php:75
 #: src/Controllers/Table/ChartController.php:106
 #: src/Controllers/Table/ChartController.php:111
 #: src/Controllers/Table/ChartController.php:148
@@ -11799,8 +11798,8 @@ msgstr "沒有管理使用者的權限！"
 #: src/Controllers/JavaScriptMessagesController.php:356
 #: src/Controllers/Table/AddFieldController.php:189
 #: src/Controllers/Table/AddFieldController.php:194
-#: src/Controllers/Table/ChangeController.php:82
-#: src/Controllers/Table/ChangeController.php:87
+#: src/Controllers/Table/ChangeController.php:84
+#: src/Controllers/Table/ChangeController.php:89
 #: src/Controllers/Table/ChartController.php:120
 #: src/Controllers/Table/ChartController.php:125
 #: src/Controllers/Table/ChartController.php:241
@@ -15027,6 +15026,12 @@ msgstr ""
 msgid "The partition name must be a non-empty string."
 msgstr "資料表名稱必須是一個非空的字串。"
 
+#: src/Controllers/Table/RecentFavoriteController.php:27
+#, fuzzy
+#| msgid "Invalid table name"
+msgid "Invalid database or table name."
+msgstr "資料表名稱無效"
+
 #: src/Controllers/Table/RelationController.php:270
 msgid "Display column was successfully updated."
 msgstr "顯示欄位已成功更新。"
@@ -15035,7 +15040,7 @@ msgstr "顯示欄位已成功更新。"
 msgid "Internal relationships were successfully updated."
 msgstr "內部關聯已成功更新。"
 
-#: src/Controllers/Table/ReplaceController.php:206
+#: src/Controllers/Table/ReplaceController.php:195
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "列：%1$s，欄：%2$s，錯誤：%3$s"
@@ -15108,7 +15113,7 @@ msgstr "現時並沒有足夠權限！"
 msgid "View name can not be empty!"
 msgstr "檢視表名稱不可以是空的！"
 
-#: src/Core.php:113 src/ZipExtension.php:57
+#: src/Core.php:115 src/ZipExtension.php:57
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "缺少 %s 擴充套件。請檢查 PHP 設定。"
@@ -18463,6 +18468,10 @@ msgstr "ZIP 壓縮檔出錯："
 #: src/ZipExtension.php:75
 msgid "No files found inside ZIP archive!"
 msgstr "ZIP 壓縮檔中沒有檔案！"
+
+#, php-format
+#~ msgid "Continue insertion with %s rows"
+#~ msgstr "繼續新增 %s 列"
 
 #, php-format
 #~ msgid "Point %d"

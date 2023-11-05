@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-10-29 00:17+0000\n"
+"POT-Creation-Date: 2023-11-05 00:19+0000\n"
 "PO-Revision-Date: 2023-03-13 13:06+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1909,7 +1909,7 @@ msgstr "seleccionar columna"
 #: resources/templates/database/tracking/tables.twig:19
 #: resources/templates/table/tracking/main.twig:33
 #: src/Controllers/JavaScriptMessagesController.php:714
-#: src/Controllers/Table/ChangeController.php:216
+#: src/Controllers/Table/ChangeController.php:221
 msgid "Show"
 msgstr "Mostrar"
 
@@ -4133,7 +4133,7 @@ msgstr "Ha activado el doble factor de autentificación."
 #: src/Controllers/Database/Structure/EmptyTableController.php:48
 #: src/Controllers/Table/DropColumnController.php:62
 #: src/Controllers/Table/OperationsController.php:359
-#: src/Controllers/Table/ReplaceController.php:307 src/Core.php:519
+#: src/Controllers/Table/ReplaceController.php:296 src/Core.php:521
 msgid "No change"
 msgstr "Sin cambios"
 
@@ -6612,10 +6612,9 @@ msgstr "Binario - no editar"
 msgid "Edit/Insert"
 msgstr "Editar/Insertar"
 
-#: resources/templates/table/insert/continue_insertion_form.twig:18
-#, php-format
-msgid "Continue insertion with %s rows"
-msgstr "Continuar inserción con %s filas"
+#: resources/templates/table/insert/continue_insertion_form.twig:14
+msgid "Amount of rows to insert"
+msgstr ""
 
 #: resources/templates/table/maintenance/checksum.twig:13
 msgid "Checksum"
@@ -8610,7 +8609,7 @@ msgstr "«query_cache_limit» está definido a 1 MiB"
 msgid "Search:"
 msgstr "Buscar:"
 
-#: src/Charsets/Collation.php:109 src/Charsets.php:169
+#: src/Charsets/Collation.php:109 src/Charsets.php:184
 msgid "Unknown"
 msgstr "Desconocido"
 
@@ -11945,7 +11944,7 @@ msgstr[1] "Mostrando %1$d favoritos (privados y compartidos)"
 msgid "No bookmarks"
 msgstr "Ningún favorito"
 
-#: src/Controllers/AbstractController.php:70
+#: src/Controllers/AbstractController.php:65
 #: src/Controllers/SchemaExportController.php:35
 #: src/Controllers/Server/UserGroupsFormController.php:45
 msgid "Missing parameter:"
@@ -12013,8 +12012,8 @@ msgstr ""
 #: src/Controllers/Server/Databases/DestroyController.php:60
 #: src/Controllers/Table/AddFieldController.php:175
 #: src/Controllers/Table/AddFieldController.php:180
-#: src/Controllers/Table/ChangeController.php:68
-#: src/Controllers/Table/ChangeController.php:73
+#: src/Controllers/Table/ChangeController.php:70
+#: src/Controllers/Table/ChangeController.php:75
 #: src/Controllers/Table/ChartController.php:106
 #: src/Controllers/Table/ChartController.php:111
 #: src/Controllers/Table/ChartController.php:148
@@ -12161,8 +12160,8 @@ msgstr "¡Usted no tiene los privilegios para administrar a los usuarios!"
 #: src/Controllers/JavaScriptMessagesController.php:356
 #: src/Controllers/Table/AddFieldController.php:189
 #: src/Controllers/Table/AddFieldController.php:194
-#: src/Controllers/Table/ChangeController.php:82
-#: src/Controllers/Table/ChangeController.php:87
+#: src/Controllers/Table/ChangeController.php:84
+#: src/Controllers/Table/ChangeController.php:89
 #: src/Controllers/Table/ChartController.php:120
 #: src/Controllers/Table/ChartController.php:125
 #: src/Controllers/Table/ChartController.php:241
@@ -15583,6 +15582,12 @@ msgstr "Desactivadas las operaciones de mantenimiento en tablas multiples."
 msgid "The partition name must be a non-empty string."
 msgstr "El nombre de la partición debe ser una cadena no vacía."
 
+#: src/Controllers/Table/RecentFavoriteController.php:27
+#, fuzzy
+#| msgid "Invalid table name"
+msgid "Invalid database or table name."
+msgstr "El nombre de la tabla no es válido"
+
 #: src/Controllers/Table/RelationController.php:270
 msgid "Display column was successfully updated."
 msgstr "La columna se actualizó satisfactoriamente."
@@ -15591,7 +15596,7 @@ msgstr "La columna se actualizó satisfactoriamente."
 msgid "Internal relationships were successfully updated."
 msgstr "Las relaciones internas actualizadas satisfactoriamente."
 
-#: src/Controllers/Table/ReplaceController.php:206
+#: src/Controllers/Table/ReplaceController.php:195
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Fila: %1$s, Columna: %2$s, Error: %3$s"
@@ -15667,7 +15672,7 @@ msgstr "¡Usted no tiene suficientes privilegios para estar aquí ahora!"
 msgid "View name can not be empty!"
 msgstr "El nombre de la vista no puede estar vacío.!"
 
-#: src/Core.php:113 src/ZipExtension.php:57
+#: src/Core.php:115 src/ZipExtension.php:57
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "No se encontró la extensión %s. Revisa la configuración PHP."
@@ -19231,6 +19236,10 @@ msgstr "Error en el archivo ZIP:"
 #: src/ZipExtension.php:75
 msgid "No files found inside ZIP archive!"
 msgstr "¡No se hallaron archivos dentro del archivo ZIP!"
+
+#, php-format
+#~ msgid "Continue insertion with %s rows"
+#~ msgstr "Continuar inserción con %s filas"
 
 #, php-format
 #~ msgid "Point %d"
