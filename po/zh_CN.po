@@ -4,8 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-05 00:19+0000\n"
-"PO-Revision-Date: 2023-11-02 07:04+0000\n"
-"Last-Translator: White Night <1602699904@qq.com>\n"
+"PO-Revision-Date: 2023-11-05 17:14+0000\n"
+"Last-Translator: \"White Night(SZTU)\" <127086499+WhiteNight-SZTU@users."
+"noreply.github.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -6402,7 +6403,7 @@ msgstr "编辑/插入"
 
 #: resources/templates/table/insert/continue_insertion_form.twig:14
 msgid "Amount of rows to insert"
-msgstr ""
+msgstr "要插入的行数"
 
 #: resources/templates/table/maintenance/checksum.twig:13
 msgid "Checksum"
@@ -14564,10 +14565,8 @@ msgid "The partition name must be a non-empty string."
 msgstr "分区名称必须是一个非空的字符串。"
 
 #: src/Controllers/Table/RecentFavoriteController.php:27
-#, fuzzy
-#| msgid "Invalid table name"
 msgid "Invalid database or table name."
-msgstr "表名无效"
+msgstr "无效的数据库或表名。"
 
 #: src/Controllers/Table/RelationController.php:270
 msgid "Display column was successfully updated."
