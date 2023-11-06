@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-05 00:19+0000\n"
 "PO-Revision-Date: 2023-11-06 19:25+0000\n"
-"Last-Translator: johnny1029 <jkste07@gmail.com>\n"
+"Last-Translator: Kozioł Marcin <koziol.martin@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "pl/>\n"
 "Language: pl\n"
@@ -4058,8 +4058,8 @@ msgid ""
 "Two-factor authentication is not available, please install optional "
 "dependencies to enable authentication backends."
 msgstr ""
-"Uwierzytelnianie dwuskładnikowe nie jest dostępne. Zainstaluj opcjonalne "
-"zależności, aby włączyć backendy uwierzytelniania."
+"Uwierzytelnianie dwuskładnikowe nie jest dostępne, zainstaluj opcjonalne "
+"zależności, aby włączyć zaplecze uwierzytelniania."
 
 #: resources/templates/preferences/two_factor/main.twig:12
 #: resources/templates/preferences/two_factor/main.twig:27
@@ -11934,7 +11934,7 @@ msgstr "Nie udało się wczytać wtyczek importu. Proszę sprawdzić instalację
 #: src/Controllers/Database/Operations/CollationController.php:45
 #: src/Controllers/Table/OperationsController.php:288
 msgid "No collation provided."
-msgstr "Nie podano sortowania."
+msgstr "Brak zestawień."
 
 #: src/Controllers/Database/OperationsController.php:84
 msgid "Cannot copy database to the same name. Change the name and try again."
@@ -16181,8 +16181,8 @@ msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
-"Nie udało się ustawić pliku cookie sesji. Być może używasz HTTP zamiast "
-"HTTPS, aby uzyskać dostęp do phpMyAdmin."
+"Nie można ustawić pliku cookie sesji. Być może używasz protokołu HTTP "
+"zamiast HTTPS, aby uzyskać dostęp do phpMyAdmin."
 
 #: src/Identifiers/InvalidDatabaseName.php:14
 msgid "The database name must be a non-empty string."
