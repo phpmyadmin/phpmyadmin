@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2023-11-05 05:33+0000\n"
+"PO-Revision-Date: 2023-11-07 15:05+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-1/mk/>\n"
@@ -14233,10 +14233,8 @@ msgid "Referenced by %s."
 msgstr ""
 
 #: templates/columns_definitions/column_name.twig:12
-#, fuzzy
-#| msgid "Disable foreign key checks"
 msgid "Is a foreign key."
-msgstr "Исклучи проверка на надворешни клучеви"
+msgstr "Е надворешен клуч."
 
 #: templates/columns_definitions/column_name.twig:39
 #, fuzzy
