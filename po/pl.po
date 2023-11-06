@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
 "PO-Revision-Date: 2023-11-07 15:05+0000\n"
-"Last-Translator: Plajer <worthplay.pt@onet.pl>\n"
+"Last-Translator: Kamil Monicz <kamil.monicz@outlook.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/4-9/pl/"
 ">\n"
 "Language: pl\n"
@@ -340,7 +340,7 @@ msgstr "Musisz wybrać co najmniej jedną kolumnę do wyświetlenia!"
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
 msgid "Multi-table query"
-msgstr "Zapytanie wielotabelowe"
+msgstr "Wielo-tabelowe zapytanie"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
 msgid "Query by example"
