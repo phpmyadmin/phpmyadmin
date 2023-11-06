@@ -4,8 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2023-11-02 07:01+0000\n"
-"Last-Translator: White Night <1602699904@qq.com>\n"
+"PO-Revision-Date: 2023-11-07 15:05+0000\n"
+"Last-Translator: \"White Night(SZTU)\" <127086499+WhiteNight-SZTU@users."
+"noreply.github.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-1/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -13987,7 +13988,7 @@ msgstr "多表查询"
 #: templates/database/multi_table_query/form.twig:10
 #: templates/database/qbe/index.twig:10
 msgid "Query by example"
-msgstr "通过示例查询"
+msgstr "查询示例"
 
 #: templates/database/multi_table_query/form.twig:15
 msgid "Query window"
