@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-05 00:19+0000\n"
-"PO-Revision-Date: 2023-09-05 16:52+0000\n"
-"Last-Translator: sebastians17 <sebastians117.ss@gmail.com>\n"
+"PO-Revision-Date: 2023-11-06 19:17+0000\n"
+"Last-Translator: johnny1029 <jkste07@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "pl/>\n"
 "Language: pl\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.2-dev\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:31
 #: resources/templates/database/central_columns/edit_table_row.twig:23
@@ -1631,10 +1631,8 @@ msgid "Select page"
 msgstr "Wybierz stronę"
 
 #: resources/templates/database/designer/schema_export.twig:6
-#, fuzzy
-#| msgid "Select Export Relational Type"
 msgid "Select export relational type:"
-msgstr "Wybierz typ eksportu relacyjnych"
+msgstr "Wybierz typ eksportu relacyjnych:"
 
 #: resources/templates/database/events/editor_form.twig:10
 #: resources/templates/database/routines/editor_form.twig:11
@@ -4119,9 +4117,8 @@ msgid "There are no favorite tables."
 msgstr "Nie ma tabel ulubionych."
 
 #: resources/templates/relation/check_relations.twig:3
-#, fuzzy
 msgid "phpMyAdmin configuration storage"
-msgstr "Fragment konfiguracyjny phpMyAdmin"
+msgstr "Przechowywanie konfiguracji phpMyAdmin"
 
 #: resources/templates/relation/check_relations.twig:9
 msgid "Configuration of pmadb…"
@@ -4252,9 +4249,8 @@ msgid "SQL history:"
 msgstr "Historia SQL:"
 
 #: resources/templates/relation/check_relations.twig:245
-#, fuzzy
 msgid "Persistent recently used tables:"
-msgstr "Stale ostatnio używane tabele"
+msgstr "Stale ostatnio używane tabele:"
 
 #: resources/templates/relation/check_relations.twig:270
 msgid "Persistent favorite tables:"
@@ -5363,7 +5359,6 @@ msgid "Replica IO Thread not running!"
 msgstr "Wątek IO serwera podrzędnego nie jest uruchomiony!"
 
 #: resources/templates/server/replication/replica_configuration.twig:31
-#, fuzzy
 msgid ""
 "Server is configured as replica in a replication process. Would you like to:"
 msgstr ""
@@ -5560,14 +5555,10 @@ msgid "Advisor"
 msgstr "Doradca"
 
 #: resources/templates/server/status/monitor/index.twig:4
-#, fuzzy
-#| msgid "System memory"
 msgid "System monitor"
-msgstr "Pamięć systemowa"
+msgstr "Monitor systemowy"
 
 #: resources/templates/server/status/monitor/index.twig:7
-#, fuzzy
-#| msgid "Start Monitor"
 msgid "Start monitor"
 msgstr "Uruchom monitor"
 
@@ -6168,10 +6159,8 @@ msgid "ø Time"
 msgstr "ø Czas"
 
 #: resources/templates/sql/profiling_chart.twig:66
-#, fuzzy
-#| msgid "Profiling results"
 msgid "Pie chart with profiling results."
-msgstr "Wyniki profilowania"
+msgstr "Wykres kołowy z wynikami profilowania."
 
 #: resources/templates/sql/query.twig:7
 #: src/Controllers/Table/DeleteRowsController.php:77
@@ -6561,7 +6550,7 @@ msgstr "Edycja/Wstaw"
 
 #: resources/templates/table/insert/continue_insertion_form.twig:14
 msgid "Amount of rows to insert"
-msgstr ""
+msgstr "Liczba wierszy do wstawienia"
 
 #: resources/templates/table/maintenance/checksum.twig:13
 msgid "Checksum"
@@ -6597,10 +6586,8 @@ msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "Trzeci etap normalizacji (1NF+2NF+3NF)"
 
 #: resources/templates/table/operations/index.twig:2
-#, fuzzy
-#| msgid "Table options"
 msgid "Table operations"
-msgstr "Opcje tabeli"
+msgstr "Operacje tabeli"
 
 #: resources/templates/table/operations/index.twig:10
 msgid "Alter table order by"
@@ -6906,7 +6893,7 @@ msgstr "Napraw"
 #: resources/templates/table/structure/display_partitions.twig:135
 #: src/Operations.php:509
 msgid "Truncate"
-msgstr "Truncate"
+msgstr "Wyczyść"
 
 #: resources/templates/table/structure/display_partitions.twig:195
 msgid "Partition table"
@@ -9062,14 +9049,12 @@ msgid "Enter your public key for the reCAPTCHA service on your domain."
 msgstr "Wpisz swój klucz publiczny usługi reCAPTCHA w swojej domenie."
 
 #: src/Config/Descriptions.php:98
-#, fuzzy
 msgid "Enter your private key for your domain reCAPTCHA service."
-msgstr "Wpisz swój klucz prywatny do domeny usługi reCAPTCHA."
+msgstr "Wpisz swój klucz prywatny do usługi reCAPTCHA twojej domeny."
 
 #: src/Config/Descriptions.php:99
-#, fuzzy
 msgid "Enter your siteverify URL for your reCAPTCHA service."
-msgstr "Wpisz swój klucz prywatny do domeny usługi reCAPTCHA."
+msgstr "Wpisz adres URL weryfikacji witryny dla usługi reCAPTCHA."
 
 #: src/Config/Descriptions.php:101
 msgid ""
@@ -11185,7 +11170,7 @@ msgstr "Projektowanie i schemat PDF: współrzędne tabeli"
 
 #: src/Config/Descriptions.php:899
 msgid "Display columns table"
-msgstr "Wyświetlanie tabeli kolumn"
+msgstr "Wyświetl kolumny tabeli"
 
 #: src/Config/Descriptions.php:900
 msgid "UI preferences table"
@@ -11524,14 +11509,8 @@ msgid "Failed to read configuration file!"
 msgstr "Nie można odczytać pliku konfiguracyjnego!"
 
 #: src/Config.php:668
-#, fuzzy
-#| msgid ""
-#| "This usually means there is a syntax error in it, please check any errors "
-#| "shown below."
 msgid "This usually means there is a syntax error in it."
-msgstr ""
-"To zazwyczaj oznacza, że jest błąd składni w tym, sprawdź wszelkie błędy "
-"poniżej."
+msgstr "To zazwyczaj oznacza, że wystąpił w tym błąd składni."
 
 #: src/Config/ServerConfigChecks.php:52
 #, php-format
@@ -12460,8 +12439,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
-"Próbujesz zmniejszyć liczbę wierszy, ale wprowadziłeś już dane w tych "
-"wierszach, które zostaną utracone. Czy chcesz kontynuować?"
+"Próbujesz zmniejszyć liczbę wierszy, ale wprowadziłeś już w tych wierszach "
+"dane, które zostaną utracone. Czy chcesz kontynuować?"
 
 #: src/Controllers/JavaScriptMessagesController.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -14140,7 +14119,6 @@ msgid "Sa"
 msgstr "Sob"
 
 #: src/Controllers/JavaScriptMessagesController.php:762
-#, fuzzy
 msgctxt "Column header for week of the year in calendar"
 msgid "Wk"
 msgstr "Ty"
@@ -15030,7 +15008,6 @@ msgid "The number of joins that did a full scan of the first table."
 msgstr "Liczba złączeń, które przeszukały w pełni pierwszą tabelę."
 
 #: src/Controllers/Server/Status/VariablesController.php:461
-#, fuzzy
 msgid ""
 "The number of temporary tables currently open by the replica SQL thread."
 msgstr ""
@@ -15289,10 +15266,8 @@ msgid "The partition name must be a non-empty string."
 msgstr "Nazwa partycji nie może być pustym stringiem."
 
 #: src/Controllers/Table/RecentFavoriteController.php:27
-#, fuzzy
-#| msgid "Invalid table name"
 msgid "Invalid database or table name."
-msgstr "Niewłaściwa nazwa tabeli"
+msgstr "Niewłaściwa nazwa bazy danych lub tabeli."
 
 #: src/Controllers/Table/RelationController.php:270
 msgid "Display column was successfully updated."
@@ -15614,7 +15589,7 @@ msgstr "Wynik wykonanych procedur %s"
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "%d wiersz dotyczy ostatniego sprawozdania wewnątrz procedury."
-msgstr[1] "%d wierszy dotyczy ostatniego sprawozdania wewnątrz procedury."
+msgstr[1] "%d wiersze dotyczą ostatniego sprawozdania wewnątrz procedury."
 msgstr[2] "%d wierszy dotyczy ostatniego sprawozdania wewnątrz procedury."
 
 #: src/Database/Routines.php:1201
@@ -15648,16 +15623,14 @@ msgid "Showing rows %1s - %2s"
 msgstr "Pokazano wiersze %1s - %2s"
 
 #: src/Display/Results.php:3558
-#, fuzzy, php-format
-#| msgid "%1$d total, %2$d in query"
+#, php-format
 msgid "%1$s total, %2$s in query"
-msgstr "%1$d ogółem, %2$d w zapytaniu"
+msgstr "%1$s ogółem, %2$s w zapytaniu"
 
 #: src/Display/Results.php:3563
-#, fuzzy, php-format
-#| msgid "%d total"
+#, php-format
 msgid "%s total"
-msgstr "%d ogółem"
+msgstr "%s ogółem"
 
 #: src/Display/Results.php:3576 src/Sql.php:884
 #, php-format
@@ -16870,11 +16843,8 @@ msgid "Your session has expired. Please log in again."
 msgstr "Twoja sesja wygasła. Zaloguj się ponownie."
 
 #: src/Plugins/Auth/AuthenticationCookie.php:238
-#, fuzzy
-#| msgid ""
-#| "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
-msgstr "Brak weryfikacji reCAPTCHA, może została zablokowana przez adblock?"
+msgstr "Brak weryfikacji Captcha, może została zablokowana przez adblock?"
 
 #: src/Plugins/Auth/AuthenticationCookie.php:273
 msgid "Failed to connect to the reCAPTCHA service!"
@@ -17631,18 +17601,6 @@ msgstr ""
 "należy ustawić pierwszą opcję, jako ciąg pusty."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:39
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Abs/ExternalTransformationsPlugin.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use. The second option should be blank for historical reasons. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -17658,14 +17616,14 @@ msgstr ""
 "TYLKO LINUX: Uruchamia zewnętrzną aplikację i przekazuje jej dane z kolumny "
 "przez standardowe wejście. Zwraca standardowe wyjście aplikacji. Domyślnie "
 "jest to Tidy, aby ładnie wydrukować kod HTML. Ze względów bezpieczeństwa "
-"musisz ręcznie edytować libraries/classes/Plugins/Transformations/Abs/"
+"musisz ręcznie edytować src/Plugins/Transformations/Abs/"
 "ExternalTransformationsPlugin.php i wyświetlić listę narzędzi, które chcesz "
 "udostępnić. Pierwsza opcja to numer programu, którego chcesz użyć. Druga "
 "opcja powinna być pusta ze względów historycznych. Trzecia opcja, jeśli jest "
-"ustawiona na 1, konwertuje dane wyjściowe za pomocą htmlspecialchars () "
-"(domyślnie 1). Czwarta opcja, jeśli jest ustawiona na 1, zapobiegnie "
-"zawijaniu i zapewni, że dane wyjściowe pojawią się w jednym wierszu "
-"(domyślnie 1)."
+"ustawiona na 1, konwertuje dane wyjściowe za pomocą htmlspecialchars() ("
+"Domyślnie 1). Czwarta opcja, jeśli jest ustawiona na 1, zapobiegnie "
+"zawijaniu i zapewni, że dane wyjściowe pojawią się w jednym wierszu ("
+"Domyślnie 1)."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:122
 #, php-format
@@ -17987,7 +17945,6 @@ msgid "Unable to connect to primary %s."
 msgstr "Nie można połączyć się z serwerem głównym %s."
 
 #: src/Replication/ReplicationGui.php:496
-#, fuzzy
 msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
 msgstr ""
@@ -18637,9 +18594,8 @@ msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Sygnatura czasowa, zakres 1970-01-01 00: 00: 01 UTC do roku 2038-01-09 03: "
-"14: 07 UTC, przechowywane jako liczba sekund od epoki (1970-01-01 00: 00: 00 "
-"UTC)"
+"Sygnatura czasowa, zakres 1970-01-01 00:00:01 UTC do 2038-01-09 03:14:07 "
+"UTC, przechowywane jako liczba sekund od epoki (1970-01-01 00:00:00 UTC)"
 
 #: src/Types.php:252
 #, php-format
