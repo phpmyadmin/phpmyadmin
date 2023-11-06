@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
 "PO-Revision-Date: 2023-11-06 20:01+0000\n"
-"Last-Translator: johnny1029 <jkste07@gmail.com>\n"
+"Last-Translator: Kuba Niewiarowski <jakub@niewiarowski.it>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/4-9/pl/"
 ">\n"
 "Language: pl\n"
@@ -313,8 +313,8 @@ msgstr "Nazwa bazy danych jest pusta!"
 #: db_operations.php:69
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
-"Nie można skopiować bazy danych pod tę samą nazwę. Zmień nazwę i spróbuj "
-"ponownie."
+"Nie można utworzyć kopii bazy danych o takiej samej nazwie. Zmień nazwę i "
+"spróbuj ponownie."
 
 #: db_operations.php:156
 #, php-format
