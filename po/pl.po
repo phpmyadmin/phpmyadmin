@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-09-05 16:53+0000\n"
-"Last-Translator: sebastians17 <sebastians117.ss@gmail.com>\n"
+"PO-Revision-Date: 2023-11-07 15:05+0000\n"
+"Last-Translator: johnny1029 <jkste07@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
 ">\n"
 "Language: pl\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.2-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -1749,7 +1749,7 @@ msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
-"Nie można ustawić pliku cookie sesji. Być może używasz protokołu HTTP "
+"Nie udało się ustawić pliku cookie sesji. Być może używasz protokołu HTTP "
 "zamiast HTTPS, aby uzyskać dostęp do phpMyAdmin."
 
 #: libraries/classes/Common.php:552
@@ -1852,7 +1852,7 @@ msgstr "Wpisz swój klucz publiczny usługi reCAPTCHA w swojej domenie."
 
 #: libraries/classes/Config/Descriptions.php:110
 msgid "Enter your private key for your domain reCAPTCHA service."
-msgstr "Wpisz swój klucz prywatny dla usługi reCAPTCHA domeny."
+msgstr "Wpisz swój klucz prywatny do usługi reCAPTCHA twojej domeny."
 
 #: libraries/classes/Config/Descriptions.php:111
 msgid "Enter your siteverify URL for your reCAPTCHA service."
@@ -4025,7 +4025,6 @@ msgid "Grid editing: save all edited cells at once"
 msgstr "Edytowanie siatki: zapisanie wszystkich zmodyfikowanych komórek naraz"
 
 #: libraries/classes/Config/Descriptions.php:878
-#, fuzzy
 msgid "Save directory"
 msgstr "Katalog do zapisu"
 
@@ -4038,17 +4037,14 @@ msgid "Host authorization rules"
 msgstr "Zasady autoryzacji hosta"
 
 #: libraries/classes/Config/Descriptions.php:881
-#, fuzzy
 msgid "Allow logins without a password"
 msgstr "Pozwól na logowanie bez hasła"
 
 #: libraries/classes/Config/Descriptions.php:882
-#, fuzzy
 msgid "Allow root login"
 msgstr "Pozwól na logowanie się roota"
 
 #: libraries/classes/Config/Descriptions.php:883
-#, fuzzy
 msgid "Session timezone"
 msgstr "Strefa czasowa sesji"
 
@@ -4059,7 +4055,6 @@ msgstr "HTTP Realm"
 
 #: libraries/classes/Config/Descriptions.php:885
 #: templates/setup/home/index.twig:50
-#, fuzzy
 msgid "Authentication type"
 msgstr "Typ uwierzytelniania"
 
@@ -4113,7 +4108,6 @@ msgid "Server hostname"
 msgstr "Nazwa hosta serwera"
 
 #: libraries/classes/Config/Descriptions.php:897
-#, fuzzy
 msgid "Logout URL"
 msgstr "URL wylogowania"
 
@@ -4138,7 +4132,6 @@ msgid "Show only listed databases"
 msgstr "Pokaż tylko wymienione bazy danych"
 
 #: libraries/classes/Config/Descriptions.php:903
-#, fuzzy
 msgid "Password for config auth"
 msgstr "Hasło dla uwierzytelniania konfiguracji"
 
@@ -4183,7 +4176,6 @@ msgid "Server socket"
 msgstr "Gniazdo serwera"
 
 #: libraries/classes/Config/Descriptions.php:913
-#, fuzzy
 msgid "Use SSL"
 msgstr "Użyj SSL"
 
@@ -4251,12 +4243,10 @@ msgid "Verbose name of this server"
 msgstr "Pełna nazwa serwera"
 
 #: libraries/classes/Config/Descriptions.php:929
-#, fuzzy
 msgid "Allow to display all the rows"
 msgstr "Pozwól wyświetlać wszystkie wiersze"
 
 #: libraries/classes/Config/Descriptions.php:930
-#, fuzzy
 msgid "Show password change form"
 msgstr "Pokaż formularz zmiany hasła"
 
@@ -4269,17 +4259,14 @@ msgid "Show table comments"
 msgstr "Pokaż komentarze do tabeli"
 
 #: libraries/classes/Config/Descriptions.php:933
-#, fuzzy
 msgid "Show creation timestamp"
 msgstr "Pokaż czas utworzenia"
 
 #: libraries/classes/Config/Descriptions.php:934
-#, fuzzy
 msgid "Show last update timestamp"
 msgstr "Pokaż czas ostatniej aktualizacji"
 
 #: libraries/classes/Config/Descriptions.php:935
-#, fuzzy
 msgid "Show last check timestamp"
 msgstr "Pokaż czas ostatniego sprawdzenia"
 
@@ -4300,7 +4287,6 @@ msgid "Show hint"
 msgstr "Pokaż podpowiedź"
 
 #: libraries/classes/Config/Descriptions.php:940
-#, fuzzy
 msgid "Show phpinfo() link"
 msgstr "Pokaż odnośnik phpinfo()"
 
@@ -4348,13 +4334,11 @@ msgstr "Pomiń zablokowane tabele"
 #: templates/server/variables/index.twig:41
 #: templates/server/variables/index.twig:44 templates/setup/home/index.twig:63
 #: templates/table/structure/display_structure.twig:497
-#, fuzzy
 msgid "Edit"
 msgstr "Edytuj"
 
 #: libraries/classes/Config/Descriptions.php:947
 #: libraries/classes/Html/Generator.php:637
-#, fuzzy
 msgid "Explain SQL"
 msgstr "Wyjaśnij SQL"
 
@@ -4363,7 +4347,6 @@ msgstr "Wyjaśnij SQL"
 #: templates/console/display.twig:99
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
-#, fuzzy
 msgid "Refresh"
 msgstr "Odśwież"
 
@@ -4460,7 +4443,6 @@ msgid "Use database search"
 msgstr "Użyj szukania bazy danych"
 
 #: libraries/classes/Config/Descriptions.php:961
-#, fuzzy
 msgid "Enable the Developer tab in settings"
 msgstr "Włącz zakładkę deweloperską w ustawieniach"
 
@@ -4476,17 +4458,14 @@ msgid "Proxy URL"
 msgstr "Proxy URL"
 
 #: libraries/classes/Config/Descriptions.php:964
-#, fuzzy
 msgid "Proxy username"
-msgstr "Użytkownik proxy"
+msgstr "nazwa użytkownika proxy"
 
 #: libraries/classes/Config/Descriptions.php:965
-#, fuzzy
 msgid "Proxy password"
 msgstr "Hasło proxy"
 
 #: libraries/classes/Config/Descriptions.php:966
-#, fuzzy
 msgid "ZIP"
 msgstr "ZIP"
 
@@ -4527,7 +4506,6 @@ msgid "Enter executes queries in console"
 msgstr "Enter wykonuje zapytania w konsoli"
 
 #: libraries/classes/Config/Descriptions.php:976
-#, fuzzy
 msgid "Enable Zero Configuration mode"
 msgstr "Włącz tryb zerowej konfiguracji"
 
@@ -4583,26 +4561,24 @@ msgid "Server connection collation"
 msgstr "Sortowanie połączenie z serwerem"
 
 #: libraries/classes/Config/FormDisplay.php:605
-#, fuzzy, php-format
+#, php-format
 msgid "Missing data for %s"
 msgstr "Brakuje danych dla %s"
 
 #: libraries/classes/Config/FormDisplay.php:646
 #: libraries/classes/Config/Validator.php:590
 #: templates/config/form_display/display.twig:67
-#, fuzzy
 msgid "Incorrect value!"
 msgstr "Nieprawidłowa wartość!"
 
 #: libraries/classes/Config/FormDisplay.php:797
 #: libraries/classes/Config/FormDisplay.php:806
-#, fuzzy
 msgid "unavailable"
 msgstr "niedostępna"
 
 #: libraries/classes/Config/FormDisplay.php:799
 #: libraries/classes/Config/FormDisplay.php:808
-#, fuzzy, php-format
+#, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" wymaga rozszerzenia \"%s\""
 
@@ -4617,17 +4593,15 @@ msgid "Compressed export will not work due to missing function %s."
 msgstr "Skompresowany eksport nie będzie działać z powodu braku funkcji %s."
 
 #: libraries/classes/Config/FormDisplay.php:867
-#, fuzzy, php-format
+#, php-format
 msgid "maximum %s"
 msgstr "maksimum %s"
 
 #: libraries/classes/Config/Forms/Setup/ServersForm.php:39
-#, fuzzy
 msgid "Config authentication"
 msgstr "Uwierzytelnianie w pliku konfiguracyjnym"
 
 #: libraries/classes/Config/Forms/Setup/ServersForm.php:43
-#, fuzzy
 msgid "HTTP authentication"
 msgstr "Uwierzytelnianie HTTP"
 
@@ -4637,7 +4611,6 @@ msgid "Signon authentication"
 msgstr "Zarejestruj się na uwierzytelnianiu"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:25
-#, fuzzy
 msgid "Quick"
 msgstr "Szybko"
 
@@ -4676,7 +4649,6 @@ msgstr "Struktura"
 #: templates/database/export/index.twig:24
 #: templates/server/privileges/privileges_table.twig:278
 #: templates/table/structure/display_table_stats.twig:17
-#, fuzzy
 msgid "Data"
 msgstr "Dane"
 
@@ -4685,7 +4657,6 @@ msgid "CSV for MS Excel"
 msgstr "CSV dla MS Excel"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:116
-#, fuzzy
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
@@ -4776,7 +4747,6 @@ msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "Złe uprawnienia pliku konfiguracyjnego, nie powinien być zapisywalny!"
 
 #: libraries/classes/Config.php:705
-#, fuzzy
 msgid "Failed to read configuration file!"
 msgstr "Nie można odczytać pliku konfiguracyjnego!"
 
@@ -4860,7 +4830,7 @@ msgid "You allow for connecting to the server without a password."
 msgstr "Możesz umożliwić podłączenie do serwera bez hasła."
 
 #: libraries/classes/Config/ServerConfigChecks.php:307
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
@@ -4869,7 +4839,7 @@ msgstr ""
 "systemie."
 
 #: libraries/classes/Config/ServerConfigChecks.php:328
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
@@ -5153,7 +5123,6 @@ msgstr ""
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:103
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:82
 #: libraries/classes/Plugins/AuthenticationPlugin.php:184
-#, fuzzy
 msgid "Access denied!"
 msgstr "Odmowa dostępu!"
 
@@ -5268,7 +5237,6 @@ msgid "No change"
 msgstr "Bez zmian"
 
 #: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:105
-#, fuzzy
 msgid "Favorite List is full!"
 msgstr "Lista ulubionych jest pełna!"
 
@@ -5294,7 +5262,6 @@ msgid "Database Log"
 msgstr "Dziennik bazy danych"
 
 #: libraries/classes/Controllers/ErrorReportController.php:106
-#, fuzzy
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -5307,16 +5274,14 @@ msgid "Thank you for submitting this report."
 msgstr "Dziękujemy za wysłanie tego raportu."
 
 #: libraries/classes/Controllers/ErrorReportController.php:114
-#, fuzzy
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
-"Wykryto błąd. Na podstawie twoich ustawień został automatycznie wysłany "
+"Wykryto błąd. Na podstawie twoich ustawień został automatycznie wygenerowany "
 "raport na temat tego błędu, lecz nie udało się go wysłać."
 
 #: libraries/classes/Controllers/ErrorReportController.php:117
-#, fuzzy
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
 "Jeśli wystąpią jakiekolwiek problemy, prześlij zgłoszenie błędu ręcznie."
@@ -5327,12 +5292,10 @@ msgstr "Jeśli chcesz, możesz odświeżyć stronę."
 
 #: libraries/classes/Controllers/Export/ExportController.php:239
 #: libraries/classes/Export.php:1338
-#, fuzzy
 msgid "Bad type!"
 msgstr "Zły typ!"
 
 #: libraries/classes/Controllers/Export/ExportController.php:333
-#, fuzzy
 msgid "Bad parameters!"
 msgstr "Złe parametry!"
 
@@ -5475,7 +5438,6 @@ msgstr "Udało się"
 
 #: libraries/classes/Controllers/Import/ImportController.php:127
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:575
-#, fuzzy
 msgid "Failed"
 msgstr "Nie udało się"
 
@@ -5550,12 +5512,11 @@ msgstr "Nie można wczytać postępu importu."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:39
 #: templates/server/databases/index.twig:318
-#, fuzzy
 msgid "Confirm"
 msgstr "Potwierdź"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:40
-#, fuzzy, php-format
+#, php-format
 msgid "Do you really want to execute \"%s\"?"
 msgstr "Czy na pewno chcesz wykonać \"%s\"?"
 
@@ -5590,12 +5551,10 @@ msgid "Delete tracking data for these tables?"
 msgstr "Czy usunąć dane śledzenia dla wybranych tabel?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:50
-#, fuzzy
 msgid "Delete tracking data for this version?"
 msgstr "Usunąć dane śledzące dla tej wersji?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:51
-#, fuzzy
 msgid "Delete tracking data for these versions?"
 msgstr "Usunąć dane śledzące dla wybranych wersji?"
 
@@ -5605,7 +5564,6 @@ msgid "Delete entry from tracking report?"
 msgstr "Usunąć wpis śledzenia z raportu?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:53
-#, fuzzy
 msgid "Deleting tracking data"
 msgstr "Usuwanie danych śledzących"
 
@@ -5622,12 +5580,12 @@ msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Ta operacja może długo potrwać. Czy mimo to kontynuować?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:57
-#, fuzzy, php-format
+#, php-format
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "Czy na pewno chcesz usunąć grupę użytkownika \"%s\"?"
+msgstr "Czy na pewno chcesz usunąć grupę użytkowników \"%s\"?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:58
-#, fuzzy, php-format
+#, php-format
 msgid "Do you really want to delete the search \"%s\"?"
 msgstr "Czy na pewno chcesz usunąć wyszukiwanie \"%s\"?"
 
@@ -5640,21 +5598,18 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
-"Próbujesz zmniejszyć liczbę pól, ale już wcześniej wprowadziłeś do nich dane "
-"i możesz je stracić. Czy chcesz kontynuować?"
+"Próbujesz zmniejszyć liczbę wierszy, ale wprowadziłeś już w tych wierszach "
+"dane, które zostaną utracone. Czy chcesz kontynuować?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:64
-#, fuzzy
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Czy na pewno chcesz usunąć wybranego(ych) użytkownika(ów)?"
+msgstr "Czy na pewno chcesz unieważnić wybranego(ych) użytkownika(ów)?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:65
-#, fuzzy
 msgid "Do you really want to delete this central column?"
 msgstr "Czy na pewno chcesz usunąć tę kolumnę centralną?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:66
-#, fuzzy
 msgid "Do you really want to delete the selected items?"
 msgstr "Czy na pewno chcesz usunąć wybrane elementy?"
 
@@ -5667,12 +5622,10 @@ msgstr ""
 "usunie (DELETE) również dane powiązane z wybraną(ymi) partycją(ami)!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:71
-#, fuzzy
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Czy na pewno chcesz obciąć (TRUNCATE) wybraną(e) partycję(e)?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:72
-#, fuzzy
 msgid "Do you really want to remove partitioning?"
 msgstr "Czy na pewno chcesz usunąć podział?"
 
@@ -5695,7 +5648,6 @@ msgstr ""
 "zastosowania się do wskazówek z "
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:81
-#, fuzzy
 msgid "Garbled Data"
 msgstr "Nieczytelne dane"
 
@@ -5764,7 +5716,6 @@ msgid "Add index"
 msgstr "Dodaj indeks"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:107
-#, fuzzy
 msgid "Edit index"
 msgstr "Edytuj indeks"
 
@@ -5788,7 +5739,6 @@ msgid "Create composite index"
 msgstr "Utwórz złożony indeks"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:113
-#, fuzzy
 msgid "Composite with:"
 msgstr "Złożony z:"
 
@@ -5898,7 +5848,6 @@ msgstr "Usuwanie wybranych użytkowników"
 #: templates/table/zoom_search/result_form.twig:27
 #: templates/table/zoom_search/result_form.twig:79
 #: templates/table/zoom_search/result_form.twig:96
-#, fuzzy
 msgid "Close"
 msgstr "Zamknij"
 
@@ -5950,19 +5899,16 @@ msgstr "Inne"
 #. l10n: Thousands separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:152
 #: libraries/classes/Util.php:549 libraries/classes/Util.php:581
-#, fuzzy
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:154
 #: libraries/classes/Util.php:547 libraries/classes/Util.php:579
-#, fuzzy
 msgid "."
 msgstr "."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:156
-#, fuzzy
 msgid "Connections / Processes"
 msgstr "Połączenia / Procesy"
 
@@ -6007,9 +5953,8 @@ msgid "System swap"
 msgstr "Systemowa przestrzeń wymiany"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:175
-#, fuzzy
 msgid "Average load"
-msgstr "Obciążenie przeciętne"
+msgstr "Średnie obciążenie"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:176
 msgid "Total memory"
@@ -6021,12 +5966,10 @@ msgid "Cached memory"
 msgstr "Pamięć podręczna"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:178
-#, fuzzy
 msgid "Buffered memory"
 msgstr "Pamięć buforowana"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:179
-#, fuzzy
 msgid "Free memory"
 msgstr "Pamięć wolna"
 
@@ -6048,23 +5991,19 @@ msgid "Used swap"
 msgstr "Użyta przestrzeń wymiany"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:185
-#, fuzzy
 msgid "Free swap"
 msgstr "Wolna przestrzeń wymiany"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:187
-#, fuzzy
 msgid "Bytes sent"
 msgstr "Bajty przesłane"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:188
-#, fuzzy
 msgid "Bytes received"
 msgstr "Bajty otrzymane"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:189
 #: templates/server/status/status/index.twig:36
-#, fuzzy
 msgid "Connections"
 msgstr "Połączenia"
 
@@ -6077,7 +6016,6 @@ msgstr "Procesy"
 #. l10n: shortcuts for Byte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:193
 #: libraries/classes/Util.php:457
-#, fuzzy
 msgid "B"
 msgstr "B"
 
@@ -6098,7 +6036,6 @@ msgstr "MB"
 #. l10n: shortcuts for Gigabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:196
 #: libraries/classes/Util.php:463
-#, fuzzy
 msgid "GiB"
 msgstr "GB"
 
@@ -6117,7 +6054,6 @@ msgstr "PB"
 #. l10n: shortcuts for Exabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:199
 #: libraries/classes/Util.php:469
-#, fuzzy
 msgid "EiB"
 msgstr "EB"
 
@@ -6246,15 +6182,15 @@ msgstr "Ustaw log_output do %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:234
-#, fuzzy, php-format
+#, php-format
 msgid "Enable %s"
-msgstr "Włączone %s"
+msgstr "Włącz %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:236
-#, fuzzy, php-format
+#, php-format
 msgid "Disable %s"
-msgstr "Wyłączone %s"
+msgstr "Wyłącz %s"
 
 #. l10n: %d seconds
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:238
@@ -6271,17 +6207,14 @@ msgstr ""
 "skontaktować się z administratorem bazy danych."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:242
-#, fuzzy
 msgid "Change settings"
-msgstr "Zmiana ustawień"
+msgstr "Zmień ustawienia"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:243
-#, fuzzy
 msgid "Current settings"
 msgstr "Ustawienia bieżące"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:245
-#, fuzzy
 msgid "Chart title"
 msgstr "Tytuł wykresu"
 
@@ -6292,7 +6225,7 @@ msgid "Differential"
 msgstr "Zróżnicowany"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:248
-#, fuzzy, php-format
+#, php-format
 msgid "Divided by %s"
 msgstr "Podzielony przez %s"
 
@@ -6301,7 +6234,6 @@ msgid "Unit"
 msgstr "Jednostka"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:251
-#, fuzzy
 msgid "From slow log"
 msgstr "Z dziennika powolnego"
 
@@ -6314,17 +6246,14 @@ msgid "The database name is not known for this query in the server's logs."
 msgstr "Nazwa bazy danych dla tego zapytania nie występuje w logach serwera."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:254
-#, fuzzy
 msgid "Analysing logs"
-msgstr "Analizowanie logów"
+msgstr "Analizowanie dzienników"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:255
-#, fuzzy
 msgid "Analysing & loading logs. This may take a while."
-msgstr "Analiza i wczytywanie dzienników. To może trochę potrwać."
+msgstr "Analizowanie i wczytywanie dzienników. To może trochę potrwać."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:256
-#, fuzzy
 msgid "Cancel request"
 msgstr "Anuluj żądanie"
 
@@ -6367,12 +6296,10 @@ msgstr ""
 "czasu."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:273
-#, fuzzy
 msgid "Analyzing…"
 msgstr "Analizowanie…"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:274
-#, fuzzy
 msgid "Explain output"
 msgstr "Wyjaśnij wynik przetworzenia danych"
 
@@ -6412,7 +6339,6 @@ msgid "Table"
 msgstr "Tabela"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:280
-#, fuzzy
 msgid "Chart"
 msgstr "Wykres"
 
@@ -6441,12 +6367,10 @@ msgstr "Opcje filtru dziennika tabeli"
 
 #. l10n: Filter as in "Start Filtering"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:289
-#, fuzzy
 msgid "Filter"
 msgstr "Filtr"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:290
-#, fuzzy
 msgid "Filter queries by word/regexp:"
 msgstr "Filtr zapytań poprzez wyraz / wyrażenie regularne:"
 
@@ -6492,7 +6416,6 @@ msgid "Affected rows:"
 msgstr "Dotyczy wierszy:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:306
-#, fuzzy
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 "Nie powiodła się analiza pliku konfiguracyjnego. Nie wydaje się być "
@@ -6526,7 +6449,6 @@ msgid "No files available on server for import!"
 msgstr "Brak dostępnych plików na serwerze do importu!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:317
-#, fuzzy
 msgid "Analyse query"
 msgstr "Analizuj zapytanie"
 
@@ -6560,7 +6482,6 @@ msgstr "Nie znaleziono parametrów!"
 #: templates/server/databases/index.twig:323
 #: templates/server/variables/index.twig:15
 #: templates/table/search/index.twig:197
-#, fuzzy
 msgid "Cancel"
 msgstr "Anuluj"
 
@@ -6598,19 +6519,18 @@ msgstr "Żądanie nieudane!"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:336
 #: libraries/classes/Controllers/Sql/EnumValuesController.php:51
 #: libraries/classes/Controllers/Sql/SetValuesController.php:54
-#, fuzzy
 msgid "Error in processing request"
 msgstr "Błąd podczas przetwarzania żądania"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:337
-#, fuzzy, php-format
+#, php-format
 msgid "Error code: %s"
 msgstr "Kod błędu: %s"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:338
-#, fuzzy, php-format
+#, php-format
 msgid "Error text: %s"
-msgstr "Błąd tekstu: %s"
+msgstr "Tekst błędu: %s"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:340
 msgid ""
@@ -6645,7 +6565,6 @@ msgid "OK"
 msgstr "OK"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:349
-#, fuzzy
 msgid "Click to dismiss this notification"
 msgstr "Kliknij, aby zamknąć to powiadomienie"
 
@@ -6658,7 +6577,6 @@ msgid "Copying database"
 msgstr "Kopiowanie bazy danych"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:354
-#, fuzzy
 msgid "Changing charset"
 msgstr "Zmiana kodowania"
 
@@ -6715,7 +6633,6 @@ msgid "Searching"
 msgstr "Wyszukiwanie"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:365
-#, fuzzy
 msgid "Hide search results"
 msgstr "Ukryj wyniki wyszukiwania"
 
@@ -6724,12 +6641,10 @@ msgid "Show search results"
 msgstr "Pokaż wyniki wyszukiwania"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:367
-#, fuzzy
 msgid "Browsing"
 msgstr "Przeglądanie"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:368
-#, fuzzy
 msgid "Deleting"
 msgstr "Usuwanie"
 
@@ -6928,7 +6843,7 @@ msgstr "Powrót"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:424
 msgid "Show me the possible partial dependencies based on data in the table"
-msgstr "Pokaż częściowe zależności oparte na dacie tabeli"
+msgstr "Pokaż możliwe zależności częściowe na podstawie danych w tabeli"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:425
 #, fuzzy
@@ -6949,7 +6864,7 @@ msgstr "Krok"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:430
 msgid "The following actions will be performed:"
-msgstr "Następujące akcje zostaną wykonane:"
+msgstr "Wykonane zostaną następujące czynności:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:431
 #, php-format
@@ -6962,7 +6877,7 @@ msgstr "Utwórz następującą tabelę"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:435
 msgid "Third step of normalization (3NF)"
-msgstr "Trzecia postać normalizacji"
+msgstr "Trzeci krok normalizacji (3NF)"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:436
 #, fuzzy
@@ -7598,7 +7513,7 @@ msgstr "Dodaj prefiks tabeli"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:671
 msgid "Replace table with prefix"
-msgstr "Zmień prefiks tabeli"
+msgstr "Zamień tabelę na prefiks"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:672
 #: templates/database/structure/check_all_tables.twig:28
@@ -10316,9 +10231,9 @@ msgstr "Wtyczki"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "Zmodyfikowany rekord: %1$d."
-msgstr[1] "Zmodyfikowane rekordy: %1$d."
-msgstr[2] "Zmodyfikowanych rekordów: %1$d."
+msgstr[0] "%1$d zmodyfikowany rekord."
+msgstr[1] "%1$d zmodyfikowane rekordy."
+msgstr[2] "%1$d zmodyfikowanych rekordów."
 
 #: libraries/classes/Message.php:273
 #, php-format
@@ -10883,7 +10798,7 @@ msgstr "Napraw"
 #: libraries/classes/Operations.php:560
 #: templates/table/structure/display_partitions.twig:134
 msgid "Truncate"
-msgstr "Wyczyść"
+msgstr "Wyczyść(obetnij)"
 
 #: libraries/classes/Operations.php:572 templates/database/events/index.twig:19
 #: templates/database/events/index.twig:20
@@ -10995,7 +10910,7 @@ msgstr "Twoja sesja wygasła. Zaloguj się ponownie."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:252
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
-msgstr "Brak weryfikacji reCAPTCHA może być zablokowany przez adblock?"
+msgstr "Brak weryfikacji reCAPTCHA, może została zablokowana przez adblocka?"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:287
 msgid "Failed to connect to the reCAPTCHA service!"
@@ -11048,7 +10963,7 @@ msgstr "Nie udało się zalogować na serwer MySQL"
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:348
 msgid "You have enabled two factor authentication, please confirm your login."
-msgstr "Aktywowałeś podwójną weryfikację, potwierdź swoje logowanie."
+msgstr "Włączyłeś uwierzytelnianie dwuskładnikowe, potwierdź swój login."
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:80
 #: templates/export.twig:119
@@ -11705,7 +11620,7 @@ msgstr "Nazwa nowej bazy danych (opcjonalnie):"
 #: libraries/classes/Plugins/Import/ImportCsv.php:101
 #: libraries/classes/Plugins/Import/ImportCsv.php:119
 msgid "Import these many number of rows (optional):"
-msgstr "Zaimportuj wiele wierszy (opcjonalnie):"
+msgstr "Zaimportuj wskazaną ilość wierszy (opcjonalnie):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:109
 #: libraries/classes/Plugins/Import/ImportOds.php:66
@@ -12360,7 +12275,6 @@ msgid "Unable to connect to primary %s."
 msgstr "Nie można połączyć się z serwerem głównym %s."
 
 #: libraries/classes/ReplicationGui.php:530
-#, fuzzy
 msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
 msgstr ""
@@ -13381,8 +13295,8 @@ msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Sygnatura czasowa, zakres 1970-01-01 00:00:01 UTC do roku 2038-01-09 03:14:"
-"07 UTC, przechowywane jako liczba sekund od epoki (1970-01-01 00:00:00 UTC)"
+"Sygnatura czasowa, zakres 1970-01-01 00:00:01 UTC do 2038-01-09 03:14:07 "
+"UTC, przechowywane jako liczba sekund od epoki (1970-01-01 00:00:00 UTC)"
 
 #: libraries/classes/Types.php:313
 #, fuzzy, php-format
@@ -15099,7 +15013,7 @@ msgstr "Zmień wszystkie sortowania tabel"
 
 #: templates/database/operations/index.twig:220
 msgid "Change all tables columns collations"
-msgstr "Zmień wszystkie sortowania kolumn tabel"
+msgstr "Zmień sortowanie kolumn wszystkich tabel"
 
 #: templates/database/privileges/index.twig:9
 #: templates/table/privileges/index.twig:8
@@ -16676,9 +16590,9 @@ msgid ""
 "can lead to a non working phpMyAdmin or a security risk. Please fix your "
 "server configuration to indicate HTTPS properly."
 msgstr ""
-"Istnieje niezgodność między wskazaniem HTTPS na serwerze a klientem. Może to "
-"prowadzić do niepracującego phpMyAdmina lub zagrożenia bezpieczeństwa. "
-"Napraw konfigurację serwera, aby poprawnie wskazać HTTPS."
+"Istnieje niezgodność między wskazaniem HTTPS na serwerze a kliencie. Może to "
+"prowadzić do niedziałającego phpMyAdmina lub zagrożenia bezpieczeństwa. "
+"Napraw konfigurację serwera, aby poprawnie wskazywała HTTPS."
 
 #: templates/login/twofactor/application_configure.twig:3
 msgid ""
@@ -16986,8 +16900,8 @@ msgid ""
 "By disabling two factor authentication you will be again able to login using "
 "password only."
 msgstr ""
-"Wyłączając podwójną weryfikację będziesz mógł się zalogować używając "
-"wyłącznie hasła."
+"Wyłączając uwierzytelnianie dwuskładnikowe, będziesz mógł ponownie logować "
+"się tylko przy użyciu hasła."
 
 #: templates/preferences/two_factor/confirm.twig:13
 #: templates/preferences/two_factor/main.twig:66
@@ -17013,14 +16927,16 @@ msgstr "Brakuje następujących pakietów composera:"
 
 #: templates/preferences/two_factor/main.twig:20
 msgid "Two-factor authentication is available and configured for this account."
-msgstr "Podwójna weryfikacja jest dostępna i skonfigurowana na tym koncie."
+msgstr ""
+"Uwierzytelnianie dwuskładnikowe jest dostępne i skonfigurowane dla tego "
+"konta."
 
 #: templates/preferences/two_factor/main.twig:22
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
 msgstr ""
-"Podwójna weryfikacja jest dostępna, ale nie jest skonfigurowana na tym "
-"koncie."
+"Uwierzytelnianie dwuskładnikowe jest dostępne, ale nie jest skonfigurowane "
+"dla tego konta."
 
 #: templates/preferences/two_factor/main.twig:26
 #, fuzzy
@@ -17054,9 +16970,8 @@ msgid "There are no favorite tables."
 msgstr "Nie ma tabel ulubionych."
 
 #: templates/relation/check_relations.twig:3
-#, fuzzy
 msgid "phpMyAdmin configuration storage"
-msgstr "Fragment konfiguracyjny phpMyAdmin"
+msgstr "Przechowywanie konfiguracji phpMyAdmin"
 
 #: templates/relation/check_relations.twig:9
 #, fuzzy
@@ -17191,7 +17106,7 @@ msgstr "Historia SQL:"
 
 #: templates/relation/check_relations.twig:245
 msgid "Persistent recently used tables:"
-msgstr "Stałe ostatnio używane tabele:"
+msgstr "Stale ostatnio używane tabele:"
 
 #: templates/relation/check_relations.twig:270
 msgid "Persistent favorite tables:"
