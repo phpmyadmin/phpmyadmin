@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
 "PO-Revision-Date: 2023-11-06 20:01+0000\n"
-"Last-Translator: Kuba Niewiarowski <jakub@niewiarowski.it>\n"
+"Last-Translator: Szymon Burnejko <onufry7@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/4-9/pl/"
 ">\n"
 "Language: pl\n"
@@ -542,16 +542,12 @@ msgid "Output"
 msgstr "Wyjście"
 
 #: gis_data_editor.php:423
-#, fuzzy
-#| msgid ""
-#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-#| "below into the \"Value\" field."
 msgid ""
 "Choose \"ST_GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Wybierz \"GeomFromText\" z kolumny \"Funkcja\" i wklej poniższy ciąg znaków "
-"do pola \"Wartość\"."
+"Wybierz \"ST_GeomFromText\" z kolumny \"Funkcja\" i wklej poniższy ciąg "
+"znaków do pola \"Wartość\"."
 
 #: import.php:73
 msgid "Succeeded"
