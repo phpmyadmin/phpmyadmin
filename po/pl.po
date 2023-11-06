@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-05 00:19+0000\n"
-"PO-Revision-Date: 2023-11-06 19:25+0000\n"
-"Last-Translator: Kozioł Marcin <koziol.martin@gmail.com>\n"
+"PO-Revision-Date: 2023-11-07 15:05+0000\n"
+"Last-Translator: johnny1029 <jkste07@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "pl/>\n"
 "Language: pl\n"
@@ -6893,7 +6893,7 @@ msgstr "Napraw"
 #: resources/templates/table/structure/display_partitions.twig:135
 #: src/Operations.php:509
 msgid "Truncate"
-msgstr "Wyczyść"
+msgstr "Wyczyść(obetnij)"
 
 #: resources/templates/table/structure/display_partitions.twig:195
 msgid "Partition table"
@@ -11341,7 +11341,7 @@ msgstr "Proxy URL"
 
 #: src/Config/Descriptions.php:948
 msgid "Proxy username"
-msgstr "Użytkownik proxy"
+msgstr "nazwa użytkownika proxy"
 
 #: src/Config/Descriptions.php:949
 msgid "Proxy password"
@@ -12141,7 +12141,7 @@ msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
-"Wykryto błąd. Na podstawie twoich ustawień został automatycznie wysłany "
+"Wykryto błąd. Na podstawie twoich ustawień został automatycznie wygenerowany "
 "raport na temat tego błędu, lecz nie udało się go wysłać."
 
 #: src/Controllers/ErrorReportController.php:106
@@ -12428,7 +12428,7 @@ msgstr "Ta operacja może długo potrwać. Czy mimo to kontynuować?"
 #: src/Controllers/JavaScriptMessagesController.php:69
 #, php-format
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "Czy na pewno chcesz usunąć grupę użytkownika \"%s\"?"
+msgstr "Czy na pewno chcesz usunąć grupę użytkowników \"%s\"?"
 
 #: src/Controllers/JavaScriptMessagesController.php:70
 msgid "You have unsaved changes; are you sure you want to leave this page?"
@@ -12444,7 +12444,7 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Czy na pewno chcesz usunąć wybranego(ych) użytkownika(ów)?"
+msgstr "Czy na pewno chcesz unieważnić wybranego(ych) użytkownika(ów)?"
 
 #: src/Controllers/JavaScriptMessagesController.php:76
 msgid "Do you really want to delete this central column?"
@@ -12684,7 +12684,7 @@ msgstr "Systemowa przestrzeń wymiany"
 
 #: src/Controllers/JavaScriptMessagesController.php:187
 msgid "Average load"
-msgstr "Obciążenie przeciętne"
+msgstr "Średnie obciążenie"
 
 #: src/Controllers/JavaScriptMessagesController.php:188
 msgid "Total memory"
@@ -12844,13 +12844,13 @@ msgstr "Ustaw log_output do %s"
 #: src/Controllers/JavaScriptMessagesController.php:246
 #, php-format
 msgid "Enable %s"
-msgstr "Włączone %s"
+msgstr "Włącz %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: src/Controllers/JavaScriptMessagesController.php:248
 #, php-format
 msgid "Disable %s"
-msgstr "Wyłączone %s"
+msgstr "Wyłącz %s"
 
 #. l10n: %d seconds
 #: src/Controllers/JavaScriptMessagesController.php:250
@@ -12868,7 +12868,7 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:254
 msgid "Change settings"
-msgstr "Zmiana ustawień"
+msgstr "Zmień ustawienia"
 
 #: src/Controllers/JavaScriptMessagesController.php:255
 msgid "Current settings"
@@ -12906,11 +12906,11 @@ msgstr "Nazwa bazy danych dla tego zapytania nie występuje w logach serwera."
 
 #: src/Controllers/JavaScriptMessagesController.php:266
 msgid "Analysing logs"
-msgstr "Analizowanie logów"
+msgstr "Analizowanie dzienników"
 
 #: src/Controllers/JavaScriptMessagesController.php:267
 msgid "Analysing & loading logs. This may take a while."
-msgstr "Analiza i wczytywanie dzienników. To może trochę potrwać."
+msgstr "Analizowanie i wczytywanie dzienników. To może trochę potrwać."
 
 #: src/Controllers/JavaScriptMessagesController.php:268
 msgid "Cancel request"
@@ -13098,7 +13098,7 @@ msgstr "Kod błędu: %s"
 #: src/Controllers/JavaScriptMessagesController.php:350
 #, php-format
 msgid "Error text: %s"
-msgstr "Błąd tekstu: %s"
+msgstr "Tekst błędu: %s"
 
 #: src/Controllers/JavaScriptMessagesController.php:352
 msgid ""
@@ -13840,7 +13840,7 @@ msgstr "Dodaj prefiks tabeli"
 
 #: src/Controllers/JavaScriptMessagesController.php:676
 msgid "Replace table with prefix"
-msgstr "Zmień prefiks tabeli"
+msgstr "Zamień tabelę na prefiks"
 
 #: src/Controllers/JavaScriptMessagesController.php:680
 msgid "Extremely weak"
@@ -16181,7 +16181,7 @@ msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
-"Nie można ustawić pliku cookie sesji. Być może używasz protokołu HTTP "
+"Nie udało się ustawić pliku cookie sesji. Być może używasz protokołu HTTP "
 "zamiast HTTPS, aby uzyskać dostęp do phpMyAdmin."
 
 #: src/Identifiers/InvalidDatabaseName.php:14
@@ -16354,9 +16354,9 @@ msgstr "Mechanizmy"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "Zmodyfikowanych rekordów: %1$d."
-msgstr[1] "Zmodyfikowanych rekordów: %1$d."
-msgstr[2] "Zmodyfikowanych rekordów: %1$d."
+msgstr[0] "%1$d zmodyfikowany rekord."
+msgstr[1] "%1$d zmodyfikowane rekordy."
+msgstr[2] "%1$d zmodyfikowanych rekordów."
 
 #: src/Message.php:223
 #, php-format
@@ -17352,7 +17352,7 @@ msgstr "Nazwa nowej bazy danych (opcjonalnie):"
 
 #: src/Plugins/Import/ImportCsv.php:98 src/Plugins/Import/ImportCsv.php:116
 msgid "Import these many number of rows (optional):"
-msgstr "Importuj taką liczbę wierszy (opcjonalnie):"
+msgstr "Zaimportuj wskazaną ilość wierszy (opcjonalnie):"
 
 #: src/Plugins/Import/ImportCsv.php:106 src/Plugins/Import/ImportOds.php:61
 msgid ""
