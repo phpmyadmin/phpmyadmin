@@ -20,6 +20,13 @@ use PHPUnit\Framework\Attributes\CoversClass;
 #[CoversClass(Routines::class)]
 final class RoutinesControllerTest extends AbstractTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->setTheme();
+    }
+
     public function testWithRoutines(): void
     {
         $GLOBALS['server'] = 2;
@@ -118,8 +125,8 @@ final class RoutinesControllerTest extends AbstractTestCase
         $expected = <<<'HTML'
 <div class="container-fluid my-3">
   <h2>
-    <span class="text-nowrap"><img src="themes/dot.gif" title="Routines" alt="Routines" class="icon ic_b_routines">&nbsp;Routines</span>
-    <a href="index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Fstored-routines.html" target="mysql_doc"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+    <span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Routines" alt="Routines" class="icon ic_b_routines"><use xlink:href="./themes/pmahomme/img/icons.svg#b_routines"/></svg>&nbsp;Routines</span>
+    <a href="index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Fstored-routines.html" target="mysql_doc"><svg fill="currentColor" role="img" aria-label="Documentation" alt="Documentation" class="icon ic_b_help"><use xlink:href="./themes/pmahomme/img/icons.svg#b_help"/></svg></a>
   </h2>
 
   <div class="d-flex flex-wrap my-3">    <div>
@@ -131,23 +138,23 @@ final class RoutinesControllerTest extends AbstractTestCase
           </div>
         </div>
         <button class="btn btn-outline-secondary" id="bulkActionExportButton" type="submit" name="submit_mult" value="export" form="rteListForm" title="Export">
-          <span class="text-nowrap"><img src="themes/dot.gif" title="Export" alt="Export" class="icon ic_b_export">&nbsp;Export</span>
+          <span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Export" alt="Export" class="icon ic_b_export"><use xlink:href="./themes/pmahomme/img/icons.svg#b_export"/></svg>&nbsp;Export</span>
         </button>
         <button class="btn btn-outline-secondary" id="bulkActionDropButton" type="submit" name="submit_mult" value="drop" form="rteListForm" title="Drop">
-          <span class="text-nowrap"><img src="themes/dot.gif" title="Drop" alt="Drop" class="icon ic_b_drop">&nbsp;Drop</span>
+          <span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Drop" alt="Drop" class="icon ic_b_drop"><use xlink:href="./themes/pmahomme/img/icons.svg#b_drop"/></svg>&nbsp;Drop</span>
         </button>
       </div>
     </div>
 
     <div class="ms-auto">
       <div class="input-group">
-        <span class="input-group-text"><img src="themes/dot.gif" title="Search" alt="Search" class="icon ic_b_search"></span>
+        <span class="input-group-text"><svg fill="currentColor" role="img" aria-label="Search" alt="Search" class="icon ic_b_search"><use xlink:href="./themes/pmahomme/img/icons.svg#b_search"/></svg></span>
         <input class="form-control" name="filterText" type="text" id="filterText" value="" placeholder="Search" aria-label="Search">
       </div>
     </div>
     <div class="ms-2">
       <a class="ajax add_anchor btn btn-primary" href="index.php?route=/database/routines&db=test_db&table=&add_item=1&server=2&lang=en" role="button">
-        <span class="text-nowrap"><img src="themes/dot.gif" title="Create new routine" alt="Create new routine" class="icon ic_b_routine_add">&nbsp;Create new routine</span>
+        <span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Create new routine" alt="Create new routine" class="icon ic_b_routine_add"><use xlink:href="./themes/pmahomme/img/icons.svg#b_routine_add"/></svg>&nbsp;Create new routine</span>
       </a>
     </div>
   </div>
@@ -157,7 +164,7 @@ final class RoutinesControllerTest extends AbstractTestCase
 
     <div id="nothing2display" class="hide">
       <div class="alert alert-primary" role="alert">
-  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> There are no routines to display.
+  <svg fill="currentColor" role="img" aria-label="" alt="" class="icon ic_s_notice"><use xlink:href="./themes/pmahomme/img/icons.svg#s_notice"/></svg> There are no routines to display.
 </div>
 
     </div>
@@ -185,21 +192,21 @@ final class RoutinesControllerTest extends AbstractTestCase
   <td dir="ltr"></td>
   <td>
           <a class="ajax edit_anchor" href="index.php?route=/database/routines&db=test_db&table=&edit_item=1&item_name=test_func&item_type=FUNCTION&server=2&lang=en">
-        <span class="text-nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit">&nbsp;Edit</span>
+        <span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Edit" alt="Edit" class="icon ic_b_edit"><use xlink:href="./themes/pmahomme/img/icons.svg#b_edit"/></svg>&nbsp;Edit</span>
       </a>
       </td>
   <td>
                   <a class="ajax exec_anchor" href="index.php?route=/database/routines&db=test_db&table=&execute_dialog=1&item_name=test_func&item_type=FUNCTION&server=2&lang=en">
-          <span class="text-nowrap"><img src="themes/dot.gif" title="Execute" alt="Execute" class="icon ic_b_nextpage">&nbsp;Execute</span>
+          <span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Execute" alt="Execute" class="icon ic_b_nextpage"><use xlink:href="./themes/pmahomme/img/icons.svg#b_nextpage"/></svg>&nbsp;Execute</span>
         </a>
             </td>
   <td>
           <a class="ajax export_anchor" href="index.php?route=/database/routines&db=test_db&table=&export_item=1&item_name=test_func&item_type=FUNCTION&server=2&lang=en">
-        <span class="text-nowrap"><img src="themes/dot.gif" title="Export" alt="Export" class="icon ic_b_export">&nbsp;Export</span>
+        <span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Export" alt="Export" class="icon ic_b_export"><use xlink:href="./themes/pmahomme/img/icons.svg#b_export"/></svg>&nbsp;Export</span>
       </a>
       </td>
   <td>
-    <a href="index.php" data-post="route=/sql&server=2&lang=en&db=test_db&table=&sql_query=DROP+FUNCTION+IF+EXISTS+%60test_func%60&goto=index.php%3Froute%3D%2Fdatabase%2Froutines%26db%3Dtest_db%26server%3D2%26lang%3Den&server=2&lang=en" class="ajax drop_anchor"><span class="text-nowrap"><img src="themes/dot.gif" title="Drop" alt="Drop" class="icon ic_b_drop">&nbsp;Drop</span></a>
+    <a href="index.php" data-post="route=/sql&server=2&lang=en&db=test_db&table=&sql_query=DROP+FUNCTION+IF+EXISTS+%60test_func%60&goto=index.php%3Froute%3D%2Fdatabase%2Froutines%26db%3Dtest_db%26server%3D2%26lang%3Den&server=2&lang=en" class="ajax drop_anchor"><span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Drop" alt="Drop" class="icon ic_b_drop"><use xlink:href="./themes/pmahomme/img/icons.svg#b_drop"/></svg>&nbsp;Drop</span></a>
   </td>
 </tr>
 <tr data-filter-row="TEST_PROC">
@@ -214,21 +221,21 @@ final class RoutinesControllerTest extends AbstractTestCase
   <td dir="ltr"></td>
   <td>
           <a class="ajax edit_anchor" href="index.php?route=/database/routines&db=test_db&table=&edit_item=1&item_name=test_proc&item_type=PROCEDURE&server=2&lang=en">
-        <span class="text-nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit">&nbsp;Edit</span>
+        <span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Edit" alt="Edit" class="icon ic_b_edit"><use xlink:href="./themes/pmahomme/img/icons.svg#b_edit"/></svg>&nbsp;Edit</span>
       </a>
       </td>
   <td>
                   <a class="ajax exec_anchor" href="index.php?route=/database/routines&db=test_db&table=&execute_dialog=1&item_name=test_proc&item_type=PROCEDURE&server=2&lang=en">
-          <span class="text-nowrap"><img src="themes/dot.gif" title="Execute" alt="Execute" class="icon ic_b_nextpage">&nbsp;Execute</span>
+          <span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Execute" alt="Execute" class="icon ic_b_nextpage"><use xlink:href="./themes/pmahomme/img/icons.svg#b_nextpage"/></svg>&nbsp;Execute</span>
         </a>
             </td>
   <td>
           <a class="ajax export_anchor" href="index.php?route=/database/routines&db=test_db&table=&export_item=1&item_name=test_proc&item_type=PROCEDURE&server=2&lang=en">
-        <span class="text-nowrap"><img src="themes/dot.gif" title="Export" alt="Export" class="icon ic_b_export">&nbsp;Export</span>
+        <span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Export" alt="Export" class="icon ic_b_export"><use xlink:href="./themes/pmahomme/img/icons.svg#b_export"/></svg>&nbsp;Export</span>
       </a>
       </td>
   <td>
-    <a href="index.php" data-post="route=/sql&server=2&lang=en&db=test_db&table=&sql_query=DROP+PROCEDURE+IF+EXISTS+%60test_proc%60&goto=index.php%3Froute%3D%2Fdatabase%2Froutines%26db%3Dtest_db%26server%3D2%26lang%3Den&server=2&lang=en" class="ajax drop_anchor"><span class="text-nowrap"><img src="themes/dot.gif" title="Drop" alt="Drop" class="icon ic_b_drop">&nbsp;Drop</span></a>
+    <a href="index.php" data-post="route=/sql&server=2&lang=en&db=test_db&table=&sql_query=DROP+PROCEDURE+IF+EXISTS+%60test_proc%60&goto=index.php%3Froute%3D%2Fdatabase%2Froutines%26db%3Dtest_db%26server%3D2%26lang%3Den&server=2&lang=en" class="ajax drop_anchor"><span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Drop" alt="Drop" class="icon ic_b_drop"><use xlink:href="./themes/pmahomme/img/icons.svg#b_drop"/></svg>&nbsp;Drop</span></a>
   </td>
 </tr>
 
@@ -292,14 +299,14 @@ HTML;
         $expected = <<<'HTML'
 <div class="container-fluid my-3">
   <h2>
-    <span class="text-nowrap"><img src="themes/dot.gif" title="Routines" alt="Routines" class="icon ic_b_routines">&nbsp;Routines</span>
-    <a href="index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Fstored-routines.html" target="mysql_doc"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+    <span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Routines" alt="Routines" class="icon ic_b_routines"><use xlink:href="./themes/pmahomme/img/icons.svg#b_routines"/></svg>&nbsp;Routines</span>
+    <a href="index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Fstored-routines.html" target="mysql_doc"><svg fill="currentColor" role="img" aria-label="Documentation" alt="Documentation" class="icon ic_b_help"><use xlink:href="./themes/pmahomme/img/icons.svg#b_help"/></svg></a>
   </h2>
 
   <div class="d-flex flex-wrap my-3">
     <div>
       <a class="ajax add_anchor btn btn-primary" href="index.php?route=/database/routines&db=test_db&table=&add_item=1&server=2&lang=en" role="button">
-        <span class="text-nowrap"><img src="themes/dot.gif" title="Create new routine" alt="Create new routine" class="icon ic_b_routine_add">&nbsp;Create new routine</span>
+        <span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Create new routine" alt="Create new routine" class="icon ic_b_routine_add"><use xlink:href="./themes/pmahomme/img/icons.svg#b_routine_add"/></svg>&nbsp;Create new routine</span>
       </a>
     </div>
   </div>
@@ -309,7 +316,7 @@ HTML;
 
     <div id="nothing2display">
       <div class="alert alert-primary" role="alert">
-  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> There are no routines to display.
+  <svg fill="currentColor" role="img" aria-label="" alt="" class="icon ic_s_notice"><use xlink:href="./themes/pmahomme/img/icons.svg#s_notice"/></svg> There are no routines to display.
 </div>
 
     </div>

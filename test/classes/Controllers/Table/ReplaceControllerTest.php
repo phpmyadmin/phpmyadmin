@@ -41,6 +41,8 @@ class ReplaceControllerTest extends AbstractTestCase
     {
         parent::setUp();
 
+        $this->setTheme();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
@@ -141,10 +143,7 @@ class ReplaceControllerTest extends AbstractTestCase
         $replaceController($request);
         $output = $response->getHTMLResult();
         $this->dummyDbi->assertAllSelectsConsumed();
-        $this->assertStringContainsString(
-            'class="icon ic_s_success"> Showing rows 0 -  1 (2 total, Query took',
-            $output,
-        );
+        $this->assertStringContainsString('#s_success"/></svg> Showing rows 0 -  1 (2 total, Query took', $output);
         $this->assertStringContainsString('SELECT * FROM `test_tbl`', $output);
     }
 

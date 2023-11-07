@@ -38,6 +38,8 @@ class UserPreferencesTest extends AbstractTestCase
         $GLOBALS['server'] = 0;
         $GLOBALS['text_dir'] = 'ltr';
         $_SERVER['PHP_SELF'] = '/phpmyadmin/';
+
+        $this->setTheme();
     }
 
     /**

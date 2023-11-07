@@ -18,6 +18,13 @@ use PHPUnit\Framework\Attributes\CoversClass;
 #[CoversClass(ZoomSearchController::class)]
 final class ZoomSearchControllerTest extends AbstractTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->setTheme();
+    }
+
     public function testZoomSearchController(): void
     {
         $GLOBALS['server'] = 2;

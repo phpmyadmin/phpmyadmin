@@ -31,7 +31,7 @@ export default function onloadNavigation () {
         $(document).on('click', '#pma_navigation_tree a.expander', function (event) {
             event.preventDefault();
             event.stopImmediatePropagation();
-            var $icon = $(this).find('img');
+            var $icon = $(this).find('.icon');
             if ($icon.is('.ic_b_plus')) {
                 Navigation.expandTreeNode($(this));
             } else {
@@ -77,7 +77,7 @@ export default function onloadNavigation () {
         $(document).on('click', '#pma_navigation_collapse', function (event) {
             event.preventDefault();
             $('#pma_navigation_tree').find('a.expander').each(function () {
-                var $icon = $(this).find('img');
+                var $icon = $(this).find('.icon');
                 if ($icon.is('.ic_b_minus')) {
                     $(this).trigger('click');
                 }
@@ -91,7 +91,7 @@ export default function onloadNavigation () {
         $(document).on('mouseenter', '#pma_navigation_sync', function (event) {
             event.preventDefault();
             var synced = $('#pma_navigation_tree').hasClass('synced');
-            var $img = $('#pma_navigation_sync').children('img');
+            var $img = $('#pma_navigation_sync').children('.icon');
             if (synced) {
                 $img.removeClass('ic_s_link').addClass('ic_s_unlink');
             } else {
@@ -106,7 +106,7 @@ export default function onloadNavigation () {
         $(document).on('mouseout', '#pma_navigation_sync', function (event) {
             event.preventDefault();
             var synced = $('#pma_navigation_tree').hasClass('synced');
-            var $img = $('#pma_navigation_sync').children('img');
+            var $img = $('#pma_navigation_sync').children('.icon');
             if (synced) {
                 $img.removeClass('ic_s_unlink').addClass('ic_s_link');
             } else {

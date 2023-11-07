@@ -25,6 +25,8 @@ class ErrorTest extends AbstractTestCase
     {
         parent::setUp();
 
+        $this->setTheme();
+
         $this->object = new Error(2, 'Compile Error', 'error.txt', 15);
     }
 
@@ -120,7 +122,8 @@ class ErrorTest extends AbstractTestCase
         $actual = $this->object->getDisplay();
         $this->assertStringStartsWith(
             '<div class="alert alert-danger" role="alert"><p><strong>Warning</strong> in error.txt#15</p>'
-            . '<img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> Compile Error'
+            . '<svg fill="currentColor" role="img" aria-label="" alt="" class="icon ic_s_error">'
+            . '<use xlink:href="./themes/pmahomme/img/icons.svg#s_error"/></svg> Compile Error'
             . '<p class="mt-3"><strong>Backtrace</strong></p><ol class="list-group"><li class="list-group-item">',
             $actual,
         );

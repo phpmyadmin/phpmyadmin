@@ -19,6 +19,13 @@ use PHPUnit\Framework\Attributes\CoversClass;
 #[CoversClass(AddNewPrimaryController::class)]
 class AddNewPrimaryControllerTest extends AbstractTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->setTheme();
+    }
+
     public function testDefault(): void
     {
         Config::getInstance()->selectedServer['DisableIS'] = false;

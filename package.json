@@ -72,13 +72,15 @@
     "stylelint": "^15.5.0",
     "stylelint-config-recommended-scss": "^10.0.0",
     "stylelint-config-standard": "^33.0.0",
-    "stylelint-scss": "^4.6.0"
+    "stylelint-scss": "^4.6.0",
+    "svg-sprite": "^2.0.2"
   },
   "scripts": {
     "postinstall": "yarn run build",
     "build": "webpack",
     "css-lint": "stylelint \"public/themes/**/scss/*.scss\" \"public/setup/scss/*.scss\"",
     "js-lint": "eslint resources/js/src test/javascript jest.config.cjs",
+    "icon-sprite": "svg-sprite --config svg-sprite.json --symbol-dest public/themes/bootstrap/img/ 'public/themes/bootstrap/img/sprite/*.svg' && svg-sprite --config svg-sprite.json --symbol-dest public/themes/metro/img/ 'public/themes/metro/img/sprite/*.svg' && svg-sprite --config svg-sprite.json --symbol-dest public/themes/original/img/ 'public/themes/original/img/sprite/*.svg' && svg-sprite --config svg-sprite.json --symbol-dest public/themes/pmahomme/img/ 'public/themes/pmahomme/img/sprite/*.svg'",
     "test": "yarn node --experimental-vm-modules $(yarn bin jest)"
   }
 }

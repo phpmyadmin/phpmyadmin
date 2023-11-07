@@ -25,6 +25,8 @@ class DestroyControllerTest extends AbstractTestCase
     {
         parent::setUp();
 
+        $this->setTheme();
+
         DatabaseInterface::$instance = $this->createDatabaseInterface();
     }
 

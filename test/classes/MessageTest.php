@@ -24,6 +24,8 @@ class MessageTest extends AbstractTestCase
         parent::setUp();
 
         $this->object = new Message();
+
+        $this->setTheme();
     }
 
     /**
@@ -400,7 +402,8 @@ class MessageTest extends AbstractTestCase
         $this->object->setMessage('Test Message');
         $this->assertEquals(
             '<div class="alert alert-primary" role="alert">' . "\n"
-            . '  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Test Message' . "\n"
+            . '  <svg fill="currentColor" role="img" aria-label="" alt="" class="icon ic_s_notice">'
+            . '<use xlink:href="./themes/pmahomme/img/icons.svg#s_notice"/></svg> Test Message' . "\n"
             . '</div>' . "\n",
             $this->object->getDisplay(),
         );
@@ -428,19 +431,22 @@ class MessageTest extends AbstractTestCase
             [
                 1,
                 '<div class="alert alert-primary" role="alert">' . "\n"
-                . '  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice">  1 row affected.' . "\n"
+                . '  <svg fill="currentColor" role="img" aria-label="" alt="" class="icon ic_s_notice">'
+                . '<use xlink:href="./themes/pmahomme/img/icons.svg#s_notice"/></svg>  1 row affected.' . "\n"
                 . '</div>' . "\n",
             ],
             [
                 2,
                 '<div class="alert alert-primary" role="alert">' . "\n"
-                . '  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice">  2 rows affected.' . "\n"
+                . '  <svg fill="currentColor" role="img" aria-label="" alt="" class="icon ic_s_notice">'
+                . '<use xlink:href="./themes/pmahomme/img/icons.svg#s_notice"/></svg>  2 rows affected.' . "\n"
                 . '</div>' . "\n",
             ],
             [
                 10000,
                 '<div class="alert alert-primary" role="alert">' . "\n"
-                . '  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice">  10000 rows affected.' . "\n"
+                . '  <svg fill="currentColor" role="img" aria-label="" alt="" class="icon ic_s_notice">'
+                . '<use xlink:href="./themes/pmahomme/img/icons.svg#s_notice"/></svg>  10000 rows affected.' . "\n"
                 . '</div>' . "\n",
             ],
         ];
@@ -472,19 +478,22 @@ class MessageTest extends AbstractTestCase
             [
                 1,
                 '<div class="alert alert-primary" role="alert">' . "\n"
-                . '  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice">  1 row inserted.' . "\n"
+                . '  <svg fill="currentColor" role="img" aria-label="" alt="" class="icon ic_s_notice">'
+                . '<use xlink:href="./themes/pmahomme/img/icons.svg#s_notice"/></svg>  1 row inserted.' . "\n"
                 . '</div>' . "\n",
             ],
             [
                 2,
                 '<div class="alert alert-primary" role="alert">' . "\n"
-                . '  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice">  2 rows inserted.' . "\n"
+                . '  <svg fill="currentColor" role="img" aria-label="" alt="" class="icon ic_s_notice">'
+                . '<use xlink:href="./themes/pmahomme/img/icons.svg#s_notice"/></svg>  2 rows inserted.' . "\n"
                 . '</div>' . "\n",
             ],
             [
                 100000,
                 '<div class="alert alert-primary" role="alert">' . "\n"
-                . '  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice">  100000 rows inserted.' . "\n"
+                . '  <svg fill="currentColor" role="img" aria-label="" alt="" class="icon ic_s_notice">'
+                . '<use xlink:href="./themes/pmahomme/img/icons.svg#s_notice"/></svg>  100000 rows inserted.' . "\n"
                 . '</div>' . "\n",
             ],
         ];
@@ -516,19 +525,22 @@ class MessageTest extends AbstractTestCase
             [
                 1,
                 '<div class="alert alert-primary" role="alert">' . "\n"
-                . '  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice">  1 row deleted.' . "\n"
+                . '  <svg fill="currentColor" role="img" aria-label="" alt="" class="icon ic_s_notice">'
+                . '<use xlink:href="./themes/pmahomme/img/icons.svg#s_notice"/></svg>  1 row deleted.' . "\n"
                 . '</div>' . "\n",
             ],
             [
                 2,
                 '<div class="alert alert-primary" role="alert">' . "\n"
-                . '  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice">  2 rows deleted.' . "\n"
+                . '  <svg fill="currentColor" role="img" aria-label="" alt="" class="icon ic_s_notice">'
+                . '<use xlink:href="./themes/pmahomme/img/icons.svg#s_notice"/></svg>  2 rows deleted.' . "\n"
                 . '</div>' . "\n",
             ],
             [
                 500000,
                 '<div class="alert alert-primary" role="alert">' . "\n"
-                . '  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice">  500000 rows deleted.' . "\n"
+                . '  <svg fill="currentColor" role="img" aria-label="" alt="" class="icon ic_s_notice">'
+                . '<use xlink:href="./themes/pmahomme/img/icons.svg#s_notice"/></svg>  500000 rows deleted.' . "\n"
                 . '</div>' . "\n",
             ],
         ];

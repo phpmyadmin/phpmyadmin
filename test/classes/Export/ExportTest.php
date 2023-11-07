@@ -26,6 +26,13 @@ use const ENT_COMPAT;
 #[Group('large')]
 class ExportTest extends AbstractTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->setTheme();
+    }
+
     public function testMergeAliases(): void
     {
         DatabaseInterface::$instance = $this->createDatabaseInterface();

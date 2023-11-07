@@ -26,6 +26,8 @@ class ImportLdiTest extends AbstractTestCase
     {
         parent::setUp();
 
+        $this->setTheme();
+
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['charset_conversion'] = null;
         $GLOBALS['ldi_terminated'] = null;

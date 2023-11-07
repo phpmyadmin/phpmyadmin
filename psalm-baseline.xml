@@ -74,9 +74,6 @@
     </PossiblyNullArgument>
   </file>
   <file src="src/BrowseForeigners.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['theme']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code>$descriptions[$indexByDescription]</code>
       <code>$descriptions[$indexByKeyname]</code>
@@ -93,7 +90,6 @@
       <code><![CDATA[$relrow[$foreignData['foreign_field']]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['theme']]]></code>
       <code>$descriptions[]</code>
       <code>$keys[]</code>
       <code>$leftKeyname</code>
@@ -5522,7 +5518,6 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['is_header_sent']]]></code>
       <code><![CDATA[$GLOBALS['row']]]></code>
-      <code><![CDATA[$GLOBALS['theme']]]></code>
       <code>$delUrlParams</code>
     </InvalidArrayOffset>
     <InvalidReturnStatement>
@@ -5692,7 +5687,6 @@
     </MixedArrayTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['row']]]></code>
-      <code><![CDATA[$GLOBALS['theme']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['geoOption']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pftext']]]></code>
@@ -6611,11 +6605,9 @@
     </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['buffer_message']]]></code>
-      <code><![CDATA[$GLOBALS['theme']]]></code>
     </InvalidArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['buffer_message']]]></code>
-      <code><![CDATA[$GLOBALS['theme']]]></code>
       <code>$bufferMessage</code>
       <code>$pftext</code>
     </MixedAssignment>
@@ -6689,6 +6681,9 @@
       <code><![CDATA[$_REQUEST['session_max_rows']]]></code>
       <code><![CDATA[$_REQUEST['unlim_num_rows']]]></code>
     </RiskyCast>
+    <UnnecessaryVarAnnotation>
+      <code>Theme</code>
+    </UnnecessaryVarAnnotation>
   </file>
   <file src="src/Http/Middleware/Authentication.php">
     <DeprecatedMethod>
@@ -7291,12 +7286,6 @@
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['theme']]]></code>
-    </InvalidArrayOffset>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['theme']]]></code>
-    </MixedAssignment>
     <PossiblyNullArrayOffset>
       <code>$hidden</code>
       <code>$hidden</code>
@@ -12504,14 +12493,6 @@
       <code><![CDATA[$GLOBALS['errors']]]></code>
     </PossiblyUndefinedArrayOffset>
   </file>
-  <file src="src/Twig/AssetExtension.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['theme']]]></code>
-    </InvalidArrayOffset>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['theme']]]></code>
-    </MixedAssignment>
-  </file>
   <file src="src/TwoFactor.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
@@ -15846,12 +15827,6 @@
     </RedundantCondition>
   </file>
   <file src="test/classes/Theme/ThemeTest.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['theme']]]></code>
-    </InvalidArrayOffset>
-    <MixedAssignment>
-      <code><![CDATA[$this->backup]]></code>
-    </MixedAssignment>
     <PossiblyUnusedMethod>
       <code>providerForGetImgPath</code>
     </PossiblyUnusedMethod>

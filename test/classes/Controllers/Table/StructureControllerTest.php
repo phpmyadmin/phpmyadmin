@@ -33,6 +33,8 @@ class StructureControllerTest extends AbstractTestCase
     {
         parent::setUp();
 
+        $this->setTheme();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
@@ -150,7 +152,9 @@ class StructureControllerTest extends AbstractTestCase
             'displayed_fields' => [
                 1 => [
                     'text' => 'id',
-                    'icon' => '<img src="themes/dot.gif" title="Primary" alt="Primary" class="icon ic_b_primary">',
+                    'icon' => '<svg fill="currentColor" role="img" aria-label="Primary"'
+                        . ' alt="Primary" class="icon ic_b_primary">'
+                        . '<use xlink:href="./themes/pmahomme/img/icons.svg#b_primary"/></svg>',
                 ],
                 2 => ['text' => 'name', 'icon' => ''],
                 3 => ['text' => 'datetimefield', 'icon' => ''],

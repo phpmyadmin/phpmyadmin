@@ -38,6 +38,8 @@ class UserGroupsTest extends AbstractTestCase
             TableName::from('usergroups'),
             TableName::from('users'),
         );
+
+        $this->setTheme();
     }
 
     /**
