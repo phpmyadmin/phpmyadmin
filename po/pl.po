@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-11-07 15:05+0000\n"
+"PO-Revision-Date: 2023-11-11 17:57+0000\n"
 "Last-Translator: johnny1029 <jkste07@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
 ">\n"
@@ -3081,7 +3081,6 @@ msgid "Show \"Drop database\" link to normal users"
 msgstr "Pokaż odnośnik \"Usuń bazę danych\" zwykłym użytkownikom"
 
 #: libraries/classes/Config/Descriptions.php:621
-#, fuzzy
 msgid "Blowfish secret"
 msgstr "Sekret Blowfish"
 
@@ -3241,7 +3240,6 @@ msgid "Format"
 msgstr "Format"
 
 #: libraries/classes/Config/Descriptions.php:659
-#, fuzzy
 msgid "Compression"
 msgstr "Typ kompresji"
 
@@ -4049,7 +4047,6 @@ msgid "Session timezone"
 msgstr "Strefa czasowa sesji"
 
 #: libraries/classes/Config/Descriptions.php:884
-#, fuzzy
 msgid "HTTP Realm"
 msgstr "HTTP Realm"
 
@@ -4067,27 +4064,22 @@ msgid "Column information table"
 msgstr "Tabela informacji o kolumnach"
 
 #: libraries/classes/Config/Descriptions.php:888
-#, fuzzy
 msgid "Compress connection"
 msgstr "Kompresja połączenia"
 
 #: libraries/classes/Config/Descriptions.php:889
-#, fuzzy
 msgid "Control user password"
 msgstr "Hasło użytkownika monitorującego"
 
 #: libraries/classes/Config/Descriptions.php:890
-#, fuzzy
 msgid "Control user"
 msgstr "Użytkownik monitorujący"
 
 #: libraries/classes/Config/Descriptions.php:891
-#, fuzzy
 msgid "Control host"
 msgstr "Kontrola hosta"
 
 #: libraries/classes/Config/Descriptions.php:892
-#, fuzzy
 msgid "Control port"
 msgstr "Port sterowania"
 
@@ -4162,12 +4154,10 @@ msgid "Relation table"
 msgstr "Tabela relacji"
 
 #: libraries/classes/Config/Descriptions.php:910
-#, fuzzy
 msgid "Signon session name"
 msgstr "Nazwa sesji usługi pojedynczego logowania (Signon)"
 
 #: libraries/classes/Config/Descriptions.php:911
-#, fuzzy
 msgid "Signon URL"
 msgstr "URL usługi pojedynczego logowania (Signon)"
 
@@ -4205,7 +4195,6 @@ msgid "Add DROP VIEW"
 msgstr "Dodaj DROP VIEW"
 
 #: libraries/classes/Config/Descriptions.php:920
-#, fuzzy
 msgid "Statements to track"
 msgstr "Instrukcje do śledzenia"
 
@@ -4234,7 +4223,6 @@ msgid "Hidden navigation items table"
 msgstr "Ukryte elementy nawigacji tabeli"
 
 #: libraries/classes/Config/Descriptions.php:927
-#, fuzzy
 msgid "User for config auth"
 msgstr "Użytkownik dla konfiguracji uwierzytelniania"
 
@@ -4427,14 +4415,12 @@ msgid "Table"
 msgstr "Tabela"
 
 #: libraries/classes/Config/Descriptions.php:958
-#, fuzzy
 msgid "List of trusted proxies for IP allow/deny"
 msgstr ""
 "Lista zaufanych adresów IP serwerów pośredniczących (proxy) dla reguł allow/"
 "deny"
 
 #: libraries/classes/Config/Descriptions.php:959
-#, fuzzy
 msgid "Upload directory"
 msgstr "Dodaj katalog"
 
@@ -4615,7 +4601,6 @@ msgid "Quick"
 msgstr "Szybko"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:29
-#, fuzzy
 msgid "Custom"
 msgstr "Dostosuj"
 
@@ -16939,10 +16924,6 @@ msgstr ""
 "dla tego konta."
 
 #: templates/preferences/two_factor/main.twig:26
-#, fuzzy
-#| msgid ""
-#| "Two-factor authentication is not available, please install optional "
-#| "dependencies to enable authentication backends."
 msgid ""
 "Please install optional dependencies to enable more authentication backends."
 msgstr ""
