@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-05 00:19+0000\n"
-"PO-Revision-Date: 2023-11-07 15:05+0000\n"
-"Last-Translator: Kozioł Marcin <koziol.martin@gmail.com>\n"
+"PO-Revision-Date: 2023-11-11 01:16+0000\n"
+"Last-Translator: johnny1029 <jkste07@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "pl/>\n"
 "Language: pl\n"
@@ -4080,7 +4080,6 @@ msgstr ""
 "dla tego konta."
 
 #: resources/templates/preferences/two_factor/main.twig:26
-#, fuzzy
 msgid ""
 "Please install optional dependencies to enable more authentication backends."
 msgstr ""
@@ -13716,7 +13715,7 @@ msgstr "aktualna"
 #, fuzzy
 #| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
-msgstr "Wystąpił błąd podczas importowania pliku kształtów ESRI: \"%s\"."
+msgstr "Wystąpił błąd podczas ładowania informacji Git."
 
 #: src/Controllers/JavaScriptMessagesController.php:621
 msgid ""
