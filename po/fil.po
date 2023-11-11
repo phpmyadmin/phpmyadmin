@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2021-01-22 03:16+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2023-11-11 17:57+0000\n"
+"Last-Translator: John Adrian Salitico <saliticoadrian@gmail.com>\n"
 "Language-Team: Filipino <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "fil/>\n"
 "Language: fil\n"
@@ -18,15 +18,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
 "|| n % 10 == 6 || n % 10 == 9);\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 5.2-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
-msgstr ""
+msgstr "Uptime mas mababa sa isang araw"
 
 #: libraries/advisory_rules_generic.php:12
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
+"Uptime is less than 1 day, performance tuning ay hindi siguradong accurate."
 
 #: libraries/advisory_rules_generic.php:14
 msgid ""
@@ -4946,7 +4947,7 @@ msgstr ""
 #: libraries/classes/Controllers/ImportController.php:787
 #: libraries/classes/Controllers/SqlController.php:169
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr ""
+msgstr "\"DROP DATABASE\" na mga pahayag ay hindi nakapagana."
 
 #: libraries/classes/Controllers/ImportStatusController.php:67
 msgid "Could not load the progress of the import."
@@ -9518,7 +9519,7 @@ msgstr "Kolumn"
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/zoom_search/result_form.twig:33
 msgid "Null"
-msgstr "Wala"
+msgstr "wala"
 
 #: libraries/classes/InsertEdit.php:2407 libraries/classes/Sql.php:1042
 msgid "Showing SQL query"
@@ -17184,7 +17185,7 @@ msgstr ""
 
 #: templates/table/relation/common_form.twig:9
 msgid "Foreign key constraints"
-msgstr ""
+msgstr "Mga panghigpit na Panlabas na susi"
 
 #: templates/table/relation/common_form.twig:14
 msgid "Actions"
@@ -17208,7 +17209,7 @@ msgstr ""
 
 #: templates/table/relation/common_form.twig:28
 msgid "Foreign key constraint"
-msgstr ""
+msgstr "Panlabas na susi sa paghihigpit"
 
 #: templates/table/relation/common_form.twig:93
 msgid "+ Add constraint"
