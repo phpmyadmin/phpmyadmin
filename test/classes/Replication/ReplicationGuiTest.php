@@ -29,6 +29,8 @@ class ReplicationGuiTest extends AbstractTestCase
     {
         parent::setUp();
 
+        $this->setTheme();
+
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         //$_POST
         $_POST['primary_add_user'] = 'primary_add_user';

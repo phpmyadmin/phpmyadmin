@@ -20,6 +20,8 @@ class SanitizeTest extends AbstractTestCase
         parent::setUp();
 
         parent::setLanguage();
+
+        $this->setTheme();
     }
 
     /**

@@ -120,6 +120,7 @@
             table_priv: bool,
             tbl_storage_engine: string,
             text_dir: string,
+            theme: PhpMyAdmin\Theme\Theme,
             token_mismatch: bool,
             token_provided: bool,
             unparsed_sql?: string,

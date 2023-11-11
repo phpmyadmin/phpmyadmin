@@ -12,7 +12,7 @@ $textarea-rows: 15;
 }
 
 .CodeMirror-gutters {
-  border-right-color: var(--#{$prefix}border-color);;
+  border-right-color: var(--#{$prefix}border-color);
   background-color: rgba(var(--#{$prefix}body-color-rgb), .03);
 }
 

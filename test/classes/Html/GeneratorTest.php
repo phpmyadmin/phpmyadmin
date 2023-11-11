@@ -16,7 +16,6 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Group;
 
-use function __;
 use function _pgettext;
 use function call_user_func_array;
 use function htmlspecialchars;
@@ -33,6 +32,8 @@ class GeneratorTest extends AbstractTestCase
         parent::setUp();
 
         parent::setLanguage();
+
+        $this->setTheme();
     }
 
     /**
@@ -122,7 +123,8 @@ class GeneratorTest extends AbstractTestCase
         Config::getInstance()->settings['ActionLinksMode'] = 'icons';
 
         $this->assertEquals(
-            '<span class="text-nowrap"><img src="themes/dot.gif" title="" alt="" class="icon ic_b_comment"></span>',
+            '<span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="" alt=""'
+            . ' class="icon ic_b_comment"><use xlink:href="./themes/pmahomme/img/icons.svg#b_comment"/></svg></span>',
             Generator::getIcon('b_comment'),
         );
     }
@@ -136,9 +138,8 @@ class GeneratorTest extends AbstractTestCase
         $alternateText = 'alt_str';
 
         $this->assertEquals(
-            '<span class="text-nowrap"><img src="themes/dot.gif" title="'
-            . $alternateText . '" alt="' . $alternateText
-            . '" class="icon ic_b_comment"></span>',
+            '<span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="alt_str" alt="alt_str"'
+            . ' class="icon ic_b_comment"><use xlink:href="./themes/pmahomme/img/icons.svg#b_comment"/></svg></span>',
             Generator::getIcon('b_comment', $alternateText),
         );
     }
@@ -154,9 +155,10 @@ class GeneratorTest extends AbstractTestCase
         // Here we are checking for an icon embedded inside a span (i.e not a menu
         // bar icon
         $this->assertEquals(
-            '<span class="text-nowrap"><img src="themes/dot.gif" title="'
+            '<span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="'
             . $alternateText . '" alt="' . $alternateText
-            . '" class="icon ic_b_comment">&nbsp;' . $alternateText . '</span>',
+            . '" class="icon ic_b_comment"><use xlink:href="./themes/pmahomme/img/icons.svg#b_comment"/></svg>&nbsp;'
+            . $alternateText . '</span>',
             Generator::getIcon('b_comment', $alternateText, true, false),
         );
     }
@@ -173,8 +175,8 @@ class GeneratorTest extends AbstractTestCase
         $lang = _pgettext('PHP documentation language', 'en');
         $expected = '<a href="index.php?route=/url&url=https%3A%2F%2Fwww.php.net%2Fmanual%2F' . $lang
             . '%2F' . $target . '" target="documentation">'
-            . '<img src="themes/dot.gif" title="' . __('Documentation') . '" alt="'
-            . __('Documentation') . '" class="icon ic_b_help"></a>';
+            . '<svg fill="currentColor" role="img" aria-label="Documentation" alt="Documentation"'
+            . ' class="icon ic_b_help"><use xlink:href="./themes/pmahomme/img/icons.svg#b_help"/></svg></a>';
 
         $this->assertEquals(
             $expected,
@@ -312,13 +314,13 @@ class GeneratorTest extends AbstractTestCase
     {
         $sslNotUsed = '<span class="">SSL is not being used</span>'
         . ' <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
-        . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
-        . ' class="icon ic_b_help"></a>';
+        . ' target="documentation"><svg fill="currentColor" role="img" aria-label="Documentation" alt="Documentation"'
+            . ' class="icon ic_b_help"><use xlink:href="./themes/pmahomme/img/icons.svg#b_help"/></svg></a>';
 
         $sslNotUsedCaution = '<span class="text-danger">SSL is not being used</span>'
         . ' <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
-        . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
-        . ' class="icon ic_b_help"></a>';
+        . ' target="documentation"><svg fill="currentColor" role="img" aria-label="Documentation" alt="Documentation"'
+            . ' class="icon ic_b_help"><use xlink:href="./themes/pmahomme/img/icons.svg#b_help"/></svg></a>';
 
         $config = Config::getInstance();
         $config->selectedServer = ['ssl' => false, 'host' => '127.0.0.1'];
@@ -355,8 +357,9 @@ class GeneratorTest extends AbstractTestCase
         $this->assertEquals(
             '<span class="text-danger">SSL is used with disabled verification</span>'
             . ' <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
-            . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
-            . ' class="icon ic_b_help"></a>',
+            . ' target="documentation"><svg fill="currentColor" role="img" aria-label="Documentation"'
+            . ' alt="Documentation" class="icon ic_b_help"><use'
+            . ' xlink:href="./themes/pmahomme/img/icons.svg#b_help"/></svg></a>',
             Generator::getServerSSL(),
         );
 
@@ -365,8 +368,9 @@ class GeneratorTest extends AbstractTestCase
         $this->assertEquals(
             '<span class="text-danger">SSL is used without certification authority</span>'
             . ' <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
-            . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
-            . ' class="icon ic_b_help"></a>',
+            . ' target="documentation"><svg fill="currentColor" role="img" aria-label="Documentation"'
+            . ' alt="Documentation" class="icon ic_b_help"><use'
+            . ' xlink:href="./themes/pmahomme/img/icons.svg#b_help"/></svg></a>',
             Generator::getServerSSL(),
         );
 
@@ -380,8 +384,9 @@ class GeneratorTest extends AbstractTestCase
         $this->assertEquals(
             '<span class="">SSL is used</span>'
             . ' <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
-            . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
-            . ' class="icon ic_b_help"></a>',
+            . ' target="documentation"><svg fill="currentColor" role="img" aria-label="Documentation"'
+            . ' alt="Documentation" class="icon ic_b_help"><use'
+            . ' xlink:href="./themes/pmahomme/img/icons.svg#b_help"/></svg></a>',
             Generator::getServerSSL(),
         );
     }
@@ -494,11 +499,11 @@ class GeneratorTest extends AbstractTestCase
         // phpcs:disable Generic.Files.LineLength.TooLong
         $expected = <<<'HTML'
 <div class="alert alert-primary" role="alert">
-  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Bookmark message
+  <svg fill="currentColor" role="img" aria-label="" alt="" class="icon ic_s_notice"><use xlink:href="./themes/pmahomme/img/icons.svg#s_notice"/></svg> Bookmark message
 </div>
 <div class="card mb-3 result_query">
 <div class="alert alert-primary border-top-0 border-start-0 border-end-0 rounded-bottom-0 mb-0" role="alert">
-  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Message <em>one</em>. Message <em>two</em>.
+  <svg fill="currentColor" role="img" aria-label="" alt="" class="icon ic_s_notice"><use xlink:href="./themes/pmahomme/img/icons.svg#s_notice"/></svg> Message <em>one</em>. Message <em>two</em>.
 </div>
 <div class="card-body sqlOuter"><code class="sql" dir="ltr"><pre>
 SELECT 1;
@@ -551,7 +556,7 @@ HTML;
         $expected = <<<'HTML'
 <div class="card mb-3 result_query">
 <div class="alert alert-success border-top-0 border-start-0 border-end-0 rounded-bottom-0 mb-0" role="alert">
-  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_success"> Message <em>one</em>. Message <em>two</em>.
+  <svg fill="currentColor" role="img" aria-label="" alt="" class="icon ic_s_success"><use xlink:href="./themes/pmahomme/img/icons.svg#s_success"/></svg> Message <em>one</em>. Message <em>two</em>.
 </div>
 <div class="card-body sqlOuter"><code class="php" dir="ltr"><pre>
 $sql = "EXPLAIN SELECT 1;";

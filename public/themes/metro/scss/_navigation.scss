@@ -120,7 +120,7 @@
   }
 }
 
-img {
+.icon {
   &.ic_b_home,
   &.ic_s_loggoff,
   &.ic_b_docs,
@@ -340,7 +340,7 @@ img {
         }
       }
 
-      img {
+      .icon {
         position: relative;
         top: -0.6em;
         left: 0;

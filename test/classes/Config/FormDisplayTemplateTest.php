@@ -27,6 +27,8 @@ class FormDisplayTemplateTest extends AbstractTestCase
 
         $this->config = $this->createConfig();
         $this->formDisplayTemplate = new FormDisplayTemplate($this->config);
+
+        $this->setTheme();
     }
 
     /**
@@ -59,7 +61,8 @@ class FormDisplayTemplateTest extends AbstractTestCase
         $this->assertStringContainsString('<a href="https://example.com/" target="documentation"', $result);
 
         $this->assertStringContainsString(
-            '<img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"',
+            '<svg fill="currentColor" role="img" aria-label="Documentation" alt="Documentation"'
+            . ' class="icon ic_b_help"><use xlink:href="./themes/pmahomme/img/icons.svg#b_help"/></svg>',
             $result,
         );
 

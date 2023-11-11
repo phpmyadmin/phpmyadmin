@@ -33,6 +33,8 @@ class AccountUnlockControllerTest extends AbstractTestCase
     {
         parent::setUp();
 
+        $this->setTheme();
+
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
         $GLOBALS['server'] = 1;

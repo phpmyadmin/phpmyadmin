@@ -46,6 +46,8 @@ class ErrorHandlerTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->settings['environment'] = 'production';
         $config->settings['SendErrorReports'] = 'always';
+
+        $this->setTheme();
     }
 
     /**
@@ -369,7 +371,7 @@ class ErrorHandlerTest extends AbstractTestCase
 <html lang="en">
 <head><title>Error: Fatal error message!</title></head>
 <body>
-<div class="alert alert-danger" role="alert"><p><strong>Error</strong> in name#1</p><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> Fatal error message!<p class="mt-3"><strong>Backtrace</strong></p><ol class="list-group"><li class="list-group-item">
+<div class="alert alert-danger" role="alert"><p><strong>Error</strong> in name#1</p><svg fill="currentColor" role="img" aria-label="" alt="" class="icon ic_s_error"><use xlink:href="./themes/pmahomme/img/icons.svg#s_error"/></svg> Fatal error message!<p class="mt-3"><strong>Backtrace</strong></p><ol class="list-group"><li class="list-group-item">
 HTML;
         // phpcs:enable
         $output = $this->getActualOutputForAssertion();

@@ -22,6 +22,8 @@ class DropColumnControllerTest extends AbstractTestCase
     {
         parent::setUp();
 
+        $this->setTheme();
+
         DatabaseInterface::$instance = $this->createDatabaseInterface();
     }
 

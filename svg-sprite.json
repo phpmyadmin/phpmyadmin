@@ -1,0 +1,49 @@
+{
+    "mode": {
+        "symbol": {
+            "sprite": "icons.svg"
+        }
+    },
+    "svg": {
+        "namespaceClassnames": false,
+        "xmlDeclaration": false
+    },
+    "shape": {
+        "transform": [
+            {
+                "svgo": {
+                    "multipass": true,
+                    "js2svg": {
+                        "indent": 2,
+                        "pretty": true
+                    },
+                    "plugins": [
+                        {
+                            "name": "preset-default",
+                            "params": {
+                                "overrides": {
+                                    "removeUnknownsAndDefaults": {
+                                        "keepRoleAttr": true
+                                    },
+                                    "removeViewBox": false
+                                }
+                            }
+                        },
+                        "cleanupListOfValues",
+                        "removeXMLNS",
+                        {
+                            "name": "removeAttrs",
+                            "params": {
+                                "attrs": [
+                                    "clip-rule",
+                                    "data-name",
+                                    "fill"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

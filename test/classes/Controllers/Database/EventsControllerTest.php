@@ -19,6 +19,13 @@ use PHPUnit\Framework\Attributes\CoversClass;
 #[CoversClass(Events::class)]
 final class EventsControllerTest extends AbstractTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->setTheme();
+    }
+
     public function testWithEvents(): void
     {
         $GLOBALS['server'] = 2;
@@ -69,8 +76,8 @@ final class EventsControllerTest extends AbstractTestCase
         $expected = <<<'HTML'
 <div class="container-fluid my-3">
   <h2>
-    <span class="text-nowrap"><img src="themes/dot.gif" title="Events" alt="Events" class="icon ic_b_events">&nbsp;Events</span>
-    <a href="index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Fevents.html" target="mysql_doc"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+    <span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Events" alt="Events" class="icon ic_b_events"><use xlink:href="./themes/pmahomme/img/icons.svg#b_events"/></svg>&nbsp;Events</span>
+    <a href="index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Fevents.html" target="mysql_doc"><svg fill="currentColor" role="img" aria-label="Documentation" alt="Documentation" class="icon ic_b_help"><use xlink:href="./themes/pmahomme/img/icons.svg#b_help"/></svg></a>
   </h2>
 
   <div class="d-flex flex-wrap my-3">    <div>
@@ -82,16 +89,16 @@ final class EventsControllerTest extends AbstractTestCase
           </div>
         </div>
         <button class="btn btn-outline-secondary" id="bulkActionExportButton" type="submit" name="submit_mult" value="export" form="rteListForm" title="Export">
-          <span class="text-nowrap"><img src="themes/dot.gif" title="Export" alt="Export" class="icon ic_b_export">&nbsp;Export</span>
+          <span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Export" alt="Export" class="icon ic_b_export"><use xlink:href="./themes/pmahomme/img/icons.svg#b_export"/></svg>&nbsp;Export</span>
         </button>
         <button class="btn btn-outline-secondary" id="bulkActionDropButton" type="submit" name="submit_mult" value="drop" form="rteListForm" title="Drop">
-          <span class="text-nowrap"><img src="themes/dot.gif" title="Drop" alt="Drop" class="icon ic_b_drop">&nbsp;Drop</span>
+          <span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Drop" alt="Drop" class="icon ic_b_drop"><use xlink:href="./themes/pmahomme/img/icons.svg#b_drop"/></svg>&nbsp;Drop</span>
         </button>
       </div>
     </div>
     <div class="ms-auto">
       <a class="ajax add_anchor btn btn-primary" href="index.php?route=/database/events&db=test_db&add_item=1&server=2&lang=en" role="button">
-        <span class="text-nowrap"><img src="themes/dot.gif" title="Create new event" alt="Create new event" class="icon ic_b_event_add">&nbsp;Create new event</span>
+        <span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Create new event" alt="Create new event" class="icon ic_b_event_add"><use xlink:href="./themes/pmahomme/img/icons.svg#b_event_add"/></svg>&nbsp;Create new event</span>
       </a>
     </div>
   </div>
@@ -101,7 +108,7 @@ final class EventsControllerTest extends AbstractTestCase
 
     <div id="nothing2display" class="hide">
       <div class="alert alert-primary" role="alert">
-  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> There are no events to display.
+  <svg fill="currentColor" role="img" aria-label="" alt="" class="icon ic_s_notice"><use xlink:href="./themes/pmahomme/img/icons.svg#s_notice"/></svg> There are no events to display.
 </div>
 
     </div>
@@ -135,16 +142,16 @@ final class EventsControllerTest extends AbstractTestCase
           </td>
           <td>
                           <a class="ajax edit_anchor" href="index.php?route=/database/events&db=test_db&edit_item=1&item_name=test_event&server=2&lang=en">
-                <span class="text-nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit">&nbsp;Edit</span>
+                <span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Edit" alt="Edit" class="icon ic_b_edit"><use xlink:href="./themes/pmahomme/img/icons.svg#b_edit"/></svg>&nbsp;Edit</span>
               </a>
                       </td>
           <td>
             <a class="ajax export_anchor" href="index.php?route=/database/events&db=test_db&export_item=1&item_name=test_event&server=2&lang=en">
-              <span class="text-nowrap"><img src="themes/dot.gif" title="Export" alt="Export" class="icon ic_b_export">&nbsp;Export</span>
+              <span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Export" alt="Export" class="icon ic_b_export"><use xlink:href="./themes/pmahomme/img/icons.svg#b_export"/></svg>&nbsp;Export</span>
             </a>
           </td>
           <td>
-                          <a href="index.php" data-post="route=/sql&server=2&lang=en&db=test_db&sql_query=DROP+EVENT+IF+EXISTS+%60test_event%60&goto=index.php%3Froute%3D%2Fdatabase%2Fevents%26db%3Dtest_db%26server%3D2%26lang%3Den&server=2&lang=en" class="ajax drop_anchor"><span class="text-nowrap"><img src="themes/dot.gif" title="Drop" alt="Drop" class="icon ic_b_drop">&nbsp;Drop</span></a>
+                          <a href="index.php" data-post="route=/sql&server=2&lang=en&db=test_db&sql_query=DROP+EVENT+IF+EXISTS+%60test_event%60&goto=index.php%3Froute%3D%2Fdatabase%2Fevents%26db%3Dtest_db%26server%3D2%26lang%3Den&server=2&lang=en" class="ajax drop_anchor"><span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Drop" alt="Drop" class="icon ic_b_drop"><use xlink:href="./themes/pmahomme/img/icons.svg#b_drop"/></svg>&nbsp;Drop</span></a>
                       </td>
         </tr>
             </tbody>
@@ -158,7 +165,7 @@ final class EventsControllerTest extends AbstractTestCase
         <div class="wrapper toggleAjax hide">
           <div class="toggleButton">
             <div title="Click to toggle" class="toggle-container off">
-              <img src="">
+              <img src="./themes/pmahomme/img/toggle-ltr.png">
               <table>
                 <tbody>
                 <tr>
@@ -240,14 +247,14 @@ HTML;
         $expected = <<<'HTML'
 <div class="container-fluid my-3">
   <h2>
-    <span class="text-nowrap"><img src="themes/dot.gif" title="Events" alt="Events" class="icon ic_b_events">&nbsp;Events</span>
-    <a href="index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Fevents.html" target="mysql_doc"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+    <span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Events" alt="Events" class="icon ic_b_events"><use xlink:href="./themes/pmahomme/img/icons.svg#b_events"/></svg>&nbsp;Events</span>
+    <a href="index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Fevents.html" target="mysql_doc"><svg fill="currentColor" role="img" aria-label="Documentation" alt="Documentation" class="icon ic_b_help"><use xlink:href="./themes/pmahomme/img/icons.svg#b_help"/></svg></a>
   </h2>
 
   <div class="d-flex flex-wrap my-3">
     <div>
       <a class="ajax add_anchor btn btn-primary" href="index.php?route=/database/events&db=test_db&add_item=1&server=2&lang=en" role="button">
-        <span class="text-nowrap"><img src="themes/dot.gif" title="Create new event" alt="Create new event" class="icon ic_b_event_add">&nbsp;Create new event</span>
+        <span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Create new event" alt="Create new event" class="icon ic_b_event_add"><use xlink:href="./themes/pmahomme/img/icons.svg#b_event_add"/></svg>&nbsp;Create new event</span>
       </a>
     </div>
   </div>
@@ -257,7 +264,7 @@ HTML;
 
     <div id="nothing2display">
       <div class="alert alert-primary" role="alert">
-  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> There are no events to display.
+  <svg fill="currentColor" role="img" aria-label="" alt="" class="icon ic_s_notice"><use xlink:href="./themes/pmahomme/img/icons.svg#s_notice"/></svg> There are no events to display.
 </div>
 
     </div>
@@ -286,7 +293,7 @@ HTML;
         <div class="wrapper toggleAjax hide">
           <div class="toggleButton">
             <div title="Click to toggle" class="toggle-container off">
-              <img src="">
+              <img src="./themes/pmahomme/img/toggle-ltr.png">
               <table>
                 <tbody>
                 <tr>
