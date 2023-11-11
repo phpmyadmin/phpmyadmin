@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-05 00:19+0000\n"
-"PO-Revision-Date: 2023-11-11 17:57+0000\n"
+"PO-Revision-Date: 2023-11-12 00:19+0000\n"
 "Last-Translator: Benito Alessandrino <bennygames.yt@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/it/>\n"
@@ -1631,10 +1631,8 @@ msgid "Select page"
 msgstr "Seleziona pagina"
 
 #: resources/templates/database/designer/schema_export.twig:6
-#, fuzzy
-#| msgid "Select Export Relational Type"
 msgid "Select export relational type:"
-msgstr "Seleziona il Tipo di Esportazione Relazionale"
+msgstr "Seleziona il tipo di esportazione relazionale"
 
 #: resources/templates/database/events/editor_form.twig:10
 #: resources/templates/database/routines/editor_form.twig:11
@@ -3291,11 +3289,9 @@ msgid "Color mode for the theme"
 msgstr ""
 
 #: resources/templates/header.twig:52 resources/templates/home/index.twig:156
-#, fuzzy
-#| msgid "Right"
 msgctxt "Light color mode of the theme"
 msgid "Light"
-msgstr "A destra"
+msgstr "Chiaro"
 
 #: resources/templates/header.twig:54 resources/templates/home/index.twig:158
 msgctxt "Dark color mode of the theme"
@@ -3730,10 +3726,8 @@ msgstr ""
 #: resources/templates/login/twofactor/key_configure.twig:3
 #: resources/templates/login/twofactor/key.twig:3
 #: resources/templates/preferences/two_factor/main.twig:56
-#, fuzzy
-#| msgid "Replicated"
 msgid "Deprecated!"
-msgstr "Replicato"
+msgstr "Deprecato"
 
 #: resources/templates/login/twofactor/key_configure.twig:4
 #: resources/templates/login/twofactor/key.twig:4
@@ -3782,27 +3776,19 @@ msgid "Verify"
 msgstr "Verifica"
 
 #: resources/templates/login/twofactor/webauthn_creation.twig:1
-#, fuzzy
-#| msgid ""
-#| "Please connect your FIDO U2F device into your computer's USB port. Then "
-#| "confirm registration on the device."
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm registration on the "
 "device."
 msgstr ""
-"Collega per favore il tuo dispositivo FIDO U2F alla porta USB del tuo "
-"computer. Quindi conferma la registrazione del dispositivo."
+"Per favore, collega il tuo dispositivo WebAuthn/FIDO2. Successivamente "
+"procedi alla conferma della registrazione sul dispositivo."
 
 #: resources/templates/login/twofactor/webauthn_request.twig:1
-#, fuzzy
-#| msgid ""
-#| "Please connect your FIDO U2F device into your computer's USB port. Then "
-#| "confirm login on the device."
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm login on the device."
 msgstr ""
-"Collega per favore il tuo dispositivo FIDO U2F alla porta USB del tuo "
-"computer. Quindi conferma la login sul dispositivo."
+"Per favore, collega il tuo dispositivo WebAuthn/FIDO2. Successivamente "
+"conferma l'accesso sul dispositivo."
 
 #: resources/templates/menu/breadcrumbs.twig:27
 msgid "View:"
@@ -4100,15 +4086,11 @@ msgstr ""
 "questo account."
 
 #: resources/templates/preferences/two_factor/main.twig:26
-#, fuzzy
-#| msgid ""
-#| "Two-factor authentication is not available, please install optional "
-#| "dependencies to enable authentication backends."
 msgid ""
 "Please install optional dependencies to enable more authentication backends."
 msgstr ""
-"L'autenticazione a due fattori non è disponibile, devi installare i "
-"componenti di backend per abilitarla."
+"Installa le dipendenze facoltative per attivare più backend di "
+"autenticazione."
 
 #: resources/templates/preferences/two_factor/main.twig:37
 msgid ""
@@ -5244,10 +5226,8 @@ msgid "Save changes"
 msgstr "Salva modifiche"
 
 #: resources/templates/server/replication/change_primary.twig:7
-#, fuzzy
-#| msgid "Change or reconfigure primary server"
 msgid "Replica configuration - Change or reconfigure primary server"
-msgstr "Modifica o riconfigura il server primario"
+msgstr "Configurazione replica - Modifica o riconfigura il server primario"
 
 #: resources/templates/server/replication/change_primary.twig:12
 msgid ""
@@ -5589,14 +5569,10 @@ msgid "Advisor"
 msgstr "Consigli"
 
 #: resources/templates/server/status/monitor/index.twig:4
-#, fuzzy
-#| msgid "System memory"
 msgid "System monitor"
-msgstr "Memoria"
+msgstr "Monitoraggio di sistema"
 
 #: resources/templates/server/status/monitor/index.twig:7
-#, fuzzy
-#| msgid "Start Monitor"
 msgid "Start monitor"
 msgstr "Avvia monitoraggio"
 
@@ -6201,10 +6177,8 @@ msgid "ø Time"
 msgstr "ø Tempo"
 
 #: resources/templates/sql/profiling_chart.twig:66
-#, fuzzy
-#| msgid "Profiling results"
 msgid "Pie chart with profiling results."
-msgstr "Risultati del profiling"
+msgstr "Grafico a torta con i risultati del profiling."
 
 #: resources/templates/sql/query.twig:7
 #: src/Controllers/Table/DeleteRowsController.php:77
@@ -6633,10 +6607,8 @@ msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "Terzo passaggio di normalizzazione (1NF+2NF+3NF)"
 
 #: resources/templates/table/operations/index.twig:2
-#, fuzzy
-#| msgid "Table options"
 msgid "Table operations"
-msgstr "Opzioni della tabella"
+msgstr "Operazioni della tabella"
 
 #: resources/templates/table/operations/index.twig:10
 msgid "Alter table order by"
@@ -8939,56 +8911,42 @@ msgstr "Chiuso"
 
 #: src/Config/ConfigFile.php:609
 #: src/Controllers/JavaScriptMessagesController.php:742
-#, fuzzy
-#| msgid "Monday"
 msgctxt "Week day name"
 msgid "Monday"
 msgstr "Lunedì"
 
 #: src/Config/ConfigFile.php:610
 #: src/Controllers/JavaScriptMessagesController.php:743
-#, fuzzy
-#| msgid "Tuesday"
 msgctxt "Week day name"
 msgid "Tuesday"
 msgstr "Martedì"
 
 #: src/Config/ConfigFile.php:611
 #: src/Controllers/JavaScriptMessagesController.php:744
-#, fuzzy
-#| msgid "Wednesday"
 msgctxt "Week day name"
 msgid "Wednesday"
 msgstr "Mercoledì"
 
 #: src/Config/ConfigFile.php:612
 #: src/Controllers/JavaScriptMessagesController.php:745
-#, fuzzy
-#| msgid "Thursday"
 msgctxt "Week day name"
 msgid "Thursday"
 msgstr "Giovedì"
 
 #: src/Config/ConfigFile.php:613
 #: src/Controllers/JavaScriptMessagesController.php:746
-#, fuzzy
-#| msgid "Friday"
 msgctxt "Week day name"
 msgid "Friday"
 msgstr "Venerdì"
 
 #: src/Config/ConfigFile.php:614
 #: src/Controllers/JavaScriptMessagesController.php:747
-#, fuzzy
-#| msgid "Saturday"
 msgctxt "Week day name"
 msgid "Saturday"
 msgstr "Sabato"
 
 #: src/Config/ConfigFile.php:615
 #: src/Controllers/JavaScriptMessagesController.php:741
-#, fuzzy
-#| msgid "Sunday"
 msgctxt "Week day name"
 msgid "Sunday"
 msgstr "Domenica"
@@ -11661,14 +11619,8 @@ msgid "Failed to read configuration file!"
 msgstr "Lettura del file di configurazione fallita!"
 
 #: src/Config.php:668
-#, fuzzy
-#| msgid ""
-#| "This usually means there is a syntax error in it, please check any errors "
-#| "shown below."
 msgid "This usually means there is a syntax error in it."
-msgstr ""
-"Questo di solito significa che vi è un errore di sintassi in esso, verifica "
-"eventuali errori riportati in basso."
+msgstr "Questo di solito significa che vi è un errore di sintassi in esso."
 
 #: src/Config/ServerConfigChecks.php:52
 #, php-format
@@ -12805,10 +12757,8 @@ msgid "Connections / Processes"
 msgstr "Connessioni / Processi"
 
 #: src/Controllers/JavaScriptMessagesController.php:168
-#, fuzzy
-#| msgid "Number of tables:"
 msgid "Number of statements"
-msgstr "Numero di tabelle:"
+msgstr "Numero di istruzioni:"
 
 #: src/Controllers/JavaScriptMessagesController.php:171
 msgid "Local monitor configuration incompatible!"
@@ -13892,11 +13842,9 @@ msgid "up to date"
 msgstr "aggiornata"
 
 #: src/Controllers/JavaScriptMessagesController.php:618
-#, fuzzy
-#| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
 msgstr ""
-"C'è stato un errore durante l'importazione del file shape ESRI: \"%s\"."
+"Si è verificato un errore durante il caricamento delle informazioni Git."
 
 #: src/Controllers/JavaScriptMessagesController.php:621
 msgid ""
@@ -14126,169 +14074,121 @@ msgid "Hide"
 msgstr "Nascondi"
 
 #: src/Controllers/JavaScriptMessagesController.php:717
-#, fuzzy
-#| msgid "January"
 msgctxt "Month name"
 msgid "January"
 msgstr "Gennaio"
 
 #: src/Controllers/JavaScriptMessagesController.php:718
-#, fuzzy
-#| msgid "February"
 msgctxt "Month name"
 msgid "February"
 msgstr "Febbraio"
 
 #: src/Controllers/JavaScriptMessagesController.php:719
-#, fuzzy
-#| msgid "March"
 msgctxt "Month name"
 msgid "March"
 msgstr "Marzo"
 
 #: src/Controllers/JavaScriptMessagesController.php:720
-#, fuzzy
-#| msgid "April"
 msgctxt "Month name"
 msgid "April"
 msgstr "Aprile"
 
 #: src/Controllers/JavaScriptMessagesController.php:721
-#, fuzzy
-#| msgid "May"
 msgctxt "Month name"
 msgid "May"
 msgstr "Maggio"
 
 #: src/Controllers/JavaScriptMessagesController.php:722
-#, fuzzy
-#| msgid "June"
 msgctxt "Month name"
 msgid "June"
 msgstr "Giugno"
 
 #: src/Controllers/JavaScriptMessagesController.php:723
-#, fuzzy
-#| msgid "July"
 msgctxt "Month name"
 msgid "July"
 msgstr "Luglio"
 
 #: src/Controllers/JavaScriptMessagesController.php:724
-#, fuzzy
-#| msgid "August"
 msgctxt "Month name"
 msgid "August"
 msgstr "Agosto"
 
 #: src/Controllers/JavaScriptMessagesController.php:725
-#, fuzzy
-#| msgid "September"
 msgctxt "Month name"
 msgid "September"
 msgstr "Settembre"
 
 #: src/Controllers/JavaScriptMessagesController.php:726
-#, fuzzy
-#| msgid "October"
 msgctxt "Month name"
 msgid "October"
 msgstr "Ottobre"
 
 #: src/Controllers/JavaScriptMessagesController.php:727
-#, fuzzy
-#| msgid "November"
 msgctxt "Month name"
 msgid "November"
 msgstr "Novembre"
 
 #: src/Controllers/JavaScriptMessagesController.php:728
-#, fuzzy
-#| msgid "December"
 msgctxt "Month name"
 msgid "December"
 msgstr "Dicembre"
 
 #: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:499
-#, fuzzy
-#| msgid "Jan"
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "Gen"
 
 #: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:500
-#, fuzzy
-#| msgid "Feb"
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "Feb"
 
 #: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:501
-#, fuzzy
-#| msgid "Mar"
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "Mar"
 
 #: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:502
-#, fuzzy
-#| msgid "Apr"
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "Apr"
 
 #: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:503
-#, fuzzy
-#| msgid "May"
 msgctxt "Short month name for May"
 msgid "May"
-msgstr "Maggio"
+msgstr "Mag"
 
 #: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:504
-#, fuzzy
-#| msgid "Jun"
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "Giu"
 
 #: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:505
-#, fuzzy
-#| msgid "Jul"
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "Lug"
 
 #: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:506
-#, fuzzy
-#| msgid "Aug"
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "Ago"
 
 #: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:507
-#, fuzzy
-#| msgid "Sep"
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "Set"
 
 #: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:508
-#, fuzzy
-#| msgid "Oct"
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "Ott"
 
 #: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:509
-#, fuzzy
-#| msgid "Nov"
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "Nov"
 
 #: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:510
-#, fuzzy
-#| msgid "Dec"
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "Dic"
@@ -14299,99 +14199,71 @@ msgid "Sun"
 msgstr "Dom"
 
 #: src/Controllers/JavaScriptMessagesController.php:749 src/Util.php:514
-#, fuzzy
-#| msgid "Mon"
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "Lun"
 
 #: src/Controllers/JavaScriptMessagesController.php:750 src/Util.php:515
-#, fuzzy
-#| msgid "Tue"
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "Mar"
 
 #: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:516
-#, fuzzy
-#| msgid "Wed"
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "Mer"
 
 #: src/Controllers/JavaScriptMessagesController.php:752 src/Util.php:517
-#, fuzzy
-#| msgid "Thu"
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "Gio"
 
 #: src/Controllers/JavaScriptMessagesController.php:753 src/Util.php:518
-#, fuzzy
-#| msgid "Fri"
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "Ven"
 
 #: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:519
-#, fuzzy
-#| msgid "Sat"
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "Sab"
 
 #: src/Controllers/JavaScriptMessagesController.php:755
-#, fuzzy
-#| msgid "Su"
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "Do"
 
 #: src/Controllers/JavaScriptMessagesController.php:756
-#, fuzzy
-#| msgid "Mo"
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "Lu"
 
 #: src/Controllers/JavaScriptMessagesController.php:757
-#, fuzzy
-#| msgid "Tu"
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "Ma"
 
 #: src/Controllers/JavaScriptMessagesController.php:758
-#, fuzzy
-#| msgid "We"
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "Me"
 
 #: src/Controllers/JavaScriptMessagesController.php:759
-#, fuzzy
-#| msgid "Th"
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "Gi"
 
 #: src/Controllers/JavaScriptMessagesController.php:760
-#, fuzzy
-#| msgid "Fr"
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "Ve"
 
 #: src/Controllers/JavaScriptMessagesController.php:761
-#, fuzzy
-#| msgid "Sa"
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "Sa"
 
 #: src/Controllers/JavaScriptMessagesController.php:762
-#, fuzzy
-#| msgid "Wk"
 msgctxt "Column header for week of the year in calendar"
 msgid "Wk"
 msgstr "Sett"
@@ -14405,66 +14277,47 @@ msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
 #: src/Controllers/JavaScriptMessagesController.php:765
-#, fuzzy
-#| msgid "none"
 msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "nessuno"
 
 #: src/Controllers/JavaScriptMessagesController.php:766
-#, fuzzy
-#| msgid "Time"
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
-msgstr "Tempo"
+msgstr "Orario"
 
 #: src/Controllers/JavaScriptMessagesController.php:767
-#, fuzzy
-#| msgid "Hour"
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "Ora"
 
 #: src/Controllers/JavaScriptMessagesController.php:768
-#, fuzzy
-#| msgid "Minute"
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "Minuto"
 
 #: src/Controllers/JavaScriptMessagesController.php:769
-#, fuzzy
-#| msgid "Second"
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "Secondo"
 
 #: src/Controllers/JavaScriptMessagesController.php:770
-#, fuzzy
-#| msgid "seconds"
 msgctxt "Unit of time"
 msgid "Millisecond"
-msgstr "Secondo"
+msgstr "Millisecondo"
 
 #: src/Controllers/JavaScriptMessagesController.php:771
-#, fuzzy
-#| msgid "per second"
 msgctxt "Unit of time"
 msgid "Microsecond"
-msgstr "al secondo"
+msgstr "Microsecondo"
 
 #: src/Controllers/JavaScriptMessagesController.php:772
-#, fuzzy
-#| msgctxt "Chart type"
-#| msgid "Timeline"
 msgctxt "The time zone for a time of day"
 msgid "Time zone"
-msgstr "Timeline"
+msgstr "Fuso orario"
 
 #. l10n: Display text for previous month link in calendar
 #: src/Controllers/JavaScriptMessagesController.php:776
-#, fuzzy
-#| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Prec"
@@ -14691,10 +14544,8 @@ msgstr ""
 "stato terminato."
 
 #: src/Controllers/Server/Status/QueriesController.php:90
-#, fuzzy
-#| msgid "Add statements:"
 msgid "Other statements"
-msgstr "Aggiungi istruzioni:"
+msgstr "Altre istruzioni"
 
 #: src/Controllers/Server/Status/StatusController.php:127
 msgid "Received"
@@ -15559,10 +15410,8 @@ msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL ha restituito un insieme vuoto (i.e. zero righe)."
 
 #: src/Controllers/Table/GisVisualizationController.php:97
-#, fuzzy
-#| msgid "Not used for this MySQL version."
 msgid "No spatial column found for this SQL query."
-msgstr "Non usato in questa versione di MySQL."
+msgstr "Nessuna colonna spaziale trovata per questa query SQL."
 
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:66
 #: src/Controllers/Table/Maintenance/CheckController.php:66
@@ -15583,10 +15432,8 @@ msgid "The partition name must be a non-empty string."
 msgstr "Il nome della partizione deve essere una stringa non vuota."
 
 #: src/Controllers/Table/RecentFavoriteController.php:27
-#, fuzzy
-#| msgid "Invalid table name"
 msgid "Invalid database or table name."
-msgstr "Nome tabella non valido"
+msgstr "Nome del database o della tabella non valido."
 
 #: src/Controllers/Table/RelationController.php:270
 msgid "Display column was successfully updated."
@@ -16549,22 +16396,17 @@ msgid "The table name cannot end with a space character."
 msgstr "Il nome della tabella non può finire con un carattere di spazio."
 
 #: src/Identifiers/InvalidTriggerName.php:14
-#, fuzzy
-#| msgid "View name can not be empty!"
 msgid "The trigger name must not be empty."
-msgstr "Nome vista non può essere vuoto!"
+msgstr "Il nome del trigger non può essere vuoto!"
 
 #: src/Identifiers/InvalidTriggerName.php:20
-#, fuzzy, php-format
-#| msgid "The table name cannot be longer than %d characters."
+#, php-format
 msgid "The trigger name cannot be longer than %d characters."
-msgstr "Il nome della tabella non può essere più lungo di %d caratteri."
+msgstr "Il nome del trigger non può essere più lungo di %d caratteri."
 
 #: src/Identifiers/InvalidTriggerName.php:25
-#, fuzzy
-#| msgid "The table name cannot end with a space character."
 msgid "The trigger name cannot end with a space character."
-msgstr "Il nome della tabella non può finire con un carattere di spazio."
+msgstr "Il nome del trigger non può finire con un carattere di spazio."
 
 #: src/Import/Import.php:288 src/Sql.php:892
 msgid "[ROLLBACK occurred.]"
@@ -17188,11 +17030,8 @@ msgid "Your session has expired. Please log in again."
 msgstr "La tua sessione è scaduta. Esegui un nuovo login."
 
 #: src/Plugins/Auth/AuthenticationCookie.php:238
-#, fuzzy
-#| msgid ""
-#| "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
-msgstr "Verifica reCAPTCHA mancante, è stata forse bloccata da adblock?"
+msgstr "Verifica Captcha mancante, forse è stata bloccata da adblock?"
 
 #: src/Plugins/Auth/AuthenticationCookie.php:273
 msgid "Failed to connect to the reCAPTCHA service!"
@@ -17964,18 +17803,6 @@ msgstr ""
 "seconda opzione, dovete avere la prima opzione settata ad una stringa vuota."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:39
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Abs/ExternalTransformationsPlugin.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use. The second option should be blank for historical reasons. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -17991,14 +17818,14 @@ msgstr ""
 "SOLO PER LINUX: Lancia un'applicazione esterna e riempie i dati dei campi "
 "via standard input. Restituisce lo standard output dell'applicazione. "
 "L'impostazione predefinita è Tidy, per stampare in maniera corretta il "
-"codice HTML. Per motivi di sicurezza, dovete editare manualmente il file "
-"libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin."
-"php e inserire gli strumenti che volete rendere disponibili. La prima "
-"opzione è il numero del programma che volete utilizzare. La seconda opzione "
-"dovrebbe essere blank per ragioni storiche. La terza opzione, se impostata a "
-"1, convertirà l'output utilizzando htmlspecialchars() (Default 1). La quarta "
-"opzione, se impostata a 1, inserirà un NOWRAP al contenuto della cella così "
-"che l'intero output sarà mostrato sulla stessa riga (Default 1)."
+"codice HTML. Per motivi di sicurezza, dovete editare manualmente il file src/"
+"Plugins/Transformations/Abs/ExternalTransformationsPlugin.php e inserire gli "
+"strumenti che volete rendere disponibili. La prima opzione è il numero del "
+"programma che volete utilizzare. La seconda opzione dovrebbe essere blank "
+"per ragioni storiche. La terza opzione, se impostata a 1, convertirà "
+"l'output utilizzando htmlspecialchars() (Default 1). La quarta opzione, se "
+"impostata a 1, inserirà un NOWRAP al contenuto della cella così che l'intero "
+"output sarà mostrato sulla stessa riga (Default 1)."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:122
 #, php-format
@@ -18191,16 +18018,12 @@ msgid "Hardware Security Key (FIDO U2F)"
 msgstr "Chiave di Sicurezza Hardware (FIDO U2F)"
 
 #: src/Plugins/TwoFactor/Key.php:211
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F, such as a Yubikey."
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a YubiKey."
 msgstr ""
 "Fornisce l'autenticazione tramite dispositivi di sicurezza hardware che "
-"supportano lo standard FIDO U2F, come i dispositivi Yubikey."
+"supportano lo standard FIDO U2F, come i dispositivi YubiKey."
 
 #: src/Plugins/TwoFactorPlugin.php:57
 #, php-format
@@ -18228,22 +18051,16 @@ msgid "For testing purposes only!"
 msgstr "Solo a scopo di test!"
 
 #: src/Plugins/TwoFactor/WebAuthn.php:176
-#, fuzzy
-#| msgid "Hardware Security Key (FIDO U2F)"
 msgid "Hardware Security Key (WebAuthn/FIDO2)"
-msgstr "Chiave di Sicurezza Hardware (FIDO U2F)"
+msgstr "Chiave di Sicurezza Hardware (WebAuthn/FIDO2)"
 
 #: src/Plugins/TwoFactor/WebAuthn.php:182
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F, such as a Yubikey."
 msgid ""
 "Provides authentication using hardware security tokens supporting the "
 "WebAuthn/FIDO2 protocol, such as a YubiKey."
 msgstr ""
 "Fornisce l'autenticazione tramite dispositivi di sicurezza hardware che "
-"supportano lo standard FIDO U2F, come i dispositivi Yubikey."
+"supportano il protocollo WebAuthn/FIDO2, come i dispositivi YubiKey."
 
 #: src/Query/Utilities.php:94
 msgid ""
