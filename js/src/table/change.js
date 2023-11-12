@@ -308,30 +308,42 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
         $('#salt_' + target.id).remove();
     }
 
-    // Remove possible blocking rules if the user changed functions
-    $('#' + target.id).rules('remove', 'validationFunctionForMd5');
-    $('#' + target.id).rules('remove', 'validationFunctionForAesDesEncrypt');
-
-    if (target.value === 'MD5') {
-        $('#' + target.id).rules('add', {
-            validationFunctionForMd5: {
-                param: $thisInput,
-                depends: function () {
-                    return checkForCheckbox(multiEdit);
-                }
-            }
-        });
+    var couldFetchRules = false;
+    try {
+        // See: issue #18792 - In some weird cases the input goes away before it validates
+        // And it breaks jquery, this is a well known jquery bug with different trigger schemes
+        $('#' + target.id).rules();
+        couldFetchRules = true;
+    } catch (error) {
+        console.log(error);
     }
 
-    if (target.value === 'DES_ENCRYPT' || target.value === 'AES_ENCRYPT') {
-        $('#' + target.id).rules('add', {
-            validationFunctionForAesDesEncrypt: {
-                param: $thisInput,
-                depends: function () {
-                    return checkForCheckbox(multiEdit);
+    if (couldFetchRules) {
+        // Remove possible blocking rules if the user changed functions
+        $('#' + target.id).rules('remove', 'validationFunctionForMd5');
+        $('#' + target.id).rules('remove', 'validationFunctionForAesDesEncrypt');
+
+        if (target.value === 'MD5') {
+            $('#' + target.id).rules('add', {
+                validationFunctionForMd5: {
+                    param: $thisInput,
+                    depends: function () {
+                        return checkForCheckbox(multiEdit);
+                    }
                 }
-            }
-        });
+            });
+        }
+
+        if (target.value === 'DES_ENCRYPT' || target.value === 'AES_ENCRYPT') {
+            $('#' + target.id).rules('add', {
+                validationFunctionForAesDesEncrypt: {
+                    param: $thisInput,
+                    depends: function () {
+                        return checkForCheckbox(multiEdit);
+                    }
+                }
+            });
+        }
     }
 
     if (target.value === 'HEX' && theType.substring(0,3) === 'int') {
