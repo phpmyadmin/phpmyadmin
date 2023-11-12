@@ -159,17 +159,19 @@ Indexes.removeColumnFromIndex = function (colIndex) {
             return;
         }
 
-        // Remove column from index array.
-        var sourceLength = sourceArray[previousIndex[1]].columns.length;
-        for (var i = 0; i < sourceLength; i++) {
-            if (sourceArray[previousIndex[1]].columns[i].col_index === colIndex) {
-                sourceArray[previousIndex[1]].columns.splice(i, 1);
+        if (previousIndex[1] in sourceArray) {
+            // Remove column from index array.
+            var sourceLength = sourceArray[previousIndex[1]].columns.length;
+            for (var i = 0; i < sourceLength; i++) {
+                if (sourceArray[previousIndex[1]].columns[i].col_index === colIndex) {
+                    sourceArray[previousIndex[1]].columns.splice(i, 1);
+                }
             }
-        }
 
-        // Remove index completely if no columns left.
-        if (sourceArray[previousIndex[1]].columns.length === 0) {
-            sourceArray.splice(previousIndex[1], 1);
+            // Remove index completely if no columns left.
+            if (sourceArray[previousIndex[1]].columns.length === 0) {
+                sourceArray.splice(previousIndex[1], 1);
+            }
         }
 
         // Update current index details.
