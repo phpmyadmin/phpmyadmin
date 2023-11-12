@@ -4,16 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2022-02-17 10:34+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
-"Language-Team: Uzbek <https://hosted.weblate.org/projects/phpmyadmin/5-1/uz/"
-">\n"
+"PO-Revision-Date: 2023-11-13 08:02+0000\n"
+"Last-Translator: Dilshod Fayzullayev Fayzulla O'G'LI <darkprohub-uz@yandex."
+"com>\n"
+"Language-Team: Uzbek <https://hosted.weblate.org/projects/phpmyadmin/5-1/uz/>"
+"\n"
 "Language: uz\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 5.2-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -30,9 +31,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:17
-#, php-format
+#, fuzzy, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "Ishlash vaqti faqat %s"
 
 #: libraries/advisory_rules_generic.php:22
 #, fuzzy
