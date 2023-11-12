@@ -62,6 +62,7 @@ phpMyAdmin - ChangeLog
 - issue #17381 Fixed JS errors when editing indexes on create table
 - issue #14402 Fix the PRIMARY label still shown when using two columns for a PK on create table
 - issue #17347 Fixed JS errors when changing index settings on create table
+- issue        Fix BETWEEN search does not validate input because of spaces
 
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid
