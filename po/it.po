@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 00:18+0000\n"
-"PO-Revision-Date: 2023-11-11 17:57+0000\n"
+"PO-Revision-Date: 2023-11-13 17:46+0000\n"
 "Last-Translator: Benito Alessandrino <bennygames.yt@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/it/>\n"
@@ -3290,7 +3290,7 @@ msgstr "Da qui in poi, JavaScript deve essere abilitato!"
 
 #: resources/templates/header.twig:48 resources/templates/home/index.twig:152
 msgid "Color mode for the theme"
-msgstr ""
+msgstr "Modalità di colore per il tema"
 
 #: resources/templates/header.twig:52 resources/templates/home/index.twig:156
 msgctxt "Light color mode of the theme"
@@ -3300,7 +3300,7 @@ msgstr "Chiaro"
 #: resources/templates/header.twig:54 resources/templates/home/index.twig:158
 msgctxt "Dark color mode of the theme"
 msgid "Dark"
-msgstr ""
+msgstr "Scuro"
 
 #: resources/templates/header.twig:68
 #: resources/templates/modals/page_settings.twig:5
@@ -3741,6 +3741,8 @@ msgid ""
 "The FIDO U2F API has been deprecated in favor of the Web Authentication API "
 "(WebAuthn)."
 msgstr ""
+"La FIDO U2F API è stata deprecata a favore della Web Authentication API "
+"(WebAuthn)."
 
 #: resources/templates/login/twofactor/key_configure.twig:6
 #: resources/templates/login/twofactor/key.twig:6
@@ -3750,6 +3752,9 @@ msgid ""
 "API, however it's recommended that you use the WebAuthn authentication "
 "instead."
 msgstr ""
+"Puoi ancora utilizzare Firefox per autenticare il tuo account utilizzando "
+"l'API FIDO U2F, tuttavia è consigliabile utilizzare l'autenticazione "
+"WebAuthn."
 
 #: resources/templates/login/twofactor/key_configure.twig:10
 msgid ""
@@ -5869,7 +5874,7 @@ msgstr "ø per ora"
 
 #: resources/templates/server/status/queries/index.twig:52
 msgid "Pie chart with the most frequent statements."
-msgstr ""
+msgstr "Grafico a torta con le istruzioni più frequenti."
 
 #: resources/templates/server/status/status/index.twig:6
 #, php-format
@@ -6575,7 +6580,7 @@ msgstr "Modifica/Inserisci"
 
 #: resources/templates/table/insert/continue_insertion_form.twig:14
 msgid "Amount of rows to insert"
-msgstr ""
+msgstr "Quantità di righe da inserire"
 
 #: resources/templates/table/maintenance/checksum.twig:13
 msgid "Checksum"
@@ -14056,6 +14061,8 @@ msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
+"WebAuthn non è disponibile. Si prega di utilizzare un browser supportato in "
+"un contesto sicuro (HTTPS)."
 
 #: src/Controllers/JavaScriptMessagesController.php:706
 msgid ""
