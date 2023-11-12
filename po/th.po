@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-11-05 00:19+0000\n"
+"POT-Creation-Date: 2023-11-12 00:18+0000\n"
 "PO-Revision-Date: 2022-11-07 12:02+0000\n"
 "Last-Translator: AefghThreenine <aefgh39622@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -794,7 +794,7 @@ msgstr "รีเซ็ต"
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:169
-#: src/Html/Generator.php:698 src/Html/MySQLDocumentation.php:49
+#: src/Html/Generator.php:699 src/Html/MySQLDocumentation.php:49
 #: src/Sanitize.php:193
 msgid "Documentation"
 msgstr "เอกสารประกอบ"
@@ -966,8 +966,8 @@ msgstr "ในคำค้น"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:930
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:400
-#: src/Display/Results.php:2562 src/Html/Generator.php:550
-#: src/Html/Generator.php:813
+#: src/Display/Results.php:2562 src/Html/Generator.php:551
+#: src/Html/Generator.php:814
 msgid "Edit"
 msgstr "แก้ไข"
 
@@ -1086,7 +1086,7 @@ msgstr "อธิบาย SQL"
 
 #: resources/templates/console/display.twig:43
 #: resources/templates/console/display.twig:201
-#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:634
+#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:635
 msgid "Profiling"
 msgstr "การทำแฟ้มประวัติ"
 
@@ -1193,7 +1193,7 @@ msgstr "ใช้เวลา:"
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
 #: src/Config/Descriptions.php:932 src/Export/Export.php:1244
-#: src/Html/Generator.php:606
+#: src/Html/Generator.php:607
 msgid "Refresh"
 msgstr "เรียกใหม่"
 
@@ -2197,7 +2197,7 @@ msgid "Update query"
 msgstr "ปรับปรุงคำค้น"
 
 #: resources/templates/database/multi_table_query/form.twig:166
-#: src/Html/Generator.php:575
+#: src/Html/Generator.php:576
 #, fuzzy
 #| msgid "Submit Query"
 msgid "Submit query"
@@ -3240,7 +3240,7 @@ msgstr "ไบนารีที่รู้จักกันดี"
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:62
 #: src/Controllers/JavaScriptMessagesController.php:488
-#: src/Display/Results.php:2566 src/Html/Generator.php:79
+#: src/Display/Results.php:2566 src/Html/Generator.php:80
 msgid "Copy"
 msgstr "คัดลอก"
 
@@ -3278,7 +3278,7 @@ msgstr ""
 #: src/Controllers/Table/Partition/DropController.php:57
 #: src/Controllers/Table/Partition/RebuildController.php:57
 #: src/Controllers/Table/Partition/TruncateController.php:57
-#: src/Controllers/View/OperationsController.php:121 src/Html/Generator.php:764
+#: src/Controllers/View/OperationsController.php:121 src/Html/Generator.php:765
 #: src/Import/Import.php:150 src/InsertEdit.php:499 src/Message.php:149
 msgid "Error"
 msgstr "ผิดพลาด"
@@ -3370,7 +3370,7 @@ msgstr "ปรับปรุงคำค้น"
 
 #: resources/templates/export.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:132
-#: src/Html/Generator.php:788
+#: src/Html/Generator.php:789
 msgid "SQL query:"
 msgstr "คำค้น SQL:"
 
@@ -3883,7 +3883,7 @@ msgstr "ใช้ชุดรูปแบบนี้"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:435
-#: src/Export/Export.php:1280 src/Html/Generator.php:879
+#: src/Export/Export.php:1280 src/Html/Generator.php:880
 #: src/Plugins/Schema/ExportRelationSchema.php:265
 msgid "Back"
 msgstr "ย้อนกลับ"
@@ -12020,11 +12020,11 @@ msgstr "สถิติของแถว"
 msgid "Skip locked tables"
 msgstr "ข้ามตารางที่ถูกล็อก"
 
-#: src/Config/Descriptions.php:931 src/Html/Generator.php:525
+#: src/Config/Descriptions.php:931 src/Html/Generator.php:526
 msgid "Explain SQL"
 msgstr "อธิบาย SQL"
 
-#: src/Config/Descriptions.php:933 src/Html/Generator.php:586
+#: src/Config/Descriptions.php:933 src/Html/Generator.php:587
 #, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
@@ -16143,7 +16143,7 @@ msgstr ""
 #: src/Database/Events.php:128 src/Database/Events.php:353
 #: src/Database/Routines.php:103 src/Database/Routines.php:128
 #: src/Database/Routines.php:206 src/Database/Routines.php:957
-#: src/Database/Routines.php:1204 src/Html/Generator.php:829
+#: src/Database/Routines.php:1204 src/Html/Generator.php:830
 #: src/Triggers/Triggers.php:86 src/Triggers/Triggers.php:95
 #: src/Triggers/Triggers.php:122 src/Triggers/Triggers.php:239
 msgid "MySQL said: "
@@ -16744,58 +16744,58 @@ msgstr ""
 msgid "Session not found."
 msgstr "ไม่พบ SOAP"
 
-#: src/Html/Generator.php:147
+#: src/Html/Generator.php:148
 #, fuzzy, php-format
 #| msgid "Jump to database \"%s\"."
 msgid "Jump to database “%s”."
 msgstr "กระโดดไปที่ฐานข้อมูล \"%s\"."
 
-#: src/Html/Generator.php:213
+#: src/Html/Generator.php:214
 msgid "SSL is not being used"
 msgstr ""
 
-#: src/Html/Generator.php:220
+#: src/Html/Generator.php:221
 msgid "SSL is used with disabled verification"
 msgstr ""
 
-#: src/Html/Generator.php:222
+#: src/Html/Generator.php:223
 msgid "SSL is used without certification authority"
 msgstr ""
 
-#: src/Html/Generator.php:225
+#: src/Html/Generator.php:226
 msgid "SSL is used"
 msgstr ""
 
-#: src/Html/Generator.php:328
+#: src/Html/Generator.php:329
 msgid "The PHP function password_hash() with default options."
 msgstr ""
 
-#: src/Html/Generator.php:329
+#: src/Html/Generator.php:330
 msgid "password_hash() PHP function"
 msgstr ""
 
-#: src/Html/Generator.php:534
+#: src/Html/Generator.php:535
 msgid "Skip Explain SQL"
 msgstr "ไม่ต้องอธิบาย SQL"
 
-#: src/Html/Generator.php:566
+#: src/Html/Generator.php:567
 #, fuzzy
 #| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "ไม่เอาโค้ด PHP"
 
-#: src/Html/Generator.php:648
+#: src/Html/Generator.php:649
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "แก้ไขแบบอินไลน์"
 
-#: src/Html/Generator.php:771
+#: src/Html/Generator.php:772
 #, fuzzy
 #| msgid "Static data"
 msgid "Static analysis:"
 msgstr "ข้อมูลคงที่"
 
-#: src/Html/Generator.php:774
+#: src/Html/Generator.php:775
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr ""

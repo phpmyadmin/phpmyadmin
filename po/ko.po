@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-11-05 00:19+0000\n"
+"POT-Creation-Date: 2023-11-12 00:18+0000\n"
 "PO-Revision-Date: 2022-10-12 10:26+0000\n"
 "Last-Translator: Yun Minseo <ddugi1214@naver.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -755,7 +755,7 @@ msgstr "초기화"
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:169
-#: src/Html/Generator.php:698 src/Html/MySQLDocumentation.php:49
+#: src/Html/Generator.php:699 src/Html/MySQLDocumentation.php:49
 #: src/Sanitize.php:193
 msgid "Documentation"
 msgstr "문서"
@@ -925,8 +925,8 @@ msgstr "다시 쿼리하기"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:930
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:400
-#: src/Display/Results.php:2562 src/Html/Generator.php:550
-#: src/Html/Generator.php:813
+#: src/Display/Results.php:2562 src/Html/Generator.php:551
+#: src/Html/Generator.php:814
 msgid "Edit"
 msgstr "수정"
 
@@ -1036,7 +1036,7 @@ msgstr "설명"
 
 #: resources/templates/console/display.twig:43
 #: resources/templates/console/display.twig:201
-#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:634
+#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:635
 msgid "Profiling"
 msgstr "프로파일링"
 
@@ -1118,7 +1118,7 @@ msgstr "소요 시간 :"
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
 #: src/Config/Descriptions.php:932 src/Export/Export.php:1244
-#: src/Html/Generator.php:606
+#: src/Html/Generator.php:607
 msgid "Refresh"
 msgstr "다시 보기"
 
@@ -2037,7 +2037,7 @@ msgid "Update query"
 msgstr "질의 업데이트"
 
 #: resources/templates/database/multi_table_query/form.twig:166
-#: src/Html/Generator.php:575
+#: src/Html/Generator.php:576
 msgid "Submit query"
 msgstr "쿼리 실행"
 
@@ -2982,7 +2982,7 @@ msgstr "잘 알려진 바이너리"
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:62
 #: src/Controllers/JavaScriptMessagesController.php:488
-#: src/Display/Results.php:2566 src/Html/Generator.php:79
+#: src/Display/Results.php:2566 src/Html/Generator.php:80
 msgid "Copy"
 msgstr "복사"
 
@@ -3018,7 +3018,7 @@ msgstr "전각 가나로 변환"
 #: src/Controllers/Table/Partition/DropController.php:57
 #: src/Controllers/Table/Partition/RebuildController.php:57
 #: src/Controllers/Table/Partition/TruncateController.php:57
-#: src/Controllers/View/OperationsController.php:121 src/Html/Generator.php:764
+#: src/Controllers/View/OperationsController.php:121 src/Html/Generator.php:765
 #: src/Import/Import.php:150 src/InsertEdit.php:499 src/Message.php:149
 msgid "Error"
 msgstr "오류"
@@ -3095,7 +3095,7 @@ msgstr "업데이트"
 
 #: resources/templates/export.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:132
-#: src/Html/Generator.php:788
+#: src/Html/Generator.php:789
 msgid "SQL query:"
 msgstr "SQL 질의:"
 
@@ -3573,7 +3573,7 @@ msgstr "사용하기"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:435
-#: src/Export/Export.php:1280 src/Html/Generator.php:879
+#: src/Export/Export.php:1280 src/Html/Generator.php:880
 #: src/Plugins/Schema/ExportRelationSchema.php:265
 msgid "Back"
 msgstr "뒤로"
@@ -11319,11 +11319,11 @@ msgstr "통계보기"
 msgid "Skip locked tables"
 msgstr "잠긴 테이블 건너뛰기"
 
-#: src/Config/Descriptions.php:931 src/Html/Generator.php:525
+#: src/Config/Descriptions.php:931 src/Html/Generator.php:526
 msgid "Explain SQL"
 msgstr "SQL 해석"
 
-#: src/Config/Descriptions.php:933 src/Html/Generator.php:586
+#: src/Config/Descriptions.php:933 src/Html/Generator.php:587
 msgid "Create PHP code"
 msgstr "PHP 코드 보기"
 
@@ -15438,7 +15438,7 @@ msgstr "쿼리 실행 실패: \"%s\""
 #: src/Database/Events.php:128 src/Database/Events.php:353
 #: src/Database/Routines.php:103 src/Database/Routines.php:128
 #: src/Database/Routines.php:206 src/Database/Routines.php:957
-#: src/Database/Routines.php:1204 src/Html/Generator.php:829
+#: src/Database/Routines.php:1204 src/Html/Generator.php:830
 #: src/Triggers/Triggers.php:86 src/Triggers/Triggers.php:95
 #: src/Triggers/Triggers.php:122 src/Triggers/Triggers.php:239
 msgid "MySQL said: "
@@ -16051,53 +16051,53 @@ msgstr ""
 msgid "Session not found."
 msgstr "SOAP 확장을 찾을 수 없습니다."
 
-#: src/Html/Generator.php:147
+#: src/Html/Generator.php:148
 #, fuzzy, php-format
 msgid "Jump to database “%s”."
 msgstr "데이터베이스 \"%s\" 로 이동."
 
-#: src/Html/Generator.php:213
+#: src/Html/Generator.php:214
 msgid "SSL is not being used"
 msgstr ""
 
-#: src/Html/Generator.php:220
+#: src/Html/Generator.php:221
 msgid "SSL is used with disabled verification"
 msgstr ""
 
-#: src/Html/Generator.php:222
+#: src/Html/Generator.php:223
 msgid "SSL is used without certification authority"
 msgstr ""
 
-#: src/Html/Generator.php:225
+#: src/Html/Generator.php:226
 msgid "SSL is used"
 msgstr ""
 
-#: src/Html/Generator.php:328
+#: src/Html/Generator.php:329
 msgid "The PHP function password_hash() with default options."
 msgstr ""
 
-#: src/Html/Generator.php:329
+#: src/Html/Generator.php:330
 msgid "password_hash() PHP function"
 msgstr ""
 
-#: src/Html/Generator.php:534
+#: src/Html/Generator.php:535
 msgid "Skip Explain SQL"
 msgstr "SQL 해석 생략"
 
-#: src/Html/Generator.php:566
+#: src/Html/Generator.php:567
 msgid "Without PHP code"
 msgstr "PHP 코드 없이 보기"
 
-#: src/Html/Generator.php:648
+#: src/Html/Generator.php:649
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "인라인 편집"
 
-#: src/Html/Generator.php:771
+#: src/Html/Generator.php:772
 msgid "Static analysis:"
 msgstr "정적 분석 :"
 
-#: src/Html/Generator.php:774
+#: src/Html/Generator.php:775
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "분석 중에 %d개의 오류가 발생했습니다."

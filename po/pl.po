@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-11-05 00:19+0000\n"
+"POT-Creation-Date: 2023-11-12 00:18+0000\n"
 "PO-Revision-Date: 2023-11-11 01:16+0000\n"
 "Last-Translator: johnny1029 <jkste07@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -736,7 +736,7 @@ msgstr "Resetuj"
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:169
-#: src/Html/Generator.php:698 src/Html/MySQLDocumentation.php:49
+#: src/Html/Generator.php:699 src/Html/MySQLDocumentation.php:49
 #: src/Sanitize.php:193
 msgid "Documentation"
 msgstr "Dokumentacja"
@@ -906,8 +906,8 @@ msgstr "Wykonaj zapytanie ponownie"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:930
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:400
-#: src/Display/Results.php:2562 src/Html/Generator.php:550
-#: src/Html/Generator.php:813
+#: src/Display/Results.php:2562 src/Html/Generator.php:551
+#: src/Html/Generator.php:814
 msgid "Edit"
 msgstr "Edytuj"
 
@@ -1017,7 +1017,7 @@ msgstr "Wyjaśnij"
 
 #: resources/templates/console/display.twig:43
 #: resources/templates/console/display.twig:201
-#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:634
+#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:635
 msgid "Profiling"
 msgstr "Profilowanie"
 
@@ -1099,7 +1099,7 @@ msgstr "Zajeło to:"
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
 #: src/Config/Descriptions.php:932 src/Export/Export.php:1244
-#: src/Html/Generator.php:606
+#: src/Html/Generator.php:607
 msgid "Refresh"
 msgstr "Odśwież"
 
@@ -1983,7 +1983,7 @@ msgid "Update query"
 msgstr "Zaktualizuj zapytanie"
 
 #: resources/templates/database/multi_table_query/form.twig:166
-#: src/Html/Generator.php:575
+#: src/Html/Generator.php:576
 msgid "Submit query"
 msgstr "Prześlij zapytanie"
 
@@ -2922,7 +2922,7 @@ msgstr "Znane binarne"
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:62
 #: src/Controllers/JavaScriptMessagesController.php:488
-#: src/Display/Results.php:2566 src/Html/Generator.php:79
+#: src/Display/Results.php:2566 src/Html/Generator.php:80
 msgid "Copy"
 msgstr "Kopiuj"
 
@@ -2958,7 +2958,7 @@ msgstr "Konwersja do Kana"
 #: src/Controllers/Table/Partition/DropController.php:57
 #: src/Controllers/Table/Partition/RebuildController.php:57
 #: src/Controllers/Table/Partition/TruncateController.php:57
-#: src/Controllers/View/OperationsController.php:121 src/Html/Generator.php:764
+#: src/Controllers/View/OperationsController.php:121 src/Html/Generator.php:765
 #: src/Import/Import.php:150 src/InsertEdit.php:499 src/Message.php:149
 msgid "Error"
 msgstr "Błąd"
@@ -3038,7 +3038,7 @@ msgstr "Aktualizacja"
 
 #: resources/templates/export.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:132
-#: src/Html/Generator.php:788
+#: src/Html/Generator.php:789
 msgid "SQL query:"
 msgstr "Zapytanie SQL:"
 
@@ -3505,7 +3505,7 @@ msgstr "Weź to"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:435
-#: src/Export/Export.php:1280 src/Html/Generator.php:879
+#: src/Export/Export.php:1280 src/Html/Generator.php:880
 #: src/Plugins/Schema/ExportRelationSchema.php:265
 msgid "Back"
 msgstr "Powrót"
@@ -11283,11 +11283,11 @@ msgstr "Pokaż statystyki"
 msgid "Skip locked tables"
 msgstr "Pomiń zablokowane tabele"
 
-#: src/Config/Descriptions.php:931 src/Html/Generator.php:525
+#: src/Config/Descriptions.php:931 src/Html/Generator.php:526
 msgid "Explain SQL"
 msgstr "Wyjaśnij SQL"
 
-#: src/Config/Descriptions.php:933 src/Html/Generator.php:586
+#: src/Config/Descriptions.php:933 src/Html/Generator.php:587
 msgid "Create PHP code"
 msgstr "Utwórz kod PHP"
 
@@ -15453,7 +15453,7 @@ msgstr "Następujące zapytanie nie powiodło się: \"%s\""
 #: src/Database/Events.php:128 src/Database/Events.php:353
 #: src/Database/Routines.php:103 src/Database/Routines.php:128
 #: src/Database/Routines.php:206 src/Database/Routines.php:957
-#: src/Database/Routines.php:1204 src/Html/Generator.php:829
+#: src/Database/Routines.php:1204 src/Html/Generator.php:830
 #: src/Triggers/Triggers.php:86 src/Triggers/Triggers.php:95
 #: src/Triggers/Triggers.php:122 src/Triggers/Triggers.php:239
 msgid "MySQL said: "
@@ -16094,53 +16094,53 @@ msgstr ""
 msgid "Session not found."
 msgstr "Nie znaleziono sesji."
 
-#: src/Html/Generator.php:147
+#: src/Html/Generator.php:148
 #, php-format
 msgid "Jump to database “%s”."
 msgstr "Przejście do bazy danych \"%s\"."
 
-#: src/Html/Generator.php:213
+#: src/Html/Generator.php:214
 msgid "SSL is not being used"
 msgstr "SSL nie jest używany"
 
-#: src/Html/Generator.php:220
+#: src/Html/Generator.php:221
 msgid "SSL is used with disabled verification"
 msgstr "SSL jest używany z wyłączoną weryfikacją"
 
-#: src/Html/Generator.php:222
+#: src/Html/Generator.php:223
 msgid "SSL is used without certification authority"
 msgstr "SSL jest używany bez urzędu certyfikacji"
 
-#: src/Html/Generator.php:225
+#: src/Html/Generator.php:226
 msgid "SSL is used"
 msgstr "Protokół SSL jest w użyciu"
 
-#: src/Html/Generator.php:328
+#: src/Html/Generator.php:329
 msgid "The PHP function password_hash() with default options."
 msgstr "Funkcja PHP password_hash() z opcjami domyślnymi."
 
-#: src/Html/Generator.php:329
+#: src/Html/Generator.php:330
 msgid "password_hash() PHP function"
 msgstr "password_hash() funkcja PHP"
 
-#: src/Html/Generator.php:534
+#: src/Html/Generator.php:535
 msgid "Skip Explain SQL"
 msgstr "Pomiń wyjaśnienie SQL"
 
-#: src/Html/Generator.php:566
+#: src/Html/Generator.php:567
 msgid "Without PHP code"
 msgstr "Bez kodu PHP"
 
-#: src/Html/Generator.php:648
+#: src/Html/Generator.php:649
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Edytuj w linii"
 
-#: src/Html/Generator.php:771
+#: src/Html/Generator.php:772
 msgid "Static analysis:"
 msgstr "Analiza statyczna:"
 
-#: src/Html/Generator.php:774
+#: src/Html/Generator.php:775
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "%d błędów zostało znalezionych podczas analizy."
@@ -17619,10 +17619,10 @@ msgstr ""
 "ExternalTransformationsPlugin.php i wyświetlić listę narzędzi, które chcesz "
 "udostępnić. Pierwsza opcja to numer programu, którego chcesz użyć. Druga "
 "opcja powinna być pusta ze względów historycznych. Trzecia opcja, jeśli jest "
-"ustawiona na 1, konwertuje dane wyjściowe za pomocą htmlspecialchars() ("
-"Domyślnie 1). Czwarta opcja, jeśli jest ustawiona na 1, zapobiegnie "
-"zawijaniu i zapewni, że dane wyjściowe pojawią się w jednym wierszu ("
-"Domyślnie 1)."
+"ustawiona na 1, konwertuje dane wyjściowe za pomocą htmlspecialchars() "
+"(Domyślnie 1). Czwarta opcja, jeśli jest ustawiona na 1, zapobiegnie "
+"zawijaniu i zapewni, że dane wyjściowe pojawią się w jednym wierszu "
+"(Domyślnie 1)."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:122
 #, php-format
