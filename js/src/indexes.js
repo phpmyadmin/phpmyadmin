@@ -775,7 +775,7 @@ AJAX.registerOnload('indexes.js', function () {
 
         if (indexChoice === 'none') {
             Indexes.removeColumnFromIndex(colIndex);
-            var id = 'index_name_' + '0' + '_8';
+            var id = 'index_name_' + colIndex + '_8';
             var $name = $('#' + id);
             if ($name.length === 0) {
                 $name = $('<a id="' + id + '" href="#" class="ajax show_index_dialog"></a>');
