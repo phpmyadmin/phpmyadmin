@@ -7,8 +7,10 @@ namespace PhpMyAdmin\Partitioning;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
+use PhpMyAdmin\Table;
 use PhpMyAdmin\Util;
 
+use function __;
 use function sprintf;
 
 final class Maintenance
@@ -136,6 +138,10 @@ final class Maintenance
      */
     public function truncate(DatabaseName $db, TableName $table, string $partition): array
     {
+        if (Table::get($table->getName(), $db->getName(), $this->dbi)->isView()) {
+            return [false, __('This table is a view, it can not be truncated.')];
+        }
+
         $query = sprintf(
             'ALTER TABLE %s TRUNCATE PARTITION %s;',
             Util::backquote($table->getName()),

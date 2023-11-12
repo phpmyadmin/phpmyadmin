@@ -16,6 +16,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
+use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
@@ -23,6 +24,7 @@ use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
 use function count;
+use function is_string;
 
 final class EmptyTableController extends AbstractController
 {
@@ -57,6 +59,10 @@ final class EmptyTableController extends AbstractController
         $selectedCount = count($selected);
 
         for ($i = 0; $i < $selectedCount; $i++) {
+            if (! is_string($selected[$i]) || Table::get($selected[$i], $GLOBALS['db'], $this->dbi)->isView()) {
+                continue;
+            }
+
             $aQuery = 'TRUNCATE ';
             $aQuery .= Util::backquote($selected[$i]);
 

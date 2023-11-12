@@ -1541,7 +1541,6 @@
     </InvalidArgument>
     <PossiblyInvalidArgument>
       <code>$selected</code>
-      <code>$selected[$i]</code>
     </PossiblyInvalidArgument>
     <PossiblyUnusedMethod>
       <code>__construct</code>
