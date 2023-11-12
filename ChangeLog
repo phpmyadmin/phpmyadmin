@@ -69,6 +69,9 @@ phpMyAdmin - ChangeLog
 - issue #18650 Fixed double escaping on foreign key relation link title
 - issue #18533 Fixed wrong count for simulated queries
 - issue #18611 Fixed an error when searching a table without conditions
+- issue #17381 Fixed JS errors when editing indexes on create table
+- issue #14402 Fix the PRIMARY label still shown when using two columns for a PK on create table
+- issue #17347 Fixed JS errors when changing index settings on create table
 
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid
