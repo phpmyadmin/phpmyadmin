@@ -2397,6 +2397,8 @@ class InsertEdit
             'select_option_for_upload' => $selectOptionForUpload,
             'limit_chars' => $GLOBALS['cfg']['LimitChars'],
             'input_field_html' => $inputFieldHtml,
+            'tab_index' => $tabindex,
+            'tab_index_for_value' => $tabindexForValue,
         ]);
     }
 
