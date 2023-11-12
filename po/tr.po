@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2023-09-04 10:27+0000\n"
+"PO-Revision-Date: 2023-11-13 17:46+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.2-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -7303,10 +7303,8 @@ msgid "up to date"
 msgstr "güncel"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:611
-#, fuzzy
-#| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
-msgstr "ESRI şekil dosyasının içe aktarılmasında hata var: \"%s\"."
+msgstr "Git bilgileri yüklenirken bir hata oldu."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:614
 msgid ""
@@ -10698,10 +10696,8 @@ msgid "The table name is empty!"
 msgstr "Tablo adı boş!"
 
 #: libraries/classes/Partitioning/Maintenance.php:141
-#, fuzzy
-#| msgid "This is a read-only variable and can not be edited"
 msgid "This table is a view, it can not be truncated."
-msgstr "Bu, salt okunur bir değişkendir ve düzenlenemez"
+msgstr "Bu tablo bir görünümdür, kesilemez."
 
 #: libraries/classes/Pdf.php:136
 msgid "Error while creating PDF:"
@@ -10762,16 +10758,12 @@ msgid "Entered captcha is wrong, try again!"
 msgstr "Girilen captcha yanlış, tekrar deneyin!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:301
-#, fuzzy
-#| msgid ""
-#| "Your password is too long. To prevent denial-of-service attacks, "
-#| "phpMyAdmin restricts passwords to less than 1000 characters."
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
 msgstr ""
 "Parolanız çok uzun. Hizmet reddi saldırılarını önlemek için phpMyAdmin, "
-"parolaları 1000 karakterden daha azına kısıtlar."
+"parolaları 2000 karakterden daha azına kısıtlar."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:320
 msgid "You are not allowed to log in to this MySQL server!"
