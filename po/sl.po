@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 00:18+0000\n"
-"PO-Revision-Date: 2023-10-02 10:01+0000\n"
+"PO-Revision-Date: 2023-11-13 17:46+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 5.1-dev\n"
+"X-Generator: Weblate 5.2-dev\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:31
 #: resources/templates/database/central_columns/edit_table_row.twig:23
@@ -6549,7 +6549,7 @@ msgstr "Uredi/Vstavi"
 
 #: resources/templates/table/insert/continue_insertion_form.twig:14
 msgid "Amount of rows to insert"
-msgstr ""
+msgstr "Število vrstic za vstaviti"
 
 #: resources/templates/table/maintenance/checksum.twig:13
 msgid "Checksum"
@@ -15221,10 +15221,8 @@ msgid "The partition name must be a non-empty string."
 msgstr "Particija tabele mora biti neprazen niz."
 
 #: src/Controllers/Table/RecentFavoriteController.php:27
-#, fuzzy
-#| msgid "Invalid table name"
 msgid "Invalid database or table name."
-msgstr "Neveljavno ime tabele"
+msgstr "Neveljavno ime zbirke podatkov ali tabele."
 
 #: src/Controllers/Table/RelationController.php:270
 msgid "Display column was successfully updated."
