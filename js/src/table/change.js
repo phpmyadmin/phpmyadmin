@@ -178,7 +178,7 @@ function verifyAfterSearchFieldChange (index, searchFormId) {
             // BETWEEN and NOT BETWEEN
             // See all possible syntaxes in tests of https://regexr.com/7h1eq
             jQuery.validator.addMethod('validationFunctionForMultipleInt', function (value) {
-                return value.match(/^(((0x[0-9a-f]+)|([+-]?([0-9]*\.?[0-9]+|[0-9]+\.?[0-9]*)(e[+-]?[0-9]+)?))(,|$))+$/i) !== null;
+                return value.replace(/ /g,'').match(/^(((0x[0-9a-f]+)|([+-]?([0-9]*\.?[0-9]+|[0-9]+\.?[0-9]*)(e[+-]?[0-9]+)?))(,|$))+$/i) !== null;
             },
             Messages.strEnterValidNumber
             );
