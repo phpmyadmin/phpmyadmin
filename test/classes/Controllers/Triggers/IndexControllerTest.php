@@ -22,13 +22,6 @@ use ReflectionClass;
 #[CoversClass(Triggers::class)]
 final class IndexControllerTest extends AbstractTestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->setTheme();
-    }
-
     public function testWithTriggers(): void
     {
         $GLOBALS['server'] = 2;
@@ -74,8 +67,8 @@ final class IndexControllerTest extends AbstractTestCase
         $expected = <<<'HTML'
 <div class="container-fluid my-3">
   <h2>
-    <span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Triggers" alt="Triggers" class="icon ic_b_triggers"><use xlink:href="./themes/pmahomme/img/icons.svg#b_triggers"/></svg>&nbsp;Triggers</span>
-    <a href="index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Ftriggers.html" target="mysql_doc"><svg fill="currentColor" role="img" aria-label="Documentation" alt="Documentation" class="icon ic_b_help"><use xlink:href="./themes/pmahomme/img/icons.svg#b_help"/></svg></a>
+    <span class="text-nowrap"><img src="themes/dot.gif" title="Triggers" alt="Triggers" class="icon ic_b_triggers">&nbsp;Triggers</span>
+    <a href="index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Ftriggers.html" target="mysql_doc"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
   </h2>
 
   <div class="d-flex flex-wrap my-3">    <div>
@@ -87,16 +80,16 @@ final class IndexControllerTest extends AbstractTestCase
           </div>
         </div>
         <button class="btn btn-outline-secondary" id="bulkActionExportButton" type="submit" name="submit_mult" value="export" form="rteListForm" title="Export">
-          <span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Export" alt="Export" class="icon ic_b_export"><use xlink:href="./themes/pmahomme/img/icons.svg#b_export"/></svg>&nbsp;Export</span>
+          <span class="text-nowrap"><img src="themes/dot.gif" title="Export" alt="Export" class="icon ic_b_export">&nbsp;Export</span>
         </button>
         <button class="btn btn-outline-secondary" id="bulkActionDropButton" type="submit" name="submit_mult" value="drop" form="rteListForm" title="Drop">
-          <span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Drop" alt="Drop" class="icon ic_b_drop"><use xlink:href="./themes/pmahomme/img/icons.svg#b_drop"/></svg>&nbsp;Drop</span>
+          <span class="text-nowrap"><img src="themes/dot.gif" title="Drop" alt="Drop" class="icon ic_b_drop">&nbsp;Drop</span>
         </button>
       </div>
     </div>
     <div class="ms-auto">
       <a class="ajax add_anchor btn btn-primary" href="index.php?route=/triggers&db=test_db&table=&add_item=1&server=2&lang=en" role="button">
-        <span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Create new trigger" alt="Create new trigger" class="icon ic_b_trigger_add"><use xlink:href="./themes/pmahomme/img/icons.svg#b_trigger_add"/></svg>&nbsp;Create new trigger</span>
+        <span class="text-nowrap"><img src="themes/dot.gif" title="Create new trigger" alt="Create new trigger" class="icon ic_b_trigger_add">&nbsp;Create new trigger</span>
       </a>
     </div>
   </div>
@@ -106,7 +99,7 @@ final class IndexControllerTest extends AbstractTestCase
 
     <div id="nothing2display" class="hide">
       <div class="alert alert-primary" role="alert">
-  <svg fill="currentColor" role="img" aria-label="" alt="" class="icon ic_s_notice"><use xlink:href="./themes/pmahomme/img/icons.svg#s_notice"/></svg> There are no triggers to display.
+  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> There are no triggers to display.
 </div>
 
     </div>
@@ -142,16 +135,16 @@ final class IndexControllerTest extends AbstractTestCase
   </td>
   <td>
           <a class="ajax edit_anchor" href="index.php?route=/triggers&db=test_db&table=&edit_item=1&item_name=test_trigger&server=2&lang=en">
-        <span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Edit" alt="Edit" class="icon ic_b_edit"><use xlink:href="./themes/pmahomme/img/icons.svg#b_edit"/></svg>&nbsp;Edit</span>
+        <span class="text-nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit">&nbsp;Edit</span>
       </a>
       </td>
   <td>
     <a class="ajax export_anchor" href="index.php?route=/triggers&db=test_db&table=&export_item=1&item_name=test_trigger&server=2&lang=en">
-      <span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Export" alt="Export" class="icon ic_b_export"><use xlink:href="./themes/pmahomme/img/icons.svg#b_export"/></svg>&nbsp;Export</span>
+      <span class="text-nowrap"><img src="themes/dot.gif" title="Export" alt="Export" class="icon ic_b_export">&nbsp;Export</span>
     </a>
   </td>
   <td>
-          <a href="index.php" data-post="route=/sql&server=2&lang=en&db=test_db&table=&sql_query=DROP+TRIGGER+IF+EXISTS+%60test_trigger%60&goto=index.php%3Froute%3D%2Ftriggers%26db%3Dtest_db%26server%3D2%26lang%3Den&server=2&lang=en" class="ajax drop_anchor"><span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Drop" alt="Drop" class="icon ic_b_drop"><use xlink:href="./themes/pmahomme/img/icons.svg#b_drop"/></svg>&nbsp;Drop</span></a>
+          <a href="index.php" data-post="route=/sql&server=2&lang=en&db=test_db&table=&sql_query=DROP+TRIGGER+IF+EXISTS+%60test_trigger%60&goto=index.php%3Froute%3D%2Ftriggers%26db%3Dtest_db%26server%3D2%26lang%3Den&server=2&lang=en" class="ajax drop_anchor"><span class="text-nowrap"><img src="themes/dot.gif" title="Drop" alt="Drop" class="icon ic_b_drop">&nbsp;Drop</span></a>
       </td>
 </tr>
       </tbody>
@@ -210,14 +203,14 @@ HTML;
         $expected = <<<'HTML'
 <div class="container-fluid my-3">
   <h2>
-    <span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Triggers" alt="Triggers" class="icon ic_b_triggers"><use xlink:href="./themes/pmahomme/img/icons.svg#b_triggers"/></svg>&nbsp;Triggers</span>
-    <a href="index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Ftriggers.html" target="mysql_doc"><svg fill="currentColor" role="img" aria-label="Documentation" alt="Documentation" class="icon ic_b_help"><use xlink:href="./themes/pmahomme/img/icons.svg#b_help"/></svg></a>
+    <span class="text-nowrap"><img src="themes/dot.gif" title="Triggers" alt="Triggers" class="icon ic_b_triggers">&nbsp;Triggers</span>
+    <a href="index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Ftriggers.html" target="mysql_doc"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
   </h2>
 
   <div class="d-flex flex-wrap my-3">
     <div>
       <a class="ajax add_anchor btn btn-primary" href="index.php?route=/triggers&db=test_db&table=&add_item=1&server=2&lang=en" role="button">
-        <span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Create new trigger" alt="Create new trigger" class="icon ic_b_trigger_add"><use xlink:href="./themes/pmahomme/img/icons.svg#b_trigger_add"/></svg>&nbsp;Create new trigger</span>
+        <span class="text-nowrap"><img src="themes/dot.gif" title="Create new trigger" alt="Create new trigger" class="icon ic_b_trigger_add">&nbsp;Create new trigger</span>
       </a>
     </div>
   </div>
@@ -227,7 +220,7 @@ HTML;
 
     <div id="nothing2display">
       <div class="alert alert-primary" role="alert">
-  <svg fill="currentColor" role="img" aria-label="" alt="" class="icon ic_s_notice"><use xlink:href="./themes/pmahomme/img/icons.svg#s_notice"/></svg> There are no triggers to display.
+  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> There are no triggers to display.
 </div>
 
     </div>

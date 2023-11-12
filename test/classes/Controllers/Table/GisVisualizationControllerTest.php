@@ -22,13 +22,6 @@ use const MYSQLI_TYPE_VAR_STRING;
 #[CoversClass(GisVisualizationController::class)]
 class GisVisualizationControllerTest extends AbstractTestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->setTheme();
-    }
-
     public function testGisVisualizationController(): void
     {
         $GLOBALS['server'] = 2;

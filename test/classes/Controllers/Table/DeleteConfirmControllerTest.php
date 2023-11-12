@@ -16,13 +16,6 @@ use PHPUnit\Framework\Attributes\CoversClass;
 #[CoversClass(DeleteConfirmController::class)]
 class DeleteConfirmControllerTest extends AbstractTestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->setTheme();
-    }
-
     public function testDeleteConfirmController(): void
     {
         $GLOBALS['db'] = 'test_db';

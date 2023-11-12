@@ -203,7 +203,7 @@ function loadChildNodes (isNode, $expandElem, callback): void {
         } else {
             var $throbber = $expandElem.find('img.throbber');
             $throbber.hide();
-            var $icon = $expandElem.find('.icon.ic_b_plus');
+            var $icon = $expandElem.find('img.ic_b_plus');
             $icon.show();
             ajaxShowMessage(data.error, false);
         }
@@ -246,7 +246,7 @@ function traverseForPaths () {
 
     var count = 0;
     $('#pma_navigation_tree').find('a.expander:visible').each(function () {
-        if ($(this).find('.icon').is('.ic_b_minus') &&
+        if ($(this).find('img').is('.ic_b_minus') &&
             $(this).closest('li').find('div.list_container .ic_b_minus').length === 0
         ) {
             var pathsNav = $(this).find('span.paths_nav');
@@ -284,7 +284,7 @@ function traverseForPaths () {
  */
 function expandTreeNode ($expandElem, callback = undefined): void {
     var $children = $expandElem.closest('li').children('div.list_container');
-    var $icon = $expandElem.find('.icon');
+    var $icon = $expandElem.find('img');
     if ($expandElem.hasClass('loaded')) {
         if ($icon.is('.ic_b_plus')) {
             $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
@@ -428,7 +428,7 @@ function showCurrent (): void {
         var $expander = $dbItem.children('div').first().children('a.expander');
         // if not loaded or loaded but collapsed
         if (! $expander.hasClass('loaded') ||
-            $expander.find('.icon').is('.ic_b_plus')
+            $expander.find('img').is('.ic_b_plus')
         ) {
             Navigation.expandTreeNode($expander, function () {
                 handleTableOrDb(table, $dbItem);

@@ -39,8 +39,6 @@ class SqlQueryFormTest extends AbstractTestCase
 
         parent::setLanguage();
 
-        $this->setTheme();
-
         $this->dummyDbi = $this->createDbiDummy();
         $this->dummyDbi = $this->createDbiDummy();
         $this->dummyDbi->addResult(

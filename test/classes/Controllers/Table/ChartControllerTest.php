@@ -23,13 +23,6 @@ use const MYSQLI_TYPE_LONG;
 #[CoversClass(ChartController::class)]
 class ChartControllerTest extends AbstractTestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->setTheme();
-    }
-
     public function testChartController(): void
     {
         $GLOBALS['db'] = 'test_db';

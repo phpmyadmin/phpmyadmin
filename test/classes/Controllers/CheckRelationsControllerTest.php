@@ -27,8 +27,6 @@ class CheckRelationsControllerTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->setTheme();
-
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;

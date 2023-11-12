@@ -65,8 +65,7 @@ class DeleteRowsControllerTest extends AbstractTestCase
         $this->assertStringContainsString(
             '<div class="alert alert-success border-top-0 border-start-0 border-end-0 rounded-bottom-0 mb-0"'
             . ' role="alert">' . "\n"
-            . '  <svg fill="currentColor" role="img" aria-label="" alt="" class="icon ic_s_success">'
-            . '<use xlink:href="./themes/pmahomme/img/icons.svg#s_success"/></svg>'
+            . '  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_success">'
             . ' Your SQL query has been executed successfully.' . "\n"
             . '</div>',
             $actual,

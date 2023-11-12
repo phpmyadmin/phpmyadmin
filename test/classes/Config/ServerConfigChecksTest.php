@@ -30,8 +30,6 @@ class ServerConfigChecksTest extends AbstractTestCase
 
         parent::setGlobalConfig();
 
-        $this->setTheme();
-
         $config = Config::getInstance();
         $config->settings['AvailableCharsets'] = [];
         $config->settings['ServerDefault'] = 0;

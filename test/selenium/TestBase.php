@@ -708,7 +708,7 @@ abstract class TestBase extends TestCase
             return;
         }
 
-        $this->byCssSelector('.icon.ic_s_loggoff')->click();
+        $this->byCssSelector('img.icon.ic_s_loggoff')->click();
     }
 
     /**

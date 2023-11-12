@@ -20,13 +20,6 @@ use PHPUnit\Framework\Attributes\CoversClass;
 #[CoversClass(AddFieldController::class)]
 class AddFieldControllerTest extends AbstractTestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->setTheme();
-    }
-
     public function testInvoke(): void
     {
         $GLOBALS['db'] = 'test_db';

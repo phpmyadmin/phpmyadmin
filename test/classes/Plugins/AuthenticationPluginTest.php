@@ -16,13 +16,6 @@ use ReflectionProperty;
 #[CoversClass(AuthenticationPlugin::class)]
 final class AuthenticationPluginTest extends AbstractTestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->setTheme();
-    }
-
     public function testCheckTwoFactor(): void
     {
         $GLOBALS['lang'] = 'en';

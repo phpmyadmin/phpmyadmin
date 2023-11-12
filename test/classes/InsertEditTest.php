@@ -2703,9 +2703,8 @@ class InsertEditTest extends AbstractTestCase
             $actual,
         );
         $this->assertStringContainsString(
-            '<a href="#" ><span class="text-nowrap"><svg fill="currentColor" role="img" aria-label="Edit/Insert"'
-            . ' alt="Edit/Insert" class="icon ic_b_edit"><use xlink:href="./themes/pmahomme/img/icons.svg#b_edit"/>'
-            . '</svg>&nbsp;Edit/Insert</span></a>',
+            '<a href="#" ><span class="text-nowrap"><img src="themes/dot.gif" title="Edit/Insert"' .
+            ' alt="Edit/Insert" class="icon ic_b_edit">&nbsp;Edit/Insert</span></a>',
             $actual,
         );
     }

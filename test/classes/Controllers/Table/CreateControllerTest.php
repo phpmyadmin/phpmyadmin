@@ -21,13 +21,6 @@ use function array_merge;
 #[CoversClass(CreateController::class)]
 class CreateControllerTest extends AbstractTestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->setTheme();
-    }
-
     public function testCreateController(): void
     {
         $GLOBALS['db'] = 'test_db';

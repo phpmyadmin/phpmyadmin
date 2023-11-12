@@ -19,7 +19,6 @@ use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Utils\Error as ParserError;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Theme\Theme;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use Throwable;
@@ -922,12 +921,8 @@ class Generator
         // override the title attribute
         $title = $attributes['title'] ?? $alternate;
 
-        /** @var Theme $theme */
-        $theme = $GLOBALS['theme'];
-
-        $template = '<svg fill="currentColor" role="img" aria-label="%s" alt="%s"%s><use xlink:href="';
-        $template .= $theme->getImgPath('icons.svg') . '#' . $image;
-        $template .= '"/></svg>';
+        // generate the IMG tag
+        $template = '<img src="themes/dot.gif" title="%s" alt="%s"%s>';
 
         return sprintf($template, $title, $alt, $attributeString);
     }

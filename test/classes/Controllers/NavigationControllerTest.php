@@ -26,8 +26,6 @@ class NavigationControllerTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->setTheme();
-
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
@@ -152,18 +150,16 @@ class NavigationControllerTest extends AbstractTestCase
             . '          <span class="hide paths_nav" data-apath="cm9vdA==.YWlyLWJhbGxvb25fYnVybmVyX2RldjI="'
                         . ' data-vpath="cm9vdA==.YWlyLWJhbGxvb25fYnVybmVyX2RldjI="'
                         . ' data-pos="0"></span>' . "\n"
-            . '                    <svg fill="currentColor" role="img" aria-label="Expand/Collapse"'
-            . ' alt="Expand/Collapse" class="icon ic_b_plus"><use xlink:href="./themes/pmahomme/img/icons.svg#b_plus"/>'
-            . '</svg>' . "\n"
+            . '                    <img src="themes/dot.gif" title="Expand/Collapse"'
+                                . ' alt="Expand/Collapse" class="icon ic_b_plus">' . "\n"
             . '        </a>' . "\n"
             . '          </div>' . "\n"
             . '    ' . "\n"
             . '          <div class="block second">' . "\n"
             . '                  <a href="index.php?route=/database/operations'
                                 . '&db=air-balloon_burner_dev2&lang=en" class="disableAjax">'
-                                . '<svg fill="currentColor" role="img" aria-label="Database operations"'
-            . ' alt="Database operations" class="icon ic_s_db"><use xlink:href="./themes/pmahomme/img/icons.svg#s_db"/>'
-            . '</svg></a>' . "\n"
+                                . '<img src="themes/dot.gif" title="Database operations"'
+                                . ' alt="Database operations" class="icon ic_s_db"></a>' . "\n"
             . '              </div>' . "\n"
             . "\n"
             . '              <a class="hover_show_full disableAjax"'
@@ -297,16 +293,15 @@ class NavigationControllerTest extends AbstractTestCase
             . '              <b></b>' . "\n"
             . '        <a class="expander" href="#">' . "\n"
             . '          <span class="hide paths_nav" data-apath="%s" data-vpath="%s" data-pos="0"></span>' . "\n"
-            . '                    <svg fill="currentColor" role="img" aria-label="Expand/Collapse"'
-            . ' alt="Expand/Collapse" class="icon ic_b_plus"><use'
-            . ' xlink:href="./themes/pmahomme/img/icons.svg#b_plus"/></svg>' . "\n"
+            . '                    <img src="themes/dot.gif" title="Expand/Collapse" alt="Expand/Collapse"'
+            . ' class="icon ic_b_plus">' . "\n"
             . '        </a>' . "\n"
             . '          </div>' . "\n"
             . '    ' . "\n"
             . '          <div class="block second">' . "\n"
             . '                  <a href="index.php?route=/database/operations&db=%s&lang=en" class="disableAjax">'
-            . '<svg fill="currentColor" role="img" aria-label="Database operations" alt="Database operations"'
-            . ' class="icon ic_s_db"><use xlink:href="./themes/pmahomme/img/icons.svg#s_db"/></svg></a>' . "\n"
+            . '<img src="themes/dot.gif" title="Database operations" alt="Database operations"'
+            . ' class="icon ic_s_db"></a>' . "\n"
             . '              </div>' . "\n"
             . "\n"
             . '              <a class="hover_show_full disableAjax"'
@@ -327,16 +322,15 @@ class NavigationControllerTest extends AbstractTestCase
             . '              ' . "\n"// <b> node is removed
             . '        <a class="expander" href="#">' . "\n"
             . '          <span class="hide paths_nav" data-apath="%s" data-vpath="%s" data-pos="0"></span>' . "\n"
-            . '                    <svg fill="currentColor" role="img" aria-label="Expand/Collapse"'
-            . ' alt="Expand/Collapse" class="icon ic_b_plus"><use'
-            . ' xlink:href="./themes/pmahomme/img/icons.svg#b_plus"/></svg>' . "\n"
+            . '                    <img src="themes/dot.gif" title="Expand/Collapse" alt="Expand/Collapse"'
+            . ' class="icon ic_b_plus">' . "\n"
             . '        </a>' . "\n"
             . '          </div>' . "\n"
             . '    ' . "\n"
             . '          <div class="block second">' . "\n"
             . '                  <a href="index.php?route=/database/operations&db=%s&lang=en" class="disableAjax">'
-            . '<svg fill="currentColor" role="img" aria-label="Database operations" alt="Database operations"'
-            . ' class="icon ic_s_db"><use xlink:href="./themes/pmahomme/img/icons.svg#s_db"/></svg></a>' . "\n"
+            . '<img src="themes/dot.gif" title="Database operations" alt="Database operations"'
+            . ' class="icon ic_s_db"></a>' . "\n"
             . '              </div>' . "\n"
             . "\n"
             . '              <a class="hover_show_full disableAjax"'
@@ -356,15 +350,15 @@ class NavigationControllerTest extends AbstractTestCase
             . '              <b></b>' . "\n"
             . '        <a class="expander loaded" href="#">' . "\n"
             . '          <span class="hide paths_nav" data-apath="%s" data-vpath="%s" data-pos="0"></span>' . "\n"
-            . '                    <svg fill="currentColor" role="img" aria-label="" alt="" class="icon ic_b_minus">'
-            . '<use xlink:href="./themes/pmahomme/img/icons.svg#b_minus"/></svg>' . "\n"// Icon changes
+            . '                    <img src="themes/dot.gif" title="" alt=""'// title and alt changes
+            . ' class="icon ic_b_minus">' . "\n"// Icon changes
             . '        </a>' . "\n"
             . '          </div>' . "\n"
             . '    ' . "\n"
             . '          <div class="block second">' . "\n"
             . '                  <a href="index.php?route=/database/operations&db=%s&lang=en" class="disableAjax">'
-            . '<svg fill="currentColor" role="img" aria-label="Database operations" alt="Database operations"'
-            . ' class="icon ic_s_db"><use xlink:href="./themes/pmahomme/img/icons.svg#s_db"/></svg></a>' . "\n"
+            . '<img src="themes/dot.gif" title="Database operations" alt="Database operations"'
+            . ' class="icon ic_s_db"></a>' . "\n"
             . '              </div>' . "\n"
             . "\n"
             . '              <a class="hover_show_full disableAjax"'
@@ -392,15 +386,13 @@ class NavigationControllerTest extends AbstractTestCase
             . '          <span class="hide paths_nav" data-apath="cm9vdA=="'
                         . ' data-vpath="cm9vdA==.YWlyLWJhbGxvb24="'
                         . ' data-pos="0"></span>' . "\n"
-            . '                    <svg fill="currentColor" role="img" aria-label="" alt="" class="icon ic_b_minus">'
-            . '<use xlink:href="./themes/pmahomme/img/icons.svg#b_minus"/></svg>' . "\n"
+            . '                    <img src="themes/dot.gif" title="" alt="" class="icon ic_b_minus">' . "\n"
             . '        </a>' . "\n"
             . '          </div>' . "\n"
             . '          <div class="fst-italic">' . "\n"
             . '    ' . "\n"
             . '          <div class="block second">' . "\n"
-            . '        <u><svg fill="currentColor" role="img" aria-label="Groups" alt="Groups"'
-            . ' class="icon ic_b_group"><use xlink:href="./themes/pmahomme/img/icons.svg#b_group"/></svg></u>' . "\n"
+            . '        <u><img src="themes/dot.gif" title="Groups" alt="Groups" class="icon ic_b_group"></u>' . "\n"
             . '      </div>' . "\n"
             . '      &nbsp;air-balloon' . "\n"
             . '    ' . "\n"

@@ -18,13 +18,6 @@ use PHPUnit\Framework\Attributes\DataProvider;
 #[CoversClass(AnalyzeController::class)]
 class AnalyzeControllerTest extends AbstractTestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->setTheme();
-    }
-
     #[DataProvider('providerForTestInvalidDatabaseAndTable')]
     public function testInvalidDatabaseAndTable(
         string|null $partition,

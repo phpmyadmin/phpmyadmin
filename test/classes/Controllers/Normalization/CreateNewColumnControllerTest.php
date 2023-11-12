@@ -19,13 +19,6 @@ use PHPUnit\Framework\Attributes\CoversClass;
 #[CoversClass(CreateNewColumnController::class)]
 class CreateNewColumnControllerTest extends AbstractTestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->setTheme();
-    }
-
     public function testDefault(): void
     {
         Config::getInstance()->selectedServer['DisableIS'] = false;

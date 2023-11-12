@@ -18,13 +18,6 @@ use PHPUnit\Framework\Attributes\CoversClass;
 #[CoversClass(IndexRenameController::class)]
 class IndexRenameControllerTest extends AbstractTestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->setTheme();
-    }
-
     public function testIndexRenameController(): void
     {
         $GLOBALS['server'] = 2;

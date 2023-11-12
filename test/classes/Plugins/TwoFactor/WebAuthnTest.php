@@ -26,13 +26,6 @@ use function json_decode;
 #[CoversClass(WebAuthnException::class)]
 class WebAuthnTest extends AbstractTestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->setTheme();
-    }
-
     public function testIdNameAndDescription(): void
     {
         $this->assertSame('WebAuthn', WebAuthn::$id);

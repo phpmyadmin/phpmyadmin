@@ -25,8 +25,6 @@ class SearchTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->setTheme();
-
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'pma';
         $GLOBALS['_POST'] = [];

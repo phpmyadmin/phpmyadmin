@@ -116,7 +116,7 @@
 
   <div class="float-start row">
     <div class="col-12">
-      <img src="themes/dot.gif" class="icon ic_select_all_arrow" title="{{ 'With selected:'|trans }}" alt="{{ 'With selected:'|trans }}" width="38" height="22" dir="{{ text_dir }}">
+      {{ get_image('select_all_arrow', 'With selected:'|trans, {'dir': text_dir, 'width': '38', 'height': '22'}) }}
       <input type="checkbox" id="usersForm_checkall" class="checkall_box" title="{% trans 'Check all' %}">
       <label for="usersForm_checkall">{% trans 'Check all' %}</label>
       <em class="with-selected">{% trans 'With selected:' %}</em>

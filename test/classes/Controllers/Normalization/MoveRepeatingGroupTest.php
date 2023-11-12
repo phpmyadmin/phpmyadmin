@@ -19,13 +19,6 @@ use PHPUnit\Framework\Attributes\CoversClass;
 #[CoversClass(MoveRepeatingGroup::class)]
 class MoveRepeatingGroupTest extends AbstractTestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->setTheme();
-    }
-
     public function testDefault(): void
     {
         $GLOBALS['db'] = 'test_db';
