@@ -163,8 +163,10 @@ Indexes.removeColumnFromIndex = function (colIndex) {
             // Remove column from index array.
             var sourceLength = sourceArray[previousIndex[1]].columns.length;
             for (var i = 0; i < sourceLength; i++) {
-                if (sourceArray[previousIndex[1]].columns[i].col_index === colIndex) {
-                    sourceArray[previousIndex[1]].columns.splice(i, 1);
+                if (i in sourceArray[previousIndex[1]].columns) {
+                    if (sourceArray[previousIndex[1]].columns[i].col_index === colIndex) {
+                        sourceArray[previousIndex[1]].columns.splice(i, 1);
+                    }
                 }
             }
 
@@ -827,7 +829,11 @@ AJAX.registerOnload('indexes.js', function () {
         var arrayIndex  = previousIndex[1];
 
         var sourceArray = Indexes.getIndexArray(indexChoice);
-        if (sourceArray !== null) {
+        if (sourceArray === null) {
+            return;
+        }
+
+        if (arrayIndex in sourceArray) {
             var sourceLength = sourceArray[arrayIndex].columns.length;
 
             var targetColumns = [];
