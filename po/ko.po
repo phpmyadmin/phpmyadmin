@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
 "PO-Revision-Date: 2023-11-14 11:26+0000\n"
-"Last-Translator: Yong Kim <kim@nhn.com>\n"
+"Last-Translator: 가석현 <shga89@naver.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/5-2/ko/"
 ">\n"
 "Language: ko\n"
@@ -6620,15 +6620,14 @@ msgstr "외래값 탐색"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:391
 msgid "No previously auto-saved query is available. Loading default query."
-msgstr "이전에 자동 저장된 쿼리를 사용할 수 없음. 기본 쿼리를 로딩중이다."
+msgstr "이전에 자동 저장된 질의를 사용할 수 없습니다. 기본 질의를 불러오는 중입니다."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:393
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
-msgstr ""
-"이전에 저장한 쿼리가 있는 경우. 쿼리를 로드하려면 자동 저장 쿼리 가져오기를 "
-"누르십시오."
+msgstr "이전에 저장된 질의가 존재합니다. 자동 저장 질의 받기를 클릭하여 질의를 "
+"불러올 수 있습니다."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:395
 #, php-format
@@ -6707,13 +6706,11 @@ msgid "Selected partial dependencies are as follows:"
 msgstr "선택된 부분의 의존성은 다음과 같음:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:418
-#, fuzzy
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
-msgstr ""
-"참고: a, b -> d, f 는 컬럼 a와 컬럼 b의 결합된 값들이 컬럼 d와 컬럼 f의 값을 "
-"결정할 수 있다는 뜻입니다."
+msgstr "참고: a, b -> d, f 는 열 a와 열 b의 결합된 값들이 열 d와 열 f의 값을 결정할 "
+"수 있다는 뜻입니다."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:421
 msgid "No partial dependencies selected!"
@@ -7063,10 +7060,8 @@ msgid "%d object(s) created."
 msgstr "%d 개의 개체가 생성되었습니다."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:541
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "열(칼럼) 이름"
+msgstr "열 이름"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 #: templates/modals/build_query.twig:17 templates/sql/query.twig:178
@@ -7445,8 +7440,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:706
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
