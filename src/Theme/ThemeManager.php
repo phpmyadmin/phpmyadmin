@@ -60,7 +60,7 @@ class ThemeManager
         $this->theme = new Theme();
     }
 
-    public function initializeTheme(): Theme
+    public function initializeTheme(): void
     {
         $config = Config::getInstance();
         $this->setThemePerServer($config->settings['ThemePerServer']);
@@ -91,12 +91,10 @@ class ThemeManager
                 $this->theme->setColorMode($colorMode);
             }
 
-            return $this->theme;
+            return;
         }
 
         $this->setActiveTheme(self::FALLBACK_THEME);
-
-        return $this->theme;
     }
 
     /**

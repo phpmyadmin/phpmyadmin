@@ -41,8 +41,6 @@ class StructureControllerTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setTheme();
-
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = 1;
         Config::getInstance()->selectedServer['DisableIS'] = false;

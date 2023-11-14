@@ -158,7 +158,7 @@ final class EventsControllerTest extends AbstractTestCase
         <div class="wrapper toggleAjax hide">
           <div class="toggleButton">
             <div title="Click to toggle" class="toggle-container off">
-              <img src="">
+              <img src="./themes/pmahomme/img/toggle-ltr.png">
               <table>
                 <tbody>
                 <tr>
@@ -286,7 +286,7 @@ HTML;
         <div class="wrapper toggleAjax hide">
           <div class="toggleButton">
             <div title="Click to toggle" class="toggle-container off">
-              <img src="">
+              <img src="./themes/pmahomme/img/toggle-ltr.png">
               <table>
                 <tbody>
                 <tr>

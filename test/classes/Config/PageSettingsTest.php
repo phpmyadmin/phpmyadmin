@@ -30,8 +30,6 @@ class PageSettingsTest extends AbstractTestCase
 
         parent::setGlobalConfig();
 
-        parent::setTheme();
-
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';

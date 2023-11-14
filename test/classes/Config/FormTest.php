@@ -27,8 +27,6 @@ class FormTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setTheme();
-
         parent::setGlobalConfig();
 
         $GLOBALS['server'] = 0;

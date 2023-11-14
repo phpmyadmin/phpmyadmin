@@ -45,8 +45,6 @@ class TrackingTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setTheme();
-
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
 

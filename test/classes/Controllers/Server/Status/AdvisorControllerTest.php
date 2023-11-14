@@ -33,8 +33,6 @@ class AdvisorControllerTest extends AbstractTestCase
 
         parent::setGlobalConfig();
 
-        parent::setTheme();
-
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
         $GLOBALS['server'] = 1;

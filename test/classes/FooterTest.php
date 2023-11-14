@@ -35,8 +35,6 @@ class FooterTest extends AbstractTestCase
 
         parent::setGlobalConfig();
 
-        parent::setTheme();
-
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $_SERVER['SCRIPT_NAME'] = 'index.php';
         $GLOBALS['db'] = '';

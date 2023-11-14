@@ -39,8 +39,6 @@ class AuthenticationHttpTest extends AbstractTestCase
 
         parent::setGlobalConfig();
 
-        parent::setTheme();
-
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Config::getInstance()->settings['Servers'] = [];
         $GLOBALS['server'] = 0;

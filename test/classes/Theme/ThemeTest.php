@@ -23,9 +23,6 @@ class ThemeTest extends AbstractTestCase
 {
     protected Theme $object;
 
-    /** @var Theme backup for session theme */
-    protected Theme $backup;
-
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
@@ -34,27 +31,12 @@ class ThemeTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setTheme();
-
         $this->object = new Theme();
-        $this->backup = $GLOBALS['theme'];
-        $GLOBALS['theme'] = $this->object;
 
         parent::setGlobalConfig();
 
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = '99';
-    }
-
-    /**
-     * Tears down the fixture, for example, closes a network connection.
-     * This method is called after a test is executed.
-     */
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        $GLOBALS['theme'] = $this->backup;
     }
 
     /**

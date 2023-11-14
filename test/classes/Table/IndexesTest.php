@@ -22,8 +22,6 @@ class IndexesTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setTheme();
-
         /**
          * SET these to avoid undefined index error
          */

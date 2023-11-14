@@ -35,8 +35,6 @@ class CoreTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setTheme();
-
         parent::setLanguage();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();

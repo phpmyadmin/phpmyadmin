@@ -10,7 +10,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\Navigation;
-use PhpMyAdmin\Theme\Theme;
+use PhpMyAdmin\Theme\ThemeManager;
 
 use function array_merge;
 use function defined;
@@ -255,8 +255,6 @@ class Header
      */
     public function getDisplay(): string
     {
-        $GLOBALS['theme'] ??= null;
-
         if ($this->headerIsSent || ! $this->isEnabled) {
             return '';
         }
@@ -273,10 +271,11 @@ class Header
         $this->sendHttpHeaders();
 
         $baseDir = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
-        $themePath = $GLOBALS['theme'] instanceof Theme ? $GLOBALS['theme']->getPath() : '';
-        $themeColorMode = $GLOBALS['theme'] instanceof Theme ? $GLOBALS['theme']->getColorMode() : 'light';
-        $themeColorModes = $GLOBALS['theme'] instanceof Theme ? $GLOBALS['theme']->getColorModes() : [];
-        $themeId = $GLOBALS['theme'] instanceof Theme ? $GLOBALS['theme']->getId() : '';
+
+        /** @var ThemeManager $themeManager */
+        $themeManager = Core::getContainerBuilder()->get(ThemeManager::class);
+        $theme = $themeManager->theme;
+
         $version = self::getVersionParameter();
 
         // The user preferences have been merged at this point
@@ -349,7 +348,7 @@ class Header
             'lang' => $GLOBALS['lang'],
             'allow_third_party_framing' => $config->settings['AllowThirdPartyFraming'],
             'base_dir' => $baseDir,
-            'theme_path' => $themePath,
+            'theme_path' => $theme->getPath(),
             'version' => $version,
             'text_dir' => $GLOBALS['text_dir'],
             'server' => $GLOBALS['server'] ?? null,
@@ -367,9 +366,9 @@ class Header
             'console' => $console,
             'messages' => $messages,
             'recent_table' => $recentTable,
-            'theme_color_mode' => $themeColorMode,
-            'theme_color_modes' => $themeColorModes,
-            'theme_id' => $themeId,
+            'theme_color_mode' => $theme->getColorMode(),
+            'theme_color_modes' => $theme->getColorModes(),
+            'theme_id' => $theme->getId(),
         ]);
     }
 
