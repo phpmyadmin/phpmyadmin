@@ -4,12 +4,15 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Twig;
 
-use PhpMyAdmin\Theme\Theme;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Theme\ThemeManager;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
 final class AssetExtension extends AbstractExtension
 {
+    private ThemeManager|null $themeManager = null;
+
     /** @return TwigFunction[] */
     public function getFunctions(): array
     {
@@ -18,12 +21,15 @@ final class AssetExtension extends AbstractExtension
 
     public function getImagePath(string|null $filename = null, string|null $fallback = null): string
     {
-        $GLOBALS['theme'] ??= null;
+        if ($this->themeManager === null) {
+            $themeManager = Core::getContainerBuilder()->get(ThemeManager::class);
+            if (! ($themeManager instanceof ThemeManager)) {
+                return '';
+            }
 
-        if (! $GLOBALS['theme'] instanceof Theme) {
-            return '';
+            $this->themeManager = $themeManager;
         }
 
-        return $GLOBALS['theme']->getImgPath($filename, $fallback);
+        return $this->themeManager->theme->getImgPath($filename, $fallback);
     }
 }

@@ -11,13 +11,14 @@ namespace PhpMyAdmin\Navigation;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Theme\Theme;
+use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Util;
@@ -254,16 +255,16 @@ class Navigation
     /** @return string Logo source */
     private function getLogoSource(): string
     {
-        $GLOBALS['theme'] ??= null;
+        /** @var ThemeManager $themeManager */
+        $themeManager = Core::getContainerBuilder()->get(ThemeManager::class);
+        $theme = $themeManager->theme;
 
-        if ($GLOBALS['theme'] instanceof Theme) {
-            if (@file_exists($GLOBALS['theme']->getFsPath() . 'img/logo_left.png')) {
-                return $GLOBALS['theme']->getPath() . '/img/logo_left.png';
-            }
+        if (@file_exists($theme->getFsPath() . 'img/logo_left.png')) {
+            return $theme->getPath() . '/img/logo_left.png';
+        }
 
-            if (@file_exists($GLOBALS['theme']->getFsPath() . 'img/pma_logo2.png')) {
-                return $GLOBALS['theme']->getPath() . '/img/pma_logo2.png';
-            }
+        if (@file_exists($theme->getFsPath() . 'img/pma_logo2.png')) {
+            return $theme->getPath() . '/img/pma_logo2.png';
         }
 
         return '';

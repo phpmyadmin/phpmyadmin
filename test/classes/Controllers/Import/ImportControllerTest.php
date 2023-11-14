@@ -35,8 +35,6 @@ class ImportControllerTest extends AbstractTestCase
 
         parent::setLanguage();
 
-        parent::setTheme();
-
         $GLOBALS['server'] = 1;
         Config::getInstance()->selectedServer['user'] = 'user';
 

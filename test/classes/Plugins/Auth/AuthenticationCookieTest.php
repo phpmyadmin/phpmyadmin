@@ -52,8 +52,6 @@ class AuthenticationCookieTest extends AbstractTestCase
 
         parent::setLanguage();
 
-        parent::setTheme();
-
         parent::setGlobalConfig();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();

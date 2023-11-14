@@ -33,8 +33,6 @@ class LogVarsControllerTest extends AbstractTestCase
 
         parent::setGlobalConfig();
 
-        parent::setTheme();
-
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;

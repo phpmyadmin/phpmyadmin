@@ -29,8 +29,6 @@ class TriggersTest extends AbstractTestCase
 
         parent::setLanguage();
 
-        parent::setTheme();
-
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         Config::getInstance()->selectedServer['DisableIS'] = false;

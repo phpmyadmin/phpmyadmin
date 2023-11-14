@@ -29,8 +29,6 @@ class PrivilegesControllerTest extends AbstractTestCase
 
         parent::setLanguage();
 
-        parent::setTheme();
-
         DatabaseInterface::$instance = $this->createDatabaseInterface();
     }
 

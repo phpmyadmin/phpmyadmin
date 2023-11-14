@@ -15,10 +15,9 @@ final class ThemeInitialization implements MiddlewareInterface
 {
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        $container = Core::getContainerBuilder();
         /** @var ThemeManager $themeManager */
-        $themeManager = $container->get(ThemeManager::class);
-        $GLOBALS['theme'] = $themeManager->initializeTheme();
+        $themeManager = Core::getContainerBuilder()->get(ThemeManager::class);
+        $themeManager->initializeTheme();
 
         return $handler->handle($request);
     }

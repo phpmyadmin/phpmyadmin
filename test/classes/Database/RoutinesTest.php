@@ -29,8 +29,6 @@ class RoutinesTest extends AbstractTestCase
 
         parent::setLanguage();
 
-        parent::setTheme();
-
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;

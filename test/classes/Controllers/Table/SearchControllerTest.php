@@ -42,8 +42,6 @@ class SearchControllerTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setTheme();
-
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;

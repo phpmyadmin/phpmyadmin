@@ -37,8 +37,6 @@ class NavigationControllerTest extends AbstractTestCase
 
         parent::setLanguage();
 
-        $this->setTheme();
-
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'air-balloon_burner_dev2';
         $config = Config::getInstance();

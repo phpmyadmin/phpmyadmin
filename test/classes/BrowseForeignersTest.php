@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Theme\ThemeManager;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(BrowseForeigners::class)]
@@ -21,9 +22,7 @@ class BrowseForeignersTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setTheme();
-
-        $this->browseForeigners = new BrowseForeigners(new Template(), new Config());
+        $this->browseForeigners = new BrowseForeigners(new Template(), new Config(), new ThemeManager());
     }
 
     /**
@@ -49,7 +48,7 @@ class BrowseForeignersTest extends AbstractTestCase
 
         $config = new Config();
         $config->set('MaxRows', 50);
-        $browseForeigners = new BrowseForeigners(new Template(), $config);
+        $browseForeigners = new BrowseForeigners(new Template(), $config, new ThemeManager());
 
         $this->assertEquals(
             'LIMIT 10, 50 ',
@@ -130,7 +129,7 @@ class BrowseForeignersTest extends AbstractTestCase
 
         $config = new Config();
         $config->set('LimitChars', 5);
-        $browseForeigners = new BrowseForeigners(new Template(), $config);
+        $browseForeigners = new BrowseForeigners(new Template(), $config, new ThemeManager());
 
         $this->assertEquals(
             ['fooba...', 'foobar<baz'],

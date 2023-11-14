@@ -78,7 +78,7 @@ return [
         ],
         'browse_foreigners' => [
             'class' => BrowseForeigners::class,
-            'arguments' => ['@template', '@config'],
+            'arguments' => ['@template', '@config', '@' . ThemeManager::class],
         ],
         'config' => ['class' => Config::class, 'factory' => [Config::class, 'getInstance']],
         Config\PageSettings::class => ['class' => Config\PageSettings::class, 'arguments' => ['@user_preferences']],

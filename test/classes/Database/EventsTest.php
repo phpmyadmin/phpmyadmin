@@ -27,8 +27,6 @@ class EventsTest extends AbstractTestCase
 
         parent::setLanguage();
 
-        parent::setTheme();
-
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = 0;

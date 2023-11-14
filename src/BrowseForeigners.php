@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Config\Settings;
-use PhpMyAdmin\Theme\Theme;
+use PhpMyAdmin\Theme\ThemeManager;
 
 use function __;
 use function array_keys;
@@ -27,7 +27,7 @@ class BrowseForeigners
 {
     private Settings $settings;
 
-    public function __construct(public Template $template, Config $config)
+    public function __construct(public Template $template, Config $config, private readonly ThemeManager $themeManager)
     {
         $this->settings = $config->getSettings();
     }
@@ -54,8 +54,6 @@ class BrowseForeigners
         int $indexByDescription,
         string $currentValue,
     ): array {
-        $GLOBALS['theme'] ??= null;
-
         $horizontalCount++;
         $output = '';
 
@@ -106,7 +104,7 @@ class BrowseForeigners
         ]);
 
         $output .= '<td width="20%"><img src="'
-            . ($GLOBALS['theme'] instanceof Theme ? $GLOBALS['theme']->getImgPath('spacer.png') : '')
+            . $this->themeManager->theme->getImgPath('spacer.png')
             . '" alt="" width="1" height="1"></td>';
 
         $output .= $this->template->render('table/browse_foreigners/column_element', [

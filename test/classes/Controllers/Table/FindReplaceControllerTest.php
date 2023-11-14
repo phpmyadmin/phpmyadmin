@@ -26,8 +26,6 @@ class FindReplaceControllerTest extends AbstractTestCase
 
         parent::setGlobalConfig();
 
-        parent::setTheme();
-
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';

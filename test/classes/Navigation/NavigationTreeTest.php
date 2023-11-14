@@ -28,8 +28,6 @@ class NavigationTreeTest extends AbstractTestCase
 
         parent::setGlobalConfig();
 
-        parent::setTheme();
-
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
         $GLOBALS['server'] = 1;

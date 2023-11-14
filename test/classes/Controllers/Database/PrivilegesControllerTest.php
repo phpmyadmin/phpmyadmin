@@ -31,8 +31,6 @@ class PrivilegesControllerTest extends AbstractTestCase
 
         parent::setLanguage();
 
-        parent::setTheme();
-
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;

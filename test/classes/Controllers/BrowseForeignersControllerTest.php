@@ -13,6 +13,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\Theme\ThemeManager;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(BrowseForeignersController::class)]
@@ -119,7 +120,7 @@ final class BrowseForeignersControllerTest extends AbstractTestCase
 <td>
     <a class="foreign_value" data-key="71" href="#" title="Use this value">ADAM</a>
 </td>
-<td width="20%"><img src="" alt="" width="1" height="1"></td><td>
+<td width="20%"><img src="./themes/pmahomme/img/spacer.png" alt="" width="1" height="1"></td><td>
     <a class="foreign_value" data-key="71" href="#" title="Use this value">ADAM</a>
 </td>
 <td class="text-nowrap">
@@ -132,7 +133,7 @@ final class BrowseForeignersControllerTest extends AbstractTestCase
 <td>
     <a class="foreign_value" data-key="125" href="#" title="Use this value">ALBERT</a>
 </td>
-<td width="20%"><img src="" alt="" width="1" height="1"></td><td>
+<td width="20%"><img src="./themes/pmahomme/img/spacer.png" alt="" width="1" height="1"></td><td>
     <a class="foreign_value" data-key="173" href="#" title="Use this value">ALAN</a>
 </td>
 <td class="text-nowrap">
@@ -145,7 +146,7 @@ final class BrowseForeignersControllerTest extends AbstractTestCase
 <td>
     <a class="foreign_value" data-key="173" href="#" title="Use this value">ALAN</a>
 </td>
-<td width="20%"><img src="" alt="" width="1" height="1"></td><td>
+<td width="20%"><img src="./themes/pmahomme/img/spacer.png" alt="" width="1" height="1"></td><td>
     <a class="foreign_value" data-key="125" href="#" title="Use this value">ALBERT</a>
 </td>
 <td class="text-nowrap">
@@ -159,7 +160,7 @@ HTML;
         (new BrowseForeignersController(
             $response,
             $template,
-            new BrowseForeigners($template, $config),
+            new BrowseForeigners($template, $config, new ThemeManager()),
             new Relation($dbi),
         ))($request);
 

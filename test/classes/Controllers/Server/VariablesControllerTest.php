@@ -36,8 +36,6 @@ class VariablesControllerTest extends AbstractTestCase
 
         parent::setLanguage();
 
-        parent::setTheme();
-
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';

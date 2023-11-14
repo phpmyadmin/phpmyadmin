@@ -28,7 +28,7 @@ use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\StatementInfo;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Theme\Theme;
+use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\UniqueCondition;
 use PhpMyAdmin\Url;
@@ -1146,8 +1146,6 @@ class Results
      */
     private function getFullOrPartialTextButtonOrLink(): string
     {
-        $GLOBALS['theme'] ??= null;
-
         $urlParamsFullText = [
             'db' => $this->db,
             'table' => $this->table,
@@ -1167,8 +1165,11 @@ class Results
             $urlParamsFullText['pftext'] = self::DISPLAY_FULL_TEXT;
         }
 
+        /** @var ThemeManager $themeManager */
+        $themeManager = Core::getContainerBuilder()->get(ThemeManager::class);
+
         $tmpImage = '<img class="fulltext" src="'
-            . ($GLOBALS['theme'] instanceof Theme ? $GLOBALS['theme']->getImgPath($tmpImageFile) : '')
+            . $themeManager->theme->getImgPath($tmpImageFile)
             . '" alt="' . $tmpTxt . '" title="' . $tmpTxt . '">';
 
         return Generator::linkOrButton(Url::getFromRoute('/sql'), $urlParamsFullText, $tmpImage);

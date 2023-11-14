@@ -33,8 +33,6 @@ class NodeDatabaseChildTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setTheme();
-
         parent::setLanguage();
 
         $config = Config::getInstance();
