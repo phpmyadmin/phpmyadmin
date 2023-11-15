@@ -595,6 +595,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             saveMonitor(); // Save settings
 
             $('#closeModalButton').off('click');
+            $('#addChartButton').off('click');
         });
 
         $('#closeModalButton').on('click', function () {
@@ -602,6 +603,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             $('span#clearSeriesLink').hide();
             $('#seriesPreview').html('');
             $('#closeModalButton').off('click');
+            $('#addChartButton').off('click');
         });
 
         var $presetList = $('#addChartModal').find('select[name="presetCharts"]');
