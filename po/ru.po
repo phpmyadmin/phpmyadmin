@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 00:18+0000\n"
-"PO-Revision-Date: 2023-10-16 09:07+0000\n"
+"PO-Revision-Date: 2023-11-19 00:20+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.1-dev\n"
+"X-Generator: Weblate 5.2\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:31
 #: resources/templates/database/central_columns/edit_table_row.twig:23
@@ -1031,7 +1031,7 @@ msgstr "Сбой выполнения запроса"
 #: resources/templates/console/display.twig:49
 #: resources/templates/console/display.twig:207
 msgid "Queried time"
-msgstr "Запрошенное время"
+msgstr "Время запроса"
 
 #: resources/templates/console/display.twig:49
 msgid "During current session"
@@ -8125,15 +8125,15 @@ msgstr "Время медленного запуска"
 
 #: src/Advisory/Rules.php:549
 msgid "Slow_launch_time is above 2s."
-msgstr "Slow_launch_time больше 2 сек."
+msgstr "Slow_launch_time больше 2 с."
 
 #: src/Advisory/Rules.php:551
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch."
 msgstr ""
-"Установите переменную {slow_launch_time} на 1 или 2 сек., чтобы корректно "
-"считать медленно запускаемые потоки."
+"Установите переменную {slow_launch_time} на 1 или 2 с, чтобы верно считать "
+"медленно запускаемые потоки."
 
 #: src/Advisory/Rules.php:553
 #, php-format
@@ -8588,7 +8588,7 @@ msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
 "Максимальный размер результата установленный в кеше запросов, по умолчанию "
-"составляет 1 MiB."
+"составляет 1 МиБ."
 
 #: src/Advisory/Rules.php:876
 msgid ""
@@ -8604,10 +8604,10 @@ msgstr ""
 "Изменение {query_cache_limit} (обычно повышение) может увеличить "
 "эффективность. Данная переменная определяет максимальный размер результата "
 "запроса, который будет добавлен в кеш запросов. При большом количестве "
-"результатов запросов свыше 1 MiB, которые могут быть без труда кешированы "
-"(большое количество процессов чтения, малое количество процессов записи), "
+"результатов запросов свыше 1 МиБ, которые могут быть без труда кешированы ("
+"большое количество процессов чтения, малое количество процессов записи), "
 "увеличение значения {query_cache_limit} увеличит эффективность. В то же "
-"время, при большом количестве результатов запросов превышающих 1 MiB, "
+"время, при большом количестве результатов запросов превышающих 1 МиБ, "
 "которые не подпадают под условие кеширования (часто недействительны при "
 "обновлении таблиц), увеличение {query_cache_limit} может снизить "
 "эффективность."
@@ -14486,15 +14486,15 @@ msgstr "%s из %s"
 #: src/Controllers/JavaScriptMessagesController.php:813
 #, php-format
 msgid "%s/sec."
-msgstr "%s/сек."
+msgstr "%s/с"
 
 #: src/Controllers/JavaScriptMessagesController.php:814
 msgid "About %MIN min. %SEC sec. remaining."
-msgstr "Осталось около %MIN мин. %SEC сек."
+msgstr "Осталось около %MIN мин. %SEC с."
 
 #: src/Controllers/JavaScriptMessagesController.php:815
 msgid "About %SEC sec. remaining."
-msgstr "Осталось около %SEC сек."
+msgstr "Осталось около %SEC с."
 
 #: src/Controllers/JavaScriptMessagesController.php:816
 msgid "The file is being processed, please be patient."
@@ -15875,7 +15875,7 @@ msgstr "%d всего"
 #: src/Display/Results.php:3576 src/Sql.php:884
 #, php-format
 msgid "Query took %01.4f seconds."
-msgstr "Запрос занял %01.4f сек."
+msgstr "Запрос занял %01.4f с."
 
 #: src/Display/Results.php:3883
 msgid "Link not found!"
