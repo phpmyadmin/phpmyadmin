@@ -12,7 +12,6 @@ use PhpMyAdmin\Partitioning\Partition;
 use PhpMyAdmin\Partitioning\TablePartitionDefinition;
 use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\StorageEngine;
-use PhpMyAdmin\Table;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 

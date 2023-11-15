@@ -11,6 +11,7 @@ use PhpMyAdmin\Engines\Innodb;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Partitioning\Partition;
 use PhpMyAdmin\Plugins\Export\ExportSql;
+use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Triggers\Triggers;
 
 use function __;

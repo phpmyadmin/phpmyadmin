@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Partitioning;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
-use PhpMyAdmin\Table;
+use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Util;
 
 use function __;

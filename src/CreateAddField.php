@@ -6,6 +6,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Table\Table;
 
 use function count;
 use function implode;

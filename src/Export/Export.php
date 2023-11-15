@@ -18,7 +18,7 @@ use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\SchemaPlugin;
 use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\Table;
+use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\ZipExtension;

@@ -12,7 +12,7 @@ use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Query\Utilities;
-use PhpMyAdmin\Table;
+use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Util;
 
 use function explode;

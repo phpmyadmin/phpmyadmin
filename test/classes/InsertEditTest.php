@@ -15,7 +15,7 @@ use PhpMyAdmin\FileListing;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\InsertEditColumn;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Table;
+use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;

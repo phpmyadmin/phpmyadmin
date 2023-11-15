@@ -11807,7 +11807,143 @@
       <code><![CDATA[$dataRow['transformation_options']]]></code>
     </PossiblyNullArgument>
   </file>
-  <file src="src/Table.php">
+  <file src="src/Table/ColumnsDefinition.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+    <InvalidArrayOffset>
+      <code><![CDATA[$GLOBALS['mime_map']]]></code>
+    </InvalidArrayOffset>
+    <MixedArgument>
+      <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']] ?? []]]></code>
+      <code><![CDATA[$availableMime[$mimeType . '_file'][$mimekey]]]></code>
+      <code><![CDATA[$columnMeta['Default']]]></code>
+      <code><![CDATA[$columnMeta['DefaultValue']]]></code>
+      <code><![CDATA[$columnMeta['Field']]]></code>
+      <code><![CDATA[$columnMeta['Type']]]></code>
+      <code><![CDATA[$extractedColumnSpec['attribute'] ?? '']]></code>
+      <code><![CDATA[$formParams['db']]]></code>
+      <code><![CDATA[$formParams['table']]]></code>
+      <code>$type</code>
+      <code><![CDATA[Util::getValueByKey($_POST, 'field_key.' . $columnNumber, '')]]></code>
+    </MixedArgument>
+    <MixedArrayAccess>
+      <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
+      <code><![CDATA[$availableMime[$mimeType . '_file'][$mimekey]]]></code>
+    </MixedArrayAccess>
+    <MixedArrayAssignment>
+      <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
+      <code><![CDATA[$availableMime[$mimeType . '_file_quoted'][$mimekey]]]></code>
+    </MixedArrayAssignment>
+    <MixedArrayOffset>
+      <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
+      <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
+      <code><![CDATA[$commentsMap[$columnMeta['Field']]]]></code>
+    </MixedArrayOffset>
+    <MixedAssignment>
+      <code><![CDATA[$GLOBALS['mime_map']]]></code>
+      <code><![CDATA[$columnMeta['Default']]]></code>
+      <code><![CDATA[$columnMeta['Default']]]></code>
+      <code><![CDATA[$columnMeta['Expression']]]></code>
+      <code><![CDATA[$columnMeta['Key']]]></code>
+      <code><![CDATA[$commentsMap[$columnMeta['Field']]]]></code>
+      <code>$defaultValue</code>
+      <code><![CDATA[$formParams['field_length_orig[' . $columnNumber . ']']]]></code>
+      <code><![CDATA[$formParams['field_name[' . $columnNumber . ']']]]></code>
+      <code><![CDATA[$formParams['field_orig[' . $columnNumber . ']']]]></code>
+      <code><![CDATA[$formParams['selected[' . $oFldNr . ']']]]></code>
+      <code>$length</code>
+      <code>$length</code>
+      <code>$oFldVal</code>
+      <code>$submitAttribute</code>
+      <code>$type</code>
+    </MixedAssignment>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[$formParams['db']]]></code>
+      <code><![CDATA[$formParams['table']]]></code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidCast>
+      <code><![CDATA[$_POST['after_field']]]></code>
+      <code><![CDATA[$formParams['db']]]></code>
+      <code><![CDATA[$formParams['table']]]></code>
+    </PossiblyInvalidCast>
+    <PossiblyUndefinedArrayOffset>
+      <code><![CDATA[$columnMeta['Default']]]></code>
+      <code><![CDATA[$columnMeta['DefaultValue']]]></code>
+    </PossiblyUndefinedArrayOffset>
+  </file>
+  <file src="src/Table/Search.php">
+    <MixedArgument>
+      <code><![CDATA[$_POST['criteriaColumnNames'][$columnIndex]]]></code>
+      <code><![CDATA[$_POST['criteriaColumnTypes'][$columnIndex]]]></code>
+      <code>$column</code>
+      <code>$criteriaValues</code>
+      <code>$criteriaValues</code>
+      <code>$criteriaValues</code>
+      <code>$criteriaValues</code>
+      <code>$criteriaValues</code>
+      <code>$criteriaValues</code>
+      <code>$criteriaValues</code>
+      <code>$criteriaValues[$e]</code>
+      <code>$criteriaValues[0]</code>
+      <code>$operator</code>
+      <code>$operator</code>
+      <code>$value</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code>$values</code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment>
+      <code>$column</code>
+      <code>$operator</code>
+      <code>$value</code>
+    </MixedAssignment>
+    <MixedOperand>
+      <code>$criteriaValues</code>
+      <code>$criteriaValues</code>
+      <code>$criteriaValues</code>
+      <code><![CDATA[$needsQuoting ? $this->dbi->quoteString($criteriaValues) : $criteriaValues]]></code>
+      <code><![CDATA[$values[0] ?? '']]></code>
+      <code><![CDATA[$values[1] ?? '']]></code>
+    </MixedOperand>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[$_POST['criteriaColumnNames'][$columnIndex]]]></code>
+      <code><![CDATA[$_POST['criteriaColumnTypes'][$columnIndex]]]></code>
+      <code><![CDATA[$_POST['customWhereClause']]]></code>
+      <code><![CDATA[$_POST['orderByColumn']]]></code>
+      <code><![CDATA[$_POST['table']]]></code>
+      <code>$operator</code>
+      <code>$operator</code>
+      <code>$tmpGeomFunc</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidArrayOffset>
+      <code><![CDATA[$_POST['criteriaColumnNames'][$columnIndex]]]></code>
+      <code><![CDATA[$_POST['criteriaColumnTypes'][$columnIndex]]]></code>
+      <code><![CDATA[$_POST['criteriaValues'][$columnIndex]]]></code>
+    </PossiblyInvalidArrayOffset>
+    <PossiblyInvalidCast>
+      <code><![CDATA[$_POST['criteriaColumnNames'][$columnIndex]]]></code>
+      <code><![CDATA[$_POST['criteriaColumnTypes'][$columnIndex]]]></code>
+      <code>$operator</code>
+      <code>$operator</code>
+    </PossiblyInvalidCast>
+    <PossiblyInvalidIterator>
+      <code><![CDATA[$_POST['criteriaColumnOperators']]]></code>
+      <code>$columnsToDisplay</code>
+    </PossiblyInvalidIterator>
+    <PossiblyInvalidOperand>
+      <code><![CDATA[$_POST['customWhereClause']]]></code>
+      <code><![CDATA[$_POST['order']]]></code>
+    </PossiblyInvalidOperand>
+    <PossiblyNullArrayOffset>
+      <code>$geomFuncs</code>
+    </PossiblyNullArrayOffset>
+    <PossiblyNullOperand>
+      <code>$geomFunc</code>
+      <code>$geomFunc</code>
+    </PossiblyNullOperand>
+  </file>
+  <file src="src/Table/Table.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -12080,142 +12216,6 @@
     <UnusedVariable>
       <code>$maintainRelations</code>
     </UnusedVariable>
-  </file>
-  <file src="src/Table/ColumnsDefinition.php">
-    <DeprecatedMethod>
-      <code>Config::getInstance()</code>
-    </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['mime_map']]]></code>
-    </InvalidArrayOffset>
-    <MixedArgument>
-      <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']] ?? []]]></code>
-      <code><![CDATA[$availableMime[$mimeType . '_file'][$mimekey]]]></code>
-      <code><![CDATA[$columnMeta['Default']]]></code>
-      <code><![CDATA[$columnMeta['DefaultValue']]]></code>
-      <code><![CDATA[$columnMeta['Field']]]></code>
-      <code><![CDATA[$columnMeta['Type']]]></code>
-      <code><![CDATA[$extractedColumnSpec['attribute'] ?? '']]></code>
-      <code><![CDATA[$formParams['db']]]></code>
-      <code><![CDATA[$formParams['table']]]></code>
-      <code>$type</code>
-      <code><![CDATA[Util::getValueByKey($_POST, 'field_key.' . $columnNumber, '')]]></code>
-    </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
-      <code><![CDATA[$availableMime[$mimeType . '_file'][$mimekey]]]></code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
-      <code><![CDATA[$availableMime[$mimeType . '_file_quoted'][$mimekey]]]></code>
-    </MixedArrayAssignment>
-    <MixedArrayOffset>
-      <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
-      <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
-      <code><![CDATA[$commentsMap[$columnMeta['Field']]]]></code>
-    </MixedArrayOffset>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['mime_map']]]></code>
-      <code><![CDATA[$columnMeta['Default']]]></code>
-      <code><![CDATA[$columnMeta['Default']]]></code>
-      <code><![CDATA[$columnMeta['Expression']]]></code>
-      <code><![CDATA[$columnMeta['Key']]]></code>
-      <code><![CDATA[$commentsMap[$columnMeta['Field']]]]></code>
-      <code>$defaultValue</code>
-      <code><![CDATA[$formParams['field_length_orig[' . $columnNumber . ']']]]></code>
-      <code><![CDATA[$formParams['field_name[' . $columnNumber . ']']]]></code>
-      <code><![CDATA[$formParams['field_orig[' . $columnNumber . ']']]]></code>
-      <code><![CDATA[$formParams['selected[' . $oFldNr . ']']]]></code>
-      <code>$length</code>
-      <code>$length</code>
-      <code>$oFldVal</code>
-      <code>$submitAttribute</code>
-      <code>$type</code>
-    </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$formParams['db']]]></code>
-      <code><![CDATA[$formParams['table']]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['after_field']]]></code>
-      <code><![CDATA[$formParams['db']]]></code>
-      <code><![CDATA[$formParams['table']]]></code>
-    </PossiblyInvalidCast>
-    <PossiblyUndefinedArrayOffset>
-      <code><![CDATA[$columnMeta['Default']]]></code>
-      <code><![CDATA[$columnMeta['DefaultValue']]]></code>
-    </PossiblyUndefinedArrayOffset>
-  </file>
-  <file src="src/Table/Search.php">
-    <MixedArgument>
-      <code><![CDATA[$_POST['criteriaColumnNames'][$columnIndex]]]></code>
-      <code><![CDATA[$_POST['criteriaColumnTypes'][$columnIndex]]]></code>
-      <code>$column</code>
-      <code>$criteriaValues</code>
-      <code>$criteriaValues</code>
-      <code>$criteriaValues</code>
-      <code>$criteriaValues</code>
-      <code>$criteriaValues</code>
-      <code>$criteriaValues</code>
-      <code>$criteriaValues</code>
-      <code>$criteriaValues[$e]</code>
-      <code>$criteriaValues[0]</code>
-      <code>$operator</code>
-      <code>$operator</code>
-      <code>$value</code>
-    </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code>$values</code>
-    </MixedArgumentTypeCoercion>
-    <MixedAssignment>
-      <code>$column</code>
-      <code>$operator</code>
-      <code>$value</code>
-    </MixedAssignment>
-    <MixedOperand>
-      <code>$criteriaValues</code>
-      <code>$criteriaValues</code>
-      <code>$criteriaValues</code>
-      <code><![CDATA[$needsQuoting ? $this->dbi->quoteString($criteriaValues) : $criteriaValues]]></code>
-      <code><![CDATA[$values[0] ?? '']]></code>
-      <code><![CDATA[$values[1] ?? '']]></code>
-    </MixedOperand>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$_POST['criteriaColumnNames'][$columnIndex]]]></code>
-      <code><![CDATA[$_POST['criteriaColumnTypes'][$columnIndex]]]></code>
-      <code><![CDATA[$_POST['customWhereClause']]]></code>
-      <code><![CDATA[$_POST['orderByColumn']]]></code>
-      <code><![CDATA[$_POST['table']]]></code>
-      <code>$operator</code>
-      <code>$operator</code>
-      <code>$tmpGeomFunc</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayOffset>
-      <code><![CDATA[$_POST['criteriaColumnNames'][$columnIndex]]]></code>
-      <code><![CDATA[$_POST['criteriaColumnTypes'][$columnIndex]]]></code>
-      <code><![CDATA[$_POST['criteriaValues'][$columnIndex]]]></code>
-    </PossiblyInvalidArrayOffset>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['criteriaColumnNames'][$columnIndex]]]></code>
-      <code><![CDATA[$_POST['criteriaColumnTypes'][$columnIndex]]]></code>
-      <code>$operator</code>
-      <code>$operator</code>
-    </PossiblyInvalidCast>
-    <PossiblyInvalidIterator>
-      <code><![CDATA[$_POST['criteriaColumnOperators']]]></code>
-      <code>$columnsToDisplay</code>
-    </PossiblyInvalidIterator>
-    <PossiblyInvalidOperand>
-      <code><![CDATA[$_POST['customWhereClause']]]></code>
-      <code><![CDATA[$_POST['order']]]></code>
-    </PossiblyInvalidOperand>
-    <PossiblyNullArrayOffset>
-      <code>$geomFuncs</code>
-    </PossiblyNullArrayOffset>
-    <PossiblyNullOperand>
-      <code>$geomFunc</code>
-      <code>$geomFunc</code>
-    </PossiblyNullOperand>
   </file>
   <file src="src/Template.php">
     <DeprecatedMethod>
@@ -15749,7 +15749,7 @@
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/TableTest.php">
+  <file src="test/classes/Table/TableTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>

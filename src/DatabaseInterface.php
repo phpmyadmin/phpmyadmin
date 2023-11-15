@@ -21,6 +21,7 @@ use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Routing\Routing;
 use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\Utils\SessionCache;
 use stdClass;

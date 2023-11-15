@@ -2416,7 +2416,7 @@ parameters:
 			path: src/Controllers/Database/Structure/CopyTableController.php
 
 		-
-			message: "#^Parameter \\#1 \\$sourceDb of static method PhpMyAdmin\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$sourceDb of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/CopyTableController.php
 
@@ -2431,7 +2431,7 @@ parameters:
 			path: src/Controllers/Database/Structure/CopyTableController.php
 
 		-
-			message: "#^Parameter \\#2 \\$sourceTable of static method PhpMyAdmin\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$sourceTable of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/CopyTableController.php
 
@@ -2441,7 +2441,7 @@ parameters:
 			path: src/Controllers/Database/Structure/CopyTableController.php
 
 		-
-			message: "#^Parameter \\#3 \\$targetDb of static method PhpMyAdmin\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#3 \\$targetDb of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/CopyTableController.php
 
@@ -2451,12 +2451,12 @@ parameters:
 			path: src/Controllers/Database/Structure/CopyTableController.php
 
 		-
-			message: "#^Parameter \\#4 \\$targetTable of static method PhpMyAdmin\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#4 \\$targetTable of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/CopyTableController.php
 
 		-
-			message: "#^Parameter \\#5 \\$what of static method PhpMyAdmin\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#5 \\$what of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/CopyTableController.php
 
@@ -2471,7 +2471,7 @@ parameters:
 			path: src/Controllers/Database/Structure/CopyTableWithPrefixController.php
 
 		-
-			message: "#^Parameter \\#1 \\$sourceDb of static method PhpMyAdmin\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$sourceDb of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/CopyTableWithPrefixController.php
 
@@ -2486,12 +2486,12 @@ parameters:
 			path: src/Controllers/Database/Structure/CopyTableWithPrefixController.php
 
 		-
-			message: "#^Parameter \\#2 \\$sourceTable of static method PhpMyAdmin\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$sourceTable of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/CopyTableWithPrefixController.php
 
 		-
-			message: "#^Parameter \\#3 \\$targetDb of static method PhpMyAdmin\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#3 \\$targetDb of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/CopyTableWithPrefixController.php
 
@@ -2631,7 +2631,7 @@ parameters:
 			path: src/Controllers/Database/Structure/EmptyTableController.php
 
 		-
-			message: "#^Parameter \\#2 \\$dbName of static method PhpMyAdmin\\\\Table\\:\\:get\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$dbName of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:get\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/EmptyTableController.php
 
@@ -6016,7 +6016,7 @@ parameters:
 			path: src/Controllers/Table/IndexRenameController.php
 
 		-
-			message: "#^Parameter \\#1 \\$index of method PhpMyAdmin\\\\Table\\:\\:getIndex\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$index of method PhpMyAdmin\\\\Table\\\\Table\\:\\:getIndex\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/IndexRenameController.php
 
@@ -6066,7 +6066,7 @@ parameters:
 			path: src/Controllers/Table/IndexesController.php
 
 		-
-			message: "#^Parameter \\#1 \\$index of method PhpMyAdmin\\\\Table\\:\\:getIndex\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$index of method PhpMyAdmin\\\\Table\\\\Table\\:\\:getIndex\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/IndexesController.php
 
@@ -6376,12 +6376,12 @@ parameters:
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: "#^Parameter \\#1 \\$destinationForeignDb of method PhpMyAdmin\\\\Table\\:\\:updateForeignKeys\\(\\) expects array, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$destinationForeignDb of method PhpMyAdmin\\\\Table\\\\Table\\:\\:updateForeignKeys\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: "#^Parameter \\#1 \\$displayField of method PhpMyAdmin\\\\Table\\:\\:updateDisplayField\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$displayField of method PhpMyAdmin\\\\Table\\\\Table\\:\\:updateDisplayField\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/RelationController.php
 
@@ -6396,12 +6396,12 @@ parameters:
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: "#^Parameter \\#1 \\$multiEditColumnsName of method PhpMyAdmin\\\\Table\\:\\:updateInternalRelations\\(\\) expects array, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$multiEditColumnsName of method PhpMyAdmin\\\\Table\\\\Table\\:\\:updateInternalRelations\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Table constructor expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Table\\\\Table constructor expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/RelationController.php
 
@@ -6421,17 +6421,17 @@ parameters:
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: "#^Parameter \\#2 \\$dbName of class PhpMyAdmin\\\\Table constructor expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$dbName of class PhpMyAdmin\\\\Table\\\\Table constructor expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: "#^Parameter \\#2 \\$destinationDb of method PhpMyAdmin\\\\Table\\:\\:updateInternalRelations\\(\\) expects array, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$destinationDb of method PhpMyAdmin\\\\Table\\\\Table\\:\\:updateInternalRelations\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: "#^Parameter \\#2 \\$multiEditColumnsName of method PhpMyAdmin\\\\Table\\:\\:updateForeignKeys\\(\\) expects array, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$multiEditColumnsName of method PhpMyAdmin\\\\Table\\\\Table\\:\\:updateForeignKeys\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/RelationController.php
 
@@ -6461,12 +6461,12 @@ parameters:
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: "#^Parameter \\#3 \\$destinationForeignTable of method PhpMyAdmin\\\\Table\\:\\:updateForeignKeys\\(\\) expects array, mixed given\\.$#"
+			message: "#^Parameter \\#3 \\$destinationForeignTable of method PhpMyAdmin\\\\Table\\\\Table\\:\\:updateForeignKeys\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: "#^Parameter \\#3 \\$destinationTable of method PhpMyAdmin\\\\Table\\:\\:updateInternalRelations\\(\\) expects array, mixed given\\.$#"
+			message: "#^Parameter \\#3 \\$destinationTable of method PhpMyAdmin\\\\Table\\\\Table\\:\\:updateInternalRelations\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/RelationController.php
 
@@ -6476,22 +6476,22 @@ parameters:
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: "#^Parameter \\#4 \\$destinationColumn of method PhpMyAdmin\\\\Table\\:\\:updateInternalRelations\\(\\) expects array, mixed given\\.$#"
+			message: "#^Parameter \\#4 \\$destinationColumn of method PhpMyAdmin\\\\Table\\\\Table\\:\\:updateInternalRelations\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: "#^Parameter \\#4 \\$destinationForeignColumn of method PhpMyAdmin\\\\Table\\:\\:updateForeignKeys\\(\\) expects array, mixed given\\.$#"
+			message: "#^Parameter \\#4 \\$destinationForeignColumn of method PhpMyAdmin\\\\Table\\\\Table\\:\\:updateForeignKeys\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: "#^Parameter \\#6 \\$table of method PhpMyAdmin\\\\Table\\:\\:updateForeignKeys\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#6 \\$table of method PhpMyAdmin\\\\Table\\\\Table\\:\\:updateForeignKeys\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: "#^Parameter \\#7 \\$existrelForeign of method PhpMyAdmin\\\\Table\\:\\:updateForeignKeys\\(\\) expects array, mixed given\\.$#"
+			message: "#^Parameter \\#7 \\$existrelForeign of method PhpMyAdmin\\\\Table\\\\Table\\:\\:updateForeignKeys\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/RelationController.php
 
@@ -6661,7 +6661,7 @@ parameters:
 			path: src/Controllers/Table/ReplaceController.php
 
 		-
-			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Table constructor expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Table\\\\Table constructor expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ReplaceController.php
 
@@ -6711,7 +6711,7 @@ parameters:
 			path: src/Controllers/Table/ReplaceController.php
 
 		-
-			message: "#^Parameter \\#2 \\$dbName of class PhpMyAdmin\\\\Table constructor expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$dbName of class PhpMyAdmin\\\\Table\\\\Table constructor expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ReplaceController.php
 
@@ -7061,7 +7061,7 @@ parameters:
 			path: src/Controllers/Table/Structure/MoveColumnsController.php
 
 		-
-			message: "#^Parameter \\#1 \\$column of method PhpMyAdmin\\\\Table\\:\\:getColumnGenerationExpression\\(\\) expects string\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$column of method PhpMyAdmin\\\\Table\\\\Table\\:\\:getColumnGenerationExpression\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/MoveColumnsController.php
 
@@ -7091,7 +7091,7 @@ parameters:
 			path: src/Controllers/Table/Structure/MoveColumnsController.php
 
 		-
-			message: "#^Parameter \\#1 \\$oldcol of static method PhpMyAdmin\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$oldcol of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/MoveColumnsController.php
 
@@ -7101,32 +7101,32 @@ parameters:
 			path: src/Controllers/Table/Structure/MoveColumnsController.php
 
 		-
-			message: "#^Parameter \\#10 \\$extra of static method PhpMyAdmin\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#10 \\$extra of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/MoveColumnsController.php
 
 		-
-			message: "#^Parameter \\#11 \\$comment of static method PhpMyAdmin\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#11 \\$comment of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/MoveColumnsController.php
 
 		-
-			message: "#^Parameter \\#12 \\$virtuality of static method PhpMyAdmin\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#12 \\$virtuality of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/MoveColumnsController.php
 
 		-
-			message: "#^Parameter \\#13 \\$expression of static method PhpMyAdmin\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#13 \\$expression of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/MoveColumnsController.php
 
 		-
-			message: "#^Parameter \\#14 \\$moveTo of static method PhpMyAdmin\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#14 \\$moveTo of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/MoveColumnsController.php
 
 		-
-			message: "#^Parameter \\#2 \\$newcol of static method PhpMyAdmin\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$newcol of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/MoveColumnsController.php
 
@@ -7141,22 +7141,22 @@ parameters:
 			path: src/Controllers/Table/Structure/MoveColumnsController.php
 
 		-
-			message: "#^Parameter \\#4 \\$length of static method PhpMyAdmin\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#4 \\$length of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/MoveColumnsController.php
 
 		-
-			message: "#^Parameter \\#5 \\$attribute of static method PhpMyAdmin\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#5 \\$attribute of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/MoveColumnsController.php
 
 		-
-			message: "#^Parameter \\#6 \\$collation of static method PhpMyAdmin\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#6 \\$collation of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/MoveColumnsController.php
 
 		-
-			message: "#^Parameter \\#9 \\$defaultValue of static method PhpMyAdmin\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#9 \\$defaultValue of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/MoveColumnsController.php
 
@@ -7196,7 +7196,7 @@ parameters:
 			path: src/Controllers/Table/Structure/PartitioningController.php
 
 		-
-			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Table constructor expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Table\\\\Table constructor expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/PartitioningController.php
 
@@ -7206,7 +7206,7 @@ parameters:
 			path: src/Controllers/Table/Structure/PartitioningController.php
 
 		-
-			message: "#^Parameter \\#2 \\$dbName of class PhpMyAdmin\\\\Table constructor expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$dbName of class PhpMyAdmin\\\\Table\\\\Table constructor expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/PartitioningController.php
 
@@ -7311,7 +7311,7 @@ parameters:
 			path: src/Controllers/Table/Structure/SaveController.php
 
 		-
-			message: "#^Parameter \\#1 \\$oldcol of static method PhpMyAdmin\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$oldcol of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Table/Structure/SaveController.php
 
@@ -7326,32 +7326,32 @@ parameters:
 			path: src/Controllers/Table/Structure/SaveController.php
 
 		-
-			message: "#^Parameter \\#10 \\$extra of static method PhpMyAdmin\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#10 \\$extra of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Table/Structure/SaveController.php
 
 		-
-			message: "#^Parameter \\#11 \\$comment of static method PhpMyAdmin\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#11 \\$comment of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Table/Structure/SaveController.php
 
 		-
-			message: "#^Parameter \\#12 \\$virtuality of static method PhpMyAdmin\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#12 \\$virtuality of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Table/Structure/SaveController.php
 
 		-
-			message: "#^Parameter \\#13 \\$expression of static method PhpMyAdmin\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#13 \\$expression of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Table/Structure/SaveController.php
 
 		-
-			message: "#^Parameter \\#14 \\$moveTo of static method PhpMyAdmin\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#14 \\$moveTo of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Table/Structure/SaveController.php
 
 		-
-			message: "#^Parameter \\#2 \\$newcol of static method PhpMyAdmin\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$newcol of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Table/Structure/SaveController.php
 
@@ -7381,7 +7381,7 @@ parameters:
 			path: src/Controllers/Table/Structure/SaveController.php
 
 		-
-			message: "#^Parameter \\#3 \\$type of static method PhpMyAdmin\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#3 \\$type of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Table/Structure/SaveController.php
 
@@ -7391,7 +7391,7 @@ parameters:
 			path: src/Controllers/Table/Structure/SaveController.php
 
 		-
-			message: "#^Parameter \\#4 \\$length of static method PhpMyAdmin\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#4 \\$length of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Table/Structure/SaveController.php
 
@@ -7411,7 +7411,7 @@ parameters:
 			path: src/Controllers/Table/Structure/SaveController.php
 
 		-
-			message: "#^Parameter \\#5 \\$attribute of static method PhpMyAdmin\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#5 \\$attribute of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Table/Structure/SaveController.php
 
@@ -7426,7 +7426,7 @@ parameters:
 			path: src/Controllers/Table/Structure/SaveController.php
 
 		-
-			message: "#^Parameter \\#6 \\$collation of static method PhpMyAdmin\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#6 \\$collation of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Table/Structure/SaveController.php
 
@@ -7441,12 +7441,12 @@ parameters:
 			path: src/Controllers/Table/Structure/SaveController.php
 
 		-
-			message: "#^Parameter \\#7 \\$null of static method PhpMyAdmin\\\\Table\\:\\:generateAlter\\(\\) expects bool\\|string, mixed given\\.$#"
+			message: "#^Parameter \\#7 \\$null of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects bool\\|string, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Table/Structure/SaveController.php
 
 		-
-			message: "#^Parameter \\#8 \\$defaultType of static method PhpMyAdmin\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#8 \\$defaultType of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Table/Structure/SaveController.php
 
@@ -7456,7 +7456,7 @@ parameters:
 			path: src/Controllers/Table/Structure/SaveController.php
 
 		-
-			message: "#^Parameter \\#9 \\$defaultValue of static method PhpMyAdmin\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#9 \\$defaultValue of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Table/Structure/SaveController.php
 
@@ -8456,57 +8456,57 @@ parameters:
 			path: src/CreateAddField.php
 
 		-
-			message: "#^Parameter \\#10 \\$comment of static method PhpMyAdmin\\\\Table\\:\\:generateFieldSpec\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#10 \\$comment of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateFieldSpec\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/CreateAddField.php
 
 		-
-			message: "#^Parameter \\#11 \\$virtuality of static method PhpMyAdmin\\\\Table\\:\\:generateFieldSpec\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#11 \\$virtuality of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateFieldSpec\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/CreateAddField.php
 
 		-
-			message: "#^Parameter \\#12 \\$expression of static method PhpMyAdmin\\\\Table\\:\\:generateFieldSpec\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#12 \\$expression of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateFieldSpec\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/CreateAddField.php
 
 		-
-			message: "#^Parameter \\#2 \\$type of static method PhpMyAdmin\\\\Table\\:\\:generateFieldSpec\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$type of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateFieldSpec\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/CreateAddField.php
 
 		-
-			message: "#^Parameter \\#3 \\$length of static method PhpMyAdmin\\\\Table\\:\\:generateFieldSpec\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#3 \\$length of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateFieldSpec\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/CreateAddField.php
 
 		-
-			message: "#^Parameter \\#4 \\$attribute of static method PhpMyAdmin\\\\Table\\:\\:generateFieldSpec\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#4 \\$attribute of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateFieldSpec\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/CreateAddField.php
 
 		-
-			message: "#^Parameter \\#5 \\$collation of static method PhpMyAdmin\\\\Table\\:\\:generateFieldSpec\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#5 \\$collation of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateFieldSpec\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/CreateAddField.php
 
 		-
-			message: "#^Parameter \\#6 \\$null of static method PhpMyAdmin\\\\Table\\:\\:generateFieldSpec\\(\\) expects bool\\|string, mixed given\\.$#"
+			message: "#^Parameter \\#6 \\$null of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateFieldSpec\\(\\) expects bool\\|string, mixed given\\.$#"
 			count: 1
 			path: src/CreateAddField.php
 
 		-
-			message: "#^Parameter \\#7 \\$defaultType of static method PhpMyAdmin\\\\Table\\:\\:generateFieldSpec\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#7 \\$defaultType of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateFieldSpec\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/CreateAddField.php
 
 		-
-			message: "#^Parameter \\#8 \\$defaultValue of static method PhpMyAdmin\\\\Table\\:\\:generateFieldSpec\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#8 \\$defaultValue of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateFieldSpec\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/CreateAddField.php
 
 		-
-			message: "#^Parameter \\#9 \\$extra of static method PhpMyAdmin\\\\Table\\:\\:generateFieldSpec\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#9 \\$extra of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateFieldSpec\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/CreateAddField.php
 
@@ -10301,7 +10301,7 @@ parameters:
 			path: src/Export/Export.php
 
 		-
-			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Table constructor expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Table\\\\Table constructor expects string, mixed given\\.$#"
 			count: 2
 			path: src/Export/Export.php
 
@@ -11491,7 +11491,7 @@ parameters:
 			path: src/Import/Import.php
 
 		-
-			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Table constructor expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Table\\\\Table constructor expects string, mixed given\\.$#"
 			count: 1
 			path: src/Import/Import.php
 
@@ -12846,7 +12846,7 @@ parameters:
 			path: src/Operations.php
 
 		-
-			message: "#^Parameter \\#2 \\$sourceTable of static method PhpMyAdmin\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$sourceTable of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Operations.php
 
@@ -12861,12 +12861,12 @@ parameters:
 			path: src/Operations.php
 
 		-
-			message: "#^Parameter \\#4 \\$targetTable of static method PhpMyAdmin\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#4 \\$targetTable of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Operations.php
 
 		-
-			message: "#^Parameter \\#5 \\$what of static method PhpMyAdmin\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#5 \\$what of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Operations.php
 
@@ -17961,346 +17961,6 @@ parameters:
 			path: src/SystemDatabase.php
 
 		-
-			message: "#^Argument of an invalid type array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\>\\|null supplied for foreach, only iterables are supported\\.$#"
-			count: 2
-			path: src/Table.php
-
-		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: src/Table.php
-
-		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 5
-			path: src/Table.php
-
-		-
-			message: "#^Cannot access offset 'Extra' on mixed\\.$#"
-			count: 3
-			path: src/Table.php
-
-		-
-			message: "#^Cannot access offset 'Field' on mixed\\.$#"
-			count: 3
-			path: src/Table.php
-
-		-
-			message: "#^Cannot access offset 'Name' on mixed\\.$#"
-			count: 1
-			path: src/Table.php
-
-		-
-			message: "#^Cannot access offset 'Type' on mixed\\.$#"
-			count: 2
-			path: src/Table.php
-
-		-
-			message: "#^Cannot access offset 'constraint' on mixed\\.$#"
-			count: 3
-			path: src/Table.php
-
-		-
-			message: "#^Cannot access offset 'foreign_db' on mixed\\.$#"
-			count: 1
-			path: src/Table.php
-
-		-
-			message: "#^Cannot access offset 'foreign_field' on mixed\\.$#"
-			count: 1
-			path: src/Table.php
-
-		-
-			message: "#^Cannot access offset 'foreign_table' on mixed\\.$#"
-			count: 1
-			path: src/Table.php
-
-		-
-			message: "#^Cannot access offset 'index_list' on mixed\\.$#"
-			count: 1
-			path: src/Table.php
-
-		-
-			message: "#^Cannot access offset 'on_delete' on mixed\\.$#"
-			count: 2
-			path: src/Table.php
-
-		-
-			message: "#^Cannot access offset 'on_update' on mixed\\.$#"
-			count: 2
-			path: src/Table.php
-
-		-
-			message: "#^Cannot access offset 'ref_db_name' on mixed\\.$#"
-			count: 2
-			path: src/Table.php
-
-		-
-			message: "#^Cannot access offset 'ref_index_list' on mixed\\.$#"
-			count: 2
-			path: src/Table.php
-
-		-
-			message: "#^Cannot access offset 'ref_table_name' on mixed\\.$#"
-			count: 2
-			path: src/Table.php
-
-		-
-			message: "#^Cannot access offset 'table_uiprefs' on mixed\\.$#"
-			count: 3
-			path: src/Table.php
-
-		-
-			message: "#^Cannot access offset \\(int\\|string\\) on mixed\\.$#"
-			count: 6
-			path: src/Table.php
-
-		-
-			message: "#^Cannot access offset 0 on mixed\\.$#"
-			count: 2
-			path: src/Table.php
-
-		-
-			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 8
-			path: src/Table.php
-
-		-
-			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 6
-			path: src/Table.php
-
-		-
-			message: "#^Cannot cast mixed to int\\.$#"
-			count: 4
-			path: src/Table.php
-
-		-
-			message: "#^Cannot cast mixed to string\\.$#"
-			count: 3
-			path: src/Table.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 20
-			path: src/Table.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Table\\:\\:getAutoIncrement\\(\\) should return string but returns mixed\\.$#"
-			count: 1
-			path: src/Table.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Table\\:\\:getCollation\\(\\) should return string but returns mixed\\.$#"
-			count: 1
-			path: src/Table.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Table\\:\\:getComment\\(\\) should return string but returns mixed\\.$#"
-			count: 1
-			path: src/Table.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Table\\:\\:getLastError\\(\\) should return string but returns mixed\\.$#"
-			count: 1
-			path: src/Table.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Table\\:\\:getLastMessage\\(\\) should return string but returns mixed\\.$#"
-			count: 1
-			path: src/Table.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Table\\:\\:getNameAndTypeOfTheColumns\\(\\) should return array\\<string, string\\> but returns array\\<int\\|string, mixed\\>\\.$#"
-			count: 1
-			path: src/Table.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Table\\:\\:getNonGeneratedColumns\\(\\) should return array\\<string\\> but returns array\\<int\\<0, max\\>, mixed\\>\\.$#"
-			count: 1
-			path: src/Table.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Table\\:\\:getUiPrefsFromDb\\(\\) should return array but returns mixed\\.$#"
-			count: 1
-			path: src/Table.php
-
-		-
-			message: "#^Only booleans are allowed in &&, int\\|false given on the right side\\.$#"
-			count: 3
-			path: src/Table.php
-
-		-
-			message: "#^Only booleans are allowed in &&, string given on the left side\\.$#"
-			count: 2
-			path: src/Table.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
-			count: 2
-			path: src/Table.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, bool\\|string given\\.$#"
-			count: 1
-			path: src/Table.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
-			count: 1
-			path: src/Table.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|null given\\.$#"
-			count: 2
-			path: src/Table.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, mixed given\\.$#"
-			count: 2
-			path: src/Table.php
-
-		-
-			message: "#^Only booleans are allowed in an elseif condition, int\\|false given\\.$#"
-			count: 1
-			path: src/Table.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
-			count: 1
-			path: src/Table.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
-			count: 2
-			path: src/Table.php
-
-		-
-			message: "#^Parameter \\#1 \\$callback of function array_map expects \\(callable\\(mixed\\)\\: mixed\\)\\|null, Closure\\(array\\|bool\\|float\\|int\\|resource\\|string\\|null, int\\=\\)\\: int given\\.$#"
-			count: 1
-			path: src/Table.php
-
-		-
-			message: "#^Parameter \\#1 \\$haystack of function str_contains expects string, mixed given\\.$#"
-			count: 3
-			path: src/Table.php
-
-		-
-			message: "#^Parameter \\#1 \\$haystack of function substr_compare expects string, mixed given\\.$#"
-			count: 1
-			path: src/Table.php
-
-		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 7
-			path: src/Table.php
-
-		-
-			message: "#^Parameter \\#1 \\$list of class PhpMyAdmin\\\\SqlParser\\\\Parser constructor expects PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string\\|null, mixed given\\.$#"
-			count: 3
-			path: src/Table.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, mixed given\\.$#"
-			count: 9
-			path: src/Table.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, string\\|null given\\.$#"
-			count: 6
-			path: src/Table.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function mb_strlen expects string, mixed given\\.$#"
-			count: 1
-			path: src/Table.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function substr expects string, mixed given\\.$#"
-			count: 2
-			path: src/Table.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
-			count: 2
-			path: src/Table.php
-
-		-
-			message: "#^Parameter \\#2 \\$array of function array_key_exists expects array, mixed given\\.$#"
-			count: 1
-			path: src/Table.php
-
-		-
-			message: "#^Parameter \\#2 \\$array of function array_map expects array, mixed given\\.$#"
-			count: 1
-			path: src/Table.php
-
-		-
-			message: "#^Parameter \\#2 \\$array of function implode expects array\\<string\\>, mixed given\\.$#"
-			count: 1
-			path: src/Table.php
-
-		-
-			message: "#^Parameter \\#2 \\$array of function implode expects array\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Table.php
-
-		-
-			message: "#^Parameter \\#2 \\$field of method PhpMyAdmin\\\\Table\\:\\:getSQLToCreateForeignKey\\(\\) expects array, mixed given\\.$#"
-			count: 2
-			path: src/Table.php
-
-		-
-			message: "#^Parameter \\#2 \\$string of function explode expects string, mixed given\\.$#"
-			count: 3
-			path: src/Table.php
-
-		-
-			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, mixed given\\.$#"
-			count: 1
-			path: src/Table.php
-
-		-
-			message: "#^Parameter \\#2 \\$tableName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Table.php
-
-		-
-			message: "#^Parameter \\#3 \\$foreignDb of method PhpMyAdmin\\\\Table\\:\\:getSQLToCreateForeignKey\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Table.php
-
-		-
-			message: "#^Parameter \\#4 \\$foreignTable of method PhpMyAdmin\\\\Table\\:\\:getSQLToCreateForeignKey\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Table.php
-
-		-
-			message: "#^Parameter \\#5 \\$foreignField of method PhpMyAdmin\\\\Table\\:\\:getSQLToCreateForeignKey\\(\\) expects array, mixed given\\.$#"
-			count: 2
-			path: src/Table.php
-
-		-
-			message: "#^Parameter \\#6 \\$name of method PhpMyAdmin\\\\Table\\:\\:getSQLToCreateForeignKey\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 2
-			path: src/Table.php
-
-		-
-			message: "#^Parameter \\#7 \\$onDelete of method PhpMyAdmin\\\\Table\\:\\:getSQLToCreateForeignKey\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 2
-			path: src/Table.php
-
-		-
-			message: "#^Parameter \\#8 \\$onUpdate of method PhpMyAdmin\\\\Table\\:\\:getSQLToCreateForeignKey\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 2
-			path: src/Table.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Table\\:\\:\\$uiprefs \\(array\\) does not accept mixed\\.$#"
-			count: 1
-			path: src/Table.php
-
-		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
 			count: 1
 			path: src/Table/ColumnsDefinition.php
@@ -18376,7 +18036,7 @@ parameters:
 			path: src/Table/ColumnsDefinition.php
 
 		-
-			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Table constructor expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Table\\\\Table constructor expects string, mixed given\\.$#"
 			count: 1
 			path: src/Table/ColumnsDefinition.php
 
@@ -18401,7 +18061,7 @@ parameters:
 			path: src/Table/ColumnsDefinition.php
 
 		-
-			message: "#^Parameter \\#2 \\$dbName of class PhpMyAdmin\\\\Table constructor expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$dbName of class PhpMyAdmin\\\\Table\\\\Table constructor expects string, mixed given\\.$#"
 			count: 1
 			path: src/Table/ColumnsDefinition.php
 
@@ -18539,6 +18199,346 @@ parameters:
 			message: "#^Parameter \\#6 \\$geomFunc of method PhpMyAdmin\\\\Table\\\\Search\\:\\:getWhereClause\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Table/Search.php
+
+		-
+			message: "#^Argument of an invalid type array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\>\\|null supplied for foreach, only iterables are supported\\.$#"
+			count: 2
+			path: src/Table/Table.php
+
+		-
+			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: src/Table/Table.php
+
+		-
+			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
+			count: 5
+			path: src/Table/Table.php
+
+		-
+			message: "#^Cannot access offset 'Extra' on mixed\\.$#"
+			count: 3
+			path: src/Table/Table.php
+
+		-
+			message: "#^Cannot access offset 'Field' on mixed\\.$#"
+			count: 3
+			path: src/Table/Table.php
+
+		-
+			message: "#^Cannot access offset 'Name' on mixed\\.$#"
+			count: 1
+			path: src/Table/Table.php
+
+		-
+			message: "#^Cannot access offset 'Type' on mixed\\.$#"
+			count: 2
+			path: src/Table/Table.php
+
+		-
+			message: "#^Cannot access offset 'constraint' on mixed\\.$#"
+			count: 3
+			path: src/Table/Table.php
+
+		-
+			message: "#^Cannot access offset 'foreign_db' on mixed\\.$#"
+			count: 1
+			path: src/Table/Table.php
+
+		-
+			message: "#^Cannot access offset 'foreign_field' on mixed\\.$#"
+			count: 1
+			path: src/Table/Table.php
+
+		-
+			message: "#^Cannot access offset 'foreign_table' on mixed\\.$#"
+			count: 1
+			path: src/Table/Table.php
+
+		-
+			message: "#^Cannot access offset 'index_list' on mixed\\.$#"
+			count: 1
+			path: src/Table/Table.php
+
+		-
+			message: "#^Cannot access offset 'on_delete' on mixed\\.$#"
+			count: 2
+			path: src/Table/Table.php
+
+		-
+			message: "#^Cannot access offset 'on_update' on mixed\\.$#"
+			count: 2
+			path: src/Table/Table.php
+
+		-
+			message: "#^Cannot access offset 'ref_db_name' on mixed\\.$#"
+			count: 2
+			path: src/Table/Table.php
+
+		-
+			message: "#^Cannot access offset 'ref_index_list' on mixed\\.$#"
+			count: 2
+			path: src/Table/Table.php
+
+		-
+			message: "#^Cannot access offset 'ref_table_name' on mixed\\.$#"
+			count: 2
+			path: src/Table/Table.php
+
+		-
+			message: "#^Cannot access offset 'table_uiprefs' on mixed\\.$#"
+			count: 3
+			path: src/Table/Table.php
+
+		-
+			message: "#^Cannot access offset \\(int\\|string\\) on mixed\\.$#"
+			count: 6
+			path: src/Table/Table.php
+
+		-
+			message: "#^Cannot access offset 0 on mixed\\.$#"
+			count: 2
+			path: src/Table/Table.php
+
+		-
+			message: "#^Cannot access offset mixed on mixed\\.$#"
+			count: 8
+			path: src/Table/Table.php
+
+		-
+			message: "#^Cannot access offset string on mixed\\.$#"
+			count: 6
+			path: src/Table/Table.php
+
+		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 4
+			path: src/Table/Table.php
+
+		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 3
+			path: src/Table/Table.php
+
+		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 20
+			path: src/Table/Table.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Table\\\\Table\\:\\:getAutoIncrement\\(\\) should return string but returns mixed\\.$#"
+			count: 1
+			path: src/Table/Table.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Table\\\\Table\\:\\:getCollation\\(\\) should return string but returns mixed\\.$#"
+			count: 1
+			path: src/Table/Table.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Table\\\\Table\\:\\:getComment\\(\\) should return string but returns mixed\\.$#"
+			count: 1
+			path: src/Table/Table.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Table\\\\Table\\:\\:getLastError\\(\\) should return string but returns mixed\\.$#"
+			count: 1
+			path: src/Table/Table.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Table\\\\Table\\:\\:getLastMessage\\(\\) should return string but returns mixed\\.$#"
+			count: 1
+			path: src/Table/Table.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Table\\\\Table\\:\\:getNameAndTypeOfTheColumns\\(\\) should return array\\<string, string\\> but returns array\\<int\\|string, mixed\\>\\.$#"
+			count: 1
+			path: src/Table/Table.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Table\\\\Table\\:\\:getNonGeneratedColumns\\(\\) should return array\\<string\\> but returns array\\<int\\<0, max\\>, mixed\\>\\.$#"
+			count: 1
+			path: src/Table/Table.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Table\\\\Table\\:\\:getUiPrefsFromDb\\(\\) should return array but returns mixed\\.$#"
+			count: 1
+			path: src/Table/Table.php
+
+		-
+			message: "#^Only booleans are allowed in &&, int\\|false given on the right side\\.$#"
+			count: 3
+			path: src/Table/Table.php
+
+		-
+			message: "#^Only booleans are allowed in &&, string given on the left side\\.$#"
+			count: 2
+			path: src/Table/Table.php
+
+		-
+			message: "#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
+			count: 2
+			path: src/Table/Table.php
+
+		-
+			message: "#^Only booleans are allowed in a negated boolean, bool\\|string given\\.$#"
+			count: 1
+			path: src/Table/Table.php
+
+		-
+			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
+			count: 1
+			path: src/Table/Table.php
+
+		-
+			message: "#^Only booleans are allowed in a negated boolean, int\\|null given\\.$#"
+			count: 2
+			path: src/Table/Table.php
+
+		-
+			message: "#^Only booleans are allowed in a negated boolean, mixed given\\.$#"
+			count: 2
+			path: src/Table/Table.php
+
+		-
+			message: "#^Only booleans are allowed in an elseif condition, int\\|false given\\.$#"
+			count: 1
+			path: src/Table/Table.php
+
+		-
+			message: "#^Only booleans are allowed in an if condition, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
+			count: 1
+			path: src/Table/Table.php
+
+		-
+			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
+			count: 2
+			path: src/Table/Table.php
+
+		-
+			message: "#^Parameter \\#1 \\$callback of function array_map expects \\(callable\\(mixed\\)\\: mixed\\)\\|null, Closure\\(array\\|bool\\|float\\|int\\|resource\\|string\\|null, int\\=\\)\\: int given\\.$#"
+			count: 1
+			path: src/Table/Table.php
+
+		-
+			message: "#^Parameter \\#1 \\$haystack of function str_contains expects string, mixed given\\.$#"
+			count: 3
+			path: src/Table/Table.php
+
+		-
+			message: "#^Parameter \\#1 \\$haystack of function substr_compare expects string, mixed given\\.$#"
+			count: 1
+			path: src/Table/Table.php
+
+		-
+			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
+			count: 7
+			path: src/Table/Table.php
+
+		-
+			message: "#^Parameter \\#1 \\$list of class PhpMyAdmin\\\\SqlParser\\\\Parser constructor expects PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string\\|null, mixed given\\.$#"
+			count: 3
+			path: src/Table/Table.php
+
+		-
+			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, mixed given\\.$#"
+			count: 9
+			path: src/Table/Table.php
+
+		-
+			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, string\\|null given\\.$#"
+			count: 6
+			path: src/Table/Table.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function mb_strlen expects string, mixed given\\.$#"
+			count: 1
+			path: src/Table/Table.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function substr expects string, mixed given\\.$#"
+			count: 2
+			path: src/Table/Table.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
+			count: 2
+			path: src/Table/Table.php
+
+		-
+			message: "#^Parameter \\#2 \\$array of function array_key_exists expects array, mixed given\\.$#"
+			count: 1
+			path: src/Table/Table.php
+
+		-
+			message: "#^Parameter \\#2 \\$array of function array_map expects array, mixed given\\.$#"
+			count: 1
+			path: src/Table/Table.php
+
+		-
+			message: "#^Parameter \\#2 \\$array of function implode expects array\\<string\\>, mixed given\\.$#"
+			count: 1
+			path: src/Table/Table.php
+
+		-
+			message: "#^Parameter \\#2 \\$array of function implode expects array\\|null, mixed given\\.$#"
+			count: 1
+			path: src/Table/Table.php
+
+		-
+			message: "#^Parameter \\#2 \\$field of method PhpMyAdmin\\\\Table\\\\Table\\:\\:getSQLToCreateForeignKey\\(\\) expects array, mixed given\\.$#"
+			count: 2
+			path: src/Table/Table.php
+
+		-
+			message: "#^Parameter \\#2 \\$string of function explode expects string, mixed given\\.$#"
+			count: 3
+			path: src/Table/Table.php
+
+		-
+			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, mixed given\\.$#"
+			count: 1
+			path: src/Table/Table.php
+
+		-
+			message: "#^Parameter \\#2 \\$tableName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Table/Table.php
+
+		-
+			message: "#^Parameter \\#3 \\$foreignDb of method PhpMyAdmin\\\\Table\\\\Table\\:\\:getSQLToCreateForeignKey\\(\\) expects string, mixed given\\.$#"
+			count: 2
+			path: src/Table/Table.php
+
+		-
+			message: "#^Parameter \\#4 \\$foreignTable of method PhpMyAdmin\\\\Table\\\\Table\\:\\:getSQLToCreateForeignKey\\(\\) expects string, mixed given\\.$#"
+			count: 2
+			path: src/Table/Table.php
+
+		-
+			message: "#^Parameter \\#5 \\$foreignField of method PhpMyAdmin\\\\Table\\\\Table\\:\\:getSQLToCreateForeignKey\\(\\) expects array, mixed given\\.$#"
+			count: 2
+			path: src/Table/Table.php
+
+		-
+			message: "#^Parameter \\#6 \\$name of method PhpMyAdmin\\\\Table\\\\Table\\:\\:getSQLToCreateForeignKey\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 2
+			path: src/Table/Table.php
+
+		-
+			message: "#^Parameter \\#7 \\$onDelete of method PhpMyAdmin\\\\Table\\\\Table\\:\\:getSQLToCreateForeignKey\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 2
+			path: src/Table/Table.php
+
+		-
+			message: "#^Parameter \\#8 \\$onUpdate of method PhpMyAdmin\\\\Table\\\\Table\\:\\:getSQLToCreateForeignKey\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 2
+			path: src/Table/Table.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Table\\\\Table\\:\\:\\$uiprefs \\(array\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Table/Table.php
 
 		-
 			message: "#^Dead catch \\- RuntimeException is never thrown in the try block\\.$#"
@@ -21053,47 +21053,47 @@ parameters:
 		-
 			message: "#^Call to an undefined method PhpMyAdmin\\\\DatabaseInterface\\:\\:expects\\(\\)\\.$#"
 			count: 4
-			path: test/classes/TableTest.php
+			path: test/classes/Table/TableTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Table' and PhpMyAdmin\\\\Table will always evaluate to true\\.$#"
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Table\\\\\\\\Table' and PhpMyAdmin\\\\Table\\\\Table will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/TableTest.php
+			path: test/classes/Table/TableTest.php
 
 		-
 			message: "#^Cannot access offset 'Key_name' on mixed\\.$#"
 			count: 1
-			path: test/classes/TableTest.php
+			path: test/classes/Table/TableTest.php
 
 		-
 			message: "#^Cannot access offset 'SCHEMA_TABLES' on mixed\\.$#"
 			count: 1
-			path: test/classes/TableTest.php
+			path: test/classes/Table/TableTest.php
 
 		-
 			message: "#^Cannot call method method\\(\\) on mixed\\.$#"
 			count: 4
-			path: test/classes/TableTest.php
+			path: test/classes/Table/TableTest.php
 
 		-
 			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
 			count: 2
-			path: test/classes/TableTest.php
+			path: test/classes/Table/TableTest.php
 
 		-
 			message: "#^Cannot call method willReturnMap\\(\\) on mixed\\.$#"
 			count: 2
-			path: test/classes/TableTest.php
+			path: test/classes/Table/TableTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 3
-			path: test/classes/TableTest.php
+			path: test/classes/Table/TableTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringNotContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: test/classes/TableTest.php
+			path: test/classes/Table/TableTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array will always evaluate to true\\.$#"

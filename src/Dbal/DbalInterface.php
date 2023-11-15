@@ -12,7 +12,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\SystemDatabase;
-use PhpMyAdmin\Table;
+use PhpMyAdmin\Table\Table;
 
 /**
  * Main interface for database interactions

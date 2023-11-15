@@ -21,6 +21,7 @@ use PhpMyAdmin\SqlParser\Statements\AlterStatement;
 use PhpMyAdmin\SqlParser\Statements\DropStatement;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
+use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
