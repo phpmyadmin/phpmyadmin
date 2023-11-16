@@ -1586,7 +1586,7 @@ class ExportSqlTest extends AbstractTestCase
             . "REFERENCES dept_master (baz)\n"
             . ') ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE='
             . "latin1_general_ci COMMENT='List' AUTO_INCREMENT=5";
-        $result = $this->object->replaceWithAliases($sql_query, $aliases, $db, $table);
+        $result = $this->object->replaceWithAliases(null, $sql_query, $aliases, $db, $table);
 
         $this->assertEquals(
             "CREATE TABLE IF NOT EXISTS `bartest` (\n" .
@@ -1598,7 +1598,7 @@ class ExportSqlTest extends AbstractTestCase
             $result
         );
 
-        $result = $this->object->replaceWithAliases($sql_query, [], '', '');
+        $result = $this->object->replaceWithAliases(null, $sql_query, [], '', '');
 
         $this->assertEquals(
             "CREATE TABLE IF NOT EXISTS foo (\n" .
@@ -1611,8 +1611,7 @@ class ExportSqlTest extends AbstractTestCase
         );
 
         $table = 'bar';
-        $sql_query = 'DELIMITER $$' . "\n"
-            . 'CREATE TRIGGER `BEFORE_bar_INSERT` '
+        $sql_query = 'CREATE TRIGGER `BEFORE_bar_INSERT` '
             . 'BEFORE INSERT ON `bar` '
             . 'FOR EACH ROW BEGIN '
             . 'SET @cnt=(SELECT count(*) FROM bar WHERE '
@@ -1621,7 +1620,7 @@ class ExportSqlTest extends AbstractTestCase
             . 'IF @cnt<>0 THEN '
             . 'SET NEW.xy=1; '
             . 'END IF; END';
-        $result = $this->object->replaceWithAliases($sql_query, $aliases, $db, $table);
+        $result = $this->object->replaceWithAliases('$$', $sql_query, $aliases, $db, $table);
 
         $this->assertEquals(
             'CREATE TRIGGER `BEFORE_bar_INSERT` BEFORE INSERT ON `f` FOR EACH ROW BEGIN ' .
@@ -1630,6 +1629,56 @@ class ExportSqlTest extends AbstractTestCase
             'SET NEW.`n`=1; ' .
             'END IF; ' .
             'END',
+            $result
+        );
+
+        $table = 'bar';
+        $sql_query = <<<'SQL'
+        CREATE FUNCTION `HTML_UnEncode`(`x` TEXT CHARSET utf8) RETURNS text CHARSET utf8
+        BEGIN
+
+        DECLARE TextString TEXT ;
+        SET TextString = x ;
+
+        #quotation mark
+        IF INSTR( x , '&quot;' )
+        THEN SET TextString = REPLACE(TextString, '&quot;','"') ;
+        END IF ;
+
+        #apostrophe
+        IF INSTR( x , '&apos;' )
+        THEN SET TextString = REPLACE(TextString, '&apos;','"') ;
+        END IF ;
+
+        RETURN TextString ;
+
+        END
+        SQL;
+        $result = $this->object->replaceWithAliases('$$', $sql_query, $aliases, $db, $table);
+
+        $expectedQuery = <<<'SQL'
+        CREATE FUNCTION `HTML_UnEncode` (`x` TEXT CHARSET utf8) RETURNS TEXT CHARSET utf8  BEGIN
+
+        DECLARE TextString TEXT ;
+        SET TextString = x ;
+
+        #quotation mark
+        IF INSTR( x , '&quot;' )
+        THEN SET TextString = REPLACE(TextString, '&quot;','"') ;
+        END IF ;
+
+        #apostrophe
+        IF INSTR( x , '&apos;' )
+        THEN SET TextString = REPLACE(TextString, '&apos;','"') ;
+        END IF ;
+
+        RETURN TextString ;
+
+        END
+        SQL;
+
+        $this->assertEquals(
+            $expectedQuery,
             $result
         );
     }

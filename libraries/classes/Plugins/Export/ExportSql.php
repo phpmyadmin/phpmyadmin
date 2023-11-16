@@ -555,6 +555,7 @@ class ExportSql extends ExportPlugin
             }
 
             $createQuery = $this->replaceWithAliases(
+                $delimiter,
                 $dbi->getDefinition($db, $type, $routine),
                 $aliases,
                 $db,
@@ -1602,7 +1603,7 @@ class ExportSql extends ExportPlugin
             }
 
             // Substitute aliases in `CREATE` query.
-            $createQuery = $this->replaceWithAliases($createQuery, $aliases, $db, $table, $flag);
+            $createQuery = $this->replaceWithAliases(null, $createQuery, $aliases, $db, $table, $flag);
 
             // One warning per view.
             if ($flag && $view) {
@@ -2112,7 +2113,14 @@ class ExportSql extends ExportPlugin
                         }
 
                         $triggerQuery .= 'DELIMITER ' . $delimiter . $crlf;
-                        $triggerQuery .= $this->replaceWithAliases($trigger['create'], $aliases, $db, $table, $flag);
+                        $triggerQuery .= $this->replaceWithAliases(
+                            $delimiter,
+                            $trigger['create'],
+                            $aliases,
+                            $db,
+                            $table,
+                            $flag
+                        );
                         if ($flag) {
                             $usedAlias = true;
                         }
@@ -2616,6 +2624,7 @@ class ExportSql extends ExportPlugin
      * @return string query replaced with aliases
      */
     public function replaceWithAliases(
+        string|null $delimiter,
         $sqlQuery,
         array $aliases,
         $db,
@@ -2627,7 +2636,7 @@ class ExportSql extends ExportPlugin
         /**
          * The parser of this query.
          */
-        $parser = new Parser($sqlQuery);
+        $parser = new Parser(empty($delimiter) ? $sqlQuery : 'DELIMITER ' . $delimiter . "\n" . $sqlQuery);
 
         if (empty($parser->statements[0])) {
             return $sqlQuery;
