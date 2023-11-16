@@ -147,10 +147,6 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         $_form_params = [];
-        if (isset($route)) {
-            $_form_params['route'] = $route;
-        }
-
         if (strlen($GLOBALS['db'])) {
             $_form_params['db'] = $GLOBALS['db'];
         }
@@ -455,8 +451,6 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function rememberCredentials(): void
     {
-        global $route;
-
         // Name and password cookies need to be refreshed each time
         // Duration = one month for username
         $this->storeUsernameCookie($this->user);
@@ -470,10 +464,6 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // any parameters to pass?
         $url_params = [];
-        if (isset($route)) {
-            $url_params['route'] = $route;
-        }
-
         if (strlen($GLOBALS['db']) > 0) {
             $url_params['db'] = $GLOBALS['db'];
         }
