@@ -65,6 +65,7 @@ phpMyAdmin - ChangeLog
 - issue        Fix BETWEEN search does not validate input because of spaces
 - issue        Fix JS number validation does not validate when the input is empty or emptied
 - issue #18561 Fix issue when adding System Monitor charts
+- issue #17363 Fix duplicate route parameter after logging in
 
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid
