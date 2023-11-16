@@ -563,7 +563,7 @@ class ExportSql extends ExportPlugin
             );
             if (! empty($createQuery) && $cfg['Export']['remove_definer_from_definitions']) {
                 // Remove definer clause from routine definitions
-                $parser = new Parser($createQuery);
+                $parser = new Parser('DELIMITER ' . $delimiter . $crlf . $createQuery);
                 $statement = $parser->statements[0];
                 $statement->options->remove('DEFINER');
                 $createQuery = $statement->build();
@@ -1024,7 +1024,7 @@ class ExportSql extends ExportPlugin
                 $eventDef = $dbi->getDefinition($db, 'EVENT', $eventName);
                 if (! empty($eventDef) && $cfg['Export']['remove_definer_from_definitions']) {
                     // remove definer clause from the event definition
-                    $parser = new Parser($eventDef);
+                    $parser = new Parser('DELIMITER ' . $delimiter . $crlf . $eventDef);
                     $statement = $parser->statements[0];
                     $statement->options->remove('DEFINER');
                     $eventDef = $statement->build();
