@@ -1634,48 +1634,49 @@ class ExportSqlTest extends AbstractTestCase
 
         $table = 'bar';
         $sql_query = <<<'SQL'
-        CREATE FUNCTION `HTML_UnEncode`(`x` TEXT CHARSET utf8) RETURNS text CHARSET utf8
-        BEGIN
+CREATE FUNCTION `HTML_UnEncode`(`x` TEXT CHARSET utf8) RETURNS text CHARSET utf8
+BEGIN
 
-        DECLARE TextString TEXT ;
-        SET TextString = x ;
+DECLARE TextString TEXT ;
+SET TextString = x ;
 
-        #quotation mark
-        IF INSTR( x , '&quot;' )
-        THEN SET TextString = REPLACE(TextString, '&quot;','"') ;
-        END IF ;
+#quotation mark
+IF INSTR( x , '&quot;' )
+THEN SET TextString = REPLACE(TextString, '&quot;','"') ;
+END IF ;
 
-        #apostrophe
-        IF INSTR( x , '&apos;' )
-        THEN SET TextString = REPLACE(TextString, '&apos;','"') ;
-        END IF ;
+#apostrophe
+IF INSTR( x , '&apos;' )
+THEN SET TextString = REPLACE(TextString, '&apos;','"') ;
+END IF ;
 
-        RETURN TextString ;
+RETURN TextString ;
 
-        END
-        SQL;
+END
+SQL;
+
         $result = $this->object->replaceWithAliases('$$', $sql_query, $aliases, $db, $table);
 
         $expectedQuery = <<<'SQL'
-        CREATE FUNCTION `HTML_UnEncode` (`x` TEXT CHARSET utf8) RETURNS TEXT CHARSET utf8  BEGIN
+CREATE FUNCTION `HTML_UnEncode` (`x` TEXT CHARSET utf8) RETURNS TEXT CHARSET utf8  BEGIN
 
-        DECLARE TextString TEXT ;
-        SET TextString = x ;
+DECLARE TextString TEXT ;
+SET TextString = x ;
 
-        #quotation mark
-        IF INSTR( x , '&quot;' )
-        THEN SET TextString = REPLACE(TextString, '&quot;','"') ;
-        END IF ;
+#quotation mark
+IF INSTR( x , '&quot;' )
+THEN SET TextString = REPLACE(TextString, '&quot;','"') ;
+END IF ;
 
-        #apostrophe
-        IF INSTR( x , '&apos;' )
-        THEN SET TextString = REPLACE(TextString, '&apos;','"') ;
-        END IF ;
+#apostrophe
+IF INSTR( x , '&apos;' )
+THEN SET TextString = REPLACE(TextString, '&apos;','"') ;
+END IF ;
 
-        RETURN TextString ;
+RETURN TextString ;
 
-        END
-        SQL;
+END
+SQL;
 
         $this->assertEquals(
             $expectedQuery,
