@@ -8069,10 +8069,6 @@
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
-    <DeprecatedProperty>
-      <code>Routing::$route</code>
-      <code>Routing::$route</code>
-    </DeprecatedProperty>
     <DocblockTypeContradiction>
       <code>$resp == null</code>
     </DocblockTypeContradiction>

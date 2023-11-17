@@ -157,7 +157,7 @@ final class SaveController extends AbstractController
 
             $changedToBlob = [];
             // While changing the Column Collation
-            // First change to BLOB
+            // First change to BLOB, MEDIUMBLOB, or LONGBLOB (depending on the original field type)
             /** @infection-ignore-all */
             for ($i = 0; $i < $fieldCnt; $i++) {
                 if (
@@ -165,10 +165,18 @@ final class SaveController extends AbstractController
                     && $_POST['field_collation'][$i] !== $_POST['field_collation_orig'][$i]
                     && ! in_array($_POST['field_orig'][$i], $columnsWithIndex)
                 ) {
+                    if ($_POST['field_type_orig'][$i] === 'MEDIUMTEXT') {
+                        $blobType = 'MEDIUMBLOB';
+                    } elseif ($_POST['field_type_orig'][$i] === 'LONGTEXT') {
+                        $blobType = 'LONGBLOB';
+                    } else {
+                        $blobType = 'BLOB';
+                    }
+
                     $secondaryQuery = 'ALTER TABLE ' . Util::backquote($GLOBALS['table'])
                         . ' CHANGE ' . Util::backquote($_POST['field_orig'][$i])
                         . ' ' . Util::backquote($_POST['field_orig'][$i])
-                        . ' BLOB';
+                        . ' ' . $blobType;
 
                     if (isset($_POST['field_virtuality'][$i], $_POST['field_expression'][$i])) {
                         if ($_POST['field_virtuality'][$i]) {

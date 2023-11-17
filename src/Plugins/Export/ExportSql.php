@@ -516,10 +516,10 @@ class ExportSql extends ExportPlugin
                 $definition = Routines::getProcedureDefinition($dbi, $db, $routine);
             }
 
-            $createQuery = $this->replaceWithAliases($definition, $aliases, $db, $flag);
+            $createQuery = $this->replaceWithAliases($delimiter, $definition, $aliases, $db, $flag);
             if ($createQuery !== '' && Config::getInstance()->settings['Export']['remove_definer_from_definitions']) {
                 // Remove definer clause from routine definitions
-                $parser = new Parser($createQuery);
+                $parser = new Parser('DELIMITER ' . $delimiter . "\n" . $createQuery);
                 $statement = $parser->statements[0];
                 $statement->options->remove('DEFINER');
                 $createQuery = $statement->build();
@@ -963,7 +963,7 @@ class ExportSql extends ExportPlugin
                     && Config::getInstance()->settings['Export']['remove_definer_from_definitions']
                 ) {
                     // remove definer clause from the event definition
-                    $parser = new Parser($eventDef);
+                    $parser = new Parser('DELIMITER ' . $delimiter . "\n" . $eventDef);
                     $statement = $parser->statements[0];
                     $statement->options->remove('DEFINER');
                     $eventDef = $statement->build();
@@ -1466,7 +1466,7 @@ class ExportSql extends ExportPlugin
             }
 
             // Substitute aliases in `CREATE` query.
-            $createQuery = $this->replaceWithAliases($createQuery, $aliases, $db, $flag);
+            $createQuery = $this->replaceWithAliases(null, $createQuery, $aliases, $db, $flag);
 
             // One warning per view.
             if ($flag && $view) {
@@ -1935,6 +1935,7 @@ class ExportSql extends ExportPlugin
 
                         $triggerQuery .= 'DELIMITER ' . $delimiter . "\n";
                         $triggerQuery .= $this->replaceWithAliases(
+                            $delimiter,
                             $trigger->getCreateSql($delimiter),
                             $aliases,
                             $db,
@@ -2417,14 +2418,16 @@ class ExportSql extends ExportPlugin
     /**
      * replaces db/table/column names with their aliases
      *
-     * @param string    $sqlQuery SQL query in which aliases are to be substituted
-     * @param mixed[]   $aliases  Alias information for db/table/column
-     * @param string    $db       the database name
-     * @param bool|null $flag     the flag denoting whether any replacement was done
+     * @param string|null $delimiter The delimiter for the parser (";" or "$$")
+     * @param string      $sqlQuery  SQL query in which aliases are to be substituted
+     * @param mixed[]     $aliases   Alias information for db/table/column
+     * @param string      $db        the database name
+     * @param bool|null   $flag      the flag denoting whether any replacement was done
      *
      * @return string query replaced with aliases
      */
     public function replaceWithAliases(
+        string|null $delimiter,
         string $sqlQuery,
         array $aliases,
         string $db,
@@ -2435,7 +2438,7 @@ class ExportSql extends ExportPlugin
         /**
          * The parser of this query.
          */
-        $parser = new Parser($sqlQuery);
+        $parser = new Parser(empty($delimiter) ? $sqlQuery : 'DELIMITER ' . $delimiter . "\n" . $sqlQuery);
 
         if (empty($parser->statements[0])) {
             return $sqlQuery;

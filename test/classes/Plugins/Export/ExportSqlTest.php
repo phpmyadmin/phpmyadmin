@@ -1435,7 +1435,7 @@ SQL;
             . "REFERENCES dept_master (baz)\n"
             . ') ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE='
             . "latin1_general_ci COMMENT='List' AUTO_INCREMENT=5";
-        $result = $this->object->replaceWithAliases($sqlQuery, $aliases, $db);
+        $result = $this->object->replaceWithAliases(null, $sqlQuery, $aliases, $db);
 
         $this->assertEquals(
             "CREATE TABLE IF NOT EXISTS `bartest` (\n" .
@@ -1447,7 +1447,7 @@ SQL;
             $result,
         );
 
-        $result = $this->object->replaceWithAliases($sqlQuery, [], '');
+        $result = $this->object->replaceWithAliases(null, $sqlQuery, [], '');
 
         $this->assertEquals(
             "CREATE TABLE IF NOT EXISTS foo (\n" .
@@ -1459,8 +1459,7 @@ SQL;
             $result,
         );
 
-        $sqlQuery = 'DELIMITER $$' . "\n"
-            . 'CREATE TRIGGER `BEFORE_bar_INSERT` '
+        $sqlQuery = 'CREATE TRIGGER `BEFORE_bar_INSERT` '
             . 'BEFORE INSERT ON `bar` '
             . 'FOR EACH ROW BEGIN '
             . 'SET @cnt=(SELECT count(*) FROM bar WHERE '
@@ -1469,7 +1468,7 @@ SQL;
             . 'IF @cnt<>0 THEN '
             . 'SET NEW.xy=1; '
             . 'END IF; END';
-        $result = $this->object->replaceWithAliases($sqlQuery, $aliases, $db);
+        $result = $this->object->replaceWithAliases('$$', $sqlQuery, $aliases, $db);
 
         $this->assertEquals(
             'CREATE TRIGGER `BEFORE_bar_INSERT` BEFORE INSERT ON `f` FOR EACH ROW BEGIN ' .
@@ -1480,5 +1479,52 @@ SQL;
             'END',
             $result,
         );
+
+        $sqlQuery = <<<'SQL'
+CREATE FUNCTION `HTML_UnEncode`(`x` TEXT CHARSET utf8) RETURNS text CHARSET utf8
+BEGIN
+
+DECLARE TextString TEXT ;
+SET TextString = x ;
+
+#quotation mark
+IF INSTR( x , '&quot;' )
+THEN SET TextString = REPLACE(TextString, '&quot;','"') ;
+END IF ;
+
+#apostrophe
+IF INSTR( x , '&apos;' )
+THEN SET TextString = REPLACE(TextString, '&apos;','"') ;
+END IF ;
+
+RETURN TextString ;
+
+END
+SQL;
+
+        $result = $this->object->replaceWithAliases('$$', $sqlQuery, $aliases, $db);
+
+        $expectedQuery = <<<'SQL'
+CREATE FUNCTION `HTML_UnEncode` (`x` TEXT CHARSET utf8) RETURNS TEXT CHARSET utf8  BEGIN
+
+DECLARE TextString TEXT ;
+SET TextString = x ;
+
+#quotation mark
+IF INSTR( x , '&quot;' )
+THEN SET TextString = REPLACE(TextString, '&quot;','"') ;
+END IF ;
+
+#apostrophe
+IF INSTR( x , '&apos;' )
+THEN SET TextString = REPLACE(TextString, '&apos;','"') ;
+END IF ;
+
+RETURN TextString ;
+
+END
+SQL;
+
+        $this->assertEquals($expectedQuery, $result);
     }
 }

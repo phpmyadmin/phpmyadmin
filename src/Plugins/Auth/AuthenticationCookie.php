@@ -15,7 +15,6 @@ use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Routing\Routing;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\Template;
@@ -137,8 +136,6 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         $formParams = [];
-        $formParams['route'] = Routing::$route;
-
         if ($GLOBALS['db'] !== '') {
             $formParams['db'] = $GLOBALS['db'];
         }
@@ -458,8 +455,6 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // any parameters to pass?
         $urlParams = [];
-        $urlParams['route'] = Routing::$route;
-
         if (strlen($GLOBALS['db']) > 0) {
             $urlParams['db'] = $GLOBALS['db'];
         }
