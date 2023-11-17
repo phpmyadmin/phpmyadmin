@@ -2671,7 +2671,7 @@ parameters:
 			path: src/Controllers/Database/Structure/FavoriteTableController.php
 
 		-
-			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
+			message: "#^Cannot access offset non\\-falsy\\-string on mixed\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/FavoriteTableController.php
 
@@ -9716,7 +9716,7 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
+			message: "#^Cannot access offset non\\-falsy\\-string on mixed\\.$#"
 			count: 4
 			path: src/Display/Results.php
 
