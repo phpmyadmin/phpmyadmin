@@ -1662,9 +1662,8 @@
       <code>$db</code>
       <code>$table</code>
     </MixedArgument>
-    <PossiblyInvalidArgument occurrences="2">
+    <PossiblyInvalidArgument occurrences="1">
       <code>$selected</code>
-      <code>$selected[$i]</code>
     </PossiblyInvalidArgument>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/FavoriteTableController.php">
@@ -9439,25 +9438,20 @@
       <code>$serverCookie</code>
       <code>$serverCookie</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="1">
-      <code>$url_params</code>
-    </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="1">
       <code>$_SESSION['browser_access_time'][$key]</code>
     </MixedArrayAccess>
     <MixedArrayOffset occurrences="1">
       <code>$_SESSION['browser_access_time'][$key]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="10">
+    <MixedAssignment occurrences="8">
       <code>$GLOBALS['pma_auth_server']</code>
-      <code>$_form_params['route']</code>
       <code>$captchaSiteVerifyURL</code>
       <code>$captchaSiteVerifyURL</code>
       <code>$key</code>
       <code>$serverCookie</code>
       <code>$serverCookie</code>
       <code>$this-&gt;password</code>
-      <code>$url_params['route']</code>
       <code>$value</code>
     </MixedAssignment>
     <MixedMethodCall occurrences="6">
@@ -10028,9 +10022,11 @@
       <code>$val</code>
       <code>$values[$val]</code>
     </MixedAssignment>
-    <MixedOperand occurrences="38">
+    <MixedOperand occurrences="40">
       <code>$column['Collation']</code>
       <code>$column['Type']</code>
+      <code>$crlf</code>
+      <code>$crlf</code>
       <code>$crlf</code>
       <code>$crlf</code>
       <code>$crlf</code>

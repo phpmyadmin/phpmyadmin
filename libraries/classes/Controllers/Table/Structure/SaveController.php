@@ -192,7 +192,7 @@ final class SaveController extends AbstractController
                     } else {
                         $blob_type = 'BLOB';
                     }
-                    
+
                     $secondary_query = 'ALTER TABLE ' . Util::backquote($this->table)
                         . ' CHANGE ' . Util::backquote($_POST['field_orig'][$i])
                         . ' ' . Util::backquote($_POST['field_orig'][$i])

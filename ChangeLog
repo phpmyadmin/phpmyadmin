@@ -66,6 +66,7 @@ phpMyAdmin - ChangeLog
 - issue        Fix JS number validation does not validate when the input is empty or emptied
 - issue #18561 Fix issue when adding System Monitor charts
 - issue #17363 Fix duplicate route parameter after logging in
+- issue #15670 Fix case where the data is truncated after changing a longtext column's collation
 
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid

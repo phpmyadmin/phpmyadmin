@@ -1056,7 +1056,7 @@ parameters:
 			path: libraries/classes/Controllers/Database/OperationsController.php
 
 		-
-			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
+			message: "#^Cannot access offset non\\-falsy\\-string on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php
 
