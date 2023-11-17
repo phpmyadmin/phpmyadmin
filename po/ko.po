@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2023-11-17 03:54+0000\n"
+"PO-Revision-Date: 2023-11-17 15:38+0000\n"
 "Last-Translator: Yong Kim <kim@nhn.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/5-2/ko/"
 ">\n"
@@ -879,7 +879,7 @@ msgstr "접속 실패율이 %s 입니다. 이 값은 시간당 1 미만이어야
 
 #: libraries/advisory_rules_generic.php:599
 msgid "Is InnoDB disabled?"
-msgstr "InnoDB를 비활성화할까요?"
+msgstr "InnoDB를 비활성화 하시겠습니까?"
 
 #: libraries/advisory_rules_generic.php:603
 msgid "You do not have InnoDB enabled."
@@ -887,7 +887,7 @@ msgstr "InnoDB가 활성화되지 않았습니다."
 
 #: libraries/advisory_rules_generic.php:604
 msgid "InnoDB is usually the better choice for table engines."
-msgstr "테이블엔진 선택에서 일반적으로 InnoDB는 가장 좋은 선택입니다."
+msgstr "일반적으로 테이블 엔진에는 InnoDB가 좋은 선택입니다."
 
 #: libraries/advisory_rules_generic.php:605
 msgid "have_innodb is set to 'value'"
@@ -2542,9 +2542,9 @@ msgid ""
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly."
 msgstr ""
-"[kbd]config[/kbd] 인증 모드와 함께 이 기능을 활성화하면 아무런 의미가 없습니"
-"다. 왜나하면 패스워드가 설정 파일에 적혀있기 때문입니다. 이 기능은 같은 명령"
-"어를 직접 실행하는 것을 제한하는 기능은 없습니다."
+"[kbd]config[/kbd] 인증 모드와 함께 이 기능을 활성화하면 아무런 의미가 "
+"없습니다. 왜나하면 비밀번호가 설정 파일에 적혀있기 때문입니다. 이 기능은 "
+"같은 명령어를 직접 실행하는 것을 제한하는 기능은 없습니다."
 
 #: libraries/classes/Config/Descriptions.php:484
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
@@ -2887,7 +2887,7 @@ msgstr "phpMyAdmin 메인 화면에서 최근 버전 확인을 활성화함."
 
 #: libraries/classes/Config/Descriptions.php:598
 msgid "The password for authenticating with the proxy."
-msgstr "프록시를 이용한 인증에 사용할 암호입니다."
+msgstr "프록시를 이용한 인증에 사용할 비밀번호입니다."
 
 #: libraries/classes/Config/Descriptions.php:599
 msgid "Enable ZIP compression for import and export operations."
@@ -3863,7 +3863,7 @@ msgstr "호스트 인증 규칙"
 
 #: libraries/classes/Config/Descriptions.php:881
 msgid "Allow logins without a password"
-msgstr "암호 없이 로그인 허용"
+msgstr "비밀번호 없이 로그인 허용"
 
 #: libraries/classes/Config/Descriptions.php:882
 msgid "Allow root login"
@@ -3896,11 +3896,11 @@ msgstr "연결 압축"
 
 #: libraries/classes/Config/Descriptions.php:889
 msgid "Control user password"
-msgstr "유저 비밀번호 제어"
+msgstr "관리 사용자 비밀번호"
 
 #: libraries/classes/Config/Descriptions.php:890
 msgid "Control user"
-msgstr "유저 제어"
+msgstr "관리 사용자"
 
 #: libraries/classes/Config/Descriptions.php:891
 msgid "Control host"
@@ -3952,7 +3952,7 @@ msgstr "리스트에 있는 데이터베이스만 보여주기"
 
 #: libraries/classes/Config/Descriptions.php:903
 msgid "Password for config auth"
-msgstr "config 인증용 패스워드"
+msgstr "config 인증용 비밀번호"
 
 #: libraries/classes/Config/Descriptions.php:904
 msgid "PDF schema: pages table"
@@ -4274,7 +4274,7 @@ msgstr "프록시 사용자명"
 
 #: libraries/classes/Config/Descriptions.php:965
 msgid "Proxy password"
-msgstr "프록시 암호"
+msgstr "프록시 비밀번호"
 
 #: libraries/classes/Config/Descriptions.php:966
 msgid "ZIP"
@@ -4623,15 +4623,14 @@ msgid ""
 "phpMyAdmin panel. Set %1$sauthentication type%2$s to [kbd]cookie[/kbd] or "
 "[kbd]http[/kbd]."
 msgstr ""
-"[kbd]config[/kbd] 권한 타입에 자동 로그인을 위해 사용자 이름과 암호를 포함했"
-"습니다. 이 설정은 실제 서비스에서는 권장하지 않습니다. phpMyAdmin이 설치된 주"
-"소를 알거나 알아낸 누군가 phpMyAdmin 패널에 접속할 수 있습니다. "
-"%1$sauthentication type%2$s을 [kbd]cookie[/kbd]나 [kbd]http[/kbd]로 설정하세"
-"요."
+"[kbd]config[/kbd] 권한 타입에 자동 로그인을 위해 사용자 이름과 비밀번호를 "
+"포함했습니다. 이 설정은 실제 서비스에서는 권장하지 않습니다. phpMyAdmin이 "
+"설치된 주소를 알거나 알아낸 누군가 phpMyAdmin 패널에 접속할 수 있습니다. %1$"
+"sauthentication type%2$s을 [kbd]cookie[/kbd]나 [kbd]http[/kbd]로 설정하세요."
 
 #: libraries/classes/Config/ServerConfigChecks.php:224
 msgid "You allow for connecting to the server without a password."
-msgstr "암호 없이 서버 접속을 허용합니다."
+msgstr "비밀번호 없이 서버 접속을 허용합니다."
 
 #: libraries/classes/Config/ServerConfigChecks.php:307
 #, php-format
@@ -4768,9 +4767,8 @@ msgstr ""
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
-msgstr ""
-"phpMyAdmin 설정 저장공간을 사용하는 동안 phpMyAdmin 관리 사용자 패스워드를 비"
-"웁니다!"
+msgstr "phpMyAdmin 설정 저장공간을 사용하는 동안 phpMyAdmin 관리 사용자 비밀번호를 "
+"비웁니다!"
 
 #: libraries/classes/Config/Validator.php:449
 msgid "Incorrect value:"
@@ -5027,7 +5025,7 @@ msgstr "즐겨찾기 목록이 가득 찼습니다!"
 #: libraries/classes/Controllers/Database/TrackingController.php:83
 #: libraries/classes/Controllers/Database/TrackingController.php:103
 msgid "Tracking data deleted successfully."
-msgstr "추적자료의 삭제가 완료되었습니다."
+msgstr "추적 데이터가 정상적으로 삭제되었습니다."
 
 #: libraries/classes/Controllers/Database/TrackingController.php:90
 #, php-format
@@ -5125,9 +5123,9 @@ msgid ""
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
-"서버가 제어 사용자 및 암호(컨트롤패스)의 기본값을 사용하여 실행 중이고 침입"
-"할 수 있으므로, 제어 사용자 'pma'의 암호를 변경하여 이러한 보안 취약점을 해결"
-"하십시오."
+"서버가 관리사용자 및 비밀번호(관리비밀번호)의 기본값을 사용하여 실행 중이고 "
+"침입할 수 있으므로, 제어 사용자 'pma'의 암호를 변경하여 이러한 보안 취약점을 "
+"해결하십시오."
 
 #: libraries/classes/Controllers/HomeController.php:324
 msgid ""
@@ -5240,7 +5238,7 @@ msgstr ""
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "가져오기를 성공적으로 마쳤습니다. %d 쿼리가 실행되었습니다."
+msgstr[0] "가져오기가 정상적으로 완료되었습니다, %d 쿼리가 실행되었습니다."
 
 #: libraries/classes/Controllers/Import/ImportController.php:655
 #, php-format
@@ -5548,13 +5546,13 @@ msgstr "사용자명이 없습니다!"
 #: libraries/classes/Server/Privileges.php:950
 #: libraries/classes/UserPassword.php:42
 msgid "The password is empty!"
-msgstr "암호가 없습니다!"
+msgstr "비밀번호가 비어있습니다!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:134
 #: libraries/classes/Server/Privileges.php:948
 #: libraries/classes/UserPassword.php:46
 msgid "The passwords aren't the same!"
-msgstr "암호가 동일하지 않습니다!"
+msgstr "비밀번호가 동일하지 않습니다!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:135
 msgid "Removing Selected Users"
@@ -5637,7 +5635,7 @@ msgstr "템플릿을 불러왔습니다."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:145
 msgid "Template was updated."
-msgstr "템플릿이 업데이트 되었습니다."
+msgstr "템플릿이 갱신 되었습니다."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:146
 msgid "Template was deleted."
@@ -6885,7 +6883,7 @@ msgstr "현재 페이지의 수정된 내용을 저장하겠습니까?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:535
 msgid "Successfully deleted the page"
-msgstr "페이지 삭제 성공"
+msgstr "페이지가 정상적으로 삭제되었습니다"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:536
 msgid "Export relational schema"
@@ -7016,7 +7014,7 @@ msgstr "다음 링크로 이동 :"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:590
 msgid "Generate password"
-msgstr "암호 생성"
+msgstr "비밀번호 생성"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:591
 #: templates/server/replication/primary_add_replica_user.twig:73
@@ -7028,7 +7026,7 @@ msgstr "생성"
 #: templates/home/index.twig:46
 #: templates/server/privileges/change_password.twig:10
 msgid "Change password"
-msgstr "암호 변경"
+msgstr "비밀번호 변경"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:595
 #: templates/table/structure/display_structure.twig:130
@@ -7120,7 +7118,7 @@ msgstr "각 설정은 현재 전송중입니다. 기다려주세요."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:647
 msgid "Column name successfully copied to clipboard!"
-msgstr "열 이름이 클립보드에 성공적으로 복사되었습니다!"
+msgstr "열 이름이 클립보드에 정상적으로 복사되었습니다!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:648
 msgid "Column name copying to clipboard failed!"
@@ -7128,7 +7126,7 @@ msgstr "열 이름을 클립보드에 복사하지 못했습니다!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:649
 msgid "Successfully copied!"
-msgstr "복사가 성공했습니다!"
+msgstr "정상적으로 복사되었습니다!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:650
 msgid "Copying failed!"
@@ -7373,17 +7371,17 @@ msgstr "데이터베이스 %1$s가 생성되었습니다."
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%1$d개의 데이터베이스를 삭제했습니다."
+msgstr[0] "%1$d개의 데이터베이스를 정상적으로 삭제했습니다."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
 #, php-format
 msgid "The account %s@%s has been successfully locked."
-msgstr "%s@%s계정을 성공적으로 잠궜습니다."
+msgstr "%s@%s계정을 정상적으로 잠갔습니다."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountUnlockController.php:47
 #, php-format
 msgid "The account %s@%s has been successfully unlocked."
-msgstr "%s@%s계정을 성공적으로 잠금 해제 했습니다."
+msgstr "%s@%s계정을 정상적으로 잠금 해제 했습니다."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:152
 #: libraries/classes/Controllers/Server/UserGroupsController.php:53
@@ -7398,9 +7396,8 @@ msgstr "사용자를 관리할 권한이 없습니다!"
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
-msgstr ""
-"사용자 이름과 호스트 이름이 변경되지 않음 암호만 변경하려면 '암호 변경' 탭을 "
-"사용해야 한다."
+msgstr "사용자 이름과 호스트 이름이 변경되지 않음 비밀번호만 변경하려면 '비밀번호 "
+"변경' 탭을 사용해야 한다."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:405
 msgid "User has been added."
@@ -7409,7 +7406,7 @@ msgstr "사용자가 추가되었습니다."
 #: libraries/classes/Controllers/Server/Status/Processes/KillController.php:42
 #, php-format
 msgid "Thread %s was successfully killed."
-msgstr "쓰레드 %s 를 죽였습니다."
+msgstr "%s 쓰레드를 정상적으로 종료했습니다."
 
 #: libraries/classes/Controllers/Server/Status/Processes/KillController.php:48
 #, php-format
@@ -7802,7 +7799,7 @@ msgstr "InnoDB 테이블에서 읽은 행 수입니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:397
 msgid "The number of rows updated in InnoDB tables."
-msgstr "InnoDB 테이블에서 업데이트된 행 수입니다."
+msgstr "InnoDB 테이블에서 갱신된 행 개수입니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:399
 msgid ""
@@ -8101,8 +8098,7 @@ msgstr "잘못된 양식을 지정했습니다!"
 msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
-msgstr ""
-"현재, 암호화 되지 않은 접속을 통해 연결되어 있습니다. 모든 데이터(패스워드 "
+msgstr "현재, 암호화 되지 않은 접속을 통해 연결되어 있습니다. 모든 데이터(비밀번호 "
 "등 민감한 정보 포함)는 평문으로 전송됩니다!"
 
 #: libraries/classes/Controllers/Setup/HomeController.php:47
@@ -8132,7 +8128,7 @@ msgstr "북마크가 생성되지 않았습니다!"
 #: libraries/classes/Table/Indexes.php:85
 #, php-format
 msgid "Table %1$s has been altered successfully."
-msgstr "테이블 %1$s 가 성공적으로 수정되었습니다."
+msgstr "%1$s 테이블이 정상적으로 수정되었습니다."
 
 #: libraries/classes/Controllers/Table/ChangeRowsController.php:36
 #: libraries/classes/Controllers/Table/DeleteConfirmController.php:25
@@ -8184,7 +8180,7 @@ msgstr "테이블 %s 가 이미 존재합니다!"
 #: libraries/classes/Display/Results.php:3700 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
-msgstr "쿼리가 성공적으로 실행되었습니다."
+msgstr "쿼리가 정상적으로 실행되었습니다."
 
 #: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:23
 #: libraries/classes/Controllers/Table/DropColumnController.php:51
@@ -8204,7 +8200,7 @@ msgstr "선택된 열이 없습니다."
 #, php-format
 msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
-msgstr[0] "%1$d 열을 성공적으로 삭제했습니다."
+msgstr[0] "%1$d 열을 정상적으로 삭제했습니다."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:63
 msgid "Invalid table name"
@@ -8254,11 +8250,11 @@ msgstr "오류"
 
 #: libraries/classes/Controllers/Table/RelationController.php:182
 msgid "Display column was successfully updated."
-msgstr "보여지는 칼럼값이 성공적으로 업데이트 되었습니다."
+msgstr "열 표시가 정상적으로 갱신 되었습니다."
 
 #: libraries/classes/Controllers/Table/RelationController.php:275
 msgid "Internal relationships were successfully updated."
-msgstr "내부 릴레이션이 성공적으로 갱신되었습니다."
+msgstr "내부 릴레이션이 정상적으로 갱신되었습니다."
 
 #: libraries/classes/Controllers/Table/ReplaceController.php:294
 #, php-format
@@ -8294,7 +8290,7 @@ msgstr "인덱스"
 
 #: libraries/classes/Controllers/Table/Structure/MoveColumnsController.php:178
 msgid "The columns have been moved successfully."
-msgstr "컬럼을 이동했습니다."
+msgstr "열이 정상적으로 이동했습니다."
 
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:267
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:273
@@ -8312,7 +8308,7 @@ msgstr[0] "'%s'라는 명칭은 MySQL 예약어입니다."
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "테이블 %1$s 가 성공적으로 수정되었습니다. 권한이 조정되었습니다."
+msgstr "%1$s 테이블이 정상적으로 수정되었습니다. 권한이 조정되었습니다."
 
 #: libraries/classes/Controllers/Table/TrackingController.php:69
 #, php-format
@@ -8321,7 +8317,7 @@ msgstr "%s의 트래킹이 활성화되었습니다."
 
 #: libraries/classes/Controllers/Table/TrackingController.php:140
 msgid "Tracking versions deleted successfully."
-msgstr "추적 버전이 성공적으로 삭제되었습니다."
+msgstr "추적 버전이 정상적으로 삭제되었습니다."
 
 #: libraries/classes/Controllers/Table/TrackingController.php:145
 msgid "No versions selected."
@@ -10375,9 +10371,9 @@ msgid ""
 "configuration and make sure that they correspond to the information given by "
 "the administrator of the MySQL server."
 msgstr ""
-"phpMyAdmin이 MySQL 서버에 접속하려 했으나 실패했습니다. 서버가 연결을 거부했"
-"습니다. 당신의 설정의 호스트, ID, 패스워드가 맞게 입력됐는지, 또는 MySQL 서버"
-"의 관리자가 제공해 준 정보를 맞게 입력했는지 확인하세요."
+"phpMyAdmin이 MySQL 서버에 접속하려 했으나 실패했습니다. 서버가 연결을 "
+"거부했습니다. 당신의 설정의 호스트, ID, 비밀번호가 맞게 입력됐는지, 또는 "
+"MySQL 서버의 관리자가 제공해 준 정보를 맞게 입력했는지 확인하세요."
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:151
 msgid "Retry to connect"
@@ -10412,7 +10408,7 @@ msgstr "MySQL 서버에 로그인 할 권한이 없습니다!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:92
 msgid "Wrong username/password. Access denied."
-msgstr "사용자명/암호가 틀렸습니다. 접근이 거부되었습니다."
+msgstr "사용자명/비밀번호가 틀렸습니다. 접근이 거부되었습니다."
 
 #: libraries/classes/Plugins/Auth/AuthenticationSignon.php:149
 msgid "Can not find signon authentication script:"
@@ -10421,9 +10417,8 @@ msgstr "접근관련 인증 스크립트를 찾을수 없습니다:"
 #: libraries/classes/Plugins/AuthenticationPlugin.php:180
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
-msgstr ""
-"암호가 없는 로그인이 설정으로 차단되어 있습니다 (AllowNoLogin 항목을 참조하세"
-"요)"
+msgstr "비밀번호가 없는 로그인이 설정으로 차단되어 있습니다 (AllowNoLogin 항목을 "
+"참조하세요)"
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:189
 #, php-format
@@ -10801,8 +10796,7 @@ msgstr "추가적인 커스텀 헤더 코멘트(\\n으로 줄바꿈):"
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
-msgstr ""
-"데이터베이스의 생성일, 마지막 업데이트, 마지막 체크에 대한 타임스탬프 포함"
+msgstr "데이터베이스가 생성, 최종 업데이트, 최종 체크의 타임스탬프를 포함합니다"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:204
 msgid "Export metadata"
@@ -11636,7 +11630,7 @@ msgstr ""
 
 #: libraries/classes/ReplicationGui.php:449
 msgid "Replication started successfully."
-msgstr "복제가 성공적으로 시작되었습니다."
+msgstr "복제가 정상적으로 시작되었습니다."
 
 #: libraries/classes/ReplicationGui.php:450
 msgid "Error starting replication."
@@ -11644,7 +11638,7 @@ msgstr "복제 시작 오류."
 
 #: libraries/classes/ReplicationGui.php:453
 msgid "Replication stopped successfully."
-msgstr "복제가 성공적으로 중단되었습니다."
+msgstr "복제가 정상적으로 중단되었습니다."
 
 #: libraries/classes/ReplicationGui.php:454
 msgid "Error stopping replication."
@@ -11652,7 +11646,7 @@ msgstr "복제 중단 오류."
 
 #: libraries/classes/ReplicationGui.php:457
 msgid "Replication resetting successfully."
-msgstr "복제가 성공적으로 리셋되었습니다."
+msgstr "복제가 정상적으로 리셋되었습니다."
 
 #: libraries/classes/ReplicationGui.php:458
 msgid "Error resetting replication."
@@ -11687,7 +11681,7 @@ msgstr "기본 서버를 변경할 수 없습니다!"
 #: libraries/classes/ReplicationGui.php:552
 #, php-format
 msgid "Primary server changed successfully to %s."
-msgstr "기본 서버가 %s 서버로 잘 변경되었습니다."
+msgstr "기본 서버가 %s 서버로 정상적으로 변경되었습니다."
 
 #: libraries/classes/Routing.php:103
 #, php-format
@@ -11738,7 +11732,7 @@ msgstr "기본 MySQL 인증"
 
 #: libraries/classes/Server/Plugins.php:73
 msgid "SHA256 password authentication"
-msgstr "SHA256 암호 인증"
+msgstr "SHA256 비밀번호 인증"
 
 #: libraries/classes/Server/Plugins.php:78
 msgid "Caching sha2 authentication"
@@ -11984,7 +11978,7 @@ msgstr "저장된 루틴 실행을 허용합니다."
 #: libraries/classes/Server/Privileges.php:1083
 #, php-format
 msgid "The password for %s was changed successfully."
-msgstr "%s 의 암호가 바뀌었습니다."
+msgstr "%s 의 비밀번호가 정상적으로 변경되었습니다."
 
 #: libraries/classes/Server/Privileges.php:1131
 #, php-format
@@ -11995,7 +11989,7 @@ msgstr "%s의 권한을 제거했습니다."
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 msgid "Not enough privilege to view users."
-msgstr "사용자를 볼 수 있는 권한이 충분하지 않습니다."
+msgstr "사용자를 볼 수 있는 권한이 부족합니다."
 
 #: libraries/classes/Server/Privileges.php:1505
 #: templates/database/privileges/index.twig:80
@@ -12044,12 +12038,12 @@ msgstr "사용권한을 갱신합니다(Reloading the privileges)"
 
 #: libraries/classes/Server/Privileges.php:2201
 msgid "The selected users have been deleted successfully."
-msgstr "선택한 사용자들을 삭제했습니다."
+msgstr "선택한 사용자를 정상적으로 삭제했습니다."
 
 #: libraries/classes/Server/Privileges.php:2278
 #, php-format
 msgid "You have updated the privileges for %s."
-msgstr "%s 의 권한을 업데이트했습니다."
+msgstr "%s 에 대한 권한을 갱신했습니다."
 
 #: libraries/classes/Server/Privileges.php:2365
 #: templates/database/privileges/index.twig:102
@@ -12064,7 +12058,7 @@ msgstr "%s 을 삭제합니다"
 
 #: libraries/classes/Server/Privileges.php:2483
 msgid "The privileges were reloaded successfully."
-msgstr "권한을 다시 로딩했습니다."
+msgstr "권한을 정상적으로 다시 로드했습니다."
 
 #: libraries/classes/Server/Privileges.php:2587
 #, php-format
@@ -12442,7 +12436,7 @@ msgstr "구조와 데이터 모두"
 #: libraries/classes/Tracking.php:383 libraries/classes/Tracking.php:451
 #, php-format
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
-msgstr ""
+msgstr "%4$s %5$s 사용자가 %2$s 부터 %3$s 동안 %1$s 표"
 
 #: libraries/classes/Tracking.php:472
 msgid "SQL dump (file download)"
@@ -12467,7 +12461,7 @@ msgstr "%s로 내보내기"
 
 #: libraries/classes/Tracking.php:521
 msgid "Data manipulation statement"
-msgstr ""
+msgstr "데이터 조작 구문"
 
 #: libraries/classes/Tracking.php:557
 msgid "Data definition statement"
@@ -12486,17 +12480,18 @@ msgstr "버전 %s 스냅샷 (SQL 코드)"
 
 #: libraries/classes/Tracking.php:728
 msgid "Tracking data definition successfully deleted"
-msgstr ""
+msgstr "추적 데이터 정의가 정상적으로 삭제되었습니다"
 
 #: libraries/classes/Tracking.php:740
 msgid "Tracking data manipulation successfully deleted"
-msgstr ""
+msgstr "추적 데이터 조작이 정상적으로 삭제되었습니다"
 
 #: libraries/classes/Tracking.php:797
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
-msgstr ""
+msgstr "임시 데이터베이스를 생성하고 사용하여 덤프를 실행할 수 있습니다. 이 작업을 "
+"수행할 수 있는 권한이 있는지 확인하세요."
 
 #: libraries/classes/Tracking.php:801
 msgid "Comment out these two lines if you do not need them."
@@ -12514,12 +12509,12 @@ msgstr "`%s` 테이블에 대한 추적 보고서"
 #: libraries/classes/Tracking.php:877
 #, php-format
 msgid "Tracking for %1$s was activated at version %2$s."
-msgstr ""
+msgstr "%1$s에 대한 추적이 %2$s 버전에서 활성화되었습니다."
 
 #: libraries/classes/Tracking.php:880
 #, php-format
 msgid "Tracking for %1$s was deactivated at version %2$s."
-msgstr ""
+msgstr "%1$s에 대한 추적이 %2$s 버전에서 비활성화되었습니다."
 
 #: libraries/classes/Tracking.php:979
 #, php-format
@@ -12529,7 +12524,7 @@ msgstr "%2$s의 %1$s 버전이 삭제되었습니다."
 #: libraries/classes/Tracking.php:1010
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
-msgstr ""
+msgstr "%1$s 버전이 만들어졌으며 %2$s에 대한 추적이 활성화되어 있습니다."
 
 #: libraries/classes/Types.php:231
 msgid ""
@@ -12801,7 +12796,8 @@ msgstr ""
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
-msgstr ""
+msgstr "IPv6 주소의 저장용이며, 기존방식으로 IPv6 주소로 매핑한 IPv4 주소도 "
+"저장합니다"
 
 #: libraries/classes/Types.php:445
 msgid "128-bit UUID (Universally Unique Identifier)"
@@ -12828,7 +12824,7 @@ msgstr "해당 사이트로 가는 중."
 
 #: libraries/classes/UserPassword.php:38
 msgid "The profile has been updated."
-msgstr "프로파일을 업데이트했습니다."
+msgstr "프로파일이 갱신되었습니다."
 
 #: libraries/classes/UserPassword.php:50
 msgid "Password is too long!"
@@ -13149,7 +13145,7 @@ msgstr "위의 것 모두 아님"
 
 #: setup/index.php:33
 msgid "Configuration already exists, setup is disabled!"
-msgstr ""
+msgstr "구성이 이미 존재하며 설정이 비활성화되었습니다!"
 
 #: setup/validate.php:31
 msgid "Wrong data"
@@ -13158,14 +13154,14 @@ msgstr "잘못된 데이터"
 #: setup/validate.php:38
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr ""
+msgstr "잘못된 데이터 또는 %s에 대한 유효성 검사 없음"
 
 #: templates/columns_definitions/column_attributes.twig:31
 #: templates/database/central_columns/edit_table_row.twig:23
 #: templates/database/central_columns/main.twig:71
 #: templates/database/central_columns/main.twig:298
 msgid "Edit ENUM/SET values"
-msgstr ""
+msgstr "ENUM/SET 값 편집"
 
 #: templates/columns_definitions/column_attributes.twig:38
 #: templates/database/central_columns/edit_table_row.twig:30
@@ -13212,7 +13208,7 @@ msgstr "Fulltext"
 #: templates/table/structure/display_structure.twig:200
 #: templates/table/structure/display_structure.twig:304
 msgid "Spatial"
-msgstr ""
+msgstr "공간"
 
 #: templates/columns_definitions/column_attributes.twig:165
 #: templates/table/structure/display_partitions.twig:26
@@ -13266,7 +13262,7 @@ msgstr "스토리지 엔진"
 
 #: templates/columns_definitions/column_definitions_form.twig:136
 msgid "PARTITION definition:"
-msgstr ""
+msgstr "PARTITION 정의:"
 
 #: templates/columns_definitions/column_definitions_form.twig:154
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
@@ -13277,7 +13273,8 @@ msgstr "온라인 트랜잭션"
 msgid ""
 "The column width of integer types is ignored in your MySQL version unless "
 "defining a TINYINT(1) column"
-msgstr ""
+msgstr "정수 유형의 열 너비는 TINYINT(1) 열 정의 이외에는 현재 MySQL 버전에서 "
+"무시됩니다"
 
 #: templates/columns_definitions/column_definitions_form.twig:175
 #: templates/database/designer/main.twig:1097
@@ -13441,7 +13438,7 @@ msgstr "권한 조정"
 
 #: templates/columns_definitions/table_fields_definitions.twig:59
 msgid "Virtuality"
-msgstr ""
+msgstr "가상"
 
 #: templates/columns_definitions/table_fields_definitions.twig:65
 msgid "Move column"
@@ -13855,12 +13852,12 @@ msgstr "도움말"
 #: templates/database/designer/main.twig:120
 #: templates/database/designer/main.twig:123
 msgid "Angular links"
-msgstr ""
+msgstr "Angular 링크"
 
 #: templates/database/designer/main.twig:120
 #: templates/database/designer/main.twig:123
 msgid "Direct links"
-msgstr "다이렉트 링크"
+msgstr "Direct 링크"
 
 #: templates/database/designer/main.twig:127
 #: templates/database/designer/main.twig:129
@@ -14180,7 +14177,7 @@ msgstr "별도 열"
 
 #: templates/database/multi_table_query/form.twig:146
 msgid "Enter criteria as free text"
-msgstr ""
+msgstr "기준을 자유롭게 입력해 주세요"
 
 #: templates/database/multi_table_query/form.twig:153
 msgid "Remove this column"
@@ -14303,7 +14300,7 @@ msgstr "누구나"
 #: templates/database/privileges/index.twig:47
 #: templates/table/privileges/index.twig:49
 msgid "global"
-msgstr ""
+msgstr "글로벌"
 
 #: templates/database/privileges/index.twig:50
 #: templates/table/privileges/index.twig:52
@@ -14313,7 +14310,7 @@ msgstr "데이터베이스 고유"
 #: templates/database/privileges/index.twig:52
 #: templates/table/privileges/index.twig:54
 msgid "wildcard"
-msgstr ""
+msgstr "와일드카드"
 
 #: templates/database/privileges/index.twig:55
 #: templates/table/privileges/index.twig:59
@@ -14341,7 +14338,7 @@ msgstr "선택한 것을:"
 #: templates/table/privileges/index.twig:134
 msgctxt "Create new user"
 msgid "New"
-msgstr ""
+msgstr "신규"
 
 #: templates/database/privileges/index.twig:136
 #: templates/server/privileges/add_user_fieldset.twig:9
@@ -14461,7 +14458,7 @@ msgstr "문자집합"
 
 #: templates/database/routines/editor_form.twig:119
 msgid "Is deterministic"
-msgstr ""
+msgstr "Deterministic"
 
 #: templates/database/routines/editor_form.twig:135
 msgid ""
@@ -14476,7 +14473,7 @@ msgstr "보안 타입"
 
 #: templates/database/routines/editor_form.twig:157
 msgid "SQL data access"
-msgstr ""
+msgstr "SQL 데이터 접근"
 
 #: templates/database/routines/execute_form.twig:7
 #: templates/database/routines/execute_form.twig:12
@@ -14570,11 +14567,11 @@ msgstr "계속"
 
 #: templates/database/structure/change_prefix_form.twig:7
 msgid "From"
-msgstr ""
+msgstr "교체전"
 
 #: templates/database/structure/change_prefix_form.twig:13
 msgid "To"
-msgstr ""
+msgstr "교체후"
 
 #: templates/database/structure/check_all_tables.twig:6
 msgid "Check tables having overhead"
@@ -14772,7 +14769,7 @@ msgstr "생성됨"
 #: templates/database/tracking/tables.twig:16
 #: templates/table/tracking/main.twig:30
 msgid "Updated"
-msgstr "수정됨"
+msgstr "갱신됨"
 
 #: templates/database/tracking/tables.twig:61
 #: templates/table/tracking/main.twig:10 templates/table/tracking/main.twig:53
@@ -14909,16 +14906,19 @@ msgid ""
 "about relevant configuration settings. It will be sent to the phpMyAdmin "
 "team for debugging the error."
 msgstr ""
+"이 보고서에는 오류에 대한 데이터와 관련 구성 설정에 대한 정보가 자동으로 "
+"포함됩니다. 오류 디버깅을 위해 phpMyAdmin 팀으로 전송됩니다."
 
 #: templates/error/report_form.twig:11
 msgid ""
 "Can you tell us the steps leading to this error? It decisively helps in "
 "debugging:"
-msgstr ""
+msgstr "이 오류가 발생하는 단계를 알려주실 수 있습니까? 디버깅에 결정적으로 도움이 "
+"됩니다:"
 
 #: templates/error/report_form.twig:18
 msgid "You may examine the data in the error report:"
-msgstr ""
+msgstr "오류 보고서에서 데이터를 검토할 수 있습니다:"
 
 #: templates/error/report_modal.twig:5
 msgid "Submit error report"
@@ -15003,20 +15003,20 @@ msgstr "서버의 <strong>%s</strong> 디렉토리에 저장"
 
 #: templates/export.twig:193 templates/export.twig:337
 msgid "Rename exported databases/tables/columns"
-msgstr ""
+msgstr "내보낸 데이터베이스/테이블/열 이름 바꾸기"
 
 #: templates/export.twig:201
 msgid "Defined aliases"
-msgstr ""
+msgstr "정의된 별칭"
 
 #: templates/export.twig:216 templates/export.twig:230
 #: templates/export.twig:243 templates/export.twig:260
 msgid "Remove"
-msgstr ""
+msgstr "삭제"
 
 #: templates/export.twig:269
 msgid "Define new aliases"
-msgstr ""
+msgstr "신규 별칭 정의"
 
 #: templates/export.twig:274
 msgid "Select database:"
@@ -15096,11 +15096,11 @@ msgstr "테이블을 파일로 내보내기"
 
 #: templates/export.twig:474
 msgid "Skip tables larger than:"
-msgstr ""
+msgstr "다음보다 큰 테이블 건너뛰기:"
 
 #: templates/export.twig:476
 msgid "The size is measured in MiB."
-msgstr ""
+msgstr "크기는 MiB 단위입니다."
 
 #: templates/export.twig:482 templates/import.twig:182
 msgid "Format-specific options:"
@@ -15364,7 +15364,7 @@ msgstr "경고"
 
 #: templates/home/index.twig:284
 msgid "Notice"
-msgstr ""
+msgstr "공지"
 
 #: templates/home/index.twig:297
 msgid "phpMyAdmin Themes"
@@ -15396,12 +15396,12 @@ msgstr ""
 #: templates/import/javascript.twig:13
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s / %s"
 
 #: templates/import/javascript.twig:14
 #, php-format
 msgid "%s/sec."
-msgstr ""
+msgstr "%s/초."
 
 #: templates/import/javascript.twig:15
 msgid "About %MIN min. %SEC sec. remaining."
@@ -15423,7 +15423,8 @@ msgstr "당신의 가져오기 파일을 업로드하는 중…"
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
-msgstr ""
+msgstr "파일을 업로드하는 중입니다. 잠시만 기다려 주세요. 업로드에 대한 자세한 "
+"내용을 확인할 수 없습니다."
 
 #: templates/import.twig:26
 msgid "File to import:"
@@ -15457,7 +15458,7 @@ msgstr "업로드 파일:"
 
 #: templates/import.twig:55 templates/import.twig:82
 msgid "You may also drag and drop a file on any page."
-msgstr ""
+msgstr "어느 페이지에서나 파일을 끌어다 놓을 수 있습니다."
 
 #: templates/import.twig:62 templates/import.twig:88
 #, php-format
@@ -15480,7 +15481,7 @@ msgstr "일부분만 가져오기:"
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
-msgstr ""
+msgstr "이전 가져오기 시간이 초과되었습니다. 다시 전송한 후 %d 위치에서 계속됩니다."
 
 #: templates/import.twig:138
 msgid ""
@@ -15727,7 +15728,7 @@ msgstr "올바른 HEX값을 입력하세요"
 #. l10n: To validate the usage of a MD5 function on the column
 #: templates/javascript/variables.twig:108
 msgid "This column can not contain a 32 chars value"
-msgstr ""
+msgstr "이 열에는 32 글자의 값을 포함할 수 없습니다"
 
 #. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
 #: templates/javascript/variables.twig:109
@@ -15735,6 +15736,8 @@ msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
+"이러한 함수는 이진 결과를 반환하도록 되어 있으므로 예상과 다른 결과를 "
+"방지하려면 BINARY, VARBINARY, BLOB 열에 저장해야 합니다."
 
 #: templates/login/form.twig:58 templates/login/form.twig:117
 #: templates/login/form.twig:121 templates/login/form.twig:124
@@ -15755,7 +15758,7 @@ msgstr "사용자명:"
 #: templates/server/replication/change_primary.twig:18
 #: templates/server/replication/primary_add_replica_user.twig:49
 msgid "Password:"
-msgstr "암호:"
+msgstr "비밀번호:"
 
 #: templates/login/form.twig:95
 msgid "Server choice:"
@@ -15767,16 +15770,20 @@ msgid ""
 "can lead to a non working phpMyAdmin or a security risk. Please fix your "
 "server configuration to indicate HTTPS properly."
 msgstr ""
+"서버와 클라이언트에 표시된 HTTPS가 일치하지 않습니다. 이로 인해 phpMyAdmin이 "
+"작동하지 않거나 보안 위험이 발생할 수 있습니다. 서버 구성을 수정하여 HTTPS가 "
+"올바르게 표시되도록 하세요."
 
 #: templates/login/twofactor/application_configure.twig:3
 msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
-msgstr ""
+msgstr "다음 QR 코드를 디바이스의 2단계 인증 앱으로 스캔한 후 생성된 인증 코드를 "
+"입력하세요."
 
 #: templates/login/twofactor/application_configure.twig:13
 msgid "Secret/key:"
-msgstr ""
+msgstr "비밀/키:"
 
 #: templates/login/twofactor/application_configure.twig:16
 #: templates/login/twofactor/application.twig:2
@@ -15787,7 +15794,7 @@ msgstr "인증:"
 msgid ""
 "Open the two-factor authentication app on your device to view your "
 "authentication code and verify your identity."
-msgstr ""
+msgstr "디바이스에서 2단계 인증 앱을 열어 인증 코드를 확인해서 신원을 확인합니다."
 
 #: templates/login/twofactor/invalid.twig:2
 msgid ""
@@ -15808,7 +15815,8 @@ msgstr "오래됨!"
 msgid ""
 "The FIDO U2F API has been deprecated in favor of the Web Authentication API "
 "(WebAuthn)."
-msgstr ""
+msgstr "FIDO U2F API는 더 이상 사용하지 않으며 대신 웹 인증 API(WebAuthn)를 "
+"사용합니다."
 
 #: templates/login/twofactor/key_configure.twig:6
 #: templates/login/twofactor/key.twig:6
@@ -15818,18 +15826,22 @@ msgid ""
 "API, however it's recommended that you use the WebAuthn authentication "
 "instead."
 msgstr ""
+"Firefox를 사용하여 FIDO U2F API를 사용하여 계정을 인증할 수는 있지만, 대신 "
+"WebAuthn 인증을 사용하는 것이 좋습니다."
 
 #: templates/login/twofactor/key_configure.twig:10
 msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm registration on the device."
-msgstr ""
+msgstr "FIDO U2F 장치를 컴퓨터의 USB 포트에 연결하세요. 그리고 장치에서 등록을 "
+"확인해 주세요."
 
 #: templates/login/twofactor/key-https-warning.twig:3
 msgid ""
 "You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
 "most likely refuse to authenticate you."
-msgstr ""
+msgstr "https를 사용하여 phpMyAdmin에 액세스하지 않으므로 FIDO U2F 장치가 사용자 "
+"인증을 거부할 가능성이 높습니다."
 
 #: templates/login/twofactor/key.twig:10
 msgid ""
@@ -16299,7 +16311,7 @@ msgstr ""
 
 #: templates/relation/check_relations.twig:535
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
-msgstr "수정된 설정 파일을 적용하기 위해 phpMyAdmin에 다시 로그인해야 합니다."
+msgstr "갱신된 구성 파일을 적용하기 위해 phpMyAdmin에 다시 로그인해야 합니다."
 
 #: templates/server/binlog/index.twig:10
 msgid "Select binary log to view"
@@ -16470,7 +16482,7 @@ msgstr "%s 데이터베이스에 대한 모든 권한을 부여합니다."
 
 #: templates/server/privileges/change_password.twig:15
 msgid "No Password"
-msgstr "암호 없음"
+msgstr "비밀번호 없음"
 
 #: templates/server/privileges/change_password.twig:24
 msgid "Enter:"
@@ -16620,11 +16632,11 @@ msgstr ""
 #: templates/server/replication/primary_add_replica_user.twig:52
 #: templates/server/replication/primary_add_replica_user.twig:57
 msgid "Password"
-msgstr "암호"
+msgstr "비밀번호"
 
 #: templates/server/privileges/login_information_fields.twig:47
 msgid "Do not change the password"
-msgstr "암호를 변경하지 않음"
+msgstr "비밀번호를 변경하지 않음"
 
 #: templates/server/privileges/login_information_fields.twig:49
 #: templates/server/replication/primary_add_replica_user.twig:53
@@ -16650,6 +16662,9 @@ msgid ""
 "'<em>unencrypted connection that encrypts the password using RSA</em>'; "
 "while connecting to the server."
 msgstr ""
+"이 방법을 사용하려면 서버에 연결하는 동안 '<em>SSL 연결</em>' 또는 "
+"'<em>RSA를 사용하여 비밀번호를 암호화하는 비암호화 연결</em>'을 사용해야 "
+"합니다."
 
 #: templates/server/privileges/new_user_ajax.twig:52
 #: templates/server/privileges/users_overview.twig:83
@@ -16700,7 +16715,7 @@ msgstr "다른 유저에게 자신이 가진 권한을 부여하거나 삭제할
 
 #: templates/server/privileges/privileges_table.twig:255
 msgid "Global"
-msgstr ""
+msgstr "글로벌"
 
 #: templates/server/privileges/privileges_table.twig:262
 #: templates/server/privileges/users_overview.twig:12
@@ -16723,7 +16738,7 @@ msgstr "외래 키 릴레이션 생성을 허가합니다."
 
 #: templates/server/privileges/privileges_table.twig:670
 msgid "Not used on MariaDB."
-msgstr ""
+msgstr "MariaDB에서 사용하지 않습니다."
 
 #: templates/server/privileges/privileges_table.twig:670
 msgid "Not used for this MySQL version."
@@ -16775,15 +16790,15 @@ msgstr "유효한 X509 인증서가 요구됨."
 
 #: templates/server/privileges/privileges_table.twig:823
 msgid "Requires that a specific cipher method be used for a connection."
-msgstr ""
+msgstr "연결에 특정 암호 방법을 사용해야 합니다."
 
 #: templates/server/privileges/privileges_table.twig:832
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
-msgstr ""
+msgstr "이 CA에서 발급한 유효한 X509 인증서가 필요합니다."
 
 #: templates/server/privileges/privileges_table.twig:841
 msgid "Requires that a valid X509 certificate with this subject be presented."
-msgstr ""
+msgstr "이 Subject가 포함된 유효한 X509 인증서가 필요합니다."
 
 #: templates/server/privileges/subnav.twig:5
 #: templates/server/privileges/user_overview.twig:5
@@ -16811,7 +16826,7 @@ msgstr "새로운 사용자 계정을 동일한 권한으로 생성하고 …"
 
 #: templates/server/privileges/user_properties.twig:119
 msgid "… keep the old one."
-msgstr ""
+msgstr "... 이전 정보를 유지합니다."
 
 #: templates/server/privileges/user_properties.twig:126
 msgid "… delete the old one from the user tables."
@@ -16863,6 +16878,8 @@ msgid ""
 "Make sure you have a unique server-id in your configuration file (my.cnf). "
 "If not, please add the following line into [mysqld] section:"
 msgstr ""
+"구성 파일(my.cnf)에 고유한 server-id가 있는지 확인하세요. 그렇지 않은 경우 "
+"다음 줄을 [mysqld] 섹션에 추가해 주세요:"
 
 #: templates/server/replication/change_primary.twig:26
 msgid "Port:"
@@ -16889,11 +16906,11 @@ msgstr "복제본의 복제 사용자를 추가"
 #: templates/server/replication/primary_add_replica_user.twig:40
 #: templates/server/replication/primary_add_replica_user.twig:54
 msgid "Use text field:"
-msgstr ""
+msgstr "텍스트 필드를 사용합니다:"
 
 #: templates/server/replication/primary_add_replica_user.twig:70
 msgid "Generate password:"
-msgstr "암호 생성:"
+msgstr "비밀번호 생성:"
 
 #: templates/server/replication/primary_configuration.twig:2
 msgid "Primary configuration"
@@ -16915,7 +16932,7 @@ msgstr ""
 
 #: templates/server/replication/primary_configuration.twig:9
 msgid "Replicate all databases; Ignore:"
-msgstr ""
+msgstr "모든 데이터베이스를 복제하고 무시합니다:"
 
 #: templates/server/replication/primary_configuration.twig:10
 msgid "Ignore all databases; Replicate:"
@@ -16929,7 +16946,8 @@ msgstr "데이터베이스를 선택하세요:"
 msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
-msgstr ""
+msgstr "이제 my.cnf의 [mysqld] 섹션 끝에 다음 줄을 추가한 후 MySQL 서버를 다시 "
+"시작하세요."
 
 #: templates/server/replication/primary_configuration.twig:21
 msgid ""
@@ -16952,7 +16970,7 @@ msgstr "연결된 복제본 보기"
 msgid ""
 "Only replicas started with the --report-host=host_name option are visible in "
 "this list."
-msgstr ""
+msgstr "이 목록에는 --report-host=host_name 옵션으로 시작한 복제본만 표시됩니다."
 
 #: templates/server/replication/replica_configuration.twig:5
 msgid "Primary connection:"
@@ -17009,12 +17027,12 @@ msgstr "오류를 건너 뛰었기 때문에 기본 및 복제본이 동기화�
 
 #: templates/server/replication/replica_configuration.twig:81
 msgid "Skip current error"
-msgstr ""
+msgstr "현재 오류를 건너뜁니다"
 
 #: templates/server/replication/replica_configuration.twig:87
 #, php-format
 msgid "Skip next %s errors."
-msgstr ""
+msgstr "다음 %s 오류를 건너뜁니다."
 
 #: templates/server/replication/replica_configuration.twig:107
 #, php-format
@@ -17049,7 +17067,7 @@ msgstr "조언 시스템"
 
 #: templates/server/status/advisor/index.twig:9
 msgid "Not enough privilege to view the advisor."
-msgstr "조언을 볼 권한이 충분하지 않습니다."
+msgstr "조언을 볼 권한이 부족합니다."
 
 #: templates/server/status/advisor/index.twig:12
 msgid "Instructions"
@@ -17068,6 +17086,8 @@ msgid ""
 "calculations and by rule of thumb which may not necessarily apply to your "
 "system."
 msgstr ""
+"단, 이 시스템은 간단한 계산과 경험 법칙을 기반으로 한 권장 사항을 제공하므로 "
+"각 사용자의 시스템에 반드시 적용되지 않을 수 있다는 점에 유의하세요."
 
 #: templates/server/status/advisor/index.twig:34
 msgid ""
@@ -17075,6 +17095,8 @@ msgid ""
 "changing (by reading the documentation) and how to undo the change. Wrong "
 "tuning can have a very negative effect on performance."
 msgstr ""
+"구성을 변경하기 전에 문서를 읽고 변경할 내용과 변경을 취소하는 방법을 "
+"숙지하세요. 잘못된 튜닝은 성능에 매우 부정적인 영향을 미칠 수 있습니다."
 
 #: templates/server/status/advisor/index.twig:39
 msgid ""
@@ -17140,7 +17162,7 @@ msgstr "사용방법/셋업"
 
 #: templates/server/status/monitor/index.twig:20
 msgid "Done dragging (rearranging) charts"
-msgstr ""
+msgstr "차트 드래그(재정렬) 완료"
 
 #: templates/server/status/monitor/index.twig:27
 msgid "Add chart"
@@ -17201,7 +17223,7 @@ msgstr "기본값으로 초기화"
 
 #: templates/server/status/monitor/index.twig:89
 msgid "Monitor Instructions"
-msgstr ""
+msgstr "모니터 지침"
 
 #: templates/server/status/monitor/index.twig:91
 msgid ""
@@ -17211,6 +17233,10 @@ msgid ""
 "enabled. Note however, that the general_log produces a lot of data and "
 "increases server load by up to 15%."
 msgstr ""
+"phpMyAdmin 모니터는 서버 구성을 최적화하고 시간 집약적인 쿼리를 추적하는 데 "
+"도움을 줄 수 있습니다. 후자의 경우 log_output을 'TABLE'로 설정하고 "
+"slow_query_log 또는 general_log를 활성화해야 합니다. 단, 일반_로그는 많은 "
+"양의 데이터를 생성하며 서버 부하를 최대 15%까지 증가시킨다는 점에 유의하세요."
 
 #: templates/server/status/monitor/index.twig:101
 msgid "Using the monitor:"
@@ -17296,7 +17322,7 @@ msgstr "이 시리즈 추가"
 
 #: templates/server/status/monitor/index.twig:204
 msgid "Clear series"
-msgstr "시리즈 없애기"
+msgstr "계열 모두 삭제"
 
 #: templates/server/status/monitor/index.twig:208
 msgid "Series in chart:"
@@ -17312,11 +17338,11 @@ msgstr "선택한 시간:"
 
 #: templates/server/status/monitor/index.twig:234
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
-msgstr ""
+msgstr "SELECT, INSERT, UPDATE 및 DELETE 문만 가져옴"
 
 #: templates/server/status/monitor/index.twig:240
 msgid "Remove variable data in INSERT statements for better grouping"
-msgstr ""
+msgstr "더 나은 그룹화를 위해 INSERT 문에서 변수 데이터 제거"
 
 #: templates/server/status/monitor/index.twig:244
 msgid "Choose from which log you want the statistics to be generated from."
@@ -17324,7 +17350,7 @@ msgstr "통계가 생성될 로그를 선택하세요."
 
 #: templates/server/status/monitor/index.twig:247
 msgid "Results are grouped by query text."
-msgstr ""
+msgstr "결과는 쿼리 텍스트별로 그룹화됩니다."
 
 #: templates/server/status/monitor/index.twig:251
 msgid "Query analyzer"
@@ -17376,7 +17402,7 @@ msgstr "시간 당 ø"
 
 #: templates/server/status/queries/index.twig:59
 msgid "Not enough privilege to view query statistics."
-msgstr ""
+msgstr "쿼리 통계를 볼 수 있는 권한이 부족합니다."
 
 #: templates/server/status/status/index.twig:6
 #, php-format
@@ -17392,7 +17418,8 @@ msgstr "이 MySQL 서버는 %1$s 동안 구동되었습니다. 구동 시작날�
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
-msgstr ""
+msgstr "사용량이 많은 서버에서는 바이트 카운터가 오버런될 수 있으므로 MySQL 서버에서 "
+"보고한 통계가 부정확할 수 있습니다."
 
 #: templates/server/status/status/index.twig:59
 msgid ""
@@ -17417,7 +17444,7 @@ msgstr "복제 상태"
 
 #: templates/server/status/status/index.twig:75
 msgid "Not enough privilege to view server status."
-msgstr ""
+msgstr "서버 상태를 볼 수 있는 권한이 부족합니다."
 
 #: templates/server/status/variables/index.twig:20
 msgid "Show only alert values"
@@ -17438,7 +17465,7 @@ msgstr "추천 링크:"
 
 #: templates/server/status/variables/index.twig:139
 msgid "Not enough privilege to view status variables."
-msgstr ""
+msgstr "상태 변수를 볼 수 있는 권한이 부족합니다."
 
 #: templates/server/user_groups/edit_user_groups.twig:2
 #: templates/server/user_groups/user_groups.twig:64
@@ -17489,7 +17516,7 @@ msgstr "서버의 환경설정"
 
 #: templates/server/variables/index.twig:43
 msgid "This is a read-only variable and can not be edited"
-msgstr ""
+msgstr "읽기 전용 변수이므로 편집할 수 없습니다"
 
 #: templates/server/variables/index.twig:69
 msgid "Session value"
@@ -17498,11 +17525,11 @@ msgstr "세션 값"
 #: templates/server/variables/index.twig:80
 #, php-format
 msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "서버의 변수와 설정을 볼 권한이 없습니다. %s"
+msgstr "서버의 변수와 설정을 볼 권한이 부족합니다. %s"
 
 #: templates/setup/base.twig:29 templates/setup/home/index.twig:20
 msgid "Overview"
-msgstr ""
+msgstr "개요"
 
 #: templates/setup/config/index.twig:4 templates/setup/home/index.twig:98
 msgid "Configuration file"
@@ -17518,11 +17545,11 @@ msgstr "다운로드"
 
 #: templates/setup/error.twig:3
 msgid "Submitted form contains errors"
-msgstr ""
+msgstr "제출된 양식에 오류가 있습니다"
 
 #: templates/setup/error.twig:6
 msgid "Try to revert erroneous fields to their default values"
-msgstr ""
+msgstr "잘못된 필드를 기본값으로 되돌리기"
 
 #: templates/setup/error.twig:14
 msgid "Ignore errors"
@@ -17590,7 +17617,7 @@ msgstr "새 서버 추가"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "뭔가 잘못되었습니다."
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
@@ -17598,7 +17625,7 @@ msgstr "이 SQL 쿼리를 북마크하기"
 
 #: templates/sql/bookmark.twig:15
 msgid "Label:"
-msgstr ""
+msgstr "라벨:"
 
 #: templates/sql/bookmark.twig:22 templates/sql/query.twig:93
 msgid "Let every user access this bookmark"
@@ -17614,7 +17641,7 @@ msgstr "상태"
 
 #: templates/sql/profiling_chart.twig:38
 msgid "Summary by state"
-msgstr ""
+msgstr "상태별 요약"
 
 #: templates/sql/profiling_chart.twig:47
 msgid "Total Time"
@@ -17659,7 +17686,7 @@ msgstr "이 질의를 다시 보여줌"
 
 #: templates/sql/query.twig:134
 msgid "Rollback when finished"
-msgstr ""
+msgstr "완료되면 ROLL BACK"
 
 #: templates/sql/query.twig:156
 msgid "Bookmarked SQL query"
@@ -17759,7 +17786,7 @@ msgstr "Y값"
 
 #: templates/table/chart/tbl_chart.twig:112
 msgid "Series names are in a column"
-msgstr ""
+msgstr "시리즈 이름은 열에 있습니다"
 
 #: templates/table/chart/tbl_chart.twig:116
 msgid "Series column:"
