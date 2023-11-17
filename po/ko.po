@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2023-11-16 14:04+0000\n"
+"PO-Revision-Date: 2023-11-20 21:01+0000\n"
 "Last-Translator: Yong Kim <kim@nhn.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/5-1/ko/"
 ">\n"
@@ -885,7 +885,7 @@ msgstr "접속 실패율이 %s 입니다. 이 값은 시간당 1 미만이어야
 
 #: libraries/advisory_rules_generic.php:604
 msgid "Is InnoDB disabled?"
-msgstr "InnoDB를 비활성화할까요?"
+msgstr "InnoDB를 비활성화 하시겠습니까?"
 
 #: libraries/advisory_rules_generic.php:608
 msgid "You do not have InnoDB enabled."
@@ -893,7 +893,7 @@ msgstr "InnoDB가 활성화되지 않았습니다."
 
 #: libraries/advisory_rules_generic.php:609
 msgid "InnoDB is usually the better choice for table engines."
-msgstr "테이블엔진 선택에서 일반적으로 InnoDB는 가장 좋은 선택입니다."
+msgstr "일반적으로 테이블 엔진에는 InnoDB가 좋은 선택입니다."
 
 #: libraries/advisory_rules_generic.php:610
 msgid "have_innodb is set to 'value'"
@@ -1837,9 +1837,8 @@ msgstr "현재 사용자의 정의 제외"
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
-msgstr ""
-"외래키 드롭다운 박스 항목을 정렬; [kbd]content[/kbd]: 참조 데이터, [kbd]id[/"
-"kbd]: 키 값."
+msgstr "외래키 선택 항목의 정렬 순서. [kbd]content[/kbd]는 참조하는 데이터, "
+"[kbd]id[/kbd]는 키 값."
 
 #: libraries/classes/Config/Descriptions.php:178
 msgid ""
@@ -2219,7 +2218,7 @@ msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"[doc@bookmarks@]북마크[/doc] 지원이 필요 없는 경우 비워두세요, 추천: "
+"[doc@bookmarks@]북마크[/doc] 기능이 필요 없는 경우 비워두세요, 추천: "
 "[kbd]pma__bookmark[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:350
@@ -2319,9 +2318,9 @@ msgid ""
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
-"릴레이션, 북마크, PDF 기능 지원을 위해 필요한 데이터베이스입니다. 자세한 정보"
-"는 [doc@linked-tables]pmadb[/doc]를 참고해주세요. 이 기능들을 사용하지 않으려"
-"면 비워두세요. 제안하는 값 : [kbd]phpmyadmin[/kbd]."
+"릴레이션, 북마크, PDF 기능에 사용하는 데이터베이스입니다. 자세한 정보는 [doc"
+"@linked-tables]pmadb[/doc]를 참고해주세요. 이 기능을 사용하지 않으려면 "
+"비워두세요. 제안하는 값 : [kbd]phpmyadmin[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:404
 msgid ""
@@ -2509,9 +2508,9 @@ msgid ""
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly."
 msgstr ""
-"[kbd]config[/kbd] 인증 모드와 함께 이 기능을 활성화하면 아무런 의미가 없습니"
-"다. 왜나하면 패스워드가 설정 파일에 적혀있기 때문입니다. 이 기능은 같은 명령"
-"어를 직접 실행하는 것을 제한하는 기능은 없습니다."
+"[kbd]config[/kbd] 인증 모드와 함께 이 기능을 활성화하면 아무런 의미가 "
+"없습니다. 왜나하면 비밀번호가 설정 파일에 적혀있기 때문입니다. 이 기능은 "
+"같은 명령어를 직접 실행하는 것을 제한하는 기능은 없습니다."
 
 #: libraries/classes/Config/Descriptions.php:494
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
@@ -2717,7 +2716,7 @@ msgstr "이보다 적은 항목의 경우 드롭다운이 사용됩니다."
 
 #: libraries/classes/Config/Descriptions.php:579
 msgid "Default value for foreign key checks checkbox for some queries."
-msgstr "일부 쿼리의 외부 키 검사 기본값 확인란."
+msgstr "일부 쿼리용 외래키 검사 체크박스의 기본값입니다."
 
 #: libraries/classes/Config/Descriptions.php:580
 msgid "Uncheck the checkbox to disable drag and drop import"
@@ -2856,7 +2855,7 @@ msgstr "phpMyAdmin 메인 화면에서 최근 버전 확인을 활성화함."
 
 #: libraries/classes/Config/Descriptions.php:614
 msgid "The password for authenticating with the proxy."
-msgstr "프록시를 이용한 인증에 사용할 암호입니다."
+msgstr "프록시를 이용한 인증에 사용할 비밀번호입니다."
 
 #: libraries/classes/Config/Descriptions.php:615
 msgid "Enable ZIP compression for import and export operations."
@@ -3187,7 +3186,7 @@ msgstr "MIME 형식"
 #: libraries/classes/Config/Descriptions.php:707
 #: libraries/classes/Config/Descriptions.php:745
 msgid "Relationships"
-msgstr "관계"
+msgstr "릴레이션"
 
 #: libraries/classes/Config/Descriptions.php:700
 msgid "Export method"
@@ -3308,7 +3307,7 @@ msgstr "세계 표준시(UTC)로 시간 내보내기"
 
 #: libraries/classes/Config/Descriptions.php:753
 msgid "Foreign key dropdown order"
-msgstr "외래키 드롭다운 순서(정렬)"
+msgstr "외래키 선택 항목 순서"
 
 #: libraries/classes/Config/Descriptions.php:754
 msgid "Foreign key limit"
@@ -3316,7 +3315,7 @@ msgstr "외래키 제한"
 
 #: libraries/classes/Config/Descriptions.php:755
 msgid "Foreign key checks"
-msgstr "외래 키(foreign key) 확인"
+msgstr "외래 키 검사"
 
 #: libraries/classes/Config/Descriptions.php:756
 msgid "First day of calendar"
@@ -3807,7 +3806,7 @@ msgstr "격자판 수정: 트리거 동작"
 
 #: libraries/classes/Config/Descriptions.php:885
 msgid "Relational display"
-msgstr "연관 보기"
+msgstr "릴레이션 표시"
 
 #: libraries/classes/Config/Descriptions.php:886
 msgid "Grid editing: save all edited cells at once"
@@ -3827,7 +3826,7 @@ msgstr "호스트 인증 규칙"
 
 #: libraries/classes/Config/Descriptions.php:890
 msgid "Allow logins without a password"
-msgstr "암호 없이 로그인 허용"
+msgstr "비밀번호 없이 로그인 허용"
 
 #: libraries/classes/Config/Descriptions.php:891
 msgid "Allow root login"
@@ -3848,7 +3847,7 @@ msgstr "인증 형식"
 
 #: libraries/classes/Config/Descriptions.php:895
 msgid "Bookmark table"
-msgstr "테이블 즐겨찾기"
+msgstr "테이블 북마크하기"
 
 #: libraries/classes/Config/Descriptions.php:896
 msgid "Column information table"
@@ -3860,11 +3859,11 @@ msgstr "연결 압축"
 
 #: libraries/classes/Config/Descriptions.php:898
 msgid "Control user password"
-msgstr "유저 비밀번호 제어"
+msgstr "관리 사용자 비밀번호"
 
 #: libraries/classes/Config/Descriptions.php:899
 msgid "Control user"
-msgstr "유저 제어"
+msgstr "관리 사용자"
 
 #: libraries/classes/Config/Descriptions.php:900
 msgid "Control host"
@@ -3916,7 +3915,7 @@ msgstr "리스트에 있는 데이터베이스만 보여주기"
 
 #: libraries/classes/Config/Descriptions.php:912
 msgid "Password for config auth"
-msgstr "config 인증용 패스워드"
+msgstr "config 인증용 비밀번호"
 
 #: libraries/classes/Config/Descriptions.php:913
 msgid "PDF schema: pages table"
@@ -3942,7 +3941,7 @@ msgstr "즐겨찾기 테이블"
 
 #: libraries/classes/Config/Descriptions.php:918
 msgid "Relation table"
-msgstr "연관된 테이블"
+msgstr "릴레이션 테이블"
 
 #: libraries/classes/Config/Descriptions.php:919
 msgid "Signon session name"
@@ -4238,7 +4237,7 @@ msgstr "프록시 사용자명"
 
 #: libraries/classes/Config/Descriptions.php:974
 msgid "Proxy password"
-msgstr "프록시 암호"
+msgstr "프록시 비밀번호"
 
 #: libraries/classes/Config/Descriptions.php:975
 msgid "ZIP"
@@ -4723,13 +4722,7 @@ msgstr ""
 "이 수천명의 사용자와 함께 쓰는 IP 대역을 사용할경우 그다지 안전하지 않습니다."
 
 #: libraries/classes/Config/ServerConfigChecks.php:200
-#, fuzzy, php-format
-#| msgid ""
-#| "You set the [kbd]config[/kbd] authentication type and included username "
-#| "and password for auto-login, which is not a desirable option for live "
-#| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/"
-#| "kbd] or [kbd]http[/kbd]."
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -4737,14 +4730,14 @@ msgid ""
 "phpMyAdmin panel. Set %1$sauthentication type%2$s to [kbd]cookie[/kbd] or "
 "[kbd]http[/kbd]."
 msgstr ""
-"[kbd]config[/kbd] 권한 타입 설정에 자동 로그인을 위해 사용자명과 암호를 포함"
-"했습니다. 이 설정은 실서비스용으로는 권장하지 않습니다. 누군가가 phpMyAdmin"
-"이 설치된 주소를 추측하고 접속하여 phpMyAdmin 패널을 건드릴 수 있습니다. "
-"%sauthentication type%s을 [kbd]cookie[/kbd]나 [kbd]http[/kbd]로 설정하세요."
+"[kbd]config[/kbd] 권한 타입에 자동 로그인을 위해 사용자 이름과 비밀번호를 "
+"포함했습니다. 이 설정은 실제 서비스에서는 권장하지 않습니다. phpMyAdmin이 "
+"설치된 주소를 알거나 알아낸 누군가 phpMyAdmin 패널에 접속할 수 있습니다. %1$"
+"sauthentication type%2$s을 [kbd]cookie[/kbd]나 [kbd]http[/kbd]로 설정하세요."
 
 #: libraries/classes/Config/ServerConfigChecks.php:228
 msgid "You allow for connecting to the server without a password."
-msgstr "암호 없이 서버 접속을 허용합니다."
+msgstr "비밀번호 없이 서버 접속을 허용합니다."
 
 #: libraries/classes/Config/ServerConfigChecks.php:312
 #, php-format
@@ -4869,9 +4862,8 @@ msgstr ""
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
-msgstr ""
-"phpMyAdmin 설정 저장공간을 사용하는 동안 phpMyAdmin 관리 사용자 패스워드를 비"
-"웁니다!"
+msgstr "phpMyAdmin 설정 저장공간을 사용하는 동안 phpMyAdmin 관리 사용자 비밀번호를 "
+"비웁니다!"
 
 #: libraries/classes/Config/Validator.php:443
 msgid "Incorrect value:"
@@ -4886,11 +4878,11 @@ msgstr "잘못된 IP 주소: %s"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] "%1$d 북마크 보이기 (개인 및 공유)"
+msgstr[0] "%1$d 북마크 표시 (개인 및 공유 모두)"
 
 #: libraries/classes/Console.php:98
 msgid "No bookmarks"
-msgstr "북마크 없음"
+msgstr "북마크가 없습니다"
 
 #: libraries/classes/Console.php:132
 msgid "SQL Query Console"
@@ -5062,7 +5054,7 @@ msgstr "변화 없음"
 #: libraries/classes/Controllers/Database/TrackingController.php:81
 #: libraries/classes/Controllers/Database/TrackingController.php:101
 msgid "Tracking data deleted successfully."
-msgstr "추적자료의 삭제가 완료되었습니다."
+msgstr "추적 데이터가 정상적으로 삭제되었습니다."
 
 #: libraries/classes/Controllers/Database/TrackingController.php:88
 #, php-format
@@ -5178,9 +5170,9 @@ msgid ""
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
-"서버가 제어 사용자 및 암호(컨트롤패스)의 기본값을 사용하여 실행 중이고 침입"
-"할 수 있으므로, 제어 사용자 'pma'의 암호를 변경하여 이러한 보안 취약점을 해결"
-"하십시오."
+"서버가 관리사용자 및 비밀번호(관리비밀번호)의 기본값을 사용하여 실행 중이고 "
+"침입할 수 있으므로, 제어 사용자 'pma'의 암호를 변경하여 이러한 보안 취약점을 "
+"해결하십시오."
 
 #: libraries/classes/Controllers/HomeController.php:406
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -5244,12 +5236,12 @@ msgstr ""
 #: libraries/classes/Controllers/ImportController.php:423
 #: libraries/classes/Controllers/ImportController.php:659
 msgid "Showing bookmark"
-msgstr "북마크 보이기"
+msgstr "북마크 표시"
 
 #: libraries/classes/Controllers/ImportController.php:447
 #: libraries/classes/Controllers/ImportController.php:655
 msgid "The bookmark has been deleted."
-msgstr "북마크를 제거했습니다."
+msgstr "북마크가 삭제되었습니다."
 
 #: libraries/classes/Controllers/ImportController.php:561
 msgid ""
@@ -5271,7 +5263,7 @@ msgstr "북마크 %s가 생성되었습니다."
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "가져오기를 성공적으로 마쳤습니다. %d 쿼리가 실행되었습니다."
+msgstr[0] "가져오기가 정상적으로 완료되었습니다, %d 쿼리가 실행되었습니다."
 
 #: libraries/classes/Controllers/ImportController.php:703
 #, php-format
@@ -5356,7 +5348,7 @@ msgstr "기본 키 / 인덱스를 삭제하고 있습니다"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:50
 msgid "Dropping Foreign key."
-msgstr "외래키를 제거중."
+msgstr "외래 키를 제거 중입니다."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:51
 msgid "This operation could take a long time. Proceed anyway?"
@@ -5570,13 +5562,13 @@ msgstr "사용자명이 없습니다!"
 #: libraries/classes/Server/Privileges.php:1025
 #: libraries/classes/UserPassword.php:40
 msgid "The password is empty!"
-msgstr "암호가 없습니다!"
+msgstr "비밀번호가 비어있습니다!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:132
 #: libraries/classes/Server/Privileges.php:1023
 #: libraries/classes/UserPassword.php:44
 msgid "The passwords aren't the same!"
-msgstr "암호가 동일하지 않습니다!"
+msgstr "비밀번호가 동일하지 않습니다!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:133
 msgid "Removing Selected Users"
@@ -5599,7 +5591,7 @@ msgstr "템플릿을 불러왔습니다."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:139
 msgid "Template was updated."
-msgstr "템플릿이 업데이트 되었습니다."
+msgstr "템플릿이 갱신 되었습니다."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:140
 msgid "Template was deleted."
@@ -6268,7 +6260,7 @@ msgstr "문자셋 변경 중"
 #: templates/database/structure/empty_form.twig:16 templates/import.twig:193
 #: templates/sql/query.twig:131 templates/table/delete/confirm.twig:25
 msgid "Enable foreign key checks"
-msgstr "외래 키(foreign key) 점검 사용"
+msgstr "외래 키 검사 활성화"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:359
 msgid "Failed to get real row count."
@@ -6826,11 +6818,11 @@ msgstr "현재 페이지의 수정된 내용을 저장하겠습니까?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:547
 msgid "Successfully deleted the page"
-msgstr "페이지 삭제 성공"
+msgstr "페이지가 정상적으로 삭제되었습니다"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:548
 msgid "Export relational schema"
-msgstr "관계 스키마를 내보내기"
+msgstr "릴레이션 스키마를 내보내기"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:549
 msgid "Modifications have been saved"
@@ -6973,7 +6965,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:611
 msgid "Generate password"
-msgstr "암호 생성"
+msgstr "비밀번호 생성"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:612
 #: templates/server/replication/master_add_slave_user.twig:73
@@ -6985,7 +6977,7 @@ msgstr "생성"
 #: templates/home/index.twig:46
 #: templates/server/privileges/change_password.twig:10
 msgid "Change password"
-msgstr "암호 변경"
+msgstr "비밀번호 변경"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:616
 #: templates/table/structure/display_structure.twig:132
@@ -7097,7 +7089,7 @@ msgstr "각 설정은 현재 전송중입니다. 기다려주세요."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:682
 msgid "Successfully copied!"
-msgstr "복사가 성공했습니다!"
+msgstr "정상적으로 복사되었습니다!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:683
 msgid "Copying failed!"
@@ -7109,7 +7101,7 @@ msgstr "이 질의를 다시 실행합니까?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:687
 msgid "Do you really want to delete this bookmark?"
-msgstr "정말 이 북마크를 삭제하겠습니까?"
+msgstr "북마크를 삭제하시겠습니까?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:688
 msgid "Some error occurred while getting SQL debug info."
@@ -7305,7 +7297,7 @@ msgstr "데이터베이스 %1$s가 생성되었습니다."
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%1$d개의 데이터베이스를 삭제했습니다."
+msgstr[0] "%1$d개의 데이터베이스를 정상적으로 삭제했습니다."
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:483
 #: libraries/classes/Import.php:148
@@ -7351,9 +7343,8 @@ msgstr "사용자를 관리할 권한이 없습니다!"
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
-msgstr ""
-"사용자 이름과 호스트 이름이 변경되지 않음 암호만 변경하려면 '암호 변경' 탭을 "
-"사용해야 한다."
+msgstr "사용자 이름과 호스트 이름이 변경되지 않음 비밀번호만 변경하려면 '비밀번호 "
+"변경' 탭을 사용해야 한다."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:418
 msgid "User has been added."
@@ -7362,7 +7353,7 @@ msgstr "사용자가 추가되었습니다."
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:112
 #, php-format
 msgid "Thread %s was successfully killed."
-msgstr "쓰레드 %s 를 죽였습니다."
+msgstr "%s 쓰레드를 정상적으로 종료했습니다."
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:118
 #, php-format
@@ -7599,6 +7590,8 @@ msgid ""
 "being read or written or that can't be flushed or removed for some other "
 "reason."
 msgstr ""
+"InnoDB 버퍼 풀에 있는 래치된 페이지 수입니다. 현재 읽기 혹은 쓰기 또는 그 "
+"밖의 다른 이유로 플러시하거나 제거할 수 없는 페이지입니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:365
 msgid ""
@@ -7607,32 +7600,40 @@ msgid ""
 "be calculated as Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 msgstr ""
+"행 잠금 또는 적응형 해시 인덱스와 같은 관리 오버헤드에 할당되어 사용 중인 "
+"페이지 수입니다. 이 값은 Innodb_buffer_pool_pages_total - "
+"Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data로 계산할 수도 "
+"있습니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:372
 msgid "Total size of buffer pool, in pages."
-msgstr ""
+msgstr "페이지 별 버퍼 풀의 총 크기입니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:375
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
 msgstr ""
+"InnoDB가 시작한 \"무작위\" 미리 읽기 횟수입니다. 이는 쿼리가 테이블의 많은 "
+"부분을 무작위 순서로 스캔할 때 발생합니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:380
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
-msgstr ""
+msgstr "InnoDB가 시작한 순차적 미리 읽기 횟수입니다. InnoDB가 순차적으로 전체 테이블 "
+"스캔을 수행할 때 발생합니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:384
 msgid "The number of logical read requests InnoDB has done."
-msgstr ""
+msgstr "InnoDB가 수행한 논리적 읽기 요청의 개수입니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:387
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
-msgstr ""
+msgstr "InnoDB가 버퍼 풀에서 가져올 수 없어 단일 페이지 읽기를 수행해야 했던 논리적 "
+"읽기 횟수입니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:391
 msgid ""
@@ -7642,14 +7643,18 @@ msgid ""
 "counter counts instances of these waits. If the buffer pool size was set "
 "properly, this value should be small."
 msgstr ""
+"일반적으로 InnoDB 버퍼 풀에 대한 쓰기는 백그라운드에서 이루어집니다. 그러나 "
+"페이지를 읽거나 만들어야 하는데 깨끗한 페이지를 사용할 수 없는 경우에는 먼저 "
+"페이지가 플러시될 때까지 기다려야 합니다. 이 카운터는 이러한 대기 인스턴스를 "
+"계산합니다. 버퍼 풀 크기가 적절하게 설정되었다면 이 값은 작아야 합니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:399
 msgid "The number writes done to the InnoDB buffer pool."
-msgstr ""
+msgstr "InnoDB 버퍼 풀에 쓰기가 완료된 횟수입니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:402
 msgid "The number of fsync() operations so far."
-msgstr ""
+msgstr "지금까지 수행한 fsync() 작업 횟수입니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:405
 msgid "The current number of pending fsync() operations."
@@ -7772,7 +7777,7 @@ msgstr "InnoDB 테이블에서 읽은 행 수입니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:493
 msgid "The number of rows updated in InnoDB tables."
-msgstr "InnoDB 테이블에서 업데이트된 행 수입니다."
+msgstr "InnoDB 테이블에서 갱신된 행 개수입니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:496
 msgid ""
@@ -7786,22 +7791,24 @@ msgstr ""
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
-msgstr ""
+msgstr "키 캐시에서 사용되지 않은 블록의 개수입니다. 이 값을 사용하여 사용 중인 키 "
+"캐시의 양을 확인할 수 있습니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:505
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
 "one time."
-msgstr ""
+msgstr "키 캐시에서 사용된 블록의 개수입니다. 이 값은 한 번에 사용된 블록의 최대 "
+"개수를 나타내는 상한선입니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:510
 msgid "Percentage of used key cache (calculated value)"
-msgstr ""
+msgstr "사용한 키 캐시의 비율(계산치)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:513
 msgid "The number of requests to read a key block from the cache."
-msgstr ""
+msgstr "캐시에서 키 블록을 읽기 위한 요청 횟수입니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:516
 msgid ""
@@ -7809,25 +7816,28 @@ msgid ""
 "then your key_buffer_size value is probably too small. The cache miss rate "
 "can be calculated as Key_reads/Key_read_requests."
 msgstr ""
+"디스크에서 키 블록을 물리적으로 읽은 횟수입니다. Key_reads가 크면 "
+"key_buffer_size 값이 너무 작을 가능성이 높습니다. 캐시 미스 비율은 Key_reads/"
+"Key_read_requests로 계산할 수 있습니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:522
 msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
-msgstr ""
+msgstr "읽기 요청 대비 물리적 읽기 비율로 계산된 키 캐시 미스(계산치)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:526
 msgid "The number of requests to write a key block to the cache."
-msgstr ""
+msgstr "캐시에 키 블록을 쓰기 위한 요청 횟수입니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:529
 msgid "The number of physical writes of a key block to disk."
-msgstr ""
+msgstr "디스크에 대한 키 블록의 물리적 쓰기 횟수입니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:532
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
-msgstr ""
+msgstr "쓰기 요청 대비 물리적 쓰기의 비율(계산된 값)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:536
 msgid ""
@@ -7835,12 +7845,15 @@ msgid ""
 "optimizer. Useful for comparing the cost of different query plans for the "
 "same query. The default value of 0 means that no query has been compiled yet."
 msgstr ""
+"쿼리 최적화 도구에 의해 계산된 마지막으로 컴파일된 쿼리의 총 비용입니다. "
+"동일한 쿼리에 대한 여러 쿼리 계획의 비용을 비교할 때 유용합니다. 기본값인 "
+"0은 아직 컴파일된 쿼리가 없음을 의미합니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:542
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
-msgstr ""
+msgstr "서버가 시작된 이후 동시에 사용 중인 최대 연결 개수입니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:546
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
@@ -7934,12 +7947,15 @@ msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
 msgstr ""
+"각 행 뒤에 키 사용 여부를 확인하는 키가 없는 조인 횟수입니다. (이 값이 0이 "
+"아닌 경우 테이블의 인덱스를 주의 깊게 확인해야 합니다.)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:608
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
-msgstr ""
+msgstr "첫 번째 테이블에서 범위를 사용한 조인 횟수입니다. (일반적으로 이 값이 "
+"크더라도 중요하지 않습니다.)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:612
 msgid "The number of joins that did a full scan of the first table."
@@ -7963,12 +7979,12 @@ msgstr ""
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
-msgstr ""
+msgstr "생성하는 데 slow_launch_time 초 이상 걸린 스레드 개수입니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:630
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
-msgstr ""
+msgstr "long_query_time 초 이상 걸린 쿼리 개수입니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:634
 msgid ""
@@ -7976,6 +7992,8 @@ msgid ""
 "is large, you should consider increasing the value of the sort_buffer_size "
 "system variable."
 msgstr ""
+"정렬 알고리즘이 수행해야 하는 병합 패스 횟수입니다. 이 값이 큰 경우 "
+"sort_buffer_size 시스템 변수의 값을 늘리는 것을 고려해야 합니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:639
 msgid "The number of sorts that were done with ranges."
@@ -7987,11 +8005,11 @@ msgstr "정렬된 행의 개수."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:645
 msgid "The number of sorts that were done by scanning the table."
-msgstr ""
+msgstr "테이블을 스캔하여 수행한 정렬 횟수입니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:648
 msgid "The number of times that a table lock was acquired immediately."
-msgstr ""
+msgstr "테이블 잠금이 바로 가능했던 횟수입니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:651
 msgid ""
@@ -8000,6 +8018,9 @@ msgid ""
 "should first optimize your queries, and then either split your table or "
 "tables or use replication."
 msgstr ""
+"테이블 잠금을 즉시 할 수 없어 대기해야 했던 횟수입니다. 이 수치가 높으며 "
+"성능 문제가 있는 경우 먼저 쿼리를 최적화한 다음 테이블을 분할하거나 복제를 "
+"사용해야 합니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:657
 msgid ""
@@ -8007,10 +8028,12 @@ msgid ""
 "calculated as Threads_created/Connections. If this value is red you should "
 "raise your thread_cache_size."
 msgstr ""
+"스레드 캐시에 있는 스레드 개수입니다. 캐시 적중률은 스레드_생성/연결로 "
+"계산할 수 있습니다. 이 값이 빨간색이면 thread_cache_size를 높여야 합니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:662
 msgid "The number of currently open connections."
-msgstr ""
+msgstr "현재 열려 있는 연결의 개수입니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:665
 msgid ""
@@ -8019,6 +8042,9 @@ msgid ""
 "doesn't give a notable performance improvement if you have a good thread "
 "implementation.)"
 msgstr ""
+"연결을 처리하기 위해 생성된 스레드 개수입니다. Threads_created가 크면 "
+"thread_cache_size 값을 늘려야 할 수 있습니다. (일반적으로 스레드 구현이 "
+"양호한 경우 이 값은 눈에 띄는 성능 향상을 제공하지 않습니다.)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:672
 msgid "Thread cache hit rate (calculated value)"
@@ -8026,29 +8052,29 @@ msgstr "스레드 캐시 적중률 (계산된 값)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:675
 msgid "The number of threads that are not sleeping."
-msgstr ""
+msgstr "절전 모드가 아닌 스레드 개수입니다."
 
 #: libraries/classes/Controllers/Server/VariablesController.php:219
 msgid "Setting variable failed"
-msgstr ""
+msgstr "변수 설정을 실패했습니다"
 
 #: libraries/classes/Controllers/Setup/FormController.php:30
 msgid "Incorrect form specified!"
-msgstr ""
+msgstr "잘못된 양식을 지정했습니다!"
 
 #: libraries/classes/Controllers/Setup/HomeController.php:41
 msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
-msgstr ""
-"현재, 암호화 되지 않은 접속을 통해 연결되어 있습니다. 모든 데이터(패스워드 "
+msgstr "현재, 암호화 되지 않은 접속을 통해 연결되어 있습니다. 모든 데이터(비밀번호 "
 "등 민감한 정보 포함)는 평문으로 전송됩니다!"
 
 #: libraries/classes/Controllers/Setup/HomeController.php:46
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
-msgstr ""
+msgstr "서버가 HTTPS 요청을 수락하도록 구성되어 있는 경우 이 링크를 따라 보안 연결을 "
+"사용하세요."
 
 #: libraries/classes/Controllers/Setup/HomeController.php:50
 msgid "Insecure connection"
@@ -8076,7 +8102,7 @@ msgstr "줄 끝"
 
 #: libraries/classes/Controllers/SqlController.php:396
 msgid "Bookmark not created!"
-msgstr "즐겨찾기가 생성되지 않았습니다!"
+msgstr "북마크가 생성되지 않았습니다!"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:154
 #: libraries/classes/Controllers/Table/IndexesController.php:259
@@ -8084,7 +8110,7 @@ msgstr "즐겨찾기가 생성되지 않았습니다!"
 #: libraries/classes/Controllers/Table/StructureController.php:1222
 #, php-format
 msgid "Table %1$s has been altered successfully."
-msgstr "테이블 %1$s 가 성공적으로 수정되었습니다."
+msgstr "%1$s 테이블이 정상적으로 수정되었습니다."
 
 #: libraries/classes/Controllers/Table/ChangeController.php:304
 #: libraries/classes/Controllers/Table/DeleteController.php:121
@@ -8136,7 +8162,7 @@ msgstr "테이블 %s 가 이미 존재합니다!"
 #: libraries/classes/Display/Results.php:4177 libraries/classes/Message.php:175
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
-msgstr "쿼리가 성공적으로 실행되었습니다."
+msgstr "쿼리가 정상적으로 실행되었습니다."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:62
 msgid "Invalid table name"
@@ -8166,7 +8192,7 @@ msgstr "기본 키의 이름은 \"PRIMARY\"여야 합니다!"
 #: libraries/classes/Controllers/Table/MaintenanceController.php:160
 #: libraries/classes/Controllers/Table/MaintenanceController.php:195
 msgid "Maintenance operations on multiple tables are disabled."
-msgstr ""
+msgstr "여러 테이블에 대한 유지 관리 작업이 비활성화됩니다."
 
 #: libraries/classes/Controllers/Table/OperationsController.php:113
 #: libraries/classes/Controllers/Table/OperationsController.php:303
@@ -8190,16 +8216,16 @@ msgstr "오류"
 
 #: libraries/classes/Controllers/Table/RelationController.php:215
 msgid "Display column was successfully updated."
-msgstr "보여지는 칼럼값이 성공적으로 업데이트 되었습니다."
+msgstr "열 표시가 정상적으로 갱신 되었습니다."
 
 #: libraries/classes/Controllers/Table/RelationController.php:303
 msgid "Internal relationships were successfully updated."
-msgstr "내부 관계가 성공적으로 갱신되었습니다."
+msgstr "내부 릴레이션이 정상적으로 갱신되었습니다."
 
 #: libraries/classes/Controllers/Table/ReplaceController.php:301
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
-msgstr ""
+msgstr "행: %1$s, 열: %2$s, 오류: %3$s"
 
 #: libraries/classes/Controllers/Table/StructureController.php:210
 #: libraries/classes/Controllers/Table/StructureController.php:233
@@ -8217,7 +8243,7 @@ msgstr "선택된 열이 없습니다."
 
 #: libraries/classes/Controllers/Table/StructureController.php:709
 msgid "The columns have been moved successfully."
-msgstr "컬럼을 이동했습니다."
+msgstr "열이 정상적으로 이동했습니다."
 
 #: libraries/classes/Controllers/Table/StructureController.php:746
 #, fuzzy, php-format
@@ -8235,7 +8261,7 @@ msgstr "질의 오류"
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "테이블 %1$s 가 성공적으로 수정되었습니다. 권한이 조정되었습니다."
+msgstr "%1$s 테이블이 정상적으로 수정되었습니다. 권한이 조정되었습니다."
 
 #: libraries/classes/Controllers/Table/StructureController.php:1500
 #: templates/columns_definitions/column_attributes.twig:107
@@ -8272,7 +8298,7 @@ msgstr "%s의 트래킹이 활성화되었습니다."
 
 #: libraries/classes/Controllers/Table/TrackingController.php:147
 msgid "Tracking versions deleted successfully."
-msgstr "추적 버전이 성공적으로 삭제되었습니다."
+msgstr "추적 버전이 정상적으로 삭제되었습니다."
 
 #: libraries/classes/Controllers/Table/TrackingController.php:152
 msgid "No versions selected."
@@ -8377,7 +8403,7 @@ msgstr "phpMyAdmin 구성 저장소가 \"디스플레이 기능\"에 대해 구�
 
 #: libraries/classes/Database/Designer/Common.php:617
 msgid "Error: relationship already exists."
-msgstr "오류: 관계가 이미 존재합니다."
+msgstr "오류: 릴레이션이 이미 존재합니다."
 
 #: libraries/classes/Database/Designer/Common.php:666
 msgid "FOREIGN KEY relationship has been added."
@@ -8385,28 +8411,28 @@ msgstr "FOREIGN KEY 릴레이션이 추가되었습니다."
 
 #: libraries/classes/Database/Designer/Common.php:674
 msgid "Error: FOREIGN KEY relationship could not be added!"
-msgstr "오류: 외래 키 관계를 추가할 수 없습니다!"
+msgstr "오류: 외래 키 릴레이션을 추가할 수 없습니다!"
 
 #: libraries/classes/Database/Designer/Common.php:681
 msgid "Error: Missing index on column(s)."
-msgstr ""
+msgstr "오류: 열에 인덱스가 없습니다."
 
 #: libraries/classes/Database/Designer/Common.php:689
 #: libraries/classes/Database/Designer/Common.php:780
 msgid "Error: Relational features are disabled!"
-msgstr "오류: 릴레이션 기능이 비활성화 되어 있음!"
+msgstr "오류: 릴레이션 기능이 비활성화 되어 있습니다!"
 
 #: libraries/classes/Database/Designer/Common.php:714
 msgid "Internal relationship has been added."
-msgstr "내부 관계가 추가되었습니다."
+msgstr "내부 릴레이션이 추가되었습니다."
 
 #: libraries/classes/Database/Designer/Common.php:722
 msgid "Error: Internal relationship could not be added!"
-msgstr "오류: 내부 관계를 추가할 수 없습니다!"
+msgstr "오류: 내부 릴레이션을 추가할 수 없습니다!"
 
 #: libraries/classes/Database/Designer/Common.php:762
 msgid "FOREIGN KEY relationship has been removed."
-msgstr "FOREIGN KEY 관계가 제거되었습니다."
+msgstr "FOREIGN KEY 릴레이션이 제거되었습니다."
 
 #: libraries/classes/Database/Designer/Common.php:770
 #, fuzzy
@@ -8416,11 +8442,11 @@ msgstr "오류: 외래키 릴레이션을 제거할 수 없습니다!"
 
 #: libraries/classes/Database/Designer/Common.php:806
 msgid "Error: Internal relationship could not be removed!"
-msgstr "오류: 내부 관계를 제거할 수 없습니다!"
+msgstr "오류: 내부 릴레이션을 제거할 수 없습니다!"
 
 #: libraries/classes/Database/Designer/Common.php:812
 msgid "Internal relationship has been removed."
-msgstr "내부 관계가 제거되었습니다."
+msgstr "내부 릴레이션이 제거되었습니다."
 
 #: libraries/classes/Database/Designer.php:134
 msgid "Could not load schema plugins, please check your installation!"
@@ -8511,13 +8537,13 @@ msgstr "이벤트 정의를 입력하세요."
 
 #: libraries/classes/Database/Events.php:499
 msgid "Sorry, we failed to restore the dropped event."
-msgstr ""
+msgstr "삭제한 이벤트를 복원하지 못했습니다."
 
 #: libraries/classes/Database/Events.php:500
 #: libraries/classes/Database/Routines.php:1877
 #: libraries/classes/Database/Triggers.php:549
 msgid "The backed up query was:"
-msgstr ""
+msgstr "백업했던 쿼리:"
 
 #: libraries/classes/Database/Events.php:532
 #: libraries/classes/Database/Routines.php:152
@@ -8570,7 +8596,7 @@ msgstr "관리사용자(controluser, 설정에 정의됨)로서의 접속에 실
 #: libraries/classes/DatabaseInterface.php:2482
 #, php-format
 msgid "See %sour documentation%s for more information."
-msgstr ""
+msgstr "자세한 내용은 %s우리 문서%s를 참조하세요."
 
 #: libraries/classes/Database/Qbe.php:790
 #: templates/database/qbe/ins_del_and_or_cell.twig:21
@@ -8604,7 +8630,7 @@ msgstr "북마크 생성"
 
 #: libraries/classes/Database/Qbe.php:1762
 msgid "Update bookmark"
-msgstr "북마크 업데이트"
+msgstr "북마크 편집"
 
 #: libraries/classes/Database/Qbe.php:1764
 msgid "Delete bookmark"
@@ -8625,7 +8651,8 @@ msgstr "루틴 수정"
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
-msgstr ""
+msgstr "%2$s 데이터베이스에 %1$s 이름의 루틴을 찾을 수 없습니다. 이 루틴을 편집하는 "
+"데 필요한 권한이 부족할 수 있습니다."
 
 #: libraries/classes/Database/Routines.php:209
 #: libraries/classes/Database/Routines.php:1253
@@ -8800,7 +8827,7 @@ msgstr "정의"
 
 #: libraries/classes/Database/Routines.php:967
 msgid "Is deterministic"
-msgstr ""
+msgstr "Deterministic"
 
 #: libraries/classes/Database/Routines.php:975
 #: templates/columns_definitions/table_fields_definitions.twig:36
@@ -8831,7 +8858,7 @@ msgstr "보안 타입"
 
 #: libraries/classes/Database/Routines.php:1010
 msgid "SQL data access"
-msgstr ""
+msgstr "SQL 데이터 접근"
 
 #: libraries/classes/Database/Routines.php:1022
 #: templates/columns_definitions/partitions.twig:85
@@ -8847,23 +8874,24 @@ msgstr "설명"
 
 #: libraries/classes/Database/Routines.php:1076
 msgid "You must provide a name and a type for each routine parameter."
-msgstr ""
+msgstr "각 루틴 매개변수의 이름과 유형을 제공해야 합니다."
 
 #: libraries/classes/Database/Routines.php:1094
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
-msgstr ""
+msgstr "매개 변수에 대해 지정된 방향 \"%s\"가 잘못되었습니다."
 
 #: libraries/classes/Database/Routines.php:1116
 #: libraries/classes/Database/Routines.php:1189
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
-msgstr ""
+msgstr "ENUM, SET, VARCHAR, VARBINARY 유형의 루틴 매개변수에 대한 길이/값을 제공해야 "
+"합니다."
 
 #: libraries/classes/Database/Routines.php:1171
 msgid "You must provide a valid return type for the routine."
-msgstr ""
+msgstr "루틴에 유효한 반환 유형을 제공해야 합니다."
 
 #: libraries/classes/Database/Routines.php:1260
 msgid "You must provide a routine name!"
@@ -8871,7 +8899,7 @@ msgstr "루틴 이름이 필요합니다!"
 
 #: libraries/classes/Database/Routines.php:1325
 msgid "You must provide a routine definition."
-msgstr ""
+msgstr "루틴의 정의를 제공해야 합니다."
 
 #: libraries/classes/Database/Routines.php:1409
 #: libraries/classes/Database/Routines.php:1587
@@ -8882,7 +8910,7 @@ msgstr "%2$s 데이터베이스에 %1$s 라는 이름의 루틴이 없습니다.
 #: libraries/classes/Database/Routines.php:1448
 #, php-format
 msgid "Execution results of routine %s"
-msgstr ""
+msgstr "루틴 %s의 실행 결과"
 
 #: libraries/classes/Database/Routines.php:1498
 #, php-format
@@ -8939,6 +8967,8 @@ msgid ""
 "%2$s. You might be lacking the necessary privileges to view/export this "
 "routine."
 msgstr ""
+"요청처리 중 오류: %2$s 데이터베이스에 %1$s 이름의 루틴을 찾을 수 없습니다. "
+"이 루틴을 보기/내보내기 하는데 필요한 권한이 부족할 수 있습니다."
 
 #: libraries/classes/Database/Search.php:109
 #: templates/database/search/main.twig:19
@@ -9046,7 +9076,7 @@ msgstr "처리 요청 중 오류: %2$s 데이터베이스에 %1$s라는 트리�
 
 #: libraries/classes/Dbal/DbiMysqli.php:207
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr ""
+msgstr "서버에서 SSL 연결을 강제하여 자동으로 활성화합니다."
 
 #: libraries/classes/Dbal/DbiMysqli.php:219
 #, php-format
@@ -9054,6 +9084,8 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+"오류 1045: 사용자에 대한 액세스가 거부되었습니다. 추가 오류 정보를 사용할 수 "
+"있지만 %s 구성 지시문에 의해 숨겨져 있습니다."
 
 #: libraries/classes/Display/Results.php:907
 #: libraries/classes/Html/Generator.php:1254
@@ -9179,13 +9211,13 @@ msgstr "데이터 파일"
 
 #: libraries/classes/Engines/Innodb.php:39
 msgid "Autoextend increment"
-msgstr ""
+msgstr "자동 확장 시 늘어나는 테이블 크기"
 
 #: libraries/classes/Engines/Innodb.php:41
 msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
-msgstr ""
+msgstr "테이블이 가득 찼을 때 자동 확장되는 테이블 공간의 증가량입니다."
 
 #: libraries/classes/Engines/Innodb.php:47
 msgid "Buffer pool size"
@@ -9195,7 +9227,8 @@ msgstr "버퍼풀 크기"
 msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
-msgstr ""
+msgstr "InnoDB가 테이블의 데이터 및 인덱스를 캐시하는 데 사용하는 메모리 버퍼의 "
+"크기입니다."
 
 #: libraries/classes/Engines/Innodb.php:111
 msgid "Buffer Pool"
@@ -9224,7 +9257,7 @@ msgstr "더티 페이지 수"
 
 #: libraries/classes/Engines/Innodb.php:178
 msgid "Pages containing data"
-msgstr ""
+msgstr "데이터가 포함된 페이지"
 
 #: libraries/classes/Engines/Innodb.php:187
 msgid "Pages to be flushed"
@@ -9232,15 +9265,15 @@ msgstr "플러시될 페이지 수"
 
 #: libraries/classes/Engines/Innodb.php:196
 msgid "Busy pages"
-msgstr ""
+msgstr "사용 중인 페이지"
 
 #: libraries/classes/Engines/Innodb.php:208
 msgid "Latched pages"
-msgstr ""
+msgstr "래치된 페이지"
 
 #: libraries/classes/Engines/Innodb.php:222
 msgid "Buffer Pool Activity"
-msgstr ""
+msgstr "버퍼 풀 사용상태"
 
 #: libraries/classes/Engines/Innodb.php:226
 msgid "Read requests"
@@ -9252,19 +9285,19 @@ msgstr "쓰기 요청"
 
 #: libraries/classes/Engines/Innodb.php:244
 msgid "Read misses"
-msgstr ""
+msgstr "읽기 미스"
 
 #: libraries/classes/Engines/Innodb.php:253
 msgid "Write waits"
-msgstr ""
+msgstr "쓰기 대기"
 
 #: libraries/classes/Engines/Innodb.php:262
 msgid "Read misses in %"
-msgstr ""
+msgstr "읽기 미스 %"
 
 #: libraries/classes/Engines/Innodb.php:277
 msgid "Write waits in %"
-msgstr ""
+msgstr "쓰기 대기 %"
 
 #: libraries/classes/Engines/Myisam.php:26
 msgid "Data pointer size"
@@ -9275,6 +9308,8 @@ msgid ""
 "The default pointer size in bytes, to be used by CREATE TABLE for MyISAM "
 "tables when no MAX_ROWS option is specified."
 msgstr ""
+"MAX_ROWS 옵션이 지정되지 않은 경우 MyISAM 테이블에 대해 CREATE TABLE에서 "
+"사용할 바이트 단위의 기본 포인터 크기입니다."
 
 #: libraries/classes/Engines/Myisam.php:34
 msgid "Automatic recovery mode"
@@ -9478,6 +9513,9 @@ msgid ""
 "will be deleted, otherwise they are renamed and given the next highest "
 "number."
 msgstr ""
+"시스템에서 유지 관리할 트랜잭션 로그 파일(pbxt/system/xlog*.xt)의 수입니다. "
+"로그 수가 이 값을 초과하면 이전 로그가 삭제되고, 그렇지 않으면 이름이 "
+"변경되어 그 다음으로 높은 숫자가 지정됩니다."
 
 #: libraries/classes/Engines/Pbxt.php:185
 #, php-format
@@ -9525,7 +9563,7 @@ msgstr "덤프 파일이 %s에 저장되었습니다."
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
 #: libraries/classes/Export.php:992
 msgid "Exporting a raw query is not supported for this export method."
-msgstr ""
+msgstr "이 내보내기 방법에서는 쿼리 원본 내보내기를 지원하지 않습니다."
 
 #: libraries/classes/File.php:286
 msgid "File was not an uploaded file."
@@ -9628,27 +9666,27 @@ msgstr "%s 기능은 알려진 버그가 있습니다. %s 문서를 참조하십
 
 #: libraries/classes/Html/Generator.php:246
 msgid "SSL is not being used"
-msgstr ""
+msgstr "SSL을 사용하지 않습니다"
 
 #: libraries/classes/Html/Generator.php:251
 msgid "SSL is used with disabled verification"
-msgstr ""
+msgstr "SSL을 인증 비활성화 상태로 사용합니다"
 
 #: libraries/classes/Html/Generator.php:253
 msgid "SSL is used without certification authority"
-msgstr ""
+msgstr "SSL을 인증기관(CA)없이 사용합니다"
 
 #: libraries/classes/Html/Generator.php:256
 msgid "SSL is used"
-msgstr ""
+msgstr "SSL을 사용합니다"
 
 #: libraries/classes/Html/Generator.php:362
 msgid "The PHP function password_hash() with default options."
-msgstr ""
+msgstr "PHP 함수 password_hash()에 기본 옵션을 지정합니다."
 
 #: libraries/classes/Html/Generator.php:363
 msgid "password_hash() PHP function"
-msgstr ""
+msgstr "password_hash() PHP 함수"
 
 #: libraries/classes/Html/Generator.php:670
 msgid "Skip Explain SQL"
@@ -9690,25 +9728,25 @@ msgstr "분석 중에 %d개의 오류가 발생했습니다."
 
 #: libraries/classes/Import.php:321 libraries/classes/Sql.php:1059
 msgid "[ROLLBACK occurred.]"
-msgstr ""
+msgstr "[ROLLBACK이 발생했습니다.]"
 
 #: libraries/classes/Import.php:1338
 msgid ""
 "The following structures have either been created or altered. Here you can:"
-msgstr ""
+msgstr "다음 구조가 생성되었거나 변경되었습니다. 다음 기능이 가능합니다:"
 
 #: libraries/classes/Import.php:1341
 msgid "View a structure's contents by clicking on its name."
-msgstr ""
+msgstr "이름을 클릭하면 구조의 내용을 볼 수 있습니다."
 
 #: libraries/classes/Import.php:1344
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
-msgstr ""
+msgstr "해당 '옵션' 링크를 클릭하여 설정을 변경합니다."
 
 #: libraries/classes/Import.php:1346
 msgid "Edit structure by following the \"Structure\" link."
-msgstr ""
+msgstr "\"구조\" 링크를 따라 구조를 편집합니다."
 
 #: libraries/classes/Import.php:1353
 #, php-format
@@ -9743,7 +9781,8 @@ msgstr "단일 테이블 UPDATE 및 DELETE 쿼리만 시뮬레이션할 수 있�
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
-msgstr ""
+msgstr "트랜잭션 엔진 테이블이 포함된 INSERT, UPDATE, DELETE, REPLACE SQL 쿼리만 "
+"롤백할 수 있습니다."
 
 #: libraries/classes/Index.php:628
 #, php-format
@@ -10095,6 +10134,8 @@ msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
+"내비게이션 패널에 거대한 항목 그룹이 있어 성능에 영향을 줄 수 있습니다. "
+"내비게이션 패널에서 항목 그룹화를 비활성화하는 것이 좋습니다."
 
 #: libraries/classes/Navigation/NavigationTree.php:820
 msgid "Groups"
@@ -10109,7 +10150,7 @@ msgstr[0] "%s 개의 결과가 발견됨"
 #: libraries/classes/Navigation/NavigationTree.php:1413
 #: libraries/classes/Navigation/NavigationTree.php:1448
 msgid "Type to filter these, Enter to search all"
-msgstr ""
+msgstr "입력해서 필터링하거나 Enter를 눌러 모두 검색"
 
 #: libraries/classes/Navigation/NavigationTree.php:1415
 #: libraries/classes/Navigation/NavigationTree.php:1449
@@ -10223,7 +10264,7 @@ msgstr "새 뷰"
 
 #: libraries/classes/Normalization.php:227
 msgid "Make all columns atomic"
-msgstr ""
+msgstr "모든 열에 원자성 부여"
 
 #: libraries/classes/Normalization.php:229
 #: libraries/classes/Normalization.php:955
@@ -10241,7 +10282,8 @@ msgstr "1단계."
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
-msgstr ""
+msgstr "두 개 이상의 열로 분할할 수 있는 열이 있나요? 예를 들어 주소는 도로명, 도시, "
+"국가, 우편번호로 분할할 수 있습니다."
 
 #: libraries/classes/Normalization.php:241
 msgid "Show me the central list of columns that are not already in this table"
@@ -10251,11 +10293,12 @@ msgstr "이 테이블에 아직 없는 열의 중요 목록을 표시합니다"
 msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
-msgstr ""
+msgstr "둘 이상으로 분할할 수 있는 열을 선택합니다('해당 열 없음'을 선택하면 다음 "
+"단계로 이동합니다)."
 
 #: libraries/classes/Normalization.php:259
 msgid "split into "
-msgstr ""
+msgstr "분할합니다 "
 
 #: libraries/classes/Normalization.php:281
 msgid "Have a primary key"
@@ -10296,12 +10339,16 @@ msgid ""
 "For example, if you have first_name, last_name and full_name then combining "
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
+"결합 시 기존 열이 생성되는 열 그룹이 있나요? 예를 들어 첫 번째 이름, 마지막 "
+"이름 및 전체 이름이 있는 경우 첫 번째 이름과 마지막 이름을 결합하면 중복되는 "
+"전체 이름이 생성됩니다."
 
 #: libraries/classes/Normalization.php:341
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
-msgstr ""
+msgstr "중복되는 열을 확인하고 제거를 클릭합니다. 중복 열이 없는 경우 '중복 열 "
+"없음'을 클릭합니다"
 
 #: libraries/classes/Normalization.php:346
 msgid "Remove selected"
@@ -10323,12 +10370,17 @@ msgid ""
 "on which form a repeating group. In this case a new table (book_id, author) "
 "should be created."
 msgstr ""
+"밀접하게 관련되어 있고 모두 동일한 속성을 반복하는 두 개 이상의 열 그룹이 "
+"있나요? 예를 들어, 책에 대한 데이터를 보관하는 테이블에 반복 그룹을 형성하는 "
+"book_id, author1, author2, author3 등의 열이 있을 수 있습니다. 이 경우 새 "
+"테이블(book_id, author)을 만들어야 합니다."
 
 #: libraries/classes/Normalization.php:380
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
-msgstr ""
+msgstr "반복 그룹을 구성하는 열을 확인합니다. 해당 그룹이 없는 경우 '반복 그룹 "
+"없음'을 클릭합니다"
 
 #: libraries/classes/Normalization.php:386
 msgid "No repeating group"
@@ -10340,7 +10392,7 @@ msgstr "2단계."
 
 #: libraries/classes/Normalization.php:414
 msgid "Find partial dependencies"
-msgstr ""
+msgstr "부분적 의존관계 찾기"
 
 #: libraries/classes/Normalization.php:437
 #, php-format
@@ -10372,14 +10424,15 @@ msgstr "올바르게 정규화를 하려면 다음 질문에 주의 깊게 답�
 
 #: libraries/classes/Normalization.php:457
 msgid "+ Show me the possible partial dependencies based on data in the table"
-msgstr ""
+msgstr "+ 테이블의 데이터를 기반으로 가능한 부분적 의존관계를 표시합니다"
 
 #: libraries/classes/Normalization.php:461
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
-msgstr ""
+msgstr "아래의 각 열에 대해 주어진 집합 중에서 값을 합쳐서 열의 값을 결정하기에 "
+"충분한 열의 <b>최소 집합</b>을 선택해 주세요."
 
 #: libraries/classes/Normalization.php:474
 #: libraries/classes/Normalization.php:906
@@ -10443,6 +10496,9 @@ msgid ""
 "value of the column.<br>Note: A column may have no transitive dependency, in "
 "that case you don't have to select any."
 msgstr ""
+"아래의 각 열에 대해 주어진 집합 중에서 값을 합쳐서 열의 값을 결정하기에 "
+"충분한 열의 <b>최소</b> 집합을 선택하십시오.<br>주: 열에 전이 종속성이 없을 "
+"수 있으며, 이 경우 아무 것도 선택하지 않아도 됩니다."
 
 #: libraries/classes/Normalization.php:919
 msgid ""
@@ -10486,7 +10542,7 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:1056
 msgid "No partial dependencies found!"
-msgstr ""
+msgstr "부분적 의존관계를 찾을 수 없습니다!"
 
 #: libraries/classes/Operations.php:600
 #: templates/table/structure/display_partitions.twig:84
@@ -10610,9 +10666,9 @@ msgid ""
 "configuration and make sure that they correspond to the information given by "
 "the administrator of the MySQL server."
 msgstr ""
-"phpMyAdmin이 MySQL 서버에 접속하려 했으나 실패했습니다. 서버가 연결을 거부했"
-"습니다. 당신의 설정의 호스트, ID, 패스워드가 맞게 입력됐는지, 또는 MySQL 서버"
-"의 관리자가 제공해 준 정보를 맞게 입력했는지 확인하세요."
+"phpMyAdmin이 MySQL 서버에 접속하려 했으나 실패했습니다. 서버가 연결을 "
+"거부했습니다. 당신의 설정의 호스트, ID, 비밀번호가 맞게 입력됐는지, 또는 "
+"MySQL 서버의 관리자가 제공해 준 정보를 맞게 입력했는지 확인하세요."
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:158
 msgid "Retry to connect"
@@ -10646,7 +10702,7 @@ msgstr "MySQL 서버에 로그인 할 권한이 없습니다!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:91
 msgid "Wrong username/password. Access denied."
-msgstr "사용자명/암호가 틀렸습니다. 접근이 거부되었습니다."
+msgstr "사용자명/비밀번호가 틀렸습니다. 접근이 거부되었습니다."
 
 #: libraries/classes/Plugins/Auth/AuthenticationSignon.php:149
 msgid "Can not find signon authentication script:"
@@ -10655,16 +10711,16 @@ msgstr "접근관련 인증 스크립트를 찾을수 없습니다:"
 #: libraries/classes/Plugins/AuthenticationPlugin.php:192
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
-msgstr ""
-"암호가 없는 로그인이 설정으로 차단되어 있습니다 (AllowNoLogin 항목을 참조하세"
-"요)"
+msgstr "비밀번호가 없는 로그인이 설정으로 차단되어 있습니다 (AllowNoLogin 항목을 "
+"참조하세요)"
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:203
 #, php-format
 msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
 "you log in again, you should be able to resume the work where you left off."
-msgstr ""
+msgstr "%s초 동안 활동이 없어 자동으로 로그아웃되었습니다. 다시 로그인하면 중단한 "
+"부분부터 작업을 다시 시작할 수 있습니다."
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:216
 #: libraries/classes/Plugins/AuthenticationPlugin.php:219
@@ -10825,23 +10881,23 @@ msgstr "뷰 구조"
 #: libraries/classes/Plugins/Export/ExportSql.php:2249
 #: libraries/classes/Plugins/Export/ExportTexytext.php:580
 msgid "Stand-in structure for view"
-msgstr ""
+msgstr "뷰 용 스탠드-인 구조"
 
 #: libraries/classes/Plugins/Export/ExportJson.php:90
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
-msgstr ""
+msgstr "Pretty-printed JSON 출력(사람이 읽을 수 있는 형식 사용)"
 
 #: libraries/classes/Plugins/Export/ExportJson.php:96
 msgid "Output unicode characters unescaped"
-msgstr ""
+msgstr "이스케이프되지 않은 유니코드 문자 출력"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:48
 msgid "Content of table @TABLE@"
-msgstr ""
+msgstr "테이블 @TABLE@의 내용"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:49
 msgid "(continued)"
-msgstr ""
+msgstr "(계속)"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:50
 msgid "Structure of table @TABLE@"
@@ -10861,18 +10917,18 @@ msgstr "테이블 주석:"
 #: libraries/classes/Plugins/Export/ExportLatex.php:126
 #: libraries/classes/Plugins/Export/ExportLatex.php:179
 msgid "Table caption (continued):"
-msgstr ""
+msgstr "테이블 캡션 (계속):"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:132
 #: libraries/classes/Plugins/Export/ExportLatex.php:185
 msgid "Label key:"
-msgstr ""
+msgstr "라벨 키:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:139
 #: libraries/classes/Plugins/Export/ExportOdt.php:98
 #: libraries/classes/Plugins/Export/ExportSql.php:150
 msgid "Display foreign key relationships"
-msgstr ""
+msgstr "외래 키 릴레이션 표시"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:145
 #: libraries/classes/Plugins/Export/ExportOdt.php:104
@@ -10887,7 +10943,7 @@ msgstr "MIME 타입 표시"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:168
 msgid "Put columns names in the first row:"
-msgstr ""
+msgstr "첫 줄에 열 이름 추가:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:215
 #: libraries/classes/Plugins/Export/ExportSql.php:750
@@ -10971,7 +11027,8 @@ msgstr "스탠드 인"
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
-msgstr ""
+msgstr "추가 설명 표시 <i>(내보내기 타임스탬프, PHP 버전, 서버 버전 등의 정보 "
+"포함)</i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:136
 msgid "Additional custom header comment (\\n splits lines):"
@@ -10981,8 +11038,7 @@ msgstr "추가적인 커스텀 헤더 코멘트(\\n으로 줄바꿈):"
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
-msgstr ""
-"데이터베이스의 생성일, 마지막 업데이트, 마지막 체크에 대한 타임스탬프 포함"
+msgstr "데이터베이스가 생성, 최종 업데이트, 최종 체크의 타임스탬프를 포함합니다"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:201
 msgid "Export metadata"
@@ -11011,7 +11067,7 @@ msgstr "%s 구문 추가"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:317
 msgid "(less efficient as indexes will be generated during table creation)"
-msgstr ""
+msgstr "(테이블 생성 중에 인덱스가 생성되므로 효율성이 떨어짐)"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:325
 #, php-format
@@ -11021,7 +11077,7 @@ msgstr "%s 값"
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
 #: libraries/classes/Plugins/Export/ExportSql.php:342
 msgid "Use simple view export"
-msgstr ""
+msgstr "단순 뷰 내보내기 사용"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:381
 msgid ""
@@ -11051,15 +11107,15 @@ msgstr "<code>INSERT DELAYED</code> 문"
 #: libraries/classes/Plugins/Export/ExportSql.php:426
 #: libraries/classes/Plugins/Export/ExportSql.php:460
 msgid "<code>INSERT IGNORE</code> statements"
-msgstr ""
+msgstr "<code>INSERT IGNORE</code> 문"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:440
 msgid "Function to use when dumping data:"
-msgstr ""
+msgstr "데이터 덤프시 사용할 함수:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:455
 msgid "Syntax to use when inserting data:"
-msgstr ""
+msgstr "데이터 삽입시 사용할 구문:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:465
 msgid ""
@@ -11099,23 +11155,26 @@ msgstr ""
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
-msgstr ""
+msgstr "16진수 표기법으로 이진 열을 덤프합니다. <i>(예: \"abc\"는 0x616263가 "
+"됩니다)</i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:509
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
+"UTC로 TIMESTAMP 열 덤프 <i>(서로 다른 시간대에 있는 서버 간에 TIMESTAMP 열을 "
+"덤프하고 다시 로드할 수 있도록 합니다)</i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:574
 msgid "It appears your database uses routines;"
-msgstr ""
+msgstr "데이터베이스에서 루틴을 사용하는 것 같습니다;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:577
 #: libraries/classes/Plugins/Export/ExportSql.php:1652
 #: libraries/classes/Plugins/Export/ExportSql.php:2194
 msgid "alias export may not work reliably in all cases."
-msgstr ""
+msgstr "별칭 내보내기가 모든 경우에 안정적으로 동작하지 않을 수 있습니다."
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1062
 msgid "Metadata"
@@ -11154,7 +11213,7 @@ msgstr "테이블 구조"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1649
 msgid "It appears your database uses views;"
-msgstr ""
+msgstr "데이터베이스에서 뷰를 사용하는 것 같습니다;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1829
 msgid "Constraints for dumped tables"
@@ -11186,11 +11245,11 @@ msgstr "테이블에 포함된 MIME형식"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1994
 msgid "RELATIONSHIPS FOR TABLE"
-msgstr ""
+msgstr "테이블의 릴레이션"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2191
 msgid "It appears your table uses triggers;"
-msgstr ""
+msgstr "테이블에서 트리거를 사용하는 것 같습니다;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2228
 #, fuzzy, php-format
@@ -11200,7 +11259,7 @@ msgstr "뷰 구조"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2252
 msgid "(See below for the actual view)"
-msgstr ""
+msgstr "(실제 뷰는 아래 참조)"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2332
 #, fuzzy, php-format
@@ -11210,7 +11269,7 @@ msgstr "데이터 읽기 오류:"
 
 #: libraries/classes/Plugins/Export/ExportXml.php:109
 msgid "Object creation options (all are recommended)"
-msgstr ""
+msgstr "개체 생성 옵션(모두 권장)"
 
 #: libraries/classes/Plugins/Export/ExportXml.php:153
 msgid "Export contents"
@@ -11223,32 +11282,33 @@ msgstr "테이블:"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:218
 msgid "Purpose:"
-msgstr ""
+msgstr "목적:"
 
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:47
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
-msgstr ""
+msgstr "가져오기 시 중복 키가 발견되면 데이터 업데이트(ON DUPLICATE KEY UPDATE 추가)"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:77
 msgid "Name of the new table (optional):"
-msgstr ""
+msgstr "새 테이블의 이름(선택 사항):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:86
 msgid "Name of the new database (optional):"
-msgstr ""
+msgstr "새 데이터베이스의 이름(선택 사항):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:95
 #: libraries/classes/Plugins/Import/ImportCsv.php:113
 msgid "Import these many number of rows (optional):"
-msgstr ""
+msgstr "이 많은 개수의 행을 가져옵니다(선택 사항):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:103
 #: libraries/classes/Plugins/Import/ImportOds.php:69
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
-msgstr ""
+msgstr "파일의 첫 줄에는 테이블 열 이름 <i>(이 옵션을 선택하지 않으면 첫 줄이 "
+"데이터의 일부가 됨)</i>이 포함됩니다"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:120
 msgid ""
@@ -11256,6 +11316,9 @@ msgid ""
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
+"파일의 각 행에 있는 데이터가 데이터베이스에서와 같은 순서가 아닌 경우 여기에 "
+"해당 열 이름을 나열합니다. 열 이름은 쉼표로 구분해야 하며 따옴표로 묶어서는 "
+"안 됩니다."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:128
 msgid "Column names:"
@@ -11341,7 +11404,7 @@ msgstr "ESRI 형태의 파일을 가져오는 도중 에러가 발생했습니�
 #: libraries/classes/Plugins/Import/ImportShp.php:212
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
-msgstr ""
+msgstr "MySQL 공간 확장은 \"%s\" ESRI 유형을 지원하지 않습니다."
 
 #: libraries/classes/Plugins/Import/ImportShp.php:260
 msgid "The imported file does not contain any data!"
@@ -11349,7 +11412,7 @@ msgstr "가져온 파일에 아무런 데이터도 없습니다!"
 
 #: libraries/classes/Plugins/Import/ImportSql.php:69
 msgid "SQL compatibility mode:"
-msgstr ""
+msgstr "SQL 호환 모드:"
 
 #: libraries/classes/Plugins/Import/ImportSql.php:81
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
@@ -11483,6 +11546,8 @@ msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
+"부울 값을 텍스트로 변환합니다(기본값은 'T' 및 'F'). 첫 번째 옵션은 TRUE, 두 "
+"번째 옵션은 FALSE입니다. 0이 아님=참."
 
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:37
 msgid ""
@@ -11495,6 +11560,13 @@ msgid ""
 "documentation for PHP's strftime() function and for \"utc\" it is done using "
 "gmdate() function."
 msgstr ""
+"TIME, TIMESTAMP, DATETIME 또는 숫자 유닉스 타임스탬프 열을 형식이 지정된 "
+"날짜로 표시합니다. 첫 번째 옵션은 타임스탬프에 추가될 오프셋(시간 "
+"단위)입니다(기본값: 0). 다른 날짜/시간 형식 문자열을 지정하려면 두 번째 "
+"옵션을 사용합니다. 세 번째 옵션은 현지 날짜를 표시할지 UTC 날짜를 표시할지 "
+"결정합니다(\"local\" 또는 \"utc\" 문자열 사용). 이에 따라 날짜 형식은 서로 "
+"다른 값을 가지며, \"local\"의 경우 PHP의 strftime() 함수 설명서를 참조하고 "
+"\"utc\"의 경우 gmdate() 함수를 사용하여 수행합니다."
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:70
@@ -11509,6 +11581,10 @@ msgid ""
 "of a column which contains the filename. If you use the second option, you "
 "need to set the first option to the empty string."
 msgstr ""
+"열의 바이너리 데이터를 다운로드할 수 있는 링크를 표시합니다. 첫 번째 옵션을 "
+"사용하여 파일 이름을 지정하거나 두 번째 옵션을 파일 이름이 포함된 열의 "
+"이름으로 사용할 수 있습니다. 두 번째 옵션을 사용하는 경우 첫 번째 옵션을 빈 "
+"문자열로 설정해야 합니다."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:39
 msgid ""
@@ -11523,6 +11599,15 @@ msgid ""
 "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
+"LINUX 전용: 외부 애플리케이션을 실행하고 표준 입력을 통해 열 데이터를 "
+"공급합니다. 애플리케이션의 표준 출력을 반환합니다. 기본값은 Tidy, Pretty-"
+"print HTML 코드입니다. 보안상의 이유로 libraries/classes/Plugins/"
+"Transformations/Abs/ExternalTransformationsPlugin.php 파일을 수동으로 "
+"편집하고 사용할 수 있도록 설정할 도구를 나열해야 합니다. 첫 번째 옵션은 "
+"사용하려는 프로그램의 번호입니다. 두 번째 옵션은 이전 코드와의 호환을 위해 "
+"비워 두어야 합니다. 세 번째 옵션은 1로 설정하면 htmlspecialchars()를 "
+"사용하여 출력을 변환합니다(기본값은 1). 네 번째 옵션은 1로 설정하면 줄 "
+"바꿈을 방지하고 출력이 모두 한 줄에 표시되도록 합니다(기본값은 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:124
 #, php-format
@@ -11531,44 +11616,52 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"보안상의 이유로 더 이상 사용되지 않는 외부 변환 명령줄 옵션 필드를 사용하고 "
+"있습니다. 모든 명령줄 옵션을 %s의 정의에 직접 추가하십시오."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:27
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
 msgstr ""
+"htmlspecialchars()를 통해 열을 실행하지 않고 열의 내용을 있는 그대로 "
+"표시합니다. 즉, 열에 올바른 HTML이 포함되어 있다고 가정합니다."
 
 #: libraries/classes/Plugins/Transformations/Abs/HexTransformationsPlugin.php:29
 msgid ""
 "Displays hexadecimal representation of data. Optional first parameter "
 "specifies how often space will be added (defaults to 2 nibbles)."
-msgstr ""
+msgstr "데이터의 16진수 표현을 표시합니다. 첫 번째 매개변수(선택 사항)는 공백을 "
+"추가할 빈도를 지정합니다(기본값은 2니블)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ImageLinkTransformationsPlugin.php:28
 msgid "Displays a link to download this image."
-msgstr ""
+msgstr "이 이미지를 다운로드할 수 있는 링크를 표시합니다."
 
 #: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:29
 msgid ""
 "Image upload functionality which also displays a thumbnail. The options are "
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
-msgstr ""
+msgstr "썸네일도 표시하는 이미지 업로드 기능입니다. 옵션은 픽셀단위의 썸네일 너비와 "
+"높이입니다. 기본값은 100 X 100입니다."
 
 #: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:88
 msgid "Image preview here"
-msgstr ""
+msgstr "여기에서 이미지 미리 보기"
 
 #: libraries/classes/Plugins/Transformations/Abs/InlineTransformationsPlugin.php:30
 msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
-msgstr ""
+msgstr "클릭 가능한 썸네일을 표시합니다. 옵션은 픽셀 단위의 최대 너비와 높이입니다. "
+"원래 종횡비는 유지됩니다."
 
 #: libraries/classes/Plugins/Transformations/Abs/LongToIPv4TransformationsPlugin.php:28
 msgid ""
 "Converts an (IPv4) Internet network address stored as a BIGINT into a string "
 "in Internet standard dotted format."
-msgstr ""
+msgstr "BIGINT로 저장된 (IPv4) 인터넷 네트워크 주소를 인터넷 표준 점 형식의 문자열로 "
+"변환합니다."
 
 #: libraries/classes/Plugins/Transformations/Abs/PreApPendTransformationsPlugin.php:27
 msgid ""
@@ -11583,12 +11676,13 @@ msgstr ""
 msgid ""
 "Validates the string using regular expression and performs insert only if "
 "string matches it. The first option is the Regular Expression."
-msgstr ""
+msgstr "정규식을 사용하여 문자열의 유효성을 검사하고 문자열이 일치하는 경우에만 "
+"삽입을 수행합니다. 첫 번째 옵션은 정규식입니다."
 
 #: libraries/classes/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php:52
 #, php-format
 msgid "Validation failed for the input string %s."
-msgstr ""
+msgstr "입력 문자열 %s에 대한 유효성 검사에 실패했습니다."
 
 #: libraries/classes/Plugins/Transformations/Abs/SQLTransformationsPlugin.php:27
 msgid "Formats text as SQL query with syntax highlighting."
@@ -11610,7 +11704,7 @@ msgstr ""
 msgid ""
 "File upload functionality for TEXT columns. It does not have a textarea for "
 "input."
-msgstr ""
+msgstr "텍스트 열에 대한 파일 업로드 기능. 입력할 textarea가 없습니다."
 
 #: libraries/classes/Plugins/Transformations/Abs/TextImageLinkTransformationsPlugin.php:29
 msgid ""
@@ -11633,31 +11727,32 @@ msgstr ""
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptobinary.php:32
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
-msgstr ""
+msgstr "(IPv4/IPv6) 형식의 인터넷 네트워크 주소를 바이너리로 변환합니다"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptolong.php:29
 msgid ""
 "Converts an Internet network address in (IPv4/IPv6) format into a long "
 "integer."
-msgstr ""
+msgstr "(IPv4/IPv6) 형식의 인터넷 네트워크 주소를 LONG INT로 변환합니다."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr ""
+msgstr "JSON 구문이 강조된 CodeMirror 에디터."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_SqlEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr ""
+msgstr "SQL 구문이 강조된 CodeMirror 에디터."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_XmlEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
-msgstr ""
+msgstr "XML(및 HTML) 구문이 강조된 CodeMirror 에디터."
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Binarytoip.php:29
 msgid ""
 "Converts an Internet network address stored as a binary string into a string "
 "in Internet standard (IPv4/IPv6) format."
-msgstr ""
+msgstr "바이너리 문자열로 저장된 인터넷 네트워크 주소를 인터넷 표준(IPv4/IPv6) "
+"형식의 문자열로 변환합니다."
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Json.php:44
 msgid "Formats text as JSON with syntax highlighting."
@@ -11676,10 +11771,12 @@ msgid ""
 "Provides authentication using HOTP and TOTP applications such as FreeOTP, "
 "Google Authenticator or Authy."
 msgstr ""
+"FreeOTP, Google Authenticator 또는 Authy와 같은 HOTP 및 TOTP 애플리케이션을 "
+"사용하여 인증을 제공합니다."
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:206
 msgid "Hardware Security Key (FIDO U2F)"
-msgstr ""
+msgstr "하드웨어 보안 키(FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:216
 msgid ""
@@ -11701,7 +11798,7 @@ msgstr "2단계 인증이 없음"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:142
 msgid "Login using password only."
-msgstr ""
+msgstr "비밀번호로만 로그인."
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:49
 msgid "Simple two-factor authentication"
@@ -11770,7 +11867,7 @@ msgstr "즐겨찾기"
 
 #: libraries/classes/Relation.php:142
 msgid "not OK"
-msgstr ""
+msgstr "실패"
 
 #: libraries/classes/Relation.php:146
 msgctxt "Correctly working"
@@ -11813,7 +11910,7 @@ msgstr "column_info 테이블을 업데이트하는 방법에 대한 문서를 �
 
 #: libraries/classes/Relation.php:261 templates/sql/query.twig:145
 msgid "Bookmarked SQL query"
-msgstr "북마크된 SQL 질의"
+msgstr "북마크한 SQL 쿼리"
 
 #: libraries/classes/Relation.php:272
 msgid "SQL history"
@@ -11907,7 +12004,7 @@ msgstr ""
 
 #: libraries/classes/ReplicationGui.php:460
 msgid "Replication started successfully."
-msgstr "복제가 성공적으로 시작되었습니다."
+msgstr "복제가 정상적으로 시작되었습니다."
 
 #: libraries/classes/ReplicationGui.php:461
 msgid "Error starting replication."
@@ -11915,7 +12012,7 @@ msgstr "복제 시작 오류."
 
 #: libraries/classes/ReplicationGui.php:464
 msgid "Replication stopped successfully."
-msgstr "복제가 성공적으로 중단되었습니다."
+msgstr "복제가 정상적으로 중단되었습니다."
 
 #: libraries/classes/ReplicationGui.php:465
 msgid "Error stopping replication."
@@ -11923,7 +12020,7 @@ msgstr "복제 중단 오류."
 
 #: libraries/classes/ReplicationGui.php:468
 msgid "Replication resetting successfully."
-msgstr "복제가 성공적으로 리셋되었습니다."
+msgstr "복제가 정상적으로 리셋되었습니다."
 
 #: libraries/classes/ReplicationGui.php:469
 msgid "Error resetting replication."
@@ -11981,11 +12078,11 @@ msgstr "405 오류! 요청 메서드가 허용되지 않습니다."
 
 #: libraries/classes/SavedSearches.php:282
 msgid "Please provide a name for this bookmarked search."
-msgstr "즐겨찾기될 검색에 대한 이름을 입력하세요."
+msgstr "이 북마크한 검색에 이름을 넣어주세요."
 
 #: libraries/classes/SavedSearches.php:297
 msgid "Missing information to save the bookmarked search."
-msgstr "즐겨찾기될 검색을 저장할 정보가 없습니다."
+msgstr "북마크한 검색을 저장하기 위한 정보가 없습니다."
 
 #: libraries/classes/SavedSearches.php:319
 #: libraries/classes/SavedSearches.php:356
@@ -12236,12 +12333,12 @@ msgstr "기본 MySQL 인증"
 
 #: libraries/classes/Server/Privileges.php:796
 msgid "SHA256 password authentication"
-msgstr "SHA256 암호 인증"
+msgstr "SHA256 비밀번호 인증"
 
 #: libraries/classes/Server/Privileges.php:1165
 #, php-format
 msgid "The password for %s was changed successfully."
-msgstr "%s 의 암호가 바뀌었습니다."
+msgstr "%s 의 비밀번호가 정상적으로 변경되었습니다."
 
 #: libraries/classes/Server/Privileges.php:1214
 #, php-format
@@ -12252,7 +12349,7 @@ msgstr "%s의 권한을 제거했습니다."
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 msgid "Not enough privilege to view users."
-msgstr "사용자를 볼 수 있는 권한이 충분하지 않습니다."
+msgstr "사용자를 볼 수 있는 권한이 부족합니다."
 
 #: libraries/classes/Server/Privileges.php:1617
 #: templates/database/privileges/index.twig:80
@@ -12301,12 +12398,12 @@ msgstr "사용권한을 갱신합니다(Reloading the privileges)"
 
 #: libraries/classes/Server/Privileges.php:2334
 msgid "The selected users have been deleted successfully."
-msgstr "선택한 사용자들을 삭제했습니다."
+msgstr "선택한 사용자를 정상적으로 삭제했습니다."
 
 #: libraries/classes/Server/Privileges.php:2411
 #, php-format
 msgid "You have updated the privileges for %s."
-msgstr "%s 의 권한을 업데이트했습니다."
+msgstr "%s 에 대한 권한을 갱신했습니다."
 
 #: libraries/classes/Server/Privileges.php:2498
 #: templates/database/privileges/index.twig:102
@@ -12321,7 +12418,7 @@ msgstr "%s 을 삭제합니다"
 
 #: libraries/classes/Server/Privileges.php:2610
 msgid "The privileges were reloaded successfully."
-msgstr "권한을 다시 로딩했습니다."
+msgstr "권한을 정상적으로 다시 로드했습니다."
 
 #: libraries/classes/Server/Privileges.php:2710
 #, php-format
@@ -12339,6 +12436,9 @@ msgid ""
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
+"로컬 호스트의 모든 사용자가 연결할 수 있도록 허용하는 사용자 계정이 "
+"있습니다. 이렇게 하면 계정의 호스트 부분이 (%) 호스트의 연결을 허용하는 경우 "
+"다른 사용자가 연결할 수 없습니다."
 
 #: libraries/classes/Server/Privileges.php:3175
 #, php-format
@@ -12460,15 +12560,16 @@ msgstr "테이블 단위 탭"
 msgid ""
 "Reading of version failed. Maybe you're offline or the upgrade server does "
 "not respond."
-msgstr ""
+msgstr "버전을 읽지 못했습니다. 오프라인 상태이거나 업그레이드 서버가 응답하지 않는 "
+"것일 수 있습니다."
 
 #: libraries/classes/Setup/Index.php:157
 msgid "Got invalid version string from server"
-msgstr ""
+msgstr "서버에서 가져온 버전 문자열이 올바르지 않습니다"
 
 #: libraries/classes/Setup/Index.php:171
 msgid "Unparsable version string"
-msgstr ""
+msgstr "분석할 수 없는 버전 문자열"
 
 #: libraries/classes/Setup/Index.php:193
 #, php-format
@@ -12486,7 +12587,7 @@ msgstr "더 최신의 안정 버전이 없음"
 #: libraries/classes/Sql.php:528
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
-msgstr ""
+msgstr "기본 브라우저 쿼리로 \"%s\" 북마크를 사용합니다."
 
 #: libraries/classes/Sql.php:1039
 msgid "Showing as PHP code"
@@ -12554,7 +12655,7 @@ msgstr "이 MySQL 서버는 %s 스토리지 엔진을 지원하지 않습니다.
 #: libraries/classes/Table/Maintenance.php:94
 #, php-format
 msgid "Problems with indexes of table `%s`"
-msgstr ""
+msgstr "`%s` 테이블의 인덱스에 문제가 있습니다"
 
 #: libraries/classes/Table.php:352
 msgid "Unknown table status:"
@@ -12695,7 +12796,7 @@ msgstr "구조와 데이터 모두"
 #: libraries/classes/Tracking.php:388 libraries/classes/Tracking.php:455
 #, php-format
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
-msgstr ""
+msgstr "%4$s %5$s 사용자가 %2$s 부터 %3$s 동안 %1$s 표"
 
 #: libraries/classes/Tracking.php:476
 msgid "SQL dump (file download)"
@@ -12720,7 +12821,7 @@ msgstr "%s로 내보내기"
 
 #: libraries/classes/Tracking.php:525
 msgid "Data manipulation statement"
-msgstr ""
+msgstr "데이터 조작 구문"
 
 #: libraries/classes/Tracking.php:561
 msgid "Data definition statement"
@@ -12739,17 +12840,18 @@ msgstr "버전 %s 스냅샷 (SQL 코드)"
 
 #: libraries/classes/Tracking.php:728
 msgid "Tracking data definition successfully deleted"
-msgstr ""
+msgstr "추적 데이터 정의가 정상적으로 삭제되었습니다"
 
 #: libraries/classes/Tracking.php:738
 msgid "Tracking data manipulation successfully deleted"
-msgstr ""
+msgstr "추적 데이터 조작이 정상적으로 삭제되었습니다"
 
 #: libraries/classes/Tracking.php:794
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
-msgstr ""
+msgstr "임시 데이터베이스를 생성하고 사용하여 덤프를 실행할 수 있습니다. 이 작업을 "
+"수행할 수 있는 권한이 있는지 확인하세요."
 
 #: libraries/classes/Tracking.php:798
 msgid "Comment out these two lines if you do not need them."
@@ -12767,12 +12869,12 @@ msgstr "`%s` 테이블에 대한 추적 보고서"
 #: libraries/classes/Tracking.php:889
 #, php-format
 msgid "Tracking for %1$s was activated at version %2$s."
-msgstr ""
+msgstr "%1$s에 대한 추적이 %2$s 버전에서 활성화되었습니다."
 
 #: libraries/classes/Tracking.php:892
 #, php-format
 msgid "Tracking for %1$s was deactivated at version %2$s."
-msgstr ""
+msgstr "%1$s에 대한 추적이 %2$s 버전에서 비활성화되었습니다."
 
 #: libraries/classes/Tracking.php:986
 #, php-format
@@ -12782,7 +12884,7 @@ msgstr "%2$s의 %1$s 버전이 삭제되었습니다."
 #: libraries/classes/Tracking.php:1019
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
-msgstr ""
+msgstr "%1$s 버전이 만들어졌으며 %2$s에 대한 추적이 활성화되어 있습니다."
 
 #: libraries/classes/Types.php:206
 msgid ""
@@ -13054,7 +13156,8 @@ msgstr ""
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
-msgstr ""
+msgstr "IPv6 주소의 저장용이며, 기존방식으로 IPv6 주소로 매핑한 IPv4 주소도 "
+"저장합니다"
 
 #: libraries/classes/Types.php:723
 msgctxt "numeric types"
@@ -13073,7 +13176,7 @@ msgstr "공간(좌표)형"
 
 #: libraries/classes/UserPassword.php:36
 msgid "The profile has been updated."
-msgstr "프로파일을 업데이트했습니다."
+msgstr "프로파일이 갱신되었습니다."
 
 #: libraries/classes/UserPassword.php:48
 msgid "Password is too long!"
@@ -13383,7 +13486,7 @@ msgstr "위의 것 모두 아님"
 
 #: setup/index.php:27
 msgid "Configuration already exists, setup is disabled!"
-msgstr ""
+msgstr "구성이 이미 존재하며 설정이 비활성화되었습니다!"
 
 #: setup/validate.php:31
 msgid "Wrong data"
@@ -13392,14 +13495,14 @@ msgstr "잘못된 데이터"
 #: setup/validate.php:37
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr ""
+msgstr "잘못된 데이터 또는 %s에 대한 유효성 검사 없음"
 
 #: templates/columns_definitions/column_attributes.twig:31
 #: templates/database/central_columns/edit_table_row.twig:23
 #: templates/database/central_columns/main.twig:73
 #: templates/database/central_columns/main.twig:302
 msgid "Edit ENUM/SET values"
-msgstr ""
+msgstr "ENUM/SET 값 편집"
 
 #: templates/columns_definitions/column_attributes.twig:38
 #: templates/database/central_columns/edit_table_row.twig:30
@@ -13446,7 +13549,7 @@ msgstr "Fulltext"
 #: templates/table/structure/display_structure.twig:201
 #: templates/table/structure/display_structure.twig:297
 msgid "Spatial"
-msgstr ""
+msgstr "공간"
 
 #: templates/columns_definitions/column_attributes.twig:156
 #: templates/table/structure/display_partitions.twig:26
@@ -13498,7 +13601,7 @@ msgstr "스토리지 엔진"
 
 #: templates/columns_definitions/column_definitions_form.twig:136
 msgid "PARTITION definition:"
-msgstr ""
+msgstr "PARTITION 정의:"
 
 #: templates/columns_definitions/column_definitions_form.twig:154
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
@@ -13512,7 +13615,7 @@ msgstr "%s에 의해 참조됩니다."
 
 #: templates/columns_definitions/column_name.twig:12
 msgid "Is a foreign key."
-msgstr "은(는) 외래키입니다."
+msgstr "외래 키입니다."
 
 #: templates/columns_definitions/column_name.twig:39
 msgid "Pick from Central Columns"
@@ -13623,7 +13726,7 @@ msgstr "문자정렬순서"
 
 #: templates/columns_definitions/table_fields_definitions.twig:59
 msgid "Virtuality"
-msgstr ""
+msgstr "가상"
 
 #: templates/columns_definitions/table_fields_definitions.twig:65
 msgid "Move column"
@@ -13984,7 +14087,7 @@ msgstr "페이지 삭제"
 #: templates/database/designer/main.twig:94
 #: templates/database/designer/main.twig:272
 msgid "Create relationship"
-msgstr "관계 생성"
+msgstr "릴레이션 생성"
 
 #: templates/database/designer/main.twig:105
 #: templates/database/designer/main.twig:108
@@ -13999,12 +14102,12 @@ msgstr "도움말"
 #: templates/database/designer/main.twig:120
 #: templates/database/designer/main.twig:123
 msgid "Angular links"
-msgstr ""
+msgstr "Angular 링크"
 
 #: templates/database/designer/main.twig:120
 #: templates/database/designer/main.twig:123
 msgid "Direct links"
-msgstr "다이렉트 링크"
+msgstr "Direct 링크"
 
 #: templates/database/designer/main.twig:127
 #: templates/database/designer/main.twig:129
@@ -14024,7 +14127,7 @@ msgstr "대소 변경"
 #: templates/database/designer/main.twig:150
 #: templates/database/designer/main.twig:153
 msgid "Toggle relationship lines"
-msgstr "관계 연결선 표시 전환"
+msgstr "릴레이션 연결선 표시 전환"
 
 #: templates/database/designer/main.twig:158
 #: templates/database/designer/main.twig:161
@@ -14052,7 +14155,7 @@ msgstr "모두 숨기기/보기"
 
 #: templates/database/designer/main.twig:212
 msgid "Hide/Show tables with no relationship"
-msgstr "관계가 없는 테이블 숨김/표시"
+msgstr "릴레이션이 없는 테이블 숨김/표시"
 
 #: templates/database/designer/main.twig:223
 msgid "Number of tables:"
@@ -14060,12 +14163,12 @@ msgstr "테이블 개수:"
 
 #: templates/database/designer/main.twig:382
 msgid "Delete relationship"
-msgstr "관계 삭제"
+msgstr "릴레이션 삭제"
 
 #: templates/database/designer/main.twig:446
 #: templates/database/designer/main.twig:611
 msgid "Relationship operator"
-msgstr "관계 연산자"
+msgstr "릴레이션 연산자"
 
 #: templates/database/designer/main.twig:475
 #: templates/database/designer/main.twig:640
@@ -14129,7 +14232,7 @@ msgstr "페이지를 선택하세요"
 
 #: templates/database/designer/schema_export.twig:4
 msgid "Select Export Relational Type"
-msgstr ""
+msgstr "내보낼 릴레이션 형식 선택"
 
 #: templates/database/events/editor_form.twig:12
 msgid "Event name"
@@ -14239,7 +14342,7 @@ msgstr "@SERVER@ 는 서버 명이, @DATABASE@ 는 데이터베이스 명이 됩
 #. l10n: A query that the user has written freely
 #: templates/database/export/index.twig:5 templates/table/export/index.twig:5
 msgid "Exporting a raw query"
-msgstr "쿼리 그대로 내보내기"
+msgstr "쿼리 원본 내보내기"
 
 #: templates/database/export/index.twig:7
 #, php-format
@@ -14301,7 +14404,7 @@ msgstr "별도 열"
 
 #: templates/database/multi_table_query/form.twig:137
 msgid "Enter criteria as free text"
-msgstr ""
+msgstr "기준을 자유롭게 입력해 주세요"
 
 #: templates/database/multi_table_query/form.twig:145
 msgid "Remove this column"
@@ -14423,7 +14526,7 @@ msgstr "누구나"
 #: templates/database/privileges/index.twig:47
 #: templates/table/privileges/index.twig:49
 msgid "global"
-msgstr ""
+msgstr "글로벌"
 
 #: templates/database/privileges/index.twig:50
 #: templates/table/privileges/index.twig:52
@@ -14433,7 +14536,7 @@ msgstr "데이터베이스 고유"
 #: templates/database/privileges/index.twig:52
 #: templates/table/privileges/index.twig:54
 msgid "wildcard"
-msgstr ""
+msgstr "와일드카드"
 
 #: templates/database/privileges/index.twig:55
 #: templates/table/privileges/index.twig:59
@@ -14447,7 +14550,7 @@ msgstr "루틴"
 #: templates/table/privileges/index.twig:134
 msgctxt "Create new user"
 msgid "New"
-msgstr ""
+msgstr "신규"
 
 #: templates/database/privileges/index.twig:136
 #: templates/server/privileges/add_user_fieldset.twig:9
@@ -14618,11 +14721,11 @@ msgstr "계"
 
 #: templates/database/structure/change_prefix_form.twig:7
 msgid "From"
-msgstr ""
+msgstr "교체전"
 
 #: templates/database/structure/change_prefix_form.twig:13
 msgid "To"
-msgstr ""
+msgstr "교체후"
 
 #: templates/database/structure/check_all_tables.twig:6
 msgid "Check tables having overhead"
@@ -14799,7 +14902,7 @@ msgstr "생성됨"
 #: templates/database/tracking/tables.twig:16
 #: templates/table/tracking/main.twig:30
 msgid "Updated"
-msgstr "수정됨"
+msgstr "갱신됨"
 
 #: templates/database/tracking/tables.twig:61
 #: templates/table/tracking/main.twig:10 templates/table/tracking/main.twig:53
@@ -14863,7 +14966,7 @@ msgstr "관계키"
 
 #: templates/display/results/table.twig:130
 msgid "Display column for relationships"
-msgstr "관계에 대해 칼럼 표시"
+msgstr "릴레이션에 대해 칼럼 표시"
 
 #: templates/display/results/table.twig:138
 msgid "Show binary contents"
@@ -14918,16 +15021,19 @@ msgid ""
 "about relevant configuration settings. It will be sent to the phpMyAdmin "
 "team for debugging the error."
 msgstr ""
+"이 보고서에는 오류에 대한 데이터와 관련 구성 설정에 대한 정보가 자동으로 "
+"포함됩니다. 오류 디버깅을 위해 phpMyAdmin 팀으로 전송됩니다."
 
 #: templates/error/report_form.twig:12
 msgid ""
 "Can you tell us the steps leading to this error? It decisively helps in "
 "debugging:"
-msgstr ""
+msgstr "이 오류가 발생하는 단계를 알려주실 수 있습니까? 디버깅에 결정적으로 도움이 "
+"됩니다:"
 
 #: templates/error/report_form.twig:19
 msgid "You may examine the data in the error report:"
-msgstr ""
+msgstr "오류 보고서에서 데이터를 검토할 수 있습니다:"
 
 #: templates/export/template_options.twig:1 templates/export.twig:30
 msgid "Select a template"
@@ -15004,20 +15110,20 @@ msgstr "서버의 <strong>%s</strong> 디렉토리에 저장"
 
 #: templates/export.twig:157 templates/export.twig:284
 msgid "Rename exported databases/tables/columns"
-msgstr ""
+msgstr "내보낸 데이터베이스/테이블/열 이름 바꾸기"
 
 #: templates/export.twig:162
 msgid "Defined aliases"
-msgstr ""
+msgstr "정의된 별칭"
 
 #: templates/export.twig:177 templates/export.twig:191
 #: templates/export.twig:204 templates/export.twig:221
 msgid "Remove"
-msgstr ""
+msgstr "삭제"
 
 #: templates/export.twig:230
 msgid "Define new aliases"
-msgstr ""
+msgstr "신규 별칭 정의"
 
 #: templates/export.twig:235
 msgid "Select database:"
@@ -15327,12 +15433,12 @@ msgstr ""
 #: templates/import/javascript.twig:13
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s / %s"
 
 #: templates/import/javascript.twig:14
 #, php-format
 msgid "%s/sec."
-msgstr ""
+msgstr "%s/초."
 
 #: templates/import/javascript.twig:15
 msgid "About %MIN min. %SEC sec. remaining."
@@ -15354,7 +15460,8 @@ msgstr "당신의 가져오기 파일을 업로드하는 중…"
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
-msgstr ""
+msgstr "파일을 업로드하는 중입니다. 잠시만 기다려 주세요. 업로드에 대한 자세한 "
+"내용을 확인할 수 없습니다."
 
 #: templates/import.twig:39
 msgid "File to import:"
@@ -15386,7 +15493,7 @@ msgstr "업로드 파일:"
 
 #: templates/import.twig:68 templates/import.twig:101
 msgid "You may also drag and drop a file on any page."
-msgstr ""
+msgstr "어느 페이지에서나 파일을 끌어다 놓을 수 있습니다."
 
 #: templates/import.twig:74 templates/import.twig:104
 #, php-format
@@ -15413,7 +15520,7 @@ msgstr "일부분만 가져오기:"
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
-msgstr ""
+msgstr "이전 가져오기 시간이 초과되었습니다. 다시 전송한 후 %d 위치에서 계속됩니다."
 
 #: templates/import.twig:165
 #, fuzzy
@@ -15663,7 +15770,7 @@ msgstr "올바른 HEX값을 입력하세요"
 #. l10n: To validate the usage of a MD5 function on the column
 #: templates/javascript/variables.twig:108
 msgid "This column can not contain a 32 chars value"
-msgstr ""
+msgstr "이 열에는 32 글자의 값을 포함할 수 없습니다"
 
 #. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
 #: templates/javascript/variables.twig:109
@@ -15671,6 +15778,8 @@ msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
+"이러한 함수는 이진 결과를 반환하도록 되어 있으므로 예상과 다른 결과를 "
+"방지하려면 BINARY, VARBINARY, BLOB 열에 저장해야 합니다."
 
 #: templates/login/form.twig:30
 msgid "Log in"
@@ -15690,7 +15799,7 @@ msgstr "사용자명:"
 #: templates/server/replication/change_master.twig:18
 #: templates/server/replication/master_add_slave_user.twig:49
 msgid "Password:"
-msgstr "암호:"
+msgstr "비밀번호:"
 
 #: templates/login/form.twig:67
 msgid "Server choice:"
@@ -15702,16 +15811,20 @@ msgid ""
 "can lead to a non working phpMyAdmin or a security risk. Please fix your "
 "server configuration to indicate HTTPS properly."
 msgstr ""
+"서버와 클라이언트에 표시된 HTTPS가 일치하지 않습니다. 이로 인해 phpMyAdmin이 "
+"작동하지 않거나 보안 위험이 발생할 수 있습니다. 서버 구성을 수정하여 HTTPS가 "
+"올바르게 표시되도록 하세요."
 
 #: templates/login/twofactor/application_configure.twig:3
 msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
-msgstr ""
+msgstr "다음 QR 코드를 디바이스의 2단계 인증 앱으로 스캔한 후 생성된 인증 코드를 "
+"입력하세요."
 
 #: templates/login/twofactor/application_configure.twig:13
 msgid "Secret/key:"
-msgstr ""
+msgstr "비밀/키:"
 
 #: templates/login/twofactor/application_configure.twig:16
 #: templates/login/twofactor/application.twig:2
@@ -15722,7 +15835,7 @@ msgstr "인증:"
 msgid ""
 "Open the two-factor authentication app on your device to view your "
 "authentication code and verify your identity."
-msgstr ""
+msgstr "디바이스에서 2단계 인증 앱을 열어 인증 코드를 확인해서 신원을 확인합니다."
 
 #: templates/login/twofactor/invalid.twig:2
 msgid ""
@@ -15734,23 +15847,26 @@ msgstr "구성된 2단계 인증을 사용할 수 없으므로 누락된 의존�
 msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm registration on the device."
-msgstr ""
+msgstr "FIDO U2F 장치를 컴퓨터의 USB 포트에 연결하세요. 그리고 장치에서 등록을 "
+"확인해 주세요."
 
 #: templates/login/twofactor/key-https-warning.twig:3
 msgid ""
 "You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
 "most likely refuse to authenticate you."
-msgstr ""
+msgstr "https를 사용하여 phpMyAdmin에 액세스하지 않으므로 FIDO U2F 장치가 사용자 "
+"인증을 거부할 가능성이 높습니다."
 
 #: templates/login/twofactor/key.twig:3
 msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm login on the device."
-msgstr ""
+msgstr "FIDO U2F 장치를 컴퓨터의 USB 포트에 연결하세요. 그리고 장치에서 로그인을 "
+"확인합니다."
 
 #: templates/login/twofactor.twig:5
 msgid "Verify"
-msgstr ""
+msgstr "검증"
 
 #: templates/menu/breadcrumbs.twig:27
 msgid "View:"
@@ -15758,7 +15874,7 @@ msgstr "뷰:"
 
 #: templates/navigation/item_unhide_dialog.twig:20
 msgid "Unhide"
-msgstr ""
+msgstr "숨김해제"
 
 #: templates/navigation/main.twig:25 templates/navigation/main.twig:26
 msgid "Home"
@@ -15927,7 +16043,7 @@ msgstr "2단계 인증 비활성화 확인"
 msgid ""
 "By disabling two factor authentication you will be again able to login using "
 "password only."
-msgstr ""
+msgstr "2단계 인증을 비활성화하면 비밀번호만으로 다시 로그인할 수 있습니다."
 
 #: templates/preferences/two_factor/confirm.twig:13
 #: templates/preferences/two_factor/main.twig:46
@@ -15942,20 +16058,21 @@ msgstr "2단계 인증 상태"
 msgid ""
 "Two-factor authentication is not available, please install optional "
 "dependencies to enable authentication backends."
-msgstr ""
+msgstr "2단계 인증을 사용할 수 없으므로 인증 백엔드를 활성화하려면 추가적인 의존성 "
+"패키지를 설치하세요."
 
 #: templates/preferences/two_factor/main.twig:12
 msgid "Following composer packages are missing:"
-msgstr ""
+msgstr "다음 Composer 패키지가 누락되었습니다:"
 
 #: templates/preferences/two_factor/main.twig:20
 msgid "Two-factor authentication is available and configured for this account."
-msgstr ""
+msgstr "이 계정에 2단계 인증을 사용할 수 있으며 이 계정에 대해 구성했습니다."
 
 #: templates/preferences/two_factor/main.twig:22
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
-msgstr ""
+msgstr "2단계 인증을 사용할 수 있지만 이 계정에는 구성되지 않았습니다."
 
 #: templates/preferences/two_factor/main.twig:26
 msgid ""
@@ -15966,7 +16083,7 @@ msgstr "2단계 인증을 사용할 수 없는 경우, 2단계 인증을 사용�
 
 #: templates/preferences/two_factor/main.twig:41
 msgid "You have enabled two factor authentication."
-msgstr ""
+msgstr "2단계 인증을 사용하도록 설정했습니다."
 
 #: templates/relation/diagnostic_info.twig:1
 msgid "Quick steps to set up advanced features:"
@@ -15986,10 +16103,12 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
+"구성 파일에서 고급 기능을 활성화 합니다(<code>config.inc.php</code>), "
+"<code>config.sample.inc.php</code> 예제를 참조하세요."
 
 #: templates/relation/diagnostic_info.twig:17
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
-msgstr "수정된 설정 파일을 적용하기 위해 phpMyAdmin에 다시 로그인해야 합니다."
+msgstr "갱신된 구성 파일을 적용하기 위해 phpMyAdmin에 다시 로그인해야 합니다."
 
 #: templates/server/binlog/index.twig:10
 msgid "Select binary log to view"
@@ -16157,7 +16276,7 @@ msgstr "동명의 데이터베이스를 생성하고 모든 권한을 부여."
 
 #: templates/server/privileges/add_user.twig:19
 msgid "Grant all privileges on wildcard name (username\\_%)."
-msgstr ""
+msgstr "와일드카드 이름(사용자명\\_%)에 모든 권한을 부여합니다."
 
 #: templates/server/privileges/add_user.twig:24
 #, php-format
@@ -16166,11 +16285,11 @@ msgstr "%s 데이터베이스에 대한 모든 권한을 부여합니다."
 
 #: templates/server/privileges/change_password.twig:15
 msgid "No Password"
-msgstr "암호 없음"
+msgstr "비밀번호 없음"
 
 #: templates/server/privileges/change_password.twig:24
 msgid "Enter:"
-msgstr ""
+msgstr "입력:"
 
 #: templates/server/privileges/change_password.twig:28
 #: templates/server/privileges/login_information_fields.twig:54
@@ -16194,6 +16313,8 @@ msgid ""
 "connection that encrypts the password using RSA</i>'; while connecting to "
 "the server."
 msgstr ""
+"이 방법을 사용하려면 서버에 연결하는 동안 '<i>SSL 연결</i>' 또는 '<i>RSA를 "
+"사용하여 비밀번호를 암호화하는 비암호화 연결</i>'을 사용해야 합니다."
 
 #: templates/server/privileges/choose_user_group.twig:4
 #: templates/server/privileges/users_overview.twig:16
@@ -16232,7 +16353,8 @@ msgstr "주의: MySQL 권한 이름은 영어로 표시됩니다."
 msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
-msgstr ""
+msgstr "사용자가 이 루틴에서 다른 사용자에게 권한을 부여하거나 다른 사용자로부터 "
+"권한을 제거하는 것을 허가합니다."
 
 #: templates/server/privileges/edit_routine_privileges.twig:76
 #: templates/server/privileges/edit_routine_privileges.twig:79
@@ -16272,7 +16394,7 @@ msgstr "텍스트 입력 필드를 사용"
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
-msgstr ""
+msgstr "사용자 아이디는 같지만 호스트 이름이 다른 계정이 이미 존재할 수 있습니다."
 
 #: templates/server/privileges/login_information_fields.twig:22
 msgid "Host name:"
@@ -16314,11 +16436,11 @@ msgstr ""
 #: templates/server/replication/master_add_slave_user.twig:52
 #: templates/server/replication/master_add_slave_user.twig:57
 msgid "Password"
-msgstr "암호"
+msgstr "비밀번호"
 
 #: templates/server/privileges/login_information_fields.twig:47
 msgid "Do not change the password"
-msgstr "암호를 변경하지 않음"
+msgstr "비밀번호를 변경하지 않음"
 
 #: templates/server/privileges/login_information_fields.twig:49
 #: templates/server/replication/master_add_slave_user.twig:53
@@ -16344,6 +16466,9 @@ msgid ""
 "'<em>unencrypted connection that encrypts the password using RSA</em>'; "
 "while connecting to the server."
 msgstr ""
+"이 방법을 사용하려면 서버에 연결하는 동안 '<em>SSL 연결</em>' 또는 "
+"'<em>RSA를 사용하여 비밀번호를 암호화하는 비암호화 연결</em>'을 사용해야 "
+"합니다."
 
 #: templates/server/privileges/new_user_ajax.twig:52
 #: templates/server/privileges/users_overview.twig:80
@@ -16393,7 +16518,7 @@ msgstr "다른 유저에게 자신이 가진 권한을 부여하거나 삭제할
 
 #: templates/server/privileges/privileges_table.twig:231
 msgid "Global"
-msgstr ""
+msgstr "글로벌"
 
 #: templates/server/privileges/privileges_table.twig:238
 #: templates/server/privileges/users_overview.twig:12
@@ -16412,11 +16537,11 @@ msgstr "권한 테이블을 갱신하지 않고 사용자와 권한 추가하기
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Allows creating foreign key relations."
-msgstr "외래 키 관계 생성을 허가합니다."
+msgstr "외래 키 릴레이션 생성을 허가합니다."
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Not used on MariaDB."
-msgstr ""
+msgstr "MariaDB에서 사용하지 않습니다."
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Not used for this MySQL version."
@@ -16468,15 +16593,15 @@ msgstr "유효한 X509 인증서가 요구됨."
 
 #: templates/server/privileges/privileges_table.twig:799
 msgid "Requires that a specific cipher method be used for a connection."
-msgstr ""
+msgstr "연결에 특정 암호 방법을 사용해야 합니다."
 
 #: templates/server/privileges/privileges_table.twig:808
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
-msgstr ""
+msgstr "이 CA에서 발급한 유효한 X509 인증서가 필요합니다."
 
 #: templates/server/privileges/privileges_table.twig:817
 msgid "Requires that a valid X509 certificate with this subject be presented."
-msgstr ""
+msgstr "이 Subject가 포함된 유효한 X509 인증서가 필요합니다."
 
 #: templates/server/privileges/subnav.twig:5
 #: templates/server/privileges/user_overview.twig:5
@@ -16504,7 +16629,7 @@ msgstr "새로운 사용자 계정을 동일한 권한으로 생성하고 …"
 
 #: templates/server/privileges/user_properties.twig:120
 msgid "… keep the old one."
-msgstr ""
+msgstr "... 이전 정보를 유지합니다."
 
 #: templates/server/privileges/user_properties.twig:127
 msgid "… delete the old one from the user tables."
@@ -16548,6 +16673,8 @@ msgid ""
 "Make sure you have a unique server-id in your configuration file (my.cnf). "
 "If not, please add the following line into [mysqld] section:"
 msgstr ""
+"구성 파일(my.cnf)에 고유한 server-id가 있는지 확인하세요. 그렇지 않은 경우 "
+"다음 줄을 [mysqld] 섹션에 추가해 주세요:"
 
 #: templates/server/replication/change_master.twig:26
 msgid "Port:"
@@ -16578,11 +16705,11 @@ msgstr "슬레이브 복제 사용자 추가"
 #: templates/server/replication/master_add_slave_user.twig:40
 #: templates/server/replication/master_add_slave_user.twig:54
 msgid "Use text field:"
-msgstr ""
+msgstr "텍스트 필드를 사용합니다:"
 
 #: templates/server/replication/master_add_slave_user.twig:70
 msgid "Generate password:"
-msgstr "암호 생성:"
+msgstr "비밀번호 생성:"
 
 #: templates/server/replication/master_configuration.twig:2
 msgid "Master configuration"
@@ -16599,7 +16726,7 @@ msgstr ""
 
 #: templates/server/replication/master_configuration.twig:9
 msgid "Replicate all databases; Ignore:"
-msgstr ""
+msgstr "모든 데이터베이스를 복제하고 무시합니다:"
 
 #: templates/server/replication/master_configuration.twig:10
 msgid "Ignore all databases; Replicate:"
@@ -16613,7 +16740,8 @@ msgstr "데이터베이스를 선택하세요:"
 msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
-msgstr ""
+msgstr "이제 my.cnf의 [mysqld] 섹션 끝에 다음 줄을 추가한 후 MySQL 서버를 다시 "
+"시작하세요."
 
 #: templates/server/replication/master_configuration.twig:21
 #, fuzzy
@@ -16700,12 +16828,12 @@ msgstr ""
 
 #: templates/server/replication/slave_configuration.twig:81
 msgid "Skip current error"
-msgstr ""
+msgstr "현재 오류를 건너뜁니다"
 
 #: templates/server/replication/slave_configuration.twig:87
 #, php-format
 msgid "Skip next %s errors."
-msgstr ""
+msgstr "다음 %s 오류를 건너뜁니다."
 
 #: templates/server/replication/slave_configuration.twig:107
 #, fuzzy, php-format
@@ -16740,7 +16868,7 @@ msgstr "조언 시스템"
 
 #: templates/server/status/advisor/index.twig:9
 msgid "Not enough privilege to view the advisor."
-msgstr "조언을 볼 권한이 충분하지 않습니다."
+msgstr "조언을 볼 권한이 부족합니다."
 
 #: templates/server/status/advisor/index.twig:12
 msgid "Instructions"
@@ -16759,6 +16887,8 @@ msgid ""
 "calculations and by rule of thumb which may not necessarily apply to your "
 "system."
 msgstr ""
+"단, 이 시스템은 간단한 계산과 경험 법칙을 기반으로 한 권장 사항을 제공하므로 "
+"각 사용자의 시스템에 반드시 적용되지 않을 수 있다는 점에 유의하세요."
 
 #: templates/server/status/advisor/index.twig:36
 msgid ""
@@ -16766,6 +16896,8 @@ msgid ""
 "changing (by reading the documentation) and how to undo the change. Wrong "
 "tuning can have a very negative effect on performance."
 msgstr ""
+"구성을 변경하기 전에 문서를 읽고 변경할 내용과 변경을 취소하는 방법을 "
+"숙지하세요. 잘못된 튜닝은 성능에 매우 부정적인 영향을 미칠 수 있습니다."
 
 #: templates/server/status/advisor/index.twig:41
 msgid ""
@@ -16831,7 +16963,7 @@ msgstr "사용방법/셋업"
 
 #: templates/server/status/monitor/index.twig:20
 msgid "Done dragging (rearranging) charts"
-msgstr ""
+msgstr "차트 드래그(재정렬) 완료"
 
 #: templates/server/status/monitor/index.twig:27
 #: templates/server/status/monitor/index.twig:124
@@ -16893,7 +17025,7 @@ msgstr "기본값으로 초기화"
 
 #: templates/server/status/monitor/index.twig:89
 msgid "Monitor Instructions"
-msgstr ""
+msgstr "모니터 지침"
 
 #: templates/server/status/monitor/index.twig:91
 msgid ""
@@ -16903,6 +17035,10 @@ msgid ""
 "enabled. Note however, that the general_log produces a lot of data and "
 "increases server load by up to 15%."
 msgstr ""
+"phpMyAdmin 모니터는 서버 구성을 최적화하고 시간 집약적인 쿼리를 추적하는 데 "
+"도움을 줄 수 있습니다. 후자의 경우 log_output을 'TABLE'로 설정하고 "
+"slow_query_log 또는 general_log를 활성화해야 합니다. 단, 일반_로그는 많은 "
+"양의 데이터를 생성하며 서버 부하를 최대 15%까지 증가시킨다는 점에 유의하세요."
 
 #: templates/server/status/monitor/index.twig:101
 msgid "Using the monitor:"
@@ -16987,7 +17123,7 @@ msgstr "이 시리즈 추가"
 
 #: templates/server/status/monitor/index.twig:197
 msgid "Clear series"
-msgstr "시리즈 없애기"
+msgstr "계열 모두 삭제"
 
 #: templates/server/status/monitor/index.twig:201
 msgid "Series in chart:"
@@ -17003,11 +17139,11 @@ msgstr "선택한 시간:"
 
 #: templates/server/status/monitor/index.twig:220
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
-msgstr ""
+msgstr "SELECT, INSERT, UPDATE 및 DELETE 문만 가져옴"
 
 #: templates/server/status/monitor/index.twig:226
 msgid "Remove variable data in INSERT statements for better grouping"
-msgstr ""
+msgstr "더 나은 그룹화를 위해 INSERT 문에서 변수 데이터 제거"
 
 #: templates/server/status/monitor/index.twig:230
 msgid "Choose from which log you want the statistics to be generated from."
@@ -17015,7 +17151,7 @@ msgstr "통계가 생성될 로그를 선택하세요."
 
 #: templates/server/status/monitor/index.twig:233
 msgid "Results are grouped by query text."
-msgstr ""
+msgstr "결과는 쿼리 텍스트별로 그룹화됩니다."
 
 #: templates/server/status/monitor/index.twig:237
 msgid "Query analyzer"
@@ -17067,7 +17203,7 @@ msgstr "시간 당 ø"
 
 #: templates/server/status/queries/index.twig:59
 msgid "Not enough privilege to view query statistics."
-msgstr ""
+msgstr "쿼리 통계를 볼 수 있는 권한이 부족합니다."
 
 #: templates/server/status/status/index.twig:6
 #, php-format
@@ -17083,7 +17219,8 @@ msgstr "이 MySQL 서버는 %1$s 동안 구동되었습니다. 구동 시작날�
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
-msgstr ""
+msgstr "사용량이 많은 서버에서는 바이트 카운터가 오버런될 수 있으므로 MySQL 서버에서 "
+"보고한 통계가 부정확할 수 있습니다."
 
 #: templates/server/status/status/index.twig:59
 msgid ""
@@ -17107,7 +17244,7 @@ msgstr "복제 상태"
 
 #: templates/server/status/status/index.twig:75
 msgid "Not enough privilege to view server status."
-msgstr ""
+msgstr "서버 상태를 볼 수 있는 권한이 부족합니다."
 
 #: templates/server/status/variables/index.twig:22
 msgid "Show only alert values"
@@ -17127,7 +17264,7 @@ msgstr "추천 링크:"
 
 #: templates/server/status/variables/index.twig:136
 msgid "Not enough privilege to view status variables."
-msgstr ""
+msgstr "상태 변수를 볼 수 있는 권한이 부족합니다."
 
 #: templates/server/user_groups/edit_user_groups.twig:2
 #: templates/server/user_groups/user_groups.twig:47
@@ -17174,7 +17311,7 @@ msgstr "서버의 환경설정"
 
 #: templates/server/variables/index.twig:43
 msgid "This is a read-only variable and can not be edited"
-msgstr ""
+msgstr "읽기 전용 변수이므로 편집할 수 없습니다"
 
 #: templates/server/variables/index.twig:69
 msgid "Session value"
@@ -17183,11 +17320,11 @@ msgstr "세션 값"
 #: templates/server/variables/index.twig:80
 #, php-format
 msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "서버의 변수와 설정을 볼 권한이 없습니다. %s"
+msgstr "서버의 변수와 설정을 볼 권한이 부족합니다. %s"
 
 #: templates/setup/base.twig:27 templates/setup/home/index.twig:20
 msgid "Overview"
-msgstr ""
+msgstr "개요"
 
 #: templates/setup/config/index.twig:4 templates/setup/home/index.twig:93
 msgid "Configuration file"
@@ -17203,11 +17340,11 @@ msgstr "경고"
 
 #: templates/setup/error.twig:3
 msgid "Submitted form contains errors"
-msgstr ""
+msgstr "제출된 양식에 오류가 있습니다"
 
 #: templates/setup/error.twig:6
 msgid "Try to revert erroneous fields to their default values"
-msgstr ""
+msgstr "잘못된 필드를 기본값으로 되돌리기"
 
 #: templates/setup/error.twig:14
 msgid "Ignore errors"
@@ -17255,19 +17392,19 @@ msgstr "새 서버 추가"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "뭔가 잘못되었습니다."
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
-msgstr "이 SQL 질의를 북마크함"
+msgstr "이 SQL 쿼리를 북마크하기"
 
 #: templates/sql/bookmark.twig:15
 msgid "Label:"
-msgstr ""
+msgstr "라벨:"
 
 #: templates/sql/bookmark.twig:22 templates/sql/query.twig:91
 msgid "Let every user access this bookmark"
-msgstr ""
+msgstr "모든 사용자가 이 북마크를 사용할 수 있게 합니다"
 
 #: templates/sql/profiling_chart.twig:4
 msgid "Detailed profile"
@@ -17279,7 +17416,7 @@ msgstr "상태"
 
 #: templates/sql/profiling_chart.twig:38
 msgid "Summary by state"
-msgstr ""
+msgstr "상태별 요약"
 
 #: templates/sql/profiling_chart.twig:47
 msgid "Total Time"
@@ -17308,11 +17445,11 @@ msgstr "파라미터 연결"
 
 #: templates/sql/query.twig:85
 msgid "Bookmark this SQL query:"
-msgstr ""
+msgstr "이 SQL 쿼리 북마크하기:"
 
 #: templates/sql/query.twig:96
 msgid "Replace existing bookmark of same name"
-msgstr ""
+msgstr "이미 존재하는 같은 이름의 북마크를 덮어씁니다"
 
 #: templates/sql/query.twig:106 templates/sql/query.twig:108
 msgid "Delimiter"
@@ -17324,7 +17461,7 @@ msgstr "이 질의를 다시 보여줌"
 
 #: templates/sql/query.twig:125
 msgid "Rollback when finished"
-msgstr ""
+msgstr "완료되면 ROLL BACK"
 
 #: templates/sql/query.twig:149
 msgid "Bookmark:"
@@ -17420,7 +17557,7 @@ msgstr "Y값"
 
 #: templates/table/chart/tbl_chart.twig:110
 msgid "Series names are in a column"
-msgstr ""
+msgstr "시리즈 이름은 열에 있습니다"
 
 #: templates/table/chart/tbl_chart.twig:113
 msgid "Series column:"
@@ -17673,7 +17810,7 @@ msgstr "테이블 고유"
 
 #: templates/table/relation/common_form.twig:9
 msgid "Foreign key constraints"
-msgstr "외래키 제약"
+msgstr "외래 키 제약"
 
 #: templates/table/relation/common_form.twig:14
 msgid "Actions"
@@ -17689,9 +17826,9 @@ msgid ""
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
 msgstr ""
-"인덱스가 설정되지 않은 컬럼에 대해 외래키를 생성할경우 해당 컬럼에 자동으로 "
-"인덱스가 생성됩니다. 또는, 외래키를 생성하기 전에 아래에서 직접 인덱스를 정의"
-"할 수 있습니다."
+"인덱스가 설정되지 않은 컬럼에 대해 외래 키를 생성할경우 해당 컬럼에 자동으로 "
+"인덱스가 생성됩니다. 또는, 외래 키를 생성하기 전에 아래에서 직접 인덱스를 "
+"정의할 수 있습니다."
 
 #: templates/table/relation/common_form.twig:24
 msgid ""
@@ -17701,7 +17838,7 @@ msgstr ""
 
 #: templates/table/relation/common_form.twig:28
 msgid "Foreign key constraint"
-msgstr "외래키 제약"
+msgstr "외래 키 제약"
 
 #: templates/table/relation/common_form.twig:93
 msgid "+ Add constraint"
@@ -17730,7 +17867,7 @@ msgstr "출력할 필드 선택:"
 #: templates/table/relation/foreign_key_row.twig:15
 #, php-format
 msgid "Foreign key constraint %s has been dropped"
-msgstr "외래키 제약 %s 가 제거되었습니다"
+msgstr "외래키 제약 %s 가 삭제되었습니다"
 
 #: templates/table/relation/foreign_key_row.twig:33
 msgid "Constraint name"
