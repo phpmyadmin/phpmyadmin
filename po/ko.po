@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2023-11-17 15:38+0000\n"
+"PO-Revision-Date: 2023-11-21 17:05+0000\n"
 "Last-Translator: Yong Kim <kim@nhn.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/5-2/ko/"
 ">\n"
@@ -1870,9 +1870,8 @@ msgstr "현재 사용자의 정의 제외"
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
-msgstr ""
-"외래키 드롭다운 박스 항목을 정렬; [kbd]content[/kbd]: 참조 데이터, [kbd]id[/"
-"kbd]: 키 값."
+msgstr "외래키 선택 항목의 정렬 순서. [kbd]content[/kbd]는 참조하는 데이터, "
+"[kbd]id[/kbd]는 키 값."
 
 #: libraries/classes/Config/Descriptions.php:190
 msgid ""
@@ -2748,7 +2747,7 @@ msgstr "이보다 적은 항목의 경우 드롭다운이 사용됩니다."
 
 #: libraries/classes/Config/Descriptions.php:563
 msgid "Default value for foreign key checks checkbox for some queries."
-msgstr "일부 쿼리의 외부 키 검사 기본값 확인란."
+msgstr "일부 쿼리용 외래키 검사 체크박스의 기본값입니다."
 
 #: libraries/classes/Config/Descriptions.php:564
 msgid "Uncheck the checkbox to disable drag and drop import"
@@ -3343,7 +3342,7 @@ msgstr "세계 표준시(UTC)로 시간 내보내기"
 
 #: libraries/classes/Config/Descriptions.php:744
 msgid "Foreign key dropdown order"
-msgstr "외래키 드롭다운 순서(정렬)"
+msgstr "외래키 선택 항목 순서"
 
 #: libraries/classes/Config/Descriptions.php:745
 msgid "Foreign key limit"
@@ -3351,7 +3350,7 @@ msgstr "외래키 제한"
 
 #: libraries/classes/Config/Descriptions.php:746
 msgid "Foreign key checks"
-msgstr "외래 키(foreign key) 확인"
+msgstr "외래 키 검사"
 
 #: libraries/classes/Config/Descriptions.php:747
 msgid "First day of calendar"
@@ -5332,7 +5331,7 @@ msgstr "기본 키 / 인덱스를 삭제하고 있습니다"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:55
 msgid "Dropping Foreign key."
-msgstr "외래키를 제거중."
+msgstr "외래 키를 제거 중입니다."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:56
 msgid "This operation could take a long time. Proceed anyway?"
@@ -6359,7 +6358,7 @@ msgstr "아니요"
 #: templates/database/structure/empty_form.twig:16 templates/import.twig:159
 #: templates/sql/query.twig:142 templates/table/delete/confirm.twig:25
 msgid "Enable foreign key checks"
-msgstr "외래 키(foreign key) 점검 사용"
+msgstr "외래 키 검사 활성화"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:360
 msgid "Failed to get real row count."
@@ -13297,7 +13296,7 @@ msgstr "%s에 의해 참조됩니다."
 
 #: templates/columns_definitions/column_name.twig:12
 msgid "Is a foreign key."
-msgstr "은(는) 외래키입니다."
+msgstr "외래 키입니다."
 
 #: templates/columns_definitions/column_name.twig:39
 msgid "Pick from Central Columns"
@@ -18117,9 +18116,9 @@ msgid ""
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
 msgstr ""
-"인덱스가 설정되지 않은 컬럼에 대해 외래키를 생성할경우 해당 컬럼에 자동으로 "
-"인덱스가 생성됩니다. 또는, 외래키를 생성하기 전에 아래에서 직접 인덱스를 정의"
-"할 수 있습니다."
+"인덱스가 설정되지 않은 컬럼에 대해 외래 키를 생성할경우 해당 컬럼에 자동으로 "
+"인덱스가 생성됩니다. 또는, 외래 키를 생성하기 전에 아래에서 직접 인덱스를 "
+"정의할 수 있습니다."
 
 #: templates/table/relation/common_form.twig:24
 msgid ""
@@ -18158,7 +18157,7 @@ msgstr "출력할 필드 선택:"
 #: templates/table/relation/foreign_key_row.twig:15
 #, php-format
 msgid "Foreign key constraint %s has been dropped"
-msgstr "외래키 제약 %s 가 제거되었습니다"
+msgstr "외래키 제약 %s 가 삭제되었습니다"
 
 #: templates/table/relation/foreign_key_row.twig:33
 msgid "Constraint name"
