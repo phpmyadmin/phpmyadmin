@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-11-12 00:18+0000\n"
+"POT-Creation-Date: 2023-11-19 00:19+0000\n"
 "PO-Revision-Date: 2023-04-04 08:37+0000\n"
 "Last-Translator: 109247019824 <stoyan@gmx.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -122,7 +122,7 @@ msgstr "след %s"
 #: resources/templates/table/zoom_search/index.twig:122
 #: src/Config/ConfigFile.php:555
 #: src/Controllers/JavaScriptMessagesController.php:220
-#: src/Display/Results.php:974 src/Plugins/Export/ExportSql.php:2053
+#: src/Display/Results.php:974 src/Plugins/Export/ExportSql.php:2054
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Няма"
@@ -196,7 +196,7 @@ msgstr "Добавяне колона(и)"
 #: resources/templates/table/structure/display_structure.twig:572
 #: resources/templates/table/zoom_search/index.twig:155
 #: resources/templates/triggers/editor_form.twig:74
-#: resources/templates/view_create.twig:123 src/BrowseForeigners.php:181
+#: resources/templates/view_create.twig:123 src/BrowseForeigners.php:179
 #: src/Controllers/JavaScriptMessagesController.php:336
 #: src/Controllers/Server/PrivilegesController.php:294
 #: src/Normalization.php:223 src/Tracking/Tracking.php:306
@@ -779,7 +779,7 @@ msgstr "Изчистване"
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:169
-#: src/Html/Generator.php:699 src/Html/MySQLDocumentation.php:49
+#: src/Html/Generator.php:698 src/Html/MySQLDocumentation.php:49
 #: src/Sanitize.php:193
 msgid "Documentation"
 msgstr "Документация"
@@ -840,7 +840,7 @@ msgstr "Забранено"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:23
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
 #: src/Controllers/Database/Structure/DropTableController.php:42
-#: src/Controllers/Database/Structure/EmptyTableController.php:47
+#: src/Controllers/Database/Structure/EmptyTableController.php:49
 #: src/Controllers/JavaScriptMessagesController.php:502
 #: src/Controllers/Table/DeleteRowsController.php:56
 #: src/Controllers/Table/DropColumnController.php:45
@@ -949,8 +949,8 @@ msgstr "Подзаявка"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:930
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:400
-#: src/Display/Results.php:2562 src/Html/Generator.php:551
-#: src/Html/Generator.php:814
+#: src/Display/Results.php:2563 src/Html/Generator.php:550
+#: src/Html/Generator.php:813
 msgid "Edit"
 msgstr "Редакция"
 
@@ -968,7 +968,7 @@ msgstr "Редакция"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:188
 #: src/Controllers/JavaScriptMessagesController.php:401
-#: src/Display/Results.php:2621 src/Tracking/Tracking.php:231
+#: src/Display/Results.php:2622 src/Tracking/Tracking.php:231
 msgid "Delete"
 msgstr "Изтриване"
 
@@ -1060,7 +1060,7 @@ msgstr "Обяснение"
 
 #: resources/templates/console/display.twig:43
 #: resources/templates/console/display.twig:201
-#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:635
+#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:634
 msgid "Profiling"
 msgstr "Профилиране"
 
@@ -1142,7 +1142,7 @@ msgstr "Използвано време:"
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
 #: src/Config/Descriptions.php:932 src/Export/Export.php:1244
-#: src/Html/Generator.php:607
+#: src/Html/Generator.php:606
 msgid "Refresh"
 msgstr "Опресняване"
 
@@ -1391,7 +1391,7 @@ msgstr "Индекси"
 #: resources/templates/indexes.twig:17
 #: resources/templates/table/structure/display_structure.twig:475
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:5
-#: src/BrowseForeigners.php:196 src/BrowseForeigners.php:200
+#: src/BrowseForeigners.php:194 src/BrowseForeigners.php:198
 msgid "Keyname"
 msgstr "Име на ключ"
 
@@ -1886,7 +1886,7 @@ msgstr "Експорт"
 #: resources/templates/triggers/list.twig:20
 #: resources/templates/triggers/list.twig:21
 #: resources/templates/triggers/row.twig:52
-#: resources/templates/triggers/row.twig:58 src/Operations.php:521
+#: resources/templates/triggers/row.twig:58 src/Operations.php:522
 msgid "Drop"
 msgstr "Изтриване"
 
@@ -1937,7 +1937,7 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "Експорт на таблици от БД \"%s\""
 
 #: resources/templates/database/export/index.twig:14
-#: src/Navigation/Navigation.php:211
+#: src/Navigation/Navigation.php:212
 msgid "Tables:"
 msgstr "Таблици:"
 
@@ -2039,8 +2039,8 @@ msgstr "Сортиране"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:159
-#: src/Config/ConfigFile.php:555 src/Display/Results.php:1516
-#: src/Display/Results.php:1523 src/Util.php:2021 src/Util.php:2038
+#: src/Config/ConfigFile.php:555 src/Display/Results.php:1517
+#: src/Display/Results.php:1524 src/Util.php:2021 src/Util.php:2038
 msgid "Ascending"
 msgstr "Възходящо"
 
@@ -2051,8 +2051,8 @@ msgstr "Възходящо"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:163
-#: src/Config/ConfigFile.php:555 src/Display/Results.php:1511
-#: src/Display/Results.php:1528 src/Util.php:2026 src/Util.php:2043
+#: src/Config/ConfigFile.php:555 src/Display/Results.php:1512
+#: src/Display/Results.php:1529 src/Util.php:2026 src/Util.php:2043
 msgid "Descending"
 msgstr "Низходящо"
 
@@ -2098,7 +2098,7 @@ msgid "Update query"
 msgstr "Допълване заявка"
 
 #: resources/templates/database/multi_table_query/form.twig:166
-#: src/Html/Generator.php:576
+#: src/Html/Generator.php:575
 msgid "Submit query"
 msgstr "Изпълни заявката"
 
@@ -2999,7 +2999,7 @@ msgstr "Последна"
 #: resources/templates/display/results/table.twig:99
 #: resources/templates/server/privileges/initials_row.twig:21
 #: resources/templates/table/browse_foreigners/show_all.twig:4
-#: src/BrowseForeigners.php:301
+#: src/BrowseForeigners.php:299
 #: src/Controllers/JavaScriptMessagesController.php:575
 msgid "Show all"
 msgstr "Показване на всички"
@@ -3034,12 +3034,12 @@ msgid "Extra options"
 msgstr "Настройки на данни при изход"
 
 #: resources/templates/display/results/table.twig:212
-#: src/Display/Results.php:1162
+#: src/Display/Results.php:1160
 msgid "Partial texts"
 msgstr "Частични текстове"
 
 #: resources/templates/display/results/table.twig:216
-#: src/Display/Results.php:1166
+#: src/Display/Results.php:1164
 msgid "Full texts"
 msgstr "Пълни текстове"
 
@@ -3082,7 +3082,7 @@ msgstr "Добре позната двоична стойност"
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:62
 #: src/Controllers/JavaScriptMessagesController.php:488
-#: src/Display/Results.php:2566 src/Html/Generator.php:80
+#: src/Display/Results.php:2567 src/Html/Generator.php:79
 msgid "Copy"
 msgstr "Копиране"
 
@@ -3118,7 +3118,7 @@ msgstr "Превърни на Кана"
 #: src/Controllers/Table/Partition/DropController.php:57
 #: src/Controllers/Table/Partition/RebuildController.php:57
 #: src/Controllers/Table/Partition/TruncateController.php:57
-#: src/Controllers/View/OperationsController.php:121 src/Html/Generator.php:765
+#: src/Controllers/View/OperationsController.php:121 src/Html/Generator.php:764
 #: src/Import/Import.php:150 src/InsertEdit.php:499 src/Message.php:149
 msgid "Error"
 msgstr "Грешка"
@@ -3203,7 +3203,7 @@ msgstr "Актуализиран"
 
 #: resources/templates/export.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:132
-#: src/Html/Generator.php:789
+#: src/Html/Generator.php:788
 msgid "SQL query:"
 msgstr "SQL заявка:"
 
@@ -3693,7 +3693,7 @@ msgstr "тази ще е"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:435
-#: src/Export/Export.php:1280 src/Html/Generator.php:880
+#: src/Export/Export.php:1280 src/Html/Generator.php:879
 #: src/Plugins/Schema/ExportRelationSchema.php:265
 msgid "Back"
 msgstr "Назад"
@@ -3829,7 +3829,7 @@ msgstr "Главният ключ беше изтрит."
 msgid "Index %s has been dropped."
 msgstr "Индекс %s беше изтрит."
 
-#: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:287
+#: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:285
 #: src/Language.php:182 src/Pdf.php:83
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:474
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:499
@@ -4304,7 +4304,7 @@ msgstr ""
 
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:43
-#: src/Controllers/Database/Structure/EmptyTableController.php:48
+#: src/Controllers/Database/Structure/EmptyTableController.php:50
 #: src/Controllers/Table/DropColumnController.php:62
 #: src/Controllers/Table/OperationsController.php:359
 #: src/Controllers/Table/ReplaceController.php:296 src/Core.php:521
@@ -4711,7 +4711,7 @@ msgstr "Хранилище"
 #: resources/templates/server/engines/index.twig:14
 #: resources/templates/server/plugins/index.twig:27
 #: resources/templates/server/status/variables/index.twig:77
-#: src/BrowseForeigners.php:197 src/BrowseForeigners.php:199
+#: src/BrowseForeigners.php:195 src/BrowseForeigners.php:197
 msgid "Description"
 msgstr "Описание"
 
@@ -6182,7 +6182,7 @@ msgid "Start auto refresh"
 msgstr "Стартиране на самоопресняване"
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2640
+#: src/Display/Results.php:2641
 msgid "Kill"
 msgstr "Спиране"
 
@@ -6599,7 +6599,7 @@ msgstr "Резултат от профилиране"
 #: src/Controllers/Table/Partition/TruncateController.php:51
 #: src/Controllers/Table/RelationController.php:135
 #: src/Controllers/View/OperationsController.php:118
-#: src/Database/Routines.php:976 src/Display/Results.php:3248
+#: src/Database/Routines.php:976 src/Display/Results.php:3249
 #: src/Message.php:131
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL заявката беше изпълнена успешно."
@@ -7374,32 +7374,32 @@ msgid "Index length"
 msgstr "Дължина ред"
 
 #: resources/templates/table/structure/display_partitions.twig:85
-#: src/Operations.php:504
+#: src/Operations.php:505
 msgid "Analyze"
 msgstr "Анализиране"
 
 #: resources/templates/table/structure/display_partitions.twig:95
-#: src/Operations.php:505
+#: src/Operations.php:506
 msgid "Check"
 msgstr "Проверка"
 
 #: resources/templates/table/structure/display_partitions.twig:105
-#: src/Operations.php:506
+#: src/Operations.php:507
 msgid "Optimize"
 msgstr "Оптимизиране"
 
 #: resources/templates/table/structure/display_partitions.twig:115
-#: src/Operations.php:507
+#: src/Operations.php:508
 msgid "Rebuild"
 msgstr ""
 
 #: resources/templates/table/structure/display_partitions.twig:125
-#: src/Operations.php:508
+#: src/Operations.php:509
 msgid "Repair"
 msgstr "Поправяне"
 
 #: resources/templates/table/structure/display_partitions.twig:135
-#: src/Operations.php:509
+#: src/Operations.php:510
 msgid "Truncate"
 msgstr ""
 
@@ -8960,7 +8960,7 @@ msgstr ""
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit е установен на 1 MiB"
 
-#: src/BrowseForeigners.php:175
+#: src/BrowseForeigners.php:173
 msgid "Search:"
 msgstr "Търсене:"
 
@@ -11827,11 +11827,11 @@ msgstr "Показване статистика"
 msgid "Skip locked tables"
 msgstr "Пропускане заключени таблици"
 
-#: src/Config/Descriptions.php:931 src/Html/Generator.php:526
+#: src/Config/Descriptions.php:931 src/Html/Generator.php:525
 msgid "Explain SQL"
 msgstr "Обяснение на SQL"
 
-#: src/Config/Descriptions.php:933 src/Html/Generator.php:587
+#: src/Config/Descriptions.php:933 src/Html/Generator.php:586
 msgid "Create PHP code"
 msgstr "Създаване на PHP код"
 
@@ -12621,7 +12621,7 @@ msgid "Success!"
 msgstr ""
 
 #: src/Controllers/Database/StructureController.php:571
-#: src/Display/Results.php:3535
+#: src/Display/Results.php:3536
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -15670,7 +15670,7 @@ msgstr "Грешни данни"
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:247 src/Sql.php:1076
+#: src/Controllers/Sql/SqlController.php:247 src/Sql.php:1077
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Отметката %s беше създадена."
@@ -15681,7 +15681,7 @@ msgstr "Отметката не беше създадена!"
 
 #: src/Controllers/Table/AddFieldController.php:146
 #: src/Controllers/Table/Structure/PartitioningController.php:264
-#: src/Controllers/Table/Structure/SaveController.php:203
+#: src/Controllers/Table/Structure/SaveController.php:211
 #: src/Table/Indexes.php:91
 #, php-format
 msgid "Table %1$s has been altered successfully."
@@ -15759,7 +15759,7 @@ msgstr "Има твърде много JOIN без индекси."
 
 #: src/Controllers/Table/GetFieldController.php:82
 #: src/Database/Routines.php:993 src/Import/Import.php:166
-#: src/InsertEdit.php:202 src/Sql.php:878
+#: src/InsertEdit.php:202 src/Sql.php:879
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL върна празен резултат (т.е. нула редове)."
 
@@ -15817,7 +15817,7 @@ msgid "The columns have been moved successfully."
 msgstr "Колоните бяха преместени упешно."
 
 #: src/Controllers/Table/Structure/PartitioningController.php:256
-#: src/Controllers/Table/Structure/SaveController.php:253
+#: src/Controllers/Table/Structure/SaveController.php:261
 #: src/Tracking/Tracking.php:780
 msgid "Query error"
 msgstr "Грешка в заявката"
@@ -15829,7 +15829,7 @@ msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Controllers/Table/Structure/SaveController.php:198
+#: src/Controllers/Table/Structure/SaveController.php:206
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
@@ -16001,7 +16001,7 @@ msgstr "Следната заявка е неуспешна: \"%s\""
 #: src/Database/Events.php:128 src/Database/Events.php:353
 #: src/Database/Routines.php:103 src/Database/Routines.php:128
 #: src/Database/Routines.php:206 src/Database/Routines.php:957
-#: src/Database/Routines.php:1204 src/Html/Generator.php:830
+#: src/Database/Routines.php:1204 src/Html/Generator.php:829
 #: src/Triggers/Triggers.php:86 src/Triggers/Triggers.php:95
 #: src/Triggers/Triggers.php:122 src/Triggers/Triggers.php:239
 msgid "MySQL said: "
@@ -16056,7 +16056,7 @@ msgstr "Съжаляваме, но възстановяването на изт�
 msgid "The backed up query was:"
 msgstr "Архивираната заявка е:"
 
-#: src/DatabaseInterface.php:1160
+#: src/DatabaseInterface.php:1161
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -16064,11 +16064,11 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: src/DatabaseInterface.php:1202
+#: src/DatabaseInterface.php:1203
 msgid "Failed to set configured collation connection!"
 msgstr "Неуспешно установяване на конфигурираната връзка за колация!"
 
-#: src/DatabaseInterface.php:1656
+#: src/DatabaseInterface.php:1657
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "Грешка при указване на връзка за controluser в настройките."
 
@@ -16150,37 +16150,37 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: src/Display/Results.php:2597 src/Display/Results.php:2612
+#: src/Display/Results.php:2598 src/Display/Results.php:2613
 msgid "The row has been deleted."
 msgstr "Редът беше изтрит."
 
-#: src/Display/Results.php:3184
+#: src/Display/Results.php:3185
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Може да има приблизителна стойност. Виж [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: src/Display/Results.php:3544
+#: src/Display/Results.php:3545
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Показване на редове %1s - %2s"
 
-#: src/Display/Results.php:3558
+#: src/Display/Results.php:3559
 #, fuzzy, php-format
 #| msgid "%1$d total, %2$d in query"
 msgid "%1$s total, %2$s in query"
 msgstr "%1$d общо, %2$d в питане"
 
-#: src/Display/Results.php:3563
+#: src/Display/Results.php:3564
 #, fuzzy, php-format
 #| msgid "%d total"
 msgid "%s total"
 msgstr "%d общо"
 
-#: src/Display/Results.php:3576 src/Sql.php:884
+#: src/Display/Results.php:3577 src/Sql.php:885
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Заявката отне %01.4f секунди."
 
-#: src/Display/Results.php:3883
+#: src/Display/Results.php:3884
 msgid "Link not found!"
 msgstr "Връзката не е намерена!"
 
@@ -16590,54 +16590,54 @@ msgstr ""
 msgid "Session not found."
 msgstr "Разширението SOAP не е намерено"
 
-#: src/Html/Generator.php:148
+#: src/Html/Generator.php:147
 #, fuzzy, php-format
 #| msgid "Jump to database \"%s\"."
 msgid "Jump to database “%s”."
 msgstr "Показване БД \"%s\"."
 
-#: src/Html/Generator.php:214
+#: src/Html/Generator.php:213
 msgid "SSL is not being used"
 msgstr ""
 
-#: src/Html/Generator.php:221
+#: src/Html/Generator.php:220
 msgid "SSL is used with disabled verification"
 msgstr ""
 
-#: src/Html/Generator.php:223
+#: src/Html/Generator.php:222
 msgid "SSL is used without certification authority"
 msgstr ""
 
-#: src/Html/Generator.php:226
+#: src/Html/Generator.php:225
 msgid "SSL is used"
 msgstr "SSL се използва"
 
-#: src/Html/Generator.php:329
+#: src/Html/Generator.php:328
 msgid "The PHP function password_hash() with default options."
 msgstr ""
 
-#: src/Html/Generator.php:330
+#: src/Html/Generator.php:329
 msgid "password_hash() PHP function"
 msgstr ""
 
-#: src/Html/Generator.php:535
+#: src/Html/Generator.php:534
 msgid "Skip Explain SQL"
 msgstr "Пропусни Explain SQL"
 
-#: src/Html/Generator.php:567
+#: src/Html/Generator.php:566
 msgid "Without PHP code"
 msgstr "Без PHP код"
 
-#: src/Html/Generator.php:649
+#: src/Html/Generator.php:648
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Редактиране на място"
 
-#: src/Html/Generator.php:772
+#: src/Html/Generator.php:771
 msgid "Static analysis:"
 msgstr "Статичен анализ:"
 
-#: src/Html/Generator.php:775
+#: src/Html/Generator.php:774
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr ""
@@ -16728,7 +16728,7 @@ msgstr "Името на таблицата не може да бъде по-дъ
 msgid "The trigger name cannot end with a space character."
 msgstr "Думите трябва да се разделят с интервал (\" \")."
 
-#: src/Import/Import.php:288 src/Sql.php:892
+#: src/Import/Import.php:288 src/Sql.php:893
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -16794,11 +16794,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "директория за качване на уеб сървър:"
 
-#: src/InsertEdit.php:952 src/Sql.php:875
+#: src/InsertEdit.php:952 src/Sql.php:876
 msgid "Showing SQL query"
 msgstr "Показване на SQL заявкa"
 
-#: src/InsertEdit.php:976 src/Sql.php:855
+#: src/InsertEdit.php:976 src/Sql.php:856
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -16867,23 +16867,23 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d ред добавен."
 msgstr[1] "%1$d реда добавени."
 
-#: src/Navigation/Navigation.php:207
+#: src/Navigation/Navigation.php:208
 msgid "Groups:"
 msgstr "Групи:"
 
-#: src/Navigation/Navigation.php:208
+#: src/Navigation/Navigation.php:209
 msgid "Events:"
 msgstr "Събития:"
 
-#: src/Navigation/Navigation.php:209
+#: src/Navigation/Navigation.php:210
 msgid "Functions:"
 msgstr "Функции:"
 
-#: src/Navigation/Navigation.php:210
+#: src/Navigation/Navigation.php:211
 msgid "Procedures:"
 msgstr "Процедури:"
 
-#: src/Navigation/Navigation.php:212
+#: src/Navigation/Navigation.php:213
 msgid "Views:"
 msgstr "Изгледи:"
 
@@ -17247,45 +17247,49 @@ msgstr ""
 msgid "No partial dependencies found!"
 msgstr ""
 
-#: src/Operations.php:523
+#: src/Operations.php:524
 #, fuzzy
 #| msgid "Close"
 msgid "Coalesce"
 msgstr "Затваряне"
 
-#: src/Operations.php:873
+#: src/Operations.php:874
 msgid "Can't move table to same one!"
 msgstr "Не може да се премести таблицата към себе си!"
 
-#: src/Operations.php:875
+#: src/Operations.php:876
 msgid "Can't copy table to same one!"
 msgstr "Не може да се копира таблицата към себе си!"
 
-#: src/Operations.php:899
+#: src/Operations.php:900
 #, fuzzy, php-format
 #| msgid "Table %s has been moved to %s."
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Таблицата %s беше преместена към %s."
 
-#: src/Operations.php:905
+#: src/Operations.php:906
 #, fuzzy, php-format
 #| msgid "Table %s has been copied to %s."
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Таблица %s беше копирана в %s."
 
-#: src/Operations.php:911
+#: src/Operations.php:912
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Таблицата %s беше преместена към %s."
 
-#: src/Operations.php:915
+#: src/Operations.php:916
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Таблица %s беше копирана в %s."
 
-#: src/Operations.php:938
+#: src/Operations.php:939
 msgid "The table name is empty!"
 msgstr "Името на таблицата е празно!"
+
+#: src/Partitioning/Maintenance.php:142
+msgid "This table is a view, it can not be truncated."
+msgstr ""
 
 #: src/Pdf.php:138
 msgid "Error while creating PDF:"
@@ -17327,31 +17331,31 @@ msgstr ""
 msgid "Retry to connect"
 msgstr ""
 
-#: src/Plugins/Auth/AuthenticationCookie.php:123
+#: src/Plugins/Auth/AuthenticationCookie.php:122
 msgid "Your session has expired. Please log in again."
 msgstr ""
 
-#: src/Plugins/Auth/AuthenticationCookie.php:238
+#: src/Plugins/Auth/AuthenticationCookie.php:235
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
 msgstr ""
 
-#: src/Plugins/Auth/AuthenticationCookie.php:273
+#: src/Plugins/Auth/AuthenticationCookie.php:270
 #, fuzzy
 #| msgid "Could not connect to the database server!"
 msgid "Failed to connect to the reCAPTCHA service!"
 msgstr "Невъзможност за свързване сървъра на базата данни!"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:275
+#: src/Plugins/Auth/AuthenticationCookie.php:272
 msgid "Entered captcha is wrong, try again!"
 msgstr ""
 
-#: src/Plugins/Auth/AuthenticationCookie.php:287
+#: src/Plugins/Auth/AuthenticationCookie.php:284
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
 msgstr ""
 
-#: src/Plugins/Auth/AuthenticationCookie.php:306
+#: src/Plugins/Auth/AuthenticationCookie.php:303
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "Нямате право да влизате в този MySQL сървър!"
 
@@ -17432,7 +17436,7 @@ msgid "Data dump options"
 msgstr "Опции при експортиране на данните"
 
 #: src/Plugins/Export/ExportHtmlword.php:189
-#: src/Plugins/Export/ExportOdt.php:240 src/Plugins/Export/ExportSql.php:2173
+#: src/Plugins/Export/ExportOdt.php:240 src/Plugins/Export/ExportSql.php:2174
 #: src/Plugins/Export/ExportTexytext.php:173
 msgid "Dumping data for table"
 msgstr "Схема на данните от таблица"
@@ -17444,13 +17448,13 @@ msgid "Table structure for table"
 msgstr "Структура на таблица"
 
 #: src/Plugins/Export/ExportHtmlword.php:547
-#: src/Plugins/Export/ExportOdt.php:671 src/Plugins/Export/ExportSql.php:1968
+#: src/Plugins/Export/ExportOdt.php:671 src/Plugins/Export/ExportSql.php:1969
 #: src/Plugins/Export/ExportTexytext.php:509
 msgid "Structure for view"
 msgstr ""
 
 #: src/Plugins/Export/ExportHtmlword.php:553
-#: src/Plugins/Export/ExportOdt.php:679 src/Plugins/Export/ExportSql.php:2000
+#: src/Plugins/Export/ExportOdt.php:679 src/Plugins/Export/ExportSql.php:2001
 #: src/Plugins/Export/ExportTexytext.php:513
 msgid "Stand-in structure for view"
 msgstr ""
@@ -17525,7 +17529,7 @@ msgstr "Време на генериране:"
 msgid "PHP Version:"
 msgstr "Версия на PHP:"
 
-#: src/Plugins/Export/ExportLatex.php:304 src/Plugins/Export/ExportSql.php:2053
+#: src/Plugins/Export/ExportLatex.php:304 src/Plugins/Export/ExportSql.php:2054
 msgid "Data:"
 msgstr "Данни:"
 
@@ -17636,7 +17640,7 @@ msgstr ""
 msgid "Data creation options"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:365 src/Plugins/Export/ExportSql.php:2131
+#: src/Plugins/Export/ExportSql.php:365 src/Plugins/Export/ExportSql.php:2132
 msgid "Truncate table before insert"
 msgstr ""
 
@@ -17719,7 +17723,7 @@ msgid "It appears your database uses routines;"
 msgstr ""
 
 #: src/Plugins/Export/ExportSql.php:541 src/Plugins/Export/ExportSql.php:1478
-#: src/Plugins/Export/ExportSql.php:1956
+#: src/Plugins/Export/ExportSql.php:1957
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 
@@ -17790,40 +17794,40 @@ msgstr "MIME ТИПОВЕ ЗА ТАБЛИЦА"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "РЕЛАЦИИ ЗА ТАБЛИЦА"
 
-#: src/Plugins/Export/ExportSql.php:1953
+#: src/Plugins/Export/ExportSql.php:1954
 msgid "It appears your table uses triggers;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1983
+#: src/Plugins/Export/ExportSql.php:1984
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:2003
+#: src/Plugins/Export/ExportSql.php:2004
 msgid "(See below for the actual view)"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:2064
+#: src/Plugins/Export/ExportSql.php:2065
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "Грешка при четене на данните за таблица %s:"
 
-#: src/Plugins/Export/ExportSql.php:2657
+#: src/Plugins/Export/ExportSql.php:2660
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:591
 msgid "Creation:"
 msgstr "Създаване:"
 
-#: src/Plugins/Export/ExportSql.php:2667
+#: src/Plugins/Export/ExportSql.php:2670
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
 msgid "Last update:"
 msgstr "Последно обновяване:"
 
-#: src/Plugins/Export/ExportSql.php:2677
+#: src/Plugins/Export/ExportSql.php:2680
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:613
 msgid "Last check:"
 msgstr "Последна проверка:"
 
-#: src/Plugins/Export/ExportSql.php:2700
+#: src/Plugins/Export/ExportSql.php:2703
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
@@ -18725,16 +18729,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Няма по-нова стабилна версия"
 
-#: src/Sql.php:450
+#: src/Sql.php:451
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: src/Sql.php:872
+#: src/Sql.php:873
 msgid "Showing as PHP code"
 msgstr "Показване като PHP-код"
 
-#: src/Sql.php:1259
+#: src/Sql.php:1260
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18743,7 +18747,7 @@ msgstr ""
 "Тази таблица не съдържа уникална колона. Редактирането на мрежа, поставянето "
 "на отметки, функциите редактиране, копиране и изтриване не са достъпни. %s"
 
-#: src/Sql.php:1273
+#: src/Sql.php:1274
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -18790,7 +18794,7 @@ msgstr "%s е забранено за този MySQL сървър."
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Този MySQL сървър не поддържа хранилището на данни %s."
 
-#: src/Table/Indexes.php:55 src/Table.php:1956
+#: src/Table/Indexes.php:55 src/Table/Table.php:1963
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Името на първичния ключ трябва да е \"PRIMARY\"!"
 
@@ -18799,38 +18803,38 @@ msgstr "Името на първичния ключ трябва да е \"PRIMA
 msgid "Problems with indexes of table `%s`"
 msgstr "Проблем с индексите на таблица `%s`"
 
-#: src/Table.php:312
+#: src/Table/Table.php:319
 msgid "Unknown table status:"
 msgstr "Неизвестно състояние на таблица:"
 
-#: src/Table.php:931
+#: src/Table/Table.php:938
 #, php-format
 msgid "Source database `%s` was not found!"
 msgstr "БД-източник `%s` не е намерена!"
 
-#: src/Table.php:940
+#: src/Table/Table.php:947
 #, php-format
 msgid "Target database `%s` was not found!"
 msgstr "Целевата БД `%s` не е намерена!"
 
-#: src/Table.php:1358
+#: src/Table/Table.php:1365
 msgid "Invalid database:"
 msgstr "Невалидна БД:"
 
-#: src/Table.php:1376
+#: src/Table/Table.php:1383
 msgid "Invalid table name:"
 msgstr "Невалидно име на таблица:"
 
-#: src/Table.php:1422
+#: src/Table/Table.php:1429
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Таблица %1$s беше преименувана на %2$s."
 
-#: src/Table.php:1663
+#: src/Table/Table.php:1670
 msgid "Could not save table UI preferences!"
 msgstr "Таблицата с визуалните настройки не може да бъде запазена!"
 
-#: src/Table.php:1685
+#: src/Table/Table.php:1692
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -18839,7 +18843,7 @@ msgstr ""
 "Неуспех при почистването на предпочитанията за потребителския интерфейс на "
 "таблицата (вижте $cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
-#: src/Table.php:1813
+#: src/Table/Table.php:1820
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -18850,15 +18854,15 @@ msgstr ""
 "Извършените промени няма да бъдат устойчиви, след като опресните тази "
 "страница. Моля, проверете дали структурата на таблицата е променена."
 
-#: src/Table.php:1968
+#: src/Table/Table.php:1975
 msgid "Can't rename index to PRIMARY!"
 msgstr "Индексът не може да бъде преименуван на PRIMARY!"
 
-#: src/Table.php:1994
+#: src/Table/Table.php:2001
 msgid "No index parts defined!"
 msgstr "Не са дефинирани части на индекс!"
 
-#: src/Table.php:2281
+#: src/Table/Table.php:2288
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -18874,7 +18878,7 @@ msgstr "Грешка при работа с кеша за шаблони: %s"
 msgid "Default theme %s not found!"
 msgstr "Темата по подразбиране %s не е намерена!"
 
-#: src/Theme/ThemeManager.php:122
+#: src/Theme/ThemeManager.php:120
 #, php-format
 msgid "Theme %s not found!"
 msgstr "Тема %s не е намерена!"

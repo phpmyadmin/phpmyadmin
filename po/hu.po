@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-11-12 00:18+0000\n"
+"POT-Creation-Date: 2023-11-19 00:19+0000\n"
 "PO-Revision-Date: 2022-02-17 10:35+0000\n"
 "Last-Translator: Péter Báthory <bathory86p@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -120,7 +120,7 @@ msgstr "%s után"
 #: resources/templates/table/zoom_search/index.twig:122
 #: src/Config/ConfigFile.php:555
 #: src/Controllers/JavaScriptMessagesController.php:220
-#: src/Display/Results.php:974 src/Plugins/Export/ExportSql.php:2053
+#: src/Display/Results.php:974 src/Plugins/Export/ExportSql.php:2054
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Nincs"
@@ -192,7 +192,7 @@ msgstr "oszlop(ok)"
 #: resources/templates/table/structure/display_structure.twig:572
 #: resources/templates/table/zoom_search/index.twig:155
 #: resources/templates/triggers/editor_form.twig:74
-#: resources/templates/view_create.twig:123 src/BrowseForeigners.php:181
+#: resources/templates/view_create.twig:123 src/BrowseForeigners.php:179
 #: src/Controllers/JavaScriptMessagesController.php:336
 #: src/Controllers/Server/PrivilegesController.php:294
 #: src/Normalization.php:223 src/Tracking/Tracking.php:306
@@ -740,7 +740,7 @@ msgstr "Visszaállítás"
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:169
-#: src/Html/Generator.php:699 src/Html/MySQLDocumentation.php:49
+#: src/Html/Generator.php:698 src/Html/MySQLDocumentation.php:49
 #: src/Sanitize.php:193
 msgid "Documentation"
 msgstr "Dokumentáció"
@@ -802,7 +802,7 @@ msgstr "Letiltott"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:23
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
 #: src/Controllers/Database/Structure/DropTableController.php:42
-#: src/Controllers/Database/Structure/EmptyTableController.php:47
+#: src/Controllers/Database/Structure/EmptyTableController.php:49
 #: src/Controllers/JavaScriptMessagesController.php:502
 #: src/Controllers/Table/DeleteRowsController.php:56
 #: src/Controllers/Table/DropColumnController.php:45
@@ -911,8 +911,8 @@ msgstr "Újra lekérdezés"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:930
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:400
-#: src/Display/Results.php:2562 src/Html/Generator.php:551
-#: src/Html/Generator.php:814
+#: src/Display/Results.php:2563 src/Html/Generator.php:550
+#: src/Html/Generator.php:813
 msgid "Edit"
 msgstr "Módosítás"
 
@@ -930,7 +930,7 @@ msgstr "Módosítás"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:188
 #: src/Controllers/JavaScriptMessagesController.php:401
-#: src/Display/Results.php:2621 src/Tracking/Tracking.php:231
+#: src/Display/Results.php:2622 src/Tracking/Tracking.php:231
 msgid "Delete"
 msgstr "Törlés"
 
@@ -1022,7 +1022,7 @@ msgstr "Magyarázat"
 
 #: resources/templates/console/display.twig:43
 #: resources/templates/console/display.twig:201
-#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:635
+#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:634
 msgid "Profiling"
 msgstr "Adatgyűjtés"
 
@@ -1104,7 +1104,7 @@ msgstr "Felhasznált idő:"
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
 #: src/Config/Descriptions.php:932 src/Export/Export.php:1244
-#: src/Html/Generator.php:607
+#: src/Html/Generator.php:606
 msgid "Refresh"
 msgstr "Frissítés"
 
@@ -1361,7 +1361,7 @@ msgstr "Indexek"
 #: resources/templates/indexes.twig:17
 #: resources/templates/table/structure/display_structure.twig:475
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:5
-#: src/BrowseForeigners.php:196 src/BrowseForeigners.php:200
+#: src/BrowseForeigners.php:194 src/BrowseForeigners.php:198
 msgid "Keyname"
 msgstr "Kulcsnév"
 
@@ -1825,7 +1825,7 @@ msgstr "Exportálás"
 #: resources/templates/triggers/list.twig:20
 #: resources/templates/triggers/list.twig:21
 #: resources/templates/triggers/row.twig:52
-#: resources/templates/triggers/row.twig:58 src/Operations.php:521
+#: resources/templates/triggers/row.twig:58 src/Operations.php:522
 msgid "Drop"
 msgstr "Eldobás"
 
@@ -1878,7 +1878,7 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "Táblák exportálása a \"%s\" adatbázisból"
 
 #: resources/templates/database/export/index.twig:14
-#: src/Navigation/Navigation.php:211
+#: src/Navigation/Navigation.php:212
 msgid "Tables:"
 msgstr "Tábla:"
 
@@ -1982,8 +1982,8 @@ msgstr "Rendezés"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:159
-#: src/Config/ConfigFile.php:555 src/Display/Results.php:1516
-#: src/Display/Results.php:1523 src/Util.php:2021 src/Util.php:2038
+#: src/Config/ConfigFile.php:555 src/Display/Results.php:1517
+#: src/Display/Results.php:1524 src/Util.php:2021 src/Util.php:2038
 msgid "Ascending"
 msgstr "Növekvő"
 
@@ -1994,8 +1994,8 @@ msgstr "Növekvő"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:163
-#: src/Config/ConfigFile.php:555 src/Display/Results.php:1511
-#: src/Display/Results.php:1528 src/Util.php:2026 src/Util.php:2043
+#: src/Config/ConfigFile.php:555 src/Display/Results.php:1512
+#: src/Display/Results.php:1529 src/Util.php:2026 src/Util.php:2043
 msgid "Descending"
 msgstr "Csökkenő"
 
@@ -2039,7 +2039,7 @@ msgid "Update query"
 msgstr "Lekérdezés frissítése"
 
 #: resources/templates/database/multi_table_query/form.twig:166
-#: src/Html/Generator.php:576
+#: src/Html/Generator.php:575
 msgid "Submit query"
 msgstr "Lekérdezés indítása"
 
@@ -2919,7 +2919,7 @@ msgstr "Vége"
 #: resources/templates/display/results/table.twig:99
 #: resources/templates/server/privileges/initials_row.twig:21
 #: resources/templates/table/browse_foreigners/show_all.twig:4
-#: src/BrowseForeigners.php:301
+#: src/BrowseForeigners.php:299
 #: src/Controllers/JavaScriptMessagesController.php:575
 msgid "Show all"
 msgstr "Összes megjelenítése"
@@ -2956,12 +2956,12 @@ msgid "Extra options"
 msgstr "Visszatérés beállításai"
 
 #: resources/templates/display/results/table.twig:212
-#: src/Display/Results.php:1162
+#: src/Display/Results.php:1160
 msgid "Partial texts"
 msgstr "Részleges szövegek"
 
 #: resources/templates/display/results/table.twig:216
-#: src/Display/Results.php:1166
+#: src/Display/Results.php:1164
 msgid "Full texts"
 msgstr "Teljes szövegek"
 
@@ -3002,7 +3002,7 @@ msgstr "Jól ismert bináris"
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:62
 #: src/Controllers/JavaScriptMessagesController.php:488
-#: src/Display/Results.php:2566 src/Html/Generator.php:80
+#: src/Display/Results.php:2567 src/Html/Generator.php:79
 msgid "Copy"
 msgstr "Másolás"
 
@@ -3038,7 +3038,7 @@ msgstr "Konvertálás Kanaba"
 #: src/Controllers/Table/Partition/DropController.php:57
 #: src/Controllers/Table/Partition/RebuildController.php:57
 #: src/Controllers/Table/Partition/TruncateController.php:57
-#: src/Controllers/View/OperationsController.php:121 src/Html/Generator.php:765
+#: src/Controllers/View/OperationsController.php:121 src/Html/Generator.php:764
 #: src/Import/Import.php:150 src/InsertEdit.php:499 src/Message.php:149
 msgid "Error"
 msgstr "Hiba"
@@ -3118,7 +3118,7 @@ msgstr "Frissítés"
 
 #: resources/templates/export.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:132
-#: src/Html/Generator.php:789
+#: src/Html/Generator.php:788
 msgid "SQL query:"
 msgstr "SQL lekérdezés:"
 
@@ -3622,7 +3622,7 @@ msgstr "csináld"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:435
-#: src/Export/Export.php:1280 src/Html/Generator.php:880
+#: src/Export/Export.php:1280 src/Html/Generator.php:879
 #: src/Plugins/Schema/ExportRelationSchema.php:265
 msgid "Back"
 msgstr "Vissza"
@@ -3776,7 +3776,7 @@ msgstr "Az elsődleges kulcs eldobása megtörtént."
 msgid "Index %s has been dropped."
 msgstr "A(z) %s index eldobása megtörtént."
 
-#: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:287
+#: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:285
 #: src/Language.php:182 src/Pdf.php:83
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:474
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:499
@@ -4245,7 +4245,7 @@ msgstr ""
 
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:43
-#: src/Controllers/Database/Structure/EmptyTableController.php:48
+#: src/Controllers/Database/Structure/EmptyTableController.php:50
 #: src/Controllers/Table/DropColumnController.php:62
 #: src/Controllers/Table/OperationsController.php:359
 #: src/Controllers/Table/ReplaceController.php:296 src/Core.php:521
@@ -4648,7 +4648,7 @@ msgstr "Tárolómotor"
 #: resources/templates/server/engines/index.twig:14
 #: resources/templates/server/plugins/index.twig:27
 #: resources/templates/server/status/variables/index.twig:77
-#: src/BrowseForeigners.php:197 src/BrowseForeigners.php:199
+#: src/BrowseForeigners.php:195 src/BrowseForeigners.php:197
 msgid "Description"
 msgstr "Leírás"
 
@@ -6138,7 +6138,7 @@ msgid "Start auto refresh"
 msgstr "Automatikus frissítés indítása"
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2640
+#: src/Display/Results.php:2641
 msgid "Kill"
 msgstr "Leállít"
 
@@ -6540,7 +6540,7 @@ msgstr "Eredmények elemzése"
 #: src/Controllers/Table/Partition/TruncateController.php:51
 #: src/Controllers/Table/RelationController.php:135
 #: src/Controllers/View/OperationsController.php:118
-#: src/Database/Routines.php:976 src/Display/Results.php:3248
+#: src/Database/Routines.php:976 src/Display/Results.php:3249
 #: src/Message.php:131
 msgid "Your SQL query has been executed successfully."
 msgstr "Az SQL-lekérdezés végrehajtása sikerült."
@@ -7264,32 +7264,32 @@ msgid "Index length"
 msgstr "Indexhossz"
 
 #: resources/templates/table/structure/display_partitions.twig:85
-#: src/Operations.php:504
+#: src/Operations.php:505
 msgid "Analyze"
 msgstr "Elemzés"
 
 #: resources/templates/table/structure/display_partitions.twig:95
-#: src/Operations.php:505
+#: src/Operations.php:506
 msgid "Check"
 msgstr "Ellenőrzés"
 
 #: resources/templates/table/structure/display_partitions.twig:105
-#: src/Operations.php:506
+#: src/Operations.php:507
 msgid "Optimize"
 msgstr "Optimalizálás"
 
 #: resources/templates/table/structure/display_partitions.twig:115
-#: src/Operations.php:507
+#: src/Operations.php:508
 msgid "Rebuild"
 msgstr "Újraépítés"
 
 #: resources/templates/table/structure/display_partitions.twig:125
-#: src/Operations.php:508
+#: src/Operations.php:509
 msgid "Repair"
 msgstr "Javítás"
 
 #: resources/templates/table/structure/display_partitions.twig:135
-#: src/Operations.php:509
+#: src/Operations.php:510
 msgid "Truncate"
 msgstr "Kiürítés"
 
@@ -8992,7 +8992,7 @@ msgstr ""
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit 1 MB-ra állítva"
 
-#: src/BrowseForeigners.php:175
+#: src/BrowseForeigners.php:173
 msgid "Search:"
 msgstr "Keresés:"
 
@@ -11864,11 +11864,11 @@ msgstr "A statisztika megjelenítése"
 msgid "Skip locked tables"
 msgstr "A zárolt táblák kihagyása"
 
-#: src/Config/Descriptions.php:931 src/Html/Generator.php:526
+#: src/Config/Descriptions.php:931 src/Html/Generator.php:525
 msgid "Explain SQL"
 msgstr "Az SQL magyarázata"
 
-#: src/Config/Descriptions.php:933 src/Html/Generator.php:587
+#: src/Config/Descriptions.php:933 src/Html/Generator.php:586
 msgid "Create PHP code"
 msgstr "PHP-kód létrehozása"
 
@@ -12710,7 +12710,7 @@ msgid "Success!"
 msgstr "Sikerült!"
 
 #: src/Controllers/Database/StructureController.php:571
-#: src/Display/Results.php:3535
+#: src/Display/Results.php:3536
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -15920,7 +15920,7 @@ msgstr "Hibás adat"
 msgid "Wrong data or no validation for %s"
 msgstr "Hibás adatok vagy nincs ellenőrzés ehhez: %s"
 
-#: src/Controllers/Sql/SqlController.php:247 src/Sql.php:1076
+#: src/Controllers/Sql/SqlController.php:247 src/Sql.php:1077
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "A(z) %s könyvjelző létrejött."
@@ -15931,7 +15931,7 @@ msgstr "A könyvjelző nem jött létre!"
 
 #: src/Controllers/Table/AddFieldController.php:146
 #: src/Controllers/Table/Structure/PartitioningController.php:264
-#: src/Controllers/Table/Structure/SaveController.php:203
+#: src/Controllers/Table/Structure/SaveController.php:211
 #: src/Table/Indexes.php:91
 #, php-format
 msgid "Table %1$s has been altered successfully."
@@ -16005,7 +16005,7 @@ msgstr "Túl sok kapcsolat van indexek nélkül."
 
 #: src/Controllers/Table/GetFieldController.php:82
 #: src/Database/Routines.php:993 src/Import/Import.php:166
-#: src/InsertEdit.php:202 src/Sql.php:878
+#: src/InsertEdit.php:202 src/Sql.php:879
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "A MySQL üres eredményhalmazt adott vissza (pl. nulla sorok)."
 
@@ -16059,7 +16059,7 @@ msgid "The columns have been moved successfully."
 msgstr "Az oszlop mozgatása sikeresen megtörtént."
 
 #: src/Controllers/Table/Structure/PartitioningController.php:256
-#: src/Controllers/Table/Structure/SaveController.php:253
+#: src/Controllers/Table/Structure/SaveController.php:261
 #: src/Tracking/Tracking.php:780
 msgid "Query error"
 msgstr "Lekérdezési hiba"
@@ -16071,7 +16071,7 @@ msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] "A(z) „%s” név a MySQL számára fenntartott kulcsszó."
 msgstr[1] "A(z) „%s” nevek a MySQL számára fenntartott kulcsszavak."
 
-#: src/Controllers/Table/Structure/SaveController.php:198
+#: src/Controllers/Table/Structure/SaveController.php:206
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
@@ -16232,7 +16232,7 @@ msgstr "A következő lekérdezés meghiúsult: \"%s\""
 #: src/Database/Events.php:128 src/Database/Events.php:353
 #: src/Database/Routines.php:103 src/Database/Routines.php:128
 #: src/Database/Routines.php:206 src/Database/Routines.php:957
-#: src/Database/Routines.php:1204 src/Html/Generator.php:830
+#: src/Database/Routines.php:1204 src/Html/Generator.php:829
 #: src/Triggers/Triggers.php:86 src/Triggers/Triggers.php:95
 #: src/Triggers/Triggers.php:122 src/Triggers/Triggers.php:239
 msgid "MySQL said: "
@@ -16287,7 +16287,7 @@ msgstr "Elnézést, nem sikerült visszaállítani az eldobott eseményt."
 msgid "The backed up query was:"
 msgstr "Az elmentett lekérdezés:"
 
-#: src/DatabaseInterface.php:1160
+#: src/DatabaseInterface.php:1161
 #, fuzzy, php-format
 #| msgid ""
 #| "Unable to use timezone %1$s for server %2$d. Please check your "
@@ -16304,11 +16304,11 @@ msgstr ""
 "beállításait. A phpMyAdmin jelenleg az adatbázis-kiszolgáló alapértelmezett "
 "időzónáját használja."
 
-#: src/DatabaseInterface.php:1202
+#: src/DatabaseInterface.php:1203
 msgid "Failed to set configured collation connection!"
 msgstr "Nem sikerült beállítani a beállított egyeztetés kapcsolatot!"
 
-#: src/DatabaseInterface.php:1656
+#: src/DatabaseInterface.php:1657
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "A konfigurációban meghatározott kapcsolat a kontrollfelhasználó számára nem "
@@ -16391,37 +16391,37 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: src/Display/Results.php:2597 src/Display/Results.php:2612
+#: src/Display/Results.php:2598 src/Display/Results.php:2613
 msgid "The row has been deleted."
 msgstr "A sor törlése megtörtént."
 
-#: src/Display/Results.php:3184
+#: src/Display/Results.php:3185
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Becsült érték lehet. Lásd [doc@faq3-11]GyIK 3.11[/doc]."
 
-#: src/Display/Results.php:3544
+#: src/Display/Results.php:3545
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Sorok megjelenítése %1s-%2s"
 
-#: src/Display/Results.php:3558
+#: src/Display/Results.php:3559
 #, fuzzy, php-format
 #| msgid "%1$d total, %2$d in query"
 msgid "%1$s total, %2$s in query"
 msgstr "%1$d összesen, %2$d a lekérdezésben"
 
-#: src/Display/Results.php:3563
+#: src/Display/Results.php:3564
 #, fuzzy, php-format
 #| msgid "%d total"
 msgid "%s total"
 msgstr "összesen %d"
 
-#: src/Display/Results.php:3576 src/Sql.php:884
+#: src/Display/Results.php:3577 src/Sql.php:885
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "A lekérdezés %01.4f másodpercig tartott."
 
-#: src/Display/Results.php:3883
+#: src/Display/Results.php:3884
 msgid "Link not found!"
 msgstr "Nem található a hivatkozás!"
 
@@ -16881,53 +16881,53 @@ msgstr ""
 msgid "Session not found."
 msgstr "SOAP bővítmény nem található"
 
-#: src/Html/Generator.php:148
+#: src/Html/Generator.php:147
 #, php-format
 msgid "Jump to database “%s”."
 msgstr "Ugrás a(z) „%s” adatbázishoz."
 
-#: src/Html/Generator.php:214
+#: src/Html/Generator.php:213
 msgid "SSL is not being used"
 msgstr ""
 
-#: src/Html/Generator.php:221
+#: src/Html/Generator.php:220
 msgid "SSL is used with disabled verification"
 msgstr ""
 
-#: src/Html/Generator.php:223
+#: src/Html/Generator.php:222
 msgid "SSL is used without certification authority"
 msgstr ""
 
-#: src/Html/Generator.php:226
+#: src/Html/Generator.php:225
 msgid "SSL is used"
 msgstr ""
 
-#: src/Html/Generator.php:329
+#: src/Html/Generator.php:328
 msgid "The PHP function password_hash() with default options."
 msgstr ""
 
-#: src/Html/Generator.php:330
+#: src/Html/Generator.php:329
 msgid "password_hash() PHP function"
 msgstr ""
 
-#: src/Html/Generator.php:535
+#: src/Html/Generator.php:534
 msgid "Skip Explain SQL"
 msgstr "SQL magyarázat átugrása"
 
-#: src/Html/Generator.php:567
+#: src/Html/Generator.php:566
 msgid "Without PHP code"
 msgstr "PHP-kód nélkül"
 
-#: src/Html/Generator.php:649
+#: src/Html/Generator.php:648
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Szerkesztés helyben"
 
-#: src/Html/Generator.php:772
+#: src/Html/Generator.php:771
 msgid "Static analysis:"
 msgstr "Statikus elemzés:"
 
-#: src/Html/Generator.php:775
+#: src/Html/Generator.php:774
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "%d hibát találtunk az elemzés során."
@@ -17020,7 +17020,7 @@ msgstr "Ne adjon meg {0} karakternél többet"
 msgid "The trigger name cannot end with a space character."
 msgstr "A szavak elválasztása szóköz karakterrel (\" \")."
 
-#: src/Import/Import.php:288 src/Sql.php:892
+#: src/Import/Import.php:288 src/Sql.php:893
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK történt.]"
 
@@ -17092,11 +17092,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "webszerver feltöltési könyvtár:"
 
-#: src/InsertEdit.php:952 src/Sql.php:875
+#: src/InsertEdit.php:952 src/Sql.php:876
 msgid "Showing SQL query"
 msgstr "Megjelenítés SQL lekérdezésként"
 
-#: src/InsertEdit.php:976 src/Sql.php:855
+#: src/InsertEdit.php:976 src/Sql.php:856
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "A beszúrt sor azonosítószáma: %1$d"
@@ -17166,23 +17166,23 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "A(z) %1$d sor beszúrása megtörtént."
 msgstr[1] "A(z) %1$d sor beszúrása megtörtént."
 
-#: src/Navigation/Navigation.php:207
+#: src/Navigation/Navigation.php:208
 msgid "Groups:"
 msgstr "Csoportok:"
 
-#: src/Navigation/Navigation.php:208
+#: src/Navigation/Navigation.php:209
 msgid "Events:"
 msgstr "Események:"
 
-#: src/Navigation/Navigation.php:209
+#: src/Navigation/Navigation.php:210
 msgid "Functions:"
 msgstr "Függvények:"
 
-#: src/Navigation/Navigation.php:210
+#: src/Navigation/Navigation.php:211
 msgid "Procedures:"
 msgstr "Eljárások:"
 
-#: src/Navigation/Navigation.php:212
+#: src/Navigation/Navigation.php:213
 msgid "Views:"
 msgstr "Nézetek:"
 
@@ -17565,45 +17565,51 @@ msgstr ""
 msgid "No partial dependencies found!"
 msgstr "Nem található részleges függőség!"
 
-#: src/Operations.php:523
+#: src/Operations.php:524
 msgid "Coalesce"
 msgstr "Összefonás"
 
-#: src/Operations.php:873
+#: src/Operations.php:874
 msgid "Can't move table to same one!"
 msgstr "Nem helyezhető át ugyanabba a tábla!"
 
-#: src/Operations.php:875
+#: src/Operations.php:876
 msgid "Can't copy table to same one!"
 msgstr "Nem másolható ugyanabba a tábla!"
 
-#: src/Operations.php:899
+#: src/Operations.php:900
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr ""
 "A(z) %s tábla áthelyezésre került ide: %s. A jogosultságok módosítása "
 "megtörtént."
 
-#: src/Operations.php:905
+#: src/Operations.php:906
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr ""
 "A(z) %s tábla átmásolásra került ide: %s. A jogosultságok módosítása "
 "megtörtént."
 
-#: src/Operations.php:911
+#: src/Operations.php:912
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "A(z) %s tábla áthelyezése a(z) %s adatbázisba kész."
 
-#: src/Operations.php:915
+#: src/Operations.php:916
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "A(z) %s tábla másolása %s néven megtörtént."
 
-#: src/Operations.php:938
+#: src/Operations.php:939
 msgid "The table name is empty!"
 msgstr "Üres a tábla neve!"
+
+#: src/Partitioning/Maintenance.php:142
+#, fuzzy
+#| msgid "This is a read-only variable and can not be edited"
+msgid "This table is a view, it can not be truncated."
+msgstr "Ez egy csak olvasható változó és nem szerkeszthető"
 
 #: src/Pdf.php:138
 msgid "Error while creating PDF:"
@@ -17645,31 +17651,31 @@ msgstr ""
 msgid "Retry to connect"
 msgstr "Kapcsolódási kísérlet ismétlése"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:123
+#: src/Plugins/Auth/AuthenticationCookie.php:122
 msgid "Your session has expired. Please log in again."
 msgstr "Lejárt a munkamenet. Lépjen be újra."
 
-#: src/Plugins/Auth/AuthenticationCookie.php:238
+#: src/Plugins/Auth/AuthenticationCookie.php:235
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
 msgstr ""
 
-#: src/Plugins/Auth/AuthenticationCookie.php:273
+#: src/Plugins/Auth/AuthenticationCookie.php:270
 #, fuzzy
 #| msgid "Could not connect to the database server!"
 msgid "Failed to connect to the reCAPTCHA service!"
 msgstr "Nem sikerült kapcsolódni az adatbázis-kiszolgálóhoz!"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:275
+#: src/Plugins/Auth/AuthenticationCookie.php:272
 msgid "Entered captcha is wrong, try again!"
 msgstr "A megadott captcha helytelen, próbálja újra!"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:287
+#: src/Plugins/Auth/AuthenticationCookie.php:284
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
 msgstr ""
 
-#: src/Plugins/Auth/AuthenticationCookie.php:306
+#: src/Plugins/Auth/AuthenticationCookie.php:303
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "Önnek nem engedélyezett a bejelentkezés erre a MySQL kiszolgálóra!"
 
@@ -17751,7 +17757,7 @@ msgid "Data dump options"
 msgstr "Adatkiírási beállítások"
 
 #: src/Plugins/Export/ExportHtmlword.php:189
-#: src/Plugins/Export/ExportOdt.php:240 src/Plugins/Export/ExportSql.php:2173
+#: src/Plugins/Export/ExportOdt.php:240 src/Plugins/Export/ExportSql.php:2174
 #: src/Plugins/Export/ExportTexytext.php:173
 msgid "Dumping data for table"
 msgstr "A tábla adatainak kiíratása"
@@ -17763,13 +17769,13 @@ msgid "Table structure for table"
 msgstr "Tábla szerkezet ehhez a táblához"
 
 #: src/Plugins/Export/ExportHtmlword.php:547
-#: src/Plugins/Export/ExportOdt.php:671 src/Plugins/Export/ExportSql.php:1968
+#: src/Plugins/Export/ExportOdt.php:671 src/Plugins/Export/ExportSql.php:1969
 #: src/Plugins/Export/ExportTexytext.php:509
 msgid "Structure for view"
 msgstr "Nézet szerkezete"
 
 #: src/Plugins/Export/ExportHtmlword.php:553
-#: src/Plugins/Export/ExportOdt.php:679 src/Plugins/Export/ExportSql.php:2000
+#: src/Plugins/Export/ExportOdt.php:679 src/Plugins/Export/ExportSql.php:2001
 #: src/Plugins/Export/ExportTexytext.php:513
 msgid "Stand-in structure for view"
 msgstr "A nézet helyettes szerkezete"
@@ -17845,7 +17851,7 @@ msgstr "Létrehozás ideje:"
 msgid "PHP Version:"
 msgstr "PHP verzió:"
 
-#: src/Plugins/Export/ExportLatex.php:304 src/Plugins/Export/ExportSql.php:2053
+#: src/Plugins/Export/ExportLatex.php:304 src/Plugins/Export/ExportSql.php:2054
 msgid "Data:"
 msgstr "Adatok:"
 
@@ -17954,7 +17960,7 @@ msgstr ""
 msgid "Data creation options"
 msgstr "Adatlétrehozási beállítások"
 
-#: src/Plugins/Export/ExportSql.php:365 src/Plugins/Export/ExportSql.php:2131
+#: src/Plugins/Export/ExportSql.php:365 src/Plugins/Export/ExportSql.php:2132
 msgid "Truncate table before insert"
 msgstr "Tábla csonkolása beszúrás előtt"
 
@@ -18035,7 +18041,7 @@ msgid "It appears your database uses routines;"
 msgstr "Úgy tűnik, az adatbázis rutinokat használ;"
 
 #: src/Plugins/Export/ExportSql.php:541 src/Plugins/Export/ExportSql.php:1478
-#: src/Plugins/Export/ExportSql.php:1956
+#: src/Plugins/Export/ExportSql.php:1957
 msgid "alias export may not work reliably in all cases."
 msgstr "az álnév exportálás nem minden esetben működhet megbízhatóan."
 
@@ -18096,40 +18102,40 @@ msgstr "Tábla MIME-típusok"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "TÁBLA KAPCSOLATAI"
 
-#: src/Plugins/Export/ExportSql.php:1953
+#: src/Plugins/Export/ExportSql.php:1954
 msgid "It appears your table uses triggers;"
 msgstr "Úgy tűnik, a tábla eseményindítókat használ;"
 
-#: src/Plugins/Export/ExportSql.php:1983
+#: src/Plugins/Export/ExportSql.php:1984
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "%s nézet struktúrája táblaként exportálva"
 
-#: src/Plugins/Export/ExportSql.php:2003
+#: src/Plugins/Export/ExportSql.php:2004
 msgid "(See below for the actual view)"
 msgstr "(Lásd alább az aktuális nézetet)"
 
-#: src/Plugins/Export/ExportSql.php:2064
+#: src/Plugins/Export/ExportSql.php:2065
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "Hiba a(z) %s tábla adatainak olvasásakor:"
 
-#: src/Plugins/Export/ExportSql.php:2657
+#: src/Plugins/Export/ExportSql.php:2660
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:591
 msgid "Creation:"
 msgstr "Létrehozva:"
 
-#: src/Plugins/Export/ExportSql.php:2667
+#: src/Plugins/Export/ExportSql.php:2670
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
 msgid "Last update:"
 msgstr "Utolsó frissítés:"
 
-#: src/Plugins/Export/ExportSql.php:2677
+#: src/Plugins/Export/ExportSql.php:2680
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:613
 msgid "Last check:"
 msgstr "Utolsó ellenőrzés:"
 
-#: src/Plugins/Export/ExportSql.php:2700
+#: src/Plugins/Export/ExportSql.php:2703
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
@@ -19043,17 +19049,17 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Nem jelent meg újabb stabil verzió"
 
-#: src/Sql.php:450
+#: src/Sql.php:451
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 "A(z) „%s” könyvjelző használata alapértelmezett tallózás lekérdezésként."
 
-#: src/Sql.php:872
+#: src/Sql.php:873
 msgid "Showing as PHP code"
 msgstr "Megjelenítés PHP kódként"
 
-#: src/Sql.php:1259
+#: src/Sql.php:1260
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -19062,7 +19068,7 @@ msgstr ""
 "A jelenlegi kijelölés nem tartalmaz egyedi oszlopot. A Rács szerkesztése, "
 "jelölőnégyzet, Szerkesztés, Másolás és Törlés funkciók nem érhetők el. %s"
 
-#: src/Sql.php:1273
+#: src/Sql.php:1274
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -19108,7 +19114,7 @@ msgstr "A(z) %s le lett tiltva ezen a MySQL kiszolgálón."
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Ez a MySQL kiszolgáló nem támogatja a(z) %s tárolómotort."
 
-#: src/Table/Indexes.php:55 src/Table.php:1956
+#: src/Table/Indexes.php:55 src/Table/Table.php:1963
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Az elsődleges kulcs nevének \"PRIMARY\"-nak kell lennie!"
 
@@ -19117,38 +19123,38 @@ msgstr "Az elsődleges kulcs nevének \"PRIMARY\"-nak kell lennie!"
 msgid "Problems with indexes of table `%s`"
 msgstr "Probléma a(z) `%s` tábla indexeivel"
 
-#: src/Table.php:312
+#: src/Table/Table.php:319
 msgid "Unknown table status:"
 msgstr "Ismeretlen táblaállapot:"
 
-#: src/Table.php:931
+#: src/Table/Table.php:938
 #, php-format
 msgid "Source database `%s` was not found!"
 msgstr "A(z) „%s” forrás adatbázis nem található!"
 
-#: src/Table.php:940
+#: src/Table/Table.php:947
 #, php-format
 msgid "Target database `%s` was not found!"
 msgstr "A(z) „%s” cél adatbázis nem található!"
 
-#: src/Table.php:1358
+#: src/Table/Table.php:1365
 msgid "Invalid database:"
 msgstr "Érvénytelen adatbázis:"
 
-#: src/Table.php:1376
+#: src/Table/Table.php:1383
 msgid "Invalid table name:"
 msgstr "Érvénytelen táblanév:"
 
-#: src/Table.php:1422
+#: src/Table/Table.php:1429
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "A(z) %1$s tábla átnevezése %2$s névre megtörtént."
 
-#: src/Table.php:1663
+#: src/Table/Table.php:1670
 msgid "Could not save table UI preferences!"
 msgstr "Nem sikerült elmenteni a tábla UI beállításait!"
 
-#: src/Table.php:1685
+#: src/Table/Table.php:1692
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -19157,7 +19163,7 @@ msgstr ""
 "Tábla UI beállításainak tisztítása sikertelen (lásd $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: src/Table.php:1813
+#: src/Table/Table.php:1820
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -19167,15 +19173,15 @@ msgstr ""
 "\"%s\" UI érték mentése sikertelen. A változtatás az oldal frissítése után "
 "nem jelenik meg. Ellenőrizze, hogy a tábla struktúrája megváltozott-e."
 
-#: src/Table.php:1968
+#: src/Table/Table.php:1975
 msgid "Can't rename index to PRIMARY!"
 msgstr "Nem nevezhető át PRIMARY-re az index!"
 
-#: src/Table.php:1994
+#: src/Table/Table.php:2001
 msgid "No index parts defined!"
 msgstr "Nincs meghatározott indexrész!"
 
-#: src/Table.php:2281
+#: src/Table/Table.php:2288
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -19193,7 +19199,7 @@ msgstr "Hiba a keresés betöltése közben."
 msgid "Default theme %s not found!"
 msgstr "A(z) %s alapértelmezett téma nem található!"
 
-#: src/Theme/ThemeManager.php:122
+#: src/Theme/ThemeManager.php:120
 #, php-format
 msgid "Theme %s not found!"
 msgstr "Nem található a(z) %s téma!"
