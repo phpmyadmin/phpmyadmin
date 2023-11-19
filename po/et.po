@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-19 00:19+0000\n"
-"PO-Revision-Date: 2023-04-26 11:52+0000\n"
+"PO-Revision-Date: 2023-11-20 21:01+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/et/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.2\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:31
 #: resources/templates/database/central_columns/edit_table_row.twig:23
@@ -637,7 +637,7 @@ msgstr "Atribuudid"
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:630
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:652
 msgid "Null"
-msgstr "Tühi"
+msgstr "Null"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:36
 #: resources/templates/database/operations/index.twig:69
@@ -1631,10 +1631,8 @@ msgid "Select page"
 msgstr "Vali leht"
 
 #: resources/templates/database/designer/schema_export.twig:6
-#, fuzzy
-#| msgid "Select Export Relational Type"
 msgid "Select export relational type:"
-msgstr "Vali ekspordi seose tüüp"
+msgstr "Vali ekspordi seose tüüp:"
 
 #: resources/templates/database/events/editor_form.twig:10
 #: resources/templates/database/routines/editor_form.twig:11
@@ -3282,7 +3280,7 @@ msgstr "Javascript peab olema lubatud!"
 
 #: resources/templates/header.twig:48 resources/templates/home/index.twig:152
 msgid "Color mode for the theme"
-msgstr ""
+msgstr "Teema värvirežiim"
 
 #: resources/templates/header.twig:52 resources/templates/home/index.twig:156
 #, fuzzy
@@ -3294,7 +3292,7 @@ msgstr "Parem"
 #: resources/templates/header.twig:54 resources/templates/home/index.twig:158
 msgctxt "Dark color mode of the theme"
 msgid "Dark"
-msgstr ""
+msgstr "Tume"
 
 #: resources/templates/header.twig:68
 #: resources/templates/modals/page_settings.twig:5
@@ -5831,7 +5829,7 @@ msgstr "ø tunnis"
 
 #: resources/templates/server/status/queries/index.twig:52
 msgid "Pie chart with the most frequent statements."
-msgstr ""
+msgstr "Pirukagraafik kõige sagedasemate lausetega."
 
 #: resources/templates/server/status/status/index.twig:6
 #, php-format
@@ -6136,10 +6134,8 @@ msgid "ø Time"
 msgstr "ø aeg"
 
 #: resources/templates/sql/profiling_chart.twig:66
-#, fuzzy
-#| msgid "Profiling results"
 msgid "Pie chart with profiling results."
-msgstr "Profileerimise tulemused"
+msgstr "Pirukagraafik profileerimise tulemustega."
 
 #: resources/templates/sql/query.twig:7
 #: src/Controllers/Table/DeleteRowsController.php:77
@@ -6529,7 +6525,7 @@ msgstr "Muuda/Lisa"
 
 #: resources/templates/table/insert/continue_insertion_form.twig:14
 msgid "Amount of rows to insert"
-msgstr ""
+msgstr "Lisatavate ridade arv"
 
 #: resources/templates/table/maintenance/checksum.twig:13
 msgid "Checksum"
@@ -7221,35 +7217,36 @@ msgstr "päevas"
 
 #: src/Advisory/Rules.php:34
 msgid "Uptime below one day"
-msgstr "Tööaeg on alla ühe päeva"
+msgstr "Aktiivaeg on alla päeva"
 
 #: src/Advisory/Rules.php:37
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr "Tööaeg on alla 1 päeva, jõudluse häälestamine ei pruugi olla täpne."
+msgstr ""
+"Aktiivaeg on väiksem kui üks päev, jõudluse häälestamine võib olla ebatäpne."
 
 #: src/Advisory/Rules.php:39
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
-"Täpsemate keskmiste tulemuste saavutamiseks on soovitatav lasta serveril "
-"töötada vähemalt ühe päeva enne, kui käivitada see analüüsija"
+"Täpsemate keskmiste tulemuste saavutamiseks on soovitatav enne selle "
+"analüüsija käivitamist lasta serveril töötada pikemalt kui üks päev"
 
 #: src/Advisory/Rules.php:42
 #, php-format
 msgid "The uptime is only %s"
-msgstr "Tööaeg on ainult %s"
+msgstr "Aktiivaeg on ainult %s"
 
 #: src/Advisory/Rules.php:47
 msgid "Questions below 1,000"
-msgstr "Päringuid on vähem kui 1000"
+msgstr "Päringuid on alla 1000"
 
 #: src/Advisory/Rules.php:51
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
-"Sellele serverile on esitatud alla 1000 päringu. Soovitused ei pruugi olla "
+"Sellele serverile on esitatud alla 1000 küsimuse. Soovitused ei pruugi olla "
 "täpsed."
 
 #: src/Advisory/Rules.php:55
@@ -7257,13 +7254,13 @@ msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
-"Lase serveril pikemalt töötada, kuni see on teostanud suuremal hulgal "
+"Lase serveril pikemalt töötada, kuni ta on käivitanud suurema hulga "
 "päringuid."
 
 #: src/Advisory/Rules.php:57
 #, php-format
 msgid "Current amount of Questions: %s"
-msgstr "Praegune päringute hulk: %s"
+msgstr "Praegune päringute arv: %s"
 
 #: src/Advisory/Rules.php:62
 msgid "Percentage of slow queries"
@@ -9508,6 +9505,7 @@ msgstr ""
 #: src/Config/Descriptions.php:332
 msgid "Allow users to create bookmarks that are available for all other users"
 msgstr ""
+"Luba kasutajatel luua järjehoidjaid, mis on ka teistele kasutajatele nähtavad"
 
 #: src/Config/Descriptions.php:334
 msgid ""
@@ -10936,7 +10934,7 @@ msgstr "Päringu ajaloo pikkus"
 
 #: src/Config/Descriptions.php:855
 msgid "Allow shared bookmarks between users"
-msgstr ""
+msgstr "Luba kastajatevahelised jagatud järjehoidjad"
 
 #: src/Config/Descriptions.php:856
 msgid "Recoding engine"
@@ -11743,8 +11741,7 @@ msgstr "Kuvatakse read %1$s - %2$s."
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
-msgstr ""
-"Lehekülg nimega \"%s\" on juba olemas. Palun anna sellele mõni muu nimi."
+msgstr "Lehekülg nimega \"%s\" on juba olemas. Palun anna talle uus nimi."
 
 #: src/Controllers/Database/DesignerController.php:165
 #: src/Controllers/Database/DesignerController.php:170
@@ -12007,6 +12004,8 @@ msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
 msgstr ""
+"Andmebaasis otsimine on keelatud konfiguratsiooni parameetriga "
+"[code]$cfg['UseDbSearch'][/code]."
 
 #: src/Controllers/Database/Structure/CentralColumns/AddController.php:49
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:49
@@ -13627,10 +13626,8 @@ msgid "up to date"
 msgstr "ajakohane"
 
 #: src/Controllers/JavaScriptMessagesController.php:618
-#, fuzzy
-#| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
-msgstr "ESRI shape faili importimisel esines viga: \"%s\"."
+msgstr "Giti teabe laadimisel esines viga."
 
 #: src/Controllers/JavaScriptMessagesController.php:621
 msgid ""
@@ -13826,9 +13823,9 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
-"Sa ei saa avada, salvestada või kustutada lehe paigutust, sest IndexedDB ei "
-"tööta su brauseris ja su phpMyAdmini konfiguratsiooni salvestuskoht ei ole "
-"selleks konfigureeritud."
+"Sa ei saa avada, salvestada või kustutada oma lehekülje kujundust, sest "
+"IndexedDB ei tööta su veebilehitsejas ja su phpMyAdmini konfiguratsiooni "
+"salvestuskoht ei ole selleks häälestatud."
 
 #: src/Controllers/JavaScriptMessagesController.php:711
 #, php-format
@@ -15266,10 +15263,8 @@ msgid "The partition name must be a non-empty string."
 msgstr "Partitsiooni nimi ei saa olla tühi sõne."
 
 #: src/Controllers/Table/RecentFavoriteController.php:27
-#, fuzzy
-#| msgid "Invalid table name"
 msgid "Invalid database or table name."
-msgstr "Vigane tabeli nimi"
+msgstr "Vigane andmebaasi või tabeli nimi."
 
 #: src/Controllers/Table/RelationController.php:270
 msgid "Display column was successfully updated."
@@ -15603,8 +15598,8 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
-"Viga 1045: Kasutajal puudub juurdepääs. Täiendav teave võib olla saadaval, "
-"kuid konfiguratsiooni direktiivi %s tõttu on ta peidetud."
+"Viga 1045: kasutajal puudub juurdepääs. Täiendav veateave võib olla "
+"saadaval, kuid konfiguratsiooni direktiivi %s tõttu on see peidetud."
 
 #: src/Display/Results.php:2598 src/Display/Results.php:2613
 msgid "The row has been deleted."
@@ -15620,16 +15615,14 @@ msgid "Showing rows %1s - %2s"
 msgstr "Kuvatakse read %1s - %2s"
 
 #: src/Display/Results.php:3559
-#, fuzzy, php-format
-#| msgid "%1$d total, %2$d in query"
+#, php-format
 msgid "%1$s total, %2$s in query"
-msgstr "Kokku %1$d, päringus %2$d"
+msgstr "Kokku %1$s, päringus %2$s"
 
 #: src/Display/Results.php:3564
-#, fuzzy, php-format
-#| msgid "%d total"
+#, php-format
 msgid "%s total"
-msgstr "kokku: %d"
+msgstr "kokku: %s"
 
 #: src/Display/Results.php:3577 src/Sql.php:885
 #, php-format
@@ -16199,10 +16192,8 @@ msgid "The table name cannot end with a space character."
 msgstr "Tabeli nimi ei saa lõppeda tühikuga."
 
 #: src/Identifiers/InvalidTriggerName.php:14
-#, fuzzy
-#| msgid "View name can not be empty!"
 msgid "The trigger name must not be empty."
-msgstr "Vaate nimi ei saa olla tühi!"
+msgstr "Päästiku nimi ei saa olla tühi."
 
 #: src/Identifiers/InvalidTriggerName.php:20
 #, fuzzy, php-format
@@ -16783,10 +16774,8 @@ msgid "The table name is empty!"
 msgstr "Tabeli nimi on tühi!"
 
 #: src/Partitioning/Maintenance.php:142
-#, fuzzy
-#| msgid "This is a read-only variable and can not be edited"
 msgid "This table is a view, it can not be truncated."
-msgstr "Selle muutuja väärtus on ainult lugemiseks"
+msgstr "See tabel on vaade. Seda ei saa kärpida."
 
 #: src/Pdf.php:138
 msgid "Error while creating PDF:"
@@ -16852,7 +16841,7 @@ msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
 msgstr ""
-"Su salasõna on liiga pikk. Teenusetõrke rünnaku vältimiseks lubab phpMyAdmin "
+"Su parool on liiga pikk. Teenusetõrke rünnaku vältimiseks lubab phpMyAdmin "
 "salasõnu pikkusega kuni 2000 märki."
 
 #: src/Plugins/Auth/AuthenticationCookie.php:303
@@ -18796,7 +18785,7 @@ msgstr "Ei saanud seadistust salvestada"
 
 #: src/UserPreferences.php:171
 msgid "The phpMyAdmin configuration storage database could not be accessed."
-msgstr "phpMyAdmini häälestuse salvestuskoha andmebaasile puudub ligipääs."
+msgstr "phpMyAdmini seadistuste salvestamise andmebaasile puudub juurdepääs."
 
 #: src/Util.php:126
 #, php-format
