@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-19 00:19+0000\n"
-"PO-Revision-Date: 2023-11-06 19:17+0000\n"
+"PO-Revision-Date: 2023-11-20 21:01+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.2-dev\n"
+"X-Generator: Weblate 5.2\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:31
 #: resources/templates/database/central_columns/edit_table_row.twig:23
@@ -16775,10 +16775,8 @@ msgid "The table name is empty!"
 msgstr "Tablo adı boş!"
 
 #: src/Partitioning/Maintenance.php:142
-#, fuzzy
-#| msgid "This is a read-only variable and can not be edited"
 msgid "This table is a view, it can not be truncated."
-msgstr "Bu, salt okunur bir değişkendir ve düzenlenemez"
+msgstr "Bu tablo bir görünümdür, kesilemez."
 
 #: src/Pdf.php:138
 msgid "Error while creating PDF:"
