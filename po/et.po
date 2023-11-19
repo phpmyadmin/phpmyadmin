@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2022-02-17 10:34+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2023-11-20 21:01+0000\n"
+"Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "et/>\n"
 "Language: et\n"
@@ -15,39 +15,40 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 5.2\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
-msgstr "Tööaeg on alla ühe päeva"
+msgstr "Aktiivaeg on alla päeva"
 
 #: libraries/advisory_rules_generic.php:12
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr "Tööaeg on alla 1 päeva, jõudluse häälestamine ei pruugi olla täpne."
+msgstr ""
+"Aktiivaeg on väiksem kui üks päev, jõudluse häälestamine võib olla ebatäpne."
 
 #: libraries/advisory_rules_generic.php:14
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
-"Täpsemate keskmiste tulemuste saavutamiseks on soovitatav lasta serveril "
-"töötada vähemalt ühe päeva enne, kui käivitada see analüüsija"
+"Täpsemate keskmiste tulemuste saavutamiseks on soovitatav enne selle "
+"analüüsija käivitamist lasta serveril töötada pikemalt kui üks päev"
 
 #: libraries/advisory_rules_generic.php:17
 #, php-format
 msgid "The uptime is only %s"
-msgstr "Tööaeg on ainult %s"
+msgstr "Aktiivaeg on ainult %s"
 
 #: libraries/advisory_rules_generic.php:22
 msgid "Questions below 1,000"
-msgstr "Päringuid on vähem kui 1000"
+msgstr "Päringuid on alla 1000"
 
 #: libraries/advisory_rules_generic.php:26
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
-"Sellele serverile on esitatud alla 1000 päringu. Soovitused ei pruugi olla "
+"Sellele serverile on esitatud alla 1000 küsimuse. Soovitused ei pruugi olla "
 "täpsed."
 
 #: libraries/advisory_rules_generic.php:30
@@ -55,13 +56,13 @@ msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
-"Lase serveril pikemalt töötada, kuni see on teostanud suuremal hulgal "
+"Lase serveril pikemalt töötada, kuni ta on käivitanud suurema hulga "
 "päringuid."
 
 #: libraries/advisory_rules_generic.php:32
 #, php-format
 msgid "Current amount of Questions: %s"
-msgstr "Praegune päringute hulk: %s"
+msgstr "Praegune päringute arv: %s"
 
 #: libraries/advisory_rules_generic.php:37
 msgid "Percentage of slow queries"
@@ -4356,7 +4357,7 @@ msgstr "ReCaptcha v2-ga ühilduva API päringu parameeter"
 
 #: libraries/classes/Config/Descriptions.php:979
 msgid "Response parameter for reCaptcha v2 API"
-msgstr "ReCaptcha v2-ga ühilduva API vastuse parameeter"
+msgstr "ReCaptcha v2'ga ühilduva API vastuse parameeter"
 
 #: libraries/classes/Config/Descriptions.php:980
 msgid "Public key for reCaptcha"
@@ -5006,7 +5007,7 @@ msgstr "Kuvatakse read %1$s - %2$s."
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
-msgstr ""
+msgstr "Lehekülg nimega \"%s\" on juba olemas. Palun anna talle uus nimi."
 
 #: libraries/classes/Controllers/Database/ExportController.php:78
 #: libraries/classes/Controllers/Database/TrackingController.php:128
@@ -7345,6 +7346,9 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
+"Sa ei saa avada, salvestada või kustutada oma lehekülje kujundust, sest "
+"IndexedDB ei tööta su veebilehitsejas ja su phpMyAdmini konfiguratsiooni "
+"salvestuskoht ei ole selleks häälestatud."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:735
 #, php-format
@@ -9256,6 +9260,8 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+"Viga 1045: kasutajal puudub juurdepääs. Täiendav veateave võib olla "
+"saadaval, kuid konfiguratsiooni direktiivi %s tõttu on see peidetud."
 
 #: libraries/classes/Display/Results.php:907
 #: libraries/classes/Html/Generator.php:1254
@@ -10102,7 +10108,7 @@ msgstr "Veerg"
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/zoom_search/result_form.twig:33
 msgid "Null"
-msgstr "Tühi"
+msgstr "Null"
 
 #: libraries/classes/InsertEdit.php:2407 libraries/classes/Sql.php:1042
 msgid "Showing SQL query"
@@ -13438,12 +13444,8 @@ msgid "Could not save configuration"
 msgstr "Ei saanud seadistust salvestada"
 
 #: libraries/classes/UserPreferences.php:178
-#, fuzzy
-#| msgid ""
-#| "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgid "The phpMyAdmin configuration storage database could not be accessed."
-msgstr ""
-"%sLoo%s phpMyAdmini seadistuse salvestuse tabelid aktiivses andmebaasis."
+msgstr "phpMyAdmini seadistuste salvestamise andmebaasile puudub juurdepääs."
 
 #: libraries/classes/Util.php:138
 #, php-format
@@ -15822,7 +15824,6 @@ msgstr "%s indeks on kustutatud."
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: templates/javascript/variables.twig:8
-#, fuzzy
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
@@ -17678,7 +17679,7 @@ msgstr "Lisa uus server"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "Midagi läks valesti."
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
