@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-08-21 15:21+0000\n"
+"PO-Revision-Date: 2023-11-20 21:01+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "et/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 5.2\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -131,7 +131,7 @@ msgstr "Tüüp"
 #: templates/table/search/zoom_result_form.twig:35
 #: templates/table/tracking/structure_snapshot_columns.twig:9
 msgid "Null"
-msgstr "Tühi"
+msgstr "Null"
 
 #: db_datadict.php:120 libraries/classes/CentralColumns.php:748
 #: libraries/classes/CentralColumns.php:1428
@@ -16239,35 +16239,36 @@ msgstr "Kustuta vaade (DROP)"
 
 #: libraries/advisory_rules_generic.txt:49
 msgid "Uptime below one day"
-msgstr "Tööaeg on alla ühe päeva"
+msgstr "Aktiivaeg on alla päeva"
 
 #: libraries/advisory_rules_generic.txt:52
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr "Tööaeg on alla 1 päeva, jõudluse häälestamine ei pruugi olla täpne."
+msgstr ""
+"Aktiivaeg on väiksem kui üks päev, jõudluse häälestamine võib olla ebatäpne."
 
 #: libraries/advisory_rules_generic.txt:53
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
-"Täpsemate keskmiste tulemuste saavutamiseks on soovitatav lasta serveril "
-"töötada vähemalt ühe päeva enne, kui käivitada see analüüsija"
+"Täpsemate keskmiste tulemuste saavutamiseks on soovitatav enne selle "
+"analüüsija käivitamist lasta serveril töötada pikemalt kui üks päev"
 
 #: libraries/advisory_rules_generic.txt:54
 #, php-format
 msgid "The uptime is only %s"
-msgstr "Tööaeg on ainult %s"
+msgstr "Aktiivaeg on ainult %s"
 
 #: libraries/advisory_rules_generic.txt:56
 msgid "Questions below 1,000"
-msgstr "Päringuid on vähem kui 1000"
+msgstr "Päringuid on alla 1000"
 
 #: libraries/advisory_rules_generic.txt:59
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
-"Sellele serverile on esitatud alla 1000 päringu. Soovitused ei pruugi olla "
+"Sellele serverile on esitatud alla 1000 küsimuse. Soovitused ei pruugi olla "
 "täpsed."
 
 #: libraries/advisory_rules_generic.txt:60
@@ -16275,13 +16276,13 @@ msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
-"Lase serveril pikemalt töötada, kuni see on teostanud suuremal hulgal "
+"Lase serveril pikemalt töötada, kuni ta on käivitanud suurema hulga "
 "päringuid."
 
 #: libraries/advisory_rules_generic.txt:61
 #, php-format
 msgid "Current amount of Questions: %s"
-msgstr "Praegune päringute hulk: %s"
+msgstr "Praegune päringute arv: %s"
 
 #: libraries/advisory_rules_generic.txt:63
 msgid "Percentage of slow queries"
