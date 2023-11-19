@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2023-04-26 11:52+0000\n"
+"PO-Revision-Date: 2023-11-21 17:04+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "et/>\n"
@@ -15,39 +15,40 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.2\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
-msgstr "Tööaeg on alla ühe päeva"
+msgstr "Aktiivaeg on alla päeva"
 
 #: libraries/advisory_rules_generic.php:12
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr "Tööaeg on alla 1 päeva, jõudluse häälestamine ei pruugi olla täpne."
+msgstr ""
+"Aktiivaeg on väiksem kui üks päev, jõudluse häälestamine võib olla ebatäpne."
 
 #: libraries/advisory_rules_generic.php:14
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
-"Täpsemate keskmiste tulemuste saavutamiseks on soovitatav lasta serveril "
-"töötada vähemalt ühe päeva enne, kui käivitada see analüüsija"
+"Täpsemate keskmiste tulemuste saavutamiseks on soovitatav enne selle "
+"analüüsija käivitamist lasta serveril töötada pikemalt kui üks päev"
 
 #: libraries/advisory_rules_generic.php:17
 #, php-format
 msgid "The uptime is only %s"
-msgstr "Tööaeg on ainult %s"
+msgstr "Aktiivaeg on ainult %s"
 
 #: libraries/advisory_rules_generic.php:22
 msgid "Questions below 1,000"
-msgstr "Päringuid on vähem kui 1000"
+msgstr "Päringuid on alla 1000"
 
 #: libraries/advisory_rules_generic.php:26
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
-"Sellele serverile on esitatud alla 1000 päringu. Soovitused ei pruugi olla "
+"Sellele serverile on esitatud alla 1000 küsimuse. Soovitused ei pruugi olla "
 "täpsed."
 
 #: libraries/advisory_rules_generic.php:30
@@ -55,13 +56,13 @@ msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
-"Lase serveril pikemalt töötada, kuni see on teostanud suuremal hulgal "
+"Lase serveril pikemalt töötada, kuni ta on käivitanud suurema hulga "
 "päringuid."
 
 #: libraries/advisory_rules_generic.php:32
 #, php-format
 msgid "Current amount of Questions: %s"
-msgstr "Praegune päringute hulk: %s"
+msgstr "Praegune päringute arv: %s"
 
 #: libraries/advisory_rules_generic.php:37
 msgid "Percentage of slow queries"
@@ -4965,8 +4966,7 @@ msgstr "Kuvatakse read %1$s - %2$s."
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
-msgstr ""
-"Lehekülg nimega \"%s\" on juba olemas. Palun anna sellele mõni muu nimi."
+msgstr "Lehekülg nimega \"%s\" on juba olemas. Palun anna talle uus nimi."
 
 #: libraries/classes/Controllers/Database/ExportController.php:81
 #: libraries/classes/Controllers/Database/TrackingController.php:130
@@ -7228,10 +7228,8 @@ msgid "up to date"
 msgstr "ajakohane"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:611
-#, fuzzy
-#| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
-msgstr "ESRI shape faili importimisel esines viga: \"%s\"."
+msgstr "Giti teabe laadimisel esines viga."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:614
 msgid ""
@@ -7436,9 +7434,9 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
-"Sa ei saa avada, salvestada või kustutada lehe paigutust, sest IndexedDB ei "
-"tööta su brauseris ja su phpMyAdmini konfiguratsiooni salvestuskoht ei ole "
-"selleks konfigureeritud."
+"Sa ei saa avada, salvestada või kustutada oma lehekülje kujundust, sest "
+"IndexedDB ei tööta su veebilehitsejas ja su phpMyAdmini konfiguratsiooni "
+"salvestuskoht ei ole selleks häälestatud."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:706
 #, php-format
@@ -9036,8 +9034,8 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
-"Viga 1045: Kasutajal puudub juurdepääs. Täiendav teave võib olla saadaval, "
-"kuid konfiguratsiooni direktiivi %s tõttu on ta peidetud."
+"Viga 1045: kasutajal puudub juurdepääs. Täiendav veateave võib olla "
+"saadaval, kuid konfiguratsiooni direktiivi %s tõttu on see peidetud."
 
 #: libraries/classes/Display/Results.php:897 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -10599,10 +10597,8 @@ msgid "The table name is empty!"
 msgstr "Tabeli nimi on tühi!"
 
 #: libraries/classes/Partitioning/Maintenance.php:141
-#, fuzzy
-#| msgid "This is a read-only variable and can not be edited"
 msgid "This table is a view, it can not be truncated."
-msgstr "Selle muutuja väärtus on ainult lugemiseks"
+msgstr "See tabel on vaade. Seda ei saa kärpida."
 
 #: libraries/classes/Pdf.php:136
 msgid "Error while creating PDF:"
@@ -10661,16 +10657,12 @@ msgid "Entered captcha is wrong, try again!"
 msgstr "Sisestatud tekst on vale. Proovi uuesti!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:301
-#, fuzzy
-#| msgid ""
-#| "Your password is too long. To prevent denial-of-service attacks, "
-#| "phpMyAdmin restricts passwords to less than 1000 characters."
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
 msgstr ""
-"Su salasõna on liiga pikk. Teenusetõrke rünnaku vältimiseks lubab phpMyAdmin "
-"salasõnu pikkusega kuni 1000 märki."
+"Su parool on liiga pikk. Teenusetõrke rünnaku vältimiseks lubab phpMyAdmin "
+"salasõnu pikkusega kuni 2000 märki."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:320
 msgid "You are not allowed to log in to this MySQL server!"
@@ -10830,7 +10822,7 @@ msgstr "Andmete tõmmistamine tabelile"
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/zoom_search/result_form.twig:36
 msgid "Null"
-msgstr "Tühi"
+msgstr "Null"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:281
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:376
@@ -13152,7 +13144,7 @@ msgstr "Ei saanud seadistust salvestada"
 
 #: libraries/classes/UserPreferences.php:192
 msgid "The phpMyAdmin configuration storage database could not be accessed."
-msgstr "phpMyAdmini häälestuse salvestuskoha andmebaasile puudub ligipääs."
+msgstr "phpMyAdmini seadistuste salvestamise andmebaasile puudub juurdepääs."
 
 #: libraries/classes/Util.php:131
 #, php-format
