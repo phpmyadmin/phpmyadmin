@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2023-07-10 16:47+0000\n"
-"Last-Translator: Luc <some_physics@live.com>\n"
+"PO-Revision-Date: 2023-11-21 17:04+0000\n"
+"Last-Translator: Simon <43812987+SCDerox@users.noreply.github.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/5-2/de/"
 ">\n"
 "Language: de\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.2\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -7414,11 +7414,8 @@ msgid "up to date"
 msgstr "auf dem neuesten Stand"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:611
-#, fuzzy
-#| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
-msgstr ""
-"Beim Importieren der ESRI-Shapedaten ist ein Fehler aufgetreten: \"%s\"."
+msgstr "Beim Laden der Git-Informationen ist ein Fehler aufgetreten."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:614
 msgid ""
@@ -10958,16 +10955,12 @@ msgid "Entered captcha is wrong, try again!"
 msgstr "Das eingegebene Captcha ist falsch, bitte erneut versuchen!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:301
-#, fuzzy
-#| msgid ""
-#| "Your password is too long. To prevent denial-of-service attacks, "
-#| "phpMyAdmin restricts passwords to less than 1000 characters."
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
 msgstr ""
 "Ihr Passwort ist zu lang. Um Denial-of-Service-Angriffe zu verhindern, "
-"beschränkt phpMyAdmin Passwörter auf weniger als 1000 Zeichen."
+"beschränkt phpMyAdmin Passwörter auf weniger als 2000 Zeichen."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:320
 msgid "You are not allowed to log in to this MySQL server!"
