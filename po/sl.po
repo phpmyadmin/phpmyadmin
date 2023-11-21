@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-19 00:19+0000\n"
-"PO-Revision-Date: 2023-11-13 17:46+0000\n"
+"PO-Revision-Date: 2023-11-23 05:05+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 5.2-dev\n"
+"X-Generator: Weblate 5.2.1-rc\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:31
 #: resources/templates/database/central_columns/edit_table_row.twig:23
@@ -16748,10 +16748,8 @@ msgid "The table name is empty!"
 msgstr "Ime tabele je prazno!"
 
 #: src/Partitioning/Maintenance.php:142
-#, fuzzy
-#| msgid "This is a read-only variable and can not be edited"
 msgid "This table is a view, it can not be truncated."
-msgstr "Spremenljivka je samo za branje in je ni mogoče urejati"
+msgstr "Tabela je pogled, zato je ni možno izprazniti."
 
 #: src/Pdf.php:138
 msgid "Error while creating PDF:"
