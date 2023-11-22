@@ -13,17 +13,17 @@ set -e
 
 # Generate Twig template cache in clean dir
 rm -rf twig-templates/
-php scripts/console cache:warmup --twig-po --env development
+php bin/console cache:warmup --twig-po --env development
 
 # Update pot (template), ensure that advisor is at the end
 LOCS=$(find po -name '*.po' | sed 's@.*/\(.*\)\.po@\1@')
 
 find . -name '*.php' -not -path './test/*' -not -path './po/*' -not -path './tmp/*' -not -path './release/*' -not -path './node_modules/*' -not -path './vendor/*' > twig-templates/filesList
 
-php ./scripts/match-twig-cache
+php ./bin/match-twig-cache
 sort --dictionary-order --ignore-case --output ./twig-templates/filesListTemp < ./twig-templates/filesList
 mv ./twig-templates/filesListTemp ./twig-templates/filesList
-php ./scripts/match-twig-cache --reverse
+php ./bin/match-twig-cache --reverse
 
 # Allows word splitting for files list.
 # shellcheck disable=SC2046
@@ -41,7 +41,7 @@ xgettext \
     $(cat ./twig-templates/filesList)
 
 # Fixup filenames for Twig templates
-php scripts/console fix-po-twig
+php bin/console fix-po-twig
 
 # Remote twig templates
 rm -rf twig-templates/

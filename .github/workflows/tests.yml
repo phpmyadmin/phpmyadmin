@@ -47,7 +47,7 @@ jobs:
           gettext composer git && \
           composer config version "$(php -r "define('VERSION_SUFFIX', ''); require_once('src/Version.php'); echo \PhpMyAdmin\Version::VERSION;")" && \
           composer install && \
-          ./scripts/generate-mo && \
+          ./bin/generate-mo && \
           php\$V -d memory_limit=512M ./vendor/bin/phpunit --no-logging --no-coverage --testsuite unit --exclude-group=%s" \
           "${{ matrix.php-version }}" "${{ matrix.exclude-phpunit-groups }}" > ./do-tests.sh
 
@@ -87,7 +87,7 @@ jobs:
         run: sudo apt-get install -y gettext
 
       - name: Generate mo files
-        run: ./scripts/generate-mo --quiet
+        run: ./bin/generate-mo --quiet
 
       - name: Set up PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2
@@ -147,7 +147,7 @@ jobs:
         run: sudo apt-get install -y gettext
 
       - name: Generate mo files
-        run: ./scripts/generate-mo --quiet
+        run: ./bin/generate-mo --quiet
 
       - name: Set up PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2

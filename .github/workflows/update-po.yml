@@ -43,7 +43,7 @@ jobs:
 
       - name: Update PO files
         run: |
-          ./scripts/update-po
+          ./bin/update-po
 
       - name: Push changes
         run: |

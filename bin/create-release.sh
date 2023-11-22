@@ -378,7 +378,7 @@ if [ $do_ci -eq 0 ] && [ $do_daily -eq 0 ] ; then
     cat <<END
 
 Please ensure you have incremented rc count or version in the repository :
-     - run ./scripts/console set-version $version
+     - run ./bin/console set-version $version
      - in $VERSION_FILE Version class:
         - check that VERSION, MAJOR, MINOR and PATCH are correct.
      - in doc/conf.py the line
@@ -467,16 +467,16 @@ find doc -name '*.pyc' -print0 | xargs -0 -r rm -f
 # Check for gettext support
 if [ -d po ] ; then
     echo "* Generating mo files"
-    ./scripts/generate-mo
-    if [ -f ./scripts/remove-incomplete-mo ] ; then
+    ./bin/generate-mo
+    if [ -f ./bin/remove-incomplete-mo ] ; then
         echo "* Removing incomplete translations"
-        ./scripts/remove-incomplete-mo
+        ./bin/remove-incomplete-mo
     fi
 fi
 
-if [ -f ./scripts/line-counts.sh ] ; then
+if [ -f ./bin/line-counts.sh ] ; then
     echo "* Generating line counts"
-    ./scripts/line-counts.sh
+    ./bin/line-counts.sh
 fi
 
 echo "* Removing unneeded files"
@@ -493,11 +493,11 @@ rm test/doctum-config.php
 # Remove readme for github
 rm README.rst
 
-if [ -f ./scripts/console ]; then
+if [ -f ./bin/console ]; then
     # Update the vendors to have the dev vendors
     composer install --no-interaction
     # Warm up the routing cache for 5.1+ releases
-    ./scripts/console cache:warmup --routing
+    ./bin/console cache:warmup --routing
 fi
 
 echo "* Writing the version to composer.json (version: $version)"
@@ -600,7 +600,7 @@ for kit in $KITS ; do
 
     # Cleanup translations
     cd "$name"
-    ./scripts/lang-cleanup.sh "$kit"
+    ./bin/lang-cleanup.sh "$kit"
 
     # Remove tests, source code,...
     if [ "$kit" != source ] ; then
@@ -611,7 +611,7 @@ for kit in $KITS ; do
         rm -r resources/templates/test/
         rm phpunit.xml.*
         rm .editorconfig .browserslistrc .eslintignore .jshintrc .eslintrc.json .stylelintrc.json psalm.xml psalm-baseline.xml phpstan.neon.dist phpstan-baseline.neon phpcs.xml.dist jest.config.cjs infection.json5.dist
-        # Gettext po files (if they were not removed by ./scripts/lang-cleanup.sh)
+        # Gettext po files (if they were not removed by ./bin/lang-cleanup.sh)
         rm -rf po
         # Documentation source code
         mv doc/html htmldoc
@@ -623,10 +623,10 @@ for kit in $KITS ; do
         # Remove bin files for non source version
         # https://github.com/phpmyadmin/phpmyadmin/issues/16033
         rm -r vendor/bin
-    fi
 
-    # Remove developer scripts
-    rm -r scripts
+        # Remove developer scripts
+        rm -r bin
+    fi
 
     # Remove possible tmp folder
     rm -rf tmp
@@ -734,9 +734,9 @@ Todo now:
     this release and paste into it the ChangeLog for this release, followed
     by the notes of all previous incremental versions (i.e. 4.4.9 through 4.4.0)
 
- 4. upload the files to our file server, use scripts/upload-release, eg.:
+ 4. upload the files to our file server, use bin/upload-release, eg.:
 
-        ./scripts/upload-release $version release
+        ./bin/upload-release $version release
 
  5. add a news item to our website; a good idea is to include a link to the release notes such as https://www.phpmyadmin.net/files/4.4.10/
 
@@ -748,7 +748,7 @@ Todo now:
     based on documentation.
 
  7. increment rc count or version in the repository :
-        - run ./scripts/console set-version $version
+        - run ./bin/console set-version $version
         - in $VERSION_FILE Version class:
             - check that VERSION, MAJOR, MINOR and PATCH are correct.
         - in README the "Version" line

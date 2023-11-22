@@ -8,9 +8,9 @@
     <arg name="extensions" value="php"/>
 
     <file>./app</file>
+    <file>./bin</file>
     <file>./examples</file>
     <file>./public</file>
-    <file>./scripts</file>
     <file>./src</file>
     <file>./test</file>
     <file>./config.sample.inc.php</file>

@@ -3,10 +3,10 @@ name: ShellCheck
 on:
   push:
     paths:
-      - 'scripts/**'
+      - 'bin/**'
   pull_request:
     paths:
-      - 'scripts/**'
+      - 'bin/**'
 
 permissions:
   contents: read
@@ -22,6 +22,6 @@ jobs:
       - name: Run ShellCheck
         uses: reviewdog/action-shellcheck@v1
         with:
-          path: scripts
+          path: bin
           check_all_files_with_shebangs: true
           fail_on_error: true

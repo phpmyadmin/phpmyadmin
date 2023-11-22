@@ -138,8 +138,8 @@ Please see the :file:`src/Plugins/Transformations/TEMPLATE` and
 your own transformation plug-in. You can also generate a new
 transformation plug-in (with or without the abstract transformation
 class), by using
-:file:`scripts/transformations_generator_plugin.sh` or
-:file:`scripts/transformations_generator_main_class.sh`.
+:file:`bin/transformations_generator_plugin.sh` or
+:file:`bin/transformations_generator_main_class.sh`.
 
 The applyTransformation() method always gets passed three variables:
 
