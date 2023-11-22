@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
 "PO-Revision-Date: 2023-11-23 05:05+0000\n"
-"Last-Translator: M393 <maximilian.kroeg@geocept.com>\n"
+"Last-Translator: MoonE <maxi_kroeg@web.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/5-2/de/"
 ">\n"
 "Language: de\n"
@@ -5084,7 +5084,7 @@ msgid ""
 "information."
 msgstr ""
 "Die %s Datei steht auf diesem System nicht zur Verfügung. Bitte besuchen Sie "
-"%s, um nach weiteren Informationen zu suchen."
+"%s für weitere Informationen."
 
 #: libraries/classes/Controllers/Database/CentralColumnsController.php:140
 #, php-format
@@ -10887,10 +10887,8 @@ msgid "The table name is empty!"
 msgstr "Der Tabellenname ist leer!"
 
 #: libraries/classes/Partitioning/Maintenance.php:141
-#, fuzzy
-#| msgid "This is a read-only variable and can not be edited"
 msgid "This table is a view, it can not be truncated."
-msgstr "Diese Variable kann nicht verändert werden"
+msgstr "Diese Tabelle ist ein View, es kann nicht geleert werden."
 
 #: libraries/classes/Pdf.php:136
 msgid "Error while creating PDF:"
