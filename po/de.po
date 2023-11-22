@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-19 00:19+0000\n"
 "PO-Revision-Date: 2023-11-23 05:05+0000\n"
-"Last-Translator: M393 <maximilian.kroeg@geocept.com>\n"
+"Last-Translator: MoonE <maxi_kroeg@web.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "de/>\n"
 "Language: de\n"
@@ -5589,8 +5589,6 @@ msgid "System monitor"
 msgstr "Arbeitsspeicher"
 
 #: resources/templates/server/status/monitor/index.twig:7
-#, fuzzy
-#| msgid "Start Monitor"
 msgid "Start monitor"
 msgstr "Überwachung starten"
 
@@ -5886,7 +5884,7 @@ msgstr "ø pro Stunde"
 
 #: resources/templates/server/status/queries/index.twig:52
 msgid "Pie chart with the most frequent statements."
-msgstr ""
+msgstr "Kuchendiagramm mit den häufigsten Abfragen."
 
 #: resources/templates/server/status/status/index.twig:6
 #, php-format
@@ -6199,10 +6197,8 @@ msgid "ø Time"
 msgstr "ø Zeit"
 
 #: resources/templates/sql/profiling_chart.twig:66
-#, fuzzy
-#| msgid "Profiling results"
 msgid "Pie chart with profiling results."
-msgstr "Profiler Ergebnisse"
+msgstr "Kuchendiagramm mit den Profiler-Ergebnissen."
 
 #: resources/templates/sql/query.twig:7
 #: src/Controllers/Table/DeleteRowsController.php:77
@@ -6594,7 +6590,7 @@ msgstr "Bearbeiten/Einfügen"
 
 #: resources/templates/table/insert/continue_insertion_form.twig:14
 msgid "Amount of rows to insert"
-msgstr ""
+msgstr "Anzahl einzufügender Zeilen"
 
 #: resources/templates/table/maintenance/checksum.twig:13
 msgid "Checksum"
@@ -6630,10 +6626,8 @@ msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "Dritter Schritt der Normalisierung (1NF + 2NF + 3NF)"
 
 #: resources/templates/table/operations/index.twig:2
-#, fuzzy
-#| msgid "Table options"
 msgid "Table operations"
-msgstr "Tabellenoptionen"
+msgstr "Tabellenoperationen"
 
 #: resources/templates/table/operations/index.twig:10
 msgid "Alter table order by"
@@ -8931,56 +8925,42 @@ msgstr "Geschlossen"
 
 #: src/Config/ConfigFile.php:609
 #: src/Controllers/JavaScriptMessagesController.php:742
-#, fuzzy
-#| msgid "Monday"
 msgctxt "Week day name"
 msgid "Monday"
 msgstr "Montag"
 
 #: src/Config/ConfigFile.php:610
 #: src/Controllers/JavaScriptMessagesController.php:743
-#, fuzzy
-#| msgid "Tuesday"
 msgctxt "Week day name"
 msgid "Tuesday"
 msgstr "Dienstag"
 
 #: src/Config/ConfigFile.php:611
 #: src/Controllers/JavaScriptMessagesController.php:744
-#, fuzzy
-#| msgid "Wednesday"
 msgctxt "Week day name"
 msgid "Wednesday"
 msgstr "Mittwoch"
 
 #: src/Config/ConfigFile.php:612
 #: src/Controllers/JavaScriptMessagesController.php:745
-#, fuzzy
-#| msgid "Thursday"
 msgctxt "Week day name"
 msgid "Thursday"
 msgstr "Donnerstag"
 
 #: src/Config/ConfigFile.php:613
 #: src/Controllers/JavaScriptMessagesController.php:746
-#, fuzzy
-#| msgid "Friday"
 msgctxt "Week day name"
 msgid "Friday"
 msgstr "Freitag"
 
 #: src/Config/ConfigFile.php:614
 #: src/Controllers/JavaScriptMessagesController.php:747
-#, fuzzy
-#| msgid "Saturday"
 msgctxt "Week day name"
 msgid "Saturday"
 msgstr "Samstag"
 
 #: src/Config/ConfigFile.php:615
 #: src/Controllers/JavaScriptMessagesController.php:741
-#, fuzzy
-#| msgid "Sunday"
 msgctxt "Week day name"
 msgid "Sunday"
 msgstr "Sonntag"
@@ -9660,6 +9640,8 @@ msgstr ""
 #: src/Config/Descriptions.php:332
 msgid "Allow users to create bookmarks that are available for all other users"
 msgstr ""
+"Benutzern erlauben Lesezeichen zu erstellen, die für alle Benutzer verfügbar "
+"sind"
 
 #: src/Config/Descriptions.php:334
 msgid ""
@@ -11124,7 +11106,7 @@ msgstr "Länge des Abfrageverlaufs"
 
 #: src/Config/Descriptions.php:855
 msgid "Allow shared bookmarks between users"
-msgstr ""
+msgstr "Von allen Benutzern geteilte Lesezeichen erlauben"
 
 #: src/Config/Descriptions.php:856
 msgid "Recoding engine"
@@ -11634,14 +11616,9 @@ msgid "Failed to read configuration file!"
 msgstr "Fehler beim Lesen der Konfigurationsdatei!"
 
 #: src/Config.php:668
-#, fuzzy
-#| msgid ""
-#| "This usually means there is a syntax error in it, please check any errors "
-#| "shown below."
 msgid "This usually means there is a syntax error in it."
 msgstr ""
-"Dies bedeutet im Allgemeinen, dass sich ein Syntax-Fehler eingeschlichen "
-"hat. Bitte überprüfen Sie die unten angezeigten Fehler."
+"Dies bedeutet im Allgemeinen, dass sich ein Syntax-Fehler eingeschlichen hat."
 
 #: src/Config/ServerConfigChecks.php:52
 #, php-format
@@ -11921,7 +11898,7 @@ msgid ""
 "information."
 msgstr ""
 "Die %s Datei steht auf diesem System nicht zur Verfügung. Bitte besuchen Sie "
-"%s, um nach weiteren Informationen zu suchen."
+"%s für weitere Informationen."
 
 #: src/Controllers/Console/Bookmark/AddController.php:35
 msgid "Incomplete params"
@@ -12789,10 +12766,8 @@ msgid "Connections / Processes"
 msgstr "Verbindungen / Prozesse"
 
 #: src/Controllers/JavaScriptMessagesController.php:168
-#, fuzzy
-#| msgid "Number of tables:"
 msgid "Number of statements"
-msgstr "Anzahl Tabellen:"
+msgstr "Anzahl der Abfragen"
 
 #: src/Controllers/JavaScriptMessagesController.php:171
 msgid "Local monitor configuration incompatible!"
@@ -13887,11 +13862,8 @@ msgid "up to date"
 msgstr "auf dem neuesten Stand"
 
 #: src/Controllers/JavaScriptMessagesController.php:618
-#, fuzzy
-#| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
-msgstr ""
-"Beim Importieren der ESRI-Shapedaten ist ein Fehler aufgetreten: \"%s\"."
+msgstr "Beim Laden der Git-Informationen ist ein Fehler aufgetreten."
 
 #: src/Controllers/JavaScriptMessagesController.php:621
 msgid ""
@@ -14111,169 +14083,121 @@ msgid "Hide"
 msgstr "Verstecken"
 
 #: src/Controllers/JavaScriptMessagesController.php:717
-#, fuzzy
-#| msgid "January"
 msgctxt "Month name"
 msgid "January"
 msgstr "Januar"
 
 #: src/Controllers/JavaScriptMessagesController.php:718
-#, fuzzy
-#| msgid "February"
 msgctxt "Month name"
 msgid "February"
 msgstr "Februar"
 
 #: src/Controllers/JavaScriptMessagesController.php:719
-#, fuzzy
-#| msgid "March"
 msgctxt "Month name"
 msgid "March"
 msgstr "März"
 
 #: src/Controllers/JavaScriptMessagesController.php:720
-#, fuzzy
-#| msgid "April"
 msgctxt "Month name"
 msgid "April"
 msgstr "April"
 
 #: src/Controllers/JavaScriptMessagesController.php:721
-#, fuzzy
-#| msgid "May"
 msgctxt "Month name"
 msgid "May"
 msgstr "Mai"
 
 #: src/Controllers/JavaScriptMessagesController.php:722
-#, fuzzy
-#| msgid "June"
 msgctxt "Month name"
 msgid "June"
 msgstr "Juni"
 
 #: src/Controllers/JavaScriptMessagesController.php:723
-#, fuzzy
-#| msgid "July"
 msgctxt "Month name"
 msgid "July"
 msgstr "Juli"
 
 #: src/Controllers/JavaScriptMessagesController.php:724
-#, fuzzy
-#| msgid "August"
 msgctxt "Month name"
 msgid "August"
 msgstr "August"
 
 #: src/Controllers/JavaScriptMessagesController.php:725
-#, fuzzy
-#| msgid "September"
 msgctxt "Month name"
 msgid "September"
 msgstr "September"
 
 #: src/Controllers/JavaScriptMessagesController.php:726
-#, fuzzy
-#| msgid "October"
 msgctxt "Month name"
 msgid "October"
 msgstr "Oktober"
 
 #: src/Controllers/JavaScriptMessagesController.php:727
-#, fuzzy
-#| msgid "November"
 msgctxt "Month name"
 msgid "November"
 msgstr "November"
 
 #: src/Controllers/JavaScriptMessagesController.php:728
-#, fuzzy
-#| msgid "December"
 msgctxt "Month name"
 msgid "December"
 msgstr "Dezember"
 
 #: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:499
-#, fuzzy
-#| msgid "Jan"
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "Jan"
 
 #: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:500
-#, fuzzy
-#| msgid "Feb"
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "Feb"
 
 #: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:501
-#, fuzzy
-#| msgid "Mar"
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "Mrz"
 
 #: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:502
-#, fuzzy
-#| msgid "Apr"
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "Apr"
 
 #: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:503
-#, fuzzy
-#| msgid "May"
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "Mai"
 
 #: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:504
-#, fuzzy
-#| msgid "Jun"
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "Jun"
 
 #: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:505
-#, fuzzy
-#| msgid "Jul"
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "Jul"
 
 #: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:506
-#, fuzzy
-#| msgid "Aug"
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "Aug"
 
 #: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:507
-#, fuzzy
-#| msgid "Sep"
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "Sep"
 
 #: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:508
-#, fuzzy
-#| msgid "Oct"
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "Okt"
 
 #: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:509
-#, fuzzy
-#| msgid "Nov"
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "Nov"
 
 #: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:510
-#, fuzzy
-#| msgid "Dec"
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "Dez"
@@ -14284,107 +14208,77 @@ msgid "Sun"
 msgstr "So"
 
 #: src/Controllers/JavaScriptMessagesController.php:749 src/Util.php:514
-#, fuzzy
-#| msgid "Mon"
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "Mo"
 
 #: src/Controllers/JavaScriptMessagesController.php:750 src/Util.php:515
-#, fuzzy
-#| msgid "Tue"
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "Di"
 
 #: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:516
-#, fuzzy
-#| msgid "Wed"
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "Mi"
 
 #: src/Controllers/JavaScriptMessagesController.php:752 src/Util.php:517
-#, fuzzy
-#| msgid "Thu"
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "Do"
 
 #: src/Controllers/JavaScriptMessagesController.php:753 src/Util.php:518
-#, fuzzy
-#| msgid "Fri"
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "Fr"
 
 #: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:519
-#, fuzzy
-#| msgid "Sat"
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "Sa"
 
 #: src/Controllers/JavaScriptMessagesController.php:755
-#, fuzzy
-#| msgid "Su"
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "So"
 
 #: src/Controllers/JavaScriptMessagesController.php:756
-#, fuzzy
-#| msgid "Mo"
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "Mo"
 
 #: src/Controllers/JavaScriptMessagesController.php:757
-#, fuzzy
-#| msgid "Tu"
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "Di"
 
 #: src/Controllers/JavaScriptMessagesController.php:758
-#, fuzzy
-#| msgid "We"
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "Mi"
 
 #: src/Controllers/JavaScriptMessagesController.php:759
-#, fuzzy
-#| msgid "Th"
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "Do"
 
 #: src/Controllers/JavaScriptMessagesController.php:760
-#, fuzzy
-#| msgid "Fr"
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "Fr"
 
 #: src/Controllers/JavaScriptMessagesController.php:761
-#, fuzzy
-#| msgid "Sa"
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "Sa"
 
 #: src/Controllers/JavaScriptMessagesController.php:762
-#, fuzzy
-#| msgid "Wk"
 msgctxt "Column header for week of the year in calendar"
 msgid "Wk"
 msgstr "Wo"
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
 #: src/Controllers/JavaScriptMessagesController.php:764
-#, fuzzy
-#| msgid "calendar-month-year"
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
@@ -14397,59 +14291,42 @@ msgid "none"
 msgstr "keine"
 
 #: src/Controllers/JavaScriptMessagesController.php:766
-#, fuzzy
-#| msgid "Time"
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
-msgstr "Zeit"
+msgstr "Uhrzeit"
 
 #: src/Controllers/JavaScriptMessagesController.php:767
-#, fuzzy
-#| msgid "Hour"
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "Stunde"
 
 #: src/Controllers/JavaScriptMessagesController.php:768
-#, fuzzy
-#| msgid "Minute"
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "Minute"
 
 #: src/Controllers/JavaScriptMessagesController.php:769
-#, fuzzy
-#| msgid "Second"
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "Sekunde"
 
 #: src/Controllers/JavaScriptMessagesController.php:770
-#, fuzzy
-#| msgid "seconds"
 msgctxt "Unit of time"
 msgid "Millisecond"
-msgstr "Sekunde"
+msgstr "Millisekunde"
 
 #: src/Controllers/JavaScriptMessagesController.php:771
-#, fuzzy
-#| msgid "per second"
 msgctxt "Unit of time"
 msgid "Microsecond"
-msgstr "pro Sekunde"
+msgstr "Mikrosekunde"
 
 #: src/Controllers/JavaScriptMessagesController.php:772
-#, fuzzy
-#| msgctxt "Chart type"
-#| msgid "Timeline"
 msgctxt "The time zone for a time of day"
 msgid "Time zone"
-msgstr "Zeitleiste"
+msgstr "Zeitzone"
 
 #. l10n: Display text for previous month link in calendar
 #: src/Controllers/JavaScriptMessagesController.php:776
-#, fuzzy
-#| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Vorher"
@@ -15554,10 +15431,8 @@ msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL lieferte ein leeres Resultat zurück (d.h. null Datensätze)."
 
 #: src/Controllers/Table/GisVisualizationController.php:97
-#, fuzzy
-#| msgid "Not used for this MySQL version."
 msgid "No spatial column found for this SQL query."
-msgstr "Für diese MySQL-Version nicht verwendet."
+msgstr "Für diese Abfrage wurde keine Räumliche Spalte gefunden."
 
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:66
 #: src/Controllers/Table/Maintenance/CheckController.php:66
@@ -15578,10 +15453,8 @@ msgid "The partition name must be a non-empty string."
 msgstr "Der Partitionsname muss eine nicht leere Zeichenkette sein."
 
 #: src/Controllers/Table/RecentFavoriteController.php:27
-#, fuzzy
-#| msgid "Invalid table name"
 msgid "Invalid database or table name."
-msgstr "Ungültiger Tabellenname"
+msgstr "Ungültiger Datenbank- oder Tabellenname."
 
 #: src/Controllers/Table/RelationController.php:270
 msgid "Display column was successfully updated."
@@ -15954,16 +15827,14 @@ msgid "Showing rows %1s - %2s"
 msgstr "Zeige Datensätze %1s - %2s"
 
 #: src/Display/Results.php:3559
-#, fuzzy, php-format
-#| msgid "%1$d total, %2$d in query"
+#, php-format
 msgid "%1$s total, %2$s in query"
-msgstr "%1$d insgesamt, %2$d in Abfragen"
+msgstr "%1$s insgesamt, %2$s in Abfragen"
 
 #: src/Display/Results.php:3564
-#, fuzzy, php-format
-#| msgid "%d total"
+#, php-format
 msgid "%s total"
-msgstr "%d insgesamt"
+msgstr "%s insgesamt"
 
 # (s is the abbreviation of "Sekunde", sec is it not (according to
 # International System of Units), so we wrote the complete one.)
@@ -16549,22 +16420,17 @@ msgid "The table name cannot end with a space character."
 msgstr "Der Tabellenname darf nicht mit einem Leerzeichen enden."
 
 #: src/Identifiers/InvalidTriggerName.php:14
-#, fuzzy
-#| msgid "View name can not be empty!"
 msgid "The trigger name must not be empty."
-msgstr "Anzeigename darf nicht leer sein!"
+msgstr "Der Trigger-Name darf nicht leer sein."
 
 #: src/Identifiers/InvalidTriggerName.php:20
-#, fuzzy, php-format
-#| msgid "The table name cannot be longer than %d characters."
+#, php-format
 msgid "The trigger name cannot be longer than %d characters."
-msgstr "Der Tabellenname darf nicht länger als %d Zeichen sein."
+msgstr "Der Trigger-Name darf nicht länger als %d Zeichen sein."
 
 #: src/Identifiers/InvalidTriggerName.php:25
-#, fuzzy
-#| msgid "The table name cannot end with a space character."
 msgid "The trigger name cannot end with a space character."
-msgstr "Der Tabellenname darf nicht mit einem Leerzeichen enden."
+msgstr "Der Trigger-Name darf nicht mit einem Leerzeichen enden."
 
 #: src/Import/Import.php:288 src/Sql.php:893
 msgid "[ROLLBACK occurred.]"
@@ -17146,10 +17012,8 @@ msgid "The table name is empty!"
 msgstr "Der Tabellenname ist leer!"
 
 #: src/Partitioning/Maintenance.php:142
-#, fuzzy
-#| msgid "This is a read-only variable and can not be edited"
 msgid "This table is a view, it can not be truncated."
-msgstr "Diese Variable kann nicht verändert werden"
+msgstr "Diese Tabelle ist ein View, es kann nicht geleert werden."
 
 #: src/Pdf.php:138
 msgid "Error while creating PDF:"
@@ -17199,13 +17063,10 @@ msgid "Your session has expired. Please log in again."
 msgstr "Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an."
 
 #: src/Plugins/Auth/AuthenticationCookie.php:235
-#, fuzzy
-#| msgid ""
-#| "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
 msgstr ""
-"reCAPTCHA Bestätigung fehlgeschlagen, ist es möglicherweise von adblock "
-"blockiert worden?"
+"Fehlende Captcha-Bestätigung, möglicherweise ist sie von adblock blockiert "
+"worden?"
 
 #: src/Plugins/Auth/AuthenticationCookie.php:270
 msgid "Failed to connect to the reCAPTCHA service!"
@@ -17977,18 +17838,6 @@ msgstr ""
 "zu setzen."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:39
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Abs/ExternalTransformationsPlugin.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use. The second option should be blank for historical reasons. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -18004,11 +17853,11 @@ msgstr ""
 "NUR LINUX: Startet eine externe Anwendung und füttert sie mit den "
 "Spaltendaten über die Standardeingabe. Gibt die Standardausgabe der "
 "Anwendung zurück. Der Standardwert ist Tidy, um HTML-Code schön auszugeben. "
-"Aus Sicherheitsgründen müssen Sie die Datei libraries/classes/Plugins/"
-"Transformations/Abs/ExternalTransformationsPlugin.php manuell bearbeiten und "
-"die Tools auflisten, die Sie verfügbar machen möchten. Die erste Option ist "
-"dann die Nummer des Programms, das Sie verwenden möchten. Die zweite Option "
-"sollte aus historischen Gründen leer bleiben. Die dritte Option, wenn auf 1 "
+"Aus Sicherheitsgründen müssen Sie die Datei src/Plugins/Transformations/Abs/"
+"ExternalTransformationsPlugin.php manuell bearbeiten und die Tools "
+"auflisten, die Sie verfügbar machen möchten. Die erste Option ist dann die "
+"Nummer des Programms, das Sie verwenden möchten. Die zweite Option sollte "
+"aus historischen Gründen leer bleiben. Die dritte Option, wenn auf 1 "
 "gesetzt, konvertiert die Ausgabe mit htmlspecialchars() (Standard 1). Die "
 "vierte Option verhindert, wenn sie auf 1 gesetzt ist, einen Zeilenumbruch "
 "und stellt sicher, dass die Ausgabe in einer Zeile erscheint (Standard 1)."
