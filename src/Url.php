@@ -11,13 +11,14 @@ use PhpMyAdmin\Crypto\Crypto;
 
 use function base64_decode;
 use function base64_encode;
-use function htmlentities;
 use function htmlspecialchars;
 use function http_build_query;
 use function in_array;
 use function ini_get;
 use function is_array;
+use function is_string;
 use function json_encode;
+use function method_exists;
 use function str_contains;
 use function strtr;
 
@@ -26,6 +27,8 @@ use function strtr;
  */
 class Url
 {
+    private static string|null $inputArgSeparator = null;
+
     /**
      * Generates text with hidden inputs.
      *
@@ -223,7 +226,7 @@ class Url
 
         $query = self::buildHttpQuery($params, $encrypt);
 
-        if (($divider !== '?' && $divider !== '&') || $query !== '') {
+        if (($divider !== '?' && $divider !== self::getArgSeparator()) || $query !== '') {
             return $divider . $query;
         }
 
@@ -294,42 +297,45 @@ class Url
     }
 
     /**
-     * Returns url separator
+     * Returns url separator character used for separating url parts.
      *
-     * extracted from arg_separator.input as set in php.ini
-     * we do not use arg_separator.output to avoid problems with & and &
+     * Extracted from 'arg_separator.input' as set in php.ini, but prefers '&' and ';'.
      *
-     * @param string $encode whether to encode separator or not,
-     *                       currently 'none' or 'html'
-     *
-     * @return string  character used for separating url parts usually ; or &
+     * @see https://www.php.net/manual/en/ini.core.php#ini.arg-separator.input
+     * @see https://www.w3.org/TR/1999/REC-html401-19991224/appendix/notes.html#h-B.2.2
      */
-    public static function getArgSeparator(string $encode = 'none'): string
+    public static function getArgSeparator(): string
     {
-        static $separator = null;
-        static $htmlSeparator = null;
-
-        if ($separator === null) {
-            // use separators defined by php, but prefer ';'
-            // as recommended by W3C
-            // (see https://www.w3.org/TR/1999/REC-html401-19991224/appendix
-            // /notes.html#h-B.2.2)
-            $argSeparator = (string) ini_get('arg_separator.input');
-            if (str_contains($argSeparator, ';')) {
-                $separator = ';';
-            } elseif ($argSeparator !== '') {
-                $separator = $argSeparator[0];
-            } else {
-                $separator = '&';
-            }
-
-            $htmlSeparator = htmlentities($separator);
+        if (is_string(self::$inputArgSeparator)) {
+            return self::$inputArgSeparator;
         }
 
-        return match ($encode) {
-            'html' => $htmlSeparator,
-            default => $separator,
-        };
+        $separator = self::getArgSeparatorValueFromIni();
+        if (! is_string($separator) || $separator === '' || str_contains($separator, '&')) {
+            return self::$inputArgSeparator = '&';
+        }
+
+        if (str_contains($separator, ';')) {
+            return self::$inputArgSeparator = ';';
+        }
+
+        // uses first character
+        return self::$inputArgSeparator = $separator[0];
+    }
+
+    /** @return string|false */
+    private static function getArgSeparatorValueFromIni(): string|bool
+    {
+        /**
+         * @psalm-suppress ArgumentTypeCoercion
+         * @phpstan-ignore-next-line
+         */
+        if (method_exists('PhpMyAdmin\Tests\UrlTest', 'getInputArgSeparator')) {
+            // phpcs:ignore SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFullyQualifiedName
+            return \PhpMyAdmin\Tests\UrlTest::getInputArgSeparator();
+        }
+
+        return ini_get('arg_separator.input');
     }
 
     /**
@@ -338,6 +344,6 @@ class Url
      */
     public static function getFromRoute(string $route, array $additionalParameters = []): string
     {
-        return 'index.php?route=' . $route . self::getCommon($additionalParameters, '&');
+        return 'index.php?route=' . $route . self::getCommon($additionalParameters, self::getArgSeparator());
     }
 }

@@ -7,7 +7,10 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use ReflectionProperty;
 
+use function ini_get;
 use function is_string;
 use function parse_str;
 use function str_repeat;
@@ -16,6 +19,9 @@ use function urldecode;
 #[CoversClass(Url::class)]
 class UrlTest extends AbstractTestCase
 {
+    /** @var string|false|null */
+    private static string|bool|null $inputArgSeparator = null;
+
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
@@ -223,5 +229,46 @@ class UrlTest extends AbstractTestCase
 
         $decrypted = Url::decryptQuery($encrypted);
         $this->assertSame($query, $decrypted);
+    }
+
+    /** @param string|false $iniValue */
+    #[DataProvider('getArgSeparatorProvider')]
+    public function testGetArgSeparator(string $expected, string|bool $iniValue, string|null $cacheValue): void
+    {
+        $property = new ReflectionProperty(Url::class, 'inputArgSeparator');
+        $property->setValue(null, $cacheValue);
+
+        self::$inputArgSeparator = $iniValue;
+        self::assertSame($expected, Url::getArgSeparator());
+
+        self::$inputArgSeparator = null;
+        $property->setValue(null, null);
+    }
+
+    /** @psalm-return array<string, array{string, string|false, string|null}> */
+    public static function getArgSeparatorProvider(): array
+    {
+        return [
+            'ampersand' => ['&', '&', null],
+            'semicolon' => [';', ';', null],
+            'prefer ampersand' => ['&', '+;&$', null],
+            'prefer semicolon' => [';', '+;$', null],
+            'first char' => ['+', '+$', null],
+            'cache' => ['$', '&', '$'],
+            'empty value' => ['&', '', null],
+            'false' => ['&', false, null],
+        ];
+    }
+
+    /**
+     * Test double for ini_get('arg_separator.input') as it can't be changed using ini_set()
+     *
+     * @see Url::getArgSeparatorValueFromIni
+     *
+     * @return string|false
+     */
+    public static function getInputArgSeparator(): string|bool
+    {
+        return self::$inputArgSeparator ?? ini_get('arg_separator.input');
     }
 }

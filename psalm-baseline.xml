@@ -12534,19 +12534,6 @@
       <code>$value</code>
       <code><![CDATA[$values['token']]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>string</code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement>
-      <code><![CDATA[match ($encode) {
-            'html' => $htmlSeparator,
-            default => $separator,
-        }]]></code>
-      <code><![CDATA[match ($encode) {
-            'html' => $htmlSeparator,
-            default => $separator,
-        }]]></code>
-    </MixedReturnStatement>
   </file>
   <file src="src/UrlRedirector.php">
     <DeprecatedMethod>
@@ -15963,6 +15950,9 @@
       <code><![CDATA[Config::getInstance()->settings]]></code>
       <code><![CDATA[Config::getInstance()->settings]]></code>
     </InvalidPropertyAssignmentValue>
+    <PossiblyUnusedMethod>
+      <code>getArgSeparatorProvider</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/UserPasswordTest.php">
     <InvalidReturnStatement>
