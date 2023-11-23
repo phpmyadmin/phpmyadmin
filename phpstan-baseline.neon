@@ -6451,12 +6451,7 @@ parameters:
 			path: libraries/classes/Plugins/ImportPlugin.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/Dia.php
-
-		-
-			message: "#^Parameter mixed of print cannot be converted to string\\.$#"
+			message: "#^Parameter \\#1 \\$string of function strlen expects string, int\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Dia/Dia.php
 
@@ -6606,12 +6601,7 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Svg/RelationStatsSvg.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Svg/Svg.php
-
-		-
-			message: "#^Parameter mixed of print cannot be converted to string\\.$#"
+			message: "#^Parameter \\#1 \\$string of function strlen expects string, int\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Svg/Svg.php
 
