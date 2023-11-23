@@ -1,7 +1,6 @@
 .icon {
   margin: 0;
-  margin-left: 0.3em;
-  padding: 0 !important;
+  padding: 0;
   width: 16px;
   height: 16px;
   background-repeat: no-repeat;
@@ -677,6 +676,10 @@
   background-image: url('../img/visibility.svg');
 }
 
+.ic_user {
+  background-image: url('../img/user.svg');
+}
+
 .ic_window-new {
   background-image: url('../img/windows.svg');
 }
@@ -1350,6 +1353,10 @@
 
   .ic_show {
     background-image: url('../img/dark/visibility.svg');
+  }
+
+  .ic_user {
+    background-image: url('../img/dark/user.svg');
   }
 
   .ic_window-new {
