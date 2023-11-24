@@ -39,28 +39,68 @@
 
   {% if is_menu_enabled and server > 0 %}
     {{ menu|raw }}
-    <div id="page_nav_icons" class="row row-cols-sm-auto align-items-center d-print-none">
-      {% if theme_color_modes|length > 1 %}
-        <div class="col-12">
-          <form method="post" action="{{ url('/themes/set') }}" class="disableAjax">
-            {{ get_hidden_inputs() }}
-            <input type="hidden" name="set_theme" value="{{ theme_id }}">
-            <select class="form-select form-select-sm" name="themeColorMode" id="themeColorModeToggle" aria-label="{{ 'Color mode for the theme'|trans }}">
-              {% for color_mode in theme_color_modes %}
-                <option value="{{ color_mode }}"{{ theme_color_mode == color_mode ? ' selected' }}>
-                  {%- if color_mode == 'light' -%}
-                    {% trans %}Light{% context %}Light color mode of the theme{% endtrans %}
-                  {%- elseif color_mode == 'dark' -%}
-                    {% trans %}Dark{% context %}Dark color mode of the theme{% endtrans %}
-                  {%- else -%}
-                    {{ color_mode|title }}
-                  {%- endif -%}
-                </option>
-              {% endfor %}
-            </select>
-          </form>
+    <div id="page_nav_icons" class="row row-cols-sm-auto align-items-center d-print-none me-3 p-1">
+      <div class="col-12">
+        <div id="userAccountDropdown" class="dropdown">
+          <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{- get_image('user', 'Open user account menu'|trans) -}}
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item disableAjax" href="{{ url('/server/privileges', {'username': current_user[0], 'hostname': current_user[1]}) }}">
+                {{ get_icon('user', current_user|join('@')) }}
+              </a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+              <a class="dropdown-item disableAjax" href="{{ get_docu_link('index') }}" target="_blank" rel="noopener noreferrer">
+                {{ get_icon('b_docs', 'phpMyAdmin documentation'|trans) }}
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item disableAjax" href="{{ get_docu_url(is_mariadb) }}" target="_blank" rel="noopener noreferrer">
+                {{ get_icon('b_sqlhelp', is_mariadb ? 'MariaDB documentation'|trans : 'MySQL documentation'|trans) }}
+              </a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            {% if theme_color_modes|length > 1 %}
+              <li>
+                <form method="post" action="{{ url('/themes/set') }}" class="dropdown-item py-0 disableAjax">
+                  {{ get_hidden_inputs() }}
+                  <input type="hidden" name="set_theme" value="{{ theme_id }}">
+                  <div class="row row-cols-lg-auto align-items-center flex-nowrap">
+                  <div class="col-12">
+                    <label class="col-form-label" for="themeColorModeToggle">{{ get_icon('s_theme', 'Appearance:'|trans) }}</label>
+                  </div>
+                  <div class="col-12">
+                    <select class="form-select form-select-sm" name="themeColorMode" id="themeColorModeToggle" aria-label="{{ 'Color mode for the theme'|trans }}">
+                      {% for color_mode in theme_color_modes %}
+                        <option value="{{ color_mode }}"{{ theme_color_mode == color_mode ? ' selected' }}>
+                          {%- if color_mode == 'light' -%}
+                            {% trans %}Light{% context %}Light color mode of the theme{% endtrans %}
+                          {%- elseif color_mode == 'dark' -%}
+                            {% trans %}Dark{% context %}Dark color mode of the theme{% endtrans %}
+                          {%- else -%}
+                            {{ color_mode|title }}
+                          {%- endif -%}
+                        </option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                  </div>
+                </form>
+              </li>
+            {% endif %}
+            <li>
+              <a class="dropdown-item disableAjax" href="{{ url('/preferences/manage') }}">{{ get_icon('s_cog', 'Settings'|trans) }}</a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+              <a class="dropdown-item logout disableAjax" href="{{ url('/logout') }}">{{ get_icon('s_loggoff', 'Log out'|trans) }}</a>
+            </li>
+          </ul>
         </div>
-      {% endif %}
+      </div>
 
       <div class="col-12">
         <span id="lock_page_icon"></span>

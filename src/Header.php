@@ -369,6 +369,8 @@ class Header
             'theme_color_mode' => $theme->getColorMode(),
             'theme_color_modes' => $theme->getColorModes(),
             'theme_id' => $theme->getId(),
+            'current_user' => $dbi->getCurrentUserAndHost(),
+            'is_mariadb' => $dbi->isMariaDB(),
         ]);
     }
 

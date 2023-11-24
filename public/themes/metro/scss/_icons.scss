@@ -1,7 +1,6 @@
 .icon {
   margin: 0;
-  margin-left: 0.3em;
-  padding: 0 !important;
+  padding: 0;
   width: 16px;
   height: 16px;
   background-repeat: no-repeat;
@@ -684,6 +683,10 @@
 
 .ic_show {
   background-image: url('../img/show.png');
+}
+
+.ic_user {
+  background-image: url('../img/s_rights.png');
 }
 
 .ic_window-new {
