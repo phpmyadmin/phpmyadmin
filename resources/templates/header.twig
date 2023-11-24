@@ -47,8 +47,8 @@
           </button>
           <ul class="dropdown-menu">
             <li>
-              <a class="dropdown-item disableAjax" href="{{ url('/server/privileges', {'username': current_user[0], 'hostname': current_user[1]}) }}">
-                {{ get_icon('user', current_user|join('@')) }}
+              <a class="dropdown-item text-nowrap disableAjax" href="{{ url('/server/privileges', {'username': current_user[0], 'hostname': current_user[1]}) }}">
+                {{ get_image('user', '', {'aria-hidden': 'true'}) }} <span dir="ltr">{{ current_user|join('@') }}</span>
               </a>
             </li>
             <li><hr class="dropdown-divider"></li>
