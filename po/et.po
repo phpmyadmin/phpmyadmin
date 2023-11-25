@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-19 00:19+0000\n"
-"PO-Revision-Date: 2023-11-20 21:01+0000\n"
+"PO-Revision-Date: 2023-11-25 02:27+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/et/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.2\n"
+"X-Generator: Weblate 5.2.1-rc\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:31
 #: resources/templates/database/central_columns/edit_table_row.twig:23
@@ -3283,11 +3283,9 @@ msgid "Color mode for the theme"
 msgstr "Teema värvirežiim"
 
 #: resources/templates/header.twig:52 resources/templates/home/index.twig:156
-#, fuzzy
-#| msgid "Right"
 msgctxt "Light color mode of the theme"
 msgid "Light"
-msgstr "Parem"
+msgstr "Hele"
 
 #: resources/templates/header.twig:54 resources/templates/home/index.twig:158
 msgctxt "Dark color mode of the theme"
@@ -5193,10 +5191,8 @@ msgid "Save changes"
 msgstr "Salvesta muudatused"
 
 #: resources/templates/server/replication/change_primary.twig:7
-#, fuzzy
-#| msgid "Change or reconfigure primary server"
 msgid "Replica configuration - Change or reconfigure primary server"
-msgstr "Muuda või rekonfigureeri esmane server"
+msgstr "Kordistuse konfiguratsioon - muuda või rekonfigureeri esmane server"
 
 #: resources/templates/server/replication/change_primary.twig:12
 msgid ""
@@ -5531,14 +5527,10 @@ msgid "Advisor"
 msgstr "Kontrollsüsteem"
 
 #: resources/templates/server/status/monitor/index.twig:4
-#, fuzzy
-#| msgid "System memory"
 msgid "System monitor"
-msgstr "Süsteemimälu"
+msgstr "Süsteemi jälgija"
 
 #: resources/templates/server/status/monitor/index.twig:7
-#, fuzzy
-#| msgid "Start Monitor"
 msgid "Start monitor"
 msgstr "Alusta jälgimist"
 
@@ -6560,10 +6552,8 @@ msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "Normaliseerimise kolmas samm (1NK + 2NK + 3NK)"
 
 #: resources/templates/table/operations/index.twig:2
-#, fuzzy
-#| msgid "Table options"
 msgid "Table operations"
-msgstr "Tabeli valikud"
+msgstr "Tabeli operatsioonid"
 
 #: resources/templates/table/operations/index.twig:10
 msgid "Alter table order by"
@@ -8814,56 +8804,42 @@ msgstr "Suletud"
 
 #: src/Config/ConfigFile.php:609
 #: src/Controllers/JavaScriptMessagesController.php:742
-#, fuzzy
-#| msgid "Monday"
 msgctxt "Week day name"
 msgid "Monday"
 msgstr "Esmaspäev"
 
 #: src/Config/ConfigFile.php:610
 #: src/Controllers/JavaScriptMessagesController.php:743
-#, fuzzy
-#| msgid "Tuesday"
 msgctxt "Week day name"
 msgid "Tuesday"
 msgstr "Teisipäev"
 
 #: src/Config/ConfigFile.php:611
 #: src/Controllers/JavaScriptMessagesController.php:744
-#, fuzzy
-#| msgid "Wednesday"
 msgctxt "Week day name"
 msgid "Wednesday"
 msgstr "Kolmapäev"
 
 #: src/Config/ConfigFile.php:612
 #: src/Controllers/JavaScriptMessagesController.php:745
-#, fuzzy
-#| msgid "Thursday"
 msgctxt "Week day name"
 msgid "Thursday"
 msgstr "Neljapäev"
 
 #: src/Config/ConfigFile.php:613
 #: src/Controllers/JavaScriptMessagesController.php:746
-#, fuzzy
-#| msgid "Friday"
 msgctxt "Week day name"
 msgid "Friday"
 msgstr "Reede"
 
 #: src/Config/ConfigFile.php:614
 #: src/Controllers/JavaScriptMessagesController.php:747
-#, fuzzy
-#| msgid "Saturday"
 msgctxt "Week day name"
 msgid "Saturday"
 msgstr "Laupäev"
 
 #: src/Config/ConfigFile.php:615
 #: src/Controllers/JavaScriptMessagesController.php:741
-#, fuzzy
-#| msgid "Sunday"
 msgctxt "Week day name"
 msgid "Sunday"
 msgstr "Pühapäev"
@@ -11442,14 +11418,8 @@ msgid "Failed to read configuration file!"
 msgstr "Seadistuse faili lugemine ebaõnnestus!"
 
 #: src/Config.php:668
-#, fuzzy
-#| msgid ""
-#| "This usually means there is a syntax error in it, please check any errors "
-#| "shown below."
 msgid "This usually means there is a syntax error in it."
-msgstr ""
-"See tähendab tavaliselt, et selles on süntaksi viga, palun kontrolli kõiki "
-"allolevaid vigu."
+msgstr "See tähendab tavaliselt, et selles on süntaksi viga."
 
 #: src/Config/ServerConfigChecks.php:52
 #, php-format
@@ -13840,169 +13810,121 @@ msgid "Hide"
 msgstr "Peida"
 
 #: src/Controllers/JavaScriptMessagesController.php:717
-#, fuzzy
-#| msgid "January"
 msgctxt "Month name"
 msgid "January"
 msgstr "Jaanuar"
 
 #: src/Controllers/JavaScriptMessagesController.php:718
-#, fuzzy
-#| msgid "February"
 msgctxt "Month name"
 msgid "February"
 msgstr "Veebruar"
 
 #: src/Controllers/JavaScriptMessagesController.php:719
-#, fuzzy
-#| msgid "March"
 msgctxt "Month name"
 msgid "March"
 msgstr "Märts"
 
 #: src/Controllers/JavaScriptMessagesController.php:720
-#, fuzzy
-#| msgid "April"
 msgctxt "Month name"
 msgid "April"
 msgstr "Aprill"
 
 #: src/Controllers/JavaScriptMessagesController.php:721
-#, fuzzy
-#| msgid "May"
 msgctxt "Month name"
 msgid "May"
 msgstr "Mai"
 
 #: src/Controllers/JavaScriptMessagesController.php:722
-#, fuzzy
-#| msgid "June"
 msgctxt "Month name"
 msgid "June"
 msgstr "Juuni"
 
 #: src/Controllers/JavaScriptMessagesController.php:723
-#, fuzzy
-#| msgid "July"
 msgctxt "Month name"
 msgid "July"
 msgstr "Juuli"
 
 #: src/Controllers/JavaScriptMessagesController.php:724
-#, fuzzy
-#| msgid "August"
 msgctxt "Month name"
 msgid "August"
 msgstr "August"
 
 #: src/Controllers/JavaScriptMessagesController.php:725
-#, fuzzy
-#| msgid "September"
 msgctxt "Month name"
 msgid "September"
 msgstr "September"
 
 #: src/Controllers/JavaScriptMessagesController.php:726
-#, fuzzy
-#| msgid "October"
 msgctxt "Month name"
 msgid "October"
 msgstr "Oktoober"
 
 #: src/Controllers/JavaScriptMessagesController.php:727
-#, fuzzy
-#| msgid "November"
 msgctxt "Month name"
 msgid "November"
 msgstr "November"
 
 #: src/Controllers/JavaScriptMessagesController.php:728
-#, fuzzy
-#| msgid "December"
 msgctxt "Month name"
 msgid "December"
 msgstr "Detsember"
 
 #: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:499
-#, fuzzy
-#| msgid "Jan"
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "Jaan"
 
 #: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:500
-#, fuzzy
-#| msgid "Feb"
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "Veebr"
 
 #: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:501
-#, fuzzy
-#| msgid "Mar"
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "Märts"
 
 #: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:502
-#, fuzzy
-#| msgid "Apr"
 msgctxt "Short month name for April"
 msgid "Apr"
-msgstr "Aprill"
+msgstr "Apr"
 
 #: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:503
-#, fuzzy
-#| msgid "May"
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "Mai"
 
 #: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:504
-#, fuzzy
-#| msgid "Jun"
 msgctxt "Short month name for June"
 msgid "Jun"
-msgstr "Juuni"
+msgstr "Juun"
 
 #: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:505
-#, fuzzy
-#| msgid "Jul"
 msgctxt "Short month name for July"
 msgid "Jul"
-msgstr "Juuli"
+msgstr "Juul"
 
 #: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:506
-#, fuzzy
-#| msgid "Aug"
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "Aug"
 
 #: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:507
-#, fuzzy
-#| msgid "Sep"
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "Sept"
 
 #: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:508
-#, fuzzy
-#| msgid "Oct"
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "Okt"
 
 #: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:509
-#, fuzzy
-#| msgid "Nov"
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "Nov"
 
 #: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:510
-#, fuzzy
-#| msgid "Dec"
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "Dets"
@@ -14013,99 +13935,71 @@ msgid "Sun"
 msgstr "Püh"
 
 #: src/Controllers/JavaScriptMessagesController.php:749 src/Util.php:514
-#, fuzzy
-#| msgid "Mon"
 msgctxt "Short week day name for Monday"
 msgid "Mon"
-msgstr "Esm"
+msgstr "E"
 
 #: src/Controllers/JavaScriptMessagesController.php:750 src/Util.php:515
-#, fuzzy
-#| msgid "Tue"
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
-msgstr "Tei"
+msgstr "T"
 
 #: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:516
-#, fuzzy
-#| msgid "Wed"
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
-msgstr "Kol"
+msgstr "K"
 
 #: src/Controllers/JavaScriptMessagesController.php:752 src/Util.php:517
-#, fuzzy
-#| msgid "Thu"
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
-msgstr "Nel"
+msgstr "N"
 
 #: src/Controllers/JavaScriptMessagesController.php:753 src/Util.php:518
-#, fuzzy
-#| msgid "Fri"
 msgctxt "Short week day name for Friday"
 msgid "Fri"
-msgstr "Ree"
+msgstr "R"
 
 #: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:519
-#, fuzzy
-#| msgid "Sat"
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
-msgstr "Lau"
+msgstr "L"
 
 #: src/Controllers/JavaScriptMessagesController.php:755
-#, fuzzy
-#| msgid "Su"
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "P"
 
 #: src/Controllers/JavaScriptMessagesController.php:756
-#, fuzzy
-#| msgid "Mo"
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "E"
 
 #: src/Controllers/JavaScriptMessagesController.php:757
-#, fuzzy
-#| msgid "Tu"
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "T"
 
 #: src/Controllers/JavaScriptMessagesController.php:758
-#, fuzzy
-#| msgid "We"
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "K"
 
 #: src/Controllers/JavaScriptMessagesController.php:759
-#, fuzzy
-#| msgid "Th"
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "N"
 
 #: src/Controllers/JavaScriptMessagesController.php:760
-#, fuzzy
-#| msgid "Fr"
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "R"
 
 #: src/Controllers/JavaScriptMessagesController.php:761
-#, fuzzy
-#| msgid "Sa"
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "L"
 
 #: src/Controllers/JavaScriptMessagesController.php:762
-#, fuzzy
-#| msgid "Wk"
 msgctxt "Column header for week of the year in calendar"
 msgid "Wk"
 msgstr "Näd"
@@ -14117,61 +14011,44 @@ msgid "calendar-month-year"
 msgstr "calendar-year-month"
 
 #: src/Controllers/JavaScriptMessagesController.php:765
-#, fuzzy
-#| msgid "none"
 msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "puudub"
 
 #: src/Controllers/JavaScriptMessagesController.php:766
-#, fuzzy
-#| msgid "Time"
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "Aeg"
 
 #: src/Controllers/JavaScriptMessagesController.php:767
-#, fuzzy
-#| msgid "Hour"
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "Tund"
 
 #: src/Controllers/JavaScriptMessagesController.php:768
-#, fuzzy
-#| msgid "Minute"
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "Minut"
 
 #: src/Controllers/JavaScriptMessagesController.php:769
-#, fuzzy
-#| msgid "Second"
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "Sekund"
 
 #: src/Controllers/JavaScriptMessagesController.php:770
-#, fuzzy
-#| msgid "seconds"
 msgctxt "Unit of time"
 msgid "Millisecond"
-msgstr "sekundit"
+msgstr "Millisekund"
 
 #: src/Controllers/JavaScriptMessagesController.php:771
-#, fuzzy
-#| msgid "per second"
 msgctxt "Unit of time"
 msgid "Microsecond"
-msgstr "sekundis"
+msgstr "Mikrosekund"
 
 #: src/Controllers/JavaScriptMessagesController.php:772
-#, fuzzy
-#| msgctxt "Chart type"
-#| msgid "Timeline"
 msgctxt "The time zone for a time of day"
 msgid "Time zone"
-msgstr "Ajaline järjestus"
+msgstr "Ajatsoon"
 
 #. l10n: Display text for previous month link in calendar
 #: src/Controllers/JavaScriptMessagesController.php:776
@@ -14276,17 +14153,9 @@ msgstr ""
 "vältimiseks peaksid neid salvestama BINARY, VARBINARY või BLOB tüüpi veerus."
 
 #: src/Controllers/JavaScriptMessagesController.php:810
-#, fuzzy
-#| msgid ""
-#| "The file being uploaded is probably larger than the maximum allowed size "
-#| "or this is a known bug in webkit based (Safari, Google Chrome, Arora "
-#| "etc.) browsers."
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size."
-msgstr ""
-"Üleslaetud fail on tõenäoliselt maksimaalselt lubatust suurem või on see "
-"veebipõhiste veebilehitsejate (Safari, Google Chrome, Arora jne) teadatuntud "
-"viga."
+msgstr "Üleslaaditud fail on tõenäoliselt suurem kui maksimaalselt lubatud."
 
 #: src/Controllers/JavaScriptMessagesController.php:812
 #, php-format
@@ -15239,10 +15108,8 @@ msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL tagastas tühja tulemuse (s.t nulliread)."
 
 #: src/Controllers/Table/GisVisualizationController.php:97
-#, fuzzy
-#| msgid "Not used for this MySQL version."
 msgid "No spatial column found for this SQL query."
-msgstr "Pole kasutusel selles MySQLi versioonis."
+msgstr "Selles SQL päringus ei ole ruumilist veergu."
 
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:66
 #: src/Controllers/Table/Maintenance/CheckController.php:66
@@ -16196,16 +16063,13 @@ msgid "The trigger name must not be empty."
 msgstr "Päästiku nimi ei saa olla tühi."
 
 #: src/Identifiers/InvalidTriggerName.php:20
-#, fuzzy, php-format
-#| msgid "The table name cannot be longer than %d characters."
+#, php-format
 msgid "The trigger name cannot be longer than %d characters."
-msgstr "Tabeli nimi võib olla kuni %d märki pikk."
+msgstr "Trigeri nimi võib olla kuni %d märki pikk."
 
 #: src/Identifiers/InvalidTriggerName.php:25
-#, fuzzy
-#| msgid "The table name cannot end with a space character."
 msgid "The trigger name cannot end with a space character."
-msgstr "Tabeli nimi ei saa lõppeda tühikuga."
+msgstr "Trigeri nimi ei saa lõppeda tühikuga."
 
 #: src/Import/Import.php:288 src/Sql.php:893
 msgid "[ROLLBACK occurred.]"
@@ -16822,11 +16686,8 @@ msgid "Your session has expired. Please log in again."
 msgstr "Su sessioon on aegunud. Palun logi uuesti sisse."
 
 #: src/Plugins/Auth/AuthenticationCookie.php:235
-#, fuzzy
-#| msgid ""
-#| "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
-msgstr "reCAPTCHA kinnitus puudub, võib-olla on selle blokeerinud adblock?"
+msgstr "Captcha kinnitus puudub, võib-olla on selle blokeerinud adblock?"
 
 #: src/Plugins/Auth/AuthenticationCookie.php:270
 msgid "Failed to connect to the reCAPTCHA service!"
@@ -17583,18 +17444,6 @@ msgstr ""
 "jätma esimese valiku tühjaks."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:39
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Abs/ExternalTransformationsPlugin.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use. The second option should be blank for historical reasons. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -17609,14 +17458,14 @@ msgid ""
 msgstr ""
 "AINULT LINUXILE: Käivitab välise programmi ja söödab ta standardsisendisse "
 "veergude andmed. Tagastab programmi standardväljundi. Vaikeväärtus on Tidy, "
-"et luua loetav HTML kood. Turvalisuse tõttu pead sa käsitsi muutma faili "
-"libraries/classes/Plugins/Transformations/Output/Text_Plain_External.php ja "
-"loetlema võimalikud vahendid, mida kasutada. Esimene parameeter on "
-"kasutatava programmi number. Teine parameeter peaks ajaloolistel põhjustel "
-"olema tühi. Kolmas parameeter, kui ta on 1, teisendab väljundit "
-"funktsiooniga htmlspecialchars() (vaikeväärtus on 1). Neljas parameeter, kui "
-"on 1, keelab ridade murdmise ja kindlustab, et väljund on täielikult ainult "
-"ühel real (vaikeväärtus on 1)."
+"et luua loetav HTML kood. Turvalisuse tõttu pead sa käsitsi muutma faili src/"
+"Plugins/Transformations/Abs/ExternalTransformationsPlugin.php ja loetlema "
+"võimalikud vahendid, mida kasutada. Esimene parameeter on kasutatava "
+"programmi number. Teine parameeter peaks ajaloolistel põhjustel olema tühi. "
+"Kolmas parameeter, kui ta on 1, teisendab väljundit funktsiooniga "
+"htmlspecialchars() (vaikeväärtus on 1). Neljas parameeter, kui on 1, keelab "
+"ridade murdmise ja kindlustab, et väljund on täielikult ainult ühel real ("
+"vaikeväärtus on 1)."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:122
 #, php-format
