@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2023-09-04 10:27+0000\n"
+"PO-Revision-Date: 2023-11-27 13:03+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -1992,7 +1992,7 @@ msgstr "Veritabanlarını görüntüleme seçenekleri."
 
 #: libraries/classes/Config/Descriptions.php:211
 msgid "Customize appearance of the navigation panel."
-msgstr "Gezinti panelinin görünümünü özelleştirir."
+msgstr "Gezinti panelinin görünüşünü özelleştirir."
 
 #: libraries/classes/Config/Descriptions.php:212
 msgid "Customize the navigation tree."
@@ -15746,7 +15746,7 @@ msgstr "Daha fazla ayar"
 
 #: templates/home/index.twig:89
 msgid "Appearance settings"
-msgstr "Görünüm ayarları"
+msgstr "Görünüş ayarları"
 
 #: templates/home/index.twig:113
 msgid "Database server"
