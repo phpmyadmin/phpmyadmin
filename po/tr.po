@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-09-04 10:27+0000\n"
+"PO-Revision-Date: 2023-11-27 13:03+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -673,7 +673,7 @@ msgstr "Sunucu bağlantısı karşılaştırması"
 
 #: index.php:285
 msgid "Appearance settings"
-msgstr "Görünüm ayarları"
+msgstr "Görünüş ayarları"
 
 #: index.php:318 prefs_manage.php:276
 msgid "More settings"
@@ -4323,7 +4323,7 @@ msgstr "Gezinti paneli"
 
 #: libraries/classes/Config/Descriptions.php:480
 msgid "Customize appearance of the navigation panel."
-msgstr "Gezinti panelinin görünümünü özelleştirir."
+msgstr "Gezinti panelinin görünüşünü özelleştirir."
 
 #: libraries/classes/Config/Descriptions.php:482
 msgid "Navigation tree"
