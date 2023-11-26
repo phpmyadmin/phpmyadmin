@@ -1063,7 +1063,7 @@ msgstr "Kolejność wykonywania"
 
 #: resources/templates/console/display.twig:85
 msgid "Time taken"
-msgstr "Zajeło czasu"
+msgstr "Zajęło czasu"
 
 #: resources/templates/console/display.twig:88
 #: resources/templates/table/search/index.twig:146
@@ -1093,7 +1093,7 @@ msgstr "Liczba:"
 #: resources/templates/console/display.twig:109
 #: src/Controllers/JavaScriptMessagesController.php:665
 msgid "Time taken:"
-msgstr "Zajeło to:"
+msgstr "Zajęło to:"
 
 #: resources/templates/console/display.twig:121
 #: resources/templates/server/status/processes/index.twig:19
@@ -3292,7 +3292,7 @@ msgstr "Dodaj konto użytkownika"
 #: resources/templates/navigation/main.twig:35
 #: resources/templates/navigation/main.twig:36
 msgid "phpMyAdmin documentation"
-msgstr "Dokumewntacja phpMyAdmina"
+msgstr "Dokumentacja phpMyAdmina"
 
 #: resources/templates/header.twig:62
 #, fuzzy
@@ -4189,7 +4189,7 @@ msgid ""
 "%sCreate%s a database named '%s' and setup the phpMyAdmin configuration "
 "storage there."
 msgstr ""
-"%s Utwórz %s bazę danych o nazwie \"%s\" i skonfiguruj tam magazyn "
+"%sUtwórz%s bazę danych o nazwie \"%s\" i skonfiguruj tam magazyn "
 "konfiguracyjny phpMyAdmin."
 
 #: resources/templates/relation/check_relations.twig:24
@@ -4201,7 +4201,7 @@ msgstr "%sUtwórz%s magazyn konfiguracji phpMyAdmina w bieżącej bazie danych."
 #: resources/templates/relation/check_relations.twig:31
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "%sCreate%s nie zawiera tabel przechowywania konfiguracji phpMyAdmina."
+msgstr "%sUtwórz%s brakujące tabele przechowywania konfiguracji phpMyAdmina."
 
 #: resources/templates/relation/check_relations.twig:42
 #: resources/templates/relation/check_relations.twig:54
@@ -6520,7 +6520,7 @@ msgstr "Wstaw jako nowy wiersz"
 
 #: resources/templates/table/insert/actions_panel.twig:11
 msgid "Insert as new row and ignore errors"
-msgstr "Wstaw jko nowy wiersz i ignoruj błędy"
+msgstr "Wstaw jako nowy wiersz i ignoruj błędy"
 
 #: resources/templates/table/insert/actions_panel.twig:12
 msgid "Show insert query"
@@ -8028,7 +8028,7 @@ msgstr "Wątki, które są wolne do uruchomienia"
 
 #: src/Advisory/Rules.php:536
 msgid "There are too many threads that are slow to launch."
-msgstr "Istnieje zbyt wiele wątków, które wolne są do uruchomiania."
+msgstr "Istnieje zbyt wiele wątków, które długo się uruchamiają."
 
 #: src/Advisory/Rules.php:538
 msgid ""
@@ -10116,7 +10116,7 @@ msgstr "Pokaż wykaz serwerów jako listę zamiast listy rozwijanej."
 
 #: src/Config/Descriptions.php:548
 msgid "A dropdown will be used if fewer items are present."
-msgstr "Rozwijana będzie używana, jeśli mniej pozycji bedzie obecne."
+msgstr "Rozwijana będzie używana, jeśli będzie mniej pozycji."
 
 #: src/Config/Descriptions.php:549
 msgid "Default value for foreign key checks checkbox for some queries."
@@ -10467,7 +10467,7 @@ msgstr "Zamień NULL na"
 
 #: src/Config/Descriptions.php:648 src/Config/Descriptions.php:654
 msgid "Remove CRLF characters within columns"
-msgstr "Usuń znaki nowej lini z kolumn"
+msgstr "Usuń znaki nowej linii z kolumn"
 
 #: src/Config/Descriptions.php:649 src/Config/Descriptions.php:782
 #: src/Config/Descriptions.php:789 src/Plugins/Import/ImportCsv.php:644
@@ -12458,7 +12458,7 @@ msgstr "Czy na pewno chcesz usunąć grupę użytkowników \"%s\"?"
 
 #: src/Controllers/JavaScriptMessagesController.php:70
 msgid "You have unsaved changes; are you sure you want to leave this page?"
-msgstr "Masz niezapisane zmiany. Czy na pewno chcesz opuścić tą stronę?"
+msgstr "Masz niezapisane zmiany. Czy na pewno chcesz opuścić tę stronę?"
 
 #: src/Controllers/JavaScriptMessagesController.php:72
 msgid ""
@@ -13298,7 +13298,7 @@ msgstr "Przenoszenie cię do następnego kroku…"
 #: src/Controllers/JavaScriptMessagesController.php:424
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr "Pierwszy etap dostosowywania dla tableli '%s' został ukończony."
+msgstr "Pierwszy etap dostosowywania dla tabeli '%s' został ukończony."
 
 #: src/Controllers/JavaScriptMessagesController.php:425
 #: src/Normalization.php:505 src/Normalization.php:564
@@ -13590,7 +13590,7 @@ msgstr "Czy chcesz zapisać zmiany na obecnej stronie?"
 
 #: src/Controllers/JavaScriptMessagesController.php:550
 msgid "Successfully deleted the page"
-msgstr "Usuwanie strony zakończylo się sukcesem"
+msgstr "Usuwanie strony zakończyło się pomyślnie"
 
 #: src/Controllers/JavaScriptMessagesController.php:551
 msgid "Export relational schema"
@@ -14623,7 +14623,7 @@ msgstr "Liczba aktualnie brudnych stron."
 
 #: src/Controllers/Server/Status/VariablesController.php:302
 msgid "The number of buffer pool pages that have been requested to be flushed."
-msgstr "Liczba stron w puli bufora, których wymiecienia zażądano."
+msgstr "Liczba stron w puli bufora, których wymiecenia zażądano."
 
 #: src/Controllers/Server/Status/VariablesController.php:304
 msgid "The number of free pages."
@@ -16964,7 +16964,7 @@ msgstr "Zamiana NULL na:"
 
 #: src/Plugins/Export/ExportCsv.php:80 src/Plugins/Export/ExportExcel.php:54
 msgid "Remove carriage return/line feed characters within columns"
-msgstr "Usuń znaki nowej lini z kolumn"
+msgstr "Usuń znaki nowej linii z kolumn"
 
 #: src/Plugins/Export/ExportExcel.php:64
 msgid "Excel edition:"
@@ -17121,7 +17121,7 @@ msgstr ""
 
 #: src/Plugins/Export/ExportSql.php:135
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "Dodatkowe komentarz niestandardowych nagłówków (\\ndzieli wiersze):"
+msgstr "Dodatkowy komentarz niestandardowych nagłówków (\\n dzieli wiersze):"
 
 #: src/Plugins/Export/ExportSql.php:141
 msgid ""
@@ -17247,8 +17247,8 @@ msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
-"Zrzuć znacznik czasu kolumn w UTC <i>(włączenie znacznik czasu kolumn bedzie "
-"zrzucone i przełądowane między serwerami w różnych strefach czasowych)</i>"
+"Zrzuć znacznik czasu kolumn w UTC <i>(znacznik czasu kolumn będzie "
+"zrzucony i przeładowany między serwerami w różnych strefach czasowych)</i>"
 
 #: src/Plugins/Export/ExportSql.php:538
 msgid "It appears your database uses routines;"
@@ -19744,7 +19744,7 @@ msgstr "Archiwum ZIP jest puste!"
 #~ msgstr "Ta %sopcja%s powinna być włączona, jeśli serwer WWW ją obsługuje."
 
 #~ msgid "Force secured connection while using phpMyAdmin."
-#~ msgstr "Wymusza bezpiecznie połącznie podczas używania phpMyAdmina."
+#~ msgstr "Wymusza bezpieczne połączenie podczas używania phpMyAdmina."
 
 #~ msgid "Force SSL connection"
 #~ msgstr "Wymuszaj połączenie SSL"
@@ -20670,7 +20670,7 @@ msgstr "Archiwum ZIP jest puste!"
 #~ msgstr "Włącz Ajax"
 
 #~ msgid "KiB sent since last refresh"
-#~ msgstr "KiB przesłane od czasu ostatniego odświeźenia"
+#~ msgstr "KiB przesłane od czasu ostatniego odświeżenia"
 
 #~ msgid "KiB received since last refresh"
 #~ msgstr "KiB otrzymane od czasu ostatniego odświeżenia"
