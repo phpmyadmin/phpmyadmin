@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Controllers\Database\Operations;
+namespace PhpMyAdmin\Controllers\Operations\Database;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;

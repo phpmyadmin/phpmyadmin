@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Controllers\Table;
+namespace PhpMyAdmin\Tests\Controllers\Operations;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\Table\OperationsController;
+use PhpMyAdmin\Controllers\Operations\TableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
@@ -16,8 +16,8 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PHPUnit\Framework\Attributes\CoversClass;
 
-#[CoversClass(OperationsController::class)]
-class OperationsControllerTest extends AbstractTestCase
+#[CoversClass(TableController::class)]
+class TableControllerTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;
 
@@ -120,8 +120,8 @@ class OperationsControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
             ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
 
-        /** @var OperationsController $controller */
-        $controller = Core::getContainerBuilder()->get(OperationsController::class);
+        /** @var TableController $controller */
+        $controller = Core::getContainerBuilder()->get(TableController::class);
         $controller($request);
 
         $this->assertEquals($expectedOutput, $this->getResponseHtmlResult());

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Controllers\View;
+namespace PhpMyAdmin\Controllers\Operations;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
@@ -25,7 +25,7 @@ use function is_string;
 /**
  * View manipulations
  */
-class OperationsController extends AbstractController
+class ViewController extends AbstractController
 {
     public function __construct(
         ResponseRenderer $response,

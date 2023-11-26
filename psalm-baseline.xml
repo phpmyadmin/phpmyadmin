@@ -1162,59 +1162,6 @@
       <code>$request</code>
     </PossiblyUnusedParam>
   </file>
-  <file src="src/Controllers/Database/Operations/CollationController.php">
-    <DeprecatedMethod>
-      <code>Config::getInstance()</code>
-    </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-    </InvalidArrayOffset>
-    <MixedArgument>
-      <code>$dbCollation</code>
-      <code>$tableName</code>
-    </MixedArgument>
-    <MixedArrayAccess>
-      <code>$tableName</code>
-    </MixedArrayAccess>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code>$dbCollation</code>
-      <code><![CDATA[['Name' => $tableName]]]></code>
-    </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="src/Controllers/Database/OperationsController.php">
-    <ArgumentTypeCoercion>
-      <code>$exportSqlPlugin</code>
-    </ArgumentTypeCoercion>
-    <DeprecatedMethod>
-      <code>Config::getInstance()</code>
-    </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['reload']]]></code>
-      <code><![CDATA[$GLOBALS['single_table']]]></code>
-    </InvalidArrayOffset>
-    <MixedArgument>
-      <code><![CDATA[$request->getParsedBodyParam('comment')]]></code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['reload']]]></code>
-      <code><![CDATA[$GLOBALS['single_table']]]></code>
-    </MixedAssignment>
-    <PossiblyNullArgument>
-      <code>$exportSqlPlugin</code>
-    </PossiblyNullArgument>
-    <PossiblyNullReference>
-      <code>isSuccess</code>
-    </PossiblyNullReference>
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/Controllers/Database/PrivilegesController.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
@@ -2411,6 +2358,118 @@
       <code>$dependencies</code>
       <code>$tables</code>
     </MixedAssignment>
+  </file>
+  <file src="src/Controllers/Operations/Database/CollationController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+    <InvalidArrayOffset>
+      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+    </InvalidArrayOffset>
+    <MixedArgument>
+      <code>$dbCollation</code>
+      <code>$tableName</code>
+    </MixedArgument>
+    <MixedArrayAccess>
+      <code>$tableName</code>
+    </MixedArrayAccess>
+    <MixedAssignment>
+      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code>$dbCollation</code>
+      <code><![CDATA[['Name' => $tableName]]]></code>
+    </MixedAssignment>
+    <PossiblyUnusedMethod>
+      <code>__construct</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Controllers/Operations/DatabaseController.php">
+    <ArgumentTypeCoercion>
+      <code>$exportSqlPlugin</code>
+    </ArgumentTypeCoercion>
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+    <InvalidArrayOffset>
+      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code><![CDATA[$GLOBALS['reload']]]></code>
+      <code><![CDATA[$GLOBALS['single_table']]]></code>
+    </InvalidArrayOffset>
+    <MixedArgument>
+      <code><![CDATA[$request->getParsedBodyParam('comment')]]></code>
+    </MixedArgument>
+    <MixedAssignment>
+      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code><![CDATA[$GLOBALS['reload']]]></code>
+      <code><![CDATA[$GLOBALS['single_table']]]></code>
+    </MixedAssignment>
+    <PossiblyNullArgument>
+      <code>$exportSqlPlugin</code>
+    </PossiblyNullArgument>
+    <PossiblyNullReference>
+      <code>isSuccess</code>
+    </PossiblyNullReference>
+    <PossiblyUnusedMethod>
+      <code>__construct</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Controllers/Operations/TableController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+    <InvalidArrayOffset>
+      <code><![CDATA[$GLOBALS['auto_increment']]]></code>
+      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code><![CDATA[$GLOBALS['message_to_show']]]></code>
+      <code><![CDATA[$GLOBALS['reload']]]></code>
+      <code><![CDATA[$GLOBALS['reread_info']]]></code>
+      <code><![CDATA[$GLOBALS['result']]]></code>
+      <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
+      <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
+      <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
+    </InvalidArrayOffset>
+    <MixedArgumentTypeCoercion>
+      <code>$tableAlters</code>
+      <code>is_array($partitionNames) ? $partitionNames : []</code>
+    </MixedArgumentTypeCoercion>
+    <MixedArrayAccess>
+      <code><![CDATA[$GLOBALS['showtable']['Row_format']]]></code>
+    </MixedArrayAccess>
+    <MixedAssignment>
+      <code><![CDATA[$GLOBALS['auto_increment']]]></code>
+      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code><![CDATA[$GLOBALS['message_to_show']]]></code>
+      <code><![CDATA[$GLOBALS['reload']]]></code>
+      <code><![CDATA[$GLOBALS['reread_info']]]></code>
+      <code><![CDATA[$GLOBALS['reread_info']]]></code>
+      <code><![CDATA[$GLOBALS['result']]]></code>
+      <code><![CDATA[$GLOBALS['showtable']]]></code>
+      <code><![CDATA[$GLOBALS['showtable']]]></code>
+      <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
+      <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
+      <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
+    </MixedAssignment>
+    <PossiblyUnusedMethod>
+      <code>__construct</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Controllers/Operations/ViewController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+    <InvalidArrayOffset>
+      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code><![CDATA[$GLOBALS['reload']]]></code>
+      <code><![CDATA[$GLOBALS['result']]]></code>
+    </InvalidArrayOffset>
+    <MixedAssignment>
+      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code><![CDATA[$GLOBALS['reload']]]></code>
+      <code><![CDATA[$GLOBALS['result']]]></code>
+      <code>$newname</code>
+    </MixedAssignment>
+    <PossiblyUnusedMethod>
+      <code>__construct</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/PhpInfoController.php">
     <DeprecatedMethod>
@@ -3622,46 +3681,6 @@
       <code>$addFields</code>
     </PossiblyInvalidOperand>
   </file>
-  <file src="src/Controllers/Table/OperationsController.php">
-    <DeprecatedMethod>
-      <code>Config::getInstance()</code>
-    </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['auto_increment']]]></code>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['message_to_show']]]></code>
-      <code><![CDATA[$GLOBALS['reload']]]></code>
-      <code><![CDATA[$GLOBALS['reread_info']]]></code>
-      <code><![CDATA[$GLOBALS['result']]]></code>
-      <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
-    </InvalidArrayOffset>
-    <MixedArgumentTypeCoercion>
-      <code>$tableAlters</code>
-      <code>is_array($partitionNames) ? $partitionNames : []</code>
-    </MixedArgumentTypeCoercion>
-    <MixedArrayAccess>
-      <code><![CDATA[$GLOBALS['showtable']['Row_format']]]></code>
-    </MixedArrayAccess>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['auto_increment']]]></code>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['message_to_show']]]></code>
-      <code><![CDATA[$GLOBALS['reload']]]></code>
-      <code><![CDATA[$GLOBALS['reread_info']]]></code>
-      <code><![CDATA[$GLOBALS['reread_info']]]></code>
-      <code><![CDATA[$GLOBALS['result']]]></code>
-      <code><![CDATA[$GLOBALS['showtable']]]></code>
-      <code><![CDATA[$GLOBALS['showtable']]]></code>
-      <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
-    </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/Controllers/Table/Partition/AnalyzeController.php">
     <MixedArgument>
       <code>$query</code>
@@ -4427,25 +4446,6 @@
       <code><![CDATA[$view['sql_security']]]></code>
       <code><![CDATA[$view['with']]]></code>
     </MixedOperand>
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="src/Controllers/View/OperationsController.php">
-    <DeprecatedMethod>
-      <code>Config::getInstance()</code>
-    </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['reload']]]></code>
-      <code><![CDATA[$GLOBALS['result']]]></code>
-    </InvalidArrayOffset>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['reload']]]></code>
-      <code><![CDATA[$GLOBALS['result']]]></code>
-      <code>$newname</code>
-    </MixedAssignment>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
@@ -13612,6 +13612,14 @@
       <code>providerForTestDefault</code>
     </PossiblyUnusedMethod>
   </file>
+  <file src="test/classes/Controllers/Operations/TableControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[$config->settings]]></code>
+    </InvalidPropertyAssignmentValue>
+  </file>
   <file src="test/classes/Controllers/Server/BinlogControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
@@ -13880,14 +13888,6 @@
     <PossiblyUnusedMethod>
       <code>providerForTestNoTableSelected</code>
     </PossiblyUnusedMethod>
-  </file>
-  <file src="test/classes/Controllers/Table/OperationsControllerTest.php">
-    <DeprecatedMethod>
-      <code>Config::getInstance()</code>
-    </DeprecatedMethod>
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[$config->settings]]></code>
-    </InvalidPropertyAssignmentValue>
   </file>
   <file src="test/classes/Controllers/Table/Partition/AnalyzeControllerTest.php">
     <PossiblyUnusedMethod>

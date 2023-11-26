@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Controllers\Table;
+namespace PhpMyAdmin\Controllers\Operations;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
@@ -39,7 +39,7 @@ use function preg_replace;
 use function strlen;
 use function urldecode;
 
-class OperationsController extends AbstractController
+class TableController extends AbstractController
 {
     public function __construct(
         ResponseRenderer $response,

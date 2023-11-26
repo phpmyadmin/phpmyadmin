@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Controllers\Database;
+namespace PhpMyAdmin\Controllers\Operations;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
@@ -32,7 +32,7 @@ use function strlen;
 /**
  * Handles miscellaneous database operations.
  */
-class OperationsController extends AbstractController
+class DatabaseController extends AbstractController
 {
     public function __construct(
         ResponseRenderer $response,

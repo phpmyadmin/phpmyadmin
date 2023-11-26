@@ -29,6 +29,7 @@ use PhpMyAdmin\Controllers\LintController;
 use PhpMyAdmin\Controllers\LogoutController;
 use PhpMyAdmin\Controllers\NavigationController;
 use PhpMyAdmin\Controllers\Normalization;
+use PhpMyAdmin\Controllers\Operations;
 use PhpMyAdmin\Controllers\PhpInfoController;
 use PhpMyAdmin\Controllers\Preferences;
 use PhpMyAdmin\Controllers\RecentTablesListController;
@@ -68,7 +69,7 @@ final class RoutesTest extends TestCase
             '/database/import' => Database\ImportController::class,
             '/database/multi-table-query' => Database\MultiTableQueryController::class,
             '/database/multi-table-query/tables' => Database\MultiTableQuery\TablesController::class,
-            '/database/operations' => Database\OperationsController::class,
+            '/database/operations' => Operations\DatabaseController::class,
             '/database/privileges' => Database\PrivilegesController::class,
             '/database/routines' => Database\RoutinesController::class,
             '/database/search' => Database\SearchController::class,
@@ -133,7 +134,7 @@ final class RoutesTest extends TestCase
             '/table/indexes' => Table\IndexesController::class,
             '/table/indexes/rename' => Table\IndexRenameController::class,
             '/table/privileges' => Table\PrivilegesController::class,
-            '/table/operations' => Table\OperationsController::class,
+            '/table/operations' => Operations\TableController::class,
             '/table/recent-favorite' => Table\RecentFavoriteController::class,
             '/table/relation' => Table\RelationController::class,
             '/table/replace' => Table\ReplaceController::class,
@@ -150,7 +151,7 @@ final class RoutesTest extends TestCase
             '/user-password' => UserPasswordController::class,
             '/version-check' => VersionCheckController::class,
             '/view/create' => View\CreateController::class,
-            '/view/operations' => View\OperationsController::class,
+            '/view/operations' => Operations\ViewController::class,
         ];
 
         $expectedPostRoutes = [
@@ -170,8 +171,8 @@ final class RoutesTest extends TestCase
             '/database/export' => Database\ExportController::class,
             '/database/import' => Database\ImportController::class,
             '/database/multi-table-query/query' => Database\MultiTableQuery\QueryController::class,
-            '/database/operations' => Database\OperationsController::class,
-            '/database/operations/collation' => Database\Operations\CollationController::class,
+            '/database/operations' => Operations\DatabaseController::class,
+            '/database/operations/collation' => Operations\Database\CollationController::class,
             '/database/routines' => Database\RoutinesController::class,
             '/database/search' => Database\SearchController::class,
             '/database/sql' => Database\SqlController::class,
@@ -290,7 +291,7 @@ final class RoutesTest extends TestCase
             '/table/partition/rebuild' => Table\Partition\RebuildController::class,
             '/table/partition/repair' => Table\Partition\RepairController::class,
             '/table/partition/truncate' => Table\Partition\TruncateController::class,
-            '/table/operations' => Table\OperationsController::class,
+            '/table/operations' => Operations\TableController::class,
             '/table/recent-favorite' => Table\RecentFavoriteController::class,
             '/table/relation' => Table\RelationController::class,
             '/table/replace' => Table\ReplaceController::class,
@@ -323,7 +324,7 @@ final class RoutesTest extends TestCase
             '/user-password' => UserPasswordController::class,
             '/version-check' => VersionCheckController::class,
             '/view/create' => View\CreateController::class,
-            '/view/operations' => View\OperationsController::class,
+            '/view/operations' => Operations\ViewController::class,
         ];
 
         $regex = '~^(?|/server/engines/([^/]+)|/server/engines/([^/]+)/([^/]+)|/server/variables/get/([^/]+)()())$~';

@@ -24,6 +24,7 @@ use PhpMyAdmin\Controllers\LintController;
 use PhpMyAdmin\Controllers\LogoutController;
 use PhpMyAdmin\Controllers\NavigationController;
 use PhpMyAdmin\Controllers\Normalization;
+use PhpMyAdmin\Controllers\Operations;
 use PhpMyAdmin\Controllers\PhpInfoController;
 use PhpMyAdmin\Controllers\Preferences;
 use PhpMyAdmin\Controllers\RecentTablesListController;
@@ -170,8 +171,8 @@ return [
             'class' => Database\MultiTableQueryController::class,
             'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
         ],
-        Database\Operations\CollationController::class => [
-            'class' => Database\Operations\CollationController::class,
+        Operations\Database\CollationController::class => [
+            'class' => Operations\Database\CollationController::class,
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
@@ -180,8 +181,8 @@ return [
                 '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
-        Database\OperationsController::class => [
-            'class' => Database\OperationsController::class,
+        Operations\DatabaseController::class => [
+            'class' => Operations\DatabaseController::class,
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
@@ -1309,8 +1310,8 @@ return [
                 '$maintenance' => '@partitioning_maintenance',
             ],
         ],
-        Table\OperationsController::class => [
-            'class' => Table\OperationsController::class,
+        Operations\TableController::class => [
+            'class' => Operations\TableController::class,
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
@@ -1603,8 +1604,8 @@ return [
                 '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
-        View\OperationsController::class => [
-            'class' => View\OperationsController::class,
+        Operations\ViewController::class => [
+            'class' => Operations\ViewController::class,
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',

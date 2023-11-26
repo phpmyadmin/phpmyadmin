@@ -26,6 +26,7 @@ use PhpMyAdmin\Controllers\LintController;
 use PhpMyAdmin\Controllers\LogoutController;
 use PhpMyAdmin\Controllers\NavigationController;
 use PhpMyAdmin\Controllers\Normalization;
+use PhpMyAdmin\Controllers\Operations;
 use PhpMyAdmin\Controllers\PhpInfoController;
 use PhpMyAdmin\Controllers\Preferences;
 use PhpMyAdmin\Controllers\RecentTablesListController;
@@ -76,8 +77,8 @@ final class Routes
                 $routes->post('/query', Database\MultiTableQuery\QueryController::class);
             });
             $routes->addGroup('/operations', static function (RouteCollector $routes): void {
-                $routes->addRoute(['GET', 'POST'], '', Database\OperationsController::class);
-                $routes->post('/collation', Database\Operations\CollationController::class);
+                $routes->addRoute(['GET', 'POST'], '', Operations\DatabaseController::class);
+                $routes->post('/collation', Operations\Database\CollationController::class);
             });
             $routes->get('/privileges', Database\PrivilegesController::class);
             $routes->addRoute(['GET', 'POST'], '/routines', Database\RoutinesController::class);
@@ -268,7 +269,7 @@ final class Routes
                 $routes->post('/truncate', Table\Partition\TruncateController::class);
             });
             $routes->get('/privileges', Table\PrivilegesController::class);
-            $routes->addRoute(['GET', 'POST'], '/operations', Table\OperationsController::class);
+            $routes->addRoute(['GET', 'POST'], '/operations', Operations\TableController::class);
             $routes->addRoute(['GET', 'POST'], '/recent-favorite', Table\RecentFavoriteController::class);
             $routes->addRoute(['GET', 'POST'], '/relation', Table\RelationController::class);
             $routes->addRoute(['GET', 'POST'], '/replace', Table\ReplaceController::class);
@@ -310,7 +311,7 @@ final class Routes
         $routes->addRoute(['GET', 'POST'], '/version-check', VersionCheckController::class);
         $routes->addGroup('/view', static function (RouteCollector $routes): void {
             $routes->addRoute(['GET', 'POST'], '/create', View\CreateController::class);
-            $routes->addRoute(['GET', 'POST'], '/operations', View\OperationsController::class);
+            $routes->addRoute(['GET', 'POST'], '/operations', Operations\ViewController::class);
         });
     }
 }
