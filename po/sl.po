@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-11-19 00:19+0000\n"
+"POT-Creation-Date: 2023-11-26 00:19+0000\n"
 "PO-Revision-Date: 2023-11-23 05:05+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -3285,27 +3285,70 @@ msgstr "Izhod"
 msgid "Javascript must be enabled past this point!"
 msgstr "Po tej točki mora biti JavaScript omogočen!"
 
-#: resources/templates/header.twig:48 resources/templates/home/index.twig:152
+#: resources/templates/header.twig:46
+#, fuzzy
+#| msgid "Add user account"
+msgid "Open user account menu"
+msgstr "Dodaj uporabniški račun"
+
+#: resources/templates/header.twig:57
+#: resources/templates/navigation/main.twig:35
+#: resources/templates/navigation/main.twig:36
+msgid "phpMyAdmin documentation"
+msgstr "Dokumentacija phpMyAdmin"
+
+#: resources/templates/header.twig:62
+#, fuzzy
+#| msgid "MariaDB Documentation"
+msgid "MariaDB documentation"
+msgstr "Dokumentacija MariaDB"
+
+#: resources/templates/header.twig:62
+#, fuzzy
+#| msgid "MySQL Documentation"
+msgid "MySQL documentation"
+msgstr "Dokumentacija MySQL"
+
+#: resources/templates/header.twig:73
+#, fuzzy
+#| msgid "Appearance settings"
+msgid "Appearance:"
+msgstr "Nastavitve prikaza"
+
+#: resources/templates/header.twig:76 resources/templates/home/index.twig:152
 msgid "Color mode for the theme"
 msgstr "Barvni način preobleke"
 
-#: resources/templates/header.twig:52 resources/templates/home/index.twig:156
+#: resources/templates/header.twig:80 resources/templates/home/index.twig:156
 msgctxt "Light color mode of the theme"
 msgid "Light"
 msgstr "Svetlo"
 
-#: resources/templates/header.twig:54 resources/templates/home/index.twig:158
+#: resources/templates/header.twig:82 resources/templates/home/index.twig:158
 msgctxt "Dark color mode of the theme"
 msgid "Dark"
 msgstr "Temno"
 
-#: resources/templates/header.twig:68
+#: resources/templates/header.twig:95
+#: resources/templates/server/status/monitor/index.twig:8
+#: src/Controllers/JavaScriptMessagesController.php:217 src/Menu.php:483
+#: src/Util.php:1471
+msgid "Settings"
+msgstr "Nastavitve"
+
+#: resources/templates/header.twig:99
+#: resources/templates/navigation/main.twig:30
+#: resources/templates/navigation/main.twig:31
+msgid "Log out"
+msgstr "Odjava"
+
+#: resources/templates/header.twig:108
 #: resources/templates/modals/page_settings.twig:5
 #: src/Controllers/JavaScriptMessagesController.php:340
 msgid "Page-related settings"
 msgstr "Nastavitve, povezane s stranjo"
 
-#: resources/templates/header.twig:70
+#: resources/templates/header.twig:110
 msgid "Click on the bar to scroll to top of page"
 msgstr "Kliknite na prečko, da se vrnete na vrh strani"
 
@@ -3833,16 +3876,6 @@ msgstr "Domov"
 #: resources/templates/navigation/main.twig:31
 msgid "Empty session data"
 msgstr "Izprazni podatke seje"
-
-#: resources/templates/navigation/main.twig:30
-#: resources/templates/navigation/main.twig:31
-msgid "Log out"
-msgstr "Odjava"
-
-#: resources/templates/navigation/main.twig:35
-#: resources/templates/navigation/main.twig:36
-msgid "phpMyAdmin documentation"
-msgstr "Dokumentacija phpMyAdmin"
 
 #: resources/templates/navigation/main.twig:39
 #: resources/templates/navigation/main.twig:40
@@ -5560,12 +5593,6 @@ msgstr "Sistemski nadzornik"
 #: resources/templates/server/status/monitor/index.twig:7
 msgid "Start monitor"
 msgstr "Začni nadziranje"
-
-#: resources/templates/server/status/monitor/index.twig:8
-#: src/Controllers/JavaScriptMessagesController.php:217 src/Menu.php:483
-#: src/Util.php:1471
-msgid "Settings"
-msgstr "Nastavitve"
 
 #: resources/templates/server/status/monitor/index.twig:9
 msgid "Instructions/Setup"

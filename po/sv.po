@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-11-19 00:19+0000\n"
+"POT-Creation-Date: 2023-11-26 00:19+0000\n"
 "PO-Revision-Date: 2023-02-17 01:47+0000\n"
 "Last-Translator: Anders Johansson <johansson@aljmedia.se>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -3450,29 +3450,72 @@ msgstr "Utdata"
 msgid "Javascript must be enabled past this point!"
 msgstr "Javascript måste vara aktiverat efter detta!"
 
-#: resources/templates/header.twig:48 resources/templates/home/index.twig:152
+#: resources/templates/header.twig:46
+#, fuzzy
+#| msgid "Add user account"
+msgid "Open user account menu"
+msgstr "Lägg till användare"
+
+#: resources/templates/header.twig:57
+#: resources/templates/navigation/main.twig:35
+#: resources/templates/navigation/main.twig:36
+msgid "phpMyAdmin documentation"
+msgstr "phpMyAdmin-dokumentation"
+
+#: resources/templates/header.twig:62
+#, fuzzy
+#| msgid "Documentation"
+msgid "MariaDB documentation"
+msgstr "Dokumentation"
+
+#: resources/templates/header.twig:62
+#, fuzzy
+#| msgid "Documentation"
+msgid "MySQL documentation"
+msgstr "Dokumentation"
+
+#: resources/templates/header.twig:73
+#, fuzzy
+#| msgid "Appearance settings"
+msgid "Appearance:"
+msgstr "Anpassa utseende"
+
+#: resources/templates/header.twig:76 resources/templates/home/index.twig:152
 msgid "Color mode for the theme"
 msgstr ""
 
-#: resources/templates/header.twig:52 resources/templates/home/index.twig:156
+#: resources/templates/header.twig:80 resources/templates/home/index.twig:156
 #, fuzzy
 #| msgid "Right"
 msgctxt "Light color mode of the theme"
 msgid "Light"
 msgstr "Höger"
 
-#: resources/templates/header.twig:54 resources/templates/home/index.twig:158
+#: resources/templates/header.twig:82 resources/templates/home/index.twig:158
 msgctxt "Dark color mode of the theme"
 msgid "Dark"
 msgstr ""
 
-#: resources/templates/header.twig:68
+#: resources/templates/header.twig:95
+#: resources/templates/server/status/monitor/index.twig:8
+#: src/Controllers/JavaScriptMessagesController.php:217 src/Menu.php:483
+#: src/Util.php:1471
+msgid "Settings"
+msgstr "Inställningar"
+
+#: resources/templates/header.twig:99
+#: resources/templates/navigation/main.twig:30
+#: resources/templates/navigation/main.twig:31
+msgid "Log out"
+msgstr "Logga ut"
+
+#: resources/templates/header.twig:108
 #: resources/templates/modals/page_settings.twig:5
 #: src/Controllers/JavaScriptMessagesController.php:340
 msgid "Page-related settings"
 msgstr "Sida-relaterade inställningar"
 
-#: resources/templates/header.twig:70
+#: resources/templates/header.twig:110
 msgid "Click on the bar to scroll to top of page"
 msgstr "Klicka på bommen för att förflytta dig till toppen av sidan"
 
@@ -4026,16 +4069,6 @@ msgstr "Hem"
 #: resources/templates/navigation/main.twig:31
 msgid "Empty session data"
 msgstr "Tom sessionsdata"
-
-#: resources/templates/navigation/main.twig:30
-#: resources/templates/navigation/main.twig:31
-msgid "Log out"
-msgstr "Logga ut"
-
-#: resources/templates/navigation/main.twig:35
-#: resources/templates/navigation/main.twig:36
-msgid "phpMyAdmin documentation"
-msgstr "phpMyAdmin-dokumentation"
 
 #: resources/templates/navigation/main.twig:39
 #: resources/templates/navigation/main.twig:40
@@ -5945,12 +5978,6 @@ msgstr "Systemminne"
 #| msgid "Start Monitor"
 msgid "Start monitor"
 msgstr "Starta Monitor"
-
-#: resources/templates/server/status/monitor/index.twig:8
-#: src/Controllers/JavaScriptMessagesController.php:217 src/Menu.php:483
-#: src/Util.php:1471
-msgid "Settings"
-msgstr "Inställningar"
 
 #: resources/templates/server/status/monitor/index.twig:9
 msgid "Instructions/Setup"

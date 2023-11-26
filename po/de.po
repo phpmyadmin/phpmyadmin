@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-11-19 00:19+0000\n"
+"POT-Creation-Date: 2023-11-26 00:19+0000\n"
 "PO-Revision-Date: 2023-11-23 19:15+0000\n"
 "Last-Translator: M393 <maximilian.kroeg@geocept.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -3283,29 +3283,72 @@ msgstr "Ausgabe"
 msgid "Javascript must be enabled past this point!"
 msgstr "Javascript muss ab hier aktiviert sein!"
 
-#: resources/templates/header.twig:48 resources/templates/home/index.twig:152
+#: resources/templates/header.twig:46
+#, fuzzy
+#| msgid "Add user account"
+msgid "Open user account menu"
+msgstr "Benutzerkonto hinzufügen"
+
+#: resources/templates/header.twig:57
+#: resources/templates/navigation/main.twig:35
+#: resources/templates/navigation/main.twig:36
+msgid "phpMyAdmin documentation"
+msgstr "phpMyAdmin-Dokumentation"
+
+#: resources/templates/header.twig:62
+#, fuzzy
+#| msgid "MariaDB Documentation"
+msgid "MariaDB documentation"
+msgstr "MariaDB-Dokumentation"
+
+#: resources/templates/header.twig:62
+#, fuzzy
+#| msgid "MySQL Documentation"
+msgid "MySQL documentation"
+msgstr "MySQL-Dokumentation"
+
+#: resources/templates/header.twig:73
+#, fuzzy
+#| msgid "Appearance settings"
+msgid "Appearance:"
+msgstr "Anzeige-Einstellungen"
+
+#: resources/templates/header.twig:76 resources/templates/home/index.twig:152
 msgid "Color mode for the theme"
 msgstr ""
 
-#: resources/templates/header.twig:52 resources/templates/home/index.twig:156
+#: resources/templates/header.twig:80 resources/templates/home/index.twig:156
 #, fuzzy
 #| msgid "Right"
 msgctxt "Light color mode of the theme"
 msgid "Light"
 msgstr "Rechts"
 
-#: resources/templates/header.twig:54 resources/templates/home/index.twig:158
+#: resources/templates/header.twig:82 resources/templates/home/index.twig:158
 msgctxt "Dark color mode of the theme"
 msgid "Dark"
 msgstr ""
 
-#: resources/templates/header.twig:68
+#: resources/templates/header.twig:95
+#: resources/templates/server/status/monitor/index.twig:8
+#: src/Controllers/JavaScriptMessagesController.php:217 src/Menu.php:483
+#: src/Util.php:1471
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: resources/templates/header.twig:99
+#: resources/templates/navigation/main.twig:30
+#: resources/templates/navigation/main.twig:31
+msgid "Log out"
+msgstr "Neu anmelden"
+
+#: resources/templates/header.twig:108
 #: resources/templates/modals/page_settings.twig:5
 #: src/Controllers/JavaScriptMessagesController.php:340
 msgid "Page-related settings"
 msgstr "Seitenbezogene Einstellungen"
 
-#: resources/templates/header.twig:70
+#: resources/templates/header.twig:110
 msgid "Click on the bar to scroll to top of page"
 msgstr "Klicken Sie auf die Leiste, um zum Anfang der Seite zu scrollen"
 
@@ -3840,16 +3883,6 @@ msgstr "Startseite"
 #: resources/templates/navigation/main.twig:31
 msgid "Empty session data"
 msgstr "Leere Sitzungsdaten"
-
-#: resources/templates/navigation/main.twig:30
-#: resources/templates/navigation/main.twig:31
-msgid "Log out"
-msgstr "Neu anmelden"
-
-#: resources/templates/navigation/main.twig:35
-#: resources/templates/navigation/main.twig:36
-msgid "phpMyAdmin documentation"
-msgstr "phpMyAdmin-Dokumentation"
 
 #: resources/templates/navigation/main.twig:39
 #: resources/templates/navigation/main.twig:40
@@ -4543,8 +4576,8 @@ msgstr "Erstelle eine Datenbank mit gleichem Namen und gewähre alle Rechte."
 #: resources/templates/server/privileges/add_user.twig:20
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr ""
-"Gewähre alle Rechte auf Datenbanken, die mit dem Benutzernamen beginnen ("
-"username\\_%)."
+"Gewähre alle Rechte auf Datenbanken, die mit dem Benutzernamen beginnen "
+"(username\\_%)."
 
 #: resources/templates/server/privileges/add_user.twig:25
 #, php-format
@@ -5591,12 +5624,6 @@ msgstr "Arbeitsspeicher"
 #: resources/templates/server/status/monitor/index.twig:7
 msgid "Start monitor"
 msgstr "Überwachung starten"
-
-#: resources/templates/server/status/monitor/index.twig:8
-#: src/Controllers/JavaScriptMessagesController.php:217 src/Menu.php:483
-#: src/Util.php:1471
-msgid "Settings"
-msgstr "Einstellungen"
 
 #: resources/templates/server/status/monitor/index.twig:9
 msgid "Instructions/Setup"
@@ -8260,11 +8287,11 @@ msgstr ""
 "Wiederherstellungszeit bei Datenbank Abstürzen, so dass dieser Wert nicht "
 "viel höher als 256 MiB gsetzt werden sollte. Bitte beachten Sie jedoch, dass "
 "Sie nicht einfach den Wert dieser Variablen ändern können. Sie müssen den "
-"Server herunterfahren, die InnoDB-Logdateien löschen, den neuen Wert in "
-"my.cnf eintragen, den Server neu starten und dann das Fehlerprotokoll "
-"überprüfen, ob alles gut ging. Siehe auch <a href=\"https"
-"://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">diesen Blog-Eintrag</a>"
+"Server herunterfahren, die InnoDB-Logdateien löschen, den neuen Wert in my."
+"cnf eintragen, den Server neu starten und dann das Fehlerprotokoll "
+"überprüfen, ob alles gut ging. Siehe auch <a href=\"https://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">diesen Blog-Eintrag</a>"
 
 #: src/Advisory/Rules.php:662 src/Advisory/Rules.php:692
 #, php-format
@@ -8303,9 +8330,9 @@ msgstr ""
 "blog/2006/07/03/choosing-proper-innodb_log_file_size/\">diesen Artikels</a>. "
 "Sie müssen den Server herunterfahren, die InnoDB-Logdateien löschen, den "
 "neuen Wert in my.cnf eintragen, den Server neu starten und dann das "
-"Fehlerprotokoll überprüfen, ob alles gut ging. Siehe auch <a href=\"https"
-"://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">diesen Blog-Eintrag</a>"
+"Fehlerprotokoll überprüfen, ob alles gut ging. Siehe auch <a href=\"https://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">diesen Blog-Eintrag</a>"
 
 #: src/Advisory/Rules.php:717
 #, php-format
@@ -8574,8 +8601,8 @@ msgstr ""
 "viele Abfrageergebnisse über 1 MiB gibt die sich auch zwischenspeichern "
 "lassen (viele Lesevorgänge, wenig schreibt) dann kann ein erhöhen von "
 "{query_cache_limit} die Effizienz erhöhen. Während bei viele "
-"Abfrageergebnisse über 1 MiB die nicht sehr gut zwischenspeicherbar sind ("
-"oft aufgrund von Aktualisierungen der Tabelle ungültig) ein Erhöhen von "
+"Abfrageergebnisse über 1 MiB die nicht sehr gut zwischenspeicherbar sind "
+"(oft aufgrund von Aktualisierungen der Tabelle ungültig) ein Erhöhen von "
 "{query_cache_limit} die Effizienz reduzieren kann."
 
 #: src/Advisory/Rules.php:883

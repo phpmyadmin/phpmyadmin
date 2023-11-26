@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-11-19 00:19+0000\n"
+"POT-Creation-Date: 2023-11-26 00:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3289,30 +3289,65 @@ msgstr ""
 msgid "Javascript must be enabled past this point!"
 msgstr ""
 
-#: resources/templates/header.twig:48
+#: resources/templates/header.twig:46
+msgid "Open user account menu"
+msgstr ""
+
+#: resources/templates/header.twig:57
+#: resources/templates/navigation/main.twig:35
+#: resources/templates/navigation/main.twig:36
+msgid "phpMyAdmin documentation"
+msgstr ""
+
+#: resources/templates/header.twig:62
+msgid "MariaDB documentation"
+msgstr ""
+
+#: resources/templates/header.twig:62
+msgid "MySQL documentation"
+msgstr ""
+
+#: resources/templates/header.twig:73
+msgid "Appearance:"
+msgstr ""
+
+#: resources/templates/header.twig:76
 #: resources/templates/home/index.twig:152
 msgid "Color mode for the theme"
 msgstr ""
 
-#: resources/templates/header.twig:52
+#: resources/templates/header.twig:80
 #: resources/templates/home/index.twig:156
 msgctxt "Light color mode of the theme"
 msgid "Light"
 msgstr ""
 
-#: resources/templates/header.twig:54
+#: resources/templates/header.twig:82
 #: resources/templates/home/index.twig:158
 msgctxt "Dark color mode of the theme"
 msgid "Dark"
 msgstr ""
 
-#: resources/templates/header.twig:68
+#: resources/templates/header.twig:95
+#: resources/templates/server/status/monitor/index.twig:8
+#: src/Controllers/JavaScriptMessagesController.php:217 src/Menu.php:483
+#: src/Util.php:1471
+msgid "Settings"
+msgstr ""
+
+#: resources/templates/header.twig:99
+#: resources/templates/navigation/main.twig:30
+#: resources/templates/navigation/main.twig:31
+msgid "Log out"
+msgstr ""
+
+#: resources/templates/header.twig:108
 #: resources/templates/modals/page_settings.twig:5
 #: src/Controllers/JavaScriptMessagesController.php:340
 msgid "Page-related settings"
 msgstr ""
 
-#: resources/templates/header.twig:70
+#: resources/templates/header.twig:110
 msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
@@ -3812,16 +3847,6 @@ msgstr ""
 #: resources/templates/navigation/main.twig:30
 #: resources/templates/navigation/main.twig:31
 msgid "Empty session data"
-msgstr ""
-
-#: resources/templates/navigation/main.twig:30
-#: resources/templates/navigation/main.twig:31
-msgid "Log out"
-msgstr ""
-
-#: resources/templates/navigation/main.twig:35
-#: resources/templates/navigation/main.twig:36
-msgid "phpMyAdmin documentation"
 msgstr ""
 
 #: resources/templates/navigation/main.twig:39
@@ -5449,12 +5474,6 @@ msgstr ""
 
 #: resources/templates/server/status/monitor/index.twig:7
 msgid "Start monitor"
-msgstr ""
-
-#: resources/templates/server/status/monitor/index.twig:8
-#: src/Controllers/JavaScriptMessagesController.php:217 src/Menu.php:483
-#: src/Util.php:1471
-msgid "Settings"
 msgstr ""
 
 #: resources/templates/server/status/monitor/index.twig:9

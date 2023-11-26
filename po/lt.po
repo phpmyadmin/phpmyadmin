@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-11-19 00:19+0000\n"
+"POT-Creation-Date: 2023-11-26 00:19+0000\n"
 "PO-Revision-Date: 2022-07-05 15:20+0000\n"
 "Last-Translator: Ugnius Vaičeskas <ugninis.vai@gmail.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -3667,23 +3667,66 @@ msgstr "Išvedimas"
 msgid "Javascript must be enabled past this point!"
 msgstr "Slapukai turi būti priimami."
 
-#: resources/templates/header.twig:48 resources/templates/home/index.twig:152
+#: resources/templates/header.twig:46
+#, fuzzy
+#| msgid "Add user"
+msgid "Open user account menu"
+msgstr "Pridėti naudotoją"
+
+#: resources/templates/header.twig:57
+#: resources/templates/navigation/main.twig:35
+#: resources/templates/navigation/main.twig:36
+msgid "phpMyAdmin documentation"
+msgstr "phpMyAdmin dokumentacija"
+
+#: resources/templates/header.twig:62
+#, fuzzy
+#| msgid "Documentation"
+msgid "MariaDB documentation"
+msgstr "Dokumentacija"
+
+#: resources/templates/header.twig:62
+#, fuzzy
+#| msgid "Documentation"
+msgid "MySQL documentation"
+msgstr "Dokumentacija"
+
+#: resources/templates/header.twig:73
+#, fuzzy
+#| msgid "Appearance settings"
+msgid "Appearance:"
+msgstr "Išvaizdos nustatymai"
+
+#: resources/templates/header.twig:76 resources/templates/home/index.twig:152
 msgid "Color mode for the theme"
 msgstr ""
 
-#: resources/templates/header.twig:52 resources/templates/home/index.twig:156
+#: resources/templates/header.twig:80 resources/templates/home/index.twig:156
 #, fuzzy
 #| msgid "Right"
 msgctxt "Light color mode of the theme"
 msgid "Light"
 msgstr "Dešinė"
 
-#: resources/templates/header.twig:54 resources/templates/home/index.twig:158
+#: resources/templates/header.twig:82 resources/templates/home/index.twig:158
 msgctxt "Dark color mode of the theme"
 msgid "Dark"
 msgstr ""
 
-#: resources/templates/header.twig:68
+#: resources/templates/header.twig:95
+#: resources/templates/server/status/monitor/index.twig:8
+#: src/Controllers/JavaScriptMessagesController.php:217 src/Menu.php:483
+#: src/Util.php:1471
+msgid "Settings"
+msgstr "Nustatymai"
+
+#: resources/templates/header.twig:99
+#: resources/templates/navigation/main.twig:30
+#: resources/templates/navigation/main.twig:31
+msgid "Log out"
+msgstr "Atsijungti"
+
+#: resources/templates/header.twig:108
 #: resources/templates/modals/page_settings.twig:5
 #: src/Controllers/JavaScriptMessagesController.php:340
 #, fuzzy
@@ -3691,7 +3734,7 @@ msgstr ""
 msgid "Page-related settings"
 msgstr "Keisti nustatymus"
 
-#: resources/templates/header.twig:70
+#: resources/templates/header.twig:110
 msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
@@ -4267,16 +4310,6 @@ msgstr "Pradžia"
 #| msgid "Dumping data for table"
 msgid "Empty session data"
 msgstr "Sukurta duomenų kopija lentelei"
-
-#: resources/templates/navigation/main.twig:30
-#: resources/templates/navigation/main.twig:31
-msgid "Log out"
-msgstr "Atsijungti"
-
-#: resources/templates/navigation/main.twig:35
-#: resources/templates/navigation/main.twig:36
-msgid "phpMyAdmin documentation"
-msgstr "phpMyAdmin dokumentacija"
 
 #: resources/templates/navigation/main.twig:39
 #: resources/templates/navigation/main.twig:40
@@ -6237,12 +6270,6 @@ msgstr "Sistemos atmintis"
 #| msgid "Start Monitor"
 msgid "Start monitor"
 msgstr "Paleisti Monitor"
-
-#: resources/templates/server/status/monitor/index.twig:8
-#: src/Controllers/JavaScriptMessagesController.php:217 src/Menu.php:483
-#: src/Util.php:1471
-msgid "Settings"
-msgstr "Nustatymai"
 
 #: resources/templates/server/status/monitor/index.twig:9
 msgid "Instructions/Setup"
