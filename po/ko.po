@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-26 00:19+0000\n"
-"PO-Revision-Date: 2023-11-25 02:27+0000\n"
+"PO-Revision-Date: 2023-11-27 14:26+0000\n"
 "Last-Translator: Yong Kim <kim@nhn.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ko/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.2.1-rc\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:31
 #: resources/templates/database/central_columns/edit_table_row.twig:23
@@ -9503,8 +9503,7 @@ msgstr ""
 msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
-msgstr ""
-"중요 열 지원을 비활성화하려면 비워두세요. 제안하는 값 : "
+msgstr "중요 열 지원을 비활성화하려면 비워두세요. 제안하는 값 : "
 "[kbd]pma__central_columns[/kbd]."
 
 #: src/Config/Descriptions.php:372
@@ -12233,7 +12232,7 @@ msgstr "선택한 사용자를 정말로 삭제하시겠습니까?"
 
 #: src/Controllers/JavaScriptMessagesController.php:76
 msgid "Do you really want to delete this central column?"
-msgstr "이 중요 컬럼을 정말로 삭제하시겠습니까?"
+msgstr "이 중요 열을 삭제하시겠습니까?"
 
 #: src/Controllers/JavaScriptMessagesController.php:77
 msgid "Do you really want to delete the selected items?"
@@ -13017,9 +13016,8 @@ msgstr "현재 리스트 검색"
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
-msgstr ""
-"중요 목록에 열이 없습니다. 데이터베이스 %s의 중요 열 목록에 현재 테이블에 없"
-"는 열이 있는지 확인합니다."
+msgstr "중요 목록에 열이 없습니다. 데이터베이스 %s의 중요 열 목록에 현재 테이블에 "
+"없는 열이 있는지 확인합니다."
 
 #: src/Controllers/JavaScriptMessagesController.php:418
 msgid "See more"
@@ -15121,7 +15119,7 @@ msgstr "%s 확장기능이 설치되지 않았습니다. PHP의 설정을 확인
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
-msgstr "구성 저장소가 중요 열 기능 목록에 준비되지 않았습니다."
+msgstr "구성 저장소가 중요 열 목록 기능을 사용할 준비가 되지 않았습니다."
 
 #: src/Database/CentralColumns.php:322
 #, php-format
@@ -15136,7 +15134,7 @@ msgstr "컬럼을 추가할 수 없음!"
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
-msgstr "중요 목록에 없으므로 %1$s 항목을 삭제할 수 없습니다!"
+msgstr "중요 열 목록에 없으므로 %1$s 열을 삭제할 수 없습니다!"
 
 #: src/Database/CentralColumns.php:428
 msgid "Could not remove columns!"
@@ -16233,7 +16231,7 @@ msgstr ""
 
 #: src/Normalization.php:204
 msgid "Show me the central list of columns that are not already in this table"
-msgstr "이 테이블에 아직 없는 열의 중요 목록을 표시합니다"
+msgstr "이 테이블에 아직 없는 중요 열 목록을 표시합니다"
 
 #: src/Normalization.php:206
 msgid ""
