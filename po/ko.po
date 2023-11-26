@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-11-25 02:27+0000\n"
+"PO-Revision-Date: 2023-11-27 13:03+0000\n"
 "Last-Translator: Yong Kim <kim@nhn.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/4-9/ko/"
 ">\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.2.1-rc\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -940,7 +940,7 @@ msgstr "선택한 사용자를 정말로 삭제하시겠습니까?"
 
 #: js/messages.php:76
 msgid "Do you really want to delete this central column?"
-msgstr "이 중요 컬럼을 정말로 삭제하시겠습니까?"
+msgstr "이 중요 열을 삭제하시겠습니까?"
 
 #: js/messages.php:78
 msgid "Do you really want to delete the selected items?"
@@ -3113,7 +3113,7 @@ msgstr "페이지 번호:"
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
-msgstr "구성 저장소가 중요 열 기능 목록에 준비되지 않았습니다."
+msgstr "구성 저장소가 중요 열 목록 기능을 사용할 준비가 되지 않았습니다."
 
 #: libraries/classes/CentralColumns.php:362
 #, php-format
@@ -3128,7 +3128,7 @@ msgstr "컬럼을 추가할 수 없음!"
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
-msgstr "중요 목록에 없으므로 %1$s 항목을 삭제할 수 없습니다!"
+msgstr "중요 열 목록에 없으므로 %1$s 열을 삭제할 수 없습니다!"
 
 #: libraries/classes/CentralColumns.php:466
 msgid "Could not remove columns!"
@@ -8384,7 +8384,7 @@ msgstr "두 개 이상의 열로 분할할 수 있는 열이 있나요? 예를 �
 
 #: libraries/classes/Normalization.php:196
 msgid "Show me the central list of columns that are not already in this table"
-msgstr "이 테이블에 아직 없는 열의 중요 목록을 표시합니다"
+msgstr "이 테이블에 아직 없는 중요 열 목록을 표시합니다"
 
 #: libraries/classes/Normalization.php:199
 msgid ""
