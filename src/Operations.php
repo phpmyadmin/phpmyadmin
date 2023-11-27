@@ -620,6 +620,7 @@ class Operations
         string $newTblStorageEngine,
         string $transactional,
         string $tableCollation,
+        string $tableStorageEngine,
     ): array {
         $GLOBALS['auto_increment'] ??= null;
 
@@ -631,7 +632,7 @@ class Operations
 
         if (
             $newTblStorageEngine !== ''
-            && mb_strtolower($newTblStorageEngine) !== mb_strtolower($GLOBALS['tbl_storage_engine'])
+            && mb_strtolower($newTblStorageEngine) !== mb_strtolower($tableStorageEngine)
         ) {
             $tableAlters[] = 'ENGINE = ' . $newTblStorageEngine;
         }

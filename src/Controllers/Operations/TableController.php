@@ -56,7 +56,6 @@ class TableController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['tbl_storage_engine'] ??= null;
         $GLOBALS['tbl_collation'] ??= null;
         $GLOBALS['table_info_num_rows'] ??= null;
         $GLOBALS['auto_increment'] ??= null;
@@ -126,11 +125,11 @@ class TableController extends AbstractController
         $GLOBALS['showtable'] = $pmaTable->getStatusInfo(null, ! empty($rereadInfo));
         if ($pmaTable->isView()) {
             $tableIsAView = true;
-            $GLOBALS['tbl_storage_engine'] = __('View');
+            $tableStorageEngine = __('View');
             $showComment = '';
         } else {
             $tableIsAView = false;
-            $GLOBALS['tbl_storage_engine'] = $pmaTable->getStorageEngine();
+            $tableStorageEngine = $pmaTable->getStorageEngine();
             $showComment = $pmaTable->getComment();
         }
 
@@ -232,7 +231,7 @@ class TableController extends AbstractController
             $newTblStorageEngine = '';
             if (
                 is_string($newTableStorageEngine) && $newTableStorageEngine !== ''
-                && mb_strtoupper($newTableStorageEngine) !== $GLOBALS['tbl_storage_engine']
+                && mb_strtoupper($newTableStorageEngine) !== $tableStorageEngine
             ) {
                 $newTblStorageEngine = mb_strtoupper($newTableStorageEngine);
 
@@ -254,6 +253,7 @@ class TableController extends AbstractController
                 (isset($createOptions['transactional'])
                     && $createOptions['transactional'] == '0' ? '0' : '1'),
                 $GLOBALS['tbl_collation'],
+                $tableStorageEngine,
             );
 
             if ($tableAlters !== []) {
@@ -332,11 +332,11 @@ class TableController extends AbstractController
             $GLOBALS['showtable'] = $pmaTable->getStatusInfo(null, true);
             if ($pmaTable->isView()) {
                 $tableIsAView = true;
-                $GLOBALS['tbl_storage_engine'] = __('View');
+                $tableStorageEngine = __('View');
                 $showComment = '';
             } else {
                 $tableIsAView = false;
-                $GLOBALS['tbl_storage_engine'] = $pmaTable->getStorageEngine();
+                $tableStorageEngine = $pmaTable->getStorageEngine();
                 $showComment = $pmaTable->getComment();
             }
 
@@ -413,7 +413,7 @@ class TableController extends AbstractController
         // `ALTER TABLE ORDER BY` does not make sense for InnoDB tables that contain
         // a user-defined clustered index (PRIMARY KEY or NOT NULL UNIQUE index).
         // InnoDB always orders table rows according to such an index if one is present.
-        if ($GLOBALS['tbl_storage_engine'] === 'INNODB') {
+        if ($tableStorageEngine === 'INNODB') {
             $indexes = Index::getFromTable($this->dbi, $GLOBALS['table'], $GLOBALS['db']);
             foreach ($indexes as $name => $idx) {
                 if ($name === 'PRIMARY') {
@@ -498,12 +498,12 @@ class TableController extends AbstractController
             'columns' => $columns,
             'hide_order_table' => $hideOrderTable,
             'table_comment' => $comment,
-            'storage_engine' => $GLOBALS['tbl_storage_engine'],
+            'storage_engine' => $tableStorageEngine,
             'storage_engines' => $storageEngines,
             'charsets' => $charsets,
             'collations' => $collations,
             'tbl_collation' => $GLOBALS['tbl_collation'],
-            'row_formats' => $possibleRowFormats[$GLOBALS['tbl_storage_engine']] ?? [],
+            'row_formats' => $possibleRowFormats[$tableStorageEngine] ?? [],
             'row_format_current' => $GLOBALS['showtable']['Row_format'],
             'has_auto_increment' => $hasAutoIncrement,
             'auto_increment' => $GLOBALS['auto_increment'],
