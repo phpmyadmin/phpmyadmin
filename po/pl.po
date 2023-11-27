@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-11-07 15:05+0000\n"
-"Last-Translator: Kamil Monicz <kamil.monicz@outlook.com>\n"
+"PO-Revision-Date: 2023-11-27 16:20+0000\n"
+"Last-Translator: Piotr Kasprzyk <ciri@ciri.pl>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/4-9/pl/"
 ">\n"
 "Language: pl\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.2-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -948,7 +948,7 @@ msgstr "Czy na pewno chcesz usunąć wyszukiwanie \"%s\"?"
 
 #: js/messages.php:70
 msgid "You have unsaved changes; are you sure you want to leave this page?"
-msgstr "Masz niezapisane zmiany. Czy na pewno chcesz opuścić tą stronę?"
+msgstr "Masz niezapisane zmiany. Czy na pewno chcesz opuścić tę stronę?"
 
 #: js/messages.php:72
 msgid ""
@@ -2044,7 +2044,7 @@ msgstr "Przenoszenie cię do następnego kroku…"
 #: js/messages.php:450
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr "Pierwszy etap dostosowywania dla tableli '%s' został ukończony."
+msgstr "Pierwszy etap dostosowywania dla tabeli '%s' został ukończony."
 
 #: js/messages.php:451 libraries/classes/Normalization.php:510
 #: libraries/classes/Normalization.php:557
@@ -2360,7 +2360,7 @@ msgstr "Czy chcesz zapisać zmiany na obecnej stronie?"
 
 #: js/messages.php:576
 msgid "Successfully deleted the page"
-msgstr "Usuwanie strony zakończylo się sukcesem"
+msgstr "Usuwanie strony zakończyło się pomyślnie"
 
 #: js/messages.php:577
 msgid "Export relational schema"
@@ -4017,7 +4017,7 @@ msgstr "Zamień NULL na"
 #: libraries/classes/Config/Descriptions.php:270
 #: libraries/classes/Config/Descriptions.php:282
 msgid "Remove CRLF characters within columns"
-msgstr "Usuń znaki nowej lini z kolumn"
+msgstr "Usuń znaki nowej linii z kolumn"
 
 #: libraries/classes/Config/Descriptions.php:272
 #: libraries/classes/Config/Descriptions.php:643
@@ -4223,7 +4223,7 @@ msgstr "Porządek sortowania kluczy obcych"
 
 #: libraries/classes/Config/Descriptions.php:426
 msgid "A dropdown will be used if fewer items are present."
-msgstr "Rozwijana będzie używana, jeśli mniej pozycji bedzie obecne."
+msgstr "Rozwijana będzie używana, jeśli będzie mniej pozycji."
 
 #: libraries/classes/Config/Descriptions.php:428
 msgid "Foreign key limit"
@@ -8062,7 +8062,7 @@ msgstr "Wstaw jako nowy wiersz"
 
 #: libraries/classes/InsertEdit.php:1811
 msgid "Insert as new row and ignore errors"
-msgstr "Wstaw jko nowy wiersz i ignoruj błędy"
+msgstr "Wstaw jako nowy wiersz i ignoruj błędy"
 
 #: libraries/classes/InsertEdit.php:1814
 msgid "Show insert query"
@@ -8407,7 +8407,7 @@ msgstr "Puste dane sesji"
 
 #: libraries/classes/Navigation/NavigationHeader.php:197
 msgid "phpMyAdmin documentation"
-msgstr "Dokumewntacja phpMyAdmina"
+msgstr "Dokumentacja phpMyAdmina"
 
 #: libraries/classes/Navigation/NavigationHeader.php:217
 msgid "Navigation panel settings"
@@ -9247,7 +9247,7 @@ msgstr "Zamiana NULL na:"
 #: libraries/classes/Plugins/Export/ExportCsv.php:88
 #: libraries/classes/Plugins/Export/ExportExcel.php:57
 msgid "Remove carriage return/line feed characters within columns"
-msgstr "Usuń znaki nowej lini z kolumn"
+msgstr "Usuń znaki nowej linii z kolumn"
 
 #: libraries/classes/Plugins/Export/ExportExcel.php:67
 msgid "Excel edition:"
@@ -9472,7 +9472,9 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:111
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "Dodatkowe komentarz niestandardowych nagłówków (\\ndzieli wiersze):"
+msgstr ""
+"Dodatkowy komentarz niestandardowych nagłówków (\\\\n"
+" dzieli wiersze):"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:117
 msgid ""
@@ -9605,8 +9607,8 @@ msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
-"Zrzuć znacznik czasu kolumn w UTC <i>(włączenie znacznik czasu kolumn bedzie "
-"zrzucone i przełądowane między serwerami w różnych strefach czasowych)</i>"
+"Zrzuć znacznik czasu kolumn w UTC <i>(znacznik czasu kolumn będzie zrzucony "
+"i przeładowany między serwerami w różnych strefach czasowych)</i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:520
 msgid "It appears your database uses routines;"
@@ -10418,7 +10420,7 @@ msgstr "%sUtwórz%s magazyn konfiguracji phpMyAdmina w bieżącej bazie danych."
 #: libraries/classes/Relation.php:2072
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "%sCreate%s nie zawiera tabel przechowywania konfiguracji phpMyAdmina."
+msgstr "%sUtwórz%s brakujące tabele przechowywania konfiguracji phpMyAdmina."
 
 #: libraries/classes/ReplicationGui.php:58
 #: libraries/classes/ReplicationGui.php:352
@@ -12459,7 +12461,7 @@ msgstr "Liczba aktualnie brudnych stron."
 
 #: libraries/classes/Server/Status/Variables.php:450
 msgid "The number of buffer pool pages that have been requested to be flushed."
-msgstr "Liczba stron w puli bufora, których wymiecienia zażądano."
+msgstr "Liczba stron w puli bufora, których wymiecenia zażądano."
 
 #: libraries/classes/Server/Status/Variables.php:454
 msgid "The number of free pages."
@@ -17168,7 +17170,7 @@ msgstr "Wątki, które są wolne do uruchomienia"
 
 #: libraries/advisory_rules_generic.txt:311
 msgid "There are too many threads that are slow to launch."
-msgstr "Istnieje zbyt wiele wątków, które wolne są do uruchomiania."
+msgstr "Istnieje zbyt wiele wątków, które długo się uruchamiają."
 
 #: libraries/advisory_rules_generic.txt:312
 msgid ""
