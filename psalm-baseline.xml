@@ -2423,7 +2423,6 @@
       <code><![CDATA[$GLOBALS['result']]]></code>
       <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
       <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
     </InvalidArrayOffset>
     <MixedArgumentTypeCoercion>
       <code>$tableAlters</code>
@@ -2442,7 +2441,6 @@
       <code><![CDATA[$GLOBALS['showtable']]]></code>
       <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
       <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
       <code>$rereadInfo</code>
     </MixedAssignment>
     <PossiblyUnusedMethod>
@@ -4155,9 +4153,6 @@
       <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
       <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
       <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['showtable']['Check_time']]]></code>
@@ -4194,9 +4189,6 @@
       <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
       <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
       <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
       <code>$attributes[$rownum]</code>
       <code>$rereadInfo</code>
     </MixedAssignment>

@@ -67,7 +67,6 @@ class StructureController extends AbstractController
     {
         $GLOBALS['showtable'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
-        $GLOBALS['tbl_is_view'] ??= null;
         $GLOBALS['tbl_storage_engine'] ??= null;
         $GLOBALS['tbl_collation'] ??= null;
         $GLOBALS['table_info_num_rows'] ??= null;
@@ -77,10 +76,10 @@ class StructureController extends AbstractController
         $GLOBALS['showtable'] = $this->tableObj->getStatusInfo(null, ! empty($rereadInfo));
 
         if ($this->tableObj->isView()) {
-            $GLOBALS['tbl_is_view'] = true;
+            $tableIsAView = true;
             $GLOBALS['tbl_storage_engine'] = __('View');
         } else {
-            $GLOBALS['tbl_is_view'] = false;
+            $tableIsAView = false;
             $GLOBALS['tbl_storage_engine'] = $this->tableObj->getStorageEngine();
         }
 
@@ -156,6 +155,7 @@ class StructureController extends AbstractController
             $columnsWithIndex,
             $isSystemSchema,
             $request->getRoute(),
+            $tableIsAView,
         ));
     }
 
@@ -175,8 +175,8 @@ class StructureController extends AbstractController
         array $columnsWithIndex,
         bool $isSystemSchema,
         string $route,
+        bool $tableIsAView,
     ): string {
-        $GLOBALS['tbl_is_view'] ??= null;
         $GLOBALS['tbl_storage_engine'] ??= null;
 
         // prepare comments
@@ -201,7 +201,7 @@ class StructureController extends AbstractController
         // Get valid statistics whatever is the table type
         if ($config->settings['ShowStats']) {
             //get table stats in HTML format
-            $tablestats = $this->getTableStats($isSystemSchema);
+            $tablestats = $this->getTableStats($isSystemSchema, $tableIsAView);
             //returning the response in JSON format to be used by Ajax
             $this->response->addJSON('tableStat', $tablestats);
         }
@@ -271,7 +271,7 @@ class StructureController extends AbstractController
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
             'db_is_system_schema' => $isSystemSchema,
-            'tbl_is_view' => $GLOBALS['tbl_is_view'],
+            'tbl_is_view' => $tableIsAView,
             'mime_map' => $mimeMap,
             'tbl_storage_engine' => $GLOBALS['tbl_storage_engine'],
             'primary' => $primaryIndex,
@@ -304,9 +304,8 @@ class StructureController extends AbstractController
     /**
      * Get HTML snippet for display table statistics
      */
-    protected function getTableStats(bool $isSystemSchema): string
+    protected function getTableStats(bool $isSystemSchema, bool $tableIsAView): string
     {
-        $GLOBALS['tbl_is_view'] ??= null;
         $GLOBALS['tbl_storage_engine'] ??= null;
         $GLOBALS['table_info_num_rows'] ??= null;
         $GLOBALS['tbl_collation'] ??= null;
@@ -411,7 +410,7 @@ class StructureController extends AbstractController
             'table' => $GLOBALS['table'],
             'showtable' => $GLOBALS['showtable'],
             'table_info_num_rows' => $GLOBALS['table_info_num_rows'],
-            'tbl_is_view' => $GLOBALS['tbl_is_view'],
+            'tbl_is_view' => $tableIsAView,
             'db_is_system_schema' => $isSystemSchema,
             'tbl_storage_engine' => $GLOBALS['tbl_storage_engine'],
             'table_collation' => $tableCollation,

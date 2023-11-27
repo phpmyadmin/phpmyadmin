@@ -56,7 +56,6 @@ class TableController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['tbl_is_view'] ??= null;
         $GLOBALS['tbl_storage_engine'] ??= null;
         $GLOBALS['tbl_collation'] ??= null;
         $GLOBALS['table_info_num_rows'] ??= null;
@@ -126,11 +125,11 @@ class TableController extends AbstractController
         $rereadInfo = $pmaTable->getStatusInfo();
         $GLOBALS['showtable'] = $pmaTable->getStatusInfo(null, ! empty($rereadInfo));
         if ($pmaTable->isView()) {
-            $GLOBALS['tbl_is_view'] = true;
+            $tableIsAView = true;
             $GLOBALS['tbl_storage_engine'] = __('View');
             $showComment = '';
         } else {
-            $GLOBALS['tbl_is_view'] = false;
+            $tableIsAView = false;
             $GLOBALS['tbl_storage_engine'] = $pmaTable->getStorageEngine();
             $showComment = $pmaTable->getComment();
         }
@@ -332,11 +331,11 @@ class TableController extends AbstractController
             $this->dbi->selectDb($GLOBALS['db']);
             $GLOBALS['showtable'] = $pmaTable->getStatusInfo(null, true);
             if ($pmaTable->isView()) {
-                $GLOBALS['tbl_is_view'] = true;
+                $tableIsAView = true;
                 $GLOBALS['tbl_storage_engine'] = __('View');
                 $showComment = '';
             } else {
-                $GLOBALS['tbl_is_view'] = false;
+                $tableIsAView = false;
                 $GLOBALS['tbl_storage_engine'] = $pmaTable->getStorageEngine();
                 $showComment = $pmaTable->getComment();
             }
@@ -521,7 +520,7 @@ class TableController extends AbstractController
             'has_privileges' => $hasPrivileges,
             'switch_to_new' => $switchToNew,
             'is_system_schema' => $isSystemSchema,
-            'is_view' => $GLOBALS['tbl_is_view'],
+            'is_view' => $tableIsAView,
             'partitions' => $partitions,
             'partitions_choices' => $partitionsChoices,
             'foreigners' => $foreigners,
