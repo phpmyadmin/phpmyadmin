@@ -68,14 +68,12 @@ class StructureController extends AbstractController
         $GLOBALS['showtable'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['tbl_collation'] ??= null;
-        $GLOBALS['table_info_num_rows'] ??= null;
 
         $this->dbi->selectDb($GLOBALS['db']);
         $rereadInfo = $this->tableObj->getStatusInfo(null, true);
         $GLOBALS['showtable'] = $this->tableObj->getStatusInfo(null, ! empty($rereadInfo));
 
         $GLOBALS['tbl_collation'] = $this->tableObj->getCollation();
-        $GLOBALS['table_info_num_rows'] = $this->tableObj->getNumRows();
 
         $this->pageSettings->init('TableStructure');
         $this->response->addHTML($this->pageSettings->getErrorHTML());
@@ -301,7 +299,7 @@ class StructureController extends AbstractController
      */
     protected function getTableStats(bool $isSystemSchema, bool $tableIsAView, string $tableStorageEngine): string
     {
-        $GLOBALS['table_info_num_rows'] ??= null;
+        $tableInfoNunRows = $this->tableObj->getNumRows();
         $GLOBALS['tbl_collation'] ??= null;
 
         if (empty($GLOBALS['showtable'])) {
@@ -363,7 +361,7 @@ class StructureController extends AbstractController
 
         $avgSize = '';
         $avgUnit = '';
-        if ($GLOBALS['table_info_num_rows'] > 0) {
+        if ($tableInfoNunRows > 0) {
             [$avgSize, $avgUnit] = Util::formatByteDown(
                 ($GLOBALS['showtable']['Data_length']
                 + $GLOBALS['showtable']['Index_length'])
@@ -403,7 +401,7 @@ class StructureController extends AbstractController
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
             'showtable' => $GLOBALS['showtable'],
-            'table_info_num_rows' => $GLOBALS['table_info_num_rows'],
+            'table_info_num_rows' => $tableInfoNunRows,
             'tbl_is_view' => $tableIsAView,
             'db_is_system_schema' => $isSystemSchema,
             'tbl_storage_engine' => $tableStorageEngine,

@@ -2421,7 +2421,6 @@
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
       <code><![CDATA[$GLOBALS['reload']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
-      <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
       <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
     </InvalidArrayOffset>
     <MixedArgumentTypeCoercion>
@@ -2439,7 +2438,6 @@
       <code><![CDATA[$GLOBALS['result']]]></code>
       <code><![CDATA[$GLOBALS['showtable']]]></code>
       <code><![CDATA[$GLOBALS['showtable']]]></code>
-      <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
       <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
       <code>$rereadInfo</code>
     </MixedAssignment>
@@ -4149,8 +4147,6 @@
     </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
-      <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
       <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
       <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
     </InvalidArrayOffset>
@@ -4185,8 +4181,6 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['showtable']]]></code>
       <code><![CDATA[$GLOBALS['showtable']]]></code>
-      <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
-      <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
       <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
       <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
       <code>$attributes[$rownum]</code>

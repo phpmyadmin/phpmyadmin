@@ -57,7 +57,6 @@ class TableController extends AbstractController
     {
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['tbl_collation'] ??= null;
-        $GLOBALS['table_info_num_rows'] ??= null;
         $GLOBALS['auto_increment'] ??= null;
         $GLOBALS['reload'] ??= null;
         $GLOBALS['result'] ??= null;
@@ -134,7 +133,6 @@ class TableController extends AbstractController
         }
 
         $GLOBALS['tbl_collation'] = $pmaTable->getCollation();
-        $GLOBALS['table_info_num_rows'] = $pmaTable->getNumRows();
         $GLOBALS['auto_increment'] = $pmaTable->getAutoIncrement();
         $createOptions = $pmaTable->getCreateOptions();
 
@@ -341,7 +339,6 @@ class TableController extends AbstractController
             }
 
             $GLOBALS['tbl_collation'] = $pmaTable->getCollation();
-            $GLOBALS['table_info_num_rows'] = $pmaTable->getNumRows();
             $GLOBALS['auto_increment'] = $pmaTable->getAutoIncrement();
             $createOptions = $pmaTable->getCreateOptions();
         }
