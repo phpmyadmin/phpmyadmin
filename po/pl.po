@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2023-11-27 16:20+0000\n"
+"PO-Revision-Date: 2023-11-27 23:09+0000\n"
 "Last-Translator: Piotr Kasprzyk <ciri@ciri.pl>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-1/pl/"
 ">\n"
@@ -11386,7 +11386,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportSql.php:136
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
-"Dodatkowy komentarz niestandardowych nagłówków (\\\\n"
+"Dodatkowy komentarz niestandardowych nagłówków (\\n"
 " dzieli wiersze):"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:142
