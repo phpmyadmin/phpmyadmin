@@ -2420,7 +2420,6 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
       <code><![CDATA[$GLOBALS['reload']]]></code>
-      <code><![CDATA[$GLOBALS['reread_info']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
       <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
       <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
@@ -2438,14 +2437,13 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
       <code><![CDATA[$GLOBALS['reload']]]></code>
-      <code><![CDATA[$GLOBALS['reread_info']]]></code>
-      <code><![CDATA[$GLOBALS['reread_info']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
       <code><![CDATA[$GLOBALS['showtable']]]></code>
       <code><![CDATA[$GLOBALS['showtable']]]></code>
       <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
       <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
       <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
+      <code>$rereadInfo</code>
     </MixedAssignment>
     <PossiblyUnusedMethod>
       <code>__construct</code>
@@ -4153,7 +4151,6 @@
     </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['reread_info']]]></code>
       <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
       <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
       <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
@@ -4191,8 +4188,6 @@
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['reread_info']]]></code>
-      <code><![CDATA[$GLOBALS['reread_info']]]></code>
       <code><![CDATA[$GLOBALS['showtable']]]></code>
       <code><![CDATA[$GLOBALS['showtable']]]></code>
       <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
@@ -4203,6 +4198,7 @@
       <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
       <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
       <code>$attributes[$rownum]</code>
+      <code>$rereadInfo</code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$GLOBALS['showtable']['Data_length']]]></code>

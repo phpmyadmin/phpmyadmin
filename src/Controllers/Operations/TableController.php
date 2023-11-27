@@ -56,7 +56,6 @@ class TableController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['reread_info'] ??= null;
         $GLOBALS['tbl_is_view'] ??= null;
         $GLOBALS['tbl_storage_engine'] ??= null;
         $GLOBALS['tbl_collation'] ??= null;
@@ -124,11 +123,8 @@ class TableController extends AbstractController
          */
         $this->dbi->selectDb($GLOBALS['db']);
 
-        $GLOBALS['reread_info'] = $pmaTable->getStatusInfo();
-        $GLOBALS['showtable'] = $pmaTable->getStatusInfo(
-            null,
-            (isset($GLOBALS['reread_info']) && $GLOBALS['reread_info']),
-        );
+        $rereadInfo = $pmaTable->getStatusInfo();
+        $GLOBALS['showtable'] = $pmaTable->getStatusInfo(null, ! empty($rereadInfo));
         if ($pmaTable->isView()) {
             $GLOBALS['tbl_is_view'] = true;
             $GLOBALS['tbl_storage_engine'] = __('View');
@@ -158,7 +154,7 @@ class TableController extends AbstractController
         }
 
         $pmaTable = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
-        $GLOBALS['reread_info'] = false;
+        $rereadInfo = false;
 
         /**
          * If the table has to be moved to some other database
@@ -224,7 +220,7 @@ class TableController extends AbstractController
                     $newMessage .= $pmaTable->getLastMessage();
                     $GLOBALS['result'] = true;
                     $GLOBALS['table'] = $pmaTable->getName();
-                    $GLOBALS['reread_info'] = true;
+                    $rereadInfo = true;
                     $GLOBALS['reload'] = true;
                 } else {
                     $newMessage .= $pmaTable->getLastError();
@@ -267,7 +263,7 @@ class TableController extends AbstractController
                 $GLOBALS['sql_query'] .= "\r\n" . implode("\r\n", $tableAlters);
                 $GLOBALS['sql_query'] .= ';';
                 $GLOBALS['result'] = (bool) $this->dbi->query($GLOBALS['sql_query']);
-                $GLOBALS['reread_info'] = true;
+                $rereadInfo = true;
                 $warningMessages = $this->operations->getWarningMessagesArray();
             }
 
@@ -329,7 +325,7 @@ class TableController extends AbstractController
             $GLOBALS['result'] = $this->dbi->query($GLOBALS['sql_query']);
         }
 
-        if ($GLOBALS['reread_info']) {
+        if ($rereadInfo) {
             // to avoid showing the old value (for example the AUTO_INCREMENT) after
             // a change, clear the cache
             $this->dbi->getCache()->clearTableCache();
@@ -350,8 +346,6 @@ class TableController extends AbstractController
             $GLOBALS['auto_increment'] = $pmaTable->getAutoIncrement();
             $createOptions = $pmaTable->getCreateOptions();
         }
-
-        unset($GLOBALS['reread_info']);
 
         if (isset($GLOBALS['result']) && empty($GLOBALS['message_to_show'])) {
             if ($newMessage === '') {

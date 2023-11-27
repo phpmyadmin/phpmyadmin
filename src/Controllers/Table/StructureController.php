@@ -65,7 +65,6 @@ class StructureController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['reread_info'] ??= null;
         $GLOBALS['showtable'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['tbl_is_view'] ??= null;
@@ -74,11 +73,8 @@ class StructureController extends AbstractController
         $GLOBALS['table_info_num_rows'] ??= null;
 
         $this->dbi->selectDb($GLOBALS['db']);
-        $GLOBALS['reread_info'] = $this->tableObj->getStatusInfo(null, true);
-        $GLOBALS['showtable'] = $this->tableObj->getStatusInfo(
-            null,
-            (isset($GLOBALS['reread_info']) && $GLOBALS['reread_info']),
-        );
+        $rereadInfo = $this->tableObj->getStatusInfo(null, true);
+        $GLOBALS['showtable'] = $this->tableObj->getStatusInfo(null, ! empty($rereadInfo));
 
         if ($this->tableObj->isView()) {
             $GLOBALS['tbl_is_view'] = true;
