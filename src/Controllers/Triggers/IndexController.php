@@ -27,7 +27,10 @@ use function htmlspecialchars;
 use function in_array;
 use function mb_strtoupper;
 use function sprintf;
+use function str_repeat;
 use function trim;
+
+use const PHP_EOL;
 
 /**
  * Triggers management.
@@ -274,6 +277,70 @@ final class IndexController extends AbstractController
 
                 return;
             }
+        }
+
+         /**
+         * Export multiple triggers
+         */
+        if ($request->hasBodyParam('export_items')) {
+            $message = '';
+            /** @var array<string> $triggerNames */
+            $triggerNames = $request->getParsedBodyParam('item_names');
+            $triggers = $this->triggers->getTriggersByNames(Current::$database, Current::$table, $triggerNames);
+            foreach ($triggers as $name => $item) {
+                $exportData = $item?->getCreateSql('');
+                if ($exportData !== null) {
+                    $message .= htmlspecialchars(trim($exportData)) . str_repeat(PHP_EOL, 2);
+                    continue;
+                }
+
+                $message .= Message::error(sprintf(
+                    __('Error in processing request: No trigger with name %1$s found in database %2$s.'),
+                    htmlspecialchars(Util::backquote($name)),
+                    htmlspecialchars(Util::backquote(Current::$database)),
+                )) . str_repeat(PHP_EOL, 2);
+            }
+
+            $this->response->addJSON('title', __('Export'));
+            $this->response->addJSON('message', $message);
+
+            return;
+        }
+
+        /**
+         * Drop multiple triggers
+         */
+        if ($request->hasBodyParam('drop_items')) {
+            $errors = '';
+            /** @var array<string> $triggerNames */
+            $triggerNames = $request->getParsedBodyParam('item_names');
+            $triggers = $this->triggers->getTriggersByNames(Current::$database, Current::$table, $triggerNames);
+            foreach ($triggers as $name => $trigger) {
+                if ($trigger !== null) {
+                    $dropSql = $trigger->getDropSql();
+                    $result = $this->dbi->tryQuery($dropSql);
+                    if ($result === false) {
+                        $errors .= $this->dbi->getError() . str_repeat(PHP_EOL, 2);
+                    }
+
+                    continue;
+                }
+
+                $errors .= Message::error(sprintf(
+                    __('Error in processing request: No trigger with name %1$s found in database %2$s.'),
+                    htmlspecialchars(Util::backquote($name)),
+                    htmlspecialchars(Util::backquote(Current::$database)),
+                )) . str_repeat(PHP_EOL, 2);
+            }
+
+            if ($errors !== '') {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', $errors);
+            } else {
+                $this->response->setRequestStatus(true);
+            }
+
+            return;
         }
 
         $triggers = Triggers::getDetails($this->dbi, Current::$database, Current::$table);

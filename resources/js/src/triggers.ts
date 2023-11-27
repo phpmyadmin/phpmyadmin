@@ -75,38 +75,24 @@ const DatabaseTriggers = {
     exportDialog: function ($this) {
         var $msg = ajaxShowMessage();
         if ($this.attr('id') === 'bulkActionExportButton') {
-            var combined = {
-                success: true,
-                title: window.Messages.strExport,
-                message: '',
-                error: ''
-            };
             // export anchors of all selected rows
-            var exportAnchors = $('input.checkall:checked').parents('tr').find('.export_anchor');
-            var count = exportAnchors.length;
-            var returnCount = 0;
-            var p: any = $.when();
+            var exportAnchors = $('input.checkall:checked');
+            var urlForPost = $('#rteListForm').attr('action');
+            var dbName = $('#rteListForm').find('input[name="db"]').val();
+            var tableName = $('#rteListForm').find('input[name="table"]').val();
+            var data = {
+                'item_names': [],
+                'export_items': 1,
+                'ajax_request': true,
+                'db': dbName,
+                'table': tableName
+            };
+
             exportAnchors.each(function () {
-                var h = $(this).attr('href');
-                p = p.then(function () {
-                    return $.get(h, { 'ajax_request': true }, function (data) {
-                        returnCount++;
-                        if (data.success === true) {
-                            combined.message += '\n' + data.message + '\n';
-                            if (returnCount === count) {
-                                showExport(combined);
-                            }
-                        } else {
-                            // complain even if one export is failing
-                            combined.success = false;
-                            combined.error += '\n' + data.error + '\n';
-                            if (returnCount === count) {
-                                showExport(combined);
-                            }
-                        }
-                    });
-                });
+                data.item_names.push($(this).val());
             });
+
+            $.post(urlForPost, data, showExport);
         } else {
             $.get($this.attr('href'), { 'ajax_request': true }, showExport);
         }
@@ -481,81 +467,73 @@ const DatabaseTriggers = {
             var $msg = ajaxShowMessage(window.Messages.strProcessingRequest);
 
             // drop anchors of all selected rows
-            var dropAnchors = $('input.checkall:checked').parents('tr').find('.drop_anchor');
+            var $dropAnchors = $('input.checkall:checked');
             var success = true;
-            var count = dropAnchors.length;
-            var returnCount = 0;
+            var urlForPost = $('#rteListForm').attr('action');
+            var dbName = $('#rteListForm').find('input[name="db"]').val();
+            var tableName = $('#rteListForm').find('input[name="table"]').val();
+            var data = {
+                'item_names': [],
+                'drop_items': 1,
+                'ajax_request': true,
+                'db': dbName,
+                'table': tableName
+            };
+            var $selectedRows = $dropAnchors.parents('tr');
+            $dropAnchors.each(function () {
+                data.item_names.push($(this).val());
+            });
 
-            dropAnchors.each(function () {
-                var $anchor = $(this);
+            $.post(urlForPost, data, function (data) {
+                if (data.success !== true) {
+                    ajaxShowMessage(data.error, false);
+                    success = false;
+
+                    return;
+                }
+
                 /**
-                 * @var $curr_row Object containing reference to the current row
-                 */
-                var $currRow = $anchor.parents('tr');
-                var params = getJsConfirmCommonParam(this, $anchor.getPostData());
-                $.post($anchor.attr('href'), params, function (data) {
-                    returnCount++;
-                    if (data.success !== true) {
-                        ajaxShowMessage(data.error, false);
-                        success = false;
-                        if (returnCount === count) {
-                            Navigation.reload();
-                        }
-
-                        return;
-                    }
-
-                    /**
                      * @var $table Object containing reference
                      *             to the main list of elements
                      */
-                    var $table = $currRow.parent();
-                    // Check how many rows will be left after we remove
-                    // the one that the user has requested us to remove
-                    if ($table.find('tr').length === 3) {
-                        // If there are two rows left, it means that they are
-                        // the header of the table and the rows that we are
-                        // about to remove, so after the removal there will be
-                        // nothing to show in the table, so we hide it.
-                        $table.hide('slow', function () {
-                            $(this).find('tr.even, tr.odd').remove();
-                            $('.withSelected').remove();
-                            $('#nothing2display').show('slow');
+                var $table = $('#triggersTable tbody');
+                var $allRows = $table.children('tr:not(.hide)');
+                if ($selectedRows.length === $allRows.length) {
+                    $table.hide('slow', function () {
+                        $('.withSelected').remove();
+                        $('#nothing2display').show('slow');
+                    });
+                } else {
+                    $selectedRows.hide('fast',function () {
+                        // we will iterate
+                        // through all rows and assign correct classes to them.
+                        /**
+                         * @var ct Count of processed rows
+                         */
+                        var ct = 0;
+                        /**
+                         * @var rowclass Class to be attached to the row
+                         *               that is being processed
+                         */
+                        var rowclass = '';
+                        $table.find('tr').has('td').each(function () {
+                            rowclass = (ct % 2 === 1) ? 'odd' : 'even';
+                            $(this).removeClass().addClass(rowclass);
+                            ct++;
                         });
-                    } else {
-                        $currRow.hide('fast', function () {
-                            // we will iterate
-                            // through all rows and assign correct classes to them.
-                            /**
-                             * @var ct Count of processed rows
-                             */
-                            var ct = 0;
-                            /**
-                             * @var rowclass Class to be attached to the row
-                             *               that is being processed
-                             */
-                            var rowclass = '';
-                            $table.find('tr').has('td').each(function () {
-                                rowclass = (ct % 2 === 1) ? 'odd' : 'even';
-                                $(this).removeClass().addClass(rowclass);
-                                ct++;
-                            });
-                        });
+                    });
 
-                        $currRow.remove();
-                    }
+                    $selectedRows.remove();
+                }
 
-                    if (returnCount === count) {
-                        if (success) {
-                            // Get rid of the "Loading" message
-                            ajaxRemoveMessage($msg);
-                            $('#rteListForm_checkall').prop({ checked: false, indeterminate: false });
-                        }
+                if (success) {
+                    // Get rid of the "Loading" message
+                    ajaxRemoveMessage($msg);
+                    $('#rteListForm_checkall').prop({ checked: false, indeterminate: false });
+                }
 
-                        Navigation.reload();
-                    }
-                }); // end $.post()
-            }); // end drop_anchors.each()
+                Navigation.reload();
+            });// end $.post()
         });
     }
 };

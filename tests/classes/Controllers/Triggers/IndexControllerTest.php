@@ -318,4 +318,228 @@ HTML;
             ],
         ];
     }
+
+    public function testExportTriggers(): void
+    {
+        Current::$database = 'test_db';
+        Current::$table = 'test_table';
+        Config::getInstance()->selectedServer['DisableIS'] = true;
+
+        $dummyDbi = $this->createDbiDummy();
+        $dummyDbi->removeDefaultResults();
+        $dummyDbi->addSelectDb('test_db');
+        $dummyDbi->addResult(
+            "SHOW TRIGGERS FROM `test_db` LIKE 'test_table';",
+            [
+                ['trigger_a', 'INSERT', 'test_table', 'BEGIN END', 'AFTER', 'definer@localhost'],
+                ['trigger_b', 'UPDATE', 'test_table', 'BEGIN END', 'BEFORE', 'definer@localhost'],
+                ['trigger_c', 'UPDATE', 'test_table', 'BEGIN END', 'BEFORE', 'definer@localhost'],
+                ['trigger_d', 'UPDATE', 'test_table', 'BEGIN END', 'BEFORE', 'definer@localhost'],
+            ],
+            ['Trigger', 'Event', 'Table', 'Statement', 'Timing', 'Definer'],
+        );
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        DatabaseInterface::$instance = $dbi;
+        $template = new Template();
+        $response = new ResponseRenderer();
+        $response->setAjax(true);
+
+        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
+        ->withQueryParams(['db' => 'test_db'])
+        ->withParsedBody([
+            'export_items' => 1,
+            'ajax_request' => true,
+            'db' => 'test_db',
+            'table' => 'test_table',
+            'item_names' => ['trigger_a', 'trigger_c'],
+        ]);
+
+        (new IndexController(
+            $response,
+            $template,
+            $dbi,
+            new Triggers($dbi),
+            new DbTableExists($dbi),
+        ))($request);
+
+        $actual = $response->getJSONResult();
+        $expected = [
+            'title' => 'Export',
+            'message' => <<<'SQL'
+            CREATE TRIGGER `trigger_a` AFTER INSERT ON `test_table`
+             FOR EACH ROW BEGIN END
+
+            CREATE TRIGGER `trigger_c` BEFORE UPDATE ON `test_table`
+             FOR EACH ROW BEGIN END
+
+
+            SQL,
+        ];
+
+        self::assertSame($expected, $actual);
+    }
+
+    public function testErrorExportTriggers(): void
+    {
+        Current::$database = 'test_db';
+        Current::$table = 'test_table';
+        Config::getInstance()->selectedServer['DisableIS'] = true;
+
+        $dummyDbi = $this->createDbiDummy();
+        $dummyDbi->removeDefaultResults();
+        $dummyDbi->addSelectDb('test_db');
+        $dummyDbi->addResult(
+            "SHOW TRIGGERS FROM `test_db` LIKE 'test_table';",
+            [
+                ['trigger_a', 'INSERT', 'test_table', 'BEGIN END', 'AFTER', 'definer@localhost'],
+                ['trigger_b', 'UPDATE', 'test_table', 'BEGIN END', 'BEFORE', 'definer@localhost'],
+                ['trigger_c', 'UPDATE', 'test_table', 'BEGIN END', 'BEFORE', 'definer@localhost'],
+                ['trigger_d', 'UPDATE', 'test_table', 'BEGIN END', 'BEFORE', 'definer@localhost'],
+            ],
+            ['Trigger', 'Event', 'Table', 'Statement', 'Timing', 'Definer'],
+        );
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        DatabaseInterface::$instance = $dbi;
+        $template = new Template();
+        $response = new ResponseRenderer();
+        $response->setAjax(true);
+
+        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
+        ->withQueryParams(['db' => 'test_db'])
+        ->withParsedBody([
+            'export_items' => 1,
+            'ajax_request' => true,
+            'db' => 'test_db',
+            'table' => 'test_table',
+            'item_names' => ['trigger_1', 'trigger_2'],
+        ]);
+
+        (new IndexController(
+            $response,
+            $template,
+            $dbi,
+            new Triggers($dbi),
+            new DbTableExists($dbi),
+        ))($request);
+
+        $actual = $response->getJSONResult();
+        $expected = [
+            'title' => 'Export',
+            'message' => <<<'EOD'
+            Error in processing request: No trigger with name `trigger_1` found in database `test_db`.
+
+            Error in processing request: No trigger with name `trigger_2` found in database `test_db`.
+
+
+            EOD,
+        ];
+
+        self::assertSame($expected, $actual);
+    }
+
+    public function testDropTriggers(): void
+    {
+        Current::$database = 'test_db';
+        Current::$table = 'test_table';
+        Config::getInstance()->selectedServer['DisableIS'] = true;
+
+        $dummyDbi = $this->createDbiDummy();
+        $dummyDbi->removeDefaultResults();
+        $dummyDbi->addSelectDb('test_db');
+        $dummyDbi->addResult(
+            "SHOW TRIGGERS FROM `test_db` LIKE 'test_table';",
+            [
+                ['trigger_a', 'INSERT', 'test_table', 'BEGIN END', 'AFTER', 'definer@localhost'],
+                ['trigger_b', 'UPDATE', 'test_table', 'BEGIN END', 'BEFORE', 'definer@localhost'],
+                ['trigger_c', 'UPDATE', 'test_table', 'BEGIN END', 'BEFORE', 'definer@localhost'],
+                ['trigger_d', 'UPDATE', 'test_table', 'BEGIN END', 'BEFORE', 'definer@localhost'],
+            ],
+            ['Trigger', 'Event', 'Table', 'Statement', 'Timing', 'Definer'],
+        );
+        $dummyDbi->addResult('DROP TRIGGER IF EXISTS `trigger_a`', true);
+        $dummyDbi->addResult('DROP TRIGGER IF EXISTS `trigger_c`', true);
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        DatabaseInterface::$instance = $dbi;
+        $template = new Template();
+        $response = new ResponseRenderer();
+        $response->setAjax(true);
+
+        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
+        ->withQueryParams(['db' => 'test_db'])
+        ->withParsedBody([
+            'drop_items' => 1,
+            'ajax_request' => true,
+            'db' => 'test_db',
+            'item_names' => ['trigger_a', 'trigger_c'],
+        ]);
+
+        (new IndexController(
+            $response,
+            $template,
+            $dbi,
+            new Triggers($dbi),
+            new DbTableExists($dbi),
+        ))($request);
+
+        self::assertTrue($response->hasSuccessState());
+    }
+
+    public function testErrorDropTriggers(): void
+    {
+        Current::$database = 'test_db';
+        Current::$table = 'test_table';
+        Config::getInstance()->selectedServer['DisableIS'] = true;
+
+        $dummyDbi = $this->createDbiDummy();
+        $dummyDbi->removeDefaultResults();
+        $dummyDbi->addSelectDb('test_db');
+        $dummyDbi->addResult(
+            "SHOW TRIGGERS FROM `test_db` LIKE 'test_table';",
+            [
+                ['trigger_a', 'INSERT', 'test_table', 'BEGIN END', 'AFTER', 'definer@localhost'],
+                ['trigger_b', 'UPDATE', 'test_table', 'BEGIN END', 'BEFORE', 'definer@localhost'],
+                ['trigger_c', 'UPDATE', 'test_table', 'BEGIN END', 'BEFORE', 'definer@localhost'],
+                ['trigger_d', 'UPDATE', 'test_table', 'BEGIN END', 'BEFORE', 'definer@localhost'],
+            ],
+            ['Trigger', 'Event', 'Table', 'Statement', 'Timing', 'Definer'],
+        );
+        $dummyDbi->addResult('DROP TRIGGER IF EXISTS `trigger_a`', true);
+        $dummyDbi->addResult('DROP TRIGGER IF EXISTS `trigger_c`', true);
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        DatabaseInterface::$instance = $dbi;
+        $template = new Template();
+        $response = new ResponseRenderer();
+        $response->setAjax(true);
+
+        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
+        ->withQueryParams(['db' => 'test_db'])
+        ->withParsedBody([
+            'drop_items' => 1,
+            'ajax_request' => true,
+            'db' => 'test_db',
+            'item_names' => ['trigger_1', 'trigger_2'],
+        ]);
+
+        (new IndexController(
+            $response,
+            $template,
+            $dbi,
+            new Triggers($dbi),
+            new DbTableExists($dbi),
+        ))($request);
+
+        $actual = $response->getJSONResult();
+        $expected = [
+            'message' => <<<'EOD'
+            Error in processing request: No trigger with name `trigger_1` found in database `test_db`.
+
+            Error in processing request: No trigger with name `trigger_2` found in database `test_db`.
+
+
+            EOD,
+        ];
+
+        self::assertFalse($response->hasSuccessState());
+        self::assertSame($expected, $actual);
+    }
 }

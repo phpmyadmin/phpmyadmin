@@ -15,6 +15,7 @@ use Webmozart\Assert\Assert;
 
 use function __;
 use function array_column;
+use function array_key_exists;
 use function array_multisort;
 use function explode;
 use function htmlspecialchars;
@@ -171,6 +172,37 @@ class Triggers
         }
 
         return null;
+    }
+
+    /**
+     * Returns triggers by names
+     *
+     * @param string        $db    current database
+     * @param string        $table current table
+     * @param array<string> $names trigger's names
+     *
+     * @return array<string, Trigger|null>
+     */
+    public function getTriggersByNames(string $db, string $table, array $names): array
+    {
+        $allTriggers = self::getDetails($this->dbi, $db, $table);
+        $allTriggersWithNames = [];
+        $foundTriggers = [];
+
+        foreach ($allTriggers as $trigger) {
+            $name = $trigger->name->getName();
+            $allTriggersWithNames[$name] = $trigger;
+        }
+
+        foreach ($names as $name) {
+            if (array_key_exists($name, $allTriggersWithNames) === true) {
+                $foundTriggers[$name] = $allTriggersWithNames[$name];
+            } else {
+                $foundTriggers[$name] = null;
+            }
+        }
+
+        return $foundTriggers;
     }
 
     /**
