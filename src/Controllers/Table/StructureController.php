@@ -67,13 +67,10 @@ class StructureController extends AbstractController
     {
         $GLOBALS['showtable'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
-        $GLOBALS['tbl_collation'] ??= null;
 
         $this->dbi->selectDb($GLOBALS['db']);
         $rereadInfo = $this->tableObj->getStatusInfo(null, true);
         $GLOBALS['showtable'] = $this->tableObj->getStatusInfo(null, ! empty($rereadInfo));
-
-        $GLOBALS['tbl_collation'] = $this->tableObj->getCollation();
 
         $this->pageSettings->init('TableStructure');
         $this->response->addHTML($this->pageSettings->getErrorHTML());
@@ -300,7 +297,6 @@ class StructureController extends AbstractController
     protected function getTableStats(bool $isSystemSchema, bool $tableIsAView, string $tableStorageEngine): string
     {
         $tableInfoNunRows = $this->tableObj->getNumRows();
-        $GLOBALS['tbl_collation'] ??= null;
 
         if (empty($GLOBALS['showtable'])) {
             $GLOBALS['showtable'] = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table'])->getStatusInfo(null, true);
@@ -379,7 +375,7 @@ class StructureController extends AbstractController
         $collation = Charsets::findCollationByName(
             $this->dbi,
             Config::getInstance()->selectedServer['DisableIS'],
-            $GLOBALS['tbl_collation'],
+            $this->tableObj->getCollation(),
         );
         if ($collation !== null) {
             $tableCollation = ['name' => $collation->getName(), 'description' => $collation->getDescription()];

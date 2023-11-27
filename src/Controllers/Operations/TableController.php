@@ -56,7 +56,6 @@ class TableController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['tbl_collation'] ??= null;
         $GLOBALS['auto_increment'] ??= null;
         $GLOBALS['reload'] ??= null;
         $GLOBALS['result'] ??= null;
@@ -132,7 +131,7 @@ class TableController extends AbstractController
             $showComment = $pmaTable->getComment();
         }
 
-        $GLOBALS['tbl_collation'] = $pmaTable->getCollation();
+        $tableCollation = $pmaTable->getCollation();
         $GLOBALS['auto_increment'] = $pmaTable->getAutoIncrement();
         $createOptions = $pmaTable->getCreateOptions();
 
@@ -250,7 +249,7 @@ class TableController extends AbstractController
                 $newTblStorageEngine,
                 (isset($createOptions['transactional'])
                     && $createOptions['transactional'] == '0' ? '0' : '1'),
-                $GLOBALS['tbl_collation'],
+                $tableCollation,
                 $tableStorageEngine,
             );
 
@@ -338,7 +337,7 @@ class TableController extends AbstractController
                 $showComment = $pmaTable->getComment();
             }
 
-            $GLOBALS['tbl_collation'] = $pmaTable->getCollation();
+            $tableCollation = $pmaTable->getCollation();
             $GLOBALS['auto_increment'] = $pmaTable->getAutoIncrement();
             $createOptions = $pmaTable->getCreateOptions();
         }
@@ -499,7 +498,7 @@ class TableController extends AbstractController
             'storage_engines' => $storageEngines,
             'charsets' => $charsets,
             'collations' => $collations,
-            'tbl_collation' => $GLOBALS['tbl_collation'],
+            'tbl_collation' => $tableCollation,
             'row_formats' => $possibleRowFormats[$tableStorageEngine] ?? [],
             'row_format_current' => $GLOBALS['showtable']['Row_format'],
             'has_auto_increment' => $hasAutoIncrement,

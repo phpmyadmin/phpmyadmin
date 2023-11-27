@@ -2421,7 +2421,6 @@
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
       <code><![CDATA[$GLOBALS['reload']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
     </InvalidArrayOffset>
     <MixedArgumentTypeCoercion>
       <code>$tableAlters</code>
@@ -2438,7 +2437,6 @@
       <code><![CDATA[$GLOBALS['result']]]></code>
       <code><![CDATA[$GLOBALS['showtable']]]></code>
       <code><![CDATA[$GLOBALS['showtable']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
       <code>$rereadInfo</code>
     </MixedAssignment>
     <PossiblyUnusedMethod>
@@ -4147,8 +4145,6 @@
     </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['showtable']['Check_time']]]></code>
@@ -4163,7 +4159,6 @@
       <code><![CDATA[$GLOBALS['showtable']['Data_length'] + $GLOBALS['showtable']['Index_length']]]></code>
       <code><![CDATA[$GLOBALS['showtable']['Index_length']]]></code>
       <code><![CDATA[$GLOBALS['showtable']['Update_time']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
       <code><![CDATA[($GLOBALS['showtable']['Data_length']
                 + $GLOBALS['showtable']['Index_length'])
                 / $GLOBALS['showtable']['Rows']]]></code>
@@ -4181,8 +4176,6 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['showtable']]]></code>
       <code><![CDATA[$GLOBALS['showtable']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
       <code>$attributes[$rownum]</code>
       <code>$rereadInfo</code>
     </MixedAssignment>
@@ -4196,9 +4189,6 @@
       <code><![CDATA[$displayedFields[$rownum]->icon]]></code>
       <code><![CDATA[$displayedFields[$rownum]->icon]]></code>
     </MixedOperand>
-    <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
-    </PossiblyNullArgument>
     <PossiblyNullOperand>
       <code><![CDATA[$GLOBALS['showtable']['Data_length']]]></code>
       <code><![CDATA[$GLOBALS['showtable']['Data_length']]]></code>
