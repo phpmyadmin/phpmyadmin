@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2023-11-11 17:57+0000\n"
-"Last-Translator: johnny1029 <jkste07@gmail.com>\n"
+"PO-Revision-Date: 2023-11-27 16:20+0000\n"
+"Last-Translator: Piotr Kasprzyk <ciri@ciri.pl>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
 ">\n"
 "Language: pl\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.2-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -792,7 +792,7 @@ msgstr "Wątki, które są wolne do uruchomienia"
 
 #: libraries/advisory_rules_generic.php:505
 msgid "There are too many threads that are slow to launch."
-msgstr "Istnieje zbyt wiele wątków, które wolne są do uruchomiania."
+msgstr "Istnieje zbyt wiele wątków, które długo się uruchamiają."
 
 #: libraries/advisory_rules_generic.php:507
 msgid ""
@@ -2905,7 +2905,7 @@ msgstr "Pokaż wykaz serwerów jako listę zamiast listy rozwijanej."
 
 #: libraries/classes/Config/Descriptions.php:562
 msgid "A dropdown will be used if fewer items are present."
-msgstr "Rozwijana będzie używana, jeśli mniej pozycji będzie obecne."
+msgstr "Rozwijana będzie używana, jeśli będzie mniej pozycji."
 
 #: libraries/classes/Config/Descriptions.php:563
 msgid "Default value for foreign key checks checkbox for some queries."
@@ -5579,7 +5579,7 @@ msgstr "Czy na pewno chcesz usunąć wyszukiwanie \"%s\"?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:59
 msgid "You have unsaved changes; are you sure you want to leave this page?"
-msgstr "Masz niezapisane zmiany. Czy na pewno chcesz opuścić tą stronę?"
+msgstr "Masz niezapisane zmiany. Czy na pewno chcesz opuścić tę stronę?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:61
 msgid ""
@@ -6774,7 +6774,7 @@ msgstr "Przenoszenie cię do następnego kroku…"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:411
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr "Pierwszy etap dostosowywania dla tableli '%s' został ukończony."
+msgstr "Pierwszy etap dostosowywania dla tabeli '%s' został ukończony."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:412
 #: libraries/classes/Normalization.php:540
@@ -7171,7 +7171,7 @@ msgstr "Czy chcesz zapisać zmiany na obecnej stronie?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:535
 msgid "Successfully deleted the page"
-msgstr "Usuwanie strony zakończylo się sukcesem"
+msgstr "Usuwanie strony zakończyło się pomyślnie"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:536
 msgid "Export relational schema"
@@ -7936,7 +7936,7 @@ msgstr "Liczba aktualnie brudnych stron."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:320
 msgid "The number of buffer pool pages that have been requested to be flushed."
-msgstr "Liczba stron w puli bufora, których wymiecienia zażądano."
+msgstr "Liczba stron w puli bufora, których wymiecenia zażądano."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:322
 msgid "The number of free pages."
@@ -11006,7 +11006,7 @@ msgstr "Zamiana NULL na:"
 #: libraries/classes/Plugins/Export/ExportCsv.php:83
 #: libraries/classes/Plugins/Export/ExportExcel.php:56
 msgid "Remove carriage return/line feed characters within columns"
-msgstr "Usuń znaki nowej lini z kolumn"
+msgstr "Usuń znaki nowej linii z kolumn"
 
 #: libraries/classes/Plugins/Export/ExportExcel.php:66
 #, fuzzy
@@ -11336,7 +11336,9 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:137
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "Dodatkowe komentarz niestandardowych nagłówków (\\ndzieli wiersze):"
+msgstr ""
+"Dodatkowy komentarz niestandardowych nagłówków (\\\\n"
+" dzieli wiersze):"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:143
 msgid ""
@@ -11480,8 +11482,8 @@ msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
-"Zrzuć znacznik czasu kolumn w UTC <i>(włączenie znacznik czasu kolumn będzie "
-"zrzucone i przeładowane między serwerami w różnych strefach czasowych)</i>"
+"Zrzuć znacznik czasu kolumn w UTC <i>(znacznik czasu kolumn będzie zrzucony "
+"i przeładowany między serwerami w różnych strefach czasowych)</i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:582
 msgid "It appears your database uses routines;"
@@ -17001,7 +17003,7 @@ msgid ""
 "%sCreate%s a database named '%s' and setup the phpMyAdmin configuration "
 "storage there."
 msgstr ""
-"%s Utwórz %s bazę danych o nazwie \"%s\" i skonfiguruj tam magazyn "
+"%sUtwórz%s bazę danych o nazwie \"%s\" i skonfiguruj tam magazyn "
 "konfiguracyjny phpMyAdmin."
 
 #: templates/relation/check_relations.twig:24
@@ -17013,7 +17015,7 @@ msgstr "%sUtwórz%s magazyn konfiguracji phpMyAdmina w bieżącej bazie danych."
 #: templates/relation/check_relations.twig:31
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "%sCreate%s nie zawiera tabel przechowywania konfiguracji phpMyAdmina."
+msgstr "%sUtwórz%s brakujące tabele przechowywania konfiguracji phpMyAdmina."
 
 #: templates/relation/check_relations.twig:42
 #: templates/relation/check_relations.twig:54
