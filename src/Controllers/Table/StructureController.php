@@ -47,7 +47,7 @@ use function strtotime;
  */
 class StructureController extends AbstractController
 {
-    protected Table $tableObj;
+    protected readonly Table $tableObj;
 
     public function __construct(
         ResponseRenderer $response,
@@ -65,31 +65,12 @@ class StructureController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['reread_info'] ??= null;
         $GLOBALS['showtable'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
-        $GLOBALS['tbl_is_view'] ??= null;
-        $GLOBALS['tbl_storage_engine'] ??= null;
-        $GLOBALS['tbl_collation'] ??= null;
-        $GLOBALS['table_info_num_rows'] ??= null;
 
         $this->dbi->selectDb($GLOBALS['db']);
-        $GLOBALS['reread_info'] = $this->tableObj->getStatusInfo(null, true);
-        $GLOBALS['showtable'] = $this->tableObj->getStatusInfo(
-            null,
-            (isset($GLOBALS['reread_info']) && $GLOBALS['reread_info']),
-        );
-
-        if ($this->tableObj->isView()) {
-            $GLOBALS['tbl_is_view'] = true;
-            $GLOBALS['tbl_storage_engine'] = __('View');
-        } else {
-            $GLOBALS['tbl_is_view'] = false;
-            $GLOBALS['tbl_storage_engine'] = $this->tableObj->getStorageEngine();
-        }
-
-        $GLOBALS['tbl_collation'] = $this->tableObj->getCollation();
-        $GLOBALS['table_info_num_rows'] = $this->tableObj->getNumRows();
+        $rereadInfo = $this->tableObj->getStatusInfo(null, true);
+        $GLOBALS['showtable'] = $this->tableObj->getStatusInfo(null, ! empty($rereadInfo));
 
         $this->pageSettings->init('TableStructure');
         $this->response->addHTML($this->pageSettings->getErrorHTML());
@@ -180,8 +161,13 @@ class StructureController extends AbstractController
         bool $isSystemSchema,
         string $route,
     ): string {
-        $GLOBALS['tbl_is_view'] ??= null;
-        $GLOBALS['tbl_storage_engine'] ??= null;
+        if ($this->tableObj->isView()) {
+            $tableIsAView = true;
+            $tableStorageEngine = __('View');
+        } else {
+            $tableIsAView = false;
+            $tableStorageEngine = $this->tableObj->getStorageEngine();
+        }
 
         // prepare comments
         $commentsMap = [];
@@ -205,7 +191,7 @@ class StructureController extends AbstractController
         // Get valid statistics whatever is the table type
         if ($config->settings['ShowStats']) {
             //get table stats in HTML format
-            $tablestats = $this->getTableStats($isSystemSchema);
+            $tablestats = $this->getTableStats($isSystemSchema, $tableIsAView, $tableStorageEngine);
             //returning the response in JSON format to be used by Ajax
             $this->response->addJSON('tableStat', $tablestats);
         }
@@ -275,9 +261,9 @@ class StructureController extends AbstractController
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
             'db_is_system_schema' => $isSystemSchema,
-            'tbl_is_view' => $GLOBALS['tbl_is_view'],
+            'tbl_is_view' => $tableIsAView,
             'mime_map' => $mimeMap,
-            'tbl_storage_engine' => $GLOBALS['tbl_storage_engine'],
+            'tbl_storage_engine' => $tableStorageEngine,
             'primary' => $primaryIndex,
             'columns_with_unique_index' => $columnsWithUniqueIndex,
             'columns_list' => $columnsList,
@@ -308,12 +294,9 @@ class StructureController extends AbstractController
     /**
      * Get HTML snippet for display table statistics
      */
-    protected function getTableStats(bool $isSystemSchema): string
+    protected function getTableStats(bool $isSystemSchema, bool $tableIsAView, string $tableStorageEngine): string
     {
-        $GLOBALS['tbl_is_view'] ??= null;
-        $GLOBALS['tbl_storage_engine'] ??= null;
-        $GLOBALS['table_info_num_rows'] ??= null;
-        $GLOBALS['tbl_collation'] ??= null;
+        $tableInfoNunRows = $this->tableObj->getNumRows();
 
         if (empty($GLOBALS['showtable'])) {
             $GLOBALS['showtable'] = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table'])->getStatusInfo(null, true);
@@ -374,7 +357,7 @@ class StructureController extends AbstractController
 
         $avgSize = '';
         $avgUnit = '';
-        if ($GLOBALS['table_info_num_rows'] > 0) {
+        if ($tableInfoNunRows > 0) {
             [$avgSize, $avgUnit] = Util::formatByteDown(
                 ($GLOBALS['showtable']['Data_length']
                 + $GLOBALS['showtable']['Index_length'])
@@ -392,7 +375,7 @@ class StructureController extends AbstractController
         $collation = Charsets::findCollationByName(
             $this->dbi,
             Config::getInstance()->selectedServer['DisableIS'],
-            $GLOBALS['tbl_collation'],
+            $this->tableObj->getCollation(),
         );
         if ($collation !== null) {
             $tableCollation = ['name' => $collation->getName(), 'description' => $collation->getDescription()];
@@ -414,10 +397,10 @@ class StructureController extends AbstractController
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
             'showtable' => $GLOBALS['showtable'],
-            'table_info_num_rows' => $GLOBALS['table_info_num_rows'],
-            'tbl_is_view' => $GLOBALS['tbl_is_view'],
+            'table_info_num_rows' => $tableInfoNunRows,
+            'tbl_is_view' => $tableIsAView,
             'db_is_system_schema' => $isSystemSchema,
-            'tbl_storage_engine' => $GLOBALS['tbl_storage_engine'],
+            'tbl_storage_engine' => $tableStorageEngine,
             'table_collation' => $tableCollation,
             'is_innodb' => $isInnoDB,
             'mergetable' => $mergetable,

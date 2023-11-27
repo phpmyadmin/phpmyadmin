@@ -4112,7 +4112,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 9
+			count: 10
 			path: src/Controllers/Operations/TableController.php
 
 		-
@@ -4252,11 +4252,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#3 \\$schema of static method PhpMyAdmin\\\\Index\\:\\:getFromTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/TableController.php
-
-		-
-			message: "#^Parameter \\#9 \\$tableCollation of method PhpMyAdmin\\\\Operations\\:\\:getTableAltersArray\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Operations/TableController.php
 
@@ -7542,7 +7537,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 3
+			count: 4
 			path: src/Controllers/Table/StructureController.php
 
 		-
@@ -7673,11 +7668,6 @@ parameters:
 		-
 			message: "#^Parameter \\#2 \\$tableName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
 			count: 4
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#3 \\$name of static method PhpMyAdmin\\\\Charsets\\:\\:findCollationByName\\(\\) expects string, mixed given\\.$#"
-			count: 1
 			path: src/Controllers/Table/StructureController.php
 
 		-
@@ -12832,7 +12822,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function mb_strtolower expects string, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: src/Operations.php
 
 		-

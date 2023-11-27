@@ -56,11 +56,6 @@ class TableController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['reread_info'] ??= null;
-        $GLOBALS['tbl_is_view'] ??= null;
-        $GLOBALS['tbl_storage_engine'] ??= null;
-        $GLOBALS['tbl_collation'] ??= null;
-        $GLOBALS['table_info_num_rows'] ??= null;
         $GLOBALS['auto_increment'] ??= null;
         $GLOBALS['reload'] ??= null;
         $GLOBALS['result'] ??= null;
@@ -124,23 +119,19 @@ class TableController extends AbstractController
          */
         $this->dbi->selectDb($GLOBALS['db']);
 
-        $GLOBALS['reread_info'] = $pmaTable->getStatusInfo();
-        $GLOBALS['showtable'] = $pmaTable->getStatusInfo(
-            null,
-            (isset($GLOBALS['reread_info']) && $GLOBALS['reread_info']),
-        );
+        $rereadInfo = $pmaTable->getStatusInfo();
+        $GLOBALS['showtable'] = $pmaTable->getStatusInfo(null, ! empty($rereadInfo));
         if ($pmaTable->isView()) {
-            $GLOBALS['tbl_is_view'] = true;
-            $GLOBALS['tbl_storage_engine'] = __('View');
+            $tableIsAView = true;
+            $tableStorageEngine = __('View');
             $showComment = '';
         } else {
-            $GLOBALS['tbl_is_view'] = false;
-            $GLOBALS['tbl_storage_engine'] = $pmaTable->getStorageEngine();
+            $tableIsAView = false;
+            $tableStorageEngine = $pmaTable->getStorageEngine();
             $showComment = $pmaTable->getComment();
         }
 
-        $GLOBALS['tbl_collation'] = $pmaTable->getCollation();
-        $GLOBALS['table_info_num_rows'] = $pmaTable->getNumRows();
+        $tableCollation = $pmaTable->getCollation();
         $GLOBALS['auto_increment'] = $pmaTable->getAutoIncrement();
         $createOptions = $pmaTable->getCreateOptions();
 
@@ -158,7 +149,7 @@ class TableController extends AbstractController
         }
 
         $pmaTable = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
-        $GLOBALS['reread_info'] = false;
+        $rereadInfo = false;
 
         /**
          * If the table has to be moved to some other database
@@ -224,7 +215,7 @@ class TableController extends AbstractController
                     $newMessage .= $pmaTable->getLastMessage();
                     $GLOBALS['result'] = true;
                     $GLOBALS['table'] = $pmaTable->getName();
-                    $GLOBALS['reread_info'] = true;
+                    $rereadInfo = true;
                     $GLOBALS['reload'] = true;
                 } else {
                     $newMessage .= $pmaTable->getLastError();
@@ -237,7 +228,7 @@ class TableController extends AbstractController
             $newTblStorageEngine = '';
             if (
                 is_string($newTableStorageEngine) && $newTableStorageEngine !== ''
-                && mb_strtoupper($newTableStorageEngine) !== $GLOBALS['tbl_storage_engine']
+                && mb_strtoupper($newTableStorageEngine) !== $tableStorageEngine
             ) {
                 $newTblStorageEngine = mb_strtoupper($newTableStorageEngine);
 
@@ -258,7 +249,8 @@ class TableController extends AbstractController
                 $newTblStorageEngine,
                 (isset($createOptions['transactional'])
                     && $createOptions['transactional'] == '0' ? '0' : '1'),
-                $GLOBALS['tbl_collation'],
+                $tableCollation,
+                $tableStorageEngine,
             );
 
             if ($tableAlters !== []) {
@@ -267,7 +259,7 @@ class TableController extends AbstractController
                 $GLOBALS['sql_query'] .= "\r\n" . implode("\r\n", $tableAlters);
                 $GLOBALS['sql_query'] .= ';';
                 $GLOBALS['result'] = (bool) $this->dbi->query($GLOBALS['sql_query']);
-                $GLOBALS['reread_info'] = true;
+                $rereadInfo = true;
                 $warningMessages = $this->operations->getWarningMessagesArray();
             }
 
@@ -329,29 +321,26 @@ class TableController extends AbstractController
             $GLOBALS['result'] = $this->dbi->query($GLOBALS['sql_query']);
         }
 
-        if ($GLOBALS['reread_info']) {
+        if ($rereadInfo) {
             // to avoid showing the old value (for example the AUTO_INCREMENT) after
             // a change, clear the cache
             $this->dbi->getCache()->clearTableCache();
             $this->dbi->selectDb($GLOBALS['db']);
             $GLOBALS['showtable'] = $pmaTable->getStatusInfo(null, true);
             if ($pmaTable->isView()) {
-                $GLOBALS['tbl_is_view'] = true;
-                $GLOBALS['tbl_storage_engine'] = __('View');
+                $tableIsAView = true;
+                $tableStorageEngine = __('View');
                 $showComment = '';
             } else {
-                $GLOBALS['tbl_is_view'] = false;
-                $GLOBALS['tbl_storage_engine'] = $pmaTable->getStorageEngine();
+                $tableIsAView = false;
+                $tableStorageEngine = $pmaTable->getStorageEngine();
                 $showComment = $pmaTable->getComment();
             }
 
-            $GLOBALS['tbl_collation'] = $pmaTable->getCollation();
-            $GLOBALS['table_info_num_rows'] = $pmaTable->getNumRows();
+            $tableCollation = $pmaTable->getCollation();
             $GLOBALS['auto_increment'] = $pmaTable->getAutoIncrement();
             $createOptions = $pmaTable->getCreateOptions();
         }
-
-        unset($GLOBALS['reread_info']);
 
         if (isset($GLOBALS['result']) && empty($GLOBALS['message_to_show'])) {
             if ($newMessage === '') {
@@ -420,7 +409,7 @@ class TableController extends AbstractController
         // `ALTER TABLE ORDER BY` does not make sense for InnoDB tables that contain
         // a user-defined clustered index (PRIMARY KEY or NOT NULL UNIQUE index).
         // InnoDB always orders table rows according to such an index if one is present.
-        if ($GLOBALS['tbl_storage_engine'] === 'INNODB') {
+        if ($tableStorageEngine === 'INNODB') {
             $indexes = Index::getFromTable($this->dbi, $GLOBALS['table'], $GLOBALS['db']);
             foreach ($indexes as $name => $idx) {
                 if ($name === 'PRIMARY') {
@@ -505,12 +494,12 @@ class TableController extends AbstractController
             'columns' => $columns,
             'hide_order_table' => $hideOrderTable,
             'table_comment' => $comment,
-            'storage_engine' => $GLOBALS['tbl_storage_engine'],
+            'storage_engine' => $tableStorageEngine,
             'storage_engines' => $storageEngines,
             'charsets' => $charsets,
             'collations' => $collations,
-            'tbl_collation' => $GLOBALS['tbl_collation'],
-            'row_formats' => $possibleRowFormats[$GLOBALS['tbl_storage_engine']] ?? [],
+            'tbl_collation' => $tableCollation,
+            'row_formats' => $possibleRowFormats[$tableStorageEngine] ?? [],
             'row_format_current' => $GLOBALS['showtable']['Row_format'],
             'has_auto_increment' => $hasAutoIncrement,
             'auto_increment' => $GLOBALS['auto_increment'],
@@ -527,7 +516,7 @@ class TableController extends AbstractController
             'has_privileges' => $hasPrivileges,
             'switch_to_new' => $switchToNew,
             'is_system_schema' => $isSystemSchema,
-            'is_view' => $GLOBALS['tbl_is_view'],
+            'is_view' => $tableIsAView,
             'partitions' => $partitions,
             'partitions_choices' => $partitionsChoices,
             'foreigners' => $foreigners,

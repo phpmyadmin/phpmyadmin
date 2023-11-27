@@ -2420,11 +2420,7 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
       <code><![CDATA[$GLOBALS['reload']]]></code>
-      <code><![CDATA[$GLOBALS['reread_info']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
-      <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
     </InvalidArrayOffset>
     <MixedArgumentTypeCoercion>
       <code>$tableAlters</code>
@@ -2438,14 +2434,10 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
       <code><![CDATA[$GLOBALS['reload']]]></code>
-      <code><![CDATA[$GLOBALS['reread_info']]]></code>
-      <code><![CDATA[$GLOBALS['reread_info']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
       <code><![CDATA[$GLOBALS['showtable']]]></code>
       <code><![CDATA[$GLOBALS['showtable']]]></code>
-      <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
+      <code>$rereadInfo</code>
     </MixedAssignment>
     <PossiblyUnusedMethod>
       <code>__construct</code>
@@ -4153,14 +4145,6 @@
     </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['reread_info']]]></code>
-      <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
-      <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['showtable']['Check_time']]]></code>
@@ -4175,7 +4159,6 @@
       <code><![CDATA[$GLOBALS['showtable']['Data_length'] + $GLOBALS['showtable']['Index_length']]]></code>
       <code><![CDATA[$GLOBALS['showtable']['Index_length']]]></code>
       <code><![CDATA[$GLOBALS['showtable']['Update_time']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
       <code><![CDATA[($GLOBALS['showtable']['Data_length']
                 + $GLOBALS['showtable']['Index_length'])
                 / $GLOBALS['showtable']['Rows']]]></code>
@@ -4191,18 +4174,10 @@
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['reread_info']]]></code>
-      <code><![CDATA[$GLOBALS['reread_info']]]></code>
       <code><![CDATA[$GLOBALS['showtable']]]></code>
       <code><![CDATA[$GLOBALS['showtable']]]></code>
-      <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
-      <code><![CDATA[$GLOBALS['table_info_num_rows']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
-      <code><![CDATA[$GLOBALS['tbl_is_view']]]></code>
       <code>$attributes[$rownum]</code>
+      <code>$rereadInfo</code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$GLOBALS['showtable']['Data_length']]]></code>
@@ -4214,9 +4189,6 @@
       <code><![CDATA[$displayedFields[$rownum]->icon]]></code>
       <code><![CDATA[$displayedFields[$rownum]->icon]]></code>
     </MixedOperand>
-    <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
-    </PossiblyNullArgument>
     <PossiblyNullOperand>
       <code><![CDATA[$GLOBALS['showtable']['Data_length']]]></code>
       <code><![CDATA[$GLOBALS['showtable']['Data_length']]]></code>
