@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2023-11-07 15:05+0000\n"
-"Last-Translator: johnny1029 <jkste07@gmail.com>\n"
+"PO-Revision-Date: 2023-11-27 16:20+0000\n"
+"Last-Translator: Piotr Kasprzyk <ciri@ciri.pl>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-1/pl/"
 ">\n"
 "Language: pl\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.2-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -794,7 +794,7 @@ msgstr "Wątki, które są wolne do uruchomienia"
 
 #: libraries/advisory_rules_generic.php:508
 msgid "There are too many threads that are slow to launch."
-msgstr "Istnieje zbyt wiele wątków, które wolne są do uruchomiania."
+msgstr "Istnieje zbyt wiele wątków, które długo się uruchamiają."
 
 #: libraries/advisory_rules_generic.php:510
 msgid ""
@@ -2862,7 +2862,7 @@ msgstr "Pokaż wykaz serwerów jako listę zamiast listy rozwijanej."
 
 #: libraries/classes/Config/Descriptions.php:578
 msgid "A dropdown will be used if fewer items are present."
-msgstr "Rozwijana będzie używana, jeśli mniej pozycji bedzie obecne."
+msgstr "Rozwijana będzie używana, jeśli będzie mniej pozycji."
 
 #: libraries/classes/Config/Descriptions.php:579
 msgid "Default value for foreign key checks checkbox for some queries."
@@ -3244,7 +3244,7 @@ msgstr "Zamień NULL na"
 #: libraries/classes/Config/Descriptions.php:673
 #: libraries/classes/Config/Descriptions.php:679
 msgid "Remove CRLF characters within columns"
-msgstr "Usuń znaki nowej lini z kolumn"
+msgstr "Usuń znaki nowej linii z kolumn"
 
 #: libraries/classes/Config/Descriptions.php:674
 #: libraries/classes/Config/Descriptions.php:807
@@ -5546,7 +5546,7 @@ msgstr "Czy na pewno chcesz usunąć wyszukiwanie \"%s\"?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:54
 msgid "You have unsaved changes; are you sure you want to leave this page?"
-msgstr "Masz niezapisane zmiany. Czy na pewno chcesz opuścić tą stronę?"
+msgstr "Masz niezapisane zmiany. Czy na pewno chcesz opuścić tę stronę?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:56
 msgid ""
@@ -6635,7 +6635,7 @@ msgstr "Przenoszenie cię do następnego kroku…"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:419
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr "Pierwszy etap dostosowywania dla tableli '%s' został ukończony."
+msgstr "Pierwszy etap dostosowywania dla tabeli '%s' został ukończony."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:420
 #: libraries/classes/Normalization.php:557
@@ -7023,7 +7023,7 @@ msgstr "Czy chcesz zapisać zmiany na obecnej stronie?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:547
 msgid "Successfully deleted the page"
-msgstr "Usuwanie strony zakończylo się sukcesem"
+msgstr "Usuwanie strony zakończyło się pomyślnie"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:548
 msgid "Export relational schema"
@@ -7810,7 +7810,7 @@ msgstr "Liczba aktualnie brudnych stron."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:353
 msgid "The number of buffer pool pages that have been requested to be flushed."
-msgstr "Liczba stron w puli bufora, których wymiecienia zażądano."
+msgstr "Liczba stron w puli bufora, których wymiecenia zażądano."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:357
 msgid "The number of free pages."
@@ -10149,7 +10149,7 @@ msgstr "Wstaw jako nowy wiersz"
 
 #: libraries/classes/InsertEdit.php:1898
 msgid "Insert as new row and ignore errors"
-msgstr "Wstaw jko nowy wiersz i ignoruj błędy"
+msgstr "Wstaw jako nowy wiersz i ignoruj błędy"
 
 #: libraries/classes/InsertEdit.php:1901
 msgid "Show insert query"
@@ -11120,7 +11120,7 @@ msgstr "Zamiana NULL na:"
 #: libraries/classes/Plugins/Export/ExportCsv.php:86
 #: libraries/classes/Plugins/Export/ExportExcel.php:53
 msgid "Remove carriage return/line feed characters within columns"
-msgstr "Usuń znaki nowej lini z kolumn"
+msgstr "Usuń znaki nowej linii z kolumn"
 
 #: libraries/classes/Plugins/Export/ExportExcel.php:63
 msgid "Excel edition:"
@@ -11385,7 +11385,9 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:136
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "Dodatkowe komentarz niestandardowych nagłówków (\\ndzieli wiersze):"
+msgstr ""
+"Dodatkowy komentarz niestandardowych nagłówków (\\\\n"
+" dzieli wiersze):"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:142
 msgid ""
@@ -11523,8 +11525,8 @@ msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
-"Zrzuć znacznik czasu kolumn w UTC <i>(włączenie znacznik czasu kolumn bedzie "
-"zrzucone i przełądowane między serwerami w różnych strefach czasowych)</i>"
+"Zrzuć znacznik czasu kolumn w UTC <i>(znacznik czasu kolumn będzie zrzucony "
+"i przeładowany między serwerami w różnych strefach czasowych)</i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:574
 msgid "It appears your database uses routines;"
@@ -12358,7 +12360,7 @@ msgid ""
 "%sCreate%s a database named '%s' and setup the phpMyAdmin configuration "
 "storage there."
 msgstr ""
-"%s Utwórz %s bazę danych o nazwie \"%s\" i skonfiguruj tam magazyn "
+"%sUtwórz%s bazę danych o nazwie \"%s\" i skonfiguruj tam magazyn "
 "konfiguracyjny phpMyAdmin."
 
 #: libraries/classes/Relation.php:2214
@@ -12370,7 +12372,7 @@ msgstr "%sUtwórz%s magazyn konfiguracji phpMyAdmina w bieżącej bazie danych."
 #: libraries/classes/Relation.php:2222
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "%sCreate%s nie zawiera tabel przechowywania konfiguracji phpMyAdmina."
+msgstr "%sUtwórz%s brakujące tabele przechowywania konfiguracji phpMyAdmina."
 
 #: libraries/classes/ReplicationGui.php:449
 msgid ""
@@ -16310,7 +16312,7 @@ msgstr "Wyjście"
 
 #: templates/navigation/main.twig:35 templates/navigation/main.twig:36
 msgid "phpMyAdmin documentation"
-msgstr "Dokumewntacja phpMyAdmina"
+msgstr "Dokumentacja phpMyAdmina"
 
 #: templates/navigation/main.twig:39 templates/navigation/main.twig:40
 msgid "MariaDB Documentation"
