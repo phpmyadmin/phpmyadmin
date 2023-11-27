@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.15.0@5c774aca4746caf3d239d9c8cadb9f882ca29352">
+<files psalm-version="5.16.0@2897ba636551a8cb61601cc26f6ccfbba6c36591">
   <file src="app/services_loader.php">
     <MixedArgument>
       <code>$argumentName</code>
@@ -102,7 +102,6 @@
     </MixedOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['foreign_filter']]]></code>
-      <code><![CDATA[$pos / $this->settings->maxRows]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['rownumber']]]></code>
@@ -3386,9 +3385,6 @@
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
-    <InvalidArgument>
-      <code>$start</code>
-    </InvalidArgument>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
@@ -3401,6 +3397,7 @@
       <code><![CDATA[$_REQUEST['pos']]]></code>
       <code><![CDATA[$_REQUEST['session_max_rows']]]></code>
       <code>$rows</code>
+      <code>$start</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidOperand>
       <code><![CDATA[$_REQUEST['pos']]]></code>
@@ -6533,6 +6530,9 @@
     </RedundantCondition>
   </file>
   <file src="src/Git.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA[$user[4] ?? '+0000']]></code>
+    </ArgumentTypeCoercion>
     <MixedArgument>
       <code>$commit</code>
       <code><![CDATA[$commitJson->message]]></code>
@@ -9287,7 +9287,6 @@
     </MixedReturnStatement>
     <PossiblyInvalidArgument>
       <code>$dbName</code>
-      <code>$sqlStatements</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_REQUEST['csv_new_db_name']]]></code>
@@ -9296,7 +9295,6 @@
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
       <code>$maxLines</code>
-      <code>$maxLinesConstraint++</code>
       <code>1</code>
     </PossiblyInvalidOperand>
     <PossiblyNullArgument>
@@ -9400,14 +9398,8 @@
       <code><![CDATA[! $GLOBALS['finished']]]></code>
       <code><![CDATA[$GLOBALS['finished']]]></code>
     </RedundantCondition>
-    <ReferenceConstraintViolation>
-      <code>$sqlStatements</code>
-    </ReferenceConstraintViolation>
   </file>
   <file src="src/Plugins/Import/ImportOds.php">
-    <InvalidArgument>
-      <code>$sqlStatements</code>
-    </InvalidArgument>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
     </InvalidArrayOffset>
@@ -9493,6 +9485,10 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Plugins/Import/ImportShp.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>DatabaseInterface::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['buffer']]]></code>
       <code><![CDATA[$GLOBALS['eof']]]></code>
@@ -9503,22 +9499,16 @@
       <code><![CDATA[$GLOBALS['buffer']]]></code>
       <code><![CDATA[$GLOBALS['buffer']]]></code>
       <code><![CDATA[$GLOBALS['importHandle']]]></code>
-      <code>$dbfFileName</code>
       <code>$dbfFilePath</code>
       <code>$dbfFilePath</code>
-      <code>$extracted</code>
-      <code>$result</code>
-      <code><![CDATA[$shp->getDBFHeader()]]></code>
+      <code>$gisType</code>
     </MixedArgument>
     <MixedArrayAccess>
       <code>$c[0]</code>
-      <code>$dbfHeader[$n]</code>
       <code>$dbfHeader[$n][0]</code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
-      <code>$analyses[$tableNo][Import::FORMATTEDSQL]</code>
       <code>$analyses[$tableNo][Import::FORMATTEDSQL][$spatialCol]</code>
-      <code>$analyses[$tableNo][Import::TYPES]</code>
       <code>$analyses[$tableNo][Import::TYPES][$spatialCol]</code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
@@ -9529,38 +9519,29 @@
       <code><![CDATA[$GLOBALS['eof']]]></code>
       <code><![CDATA[$GLOBALS['importHandle']]]></code>
       <code><![CDATA[$GLOBALS['local_import_file']]]></code>
-      <code><![CDATA[$GLOBALS['message']]]></code>
-      <code><![CDATA[$GLOBALS['message']]]></code>
-      <code><![CDATA[$GLOBALS['message']]]></code>
-      <code>$analyses[]</code>
       <code>$c</code>
       <code>$colNames[]</code>
-      <code>$config</code>
-      <code>$dbfFileName</code>
-      <code>$dbfFileName</code>
-      <code>$dbfHeader</code>
-      <code>$extracted</code>
-      <code>$result</code>
-      <code>$temp</code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$GLOBALS['buffer']]]></code>
-      <code>$dbfFileName</code>
-      <code>$temp</code>
+      <code><![CDATA[$gisObj->getShape($record->shpData)]]></code>
     </MixedOperand>
-    <MixedPropertyFetch>
-      <code><![CDATA[$config->settings]]></code>
-    </MixedPropertyFetch>
-    <MixedReturnTypeCoercion>
-      <code>$sqlStatements</code>
-      <code>string[]</code>
-    </MixedReturnTypeCoercion>
+    <PossiblyInvalidArrayAssignment>
+      <code>$analyses[$tableNo][Import::FORMATTEDSQL]</code>
+      <code>$analyses[$tableNo][Import::TYPES]</code>
+    </PossiblyInvalidArrayAssignment>
     <PossiblyNullArgument>
       <code><![CDATA[$GLOBALS['buffer']]]></code>
       <code><![CDATA[$GLOBALS['buffer']]]></code>
       <code><![CDATA[$GLOBALS['import_file']]]></code>
       <code><![CDATA[$GLOBALS['import_file']]]></code>
+      <code><![CDATA[$GLOBALS['import_file']]]></code>
+      <code><![CDATA[$GLOBALS['import_file']]]></code>
+      <code><![CDATA[$shp->getDBFHeader()]]></code>
     </PossiblyNullArgument>
+    <PossiblyNullIterator>
+      <code><![CDATA[$shp->getDBFHeader()]]></code>
+    </PossiblyNullIterator>
     <PossiblyUnusedReturnValue>
       <code>string[]</code>
     </PossiblyUnusedReturnValue>
@@ -9745,7 +9726,6 @@
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']][$id]]]></code>
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']][$id]]]></code>
-      <code><![CDATA[$ret['complete']]]></code>
       <code><![CDATA[$ret['complete']]]></code>
       <code><![CDATA[$ret['finished']]]></code>
       <code><![CDATA[$ret['percent']]]></code>
@@ -15365,6 +15345,7 @@
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
+      <code><![CDATA[$GLOBALS['import_notice']]]></code>
     </MixedArgument>
     <RedundantCondition>
       <code>assertFalse</code>
@@ -16011,6 +15992,9 @@
     </MixedArrayAccess>
   </file>
   <file src="test/classes/UtilTest.php">
+    <ArgumentTypeCoercion>
+      <code>$tz</code>
+    </ArgumentTypeCoercion>
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
