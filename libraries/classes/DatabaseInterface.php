@@ -50,6 +50,7 @@ use function openlog;
 use function reset;
 use function sprintf;
 use function str_contains;
+use function str_replace;
 use function str_starts_with;
 use function stripos;
 use function strlen;
@@ -120,6 +121,9 @@ class DatabaseInterface implements DbalInterface
 
     /** @var array Current user and host cache */
     private $currentUser;
+
+    /** @var array Current role and host cache */
+    private $currentRoleAndHost;
 
     /** @var string|null lower_case_table_names value cache */
     private $lowerCaseTableNames = null;
@@ -1707,6 +1711,24 @@ class DatabaseInterface implements DbalInterface
         return '@';
     }
 
+    /**
+     * gets the current role with host. Role maybe multiple separated by comma
+     *
+     * @return array the current roles i.e. array of role@host
+     */
+    public function getCurrentRoles(): array
+    {
+        // role grant can't be cached due to changing roles on runtime with `SET ROLE` command
+        $role = $this->fetchValue('SELECT CURRENT_ROLE();');
+        if ($role !== false) {
+            $role = str_replace('`', '', $role);
+
+            return explode(',', $role);
+        }
+
+        return ['@'];
+    }
+
     public function isSuperUser(): bool
     {
         if (SessionCache::has('is_superuser')) {
@@ -1766,7 +1788,24 @@ class DatabaseInterface implements DbalInterface
             $hasGrantPrivilege = (bool) $result->numRows();
         }
 
-        SessionCache::set('is_grantuser', $hasGrantPrivilege);
+        $roles = ! $hasGrantPrivilege ? $this->getCurrentRolesAndHost() : null;
+        if (! $hasGrantPrivilege && ! empty($roles)) {
+            // role grant can't be cached due to changing roles on runtime with `SET ROLE` command
+            foreach ($roles as [$role, $host]) {
+                $query = QueryGenerator::getInformationSchemaDataForGranteeRequest($role, $host);
+                $result = $this->tryQuery($query);
+
+                if ($result) {
+                    $hasGrantPrivilege = (bool) $result->numRows();
+                }
+
+                if ($hasGrantPrivilege) {
+                    break;
+                }
+            }
+        } else {
+            SessionCache::set('is_grantuser', $hasGrantPrivilege);
+        }
 
         return $hasGrantPrivilege;
     }
@@ -1808,7 +1847,24 @@ class DatabaseInterface implements DbalInterface
             $hasCreatePrivilege = (bool) $result->numRows();
         }
 
-        SessionCache::set('is_createuser', $hasCreatePrivilege);
+        $roles = ! $hasCreatePrivilege ? $this->getCurrentRolesAndHost() : null;
+        if (! $hasCreatePrivilege && ! empty($roles)) {
+            // role grant can't be cached due to changing roles on runtime with `SET ROLE` command
+            foreach ($this->getCurrentRolesAndHost() as [$role, $host]) {
+                $query = QueryGenerator::getInformationSchemaDataForCreateRequest($role, $host);
+                $result = $this->tryQuery($query);
+
+                if ($result) {
+                    $hasCreatePrivilege = (bool) $result->numRows();
+                }
+
+                if ($hasCreatePrivilege) {
+                    break;
+                }
+            }
+        } else {
+            SessionCache::set('is_createuser', $hasCreatePrivilege);
+        }
 
         return $hasCreatePrivilege;
     }
@@ -1836,6 +1892,23 @@ class DatabaseInterface implements DbalInterface
         }
 
         return $this->currentUser;
+    }
+
+    /**
+     * Get the current role and host
+     *
+     * @return array<int, array<int, string>> array of role and hostname
+     */
+    public function getCurrentRolesAndHost(): array
+    {
+        if ($this->currentRoleAndHost === null) {
+            $roles = $this->getCurrentRoles();
+            $this->currentRoleAndHost = array_map(static function (string $role) {
+                return explode('@', $role);
+            }, $roles);
+        }
+
+        return $this->currentRoleAndHost;
     }
 
     /**
