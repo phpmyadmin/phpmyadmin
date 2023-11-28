@@ -46,9 +46,7 @@ final class Polygon extends SplDoublyLinkedList
             $area -= $this[$i]->y * $this[$j]->x;
         }
 
-        $area /= 2.0;
-
-        return $area;
+        return $area / 2.0;
     }
 
     /**

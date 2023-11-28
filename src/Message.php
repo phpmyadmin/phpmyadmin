@@ -122,8 +122,6 @@ class Message implements Stringable
      * @param string $string A localized string
      *                       e.g. __('Your SQL query has been
      *                       executed successfully')
-     *
-     * @return Message
      */
     public static function success(string $string = ''): self
     {
@@ -140,8 +138,6 @@ class Message implements Stringable
      * shorthand for getting a simple error message
      *
      * @param string $string A localized string e.g. __('Error')
-     *
-     * @return Message
      */
     public static function error(string $string = ''): self
     {
@@ -161,8 +157,6 @@ class Message implements Stringable
      *                       e.g. __('The additional features for working with
      *                       linked tables have been deactivated. To find out
      *                       why click %shere%s.')
-     *
-     * @return Message
      */
     public static function notice(string $string): self
     {
@@ -177,8 +171,6 @@ class Message implements Stringable
      * @param string $message A localized string
      * @param int    $type    A numeric representation of the type of message
      * @psalm-param self::SUCCESS|self::NOTICE|self::ERROR $type
-     *
-     * @return Message
      */
     public static function raw(string $message, int $type = self::NOTICE): self
     {
@@ -195,8 +187,6 @@ class Message implements Stringable
      * shorthand for getting a customized message
      *
      * @param int $rows Number of rows
-     *
-     * @return Message
      */
     public static function getMessageForAffectedRows(int $rows): self
     {
@@ -214,8 +204,6 @@ class Message implements Stringable
      * shorthand for getting a customized message
      *
      * @param int $rows Number of rows
-     *
-     * @return Message
      */
     public static function getMessageForDeletedRows(int $rows): self
     {
@@ -233,8 +221,6 @@ class Message implements Stringable
      * shorthand for getting a customized message
      *
      * @param int $rows Number of rows
-     *
-     * @return Message
      */
     public static function getMessageForInsertedRows(int $rows): self
     {
@@ -252,8 +238,6 @@ class Message implements Stringable
      * shorthand for getting a customized error message
      *
      * @param string $message A localized string
-     *
-     * @return Message
      */
     public static function rawError(string $message): self
     {
@@ -266,8 +250,6 @@ class Message implements Stringable
      * shorthand for getting a customized notice message
      *
      * @param string $message A localized string
-     *
-     * @return Message
      */
     public static function rawNotice(string $message): self
     {
@@ -280,8 +262,6 @@ class Message implements Stringable
      * shorthand for getting a customized success message
      *
      * @param string $message A localized string
-     *
-     * @return Message
      */
     public static function rawSuccess(string $message): self
     {

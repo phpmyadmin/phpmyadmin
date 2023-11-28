@@ -4483,9 +4483,6 @@
     <PossiblyUnusedParam>
       <code>$array</code>
     </PossiblyUnusedParam>
-    <RedundantCast>
-      <code>(string) gmdate(DATE_RFC1123)</code>
-    </RedundantCast>
     <UnsupportedReferenceUsage>
       <code><![CDATA[$path[$depth] =& $path[$depth - 1][$key]]]></code>
     </UnsupportedReferenceUsage>
@@ -14592,9 +14589,6 @@
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
     </PropertyTypeCoercion>
-    <RedundantCast>
-      <code>(string) gmdate(DATE_RFC1123)</code>
-    </RedundantCast>
   </file>
   <file src="test/classes/Html/GeneratorTest.php">
     <DeprecatedMethod>

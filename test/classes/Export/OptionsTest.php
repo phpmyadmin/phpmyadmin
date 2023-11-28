@@ -84,8 +84,6 @@ class OptionsTest extends AbstractTestCase
 
         $exportList = Plugins::getExport($exportType, true);
         $dropdown = Plugins::getChoice($exportList, 'sql');
-
-        $config = $config;
         $config->selectedServer['host'] = 'localhost';
         $config->selectedServer['user'] = 'pma_user';
         $_POST['filename_template'] = 'user value for test';

@@ -29,8 +29,6 @@ final class Charset
     /**
      * @param string[] $state State obtained from the database server
      * @psalm-param array{Charset?:string, Description?:string, 'Default collation'?:string, Maxlen?:string} $state
-     *
-     * @return Charset
      */
     public static function fromServer(array $state): self
     {
