@@ -66,4 +66,4 @@ jobs:
         run: pip install 'Sphinx'
 
       - name: Build the release
-        run: ./scripts/create-release.sh --ci
+        run: ./bin/internal/create-release.sh --ci

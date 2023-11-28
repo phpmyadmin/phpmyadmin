@@ -4,7 +4,7 @@ on:
   pull_request:
     paths:
       - '.github/workflows/daily-snapshots.yml'
-      - 'scripts/**'
+      - 'bin/**'
   workflow_dispatch:
   schedule:
     - cron: '0 0 * * *'
@@ -60,9 +60,20 @@ jobs:
         run: pip install 'Sphinx'
 
       - name: Build the release
+        if: matrix.branch == 'master'
+        run: ./bin/internal/create-release.sh --daily ${{ matrix.version }}+snapshot ${{ matrix.branch }}
+
+      - name: Build the release
+        if: matrix.branch != 'master'
         run: ./scripts/create-release.sh --daily ${{ matrix.version }}+snapshot ${{ matrix.branch }}
 
       - name: Check release excludes
+        if: matrix.branch == 'master'
+        run: ./bin/internal/check-release-excludes.sh release/phpMyAdmin-${{ matrix.version }}+snapshot-all-languages.tar.gz
+        continue-on-error: true
+
+      - name: Check release excludes
+        if: matrix.branch != 'master'
         run: ./scripts/check-release-excludes.sh release/phpMyAdmin-${{ matrix.version }}+snapshot-all-languages.tar.gz
         continue-on-error: true
 

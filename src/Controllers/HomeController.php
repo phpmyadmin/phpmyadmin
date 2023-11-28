@@ -410,7 +410,7 @@ class HomeController extends AbstractController
         /**
          * Warning about incomplete translations.
          *
-         * The data file is created while creating release by ./scripts/remove-incomplete-mo
+         * The data file is created while creating release by ./bin/remove-incomplete-mo
          */
         if (! @file_exists(ROOT_PATH . 'app/language_stats.inc.php')) {
             return;

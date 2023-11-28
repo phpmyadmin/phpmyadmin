@@ -91,7 +91,7 @@ jobs:
         run: sudo apt-get install -y gettext
 
       - name: Generate mo files
-        run: ./scripts/generate-mo --quiet
+        run: ./bin/generate-mo --quiet
 
       - name: Set up PHP ${{ env.php-version }}
         uses: shivammathur/setup-php@v2

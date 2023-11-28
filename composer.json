@@ -142,7 +142,7 @@
             "@php phpstan analyse --generate-baseline",
             "@php psalm --set-baseline=psalm-baseline.xml"
         ],
-        "twig-lint": "@php scripts/console lint:twig --ansi --show-deprecations"
+        "twig-lint": "@php bin/console lint:twig --ansi --show-deprecations"
     },
     "config":{
         "sort-packages": true,
