@@ -1231,7 +1231,92 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
+			message: "#^Offset 'central_columns' on \\*NEVER\\* on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: src/ConfigStorage/Relation.php
+
+		-
+			message: "#^Offset 'column_info' on \\*NEVER\\* on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: src/ConfigStorage/Relation.php
+
+		-
+			message: "#^Offset 'designer_settings' on \\*NEVER\\* on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: src/ConfigStorage/Relation.php
+
+		-
+			message: "#^Offset 'export_templates' on \\*NEVER\\* on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: src/ConfigStorage/Relation.php
+
+		-
+			message: "#^Offset 'favorite' on \\*NEVER\\* on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: src/ConfigStorage/Relation.php
+
+		-
+			message: "#^Offset 'history' on \\*NEVER\\* on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: src/ConfigStorage/Relation.php
+
+		-
+			message: "#^Offset 'navigationhiding' on \\*NEVER\\* on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: src/ConfigStorage/Relation.php
+
+		-
+			message: "#^Offset 'pdf_pages' on \\*NEVER\\* on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: src/ConfigStorage/Relation.php
+
+		-
+			message: "#^Offset 'recent' on \\*NEVER\\* on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: src/ConfigStorage/Relation.php
+
+		-
 			message: "#^Offset 'relation' on array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\} on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: src/ConfigStorage/Relation.php
+
+		-
+			message: "#^Offset 'savedsearches' on \\*NEVER\\* on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: src/ConfigStorage/Relation.php
+
+		-
+			message: "#^Offset 'table_coords' on \\*NEVER\\* on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: src/ConfigStorage/Relation.php
+
+		-
+			message: "#^Offset 'table_info' on \\*NEVER\\* on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: src/ConfigStorage/Relation.php
+
+		-
+			message: "#^Offset 'table_uiprefs' on \\*NEVER\\* on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: src/ConfigStorage/Relation.php
+
+		-
+			message: "#^Offset 'tracking' on \\*NEVER\\* on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: src/ConfigStorage/Relation.php
+
+		-
+			message: "#^Offset 'userconfig' on \\*NEVER\\* on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: src/ConfigStorage/Relation.php
+
+		-
+			message: "#^Offset 'usergroups' on \\*NEVER\\* on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: src/ConfigStorage/Relation.php
+
+		-
+			message: "#^Offset 'users' on \\*NEVER\\* on left side of \\?\\? always exists and is not nullable\\.$#"
 			count: 1
 			path: src/ConfigStorage/Relation.php
 
@@ -12856,17 +12941,27 @@ parameters:
 			path: src/ParseAnalyze.php
 
 		-
+			message: "#^Offset 'select_tables' does not exist on array\\{distinct\\?\\: bool, drop_database\\?\\: bool, group\\?\\: bool, having\\?\\: bool, is_affected\\?\\: bool, is_analyse\\?\\: bool, is_count\\?\\: bool, is_delete\\?\\: bool, \\.\\.\\.\\}\\.$#"
+			count: 1
+			path: src/ParseAnalyze.php
+
+		-
 			message: "#^Offset 'select_tables' on array\\{distinct\\?\\: bool, drop_database\\?\\: bool, group\\?\\: bool, having\\?\\: bool, is_affected\\?\\: bool, is_analyse\\?\\: bool, is_count\\?\\: bool, is_delete\\?\\: bool, \\.\\.\\.\\} in empty\\(\\) does not exist\\.$#"
 			count: 1
 			path: src/ParseAnalyze.php
 
 		-
-			message: "#^Parameter \\#1 \\$info of static method PhpMyAdmin\\\\StatementInfo\\:\\:fromArray\\(\\) expects array\\{distinct\\: bool, drop_database\\: bool, group\\: bool, having\\: bool, is_affected\\: bool, is_analyse\\: bool, is_count\\: bool, is_delete\\: bool, \\.\\.\\.\\}, array\\{distinct\\?\\: bool, drop_database\\?\\: bool, group\\?\\: bool, having\\?\\: bool, is_affected\\?\\: bool, is_analyse\\?\\: bool, is_count\\?\\: bool, is_delete\\?\\: bool, \\.\\.\\.\\} given\\.$#"
+			message: "#^Offset 'select_tables' on array\\{distinct\\?\\: bool, drop_database\\?\\: bool, group\\?\\: bool, having\\?\\: bool, is_affected\\?\\: bool, is_analyse\\?\\: bool, is_count\\?\\: bool, is_delete\\?\\: bool, \\.\\.\\.\\} in isset\\(\\) does not exist\\.$#"
 			count: 1
 			path: src/ParseAnalyze.php
 
 		-
-			message: "#^Parameter \\#1 \\$string1 of function strcasecmp expects string, mixed given\\.$#"
+			message: "#^Offset 'select_tables' on array\\{distinct\\?\\: bool, drop_database\\?\\: bool, group\\?\\: bool, having\\?\\: bool, is_affected\\?\\: bool, is_analyse\\?\\: bool, is_count\\?\\: bool, is_delete\\?\\: bool, \\.\\.\\.\\} on left side of \\?\\? does not exist\\.$#"
+			count: 1
+			path: src/ParseAnalyze.php
+
+		-
+			message: "#^Parameter \\#1 \\$info of static method PhpMyAdmin\\\\StatementInfo\\:\\:fromArray\\(\\) expects array\\{distinct\\: bool, drop_database\\: bool, group\\: bool, having\\: bool, is_affected\\: bool, is_analyse\\: bool, is_count\\: bool, is_delete\\: bool, \\.\\.\\.\\}, array\\{distinct\\?\\: bool, drop_database\\?\\: bool, group\\?\\: bool, having\\?\\: bool, is_affected\\?\\: bool, is_analyse\\?\\: bool, is_count\\?\\: bool, is_delete\\?\\: bool, \\.\\.\\.\\} given\\.$#"
 			count: 1
 			path: src/ParseAnalyze.php
 
