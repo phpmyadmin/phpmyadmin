@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2023-11-20 21:01+0000\n"
+"PO-Revision-Date: 2023-11-28 18:47+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ru/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.2\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -4882,11 +4882,11 @@ msgid ""
 "to an ISP where thousands of users, including you, are connected to."
 msgstr ""
 "Данный %sпараметр%s должен быть отключен, так как позволяет атакующему "
-"совершать перебор учетных данных к любому серверу MySQL. При необходимости "
+"совершать перебор учётных данных к любому серверу MySQL. При необходимости "
 "активации данного параметра, используйте %sсписок доверенных логинов для "
 "MySQL сервера%s или %sсписок доверенных прокси%s. Однако, защита по IP через "
-"доверенные прокси может быть ненадежной, если ваш IP не является выделенным "
-"и кроме вас принадлежит тысячам пользователей того же Интернет Провайдера."
+"доверенные прокси может быть ненадёжной, если ваш IP не является выделенным "
+"и кроме вас принадлежит тысячам пользователей того же провайдера Интернета."
 
 #: libraries/classes/Config/ServerConfigChecks.php:97
 msgid ""
@@ -6125,7 +6125,7 @@ msgid ""
 "database administrator."
 msgstr ""
 "Вы не можете изменить значения данных переменных. Пожалуйста, войдите под "
-"учетной записью root или свяжитесь с администратором базы данных."
+"учётной записью root или свяжитесь с администратором базы данных."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:237
 msgid "Change settings"
@@ -6445,7 +6445,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:343
 msgid "No accounts selected."
-msgstr "Не выбрано учетных записей."
+msgstr "Нет выбранных учётных записей."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:344
 msgid "Dropping column"
@@ -10421,7 +10421,7 @@ msgstr "Центральные столбцы"
 
 #: libraries/classes/Menu.php:553
 msgid "User accounts"
-msgstr "Учетные записи пользователей"
+msgstr "Учётные записи пользователей"
 
 #: libraries/classes/Menu.php:588 libraries/classes/Server/Status/Data.php:152
 #: libraries/classes/Util.php:2482 templates/server/binlog/index.twig:3
@@ -12754,7 +12754,7 @@ msgstr "Разрешает изменение и удаление хранимы
 #: templates/server/privileges/privileges_table.twig:686
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
-"Разрешает создание, удаление и переименование учетных записей пользователей."
+"Разрешает создание, удаление и переименование учётных записей пользователей."
 
 #: libraries/classes/Server/Privileges.php:490
 #: templates/server/privileges/privileges_table.twig:456
@@ -12873,9 +12873,9 @@ msgid ""
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
-"Имеется учетная запись пользователя, позволяющая любому пользователю "
+"Имеется учётная запись пользователя, позволяющая любому пользователю "
 "подключиться к локальному хосту. Это предотвратит подключение других "
-"пользователей, если хост-часть их учетной записи разрешает соединение с "
+"пользователей, если хост-часть их учётной записи разрешает соединение с "
 "любым (%) хостом."
 
 #: libraries/classes/Server/Privileges.php:3175
@@ -13778,7 +13778,7 @@ msgstr "AM"
 #: libraries/classes/Util.php:884
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
-msgstr "%s дней, %s часов, %s минут и %s секунд"
+msgstr "%s дн, %s ч, %s мин и %s с"
 
 #: libraries/classes/Util.php:920
 msgid "Missing parameter:"
@@ -15030,7 +15030,7 @@ msgstr "Новый"
 #: templates/server/privileges/users_overview.twig:124
 #: templates/table/privileges/index.twig:140
 msgid "Add user account"
-msgstr "Добавить учетную запись пользователя"
+msgstr "Добавить учётную запись пользователя"
 
 #: templates/database/qbe/index.twig:16
 #, php-format
@@ -16564,13 +16564,14 @@ msgstr "Следующие Composer-пакеты отсутствуют:"
 #: templates/preferences/two_factor/main.twig:20
 msgid "Two-factor authentication is available and configured for this account."
 msgstr ""
-"Двухфакторная авторизация доступна и активирована для этой учетной записи."
+"Двухфакторная аутентификация доступна и настроена для этой учётной записи."
 
 #: templates/preferences/two_factor/main.twig:22
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
 msgstr ""
-"Двухфакторная авторизация доступна, но не настроена для этой учетной записи."
+"Двухфакторная аутентификация доступна, но не настроена для этой учётной "
+"записи."
 
 #: templates/preferences/two_factor/main.twig:26
 msgid ""
@@ -16771,7 +16772,7 @@ msgstr "удалено"
 
 #: templates/server/privileges/add_user.twig:12
 msgid "Database for user account"
-msgstr "База данных для учетных записей пользователей"
+msgstr "База данных для учётных записей пользователей"
 
 #: templates/server/privileges/add_user.twig:15
 msgid "Create database with same name and grant all privileges."
@@ -16840,7 +16841,7 @@ msgstr "Редактирование привилегий:"
 #: templates/server/privileges/edit_routine_privileges.twig:5
 #: templates/server/privileges/user_properties.twig:5
 msgid "User account"
-msgstr "Учетная запись пользователя"
+msgstr "Учётная запись пользователя"
 
 #: templates/server/privileges/edit_routine_privileges.twig:34
 #: templates/server/privileges/user_properties.twig:53
@@ -17137,7 +17138,7 @@ msgstr "Требуется наличие действительного сер�
 #: templates/server/privileges/subnav.twig:5
 #: templates/server/privileges/user_overview.twig:5
 msgid "User accounts overview"
-msgstr "Обзор учетных записей пользователей"
+msgstr "Обзор учётных записей пользователей"
 
 #: templates/server/privileges/subnav.twig:11
 #: templates/server/user_groups/user_groups.twig:1
@@ -17153,11 +17154,11 @@ msgstr "Выбранный пользователь не найден в таб�
 #: templates/server/privileges/user_properties.twig:107
 msgid "Change login information / Copy user account"
 msgstr ""
-"Изменить регистрационные данные / Копировать учетную запись пользователя"
+"Изменить регистрационные данные / Копировать учётную запись пользователя"
 
 #: templates/server/privileges/user_properties.twig:114
 msgid "Create a new user account with the same privileges and …"
-msgstr "Создать новую учетную запись пользователя с такими же привилегиями и …"
+msgstr "Создать новую учётную запись пользователя с такими же привилегиями и…"
 
 #: templates/server/privileges/user_properties.twig:120
 msgid "… keep the old one."
@@ -17181,7 +17182,7 @@ msgstr ""
 
 #: templates/server/privileges/users_overview.twig:131
 msgid "Remove selected user accounts"
-msgstr "Удалить выбранные учетные записи пользователей"
+msgstr "Удалить выбранные учётные записи пользователей"
 
 #: templates/server/privileges/users_overview.twig:133
 msgid "Revoke all active privileges from the users and delete them afterwards."
