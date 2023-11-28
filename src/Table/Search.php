@@ -195,11 +195,7 @@ final class Search
 
             //Don't explode if this is already an array
             //(Case for (NOT) IN/BETWEEN.)
-            if (is_array($criteriaValues)) {
-                $values = $criteriaValues;
-            } else {
-                $values = explode(',', $criteriaValues);
-            }
+            $values = is_array($criteriaValues) ? $criteriaValues : explode(',', $criteriaValues);
 
             // quote values one by one
             $emptyKey = false;

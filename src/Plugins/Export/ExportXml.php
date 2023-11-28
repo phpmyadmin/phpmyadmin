@@ -199,11 +199,7 @@ class ExportXml extends ExportPlugin
             || isset($GLOBALS['xml_export_views']);
         $exportData = isset($GLOBALS['xml_export_contents']);
 
-        if ($GLOBALS['output_charset_conversion']) {
-            $charset = $GLOBALS['charset'];
-        } else {
-            $charset = 'utf-8';
-        }
+        $charset = $GLOBALS['output_charset_conversion'] ? $GLOBALS['charset'] : 'utf-8';
 
         $config = Config::getInstance();
         $head = '<?xml version="1.0" encoding="' . $charset . '"?>' . "\n"
@@ -269,11 +265,7 @@ class ExportXml extends ExportPlugin
                 $isView = $dbi->getTable($GLOBALS['db'], $table)
                     ->isView();
 
-                if ($isView) {
-                    $type = 'view';
-                } else {
-                    $type = 'table';
-                }
+                $type = $isView ? 'view' : 'table';
 
                 if ($isView && ! isset($GLOBALS['xml_export_views'])) {
                     continue;

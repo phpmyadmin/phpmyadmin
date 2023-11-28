@@ -447,6 +447,7 @@
       <code>$_POST[$key]</code>
       <code>$_POST[$key]</code>
       <code>$_POST[$key]</code>
+      <code>$_POST[$key]</code>
     </MixedArrayOffset>
     <MixedAssignment>
       <code>$canonicalPath</code>
@@ -4714,7 +4715,6 @@
       <code><![CDATA[$row['col_attribute']]]></code>
       <code><![CDATA[$row['col_attribute']]]></code>
       <code><![CDATA[$row['col_attribute']]]></code>
-      <code><![CDATA[$row['col_extra']]]></code>
       <code><![CDATA[$row['col_extra']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
@@ -10709,17 +10709,11 @@
     <MixedAssignment>
       <code>$colCollation</code>
       <code>$colType</code>
-      <code>$columnInfo</code>
-      <code>$tableInfo</code>
     </MixedAssignment>
     <MixedReturnTypeCoercion>
       <code>$eachTables</code>
       <code>mixed[][]</code>
     </MixedReturnTypeCoercion>
-    <UnusedForeachValue>
-      <code>$columnInfo</code>
-      <code>$tableInfo</code>
-    </UnusedForeachValue>
   </file>
   <file src="src/Query/Utilities.php">
     <DeprecatedMethod>
@@ -14805,6 +14799,9 @@
       <code>$result</code>
       <code>$result</code>
     </MixedAssignment>
+    <PossiblyInvalidCast>
+      <code>$value</code>
+    </PossiblyInvalidCast>
     <PossiblyUnusedMethod>
       <code>dataProviderConfigValueInsertRows</code>
       <code>providerForTestGetSpecialCharsForInsertingMode</code>

@@ -93,11 +93,7 @@ final class MysqliResult implements ResultInterface
      */
     public function fetchValue(int|string $field = 0): string|false|null
     {
-        if (is_string($field)) {
-            $row = $this->fetchAssoc();
-        } else {
-            $row = $this->fetchRow();
-        }
+        $row = is_string($field) ? $this->fetchAssoc() : $this->fetchRow();
 
         if (! array_key_exists($field, $row)) {
             return false;

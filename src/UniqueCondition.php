@@ -16,9 +16,9 @@ use function trim;
 class UniqueCondition
 {
     private string $whereClause;
-    private bool $clauseIsUnique;
+    private bool $clauseIsUnique = true;
     /** @var array<string, string> */
-    private array $conditionArray;
+    private array $conditionArray = [];
 
     /**
      * Function to generate unique condition for specified row.
@@ -129,9 +129,6 @@ class UniqueCondition
         // Correction University of Virginia 19991216:
         // prefer primary or unique keys for condition,
         // but use conjunction of all values if no primary key
-        $this->clauseIsUnique = true;
-
-        $this->conditionArray = [];
         if ($primaryKey !== '') {
             $preferredCondition = $primaryKey;
             $this->conditionArray = $primaryKeyArray;

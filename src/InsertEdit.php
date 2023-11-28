@@ -346,11 +346,7 @@ class InsertEdit
     ): string {
         $foreigner = $this->relation->searchColumnInForeigners($foreigners, $column->field);
         if (mb_strstr($column->trueType, 'enum')) {
-            if (mb_strlen($column->type) > 20) {
-                $nullifyCode = '1';
-            } else {
-                $nullifyCode = '2';
-            }
+            $nullifyCode = mb_strlen($column->type) > 20 ? '1' : '2';
         } elseif (mb_strstr($column->trueType, 'set')) {
             $nullifyCode = '3';
         } elseif ($foreigner && $foreignData['foreign_link'] == false) {
@@ -891,11 +887,7 @@ class InsertEdit
             if (! preg_match('@^[a-z_]+\.php$@', $GLOBALS['goto'])) {
                 // this should NOT happen
                 //$GLOBALS['goto'] = false;
-                if ($GLOBALS['goto'] === 'index.php?route=/sql') {
-                    $gotoInclude = '/sql';
-                } else {
-                    $gotoInclude = false;
-                }
+                $gotoInclude = $GLOBALS['goto'] === 'index.php?route=/sql' ? '/sql' : false;
             } else {
                 $gotoInclude = $GLOBALS['goto'];
             }
@@ -906,11 +898,7 @@ class InsertEdit
         }
 
         if (! $gotoInclude) {
-            if ($GLOBALS['table'] === '') {
-                $gotoInclude = '/database/sql';
-            } else {
-                $gotoInclude = '/table/sql';
-            }
+            $gotoInclude = $GLOBALS['table'] === '' ? '/database/sql' : '/table/sql';
         }
 
         return $gotoInclude;

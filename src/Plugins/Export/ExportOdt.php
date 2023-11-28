@@ -717,7 +717,7 @@ class ExportOdt extends ExportPlugin
 
         $definition .= '<table:table-cell office:value-type="string">'
             . '<text:p>'
-            . (! $column->isNull ? __('No') : __('Yes'))
+            . ($column->isNull ? __('Yes') : __('No'))
             . '</text:p>'
             . '</table:table-cell>';
         $definition .= '<table:table-cell office:value-type="string">'

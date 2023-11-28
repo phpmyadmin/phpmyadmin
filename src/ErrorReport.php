@@ -176,11 +176,7 @@ class ErrorReport
 
         // get script name
         preg_match('<([a-zA-Z\-_\d\.]*\.php|js\/[a-zA-Z\-_\d\/\.]*\.js)$>', $components['path'] ?? '', $matches);
-        if (count($matches) < 2) {
-            $scriptName = 'index.php';
-        } else {
-            $scriptName = $matches[1];
-        }
+        $scriptName = count($matches) < 2 ? 'index.php' : $matches[1];
 
         // remove deployment specific details to make uri more generic
         if (isset($components['query'])) {

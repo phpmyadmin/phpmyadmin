@@ -692,7 +692,7 @@ class PdfRelationSchema extends ExportRelationSchema
                     $fieldName,
                     $type,
                     $attribute,
-                    ! $row->isNull ? __('No') : __('Yes'),
+                    $row->isNull ? __('Yes') : __('No'),
                     $row->default ?? ($row->isNull ? 'NULL' : ''),
                     $row->extra,
                     $linksTo,

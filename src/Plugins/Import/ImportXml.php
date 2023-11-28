@@ -291,19 +291,12 @@ class ImportXml extends ImportPlugin
         unset($xml, $tempCells, $rows);
 
         /**
-         * Only build SQL from data if there is data present
+         * Only build SQL from data if there is data present.
+         * Set values to NULL if they were not present
+         * to maintain Import::buildSql() call integrity
          */
-        if ($dataPresent) {
-            /**
-             * Set values to NULL if they were not present
-             * to maintain Import::buildSql() call integrity
-             */
-            if (! isset($analyses)) {
-                $analyses = null;
-                if (! $structPresent) {
-                    $create = null;
-                }
-            }
+        if ($dataPresent && $analyses === null && ! $structPresent) {
+            $create = null;
         }
 
         /* Set database name to the currently selected one, if applicable */

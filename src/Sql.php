@@ -361,8 +361,7 @@ class Sql
         return (isset($statementInfo->parser)
             && $statementInfo->parser->errors === [])
             && ($_SESSION['tmpval']['max_rows'] !== 'all')
-            && ! ($statementInfo->isExport
-            || $statementInfo->isAnalyse)
+            && (! $statementInfo->isExport && ! $statementInfo->isAnalyse)
             && ($statementInfo->selectFrom
                 || $statementInfo->isSubquery)
             && ! $statementInfo->limit;

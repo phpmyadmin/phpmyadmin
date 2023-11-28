@@ -426,7 +426,7 @@ class NavigationTree
         /** @var NodeTable|null $table */
         $table = $container->getChild($path[0], true);
         if ($table === null) {
-            if (! $db->getPresence('tables', $path[0])) {
+            if ($db->getPresence('tables', $path[0]) === 0) {
                 return false;
             }
 
@@ -1047,7 +1047,7 @@ class NavigationTree
                 $args = [];
                 $parents = $node->parents(true);
                 foreach ($parents as $parent) {
-                    if (! isset($parent->urlParamName)) {
+                    if ($parent->urlParamName === null) {
                         continue;
                     }
 

@@ -164,11 +164,7 @@ class Language
         }
 
         /* Text direction for language */
-        if ($this->isRTL()) {
-            $GLOBALS['text_dir'] = 'rtl';
-        } else {
-            $GLOBALS['text_dir'] = 'ltr';
-        }
+        $GLOBALS['text_dir'] = $this->isRTL() ? 'rtl' : 'ltr';
 
         /* TCPDF */
         $GLOBALS['l'] = [];

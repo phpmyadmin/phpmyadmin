@@ -3016,11 +3016,6 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, string given\\.$#"
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
 			message: "#^PHPDoc tag @var for variable \\$aliasesParam has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Controllers/Export/ExportController.php
@@ -3617,7 +3612,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 3
+			count: 2
 			path: src/Controllers/Import/SimulateDmlController.php
 
 		-
@@ -8517,7 +8512,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'col_extra' on mixed\\.$#"
-			count: 4
+			count: 3
 			path: src/Database/CentralColumns.php
 
 		-
@@ -9436,7 +9431,7 @@ parameters:
 			path: src/DatabaseInterface.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, bool\\|string given\\.$#"
+			message: "#^Only booleans are allowed in a ternary operator condition, bool\\|string given\\.$#"
 			count: 1
 			path: src/DatabaseInterface.php
 
@@ -11112,7 +11107,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 17
+			count: 16
 			path: src/Html/Generator.php
 
 		-
@@ -12286,11 +12281,6 @@ parameters:
 			path: src/Navigation/NavigationTree.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, int given\\.$#"
-			count: 1
-			path: src/Navigation/NavigationTree.php
-
-		-
 			message: "#^Only numeric types are allowed in \\+, int\\|false given on the left side\\.$#"
 			count: 1
 			path: src/Navigation/NavigationTree.php
@@ -12912,7 +12902,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 3
+			count: 2
 			path: src/Partitioning/Partition.php
 
 		-
@@ -12922,11 +12912,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Partitioning\\\\Partition\\:\\:havePartitioning\\(\\) should return bool but returns mixed\\.$#"
-			count: 1
-			path: src/Partitioning/Partition.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, array given\\.$#"
 			count: 1
 			path: src/Partitioning/Partition.php
 
@@ -13189,11 +13174,6 @@ parameters:
 			message: "#^Strict comparison using \\=\\=\\= between \\(class\\-string\\<PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\>&literal\\-string\\)\\|null and 'PhpMyAdmin\\\\\\\\Properties\\\\\\\\Options\\\\\\\\Items\\\\\\\\TextPropertyItem' will always evaluate to false\\.$#"
 			count: 1
 			path: src/Plugins.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, string given\\.$#"
-			count: 1
-			path: src/Plugins/Auth/AuthenticationConfig.php
 
 		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
@@ -20346,12 +20326,12 @@ parameters:
 			path: test/classes/InsertEditTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\InsertEditTest\\:\\:parseString\\(\\) should return string but returns mixed\\.$#"
+			message: "#^Cannot cast bool\\|float\\|int\\|object to string\\.$#"
 			count: 1
 			path: test/classes/InsertEditTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$value of function strval expects bool\\|float\\|int\\|resource\\|string\\|null, bool\\|float\\|int\\|object given\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\InsertEditTest\\:\\:parseString\\(\\) should return string but returns mixed\\.$#"
 			count: 1
 			path: test/classes/InsertEditTest.php
 

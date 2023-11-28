@@ -216,11 +216,7 @@ class Git
         $firstbyte = intval(substr($hash, 0, 2), 16);
         // array is indexed from 1 and we need to get
         // previous entry for start
-        if ($firstbyte == 0) {
-            $start = 0;
-        } else {
-            $start = $fanout[$firstbyte];
-        }
+        $start = $firstbyte == 0 ? 0 : $fanout[$firstbyte];
 
         $end = $fanout[$firstbyte + 1];
 

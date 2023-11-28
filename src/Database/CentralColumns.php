@@ -227,7 +227,7 @@ class CentralColumns
         $length = $extractedColumnSpec['spec_in_brackets'];
 
         $collation = $def->collation ?? '';
-        $isNull = ! $def->isNull ? '0' : '1';
+        $isNull = $def->isNull ? '1' : '0';
         $extra = $def->extra;
         $default = $def->default ?? '';
 
@@ -764,11 +764,7 @@ class CentralColumns
                 $row['col_attribute'] = '';
             }
 
-            if (in_array('auto_increment', $vals)) {
-                $row['col_extra'] = 'auto_increment';
-            } else {
-                $row['col_extra'] = '';
-            }
+            $row['col_extra'] = in_array('auto_increment', $vals) ? 'auto_increment' : '';
         }
     }
 

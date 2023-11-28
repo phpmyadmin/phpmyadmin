@@ -523,14 +523,12 @@ class StructureController extends AbstractController
     protected function getTrackingIcon(string $table, TrackedTable|null $trackedTable): string
     {
         $trackingIcon = '';
-        if (Tracker::isActive()) {
-            if ($trackedTable !== null) {
-                $trackingIcon = $this->template->render('database/structure/tracking_icon', [
-                    'db' => $GLOBALS['db'],
-                    'table' => $table,
-                    'is_tracked' => $trackedTable->active,
-                ]);
-            }
+        if (Tracker::isActive() && $trackedTable !== null) {
+            $trackingIcon = $this->template->render('database/structure/tracking_icon', [
+                'db' => $GLOBALS['db'],
+                'table' => $table,
+                'is_tracked' => $trackedTable->active,
+            ]);
         }
 
         return $trackingIcon;

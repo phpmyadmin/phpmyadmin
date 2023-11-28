@@ -557,7 +557,7 @@ class ExportTexytext extends ExportPlugin
 
         $definition = '|' . $fmtPre . htmlspecialchars($colAlias) . $fmtPost;
         $definition .= '|' . htmlspecialchars($type);
-        $definition .= '|' . (! $column->isNull ? __('No') : __('Yes'));
+        $definition .= '|' . ($column->isNull ? __('Yes') : __('No'));
         $definition .= '|' . htmlspecialchars($column->default ?? ($column->isNull ? 'NULL' : ''));
 
         return $definition;

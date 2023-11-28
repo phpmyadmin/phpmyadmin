@@ -459,11 +459,7 @@ final class ColumnsDefinition
 
         switch ($default) {
             case null:
-                if ($isNull) {
-                    $metaDefault['DefaultType'] = 'NULL';
-                } else {
-                    $metaDefault['DefaultType'] = 'NONE';
-                }
+                $metaDefault['DefaultType'] = $isNull ? 'NULL' : 'NONE';
 
                 break;
             case 'CURRENT_TIMESTAMP':

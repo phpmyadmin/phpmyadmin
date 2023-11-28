@@ -72,11 +72,7 @@ final class SetVariableController extends AbstractController
             );
             [$formattedValue, $isHtmlFormatted] = $this->formatVariable($variableName, $varValue[1]);
 
-            if ($isHtmlFormatted === false) {
-                $json['variable'] = htmlspecialchars($formattedValue);
-            } else {
-                $json['variable'] = $formattedValue;
-            }
+            $json['variable'] = $isHtmlFormatted === false ? htmlspecialchars($formattedValue) : $formattedValue;
         } else {
             $this->response->setRequestStatus(false);
             $json['error'] = __('Setting variable failed');

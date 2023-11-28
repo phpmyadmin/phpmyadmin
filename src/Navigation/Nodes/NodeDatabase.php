@@ -91,11 +91,7 @@ class NodeDatabase extends Node
      */
     private function getTableOrViewCount(string $which, string $searchClause): int
     {
-        if ($which === 'tables') {
-            $condition = 'IN';
-        } else {
-            $condition = 'NOT IN';
-        }
+        $condition = $which === 'tables' ? 'IN' : 'NOT IN';
 
         $dbi = DatabaseInterface::getInstance();
         if (! Config::getInstance()->selectedServer['DisableIS']) {
@@ -336,11 +332,7 @@ class NodeDatabase extends Node
      */
     private function getTablesOrViews(string $which, int $pos, string $searchClause): array
     {
-        if ($which === 'tables') {
-            $condition = 'IN';
-        } else {
-            $condition = 'NOT IN';
-        }
+        $condition = $which === 'tables' ? 'IN' : 'NOT IN';
 
         $config = Config::getInstance();
         $maxItems = $config->settings['MaxNavigationItems'];
@@ -570,19 +562,17 @@ class NodeDatabase extends Node
     public function getHtmlForControlButtons(NavigationItemsHidingFeature|null $navigationItemsHidingFeature): string
     {
         $ret = '';
-        if ($navigationItemsHidingFeature !== null) {
-            if ($this->hiddenCount > 0) {
-                $params = ['showUnhideDialog' => true, 'dbName' => $this->realName];
-                $ret = '<span class="dbItemControls">'
-                    . '<a href="' . Url::getFromRoute('/navigation') . '" data-post="'
-                    . Url::getCommon($params, '', false) . '"'
-                    . ' class="showUnhide ajax">'
-                    . Generator::getImage(
-                        'show',
-                        __('Show hidden items'),
-                    )
-                    . '</a></span>';
-            }
+        if ($navigationItemsHidingFeature !== null && $this->hiddenCount > 0) {
+            $params = ['showUnhideDialog' => true, 'dbName' => $this->realName];
+            $ret = '<span class="dbItemControls">'
+                . '<a href="' . Url::getFromRoute('/navigation') . '" data-post="'
+                . Url::getCommon($params, '', false) . '"'
+                . ' class="showUnhide ajax">'
+                . Generator::getImage(
+                    'show',
+                    __('Show hidden items'),
+                )
+                . '</a></span>';
         }
 
         return $ret;
