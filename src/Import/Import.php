@@ -505,7 +505,7 @@ class Import
             // and subtract 64 to get corresponding decimal value
             // ASCII value of "A" is 65, "B" is 66, etc.
             // Decimal equivalent of "A" is 1, "B" is 2, etc.
-            $number = (int) (mb_ord($name[$charPos]) - 64);
+            $number = mb_ord($name[$charPos]) - 64;
 
             // base26 to base10 conversion : multiply each number
             // with corresponding value of the position, in this case

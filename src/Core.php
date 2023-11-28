@@ -252,7 +252,7 @@ class Core
     public static function getNoCacheHeaders(): array
     {
         $headers = [];
-        $date = (string) gmdate(DATE_RFC1123);
+        $date = gmdate(DATE_RFC1123);
 
         // rfc2616 - Section 14.21
         $headers['Expires'] = $date;

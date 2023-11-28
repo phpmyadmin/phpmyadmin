@@ -315,7 +315,6 @@ final class ImportController extends AbstractController
         // Bookmark Support: get a query back from bookmark if required
         $idBookmark = (int) $request->getParsedBodyParam('id_bookmark');
         $actionBookmark = (int) $request->getParsedBodyParam('action_bookmark');
-        $config = $config;
         if ($idBookmark !== 0) {
             switch ($actionBookmark) {
                 case 0: // bookmarked query that have to be run

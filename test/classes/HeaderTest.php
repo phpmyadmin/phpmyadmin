@@ -159,7 +159,7 @@ class HeaderTest extends AbstractTestCase
         string $expectedWebKitCsp,
     ): void {
         $header = $this->getNewHeaderInstance();
-        $date = (string) gmdate(DATE_RFC1123);
+        $date = gmdate(DATE_RFC1123);
 
         $config = Config::getInstance();
         $config->settings['AllowThirdPartyFraming'] = $frameOptions;

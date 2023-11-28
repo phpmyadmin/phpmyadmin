@@ -386,11 +386,6 @@ parameters:
 			path: src/Config.php
 
 		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 1
-			path: src/Config.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 8
 			path: src/Config.php
@@ -8281,11 +8276,6 @@ parameters:
 			path: src/Core.php
 
 		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 1
-			path: src/Core.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 3
 			path: src/Core.php
@@ -11402,7 +11392,7 @@ parameters:
 
 		-
 			message: "#^Casting to int something that's already int\\.$#"
-			count: 2
+			count: 1
 			path: src/Import/Import.php
 
 		-
@@ -20254,11 +20244,6 @@ parameters:
 			message: "#^Cannot access offset 3 on mixed\\.$#"
 			count: 1
 			path: test/classes/Gis/GisPolygonTest.php
-
-		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 1
-			path: test/classes/HeaderTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
