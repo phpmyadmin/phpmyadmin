@@ -826,7 +826,7 @@ class Import
         }
 
         if (
-            $cell == (string) (float) $cell
+            $cell === (string) (float) $cell
             && str_contains($cell, '.')
             && mb_substr_count($cell, '.') === 1
         ) {
@@ -1036,7 +1036,7 @@ class Import
             ];
 
             /* TODO: Do more checking here to make sure they really are matched */
-            if (count($tables) != count($analyses)) {
+            if (count($tables) !== count($analyses)) {
                 ResponseRenderer::getInstance()->callExit();
             }
 

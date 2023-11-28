@@ -81,11 +81,7 @@ class VersionInformation
     public function versionToInt(string $version): int
     {
         $parts = explode('-', $version);
-        if (count($parts) > 1) {
-            $suffix = $parts[1];
-        } else {
-            $suffix = '';
-        }
+        $suffix = count($parts) > 1 ? $parts[1] : '';
 
         $parts = explode('.', $parts[0]);
 

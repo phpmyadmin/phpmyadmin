@@ -34,7 +34,6 @@ use function mb_substr;
 use function md5;
 use function password_verify;
 use function sprintf;
-use function strval;
 
 use const MYSQLI_PRI_KEY_FLAG;
 use const MYSQLI_TYPE_DECIMAL;
@@ -2717,7 +2716,7 @@ class InsertEditTest extends AbstractTestCase
         }
 
         if (is_object($value) || is_scalar($value)) {
-            return strval($value);
+            return (string) $value;
         }
 
         return '';

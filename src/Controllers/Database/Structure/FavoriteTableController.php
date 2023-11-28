@@ -54,11 +54,7 @@ final class FavoriteTableController extends AbstractController
         $favoriteInstance = RecentFavoriteTable::getInstance('favorite');
 
         $favoriteTables = $request->getParam('favoriteTables');
-        if ($favoriteTables !== null) {
-            $favoriteTables = json_decode($favoriteTables, true);
-        } else {
-            $favoriteTables = [];
-        }
+        $favoriteTables = $favoriteTables !== null ? json_decode($favoriteTables, true) : [];
 
         // Required to keep each user's preferences separate.
         $user = sha1($config->selectedServer['user']);

@@ -50,11 +50,7 @@ abstract class AbstractController
     {
         $foundError = false;
         $errorMessage = '';
-        if ($request) {
-            $array = $_REQUEST;
-        } else {
-            $array = $GLOBALS;
-        }
+        $array = $request ? $_REQUEST : $GLOBALS;
 
         foreach ($params as $param) {
             if (isset($array[$param]) && $array[$param] !== '') {

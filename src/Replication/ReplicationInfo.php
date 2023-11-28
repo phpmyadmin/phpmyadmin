@@ -127,7 +127,7 @@ final class ReplicationInfo
      *
      * @return mixed[]
      */
-    private static function fill(array $status, string $key): array
+    private function fill(array $status, string $key): array
     {
         if (empty($status[0][$key])) {
             return [];
@@ -148,8 +148,8 @@ final class ReplicationInfo
             return;
         }
 
-        $this->primaryInfo['Do_DB'] = self::fill($this->primaryStatus, 'Binlog_Do_DB');
-        $this->primaryInfo['Ignore_DB'] = self::fill($this->primaryStatus, 'Binlog_Ignore_DB');
+        $this->primaryInfo['Do_DB'] = $this->fill($this->primaryStatus, 'Binlog_Do_DB');
+        $this->primaryInfo['Ignore_DB'] = $this->fill($this->primaryStatus, 'Binlog_Ignore_DB');
     }
 
     /** @return mixed[] */
@@ -170,12 +170,12 @@ final class ReplicationInfo
             return;
         }
 
-        $this->replicaInfo['Do_DB'] = self::fill($this->replicaStatus, 'Replicate_Do_DB');
-        $this->replicaInfo['Ignore_DB'] = self::fill($this->replicaStatus, 'Replicate_Ignore_DB');
-        $this->replicaInfo['Do_Table'] = self::fill($this->replicaStatus, 'Replicate_Do_Table');
-        $this->replicaInfo['Ignore_Table'] = self::fill($this->replicaStatus, 'Replicate_Ignore_Table');
-        $this->replicaInfo['Wild_Do_Table'] = self::fill($this->replicaStatus, 'Replicate_Wild_Do_Table');
-        $this->replicaInfo['Wild_Ignore_Table'] = self::fill($this->replicaStatus, 'Replicate_Wild_Ignore_Table');
+        $this->replicaInfo['Do_DB'] = $this->fill($this->replicaStatus, 'Replicate_Do_DB');
+        $this->replicaInfo['Ignore_DB'] = $this->fill($this->replicaStatus, 'Replicate_Ignore_DB');
+        $this->replicaInfo['Do_Table'] = $this->fill($this->replicaStatus, 'Replicate_Do_Table');
+        $this->replicaInfo['Ignore_Table'] = $this->fill($this->replicaStatus, 'Replicate_Ignore_Table');
+        $this->replicaInfo['Wild_Do_Table'] = $this->fill($this->replicaStatus, 'Replicate_Wild_Do_Table');
+        $this->replicaInfo['Wild_Ignore_Table'] = $this->fill($this->replicaStatus, 'Replicate_Wild_Ignore_Table');
     }
 
     /** @return mixed[] */

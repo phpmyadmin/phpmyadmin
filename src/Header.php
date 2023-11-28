@@ -58,7 +58,7 @@ class Header
     /**
      * Whether to show the warnings
      */
-    private bool $warningsEnabled;
+    private bool $warningsEnabled = true;
     /**
      * Whether we are servicing an ajax request.
      */
@@ -71,7 +71,7 @@ class Header
      * Whether the HTTP headers (and possibly some HTML)
      * have already been sent to the browser
      */
-    private bool $headerIsSent;
+    private bool $headerIsSent = false;
 
     private UserPreferences $userPreferences;
 
@@ -86,11 +86,8 @@ class Header
         $this->console = $console;
         $this->menuEnabled = $dbi->isConnected();
         $this->menu = new Menu($dbi, $this->template, $GLOBALS['db'] ?? '', $GLOBALS['table'] ?? '');
-
-        $this->warningsEnabled = true;
         $this->scripts = new Scripts($this->template);
         $this->addDefaultScripts();
-        $this->headerIsSent = false;
 
         $this->userPreferences = new UserPreferences($dbi, new Relation($dbi), $this->template);
     }

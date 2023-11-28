@@ -323,12 +323,10 @@ final class Transformations
      */
     private function setHex(array $transformations): array
     {
-        if (isset($transformations['Hex']) && is_array($transformations['Hex'])) {
-            if (isset($transformations['Hex'][0])) {
-                $length = (int) $transformations['Hex'][0];
-                if ($length >= 0) {
-                    return [$length];
-                }
+        if (isset($transformations['Hex']) && is_array($transformations['Hex']) && isset($transformations['Hex'][0])) {
+            $length = (int) $transformations['Hex'][0];
+            if ($length >= 0) {
+                return [$length];
             }
         }
 

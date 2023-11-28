@@ -109,11 +109,7 @@ class ErrorReportController extends AbstractController
                 $msg .= ' ' . __('You may want to refresh the page.');
 
                 /* Create message object */
-                if ($success) {
-                    $msg = Message::notice($msg);
-                } else {
-                    $msg = Message::error($msg);
-                }
+                $msg = $success ? Message::notice($msg) : Message::error($msg);
 
                 /* Add message to response */
                 if ($request->isAjax()) {

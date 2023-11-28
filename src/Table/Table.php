@@ -1221,11 +1221,7 @@ class Table implements Stringable
             $dbi->selectDb($sourceDb);
 
             $sourceTableObj = new Table($sourceTable, $sourceDb, $dbi);
-            if ($sourceTableObj->isView()) {
-                $sqlDropQuery = 'DROP VIEW';
-            } else {
-                $sqlDropQuery = 'DROP TABLE';
-            }
+            $sqlDropQuery = $sourceTableObj->isView() ? 'DROP VIEW' : 'DROP TABLE';
 
             $sqlDropQuery .= ' ' . $source;
             $dbi->query($sqlDropQuery);
@@ -1470,11 +1466,7 @@ class Table implements Stringable
                 continue;
             }
 
-            if ($fullName) {
-                $possibleColumn = $this->getFullName($backquoted) . '.';
-            } else {
-                $possibleColumn = '';
-            }
+            $possibleColumn = $fullName ? $this->getFullName($backquoted) . '.' : '';
 
             if ($backquoted) {
                 $possibleColumn .= Util::backquote($index[0]);

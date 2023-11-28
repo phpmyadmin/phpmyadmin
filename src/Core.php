@@ -86,11 +86,7 @@ class Core
 
         $lang = 'en';
         if (isset($GLOBALS['lang']) && in_array($GLOBALS['lang'], $phpDocLanguages)) {
-            if ($GLOBALS['lang'] === 'zh_CN') {
-                $lang = 'zh';
-            } else {
-                $lang = $GLOBALS['lang'];
-            }
+            $lang = $GLOBALS['lang'] === 'zh_CN' ? 'zh' : $GLOBALS['lang'];
         }
 
         return self::linkURL('https://www.php.net/manual/' . $lang . '/' . $target);

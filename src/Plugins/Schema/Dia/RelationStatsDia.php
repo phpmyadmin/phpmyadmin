@@ -106,10 +106,11 @@ class RelationStatsDia
         ++DiaRelationSchema::$objectId;
         // if source connection points and destination connection points are same then
         // don't draw that relation
-        if ($this->srcConnPointsRight == $this->destConnPointsRight) {
-            if ($this->srcConnPointsLeft == $this->destConnPointsLeft) {
-                return;
-            }
+        if (
+            $this->srcConnPointsRight == $this->destConnPointsRight
+            && $this->srcConnPointsLeft == $this->destConnPointsLeft
+        ) {
+            return;
         }
 
         if ($showColor) {

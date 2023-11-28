@@ -38,7 +38,7 @@ final class SimulateDmlController extends AbstractController
         $sqlData = [];
         $queries = explode($sqlDelimiter, $GLOBALS['sql_query']);
         foreach ($queries as $sqlQuery) {
-            if (empty($sqlQuery)) {
+            if ($sqlQuery === '') {
                 continue;
             }
 

@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Query;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Util;
 
+use function array_keys;
 use function in_array;
 use function is_string;
 use function strlen;
@@ -26,7 +27,7 @@ class Compatibility
      */
     public static function getISCompatForGetTablesFull(array $eachTables, string $eachDatabase): array
     {
-        foreach ($eachTables as $tableName => $tableInfo) {
+        foreach (array_keys($eachTables) as $tableName) {
             if (! isset($eachTables[$tableName]['Type']) && isset($eachTables[$tableName]['Engine'])) {
                 // pma BC, same parts of PMA still uses 'Type'
                 $eachTables[$tableName]['Type'] =& $eachTables[$tableName]['Engine'];
@@ -83,7 +84,7 @@ class Compatibility
     public static function getISCompatForGetColumnsFull(array $columns, string $database, string $table): array
     {
         $ordinalPosition = 1;
-        foreach ($columns as $columnName => $columnInfo) {
+        foreach (array_keys($columns) as $columnName) {
             // Compatibility with INFORMATION_SCHEMA output
             $columns[$columnName]['COLUMN_NAME'] =& $columns[$columnName]['Field'];
             $columns[$columnName]['COLUMN_TYPE'] =& $columns[$columnName]['Type'];

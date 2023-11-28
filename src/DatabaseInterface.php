@@ -964,11 +964,7 @@ class DatabaseInterface implements DbalInterface
                     continue;
                 }
 
-                if ($index->isUnique()) {
-                    $fields[$field]['Key'] = 'UNI';
-                } else {
-                    $fields[$field]['Key'] = 'MUL';
-                }
+                $fields[$field]['Key'] = $index->isUnique() ? 'UNI' : 'MUL';
             }
         }
 

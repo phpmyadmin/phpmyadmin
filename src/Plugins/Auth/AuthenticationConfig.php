@@ -73,7 +73,7 @@ class AuthenticationConfig extends AuthenticationPlugin
         parent::showFailure($failure);
 
         $connError = DatabaseInterface::getInstance()->getError();
-        if (! $connError) {
+        if ($connError === '' || $connError === '0') {
             $connError = __('Cannot connect: invalid settings.');
         }
 

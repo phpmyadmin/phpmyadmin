@@ -603,7 +603,7 @@ class ExportHtmlword extends ExportPlugin
             . htmlspecialchars($colAlias) . $fmtPost . '</td>';
         $definition .= '<td class="print">' . htmlspecialchars($type) . '</td>';
         $definition .= '<td class="print">'
-            . (! $column->isNull ? __('No') : __('Yes'))
+            . ($column->isNull ? __('Yes') : __('No'))
             . '</td>';
         $definition .= '<td class="print">'
             . htmlspecialchars($column->default ?? ($column->isNull ? 'NULL' : ''))

@@ -512,7 +512,7 @@ final class ExportController extends AbstractController
 
         // Compression needed?
         if ($GLOBALS['compression']) {
-            if ($separateFiles) {
+            if ($separateFiles !== '') {
                 $this->export->dumpBuffer = $this->export->compress(
                     $this->export->dumpBufferObjects,
                     $GLOBALS['compression'],

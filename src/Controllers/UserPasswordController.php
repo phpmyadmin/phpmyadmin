@@ -64,12 +64,7 @@ class UserPasswordController extends AbstractController
          * and submit the query or logout
          */
         if ($noPass !== null) {
-            if ($noPass == '1') {
-                $password = '';
-            } else {
-                $password = $pmaPw;
-            }
-
+            $password = $noPass == '1' ? '' : $pmaPw;
             $GLOBALS['change_password_message'] = $this->userPassword->setChangePasswordMsg(
                 $pmaPw,
                 $pmaPw2,

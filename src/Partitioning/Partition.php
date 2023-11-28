@@ -145,7 +145,7 @@ class Partition extends SubPartition
                 . ' WHERE `TABLE_SCHEMA` = ' . $dbi->quoteString($db)
                 . ' AND `TABLE_NAME` = ' . $dbi->quoteString($table),
             );
-            if ($result) {
+            if ($result !== []) {
                 $partitionMap = [];
                 /** @var array $row */
                 foreach ($result as $row) {
@@ -213,7 +213,7 @@ class Partition extends SubPartition
                 . ' AND `TABLE_NAME` = ' . $dbi->quoteString($table)
                 . ' LIMIT 1',
             );
-            if (! empty($partitionMethod)) {
+            if ($partitionMethod !== []) {
                 return $partitionMethod[0];
             }
         }

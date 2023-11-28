@@ -35,11 +35,7 @@ class Descriptions
 
         /* Fallback to path for name and empty string for description and comment */
         if ($value === null) {
-            if ($type === 'name') {
-                $value = $path;
-            } else {
-                $value = '';
-            }
+            $value = $type === 'name' ? $path : '';
         }
 
         return Sanitize::sanitizeMessage($value);

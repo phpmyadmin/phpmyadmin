@@ -516,7 +516,7 @@ class FormDisplay
             // equality comparison only if both values are numeric or not numeric
             // (allows to skip 0 == 'string' equalling to true)
             // or identity (for string-string)
-            if (! (($vk == $value && ! (is_numeric($valueCmp) xor is_numeric($vk))) || $vk === $value)) {
+            if (! ($vk == $value && ! (is_numeric($valueCmp) xor is_numeric($vk))) && $vk !== $value) {
                 continue;
             }
 
@@ -598,8 +598,7 @@ class FormDisplay
                 switch ($type) {
                     case 'double':
                         $_POST[$key] = Util::requestString($_POST[$key]);
-                        // phpcs:ignore Generic.PHP.ForbiddenFunctions
-                        settype($_POST[$key], 'float');
+                        $_POST[$key] = (float) $_POST[$key];
                         break;
                     case 'boolean':
                     case 'integer':

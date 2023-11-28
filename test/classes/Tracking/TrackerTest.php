@@ -356,59 +356,52 @@ class TrackerTest extends AbstractTestCase
      */
     public static function parseQueryData(): array
     {
-        // query
-        // type
-        // identifier
-        // table name
-        // db (optional)
-        // table name after rename (optional)
-        $query = [];
-        /* TODO: Should test fail when USE is in conjunction with * identifiers?
-        $query[] = array(
-            " - USE db1;\n- CREATE VIEW db1.v AS SELECT * FROM t;",
-            "DDL",
-            "CREATE VIEW",
-            "v",
-            "db1"
-        );
-        */
-        $query[] = ['CREATE VIEW v AS SELECT * FROM t;', 'DDL', 'CREATE VIEW', 'v'];
-        $query[] = ['ALTER VIEW db1.v AS SELECT col1, col2, col3, col4 FROM t', 'DDL', 'ALTER VIEW', 'v'];
-        $query[] = ['DROP VIEW db1.v;', 'DDL', 'DROP VIEW', 'v'];
-        $query[] = ['DROP VIEW IF EXISTS db1.v;', 'DDL', 'DROP VIEW', 'v'];
-        $query[] = ['CREATE DATABASE db1;', 'DDL', 'CREATE DATABASE', '', 'db1'];
-        $query[] = ['ALTER DATABASE db1;', 'DDL', 'ALTER DATABASE', ''];
-        $query[] = ['DROP DATABASE db1;', 'DDL', 'DROP DATABASE', '', 'db1'];
-        $query[] = ['CREATE TABLE db1.t1 (c1 INT);', 'DDL', 'CREATE TABLE', 't1'];
-        $query[] = ['ALTER TABLE db1.t1 ADD c2 TEXT;', 'DDL', 'ALTER TABLE', 't1'];
-        $query[] = ['DROP TABLE db1.t1', 'DDL', 'DROP TABLE', 't1'];
-        $query[] = ['DROP TABLE IF EXISTS db1.t1', 'DDL', 'DROP TABLE', 't1'];
-        $query[] = ['CREATE INDEX ind ON db1.t1 (c2(10));', 'DDL', 'CREATE INDEX', 't1'];
-        $query[] = ['CREATE UNIQUE INDEX ind ON db1.t1 (c2(10));', 'DDL', 'CREATE INDEX', 't1'];
-        $query[] = ['CREATE SPATIAL INDEX ind ON db1.t1 (c2(10));', 'DDL', 'CREATE INDEX', 't1'];
-        $query[] = ['DROP INDEX ind ON db1.t1;', 'DDL', 'DROP INDEX', 't1'];
-        $query[] = ['RENAME TABLE db1.t1 TO db1.t2', 'DDL', 'RENAME TABLE', 't1', '', 't2'];
-        $query[] = ['UPDATE db1.t1 SET a = 2', 'DML', 'UPDATE', 't1'];
-        $query[] = ['INSERT INTO db1.t1 (a, b, c) VALUES(1, 2, 3)', 'DML', 'INSERT', 't1'];
-        $query[] = ['DELETE FROM db1.t1', 'DML', 'DELETE', 't1'];
-        $query[] = ['TRUNCATE db1.t1', 'DML', 'TRUNCATE', 't1'];
-        $query[] = [
-            'create table event(' . "\n"
-            . 'eventID varchar(10) not null,' . "\n"
-            . 'b char(30),' . "\n"
-            . 'c varchar(20),' . "\n"
-            . 'd TIME,' . "\n"
-            . 'e Date,' . "\n"
-            . 'f int,' . "\n"
-            . 'g char(70),' . "\n"
-            . 'h char(90),' . "\n"
-            . 'primary key(eventID)' . "\n"
-            . ')' . "\n",
-            'DDL',
-            'CREATE TABLE',
-            null,// switch this to 'event' when sql-parse is fixed
+        return [
+            /* TODO: Should test fail when USE is in conjunction with * identifiers?
+               $query[] = array(
+                   " - USE db1;\n- CREATE VIEW db1.v AS SELECT * FROM t;",
+                   "DDL",
+                   "CREATE VIEW",
+                   "v",
+                   "db1"
+               );
+               */
+            ['CREATE VIEW v AS SELECT * FROM t;', 'DDL', 'CREATE VIEW', 'v'],
+            ['ALTER VIEW db1.v AS SELECT col1, col2, col3, col4 FROM t', 'DDL', 'ALTER VIEW', 'v'],
+            ['DROP VIEW db1.v;', 'DDL', 'DROP VIEW', 'v'],
+            ['DROP VIEW IF EXISTS db1.v;', 'DDL', 'DROP VIEW', 'v'],
+            ['CREATE DATABASE db1;', 'DDL', 'CREATE DATABASE', '', 'db1'],
+            ['ALTER DATABASE db1;', 'DDL', 'ALTER DATABASE', ''],
+            ['DROP DATABASE db1;', 'DDL', 'DROP DATABASE', '', 'db1'],
+            ['CREATE TABLE db1.t1 (c1 INT);', 'DDL', 'CREATE TABLE', 't1'],
+            ['ALTER TABLE db1.t1 ADD c2 TEXT;', 'DDL', 'ALTER TABLE', 't1'],
+            ['DROP TABLE db1.t1', 'DDL', 'DROP TABLE', 't1'],
+            ['DROP TABLE IF EXISTS db1.t1', 'DDL', 'DROP TABLE', 't1'],
+            ['CREATE INDEX ind ON db1.t1 (c2(10));', 'DDL', 'CREATE INDEX', 't1'],
+            ['CREATE UNIQUE INDEX ind ON db1.t1 (c2(10));', 'DDL', 'CREATE INDEX', 't1'],
+            ['CREATE SPATIAL INDEX ind ON db1.t1 (c2(10));', 'DDL', 'CREATE INDEX', 't1'],
+            ['DROP INDEX ind ON db1.t1;', 'DDL', 'DROP INDEX', 't1'],
+            ['RENAME TABLE db1.t1 TO db1.t2', 'DDL', 'RENAME TABLE', 't1', '', 't2'],
+            ['UPDATE db1.t1 SET a = 2', 'DML', 'UPDATE', 't1'],
+            ['INSERT INTO db1.t1 (a, b, c) VALUES(1, 2, 3)', 'DML', 'INSERT', 't1'],
+            ['DELETE FROM db1.t1', 'DML', 'DELETE', 't1'],
+            ['TRUNCATE db1.t1', 'DML', 'TRUNCATE', 't1'],
+            [
+                'create table event(' . "\n"
+                . 'eventID varchar(10) not null,' . "\n"
+                . 'b char(30),' . "\n"
+                . 'c varchar(20),' . "\n"
+                . 'd TIME,' . "\n"
+                . 'e Date,' . "\n"
+                . 'f int,' . "\n"
+                . 'g char(70),' . "\n"
+                . 'h char(90),' . "\n"
+                . 'primary key(eventID)' . "\n"
+                . ')' . "\n",
+                'DDL',
+                'CREATE TABLE',
+                null,// switch this to 'event' when sql-parse is fixed
+            ],
         ];
-
-        return $query;
     }
 }

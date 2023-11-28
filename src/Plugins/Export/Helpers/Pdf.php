@@ -567,7 +567,7 @@ class Pdf extends PdfLib
 
             $data[] = $column->field;
             $data[] = $type;
-            $data[] = ! $column->isNull ? 'No' : 'Yes';
+            $data[] = $column->isNull ? 'Yes' : 'No';
             $data[] = $column->default ?? ($column->isNull ? 'NULL' : '');
 
             $fieldName = $column->field;

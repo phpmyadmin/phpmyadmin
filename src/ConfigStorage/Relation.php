@@ -850,11 +850,7 @@ class Relation
             $key = $relrow[$foreignField];
 
             // if the display field has been defined for this foreign table
-            if ($foreignDisplay !== '') {
-                $value = $relrow[$foreignDisplay];
-            } else {
-                $value = '';
-            }
+            $value = $foreignDisplay !== '' ? $relrow[$foreignDisplay] : '';
 
             $foreign[$key] = $value;
         }
@@ -981,7 +977,7 @@ class Relation
                     . Util::backquote($foreignTable) . '.'
                     . Util::backquote($foreignDisplay);
 
-                $fQueryLimit = $foreignLimit !== '' ? $foreignLimit : '';
+                $fQueryLimit = $foreignLimit;
 
                 if ($foreignFilter !== '') {
                     $theTotal = $this->dbi->fetchValue('SELECT COUNT(*)' . $fQueryFrom . $fQueryFilter);

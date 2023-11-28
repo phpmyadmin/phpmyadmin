@@ -711,7 +711,7 @@ class ImportCsv extends AbstractImportCsv
 
             // logic to get table name from filename
             // if no table then use filename as table name
-            if (count($result) === 0) {
+            if ($result === []) {
                 return $importFileName;
             }
 

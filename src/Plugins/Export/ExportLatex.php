@@ -378,7 +378,7 @@ class ExportLatex extends ExportPlugin
                 }
 
                 // last column ... no need for & character
-                if ($i == $columnsCnt - 1) {
+                if ($i === $columnsCnt - 1) {
                     $buffer .= $columnValue;
                 } else {
                     $buffer .= $columnValue . ' & ';
@@ -573,7 +573,7 @@ class ExportLatex extends ExportPlugin
             }
 
             $localBuffer = $colAs . "\000" . $type . "\000"
-                . (! $row->isNull ? __('No') : __('Yes'))
+                . ($row->isNull ? __('Yes') : __('No'))
                 . "\000" . ($row->default ?? ($row->isNull ? 'NULL' : ''));
 
             if ($doRelation && $foreigners !== []) {

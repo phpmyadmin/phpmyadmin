@@ -202,11 +202,7 @@ class Privileges
      */
     public function extractPrivInfo(array|null $row = null, bool $enableHTML = false, bool $tablePrivs = false): array
     {
-        if ($tablePrivs) {
-            $grants = $this->getTableGrantsArray();
-        } else {
-            $grants = $this->getGrantsArray();
-        }
+        $grants = $tablePrivs ? $this->getTableGrantsArray() : $this->getGrantsArray();
 
         if ($row !== null && isset($row['Table_priv'])) {
             $this->fillInTablePrivileges($row);
