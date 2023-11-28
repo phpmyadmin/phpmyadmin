@@ -6048,10 +6048,6 @@
     <PossiblyInvalidCast>
       <code><![CDATA[$_GET['what']]]></code>
     </PossiblyInvalidCast>
-    <RedundantConditionGivenDocblockType>
-      <code>is_array($dbSelect)</code>
-      <code><![CDATA[isset($dbSelect) && is_array($dbSelect)]]></code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Export/Template.php">
     <MixedArgument>

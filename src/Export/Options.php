@@ -56,7 +56,7 @@ final class Options
 
         // Check if the selected databases are defined in $_POST
         // (from clicking Back button on /export page)
-        if (isset($dbSelect) && is_string($dbSelect)) {
+        if (is_string($dbSelect)) {
             $dbSelect = urldecode($dbSelect);
             $dbSelect = explode(',', $dbSelect);
         }
@@ -68,7 +68,7 @@ final class Options
             }
 
             $isSelected = false;
-            if (isset($dbSelect) && is_array($dbSelect)) {
+            if (is_array($dbSelect)) {
                 if (in_array($currentDb, $dbSelect)) {
                     $isSelected = true;
                 }
