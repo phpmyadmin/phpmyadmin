@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-26 00:19+0000\n"
-"PO-Revision-Date: 2023-11-27 14:26+0000\n"
+"PO-Revision-Date: 2023-11-28 18:47+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
@@ -1872,14 +1872,12 @@ msgid "Data"
 msgstr "Данные"
 
 #: resources/templates/database/export/index.twig:30
-#, fuzzy
 msgid "Export the structure of all tables."
-msgstr "Разрешает изменение структуры существующих таблиц."
+msgstr "Экспортировать структуру всех таблиц."
 
 #: resources/templates/database/export/index.twig:33
-#, fuzzy
 msgid "Export the data of all tables."
-msgstr "Экспортировать представления как таблицы"
+msgstr "Экспортировать данные всех таблиц."
 
 #: resources/templates/database/import/index.twig:3
 #, php-format
@@ -2214,7 +2212,7 @@ msgstr "Недостаточно прав для просмотра пользо
 #: resources/templates/server/privileges/users_overview.twig:139
 #: resources/templates/table/privileges/index.twig:136
 msgid "Add user account"
-msgstr "Добавить учетную запись пользователя"
+msgstr "Добавить учётную запись пользователя"
 
 #: resources/templates/database/routines/editor_form.twig:25
 msgid "Routine name"
@@ -2307,9 +2305,8 @@ msgid "Search"
 msgstr "Поиск"
 
 #: resources/templates/database/routines/index.twig:36
-#, fuzzy
 msgid "Create new routine"
-msgstr "Создать версию"
+msgstr "Создать новую процедуру"
 
 #: resources/templates/database/routines/index.twig:45
 msgid "There are no routines to display."
@@ -3289,10 +3286,8 @@ msgid "Javascript must be enabled past this point!"
 msgstr "Для полноценной работы необходимо включить JavaScript!"
 
 #: resources/templates/header.twig:46
-#, fuzzy
-#| msgid "Add user account"
 msgid "Open user account menu"
-msgstr "Добавить учетную запись пользователя"
+msgstr "Открыть меню учётной записи пользователя"
 
 #: resources/templates/header.twig:57
 #: resources/templates/navigation/main.twig:35
@@ -4109,13 +4104,13 @@ msgstr "Следующие Composer-пакеты отсутствуют:"
 #: resources/templates/preferences/two_factor/main.twig:20
 msgid "Two-factor authentication is available and configured for this account."
 msgstr ""
-"Двухфакторная аутентификация доступна и настроена для этой учетной записи."
+"Двухфакторная аутентификация доступна и настроена для этой учётной записи."
 
 #: resources/templates/preferences/two_factor/main.twig:22
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
 msgstr ""
-"Двухфакторная аутентификация доступна, но не настроена для этой учетной "
+"Двухфакторная аутентификация доступна, но не настроена для этой учётной "
 "записи."
 
 #: resources/templates/preferences/two_factor/main.twig:26
@@ -4560,7 +4555,7 @@ msgstr "Новый"
 
 #: resources/templates/server/privileges/add_user.twig:13
 msgid "Database for user account"
-msgstr "База данных для учетных записей пользователей"
+msgstr "База данных для учётных записей пользователей"
 
 #: resources/templates/server/privileges/add_user.twig:16
 msgid "Create database with same name and grant all privileges."
@@ -4628,7 +4623,7 @@ msgstr "Редактирование привилегий:"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:5
 #: resources/templates/server/privileges/user_properties.twig:5
 msgid "User account"
-msgstr "Учетная запись пользователя"
+msgstr "Учётная запись пользователя"
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:29
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
@@ -4678,10 +4673,9 @@ msgid "Allows executing this routine."
 msgstr "Разрешает выполнение этой процедуры."
 
 #: resources/templates/server/privileges/initials_row.twig:1
-#, fuzzy
 msgid "Pagination of user accounts"
 msgstr ""
-"Изменить регистрационные данные / Копировать учетную запись пользователя"
+"Изменить регистрационные данные / Копировать учётную запись пользователя"
 
 #: resources/templates/server/privileges/login_information_fields.twig:2
 #: resources/templates/server/privileges/user_properties.twig:105
@@ -5107,7 +5101,7 @@ msgstr "Необходимо для подчиненных серверов пр
 #: src/Server/Privileges.php:365
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
-"Разрешает создание, удаление и переименование учетных записей пользователей."
+"Разрешает создание, удаление и переименование учётных записей пользователей."
 
 #: resources/templates/server/privileges/privileges_table.twig:735
 msgid "Resource limits"
@@ -5180,7 +5174,7 @@ msgstr "Настроить привилегии пользователя"
 #: resources/templates/server/privileges/subnav.twig:5
 #: resources/templates/server/privileges/user_overview.twig:5
 msgid "User accounts overview"
-msgstr "Обзор учетных записей пользователей"
+msgstr "Обзор учётных записей пользователей"
 
 #: resources/templates/server/privileges/subnav.twig:11
 #: resources/templates/server/user_groups/user_groups.twig:1
@@ -5196,11 +5190,11 @@ msgstr "Выбранный пользователь не найден в таб�
 #: resources/templates/server/privileges/user_properties.twig:106
 msgid "Change login information / Copy user account"
 msgstr ""
-"Изменить регистрационные данные / Копировать учетную запись пользователя"
+"Изменить регистрационные данные / Копировать учётную запись пользователя"
 
 #: resources/templates/server/privileges/user_properties.twig:114
 msgid "Create a new user account with the same privileges and …"
-msgstr "Создать новую учетную запись пользователя с такими же привилегиями и …"
+msgstr "Создать новую учётную запись пользователя с такими же привилегиями и…"
 
 #: resources/templates/server/privileges/user_properties.twig:122
 msgid "… keep the old one."
@@ -5229,12 +5223,12 @@ msgstr "Группа пользователей"
 #: resources/templates/server/privileges/users_overview.twig:100
 #: src/Controllers/JavaScriptMessagesController.php:151
 msgid "Unlock this account."
-msgstr "Разблокировать учетную запись."
+msgstr "Разблокировать учётную запись."
 
 #: resources/templates/server/privileges/users_overview.twig:100
 #: src/Controllers/JavaScriptMessagesController.php:150
 msgid "Lock this account."
-msgstr "Заблокировать учетную запись."
+msgstr "Заблокировать эту учётную запись."
 
 #: resources/templates/server/privileges/users_overview.twig:102
 #: src/Controllers/JavaScriptMessagesController.php:149
@@ -5250,7 +5244,7 @@ msgstr "Заблокировать"
 
 #: resources/templates/server/privileges/users_overview.twig:146
 msgid "Remove selected user accounts"
-msgstr "Удалить выбранные учетные записи пользователей"
+msgstr "Удалить выбранные учётные записи пользователей"
 
 #: resources/templates/server/privileges/users_overview.twig:148
 msgid "Revoke all active privileges from the users and delete them afterwards."
@@ -11606,11 +11600,11 @@ msgid ""
 "to an ISP where thousands of users, including you, are connected to."
 msgstr ""
 "Данный %sпараметр%s должен быть отключен, так как позволяет атакующему "
-"совершать перебор учетных данных к любому серверу MySQL. При необходимости "
+"совершать перебор учётных данных к любому серверу MySQL. При необходимости "
 "активации данного параметра, используйте %sсписок доверенных логинов для "
 "MySQL сервера%s или %sсписок доверенных прокси%s. Однако, защита по IP через "
-"доверенные прокси может быть ненадежной, если ваш IP не является выделенным "
-"и кроме вас принадлежит тысячам пользователей того же Интернет Провайдера."
+"доверенные прокси может быть ненадёжной, если ваш IP не является выделенным "
+"и кроме вас принадлежит тысячам пользователей того же провайдера Интернета."
 
 #: src/Config/ServerConfigChecks.php:77
 msgid ""
@@ -12931,7 +12925,7 @@ msgid ""
 "database administrator."
 msgstr ""
 "Вы не можете изменить значения данных переменных. Пожалуйста, войдите под "
-"учетной записью root или свяжитесь с администратором базы данных."
+"учётной записью root или свяжитесь с администратором базы данных."
 
 #: src/Controllers/JavaScriptMessagesController.php:254
 msgid "Change settings"
@@ -13176,7 +13170,7 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:357
 msgid "No accounts selected."
-msgstr "Не выбрано учетных записей."
+msgstr "Нет выбранных учётных записей."
 
 #: src/Controllers/JavaScriptMessagesController.php:358
 msgid "Dropping column"
@@ -16474,7 +16468,7 @@ msgstr "Дизайнер"
 
 #: src/Menu.php:467
 msgid "User accounts"
-msgstr "Учетные записи пользователей"
+msgstr "Учётные записи пользователей"
 
 #: src/Menu.php:516 src/Util.php:1475
 msgid "Charsets"
@@ -18243,9 +18237,9 @@ msgid ""
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
-"Имеется учетная запись пользователя, позволяющая любому пользователю "
+"Имеется учётная запись пользователя, позволяющая любому пользователю "
 "подключиться к локальному хосту. Это предотвратит подключение других "
-"пользователей, если хост-часть их учетной записи разрешает соединение с "
+"пользователей, если хост-часть их учётной записи разрешает соединение с "
 "любым (%) хостом."
 
 #: src/Server/Status/Data.php:141
@@ -18972,7 +18966,7 @@ msgstr "AM"
 #: src/Util.php:621
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
-msgstr "%s дней, %s часов, %s минут и %s секунд"
+msgstr "%s дн, %s ч, %s мин и %s с"
 
 #: src/Util.php:1468
 msgid "Users"
