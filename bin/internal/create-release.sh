@@ -600,7 +600,7 @@ for kit in $KITS ; do
 
     # Cleanup translations
     cd "$name"
-    ./bin/lang-cleanup.sh "$kit"
+    ./bin/internal/lang-cleanup.sh "$kit"
 
     # Remove tests, source code,...
     if [ "$kit" != source ] ; then
@@ -611,7 +611,7 @@ for kit in $KITS ; do
         rm -r resources/templates/test/
         rm phpunit.xml.*
         rm .editorconfig .browserslistrc .eslintignore .jshintrc .eslintrc.json .stylelintrc.json psalm.xml psalm-baseline.xml phpstan.neon.dist phpstan-baseline.neon phpcs.xml.dist jest.config.cjs infection.json5.dist
-        # Gettext po files (if they were not removed by ./bin/lang-cleanup.sh)
+        # Gettext po files (if they were not removed by ./bin/internal/lang-cleanup.sh)
         rm -rf po
         # Documentation source code
         mv doc/html htmldoc
@@ -734,9 +734,9 @@ Todo now:
     this release and paste into it the ChangeLog for this release, followed
     by the notes of all previous incremental versions (i.e. 4.4.9 through 4.4.0)
 
- 4. upload the files to our file server, use bin/upload-release, eg.:
+ 4. upload the files to our file server, use bin/internal/upload-release, eg.:
 
-        ./bin/upload-release $version release
+        ./bin/internal/upload-release $version release
 
  5. add a news item to our website; a good idea is to include a link to the release notes such as https://www.phpmyadmin.net/files/4.4.10/
 

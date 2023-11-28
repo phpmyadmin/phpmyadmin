@@ -61,7 +61,7 @@ jobs:
 
       - name: Build the release
         if: matrix.branch == 'master'
-        run: ./bin/create-release.sh --daily ${{ matrix.version }}+snapshot ${{ matrix.branch }}
+        run: ./bin/internal/create-release.sh --daily ${{ matrix.version }}+snapshot ${{ matrix.branch }}
 
       - name: Build the release
         if: matrix.branch != 'master'
@@ -69,7 +69,7 @@ jobs:
 
       - name: Check release excludes
         if: matrix.branch == 'master'
-        run: ./bin/check-release-excludes.sh release/phpMyAdmin-${{ matrix.version }}+snapshot-all-languages.tar.gz
+        run: ./bin/internal/check-release-excludes.sh release/phpMyAdmin-${{ matrix.version }}+snapshot-all-languages.tar.gz
         continue-on-error: true
 
       - name: Check release excludes
