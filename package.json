@@ -24,7 +24,7 @@
     "@types/jquery.validation": "^1.16.7",
     "@types/jqueryui": "^1.12.16",
     "@types/js-cookie": "^3.0.3",
-    "@zxcvbn-ts/core": "^2.2.1",
+    "@zxcvbn-ts/core": "^3.0.4",
     "autoprefixer": "^10.4.15",
     "babel-loader": "^9.1.2",
     "bootstrap": "5.3.2",
