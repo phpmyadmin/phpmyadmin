@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-04-04 01:00+0000\n"
-"Last-Translator: 109247019824 <stoyan@gmx.com>\n"
+"PO-Revision-Date: 2023-11-30 20:04+0000\n"
+"Last-Translator: Todor Kirilov <fallenangelbg@protonmail.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "bg/>\n"
 "Language: bg\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -6549,14 +6549,12 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/ServerConfigChecks.php:506
-#, fuzzy, php-format
-#| msgid ""
-#| "%sZip decompression%s requires functions (%s) which are unavailable on "
-#| "this system."
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
-msgstr "%sZip разархивиране%s изизква функцията (%s), която не е налична."
+msgstr ""
+"%1$sBzip2 разархивиране %2$s изисква функцията (%3$s), която не е налична."
 
 #: libraries/classes/Config/ServerConfigChecks.php:538
 #, fuzzy, php-format
