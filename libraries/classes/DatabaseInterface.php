@@ -1713,20 +1713,37 @@ class DatabaseInterface implements DbalInterface
 
     /**
      * gets the current role with host. Role maybe multiple separated by comma
+     * Support start from MySQL 8.x
      *
-     * @return array the current roles i.e. array of role@host
+     * @see https://dev.mysql.com/doc/refman/8.0/en/roles.html
+     * @see https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_current-role
+     * @see https://mariadb.com/kb/en/mariadb-1005-release-notes/#newly-implemented-features
+     * @see https://mariadb.com/kb/en/roles_overview/
+     *
+     * @return array<int, array<int, string>>|null the current roles i.e. array of role@host or null if not supported
      */
-    public function getCurrentRoles(): array
+    public function getCurrentRoles(): mixed
     {
-        // role grant can't be cached due to changing roles on runtime with `SET ROLE` command
-        $role = $this->fetchValue('SELECT CURRENT_ROLE();');
-        if ($role !== false) {
-            $role = str_replace('`', '', $role);
+        $isRoleSupported = $this->isMariaDB() && $this->getVersion() >= 100500;
+        $isRoleSupported = $isRoleSupported || ! $this->isMariaDB() && $this->getVersion() >= 80000;
 
-            return explode(',', $role);
+        if (! $isRoleSupported) {
+            return null;
         }
 
-        return ['@'];
+        if (SessionCache::has('mysql_cur_role')) {
+            return SessionCache::get('mysql_cur_role');
+        }
+
+        $role = $this->fetchValue('SELECT CURRENT_ROLE();');
+        if ($role === false || $role === null) {
+            return null;
+        }
+
+        $role = array_map('trim', explode(',', str_replace('`', '', $role)));
+        SessionCache::set('mysql_cur_role', $role);
+
+        return $role;
     }
 
     public function isSuperUser(): bool
@@ -1789,10 +1806,10 @@ class DatabaseInterface implements DbalInterface
         }
 
         $roles = ! $hasGrantPrivilege ? $this->getCurrentRolesAndHost() : null;
-        if (! $hasGrantPrivilege && ! empty($roles)) {
-            // role grant can't be cached due to changing roles on runtime with `SET ROLE` command
-            foreach ($roles as [$role, $host]) {
-                $query = QueryGenerator::getInformationSchemaDataForGranteeRequest($role, $host);
+
+        if (! $hasGrantPrivilege && $roles !== null) {
+            foreach ($roles as [$role, $roleHost]) {
+                $query = QueryGenerator::getInformationSchemaDataForGranteeRequest($role, $roleHost);
                 $result = $this->tryQuery($query);
 
                 if ($result) {
@@ -1803,9 +1820,9 @@ class DatabaseInterface implements DbalInterface
                     break;
                 }
             }
-        } else {
-            SessionCache::set('is_grantuser', $hasGrantPrivilege);
         }
+
+        SessionCache::set('is_grantuser', $hasGrantPrivilege);
 
         return $hasGrantPrivilege;
     }
@@ -1848,10 +1865,10 @@ class DatabaseInterface implements DbalInterface
         }
 
         $roles = ! $hasCreatePrivilege ? $this->getCurrentRolesAndHost() : null;
-        if (! $hasCreatePrivilege && ! empty($roles)) {
-            // role grant can't be cached due to changing roles on runtime with `SET ROLE` command
-            foreach ($this->getCurrentRolesAndHost() as [$role, $host]) {
-                $query = QueryGenerator::getInformationSchemaDataForCreateRequest($role, $host);
+
+        if (! $hasCreatePrivilege && $roles !== null) {
+            foreach ($roles as [$role, $roleHost]) {
+                $query = QueryGenerator::getInformationSchemaDataForCreateRequest($role, $roleHost);
                 $result = $this->tryQuery($query);
 
                 if ($result) {
@@ -1862,9 +1879,9 @@ class DatabaseInterface implements DbalInterface
                     break;
                 }
             }
-        } else {
-            SessionCache::set('is_createuser', $hasCreatePrivilege);
         }
+
+        SessionCache::set('is_createuser', $hasCreatePrivilege);
 
         return $hasCreatePrivilege;
     }
@@ -1895,17 +1912,18 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * Get the current role and host
+     * Get the current role and host.
      *
-     * @return array<int, array<int, string>> array of role and hostname
+     * @return array<int, array<int, string>>|null array of role and hostname, null if not supported
      */
-    public function getCurrentRolesAndHost(): array
+    public function getCurrentRolesAndHost(): mixed
     {
         if ($this->currentRoleAndHost === null) {
             $roles = $this->getCurrentRoles();
-            $this->currentRoleAndHost = array_map(static function (string $role) {
+
+            $this->currentRoleAndHost = $roles !== null ? array_map(static function (string $role) {
                 return explode('@', $role);
-            }, $roles);
+            }, $roles) : null;
         }
 
         return $this->currentRoleAndHost;
