@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-26 00:19+0000\n"
-"PO-Revision-Date: 2023-11-28 18:47+0000\n"
+"PO-Revision-Date: 2023-11-30 10:03+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
@@ -3308,25 +3308,22 @@ msgid "MySQL documentation"
 msgstr "Документация MySQL"
 
 #: resources/templates/header.twig:73
-#, fuzzy
-#| msgid "Appearance settings"
 msgid "Appearance:"
-msgstr "Настройки внешнего вида"
+msgstr "Внешний вид:"
 
 #: resources/templates/header.twig:76 resources/templates/home/index.twig:152
 msgid "Color mode for the theme"
 msgstr ""
 
 #: resources/templates/header.twig:80 resources/templates/home/index.twig:156
-#, fuzzy
 msgctxt "Light color mode of the theme"
 msgid "Light"
-msgstr "Направо"
+msgstr "Светлый"
 
 #: resources/templates/header.twig:82 resources/templates/home/index.twig:158
 msgctxt "Dark color mode of the theme"
 msgid "Dark"
-msgstr ""
+msgstr "Тёмный"
 
 #: resources/templates/header.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
@@ -13992,145 +13989,121 @@ msgid "Hide"
 msgstr "Скрыть"
 
 #: src/Controllers/JavaScriptMessagesController.php:717
-#, fuzzy
 msgctxt "Month name"
 msgid "January"
 msgstr "Январь"
 
 #: src/Controllers/JavaScriptMessagesController.php:718
-#, fuzzy
 msgctxt "Month name"
 msgid "February"
 msgstr "Февраль"
 
 #: src/Controllers/JavaScriptMessagesController.php:719
-#, fuzzy
 msgctxt "Month name"
 msgid "March"
 msgstr "Март"
 
 #: src/Controllers/JavaScriptMessagesController.php:720
-#, fuzzy
 msgctxt "Month name"
 msgid "April"
 msgstr "Апрель"
 
 #: src/Controllers/JavaScriptMessagesController.php:721
-#, fuzzy
 msgctxt "Month name"
 msgid "May"
 msgstr "Май"
 
 #: src/Controllers/JavaScriptMessagesController.php:722
-#, fuzzy
 msgctxt "Month name"
 msgid "June"
 msgstr "Июнь"
 
 #: src/Controllers/JavaScriptMessagesController.php:723
-#, fuzzy
 msgctxt "Month name"
 msgid "July"
 msgstr "Июль"
 
 #: src/Controllers/JavaScriptMessagesController.php:724
-#, fuzzy
 msgctxt "Month name"
 msgid "August"
 msgstr "Август"
 
 #: src/Controllers/JavaScriptMessagesController.php:725
-#, fuzzy
 msgctxt "Month name"
 msgid "September"
 msgstr "Сентябрь"
 
 #: src/Controllers/JavaScriptMessagesController.php:726
-#, fuzzy
 msgctxt "Month name"
 msgid "October"
 msgstr "Октябрь"
 
 #: src/Controllers/JavaScriptMessagesController.php:727
-#, fuzzy
 msgctxt "Month name"
 msgid "November"
 msgstr "Ноябрь"
 
 #: src/Controllers/JavaScriptMessagesController.php:728
-#, fuzzy
 msgctxt "Month name"
 msgid "December"
 msgstr "Декабрь"
 
 #: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:499
-#, fuzzy
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "Янв"
 
 #: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:500
-#, fuzzy
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "Фев"
 
 #: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:501
-#, fuzzy
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "Мар"
 
 #: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:502
-#, fuzzy
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "Апр"
 
 #: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:503
-#, fuzzy
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "Май"
 
 #: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:504
-#, fuzzy
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "Июн"
 
 #: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:505
-#, fuzzy
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "Июл"
 
 #: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:506
-#, fuzzy
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "Авг"
 
 #: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:507
-#, fuzzy
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "Сен"
 
 #: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:508
-#, fuzzy
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "Окт"
 
 #: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:509
-#, fuzzy
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "Ноя"
 
 #: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:510
-#, fuzzy
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "Дек"
@@ -14141,137 +14114,115 @@ msgid "Sun"
 msgstr "Вс"
 
 #: src/Controllers/JavaScriptMessagesController.php:749 src/Util.php:514
-#, fuzzy
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "Пн"
 
 #: src/Controllers/JavaScriptMessagesController.php:750 src/Util.php:515
-#, fuzzy
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "Вт"
 
 #: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:516
-#, fuzzy
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "Ср"
 
 #: src/Controllers/JavaScriptMessagesController.php:752 src/Util.php:517
-#, fuzzy
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "Чт"
 
 #: src/Controllers/JavaScriptMessagesController.php:753 src/Util.php:518
-#, fuzzy
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "Пт"
 
 #: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:519
-#, fuzzy
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "Сб"
 
 #: src/Controllers/JavaScriptMessagesController.php:755
-#, fuzzy
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "Вс"
 
 #: src/Controllers/JavaScriptMessagesController.php:756
-#, fuzzy
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "Пн"
 
 #: src/Controllers/JavaScriptMessagesController.php:757
-#, fuzzy
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "Вт"
 
 #: src/Controllers/JavaScriptMessagesController.php:758
-#, fuzzy
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "Ср"
 
 #: src/Controllers/JavaScriptMessagesController.php:759
-#, fuzzy
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "Чт"
 
 #: src/Controllers/JavaScriptMessagesController.php:760
-#, fuzzy
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "Пт"
 
 #: src/Controllers/JavaScriptMessagesController.php:761
-#, fuzzy
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "Сб"
 
 #: src/Controllers/JavaScriptMessagesController.php:762
-#, fuzzy
 msgctxt "Column header for week of the year in calendar"
 msgid "Wk"
 msgstr "Нед."
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
 #: src/Controllers/JavaScriptMessagesController.php:764
-#, fuzzy
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "calendar-year-month"
 
 #: src/Controllers/JavaScriptMessagesController.php:765
-#, fuzzy
 msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "none"
 
 #: src/Controllers/JavaScriptMessagesController.php:766
-#, fuzzy
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "Время"
 
 #: src/Controllers/JavaScriptMessagesController.php:767
-#, fuzzy
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "Час"
 
 #: src/Controllers/JavaScriptMessagesController.php:768
-#, fuzzy
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "Минута"
 
 #: src/Controllers/JavaScriptMessagesController.php:769
-#, fuzzy
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "Секунда"
 
 #: src/Controllers/JavaScriptMessagesController.php:770
-#, fuzzy
 msgctxt "Unit of time"
 msgid "Millisecond"
-msgstr "секунды"
+msgstr "Миллисекунда"
 
 #: src/Controllers/JavaScriptMessagesController.php:771
-#, fuzzy
 msgctxt "Unit of time"
 msgid "Microsecond"
-msgstr "в секунду"
+msgstr "Микросекунда"
 
 #: src/Controllers/JavaScriptMessagesController.php:772
 #, fuzzy
@@ -14281,7 +14232,6 @@ msgstr "Шкала времени"
 
 #. l10n: Display text for previous month link in calendar
 #: src/Controllers/JavaScriptMessagesController.php:776
-#, fuzzy
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Пред"
