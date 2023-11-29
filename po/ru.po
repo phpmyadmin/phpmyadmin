@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-11-28 18:47+0000\n"
+"PO-Revision-Date: 2023-11-30 20:04+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ru/>\n"
@@ -2735,7 +2735,7 @@ msgstr "Скрыть"
 #: js/messages.php:786
 msgctxt "Previous month"
 msgid "Prev"
-msgstr "Предыдущий"
+msgstr "Пред"
 
 #: js/messages.php:791
 msgctxt "Next month"
