@@ -71,6 +71,7 @@ use function set_time_limit;
 use function sort;
 use function sprintf;
 use function str_contains;
+use function str_getcsv;
 use function str_pad;
 use function str_replace;
 use function strcasecmp;
@@ -1906,11 +1907,16 @@ class Util
         // If you are fixing something here,
         // you need to also update the JS port.
 
-        preg_match('|\((.*)\)|', $definition, $matches);
+        // This should really be delegated to MySQL but since we also want to HTML encode it,
+        // it is easier this way.
+        // It future replace str_getcsv with $dbi->fetchSingleRow('SELECT '.$expressionInBrackets[1]);
+
+        preg_match('/\((.*)\)/', $definition, $expressionInBrackets);
+        $matches = str_getcsv($expressionInBrackets[1], ',', "'");
 
         $values = [];
-        foreach (explode(',', $matches[1]) as $value) {
-            $value = strtr(substr($value, 1, -1), ["''" => "'", "\\'" => "'", '\\\\' => '\\']);
+        foreach ($matches as $value) {
+            $value = strtr($value, ['\\\\' => '\\']); // str_getcsv doesn't unescape backslashes so we do it ourselves
             $values[] = $escapeHtml ? htmlspecialchars($value, ENT_QUOTES, 'UTF-8') : $value;
         }
 

@@ -782,7 +782,7 @@ class UtilTest extends AbstractTestCase
                     'zerofill' => false,
                     'spec_in_brackets' => "'\'a','b'",
                     'enum_set_values' => [
-                        "'a",
+                        "\'a",
                         'b',
                     ],
                     'attribute' => ' ',
@@ -819,7 +819,7 @@ class UtilTest extends AbstractTestCase
                     'spec_in_brackets' => "'a&b','b''c\\'d','e\\\\f'",
                     'enum_set_values' => [
                         'a&b',
-                        'b\'c\'d',
+                        'b\'c\\\'d',
                         'e\\f',
                     ],
                     'attribute' => ' ',
@@ -886,6 +886,126 @@ class UtilTest extends AbstractTestCase
                     'can_contain_collation' => true,
                     'displayed_type' => 'varchar(11)',
                 ],
+            ],
+        ];
+    }
+
+    /**
+     * Test case for parsing ENUM values
+     *
+     * @param string[] $out
+     *
+     * @dataProvider providerParseEnumSetValues
+     */
+    public function testParseEnumSetValues(string $in, bool $escapeHTML, array $out): void
+    {
+        $this->assertEquals(
+            $out,
+            Util::parseEnumSetValues($in, $escapeHTML)
+        );
+    }
+
+    /**
+     * Data provider for testParseEnumSetValues
+     *
+     * @return iterable<int, array{string, bool, string[]}>
+     */
+    public function providerParseEnumSetValues(): iterable
+    {
+        $enumSpec = "enum('a&b','b''c''d','e\\f')";
+
+        yield [
+            $enumSpec,
+            false,
+            [
+                'a&b',
+                'b\'c\'d',
+                'e\\f',
+            ],
+        ];
+
+        yield [
+            $enumSpec,
+            true,
+            [
+                'a&amp;b',
+                'b&#039;c&#039;d',
+                'e\\f',
+            ],
+        ];
+
+        $enumSpec = "set('<script>alert(\"ok\")</script>','a&b','b&c','vrai&amp','','漢字','''','\\\\','\"\\\\''')";
+
+        yield [
+            $enumSpec,
+            false,
+            [
+                '<script>alert("ok")</script>',
+                'a&b',
+                'b&c',
+                'vrai&amp',
+                '',
+                '漢字',
+                "'",
+                '\\',
+                '"\\\'',
+            ],
+        ];
+
+        yield [
+            $enumSpec,
+            true,
+            [
+                '&lt;script&gt;alert(&quot;ok&quot;)&lt;/script&gt;',
+                'a&amp;b',
+                'b&amp;c',
+                'vrai&amp;amp',
+                '',
+                '漢字',
+                '&#039;',
+                '\\',
+                '&quot;\&#039;',
+            ],
+        ];
+
+        $enumSpec = "enum('1','2,','3''','''4')";
+
+        yield [
+            $enumSpec,
+            false,
+            [
+                '1',
+                '2,',
+                '3\'',
+                '\'4',
+            ],
+        ];
+
+        yield [
+            $enumSpec,
+            true,
+            [
+                '1',
+                '2,',
+                '3&#039;',
+                '&#039;4',
+            ],
+        ];
+
+        $enumSpec = "enum('''','''''','\"','\\\\','\\\\''','\\\\\"',',','()')";
+
+        yield [
+            $enumSpec,
+            false,
+            [
+                "'",
+                "''",
+                '"',
+                '\\',
+                "\\'",
+                '\\"',
+                ',',
+                '()',
             ],
         ];
     }
