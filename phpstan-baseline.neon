@@ -4201,11 +4201,6 @@ parameters:
 			path: src/Controllers/Operations/TableController.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, string given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/TableController.php
-
-		-
 			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Operations/TableController.php

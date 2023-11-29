@@ -137,24 +137,20 @@ class IndexColumn
     }
 
     /**
-     * Returns whether the column is nullable
-     *
-     * @param bool $asText whether to returned the string representation
-     *
-     * @return string nullability of the column. True/false or Yes/No depending
-     *                on the value of the $as_text parameter
+     * Returns the text whether the column is nullable
      */
-    public function getNull(bool $asText = false): string
+    public function getNull(): string
     {
-        if ($asText) {
-            if ($this->null === '' || $this->null === 'NO') {
-                return __('No');
-            }
-
-            return __('Yes');
+        if ($this->null === '' || $this->null === 'NO') {
+            return __('No');
         }
 
-        return $this->null;
+        return __('Yes');
+    }
+
+    public function isNullable(): bool
+    {
+        return $this->null === 'YES';
     }
 
     /**

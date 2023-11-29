@@ -20,11 +20,18 @@ class IndexColumnTest extends TestCase
 
     public function testGetNull(): void
     {
-        $this->assertEquals('', $this->object->getNull());
-        $this->assertEquals('No', $this->object->getNull(true));
+        $this->object->set(['Null' => '']);
+        $this->assertEquals('No', $this->object->getNull());
         $this->object->set(['Null' => 'YES']);
-        $this->assertEquals('YES', $this->object->getNull());
-        $this->assertEquals('Yes', $this->object->getNull(true));
+        $this->assertEquals('Yes', $this->object->getNull());
+    }
+
+    public function testIsNullable(): void
+    {
+        $this->object->set(['Null' => '']);
+        $this->assertEquals(false, $this->object->isNullable());
+        $this->object->set(['Null' => 'YES']);
+        $this->assertEquals(true, $this->object->isNullable());
     }
 
     public function testGetSeqInIndex(): void
