@@ -69,10 +69,10 @@
     "eslint-plugin-no-jquery": "^2.7.0",
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",
-    "stylelint": "^15.5.0",
-    "stylelint-config-recommended-scss": "^10.0.0",
-    "stylelint-config-standard": "^33.0.0",
-    "stylelint-scss": "^4.6.0"
+    "stylelint": "^15.11.0",
+    "stylelint-config-recommended-scss": "^13.1.0",
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-scss": "^5.3.1"
   },
   "scripts": {
     "postinstall": "yarn run build",
