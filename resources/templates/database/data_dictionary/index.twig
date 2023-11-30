@@ -103,7 +103,7 @@
                   </td>
                   <td>{{ column.getCardinality() }}</td>
                   <td>{{ column.getCollation() }}</td>
-                  <td>{{ column.getNull(true) }}</td>
+                  <td>{{ column.getNull() }}</td>
 
                   {% if column.getSeqInIndex() == 1 %}
                     <td rowspan="{{ columns_count }}">{{ index.getComments() }}</td>

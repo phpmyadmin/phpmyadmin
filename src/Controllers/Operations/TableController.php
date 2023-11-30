@@ -423,7 +423,7 @@ class TableController extends AbstractController
 
                 $notNull = true;
                 foreach ($idx->getColumns() as $column) {
-                    if ($column->getNull()) {
+                    if ($column->isNullable()) {
                         $notNull = false;
                         break;
                     }
