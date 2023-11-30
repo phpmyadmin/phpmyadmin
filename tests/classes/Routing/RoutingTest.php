@@ -28,8 +28,8 @@ class RoutingTest extends AbstractTestCase
     {
         $expected = [Dispatcher::FOUND, HomeController::class, []];
         $cacheFilename = CACHE_DIR . 'routes.cache.php';
-        $validCacheFilename = TEST_PATH . 'test/test_data/routes/routes-valid.cache.txt';
-        $invalidCacheFilename = TEST_PATH . 'test/test_data/routes/routes-invalid.cache.txt';
+        $validCacheFilename = TEST_PATH . 'tests/test_data/routes/routes-valid.cache.txt';
+        $invalidCacheFilename = TEST_PATH . 'tests/test_data/routes/routes-invalid.cache.txt';
         $config = Config::getInstance();
         $config->settings['environment'] = null;
 

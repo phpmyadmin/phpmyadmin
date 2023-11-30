@@ -132,7 +132,7 @@ class ImportShpTest extends AbstractTestCase
         $GLOBALS['db'] = '';
 
         //Test function called
-        $this->runImport('test/test_data/dresden_osm.shp.zip');
+        $this->runImport('tests/test_data/dresden_osm.shp.zip');
 
         $this->assertMessages($GLOBALS['import_notice']);
 
@@ -167,7 +167,7 @@ class ImportShpTest extends AbstractTestCase
         $GLOBALS['db'] = '';
 
         //Test function called
-        $this->runImport('test/test_data/timezone.shp.zip');
+        $this->runImport('tests/test_data/timezone.shp.zip');
 
         // asset that all sql are executed
         $this->assertStringContainsString(

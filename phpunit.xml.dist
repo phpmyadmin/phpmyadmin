@@ -2,7 +2,7 @@
 <phpunit
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.1/phpunit.xsd"
-  bootstrap="test/bootstrap-dist.php"
+  bootstrap="tests/bootstrap-dist.php"
   cacheDirectory="build/.phpunit.cache"
   executionOrder="random"
   defaultTestSuite="unit"
@@ -25,7 +25,7 @@
       <directory>app/cache</directory>
       <directory>examples</directory>
       <directory>node_modules</directory>
-      <directory>test</directory>
+      <directory>tests</directory>
       <directory>tmp</directory>
       <directory>vendor</directory>
     </exclude>
@@ -41,10 +41,10 @@
   </php>
   <testsuites>
     <testsuite name="unit">
-      <directory suffix="Test.php">test/classes</directory>
+      <directory suffix="Test.php">tests/classes</directory>
     </testsuite>
     <testsuite name="selenium">
-      <directory suffix="Test.php">test/selenium</directory>
+      <directory suffix="Test.php">tests/selenium</directory>
     </testsuite>
   </testsuites>
   <logging>

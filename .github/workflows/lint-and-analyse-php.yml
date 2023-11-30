@@ -48,7 +48,7 @@ jobs:
       - name: Lint PHP files
         # Allow the previous check to fail but not abort
         if: always()
-        run: ./test/ci-phplint
+        run: ./tests/ci-phplint
 
       - name: Check coding-standard
         # Allow the previous check to fail but not abort

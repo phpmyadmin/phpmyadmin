@@ -48,7 +48,7 @@ class ImportLdiTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
 
-        $GLOBALS['import_file'] = 'test/test_data/db_test_ldi.csv';
+        $GLOBALS['import_file'] = 'tests/test_data/db_test_ldi.csv';
         $GLOBALS['import_text'] = 'ImportLdi_Test';
         $GLOBALS['read_multiply'] = 10;
         $GLOBALS['import_type'] = 'csv';
@@ -138,7 +138,7 @@ class ImportLdiTest extends AbstractTestCase
 
         //asset that all sql are executed
         $this->assertStringContainsString(
-            'LOAD DATA INFILE \'test/test_data/db_test_ldi.csv\' INTO TABLE `phpmyadmintest`',
+            'LOAD DATA INFILE \'tests/test_data/db_test_ldi.csv\' INTO TABLE `phpmyadmintest`',
             $GLOBALS['sql_query'],
         );
 
@@ -196,7 +196,7 @@ class ImportLdiTest extends AbstractTestCase
         //asset that all sql are executed
         //replace
         $this->assertStringContainsString(
-            'LOAD DATA LOCAL INFILE \'test/test_data/db_test_ldi.csv\' REPLACE INTO TABLE `phpmyadmintest`',
+            'LOAD DATA LOCAL INFILE \'tests/test_data/db_test_ldi.csv\' REPLACE INTO TABLE `phpmyadmintest`',
             $GLOBALS['sql_query'],
         );
 

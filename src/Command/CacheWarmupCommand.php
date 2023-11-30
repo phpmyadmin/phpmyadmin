@@ -145,7 +145,7 @@ final class CacheWarmupCommand extends Command
         /** @var SplFileInfo $file */
         foreach ($templates as $file) {
             // Skip test files
-            if (str_contains($file->getPathname(), '/test/')) {
+            if (str_contains($file->getPathname(), '/tests/')) {
                 continue;
             }
 

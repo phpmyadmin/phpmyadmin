@@ -19458,2115 +19458,2115 @@ parameters:
 		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
 			count: 2
-			path: test/classes/AbstractTestCase.php
+			path: tests/classes/AbstractTestCase.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'formula' and array\\{id\\: non\\-empty\\-string, name\\: string, precondition\\?\\: non\\-empty\\-string, formula\\: non\\-empty\\-string, test\\: non\\-empty\\-string, issue\\: string, recommendation\\: string, justification\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Advisory/RulesTest.php
+			path: tests/classes/Advisory/RulesTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'id' and array\\{id\\: non\\-empty\\-string, name\\: string, precondition\\?\\: non\\-empty\\-string, formula\\: non\\-empty\\-string, test\\: non\\-empty\\-string, issue\\: string, recommendation\\: string, justification\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Advisory/RulesTest.php
+			path: tests/classes/Advisory/RulesTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'issue' and array\\{id\\: non\\-empty\\-string, name\\: string, precondition\\?\\: non\\-empty\\-string, formula\\: non\\-empty\\-string, test\\: non\\-empty\\-string, issue\\: string, recommendation\\: string, justification\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Advisory/RulesTest.php
+			path: tests/classes/Advisory/RulesTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'justification' and array\\{id\\: non\\-empty\\-string, name\\: string, precondition\\?\\: non\\-empty\\-string, formula\\: non\\-empty\\-string, test\\: non\\-empty\\-string, issue\\: string, recommendation\\: string, justification\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Advisory/RulesTest.php
+			path: tests/classes/Advisory/RulesTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'name' and array\\{id\\: non\\-empty\\-string, name\\: string, precondition\\?\\: non\\-empty\\-string, formula\\: non\\-empty\\-string, test\\: non\\-empty\\-string, issue\\: string, recommendation\\: string, justification\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Advisory/RulesTest.php
+			path: tests/classes/Advisory/RulesTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'recommendation' and array\\{id\\: non\\-empty\\-string, name\\: string, precondition\\?\\: non\\-empty\\-string, formula\\: non\\-empty\\-string, test\\: non\\-empty\\-string, issue\\: string, recommendation\\: string, justification\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Advisory/RulesTest.php
+			path: tests/classes/Advisory/RulesTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'test' and array\\{id\\: non\\-empty\\-string, name\\: string, precondition\\?\\: non\\-empty\\-string, formula\\: non\\-empty\\-string, test\\: non\\-empty\\-string, issue\\: string, recommendation\\: string, justification\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Advisory/RulesTest.php
+			path: tests/classes/Advisory/RulesTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 3
-			path: test/classes/BrowseForeignersTest.php
+			path: tests/classes/BrowseForeignersTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$string of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringEndsWith\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: test/classes/BrowseForeignersTest.php
+			path: tests/classes/BrowseForeignersTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$string of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringStartsWith\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: test/classes/BrowseForeignersTest.php
+			path: tests/classes/BrowseForeignersTest.php
 
 		-
 			message: "#^Missing call to parent\\:\\:setUp\\(\\) method\\.$#"
 			count: 1
-			path: test/classes/CacheTest.php
+			path: tests/classes/CacheTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Charsets\\\\\\\\Charset' and PhpMyAdmin\\\\Charsets\\\\Charset will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Charsets/CharsetTest.php
+			path: tests/classes/Charsets/CharsetTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Charsets\\\\\\\\Collation' and PhpMyAdmin\\\\Charsets\\\\Collation will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Charsets/CollationTest.php
+			path: tests/classes/Charsets/CollationTest.php
 
 		-
 			message: "#^Class PhpMyAdmin\\\\Tests\\\\Command\\\\SetVersionCommandTest has an uninitialized property \\$command\\. Give it default value or assign it in the constructor\\.$#"
 			count: 1
-			path: test/classes/Command/SetVersionCommandTest.php
+			path: tests/classes/Command/SetVersionCommandTest.php
 
 		-
 			message: "#^Missing call to parent\\:\\:setUp\\(\\) method\\.$#"
 			count: 1
-			path: test/classes/Command/SetVersionCommandTest.php
+			path: tests/classes/Command/SetVersionCommandTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$array of function sort expects TArray of array\\<T\\>, mixed given\\.$#"
 			count: 2
-			path: test/classes/Command/TwigLintCommandTest.php
+			path: tests/classes/Command/TwigLintCommandTest.php
 
 		-
 			message: "#^Class PhpMyAdmin\\\\Tests\\\\Command\\\\WriteGitRevisionCommandTest has an uninitialized property \\$command\\. Give it default value or assign it in the constructor\\.$#"
 			count: 1
-			path: test/classes/Command/WriteGitRevisionCommandTest.php
+			path: tests/classes/Command/WriteGitRevisionCommandTest.php
 
 		-
 			message: "#^Cannot access offset 'port' on mixed\\.$#"
 			count: 1
-			path: test/classes/Config/ConfigFileTest.php
+			path: tests/classes/Config/ConfigFileTest.php
 
 		-
 			message: "#^Argument of an invalid type array\\<array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string\\>\\|bool\\|int\\<1, max\\>\\|string\\|null supplied for foreach, only iterables are supported\\.$#"
 			count: 1
-			path: test/classes/Config/DescriptionTest.php
+			path: tests/classes/Config/DescriptionTest.php
 
 		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
 			count: 1
-			path: test/classes/Config/DescriptionTest.php
+			path: tests/classes/Config/DescriptionTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int\\<1, max\\>, non\\-empty\\-array\\<'AllowDeny'\\|'AllowNoPassword'\\|'AllowRoot'\\|'auth_http_realm'\\|'auth_type'\\|'bookmarktable'\\|'central_columns'\\|'column_info'\\|'compress'\\|'control_compress'\\|'control_hide…'\\|'control_socket'\\|'control_ssl'\\|'control_ssl_ca'\\|'control_ssl_ca_path'\\|'control_ssl_cert'\\|'control_ssl_ciphers'\\|'control_ssl_key'\\|'control_ssl_verify'\\|'controlhost'\\|'controlpass'\\|'controlport'\\|'controluser'\\|'designer_settings'\\|'DisableIS'\\|'export_templates'\\|'favorite'\\|'hide_db'\\|'history'\\|'host'\\|'LogoutURL'\\|'MaxTableUiprefs'\\|'navigationhiding'\\|'only_db'\\|'password'\\|'pdf_pages'\\|'pmadb'\\|'port'\\|'recent'\\|'relation'\\|'savedsearches'\\|'SessionTimeZone'\\|'SignonCookieParams'\\|'SignonScript'\\|'SignonSession'\\|'SignonURL'\\|'socket'\\|'ssl'\\|'ssl_ca'\\|'ssl_ca_path'\\|'ssl_cert'\\|'ssl_ciphers'\\|'ssl_key'\\|'ssl_verify'\\|'table_coords'\\|'table_info'\\|'table_uiprefs'\\|'tracking'\\|'user'\\|'userconfig'\\|'usergroups'\\|'users'\\|'verbose', array\\<array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string\\>\\|bool\\|int\\<1, max\\>\\|string\\|null\\>\\> will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Config/DescriptionTest.php
+			path: tests/classes/Config/DescriptionTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with non\\-empty\\-array\\<'AllowDeny'\\|'AllowNoPassword'\\|'AllowRoot'\\|'auth_http_realm'\\|'auth_type'\\|'bookmarktable'\\|'central_columns'\\|'column_info'\\|'compress'\\|'control_compress'\\|'control_hide…'\\|'control_socket'\\|'control_ssl'\\|'control_ssl_ca'\\|'control_ssl_ca_path'\\|'control_ssl_cert'\\|'control_ssl_ciphers'\\|'control_ssl_key'\\|'control_ssl_verify'\\|'controlhost'\\|'controlpass'\\|'controlport'\\|'controluser'\\|'designer_settings'\\|'DisableIS'\\|'export_templates'\\|'favorite'\\|'hide_db'\\|'history'\\|'host'\\|'LogoutURL'\\|'MaxTableUiprefs'\\|'navigationhiding'\\|'only_db'\\|'password'\\|'pdf_pages'\\|'pmadb'\\|'port'\\|'recent'\\|'relation'\\|'savedsearches'\\|'SessionTimeZone'\\|'SignonCookieParams'\\|'SignonScript'\\|'SignonSession'\\|'SignonURL'\\|'socket'\\|'ssl'\\|'ssl_ca'\\|'ssl_ca_path'\\|'ssl_cert'\\|'ssl_ciphers'\\|'ssl_key'\\|'ssl_verify'\\|'table_coords'\\|'table_info'\\|'table_uiprefs'\\|'tracking'\\|'user'\\|'userconfig'\\|'usergroups'\\|'users'\\|'verbose', array\\<array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string\\>\\|bool\\|int\\<1, max\\>\\|string\\|null\\> will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Config/DescriptionTest.php
+			path: tests/classes/Config/DescriptionTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Config/DescriptionTest.php
+			path: tests/classes/Config/DescriptionTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with string will always evaluate to true\\.$#"
 			count: 3
-			path: test/classes/Config/DescriptionTest.php
+			path: tests/classes/Config/DescriptionTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with null will always evaluate to false\\.$#"
 			count: 1
-			path: test/classes/Config/FormDisplayTest.php
+			path: tests/classes/Config/FormDisplayTest.php
 
 		-
 			message: "#^Cannot access offset 'pma_testform' on mixed\\.$#"
 			count: 1
-			path: test/classes/Config/FormDisplayTest.php
+			path: tests/classes/Config/FormDisplayTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Forms\\\\\\\\BaseFormList' and PhpMyAdmin\\\\Config\\\\Forms\\\\BaseFormList will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Config/Forms/FormListTest.php
+			path: tests/classes/Config/Forms/FormListTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with string will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Config/Forms/FormListTest.php
+			path: tests/classes/Config/Forms/FormListTest.php
 
 		-
 			message: "#^Cannot access offset 'AllowArbitraryServer' on mixed\\.$#"
 			count: 2
-			path: test/classes/Config/ServerConfigChecksTest.php
+			path: tests/classes/Config/ServerConfigChecksTest.php
 
 		-
 			message: "#^Cannot access offset 'BZipDump' on mixed\\.$#"
 			count: 2
-			path: test/classes/Config/ServerConfigChecksTest.php
+			path: tests/classes/Config/ServerConfigChecksTest.php
 
 		-
 			message: "#^Cannot access offset 'GZipDump' on mixed\\.$#"
 			count: 2
-			path: test/classes/Config/ServerConfigChecksTest.php
+			path: tests/classes/Config/ServerConfigChecksTest.php
 
 		-
 			message: "#^Cannot access offset 'LoginCookieStore' on mixed\\.$#"
 			count: 2
-			path: test/classes/Config/ServerConfigChecksTest.php
+			path: tests/classes/Config/ServerConfigChecksTest.php
 
 		-
 			message: "#^Cannot access offset 'LoginCookieValidity' on mixed\\.$#"
 			count: 2
-			path: test/classes/Config/ServerConfigChecksTest.php
+			path: tests/classes/Config/ServerConfigChecksTest.php
 
 		-
 			message: "#^Cannot access offset 'SaveDir' on mixed\\.$#"
 			count: 2
-			path: test/classes/Config/ServerConfigChecksTest.php
+			path: tests/classes/Config/ServerConfigChecksTest.php
 
 		-
 			message: "#^Cannot access offset 'Servers' on mixed\\.$#"
 			count: 4
-			path: test/classes/Config/ServerConfigChecksTest.php
+			path: tests/classes/Config/ServerConfigChecksTest.php
 
 		-
 			message: "#^Cannot access offset 'TempDir' on mixed\\.$#"
 			count: 2
-			path: test/classes/Config/ServerConfigChecksTest.php
+			path: tests/classes/Config/ServerConfigChecksTest.php
 
 		-
 			message: "#^Cannot access offset 'ZipDump' on mixed\\.$#"
 			count: 2
-			path: test/classes/Config/ServerConfigChecksTest.php
+			path: tests/classes/Config/ServerConfigChecksTest.php
 
 		-
 			message: "#^Cannot access offset 'blowfish_secret' on mixed\\.$#"
 			count: 6
-			path: test/classes/Config/ServerConfigChecksTest.php
+			path: tests/classes/Config/ServerConfigChecksTest.php
 
 		-
 			message: "#^Cannot access offset 'error' on mixed\\.$#"
 			count: 1
-			path: test/classes/Config/ServerConfigChecksTest.php
+			path: tests/classes/Config/ServerConfigChecksTest.php
 
 		-
 			message: "#^Cannot access offset 'notice' on mixed\\.$#"
 			count: 1
-			path: test/classes/Config/ServerConfigChecksTest.php
+			path: tests/classes/Config/ServerConfigChecksTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$array of function array_keys expects array, mixed given\\.$#"
 			count: 2
-			path: test/classes/Config/ServerConfigChecksTest.php
+			path: tests/classes/Config/ServerConfigChecksTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$cfg of class PhpMyAdmin\\\\Config\\\\ServerConfigChecks constructor expects PhpMyAdmin\\\\Config\\\\ConfigFile, mixed given\\.$#"
 			count: 3
-			path: test/classes/Config/ServerConfigChecksTest.php
+			path: tests/classes/Config/ServerConfigChecksTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Tests\\\\Config\\\\ServerConfigChecksTest\\:\\:\\$sessionID \\(string\\) does not accept mixed\\.$#"
 			count: 1
-			path: test/classes/Config/ServerConfigChecksTest.php
+			path: tests/classes/Config/ServerConfigChecksTest.php
 
 		-
 			message: "#^Variable property access on PhpMyAdmin\\\\Config\\\\Settings\\\\Schema\\.$#"
 			count: 1
-			path: test/classes/Config/Settings/SchemaTest.php
+			path: tests/classes/Config/Settings/SchemaTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\Console' and PhpMyAdmin\\\\Config\\\\Settings\\\\Console will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Config/SettingsTest.php
+			path: tests/classes/Config/SettingsTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\Debug' and PhpMyAdmin\\\\Config\\\\Settings\\\\Debug will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Config/SettingsTest.php
+			path: tests/classes/Config/SettingsTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\Export' and PhpMyAdmin\\\\Config\\\\Settings\\\\Export will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Config/SettingsTest.php
+			path: tests/classes/Config/SettingsTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\Import' and PhpMyAdmin\\\\Config\\\\Settings\\\\Import will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Config/SettingsTest.php
+			path: tests/classes/Config/SettingsTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\Schema' and PhpMyAdmin\\\\Config\\\\Settings\\\\Schema will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Config/SettingsTest.php
+			path: tests/classes/Config/SettingsTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\SqlQueryBox' and PhpMyAdmin\\\\Config\\\\Settings\\\\SqlQueryBox will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Config/SettingsTest.php
+			path: tests/classes/Config/SettingsTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\Transformations' and PhpMyAdmin\\\\Config\\\\Settings\\\\Transformations will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Config/SettingsTest.php
+			path: tests/classes/Config/SettingsTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Tests\\\\Config\\\\SettingsTest\\:\\:\\$defaultValues type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: test/classes/Config/SettingsTest.php
+			path: tests/classes/Config/SettingsTest.php
 
 		-
 			message: "#^Variable property access on PhpMyAdmin\\\\Config\\\\Settings\\.$#"
 			count: 1
-			path: test/classes/Config/SettingsTest.php
+			path: tests/classes/Config/SettingsTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with arguments 'relation', array\\{version\\: string, user\\: string\\|null, db\\: string\\|null, bookmark\\: string\\|null, central_columns\\: string\\|null, column_info\\: string\\|null, designer_settings\\: string\\|null, export_templates\\: string\\|null, \\.\\.\\.\\} and 'The cache is…' will always evaluate to true\\.$#"
 			count: 3
-			path: test/classes/ConfigStorage/RelationTest.php
+			path: tests/classes/ConfigStorage/RelationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with '' and '' will always evaluate to true\\.$#"
 			count: 2
-			path: test/classes/ConfigStorage/RelationTest.php
+			path: tests/classes/ConfigStorage/RelationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with 'db_pma' and 'db_pma' will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/ConfigStorage/RelationTest.php
+			path: tests/classes/ConfigStorage/RelationTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{\\}\\.$#"
 			count: 6
-			path: test/classes/ConfigStorage/RelationTest.php
+			path: tests/classes/ConfigStorage/RelationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'Server' and array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\} will always evaluate to false\\.$#"
 			count: 1
-			path: test/classes/ConfigTest.php
+			path: tests/classes/ConfigTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int\\<1, max\\>, array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\> will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/ConfigTest.php
+			path: tests/classes/ConfigTest.php
 
 		-
 			message: "#^Only booleans are allowed in &&, int\\<0, 2\\> given on the right side\\.$#"
 			count: 2
-			path: test/classes/ConfigTest.php
+			path: tests/classes/ConfigTest.php
 
 		-
 			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
 			count: 1
-			path: test/classes/ConfigTest.php
+			path: tests/classes/ConfigTest.php
 
 		-
 			message: "#^Only booleans are allowed in an elseif condition, string\\|false given\\.$#"
 			count: 3
-			path: test/classes/ConfigTest.php
+			path: tests/classes/ConfigTest.php
 
 		-
 			message: "#^Only booleans are allowed in an if condition, string\\|false given\\.$#"
 			count: 3
-			path: test/classes/ConfigTest.php
+			path: tests/classes/ConfigTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$haystack of function mb_strstr expects string, array\\<string\\> given\\.$#"
 			count: 1
-			path: test/classes/ConfigTest.php
+			path: tests/classes/ConfigTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$haystack of function mb_strstr expects string, mixed given\\.$#"
 			count: 1
-			path: test/classes/ConfigTest.php
+			path: tests/classes/ConfigTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$source of method PhpMyAdmin\\\\Config\\:\\:loadAndCheck\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
-			path: test/classes/ConfigTest.php
+			path: tests/classes/ConfigTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$needle of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: test/classes/Controllers/Database/PrivilegesControllerTest.php
+			path: tests/classes/Controllers/Database/PrivilegesControllerTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
 			count: 1
-			path: test/classes/Controllers/Database/PrivilegesControllerTest.php
+			path: tests/classes/Controllers/Database/PrivilegesControllerTest.php
 
 		-
 			message: "#^Cannot access offset 'favoriteTables' on mixed\\.$#"
 			count: 1
-			path: test/classes/Controllers/Database/Structure/FavoriteTableControllerTest.php
+			path: tests/classes/Controllers/Database/Structure/FavoriteTableControllerTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$array of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
 			count: 1
-			path: test/classes/Controllers/Database/Structure/FavoriteTableControllerTest.php
+			path: tests/classes/Controllers/Database/Structure/FavoriteTableControllerTest.php
 
 		-
 			message: "#^Cannot access offset 'COUNTED' on mixed\\.$#"
 			count: 4
-			path: test/classes/Controllers/Database/StructureControllerTest.php
+			path: tests/classes/Controllers/Database/StructureControllerTest.php
 
 		-
 			message: "#^Cannot access offset 'Data_free' on mixed\\.$#"
 			count: 1
-			path: test/classes/Controllers/Database/StructureControllerTest.php
+			path: tests/classes/Controllers/Database/StructureControllerTest.php
 
 		-
 			message: "#^Cannot access offset 'ENGINE' on mixed\\.$#"
 			count: 3
-			path: test/classes/Controllers/Database/StructureControllerTest.php
+			path: tests/classes/Controllers/Database/StructureControllerTest.php
 
 		-
 			message: "#^Cannot access offset 'Rows' on mixed\\.$#"
 			count: 1
-			path: test/classes/Controllers/Database/StructureControllerTest.php
+			path: tests/classes/Controllers/Database/StructureControllerTest.php
 
 		-
 			message: "#^Cannot access offset 'TABLE_ROWS' on mixed\\.$#"
 			count: 1
-			path: test/classes/Controllers/Database/StructureControllerTest.php
+			path: tests/classes/Controllers/Database/StructureControllerTest.php
 
 		-
 			message: "#^Cannot use array destructuring on mixed\\.$#"
 			count: 8
-			path: test/classes/Controllers/Database/StructureControllerTest.php
+			path: tests/classes/Controllers/Database/StructureControllerTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$array of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayNotHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
 			count: 1
-			path: test/classes/Controllers/Database/StructureControllerTest.php
+			path: tests/classes/Controllers/Database/StructureControllerTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 4
-			path: test/classes/Controllers/Database/StructureControllerTest.php
+			path: tests/classes/Controllers/Database/StructureControllerTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringNotContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: test/classes/Controllers/Database/StructureControllerTest.php
+			path: tests/classes/Controllers/Database/StructureControllerTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 4
-			path: test/classes/Controllers/NavigationControllerTest.php
+			path: tests/classes/Controllers/NavigationControllerTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 1
-			path: test/classes/Controllers/Operations/TableControllerTest.php
+			path: tests/classes/Controllers/Operations/TableControllerTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 1
-			path: test/classes/Controllers/Server/BinlogControllerTest.php
+			path: tests/classes/Controllers/Server/BinlogControllerTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 3
-			path: test/classes/Controllers/Server/Databases/CreateControllerTest.php
+			path: tests/classes/Controllers/Server/Databases/CreateControllerTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 2
-			path: test/classes/Controllers/Server/Databases/DestroyControllerTest.php
+			path: tests/classes/Controllers/Server/Databases/DestroyControllerTest.php
 
 		-
 			message: "#^Cannot access offset 'numRows' on mixed\\.$#"
 			count: 1
-			path: test/classes/Controllers/Server/Status/Monitor/GeneralLogControllerTest.php
+			path: tests/classes/Controllers/Server/Status/Monitor/GeneralLogControllerTest.php
 
 		-
 			message: "#^Cannot access offset 'rows' on mixed\\.$#"
 			count: 1
-			path: test/classes/Controllers/Server/Status/Monitor/GeneralLogControllerTest.php
+			path: tests/classes/Controllers/Server/Status/Monitor/GeneralLogControllerTest.php
 
 		-
 			message: "#^Cannot access offset 'sum' on mixed\\.$#"
 			count: 1
-			path: test/classes/Controllers/Server/Status/Monitor/GeneralLogControllerTest.php
+			path: tests/classes/Controllers/Server/Status/Monitor/GeneralLogControllerTest.php
 
 		-
 			message: "#^Cannot access offset 'affectedRows' on mixed\\.$#"
 			count: 1
-			path: test/classes/Controllers/Server/Status/Monitor/QueryAnalyzerControllerTest.php
+			path: tests/classes/Controllers/Server/Status/Monitor/QueryAnalyzerControllerTest.php
 
 		-
 			message: "#^Cannot access offset 'explain' on mixed\\.$#"
 			count: 1
-			path: test/classes/Controllers/Server/Status/Monitor/QueryAnalyzerControllerTest.php
+			path: tests/classes/Controllers/Server/Status/Monitor/QueryAnalyzerControllerTest.php
 
 		-
 			message: "#^Cannot access offset 'profiling' on mixed\\.$#"
 			count: 1
-			path: test/classes/Controllers/Server/Status/Monitor/QueryAnalyzerControllerTest.php
+			path: tests/classes/Controllers/Server/Status/Monitor/QueryAnalyzerControllerTest.php
 
 		-
 			message: "#^Cannot access offset 'numRows' on mixed\\.$#"
 			count: 1
-			path: test/classes/Controllers/Server/Status/Monitor/SlowLogControllerTest.php
+			path: tests/classes/Controllers/Server/Status/Monitor/SlowLogControllerTest.php
 
 		-
 			message: "#^Cannot access offset 'rows' on mixed\\.$#"
 			count: 1
-			path: test/classes/Controllers/Server/Status/Monitor/SlowLogControllerTest.php
+			path: tests/classes/Controllers/Server/Status/Monitor/SlowLogControllerTest.php
 
 		-
 			message: "#^Cannot access offset 'sum' on mixed\\.$#"
 			count: 1
-			path: test/classes/Controllers/Server/Status/Monitor/SlowLogControllerTest.php
+			path: tests/classes/Controllers/Server/Status/Monitor/SlowLogControllerTest.php
 
 		-
 			message: "#^Cannot use array destructuring on mixed\\.$#"
 			count: 7
-			path: test/classes/Controllers/Server/VariablesControllerTest.php
+			path: tests/classes/Controllers/Server/VariablesControllerTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
 			count: 1
-			path: test/classes/Controllers/Table/PrivilegesControllerTest.php
+			path: tests/classes/Controllers/Table/PrivilegesControllerTest.php
 
 		-
 			message: "#^Call to an undefined method PhpMyAdmin\\\\DatabaseInterface\\:\\:expects\\(\\)\\.$#"
 			count: 4
-			path: test/classes/Controllers/Table/RelationControllerTest.php
+			path: tests/classes/Controllers/Table/RelationControllerTest.php
 
 		-
 			message: "#^Cannot call method method\\(\\) on mixed\\.$#"
 			count: 4
-			path: test/classes/Controllers/Table/RelationControllerTest.php
+			path: tests/classes/Controllers/Table/RelationControllerTest.php
 
 		-
 			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
 			count: 4
-			path: test/classes/Controllers/Table/RelationControllerTest.php
+			path: tests/classes/Controllers/Table/RelationControllerTest.php
 
 		-
 			message: "#^PHPDoc tag @var for variable \\$result has no value type specified in iterable type array\\.$#"
 			count: 2
-			path: test/classes/Controllers/Table/ReplaceControllerTest.php
+			path: tests/classes/Controllers/Table/ReplaceControllerTest.php
 
 		-
 			message: "#^Call to an undefined method PhpMyAdmin\\\\DatabaseInterface\\:\\:expects\\(\\)\\.$#"
 			count: 1
-			path: test/classes/Controllers/Table/SearchControllerTest.php
+			path: tests/classes/Controllers/Table/SearchControllerTest.php
 
 		-
 			message: "#^Cannot call method method\\(\\) on mixed\\.$#"
 			count: 1
-			path: test/classes/Controllers/Table/SearchControllerTest.php
+			path: tests/classes/Controllers/Table/SearchControllerTest.php
 
 		-
 			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
 			count: 1
-			path: test/classes/Controllers/Table/SearchControllerTest.php
+			path: tests/classes/Controllers/Table/SearchControllerTest.php
 
 		-
 			message: "#^Cannot call method with\\(\\) on mixed\\.$#"
 			count: 1
-			path: test/classes/Controllers/Table/SearchControllerTest.php
+			path: tests/classes/Controllers/Table/SearchControllerTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: test/classes/Controllers/Table/StructureControllerTest.php
+			path: tests/classes/Controllers/Table/StructureControllerTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$table of static method PhpMyAdmin\\\\Index\\:\\:findDuplicates\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: test/classes/Controllers/Table/StructureControllerTest.php
+			path: tests/classes/Controllers/Table/StructureControllerTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$schema of static method PhpMyAdmin\\\\Index\\:\\:findDuplicates\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: test/classes/Controllers/Table/StructureControllerTest.php
+			path: tests/classes/Controllers/Table/StructureControllerTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: test/classes/Controllers/Table/StructureControllerTest.php
+			path: tests/classes/Controllers/Table/StructureControllerTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\Index\\:\\:getFromTable\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: test/classes/Controllers/Table/StructureControllerTest.php
+			path: tests/classes/Controllers/Table/StructureControllerTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\Index\\:\\:getPrimary\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: test/classes/Controllers/Table/StructureControllerTest.php
+			path: tests/classes/Controllers/Table/StructureControllerTest.php
 
 		-
 			message: "#^Parameter \\#3 \\$schema of static method PhpMyAdmin\\\\Index\\:\\:getFromTable\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: test/classes/Controllers/Table/StructureControllerTest.php
+			path: tests/classes/Controllers/Table/StructureControllerTest.php
 
 		-
 			message: "#^Parameter \\#3 \\$schema of static method PhpMyAdmin\\\\Index\\:\\:getPrimary\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: test/classes/Controllers/Table/StructureControllerTest.php
+			path: tests/classes/Controllers/Table/StructureControllerTest.php
 
 		-
 			message: "#^Call to an undefined method PhpMyAdmin\\\\Http\\\\ServerRequest&PHPUnit\\\\Framework\\\\MockObject\\\\Stub\\:\\:expects\\(\\)\\.$#"
 			count: 1
-			path: test/classes/Controllers/Triggers/IndexControllerTest.php
+			path: tests/classes/Controllers/Triggers/IndexControllerTest.php
 
 		-
 			message: "#^Cannot call method method\\(\\) on mixed\\.$#"
 			count: 1
-			path: test/classes/Controllers/Triggers/IndexControllerTest.php
+			path: tests/classes/Controllers/Triggers/IndexControllerTest.php
 
 		-
 			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
 			count: 1
-			path: test/classes/Controllers/Triggers/IndexControllerTest.php
+			path: tests/classes/Controllers/Triggers/IndexControllerTest.php
 
 		-
 			message: "#^Cannot access offset 'arr' on mixed\\.$#"
 			count: 5
-			path: test/classes/CoreTest.php
+			path: tests/classes/CoreTest.php
 
 		-
 			message: "#^Cannot access offset 'arr1' on mixed\\.$#"
 			count: 5
-			path: test/classes/CoreTest.php
+			path: tests/classes/CoreTest.php
 
 		-
 			message: "#^Cannot access offset 'int' on mixed\\.$#"
 			count: 1
-			path: test/classes/CoreTest.php
+			path: tests/classes/CoreTest.php
 
 		-
 			message: "#^Cannot access offset 'not_existing' on mixed\\.$#"
 			count: 1
-			path: test/classes/CoreTest.php
+			path: tests/classes/CoreTest.php
 
 		-
 			message: "#^Cannot access offset 'sarr' on mixed\\.$#"
 			count: 14
-			path: test/classes/CoreTest.php
+			path: tests/classes/CoreTest.php
 
 		-
 			message: "#^Cannot access offset 'str' on mixed\\.$#"
 			count: 1
-			path: test/classes/CoreTest.php
+			path: tests/classes/CoreTest.php
 
 		-
 			message: "#^Cannot access offset 0 on mixed\\.$#"
 			count: 11
-			path: test/classes/CoreTest.php
+			path: tests/classes/CoreTest.php
 
 		-
 			message: "#^Cannot access offset 1 on mixed\\.$#"
 			count: 6
-			path: test/classes/CoreTest.php
+			path: tests/classes/CoreTest.php
 
 		-
 			message: "#^Cannot access offset 2 on mixed\\.$#"
 			count: 3
-			path: test/classes/CoreTest.php
+			path: tests/classes/CoreTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$array of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayNotHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
 			count: 12
-			path: test/classes/CoreTest.php
+			path: tests/classes/CoreTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$string of function mb_strlen expects string, mixed given\\.$#"
 			count: 1
-			path: test/classes/Crypto/CryptoTest.php
+			path: tests/classes/Crypto/CryptoTest.php
 
 		-
 			message: "#^Call to an undefined method PhpMyAdmin\\\\DatabaseInterface\\:\\:expects\\(\\)\\.$#"
 			count: 10
-			path: test/classes/Database/CentralColumnsTest.php
+			path: tests/classes/Database/CentralColumnsTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<string\\> will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Database/CentralColumnsTest.php
+			path: tests/classes/Database/CentralColumnsTest.php
 
 		-
 			message: "#^Cannot access offset 0 on mixed\\.$#"
 			count: 1
-			path: test/classes/Database/CentralColumnsTest.php
+			path: tests/classes/Database/CentralColumnsTest.php
 
 		-
 			message: "#^Cannot call method method\\(\\) on mixed\\.$#"
 			count: 10
-			path: test/classes/Database/CentralColumnsTest.php
+			path: tests/classes/Database/CentralColumnsTest.php
 
 		-
 			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
 			count: 9
-			path: test/classes/Database/CentralColumnsTest.php
+			path: tests/classes/Database/CentralColumnsTest.php
 
 		-
 			message: "#^Cannot call method willReturnOnConsecutiveCalls\\(\\) on mixed\\.$#"
 			count: 1
-			path: test/classes/Database/CentralColumnsTest.php
+			path: tests/classes/Database/CentralColumnsTest.php
 
 		-
 			message: "#^Cannot call method with\\(\\) on mixed\\.$#"
 			count: 7
-			path: test/classes/Database/CentralColumnsTest.php
+			path: tests/classes/Database/CentralColumnsTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$needle of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: test/classes/Database/CentralColumnsTest.php
+			path: tests/classes/Database/CentralColumnsTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 2
-			path: test/classes/Database/CentralColumnsTest.php
+			path: tests/classes/Database/CentralColumnsTest.php
 
 		-
 			message: "#^Class PhpMyAdmin\\\\Tests\\\\Database\\\\Designer\\\\CommonTest has an uninitialized property \\$designerCommon\\. Give it default value or assign it in the constructor\\.$#"
 			count: 1
-			path: test/classes/Database/Designer/CommonTest.php
+			path: tests/classes/Database/Designer/CommonTest.php
 
 		-
 			message: "#^Class PhpMyAdmin\\\\Tests\\\\Database\\\\DesignerTest has an uninitialized property \\$designer\\. Give it default value or assign it in the constructor\\.$#"
 			count: 1
-			path: test/classes/Database/DesignerTest.php
+			path: tests/classes/Database/DesignerTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Dbal\\\\\\\\ResultInterface' and PhpMyAdmin\\\\Dbal\\\\ResultInterface will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/DatabaseInterfaceTest.php
+			path: tests/classes/DatabaseInterfaceTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\SystemDatabase' and PhpMyAdmin\\\\SystemDatabase will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/DatabaseInterfaceTest.php
+			path: tests/classes/DatabaseInterfaceTest.php
 
 		-
 			message: "#^Cannot access offset '27b1330f2076ef45d23…' on mixed\\.$#"
 			count: 1
-			path: test/classes/Display/ResultsTest.php
+			path: tests/classes/Display/ResultsTest.php
 
 		-
 			message: "#^Cannot access offset 'display_binary' on mixed\\.$#"
 			count: 4
-			path: test/classes/Display/ResultsTest.php
+			path: tests/classes/Display/ResultsTest.php
 
 		-
 			message: "#^Cannot access offset 'display_blob' on mixed\\.$#"
 			count: 4
-			path: test/classes/Display/ResultsTest.php
+			path: tests/classes/Display/ResultsTest.php
 
 		-
 			message: "#^Cannot access offset 'f2a8e80312ca180031a…' on mixed\\.$#"
 			count: 1
-			path: test/classes/Display/ResultsTest.php
+			path: tests/classes/Display/ResultsTest.php
 
 		-
 			message: "#^Cannot access offset 'geoOption' on mixed\\.$#"
 			count: 2
-			path: test/classes/Display/ResultsTest.php
+			path: tests/classes/Display/ResultsTest.php
 
 		-
 			message: "#^Cannot access offset 'hide_transformation' on mixed\\.$#"
 			count: 2
-			path: test/classes/Display/ResultsTest.php
+			path: tests/classes/Display/ResultsTest.php
 
 		-
 			message: "#^Cannot access offset 'max_rows' on mixed\\.$#"
 			count: 6
-			path: test/classes/Display/ResultsTest.php
+			path: tests/classes/Display/ResultsTest.php
 
 		-
 			message: "#^Cannot access offset 'pftext' on mixed\\.$#"
 			count: 4
-			path: test/classes/Display/ResultsTest.php
+			path: tests/classes/Display/ResultsTest.php
 
 		-
 			message: "#^Cannot access offset 'pos' on mixed\\.$#"
 			count: 3
-			path: test/classes/Display/ResultsTest.php
+			path: tests/classes/Display/ResultsTest.php
 
 		-
 			message: "#^Cannot access offset 'possible_as_geometry' on mixed\\.$#"
 			count: 2
-			path: test/classes/Display/ResultsTest.php
+			path: tests/classes/Display/ResultsTest.php
 
 		-
 			message: "#^Cannot access offset 'query' on mixed\\.$#"
 			count: 2
-			path: test/classes/Display/ResultsTest.php
+			path: tests/classes/Display/ResultsTest.php
 
 		-
 			message: "#^Cannot access offset 'relational_display' on mixed\\.$#"
 			count: 4
-			path: test/classes/Display/ResultsTest.php
+			path: tests/classes/Display/ResultsTest.php
 
 		-
 			message: "#^Cannot access offset 'repeat_cells' on mixed\\.$#"
 			count: 2
-			path: test/classes/Display/ResultsTest.php
+			path: tests/classes/Display/ResultsTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:dataProviderForTestGetDataCellForNonNumericColumns\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 3
-			path: test/classes/Display/ResultsTest.php
+			path: tests/classes/Display/ResultsTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:dataProviderForTestHandleNonPrintableContents\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 2
-			path: test/classes/Display/ResultsTest.php
+			path: tests/classes/Display/ResultsTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$info of static method PhpMyAdmin\\\\StatementInfo\\:\\:fromArray\\(\\) expects array\\{distinct\\: bool, drop_database\\: bool, group\\: bool, having\\: bool, is_affected\\: bool, is_analyse\\: bool, is_count\\: bool, is_delete\\: bool, \\.\\.\\.\\}, array\\{distinct\\?\\: bool, drop_database\\?\\: bool, group\\?\\: bool, having\\?\\: bool, is_affected\\?\\: bool, is_analyse\\?\\: bool, is_count\\?\\: bool, is_delete\\?\\: bool, \\.\\.\\.\\} given\\.$#"
 			count: 3
-			path: test/classes/Display/ResultsTest.php
+			path: tests/classes/Display/ResultsTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars_decode expects string, mixed given\\.$#"
 			count: 1
-			path: test/classes/Display/ResultsTest.php
+			path: tests/classes/Display/ResultsTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$db of class PhpMyAdmin\\\\Display\\\\Results constructor expects string, mixed given\\.$#"
 			count: 2
-			path: test/classes/Display/ResultsTest.php
+			path: tests/classes/Display/ResultsTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\ParseAnalyze\\:\\:sqlQuery\\(\\) expects string, mixed given\\.$#"
 			count: 2
-			path: test/classes/Display/ResultsTest.php
+			path: tests/classes/Display/ResultsTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 4
-			path: test/classes/Display/ResultsTest.php
+			path: tests/classes/Display/ResultsTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 3
-			path: test/classes/Display/ResultsTest.php
+			path: tests/classes/Display/ResultsTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsString\\(\\) with string will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/ErrorHandlerTest.php
+			path: tests/classes/ErrorHandlerTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 1
-			path: test/classes/Export/OptionsTest.php
+			path: tests/classes/Export/OptionsTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$array of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
 			count: 1
-			path: test/classes/FlashMessagesTest.php
+			path: tests/classes/FlashMessagesTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$array of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayNotHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
 			count: 1
-			path: test/classes/FlashMessagesTest.php
+			path: tests/classes/FlashMessagesTest.php
 
 		-
 			message: "#^Cannot access offset 'queries' on mixed\\.$#"
 			count: 1
-			path: test/classes/FooterTest.php
+			path: tests/classes/FooterTest.php
 
 		-
 			message: "#^Cannot access offset 'data_length' on mixed\\.$#"
 			count: 2
-			path: test/classes/Gis/Ds/PolygonTest.php
+			path: tests/classes/Gis/Ds/PolygonTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$points of static method PhpMyAdmin\\\\Gis\\\\Ds\\\\Polygon\\:\\:fromXYArray\\(\\) expects non\\-empty\\-array\\<int, array\\{x\\: float, y\\: float\\}\\>, mixed given\\.$#"
 			count: 2
-			path: test/classes/Gis/Ds/PolygonTest.php
+			path: tests/classes/Gis/Ds/PolygonTest.php
 
 		-
 			message: "#^Cannot access offset 'data_length' on mixed\\.$#"
 			count: 2
-			path: test/classes/Gis/GisMultiPolygonTest.php
+			path: tests/classes/Gis/GisMultiPolygonTest.php
 
 		-
 			message: "#^Cannot access offset 0 on mixed\\.$#"
 			count: 1
-			path: test/classes/Gis/GisMultiPolygonTest.php
+			path: tests/classes/Gis/GisMultiPolygonTest.php
 
 		-
 			message: "#^Cannot access offset 'data_length' on mixed\\.$#"
 			count: 1
-			path: test/classes/Gis/GisPolygonTest.php
+			path: tests/classes/Gis/GisPolygonTest.php
 
 		-
 			message: "#^Cannot access offset 'y' on mixed\\.$#"
 			count: 1
-			path: test/classes/Gis/GisPolygonTest.php
+			path: tests/classes/Gis/GisPolygonTest.php
 
 		-
 			message: "#^Cannot access offset 3 on mixed\\.$#"
 			count: 1
-			path: test/classes/Gis/GisPolygonTest.php
+			path: tests/classes/Gis/GisPolygonTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 1
-			path: test/classes/HeaderTest.php
+			path: tests/classes/HeaderTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
 			count: 2
-			path: test/classes/Html/GeneratorTest.php
+			path: tests/classes/Html/GeneratorTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{ssl\\: false, host\\: '127\\.0\\.0\\.1'\\}\\.$#"
 			count: 1
-			path: test/classes/Html/GeneratorTest.php
+			path: tests/classes/Html/GeneratorTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{ssl\\: false, host\\: 'custom\\.host'\\}\\.$#"
 			count: 2
-			path: test/classes/Html/GeneratorTest.php
+			path: tests/classes/Html/GeneratorTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{ssl\\: false, ssl_verify\\: true, host\\: 'custom\\.host'\\}\\.$#"
 			count: 1
-			path: test/classes/Html/GeneratorTest.php
+			path: tests/classes/Html/GeneratorTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{ssl\\: true, ssl_verify\\: false, host\\: 'custom\\.host'\\}\\.$#"
 			count: 1
-			path: test/classes/Html/GeneratorTest.php
+			path: tests/classes/Html/GeneratorTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{ssl\\: true, ssl_verify\\: true, host\\: 'custom\\.host'\\}\\.$#"
 			count: 1
-			path: test/classes/Html/GeneratorTest.php
+			path: tests/classes/Html/GeneratorTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{ssl\\: true, ssl_verify\\: true, ssl_ca\\: '/etc/ssl/ca\\.crt', host\\: 'custom\\.host'\\}\\.$#"
 			count: 1
-			path: test/classes/Html/GeneratorTest.php
+			path: tests/classes/Html/GeneratorTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 1
-			path: test/classes/Html/GeneratorTest.php
+			path: tests/classes/Html/GeneratorTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with true will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Import/AjaxTest.php
+			path: tests/classes/Import/AjaxTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 1
-			path: test/classes/Import/ImportTest.php
+			path: tests/classes/Import/ImportTest.php
 
 		-
 			message: "#^Cannot access an offset on mixed\\.$#"
 			count: 3
-			path: test/classes/IndexTest.php
+			path: tests/classes/IndexTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$columns of method PhpMyAdmin\\\\Index\\:\\:addColumns\\(\\) expects array, mixed given\\.$#"
 			count: 2
-			path: test/classes/IndexTest.php
+			path: tests/classes/IndexTest.php
 
 		-
 			message: "#^Cannot access offset 'foreign_db' on mixed\\.$#"
 			count: 2
-			path: test/classes/InsertEditTest.php
+			path: tests/classes/InsertEditTest.php
 
 		-
 			message: "#^Cannot access offset 'isNeedToRecheck' on mixed\\.$#"
 			count: 3
-			path: test/classes/InsertEditTest.php
+			path: tests/classes/InsertEditTest.php
 
 		-
 			message: "#^Cannot access offset 'relational_display' on mixed\\.$#"
 			count: 1
-			path: test/classes/InsertEditTest.php
+			path: tests/classes/InsertEditTest.php
 
 		-
 			message: "#^Cannot access offset 'truncatableFieldVal…' on mixed\\.$#"
 			count: 2
-			path: test/classes/InsertEditTest.php
+			path: tests/classes/InsertEditTest.php
 
 		-
 			message: "#^Cannot cast bool\\|float\\|int\\|object to string\\.$#"
 			count: 1
-			path: test/classes/InsertEditTest.php
+			path: tests/classes/InsertEditTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\InsertEditTest\\:\\:parseString\\(\\) should return string but returns mixed\\.$#"
 			count: 1
-			path: test/classes/InsertEditTest.php
+			path: tests/classes/InsertEditTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 2
-			path: test/classes/InsertEditTest.php
+			path: tests/classes/InsertEditTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array will always evaluate to true\\.$#"
 			count: 2
-			path: test/classes/InternalRelationsTest.php
+			path: tests/classes/InternalRelationsTest.php
 
 		-
 			message: "#^Dynamic call to static method PhpMyAdmin\\\\Message\\:\\:getMessageForAffectedRows\\(\\)\\.$#"
 			count: 1
-			path: test/classes/MessageTest.php
+			path: tests/classes/MessageTest.php
 
 		-
 			message: "#^Dynamic call to static method PhpMyAdmin\\\\Message\\:\\:getMessageForDeletedRows\\(\\)\\.$#"
 			count: 1
-			path: test/classes/MessageTest.php
+			path: tests/classes/MessageTest.php
 
 		-
 			message: "#^Dynamic call to static method PhpMyAdmin\\\\Message\\:\\:getMessageForInsertedRows\\(\\)\\.$#"
 			count: 1
-			path: test/classes/MessageTest.php
+			path: tests/classes/MessageTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{\\}\\.$#"
 			count: 1
-			path: test/classes/Navigation/Nodes/NodeTest.php
+			path: tests/classes/Navigation/Nodes/NodeTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'extra' and array\\{legendText\\: string, headText\\: string, queryError\\: bool, extra\\: PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'extra' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\|false\\} will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'extra' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\} will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'extra' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string\\} will always evaluate to true\\.$#"
 			count: 2
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'extra' and array\\{legendText\\: string, headText\\: string, subText\\: string, hasPrimaryKey\\: string, extra\\: string\\} will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'hasPrimaryKey' and array\\{legendText\\: string, headText\\: string, subText\\: string, hasPrimaryKey\\: string, extra\\: string\\} will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'headText' and array\\{legendText\\: string, headText\\: string, queryError\\: bool, extra\\: PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'headText' and array\\{legendText\\: string, headText\\: string, queryError\\: string\\|false, extra\\?\\: string\\} will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'headText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\|false\\} will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'headText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\} will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'headText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string\\} will always evaluate to true\\.$#"
 			count: 2
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'headText' and array\\{legendText\\: string, headText\\: string, subText\\: string, hasPrimaryKey\\: string, extra\\: string\\} will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'legendText' and array\\{legendText\\: string, headText\\: string, queryError\\: bool, extra\\: PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'legendText' and array\\{legendText\\: string, headText\\: string, queryError\\: string\\|false, extra\\?\\: string\\} will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'legendText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\|false\\} will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'legendText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\} will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'legendText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string\\} will always evaluate to true\\.$#"
 			count: 2
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'legendText' and array\\{legendText\\: string, headText\\: string, subText\\: string, hasPrimaryKey\\: string, extra\\: string\\} will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'message' and array\\{queryError\\: bool, message\\: PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'primary_key' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\|false\\} will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'primary_key' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\} will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'queryError' and array\\{legendText\\: string, headText\\: string, queryError\\: bool, extra\\: PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'queryError' and array\\{legendText\\: string, headText\\: string, queryError\\: string\\|false, extra\\?\\: string\\} will always evaluate to true\\.$#"
 			count: 2
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'queryError' and array\\{queryError\\: bool, message\\: PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'subText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\|false\\} will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'subText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\} will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'subText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string\\} will always evaluate to true\\.$#"
 			count: 2
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'subText' and array\\{legendText\\: string, headText\\: string, subText\\: string, hasPrimaryKey\\: string, extra\\: string\\} will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Message' and PhpMyAdmin\\\\Message will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 2
-			path: test/classes/NormalizationTest.php
+			path: tests/classes/NormalizationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotFalse\\(\\) with string will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/OpenDocumentTest.php
+			path: tests/classes/OpenDocumentTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\StatementInfo' and PhpMyAdmin\\\\StatementInfo will always evaluate to true\\.$#"
 			count: 2
-			path: test/classes/ParseAnalyzeTest.php
+			path: tests/classes/ParseAnalyzeTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Partitioning\\\\TablePartitionDefinitionTest\\:\\:testGetDetails\\(\\) has parameter \\$partitions with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: test/classes/Partitioning/TablePartitionDefinitionTest.php
+			path: tests/classes/Partitioning/TablePartitionDefinitionTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 3
-			path: test/classes/PdfTest.php
+			path: tests/classes/PdfTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{user\\: 'username', password\\: 'password'\\}\\.$#"
 			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationConfigTest.php
+			path: tests/classes/Plugins/Auth/AuthenticationConfigTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationConfigTest.php
+			path: tests/classes/Plugins/Auth/AuthenticationConfigTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with 32 and 0 will always evaluate to false\\.$#"
 			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
+			path: tests/classes/Plugins/Auth/AuthenticationCookieTest.php
 
 		-
 			message: "#^Cannot access offset 'default' on mixed\\.$#"
 			count: 2
-			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
+			path: tests/classes/Plugins/Auth/AuthenticationCookieTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{auth_type\\: 'cookie'\\}\\.$#"
 			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
+			path: tests/classes/Plugins/Auth/AuthenticationCookieTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{host\\: 'a', port\\: 1, socket\\: true, ssl\\: true, user\\: 'pmaUser2'\\}\\.$#"
 			count: 2
-			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
+			path: tests/classes/Plugins/Auth/AuthenticationCookieTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\.$#"
 			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
+			path: tests/classes/Plugins/Auth/AuthenticationCookieTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 10
-			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
+			path: tests/classes/Plugins/Auth/AuthenticationCookieTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{host\\: 'a', user\\: 'user2'\\}\\.$#"
 			count: 2
-			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
+			path: tests/classes/Plugins/Auth/AuthenticationHttpTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 2
-			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
+			path: tests/classes/Plugins/Auth/AuthenticationHttpTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\.$#"
 			count: 2
-			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
+			path: tests/classes/Plugins/Auth/AuthenticationSignonTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
+			path: tests/classes/Plugins/Auth/AuthenticationSignonTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: test/classes/Plugins/Export/ExportHtmlwordTest.php
+			path: tests/classes/Plugins/Export/ExportHtmlwordTest.php
 
 		-
 			message: "#^Cannot access offset 'export_type' on mixed\\.$#"
 			count: 2
-			path: test/classes/Plugins/Export/ExportLatexTest.php
+			path: tests/classes/Plugins/Export/ExportLatexTest.php
 
 		-
 			message: "#^Cannot access offset 'single_table' on mixed\\.$#"
 			count: 3
-			path: test/classes/Plugins/Export/ExportLatexTest.php
+			path: tests/classes/Plugins/Export/ExportLatexTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{host\\: string, port\\: 80, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\.$#"
 			count: 1
-			path: test/classes/Plugins/Export/ExportLatexTest.php
+			path: tests/classes/Plugins/Export/ExportLatexTest.php
 
 		-
 			message: "#^Cannot access offset 'export_type' on mixed\\.$#"
 			count: 2
-			path: test/classes/Plugins/Export/ExportOdtTest.php
+			path: tests/classes/Plugins/Export/ExportOdtTest.php
 
 		-
 			message: "#^Cannot access offset 'single_table' on mixed\\.$#"
 			count: 3
-			path: test/classes/Plugins/Export/ExportOdtTest.php
+			path: tests/classes/Plugins/Export/ExportOdtTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 11
-			path: test/classes/Plugins/Export/ExportOdtTest.php
+			path: tests/classes/Plugins/Export/ExportOdtTest.php
 
 		-
 			message: "#^Cannot access offset 'export_type' on mixed\\.$#"
 			count: 2
-			path: test/classes/Plugins/Export/ExportSqlTest.php
+			path: tests/classes/Plugins/Export/ExportSqlTest.php
 
 		-
 			message: "#^Cannot access offset 'single_table' on mixed\\.$#"
 			count: 3
-			path: test/classes/Plugins/Export/ExportSqlTest.php
+			path: tests/classes/Plugins/Export/ExportSqlTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 10
-			path: test/classes/Plugins/Export/ExportSqlTest.php
+			path: tests/classes/Plugins/Export/ExportSqlTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{host\\: string, port\\: 80, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\.$#"
 			count: 1
-			path: test/classes/Plugins/Export/ExportSqlTest.php
+			path: tests/classes/Plugins/Export/ExportSqlTest.php
 
 		-
 			message: "#^Cannot access offset 'single_table' on mixed\\.$#"
 			count: 1
-			path: test/classes/Plugins/Export/ExportTexytextTest.php
+			path: tests/classes/Plugins/Export/ExportTexytextTest.php
 
 		-
 			message: "#^Cannot access offset 'single_table' on mixed\\.$#"
 			count: 1
-			path: test/classes/Plugins/Export/ExportXmlTest.php
+			path: tests/classes/Plugins/Export/ExportXmlTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{host\\: string, port\\: 80, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\.$#"
 			count: 1
-			path: test/classes/Plugins/Export/ExportXmlTest.php
+			path: tests/classes/Plugins/Export/ExportXmlTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\File constructor expects bool\\|string, mixed given\\.$#"
 			count: 3
-			path: test/classes/Plugins/Import/ImportCsvTest.php
+			path: tests/classes/Plugins/Import/ImportCsvTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$path of function basename expects string, mixed given\\.$#"
 			count: 1
-			path: test/classes/Plugins/Import/ImportCsvTest.php
+			path: tests/classes/Plugins/Import/ImportCsvTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 6
-			path: test/classes/Plugins/Import/ImportCsvTest.php
+			path: tests/classes/Plugins/Import/ImportCsvTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with 'auto' will always evaluate to false\\.$#"
 			count: 1
-			path: test/classes/Plugins/Import/ImportLdiTest.php
+			path: tests/classes/Plugins/Import/ImportLdiTest.php
 
 		-
 			message: "#^Cannot call method __toString\\(\\) on mixed\\.$#"
 			count: 1
-			path: test/classes/Plugins/Import/ImportLdiTest.php
+			path: tests/classes/Plugins/Import/ImportLdiTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\File constructor expects bool\\|string, mixed given\\.$#"
 			count: 2
-			path: test/classes/Plugins/Import/ImportLdiTest.php
+			path: tests/classes/Plugins/Import/ImportLdiTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 6
-			path: test/classes/Plugins/Import/ImportLdiTest.php
+			path: tests/classes/Plugins/Import/ImportLdiTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\File constructor expects bool\\|string, mixed given\\.$#"
 			count: 1
-			path: test/classes/Plugins/Import/ImportMediawikiTest.php
+			path: tests/classes/Plugins/Import/ImportMediawikiTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 5
-			path: test/classes/Plugins/Import/ImportMediawikiTest.php
+			path: tests/classes/Plugins/Import/ImportMediawikiTest.php
 
 		-
 			message: "#^Class PhpMyAdmin\\\\Tests\\\\Plugins\\\\Import\\\\ImportOdsTest has an uninitialized property \\$dbi\\. Give it default value or assign it in the constructor\\.$#"
 			count: 1
-			path: test/classes/Plugins/Import/ImportOdsTest.php
+			path: tests/classes/Plugins/Import/ImportOdsTest.php
 
 		-
 			message: "#^Class PhpMyAdmin\\\\Tests\\\\Plugins\\\\Import\\\\ImportOdsTest has an uninitialized property \\$dummyDbi\\. Give it default value or assign it in the constructor\\.$#"
 			count: 1
-			path: test/classes/Plugins/Import/ImportOdsTest.php
+			path: tests/classes/Plugins/Import/ImportOdsTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 13
-			path: test/classes/Plugins/Import/ImportOdsTest.php
+			path: tests/classes/Plugins/Import/ImportOdsTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$importNotice of method PhpMyAdmin\\\\Tests\\\\Plugins\\\\Import\\\\ImportShpTest\\:\\:assertMessages\\(\\) expects string, mixed given\\.$#"
 			count: 2
-			path: test/classes/Plugins/Import/ImportShpTest.php
+			path: tests/classes/Plugins/Import/ImportShpTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 7
-			path: test/classes/Plugins/Import/ImportShpTest.php
+			path: tests/classes/Plugins/Import/ImportShpTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\File constructor expects bool\\|string, mixed given\\.$#"
 			count: 1
-			path: test/classes/Plugins/Import/ImportSqlTest.php
+			path: tests/classes/Plugins/Import/ImportSqlTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 3
-			path: test/classes/Plugins/Import/ImportSqlTest.php
+			path: tests/classes/Plugins/Import/ImportSqlTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\File constructor expects bool\\|string, mixed given\\.$#"
 			count: 1
-			path: test/classes/Plugins/Import/ImportXmlTest.php
+			path: tests/classes/Plugins/Import/ImportXmlTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 5
-			path: test/classes/Plugins/Import/ImportXmlTest.php
+			path: tests/classes/Plugins/Import/ImportXmlTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Plugins\\\\Transformations\\\\TransformationPluginsTest\\:\\:testTransformation\\(\\) has parameter \\$applyArgs with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: test/classes/Plugins/Transformations/TransformationPluginsTest.php
+			path: tests/classes/Plugins/Transformations/TransformationPluginsTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int, PhpMyAdmin\\\\Plugins\\\\ExportPlugin\\> will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/PluginsTest.php
+			path: tests/classes/PluginsTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int, PhpMyAdmin\\\\Plugins\\\\ImportPlugin\\> will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/PluginsTest.php
+			path: tests/classes/PluginsTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int, PhpMyAdmin\\\\Plugins\\\\SchemaPlugin\\> will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/PluginsTest.php
+			path: tests/classes/PluginsTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 1
-			path: test/classes/PluginsTest.php
+			path: tests/classes/PluginsTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Properties\\\\\\\\Options\\\\\\\\OptionsPropertyGroup' and PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup&PHPUnit\\\\Framework\\\\MockObject\\\\MockObject will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
+			path: tests/classes/Properties/Options/OptionsPropertyGroupTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 1
-			path: test/classes/Replication/ReplicationGuiTest.php
+			path: tests/classes/Replication/ReplicationGuiTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$directory of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertDirectoryIsWritable\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: test/classes/Routing/RoutingTest.php
+			path: tests/classes/Routing/RoutingTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 1
-			path: test/classes/Routing/RoutingTest.php
+			path: tests/classes/Routing/RoutingTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Server\\\\\\\\Plugin' and PhpMyAdmin\\\\Server\\\\Plugin will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Server/PluginTest.php
+			path: tests/classes/Server/PluginTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Server\\\\\\\\Plugin' and PhpMyAdmin\\\\Server\\\\Plugin will always evaluate to true\\.$#"
 			count: 2
-			path: test/classes/Server/PluginsTest.php
+			path: tests/classes/Server/PluginsTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<PhpMyAdmin\\\\Server\\\\Plugin\\> will always evaluate to true\\.$#"
 			count: 2
-			path: test/classes/Server/PluginsTest.php
+			path: tests/classes/Server/PluginsTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int\\|string, string\\> will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Server/PluginsTest.php
+			path: tests/classes/Server/PluginsTest.php
 
 		-
 			message: "#^Class PhpMyAdmin\\\\Tests\\\\Server\\\\PluginsTest has an uninitialized property \\$plugins\\. Give it default value or assign it in the constructor\\.$#"
 			count: 1
-			path: test/classes/Server/PluginsTest.php
+			path: tests/classes/Server/PluginsTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 0 and array\\{string, PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
 			count: 3
-			path: test/classes/Server/PrivilegesTest.php
+			path: tests/classes/Server/PrivilegesTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 1 and array\\{string, PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
 			count: 3
-			path: test/classes/Server/PrivilegesTest.php
+			path: tests/classes/Server/PrivilegesTest.php
 
 		-
 			message: "#^Cannot call method getMessage\\(\\) on mixed\\.$#"
 			count: 6
-			path: test/classes/Server/PrivilegesTest.php
+			path: tests/classes/Server/PrivilegesTest.php
 
 		-
 			message: "#^PHPDoc tag @var for variable \\$actual has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: test/classes/Server/PrivilegesTest.php
+			path: tests/classes/Server/PrivilegesTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$realSqlQuery of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:addUserAndCreateDatabase\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: test/classes/Server/PrivilegesTest.php
+			path: tests/classes/Server/PrivilegesTest.php
 
 		-
 			message: "#^Parameter \\#3 \\$sqlQuery of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:addUserAndCreateDatabase\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: test/classes/Server/PrivilegesTest.php
+			path: tests/classes/Server/PrivilegesTest.php
 
 		-
 			message: "#^Cannot access offset 'host' on mixed\\.$#"
 			count: 1
-			path: test/classes/Server/SelectTest.php
+			path: tests/classes/Server/SelectTest.php
 
 		-
 			message: "#^Cannot access offset 'only_db' on mixed\\.$#"
 			count: 1
-			path: test/classes/Server/SelectTest.php
+			path: tests/classes/Server/SelectTest.php
 
 		-
 			message: "#^Cannot access offset 'port' on mixed\\.$#"
 			count: 1
-			path: test/classes/Server/SelectTest.php
+			path: tests/classes/Server/SelectTest.php
 
 		-
 			message: "#^Cannot access offset 'user' on mixed\\.$#"
 			count: 1
-			path: test/classes/Server/SelectTest.php
+			path: tests/classes/Server/SelectTest.php
 
 		-
 			message: "#^Offset '0' does not exist on array\\<int\\<1, max\\>, array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\>\\.$#"
 			count: 1
-			path: test/classes/Server/SelectTest.php
+			path: tests/classes/Server/SelectTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$needle of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 4
-			path: test/classes/Server/SelectTest.php
+			path: tests/classes/Server/SelectTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 3
-			path: test/classes/Server/SelectTest.php
+			path: tests/classes/Server/SelectTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Server\\\\\\\\SysInfo\\\\\\\\Base' and PhpMyAdmin\\\\Server\\\\SysInfo\\\\Base will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Server/SysInfo/SysInfoTest.php
+			path: tests/classes/Server/SysInfo/SysInfoTest.php
 
 		-
 			message: "#^Cannot access offset '123' on mixed\\.$#"
 			count: 1
-			path: test/classes/Setup/IndexTest.php
+			path: tests/classes/Setup/IndexTest.php
 
 		-
 			message: "#^Cannot access offset 'type' on mixed\\.$#"
 			count: 1
-			path: test/classes/Setup/IndexTest.php
+			path: tests/classes/Setup/IndexTest.php
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 1
-			path: test/classes/SqlQueryFormTest.php
+			path: tests/classes/SqlQueryFormTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\Url\\:\\:getHiddenInputs\\(\\) expects array\\|string, mixed given\\.$#"
 			count: 1
-			path: test/classes/SqlQueryFormTest.php
+			path: tests/classes/SqlQueryFormTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
 			count: 1
-			path: test/classes/SqlQueryFormTest.php
+			path: tests/classes/SqlQueryFormTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\Url\\:\\:getHiddenInputs\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: test/classes/SqlQueryFormTest.php
+			path: tests/classes/SqlQueryFormTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 1
-			path: test/classes/SqlQueryFormTest.php
+			path: tests/classes/SqlQueryFormTest.php
 
 		-
 			message: "#^Cannot access offset 'max_rows' on mixed\\.$#"
 			count: 3
-			path: test/classes/SqlTest.php
+			path: tests/classes/SqlTest.php
 
 		-
 			message: "#^Cannot access offset 'pos' on mixed\\.$#"
 			count: 1
-			path: test/classes/SqlTest.php
+			path: tests/classes/SqlTest.php
 
 		-
 			message: "#^Cannot access offset 'tmpval' on mixed\\.$#"
 			count: 4
-			path: test/classes/SqlTest.php
+			path: tests/classes/SqlTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\ParseAnalyze\\:\\:sqlQuery\\(\\) expects string, mixed given\\.$#"
 			count: 18
-			path: test/classes/SqlTest.php
+			path: tests/classes/SqlTest.php
 
 		-
 			message: "#^Dynamic call to static method PhpMyAdmin\\\\StorageEngine\\:\\:getArray\\(\\)\\.$#"
 			count: 1
-			path: test/classes/StorageEngineTest.php
+			path: tests/classes/StorageEngineTest.php
 
 		-
 			message: "#^Dynamic call to static method PhpMyAdmin\\\\StorageEngine\\:\\:getStorageEngines\\(\\)\\.$#"
 			count: 1
-			path: test/classes/StorageEngineTest.php
+			path: tests/classes/StorageEngineTest.php
 
 		-
 			message: "#^Dynamic call to static method PhpMyAdmin\\\\StorageEngine\\:\\:isValid\\(\\)\\.$#"
 			count: 4
-			path: test/classes/StorageEngineTest.php
+			path: tests/classes/StorageEngineTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:affectedRows\\(\\) should return int\\|numeric\\-string but returns mixed\\.$#"
 			count: 1
-			path: test/classes/Stubs/DbiDummy.php
+			path: tests/classes/Stubs/DbiDummy.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:connect\\(\\) never returns null so it can be removed from the return type\\.$#"
 			count: 1
-			path: test/classes/Stubs/DbiDummy.php
+			path: tests/classes/Stubs/DbiDummy.php
 
 		-
 			message: "#^Foreach overwrites \\$value with its value variable\\.$#"
 			count: 1
-			path: test/classes/Stubs/ResponseRenderer.php
+			path: tests/classes/Stubs/ResponseRenderer.php
 
 		-
 			message: "#^Call to an undefined method PhpMyAdmin\\\\DatabaseInterface\\:\\:expects\\(\\)\\.$#"
 			count: 1
-			path: test/classes/Table/IndexesTest.php
+			path: tests/classes/Table/IndexesTest.php
 
 		-
 			message: "#^Cannot call method method\\(\\) on mixed\\.$#"
 			count: 1
-			path: test/classes/Table/IndexesTest.php
+			path: tests/classes/Table/IndexesTest.php
 
 		-
 			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
 			count: 1
-			path: test/classes/Table/IndexesTest.php
+			path: tests/classes/Table/IndexesTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: test/classes/Table/IndexesTest.php
+			path: tests/classes/Table/IndexesTest.php
 
 		-
 			message: "#^Parameter \\#4 \\$db of method PhpMyAdmin\\\\Table\\\\Indexes\\:\\:doSaveData\\(\\) expects string, mixed given\\.$#"
 			count: 2
-			path: test/classes/Table/IndexesTest.php
+			path: tests/classes/Table/IndexesTest.php
 
 		-
 			message: "#^Parameter \\#5 \\$table of method PhpMyAdmin\\\\Table\\\\Indexes\\:\\:doSaveData\\(\\) expects string, mixed given\\.$#"
 			count: 2
-			path: test/classes/Table/IndexesTest.php
+			path: tests/classes/Table/IndexesTest.php
 
 		-
 			message: "#^Call to an undefined method PhpMyAdmin\\\\DatabaseInterface\\:\\:expects\\(\\)\\.$#"
 			count: 4
-			path: test/classes/Table/TableTest.php
+			path: tests/classes/Table/TableTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Table\\\\\\\\Table' and PhpMyAdmin\\\\Table\\\\Table will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Table/TableTest.php
+			path: tests/classes/Table/TableTest.php
 
 		-
 			message: "#^Cannot access offset 'Key_name' on mixed\\.$#"
 			count: 1
-			path: test/classes/Table/TableTest.php
+			path: tests/classes/Table/TableTest.php
 
 		-
 			message: "#^Cannot access offset 'SCHEMA_TABLES' on mixed\\.$#"
 			count: 1
-			path: test/classes/Table/TableTest.php
+			path: tests/classes/Table/TableTest.php
 
 		-
 			message: "#^Cannot call method method\\(\\) on mixed\\.$#"
 			count: 4
-			path: test/classes/Table/TableTest.php
+			path: tests/classes/Table/TableTest.php
 
 		-
 			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
 			count: 2
-			path: test/classes/Table/TableTest.php
+			path: tests/classes/Table/TableTest.php
 
 		-
 			message: "#^Cannot call method willReturnMap\\(\\) on mixed\\.$#"
 			count: 2
-			path: test/classes/Table/TableTest.php
+			path: tests/classes/Table/TableTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 3
-			path: test/classes/Table/TableTest.php
+			path: tests/classes/Table/TableTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringNotContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: test/classes/Table/TableTest.php
+			path: tests/classes/Table/TableTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Theme/ThemeManagerTest.php
+			path: tests/classes/Theme/ThemeManagerTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with true will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Theme/ThemeManagerTest.php
+			path: tests/classes/Theme/ThemeManagerTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Theme\\\\\\\\Theme' and PhpMyAdmin\\\\Theme\\\\Theme will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/Theme/ThemeTest.php
+			path: tests/classes/Theme/ThemeTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\.$#"
 			count: 4
-			path: test/classes/Tracking/TrackerTest.php
+			path: tests/classes/Tracking/TrackerTest.php
 
 		-
 			message: "#^Cannot access offset 'statement' on mixed\\.$#"
 			count: 2
-			path: test/classes/Tracking/TrackingTest.php
+			path: tests/classes/Tracking/TrackingTest.php
 
 		-
 			message: "#^Cannot access offset 'username' on mixed\\.$#"
 			count: 2
-			path: test/classes/Tracking/TrackingTest.php
+			path: tests/classes/Tracking/TrackingTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\Url\\:\\:getHiddenInputs\\(\\) expects array\\|string, mixed given\\.$#"
 			count: 1
-			path: test/classes/Tracking/TrackingTest.php
+			path: tests/classes/Tracking/TrackingTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 5
-			path: test/classes/Tracking/TrackingTest.php
+			path: tests/classes/Tracking/TrackingTest.php
 
 		-
 			message: "#^Cannot access offset 'sql' on mixed\\.$#"
 			count: 1
-			path: test/classes/TransformationsTest.php
+			path: tests/classes/TransformationsTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 1
-			path: test/classes/TransformationsTest.php
+			path: tests/classes/TransformationsTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{ServerDefault\\: 1, ActionLinksMode\\: 'icons'\\}\\.$#"
 			count: 1
-			path: test/classes/TransformationsTest.php
+			path: tests/classes/TransformationsTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\) expects Countable\\|iterable, mixed given\\.$#"
 			count: 1
-			path: test/classes/Triggers/TriggersTest.php
+			path: tests/classes/Triggers/TriggersTest.php
 
 		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
 			count: 3
-			path: test/classes/TwoFactorTest.php
+			path: tests/classes/TwoFactorTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\TwoFactorTest\\:\\:loadResultForConfig\\(\\) has parameter \\$config with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: test/classes/TwoFactorTest.php
+			path: tests/classes/TwoFactorTest.php
 
 		-
 			message: "#^Missing call to parent\\:\\:tearDown\\(\\) method\\.$#"
 			count: 1
-			path: test/classes/TwoFactorTest.php
+			path: tests/classes/TwoFactorTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$secret of method PragmaRX\\\\Google2FA\\\\Google2FA\\:\\:oathTotp\\(\\) expects string, mixed given\\.$#"
 			count: 2
-			path: test/classes/TwoFactorTest.php
+			path: tests/classes/TwoFactorTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 1
-			path: test/classes/TwoFactorTest.php
+			path: tests/classes/TwoFactorTest.php
 
 		-
 			message: "#^Class PhpMyAdmin\\\\Tests\\\\TypesByDatabaseVersionTest has an uninitialized property \\$object\\. Give it default value or assign it in the constructor\\.$#"
 			count: 1
-			path: test/classes/TypesByDatabaseVersionTest.php
+			path: tests/classes/TypesByDatabaseVersionTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 4
-			path: test/classes/UrlTest.php
+			path: tests/classes/UrlTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\UserPasswordTest\\:\\:providerSetChangePasswordMsg\\(\\) should return array\\<array\\{bool, PhpMyAdmin\\\\Message, string, string, string\\}\\> but returns array\\{array\\{false, PhpMyAdmin\\\\Message, true, '', ''\\}, array\\{true, PhpMyAdmin\\\\Message, false, '', ''\\}, array\\{true, PhpMyAdmin\\\\Message, false, 'a', ''\\}, array\\{true, PhpMyAdmin\\\\Message, false, '', 'a'\\}, array\\{true, PhpMyAdmin\\\\Message, false, 'a', 'b'\\}, array\\{true, PhpMyAdmin\\\\Message, false, literal\\-string&non\\-falsy\\-string, literal\\-string&non\\-falsy\\-string\\}, array\\{false, PhpMyAdmin\\\\Message, false, literal\\-string&non\\-falsy\\-string, literal\\-string&non\\-falsy\\-string\\}\\}\\.$#"
 			count: 1
-			path: test/classes/UserPasswordTest.php
+			path: tests/classes/UserPasswordTest.php
 
 		-
 			message: "#^Cannot access offset 'db' on mixed\\.$#"
 			count: 2
-			path: test/classes/UserPreferencesTest.php
+			path: tests/classes/UserPreferencesTest.php
 
 		-
 			message: "#^Cannot access offset 'server_2' on mixed\\.$#"
 			count: 1
-			path: test/classes/UserPreferencesTest.php
+			path: tests/classes/UserPreferencesTest.php
 
 		-
 			message: "#^Cannot access offset 'ts' on mixed\\.$#"
 			count: 1
-			path: test/classes/UserPreferencesTest.php
+			path: tests/classes/UserPreferencesTest.php
 
 		-
 			message: "#^Cannot access offset 'userprefs' on mixed\\.$#"
 			count: 1
-			path: test/classes/UserPreferencesTest.php
+			path: tests/classes/UserPreferencesTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\) expects Countable\\|iterable, mixed given\\.$#"
 			count: 1
-			path: test/classes/UserPreferencesTest.php
+			path: tests/classes/UserPreferencesTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 2
-			path: test/classes/UserPreferencesTest.php
+			path: tests/classes/UserPreferencesTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{Server/hide_db\\: 'testval123', Server/port\\: '213'\\}\\.$#"
 			count: 1
-			path: test/classes/UserPreferencesTest.php
+			path: tests/classes/UserPreferencesTest.php
 
 		-
 			message: "#^Cannot access offset 'is_superuser' on mixed\\.$#"
 			count: 1
-			path: test/classes/UtilTest.php
+			path: tests/classes/UtilTest.php
 
 		-
 			message: "#^Cannot access offset 'mysql_cur_user' on mixed\\.$#"
 			count: 1
-			path: test/classes/UtilTest.php
+			path: tests/classes/UtilTest.php
 
 		-
 			message: "#^Cannot access offset 'server_server' on mixed\\.$#"
 			count: 4
-			path: test/classes/UtilTest.php
+			path: tests/classes/UtilTest.php
 
 		-
 			message: "#^Casting to string something that's already string\\.$#"
 			count: 1
-			path: test/classes/UtilTest.php
+			path: tests/classes/UtilTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\UtilTest\\:\\:providerForTestGetMySQLDocuURL\\(\\) should return array\\<int, array\\{string, string, int, string\\}\\> but returns array\\{array\\{'ALTER_TABLE', 'alter\\-table\\-index', '8\\.0\\.0', 'index\\.php\\?route\\=…'\\}, array\\{'ALTER_TABLE', 'alter\\-table\\-index', '5\\.7\\.0', 'index\\.php\\?route\\=…'\\}, array\\{'', 'alter\\-table\\-index', '5\\.6\\.0', 'index\\.php\\?route\\=…'\\}, array\\{'ALTER_TABLE', '', '5\\.5\\.0', 'index\\.php\\?route\\=…'\\}, array\\{'', '', '5\\.7\\.0', 'index\\.php\\?route\\=…'\\}\\}\\.$#"
 			count: 1
-			path: test/classes/UtilTest.php
+			path: tests/classes/UtilTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$array of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayNotHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
 			count: 2
-			path: test/classes/UtilTest.php
+			path: tests/classes/UtilTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\.$#"
 			count: 1
-			path: test/classes/UtilTest.php
+			path: tests/classes/UtilTest.php
 
 		-
 			message: "#^Only booleans are allowed in a negated boolean, string\\|false given\\.$#"
 			count: 2
-			path: test/classes/Utils/HttpRequestTest.php
+			path: tests/classes/Utils/HttpRequestTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$haystack of function stripos expects string, mixed given\\.$#"
 			count: 2
-			path: test/classes/Utils/HttpRequestTest.php
+			path: tests/classes/Utils/HttpRequestTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$needle of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: test/classes/Utils/HttpRequestTest.php
+			path: tests/classes/Utils/HttpRequestTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: test/classes/Utils/HttpRequestTest.php
+			path: tests/classes/Utils/HttpRequestTest.php
 
 		-
 			message: "#^Cannot access offset 'server_server' on mixed\\.$#"
 			count: 4
-			path: test/classes/Utils/SessionCacheTest.php
+			path: tests/classes/Utils/SessionCacheTest.php
 
 		-
 			message: "#^Cannot access offset 'test_data' on mixed\\.$#"
 			count: 1
-			path: test/classes/Utils/SessionCacheTest.php
+			path: tests/classes/Utils/SessionCacheTest.php
 
 		-
 			message: "#^Cannot access offset 'test_data_3' on mixed\\.$#"
 			count: 1
-			path: test/classes/Utils/SessionCacheTest.php
+			path: tests/classes/Utils/SessionCacheTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$array of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayNotHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
 			count: 2
-			path: test/classes/Utils/SessionCacheTest.php
+			path: tests/classes/Utils/SessionCacheTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\.$#"
 			count: 5
-			path: test/classes/Utils/SessionCacheTest.php
+			path: tests/classes/Utils/SessionCacheTest.php
 
 		-
 			message: "#^Cannot access offset 'version_check' on mixed\\.$#"
 			count: 1
-			path: test/classes/VersionInformationTest.php
+			path: tests/classes/VersionInformationTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 3
-			path: test/classes/VersionInformationTest.php
+			path: tests/classes/VersionInformationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsBool\\(\\) with true will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/VersionTest.php
+			path: tests/classes/VersionTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsInt\\(\\) with 0 will always evaluate to true\\.$#"
 			count: 2
-			path: test/classes/VersionTest.php
+			path: tests/classes/VersionTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsInt\\(\\) with 6 will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/VersionTest.php
+			path: tests/classes/VersionTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsString\\(\\) with 'dev' will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/VersionTest.php
+			path: tests/classes/VersionTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsString\\(\\) with non\\-falsy\\-string will always evaluate to true\\.$#"
 			count: 1
-			path: test/classes/VersionTest.php
+			path: tests/classes/VersionTest.php
 
 		-
 			message: "#^Call to function base64_decode\\(\\) requires parameter \\#2 to be set\\.$#"
 			count: 1
-			path: test/classes/WebAuthn/CBORDecoderTest.php
+			path: tests/classes/WebAuthn/CBORDecoderTest.php
 
 		-
 			message: "#^Cannot access offset 'Console' on mixed\\.$#"
 			count: 1
-			path: test/config.e2e.inc.php
+			path: tests/config.e2e.inc.php
 
 		-
 			message: "#^Cannot access offset 'Mode' on mixed\\.$#"
 			count: 1
-			path: test/config.e2e.inc.php
+			path: tests/config.e2e.inc.php
 
 		-
 			message: "#^Cannot access offset 'Servers' on mixed\\.$#"
 			count: 3
-			path: test/config.e2e.inc.php
+			path: tests/config.e2e.inc.php
 
 		-
 			message: "#^Cannot access offset 'UploadDir' on mixed\\.$#"
 			count: 1
-			path: test/config.e2e.inc.php
+			path: tests/config.e2e.inc.php
 
 		-
 			message: "#^Cannot access offset 'auth_type' on mixed\\.$#"
 			count: 1
-			path: test/config.e2e.inc.php
+			path: tests/config.e2e.inc.php
 
 		-
 			message: "#^Cannot access offset 'host' on mixed\\.$#"
 			count: 1
-			path: test/config.e2e.inc.php
+			path: tests/config.e2e.inc.php
 
 		-
 			message: "#^Cannot access offset 'verbose' on mixed\\.$#"
 			count: 1
-			path: test/config.e2e.inc.php
+			path: tests/config.e2e.inc.php
 
 		-
 			message: "#^Cannot access offset 1 on mixed\\.$#"
 			count: 2
-			path: test/config.e2e.inc.php
+			path: tests/config.e2e.inc.php
 
 		-
 			message: "#^Implicit array creation is not allowed \\- variable \\$cfg might not exist\\.$#"
 			count: 1
-			path: test/config.e2e.inc.php
+			path: tests/config.e2e.inc.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebElement will always evaluate to true\\.$#"
 			count: 1
-			path: test/selenium/Database/OperationsTest.php
+			path: tests/selenium/Database/OperationsTest.php
 
 		-
 			message: "#^Call to function is_string\\(\\) with non\\-falsy\\-string will always evaluate to true\\.$#"
 			count: 2
-			path: test/selenium/TestBase.php
+			path: tests/selenium/TestBase.php
 
 		-
 			message: "#^Cannot access property \\$public_url on mixed\\.$#"
 			count: 1
-			path: test/selenium/TestBase.php
+			path: tests/selenium/TestBase.php
 
 		-
 			message: "#^Class PhpMyAdmin\\\\Tests\\\\Selenium\\\\TestBase has an uninitialized property \\$sessionId\\. Give it default value or assign it in the constructor\\.$#"
 			count: 1
-			path: test/selenium/TestBase.php
+			path: tests/selenium/TestBase.php
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 5
-			path: test/selenium/TestBase.php
+			path: tests/selenium/TestBase.php
 
 		-
 			message: "#^Only booleans are allowed in &&, string given on the left side\\.$#"
 			count: 2
-			path: test/selenium/TestBase.php
+			path: tests/selenium/TestBase.php
 
 		-
 			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
 			count: 1
-			path: test/selenium/TestBase.php
+			path: tests/selenium/TestBase.php
 
 		-
 			message: "#^Only booleans are allowed in a negated boolean, string\\|null given\\.$#"
 			count: 1
-			path: test/selenium/TestBase.php
+			path: tests/selenium/TestBase.php
 
 		-
 			message: "#^Only booleans are allowed in an elseif condition, string\\|false given\\.$#"
 			count: 1
-			path: test/selenium/TestBase.php
+			path: tests/selenium/TestBase.php
 
 		-
 			message: "#^Only booleans are allowed in an if condition, int given\\.$#"
 			count: 2
-			path: test/selenium/TestBase.php
+			path: tests/selenium/TestBase.php
 
 		-
 			message: "#^Only booleans are allowed in an if condition, string\\|false given\\.$#"
 			count: 2
-			path: test/selenium/TestBase.php
+			path: tests/selenium/TestBase.php
 
 		-
 			message: "#^Parameter \\#1 \\$by of method Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebDriver\\:\\:findElement\\(\\) expects Facebook\\\\WebDriver\\\\WebDriverBy, mixed given\\.$#"
 			count: 1
-			path: test/selenium/TestBase.php
+			path: tests/selenium/TestBase.php
 
 		-
 			message: "#^Parameter \\#1 \\$by of static method Facebook\\\\WebDriver\\\\WebDriverExpectedCondition\\:\\:presenceOfElementLocated\\(\\) expects Facebook\\\\WebDriver\\\\WebDriverBy, mixed given\\.$#"
 			count: 2
-			path: test/selenium/TestBase.php
+			path: tests/selenium/TestBase.php
 
 		-
 			message: "#^Parameter \\#1 \\$by of static method Facebook\\\\WebDriver\\\\WebDriverExpectedCondition\\:\\:visibilityOfElementLocated\\(\\) expects Facebook\\\\WebDriver\\\\WebDriverBy, mixed given\\.$#"
 			count: 1
-			path: test/selenium/TestBase.php
+			path: tests/selenium/TestBase.php
 
 		-
 			message: "#^Parameter \\#1 \\$handle of method Facebook\\\\WebDriver\\\\Remote\\\\RemoteTargetLocator\\:\\:window\\(\\) expects string, mixed given\\.$#"
 			count: 3
-			path: test/selenium/TestBase.php
+			path: tests/selenium/TestBase.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Tests\\\\Selenium\\\\TestBase\\:\\:\\$sqlWindowHandle \\(string\\|null\\) does not accept mixed\\.$#"
 			count: 1
-			path: test/selenium/TestBase.php
+			path: tests/selenium/TestBase.php
 
 		-
 			message: "#^Strict comparison using \\!\\=\\= between Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebDriver and null will always evaluate to true\\.$#"
 			count: 1
-			path: test/selenium/TestBase.php
+			path: tests/selenium/TestBase.php
 
 		-
 			message: "#^Strict comparison using \\=\\=\\= between Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebDriver and null will always evaluate to false\\.$#"
 			count: 1
-			path: test/selenium/TestBase.php
+			path: tests/selenium/TestBase.php
 
 		-
 			message: "#^Variable static method call on Facebook\\\\WebDriver\\\\WebDriverBy\\.$#"
 			count: 4
-			path: test/selenium/TestBase.php
+			path: tests/selenium/TestBase.php
 
 		-
 			message: "#^Cannot access offset 'Servers' on mixed\\.$#"
 			count: 5
-			path: test/test_data/config.inc.php
+			path: tests/test_data/config.inc.php
 
 		-
 			message: "#^Cannot access offset 'auth_type' on mixed\\.$#"
 			count: 1
-			path: test/test_data/config.inc.php
+			path: tests/test_data/config.inc.php
 
 		-
 			message: "#^Cannot access offset 'host' on mixed\\.$#"
 			count: 1
-			path: test/test_data/config.inc.php
+			path: tests/test_data/config.inc.php
 
 		-
 			message: "#^Cannot access offset 'port' on mixed\\.$#"
 			count: 1
-			path: test/test_data/config.inc.php
+			path: tests/test_data/config.inc.php
 
 		-
 			message: "#^Cannot access offset 'socket' on mixed\\.$#"
 			count: 1
-			path: test/test_data/config.inc.php
+			path: tests/test_data/config.inc.php
 
 		-
 			message: "#^Cannot access offset 'verbose' on mixed\\.$#"
 			count: 1
-			path: test/test_data/config.inc.php
+			path: tests/test_data/config.inc.php
 
 		-
 			message: "#^Cannot access offset 1 on mixed\\.$#"
 			count: 5
-			path: test/test_data/config.inc.php
+			path: tests/test_data/config.inc.php
 
 		-
 			message: "#^Implicit array creation is not allowed \\- variable \\$cfg might not exist\\.$#"
 			count: 1
-			path: test/test_data/config.inc.php
+			path: tests/test_data/config.inc.php
 

@@ -21,6 +21,6 @@ jobs:
       - name: Lint phpdoc blocks
         uses: sudo-bot/action-doctum@v5
         with:
-          config-file: test/doctum-config.php
+          config-file: tests/doctum-config.php
           method: "parse"
           cli-args: "--output-format=github --no-ansi --no-progress -v --ignore-parse-errors"

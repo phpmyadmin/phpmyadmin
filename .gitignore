@@ -43,7 +43,7 @@ phpcs.xml
 .phpcs-cache
 # PHPUnit
 phpunit.xml
-/test/bootstrap.php
+/tests/bootstrap.php
 .phpunit.result.cache
 # Jenkins
 /build/

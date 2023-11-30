@@ -16,5 +16,5 @@ indent_size = 2
 [*.svg]
 insert_final_newline = false
 
-[test/test_data/*]
+[tests/test_data/*]
 insert_final_newline = false

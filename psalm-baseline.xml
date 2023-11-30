@@ -12808,7 +12808,7 @@
       <code>$tempName</code>
     </PossiblyInvalidOperand>
   </file>
-  <file src="test/classes/AbstractTestCase.php">
+  <file src="tests/classes/AbstractTestCase.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -12821,7 +12821,7 @@
       <code><![CDATA[$_SERVER['argv']]]></code>
     </PossiblyUndefinedArrayOffset>
   </file>
-  <file src="test/classes/Advisory/AdvisorTest.php">
+  <file src="tests/classes/Advisory/AdvisorTest.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
@@ -12830,12 +12830,12 @@
       <code>rulesProvider</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Advisory/RulesTest.php">
+  <file src="tests/classes/Advisory/RulesTest.php">
     <PossiblyUnusedMethod>
       <code>providerForTestRules</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/BookmarkTest.php">
+  <file src="tests/classes/BookmarkTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -12845,7 +12845,7 @@
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/BrowseForeignersTest.php">
+  <file src="tests/classes/BrowseForeignersTest.php">
     <MixedArgument>
       <code>$result</code>
     </MixedArgument>
@@ -12853,17 +12853,17 @@
       <code>$result</code>
     </MixedAssignment>
   </file>
-  <file src="test/classes/CacheTest.php">
+  <file src="tests/classes/CacheTest.php">
     <PossiblyUnusedMethod>
       <code>dataProviderCacheKeyValues</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Charsets/CollationTest.php">
+  <file src="tests/classes/Charsets/CollationTest.php">
     <PossiblyUnusedMethod>
       <code>providerTestBuildDescription</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/CheckUserPrivilegesTest.php">
+  <file src="tests/classes/CheckUserPrivilegesTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -12880,13 +12880,13 @@
       <code>assertTrue</code>
     </RedundantConditionGivenDocblockType>
   </file>
-  <file src="test/classes/Command/SetVersionCommandTest.php">
+  <file src="tests/classes/Command/SetVersionCommandTest.php">
     <PossiblyUnusedMethod>
       <code>dataProviderBadVersions</code>
       <code>dataProviderGoodVersions</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Command/TwigLintCommandTest.php">
+  <file src="tests/classes/Command/TwigLintCommandTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
@@ -12903,7 +12903,7 @@
       <code>$filesInfos</code>
     </MixedAssignment>
   </file>
-  <file src="test/classes/Config/ConfigFileTest.php">
+  <file src="tests/classes/Config/ConfigFileTest.php">
     <MixedArrayAccess>
       <code><![CDATA[$cfgDb['Servers'][1]['port']]]></code>
     </MixedArrayAccess>
@@ -12926,7 +12926,7 @@
       <code><![CDATA[$cfgDb['Servers'][1]['port']]]></code>
     </PossiblyInvalidArrayOffset>
   </file>
-  <file src="test/classes/Config/DescriptionTest.php">
+  <file src="tests/classes/Config/DescriptionTest.php">
     <MixedAssignment>
       <code>$second</code>
       <code>$val2</code>
@@ -12941,7 +12941,7 @@
       <code>getValues</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Config/FormDisplayTest.php">
+  <file src="tests/classes/Config/FormDisplayTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
@@ -12961,7 +12961,7 @@
       <code>$forms</code>
     </MixedAssignment>
   </file>
-  <file src="test/classes/Config/Forms/FormListTest.php">
+  <file src="tests/classes/Config/Forms/FormListTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
@@ -12979,7 +12979,7 @@
       <code>formObjects</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Config/PageSettingsTest.php">
+  <file src="tests/classes/Config/PageSettingsTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -12987,7 +12987,7 @@
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Config/ServerConfigChecksTest.php">
+  <file src="tests/classes/Config/ServerConfigChecksTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
@@ -13017,7 +13017,7 @@
       <code><![CDATA[$this->sessionID]]></code>
     </MixedAssignment>
   </file>
-  <file src="test/classes/Config/Settings/ConsoleTest.php">
+  <file src="tests/classes/Config/Settings/ConsoleTest.php">
     <PossiblyUnusedMethod>
       <code>booleanWithDefaultFalseProvider</code>
       <code>booleanWithDefaultTrueProvider</code>
@@ -13027,12 +13027,12 @@
       <code>valuesForOrderProvider</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Config/Settings/DebugTest.php">
+  <file src="tests/classes/Config/Settings/DebugTest.php">
     <PossiblyUnusedMethod>
       <code>booleanWithDefaultFalseProvider</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Config/Settings/ExportTest.php">
+  <file src="tests/classes/Config/Settings/ExportTest.php">
     <PossiblyUnusedMethod>
       <code>booleanWithDefaultFalseProvider</code>
       <code>booleanWithDefaultTrueProvider</code>
@@ -13072,7 +13072,7 @@
       <code>valuesForTexytextNullProvider</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Config/Settings/ImportTest.php">
+  <file src="tests/classes/Config/Settings/ImportTest.php">
     <PossiblyUnusedMethod>
       <code>booleanWithDefaultFalseProvider</code>
       <code>booleanWithDefaultTrueProvider</code>
@@ -13093,12 +13093,12 @@
       <code>valuesForSqlCompatibilityProvider</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Config/Settings/SchemaTest.php">
+  <file src="tests/classes/Config/Settings/SchemaTest.php">
     <PossiblyUnusedMethod>
       <code>providerForTestConstructor</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Config/Settings/ServerTest.php">
+  <file src="tests/classes/Config/Settings/ServerTest.php">
     <PossiblyUnusedMethod>
       <code>booleanWithDefaultFalseProvider</code>
       <code>booleanWithDefaultTrueProvider</code>
@@ -13135,12 +13135,12 @@
       <code>valuesForVerboseProvider</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Config/Settings/SqlQueryBoxTest.php">
+  <file src="tests/classes/Config/Settings/SqlQueryBoxTest.php">
     <PossiblyUnusedMethod>
       <code>booleanWithDefaultTrueProvider</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Config/Settings/TransformationsTest.php">
+  <file src="tests/classes/Config/Settings/TransformationsTest.php">
     <PossiblyUnusedMethod>
       <code>valuesForBool2TextProvider</code>
       <code>valuesForDateFormatProvider</code>
@@ -13153,7 +13153,7 @@
       <code>valuesForTextLinkProvider</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Config/SettingsTest.php">
+  <file src="tests/classes/Config/SettingsTest.php">
     <PossiblyUnusedMethod>
       <code>booleanWithDefaultFalseProvider</code>
       <code>booleanWithDefaultTrueProvider</code>
@@ -13180,12 +13180,12 @@
       <code>valuesForTranslationWarningThresholdProvider</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/ConfigStorage/RelationParametersTest.php">
+  <file src="tests/classes/ConfigStorage/RelationParametersTest.php">
     <PossiblyUnusedMethod>
       <code>providerForTestToArray</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/ConfigStorage/RelationTest.php">
+  <file src="tests/classes/ConfigStorage/RelationTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -13339,7 +13339,7 @@
       <code>assertSame</code>
     </TypeDoesNotContainType>
   </file>
-  <file src="test/classes/ConfigTest.php">
+  <file src="tests/classes/ConfigTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
@@ -13369,51 +13369,51 @@
       <code>assertIsArray</code>
     </RedundantConditionGivenDocblockType>
   </file>
-  <file src="test/classes/ConsoleTest.php">
+  <file src="tests/classes/ConsoleTest.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/BrowseForeignersControllerTest.php">
+  <file src="tests/classes/Controllers/BrowseForeignersControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/CheckRelationsControllerTest.php">
+  <file src="tests/classes/Controllers/CheckRelationsControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Console/Bookmark/AddControllerTest.php">
+  <file src="tests/classes/Controllers/Console/Bookmark/AddControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Console/Bookmark/RefreshControllerTest.php">
+  <file src="tests/classes/Controllers/Console/Bookmark/RefreshControllerTest.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Database/EventsControllerTest.php">
+  <file src="tests/classes/Controllers/Database/EventsControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Database/PrivilegesControllerTest.php">
+  <file src="tests/classes/Controllers/Database/PrivilegesControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Database/RoutinesControllerTest.php">
+  <file src="tests/classes/Controllers/Database/RoutinesControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Database/Structure/FavoriteTableControllerTest.php">
+  <file src="tests/classes/Controllers/Database/Structure/FavoriteTableControllerTest.php">
     <MixedArgument>
       <code>$json</code>
     </MixedArgument>
@@ -13424,12 +13424,12 @@
       <code>$json</code>
     </MixedAssignment>
   </file>
-  <file src="test/classes/Controllers/Database/Structure/RealRowCountControllerTest.php">
+  <file src="tests/classes/Controllers/Database/Structure/RealRowCountControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Database/StructureControllerTest.php">
+  <file src="tests/classes/Controllers/Database/StructureControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -13487,42 +13487,42 @@
       <code>[$currentTable]</code>
     </MixedAssignment>
   </file>
-  <file src="test/classes/Controllers/Export/ExportControllerTest.php">
+  <file src="tests/classes/Controllers/Export/ExportControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Export/Template/CreateControllerTest.php">
+  <file src="tests/classes/Controllers/Export/Template/CreateControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Export/Template/DeleteControllerTest.php">
+  <file src="tests/classes/Controllers/Export/Template/DeleteControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Export/Template/LoadControllerTest.php">
+  <file src="tests/classes/Controllers/Export/Template/LoadControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Export/Template/UpdateControllerTest.php">
+  <file src="tests/classes/Controllers/Export/Template/UpdateControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/GisDataEditorControllerTest.php">
+  <file src="tests/classes/Controllers/GisDataEditorControllerTest.php">
     <PossiblyUnusedMethod>
       <code>providerForTestValidateGisData</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Controllers/Import/ImportControllerTest.php">
+  <file src="tests/classes/Controllers/Import/ImportControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/NavigationControllerTest.php">
+  <file src="tests/classes/Controllers/NavigationControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -13536,22 +13536,22 @@
       <code>$responseMessage</code>
     </MixedAssignment>
   </file>
-  <file src="test/classes/Controllers/Normalization/AddNewPrimaryControllerTest.php">
+  <file src="tests/classes/Controllers/Normalization/AddNewPrimaryControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Normalization/CreateNewColumnControllerTest.php">
+  <file src="tests/classes/Controllers/Normalization/CreateNewColumnControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Normalization/FirstNormalForm/FirstStepControllerTest.php">
+  <file src="tests/classes/Controllers/Normalization/FirstNormalForm/FirstStepControllerTest.php">
     <PossiblyUnusedMethod>
       <code>providerForTestDefault</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Controllers/Operations/TableControllerTest.php">
+  <file src="tests/classes/Controllers/Operations/TableControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
@@ -13559,7 +13559,7 @@
       <code><![CDATA[$config->settings]]></code>
     </InvalidPropertyAssignmentValue>
   </file>
-  <file src="test/classes/Controllers/Server/BinlogControllerTest.php">
+  <file src="tests/classes/Controllers/Server/BinlogControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -13568,13 +13568,13 @@
       <code><![CDATA[$config->settings]]></code>
     </InvalidPropertyAssignmentValue>
   </file>
-  <file src="test/classes/Controllers/Server/CollationsControllerTest.php">
+  <file src="tests/classes/Controllers/Server/CollationsControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Server/Databases/CreateControllerTest.php">
+  <file src="tests/classes/Controllers/Server/Databases/CreateControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
@@ -13584,7 +13584,7 @@
       <code><![CDATA[$actual['message']]]></code>
     </MixedArgument>
   </file>
-  <file src="test/classes/Controllers/Server/Databases/DestroyControllerTest.php">
+  <file src="tests/classes/Controllers/Server/Databases/DestroyControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
@@ -13593,43 +13593,43 @@
       <code><![CDATA[$actual['message']]]></code>
     </MixedArgument>
   </file>
-  <file src="test/classes/Controllers/Server/DatabasesControllerTest.php">
+  <file src="tests/classes/Controllers/Server/DatabasesControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Server/EnginesControllerTest.php">
+  <file src="tests/classes/Controllers/Server/EnginesControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Server/PluginsControllerTest.php">
+  <file src="tests/classes/Controllers/Server/PluginsControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Server/PrivilegesControllerTest.php">
+  <file src="tests/classes/Controllers/Server/PrivilegesControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Server/ShowEngineControllerTest.php">
-    <DeprecatedMethod>
-      <code>Config::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-    </DeprecatedMethod>
-  </file>
-  <file src="test/classes/Controllers/Server/Status/AdvisorControllerTest.php">
+  <file src="tests/classes/Controllers/Server/ShowEngineControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="tests/classes/Controllers/Server/Status/AdvisorControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Server/Status/Monitor/GeneralLogControllerTest.php">
+  <file src="tests/classes/Controllers/Server/Status/Monitor/GeneralLogControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -13640,13 +13640,13 @@
       <code><![CDATA[$ret['message']['sum']]]></code>
     </MixedArrayAccess>
   </file>
-  <file src="test/classes/Controllers/Server/Status/Monitor/LogVarsControllerTest.php">
+  <file src="tests/classes/Controllers/Server/Status/Monitor/LogVarsControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Server/Status/Monitor/QueryAnalyzerControllerTest.php">
+  <file src="tests/classes/Controllers/Server/Status/Monitor/QueryAnalyzerControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
@@ -13656,7 +13656,7 @@
       <code><![CDATA[$ret['message']['profiling']]]></code>
     </MixedArrayAccess>
   </file>
-  <file src="test/classes/Controllers/Server/Status/Monitor/SlowLogControllerTest.php">
+  <file src="tests/classes/Controllers/Server/Status/Monitor/SlowLogControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -13667,13 +13667,13 @@
       <code><![CDATA[$ret['message']['sum']]]></code>
     </MixedArrayAccess>
   </file>
-  <file src="test/classes/Controllers/Server/Status/MonitorControllerTest.php">
+  <file src="tests/classes/Controllers/Server/Status/MonitorControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Server/Status/Processes/RefreshControllerTest.php">
+  <file src="tests/classes/Controllers/Server/Status/Processes/RefreshControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -13681,13 +13681,13 @@
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Server/Status/ProcessesControllerTest.php">
+  <file src="tests/classes/Controllers/Server/Status/ProcessesControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Server/Status/QueriesControllerTest.php">
+  <file src="tests/classes/Controllers/Server/Status/QueriesControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -13705,7 +13705,7 @@
       <code><![CDATA[$this->data->status['Uptime']]]></code>
     </MixedOperand>
   </file>
-  <file src="test/classes/Controllers/Server/Status/StatusControllerTest.php">
+  <file src="tests/classes/Controllers/Server/Status/StatusControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -13714,13 +13714,13 @@
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Server/Status/VariablesControllerTest.php">
+  <file src="tests/classes/Controllers/Server/Status/VariablesControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Server/VariablesControllerTest.php">
+  <file src="tests/classes/Controllers/Server/VariablesControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -13754,122 +13754,122 @@
       <code>[$formattedValue, $isHtmlFormatted]</code>
     </MixedAssignment>
   </file>
-  <file src="test/classes/Controllers/Table/AddFieldControllerTest.php">
+  <file src="tests/classes/Controllers/Table/AddFieldControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Table/ChangeControllerTest.php">
+  <file src="tests/classes/Controllers/Table/ChangeControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Table/CreateControllerTest.php">
+  <file src="tests/classes/Controllers/Table/CreateControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Table/DeleteRowsControllerTest.php">
+  <file src="tests/classes/Controllers/Table/DeleteRowsControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Table/DropColumnConfirmationControllerTest.php">
+  <file src="tests/classes/Controllers/Table/DropColumnConfirmationControllerTest.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Table/ExportControllerTest.php">
+  <file src="tests/classes/Controllers/Table/ExportControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Table/FindReplaceControllerTest.php">
-    <DeprecatedMethod>
-      <code>Config::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-    </DeprecatedMethod>
-  </file>
-  <file src="test/classes/Controllers/Table/ImportControllerTest.php">
-    <DeprecatedMethod>
-      <code>Config::getInstance()</code>
-    </DeprecatedMethod>
-  </file>
-  <file src="test/classes/Controllers/Table/IndexesControllerTest.php">
-    <DeprecatedMethod>
-      <code>Config::getInstance()</code>
-    </DeprecatedMethod>
-  </file>
-  <file src="test/classes/Controllers/Table/Maintenance/AnalyzeControllerTest.php">
-    <PossiblyUnusedMethod>
-      <code>providerForTestNoTableSelected</code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="test/classes/Controllers/Table/Maintenance/CheckControllerTest.php">
-    <PossiblyUnusedMethod>
-      <code>providerForTestNoTableSelected</code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="test/classes/Controllers/Table/Maintenance/ChecksumControllerTest.php">
-    <PossiblyUnusedMethod>
-      <code>providerForTestNoTableSelected</code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="test/classes/Controllers/Table/Maintenance/OptimizeControllerTest.php">
-    <PossiblyUnusedMethod>
-      <code>providerForTestNoTableSelected</code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="test/classes/Controllers/Table/Maintenance/RepairControllerTest.php">
-    <PossiblyUnusedMethod>
-      <code>providerForTestNoTableSelected</code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="test/classes/Controllers/Table/Partition/AnalyzeControllerTest.php">
-    <PossiblyUnusedMethod>
-      <code>providerForTestInvalidDatabaseAndTable</code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="test/classes/Controllers/Table/Partition/CheckControllerTest.php">
-    <PossiblyUnusedMethod>
-      <code>providerForTestInvalidDatabaseAndTable</code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="test/classes/Controllers/Table/Partition/DropControllerTest.php">
-    <PossiblyUnusedMethod>
-      <code>providerForTestInvalidDatabaseAndTable</code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="test/classes/Controllers/Table/Partition/OptimizeControllerTest.php">
-    <PossiblyUnusedMethod>
-      <code>providerForTestInvalidDatabaseAndTable</code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="test/classes/Controllers/Table/Partition/RebuildControllerTest.php">
-    <PossiblyUnusedMethod>
-      <code>providerForTestInvalidDatabaseAndTable</code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="test/classes/Controllers/Table/Partition/RepairControllerTest.php">
-    <PossiblyUnusedMethod>
-      <code>providerForTestInvalidDatabaseAndTable</code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="test/classes/Controllers/Table/Partition/TruncateControllerTest.php">
-    <PossiblyUnusedMethod>
-      <code>providerForTestInvalidDatabaseAndTable</code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="test/classes/Controllers/Table/PrivilegesControllerTest.php">
+  <file src="tests/classes/Controllers/Table/FindReplaceControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
+      <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Table/RelationControllerTest.php">
+  <file src="tests/classes/Controllers/Table/ImportControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="tests/classes/Controllers/Table/IndexesControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="tests/classes/Controllers/Table/Maintenance/AnalyzeControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestNoTableSelected</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="tests/classes/Controllers/Table/Maintenance/CheckControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestNoTableSelected</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="tests/classes/Controllers/Table/Maintenance/ChecksumControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestNoTableSelected</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="tests/classes/Controllers/Table/Maintenance/OptimizeControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestNoTableSelected</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="tests/classes/Controllers/Table/Maintenance/RepairControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestNoTableSelected</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="tests/classes/Controllers/Table/Partition/AnalyzeControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestInvalidDatabaseAndTable</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="tests/classes/Controllers/Table/Partition/CheckControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestInvalidDatabaseAndTable</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="tests/classes/Controllers/Table/Partition/DropControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestInvalidDatabaseAndTable</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="tests/classes/Controllers/Table/Partition/OptimizeControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestInvalidDatabaseAndTable</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="tests/classes/Controllers/Table/Partition/RebuildControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestInvalidDatabaseAndTable</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="tests/classes/Controllers/Table/Partition/RepairControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestInvalidDatabaseAndTable</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="tests/classes/Controllers/Table/Partition/TruncateControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForTestInvalidDatabaseAndTable</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="tests/classes/Controllers/Table/PrivilegesControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>DatabaseInterface::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="tests/classes/Controllers/Table/RelationControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -13894,12 +13894,12 @@
       <code>expects</code>
     </UndefinedMethod>
   </file>
-  <file src="test/classes/Controllers/Table/ReplaceControllerTest.php">
+  <file src="tests/classes/Controllers/Table/ReplaceControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Table/SearchControllerTest.php">
+  <file src="tests/classes/Controllers/Table/SearchControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -13913,17 +13913,17 @@
       <code>expects</code>
     </UndefinedMethod>
   </file>
-  <file src="test/classes/Controllers/Table/SqlControllerTest.php">
+  <file src="tests/classes/Controllers/Table/SqlControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Table/Structure/ChangeControllerTest.php">
+  <file src="tests/classes/Controllers/Table/Structure/ChangeControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Table/Structure/SpatialControllerTest.php">
+  <file src="tests/classes/Controllers/Table/Structure/SpatialControllerTest.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -13931,7 +13931,7 @@
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Table/Structure/UniqueControllerTest.php">
+  <file src="tests/classes/Controllers/Table/Structure/UniqueControllerTest.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -13939,23 +13939,23 @@
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Table/StructureControllerTest.php">
-    <DeprecatedMethod>
-      <code>Config::getInstance()</code>
-    </DeprecatedMethod>
-  </file>
-  <file src="test/classes/Controllers/Table/TrackingControllerTest.php">
+  <file src="tests/classes/Controllers/Table/StructureControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/Table/ZoomSearchControllerTest.php">
+  <file src="tests/classes/Controllers/Table/TrackingControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="tests/classes/Controllers/Table/ZoomSearchControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Controllers/ThemeSetControllerTest.php">
+  <file src="tests/classes/Controllers/ThemeSetControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -13964,7 +13964,7 @@
       <code>providerForTestWithoutTheme</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Controllers/Triggers/IndexControllerTest.php">
+  <file src="tests/classes/Controllers/Triggers/IndexControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -13983,7 +13983,7 @@
       <code>expects</code>
     </UndefinedInterfaceMethod>
   </file>
-  <file src="test/classes/CoreTest.php">
+  <file src="tests/classes/CoreTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -14041,7 +14041,7 @@
       <code>providerTestLinkURL</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/CreateAddFieldTest.php">
+  <file src="tests/classes/CreateAddFieldTest.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
@@ -14051,7 +14051,7 @@
       <code>providerGetTableCreationQuery</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Crypto/CryptoTest.php">
+  <file src="tests/classes/Crypto/CryptoTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -14065,7 +14065,7 @@
       <code><![CDATA[$_SESSION['URLQueryEncryptionSecretKey']]]></code>
     </MixedArgument>
   </file>
-  <file src="test/classes/Database/CentralColumnsTest.php">
+  <file src="tests/classes/Database/CentralColumnsTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -14143,7 +14143,7 @@
       <code>expects</code>
     </UndefinedMethod>
   </file>
-  <file src="test/classes/Database/Designer/CommonTest.php">
+  <file src="tests/classes/Database/Designer/CommonTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -14158,7 +14158,7 @@
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Database/DesignerTest.php">
+  <file src="tests/classes/Database/DesignerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -14170,7 +14170,7 @@
       <code>$result</code>
     </MixedAssignment>
   </file>
-  <file src="test/classes/Database/EventsTest.php">
+  <file src="tests/classes/Database/EventsTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -14180,7 +14180,7 @@
       <code>providerGetQueryFromRequest</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Database/RoutinesTest.php">
+  <file src="tests/classes/Database/RoutinesTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -14197,7 +14197,7 @@
       <code>providerGetQueryFromRequest</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Database/SearchTest.php">
+  <file src="tests/classes/Database/SearchTest.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
@@ -14205,7 +14205,7 @@
       <code>searchTypes</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/DatabaseInterfaceTest.php">
+  <file src="tests/classes/DatabaseInterfaceTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -14227,7 +14227,7 @@
       <code>versionData</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Dbal/DbiDummyTest.php">
+  <file src="tests/classes/Dbal/DbiDummyTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>escapeString</code>
@@ -14238,12 +14238,12 @@
       <code>schemaData</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Dbal/WarningTest.php">
+  <file src="tests/classes/Dbal/WarningTest.php">
     <PossiblyUnusedMethod>
       <code>providerForTestWarning</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Display/ResultsTest.php">
+  <file src="tests/classes/Display/ResultsTest.php">
     <ArgumentTypeCoercion>
       <code>Query::getAll($query)</code>
       <code>Query::getAll($query)</code>
@@ -14327,18 +14327,18 @@
       <code><![CDATA[Config::getInstance()->settings]]></code>
     </PropertyTypeCoercion>
   </file>
-  <file src="test/classes/EncodingTest.php">
+  <file src="tests/classes/EncodingTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Engines/PbxtTest.php">
+  <file src="tests/classes/Engines/PbxtTest.php">
     <PossiblyUnusedMethod>
       <code>providerFortTestResolveTypeSize</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/ErrorHandlerTest.php">
+  <file src="tests/classes/ErrorHandlerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -14356,7 +14356,7 @@
       <code>assertIsString</code>
     </RedundantCondition>
   </file>
-  <file src="test/classes/ErrorReportTest.php">
+  <file src="tests/classes/ErrorReportTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -14373,19 +14373,19 @@
       <code>urlsToSanitize</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/ErrorTest.php">
+  <file src="tests/classes/ErrorTest.php">
     <PossiblyUnusedMethod>
       <code>filePathProvider</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Export/ExportTest.php">
+  <file src="tests/classes/Export/ExportTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Export/OptionsTest.php">
+  <file src="tests/classes/Export/OptionsTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -14397,19 +14397,19 @@
       <code><![CDATA[$config->settings]]></code>
     </InvalidPropertyAssignmentValue>
   </file>
-  <file src="test/classes/FileListingTest.php">
+  <file src="tests/classes/FileListingTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/FileTest.php">
+  <file src="tests/classes/FileTest.php">
     <PossiblyUnusedMethod>
       <code>compressedFiles</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/FlashMessagesTest.php">
+  <file src="tests/classes/FlashMessagesTest.php">
     <InvalidScalarArgument>
       <code>$_SESSION</code>
     </InvalidScalarArgument>
@@ -14422,7 +14422,7 @@
       <code><![CDATA[$_SESSION[self::STORAGE_KEY]['error']]]></code>
     </MixedArrayAccess>
   </file>
-  <file src="test/classes/FooterTest.php">
+  <file src="tests/classes/FooterTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -14437,7 +14437,7 @@
       <code>$privates</code>
     </PossiblyUnusedProperty>
   </file>
-  <file src="test/classes/Gis/Ds/PolygonTest.php">
+  <file src="tests/classes/Gis/Ds/PolygonTest.php">
     <MixedArgument>
       <code><![CDATA[$temp['POLYGON'][0]]]></code>
       <code><![CDATA[$temp['POLYGON'][1]]]></code>
@@ -14453,13 +14453,13 @@
       <code>providerForTestIsPointInsidePolygon</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Gis/GisFactoryTest.php">
+  <file src="tests/classes/Gis/GisFactoryTest.php">
     <PossiblyUnusedMethod>
       <code>providerForTestFromType</code>
       <code>providerForTestFromWkt</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Gis/GisGeometryCollectionTest.php">
+  <file src="tests/classes/Gis/GisGeometryCollectionTest.php">
     <PossiblyUnusedMethod>
       <code>providerForPrepareRowAsOl</code>
       <code>providerForPrepareRowAsPdf</code>
@@ -14469,7 +14469,7 @@
       <code>providerForTestGetExtent</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Gis/GisGeometryTest.php">
+  <file src="tests/classes/Gis/GisGeometryTest.php">
     <DeprecatedMethod>
       <code>getMockForAbstractClass</code>
     </DeprecatedMethod>
@@ -14483,7 +14483,7 @@
       <code>providerForTestParseWktAndSrid</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Gis/GisLineStringTest.php">
+  <file src="tests/classes/Gis/GisLineStringTest.php">
     <PossiblyUnusedMethod>
       <code>providerForPrepareRowAsOl</code>
       <code>providerForPrepareRowAsPdf</code>
@@ -14493,7 +14493,7 @@
       <code>providerForTestGetExtent</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Gis/GisMultiLineStringTest.php">
+  <file src="tests/classes/Gis/GisMultiLineStringTest.php">
     <PossiblyUnusedMethod>
       <code>providerForPrepareRowAsOl</code>
       <code>providerForPrepareRowAsPdf</code>
@@ -14503,7 +14503,7 @@
       <code>providerForTestGetExtent</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Gis/GisMultiPointTest.php">
+  <file src="tests/classes/Gis/GisMultiPointTest.php">
     <PossiblyUnusedMethod>
       <code>providerForPrepareRowAsOl</code>
       <code>providerForPrepareRowAsPdf</code>
@@ -14513,18 +14513,7 @@
       <code>providerForTestGetExtent</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Gis/GisMultiPolygonTest.php">
-    <PossiblyUnusedMethod>
-      <code>providerForPrepareRowAsOl</code>
-      <code>providerForPrepareRowAsPdf</code>
-      <code>providerForPrepareRowAsSvg</code>
-      <code>providerForTestGenerateParams</code>
-      <code>providerForTestGenerateWkt</code>
-      <code>providerForTestGetExtent</code>
-      <code>providerForTestGetShape</code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="test/classes/Gis/GisPointTest.php">
+  <file src="tests/classes/Gis/GisMultiPolygonTest.php">
     <PossiblyUnusedMethod>
       <code>providerForPrepareRowAsOl</code>
       <code>providerForPrepareRowAsPdf</code>
@@ -14535,7 +14524,18 @@
       <code>providerForTestGetShape</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Gis/GisPolygonTest.php">
+  <file src="tests/classes/Gis/GisPointTest.php">
+    <PossiblyUnusedMethod>
+      <code>providerForPrepareRowAsOl</code>
+      <code>providerForPrepareRowAsPdf</code>
+      <code>providerForPrepareRowAsSvg</code>
+      <code>providerForTestGenerateParams</code>
+      <code>providerForTestGenerateWkt</code>
+      <code>providerForTestGetExtent</code>
+      <code>providerForTestGetShape</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="tests/classes/Gis/GisPolygonTest.php">
     <MixedArrayAccess>
       <code><![CDATA[$temp1[0]['POLYGON'][1][3]]]></code>
       <code><![CDATA[$temp1[0]['POLYGON'][1][3]['y']]]></code>
@@ -14549,7 +14549,7 @@
       <code>providerForTestGetExtent</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Gis/GisVisualizationTest.php">
+  <file src="tests/classes/Gis/GisVisualizationTest.php">
     <MixedAssignment>
       <code>$dataSet</code>
       <code>$dataSet</code>
@@ -14563,7 +14563,7 @@
       <code>$queryString</code>
     </MixedAssignment>
   </file>
-  <file src="test/classes/HeaderTest.php">
+  <file src="tests/classes/HeaderTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -14580,7 +14580,7 @@
       <code><![CDATA[$config->settings]]></code>
     </PropertyTypeCoercion>
   </file>
-  <file src="test/classes/Html/GeneratorTest.php">
+  <file src="tests/classes/Html/GeneratorTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -14621,60 +14621,60 @@
       <code><![CDATA[$config->settings]]></code>
     </PropertyTypeCoercion>
   </file>
-  <file src="test/classes/Html/MySQLDocumentationTest.php">
+  <file src="tests/classes/Html/MySQLDocumentationTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Http/Factory/ResponseFactoryTest.php">
+  <file src="tests/classes/Http/Factory/ResponseFactoryTest.php">
     <PossiblyUnusedMethod>
       <code>providerForTestCreate</code>
       <code>providerForTestCreateResponse</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Http/Factory/ServerRequestFactoryTest.php">
+  <file src="tests/classes/Http/Factory/ServerRequestFactoryTest.php">
     <PossiblyUnusedMethod>
       <code>providerForTestCreate</code>
       <code>providerForTestCreateServerRequest</code>
       <code>providerForTestFromGlobals</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Http/Factory/UriFactoryTest.php">
+  <file src="tests/classes/Http/Factory/UriFactoryTest.php">
     <PossiblyUnusedMethod>
       <code>providerForTestCreateUri</code>
       <code>uriFactoryProviders</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Http/ResponseTest.php">
+  <file src="tests/classes/Http/ResponseTest.php">
     <PossiblyUnusedMethod>
       <code>responseFactoryProviders</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Http/ServerRequestTest.php">
+  <file src="tests/classes/Http/ServerRequestTest.php">
     <PossiblyUnusedMethod>
       <code>isAjaxProvider</code>
       <code>providerForTestGetRoute</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Identifiers/DatabaseNameTest.php">
+  <file src="tests/classes/Identifiers/DatabaseNameTest.php">
     <PossiblyUnusedMethod>
       <code>providerForTestInvalidNames</code>
       <code>providerForTestValidNames</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Identifiers/TableNameTest.php">
+  <file src="tests/classes/Identifiers/TableNameTest.php">
     <PossiblyUnusedMethod>
       <code>providerForTestInvalidNames</code>
       <code>providerForTestValidNames</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Identifiers/TriggerNameTest.php">
+  <file src="tests/classes/Identifiers/TriggerNameTest.php">
     <PossiblyUnusedMethod>
       <code>providerForTestInvalidNames</code>
       <code>providerForTestValidNames</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Import/ImportTest.php">
+  <file src="tests/classes/Import/ImportTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
@@ -14703,12 +14703,12 @@
       <code>assertNull</code>
     </TypeDoesNotContainNull>
   </file>
-  <file src="test/classes/Import/SimulateDmlTest.php">
+  <file src="tests/classes/Import/SimulateDmlTest.php">
     <PossiblyUnusedMethod>
       <code>providerForTestGetMatchedRows</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/IndexTest.php">
+  <file src="tests/classes/IndexTest.php">
     <MixedArgument>
       <code><![CDATA[$this->params['columns']]]></code>
       <code><![CDATA[$this->params['columns']]]></code>
@@ -14719,7 +14719,7 @@
       <code><![CDATA[$this->params['columns'][]]]></code>
     </MixedArrayAssignment>
   </file>
-  <file src="test/classes/InsertEditTest.php">
+  <file src="tests/classes/InsertEditTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -14800,7 +14800,7 @@
       <code><![CDATA[Config::getInstance()->settings]]></code>
     </PropertyTypeCoercion>
   </file>
-  <file src="test/classes/InternalRelationsTest.php">
+  <file src="tests/classes/InternalRelationsTest.php">
     <MixedAssignment>
       <code>$field</code>
       <code>$field</code>
@@ -14810,7 +14810,7 @@
       <code>assertIsArray</code>
     </RedundantCondition>
   </file>
-  <file src="test/classes/IpAllowDenyTest.php">
+  <file src="tests/classes/IpAllowDenyTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -14822,7 +14822,7 @@
       <code>proxyIPs</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/LanguageTest.php">
+  <file src="tests/classes/LanguageTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -14836,23 +14836,23 @@
       <code>selectDataProvider</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/LinterTest.php">
+  <file src="tests/classes/LinterTest.php">
     <PossiblyUnusedMethod>
       <code>lintProvider</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/ListDatabaseTest.php">
+  <file src="tests/classes/ListDatabaseTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/MenuTest.php">
+  <file src="tests/classes/MenuTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/MessageTest.php">
+  <file src="tests/classes/MessageTest.php">
     <PossiblyUnusedMethod>
       <code>decodeBBDataProvider</code>
       <code>providerAffectedRows</code>
@@ -14860,35 +14860,35 @@
       <code>providerInsertedRows</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/MimeTest.php">
+  <file src="tests/classes/MimeTest.php">
     <PossiblyUnusedMethod>
       <code>providerForTestDetect</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Navigation/NavigationTest.php">
+  <file src="tests/classes/Navigation/NavigationTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Navigation/NavigationTreeTest.php">
+  <file src="tests/classes/Navigation/NavigationTreeTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Navigation/Nodes/NodeDatabaseChildTest.php">
+  <file src="tests/classes/Navigation/Nodes/NodeDatabaseChildTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>getMockForAbstractClass</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Navigation/Nodes/NodeDatabaseTest.php">
+  <file src="tests/classes/Navigation/Nodes/NodeDatabaseTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Navigation/Nodes/NodeTableTest.php">
+  <file src="tests/classes/Navigation/Nodes/NodeTableTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -14897,7 +14897,7 @@
       <code>providerForTestIcon</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Navigation/Nodes/NodeTest.php">
+  <file src="tests/classes/Navigation/Nodes/NodeTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -14917,7 +14917,7 @@
       <code>[]</code>
     </InvalidPropertyAssignmentValue>
   </file>
-  <file src="test/classes/NormalizationTest.php">
+  <file src="tests/classes/NormalizationTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -14935,35 +14935,35 @@
       <code>$result</code>
     </MixedAssignment>
   </file>
-  <file src="test/classes/OpenDocumentTest.php">
+  <file src="tests/classes/OpenDocumentTest.php">
     <RedundantCondition>
       <code>assertNotFalse</code>
     </RedundantCondition>
   </file>
-  <file src="test/classes/OperationsTest.php">
+  <file src="tests/classes/OperationsTest.php">
     <PossiblyUnusedMethod>
       <code>providerGetPartitionMaintenanceChoices</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Partitioning/PartitionTest.php">
+  <file src="tests/classes/Partitioning/PartitionTest.php">
     <PossiblyUnusedMethod>
       <code>providerForTestHavePartitioning</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Partitioning/TablePartitionDefinitionTest.php">
+  <file src="tests/classes/Partitioning/TablePartitionDefinitionTest.php">
     <PossiblyUnusedMethod>
       <code>providerGetDetails</code>
       <code>providerGetDetailsWithMaxPartitions</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/PdfTest.php">
+  <file src="tests/classes/PdfTest.php">
     <MixedArgument>
       <code><![CDATA[$arr->getPDFData()]]></code>
       <code><![CDATA[$arr->getPDFData()]]></code>
       <code><![CDATA[$pdf->getPDFData()]]></code>
     </MixedArgument>
   </file>
-  <file src="test/classes/Plugins/Auth/AuthenticationConfigTest.php">
+  <file src="tests/classes/Plugins/Auth/AuthenticationConfigTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -14973,7 +14973,7 @@
       <code><![CDATA[['user' => 'username', 'password' => 'password']]]></code>
     </InvalidPropertyAssignmentValue>
   </file>
-  <file src="test/classes/Plugins/Auth/AuthenticationCookieTest.php">
+  <file src="tests/classes/Plugins/Auth/AuthenticationCookieTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -15053,7 +15053,7 @@
       <code><![CDATA[$config->settings]]></code>
     </PropertyTypeCoercion>
   </file>
-  <file src="test/classes/Plugins/Auth/AuthenticationHttpTest.php">
+  <file src="tests/classes/Plugins/Auth/AuthenticationHttpTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -15073,7 +15073,7 @@
       <code>readCredentialsProvider</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Plugins/Auth/AuthenticationSignonTest.php">
+  <file src="tests/classes/Plugins/Auth/AuthenticationSignonTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -15102,7 +15102,7 @@
       <code><![CDATA[$config->settings]]></code>
     </InvalidPropertyAssignmentValue>
   </file>
-  <file src="test/classes/Plugins/AuthenticationPluginFactoryTest.php">
+  <file src="tests/classes/Plugins/AuthenticationPluginFactoryTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -15112,13 +15112,13 @@
       <code>providerForTestValidPlugins</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Plugins/Export/ExportCodegenTest.php">
+  <file src="tests/classes/Plugins/Export/ExportCodegenTest.php">
     <MixedAssignment>
       <code>$result</code>
       <code>$result</code>
     </MixedAssignment>
   </file>
-  <file src="test/classes/Plugins/Export/ExportCsvTest.php">
+  <file src="tests/classes/Plugins/Export/ExportCsvTest.php">
     <RedundantCondition>
       <code>assertFalse</code>
     </RedundantCondition>
@@ -15126,7 +15126,7 @@
       <code>assertFalse</code>
     </RedundantConditionGivenDocblockType>
   </file>
-  <file src="test/classes/Plugins/Export/ExportHtmlwordTest.php">
+  <file src="tests/classes/Plugins/Export/ExportHtmlwordTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
@@ -15137,7 +15137,7 @@
       <code>$result</code>
     </MixedAssignment>
   </file>
-  <file src="test/classes/Plugins/Export/ExportLatexTest.php">
+  <file src="tests/classes/Plugins/Export/ExportLatexTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -15157,7 +15157,7 @@
       <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
     </PossiblyInvalidArrayOffset>
   </file>
-  <file src="test/classes/Plugins/Export/ExportOdtTest.php">
+  <file src="tests/classes/Plugins/Export/ExportOdtTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
@@ -15177,7 +15177,7 @@
       <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
     </PossiblyInvalidArrayOffset>
   </file>
-  <file src="test/classes/Plugins/Export/ExportSqlTest.php">
+  <file src="tests/classes/Plugins/Export/ExportSqlTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -15217,12 +15217,12 @@
       <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
     </PossiblyInvalidArrayOffset>
   </file>
-  <file src="test/classes/Plugins/Export/ExportTexytextTest.php">
+  <file src="tests/classes/Plugins/Export/ExportTexytextTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Plugins/Export/ExportXmlTest.php">
+  <file src="tests/classes/Plugins/Export/ExportXmlTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -15233,7 +15233,7 @@
       <code><![CDATA[$config->selectedServer]]></code>
     </InvalidPropertyAssignmentValue>
   </file>
-  <file src="test/classes/Plugins/Export/Helpers/TablePropertyTest.php">
+  <file src="tests/classes/Plugins/Export/Helpers/TablePropertyTest.php">
     <PossiblyUnusedMethod>
       <code>getDotNetObjectTypeProvider</code>
       <code>getDotNetPrimitiveTypeProvider</code>
@@ -15241,12 +15241,12 @@
       <code>isUniqueProvider</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Plugins/Import/ImportCsvTest.php">
+  <file src="tests/classes/Plugins/Import/ImportCsvTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Plugins/Import/ImportLdiTest.php">
+  <file src="tests/classes/Plugins/Import/ImportLdiTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -15255,7 +15255,7 @@
       <code>assertTrue</code>
     </TypeDoesNotContainType>
   </file>
-  <file src="test/classes/Plugins/Import/ImportMediawikiTest.php">
+  <file src="tests/classes/Plugins/Import/ImportMediawikiTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
@@ -15270,7 +15270,7 @@
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
     </MixedArgument>
   </file>
-  <file src="test/classes/Plugins/Import/ImportOdsTest.php">
+  <file src="tests/classes/Plugins/Import/ImportOdsTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
@@ -15294,7 +15294,7 @@
       <code>dataProviderOdsEmptyRows</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Plugins/Import/ImportShpTest.php">
+  <file src="tests/classes/Plugins/Import/ImportShpTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
@@ -15310,12 +15310,12 @@
       <code>assertFalse</code>
     </RedundantCondition>
   </file>
-  <file src="test/classes/Plugins/Import/ImportSqlTest.php">
+  <file src="tests/classes/Plugins/Import/ImportSqlTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Plugins/Import/ImportXmlTest.php">
+  <file src="tests/classes/Plugins/Import/ImportXmlTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
@@ -15330,27 +15330,27 @@
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
     </MixedArgument>
   </file>
-  <file src="test/classes/Plugins/Schema/DiaRelationSchemaTest.php">
+  <file src="tests/classes/Plugins/Schema/DiaRelationSchemaTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Plugins/Schema/EpsRelationSchemaTest.php">
+  <file src="tests/classes/Plugins/Schema/EpsRelationSchemaTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Plugins/Schema/PdfRelationSchemaTest.php">
+  <file src="tests/classes/Plugins/Schema/PdfRelationSchemaTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Plugins/Schema/SvgRelationSchemaTest.php">
+  <file src="tests/classes/Plugins/Schema/SvgRelationSchemaTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Plugins/Transformations/TransformationPluginsTest.php">
+  <file src="tests/classes/Plugins/Transformations/TransformationPluginsTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -15360,7 +15360,7 @@
       <code>transformationDataProvider</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/PluginsTest.php">
+  <file src="tests/classes/PluginsTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -15399,38 +15399,38 @@
       <code>assertIsArray</code>
     </RedundantCondition>
   </file>
-  <file src="test/classes/Properties/Options/OptionsPropertyGroupTest.php">
+  <file src="tests/classes/Properties/Options/OptionsPropertyGroupTest.php">
     <DeprecatedMethod>
       <code>getMockForAbstractClass</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Properties/Options/OptionsPropertyItemTest.php">
+  <file src="tests/classes/Properties/Options/OptionsPropertyItemTest.php">
     <DeprecatedMethod>
       <code>getMockForAbstractClass</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Properties/Options/OptionsPropertyOneItemTest.php">
+  <file src="tests/classes/Properties/Options/OptionsPropertyOneItemTest.php">
     <DeprecatedMethod>
       <code>getMockForAbstractClass</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Properties/Plugins/PluginPropertyItemTest.php">
+  <file src="tests/classes/Properties/Plugins/PluginPropertyItemTest.php">
     <DeprecatedMethod>
       <code>getMockForAbstractClass</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Properties/PropertyItemTest.php">
+  <file src="tests/classes/Properties/PropertyItemTest.php">
     <DeprecatedMethod>
       <code>getMockForAbstractClass</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Query/CompatibilityTest.php">
+  <file src="tests/classes/Query/CompatibilityTest.php">
     <PossiblyUnusedMethod>
       <code>providerForTestHasAccountLocking</code>
       <code>providerForTestIsUUIDSupported</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Replication/ReplicationGuiTest.php">
+  <file src="tests/classes/Replication/ReplicationGuiTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -15448,7 +15448,7 @@
       <code><![CDATA[$config->settings]]></code>
     </InvalidPropertyAssignmentValue>
   </file>
-  <file src="test/classes/Routing/RoutingTest.php">
+  <file src="tests/classes/Routing/RoutingTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
@@ -15459,14 +15459,14 @@
       <code>providerForTestCleanupPathInfo</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/SanitizeTest.php">
+  <file src="tests/classes/SanitizeTest.php">
     <PossiblyUnusedMethod>
       <code>dataProviderCheckLinks</code>
       <code>docLinks</code>
       <code>variables</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Server/PluginsTest.php">
+  <file src="tests/classes/Server/PluginsTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -15480,7 +15480,7 @@
       <code>assertIsArray</code>
     </RedundantCondition>
   </file>
-  <file src="test/classes/Server/PrivilegesTest.php">
+  <file src="tests/classes/Server/PrivilegesTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -15515,7 +15515,7 @@
       <code>$routinename</code>
     </UnusedVariable>
   </file>
-  <file src="test/classes/Server/SelectTest.php">
+  <file src="tests/classes/Server/SelectTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -15545,23 +15545,23 @@
       <code>renderDataProvider</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Server/SysInfo/SysInfoTest.php">
+  <file src="tests/classes/Server/SysInfo/SysInfoTest.php">
     <PossiblyUnusedMethod>
       <code>sysInfoOsProvider</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Setup/ConfigGeneratorTest.php">
+  <file src="tests/classes/Setup/ConfigGeneratorTest.php">
     <MixedAssignment>
       <code>$result</code>
       <code>$result</code>
     </MixedAssignment>
   </file>
-  <file src="test/classes/Setup/FormProcessingTest.php">
+  <file src="tests/classes/Setup/FormProcessingTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Setup/IndexTest.php">
+  <file src="tests/classes/Setup/IndexTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
@@ -15570,7 +15570,7 @@
       <code><![CDATA[$_SESSION['messages']['type']['123']]]></code>
     </MixedArrayAccess>
   </file>
-  <file src="test/classes/SqlQueryFormTest.php">
+  <file src="tests/classes/SqlQueryFormTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
@@ -15587,7 +15587,7 @@
       <code><![CDATA[$config->settings]]></code>
     </InvalidPropertyAssignmentValue>
   </file>
-  <file src="test/classes/SqlTest.php">
+  <file src="tests/classes/SqlTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -15601,7 +15601,7 @@
       <code>dataProviderCountQueryResults</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/StorageEngineTest.php">
+  <file src="tests/classes/StorageEngineTest.php">
     <DeprecatedMethod>
       <code>getMockForAbstractClass</code>
     </DeprecatedMethod>
@@ -15609,12 +15609,12 @@
       <code>providerGetEngine</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Stubs/DbiDummy.php">
+  <file src="tests/classes/Stubs/DbiDummy.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Stubs/DummyResult.php">
+  <file src="tests/classes/Stubs/DummyResult.php">
     <InvalidReturnStatement>
       <code><![CDATA[array_column($this->result, 1, 0)]]></code>
     </InvalidReturnStatement>
@@ -15625,7 +15625,7 @@
       <code>bool</code>
     </PossiblyUnusedReturnValue>
   </file>
-  <file src="test/classes/Stubs/ResponseRenderer.php">
+  <file src="tests/classes/Stubs/ResponseRenderer.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
@@ -15633,12 +15633,12 @@
       <code>$value</code>
     </MixedAssignment>
   </file>
-  <file src="test/classes/SystemDatabaseTest.php">
+  <file src="tests/classes/SystemDatabaseTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Table/ColumnsDefinitionTest.php">
+  <file src="tests/classes/Table/ColumnsDefinitionTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
@@ -15646,7 +15646,7 @@
       <code>providerColumnMetaDefault</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Table/IndexesTest.php">
+  <file src="tests/classes/Table/IndexesTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -15662,17 +15662,17 @@
       <code>expects</code>
     </UndefinedMethod>
   </file>
-  <file src="test/classes/Table/Maintenance/MessageTest.php">
+  <file src="tests/classes/Table/Maintenance/MessageTest.php">
     <PossiblyUnusedMethod>
       <code>providerForTestFromArray</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Table/SearchTest.php">
+  <file src="tests/classes/Table/SearchTest.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="test/classes/Table/TableTest.php">
+  <file src="tests/classes/Table/TableTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -15726,7 +15726,7 @@
       <code>expects</code>
     </UndefinedMethod>
   </file>
-  <file src="test/classes/TemplateTest.php">
+  <file src="tests/classes/TemplateTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
@@ -15737,7 +15737,7 @@
       <code>providerTestSet</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Theme/ThemeManagerTest.php">
+  <file src="tests/classes/Theme/ThemeManagerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
@@ -15745,12 +15745,12 @@
       <code>assertIsArray</code>
     </RedundantCondition>
   </file>
-  <file src="test/classes/Theme/ThemeTest.php">
+  <file src="tests/classes/Theme/ThemeTest.php">
     <PossiblyUnusedMethod>
       <code>providerForGetImgPath</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Tracking/TrackerTest.php">
+  <file src="tests/classes/Tracking/TrackerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -15769,7 +15769,7 @@
       <code>parseQueryData</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Tracking/TrackingTest.php">
+  <file src="tests/classes/Tracking/TrackingTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -15793,7 +15793,7 @@
       <code>getTrackedDataProvider</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/TransformationsTest.php">
+  <file src="tests/classes/TransformationsTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
@@ -15808,13 +15808,13 @@
       <code>providerGetName</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Triggers/TriggerTest.php">
+  <file src="tests/classes/Triggers/TriggerTest.php">
     <PossiblyUnusedMethod>
       <code>arrayWithInvalidValuesProvider</code>
       <code>arrayWithValidValuesProvider</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Triggers/TriggersTest.php">
+  <file src="tests/classes/Triggers/TriggersTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -15827,7 +15827,7 @@
       <code>providerGetQueryFromRequest</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/TwoFactorTest.php">
+  <file src="tests/classes/TwoFactorTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -15845,7 +15845,7 @@
       <code><![CDATA[$object->config['settings']['secret']]]></code>
     </MixedArgument>
   </file>
-  <file src="test/classes/TypesByDatabaseVersionTest.php">
+  <file src="tests/classes/TypesByDatabaseVersionTest.php">
     <PossiblyUnusedMethod>
       <code>providerFortTestGetAllFunctions</code>
       <code>providerFortTestGetColumns</code>
@@ -15853,7 +15853,7 @@
       <code>providerFortTestGetFunctionsClass</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/TypesTest.php">
+  <file src="tests/classes/TypesTest.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
@@ -15865,7 +15865,7 @@
       <code>providerFortTestGetTypeClass</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/UniqueConditionTest.php">
+  <file src="tests/classes/UniqueConditionTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
@@ -15873,7 +15873,7 @@
       <code>providerGetUniqueConditionForGroupFlag</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/UrlTest.php">
+  <file src="tests/classes/UrlTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -15894,7 +15894,7 @@
       <code>getArgSeparatorProvider</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/UserPasswordTest.php">
+  <file src="tests/classes/UserPasswordTest.php">
     <InvalidReturnStatement>
       <code><![CDATA[[
             [false, Message::success('The profile has been updated.'), true, '', ''],
@@ -15919,7 +15919,7 @@
       <code>providerSetChangePasswordMsg</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/UserPreferencesTest.php">
+  <file src="tests/classes/UserPreferencesTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -15950,7 +15950,7 @@
       <code><![CDATA[$_SESSION['userconfig']['ts']]]></code>
     </MixedArrayAccess>
   </file>
-  <file src="test/classes/UtilTest.php">
+  <file src="tests/classes/UtilTest.php">
     <ArgumentTypeCoercion>
       <code>$tz</code>
     </ArgumentTypeCoercion>
@@ -16046,7 +16046,7 @@
       <code>providerUserDir</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Utils/ForeignKeyTest.php">
+  <file src="tests/classes/Utils/ForeignKeyTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
@@ -16056,7 +16056,7 @@
       <code>providerIsSupported</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Utils/FormatConverterTest.php">
+  <file src="tests/classes/Utils/FormatConverterTest.php">
     <PossiblyUnusedMethod>
       <code>providerBinaryToIp</code>
       <code>providerIpToBinary</code>
@@ -16064,12 +16064,12 @@
       <code>providerLongToIp</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Utils/GisTest.php">
+  <file src="tests/classes/Utils/GisTest.php">
     <PossiblyUnusedMethod>
       <code>providerConvertToWellKnownText</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/Utils/HttpRequestTest.php">
+  <file src="tests/classes/Utils/HttpRequestTest.php">
     <MixedArgument>
       <code><![CDATA[$curl['ssl_version']]]></code>
       <code><![CDATA[$curl['ssl_version']]]></code>
@@ -16096,7 +16096,7 @@
       <code><![CDATA['?']]></code>
     </TypeDoesNotContainType>
   </file>
-  <file src="test/classes/Utils/SessionCacheTest.php">
+  <file src="tests/classes/Utils/SessionCacheTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -16131,7 +16131,7 @@
       <code><![CDATA[$_SESSION['cache']['server_server']['test_data_3']]]></code>
     </MixedArrayAccess>
   </file>
-  <file src="test/classes/VersionInformationTest.php">
+  <file src="tests/classes/VersionInformationTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -16152,19 +16152,19 @@
       <code>dataVersions</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/WebAuthn/CBORDecoderTest.php">
+  <file src="tests/classes/WebAuthn/CBORDecoderTest.php">
     <PossiblyUnusedMethod>
       <code>dataProviderForTestDecode</code>
       <code>indefiniteLengthValuesProvider</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/classes/ZipExtensionTest.php">
+  <file src="tests/classes/ZipExtensionTest.php">
     <PossiblyUnusedMethod>
       <code>provideTestFindFile</code>
       <code>provideTestGetContents</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/selenium/Database/ProceduresTest.php">
+  <file src="tests/selenium/Database/ProceduresTest.php">
     <MixedInferredReturnType>
       <code>string</code>
     </MixedInferredReturnType>
@@ -16172,12 +16172,12 @@
       <code>$sqlMode</code>
     </MixedReturnStatement>
   </file>
-  <file src="test/selenium/ExportTest.php">
+  <file src="tests/selenium/ExportTest.php">
     <PossiblyUnusedMethod>
       <code>exportDataProvider</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/selenium/TestBase.php">
+  <file src="tests/selenium/TestBase.php">
     <DeprecatedConstant>
       <code>ChromeOptions::CAPABILITY_W3C</code>
     </DeprecatedConstant>

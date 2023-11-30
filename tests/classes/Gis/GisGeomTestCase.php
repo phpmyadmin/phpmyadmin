@@ -29,7 +29,7 @@ abstract class GisGeomTestCase extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->testDir = 'file://' . getcwd() . '/test/test_data/gis';
+        $this->testDir = 'file://' . getcwd() . '/tests/test_data/gis';
 
         (new ReflectionProperty(TCPDF_STATIC::class, 'tcpdf_version'))->setValue(null, '6.6.2');
     }

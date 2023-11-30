@@ -26,7 +26,7 @@
             "PhpMyAdmin\\": "src"
         },
         "exclude-from-classmap": [
-            "/test/",
+            "/tests/",
             "/vendor/tecnickcom/tcpdf/tcpdf_barcodes_*.php",
             "/vendor/tecnickcom/tcpdf/tcpdf_import.php",
             "/vendor/tecnickcom/tcpdf/tcpdf_parser.php",
@@ -36,8 +36,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "PhpMyAdmin\\Tests\\": "test/classes",
-            "PhpMyAdmin\\Tests\\Selenium\\": "test/selenium/"
+            "PhpMyAdmin\\Tests\\": "tests/classes",
+            "PhpMyAdmin\\Tests\\Selenium\\": "tests/selenium/"
         }
     },
     "repositories": [

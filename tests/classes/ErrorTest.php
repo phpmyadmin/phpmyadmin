@@ -83,7 +83,7 @@ class ErrorTest extends AbstractTestCase
             ['./ChangeLog', '.' . DIRECTORY_SEPARATOR . 'ChangeLog'],
             [
                 __FILE__,
-                '.' . DIRECTORY_SEPARATOR . 'test' . DIRECTORY_SEPARATOR
+                '.' . DIRECTORY_SEPARATOR . 'tests' . DIRECTORY_SEPARATOR
                     . 'classes' . DIRECTORY_SEPARATOR . 'ErrorTest.php',
             ],
             ['./NONEXISTING', 'NONEXISTING'],

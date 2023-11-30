@@ -18,16 +18,16 @@ psalm.xml export-ignore
 psalm-baseline.xml export-ignore
 DCO export-ignore
 .editorconfig export-ignore
-# Exclude only the following files and not all files in test/
+# Exclude only the following files and not all files in tests/
 # This is because some packaging teams need our test files but not the CI related files
-test/doctum-config.php export-ignore
-test/bootstrap-static.php export-ignore
-test/config.e2e.inc.php export-ignore
-test/phpstan-constants.php export-ignore
-test/*-local-server export-ignore
-test/*.conf export-ignore
-test/*.ini export-ignore
-test/ci-phplint export-ignore
+tests/doctum-config.php export-ignore
+tests/bootstrap-static.php export-ignore
+tests/config.e2e.inc.php export-ignore
+tests/phpstan-constants.php export-ignore
+tests/*-local-server export-ignore
+tests/*.conf export-ignore
+tests/*.ini export-ignore
+tests/ci-phplint export-ignore
 .browserslistrc export-ignore
 CODE_OF_CONDUCT.md export-ignore
 CONTRIBUTING.md export-ignore

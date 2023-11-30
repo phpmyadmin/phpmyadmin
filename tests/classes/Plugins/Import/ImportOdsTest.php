@@ -112,7 +112,7 @@ class ImportOdsTest extends AbstractTestCase
 
         $GLOBALS['sql_query_disabled'] = false;
 
-        $GLOBALS['import_file'] = 'test/test_data/db_test.ods';
+        $GLOBALS['import_file'] = 'tests/test_data/db_test.ods';
         $_REQUEST['ods_empty_rows'] = true;
 
         $this->dummyDbi = $this->createDbiDummy();
@@ -169,7 +169,7 @@ class ImportOdsTest extends AbstractTestCase
 
         $GLOBALS['sql_query_disabled'] = false;
 
-        $GLOBALS['import_file'] = 'test/test_data/import-slim.ods.xml';
+        $GLOBALS['import_file'] = 'tests/test_data/import-slim.ods.xml';
         $_REQUEST['ods_col_names'] = true;
         $_REQUEST['ods_empty_rows'] = $odsEmptyRowsMode;
 

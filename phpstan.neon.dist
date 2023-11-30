@@ -6,17 +6,17 @@ parameters:
         - app
         - public
         - src
-        - test
+        - tests
     scanFiles:
         - app/constants.php
         - examples/signon-script.php
     bootstrapFiles:
-        - test/phpstan-constants.php
+        - tests/phpstan-constants.php
     stubFiles:
-        - test/stubs/uploadprogress.stub
+        - tests/stubs/uploadprogress.stub
     excludePaths:
         - app/cache/*
-        - test/doctum-config.php
+        - tests/doctum-config.php
     dynamicConstantNames:
         - ROOT_PATH
         - TEST_PATH
@@ -30,8 +30,8 @@ parameters:
         -
             message: '#Dynamic call to static method PHPUnit\\Framework\\Assert::[a-zA-Z]+\(\)\.#'
             paths:
-                - test/classes/*
-                - test/selenium/*
+                - tests/classes/*
+                - tests/selenium/*
         -
             message: '#Dynamic call to static method PHPUnit\\Framework\\TestCase::[a-zA-Z]+\(\)\.#'
-            path: test/classes/*
+            path: tests/classes/*

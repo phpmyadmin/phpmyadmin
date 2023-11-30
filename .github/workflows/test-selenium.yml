@@ -113,7 +113,7 @@ jobs:
         run: yarn install --non-interactive --production
 
       - name: Copy the config
-        run: cp test/config.e2e.inc.php config.inc.php
+        run: cp tests/config.e2e.inc.php config.inc.php
 
       - name: Start server
         env:
@@ -121,7 +121,7 @@ jobs:
           FPM_PATH: php-fpm${{ env.php-version }}
           SKIP_STANDALONE: 1
         run: |
-          ./test/start-local-server
+          ./tests/start-local-server
           echo "SELENIUM_TEMPDIR=$(cat /tmp/last_temp_dir_phpMyAdminTests)" >> $GITHUB_OUTPUT
         id: start-local-server
 
@@ -131,12 +131,12 @@ jobs:
           TESTSUITE_SELENIUM_BROWSER: chrome
           TESTSUITE_USER: root
           TESTSUITE_PASSWORD: testbench
-          # Port defined in test/nginx.conf
+          # Port defined in tests/nginx.conf
           TESTSUITE_URL: http://docker-host-bridge:8000
           TESTSUITE_DATABASE_PREFIX: "selenium"
           TESTSUITE_SELENIUM_HOST: "127.0.0.1"
           TESTSUITE_SELENIUM_PORT: "4444"
-        run: ./vendor/bin/phpunit --testsuite selenium --no-logging --no-coverage --stop-on-skipped --testdox test/selenium/${{ matrix.test-name }}Test.php
+        run: ./vendor/bin/phpunit --testsuite selenium --no-logging --no-coverage --stop-on-skipped --testdox tests/selenium/${{ matrix.test-name }}Test.php
 
       - name: Output logs and stop server
         env:
@@ -146,7 +146,7 @@ jobs:
         run: |
           if [ -f "${SELENIUM_TEMPDIR}/php.log" ] ; then cat "${SELENIUM_TEMPDIR}/php.log" ; fi
           if [ -f "${SELENIUM_TEMPDIR}/nginx-error.log" ] ; then cat "${SELENIUM_TEMPDIR}/nginx-error.log" ; fi
-          ./test/stop-local-server
+          ./tests/stop-local-server
 
       - name: Upload screenshots
         uses: actions/upload-artifact@v3

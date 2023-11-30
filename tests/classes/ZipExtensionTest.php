@@ -52,17 +52,17 @@ class ZipExtensionTest extends AbstractTestCase
     {
         return [
             'null as specific entry' => [
-                './test/test_data/test.zip',
+                './tests/test_data/test.zip',
                 null,
                 ['error' => '', 'data' => 'TEST FILE' . "\n"],
             ],
             'an existent specific entry' => [
-                './test/test_data/test.zip',
+                './tests/test_data/test.zip',
                 '/test.file/',
                 ['error' => '', 'data' => 'TEST FILE' . "\n"],
             ],
             'a nonexistent specific entry' => [
-                './test/test_data/test.zip',
+                './tests/test_data/test.zip',
                 '/foobar/',
                 ['error' => 'Error in ZIP archive: Could not find "/foobar/"', 'data' => ''],
             ],
@@ -95,8 +95,8 @@ class ZipExtensionTest extends AbstractTestCase
     public static function provideTestFindFile(): array
     {
         return [
-            ['./test/test_data/test.zip', '/test/', 'test.file'],
-            ['./test/test_data/test.zip', '/invalid/', false],
+            ['./tests/test_data/test.zip', '/test/', 'test.file'],
+            ['./tests/test_data/test.zip', '/invalid/', false],
         ];
     }
 
@@ -106,7 +106,7 @@ class ZipExtensionTest extends AbstractTestCase
     public function testGetNumberOfFiles(): void
     {
         $this->assertEquals(
-            $this->zipExtension->getNumberOfFiles('./test/test_data/test.zip'),
+            $this->zipExtension->getNumberOfFiles('./tests/test_data/test.zip'),
             1,
         );
     }
@@ -118,14 +118,14 @@ class ZipExtensionTest extends AbstractTestCase
     {
         $this->assertFalse(
             $this->zipExtension->extract(
-                './test/test_data/test.zip',
+                './tests/test_data/test.zip',
                 'wrongName',
             ),
         );
         $this->assertEquals(
             "TEST FILE\n",
             $this->zipExtension->extract(
-                './test/test_data/test.zip',
+                './tests/test_data/test.zip',
                 'test.file',
             ),
         );

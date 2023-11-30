@@ -6,7 +6,7 @@ on:
     paths:
       - 'resources/js/**'
       - '**.s?css'
-      - 'test/javascript/**'
+      - 'tests/javascript/**'
       - '.browserslistrc'
       - '.eslint*'
       - '*.cjs'
