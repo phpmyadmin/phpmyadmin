@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-26 00:19+0000\n"
-"PO-Revision-Date: 2023-11-30 13:04+0000\n"
+"PO-Revision-Date: 2023-11-30 19:49+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
@@ -3296,14 +3296,10 @@ msgid "phpMyAdmin documentation"
 msgstr "Документация phpMyAdmin"
 
 #: resources/templates/header.twig:62
-#, fuzzy
-#| msgid "MariaDB Documentation"
 msgid "MariaDB documentation"
 msgstr "Документация MariaDB"
 
 #: resources/templates/header.twig:62
-#, fuzzy
-#| msgid "MySQL Documentation"
 msgid "MySQL documentation"
 msgstr "Документация MySQL"
 
@@ -5599,12 +5595,10 @@ msgid "Advisor"
 msgstr "Советчик"
 
 #: resources/templates/server/status/monitor/index.twig:4
-#, fuzzy
 msgid "System monitor"
-msgstr "Системная память"
+msgstr "Системный монитор"
 
 #: resources/templates/server/status/monitor/index.twig:7
-#, fuzzy
 msgid "Start monitor"
 msgstr "Запустить монитор"
 
@@ -6047,9 +6041,8 @@ msgid "Configuration file"
 msgstr "Конфигурационный файл"
 
 #: resources/templates/setup/config/index.twig:16
-#, fuzzy
 msgid "Generated configuration file"
-msgstr "Ошибка при чтении конфигурационного файла!"
+msgstr "Созданный файл конфигурации"
 
 #: resources/templates/setup/config/index.twig:22
 #: resources/templates/setup/home/index.twig:168
@@ -6143,9 +6136,8 @@ msgid "Bookmark this SQL query"
 msgstr "Создать закладку"
 
 #: resources/templates/sql/bookmark.twig:14
-#, fuzzy
 msgid "Bookmark label:"
-msgstr "Таблица закладок"
+msgstr "Метка закладки:"
 
 #: resources/templates/sql/bookmark.twig:21
 #: resources/templates/sql/query.twig:94
@@ -6630,9 +6622,8 @@ msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "Третий этап нормализации (1NF+2NF+3NF)"
 
 #: resources/templates/table/operations/index.twig:2
-#, fuzzy
 msgid "Table operations"
-msgstr "Параметры таблицы"
+msgstr "Операции с таблицами"
 
 #: resources/templates/table/operations/index.twig:10
 msgid "Alter table order by"
@@ -14224,10 +14215,9 @@ msgid "Microsecond"
 msgstr "Микросекунда"
 
 #: src/Controllers/JavaScriptMessagesController.php:772
-#, fuzzy
 msgctxt "The time zone for a time of day"
 msgid "Time zone"
-msgstr "Шкала времени"
+msgstr "Часовой пояс"
 
 #. l10n: Display text for previous month link in calendar
 #: src/Controllers/JavaScriptMessagesController.php:776
@@ -14457,9 +14447,8 @@ msgstr ""
 "закрыт."
 
 #: src/Controllers/Server/Status/QueriesController.php:90
-#, fuzzy
 msgid "Other statements"
-msgstr "Добавить выражения:"
+msgstr "Другие утверждения"
 
 #: src/Controllers/Server/Status/StatusController.php:127
 msgid "Received"
@@ -15703,9 +15692,9 @@ msgid "%1$s total, %2$s in query"
 msgstr "%1$d всего, %2$d в запросе"
 
 #: src/Display/Results.php:3564
-#, fuzzy, php-format
+#, php-format
 msgid "%s total"
-msgstr "%d всего"
+msgstr "%s всего"
 
 #: src/Display/Results.php:3577 src/Sql.php:885
 #, php-format
@@ -17151,9 +17140,8 @@ msgid "Dumping data"
 msgstr "Дамп данных"
 
 #: src/Plugins/Export/ExportPdf.php:199
-#, fuzzy
 msgid "Query result data"
-msgstr "Результаты запроса"
+msgstr "Данные результата запроса"
 
 #: src/Plugins/Export/ExportPdf.php:257
 msgid "View structure"
