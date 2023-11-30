@@ -465,7 +465,7 @@ LC_ALL=C make -C doc html
 find doc -name '*.pyc' -print0 | xargs -0 -r rm -f
 
 # Check for gettext support
-if [ -d po ] ; then
+if [ -d resources/po ] ; then
     echo "* Generating mo files"
     ./bin/generate-mo
     if [ -f ./bin/remove-incomplete-mo ] ; then
@@ -612,7 +612,7 @@ for kit in $KITS ; do
         rm phpunit.xml.*
         rm .editorconfig .browserslistrc .eslintignore .jshintrc .eslintrc.json .stylelintrc.json psalm.xml psalm-baseline.xml phpstan.neon.dist phpstan-baseline.neon phpcs.xml.dist jest.config.cjs infection.json5.dist
         # Gettext po files (if they were not removed by ./bin/internal/lang-cleanup.sh)
-        rm -rf po
+        rm -rf resources/po
         # Documentation source code
         mv doc/html htmldoc
         rm -r doc

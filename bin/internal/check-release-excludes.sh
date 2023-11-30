@@ -72,7 +72,7 @@ validateExtension() {
                 foundFileExt
             fi
         ;;
-        locale/*)
+        resources/locale/*)
             if [ "${extension}" != "mo" ]; then
                 foundFileExt
             fi

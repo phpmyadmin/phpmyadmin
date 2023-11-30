@@ -16,9 +16,9 @@ rm -rf twig-templates/
 php bin/console cache:warmup --twig-po --env development
 
 # Update pot (template), ensure that advisor is at the end
-LOCS=$(find po -name '*.po' | sed 's@.*/\(.*\)\.po@\1@')
+LOCS=$(find resources/po -name '*.po' | sed 's@.*/\(.*\)\.po@\1@')
 
-find . -name '*.php' -not -path './tests/*' -not -path './po/*' -not -path './tmp/*' -not -path './release/*' -not -path './node_modules/*' -not -path './vendor/*' > twig-templates/filesList
+find . -name '*.php' -not -path './tests/*' -not -path './resources/po/*' -not -path './tmp/*' -not -path './release/*' -not -path './node_modules/*' -not -path './vendor/*' > twig-templates/filesList
 
 php ./bin/match-twig-cache
 sort --dictionary-order --ignore-case --output ./twig-templates/filesListTemp < ./twig-templates/filesList
@@ -30,7 +30,7 @@ php ./bin/match-twig-cache --reverse
 xgettext \
     -d phpmyadmin \
     --msgid-bugs-address=translators@phpmyadmin.net \
-    -o po/phpmyadmin.pot \
+    -o resources/po/phpmyadmin.pot \
     --language=PHP \
     --add-comments=l10n \
     --add-location \
@@ -58,7 +58,7 @@ sed -i.~ '
     s/PACKAGE/phpMyAdmin/;
     s/(C) YEAR/(C) 2003 - '"$(date +%Y)"'/;
     s/VERSION/'"$ver"'/;
-    ' po/phpmyadmin.pot
+    ' resources/po/phpmyadmin.pot
 
 # Update po files (translations)
 for loc in $LOCS ; do
@@ -68,12 +68,12 @@ for loc in $LOCS ; do
         s/(C) YEAR/(C) 2003 - '"$(date +%Y)"'/;
         s/VERSION/'"$ver"'/;
         s/Project-Id-Version: phpMyAdmin .*/Project-Id-Version: phpMyAdmin '"$ver"'\\n"/;
-        ' po/"$loc".po
-    msgmerge --previous -U po/"$loc".po po/phpmyadmin.pot
+        ' resources/po/"$loc".po
+    msgmerge --previous -U resources/po/"$loc".po resources/po/phpmyadmin.pot
 done
 
 # Commit changes
-git add po/*.po po/phpmyadmin.pot
+git add resources/po/*.po resources/po/phpmyadmin.pot
 git commit -s -m 'Update po files
 
 [ci skip]'
