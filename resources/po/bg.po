@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-11-26 00:19+0000\n"
+"POT-Creation-Date: 2023-11-30 20:06+0000\n"
 "PO-Revision-Date: 2023-04-04 08:37+0000\n"
 "Last-Translator: 109247019824 <stoyan@gmx.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -51,7 +51,7 @@ msgstr ""
 #: resources/templates/table/structure/display_structure.twig:145
 #: resources/templates/table/structure/display_structure.twig:295
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:25
-#: src/Controllers/Table/StructureController.php:244
+#: src/Controllers/Table/StructureController.php:230
 msgid "Primary"
 msgstr "Първичен"
 
@@ -73,7 +73,7 @@ msgstr "Уникално"
 #: resources/templates/table/structure/display_structure.twig:301
 #: resources/templates/table/structure/display_table_stats.twig:24
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:27
-#: src/Controllers/Table/StructureController.php:248
+#: src/Controllers/Table/StructureController.php:234
 #: src/Navigation/Nodes/NodeIndex.php:26
 msgid "Index"
 msgstr "Индекс"
@@ -683,8 +683,8 @@ msgstr "Редакция"
 #: resources/templates/columns_definitions/table_fields_definitions.twig:54
 #: resources/templates/database/data_dictionary/index.twig:29
 #: resources/templates/table/structure/display_structure.twig:28
-#: src/Config/Descriptions.php:664 src/Config/Descriptions.php:679
-#: src/Config/Descriptions.php:715 src/Plugins/Export/ExportHtmlword.php:375
+#: src/Config/Descriptions.php:660 src/Config/Descriptions.php:675
+#: src/Config/Descriptions.php:711 src/Plugins/Export/ExportHtmlword.php:375
 #: src/Plugins/Export/ExportLatex.php:517 src/Plugins/Export/ExportOdt.php:473
 #: src/Plugins/Export/ExportTexytext.php:375
 #: src/Plugins/Export/Helpers/Pdf.php:512
@@ -703,8 +703,8 @@ msgstr "Преместване колона"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:71
 #: resources/templates/database/data_dictionary/index.twig:31
-#: src/Config/Descriptions.php:668 src/Config/Descriptions.php:680
-#: src/Config/Descriptions.php:718 src/Plugins/Export/ExportHtmlword.php:382
+#: src/Config/Descriptions.php:664 src/Config/Descriptions.php:676
+#: src/Config/Descriptions.php:714 src/Plugins/Export/ExportHtmlword.php:382
 #: src/Plugins/Export/ExportOdt.php:480
 #: src/Plugins/Export/ExportTexytext.php:380
 #: src/Plugins/Export/Helpers/Pdf.php:520
@@ -845,7 +845,7 @@ msgstr "Забранено"
 #: src/Controllers/Table/DeleteRowsController.php:56
 #: src/Controllers/Table/DropColumnController.php:45
 #: src/Controllers/Table/Structure/PrimaryController.php:108
-#: src/IndexColumn.php:154 src/Index.php:470
+#: src/IndexColumn.php:148 src/Index.php:470
 #: src/Plugins/Export/ExportHtmlword.php:606
 #: src/Plugins/Export/ExportLatex.php:576 src/Plugins/Export/ExportOdt.php:720
 #: src/Plugins/Export/ExportTexytext.php:560
@@ -880,7 +880,7 @@ msgstr "Да"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:33
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:23
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
-#: src/Controllers/JavaScriptMessagesController.php:367 src/IndexColumn.php:151
+#: src/Controllers/JavaScriptMessagesController.php:367 src/IndexColumn.php:145
 #: src/Index.php:444 src/Index.php:470
 #: src/Plugins/Export/ExportHtmlword.php:606
 #: src/Plugins/Export/ExportLatex.php:576 src/Plugins/Export/ExportOdt.php:720
@@ -946,7 +946,7 @@ msgstr "Подзаявка"
 #: resources/templates/setup/home/index.twig:64
 #: resources/templates/table/structure/display_structure.twig:497
 #: resources/templates/triggers/row.twig:28
-#: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:930
+#: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:400
 #: src/Display/Results.php:2563 src/Html/Generator.php:550
@@ -987,10 +987,10 @@ msgstr "Изтриване"
 #: resources/templates/table/relation/common_form.twig:38
 #: resources/templates/table/relation/common_form.twig:130
 #: resources/templates/table/relation/foreign_key_row.twig:91
-#: src/Config/Descriptions.php:938 src/Plugins/Export/ExportHtmlword.php:138
+#: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:138
 #: src/Plugins/Export/ExportOdt.php:182
-#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1575
-#: src/Server/Privileges.php:1577 src/Server/Status/Processes.php:93
+#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1571
+#: src/Server/Privileges.php:1573 src/Server/Status/Processes.php:93
 msgid "Database"
 msgstr "DB"
 
@@ -998,7 +998,7 @@ msgstr "DB"
 msgid "SQL Query Console"
 msgstr "SQL конзола"
 
-#: resources/templates/console/display.twig:6 src/Config/Descriptions.php:770
+#: resources/templates/console/display.twig:6 src/Config/Descriptions.php:766
 msgid "Console"
 msgstr "Конзола"
 
@@ -1041,7 +1041,7 @@ msgid "Bookmarks"
 msgstr "Бележки"
 
 #: resources/templates/console/display.twig:23
-#: resources/templates/console/display.twig:76 src/Config/Descriptions.php:619
+#: resources/templates/console/display.twig:76 src/Config/Descriptions.php:615
 msgid "Debug SQL"
 msgstr "Трасиране SQL"
 
@@ -1113,7 +1113,7 @@ msgstr ""
 msgid "Order by:"
 msgstr "Подредени по:"
 
-#: resources/templates/console/display.twig:91 src/Config/Descriptions.php:968
+#: resources/templates/console/display.twig:91 src/Config/Descriptions.php:964
 msgid "Group queries"
 msgstr "Група заявки"
 
@@ -1141,7 +1141,7 @@ msgstr "Използвано време:"
 #: resources/templates/console/display.twig:121
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:932 src/Export/Export.php:1244
+#: src/Config/Descriptions.php:928 src/Export/Export.php:1244
 #: src/Html/Generator.php:606
 msgid "Refresh"
 msgstr "Опресняване"
@@ -1179,15 +1179,15 @@ msgstr "OK"
 msgid "Set default"
 msgstr "Сложи по подразбиране"
 
-#: resources/templates/console/display.twig:173 src/Config/Descriptions.php:962
+#: resources/templates/console/display.twig:173 src/Config/Descriptions.php:958
 msgid "Always expand query messages"
 msgstr "Винаги разширите заявки съобщения"
 
-#: resources/templates/console/display.twig:177 src/Config/Descriptions.php:961
+#: resources/templates/console/display.twig:177 src/Config/Descriptions.php:957
 msgid "Show query history at start"
 msgstr "Покажи историята на заявката в началото"
 
-#: resources/templates/console/display.twig:181 src/Config/Descriptions.php:963
+#: resources/templates/console/display.twig:181 src/Config/Descriptions.php:959
 #, fuzzy
 #| msgid "Show current browsing query"
 msgid "Show current browsing query"
@@ -1199,7 +1199,7 @@ msgid ""
 "permanent, view settings."
 msgstr ""
 
-#: resources/templates/console/display.twig:189 src/Config/Descriptions.php:965
+#: resources/templates/console/display.twig:189 src/Config/Descriptions.php:961
 msgid "Switch to dark theme"
 msgstr "Превключи на тъмна палитра"
 
@@ -1857,7 +1857,7 @@ msgstr "Маркиране всички"
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:385 src/Menu.php:249
-#: src/Menu.php:351 src/Menu.php:473 src/Server/Privileges.php:1292
+#: src/Menu.php:351 src/Menu.php:473 src/Server/Privileges.php:1288
 #: src/Util.php:1469 src/Util.php:1484 src/Util.php:1501
 msgid "Export"
 msgstr "Експорт"
@@ -1943,7 +1943,7 @@ msgstr "Таблици:"
 
 #: resources/templates/database/export/index.twig:22
 #: resources/templates/database/structure/show_create.twig:6
-#: src/Config/Descriptions.php:747
+#: src/Config/Descriptions.php:743
 #: src/Controllers/Server/DatabasesController.php:289
 #: src/Navigation/Nodes/NodeTableContainer.php:23
 #: src/Navigation/Nodes/NodeTableContainer.php:25
@@ -2062,9 +2062,11 @@ msgstr "Низходящо"
 msgid "Add as"
 msgstr "Добавяне на %s"
 
+#. l10n: Notes
 #: resources/templates/database/multi_table_query/form.twig:107
-#: src/Config/ConfigFile.php:546 src/Config/ConfigFile.php:558
-#: src/Config/ConfigFile.php:566
+#: resources/templates/test/gettext/gettext.twig:1
+#: resources/templates/test/gettext/notes.twig:1 src/Config/ConfigFile.php:546
+#: src/Config/ConfigFile.php:558 src/Config/ConfigFile.php:566
 msgid "Text"
 msgstr "Текст"
 
@@ -2158,7 +2160,7 @@ msgstr "Копиране на БД в"
 
 #: resources/templates/database/operations/index.twig:123
 #: resources/templates/server/databases/index.twig:24
-#: src/Config/Descriptions.php:889
+#: src/Config/Descriptions.php:885
 msgid "Database name"
 msgstr "Име БД"
 
@@ -2189,10 +2191,10 @@ msgstr "Изпълняване на CREATE DATABASE преди копиране�
 
 #: resources/templates/database/operations/index.twig:156
 #: resources/templates/table/operations/index.twig:296
-#: src/Config/Descriptions.php:699 src/Config/Descriptions.php:700
-#: src/Config/Descriptions.php:702 src/Config/Descriptions.php:705
-#: src/Config/Descriptions.php:706 src/Config/Descriptions.php:707
-#: src/Config/Descriptions.php:719
+#: src/Config/Descriptions.php:695 src/Config/Descriptions.php:696
+#: src/Config/Descriptions.php:698 src/Config/Descriptions.php:701
+#: src/Config/Descriptions.php:702 src/Config/Descriptions.php:703
+#: src/Config/Descriptions.php:715
 #, php-format
 msgid "Add %s"
 msgstr "Добавяне на %s"
@@ -2200,7 +2202,7 @@ msgstr "Добавяне на %s"
 #: resources/templates/database/operations/index.twig:161
 #: resources/templates/table/operations/index.twig:73
 #: resources/templates/table/operations/index.twig:301
-#: src/Config/Descriptions.php:691
+#: src/Config/Descriptions.php:687
 msgid "Add AUTO_INCREMENT value"
 msgstr "Добавяне AUTO_INCREMENT стойност"
 
@@ -2300,7 +2302,7 @@ msgstr "процедура"
 #: resources/templates/server/privileges/new_user_ajax.twig:45
 #: resources/templates/server/privileges/users_overview.twig:75
 #: resources/templates/table/privileges/index.twig:84
-#: src/Server/Privileges.php:1284
+#: src/Server/Privileges.php:1280
 #, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit privileges"
@@ -2308,7 +2310,7 @@ msgstr "Редакция"
 
 #: resources/templates/database/privileges/index.twig:102
 #: resources/templates/table/privileges/index.twig:106
-#: src/Server/Privileges.php:2069
+#: src/Server/Privileges.php:2065
 msgid "No user found."
 msgstr "Няма потребител."
 
@@ -2328,7 +2330,7 @@ msgstr "Когато има отметка:"
 
 #: resources/templates/database/privileges/index.twig:122
 #: resources/templates/table/privileges/index.twig:126
-#: src/Server/Privileges.php:1228
+#: src/Server/Privileges.php:1224
 msgid "Not enough privilege to view users."
 msgstr ""
 
@@ -2698,7 +2700,7 @@ msgstr ""
 #: resources/templates/database/structure/copy_form.twig:5
 #: resources/templates/menu/breadcrumbs.twig:16
 #: src/Plugins/Export/ExportLatex.php:241 src/Plugins/Export/ExportSql.php:886
-#: src/Plugins/Export/ExportXml.php:381 src/Plugins/Export/Helpers/Pdf.php:176
+#: src/Plugins/Export/ExportXml.php:373 src/Plugins/Export/Helpers/Pdf.php:176
 msgid "Database:"
 msgstr "База данни:"
 
@@ -2707,7 +2709,7 @@ msgid "Options:"
 msgstr "Настройки:"
 
 #: resources/templates/database/structure/copy_form.twig:31
-#: src/Config/Descriptions.php:902
+#: src/Config/Descriptions.php:898
 msgid "Add DROP TABLE"
 msgstr "Добавяне DROP TABLE"
 
@@ -2778,9 +2780,9 @@ msgstr "Показване на SQL заявките"
 #: resources/templates/table/relation/common_form.twig:137
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:32
-#: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:941
-#: src/Plugins/Export/ExportXml.php:449 src/Server/Privileges.php:1581
-#: src/Server/Privileges.php:1583
+#: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
+#: src/Plugins/Export/ExportXml.php:441 src/Server/Privileges.php:1577
+#: src/Server/Privileges.php:1579
 msgid "Table"
 msgstr "Таблица"
 
@@ -2794,9 +2796,9 @@ msgstr "Изглед"
 #: resources/templates/database/structure/show_create.twig:35
 #: resources/templates/database/structure/structure_table_row.twig:122
 #: resources/templates/database/structure/structure_table_row.twig:186
-#: src/Controllers/Table/OperationsController.php:134
-#: src/Controllers/Table/OperationsController.php:340
-#: src/Controllers/Table/StructureController.php:85
+#: src/Controllers/Operations/TableController.php:126
+#: src/Controllers/Operations/TableController.php:332
+#: src/Controllers/Table/StructureController.php:166
 #: src/Navigation/Nodes/NodeView.php:26
 msgid "View"
 msgstr "Изглед"
@@ -3115,11 +3117,12 @@ msgstr "Превърни на Кана"
 
 #: resources/templates/error/generic.twig:37
 #: resources/templates/table/structure/display_structure.twig:372
+#: src/Controllers/Operations/ViewController.php:121
 #: src/Controllers/Table/Partition/DropController.php:57
 #: src/Controllers/Table/Partition/RebuildController.php:57
 #: src/Controllers/Table/Partition/TruncateController.php:57
-#: src/Controllers/View/OperationsController.php:121 src/Html/Generator.php:764
-#: src/Import/Import.php:150 src/InsertEdit.php:499 src/Message.php:149
+#: src/Html/Generator.php:764 src/Import/Import.php:150 src/InsertEdit.php:495
+#: src/Message.php:145
 msgid "Error"
 msgstr "Грешка"
 
@@ -3261,7 +3264,7 @@ msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "Записване на сървъра в папка <strong>%s</strong>"
 
 #: resources/templates/export.twig:186 resources/templates/export.twig:381
-#: src/Config/Descriptions.php:685 src/Config/Descriptions.php:688
+#: src/Config/Descriptions.php:681 src/Config/Descriptions.php:684
 msgid "Overwrite existing file(s)"
 msgstr "Презаписване на съществуващите файл(ове)"
 
@@ -3573,7 +3576,7 @@ msgstr "Общи настройки"
 #: resources/templates/modals/change_password.twig:5
 #: resources/templates/server/privileges/change_password.twig:10
 #: resources/templates/server/privileges/change_password.twig:11
-#: src/Controllers/UserPasswordController.php:93
+#: src/Controllers/UserPasswordController.php:88
 msgid "Change password"
 msgstr "Смяна на паролата"
 
@@ -3630,7 +3633,7 @@ msgstr "Връзка със сървъра:"
 
 #: resources/templates/home/index.twig:196
 #: src/Plugins/Export/ExportLatex.php:214 src/Plugins/Export/ExportSql.php:718
-#: src/Plugins/Export/ExportXml.php:224
+#: src/Plugins/Export/ExportXml.php:220
 msgid "Server version:"
 msgstr "Версия на сървъра:"
 
@@ -3791,7 +3794,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr ""
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:500
+#: src/InsertEdit.php:496
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Папката, която сте указали за качване е недостъпна."
 
@@ -3850,7 +3853,7 @@ msgstr "Други опции:"
 #: resources/templates/import.twig:160 resources/templates/import.twig:162
 #: resources/templates/sql/query.twig:40
 #: resources/templates/table/structure/display_table_stats.twig:84
-#: src/Config/Descriptions.php:642 src/Config/Descriptions.php:658
+#: src/Config/Descriptions.php:638 src/Config/Descriptions.php:654
 msgid "Format"
 msgstr "Формат"
 
@@ -3873,7 +3876,7 @@ msgid "Index %s has been dropped."
 msgstr "Индекс %s беше изтрит."
 
 #: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:285
-#: src/Language.php:182 src/Pdf.php:83
+#: src/Language.php:178 src/Pdf.php:83
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:474
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:499
 msgid "Page number:"
@@ -4105,8 +4108,8 @@ msgstr "SQL резултат"
 #: resources/templates/server/export/index.twig:7
 #: resources/templates/server/export/index.twig:14
 #: resources/templates/server/privileges/user_properties.twig:20
-#: src/Config/ConfigFile.php:577 src/Config/Descriptions.php:732
-#: src/Config/Descriptions.php:743 src/Menu.php:444 src/Util.php:1465
+#: src/Config/ConfigFile.php:577 src/Config/Descriptions.php:728
+#: src/Config/Descriptions.php:739 src/Menu.php:444 src/Util.php:1465
 msgid "Databases"
 msgstr "БД"
 
@@ -4156,17 +4159,17 @@ msgid "Features"
 msgstr "Свойства"
 
 #: resources/templates/preferences/header.twig:24
-#: src/Config/Descriptions.php:761 src/Config/Forms/User/SqlForm.php:38
+#: src/Config/Descriptions.php:757 src/Config/Forms/User/SqlForm.php:38
 msgid "SQL queries"
 msgstr "SQL заявки"
 
 #: resources/templates/preferences/header.twig:30
-#: src/Config/Descriptions.php:744 src/Config/Forms/User/NaviForm.php:57
+#: src/Config/Descriptions.php:740 src/Config/Forms/User/NaviForm.php:57
 msgid "Navigation panel"
 msgstr "Панел за навигация"
 
 #: resources/templates/preferences/header.twig:36
-#: src/Config/Descriptions.php:748 src/Config/Forms/User/MainForm.php:76
+#: src/Config/Descriptions.php:744 src/Config/Forms/User/MainForm.php:76
 msgid "Main panel"
 msgstr "Основен панел"
 
@@ -4338,9 +4341,9 @@ msgstr ""
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:43
 #: src/Controllers/Database/Structure/EmptyTableController.php:50
+#: src/Controllers/Operations/TableController.php:348
 #: src/Controllers/Table/DropColumnController.php:62
-#: src/Controllers/Table/OperationsController.php:359
-#: src/Controllers/Table/ReplaceController.php:296 src/Core.php:521
+#: src/Controllers/Table/ReplaceController.php:296 src/Core.php:517
 msgid "No change"
 msgstr "Няма промяна"
 
@@ -4904,7 +4907,7 @@ msgstr "Потребители"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:29
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
 #: resources/templates/server/privileges/edit_routine_privileges.twig:59
-#: src/Server/Privileges.php:1587 src/Server/Privileges.php:1589
+#: src/Server/Privileges.php:1583 src/Server/Privileges.php:1585
 #, fuzzy
 #| msgid "Routines"
 msgid "Routine"
@@ -4918,7 +4921,7 @@ msgid ""
 msgstr ""
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:47
-#: src/Server/Privileges.php:1588
+#: src/Server/Privileges.php:1584
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
@@ -5080,7 +5083,7 @@ msgstr "Редакция сървър"
 #: resources/templates/server/privileges/privileges_summary.twig:19
 #: resources/templates/server/privileges/privileges_table.twig:7
 #: resources/templates/server/privileges/privileges_table.twig:267
-#: src/Server/Privileges.php:1582
+#: src/Server/Privileges.php:1578
 msgid "Table-specific privileges"
 msgstr "Специфични за таблицата права"
 
@@ -5113,7 +5116,7 @@ msgstr "Добавяне на права към следната таблица:
 #: resources/templates/server/privileges/privileges_table.twig:16
 #: resources/templates/server/privileges/privileges_table.twig:287
 #: resources/templates/server/privileges/privileges_table.twig:290
-#: src/Server/Privileges.php:308
+#: src/Server/Privileges.php:304
 msgid "Allows reading data."
 msgstr "Позволява четене на данни."
 
@@ -5121,7 +5124,7 @@ msgstr "Позволява четене на данни."
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:129 src/InsertEdit.php:508
+#: resources/templates/table/search/index.twig:129 src/InsertEdit.php:504
 msgid "Or"
 msgstr "Или"
 
@@ -5140,20 +5143,20 @@ msgstr "Няма"
 #: resources/templates/server/privileges/privileges_table.twig:43
 #: resources/templates/server/privileges/privileges_table.twig:300
 #: resources/templates/server/privileges/privileges_table.twig:303
-#: src/Server/Privileges.php:309
+#: src/Server/Privileges.php:305
 msgid "Allows inserting and replacing data."
 msgstr "Позволява вмъкване и заменяне на данни."
 
 #: resources/templates/server/privileges/privileges_table.twig:70
 #: resources/templates/server/privileges/privileges_table.twig:313
 #: resources/templates/server/privileges/privileges_table.twig:316
-#: src/Server/Privileges.php:310
+#: src/Server/Privileges.php:306
 msgid "Allows changing data."
 msgstr "Позволява промяна на данни."
 
 #: resources/templates/server/privileges/privileges_table.twig:97
 #: resources/templates/server/privileges/privileges_table.twig:677
-#: src/Server/Privileges.php:318
+#: src/Server/Privileges.php:314
 msgid "Has no effect in this MySQL version."
 msgstr "Няма ефект в тази версия на MySQL."
 
@@ -5161,7 +5164,7 @@ msgstr "Няма ефект в тази версия на MySQL."
 #: resources/templates/server/privileges/privileges_table.twig:128
 #: resources/templates/server/privileges/privileges_table.twig:326
 #: resources/templates/server/privileges/privileges_table.twig:329
-#: src/Server/Privileges.php:288 src/Server/Privileges.php:311
+#: src/Server/Privileges.php:284 src/Server/Privileges.php:307
 msgid "Allows deleting data."
 msgstr "Позволява изтриване на данни."
 
@@ -5169,7 +5172,7 @@ msgstr "Позволява изтриване на данни."
 #: resources/templates/server/privileges/privileges_table.twig:140
 #: resources/templates/server/privileges/privileges_table.twig:367
 #: resources/templates/server/privileges/privileges_table.twig:375
-#: src/Server/Privileges.php:289
+#: src/Server/Privileges.php:285
 msgid "Allows creating new tables."
 msgstr "Позволява създаване на нови таблици."
 
@@ -5177,7 +5180,7 @@ msgstr "Позволява създаване на нови таблици."
 #: resources/templates/server/privileges/privileges_table.twig:152
 #: resources/templates/server/privileges/privileges_table.twig:415
 #: resources/templates/server/privileges/privileges_table.twig:423
-#: src/Server/Privileges.php:290
+#: src/Server/Privileges.php:286
 msgid "Allows dropping tables."
 msgstr "Позволява изтриване на таблици."
 
@@ -5194,7 +5197,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:177
 #: resources/templates/server/privileges/privileges_table.twig:399
 #: resources/templates/server/privileges/privileges_table.twig:402
-#: src/Server/Privileges.php:291 src/Server/Privileges.php:319
+#: src/Server/Privileges.php:287 src/Server/Privileges.php:315
 msgid "Allows creating and dropping indexes."
 msgstr "Позволява създаване и изтриване на индекси."
 
@@ -5202,7 +5205,7 @@ msgstr "Позволява създаване и изтриване на инд�
 #: resources/templates/server/privileges/privileges_table.twig:189
 #: resources/templates/server/privileges/privileges_table.twig:386
 #: resources/templates/server/privileges/privileges_table.twig:389
-#: src/Server/Privileges.php:292 src/Server/Privileges.php:320
+#: src/Server/Privileges.php:288 src/Server/Privileges.php:316
 msgid "Allows altering the structure of existing tables."
 msgstr "Позволява промяна на структурата на съществуващи таблици."
 
@@ -5212,8 +5215,8 @@ msgstr "Позволява промяна на структурата на съ�
 #: resources/templates/server/privileges/privileges_table.twig:503
 #: resources/templates/server/privileges/privileges_table.twig:515
 #: resources/templates/server/privileges/privileges_table.twig:518
-#: src/Server/Privileges.php:293 src/Server/Privileges.php:339
-#: src/Server/Privileges.php:343
+#: src/Server/Privileges.php:289 src/Server/Privileges.php:335
+#: src/Server/Privileges.php:339
 msgid "Allows creating new views."
 msgstr "Позволява създаване на изгледи."
 
@@ -5221,8 +5224,8 @@ msgstr "Позволява създаване на изгледи."
 #: resources/templates/server/privileges/privileges_table.twig:213
 #: resources/templates/server/privileges/privileges_table.twig:447
 #: resources/templates/server/privileges/privileges_table.twig:450
-#: src/Server/Privileges.php:294 src/Server/Privileges.php:344
-#: src/Server/Privileges.php:346
+#: src/Server/Privileges.php:290 src/Server/Privileges.php:340
+#: src/Server/Privileges.php:342
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Позволява изпълнение на SHOW CREATE VIEW заявки."
 
@@ -5230,7 +5233,7 @@ msgstr "Позволява изпълнение на SHOW CREATE VIEW заявк
 #: resources/templates/server/privileges/privileges_table.twig:225
 #: resources/templates/server/privileges/privileges_table.twig:543
 #: resources/templates/server/privileges/privileges_table.twig:546
-#: src/Server/Privileges.php:295 src/Server/Privileges.php:341
+#: src/Server/Privileges.php:291 src/Server/Privileges.php:337
 #, fuzzy
 #| msgid "Allows creating and dropping triggers"
 msgid "Allows creating and dropping triggers."
@@ -5239,7 +5242,7 @@ msgstr "Позволява създаване и изтриване на три�
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: resources/templates/server/privileges/privileges_table.twig:235
 #: resources/templates/server/privileges/privileges_table.twig:239
-#: src/Server/Privileges.php:352 src/Server/Privileges.php:361
+#: src/Server/Privileges.php:348 src/Server/Privileges.php:357
 #, fuzzy
 #| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
@@ -5257,55 +5260,55 @@ msgid "Global privileges"
 msgstr "Глобални права"
 
 #: resources/templates/server/privileges/privileges_table.twig:265
-#: src/Server/Privileges.php:1576
+#: src/Server/Privileges.php:1572
 msgid "Database-specific privileges"
 msgstr "Специфични за БД права"
 
 #: resources/templates/server/privileges/privileges_table.twig:340
 #: resources/templates/server/privileges/privileges_table.twig:343
-#: src/Server/Privileges.php:317
+#: src/Server/Privileges.php:313
 msgid "Allows importing data from and exporting data into files."
 msgstr "Позволява импортиране на данни от и експортиране на данни във файлове."
 
 #: resources/templates/server/privileges/privileges_table.twig:365
 #: resources/templates/server/privileges/privileges_table.twig:373
-#: src/Server/Privileges.php:312
+#: src/Server/Privileges.php:308
 msgid "Allows creating new databases and tables."
 msgstr "Позволява създаване на нови БД и таблици."
 
 #: resources/templates/server/privileges/privileges_table.twig:413
 #: resources/templates/server/privileges/privileges_table.twig:421
-#: src/Server/Privileges.php:313
+#: src/Server/Privileges.php:309
 msgid "Allows dropping databases and tables."
 msgstr "Позволява изтриване на БД и таблици."
 
 #: resources/templates/server/privileges/privileges_table.twig:434
 #: resources/templates/server/privileges/privileges_table.twig:437
-#: src/Server/Privileges.php:331
+#: src/Server/Privileges.php:327
 msgid "Allows creating temporary tables."
 msgstr "Позволява създаването на временни таблици."
 
 #: resources/templates/server/privileges/privileges_table.twig:460
 #: resources/templates/server/privileges/privileges_table.twig:463
-#: src/Server/Privileges.php:363
+#: src/Server/Privileges.php:359
 msgid "Allows creating stored routines."
 msgstr "Позволява създаване на съхранени процедури."
 
 #: resources/templates/server/privileges/privileges_table.twig:473
 #: resources/templates/server/privileges/privileges_table.twig:476
-#: src/Server/Privileges.php:364
+#: src/Server/Privileges.php:360
 msgid "Allows altering and dropping stored routines."
 msgstr "Позволява промяна и изтриване на съхранени процедури."
 
 #: resources/templates/server/privileges/privileges_table.twig:486
 #: resources/templates/server/privileges/privileges_table.twig:489
-#: src/Server/Privileges.php:366
+#: src/Server/Privileges.php:362
 msgid "Allows executing stored routines."
 msgstr "Позволява изпълнение на съхранени процедури."
 
 #: resources/templates/server/privileges/privileges_table.twig:530
 #: resources/templates/server/privileges/privileges_table.twig:533
-#: src/Server/Privileges.php:340
+#: src/Server/Privileges.php:336
 #, fuzzy
 #| msgid "Allows to set up events for the event scheduler"
 msgid "Allows to set up events for the event scheduler."
@@ -5325,7 +5328,7 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:583
 #: resources/templates/server/privileges/privileges_table.twig:587
-#: src/Server/Privileges.php:326
+#: src/Server/Privileges.php:322
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -5337,32 +5340,32 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:597
 #: resources/templates/server/privileges/privileges_table.twig:600
-#: src/Server/Privileges.php:316
+#: src/Server/Privileges.php:312
 msgid "Allows viewing processes of all users."
 msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:610
 #: resources/templates/server/privileges/privileges_table.twig:613
-#: src/Server/Privileges.php:314
+#: src/Server/Privileges.php:310
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Позволява презареждане на настройките и изчистване на буфера на сървъра."
 
 #: resources/templates/server/privileges/privileges_table.twig:623
 #: resources/templates/server/privileges/privileges_table.twig:626
-#: src/Server/Privileges.php:315
+#: src/Server/Privileges.php:311
 msgid "Allows shutting down the server."
 msgstr "Позволява спиране на сървъра."
 
 #: resources/templates/server/privileges/privileges_table.twig:636
 #: resources/templates/server/privileges/privileges_table.twig:639
-#: src/Server/Privileges.php:321
+#: src/Server/Privileges.php:317
 msgid "Gives access to the complete list of databases."
 msgstr "Дава достъп до пълния списък на базите данни."
 
 #: resources/templates/server/privileges/privileges_table.twig:664
 #: resources/templates/server/privileges/privileges_table.twig:667
-#: src/Server/Privileges.php:332
+#: src/Server/Privileges.php:328
 msgid "Allows locking tables for the current thread."
 msgstr "Позволява заключване на таблици за текущата нишка."
 
@@ -5384,7 +5387,7 @@ msgstr "Няма ефект в тази версия на MySQL."
 
 #: resources/templates/server/privileges/privileges_table.twig:692
 #: resources/templates/server/privileges/privileges_table.twig:695
-#: src/Server/Privileges.php:337
+#: src/Server/Privileges.php:333
 #, fuzzy
 #| msgid "Allows the user to ask where the slaves / masters are."
 msgid "Allows the user to ask where the replicas / primaries are."
@@ -5392,7 +5395,7 @@ msgstr "Дава правото на потребител да знае къде
 
 #: resources/templates/server/privileges/privileges_table.twig:705
 #: resources/templates/server/privileges/privileges_table.twig:708
-#: src/Server/Privileges.php:333
+#: src/Server/Privileges.php:329
 #, fuzzy
 #| msgid "Needed for the replication slaves."
 msgid "Needed for the replication replicas."
@@ -5400,7 +5403,7 @@ msgstr "Нужно за replication slaves."
 
 #: resources/templates/server/privileges/privileges_table.twig:718
 #: resources/templates/server/privileges/privileges_table.twig:721
-#: src/Server/Privileges.php:365
+#: src/Server/Privileges.php:361
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Позволява създаване, изтриване и преименуване на потребителски сметки."
 
@@ -5594,7 +5597,7 @@ msgstr ""
 #: resources/templates/server/replication/change_primary.twig:25
 #: resources/templates/server/replication/primary_add_replica_user.twig:29
 #: src/Plugins/Export/ExportLatex.php:206 src/Plugins/Export/ExportSql.php:707
-#: src/Plugins/Export/ExportXml.php:215
+#: src/Plugins/Export/ExportXml.php:211
 msgid "Host:"
 msgstr "Хост:"
 
@@ -5848,7 +5851,7 @@ msgid "Current server:"
 msgstr "Текущ сървър:"
 
 #: resources/templates/server/select/index.twig:6
-#: resources/templates/setup/home/index.twig:34 src/Config/Descriptions.php:746
+#: resources/templates/setup/home/index.twig:34 src/Config/Descriptions.php:742
 msgid "Servers"
 msgstr "Сървъри"
 
@@ -5933,7 +5936,7 @@ msgid "Test:"
 msgstr "Тест"
 
 #: resources/templates/server/status/base.twig:6
-#: src/Config/Descriptions.php:940
+#: src/Config/Descriptions.php:936
 msgid "Server"
 msgstr "Сървър"
 
@@ -6465,7 +6468,7 @@ msgstr "Показване формуляр"
 msgid "Show hidden messages"
 msgstr "Показване подсказка"
 
-#: resources/templates/setup/home/index.twig:51 src/Config/Descriptions.php:870
+#: resources/templates/setup/home/index.twig:51 src/Config/Descriptions.php:866
 msgid "Authentication type"
 msgstr "Тип удостоверяване"
 
@@ -6553,7 +6556,7 @@ msgid "Detailed profile"
 msgstr "Файлове с данни"
 
 #: resources/templates/sql/profiling_chart.twig:11
-#: src/Config/Descriptions.php:969
+#: src/Config/Descriptions.php:965
 #, fuzzy
 #| msgid "Other"
 msgid "Order"
@@ -6610,6 +6613,7 @@ msgid "Pie chart with profiling results."
 msgstr "Резултат от профилиране"
 
 #: resources/templates/sql/query.twig:7
+#: src/Controllers/Operations/ViewController.php:118
 #: src/Controllers/Table/DeleteRowsController.php:77
 #: src/Controllers/Table/FindReplaceController.php:120
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:74
@@ -6625,9 +6629,8 @@ msgstr "Резултат от профилиране"
 #: src/Controllers/Table/Partition/RepairController.php:50
 #: src/Controllers/Table/Partition/TruncateController.php:51
 #: src/Controllers/Table/RelationController.php:135
-#: src/Controllers/View/OperationsController.php:118
 #: src/Database/Routines.php:976 src/Display/Results.php:3249
-#: src/Message.php:131
+#: src/Message.php:129
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL заявката беше изпълнена успешно."
 
@@ -6668,7 +6671,7 @@ msgstr "Разделител"
 msgid "Show this query here again"
 msgstr "Показване на заявката отново"
 
-#: resources/templates/sql/query.twig:129 src/Config/Descriptions.php:927
+#: resources/templates/sql/query.twig:129 src/Config/Descriptions.php:923
 msgid "Retain query box"
 msgstr "Запазване отворен прозореца за заявки"
 
@@ -6958,7 +6961,7 @@ msgstr "Завличане за промяна на подредбата"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:487
 #: src/Controllers/JavaScriptMessagesController.php:638
-#: src/ErrorHandler.php:405 src/InsertEdit.php:1557
+#: src/ErrorHandler.php:405 src/InsertEdit.php:1545
 msgid "Ignore"
 msgstr "Игнориране"
 
@@ -7200,7 +7203,7 @@ msgid "Delete the view (DROP)"
 msgstr "Изтриване на таблицата (DROP)"
 
 #: resources/templates/table/page_with_secondary_tabs.twig:5
-#: src/Config/Descriptions.php:764 src/Plugins/Export/ExportPdf.php:251
+#: src/Config/Descriptions.php:760 src/Plugins/Export/ExportPdf.php:251
 msgid "Table structure"
 msgstr "Структура на таблица"
 
@@ -7673,6 +7676,23 @@ msgstr "Как да бъде използвано"
 #: resources/templates/table/zoom_search/result_form.twig:17
 msgid "Reset zoom"
 msgstr "Възстановяване на мащабирането"
+
+#: resources/templates/test/gettext/pgettext.twig:1
+#, fuzzy
+#| msgid "Text"
+msgctxt "Text context"
+msgid "Text"
+msgstr "Текст"
+
+#. l10n: Number of tables
+#: resources/templates/test/gettext/plural_notes.twig:1
+#: resources/templates/test/gettext/plural.twig:1
+#, fuzzy
+#| msgid "Use Tables"
+msgid "One table"
+msgid_plural "%count% tables"
+msgstr[0] "Използване таблиците"
+msgstr[1] "Използване таблиците"
 
 #. l10n: Show or hide the menu using the hamburger style button
 #: resources/templates/top_menu.twig:4
@@ -9272,7 +9292,7 @@ msgstr "Виетнамски"
 
 #: src/Config/ConfigFile.php:521 src/Config/ConfigFile.php:535
 #: src/Config/ConfigFile.php:589 src/Config/ConfigFile.php:599
-#: src/Config/Descriptions.php:759 src/Menu.php:231 src/Menu.php:331
+#: src/Config/Descriptions.php:755 src/Menu.php:231 src/Menu.php:331
 #: src/Menu.php:449 src/Navigation/Nodes/NodeTable.php:292 src/Util.php:1059
 #: src/Util.php:1466 src/Util.php:1481 src/Util.php:1498
 msgid "SQL"
@@ -9469,19 +9489,19 @@ msgstr "и двете по-горе"
 msgid "neither of the above"
 msgstr "никое от горните"
 
-#: src/Config/Descriptions.php:59 src/Config/Descriptions.php:60
-#: src/Config/Descriptions.php:61
+#: src/Config/Descriptions.php:55 src/Config/Descriptions.php:56
+#: src/Config/Descriptions.php:57
 msgid "Users cannot set a higher value"
 msgstr "Потребителите не могат да задават по-висока стойност"
 
-#: src/Config/Descriptions.php:77
+#: src/Config/Descriptions.php:73
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
 "Ако е включено, потребителят може да въведе произволен MySQL сървър във "
 "формата за удостоверяване с бисквитки."
 
-#: src/Config/Descriptions.php:80
+#: src/Config/Descriptions.php:76
 msgid ""
 "Restricts the MySQL servers the user can enter when a login to an arbitrary "
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
@@ -9491,7 +9511,7 @@ msgstr ""
 "Достъпът до даден MySQL сървър се позволява, ако има съвпадение на IP адреса "
 "или името на хоста на MySQL сървъра към зададения Regex израз."
 
-#: src/Config/Descriptions.php:85
+#: src/Config/Descriptions.php:81
 msgid ""
 "Enabling this allows a page located on a different domain to call phpMyAdmin "
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
@@ -9501,7 +9521,7 @@ msgstr ""
 "зареди phpMyAdmin в рамка и възможна [strong]дупка в сигурността[/strong] "
 "може да позволи междурамкова скрипт атака - cross-frame scripting (XSS)."
 
-#: src/Config/Descriptions.php:90
+#: src/Config/Descriptions.php:86
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
@@ -9509,41 +9529,41 @@ msgstr ""
 "Тайна фраза, използвана за криптиране на бисквитките при [kbd]cookie[/kbd] "
 "удоствоверяване."
 
-#: src/Config/Descriptions.php:92
+#: src/Config/Descriptions.php:88
 msgid "Enable bzip2 compression for import operations."
 msgstr "Включване на компресия с bzip2 при внасяне."
 
-#: src/Config/Descriptions.php:93
+#: src/Config/Descriptions.php:89
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
 msgstr ""
 
-#: src/Config/Descriptions.php:94
+#: src/Config/Descriptions.php:90
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
 msgstr ""
 
-#: src/Config/Descriptions.php:95
+#: src/Config/Descriptions.php:91
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
 
-#: src/Config/Descriptions.php:96
+#: src/Config/Descriptions.php:92
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
 
-#: src/Config/Descriptions.php:97
+#: src/Config/Descriptions.php:93
 msgid "Enter your public key for the reCAPTCHA service on your domain."
 msgstr ""
 
-#: src/Config/Descriptions.php:98
+#: src/Config/Descriptions.php:94
 msgid "Enter your private key for your domain reCAPTCHA service."
 msgstr ""
 
-#: src/Config/Descriptions.php:99
+#: src/Config/Descriptions.php:95
 msgid "Enter your siteverify URL for your reCAPTCHA service."
 msgstr ""
 
-#: src/Config/Descriptions.php:101
+#: src/Config/Descriptions.php:97
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -9553,7 +9573,7 @@ msgstr ""
 "и VARCHAR:[kbd]input[/kbd] - позволява ограничаване по дължина, "
 "[kbd]textarea[/kbd] - позволява вмъкването на нови редове."
 
-#: src/Config/Descriptions.php:106
+#: src/Config/Descriptions.php:102
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
@@ -9561,7 +9581,7 @@ msgstr ""
 "Използване на удобен за потребителя редактор за писане на SQL заявките "
 "(CodeMirror) със синтактично оцветяване и номер на редовете."
 
-#: src/Config/Descriptions.php:111
+#: src/Config/Descriptions.php:107
 msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
@@ -9569,7 +9589,7 @@ msgstr ""
 "Търси грешки в заявката, преди изпълнение. Изисква CodeMirror да бъде "
 "активиран."
 
-#: src/Config/Descriptions.php:114
+#: src/Config/Descriptions.php:110
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
@@ -9577,7 +9597,7 @@ msgstr ""
 "Определя минималният размер на текстови полета, генерирани за CHAR и VARCHAR "
 "колони."
 
-#: src/Config/Descriptions.php:117
+#: src/Config/Descriptions.php:113
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
@@ -9585,7 +9605,7 @@ msgstr ""
 "Определя максималния размер на текстови полета, генерирани за CHAR и VARCHAR "
 "колони."
 
-#: src/Config/Descriptions.php:120
+#: src/Config/Descriptions.php:116
 msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
@@ -9593,7 +9613,7 @@ msgstr ""
 "Компресиране в gzip експортите в движение без нуждата от много памет; Ако "
 "срещнете проблеми със създадените gzip файлове, забраните тази функция."
 
-#: src/Config/Descriptions.php:124
+#: src/Config/Descriptions.php:120
 msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
@@ -9601,16 +9621,16 @@ msgstr ""
 "Дали да бъде показано предупреждение (\"Наистина ли искате…\"), когато сте "
 "на път да загубите данни."
 
-#: src/Config/Descriptions.php:127
+#: src/Config/Descriptions.php:123
 msgid "Autocomplete of the table and column names in the SQL queries."
 msgstr ""
 "Автоматично допълване на имена на таблици и имена на колони в SQL заявки."
 
-#: src/Config/Descriptions.php:130 src/Config/Descriptions.php:134
-#: src/Config/Descriptions.php:138 src/Config/Descriptions.php:142
-#: src/Config/Descriptions.php:146 src/Config/Descriptions.php:150
-#: src/Config/Descriptions.php:154 src/Config/Descriptions.php:158
-#: src/Config/Descriptions.php:162
+#: src/Config/Descriptions.php:126 src/Config/Descriptions.php:130
+#: src/Config/Descriptions.php:134 src/Config/Descriptions.php:138
+#: src/Config/Descriptions.php:142 src/Config/Descriptions.php:146
+#: src/Config/Descriptions.php:150 src/Config/Descriptions.php:154
+#: src/Config/Descriptions.php:158
 msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
@@ -9619,7 +9639,7 @@ msgstr ""
 "заменени, ако трансформацията се попълни на страницата на структурата на "
 "таблицата."
 
-#: src/Config/Descriptions.php:166
+#: src/Config/Descriptions.php:162
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
@@ -9627,7 +9647,7 @@ msgstr ""
 "Забранява възможността за избор на много таблици за едновременно извършване "
 "на профилактика като оптимизиране или поправка."
 
-#: src/Config/Descriptions.php:170
+#: src/Config/Descriptions.php:166
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
@@ -9635,12 +9655,12 @@ msgstr ""
 "Задайте брой секунди, за които скрипт може да върви ([kbd]0[/kbd] за без "
 "лимит)."
 
-#: src/Config/Descriptions.php:172 src/Config/Descriptions.php:712
+#: src/Config/Descriptions.php:168 src/Config/Descriptions.php:708
 #: src/Plugins/Export/ExportSql.php:312
 msgid "Exclude definition of current user"
 msgstr "Изключва се определението за текущия потребител"
 
-#: src/Config/Descriptions.php:174
+#: src/Config/Descriptions.php:170
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
@@ -9648,7 +9668,7 @@ msgstr ""
 "Сортиране на реда за елементи в падащия списък с чужд ключ; [kbd]съдържание[/"
 "kbd] са референтните данни, [kbd]id[/kbd] е стойността на ключа."
 
-#: src/Config/Descriptions.php:178
+#: src/Config/Descriptions.php:174
 msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
@@ -9656,7 +9676,7 @@ msgstr ""
 "Определете текста на заглавната лента на браузъра. Вижте "
 "[doc@faq6-27]документацията[/doc] за специални низове."
 
-#: src/Config/Descriptions.php:183
+#: src/Config/Descriptions.php:179
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
@@ -9664,7 +9684,7 @@ msgstr ""
 "Обърнете внимание, че phpMyAdmin е само потребителски интерфейс и неговите "
 "възможности не ограничават MySQL."
 
-#: src/Config/Descriptions.php:186
+#: src/Config/Descriptions.php:182
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for."
@@ -9672,7 +9692,7 @@ msgstr ""
 "Разширена конфигурация на сървъра, не променяйте тези настройки, освен ако "
 "знаете за какво са."
 
-#: src/Config/Descriptions.php:189
+#: src/Config/Descriptions.php:185
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
@@ -9682,7 +9702,7 @@ msgstr ""
 "до допълнителните функции, вижте в документацията [doc@linked-"
 "tables]phpMyAdmin конфигурация за съхранение[/doc]."
 
-#: src/Config/Descriptions.php:194
+#: src/Config/Descriptions.php:190
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
@@ -9690,117 +9710,117 @@ msgstr ""
 "Проследяване на промените, правени в БД. Изисква phpMyAdmin хранилище за "
 "конфигурация."
 
-#: src/Config/Descriptions.php:197
+#: src/Config/Descriptions.php:193
 msgid "Customize browse mode."
 msgstr "Персонализиране на преглеждането."
 
-#: src/Config/Descriptions.php:198 src/Config/Descriptions.php:199
-#: src/Config/Descriptions.php:206 src/Config/Descriptions.php:212
-#: src/Config/Descriptions.php:213 src/Config/Descriptions.php:218
+#: src/Config/Descriptions.php:194 src/Config/Descriptions.php:195
+#: src/Config/Descriptions.php:202 src/Config/Descriptions.php:208
+#: src/Config/Descriptions.php:209 src/Config/Descriptions.php:214
 msgid "Customize default options."
 msgstr "Персонализиране настройките по подразбиране."
 
-#: src/Config/Descriptions.php:200
+#: src/Config/Descriptions.php:196
 msgid "Settings for phpMyAdmin developers."
 msgstr "Настройки за разработчици на phpMyAdmin."
 
-#: src/Config/Descriptions.php:201
+#: src/Config/Descriptions.php:197
 msgid "Customize edit mode."
 msgstr "Персонализиране на редактирането."
 
-#: src/Config/Descriptions.php:202
+#: src/Config/Descriptions.php:198
 msgid "Customize default export options."
 msgstr "Персонализиране настройките по подразбиране на експорта."
 
-#: src/Config/Descriptions.php:203
+#: src/Config/Descriptions.php:199
 msgid "Set some commonly used options."
 msgstr "Настройки, на някои често използвани опции."
 
-#: src/Config/Descriptions.php:204
+#: src/Config/Descriptions.php:200
 msgid "Customize default common import options."
 msgstr "Персонализиране настройките по подразбиране на импорта."
 
-#: src/Config/Descriptions.php:205
+#: src/Config/Descriptions.php:201
 msgid "Set import and export directories and compression options."
 msgstr ""
 "Настройки на директориите за импорт и експорт, и на опциите за компресиране."
 
-#: src/Config/Descriptions.php:207
+#: src/Config/Descriptions.php:203
 msgid "Databases display options."
 msgstr "Опции за показване на БД."
 
-#: src/Config/Descriptions.php:208
+#: src/Config/Descriptions.php:204
 msgid "Customize appearance of the navigation panel."
 msgstr "Персонализиране изгледа на навигационния панел."
 
-#: src/Config/Descriptions.php:209
+#: src/Config/Descriptions.php:205
 msgid "Customize the navigation tree."
 msgstr "Персонализиране дървото за навигация."
 
-#: src/Config/Descriptions.php:210
+#: src/Config/Descriptions.php:206
 msgid "Servers display options."
 msgstr "Настройки за показване на списъка със сървъри."
 
-#: src/Config/Descriptions.php:211
+#: src/Config/Descriptions.php:207
 msgid "Tables display options."
 msgstr "Настройки за показването на таблиците."
 
-#: src/Config/Descriptions.php:214
+#: src/Config/Descriptions.php:210
 msgid "Settings that didn't fit anywhere else."
 msgstr "Други настройки."
 
-#: src/Config/Descriptions.php:215
+#: src/Config/Descriptions.php:211
 msgid "Authentication settings."
 msgstr "Настройки за удостоверяване."
 
-#: src/Config/Descriptions.php:216
+#: src/Config/Descriptions.php:212
 msgid "Enter server connection parameters."
 msgstr "Параметри за връзка със сървъра."
 
-#: src/Config/Descriptions.php:217
+#: src/Config/Descriptions.php:213
 msgid "Customize links shown in SQL Query boxes."
 msgstr "Персонализирайте връзките, показвани в полетата на SQL заявка."
 
-#: src/Config/Descriptions.php:219
+#: src/Config/Descriptions.php:215
 msgid "SQL queries settings."
 msgstr "Настройки на SQL заявките."
 
-#: src/Config/Descriptions.php:220
+#: src/Config/Descriptions.php:216
 msgid "Customize startup page."
 msgstr "Персонализиране на началната страница."
 
-#: src/Config/Descriptions.php:221
+#: src/Config/Descriptions.php:217
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr ""
 "Изберете кои детайли да се показват в структурата на базата данни (списък на "
 "таблиците)."
 
-#: src/Config/Descriptions.php:222
+#: src/Config/Descriptions.php:218
 msgid "Settings for the table structure (list of columns)."
 msgstr "Настройки за структурата на таблицата (списък на колоните)."
 
-#: src/Config/Descriptions.php:223
+#: src/Config/Descriptions.php:219
 msgid "Choose how you want tabs to work."
 msgstr "Изберете поведението на разделите."
 
-#: src/Config/Descriptions.php:224
+#: src/Config/Descriptions.php:220
 msgid "Customize text input fields."
 msgstr "Персонализиране на текстовите полета."
 
-#: src/Config/Descriptions.php:225
+#: src/Config/Descriptions.php:221
 msgid "Customize default options"
 msgstr "Персонализиране настройките по подразбиране"
 
-#: src/Config/Descriptions.php:226
+#: src/Config/Descriptions.php:222
 msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Скрива някои от предупрежденията, показвани от phpMyAdmin."
 
-#: src/Config/Descriptions.php:228
+#: src/Config/Descriptions.php:224
 msgid "Enable gzip compression for import and export operations."
 msgstr "Активирайте gzip компресия за операции по импортиране и експортиране."
 
-#: src/Config/Descriptions.php:230
+#: src/Config/Descriptions.php:226
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
@@ -9808,14 +9828,14 @@ msgstr ""
 "Ако е разрешено, phpMyAdmin продължава да изпълнява съставните заявки, дори "
 "ако една от заявките не може да се изпълни."
 
-#: src/Config/Descriptions.php:234
+#: src/Config/Descriptions.php:230
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be a good way to import large files, however it can break "
 "transactions."
 msgstr ""
 
-#: src/Config/Descriptions.php:239
+#: src/Config/Descriptions.php:235
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
@@ -9823,16 +9843,16 @@ msgstr ""
 "Формат по подразбиране; имайте предвид, че този списък зависи от "
 "местоположението (база данни, таблица) и само SQL е винаги наличен."
 
-#: src/Config/Descriptions.php:242 src/Config/Descriptions.php:243
+#: src/Config/Descriptions.php:238 src/Config/Descriptions.php:239
 msgid "Update data when duplicate keys found on import"
 msgstr ""
 "Актуализиране на данните при наличие на дублирани ключове при импортиране"
 
-#: src/Config/Descriptions.php:244
+#: src/Config/Descriptions.php:240
 msgid "Number of queries to skip from start."
 msgstr "Брой заявки, които да бъдат пропуснати от началото."
 
-#: src/Config/Descriptions.php:246
+#: src/Config/Descriptions.php:242
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
@@ -9843,7 +9863,7 @@ msgstr ""
 "зададете това на FALSE, лесно можете да забравите да излезете от другите "
 "сървъри. (Когато сте свързани към няколко сървъра)."
 
-#: src/Config/Descriptions.php:251
+#: src/Config/Descriptions.php:247
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
@@ -9851,7 +9871,7 @@ msgstr ""
 "Определя дали да се припомни или не потребителското име от предишен вход в "
 "режим на удостоверяване с [kbd]бисквитки[/kbd]."
 
-#: src/Config/Descriptions.php:255
+#: src/Config/Descriptions.php:251
 msgid ""
 "Defines how long (in seconds) a login cookie should be stored in browser. "
 "The default of 0 means that it will be kept for the existing session only, "
@@ -9863,11 +9883,11 @@ msgstr ""
 "съществуващата сесия и ще бъде изтрита веднага след като затворите прозореца "
 "на браузъра. Това се препоръчва за по-ненадеждни среди."
 
-#: src/Config/Descriptions.php:261
+#: src/Config/Descriptions.php:257
 msgid "Maximum number of characters used when a SQL query is displayed."
 msgstr "Максимален брой знаци, използвани при извеждането на SQL заявка."
 
-#: src/Config/Descriptions.php:264
+#: src/Config/Descriptions.php:260
 msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
@@ -9875,7 +9895,7 @@ msgstr ""
 "Броят на елементите, които могат да бъдат показани на всяка страница на "
 "първото ниво на навигационното дърво."
 
-#: src/Config/Descriptions.php:267
+#: src/Config/Descriptions.php:263
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
@@ -9883,7 +9903,7 @@ msgstr ""
 "Броят на елементите, които могат да бъдат показани на всяка страница на "
 "дървото за навигация."
 
-#: src/Config/Descriptions.php:270
+#: src/Config/Descriptions.php:266
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, \"Previous\" and \"Next\" links will be shown."
@@ -9891,7 +9911,7 @@ msgstr ""
 "Брой редове, показвани при разглеждане на набор от резултати. Ако наборът от "
 "резултати съдържа повече редове, ще бъдат показани „Назад“ и „Напред“."
 
-#: src/Config/Descriptions.php:275
+#: src/Config/Descriptions.php:271
 msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
@@ -9899,23 +9919,23 @@ msgstr ""
 "Броят байтове, които скрипт може да заеме, напр. [kbd]32М[/kbd] ([kbd]-1[/"
 "kbd] - без ограничение и [kbd]0[/kbd] - без промяна)."
 
-#: src/Config/Descriptions.php:279
+#: src/Config/Descriptions.php:275
 msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr "В навигационния панел замества дървото на базата данни със селектор"
 
-#: src/Config/Descriptions.php:282
+#: src/Config/Descriptions.php:278
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
 "Свързване с главния панел чрез оцветяване наа текущата база данни или "
 "таблица."
 
-#: src/Config/Descriptions.php:285
+#: src/Config/Descriptions.php:281
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
 msgstr ""
 
-#: src/Config/Descriptions.php:288
+#: src/Config/Descriptions.php:284
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
@@ -9923,72 +9943,72 @@ msgstr ""
 "Определя минималния брой елементи (таблици, изгледи, подпрограми или "
 "събития) за показване на филтър."
 
-#: src/Config/Descriptions.php:291
+#: src/Config/Descriptions.php:287
 msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
 
-#: src/Config/Descriptions.php:295
+#: src/Config/Descriptions.php:291
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
 msgstr ""
 
-#: src/Config/Descriptions.php:298
+#: src/Config/Descriptions.php:294
 msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
 
-#: src/Config/Descriptions.php:301
+#: src/Config/Descriptions.php:297
 #, fuzzy
 #| msgid "Show hidden navigation tree items."
 msgid "Whether to expand single database in the navigation tree automatically."
 msgstr "Показване на скритото навигационно дърво."
 
-#: src/Config/Descriptions.php:303
+#: src/Config/Descriptions.php:299
 msgid "Set to 0 to collapse navigation panel."
 msgstr "Задайте на 0, за да свиете навигационния панел."
 
-#: src/Config/Descriptions.php:304
+#: src/Config/Descriptions.php:300
 msgid "Show logo in navigation panel."
 msgstr "Лого в панела за навигация."
 
-#: src/Config/Descriptions.php:305
+#: src/Config/Descriptions.php:301
 msgid "URL where logo in the navigation panel will point to."
 msgstr "URL адрес, към който ще сочи логото в навигационния панел."
 
-#: src/Config/Descriptions.php:306
+#: src/Config/Descriptions.php:302
 msgid "Display server choice at the top of the navigation panel."
 msgstr "Избор на сървъра в горната част на навигационния панел."
 
-#: src/Config/Descriptions.php:307
+#: src/Config/Descriptions.php:303
 msgid "String that separates databases into different tree levels."
 msgstr "Ред, който разделя БД на различните нива на дървото."
 
-#: src/Config/Descriptions.php:308
+#: src/Config/Descriptions.php:304
 msgid "String that separates tables into different tree levels."
 msgstr "Ред, разделящ таблици в отделни нива на дървото."
 
-#: src/Config/Descriptions.php:309
+#: src/Config/Descriptions.php:305
 msgid "Highlight server under the mouse cursor."
 msgstr "Оцветяване на сървъра под курсора на мишката."
 
-#: src/Config/Descriptions.php:310
+#: src/Config/Descriptions.php:306
 msgid "Whether to show tables under database in the navigation tree"
 msgstr "Да се показват ли таблици под базата данни в навигационното дърво"
 
-#: src/Config/Descriptions.php:311
+#: src/Config/Descriptions.php:307
 msgid "Whether to show views under database in the navigation tree"
 msgstr "Да се показват ли изгледи под базата данни в навигационното дърво"
 
-#: src/Config/Descriptions.php:312
+#: src/Config/Descriptions.php:308
 msgid "Whether to show functions under database in the navigation tree"
 msgstr ""
 
-#: src/Config/Descriptions.php:313
+#: src/Config/Descriptions.php:309
 msgid "Whether to show events under database in the navigation tree"
 msgstr "Да се показват ли събития под базата данни в навигационното дърво"
 
-#: src/Config/Descriptions.php:315
+#: src/Config/Descriptions.php:311
 #, fuzzy
 #| msgid ""
 #| "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
@@ -10000,7 +10020,7 @@ msgstr ""
 "[kbd]ИНТЕЛИГЕНТНО[/kbd] - т.е. низходящ ред за колони тип TIME, DATE, "
 "DATETIME и TIMESTAMP, иначе възходящ ред"
 
-#: src/Config/Descriptions.php:319
+#: src/Config/Descriptions.php:315
 #, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
@@ -10012,7 +10032,7 @@ msgid ""
 msgstr ""
 "Скрива предупреждението за липсващ mcrypt при удостоверяване с бисквитки"
 
-#: src/Config/Descriptions.php:324
+#: src/Config/Descriptions.php:320
 #, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
@@ -10023,36 +10043,36 @@ msgid ""
 msgstr ""
 "Скрива предупреждението за липсващ mcrypt при удостоверяване с бисквитки"
 
-#: src/Config/Descriptions.php:328
+#: src/Config/Descriptions.php:324
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
 
-#: src/Config/Descriptions.php:332
+#: src/Config/Descriptions.php:328
 msgid "Allow users to create bookmarks that are available for all other users"
 msgstr ""
 
-#: src/Config/Descriptions.php:334
+#: src/Config/Descriptions.php:330
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
 
-#: src/Config/Descriptions.php:337
+#: src/Config/Descriptions.php:333
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
 
-#: src/Config/Descriptions.php:340
+#: src/Config/Descriptions.php:336
 msgid ""
 "Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
 
-#: src/Config/Descriptions.php:343
+#: src/Config/Descriptions.php:339
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
@@ -10060,7 +10080,7 @@ msgstr ""
 "Специален MySQL потребител с ограничени права, за още информация вижте "
 "[doc@linked-tables]документацията[/doc]."
 
-#: src/Config/Descriptions.php:347
+#: src/Config/Descriptions.php:343
 #, fuzzy
 #| msgid ""
 #| "An alternate host to hold the configuration storage; leave blank to use "
@@ -10072,7 +10092,7 @@ msgstr ""
 "Алтернативен хост, на който има хранилище с конфигурация; оставете празно, "
 "за да използвате вече дефиниран хост"
 
-#: src/Config/Descriptions.php:350
+#: src/Config/Descriptions.php:346
 #, fuzzy
 #| msgid ""
 #| "An alternate host to hold the configuration storage; leave blank to use "
@@ -10085,7 +10105,7 @@ msgstr ""
 "Алтернативен хост, на който има хранилище с конфигурация; оставете празно, "
 "за да използвате вече дефиниран хост"
 
-#: src/Config/Descriptions.php:355
+#: src/Config/Descriptions.php:351
 #, fuzzy
 #| msgid ""
 #| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
@@ -10100,91 +10120,91 @@ msgstr ""
 "bugs/2606/]системата за проследяване на дефекти на PMA[/a] и [a@https://bugs."
 "mysql.com/19588]дефекти на MySQL[/a]"
 
-#: src/Config/Descriptions.php:359
+#: src/Config/Descriptions.php:355
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
 msgstr ""
 
-#: src/Config/Descriptions.php:362
+#: src/Config/Descriptions.php:358
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
 msgstr ""
 
-#: src/Config/Descriptions.php:366
+#: src/Config/Descriptions.php:362
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
 msgstr ""
 
-#: src/Config/Descriptions.php:369
+#: src/Config/Descriptions.php:365
 msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
 msgstr ""
 
-#: src/Config/Descriptions.php:372
+#: src/Config/Descriptions.php:368
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
 "[kbd]'my_db'[/kbd]."
 msgstr ""
 
-#: src/Config/Descriptions.php:377
+#: src/Config/Descriptions.php:373
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
 
-#: src/Config/Descriptions.php:380
+#: src/Config/Descriptions.php:376
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [doc@linked-"
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 
-#: src/Config/Descriptions.php:385
+#: src/Config/Descriptions.php:381
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
 msgstr ""
 
-#: src/Config/Descriptions.php:389
+#: src/Config/Descriptions.php:385
 msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
 
-#: src/Config/Descriptions.php:393
+#: src/Config/Descriptions.php:389
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
 
-#: src/Config/Descriptions.php:398
+#: src/Config/Descriptions.php:394
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr "За пример вижте [doc@authentication-modes]видове удостоверяване[/doc]."
 
-#: src/Config/Descriptions.php:401
+#: src/Config/Descriptions.php:397
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
 
-#: src/Config/Descriptions.php:404
+#: src/Config/Descriptions.php:400
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
 msgstr ""
 
-#: src/Config/Descriptions.php:408
+#: src/Config/Descriptions.php:404
 msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
 msgstr ""
 
-#: src/Config/Descriptions.php:412
+#: src/Config/Descriptions.php:408
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
@@ -10192,7 +10212,7 @@ msgstr ""
 "Дали израз DROP DATABASE IF EXISTS да бъде добавян като първи ред в дневника "
 "при създаване на БД."
 
-#: src/Config/Descriptions.php:416
+#: src/Config/Descriptions.php:412
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
@@ -10200,7 +10220,7 @@ msgstr ""
 "Дали израз DROP TABLE IF EXISTS да бъде добавян като първи ред в дневника "
 "при създаване на таблица."
 
-#: src/Config/Descriptions.php:420
+#: src/Config/Descriptions.php:416
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
@@ -10208,49 +10228,49 @@ msgstr ""
 "Дали израз DROP VIEW IF EXISTS да бъде добавян като първи ред в дневника при "
 "създаване на изглед."
 
-#: src/Config/Descriptions.php:424
+#: src/Config/Descriptions.php:420
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 
-#: src/Config/Descriptions.php:427
+#: src/Config/Descriptions.php:423
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
 msgstr ""
 
-#: src/Config/Descriptions.php:430
+#: src/Config/Descriptions.php:426
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
 
-#: src/Config/Descriptions.php:433
+#: src/Config/Descriptions.php:429
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: "
 "[kbd]pma__userconfig[/kbd]."
 msgstr ""
 
-#: src/Config/Descriptions.php:436
+#: src/Config/Descriptions.php:432
 msgid ""
 "Both this table and the user groups table are required to enable the "
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 
-#: src/Config/Descriptions.php:441
+#: src/Config/Descriptions.php:437
 msgid ""
 "Both this table and the users table are required to enable the configurable "
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
 
-#: src/Config/Descriptions.php:446
+#: src/Config/Descriptions.php:442
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
 msgstr ""
 
-#: src/Config/Descriptions.php:450
+#: src/Config/Descriptions.php:446
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
@@ -10258,78 +10278,78 @@ msgstr ""
 "Разбираемо за потребителя описание на този сървър. Ако е празно ще бъде "
 "показан хоста."
 
-#: src/Config/Descriptions.php:452
+#: src/Config/Descriptions.php:448
 #, fuzzy
 #| msgid "Leave blank if not used"
 msgid "Leave blank if not used."
 msgstr "Оставете празно, ако не се използва"
 
-#: src/Config/Descriptions.php:453
+#: src/Config/Descriptions.php:449
 #, fuzzy
 #| msgid "Leave blank for defaults"
 msgid "Leave blank for defaults."
 msgstr "Оставете празно, за стойности по подразбиране"
 
-#: src/Config/Descriptions.php:454
+#: src/Config/Descriptions.php:450
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr ""
 
-#: src/Config/Descriptions.php:455
+#: src/Config/Descriptions.php:451
 #, fuzzy
 #| msgid "Authentication method to use"
 msgid "Authentication method to use."
 msgstr "Метод за удостоверяване"
 
-#: src/Config/Descriptions.php:456
+#: src/Config/Descriptions.php:452
 #, fuzzy
 #| msgid "Compress connection to MySQL server"
 msgid "Compress connection to MySQL server."
 msgstr "Компресиране връзката към MySQL сървър"
 
-#: src/Config/Descriptions.php:457
+#: src/Config/Descriptions.php:453
 #, fuzzy
 #| msgid "Hide databases matching regular expression (PCRE)"
 msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Скриване БД, съответстващи на регулярен израз (PCRE)"
 
-#: src/Config/Descriptions.php:458
+#: src/Config/Descriptions.php:454
 msgid "Hostname where MySQL server is running."
 msgstr ""
 
-#: src/Config/Descriptions.php:459 src/Config/Descriptions.php:463
+#: src/Config/Descriptions.php:455 src/Config/Descriptions.php:459
 #, fuzzy
 #| msgid "Leave empty if not using config auth"
 msgid "Leave empty if not using config auth."
 msgstr "Оставете празно, ако не използвате удостоверяване от настройките"
 
-#: src/Config/Descriptions.php:460
+#: src/Config/Descriptions.php:456
 #, fuzzy
 #| msgid "Port on which MySQL server is listening, leave empty for default"
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Порт, на който MySQL сървърът слуша, оставете празно за този по подразбиране"
 
-#: src/Config/Descriptions.php:461
+#: src/Config/Descriptions.php:457
 #, fuzzy
 #| msgid "Socket on which MySQL server is listening, leave empty for default"
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Сокет, на които MySQL сървърът слуша, оставете празно за този по подразбиране"
 
-#: src/Config/Descriptions.php:462
+#: src/Config/Descriptions.php:458
 #, fuzzy
 #| msgid "Enable SSL for connection to MySQL server"
 msgid "Enable SSL for connection to MySQL server."
 msgstr "Разрешаване на SSL връзка към MySQL сървър"
 
-#: src/Config/Descriptions.php:465
+#: src/Config/Descriptions.php:461
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly."
 msgstr ""
 
-#: src/Config/Descriptions.php:470
+#: src/Config/Descriptions.php:466
 #, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Creation timestamp for all tables"
@@ -10338,7 +10358,7 @@ msgstr ""
 "Показване или скриване на колона с времево клеймо на създаването за всички "
 "таблици"
 
-#: src/Config/Descriptions.php:473
+#: src/Config/Descriptions.php:469
 #, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Last update timestamp for all tables"
@@ -10348,7 +10368,7 @@ msgstr ""
 "Показване или скриване на колона с времево клеймо на последната промяна за "
 "всички таблици"
 
-#: src/Config/Descriptions.php:476
+#: src/Config/Descriptions.php:472
 #, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Last check timestamp for all tables"
@@ -10358,7 +10378,7 @@ msgstr ""
 "Показване или скриване на колона с времево клеймо на последната проверка за "
 "всички таблици"
 
-#: src/Config/Descriptions.php:479
+#: src/Config/Descriptions.php:475
 #, fuzzy
 #| msgid ""
 #| "Defines whether or not type fields should be initially displayed in edit/"
@@ -10370,7 +10390,7 @@ msgstr ""
 "Определя дали първоначално да бъдат показани типовете на полетата при "
 "редакция/вмъкване"
 
-#: src/Config/Descriptions.php:482
+#: src/Config/Descriptions.php:478
 #, fuzzy
 #| msgid ""
 #| "Shows link to [a@https://www.php.net/manual/function.phpinfo.php]phpinfo()"
@@ -10382,13 +10402,13 @@ msgstr ""
 "Показва връзка към изхода на [a@https://www.php.net/manual/function.phpinfo."
 "php]phpinfo()[/a]"
 
-#: src/Config/Descriptions.php:484
+#: src/Config/Descriptions.php:480
 #, fuzzy
 #| msgid "Whether a user should be displayed a \"show all (rows)\" button"
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
 msgstr "Дали на потребителя да бъде показван бутон \"показване всички\""
 
-#: src/Config/Descriptions.php:485
+#: src/Config/Descriptions.php:481
 #, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Creation timestamp for all tables"
@@ -10397,7 +10417,7 @@ msgstr ""
 "Показване или скриване на колона с времево клеймо на създаването за всички "
 "таблици"
 
-#: src/Config/Descriptions.php:486
+#: src/Config/Descriptions.php:482
 #, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Creation timestamp for all tables"
@@ -10406,19 +10426,19 @@ msgstr ""
 "Показване или скриване на колона с времево клеймо на създаването за всички "
 "таблици"
 
-#: src/Config/Descriptions.php:487
+#: src/Config/Descriptions.php:483
 #, fuzzy
 #| msgid "Display the function fields in edit/insert mode"
 msgid "Display the function fields in edit/insert mode."
 msgstr "Показване на поле с функциите при редакция/вмъкване"
 
-#: src/Config/Descriptions.php:488
+#: src/Config/Descriptions.php:484
 #, fuzzy
 #| msgid "Whether to show hint or not"
 msgid "Whether to show hint or not."
 msgstr "Дали да бъде показвана подсказка"
 
-#: src/Config/Descriptions.php:489
+#: src/Config/Descriptions.php:485
 #, fuzzy
 #| msgid ""
 #| "Defines whether SQL queries generated by phpMyAdmin should be displayed"
@@ -10427,7 +10447,7 @@ msgid ""
 msgstr ""
 "Определя дали SQL заявките, генерирани от phpMyAdmin да бъдат показвани"
 
-#: src/Config/Descriptions.php:490
+#: src/Config/Descriptions.php:486
 #, fuzzy
 #| msgid "Allow to display database and table statistics (eg. space usage)"
 msgid "Allow to display database and table statistics (e.g. space usage)."
@@ -10435,12 +10455,12 @@ msgstr ""
 "Разрешаване показването на статистика за таблици и БД (напр. заемано "
 "пространство)"
 
-#: src/Config/Descriptions.php:492
+#: src/Config/Descriptions.php:488
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr ""
 
-#: src/Config/Descriptions.php:495
+#: src/Config/Descriptions.php:491
 #, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
@@ -10451,7 +10471,7 @@ msgid ""
 msgstr ""
 "Скрива предупреждението за липсващ mcrypt при удостоверяване с бисквитки"
 
-#: src/Config/Descriptions.php:498
+#: src/Config/Descriptions.php:494
 #, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
@@ -10463,19 +10483,19 @@ msgid ""
 msgstr ""
 "Скрива предупреждението за липсващ mcrypt при удостоверяване с бисквитки"
 
-#: src/Config/Descriptions.php:503
+#: src/Config/Descriptions.php:499
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
 
-#: src/Config/Descriptions.php:506
+#: src/Config/Descriptions.php:502
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
 
-#: src/Config/Descriptions.php:509
+#: src/Config/Descriptions.php:505
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -10483,13 +10503,13 @@ msgid ""
 "HTTP_X_FORWARDED_FOR[/kbd]."
 msgstr ""
 
-#: src/Config/Descriptions.php:515
+#: src/Config/Descriptions.php:511
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
 msgstr ""
 
-#: src/Config/Descriptions.php:518
+#: src/Config/Descriptions.php:514
 msgid ""
 "The URL of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin, or when submitting error reports. You need "
@@ -10497,20 +10517,20 @@ msgid ""
 "to the Internet. The format is: \"hostname:portnumber\"."
 msgstr ""
 
-#: src/Config/Descriptions.php:524
+#: src/Config/Descriptions.php:520
 msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
 
-#: src/Config/Descriptions.php:530
+#: src/Config/Descriptions.php:526
 msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
 
-#: src/Config/Descriptions.php:534
+#: src/Config/Descriptions.php:530
 #, fuzzy
 #| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid ""
@@ -10520,187 +10540,187 @@ msgstr ""
 "%sСъздаване%s на липсващите таблици за съхранение на конфигурация на "
 "phpMyAdmin."
 
-#: src/Config/Descriptions.php:537
+#: src/Config/Descriptions.php:533
 msgid "Highlight selected rows."
 msgstr "Маркиране избраните редове."
 
-#: src/Config/Descriptions.php:538
+#: src/Config/Descriptions.php:534
 msgid "Highlight row pointed by the mouse cursor."
 msgstr "Маркиране редовете, посочени с мишка."
 
-#: src/Config/Descriptions.php:539
+#: src/Config/Descriptions.php:535
 msgid "Number of columns for CHAR/VARCHAR textareas."
 msgstr "Брой колони за CHAR/VARCHAR текстови полета."
 
-#: src/Config/Descriptions.php:540
+#: src/Config/Descriptions.php:536
 msgid "Number of rows for CHAR/VARCHAR textareas."
 msgstr "Брой редове за CHAR/VARCHAR текстови полета."
 
-#: src/Config/Descriptions.php:541
+#: src/Config/Descriptions.php:537
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
 msgstr ""
 "Регистриране на SQL заявките и тяхното време за изпълнение за да се покажат "
 "в конзолата"
 
-#: src/Config/Descriptions.php:542
+#: src/Config/Descriptions.php:538
 msgid "Tab that is displayed when entering a database."
 msgstr "Показваният подпрозорец при отваряне на БД."
 
-#: src/Config/Descriptions.php:543
+#: src/Config/Descriptions.php:539
 msgid "Tab that is displayed when entering a server."
 msgstr "Показваният подпрозорец при отваряне на сървър."
 
-#: src/Config/Descriptions.php:544
+#: src/Config/Descriptions.php:540
 msgid "Tab that is displayed when entering a table."
 msgstr "Показваният подпрозорец при отваряне на таблица."
 
-#: src/Config/Descriptions.php:545
+#: src/Config/Descriptions.php:541
 msgid "Whether the table structure actions should be hidden."
 msgstr "Скриване на действията за промяна на структурата."
 
-#: src/Config/Descriptions.php:546
+#: src/Config/Descriptions.php:542
 msgid "Whether column comments should be shown in table structure view"
 msgstr ""
 "Да се показват коментарите на колони при представяне структурата на таблицата"
 
-#: src/Config/Descriptions.php:547
+#: src/Config/Descriptions.php:543
 msgid "Show server listing as a list instead of a drop down."
 msgstr "Показване сървърите като списък вместо падащо меню."
 
-#: src/Config/Descriptions.php:548
+#: src/Config/Descriptions.php:544
 msgid "A dropdown will be used if fewer items are present."
 msgstr "Да се ползва падащият списък при малко елементи."
 
-#: src/Config/Descriptions.php:549
+#: src/Config/Descriptions.php:545
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
 "Стойностти по подразбиране за проверките на чужди ключове за някои заявки."
 
-#: src/Config/Descriptions.php:550
+#: src/Config/Descriptions.php:546
 msgid "Uncheck the checkbox to disable drag and drop import"
 msgstr "Махнете отметката за да позволите импорт чрез провлачване с мишката"
 
-#: src/Config/Descriptions.php:551
+#: src/Config/Descriptions.php:547
 msgid "How many rows can be inserted at one time."
 msgstr "Брой редове, които могат да бъдат вмъкнати наведнъж."
 
-#: src/Config/Descriptions.php:552
+#: src/Config/Descriptions.php:548
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
 msgstr ""
 "Максимален брой знаци, показвани в произволна нечислова колона в изгледа за "
 "преглед."
 
-#: src/Config/Descriptions.php:553
+#: src/Config/Descriptions.php:549
 msgid "Define how long (in seconds) a login cookie is valid."
 msgstr "Определете колко дълго (в секунди) е валидна бисквитката за вход."
 
-#: src/Config/Descriptions.php:554
+#: src/Config/Descriptions.php:550
 msgid "Double size of textarea for LONGTEXT columns."
 msgstr "Двоен размер на текстовите полета за LONGTEXT колони ."
 
-#: src/Config/Descriptions.php:555
+#: src/Config/Descriptions.php:551
 msgid "Maximum number of databases displayed in database list."
 msgstr "Максимален брой бази данни показвани в списъка."
 
-#: src/Config/Descriptions.php:556
+#: src/Config/Descriptions.php:552
 msgid "Maximum number of tables displayed in table list."
 msgstr "Максимален брой таблици, показани в списъка на таблиците."
 
-#: src/Config/Descriptions.php:557
+#: src/Config/Descriptions.php:553
 msgid "Maximum number of recently used tables; set 0 to disable."
 msgstr "Максимален брой скоро отваряни таблици; 0 за изключване."
 
-#: src/Config/Descriptions.php:558
+#: src/Config/Descriptions.php:554
 #, fuzzy
 #| msgid "Maximum number of recently used tables; set 0 to disable"
 msgid "Maximum number of favorite tables; set 0 to disable."
 msgstr "Максимален брой скоро отваряни таблици; 0 за забрана"
 
-#: src/Config/Descriptions.php:559
+#: src/Config/Descriptions.php:555
 #, fuzzy
 #| msgid "These are Edit, Copy and Delete links"
 msgid "These are Edit, Copy and Delete links."
 msgstr "Това са връзките Редакция, Копиране и Изтриване"
 
-#: src/Config/Descriptions.php:560
+#: src/Config/Descriptions.php:556
 msgid "Whether to show row links even in the absence of a unique key."
 msgstr ""
 
-#: src/Config/Descriptions.php:561 src/Config/Descriptions.php:842
+#: src/Config/Descriptions.php:557 src/Config/Descriptions.php:838
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Disable shortcut keys"
 msgstr "Забрана на проверките за външен ключ"
 
-#: src/Config/Descriptions.php:562
+#: src/Config/Descriptions.php:558
 #, fuzzy
 #| msgid "Use natural order for sorting table and database names"
 msgid "Use natural order for sorting table and database names."
 msgstr "Използване естествен ред за сортиране на имена на таблици и БД"
 
-#: src/Config/Descriptions.php:563 src/Config/Descriptions.php:566
-#: src/Config/Descriptions.php:567
+#: src/Config/Descriptions.php:559 src/Config/Descriptions.php:562
+#: src/Config/Descriptions.php:563
 #, fuzzy
 #| msgid "Use only icons, only text or both"
 msgid "Use only icons, only text or both."
 msgstr "Използване само пиктограми, само текст или и двете"
 
-#: src/Config/Descriptions.php:564
+#: src/Config/Descriptions.php:560
 #, fuzzy
 #| msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
 msgstr "Използване GZip буфериране за увеличаване скоростта на HTTP трансфери"
 
-#: src/Config/Descriptions.php:565
+#: src/Config/Descriptions.php:561
 #, fuzzy
 #| msgid "Use persistent connections to MySQL databases"
 msgid "Use persistent connections to MySQL databases."
 msgstr "Използване на постоянни връзки към MySQL БД"
 
-#: src/Config/Descriptions.php:568
+#: src/Config/Descriptions.php:564
 msgid "Disallow BLOB and BINARY columns from editing."
 msgstr ""
 
-#: src/Config/Descriptions.php:569
+#: src/Config/Descriptions.php:565
 #, fuzzy
 #| msgid "How many queries are kept in history"
 msgid "How many queries are kept in history."
 msgstr "Колко заявки да се съхраняват в историята"
 
-#: src/Config/Descriptions.php:570
+#: src/Config/Descriptions.php:566
 msgid "Select which functions will be used for character set conversion."
 msgstr ""
 
-#: src/Config/Descriptions.php:571
+#: src/Config/Descriptions.php:567
 #, fuzzy
 #| msgid "When browsing tables, the sorting of each table is remembered"
 msgid "When browsing tables, the sorting of each table is remembered."
 msgstr "При преглед на таблици, сортирането на всяка да бъде запомнено"
 
-#: src/Config/Descriptions.php:572
+#: src/Config/Descriptions.php:568
 msgid "Default sort order for tables with a primary key."
 msgstr ""
 
-#: src/Config/Descriptions.php:573
+#: src/Config/Descriptions.php:569
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
 msgstr ""
 
-#: src/Config/Descriptions.php:574
+#: src/Config/Descriptions.php:570
 #, fuzzy
 #| msgid "Servers display options"
 msgid "For display Options"
 msgstr "Настройки показване сървъри"
 
-#: src/Config/Descriptions.php:575
+#: src/Config/Descriptions.php:571
 #, fuzzy
 #| msgid "Directory where exports can be saved on server"
 msgid "Directory where exports can be saved on server."
 msgstr "Папка на сървъра, в която експортите да бъдат записвани"
 
-#: src/Config/Descriptions.php:576
+#: src/Config/Descriptions.php:572
 #, fuzzy
 #| msgid ""
 #| "Defines whether the query box should stay on-screen after its submission"
@@ -10709,52 +10729,52 @@ msgid ""
 msgstr ""
 "Определя дали прозорецът със заявката да остане екрана след изпращането му"
 
-#: src/Config/Descriptions.php:577
+#: src/Config/Descriptions.php:573
 #, fuzzy
 #| msgid "Title of browser window when a database is selected"
 msgid "Title of browser window when a database is selected."
 msgstr "Заглавие на прозореца на браузъра, когато е избрана БД"
 
-#: src/Config/Descriptions.php:578
+#: src/Config/Descriptions.php:574
 #, fuzzy
 #| msgid "Title of browser window when nothing is selected"
 msgid "Title of browser window when nothing is selected."
 msgstr "Заглавие на прозореца на браузъра, когато не е избрано нищо"
 
-#: src/Config/Descriptions.php:579
+#: src/Config/Descriptions.php:575
 #, fuzzy
 #| msgid "Title of browser window when a server is selected"
 msgid "Title of browser window when a server is selected."
 msgstr "Заглавие на прозореца на браузъра, когато е избран сървър"
 
-#: src/Config/Descriptions.php:580
+#: src/Config/Descriptions.php:576
 #, fuzzy
 #| msgid "Title of browser window when a table is selected"
 msgid "Title of browser window when a table is selected."
 msgstr "Заглавие на прозореца на браузъра, когато е избрана таблица"
 
-#: src/Config/Descriptions.php:581
+#: src/Config/Descriptions.php:577
 #, fuzzy
 #| msgid "Directory on server where you can upload files for import"
 msgid "Directory on server where you can upload files for import."
 msgstr ""
 "Папка на сървъра, в която можете да качвате файлове, за да бъдат импортирани"
 
-#: src/Config/Descriptions.php:582
+#: src/Config/Descriptions.php:578
 msgid "Allow for searching inside the entire database."
 msgstr ""
 
-#: src/Config/Descriptions.php:583
+#: src/Config/Descriptions.php:579
 #, fuzzy
 #| msgid "Enables check for latest version on main phpMyAdmin page"
 msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr "Позволява проверка за обновления на страницата на phpMyAdmin"
 
-#: src/Config/Descriptions.php:584
+#: src/Config/Descriptions.php:580
 msgid "The password for authenticating with the proxy."
 msgstr ""
 
-#: src/Config/Descriptions.php:585
+#: src/Config/Descriptions.php:581
 #, fuzzy
 #| msgid ""
 #| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
@@ -10764,179 +10784,179 @@ msgstr ""
 "Включване на [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] компресия при "
 "импорт и експорт"
 
-#: src/Config/Descriptions.php:586
+#: src/Config/Descriptions.php:582
 msgid "Choose the default action when sending error reports."
 msgstr ""
 
-#: src/Config/Descriptions.php:601
+#: src/Config/Descriptions.php:597
 msgid "Allow login to any MySQL server"
 msgstr "Разрешено включване към произволен MySQL сървър"
 
-#: src/Config/Descriptions.php:602
+#: src/Config/Descriptions.php:598
 msgid "Restrict login to MySQL server"
 msgstr "Ограничаване на влизането в MySQL сървър"
 
-#: src/Config/Descriptions.php:603
+#: src/Config/Descriptions.php:599
 msgid "Allow third party framing"
 msgstr "Позволяване на вграждане в трети сайтове"
 
-#: src/Config/Descriptions.php:604
+#: src/Config/Descriptions.php:600
 msgid "Show \"Drop database\" link to normal users"
 msgstr "Показване връзката \"Изтриване БД\" на обикновени потребители"
 
-#: src/Config/Descriptions.php:605
+#: src/Config/Descriptions.php:601
 msgid "Blowfish secret"
 msgstr "Тайна Blowfish фраза"
 
-#: src/Config/Descriptions.php:606
+#: src/Config/Descriptions.php:602
 msgid "Row marker"
 msgstr "Маркер на ред"
 
-#: src/Config/Descriptions.php:607
+#: src/Config/Descriptions.php:603
 msgid "Highlight pointer"
 msgstr "Маркиране на показалеца"
 
-#: src/Config/Descriptions.php:608
+#: src/Config/Descriptions.php:604
 msgid "Bzip2"
 msgstr "Bzip2"
 
-#: src/Config/Descriptions.php:609
+#: src/Config/Descriptions.php:605
 msgid "CHAR columns editing"
 msgstr "Редакция на CHAR колони"
 
-#: src/Config/Descriptions.php:610
+#: src/Config/Descriptions.php:606
 msgid "Enable CodeMirror"
 msgstr "Включване на CodeMirror"
 
-#: src/Config/Descriptions.php:611
+#: src/Config/Descriptions.php:607
 msgid "Enable linter"
 msgstr "Включване на Linter"
 
-#: src/Config/Descriptions.php:612
+#: src/Config/Descriptions.php:608
 msgid "Minimum size for input field"
 msgstr "Минимален размер на текстово поле"
 
-#: src/Config/Descriptions.php:613
+#: src/Config/Descriptions.php:609
 msgid "Maximum size for input field"
 msgstr "Максимален размер на текстовите полета"
 
-#: src/Config/Descriptions.php:614
+#: src/Config/Descriptions.php:610
 msgid "CHAR textarea columns"
 msgstr "Колони за CHAR текство поле"
 
-#: src/Config/Descriptions.php:615
+#: src/Config/Descriptions.php:611
 msgid "CHAR textarea rows"
 msgstr "Редове за CHAR текство поле"
 
-#: src/Config/Descriptions.php:616
+#: src/Config/Descriptions.php:612
 msgid "Check config file permissions"
 msgstr "Проверка на правата върху конфигурационния файл"
 
-#: src/Config/Descriptions.php:617
+#: src/Config/Descriptions.php:613
 msgid "Compress on the fly"
 msgstr "Компресиране в движение"
 
-#: src/Config/Descriptions.php:618
+#: src/Config/Descriptions.php:614
 msgid "Confirm DROP queries"
 msgstr "Потвърждаване DROP заявки"
 
-#: src/Config/Descriptions.php:620 src/Plugins/Schema/SchemaDia.php:64
+#: src/Config/Descriptions.php:616 src/Plugins/Schema/SchemaDia.php:64
 #: src/Plugins/Schema/SchemaPdf.php:74
 msgid "Paper size"
 msgstr "Размер на хартията"
 
-#: src/Config/Descriptions.php:621
+#: src/Config/Descriptions.php:617
 msgid "Default database tab"
 msgstr "Подпрозорец по подразбиране за БД"
 
-#: src/Config/Descriptions.php:622
+#: src/Config/Descriptions.php:618
 msgid "Default server tab"
 msgstr "Подпрозорец по подразбиране за сървъри"
 
-#: src/Config/Descriptions.php:623
+#: src/Config/Descriptions.php:619
 msgid "Default table tab"
 msgstr "Подпрозорец по подразбиране за таблици"
 
-#: src/Config/Descriptions.php:624
+#: src/Config/Descriptions.php:620
 msgid "Enable autocomplete for table and column names"
 msgstr "Включване на автоматично допълване на имена на таблици и колони"
 
-#: src/Config/Descriptions.php:625
+#: src/Config/Descriptions.php:621
 msgid "Show column comments"
 msgstr "Показване на коментари към таблицата"
 
-#: src/Config/Descriptions.php:626
+#: src/Config/Descriptions.php:622
 msgid "Hide table structure actions"
 msgstr "Скриване на действията за промяна на структурата"
 
-#: src/Config/Descriptions.php:627
+#: src/Config/Descriptions.php:623
 msgid "Default transformations for Hex"
 msgstr "Трансформации по подразбиране за Hex"
 
-#: src/Config/Descriptions.php:628
+#: src/Config/Descriptions.php:624
 msgid "Default transformations for Substring"
 msgstr "Трансформации по подразбиране за Substring"
 
-#: src/Config/Descriptions.php:629
+#: src/Config/Descriptions.php:625
 msgid "Default transformations for Bool2Text"
 msgstr "Трансформации по подразбиране за Bool2Text"
 
-#: src/Config/Descriptions.php:630
+#: src/Config/Descriptions.php:626
 msgid "Default transformations for External"
 msgstr "Трансформации по подразбиране за External"
 
-#: src/Config/Descriptions.php:631
+#: src/Config/Descriptions.php:627
 msgid "Default transformations for PreApPend"
 msgstr "Трансформации по подразбиране за PreApPend"
 
-#: src/Config/Descriptions.php:632
+#: src/Config/Descriptions.php:628
 msgid "Default transformations for DateFormat"
 msgstr "Трансформации по подразбиране за DateFormat"
 
-#: src/Config/Descriptions.php:633
+#: src/Config/Descriptions.php:629
 msgid "Default transformations for Inline"
 msgstr "Трансформации по подразбиране за Inline"
 
-#: src/Config/Descriptions.php:634
+#: src/Config/Descriptions.php:630
 msgid "Default transformations for TextImageLink"
 msgstr "Трансформации по подразбиране за TextImageLink"
 
-#: src/Config/Descriptions.php:635
+#: src/Config/Descriptions.php:631
 msgid "Default transformations for TextLink"
 msgstr "Трансформации по подразбиране за TextLink"
 
-#: src/Config/Descriptions.php:636
+#: src/Config/Descriptions.php:632
 msgid "Display servers as a list"
 msgstr "Показване на сървърите в списък"
 
-#: src/Config/Descriptions.php:637
+#: src/Config/Descriptions.php:633
 msgid "Disable multi table maintenance"
 msgstr "Забрана на избора на много таблици за профилактика"
 
-#: src/Config/Descriptions.php:638
+#: src/Config/Descriptions.php:634
 msgid "Maximum execution time"
 msgstr "Максимално време за изпълнение"
 
-#: src/Config/Descriptions.php:639
+#: src/Config/Descriptions.php:635
 msgid "Use [code]LOCK TABLES[/code] statement"
 msgstr ""
 
-#: src/Config/Descriptions.php:640
+#: src/Config/Descriptions.php:636
 msgid "Save as file"
 msgstr "Изпращане"
 
-#: src/Config/Descriptions.php:641 src/Config/Descriptions.php:776
+#: src/Config/Descriptions.php:637 src/Config/Descriptions.php:772
 msgid "Character set of the file"
 msgstr "Знаков набор на файла"
 
-#: src/Config/Descriptions.php:643
+#: src/Config/Descriptions.php:639
 msgid "Compression"
 msgstr "Компресия"
 
-#: src/Config/Descriptions.php:644 src/Config/Descriptions.php:651
-#: src/Config/Descriptions.php:659 src/Config/Descriptions.php:663
-#: src/Config/Descriptions.php:676 src/Config/Descriptions.php:678
-#: src/Config/Descriptions.php:725 src/Plugins/Export/ExportCsv.php:85
+#: src/Config/Descriptions.php:640 src/Config/Descriptions.php:647
+#: src/Config/Descriptions.php:655 src/Config/Descriptions.php:659
+#: src/Config/Descriptions.php:672 src/Config/Descriptions.php:674
+#: src/Config/Descriptions.php:721 src/Plugins/Export/ExportCsv.php:85
 #: src/Plugins/Export/ExportExcel.php:59
 #: src/Plugins/Export/ExportHtmlword.php:82 src/Plugins/Export/ExportOds.php:68
 #: src/Plugins/Export/ExportOdt.php:124
@@ -10944,56 +10964,56 @@ msgstr "Компресия"
 msgid "Put columns names in the first row"
 msgstr "Поставяне имената на полетата в първи ред"
 
-#: src/Config/Descriptions.php:645 src/Config/Descriptions.php:778
-#: src/Config/Descriptions.php:784 src/Plugins/Import/ImportCsv.php:659
+#: src/Config/Descriptions.php:641 src/Config/Descriptions.php:774
+#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:659
 msgid "Columns enclosed with"
 msgstr "Колоните са оградени от"
 
-#: src/Config/Descriptions.php:646 src/Config/Descriptions.php:779
-#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:670
+#: src/Config/Descriptions.php:642 src/Config/Descriptions.php:775
+#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:670
 msgid "Columns escaped with"
 msgstr "Колоните са избегнати с"
 
-#: src/Config/Descriptions.php:647 src/Config/Descriptions.php:653
-#: src/Config/Descriptions.php:660 src/Config/Descriptions.php:669
-#: src/Config/Descriptions.php:677 src/Config/Descriptions.php:681
-#: src/Config/Descriptions.php:726
+#: src/Config/Descriptions.php:643 src/Config/Descriptions.php:649
+#: src/Config/Descriptions.php:656 src/Config/Descriptions.php:665
+#: src/Config/Descriptions.php:673 src/Config/Descriptions.php:677
+#: src/Config/Descriptions.php:722
 msgid "Replace NULL with"
 msgstr "Замяна NULL с"
 
-#: src/Config/Descriptions.php:648 src/Config/Descriptions.php:654
+#: src/Config/Descriptions.php:644 src/Config/Descriptions.php:650
 msgid "Remove CRLF characters within columns"
 msgstr "Премахване CRLF знаци от колони"
 
-#: src/Config/Descriptions.php:649 src/Config/Descriptions.php:782
-#: src/Config/Descriptions.php:789 src/Plugins/Import/ImportCsv.php:644
+#: src/Config/Descriptions.php:645 src/Config/Descriptions.php:778
+#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:644
 msgid "Columns terminated with"
 msgstr "Колоните завършват с"
 
-#: src/Config/Descriptions.php:650 src/Config/Descriptions.php:777
+#: src/Config/Descriptions.php:646 src/Config/Descriptions.php:773
 #: src/Plugins/Import/ImportCsv.php:677
 msgid "Lines terminated with"
 msgstr "Редовете завършват с"
 
-#: src/Config/Descriptions.php:652
+#: src/Config/Descriptions.php:648
 msgid "Excel edition"
 msgstr "Excel версия"
 
-#: src/Config/Descriptions.php:655
+#: src/Config/Descriptions.php:651
 msgid "Database name template"
 msgstr "Шаблон за име на БД"
 
-#: src/Config/Descriptions.php:656
+#: src/Config/Descriptions.php:652
 msgid "Server name template"
 msgstr "Шаблон за име на сървър"
 
-#: src/Config/Descriptions.php:657
+#: src/Config/Descriptions.php:653
 msgid "Table name template"
 msgstr "Шаблон за име на таблица"
 
-#: src/Config/Descriptions.php:661 src/Config/Descriptions.php:674
-#: src/Config/Descriptions.php:683 src/Config/Descriptions.php:721
-#: src/Config/Descriptions.php:727 src/Plugins/Export/ExportHtmlword.php:57
+#: src/Config/Descriptions.php:657 src/Config/Descriptions.php:670
+#: src/Config/Descriptions.php:679 src/Config/Descriptions.php:717
+#: src/Config/Descriptions.php:723 src/Plugins/Export/ExportHtmlword.php:57
 #: src/Plugins/Export/ExportLatex.php:89
 #: src/Plugins/Export/ExportMediawiki.php:54
 #: src/Plugins/Export/ExportMediawiki.php:60
@@ -11003,86 +11023,86 @@ msgstr "Шаблон за име на таблица"
 msgid "Dump table"
 msgstr "Схема на таблица"
 
-#: src/Config/Descriptions.php:662 src/Plugins/Export/ExportLatex.php:80
+#: src/Config/Descriptions.php:658 src/Plugins/Export/ExportLatex.php:80
 msgid "Include table caption"
 msgstr "Включване на заглавие на таблицата"
 
-#: src/Config/Descriptions.php:665 src/Config/Descriptions.php:671
+#: src/Config/Descriptions.php:661 src/Config/Descriptions.php:667
 msgid "Table caption"
 msgstr "Заглавие на таблицата"
 
-#: src/Config/Descriptions.php:666 src/Config/Descriptions.php:672
+#: src/Config/Descriptions.php:662 src/Config/Descriptions.php:668
 msgid "Continued table caption"
 msgstr "Продължение на заглавието на таблицата"
 
-#: src/Config/Descriptions.php:667 src/Config/Descriptions.php:673
+#: src/Config/Descriptions.php:663 src/Config/Descriptions.php:669
 msgid "Label key"
 msgstr "Етикет на ключа"
 
-#: src/Config/Descriptions.php:670 src/Config/Descriptions.php:682
-#: src/Config/Descriptions.php:720
+#: src/Config/Descriptions.php:666 src/Config/Descriptions.php:678
+#: src/Config/Descriptions.php:716
 #, fuzzy
 #| msgid "Relations"
 msgid "Relationships"
 msgstr "Релации"
 
-#: src/Config/Descriptions.php:675
+#: src/Config/Descriptions.php:671
 msgid "Export method"
 msgstr "Метод за експортиране"
 
-#: src/Config/Descriptions.php:684 src/Config/Descriptions.php:687
+#: src/Config/Descriptions.php:680 src/Config/Descriptions.php:683
 msgid "Save on server"
 msgstr "Запазване на сървъра"
 
-#: src/Config/Descriptions.php:686
+#: src/Config/Descriptions.php:682
 msgid "Export as separate files"
 msgstr "Експортиране като отделни файлове"
 
-#: src/Config/Descriptions.php:689
+#: src/Config/Descriptions.php:685
 #, fuzzy
 #| msgid "Remember file name template"
 msgid "Remember filename template"
 msgstr "Запомняне на шаблона за име на файл"
 
-#: src/Config/Descriptions.php:690
+#: src/Config/Descriptions.php:686
 msgid "Remove DEFINER clause from definitions"
 msgstr ""
 
-#: src/Config/Descriptions.php:692
+#: src/Config/Descriptions.php:688
 msgid "Enclose table and column names with backquotes"
 msgstr "Ограждане на имената на таблици и полета с обратни апострофи"
 
-#: src/Config/Descriptions.php:693 src/Config/Descriptions.php:795
+#: src/Config/Descriptions.php:689 src/Config/Descriptions.php:791
 msgid "SQL compatibility mode"
 msgstr "Режим на съвместимост на SQL"
 
-#: src/Config/Descriptions.php:694
+#: src/Config/Descriptions.php:690
 msgid "Creation/Update/Check dates"
 msgstr "Създаване/Обновяване/Проверка на дати"
 
-#: src/Config/Descriptions.php:695
+#: src/Config/Descriptions.php:691
 msgid "Use delayed inserts"
 msgstr "Използване на отложени вмъквания"
 
-#: src/Config/Descriptions.php:696 src/Plugins/Export/ExportSql.php:177
+#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:177
 msgid "Disable foreign key checks"
 msgstr "Забрана на проверките за външен ключ"
 
-#: src/Config/Descriptions.php:697 src/Plugins/Export/ExportSql.php:187
+#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:187
 msgid "Export views as tables"
 msgstr "Експортиране на изгледи (views) като таблици"
 
-#: src/Config/Descriptions.php:698
+#: src/Config/Descriptions.php:694
 msgid "Export related metadata from phpMyAdmin configuration storage"
 msgstr ""
 "Експортиране на свързани метаданни от конфигурацията за съхранение на "
 "phpMyAdmin"
 
-#: src/Config/Descriptions.php:708
+#: src/Config/Descriptions.php:704
 msgid "Use hexadecimal for BINARY & BLOB"
 msgstr "Използване на шестнадесетични стойности за BINARY и BLOB"
 
-#: src/Config/Descriptions.php:710
+#: src/Config/Descriptions.php:706
 msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
@@ -11090,908 +11110,908 @@ msgstr ""
 "Добавяне на IF NOT EXISTS (при създаването на таблицата ще се генерират по-"
 "малко ефективни като индекси)"
 
-#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:318
+#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:318
 #, php-format
 msgid "%s view"
 msgstr "%s изглед"
 
-#: src/Config/Descriptions.php:714
+#: src/Config/Descriptions.php:710
 msgid "Use ignore inserts"
 msgstr "Използване на INSERT IGNORE"
 
-#: src/Config/Descriptions.php:716
+#: src/Config/Descriptions.php:712
 msgid "Syntax to use when inserting data"
 msgstr "Използван синтаксис при вмъкване на данни"
 
-#: src/Config/Descriptions.php:717 src/Plugins/Export/ExportSql.php:445
+#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:445
 msgid "Maximal length of created query"
 msgstr "Максимална дължина на създадената заявка"
 
-#: src/Config/Descriptions.php:722
+#: src/Config/Descriptions.php:718
 msgid "Export type"
 msgstr "Тип експорт"
 
-#: src/Config/Descriptions.php:723 src/Plugins/Export/ExportSql.php:167
+#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:167
 msgid "Enclose export in a transaction"
 msgstr "Изолиране на експорта в транзакция"
 
-#: src/Config/Descriptions.php:724
+#: src/Config/Descriptions.php:720
 msgid "Export time in UTC"
 msgstr "Експортиране на време в UTC"
 
-#: src/Config/Descriptions.php:728
+#: src/Config/Descriptions.php:724
 msgid "Foreign key dropdown order"
 msgstr "външен ключ"
 
-#: src/Config/Descriptions.php:729
+#: src/Config/Descriptions.php:725
 msgid "Foreign key limit"
 msgstr "външен ключ"
 
-#: src/Config/Descriptions.php:730
+#: src/Config/Descriptions.php:726
 msgid "Foreign key checks"
 msgstr "Проверки на външен ключ"
 
-#: src/Config/Descriptions.php:731
+#: src/Config/Descriptions.php:727
 msgid "First day of calendar"
 msgstr ""
 
-#: src/Config/Descriptions.php:733
+#: src/Config/Descriptions.php:729
 msgid "Browse mode"
 msgstr "Преглеждане"
 
-#: src/Config/Descriptions.php:735 src/Config/Forms/User/ExportForm.php:80
+#: src/Config/Descriptions.php:731 src/Config/Forms/User/ExportForm.php:80
 #: src/Config/Forms/User/ImportForm.php:29
 msgid "CSV"
 msgstr "CSV"
 
-#: src/Config/Descriptions.php:736
+#: src/Config/Descriptions.php:732
 msgid "Developer"
 msgstr "Разработчик"
 
-#: src/Config/Descriptions.php:737
+#: src/Config/Descriptions.php:733
 msgid "Edit mode"
 msgstr "Редактиране"
 
-#: src/Config/Descriptions.php:738
+#: src/Config/Descriptions.php:734
 msgid "Export defaults"
 msgstr "Настройки по подразбиране на експорта"
 
-#: src/Config/Descriptions.php:739
+#: src/Config/Descriptions.php:735
 msgid "General"
 msgstr "Общи"
 
-#: src/Config/Descriptions.php:740
+#: src/Config/Descriptions.php:736
 msgid "Import defaults"
 msgstr "Настройки по подразбиране на импорта"
 
-#: src/Config/Descriptions.php:741
+#: src/Config/Descriptions.php:737
 msgid "Import / export"
 msgstr "Импорт / експорт"
 
-#: src/Config/Descriptions.php:742
+#: src/Config/Descriptions.php:738
 msgid "LaTeX"
 msgstr "LaTeX"
 
-#: src/Config/Descriptions.php:745
+#: src/Config/Descriptions.php:741
 msgid "Navigation tree"
 msgstr "Дърво за навигация"
 
-#: src/Config/Descriptions.php:749
+#: src/Config/Descriptions.php:745
 msgid "Microsoft Office"
 msgstr "Microsoft Office"
 
-#: src/Config/Descriptions.php:751
+#: src/Config/Descriptions.php:747
 msgid "Other core settings"
 msgstr "Други основни настройки"
 
-#: src/Config/Descriptions.php:752
+#: src/Config/Descriptions.php:748
 msgid "Page titles"
 msgstr "Заглавие в браузъра"
 
-#: src/Config/Descriptions.php:753
+#: src/Config/Descriptions.php:749
 msgid "Security"
 msgstr "Сигурност"
 
-#: src/Config/Descriptions.php:754
+#: src/Config/Descriptions.php:750
 msgid "Basic settings"
 msgstr "Основни настройки"
 
-#: src/Config/Descriptions.php:755
+#: src/Config/Descriptions.php:751
 msgid "Authentication"
 msgstr "Удостоверяване"
 
-#: src/Config/Descriptions.php:756
+#: src/Config/Descriptions.php:752
 msgid "Server configuration"
 msgstr "Сървърна конфигурация"
 
-#: src/Config/Descriptions.php:757
+#: src/Config/Descriptions.php:753
 msgid "Configuration storage"
 msgstr "Хранилище за конфигурация"
 
-#: src/Config/Descriptions.php:758
+#: src/Config/Descriptions.php:754
 msgid "Changes tracking"
 msgstr "Следене за промени"
 
-#: src/Config/Descriptions.php:760
+#: src/Config/Descriptions.php:756
 msgid "SQL Query box"
 msgstr "SQL прозорец за заявки"
 
-#: src/Config/Descriptions.php:762
+#: src/Config/Descriptions.php:758
 msgid "Startup"
 msgstr "Начало"
 
-#: src/Config/Descriptions.php:763
+#: src/Config/Descriptions.php:759
 msgid "Database structure"
 msgstr "БД структура"
 
-#: src/Config/Descriptions.php:765
+#: src/Config/Descriptions.php:761
 msgid "Tabs"
 msgstr "Подпрозорци"
 
-#: src/Config/Descriptions.php:766
+#: src/Config/Descriptions.php:762
 msgid "Display relational schema"
 msgstr "Показване схема на релациите"
 
-#: src/Config/Descriptions.php:767
+#: src/Config/Descriptions.php:763
 msgid "Text fields"
 msgstr "Текстови полета"
 
-#: src/Config/Descriptions.php:768
+#: src/Config/Descriptions.php:764
 msgid "Texy! text"
 msgstr "Texy! текст"
 
-#: src/Config/Descriptions.php:769
+#: src/Config/Descriptions.php:765
 msgid "Warnings"
 msgstr "Предупреждения"
 
-#: src/Config/Descriptions.php:771
+#: src/Config/Descriptions.php:767
 msgid "GZip"
 msgstr "GZip"
 
-#: src/Config/Descriptions.php:772
+#: src/Config/Descriptions.php:768
 msgid "Extra parameters for iconv"
 msgstr "Допълнителни параметри за iconv"
 
-#: src/Config/Descriptions.php:773
+#: src/Config/Descriptions.php:769
 msgid "Ignore multiple statement errors"
 msgstr "Игнориране на грешките при съставните заявки"
 
-#: src/Config/Descriptions.php:774
+#: src/Config/Descriptions.php:770
 msgid "Enable drag and drop import"
 msgstr "Активира импортирането с плъзгане и пускане"
 
-#: src/Config/Descriptions.php:775
+#: src/Config/Descriptions.php:771
 msgid "Partial import: allow interrupt"
 msgstr "Частичен импорт: позволява прекъсване"
 
-#: src/Config/Descriptions.php:780 src/Config/Descriptions.php:786
+#: src/Config/Descriptions.php:776 src/Config/Descriptions.php:782
 #: src/Plugins/Import/ImportCsv.php:138 src/Plugins/Import/ImportLdi.php:68
 msgid "Do not abort on INSERT error"
 msgstr ""
 "Да не се прекъсва операцията при възникване на грешка по време на INSERT"
 
-#: src/Config/Descriptions.php:781 src/Config/Descriptions.php:788
+#: src/Config/Descriptions.php:777 src/Config/Descriptions.php:784
 msgid "Add ON DUPLICATE KEY UPDATE"
 msgstr "Добавяне на ON DUPLICATE KEY UPDATE"
 
-#: src/Config/Descriptions.php:783
+#: src/Config/Descriptions.php:779
 msgid "Format of imported file"
 msgstr "Формат на импортирания файл"
 
-#: src/Config/Descriptions.php:787 src/Plugins/Import/ImportLdi.php:74
+#: src/Config/Descriptions.php:783 src/Plugins/Import/ImportLdi.php:74
 msgid "Use LOCAL keyword"
 msgstr "Използване на ключовата дума LOCAL"
 
-#: src/Config/Descriptions.php:790
+#: src/Config/Descriptions.php:786
 msgid "Column names in first row"
 msgstr "Имена на колони в първи ред"
 
-#: src/Config/Descriptions.php:791 src/Plugins/Import/ImportOds.php:69
+#: src/Config/Descriptions.php:787 src/Plugins/Import/ImportOds.php:69
 msgid "Do not import empty rows"
 msgstr "Празните редове да не бъдат импортирани"
 
-#: src/Config/Descriptions.php:792
+#: src/Config/Descriptions.php:788
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Импортиране на валути ($5.00 към 5.00)"
 
-#: src/Config/Descriptions.php:793
+#: src/Config/Descriptions.php:789
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Импортиране процентите като десетични числа (12.00% към .12)"
 
-#: src/Config/Descriptions.php:794
+#: src/Config/Descriptions.php:790
 msgid "Partial import: skip queries"
 msgstr "Частично импортиране: пропускане на заявки"
 
-#: src/Config/Descriptions.php:796
+#: src/Config/Descriptions.php:792
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Да не се използва AUTO_INCREMENT за нулеви стойности"
 
-#: src/Config/Descriptions.php:797
+#: src/Config/Descriptions.php:793
 msgid "Read as multibytes"
 msgstr "Четене като многобайтови"
 
-#: src/Config/Descriptions.php:798
+#: src/Config/Descriptions.php:794
 msgid "Initial state for sliders"
 msgstr "Първоначално състояние за плъзгачите"
 
-#: src/Config/Descriptions.php:799
+#: src/Config/Descriptions.php:795
 msgid "Number of inserted rows"
 msgstr "Броят добавени редове"
 
-#: src/Config/Descriptions.php:800
+#: src/Config/Descriptions.php:796
 msgid "Limit column characters"
 msgstr "Ограничаване знаците в колона"
 
-#: src/Config/Descriptions.php:801
+#: src/Config/Descriptions.php:797
 msgid "Delete all cookies on logout"
 msgstr "Изтриване всички бисквитки при изход"
 
-#: src/Config/Descriptions.php:802
+#: src/Config/Descriptions.php:798
 msgid "Recall user name"
 msgstr "Запомняне потребителското име"
 
-#: src/Config/Descriptions.php:803
+#: src/Config/Descriptions.php:799
 msgid "Login cookie store"
 msgstr "Съхраняване на бисквитки за вход"
 
-#: src/Config/Descriptions.php:804
+#: src/Config/Descriptions.php:800
 msgid "Login cookie validity"
 msgstr "Валидност на бисквитката за вход"
 
-#: src/Config/Descriptions.php:805
+#: src/Config/Descriptions.php:801
 msgid "Bigger textarea for LONGTEXT"
 msgstr "По-голямо текстово поле за LONGTEXT"
 
-#: src/Config/Descriptions.php:806
+#: src/Config/Descriptions.php:802
 msgid "Maximum displayed SQL length"
 msgstr "Максимална дължина на показване на SQL"
 
-#: src/Config/Descriptions.php:807
+#: src/Config/Descriptions.php:803
 msgid "Maximum databases"
 msgstr "Максимален брой бази данни"
 
-#: src/Config/Descriptions.php:808
+#: src/Config/Descriptions.php:804
 msgid "Maximum items on first level"
 msgstr "Максимален брой елементи на първо ниво"
 
-#: src/Config/Descriptions.php:809
+#: src/Config/Descriptions.php:805
 msgid "Maximum items in branch"
 msgstr "Максимален брой елементи в клон"
 
-#: src/Config/Descriptions.php:810
+#: src/Config/Descriptions.php:806
 msgid "Maximum number of rows to display"
 msgstr "Максимален брой редове за показване"
 
-#: src/Config/Descriptions.php:811
+#: src/Config/Descriptions.php:807
 msgid "Maximum tables"
 msgstr "Максимален брой таблици"
 
-#: src/Config/Descriptions.php:812
+#: src/Config/Descriptions.php:808
 msgid "Memory limit"
 msgstr "Ограничение на паметта"
 
-#: src/Config/Descriptions.php:813
+#: src/Config/Descriptions.php:809
 msgid "Show databases navigation as tree"
 msgstr "Представяне на навигацията в БД като дърво"
 
-#: src/Config/Descriptions.php:814
+#: src/Config/Descriptions.php:810
 msgid "Navigation panel width"
 msgstr "Ширина на навигационния панел"
 
-#: src/Config/Descriptions.php:815
+#: src/Config/Descriptions.php:811
 #: src/Controllers/JavaScriptMessagesController.php:607
 #: src/Navigation/NavigationTree.php:1281
 msgid "Link with main panel"
 msgstr "Свързване с главния панел"
 
-#: src/Config/Descriptions.php:816
+#: src/Config/Descriptions.php:812
 msgid "Display logo"
 msgstr "Показване лого"
 
-#: src/Config/Descriptions.php:817
+#: src/Config/Descriptions.php:813
 msgid "Logo link URL"
 msgstr "Връзка на логото"
 
-#: src/Config/Descriptions.php:818
+#: src/Config/Descriptions.php:814
 msgid "Logo link target"
 msgstr "Цел за връзката на логото"
 
-#: src/Config/Descriptions.php:819
+#: src/Config/Descriptions.php:815
 msgid "Display servers selection"
 msgstr "Показване избора на сървъра"
 
-#: src/Config/Descriptions.php:820
+#: src/Config/Descriptions.php:816
 msgid "Target for quick access icon"
 msgstr "Цел на пиктограмата за бърз достъп"
 
-#: src/Config/Descriptions.php:821
+#: src/Config/Descriptions.php:817
 msgid "Target for second quick access icon"
 msgstr "Цел на втората икона за бърз достъп"
 
-#: src/Config/Descriptions.php:822
+#: src/Config/Descriptions.php:818
 msgid "Minimum number of items to display the filter box"
 msgstr "Минимален брой елементи за показване на филтър"
 
-#: src/Config/Descriptions.php:824
+#: src/Config/Descriptions.php:820
 msgid "Minimum number of databases to display the database filter box"
 msgstr ""
 
-#: src/Config/Descriptions.php:826
+#: src/Config/Descriptions.php:822
 msgid "Group items in the tree"
 msgstr ""
 
-#: src/Config/Descriptions.php:827
+#: src/Config/Descriptions.php:823
 msgid "Database tree separator"
 msgstr "Разделител на дървото на БД"
 
-#: src/Config/Descriptions.php:828
+#: src/Config/Descriptions.php:824
 msgid "Table tree separator"
 msgstr "Разделител на дървото на таблици"
 
-#: src/Config/Descriptions.php:829
+#: src/Config/Descriptions.php:825
 msgid "Maximum table tree depth"
 msgstr "Максимална дълбочина на дървото на таблиците"
 
-#: src/Config/Descriptions.php:830
+#: src/Config/Descriptions.php:826
 msgid "Enable highlighting"
 msgstr "Включване синтактичното оцветяване"
 
-#: src/Config/Descriptions.php:831
+#: src/Config/Descriptions.php:827
 msgid "Enable navigation tree expansion"
 msgstr "Разрешаване разширяването дървото за навигация"
 
-#: src/Config/Descriptions.php:832
+#: src/Config/Descriptions.php:828
 msgid "Show tables in tree"
 msgstr "Показване на таблиците в дървото"
 
-#: src/Config/Descriptions.php:833
+#: src/Config/Descriptions.php:829
 #, fuzzy
 #| msgid "Show versions"
 msgid "Show views in tree"
 msgstr "Показване на версиите"
 
-#: src/Config/Descriptions.php:834
+#: src/Config/Descriptions.php:830
 #, fuzzy
 #| msgid "Show function fields"
 msgid "Show functions in tree"
 msgstr "Показване поле с функциите"
 
-#: src/Config/Descriptions.php:835
+#: src/Config/Descriptions.php:831
 #, fuzzy
 #| msgid "Show processes"
 msgid "Show procedures in tree"
 msgstr "MySQL процеси"
 
-#: src/Config/Descriptions.php:836
+#: src/Config/Descriptions.php:832
 #, fuzzy
 #| msgid "Show versions"
 msgid "Show events in tree"
 msgstr "Показване на версиите"
 
-#: src/Config/Descriptions.php:837
+#: src/Config/Descriptions.php:833
 #, fuzzy
 #| msgid "Copying database"
 msgid "Expand single database"
 msgstr "Копиране БД"
 
-#: src/Config/Descriptions.php:838
+#: src/Config/Descriptions.php:834
 msgid "Recently used tables"
 msgstr "Последно отваряни таблици"
 
-#: src/Config/Descriptions.php:839 src/RecentFavoriteTable.php:223
+#: src/Config/Descriptions.php:835 src/RecentFavoriteTable.php:223
 msgid "Favorite tables"
 msgstr "Любими таблици"
 
-#: src/Config/Descriptions.php:840
+#: src/Config/Descriptions.php:836
 msgid "Where to show the table row links"
 msgstr "Къде да бъдат показани връзките в ред от таблица"
 
-#: src/Config/Descriptions.php:841
+#: src/Config/Descriptions.php:837
 msgid "Show row links anyway"
 msgstr ""
 
-#: src/Config/Descriptions.php:843
+#: src/Config/Descriptions.php:839
 msgid "Natural order"
 msgstr "Естествен ред"
 
-#: src/Config/Descriptions.php:844
+#: src/Config/Descriptions.php:840
 #, fuzzy
 #| msgid "Table caption"
 msgid "Table navigation bar"
 msgstr "Заглавие на таблицата"
 
-#: src/Config/Descriptions.php:845
+#: src/Config/Descriptions.php:841
 msgid "GZip output buffering"
 msgstr "GZip буфериране"
 
-#: src/Config/Descriptions.php:846
+#: src/Config/Descriptions.php:842
 msgid "Default sorting order"
 msgstr "Ред за сортиране по подразбиране"
 
-#: src/Config/Descriptions.php:847
+#: src/Config/Descriptions.php:843
 msgid "Persistent connections"
 msgstr "Постоянни връзки"
 
-#: src/Config/Descriptions.php:848
+#: src/Config/Descriptions.php:844
 msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Липсват таблици от хранилището за конфигурация на phpMyAdmin"
 
-#: src/Config/Descriptions.php:849
+#: src/Config/Descriptions.php:845
 msgid "MySQL reserved word warning"
 msgstr ""
 
-#: src/Config/Descriptions.php:850
+#: src/Config/Descriptions.php:846
 #, fuzzy
 #| msgid "Allow to display all the rows"
 msgid "How to display the menu tabs"
 msgstr "Разрешаване показването на всички редове"
 
-#: src/Config/Descriptions.php:851
+#: src/Config/Descriptions.php:847
 msgid "How to display various action links"
 msgstr ""
 
-#: src/Config/Descriptions.php:852
+#: src/Config/Descriptions.php:848
 msgid "Protect binary columns"
 msgstr "Защитаване на двоичните колони"
 
-#: src/Config/Descriptions.php:853
+#: src/Config/Descriptions.php:849
 msgid "Permanent query history"
 msgstr "Постоянна история на заявките"
 
-#: src/Config/Descriptions.php:854
+#: src/Config/Descriptions.php:850
 msgid "Query history length"
 msgstr "Дължина на историята на заявки"
 
-#: src/Config/Descriptions.php:855
+#: src/Config/Descriptions.php:851
 msgid "Allow shared bookmarks between users"
 msgstr ""
 
-#: src/Config/Descriptions.php:856
+#: src/Config/Descriptions.php:852
 msgid "Recoding engine"
 msgstr ""
 
-#: src/Config/Descriptions.php:857
+#: src/Config/Descriptions.php:853
 msgid "Remember table's sorting"
 msgstr "Запомняне сортирането на таблици"
 
-#: src/Config/Descriptions.php:858
+#: src/Config/Descriptions.php:854
 #, fuzzy
 #| msgid "Default sorting order"
 msgid "Primary key default sort order"
 msgstr "Ред за сортиране по подразбиране"
 
-#: src/Config/Descriptions.php:859
+#: src/Config/Descriptions.php:855
 msgid "Repeat headers"
 msgstr "Повтаряне на заглавката"
 
-#: src/Config/Descriptions.php:860
+#: src/Config/Descriptions.php:856
 msgid "Grid editing: trigger action"
 msgstr ""
 
-#: src/Config/Descriptions.php:861
+#: src/Config/Descriptions.php:857
 #, fuzzy
 #| msgid "Relational schema"
 msgid "Relational display"
 msgstr "Релационна схема"
 
-#: src/Config/Descriptions.php:862
+#: src/Config/Descriptions.php:858
 msgid "Grid editing: save all edited cells at once"
 msgstr ""
 
-#: src/Config/Descriptions.php:863
+#: src/Config/Descriptions.php:859
 msgid "Save directory"
 msgstr ""
 
-#: src/Config/Descriptions.php:864
+#: src/Config/Descriptions.php:860
 msgid "Host authorization order"
 msgstr ""
 
-#: src/Config/Descriptions.php:865
+#: src/Config/Descriptions.php:861
 msgid "Host authorization rules"
 msgstr ""
 
-#: src/Config/Descriptions.php:866
+#: src/Config/Descriptions.php:862
 msgid "Allow logins without a password"
 msgstr "Разрешаване вход без парола"
 
-#: src/Config/Descriptions.php:867
+#: src/Config/Descriptions.php:863
 msgid "Allow root login"
 msgstr "Разрешаване вход с потребител root"
 
-#: src/Config/Descriptions.php:868
+#: src/Config/Descriptions.php:864
 #, fuzzy
 #| msgid "Session value"
 msgid "Session timezone"
 msgstr "Сесийна стойност"
 
-#: src/Config/Descriptions.php:869
+#: src/Config/Descriptions.php:865
 msgid "HTTP Realm"
 msgstr ""
 
-#: src/Config/Descriptions.php:871
+#: src/Config/Descriptions.php:867
 msgid "Bookmark table"
 msgstr "Таблица за белязки"
 
-#: src/Config/Descriptions.php:872
+#: src/Config/Descriptions.php:868
 msgid "Column information table"
 msgstr ""
 
-#: src/Config/Descriptions.php:873
+#: src/Config/Descriptions.php:869
 msgid "Compress connection"
 msgstr "Компресиране връзката"
 
-#: src/Config/Descriptions.php:874
+#: src/Config/Descriptions.php:870
 msgid "Control user password"
 msgstr "Парола на контролен потребител"
 
-#: src/Config/Descriptions.php:875
+#: src/Config/Descriptions.php:871
 msgid "Control user"
 msgstr "Контролен потребител"
 
-#: src/Config/Descriptions.php:876
+#: src/Config/Descriptions.php:872
 msgid "Control host"
 msgstr "Контролен хост"
 
-#: src/Config/Descriptions.php:877
+#: src/Config/Descriptions.php:873
 #, fuzzy
 #| msgid "Control host"
 msgid "Control port"
 msgstr "Контролен хост"
 
-#: src/Config/Descriptions.php:878
+#: src/Config/Descriptions.php:874
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "Забрана използването на INFORMATION_SCHEMA"
 
-#: src/Config/Descriptions.php:879
+#: src/Config/Descriptions.php:875
 msgid "Hide databases"
 msgstr "Скриване БД"
 
-#: src/Config/Descriptions.php:880
+#: src/Config/Descriptions.php:876
 msgid "SQL query history table"
 msgstr ""
 
-#: src/Config/Descriptions.php:881
+#: src/Config/Descriptions.php:877
 msgid "Server hostname"
 msgstr ""
 
-#: src/Config/Descriptions.php:882
+#: src/Config/Descriptions.php:878
 msgid "Logout URL"
 msgstr "Адрес за изход"
 
-#: src/Config/Descriptions.php:883
+#: src/Config/Descriptions.php:879
 msgid "Maximal number of table preferences to store"
 msgstr ""
 
-#: src/Config/Descriptions.php:884
+#: src/Config/Descriptions.php:880
 #, fuzzy
 #| msgid "Exporting rows from \"%s\" table"
 msgid "Export templates table"
 msgstr "Експортиране на редове от таблица \"%s\""
 
-#: src/Config/Descriptions.php:885
+#: src/Config/Descriptions.php:881
 #, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns table"
 msgstr "Колони в текство поле"
 
-#: src/Config/Descriptions.php:886
+#: src/Config/Descriptions.php:882
 msgid "Show only listed databases"
 msgstr "Показване само на изброените БД"
 
-#: src/Config/Descriptions.php:887
+#: src/Config/Descriptions.php:883
 msgid "Password for config auth"
 msgstr "Парола за удостоверяване от настройките"
 
-#: src/Config/Descriptions.php:888
+#: src/Config/Descriptions.php:884
 msgid "PDF schema: pages table"
 msgstr ""
 
-#: src/Config/Descriptions.php:890
+#: src/Config/Descriptions.php:886
 msgid "Server port"
 msgstr "Порт на сървъра"
 
-#: src/Config/Descriptions.php:891
+#: src/Config/Descriptions.php:887
 msgid "Recently used table"
 msgstr "Последно отваряна таблица"
 
-#: src/Config/Descriptions.php:892
+#: src/Config/Descriptions.php:888
 #, fuzzy
 #| msgid "Variables"
 msgid "Favorites table"
 msgstr "Променливи"
 
-#: src/Config/Descriptions.php:893
+#: src/Config/Descriptions.php:889
 msgid "Relation table"
 msgstr "Таблица за връзка"
 
-#: src/Config/Descriptions.php:894
+#: src/Config/Descriptions.php:890
 msgid "Signon session name"
 msgstr ""
 
-#: src/Config/Descriptions.php:895
+#: src/Config/Descriptions.php:891
 msgid "Signon URL"
 msgstr ""
 
-#: src/Config/Descriptions.php:896
+#: src/Config/Descriptions.php:892
 msgid "Server socket"
 msgstr "Сокет на сървъра"
 
-#: src/Config/Descriptions.php:897
+#: src/Config/Descriptions.php:893
 msgid "Use SSL"
 msgstr "Използване SSL"
 
-#: src/Config/Descriptions.php:898
+#: src/Config/Descriptions.php:894
 msgid "Designer and PDF schema: table coordinates"
 msgstr ""
 
-#: src/Config/Descriptions.php:899
+#: src/Config/Descriptions.php:895
 msgid "Display columns table"
 msgstr "Показване таблицата с колоните"
 
-#: src/Config/Descriptions.php:900
+#: src/Config/Descriptions.php:896
 msgid "UI preferences table"
 msgstr "Таблица с визуалните настройки"
 
-#: src/Config/Descriptions.php:901
+#: src/Config/Descriptions.php:897
 msgid "Add DROP DATABASE"
 msgstr "Добавяне DROP DATABASE"
 
-#: src/Config/Descriptions.php:903
+#: src/Config/Descriptions.php:899
 msgid "Add DROP VIEW"
 msgstr "Добавяне DROP VIEW"
 
-#: src/Config/Descriptions.php:904
+#: src/Config/Descriptions.php:900
 msgid "Statements to track"
 msgstr "Изрази, които да бъдат проследявани"
 
-#: src/Config/Descriptions.php:905
+#: src/Config/Descriptions.php:901
 msgid "SQL query tracking table"
 msgstr ""
 
-#: src/Config/Descriptions.php:906
+#: src/Config/Descriptions.php:902
 msgid "Automatically create versions"
 msgstr "Автоматично създаване на версии"
 
-#: src/Config/Descriptions.php:907
+#: src/Config/Descriptions.php:903
 msgid "User preferences storage table"
 msgstr "Таблица за съхранение на потребителските предпочитания"
 
-#: src/Config/Descriptions.php:908
+#: src/Config/Descriptions.php:904
 #, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
 msgstr "Използване таблиците"
 
-#: src/Config/Descriptions.php:909
+#: src/Config/Descriptions.php:905
 #, fuzzy
 #| msgid "Use Host Table"
 msgid "User groups table"
 msgstr "От таблица Host"
 
-#: src/Config/Descriptions.php:910
+#: src/Config/Descriptions.php:906
 msgid "Hidden navigation items table"
 msgstr ""
 
-#: src/Config/Descriptions.php:911
+#: src/Config/Descriptions.php:907
 msgid "User for config auth"
 msgstr ""
 
-#: src/Config/Descriptions.php:912
+#: src/Config/Descriptions.php:908
 msgid "Verbose name of this server"
 msgstr "Описателно име на този сървър"
 
-#: src/Config/Descriptions.php:913
+#: src/Config/Descriptions.php:909
 msgid "Allow to display all the rows"
 msgstr "Разрешаване показването на всички редове"
 
-#: src/Config/Descriptions.php:914
+#: src/Config/Descriptions.php:910
 msgid "Show password change form"
 msgstr "Показване формуляр за смяна на парола"
 
-#: src/Config/Descriptions.php:915
+#: src/Config/Descriptions.php:911
 msgid "Show create database form"
 msgstr "Показване формуляр за създаване на БД"
 
-#: src/Config/Descriptions.php:916
+#: src/Config/Descriptions.php:912
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show table comments"
 msgstr "Коментари към таблицата"
 
-#: src/Config/Descriptions.php:917
+#: src/Config/Descriptions.php:913
 #, fuzzy
 #| msgid "Show Creation timestamp"
 msgid "Show creation timestamp"
 msgstr "Показване времево клеймо на създаването"
 
-#: src/Config/Descriptions.php:918
+#: src/Config/Descriptions.php:914
 #, fuzzy
 #| msgid "Show Last update timestamp"
 msgid "Show last update timestamp"
 msgstr "Показване времево клеймо на последната промяна"
 
-#: src/Config/Descriptions.php:919
+#: src/Config/Descriptions.php:915
 #, fuzzy
 #| msgid "Show Last check timestamp"
 msgid "Show last check timestamp"
 msgstr "Показване времево клеймо на последната проверка"
 
-#: src/Config/Descriptions.php:920
+#: src/Config/Descriptions.php:916
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show table charset"
 msgstr "Коментари към таблицата"
 
-#: src/Config/Descriptions.php:921
+#: src/Config/Descriptions.php:917
 msgid "Show field types"
 msgstr "Показване типовете полета"
 
-#: src/Config/Descriptions.php:922
+#: src/Config/Descriptions.php:918
 msgid "Show function fields"
 msgstr "Показване поле с функциите"
 
-#: src/Config/Descriptions.php:923
+#: src/Config/Descriptions.php:919
 msgid "Show hint"
 msgstr "Показване подсказка"
 
-#: src/Config/Descriptions.php:924
+#: src/Config/Descriptions.php:920
 msgid "Show phpinfo() link"
 msgstr "Показване връзка към phpinfo()"
 
-#: src/Config/Descriptions.php:925
+#: src/Config/Descriptions.php:921
 msgid "Show detailed MySQL server information"
 msgstr "Показва подробна информация за MySQL сървъра"
 
-#: src/Config/Descriptions.php:926
+#: src/Config/Descriptions.php:922
 msgid "Show SQL queries"
 msgstr "Показване на SQL заявките"
 
-#: src/Config/Descriptions.php:928
+#: src/Config/Descriptions.php:924
 msgid "Show statistics"
 msgstr "Показване статистика"
 
-#: src/Config/Descriptions.php:929
+#: src/Config/Descriptions.php:925
 msgid "Skip locked tables"
 msgstr "Пропускане заключени таблици"
 
-#: src/Config/Descriptions.php:931 src/Html/Generator.php:525
+#: src/Config/Descriptions.php:927 src/Html/Generator.php:525
 msgid "Explain SQL"
 msgstr "Обяснение на SQL"
 
-#: src/Config/Descriptions.php:933 src/Html/Generator.php:586
+#: src/Config/Descriptions.php:929 src/Html/Generator.php:586
 msgid "Create PHP code"
 msgstr "Създаване на PHP код"
 
-#: src/Config/Descriptions.php:934
+#: src/Config/Descriptions.php:930
 msgid "Suhosin warning"
 msgstr ""
 
-#: src/Config/Descriptions.php:935
+#: src/Config/Descriptions.php:931
 #, fuzzy
 #| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
 msgstr "Валидност на бисквитката за вход"
 
-#: src/Config/Descriptions.php:936
+#: src/Config/Descriptions.php:932
 msgid "Textarea columns"
 msgstr "Колони в текство поле"
 
-#: src/Config/Descriptions.php:937
+#: src/Config/Descriptions.php:933
 msgid "Textarea rows"
 msgstr "Реда в текстово поле"
 
-#: src/Config/Descriptions.php:939
+#: src/Config/Descriptions.php:935
 msgid "Default title"
 msgstr "Заглавие по подразбиране"
 
-#: src/Config/Descriptions.php:942
+#: src/Config/Descriptions.php:938
 msgid "List of trusted proxies for IP allow/deny"
 msgstr ""
 
-#: src/Config/Descriptions.php:943
+#: src/Config/Descriptions.php:939
 msgid "Upload directory"
 msgstr "Папка за качване на файлове"
 
-#: src/Config/Descriptions.php:944
+#: src/Config/Descriptions.php:940
 msgid "Use database search"
 msgstr ""
 
-#: src/Config/Descriptions.php:945
+#: src/Config/Descriptions.php:941
 msgid "Enable the Developer tab in settings"
 msgstr ""
 
-#: src/Config/Descriptions.php:946 src/Setup/Index.php:125
+#: src/Config/Descriptions.php:942 src/Setup/Index.php:125
 #: src/Setup/Index.php:152 src/Setup/Index.php:160 src/Setup/Index.php:168
 msgid "Version check"
 msgstr "Проверка за обновления"
 
-#: src/Config/Descriptions.php:947
+#: src/Config/Descriptions.php:943
 msgid "Proxy URL"
 msgstr ""
 
-#: src/Config/Descriptions.php:948
+#: src/Config/Descriptions.php:944
 #, fuzzy
 #| msgid "Username"
 msgid "Proxy username"
 msgstr "Потребителско име"
 
-#: src/Config/Descriptions.php:949
+#: src/Config/Descriptions.php:945
 #, fuzzy
 #| msgid "Password"
 msgid "Proxy password"
 msgstr "Парола"
 
-#: src/Config/Descriptions.php:950
+#: src/Config/Descriptions.php:946
 msgid "ZIP"
 msgstr "ZIP"
 
-#: src/Config/Descriptions.php:951
+#: src/Config/Descriptions.php:947
 msgid "URL for reCAPTCHA v2 API"
 msgstr ""
 
-#: src/Config/Descriptions.php:952
+#: src/Config/Descriptions.php:948
 msgid "Content-Security-Policy snippet for reCAPTCHA v2 API"
 msgstr ""
 
-#: src/Config/Descriptions.php:953
+#: src/Config/Descriptions.php:949
 msgid "Request parameter for reCAPTCHA v2 API"
 msgstr ""
 
-#: src/Config/Descriptions.php:954
+#: src/Config/Descriptions.php:950
 msgid "Response parameter for reCAPTCHA v2 API"
 msgstr ""
 
-#: src/Config/Descriptions.php:955
+#: src/Config/Descriptions.php:951
 msgid "Public key for reCAPTCHA"
 msgstr ""
 
-#: src/Config/Descriptions.php:956
+#: src/Config/Descriptions.php:952
 msgid "Private key for reCAPTCHA"
 msgstr ""
 
-#: src/Config/Descriptions.php:957
+#: src/Config/Descriptions.php:953
 msgid "URL for reCAPTCHA siteverify"
 msgstr ""
 
-#: src/Config/Descriptions.php:958
+#: src/Config/Descriptions.php:954
 #, fuzzy
 #| msgid "Server port"
 msgid "Send error reports"
 msgstr "Порт на сървъра"
 
-#: src/Config/Descriptions.php:959
+#: src/Config/Descriptions.php:955
 #, fuzzy
 #| msgid "Executed queries"
 msgid "Enter executes queries in console"
 msgstr "Изпълнени заявки"
 
-#: src/Config/Descriptions.php:960
+#: src/Config/Descriptions.php:956
 #, fuzzy
 #| msgid "Server configuration"
 msgid "Enable Zero Configuration mode"
 msgstr "Сървърна конфигурация"
 
-#: src/Config/Descriptions.php:964
+#: src/Config/Descriptions.php:960
 msgid "Execute queries on Enter and insert new line with Shift+Enter"
 msgstr ""
 
-#: src/Config/Descriptions.php:966
+#: src/Config/Descriptions.php:962
 #, fuzzy
 #| msgid "Console"
 msgid "Console height"
 msgstr "Конзола"
 
-#: src/Config/Descriptions.php:967
+#: src/Config/Descriptions.php:963
 #, fuzzy
 #| msgid "Console"
 msgid "Console mode"
 msgstr "Конзола"
 
-#: src/Config/Descriptions.php:970
+#: src/Config/Descriptions.php:966
 msgid "Order by"
 msgstr "Подредени по"
 
-#: src/Config/Descriptions.php:971
+#: src/Config/Descriptions.php:967
 msgid "Server connection collation"
 msgstr "Колация на връзката към сървъра"
 
@@ -12000,31 +12020,31 @@ msgstr "Колация на връзката към сървъра"
 msgid "Missing data for %s"
 msgstr "Липсващи данни за %s"
 
-#: src/Config/FormDisplay.php:619 src/Config/Validator.php:586
+#: src/Config/FormDisplay.php:618 src/Config/Validator.php:586
 #: src/Controllers/JavaScriptMessagesController.php:825
 msgid "Incorrect value!"
 msgstr "Невалидна стойност!"
 
-#: src/Config/FormDisplay.php:767
+#: src/Config/FormDisplay.php:766
 msgid "unavailable"
 msgstr "недостъпно"
 
-#: src/Config/FormDisplay.php:769
+#: src/Config/FormDisplay.php:768
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" изисква разширението %s"
 
-#: src/Config/FormDisplay.php:791
+#: src/Config/FormDisplay.php:790
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr "Компресираният импорт не работи, поради липсваща функционалност %s."
 
-#: src/Config/FormDisplay.php:800
+#: src/Config/FormDisplay.php:799
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr "Компресираният експорт не работи, поради липсваща функционалност %s."
 
-#: src/Config/FormDisplay.php:820
+#: src/Config/FormDisplay.php:819
 #, php-format
 msgid "maximum %s"
 msgstr "най-много %s"
@@ -12220,11 +12240,11 @@ msgstr ""
 msgid "Server %d"
 msgstr "Сървър %d"
 
-#: src/ConfigStorage/Relation.php:1259
+#: src/ConfigStorage/Relation.php:1255
 msgid "no description"
 msgstr "няма описание"
 
-#: src/ConfigStorage/Relation.php:1456
+#: src/ConfigStorage/Relation.php:1452
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -12336,7 +12356,7 @@ msgstr[1] "Показване на %1$d отбелязки (общо лични 
 msgid "No bookmarks"
 msgstr "Няма бележки"
 
-#: src/Controllers/AbstractController.php:65
+#: src/Controllers/AbstractController.php:61
 #: src/Controllers/SchemaExportController.php:35
 #: src/Controllers/Server/UserGroupsFormController.php:45
 msgid "Missing parameter:"
@@ -12383,9 +12403,6 @@ msgstr ""
 #: src/Controllers/Database/ExportController.php:72
 #: src/Controllers/Database/ImportController.php:65
 #: src/Controllers/Database/ImportController.php:70
-#: src/Controllers/Database/Operations/CollationController.php:63
-#: src/Controllers/Database/OperationsController.php:233
-#: src/Controllers/Database/OperationsController.php:238
 #: src/Controllers/Database/RoutinesController.php:78
 #: src/Controllers/Database/RoutinesController.php:104
 #: src/Controllers/Database/SearchController.php:53
@@ -12394,11 +12411,18 @@ msgstr ""
 #: src/Controllers/Database/SqlController.php:69
 #: src/Controllers/Database/StructureController.php:140
 #: src/Controllers/Database/StructureController.php:145
-#: src/Controllers/Database/Structure/FavoriteTableController.php:83
+#: src/Controllers/Database/Structure/FavoriteTableController.php:79
 #: src/Controllers/Database/Structure/RealRowCountController.php:61
 #: src/Controllers/Database/TrackingController.php:62
 #: src/Controllers/Database/TrackingController.php:67
 #: src/Controllers/JavaScriptMessagesController.php:355
+#: src/Controllers/Operations/Database/CollationController.php:63
+#: src/Controllers/Operations/DatabaseController.php:233
+#: src/Controllers/Operations/DatabaseController.php:238
+#: src/Controllers/Operations/TableController.php:89
+#: src/Controllers/Operations/TableController.php:94
+#: src/Controllers/Operations/ViewController.php:65
+#: src/Controllers/Operations/ViewController.php:70
 #: src/Controllers/Server/Databases/DestroyController.php:60
 #: src/Controllers/Table/AddFieldController.php:175
 #: src/Controllers/Table/AddFieldController.php:180
@@ -12423,14 +12447,12 @@ msgstr ""
 #: src/Controllers/Table/IndexesController.php:70
 #: src/Controllers/Table/IndexRenameController.php:58
 #: src/Controllers/Table/IndexRenameController.php:63
-#: src/Controllers/Table/OperationsController.php:94
-#: src/Controllers/Table/OperationsController.php:99
 #: src/Controllers/Table/SearchController.php:177
 #: src/Controllers/Table/SearchController.php:182
 #: src/Controllers/Table/SqlController.php:66
 #: src/Controllers/Table/SqlController.php:71
-#: src/Controllers/Table/StructureController.php:121
-#: src/Controllers/Table/StructureController.php:126
+#: src/Controllers/Table/StructureController.php:102
+#: src/Controllers/Table/StructureController.php:107
 #: src/Controllers/Table/Structure/PrimaryController.php:75
 #: src/Controllers/Table/Structure/PrimaryController.php:80
 #: src/Controllers/Table/TrackingController.php:71
@@ -12441,8 +12463,6 @@ msgstr ""
 #: src/Controllers/Triggers/IndexController.php:97
 #: src/Controllers/View/CreateController.php:75
 #: src/Controllers/View/CreateController.php:80
-#: src/Controllers/View/OperationsController.php:65
-#: src/Controllers/View/OperationsController.php:70
 msgid "No databases selected."
 msgstr "Няма избрани БД."
 
@@ -12489,42 +12509,13 @@ msgstr ""
 "инсталацията!"
 
 #: src/Controllers/Database/ImportController.php:81
-#: src/Controllers/Import/ImportController.php:548
+#: src/Controllers/Import/ImportController.php:547
 #: src/Controllers/Server/ImportController.php:61
 #: src/Controllers/Table/ImportController.php:101
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Не могат да бъдат заредени разширенията за импорт, моля проверете "
 "инсталацията!"
-
-#: src/Controllers/Database/Operations/CollationController.php:45
-#: src/Controllers/Table/OperationsController.php:288
-msgid "No collation provided."
-msgstr ""
-
-#: src/Controllers/Database/OperationsController.php:84
-msgid "Cannot copy database to the same name. Change the name and try again."
-msgstr ""
-"Невъзможно е копирането на БД със същото име. Изберете различно име и "
-"опитайте пак."
-
-#: src/Controllers/Database/OperationsController.php:163
-#, php-format
-msgid "Database %1$s has been renamed to %2$s."
-msgstr "БД %1$s беше преименувана на %2$s."
-
-#: src/Controllers/Database/OperationsController.php:173
-#, php-format
-msgid "Database %1$s has been copied to %2$s."
-msgstr "БД %1$s беше копирана като %2$s."
-
-#: src/Controllers/Database/OperationsController.php:276
-#, php-format
-msgid ""
-"The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr ""
-"Хранилището за конфигурации на phpMyAdmin е деактивирано. За да разберете "
-"защо натиснете %sтук%s."
 
 #: src/Controllers/Database/PrivilegesController.php:67
 #: src/Controllers/Server/PrivilegesController.php:111
@@ -12551,6 +12542,10 @@ msgstr "Не разполагате с права, за да администр�
 #: src/Controllers/Database/Structure/ShowCreateController.php:29
 #: src/Controllers/Export/TablesController.php:29
 #: src/Controllers/JavaScriptMessagesController.php:356
+#: src/Controllers/Operations/TableController.php:103
+#: src/Controllers/Operations/TableController.php:108
+#: src/Controllers/Operations/ViewController.php:79
+#: src/Controllers/Operations/ViewController.php:84
 #: src/Controllers/Table/AddFieldController.php:189
 #: src/Controllers/Table/AddFieldController.php:194
 #: src/Controllers/Table/ChangeController.php:84
@@ -12575,21 +12570,17 @@ msgstr "Не разполагате с права, за да администр�
 #: src/Controllers/Table/Maintenance/ChecksumController.php:45
 #: src/Controllers/Table/Maintenance/OptimizeController.php:45
 #: src/Controllers/Table/Maintenance/RepairController.php:45
-#: src/Controllers/Table/OperationsController.php:108
-#: src/Controllers/Table/OperationsController.php:113
 #: src/Controllers/Table/SearchController.php:191
 #: src/Controllers/Table/SearchController.php:196
 #: src/Controllers/Table/SqlController.php:80
 #: src/Controllers/Table/SqlController.php:85
-#: src/Controllers/Table/StructureController.php:135
-#: src/Controllers/Table/StructureController.php:140
+#: src/Controllers/Table/StructureController.php:116
+#: src/Controllers/Table/StructureController.php:121
 #: src/Controllers/Table/Structure/PrimaryController.php:89
 #: src/Controllers/Table/Structure/PrimaryController.php:94
 #: src/Controllers/Table/ZoomSearchController.php:116
 #: src/Controllers/Table/ZoomSearchController.php:121
 #: src/Controllers/Triggers/IndexController.php:78
-#: src/Controllers/View/OperationsController.php:79
-#: src/Controllers/View/OperationsController.php:84
 #, fuzzy
 #| msgid "No tables selected."
 msgid "No table selected."
@@ -12647,7 +12638,7 @@ msgstr ""
 msgid "Success!"
 msgstr ""
 
-#: src/Controllers/Database/StructureController.php:571
+#: src/Controllers/Database/StructureController.php:569
 #: src/Display/Results.php:3536
 #, php-format
 msgid ""
@@ -12655,11 +12646,11 @@ msgid ""
 "%sdocumentation%s."
 msgstr "Този изглед има поне толкова реда. Погледнете %sдокументацията%s."
 
-#: src/Controllers/Database/StructureController.php:751
+#: src/Controllers/Database/StructureController.php:749
 msgid "unknown"
 msgstr "непознат"
 
-#: src/Controllers/Database/Structure/FavoriteTableController.php:117
+#: src/Controllers/Database/Structure/FavoriteTableController.php:113
 msgid "Favorite List is full!"
 msgstr "Листа с фаворитите е пълен!"
 
@@ -12849,17 +12840,17 @@ msgstr ""
 msgid "Incorrect format parameter"
 msgstr "Изтриване на последен параметър"
 
-#: src/Controllers/Import/ImportController.php:357
-#: src/Controllers/Import/ImportController.php:588
+#: src/Controllers/Import/ImportController.php:356
+#: src/Controllers/Import/ImportController.php:587
 msgid "Showing bookmark"
 msgstr "Показване на белязка"
 
-#: src/Controllers/Import/ImportController.php:377
-#: src/Controllers/Import/ImportController.php:584
+#: src/Controllers/Import/ImportController.php:376
+#: src/Controllers/Import/ImportController.php:583
 msgid "The bookmark has been deleted."
 msgstr "Белязката беше изтрита."
 
-#: src/Controllers/Import/ImportController.php:496
+#: src/Controllers/Import/ImportController.php:495
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -12869,14 +12860,14 @@ msgstr ""
 "по-голям от разрешеното в конфигурацията на PHP. Вижте [doc@faq1-16]ЧЗВ "
 "1.16[/doc]."
 
-#: src/Controllers/Import/ImportController.php:596
+#: src/Controllers/Import/ImportController.php:595
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Импортирането приключи успешно, беше изпълнена %d заявка."
 msgstr[1] "Импортирането приключи успешно, бяха изпълнени %d заявки."
 
-#: src/Controllers/Import/ImportController.php:633
+#: src/Controllers/Import/ImportController.php:632
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -12885,7 +12876,7 @@ msgstr ""
 "Времето за изчакване на скрипта изтече, ако искате да завършите импорта,моля "
 "пуснете (%s) отново същия файл (%s) и той ще си продължи."
 
-#: src/Controllers/Import/ImportController.php:643
+#: src/Controllers/Import/ImportController.php:642
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -12894,8 +12885,8 @@ msgstr ""
 "обикновено означава, че phpMyAdmin няма да бъде в състояние да завърши този "
 "импорт, освен ако не бъдат увеличени времевите ограничения в PHP."
 
-#: src/Controllers/Import/ImportController.php:711
-#: src/Controllers/Sql/SqlController.php:170
+#: src/Controllers/Import/ImportController.php:710
+#: src/Controllers/Sql/SqlController.php:168
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" заявката е забранена."
 
@@ -13139,12 +13130,12 @@ msgid "The user name is empty!"
 msgstr "Потребителското име е празно!"
 
 #: src/Controllers/JavaScriptMessagesController.php:144
-#: src/Server/Privileges.php:765 src/UserPassword.php:39
+#: src/Server/Privileges.php:761 src/UserPassword.php:39
 msgid "The password is empty!"
 msgstr "Паролата е празна!"
 
 #: src/Controllers/JavaScriptMessagesController.php:145
-#: src/Server/Privileges.php:763 src/UserPassword.php:43
+#: src/Server/Privileges.php:759 src/UserPassword.php:43
 msgid "The passwords aren't the same!"
 msgstr "Паролата не е същата!"
 
@@ -14975,10 +14966,39 @@ msgid "No such column"
 msgstr "Преместване колона"
 
 #: src/Controllers/Normalization/GetColumnsController.php:31
-#: src/Normalization.php:218 src/Types.php:700
+#: src/Normalization.php:218 src/Types.php:696
 msgctxt "string types"
 msgid "String"
 msgstr "Низ"
+
+#: src/Controllers/Operations/Database/CollationController.php:45
+#: src/Controllers/Operations/TableController.php:280
+msgid "No collation provided."
+msgstr ""
+
+#: src/Controllers/Operations/DatabaseController.php:84
+msgid "Cannot copy database to the same name. Change the name and try again."
+msgstr ""
+"Невъзможно е копирането на БД със същото име. Изберете различно име и "
+"опитайте пак."
+
+#: src/Controllers/Operations/DatabaseController.php:163
+#, php-format
+msgid "Database %1$s has been renamed to %2$s."
+msgstr "БД %1$s беше преименувана на %2$s."
+
+#: src/Controllers/Operations/DatabaseController.php:173
+#, php-format
+msgid "Database %1$s has been copied to %2$s."
+msgstr "БД %1$s беше копирана като %2$s."
+
+#: src/Controllers/Operations/DatabaseController.php:276
+#, php-format
+msgid ""
+"The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
+msgstr ""
+"Хранилището за конфигурации на phpMyAdmin е деактивирано. За да разберете "
+"защо натиснете %sтук%s."
 
 #: src/Controllers/Preferences/ManageController.php:89
 #, fuzzy
@@ -15660,7 +15680,7 @@ msgstr "Броят на нишките, които не са спящи."
 msgid "User groups management is not enabled."
 msgstr "Буферът за заявки не е включен."
 
-#: src/Controllers/Server/Variables/SetVariableController.php:82
+#: src/Controllers/Server/Variables/SetVariableController.php:78
 msgid "Setting variable failed"
 msgstr "Неуспешно създаване на променлива"
 
@@ -15697,12 +15717,12 @@ msgstr "Грешни данни"
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:247 src/Sql.php:1077
+#: src/Controllers/Sql/SqlController.php:245 src/Sql.php:1076
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Отметката %s беше създадена."
 
-#: src/Controllers/Sql/SqlController.php:254
+#: src/Controllers/Sql/SqlController.php:252
 msgid "Bookmark not created!"
 msgstr "Отметката не беше създадена!"
 
@@ -15786,7 +15806,7 @@ msgstr "Има твърде много JOIN без индекси."
 
 #: src/Controllers/Table/GetFieldController.php:82
 #: src/Database/Routines.php:993 src/Import/Import.php:166
-#: src/InsertEdit.php:202 src/Sql.php:879
+#: src/InsertEdit.php:202 src/Sql.php:878
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL върна празен резултат (т.е. нула редове)."
 
@@ -15913,7 +15933,7 @@ msgstr "Не разполагате с права, за да се намират
 msgid "View name can not be empty!"
 msgstr ""
 
-#: src/Core.php:115 src/ZipExtension.php:57
+#: src/Core.php:111 src/ZipExtension.php:57
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Разширението %s липсва. Проверете конфигурацията на PHP."
@@ -16083,7 +16103,7 @@ msgstr "Съжаляваме, но възстановяването на изт�
 msgid "The backed up query was:"
 msgstr "Архивираната заявка е:"
 
-#: src/DatabaseInterface.php:1161
+#: src/DatabaseInterface.php:1157
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -16091,11 +16111,11 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: src/DatabaseInterface.php:1203
+#: src/DatabaseInterface.php:1199
 msgid "Failed to set configured collation connection!"
 msgstr "Неуспешно установяване на конфигурираната връзка за колация!"
 
-#: src/DatabaseInterface.php:1657
+#: src/DatabaseInterface.php:1653
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "Грешка при указване на връзка за controluser в настройките."
 
@@ -16202,7 +16222,7 @@ msgstr "%1$d общо, %2$d в питане"
 msgid "%s total"
 msgstr "%d общо"
 
-#: src/Display/Results.php:3577 src/Sql.php:885
+#: src/Display/Results.php:3577 src/Sql.php:884
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Заявката отне %01.4f секунди."
@@ -16755,7 +16775,7 @@ msgstr "Името на таблицата не може да бъде по-дъ
 msgid "The trigger name cannot end with a space character."
 msgstr "Думите трябва да се разделят с интервал (\" \")."
 
-#: src/Import/Import.php:288 src/Sql.php:893
+#: src/Import/Import.php:288 src/Sql.php:892
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -16817,15 +16837,15 @@ msgstr ""
 "Индексите %1$s и %2$s изглеждат равнозначни и един от двата вероятно може да "
 "бъде премахнат."
 
-#: src/InsertEdit.php:509
+#: src/InsertEdit.php:505
 msgid "web server upload directory:"
 msgstr "директория за качване на уеб сървър:"
 
-#: src/InsertEdit.php:952 src/Sql.php:876
+#: src/InsertEdit.php:940 src/Sql.php:875
 msgid "Showing SQL query"
 msgstr "Показване на SQL заявкa"
 
-#: src/InsertEdit.php:976 src/Sql.php:856
+#: src/InsertEdit.php:964 src/Sql.php:855
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -16873,21 +16893,21 @@ msgstr "Знакови набори"
 msgid "Engines"
 msgstr "Хранилища"
 
-#: src/Message.php:204
+#: src/Message.php:194
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
 msgstr[0] "%1$d повлиян ред."
 msgstr[1] "%1$d повлияни реда."
 
-#: src/Message.php:223
+#: src/Message.php:211
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] "%1$d ред изтрит."
 msgstr[1] "%1$d реда изтрити."
 
-#: src/Message.php:242
+#: src/Message.php:228
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
@@ -16951,7 +16971,7 @@ msgctxt "Create new database"
 msgid "New"
 msgstr "Нов"
 
-#: src/Navigation/Nodes/NodeDatabase.php:582
+#: src/Navigation/Nodes/NodeDatabase.php:573
 #, fuzzy
 #| msgid "Show hint"
 msgid "Show hidden items"
@@ -17280,37 +17300,37 @@ msgstr ""
 msgid "Coalesce"
 msgstr "Затваряне"
 
-#: src/Operations.php:874
+#: src/Operations.php:875
 msgid "Can't move table to same one!"
 msgstr "Не може да се премести таблицата към себе си!"
 
-#: src/Operations.php:876
+#: src/Operations.php:877
 msgid "Can't copy table to same one!"
 msgstr "Не може да се копира таблицата към себе си!"
 
-#: src/Operations.php:900
+#: src/Operations.php:901
 #, fuzzy, php-format
 #| msgid "Table %s has been moved to %s."
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Таблицата %s беше преместена към %s."
 
-#: src/Operations.php:906
+#: src/Operations.php:907
 #, fuzzy, php-format
 #| msgid "Table %s has been copied to %s."
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Таблица %s беше копирана в %s."
 
-#: src/Operations.php:912
+#: src/Operations.php:913
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Таблицата %s беше преместена към %s."
 
-#: src/Operations.php:916
+#: src/Operations.php:917
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Таблица %s беше копирана в %s."
 
-#: src/Operations.php:939
+#: src/Operations.php:940
 msgid "The table name is empty!"
 msgstr "Името на таблицата е празно!"
 
@@ -17547,12 +17567,12 @@ msgid "Put columns names in the first row:"
 msgstr "Поставяне имената на полетата в първи ред:"
 
 #: src/Plugins/Export/ExportLatex.php:212 src/Plugins/Export/ExportSql.php:714
-#: src/Plugins/Export/ExportXml.php:222
+#: src/Plugins/Export/ExportXml.php:218
 msgid "Generation Time:"
 msgstr "Време на генериране:"
 
 #: src/Plugins/Export/ExportLatex.php:215 src/Plugins/Export/ExportSql.php:720
-#: src/Plugins/Export/ExportXml.php:225
+#: src/Plugins/Export/ExportXml.php:221
 msgid "PHP Version:"
 msgstr "Версия на PHP:"
 
@@ -18523,8 +18543,8 @@ msgstr "БД-източник `%s` не е намерена!"
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
-#: src/Server/Plugins.php:53 src/Server/Privileges.php:632
-#: src/Server/Privileges.php:3274
+#: src/Server/Plugins.php:53 src/Server/Privileges.php:628
+#: src/Server/Privileges.php:3270
 #, fuzzy
 #| msgid "Cookie authentication"
 msgid "Native MySQL authentication"
@@ -18559,65 +18579,65 @@ msgstr "Удостоверяване чрез бисквитка"
 msgid "Account locking is not supported."
 msgstr ""
 
-#: src/Server/Privileges.php:265
+#: src/Server/Privileges.php:261
 msgid "No privileges."
 msgstr "Няма права."
 
-#: src/Server/Privileges.php:271
+#: src/Server/Privileges.php:267
 msgid "Includes all privileges except GRANT."
 msgstr "Дава всички права освен GRANT."
 
-#: src/Server/Privileges.php:892
+#: src/Server/Privileges.php:888
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Паролата на %s е променена успешно."
 
-#: src/Server/Privileges.php:940
+#: src/Server/Privileges.php:936
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Вие отменихте правата на %s."
 
-#: src/Server/Privileges.php:1288
+#: src/Server/Privileges.php:1284
 msgid "Revoke"
 msgstr "Отменяне"
 
-#: src/Server/Privileges.php:1891
+#: src/Server/Privileges.php:1887
 msgid "No users selected for deleting!"
 msgstr "Не за избрани потребители за изтриване!"
 
-#: src/Server/Privileges.php:1894
+#: src/Server/Privileges.php:1890
 msgid "Reloading the privileges"
 msgstr "Презареждане на правата"
 
-#: src/Server/Privileges.php:1919
+#: src/Server/Privileges.php:1915
 msgid "The selected users have been deleted successfully."
 msgstr "Избраните потребители бяха изтрити успешно."
 
-#: src/Server/Privileges.php:1993
+#: src/Server/Privileges.php:1989
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Вие променихте правата на %s."
 
-#: src/Server/Privileges.php:2150
+#: src/Server/Privileges.php:2146
 #, php-format
 msgid "Deleting %s"
 msgstr "Изтриване на %s"
 
-#: src/Server/Privileges.php:2181
+#: src/Server/Privileges.php:2177
 msgid "The privileges were reloaded successfully."
 msgstr "Правата бяха презаредени успешно."
 
-#: src/Server/Privileges.php:2282
+#: src/Server/Privileges.php:2278
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Потребител %s вече съществува!"
 
-#: src/Server/Privileges.php:2526
+#: src/Server/Privileges.php:2522
 #, php-format
 msgid "Privileges for %s"
 msgstr "Права на %s"
 
-#: src/Server/Privileges.php:2614
+#: src/Server/Privileges.php:2610
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -18635,7 +18655,7 @@ msgstr ""
 "правата които използва сървъра ако към него са направени промени на ръка. В "
 "този случай, трябва да %sпрезаредите правата%s преди да продължите."
 
-#: src/Server/Privileges.php:2630
+#: src/Server/Privileges.php:2626
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -18654,11 +18674,11 @@ msgstr ""
 "правата които използва сървъра ако към него са направени промени на ръка. В "
 "този случай, трябва да %sпрезаредите правата%s преди да продължите."
 
-#: src/Server/Privileges.php:2918
+#: src/Server/Privileges.php:2914
 msgid "You have added a new user."
 msgstr "Вие добавихте нов потребител."
 
-#: src/Server/Privileges.php:3367
+#: src/Server/Privileges.php:3363
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -18756,16 +18776,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Няма по-нова стабилна версия"
 
-#: src/Sql.php:451
+#: src/Sql.php:450
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: src/Sql.php:873
+#: src/Sql.php:872
 msgid "Showing as PHP code"
 msgstr "Показване като PHP-код"
 
-#: src/Sql.php:1260
+#: src/Sql.php:1259
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18774,7 +18794,7 @@ msgstr ""
 "Тази таблица не съдържа уникална колона. Редактирането на мрежа, поставянето "
 "на отметки, функциите редактиране, копиране и изтриване не са достъпни. %s"
 
-#: src/Sql.php:1274
+#: src/Sql.php:1273
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -18821,7 +18841,7 @@ msgstr "%s е забранено за този MySQL сървър."
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Този MySQL сървър не поддържа хранилището на данни %s."
 
-#: src/Table/Indexes.php:55 src/Table/Table.php:1963
+#: src/Table/Indexes.php:55 src/Table/Table.php:1955
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Името на първичния ключ трябва да е \"PRIMARY\"!"
 
@@ -18844,24 +18864,24 @@ msgstr "БД-източник `%s` не е намерена!"
 msgid "Target database `%s` was not found!"
 msgstr "Целевата БД `%s` не е намерена!"
 
-#: src/Table/Table.php:1365
+#: src/Table/Table.php:1361
 msgid "Invalid database:"
 msgstr "Невалидна БД:"
 
-#: src/Table/Table.php:1383
+#: src/Table/Table.php:1379
 msgid "Invalid table name:"
 msgstr "Невалидно име на таблица:"
 
-#: src/Table/Table.php:1429
+#: src/Table/Table.php:1425
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Таблица %1$s беше преименувана на %2$s."
 
-#: src/Table/Table.php:1670
+#: src/Table/Table.php:1662
 msgid "Could not save table UI preferences!"
 msgstr "Таблицата с визуалните настройки не може да бъде запазена!"
 
-#: src/Table/Table.php:1692
+#: src/Table/Table.php:1684
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -18870,7 +18890,7 @@ msgstr ""
 "Неуспех при почистването на предпочитанията за потребителския интерфейс на "
 "таблицата (вижте $cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
-#: src/Table/Table.php:1820
+#: src/Table/Table.php:1812
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -18881,15 +18901,15 @@ msgstr ""
 "Извършените промени няма да бъдат устойчиви, след като опресните тази "
 "страница. Моля, проверете дали структурата на таблицата е променена."
 
-#: src/Table/Table.php:1975
+#: src/Table/Table.php:1967
 msgid "Can't rename index to PRIMARY!"
 msgstr "Индексът не може да бъде преименуван на PRIMARY!"
 
-#: src/Table/Table.php:2001
+#: src/Table/Table.php:1993
 msgid "No index parts defined!"
 msgstr "Не са дефинирани части на индекс!"
 
-#: src/Table/Table.php:2288
+#: src/Table/Table.php:2280
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -19048,14 +19068,14 @@ msgstr "Трябва да дадете дефиниция на тригера."
 msgid "Sorry, we failed to restore the dropped trigger."
 msgstr "Съжаляваме, но възстановяването на изтрития тригер е неуспешно."
 
-#: src/Types.php:200
+#: src/Types.php:196
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
 "1-байт цяло число, подписано обхват е -128 до 127, неподписан обхват е от 0 "
 "до 255"
 
-#: src/Types.php:201
+#: src/Types.php:197
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
@@ -19063,7 +19083,7 @@ msgstr ""
 "2-байт цяло число, подписано обхват е -32,768 до 32,767, неподписан обхват "
 "от 0 до 65,535"
 
-#: src/Types.php:203
+#: src/Types.php:199
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
@@ -19071,7 +19091,7 @@ msgstr ""
 "3-байт цяло число, подписано обхват е -8,388,608 до 8,388,607, неподписан "
 "обхват е от 0 до 16,777,215"
 
-#: src/Types.php:206
+#: src/Types.php:202
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295"
@@ -19079,155 +19099,155 @@ msgstr ""
 "Едно цяло число от 4 байта, подписано в обхвата, е -2,147,483,648 до "
 "2,147,483,647, неподписан обхват е от 0 до 4,294,967,295"
 
-#: src/Types.php:211
+#: src/Types.php:207
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
 msgstr ""
 
-#: src/Types.php:216
+#: src/Types.php:212
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
 msgstr ""
 
-#: src/Types.php:221
+#: src/Types.php:217
 msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to "
 "-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
-#: src/Types.php:226
+#: src/Types.php:222
 msgid ""
 "A double-precision floating-point number, allowable values are "
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
-#: src/Types.php:230
+#: src/Types.php:226
 msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
 msgstr ""
 
-#: src/Types.php:231
+#: src/Types.php:227
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
 msgstr ""
 
-#: src/Types.php:233
+#: src/Types.php:229
 msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
 msgstr ""
 
-#: src/Types.php:235
+#: src/Types.php:231
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr ""
 
-#: src/Types.php:237
+#: src/Types.php:233
 #, php-format
 msgid "A date, supported range is %1$s to %2$s"
 msgstr "Дата, поддържан диапазон е %1$s до %2$s"
 
-#: src/Types.php:242
+#: src/Types.php:238
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "Комбинация от дата и час, поддържаният диапазон е %1$s до %2$s"
 
-#: src/Types.php:247
+#: src/Types.php:243
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
 
-#: src/Types.php:252
+#: src/Types.php:248
 #, php-format
 msgid "A time, range is %1$s to %2$s"
 msgstr "Време, диапазонът е %1$s до %2$s"
 
-#: src/Types.php:257
+#: src/Types.php:253
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
 msgstr ""
 
-#: src/Types.php:262
+#: src/Types.php:258
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
 msgstr ""
 
-#: src/Types.php:267
+#: src/Types.php:263
 #, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr ""
 
-#: src/Types.php:272
+#: src/Types.php:268
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
 msgstr ""
 
-#: src/Types.php:277
+#: src/Types.php:273
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
 
-#: src/Types.php:282
+#: src/Types.php:278
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
 
-#: src/Types.php:287
+#: src/Types.php:283
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
 
-#: src/Types.php:292
+#: src/Types.php:288
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
 
-#: src/Types.php:295
+#: src/Types.php:291
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
 
-#: src/Types.php:299
+#: src/Types.php:295
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
 
-#: src/Types.php:303
+#: src/Types.php:299
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
 
-#: src/Types.php:308
+#: src/Types.php:304
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
 msgstr ""
 
-#: src/Types.php:312
+#: src/Types.php:308
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
 
-#: src/Types.php:316
+#: src/Types.php:312
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
@@ -19235,71 +19255,71 @@ msgstr ""
 "Изброяване, избор от списък с до 65535 стойности или специалната стойност за "
 "грешка ''"
 
-#: src/Types.php:317
+#: src/Types.php:313
 msgid "A single value chosen from a set of up to 64 members"
 msgstr "Единична стойност, избрана от списък с до 64 възможни"
 
-#: src/Types.php:318
+#: src/Types.php:314
 msgid "A type that can store a geometry of any type"
 msgstr "Тип, който може да съхранява геометрия от всякакъв вид"
 
-#: src/Types.php:319
+#: src/Types.php:315
 msgid "A point in 2-dimensional space"
 msgstr "Точка в 2-мерното пространство"
 
-#: src/Types.php:320
+#: src/Types.php:316
 msgid "A curve with linear interpolation between points"
 msgstr "Крива с линейна интерполация между точки"
 
-#: src/Types.php:321
+#: src/Types.php:317
 msgid "A polygon"
 msgstr "Многоъгълник"
 
-#: src/Types.php:322
+#: src/Types.php:318
 msgid "A collection of points"
 msgstr "Набор от точки"
 
-#: src/Types.php:323
+#: src/Types.php:319
 msgid "A collection of curves with linear interpolation between points"
 msgstr "Колекция от криви с линейна интерполация между точки"
 
-#: src/Types.php:324
+#: src/Types.php:320
 msgid "A collection of polygons"
 msgstr "Набор от многоъгълници"
 
-#: src/Types.php:325
+#: src/Types.php:321
 msgid "A collection of geometry objects of any type"
 msgstr "Набор от геометрични обекти от всякакъв вид"
 
-#: src/Types.php:326
+#: src/Types.php:322
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr ""
 
-#: src/Types.php:327
+#: src/Types.php:323
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 msgstr ""
 
-#: src/Types.php:330
+#: src/Types.php:326
 #, fuzzy
 #| msgid "Stores a Universally Unique Identifier (UUID)"
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr "Съхранява универсално уникален идентификатор (UUID)"
 
-#: src/Types.php:654
+#: src/Types.php:650
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "Цифров"
 
-#: src/Types.php:672
+#: src/Types.php:668
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Дата и час"
 
-#: src/Types.php:702
+#: src/Types.php:698
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Пространствен"
@@ -19530,11 +19550,6 @@ msgstr "Не са открити файлове в ZIP архива!"
 
 #~ msgid "Add/Delete columns:"
 #~ msgstr "Добавяне/изтриване на колони:"
-
-#, fuzzy
-#~| msgid "Use Tables"
-#~ msgid "Use tables"
-#~ msgstr "Използване таблиците"
 
 #, php-format
 #~ msgid "SQL query on database <b>%s</b>:"
@@ -19838,12 +19853,6 @@ msgstr "Не са открити файлове в ZIP архива!"
 
 #~ msgid "Search results for \"<i>%s</i>\" %s:"
 #~ msgstr "Резултати от търсенето на \"<i>%s</i>\" %s:"
-
-#, fuzzy
-#~| msgid "Text"
-#~ msgctxt "Text context"
-#~ msgid "Text"
-#~ msgstr "Текст"
 
 #~ msgid "Customize export options"
 #~ msgstr "Персонализиране настройките на експорта"

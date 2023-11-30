@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-11-26 00:19+0000\n"
+"POT-Creation-Date: 2023-11-30 20:06+0000\n"
 "PO-Revision-Date: 2023-05-09 14:50+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -52,7 +52,7 @@ msgstr ""
 #: resources/templates/table/structure/display_structure.twig:145
 #: resources/templates/table/structure/display_structure.twig:295
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:25
-#: src/Controllers/Table/StructureController.php:244
+#: src/Controllers/Table/StructureController.php:230
 msgid "Primary"
 msgstr "Primaire sleutel"
 
@@ -74,7 +74,7 @@ msgstr "Unieke waarde"
 #: resources/templates/table/structure/display_structure.twig:301
 #: resources/templates/table/structure/display_table_stats.twig:24
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:27
-#: src/Controllers/Table/StructureController.php:248
+#: src/Controllers/Table/StructureController.php:234
 #: src/Navigation/Nodes/NodeIndex.php:26
 msgid "Index"
 msgstr "Index"
@@ -652,8 +652,8 @@ msgstr "Rechten aanpassen"
 #: resources/templates/columns_definitions/table_fields_definitions.twig:54
 #: resources/templates/database/data_dictionary/index.twig:29
 #: resources/templates/table/structure/display_structure.twig:28
-#: src/Config/Descriptions.php:664 src/Config/Descriptions.php:679
-#: src/Config/Descriptions.php:715 src/Plugins/Export/ExportHtmlword.php:375
+#: src/Config/Descriptions.php:660 src/Config/Descriptions.php:675
+#: src/Config/Descriptions.php:711 src/Plugins/Export/ExportHtmlword.php:375
 #: src/Plugins/Export/ExportLatex.php:517 src/Plugins/Export/ExportOdt.php:473
 #: src/Plugins/Export/ExportTexytext.php:375
 #: src/Plugins/Export/Helpers/Pdf.php:512
@@ -672,8 +672,8 @@ msgstr "Kolom verplaatsen"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:71
 #: resources/templates/database/data_dictionary/index.twig:31
-#: src/Config/Descriptions.php:668 src/Config/Descriptions.php:680
-#: src/Config/Descriptions.php:718 src/Plugins/Export/ExportHtmlword.php:382
+#: src/Config/Descriptions.php:664 src/Config/Descriptions.php:676
+#: src/Config/Descriptions.php:714 src/Plugins/Export/ExportHtmlword.php:382
 #: src/Plugins/Export/ExportOdt.php:480
 #: src/Plugins/Export/ExportTexytext.php:380
 #: src/Plugins/Export/Helpers/Pdf.php:520
@@ -803,7 +803,7 @@ msgstr "Uitgeschakeld"
 #: src/Controllers/Table/DeleteRowsController.php:56
 #: src/Controllers/Table/DropColumnController.php:45
 #: src/Controllers/Table/Structure/PrimaryController.php:108
-#: src/IndexColumn.php:154 src/Index.php:470
+#: src/IndexColumn.php:148 src/Index.php:470
 #: src/Plugins/Export/ExportHtmlword.php:606
 #: src/Plugins/Export/ExportLatex.php:576 src/Plugins/Export/ExportOdt.php:720
 #: src/Plugins/Export/ExportTexytext.php:560
@@ -838,7 +838,7 @@ msgstr "Ja"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:33
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:23
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
-#: src/Controllers/JavaScriptMessagesController.php:367 src/IndexColumn.php:151
+#: src/Controllers/JavaScriptMessagesController.php:367 src/IndexColumn.php:145
 #: src/Index.php:444 src/Index.php:470
 #: src/Plugins/Export/ExportHtmlword.php:606
 #: src/Plugins/Export/ExportLatex.php:576 src/Plugins/Export/ExportOdt.php:720
@@ -904,7 +904,7 @@ msgstr "Query opnieuw uitvoeren"
 #: resources/templates/setup/home/index.twig:64
 #: resources/templates/table/structure/display_structure.twig:497
 #: resources/templates/triggers/row.twig:28
-#: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:930
+#: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:400
 #: src/Display/Results.php:2563 src/Html/Generator.php:550
@@ -945,10 +945,10 @@ msgstr "Verwijderen"
 #: resources/templates/table/relation/common_form.twig:38
 #: resources/templates/table/relation/common_form.twig:130
 #: resources/templates/table/relation/foreign_key_row.twig:91
-#: src/Config/Descriptions.php:938 src/Plugins/Export/ExportHtmlword.php:138
+#: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:138
 #: src/Plugins/Export/ExportOdt.php:182
-#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1575
-#: src/Server/Privileges.php:1577 src/Server/Status/Processes.php:93
+#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1571
+#: src/Server/Privileges.php:1573 src/Server/Status/Processes.php:93
 msgid "Database"
 msgstr "Database"
 
@@ -956,7 +956,7 @@ msgstr "Database"
 msgid "SQL Query Console"
 msgstr "SQL Query Console"
 
-#: resources/templates/console/display.twig:6 src/Config/Descriptions.php:770
+#: resources/templates/console/display.twig:6 src/Config/Descriptions.php:766
 msgid "Console"
 msgstr "Console"
 
@@ -999,7 +999,7 @@ msgid "Bookmarks"
 msgstr "Bladwijzers"
 
 #: resources/templates/console/display.twig:23
-#: resources/templates/console/display.twig:76 src/Config/Descriptions.php:619
+#: resources/templates/console/display.twig:76 src/Config/Descriptions.php:615
 msgid "Debug SQL"
 msgstr "Debug SQL"
 
@@ -1071,7 +1071,7 @@ msgstr "Gebruikte tijd"
 msgid "Order by:"
 msgstr "Volgorde:"
 
-#: resources/templates/console/display.twig:91 src/Config/Descriptions.php:968
+#: resources/templates/console/display.twig:91 src/Config/Descriptions.php:964
 msgid "Group queries"
 msgstr "Groep query's"
 
@@ -1099,7 +1099,7 @@ msgstr "Gebruikte tijd:"
 #: resources/templates/console/display.twig:121
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:932 src/Export/Export.php:1244
+#: src/Config/Descriptions.php:928 src/Export/Export.php:1244
 #: src/Html/Generator.php:606
 msgid "Refresh"
 msgstr "Ververs"
@@ -1137,15 +1137,15 @@ msgstr "Correct"
 msgid "Set default"
 msgstr "Standaardwaarde instellen"
 
-#: resources/templates/console/display.twig:173 src/Config/Descriptions.php:962
+#: resources/templates/console/display.twig:173 src/Config/Descriptions.php:958
 msgid "Always expand query messages"
 msgstr "Queryberichten altijd volledig weergeven"
 
-#: resources/templates/console/display.twig:177 src/Config/Descriptions.php:961
+#: resources/templates/console/display.twig:177 src/Config/Descriptions.php:957
 msgid "Show query history at start"
 msgstr "Querygeschiedenis aan begin weergeven"
 
-#: resources/templates/console/display.twig:181 src/Config/Descriptions.php:963
+#: resources/templates/console/display.twig:181 src/Config/Descriptions.php:959
 msgid "Show current browsing query"
 msgstr "Toon huidige blader query"
 
@@ -1157,7 +1157,7 @@ msgstr ""
 "Voer queries uit met de Enter toets en voeg een nieuwe regel toe met "
 "Shift+Enter. Om dit permanent te maken, bekijk het instellingenmenu."
 
-#: resources/templates/console/display.twig:189 src/Config/Descriptions.php:965
+#: resources/templates/console/display.twig:189 src/Config/Descriptions.php:961
 msgid "Switch to dark theme"
 msgstr "Wissel naar donker thema"
 
@@ -1774,7 +1774,7 @@ msgstr "Selecteer alles"
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:385 src/Menu.php:249
-#: src/Menu.php:351 src/Menu.php:473 src/Server/Privileges.php:1292
+#: src/Menu.php:351 src/Menu.php:473 src/Server/Privileges.php:1288
 #: src/Util.php:1469 src/Util.php:1484 src/Util.php:1501
 msgid "Export"
 msgstr "Exporteren"
@@ -1856,7 +1856,7 @@ msgstr "Tabellen:"
 
 #: resources/templates/database/export/index.twig:22
 #: resources/templates/database/structure/show_create.twig:6
-#: src/Config/Descriptions.php:747
+#: src/Config/Descriptions.php:743
 #: src/Controllers/Server/DatabasesController.php:289
 #: src/Navigation/Nodes/NodeTableContainer.php:23
 #: src/Navigation/Nodes/NodeTableContainer.php:25
@@ -1959,9 +1959,11 @@ msgstr "Aflopend"
 msgid "Add as"
 msgstr "Voeg toe als"
 
+#. l10n: Notes
 #: resources/templates/database/multi_table_query/form.twig:107
-#: src/Config/ConfigFile.php:546 src/Config/ConfigFile.php:558
-#: src/Config/ConfigFile.php:566
+#: resources/templates/test/gettext/gettext.twig:1
+#: resources/templates/test/gettext/notes.twig:1 src/Config/ConfigFile.php:546
+#: src/Config/ConfigFile.php:558 src/Config/ConfigFile.php:566
 msgid "Text"
 msgstr "Tekst"
 
@@ -2041,7 +2043,7 @@ msgstr "Kopieer database naar"
 
 #: resources/templates/database/operations/index.twig:123
 #: resources/templates/server/databases/index.twig:24
-#: src/Config/Descriptions.php:889
+#: src/Config/Descriptions.php:885
 msgid "Database name"
 msgstr "Databasenaam"
 
@@ -2072,10 +2074,10 @@ msgstr "CREATE DATABASE vóór het kopiëren"
 
 #: resources/templates/database/operations/index.twig:156
 #: resources/templates/table/operations/index.twig:296
-#: src/Config/Descriptions.php:699 src/Config/Descriptions.php:700
-#: src/Config/Descriptions.php:702 src/Config/Descriptions.php:705
-#: src/Config/Descriptions.php:706 src/Config/Descriptions.php:707
-#: src/Config/Descriptions.php:719
+#: src/Config/Descriptions.php:695 src/Config/Descriptions.php:696
+#: src/Config/Descriptions.php:698 src/Config/Descriptions.php:701
+#: src/Config/Descriptions.php:702 src/Config/Descriptions.php:703
+#: src/Config/Descriptions.php:715
 #, php-format
 msgid "Add %s"
 msgstr "Voeg %s toe"
@@ -2083,7 +2085,7 @@ msgstr "Voeg %s toe"
 #: resources/templates/database/operations/index.twig:161
 #: resources/templates/table/operations/index.twig:73
 #: resources/templates/table/operations/index.twig:301
-#: src/Config/Descriptions.php:691
+#: src/Config/Descriptions.php:687
 msgid "Add AUTO_INCREMENT value"
 msgstr "Voeg AUTO_INCREMENT-waarde toe"
 
@@ -2179,14 +2181,14 @@ msgstr "routine"
 #: resources/templates/server/privileges/new_user_ajax.twig:45
 #: resources/templates/server/privileges/users_overview.twig:75
 #: resources/templates/table/privileges/index.twig:84
-#: src/Server/Privileges.php:1284
+#: src/Server/Privileges.php:1280
 msgid "Edit privileges"
 msgstr "Rechten bewerken"
 
 # Enkelvoud.
 #: resources/templates/database/privileges/index.twig:102
 #: resources/templates/table/privileges/index.twig:106
-#: src/Server/Privileges.php:2069
+#: src/Server/Privileges.php:2065
 msgid "No user found."
 msgstr "Geen gebruiker gevonden."
 
@@ -2206,7 +2208,7 @@ msgstr "Met geselecteerde:"
 
 #: resources/templates/database/privileges/index.twig:122
 #: resources/templates/table/privileges/index.twig:126
-#: src/Server/Privileges.php:1228
+#: src/Server/Privileges.php:1224
 msgid "Not enough privilege to view users."
 msgstr "Niet genoeg rechten om gebruikers in te zien."
 
@@ -2554,7 +2556,7 @@ msgstr ""
 #: resources/templates/database/structure/copy_form.twig:5
 #: resources/templates/menu/breadcrumbs.twig:16
 #: src/Plugins/Export/ExportLatex.php:241 src/Plugins/Export/ExportSql.php:886
-#: src/Plugins/Export/ExportXml.php:381 src/Plugins/Export/Helpers/Pdf.php:176
+#: src/Plugins/Export/ExportXml.php:373 src/Plugins/Export/Helpers/Pdf.php:176
 msgid "Database:"
 msgstr "Database:"
 
@@ -2563,7 +2565,7 @@ msgid "Options:"
 msgstr "Opties:"
 
 #: resources/templates/database/structure/copy_form.twig:31
-#: src/Config/Descriptions.php:902
+#: src/Config/Descriptions.php:898
 msgid "Add DROP TABLE"
 msgstr "DROP TABLE toevoegen"
 
@@ -2628,9 +2630,9 @@ msgstr "Aanmaakquery's worden getoond"
 #: resources/templates/table/relation/common_form.twig:137
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:32
-#: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:941
-#: src/Plugins/Export/ExportXml.php:449 src/Server/Privileges.php:1581
-#: src/Server/Privileges.php:1583
+#: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
+#: src/Plugins/Export/ExportXml.php:441 src/Server/Privileges.php:1577
+#: src/Server/Privileges.php:1579
 msgid "Table"
 msgstr "Tabel"
 
@@ -2644,9 +2646,9 @@ msgstr "Views"
 #: resources/templates/database/structure/show_create.twig:35
 #: resources/templates/database/structure/structure_table_row.twig:122
 #: resources/templates/database/structure/structure_table_row.twig:186
-#: src/Controllers/Table/OperationsController.php:134
-#: src/Controllers/Table/OperationsController.php:340
-#: src/Controllers/Table/StructureController.php:85
+#: src/Controllers/Operations/TableController.php:126
+#: src/Controllers/Operations/TableController.php:332
+#: src/Controllers/Table/StructureController.php:166
 #: src/Navigation/Nodes/NodeView.php:26
 msgid "View"
 msgstr "View"
@@ -2957,11 +2959,12 @@ msgstr "Omzetten naar Kana"
 
 #: resources/templates/error/generic.twig:37
 #: resources/templates/table/structure/display_structure.twig:372
+#: src/Controllers/Operations/ViewController.php:121
 #: src/Controllers/Table/Partition/DropController.php:57
 #: src/Controllers/Table/Partition/RebuildController.php:57
 #: src/Controllers/Table/Partition/TruncateController.php:57
-#: src/Controllers/View/OperationsController.php:121 src/Html/Generator.php:764
-#: src/Import/Import.php:150 src/InsertEdit.php:499 src/Message.php:149
+#: src/Html/Generator.php:764 src/Import/Import.php:150 src/InsertEdit.php:495
+#: src/Message.php:145
 msgid "Error"
 msgstr "Fout"
 
@@ -3094,7 +3097,7 @@ msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "Bewaar op de server in de map <strong>%s</strong>"
 
 #: resources/templates/export.twig:186 resources/templates/export.twig:381
-#: src/Config/Descriptions.php:685 src/Config/Descriptions.php:688
+#: src/Config/Descriptions.php:681 src/Config/Descriptions.php:684
 msgid "Overwrite existing file(s)"
 msgstr "Bestaand(e) bestand(en) overschrijven"
 
@@ -3394,7 +3397,7 @@ msgstr "Algemene instellingen"
 #: resources/templates/modals/change_password.twig:5
 #: resources/templates/server/privileges/change_password.twig:10
 #: resources/templates/server/privileges/change_password.twig:11
-#: src/Controllers/UserPasswordController.php:93
+#: src/Controllers/UserPasswordController.php:88
 msgid "Change password"
 msgstr "Wachtwoord wijzigen"
 
@@ -3449,7 +3452,7 @@ msgstr "Serververbinding:"
 
 #: resources/templates/home/index.twig:196
 #: src/Plugins/Export/ExportLatex.php:214 src/Plugins/Export/ExportSql.php:718
-#: src/Plugins/Export/ExportXml.php:224
+#: src/Plugins/Export/ExportXml.php:220
 msgid "Server version:"
 msgstr "Serverversie:"
 
@@ -3601,7 +3604,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr "U kan ook een bestand slepen en neerzetten op welke pagina dan ook."
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:500
+#: src/InsertEdit.php:496
 msgid "The directory you set for upload work cannot be reached."
 msgstr "De map die u heeft ingesteld om te uploaden kan niet worden bereikt."
 
@@ -3657,7 +3660,7 @@ msgstr "Andere opties"
 #: resources/templates/import.twig:160 resources/templates/import.twig:162
 #: resources/templates/sql/query.twig:40
 #: resources/templates/table/structure/display_table_stats.twig:84
-#: src/Config/Descriptions.php:642 src/Config/Descriptions.php:658
+#: src/Config/Descriptions.php:638 src/Config/Descriptions.php:654
 msgid "Format"
 msgstr "Opmaken"
 
@@ -3678,7 +3681,7 @@ msgid "Index %s has been dropped."
 msgstr "Index %s is verwijderd."
 
 #: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:285
-#: src/Language.php:182 src/Pdf.php:83
+#: src/Language.php:178 src/Pdf.php:83
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:474
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:499
 msgid "Page number:"
@@ -3916,8 +3919,8 @@ msgstr "SQL-upload"
 #: resources/templates/server/export/index.twig:7
 #: resources/templates/server/export/index.twig:14
 #: resources/templates/server/privileges/user_properties.twig:20
-#: src/Config/ConfigFile.php:577 src/Config/Descriptions.php:732
-#: src/Config/Descriptions.php:743 src/Menu.php:444 src/Util.php:1465
+#: src/Config/ConfigFile.php:577 src/Config/Descriptions.php:728
+#: src/Config/Descriptions.php:739 src/Menu.php:444 src/Util.php:1465
 msgid "Databases"
 msgstr "Databases"
 
@@ -3961,17 +3964,17 @@ msgid "Features"
 msgstr "Opties"
 
 #: resources/templates/preferences/header.twig:24
-#: src/Config/Descriptions.php:761 src/Config/Forms/User/SqlForm.php:38
+#: src/Config/Descriptions.php:757 src/Config/Forms/User/SqlForm.php:38
 msgid "SQL queries"
 msgstr "SQL-query's"
 
 #: resources/templates/preferences/header.twig:30
-#: src/Config/Descriptions.php:744 src/Config/Forms/User/NaviForm.php:57
+#: src/Config/Descriptions.php:740 src/Config/Forms/User/NaviForm.php:57
 msgid "Navigation panel"
 msgstr "Navigatiepaneel"
 
 #: resources/templates/preferences/header.twig:36
-#: src/Config/Descriptions.php:748 src/Config/Forms/User/MainForm.php:76
+#: src/Config/Descriptions.php:744 src/Config/Forms/User/MainForm.php:76
 msgid "Main panel"
 msgstr "Hoofdpaneel"
 
@@ -4141,9 +4144,9 @@ msgstr "U hebt tweeweg authentificatie geactiveerd."
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:43
 #: src/Controllers/Database/Structure/EmptyTableController.php:50
+#: src/Controllers/Operations/TableController.php:348
 #: src/Controllers/Table/DropColumnController.php:62
-#: src/Controllers/Table/OperationsController.php:359
-#: src/Controllers/Table/ReplaceController.php:296 src/Core.php:521
+#: src/Controllers/Table/ReplaceController.php:296 src/Core.php:517
 msgid "No change"
 msgstr "Geen verandering"
 
@@ -4632,7 +4635,7 @@ msgstr "Gebruikersaccount"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:29
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
 #: resources/templates/server/privileges/edit_routine_privileges.twig:59
-#: src/Server/Privileges.php:1587 src/Server/Privileges.php:1589
+#: src/Server/Privileges.php:1583 src/Server/Privileges.php:1585
 msgid "Routine"
 msgstr "Routine"
 
@@ -4646,7 +4649,7 @@ msgstr ""
 "op dit moment ingelogd bent."
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:47
-#: src/Server/Privileges.php:1588
+#: src/Server/Privileges.php:1584
 msgid "Routine-specific privileges"
 msgstr "Routine-specifieke rechten"
 
@@ -4796,7 +4799,7 @@ msgstr "Gebruikersgroep bewerken"
 #: resources/templates/server/privileges/privileges_summary.twig:19
 #: resources/templates/server/privileges/privileges_table.twig:7
 #: resources/templates/server/privileges/privileges_table.twig:267
-#: src/Server/Privileges.php:1582
+#: src/Server/Privileges.php:1578
 msgid "Table-specific privileges"
 msgstr "Tabel-specifieke rechten"
 
@@ -4825,7 +4828,7 @@ msgstr "Rechten toevoegen op de volgende routine:"
 #: resources/templates/server/privileges/privileges_table.twig:16
 #: resources/templates/server/privileges/privileges_table.twig:287
 #: resources/templates/server/privileges/privileges_table.twig:290
-#: src/Server/Privileges.php:308
+#: src/Server/Privileges.php:304
 msgid "Allows reading data."
 msgstr "Maakt het lezen van gegevens mogelijk."
 
@@ -4833,7 +4836,7 @@ msgstr "Maakt het lezen van gegevens mogelijk."
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:129 src/InsertEdit.php:508
+#: resources/templates/table/search/index.twig:129 src/InsertEdit.php:504
 msgid "Or"
 msgstr "Of"
 
@@ -4852,20 +4855,20 @@ msgstr "Geen"
 #: resources/templates/server/privileges/privileges_table.twig:43
 #: resources/templates/server/privileges/privileges_table.twig:300
 #: resources/templates/server/privileges/privileges_table.twig:303
-#: src/Server/Privileges.php:309
+#: src/Server/Privileges.php:305
 msgid "Allows inserting and replacing data."
 msgstr "Maakt het mogelijk om gegevens in te voegen en te vervangen."
 
 #: resources/templates/server/privileges/privileges_table.twig:70
 #: resources/templates/server/privileges/privileges_table.twig:313
 #: resources/templates/server/privileges/privileges_table.twig:316
-#: src/Server/Privileges.php:310
+#: src/Server/Privileges.php:306
 msgid "Allows changing data."
 msgstr "Maakt het mogelijk gegevens aan te passen."
 
 #: resources/templates/server/privileges/privileges_table.twig:97
 #: resources/templates/server/privileges/privileges_table.twig:677
-#: src/Server/Privileges.php:318
+#: src/Server/Privileges.php:314
 msgid "Has no effect in this MySQL version."
 msgstr "Heeft geen effect in deze MySQL-versie."
 
@@ -4873,7 +4876,7 @@ msgstr "Heeft geen effect in deze MySQL-versie."
 #: resources/templates/server/privileges/privileges_table.twig:128
 #: resources/templates/server/privileges/privileges_table.twig:326
 #: resources/templates/server/privileges/privileges_table.twig:329
-#: src/Server/Privileges.php:288 src/Server/Privileges.php:311
+#: src/Server/Privileges.php:284 src/Server/Privileges.php:307
 msgid "Allows deleting data."
 msgstr "Maakt het mogelijk om gegevens te verwijderen."
 
@@ -4881,7 +4884,7 @@ msgstr "Maakt het mogelijk om gegevens te verwijderen."
 #: resources/templates/server/privileges/privileges_table.twig:140
 #: resources/templates/server/privileges/privileges_table.twig:367
 #: resources/templates/server/privileges/privileges_table.twig:375
-#: src/Server/Privileges.php:289
+#: src/Server/Privileges.php:285
 msgid "Allows creating new tables."
 msgstr "Maakt het mogelijk nieuwe tabellen te maken."
 
@@ -4889,7 +4892,7 @@ msgstr "Maakt het mogelijk nieuwe tabellen te maken."
 #: resources/templates/server/privileges/privileges_table.twig:152
 #: resources/templates/server/privileges/privileges_table.twig:415
 #: resources/templates/server/privileges/privileges_table.twig:423
-#: src/Server/Privileges.php:290
+#: src/Server/Privileges.php:286
 msgid "Allows dropping tables."
 msgstr "Maakt het mogelijk tabellen te verwijderen."
 
@@ -4908,7 +4911,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:177
 #: resources/templates/server/privileges/privileges_table.twig:399
 #: resources/templates/server/privileges/privileges_table.twig:402
-#: src/Server/Privileges.php:291 src/Server/Privileges.php:319
+#: src/Server/Privileges.php:287 src/Server/Privileges.php:315
 msgid "Allows creating and dropping indexes."
 msgstr "Maakt het mogelijk om indexen aan te maken en te verwijderen."
 
@@ -4916,7 +4919,7 @@ msgstr "Maakt het mogelijk om indexen aan te maken en te verwijderen."
 #: resources/templates/server/privileges/privileges_table.twig:189
 #: resources/templates/server/privileges/privileges_table.twig:386
 #: resources/templates/server/privileges/privileges_table.twig:389
-#: src/Server/Privileges.php:292 src/Server/Privileges.php:320
+#: src/Server/Privileges.php:288 src/Server/Privileges.php:316
 msgid "Allows altering the structure of existing tables."
 msgstr "Maakt het mogelijk de structuur van bestaande tabellen aan te passen."
 
@@ -4926,8 +4929,8 @@ msgstr "Maakt het mogelijk de structuur van bestaande tabellen aan te passen."
 #: resources/templates/server/privileges/privileges_table.twig:503
 #: resources/templates/server/privileges/privileges_table.twig:515
 #: resources/templates/server/privileges/privileges_table.twig:518
-#: src/Server/Privileges.php:293 src/Server/Privileges.php:339
-#: src/Server/Privileges.php:343
+#: src/Server/Privileges.php:289 src/Server/Privileges.php:335
+#: src/Server/Privileges.php:339
 msgid "Allows creating new views."
 msgstr "Maakt het mogelijk om nieuwe views te maken."
 
@@ -4935,8 +4938,8 @@ msgstr "Maakt het mogelijk om nieuwe views te maken."
 #: resources/templates/server/privileges/privileges_table.twig:213
 #: resources/templates/server/privileges/privileges_table.twig:447
 #: resources/templates/server/privileges/privileges_table.twig:450
-#: src/Server/Privileges.php:294 src/Server/Privileges.php:344
-#: src/Server/Privileges.php:346
+#: src/Server/Privileges.php:290 src/Server/Privileges.php:340
+#: src/Server/Privileges.php:342
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Maakt het mogelijk om SHOW CREATE VIEW uit te voeren."
 
@@ -4944,14 +4947,14 @@ msgstr "Maakt het mogelijk om SHOW CREATE VIEW uit te voeren."
 #: resources/templates/server/privileges/privileges_table.twig:225
 #: resources/templates/server/privileges/privileges_table.twig:543
 #: resources/templates/server/privileges/privileges_table.twig:546
-#: src/Server/Privileges.php:295 src/Server/Privileges.php:341
+#: src/Server/Privileges.php:291 src/Server/Privileges.php:337
 msgid "Allows creating and dropping triggers."
 msgstr "Maakt het mogelijk om triggers aan te maken en te verwijderen."
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: resources/templates/server/privileges/privileges_table.twig:235
 #: resources/templates/server/privileges/privileges_table.twig:239
-#: src/Server/Privileges.php:352 src/Server/Privileges.php:361
+#: src/Server/Privileges.php:348 src/Server/Privileges.php:357
 msgid "Allows deleting historical rows."
 msgstr "Staat verwijderen van historische rijen toe."
 
@@ -4965,13 +4968,13 @@ msgid "Global privileges"
 msgstr "Globale rechten"
 
 #: resources/templates/server/privileges/privileges_table.twig:265
-#: src/Server/Privileges.php:1576
+#: src/Server/Privileges.php:1572
 msgid "Database-specific privileges"
 msgstr "Database-specifieke rechten"
 
 #: resources/templates/server/privileges/privileges_table.twig:340
 #: resources/templates/server/privileges/privileges_table.twig:343
-#: src/Server/Privileges.php:317
+#: src/Server/Privileges.php:313
 msgid "Allows importing data from and exporting data into files."
 msgstr ""
 "Maakt het mogelijk om gegevens te importeren en te exporteren van en naar "
@@ -4979,44 +4982,44 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:365
 #: resources/templates/server/privileges/privileges_table.twig:373
-#: src/Server/Privileges.php:312
+#: src/Server/Privileges.php:308
 msgid "Allows creating new databases and tables."
 msgstr "Maakt het mogelijk om nieuwe databases en tabellen te maken."
 
 #: resources/templates/server/privileges/privileges_table.twig:413
 #: resources/templates/server/privileges/privileges_table.twig:421
-#: src/Server/Privileges.php:313
+#: src/Server/Privileges.php:309
 msgid "Allows dropping databases and tables."
 msgstr "Maakt het mogelijk om databases en tabellen te verwijderen."
 
 #: resources/templates/server/privileges/privileges_table.twig:434
 #: resources/templates/server/privileges/privileges_table.twig:437
-#: src/Server/Privileges.php:331
+#: src/Server/Privileges.php:327
 msgid "Allows creating temporary tables."
 msgstr "Maakt het mogelijk om tijdelijke tabellen te maken."
 
 #: resources/templates/server/privileges/privileges_table.twig:460
 #: resources/templates/server/privileges/privileges_table.twig:463
-#: src/Server/Privileges.php:363
+#: src/Server/Privileges.php:359
 msgid "Allows creating stored routines."
 msgstr "Maakt het mogelijk om opgeslagen routines aan te maken."
 
 #: resources/templates/server/privileges/privileges_table.twig:473
 #: resources/templates/server/privileges/privileges_table.twig:476
-#: src/Server/Privileges.php:364
+#: src/Server/Privileges.php:360
 msgid "Allows altering and dropping stored routines."
 msgstr ""
 "Maakt het mogelijk om opgeslagen routines te bewerken en te verwijderen."
 
 #: resources/templates/server/privileges/privileges_table.twig:486
 #: resources/templates/server/privileges/privileges_table.twig:489
-#: src/Server/Privileges.php:366
+#: src/Server/Privileges.php:362
 msgid "Allows executing stored routines."
 msgstr "Maakt het mogelijk om opgeslagen routines uit te voeren."
 
 #: resources/templates/server/privileges/privileges_table.twig:530
 #: resources/templates/server/privileges/privileges_table.twig:533
-#: src/Server/Privileges.php:340
+#: src/Server/Privileges.php:336
 msgid "Allows to set up events for the event scheduler."
 msgstr "Maakt het mogelijk om gebeurtenissen in de planner te zetten."
 
@@ -5034,7 +5037,7 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:583
 #: resources/templates/server/privileges/privileges_table.twig:587
-#: src/Server/Privileges.php:326
+#: src/Server/Privileges.php:322
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -5047,13 +5050,13 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:597
 #: resources/templates/server/privileges/privileges_table.twig:600
-#: src/Server/Privileges.php:316
+#: src/Server/Privileges.php:312
 msgid "Allows viewing processes of all users."
 msgstr "Maakt het mogelijk om processen van alle gebruikers te zien."
 
 #: resources/templates/server/privileges/privileges_table.twig:610
 #: resources/templates/server/privileges/privileges_table.twig:613
-#: src/Server/Privileges.php:314
+#: src/Server/Privileges.php:310
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Maakt het mogelijk om de serverinstellingen opnieuw op te vragen en de cache "
@@ -5061,19 +5064,19 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:623
 #: resources/templates/server/privileges/privileges_table.twig:626
-#: src/Server/Privileges.php:315
+#: src/Server/Privileges.php:311
 msgid "Allows shutting down the server."
 msgstr "Maakt het mogelijk om de server te stoppen."
 
 #: resources/templates/server/privileges/privileges_table.twig:636
 #: resources/templates/server/privileges/privileges_table.twig:639
-#: src/Server/Privileges.php:321
+#: src/Server/Privileges.php:317
 msgid "Gives access to the complete list of databases."
 msgstr "Geeft toegang tot de volledige lijst van databases."
 
 #: resources/templates/server/privileges/privileges_table.twig:664
 #: resources/templates/server/privileges/privileges_table.twig:667
-#: src/Server/Privileges.php:332
+#: src/Server/Privileges.php:328
 msgid "Allows locking tables for the current thread."
 msgstr "Maakt het mogelijk tabellen op slot te zetten voor de huidige thread."
 
@@ -5091,7 +5094,7 @@ msgstr "Niet gebruikt voor deze MySQL-versie."
 
 #: resources/templates/server/privileges/privileges_table.twig:692
 #: resources/templates/server/privileges/privileges_table.twig:695
-#: src/Server/Privileges.php:337
+#: src/Server/Privileges.php:333
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr ""
 "Geeft het recht aan de gebruiker om te vragen waar de replica's / primaire "
@@ -5099,13 +5102,13 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:705
 #: resources/templates/server/privileges/privileges_table.twig:708
-#: src/Server/Privileges.php:333
+#: src/Server/Privileges.php:329
 msgid "Needed for the replication replicas."
 msgstr "Nodig voor de replica's."
 
 #: resources/templates/server/privileges/privileges_table.twig:718
 #: resources/templates/server/privileges/privileges_table.twig:721
-#: src/Server/Privileges.php:365
+#: src/Server/Privileges.php:361
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
 "Maakt het mogelijk om gebruikersaccounts te maken, hernoemen en verwijderen."
@@ -5286,7 +5289,7 @@ msgstr ""
 #: resources/templates/server/replication/change_primary.twig:25
 #: resources/templates/server/replication/primary_add_replica_user.twig:29
 #: src/Plugins/Export/ExportLatex.php:206 src/Plugins/Export/ExportSql.php:707
-#: src/Plugins/Export/ExportXml.php:215
+#: src/Plugins/Export/ExportXml.php:211
 msgid "Host:"
 msgstr "Host:"
 
@@ -5502,7 +5505,7 @@ msgid "Current server:"
 msgstr "Huidige server:"
 
 #: resources/templates/server/select/index.twig:6
-#: resources/templates/setup/home/index.twig:34 src/Config/Descriptions.php:746
+#: resources/templates/setup/home/index.twig:34 src/Config/Descriptions.php:742
 msgid "Servers"
 msgstr "Servers"
 
@@ -5587,7 +5590,7 @@ msgid "Test:"
 msgstr "Test:"
 
 #: resources/templates/server/status/base.twig:6
-#: src/Config/Descriptions.php:940
+#: src/Config/Descriptions.php:936
 msgid "Server"
 msgstr "Server"
 
@@ -6099,7 +6102,7 @@ msgstr "Toon formulier"
 msgid "Show hidden messages"
 msgstr "Toon verborgen berichten"
 
-#: resources/templates/setup/home/index.twig:51 src/Config/Descriptions.php:870
+#: resources/templates/setup/home/index.twig:51 src/Config/Descriptions.php:866
 msgid "Authentication type"
 msgstr "Authenticatietype"
 
@@ -6181,7 +6184,7 @@ msgid "Detailed profile"
 msgstr "Gedetailleerd profiel"
 
 #: resources/templates/sql/profiling_chart.twig:11
-#: src/Config/Descriptions.php:969
+#: src/Config/Descriptions.php:965
 msgid "Order"
 msgstr "Volgorde"
 
@@ -6227,6 +6230,7 @@ msgid "Pie chart with profiling results."
 msgstr "Profiling-resultaten"
 
 #: resources/templates/sql/query.twig:7
+#: src/Controllers/Operations/ViewController.php:118
 #: src/Controllers/Table/DeleteRowsController.php:77
 #: src/Controllers/Table/FindReplaceController.php:120
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:74
@@ -6242,9 +6246,8 @@ msgstr "Profiling-resultaten"
 #: src/Controllers/Table/Partition/RepairController.php:50
 #: src/Controllers/Table/Partition/TruncateController.php:51
 #: src/Controllers/Table/RelationController.php:135
-#: src/Controllers/View/OperationsController.php:118
 #: src/Database/Routines.php:976 src/Display/Results.php:3249
-#: src/Message.php:131
+#: src/Message.php:129
 msgid "Your SQL query has been executed successfully."
 msgstr "Uw SQL-query is succesvol uitgevoerd."
 
@@ -6285,7 +6288,7 @@ msgstr "Scheidingsteken"
 msgid "Show this query here again"
 msgstr "Laat deze query hier zien"
 
-#: resources/templates/sql/query.twig:129 src/Config/Descriptions.php:927
+#: resources/templates/sql/query.twig:129 src/Config/Descriptions.php:923
 msgid "Retain query box"
 msgstr "Queryveld behouden"
 
@@ -6546,7 +6549,7 @@ msgstr "Sleep om te herschikken"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:487
 #: src/Controllers/JavaScriptMessagesController.php:638
-#: src/ErrorHandler.php:405 src/InsertEdit.php:1557
+#: src/ErrorHandler.php:405 src/InsertEdit.php:1545
 msgid "Ignore"
 msgstr "Negeren"
 
@@ -6769,7 +6772,7 @@ msgid "Delete the view (DROP)"
 msgstr "De VIEW verwijderen (DROP)"
 
 #: resources/templates/table/page_with_secondary_tabs.twig:5
-#: src/Config/Descriptions.php:764 src/Plugins/Export/ExportPdf.php:251
+#: src/Config/Descriptions.php:760 src/Plugins/Export/ExportPdf.php:251
 msgid "Table structure"
 msgstr "Tabelstructuur"
 
@@ -7190,6 +7193,21 @@ msgstr "Hoe te gebruiken"
 #: resources/templates/table/zoom_search/result_form.twig:17
 msgid "Reset zoom"
 msgstr "Herstel zoom"
+
+#: resources/templates/test/gettext/pgettext.twig:1
+msgctxt "Text context"
+msgid "Text"
+msgstr "Tekst"
+
+#. l10n: Number of tables
+#: resources/templates/test/gettext/plural_notes.twig:1
+#: resources/templates/test/gettext/plural.twig:1
+#, fuzzy
+#| msgid "Use tables"
+msgid "One table"
+msgid_plural "%count% tables"
+msgstr[0] "Tabellen gebruiken"
+msgstr[1] "Tabellen gebruiken"
 
 #. l10n: Show or hide the menu using the hamburger style button
 #: resources/templates/top_menu.twig:4
@@ -8889,7 +8907,7 @@ msgstr "Vietnamees"
 
 #: src/Config/ConfigFile.php:521 src/Config/ConfigFile.php:535
 #: src/Config/ConfigFile.php:589 src/Config/ConfigFile.php:599
-#: src/Config/Descriptions.php:759 src/Menu.php:231 src/Menu.php:331
+#: src/Config/Descriptions.php:755 src/Menu.php:231 src/Menu.php:331
 #: src/Menu.php:449 src/Navigation/Nodes/NodeTable.php:292 src/Util.php:1059
 #: src/Util.php:1466 src/Util.php:1481 src/Util.php:1498
 msgid "SQL"
@@ -9072,19 +9090,19 @@ msgstr "beide bovenstaande opties"
 msgid "neither of the above"
 msgstr "geen van bovenstaande opties"
 
-#: src/Config/Descriptions.php:59 src/Config/Descriptions.php:60
-#: src/Config/Descriptions.php:61
+#: src/Config/Descriptions.php:55 src/Config/Descriptions.php:56
+#: src/Config/Descriptions.php:57
 msgid "Users cannot set a higher value"
 msgstr "Gebruiker kan geen hogere waarde instellen"
 
-#: src/Config/Descriptions.php:77
+#: src/Config/Descriptions.php:73
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
 "Indien ingeschakeld kan de gebruiker elke MySQL-server opgeven op het "
 "aanmeldingsformulier voor cookie-authenticatie."
 
-#: src/Config/Descriptions.php:80
+#: src/Config/Descriptions.php:76
 msgid ""
 "Restricts the MySQL servers the user can enter when a login to an arbitrary "
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
@@ -9094,7 +9112,7 @@ msgstr ""
 "op een willekeurige MySQL server is toegestaan door een overeenkomende IP of "
 "servernaam van de MySQL server met een reguliere expressie."
 
-#: src/Config/Descriptions.php:85
+#: src/Config/Descriptions.php:81
 msgid ""
 "Enabling this allows a page located on a different domain to call phpMyAdmin "
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
@@ -9105,7 +9123,7 @@ msgstr ""
 "[strong]beveiligingslek[/strong] wat cross-frame scripting (XSS) aanvallen "
 "mogelijk kan maken."
 
-#: src/Config/Descriptions.php:90
+#: src/Config/Descriptions.php:86
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
@@ -9113,15 +9131,15 @@ msgstr ""
 "Geheime sleutelzin gebruikt voor de versleuteling van cookies in "
 "[kbd]cookie[/kbd]-authenticatie."
 
-#: src/Config/Descriptions.php:92
+#: src/Config/Descriptions.php:88
 msgid "Enable bzip2 compression for import operations."
 msgstr "Schakel bzip2 compressie in voor importbewerkingen."
 
-#: src/Config/Descriptions.php:93
+#: src/Config/Descriptions.php:89
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
 msgstr "Voer de URL in voor uw reCAPTCHA v2 compatible API."
 
-#: src/Config/Descriptions.php:94
+#: src/Config/Descriptions.php:90
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
@@ -9129,30 +9147,30 @@ msgstr ""
 "Geef de Content-Security-Policy snippet in voor uw reCAPTCHA v2 compatible "
 "API."
 
-#: src/Config/Descriptions.php:95
+#: src/Config/Descriptions.php:91
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
 "Geef de vraag parameter in gebruik bij uw reCAPTCHA v2 compatible API in."
 
-#: src/Config/Descriptions.php:96
+#: src/Config/Descriptions.php:92
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
 "Geef de respons parameter in die gebruikt wordt door uw reCAPTCHA v2 "
 "compatible API."
 
-#: src/Config/Descriptions.php:97
+#: src/Config/Descriptions.php:93
 msgid "Enter your public key for the reCAPTCHA service on your domain."
 msgstr "Voer uw openbare sleutel in voor de reCAPTCHA service op uw domein."
 
-#: src/Config/Descriptions.php:98
+#: src/Config/Descriptions.php:94
 msgid "Enter your private key for your domain reCAPTCHA service."
 msgstr "Voer uw private sleutel in voor de reCAPTCHA service op uw domein."
 
-#: src/Config/Descriptions.php:99
+#: src/Config/Descriptions.php:95
 msgid "Enter your siteverify URL for your reCAPTCHA service."
 msgstr "Voer uw siteverify URL in voor uw reCAPTCHA service."
 
-#: src/Config/Descriptions.php:101
+#: src/Config/Descriptions.php:97
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -9163,7 +9181,7 @@ msgstr ""
 "beperken, [kbd]textarea[/kbd] - maakt het mogelijk om meerdere regels in te "
 "vullen."
 
-#: src/Config/Descriptions.php:106
+#: src/Config/Descriptions.php:102
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
@@ -9171,7 +9189,7 @@ msgstr ""
 "Gebruik de gebruiksvriendelijk editor voor SQL-query's (CodeMirror) met "
 "syntaxis markering en regelnummers."
 
-#: src/Config/Descriptions.php:111
+#: src/Config/Descriptions.php:107
 msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
@@ -9179,7 +9197,7 @@ msgstr ""
 "Vindt elke fout in de query voor uitvoeren. Vereist dat CodeMirror "
 "ingeschakeld is."
 
-#: src/Config/Descriptions.php:114
+#: src/Config/Descriptions.php:110
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
@@ -9187,7 +9205,7 @@ msgstr ""
 "Definieert de minimale grootte voor invoervelden die gegenereerd worden voor "
 "CHAR- en VARCHAR-kolommen."
 
-#: src/Config/Descriptions.php:117
+#: src/Config/Descriptions.php:113
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
@@ -9195,7 +9213,7 @@ msgstr ""
 "Definieert de maximale grootte voor invoervelden die gegenereerd worden voor "
 "CHAR- en VARCHAR-kolommen."
 
-#: src/Config/Descriptions.php:120
+#: src/Config/Descriptions.php:116
 msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
@@ -9204,7 +9222,7 @@ msgstr ""
 "is; indien u problemen ondervindt met de gemaakte gzip-bestanden, schakel "
 "deze functie dan uit."
 
-#: src/Config/Descriptions.php:124
+#: src/Config/Descriptions.php:120
 msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
@@ -9212,15 +9230,15 @@ msgstr ""
 "Of er een waarschuwing(\"Weet u zeker…\") moet worden getoond op het moment "
 "dat u gegevens gaat verwijderen."
 
-#: src/Config/Descriptions.php:127
+#: src/Config/Descriptions.php:123
 msgid "Autocomplete of the table and column names in the SQL queries."
 msgstr "Automatisch aanvullen van tabel- en kolomnamen in de SQL queries."
 
-#: src/Config/Descriptions.php:130 src/Config/Descriptions.php:134
-#: src/Config/Descriptions.php:138 src/Config/Descriptions.php:142
-#: src/Config/Descriptions.php:146 src/Config/Descriptions.php:150
-#: src/Config/Descriptions.php:154 src/Config/Descriptions.php:158
-#: src/Config/Descriptions.php:162
+#: src/Config/Descriptions.php:126 src/Config/Descriptions.php:130
+#: src/Config/Descriptions.php:134 src/Config/Descriptions.php:138
+#: src/Config/Descriptions.php:142 src/Config/Descriptions.php:146
+#: src/Config/Descriptions.php:150 src/Config/Descriptions.php:154
+#: src/Config/Descriptions.php:158
 msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
@@ -9229,7 +9247,7 @@ msgstr ""
 "worden overschreven als de transformatie wordt ingevuld op de tabelstructuur "
 "pagina."
 
-#: src/Config/Descriptions.php:166
+#: src/Config/Descriptions.php:162
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
@@ -9237,7 +9255,7 @@ msgstr ""
 "Schakel arbeidsintensieve onderhoudstaken voor tabellen uit, zoals "
 "optimaliseren of herstellen van geselecteerde tabellen van een database."
 
-#: src/Config/Descriptions.php:170
+#: src/Config/Descriptions.php:166
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
@@ -9245,12 +9263,12 @@ msgstr ""
 "Stel hier het maximale aantal seconden in dat een script mag gebruiken om te "
 "worden uitgevoerd ([kbd]0[/kbd] voor geen limiet)."
 
-#: src/Config/Descriptions.php:172 src/Config/Descriptions.php:712
+#: src/Config/Descriptions.php:168 src/Config/Descriptions.php:708
 #: src/Plugins/Export/ExportSql.php:312
 msgid "Exclude definition of current user"
 msgstr "Sluit definitie van huidige gebruiker uit"
 
-#: src/Config/Descriptions.php:174
+#: src/Config/Descriptions.php:170
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
@@ -9258,7 +9276,7 @@ msgstr ""
 "Sorteervolgorde van elementen in het vreemdesleutelkeuzemenu; [kbd]content[/"
 "kbd] is de gerefereerde data, [kbd]id[/kbd] is de sleutelwaarde."
 
-#: src/Config/Descriptions.php:178
+#: src/Config/Descriptions.php:174
 msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
@@ -9266,7 +9284,7 @@ msgstr ""
 "Specificeer de browser titelbalk tekst. Zie [doc@faq6-27]documentatie[/doc] "
 "voor tekenreeksen die voor speciale tekens gebruikt kunnen worden."
 
-#: src/Config/Descriptions.php:183
+#: src/Config/Descriptions.php:179
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
@@ -9274,7 +9292,7 @@ msgstr ""
 "Bedenk dat phpMyAdmin enkel een gebruikersinterface is, en dat zijn "
 "functionaliteit MySQL niet beperkt."
 
-#: src/Config/Descriptions.php:186
+#: src/Config/Descriptions.php:182
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for."
@@ -9282,7 +9300,7 @@ msgstr ""
 "Geavanceerde serverinstellingen, wijzig deze alleen wanneer u de werking "
 "begrijpt."
 
-#: src/Config/Descriptions.php:189
+#: src/Config/Descriptions.php:185
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
@@ -9292,7 +9310,7 @@ msgstr ""
 "extra functionaliteit, zie [doc@linked-tables]phpMyAdmin-configuratieopslag[/"
 "doc] in de documentatie."
 
-#: src/Config/Descriptions.php:194
+#: src/Config/Descriptions.php:190
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
@@ -9300,116 +9318,116 @@ msgstr ""
 "Bijhouden van wijzigingen in de database. Dit vereist de configuratieopslag "
 "van phpMyAdmin."
 
-#: src/Config/Descriptions.php:197
+#: src/Config/Descriptions.php:193
 msgid "Customize browse mode."
 msgstr "Aanpassen van verkenmodus."
 
-#: src/Config/Descriptions.php:198 src/Config/Descriptions.php:199
-#: src/Config/Descriptions.php:206 src/Config/Descriptions.php:212
-#: src/Config/Descriptions.php:213 src/Config/Descriptions.php:218
+#: src/Config/Descriptions.php:194 src/Config/Descriptions.php:195
+#: src/Config/Descriptions.php:202 src/Config/Descriptions.php:208
+#: src/Config/Descriptions.php:209 src/Config/Descriptions.php:214
 msgid "Customize default options."
 msgstr "Aanpassen standaard opties."
 
-#: src/Config/Descriptions.php:200
+#: src/Config/Descriptions.php:196
 msgid "Settings for phpMyAdmin developers."
 msgstr "Instellingen voor phpMyAdmin-ontwikkelaars."
 
-#: src/Config/Descriptions.php:201
+#: src/Config/Descriptions.php:197
 msgid "Customize edit mode."
 msgstr "Bewerkmodus aanpassen."
 
-#: src/Config/Descriptions.php:202
+#: src/Config/Descriptions.php:198
 msgid "Customize default export options."
 msgstr "Aanpassen standaard exportopties."
 
-#: src/Config/Descriptions.php:203
+#: src/Config/Descriptions.php:199
 msgid "Set some commonly used options."
 msgstr "Enkele veel gebruikte opties instellen."
 
-#: src/Config/Descriptions.php:204
+#: src/Config/Descriptions.php:200
 msgid "Customize default common import options."
 msgstr "Aanpassen standaard importopties."
 
-#: src/Config/Descriptions.php:205
+#: src/Config/Descriptions.php:201
 msgid "Set import and export directories and compression options."
 msgstr "Aanpassen importeer- en exporteer-directories en compressie-opties."
 
-#: src/Config/Descriptions.php:207
+#: src/Config/Descriptions.php:203
 msgid "Databases display options."
 msgstr "Weergaveopties voor databases."
 
-#: src/Config/Descriptions.php:208
+#: src/Config/Descriptions.php:204
 msgid "Customize appearance of the navigation panel."
 msgstr "Weergaveopties voor het navigatiepaneel."
 
-#: src/Config/Descriptions.php:209
+#: src/Config/Descriptions.php:205
 msgid "Customize the navigation tree."
 msgstr "Aanpassen van de navigatieboom."
 
-#: src/Config/Descriptions.php:210
+#: src/Config/Descriptions.php:206
 msgid "Servers display options."
 msgstr "Weergaveopties voor servers."
 
-#: src/Config/Descriptions.php:211
+#: src/Config/Descriptions.php:207
 msgid "Tables display options."
 msgstr "Weergaveopties voor tabellen."
 
-#: src/Config/Descriptions.php:214
+#: src/Config/Descriptions.php:210
 msgid "Settings that didn't fit anywhere else."
 msgstr "Instellingen die onder geen andere categorie passen."
 
-#: src/Config/Descriptions.php:215
+#: src/Config/Descriptions.php:211
 msgid "Authentication settings."
 msgstr "Authenticatie-instellingen."
 
-#: src/Config/Descriptions.php:216
+#: src/Config/Descriptions.php:212
 msgid "Enter server connection parameters."
 msgstr "Geef de serververbindingsparameters op."
 
-#: src/Config/Descriptions.php:217
+#: src/Config/Descriptions.php:213
 msgid "Customize links shown in SQL Query boxes."
 msgstr "Aanpassen van links getoond in de SQL-query vensters."
 
-#: src/Config/Descriptions.php:219
+#: src/Config/Descriptions.php:215
 msgid "SQL queries settings."
 msgstr "SQL-query instellingen."
 
-#: src/Config/Descriptions.php:220
+#: src/Config/Descriptions.php:216
 msgid "Customize startup page."
 msgstr "Aanpassen beginpagina."
 
-#: src/Config/Descriptions.php:221
+#: src/Config/Descriptions.php:217
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr ""
 "Kies de details die getoond worden in de databasestructuur (lijst met "
 "tabellen)."
 
-#: src/Config/Descriptions.php:222
+#: src/Config/Descriptions.php:218
 msgid "Settings for the table structure (list of columns)."
 msgstr "Instellingen voor de tabelstructuur (lijst met kolommen)."
 
-#: src/Config/Descriptions.php:223
+#: src/Config/Descriptions.php:219
 msgid "Choose how you want tabs to work."
 msgstr "Kies hoe de tabbladen moeten werken."
 
-#: src/Config/Descriptions.php:224
+#: src/Config/Descriptions.php:220
 msgid "Customize text input fields."
 msgstr "Invoertekstvelden aanpassen."
 
-#: src/Config/Descriptions.php:225
+#: src/Config/Descriptions.php:221
 msgid "Customize default options"
 msgstr "Aanpassen standaard opties"
 
-#: src/Config/Descriptions.php:226
+#: src/Config/Descriptions.php:222
 msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Schakel enkele waarschuwingen uit die getoond worden door phpMyAdmin."
 
-#: src/Config/Descriptions.php:228
+#: src/Config/Descriptions.php:224
 msgid "Enable gzip compression for import and export operations."
 msgstr "Schakel gzip compressie in voor import- en exportbewerkingen."
 
-#: src/Config/Descriptions.php:230
+#: src/Config/Descriptions.php:226
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
@@ -9417,7 +9435,7 @@ msgstr ""
 "Indien ingeschakeld gaat phpMyAdmin door met het uitvoeren van query's zelfs "
 "als een query uit een meervoudige opdracht een fout oplevert."
 
-#: src/Config/Descriptions.php:234
+#: src/Config/Descriptions.php:230
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be a good way to import large files, however it can break "
@@ -9427,7 +9445,7 @@ msgstr ""
 "tijdslimiet nadert. Dit kan nuttig zijn bij het importeren van grote "
 "bestanden, maar kan transacties verstoren."
 
-#: src/Config/Descriptions.php:239
+#: src/Config/Descriptions.php:235
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
@@ -9435,17 +9453,17 @@ msgstr ""
 "Standaard formaat; deze lijst is afhankelijk van de locatie (database, "
 "tabel), enkel SQL is altijd beschikbaar."
 
-#: src/Config/Descriptions.php:242 src/Config/Descriptions.php:243
+#: src/Config/Descriptions.php:238 src/Config/Descriptions.php:239
 msgid "Update data when duplicate keys found on import"
 msgstr ""
 "Werk data bij wanneer identieke sleutelvelden worden gevonden bij het "
 "importeren"
 
-#: src/Config/Descriptions.php:244
+#: src/Config/Descriptions.php:240
 msgid "Number of queries to skip from start."
 msgstr "Aantal query's die moeten worden overgeslagen in het begin."
 
-#: src/Config/Descriptions.php:246
+#: src/Config/Descriptions.php:242
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
@@ -9456,7 +9474,7 @@ msgstr ""
 "meerdere servers wordt gewerkt en dit niet is ingeschakeld kan het snel "
 "gebeuren dat u vergeet om af te melden voor een van de servers."
 
-#: src/Config/Descriptions.php:251
+#: src/Config/Descriptions.php:247
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
@@ -9464,7 +9482,7 @@ msgstr ""
 "Geeft aan of de laatst gebruikte gebruikersnaam moet worden herinnerd "
 "wanneer u geen gebruik maakt van de [kbd]cookie[/kbd] authenticatiemethode."
 
-#: src/Config/Descriptions.php:255
+#: src/Config/Descriptions.php:251
 msgid ""
 "Defines how long (in seconds) a login cookie should be stored in browser. "
 "The default of 0 means that it will be kept for the existing session only, "
@@ -9476,12 +9494,12 @@ msgstr ""
 "van de huidige sessie bewaard, en vervalt wanneer de browser wordt "
 "afgesloten. Dit is aan te raden voor niet-vertrouwde omgevingen."
 
-#: src/Config/Descriptions.php:261
+#: src/Config/Descriptions.php:257
 msgid "Maximum number of characters used when a SQL query is displayed."
 msgstr ""
 "Maximaal aantal karakters dat wordt gebruikt bij het tonen van een SQL-query."
 
-#: src/Config/Descriptions.php:264
+#: src/Config/Descriptions.php:260
 msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
@@ -9489,14 +9507,14 @@ msgstr ""
 "Het aantal elementen dat getoond wordt op iedere pagina op het eerste niveau "
 "van de navigatieboom."
 
-#: src/Config/Descriptions.php:267
+#: src/Config/Descriptions.php:263
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
 msgstr ""
 "Het aantal elementen dat getoond wordt op iedere pagina van de navigatieboom."
 
-#: src/Config/Descriptions.php:270
+#: src/Config/Descriptions.php:266
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, \"Previous\" and \"Next\" links will be shown."
@@ -9505,7 +9523,7 @@ msgstr ""
 "resultatenset. Indien de resultatenset meer rijen bevat worden de links "
 "\"Volgende\" en \"Vorige\" getoond."
 
-#: src/Config/Descriptions.php:275
+#: src/Config/Descriptions.php:271
 msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
@@ -9514,17 +9532,17 @@ msgstr ""
 "bijvoorbeeld [kbd]32M[/kbd] ([kbd]-1[/kbd] voor geen limiet en [kbd]0[/kbd] "
 "voor geen wijziging)."
 
-#: src/Config/Descriptions.php:279
+#: src/Config/Descriptions.php:275
 msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
 "In het navigatiepanel, vervang de database boomstructuur door een selectie"
 
-#: src/Config/Descriptions.php:282
+#: src/Config/Descriptions.php:278
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
 "Koppelen met hoofdpaneel door de huidige database of tabel te markeren."
 
-#: src/Config/Descriptions.php:285
+#: src/Config/Descriptions.php:281
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
@@ -9532,7 +9550,7 @@ msgstr ""
 "Open de pagina in het hoofdvenster ([code]main[/code]) of in een nieuw "
 "venster ([code]new[/code])."
 
-#: src/Config/Descriptions.php:288
+#: src/Config/Descriptions.php:284
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
@@ -9540,7 +9558,7 @@ msgstr ""
 "Het minimale aantal elementen (tabellen, views, routines en evenementen) "
 "waarbij een filterveld wordt getoond."
 
-#: src/Config/Descriptions.php:291
+#: src/Config/Descriptions.php:287
 msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
@@ -9548,67 +9566,67 @@ msgstr ""
 "Groepeer elementen in een boomstructuur ( op basis van het scheidingsteken "
 "zoals gedefinieerd in de Databases en Tabellen tabs hier boven)."
 
-#: src/Config/Descriptions.php:295
+#: src/Config/Descriptions.php:291
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
 msgstr ""
 "Of uitklappen van de boomstructuur aangeboden mag worden in het "
 "navigatiepaneel."
 
-#: src/Config/Descriptions.php:298
+#: src/Config/Descriptions.php:294
 msgid "Whether to show procedures under database in the navigation tree"
 msgstr "Of procedures getoond worden onder database in de navigatieboom"
 
-#: src/Config/Descriptions.php:301
+#: src/Config/Descriptions.php:297
 msgid "Whether to expand single database in the navigation tree automatically."
 msgstr ""
 "Of enkelvoudige database uitbreiden in de navigatieboom automatisch gebeurt."
 
-#: src/Config/Descriptions.php:303
+#: src/Config/Descriptions.php:299
 msgid "Set to 0 to collapse navigation panel."
 msgstr "Zet op 0 om het navigatiepaneel in te klappen."
 
-#: src/Config/Descriptions.php:304
+#: src/Config/Descriptions.php:300
 msgid "Show logo in navigation panel."
 msgstr "Toon logo in navigatiepaneel."
 
-#: src/Config/Descriptions.php:305
+#: src/Config/Descriptions.php:301
 msgid "URL where logo in the navigation panel will point to."
 msgstr "URL waar het logo in het navigatiepaneel naar doorverwijst."
 
-#: src/Config/Descriptions.php:306
+#: src/Config/Descriptions.php:302
 msgid "Display server choice at the top of the navigation panel."
 msgstr "Toon serverkeuze bovenaan het navigatiepaneel."
 
-#: src/Config/Descriptions.php:307
+#: src/Config/Descriptions.php:303
 msgid "String that separates databases into different tree levels."
 msgstr "Tekenreeks die databasenamen opsplitst in verschillende niveaus."
 
-#: src/Config/Descriptions.php:308
+#: src/Config/Descriptions.php:304
 msgid "String that separates tables into different tree levels."
 msgstr "Tekenreeks die tabelnamen opsplitst in verschillende niveaus."
 
-#: src/Config/Descriptions.php:309
+#: src/Config/Descriptions.php:305
 msgid "Highlight server under the mouse cursor."
 msgstr "Server onder de muispijl markeren."
 
-#: src/Config/Descriptions.php:310
+#: src/Config/Descriptions.php:306
 msgid "Whether to show tables under database in the navigation tree"
 msgstr "Of tabellen getoond worden in de navigatieboom"
 
-#: src/Config/Descriptions.php:311
+#: src/Config/Descriptions.php:307
 msgid "Whether to show views under database in the navigation tree"
 msgstr "Of views getoond worden onder database in de navigatieboom"
 
-#: src/Config/Descriptions.php:312
+#: src/Config/Descriptions.php:308
 msgid "Whether to show functions under database in the navigation tree"
 msgstr "Of functies getoond worden onder database in de navigatieboom"
 
-#: src/Config/Descriptions.php:313
+#: src/Config/Descriptions.php:309
 msgid "Whether to show events under database in the navigation tree"
 msgstr "Of gebeurtenissen getoond worden onder database in de navigatieboom"
 
-#: src/Config/Descriptions.php:315
+#: src/Config/Descriptions.php:311
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
@@ -9616,7 +9634,7 @@ msgstr ""
 "[kbd]SMART[/kbd] - op aflopende volgorde voor kolommen van het type TIME, "
 "DATE, DATETIME en TIMESTAMP, oplopend voor overige kolommen."
 
-#: src/Config/Descriptions.php:319
+#: src/Config/Descriptions.php:315
 msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
@@ -9626,7 +9644,7 @@ msgstr ""
 "pagina met databasedetails wanneer een benodigde tabel voor de "
 "configuratieopslag van phpMyAdmin niet gevonden kan worden."
 
-#: src/Config/Descriptions.php:324
+#: src/Config/Descriptions.php:320
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words."
@@ -9634,7 +9652,7 @@ msgstr ""
 "De waarschuwing uitschakelen die getoond wordt op de Structuur pagina "
 "wanneer kolomnamen in een tabel gereserveerde MySQL woorden zijn."
 
-#: src/Config/Descriptions.php:328
+#: src/Config/Descriptions.php:324
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -9645,13 +9663,13 @@ msgstr ""
 "uitgeschakeld, worden JS-routines gebruikt om querygeschiedenis te tonen "
 "(deze gaat verloren bij het sluiten van het venster)."
 
-#: src/Config/Descriptions.php:332
+#: src/Config/Descriptions.php:328
 msgid "Allow users to create bookmarks that are available for all other users"
 msgstr ""
 "Sta gebruikers toe om bladwijzers te maken die beschikbaar zijn voor andere "
 "gebruikers"
 
-#: src/Config/Descriptions.php:334
+#: src/Config/Descriptions.php:330
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
@@ -9659,7 +9677,7 @@ msgstr ""
 "Stel de gebruikte tijdzone in; mogelijk is dat een andere dan die van je "
 "database server"
 
-#: src/Config/Descriptions.php:337
+#: src/Config/Descriptions.php:333
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
@@ -9667,7 +9685,7 @@ msgstr ""
 "Laat dit veld leeg om geen [doc@bookmarks@]bookmark[/doc] support, "
 "suggestie: [kbd]pma__bookmark[/kbd]"
 
-#: src/Config/Descriptions.php:340
+#: src/Config/Descriptions.php:336
 msgid ""
 "Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
@@ -9675,7 +9693,7 @@ msgstr ""
 "Laat dit veld leeg om geen kolomopmerkingen/media typen te ondersteunen, "
 "suggestie: [kbd]pma__column_info[/kbd]."
 
-#: src/Config/Descriptions.php:343
+#: src/Config/Descriptions.php:339
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
@@ -9683,7 +9701,7 @@ msgstr ""
 "Een speciale MySQL-gebruiker met beperkte rechten, zie [doc@linked-tables] "
 "1documentation[/doc] 2 voor meer informatie."
 
-#: src/Config/Descriptions.php:347
+#: src/Config/Descriptions.php:343
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
@@ -9691,7 +9709,7 @@ msgstr ""
 "Een alternatieve host voor de configuratieopslag; laat leeg om de reeds "
 "gedefinieerde host te gebruiken."
 
-#: src/Config/Descriptions.php:350
+#: src/Config/Descriptions.php:346
 msgid ""
 "An alternate port to connect to the host that holds the configuration "
 "storage; leave blank to use the default port, or the already defined port, "
@@ -9701,7 +9719,7 @@ msgstr ""
 "laat leeg om de standaardpoort te gebruiken, of om de reeds gedefinieerde "
 "poort te gebruiken als controlhost gelijk is aan host."
 
-#: src/Config/Descriptions.php:355
+#: src/Config/Descriptions.php:351
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
@@ -9711,7 +9729,7 @@ msgstr ""
 "issues/8970]phpMyAdmin issue tracker[/a] en [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 
-#: src/Config/Descriptions.php:359
+#: src/Config/Descriptions.php:355
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -9719,7 +9737,7 @@ msgstr ""
 "Laat dit veld leeg om SQL-geschiedenis niet te ondersteunen, suggestie: "
 "[kbd]pma__history[/kbd]."
 
-#: src/Config/Descriptions.php:362
+#: src/Config/Descriptions.php:358
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
@@ -9727,7 +9745,7 @@ msgstr ""
 "Beperkt het aantal tabelvoorkeuren die opgeslagen zijn in de database, de "
 "oudste worden automatisch verwijderd."
 
-#: src/Config/Descriptions.php:366
+#: src/Config/Descriptions.php:362
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
@@ -9735,7 +9753,7 @@ msgstr ""
 "Laat dit veld leeg om template ondersteuning uit te schakelen, suggestie: "
 "[kbd]pma__export_templates[/kbd]."
 
-#: src/Config/Descriptions.php:369
+#: src/Config/Descriptions.php:365
 msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
@@ -9743,7 +9761,7 @@ msgstr ""
 "Laat dit veld leeg om centrale kolommen tabel niet te ondersteunen, "
 "suggestie: [kbd]pma__table_coords[/kbd]."
 
-#: src/Config/Descriptions.php:372
+#: src/Config/Descriptions.php:368
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -9753,14 +9771,14 @@ msgstr ""
 "een \\ indien u ze letterlijk wil gebruiken. Gebruik bijvoorbeeld "
 "[kbd]'mijn\\_db'[/kbd] en niet [kbd]'mijn_db'[/kbd]."
 
-#: src/Config/Descriptions.php:377
+#: src/Config/Descriptions.php:373
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
 "Laat dit veld leeg om PDF-schemaondersteuning uit te schakelen, suggestie: "
 "[kbd]pma__pdf_pages[/kbd]."
 
-#: src/Config/Descriptions.php:380
+#: src/Config/Descriptions.php:376
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [doc@linked-"
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
@@ -9770,7 +9788,7 @@ msgstr ""
 "te slaan. Zie [doc@linked-tables]pmadb[/doc] voor meer informatie. Laat dit "
 "veld leeg om dit uit te schakelen. Suggestie: : [kbd] phpmyadmin[/kbd]."
 
-#: src/Config/Descriptions.php:385
+#: src/Config/Descriptions.php:381
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
@@ -9778,7 +9796,7 @@ msgstr ""
 "Laat dit veld leeg om geen recent gebruikte tabellen op te slaan over "
 "sessies heen, voorstel: [kbd]pma__recent[/kbd]."
 
-#: src/Config/Descriptions.php:389
+#: src/Config/Descriptions.php:385
 msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
@@ -9786,7 +9804,7 @@ msgstr ""
 "Laat dit veld leeg om geen veel gebruikte tabellen op te slaan over sessies "
 "heen, voorstel: [kbd]pma__recent[/kbd]."
 
-#: src/Config/Descriptions.php:393
+#: src/Config/Descriptions.php:389
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
@@ -9794,13 +9812,13 @@ msgstr ""
 "Laat dit veld leeg om geen [doc@relations@] relation-links[/doc] te "
 "ondersteunen, suggestie: [kbd]pma__relation[/kbd]."
 
-#: src/Config/Descriptions.php:398
+#: src/Config/Descriptions.php:394
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
 "Zie [doc@authentication-modes]authentication types[/doc] voor een voorbeeld."
 
-#: src/Config/Descriptions.php:401
+#: src/Config/Descriptions.php:397
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
@@ -9808,7 +9826,7 @@ msgstr ""
 "Laat dit veld leeg om geen PDF-schema te ondersteunen, suggestie: "
 "[kbd]pma__table_coords[/kbd]."
 
-#: src/Config/Descriptions.php:404
+#: src/Config/Descriptions.php:400
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
@@ -9816,7 +9834,7 @@ msgstr ""
 "De tabel om kolomomschrijvingen te definiëren, laat dit veld leeg om dit "
 "niet te gebruiken; suggestie: [kbd]pma__table_info[/kbd]."
 
-#: src/Config/Descriptions.php:408
+#: src/Config/Descriptions.php:404
 msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
@@ -9824,7 +9842,7 @@ msgstr ""
 "Laat dit veld leeg om interfacevoorkeuren niet \"persistent\" op te slaan, "
 "suggestie: [kbd]pma__table_uiprefs[/kbd]."
 
-#: src/Config/Descriptions.php:412
+#: src/Config/Descriptions.php:408
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
@@ -9832,7 +9850,7 @@ msgstr ""
 "Of de opdracht DROP DATABASE IF EXISTS toegevoegd wordt als eerste regel van "
 "de log als een database aangemaakt wordt."
 
-#: src/Config/Descriptions.php:416
+#: src/Config/Descriptions.php:412
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
@@ -9841,7 +9859,7 @@ msgstr ""
 "de log als een tabel aangemaakt wordt."
 
 # "statement" hier vertalen is geen goed idee.
-#: src/Config/Descriptions.php:420
+#: src/Config/Descriptions.php:416
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
@@ -9849,13 +9867,13 @@ msgstr ""
 "Of een opdracht DROP VIEW IF EXISTS als de eerste lijn toegevoegd zal worden "
 "bij het aanmaken van een weergave of niet."
 
-#: src/Config/Descriptions.php:424
+#: src/Config/Descriptions.php:420
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 "Definieert de lijst van opdrachten die gebruikt worden bij het automatisch "
 "aanmaken bij nieuwe versies."
 
-#: src/Config/Descriptions.php:427
+#: src/Config/Descriptions.php:423
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
@@ -9863,7 +9881,7 @@ msgstr ""
 "Laat dit veld leeg om het opvolgen van SQL-query's niet te ondersteunen, "
 "suggestie: [kbd]pma__tracking[/kbd]."
 
-#: src/Config/Descriptions.php:430
+#: src/Config/Descriptions.php:426
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
@@ -9871,7 +9889,7 @@ msgstr ""
 "Of het opvolgsysteem versies voor tabellen en weergaven automatisch aanmaakt "
 "of niet."
 
-#: src/Config/Descriptions.php:433
+#: src/Config/Descriptions.php:429
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: "
 "[kbd]pma__userconfig[/kbd]."
@@ -9879,7 +9897,7 @@ msgstr ""
 "Laat dit veld leeg om geen gebruikersvoorkeuren op te slaan in de database, "
 "suggestie: [kbd]pma__userconfig[/kbd]."
 
-#: src/Config/Descriptions.php:436
+#: src/Config/Descriptions.php:432
 msgid ""
 "Both this table and the user groups table are required to enable the "
 "configurable menus feature; leaving either one of them blank will disable "
@@ -9889,7 +9907,7 @@ msgstr ""
 "optie configureren menu's te activeren; als u een van beide leeg laat wordt "
 "deze functie uitgeschakeld, suggestie: [kbd]pma__users[/kbd]."
 
-#: src/Config/Descriptions.php:441
+#: src/Config/Descriptions.php:437
 msgid ""
 "Both this table and the users table are required to enable the configurable "
 "menus feature; leaving either one of them blank will disable this feature, "
@@ -9899,7 +9917,7 @@ msgstr ""
 "configureerbare menu's optie te activeren; als u een van beide leeg laat "
 "wordt deze functie uitgeschakeld, suggestie: [kbd]pma__usergroups[/kbd]."
 
-#: src/Config/Descriptions.php:446
+#: src/Config/Descriptions.php:442
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
@@ -9907,7 +9925,7 @@ msgstr ""
 "Laat dit veld leeg om de optie, die navigatieonderdelen kan verbergen of "
 "tonen, uit te schakelen, suggestie: [kbd]pma__navigationhiding[/kbd]."
 
-#: src/Config/Descriptions.php:450
+#: src/Config/Descriptions.php:446
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
@@ -9915,58 +9933,58 @@ msgstr ""
 "Een gebruiksvriendelijke naam voor deze server. Laat dit veld leeg om de "
 "hostnaam te tonen."
 
-#: src/Config/Descriptions.php:452
+#: src/Config/Descriptions.php:448
 msgid "Leave blank if not used."
 msgstr "Laat dit veld leeg indien u het niet wenst te gebruiken."
 
-#: src/Config/Descriptions.php:453
+#: src/Config/Descriptions.php:449
 msgid "Leave blank for defaults."
 msgstr "Laat dit veld leeg om de standaardwaarde te gebruiken."
 
-#: src/Config/Descriptions.php:454
+#: src/Config/Descriptions.php:450
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr "HTTP Basic Auth Realm naam om weer te geven tijdens HTTP Auth."
 
-#: src/Config/Descriptions.php:455
+#: src/Config/Descriptions.php:451
 msgid "Authentication method to use."
 msgstr "Authenticatiemethode."
 
-#: src/Config/Descriptions.php:456
+#: src/Config/Descriptions.php:452
 msgid "Compress connection to MySQL server."
 msgstr "Comprimeer verbinding naar de MySQL-server."
 
-#: src/Config/Descriptions.php:457
+#: src/Config/Descriptions.php:453
 msgid "Hide databases matching regular expression (PCRE)."
 msgstr ""
 "Verberg databases die aan de hier opgegeven reguliere expressie (PCRE) "
 "voldoen."
 
-#: src/Config/Descriptions.php:458
+#: src/Config/Descriptions.php:454
 msgid "Hostname where MySQL server is running."
 msgstr "Hostnaam waar de MySQL-server bereikbaar is."
 
-#: src/Config/Descriptions.php:459 src/Config/Descriptions.php:463
+#: src/Config/Descriptions.php:455 src/Config/Descriptions.php:459
 msgid "Leave empty if not using config auth."
 msgstr ""
 "Laat dit veld leeg indien u geen gebruik maakt van 'config'-authenticatie."
 
-#: src/Config/Descriptions.php:460
+#: src/Config/Descriptions.php:456
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Het TCP-poortnummer waarop MySQL luistert, laat dit veld leeg om de "
 "standaardwaarde te gebruiken."
 
-#: src/Config/Descriptions.php:461
+#: src/Config/Descriptions.php:457
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Het socket waarop de MySQL-server luistert, laat dit leeg om de standaard "
 "waarde te gebruiken."
 
-#: src/Config/Descriptions.php:462
+#: src/Config/Descriptions.php:458
 msgid "Enable SSL for connection to MySQL server."
 msgstr "SSL inschakelen voor de verbinding naar de MySQL-server."
 
-#: src/Config/Descriptions.php:465
+#: src/Config/Descriptions.php:461
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -9977,26 +9995,26 @@ msgstr ""
 "configuratiebestand staat opgeslagen; dit beperkt echter niet de "
 "mogelijkheid om de bijbehorende SQL-opdracht handmatig uit te voeren."
 
-#: src/Config/Descriptions.php:470
+#: src/Config/Descriptions.php:466
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
 "Toon of verberg een kolom met het tijdstip van aanmaken voor alle tabellen."
 
-#: src/Config/Descriptions.php:473
+#: src/Config/Descriptions.php:469
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr ""
 "Toon of verberg een kolom met het tijdstip van laatste aanpassing voor alle "
 "tabellen."
 
-#: src/Config/Descriptions.php:476
+#: src/Config/Descriptions.php:472
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr ""
 "Toon of verberg een kolom met het tijdstip van laatste controle voor alle "
 "tabellen."
 
-#: src/Config/Descriptions.php:479
+#: src/Config/Descriptions.php:475
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
@@ -10004,7 +10022,7 @@ msgstr ""
 "Definieert of type velden initieel getoond worden in de modus bewerken/"
 "toevoegen."
 
-#: src/Config/Descriptions.php:482
+#: src/Config/Descriptions.php:478
 msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
@@ -10012,48 +10030,48 @@ msgstr ""
 "Toon link naar de uitvoer van [a@https://www.php.net/manual/en/function."
 "phpinfo.php]phpinfo()[/a]."
 
-#: src/Config/Descriptions.php:484
+#: src/Config/Descriptions.php:480
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
 "Of er een knop \"Toon alle (rijen)\" moet worden getoond aan de gebruiker."
 
-#: src/Config/Descriptions.php:485
+#: src/Config/Descriptions.php:481
 msgid "Show or hide a column displaying the comments for all tables."
 msgstr "Toon of verberg een kolom met het commentaar voor alle tabellen."
 
-#: src/Config/Descriptions.php:486
+#: src/Config/Descriptions.php:482
 msgid "Show or hide a column displaying the charset for all tables."
 msgstr "Toon of verberg een kolom met de karakterset voor alle tabellen."
 
-#: src/Config/Descriptions.php:487
+#: src/Config/Descriptions.php:483
 msgid "Display the function fields in edit/insert mode."
 msgstr "Toon de functievelden tijdens het wijzigen/invoegen."
 
-#: src/Config/Descriptions.php:488
+#: src/Config/Descriptions.php:484
 msgid "Whether to show hint or not."
 msgstr "Of een hint getoond wordt of niet."
 
-#: src/Config/Descriptions.php:489
+#: src/Config/Descriptions.php:485
 msgid ""
 "Defines whether SQL queries generated by phpMyAdmin should be displayed."
 msgstr ""
 "Geeft aan of SQL-query's die door phpMyAdmin werden gegenereerd moeten "
 "worden getoond."
 
-#: src/Config/Descriptions.php:490
+#: src/Config/Descriptions.php:486
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr ""
 "Sta toe om statistieken van databases en tabellen te tonen (over o.a. het "
 "schijfgebruik)."
 
-#: src/Config/Descriptions.php:492
+#: src/Config/Descriptions.php:488
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr ""
 "Markeer tabellen die in gebruik zijn en maak het mogelijk om databases met "
 "geblokkeerde tabellen te tonen."
 
-#: src/Config/Descriptions.php:495
+#: src/Config/Descriptions.php:491
 msgid ""
 "Disable the default warning that is displayed on the main page if Suhosin is "
 "detected."
@@ -10061,7 +10079,7 @@ msgstr ""
 "Schakel de standaard waarschuwing uit die wordt getoond op de hoofdpagina "
 "als Suhosin gedetecteerd wordt."
 
-#: src/Config/Descriptions.php:498
+#: src/Config/Descriptions.php:494
 msgid ""
 "Disable the default warning that is displayed on the main page if the value "
 "of the PHP setting session.gc_maxlifetime is less than the value of "
@@ -10071,7 +10089,7 @@ msgstr ""
 "waarde van de PHP instelling 'session.gc_maxlifetime' lager is dan de waarde "
 "van 'LoginCookieValidity'."
 
-#: src/Config/Descriptions.php:503
+#: src/Config/Descriptions.php:499
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
@@ -10079,7 +10097,7 @@ msgstr ""
 "Tekstveldgrootte (kolommen) in bewerkmodus, deze waarde wordt benadrukt "
 "weergegeven voor SQL-querytekstvelden (*2)."
 
-#: src/Config/Descriptions.php:506
+#: src/Config/Descriptions.php:502
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
@@ -10087,7 +10105,7 @@ msgstr ""
 "Tekstveldgrootte (rijen) in bewerkmodus, deze waarde wordt benadrukt "
 "weergegeven voor SQL-query tekstvelden (*2)."
 
-#: src/Config/Descriptions.php:509
+#: src/Config/Descriptions.php:505
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -10099,7 +10117,7 @@ msgstr ""
 "For) header moet vertrouwen wanneer deze afkomstig is van het IP 1.2.3.4:[br]"
 "[kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]."
 
-#: src/Config/Descriptions.php:515
+#: src/Config/Descriptions.php:511
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
@@ -10107,7 +10125,7 @@ msgstr ""
 "Wanneer uitgeschakeld, kunnen gebruikers geen van de opties onderaan "
 "wijzigen, onafhankelijk van het aanvinkveld aan de rechterkant."
 
-#: src/Config/Descriptions.php:518
+#: src/Config/Descriptions.php:514
 msgid ""
 "The URL of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin, or when submitting error reports. You need "
@@ -10120,7 +10138,7 @@ msgstr ""
 "geïnstalleerd is geen directe toegang tot het Internet heeft. Het formaat "
 "is: \"servernaam:poortnummer\"."
 
-#: src/Config/Descriptions.php:524
+#: src/Config/Descriptions.php:520
 msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
@@ -10131,7 +10149,7 @@ msgstr ""
 "basisverificatie uitgevoerd. Andere types verificatie worden momenteel niet "
 "ondersteund."
 
-#: src/Config/Descriptions.php:530
+#: src/Config/Descriptions.php:526
 msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
@@ -10140,7 +10158,7 @@ msgstr ""
 "Ctrl+Enter). Nieuwe regels worden ingevoegd met de toetscombinatie "
 "Shift+Enter."
 
-#: src/Config/Descriptions.php:534
+#: src/Config/Descriptions.php:530
 msgid ""
 "Enable Zero Configuration mode which lets you set up phpMyAdmin "
 "configuration storage tables automatically."
@@ -10148,390 +10166,390 @@ msgstr ""
 "Schakel 'Zonder configuratie'-modus in om phpMyAdmin "
 "configuratieopslagtabellen automatisch in te stellen."
 
-#: src/Config/Descriptions.php:537
+#: src/Config/Descriptions.php:533
 msgid "Highlight selected rows."
 msgstr "Geselecteerde rijen markeren."
 
-#: src/Config/Descriptions.php:538
+#: src/Config/Descriptions.php:534
 msgid "Highlight row pointed by the mouse cursor."
 msgstr "De door de muis aangewezen rij markeren."
 
-#: src/Config/Descriptions.php:539
+#: src/Config/Descriptions.php:535
 msgid "Number of columns for CHAR/VARCHAR textareas."
 msgstr "Aantal kolommen voor CHAR/VARCHAR-tekstgebieden."
 
-#: src/Config/Descriptions.php:540
+#: src/Config/Descriptions.php:536
 msgid "Number of rows for CHAR/VARCHAR textareas."
 msgstr "Aantal regels voor CHAR/VARCHAR-tekstgebieden."
 
-#: src/Config/Descriptions.php:541
+#: src/Config/Descriptions.php:537
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
 msgstr ""
 "Journaliseer SQL query's en hun verwerkingstijd, om weer te geven op de "
 "console"
 
-#: src/Config/Descriptions.php:542
+#: src/Config/Descriptions.php:538
 msgid "Tab that is displayed when entering a database."
 msgstr "Het tabblad dat wordt getoond na het openen van een database."
 
-#: src/Config/Descriptions.php:543
+#: src/Config/Descriptions.php:539
 msgid "Tab that is displayed when entering a server."
 msgstr "Het tabblad dat wordt getoond na het openen van een server."
 
-#: src/Config/Descriptions.php:544
+#: src/Config/Descriptions.php:540
 msgid "Tab that is displayed when entering a table."
 msgstr "Het tabblad dat wordt getoond na het openen van een tabel."
 
-#: src/Config/Descriptions.php:545
+#: src/Config/Descriptions.php:541
 msgid "Whether the table structure actions should be hidden."
 msgstr "Of de tabelstructuur acties verborgen moeten worden."
 
-#: src/Config/Descriptions.php:546
+#: src/Config/Descriptions.php:542
 msgid "Whether column comments should be shown in table structure view"
 msgstr "Of kolomcommentaar getoond moet worden in het tabelstructuuroverzicht"
 
-#: src/Config/Descriptions.php:547
+#: src/Config/Descriptions.php:543
 msgid "Show server listing as a list instead of a drop down."
 msgstr "Toon een serveroverzicht als een lijst in plaats van een afrolmenu."
 
-#: src/Config/Descriptions.php:548
+#: src/Config/Descriptions.php:544
 msgid "A dropdown will be used if fewer items are present."
 msgstr "Een afrolmenu wordt gebruikt indien er minder items beschikbaar zijn."
 
-#: src/Config/Descriptions.php:549
+#: src/Config/Descriptions.php:545
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
 "Standaardwaarde voor extern sleutelveld controle checkbox voor sommige "
 "query's."
 
-#: src/Config/Descriptions.php:550
+#: src/Config/Descriptions.php:546
 msgid "Uncheck the checkbox to disable drag and drop import"
 msgstr "Vink uit om importeren door slepen uit te schakelen"
 
-#: src/Config/Descriptions.php:551
+#: src/Config/Descriptions.php:547
 msgid "How many rows can be inserted at one time."
 msgstr "Hoeveel rijen gelijktijdig kunnen worden ingevoegd."
 
-#: src/Config/Descriptions.php:552
+#: src/Config/Descriptions.php:548
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
 msgstr ""
 "Maximaal aantal karakters dat wordt getoond in een niet-numerieke kolom bij "
 "het bekijken van queryresultaten."
 
-#: src/Config/Descriptions.php:553
+#: src/Config/Descriptions.php:549
 msgid "Define how long (in seconds) a login cookie is valid."
 msgstr "Definieer hoelang (in seconden) een aanmeldingscookie geldig blijft."
 
-#: src/Config/Descriptions.php:554
+#: src/Config/Descriptions.php:550
 msgid "Double size of textarea for LONGTEXT columns."
 msgstr "Dubbele grootte van tekstveld voor LONGTEXT-kolommen."
 
-#: src/Config/Descriptions.php:555
+#: src/Config/Descriptions.php:551
 msgid "Maximum number of databases displayed in database list."
 msgstr "Maximum aantal databases dat getoond wordt in de databaselijst."
 
-#: src/Config/Descriptions.php:556
+#: src/Config/Descriptions.php:552
 msgid "Maximum number of tables displayed in table list."
 msgstr "Het maximum aantal tabellen dat wordt getoond in de tabellenlijst."
 
-#: src/Config/Descriptions.php:557
+#: src/Config/Descriptions.php:553
 msgid "Maximum number of recently used tables; set 0 to disable."
 msgstr ""
 "Het maximum aantal recent gebruikte tabellen dat wordt getoond; vul 0 in om "
 "uit te schakelen."
 
-#: src/Config/Descriptions.php:558
+#: src/Config/Descriptions.php:554
 msgid "Maximum number of favorite tables; set 0 to disable."
 msgstr ""
 "Het maximum aantal favoriete tabellen dat wordt getoond; vul 0 in om uit te "
 "schakelen."
 
-#: src/Config/Descriptions.php:559
+#: src/Config/Descriptions.php:555
 msgid "These are Edit, Copy and Delete links."
 msgstr "Dit zijn de links Bewerken, Kopiëren en Verwijderen."
 
-#: src/Config/Descriptions.php:560
+#: src/Config/Descriptions.php:556
 msgid "Whether to show row links even in the absence of a unique key."
 msgstr ""
 "Of links naar rijen getoond worden zelfs bij afwezigheid van een uniek "
 "sleutelveld."
 
-#: src/Config/Descriptions.php:561 src/Config/Descriptions.php:842
+#: src/Config/Descriptions.php:557 src/Config/Descriptions.php:838
 msgid "Disable shortcut keys"
 msgstr "Sneltoetsen uitschakelen"
 
-#: src/Config/Descriptions.php:562
+#: src/Config/Descriptions.php:558
 msgid "Use natural order for sorting table and database names."
 msgstr ""
 "Gebruik natuurlijke volgorde voor het sorteren van tabel- en databasenamen."
 
-#: src/Config/Descriptions.php:563 src/Config/Descriptions.php:566
-#: src/Config/Descriptions.php:567
+#: src/Config/Descriptions.php:559 src/Config/Descriptions.php:562
+#: src/Config/Descriptions.php:563
 msgid "Use only icons, only text or both."
 msgstr "Gebruik enkel pictogrammen, enkel tekst of beide."
 
-#: src/Config/Descriptions.php:564
+#: src/Config/Descriptions.php:560
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
 msgstr "GZip-uitvoerbuffering gebruiken voor het versnellen van HTTP-verkeer."
 
-#: src/Config/Descriptions.php:565
+#: src/Config/Descriptions.php:561
 msgid "Use persistent connections to MySQL databases."
 msgstr "Gebruik persistente verbindingen voor MySQL-databases."
 
-#: src/Config/Descriptions.php:568
+#: src/Config/Descriptions.php:564
 msgid "Disallow BLOB and BINARY columns from editing."
 msgstr "Blokkeer het bewerken van 'BLOB'- en 'BINARY'-kolommen."
 
-#: src/Config/Descriptions.php:569
+#: src/Config/Descriptions.php:565
 msgid "How many queries are kept in history."
 msgstr "Hoeveel query's er worden bewaard in de geschiedenis."
 
-#: src/Config/Descriptions.php:570
+#: src/Config/Descriptions.php:566
 msgid "Select which functions will be used for character set conversion."
 msgstr ""
 "Selecteer welke functies worden gebruikt om karaktersetconversies uit te "
 "voeren."
 
-#: src/Config/Descriptions.php:571
+#: src/Config/Descriptions.php:567
 msgid "When browsing tables, the sorting of each table is remembered."
 msgstr "Bij het bekijken van tabellen wordt de sorteervolgorde onthouden."
 
-#: src/Config/Descriptions.php:572
+#: src/Config/Descriptions.php:568
 msgid "Default sort order for tables with a primary key."
 msgstr "Standaard sorteervolgorde voor tabellen met een primaire sleutel."
 
-#: src/Config/Descriptions.php:573
+#: src/Config/Descriptions.php:569
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
 msgstr ""
 "Herhaal de kopregel elke X cellen, [kbd]0[/kbd] schakelt deze functie uit."
 
-#: src/Config/Descriptions.php:574
+#: src/Config/Descriptions.php:570
 msgid "For display Options"
 msgstr "Voor weergaveopties"
 
-#: src/Config/Descriptions.php:575
+#: src/Config/Descriptions.php:571
 msgid "Directory where exports can be saved on server."
 msgstr "Map op de server waar exports kunnen worden opgeslagen."
 
-#: src/Config/Descriptions.php:576
+#: src/Config/Descriptions.php:572
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr "Bepaalt of het queryveld op het scherm moet blijven na invoer."
 
-#: src/Config/Descriptions.php:577
+#: src/Config/Descriptions.php:573
 msgid "Title of browser window when a database is selected."
 msgstr "Titel van het browserscherm wanneer een database geselecteerd is."
 
-#: src/Config/Descriptions.php:578
+#: src/Config/Descriptions.php:574
 msgid "Title of browser window when nothing is selected."
 msgstr "Titel van het browserscherm wanneer niets geselecteerd is."
 
-#: src/Config/Descriptions.php:579
+#: src/Config/Descriptions.php:575
 msgid "Title of browser window when a server is selected."
 msgstr "Titel van het browserscherm wanneer een server geselecteerd is."
 
-#: src/Config/Descriptions.php:580
+#: src/Config/Descriptions.php:576
 msgid "Title of browser window when a table is selected."
 msgstr "Titel van het browserscherm wanneer een tabel geselecteerd is."
 
-#: src/Config/Descriptions.php:581
+#: src/Config/Descriptions.php:577
 msgid "Directory on server where you can upload files for import."
 msgstr "Map op de server waar te importeren bestanden kunnen worden ge-upload."
 
-#: src/Config/Descriptions.php:582
+#: src/Config/Descriptions.php:578
 msgid "Allow for searching inside the entire database."
 msgstr "Toestaan om te zoeken binnen de volledige database."
 
-#: src/Config/Descriptions.php:583
+#: src/Config/Descriptions.php:579
 msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr ""
 "Schakel de controle op de nieuwste versie in op de hoofdpagina van "
 "phpMyAdmin."
 
-#: src/Config/Descriptions.php:584
+#: src/Config/Descriptions.php:580
 msgid "The password for authenticating with the proxy."
 msgstr "Het wachtwoord voor de authenticatie met de proxy."
 
-#: src/Config/Descriptions.php:585
+#: src/Config/Descriptions.php:581
 msgid "Enable ZIP compression for import and export operations."
 msgstr "Schakel ZIP compressie in voor import- en exportbewerkingen."
 
-#: src/Config/Descriptions.php:586
+#: src/Config/Descriptions.php:582
 msgid "Choose the default action when sending error reports."
 msgstr "Kies de standaard actie bij het verzenden van foutmeldingsverslagen."
 
-#: src/Config/Descriptions.php:601
+#: src/Config/Descriptions.php:597
 msgid "Allow login to any MySQL server"
 msgstr "Aanmelden op elke MySQL-server toestaan"
 
-#: src/Config/Descriptions.php:602
+#: src/Config/Descriptions.php:598
 msgid "Restrict login to MySQL server"
 msgstr "Aanmelden op de MySQL-server beperken"
 
-#: src/Config/Descriptions.php:603
+#: src/Config/Descriptions.php:599
 msgid "Allow third party framing"
 msgstr "Frames van derden toestaan"
 
-#: src/Config/Descriptions.php:604
+#: src/Config/Descriptions.php:600
 msgid "Show \"Drop database\" link to normal users"
 msgstr "Toon link \"Verwijder database\" aan normale gebruikers"
 
-#: src/Config/Descriptions.php:605
+#: src/Config/Descriptions.php:601
 msgid "Blowfish secret"
 msgstr "Blowfish geheim"
 
-#: src/Config/Descriptions.php:606
+#: src/Config/Descriptions.php:602
 msgid "Row marker"
 msgstr "Rij markering"
 
-#: src/Config/Descriptions.php:607
+#: src/Config/Descriptions.php:603
 msgid "Highlight pointer"
 msgstr "Muispijl markeren"
 
-#: src/Config/Descriptions.php:608
+#: src/Config/Descriptions.php:604
 msgid "Bzip2"
 msgstr "Bzip2"
 
-#: src/Config/Descriptions.php:609
+#: src/Config/Descriptions.php:605
 msgid "CHAR columns editing"
 msgstr "CHAR-kolommen bewerken"
 
-#: src/Config/Descriptions.php:610
+#: src/Config/Descriptions.php:606
 msgid "Enable CodeMirror"
 msgstr "CodeMirror inschakelen"
 
-#: src/Config/Descriptions.php:611
+#: src/Config/Descriptions.php:607
 msgid "Enable linter"
 msgstr "Schakel linter in"
 
-#: src/Config/Descriptions.php:612
+#: src/Config/Descriptions.php:608
 msgid "Minimum size for input field"
 msgstr "Minimale grootte voor een invoerveld"
 
-#: src/Config/Descriptions.php:613
+#: src/Config/Descriptions.php:609
 msgid "Maximum size for input field"
 msgstr "Maximale grootte voor een invoerveld"
 
-#: src/Config/Descriptions.php:614
+#: src/Config/Descriptions.php:610
 msgid "CHAR textarea columns"
 msgstr "Kolommen van CHAR-tekstgebied"
 
-#: src/Config/Descriptions.php:615
+#: src/Config/Descriptions.php:611
 msgid "CHAR textarea rows"
 msgstr "Regels van CHAR-tekstgebied"
 
-#: src/Config/Descriptions.php:616
+#: src/Config/Descriptions.php:612
 msgid "Check config file permissions"
 msgstr "Controleer de rechten op het configuratiebestand"
 
-#: src/Config/Descriptions.php:617
+#: src/Config/Descriptions.php:613
 msgid "Compress on the fly"
 msgstr "Comprimeer direct"
 
-#: src/Config/Descriptions.php:618
+#: src/Config/Descriptions.php:614
 msgid "Confirm DROP queries"
 msgstr "Bevestig DROP-query's"
 
-#: src/Config/Descriptions.php:620 src/Plugins/Schema/SchemaDia.php:64
+#: src/Config/Descriptions.php:616 src/Plugins/Schema/SchemaDia.php:64
 #: src/Plugins/Schema/SchemaPdf.php:74
 msgid "Paper size"
 msgstr "Papierformaat"
 
-#: src/Config/Descriptions.php:621
+#: src/Config/Descriptions.php:617
 msgid "Default database tab"
 msgstr "Standaard databasetabblad"
 
-#: src/Config/Descriptions.php:622
+#: src/Config/Descriptions.php:618
 msgid "Default server tab"
 msgstr "Standaard servertabblad"
 
-#: src/Config/Descriptions.php:623
+#: src/Config/Descriptions.php:619
 msgid "Default table tab"
 msgstr "Standaard tabel tabblad"
 
-#: src/Config/Descriptions.php:624
+#: src/Config/Descriptions.php:620
 msgid "Enable autocomplete for table and column names"
 msgstr "Automatisch aanvullen van tabel- en kolomnamen inschakelen"
 
-#: src/Config/Descriptions.php:625
+#: src/Config/Descriptions.php:621
 msgid "Show column comments"
 msgstr "Toon kolomopmerkingen"
 
-#: src/Config/Descriptions.php:626
+#: src/Config/Descriptions.php:622
 msgid "Hide table structure actions"
 msgstr "Tabelstructuuracties verbergen"
 
-#: src/Config/Descriptions.php:627
+#: src/Config/Descriptions.php:623
 msgid "Default transformations for Hex"
 msgstr "Standaard transformaties voor Hex"
 
-#: src/Config/Descriptions.php:628
+#: src/Config/Descriptions.php:624
 msgid "Default transformations for Substring"
 msgstr "Standaard transformaties voor Substring"
 
-#: src/Config/Descriptions.php:629
+#: src/Config/Descriptions.php:625
 msgid "Default transformations for Bool2Text"
 msgstr "Standaard transformaties voor Bool2Text"
 
-#: src/Config/Descriptions.php:630
+#: src/Config/Descriptions.php:626
 msgid "Default transformations for External"
 msgstr "Standaard transformaties voor External"
 
-#: src/Config/Descriptions.php:631
+#: src/Config/Descriptions.php:627
 msgid "Default transformations for PreApPend"
 msgstr "Standaard transformaties voor PreAppend"
 
-#: src/Config/Descriptions.php:632
+#: src/Config/Descriptions.php:628
 msgid "Default transformations for DateFormat"
 msgstr "Standaard transformaties voor DateFormat"
 
-#: src/Config/Descriptions.php:633
+#: src/Config/Descriptions.php:629
 msgid "Default transformations for Inline"
 msgstr "Standaard transformaties voor Inline"
 
-#: src/Config/Descriptions.php:634
+#: src/Config/Descriptions.php:630
 msgid "Default transformations for TextImageLink"
 msgstr "Standaard transformaties voor TextImageLink"
 
-#: src/Config/Descriptions.php:635
+#: src/Config/Descriptions.php:631
 msgid "Default transformations for TextLink"
 msgstr "Standaard transformaties voor TextLink"
 
-#: src/Config/Descriptions.php:636
+#: src/Config/Descriptions.php:632
 msgid "Display servers as a list"
 msgstr "Toon servers als een lijst"
 
-#: src/Config/Descriptions.php:637
+#: src/Config/Descriptions.php:633
 msgid "Disable multi table maintenance"
 msgstr "Schakel onderhoud op meerdere tabellen uit"
 
-#: src/Config/Descriptions.php:638
+#: src/Config/Descriptions.php:634
 msgid "Maximum execution time"
 msgstr "Maximale uitvoertijd"
 
-#: src/Config/Descriptions.php:639
+#: src/Config/Descriptions.php:635
 msgid "Use [code]LOCK TABLES[/code] statement"
 msgstr "Gebruik de [code]LOCK TABLES[/code] opdracht"
 
-#: src/Config/Descriptions.php:640
+#: src/Config/Descriptions.php:636
 msgid "Save as file"
 msgstr "Opslaan als bestand"
 
-#: src/Config/Descriptions.php:641 src/Config/Descriptions.php:776
+#: src/Config/Descriptions.php:637 src/Config/Descriptions.php:772
 msgid "Character set of the file"
 msgstr "Karakterset voor het bestand"
 
-#: src/Config/Descriptions.php:643
+#: src/Config/Descriptions.php:639
 msgid "Compression"
 msgstr "Compressie"
 
-#: src/Config/Descriptions.php:644 src/Config/Descriptions.php:651
-#: src/Config/Descriptions.php:659 src/Config/Descriptions.php:663
-#: src/Config/Descriptions.php:676 src/Config/Descriptions.php:678
-#: src/Config/Descriptions.php:725 src/Plugins/Export/ExportCsv.php:85
+#: src/Config/Descriptions.php:640 src/Config/Descriptions.php:647
+#: src/Config/Descriptions.php:655 src/Config/Descriptions.php:659
+#: src/Config/Descriptions.php:672 src/Config/Descriptions.php:674
+#: src/Config/Descriptions.php:721 src/Plugins/Export/ExportCsv.php:85
 #: src/Plugins/Export/ExportExcel.php:59
 #: src/Plugins/Export/ExportHtmlword.php:82 src/Plugins/Export/ExportOds.php:68
 #: src/Plugins/Export/ExportOdt.php:124
@@ -10539,56 +10557,56 @@ msgstr "Compressie"
 msgid "Put columns names in the first row"
 msgstr "Kolomnamen in de eerste rij plaatsen"
 
-#: src/Config/Descriptions.php:645 src/Config/Descriptions.php:778
-#: src/Config/Descriptions.php:784 src/Plugins/Import/ImportCsv.php:659
+#: src/Config/Descriptions.php:641 src/Config/Descriptions.php:774
+#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:659
 msgid "Columns enclosed with"
 msgstr "Kolommen ingesloten door"
 
-#: src/Config/Descriptions.php:646 src/Config/Descriptions.php:779
-#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:670
+#: src/Config/Descriptions.php:642 src/Config/Descriptions.php:775
+#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:670
 msgid "Columns escaped with"
 msgstr "Kolommen omgezet met wisselteken"
 
-#: src/Config/Descriptions.php:647 src/Config/Descriptions.php:653
-#: src/Config/Descriptions.php:660 src/Config/Descriptions.php:669
-#: src/Config/Descriptions.php:677 src/Config/Descriptions.php:681
-#: src/Config/Descriptions.php:726
+#: src/Config/Descriptions.php:643 src/Config/Descriptions.php:649
+#: src/Config/Descriptions.php:656 src/Config/Descriptions.php:665
+#: src/Config/Descriptions.php:673 src/Config/Descriptions.php:677
+#: src/Config/Descriptions.php:722
 msgid "Replace NULL with"
 msgstr "Vervang NULL door"
 
-#: src/Config/Descriptions.php:648 src/Config/Descriptions.php:654
+#: src/Config/Descriptions.php:644 src/Config/Descriptions.php:650
 msgid "Remove CRLF characters within columns"
 msgstr "Verwijder CRLF-tekens uit kolommen"
 
-#: src/Config/Descriptions.php:649 src/Config/Descriptions.php:782
-#: src/Config/Descriptions.php:789 src/Plugins/Import/ImportCsv.php:644
+#: src/Config/Descriptions.php:645 src/Config/Descriptions.php:778
+#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:644
 msgid "Columns terminated with"
 msgstr "Kolommen beëindigd met"
 
-#: src/Config/Descriptions.php:650 src/Config/Descriptions.php:777
+#: src/Config/Descriptions.php:646 src/Config/Descriptions.php:773
 #: src/Plugins/Import/ImportCsv.php:677
 msgid "Lines terminated with"
 msgstr "Regels beëindigd door"
 
-#: src/Config/Descriptions.php:652
+#: src/Config/Descriptions.php:648
 msgid "Excel edition"
 msgstr "Excel-editie"
 
-#: src/Config/Descriptions.php:655
+#: src/Config/Descriptions.php:651
 msgid "Database name template"
 msgstr "Databasenaamtemplate"
 
-#: src/Config/Descriptions.php:656
+#: src/Config/Descriptions.php:652
 msgid "Server name template"
 msgstr "Servernaamtemplate"
 
-#: src/Config/Descriptions.php:657
+#: src/Config/Descriptions.php:653
 msgid "Table name template"
 msgstr "Tabelnaamtemplate"
 
-#: src/Config/Descriptions.php:661 src/Config/Descriptions.php:674
-#: src/Config/Descriptions.php:683 src/Config/Descriptions.php:721
-#: src/Config/Descriptions.php:727 src/Plugins/Export/ExportHtmlword.php:57
+#: src/Config/Descriptions.php:657 src/Config/Descriptions.php:670
+#: src/Config/Descriptions.php:679 src/Config/Descriptions.php:717
+#: src/Config/Descriptions.php:723 src/Plugins/Export/ExportHtmlword.php:57
 #: src/Plugins/Export/ExportLatex.php:89
 #: src/Plugins/Export/ExportMediawiki.php:54
 #: src/Plugins/Export/ExportMediawiki.php:60
@@ -10598,80 +10616,80 @@ msgstr "Tabelnaamtemplate"
 msgid "Dump table"
 msgstr "Exporteer tabel"
 
-#: src/Config/Descriptions.php:662 src/Plugins/Export/ExportLatex.php:80
+#: src/Config/Descriptions.php:658 src/Plugins/Export/ExportLatex.php:80
 msgid "Include table caption"
 msgstr "Tabeltitel toevoegen"
 
-#: src/Config/Descriptions.php:665 src/Config/Descriptions.php:671
+#: src/Config/Descriptions.php:661 src/Config/Descriptions.php:667
 msgid "Table caption"
 msgstr "Tabeltitel"
 
-#: src/Config/Descriptions.php:666 src/Config/Descriptions.php:672
+#: src/Config/Descriptions.php:662 src/Config/Descriptions.php:668
 msgid "Continued table caption"
 msgstr "Vervolgde tabeltitel"
 
-#: src/Config/Descriptions.php:667 src/Config/Descriptions.php:673
+#: src/Config/Descriptions.php:663 src/Config/Descriptions.php:669
 msgid "Label key"
 msgstr "Labelsleutel"
 
-#: src/Config/Descriptions.php:670 src/Config/Descriptions.php:682
-#: src/Config/Descriptions.php:720
+#: src/Config/Descriptions.php:666 src/Config/Descriptions.php:678
+#: src/Config/Descriptions.php:716
 msgid "Relationships"
 msgstr "Relaties"
 
-#: src/Config/Descriptions.php:675
+#: src/Config/Descriptions.php:671
 msgid "Export method"
 msgstr "Exportmethode"
 
-#: src/Config/Descriptions.php:684 src/Config/Descriptions.php:687
+#: src/Config/Descriptions.php:680 src/Config/Descriptions.php:683
 msgid "Save on server"
 msgstr "Opslaan op server"
 
-#: src/Config/Descriptions.php:686
+#: src/Config/Descriptions.php:682
 msgid "Export as separate files"
 msgstr "Exporteer als afzonderlijke bestanden"
 
-#: src/Config/Descriptions.php:689
+#: src/Config/Descriptions.php:685
 msgid "Remember filename template"
 msgstr "Onthou bestandsnaam template"
 
-#: src/Config/Descriptions.php:690
+#: src/Config/Descriptions.php:686
 msgid "Remove DEFINER clause from definitions"
 msgstr "Verwijder DEFINER clausule uit definities"
 
-#: src/Config/Descriptions.php:692
+#: src/Config/Descriptions.php:688
 msgid "Enclose table and column names with backquotes"
 msgstr "Aanhalingstekens (`) bij tabel- en kolomnamen gebruiken"
 
-#: src/Config/Descriptions.php:693 src/Config/Descriptions.php:795
+#: src/Config/Descriptions.php:689 src/Config/Descriptions.php:791
 msgid "SQL compatibility mode"
 msgstr "SQL-compatibiliteitsmodus"
 
-#: src/Config/Descriptions.php:694
+#: src/Config/Descriptions.php:690
 msgid "Creation/Update/Check dates"
 msgstr "Creatie/Update/Controleer datum"
 
-#: src/Config/Descriptions.php:695
+#: src/Config/Descriptions.php:691
 msgid "Use delayed inserts"
 msgstr "Gebruik vertraagde inserts"
 
-#: src/Config/Descriptions.php:696 src/Plugins/Export/ExportSql.php:177
+#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:177
 msgid "Disable foreign key checks"
 msgstr "Controle op vreemde sleutels uitschakelen"
 
-#: src/Config/Descriptions.php:697 src/Plugins/Export/ExportSql.php:187
+#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:187
 msgid "Export views as tables"
 msgstr "Views exporteren als tabellen"
 
-#: src/Config/Descriptions.php:698
+#: src/Config/Descriptions.php:694
 msgid "Export related metadata from phpMyAdmin configuration storage"
 msgstr "Exporteer gerelateerde metadata van de phpMyAdmin configuratie opslag"
 
-#: src/Config/Descriptions.php:708
+#: src/Config/Descriptions.php:704
 msgid "Use hexadecimal for BINARY & BLOB"
 msgstr "Gebruik hexadecimaal voor BINARY & BLOB"
 
-#: src/Config/Descriptions.php:710
+#: src/Config/Descriptions.php:706
 msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
@@ -10679,851 +10697,851 @@ msgstr ""
 "Voeg IF NOT EXISTS toe (minder efficiënt doordat indexen worden gegenereerd "
 "tijdens het aanmaken van de tabel)"
 
-#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:318
+#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:318
 #, php-format
 msgid "%s view"
 msgstr "%s view"
 
-#: src/Config/Descriptions.php:714
+#: src/Config/Descriptions.php:710
 msgid "Use ignore inserts"
 msgstr "'INSERT IGNORE' gebruiken"
 
-#: src/Config/Descriptions.php:716
+#: src/Config/Descriptions.php:712
 msgid "Syntax to use when inserting data"
 msgstr "Syntax voor insert-opdrachten"
 
-#: src/Config/Descriptions.php:717 src/Plugins/Export/ExportSql.php:445
+#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:445
 msgid "Maximal length of created query"
 msgstr "Maximale lengte van de gemaakte query"
 
-#: src/Config/Descriptions.php:722
+#: src/Config/Descriptions.php:718
 msgid "Export type"
 msgstr "Exporttype"
 
-#: src/Config/Descriptions.php:723 src/Plugins/Export/ExportSql.php:167
+#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:167
 msgid "Enclose export in a transaction"
 msgstr "Sluit de export in een transactie"
 
 # UTC = Universal Time Zone, UTC laten staan.
-#: src/Config/Descriptions.php:724
+#: src/Config/Descriptions.php:720
 msgid "Export time in UTC"
 msgstr "Exporteertijd in UTC"
 
-#: src/Config/Descriptions.php:728
+#: src/Config/Descriptions.php:724
 msgid "Foreign key dropdown order"
 msgstr "Sortering van het vreemdesleutelkeuzemenu"
 
-#: src/Config/Descriptions.php:729
+#: src/Config/Descriptions.php:725
 msgid "Foreign key limit"
 msgstr "Vreemdesleutellimiet"
 
-#: src/Config/Descriptions.php:730
+#: src/Config/Descriptions.php:726
 msgid "Foreign key checks"
 msgstr "Controles op extern sleutelveld"
 
-#: src/Config/Descriptions.php:731
+#: src/Config/Descriptions.php:727
 msgid "First day of calendar"
 msgstr "Eerste dag van kalender"
 
-#: src/Config/Descriptions.php:733
+#: src/Config/Descriptions.php:729
 msgid "Browse mode"
 msgstr "Verkenmodus"
 
-#: src/Config/Descriptions.php:735 src/Config/Forms/User/ExportForm.php:80
+#: src/Config/Descriptions.php:731 src/Config/Forms/User/ExportForm.php:80
 #: src/Config/Forms/User/ImportForm.php:29
 msgid "CSV"
 msgstr "CSV-gegevens"
 
-#: src/Config/Descriptions.php:736
+#: src/Config/Descriptions.php:732
 msgid "Developer"
 msgstr "Ontwikkelaar"
 
-#: src/Config/Descriptions.php:737
+#: src/Config/Descriptions.php:733
 msgid "Edit mode"
 msgstr "Bewerkmodus"
 
-#: src/Config/Descriptions.php:738
+#: src/Config/Descriptions.php:734
 msgid "Export defaults"
 msgstr "Export standaarden"
 
-#: src/Config/Descriptions.php:739
+#: src/Config/Descriptions.php:735
 msgid "General"
 msgstr "Algemeen"
 
-#: src/Config/Descriptions.php:740
+#: src/Config/Descriptions.php:736
 msgid "Import defaults"
 msgstr "Importopties"
 
-#: src/Config/Descriptions.php:741
+#: src/Config/Descriptions.php:737
 msgid "Import / export"
 msgstr "Importeren / exporteren"
 
-#: src/Config/Descriptions.php:742
+#: src/Config/Descriptions.php:738
 msgid "LaTeX"
 msgstr "LaTeX"
 
-#: src/Config/Descriptions.php:745
+#: src/Config/Descriptions.php:741
 msgid "Navigation tree"
 msgstr "Navigatieboom"
 
-#: src/Config/Descriptions.php:749
+#: src/Config/Descriptions.php:745
 msgid "Microsoft Office"
 msgstr "Microsoft Office"
 
-#: src/Config/Descriptions.php:751
+#: src/Config/Descriptions.php:747
 msgid "Other core settings"
 msgstr "Overige instellingen"
 
-#: src/Config/Descriptions.php:752
+#: src/Config/Descriptions.php:748
 msgid "Page titles"
 msgstr "Paginatitels"
 
-#: src/Config/Descriptions.php:753
+#: src/Config/Descriptions.php:749
 msgid "Security"
 msgstr "Beveiliging"
 
-#: src/Config/Descriptions.php:754
+#: src/Config/Descriptions.php:750
 msgid "Basic settings"
 msgstr "Basisinstellingen"
 
-#: src/Config/Descriptions.php:755
+#: src/Config/Descriptions.php:751
 msgid "Authentication"
 msgstr "Authenticatie"
 
-#: src/Config/Descriptions.php:756
+#: src/Config/Descriptions.php:752
 msgid "Server configuration"
 msgstr "Serverconfiguratie"
 
-#: src/Config/Descriptions.php:757
+#: src/Config/Descriptions.php:753
 msgid "Configuration storage"
 msgstr "Configuratieopslag"
 
-#: src/Config/Descriptions.php:758
+#: src/Config/Descriptions.php:754
 msgid "Changes tracking"
 msgstr "Wijzigingen bijhouden"
 
-#: src/Config/Descriptions.php:760
+#: src/Config/Descriptions.php:756
 msgid "SQL Query box"
 msgstr "SQL-queryveld"
 
-#: src/Config/Descriptions.php:762
+#: src/Config/Descriptions.php:758
 msgid "Startup"
 msgstr "Beginpagina"
 
-#: src/Config/Descriptions.php:763
+#: src/Config/Descriptions.php:759
 msgid "Database structure"
 msgstr "Databasestructuur"
 
-#: src/Config/Descriptions.php:765
+#: src/Config/Descriptions.php:761
 msgid "Tabs"
 msgstr "Tabbladen"
 
-#: src/Config/Descriptions.php:766
+#: src/Config/Descriptions.php:762
 msgid "Display relational schema"
 msgstr "Toon relationeel schema"
 
-#: src/Config/Descriptions.php:767
+#: src/Config/Descriptions.php:763
 msgid "Text fields"
 msgstr "Tekstvelden"
 
-#: src/Config/Descriptions.php:768
+#: src/Config/Descriptions.php:764
 msgid "Texy! text"
 msgstr "Texy! tekst"
 
-#: src/Config/Descriptions.php:769
+#: src/Config/Descriptions.php:765
 msgid "Warnings"
 msgstr "Waarschuwingen"
 
-#: src/Config/Descriptions.php:771
+#: src/Config/Descriptions.php:767
 msgid "GZip"
 msgstr "GZip"
 
-#: src/Config/Descriptions.php:772
+#: src/Config/Descriptions.php:768
 msgid "Extra parameters for iconv"
 msgstr "Extra parameters voor iconv"
 
-#: src/Config/Descriptions.php:773
+#: src/Config/Descriptions.php:769
 msgid "Ignore multiple statement errors"
 msgstr "Negeer foutmeldingen bij meervoudige statements"
 
-#: src/Config/Descriptions.php:774
+#: src/Config/Descriptions.php:770
 msgid "Enable drag and drop import"
 msgstr "Schakel importeren door slepen in"
 
-#: src/Config/Descriptions.php:775
+#: src/Config/Descriptions.php:771
 msgid "Partial import: allow interrupt"
 msgstr "Gedeeltelijke import: onderbreken toestaan"
 
-#: src/Config/Descriptions.php:780 src/Config/Descriptions.php:786
+#: src/Config/Descriptions.php:776 src/Config/Descriptions.php:782
 #: src/Plugins/Import/ImportCsv.php:138 src/Plugins/Import/ImportLdi.php:68
 msgid "Do not abort on INSERT error"
 msgstr "Breek een handeling niet af bij een INSERT-fout"
 
-#: src/Config/Descriptions.php:781 src/Config/Descriptions.php:788
+#: src/Config/Descriptions.php:777 src/Config/Descriptions.php:784
 msgid "Add ON DUPLICATE KEY UPDATE"
 msgstr "Voeg ON DUPLICATE KEY UPDATE toe"
 
-#: src/Config/Descriptions.php:783
+#: src/Config/Descriptions.php:779
 msgid "Format of imported file"
 msgstr "Formaat van het geïmporteerde bestand"
 
-#: src/Config/Descriptions.php:787 src/Plugins/Import/ImportLdi.php:74
+#: src/Config/Descriptions.php:783 src/Plugins/Import/ImportLdi.php:74
 msgid "Use LOCAL keyword"
 msgstr "Gebruik het LOCAL sleutelwoord"
 
-#: src/Config/Descriptions.php:790
+#: src/Config/Descriptions.php:786
 msgid "Column names in first row"
 msgstr "Kolomnamen in eerste rij"
 
-#: src/Config/Descriptions.php:791 src/Plugins/Import/ImportOds.php:69
+#: src/Config/Descriptions.php:787 src/Plugins/Import/ImportOds.php:69
 msgid "Do not import empty rows"
 msgstr "Lege rijen niet importeren"
 
-#: src/Config/Descriptions.php:792
+#: src/Config/Descriptions.php:788
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Valuta importeren ($5.00 naar 5.00)"
 
-#: src/Config/Descriptions.php:793
+#: src/Config/Descriptions.php:789
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Percentages als decimalen importeren (12.00% naar .12)"
 
-#: src/Config/Descriptions.php:794
+#: src/Config/Descriptions.php:790
 msgid "Partial import: skip queries"
 msgstr "Gedeeltelijke import: query's overslaan"
 
-#: src/Config/Descriptions.php:796
+#: src/Config/Descriptions.php:792
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Gebruik geen AUTO_INCREMENT voor 0-waarden"
 
-#: src/Config/Descriptions.php:797
+#: src/Config/Descriptions.php:793
 msgid "Read as multibytes"
 msgstr "Lees als mulitbytes"
 
-#: src/Config/Descriptions.php:798
+#: src/Config/Descriptions.php:794
 msgid "Initial state for sliders"
 msgstr "Initiële toestand van schuif-indexen"
 
-#: src/Config/Descriptions.php:799
+#: src/Config/Descriptions.php:795
 msgid "Number of inserted rows"
 msgstr "Aantal ingevoegde rijen"
 
-#: src/Config/Descriptions.php:800
+#: src/Config/Descriptions.php:796
 msgid "Limit column characters"
 msgstr "Beperk aantal tekens in een kolom"
 
-#: src/Config/Descriptions.php:801
+#: src/Config/Descriptions.php:797
 msgid "Delete all cookies on logout"
 msgstr "Alle cookies verwijderen bij het afmelden"
 
-#: src/Config/Descriptions.php:802
+#: src/Config/Descriptions.php:798
 msgid "Recall user name"
 msgstr "Gebruikersnaam herinneren"
 
-#: src/Config/Descriptions.php:803
+#: src/Config/Descriptions.php:799
 msgid "Login cookie store"
 msgstr "Opslag voor aanmeldingscookie"
 
-#: src/Config/Descriptions.php:804
+#: src/Config/Descriptions.php:800
 msgid "Login cookie validity"
 msgstr "Geldigheid aanmeldingscookie"
 
-#: src/Config/Descriptions.php:805
+#: src/Config/Descriptions.php:801
 msgid "Bigger textarea for LONGTEXT"
 msgstr "Groter tekstveld voor LONGTEXT"
 
-#: src/Config/Descriptions.php:806
+#: src/Config/Descriptions.php:802
 msgid "Maximum displayed SQL length"
 msgstr "Maximaal getoonde SQL-lengte"
 
-#: src/Config/Descriptions.php:807
+#: src/Config/Descriptions.php:803
 msgid "Maximum databases"
 msgstr "Maximum aantal databases"
 
-#: src/Config/Descriptions.php:808
+#: src/Config/Descriptions.php:804
 msgid "Maximum items on first level"
 msgstr "Maximum elementen op het eerste niveau"
 
-#: src/Config/Descriptions.php:809
+#: src/Config/Descriptions.php:805
 msgid "Maximum items in branch"
 msgstr "Maximum elementen in tak"
 
-#: src/Config/Descriptions.php:810
+#: src/Config/Descriptions.php:806
 msgid "Maximum number of rows to display"
 msgstr "Maximum aantal te tonen rijen"
 
-#: src/Config/Descriptions.php:811
+#: src/Config/Descriptions.php:807
 msgid "Maximum tables"
 msgstr "Maximum aantal tabellen"
 
-#: src/Config/Descriptions.php:812
+#: src/Config/Descriptions.php:808
 msgid "Memory limit"
 msgstr "Geheugenlimiet"
 
-#: src/Config/Descriptions.php:813
+#: src/Config/Descriptions.php:809
 msgid "Show databases navigation as tree"
 msgstr "Geef databases navigatiescherm weer als boomstructuur"
 
-#: src/Config/Descriptions.php:814
+#: src/Config/Descriptions.php:810
 msgid "Navigation panel width"
 msgstr "Navigatiepaneelbreedte"
 
-#: src/Config/Descriptions.php:815
+#: src/Config/Descriptions.php:811
 #: src/Controllers/JavaScriptMessagesController.php:607
 #: src/Navigation/NavigationTree.php:1281
 msgid "Link with main panel"
 msgstr "Verbinden met hoofdpaneel"
 
-#: src/Config/Descriptions.php:816
+#: src/Config/Descriptions.php:812
 msgid "Display logo"
 msgstr "Toon logo"
 
-#: src/Config/Descriptions.php:817
+#: src/Config/Descriptions.php:813
 msgid "Logo link URL"
 msgstr "URL voor de link van het logo"
 
-#: src/Config/Descriptions.php:818
+#: src/Config/Descriptions.php:814
 msgid "Logo link target"
 msgstr "Linkbestemming van logo"
 
-#: src/Config/Descriptions.php:819
+#: src/Config/Descriptions.php:815
 msgid "Display servers selection"
 msgstr "Toon serverkeuze"
 
-#: src/Config/Descriptions.php:820
+#: src/Config/Descriptions.php:816
 msgid "Target for quick access icon"
 msgstr "Doel van snel-icoon"
 
-#: src/Config/Descriptions.php:821
+#: src/Config/Descriptions.php:817
 msgid "Target for second quick access icon"
 msgstr "Doel van de tweede snelle toegang pictogram"
 
-#: src/Config/Descriptions.php:822
+#: src/Config/Descriptions.php:818
 msgid "Minimum number of items to display the filter box"
 msgstr "Minimale aantal elementen waarbij een filterveld wordt getoond"
 
-#: src/Config/Descriptions.php:824
+#: src/Config/Descriptions.php:820
 msgid "Minimum number of databases to display the database filter box"
 msgstr "Minimale aantal databases waarbij een filterveld wordt getoond"
 
-#: src/Config/Descriptions.php:826
+#: src/Config/Descriptions.php:822
 msgid "Group items in the tree"
 msgstr "Groepeer elementen in de boomstructuur"
 
-#: src/Config/Descriptions.php:827
+#: src/Config/Descriptions.php:823
 msgid "Database tree separator"
 msgstr "Scheidingsteken database boomstructuur"
 
-#: src/Config/Descriptions.php:828
+#: src/Config/Descriptions.php:824
 msgid "Table tree separator"
 msgstr "Scheidingsteken tabelboomstructuur"
 
-#: src/Config/Descriptions.php:829
+#: src/Config/Descriptions.php:825
 msgid "Maximum table tree depth"
 msgstr "Maximum diepte tabelboomstructuur"
 
-#: src/Config/Descriptions.php:830
+#: src/Config/Descriptions.php:826
 msgid "Enable highlighting"
 msgstr "Markeren inschakelen"
 
-#: src/Config/Descriptions.php:831
+#: src/Config/Descriptions.php:827
 msgid "Enable navigation tree expansion"
 msgstr "Uitklappen van de navigatiestructuur inschakelen"
 
-#: src/Config/Descriptions.php:832
+#: src/Config/Descriptions.php:828
 msgid "Show tables in tree"
 msgstr "Toon tabellen in boomstructuur"
 
-#: src/Config/Descriptions.php:833
+#: src/Config/Descriptions.php:829
 msgid "Show views in tree"
 msgstr "Versies weergeven in boomstructuur"
 
-#: src/Config/Descriptions.php:834
+#: src/Config/Descriptions.php:830
 msgid "Show functions in tree"
 msgstr "Toon functies in boomstructuur"
 
-#: src/Config/Descriptions.php:835
+#: src/Config/Descriptions.php:831
 msgid "Show procedures in tree"
 msgstr "Laat procedures zien een boomstructuur"
 
-#: src/Config/Descriptions.php:836
+#: src/Config/Descriptions.php:832
 msgid "Show events in tree"
 msgstr "Toon gebeurtenissen in een boomstructuur"
 
-#: src/Config/Descriptions.php:837
+#: src/Config/Descriptions.php:833
 msgid "Expand single database"
 msgstr "Enkelvoudige database uitbreiden"
 
-#: src/Config/Descriptions.php:838
+#: src/Config/Descriptions.php:834
 msgid "Recently used tables"
 msgstr "Recent gebruikte tabellen"
 
-#: src/Config/Descriptions.php:839 src/RecentFavoriteTable.php:223
+#: src/Config/Descriptions.php:835 src/RecentFavoriteTable.php:223
 msgid "Favorite tables"
 msgstr "Favoriete tabellen"
 
-#: src/Config/Descriptions.php:840
+#: src/Config/Descriptions.php:836
 msgid "Where to show the table row links"
 msgstr "Waar de tabelregellinks getoond worden"
 
-#: src/Config/Descriptions.php:841
+#: src/Config/Descriptions.php:837
 msgid "Show row links anyway"
 msgstr "Toon hoe dan ook links naar de rijen"
 
-#: src/Config/Descriptions.php:843
+#: src/Config/Descriptions.php:839
 msgid "Natural order"
 msgstr "Natuurlijke volgorde"
 
-#: src/Config/Descriptions.php:844
+#: src/Config/Descriptions.php:840
 msgid "Table navigation bar"
 msgstr "Navigatiebalk voor tabellen"
 
-#: src/Config/Descriptions.php:845
+#: src/Config/Descriptions.php:841
 msgid "GZip output buffering"
 msgstr "GZip-uitvoerbuffering"
 
-#: src/Config/Descriptions.php:846
+#: src/Config/Descriptions.php:842
 msgid "Default sorting order"
 msgstr "Standaard sorteervolgorde"
 
-#: src/Config/Descriptions.php:847
+#: src/Config/Descriptions.php:843
 msgid "Persistent connections"
 msgstr "Persistente verbindingen"
 
-#: src/Config/Descriptions.php:848
+#: src/Config/Descriptions.php:844
 msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Tabellen voor de configuratieopslag van phpMyAdmin ontbreken"
 
-#: src/Config/Descriptions.php:849
+#: src/Config/Descriptions.php:845
 msgid "MySQL reserved word warning"
 msgstr "MySQL gereserveerde woorden waarschuwing"
 
-#: src/Config/Descriptions.php:850
+#: src/Config/Descriptions.php:846
 msgid "How to display the menu tabs"
 msgstr "Hoe de menu-tabs te tonen"
 
-#: src/Config/Descriptions.php:851
+#: src/Config/Descriptions.php:847
 msgid "How to display various action links"
 msgstr "Hoe de verschillende acties te tonen"
 
-#: src/Config/Descriptions.php:852
+#: src/Config/Descriptions.php:848
 msgid "Protect binary columns"
 msgstr "Binaire kolommen beschermen"
 
-#: src/Config/Descriptions.php:853
+#: src/Config/Descriptions.php:849
 msgid "Permanent query history"
 msgstr "Permanente querygeschiedenis"
 
-#: src/Config/Descriptions.php:854
+#: src/Config/Descriptions.php:850
 msgid "Query history length"
 msgstr "Lengte querygeschiedenis"
 
-#: src/Config/Descriptions.php:855
+#: src/Config/Descriptions.php:851
 msgid "Allow shared bookmarks between users"
 msgstr "Sta met andere gebruikers gedeelde bladwijzers toe"
 
-#: src/Config/Descriptions.php:856
+#: src/Config/Descriptions.php:852
 msgid "Recoding engine"
 msgstr "Hercoderingsengine"
 
-#: src/Config/Descriptions.php:857
+#: src/Config/Descriptions.php:853
 msgid "Remember table's sorting"
 msgstr "De tabelsortering onthouden"
 
-#: src/Config/Descriptions.php:858
+#: src/Config/Descriptions.php:854
 msgid "Primary key default sort order"
 msgstr "Standaard sorteervolgorde voor primaire sleutels"
 
-#: src/Config/Descriptions.php:859
+#: src/Config/Descriptions.php:855
 msgid "Repeat headers"
 msgstr "Kopregels herhalen"
 
-#: src/Config/Descriptions.php:860
+#: src/Config/Descriptions.php:856
 msgid "Grid editing: trigger action"
 msgstr "Rasterbewerken: trigger actie"
 
-#: src/Config/Descriptions.php:861
+#: src/Config/Descriptions.php:857
 msgid "Relational display"
 msgstr "Relationele weergave"
 
-#: src/Config/Descriptions.php:862
+#: src/Config/Descriptions.php:858
 msgid "Grid editing: save all edited cells at once"
 msgstr "Roosterbewerkingen : alle wijzigingen aan cellen tegelijk opslaan"
 
-#: src/Config/Descriptions.php:863
+#: src/Config/Descriptions.php:859
 msgid "Save directory"
 msgstr "Opslagmap"
 
-#: src/Config/Descriptions.php:864
+#: src/Config/Descriptions.php:860
 msgid "Host authorization order"
 msgstr "Volgorde hostautorisatie"
 
-#: src/Config/Descriptions.php:865
+#: src/Config/Descriptions.php:861
 msgid "Host authorization rules"
 msgstr "Regels hostautorisatie"
 
-#: src/Config/Descriptions.php:866
+#: src/Config/Descriptions.php:862
 msgid "Allow logins without a password"
 msgstr "Aanmelden zonder wachtwoord toestaan"
 
-#: src/Config/Descriptions.php:867
+#: src/Config/Descriptions.php:863
 msgid "Allow root login"
 msgstr "Aanmelden als root toestaan"
 
-#: src/Config/Descriptions.php:868
+#: src/Config/Descriptions.php:864
 msgid "Session timezone"
 msgstr "Sessie tijdzone"
 
-#: src/Config/Descriptions.php:869
+#: src/Config/Descriptions.php:865
 msgid "HTTP Realm"
 msgstr "HTTP Realm"
 
-#: src/Config/Descriptions.php:871
+#: src/Config/Descriptions.php:867
 msgid "Bookmark table"
 msgstr "Bladwijzertabel"
 
-#: src/Config/Descriptions.php:872
+#: src/Config/Descriptions.php:868
 msgid "Column information table"
 msgstr "Tabel voor kolominformatie"
 
-#: src/Config/Descriptions.php:873
+#: src/Config/Descriptions.php:869
 msgid "Compress connection"
 msgstr "Comprimeer verbinding"
 
-#: src/Config/Descriptions.php:874
+#: src/Config/Descriptions.php:870
 msgid "Control user password"
 msgstr "Controle gebruikerswachtwoord"
 
-#: src/Config/Descriptions.php:875
+#: src/Config/Descriptions.php:871
 msgid "Control user"
 msgstr "Controle gebruiker"
 
-#: src/Config/Descriptions.php:876
+#: src/Config/Descriptions.php:872
 msgid "Control host"
 msgstr "Controlehost"
 
-#: src/Config/Descriptions.php:877
+#: src/Config/Descriptions.php:873
 msgid "Control port"
 msgstr "Controlepoort"
 
-#: src/Config/Descriptions.php:878
+#: src/Config/Descriptions.php:874
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "Geen gebruik maken van INFORMATION_SCHEMA"
 
-#: src/Config/Descriptions.php:879
+#: src/Config/Descriptions.php:875
 msgid "Hide databases"
 msgstr "Verberg databases"
 
-#: src/Config/Descriptions.php:880
+#: src/Config/Descriptions.php:876
 msgid "SQL query history table"
 msgstr "Tabel voor SQL-querygeschiedenis"
 
-#: src/Config/Descriptions.php:881
+#: src/Config/Descriptions.php:877
 msgid "Server hostname"
 msgstr "Serverhostnaam"
 
-#: src/Config/Descriptions.php:882
+#: src/Config/Descriptions.php:878
 msgid "Logout URL"
 msgstr "URL voor afmelden"
 
-#: src/Config/Descriptions.php:883
+#: src/Config/Descriptions.php:879
 msgid "Maximal number of table preferences to store"
 msgstr "Het maximum aantal tabelvoorkeuren die opgeslagen worden"
 
-#: src/Config/Descriptions.php:884
+#: src/Config/Descriptions.php:880
 msgid "Export templates table"
 msgstr "Exporteer de templates tabel"
 
-#: src/Config/Descriptions.php:885
+#: src/Config/Descriptions.php:881
 msgid "Central columns table"
 msgstr "Centrale kolommen tabel"
 
-#: src/Config/Descriptions.php:886
+#: src/Config/Descriptions.php:882
 msgid "Show only listed databases"
 msgstr "Toon enkel de opgesomde databases"
 
-#: src/Config/Descriptions.php:887
+#: src/Config/Descriptions.php:883
 msgid "Password for config auth"
 msgstr "Wachtwoord voor 'config'-authenticatie"
 
-#: src/Config/Descriptions.php:888
+#: src/Config/Descriptions.php:884
 msgid "PDF schema: pages table"
 msgstr "PDF-schema: pagina's tabel"
 
-#: src/Config/Descriptions.php:890
+#: src/Config/Descriptions.php:886
 msgid "Server port"
 msgstr "Serverpoort"
 
-#: src/Config/Descriptions.php:891
+#: src/Config/Descriptions.php:887
 msgid "Recently used table"
 msgstr "Recent gebruikte tabel"
 
-#: src/Config/Descriptions.php:892
+#: src/Config/Descriptions.php:888
 msgid "Favorites table"
 msgstr "Favorieten tabel"
 
-#: src/Config/Descriptions.php:893
+#: src/Config/Descriptions.php:889
 msgid "Relation table"
 msgstr "Relatietabel"
 
-#: src/Config/Descriptions.php:894
+#: src/Config/Descriptions.php:890
 msgid "Signon session name"
 msgstr "Signon-sessienaam"
 
-#: src/Config/Descriptions.php:895
+#: src/Config/Descriptions.php:891
 msgid "Signon URL"
 msgstr "Signon-URL"
 
-#: src/Config/Descriptions.php:896
+#: src/Config/Descriptions.php:892
 msgid "Server socket"
 msgstr "Serversocket"
 
-#: src/Config/Descriptions.php:897
+#: src/Config/Descriptions.php:893
 msgid "Use SSL"
 msgstr "SSL gebruiken"
 
-#: src/Config/Descriptions.php:898
+#: src/Config/Descriptions.php:894
 msgid "Designer and PDF schema: table coordinates"
 msgstr "Ontwerper en PDF-schema: tabelcoördinaten"
 
-#: src/Config/Descriptions.php:899
+#: src/Config/Descriptions.php:895
 msgid "Display columns table"
 msgstr "Tabel met kolomomschrijvingen"
 
-#: src/Config/Descriptions.php:900
+#: src/Config/Descriptions.php:896
 msgid "UI preferences table"
 msgstr "Tabel voor interfacevoorkeuren"
 
-#: src/Config/Descriptions.php:901
+#: src/Config/Descriptions.php:897
 msgid "Add DROP DATABASE"
 msgstr "DROP DATABASE toevoegen"
 
-#: src/Config/Descriptions.php:903
+#: src/Config/Descriptions.php:899
 msgid "Add DROP VIEW"
 msgstr "DROP VIEW toevoegen"
 
-#: src/Config/Descriptions.php:904
+#: src/Config/Descriptions.php:900
 msgid "Statements to track"
 msgstr "Bij te houden opdrachten"
 
-#: src/Config/Descriptions.php:905
+#: src/Config/Descriptions.php:901
 msgid "SQL query tracking table"
 msgstr "SQL-query-opvolgingstabel"
 
-#: src/Config/Descriptions.php:906
+#: src/Config/Descriptions.php:902
 msgid "Automatically create versions"
 msgstr "Automatisch versies aanmaken"
 
-#: src/Config/Descriptions.php:907
+#: src/Config/Descriptions.php:903
 msgid "User preferences storage table"
 msgstr "Opslagtabel voor gebruikersvoorkeuren"
 
-#: src/Config/Descriptions.php:908
+#: src/Config/Descriptions.php:904
 msgid "Users table"
 msgstr "Gebruikerstabel"
 
-#: src/Config/Descriptions.php:909
+#: src/Config/Descriptions.php:905
 msgid "User groups table"
 msgstr "Gebruikersgroepentabel"
 
-#: src/Config/Descriptions.php:910
+#: src/Config/Descriptions.php:906
 msgid "Hidden navigation items table"
 msgstr "Tabel met verborgen navigatieonderdelen"
 
-#: src/Config/Descriptions.php:911
+#: src/Config/Descriptions.php:907
 msgid "User for config auth"
 msgstr "Gebruiker voor 'config'-authenticatie"
 
-#: src/Config/Descriptions.php:912
+#: src/Config/Descriptions.php:908
 msgid "Verbose name of this server"
 msgstr "Uitgebreide naam voor deze server"
 
-#: src/Config/Descriptions.php:913
+#: src/Config/Descriptions.php:909
 msgid "Allow to display all the rows"
 msgstr "Toon alle rijen"
 
-#: src/Config/Descriptions.php:914
+#: src/Config/Descriptions.php:910
 msgid "Show password change form"
 msgstr "Toon formulier voor wachtwoord wijzigen"
 
-#: src/Config/Descriptions.php:915
+#: src/Config/Descriptions.php:911
 msgid "Show create database form"
 msgstr "Toon formulier om een nieuwe database aan te maken"
 
-#: src/Config/Descriptions.php:916
+#: src/Config/Descriptions.php:912
 msgid "Show table comments"
 msgstr "Toon tabelopmerkingen"
 
-#: src/Config/Descriptions.php:917
+#: src/Config/Descriptions.php:913
 msgid "Show creation timestamp"
 msgstr "Toon het tijdstip van aanmaken"
 
-#: src/Config/Descriptions.php:918
+#: src/Config/Descriptions.php:914
 msgid "Show last update timestamp"
 msgstr "Toon het tijdstip van laatste aanpassing"
 
-#: src/Config/Descriptions.php:919
+#: src/Config/Descriptions.php:915
 msgid "Show last check timestamp"
 msgstr "Toon het tijdstip van laatste controle"
 
-#: src/Config/Descriptions.php:920
+#: src/Config/Descriptions.php:916
 msgid "Show table charset"
 msgstr "Toon karakterset van tabel"
 
-#: src/Config/Descriptions.php:921
+#: src/Config/Descriptions.php:917
 msgid "Show field types"
 msgstr "Toon veldtypes"
 
-#: src/Config/Descriptions.php:922
+#: src/Config/Descriptions.php:918
 msgid "Show function fields"
 msgstr "Toon functievelden"
 
-#: src/Config/Descriptions.php:923
+#: src/Config/Descriptions.php:919
 msgid "Show hint"
 msgstr "Toon hint"
 
-#: src/Config/Descriptions.php:924
+#: src/Config/Descriptions.php:920
 msgid "Show phpinfo() link"
 msgstr "Toon link naar phpinfo()"
 
-#: src/Config/Descriptions.php:925
+#: src/Config/Descriptions.php:921
 msgid "Show detailed MySQL server information"
 msgstr "Toon gedetailleerde MySQL-serverinformatie"
 
-#: src/Config/Descriptions.php:926
+#: src/Config/Descriptions.php:922
 msgid "Show SQL queries"
 msgstr "Toon SQL-query's"
 
-#: src/Config/Descriptions.php:928
+#: src/Config/Descriptions.php:924
 msgid "Show statistics"
 msgstr "Toon statistieken"
 
-#: src/Config/Descriptions.php:929
+#: src/Config/Descriptions.php:925
 msgid "Skip locked tables"
 msgstr "Herken vergrendelde tabellen"
 
-#: src/Config/Descriptions.php:931 src/Html/Generator.php:525
+#: src/Config/Descriptions.php:927 src/Html/Generator.php:525
 msgid "Explain SQL"
 msgstr "Verklaar SQL"
 
-#: src/Config/Descriptions.php:933 src/Html/Generator.php:586
+#: src/Config/Descriptions.php:929 src/Html/Generator.php:586
 msgid "Create PHP code"
 msgstr "Genereer PHP-code"
 
-#: src/Config/Descriptions.php:934
+#: src/Config/Descriptions.php:930
 msgid "Suhosin warning"
 msgstr "Suhosin-waarschuwing"
 
-#: src/Config/Descriptions.php:935
+#: src/Config/Descriptions.php:931
 msgid "Login cookie validity warning"
 msgstr "Waarschuwing geldigheid inlog-cookie"
 
-#: src/Config/Descriptions.php:936
+#: src/Config/Descriptions.php:932
 msgid "Textarea columns"
 msgstr "Tekstveldkolommen"
 
-#: src/Config/Descriptions.php:937
+#: src/Config/Descriptions.php:933
 msgid "Textarea rows"
 msgstr "Tekstveldregels"
 
-#: src/Config/Descriptions.php:939
+#: src/Config/Descriptions.php:935
 msgid "Default title"
 msgstr "Standaard titel"
 
-#: src/Config/Descriptions.php:942
+#: src/Config/Descriptions.php:938
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "Lijst van vertrouwde proxyservers"
 
-#: src/Config/Descriptions.php:943
+#: src/Config/Descriptions.php:939
 msgid "Upload directory"
 msgstr "Uploadmap"
 
-#: src/Config/Descriptions.php:944
+#: src/Config/Descriptions.php:940
 msgid "Use database search"
 msgstr "Databasezoekfunctie gebruiken"
 
-#: src/Config/Descriptions.php:945
+#: src/Config/Descriptions.php:941
 msgid "Enable the Developer tab in settings"
 msgstr "Schakel het ontwikkelaarstabblad in bij instellingen"
 
-#: src/Config/Descriptions.php:946 src/Setup/Index.php:125
+#: src/Config/Descriptions.php:942 src/Setup/Index.php:125
 #: src/Setup/Index.php:152 src/Setup/Index.php:160 src/Setup/Index.php:168
 msgid "Version check"
 msgstr "Versiecontrole"
 
-#: src/Config/Descriptions.php:947
+#: src/Config/Descriptions.php:943
 msgid "Proxy URL"
 msgstr "Proxy URL"
 
-#: src/Config/Descriptions.php:948
+#: src/Config/Descriptions.php:944
 msgid "Proxy username"
 msgstr "Proxy gebruikersnaam"
 
-#: src/Config/Descriptions.php:949
+#: src/Config/Descriptions.php:945
 msgid "Proxy password"
 msgstr "Proxy wachtwoord"
 
-#: src/Config/Descriptions.php:950
+#: src/Config/Descriptions.php:946
 msgid "ZIP"
 msgstr "ZIP"
 
-#: src/Config/Descriptions.php:951
+#: src/Config/Descriptions.php:947
 msgid "URL for reCAPTCHA v2 API"
 msgstr "URL voor reCAPTCHA v2 API"
 
-#: src/Config/Descriptions.php:952
+#: src/Config/Descriptions.php:948
 msgid "Content-Security-Policy snippet for reCAPTCHA v2 API"
 msgstr "Content-Security-Policy snippet voor reCAPTCHA v2 API"
 
-#: src/Config/Descriptions.php:953
+#: src/Config/Descriptions.php:949
 msgid "Request parameter for reCAPTCHA v2 API"
 msgstr "Vraag parameter voor reCAPTCHA v2 API"
 
-#: src/Config/Descriptions.php:954
+#: src/Config/Descriptions.php:950
 msgid "Response parameter for reCAPTCHA v2 API"
 msgstr "Respons parameter voor reCAPTCHA v2 API"
 
-#: src/Config/Descriptions.php:955
+#: src/Config/Descriptions.php:951
 msgid "Public key for reCAPTCHA"
 msgstr "Publieke sleutel voor reCAPTCHA"
 
-#: src/Config/Descriptions.php:956
+#: src/Config/Descriptions.php:952
 msgid "Private key for reCAPTCHA"
 msgstr "Privésleutel voor reCAPTCHA"
 
-#: src/Config/Descriptions.php:957
+#: src/Config/Descriptions.php:953
 msgid "URL for reCAPTCHA siteverify"
 msgstr "URL voor reCAPTCHA siteverify"
 
-#: src/Config/Descriptions.php:958
+#: src/Config/Descriptions.php:954
 msgid "Send error reports"
 msgstr "Verzend foutmeldingsverslagen"
 
-#: src/Config/Descriptions.php:959
+#: src/Config/Descriptions.php:955
 msgid "Enter executes queries in console"
 msgstr "De Enter toets voert queries uit in de console"
 
-#: src/Config/Descriptions.php:960
+#: src/Config/Descriptions.php:956
 msgid "Enable Zero Configuration mode"
 msgstr "'Zonder configuratie'-modus inschakelen"
 
-#: src/Config/Descriptions.php:964
+#: src/Config/Descriptions.php:960
 msgid "Execute queries on Enter and insert new line with Shift+Enter"
 msgstr ""
 "Voer queries uit met Enter en voeg een nieuwe regel toe met Shift+Enter"
 
-#: src/Config/Descriptions.php:966
+#: src/Config/Descriptions.php:962
 msgid "Console height"
 msgstr "Console-hoogte"
 
-#: src/Config/Descriptions.php:967
+#: src/Config/Descriptions.php:963
 msgid "Console mode"
 msgstr "Console-mode"
 
-#: src/Config/Descriptions.php:970
+#: src/Config/Descriptions.php:966
 msgid "Order by"
 msgstr "Volgorde op"
 
-#: src/Config/Descriptions.php:971
+#: src/Config/Descriptions.php:967
 msgid "Server connection collation"
 msgstr "Collatie van de serververbinding"
 
@@ -11532,31 +11550,31 @@ msgstr "Collatie van de serververbinding"
 msgid "Missing data for %s"
 msgstr "Ontbrekende gegevens voor %s"
 
-#: src/Config/FormDisplay.php:619 src/Config/Validator.php:586
+#: src/Config/FormDisplay.php:618 src/Config/Validator.php:586
 #: src/Controllers/JavaScriptMessagesController.php:825
 msgid "Incorrect value!"
 msgstr "Foutieve waarde!"
 
-#: src/Config/FormDisplay.php:767
+#: src/Config/FormDisplay.php:766
 msgid "unavailable"
 msgstr "onbeschikbaar"
 
-#: src/Config/FormDisplay.php:769
+#: src/Config/FormDisplay.php:768
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" vereist de extensie %s"
 
-#: src/Config/FormDisplay.php:791
+#: src/Config/FormDisplay.php:790
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr "Gecomprimeerd importeren is niet mogelijk omdat functie %s ontbreekt."
 
-#: src/Config/FormDisplay.php:800
+#: src/Config/FormDisplay.php:799
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr "Gecomprimeerd exporteren is niet mogelijk omdat functie %s ontbreekt."
 
-#: src/Config/FormDisplay.php:820
+#: src/Config/FormDisplay.php:819
 #, php-format
 msgid "maximum %s"
 msgstr "maximum %s"
@@ -11781,11 +11799,11 @@ msgstr ""
 msgid "Server %d"
 msgstr "Server %d"
 
-#: src/ConfigStorage/Relation.php:1259
+#: src/ConfigStorage/Relation.php:1255
 msgid "no description"
 msgstr "Geen beschrijving aanwezig"
 
-#: src/ConfigStorage/Relation.php:1456
+#: src/ConfigStorage/Relation.php:1452
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -11895,7 +11913,7 @@ msgstr[1] "Toont %1$d bladwijzers (zowel privé als gedeeld)"
 msgid "No bookmarks"
 msgstr "Geen bladwijzers"
 
-#: src/Controllers/AbstractController.php:65
+#: src/Controllers/AbstractController.php:61
 #: src/Controllers/SchemaExportController.php:35
 #: src/Controllers/Server/UserGroupsFormController.php:45
 msgid "Missing parameter:"
@@ -11944,9 +11962,6 @@ msgstr ""
 #: src/Controllers/Database/ExportController.php:72
 #: src/Controllers/Database/ImportController.php:65
 #: src/Controllers/Database/ImportController.php:70
-#: src/Controllers/Database/Operations/CollationController.php:63
-#: src/Controllers/Database/OperationsController.php:233
-#: src/Controllers/Database/OperationsController.php:238
 #: src/Controllers/Database/RoutinesController.php:78
 #: src/Controllers/Database/RoutinesController.php:104
 #: src/Controllers/Database/SearchController.php:53
@@ -11955,11 +11970,18 @@ msgstr ""
 #: src/Controllers/Database/SqlController.php:69
 #: src/Controllers/Database/StructureController.php:140
 #: src/Controllers/Database/StructureController.php:145
-#: src/Controllers/Database/Structure/FavoriteTableController.php:83
+#: src/Controllers/Database/Structure/FavoriteTableController.php:79
 #: src/Controllers/Database/Structure/RealRowCountController.php:61
 #: src/Controllers/Database/TrackingController.php:62
 #: src/Controllers/Database/TrackingController.php:67
 #: src/Controllers/JavaScriptMessagesController.php:355
+#: src/Controllers/Operations/Database/CollationController.php:63
+#: src/Controllers/Operations/DatabaseController.php:233
+#: src/Controllers/Operations/DatabaseController.php:238
+#: src/Controllers/Operations/TableController.php:89
+#: src/Controllers/Operations/TableController.php:94
+#: src/Controllers/Operations/ViewController.php:65
+#: src/Controllers/Operations/ViewController.php:70
 #: src/Controllers/Server/Databases/DestroyController.php:60
 #: src/Controllers/Table/AddFieldController.php:175
 #: src/Controllers/Table/AddFieldController.php:180
@@ -11984,14 +12006,12 @@ msgstr ""
 #: src/Controllers/Table/IndexesController.php:70
 #: src/Controllers/Table/IndexRenameController.php:58
 #: src/Controllers/Table/IndexRenameController.php:63
-#: src/Controllers/Table/OperationsController.php:94
-#: src/Controllers/Table/OperationsController.php:99
 #: src/Controllers/Table/SearchController.php:177
 #: src/Controllers/Table/SearchController.php:182
 #: src/Controllers/Table/SqlController.php:66
 #: src/Controllers/Table/SqlController.php:71
-#: src/Controllers/Table/StructureController.php:121
-#: src/Controllers/Table/StructureController.php:126
+#: src/Controllers/Table/StructureController.php:102
+#: src/Controllers/Table/StructureController.php:107
 #: src/Controllers/Table/Structure/PrimaryController.php:75
 #: src/Controllers/Table/Structure/PrimaryController.php:80
 #: src/Controllers/Table/TrackingController.php:71
@@ -12002,8 +12022,6 @@ msgstr ""
 #: src/Controllers/Triggers/IndexController.php:97
 #: src/Controllers/View/CreateController.php:75
 #: src/Controllers/View/CreateController.php:80
-#: src/Controllers/View/OperationsController.php:65
-#: src/Controllers/View/OperationsController.php:70
 msgid "No databases selected."
 msgstr "Er zijn geen databases geselecteerd."
 
@@ -12050,40 +12068,12 @@ msgstr ""
 "installatie!"
 
 #: src/Controllers/Database/ImportController.php:81
-#: src/Controllers/Import/ImportController.php:548
+#: src/Controllers/Import/ImportController.php:547
 #: src/Controllers/Server/ImportController.php:61
 #: src/Controllers/Table/ImportController.php:101
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "De importeerplugins konden niet worden geladen, controleer de installatie!"
-
-#: src/Controllers/Database/Operations/CollationController.php:45
-#: src/Controllers/Table/OperationsController.php:288
-msgid "No collation provided."
-msgstr "Geen collatie beschikbaar gesteld."
-
-#: src/Controllers/Database/OperationsController.php:84
-msgid "Cannot copy database to the same name. Change the name and try again."
-msgstr ""
-"Kan de database niet kopiëren naar dezelfde naam. Wijzig de naam en probeer "
-"het opnieuw."
-
-#: src/Controllers/Database/OperationsController.php:163
-#, php-format
-msgid "Database %1$s has been renamed to %2$s."
-msgstr "Database %1$s is hernoemd naar %2$s."
-
-#: src/Controllers/Database/OperationsController.php:173
-#, php-format
-msgid "Database %1$s has been copied to %2$s."
-msgstr "Database %1$s is gekopieerd naar %2$s."
-
-#: src/Controllers/Database/OperationsController.php:276
-#, php-format
-msgid ""
-"The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr ""
-"De configuratieopslag van phpMyAdmin is uitgeschakeld. %sOntdek waarom%s."
 
 #: src/Controllers/Database/PrivilegesController.php:67
 #: src/Controllers/Server/PrivilegesController.php:111
@@ -12110,6 +12100,10 @@ msgstr "U heeft niet voldoende rechten om de gebruikers te administreren!"
 #: src/Controllers/Database/Structure/ShowCreateController.php:29
 #: src/Controllers/Export/TablesController.php:29
 #: src/Controllers/JavaScriptMessagesController.php:356
+#: src/Controllers/Operations/TableController.php:103
+#: src/Controllers/Operations/TableController.php:108
+#: src/Controllers/Operations/ViewController.php:79
+#: src/Controllers/Operations/ViewController.php:84
 #: src/Controllers/Table/AddFieldController.php:189
 #: src/Controllers/Table/AddFieldController.php:194
 #: src/Controllers/Table/ChangeController.php:84
@@ -12134,21 +12128,17 @@ msgstr "U heeft niet voldoende rechten om de gebruikers te administreren!"
 #: src/Controllers/Table/Maintenance/ChecksumController.php:45
 #: src/Controllers/Table/Maintenance/OptimizeController.php:45
 #: src/Controllers/Table/Maintenance/RepairController.php:45
-#: src/Controllers/Table/OperationsController.php:108
-#: src/Controllers/Table/OperationsController.php:113
 #: src/Controllers/Table/SearchController.php:191
 #: src/Controllers/Table/SearchController.php:196
 #: src/Controllers/Table/SqlController.php:80
 #: src/Controllers/Table/SqlController.php:85
-#: src/Controllers/Table/StructureController.php:135
-#: src/Controllers/Table/StructureController.php:140
+#: src/Controllers/Table/StructureController.php:116
+#: src/Controllers/Table/StructureController.php:121
 #: src/Controllers/Table/Structure/PrimaryController.php:89
 #: src/Controllers/Table/Structure/PrimaryController.php:94
 #: src/Controllers/Table/ZoomSearchController.php:116
 #: src/Controllers/Table/ZoomSearchController.php:121
 #: src/Controllers/Triggers/IndexController.php:78
-#: src/Controllers/View/OperationsController.php:79
-#: src/Controllers/View/OperationsController.php:84
 msgid "No table selected."
 msgstr "Geen tabel geselecteerd."
 
@@ -12210,7 +12200,7 @@ msgstr ""
 msgid "Success!"
 msgstr "Geslaagd!"
 
-#: src/Controllers/Database/StructureController.php:571
+#: src/Controllers/Database/StructureController.php:569
 #: src/Display/Results.php:3536
 #, php-format
 msgid ""
@@ -12219,11 +12209,11 @@ msgid ""
 msgstr ""
 "Deze view heeft minimaal deze hoeveelheid aan rijen. Zie de %sdocumentatie%s."
 
-#: src/Controllers/Database/StructureController.php:751
+#: src/Controllers/Database/StructureController.php:749
 msgid "unknown"
 msgstr "onbekend"
 
-#: src/Controllers/Database/Structure/FavoriteTableController.php:117
+#: src/Controllers/Database/Structure/FavoriteTableController.php:113
 msgid "Favorite List is full!"
 msgstr "De lijst met favorieten is vol!"
 
@@ -12423,17 +12413,17 @@ msgstr ""
 msgid "Incorrect format parameter"
 msgstr "Onjuist parameterformaat"
 
-#: src/Controllers/Import/ImportController.php:357
-#: src/Controllers/Import/ImportController.php:588
+#: src/Controllers/Import/ImportController.php:356
+#: src/Controllers/Import/ImportController.php:587
 msgid "Showing bookmark"
 msgstr "Toon bladwijzer"
 
-#: src/Controllers/Import/ImportController.php:377
-#: src/Controllers/Import/ImportController.php:584
+#: src/Controllers/Import/ImportController.php:376
+#: src/Controllers/Import/ImportController.php:583
 msgid "The bookmark has been deleted."
 msgstr "De bladwijzer is verwijderd."
 
-#: src/Controllers/Import/ImportController.php:496
+#: src/Controllers/Import/ImportController.php:495
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -12444,14 +12434,14 @@ msgstr ""
 "bestandsgrootte zoals opgegeven in de PHP-configuratie. Zie [doc@faq1-16]FAQ "
 "1.16[/doc]."
 
-#: src/Controllers/Import/ImportController.php:596
+#: src/Controllers/Import/ImportController.php:595
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Het importeren is geslaagd, %d query uitgevoerd."
 msgstr[1] "Het importeren is geslaagd, %d queries uitgevoerd."
 
-#: src/Controllers/Import/ImportController.php:633
+#: src/Controllers/Import/ImportController.php:632
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -12460,7 +12450,7 @@ msgstr ""
 "De maximale uitvoertijd is verstreken, als u het importeren wilt afmaken, "
 "%sresubmit dezelfde file%s opnieuw en de import zal hervat worden."
 
-#: src/Controllers/Import/ImportController.php:643
+#: src/Controllers/Import/ImportController.php:642
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -12469,8 +12459,8 @@ msgstr ""
 "dit dat phpMyAdmin het importeren niet kan afmaken, tenzij de "
 "tijdsbeperkingen van PHP worden versoepeld."
 
-#: src/Controllers/Import/ImportController.php:711
-#: src/Controllers/Sql/SqlController.php:170
+#: src/Controllers/Import/ImportController.php:710
+#: src/Controllers/Sql/SqlController.php:168
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" opdrachten zijn uitgeschakeld."
 
@@ -12715,12 +12705,12 @@ msgid "The user name is empty!"
 msgstr "De gebruikersnaam is leeg!"
 
 #: src/Controllers/JavaScriptMessagesController.php:144
-#: src/Server/Privileges.php:765 src/UserPassword.php:39
+#: src/Server/Privileges.php:761 src/UserPassword.php:39
 msgid "The password is empty!"
 msgstr "Het wachtwoord is leeg!"
 
 #: src/Controllers/JavaScriptMessagesController.php:145
-#: src/Server/Privileges.php:763 src/UserPassword.php:43
+#: src/Server/Privileges.php:759 src/UserPassword.php:43
 msgid "The passwords aren't the same!"
 msgstr "De wachtwoorden zijn niet gelijk!"
 
@@ -14471,10 +14461,38 @@ msgid "No such column"
 msgstr "Geen dergelijke kolom"
 
 #: src/Controllers/Normalization/GetColumnsController.php:31
-#: src/Normalization.php:218 src/Types.php:700
+#: src/Normalization.php:218 src/Types.php:696
 msgctxt "string types"
 msgid "String"
 msgstr "Tekenreeks"
+
+#: src/Controllers/Operations/Database/CollationController.php:45
+#: src/Controllers/Operations/TableController.php:280
+msgid "No collation provided."
+msgstr "Geen collatie beschikbaar gesteld."
+
+#: src/Controllers/Operations/DatabaseController.php:84
+msgid "Cannot copy database to the same name. Change the name and try again."
+msgstr ""
+"Kan de database niet kopiëren naar dezelfde naam. Wijzig de naam en probeer "
+"het opnieuw."
+
+#: src/Controllers/Operations/DatabaseController.php:163
+#, php-format
+msgid "Database %1$s has been renamed to %2$s."
+msgstr "Database %1$s is hernoemd naar %2$s."
+
+#: src/Controllers/Operations/DatabaseController.php:173
+#, php-format
+msgid "Database %1$s has been copied to %2$s."
+msgstr "Database %1$s is gekopieerd naar %2$s."
+
+#: src/Controllers/Operations/DatabaseController.php:276
+#, php-format
+msgid ""
+"The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
+msgstr ""
+"De configuratieopslag van phpMyAdmin is uitgeschakeld. %sOntdek waarom%s."
 
 #: src/Controllers/Preferences/ManageController.php:89
 msgid "phpMyAdmin configuration snippet"
@@ -15269,7 +15287,7 @@ msgstr "Het aantal threads dat actief bezig is."
 msgid "User groups management is not enabled."
 msgstr "Gebruikersgroepen management is niet ingeschakeld."
 
-#: src/Controllers/Server/Variables/SetVariableController.php:82
+#: src/Controllers/Server/Variables/SetVariableController.php:78
 msgid "Setting variable failed"
 msgstr "Variabele instellen is mislukt"
 
@@ -15311,12 +15329,12 @@ msgstr "Verkeerde gegevens"
 msgid "Wrong data or no validation for %s"
 msgstr "Verkeerde gegevens of geen validatie voor %s"
 
-#: src/Controllers/Sql/SqlController.php:247 src/Sql.php:1077
+#: src/Controllers/Sql/SqlController.php:245 src/Sql.php:1076
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Bladwijzer %s is aangemaakt."
 
-#: src/Controllers/Sql/SqlController.php:254
+#: src/Controllers/Sql/SqlController.php:252
 msgid "Bookmark not created!"
 msgstr "Bladwijzer niet aangemaakt!"
 
@@ -15393,7 +15411,7 @@ msgstr "Er is een probleem met je vraag."
 
 #: src/Controllers/Table/GetFieldController.php:82
 #: src/Database/Routines.php:993 src/Import/Import.php:166
-#: src/InsertEdit.php:202 src/Sql.php:879
+#: src/InsertEdit.php:202 src/Sql.php:878
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL gaf een lege resultatenset terug (0 rijen)."
 
@@ -15508,7 +15526,7 @@ msgstr "U heeft niet genoeg rechten om hier te zijn!"
 msgid "View name can not be empty!"
 msgstr "View naam kan niet leeg zijn!"
 
-#: src/Core.php:115 src/ZipExtension.php:57
+#: src/Core.php:111 src/ZipExtension.php:57
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "De extensie %s ontbreekt. Controleer uw PHP-configuratie."
@@ -15668,7 +15686,7 @@ msgstr "Sorry, het herstellen van de verwijderde gebeurtenis is mislukt."
 msgid "The backed up query was:"
 msgstr "De gebackupte query was:"
 
-#: src/DatabaseInterface.php:1161
+#: src/DatabaseInterface.php:1157
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -15680,11 +15698,11 @@ msgstr ""
 "['SessionTimeZone'][/em]. phpMyAdmin gebruikt nu de standaard tijdzone van "
 "de database server."
 
-#: src/DatabaseInterface.php:1203
+#: src/DatabaseInterface.php:1199
 msgid "Failed to set configured collation connection!"
 msgstr "Instellen van geconfigureerde vergelijking verbinding mislukt!"
 
-#: src/DatabaseInterface.php:1657
+#: src/DatabaseInterface.php:1653
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Verbinding voor de controlegebruiker zoals in de configuratie is opgegeven "
@@ -15793,7 +15811,7 @@ msgstr "%1$d in totaal, %2$d in de query"
 msgid "%s total"
 msgstr "%d totaal"
 
-#: src/Display/Results.php:3577 src/Sql.php:885
+#: src/Display/Results.php:3577 src/Sql.php:884
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Query duurde %01.4f seconden."
@@ -16398,7 +16416,7 @@ msgstr "De tabel naam kan niet langer zijn dan %d tekens."
 msgid "The trigger name cannot end with a space character."
 msgstr "De tabelnaam kan niet eindigen op een spatie."
 
-#: src/Import/Import.php:288 src/Sql.php:893
+#: src/Import/Import.php:288 src/Sql.php:892
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK is uitgevoerd]"
 
@@ -16462,15 +16480,15 @@ msgstr ""
 "De indexen %1$s en %2$s lijken hetzelfde, mogelijk kan een van beide worden "
 "verwijderd."
 
-#: src/InsertEdit.php:509
+#: src/InsertEdit.php:505
 msgid "web server upload directory:"
 msgstr "uploadmap op webserver:"
 
-#: src/InsertEdit.php:952 src/Sql.php:876
+#: src/InsertEdit.php:940 src/Sql.php:875
 msgid "Showing SQL query"
 msgstr "Toont SQL-query"
 
-#: src/InsertEdit.php:976 src/Sql.php:856
+#: src/InsertEdit.php:964 src/Sql.php:855
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Toegevoegd rijnummer: %1$d"
@@ -16519,21 +16537,21 @@ msgstr "Karaktersets"
 msgid "Engines"
 msgstr "Engines"
 
-#: src/Message.php:204
+#: src/Message.php:194
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
 msgstr[0] "%1$d rij bijgewerkt."
 msgstr[1] "%1$d rijen bijgewerkt."
 
-#: src/Message.php:223
+#: src/Message.php:211
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] "%1$d rij verwijderd."
 msgstr[1] "%1$d rijen verwijderd."
 
-#: src/Message.php:242
+#: src/Message.php:228
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
@@ -16594,7 +16612,7 @@ msgctxt "Create new database"
 msgid "New"
 msgstr "Nieuw"
 
-#: src/Navigation/Nodes/NodeDatabase.php:582
+#: src/Navigation/Nodes/NodeDatabase.php:573
 msgid "Show hidden items"
 msgstr "Toon verborgen onderdelen"
 
@@ -16940,35 +16958,35 @@ msgstr "Geen gedeeltelijke afhankelijkheden gevonden!"
 msgid "Coalesce"
 msgstr "Samenvoegen"
 
-#: src/Operations.php:874
+#: src/Operations.php:875
 msgid "Can't move table to same one!"
 msgstr "Kan de tabel niet naar dezelfde verplaatsen!"
 
-#: src/Operations.php:876
+#: src/Operations.php:877
 msgid "Can't copy table to same one!"
 msgstr "Kan de tabel niet naar dezelfde kopiëren!"
 
-#: src/Operations.php:900
+#: src/Operations.php:901
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Tabel %s is verplaatst naar %s. Rechten zijn aangepast."
 
-#: src/Operations.php:906
+#: src/Operations.php:907
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Tabel %s is gekopieerd naar %s. Rechten zijn aangepast."
 
-#: src/Operations.php:912
+#: src/Operations.php:913
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Tabel %s is verplaatst naar %s."
 
-#: src/Operations.php:916
+#: src/Operations.php:917
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Tabel %s is gekopieerd naar %s."
 
-#: src/Operations.php:939
+#: src/Operations.php:940
 msgid "The table name is empty!"
 msgstr "De tabelnaam is leeg!"
 
@@ -17217,12 +17235,12 @@ msgid "Put columns names in the first row:"
 msgstr "Kolomnamen in de eerste regel plaatsen:"
 
 #: src/Plugins/Export/ExportLatex.php:212 src/Plugins/Export/ExportSql.php:714
-#: src/Plugins/Export/ExportXml.php:222
+#: src/Plugins/Export/ExportXml.php:218
 msgid "Generation Time:"
 msgstr "Gegenereerd op:"
 
 #: src/Plugins/Export/ExportLatex.php:215 src/Plugins/Export/ExportSql.php:720
-#: src/Plugins/Export/ExportXml.php:225
+#: src/Plugins/Export/ExportXml.php:221
 msgid "PHP Version:"
 msgstr "PHP-versie:"
 
@@ -18182,8 +18200,8 @@ msgstr "Fout 404! De pagina %s is niet gevonden."
 msgid "Error 405! Request method not allowed."
 msgstr "Fout 405! Methode voor aanvragen niet toegestaan."
 
-#: src/Server/Plugins.php:53 src/Server/Privileges.php:632
-#: src/Server/Privileges.php:3274
+#: src/Server/Plugins.php:53 src/Server/Privileges.php:628
+#: src/Server/Privileges.php:3270
 msgid "Native MySQL authentication"
 msgstr "MySQL authenticatie"
 
@@ -18208,65 +18226,65 @@ msgstr "Oude MySQL-4.0 authenticatie"
 msgid "Account locking is not supported."
 msgstr "Gebruikersaccount vergrendeling wordt niet ondersteund."
 
-#: src/Server/Privileges.php:265
+#: src/Server/Privileges.php:261
 msgid "No privileges."
 msgstr "Geen rechten."
 
-#: src/Server/Privileges.php:271
+#: src/Server/Privileges.php:267
 msgid "Includes all privileges except GRANT."
 msgstr "Omvat alle rechten behalve GRANT."
 
-#: src/Server/Privileges.php:892
+#: src/Server/Privileges.php:888
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Het wachtwoord voor %s is succesvol veranderd."
 
-#: src/Server/Privileges.php:940
+#: src/Server/Privileges.php:936
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "U heeft de rechten ingetrokken voor %s."
 
-#: src/Server/Privileges.php:1288
+#: src/Server/Privileges.php:1284
 msgid "Revoke"
 msgstr "Ongedaan maken"
 
-#: src/Server/Privileges.php:1891
+#: src/Server/Privileges.php:1887
 msgid "No users selected for deleting!"
 msgstr "Geen gebruikers geselecteerd om te verwijderen!"
 
-#: src/Server/Privileges.php:1894
+#: src/Server/Privileges.php:1890
 msgid "Reloading the privileges"
 msgstr "De rechten worden opnieuw geladen"
 
-#: src/Server/Privileges.php:1919
+#: src/Server/Privileges.php:1915
 msgid "The selected users have been deleted successfully."
 msgstr "De geselecteerde gebruikers zijn met succes verwijderd."
 
-#: src/Server/Privileges.php:1993
+#: src/Server/Privileges.php:1989
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "U heeft de rechten aangepast voor %s."
 
-#: src/Server/Privileges.php:2150
+#: src/Server/Privileges.php:2146
 #, php-format
 msgid "Deleting %s"
 msgstr "Verwijderen van %s"
 
-#: src/Server/Privileges.php:2181
+#: src/Server/Privileges.php:2177
 msgid "The privileges were reloaded successfully."
 msgstr "De rechten zijn succesvol opnieuw geladen."
 
-#: src/Server/Privileges.php:2282
+#: src/Server/Privileges.php:2278
 #, php-format
 msgid "The user %s already exists!"
 msgstr "De gebruiker %s bestaat al!"
 
-#: src/Server/Privileges.php:2526
+#: src/Server/Privileges.php:2522
 #, php-format
 msgid "Privileges for %s"
 msgstr "Rechten voor %s"
 
-#: src/Server/Privileges.php:2614
+#: src/Server/Privileges.php:2610
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -18280,7 +18298,7 @@ msgstr ""
 "dit het geval zijn dan moet men %s de rechtentabel vernieuwen %s voordat men "
 "verder gaat."
 
-#: src/Server/Privileges.php:2630
+#: src/Server/Privileges.php:2626
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -18294,11 +18312,11 @@ msgstr ""
 "aangebracht. Mocht dit het geval zijn dan moet de gebruikersrechten opnieuw "
 "geladen worden, maar op dit moment heeft u niet het RELOAD gebruikersrecht."
 
-#: src/Server/Privileges.php:2918
+#: src/Server/Privileges.php:2914
 msgid "You have added a new user."
 msgstr "U heeft een nieuwe gebruiker toegevoegd."
 
-#: src/Server/Privileges.php:3367
+#: src/Server/Privileges.php:3363
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -18398,16 +18416,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Er is geen recentere stabiele versie beschikbaar"
 
-#: src/Sql.php:451
+#: src/Sql.php:450
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Bladwijzer \"%s\" wordt gebruikt als standaard browsequery."
 
-#: src/Sql.php:873
+#: src/Sql.php:872
 msgid "Showing as PHP code"
 msgstr "Getoond als PHP-code"
 
-#: src/Sql.php:1260
+#: src/Sql.php:1259
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18417,7 +18435,7 @@ msgstr ""
 "rasterbewerkingen, checkboxen, Bewerken, Kopiëren en Verwijderen, zijn niet "
 "beschikbaar. %s"
 
-#: src/Sql.php:1274
+#: src/Sql.php:1273
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -18464,7 +18482,7 @@ msgstr "%s is uitgeschakeld op deze MySQL-server."
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Deze MySQL-server ondersteund de %s opslag-engine niet."
 
-#: src/Table/Indexes.php:55 src/Table/Table.php:1963
+#: src/Table/Indexes.php:55 src/Table/Table.php:1955
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "De naam van de primaire sleutel moet \"PRIMARY\" zijn!"
 
@@ -18487,24 +18505,24 @@ msgstr "Brondatabase `%s` is niet gevonden!"
 msgid "Target database `%s` was not found!"
 msgstr "Doeldatabase `%s` niet gevonden!"
 
-#: src/Table/Table.php:1365
+#: src/Table/Table.php:1361
 msgid "Invalid database:"
 msgstr "Ongeldige database:"
 
-#: src/Table/Table.php:1383
+#: src/Table/Table.php:1379
 msgid "Invalid table name:"
 msgstr "Ongeldige tabelnaam:"
 
-#: src/Table/Table.php:1429
+#: src/Table/Table.php:1425
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabel %1$s is hernoemd naar %2$s."
 
-#: src/Table/Table.php:1670
+#: src/Table/Table.php:1662
 msgid "Could not save table UI preferences!"
 msgstr "Tabelinterfacevoorkeuren konden niet worden opgeslagen!"
 
-#: src/Table/Table.php:1692
+#: src/Table/Table.php:1684
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -18513,7 +18531,7 @@ msgstr ""
 "Opkuisen van tabelinterfacevoorkeuren is mislukt (zie $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: src/Table/Table.php:1820
+#: src/Table/Table.php:1812
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -18524,15 +18542,15 @@ msgstr ""
 "wijzigingen zullen verdwijnen na verversen van deze pagina. Controleer of de "
 "tabelstructuur is gewijzigd."
 
-#: src/Table/Table.php:1975
+#: src/Table/Table.php:1967
 msgid "Can't rename index to PRIMARY!"
 msgstr "Kan index niet naar PRIMARY hernoemen!"
 
-#: src/Table/Table.php:2001
+#: src/Table/Table.php:1993
 msgid "No index parts defined!"
 msgstr "Geen index-delen gedefinieerd!"
 
-#: src/Table/Table.php:2288
+#: src/Table/Table.php:2280
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -18695,14 +18713,14 @@ msgstr "U moet een triggerdefinitie ingeven."
 msgid "Sorry, we failed to restore the dropped trigger."
 msgstr "De verwijderde trigger kon niet hersteld worden."
 
-#: src/Types.php:200
+#: src/Types.php:196
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
 "Een 1-byte integer, signed range is van -128 tot 127, unsigned range is van "
 "0 tot 255"
 
-#: src/Types.php:201
+#: src/Types.php:197
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
@@ -18710,7 +18728,7 @@ msgstr ""
 "Een 2-byte integer, signed range van -32,768 tot 32,767, unsigned range van "
 "0 tot 65,535"
 
-#: src/Types.php:203
+#: src/Types.php:199
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
@@ -18718,7 +18736,7 @@ msgstr ""
 "Een 3-byte integer, signed range van -8,388,608 tot 8,388,607, unsigned "
 "range van 0 tot 16,777,215"
 
-#: src/Types.php:206
+#: src/Types.php:202
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295"
@@ -18726,7 +18744,7 @@ msgstr ""
 "Een 4-byte integer, signed range van -2,147,483,648 tot 2,147,483,647, "
 "unsigned range van 0 tot 4,294,967,295"
 
-#: src/Types.php:211
+#: src/Types.php:207
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
@@ -18735,7 +18753,7 @@ msgstr ""
 "9,223,372,036,854,775,807, unsigned range van 0 tot "
 "18,446,744,073,709,551,615"
 
-#: src/Types.php:216
+#: src/Types.php:212
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
@@ -18743,7 +18761,7 @@ msgstr ""
 "Een getal met vaste kommapositie (M,D) - het maximum aantal cijfers (M) is "
 "65 (standaard 10), het maximum aantal decimalen (D) is 30 (standaard 0)"
 
-#: src/Types.php:221
+#: src/Types.php:217
 msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to "
 "-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
@@ -18752,7 +18770,7 @@ msgstr ""
 "-3,402823466E+38 tot -1,175494351E-38, 0, en 1,175494351E-38 tot "
 "3.402823466E+38"
 
-#: src/Types.php:226
+#: src/Types.php:222
 msgid ""
 "A double-precision floating-point number, allowable values are "
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
@@ -18762,7 +18780,7 @@ msgstr ""
 "waarden zijn -1,7976931348623157E+308 tot -2,2250738585072014E-308, 0, en "
 "2,2250738585072014E-308 tot 1,7976931348623157E+308"
 
-#: src/Types.php:230
+#: src/Types.php:226
 msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
@@ -18770,7 +18788,7 @@ msgstr ""
 "Synoniem voor DOUBLE (uitzondering : in REAL_AS_FLOAT SQL mode is dit een "
 "synoniem voor FLOAT)"
 
-#: src/Types.php:231
+#: src/Types.php:227
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
@@ -18778,7 +18796,7 @@ msgstr ""
 "Een bit-field type (M), slaat M bits per waarde op (standaard is 1, maximum "
 "is 64)"
 
-#: src/Types.php:233
+#: src/Types.php:229
 msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
@@ -18786,21 +18804,21 @@ msgstr ""
 "Een synoniem voor TINYINT(1), Een nulwaarde wordt beschouwd als vals, een "
 "niet-nulwaarde wordt beschouwd als waar"
 
-#: src/Types.php:235
+#: src/Types.php:231
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr "Een alias voor BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 
-#: src/Types.php:237
+#: src/Types.php:233
 #, php-format
 msgid "A date, supported range is %1$s to %2$s"
 msgstr "Een datum, ondersteund bereik is %1$s tot %2$s"
 
-#: src/Types.php:242
+#: src/Types.php:238
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "Een dag en tijd combinatie, ondersteunde reeks gaat van %1$s tot %2$s"
 
-#: src/Types.php:247
+#: src/Types.php:243
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
@@ -18808,12 +18826,12 @@ msgstr ""
 "Een tijdstip, van 1970-01-01 00:00:01 UTC tot 2038-01-09 03:14:07 UTC, wordt "
 "opgeslaan als aantal seconden sinds het beginmoment (1970-01-01 00:00:00 UTC)"
 
-#: src/Types.php:252
+#: src/Types.php:248
 #, php-format
 msgid "A time, range is %1$s to %2$s"
 msgstr "Een uur, bereik is %1$s tot %2$s"
 
-#: src/Types.php:257
+#: src/Types.php:253
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
@@ -18822,7 +18840,7 @@ msgstr ""
 "toegelaten waarden lopen van 70 (1970) tot 69 (2069) of van 1901 tot 2155 en "
 "0000"
 
-#: src/Types.php:262
+#: src/Types.php:258
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
@@ -18830,7 +18848,7 @@ msgstr ""
 "Een string met vaste lengte (0-255, standaard 1) wordt bij opslag met "
 "spaties rechts tot de gespecificeerde lengte aangevuld"
 
-#: src/Types.php:267
+#: src/Types.php:263
 #, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
@@ -18839,7 +18857,7 @@ msgstr ""
 "Een string met variabele lengte (%s), de effectieve maximale lengte is "
 "afhankelijk van de maximale rij grootte"
 
-#: src/Types.php:272
+#: src/Types.php:268
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
@@ -18848,7 +18866,7 @@ msgstr ""
 "wordt opgeslagen met een 1-byte voorvoegsel dat de lengte van de waarde in "
 "bytes aangeeft"
 
-#: src/Types.php:277
+#: src/Types.php:273
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
@@ -18857,7 +18875,7 @@ msgstr ""
 "tekens, wordt opgeslagen met een 2-byte voorvoegsel dat de lengte van de "
 "waarde in bytes aangeeft"
 
-#: src/Types.php:282
+#: src/Types.php:278
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
@@ -18866,7 +18884,7 @@ msgstr ""
 "1) tekens, wordt opgeslagen met een 3-byte voorvoegsel dat de lengte van de "
 "waarde in bytes aangeeft"
 
-#: src/Types.php:287
+#: src/Types.php:283
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
@@ -18876,7 +18894,7 @@ msgstr ""
 "4GiB (2^32 - 1) tekens, wordt opgeslagen met een 4-byte voorvoegsel dat de "
 "lengte van de waarde in bytes aangeeft"
 
-#: src/Types.php:292
+#: src/Types.php:288
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -18884,7 +18902,7 @@ msgstr ""
 "Vergelijkbaar met het CHAR type, maar opgeslagen in een binaire byte "
 "tekenreeks in plaats van een niet-binaire reeks lettertekens"
 
-#: src/Types.php:295
+#: src/Types.php:291
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -18892,7 +18910,7 @@ msgstr ""
 "Vergelijkbaar met het VARCHAR type, maar slaat de waarde op als binaire byte "
 "tekenreeks in plaats van een niet-binaire tekenreeks"
 
-#: src/Types.php:299
+#: src/Types.php:295
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
@@ -18901,7 +18919,7 @@ msgstr ""
 "wordt opgeslagen met een 1-byte voorvoegsel dat de lengte van de waarde "
 "aangeeft"
 
-#: src/Types.php:303
+#: src/Types.php:299
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
@@ -18910,7 +18928,7 @@ msgstr ""
 "bytes, wordt opgeslagen met een 3-byte voorvoegsel dat de lengte van de "
 "waarde aangeeft"
 
-#: src/Types.php:308
+#: src/Types.php:304
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
@@ -18919,7 +18937,7 @@ msgstr ""
 "bytes, wordt opgeslagen met een 2-byte voorvoegsel dat de lengte van de "
 "waarde aangeeft"
 
-#: src/Types.php:312
+#: src/Types.php:308
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
@@ -18928,7 +18946,7 @@ msgstr ""
 "(2^32 - 1) bytes, wordt opgeslagen met een 4-byte voorvoegsel dat de lengte "
 "van de waarde aangeeft"
 
-#: src/Types.php:316
+#: src/Types.php:312
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
@@ -18936,43 +18954,43 @@ msgstr ""
 "Een opsomming, geselecteerd uit een lijst met tot 65.535 waarden of de "
 "speciale '' foutwaarde"
 
-#: src/Types.php:317
+#: src/Types.php:313
 msgid "A single value chosen from a set of up to 64 members"
 msgstr "Een enkele waarde geselecteerd uit een lijst met tot 64 waarden"
 
-#: src/Types.php:318
+#: src/Types.php:314
 msgid "A type that can store a geometry of any type"
 msgstr "Een type dat een meetkundig object van gelijk welk type op kan slaan"
 
-#: src/Types.php:319
+#: src/Types.php:315
 msgid "A point in 2-dimensional space"
 msgstr "Een punt in een 2-dimensionale ruimte"
 
-#: src/Types.php:320
+#: src/Types.php:316
 msgid "A curve with linear interpolation between points"
 msgstr "Een kromme met lineaire interpolatie tussen punten"
 
-#: src/Types.php:321
+#: src/Types.php:317
 msgid "A polygon"
 msgstr "Een veelhoek"
 
-#: src/Types.php:322
+#: src/Types.php:318
 msgid "A collection of points"
 msgstr "Een verzameling van punten"
 
-#: src/Types.php:323
+#: src/Types.php:319
 msgid "A collection of curves with linear interpolation between points"
 msgstr "Een verzameling van krommen met lineaire interpolatie tussen punten"
 
-#: src/Types.php:324
+#: src/Types.php:320
 msgid "A collection of polygons"
 msgstr "Een verzameling van veelhoeken"
 
-#: src/Types.php:325
+#: src/Types.php:321
 msgid "A collection of geometry objects of any type"
 msgstr "Een verzameling van meetkundige objecten van gelijk welk type"
 
-#: src/Types.php:326
+#: src/Types.php:322
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
@@ -18980,7 +18998,7 @@ msgstr ""
 "Maakt efficiënte datatoegang beschikbaar en slaat het op in JSON (JavaScript "
 "Object Notation) documenten"
 
-#: src/Types.php:327
+#: src/Types.php:323
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
@@ -18988,21 +19006,21 @@ msgstr ""
 "Bedoeld voor opslag van IPv6 adressen, als ook IPv4 adressen waarbij de "
 "gebruikelijke omzetting van IPv4 adressen in IPv6 adressen wordt aangenomen"
 
-#: src/Types.php:330
+#: src/Types.php:326
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr "128-bit UUID (Universele Unieke Identificatie)"
 
-#: src/Types.php:654
+#: src/Types.php:650
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "Numeriek"
 
-#: src/Types.php:672
+#: src/Types.php:668
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Datum en tijd"
 
-#: src/Types.php:702
+#: src/Types.php:698
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Ruimtelijk"
@@ -19247,9 +19265,6 @@ msgstr "Geen bestanden gevonden in ZIP-archief!"
 
 #~ msgid "Add/Delete columns:"
 #~ msgstr "Kolommen toevoegen/verwijderen:"
-
-#~ msgid "Use tables"
-#~ msgstr "Tabellen gebruiken"
 
 #, php-format
 #~ msgid "SQL query on database <b>%s</b>:"
@@ -19607,10 +19622,6 @@ msgstr "Geen bestanden gevonden in ZIP-archief!"
 
 #~ msgid "Search results for \"<i>%s</i>\" %s:"
 #~ msgstr "Zoekresultaten voor \"<i>%s</i>\" %s:"
-
-#~ msgctxt "Text context"
-#~ msgid "Text"
-#~ msgstr "Tekst"
 
 #~ msgid "Customize export options"
 #~ msgstr "Exportopties aanpassen"
