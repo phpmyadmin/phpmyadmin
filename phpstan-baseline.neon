@@ -1636,6 +1636,16 @@ parameters:
 			path: libraries/classes/Controllers/Table/Structure/SaveController.php
 
 		-
+			message: "#^Comparison operation \"\\>\" between int\\<1, max\\> and 0 is always true\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/Structure/SaveController.php
+
+		-
+			message: "#^Else branch is unreachable because ternary operator condition is always true\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/Structure/SaveController.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\Structure\\\\SaveController\\:\\:adjustColumnPrivileges\\(\\) has parameter \\$adjust_privileges with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/Structure/SaveController.php
@@ -4521,11 +4531,6 @@ parameters:
 			path: libraries/classes/Import.php
 
 		-
-			message: "#^Parameter \\#1 \\$importRunBuffer of method PhpMyAdmin\\\\Import\\:\\:runQueryPost\\(\\) expects array\\|null, array\\|float\\|int\\|string\\|false\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Import.php
-
-		-
 			message: "#^Parameter \\#1 \\$lastCumulativeSize of method PhpMyAdmin\\\\Import\\:\\:getDecimalPrecision\\(\\) expects string, int\\|string given\\.$#"
 			count: 3
 			path: libraries/classes/Import.php
@@ -5616,8 +5621,13 @@ parameters:
 			path: libraries/classes/ParseAnalyze.php
 
 		-
+			message: "#^Offset 'select_tables' does not exist on array\\{distinct\\?\\: bool, drop_database\\?\\: bool, group\\?\\: bool, having\\?\\: bool, is_affected\\?\\: bool, is_analyse\\?\\: bool, is_count\\?\\: bool, is_delete\\?\\: bool, \\.\\.\\.\\}\\.$#"
+			count: 3
+			path: libraries/classes/ParseAnalyze.php
+
+		-
 			message: "#^Offset 'select_tables' on array\\{distinct\\?\\: bool, drop_database\\?\\: bool, group\\?\\: bool, having\\?\\: bool, is_affected\\?\\: bool, is_analyse\\?\\: bool, is_count\\?\\: bool, is_delete\\?\\: bool, \\.\\.\\.\\} in empty\\(\\) does not exist\\.$#"
-			count: 1
+			count: 2
 			path: libraries/classes/ParseAnalyze.php
 
 		-
@@ -9027,6 +9037,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$row of static method PhpMyAdmin\\\\Util\\:\\:getConditionValue\\(\\) expects float\\|int\\|string\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Util.php
+
+		-
+			message: "#^Parameter \\#1 \\$str of function strtr expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Util.php
 
