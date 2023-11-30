@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-26 00:19+0000\n"
-"PO-Revision-Date: 2023-11-30 10:03+0000\n"
+"PO-Revision-Date: 2023-11-30 13:04+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
@@ -7169,9 +7169,8 @@ msgstr "Сбросить увеличение"
 
 #. l10n: Show or hide the menu using the hamburger style button
 #: resources/templates/top_menu.twig:4
-#, fuzzy
 msgid "Toggle navigation"
-msgstr "Строка навигации по таблице"
+msgstr "Переключить навигацию"
 
 #. l10n: Current page
 #: resources/templates/top_menu.twig:14
