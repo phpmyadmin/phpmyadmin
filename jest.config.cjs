@@ -11,7 +11,7 @@ module.exports = {
                 '<rootDir>/public/js/vendor/',
             ],
             displayName: 'phpMyAdmin',
-            testMatch: ['<rootDir>/test/javascript/**/*.ts'],
+            testMatch: ['<rootDir>/tests/javascript/**/*.ts'],
             transform: { '\\.[jt]sx?$': 'babel-jest' },
             moduleNameMapper: {
                 '^phpmyadmin/(.*)$': '<rootDir>/resources/js/src/$1',

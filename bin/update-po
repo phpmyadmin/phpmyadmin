@@ -18,7 +18,7 @@ php bin/console cache:warmup --twig-po --env development
 # Update pot (template), ensure that advisor is at the end
 LOCS=$(find po -name '*.po' | sed 's@.*/\(.*\)\.po@\1@')
 
-find . -name '*.php' -not -path './test/*' -not -path './po/*' -not -path './tmp/*' -not -path './release/*' -not -path './node_modules/*' -not -path './vendor/*' > twig-templates/filesList
+find . -name '*.php' -not -path './tests/*' -not -path './po/*' -not -path './tmp/*' -not -path './release/*' -not -path './node_modules/*' -not -path './vendor/*' > twig-templates/filesList
 
 php ./bin/match-twig-cache
 sort --dictionary-order --ignore-case --output ./twig-templates/filesListTemp < ./twig-templates/filesList

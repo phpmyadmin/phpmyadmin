@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <psalm
-    autoloader="test/bootstrap-static.php"
+    autoloader="tests/bootstrap-static.php"
     errorLevel="1"
     reportMixedIssues="true"
     sealAllMethods="true"
@@ -17,8 +17,8 @@
         <directory name="app"/>
         <directory name="public/setup"/>
         <directory name="src"/>
-        <directory name="test/classes"/>
-        <directory name="test/selenium"/>
+        <directory name="tests/classes"/>
+        <directory name="tests/selenium"/>
         <file name="public/index.php"/>
         <ignoreFiles>
             <directory name="app/cache"/>
@@ -30,7 +30,7 @@
     </projectFiles>
 
     <stubs>
-        <file name="test/stubs/uploadprogress.stub"/>
+        <file name="tests/stubs/uploadprogress.stub"/>
     </stubs>
 
     <plugins>

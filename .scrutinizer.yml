@@ -9,7 +9,7 @@ filter:
     - public/js/
     - tmp/
     - vendor/
-    - test/doctum-config.php
+    - tests/doctum-config.php
 checks:
   javascript: true
   php: true

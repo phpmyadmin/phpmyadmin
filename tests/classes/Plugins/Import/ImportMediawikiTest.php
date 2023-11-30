@@ -50,7 +50,7 @@ class ImportMediawikiTest extends AbstractTestCase
         $GLOBALS['offset'] = 0;
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
-        $GLOBALS['import_file'] = 'test/test_data/phpmyadmin.mediawiki';
+        $GLOBALS['import_file'] = 'tests/test_data/phpmyadmin.mediawiki';
         $GLOBALS['import_text'] = 'ImportMediawiki_Test';
         $GLOBALS['read_multiply'] = 10;
         $GLOBALS['import_type'] = 'Mediawiki';

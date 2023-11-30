@@ -46,7 +46,7 @@ class ImportSqlTest extends AbstractTestCase
         $GLOBALS['offset'] = 0;
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
-        $GLOBALS['import_file'] = 'test/test_data/pma_bookmark.sql';
+        $GLOBALS['import_file'] = 'tests/test_data/pma_bookmark.sql';
         $GLOBALS['import_text'] = 'ImportSql_Test';
         $GLOBALS['compression'] = 'none';
         $GLOBALS['read_multiply'] = 10;

@@ -41,7 +41,7 @@ class TwigLintCommandTest extends AbstractTestCase
     public function testGetTemplateContents(): void
     {
         $contents = $this->callFunction($this->command, TwigLintCommand::class, 'getTemplateContents', [
-            TEST_PATH . 'test/classes/_data/file_listing/subfolder/one.ini',
+            TEST_PATH . 'tests/classes/_data/file_listing/subfolder/one.ini',
         ]);
 
         $this->assertSame('key=value' . "\n", $contents);
@@ -49,7 +49,7 @@ class TwigLintCommandTest extends AbstractTestCase
 
     public function testFindFiles(): void
     {
-        $path = TEST_PATH . 'test/classes/_data/file_listing';
+        $path = TEST_PATH . 'tests/classes/_data/file_listing';
         $filesFound = $this->callFunction($this->command, TwigLintCommand::class, 'findFiles', [$path]);
 
         // Sort results to avoid file system test specific failures
@@ -65,7 +65,7 @@ class TwigLintCommandTest extends AbstractTestCase
 
     public function testGetFilesInfo(): void
     {
-        $path = TEST_PATH . 'test/classes/_data/file_listing';
+        $path = TEST_PATH . 'tests/classes/_data/file_listing';
         $filesInfos = $this->callFunction($this->command, TwigLintCommand::class, 'getFilesInfo', [$path]);
 
         // Sort results to avoid file system test specific failures
@@ -105,7 +105,7 @@ class TwigLintCommandTest extends AbstractTestCase
         ]);
 
         $filesFound = $this->callFunction($command, TwigLintCommand::class, 'getFilesInfo', [
-            TEST_PATH . 'test/classes/_data/file_listing',
+            TEST_PATH . 'tests/classes/_data/file_listing',
         ]);
 
         $this->assertEquals([

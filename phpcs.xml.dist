@@ -12,7 +12,7 @@
     <file>./examples</file>
     <file>./public</file>
     <file>./src</file>
-    <file>./test</file>
+    <file>./tests</file>
     <file>./config.sample.inc.php</file>
 
     <exclude-pattern>*/app/cache/*</exclude-pattern>
@@ -20,7 +20,7 @@
     <exclude-pattern>*/build/*</exclude-pattern>
     <exclude-pattern>*/config.inc.php</exclude-pattern>
     <exclude-pattern>*/node_modules/*</exclude-pattern>
-    <exclude-pattern>*/test/doctum-config.php</exclude-pattern>
+    <exclude-pattern>*/tests/doctum-config.php</exclude-pattern>
     <exclude-pattern>*/tmp/*</exclude-pattern>
     <exclude-pattern>*/twig-templates/*</exclude-pattern>
     <exclude-pattern>*/vendor/*</exclude-pattern>

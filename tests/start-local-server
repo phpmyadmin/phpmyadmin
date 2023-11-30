@@ -19,7 +19,7 @@ DIR=`mktemp -d --suffix=-phpMyAdminTest`
 CURRENT=`pwd`
 
 # Create configuration with correct paths
-cp test/nginx.conf test/php-fpm.conf test/php.ini $DIR/
+cp tests/nginx.conf tests/php-fpm.conf tests/php.ini $DIR/
 sed -i -e "s,%DIR%,$DIR," -e "s,%ROOT%,$CURRENT," $DIR/*
 mkdir $DIR/sessions
 

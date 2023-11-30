@@ -488,7 +488,7 @@ rm -r .github CODE_OF_CONDUCT.md DCO
 rm .scrutinizer.yml .weblate codecov.yml
 
 # Remove Doctum config file
-rm test/doctum-config.php
+rm tests/doctum-config.php
 
 # Remove readme for github
 rm README.rst
@@ -606,7 +606,7 @@ for kit in $KITS ; do
     if [ "$kit" != source ] ; then
         echo "* Removing source files"
         # Testsuite
-        rm -r test/
+        rm -r tests/
         # Template test files
         rm -r resources/templates/test/
         rm phpunit.xml.*

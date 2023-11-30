@@ -54,7 +54,7 @@ class ThemeTest extends AbstractTestCase
      */
     public function testCheckImgPathIncorrect(): void
     {
-        $this->object->setPath(TEST_PATH . 'test/classes/_data/incorrect_theme');
+        $this->object->setPath(TEST_PATH . 'tests/classes/_data/incorrect_theme');
         $this->assertFalse(
             $this->object->loadInfo(),
             'Theme name is not properly set',
@@ -66,7 +66,7 @@ class ThemeTest extends AbstractTestCase
      */
     public function testCheckImgPathFull(): void
     {
-        $this->object->setFsPath(TEST_PATH . 'test/classes/_data/gen_version_info/');
+        $this->object->setFsPath(TEST_PATH . 'tests/classes/_data/gen_version_info/');
         $this->assertTrue($this->object->loadInfo());
         $this->assertEquals('Test Theme', $this->object->getName());
         $this->assertEquals('6.0', $this->object->getVersion());

@@ -367,7 +367,7 @@ PHP;
         $this->assertFalse($this->object->checkConfigSource());
         $this->assertEquals(0, $this->object->sourceMtime);
 
-        $this->object->setSource(TEST_PATH . 'test/test_data/config.inc.php');
+        $this->object->setSource(TEST_PATH . 'tests/test_data/config.inc.php');
 
         $this->assertNotEmpty($this->object->getSource());
         $this->assertTrue($this->object->checkConfigSource());
@@ -548,8 +548,8 @@ PHP;
     public static function configPaths(): array
     {
         return [
-            [TEST_PATH . 'test/test_data/config.inc.php', true],
-            [TEST_PATH . 'test/test_data/config-nonexisting.inc.php', false],
+            [TEST_PATH . 'tests/test_data/config.inc.php', true],
+            [TEST_PATH . 'tests/test_data/config-nonexisting.inc.php', false],
         ];
     }
 

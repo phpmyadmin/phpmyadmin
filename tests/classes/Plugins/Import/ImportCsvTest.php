@@ -62,7 +62,7 @@ class ImportCsvTest extends AbstractTestCase
         $GLOBALS['offset'] = 0;
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
-        $GLOBALS['import_file'] = 'test/test_data/db_test.csv';
+        $GLOBALS['import_file'] = 'tests/test_data/db_test.csv';
         $GLOBALS['import_text'] = 'ImportCsv_Test';
         $GLOBALS['compression'] = 'none';
         $GLOBALS['read_multiply'] = 10;
@@ -154,7 +154,7 @@ class ImportCsvTest extends AbstractTestCase
         $importHandle = new File($GLOBALS['import_file']);
         $importHandle->open();
 
-        $GLOBALS['import_file'] = 'test/test_data/db_test_partial_import.csv';
+        $GLOBALS['import_file'] = 'tests/test_data/db_test_partial_import.csv';
         $_REQUEST['csv_new_tbl_name'] = 'ImportTestTable';
         $_REQUEST['csv_new_db_name'] = 'ImportTestDb';
         $_REQUEST['csv_partial_import'] = 5;
