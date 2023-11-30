@@ -38,7 +38,7 @@ fi
 
 check() {
     TMPOUTPUTFILE=$2
-    lang=$(echo "$1" | sed 's@po/\(.*\)\.po@\1@')
+    lang=$(echo "$1" | sed 's@resources/po/\(.*\)\.po@\1@')
     STATS=$(LC_ALL=C  msgfmt --statistics -o /dev/null "$1" 2>&1)
     if echo "$STATS" | grep -q ' translated ' ; then
         TRANSLATED=$(echo "$STATS" | sed 's/\(^\|.* \)\([0-9]*\) translated.*/\2/')
@@ -60,13 +60,13 @@ check() {
 
     if [ "$PERCENT" -lt "$THRESHOLD" ] ; then
         echo "Removing $lang, only $PERCENT%"
-        rm -f locale/"$lang"/LC_MESSAGES/phpmyadmin.mo
-        rmdir locale/"$lang"/LC_MESSAGES
-        rmdir locale/"$lang"
+        rm -f resources/locale/"$lang"/LC_MESSAGES/phpmyadmin.mo
+        rmdir resources/locale/"$lang"/LC_MESSAGES
+        rmdir resources/locale/"$lang"
     fi
 }
 
-for x in po/*.po  ; do
+for x in resources/po/*.po  ; do
     check "$x" "$TMPOUTPUTFILE"
 done
 

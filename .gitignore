@@ -29,6 +29,7 @@ web.config
 .htaccess
 # Locales
 /locale/
+/resources/locale/
 # Temporary files to generate locales for Twig
 /twig-templates/
 # Backups

@@ -63,7 +63,7 @@ return [
     /**
      * Path to files with compiled locales (*.mo)
      */
-    'localePath' => ROOT_PATH . 'locale' . DIRECTORY_SEPARATOR,
+    'localePath' => ROOT_PATH . 'resources' . DIRECTORY_SEPARATOR . 'locale' . DIRECTORY_SEPARATOR,
 
     /**
      * Define the cache directory for routing cache and other cache files

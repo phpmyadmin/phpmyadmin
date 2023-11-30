@@ -21,7 +21,7 @@ use const ROOT_PATH;
 #[AsCommand(name: 'fix-po-twig', description: 'Fixes POT file for Twig templates.')]
 final class FixPoTwigCommand extends Command
 {
-    private const POT_FILE = ROOT_PATH . 'po/phpmyadmin.pot';
+    private const POT_FILE = ROOT_PATH . 'resources/po/phpmyadmin.pot';
     private const REPLACE_FILE = ROOT_PATH . 'twig-templates/replace.json';
 
     protected function configure(): void

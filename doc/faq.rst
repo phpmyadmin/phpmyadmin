@@ -687,7 +687,7 @@ Some users have requested to be able to reduce the size of the phpMyAdmin instal
 This is not recommended and could lead to confusion over missing features, but can be done.
 A list of files and corresponding functionality which degrade gracefully when removed include:
 
-* :file:`./locale/` folder, or unused subfolders (interface translations)
+* :file:`./resources/locale/` folder, or unused subfolders (interface translations)
 * Any unused themes in :file:`./public/themes/` except the default theme `pmahomme`.
 * :file:`./app/language_stats.inc.php` (translation statistics)
 * :file:`./doc/` (documentation)

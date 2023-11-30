@@ -13,22 +13,22 @@ else
 fi
 
 compile() {
-    lang=$(echo "$1" | sed 's@po/\(.*\)\.po@\1@')
+    lang=$(echo "$1" | sed 's@resources/po/\(.*\)\.po@\1@')
     if [ -n "$stats" ] ; then
         printf "%s: " "$lang"
     fi
-    mkdir -p locale/"$lang"/LC_MESSAGES
-    msgfmt $stats --check -o locale/"$lang"/LC_MESSAGES/phpmyadmin.mo "$1"
+    mkdir -p resources/locale/"$lang"/LC_MESSAGES
+    msgfmt $stats --check -o resources/locale/"$lang"/LC_MESSAGES/phpmyadmin.mo "$1"
     return $?
 }
 
 if [ -n "$1" ] ; then
-    compile po/"$1".po
+    compile resources/po/"$1".po
     exit $?
 fi
 
 result=0
-for x in po/*.po  ; do
+for x in resources/po/*.po ; do
     compile "$x"
     ret=$?
     if [ $ret != 0 ] ; then

@@ -108,7 +108,7 @@ $cfg['SaveDir'] = '';
 
 /**
  * Default language to use, if not browser-defined or user-defined
- * (you find all languages in the locale folder)
+ * (you find all languages in the 'resources/locale' folder)
  * uncomment the desired line:
  * default = 'en'
  */

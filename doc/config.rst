@@ -2961,7 +2961,7 @@ Languages
 
     Defines the default language to use, if not browser-defined or user-
     defined. The corresponding language file needs to be in
-    locale/*code*/LC\_MESSAGES/phpmyadmin.mo.
+    resources/locale/*code*/LC\_MESSAGES/phpmyadmin.mo.
 
 .. config:option:: $cfg['DefaultConnectionCollation']
 
@@ -2979,7 +2979,7 @@ Languages
     :default: not set
 
     Force language to use. The corresponding language file needs to be in
-    locale/*code*/LC\_MESSAGES/phpmyadmin.mo.
+    resources/locale/*code*/LC\_MESSAGES/phpmyadmin.mo.
 
 .. config:option:: $cfg['FilterLanguages']
 
