@@ -1041,7 +1041,7 @@ parameters:
 			path: src/Config/Validator.php
 
 		-
-			message: "#^Parameter \\#1 \\$callback of function array_map expects \\(callable\\(mixed\\)\\: mixed\\)\\|null, Closure\\(string, bool\\=, bool\\=\\)\\: string given\\.$#"
+			message: "#^Parameter \\#1 \\$callback of function array_map expects \\(callable\\(mixed\\)\\: mixed\\)\\|null, Closure\\(string, bool\\=\\)\\: string given\\.$#"
 			count: 1
 			path: src/Config/Validator.php
 

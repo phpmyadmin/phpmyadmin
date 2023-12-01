@@ -14854,7 +14854,6 @@
   </file>
   <file src="tests/classes/MessageTest.php">
     <PossiblyUnusedMethod>
-      <code>decodeBBDataProvider</code>
       <code>providerAffectedRows</code>
       <code>providerDeletedRows</code>
       <code>providerInsertedRows</code>
