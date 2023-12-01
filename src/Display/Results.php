@@ -3181,7 +3181,7 @@ class Results
         if ($isInnodb && Sql::isJustBrowsing($statementInfo, true)) {
             $preCount = '~';
             $afterCount = Generator::showHint(
-                Sanitize::sanitizeMessage(
+                Sanitize::convertBBCode(
                     __('May be approximate. See [doc@faq3-11]FAQ 3.11[/doc].'),
                 ),
             );

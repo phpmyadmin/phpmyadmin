@@ -67,7 +67,7 @@ class ServerConfigChecks
                 'notice',
                 'AllowArbitraryServer',
                 Descriptions::get('AllowArbitraryServer'),
-                Sanitize::sanitizeMessage($sAllowArbitraryServerWarn),
+                Sanitize::convertBBCode($sAllowArbitraryServerWarn),
             );
         }
 
@@ -86,7 +86,7 @@ class ServerConfigChecks
                 'notice',
                 'SaveDir',
                 Descriptions::get('SaveDir'),
-                Sanitize::sanitizeMessage($sDirectoryNotice),
+                Sanitize::convertBBCode($sDirectoryNotice),
             );
         }
 
@@ -97,7 +97,7 @@ class ServerConfigChecks
                 'notice',
                 'TempDir',
                 Descriptions::get('TempDir'),
-                Sanitize::sanitizeMessage($sDirectoryNotice),
+                Sanitize::convertBBCode($sDirectoryNotice),
             );
         }
 
@@ -144,7 +144,7 @@ class ServerConfigChecks
                 );
             }
 
-            $sSecurityInfoMsg = Sanitize::sanitizeMessage(sprintf(
+            $sSecurityInfoMsg = Sanitize::convertBBCode(sprintf(
                 __(
                     'If you feel this is necessary, use additional protection settings - '
                     . '%1$shost authentication%2$s settings and %3$strusted proxies list%4$s. '
@@ -170,7 +170,7 @@ class ServerConfigChecks
                     'notice',
                     'Servers/' . $i . '/auth_type',
                     $title,
-                    Sanitize::sanitizeMessage(sprintf(
+                    Sanitize::convertBBCode(sprintf(
                         __(
                             'You set the [kbd]config[/kbd] authentication type and included '
                             . 'username and password for auto-login, which is not a desirable '
@@ -217,7 +217,7 @@ class ServerConfigChecks
             'notice',
             'blowfish_secret_created',
             Descriptions::get('blowfish_secret'),
-            Sanitize::sanitizeMessage(__(
+            Sanitize::convertBBCode(__(
                 'You didn\'t have blowfish secret set and have enabled '
                 . '[kbd]cookie[/kbd] authentication, so a key was automatically '
                 . 'generated for you. It is used to encrypt cookies; you don\'t need to '
@@ -267,7 +267,7 @@ class ServerConfigChecks
                 'error',
                 'ZipDump_import',
                 Descriptions::get('ZipDump'),
-                Sanitize::sanitizeMessage(sprintf(
+                Sanitize::convertBBCode(sprintf(
                     __(
                         '%sZip decompression%s requires functions (%s) which are unavailable on this system.',
                     ),
@@ -288,7 +288,7 @@ class ServerConfigChecks
             'error',
             'ZipDump_export',
             Descriptions::get('ZipDump'),
-            Sanitize::sanitizeMessage(sprintf(
+            Sanitize::convertBBCode(sprintf(
                 __(
                     '%sZip compression%s requires functions (%s) which are unavailable on this system.',
                 ),
@@ -313,7 +313,7 @@ class ServerConfigChecks
                 'error',
                 'LoginCookieValidity',
                 Descriptions::get('LoginCookieValidity'),
-                Sanitize::sanitizeMessage(sprintf(
+                Sanitize::convertBBCode(sprintf(
                     __(
                         '%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s may '
                         . 'cause random session invalidation (currently session.gc_maxlifetime '
@@ -335,7 +335,7 @@ class ServerConfigChecks
                 'notice',
                 'LoginCookieValidity',
                 Descriptions::get('LoginCookieValidity'),
-                Sanitize::sanitizeMessage(sprintf(
+                Sanitize::convertBBCode(sprintf(
                     __(
                         '%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) '
                         . 'at most. Values larger than 1800 may pose a security risk such as '
@@ -361,7 +361,7 @@ class ServerConfigChecks
             'error',
             'LoginCookieValidity',
             Descriptions::get('LoginCookieValidity'),
-            Sanitize::sanitizeMessage(sprintf(
+            Sanitize::convertBBCode(sprintf(
                 __(
                     'If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s '
                     . 'is not 0, %sLogin cookie validity%s must be set to a value less or '
@@ -395,7 +395,7 @@ class ServerConfigChecks
             'error',
             'BZipDump',
             Descriptions::get('BZipDump'),
-            Sanitize::sanitizeMessage(
+            Sanitize::convertBBCode(
                 sprintf(
                     __(
                         '%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which '
@@ -427,7 +427,7 @@ class ServerConfigChecks
             'error',
             'GZipDump',
             Descriptions::get('GZipDump'),
-            Sanitize::sanitizeMessage(sprintf(
+            Sanitize::convertBBCode(sprintf(
                 __(
                     '%1$sGZip compression and decompression%2$s requires functions (%3$s) which '
                     . 'are unavailable on this system.',

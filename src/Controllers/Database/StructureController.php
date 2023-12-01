@@ -563,7 +563,7 @@ class StructureController extends AbstractController
             if ($tableIsView && $currentTable['TABLE_ROWS'] >= Config::getInstance()->settings['MaxExactCountViews']) {
                 $approxRows = true;
                 $showSuperscript = Generator::showHint(
-                    Sanitize::sanitizeMessage(
+                    Sanitize::convertBBCode(
                         sprintf(
                             __(
                                 'This view has at least this number of rows. Please refer to %sdocumentation%s.',

@@ -29,7 +29,7 @@ class SanitizeTest extends AbstractTestCase
     {
         $this->assertEquals(
             '[a@javascript:alert(&#039;XSS&#039;);@target]link</a>',
-            Sanitize::sanitizeMessage('[a@javascript:alert(\'XSS\');@target]link[/a]'),
+            Sanitize::convertBBCode('[a@javascript:alert(\'XSS\');@target]link[/a]'),
         );
     }
 
@@ -44,7 +44,7 @@ class SanitizeTest extends AbstractTestCase
         unset($GLOBALS['lang']);
         $this->assertEquals(
             '<a href="index.php?route=/url&url=https%3A%2F%2Fwww.phpmyadmin.net%2F" target="target">link</a>',
-            Sanitize::sanitizeMessage('[a@https://www.phpmyadmin.net/@target]link[/a]'),
+            Sanitize::convertBBCode('[a@https://www.phpmyadmin.net/@target]link[/a]'),
         );
 
         $GLOBALS['lang'] = $lang;
@@ -62,7 +62,7 @@ class SanitizeTest extends AbstractTestCase
         $this->assertEquals(
             '<a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2F'
                 . $expected . '" target="documentation">doclink</a>',
-            Sanitize::sanitizeMessage('[doc@' . $link . ']doclink[/doc]'),
+            Sanitize::convertBBCode('[doc@' . $link . ']doclink[/doc]'),
         );
     }
 
@@ -88,7 +88,7 @@ class SanitizeTest extends AbstractTestCase
     {
         $this->assertEquals(
             '[a@./Documentation.html@INVALID9]doc</a>',
-            Sanitize::sanitizeMessage('[a@./Documentation.html@INVALID9]doc[/a]'),
+            Sanitize::convertBBCode('[a@./Documentation.html@INVALID9]doc[/a]'),
         );
     }
 
@@ -99,7 +99,7 @@ class SanitizeTest extends AbstractTestCase
     {
         $this->assertEquals(
             '[a@./Documentation.html&quot; onmouseover=&quot;alert(foo)&quot;]doc</a>',
-            Sanitize::sanitizeMessage('[a@./Documentation.html" onmouseover="alert(foo)"]doc[/a]'),
+            Sanitize::convertBBCode('[a@./Documentation.html" onmouseover="alert(foo)"]doc[/a]'),
         );
     }
 
@@ -111,7 +111,7 @@ class SanitizeTest extends AbstractTestCase
         $this->assertEquals(
             '<a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2F">doc</a>'
                 . '[a@javascript:alert(&#039;XSS&#039;);@target]link</a>',
-            Sanitize::sanitizeMessage(
+            Sanitize::convertBBCode(
                 '[a@https://docs.phpmyadmin.net/]doc[/a][a@javascript:alert(\'XSS\');@target]link[/a]',
             ),
         );
@@ -124,7 +124,7 @@ class SanitizeTest extends AbstractTestCase
     {
         $this->assertEquals(
             '&lt;div onclick=&quot;&quot;&gt;',
-            Sanitize::sanitizeMessage('<div onclick="">'),
+            Sanitize::convertBBCode('<div onclick="">'),
         );
     }
 
@@ -135,7 +135,7 @@ class SanitizeTest extends AbstractTestCase
     {
         $this->assertEquals(
             '<strong>strong</strong>',
-            Sanitize::sanitizeMessage('[strong]strong[/strong]'),
+            Sanitize::convertBBCode('[strong]strong[/strong]'),
         );
     }
 

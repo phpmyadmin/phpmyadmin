@@ -667,7 +667,7 @@ class Config
             . '[br][br]'
             . __('This usually means there is a syntax error in it.');
 
-        throw new ConfigException(Sanitize::sanitizeMessage($error));
+        throw new ConfigException(Sanitize::convertBBCode($error));
     }
 
     /**

@@ -157,7 +157,7 @@ class Sanitize
      * @param string $message the message
      * @param bool   $safe    whether string is safe (can keep < and > chars)
      */
-    public static function sanitizeMessage(string $message, bool $safe = false): string
+    public static function convertBBCode(string $message, bool $safe = false): string
     {
         if (! $safe) {
             $message = strtr($message, ['<' => '&lt;', '>' => '&gt;', '"' => '&quot;', "'" => '&#039;']);

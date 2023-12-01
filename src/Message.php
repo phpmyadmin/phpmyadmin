@@ -472,7 +472,7 @@ class Message implements Stringable
      */
     public static function decodeBB(string $message): string
     {
-        return Sanitize::sanitizeMessage($message, true);
+        return Sanitize::convertBBCode($message, true);
     }
 
     /**
