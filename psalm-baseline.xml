@@ -5477,7 +5477,6 @@
       <code>$added[$orgFullTableName]</code>
       <code>$linkingUrlParams</code>
       <code>$linkingUrlParams</code>
-      <code>$multiOrderUrlParams</code>
       <code>$sortExpressionNoDirection</code>
     </InvalidArgument>
     <InvalidArrayOffset>
@@ -5503,8 +5502,6 @@
       <code>$colVisibCurrent</code>
       <code><![CDATA[$expr->alias]]></code>
       <code><![CDATA[$field->table]]></code>
-      <code><![CDATA[$multipleUrlParams['sql_query']]]></code>
-      <code><![CDATA[$multipleUrlParams['sql_query']]]></code>
       <code>$newSortExpressionNoDirection</code>
       <code><![CDATA[$oneKey['ref_db_name'] ?? $GLOBALS['db']]]></code>
       <code><![CDATA[$oneKey['ref_db_name'] ?? $GLOBALS['db']]]></code>
@@ -5519,7 +5516,6 @@
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
-      <code>$sqlQuery</code>
       <code><![CDATA[$statementInfo->statement->from]]></code>
       <code><![CDATA[$urlParams['where_clause']]]></code>
       <code><![CDATA[(int) $this->unlimNumRows / $_SESSION['tmpval']['max_rows']]]></code>
@@ -5672,16 +5668,12 @@
       <code>$identifier</code>
       <code>$index</code>
       <code><![CDATA[$meta->name]]></code>
-      <code><![CDATA[$multipleUrlParams['sql_query']]]></code>
-      <code><![CDATA[$multipleUrlParams['sql_query']]]></code>
       <code>$newSortExpressionNoDirection</code>
       <code>$oneField</code>
       <code>$oneKey</code>
       <code>$query</code>
       <code>$rel</code>
       <code>$relationalDisplay</code>
-      <code>$sqlQuery</code>
-      <code>$sqlQueryAdd</code>
       <code>$tableCreateTime</code>
       <code>$value</code>
     </MixedAssignment>
