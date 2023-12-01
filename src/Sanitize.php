@@ -165,10 +165,9 @@ class Sanitize
      * <a title="<?php echo Sanitize::sanitizeMessage($foo, true); ?>">bar</a>
      *
      * @param string $message the message
-     * @param bool   $escape  whether to escape html in result
      * @param bool   $safe    whether string is safe (can keep < and > chars)
      */
-    public static function sanitizeMessage(string $message, bool $escape = false, bool $safe = false): string
+    public static function sanitizeMessage(string $message, bool $safe = false): string
     {
         if (! $safe) {
             $message = strtr($message, ['<' => '&lt;', '>' => '&gt;']);
@@ -219,11 +218,6 @@ class Sanitize
             static fn (array $match): string => self::replaceDocLink($match),
             $message,
         );
-
-        /* Possibly escape result */
-        if ($escape) {
-            return htmlspecialchars($message);
-        }
 
         return $message;
     }

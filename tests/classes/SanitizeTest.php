@@ -140,17 +140,6 @@ class SanitizeTest extends AbstractTestCase
     }
 
     /**
-     * Tests output escaping.
-     */
-    public function testEscape(): void
-    {
-        $this->assertEquals(
-            '&lt;strong&gt;strong&lt;/strong&gt;',
-            Sanitize::sanitizeMessage('[strong]strong[/strong]', true),
-        );
-    }
-
-    /**
      * Test for Sanitize::sanitizeFilename
      */
     public function testSanitizeFilename(): void
