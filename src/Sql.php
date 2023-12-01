@@ -1106,14 +1106,12 @@ class Sql
         if ($statementInfo->isProcedure) {
             return $this->getHtmlForStoredProcedureResults(
                 $result,
-                $numRows,
                 $displayResultsObject,
                 $statementInfo,
                 $showTable,
                 $printView,
                 $editable,
                 $isBrowseDistinct,
-                $displayParts,
                 $isLimitedDisplay,
             );
         }
@@ -1141,20 +1139,15 @@ class Sql
         return $displayResultsObject->getTable($result, $displayParts, $statementInfo, $isLimitedDisplay);
     }
 
-    /**
-     * @param mixed[]|null $showTable table definitions
-     * @psalm-param int|numeric-string $numRows
-     */
+    /** @param mixed[]|null $showTable table definitions */
     private function getHtmlForStoredProcedureResults(
         ResultInterface $result,
-        int|string $numRows,
         DisplayResults $displayResultsObject,
         StatementInfo $statementInfo,
         array|null $showTable,
         bool $printView,
         bool $editable,
         bool $isBrowseDistinct,
-        DisplayParts $displayParts,
         bool $isLimitedDisplay,
     ): string {
         $tableHtml = '';
