@@ -174,24 +174,31 @@ class Sanitize
             $message = strtr($message, ['<' => '&lt;', '>' => '&gt;']);
         }
 
-        /* Interpret bb code */
-        $replacePairs = [
-            '[em]' => '<em>',
-            '[/em]' => '</em>',
-            '[strong]' => '<strong>',
-            '[/strong]' => '</strong>',
-            '[code]' => '<code>',
-            '[/code]' => '</code>',
-            '[kbd]' => '<kbd>',
-            '[/kbd]' => '</kbd>',
-            '[br]' => '<br>',
-            '[/a]' => '</a>',
-            '[/doc]' => '</a>',
-            '[sup]' => '<sup>',
-            '[/sup]' => '</sup>',
-            // used in libraries/Util.php
-            '[dochelpicon]' => Html\Generator::getImage('b_help', __('Documentation')),
-        ];
+        /**
+         * Interpret bb code
+         *
+         * @var array<string, string> $replacePairs
+         */
+        static $replacePairs = [];
+        if ($replacePairs === []) {
+            $replacePairs = [
+                '[em]' => '<em>',
+                '[/em]' => '</em>',
+                '[strong]' => '<strong>',
+                '[/strong]' => '</strong>',
+                '[code]' => '<code>',
+                '[/code]' => '</code>',
+                '[kbd]' => '<kbd>',
+                '[/kbd]' => '</kbd>',
+                '[br]' => '<br>',
+                '[/a]' => '</a>',
+                '[/doc]' => '</a>',
+                '[sup]' => '<sup>',
+                '[/sup]' => '</sup>',
+                // used in libraries/Util.php
+                '[dochelpicon]' => Html\Generator::getImage('b_help', __('Documentation')),
+            ];
+        }
 
         $message = strtr($message, $replacePairs);
 
