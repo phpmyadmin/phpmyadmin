@@ -202,14 +202,12 @@ class Sanitize
         );
 
         /* Replace documentation links */
-        $message = (string) preg_replace_callback(
+        return (string) preg_replace_callback(
             '/\[doc@([a-zA-Z0-9_-]+)(@([a-zA-Z0-9_-]*))?\]/',
             /** @param string[] $match */
             static fn (array $match): string => self::replaceDocLink($match),
             $message,
         );
-
-        return $message;
     }
 
     /**
