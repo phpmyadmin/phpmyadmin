@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2023-11-30 13:06+0000\n"
+"PO-Revision-Date: 2023-12-02 02:59+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ru/>\n"
@@ -7470,11 +7470,9 @@ msgstr "Ошибка активации ключа безопасности (%s)
 
 #. l10n: error code 4 (from U2F API) on authanticate
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:726
-#, fuzzy
-#| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
-msgstr "Ошибочный тип экспорта"
+msgstr "Неверный ключ безопасности."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:730
 msgid ""
@@ -11418,10 +11416,8 @@ msgid "Dumping data"
 msgstr "Дамп данных"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:252
-#, fuzzy
-#| msgid "Query results"
 msgid "Query result data"
-msgstr "Результаты запроса"
+msgstr "Данные результата запроса"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:310
 msgid "View structure"
@@ -11491,7 +11487,7 @@ msgstr "%s значение"
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
 #: libraries/classes/Plugins/Export/ExportSql.php:342
 msgid "Use simple view export"
-msgstr ""
+msgstr "Использовать простой вид экспорта"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:381
 msgid ""
@@ -17063,7 +17059,7 @@ msgstr "Разрешает создание хранимых процедур."
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Not used on MariaDB."
-msgstr ""
+msgstr "Не используется в MariaDB."
 
 #: templates/server/privileges/privileges_table.twig:646
 #, fuzzy
@@ -17938,7 +17934,7 @@ msgstr "Добавить новый сервер"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "Что-то пошло не так."
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
