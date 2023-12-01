@@ -87,11 +87,11 @@ class Sanitize
     /**
      * Callback function for replacing [a@link@target] links in bb code.
      *
-     * @param mixed[] $found Array of preg matches
+     * @param string[] $found Array of preg matches
      *
      * @return string Replaced string
      */
-    public static function replaceBBLink(array $found): string
+    private static function replaceBBLink(array $found): string
     {
         /* Check for valid link */
         if (! self::checkLink($found[1])) {
@@ -127,7 +127,7 @@ class Sanitize
      *
      * @param string[] $found Array of preg matches
      */
-    public static function replaceDocLink(array $found): string
+    private static function replaceDocLink(array $found): string
     {
         if (count($found) >= 4) {
             /* doc@page@anchor pattern */

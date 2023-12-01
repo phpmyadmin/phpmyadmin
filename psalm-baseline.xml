@@ -10924,25 +10924,10 @@
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code>$found[1]</code>
-      <code>$found[1]</code>
-      <code>$found[3]</code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code>$url</code>
-    </MixedAssignment>
     <MixedInferredReturnType>
       <code>bool</code>
-      <code>string</code>
     </MixedInferredReturnType>
-    <MixedOperand>
-      <code>$found[3]</code>
-      <code>$url</code>
-    </MixedOperand>
     <MixedReturnStatement>
-      <code>$found[0]</code>
-      <code>$found[0]</code>
       <code><![CDATA[Config::getInstance()->get('is_setup')]]></code>
       <code><![CDATA[Config::getInstance()->get('is_setup')]]></code>
     </MixedReturnStatement>
