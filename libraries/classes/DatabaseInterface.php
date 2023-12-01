@@ -1809,7 +1809,7 @@ class DatabaseInterface implements DbalInterface
 
         if (! $hasGrantPrivilege && $roles !== null) {
             foreach ($roles as [$role, $roleHost]) {
-                $query = QueryGenerator::getInformationSchemaDataForGranteeRequest($role, $roleHost);
+                $query = QueryGenerator::getInformationSchemaDataForGranteeRequest($role, $roleHost ?? '');
                 $result = $this->tryQuery($query);
 
                 if ($result) {
@@ -1868,7 +1868,7 @@ class DatabaseInterface implements DbalInterface
 
         if (! $hasCreatePrivilege && $roles !== null) {
             foreach ($roles as [$role, $roleHost]) {
-                $query = QueryGenerator::getInformationSchemaDataForCreateRequest($role, $roleHost);
+                $query = QueryGenerator::getInformationSchemaDataForCreateRequest($role, $roleHost ?? '');
                 $result = $this->tryQuery($query);
 
                 if ($result) {
