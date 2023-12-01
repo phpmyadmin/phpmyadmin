@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2023-11-30 13:04+0000\n"
+"PO-Revision-Date: 2023-12-02 02:59+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "ru/>\n"
@@ -7326,10 +7326,8 @@ msgid "up to date"
 msgstr "актуально"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:611
-#, fuzzy
-#| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
-msgstr "При импорте файла ESRI произошла ошибка: \"%s\"."
+msgstr "Возникла ошибка при загрузке информации с Git."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:614
 msgid ""
@@ -8428,10 +8426,8 @@ msgid "Missing parameter:"
 msgstr "Отсутствующий параметр:"
 
 #: libraries/classes/Controllers/Server/UserGroupsFormController.php:60
-#, fuzzy
-#| msgid "The query cache is not enabled."
 msgid "User groups management is not enabled."
-msgstr "Кеш запросов не был включен."
+msgstr "Управление группами пользователей не включено."
 
 #: libraries/classes/Controllers/Server/Variables/SetVariableController.php:93
 msgid "Setting variable failed"
@@ -9763,10 +9759,8 @@ msgstr ""
 "данного метода ещё нереализована либо отключена при настройке."
 
 #: libraries/classes/FlashMessages.php:24
-#, fuzzy
-#| msgid "SOAP extension not found"
 msgid "Session not found."
-msgstr "Не найдено расширение SOAP"
+msgstr "Сеанс не найден."
 
 #: libraries/classes/Html/Generator.php:146
 #, php-format
@@ -11214,10 +11208,8 @@ msgid "Dumping data"
 msgstr "Дамп данных"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:213
-#, fuzzy
-#| msgid "Query results"
 msgid "Query result data"
-msgstr "Результаты запроса"
+msgstr "Данные результата запроса"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:273
 msgid "View structure"
@@ -11287,7 +11279,7 @@ msgstr "%s значение"
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
 #: libraries/classes/Plugins/Export/ExportSql.php:339
 msgid "Use simple view export"
-msgstr ""
+msgstr "Использовать простой вид экспорта"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:378
 msgid ""
@@ -12049,10 +12041,8 @@ msgid "For testing purposes only!"
 msgstr "Только для тестирования!"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:180
-#, fuzzy
-#| msgid "Hardware Security Key (FIDO U2F)"
 msgid "Hardware Security Key (WebAuthn/FIDO2)"
-msgstr "Аппаратный ключ безопасности (FIDO U2F)"
+msgstr "Аппаратный ключ безопасности (WebAuthn/FIDO2)"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:186
 #, fuzzy
@@ -12227,27 +12217,21 @@ msgid "SHA256 password authentication"
 msgstr "Аутентификация пароля SHA256"
 
 #: libraries/classes/Server/Plugins.php:78
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Caching sha2 authentication"
-msgstr "Авторизация через конфигурационный файл"
+msgstr "Кэширование проверки подлинности SHA-2"
 
 #: libraries/classes/Server/Plugins.php:83
-#, fuzzy
-#| msgid "Cookie authentication"
 msgid "Unix Socket based authentication"
-msgstr "Авторизация с помощью cookie"
+msgstr "Проверка подлинности на основе сокета Unix"
 
 #: libraries/classes/Server/Plugins.php:88
-#, fuzzy
-#| msgid "Native MySQL authentication"
 msgid "Old MySQL-4.0 authentication"
-msgstr "Собственная проверка подлинности MySQL"
+msgstr "Старая проверка подлинности MySQL-4.0"
 
 #: libraries/classes/Server/Privileges/AccountLocking.php:30
 #: libraries/classes/Server/Privileges/AccountLocking.php:51
 msgid "Account locking is not supported."
-msgstr ""
+msgstr "Блокировка учётной записи не поддерживается."
 
 #: libraries/classes/Server/Privileges.php:269
 msgid "No privileges."
@@ -15925,10 +15909,9 @@ msgid "Get more themes!"
 msgstr "Другие темы!"
 
 #: templates/home/themes.twig:7
-#, fuzzy, php-format
-#| msgid "Schema of the %s database"
+#, php-format
 msgid "Screenshot of the %s theme."
-msgstr "Схема базы данных %s"
+msgstr "Снимок темы %s."
 
 #. l10n: Choose the theme button in the themes list modal
 #: templates/home/themes.twig:12
@@ -15995,10 +15978,8 @@ msgstr ""
 "strong>. Пример: <strong>.sql.zip</strong>"
 
 #: templates/import.twig:40
-#, fuzzy
-#| msgid "Download file"
 msgid "Upload a file"
-msgstr "Загрузить файл"
+msgstr "Отправить файл"
 
 #: templates/import.twig:43
 msgid "Select file to import"
@@ -16444,7 +16425,7 @@ msgstr "Представление:"
 #: templates/modals/index_dialog_modal.twig:30
 #: templates/table/structure/display_structure.twig:363
 msgid "Go back"
-msgstr ""
+msgstr "Назад"
 
 #: templates/modals/unhide_nav_item.twig:5
 msgid "Show hidden navigation tree items."
@@ -16702,10 +16683,8 @@ msgid "There are no favorite tables."
 msgstr "Нет избранных таблиц."
 
 #: templates/relation/check_relations.twig:3
-#, fuzzy
-#| msgid "phpMyAdmin configuration snippet"
 msgid "phpMyAdmin configuration storage"
-msgstr "Фрагмент настройки phpMyAdmin"
+msgstr "Хранилище настроек phpMyAdmin"
 
 #: templates/relation/check_relations.twig:9
 msgid "Configuration of pmadb…"
@@ -17353,7 +17332,7 @@ msgstr "Разрешает создание хранимых процедур."
 
 #: templates/server/privileges/privileges_table.twig:670
 msgid "Not used on MariaDB."
-msgstr ""
+msgstr "Не используется в MariaDB."
 
 #: templates/server/privileges/privileges_table.twig:670
 #, fuzzy
@@ -18197,10 +18176,8 @@ msgid "Configuration file"
 msgstr "Конфигурационный файл"
 
 #: templates/setup/config/index.twig:16
-#, fuzzy
-#| msgid "Failed to read configuration file!"
 msgid "Generated configuration file"
-msgstr "Ошибка при чтении конфигурационного файла!"
+msgstr "Созданный файл конфигурации"
 
 #: templates/setup/config/index.twig:22 templates/setup/home/index.twig:165
 msgid "Download"
@@ -18282,7 +18259,7 @@ msgstr "Добавить новый сервер"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "Что-то пошло не так."
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
