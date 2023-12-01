@@ -13,7 +13,6 @@ use function __;
 use function array_keys;
 use function array_merge;
 use function count;
-use function htmlspecialchars;
 use function in_array;
 use function is_string;
 use function json_encode;
@@ -153,16 +152,7 @@ class Sanitize
     }
 
     /**
-     * Sanitizes $message, taking into account our special codes
-     * for formatting.
-     *
-     * If you want to include result in element attribute, you should escape it.
-     *
-     * Examples:
-     *
-     * <p><?php echo Sanitize::sanitizeMessage($foo); ?></p>
-     *
-     * <a title="<?php echo Sanitize::sanitizeMessage($foo, true); ?>">bar</a>
+     * Sanitizes $message, taking into account our special codes for formatting.
      *
      * @param string $message the message
      * @param bool   $safe    whether string is safe (can keep < and > chars)
@@ -170,7 +160,7 @@ class Sanitize
     public static function sanitizeMessage(string $message, bool $safe = false): string
     {
         if (! $safe) {
-            $message = strtr($message, ['<' => '&lt;', '>' => '&gt;']);
+            $message = strtr($message, ['<' => '&lt;', '>' => '&gt;', '"' => '&quot;', "'" => '&#039;']);
         }
 
         /**

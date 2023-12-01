@@ -28,7 +28,7 @@ class SanitizeTest extends AbstractTestCase
     public function testXssInHref(): void
     {
         $this->assertEquals(
-            '[a@javascript:alert(\'XSS\');@target]link</a>',
+            '[a@javascript:alert(&#039;XSS&#039;);@target]link</a>',
             Sanitize::sanitizeMessage('[a@javascript:alert(\'XSS\');@target]link[/a]'),
         );
     }
@@ -98,7 +98,7 @@ class SanitizeTest extends AbstractTestCase
     public function testLinkDocXss(): void
     {
         $this->assertEquals(
-            '[a@./Documentation.html" onmouseover="alert(foo)"]doc</a>',
+            '[a@./Documentation.html&quot; onmouseover=&quot;alert(foo)&quot;]doc</a>',
             Sanitize::sanitizeMessage('[a@./Documentation.html" onmouseover="alert(foo)"]doc[/a]'),
         );
     }
@@ -110,7 +110,7 @@ class SanitizeTest extends AbstractTestCase
     {
         $this->assertEquals(
             '<a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2F">doc</a>'
-                . '[a@javascript:alert(\'XSS\');@target]link</a>',
+                . '[a@javascript:alert(&#039;XSS&#039;);@target]link</a>',
             Sanitize::sanitizeMessage(
                 '[a@https://docs.phpmyadmin.net/]doc[/a][a@javascript:alert(\'XSS\');@target]link[/a]',
             ),
@@ -123,7 +123,7 @@ class SanitizeTest extends AbstractTestCase
     public function testHtmlTags(): void
     {
         $this->assertEquals(
-            '&lt;div onclick=""&gt;',
+            '&lt;div onclick=&quot;&quot;&gt;',
             Sanitize::sanitizeMessage('<div onclick="">'),
         );
     }
