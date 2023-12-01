@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-30 20:06+0000\n"
-"PO-Revision-Date: 2023-11-27 14:26+0000\n"
+"PO-Revision-Date: 2023-12-02 02:59+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -7151,12 +7151,10 @@ msgstr "Metin"
 #. l10n: Number of tables
 #: resources/templates/test/gettext/plural_notes.twig:1
 #: resources/templates/test/gettext/plural.twig:1
-#, fuzzy
-#| msgid "Use tables"
 msgid "One table"
 msgid_plural "%count% tables"
-msgstr[0] "Tabloları kullan"
-msgstr[1] "Tabloları kullan"
+msgstr[0] "Bir tablo"
+msgstr[1] "%count% tablo"
 
 #. l10n: Show or hide the menu using the hamburger style button
 #: resources/templates/top_menu.twig:4
