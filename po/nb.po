@@ -5779,10 +5779,10 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Du er i ferd med å SLETTE en komplett database!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:43
-msgid "Cannot rename database to the same name. Change the name and try again"
+msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr ""
 "Navnet på databasen kan ikke endres til gjeldende navn. Endre navnet og prøv "
-"på nytt"
+"på nytt."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:45
 msgid "You are about to DESTROY a complete table!"

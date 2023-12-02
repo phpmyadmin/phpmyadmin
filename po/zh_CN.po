@@ -5101,8 +5101,8 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "您将要完全删除一个数据库！"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:43
-msgid "Cannot rename database to the same name. Change the name and try again"
-msgstr "数据库名称已存在. 请更换名字再试"
+msgid "Cannot rename database to the same name. Change the name and try again."
+msgstr "数据库名称已存在。请更换名字再试。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:45
 msgid "You are about to DESTROY a complete table!"

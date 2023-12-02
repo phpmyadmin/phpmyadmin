@@ -5283,10 +5283,10 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "이 데이터베이스 전체를 제거하려고 합니다!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:43
-msgid "Cannot rename database to the same name. Change the name and try again"
+msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr ""
 "같은 이름으로 데이터베이스의 이름을 변경할 수 없습니다. 이름을 바꾸어 다시 시"
-"도해 주세요"
+"도해 주세요."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:45
 msgid "You are about to DESTROY a complete table!"

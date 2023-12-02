@@ -4934,7 +4934,7 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "तपाईं पूरा डाटाबेस नष्ट गर्न जाँदै हुनुहुन्छ!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:43
-msgid "Cannot rename database to the same name. Change the name and try again"
+msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr ""
 "डाटाबेस उही नाममा पुन: नामकरण गर्न सकिदैन। नाम परिवर्तन गर्नुहोस् र फेरि प्रयास गर्नुहोस्"
 

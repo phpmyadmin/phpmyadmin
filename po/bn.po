@@ -5603,7 +5603,7 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "আপনি একটি সম্পুর্ন ডাটাবেইজ ধ্বংস করতে যাচ্ছেন!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:43
-msgid "Cannot rename database to the same name. Change the name and try again"
+msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:45

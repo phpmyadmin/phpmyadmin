@@ -5400,7 +5400,7 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "คุณกำลังจะ ทํ า ล า ย ฐานข้อมูลหนึ่งโดยสมบูรณ์!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:43
-msgid "Cannot rename database to the same name. Change the name and try again"
+msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr "ไม่สามารถเปลี่ยนชื่อฐานข้อมูลให้เป็นชื่อเดิมได้ ให้แก้ไขชื่อแล้วลองใหม่"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:45

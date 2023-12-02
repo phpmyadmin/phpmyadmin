@@ -5116,7 +5116,7 @@ msgstr "Tietokannan nimi on tyhjä!"
 #: libraries/classes/Controllers/Database/OperationsController.php:99
 #, fuzzy
 #| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
+#| "Cannot rename database to the same name. Change the name and try again."
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 "Tietokantaa ei voi kopioida samalle nimelle. Vaihda nimi ja yritä uudelleen."
@@ -5529,10 +5529,10 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Olet aikeissasi HÄVITTÄÄ kokonaisen tietokannan!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:43
-msgid "Cannot rename database to the same name. Change the name and try again"
+msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr ""
 "Tietokannalle ei voi antaa samaa nimeä uudelleen. Muuta nimi ja yritä "
-"uudelleen"
+"uudelleen."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:45
 msgid "You are about to DESTROY a complete table!"

@@ -5519,10 +5519,10 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "UNIŠTIT ćeš cijelu bazu podataka!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:43
-msgid "Cannot rename database to the same name. Change the name and try again"
+msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr ""
 "Nije moguće preimenovati bazu podataka u isto ime. Promijeni ime i pokušaj "
-"ponovno"
+"ponovno."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:45
 msgid "You are about to DESTROY a complete table!"

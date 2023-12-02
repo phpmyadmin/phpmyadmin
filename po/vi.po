@@ -5336,7 +5336,7 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Bạn chuẩn bị PHÁ HỦY toàn bộ cơ sở dữ liệu!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:43
-msgid "Cannot rename database to the same name. Change the name and try again"
+msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr ""
 "Tên này giống tên ban đầu mà, đâu có đổi tên được đâu. Hãy đổi tên khác đi "
 "và thử lại."
