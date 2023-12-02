@@ -13801,13 +13801,13 @@ parameters:
 			path: src/Plugins/Export/ExportOdt.php
 
 		-
-			message: "#^Parameter \\#2 \\$colAs of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportOdt\\:\\:formatOneColumnDefinition\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportOdt\\:\\:getTriggers\\(\\) expects string, mixed given\\.$#"
+			count: 1
 			path: src/Plugins/Export/ExportOdt.php
 
 		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportOdt\\:\\:getTriggers\\(\\) expects string, mixed given\\.$#"
-			count: 1
+			message: "#^Parameter \\#2 \\$colAs of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportOdt\\:\\:formatOneColumnDefinition\\(\\) expects string, mixed given\\.$#"
+			count: 2
 			path: src/Plugins/Export/ExportOdt.php
 
 		-

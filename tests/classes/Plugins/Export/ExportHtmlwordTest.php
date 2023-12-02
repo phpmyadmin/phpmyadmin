@@ -565,7 +565,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         ];
 
         $method = new ReflectionMethod(ExportHtmlword::class, 'getTriggers');
-        $result = $method->invoke($this->object, 'database', 'table', $triggers);
+        $result = $method->invoke($this->object, $triggers);
 
         $this->assertStringContainsString(
             '<td class="print">tna&quot;me</td>' .

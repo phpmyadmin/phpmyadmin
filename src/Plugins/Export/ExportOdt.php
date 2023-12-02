@@ -555,11 +555,10 @@ class ExportOdt extends ExportPlugin
     /**
      * Outputs triggers
      *
-     * @param string    $db       database name
      * @param string    $table    table name
      * @param Trigger[] $triggers
      */
-    protected function getTriggers(string $db, string $table, array $triggers): string
+    protected function getTriggers(string $table, array $triggers): string
     {
         $GLOBALS['odt_buffer'] .= '<table:table'
             . ' table:name="' . htmlspecialchars($table) . '_triggers">'
@@ -658,7 +657,7 @@ class ExportOdt extends ExportPlugin
                     . __('Triggers') . ' '
                     . htmlspecialchars($tableAlias)
                     . '</text:h>';
-                    $this->getTriggers($db, $tableAlias, $triggers);
+                    $this->getTriggers($tableAlias, $triggers);
                 }
 
                 break;

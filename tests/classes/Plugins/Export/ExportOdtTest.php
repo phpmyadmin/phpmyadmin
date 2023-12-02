@@ -738,7 +738,7 @@ class ExportOdtTest extends AbstractTestCase
         ];
 
         $method = new ReflectionMethod(ExportOdt::class, 'getTriggers');
-        $result = $method->invoke($this->object, 'database', 'ta<ble', $triggers);
+        $result = $method->invoke($this->object, 'ta<ble', $triggers);
 
         $this->assertSame($result, $GLOBALS['odt_buffer']);
 

@@ -334,7 +334,7 @@ class ExportTexytextTest extends AbstractTestCase
             ),
         ];
 
-        $result = $this->object->getTriggers('database', 'ta<ble', $triggers);
+        $result = $this->object->getTriggers($triggers);
 
         $this->assertStringContainsString('|tna"me|BEFORE|DELETE|def', $result);
 

@@ -428,13 +428,11 @@ class ExportTexytext extends ExportPlugin
     /**
      * Outputs triggers
      *
-     * @param string    $db       database name
-     * @param string    $table    table name
      * @param Trigger[] $triggers
      *
      * @return string Formatted triggers list
      */
-    public function getTriggers(string $db, string $table, array $triggers): string
+    public function getTriggers(array $triggers): string
     {
         $dump = "|------\n";
         $dump .= '|' . __('Name');
@@ -498,7 +496,7 @@ class ExportTexytext extends ExportPlugin
                 $triggers = Triggers::getDetails(DatabaseInterface::getInstance(), $db, $table);
                 if ($triggers !== []) {
                     $dump .= '== ' . __('Triggers') . ' ' . $tableAlias . "\n\n";
-                    $dump .= $this->getTriggers($db, $table, $triggers);
+                    $dump .= $this->getTriggers($triggers);
                 }
 
                 break;
