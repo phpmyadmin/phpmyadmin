@@ -14466,6 +14466,11 @@ parameters:
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
+			message: "#^Parameter \\#1 \\$margin \\(float\\) of method PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:setTopMargin\\(\\) should be contravariant with parameter \\$margin \\(float\\|int\\) of method TCPDF\\:\\:setTopMargin\\(\\)$#"
+			count: 1
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
 			message: "#^Parameter \\#1 \\$orientation of method TCPDF\\:\\:AddPage\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Plugins/Export/Helpers/Pdf.php
@@ -14477,11 +14482,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$str of static method TCPDF_STATIC\\:\\:empty_string\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Parameter \\#1 \\$topMargin \\(float\\) of method PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:setTopMargin\\(\\) should be contravariant with parameter \\$margin \\(float\\|int\\) of method TCPDF\\:\\:setTopMargin\\(\\)$#"
 			count: 1
 			path: src/Plugins/Export/Helpers/Pdf.php
 
