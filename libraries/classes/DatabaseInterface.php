@@ -1713,22 +1713,19 @@ class DatabaseInterface implements DbalInterface
 
     /**
      * gets the current role with host. Role maybe multiple separated by comma
-     * Support start from MySQL 8.x
+     * Support start from MySQL 8.x / MariaDB 10.0.5
      *
      * @see https://dev.mysql.com/doc/refman/8.0/en/roles.html
      * @see https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_current-role
      * @see https://mariadb.com/kb/en/mariadb-1005-release-notes/#newly-implemented-features
      * @see https://mariadb.com/kb/en/roles_overview/
      *
-     * @return array<int, array<int, string>>|null the current roles i.e. array of role@host or null if not supported
+     * @return array<int, array<int, string>> the current roles i.e. array of role@host
      */
-    public function getCurrentRoles(): mixed
+    public function getCurrentRoles(): array
     {
-        $isRoleSupported = $this->isMariaDB() && $this->getVersion() >= 100500;
-        $isRoleSupported = $isRoleSupported || ! $this->isMariaDB() && $this->getVersion() >= 80000;
-
-        if (! $isRoleSupported) {
-            return null;
+        if (($this->isMariaDB() && $this->getVersion() < 100500) || $this->getVersion() < 80000) {
+            return [];
         }
 
         if (SessionCache::has('mysql_cur_role')) {
@@ -1736,8 +1733,8 @@ class DatabaseInterface implements DbalInterface
         }
 
         $role = $this->fetchValue('SELECT CURRENT_ROLE();');
-        if ($role === false || $role === null) {
-            return null;
+        if ($role === false || $role === null || $role === 'NONE') {
+            return [];
         }
 
         $role = array_map('trim', explode(',', str_replace('`', '', $role)));
@@ -1805,10 +1802,8 @@ class DatabaseInterface implements DbalInterface
             $hasGrantPrivilege = (bool) $result->numRows();
         }
 
-        $roles = ! $hasGrantPrivilege ? $this->getCurrentRolesAndHost() : null;
-
-        if (! $hasGrantPrivilege && $roles !== null) {
-            foreach ($roles as [$role, $roleHost]) {
+        if (! $hasGrantPrivilege) {
+            foreach ($this->getCurrentRolesAndHost() as [$role, $roleHost]) {
                 $query = QueryGenerator::getInformationSchemaDataForGranteeRequest($role, $roleHost ?? '');
                 $result = $this->tryQuery($query);
 
@@ -1864,10 +1859,8 @@ class DatabaseInterface implements DbalInterface
             $hasCreatePrivilege = (bool) $result->numRows();
         }
 
-        $roles = ! $hasCreatePrivilege ? $this->getCurrentRolesAndHost() : null;
-
-        if (! $hasCreatePrivilege && $roles !== null) {
-            foreach ($roles as [$role, $roleHost]) {
+        if (! $hasCreatePrivilege) {
+            foreach ($this->getCurrentRolesAndHost() as [$role, $roleHost]) {
                 $query = QueryGenerator::getInformationSchemaDataForCreateRequest($role, $roleHost ?? '');
                 $result = $this->tryQuery($query);
 
@@ -1914,16 +1907,16 @@ class DatabaseInterface implements DbalInterface
     /**
      * Get the current role and host.
      *
-     * @return array<int, array<int, string>>|null array of role and hostname, null if not supported
+     * @return array<int, array<int, string>> array of role and hostname
      */
-    public function getCurrentRolesAndHost(): mixed
+    public function getCurrentRolesAndHost(): array
     {
         if ($this->currentRoleAndHost === null) {
             $roles = $this->getCurrentRoles();
 
-            $this->currentRoleAndHost = $roles !== null ? array_map(static function (string $role) {
+            $this->currentRoleAndHost = array_map(static function (string $role) {
                 return explode('@', $role);
-            }, $roles) : null;
+            }, $roles);
         }
 
         return $this->currentRoleAndHost;
