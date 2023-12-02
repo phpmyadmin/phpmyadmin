@@ -8279,11 +8279,6 @@
     <MixedOperand>
       <code><![CDATA[$GLOBALS['what']]]></code>
     </MixedOperand>
-    <ParamNameMismatch>
-      <code>$doComments</code>
-      <code>$doMime</code>
-      <code>$doRelation</code>
-    </ParamNameMismatch>
     <PossiblyInvalidArgument>
       <code><![CDATA[str_replace('_', '/', $mimeMap[$fieldName]['mimetype'])]]></code>
     </PossiblyInvalidArgument>
@@ -8352,11 +8347,6 @@
       <code>$escape[$k]</code>
       <code>$type</code>
     </MixedOperand>
-    <ParamNameMismatch>
-      <code>$doComments</code>
-      <code>$doMime</code>
-      <code>$doRelation</code>
-    </ParamNameMismatch>
     <PossiblyFalseReference>
       <code>fetchAssoc</code>
       <code>getFieldNames</code>
@@ -8401,11 +8391,6 @@
       <code>$colAs</code>
       <code>$column</code>
     </MixedOperand>
-    <ParamNameMismatch>
-      <code>$doComments</code>
-      <code>$doMime</code>
-      <code>$doRelation</code>
-    </ParamNameMismatch>
     <PossiblyNullOperand>
       <code>$row[$i]</code>
       <code>$tableAlias</code>
@@ -8484,11 +8469,6 @@
       <code>$rfield</code>
       <code>$rtable</code>
     </MixedOperand>
-    <ParamNameMismatch>
-      <code>$doComments</code>
-      <code>$doMime</code>
-      <code>$doRelation</code>
-    </ParamNameMismatch>
     <PossiblyInvalidArgument>
       <code><![CDATA[$GLOBALS[$GLOBALS['what'] . '_null']]]></code>
       <code><![CDATA[str_replace('_', '/', $mimeMap[$fieldName]['mimetype'])]]></code>
@@ -8522,11 +8502,6 @@
     <MixedArgument>
       <code><![CDATA[$pdf->getPDFData()]]></code>
     </MixedArgument>
-    <ParamNameMismatch>
-      <code>$doComments</code>
-      <code>$doMime</code>
-      <code>$doRelation</code>
-    </ParamNameMismatch>
     <PossiblyInvalidPropertyAssignmentValue>
       <code><![CDATA[$_POST['pdf_report_title']]]></code>
     </PossiblyInvalidPropertyAssignmentValue>
@@ -8775,11 +8750,6 @@
       <code><![CDATA[$GLOBALS['what']]]></code>
       <code><![CDATA[$GLOBALS['what']]]></code>
     </MixedOperand>
-    <ParamNameMismatch>
-      <code>$doComments</code>
-      <code>$doMime</code>
-      <code>$doRelation</code>
-    </ParamNameMismatch>
     <PossiblyInvalidArgument>
       <code>$value</code>
       <code><![CDATA[str_replace('_', '/', $mimeMap[$fieldName]['mimetype'])]]></code>

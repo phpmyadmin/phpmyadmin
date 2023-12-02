@@ -917,7 +917,6 @@ SQL;
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                'localhost',
                 'create_table',
                 'test',
             ),
@@ -941,7 +940,6 @@ SQL;
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                'localhost',
                 'triggers',
                 'test',
             ),
@@ -968,7 +966,6 @@ SQL;
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                'localhost',
                 'create_view',
                 'test',
             ),
@@ -989,7 +986,6 @@ SQL;
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                'localhost',
                 'create_view',
                 'test',
             ),
@@ -1007,7 +1003,6 @@ SQL;
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                'localhost',
                 'stand_in',
                 'test',
             ),

@@ -688,7 +688,6 @@ class Export
                         && ! $exportPlugin->exportStructure(
                             $db->getName(),
                             $table,
-                            $errorUrl,
                             'stand_in',
                             $exportType,
                             $doRelation,
@@ -723,7 +722,6 @@ class Export
                         ! $exportPlugin->exportStructure(
                             $db->getName(),
                             $table,
-                            $errorUrl,
                             'create_table',
                             $exportType,
                             $doRelation,
@@ -775,7 +773,6 @@ class Export
                 ! $exportPlugin->exportStructure(
                     $db->getName(),
                     $table,
-                    $errorUrl,
                     'triggers',
                     $exportType,
                     $doRelation,
@@ -806,7 +803,6 @@ class Export
                     ! $exportPlugin->exportStructure(
                         $db->getName(),
                         $view,
-                        $errorUrl,
                         'create_view',
                         $exportType,
                         $doRelation,
@@ -955,7 +951,6 @@ class Export
                         ! $exportPlugin->exportStructure(
                             $db,
                             $table,
-                            $errorUrl,
                             'create_view',
                             $exportType,
                             $doRelation,
@@ -973,7 +968,6 @@ class Export
                     ! $exportPlugin->exportStructure(
                         $db,
                         $table,
-                        $errorUrl,
                         'create_table',
                         $exportType,
                         $doRelation,
@@ -1026,7 +1020,6 @@ class Export
                 ! $exportPlugin->exportStructure(
                     $db,
                     $table,
-                    $errorUrl,
                     'triggers',
                     $exportType,
                     $doRelation,

@@ -584,7 +584,6 @@ class ExportHtmlwordTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                'localhost',
                 'create_table',
                 'test',
             ),
@@ -611,7 +610,6 @@ class ExportHtmlwordTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                'localhost',
                 'triggers',
                 'test',
             ),
@@ -634,7 +632,6 @@ class ExportHtmlwordTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                'localhost',
                 'create_view',
                 'test',
             ),
@@ -661,7 +658,6 @@ class ExportHtmlwordTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                'localhost',
                 'stand_in',
                 'test',
             ),
