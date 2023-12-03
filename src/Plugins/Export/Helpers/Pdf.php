@@ -296,11 +296,11 @@ class Pdf extends PdfLib
      * Defines the top margin.
      * The method can be called before creating the first page.
      *
-     * @param float $topMargin the margin
+     * @param float $margin the margin
      */
-    public function setTopMargin(mixed $topMargin): void
+    public function setTopMargin(mixed $margin): void
     {
-        $this->tMargin = $topMargin;
+        $this->tMargin = $margin;
     }
 
     /**

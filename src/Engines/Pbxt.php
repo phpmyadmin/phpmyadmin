@@ -141,17 +141,15 @@ class Pbxt extends StorageEngine
      * returns the pbxt engine specific handling for
      * DETAILS_TYPE_SIZE variables.
      *
-     * @param int|string $formattedSize the size expression (for example 8MB)
+     * @param int|string $value the size expression (for example 8MB)
      *
      * @return string[] the formatted value and its unit
      * @psalm-return array{string, string}
      */
-    public function resolveTypeSize(int|string $formattedSize): array
+    public function resolveTypeSize(int|string $value): array
     {
-        if (is_string($formattedSize) && preg_match('/^[0-9]+[a-zA-Z]+$/', $formattedSize)) {
-            $value = Util::extractValueFromFormattedSize($formattedSize);
-        } else {
-            $value = $formattedSize;
+        if (is_string($value) && preg_match('/^[0-9]+[a-zA-Z]+$/', $value)) {
+            $value = Util::extractValueFromFormattedSize($value);
         }
 
         return Util::formatByteDown($value);

@@ -5819,9 +5819,6 @@
     </MixedOperand>
   </file>
   <file src="src/Engines/Pbxt.php">
-    <ParamNameMismatch>
-      <code>$formattedSize</code>
-    </ParamNameMismatch>
     <PossiblyUnusedMethod>
       <code>getPageDocumentation</code>
     </PossiblyUnusedMethod>
@@ -7922,9 +7919,6 @@
       <code><![CDATA[$this->footerset[$this->page]]]></code>
       <code><![CDATA[$this->footerset[$this->page]]]></code>
     </MixedArrayOffset>
-    <ParamNameMismatch>
-      <code>$errorMessage</code>
-    </ParamNameMismatch>
     <PropertyNotSetInConstructor>
       <code>Pdf</code>
       <code>Pdf</code>
@@ -9123,9 +9117,6 @@
       <code>$y</code>
       <code>count($colFits) * $sColWidth</code>
     </MixedOperand>
-    <ParamNameMismatch>
-      <code>$topMargin</code>
-    </ParamNameMismatch>
     <PossiblyNullOperand>
       <code><![CDATA[$GLOBALS['maxY']]]></code>
     </PossiblyNullOperand>
