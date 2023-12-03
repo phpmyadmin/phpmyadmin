@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-12-03 00:19+0000\n"
-"PO-Revision-Date: 2023-11-30 10:03+0000\n"
+"PO-Revision-Date: 2023-12-04 02:03+0000\n"
 "Last-Translator: MoonE <maxi_kroeg@web.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "de/>\n"
@@ -7193,11 +7193,10 @@ msgstr "Text"
 #. l10n: Number of tables
 #: resources/templates/test/gettext/plural_notes.twig:1
 #: resources/templates/test/gettext/plural.twig:1
-#, fuzzy
 msgid "One table"
 msgid_plural "%count% tables"
-msgstr[0] "Verwende Tabellen"
-msgstr[1] "Verwende Tabellen"
+msgstr[0] "Eine Tabelle"
+msgstr[1] "%count% Tabellen"
 
 #. l10n: Show or hide the menu using the hamburger style button
 #: resources/templates/top_menu.twig:4
