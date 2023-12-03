@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-30 20:06+0000\n"
-"PO-Revision-Date: 2023-11-30 10:03+0000\n"
+"PO-Revision-Date: 2023-12-03 00:19+0000\n"
 "Last-Translator: MoonE <maxi_kroeg@web.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "de/>\n"
@@ -5048,7 +5048,7 @@ msgid ""
 msgstr ""
 "Erlaubt eine Verbindung, selbst wenn die maximale Anzahl an Verbindungen "
 "bereits erreicht ist; Wird für viele administrative Operationen, wie das "
-"Setzen globaler Variablen oder das Beenden von Prozessen anderer Benutzer, "
+"Setzen globaler Variablen oder das Beenden von Threads anderer Benutzer, "
 "vorausgesetzt."
 
 #: resources/templates/server/privileges/privileges_table.twig:597
@@ -8068,34 +8068,34 @@ msgstr ""
 
 #: src/Advisory/Rules.php:511
 msgid "Thread cache"
-msgstr "Prozess-Zwischenspeicher"
+msgstr "Thread-Zwischenspeicher"
 
 #: src/Advisory/Rules.php:514
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
 msgstr ""
-"Prozess-Zwischenspeicher ist deaktiviert, dieses führt zu mehr Overhead bei "
+"Thread-Zwischenspeicher ist deaktiviert, dieses führt zu mehr Overhead bei "
 "neuen Verbindungen zu MySQL."
 
 #: src/Advisory/Rules.php:515
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
-"Aktivieren Sie den Prozess-Zwischenspeicher, indem Sie {thread_cache_size} > "
+"Aktivieren Sie den Thread-Zwischenspeicher, indem Sie {thread_cache_size} > "
 "0 setzen."
 
 #: src/Advisory/Rules.php:516
 msgid "The thread cache is set to 0"
-msgstr "Der Prozess-Zwischenspeicher ist auf 0 gesetzt"
+msgstr "Der Thread-Zwischenspeicher ist auf 0 gesetzt"
 
 #: src/Advisory/Rules.php:521
 #, no-php-format
 msgid "Thread cache hit rate %"
-msgstr "Prozess-Zwischenspeicher Trefferrate %"
+msgstr "Thread-Zwischenspeicher Trefferrate %"
 
 #: src/Advisory/Rules.php:525
 msgid "Thread cache is not efficient."
-msgstr "Ineffizienter Prozess-Zwischenspeicher."
+msgstr "Ineffizienter Thread-Zwischenspeicher."
 
 #: src/Advisory/Rules.php:526
 msgid "Increase {thread_cache_size}."
@@ -8105,16 +8105,16 @@ msgstr "{thread_cache_size} erhöhen."
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
-"Prozess-Zwischenspeicher Trefferrate: %s%%, dieser Wert sollte über 80%% "
+"Thread-Zwischenspeicher Trefferrate: %s%%, dieser Wert sollte über 80%% "
 "liegen"
 
 #: src/Advisory/Rules.php:532
 msgid "Threads that are slow to launch"
-msgstr "Prozesse die langsam zu starten"
+msgstr "Threads, die langsam starten"
 
 #: src/Advisory/Rules.php:536
 msgid "There are too many threads that are slow to launch."
-msgstr "Es gibt zu viele Prozesse die langsam starten."
+msgstr "Es gibt zu viele Threads, die langsam starten."
 
 #: src/Advisory/Rules.php:538
 msgid ""
@@ -8145,8 +8145,8 @@ msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch."
 msgstr ""
-"Setzen Sie {slow_launch_time} auf 1 oder 2 Sekunden, um korrekt Prozesse zu "
-"zählen, die langsam starten."
+"Setzen Sie {slow_launch_time} auf 1 oder 2 Sekunden, um Threads, die langsam "
+"starten, korrekt zu zählen."
 
 #: src/Advisory/Rules.php:553
 #, php-format
@@ -14694,8 +14694,9 @@ msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
 msgstr ""
-"Anzahl der verzögerten Insert-Handler-Prozesse in Benutzung. Jede einzelne "
-"Tabelle mit verzögerten Inserts bekommt einen eigenen Prozess."
+"Anzahl der INSERT DELAYED-Handler-Threads in Benutzung. Jede einzelne "
+"Tabelle, in die mit INSERT DELAYED eingefügt wird, bekommt einen eigenen "
+"Thread."
 
 #: src/Controllers/Server/Status/VariablesController.php:252
 msgid "The number of INSERT DELAYED rows written."
@@ -15262,8 +15263,8 @@ msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
 msgstr ""
-"Anzahl der Prozesse, die länger als slow_launch_time brauchten, um sich zu "
-"verbinden."
+"Anzahl der Threads, die für das Erstellen länger als slow_launch_time "
+"brauchten."
 
 #: src/Controllers/Server/Status/VariablesController.php:469
 msgid ""
@@ -15338,11 +15339,11 @@ msgstr ""
 
 #: src/Controllers/Server/Status/VariablesController.php:498
 msgid "Thread cache hit rate (calculated value)"
-msgstr "Prozess-Zwischenspeicher Erfolgsrate (berechneter Wert)"
+msgstr "Thread-Zwischenspeicher Erfolgsrate (berechneter Wert)"
 
 #: src/Controllers/Server/Status/VariablesController.php:499
 msgid "The number of threads that are not sleeping."
-msgstr "Anzahl der Prozesse, die nicht schlafen."
+msgstr "Anzahl der Threads, die nicht schlafen."
 
 #: src/Controllers/Server/UserGroupsFormController.php:57
 msgid "User groups management is not enabled."
@@ -16053,7 +16054,7 @@ msgstr ""
 
 #: src/Engines/Myisam.php:61
 msgid "Repair threads"
-msgstr "Reparaturprozesse"
+msgstr "Reparatur-Threads"
 
 #: src/Engines/Myisam.php:63
 msgid ""
@@ -16062,7 +16063,7 @@ msgid ""
 msgstr ""
 "Wenn dieser Wert größer als 1 ist, werden MyISAM-Tabellenindizes während "
 "einer Reparatur oder eines Sortierungsprozesses parallel erstellt (jeder "
-"Index in einem separaten Prozess)."
+"Index in einem separaten Thread)."
 
 #: src/Engines/Myisam.php:70
 msgid "Sort buffer size"
@@ -18406,7 +18407,7 @@ msgstr "Abfragen-Zwischenspeicher"
 
 #: src/Server/Status/Data.php:143
 msgid "Threads"
-msgstr "Prozesse"
+msgstr "Threads"
 
 #: src/Server/Status/Data.php:145
 msgid "Temporary data"
