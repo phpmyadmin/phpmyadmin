@@ -187,21 +187,11 @@ final class ColumnsDefinition
                     };
                 }
 
-                switch ($columnMeta['DefaultType']) {
-                    case 'NONE':
-                        $columnMeta['Default'] = null;
-                        break;
-                    case 'USER_DEFINED':
-                        $columnMeta['Default'] = $columnMeta['DefaultValue'];
-                        break;
-                    case 'NULL':
-                    case 'CURRENT_TIMESTAMP':
-                    case 'current_timestamp()':
-                    case 'UUID':
-                    case 'uuid()':
-                        $columnMeta['Default'] = $columnMeta['DefaultType'];
-                        break;
-                }
+                $columnMeta['Default'] = match ($columnMeta['DefaultType']) {
+                    'NONE' => null,
+                    'USER_DEFINED' => $columnMeta['DefaultValue'],
+                    default => $columnMeta['DefaultType'],
+                };
 
                 $length = Util::getValueByKey($_POST, 'field_length.' . $columnNumber, $length);
                 $submitAttribute = Util::getValueByKey($_POST, 'field_attribute.' . $columnNumber, false);

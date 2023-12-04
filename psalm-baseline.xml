@@ -11774,7 +11774,6 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['mime_map']]]></code>
       <code><![CDATA[$columnMeta['Default']]]></code>
-      <code><![CDATA[$columnMeta['Default']]]></code>
       <code><![CDATA[$columnMeta['Expression']]]></code>
       <code><![CDATA[$commentsMap[$columnMeta['Field']]]]></code>
       <code>$defaultValue</code>

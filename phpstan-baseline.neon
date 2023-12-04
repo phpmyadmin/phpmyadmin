@@ -17991,11 +17991,6 @@ parameters:
 			path: src/Table/ColumnsDefinition.php
 
 		-
-			message: "#^Offset 'Default' does not exist on array\\{Field\\: mixed, Type\\: mixed, Collation\\: mixed, Null\\: mixed, DefaultType\\: mixed, DefaultValue\\: mixed, Extra\\: mixed, Virtuality\\: mixed, \\.\\.\\.\\}\\|array\\{Field\\: string, Type\\: string, Collation\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\: string, \\.\\.\\.\\}\\.$#"
-			count: 1
-			path: src/Table/ColumnsDefinition.php
-
-		-
 			message: "#^Offset 'DefaultValue' does not exist on array\\{Field\\: mixed, Type\\: mixed, Collation\\: mixed, Null\\: mixed, DefaultType\\: mixed, DefaultValue\\: mixed, Extra\\: mixed, Virtuality\\: mixed, \\.\\.\\.\\}\\|array\\{Field\\: string, Type\\: string, Collation\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\: string, \\.\\.\\.\\}\\|array\\{Type\\: ''\\}\\.$#"
 			count: 1
 			path: src/Table/ColumnsDefinition.php
