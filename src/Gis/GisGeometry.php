@@ -316,7 +316,7 @@ abstract class GisGeometry
     {
         $parts = explode('),(', $wktCoords);
 
-        return array_map(fn (string $coord) => $this->extractPoints1d($coord, $scaleData), $parts);
+        return array_map(fn (string $coord): array => $this->extractPoints1d($coord, $scaleData), $parts);
     }
 
     /**
@@ -329,7 +329,7 @@ abstract class GisGeometry
     {
         $parts = explode(')),((', $wktCoords);
 
-        return array_map(fn (string $coord) => $this->extractPoints2d($coord, $scaleData), $parts);
+        return array_map(fn (string $coord): array => $this->extractPoints2d($coord, $scaleData), $parts);
     }
 
     /**

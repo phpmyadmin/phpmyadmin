@@ -5982,7 +5982,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 2
+			count: 1
 			path: src/Controllers/Table/DropColumnController.php
 
 		-
@@ -8222,7 +8222,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 3
+			count: 2
 			path: src/Controllers/VersionCheckController.php
 
 		-
