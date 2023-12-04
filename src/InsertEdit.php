@@ -861,7 +861,7 @@ class InsertEdit
         // must find a unique condition based on unique key,
         // not a combination of all fields
         $uniqueCondition = (new UniqueCondition($meta, $row, true))->getWhereClause();
-        if (! $uniqueCondition) {
+        if ($uniqueCondition === '') {
             return;
         }
 

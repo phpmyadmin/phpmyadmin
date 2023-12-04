@@ -351,7 +351,7 @@ class ReplicationGui
         }
 
         $currentUser = DatabaseInterface::getInstance()->fetchValue('SELECT USER();');
-        if (! empty($currentUser)) {
+        if ($currentUser !== '' && $currentUser !== false && $currentUser !== null) {
             $userHost = str_replace(
                 "'",
                 '',

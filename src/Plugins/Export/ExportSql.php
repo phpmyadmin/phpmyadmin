@@ -941,7 +941,7 @@ class ExportSql extends ExportPlugin
             . ' EVENT_SCHEMA= ' . $dbi->quoteString($db),
         );
 
-        if ($eventNames) {
+        if ($eventNames !== []) {
             $text .= "\n"
                 . 'DELIMITER ' . $delimiter . "\n";
 
@@ -1386,7 +1386,7 @@ class ExportSql extends ExportPlugin
         );
         // an error can happen, for example the table is crashed
         $tmpError = $dbi->getError();
-        if ($tmpError) {
+        if ($tmpError !== '') {
             $message = sprintf(__('Error reading structure for table %s:'), $db . '.' . $table);
             $message .= ' ' . $tmpError;
             if (! defined('TESTSUITE')) {
@@ -1401,12 +1401,12 @@ class ExportSql extends ExportPlugin
 
         $warning = '';
 
-        $row = null;
+        $row = [];
         if ($result !== false) {
             $row = $result->fetchRow();
         }
 
-        if ($row) {
+        if ($row !== []) {
             $createQuery = $row[1];
             unset($row);
 
@@ -2061,7 +2061,7 @@ class ExportSql extends ExportPlugin
         $result = $dbi->tryQuery($sqlQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
         // a possible error: the table has crashed
         $tmpError = $dbi->getError();
-        if ($tmpError) {
+        if ($tmpError !== '') {
             $message = sprintf(__('Error reading data for table %s:'), $db . '.' . $table);
             $message .= ' ' . $tmpError;
             if (! defined('TESTSUITE')) {

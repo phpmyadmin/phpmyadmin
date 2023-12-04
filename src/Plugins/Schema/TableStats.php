@@ -92,7 +92,7 @@ abstract class TableStats
         $sql = 'DESCRIBE ' . Util::backquote($this->tableName);
         $dbi = DatabaseInterface::getInstance();
         $result = $dbi->tryQuery($sql);
-        if (! $result || ! $result->numRows()) {
+        if (! $result || $result->numRows() == 0) {
             $this->showMissingTableError();
             ResponseRenderer::getInstance()->callExit();
         }
