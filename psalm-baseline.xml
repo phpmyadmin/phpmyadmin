@@ -12146,7 +12146,6 @@
   <file src="src/Template.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
   <file src="src/Theme/Theme.php">
@@ -15718,9 +15717,6 @@
     </UndefinedMethod>
   </file>
   <file src="tests/classes/TemplateTest.php">
-    <DeprecatedMethod>
-      <code>Config::getInstance()</code>
-    </DeprecatedMethod>
     <PossiblyUnusedMethod>
       <code>providerTestDynamicRender</code>
       <code>providerTestRender</code>

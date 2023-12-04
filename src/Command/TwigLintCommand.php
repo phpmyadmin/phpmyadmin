@@ -160,7 +160,7 @@ class TwigLintCommand extends Command
     /** @return mixed[] */
     private function validate(string $template, string $file): array
     {
-        $twig = Template::getTwigEnvironment(null);
+        $twig = Template::getTwigEnvironment(null, false);
 
         $realLoader = $twig->getLoader();
         try {
