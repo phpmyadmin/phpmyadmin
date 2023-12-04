@@ -1974,7 +1974,7 @@ class Util
         }
 
         $p = array_shift($path);
-        while (isset($p)) {
+        while ($p !== null) {
             if (! isset($array[$p])) {
                 return $default;
             }

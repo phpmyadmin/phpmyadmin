@@ -212,17 +212,14 @@ final class ColumnsDefinition
                     2,
                 );
                 if (count($parts) === 2 && $parts[1] == $columnNumber) {
-                    $columnMeta['Key'] = Util::getValueByKey(
-                        [
-                            'primary' => 'PRI',
-                            'index' => 'MUL',
-                            'unique' => 'UNI',
-                            'fulltext' => 'FULLTEXT',
-                            'spatial' => 'SPATIAL',
-                        ],
-                        $parts[0],
-                        '',
-                    );
+                    $columnMeta['Key'] = match ($parts[0]) {
+                        'primary' => 'PRI',
+                        'index' => 'MUL',
+                        'unique' => 'UNI',
+                        'fulltext' => 'FULLTEXT',
+                        'spatial' => 'SPATIAL',
+                        default => '',
+                    };
                 }
 
                 $columnMeta['Comment'] = false;

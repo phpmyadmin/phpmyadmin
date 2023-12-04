@@ -11776,7 +11776,6 @@
       <code><![CDATA[$columnMeta['Default']]]></code>
       <code><![CDATA[$columnMeta['Default']]]></code>
       <code><![CDATA[$columnMeta['Expression']]]></code>
-      <code><![CDATA[$columnMeta['Key']]]></code>
       <code><![CDATA[$commentsMap[$columnMeta['Field']]]]></code>
       <code>$defaultValue</code>
       <code><![CDATA[$formParams['field_length_orig[' . $columnNumber . ']']]]></code>
