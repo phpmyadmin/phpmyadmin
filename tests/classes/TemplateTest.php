@@ -37,13 +37,11 @@ class TemplateTest extends AbstractTestCase
      */
     public function testGetTwigEnvironment(): void
     {
-        $config = Config::getInstance();
-        $config->settings['environment'] = 'production';
-        $twig = Template::getTwigEnvironment(null);
+        $twig = Template::getTwigEnvironment(null, false);
         $this->assertFalse($twig->isDebug());
         $this->assertFalse(TransNode::$enableAddDebugInfo);
-        $config->settings['environment'] = 'development';
-        $twig = Template::getTwigEnvironment(null);
+
+        $twig = Template::getTwigEnvironment(null, true);
         $this->assertTrue($twig->isDebug());
         $this->assertTrue(TransNode::$enableAddDebugInfo);
     }
@@ -169,14 +167,15 @@ class TemplateTest extends AbstractTestCase
     #[PreserveGlobalState(false)]
     public function testLoadingTwigEnvOnlyOnce(): void
     {
-        $config = $this->createMock(Config::class);
-        $config->expects($this->once())->method('getTempDir')->with($this->equalTo('twig'))->willReturn(null);
-
-        $template = new Template($config);
+        $twigEnvCacheProperty = new ReflectionProperty(Template::class, 'twig');
+        $twigEnvCacheProperty->setValue(null, null);
+        $template = new Template();
         $this->assertSame("static content\n", $template->render('test/static'));
-
-        $template2 = new Template($config);
+        $twigEnv = $twigEnvCacheProperty->getValue();
+        $this->assertInstanceOf(Environment::class, $twigEnv);
+        $template2 = new Template();
         $this->assertSame("static content\n", $template2->render('test/static'));
+        $this->assertSame($twigEnv, $twigEnvCacheProperty->getValue());
     }
 
     public function testDisableCache(): void

@@ -124,7 +124,7 @@ final class CacheWarmupCommand extends Command
         $config->set('environment', $config->settings['environment']);
         DatabaseInterface::$instance = new DatabaseInterface(new DbiDummy());
         $tmpDir = ROOT_PATH . 'twig-templates';
-        $twig = Template::getTwigEnvironment($tmpDir);
+        $twig = Template::getTwigEnvironment($tmpDir, $config->config->environment === 'development');
 
         $output->writeln('Searching for files...', OutputInterface::VERBOSITY_VERY_VERBOSE);
 

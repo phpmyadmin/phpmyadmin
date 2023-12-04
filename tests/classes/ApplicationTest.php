@@ -32,6 +32,7 @@ final class ApplicationTest extends AbstractTestCase
         $config = $this->createMock(Config::class);
         $config->expects($this->once())->method('loadAndCheck')
             ->willThrowException(new ConfigException('Failed to load phpMyAdmin configuration.'));
+        $config->config = new Config\Settings([]);
 
         $template = new Template($config);
         $expected = $template->render('error/generic', [

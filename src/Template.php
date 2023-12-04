@@ -51,7 +51,7 @@ class Template
         $this->config = $config ?? Config::getInstance();
     }
 
-    public static function getTwigEnvironment(string|null $cacheDir): Environment
+    public static function getTwigEnvironment(string|null $cacheDir, bool $isDevEnv): Environment
     {
         /* Twig expects false when cache is not configured */
         if ($cacheDir === null) {
@@ -63,7 +63,7 @@ class Template
 
         $twig->addRuntimeLoader(new ContainerRuntimeLoader(Core::getContainerBuilder()));
 
-        if ((Config::getInstance()->settings['environment'] ?? '') === 'development') {
+        if ($isDevEnv) {
             $twig->enableDebug();
             $twig->enableStrictVariables();
             $twig->addExtension(new DebugExtension());
@@ -102,7 +102,8 @@ class Template
     private function load(string $templateName): TemplateWrapper
     {
         if (static::$twig === null) {
-            static::$twig = self::getTwigEnvironment($this->config->getTempDir('twig'));
+            $isDevEnv = $this->config->config->environment === 'development';
+            static::$twig = self::getTwigEnvironment(CACHE_DIR . 'twig', $isDevEnv);
         }
 
         try {
@@ -142,7 +143,7 @@ class Template
     public function disableCache(): void
     {
         if (static::$twig === null) {
-            static::$twig = self::getTwigEnvironment(null);
+            static::$twig = self::getTwigEnvironment(null, false);
         }
 
         static::$twig->setCache(false);
