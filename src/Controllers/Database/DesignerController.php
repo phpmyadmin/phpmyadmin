@@ -197,7 +197,7 @@ class DesignerController extends AbstractController
         }
 
         foreach ($tablePositions as $position) {
-            if (in_array($position['dbName'] . '.' . $position['tableName'], $fullTableNames)) {
+            if (in_array($position['dbName'] . '.' . $position['tableName'], $fullTableNames, true)) {
                 continue;
             }
 

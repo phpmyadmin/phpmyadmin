@@ -47,7 +47,7 @@ class Types
      */
     public function isUnaryOperator(string $op): bool
     {
-        return in_array($op, $this->getUnaryOperators());
+        return in_array($op, $this->getUnaryOperators(), true);
     }
 
     /**

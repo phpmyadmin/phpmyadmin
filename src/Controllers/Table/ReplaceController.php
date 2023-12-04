@@ -76,9 +76,8 @@ final class ReplaceController extends AbstractController
 
         $this->addScriptFiles(['makegrid.js', 'sql.js', 'gis_data_editor.js']);
 
-        $afterInsertActions = ['new_insert', 'same_insert', 'edit_next'];
         $afterInsert = $request->getParsedBodyParam('after_insert');
-        if ($afterInsert !== null && in_array($afterInsert, $afterInsertActions)) {
+        if (in_array($afterInsert, ['new_insert', 'same_insert', 'edit_next'], true)) {
             $GLOBALS['urlParams']['after_insert'] = $afterInsert;
             $whereClause = $request->getParsedBodyParam('where_clause');
             if ($whereClause !== null) {

@@ -95,7 +95,7 @@ class Util
      */
     public static function showIcons(string $value): bool
     {
-        return in_array(Config::getInstance()->settings[$value], ['icons', 'both']);
+        return in_array(Config::getInstance()->settings[$value], ['icons', 'both'], true);
     }
 
     /**
@@ -105,7 +105,7 @@ class Util
      */
     public static function showText(string $value): bool
     {
-        return in_array(Config::getInstance()->settings[$value], ['text', 'both']);
+        return in_array(Config::getInstance()->settings[$value], ['text', 'both'], true);
     }
 
     /**
@@ -1819,7 +1819,7 @@ class Util
                 $whereAdded = true;
             }
 
-            if (isset($_REQUEST['tbl_type']) && in_array($_REQUEST['tbl_type'], ['table', 'view'])) {
+            if (isset($_REQUEST['tbl_type']) && in_array($_REQUEST['tbl_type'], ['table', 'view'], true)) {
                 $tblGroupSql .= $whereAdded ? ' AND' : ' WHERE';
                 if ($_REQUEST['tbl_type'] === 'view') {
                     $tblGroupSql .= " `Table_type` NOT IN ('BASE TABLE', 'SYSTEM VERSIONED')";
@@ -2055,7 +2055,7 @@ class Util
             'sort_order' => $futureSortOrder,
         ];
 
-        if (isset($_REQUEST['tbl_type']) && in_array($_REQUEST['tbl_type'], ['view', 'table'])) {
+        if (isset($_REQUEST['tbl_type']) && in_array($_REQUEST['tbl_type'], ['view', 'table'], true)) {
             $urlParams['tbl_type'] = $_REQUEST['tbl_type'];
         }
 
@@ -2098,7 +2098,7 @@ class Util
 
                 [$keyName, $value] = $keyValueArray;
                 $value = trim(strtolower($value));
-                if (strtolower(trim($keyName)) === 'proto' && in_array($value, ['http', 'https'])) {
+                if (strtolower(trim($keyName)) === 'proto' && in_array($value, ['http', 'https'], true)) {
                     return $value;
                 }
             }

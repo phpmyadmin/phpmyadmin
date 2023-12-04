@@ -752,19 +752,19 @@ class CentralColumns
         foreach ($columnsList as &$row) {
             $vals = explode(',', $row['col_extra']);
 
-            if (in_array('BINARY', $vals)) {
+            if (in_array('BINARY', $vals, true)) {
                 $row['col_attribute'] = 'BINARY';
-            } elseif (in_array('UNSIGNED', $vals)) {
+            } elseif (in_array('UNSIGNED', $vals, true)) {
                 $row['col_attribute'] = 'UNSIGNED';
-            } elseif (in_array('UNSIGNED ZEROFILL', $vals)) {
+            } elseif (in_array('UNSIGNED ZEROFILL', $vals, true)) {
                 $row['col_attribute'] = 'UNSIGNED ZEROFILL';
-            } elseif (in_array('on update CURRENT_TIMESTAMP', $vals)) {
+            } elseif (in_array('on update CURRENT_TIMESTAMP', $vals, true)) {
                 $row['col_attribute'] = 'on update CURRENT_TIMESTAMP';
             } else {
                 $row['col_attribute'] = '';
             }
 
-            $row['col_extra'] = in_array('auto_increment', $vals) ? 'auto_increment' : '';
+            $row['col_extra'] = in_array('auto_increment', $vals, true) ? 'auto_increment' : '';
         }
     }
 

@@ -180,7 +180,7 @@ final class ColumnsDefinition
             } elseif (isset($fieldsMeta[$columnNumber])) {
                 $columnMeta = $fieldsMeta[$columnNumber];
                 $virtual = ['VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED'];
-                if (in_array($columnMeta['Extra'], $virtual)) {
+                if (in_array($columnMeta['Extra'], $virtual, true)) {
                     $tableObj = new Table($GLOBALS['table'], $GLOBALS['db'], $this->dbi);
                     $expressions = $tableObj->getColumnGenerationExpression($columnMeta['Field']);
                     $columnMeta['Expression'] = is_array($expressions) ? $expressions[$columnMeta['Field']] : null;

@@ -1116,11 +1116,6 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
 			message: "#^Cannot access an offset on mixed\\.$#"
 			count: 1
 			path: src/ConfigStorage/Relation.php
@@ -1681,11 +1676,6 @@ parameters:
 			path: src/Controllers/Database/DataDictionaryController.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: src/Controllers/Database/DesignerController.php
-
-		-
 			message: "#^Cannot access offset 'dbName' on mixed\\.$#"
 			count: 2
 			path: src/Controllers/Database/DesignerController.php
@@ -2061,11 +2051,6 @@ parameters:
 			path: src/Controllers/Database/MultiTableQueryController.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 2
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
 			message: "#^Cannot access an offset on mixed\\.$#"
 			count: 6
 			path: src/Controllers/Database/RoutinesController.php
@@ -2187,7 +2172,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#3 \\$which of static method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getDetails\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: src/Controllers/Database/RoutinesController.php
 
 		-
@@ -2706,11 +2691,6 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 2
-			path: src/Controllers/Database/StructureController.php
-
-		-
 			message: "#^Cannot access offset 'Check_time' on mixed\\.$#"
 			count: 1
 			path: src/Controllers/Database/StructureController.php
@@ -3036,11 +3016,6 @@ parameters:
 			path: src/Controllers/Database/TrackingController.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: src/Controllers/ErrorReportController.php
-
-		-
 			message: "#^Cannot access offset 'success' on mixed\\.$#"
 			count: 1
 			path: src/Controllers/ErrorReportController.php
@@ -3062,11 +3037,6 @@ parameters:
 
 		-
 			message: "#^Call to an undefined method object\\:\\:exportHeader\\(\\)\\.$#"
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
 			count: 1
 			path: src/Controllers/Export/ExportController.php
 
@@ -3441,11 +3411,6 @@ parameters:
 			path: src/Controllers/Import/ImportController.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
 			message: "#^Cannot access offset 'error' on mixed\\.$#"
 			count: 1
 			path: src/Controllers/Import/ImportController.php
@@ -3552,7 +3517,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$path of static method PhpMyAdmin\\\\Core\\:\\:securePath\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: src/Controllers/Import/ImportController.php
 
 		-
@@ -4581,11 +4546,6 @@ parameters:
 			path: src/Controllers/Server/DatabasesController.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: src/Controllers/Server/DatabasesController.php
-
-		-
 			message: "#^Cannot access offset 'DEFAULT_COLLATION…' on mixed\\.$#"
 			count: 1
 			path: src/Controllers/Server/DatabasesController.php
@@ -5056,11 +5016,6 @@ parameters:
 			path: src/Controllers/Server/Status/VariablesController.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: src/Controllers/Server/Status/VariablesController.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Server/Status/VariablesController.php
@@ -5144,11 +5099,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$value of method PhpMyAdmin\\\\Controllers\\\\Server\\\\Variables\\\\SetVariableController\\:\\:formatVariable\\(\\) expects int\\|string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Server/Variables/SetVariableController.php
-
-		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: src/Controllers/Setup/AbstractController.php
 
 		-
 			message: "#^Only booleans are allowed in a ternary operator condition, mixed given\\.$#"
@@ -6586,11 +6536,6 @@ parameters:
 			path: src/Controllers/Table/ReplaceController.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: src/Controllers/Table/ReplaceController.php
-
-		-
 			message: "#^Call to function method_exists\\(\\) with PhpMyAdmin\\\\Plugins\\\\IOTransformationsPlugin and 'isSuccess' will always evaluate to true\\.$#"
 			count: 1
 			path: src/Controllers/Table/ReplaceController.php
@@ -6864,11 +6809,6 @@ parameters:
 			message: "#^Parameter \\#9 \\$previousValue of class PhpMyAdmin\\\\EditField constructor expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ReplaceController.php
-
-		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 3
-			path: src/Controllers/Table/SearchController.php
 
 		-
 			message: "#^Cannot access offset int on mixed\\.$#"
@@ -7856,11 +7796,6 @@ parameters:
 			path: src/Controllers/Table/ZoomSearchController.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 3
-			path: src/Controllers/Table/ZoomSearchController.php
-
-		-
 			message: "#^Cannot access offset 0 on mixed\\.$#"
 			count: 3
 			path: src/Controllers/Table/ZoomSearchController.php
@@ -8041,11 +7976,6 @@ parameters:
 			path: src/Controllers/Transformation/WrapperController.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: src/Controllers/Triggers/IndexController.php
-
-		-
 			message: "#^Cannot call method isSuccess\\(\\) on mixed\\.$#"
 			count: 1
 			path: src/Controllers/Triggers/IndexController.php
@@ -8216,11 +8146,6 @@ parameters:
 			path: src/Controllers/VersionCheckController.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 3
-			path: src/Controllers/View/CreateController.php
-
-		-
 			message: "#^Cannot access offset 'back' on mixed\\.$#"
 			count: 1
 			path: src/Controllers/View/CreateController.php
@@ -8322,7 +8247,7 @@ parameters:
 
 		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 4
+			count: 3
 			path: src/Core.php
 
 		-
@@ -8393,11 +8318,6 @@ parameters:
 		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
 			count: 3
-			path: src/CreateAddField.php
-
-		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
 			path: src/CreateAddField.php
 
 		-
@@ -8552,7 +8472,7 @@ parameters:
 
 		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 9
+			count: 4
 			path: src/Database/CentralColumns.php
 
 		-
@@ -8836,11 +8756,6 @@ parameters:
 			path: src/Database/Designer/Common.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 2
-			path: src/Database/Designer/Common.php
-
-		-
 			message: "#^Cannot access offset 'ENGINE' on mixed\\.$#"
 			count: 5
 			path: src/Database/Designer/Common.php
@@ -9001,11 +8916,6 @@ parameters:
 			path: src/Database/Events.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 2
-			path: src/Database/Events.php
-
-		-
 			message: "#^Cannot access an offset on mixed\\.$#"
 			count: 6
 			path: src/Database/Events.php
@@ -9088,11 +8998,6 @@ parameters:
 		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
 			count: 3
-			path: src/Database/Routines.php
-
-		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 5
 			path: src/Database/Routines.php
 
 		-
@@ -9207,7 +9112,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 23
+			count: 22
 			path: src/Database/Routines.php
 
 		-
@@ -9353,11 +9258,6 @@ parameters:
 		-
 			message: "#^Parameter \\#3 \\$name of static method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getProcedureDefinition\\(\\) expects string, mixed given\\.$#"
 			count: 3
-			path: src/Database/Routines.php
-
-		-
-			message: "#^Parameter \\#3 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
-			count: 1
 			path: src/Database/Routines.php
 
 		-
@@ -9643,11 +9543,6 @@ parameters:
 		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
 			count: 6
-			path: src/Display/Results.php
-
-		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 3
 			path: src/Display/Results.php
 
 		-
@@ -10096,11 +9991,6 @@ parameters:
 			path: src/Error.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 2
-			path: src/Error.php
-
-		-
 			message: "#^Cannot access offset 'args' on mixed\\.$#"
 			count: 1
 			path: src/Error.php
@@ -10267,7 +10157,7 @@ parameters:
 
 		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 2
+			count: 1
 			path: src/Export/Export.php
 
 		-
@@ -10916,11 +10806,6 @@ parameters:
 			path: src/Gis/GisVisualization.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: src/Git.php
-
-		-
 			message: "#^Cannot access offset 1 on array\\|false\\.$#"
 			count: 2
 			path: src/Git.php
@@ -11087,7 +10972,7 @@ parameters:
 
 		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 2
+			count: 1
 			path: src/Html/Generator.php
 
 		-
@@ -11701,11 +11586,6 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 7
-			path: src/InsertEdit.php
-
-		-
 			message: "#^Cannot access offset 'relational_display' on mixed\\.$#"
 			count: 1
 			path: src/InsertEdit.php
@@ -12016,11 +11896,6 @@ parameters:
 			path: src/IpAllowDeny.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: src/Language.php
-
-		-
 			message: "#^Cannot access offset 'a_meta_dir' on mixed\\.$#"
 			count: 1
 			path: src/Language.php
@@ -12151,11 +12026,6 @@ parameters:
 			path: src/Menu.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 5
-			path: src/Menu.php
-
-		-
 			message: "#^Cannot access offset 'icon' on mixed\\.$#"
 			count: 22
 			path: src/Menu.php
@@ -12248,11 +12118,6 @@ parameters:
 		-
 			message: "#^Call to an undefined method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\:\\:setHiddenCount\\(\\)\\.$#"
 			count: 1
-			path: src/Navigation/NavigationTree.php
-
-		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 12
 			path: src/Navigation/NavigationTree.php
 
 		-
@@ -12436,11 +12301,6 @@ parameters:
 			path: src/Navigation/Nodes/Node.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 2
-			path: src/Navigation/Nodes/Node.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 5
 			path: src/Navigation/Nodes/Node.php
@@ -12506,11 +12366,6 @@ parameters:
 			path: src/Navigation/Nodes/NodeColumn.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: src/Navigation/Nodes/NodeDatabase.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeDatabase\\:\\:getEventCount\\(\\) should return int but returns int\\|string\\.$#"
 			count: 1
 			path: src/Navigation/Nodes/NodeDatabase.php
@@ -12557,7 +12412,7 @@ parameters:
 
 		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 7
+			count: 1
 			path: src/Normalization.php
 
 		-
@@ -13346,11 +13201,6 @@ parameters:
 			path: src/Plugins/Auth/AuthenticationHttp.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: src/Plugins/Auth/AuthenticationSignon.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 2
 			path: src/Plugins/Auth/AuthenticationSignon.php
@@ -13491,11 +13341,6 @@ parameters:
 			path: src/Plugins/Export/ExportCsv.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportHtmlword.php
-
-		-
 			message: "#^Cannot access offset 'columns' on mixed\\.$#"
 			count: 3
 			path: src/Plugins/Export/ExportHtmlword.php
@@ -13544,11 +13389,6 @@ parameters:
 			message: "#^Parameter \\#4 \\$aliases of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportJson\\:\\:doExportForQuery\\(\\) expects array\\<string, array\\{tables\\: array\\<string, array\\{columns\\: array\\<string, string\\>\\}\\>\\}\\>\\|null, array given\\.$#"
 			count: 1
 			path: src/Plugins/Export/ExportJson.php
-
-		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportLatex.php
 
 		-
 			message: "#^Cannot access offset 'columns' on mixed\\.$#"
@@ -14139,11 +13979,6 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Reference\\:\\:\\$columns \\(array\\<string\\>\\) does not accept array\\<mixed\\>\\.$#"
 			count: 1
 			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportTexytext.php
 
 		-
 			message: "#^Cannot access offset 'columns' on mixed\\.$#"
@@ -15166,18 +15001,13 @@ parameters:
 			path: src/Plugins/Schema/Dia/DiaRelationSchema.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 2
-			path: src/Plugins/Schema/Dia/DiaRelationSchema.php
-
-		-
 			message: "#^Cannot access offset 'foreign_field' on mixed\\.$#"
 			count: 1
 			path: src/Plugins/Schema/Dia/DiaRelationSchema.php
 
 		-
 			message: "#^Cannot access offset 'foreign_table' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Schema/Dia/DiaRelationSchema.php
 
 		-
@@ -15192,7 +15022,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'ref_table_name' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Schema/Dia/DiaRelationSchema.php
 
 		-
@@ -15213,11 +15043,6 @@ parameters:
 		-
 			message: "#^Parameter \\#2 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\DiaRelationSchema\\:\\:addRelation\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: src/Plugins/Schema/Dia/DiaRelationSchema.php
-
-		-
-			message: "#^Parameter \\#3 \\$foreignTable of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\DiaRelationSchema\\:\\:addRelation\\(\\) expects string, mixed given\\.$#"
-			count: 2
 			path: src/Plugins/Schema/Dia/DiaRelationSchema.php
 
 		-
@@ -15251,18 +15076,13 @@ parameters:
 			path: src/Plugins/Schema/Eps/EpsRelationSchema.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 2
-			path: src/Plugins/Schema/Eps/EpsRelationSchema.php
-
-		-
 			message: "#^Cannot access offset 'foreign_field' on mixed\\.$#"
 			count: 1
 			path: src/Plugins/Schema/Eps/EpsRelationSchema.php
 
 		-
 			message: "#^Cannot access offset 'foreign_table' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Schema/Eps/EpsRelationSchema.php
 
 		-
@@ -15277,7 +15097,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'ref_table_name' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Schema/Eps/EpsRelationSchema.php
 
 		-
@@ -15298,11 +15118,6 @@ parameters:
 		-
 			message: "#^Parameter \\#4 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\EpsRelationSchema\\:\\:addRelation\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: src/Plugins/Schema/Eps/EpsRelationSchema.php
-
-		-
-			message: "#^Parameter \\#5 \\$foreignTable of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\EpsRelationSchema\\:\\:addRelation\\(\\) expects string, mixed given\\.$#"
-			count: 2
 			path: src/Plugins/Schema/Eps/EpsRelationSchema.php
 
 		-
@@ -15386,11 +15201,6 @@ parameters:
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 2
-			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
 			message: "#^Call to method TCPDF\\:\\:Line\\(\\) with incorrect case\\: line$#"
 			count: 2
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
@@ -15427,7 +15237,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'foreign_table' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
@@ -15442,7 +15252,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'ref_table_name' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
@@ -15536,11 +15346,6 @@ parameters:
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Parameter \\#3 \\$foreignTable of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:addRelation\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
 			message: "#^Parameter \\#4 \\$foreignField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:addRelation\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
@@ -15616,18 +15421,13 @@ parameters:
 			path: src/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 2
-			path: src/Plugins/Schema/Svg/SvgRelationSchema.php
-
-		-
 			message: "#^Cannot access offset 'foreign_field' on mixed\\.$#"
 			count: 1
 			path: src/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
 			message: "#^Cannot access offset 'foreign_table' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
@@ -15642,7 +15442,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'ref_table_name' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
@@ -15658,11 +15458,6 @@ parameters:
 		-
 			message: "#^Parameter \\#4 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:addRelation\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: src/Plugins/Schema/Svg/SvgRelationSchema.php
-
-		-
-			message: "#^Parameter \\#5 \\$foreignTable of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:addRelation\\(\\) expects string, mixed given\\.$#"
-			count: 2
 			path: src/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
@@ -15984,11 +15779,6 @@ parameters:
 			message: "#^Only booleans are allowed in an if condition, string\\|false\\|null given\\.$#"
 			count: 1
 			path: src/Profiling.php
-
-		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
 
 		-
 			message: "#^Cannot access offset 'AUTO_INCREMENT' on mixed\\.$#"
@@ -16426,11 +16216,6 @@ parameters:
 			path: src/Replication/Replication.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: src/Replication/ReplicationGui.php
-
-		-
 			message: "#^Cannot access offset 'Slave_IO_Running' on mixed\\.$#"
 			count: 1
 			path: src/Replication/ReplicationGui.php
@@ -16718,11 +16503,6 @@ parameters:
 		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
 			count: 1
-			path: src/Server/Privileges.php
-
-		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 17
 			path: src/Server/Privileges.php
 
 		-
@@ -17896,11 +17676,6 @@ parameters:
 			path: src/SystemDatabase.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: src/Table/ColumnsDefinition.php
-
-		-
 			message: "#^Cannot access offset 'isEditable' on mixed\\.$#"
 			count: 2
 			path: src/Table/ColumnsDefinition.php
@@ -18051,11 +17826,6 @@ parameters:
 			path: src/Table/Search.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: src/Table/Search.php
-
-		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
 			count: 4
 			path: src/Table/Search.php
@@ -18142,7 +17912,7 @@ parameters:
 
 		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 5
+			count: 3
 			path: src/Table/Table.php
 
 		-
@@ -18741,11 +18511,6 @@ parameters:
 			path: src/Triggers/Triggers.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 3
-			path: src/Triggers/Triggers.php
-
-		-
 			message: "#^Cannot access an offset on mixed\\.$#"
 			count: 6
 			path: src/Triggers/Triggers.php
@@ -18787,7 +18552,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 4
+			count: 3
 			path: src/Triggers/Triggers.php
 
 		-
@@ -18814,21 +18579,6 @@ parameters:
 			message: "#^Parameter \\#3 \\$name of method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getTriggerByName\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Triggers/Triggers.php
-
-		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 2
-			path: src/TwoFactor.php
-
-		-
-			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\TwoFactor\\:\\:getBackendClass\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/TwoFactor.php
-
-		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: src/Types.php
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
@@ -18963,11 +18713,6 @@ parameters:
 		-
 			message: "#^Binary operation \"\\.\" between non\\-empty\\-string and array\\<non\\-empty\\-array\\<0\\|1\\|2\\|3\\|'AllowDeny'\\|'AllowNoPassword'\\|'AllowRoot'\\|'auth_http_realm'\\|'auth_type'\\|'bookmarktable'\\|'central_columns'\\|'column_info'\\|'compress'\\|'control_compress'\\|'control_hide…'\\|'control_socket'\\|'control_ssl'\\|'control_ssl_ca'\\|'control_ssl_ca_path'\\|'control_ssl_cert'\\|'control_ssl_ciphers'\\|'control_ssl_key'\\|'control_ssl_verify'\\|'controlhost'\\|'controlpass'\\|'controlport'\\|'controluser'\\|'designer_settings'\\|'DisableIS'\\|'export_templates'\\|'favorite'\\|'hide_db'\\|'history'\\|'host'\\|'LogoutURL'\\|'MaxTableUiprefs'\\|'navigationhiding'\\|'only_db'\\|'password'\\|'pdf_pages'\\|'pmadb'\\|'port'\\|'recent'\\|'relation'\\|'savedsearches'\\|'SessionTimeZone'\\|'SignonCookieParams'\\|'SignonScript'\\|'SignonSession'\\|'SignonURL'\\|'socket'\\|'ssl'\\|'ssl_ca'\\|'ssl_ca_path'\\|'ssl_cert'\\|'ssl_ciphers'\\|'ssl_key'\\|'ssl_verify'\\|'table_coords'\\|'table_info'\\|'table_uiprefs'\\|'tracking'\\|'user'\\|'userconfig'\\|'usergroups'\\|'users'\\|'verbose'\\|'wrapper_link'\\|'wrapper_params', array\\<array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string\\>\\|bool\\|int\\|string\\|null\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string results in an error\\.$#"
 			count: 1
-			path: src/Util.php
-
-		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 5
 			path: src/Util.php
 
 		-
@@ -19329,11 +19074,6 @@ parameters:
 			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: src/ZipExtension.php
-
-		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 2
-			path: tests/classes/AbstractTestCase.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'formula' and array\\{id\\: non\\-empty\\-string, name\\: string, precondition\\?\\: non\\-empty\\-string, formula\\: non\\-empty\\-string, test\\: non\\-empty\\-string, issue\\: string, recommendation\\: string, justification\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
@@ -21069,11 +20809,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\) expects Countable\\|iterable, mixed given\\.$#"
 			count: 1
 			path: tests/classes/Triggers/TriggersTest.php
-
-		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 3
-			path: tests/classes/TwoFactorTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\TwoFactorTest\\:\\:loadResultForConfig\\(\\) has parameter \\$config with no value type specified in iterable type array\\.$#"

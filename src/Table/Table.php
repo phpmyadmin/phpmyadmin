@@ -1475,7 +1475,7 @@ class Table implements Stringable
             }
 
             // a column might have a primary and an unique index on it
-            if (in_array($possibleColumn, $return)) {
+            if (in_array($possibleColumn, $return, true)) {
                 continue;
             }
 
@@ -2007,7 +2007,7 @@ class Table implements Stringable
         if (
             $index->getChoice() !== 'SPATIAL'
             && $index->getChoice() !== 'FULLTEXT'
-            && in_array($type, Index::getIndexTypes())
+            && in_array($type, Index::getIndexTypes(), true)
             && ! $this->isEngine('TOKUDB')
         ) {
             $sqlQuery .= ' USING ' . $type;

@@ -42,7 +42,7 @@ class TwoFactor
 
     protected TwoFactorPlugin $backend;
 
-    /** @var mixed[] */
+    /** @var string[] */
     protected array $available;
 
     private UserPreferences $userPreferences;
@@ -101,7 +101,7 @@ class TwoFactor
         return $this->backend;
     }
 
-    /** @return mixed[] */
+    /** @return string[] */
     public function getAvailable(): array
     {
         return $this->available;
@@ -174,7 +174,7 @@ class TwoFactor
     public function getBackendClass(string $name): string
     {
         $result = TwoFactorPlugin::class;
-        if (in_array($name, $this->available)) {
+        if (in_array($name, $this->available, true)) {
             /** @psalm-var class-string<TwoFactorPlugin> $result */
             $result = 'PhpMyAdmin\\Plugins\\TwoFactor\\' . ucfirst($name);
         } elseif ($name !== '') {
@@ -257,7 +257,7 @@ class TwoFactor
             $cls = $this->getBackendClass($name);
             $this->backend = new $cls($this);
         } else {
-            if (! in_array($name, $this->available)) {
+            if (! in_array($name, $this->available, true)) {
                 return false;
             }
 

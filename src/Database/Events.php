@@ -269,12 +269,12 @@ class Events
         }
 
         $query .= 'ON SCHEDULE ';
-        if (! empty($_POST['item_type']) && in_array($_POST['item_type'], $this->type)) {
+        if (! empty($_POST['item_type']) && in_array($_POST['item_type'], $this->type, true)) {
             if ($_POST['item_type'] === 'RECURRING') {
                 if (
                     ! empty($_POST['item_interval_value'])
                     && ! empty($_POST['item_interval_field'])
-                    && in_array($_POST['item_interval_field'], $this->interval)
+                    && in_array($_POST['item_interval_field'], $this->interval, true)
                 ) {
                     $query .= 'EVERY ' . intval($_POST['item_interval_value']) . ' ';
                     $query .= $_POST['item_interval_field'] . ' ';

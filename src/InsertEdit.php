@@ -451,7 +451,7 @@ class InsertEdit
         }
 
         $inputMinMax = '';
-        $isInteger = in_array($column->trueType, $this->dbi->types->getIntegerTypes());
+        $isInteger = in_array($column->trueType, $this->dbi->types->getIntegerTypes(), true);
         if ($isInteger) {
             $extractedColumnspec = Util::extractColumnSpec($column->type);
             $isUnsigned = $extractedColumnspec['unsigned'];
@@ -877,7 +877,7 @@ class InsertEdit
     public function getGotoInclude(string|false $gotoInclude): string
     {
         $validOptions = ['new_insert', 'same_insert', 'edit_next'];
-        if (isset($_POST['after_insert']) && in_array($_POST['after_insert'], $validOptions)) {
+        if (isset($_POST['after_insert']) && in_array($_POST['after_insert'], $validOptions, true)) {
             return '/table/change';
         }
 
@@ -1168,8 +1168,8 @@ class InsertEdit
         }
 
         if (
-            in_array($editField->function, $this->getGisFromTextFunctions())
-            || in_array($editField->function, $this->getGisFromWKBFunctions())
+            in_array($editField->function, $this->getGisFromTextFunctions(), true)
+            || in_array($editField->function, $this->getGisFromWKBFunctions(), true)
         ) {
             preg_match('/^(\'?)(.*?)\1(?:,(\d+))?$/', $editField->value, $matches);
             $escapedParams = $this->dbi->quoteString($matches[2]) . (isset($matches[3]) ? ',' . $matches[3] : '');
@@ -1178,8 +1178,8 @@ class InsertEdit
         }
 
         if (
-            ! in_array($editField->function, self::FUNC_NO_PARAM)
-            || ($editField->value !== '' && in_array($editField->function, self::FUNC_OPTIONAL_PARAM))
+            ! in_array($editField->function, self::FUNC_NO_PARAM, true)
+            || ($editField->value !== '' && in_array($editField->function, self::FUNC_OPTIONAL_PARAM, true))
         ) {
             if (
                 ($editField->salt !== null
@@ -1956,7 +1956,7 @@ class InsertEdit
             }
 
             $virtual = ['VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED'];
-            if (in_array($tableColumn->extra, $virtual)) {
+            if (in_array($tableColumn->extra, $virtual, true)) {
                 continue;
             }
 

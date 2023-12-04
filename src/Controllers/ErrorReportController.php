@@ -48,7 +48,7 @@ class ErrorReportController extends AbstractController
         /** @var string|null $alwaysSend */
         $alwaysSend = $request->getParsedBodyParam('always_send');
 
-        if (! in_array($exceptionType, ['js', 'php'])) {
+        if (! in_array($exceptionType, ['js', 'php'], true)) {
             return;
         }
 

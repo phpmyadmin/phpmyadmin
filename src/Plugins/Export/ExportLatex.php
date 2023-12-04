@@ -598,7 +598,7 @@ class ExportLatex extends ExportPlugin
                 $localBuffer = '\\textit{' . mb_substr($localBuffer, 0, $pos) . '}' . mb_substr($localBuffer, $pos);
             }
 
-            if (in_array($fieldName, $uniqueKeys)) {
+            if (in_array($fieldName, $uniqueKeys, true)) {
                 $pos = (int) mb_strpos($localBuffer, "\000");
                 $localBuffer = '\\textbf{' . mb_substr($localBuffer, 0, $pos) . '}' . mb_substr($localBuffer, $pos);
             }

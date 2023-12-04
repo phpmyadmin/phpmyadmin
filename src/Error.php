@@ -408,9 +408,9 @@ class Error extends Message
             '_realConnect',
         ];
 
-        if (in_array($function, $includeFunctions)) {
+        if (in_array($function, $includeFunctions, true)) {
             $retval .= self::relPath($arg);
-        } elseif (in_array($function, $connectFunctions) && is_string($arg)) {
+        } elseif (in_array($function, $connectFunctions, true) && is_string($arg)) {
             $retval .= gettype($arg) . ' ********';
         } elseif (is_scalar($arg)) {
             $retval .= gettype($arg) . ' '

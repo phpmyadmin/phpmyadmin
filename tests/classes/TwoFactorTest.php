@@ -255,7 +255,7 @@ class TwoFactorTest extends AbstractTestCase
         $request = new ServerRequest($this->createStub(ServerRequestInterface::class));
 
         $object = $this->getTwoFactorAndLoadConfig('user', null);
-        if (! in_array('application', $object->getAvailable())) {
+        if (! in_array('application', $object->getAvailable(), true)) {
             $this->markTestSkipped('google2fa not available');
         }
 
@@ -309,7 +309,7 @@ class TwoFactorTest extends AbstractTestCase
         $request = new ServerRequest($this->createStub(ServerRequestInterface::class));
 
         $object = $this->getTwoFactorAndLoadConfig('user', null);
-        if (! in_array('key', $object->getAvailable())) {
+        if (! in_array('key', $object->getAvailable(), true)) {
             $this->markTestSkipped('u2f-php-server not available');
         }
 
@@ -375,7 +375,7 @@ class TwoFactorTest extends AbstractTestCase
         $request = new ServerRequest($this->createStub(ServerRequestInterface::class));
 
         $object = $this->getTwoFactorAndLoadConfig('user', null);
-        if (! in_array('key', $object->getAvailable())) {
+        if (! in_array('key', $object->getAvailable(), true)) {
             $this->markTestSkipped('u2f-php-server not available');
         }
 

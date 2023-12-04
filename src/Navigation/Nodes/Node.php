@@ -786,7 +786,7 @@ class Node
                         continue;
                     }
 
-                    if (in_array($arr[0], $retval)) {
+                    if (in_array($arr[0], $retval, true)) {
                         continue;
                     }
 
@@ -844,7 +844,7 @@ class Node
                     continue;
                 }
 
-                if (in_array($arr[0], $retval)) {
+                if (in_array($arr[0], $retval, true)) {
                     continue;
                 }
 

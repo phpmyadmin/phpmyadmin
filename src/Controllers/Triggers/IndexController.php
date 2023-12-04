@@ -57,7 +57,10 @@ final class IndexController extends AbstractController
             /**
              * Displays the header and tabs
              */
-            if (! empty($GLOBALS['table']) && in_array($GLOBALS['table'], $this->dbi->getTables($GLOBALS['db']))) {
+            if (
+                ! empty($GLOBALS['table'])
+                && in_array($GLOBALS['table'], $this->dbi->getTables($GLOBALS['db']), true)
+            ) {
                 if (! $this->checkParameters(['db', 'table'])) {
                     return;
                 }

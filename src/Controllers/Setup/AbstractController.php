@@ -23,7 +23,7 @@ abstract class AbstractController
         $ignored = ['Config', 'Servers'];
         $pages = [];
         foreach (SetupFormList::getAllFormNames() as $formset) {
-            if (in_array($formset, $ignored)) {
+            if (in_array($formset, $ignored, true)) {
                 continue;
             }
 

@@ -98,7 +98,7 @@ class Export
         /** @var string[] $handlers */
         $handlers = ob_list_handlers();
 
-        return in_array('ob_gzhandler', $handlers);
+        return in_array('ob_gzhandler', $handlers, true);
     }
 
     /**

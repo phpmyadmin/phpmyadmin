@@ -552,45 +552,45 @@ class NavigationTree
         // Get items to hide
         $hidden = $db->getHiddenItems($this->relationParameters, 'group');
         $config = Config::getInstance();
-        if (! $config->settings['NavigationTreeShowTables'] && ! in_array('tables', $hidden)) {
+        if (! $config->settings['NavigationTreeShowTables'] && ! in_array('tables', $hidden, true)) {
             $hidden[] = 'tables';
         }
 
-        if (! $config->settings['NavigationTreeShowViews'] && ! in_array('views', $hidden)) {
+        if (! $config->settings['NavigationTreeShowViews'] && ! in_array('views', $hidden, true)) {
             $hidden[] = 'views';
         }
 
-        if (! $config->settings['NavigationTreeShowFunctions'] && ! in_array('functions', $hidden)) {
+        if (! $config->settings['NavigationTreeShowFunctions'] && ! in_array('functions', $hidden, true)) {
             $hidden[] = 'functions';
         }
 
-        if (! $config->settings['NavigationTreeShowProcedures'] && ! in_array('procedures', $hidden)) {
+        if (! $config->settings['NavigationTreeShowProcedures'] && ! in_array('procedures', $hidden, true)) {
             $hidden[] = 'procedures';
         }
 
-        if (! $config->settings['NavigationTreeShowEvents'] && ! in_array('events', $hidden)) {
+        if (! $config->settings['NavigationTreeShowEvents'] && ! in_array('events', $hidden, true)) {
             $hidden[] = 'events';
         }
 
         $retval = [];
         if (! $db->hasChildren()) {
-            if (! in_array('tables', $hidden) && $db->getPresence('tables')) {
+            if (! in_array('tables', $hidden, true) && $db->getPresence('tables')) {
                 $retval['tables'] = new NodeTableContainer();
             }
 
-            if (! in_array('views', $hidden) && $db->getPresence('views')) {
+            if (! in_array('views', $hidden, true) && $db->getPresence('views')) {
                 $retval['views'] = new NodeViewContainer();
             }
 
-            if (! in_array('functions', $hidden) && $db->getPresence('functions')) {
+            if (! in_array('functions', $hidden, true) && $db->getPresence('functions')) {
                 $retval['functions'] = new NodeFunctionContainer();
             }
 
-            if (! in_array('procedures', $hidden) && $db->getPresence('procedures')) {
+            if (! in_array('procedures', $hidden, true) && $db->getPresence('procedures')) {
                 $retval['procedures'] = new NodeProcedureContainer();
             }
 
-            if (! in_array('events', $hidden) && $db->getPresence('events')) {
+            if (! in_array('events', $hidden, true) && $db->getPresence('events')) {
                 $retval['events'] = new NodeEventContainer();
             }
 
@@ -1031,8 +1031,8 @@ class NavigationTree
 
             // if node name itself is in sterile, then allow
             $nodeIsGroup = $node->isGroup
-                || (! in_array($parentName, $sterile) && ! $node->isNew)
-                || (in_array($node->realName, $sterile) && $node->children !== []);
+                || (! in_array($parentName, $sterile, true) && ! $node->isNew)
+                || (in_array($node->realName, $sterile, true) && $node->children !== []);
             if ($nodeIsGroup) {
                 $match = $this->findTreeMatch($this->vPath, $paths['vPath_clean']);
                 $linkClasses = $node->getCssClasses($match);

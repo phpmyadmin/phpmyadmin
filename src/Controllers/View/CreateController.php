@@ -265,7 +265,7 @@ class CreateController extends AbstractController
 
         if (
             isset($view['algorithm'])
-            && in_array($view['algorithm'], self::VIEW_ALGORITHM_OPTIONS)
+            && in_array($view['algorithm'], self::VIEW_ALGORITHM_OPTIONS, true)
         ) {
             $sqlQuery .= $separator . ' ALGORITHM = ' . $view['algorithm'];
         }
@@ -283,7 +283,7 @@ class CreateController extends AbstractController
 
         if (
             isset($view['sql_security'])
-            && in_array($view['sql_security'], self::VIEW_SECURITY_OPTIONS)
+            && in_array($view['sql_security'], self::VIEW_SECURITY_OPTIONS, true)
         ) {
             $sqlQuery .= $separator . ' SQL SECURITY '
                 . $view['sql_security'];
@@ -298,7 +298,7 @@ class CreateController extends AbstractController
 
         $sqlQuery .= $separator . ' AS ' . $view['as'];
 
-        if (isset($view['with']) && in_array($view['with'], self::VIEW_WITH_OPTIONS)) {
+        if (isset($view['with']) && in_array($view['with'], self::VIEW_WITH_OPTIONS, true)) {
             $sqlQuery .= $separator . ' WITH ' . $view['with'] . '  CHECK OPTION';
         }
 

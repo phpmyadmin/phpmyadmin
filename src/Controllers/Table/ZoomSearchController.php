@@ -206,7 +206,7 @@ class ZoomSearchController extends AbstractController
             // before any replacement
             $this->originalColumnTypes[] = mb_strtolower($type);
             // check whether table contains geometric columns
-            if (in_array($type, $geomTypes)) {
+            if (in_array($type, $geomTypes, true)) {
                 $this->geomColumnFlag = true;
             }
 
@@ -465,8 +465,8 @@ class ZoomSearchController extends AbstractController
             '',
         );
         $htmlAttributes = '';
-        $isInteger = in_array($cleanType, $this->dbi->types->getIntegerTypes());
-        $isFloat = in_array($cleanType, $this->dbi->types->getFloatTypes());
+        $isInteger = in_array($cleanType, $this->dbi->types->getIntegerTypes(), true);
+        $isFloat = in_array($cleanType, $this->dbi->types->getFloatTypes(), true);
         if ($isInteger) {
             $extractedColumnspec = Util::extractColumnSpec($this->originalColumnTypes[$columnIndex]);
             $isUnsigned = $extractedColumnspec['unsigned'];

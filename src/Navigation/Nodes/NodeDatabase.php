@@ -276,7 +276,7 @@ class NodeDatabase extends Node
         if ($relationParameters->navigationItemsHidingFeature !== null) {
             $hiddenItems = $this->getHiddenItems($relationParameters, substr($type, 0, -1));
             foreach ($retval as $key => $item) {
-                if (! in_array($item, $hiddenItems)) {
+                if (! in_array($item, $hiddenItems, true)) {
                     continue;
                 }
 

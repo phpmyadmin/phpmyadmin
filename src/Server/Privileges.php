@@ -183,7 +183,7 @@ class Privileges
         $usersGrants = explode(',', $row['Table_priv']);
 
         foreach ($avGrants as $currentGrant) {
-            $row[$currentGrant . '_priv'] = in_array($currentGrant, $usersGrants) ? 'Y' : 'N';
+            $row[$currentGrant . '_priv'] = in_array($currentGrant, $usersGrants, true) ? 'Y' : 'N';
         }
 
         unset($row['Table_priv']);
@@ -1462,7 +1462,7 @@ class Privileges
 
         $dbRightsSqls = [];
         foreach ($tablesToSearchForUsers as $tableSearchIn) {
-            if (! in_array($tableSearchIn, $tables)) {
+            if (! in_array($tableSearchIn, $tables, true)) {
                 continue;
             }
 
@@ -1614,6 +1614,7 @@ class Privileges
                 $onePrivilege['grant'] = in_array(
                     'Grant',
                     explode(',', $row['Table_priv']),
+                    true,
                 );
                 $onePrivilege['column_privs'] = ! empty($row['Column_priv']);
                 $onePrivilege['privileges'] = implode(',', $this->extractPrivInfo($row, true));
@@ -1625,6 +1626,7 @@ class Privileges
                 $onePrivilege['grant'] = in_array(
                     'Grant',
                     explode(',', $row['Proc_priv']),
+                    true,
                 );
 
                 $privs = $this->parseProcPriv($row['Proc_priv']);
@@ -1682,7 +1684,7 @@ class Privileges
             $databases = [];
             $escapedDatabases = [];
             foreach ($predDbArray as $currentDb) {
-                if (in_array($currentDb, $databasesToSkip)) {
+                if (in_array($currentDb, $databasesToSkip, true)) {
                     continue;
                 }
 
@@ -1691,7 +1693,7 @@ class Privileges
                 // because the list of databases has special characters
                 // already escaped in $foundRows,
                 // contrary to the output of SHOW DATABASES
-                if (in_array($currentDbEscaped, $foundRows)) {
+                if (in_array($currentDbEscaped, $foundRows, true)) {
                     continue;
                 }
 
@@ -1707,7 +1709,7 @@ class Privileges
             $tables = [];
             if ($result) {
                 while ($row = $result->fetchRow()) {
-                    if (in_array($row[0], $foundRows)) {
+                    if (in_array($row[0], $foundRows, true)) {
                         continue;
                     }
 
@@ -1721,7 +1723,7 @@ class Privileges
 
             $routines = [];
             foreach ($routineData as $routine) {
-                if (in_array($routine['name'], $foundRows)) {
+                if (in_array($routine['name'], $foundRows, true)) {
                     continue;
                 }
 
@@ -2797,38 +2799,38 @@ class Privileges
 
             while ($row2 = $res2->fetchAssoc()) {
                 $tmpArray = explode(',', $row2['Column_priv']);
-                if (in_array('Select', $tmpArray)) {
+                if (in_array('Select', $tmpArray, true)) {
                     $tmpPrivs2['Select'][] = $row2['Column_name'];
                 }
 
-                if (in_array('Insert', $tmpArray)) {
+                if (in_array('Insert', $tmpArray, true)) {
                     $tmpPrivs2['Insert'][] = $row2['Column_name'];
                 }
 
-                if (in_array('Update', $tmpArray)) {
+                if (in_array('Update', $tmpArray, true)) {
                     $tmpPrivs2['Update'][] = $row2['Column_name'];
                 }
 
-                if (! in_array('References', $tmpArray)) {
+                if (! in_array('References', $tmpArray, true)) {
                     continue;
                 }
 
                 $tmpPrivs2['References'][] = $row2['Column_name'];
             }
 
-            if ($tmpPrivs2['Select'] !== [] && ! in_array('SELECT', $tmpPrivs1)) {
+            if ($tmpPrivs2['Select'] !== [] && ! in_array('SELECT', $tmpPrivs1, true)) {
                 $tmpPrivs1[] = 'SELECT (`' . implode('`, `', $tmpPrivs2['Select']) . '`)';
             }
 
-            if ($tmpPrivs2['Insert'] !== [] && ! in_array('INSERT', $tmpPrivs1)) {
+            if ($tmpPrivs2['Insert'] !== [] && ! in_array('INSERT', $tmpPrivs1, true)) {
                 $tmpPrivs1[] = 'INSERT (`' . implode('`, `', $tmpPrivs2['Insert']) . '`)';
             }
 
-            if ($tmpPrivs2['Update'] !== [] && ! in_array('UPDATE', $tmpPrivs1)) {
+            if ($tmpPrivs2['Update'] !== [] && ! in_array('UPDATE', $tmpPrivs1, true)) {
                 $tmpPrivs1[] = 'UPDATE (`' . implode('`, `', $tmpPrivs2['Update']) . '`)';
             }
 
-            if ($tmpPrivs2['References'] !== [] && ! in_array('REFERENCES', $tmpPrivs1)) {
+            if ($tmpPrivs2['References'] !== [] && ! in_array('REFERENCES', $tmpPrivs1, true)) {
                 $tmpPrivs1[] = 'REFERENCES (`' . implode('`, `', $tmpPrivs2['References']) . '`)';
             }
 
@@ -2837,7 +2839,7 @@ class Privileges
                 . Util::backquote($row['Table_name'])
                 . ' TO ' . $this->dbi->quoteString($username)
                 . '@' . $this->dbi->quoteString($hostname)
-                . (in_array('Grant', explode(',', $row['Table_priv']))
+                . (in_array('Grant', explode(',', $row['Table_priv']), true)
                 ? ' WITH GRANT OPTION;'
                 : ';');
         }

@@ -74,7 +74,11 @@ class Normalization
             $column = $def->field;
             $extractedColumnSpec = Util::extractColumnSpec($def->type);
 
-            if ($columnTypeList !== [] && ! in_array(mb_strtoupper($extractedColumnSpec['type']), $columnTypeList)) {
+            if (
+                $columnTypeList !== [] && ! in_array(mb_strtoupper(
+                    $extractedColumnSpec['type'],
+                ), $columnTypeList, true)
+            ) {
                 continue;
             }
 
@@ -411,7 +415,7 @@ class Normalization
                 );
                 $cnt = 0;
                 foreach ($columns as $column) {
-                    if (in_array($column, $pk)) {
+                    if (in_array($column, $pk, true)) {
                         continue;
                     }
 
@@ -691,7 +695,7 @@ class Normalization
                 );
                 $query = 'ALTER TABLE ' . Util::backquote($originalTable);
                 foreach ($columns as $col) {
-                    if (in_array($col, $colPresent)) {
+                    if (in_array($col, $colPresent, true)) {
                         continue;
                     }
 
@@ -836,7 +840,7 @@ class Normalization
             }
 
             foreach ($columns as $column) {
-                if (in_array($column, $pk)) {
+                if (in_array($column, $pk, true)) {
                     continue;
                 }
 
@@ -846,7 +850,7 @@ class Normalization
             }
 
             foreach ($columns as $column) {
-                if (in_array($column, $pk)) {
+                if (in_array($column, $pk, true)) {
                     continue;
                 }
 
@@ -913,7 +917,7 @@ class Normalization
             $table,
         );
         foreach ($columns as $column) {
-            if (in_array($column, $pk)) {
+            if (in_array($column, $pk, true)) {
                 continue;
             }
 

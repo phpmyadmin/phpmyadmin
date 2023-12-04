@@ -182,7 +182,7 @@ class DatabasesController extends AbstractController
                 'SCHEMA_DATA_FREE',
             ];
             $this->sortBy = 'SCHEMA_NAME';
-            if (in_array($sortBy, $sortByAllowList)) {
+            if (in_array($sortBy, $sortByAllowList, true)) {
                 $this->sortBy = $sortBy;
             }
         }

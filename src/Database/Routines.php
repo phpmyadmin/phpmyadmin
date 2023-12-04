@@ -603,7 +603,7 @@ class Routines
             if (
                 $itemType === 'PROCEDURE'
                 && ! empty($itemParamDir[$i])
-                && in_array($itemParamDir[$i], $this->directions)
+                && in_array($itemParamDir[$i], $this->directions, true)
             ) {
                 $params .= $itemParamDir[$i] . ' '
                     . Util::backquote($itemParamName[$i])
@@ -642,7 +642,7 @@ class Routines
 
             if (! empty($itemParamOpsText[$i])) {
                 if ($this->dbi->types->getTypeClass($itemParamType[$i]) === 'CHAR') {
-                    if (! in_array($itemParamType[$i], ['VARBINARY', 'BINARY'])) {
+                    if (! in_array($itemParamType[$i], ['VARBINARY', 'BINARY'], true)) {
                         $params .= ' CHARSET '
                             . mb_strtolower($itemParamOpsText[$i]);
                     }
@@ -820,7 +820,7 @@ class Routines
         }
 
         $itemSqlDataAccess = $_POST['item_sqldataaccess'] ?? '';
-        if (! empty($itemSqlDataAccess) && in_array($itemSqlDataAccess, $this->sqlDataAccess)) {
+        if (in_array($itemSqlDataAccess, $this->sqlDataAccess, true)) {
             $query .= $itemSqlDataAccess . ' ';
         }
 
@@ -861,7 +861,7 @@ class Routines
 
                 if (
                     ! empty($_POST['funcs'][$routine['item_param_name'][$i]])
-                    && in_array($_POST['funcs'][$routine['item_param_name'][$i]], $allFunctions)
+                    && in_array($_POST['funcs'][$routine['item_param_name'][$i]], $allFunctions, true)
                 ) {
                     $queries[] = sprintf(
                         'SET @p%d=%s(%s);',
@@ -1078,7 +1078,7 @@ class Routines
                 $params[$i]['class'] = 'datefield';
             }
 
-            if (in_array($routine['item_param_type'][$i], ['ENUM', 'SET'])) {
+            if (in_array($routine['item_param_type'][$i], ['ENUM', 'SET'], true)) {
                 if ($routine['item_param_type'][$i] === 'ENUM') {
                     $params[$i]['input_type'] = 'radio';
                 } else {

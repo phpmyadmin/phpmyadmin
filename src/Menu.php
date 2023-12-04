@@ -224,7 +224,7 @@ class Menu
         $tabs['structure']['icon'] = 'b_props';
         $tabs['structure']['route'] = '/table/structure';
         $tabs['structure']['text'] = __('Structure');
-        $tabs['structure']['active'] = in_array($route, ['/table/relation', '/table/structure']);
+        $tabs['structure']['active'] = in_array($route, ['/table/relation', '/table/structure'], true);
 
         $tabs['sql']['icon'] = 'b_sql';
         $tabs['sql']['route'] = '/table/sql';
@@ -234,7 +234,11 @@ class Menu
         $tabs['search']['icon'] = 'b_search';
         $tabs['search']['text'] = __('Search');
         $tabs['search']['route'] = '/table/search';
-        $tabs['search']['active'] = in_array($route, ['/table/find-replace', '/table/search', '/table/zoom-search']);
+        $tabs['search']['active'] = in_array($route, [
+            '/table/find-replace',
+            '/table/search',
+            '/table/zoom-search',
+        ], true);
 
         if (! $isSystemSchema && (! $tableIsView || $updatableView)) {
             $tabs['insert']['icon'] = 'b_insrow';
@@ -459,13 +463,13 @@ class Menu
             '/server/status/processes',
             '/server/status/queries',
             '/server/status/variables',
-        ]);
+        ], true);
 
         if ($isSuperUser || $isCreateOrGrantUser) {
             $tabs['rights']['icon'] = 's_rights';
             $tabs['rights']['route'] = '/server/privileges';
             $tabs['rights']['text'] = __('User accounts');
-            $tabs['rights']['active'] = in_array($route, ['/server/privileges', '/server/user-groups']);
+            $tabs['rights']['active'] = in_array($route, ['/server/privileges', '/server/user-groups'], true);
         }
 
         $tabs['export']['icon'] = 'b_export';
@@ -490,7 +494,7 @@ class Menu
             '/preferences/navigation',
             '/preferences/sql',
             '/preferences/two-factor',
-        ]);
+        ], true);
 
         if (! empty($binaryLogs)) {
             $tabs['binlog']['icon'] = 's_tbl';

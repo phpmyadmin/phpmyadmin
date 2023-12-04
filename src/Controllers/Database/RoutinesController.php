@@ -64,7 +64,10 @@ class RoutinesController extends AbstractController
             /**
              * Displays the header and tabs
              */
-            if (! empty($GLOBALS['table']) && in_array($GLOBALS['table'], $this->dbi->getTables($GLOBALS['db']))) {
+            if (
+                ! empty($GLOBALS['table'])
+                && in_array($GLOBALS['table'], $this->dbi->getTables($GLOBALS['db']), true)
+            ) {
                 if (! $this->checkParameters(['db', 'table'])) {
                     return;
                 }
@@ -452,7 +455,7 @@ class RoutinesController extends AbstractController
             }
         }
 
-        if (! isset($type) || ! in_array($type, ['FUNCTION', 'PROCEDURE'])) {
+        if (! isset($type) || ! in_array($type, ['FUNCTION', 'PROCEDURE'], true)) {
             $type = null;
         }
 

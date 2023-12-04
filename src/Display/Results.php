@@ -3058,6 +3058,7 @@ class Results
             isset($_REQUEST['pftext']) && in_array(
                 $_REQUEST['pftext'],
                 [self::DISPLAY_PARTIAL_TEXT, self::DISPLAY_FULL_TEXT],
+                true,
             )
         ) {
             $query['pftext'] = $_REQUEST['pftext'];
@@ -3072,6 +3073,7 @@ class Results
             isset($_REQUEST['relational_display']) && in_array(
                 $_REQUEST['relational_display'],
                 [self::RELATIONAL_KEY, self::RELATIONAL_DISPLAY_COLUMN],
+                true,
             )
         ) {
             $query['relational_display'] = $_REQUEST['relational_display'];
@@ -3087,6 +3089,7 @@ class Results
             isset($_REQUEST['geoOption']) && in_array(
                 $_REQUEST['geoOption'],
                 [self::GEOMETRY_DISP_WKT, self::GEOMETRY_DISP_WKB, self::GEOMETRY_DISP_GEOM],
+                true,
             )
         ) {
             $query['geoOption'] = $_REQUEST['geoOption'];
