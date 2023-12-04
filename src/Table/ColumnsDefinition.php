@@ -157,55 +157,20 @@ final class ColumnsDefinition
             $extractedColumnSpec = [];
 
             if ($regenerate) {
-                $columnMeta = array_merge(
-                    $columnMeta,
-                    [
-                        'Field' => Util::getValueByKey(
-                            $_POST,
-                            'field_name.' . $columnNumber,
-                        ),
-                        'Type' => Util::getValueByKey(
-                            $_POST,
-                            'field_type.' . $columnNumber,
-                        ),
-                        'Collation' => Util::getValueByKey(
-                            $_POST,
-                            'field_collation.' . $columnNumber,
-                            '',
-                        ),
-                        'Null' => Util::getValueByKey(
-                            $_POST,
-                            'field_null.' . $columnNumber,
-                            '',
-                        ),
-                        'DefaultType' => Util::getValueByKey(
-                            $_POST,
-                            'field_default_type.' . $columnNumber,
-                            'NONE',
-                        ),
-                        'DefaultValue' => Util::getValueByKey(
-                            $_POST,
-                            'field_default_value.' . $columnNumber,
-                            '',
-                        ),
-                        'Extra' => Util::getValueByKey(
-                            $_POST,
-                            'field_extra.' . $columnNumber,
-                        ),
-                        'Virtuality' => Util::getValueByKey(
-                            $_POST,
-                            'field_virtuality.' . $columnNumber,
-                            '',
-                        ),
-                        'Expression' => Util::getValueByKey(
-                            $_POST,
-                            'field_expression.' . $columnNumber,
-                            '',
-                        ),
-                    ],
-                );
+                $columnMeta = [
+                    'Field' => Util::getValueByKey($_POST, 'field_name.' . $columnNumber),
+                    'Type' => Util::getValueByKey($_POST, 'field_type.' . $columnNumber),
+                    'Collation' => Util::getValueByKey($_POST, 'field_collation.' . $columnNumber, ''),
+                    'Null' => Util::getValueByKey($_POST, 'field_null.' . $columnNumber, ''),
+                    'DefaultType' => Util::getValueByKey($_POST, 'field_default_type.' . $columnNumber, 'NONE'),
+                    'DefaultValue' => Util::getValueByKey($_POST, 'field_default_value.' . $columnNumber, ''),
+                    'Extra' => Util::getValueByKey($_POST, 'field_extra.' . $columnNumber),
+                    'Virtuality' => Util::getValueByKey($_POST, 'field_virtuality.' . $columnNumber, ''),
+                    'Expression' => Util::getValueByKey($_POST, 'field_expression.' . $columnNumber, ''),
+                    'Key' => '',
+                    'Comment' => false,
+                ];
 
-                $columnMeta['Key'] = '';
                 $parts = explode(
                     '_',
                     Util::getValueByKey($_POST, 'field_key.' . $columnNumber, ''),
@@ -221,8 +186,6 @@ final class ColumnsDefinition
                         default => '',
                     };
                 }
-
-                $columnMeta['Comment'] = false;
 
                 switch ($columnMeta['DefaultType']) {
                     case 'NONE':
