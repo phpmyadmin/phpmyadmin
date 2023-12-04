@@ -11761,6 +11761,8 @@
     <MixedArrayAccess>
       <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
       <code><![CDATA[$availableMime[$mimeType . '_file'][$mimekey]]]></code>
+      <code><![CDATA[$columnMeta['column_status']['isEditable']]]></code>
+      <code><![CDATA[$columnMeta['column_status']['isEditable']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
@@ -11797,7 +11799,6 @@
       <code><![CDATA[$formParams['table']]]></code>
     </PossiblyInvalidCast>
     <PossiblyUndefinedArrayOffset>
-      <code><![CDATA[$columnMeta['Default']]]></code>
       <code><![CDATA[$columnMeta['DefaultValue']]]></code>
     </PossiblyUndefinedArrayOffset>
   </file>
