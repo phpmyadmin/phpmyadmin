@@ -53,7 +53,7 @@ class GisDataEditorController extends AbstractController
         // Get data if any posted
         $gisData = is_array($gisDataParam) ? $gisDataParam : [];
 
-        $gisData = $this->validateGisData($gisData, $type, $value);
+        $gisData['gis_type'] = $this->extractGisType($gisData['gis_type'] ?? null, $type, $value);
         $geomType = $gisData['gis_type'];
 
         // Generate parameters from value passed.
@@ -108,28 +108,23 @@ class GisDataEditorController extends AbstractController
     /**
      * Extract type from the initial call and make sure that it's a valid one.
      * Extract from field's values if available, if not use the column type passed.
-     *
-     * @param mixed[] $gisData
-     *
-     * @return mixed[]
-     * @psalm-return array{gis_type:value-of<self::GIS_TYPES>}&mixed[]
      */
-    private function validateGisData(array $gisData, string $type, string|null $value): array
+    private function extractGisType(mixed $gisType, string $type, string|null $value): string
     {
-        if (! isset($gisData['gis_type']) || ! in_array($gisData['gis_type'], self::GIS_TYPES, true)) {
+        if (! in_array($gisType, self::GIS_TYPES, true)) {
             if ($type !== '') {
-                $gisData['gis_type'] = mb_strtoupper($type);
+                $gisType = mb_strtoupper($type);
             }
 
-            if (isset($value) && trim($value) !== '' && preg_match('/^\'?(\w+)\b/', $value, $matches)) {
-                $gisData['gis_type'] = $matches[1];
+            if ($value !== null && trim($value) !== '' && preg_match('/^\'?(\w+)\b/', $value, $matches)) {
+                $gisType = $matches[1];
             }
 
-            if (! isset($gisData['gis_type']) || (! in_array($gisData['gis_type'], self::GIS_TYPES, true))) {
-                $gisData['gis_type'] = self::GIS_TYPES[0];
+            if (! in_array($gisType, self::GIS_TYPES, true)) {
+                $gisType = self::GIS_TYPES[0];
             }
         }
 
-        return $gisData;
+        return $gisType;
     }
 }
