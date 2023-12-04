@@ -23,7 +23,6 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
-use function intval;
 use function is_array;
 use function is_numeric;
 use function min;
@@ -70,22 +69,7 @@ class AddFieldController extends AbstractController
         $GLOBALS['errorUrl'] = Url::getFromRoute('/table/sql', ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']]);
 
         // check number of fields to be created
-        $regenerate = false;
-        if (isset($_POST['submit_num_fields'])) {
-            if (isset($_POST['orig_after_field'])) {
-                $_POST['after_field'] = $_POST['orig_after_field'];
-            }
-
-            if (isset($_POST['orig_field_where'])) {
-                $_POST['field_where'] = $_POST['orig_field_where'];
-            }
-
-            $numFields = min(
-                intval($_POST['orig_num_fields']) + intval($_POST['added_fields']),
-                4096,
-            );
-            $regenerate = true;
-        } elseif (is_numeric($numberOfFields) && $numberOfFields > 0) {
+        if (is_numeric($numberOfFields) && $numberOfFields > 0) {
             $numFields = min(4096, (int) $numberOfFields);
         } else {
             $numFields = 1;
@@ -204,7 +188,7 @@ class AddFieldController extends AbstractController
             return;
         }
 
-        $templateData = $this->columnsDefinition->displayForm('/table/add-field', $numFields, $regenerate);
+        $templateData = $this->columnsDefinition->displayForm('/table/add-field', $numFields);
 
         $this->render('columns_definitions/column_definitions_form', $templateData);
     }

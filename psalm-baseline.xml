@@ -3300,8 +3300,12 @@
       <code><![CDATA[$GLOBALS['result']]]></code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
+      <code><![CDATA[$_POST['field_input_transformation'][$fieldindex]]]></code>
+      <code><![CDATA[$_POST['field_input_transformation_options'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_name'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_name'][$fieldindex]]]></code>
+      <code><![CDATA[$_POST['field_transformation'][$fieldindex]]]></code>
+      <code><![CDATA[$_POST['field_transformation_options'][$fieldindex]]]></code>
       <code>$mimetype</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidArrayOffset>
@@ -3311,7 +3315,11 @@
       <code><![CDATA[$_POST['field_transformation_options'][$fieldindex]]]></code>
     </PossiblyInvalidArrayOffset>
     <PossiblyInvalidCast>
+      <code><![CDATA[$_POST['field_input_transformation'][$fieldindex]]]></code>
+      <code><![CDATA[$_POST['field_input_transformation_options'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_name'][$fieldindex]]]></code>
+      <code><![CDATA[$_POST['field_transformation'][$fieldindex]]]></code>
+      <code><![CDATA[$_POST['field_transformation_options'][$fieldindex]]]></code>
       <code>$mimetype</code>
     </PossiblyInvalidCast>
   </file>

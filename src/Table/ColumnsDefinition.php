@@ -45,9 +45,8 @@ final class ColumnsDefinition
     }
 
     /**
-     * @param int          $numFields  The number of fields
-     * @param bool  $regenerate Use regeneration
-     * @param mixed[]|null $selected   Selected
+     * @param mixed[]|null $selected  Selected
+     * @param int          $numFields The number of fields
      * @psalm-param list<array{
      *  Field: string,
      *  Type: string,
@@ -66,7 +65,6 @@ final class ColumnsDefinition
     public function displayForm(
         string $action,
         int $numFields = 0,
-        bool $regenerate = false,
         array|null $selected = null,
         array|null $fieldsMeta = null,
     ): array {
@@ -74,6 +72,7 @@ final class ColumnsDefinition
         $GLOBALS['is_reload_priv'] ??= null;
         $GLOBALS['mime_map'] ??= null;
 
+        $regenerate = false;
         $lengthValuesInputSize = 8;
         $contentCells = [];
         $formParams = ['db' => $GLOBALS['db']];
