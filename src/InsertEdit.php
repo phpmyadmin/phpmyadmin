@@ -730,7 +730,6 @@ class InsertEdit
      * @param mixed[]          $extractedColumnspec associative array containing type,
      *                                              spec_in_brackets and possibly
      *                                              enum_set_values (another array)
-     * @param mixed[]          $gisDataTypes        list of GIS data types
      * @param string           $columnNameAppendix  string to append to column name in input
      * @param bool             $asIs                use the data as is, used in repopulating
      *
@@ -742,7 +741,6 @@ class InsertEdit
         array $currentRow,
         InsertEditColumn $column,
         array $extractedColumnspec,
-        array $gisDataTypes,
         string $columnNameAppendix,
         bool $asIs,
     ): array {
@@ -772,7 +770,7 @@ class InsertEdit
                 ? $currentRow[$column->field]
                 : Util::addMicroseconds($currentRow[$column->field]);
             $specialChars = htmlspecialchars($currentRow[$column->field], ENT_COMPAT);
-        } elseif (in_array($column->trueType, $gisDataTypes)) {
+        } elseif (in_array($column->trueType, Gis::getDataTypes(), true)) {
             // Convert gis data to Well Know Text format
             $currentRow[$column->field] = $asIs
                 ? $currentRow[$column->field]
@@ -1635,9 +1633,6 @@ class InsertEdit
         // in the name attribute (see bug #1746964 )
         $columnNameAppendix = $vkey . '[' . $fieldHashMd5 . ']';
 
-        // Get a list of GIS data types.
-        $gisDataTypes = Gis::getDataTypes();
-
         // Prepares the field value
         if ($currentRow !== []) {
             // (we are editing)
@@ -1651,7 +1646,6 @@ class InsertEdit
                 $currentRow,
                 $column,
                 $extractedColumnspec,
-                $gisDataTypes,
                 $columnNameAppendix,
                 $asIs,
             );
@@ -1872,7 +1866,7 @@ class InsertEdit
             'is_value_foreign_link' => $foreignData['foreign_link'] === true,
             'backup_field' => $backupField,
             'data' => $data,
-            'gis_data_types' => $gisDataTypes,
+            'gis_data_types' => Gis::getDataTypes(),
             'foreign_dropdown' => $foreignDropdown,
             'data_type' => $dataType,
             'textarea_cols' => $textareaCols,

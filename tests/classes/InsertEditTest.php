@@ -1063,7 +1063,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getSpecialCharsAndBackupFieldForExistingRow',
-            [$currentRow, $column, [], [], 'a', false],
+            [$currentRow, $column, [], 'a', false],
         );
 
         $this->assertEquals(
@@ -1094,7 +1094,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getSpecialCharsAndBackupFieldForExistingRow',
-            [$currentRow, $column, $extractedColumnSpec, [], 'a', false],
+            [$currentRow, $column, $extractedColumnSpec, 'a', false],
         );
 
         $this->assertEquals(
@@ -1107,7 +1107,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getSpecialCharsAndBackupFieldForExistingRow',
-            [$currentRow, $column, $extractedColumnSpec, [], 'a', true],
+            [$currentRow, $column, $extractedColumnSpec, 'a', true],
         );
 
         $this->assertEquals(
@@ -1133,7 +1133,7 @@ class InsertEditTest extends AbstractTestCase
         $extractedColumnSpec['spec_in_brackets'] = '20';
         $column = new InsertEditColumn(
             'f',
-            'int',
+            'geometry',
             false,
             'PRI',
             null,
@@ -1149,7 +1149,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getSpecialCharsAndBackupFieldForExistingRow',
-            [$currentRow, $column, $extractedColumnSpec, ['int'], 'a', false],
+            [$currentRow, $column, $extractedColumnSpec, 'a', false],
         );
 
         $this->assertEquals(
@@ -1181,7 +1181,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getSpecialCharsAndBackupFieldForExistingRow',
-            [$currentRow, $column, $extractedColumnSpec, ['int'], 'a', false],
+            [$currentRow, $column, $extractedColumnSpec, 'a', false],
         );
 
         $this->assertEquals(
@@ -1202,7 +1202,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getSpecialCharsAndBackupFieldForExistingRow',
-            [$currentRow, $column, $extractedColumnSpec, ['int'], 'a', false],
+            [$currentRow, $column, $extractedColumnSpec, 'a', false],
         );
 
         $this->assertEquals(
