@@ -3286,11 +3286,9 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['regenerate']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['regenerate']]]></code>
       <code><![CDATA[$_POST['field_input_transformation'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_input_transformation_options'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_transformation'][$fieldindex]]]></code>
@@ -3299,7 +3297,6 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['regenerate']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
     </MixedAssignment>
     <PossiblyInvalidArgument>

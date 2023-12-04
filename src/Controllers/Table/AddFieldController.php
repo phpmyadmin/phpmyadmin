@@ -51,7 +51,6 @@ class AddFieldController extends AbstractController
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['message'] ??= null;
         $GLOBALS['active_page'] ??= null;
-        $GLOBALS['regenerate'] ??= null;
         $GLOBALS['result'] ??= null;
 
         /** @var string|null $numberOfFields */
@@ -71,6 +70,7 @@ class AddFieldController extends AbstractController
         $GLOBALS['errorUrl'] = Url::getFromRoute('/table/sql', ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']]);
 
         // check number of fields to be created
+        $regenerate = false;
         if (isset($_POST['submit_num_fields'])) {
             if (isset($_POST['orig_after_field'])) {
                 $_POST['after_field'] = $_POST['orig_after_field'];
@@ -84,7 +84,7 @@ class AddFieldController extends AbstractController
                 intval($_POST['orig_num_fields']) + intval($_POST['added_fields']),
                 4096,
             );
-            $GLOBALS['regenerate'] = true;
+            $regenerate = true;
         } elseif (is_numeric($numberOfFields) && $numberOfFields > 0) {
             $numFields = min(4096, (int) $numberOfFields);
         } else {
@@ -204,7 +204,7 @@ class AddFieldController extends AbstractController
             return;
         }
 
-        $templateData = $this->columnsDefinition->displayForm('/table/add-field', $numFields, $GLOBALS['regenerate']);
+        $templateData = $this->columnsDefinition->displayForm('/table/add-field', $numFields, $regenerate);
 
         $this->render('columns_definitions/column_definitions_form', $templateData);
     }

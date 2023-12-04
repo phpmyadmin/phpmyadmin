@@ -5496,11 +5496,6 @@ parameters:
 			path: src/Controllers/Table/AddFieldController.php
 
 		-
-			message: "#^Parameter \\#3 \\$regenerate of method PhpMyAdmin\\\\Table\\\\ColumnsDefinition\\:\\:displayForm\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/AddFieldController.php
-
-		-
 			message: "#^Parameter \\#4 \\$backUrl of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:mysqlDie\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/AddFieldController.php
@@ -17997,7 +17992,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 2
+			count: 1
 			path: src/Table/ColumnsDefinition.php
 
 		-

@@ -46,7 +46,7 @@ final class ColumnsDefinition
 
     /**
      * @param int          $numFields  The number of fields
-     * @param string|null  $regenerate Use regeneration
+     * @param bool  $regenerate Use regeneration
      * @param mixed[]|null $selected   Selected
      * @psalm-param list<array{
      *  Field: string,
@@ -66,7 +66,7 @@ final class ColumnsDefinition
     public function displayForm(
         string $action,
         int $numFields = 0,
-        string|null $regenerate = null,
+        bool $regenerate = false,
         array|null $selected = null,
         array|null $fieldsMeta = null,
     ): array {
@@ -138,7 +138,7 @@ final class ColumnsDefinition
 
         if (isset($_POST['submit_num_fields']) || isset($_POST['submit_partition_change'])) {
             //if adding new fields, set regenerate to keep the original values
-            $regenerate = 1;
+            $regenerate = true;
         }
 
         $foreigners = $this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'foreign');
@@ -157,7 +157,7 @@ final class ColumnsDefinition
             $submitAttribute = null;
             $extractedColumnSpec = [];
 
-            if (! empty($regenerate)) {
+            if ($regenerate) {
                 $columnMeta = array_merge(
                     $columnMeta,
                     [

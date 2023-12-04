@@ -92,7 +92,7 @@ final class ChangeController extends AbstractController
         $templateData = $this->columnsDefinition->displayForm(
             '/table/structure/save',
             count($fieldsMeta),
-            null,
+            false,
             $selected,
             $fieldsMeta,
         );
