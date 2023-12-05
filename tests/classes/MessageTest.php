@@ -275,57 +275,6 @@ class MessageTest extends AbstractTestCase
     }
 
     /**
-     * Data provider for testDecodeBB
-     *
-     * @return mixed[] Test data
-     */
-    public static function decodeBBDataProvider(): array
-    {
-        return [
-            ['[em]test[/em][em]aa[em/][em]test[/em]', '<em>test</em><em>aa[em/]<em>test</em>'],
-            ['[strong]test[/strong][strong]test[/strong]', '<strong>test</strong><strong>test</strong>'],
-            ['[code]test[/code][code]test[/code]', '<code>test</code><code>test</code>'],
-            ['[kbd]test[/kbd][br][sup]test[/sup]', '<kbd>test</kbd><br><sup>test</sup>'],
-            [
-                '[a@https://example.com/@Documentation]link[/a]',
-                '<a href="index.php?route=/url&url=https%3A%2F%2Fexample.com%2F" target="Documentation">link</a>',
-            ],
-            ['[a@./non-existing@Documentation]link[/a]', '[a@./non-existing@Documentation]link</a>'],
-            [
-                '[doc@foo]link[/doc]',
-                '<a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2F'
-                . 'latest%2Fsetup.html%23foo" '
-                . 'target="documentation">link</a>',
-            ],
-            [
-                '[doc@page@anchor]link[/doc]',
-                '<a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2F'
-                . 'latest%2Fpage.html%23anchor" '
-                . 'target="documentation">link</a>',
-            ],
-            [
-                '[doc@faqmysql]link[/doc]',
-                '<a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2F'
-                . 'latest%2Ffaq.html%23faqmysql" '
-                . 'target="documentation">link</a>',
-            ],
-        ];
-    }
-
-    /**
-     * testing decodeBB method
-     *
-     * @param string $actual   BB code string
-     * @param string $expected Expected decoded string
-     */
-    #[DataProvider('decodeBBDataProvider')]
-    public function testDecodeBB(string $actual, string $expected): void
-    {
-        unset($GLOBALS['server']);
-        $this->assertEquals($expected, Message::decodeBB($actual));
-    }
-
-    /**
      * testing getHash method
      */
     public function testGetHash(): void

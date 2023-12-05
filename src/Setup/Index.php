@@ -158,7 +158,7 @@ class Index
                 'notice',
                 $messageId,
                 __('Version check'),
-                Sanitize::sanitizeMessage(sprintf(__('You are using Git version, run [kbd]git pull[/kbd]'
+                Sanitize::convertBBCode(sprintf(__('You are using Git version, run [kbd]git pull[/kbd]'
                     . ' :-)[br]The latest stable version is %s, released on %s.'), $version, $date)),
             );
         } else {

@@ -463,19 +463,6 @@ class Message implements Stringable
     }
 
     /**
-     * decode $message, taking into account our special codes
-     * for formatting
-     *
-     * @param string $message the message
-     *
-     * @return string  the decoded message
-     */
-    public static function decodeBB(string $message): string
-    {
-        return Sanitize::sanitizeMessage($message, false, true);
-    }
-
-    /**
      * returns unique Message::$hash, if not exists it will be created
      *
      * @return string Message::$hash
@@ -512,7 +499,7 @@ class Message implements Stringable
         }
 
         if ($this->useBBCode) {
-            $message = self::decodeBB($message);
+            $message = Sanitize::convertBBCode($message, true);
         }
 
         foreach ($this->getAddedMessages() as $addMessage) {

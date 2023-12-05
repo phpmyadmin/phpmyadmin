@@ -38,7 +38,7 @@ class Descriptions
             $value = $type === 'name' ? $path : '';
         }
 
-        return Sanitize::sanitizeMessage($value);
+        return Sanitize::convertBBCode($value);
     }
 
     /** @return array<string, string> */

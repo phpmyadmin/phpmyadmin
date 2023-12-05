@@ -209,7 +209,7 @@ class Routing
         return $response->write($template->render('error/generic', [
             'lang' => $GLOBALS['lang'] ?? 'en',
             'dir' => $GLOBALS['text_dir'] ?? 'ltr',
-            'error_message' => Sanitize::sanitizeMessage(sprintf(
+            'error_message' => Sanitize::convertBBCode(sprintf(
                 __('Error 404! The page %s was not found.'),
                 '[code]' . htmlspecialchars($route) . '[/code]',
             )),

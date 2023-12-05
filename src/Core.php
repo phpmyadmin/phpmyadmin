@@ -118,7 +118,7 @@ class Core
         }
 
         if ($fatal) {
-            throw new MissingExtensionException(Sanitize::sanitizeMessage($message));
+            throw new MissingExtensionException(Sanitize::convertBBCode($message));
         }
 
         ErrorHandler::getInstance()->addError($message, E_USER_WARNING, '', 0, false);

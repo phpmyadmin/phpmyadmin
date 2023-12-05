@@ -21,7 +21,7 @@ class SanitizeExtension extends AbstractExtension
         return [
             new TwigFilter(
                 'sanitize',
-                Sanitize::sanitizeMessage(...),
+                Sanitize::convertBBCode(...),
                 ['is_safe' => ['html']],
             ),
         ];

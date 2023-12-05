@@ -13,7 +13,6 @@ use function __;
 use function array_keys;
 use function array_merge;
 use function count;
-use function htmlspecialchars;
 use function in_array;
 use function is_string;
 use function json_encode;
@@ -88,11 +87,11 @@ class Sanitize
     /**
      * Callback function for replacing [a@link@target] links in bb code.
      *
-     * @param mixed[] $found Array of preg matches
+     * @param string[] $found Array of preg matches
      *
      * @return string Replaced string
      */
-    public static function replaceBBLink(array $found): string
+    private static function replaceBBLink(array $found): string
     {
         /* Check for valid link */
         if (! self::checkLink($found[1])) {
@@ -128,7 +127,7 @@ class Sanitize
      *
      * @param string[] $found Array of preg matches
      */
-    public static function replaceDocLink(array $found): string
+    private static function replaceDocLink(array $found): string
     {
         if (count($found) >= 4) {
             /* doc@page@anchor pattern */
@@ -153,45 +152,42 @@ class Sanitize
     }
 
     /**
-     * Sanitizes $message, taking into account our special codes
-     * for formatting.
-     *
-     * If you want to include result in element attribute, you should escape it.
-     *
-     * Examples:
-     *
-     * <p><?php echo Sanitize::sanitizeMessage($foo); ?></p>
-     *
-     * <a title="<?php echo Sanitize::sanitizeMessage($foo, true); ?>">bar</a>
+     * Sanitizes $message, taking into account our special codes for formatting.
      *
      * @param string $message the message
-     * @param bool   $escape  whether to escape html in result
      * @param bool   $safe    whether string is safe (can keep < and > chars)
      */
-    public static function sanitizeMessage(string $message, bool $escape = false, bool $safe = false): string
+    public static function convertBBCode(string $message, bool $safe = false): string
     {
         if (! $safe) {
-            $message = strtr($message, ['<' => '&lt;', '>' => '&gt;']);
+            $message = strtr($message, ['<' => '&lt;', '>' => '&gt;', '"' => '&quot;', "'" => '&#039;']);
         }
 
-        /* Interpret bb code */
-        $replacePairs = [
-            '[em]' => '<em>',
-            '[/em]' => '</em>',
-            '[strong]' => '<strong>',
-            '[/strong]' => '</strong>',
-            '[code]' => '<code>',
-            '[/code]' => '</code>',
-            '[kbd]' => '<kbd>',
-            '[/kbd]' => '</kbd>',
-            '[br]' => '<br>',
-            '[/a]' => '</a>',
-            '[/doc]' => '</a>',
-            '[sup]' => '<sup>',
-            '[/sup]' => '</sup>',
-            // used in libraries/Util.php
-            '[dochelpicon]' => Html\Generator::getImage('b_help', __('Documentation')),
-        ];
+        /**
+         * Interpret bb code
+         *
+         * @var array<string, string> $replacePairs
+         */
+        static $replacePairs = [];
+        if ($replacePairs === []) {
+            $replacePairs = [
+                '[em]' => '<em>',
+                '[/em]' => '</em>',
+                '[strong]' => '<strong>',
+                '[/strong]' => '</strong>',
+                '[code]' => '<code>',
+                '[/code]' => '</code>',
+                '[kbd]' => '<kbd>',
+                '[/kbd]' => '</kbd>',
+                '[br]' => '<br>',
+                '[/a]' => '</a>',
+                '[/doc]' => '</a>',
+                '[sup]' => '<sup>',
+                '[/sup]' => '</sup>',
+                // used in libraries/Util.php
+                '[dochelpicon]' => Html\Generator::getImage('b_help', __('Documentation')),
+            ];
+        }
 
         $message = strtr($message, $replacePairs);
 
@@ -206,19 +202,12 @@ class Sanitize
         );
 
         /* Replace documentation links */
-        $message = (string) preg_replace_callback(
+        return (string) preg_replace_callback(
             '/\[doc@([a-zA-Z0-9_-]+)(@([a-zA-Z0-9_-]*))?\]/',
             /** @param string[] $match */
             static fn (array $match): string => self::replaceDocLink($match),
             $message,
         );
-
-        /* Possibly escape result */
-        if ($escape) {
-            return htmlspecialchars($message);
-        }
-
-        return $message;
     }
 
     /**

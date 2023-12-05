@@ -186,7 +186,7 @@ class Validator
                         $result[$key] = [];
                     }
 
-                    $errorList = array_map(Sanitize::sanitizeMessage(...), (array) $errorList);
+                    $errorList = array_map(Sanitize::convertBBCode(...), (array) $errorList);
                     $result[$key] = array_merge($result[$key], $errorList);
                 }
             }
