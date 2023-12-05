@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-12-03 00:19+0000\n"
 "PO-Revision-Date: 2023-12-06 11:04+0000\n"
-"Last-Translator: Fred F <fredf@users.noreply.hosted.weblate.org>\n"
+"Last-Translator: EGuillemot <Elouen.Guillemot@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -13891,10 +13891,8 @@ msgid "up to date"
 msgstr "à jour"
 
 #: src/Controllers/JavaScriptMessagesController.php:618
-#, fuzzy
-#| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
-msgstr "Erreur lors de l'importation du fichier de formes ESRI : « %s »."
+msgstr "Erreur lors du chargement d'information Git."
 
 #: src/Controllers/JavaScriptMessagesController.php:621
 msgid ""
@@ -17057,10 +17055,8 @@ msgid "The table name is empty!"
 msgstr "Le nom de la table est vide !"
 
 #: src/Partitioning/Maintenance.php:142
-#, fuzzy
-#| msgid "This is a read-only variable and can not be edited"
 msgid "This table is a view, it can not be truncated."
-msgstr "Ceci est une variable en lecture seule qui ne peut pas être modifiée"
+msgstr "Cette table est une vue, elle ne peut pas être tronquée."
 
 #: src/Pdf.php:138
 msgid "Error while creating PDF:"
