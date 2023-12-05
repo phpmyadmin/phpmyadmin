@@ -5952,11 +5952,9 @@
       <code>$dbAlias</code>
       <code>$dbAlias</code>
       <code>$table</code>
-      <code>$table</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$dbSelect</code>
-      <code>$tables</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$aliases[$db->getName()]['alias']]]></code>
@@ -5986,7 +5984,6 @@
       <code>$colAs</code>
       <code>$dbAlias</code>
       <code>$dbAlias</code>
-      <code>$table</code>
       <code>$table</code>
       <code>$tableName</code>
       <code>$tbl</code>
