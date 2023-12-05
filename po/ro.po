@@ -5579,10 +5579,10 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Ești pe cale să DISTRUGI o bază de date întreagă!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:43
-msgid "Cannot rename database to the same name. Change the name and try again"
+msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr ""
 "Baza de date nu poate fi redenumită cu același nume. Schimbă numele și "
-"încearcă din nou"
+"încearcă din nou."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:45
 msgid "You are about to DESTROY a complete table!"

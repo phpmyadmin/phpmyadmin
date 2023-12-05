@@ -5422,9 +5422,9 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Oled KUSTUTAMAS kogu andmebaasi!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:43
-msgid "Cannot rename database to the same name. Change the name and try again"
+msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr ""
-"Andmebaasi uus nimi ei saa olla ta vana nimi. Muuda uut nime ja proovi uuesti"
+"Andmebaasi uus nimi ei saa olla ta vana nimi. Muuda uut nime ja proovi uuesti."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:45
 msgid "You are about to DESTROY a complete table!"

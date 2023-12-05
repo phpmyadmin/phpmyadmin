@@ -5393,10 +5393,10 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Jūs taisaties LIKVIDĒT veselu datubāzi!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:43
-msgid "Cannot rename database to the same name. Change the name and try again"
+msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr ""
 "Nevar pārsaukt datubāzi uz to pašu nosaukumu. Nomainiet nosaukumu un "
-"mēģiniet vēlreiz"
+"mēģiniet vēlreiz."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:45
 msgid "You are about to DESTROY a complete table!"

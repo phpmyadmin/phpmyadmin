@@ -5022,7 +5022,7 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "פעולה זו עלולה להשמיד מסד נתונים שלם!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:43
-msgid "Cannot rename database to the same name. Change the name and try again"
+msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr "לא ניתן לשנות את שם מסד הנתונים לאותו השם. נא לשנות את השם ולנסות שוב"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:45

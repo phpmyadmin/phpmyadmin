@@ -5692,8 +5692,8 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Du är på väg att RADERA en hel databas!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:43
-msgid "Cannot rename database to the same name. Change the name and try again"
-msgstr "Kan inte döpa om databasen till samma namn. Byt namn och testa igen"
+msgid "Cannot rename database to the same name. Change the name and try again."
+msgstr "Kan inte döpa om databasen till samma namn. Byt namn och testa igen."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:45
 msgid "You are about to DESTROY a complete table!"

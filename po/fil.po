@@ -4963,10 +4963,10 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Malapit mo nang MAGIBA ang isang kumpletong database!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:43
-msgid "Cannot rename database to the same name. Change the name and try again"
+msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr ""
 "Hindi maaaring palitan ang pangalan ng database sa parehong pangalan. "
-"Baguhin ang pangalan at subukang muli"
+"Baguhin ang pangalan at subukang muli."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:45
 msgid "You are about to DESTROY a complete table!"

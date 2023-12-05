@@ -4935,7 +4935,7 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "تۆ خەریکی سڕینەوەی تەواوی بنکە زانیاریەکەیت!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:43
-msgid "Cannot rename database to the same name. Change the name and try again"
+msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr ""
 "ناتوانی ناونانه‌وه‌ی بنكەی دراوەبكەیت بۆ هەندێک ناو، تكایە ناوەكە بگۆڕە "
 "دووبارە هەوڵ بدەرەوە."
