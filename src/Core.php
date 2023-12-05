@@ -157,29 +157,17 @@ class Core
     }
 
     /**
-     * Checks given $page against given $allowList and returns true if valid
-     * it optionally ignores query parameters in $page (script.php?ignored)
-     *
-     * @param string  $page      page to check
-     * @param mixed[] $allowList allow list to check page against
-     * @param bool    $include   whether the page is going to be included
+     * Checks if the given $page is index.php and returns true if valid.
+     * It ignores query parameters in $page (script.php?ignored)
      */
-    public static function checkPageValidity(string $page, array $allowList = [], bool $include = false): bool
+    public static function checkPageValidity(string $page): bool
     {
-        if ($allowList === []) {
-            $allowList = ['index.php'];
-        }
-
         if ($page === '') {
             return false;
         }
 
-        if (in_array($page, $allowList)) {
+        if ($page === 'index.php') {
             return true;
-        }
-
-        if ($include) {
-            return false;
         }
 
         $newPage = mb_substr(
@@ -187,7 +175,7 @@ class Core
             0,
             (int) mb_strpos($page . '?', '?'),
         );
-        if (in_array($newPage, $allowList)) {
+        if ($newPage === 'index.php') {
             return true;
         }
 
@@ -198,7 +186,7 @@ class Core
             (int) mb_strpos($newPage . '?', '?'),
         );
 
-        return in_array($newPage, $allowList);
+        return $newPage === 'index.php';
     }
 
     /**

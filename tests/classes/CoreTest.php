@@ -237,33 +237,29 @@ class CoreTest extends AbstractTestCase
     /**
      * Test for Core::checkPageValidity
      *
-     * @param string   $page      Page
-     * @param string[] $allowList Allow list
-     * @param bool     $include   whether the page is going to be included
-     * @param bool     $expected  Expected value
+     * @param string $page     Page
+     * @param bool   $expected Expected value
      */
     #[DataProvider('providerTestGotoNowhere')]
-    public function testGotoNowhere(string $page, array $allowList, bool $include, bool $expected): void
+    public function testGotoNowhere(string $page, bool $expected): void
     {
-        $this->assertSame($expected, Core::checkPageValidity($page, $allowList, $include));
+        $this->assertSame($expected, Core::checkPageValidity($page));
     }
 
     /**
      * Data provider for testGotoNowhere
      *
-     * @return array<array{string, string[], bool, bool}>
+     * @return array<array{string, bool}>
      */
     public static function providerTestGotoNowhere(): array
     {
         return [
-            ['', [], false, false],
-            ['', [], true, false],
-            ['shell.php', ['index.php'], false, false],
-            ['shell.php', ['index.php'], true, false],
-            ['index.php?sql.php&test=true', ['index.php'], false, true],
-            ['index.php?sql.php&test=true', ['index.php'], true, false],
-            ['index.php%3Fsql.php%26test%3Dtrue', ['index.php'], false, true],
-            ['index.php%3Fsql.php%26test%3Dtrue', ['index.php'], true, false],
+            ['', false],
+            ['shell.php', false],
+            ['index.php?sql.php&test=true', true],
+            ['shell.php?sql.php&test=true', false],
+            ['index.php%3Fsql.php%26test%3Dtrue', true],
+            ['shell.php%3Fsql.php%26test%3Dtrue', false],
         ];
     }
 

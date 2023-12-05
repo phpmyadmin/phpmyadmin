@@ -8246,11 +8246,6 @@ parameters:
 			path: src/Core.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 3
-			path: src/Core.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
 			count: 8
 			path: src/Core.php
