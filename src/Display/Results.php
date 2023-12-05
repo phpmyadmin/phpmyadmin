@@ -1539,10 +1539,10 @@ class Results
      *
      * @see getTableHeaders()
      *
-     * @param string                   $orderImg            the sort order image
-     * @param FieldMetadata            $fieldsMeta          set of field properties
-     * @param array<int|string, mixed> $orderUrlParams      the url params for sort
-     * @param array<int|string, mixed> $multiOrderUrlParams the url params for sort
+     * @param string                         $orderImg            the sort order image
+     * @param FieldMetadata                  $fieldsMeta          set of field properties
+     * @param mixed[]                        $orderUrlParams      the url params for sort
+     * @param array<string, int|string|bool> $multiOrderUrlParams the url params for sort
      *
      * @return string the sort order link
      */
@@ -1567,14 +1567,14 @@ class Results
         );
     }
 
-    /** @param mixed[] $multipleUrlParams */
+    /** @param array<string, int|string|bool> $multipleUrlParams */
     private function getSortOrderHiddenInputs(
         array $multipleUrlParams,
         string $nameToUseInSort,
     ): string {
+        /** @var string $sqlQuery */
         $sqlQuery = $multipleUrlParams['sql_query'];
         $sqlQueryAdd = $sqlQuery;
-        $sqlQueryRemove = null;
         $parser = new Parser($sqlQuery);
 
         $firstStatement = $parser->statements[0] ?? null;
@@ -1592,11 +1592,11 @@ class Results
             }
 
             $numberOfClausesFound = count($orderClauses);
-            $sqlQueryRemove = $firstStatement->build();
+            $sqlQuery = $firstStatement->build();
         }
 
-        $multipleUrlParams['sql_query'] = $sqlQueryRemove ?? $sqlQuery;
-        $multipleUrlParams['sql_signature'] = Core::signSqlQuery($multipleUrlParams['sql_query']);
+        $multipleUrlParams['sql_query'] = $sqlQuery;
+        $multipleUrlParams['sql_signature'] = Core::signSqlQuery($sqlQuery);
 
         $urlRemoveOrder = Url::getFromRoute('/sql', $multipleUrlParams);
         if ($numberOfClausesFound === 0) {
@@ -1604,7 +1604,7 @@ class Results
         }
 
         $multipleUrlParams['sql_query'] = $sqlQueryAdd;
-        $multipleUrlParams['sql_signature'] = Core::signSqlQuery($multipleUrlParams['sql_query']);
+        $multipleUrlParams['sql_signature'] = Core::signSqlQuery($sqlQueryAdd);
 
         $urlAddOrder = Url::getFromRoute('/sql', $multipleUrlParams);
 
