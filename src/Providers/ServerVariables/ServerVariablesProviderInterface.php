@@ -8,7 +8,7 @@ interface ServerVariablesProviderInterface
 {
     public function getVariableType(string $name): string|null;
 
-    /** @return mixed[] */
+    /** @return string[] */
     public function getStaticVariables(): array;
 
     public function getDocLinkByNameMariaDb(string $name): string|null;

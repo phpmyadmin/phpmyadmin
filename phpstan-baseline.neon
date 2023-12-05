@@ -5148,11 +5148,6 @@ parameters:
 		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
 			count: 1
-			path: src/Controllers/Server/VariablesController.php
-
-		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
 			path: src/Controllers/Setup/AbstractController.php
 
 		-

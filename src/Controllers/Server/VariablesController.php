@@ -73,7 +73,7 @@ class VariablesController extends AbstractController
 
                 $variables[] = [
                     'name' => $name,
-                    'is_editable' => ! in_array(strtolower($name), $staticVariables),
+                    'is_editable' => ! in_array(strtolower($name), $staticVariables, true),
                     'doc_link' => $docLink,
                     'value' => $formattedValue,
                     'is_escaped' => $isEscaped,
