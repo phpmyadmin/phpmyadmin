@@ -1005,13 +1005,7 @@ class Sql
             true,
         );
 
-        $profilingChart = '';
-        if ($profilingResults !== []) {
-            $profiling = $this->getDetailedProfilingStats($profilingResults);
-            if ($profiling !== []) {
-                $profilingChart = $this->template->render('sql/profiling_chart', ['profiling' => $profiling]);
-            }
-        }
+        $profilingChart = $this->getProfilingChart($profilingResults);
 
         $bookmark = '';
         $bookmarkFeature = $this->relation->getRelationParameters()->bookmarkFeature;
@@ -1112,14 +1106,12 @@ class Sql
         if ($statementInfo->isProcedure) {
             return $this->getHtmlForStoredProcedureResults(
                 $result,
-                $numRows,
                 $displayResultsObject,
                 $statementInfo,
                 $showTable,
                 $printView,
                 $editable,
                 $isBrowseDistinct,
-                $displayParts,
                 $isLimitedDisplay,
             );
         }
@@ -1147,20 +1139,15 @@ class Sql
         return $displayResultsObject->getTable($result, $displayParts, $statementInfo, $isLimitedDisplay);
     }
 
-    /**
-     * @param mixed[]|null $showTable table definitions
-     * @psalm-param int|numeric-string $numRows
-     */
+    /** @param mixed[]|null $showTable table definitions */
     private function getHtmlForStoredProcedureResults(
         ResultInterface $result,
-        int|string $numRows,
         DisplayResults $displayResultsObject,
         StatementInfo $statementInfo,
         array|null $showTable,
         bool $printView,
         bool $editable,
         bool $isBrowseDistinct,
-        DisplayParts $displayParts,
         bool $isLimitedDisplay,
     ): string {
         $tableHtml = '';
@@ -1428,13 +1415,7 @@ class Sql
             $dispMessage ?? '',
         );
 
-        $profilingChartHtml = '';
-        if ($profilingResults !== []) {
-            $profiling = $this->getDetailedProfilingStats($profilingResults);
-            if ($profiling !== []) {
-                $profilingChartHtml = $this->template->render('sql/profiling_chart', ['profiling' => $profiling]);
-            }
-        }
+        $profilingChartHtml = $this->getProfilingChart($profilingResults);
 
         $missingUniqueColumnMessage = $this->getMessageIfMissingColumnIndex($table, $db, $editable, $hasUnique);
 
@@ -1732,5 +1713,20 @@ class Sql
             'indexes' => $indexes,
             'indexes_duplicates' => $indexesDuplicates,
         ]);
+    }
+
+    /** @psalm-param list<array{Status: non-empty-string, Duration: numeric-string}> $profilingResults */
+    private function getProfilingChart(array $profilingResults): string
+    {
+        if ($profilingResults === []) {
+            return '';
+        }
+
+        $profiling = $this->getDetailedProfilingStats($profilingResults);
+        if ($profiling === []) {
+            return '';
+        }
+
+        return $this->template->render('sql/profiling_chart', ['profiling' => $profiling]);
     }
 }
