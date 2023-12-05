@@ -40,7 +40,7 @@ class Index
     /**
      * Columns in index
      *
-     * @var array<string, IndexColumn>
+     * @var array<string|int, IndexColumn>
      */
     private array $columns = [];
 
