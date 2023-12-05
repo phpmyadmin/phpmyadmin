@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-11-30 20:04+0000\n"
+"PO-Revision-Date: 2023-12-06 11:03+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ru/>\n"
@@ -14405,7 +14405,7 @@ msgstr "Неправильное имя таблицы"
 #. l10n: In case a SQL query did not pass a security check
 #: tbl_get_field.php:46 transformation_wrapper.php:69
 msgid "There is an issue with your request."
-msgstr "В вашем запросе есть проблема."
+msgstr "С вашим запросом возникла проблема."
 
 #: tbl_replace.php:258
 #, php-format
