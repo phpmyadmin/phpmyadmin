@@ -19002,7 +19002,7 @@ parameters:
 
 		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 6
+			count: 5
 			path: src/Util.php
 
 		-

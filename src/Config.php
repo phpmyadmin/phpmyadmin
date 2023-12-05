@@ -351,7 +351,7 @@ class Config
          * Parses the configuration file, we throw away any errors or
          * output.
          */
-        $canUseErrorReporting = Util::isErrorReportingAvailable();
+        $canUseErrorReporting = function_exists('error_reporting');
         $oldErrorReporting = null;
         if ($canUseErrorReporting) {
             $oldErrorReporting = error_reporting(0);

@@ -16,6 +16,7 @@ use function array_splice;
 use function count;
 use function defined;
 use function error_reporting;
+use function function_exists;
 use function htmlspecialchars;
 use function sprintf;
 
@@ -61,7 +62,7 @@ class ErrorHandler
 
     public function __construct()
     {
-        if (! Util::isErrorReportingAvailable()) {
+        if (! function_exists('error_reporting')) {
             return;
         }
 
@@ -192,7 +193,7 @@ class ErrorHandler
         string $errfile,
         int $errline,
     ): bool {
-        if (Util::isErrorReportingAvailable()) {
+        if (function_exists('error_reporting')) {
             /**
              * Check if Error Control Operator (@) was used, but still show
              * user errors even in this case.

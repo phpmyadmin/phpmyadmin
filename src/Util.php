@@ -38,7 +38,6 @@ use function htmlspecialchars;
 use function htmlspecialchars_decode;
 use function implode;
 use function in_array;
-use function ini_get;
 use function is_array;
 use function is_numeric;
 use function is_object;
@@ -82,7 +81,6 @@ use function uksort;
 use const ENT_COMPAT;
 use const ENT_QUOTES;
 use const PHP_INT_SIZE;
-use const PHP_MAJOR_VERSION;
 use const STR_PAD_LEFT;
 
 /**
@@ -2107,25 +2105,6 @@ class Util
         }
 
         return '';
-    }
-
-    /**
-     * Check if error reporting is available
-     */
-    public static function isErrorReportingAvailable(): bool
-    {
-        // issue #16256 - PHP 7.x does not return false for a core function
-        if (PHP_MAJOR_VERSION < 8) {
-            $disabled = ini_get('disable_functions');
-            if (is_string($disabled)) {
-                $disabled = explode(',', $disabled);
-                $disabled = array_map(trim(...), $disabled);
-
-                return ! in_array('error_reporting', $disabled);
-            }
-        }
-
-        return function_exists('error_reporting');
     }
 
     public static function getTableListPosition(ServerRequest $request, string $db): int
