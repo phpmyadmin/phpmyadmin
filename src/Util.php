@@ -1259,7 +1259,7 @@ class Util
      * as specified in Types->getColumns() and returns an array
      * (useful for quickly checking if a datatype is supported).
      *
-     * @return mixed[] An array of datatypes.
+     * @return string[] An array of datatypes.
      */
     public static function getSupportedDatatypes(): array
     {
@@ -1285,7 +1285,7 @@ class Util
      * Returns a list of datatypes that are not (yet) handled by PMA.
      * Used by: /table/change and libraries/Routines.php
      *
-     * @return mixed[] list of datatypes
+     * @return string[] list of datatypes
      */
     public static function unsupportedDatatypes(): array
     {

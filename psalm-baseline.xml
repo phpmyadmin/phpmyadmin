@@ -5152,7 +5152,6 @@
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
-      <code><![CDATA[$params[$i]['htmlentities'][]]]></code>
       <code><![CDATA[$routine['item_param_name'][$i]]]></code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
@@ -5248,7 +5247,6 @@
       <code><![CDATA[$_POST['item_returnlength']]]></code>
       <code><![CDATA[$_POST['item_type']]]></code>
       <code>$itemDefinition</code>
-      <code>$itemReturnType</code>
       <code>$itemSqlDataAccess</code>
     </PossiblyInvalidOperand>
     <PossiblyNullArgument>

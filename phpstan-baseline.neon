@@ -9092,12 +9092,12 @@ parameters:
 
 		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 9
+			count: 5
 			path: src/Database/Routines.php
 
 		-
 			message: "#^Cannot access an offset on mixed\\.$#"
-			count: 10
+			count: 9
 			path: src/Database/Routines.php
 
 		-
@@ -9191,6 +9191,11 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
+			message: "#^Cannot assign new offset to array\\<int, string\\>\\|string\\|null\\.$#"
+			count: 1
+			path: src/Database/Routines.php
+
+		-
 			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
 			count: 1
 			path: src/Database/Routines.php
@@ -9202,7 +9207,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 24
+			count: 23
 			path: src/Database/Routines.php
 
 		-
