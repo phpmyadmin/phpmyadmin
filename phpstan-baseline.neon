@@ -17356,11 +17356,6 @@ parameters:
 			path: src/Server/SysInfo/SunOs.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: src/Server/SysInfo/SysInfo.php
-
-		-
 			message: "#^Class COM referenced with incorrect case\\: com\\.$#"
 			count: 1
 			path: src/Server/SysInfo/WindowsNt.php
