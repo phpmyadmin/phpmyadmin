@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2023-12-02 02:59+0000\n"
+"PO-Revision-Date: 2023-12-06 11:03+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ru/>\n"
@@ -8496,7 +8496,7 @@ msgstr "Неправильное имя таблицы"
 #: libraries/classes/Controllers/Table/GetFieldController.php:70
 #: libraries/classes/Controllers/TransformationWrapperController.php:111
 msgid "There is an issue with your request."
-msgstr "Возникла проблема с вашим запросом."
+msgstr "С вашим запросом возникла проблема."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:84
 #: libraries/classes/Database/Routines.php:1511
@@ -17052,20 +17052,16 @@ msgstr ""
 "привилегий."
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "Allows creating stored routines."
 msgid "Allows creating foreign key relations."
-msgstr "Разрешает создание хранимых процедур."
+msgstr "Позволяет создавать реляции внешних ключей."
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Not used on MariaDB."
 msgstr "Не используется в MariaDB."
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "Has no effect in this MySQL version."
 msgid "Not used for this MySQL version."
-msgstr "Не доступно в данной версии MySQL."
+msgstr "Не используется для этой версии MySQL."
 
 #: templates/server/privileges/privileges_table.twig:697
 msgid "Resource limits"
