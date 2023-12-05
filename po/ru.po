@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2023-12-02 02:59+0000\n"
+"PO-Revision-Date: 2023-12-05 18:48+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "ru/>\n"
@@ -8559,10 +8559,8 @@ msgstr "Неправильное имя таблицы"
 #. l10n: In case a SQL query did not pass a security check
 #: libraries/classes/Controllers/Table/GetFieldController.php:72
 #: libraries/classes/Controllers/Transformation/WrapperController.php:103
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "Слишком большое количество объединения не использующих индексы."
+msgstr "С вашим запросом возникла проблема."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:86
 #: libraries/classes/Database/Routines.php:1243
@@ -12144,10 +12142,9 @@ msgid "Unknown error"
 msgstr "Неизвестная ошибка"
 
 #: libraries/classes/ReplicationGui.php:520
-#, fuzzy, php-format
-#| msgid "Unable to connect to master %s."
+#, php-format
 msgid "Unable to connect to primary %s."
-msgstr "Невозможно соединиться с головным сервером %s."
+msgstr "Невозможно соединиться с первичным сервером %s."
 
 #: libraries/classes/ReplicationGui.php:530
 msgid ""
@@ -13306,10 +13303,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Types.php:445
-#, fuzzy
-#| msgid "Stores a Universally Unique Identifier (UUID)"
 msgid "128-bit UUID (Universally Unique Identifier)"
-msgstr "Сохраняет Уникальный Универсальный Идентификатор (UUID)"
+msgstr "128-битный UUID (универсальный уникальный идентификатор)"
 
 #: libraries/classes/Types.php:791
 msgctxt "numeric types"
@@ -15633,7 +15628,7 @@ msgstr "Пропускать таблицы большие, чем:"
 
 #: templates/export.twig:476
 msgid "The size is measured in MiB."
-msgstr ""
+msgstr "Размер измеряется в МиБ."
 
 #: templates/export.twig:482 templates/import.twig:182
 msgid "Format-specific options:"
@@ -17325,20 +17320,16 @@ msgstr ""
 "привилегий."
 
 #: templates/server/privileges/privileges_table.twig:670
-#, fuzzy
-#| msgid "Allows creating stored routines."
 msgid "Allows creating foreign key relations."
-msgstr "Разрешает создание хранимых процедур."
+msgstr "Позволяет создавать реляции внешних ключей."
 
 #: templates/server/privileges/privileges_table.twig:670
 msgid "Not used on MariaDB."
 msgstr "Не используется в MariaDB."
 
 #: templates/server/privileges/privileges_table.twig:670
-#, fuzzy
-#| msgid "Has no effect in this MySQL version."
 msgid "Not used for this MySQL version."
-msgstr "Не доступно в данной версии MySQL."
+msgstr "Не используется для этой версии MySQL."
 
 #: templates/server/privileges/privileges_table.twig:721
 msgid "Resource limits"
@@ -18599,10 +18590,8 @@ msgid "Binary"
 msgstr "Двоичный"
 
 #: templates/table/insert/column_row.twig:30
-#, fuzzy
-#| msgid "Value for the column \"%s\""
 msgid "Use the NULL value for this column."
-msgstr "Значение для столбца \"%s\""
+msgstr "Использовать значение NULL для этого столбца."
 
 #: templates/table/insert/column_row.twig:65
 msgid "Because of its length,<br> this column might not be editable."
