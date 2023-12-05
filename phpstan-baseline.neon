@@ -18621,11 +18621,6 @@ parameters:
 			path: src/Tracking/Tracker.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 4
-			path: src/Tracking/Tracking.php
-
-		-
 			message: "#^Cannot access offset 'COLUMNS' on mixed\\.$#"
 			count: 1
 			path: src/Tracking/Tracking.php
