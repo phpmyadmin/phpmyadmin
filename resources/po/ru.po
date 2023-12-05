@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-12-03 00:19+0000\n"
-"PO-Revision-Date: 2023-12-02 02:59+0000\n"
+"PO-Revision-Date: 2023-12-06 11:04+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
@@ -5063,18 +5063,16 @@ msgid "Allows locking tables for the current thread."
 msgstr "Разрешает блокировку таблиц для текущего потока."
 
 #: resources/templates/server/privileges/privileges_table.twig:681
-#, fuzzy
 msgid "Allows creating foreign key relations."
-msgstr "Разрешает создание хранимых процедур."
+msgstr "Позволяет создавать реляции внешних ключей."
 
 #: resources/templates/server/privileges/privileges_table.twig:681
 msgid "Not used on MariaDB."
 msgstr "Не используется в MariaDB."
 
 #: resources/templates/server/privileges/privileges_table.twig:681
-#, fuzzy
 msgid "Not used for this MySQL version."
-msgstr "Не доступно в данной версии MySQL."
+msgstr "Не используется для этой версии MySQL."
 
 #: resources/templates/server/privileges/privileges_table.twig:692
 #: resources/templates/server/privileges/privileges_table.twig:695
@@ -6567,9 +6565,8 @@ msgid "Binary"
 msgstr "Двоичный"
 
 #: resources/templates/table/insert/column_row.twig:30
-#, fuzzy
 msgid "Use the NULL value for this column."
-msgstr "Значение для столбца \"%s\""
+msgstr "Использовать значение NULL для этого столбца."
 
 #: resources/templates/table/insert/column_row.twig:65
 msgid "Because of its length,<br> this column might not be editable."
@@ -15305,9 +15302,8 @@ msgstr "Неправильное имя таблицы"
 #. l10n: In case a SQL query did not pass a security check
 #: src/Controllers/Table/GetFieldController.php:67
 #: src/Controllers/Transformation/WrapperController.php:77
-#, fuzzy
 msgid "There is an issue with your request."
-msgstr "Слишком большое количество объединения не использующих индексы."
+msgstr "С вашим запросом возникла проблема."
 
 #: src/Controllers/Table/GetFieldController.php:82
 #: src/Database/Routines.php:993 src/Import/Import.php:166
@@ -18021,9 +18017,9 @@ msgid "Error."
 msgstr "Ошибка."
 
 #: src/Replication/ReplicationGui.php:486
-#, fuzzy, php-format
+#, php-format
 msgid "Unable to connect to primary %s."
-msgstr "Невозможно соединиться с головным сервером %s."
+msgstr "Невозможно соединиться с первичным сервером %s."
 
 #: src/Replication/ReplicationGui.php:496
 msgid ""
@@ -18849,9 +18845,8 @@ msgid ""
 msgstr ""
 
 #: src/Types.php:326
-#, fuzzy
 msgid "128-bit UUID (Universally Unique Identifier)"
-msgstr "Сохраняет Уникальный Универсальный Идентификатор (UUID)"
+msgstr "128-битный UUID (универсальный уникальный идентификатор)"
 
 #: src/Types.php:650
 msgctxt "numeric types"
