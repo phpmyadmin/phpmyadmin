@@ -1868,30 +1868,27 @@ class ExportSql extends ExportPlugin
      *
      * @param string  $db         database name
      * @param string  $table      table name
-     * @param string  $errorUrl   the url to go back in case of error
-     * @param string  $exportMode 'create_table','triggers','create_view',
-     *                             'stand_in'
+     * @param string  $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
      * @param string  $exportType 'server', 'database', 'table'
-     * @param bool    $relation   whether to include relation comments
-     * @param bool    $comments   whether to include the pmadb-style column
+     * @param bool    $doRelation whether to include relation comments
+     * @param bool    $doComments whether to include the pmadb-style column
      *                            comments as comments in the structure; this is
      *                            deprecated but the parameter is left here
      *                            because /export calls exportStructure()
      *                            also for other export types which use this
      *                            parameter
-     * @param bool    $mime       whether to include mime comments
+     * @param bool    $doMime     whether to include mime comments
      * @param bool    $dates      whether to include creation/update/check dates
      * @param mixed[] $aliases    Aliases of db/table/columns
      */
     public function exportStructure(
         string $db,
         string $table,
-        string $errorUrl,
         string $exportMode,
         string $exportType,
-        bool $relation = false,
-        bool $comments = false,
-        bool $mime = false,
+        bool $doRelation = false,
+        bool $doComments = false,
+        bool $doMime = false,
         bool $dates = false,
         array $aliases = [],
     ): bool {
@@ -1913,7 +1910,7 @@ class ExportSql extends ExportPlugin
                 );
                 $dump .= $this->exportComment();
                 $dump .= $this->getTableDef($db, $table, $dates, true, false, true, $aliases);
-                $dump .= $this->getTableComments($db, $table, $relation, $mime, $aliases);
+                $dump .= $this->getTableComments($db, $table, $doRelation, $doMime, $aliases);
                 break;
             case 'triggers':
                 $dump = '';

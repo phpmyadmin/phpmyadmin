@@ -610,7 +610,6 @@ class ExportLatexTest extends AbstractTestCase
             $this->object->exportStructure(
                 'database',
                 '',
-                'example.com',
                 'test',
                 'test',
                 true,
@@ -699,7 +698,6 @@ class ExportLatexTest extends AbstractTestCase
             $this->object->exportStructure(
                 'database',
                 '',
-                'example.com',
                 'test',
                 'test',
                 true,
@@ -758,7 +756,6 @@ class ExportLatexTest extends AbstractTestCase
             $this->object->exportStructure(
                 'database',
                 '',
-                'example.com',
                 'test',
                 'test',
             ),
@@ -776,7 +773,6 @@ class ExportLatexTest extends AbstractTestCase
             $this->object->exportStructure(
                 'database',
                 '',
-                'example.com',
                 'triggers',
                 'test',
             ),

@@ -12,7 +12,6 @@ use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
 use PhpMyAdmin\Transformations;
-use PhpMyAdmin\Triggers\Trigger;
 
 use function stripos;
 
@@ -132,29 +131,26 @@ abstract class ExportPlugin implements Plugin
      *
      * @param string  $db         database name
      * @param string  $table      table name
-     * @param string  $errorUrl   the url to go back in case of error
-     * @param string  $exportMode 'create_table','triggers','create_view',
-     *                             'stand_in'
+     * @param string  $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
      * @param string  $exportType 'server', 'database', 'table'
-     * @param bool    $relation   whether to include relation comments
-     * @param bool    $comments   whether to include the pmadb-style column comments
+     * @param bool    $doRelation whether to include relation comments
+     * @param bool    $doComments whether to include the pmadb-style column comments
      *                            as comments in the structure; this is deprecated
      *                            but the parameter is left here because /export
      *                            calls exportStructure() also for other export
      *                            types which use this parameter
-     * @param bool    $mime       whether to include mime comments
+     * @param bool    $doMime     whether to include mime comments
      * @param bool    $dates      whether to include creation/update/check dates
      * @param mixed[] $aliases    Aliases of db/table/columns
      */
     public function exportStructure(
         string $db,
         string $table,
-        string $errorUrl,
         string $exportMode,
         string $exportType,
-        bool $relation = false,
-        bool $comments = false,
-        bool $mime = false,
+        bool $doRelation = false,
+        bool $doComments = false,
+        bool $doMime = false,
         bool $dates = false,
         array $aliases = [],
     ): bool {
@@ -186,20 +182,6 @@ abstract class ExportPlugin implements Plugin
      * @return string resulting definition
      */
     public function getTableDefStandIn(string $db, string $view, array $aliases = []): string
-    {
-        return '';
-    }
-
-    /**
-     * Outputs triggers
-     *
-     * @param string    $db       database name
-     * @param string    $table    table name
-     * @param Trigger[] $triggers
-     *
-     * @return string Formatted triggers list
-     */
-    protected function getTriggers(string $db, string $table, array $triggers): string
     {
         return '';
     }

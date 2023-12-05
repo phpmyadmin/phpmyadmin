@@ -334,7 +334,7 @@ class ExportTexytextTest extends AbstractTestCase
             ),
         ];
 
-        $result = $this->object->getTriggers('database', 'ta<ble', $triggers);
+        $result = $this->object->getTriggers($triggers);
 
         $this->assertStringContainsString('|tna"me|BEFORE|DELETE|def', $result);
 
@@ -350,7 +350,6 @@ class ExportTexytextTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                'localhost',
                 'create_table',
                 'test',
             ),
@@ -376,7 +375,6 @@ class ExportTexytextTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                'localhost',
                 'triggers',
                 'test',
             ),
@@ -399,7 +397,6 @@ class ExportTexytextTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                'localhost',
                 'create_view',
                 'test',
             ),
@@ -425,7 +422,6 @@ class ExportTexytextTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                'localhost',
                 'stand_in',
                 'test',
             ),

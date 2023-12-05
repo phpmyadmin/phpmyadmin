@@ -448,13 +448,11 @@ class ExportHtmlword extends ExportPlugin
     /**
      * Outputs triggers
      *
-     * @param string    $db       database name
-     * @param string    $table    table name
      * @param Trigger[] $triggers
      *
      * @return string Formatted triggers list
      */
-    protected function getTriggers(string $db, string $table, array $triggers): string
+    protected function getTriggers(array $triggers): string
     {
         $dump = '<table width="100%" cellspacing="1">';
         $dump .= '<tr class="print-category">';
@@ -491,9 +489,7 @@ class ExportHtmlword extends ExportPlugin
      *
      * @param string  $db         database name
      * @param string  $table      table name
-     * @param string  $errorUrl   the url to go back in case of error
-     * @param string  $exportMode 'create_table', 'triggers', 'create_view',
-     *                             'stand_in'
+     * @param string  $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
      * @param string  $exportType 'server', 'database', 'table'
      * @param bool    $doRelation whether to include relation comments
      * @param bool    $doComments whether to include the pmadb-style column
@@ -509,7 +505,6 @@ class ExportHtmlword extends ExportPlugin
     public function exportStructure(
         string $db,
         string $table,
-        string $errorUrl,
         string $exportMode,
         string $exportType,
         bool $doRelation = false,
@@ -538,7 +533,7 @@ class ExportHtmlword extends ExportPlugin
                     $dump .= '<h2>'
                     . __('Triggers') . ' ' . htmlspecialchars($tableAlias)
                     . '</h2>';
-                    $dump .= $this->getTriggers($db, $table, $triggers);
+                    $dump .= $this->getTriggers($triggers);
                 }
 
                 break;
