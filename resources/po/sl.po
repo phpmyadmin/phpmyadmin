@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-12-03 00:19+0000\n"
-"PO-Revision-Date: 2023-11-27 14:26+0000\n"
+"PO-Revision-Date: 2023-12-08 16:06+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -7145,14 +7145,12 @@ msgstr "Besedilo"
 #. l10n: Number of tables
 #: resources/templates/test/gettext/plural_notes.twig:1
 #: resources/templates/test/gettext/plural.twig:1
-#, fuzzy
-#| msgid "Use tables"
 msgid "One table"
 msgid_plural "%count% tables"
-msgstr[0] "Uporabi tabele"
-msgstr[1] "Uporabi tabele"
-msgstr[2] "Uporabi tabele"
-msgstr[3] "Uporabi tabele"
+msgstr[0] "%count% tabela"
+msgstr[1] "%count% tabeli"
+msgstr[2] "%count% tabele"
+msgstr[3] "%count% tabel"
 
 #. l10n: Show or hide the menu using the hamburger style button
 #: resources/templates/top_menu.twig:4
