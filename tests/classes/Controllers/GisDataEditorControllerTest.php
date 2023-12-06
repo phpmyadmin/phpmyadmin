@@ -33,19 +33,15 @@ class GisDataEditorControllerTest extends AbstractTestCase
         $this->controller = new GisDataEditorController(new ResponseRenderer(), new Template());
     }
 
-    /**
-     * @param mixed[] $gisData
-     * @param mixed[] $expected
-     */
     #[DataProvider('providerForTestValidateGisData')]
     #[Group('gis')]
-    public function testValidateGisData(array $gisData, string $type, string|null $value, array $expected): void
+    public function testValidateGisData(mixed $gisData, string $type, string|null $value, string $expected): void
     {
-        /** @var mixed[] $gisData */
+        /** @var string $gisData */
         $gisData = $this->callFunction(
             $this->controller,
             GisDataEditorController::class,
-            'validateGisData',
+            'extractGisType',
             [
                 $gisData,
                 $type,
@@ -55,26 +51,21 @@ class GisDataEditorControllerTest extends AbstractTestCase
         $this->assertEquals($expected, $gisData);
     }
 
-    /**
-     * @return list<list<mixed[]|string|null>>
-     * @psalm-return list<array{0:mixed[],1:string,2:string|null,3:mixed[]}>
-     */
-    public static function providerForTestValidateGisData(): array
+    /** @return iterable<array{0:mixed,1:string,2:string|null,3:string}> */
+    public static function providerForTestValidateGisData(): iterable
     {
-        /** @psalm-var list<array{0:mixed[],1:string,2:string|null,3:mixed[]}> */
-        return [
-            [
-                [],
-                'GEOMETRY',
-                'GEOMETRYCOLLECTION()',
-                ['gis_type' => 'GEOMETRYCOLLECTION'],
-            ],
-            [
-                [],
-                'GEOMETRY',
-                'GEOMETRYCOLLECTION EMPTY',
-                ['gis_type' => 'GEOMETRYCOLLECTION'],
-            ],
+        yield [
+            null,
+            'GEOMETRY',
+            'GEOMETRYCOLLECTION()',
+            'GEOMETRYCOLLECTION',
+        ];
+
+        yield [
+            null,
+            'GEOMETRY',
+            'GEOMETRYCOLLECTION EMPTY',
+            'GEOMETRYCOLLECTION',
         ];
     }
 }

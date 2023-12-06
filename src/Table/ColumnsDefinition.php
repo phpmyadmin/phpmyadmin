@@ -45,9 +45,8 @@ final class ColumnsDefinition
     }
 
     /**
-     * @param int          $numFields  The number of fields
-     * @param string|null  $regenerate Use regeneration
-     * @param mixed[]|null $selected   Selected
+     * @param mixed[]|null $selected  Selected
+     * @param int          $numFields The number of fields
      * @psalm-param list<array{
      *  Field: string,
      *  Type: string,
@@ -66,7 +65,6 @@ final class ColumnsDefinition
     public function displayForm(
         string $action,
         int $numFields = 0,
-        string|null $regenerate = null,
         array|null $selected = null,
         array|null $fieldsMeta = null,
     ): array {
@@ -74,6 +72,7 @@ final class ColumnsDefinition
         $GLOBALS['is_reload_priv'] ??= null;
         $GLOBALS['mime_map'] ??= null;
 
+        $regenerate = false;
         $lengthValuesInputSize = 8;
         $contentCells = [];
         $formParams = ['db' => $GLOBALS['db']];
@@ -138,7 +137,7 @@ final class ColumnsDefinition
 
         if (isset($_POST['submit_num_fields']) || isset($_POST['submit_partition_change'])) {
             //if adding new fields, set regenerate to keep the original values
-            $regenerate = 1;
+            $regenerate = true;
         }
 
         $foreigners = $this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'foreign');
@@ -157,92 +156,8 @@ final class ColumnsDefinition
             $submitAttribute = null;
             $extractedColumnSpec = [];
 
-            if (! empty($regenerate)) {
-                $columnMeta = array_merge(
-                    $columnMeta,
-                    [
-                        'Field' => Util::getValueByKey(
-                            $_POST,
-                            'field_name.' . $columnNumber,
-                        ),
-                        'Type' => Util::getValueByKey(
-                            $_POST,
-                            'field_type.' . $columnNumber,
-                        ),
-                        'Collation' => Util::getValueByKey(
-                            $_POST,
-                            'field_collation.' . $columnNumber,
-                            '',
-                        ),
-                        'Null' => Util::getValueByKey(
-                            $_POST,
-                            'field_null.' . $columnNumber,
-                            '',
-                        ),
-                        'DefaultType' => Util::getValueByKey(
-                            $_POST,
-                            'field_default_type.' . $columnNumber,
-                            'NONE',
-                        ),
-                        'DefaultValue' => Util::getValueByKey(
-                            $_POST,
-                            'field_default_value.' . $columnNumber,
-                            '',
-                        ),
-                        'Extra' => Util::getValueByKey(
-                            $_POST,
-                            'field_extra.' . $columnNumber,
-                        ),
-                        'Virtuality' => Util::getValueByKey(
-                            $_POST,
-                            'field_virtuality.' . $columnNumber,
-                            '',
-                        ),
-                        'Expression' => Util::getValueByKey(
-                            $_POST,
-                            'field_expression.' . $columnNumber,
-                            '',
-                        ),
-                    ],
-                );
-
-                $columnMeta['Key'] = '';
-                $parts = explode(
-                    '_',
-                    Util::getValueByKey($_POST, 'field_key.' . $columnNumber, ''),
-                    2,
-                );
-                if (count($parts) === 2 && $parts[1] == $columnNumber) {
-                    $columnMeta['Key'] = Util::getValueByKey(
-                        [
-                            'primary' => 'PRI',
-                            'index' => 'MUL',
-                            'unique' => 'UNI',
-                            'fulltext' => 'FULLTEXT',
-                            'spatial' => 'SPATIAL',
-                        ],
-                        $parts[0],
-                        '',
-                    );
-                }
-
-                $columnMeta['Comment'] = false;
-
-                switch ($columnMeta['DefaultType']) {
-                    case 'NONE':
-                        $columnMeta['Default'] = null;
-                        break;
-                    case 'USER_DEFINED':
-                        $columnMeta['Default'] = $columnMeta['DefaultValue'];
-                        break;
-                    case 'NULL':
-                    case 'CURRENT_TIMESTAMP':
-                    case 'current_timestamp()':
-                    case 'UUID':
-                    case 'uuid()':
-                        $columnMeta['Default'] = $columnMeta['DefaultType'];
-                        break;
-                }
+            if ($regenerate) {
+                $columnMeta = $this->getColumnMetaForRegeneratedFields($columnNumber);
 
                 $length = Util::getValueByKey($_POST, 'field_length.' . $columnNumber, $length);
                 $submitAttribute = Util::getValueByKey($_POST, 'field_attribute.' . $columnNumber, false);
@@ -484,5 +399,47 @@ final class ColumnsDefinition
         }
 
         return $metaDefault;
+    }
+
+    /** @return mixed[] */
+    private function getColumnMetaForRegeneratedFields(int $columnNumber): array
+    {
+        $columnMeta = [
+            'Field' => Util::getValueByKey($_POST, 'field_name.' . $columnNumber),
+            'Type' => Util::getValueByKey($_POST, 'field_type.' . $columnNumber),
+            'Collation' => Util::getValueByKey($_POST, 'field_collation.' . $columnNumber, ''),
+            'Null' => Util::getValueByKey($_POST, 'field_null.' . $columnNumber, ''),
+            'DefaultType' => Util::getValueByKey($_POST, 'field_default_type.' . $columnNumber, 'NONE'),
+            'DefaultValue' => Util::getValueByKey($_POST, 'field_default_value.' . $columnNumber, ''),
+            'Extra' => Util::getValueByKey($_POST, 'field_extra.' . $columnNumber),
+            'Virtuality' => Util::getValueByKey($_POST, 'field_virtuality.' . $columnNumber, ''),
+            'Expression' => Util::getValueByKey($_POST, 'field_expression.' . $columnNumber, ''),
+            'Key' => '',
+            'Comment' => false,
+        ];
+
+        $parts = explode(
+            '_',
+            Util::getValueByKey($_POST, 'field_key.' . $columnNumber, ''),
+            2,
+        );
+        if (count($parts) === 2 && $parts[1] == $columnNumber) {
+            $columnMeta['Key'] = match ($parts[0]) {
+                'primary' => 'PRI',
+                'index' => 'MUL',
+                'unique' => 'UNI',
+                'fulltext' => 'FULLTEXT',
+                'spatial' => 'SPATIAL',
+                default => '',
+            };
+        }
+
+        $columnMeta['Default'] = match ($columnMeta['DefaultType']) {
+            'NONE' => null,
+            'USER_DEFINED' => $columnMeta['DefaultValue'],
+            default => $columnMeta['DefaultType'],
+        };
+
+        return $columnMeta;
     }
 }

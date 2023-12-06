@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.16.0@2897ba636551a8cb61601cc26f6ccfbba6c36591">
+<files psalm-version="5.17.0@c620f6e80d0abfca532b00bda366062aaedf6e5d">
   <file src="app/services_loader.php">
     <MixedArgument>
       <code>$argumentName</code>
@@ -181,8 +181,6 @@
       <code><![CDATA[$info['file']]]></code>
       <code><![CDATA[$info['file']]]></code>
       <code><![CDATA[$info['template']]]></code>
-    </MixedArgument>
-    <MixedArgumentTypeCoercion>
       <code><![CDATA[static function (int $level, string $message, string $file, int $line) use (&$prevErrorHandler) {
                     if ($level === E_USER_DEPRECATED) {
                         $templateLine = 0;
@@ -195,7 +193,7 @@
 
                     return $prevErrorHandler ? $prevErrorHandler($level, $message, $file, $line) : false;
                 }]]></code>
-    </MixedArgumentTypeCoercion>
+    </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$info['exception']]]></code>
       <code><![CDATA[$info['file']]]></code>
@@ -211,11 +209,10 @@
       <code>$info</code>
       <code>$showDeprecations</code>
     </MixedAssignment>
-    <MixedFunctionCall>
-      <code>$prevErrorHandler($level, $message, $file, $line)</code>
-    </MixedFunctionCall>
-    <UnusedVariable>
+    <UndefinedVariable>
       <code>$prevErrorHandler</code>
+    </UndefinedVariable>
+    <UnusedVariable>
       <code>$prevErrorHandler</code>
     </UnusedVariable>
   </file>
@@ -2083,7 +2080,10 @@
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['format']]]></code>
+      <code><![CDATA[$GLOBALS['import_file']]]></code>
+      <code><![CDATA[$GLOBALS['import_file']]]></code>
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
+      <code><![CDATA[$GLOBALS['import_type']]]></code>
       <code><![CDATA[$GLOBALS['local_import_file']]]></code>
       <code><![CDATA[$_SESSION['Import_message']['go_back_url']]]></code>
       <code><![CDATA[$die['error']]]></code>
@@ -2165,7 +2165,6 @@
     </PossiblyUnusedMethod>
     <RedundantCondition>
       <code><![CDATA[! $GLOBALS['finished']]]></code>
-      <code><![CDATA[$GLOBALS['go_sql']]]></code>
       <code><![CDATA[$GLOBALS['offset'] == 0]]></code>
       <code><![CDATA[$GLOBALS['result'] === false]]></code>
       <code><![CDATA[is_array($_FILES['import_file'])]]></code>
@@ -3286,11 +3285,9 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['regenerate']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['regenerate']]]></code>
       <code><![CDATA[$_POST['field_input_transformation'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_input_transformation_options'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_transformation'][$fieldindex]]]></code>
@@ -3299,12 +3296,15 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['regenerate']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
+      <code><![CDATA[$_POST['field_input_transformation'][$fieldindex]]]></code>
+      <code><![CDATA[$_POST['field_input_transformation_options'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_name'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_name'][$fieldindex]]]></code>
+      <code><![CDATA[$_POST['field_transformation'][$fieldindex]]]></code>
+      <code><![CDATA[$_POST['field_transformation_options'][$fieldindex]]]></code>
       <code>$mimetype</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidArrayOffset>
@@ -3314,7 +3314,11 @@
       <code><![CDATA[$_POST['field_transformation_options'][$fieldindex]]]></code>
     </PossiblyInvalidArrayOffset>
     <PossiblyInvalidCast>
+      <code><![CDATA[$_POST['field_input_transformation'][$fieldindex]]]></code>
+      <code><![CDATA[$_POST['field_input_transformation_options'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_name'][$fieldindex]]]></code>
+      <code><![CDATA[$_POST['field_transformation'][$fieldindex]]]></code>
+      <code><![CDATA[$_POST['field_transformation_options'][$fieldindex]]]></code>
       <code>$mimetype</code>
     </PossiblyInvalidCast>
   </file>
@@ -3663,6 +3667,9 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['columns']]]></code>
     </PossiblyInvalidArgument>
+    <PossiblyInvalidArrayOffset>
+      <code><![CDATA[$_POST['index']['Index_choice']]]></code>
+    </PossiblyInvalidArrayOffset>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['columns']]]></code>
     </PossiblyInvalidCast>
@@ -3971,8 +3978,10 @@
       <code><![CDATA[$data['COLUMN_COMMENT'] ?? '']]></code>
       <code><![CDATA[$data['Collation'] ?? '']]></code>
       <code><![CDATA[$data['Default'] ?? '']]></code>
+      <code><![CDATA[$data['Expression']]]></code>
       <code><![CDATA[$data['Extra'] ?? '']]></code>
       <code><![CDATA[$data['Type']]]></code>
+      <code><![CDATA[$data['Virtuality']]]></code>
       <code><![CDATA[$extractedColumnSpec['attribute']]]></code>
       <code><![CDATA[$extractedColumnSpec['spec_in_brackets']]]></code>
       <code><![CDATA[$extractedColumnSpec['type']]]></code>
@@ -3983,14 +3992,13 @@
       <code><![CDATA[$data['Collation']]]></code>
       <code><![CDATA[$data['Default']]]></code>
       <code><![CDATA[$data['Default']]]></code>
-      <code><![CDATA[$data['Default']]]></code>
-      <code><![CDATA[$data['Default']]]></code>
-      <code><![CDATA[$data['Default']]]></code>
+      <code><![CDATA[$data['Expression']]]></code>
+      <code><![CDATA[$data['Extra']]]></code>
       <code><![CDATA[$data['Null']]]></code>
       <code><![CDATA[$data['Null']]]></code>
       <code><![CDATA[$data['Type']]]></code>
       <code><![CDATA[$data['Type']]]></code>
-      <code><![CDATA[$data['Type']]]></code>
+      <code><![CDATA[$data['Virtuality']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$data['Expression']]]></code>
@@ -4005,7 +4013,7 @@
       <code><![CDATA[$data['Expression']]]></code>
     </MixedAssignment>
     <PossiblyNullArgument>
-      <code><![CDATA[$data['Extra'] ?? '']]></code>
+      <code><![CDATA[$data['Expression']]]></code>
     </PossiblyNullArgument>
     <PossiblyUnusedMethod>
       <code>__construct</code>
@@ -4462,16 +4470,10 @@
       <code>$secret</code>
       <code>$urlQueryParamValue</code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>bool</code>
-    </MixedInferredReturnType>
     <MixedOperand>
       <code>$secret</code>
       <code>$secret</code>
     </MixedOperand>
-    <MixedReturnStatement>
-      <code>$empty</code>
-    </MixedReturnStatement>
     <PossiblyInvalidArgument>
       <code>$postKey</code>
     </PossiblyInvalidArgument>
@@ -8802,6 +8804,7 @@
       <code>$result[$table]</code>
     </PossiblyInvalidArrayOffset>
     <PossiblyNullArgument>
+      <code>$record[$i]</code>
       <code>$tableAlias</code>
     </PossiblyNullArgument>
   </file>
@@ -11703,6 +11706,8 @@
     <MixedArrayAccess>
       <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
       <code><![CDATA[$availableMime[$mimeType . '_file'][$mimekey]]]></code>
+      <code><![CDATA[$columnMeta['column_status']['isEditable']]]></code>
+      <code><![CDATA[$columnMeta['column_status']['isEditable']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
@@ -11716,9 +11721,7 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['mime_map']]]></code>
       <code><![CDATA[$columnMeta['Default']]]></code>
-      <code><![CDATA[$columnMeta['Default']]]></code>
       <code><![CDATA[$columnMeta['Expression']]]></code>
-      <code><![CDATA[$columnMeta['Key']]]></code>
       <code><![CDATA[$commentsMap[$columnMeta['Field']]]]></code>
       <code>$defaultValue</code>
       <code><![CDATA[$formParams['field_length_orig[' . $columnNumber . ']']]]></code>
@@ -11741,7 +11744,6 @@
       <code><![CDATA[$formParams['table']]]></code>
     </PossiblyInvalidCast>
     <PossiblyUndefinedArrayOffset>
-      <code><![CDATA[$columnMeta['Default']]]></code>
       <code><![CDATA[$columnMeta['DefaultValue']]]></code>
     </PossiblyUndefinedArrayOffset>
   </file>
@@ -12100,6 +12102,11 @@
       <code><![CDATA[$data['name']]]></code>
       <code><![CDATA[$data['version']]]></code>
     </MixedArgument>
+    <PossiblyUndefinedArrayOffset>
+      <code><![CDATA[$data['name']]]></code>
+      <code><![CDATA[$data['supports']]]></code>
+      <code><![CDATA[$data['version']]]></code>
+    </PossiblyUndefinedArrayOffset>
     <PossiblyUnusedProperty>
       <code>$filesizeInfo</code>
     </PossiblyUnusedProperty>
@@ -15128,16 +15135,11 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['no_constraints_comments']]]></code>
       <code><![CDATA[$GLOBALS['no_constraints_comments']]]></code>
-      <code><![CDATA[$GLOBALS['sql_constraints']]]></code>
     </InvalidArrayOffset>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$config->selectedServer]]></code>
     </InvalidPropertyAssignmentValue>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['sql_constraints']]]></code>
-      <code><![CDATA[$GLOBALS['sql_constraints']]]></code>
-      <code><![CDATA[$GLOBALS['sql_constraints']]]></code>
-      <code><![CDATA[$GLOBALS['sql_constraints']]]></code>
       <code>$result</code>
     </MixedArgument>
     <MixedAssignment>
@@ -15152,6 +15154,9 @@
       <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
       <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
     </PossiblyInvalidArrayOffset>
+    <PossiblyUndefinedArrayOffset>
+      <code><![CDATA[$GLOBALS['sql_constraints']]]></code>
+    </PossiblyUndefinedArrayOffset>
   </file>
   <file src="tests/classes/Plugins/Export/ExportTexytextTest.php">
     <DeprecatedMethod>
@@ -16096,14 +16101,6 @@
       <code>provideTestFindFile</code>
       <code>provideTestGetContents</code>
     </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/selenium/Database/ProceduresTest.php">
-    <MixedInferredReturnType>
-      <code>string</code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement>
-      <code>$sqlMode</code>
-    </MixedReturnStatement>
   </file>
   <file src="tests/selenium/ExportTest.php">
     <PossiblyUnusedMethod>

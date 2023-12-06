@@ -5471,11 +5471,6 @@ parameters:
 			path: src/Controllers/Table/AddFieldController.php
 
 		-
-			message: "#^Parameter \\#1 \\$value of function intval expects array\\|bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Table/AddFieldController.php
-
-		-
 			message: "#^Parameter \\#2 \\$sqlQuery of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getMessage\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/AddFieldController.php
@@ -5492,11 +5487,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#3 \\$key of method PhpMyAdmin\\\\Transformations\\:\\:setMime\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/AddFieldController.php
-
-		-
-			message: "#^Parameter \\#3 \\$regenerate of method PhpMyAdmin\\\\Table\\\\ColumnsDefinition\\:\\:displayForm\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/AddFieldController.php
 
@@ -5982,7 +5972,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 2
+			count: 1
 			path: src/Controllers/Table/DropColumnController.php
 
 		-
@@ -8222,7 +8212,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 3
+			count: 2
 			path: src/Controllers/VersionCheckController.php
 
 		-
@@ -11501,11 +11491,6 @@ parameters:
 			path: src/Import/Import.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, string given\\.$#"
-			count: 1
-			path: src/Import/Import.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, string\\|false given\\.$#"
 			count: 1
 			path: src/Import/Import.php
@@ -11853,11 +11838,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in a negated boolean, mixed given\\.$#"
 			count: 2
-			path: src/InsertEdit.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, string given\\.$#"
-			count: 1
 			path: src/InsertEdit.php
 
 		-
@@ -13457,7 +13437,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/AuthenticationPlugin.php
 
 		-
@@ -14031,16 +14011,6 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, array given\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, array\\<int, string\\|null\\>\\|null given\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, bool\\|null given\\.$#"
 			count: 1
 			path: src/Plugins/Export/ExportSql.php
@@ -14053,11 +14023,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in an if condition, mixed given\\.$#"
 			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, string given\\.$#"
-			count: 2
 			path: src/Plugins/Export/ExportSql.php
 
 		-
@@ -15766,11 +15731,6 @@ parameters:
 			path: src/Plugins/Schema/TableStats.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|string given\\.$#"
-			count: 1
-			path: src/Plugins/Schema/TableStats.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function rawurldecode expects string, mixed given\\.$#"
 			count: 2
 			path: src/Plugins/Schema/TableStats.php
@@ -16587,11 +16547,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 1
-			path: src/Replication/ReplicationGui.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 1
 			path: src/Replication/ReplicationGui.php
 
@@ -17981,6 +17936,11 @@ parameters:
 			path: src/Table/ColumnsDefinition.php
 
 		-
+			message: "#^Cannot access offset 'isEditable' on mixed\\.$#"
+			count: 2
+			path: src/Table/ColumnsDefinition.php
+
+		-
 			message: "#^Cannot access offset \\(int\\|string\\) on mixed\\.$#"
 			count: 2
 			path: src/Table/ColumnsDefinition.php
@@ -17997,16 +17957,6 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 2
-			path: src/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Offset 'Default' does not exist on array\\{Field\\: mixed, Type\\: mixed, Collation\\: mixed, Null\\: mixed, DefaultType\\: mixed, DefaultValue\\: mixed, Extra\\: mixed, Virtuality\\: mixed, \\.\\.\\.\\}\\|array\\{Field\\: string, Type\\: string, Collation\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\: string, \\.\\.\\.\\}\\.$#"
-			count: 1
-			path: src/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Offset 'DefaultValue' does not exist on array\\{Field\\: mixed, Type\\: mixed, Collation\\: mixed, Null\\: mixed, DefaultType\\: mixed, DefaultValue\\: mixed, Extra\\: mixed, Virtuality\\: mixed, \\.\\.\\.\\}\\|array\\{Field\\: string, Type\\: string, Collation\\: string\\|null, Null\\: 'NO'\\|'YES', Key\\: string, Default\\: string\\|null, Extra\\: string, Privileges\\: string, \\.\\.\\.\\}\\|array\\{Type\\: ''\\}\\.$#"
 			count: 1
 			path: src/Table/ColumnsDefinition.php
 

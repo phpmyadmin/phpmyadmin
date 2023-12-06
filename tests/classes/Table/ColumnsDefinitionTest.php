@@ -80,7 +80,7 @@ SQL;
         $GLOBALS['is_reload_priv'] = true;
         $GLOBALS['mime_map'] = null;
 
-        $actual = $columnsDefinition->displayForm('/table/structure/save', 1, null, ['actor_id'], [$columnMeta]);
+        $actual = $columnsDefinition->displayForm('/table/structure/save', 1, ['actor_id'], [$columnMeta]);
 
         $contentCell = [
             'column_number' => 0,

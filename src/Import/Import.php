@@ -1322,11 +1322,7 @@ class Import
             }
 
             $globalError = $dbi->getError();
-            if ($globalError) {
-                $error = $globalError;
-            } else {
-                $error = $errorMsg;
-            }
+            $error = $globalError !== '' ? $globalError : $errorMsg;
 
             break;
         }

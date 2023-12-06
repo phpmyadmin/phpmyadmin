@@ -179,7 +179,7 @@ abstract class AuthenticationPlugin
         }
 
         $dbiError = DatabaseInterface::getInstance()->getError();
-        if (! empty($dbiError)) {
+        if ($dbiError !== '') {
             return htmlspecialchars($dbiError);
         }
 

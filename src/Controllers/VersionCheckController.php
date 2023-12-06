@@ -41,7 +41,7 @@ class VersionCheckController extends AbstractController
 
         $versionDetails = $this->versionInformation->getLatestVersion();
 
-        if (empty($versionDetails)) {
+        if ($versionDetails === null) {
             echo json_encode([]);
 
             return;

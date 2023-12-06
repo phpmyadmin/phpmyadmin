@@ -62,7 +62,7 @@ final class DropColumnController extends AbstractController
             $message = Message::success(__('No change'));
         }
 
-        if (empty($message)) {
+        if (! isset($message)) {
             $message = Message::success(
                 _ngettext(
                     '%1$d column has been dropped successfully.',
