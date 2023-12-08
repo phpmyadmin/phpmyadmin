@@ -36,7 +36,7 @@ validateExtension() {
     extension="${filename##*.}"
 
     case $pathWithoutFirst in
-        doc/*)
+        docs/*)
             if [ "${extension}" != "png" ] && [ "${extension}" != "txt" ] &&
                 [ "${extension}" != "html" ] && [ "${extension}" != "js" ] &&
                 [ "${extension}" != "css" ] && [ "${extension}" != "gif" ]; then

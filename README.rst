@@ -63,7 +63,7 @@ Please see `the documentation <https://docs.phpmyadmin.net/en/latest/setup.html#
 More Information
 ----------------
 
-Please see https://docs.phpmyadmin.net/, or browse the documentation in the doc folder.
+Please see https://docs.phpmyadmin.net/, or browse the documentation in the docs folder.
 
 For `support <https://www.phpmyadmin.net/support/>`_ or `security issues, <https://www.phpmyadmin.net/security/>`_ you can visit https://www.phpmyadmin.net/
 

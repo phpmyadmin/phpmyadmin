@@ -690,7 +690,7 @@ A list of files and corresponding functionality which degrade gracefully when re
 * :file:`./resources/locale/` folder, or unused subfolders (interface translations)
 * Any unused themes in :file:`./public/themes/` except the default theme `pmahomme`.
 * :file:`./app/language_stats.inc.php` (translation statistics)
-* :file:`./doc/` (documentation)
+* :file:`./docs/` (documentation)
 * :file:`./setup/` (setup script)
 * :file:`./examples/` (configuration examples)
 * :file:`./resources/sql/` (SQL scripts to configure advanced functionalities)

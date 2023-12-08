@@ -212,7 +212,7 @@ class SanitizeTest extends AbstractTestCase
         // Allow other links
         return [
             [false, 'foo', false, false],
-            [true, './doc/html/', false, false],
+            [true, './docs/html/', false, false],
             [false, 'index.php', false, false],
             [false, './index.php', false, false],
             [true, './index.php?', false, false],

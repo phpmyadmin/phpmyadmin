@@ -36,7 +36,7 @@ web.config
 *~
 # API documentation
 /apidoc/
-/doc/linkcheck/
+/docs/linkcheck/
 # Demo server
 revision-info.php
 # PHP_CodeSniffer
