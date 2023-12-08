@@ -94,7 +94,6 @@ final class ImportController extends AbstractController
         $GLOBALS['import_file_name'] ??= null;
         $GLOBALS['import_notice'] ??= null;
         $GLOBALS['read_multiply'] ??= null;
-        $GLOBALS['my_die'] ??= null;
         $GLOBALS['active_page'] ??= null;
 
         $GLOBALS['charset_of_file'] = $request->getParsedBodyParam('charset_of_file');

@@ -127,7 +127,6 @@ class Import
      */
     public function executeQuery(string $sql, array &$sqlData): void
     {
-        $GLOBALS['my_die'] ??= null;
         $GLOBALS['error'] ??= null;
         $GLOBALS['msg'] ??= null;
         $GLOBALS['sql_query_disabled'] ??= null;
@@ -140,10 +139,7 @@ class Import
 
         $GLOBALS['msg'] = '# ';
         if ($GLOBALS['result'] === false) { // execution failed
-            if (! isset($GLOBALS['my_die'])) {
-                $GLOBALS['my_die'] = [];
-            }
-
+            $GLOBALS['my_die'] ??= [];
             $GLOBALS['my_die'][] = ['sql' => $sql, 'error' => $dbi->getError()];
 
             $GLOBALS['msg'] .= __('Error');
