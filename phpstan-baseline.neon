@@ -5956,11 +5956,6 @@ parameters:
 			path: src/Controllers/Table/DropColumnController.php
 
 		-
-			message: "#^Cannot access an offset on mixed\\.$#"
-			count: 2
-			path: src/Controllers/Table/ExportController.php
-
-		-
 			message: "#^Cannot access offset 'back' on mixed\\.$#"
 			count: 1
 			path: src/Controllers/Table/ExportController.php
@@ -5992,11 +5987,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$list of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:replaceClauses\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\TokensList, PhpMyAdmin\\\\SqlParser\\\\TokensList\\|null given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ExportController.php
-
-		-
-			message: "#^Parameter \\#3 \\$ops of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:replaceClauses\\(\\) expects array\\<int, array\\<int, string\\>\\>, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ExportController.php
 
