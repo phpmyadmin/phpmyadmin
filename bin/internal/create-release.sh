@@ -381,7 +381,7 @@ Please ensure you have incremented rc count or version in the repository :
      - run ./bin/console set-version $version
      - in $VERSION_FILE Version class:
         - check that VERSION, MAJOR, MINOR and PATCH are correct.
-     - in doc/conf.py the line
+     - in docs/conf.py the line
           " version = '$version' "
      - in README the "Version" line
      - in package.json the line
@@ -437,8 +437,8 @@ if [ $do_ci -eq 0 ] && [ -$do_daily -eq 0 ] ; then
         echo "There seems to be wrong version in $VERSION_FILE!"
         exit 2
     fi
-    if ! grep -q "version = '$version'" doc/conf.py ; then
-        echo "There seems to be wrong version in doc/conf.py"
+    if ! grep -q "version = '$version'" docs/conf.py ; then
+        echo "There seems to be wrong version in docs/conf.py"
         exit 2
     fi
     if ! grep -q "Version $version\$" README ; then
@@ -461,8 +461,8 @@ fi
 # Building documentation
 echo "* Running sphinx-build (version: $(sphinx-build --version))"
 echo "* Generating documentation"
-LC_ALL=C make -C doc html
-find doc -name '*.pyc' -print0 | xargs -0 -r rm -f
+LC_ALL=C make -C docs html
+find docs -name '*.pyc' -print0 | xargs -0 -r rm -f
 
 # Check for gettext support
 if [ -d resources/po ] ; then
@@ -614,11 +614,11 @@ for kit in $KITS ; do
         # Gettext po files (if they were not removed by ./bin/internal/lang-cleanup.sh)
         rm -rf resources/po
         # Documentation source code
-        mv doc/html htmldoc
-        rm -r doc
-        mkdir doc
-        mv htmldoc doc/html
-        rm doc/html/.buildinfo doc/html/objects.inv
+        mv docs/html htmldoc
+        rm -r docs
+        mkdir docs
+        mv htmldoc docs/html
+        rm docs/html/.buildinfo docs/html/objects.inv
         rm -r node_modules
         # Remove bin files for non source version
         # https://github.com/phpmyadmin/phpmyadmin/issues/16033
@@ -755,7 +755,7 @@ Todo now:
               " Version 2.7.1-dev "
         - in package.json the line
             " "version": " 2.7.1-dev", "
-        - in doc/conf.py (if it exists) the line
+        - in docs/conf.py (if it exists) the line
               " version = '2.7.1-dev' "
 
  8. on https://github.com/phpmyadmin/phpmyadmin/milestones close the milestone corresponding to the released version (if this is a stable release) and open a new one for the next minor release

@@ -27,7 +27,7 @@ jobs:
         run: pip install 'Sphinx'
 
       - name: Build the documentation
-        run: make -C doc html SPHINXOPTS='-n -W -a'
+        run: make -C docs html SPHINXOPTS='-n -W -a'
 
   build-release:
     runs-on: ubuntu-latest

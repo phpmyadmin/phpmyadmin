@@ -3,7 +3,7 @@
  * phpMyAdmin sample configuration, you can use it as base for
  * manual configuration. For easier setup you can use setup/
  *
- * All directives are explained in documentation in the doc/ folder
+ * All directives are explained in documentation in the docs/ folder
  * or at <https://docs.phpmyadmin.net/>.
  */
 
@@ -156,5 +156,5 @@ $cfg['SaveDir'] = '';
 
 /**
  * You can find more configuration options in the documentation
- * in the doc/ folder or at <https://docs.phpmyadmin.net/>.
+ * in the docs/ folder or at <https://docs.phpmyadmin.net/>.
  */

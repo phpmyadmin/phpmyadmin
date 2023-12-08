@@ -49,7 +49,7 @@ fi
 # for instance), and while that's more precise this should work with less to fix if a line changes.
 # This method wasn't selected for any particular strength.
 
-oldVersion="$(grep 'version =' "${dir}"doc/conf.py | cut -d "'" -f2)"
+oldVersion="$(grep 'version =' "${dir}"docs/conf.py | cut -d "'" -f2)"
 
 echo "Changing from ${oldVersion} to ${newVersion}..."
 
@@ -57,7 +57,7 @@ echo "Changing from ${oldVersion} to ${newVersion}..."
 oldVersion=${oldVersion//./\.}
 newVersion=${newVersion//./\.}
 
-for f in README doc/conf.py package.json
+for f in README docs/conf.py package.json
 do
     if ! grep --quiet "${oldVersion}" "${dir}${f}"
     then
