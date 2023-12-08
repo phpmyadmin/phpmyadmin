@@ -56,7 +56,6 @@ class ChangeController extends AbstractController
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['where_clause'] ??= null;
         $GLOBALS['unsaved_values'] ??= null;
-        $GLOBALS['result'] ??= null;
         $GLOBALS['current_result'] ??= null;
 
         $this->pageSettings->init('Edit');
@@ -108,7 +107,7 @@ class ChangeController extends AbstractController
             $GLOBALS['where_clause'],
             $whereClauseArray,
             $whereClauses,
-            $GLOBALS['result'],
+            $result,
             $rows,
             $foundUniqueIndex,
             $afterInsert,
@@ -231,10 +230,9 @@ class ChangeController extends AbstractController
 
         $GLOBALS['plugin_scripts'] = [];
         foreach ($rows as $rowId => $currentRow) {
-            $GLOBALS['current_result'] = (isset($GLOBALS['result'])
-                && is_array($GLOBALS['result']) && isset($GLOBALS['result'][$rowId])
-                ? $GLOBALS['result'][$rowId]
-                : $GLOBALS['result']);
+            $GLOBALS['current_result'] = is_array($result) && isset($result[$rowId])
+                ? $result[$rowId]
+                : $result;
             $repopulate = [];
             $checked = true;
             if (isset($GLOBALS['unsaved_values'][$rowId])) {

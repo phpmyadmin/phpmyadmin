@@ -5651,7 +5651,7 @@ parameters:
 			path: src/Controllers/Table/ChangeController.php
 
 		-
-			message: "#^Parameter \\#4 \\$currentResult of method PhpMyAdmin\\\\InsertEdit\\:\\:getHtmlForInsertEditRow\\(\\) expects PhpMyAdmin\\\\Dbal\\\\ResultInterface, mixed given\\.$#"
+			message: "#^Parameter \\#4 \\$currentResult of method PhpMyAdmin\\\\InsertEdit\\:\\:getHtmlForInsertEditRow\\(\\) expects PhpMyAdmin\\\\Dbal\\\\ResultInterface, array\\<PhpMyAdmin\\\\Dbal\\\\ResultInterface\\>\\|PhpMyAdmin\\\\Dbal\\\\ResultInterface given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ChangeController.php
 
