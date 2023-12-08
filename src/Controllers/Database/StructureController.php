@@ -557,7 +557,7 @@ class StructureController extends AbstractController
         if (isset($currentTable['TABLE_ROWS']) && ($currentTable['ENGINE'] != null || $tableIsView)) {
             // InnoDB/TokuDB table: we did not get an accurate row count
             $approxRows = ! $tableIsView
-                && in_array($currentTable['ENGINE'], ['InnoDB', 'TokuDB'])
+                && in_array($currentTable['ENGINE'], ['InnoDB', 'TokuDB'], true)
                 && ! $currentTable['COUNTED'];
 
             if ($tableIsView && $currentTable['TABLE_ROWS'] >= Config::getInstance()->settings['MaxExactCountViews']) {
@@ -828,7 +828,7 @@ class StructureController extends AbstractController
         $formattedSize = $unit = '';
 
         if (
-            (in_array($currentTable['ENGINE'], ['InnoDB', 'TokuDB'])
+            (in_array($currentTable['ENGINE'], ['InnoDB', 'TokuDB'], true)
             && $currentTable['TABLE_ROWS'] < Config::getInstance()->settings['MaxExactCount'])
             || ! isset($currentTable['TABLE_ROWS'])
         ) {

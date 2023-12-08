@@ -173,7 +173,7 @@ class CreateAddField
         if (
             $index['Index_choice'] !== 'SPATIAL'
             && $index['Index_choice'] !== 'FULLTEXT'
-            && in_array($index['Index_type'], Index::getIndexTypes())
+            && in_array($index['Index_type'], Index::getIndexTypes(), true)
         ) {
             $sqlQuery .= ' USING ' . $index['Index_type'];
         }

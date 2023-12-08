@@ -540,7 +540,7 @@ class ExportTexytext extends ExportPlugin
 
         $fmtPre = '';
         $fmtPost = '';
-        if (in_array($column->field, $uniqueKeys)) {
+        if (in_array($column->field, $uniqueKeys, true)) {
             $fmtPre = '**' . $fmtPre;
             $fmtPost .= '**';
         }

@@ -153,7 +153,7 @@ final class ExportController extends AbstractController
                 $separateFiles = $asSeparateFiles;
             }
 
-            if (in_array($compressionParam, $compressionMethods)) {
+            if (in_array($compressionParam, $compressionMethods, true)) {
                 $GLOBALS['compression'] = $compressionParam;
                 $GLOBALS['buffer_needed'] = true;
             }

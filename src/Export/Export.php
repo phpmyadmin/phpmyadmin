@@ -98,7 +98,7 @@ class Export
         /** @var string[] $handlers */
         $handlers = ob_list_handlers();
 
-        return in_array('ob_gzhandler', $handlers);
+        return in_array('ob_gzhandler', $handlers, true);
     }
 
     /**
@@ -599,10 +599,10 @@ class Export
      * Export at the database level
      *
      * @param DatabaseName $db              the database to export
-     * @param mixed[]      $tables          the tables to export
+     * @param string[]     $tables          the tables to export
      * @param string       $whatStrucOrData structure or data or both
-     * @param mixed[]      $tableStructure  whether to export structure for each table
-     * @param mixed[]      $tableData       whether to export data for each table
+     * @param string[]     $tableStructure  whether to export structure for each table
+     * @param string[]     $tableData       whether to export data for each table
      * @param ExportPlugin $exportPlugin    the selected export plugin
      * @param string       $errorUrl        the URL in case of error
      * @param string       $exportType      the export type
@@ -677,7 +677,7 @@ class Export
             if (
                 ($whatStrucOrData === 'structure'
                 || $whatStrucOrData === 'structure_and_data')
-                && in_array($table, $tableStructure)
+                && in_array($table, $tableStructure, true)
             ) {
                 // for a view, export a stand-in definition of the table
                 // to resolve view dependencies (only when it's a single-file export)
@@ -739,7 +739,7 @@ class Export
             // if this is a view or a merge table, don't export data
             if (
                 ($whatStrucOrData === 'data' || $whatStrucOrData === 'structure_and_data')
-                && in_array($table, $tableData)
+                && in_array($table, $tableData, true)
                 && ! $isView
             ) {
                 $tableObj = new Table($table, $db->getName(), $this->dbi);
@@ -764,7 +764,7 @@ class Export
             if (
                 ! isset($GLOBALS['sql_create_trigger']) || ($whatStrucOrData !== 'structure'
                 && $whatStrucOrData !== 'structure_and_data')
-                || ! in_array($table, $tableStructure)
+                || ! in_array($table, $tableStructure, true)
             ) {
                 continue;
             }

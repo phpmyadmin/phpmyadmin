@@ -78,7 +78,7 @@ class AuthenticationSignon extends AuthenticationPlugin
 
         if (
             isset($sessionCookieParams['samesite'])
-            && ! in_array($sessionCookieParams['samesite'], ['Lax', 'Strict'])
+            && ! in_array($sessionCookieParams['samesite'], ['Lax', 'Strict'], true)
         ) {
             // Not a valid value for samesite
             unset($sessionCookieParams['samesite']);

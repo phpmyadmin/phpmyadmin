@@ -141,7 +141,7 @@ class Footer
 
         $params['server'] = $GLOBALS['server'];
 
-        if (isset($_REQUEST['single_table']) && in_array($_REQUEST['single_table'], [true, false])) {
+        if (isset($_REQUEST['single_table'])) {
             $params['single_table'] = $_REQUEST['single_table'];
         }
 

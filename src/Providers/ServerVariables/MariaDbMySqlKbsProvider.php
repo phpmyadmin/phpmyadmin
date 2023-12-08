@@ -18,7 +18,7 @@ class MariaDbMySqlKbsProvider implements ServerVariablesProviderInterface
         }
     }
 
-    /** @return mixed[] */
+    /** @return string[] */
     public function getStaticVariables(): array
     {
         return [];

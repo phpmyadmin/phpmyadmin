@@ -361,7 +361,10 @@ class Routines
         }
 
         $retval['item_returntype'] = '';
-        if (isset($_POST['item_returntype']) && in_array($_POST['item_returntype'], Util::getSupportedDatatypes())) {
+        if (
+            isset($_POST['item_returntype'])
+            && in_array($_POST['item_returntype'], Util::getSupportedDatatypes(), true)
+        ) {
             $retval['item_returntype'] = $_POST['item_returntype'];
         }
 
@@ -600,7 +603,7 @@ class Routines
             if (
                 $itemType === 'PROCEDURE'
                 && ! empty($itemParamDir[$i])
-                && in_array($itemParamDir[$i], $this->directions)
+                && in_array($itemParamDir[$i], $this->directions, true)
             ) {
                 $params .= $itemParamDir[$i] . ' '
                     . Util::backquote($itemParamName[$i])
@@ -639,7 +642,7 @@ class Routines
 
             if (! empty($itemParamOpsText[$i])) {
                 if ($this->dbi->types->getTypeClass($itemParamType[$i]) === 'CHAR') {
-                    if (! in_array($itemParamType[$i], ['VARBINARY', 'BINARY'])) {
+                    if (! in_array($itemParamType[$i], ['VARBINARY', 'BINARY'], true)) {
                         $params .= ' CHARSET '
                             . mb_strtolower($itemParamOpsText[$i]);
                     }
@@ -677,7 +680,7 @@ class Routines
 
         $itemReturnType = $_POST['item_returntype'] ?? null;
 
-        if (! empty($itemReturnType) && in_array($itemReturnType, Util::getSupportedDatatypes())) {
+        if ($itemReturnType !== '' && in_array($itemReturnType, Util::getSupportedDatatypes(), true)) {
             $query .= 'RETURNS ' . $itemReturnType;
         } else {
             $GLOBALS['errors'][] = __('You must provide a valid return type for the routine.');
@@ -817,7 +820,7 @@ class Routines
         }
 
         $itemSqlDataAccess = $_POST['item_sqldataaccess'] ?? '';
-        if (! empty($itemSqlDataAccess) && in_array($itemSqlDataAccess, $this->sqlDataAccess)) {
+        if (in_array($itemSqlDataAccess, $this->sqlDataAccess, true)) {
             $query .= $itemSqlDataAccess . ' ';
         }
 
@@ -858,7 +861,7 @@ class Routines
 
                 if (
                     ! empty($_POST['funcs'][$routine['item_param_name'][$i]])
-                    && in_array($_POST['funcs'][$routine['item_param_name'][$i]], $allFunctions)
+                    && in_array($_POST['funcs'][$routine['item_param_name'][$i]], $allFunctions, true)
                 ) {
                     $queries[] = sprintf(
                         'SET @p%d=%s(%s);',
@@ -1050,6 +1053,7 @@ class Routines
                     || in_array(
                         mb_strtolower($routine['item_param_type'][$i]),
                         $noSupportTypes,
+                        true,
                     )
                 ) {
                     $params[$i]['generator'] = null;
@@ -1074,7 +1078,7 @@ class Routines
                 $params[$i]['class'] = 'datefield';
             }
 
-            if (in_array($routine['item_param_type'][$i], ['ENUM', 'SET'])) {
+            if (in_array($routine['item_param_type'][$i], ['ENUM', 'SET'], true)) {
                 if ($routine['item_param_type'][$i] === 'ENUM') {
                     $params[$i]['input_type'] = 'radio';
                 } else {
@@ -1085,7 +1089,7 @@ class Routines
                     $value = htmlentities(Util::unQuote($value), ENT_QUOTES);
                     $params[$i]['htmlentities'][] = $value;
                 }
-            } elseif (in_array(mb_strtolower($routine['item_param_type'][$i]), $noSupportTypes)) {
+            } elseif (in_array(mb_strtolower($routine['item_param_type'][$i]), $noSupportTypes, true)) {
                 $params[$i]['input_type'] = null;
             } else {
                 $params[$i]['input_type'] = 'text';

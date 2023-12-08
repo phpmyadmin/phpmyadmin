@@ -908,7 +908,7 @@ class Generator
         // set all other attributes
         $attributeString = '';
         foreach ($attributes as $key => $value) {
-            if (in_array($key, ['alt', 'title'])) {
+            if (in_array($key, ['alt', 'title'], true)) {
                 continue;
             }
 

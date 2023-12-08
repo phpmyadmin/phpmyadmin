@@ -50,7 +50,7 @@ abstract class AbstractTestCase extends TestCase
     protected function setUp(): void
     {
         foreach (array_keys($GLOBALS) as $key) {
-            if (in_array($key, $this->globalsAllowList)) {
+            if (in_array($key, $this->globalsAllowList, true)) {
                 continue;
             }
 
@@ -189,7 +189,7 @@ abstract class AbstractTestCase extends TestCase
         Config::$instance = null;
         (new ReflectionProperty(Template::class, 'twig'))->setValue(null, null);
         foreach (array_keys($GLOBALS) as $key) {
-            if (in_array($key, $this->globalsAllowList)) {
+            if (in_array($key, $this->globalsAllowList, true)) {
                 continue;
             }
 

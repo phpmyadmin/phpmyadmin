@@ -11,7 +11,7 @@ class VoidProvider implements ServerVariablesProviderInterface
         return null;
     }
 
-    /** @return mixed[] */
+    /** @return string[] */
     public function getStaticVariables(): array
     {
         return [];

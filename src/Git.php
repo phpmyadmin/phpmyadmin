@@ -367,7 +367,7 @@ class Git
             $dataline = array_shift($commit);
             $datalinearr = explode(' ', $dataline, 2);
             $linetype = $datalinearr[0];
-            if (! in_array($linetype, ['author', 'committer'])) {
+            if (! in_array($linetype, ['author', 'committer'], true)) {
                 continue;
             }
 
@@ -380,7 +380,7 @@ class Git
 
             if ($linetype === 'author') {
                 $author = $user2;
-            } elseif ($linetype === 'committer') {
+            } else {
                 $committer = $user2;
             }
         } while ($dataline != '');

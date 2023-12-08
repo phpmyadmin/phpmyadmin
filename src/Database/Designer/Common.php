@@ -169,7 +169,7 @@ class Common
             $dtnI = $con['DTN'][$i];
             $retval[$ti] = [];
             $retval[$ti][$cNameI] = [];
-            if (in_array($dtnI, $tableDbNames) && in_array($con['STN'][$i], $tableDbNames)) {
+            if (in_array($dtnI, $tableDbNames, true) && in_array($con['STN'][$i], $tableDbNames, true)) {
                 $retval[$ti][$cNameI][$dtnI] = [];
                 $retval[$ti][$cNameI][$dtnI][$con['DCN'][$i]] = [0 => $con['STN'][$i], 1 => $con['SCN'][$i]];
             }

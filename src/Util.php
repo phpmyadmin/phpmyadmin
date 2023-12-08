@@ -38,7 +38,6 @@ use function htmlspecialchars;
 use function htmlspecialchars_decode;
 use function implode;
 use function in_array;
-use function ini_get;
 use function is_array;
 use function is_numeric;
 use function is_object;
@@ -82,7 +81,6 @@ use function uksort;
 use const ENT_COMPAT;
 use const ENT_QUOTES;
 use const PHP_INT_SIZE;
-use const PHP_MAJOR_VERSION;
 use const STR_PAD_LEFT;
 
 /**
@@ -97,7 +95,7 @@ class Util
      */
     public static function showIcons(string $value): bool
     {
-        return in_array(Config::getInstance()->settings[$value], ['icons', 'both']);
+        return in_array(Config::getInstance()->settings[$value], ['icons', 'both'], true);
     }
 
     /**
@@ -107,7 +105,7 @@ class Util
      */
     public static function showText(string $value): bool
     {
-        return in_array(Config::getInstance()->settings[$value], ['text', 'both']);
+        return in_array(Config::getInstance()->settings[$value], ['text', 'both'], true);
     }
 
     /**
@@ -1261,7 +1259,7 @@ class Util
      * as specified in Types->getColumns() and returns an array
      * (useful for quickly checking if a datatype is supported).
      *
-     * @return mixed[] An array of datatypes.
+     * @return string[] An array of datatypes.
      */
     public static function getSupportedDatatypes(): array
     {
@@ -1287,7 +1285,7 @@ class Util
      * Returns a list of datatypes that are not (yet) handled by PMA.
      * Used by: /table/change and libraries/Routines.php
      *
-     * @return mixed[] list of datatypes
+     * @return string[] list of datatypes
      */
     public static function unsupportedDatatypes(): array
     {
@@ -1821,7 +1819,7 @@ class Util
                 $whereAdded = true;
             }
 
-            if (isset($_REQUEST['tbl_type']) && in_array($_REQUEST['tbl_type'], ['table', 'view'])) {
+            if (isset($_REQUEST['tbl_type']) && in_array($_REQUEST['tbl_type'], ['table', 'view'], true)) {
                 $tblGroupSql .= $whereAdded ? ' AND' : ' WHERE';
                 if ($_REQUEST['tbl_type'] === 'view') {
                     $tblGroupSql .= " `Table_type` NOT IN ('BASE TABLE', 'SYSTEM VERSIONED')";
@@ -2057,7 +2055,7 @@ class Util
             'sort_order' => $futureSortOrder,
         ];
 
-        if (isset($_REQUEST['tbl_type']) && in_array($_REQUEST['tbl_type'], ['view', 'table'])) {
+        if (isset($_REQUEST['tbl_type']) && in_array($_REQUEST['tbl_type'], ['view', 'table'], true)) {
             $urlParams['tbl_type'] = $_REQUEST['tbl_type'];
         }
 
@@ -2100,32 +2098,13 @@ class Util
 
                 [$keyName, $value] = $keyValueArray;
                 $value = trim(strtolower($value));
-                if (strtolower(trim($keyName)) === 'proto' && in_array($value, ['http', 'https'])) {
+                if (strtolower(trim($keyName)) === 'proto' && in_array($value, ['http', 'https'], true)) {
                     return $value;
                 }
             }
         }
 
         return '';
-    }
-
-    /**
-     * Check if error reporting is available
-     */
-    public static function isErrorReportingAvailable(): bool
-    {
-        // issue #16256 - PHP 7.x does not return false for a core function
-        if (PHP_MAJOR_VERSION < 8) {
-            $disabled = ini_get('disable_functions');
-            if (is_string($disabled)) {
-                $disabled = explode(',', $disabled);
-                $disabled = array_map(trim(...), $disabled);
-
-                return ! in_array('error_reporting', $disabled);
-            }
-        }
-
-        return function_exists('error_reporting');
     }
 
     public static function getTableListPosition(ServerRequest $request, string $db): int

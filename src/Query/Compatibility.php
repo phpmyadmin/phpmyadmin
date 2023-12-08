@@ -185,7 +185,7 @@ class Compatibility
         // except TINYINT(1).
         // See: https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-19.html
         $integerTypes = ['SMALLINT', 'MEDIUMINT', 'INT', 'BIGINT'];
-        $typeLengthNotAllowed = in_array($type, $integerTypes) || $type === 'TINYINT' && $length !== '1';
+        $typeLengthNotAllowed = in_array($type, $integerTypes, true) || $type === 'TINYINT' && $length !== '1';
 
         return ! (self::isIntegersLengthRestricted($dbi) && $typeLengthNotAllowed);
     }

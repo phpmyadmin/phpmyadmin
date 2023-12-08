@@ -1243,7 +1243,6 @@
       <code><![CDATA[$_POST['item_type']]]></code>
       <code><![CDATA[$_POST['item_type']]]></code>
       <code><![CDATA[$_REQUEST['item_name']]]></code>
-      <code>$type</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_GET['item_name']]]></code>
@@ -2079,7 +2078,6 @@
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['format']]]></code>
       <code><![CDATA[$GLOBALS['import_file']]]></code>
       <code><![CDATA[$GLOBALS['import_file']]]></code>
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
@@ -2154,7 +2152,6 @@
     </MixedMethodCall>
     <MixedOperand>
       <code><![CDATA[$GLOBALS['charset_of_file']]]></code>
-      <code><![CDATA[$GLOBALS['format']]]></code>
       <code><![CDATA[$GLOBALS['local_import_file']]]></code>
     </MixedOperand>
     <PossiblyInvalidArgument>
@@ -3828,7 +3825,6 @@
       <code><![CDATA[$GLOBALS['query']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values'][$rowNumber]]]></code>
-      <code><![CDATA[$GLOBALS['urlParams']['after_insert']]]></code>
       <code><![CDATA[$GLOBALS['urlParams']['where_clause'][]]]></code>
       <code>$afterInsert</code>
       <code>$clauseIsUnique</code>
@@ -4418,11 +4414,8 @@
       <code><![CDATA[$viewData['with']]]></code>
     </MixedAssignment>
     <MixedOperand>
-      <code><![CDATA[$view['algorithm']]]></code>
       <code><![CDATA[$view['as']]]></code>
       <code><![CDATA[$view['column_names']]]></code>
-      <code><![CDATA[$view['sql_security']]]></code>
-      <code><![CDATA[$view['with']]]></code>
     </MixedOperand>
     <PossiblyUnusedMethod>
       <code>__construct</code>
@@ -4540,7 +4533,6 @@
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$column['size']]]></code>
-      <code><![CDATA[$index['Index_type']]]></code>
       <code><![CDATA[$partition['comment']]]></code>
       <code><![CDATA[$partition['data_directory']]]></code>
       <code><![CDATA[$partition['engine']]]></code>
@@ -5034,7 +5026,6 @@
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
       <code><![CDATA[$_POST['item_definition']]]></code>
-      <code><![CDATA[$_POST['item_interval_field']]]></code>
     </PossiblyInvalidOperand>
     <PossiblyNullArgument>
       <code>$createItem</code>
@@ -5152,7 +5143,6 @@
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
-      <code><![CDATA[$params[$i]['htmlentities'][]]]></code>
       <code><![CDATA[$routine['item_param_name'][$i]]]></code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
@@ -5248,8 +5238,6 @@
       <code><![CDATA[$_POST['item_returnlength']]]></code>
       <code><![CDATA[$_POST['item_type']]]></code>
       <code>$itemDefinition</code>
-      <code>$itemReturnType</code>
-      <code>$itemSqlDataAccess</code>
     </PossiblyInvalidOperand>
     <PossiblyNullArgument>
       <code>$createRoutine</code>
@@ -5954,11 +5942,9 @@
       <code>$dbAlias</code>
       <code>$dbAlias</code>
       <code>$table</code>
-      <code>$table</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$dbSelect</code>
-      <code>$tables</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$aliases[$db->getName()]['alias']]]></code>
@@ -5988,7 +5974,6 @@
       <code>$colAs</code>
       <code>$dbAlias</code>
       <code>$dbAlias</code>
-      <code>$table</code>
       <code>$table</code>
       <code>$tableName</code>
       <code>$tbl</code>
@@ -7483,9 +7468,6 @@
       <code>int</code>
       <code>int</code>
     </InvalidReturnType>
-    <MixedAssignment>
-      <code>$item</code>
-    </MixedAssignment>
   </file>
   <file src="src/Navigation/Nodes/NodeDatabaseChild.php">
     <PossiblyInvalidPropertyFetch>
@@ -12351,15 +12333,12 @@
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
-      <code><![CDATA[$_POST['item_table']]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['item_original_name']]]></code>
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
       <code><![CDATA[$_POST['item_definition']]]></code>
-      <code><![CDATA[$_POST['item_event']]]></code>
-      <code><![CDATA[$_POST['item_timing']]]></code>
     </PossiblyInvalidOperand>
     <PossiblyNullReference>
       <code>getCreateSql</code>
@@ -12373,12 +12352,6 @@
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code>$name</code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code>$name</code>
-    </MixedAssignment>
     <UnsafeInstantiation>
       <code>new $cls($this)</code>
       <code>new $cls($this)</code>

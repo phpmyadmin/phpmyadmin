@@ -88,7 +88,7 @@ class Tracking
      * Filters tracking entries
      *
      * @param list<array{date: string, username: string, statement: string}> $data        the entries to filter
-     * @param mixed[]                                                        $filterUsers users
+     * @param string[]                                                       $filterUsers users
      *
      * @return mixed[] filtered entries
      */
@@ -101,10 +101,9 @@ class Tracking
         $tmpEntries = [];
         $id = 0;
         foreach ($data as $entry) {
-            $filteredUser = in_array($entry['username'], $filterUsers);
             if (
                 $this->isDateBetweenInclusive(new DateTimeImmutable($entry['date']), $dateFrom, $dateTo)
-                && (in_array('*', $filterUsers) || $filteredUser)
+                && (in_array('*', $filterUsers, true) || in_array($entry['username'], $filterUsers, true))
             ) {
                 $tmpEntries[] = [
                     'id' => $id,
@@ -190,7 +189,7 @@ class Tracking
      *
      * @param TrackedData $trackedData data
      * @param mixed[]     $urlParams   url params
-     * @param mixed[]     $filterUsers filter users
+     * @param string[]    $filterUsers filter users
      * @psalm-param 'schema'|'data'|'schema_and_data' $logType
      */
     public function getHtmlForTrackingReport(
@@ -313,7 +312,7 @@ class Tracking
      *
      * @param TrackedData $trackedData     data
      * @param mixed[]     $urlParams       url params
-     * @param mixed[]     $filterUsers     filter users
+     * @param string[]    $filterUsers     filter users
      * @param string      $str1            HTML for log_type select
      * @param string      $str2            HTML for "from date"
      * @param string      $str3            HTML for "to date"
@@ -458,7 +457,7 @@ class Tracking
      * Function to get html for data manipulation statements
      *
      * @param TrackedData $trackedData     data
-     * @param mixed[]     $filterUsers     filter users
+     * @param string[]    $filterUsers     filter users
      * @param mixed[]     $urlParams       url parameters
      * @param int         $ddlogCount      data definition log count
      * @param string      $dropImageOrText drop image or text
@@ -493,7 +492,7 @@ class Tracking
      * Function to get html for data definition statements in schema snapshot
      *
      * @param TrackedData $trackedData     data
-     * @param mixed[]     $filterUsers     filter users
+     * @param string[]    $filterUsers     filter users
      * @param mixed[]     $urlParams       url parameters
      * @param string      $dropImageOrText drop image or text
      *
@@ -527,7 +526,7 @@ class Tracking
      * Function to get html for data statements in schema snapshot
      *
      * @param list<array{date: string, username: string, statement: string}> $logData         tracked data
-     * @param mixed[]                                                        $filterUsers     filter users
+     * @param string[]                                                       $filterUsers     filter users
      * @param mixed[]                                                        $urlParams       url parameters
      * @param string                                                         $dropImageOrText drop image or text
      * @param LogTypeEnum                                                    $logType         DDL|DML
@@ -551,8 +550,8 @@ class Tracking
         foreach ($logData as $entry) {
             if (
                 $this->isDateBetweenInclusive(new DateTimeImmutable($entry['date']), $dateFrom, $dateTo)
-                && (in_array('*', $filterUsers)
-                || in_array($entry['username'], $filterUsers))
+                && (in_array('*', $filterUsers, true)
+                || in_array($entry['username'], $filterUsers, true))
             ) {
                 $entry['formated_statement'] = Generator::formatSql($entry['statement'], true);
                 $deleteParam = 'delete_' . $logType->getLogName();
@@ -1071,7 +1070,7 @@ class Tracking
     /**
      * Function to get the entries
      *
-     * @param mixed[] $filterUsers filter users
+     * @param string[] $filterUsers filter users
      * @phpstan-param 'schema'|'data'|'schema_and_data' $logType
      *
      * @return mixed[]

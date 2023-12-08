@@ -287,7 +287,7 @@ final class Search
         // If the where clause is something like 'IsEmpty(`spatial_col_name`)'
         if (isset($geomUnaryFunctions[$geomFunc]) && trim($criteriaValues) == '') {
             $where = $geomFunctionApplied;
-        } elseif (in_array($type, Gis::getDataTypes()) && ! empty($criteriaValues)) {
+        } elseif (in_array($type, Gis::getDataTypes(), true) && ! empty($criteriaValues)) {
             // create gis data from the criteria input
             $gisData = Gis::createData($criteriaValues, $this->dbi->getVersion());
             $where = $geomFunctionApplied . ' ' . $funcType . ' ' . $gisData;

@@ -191,20 +191,23 @@ class Triggers
             $GLOBALS['errors'][] = __('You must provide a trigger name!');
         }
 
-        if (! empty($_POST['item_timing']) && in_array($_POST['item_timing'], $this->time)) {
+        if (! empty($_POST['item_timing']) && in_array($_POST['item_timing'], $this->time, true)) {
             $query .= $_POST['item_timing'] . ' ';
         } else {
             $GLOBALS['errors'][] = __('You must provide a valid timing for the trigger!');
         }
 
-        if (! empty($_POST['item_event']) && in_array($_POST['item_event'], $this->event)) {
+        if (! empty($_POST['item_event']) && in_array($_POST['item_event'], $this->event, true)) {
             $query .= $_POST['item_event'] . ' ';
         } else {
             $GLOBALS['errors'][] = __('You must provide a valid event for the trigger!');
         }
 
         $query .= 'ON ';
-        if (! empty($_POST['item_table']) && in_array($_POST['item_table'], $this->dbi->getTables($GLOBALS['db']))) {
+        if (
+            ! empty($_POST['item_table'])
+            && in_array($_POST['item_table'], $this->dbi->getTables($GLOBALS['db']), true)
+        ) {
             $query .= Util::backquote($_POST['item_table']);
         } else {
             $GLOBALS['errors'][] = __('You must provide a valid table name!');

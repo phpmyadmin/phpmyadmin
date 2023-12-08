@@ -290,7 +290,7 @@ class ReplicationGui
                 'Replicate_Wild_Do_Table',
                 'Replicate_Wild_Ignore_Table',
             ];
-            if (! in_array($variable, $variablesWrap)) {
+            if (! in_array($variable, $variablesWrap, true)) {
                 continue;
             }
 

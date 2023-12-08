@@ -1519,7 +1519,7 @@ class Relation
             // Check if the table already exists
             // use the possible replaced name first and fallback on the table name
             // if no replacement exists
-            if (! in_array($tableNameReplacements[$table] ?? $table, $existingTables)) {
+            if (! in_array($tableNameReplacements[$table] ?? $table, $existingTables, true)) {
                 if (! $create) {
                     continue;
                 }

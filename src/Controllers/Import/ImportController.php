@@ -229,7 +229,7 @@ final class ImportController extends AbstractController
          * We only need to load the selected plugin
          */
 
-        if (! in_array($GLOBALS['format'], ['csv', 'ldi', 'mediawiki', 'ods', 'shp', 'sql', 'xml'])) {
+        if (! in_array($GLOBALS['format'], ['csv', 'ldi', 'mediawiki', 'ods', 'shp', 'sql', 'xml'], true)) {
             // this should not happen for a normal user
             // but only during an attack
             $this->response->setRequestStatus(false);

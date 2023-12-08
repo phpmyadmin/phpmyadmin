@@ -451,7 +451,7 @@ class InsertEdit
         }
 
         $inputMinMax = '';
-        $isInteger = in_array($column->trueType, $this->dbi->types->getIntegerTypes());
+        $isInteger = in_array($column->trueType, $this->dbi->types->getIntegerTypes(), true);
         if ($isInteger) {
             $extractedColumnspec = Util::extractColumnSpec($column->type);
             $isUnsigned = $extractedColumnspec['unsigned'];
@@ -730,7 +730,6 @@ class InsertEdit
      * @param mixed[]          $extractedColumnspec associative array containing type,
      *                                              spec_in_brackets and possibly
      *                                              enum_set_values (another array)
-     * @param mixed[]          $gisDataTypes        list of GIS data types
      * @param string           $columnNameAppendix  string to append to column name in input
      * @param bool             $asIs                use the data as is, used in repopulating
      *
@@ -742,7 +741,6 @@ class InsertEdit
         array $currentRow,
         InsertEditColumn $column,
         array $extractedColumnspec,
-        array $gisDataTypes,
         string $columnNameAppendix,
         bool $asIs,
     ): array {
@@ -772,7 +770,7 @@ class InsertEdit
                 ? $currentRow[$column->field]
                 : Util::addMicroseconds($currentRow[$column->field]);
             $specialChars = htmlspecialchars($currentRow[$column->field], ENT_COMPAT);
-        } elseif (in_array($column->trueType, $gisDataTypes)) {
+        } elseif (in_array($column->trueType, Gis::getDataTypes(), true)) {
             // Convert gis data to Well Know Text format
             $currentRow[$column->field] = $asIs
                 ? $currentRow[$column->field]
@@ -879,7 +877,7 @@ class InsertEdit
     public function getGotoInclude(string|false $gotoInclude): string
     {
         $validOptions = ['new_insert', 'same_insert', 'edit_next'];
-        if (isset($_POST['after_insert']) && in_array($_POST['after_insert'], $validOptions)) {
+        if (isset($_POST['after_insert']) && in_array($_POST['after_insert'], $validOptions, true)) {
             return '/table/change';
         }
 
@@ -1170,8 +1168,8 @@ class InsertEdit
         }
 
         if (
-            in_array($editField->function, $this->getGisFromTextFunctions())
-            || in_array($editField->function, $this->getGisFromWKBFunctions())
+            in_array($editField->function, $this->getGisFromTextFunctions(), true)
+            || in_array($editField->function, $this->getGisFromWKBFunctions(), true)
         ) {
             preg_match('/^(\'?)(.*?)\1(?:,(\d+))?$/', $editField->value, $matches);
             $escapedParams = $this->dbi->quoteString($matches[2]) . (isset($matches[3]) ? ',' . $matches[3] : '');
@@ -1180,8 +1178,8 @@ class InsertEdit
         }
 
         if (
-            ! in_array($editField->function, self::FUNC_NO_PARAM)
-            || ($editField->value !== '' && in_array($editField->function, self::FUNC_OPTIONAL_PARAM))
+            ! in_array($editField->function, self::FUNC_NO_PARAM, true)
+            || ($editField->value !== '' && in_array($editField->function, self::FUNC_OPTIONAL_PARAM, true))
         ) {
             if (
                 ($editField->salt !== null
@@ -1635,9 +1633,6 @@ class InsertEdit
         // in the name attribute (see bug #1746964 )
         $columnNameAppendix = $vkey . '[' . $fieldHashMd5 . ']';
 
-        // Get a list of GIS data types.
-        $gisDataTypes = Gis::getDataTypes();
-
         // Prepares the field value
         if ($currentRow !== []) {
             // (we are editing)
@@ -1651,7 +1646,6 @@ class InsertEdit
                 $currentRow,
                 $column,
                 $extractedColumnspec,
-                $gisDataTypes,
                 $columnNameAppendix,
                 $asIs,
             );
@@ -1872,7 +1866,7 @@ class InsertEdit
             'is_value_foreign_link' => $foreignData['foreign_link'] === true,
             'backup_field' => $backupField,
             'data' => $data,
-            'gis_data_types' => $gisDataTypes,
+            'gis_data_types' => Gis::getDataTypes(),
             'foreign_dropdown' => $foreignDropdown,
             'data_type' => $dataType,
             'textarea_cols' => $textareaCols,
@@ -1962,7 +1956,7 @@ class InsertEdit
             }
 
             $virtual = ['VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED'];
-            if (in_array($tableColumn->extra, $virtual)) {
+            if (in_array($tableColumn->extra, $virtual, true)) {
                 continue;
             }
 

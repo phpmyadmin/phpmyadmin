@@ -443,23 +443,23 @@ class Table implements Stringable
     /**
      * generates column specification for ALTER or CREATE TABLE syntax
      *
-     * @param string       $name             name
-     * @param string       $type             type ('INT', 'VARCHAR', 'BIT', ...)
-     * @param string       $length           length ('2', '5,2', '', ...)
-     * @param string       $attribute        attribute
-     * @param string       $collation        collation
-     * @param bool|string  $null             with 'NULL' or 'NOT NULL'
-     * @param string       $defaultType      whether default is CURRENT_TIMESTAMP,
-     *                                        NULL, NONE, USER_DEFINED, UUID
-     * @param string       $defaultValue     default value for USER_DEFINED
-     *                                        default type
-     * @param string       $extra            'AUTO_INCREMENT'
-     * @param string       $comment          field comment
-     * @param string       $virtuality       virtuality of the column
-     * @param string       $expression       expression for the virtual column
-     * @param string       $moveTo           new position for column
-     * @param mixed[]|null $columnsWithIndex Fields having PRIMARY or UNIQUE KEY indexes
-     * @param string|null  $oldColumnName    Old column name
+     * @param string              $name             name
+     * @param string              $type             type ('INT', 'VARCHAR', 'BIT', ...)
+     * @param string              $length           length ('2', '5,2', '', ...)
+     * @param string              $attribute        attribute
+     * @param string              $collation        collation
+     * @param bool|string         $null             with 'NULL' or 'NOT NULL'
+     * @param string              $defaultType      whether default is CURRENT_TIMESTAMP,
+     *                                               NULL, NONE, USER_DEFINED, UUID
+     * @param string              $defaultValue     default value for USER_DEFINED
+     *                                               default type
+     * @param string              $extra            'AUTO_INCREMENT'
+     * @param string              $comment          field comment
+     * @param string              $virtuality       virtuality of the column
+     * @param string              $expression       expression for the virtual column
+     * @param string              $moveTo           new position for column
+     * @param (string|int)[]|null $columnsWithIndex Fields having PRIMARY or UNIQUE KEY indexes
+     * @param string|null         $oldColumnName    Old column name
      *
      * @return string  field specification
      *
@@ -751,23 +751,23 @@ class Table implements Stringable
      *
      * @see Table::generateFieldSpec()
      *
-     * @param string       $oldcol           old column name
-     * @param string       $newcol           new column name
-     * @param string       $type             type ('INT', 'VARCHAR', 'BIT', ...)
-     * @param string       $length           length ('2', '5,2', '', ...)
-     * @param string       $attribute        attribute
-     * @param string       $collation        collation
-     * @param bool|string  $null             with 'NULL' or 'NOT NULL'
-     * @param string       $defaultType      whether default is CURRENT_TIMESTAMP,
-     *                                        NULL, NONE, USER_DEFINED
-     * @param string       $defaultValue     default value for USER_DEFINED default
-     *                                        type
-     * @param string       $extra            'AUTO_INCREMENT'
-     * @param string       $comment          field comment
-     * @param string       $virtuality       virtuality of the column
-     * @param string       $expression       expression for the virtual column
-     * @param string       $moveTo           new position for column
-     * @param mixed[]|null $columnsWithIndex Fields having PRIMARY or UNIQUE KEY indexes
+     * @param string              $oldcol           old column name
+     * @param string              $newcol           new column name
+     * @param string              $type             type ('INT', 'VARCHAR', 'BIT', ...)
+     * @param string              $length           length ('2', '5,2', '', ...)
+     * @param string              $attribute        attribute
+     * @param string              $collation        collation
+     * @param bool|string         $null             with 'NULL' or 'NOT NULL'
+     * @param string              $defaultType      whether default is CURRENT_TIMESTAMP,
+     *                                               NULL, NONE, USER_DEFINED
+     * @param string              $defaultValue     default value for USER_DEFINED default
+     *                                               type
+     * @param string              $extra            'AUTO_INCREMENT'
+     * @param string              $comment          field comment
+     * @param string              $virtuality       virtuality of the column
+     * @param string              $expression       expression for the virtual column
+     * @param string              $moveTo           new position for column
+     * @param (string|int)[]|null $columnsWithIndex Fields having PRIMARY or UNIQUE KEY indexes
      *
      * @return string  field specification
      */
@@ -1475,7 +1475,7 @@ class Table implements Stringable
             }
 
             // a column might have a primary and an unique index on it
-            if (in_array($possibleColumn, $return)) {
+            if (in_array($possibleColumn, $return, true)) {
                 continue;
             }
 
@@ -2007,7 +2007,7 @@ class Table implements Stringable
         if (
             $index->getChoice() !== 'SPATIAL'
             && $index->getChoice() !== 'FULLTEXT'
-            && in_array($type, Index::getIndexTypes())
+            && in_array($type, Index::getIndexTypes(), true)
             && ! $this->isEngine('TOKUDB')
         ) {
             $sqlQuery .= ' USING ' . $type;
@@ -2477,7 +2477,7 @@ class Table implements Stringable
      *
      * @param int $types types bitmask
      *
-     * @return mixed[] an array of columns
+     * @return (string|int)[] an array of columns
      */
     public function getColumnsWithIndex(int $types): array
     {

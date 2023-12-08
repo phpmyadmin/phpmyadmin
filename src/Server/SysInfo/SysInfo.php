@@ -28,9 +28,8 @@ class SysInfo
     public static function getOs(string $phpOs = PHP_OS): string
     {
         // look for common UNIX-like systems
-        $unixLike = ['FreeBSD', 'DragonFly'];
-        if (in_array($phpOs, $unixLike)) {
-            $phpOs = 'Linux';
+        if (in_array($phpOs, ['FreeBSD', 'DragonFly'], true)) {
+            return 'Linux';
         }
 
         return ucfirst($phpOs);

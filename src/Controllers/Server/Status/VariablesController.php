@@ -136,9 +136,7 @@ class VariablesController extends AbstractController
      */
     private function flush(string $flush): void
     {
-        $flushCommands = ['STATUS', 'TABLES', 'QUERY CACHE'];
-
-        if (! in_array($flush, $flushCommands)) {
+        if (! in_array($flush, ['STATUS', 'TABLES', 'QUERY CACHE'], true)) {
             return;
         }
 

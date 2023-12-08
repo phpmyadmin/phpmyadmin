@@ -111,7 +111,7 @@ class EpsRelationSchema extends ExportRelationSchema
                 * to do a === false and this is not PHP3 compatible)
                 */
                 if ($masterField !== 'foreign_keys_data') {
-                    if (in_array($rel['foreign_table'], $alltables)) {
+                    if (in_array($rel['foreign_table'], $alltables, true)) {
                         $this->addRelation(
                             $oneTable,
                             $this->eps->getFont(),
@@ -127,7 +127,7 @@ class EpsRelationSchema extends ExportRelationSchema
                 }
 
                 foreach ($rel as $oneKey) {
-                    if (! in_array($oneKey['ref_table_name'], $alltables)) {
+                    if (! in_array($oneKey['ref_table_name'], $alltables, true)) {
                         continue;
                     }
 
