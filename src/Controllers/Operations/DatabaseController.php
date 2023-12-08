@@ -52,7 +52,6 @@ class DatabaseController extends AbstractController
         $GLOBALS['server'] ??= null;
         $GLOBALS['message'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
-        $GLOBALS['reload'] ??= null;
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['single_table'] ??= null;
 

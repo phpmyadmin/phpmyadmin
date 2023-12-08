@@ -57,8 +57,6 @@ class TableController extends AbstractController
     {
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['auto_increment'] ??= null;
-        $GLOBALS['reload'] ??= null;
-        $GLOBALS['result'] ??= null;
         $GLOBALS['message_to_show'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
@@ -213,13 +211,13 @@ class TableController extends AbstractController
                     $GLOBALS['db'] = $oldDb;
                     $this->dbi->selectDb($oldDb);
                     $newMessage .= $pmaTable->getLastMessage();
-                    $GLOBALS['result'] = true;
+                    $result = true;
                     $GLOBALS['table'] = $pmaTable->getName();
                     $rereadInfo = true;
                     $GLOBALS['reload'] = true;
                 } else {
                     $newMessage .= $pmaTable->getLastError();
-                    $GLOBALS['result'] = false;
+                    $result = false;
                 }
             }
 
@@ -258,7 +256,8 @@ class TableController extends AbstractController
                     . Util::backquote($GLOBALS['table']);
                 $GLOBALS['sql_query'] .= "\r\n" . implode("\r\n", $tableAlters);
                 $GLOBALS['sql_query'] .= ';';
-                $GLOBALS['result'] = (bool) $this->dbi->query($GLOBALS['sql_query']);
+                $this->dbi->query($GLOBALS['sql_query']);
+                $result = true;
                 $rereadInfo = true;
                 $warningMessages = $this->operations->getWarningMessagesArray();
             }
@@ -299,7 +298,8 @@ class TableController extends AbstractController
                 urldecode($orderField),
                 is_string($orderOrder) ? $orderOrder : '',
             );
-            $GLOBALS['result'] = $this->dbi->query($GLOBALS['sql_query']);
+            $this->dbi->query($GLOBALS['sql_query']);
+            $result = true;
         }
 
         /** @var mixed $partitionOperation */
@@ -318,7 +318,8 @@ class TableController extends AbstractController
                 $partitionOperation,
                 is_array($partitionNames) ? $partitionNames : [],
             );
-            $GLOBALS['result'] = $this->dbi->query($GLOBALS['sql_query']);
+            $this->dbi->query($GLOBALS['sql_query']);
+            $result = true;
         }
 
         if ($rereadInfo) {
@@ -342,12 +343,12 @@ class TableController extends AbstractController
             $createOptions = $pmaTable->getCreateOptions();
         }
 
-        if (isset($GLOBALS['result']) && empty($GLOBALS['message_to_show'])) {
+        if (isset($result) && empty($GLOBALS['message_to_show'])) {
             if ($newMessage === '') {
                 if (empty($GLOBALS['sql_query'])) {
                     $newMessage = Message::success(__('No change'));
                 } else {
-                    $newMessage = $GLOBALS['result']
+                    $newMessage = $result
                         ? Message::success()
                         : Message::error();
                 }
@@ -365,7 +366,7 @@ class TableController extends AbstractController
                     return;
                 }
             } else {
-                $newMessage = $GLOBALS['result']
+                $newMessage = $result
                     ? Message::success($newMessage)
                     : Message::error($newMessage);
             }

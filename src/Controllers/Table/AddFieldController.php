@@ -50,7 +50,6 @@ class AddFieldController extends AbstractController
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['message'] ??= null;
         $GLOBALS['active_page'] ??= null;
-        $GLOBALS['result'] ??= null;
 
         /** @var string|null $numberOfFields */
         $numberOfFields = $request->getParsedBodyParam('num_fields');
@@ -91,13 +90,13 @@ class AddFieldController extends AbstractController
                 return;
             }
 
-            $GLOBALS['result'] = $createAddField->tryColumnCreationQuery(
+            $result = $createAddField->tryColumnCreationQuery(
                 DatabaseName::from($GLOBALS['db']),
                 $GLOBALS['sql_query'],
                 $GLOBALS['errorUrl'],
             );
 
-            if (! $GLOBALS['result']) {
+            if (! $result) {
                 $errorMessageHtml = Generator::mysqlDie('', '', false, $GLOBALS['errorUrl'], false);
                 $this->response->addHTML($errorMessageHtml ?? '');
                 $this->response->setRequestStatus(false);

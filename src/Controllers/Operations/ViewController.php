@@ -40,8 +40,6 @@ class ViewController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['reload'] ??= null;
-        $GLOBALS['result'] ??= null;
         $tableObject = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
 
         $GLOBALS['errorUrl'] ??= null;
@@ -96,24 +94,24 @@ class ViewController extends AbstractController
         if ($request->hasBodyParam('submitoptions')) {
             if (is_string($newname) && $tableObject->rename($newname)) {
                 $message->addText($tableObject->getLastMessage());
-                $GLOBALS['result'] = true;
+                $result = true;
                 $GLOBALS['table'] = $tableObject->getName();
                 /* Force reread after rename */
                 $tableObject->getStatusInfo(null, true);
                 $GLOBALS['reload'] = true;
             } else {
-                    $message->addText($tableObject->getLastError());
-                    $GLOBALS['result'] = false;
+                $message->addText($tableObject->getLastError());
+                $result = false;
             }
 
             $warningMessages = $this->operations->getWarningMessagesArray();
         }
 
-        if (isset($GLOBALS['result'])) {
+        if (isset($result)) {
             // set to success by default, because result set could be empty
             // (for example, a table rename)
             if ($message->getString() === '') {
-                if ($GLOBALS['result']) {
+                if ($result) {
                     $message->addText(
                         __('Your SQL query has been executed successfully.'),
                     );
@@ -121,8 +119,7 @@ class ViewController extends AbstractController
                     $message->addText(__('Error'));
                 }
 
-                // $result should exist, regardless of $_message
-                $type = $GLOBALS['result'] ? 'success' : 'error';
+                $type = $result ? 'success' : 'error';
             }
 
             if ($warningMessages !== []) {

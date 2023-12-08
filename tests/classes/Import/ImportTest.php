@@ -86,38 +86,18 @@ class ImportTest extends AbstractTestCase
     public function testLookForUse(): void
     {
         $this->assertEquals(
-            [null, null],
-            $this->import->lookForUse(null, null, null),
+            '',
+            $this->import->lookForUse('select 1 from myTable'),
         );
 
         $this->assertEquals(
-            ['myDb', null],
-            $this->import->lookForUse(null, 'myDb', null),
+            'anotherDb',
+            $this->import->lookForUse('use anotherDb'),
         );
 
         $this->assertEquals(
-            ['myDb', true],
-            $this->import->lookForUse(null, 'myDb', true),
-        );
-
-        $this->assertEquals(
-            ['myDb', true],
-            $this->import->lookForUse('select 1 from myTable', 'myDb', true),
-        );
-
-        $this->assertEquals(
-            ['anotherDb', true],
-            $this->import->lookForUse('use anotherDb', 'myDb', false),
-        );
-
-        $this->assertEquals(
-            ['anotherDb', true],
-            $this->import->lookForUse('use anotherDb', 'myDb', true),
-        );
-
-        $this->assertEquals(
-            ['anotherDb', true],
-            $this->import->lookForUse('use `anotherDb`;', 'myDb', true),
+            'anotherDb',
+            $this->import->lookForUse('use `anotherDb`;'),
         );
     }
 

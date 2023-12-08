@@ -38,7 +38,6 @@ class ExportController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['replaces'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['where_clause'] ??= null;
         $GLOBALS['unlim_num_rows'] ??= null;
@@ -71,19 +70,16 @@ class ExportController extends AbstractController
 
             if (! empty($parser->statements[0]) && ($parser->statements[0] instanceof SelectStatement)) {
                 // Checking if the WHERE clause has to be replaced.
+                $replaces = [];
                 if (! empty($GLOBALS['where_clause']) && is_array($GLOBALS['where_clause'])) {
-                    $GLOBALS['replaces'][] = ['WHERE', 'WHERE (' . implode(') OR (', $GLOBALS['where_clause']) . ')'];
+                    $replaces[] = ['WHERE', 'WHERE (' . implode(') OR (', $GLOBALS['where_clause']) . ')'];
                 }
 
                 // Preparing to remove the LIMIT clause.
-                $GLOBALS['replaces'][] = ['LIMIT', ''];
+                $replaces[] = ['LIMIT', ''];
 
                 // Replacing the clauses.
-                $GLOBALS['sql_query'] = Query::replaceClauses(
-                    $parser->statements[0],
-                    $parser->list,
-                    $GLOBALS['replaces'],
-                );
+                $GLOBALS['sql_query'] = Query::replaceClauses($parser->statements[0], $parser->list, $replaces);
             }
         }
 
