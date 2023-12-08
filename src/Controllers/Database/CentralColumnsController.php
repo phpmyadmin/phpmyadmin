@@ -35,7 +35,6 @@ class CentralColumnsController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['message'] ??= null;
-        $GLOBALS['num_cols'] ??= null;
 
         if ($request->hasBodyParam('edit_save')) {
             $this->response->addHTML((string) $this->editSave([
@@ -135,13 +134,13 @@ class CentralColumnsController extends AbstractController
             $pos = (int) $request->getParsedBodyParam('pos');
         }
 
-        $GLOBALS['num_cols'] = $this->centralColumns->getColumnsCount(
+        $numberOfColumns = $this->centralColumns->getColumnsCount(
             $GLOBALS['db'],
             $pos,
             Config::getInstance()->settings['MaxRows'],
         );
         $GLOBALS['message'] = Message::success(
-            sprintf(__('Showing rows %1$s - %2$s.'), $pos + 1, $pos + $GLOBALS['num_cols']),
+            sprintf(__('Showing rows %1$s - %2$s.'), $pos + 1, $pos + $numberOfColumns),
         );
         if (! isset($tmpMsg) || $tmpMsg === true) {
             return;

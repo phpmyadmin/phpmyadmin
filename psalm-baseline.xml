@@ -901,9 +901,6 @@
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['num_cols']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code>$columnDefault</code>
       <code>$columnDefault</code>
@@ -932,7 +929,6 @@
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['message']]]></code>
-      <code><![CDATA[$GLOBALS['num_cols']]]></code>
       <code>$columnDefault</code>
       <code>$columnDefault</code>
     </MixedAssignment>
