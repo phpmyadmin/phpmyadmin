@@ -96,7 +96,6 @@ final class ImportController extends AbstractController
         $GLOBALS['read_multiply'] ??= null;
         $GLOBALS['my_die'] ??= null;
         $GLOBALS['active_page'] ??= null;
-        $GLOBALS['reload'] ??= null;
 
         $GLOBALS['charset_of_file'] = $request->getParsedBodyParam('charset_of_file');
         $GLOBALS['format'] = $request->getParsedBodyParam('format', '');

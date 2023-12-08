@@ -40,7 +40,6 @@ class ViewController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['reload'] ??= null;
         $GLOBALS['result'] ??= null;
         $tableObject = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
 

@@ -37,7 +37,6 @@ final class DestroyController extends AbstractController
     {
         $GLOBALS['selected'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
-        $GLOBALS['reload'] ??= null;
 
         $selectedDbs = $request->getParsedBodyParam('selected_dbs');
 

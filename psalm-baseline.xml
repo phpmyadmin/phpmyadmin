@@ -2068,7 +2068,6 @@
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['my_die']]]></code>
       <code><![CDATA[$GLOBALS['read_multiply']]]></code>
-      <code><![CDATA[$GLOBALS['reload']]]></code>
       <code><![CDATA[$GLOBALS['reset_charset']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
       <code><![CDATA[$GLOBALS['run_query']]]></code>
@@ -2132,7 +2131,6 @@
       <code><![CDATA[$GLOBALS['my_die']]]></code>
       <code><![CDATA[$GLOBALS['noplugin']]]></code>
       <code><![CDATA[$GLOBALS['read_multiply']]]></code>
-      <code><![CDATA[$GLOBALS['reload']]]></code>
       <code><![CDATA[$GLOBALS['reset_charset']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
       <code><![CDATA[$GLOBALS['run_query']]]></code>
@@ -2387,7 +2385,6 @@
     </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['reload']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
@@ -2395,7 +2392,6 @@
     </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['reload']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
     </MixedAssignment>
     <PossiblyNullArgument>
@@ -2416,7 +2412,6 @@
       <code><![CDATA[$GLOBALS['auto_increment']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
-      <code><![CDATA[$GLOBALS['reload']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
     </InvalidArrayOffset>
     <MixedArgumentTypeCoercion>
@@ -2430,7 +2425,6 @@
       <code><![CDATA[$GLOBALS['auto_increment']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
-      <code><![CDATA[$GLOBALS['reload']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
       <code><![CDATA[$GLOBALS['showtable']]]></code>
       <code><![CDATA[$GLOBALS['showtable']]]></code>
@@ -2446,12 +2440,10 @@
     </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['reload']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
     </InvalidArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['reload']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
       <code>$newname</code>
     </MixedAssignment>
@@ -2701,7 +2693,6 @@
     </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['reload']]]></code>
       <code><![CDATA[$GLOBALS['selected']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
@@ -2709,7 +2700,6 @@
     </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['reload']]]></code>
       <code><![CDATA[$GLOBALS['selected']]]></code>
       <code>$database</code>
     </MixedAssignment>
@@ -3920,12 +3910,6 @@
     </MixedArgumentTypeCoercion>
   </file>
   <file src="src/Controllers/Table/Structure/AddKeyController.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['reload']]]></code>
-    </InvalidArrayOffset>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['reload']]]></code>
-    </MixedAssignment>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
@@ -6722,7 +6706,6 @@
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['my_die']]]></code>
       <code><![CDATA[$GLOBALS['read_multiply']]]></code>
-      <code><![CDATA[$GLOBALS['reload']]]></code>
       <code><![CDATA[$GLOBALS['run_query']]]></code>
       <code><![CDATA[$GLOBALS['skip_queries']]]></code>
       <code><![CDATA[$GLOBALS['sql_query_disabled']]]></code>
@@ -6733,7 +6716,6 @@
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['charset_of_file']]]></code>
-      <code><![CDATA[$GLOBALS['reload']]]></code>
       <code>$active</code>
       <code>$additionalSql[$i]</code>
       <code>$size</code>
@@ -6829,7 +6811,6 @@
       <code><![CDATA[$GLOBALS['offset']]]></code>
       <code><![CDATA[$GLOBALS['read_multiply']]]></code>
       <code><![CDATA[$GLOBALS['read_multiply']]]></code>
-      <code><![CDATA[$GLOBALS['reload']]]></code>
       <code><![CDATA[$GLOBALS['run_query']]]></code>
       <code><![CDATA[$GLOBALS['skip_queries']]]></code>
       <code><![CDATA[$GLOBALS['skip_queries']]]></code>
@@ -6903,6 +6884,9 @@
       <code><![CDATA[$GLOBALS['read_multiply']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
     </PossiblyNullOperand>
+    <RedundantCondition>
+      <code><![CDATA[$GLOBALS['result'] == false]]></code>
+    </RedundantCondition>
   </file>
   <file src="src/Index.php">
     <DeprecatedMethod>

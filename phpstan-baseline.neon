@@ -11421,11 +11421,6 @@ parameters:
 			path: src/Import/Import.php
 
 		-
-			message: "#^Parameter \\#2 \\$db of method PhpMyAdmin\\\\Import\\\\Import\\:\\:lookForUse\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Import/Import.php
-
-		-
 			message: "#^Parameter \\#2 \\$start of function mb_substr expects int, mixed given\\.$#"
 			count: 1
 			path: src/Import/Import.php
@@ -11437,11 +11432,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#3 \\$length of function mb_substr expects int\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Import/Import.php
-
-		-
-			message: "#^Parameter \\#3 \\$reload of method PhpMyAdmin\\\\Import\\\\Import\\:\\:lookForUse\\(\\) expects bool\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Import/Import.php
 

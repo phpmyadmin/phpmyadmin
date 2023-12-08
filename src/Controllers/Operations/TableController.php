@@ -57,7 +57,6 @@ class TableController extends AbstractController
     {
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['auto_increment'] ??= null;
-        $GLOBALS['reload'] ??= null;
         $GLOBALS['result'] ??= null;
         $GLOBALS['message_to_show'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
