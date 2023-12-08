@@ -196,6 +196,11 @@ parameters:
 			path: libraries/classes/Config.php
 
 		-
+			message: "#^Parameter \\#1 \\$new_error_level of function error_reporting expects int, int\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Config.php
+
+		-
 			message: "#^Parameter \\#1 \\$str of function rtrim expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Config.php
