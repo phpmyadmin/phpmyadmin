@@ -12547,6 +12547,9 @@
       <code><![CDATA[$config->settings['NavigationTreeTableSeparator']]]></code>
       <code><![CDATA[$config->settings['NavigationTreeTableSeparator']]]></code>
     </PossiblyInvalidOperand>
+    <PossiblyNullArgument>
+      <code>$value</code>
+    </PossiblyNullArgument>
     <PossiblyNullArrayOffset>
       <code>$sotCache</code>
       <code>$tables</code>
@@ -15950,6 +15953,7 @@
       <code>providerGetTitleForTarget</code>
       <code>providerIsInteger</code>
       <code>providerLocalisedDate</code>
+      <code>providerParseEnumSetValues</code>
       <code>providerPrintableBitValue</code>
       <code>providerTimespanFormat</code>
       <code>providerUnQuote</code>

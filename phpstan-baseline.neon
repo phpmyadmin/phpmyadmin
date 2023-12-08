@@ -18846,6 +18846,11 @@ parameters:
 			path: src/Util.php
 
 		-
+			message: "#^Parameter \\#1 \\$str of function strtr expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/Util.php
+
+		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeMysqlWildcards\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Util.php

@@ -52,7 +52,7 @@ final class JavaScriptMessagesController
             'strDoYouReally' => __('Do you really want to execute "%s"?'),
             'strDropDatabaseStrongWarning' => __('You are about to DESTROY a complete database!'),
             'strDatabaseRenameToSameName' => __(
-                'Cannot rename database to the same name. Change the name and try again',
+                'Cannot rename database to the same name. Change the name and try again.',
             ),
             'strDropTableStrongWarning' => __('You are about to DESTROY a complete table!'),
             'strTruncateTableStrongWarning' => __('You are about to TRUNCATE a complete table!'),
