@@ -87,7 +87,7 @@
               {% for i in 0..saved_row_cnt %}
                 {% set myfield = save_row[i] %}
                 {# Use an md5 as array index to avoid having special characters in the name attribute (see bug #1746964 ) #}
-                {% set myfield_md5 = column_hash_array[myfield] %}
+                {% set myfield_md5 = column_hash_array[myfield] ?? null %}
 
                 {% set foreign_table = false %}
                 {% set foreign_column = false %}
