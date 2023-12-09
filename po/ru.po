@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2023-12-02 02:59+0000\n"
+"PO-Revision-Date: 2023-12-11 09:06+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "ru/>\n"
@@ -6086,7 +6086,7 @@ msgstr "Ни одного"
 #. l10n: SQL Query on modal to show exported query
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:209
 msgid "SQL Query"
-msgstr "SQL-запрос"
+msgstr "Запрос SQL"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:210
 msgid "Resume monitor"
@@ -8559,10 +8559,8 @@ msgstr "Неправильное имя таблицы"
 #. l10n: In case a SQL query did not pass a security check
 #: libraries/classes/Controllers/Table/GetFieldController.php:72
 #: libraries/classes/Controllers/Transformation/WrapperController.php:103
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "Слишком большое количество объединения не использующих индексы."
+msgstr "С вашим запросом возникла проблема."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:86
 #: libraries/classes/Database/Routines.php:1243
@@ -8733,16 +8731,14 @@ msgid "NO"
 msgstr "НЕТ"
 
 #: libraries/classes/Database/Designer/Common.php:528
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
-msgstr "Хранилище конфигурации ещё не готово для центрального списка столбцов."
+msgstr ""
+"Хранилище конфигурации phpMyAdmin не настроено для использования функции «"
+"Показать возможности»."
 
 #: libraries/classes/Database/Designer/Common.php:573
 msgid "Error: relationship already exists."
@@ -10768,10 +10764,8 @@ msgid "The table name is empty!"
 msgstr "Не задано имя таблицы!"
 
 #: libraries/classes/Partitioning/Maintenance.php:141
-#, fuzzy
-#| msgid "This is a read-only variable and can not be edited"
 msgid "This table is a view, it can not be truncated."
-msgstr "Эта переменная только для чтения и не может быть изменена"
+msgstr "Эта таблица является представлением и не может быть усечена."
 
 #: libraries/classes/Pdf.php:136
 msgid "Error while creating PDF:"
@@ -12144,10 +12138,9 @@ msgid "Unknown error"
 msgstr "Неизвестная ошибка"
 
 #: libraries/classes/ReplicationGui.php:520
-#, fuzzy, php-format
-#| msgid "Unable to connect to master %s."
+#, php-format
 msgid "Unable to connect to primary %s."
-msgstr "Невозможно соединиться с головным сервером %s."
+msgstr "Невозможно соединиться с первичным сервером %s."
 
 #: libraries/classes/ReplicationGui.php:530
 msgid ""
@@ -13306,10 +13299,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Types.php:445
-#, fuzzy
-#| msgid "Stores a Universally Unique Identifier (UUID)"
 msgid "128-bit UUID (Universally Unique Identifier)"
-msgstr "Сохраняет Уникальный Универсальный Идентификатор (UUID)"
+msgstr "128-битный UUID (универсальный уникальный идентификатор)"
 
 #: libraries/classes/Types.php:791
 msgctxt "numeric types"
@@ -13769,7 +13760,7 @@ msgstr "Соединение:"
 #: templates/columns_definitions/partitions.twig:137
 #: templates/table/operations/index.twig:133
 msgid "Storage engine"
-msgstr "Механизм хранилища"
+msgstr "Механизм хранения"
 
 #: templates/columns_definitions/column_definitions_form.twig:136
 msgid "PARTITION definition:"
@@ -15633,7 +15624,7 @@ msgstr "Пропускать таблицы большие, чем:"
 
 #: templates/export.twig:476
 msgid "The size is measured in MiB."
-msgstr ""
+msgstr "Размер измеряется в МиБ."
 
 #: templates/export.twig:482 templates/import.twig:182
 msgid "Format-specific options:"
@@ -16266,7 +16257,7 @@ msgstr "Введите правильное значение HEX"
 #. l10n: To validate the usage of a MD5 function on the column
 #: templates/javascript/variables.twig:108
 msgid "This column can not contain a 32 chars value"
-msgstr ""
+msgstr "Этот столбец не может содержать значение из 32 символов"
 
 #. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
 #: templates/javascript/variables.twig:109
@@ -17335,10 +17326,8 @@ msgid "Not used on MariaDB."
 msgstr "Не используется в MariaDB."
 
 #: templates/server/privileges/privileges_table.twig:670
-#, fuzzy
-#| msgid "Has no effect in this MySQL version."
 msgid "Not used for this MySQL version."
-msgstr "Не доступно в данной версии MySQL."
+msgstr "Не используется для этой версии MySQL."
 
 #: templates/server/privileges/privileges_table.twig:721
 msgid "Resource limits"
@@ -18063,9 +18052,6 @@ msgstr ""
 "процессе <b>репликации</b>."
 
 #: templates/server/status/status/index.twig:61
-#, fuzzy
-#| msgid ""
-#| "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgid ""
 "This MySQL server works as <b>primary</b> in <b>replication</b> process."
 msgstr ""
@@ -18533,7 +18519,7 @@ msgstr "Выбор индекса:"
 
 #: templates/table/index_form.twig:57
 msgid "Advanced options"
-msgstr "Дополнительные параметры"
+msgstr "Расширенные параметры"
 
 #: templates/table/index_form.twig:67
 msgid "Key block size:"
@@ -18599,10 +18585,8 @@ msgid "Binary"
 msgstr "Двоичный"
 
 #: templates/table/insert/column_row.twig:30
-#, fuzzy
-#| msgid "Value for the column \"%s\""
 msgid "Use the NULL value for this column."
-msgstr "Значение для столбца \"%s\""
+msgstr "Использовать значение NULL для этого столбца."
 
 #: templates/table/insert/column_row.twig:65
 msgid "Because of its length,<br> this column might not be editable."
