@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-12-03 00:19+0000\n"
-"PO-Revision-Date: 2023-12-09 22:06+0000\n"
+"PO-Revision-Date: 2023-12-10 00:20+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
@@ -224,7 +224,7 @@ msgstr "Соединение:"
 #: resources/templates/columns_definitions/partitions.twig:137
 #: resources/templates/table/operations/index.twig:134
 msgid "Storage engine"
-msgstr "Механизм хранилища"
+msgstr "Механизм хранения"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:135
 msgid "PARTITION definition:"
@@ -6483,7 +6483,7 @@ msgstr "Выбор индекса:"
 
 #: resources/templates/table/index_form.twig:57
 msgid "Advanced options"
-msgstr "Дополнительные параметры"
+msgstr "Расширенные параметры"
 
 #: resources/templates/table/index_form.twig:67
 msgid "Key block size:"
@@ -12800,7 +12800,7 @@ msgstr "Пожалуйста, добавьте в серию хотя бы од�
 #. l10n: SQL Query on modal to show exported query
 #: src/Controllers/JavaScriptMessagesController.php:222
 msgid "SQL Query"
-msgstr "SQL-запрос"
+msgstr "Запрос SQL"
 
 #: src/Controllers/JavaScriptMessagesController.php:223
 msgid "Resume monitor"
@@ -16873,9 +16873,8 @@ msgid "The table name is empty!"
 msgstr "Не задано имя таблицы!"
 
 #: src/Partitioning/Maintenance.php:142
-#, fuzzy
 msgid "This table is a view, it can not be truncated."
-msgstr "Эта переменная только для чтения и не может быть изменена"
+msgstr "Эта таблица является представлением и не может быть усечена."
 
 #: src/Pdf.php:138
 msgid "Error while creating PDF:"
