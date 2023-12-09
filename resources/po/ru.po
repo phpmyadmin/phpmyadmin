@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-12-03 00:19+0000\n"
-"PO-Revision-Date: 2023-12-06 11:04+0000\n"
+"PO-Revision-Date: 2023-12-09 22:06+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
@@ -5919,7 +5919,6 @@ msgstr ""
 "процессе <b>репликации</b>."
 
 #: resources/templates/server/status/status/index.twig:61
-#, fuzzy
 msgid ""
 "This MySQL server works as <b>primary</b> in <b>replication</b> process."
 msgstr ""
@@ -15457,13 +15456,14 @@ msgid "Could not remove columns!"
 msgstr "Не удалось удалить столбцы!"
 
 #: src/Database/Designer/Common.php:479
-#, fuzzy
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
-msgstr "Хранилище конфигурации ещё не готово для центрального списка столбцов."
+msgstr ""
+"Хранилище конфигурации phpMyAdmin не настроено для использования функции «"
+"Показать возможности»."
 
 #: src/Database/Designer/Common.php:526
 msgid "Error: relationship already exists."
