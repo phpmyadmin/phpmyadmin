@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-02-17 10:36+0000\n"
-"Last-Translator: Péter Báthory <bathory86p@gmail.com>\n"
+"PO-Revision-Date: 2023-12-10 16:04+0000\n"
+"Last-Translator: Marczis István <marczisi@yahoo.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "hu/>\n"
 "Language: hu\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -1113,10 +1113,8 @@ msgid "Y values"
 msgstr "Y érték"
 
 #: js/messages.php:142
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "Adja meg ismét ugyanazt az értéket"
+msgstr "Kérjük, először lépjen be az SQL lekérdezésbe."
 
 #: js/messages.php:145
 msgid "The host name is empty!"
@@ -2377,8 +2375,6 @@ msgid "%d object(s) created."
 msgstr "%d objektum létrehozva."
 
 #: js/messages.php:582
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
 msgstr "Oszlopnevek"
 
@@ -2727,7 +2723,7 @@ msgstr ""
 #: js/messages.php:752
 #, php-format
 msgid "Failed security key activation (%s)."
-msgstr ""
+msgstr "Hibás biztonsági kulcs aktiválás (%s)."
 
 #: js/messages.php:755
 #, fuzzy, php-format
@@ -3074,10 +3070,9 @@ msgid "Error"
 msgstr "Hiba"
 
 #: libraries/classes/Advisor.php:259
-#, fuzzy, php-format
-#| msgid "Error while creating PDF:"
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "Hiba történt a PDF létrehozása közben:"
+msgstr "Hiba az értékelés során: %s"
 
 #: libraries/classes/Advisor.php:290
 #, php-format
@@ -4866,10 +4861,8 @@ msgid "Show databases navigation as tree"
 msgstr "Adatbázisok navigációjának megjelenítése faszerkezetként"
 
 #: libraries/classes/Config/Descriptions.php:772
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation panel width"
-msgstr "Navigációs keret"
+msgstr "Navigációs panel szélessége"
 
 #: libraries/classes/Config/Descriptions.php:774
 #, fuzzy
@@ -10355,16 +10348,13 @@ msgid "For testing purposes only!"
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:70
-#, fuzzy, php-format
-#| msgid "Hardware authentication failed!"
+#, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr "A hardveres hitelesítés nem sikerült!"
+msgstr "A hardveres hitelesítés nem sikerült: %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:74
-#, fuzzy
-#| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
-msgstr "A hardveres hitelesítés nem sikerült!"
+msgstr "A kétfaktoros hitelesítés nem sikerült."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:127
 msgid "No Two-Factor"
@@ -14928,10 +14918,9 @@ msgstr "Lehetőség hozzáadása a következő oszlophoz: „%s”."
 
 #: templates/display/export/options_output_save_dir.twig:5
 #: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Mentés a kiszolgáló <b>%s</b> könyvtárába"
+msgstr "Mentés a kiszolgáló <strong>%s</strong> könyvtárába"
 
 #: templates/login/twofactor.twig:5
 msgid "Verify"
@@ -15747,16 +15736,12 @@ msgid "File may be compressed (%s) or uncompressed."
 msgstr "A fájl lehet tömörített (%s) vagy tömörítetlen."
 
 #: templates/display/import/import.twig:58
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"A tömörített fájl nevének <b>.[formátum].[tömörítés]</b> végződésűnek kell "
-"lennie. Például: <b>.sql.zip</b>"
+"A tömörített fájl nevének <strong>.[formátum].[tömörítés]</strong> "
+"végződésűnek kell lennie. Például: <strong>.sql.zip</strong>"
 
 #: templates/display/import/import.twig:69
 #: templates/display/import/import.twig:84
@@ -15896,13 +15881,10 @@ msgstr[0] "%1$s találat ebben: <strong>%2$s</strong>"
 msgstr[1] "%1$s találat ebben: <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Összesen:</b> <i>%s</i> találat"
-msgstr[1] "<b>Összesen:</b> <i>%s</i> találat"
+msgstr[0] "<strong>Összesen:</strong> <em>%s</em> találat"
+msgstr[1] "<strong>Összesen:</strong> <em>%s</em> találat"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
 #, fuzzy
@@ -16475,10 +16457,8 @@ msgstr ""
 "importálni azt a jelenlegi munkamenethez?"
 
 #: templates/prefs_autoload.twig:13
-#, fuzzy
-#| msgid "Delete settings "
 msgid "Delete settings"
-msgstr "Beállítások törlése "
+msgstr "Beállítások törlése"
 
 #: templates/table/index_form.twig:15
 msgid "Index name:"
