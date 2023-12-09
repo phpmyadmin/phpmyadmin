@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Database\Designer\ColumnInfo;
 use PhpMyAdmin\Database\Designer\DesignerTable;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
@@ -15,7 +16,6 @@ use PhpMyAdmin\Util;
 use stdClass;
 
 use function __;
-use function count;
 use function intval;
 use function is_array;
 use function json_decode;
@@ -212,13 +212,13 @@ class Designer
     /**
      * Get HTML to display tables on designer page
      *
-     * @param string          $db                   The database name from the request
-     * @param DesignerTable[] $designerTables       The designer tables
-     * @param mixed[]         $tabPos               tables positions
-     * @param int             $displayPage          page number of the selected page
-     * @param mixed[]         $tabColumn            table column info
-     * @param mixed[]         $tablesAllKeys        all indices
-     * @param mixed[]         $tablesPkOrUniqueKeys unique or primary indices
+     * @param string             $db                   The database name from the request
+     * @param DesignerTable[]    $designerTables       The designer tables
+     * @param mixed[]            $tabPos               tables positions
+     * @param int                $displayPage          page number of the selected page
+     * @param list<ColumnInfo>[] $tableColumnsInfo     table column info
+     * @param mixed[]            $tablesAllKeys        all indices
+     * @param mixed[]            $tablesPkOrUniqueKeys unique or primary indices
      *
      * @return string html
      */
@@ -227,38 +227,36 @@ class Designer
         array $designerTables,
         array $tabPos,
         int $displayPage,
-        array $tabColumn,
+        array $tableColumnsInfo,
         array $tablesAllKeys,
         array $tablesPkOrUniqueKeys,
     ): string {
         $GLOBALS['text_dir'] ??= null;
 
         $columnsType = [];
-        foreach ($designerTables as $designerTable) {
-            $tableName = $designerTable->getDbTableString();
-            $limit = count($tabColumn[$tableName]['COLUMN_ID']);
-            for ($j = 0; $j < $limit; $j++) {
-                $tableColumnName = $tableName . '.' . $tabColumn[$tableName]['COLUMN_NAME'][$j];
+        foreach ($tableColumnsInfo as $tableName => $columnsInfo) {
+            foreach ($columnsInfo as $columnInfo) {
+                $tableColumnName = $tableName . '.' . $columnInfo->name;
                 if (isset($tablesPkOrUniqueKeys[$tableColumnName])) {
                     $columnsType[$tableColumnName] = 'designer/FieldKey_small';
                 } else {
                     $columnsType[$tableColumnName] = 'designer/Field_small';
                     if (
-                        str_contains($tabColumn[$tableName]['TYPE'][$j], 'char')
-                        || str_contains($tabColumn[$tableName]['TYPE'][$j], 'text')
+                        str_contains($columnInfo->type, 'char')
+                        || str_contains($columnInfo->type, 'text')
                     ) {
                         $columnsType[$tableColumnName] .= '_char';
                     } elseif (
-                        str_contains($tabColumn[$tableName]['TYPE'][$j], 'int')
-                        || str_contains($tabColumn[$tableName]['TYPE'][$j], 'float')
-                        || str_contains($tabColumn[$tableName]['TYPE'][$j], 'double')
-                        || str_contains($tabColumn[$tableName]['TYPE'][$j], 'decimal')
+                        str_contains($columnInfo->type, 'int')
+                        || str_contains($columnInfo->type, 'float')
+                        || str_contains($columnInfo->type, 'double')
+                        || str_contains($columnInfo->type, 'decimal')
                     ) {
                         $columnsType[$tableColumnName] .= '_int';
                     } elseif (
-                        str_contains($tabColumn[$tableName]['TYPE'][$j], 'date')
-                        || str_contains($tabColumn[$tableName]['TYPE'][$j], 'time')
-                        || str_contains($tabColumn[$tableName]['TYPE'][$j], 'year')
+                        str_contains($columnInfo->type, 'date')
+                        || str_contains($columnInfo->type, 'time')
+                        || str_contains($columnInfo->type, 'year')
                     ) {
                         $columnsType[$tableColumnName] .= '_date';
                     }
@@ -273,7 +271,7 @@ class Designer
             'has_query' => isset($_REQUEST['query']),
             'tab_pos' => $tabPos,
             'display_page' => $displayPage,
-            'tab_column' => $tabColumn,
+            'tab_column' => $tableColumnsInfo,
             'tables_all_keys' => $tablesAllKeys,
             'tables_pk_or_unique_keys' => $tablesPkOrUniqueKeys,
             'tables' => $designerTables,
@@ -284,20 +282,20 @@ class Designer
     /**
      * Returns HTML for Designer page
      *
-     * @param string          $db                   database in use
-     * @param string          $getDb                database in url
-     * @param DesignerTable[] $designerTables       The designer tables
-     * @param mixed[]         $scriptTables         array on foreign key support for each table
-     * @param mixed[]         $scriptContr          initialization data array
-     * @param DesignerTable[] $scriptDisplayField   displayed tables in designer with their display fields
-     * @param int             $displayPage          page number of the selected page
-     * @param bool            $visualBuilderMode    whether this is visual query builder
-     * @param string|null     $selectedPage         name of the selected page
-     * @param mixed[]         $paramsArray          array with class name for various buttons on side menu
-     * @param mixed[]         $tablePositions       table positions
-     * @param mixed[]         $tabColumn            table column info
-     * @param mixed[]         $tablesAllKeys        all indices
-     * @param mixed[]         $tablesPkOrUniqueKeys unique or primary indices
+     * @param string             $db                   database in use
+     * @param string             $getDb                database in url
+     * @param DesignerTable[]    $designerTables       The designer tables
+     * @param mixed[]            $scriptTables         array on foreign key support for each table
+     * @param mixed[]            $scriptContr          initialization data array
+     * @param DesignerTable[]    $scriptDisplayField   displayed tables in designer with their display fields
+     * @param int                $displayPage          page number of the selected page
+     * @param bool               $visualBuilderMode    whether this is visual query builder
+     * @param string|null        $selectedPage         name of the selected page
+     * @param mixed[]            $paramsArray          array with class name for various buttons on side menu
+     * @param mixed[]            $tablePositions       table positions
+     * @param list<ColumnInfo>[] $tableColumnsInfo     table column info
+     * @param mixed[]            $tablesAllKeys        all indices
+     * @param mixed[]            $tablesPkOrUniqueKeys unique or primary indices
      *
      * @return string html
      */
@@ -313,7 +311,7 @@ class Designer
         string|null $selectedPage,
         array $paramsArray,
         array $tablePositions,
-        array $tabColumn,
+        array $tableColumnsInfo,
         array $tablesAllKeys,
         array $tablesPkOrUniqueKeys,
     ): string {
@@ -321,31 +319,29 @@ class Designer
 
         $relationParameters = $this->relation->getRelationParameters();
         $columnsType = [];
-        foreach ($designerTables as $designerTable) {
-            $tableName = $designerTable->getDbTableString();
-            $limit = count($tabColumn[$tableName]['COLUMN_ID']);
-            for ($j = 0; $j < $limit; $j++) {
-                $tableColumnName = $tableName . '.' . $tabColumn[$tableName]['COLUMN_NAME'][$j];
+        foreach ($tableColumnsInfo as $tableName => $columnsInfo) {
+            foreach ($columnsInfo as $columnInfo) {
+                $tableColumnName = $tableName . '.' . $columnInfo->name;
                 if (isset($tablesPkOrUniqueKeys[$tableColumnName])) {
                     $columnsType[$tableColumnName] = 'designer/FieldKey_small';
                 } else {
                     $columnsType[$tableColumnName] = 'designer/Field_small';
                     if (
-                        str_contains($tabColumn[$tableName]['TYPE'][$j], 'char')
-                        || str_contains($tabColumn[$tableName]['TYPE'][$j], 'text')
+                        str_contains($columnInfo->type, 'char')
+                        || str_contains($columnInfo->type, 'text')
                     ) {
                         $columnsType[$tableColumnName] .= '_char';
                     } elseif (
-                        str_contains($tabColumn[$tableName]['TYPE'][$j], 'int')
-                        || str_contains($tabColumn[$tableName]['TYPE'][$j], 'float')
-                        || str_contains($tabColumn[$tableName]['TYPE'][$j], 'double')
-                        || str_contains($tabColumn[$tableName]['TYPE'][$j], 'decimal')
+                        str_contains($columnInfo->type, 'int')
+                        || str_contains($columnInfo->type, 'float')
+                        || str_contains($columnInfo->type, 'double')
+                        || str_contains($columnInfo->type, 'decimal')
                     ) {
                         $columnsType[$tableColumnName] .= '_int';
                     } elseif (
-                        str_contains($tabColumn[$tableName]['TYPE'][$j], 'date')
-                        || str_contains($tabColumn[$tableName]['TYPE'][$j], 'time')
-                        || str_contains($tabColumn[$tableName]['TYPE'][$j], 'year')
+                        str_contains($columnInfo->type, 'date')
+                        || str_contains($columnInfo->type, 'time')
+                        || str_contains($columnInfo->type, 'year')
                     ) {
                         $columnsType[$tableColumnName] .= '_date';
                     }
@@ -382,7 +378,7 @@ class Designer
             'selected_page' => $selectedPage,
             'params_array' => $paramsArray,
             'tab_pos' => $tablePositions,
-            'tab_column' => $tabColumn,
+            'tab_column' => $tableColumnsInfo,
             'tables_all_keys' => $tablesAllKeys,
             'tables_pk_or_unique_keys' => $tablesPkOrUniqueKeys,
             'designerTables' => $designerTables,
