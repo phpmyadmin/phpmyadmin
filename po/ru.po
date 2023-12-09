@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2023-12-09 22:05+0000\n"
+"PO-Revision-Date: 2023-12-10 23:05+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ru/>\n"
@@ -6024,10 +6024,8 @@ msgstr "Нет"
 
 #. l10n: SQL Query on modal to show exported query
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:203
-#, fuzzy
-#| msgid "SQL query"
 msgid "SQL Query"
-msgstr "SQL-запрос"
+msgstr "Запрос SQL"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:204
 msgid "Resume monitor"
@@ -13723,8 +13721,6 @@ msgstr "Дек"
 
 #. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:770
-#, fuzzy
-#| msgid "Sun"
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "Вс"
@@ -14052,10 +14048,8 @@ msgstr "Соединение:"
 #: templates/columns_definitions/column_definitions_form.twig:113
 #: templates/columns_definitions/partitions.twig:137
 #: templates/table/operations/index.twig:128
-#, fuzzy
-#| msgid "Storage engines"
 msgid "Storage engine"
-msgstr "Механизмы хранилища"
+msgstr "Механизм хранения"
 
 #: templates/columns_definitions/column_definitions_form.twig:136
 msgid "PARTITION definition:"
@@ -15086,8 +15080,6 @@ msgstr "Добавить/удалить столбцы:"
 
 #: templates/database/qbe/selection_form.twig:86
 #: templates/database/qbe/selection_form.twig:88
-#, fuzzy
-#| msgid "Use Tables"
 msgid "Use tables"
 msgstr "Использовать таблицы"
 
@@ -15116,12 +15108,9 @@ msgid "Returns"
 msgstr "Возвращает"
 
 #: templates/database/routines/index.twig:62
-#, fuzzy
-#| msgctxt "Create new column"
-#| msgid "New"
 msgctxt "Create new routine"
 msgid "New"
-msgstr "Новое"
+msgstr "Новый"
 
 #: templates/database/routines/row.twig:32
 #: templates/database/routines/row.twig:42
@@ -16021,10 +16010,8 @@ msgstr "Прочие параметры:"
 
 #: templates/indexes.twig:38
 #: templates/table/structure/display_structure.twig:446
-#, fuzzy
-#| msgid "Rename to"
 msgid "Rename"
-msgstr "Переименовать в"
+msgstr "Переименовать"
 
 #: templates/indexes.twig:44
 #: templates/table/structure/display_structure.twig:452
@@ -16044,9 +16031,6 @@ msgstr "calendar-year-month"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: templates/javascript/variables.twig:11
-#, fuzzy
-#| msgctxt "Year suffix"
-#| msgid "none"
 msgid "none"
 msgstr "none"
 
@@ -16352,10 +16336,8 @@ msgid "Verify"
 msgstr "Подтверждение"
 
 #: templates/menu/breadcrumbs.twig:27
-#, fuzzy
-#| msgid "Views:"
 msgid "View:"
-msgstr "Представления:"
+msgstr "Представление:"
 
 #: templates/navigation/item_unhide_dialog.twig:20
 msgid "Unhide"
@@ -16648,10 +16630,8 @@ msgid "Character sets and collations"
 msgstr "Кодировки и сравнения"
 
 #: templates/server/collations/index.twig:32
-#, fuzzy
-#| msgid "Default"
 msgid "(default)"
-msgstr "По умолчанию"
+msgstr "(по умолчанию)"
 
 #: templates/server/databases/index.twig:6
 msgid "Databases statistics"
@@ -18197,10 +18177,8 @@ msgid "Index choice:"
 msgstr "Выбор индекса:"
 
 #: templates/table/index_form.twig:52
-#, fuzzy
-#| msgid "Advanced Options"
 msgid "Advanced options"
-msgstr "Дополнительные параметры"
+msgstr "Расширенные параметры"
 
 #: templates/table/index_form.twig:59
 msgid "Key block size:"
@@ -18228,10 +18206,8 @@ msgid "Continue insertion with %s rows"
 msgstr "Продолжить вставку с %s строки"
 
 #: templates/table/maintenance/checksum.twig:13
-#, fuzzy
-#| msgid "Check"
 msgid "Checksum"
-msgstr "Проверка"
+msgstr "Контрольная сумма"
 
 #: templates/table/operations/index.twig:9
 msgid "Alter table order by"
