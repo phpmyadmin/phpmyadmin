@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2023-12-06 11:03+0000\n"
+"PO-Revision-Date: 2023-12-09 22:05+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ru/>\n"
@@ -8724,16 +8724,14 @@ msgid "NO"
 msgstr "НЕТ"
 
 #: libraries/classes/Database/Designer/Common.php:568
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
-msgstr "Хранилище конфигурации ещё не готово для центрального списка столбцов."
+msgstr ""
+"Хранилище конфигурации phpMyAdmin не настроено для использования функции «"
+"Показать возможности»."
 
 #: libraries/classes/Database/Designer/Common.php:617
 msgid "Error: relationship already exists."
@@ -16249,7 +16247,7 @@ msgstr "Введите правильное значение HEX"
 #. l10n: To validate the usage of a MD5 function on the column
 #: templates/javascript/variables.twig:108
 msgid "This column can not contain a 32 chars value"
-msgstr ""
+msgstr "Этот столбец не может содержать значение из 32 символов"
 
 #. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
 #: templates/javascript/variables.twig:109
