@@ -4745,82 +4745,12 @@
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[$tabColumn[$tableName]['COLUMN_ID']]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['COLUMN_ID']]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-    </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$tabColumn[$tableName]['COLUMN_ID']]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['COLUMN_ID']]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['COLUMN_NAME']]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['COLUMN_NAME']]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['COLUMN_NAME'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['COLUMN_NAME'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE']]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE']]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE']]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE']]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE']]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE']]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE']]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE']]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE']]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE']]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE']]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE']]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE']]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE']]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE']]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE']]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE']]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE']]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['TYPE'][$j]]]></code>
-    </MixedArrayAccess>
     <MixedAssignment>
       <code>$params</code>
     </MixedAssignment>
     <MixedInferredReturnType>
       <code>mixed[]</code>
     </MixedInferredReturnType>
-    <MixedOperand>
-      <code><![CDATA[$tabColumn[$tableName]['COLUMN_NAME'][$j]]]></code>
-      <code><![CDATA[$tabColumn[$tableName]['COLUMN_NAME'][$j]]]></code>
-    </MixedOperand>
     <MixedReturnStatement>
       <code>$params</code>
       <code>$params</code>

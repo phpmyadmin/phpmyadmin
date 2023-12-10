@@ -40,8 +40,8 @@ class Common
     /**
      * Retrieves table info and returns it
      *
-     * @param string $db    (optional) Filter only a DB ($table is required if you use $db)
-     * @param string $table (optional) Filter only a table ($db is now required)
+     * @param string|null $db    (optional) Filter only a DB ($table is required if you use $db)
+     * @param string|null $table (optional) Filter only a table ($db is now required)
      *
      * @return DesignerTable[] with table info
      */
@@ -76,11 +76,10 @@ class Common
      *
      * @param DesignerTable[] $designerTables The designer tables
      *
-     * @return mixed[] table column nfo
+     * @return list<ColumnInfo>[] table column nfo
      */
     public function getColumnsInfo(array $designerTables): array
     {
-        //$this->dbi->selectDb($GLOBALS['db']);
         $tabColumn = [];
 
         foreach ($designerTables as $designerTable) {
@@ -90,17 +89,12 @@ class Common
                     $designerTable->getTableName(),
                 ),
             );
-            $j = 0;
-            while ($row = $fieldsRs->fetchAssoc()) {
-                if (! isset($tabColumn[$designerTable->getDbTableString()])) {
-                    $tabColumn[$designerTable->getDbTableString()] = [];
-                }
-
-                $tabColumn[$designerTable->getDbTableString()]['COLUMN_ID'][$j] = $j;
-                $tabColumn[$designerTable->getDbTableString()]['COLUMN_NAME'][$j] = $row['Field'];
-                $tabColumn[$designerTable->getDbTableString()]['TYPE'][$j] = $row['Type'];
-                $tabColumn[$designerTable->getDbTableString()]['NULLABLE'][$j] = $row['Null'];
-                $j++;
+            /**
+             * @var string $field
+             * @var string $type
+             */
+            foreach ($fieldsRs as ['Field' => $field, 'Type' => $type]) {
+                $tabColumn[$designerTable->getDbTableString()][] = new ColumnInfo($field, $type);
             }
         }
 
@@ -307,12 +301,12 @@ class Common
 
         $query = 'DELETE FROM ' . Util::backquote($pdfFeature->database)
             . '.' . Util::backquote($pdfFeature->tableCoords)
-            . ' WHERE ' . Util::backquote('pdf_page_number') . ' = ' . intval($pg);
+            . ' WHERE ' . Util::backquote('pdf_page_number') . ' = ' . $pg;
         $this->dbi->queryAsControlUser($query);
 
         $query = 'DELETE FROM ' . Util::backquote($pdfFeature->database)
             . '.' . Util::backquote($pdfFeature->pdfPages)
-            . ' WHERE ' . Util::backquote('page_nr') . ' = ' . intval($pg);
+            . ' WHERE ' . Util::backquote('page_nr') . ' = ' . $pg;
         $this->dbi->queryAsControlUser($query);
 
         return true;
