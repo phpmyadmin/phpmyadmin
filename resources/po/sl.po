@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-12-10 00:19+0000\n"
-"PO-Revision-Date: 2023-12-08 16:06+0000\n"
+"PO-Revision-Date: 2023-12-11 18:03+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -12343,13 +12343,10 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "S tem dejanjem boste UNIČILI celotno zbirko podatkov!"
 
 #: src/Controllers/JavaScriptMessagesController.php:55
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr ""
 "Zbirke podatkov ne moremo preimenovati na isto ime. Spremenite ime in "
-"poskusite znova"
+"poskusite znova."
 
 #: src/Controllers/JavaScriptMessagesController.php:57
 msgid "You are about to DESTROY a complete table!"
