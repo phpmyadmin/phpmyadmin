@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2023-11-27 23:09+0000\n"
-"Last-Translator: Piotr Kasprzyk <ciri@ciri.pl>\n"
+"PO-Revision-Date: 2023-12-11 09:06+0000\n"
+"Last-Translator: Adrian Wanic <adrianwanic@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
 ">\n"
 "Language: pl\n"
@@ -3075,9 +3075,8 @@ msgid "Restrict login to MySQL server"
 msgstr "Ogranicz logowanie do serwera MySQL"
 
 #: libraries/classes/Config/Descriptions.php:619
-#, fuzzy
 msgid "Allow third party framing"
-msgstr "Upoważniać kadrowanie strony"
+msgstr "Zezwalaj na kadrowanie stron trzecich"
 
 #: libraries/classes/Config/Descriptions.php:620
 msgid "Show \"Drop database\" link to normal users"
