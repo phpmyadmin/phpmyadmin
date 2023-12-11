@@ -13,6 +13,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Favorites\RecentFavoriteTable;
+use PhpMyAdmin\Favorites\TableType;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\Nodes\Node;
 use PhpMyAdmin\Navigation\Nodes\NodeColumn;
@@ -1383,11 +1384,11 @@ class NavigationTree
         $renderDetails = [];
         $config = Config::getInstance();
         if ($config->settings['NumRecentTables'] > 0) {
-            $renderDetails['recent'] = RecentFavoriteTable::getInstance('recent')->getHtml();
+            $renderDetails['recent'] = RecentFavoriteTable::getInstance(TableType::Recent)->getHtml();
         }
 
         if ($config->settings['NumFavoriteTables'] > 0) {
-            $renderDetails['favorite'] = RecentFavoriteTable::getInstance('favorite')->getHtml();
+            $renderDetails['favorite'] = RecentFavoriteTable::getInstance(TableType::Favorite)->getHtml();
         }
 
         return $this->template->render('navigation/tree/quick_warp', $renderDetails);

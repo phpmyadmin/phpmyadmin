@@ -12,6 +12,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Favorites\RecentFavoriteTable;
+use PhpMyAdmin\Favorites\TableType;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Replication\Replication;
 use PhpMyAdmin\Table\Table;
@@ -291,7 +292,7 @@ class StructureControllerTest extends AbstractTestCase
             new DbTableExists($dbi),
         );
 
-        $recentFavoriteTables = RecentFavoriteTable::getInstance('favorite');
+        $recentFavoriteTables = RecentFavoriteTable::getInstance(TableType::Favorite);
         $this->assertSame([], $recentFavoriteTables->getTables());
         $recentFavoriteTables->remove('sakila', 'country');
         $recentFavoriteTables->add('sakila', 'country');

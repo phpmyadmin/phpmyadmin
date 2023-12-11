@@ -12,6 +12,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Favorites\RecentFavoriteTable;
+use PhpMyAdmin\Favorites\TableType;
 use PhpMyAdmin\Git;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
@@ -104,7 +105,7 @@ class HomeController extends AbstractController
             unset($_SESSION['partial_logout']);
         }
 
-        $syncFavoriteTables = RecentFavoriteTable::getInstance('favorite')
+        $syncFavoriteTables = RecentFavoriteTable::getInstance(TableType::Favorite)
             ->getHtmlSyncFavoriteTables();
 
         $config = Config::getInstance();

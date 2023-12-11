@@ -9,6 +9,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Favorites\RecentFavoriteTable;
+use PhpMyAdmin\Favorites\TableType;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
@@ -51,7 +52,7 @@ final class FavoriteTableController extends AbstractController
             return;
         }
 
-        $favoriteInstance = RecentFavoriteTable::getInstance('favorite');
+        $favoriteInstance = RecentFavoriteTable::getInstance(TableType::Favorite);
 
         $favoriteTables = $request->getParam('favoriteTables');
         $favoriteTables = $favoriteTables !== null ? json_decode($favoriteTables, true) : [];
@@ -175,7 +176,7 @@ final class FavoriteTableController extends AbstractController
      */
     private function checkFavoriteTable(string $currentTable): bool
     {
-        $recentFavoriteTables = RecentFavoriteTable::getInstance('favorite');
+        $recentFavoriteTables = RecentFavoriteTable::getInstance(TableType::Favorite);
         foreach ($recentFavoriteTables->getTables() as $value) {
             if ($value['db'] == $GLOBALS['db'] && $value['table'] == $currentTable) {
                 return true;

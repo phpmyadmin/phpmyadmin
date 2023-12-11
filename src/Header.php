@@ -9,6 +9,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Favorites\RecentFavoriteTable;
+use PhpMyAdmin\Favorites\TableType;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Theme\ThemeManager;
@@ -596,7 +597,7 @@ class Header
     private function addRecentTable(string $db, string $table): string
     {
         if ($this->menuEnabled && $table !== '' && Config::getInstance()->settings['NumRecentTables'] > 0) {
-            $error = RecentFavoriteTable::getInstance('recent')->add($db, $table);
+            $error = RecentFavoriteTable::getInstance(TableType::Recent)->add($db, $table);
             if ($error === true) {
                 return RecentFavoriteTable::getHtmlUpdateRecentTables();
             }

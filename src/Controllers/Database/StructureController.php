@@ -13,6 +13,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Favorites\RecentFavoriteTable;
+use PhpMyAdmin\Favorites\TableType;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
@@ -618,7 +619,7 @@ class StructureController extends AbstractController
      */
     protected function checkFavoriteTable(string $currentTable): bool
     {
-        $recentFavoriteTables = RecentFavoriteTable::getInstance('favorite');
+        $recentFavoriteTables = RecentFavoriteTable::getInstance(TableType::Favorite);
         foreach ($recentFavoriteTables->getTables() as $value) {
             if ($value['db'] == $GLOBALS['db'] && $value['table'] == $currentTable) {
                 return true;

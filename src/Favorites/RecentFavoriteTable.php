@@ -58,39 +58,33 @@ class RecentFavoriteTable
 
     /**
      * Creates a new instance of RecentFavoriteTable
-     *
-     * @param string $tableType Defines type of action, Favorite or Recent table.
-     * @phpstan-param 'favorite'|'recent' $tableType
      */
-    private function __construct(public Template $template, private string $tableType)
+    private function __construct(public Template $template, private readonly TableType $tableType)
     {
         $this->relation = new Relation(DatabaseInterface::getInstance());
         $serverId = $GLOBALS['server'];
         // Code search hint: recentTables
         // Code search hint: favoriteTables
-        if (! isset($_SESSION['tmpval'][$this->tableType . 'Tables'][$serverId])) {
-            $_SESSION['tmpval'][$this->tableType . 'Tables'][$serverId] = $this->getPmaTable()
+        if (! isset($_SESSION['tmpval'][$this->tableType->value . 'Tables'][$serverId])) {
+            $_SESSION['tmpval'][$this->tableType->value . 'Tables'][$serverId] = $this->getPmaTable()
                 ? $this->getFromDb()
                 : [];
         }
 
-        $this->tables =& $_SESSION['tmpval'][$this->tableType . 'Tables'][$serverId];
+        $this->tables =& $_SESSION['tmpval'][$this->tableType->value . 'Tables'][$serverId];
     }
 
     /**
      * Returns class instance.
-     *
-     * @param string $type the table type
-     * @psalm-param 'favorite'|'recent' $type
      */
-    public static function getInstance(string $type): RecentFavoriteTable
+    public static function getInstance(TableType $type): RecentFavoriteTable
     {
-        if (! array_key_exists($type, self::$instances)) {
+        if (! array_key_exists($type->value, self::$instances)) {
             $template = new Template();
-            self::$instances[$type] = new RecentFavoriteTable($template, $type);
+            self::$instances[$type->value] = new RecentFavoriteTable($template, $type);
         }
 
-        return self::$instances[$type];
+        return self::$instances[$type->value];
     }
 
     /**
@@ -144,8 +138,8 @@ class RecentFavoriteTable
 
         if (! $success) {
             $errorMsg = match ($this->tableType) {
-                 'recent' => __('Could not save recent table!'),
-                 'favorite' => __('Could not save favorite table!'),
+                 TableType::Recent => __('Could not save recent table!'),
+                 TableType::Favorite => __('Could not save favorite table!'),
             };
 
             $message = Message::error($errorMsg);
@@ -167,7 +161,7 @@ class RecentFavoriteTable
     public function trim(): bool
     {
         $max = max(
-            Config::getInstance()->settings['Num' . ucfirst($this->tableType) . 'Tables'],
+            Config::getInstance()->settings['Num' . ucfirst($this->tableType->value) . 'Tables'],
             0,
         );
         $trimmingOccurred = count($this->tables) > $max;
@@ -184,7 +178,7 @@ class RecentFavoriteTable
     public function getHtmlList(): string
     {
         if ($this->tables !== []) {
-            if ($this->tableType === 'recent') {
+            if ($this->tableType === TableType::Recent) {
                 $tables = [];
                 foreach ($this->tables as $table) {
                     $tables[] = ['db' => $table['db'], 'table' => $table['table']];
@@ -214,14 +208,14 @@ class RecentFavoriteTable
         }
 
         return $this->template->render('recent_favorite_table_no_tables', [
-            'is_recent' => $this->tableType === 'recent',
+            'is_recent' => $this->tableType === TableType::Recent,
         ]);
     }
 
     public function getHtml(): string
     {
         $html = '<div class="drop_list">';
-        if ($this->tableType === 'recent') {
+        if ($this->tableType === TableType::Recent) {
             $html .= '<button title="' . __('Recent tables')
                 . '" class="drop_button btn btn-sm btn-outline-secondary">'
                 . __('Recent') . '</button><ul id="pma_recent_list">';
@@ -366,12 +360,12 @@ class RecentFavoriteTable
     private function getPmaTable(): string|null
     {
         $relationParameters = $this->relation->getRelationParameters();
-        if ($this->tableType === 'recent' && $relationParameters->recentlyUsedTablesFeature !== null) {
+        if ($this->tableType === TableType::Recent && $relationParameters->recentlyUsedTablesFeature !== null) {
             return Util::backquote($relationParameters->recentlyUsedTablesFeature->database)
                 . '.' . Util::backquote($relationParameters->recentlyUsedTablesFeature->recent);
         }
 
-        if ($this->tableType === 'favorite' && $relationParameters->favoriteTablesFeature !== null) {
+        if ($this->tableType === TableType::Favorite && $relationParameters->favoriteTablesFeature !== null) {
             return Util::backquote($relationParameters->favoriteTablesFeature->database)
                 . '.' . Util::backquote($relationParameters->favoriteTablesFeature->favorite);
         }

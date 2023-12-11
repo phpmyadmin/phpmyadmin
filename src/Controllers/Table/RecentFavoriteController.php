@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Favorites\RecentFavoriteTable;
+use PhpMyAdmin\Favorites\TableType;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\InvalidIdentifier;
@@ -29,8 +30,8 @@ final class RecentFavoriteController extends AbstractController
             return;
         }
 
-        RecentFavoriteTable::getInstance('recent')->removeIfInvalid($db->getName(), $table->getName());
-        RecentFavoriteTable::getInstance('favorite')->removeIfInvalid($db->getName(), $table->getName());
+        RecentFavoriteTable::getInstance(TableType::Recent)->removeIfInvalid($db->getName(), $table->getName());
+        RecentFavoriteTable::getInstance(TableType::Favorite)->removeIfInvalid($db->getName(), $table->getName());
 
         $this->redirect('/sql', ['db' => $db->getName(), 'table' => $table->getName()]);
     }

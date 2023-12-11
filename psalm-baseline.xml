@@ -5943,8 +5943,8 @@
       <code><![CDATA[$tbl['table']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$_SESSION['tmpval'][$this->tableType . 'Tables']]]></code>
-      <code><![CDATA[$_SESSION['tmpval'][$this->tableType . 'Tables'][$serverId]]]></code>
+      <code><![CDATA[$_SESSION['tmpval'][$this->tableType->value . 'Tables']]]></code>
+      <code><![CDATA[$_SESSION['tmpval'][$this->tableType->value . 'Tables'][$serverId]]]></code>
       <code><![CDATA[$table['db']]]></code>
       <code><![CDATA[$table['db']]]></code>
       <code><![CDATA[$table['db']]]></code>
@@ -5963,8 +5963,8 @@
       <code><![CDATA[$value['table']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
-      <code><![CDATA[$_SESSION['tmpval'][$this->tableType . 'Tables']]]></code>
-      <code><![CDATA[$_SESSION['tmpval'][$this->tableType . 'Tables'][$serverId]]]></code>
+      <code><![CDATA[$_SESSION['tmpval'][$this->tableType->value . 'Tables']]]></code>
+      <code><![CDATA[$_SESSION['tmpval'][$this->tableType->value . 'Tables'][$serverId]]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
       <code>$table</code>
@@ -5992,7 +5992,7 @@
       <code>bool|Message</code>
     </PossiblyUnusedReturnValue>
     <UnsupportedReferenceUsage>
-      <code><![CDATA[$this->tables =& $_SESSION['tmpval'][$this->tableType . 'Tables'][$serverId]]]></code>
+      <code><![CDATA[$this->tables =& $_SESSION['tmpval'][$this->tableType->value . 'Tables'][$serverId]]]></code>
     </UnsupportedReferenceUsage>
   </file>
   <file src="src/File.php">
