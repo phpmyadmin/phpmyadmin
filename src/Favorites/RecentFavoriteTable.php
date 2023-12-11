@@ -102,7 +102,7 @@ class RecentFavoriteTable
      *
      * @return mixed[]
      */
-    public function getFromDb(): array
+    private function getFromDb(): array
     {
         // Read from phpMyAdmin database, if recent tables is not in session
         $dbi = DatabaseInterface::getInstance();
@@ -126,7 +126,7 @@ class RecentFavoriteTable
      *
      * @return true|Message
      */
-    public function saveToDb(): bool|Message
+    private function saveToDb(): bool|Message
     {
         $username = Config::getInstance()->selectedServer['user'];
         $dbi = DatabaseInterface::getInstance();
@@ -158,7 +158,7 @@ class RecentFavoriteTable
      * Trim recent.favorite table according to the
      * NumRecentTables/NumFavoriteTables configuration.
      */
-    public function trim(): bool
+    private function trim(): bool
     {
         $max = max(
             Config::getInstance()->settings['Num' . ucfirst($this->tableType->value) . 'Tables'],
