@@ -5925,6 +5925,76 @@
       <code><![CDATA[$state['username']]]></code>
     </MixedArgument>
   </file>
+  <file src="src/Favorites/RecentFavoriteTable.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>DatabaseInterface::getInstance()</code>
+      <code>DatabaseInterface::getInstance()</code>
+      <code>DatabaseInterface::getInstance()</code>
+      <code>DatabaseInterface::getInstance()</code>
+      <code>DatabaseInterface::getInstance()</code>
+    </DeprecatedMethod>
+    <MixedArgument>
+      <code><![CDATA[$tbl['db']]]></code>
+      <code><![CDATA[$tbl['db']]]></code>
+      <code><![CDATA[$tbl['table']]]></code>
+      <code><![CDATA[$tbl['table']]]></code>
+    </MixedArgument>
+    <MixedArrayAccess>
+      <code><![CDATA[$_SESSION['tmpval'][$this->tableType . 'Tables']]]></code>
+      <code><![CDATA[$_SESSION['tmpval'][$this->tableType . 'Tables'][$serverId]]]></code>
+      <code><![CDATA[$table['db']]]></code>
+      <code><![CDATA[$table['db']]]></code>
+      <code><![CDATA[$table['db']]]></code>
+      <code><![CDATA[$table['db']]]></code>
+      <code><![CDATA[$table['table']]]></code>
+      <code><![CDATA[$table['table']]]></code>
+      <code><![CDATA[$table['table']]]></code>
+      <code><![CDATA[$table['table']]]></code>
+      <code><![CDATA[$tbl['db']]]></code>
+      <code><![CDATA[$tbl['db']]]></code>
+      <code><![CDATA[$tbl['db']]]></code>
+      <code><![CDATA[$tbl['table']]]></code>
+      <code><![CDATA[$tbl['table']]]></code>
+      <code><![CDATA[$tbl['table']]]></code>
+      <code><![CDATA[$value['db']]]></code>
+      <code><![CDATA[$value['table']]]></code>
+    </MixedArrayAccess>
+    <MixedArrayAssignment>
+      <code><![CDATA[$_SESSION['tmpval'][$this->tableType . 'Tables']]]></code>
+      <code><![CDATA[$_SESSION['tmpval'][$this->tableType . 'Tables'][$serverId]]]></code>
+    </MixedArrayAssignment>
+    <MixedAssignment>
+      <code>$table</code>
+      <code>$table</code>
+      <code>$tbl</code>
+      <code><![CDATA[$this->tables]]></code>
+      <code>$value</code>
+    </MixedAssignment>
+    <MixedInferredReturnType>
+      <code>mixed[]</code>
+    </MixedInferredReturnType>
+    <MixedOperand>
+      <code><![CDATA[$table['db']]]></code>
+      <code><![CDATA[$table['table']]]></code>
+    </MixedOperand>
+    <MixedReturnStatement>
+      <code>json_decode($value, true)</code>
+    </MixedReturnStatement>
+    <PossiblyNullOperand>
+      <code><![CDATA[$this->getPmaTable()]]></code>
+      <code><![CDATA[$this->getPmaTable()]]></code>
+    </PossiblyNullOperand>
+    <PossiblyUnusedReturnValue>
+      <code>bool</code>
+      <code>bool|Message</code>
+    </PossiblyUnusedReturnValue>
+    <UnsupportedReferenceUsage>
+      <code><![CDATA[$this->tables =& $_SESSION['tmpval'][$this->tableType . 'Tables'][$serverId]]]></code>
+    </UnsupportedReferenceUsage>
+  </file>
   <file src="src/File.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
@@ -10547,76 +10617,6 @@
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['debug']['queries']]]></code>
     </MixedArrayAssignment>
-  </file>
-  <file src="src/RecentFavoriteTable.php">
-    <DeprecatedMethod>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-    </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[$tbl['db']]]></code>
-      <code><![CDATA[$tbl['db']]]></code>
-      <code><![CDATA[$tbl['table']]]></code>
-      <code><![CDATA[$tbl['table']]]></code>
-    </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$_SESSION['tmpval'][$this->tableType . 'Tables']]]></code>
-      <code><![CDATA[$_SESSION['tmpval'][$this->tableType . 'Tables'][$serverId]]]></code>
-      <code><![CDATA[$table['db']]]></code>
-      <code><![CDATA[$table['db']]]></code>
-      <code><![CDATA[$table['db']]]></code>
-      <code><![CDATA[$table['db']]]></code>
-      <code><![CDATA[$table['table']]]></code>
-      <code><![CDATA[$table['table']]]></code>
-      <code><![CDATA[$table['table']]]></code>
-      <code><![CDATA[$table['table']]]></code>
-      <code><![CDATA[$tbl['db']]]></code>
-      <code><![CDATA[$tbl['db']]]></code>
-      <code><![CDATA[$tbl['db']]]></code>
-      <code><![CDATA[$tbl['table']]]></code>
-      <code><![CDATA[$tbl['table']]]></code>
-      <code><![CDATA[$tbl['table']]]></code>
-      <code><![CDATA[$value['db']]]></code>
-      <code><![CDATA[$value['table']]]></code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$_SESSION['tmpval'][$this->tableType . 'Tables']]]></code>
-      <code><![CDATA[$_SESSION['tmpval'][$this->tableType . 'Tables'][$serverId]]]></code>
-    </MixedArrayAssignment>
-    <MixedAssignment>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$tbl</code>
-      <code><![CDATA[$this->tables]]></code>
-      <code>$value</code>
-    </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>mixed[]</code>
-    </MixedInferredReturnType>
-    <MixedOperand>
-      <code><![CDATA[$table['db']]]></code>
-      <code><![CDATA[$table['table']]]></code>
-    </MixedOperand>
-    <MixedReturnStatement>
-      <code>json_decode($value, true)</code>
-    </MixedReturnStatement>
-    <PossiblyNullOperand>
-      <code><![CDATA[$this->getPmaTable()]]></code>
-      <code><![CDATA[$this->getPmaTable()]]></code>
-    </PossiblyNullOperand>
-    <PossiblyUnusedReturnValue>
-      <code>bool</code>
-      <code>bool|Message</code>
-    </PossiblyUnusedReturnValue>
-    <UnsupportedReferenceUsage>
-      <code><![CDATA[$this->tables =& $_SESSION['tmpval'][$this->tableType . 'Tables'][$serverId]]]></code>
-    </UnsupportedReferenceUsage>
   </file>
   <file src="src/Replication/Replication.php">
     <MixedArgument>

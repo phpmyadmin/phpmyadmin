@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use PhpMyAdmin\Favorites\RecentFavoriteTable;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\RecentFavoriteTable;
 
 final class RecentTablesListController extends AbstractController
 {
