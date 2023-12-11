@@ -5988,7 +5988,6 @@
       <code><![CDATA[$this->getPmaTable()]]></code>
     </PossiblyNullOperand>
     <PossiblyUnusedReturnValue>
-      <code>bool</code>
       <code>bool|Message</code>
     </PossiblyUnusedReturnValue>
     <UnsupportedReferenceUsage>

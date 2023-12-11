@@ -158,18 +158,16 @@ class RecentFavoriteTable
      * Trim recent.favorite table according to the
      * NumRecentTables/NumFavoriteTables configuration.
      */
-    private function trim(): bool
+    private function trim(): void
     {
         $max = max(
             Config::getInstance()->settings['Num' . ucfirst($this->tableType->value) . 'Tables'],
             0,
         );
-        $trimmingOccurred = count($this->tables) > $max;
+
         while (count($this->tables) > $max) {
             array_pop($this->tables);
         }
-
-        return $trimmingOccurred;
     }
 
     /**
