@@ -9,7 +9,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Favorites\RecentFavoriteTable;
+use PhpMyAdmin\Favorites\RecentFavoriteTables;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -1908,7 +1908,7 @@ class RelationTest extends AbstractTestCase
 
         $_SESSION['tmpval'] = [];
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
-        (new ReflectionProperty(RecentFavoriteTable::class, 'instances'))->setValue(null, []);
+        (new ReflectionProperty(RecentFavoriteTables::class, 'instances'))->setValue(null, []);
 
         $relation = new Relation($dbi);
         $relation->initRelationParamsCache();

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
-use PhpMyAdmin\Favorites\RecentFavoriteTable;
+use PhpMyAdmin\Favorites\RecentFavoriteTables;
 use PhpMyAdmin\Favorites\TableType;
 use PhpMyAdmin\Http\ServerRequest;
 
@@ -16,6 +16,6 @@ final class RecentTablesListController extends AbstractController
             return;
         }
 
-        $this->response->addJSON(['list' => RecentFavoriteTable::getInstance(TableType::Recent)->getHtmlList()]);
+        $this->response->addJSON(['list' => RecentFavoriteTables::getInstance(TableType::Recent)->getHtmlList()]);
     }
 }

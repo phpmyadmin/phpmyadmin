@@ -38,7 +38,7 @@ use const SORT_REGULAR;
  * @TODO Change the release version in table pma_recent
  * (#recent in documentation)
  */
-class RecentFavoriteTable
+class RecentFavoriteTables
 {
     /**
      * Reference to session variable containing recently used or favorite tables.
@@ -50,7 +50,7 @@ class RecentFavoriteTable
     /**
      * RecentFavoriteTable instances.
      *
-     * @var array<string,RecentFavoriteTable>
+     * @var array<string,RecentFavoriteTables>
      */
     private static array $instances = [];
 
@@ -83,11 +83,11 @@ class RecentFavoriteTable
     /**
      * Returns class instance.
      */
-    public static function getInstance(TableType $type): RecentFavoriteTable
+    public static function getInstance(TableType $type): RecentFavoriteTables
     {
         if (! array_key_exists($type->value, self::$instances)) {
             $template = new Template();
-            self::$instances[$type->value] = new RecentFavoriteTable($template, $type);
+            self::$instances[$type->value] = new RecentFavoriteTables($template, $type);
         }
 
         return self::$instances[$type->value];

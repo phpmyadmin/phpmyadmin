@@ -5919,7 +5919,7 @@
       <code><![CDATA[$state['username']]]></code>
     </MixedArgument>
   </file>
-  <file src="src/Favorites/RecentFavoriteTable.php">
+  <file src="src/Favorites/RecentFavoriteTables.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>

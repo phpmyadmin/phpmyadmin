@@ -11,7 +11,7 @@ use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Favorites\RecentFavoriteTable;
+use PhpMyAdmin\Favorites\RecentFavoriteTables;
 use PhpMyAdmin\Favorites\TableType;
 use PhpMyAdmin\Git;
 use PhpMyAdmin\Html\Generator;
@@ -105,7 +105,7 @@ class HomeController extends AbstractController
             unset($_SESSION['partial_logout']);
         }
 
-        $syncFavoriteTables = RecentFavoriteTable::getInstance(TableType::Favorite)
+        $syncFavoriteTables = RecentFavoriteTables::getInstance(TableType::Favorite)
             ->getHtmlSyncFavoriteTables();
 
         $config = Config::getInstance();

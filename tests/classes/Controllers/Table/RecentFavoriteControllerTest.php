@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\RecentFavoriteController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Favorites\RecentFavoriteTable;
+use PhpMyAdmin\Favorites\RecentFavoriteTables;
 use PhpMyAdmin\Favorites\TableType;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Template;
@@ -36,8 +36,8 @@ class RecentFavoriteControllerTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
-        $recent = RecentFavoriteTable::getInstance(TableType::Recent);
-        $favorite = RecentFavoriteTable::getInstance(TableType::Favorite);
+        $recent = RecentFavoriteTables::getInstance(TableType::Recent);
+        $favorite = RecentFavoriteTables::getInstance(TableType::Favorite);
 
         self::assertSame([['db' => 'test_db', 'table' => 'test_table']], $recent->getTables());
         self::assertSame([['db' => 'test_db', 'table' => 'test_table']], $favorite->getTables());
@@ -75,8 +75,8 @@ class RecentFavoriteControllerTest extends AbstractTestCase
         $dbiDummy->addResult('SHOW COLUMNS FROM `invalid_db`.`invalid_table`', false);
         $dbiDummy->addResult('SHOW COLUMNS FROM `invalid_db`.`invalid_table`', false);
 
-        $recent = RecentFavoriteTable::getInstance(TableType::Recent);
-        $favorite = RecentFavoriteTable::getInstance(TableType::Favorite);
+        $recent = RecentFavoriteTables::getInstance(TableType::Recent);
+        $favorite = RecentFavoriteTables::getInstance(TableType::Favorite);
 
         self::assertSame([['db' => 'invalid_db', 'table' => 'invalid_table']], $recent->getTables());
         self::assertSame([['db' => 'invalid_db', 'table' => 'invalid_table']], $favorite->getTables());

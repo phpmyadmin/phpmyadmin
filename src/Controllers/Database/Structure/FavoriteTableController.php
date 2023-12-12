@@ -8,7 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DbTableExists;
-use PhpMyAdmin\Favorites\RecentFavoriteTable;
+use PhpMyAdmin\Favorites\RecentFavoriteTables;
 use PhpMyAdmin\Favorites\TableType;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
@@ -52,7 +52,7 @@ final class FavoriteTableController extends AbstractController
             return;
         }
 
-        $favoriteInstance = RecentFavoriteTable::getInstance(TableType::Favorite);
+        $favoriteInstance = RecentFavoriteTables::getInstance(TableType::Favorite);
 
         $favoriteTables = $request->getParam('favoriteTables');
         $favoriteTables = $favoriteTables !== null ? json_decode($favoriteTables, true) : [];
@@ -142,14 +142,14 @@ final class FavoriteTableController extends AbstractController
     /**
      * Synchronize favorite tables
      *
-     * @param RecentFavoriteTable $favoriteInstance Instance of this class
-     * @param string              $user             The user hash
-     * @param mixed[]             $favoriteTables   Existing favorites
+     * @param RecentFavoriteTables $favoriteInstance Instance of this class
+     * @param string               $user             The user hash
+     * @param mixed[]              $favoriteTables   Existing favorites
      *
      * @return mixed[]
      */
     private function synchronizeFavoriteTables(
-        RecentFavoriteTable $favoriteInstance,
+        RecentFavoriteTables $favoriteInstance,
         string $user,
         array $favoriteTables,
     ): array {
@@ -176,7 +176,7 @@ final class FavoriteTableController extends AbstractController
      */
     private function checkFavoriteTable(string $currentTable): bool
     {
-        $recentFavoriteTables = RecentFavoriteTable::getInstance(TableType::Favorite);
+        $recentFavoriteTables = RecentFavoriteTables::getInstance(TableType::Favorite);
         foreach ($recentFavoriteTables->getTables() as $value) {
             if ($value['db'] == $GLOBALS['db'] && $value['table'] == $currentTable) {
                 return true;

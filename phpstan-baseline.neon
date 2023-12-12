@@ -2566,12 +2566,12 @@ parameters:
 			path: src/Controllers/Database/Structure/FavoriteTableController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Favorites\\\\RecentFavoriteTable\\:\\:add\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Favorites\\\\RecentFavoriteTables\\:\\:add\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Database/Structure/FavoriteTableController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Favorites\\\\RecentFavoriteTable\\:\\:remove\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Favorites\\\\RecentFavoriteTables\\:\\:remove\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/FavoriteTableController.php
 
@@ -2591,12 +2591,12 @@ parameters:
 			path: src/Controllers/Database/Structure/FavoriteTableController.php
 
 		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Favorites\\\\RecentFavoriteTable\\:\\:add\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Favorites\\\\RecentFavoriteTables\\:\\:add\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Database/Structure/FavoriteTableController.php
 
 		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Favorites\\\\RecentFavoriteTable\\:\\:remove\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Favorites\\\\RecentFavoriteTables\\:\\:remove\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/FavoriteTableController.php
 
@@ -10273,52 +10273,52 @@ parameters:
 		-
 			message: "#^Cannot access offset 'favoriteTables'\\|'recentTables' on mixed\\.$#"
 			count: 4
-			path: src/Favorites/RecentFavoriteTable.php
+			path: src/Favorites/RecentFavoriteTables.php
 
 		-
 			message: "#^Cannot access offset 'favorites_synced' on mixed\\.$#"
 			count: 1
-			path: src/Favorites/RecentFavoriteTable.php
+			path: src/Favorites/RecentFavoriteTables.php
 
 		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
 			count: 4
-			path: src/Favorites/RecentFavoriteTable.php
+			path: src/Favorites/RecentFavoriteTables.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Favorites\\\\RecentFavoriteTable\\:\\:getFromDb\\(\\) should return array but returns mixed\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Favorites\\\\RecentFavoriteTables\\:\\:getFromDb\\(\\) should return array but returns mixed\\.$#"
 			count: 1
-			path: src/Favorites/RecentFavoriteTable.php
+			path: src/Favorites/RecentFavoriteTables.php
 
 		-
 			message: "#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
 			count: 1
-			path: src/Favorites/RecentFavoriteTable.php
+			path: src/Favorites/RecentFavoriteTables.php
 
 		-
 			message: "#^Only booleans are allowed in a ternary operator condition, string\\|null given\\.$#"
 			count: 1
-			path: src/Favorites/RecentFavoriteTable.php
+			path: src/Favorites/RecentFavoriteTables.php
 
 		-
 			message: "#^Only booleans are allowed in an if condition, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
 			count: 1
-			path: src/Favorites/RecentFavoriteTable.php
+			path: src/Favorites/RecentFavoriteTables.php
 
 		-
 			message: "#^Only booleans are allowed in an if condition, string\\|null given\\.$#"
 			count: 2
-			path: src/Favorites/RecentFavoriteTable.php
+			path: src/Favorites/RecentFavoriteTables.php
 
 		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, string\\|false given\\.$#"
 			count: 1
-			path: src/Favorites/RecentFavoriteTable.php
+			path: src/Favorites/RecentFavoriteTables.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Favorites\\\\RecentFavoriteTable\\:\\:\\$tables \\(array\\<array\\{db\\: string, table\\: string\\}\\>\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Favorites\\\\RecentFavoriteTables\\:\\:\\$tables \\(array\\<array\\{db\\: string, table\\: string\\}\\>\\) does not accept mixed\\.$#"
 			count: 1
-			path: src/Favorites/RecentFavoriteTable.php
+			path: src/Favorites/RecentFavoriteTables.php
 
 		-
 			message: "#^Cannot access offset 'multi_edit' on mixed\\.$#"

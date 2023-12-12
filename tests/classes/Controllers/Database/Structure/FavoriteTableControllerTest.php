@@ -8,7 +8,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Database\Structure\FavoriteTableController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
-use PhpMyAdmin\Favorites\RecentFavoriteTable;
+use PhpMyAdmin\Favorites\RecentFavoriteTables;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -40,7 +40,7 @@ class FavoriteTableControllerTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['db'] = 'db';
 
-        $favoriteInstance = $this->getMockBuilder(RecentFavoriteTable::class)
+        $favoriteInstance = $this->getMockBuilder(RecentFavoriteTables::class)
             ->disableOriginalConstructor()
             ->getMock();
         $favoriteInstance->expects($this->exactly(2))
