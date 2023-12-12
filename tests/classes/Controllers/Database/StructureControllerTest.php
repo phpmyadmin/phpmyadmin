@@ -11,8 +11,6 @@ use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
-use PhpMyAdmin\Favorites\RecentFavoriteTables;
-use PhpMyAdmin\Favorites\TableType;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Replication\Replication;
 use PhpMyAdmin\Table\Table;
@@ -250,65 +248,6 @@ class StructureControllerTest extends AbstractTestCase
         $tables = ['db.tab1e'];
         $this->assertFalse(
             $method->invokeArgs($controller, [$tables, 'table']),
-        );
-    }
-
-    /**
-     * Tests for checkFavoriteTable()
-     */
-    public function testCheckFavoriteTable(): void
-    {
-        $class = new ReflectionClass(StructureController::class);
-        $method = $class->getMethod('checkFavoriteTable');
-
-        $dbiDummy = $this->createDbiDummy();
-        $dbi = $this->createDatabaseInterface($dbiDummy);
-
-        $GLOBALS['db'] = 'sakila';
-        DatabaseInterface::$instance = $dbi;
-
-        $dbiDummy->removeDefaultResults();
-        $dbiDummy->addResult(
-            'SHOW COLUMNS FROM `sakila`.`country`',
-            [
-                ['country_id', 'smallint(5) unsigned', 'NO', 'PRI', null, 'auto_increment'],
-            ],
-            ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
-        );
-        $dbiDummy->addResult(
-            'SHOW INDEXES FROM `sakila`.`country`',
-            [],
-            ['Table', 'Non_unique', 'Key_name', 'Column_name'],
-        );
-
-        $controller = new StructureController(
-            $this->response,
-            $this->template,
-            $this->relation,
-            $this->replication,
-            $dbi,
-            $this->createStub(TrackingChecker::class),
-            $this->createStub(PageSettings::class),
-            new DbTableExists($dbi),
-        );
-
-        $recentFavoriteTables = RecentFavoriteTables::getInstance(TableType::Favorite);
-        $this->assertSame([], $recentFavoriteTables->getTables());
-        $recentFavoriteTables->remove('sakila', 'country');
-        $recentFavoriteTables->add('sakila', 'country');
-        $this->assertSame([
-            [
-                'db' => 'sakila',
-                'table' => 'country',
-            ],
-        ], $recentFavoriteTables->getTables());
-
-        $this->assertFalse(
-            $method->invokeArgs($controller, ['']),
-        );
-
-        $this->assertTrue(
-            $method->invokeArgs($controller, ['country']),
         );
     }
 

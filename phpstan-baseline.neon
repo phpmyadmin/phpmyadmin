@@ -2561,42 +2561,12 @@ parameters:
 			path: src/Controllers/Database/Structure/FavoriteTableController.php
 
 		-
-			message: "#^Parameter \\#1 \\$currentTable of method PhpMyAdmin\\\\Controllers\\\\Database\\\\Structure\\\\FavoriteTableController\\:\\:checkFavoriteTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/FavoriteTableController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Favorites\\\\RecentFavoriteTables\\:\\:add\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Database/Structure/FavoriteTableController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Favorites\\\\RecentFavoriteTables\\:\\:remove\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/FavoriteTableController.php
-
-		-
 			message: "#^Parameter \\#1 \\$json of function json_decode expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/FavoriteTableController.php
 
 		-
 			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/FavoriteTableController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function md5 expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/FavoriteTableController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Favorites\\\\RecentFavoriteTables\\:\\:add\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Database/Structure/FavoriteTableController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Favorites\\\\RecentFavoriteTables\\:\\:remove\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/FavoriteTableController.php
 
@@ -2782,11 +2752,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$connection of method PhpMyAdmin\\\\Replication\\\\ReplicationInfo\\:\\:load\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Parameter \\#1 \\$currentTable of method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:checkFavoriteTable\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/StructureController.php
 
@@ -10271,8 +10236,23 @@ parameters:
 			path: src/Export/Template.php
 
 		-
+			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: src/Favorites/RecentFavoriteTables.php
+
+		-
+			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be true\\.$#"
+			count: 1
+			path: src/Favorites/RecentFavoriteTables.php
+
+		-
+			message: "#^Cannot access an offset on mixed\\.$#"
+			count: 1
+			path: src/Favorites/RecentFavoriteTables.php
+
+		-
 			message: "#^Cannot access offset 'favoriteTables'\\|'recentTables' on mixed\\.$#"
-			count: 4
+			count: 5
 			path: src/Favorites/RecentFavoriteTables.php
 
 		-
@@ -10282,41 +10262,31 @@ parameters:
 
 		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 4
-			path: src/Favorites/RecentFavoriteTables.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Favorites\\\\RecentFavoriteTables\\:\\:getFromDb\\(\\) should return array but returns mixed\\.$#"
 			count: 1
 			path: src/Favorites/RecentFavoriteTables.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
+			message: "#^Cannot access offset string on mixed\\.$#"
+			count: 5
+			path: src/Favorites/RecentFavoriteTables.php
+
+		-
+			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
 			path: src/Favorites/RecentFavoriteTables.php
 
 		-
-			message: "#^Only booleans are allowed in a ternary operator condition, string\\|null given\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Favorites\\\\RecentFavoriteTables\\:\\:getFromDb\\(\\) should return array\\<array\\{db\\: string, table\\: string\\}\\> but returns mixed\\.$#"
 			count: 1
 			path: src/Favorites/RecentFavoriteTables.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
+			message: "#^Parameter \\#1 \\$array of static method PhpMyAdmin\\\\Favorites\\\\RecentFavoriteTable\\:\\:fromArray\\(\\) expects array\\{db\\: string, table\\: string\\}, mixed given\\.$#"
 			count: 1
-			path: src/Favorites/RecentFavoriteTables.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, string\\|null given\\.$#"
-			count: 2
 			path: src/Favorites/RecentFavoriteTables.php
 
 		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, string\\|false given\\.$#"
-			count: 1
-			path: src/Favorites/RecentFavoriteTables.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Favorites\\\\RecentFavoriteTables\\:\\:\\$tables \\(array\\<array\\{db\\: string, table\\: string\\}\\>\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Favorites/RecentFavoriteTables.php
 
@@ -10936,22 +10906,12 @@ parameters:
 			path: src/Header.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Header\\:\\:addRecentTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Header.php
-
-		-
 			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getMessage\\(\\) expects PhpMyAdmin\\\\Message\\|string, mixed given\\.$#"
 			count: 1
 			path: src/Header.php
 
 		-
 			message: "#^Parameter \\#2 \\$params of method PhpMyAdmin\\\\Scripts\\:\\:addFile\\(\\) expects array\\<string, string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 1
-			path: src/Header.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Header\\:\\:addRecentTable\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Header.php
 

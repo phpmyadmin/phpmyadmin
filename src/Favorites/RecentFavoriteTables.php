@@ -11,6 +11,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -18,11 +19,12 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function array_key_exists;
-use function array_merge;
 use function array_pop;
 use function array_unique;
 use function array_unshift;
+use function array_values;
 use function count;
+use function in_array;
 use function is_string;
 use function json_decode;
 use function json_encode;
@@ -40,11 +42,7 @@ use const SORT_REGULAR;
  */
 class RecentFavoriteTables
 {
-    /**
-     * Reference to session variable containing recently used or favorite tables.
-     *
-     * @var array{db:string, table:string}[]
-     */
+    /** @var RecentFavoriteTable[] */
     private array $tables = [];
 
     /**
@@ -54,30 +52,36 @@ class RecentFavoriteTables
      */
     private static array $instances = [];
 
-    private Relation $relation;
-
     /**
      * Creates a new instance of RecentFavoriteTable
      */
-    private function __construct(public Template $template, private readonly TableType $tableType)
-    {
-        $this->relation = new Relation(DatabaseInterface::getInstance());
-        $serverId = $GLOBALS['server'];
+    private function __construct(
+        public Template $template,
+        private readonly TableType $tableType,
+        private readonly string $serverId,
+        private readonly DatabaseInterface $dbi,
+        private readonly Relation $relation,
+        private readonly DbTableExists $dbTableExists,
+    ) {
         // Code search hint: recentTables
         // Code search hint: favoriteTables
-        if (! isset($_SESSION['tmpval'][$this->tableType->value . 'Tables'][$serverId])) {
-            $_SESSION['tmpval'][$this->tableType->value . 'Tables'][$serverId] = $this->getPmaTable()
+        if (! isset($_SESSION['tmpval'][$this->tableType->value . 'Tables'][$this->serverId])) {
+            $_SESSION['tmpval'][$this->tableType->value . 'Tables'][$this->serverId] = $this->getPmaTable() !== null
                 ? $this->getFromDb()
                 : [];
         }
 
-        $this->tables = $_SESSION['tmpval'][$this->tableType->value . 'Tables'][$serverId];
+        foreach ($_SESSION['tmpval'][$this->tableType->value . 'Tables'][$this->serverId] as $table) {
+            $this->tables[] = RecentFavoriteTable::fromArray($table);
+        }
     }
 
     public function __destruct()
     {
-        $serverId = $GLOBALS['server'];
-        $_SESSION['tmpval'][$this->tableType->value . 'Tables'][$serverId] = $this->tables;
+        $_SESSION['tmpval'][$this->tableType->value . 'Tables'][$this->serverId] = [];
+        foreach ($this->tables as $table) {
+            $_SESSION['tmpval'][$this->tableType->value . 'Tables'][$this->serverId][] = $table->toArray();
+        }
     }
 
     /**
@@ -87,7 +91,15 @@ class RecentFavoriteTables
     {
         if (! array_key_exists($type->value, self::$instances)) {
             $template = new Template();
-            self::$instances[$type->value] = new RecentFavoriteTables($template, $type);
+            $dbi = DatabaseInterface::getInstance();
+            self::$instances[$type->value] = new RecentFavoriteTables(
+                $template,
+                $type,
+                (string) $GLOBALS['server'],
+                $dbi,
+                new Relation($dbi),
+                new DbTableExists($dbi),
+            );
         }
 
         return self::$instances[$type->value];
@@ -96,7 +108,7 @@ class RecentFavoriteTables
     /**
      * Returns the recent/favorite tables array
      *
-     * @return array{db:string, table:string}[]
+     * @return RecentFavoriteTable[]
      */
     public function getTables(): array
     {
@@ -106,18 +118,17 @@ class RecentFavoriteTables
     /**
      * Returns recently used tables or favorite from phpMyAdmin database.
      *
-     * @return mixed[]
+     * @return array{db:string, table:string}[]
      */
     private function getFromDb(): array
     {
         // Read from phpMyAdmin database, if recent tables is not in session
-        $dbi = DatabaseInterface::getInstance();
         $sqlQuery = ' SELECT `tables` FROM ' . $this->getPmaTable()
             . ' WHERE `username` = '
-            . $dbi->quoteString(Config::getInstance()->selectedServer['user'], Connection::TYPE_CONTROL);
+            . $this->dbi->quoteString(Config::getInstance()->selectedServer['user'], Connection::TYPE_CONTROL);
 
-        $result = $dbi->tryQueryAsControlUser($sqlQuery);
-        if ($result) {
+        $result = $this->dbi->tryQueryAsControlUser($sqlQuery);
+        if ($result !== false) {
             $value = $result->fetchValue();
             if (is_string($value)) {
                 return json_decode($value, true);
@@ -135,22 +146,20 @@ class RecentFavoriteTables
     private function saveToDb(): bool|Message
     {
         $username = Config::getInstance()->selectedServer['user'];
-        $dbi = DatabaseInterface::getInstance();
         $sqlQuery = ' REPLACE INTO ' . $this->getPmaTable() . ' (`username`, `tables`)'
-            . ' VALUES (' . $dbi->quoteString($username) . ', '
-            . $dbi->quoteString(json_encode($this->tables)) . ')';
+            . ' VALUES (' . $this->dbi->quoteString($username) . ', '
+            . $this->dbi->quoteString(json_encode($this->tables)) . ')';
 
-        $success = $dbi->tryQuery($sqlQuery, Connection::TYPE_CONTROL);
+        $success = $this->dbi->tryQuery($sqlQuery, Connection::TYPE_CONTROL);
 
-        if (! $success) {
-            $errorMsg = match ($this->tableType) {
-                 TableType::Recent => __('Could not save recent table!'),
-                 TableType::Favorite => __('Could not save favorite table!'),
-            };
+        if ($success === false) {
+            $message = Message::error(match ($this->tableType) {
+                TableType::Recent => __('Could not save recent table!'),
+                TableType::Favorite => __('Could not save favorite table!'),
+            });
 
-            $message = Message::error($errorMsg);
             $message->addMessage(
-                Message::rawError($dbi->getError(Connection::TYPE_CONTROL)),
+                Message::rawError($this->dbi->getError(Connection::TYPE_CONTROL)),
                 '<br><br>',
             );
 
@@ -161,7 +170,7 @@ class RecentFavoriteTables
     }
 
     /**
-     * Trim recent.favorite table according to the
+     * Trim recent/favorite table according to the
      * NumRecentTables/NumFavoriteTables configuration.
      */
     private function trim(): void
@@ -185,7 +194,7 @@ class RecentFavoriteTables
             if ($this->tableType === TableType::Recent) {
                 $tables = [];
                 foreach ($this->tables as $table) {
-                    $tables[] = ['db' => $table['db'], 'table' => $table['table']];
+                    $tables[] = $table->toArray();
                 }
 
                 return $this->template->render('recent_favorite_table_recent', ['tables' => $tables]);
@@ -194,15 +203,15 @@ class RecentFavoriteTables
             $tables = [];
             foreach ($this->tables as $table) {
                 $removeParameters = [
-                    'db' => $table['db'],
+                    'db' => $table->db,
                     'ajax_request' => true,
-                    'favorite_table' => $table['table'],
+                    'favorite_table' => $table->table,
                     'remove_favorite' => true,
                 ];
                 $tableParameters = [
-                    'db' => $table['db'],
-                    'table' => $table['table'],
-                    'md5' => md5($table['db'] . '.' . $table['table']),
+                    'db' => $table->db,
+                    'table' => $table->table,
+                    'md5' => md5($table->db . '.' . $table->table),
                 ];
 
                 $tables[] = ['remove_parameters' => $removeParameters, 'table_parameters' => $tableParameters];
@@ -238,28 +247,20 @@ class RecentFavoriteTables
     /**
      * Add recently used or favorite tables.
      *
-     * @param string $db    database name where the table is located
-     * @param string $table table name
-     *
      * @return true|Message True if success, Message if not
      */
-    public function add(string $db, string $table): bool|Message
+    public function add(RecentFavoriteTable $newTable): bool|Message
     {
-        // If table does not exist, do not add._getPmaTable()
-        if (DatabaseInterface::getInstance()->getColumns($db, $table) === []) {
+        if (! $this->dbTableExists->hasTable($newTable->db, $newTable->table)) {
             return true;
         }
 
-        $tableArr = [];
-        $tableArr['db'] = $db;
-        $tableArr['table'] = $table;
-
         // add only if this is new table
-        if (! isset($this->tables[0]) || $this->tables[0] != $tableArr) {
-            array_unshift($this->tables, $tableArr);
-            $this->tables = array_merge(array_unique($this->tables, SORT_REGULAR));
+        if (! isset($this->tables[0]) || $this->tables[0] != $newTable) {
+            array_unshift($this->tables, $newTable);
+            $this->tables = array_values(array_unique($this->tables, SORT_REGULAR));
             $this->trim();
-            if ($this->getPmaTable()) {
+            if ($this->getPmaTable() !== null) {
                 return $this->saveToDb();
             }
         }
@@ -270,22 +271,21 @@ class RecentFavoriteTables
     /**
      * Removes recent/favorite tables that don't exist.
      *
-     * @param string $db    database
-     * @param string $table table
-     *
      * @return bool|Message True if invalid and removed, False if not invalid,
      * Message if error while removing
      */
-    public function removeIfInvalid(string $db, string $table): bool|Message
+    public function removeIfInvalid(RecentFavoriteTable $tableToRemove): bool|Message
     {
-        foreach ($this->tables as $tbl) {
-            if ($tbl['db'] != $db || $tbl['table'] != $table) {
+        foreach ($this->tables as $table) {
+            if (
+                $table->db->getName() !== $tableToRemove->db->getName()
+                || $table->table->getName() !== $tableToRemove->table->getName()
+            ) {
                 continue;
             }
 
-            // TODO Figure out a better way to find the existence of a table
-            if (DatabaseInterface::getInstance()->getColumns($tbl['db'], $tbl['table']) === []) {
-                return $this->remove($tbl['db'], $tbl['table']);
+            if (! $this->dbTableExists->hasTable($table->db, $table->table)) {
+                return $this->remove($tableToRemove);
             }
         }
 
@@ -295,26 +295,36 @@ class RecentFavoriteTables
     /**
      * Remove favorite tables.
      *
-     * @param string $db    database name where the table is located
-     * @param string $table table name
-     *
      * @return true|Message True if success, Message if not
      */
-    public function remove(string $db, string $table): bool|Message
+    public function remove(RecentFavoriteTable $tableToRemove): bool|Message
     {
-        foreach ($this->tables as $key => $value) {
-            if ($value['db'] != $db || $value['table'] != $table) {
+        foreach ($this->tables as $key => $table) {
+            if (
+                $table->db->getName() !== $tableToRemove->db->getName()
+                || $table->table->getName() !== $tableToRemove->table->getName()
+            ) {
                 continue;
             }
 
             unset($this->tables[$key]);
         }
 
-        if ($this->getPmaTable()) {
+        if ($this->getPmaTable() !== null) {
             return $this->saveToDb();
         }
 
         return true;
+    }
+
+    /**
+     * Function to check if a table is already in favorite list.
+     */
+    public function contains(RecentFavoriteTable $currentTable): bool
+    {
+        // When looking for the value we are looking for a similar object with
+        // the same public properties, not the same instance. The in_array must be loose comparison.
+        return in_array($currentTable, $this->tables, false);
     }
 
     /**

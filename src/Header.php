@@ -8,9 +8,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Favorites\RecentFavoriteTable;
 use PhpMyAdmin\Favorites\RecentFavoriteTables;
 use PhpMyAdmin\Favorites\TableType;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Theme\ThemeManager;
 
@@ -259,8 +262,11 @@ class Header
         }
 
         $recentTable = '';
-        if (empty($_REQUEST['recent_table'])) {
-            $recentTable = $this->addRecentTable($GLOBALS['db'], $GLOBALS['table']);
+        if (empty($_REQUEST['recent_table']) && $GLOBALS['table'] !== '') {
+            $recentTable = $this->addRecentTable(
+                DatabaseName::from($GLOBALS['db']),
+                TableName::from($GLOBALS['table']),
+            );
         }
 
         if ($this->isAjax) {
@@ -590,14 +596,12 @@ class Header
 
     /**
      * Add recently used table and reload the navigation.
-     *
-     * @param string $db    Database name where the table is located.
-     * @param string $table The table name
      */
-    private function addRecentTable(string $db, string $table): string
+    private function addRecentTable(DatabaseName $db, TableName $table): string
     {
-        if ($this->menuEnabled && $table !== '' && Config::getInstance()->settings['NumRecentTables'] > 0) {
-            $error = RecentFavoriteTables::getInstance(TableType::Recent)->add($db, $table);
+        if ($this->menuEnabled && Config::getInstance()->settings['NumRecentTables'] > 0) {
+            $favoriteTable = new RecentFavoriteTable($db, $table);
+            $error = RecentFavoriteTables::getInstance(TableType::Recent)->add($favoriteTable);
             if ($error === true) {
                 return RecentFavoriteTables::getHtmlUpdateRecentTables();
             }

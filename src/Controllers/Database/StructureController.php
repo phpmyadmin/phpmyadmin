@@ -12,11 +12,13 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Favorites\RecentFavoriteTable;
 use PhpMyAdmin\Favorites\RecentFavoriteTables;
 use PhpMyAdmin\Favorites\TableType;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Replication\Replication;
@@ -236,6 +238,7 @@ class StructureController extends AbstractController
         $overallApproxRows = false;
         $structureTableRows = [];
         $trackedTables = $this->trackingChecker->getTrackedTables($GLOBALS['db']);
+        $recentFavoriteTables = RecentFavoriteTables::getInstance(TableType::Favorite);
         foreach ($this->tables as $currentTable) {
             // Get valid statistics whatever is the table type
 
@@ -430,7 +433,12 @@ class StructureController extends AbstractController
                 'do' => $do,
                 'approx_rows' => $approxRows,
                 'show_superscript' => $showSuperscript,
-                'already_favorite' => $this->checkFavoriteTable($currentTable['TABLE_NAME']),
+                'already_favorite' => $recentFavoriteTables->contains(
+                    new RecentFavoriteTable(
+                        DatabaseName::from($GLOBALS['db']),
+                        TableName::from($currentTable['TABLE_NAME']),
+                    ),
+                ),
                 'num_favorite_tables' => $config->settings['NumFavoriteTables'],
                 'properties_num_columns' => $config->settings['PropertiesNumColumns'],
                 'limit_chars' => $config->settings['LimitChars'],
@@ -610,23 +618,6 @@ class StructureController extends AbstractController
         }
 
         return [$do, $ignored];
-    }
-
-    /**
-     * Function to check if a table is already in favorite list.
-     *
-     * @param string $currentTable current table
-     */
-    protected function checkFavoriteTable(string $currentTable): bool
-    {
-        $recentFavoriteTables = RecentFavoriteTables::getInstance(TableType::Favorite);
-        foreach ($recentFavoriteTables->getTables() as $value) {
-            if ($value['db'] == $GLOBALS['db'] && $value['table'] == $currentTable) {
-                return true;
-            }
-        }
-
-        return false;
     }
 
     /**
