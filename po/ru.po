@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2023-12-10 23:05+0000\n"
+"PO-Revision-Date: 2023-12-12 04:04+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ru/>\n"
@@ -8153,16 +8153,12 @@ msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr "Количество ожидающих вставки строк в запросах INSERT DELAYED."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:549
-#, fuzzy
-#| msgid ""
-#| "The number of tables that have been opened. If opened tables is big, your "
-#| "table cache value is probably too small."
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table_open_cache value is probably too small."
 msgstr ""
-"Количество открытых таблиц. При большом значении переменной рекомендуется "
-"увеличить размер кэша таблиц."
+"Количество открытых таблиц. Если открытых страниц очень много, вероятнее "
+"всего значение вашей переменной table_open_cache."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:553
 msgid "The number of files that are open."
