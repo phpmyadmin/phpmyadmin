@@ -10272,7 +10272,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'favoriteTables'\\|'recentTables' on mixed\\.$#"
-			count: 3
+			count: 4
 			path: src/Favorites/RecentFavoriteTable.php
 
 		-
@@ -10282,7 +10282,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 3
+			count: 4
 			path: src/Favorites/RecentFavoriteTable.php
 
 		-

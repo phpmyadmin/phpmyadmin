@@ -71,7 +71,13 @@ class RecentFavoriteTable
                 : [];
         }
 
-        $this->tables =& $_SESSION['tmpval'][$this->tableType->value . 'Tables'][$serverId];
+        $this->tables = $_SESSION['tmpval'][$this->tableType->value . 'Tables'][$serverId];
+    }
+
+    public function __destruct()
+    {
+        $serverId = $GLOBALS['server'];
+        $_SESSION['tmpval'][$this->tableType->value . 'Tables'][$serverId] = $this->tables;
     }
 
     /**

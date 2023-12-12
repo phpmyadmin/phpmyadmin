@@ -5936,6 +5936,8 @@
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['tmpval'][$this->tableType->value . 'Tables']]]></code>
+      <code><![CDATA[$_SESSION['tmpval'][$this->tableType->value . 'Tables']]]></code>
+      <code><![CDATA[$_SESSION['tmpval'][$this->tableType->value . 'Tables'][$serverId]]]></code>
       <code><![CDATA[$_SESSION['tmpval'][$this->tableType->value . 'Tables'][$serverId]]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
