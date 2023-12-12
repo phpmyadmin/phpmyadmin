@@ -14596,17 +14596,7 @@ parameters:
 			path: src/Plugins/Import/ImportOds.php
 
 		-
-			message: "#^Offset 'name' does not exist on SimpleXMLElement\\|null\\.$#"
-			count: 2
-			path: src/Plugins/Import/ImportOds.php
-
-		-
-			message: "#^Offset 'number\\-columns…' does not exist on SimpleXMLElement\\|null\\.$#"
-			count: 2
-			path: src/Plugins/Import/ImportOds.php
-
-		-
-			message: "#^Parameter \\#1 \\$cellAttrs of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:getValue\\(\\) expects SimpleXMLElement, SimpleXMLElement\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$cellAttrs of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:getValue\\(\\) expects SimpleXMLElement, \\(SimpleXMLElement\\|null\\) given\\.$#"
 			count: 1
 			path: src/Plugins/Import/ImportOds.php
 
@@ -14768,21 +14758,6 @@ parameters:
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportXml\\:\\:doImport\\(\\) should return array\\<string\\> but returns mixed\\.$#"
 			count: 1
-			path: src/Plugins/Import/ImportXml.php
-
-		-
-			message: "#^Offset 'charset' does not exist on SimpleXMLElement\\|null\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportXml.php
-
-		-
-			message: "#^Offset 'collation' does not exist on SimpleXMLElement\\|null\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportXml.php
-
-		-
-			message: "#^Offset 'name' does not exist on SimpleXMLElement\\|null\\.$#"
-			count: 8
 			path: src/Plugins/Import/ImportXml.php
 
 		-
