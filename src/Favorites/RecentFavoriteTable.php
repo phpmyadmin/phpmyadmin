@@ -43,7 +43,7 @@ class RecentFavoriteTable
     /**
      * Reference to session variable containing recently used or favorite tables.
      *
-     * @var mixed[]
+     * @var array{db:string, table:string}[]
      */
     private array $tables = [];
 
@@ -90,7 +90,7 @@ class RecentFavoriteTable
     /**
      * Returns the recent/favorite tables array
      *
-     * @return mixed[]
+     * @return array{db:string, table:string}[]
      */
     public function getTables(): array
     {

@@ -1501,8 +1501,6 @@
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$value['db']]]></code>
-      <code><![CDATA[$value['db']]]></code>
-      <code><![CDATA[$value['table']]]></code>
       <code><![CDATA[$value['table']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
@@ -1515,7 +1513,6 @@
       <code>$favoriteTable</code>
       <code>$favoriteTables</code>
       <code>$favoriteTables</code>
-      <code>$value</code>
       <code>$value</code>
     </MixedAssignment>
   </file>
@@ -1647,8 +1644,6 @@
       <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
       <code><![CDATA[$currentTable['TABLE_TYPE']]]></code>
       <code><![CDATA[$currentTable['Update_time']]]></code>
-      <code><![CDATA[$value['db']]]></code>
-      <code><![CDATA[$value['table']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
@@ -1671,7 +1666,6 @@
       <code>$truename</code>
       <code>$updateTime</code>
       <code>$updateTimeAll</code>
-      <code>$value</code>
     </MixedAssignment>
     <MixedMethodCall>
       <code>getCharset</code>
@@ -5936,50 +5930,20 @@
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[$tbl['db']]]></code>
-      <code><![CDATA[$tbl['db']]]></code>
-      <code><![CDATA[$tbl['table']]]></code>
-      <code><![CDATA[$tbl['table']]]></code>
-    </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval'][$this->tableType->value . 'Tables']]]></code>
       <code><![CDATA[$_SESSION['tmpval'][$this->tableType->value . 'Tables'][$serverId]]]></code>
-      <code><![CDATA[$table['db']]]></code>
-      <code><![CDATA[$table['db']]]></code>
-      <code><![CDATA[$table['db']]]></code>
-      <code><![CDATA[$table['db']]]></code>
-      <code><![CDATA[$table['table']]]></code>
-      <code><![CDATA[$table['table']]]></code>
-      <code><![CDATA[$table['table']]]></code>
-      <code><![CDATA[$table['table']]]></code>
-      <code><![CDATA[$tbl['db']]]></code>
-      <code><![CDATA[$tbl['db']]]></code>
-      <code><![CDATA[$tbl['db']]]></code>
-      <code><![CDATA[$tbl['table']]]></code>
-      <code><![CDATA[$tbl['table']]]></code>
-      <code><![CDATA[$tbl['table']]]></code>
-      <code><![CDATA[$value['db']]]></code>
-      <code><![CDATA[$value['table']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['tmpval'][$this->tableType->value . 'Tables']]]></code>
       <code><![CDATA[$_SESSION['tmpval'][$this->tableType->value . 'Tables'][$serverId]]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$tbl</code>
       <code><![CDATA[$this->tables]]></code>
-      <code>$value</code>
     </MixedAssignment>
     <MixedInferredReturnType>
       <code>mixed[]</code>
     </MixedInferredReturnType>
-    <MixedOperand>
-      <code><![CDATA[$table['db']]]></code>
-      <code><![CDATA[$table['table']]]></code>
-    </MixedOperand>
     <MixedReturnStatement>
       <code>json_decode($value, true)</code>
     </MixedReturnStatement>
@@ -5990,9 +5954,6 @@
     <PossiblyUnusedReturnValue>
       <code>bool|Message</code>
     </PossiblyUnusedReturnValue>
-    <UnsupportedReferenceUsage>
-      <code><![CDATA[$this->tables =& $_SESSION['tmpval'][$this->tableType->value . 'Tables'][$serverId]]]></code>
-    </UnsupportedReferenceUsage>
   </file>
   <file src="src/File.php">
     <DeprecatedMethod>

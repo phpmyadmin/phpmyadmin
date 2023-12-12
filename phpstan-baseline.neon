@@ -2537,7 +2537,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'db' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Controllers/Database/Structure/FavoriteTableController.php
 
 		-
@@ -2547,7 +2547,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'table' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Controllers/Database/Structure/FavoriteTableController.php
 
 		-
@@ -2732,16 +2732,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'Update_time' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Cannot access offset 'db' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Cannot access offset 'table' on mixed\\.$#"
 			count: 1
 			path: src/Controllers/Database/StructureController.php
 
@@ -10281,11 +10271,6 @@ parameters:
 			path: src/Export/Template.php
 
 		-
-			message: "#^Cannot access offset 'db' on mixed\\.$#"
-			count: 6
-			path: src/Favorites/RecentFavoriteTable.php
-
-		-
 			message: "#^Cannot access offset 'favoriteTables'\\|'recentTables' on mixed\\.$#"
 			count: 3
 			path: src/Favorites/RecentFavoriteTable.php
@@ -10293,11 +10278,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'favorites_synced' on mixed\\.$#"
 			count: 1
-			path: src/Favorites/RecentFavoriteTable.php
-
-		-
-			message: "#^Cannot access offset 'table' on mixed\\.$#"
-			count: 6
 			path: src/Favorites/RecentFavoriteTable.php
 
 		-
@@ -10331,32 +10311,12 @@ parameters:
 			path: src/Favorites/RecentFavoriteTable.php
 
 		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Favorites/RecentFavoriteTable.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Favorites\\\\RecentFavoriteTable\\:\\:remove\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Favorites/RecentFavoriteTable.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, string\\|false given\\.$#"
 			count: 1
 			path: src/Favorites/RecentFavoriteTable.php
 
 		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Favorites/RecentFavoriteTable.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Favorites\\\\RecentFavoriteTable\\:\\:remove\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Favorites/RecentFavoriteTable.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Favorites\\\\RecentFavoriteTable\\:\\:\\$tables \\(array\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Favorites\\\\RecentFavoriteTable\\:\\:\\$tables \\(array\\<array\\{db\\: string, table\\: string\\}\\>\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Favorites/RecentFavoriteTable.php
 
