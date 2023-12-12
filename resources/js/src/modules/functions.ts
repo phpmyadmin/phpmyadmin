@@ -3441,13 +3441,6 @@ function floatingMenuBar () {
         var left = $('html').attr('dir') === 'ltr' ? 'left' : 'right';
         $('#floating_menubar')
             .css('margin-' + left, $('#pma_navigation').width() + $('#pma_navigation_resizer').width())
-            .css(left, 0)
-            .css({
-                'position': 'fixed',
-                'top': 0,
-                'width': '100%',
-                'z-index': 99
-            })
             .append($('#server-breadcrumb'))
             .append($('#topmenucontainer'));
 

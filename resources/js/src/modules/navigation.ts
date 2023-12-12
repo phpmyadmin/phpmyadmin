@@ -793,13 +793,6 @@ const ResizeHandler = function () {
         // Issue #15570 : Panels on homescreen go underneath of floating menubar
         $('#floating_menubar')
             .css('margin-' + this.left, $('#pma_navigation').width() + $('#pma_navigation_resizer').width())
-            .css(this.left, 0)
-            .css({
-                'position': 'fixed',
-                'top': 0,
-                'width': '100%',
-                'z-index': 99
-            })
             .append($('#server-breadcrumb'))
             .append($('#topmenucontainer'));
 

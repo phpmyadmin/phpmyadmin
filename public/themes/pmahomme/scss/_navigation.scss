@@ -461,3 +461,7 @@ li.fast_filter {
     cursor: pointer;
   }
 }
+
+#floating_menubar {
+  z-index: 99;
+}
