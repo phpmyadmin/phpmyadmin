@@ -30,7 +30,7 @@ final class ZoomSearchControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface($dbiDummy);
 
         $dbiDummy->addSelectDb('test_db');
-        $dbiDummy->addResult('SHOW TABLES LIKE \'test_table\';', [['test_table']]);
+        $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']]);
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
             ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
@@ -76,7 +76,7 @@ final class ZoomSearchControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface($dbiDummy);
 
         $dbiDummy->addSelectDb('test_db');
-        $dbiDummy->addResult('SHOW TABLES LIKE \'test_table\';', [['test_table']]);
+        $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']]);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withQueryParams(['db' => 'test_db', 'table' => 'test_table'])

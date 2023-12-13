@@ -74,7 +74,7 @@ final class FavoriteTableController extends AbstractController
         }
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
-        if ($databaseName === null || ! $this->dbTableExists->hasDatabase($databaseName)) {
+        if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', Message::error(__('No databases selected.')));
 

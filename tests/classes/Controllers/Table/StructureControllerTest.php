@@ -55,17 +55,7 @@ class StructureControllerTest extends AbstractTestCase
 
         $this->dummyDbi->addSelectDb('test_db');
         $this->dummyDbi->addSelectDb('test_db');
-        $this->dummyDbi->addResult(
-            'SHOW COLLATION',
-            [
-                ['utf8mb4_general_ci', 'utf8mb4', '45', 'Yes', 'Yes', '1'],
-                ['armscii8_general_ci', 'armscii8', '32', 'Yes', 'Yes', '1'],
-                ['utf8_general_ci', 'utf8', '33', 'Yes', 'Yes', '1'],
-                ['utf8_bin', 'utf8', '83', '', 'Yes', '1'],
-                ['latin1_swedish_ci', 'latin1', '8', 'Yes', 'Yes', '1'],
-            ],
-            ['Collation', 'Charset', 'Id', 'Default', 'Compiled', 'Sortlen'],
-        );
+        $this->dummyDbi->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [[1]]);
         // phpcs:disable Generic.Files.LineLength.TooLong
         $this->dummyDbi->addResult(
             'SELECT * FROM `information_schema`.`PARTITIONS` WHERE `TABLE_SCHEMA` = \'test_db\' AND `TABLE_NAME` = \'test_table\'',
@@ -160,5 +150,6 @@ class StructureControllerTest extends AbstractTestCase
         ]);
 
         $this->assertSame($expected, $response->getHTMLResult());
+        $this->dummyDbi->assertAllQueriesConsumed();
     }
 }

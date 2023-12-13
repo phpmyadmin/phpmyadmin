@@ -49,7 +49,7 @@ class SqlControllerTest extends AbstractTestCase
         $config->selectedServer = $config->getSettings()->Servers[1]->asArray();
 
         $this->dummyDbi->addSelectDb('test_db');
-        $this->dummyDbi->addResult('SHOW TABLES LIKE \'test_table\';', [['test_table']]);
+        $this->dummyDbi->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']]);
 
         $pageSettings = new PageSettings(
             new UserPreferences($this->dbi, new Relation($this->dbi), new Template()),
