@@ -7,8 +7,12 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\RecentFavoriteController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Favorites\RecentFavoriteTable;
+use PhpMyAdmin\Favorites\RecentFavoriteTables;
+use PhpMyAdmin\Favorites\TableType;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
-use PhpMyAdmin\RecentFavoriteTable;
+use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -33,13 +37,17 @@ class RecentFavoriteControllerTest extends AbstractTestCase
             'favoriteTables' => [2 => [['db' => 'test_db', 'table' => 'test_table']]],
         ];
 
-        DatabaseInterface::$instance = $this->createDatabaseInterface();
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']], ['1']);
+        $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']], ['1']);
+        DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
 
-        $recent = RecentFavoriteTable::getInstance('recent');
-        $favorite = RecentFavoriteTable::getInstance('favorite');
+        $recent = RecentFavoriteTables::getInstance(TableType::Recent);
+        $favorite = RecentFavoriteTables::getInstance(TableType::Favorite);
 
-        self::assertSame([['db' => 'test_db', 'table' => 'test_table']], $recent->getTables());
-        self::assertSame([['db' => 'test_db', 'table' => 'test_table']], $favorite->getTables());
+        $table = new RecentFavoriteTable(DatabaseName::from('test_db'), TableName::from('test_table'));
+        self::assertEquals([$table], $recent->getTables());
+        self::assertEquals([$table], $favorite->getTables());
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
             ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
@@ -54,8 +62,8 @@ class RecentFavoriteControllerTest extends AbstractTestCase
             $response->getHeaderLine('Location'),
         );
 
-        self::assertSame([['db' => 'test_db', 'table' => 'test_table']], $recent->getTables());
-        self::assertSame([['db' => 'test_db', 'table' => 'test_table']], $favorite->getTables());
+        self::assertEquals([$table], $recent->getTables());
+        self::assertEquals([$table], $favorite->getTables());
     }
 
     public function testRecentFavoriteControllerWithInvalidDbAndTable(): void
@@ -70,15 +78,16 @@ class RecentFavoriteControllerTest extends AbstractTestCase
         ];
 
         $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult('SELECT 1 FROM `invalid_db`.`invalid_table` LIMIT 1;', false);
+        $dbiDummy->addResult('SELECT 1 FROM `invalid_db`.`invalid_table` LIMIT 1;', false);
         DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
-        $dbiDummy->addResult('SHOW COLUMNS FROM `invalid_db`.`invalid_table`', false);
-        $dbiDummy->addResult('SHOW COLUMNS FROM `invalid_db`.`invalid_table`', false);
 
-        $recent = RecentFavoriteTable::getInstance('recent');
-        $favorite = RecentFavoriteTable::getInstance('favorite');
+        $recent = RecentFavoriteTables::getInstance(TableType::Recent);
+        $favorite = RecentFavoriteTables::getInstance(TableType::Favorite);
 
-        self::assertSame([['db' => 'invalid_db', 'table' => 'invalid_table']], $recent->getTables());
-        self::assertSame([['db' => 'invalid_db', 'table' => 'invalid_table']], $favorite->getTables());
+        $table = new RecentFavoriteTable(DatabaseName::from('invalid_db'), TableName::from('invalid_table'));
+        self::assertEquals([$table], $recent->getTables());
+        self::assertEquals([$table], $favorite->getTables());
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
             ->withQueryParams(['db' => 'invalid_db', 'table' => 'invalid_table']);
@@ -95,6 +104,7 @@ class RecentFavoriteControllerTest extends AbstractTestCase
 
         self::assertSame([], $recent->getTables());
         self::assertSame([], $favorite->getTables());
+        $dbiDummy->assertAllQueriesConsumed();
     }
 
     public function testRecentFavoriteControllerWithInvalidDbAndTableName(): void

@@ -20,9 +20,7 @@ final class DbTableExistsTest extends AbstractTestCase
         $dbiDummy->addSelectDb('test_db');
         $dbi = $this->createDatabaseInterface($dbiDummy);
         $dbTableExists = new DbTableExists($dbi);
-        $this->assertTrue($dbTableExists->hasDatabase(DatabaseName::from('test_db')));
-        // cached result
-        $this->assertTrue($dbTableExists->hasDatabase(DatabaseName::from('test_db')));
+        $this->assertTrue($dbTableExists->selectDatabase(DatabaseName::from('test_db')));
         $dbiDummy->assertAllSelectsConsumed();
     }
 
@@ -32,19 +30,17 @@ final class DbTableExistsTest extends AbstractTestCase
         $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())->method('selectDb')->with($db)->willReturn(false);
         $dbTableExists = new DbTableExists($dbi);
-        $this->assertFalse($dbTableExists->hasDatabase($db));
+        $this->assertFalse($dbTableExists->selectDatabase($db));
     }
 
     public function testHasTable(): void
     {
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->removeDefaultResults();
-        $dbiDummy->addResult('SHOW TABLES LIKE \'test_table\';', [['test_table']], ['Tables_in_test_db (test_table)']);
+        $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']], ['1']);
         $dbi = $this->createDatabaseInterface($dbiDummy);
-        $dbi->getCache()->clearTableCache();
         $dbTableExists = new DbTableExists($dbi);
         $this->assertTrue($dbTableExists->hasTable(DatabaseName::from('test_db'), TableName::from('test_table')));
-        $dbi->getCache()->clearTableCache();
         // cached result
         $this->assertTrue($dbTableExists->hasTable(DatabaseName::from('test_db'), TableName::from('test_table')));
         $dbiDummy->assertAllQueriesConsumed();
@@ -54,39 +50,21 @@ final class DbTableExistsTest extends AbstractTestCase
     {
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->removeDefaultResults();
-        $dbiDummy->addResult('SHOW TABLES LIKE \'test_table\';', [], ['Tables_in_test_db (test_table)']);
-        $dbiDummy->addResult('SELECT 1 FROM `test_table` LIMIT 1;', [['1']], ['1']);
+        $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']], ['1']);
         $dbi = $this->createDatabaseInterface($dbiDummy);
-        $dbi->getCache()->clearTableCache();
         $dbTableExists = new DbTableExists($dbi);
         $this->assertTrue($dbTableExists->hasTable(DatabaseName::from('test_db'), TableName::from('test_table')));
-        $dbi->getCache()->clearTableCache();
         // cached result
         $this->assertTrue($dbTableExists->hasTable(DatabaseName::from('test_db'), TableName::from('test_table')));
         $dbiDummy->assertAllQueriesConsumed();
-    }
-
-    public function testHasTableWithDbiCache(): void
-    {
-        $dbiDummy = $this->createDbiDummy();
-        $dbiDummy->removeDefaultResults();
-        $dbi = $this->createDatabaseInterface($dbiDummy);
-        $dbi->getCache()->cacheTableContent(['test_db', 'test_table'], ['test_table']);
-        $dbTableExists = new DbTableExists($dbi);
-        $this->assertTrue($dbTableExists->hasTable(DatabaseName::from('test_db'), TableName::from('test_table')));
-        $dbi->getCache()->clearTableCache();
-        // cached result
-        $this->assertTrue($dbTableExists->hasTable(DatabaseName::from('test_db'), TableName::from('test_table')));
     }
 
     public function testHasTableWithNoTable(): void
     {
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->removeDefaultResults();
-        $dbiDummy->addResult('SHOW TABLES LIKE \'test_table\';', false);
-        $dbiDummy->addResult('SELECT 1 FROM `test_table` LIMIT 1;', false);
+        $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', false);
         $dbi = $this->createDatabaseInterface($dbiDummy);
-        $dbi->getCache()->clearTableCache();
         $dbTableExists = new DbTableExists($dbi);
         $this->assertFalse($dbTableExists->hasTable(DatabaseName::from('test_db'), TableName::from('test_table')));
         $dbiDummy->assertAllQueriesConsumed();

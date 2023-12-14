@@ -12,6 +12,8 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Favorites\RecentFavoriteTables;
+use PhpMyAdmin\Favorites\TableType;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\Nodes\Node;
 use PhpMyAdmin\Navigation\Nodes\NodeColumn;
@@ -32,7 +34,6 @@ use PhpMyAdmin\Navigation\Nodes\NodeTrigger;
 use PhpMyAdmin\Navigation\Nodes\NodeTriggerContainer;
 use PhpMyAdmin\Navigation\Nodes\NodeView;
 use PhpMyAdmin\Navigation\Nodes\NodeViewContainer;
-use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -1383,11 +1384,11 @@ class NavigationTree
         $renderDetails = [];
         $config = Config::getInstance();
         if ($config->settings['NumRecentTables'] > 0) {
-            $renderDetails['recent'] = RecentFavoriteTable::getInstance('recent')->getHtml();
+            $renderDetails['recent'] = RecentFavoriteTables::getInstance(TableType::Recent)->getHtml();
         }
 
         if ($config->settings['NumFavoriteTables'] > 0) {
-            $renderDetails['favorite'] = RecentFavoriteTable::getInstance('favorite')->getHtml();
+            $renderDetails['favorite'] = RecentFavoriteTables::getInstance(TableType::Favorite)->getHtml();
         }
 
         return $this->template->render('navigation/tree/quick_warp', $renderDetails);

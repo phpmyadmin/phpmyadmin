@@ -70,7 +70,7 @@ final class IndexController extends AbstractController
                 $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
                 $databaseName = DatabaseName::tryFrom($request->getParam('db'));
-                if ($databaseName === null || ! $this->dbTableExists->hasDatabase($databaseName)) {
+                if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
                     $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
                     return;
@@ -96,7 +96,7 @@ final class IndexController extends AbstractController
                 $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
                 $databaseName = DatabaseName::tryFrom($request->getParam('db'));
-                if ($databaseName === null || ! $this->dbTableExists->hasDatabase($databaseName)) {
+                if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
                     $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
                     return;

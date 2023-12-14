@@ -8,16 +8,20 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Favorites\RecentFavoriteTable;
+use PhpMyAdmin\Favorites\RecentFavoriteTables;
+use PhpMyAdmin\Favorites\TableType;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
+use function array_map;
 use function count;
 use function json_decode;
 use function json_encode;
@@ -51,7 +55,7 @@ final class FavoriteTableController extends AbstractController
             return;
         }
 
-        $favoriteInstance = RecentFavoriteTable::getInstance('favorite');
+        $favoriteInstance = RecentFavoriteTables::getInstance(TableType::Favorite);
 
         $favoriteTables = $request->getParam('favoriteTables');
         $favoriteTables = $favoriteTables !== null ? json_decode($favoriteTables, true) : [];
@@ -74,7 +78,7 @@ final class FavoriteTableController extends AbstractController
         }
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
-        if ($databaseName === null || ! $this->dbTableExists->hasDatabase($databaseName)) {
+        if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
@@ -82,13 +86,19 @@ final class FavoriteTableController extends AbstractController
         }
 
         $changes = true;
-        $favoriteTable = $request->getParam('favorite_table', '');
-        $alreadyFavorite = $this->checkFavoriteTable($favoriteTable);
+        /** @var string $favoriteTableName */
+        $favoriteTableName = $request->getParam('favorite_table', '');
+        // TODO: Why is this $GLOBALS['db'] instead of $databaseName
+        $favoriteTable = new RecentFavoriteTable(
+            DatabaseName::from($GLOBALS['db']),
+            TableName::from($favoriteTableName),
+        );
+        $alreadyFavorite = $favoriteInstance->contains($favoriteTable);
 
         if (isset($_REQUEST['remove_favorite'])) {
             if ($alreadyFavorite) {
                 // If already in favorite list, remove it.
-                $favoriteInstance->remove($GLOBALS['db'], $favoriteTable);
+                $favoriteInstance->remove($favoriteTable);
                 $alreadyFavorite = false; // for favorite_anchor template
             }
         } elseif (isset($_REQUEST['add_favorite'])) {
@@ -98,13 +108,16 @@ final class FavoriteTableController extends AbstractController
                     $changes = false;
                 } else {
                     // Otherwise add to favorite list.
-                    $favoriteInstance->add($GLOBALS['db'], $favoriteTable);
+                    $favoriteInstance->add($favoriteTable);
                     $alreadyFavorite = true; // for favorite_anchor template
                 }
             }
         }
 
-        $favoriteTables[$user] = $favoriteInstance->getTables();
+        $favoriteTables[$user] = array_map(
+            static fn (RecentFavoriteTable $table) => $table->toArray(),
+            $favoriteInstance->getTables(),
+        );
 
         $json = [];
         $json['changes'] = $changes;
@@ -121,7 +134,7 @@ final class FavoriteTableController extends AbstractController
         $favoriteParams = [
             'db' => $GLOBALS['db'],
             'ajax_request' => true,
-            'favorite_table' => $favoriteTable,
+            'favorite_table' => $favoriteTableName,
             ($alreadyFavorite ? 'remove' : 'add') . '_favorite' => true,
         ];
 
@@ -129,8 +142,8 @@ final class FavoriteTableController extends AbstractController
         $json['favoriteTables'] = json_encode($favoriteTables);
         $json['list'] = $favoriteInstance->getHtmlList();
         $json['anchor'] = $this->template->render('database/structure/favorite_anchor', [
-            'table_name_hash' => md5($favoriteTable),
-            'db_table_name_hash' => md5($GLOBALS['db'] . '.' . $favoriteTable),
+            'table_name_hash' => md5($favoriteTableName),
+            'db_table_name_hash' => md5($GLOBALS['db'] . '.' . $favoriteTableName),
             'fav_params' => $favoriteParams,
             'already_favorite' => $alreadyFavorite,
         ]);
@@ -141,47 +154,34 @@ final class FavoriteTableController extends AbstractController
     /**
      * Synchronize favorite tables
      *
-     * @param RecentFavoriteTable $favoriteInstance Instance of this class
-     * @param string              $user             The user hash
-     * @param mixed[]             $favoriteTables   Existing favorites
+     * @param RecentFavoriteTables $favoriteInstance Instance of this class
+     * @param string               $user             The user hash
+     * @param mixed[]              $favoriteTables   Existing favorites
      *
      * @return mixed[]
      */
     private function synchronizeFavoriteTables(
-        RecentFavoriteTable $favoriteInstance,
+        RecentFavoriteTables $favoriteInstance,
         string $user,
         array $favoriteTables,
     ): array {
-        $favoriteInstanceTables = $favoriteInstance->getTables();
-
-        if ($favoriteInstanceTables === [] && isset($favoriteTables[$user])) {
+        if ($favoriteInstance->getTables() === [] && isset($favoriteTables[$user])) {
             foreach ($favoriteTables[$user] as $value) {
-                $favoriteInstance->add($value['db'], $value['table']);
+                $favoriteInstance->add(new RecentFavoriteTable(
+                    DatabaseName::from($value['db']),
+                    TableName::from($value['table']),
+                ));
             }
         }
 
-        $favoriteTables[$user] = $favoriteInstance->getTables();
+        $favoriteTables[$user] = array_map(
+            static fn (RecentFavoriteTable $table) => $table->toArray(),
+            $favoriteInstance->getTables(),
+        );
 
         // Set flag when localStorage and pmadb(if present) are in sync.
         $_SESSION['tmpval']['favorites_synced'][$GLOBALS['server']] = true;
 
         return ['favoriteTables' => json_encode($favoriteTables), 'list' => $favoriteInstance->getHtmlList()];
-    }
-
-    /**
-     * Function to check if a table is already in favorite list.
-     *
-     * @param string $currentTable current table
-     */
-    private function checkFavoriteTable(string $currentTable): bool
-    {
-        $recentFavoriteTables = RecentFavoriteTable::getInstance('favorite');
-        foreach ($recentFavoriteTables->getTables() as $value) {
-            if ($value['db'] == $GLOBALS['db'] && $value['table'] == $currentTable) {
-                return true;
-            }
-        }
-
-        return false;
     }
 }

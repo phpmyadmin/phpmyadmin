@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
@@ -52,9 +53,11 @@ class StructureControllerTest extends AbstractTestCase
         $config->settings['ShowPropertyComments'] = false;
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
         (new ReflectionProperty(Template::class, 'twig'))->setValue(null, null);
+        (new ReflectionProperty(Charsets::class, 'collations'))->setValue(null, []);
 
         $this->dummyDbi->addSelectDb('test_db');
         $this->dummyDbi->addSelectDb('test_db');
+        $this->dummyDbi->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [[1]]);
         $this->dummyDbi->addResult(
             'SHOW COLLATION',
             [
@@ -160,5 +163,8 @@ class StructureControllerTest extends AbstractTestCase
         ]);
 
         $this->assertSame($expected, $response->getHTMLResult());
+
+        $this->dummyDbi->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllQueriesConsumed();
     }
 }

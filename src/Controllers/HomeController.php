@@ -11,6 +11,8 @@ use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Favorites\RecentFavoriteTables;
+use PhpMyAdmin\Favorites\TableType;
 use PhpMyAdmin\Git;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
@@ -20,7 +22,6 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Template;
@@ -104,7 +105,7 @@ class HomeController extends AbstractController
             unset($_SESSION['partial_logout']);
         }
 
-        $syncFavoriteTables = RecentFavoriteTable::getInstance('favorite')
+        $syncFavoriteTables = RecentFavoriteTables::getInstance(TableType::Favorite)
             ->getHtmlSyncFavoriteTables();
 
         $config = Config::getInstance();

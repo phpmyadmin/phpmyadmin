@@ -45,7 +45,7 @@ final class DropColumnConfirmationController extends AbstractController
             return;
         }
 
-        if (! $this->dbTableExists->hasDatabase($db)) {
+        if (! $this->dbTableExists->selectDatabase($db)) {
             if ($request->isAjax()) {
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));

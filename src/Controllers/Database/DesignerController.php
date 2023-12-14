@@ -159,7 +159,7 @@ class DesignerController extends AbstractController
         $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
-        if ($databaseName === null || ! $this->dbTableExists->hasDatabase($databaseName)) {
+        if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
             if ($request->isAjax()) {
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
