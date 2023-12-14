@@ -203,14 +203,14 @@ class RecentFavoriteTables
             $tables = [];
             foreach ($this->tables as $table) {
                 $removeParameters = [
-                    'db' => $table->db,
+                    'db' => $table->db->getName(),
+                    'favorite_table' => $table->table->getName(),
                     'ajax_request' => true,
-                    'favorite_table' => $table->table,
                     'remove_favorite' => true,
                 ];
                 $tableParameters = [
-                    'db' => $table->db,
-                    'table' => $table->table,
+                    'db' => $table->db->getName(),
+                    'table' => $table->table->getName(),
                     'md5' => md5($table->db . '.' . $table->table),
                 ];
 

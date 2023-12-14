@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Favorites;
 
+use JsonSerializable;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 
-final class RecentFavoriteTable
+final class RecentFavoriteTable implements JsonSerializable
 {
     public function __construct(public readonly DatabaseName $db, public readonly TableName $table)
     {
@@ -23,5 +24,13 @@ final class RecentFavoriteTable
     public function toArray(): array
     {
         return ['db' => $this->db->getName(), 'table' => $this->table->getName()];
+    }
+
+    public function jsonSerialize(): mixed
+    {
+        return [
+            'db' => $this->db->getName(),
+            'table' => $this->table->getName(),
+        ];
     }
 }
