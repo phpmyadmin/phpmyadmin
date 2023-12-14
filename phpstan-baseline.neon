@@ -19261,16 +19261,6 @@ parameters:
 			path: tests/classes/Controllers/Database/PrivilegesControllerTest.php
 
 		-
-			message: "#^Cannot access offset 'favoriteTables' on mixed\\.$#"
-			count: 1
-			path: tests/classes/Controllers/Database/Structure/FavoriteTableControllerTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$array of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
-			count: 1
-			path: tests/classes/Controllers/Database/Structure/FavoriteTableControllerTest.php
-
-		-
 			message: "#^Cannot access offset 'COUNTED' on mixed\\.$#"
 			count: 4
 			path: tests/classes/Controllers/Database/StructureControllerTest.php

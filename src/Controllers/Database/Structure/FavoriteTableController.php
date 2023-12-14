@@ -21,6 +21,7 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
+use function array_map;
 use function count;
 use function json_decode;
 use function json_encode;
@@ -113,7 +114,10 @@ final class FavoriteTableController extends AbstractController
             }
         }
 
-        $favoriteTables[$user] = $favoriteInstance->getTables();
+        $favoriteTables[$user] = array_map(
+            static fn (RecentFavoriteTable $table) => $table->toArray(),
+            $favoriteInstance->getTables(),
+        );
 
         $json = [];
         $json['changes'] = $changes;
@@ -170,7 +174,10 @@ final class FavoriteTableController extends AbstractController
             }
         }
 
-        $favoriteTables[$user] = $favoriteInstance->getTables();
+        $favoriteTables[$user] = array_map(
+            static fn (RecentFavoriteTable $table) => $table->toArray(),
+            $favoriteInstance->getTables(),
+        );
 
         // Set flag when localStorage and pmadb(if present) are in sync.
         $_SESSION['tmpval']['favorites_synced'][$GLOBALS['server']] = true;

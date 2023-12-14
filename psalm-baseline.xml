@@ -13185,17 +13185,6 @@
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="tests/classes/Controllers/Database/Structure/FavoriteTableControllerTest.php">
-    <MixedArgument>
-      <code>$json</code>
-    </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$json['favoriteTables']]]></code>
-    </MixedArrayAccess>
-    <MixedAssignment>
-      <code>$json</code>
-    </MixedAssignment>
-  </file>
   <file src="tests/classes/Controllers/Database/Structure/RealRowCountControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>

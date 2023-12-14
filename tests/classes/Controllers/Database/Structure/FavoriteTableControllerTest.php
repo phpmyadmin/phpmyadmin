@@ -9,61 +9,57 @@ use PhpMyAdmin\Controllers\Database\Structure\FavoriteTableController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Favorites\RecentFavoriteTables;
+use PhpMyAdmin\Favorites\TableType;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PHPUnit\Framework\Attributes\CoversClass;
-use ReflectionClass;
+use ReflectionMethod;
+use ReflectionProperty;
 
 use function json_encode;
 
 #[CoversClass(FavoriteTableController::class)]
-class FavoriteTableControllerTest extends AbstractTestCase
+final class FavoriteTableControllerTest extends AbstractTestCase
 {
-    protected DatabaseInterface $dbi;
-
-    protected DbiDummy $dummyDbi;
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->dummyDbi = $this->createDbiDummy();
-        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        DatabaseInterface::$instance = $this->dbi;
-    }
-
     public function testSynchronizeFavoriteTables(): void
     {
         $GLOBALS['server'] = 1;
-        $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['db'] = 'db';
 
-        $favoriteInstance = $this->getMockBuilder(RecentFavoriteTables::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $favoriteInstance->expects($this->exactly(2))
-            ->method('getTables')
-            ->willReturn([[]], [['db' => 'db', 'table' => 'table']]);
+        $dbiDummy = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+        DatabaseInterface::$instance = $dbi;
 
-        $class = new ReflectionClass(FavoriteTableController::class);
-        $method = $class->getMethod('synchronizeFavoriteTables');
+        $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']], ['1']);
+
+        (new ReflectionProperty(RecentFavoriteTables::class, 'instances'))->setValue(null, []);
+        $favoriteInstance = RecentFavoriteTables::getInstance(TableType::Favorite);
 
         $controller = new FavoriteTableController(
             new ResponseStub(),
             new Template(),
-            new Relation($this->dbi),
-            new DbTableExists($this->dbi),
+            new Relation($dbi),
+            new DbTableExists($dbi),
         );
 
         // The user hash for test
         $user = 'abcdefg';
-        $favoriteTable = [$user => [['db' => 'db', 'table' => 'table']]];
+        $favoriteTable = [$user => [['db' => 'test_db', 'table' => 'test_table']]];
 
+        $_SESSION['tmpval'] = ['favorites_synced' => [$GLOBALS['server'] => null]];
+
+        $method = new ReflectionMethod(FavoriteTableController::class, 'synchronizeFavoriteTables');
         $json = $method->invokeArgs($controller, [$favoriteInstance, $user, $favoriteTable]);
 
-        $this->assertEquals(json_encode($favoriteTable), $json['favoriteTables'] ?? '');
-        $this->assertArrayHasKey('list', $json);
+        self::assertIsArray($json);
+        self::assertEquals(json_encode($favoriteTable), $json['favoriteTables'] ?? '');
+        self::assertArrayHasKey('list', $json);
+        /**
+         * @psalm-suppress TypeDoesNotContainType
+         * @phpstan-ignore-next-line
+         */
+        self::assertTrue($_SESSION['tmpval']['favorites_synced'][$GLOBALS['server']]);
+
+        $dbiDummy->assertAllQueriesConsumed();
     }
 }
