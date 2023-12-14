@@ -50,18 +50,20 @@ class Menu
      */
     public function getDisplay(): string
     {
-        $retval = $this->getBreadcrumbs();
-        $retval .= $this->getMenu();
+        $breadcrumbs = $this->getBreadcrumbs();
+        $menu = $this->getMenu();
 
-        return $retval;
+        return $this->template->render('menu/main', [
+            'server' => $breadcrumbs['server'],
+            'database' => $breadcrumbs['database'],
+            'table' => $breadcrumbs['table'],
+            'tabs' => $menu['tabs'],
+            'url_params' => $menu['url_params'],
+        ]);
     }
 
-    /**
-     * Returns the menu as HTML
-     *
-     * @return string HTML formatted menubar
-     */
-    private function getMenu(): string
+    /** @return array{tabs: mixed[], url_params: mixed[]} */
+    private function getMenu(): array
     {
         $urlParams = [];
 
@@ -84,7 +86,7 @@ class Menu
         // Filter out any tabs that are not allowed
         $tabs = array_intersect_key($tabs, $allowedTabs);
 
-        return $this->template->render('top_menu', ['tabs' => $tabs, 'url_params' => $urlParams]);
+        return ['tabs' => $tabs, 'url_params' => $urlParams];
     }
 
     /**
@@ -135,12 +137,8 @@ class Menu
         return $allowedTabs;
     }
 
-    /**
-     * Returns the breadcrumbs as HTML
-     *
-     * @return string HTML formatted breadcrumbs
-     */
-    private function getBreadcrumbs(): string
+    /** @return array{server: mixed[], database: mixed[], table: mixed[]} */
+    private function getBreadcrumbs(): array
     {
         $server = [];
         $database = [];
@@ -171,7 +169,7 @@ class Menu
                 }
 
                 if (mb_strstr($table['comment'], '; InnoDB free')) {
-                    $table['comment'] = preg_replace('@; InnoDB free:.*?$@', '', $table['comment']);
+                    $table['comment'] = (string) preg_replace('@; InnoDB free:.*?$@', '', $table['comment']);
                 }
             } else {
                 // no table selected, display database comment if present
@@ -185,11 +183,7 @@ class Menu
             }
         }
 
-        return $this->template->render('menu/breadcrumbs', [
-            'server' => $server,
-            'database' => $database,
-            'table' => $table,
-        ]);
+        return ['server' => $server, 'database' => $database, 'table' => $table];
     }
 
     /**
