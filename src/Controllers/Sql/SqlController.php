@@ -54,7 +54,6 @@ class SqlController extends AbstractController
         $GLOBALS['disp_message'] ??= null;
         $GLOBALS['complete_query'] ??= null;
         $GLOBALS['back'] ??= null;
-        $GLOBALS['table_from_sql'] ??= null;
 
         $this->checkUserPrivileges->getPrivileges();
 
@@ -139,13 +138,10 @@ class SqlController extends AbstractController
         /**
          * Parse and analyze the query
          */
-        [$statementInfo, $GLOBALS['db'], $GLOBALS['table_from_sql']] = ParseAnalyze::sqlQuery(
-            $GLOBALS['sql_query'],
-            $GLOBALS['db'],
-        );
+        [$statementInfo, $GLOBALS['db'], $tableFromSql] = ParseAnalyze::sqlQuery($GLOBALS['sql_query'], $GLOBALS['db']);
 
-        if ($GLOBALS['table'] != $GLOBALS['table_from_sql'] && ! empty($GLOBALS['table_from_sql'])) {
-            $GLOBALS['table'] = $GLOBALS['table_from_sql'];
+        if ($GLOBALS['table'] != $tableFromSql && $tableFromSql !== '') {
+            $GLOBALS['table'] = $tableFromSql;
         }
 
         /**
