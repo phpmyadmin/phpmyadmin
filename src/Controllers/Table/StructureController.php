@@ -65,12 +65,11 @@ class StructureController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['showtable'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
         $this->dbi->selectDb($GLOBALS['db']);
         $rereadInfo = $this->tableObj->getStatusInfo(null, true);
-        $GLOBALS['showtable'] = $this->tableObj->getStatusInfo(null, ! empty($rereadInfo));
+        $showTable = $this->tableObj->getStatusInfo(null, ! empty($rereadInfo));
 
         $this->pageSettings->init('TableStructure');
         $this->response->addHTML($this->pageSettings->getErrorHTML());
@@ -141,6 +140,7 @@ class StructureController extends AbstractController
             $columnsWithIndex,
             $isSystemSchema,
             $request->getRoute(),
+            $showTable,
         ));
     }
 
@@ -160,6 +160,7 @@ class StructureController extends AbstractController
         array $columnsWithIndex,
         bool $isSystemSchema,
         string $route,
+        mixed $showTable,
     ): string {
         if ($this->tableObj->isView()) {
             $tableIsAView = true;
@@ -191,7 +192,7 @@ class StructureController extends AbstractController
         // Get valid statistics whatever is the table type
         if ($config->settings['ShowStats']) {
             //get table stats in HTML format
-            $tablestats = $this->getTableStats($isSystemSchema, $tableIsAView, $tableStorageEngine);
+            $tablestats = $this->getTableStats($isSystemSchema, $tableIsAView, $tableStorageEngine, $showTable);
             //returning the response in JSON format to be used by Ajax
             $this->response->addJSON('tableStat', $tablestats);
         }
@@ -294,63 +295,63 @@ class StructureController extends AbstractController
     /**
      * Get HTML snippet for display table statistics
      */
-    protected function getTableStats(bool $isSystemSchema, bool $tableIsAView, string $tableStorageEngine): string
-    {
-        $tableInfoNunRows = $this->tableObj->getNumRows();
+    protected function getTableStats(
+        bool $isSystemSchema,
+        bool $tableIsAView,
+        string $tableStorageEngine,
+        mixed $showTable,
+    ): string {
+        $tableInfoNunRows = $this->tableObj->getNumRows($showTable['Name']);
 
-        if (empty($GLOBALS['showtable'])) {
-            $GLOBALS['showtable'] = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table'])->getStatusInfo(null, true);
+        if (empty($showTable)) {
+            $showTable = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table'])->getStatusInfo(null, true);
         }
 
-        if (is_string($GLOBALS['showtable'])) {
-            $GLOBALS['showtable'] = [];
+        if (is_string($showTable)) {
+            $showTable = [];
         }
 
-        if (empty($GLOBALS['showtable']['Data_length'])) {
-            $GLOBALS['showtable']['Data_length'] = 0;
+        if (empty($showTable['Data_length'])) {
+            $showTable['Data_length'] = 0;
         }
 
-        if (empty($GLOBALS['showtable']['Index_length'])) {
-            $GLOBALS['showtable']['Index_length'] = 0;
+        if (empty($showTable['Index_length'])) {
+            $showTable['Index_length'] = 0;
         }
 
-        $isInnoDB = (isset($GLOBALS['showtable']['Type'])
-            && $GLOBALS['showtable']['Type'] === 'InnoDB');
+        $isInnoDB = (isset($showTable['Type'])
+            && $showTable['Type'] === 'InnoDB');
 
         $mergetable = $this->tableObj->isMerge();
 
         // this is to display for example 261.2 MiB instead of 268k KiB
         $maxDigits = 3;
         $decimals = 1;
-        [$dataSize, $dataUnit] = Util::formatByteDown($GLOBALS['showtable']['Data_length'], $maxDigits, $decimals);
+        [$dataSize, $dataUnit] = Util::formatByteDown($showTable['Data_length'], $maxDigits, $decimals);
         if ($mergetable === false) {
-            [$indexSize, $indexUnit] = Util::formatByteDown(
-                $GLOBALS['showtable']['Index_length'],
-                $maxDigits,
-                $decimals,
-            );
+            [$indexSize, $indexUnit] = Util::formatByteDown($showTable['Index_length'], $maxDigits, $decimals);
         }
 
-        if (isset($GLOBALS['showtable']['Data_free'])) {
-            [$freeSize, $freeUnit] = Util::formatByteDown($GLOBALS['showtable']['Data_free'], $maxDigits, $decimals);
+        if (isset($showTable['Data_free'])) {
+            [$freeSize, $freeUnit] = Util::formatByteDown($showTable['Data_free'], $maxDigits, $decimals);
             [$effectSize, $effectUnit] = Util::formatByteDown(
-                $GLOBALS['showtable']['Data_length']
-                + $GLOBALS['showtable']['Index_length']
-                - $GLOBALS['showtable']['Data_free'],
+                $showTable['Data_length']
+                + $showTable['Index_length']
+                - $showTable['Data_free'],
                 $maxDigits,
                 $decimals,
             );
         } else {
             [$effectSize, $effectUnit] = Util::formatByteDown(
-                $GLOBALS['showtable']['Data_length']
-                + $GLOBALS['showtable']['Index_length'],
+                $showTable['Data_length']
+                + $showTable['Index_length'],
                 $maxDigits,
                 $decimals,
             );
         }
 
         [$totSize, $totUnit] = Util::formatByteDown(
-            $GLOBALS['showtable']['Data_length'] + $GLOBALS['showtable']['Index_length'],
+            $showTable['Data_length'] + $showTable['Index_length'],
             $maxDigits,
             $decimals,
         );
@@ -359,9 +360,9 @@ class StructureController extends AbstractController
         $avgUnit = '';
         if ($tableInfoNunRows > 0) {
             [$avgSize, $avgUnit] = Util::formatByteDown(
-                ($GLOBALS['showtable']['Data_length']
-                + $GLOBALS['showtable']['Index_length'])
-                / $GLOBALS['showtable']['Rows'],
+                ($showTable['Data_length']
+                + $showTable['Index_length'])
+                / $showTable['Rows'],
                 6,
                 1,
             );
@@ -381,22 +382,22 @@ class StructureController extends AbstractController
             $tableCollation = ['name' => $collation->getName(), 'description' => $collation->getDescription()];
         }
 
-        if (isset($GLOBALS['showtable']['Create_time'])) {
-            $GLOBALS['showtable']['Create_time'] = Util::localisedDate(strtotime($GLOBALS['showtable']['Create_time']));
+        if (isset($showTable['Create_time'])) {
+            $showTable['Create_time'] = Util::localisedDate(strtotime($showTable['Create_time']));
         }
 
-        if (isset($GLOBALS['showtable']['Update_time'])) {
-            $GLOBALS['showtable']['Update_time'] = Util::localisedDate(strtotime($GLOBALS['showtable']['Update_time']));
+        if (isset($showTable['Update_time'])) {
+            $showTable['Update_time'] = Util::localisedDate(strtotime($showTable['Update_time']));
         }
 
-        if (isset($GLOBALS['showtable']['Check_time'])) {
-            $GLOBALS['showtable']['Check_time'] = Util::localisedDate(strtotime($GLOBALS['showtable']['Check_time']));
+        if (isset($showTable['Check_time'])) {
+            $showTable['Check_time'] = Util::localisedDate(strtotime($showTable['Check_time']));
         }
 
         return $this->template->render('table/structure/display_table_stats', [
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
-            'showtable' => $GLOBALS['showtable'],
+            'showtable' => $showTable,
             'table_info_num_rows' => $tableInfoNunRows,
             'tbl_is_view' => $tableIsAView,
             'db_is_system_schema' => $isSystemSchema,

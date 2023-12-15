@@ -36,7 +36,6 @@ use function count;
 use function defined;
 use function htmlspecialchars;
 use function in_array;
-use function is_array;
 use function session_start;
 use function session_write_close;
 use function sprintf;
@@ -979,7 +978,6 @@ class Sql
             false,
             0,
             $numRows,
-            null,
             $result,
             $statementInfo,
             true,
@@ -1063,7 +1061,6 @@ class Sql
      * @param bool            $editable             whether the result table is editable or not
      * @param int|string      $unlimNumRows         unlimited number of rows
      * @param int|string      $numRows              number of rows
-     * @param mixed[]|null    $showTable            table definitions
      * @param ResultInterface $result               result of the executed query
      * @param bool            $isLimitedDisplay     Show only limited operations or not
      * @psalm-param int|numeric-string $unlimNumRows
@@ -1075,7 +1072,6 @@ class Sql
         bool $editable,
         int|string $unlimNumRows,
         int|string $numRows,
-        array|null $showTable,
         ResultInterface $result,
         StatementInfo $statementInfo,
         bool $isLimitedDisplay = false,
@@ -1088,7 +1084,6 @@ class Sql
                 $result,
                 $displayResultsObject,
                 $statementInfo,
-                $showTable,
                 $printView,
                 $editable,
                 $isBrowseDistinct,
@@ -1110,7 +1105,6 @@ class Sql
             $statementInfo->isMaint,
             $statementInfo->isExplain,
             $statementInfo->isShow,
-            $showTable,
             $printView,
             $editable,
             $isBrowseDistinct,
@@ -1119,12 +1113,10 @@ class Sql
         return $displayResultsObject->getTable($result, $displayParts, $statementInfo, $isLimitedDisplay);
     }
 
-    /** @param mixed[]|null $showTable table definitions */
     private function getHtmlForStoredProcedureResults(
         ResultInterface $result,
         DisplayResults $displayResultsObject,
         StatementInfo $statementInfo,
-        array|null $showTable,
         bool $printView,
         bool $editable,
         bool $isBrowseDistinct,
@@ -1149,7 +1141,6 @@ class Sql
                     $statementInfo->isMaint,
                     $statementInfo->isExplain,
                     $statementInfo->isShow,
-                    $showTable,
                     $printView,
                     $editable,
                     $isBrowseDistinct,
@@ -1287,8 +1278,6 @@ class Sql
         string $sqlQuery,
         string|null $completeQuery,
     ): string {
-        $GLOBALS['showtable'] ??= null;
-
         // If we are retrieving the full value of a truncated field or the original
         // value of a transformed field, show it here
         if (isset($_POST['grid_edit']) && $_POST['grid_edit'] == true) {
@@ -1298,11 +1287,6 @@ class Sql
 
         // Gets the list of fields properties
         $fieldsMeta = $this->dbi->getFieldsMeta($result);
-
-        // Should be initialized these parameters before parsing
-        if (! is_array($GLOBALS['showtable'])) {
-            $GLOBALS['showtable'] = null;
-        }
 
         $response = ResponseRenderer::getInstance();
         $header = $response->getHeader();
@@ -1407,7 +1391,6 @@ class Sql
             $editable,
             $unlimNumRows,
             $numRows,
-            $GLOBALS['showtable'],
             $result,
             $statementInfo,
         );

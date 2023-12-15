@@ -20,7 +20,6 @@ use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Sql;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
@@ -138,13 +137,6 @@ class Results
      * @var int|numeric-string
      */
     private string|int $numRows = 0;
-
-    /**
-     * table definitions
-     *
-     * @var array<string, mixed>|null
-     */
-    private array|null $showTable = null;
 
     /** @var bool[] */
     private array $highlightColumns = [];
@@ -340,23 +332,22 @@ class Results
     /**
      * Set properties which were not initialized at the constructor
      *
-     * @param int|string                $unlimNumRows     the total number of rows returned by the SQL query without
-     *                                                    any appended "LIMIT" clause programmatically
-     * @param FieldMetadata[]           $fieldsMeta       meta information about fields
-     * @param bool                      $isCount          statement is SELECT COUNT
-     * @param bool                      $isExport         statement contains INTO OUTFILE
-     * @param bool                      $isFunction       statement contains a function like SUM()
-     * @param bool                      $isAnalyse        statement contains PROCEDURE ANALYSE
-     * @param int|string                $numRows          total no. of rows returned by SQL query
-     * @param float                     $queryTime        time taken for execute the SQL query
-     * @param string                    $textDirection    text direction
-     * @param bool                      $isMaintenance    statement contains a maintenance command
-     * @param bool                      $isExplain        statement contains EXPLAIN
-     * @param bool                      $isShow           statement contains SHOW
-     * @param array<string, mixed>|null $showTable        table definitions
-     * @param bool                      $printView        print view was requested
-     * @param bool                      $editable         whether the results set is editable
-     * @param bool                      $isBrowseDistinct whether browsing distinct values
+     * @param int|string      $unlimNumRows     the total number of rows returned by the SQL query without
+     *                                          any appended "LIMIT" clause programmatically
+     * @param FieldMetadata[] $fieldsMeta       meta information about fields
+     * @param bool            $isCount          statement is SELECT COUNT
+     * @param bool            $isExport         statement contains INTO OUTFILE
+     * @param bool            $isFunction       statement contains a function like SUM()
+     * @param bool            $isAnalyse        statement contains PROCEDURE ANALYSE
+     * @param int|string      $numRows          total no. of rows returned by SQL query
+     * @param float           $queryTime        time taken for execute the SQL query
+     * @param string          $textDirection    text direction
+     * @param bool            $isMaintenance    statement contains a maintenance command
+     * @param bool            $isExplain        statement contains EXPLAIN
+     * @param bool            $isShow           statement contains SHOW
+     * @param bool            $printView        print view was requested
+     * @param bool            $editable         whether the results set is editable
+     * @param bool            $isBrowseDistinct whether browsing distinct values
      * @psalm-param int|numeric-string $unlimNumRows
      * @psalm-param int|numeric-string $numRows
      */
@@ -373,7 +364,6 @@ class Results
         bool $isMaintenance,
         bool $isExplain,
         bool $isShow,
-        array|null $showTable,
         bool $printView,
         bool $editable,
         bool $isBrowseDistinct,
@@ -390,7 +380,6 @@ class Results
         $this->isMaintenance = $isMaintenance;
         $this->isExplain = $isExplain;
         $this->isShow = $isShow;
-        $this->showTable = $showTable;
         $this->printView = $printView;
         $this->editable = $editable;
         $this->isBrowseDistinct = $isBrowseDistinct;
@@ -631,7 +620,6 @@ class Results
      *
      * @param int     $posNext       the offset for the "next" page
      * @param int     $posPrevious   the offset for the "previous" page
-     * @param bool    $isInnodb      whether its InnoDB or not
      * @param mixed[] $sortByKeyData the sort by key dialog
      *
      * @return mixed[]
@@ -639,7 +627,6 @@ class Results
     private function getTableNavigation(
         int $posNext,
         int $posPrevious,
-        bool $isInnodb,
         array $sortByKeyData,
     ): array {
         $isShowingAll = $_SESSION['tmpval']['max_rows'] === self::ALL_ROWS;
@@ -665,7 +652,6 @@ class Results
                 : 'false') . ';"';
 
         $config = Config::getInstance();
-        $hasRealEndInput = $isInnodb && $this->unlimNumRows > $config->settings['MaxExactCount'];
         $posLast = 0;
         if (is_numeric($_SESSION['tmpval']['max_rows'])) {
             $posLast = @((int) ceil(
@@ -697,7 +683,6 @@ class Results
             'pos_last' => $posLast,
             'is_last_page' => $isLastPage,
             'is_last_page_known' => $this->unlimNumRows !== false,
-            'has_real_end_input' => $hasRealEndInput,
             'onsubmit' => $onsubmit,
         ];
     }
@@ -3174,24 +3159,8 @@ class Results
             $statement = null;
         }
 
-        /**
-         * @todo move this to a central place
-         * @todo for other future table types
-         */
-        $isInnodb = (isset($this->showTable['Type'])
-            && $this->showTable['Type'] === self::TABLE_TYPE_INNO_DB);
-
-        if ($isInnodb && Sql::isJustBrowsing($statementInfo, true)) {
-            $preCount = '~';
-            $afterCount = Generator::showHint(
-                Sanitize::convertBBCode(
-                    __('May be approximate. See [doc@faq3-11]FAQ 3.11[/doc].'),
-                ),
-            );
-        } else {
-            $preCount = '';
-            $afterCount = '';
-        }
+        $preCount = '';
+        $afterCount = '';
 
         // 1. ----- Prepares the work -----
 
@@ -3286,7 +3255,7 @@ class Results
 
         $navigation = [];
         if ($displayParts->hasNavigationBar && $statement !== null && empty($statement->limit)) {
-            $navigation = $this->getTableNavigation($posNext, $posPrev, $isInnodb, $sortByKeyData);
+            $navigation = $this->getTableNavigation($posNext, $posPrev, $sortByKeyData);
         }
 
         // 2b ----- Get field references from Database -----

@@ -61,7 +61,6 @@ class SqlTest extends AbstractTestCase
         $config->settings['Confirm'] = true;
         $config->settings['LoginCookieValidity'] = 1440;
         $config->settings['enable_drag_drop_import'] = true;
-        $GLOBALS['showtable'] = null;
 
         $relation = new Relation($this->dbi);
         $this->sql = new Sql(

@@ -68,9 +68,6 @@
               <input type="hidden" name="pos" value="{{ navigation.pos_last }}">
               <input type="hidden" name="is_browse_distinct" value="{{ is_browse_distinct }}">
               <input type="hidden" name="goto" value="{{ goto }}">
-              {% if navigation.has_real_end_input %}
-                <input id="real_end_input" type="hidden" name="find_real_end" value="1">
-              {% endif %}
               {% set end_text %}
                 {%- if show_text('TableNavigationLinksMode') -%}
                   {% trans %}End{% context %}Last page{% endtrans %}&nbsp;
