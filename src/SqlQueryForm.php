@@ -146,7 +146,7 @@ class SqlQueryForm
                     : $config->settings['Servers'][$GLOBALS['server']]['host'],
                 ),
             );
-        } elseif ($GLOBALS['table'] === '') {
+        } elseif (Current::$table === '') {
             // prepare for db related
             $db = Current::$database;
             // if you want navigation:
@@ -161,11 +161,11 @@ class SqlQueryForm
             }
         } else {
             $db = Current::$database;
-            $table = $GLOBALS['table'];
+            $table = Current::$table;
             // Get the list and number of fields
             // we do a try_query here, because we could be in the query window,
             // trying to synchronize and the table has not yet been created
-            $columnsList = $this->dbi->getColumns($db, $GLOBALS['table'], true);
+            $columnsList = $this->dbi->getColumns($db, Current::$table, true);
 
             $scriptName = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
             $tmpTblLink = '<a href="' . $scriptName . Url::getCommon(['db' => $db, 'table' => $table], '&') . '">';

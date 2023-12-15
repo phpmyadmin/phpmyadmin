@@ -253,7 +253,7 @@ class ExportSql extends ExportPlugin
             }
 
             if ($GLOBALS['plugin_param']['export_type'] === 'table') {
-                $dropClause = $dbi->getTable(Current::$database, $GLOBALS['table'])->isView()
+                $dropClause = $dbi->getTable(Current::$database, Current::$table)->isView()
                     ? '<code>DROP VIEW</code>'
                     : '<code>DROP TABLE</code>';
             } else {

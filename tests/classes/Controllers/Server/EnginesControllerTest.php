@@ -39,7 +39,7 @@ class EnginesControllerTest extends AbstractTestCase
 
         $GLOBALS['server'] = 1;
         Current::$database = 'db';
-        $GLOBALS['table'] = 'table';
+        Current::$table = 'table';
         Config::getInstance()->selectedServer['DisableIS'] = false;
     }
 

@@ -248,8 +248,8 @@ final class ImportController extends AbstractController
         // We don't want anything special in format
         $GLOBALS['format'] = Core::securePath($GLOBALS['format']);
 
-        if (strlen($GLOBALS['table']) > 0 && Current::$database !== '') {
-            $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => $GLOBALS['table']];
+        if (strlen(Current::$table) > 0 && Current::$database !== '') {
+            $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
         } elseif (Current::$database !== '') {
             $GLOBALS['urlParams'] = ['db' => Current::$database];
         } else {
@@ -264,7 +264,7 @@ final class ImportController extends AbstractController
         } elseif ($GLOBALS['import_type'] === 'server') {
             $GLOBALS['goto'] = Url::getFromRoute('/server/import');
         } elseif (empty($GLOBALS['goto']) || ! preg_match('@^index\.php$@i', $GLOBALS['goto'])) {
-            if (strlen($GLOBALS['table']) > 0 && Current::$database !== '') {
+            if (strlen(Current::$table) > 0 && Current::$database !== '') {
                 $GLOBALS['goto'] = Url::getFromRoute('/table/structure');
             } elseif (Current::$database !== '') {
                 $GLOBALS['goto'] = Url::getFromRoute('/database/structure');
@@ -666,8 +666,8 @@ final class ImportController extends AbstractController
             $GLOBALS['reload'] = $statementInfo->reload;
             $GLOBALS['offset'] = $statementInfo->offset;
 
-            if ($GLOBALS['table'] != $tableFromSql && $tableFromSql !== '') {
-                $GLOBALS['table'] = $tableFromSql;
+            if (Current::$table != $tableFromSql && $tableFromSql !== '') {
+                Current::$table = $tableFromSql;
             }
         }
 
@@ -715,15 +715,15 @@ final class ImportController extends AbstractController
                     return;
                 }
 
-                if ($GLOBALS['table'] != $tableFromSql && $tableFromSql !== '') {
-                    $GLOBALS['table'] = $tableFromSql;
+                if (Current::$table != $tableFromSql && $tableFromSql !== '') {
+                    Current::$table = $tableFromSql;
                 }
 
                 $htmlOutput .= $this->sql->executeQueryAndGetQueryResponse(
                     $statementInfo,
                     false, // is_gotofile
                     Current::$database, // db
-                    $GLOBALS['table'], // table
+                    Current::$table, // table
                     null, // sql_query_for_bookmark - see below
                     null, // message_to_show
                     null, // sql_data

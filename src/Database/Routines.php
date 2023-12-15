@@ -1179,7 +1179,7 @@ class Routines
 
         return [
             'db' => Current::$database,
-            'table' => $GLOBALS['table'],
+            'table' => Current::$table,
             'sql_drop' => $sqlDrop,
             'routine' => $routine,
             'row_class' => $rowClass,

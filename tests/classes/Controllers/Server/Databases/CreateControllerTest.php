@@ -40,7 +40,7 @@ final class CreateControllerTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'ltr';
         Config::getInstance()->selectedServer['DisableIS'] = false;
         Current::$database = 'pma_test';
-        $GLOBALS['table'] = '';
+        Current::$table = '';
 
         $response = new ResponseRenderer();
 

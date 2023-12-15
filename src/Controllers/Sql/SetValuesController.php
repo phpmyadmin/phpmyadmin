@@ -37,7 +37,7 @@ final class SetValuesController extends AbstractController
         $currentValue = $request->getParsedBodyParam('curr_value');
         $whereClause = $request->getParsedBodyParam('where_clause');
 
-        $values = $this->sql->getValuesForColumn(Current::$database, $GLOBALS['table'], $column);
+        $values = $this->sql->getValuesForColumn(Current::$database, Current::$table, $column);
 
         if ($values === null) {
             $this->response->addJSON('message', __('Error in processing request'));
@@ -50,7 +50,7 @@ final class SetValuesController extends AbstractController
         if ($request->hasBodyParam('get_full_values') && ! empty($whereClause)) {
             $currentValue = $this->sql->getFullValuesForSetColumn(
                 Current::$database,
-                $GLOBALS['table'],
+                Current::$table,
                 $column,
                 $whereClause,
             );

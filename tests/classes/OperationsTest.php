@@ -41,7 +41,7 @@ class OperationsTest extends AbstractTestCase
     public function testGetPartitionMaintenanceChoices(string $tableName, array $extraChoice): void
     {
         Current::$database = 'database';
-        $GLOBALS['table'] = $tableName;
+        Current::$table = $tableName;
 
         $choices = [
             'ANALYZE' => 'Analyze',

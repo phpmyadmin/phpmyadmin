@@ -22,7 +22,7 @@ class SpatialControllerTest extends AbstractTestCase
     public function testAddSpatialKeyToSingleField(): void
     {
         Current::$database = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$table = 'test_table';
         $GLOBALS['message'] = null;
         $GLOBALS['sql_query'] = null;
 
@@ -50,7 +50,7 @@ class SpatialControllerTest extends AbstractTestCase
     public function testAddSpatialKeyToMultipleFields(): void
     {
         Current::$database = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$table = 'test_table';
         $GLOBALS['message'] = null;
         $GLOBALS['sql_query'] = null;
 
@@ -78,7 +78,7 @@ class SpatialControllerTest extends AbstractTestCase
     public function testNoColumnsSelected(): void
     {
         Current::$database = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$table = 'test_table';
         $GLOBALS['message'] = null;
         $GLOBALS['sql_query'] = null;
 
@@ -105,7 +105,7 @@ class SpatialControllerTest extends AbstractTestCase
     public function testAddSpatialKeyWithError(): void
     {
         Current::$database = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$table = 'test_table';
         $GLOBALS['message'] = null;
         $GLOBALS['sql_query'] = null;
 

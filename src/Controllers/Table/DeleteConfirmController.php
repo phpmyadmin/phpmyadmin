@@ -49,7 +49,7 @@ final class DeleteConfirmController extends AbstractController
             return;
         }
 
-        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => $GLOBALS['table']];
+        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
             Config::getInstance()->settings['DefaultTabTable'],
             'table',
@@ -86,7 +86,7 @@ final class DeleteConfirmController extends AbstractController
 
         $this->render('table/delete/confirm', [
             'db' => Current::$database,
-            'table' => $GLOBALS['table'],
+            'table' => Current::$table,
             'selected' => $selected,
             'sql_query' => $GLOBALS['sql_query'],
             'is_foreign_key_check' => ForeignKey::isCheckEnabled(),

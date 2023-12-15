@@ -4292,7 +4292,7 @@
     <PossiblyNullArgument>
       <code><![CDATA[$this->triggers->getTriggerByName(
                             Current::$database,
-                            $GLOBALS['table'],
+                            Current::$table,
                             $_REQUEST['item_name'],
                         )]]></code>
     </PossiblyNullArgument>
@@ -6069,6 +6069,9 @@
     <InvalidArgument>
       <code>$params</code>
     </InvalidArgument>
+    <MixedArgument>
+      <code>Current::$table</code>
+    </MixedArgument>
     <MixedAssignment>
       <code>$info</code>
       <code>$subObject</code>
@@ -6078,14 +6081,10 @@
       <code>is_array($info) ? $info : []</code>
     </MixedReturnTypeCoercion>
     <RedundantCast>
-      <code><![CDATA[(string) $GLOBALS['table']]]></code>
       <code><![CDATA[(string) $_REQUEST['no_history']]]></code>
     </RedundantCast>
-    <RedundantCondition>
-      <code><![CDATA[is_scalar($GLOBALS['table'])]]></code>
-      <code><![CDATA[isset($GLOBALS['table']) && is_scalar($GLOBALS['table'])]]></code>
-    </RedundantCondition>
     <TypeDoesNotContainType>
+      <code><![CDATA['']]></code>
       <code><![CDATA['']]></code>
     </TypeDoesNotContainType>
     <UnusedReturnValue>
@@ -6476,9 +6475,17 @@
     <PossiblyInvalidArgument>
       <code>$message</code>
     </PossiblyInvalidArgument>
+    <RedundantCondition>
+      <code>Current::$table</code>
+      <code>Current::$table</code>
+    </RedundantCondition>
     <RedundantFunctionCallGivenDocblockType>
       <code>strtolower</code>
     </RedundantFunctionCallGivenDocblockType>
+    <TypeDoesNotContainType>
+      <code><![CDATA['']]></code>
+      <code><![CDATA['']]></code>
+    </TypeDoesNotContainType>
   </file>
   <file src="src/Html/Generator.php">
     <DeprecatedMethod>
@@ -10684,14 +10691,8 @@
     <MixedAssignment>
       <code>$value</code>
     </MixedAssignment>
-    <RedundantCast>
-      <code><![CDATA[(string) $GLOBALS['table']]]></code>
-    </RedundantCast>
-    <RedundantCondition>
-      <code><![CDATA[is_scalar($GLOBALS['table'])]]></code>
-      <code><![CDATA[isset($GLOBALS['table']) && is_scalar($GLOBALS['table'])]]></code>
-    </RedundantCondition>
     <TypeDoesNotContainType>
+      <code><![CDATA['']]></code>
       <code><![CDATA['']]></code>
     </TypeDoesNotContainType>
   </file>
@@ -11416,8 +11417,8 @@
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['table']]]></code>
       <code>$table</code>
+      <code>Current::$table</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[['db' => $db, 'table' => $table]]]></code>

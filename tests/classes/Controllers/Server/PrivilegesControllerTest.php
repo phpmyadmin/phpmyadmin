@@ -37,7 +37,7 @@ class PrivilegesControllerTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
         Current::$database = '';
-        $GLOBALS['table'] = '';
+        Current::$table = '';
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
         // phpcs:disable Generic.Files.LineLength.TooLong

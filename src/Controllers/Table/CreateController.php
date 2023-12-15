@@ -73,10 +73,10 @@ class CreateController extends AbstractController
             );
         }
 
-        if ($this->dbi->getColumns(Current::$database, $GLOBALS['table']) !== []) {
+        if ($this->dbi->getColumns(Current::$database, Current::$table) !== []) {
             // table exists already
             Generator::mysqlDie(
-                sprintf(__('Table %s already exists!'), htmlspecialchars($GLOBALS['table'])),
+                sprintf(__('Table %s already exists!'), htmlspecialchars(Current::$table)),
                 '',
                 false,
                 Url::getFromRoute('/database/structure', ['db' => Current::$database]),
@@ -93,10 +93,10 @@ class CreateController extends AbstractController
         if (isset($_POST['do_save_data'])) {
             if ($this->dbi->getLowerCaseNames() === 1) {
                 Current::$database = mb_strtolower(Current::$database);
-                $GLOBALS['table'] = mb_strtolower($GLOBALS['table']);
+                Current::$table = mb_strtolower(Current::$table);
             }
 
-            $GLOBALS['sql_query'] = $createAddField->getTableCreationQuery(Current::$database, $GLOBALS['table']);
+            $GLOBALS['sql_query'] = $createAddField->getTableCreationQuery(Current::$database, Current::$table);
 
             // If there is a request for SQL previewing.
             if (isset($_POST['preview_sql'])) {
@@ -121,7 +121,7 @@ class CreateController extends AbstractController
 
                         $this->transformations->setMime(
                             Current::$database,
-                            $GLOBALS['table'],
+                            Current::$table,
                             $_POST['field_name'][$fieldindex],
                             $mimetype,
                             $_POST['field_transformation'][$fieldindex],

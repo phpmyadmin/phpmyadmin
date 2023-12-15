@@ -189,7 +189,7 @@ class ImportCsv extends AbstractImportCsv
 
         [$sqlTemplate, $fields] = $this->getSqlTemplateAndRequiredFields(
             Current::$database,
-            $GLOBALS['table'],
+            Current::$table,
             $GLOBALS['csv_columns'],
         );
 

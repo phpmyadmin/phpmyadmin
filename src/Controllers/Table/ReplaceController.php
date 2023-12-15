@@ -108,7 +108,7 @@ final class ReplaceController extends AbstractController
         $GLOBALS['query'] = [];
         $valueSets = [];
 
-        $mimeMap = $this->transformations->getMime(Current::$database, $GLOBALS['table']) ?? [];
+        $mimeMap = $this->transformations->getMime(Current::$database, Current::$table) ?? [];
 
         $queryFields = [];
         $insertErrors = [];
@@ -259,7 +259,7 @@ final class ReplaceController extends AbstractController
             } else {
                 // build update query
                 $clauseIsUnique = $request->getParam('clause_is_unique', '');// Should contain 0 or 1
-                $GLOBALS['query'][] = 'UPDATE ' . Util::backquote($GLOBALS['table'])
+                $GLOBALS['query'][] = 'UPDATE ' . Util::backquote(Current::$table)
                     . ' SET ' . implode(', ', $queryValues)
                     . ' WHERE ' . $whereClause
                     . ($clauseIsUnique ? '' : ' LIMIT 1');
@@ -284,7 +284,7 @@ final class ReplaceController extends AbstractController
         // Builds the sql query
         if ($isInsert && $valueSets !== []) {
             $GLOBALS['query'] = (array) QueryGenerator::buildInsertSqlQuery(
-                $GLOBALS['table'],
+                Current::$table,
                 $isInsertignore,
                 $queryFields,
                 $valueSets,
@@ -396,7 +396,7 @@ final class ReplaceController extends AbstractController
     {
         $relFieldsList = $request->getParsedBodyParam('rel_fields_list', '');
         if ($relFieldsList !== '') {
-            $map = $this->relation->getForeigners(Current::$database, $GLOBALS['table']);
+            $map = $this->relation->getForeigners(Current::$database, Current::$table);
 
             /** @var array<int,array> $relationFields */
             $relationFields = [];
@@ -438,7 +438,7 @@ final class ReplaceController extends AbstractController
                     $file = Core::securePath($transformation[$type]);
                     $extraData = $this->insertEdit->transformEditedValues(
                         Current::$database,
-                        $GLOBALS['table'],
+                        Current::$table,
                         $transformation,
                         $editedValues,
                         $file,
@@ -456,7 +456,7 @@ final class ReplaceController extends AbstractController
 
         $this->insertEdit->verifyWhetherValueCanBeTruncatedAndAppendExtraData(
             Current::$database,
-            $GLOBALS['table'],
+            Current::$table,
             $columnName,
             $extraData,
         );

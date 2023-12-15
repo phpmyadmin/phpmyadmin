@@ -42,7 +42,7 @@ class CoreTest extends AbstractTestCase
 
         $GLOBALS['server'] = 0;
         Current::$database = '';
-        $GLOBALS['table'] = '';
+        Current::$table = '';
         Config::getInstance()->set('URLQueryEncryption', false);
     }
 

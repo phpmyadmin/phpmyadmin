@@ -41,7 +41,7 @@ class TrackingControllerTest extends AbstractTestCase
     {
         $GLOBALS['server'] = 2;
         Current::$database = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$table = 'test_table';
         $GLOBALS['text_dir'] = 'ltr';
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = true;
@@ -74,12 +74,12 @@ class TrackingControllerTest extends AbstractTestCase
         $main = $template->render('table/tracking/main', [
             'url_params' => [
                 'db' => Current::$database,
-                'table' => $GLOBALS['table'],
+                'table' => Current::$table,
                 'goto' => 'index.php?route=/table/tracking&server=2&lang=en',
                 'back' => 'index.php?route=/table/tracking&server=2&lang=en',
             ],
             'db' => Current::$database,
-            'table' => $GLOBALS['table'],
+            'table' => Current::$table,
             'selectable_tables_entries' => [],
             'selected_table' => null,
             'last_version' => 0,

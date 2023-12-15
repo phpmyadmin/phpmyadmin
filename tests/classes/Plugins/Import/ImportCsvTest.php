@@ -42,7 +42,7 @@ class ImportCsvTest extends AbstractTestCase
         $GLOBALS['errorUrl'] = 'index.php?route=/';
         $GLOBALS['error'] = false;
         Current::$database = '';
-        $GLOBALS['table'] = '';
+        Current::$table = '';
         $GLOBALS['sql_query'] = '';
         $GLOBALS['message'] = null;
         $GLOBALS['csv_columns'] = null;

@@ -36,7 +36,7 @@ class OptionsTest extends AbstractTestCase
 
         $GLOBALS['server'] = 0;
 
-        $GLOBALS['table'] = 'table';
+        Current::$table = 'table';
         Current::$database = 'PMA';
 
         $this->export = new Options(

@@ -44,7 +44,7 @@ class StructureControllerTest extends AbstractTestCase
     {
         $GLOBALS['server'] = 2;
         Current::$database = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$table = 'test_table';
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['lang'] = 'en';
         $config = Config::getInstance();
@@ -89,7 +89,7 @@ class StructureControllerTest extends AbstractTestCase
             new UserPreferences($this->dbi, new Relation($this->dbi), new Template()),
         );
         $pageSettings->init('TableStructure');
-        $fields = $this->dbi->getColumns(Current::$database, $GLOBALS['table'], true);
+        $fields = $this->dbi->getColumns(Current::$database, Current::$table, true);
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
             ->withQueryParams(['route' => '/table/structure', 'db' => 'test_db', 'table' => 'test_table']);
@@ -116,8 +116,8 @@ class StructureControllerTest extends AbstractTestCase
                 ],
             ],
             'is_foreign_key_supported' => true,
-            'indexes' => Index::getFromTable($this->dbi, $GLOBALS['table'], Current::$database),
-            'indexes_duplicates' => Index::findDuplicates($GLOBALS['table'], Current::$database),
+            'indexes' => Index::getFromTable($this->dbi, Current::$table, Current::$database),
+            'indexes_duplicates' => Index::findDuplicates(Current::$table, Current::$database),
             'relation_parameters' => $relation->getRelationParameters(),
             'hide_structure_actions' => true,
             'db' => 'test_db',
@@ -126,7 +126,7 @@ class StructureControllerTest extends AbstractTestCase
             'tbl_is_view' => false,
             'mime_map' => [],
             'tbl_storage_engine' => 'INNODB',
-            'primary' => Index::getPrimary($this->dbi, $GLOBALS['table'], Current::$database),
+            'primary' => Index::getPrimary($this->dbi, Current::$table, Current::$database),
             'columns_with_unique_index' => [],
             'columns_list' => ['id', 'name', 'datetimefield'],
             'table_stats' => null,

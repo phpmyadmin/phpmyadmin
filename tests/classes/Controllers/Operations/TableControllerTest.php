@@ -39,7 +39,7 @@ class TableControllerTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['lang'] = 'en';
         Current::$database = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$table = 'test_table';
 
         $config = Config::getInstance();
         $config->selectServer('1');

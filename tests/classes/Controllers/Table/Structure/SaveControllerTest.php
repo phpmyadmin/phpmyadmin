@@ -74,7 +74,7 @@ class SaveControllerTest extends AbstractTestCase
         ];
 
         Current::$database = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$table = 'test_table';
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addSelectDb('test_db');
@@ -107,7 +107,7 @@ class SaveControllerTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
         Current::$database = 'db';
-        $GLOBALS['table'] = 'table';
+        Current::$table = 'table';
 
         $dbi = $this->createDatabaseInterface();
 

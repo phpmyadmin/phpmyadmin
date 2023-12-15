@@ -58,7 +58,7 @@ class ExportXml extends ExportPlugin
     {
         $GLOBALS['tables'] ??= null;
 
-        $this->setTable($GLOBALS['table']);
+        $this->setTable(Current::$table);
         if (! is_array($GLOBALS['tables'])) {
             return;
         }

@@ -36,7 +36,7 @@ final class MoveColumnsController extends AbstractController
     ) {
         parent::__construct($response, $template);
 
-        $this->tableObj = $this->dbi->getTable(Current::$database, $GLOBALS['table']);
+        $this->tableObj = $this->dbi->getTable(Current::$database, Current::$table);
     }
 
     public function __invoke(ServerRequest $request): void
@@ -51,7 +51,7 @@ final class MoveColumnsController extends AbstractController
         /**
          * load the definitions for all columns
          */
-        $columns = $this->dbi->getColumnsFull(Current::$database, $GLOBALS['table']);
+        $columns = $this->dbi->getColumnsFull(Current::$database, Current::$table);
         $columnNames = array_column($columns, 'Field');
         $changes = [];
 
@@ -142,7 +142,7 @@ final class MoveColumnsController extends AbstractController
         // query for moving the columns
         $sqlQuery = sprintf(
             'ALTER TABLE %s %s',
-            Util::backquote($GLOBALS['table']),
+            Util::backquote(Current::$table),
             implode(', ', $changes),
         );
 

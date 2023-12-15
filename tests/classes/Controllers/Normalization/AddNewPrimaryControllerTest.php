@@ -25,7 +25,7 @@ class AddNewPrimaryControllerTest extends AbstractTestCase
         Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['col_priv'] = false;
         Current::$database = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$table = 'test_table';
 
         $dbiDummy = $this->createDbiDummy();
 

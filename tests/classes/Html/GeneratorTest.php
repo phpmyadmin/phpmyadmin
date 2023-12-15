@@ -487,7 +487,7 @@ class GeneratorTest extends AbstractTestCase
         $GLOBALS['using_bookmark_message'] = $usingBookmarkMessage;
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Current::$database = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$table = 'test_table';
         $GLOBALS['server'] = 2;
         $GLOBALS['special_message'] = 'Message [em]two[/em].';
         SessionCache::set('profiling_supported', true);
@@ -542,7 +542,7 @@ HTML;
         $GLOBALS['sql_query'] = null;
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Current::$database = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$table = 'test_table';
         $GLOBALS['server'] = 2;
         $GLOBALS['show_as_php'] = true;
         $GLOBALS['special_message'] = 'Message [em]two[/em].';

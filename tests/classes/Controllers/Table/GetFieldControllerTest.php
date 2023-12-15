@@ -26,7 +26,7 @@ class GetFieldControllerTest extends AbstractTestCase
     public function testGetFieldController(): void
     {
         Current::$database = 'test_db';
-        $GLOBALS['table'] = 'table_with_blob';
+        Current::$table = 'table_with_blob';
 
         $request = $this->createStub(ServerRequest::class);
         $request->method('getQueryParam')->willReturnMap([

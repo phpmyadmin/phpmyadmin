@@ -65,7 +65,7 @@ class ExportTexytextTest extends AbstractTestCase
         $GLOBALS['plugin_param']['export_type'] = 'table';
         $GLOBALS['plugin_param']['single_table'] = false;
         Current::$database = '';
-        $GLOBALS['table'] = '';
+        Current::$table = '';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'ltr';
         Config::getInstance()->selectedServer['DisableIS'] = true;

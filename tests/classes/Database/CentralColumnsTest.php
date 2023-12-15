@@ -112,7 +112,7 @@ class CentralColumnsTest extends AbstractTestCase
         $config->settings['CharEditing'] = '';
         $config->settings['LimitChars'] = 50;
         Current::$database = 'PMA_db';
-        $GLOBALS['table'] = 'PMA_table';
+        Current::$table = 'PMA_table';
 
         $GLOBALS['server'] = 1;
         $relationParameters = RelationParameters::fromArray([

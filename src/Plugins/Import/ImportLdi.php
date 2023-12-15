@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Message;
@@ -133,7 +134,7 @@ class ImportLdi extends AbstractImportCsv
             $sql .= ' IGNORE';
         }
 
-        $sql .= ' INTO TABLE ' . Util::backquote($GLOBALS['table']);
+        $sql .= ' INTO TABLE ' . Util::backquote(Current::$table);
 
         if (strlen((string) $GLOBALS['ldi_terminated']) > 0) {
             $sql .= ' FIELDS TERMINATED BY \'' . $GLOBALS['ldi_terminated'] . '\'';

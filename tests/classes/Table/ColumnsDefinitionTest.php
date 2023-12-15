@@ -76,7 +76,7 @@ SQL;
 
         $GLOBALS['server'] = 1;
         Current::$database = 'sakila';
-        $GLOBALS['table'] = 'actor';
+        Current::$table = 'actor';
         $GLOBALS['col_priv'] = true;
         $GLOBALS['is_reload_priv'] = true;
         $GLOBALS['mime_map'] = null;

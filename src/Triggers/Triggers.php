@@ -74,7 +74,7 @@ class Triggers
             // Execute the created query
             if (! empty($_POST['editor_process_edit'])) {
                 // Backup the old trigger, in case something goes wrong
-                $trigger = $this->getTriggerByName(Current::$database, $GLOBALS['table'], $_POST['item_original_name']);
+                $trigger = $this->getTriggerByName(Current::$database, Current::$table, $_POST['item_original_name']);
                 $createItem = $trigger->getCreateSql('');
                 $dropItem = $trigger->getDropSql();
                 $result = $this->dbi->tryQuery($dropItem);

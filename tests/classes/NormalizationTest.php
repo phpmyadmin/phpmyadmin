@@ -50,7 +50,7 @@ class NormalizationTest extends AbstractTestCase
         $config->settings['CharEditing'] = '';
         $config->settings['ActionLinksMode'] = 'icons';
         Current::$database = 'PMA_db';
-        $GLOBALS['table'] = 'PMA_table';
+        Current::$table = 'PMA_table';
         $GLOBALS['server'] = 1;
         $config->selectedServer['DisableIS'] = false;
         $_POST['change_column'] = null;

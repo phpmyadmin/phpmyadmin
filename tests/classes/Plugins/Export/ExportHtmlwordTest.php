@@ -68,7 +68,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
         Current::$database = '';
-        $GLOBALS['table'] = '';
+        Current::$table = '';
         $GLOBALS['lang'] = '';
         $GLOBALS['text_dir'] = '';
         Config::getInstance()->selectedServer['DisableIS'] = true;

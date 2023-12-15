@@ -45,10 +45,10 @@ final class DropColumnController extends AbstractController
         $selectedCount = count($selected);
         if (($_POST['mult_btn'] ?? '') === __('Yes')) {
             $i = 1;
-            $statement = 'ALTER TABLE ' . Util::backquote($GLOBALS['table']);
+            $statement = 'ALTER TABLE ' . Util::backquote(Current::$table);
 
             foreach ($selected as $field) {
-                $this->relationCleanup->column(Current::$database, $GLOBALS['table'], $field);
+                $this->relationCleanup->column(Current::$database, Current::$table, $field);
                 $statement .= ' DROP ' . Util::backquote($field);
                 $statement .= $i++ === $selectedCount ? ';' : ',';
             }
@@ -75,6 +75,6 @@ final class DropColumnController extends AbstractController
         }
 
         $this->flash->addMessage($message->isError() ? 'danger' : 'success', $message->getMessage());
-        $this->redirect('/table/structure', ['db' => Current::$database, 'table' => $GLOBALS['table']]);
+        $this->redirect('/table/structure', ['db' => Current::$database, 'table' => Current::$table]);
     }
 }

@@ -20,7 +20,7 @@ final class PartialDependenciesController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $html = $this->normalization->findPartialDependencies($GLOBALS['table'], Current::$database);
+        $html = $this->normalization->findPartialDependencies(Current::$table, Current::$database);
         $this->response->addHTML($html);
     }
 }

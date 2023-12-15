@@ -40,13 +40,13 @@ class MainControllerTest extends AbstractTestCase
         parent::loadResponseIntoContainerBuilder();
 
         Current::$database = 'my_db';
-        $GLOBALS['table'] = 'test_tbl';
+        Current::$table = 'test_tbl';
     }
 
     public function testNormalization(): void
     {
         Current::$database = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$table = 'test_table';
         $response = new ResponseRenderer();
 
         $controller = new MainController($response, new Template());

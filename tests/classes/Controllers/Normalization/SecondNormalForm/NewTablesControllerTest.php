@@ -24,7 +24,7 @@ class NewTablesControllerTest extends AbstractTestCase
     public function testDefault(): void
     {
         Current::$database = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$table = 'test_table';
 
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;

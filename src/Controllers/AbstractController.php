@@ -62,6 +62,10 @@ abstract class AbstractController
                 continue;
             }
 
+            if (! $request && $param === 'table' && Current::$table !== '') {
+                continue;
+            }
+
             $errorMessage .=
                 __('Missing parameter:') . ' '
                 . $param

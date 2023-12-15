@@ -168,7 +168,7 @@ class UtilTest extends AbstractTestCase
         $config->selectedServer['host'] = 'host&';
         $config->selectedServer['verbose'] = 'verbose';
         Current::$database = 'database';
-        $GLOBALS['table'] = 'table';
+        Current::$table = 'table';
 
         $this->assertEquals(
             $out,

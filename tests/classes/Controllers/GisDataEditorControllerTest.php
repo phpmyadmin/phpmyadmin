@@ -27,7 +27,7 @@ class GisDataEditorControllerTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         Current::$database = 'db';
-        $GLOBALS['table'] = 'table';
+        Current::$table = 'table';
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 

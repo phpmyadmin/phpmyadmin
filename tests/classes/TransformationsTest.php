@@ -30,7 +30,7 @@ class TransformationsTest extends AbstractTestCase
         parent::setUp();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $GLOBALS['table'] = 'table';
+        Current::$table = 'table';
         Current::$database = 'db';
         $config = Config::getInstance();
         $config->settings = ['ServerDefault' => 1, 'ActionLinksMode' => 'icons'];

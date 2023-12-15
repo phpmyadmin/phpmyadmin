@@ -27,7 +27,7 @@ class ChartControllerTest extends AbstractTestCase
     public function testChartController(): void
     {
         Current::$database = 'test_db';
-        $GLOBALS['table'] = 'table_for_chart';
+        Current::$table = 'table_for_chart';
         $GLOBALS['sql_query'] = 'SELECT * FROM `test_db`.`table_for_chart`;';
         $_POST = [
             'db' => 'test_db',

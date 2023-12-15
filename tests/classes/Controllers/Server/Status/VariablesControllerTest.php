@@ -38,7 +38,7 @@ class VariablesControllerTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = 1;
         Current::$database = 'db';
-        $GLOBALS['table'] = 'table';
+        Current::$table = 'table';
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
         $config->selectedServer['host'] = 'localhost';

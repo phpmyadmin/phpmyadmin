@@ -53,7 +53,7 @@ class SqlController extends AbstractController
             return;
         }
 
-        $urlParams = ['db' => Current::$database, 'table' => $GLOBALS['table']];
+        $urlParams = ['db' => Current::$database, 'table' => Current::$table];
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
             Config::getInstance()->settings['DefaultTabTable'],
             'table',
@@ -98,7 +98,7 @@ class SqlController extends AbstractController
 
         $this->response->addHTML($this->sqlQueryForm->getHtml(
             Current::$database,
-            $GLOBALS['table'],
+            Current::$table,
             $request->getQueryParam('sql_query', true),
             false,
             htmlspecialchars($delimiter),

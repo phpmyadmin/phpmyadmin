@@ -496,8 +496,8 @@ class Generator
         $urlParams = [];
         if (Current::$database !== '') {
             $urlParams['db'] = Current::$database;
-            if (strlen($GLOBALS['table']) > 0) {
-                $urlParams['table'] = $GLOBALS['table'];
+            if (strlen(Current::$table) > 0) {
+                $urlParams['table'] = Current::$table;
                 $editLinkRoute = '/table/sql';
             } else {
                 $editLinkRoute = '/database/sql';
@@ -616,10 +616,10 @@ class Generator
         $retval .= '<div class="col-auto">' . "\n";
         $retval .= '<form action="' . Url::getFromRoute(
             '/sql',
-            ['db' => Current::$database, 'table' => $GLOBALS['table']],
+            ['db' => Current::$database, 'table' => Current::$table],
         )
             . '" method="post" class="disableAjax">' . "\n";
-        $retval .= Url::getHiddenInputs(Current::$database, $GLOBALS['table']) . "\n";
+        $retval .= Url::getHiddenInputs(Current::$database, Current::$table) . "\n";
         $retval .= '<input type="hidden" name="sql_query" value="'
             . htmlspecialchars($sqlQuery) . '">' . "\n";
 
@@ -798,9 +798,9 @@ class Generator
 
             if ($isModifyLink) {
                 $urlParams = ['sql_query' => $sqlQuery, 'show_query' => 1];
-                if (strlen($GLOBALS['table']) > 0) {
+                if (strlen(Current::$table) > 0) {
                     $urlParams['db'] = Current::$database;
-                    $urlParams['table'] = $GLOBALS['table'];
+                    $urlParams['table'] = Current::$table;
                     $doEditGoto = '<a href="' . Url::getFromRoute('/table/sql', $urlParams) . '">';
                 } elseif (Current::$database !== '') {
                     $urlParams['db'] = Current::$database;

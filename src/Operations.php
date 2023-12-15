@@ -510,7 +510,7 @@ class Operations
             'TRUNCATE' => __('Truncate'),
         ];
 
-        $partitionMethod = Partition::getPartitionMethod(Current::$database, $GLOBALS['table']);
+        $partitionMethod = Partition::getPartitionMethod(Current::$database, Current::$table);
 
         // add COALESCE or DROP option to choices array depending on Partition method
         if (
@@ -543,26 +543,26 @@ class Operations
 
         $foreigners = [];
         $this->dbi->selectDb(Current::$database);
-        $foreign = $this->relation->getForeigners(Current::$database, $GLOBALS['table'], '', 'internal');
+        $foreign = $this->relation->getForeigners(Current::$database, Current::$table, '', 'internal');
 
         foreach ($foreign as $master => $arr) {
             $joinQuery = 'SELECT '
-                . Util::backquote($GLOBALS['table']) . '.*'
-                . ' FROM ' . Util::backquote($GLOBALS['table'])
+                . Util::backquote(Current::$table) . '.*'
+                . ' FROM ' . Util::backquote(Current::$table)
                 . ' LEFT JOIN '
                 . Util::backquote($arr['foreign_db'])
                 . '.'
                 . Util::backquote($arr['foreign_table']);
 
-            if ($arr['foreign_table'] == $GLOBALS['table']) {
-                $foreignTable = $GLOBALS['table'] . '1';
+            if ($arr['foreign_table'] == Current::$table) {
+                $foreignTable = Current::$table . '1';
                 $joinQuery .= ' AS ' . Util::backquote($foreignTable);
             } else {
                 $foreignTable = $arr['foreign_table'];
             }
 
             $joinQuery .= ' ON '
-                . Util::backquote($GLOBALS['table']) . '.'
+                . Util::backquote(Current::$table) . '.'
                 . Util::backquote($master)
                 . ' = '
                 . Util::backquote($arr['foreign_db'])
@@ -575,7 +575,7 @@ class Operations
                 . Util::backquote($foreignTable) . '.'
                 . Util::backquote($arr['foreign_field'])
                 . ' IS NULL AND '
-                . Util::backquote($GLOBALS['table']) . '.'
+                . Util::backquote(Current::$table) . '.'
                 . Util::backquote($master)
                 . ' IS NOT NULL';
             $thisUrlParams = array_merge(
@@ -927,7 +927,7 @@ class Operations
                     $newName = strtolower($newName);
                 }
 
-                $GLOBALS['table'] = $newName;
+                Current::$table = $newName;
 
                 $new = Util::backquote($targetDb) . '.'
                     . Util::backquote($newName);

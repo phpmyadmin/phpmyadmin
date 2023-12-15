@@ -53,7 +53,7 @@ class GetFieldController extends AbstractController
         }
 
         /* Check if table exists */
-        if ($this->dbi->getColumns(Current::$database, $GLOBALS['table']) === []) {
+        if ($this->dbi->getColumns(Current::$database, Current::$table) === []) {
             Generator::mysqlDie(__('Invalid table name'));
         }
 
@@ -73,7 +73,7 @@ class GetFieldController extends AbstractController
         $transformKey = (string) $request->getQueryParam('transform_key', '');
         /* Grab data */
         $sql = 'SELECT ' . Util::backquote($transformKey)
-            . ' FROM ' . Util::backquote($GLOBALS['table'])
+            . ' FROM ' . Util::backquote(Current::$table)
             . ' WHERE ' . $whereClause . ';';
         $result = $this->dbi->fetchValue($sql);
 
@@ -91,7 +91,7 @@ class GetFieldController extends AbstractController
         ini_set('url_rewriter.tags', '');
 
         Core::downloadHeader(
-            $GLOBALS['table'] . '-' . $transformKey . '.bin',
+            Current::$table . '-' . $transformKey . '.bin',
             Mime::detect($result),
             mb_strlen($result, '8bit'),
         );

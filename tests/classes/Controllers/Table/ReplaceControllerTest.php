@@ -47,7 +47,7 @@ class ReplaceControllerTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->dbi;
         $GLOBALS['server'] = 1;
         Current::$database = 'my_db';
-        $GLOBALS['table'] = 'test_tbl';
+        Current::$table = 'test_tbl';
 
         $config = Config::getInstance();
         $config->selectedServer['user'] = 'user';
@@ -76,7 +76,7 @@ class ReplaceControllerTest extends AbstractTestCase
     {
         $GLOBALS['urlParams'] = [];
         $_POST['db'] = Current::$database;
-        $_POST['table'] = $GLOBALS['table'];
+        $_POST['table'] = Current::$table;
         $_POST['ajax_request'] = 'true';
         $_POST['relational_display'] = 'K';
         $_POST['goto'] = 'index.php?route=/sql';

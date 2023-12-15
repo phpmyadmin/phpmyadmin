@@ -43,7 +43,7 @@ class BinlogControllerTest extends AbstractTestCase
 
         $GLOBALS['server'] = 1;
         Current::$database = 'db';
-        $GLOBALS['table'] = 'table';
+        Current::$table = 'table';
 
         SessionCache::set('profiling_supported', true);
     }

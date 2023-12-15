@@ -54,7 +54,7 @@ final class BrowseController extends AbstractController
             'SELECT %s FROM %s.%s',
             implode(', ', $fields),
             Util::backquote(Current::$database),
-            Util::backquote($GLOBALS['table']),
+            Util::backquote(Current::$table),
         );
 
         // Parse and analyze the query
@@ -65,7 +65,7 @@ final class BrowseController extends AbstractController
                 $statementInfo,
                 false, // is_gotofile
                 Current::$database, // db
-                $GLOBALS['table'], // table
+                Current::$table, // table
                 null, // sql_query_for_bookmark
                 null, // message_to_show
                 null, // sql_data

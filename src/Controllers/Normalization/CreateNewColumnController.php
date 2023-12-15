@@ -25,8 +25,8 @@ final class CreateNewColumnController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $numFields = min(4096, intval($request->getParsedBodyParam('numFields')));
-        $html = $this->normalization->getHtmlForCreateNewColumn($numFields, Current::$database, $GLOBALS['table']);
-        $html .= Url::getHiddenInputs(Current::$database, $GLOBALS['table']);
+        $html = $this->normalization->getHtmlForCreateNewColumn($numFields, Current::$database, Current::$table);
+        $html .= Url::getHiddenInputs(Current::$database, Current::$table);
         $this->response->addHTML($html);
     }
 }

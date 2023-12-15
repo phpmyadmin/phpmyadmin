@@ -45,7 +45,7 @@ final class RelationalValuesController extends AbstractController
 
         $dropdown = $this->sql->getHtmlForRelationalColumnDropdown(
             Current::$database,
-            $GLOBALS['table'],
+            Current::$table,
             strval($column),
             strval($currValue),
         );

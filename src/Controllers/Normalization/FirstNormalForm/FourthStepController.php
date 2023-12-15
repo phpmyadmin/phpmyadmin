@@ -20,7 +20,7 @@ final class FourthStepController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $res = $this->normalization->getHtmlContentsFor1NFStep4(Current::$database, $GLOBALS['table']);
+        $res = $this->normalization->getHtmlContentsFor1NFStep4(Current::$database, Current::$table);
         $this->response->addJSON($res);
     }
 }

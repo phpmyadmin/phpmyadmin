@@ -75,7 +75,7 @@ abstract class AbstractTestCase extends TestCase
 
         $GLOBALS['server'] = 1;
         Current::$database = '';
-        $GLOBALS['table'] = '';
+        Current::$table = '';
         $GLOBALS['sql_query'] = '';
         $GLOBALS['text_dir'] = 'ltr';
 

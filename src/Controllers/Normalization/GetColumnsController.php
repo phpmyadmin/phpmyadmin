@@ -28,7 +28,7 @@ final class GetColumnsController extends AbstractController
         //get column whose datatype falls under string category
         $html .= $this->normalization->getHtmlForColumnsList(
             Current::$database,
-            $GLOBALS['table'],
+            Current::$table,
             _pgettext('string types', 'String'),
         );
         $this->response->addHTML($html);

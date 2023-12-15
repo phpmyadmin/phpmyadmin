@@ -27,7 +27,7 @@ final class CreateNewTablesController extends AbstractController
         $res = $this->normalization->createNewTablesFor2NF(
             $partialDependencies,
             $tablesName,
-            $GLOBALS['table'],
+            Current::$table,
             Current::$database,
         );
         $this->response->addJSON($res);

@@ -115,7 +115,6 @@
             sql_query: string,
             sql_structure_or_data: 'structure'|'data'|'structure_and_data',
             sql_type: 'INSERT'|'UPDATE'|'REPLACE',
-            table: string,
             table_priv: bool,
             tbl_storage_engine: string,
             text_dir: string,

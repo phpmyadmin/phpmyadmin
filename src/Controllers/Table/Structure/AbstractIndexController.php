@@ -40,7 +40,7 @@ abstract class AbstractIndexController extends AbstractController
             return;
         }
 
-        $GLOBALS['sql_query'] = Generator::getAddIndexSql($indexType, $GLOBALS['table'], $selected);
+        $GLOBALS['sql_query'] = Generator::getAddIndexSql($indexType, Current::$table, $selected);
 
         $GLOBALS['message'] = $this->indexes->executeAddIndexSql(Current::$database, $GLOBALS['sql_query']);
 

@@ -61,7 +61,7 @@ class StructureController extends AbstractController
     ) {
         parent::__construct($response, $template);
 
-        $this->tableObj = $this->dbi->getTable(Current::$database, $GLOBALS['table']);
+        $this->tableObj = $this->dbi->getTable(Current::$database, Current::$table);
     }
 
     public function __invoke(ServerRequest $request): void
@@ -88,7 +88,7 @@ class StructureController extends AbstractController
         }
 
         $isSystemSchema = Utilities::isSystemSchema(Current::$database);
-        $urlParams = ['db' => Current::$database, 'table' => $GLOBALS['table']];
+        $urlParams = ['db' => Current::$database, 'table' => Current::$table];
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
             Config::getInstance()->settings['DefaultTabTable'],
             'table',
@@ -123,15 +123,15 @@ class StructureController extends AbstractController
             return;
         }
 
-        $primary = Index::getPrimary($this->dbi, $GLOBALS['table'], Current::$database);
+        $primary = Index::getPrimary($this->dbi, Current::$table, Current::$database);
         $columnsWithIndex = $this->dbi
-            ->getTable(Current::$database, $GLOBALS['table'])
+            ->getTable(Current::$database, Current::$table)
             ->getColumnsWithIndex(Index::UNIQUE | Index::INDEX | Index::SPATIAL | Index::FULLTEXT);
         $columnsWithUniqueIndex = $this->dbi
-            ->getTable(Current::$database, $GLOBALS['table'])
+            ->getTable(Current::$database, Current::$table)
             ->getColumnsWithIndex(Index::UNIQUE);
 
-        $fields = $this->dbi->getColumns(Current::$database, $GLOBALS['table'], true);
+        $fields = $this->dbi->getColumns(Current::$database, Current::$table, true);
 
         $this->response->addHTML($this->displayStructure(
             $relationParameters,
@@ -177,14 +177,14 @@ class StructureController extends AbstractController
 
         $config = Config::getInstance();
         if ($config->settings['ShowPropertyComments']) {
-            $commentsMap = $this->relation->getComments(Current::$database, $GLOBALS['table']);
+            $commentsMap = $this->relation->getComments(Current::$database, Current::$table);
             if ($relationParameters->browserTransformationFeature !== null && $config->settings['BrowseMIME']) {
-                $mimeMap = $this->transformations->getMime(Current::$database, $GLOBALS['table'], true);
+                $mimeMap = $this->transformations->getMime(Current::$database, Current::$table, true);
             }
         }
 
         $centralColumns = new CentralColumns($this->dbi);
-        $centralList = $centralColumns->getFromTable(Current::$database, $GLOBALS['table']);
+        $centralList = $centralColumns->getFromTable(Current::$database, Current::$table);
 
         /**
          * Displays Space usage and row statistics
@@ -256,12 +256,12 @@ class StructureController extends AbstractController
         return $this->template->render('table/structure/display_structure', [
             'collations' => $collations,
             'is_foreign_key_supported' => ForeignKey::isSupported($engine),
-            'indexes' => Index::getFromTable($this->dbi, $GLOBALS['table'], Current::$database),
-            'indexes_duplicates' => Index::findDuplicates($GLOBALS['table'], Current::$database),
+            'indexes' => Index::getFromTable($this->dbi, Current::$table, Current::$database),
+            'indexes_duplicates' => Index::findDuplicates(Current::$table, Current::$database),
             'relation_parameters' => $relationParameters,
             'hide_structure_actions' => $config->settings['HideStructureActions'] === true,
             'db' => Current::$database,
-            'table' => $GLOBALS['table'],
+            'table' => Current::$table,
             'db_is_system_schema' => $isSystemSchema,
             'tbl_is_view' => $tableIsAView,
             'mime_map' => $mimeMap,
@@ -283,8 +283,8 @@ class StructureController extends AbstractController
             'text_dir' => $GLOBALS['text_dir'],
             'is_active' => Tracker::isActive(),
             'have_partitioning' => Partition::havePartitioning(),
-            'partitions' => Partition::getPartitions(Current::$database, $GLOBALS['table']),
-            'partition_names' => Partition::getPartitionNames(Current::$database, $GLOBALS['table']),
+            'partitions' => Partition::getPartitions(Current::$database, Current::$table),
+            'partition_names' => Partition::getPartitionNames(Current::$database, Current::$table),
             'default_sliders_state' => $config->settings['InitialSlidersState'],
             'attributes' => $attributes,
             'displayed_fields' => $displayedFields,
@@ -305,7 +305,7 @@ class StructureController extends AbstractController
         $tableInfoNunRows = $this->tableObj->getNumRows($showTable['Name']);
 
         if (empty($showTable)) {
-            $showTable = $this->dbi->getTable(Current::$database, $GLOBALS['table'])
+            $showTable = $this->dbi->getTable(Current::$database, Current::$table)
                 ->getStatusInfo(null, true);
         }
 
@@ -398,7 +398,7 @@ class StructureController extends AbstractController
 
         return $this->template->render('table/structure/display_table_stats', [
             'db' => Current::$database,
-            'table' => $GLOBALS['table'],
+            'table' => Current::$table,
             'showtable' => $showTable,
             'table_info_num_rows' => $tableInfoNunRows,
             'tbl_is_view' => $tableIsAView,

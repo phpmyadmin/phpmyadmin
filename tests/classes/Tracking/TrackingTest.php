@@ -51,7 +51,7 @@ class TrackingTest extends AbstractTestCase
 
         $GLOBALS['server'] = 1;
         Current::$database = 'PMA_db';
-        $GLOBALS['table'] = 'PMA_table';
+        Current::$table = 'PMA_table';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'ltr';
         $config = Config::getInstance();
@@ -115,7 +115,7 @@ class TrackingTest extends AbstractTestCase
             sprintf(
                 __('Create version %1$s of %2$s'),
                 2,
-                htmlspecialchars(Current::$database . '.' . $GLOBALS['table']),
+                htmlspecialchars(Current::$database . '.' . Current::$table),
             ),
             $html,
         );

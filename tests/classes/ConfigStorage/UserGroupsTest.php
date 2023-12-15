@@ -32,7 +32,7 @@ class UserGroupsTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Current::$database = '';
-        $GLOBALS['table'] = '';
+        Current::$table = '';
 
         $this->configurableMenusFeature = new ConfigurableMenusFeature(
             DatabaseName::from('pmadb'),

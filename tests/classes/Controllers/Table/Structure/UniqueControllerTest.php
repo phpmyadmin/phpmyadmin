@@ -22,7 +22,7 @@ class UniqueControllerTest extends AbstractTestCase
     public function testAddUniqueKeyToSingleField(): void
     {
         Current::$database = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$table = 'test_table';
         $GLOBALS['message'] = null;
         $GLOBALS['sql_query'] = null;
 
@@ -50,7 +50,7 @@ class UniqueControllerTest extends AbstractTestCase
     public function testAddUniqueKeyToMultipleFields(): void
     {
         Current::$database = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$table = 'test_table';
         $GLOBALS['message'] = null;
         $GLOBALS['sql_query'] = null;
 
@@ -78,7 +78,7 @@ class UniqueControllerTest extends AbstractTestCase
     public function testNoColumnsSelected(): void
     {
         Current::$database = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$table = 'test_table';
         $GLOBALS['message'] = null;
         $GLOBALS['sql_query'] = null;
 
@@ -105,7 +105,7 @@ class UniqueControllerTest extends AbstractTestCase
     public function testAddUniqueKeyWithError(): void
     {
         Current::$database = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$table = 'test_table';
         $GLOBALS['message'] = null;
         $GLOBALS['sql_query'] = null;
 

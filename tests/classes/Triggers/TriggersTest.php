@@ -34,7 +34,7 @@ class TriggersTest extends AbstractTestCase
         $GLOBALS['server'] = 0;
         Config::getInstance()->selectedServer['DisableIS'] = false;
         Current::$database = 'pma_test';
-        $GLOBALS['table'] = 'table';
+        Current::$table = 'table';
 
         $this->triggers = new Triggers(DatabaseInterface::getInstance());
     }

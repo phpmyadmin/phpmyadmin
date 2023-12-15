@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Table\Structure;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\SqlParser\Context;
 
@@ -35,8 +36,8 @@ final class ReservedWordCheckController extends AbstractController
             $reservedKeywordsNames[] = trim($column);
         }
 
-        if (Context::isKeyword(trim($GLOBALS['table']), true)) {
-            $reservedKeywordsNames[] = trim($GLOBALS['table']);
+        if (Context::isKeyword(trim(Current::$table), true)) {
+            $reservedKeywordsNames[] = trim(Current::$table);
         }
 
         if ($reservedKeywordsNames === []) {

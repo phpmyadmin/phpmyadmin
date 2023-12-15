@@ -36,7 +36,7 @@ class DatabasesControllerTest extends AbstractTestCase
 
         $GLOBALS['server'] = 1;
         Current::$database = 'pma_test';
-        $GLOBALS['table'] = '';
+        Current::$table = '';
         Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['text_dir'] = 'text_dir';
     }

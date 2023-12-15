@@ -141,8 +141,8 @@ class AuthenticationCookie extends AuthenticationPlugin
             $formParams['db'] = Current::$database;
         }
 
-        if ($GLOBALS['table'] !== '') {
-            $formParams['table'] = $GLOBALS['table'];
+        if (Current::$table !== '') {
+            $formParams['table'] = Current::$table;
         }
 
         $errors = '';
@@ -460,8 +460,8 @@ class AuthenticationCookie extends AuthenticationPlugin
             $urlParams['db'] = Current::$database;
         }
 
-        if (strlen($GLOBALS['table']) > 0) {
-            $urlParams['table'] = $GLOBALS['table'];
+        if (strlen(Current::$table) > 0) {
+            $urlParams['table'] = Current::$table;
         }
 
         // user logged in successfully after session expiration

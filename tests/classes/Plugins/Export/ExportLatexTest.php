@@ -55,7 +55,7 @@ class ExportLatexTest extends AbstractTestCase
         $GLOBALS['plugin_param']['export_type'] = 'table';
         $GLOBALS['plugin_param']['single_table'] = false;
         Current::$database = 'db';
-        $GLOBALS['table'] = 'table';
+        Current::$table = 'table';
         $this->object = new ExportLatex(
             new Relation($dbi),
             new Export($dbi),

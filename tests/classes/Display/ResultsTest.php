@@ -74,7 +74,7 @@ class ResultsTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->dbi;
         $GLOBALS['server'] = 0;
         Current::$database = 'db';
-        $GLOBALS['table'] = 'table';
+        Current::$table = 'table';
         $this->object = new DisplayResults($this->dbi, 'as', '', 0, '', '');
         $GLOBALS['text_dir'] = 'ltr';
         Config::getInstance()->selectedServer['DisableIS'] = false;
@@ -1132,10 +1132,10 @@ class ResultsTest extends AbstractTestCase
         Config::getInstance()->selectedServer['DisableIS'] = true;
 
         Current::$database = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$table = 'test_table';
         $query = 'SELECT * FROM `test_db`.`test_table`;';
 
-        $object = new DisplayResults($this->dbi, Current::$database, $GLOBALS['table'], 1, '', $query);
+        $object = new DisplayResults($this->dbi, Current::$database, Current::$table, 1, '', $query);
 
         (new ReflectionProperty(DisplayResults::class, 'uniqueId'))->setValue($object, 1234567890);
 
@@ -1308,7 +1308,7 @@ class ResultsTest extends AbstractTestCase
                 'has_show_all' => true,
                 'hidden_fields' => [
                     'db' => Current::$database,
-                    'table' => $GLOBALS['table'],
+                    'table' => Current::$table,
                     'server' => 1,
                     'sql_query' => $query,
                     'is_browse_distinct' => false,
@@ -1321,7 +1321,7 @@ class ResultsTest extends AbstractTestCase
                 'sort_by_key' => [
                     'hidden_fields' => [
                         'db' => Current::$database,
-                        'table' => $GLOBALS['table'],
+                        'table' => Current::$table,
                         'server' => 1,
                         'sort_by_key' => '1',
                         'session_max_rows' => 25,
@@ -1396,7 +1396,7 @@ class ResultsTest extends AbstractTestCase
                 'has_export_link' => true,
                 'url_params' => [
                     'db' => Current::$database,
-                    'table' => $GLOBALS['table'],
+                    'table' => Current::$table,
                     'printview' => '1',
                     'sql_query' => $query,
                     'single_table' => 'true',
@@ -1404,7 +1404,7 @@ class ResultsTest extends AbstractTestCase
                 ],
             ],
             'db' => Current::$database,
-            'table' => $GLOBALS['table'],
+            'table' => Current::$table,
             'unique_id' => 1234567890,
             'sql_query' => $query,
             'goto' => '',
@@ -1424,13 +1424,13 @@ class ResultsTest extends AbstractTestCase
         Config::getInstance()->selectedServer['DisableIS'] = true;
 
         Current::$database = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$table = 'test_table';
         $query = 'SELECT COUNT(*) AS `Rows`, `name` FROM `test_table` GROUP BY `name` ORDER BY `name`';
 
         $dummyDbi = $this->createDbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);
 
-        $object = new DisplayResults($dbi, Current::$database, $GLOBALS['table'], 1, '', $query);
+        $object = new DisplayResults($dbi, Current::$database, Current::$table, 1, '', $query);
 
         (new ReflectionProperty(DisplayResults::class, 'uniqueId'))->setValue($object, 1234567890);
 
@@ -1575,7 +1575,7 @@ class ResultsTest extends AbstractTestCase
                 'has_show_all' => true,
                 'hidden_fields' => [
                     'db' => Current::$database,
-                    'table' => $GLOBALS['table'],
+                    'table' => Current::$table,
                     'server' => 1,
                     'sql_query' => $query,
                     'is_browse_distinct' => true,
@@ -1630,7 +1630,7 @@ class ResultsTest extends AbstractTestCase
                 'has_export_link' => true,
                 'url_params' => [
                     'db' => Current::$database,
-                    'table' => $GLOBALS['table'],
+                    'table' => Current::$table,
                     'printview' => '1',
                     'sql_query' => $query,
                     'single_table' => 'true',
@@ -1638,7 +1638,7 @@ class ResultsTest extends AbstractTestCase
                 ],
             ],
             'db' => Current::$database,
-            'table' => $GLOBALS['table'],
+            'table' => Current::$table,
             'unique_id' => 1234567890,
             'sql_query' => $query,
             'goto' => '',

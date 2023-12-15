@@ -59,19 +59,19 @@ final class RelationController extends AbstractController
             'RESTRICT' => 'RESTRICT',
         ];
 
-        $table = $this->dbi->getTable(Current::$database, $GLOBALS['table']);
+        $table = $this->dbi->getTable(Current::$database, Current::$table);
         $storageEngine = $table->getStorageEngine();
 
         $relationParameters = $this->relation->getRelationParameters();
 
         $relations = [];
         if ($relationParameters->relationFeature !== null) {
-            $relations = $this->relation->getForeigners(Current::$database, $GLOBALS['table'], '', 'internal');
+            $relations = $this->relation->getForeigners(Current::$database, Current::$table, '', 'internal');
         }
 
         $relationsForeign = [];
         if (ForeignKey::isSupported($storageEngine)) {
-            $relationsForeign = $this->relation->getForeigners(Current::$database, $GLOBALS['table'], '', 'foreign');
+            $relationsForeign = $this->relation->getForeigners(Current::$database, Current::$table, '', 'foreign');
         }
 
         // Send table of column names to populate corresponding dropdowns depending
@@ -114,7 +114,7 @@ final class RelationController extends AbstractController
                 $_POST['destination_foreign_table'],
                 $_POST['destination_foreign_column'],
                 $options,
-                $GLOBALS['table'],
+                Current::$table,
                 array_key_exists('foreign_keys_data', $relationsForeign)
                     ? $relationsForeign['foreign_keys_data']
                     : [],
@@ -147,11 +147,11 @@ final class RelationController extends AbstractController
 
         // If we did an update, refresh our data
         if (isset($_POST['destination_db']) && $relationParameters->relationFeature !== null) {
-            $relations = $this->relation->getForeigners(Current::$database, $GLOBALS['table'], '', 'internal');
+            $relations = $this->relation->getForeigners(Current::$database, Current::$table, '', 'internal');
         }
 
         if (isset($_POST['destination_foreign_db']) && ForeignKey::isSupported($storageEngine)) {
-            $relationsForeign = $this->relation->getForeigners(Current::$database, $GLOBALS['table'], '', 'foreign');
+            $relationsForeign = $this->relation->getForeigners(Current::$database, Current::$table, '', 'foreign');
         }
 
         /**
@@ -160,7 +160,7 @@ final class RelationController extends AbstractController
         // Now find out the columns of our $table
         // need to use DatabaseInterface::QUERY_BUFFERED with $this->dbi->numRows()
         // in mysqli
-        $columns = $this->dbi->getColumns(Current::$database, $GLOBALS['table']);
+        $columns = $this->dbi->getColumns(Current::$database, Current::$table);
 
         $columnArray = [];
         $columnHashArray = [];
@@ -208,7 +208,7 @@ final class RelationController extends AbstractController
                 'options_array' => $options,
                 'tbl_storage_engine' => $storageEngine,
                 'db' => Current::$database,
-                'table' => $GLOBALS['table'],
+                'table' => Current::$table,
                 'url_params' => $GLOBALS['urlParams'],
                 'databases' => $this->dbi->getDatabaseList(),
                 'foreign_db' => $foreignDb,
@@ -227,7 +227,7 @@ final class RelationController extends AbstractController
             'options_array' => $options,
             'tbl_storage_engine' => $storageEngine,
             'db' => Current::$database,
-            'table' => $GLOBALS['table'],
+            'table' => Current::$table,
             'url_params' => $GLOBALS['urlParams'],
             'databases' => $this->dbi->getDatabaseList(),
             'foreign_db' => false,
@@ -240,7 +240,7 @@ final class RelationController extends AbstractController
         $this->render('table/relation/common_form', [
             'is_foreign_key_supported' => ForeignKey::isSupported($storageEngine),
             'db' => Current::$database,
-            'table' => $GLOBALS['table'],
+            'table' => Current::$table,
             'relation_parameters' => $relationParameters,
             'tbl_storage_engine' => $storageEngine,
             'existrel' => $relations,
@@ -254,7 +254,7 @@ final class RelationController extends AbstractController
             'dbi' => $this->dbi,
             'default_sliders_state' => $config->settings['InitialSlidersState'],
             'route' => $request->getRoute(),
-            'display_field' => $this->relation->getDisplayField(Current::$database, $GLOBALS['table']),
+            'display_field' => $this->relation->getDisplayField(Current::$database, Current::$table),
             'foreign_key_row' => $foreignKeyRow,
         ]);
     }

@@ -82,7 +82,7 @@ class SqlController extends AbstractController
         $isGotofile = true;
         $config = Config::getInstance();
         if (empty($GLOBALS['goto'])) {
-            if (empty($GLOBALS['table'])) {
+            if (empty(Current::$table)) {
                 $GLOBALS['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
             } else {
                 $GLOBALS['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
@@ -98,9 +98,9 @@ class SqlController extends AbstractController
             if (
                 (mb_strpos(' ' . $GLOBALS['errorUrl'], 'db_') !== 1
                     || ! str_contains($GLOBALS['errorUrl'], '?route=/database/'))
-                && strlen($GLOBALS['table']) > 0
+                && strlen(Current::$table) > 0
             ) {
-                $GLOBALS['errorUrl'] .= '&amp;table=' . urlencode($GLOBALS['table']);
+                $GLOBALS['errorUrl'] .= '&amp;table=' . urlencode(Current::$table);
             }
         }
 
@@ -127,8 +127,8 @@ class SqlController extends AbstractController
 
         // Default to browse if no query set and we have table
         // (needed for browsing from DefaultTabTable)
-        if (empty($GLOBALS['sql_query']) && strlen($GLOBALS['table']) > 0 && Current::$database !== '') {
-            $GLOBALS['sql_query'] = $this->sql->getDefaultSqlQueryForBrowse(Current::$database, $GLOBALS['table']);
+        if (empty($GLOBALS['sql_query']) && strlen(Current::$table) > 0 && Current::$database !== '') {
+            $GLOBALS['sql_query'] = $this->sql->getDefaultSqlQueryForBrowse(Current::$database, Current::$table);
 
             // set $goto to what will be displayed if query returns 0 rows
             $GLOBALS['goto'] = '';
@@ -144,8 +144,8 @@ class SqlController extends AbstractController
             Current::$database,
         );
 
-        if ($GLOBALS['table'] != $tableFromSql && $tableFromSql !== '') {
-            $GLOBALS['table'] = $tableFromSql;
+        if (Current::$table != $tableFromSql && $tableFromSql !== '') {
+            Current::$table = $tableFromSql;
         }
 
         /**
@@ -188,7 +188,7 @@ class SqlController extends AbstractController
             $isGotofile = false;
             $GLOBALS['goto'] = Url::getFromRoute('/sql', [
                 'db' => Current::$database,
-                'table' => $GLOBALS['table'],
+                'table' => Current::$table,
                 'sql_query' => $GLOBALS['sql_query'],
             ]);
         }
@@ -197,7 +197,7 @@ class SqlController extends AbstractController
             $statementInfo,
             $isGotofile,
             Current::$database,
-            $GLOBALS['table'],
+            Current::$table,
             $GLOBALS['import_text'] ?? null,
             $GLOBALS['message_to_show'] ?? null,
             null,

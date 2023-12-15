@@ -1526,7 +1526,7 @@ class Sql
         $displayResultsObject = new DisplayResults(
             $this->dbi,
             Current::$database,
-            $GLOBALS['table'],
+            Current::$table,
             $GLOBALS['server'],
             $goto,
             $sqlQuery,

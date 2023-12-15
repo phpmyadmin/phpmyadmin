@@ -20,7 +20,7 @@ final class SecondStepController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $res = $this->normalization->getHtmlContentsFor1NFStep2(Current::$database, $GLOBALS['table']);
+        $res = $this->normalization->getHtmlContentsFor1NFStep2(Current::$database, Current::$table);
         $this->response->addJSON($res);
     }
 }

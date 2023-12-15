@@ -109,7 +109,7 @@ class SearchController extends AbstractController
     private function loadTableInfo(): void
     {
         // Gets the list and number of columns
-        $columns = $this->dbi->getColumns(Current::$database, $GLOBALS['table'], true);
+        $columns = $this->dbi->getColumns(Current::$database, Current::$table, true);
         // Get details about the geometry functions
         $geomTypes = Gis::getDataTypes();
 
@@ -152,7 +152,7 @@ class SearchController extends AbstractController
         }
 
         // Retrieve foreign keys
-        $this->foreigners = $this->relation->getForeigners(Current::$database, $GLOBALS['table']);
+        $this->foreigners = $this->relation->getForeigners(Current::$database, Current::$table);
     }
 
     /**
@@ -164,7 +164,7 @@ class SearchController extends AbstractController
             return;
         }
 
-        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => $GLOBALS['table']];
+        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
             Config::getInstance()->settings['DefaultTabTable'],
             'table',
@@ -282,7 +282,7 @@ class SearchController extends AbstractController
             null,
             false, // is_gotofile
             Current::$database, // db
-            $GLOBALS['table'], // table
+            Current::$table, // table
             null, // sql_query_for_bookmark
             null, // message_to_show
             null, // sql_data
@@ -306,7 +306,7 @@ class SearchController extends AbstractController
 
         $this->render('table/search/index', [
             'db' => Current::$database,
-            'table' => $GLOBALS['table'],
+            'table' => Current::$table,
             'goto' => $GLOBALS['goto'],
             'self' => $this,
             'geom_column_flag' => $this->geomColumnFlag,
@@ -337,7 +337,7 @@ class SearchController extends AbstractController
         $sqlQuery = 'SELECT MIN(' . Util::backquote($column) . ') AS `min`, '
             . 'MAX(' . Util::backquote($column) . ') AS `max` '
             . 'FROM ' . Util::backquote(Current::$database) . '.'
-            . Util::backquote($GLOBALS['table']);
+            . Util::backquote(Current::$table);
 
         return $this->dbi->fetchSingleRow($sqlQuery);
     }
@@ -423,7 +423,7 @@ class SearchController extends AbstractController
             'column_name' => $this->columnNames[$columnIndex],
             'column_name_hash' => md5($this->columnNames[$columnIndex]),
             'foreign_data' => $foreignData,
-            'table' => $GLOBALS['table'],
+            'table' => Current::$table,
             'column_index' => $searchIndex,
             'criteria_values' => $enteredValue,
             'db' => Current::$database,

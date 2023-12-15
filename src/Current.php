@@ -7,4 +7,5 @@ namespace PhpMyAdmin;
 final class Current
 {
     public static string $database = '';
+    public static string $table = '';
 }

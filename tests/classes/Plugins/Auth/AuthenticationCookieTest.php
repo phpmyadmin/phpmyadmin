@@ -59,7 +59,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $GLOBALS['server'] = 0;
         $GLOBALS['text_dir'] = 'ltr';
         Current::$database = 'db';
-        $GLOBALS['table'] = 'table';
+        Current::$table = 'table';
         $_POST['pma_password'] = '';
         $this->object = new AuthenticationCookie();
         $_SERVER['PHP_SELF'] = '/phpmyadmin/index.php';
@@ -140,7 +140,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config->settings['CaptchaLoginPrivateKey'] = '';
         $config->settings['CaptchaLoginPublicKey'] = '';
         Current::$database = 'testDb';
-        $GLOBALS['table'] = 'testTable';
+        Current::$table = 'testTable';
         $config->settings['Servers'] = [1, 2];
 
         $responseStub = new ResponseRendererStub();

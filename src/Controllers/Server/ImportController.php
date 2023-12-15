@@ -96,7 +96,7 @@ final class ImportController extends AbstractController
             'handler' => $_SESSION[$GLOBALS['SESSION_KEY']]['handler'],
             'hidden_inputs' => $hiddenInputs,
             'db' => Current::$database,
-            'table' => $GLOBALS['table'],
+            'table' => Current::$table,
             'max_upload_size' => $maxUploadSize,
             'formatted_maximum_upload_size' => Util::getFormattedMaximumUploadSize($maxUploadSize),
             'plugins_choice' => $choice,

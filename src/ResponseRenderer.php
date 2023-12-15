@@ -330,8 +330,8 @@ class ResponseRenderer
                     'reloadQuerywindow',
                     [
                         'db' => Current::$database,
-                        'table' => isset($GLOBALS['table']) && is_scalar($GLOBALS['table'])
-                            ? (string) $GLOBALS['table'] : '',
+                        'table' => isset(Current::$table) && is_scalar(Current::$table)
+                            ? (string) Current::$table : '',
                         'sql_query' => $query,
                     ],
                 );

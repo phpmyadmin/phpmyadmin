@@ -43,7 +43,7 @@ class ImportControllerTest extends AbstractTestCase
 
         // Some params were not added as they are not required for this test
         Current::$database = 'pma_test';
-        $GLOBALS['table'] = 'table1';
+        Current::$table = 'table1';
         $GLOBALS['sql_query'] = 'SELECT A.*' . "\n"
             . 'FROM table1 A' . "\n"
             . 'WHERE A.nomEtablissement = :nomEta AND foo = :1 AND `:a` IS NULL';
@@ -51,7 +51,7 @@ class ImportControllerTest extends AbstractTestCase
         $request = $this->createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['db', null, Current::$database],
-            ['table', null, $GLOBALS['table']],
+            ['table', null, Current::$table],
             ['parameters', null, [':nomEta' => 'Saint-Louis - Châteaulin', ':1' => '4']],
             ['sql_query', null, $GLOBALS['sql_query']],
         ]);

@@ -61,7 +61,7 @@ final class DeleteRowsController extends AbstractController
             foreach ($selected as $row) {
                 $query = sprintf(
                     'DELETE FROM %s WHERE %s LIMIT 1;',
-                    Util::backquote($GLOBALS['table']),
+                    Util::backquote(Current::$table),
                     $row,
                 );
                 $GLOBALS['sql_query'] .= $query . "\n";
@@ -70,11 +70,7 @@ final class DeleteRowsController extends AbstractController
             }
 
             if (! empty($_REQUEST['pos'])) {
-                $_REQUEST['pos'] = $sql->calculatePosForLastPage(
-                    Current::$database,
-                    $GLOBALS['table'],
-                    $_REQUEST['pos'],
-                );
+                $_REQUEST['pos'] = $sql->calculatePosForLastPage(Current::$database, Current::$table, $_REQUEST['pos']);
             }
 
             ForeignKey::handleDisableCheckCleanup($defaultFkCheckValue);
@@ -93,7 +89,7 @@ final class DeleteRowsController extends AbstractController
             null,
             false,
             Current::$database,
-            $GLOBALS['table'],
+            Current::$table,
             null,
             null,
             null,

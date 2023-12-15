@@ -24,7 +24,7 @@ class CreateNewTablesControllerTest extends AbstractTestCase
     public function testDefault(): void
     {
         Current::$database = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$table = 'test_table';
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addSelectDb('test_db');

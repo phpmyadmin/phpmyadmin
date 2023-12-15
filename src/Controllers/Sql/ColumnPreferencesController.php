@@ -34,7 +34,7 @@ final class ColumnPreferencesController extends AbstractController
     {
         $this->checkUserPrivileges->getPrivileges();
 
-        $tableObject = $this->dbi->getTable(Current::$database, $GLOBALS['table']);
+        $tableObject = $this->dbi->getTable(Current::$database, Current::$table);
         $status = false;
 
         /** @var string|null $tableCreateTime */

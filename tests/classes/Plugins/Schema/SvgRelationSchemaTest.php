@@ -45,7 +45,7 @@ class SvgRelationSchemaTest extends AbstractTestCase
 
         $GLOBALS['server'] = 1;
         Current::$database = 'test_db';
-        $GLOBALS['table'] = '';
+        Current::$table = '';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'en';
         Config::getInstance()->selectedServer['DisableIS'] = true;

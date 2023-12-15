@@ -40,7 +40,7 @@ class HeaderTest extends AbstractTestCase
         $GLOBALS['message'] = 'phpmyadminmessage';
         $GLOBALS['server'] = 'server';
         Current::$database = 'db';
-        $GLOBALS['table'] = '';
+        Current::$table = '';
 
         parent::setGlobalConfig();
 

@@ -34,7 +34,7 @@ class PageSettingsTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['server'] = 1;
         Current::$database = 'db';
-        $GLOBALS['table'] = '';
+        Current::$table = '';
         $_SERVER['SCRIPT_NAME'] = 'index.php';
         Config::getInstance()->selectedServer['DisableIS'] = false;
     }

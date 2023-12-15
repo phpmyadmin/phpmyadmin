@@ -34,7 +34,7 @@ class NavigationTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $GLOBALS['server'] = 1;
         Current::$database = 'db';
-        $GLOBALS['table'] = '';
+        Current::$table = '';
         $config = Config::getInstance();
         $config->selectedServer['user'] = 'user';
         $config->selectedServer['DisableIS'] = false;

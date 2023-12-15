@@ -225,7 +225,7 @@ class ExportXmlTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
 
         $GLOBALS['tables'] = [];
-        $GLOBALS['table'] = 'table';
+        Current::$table = 'table';
 
         ob_start();
         $this->assertTrue(

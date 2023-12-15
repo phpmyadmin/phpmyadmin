@@ -326,7 +326,7 @@ class UserPreferencesTest extends AbstractTestCase
 
         $GLOBALS['lang'] = '';
         Current::$database = 'db';
-        $GLOBALS['table'] = 'table';
+        Current::$table = 'table';
 
         Config::getInstance()->set('PmaAbsoluteUri', '');
 

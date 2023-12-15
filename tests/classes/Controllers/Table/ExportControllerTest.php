@@ -43,7 +43,7 @@ class ExportControllerTest extends AbstractTestCase
         parent::loadDbiIntoContainerBuilder();
 
         Current::$database = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$table = 'test_table';
         $config = Config::getInstance();
         $config->selectedServer = $config->getSettings()->Servers[1]->asArray();
         $config->selectedServer['DisableIS'] = true;

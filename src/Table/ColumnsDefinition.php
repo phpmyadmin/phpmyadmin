@@ -88,7 +88,7 @@ final class ColumnsDefinition
                 }
             }
 
-            $formParams['table'] = $GLOBALS['table'];
+            $formParams['table'] = Current::$table;
         }
 
         $formParams['orig_num_fields'] = $numFields;
@@ -108,17 +108,17 @@ final class ColumnsDefinition
 
         $relationParameters = $this->relation->getRelationParameters();
 
-        $commentsMap = $this->relation->getComments(Current::$database, $GLOBALS['table']);
+        $commentsMap = $this->relation->getComments(Current::$database, Current::$table);
 
         $moveColumns = [];
         if ($fieldsMeta !== null) {
-            $moveColumns = $this->dbi->getTable(Current::$database, $GLOBALS['table'])->getColumnsMeta();
+            $moveColumns = $this->dbi->getTable(Current::$database, Current::$table)->getColumnsMeta();
         }
 
         $availableMime = [];
         $config = Config::getInstance();
         if ($relationParameters->browserTransformationFeature !== null && $config->settings['BrowseMIME']) {
-            $GLOBALS['mime_map'] = $this->transformations->getMime(Current::$database, $GLOBALS['table']);
+            $GLOBALS['mime_map'] = $this->transformations->getMime(Current::$database, Current::$table);
             $availableMime = $this->transformations->getAvailableMimeTypes();
         }
 
@@ -141,12 +141,12 @@ final class ColumnsDefinition
             $regenerate = true;
         }
 
-        $foreigners = $this->relation->getForeigners(Current::$database, $GLOBALS['table'], '', 'foreign');
+        $foreigners = $this->relation->getForeigners(Current::$database, Current::$table, '', 'foreign');
         $childReferences = null;
         // From MySQL 5.6.6 onwards columns with foreign keys can be renamed.
         // Hence, no need to get child references
         if ($this->dbi->getVersion() < 50606) {
-            $childReferences = $this->relation->getChildReferences(Current::$database, $GLOBALS['table']);
+            $childReferences = $this->relation->getChildReferences(Current::$database, Current::$table);
         }
 
         /** @infection-ignore-all */
@@ -182,7 +182,7 @@ final class ColumnsDefinition
                 $columnMeta = $fieldsMeta[$columnNumber];
                 $virtual = ['VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED'];
                 if (in_array($columnMeta['Extra'], $virtual, true)) {
-                    $tableObj = new Table($GLOBALS['table'], Current::$database, $this->dbi);
+                    $tableObj = new Table(Current::$table, Current::$database, $this->dbi);
                     $expressions = $tableObj->getColumnGenerationExpression($columnMeta['Field']);
                     $columnMeta['Expression'] = is_array($expressions) ? $expressions[$columnMeta['Field']] : null;
                 }

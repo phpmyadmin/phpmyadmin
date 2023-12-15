@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Server;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Util;
@@ -39,7 +40,7 @@ class SelectTest extends AbstractTestCase
         $config->settings['TableNavigationLinksMode'] = 'icons';
         $config->settings['LimitChars'] = 100;
 
-        $GLOBALS['table'] = 'table';
+        Current::$table = 'table';
 
         $config->settings['DefaultTabServer'] = 'welcome';
 

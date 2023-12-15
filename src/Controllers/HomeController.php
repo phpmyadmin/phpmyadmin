@@ -83,7 +83,7 @@ class HomeController extends AbstractController
         // See: https://github.com/phpmyadmin/phpmyadmin/issues/16520
         // The DB is defined here and sent to the JS front-end to refresh the DB tree
         Current::$database = $request->getParsedBodyParam('db', '');
-        $GLOBALS['table'] = '';
+        Current::$table = '';
         $GLOBALS['show_query'] = '1';
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
@@ -227,7 +227,7 @@ class HomeController extends AbstractController
 
         $this->render('home/index', [
             'db' => Current::$database,
-            'table' => $GLOBALS['table'],
+            'table' => Current::$table,
             'message' => $displayMessage ?? '',
             'partial_logout' => $partialLogout ?? '',
             'is_git_revision' => $git->isGitRevision(),

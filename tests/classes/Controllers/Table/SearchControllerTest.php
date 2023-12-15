@@ -54,7 +54,7 @@ class SearchControllerTest extends AbstractTestCase
 
         $GLOBALS['server'] = 1;
         Current::$database = 'PMA';
-        $GLOBALS['table'] = 'PMA_BookMark';
+        Current::$table = 'PMA_BookMark';
         $GLOBALS['text_dir'] = 'ltr';
         Config::getInstance()->selectedServer['DisableIS'] = false;
 

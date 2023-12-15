@@ -850,7 +850,7 @@ class InsertEdit
     public function setSessionForEditNext(string $oneWhereClause): void
     {
         $localQuery = 'SELECT * FROM ' . Util::backquote(Current::$database)
-            . '.' . Util::backquote($GLOBALS['table']) . ' WHERE '
+            . '.' . Util::backquote(Current::$table) . ' WHERE '
             . str_replace('` =', '` >', $oneWhereClause) . ' LIMIT 1;';
 
         $res = $this->dbi->query($localQuery);
@@ -890,13 +890,13 @@ class InsertEdit
                 $gotoInclude = $GLOBALS['goto'];
             }
 
-            if ($GLOBALS['goto'] === 'index.php?route=/database/sql' && strlen($GLOBALS['table']) > 0) {
-                $GLOBALS['table'] = '';
+            if ($GLOBALS['goto'] === 'index.php?route=/database/sql' && strlen(Current::$table) > 0) {
+                Current::$table = '';
             }
         }
 
         if (! $gotoInclude) {
-            $gotoInclude = $GLOBALS['table'] === '' ? '/database/sql' : '/table/sql';
+            $gotoInclude = Current::$table === '' ? '/database/sql' : '/table/sql';
         }
 
         return $gotoInclude;
@@ -1235,7 +1235,7 @@ class InsertEdit
             // Fetch the current values of a row to use in case we have a protected field
             $protectedValue = $this->dbi->fetchValue(
                 'SELECT ' . Util::backquote($editField->columnName)
-                . ' FROM ' . Util::backquote($GLOBALS['table'])
+                . ' FROM ' . Util::backquote(Current::$table)
                 . ' WHERE ' . $whereClause,
             );
             $protectedValue = is_string($protectedValue) ? $protectedValue : '';

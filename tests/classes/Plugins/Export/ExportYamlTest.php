@@ -44,7 +44,7 @@ class ExportYamlTest extends AbstractTestCase
         $GLOBALS['asfile'] = false;
         $GLOBALS['save_on_server'] = false;
         Current::$database = '';
-        $GLOBALS['table'] = '';
+        Current::$table = '';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'ltr';
         $this->object = new ExportYaml(

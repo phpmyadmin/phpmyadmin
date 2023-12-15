@@ -40,7 +40,7 @@ class IndexesControllerTest extends AbstractTestCase
          */
         $GLOBALS['server'] = 1;
         Current::$database = 'db';
-        $GLOBALS['table'] = 'table';
+        Current::$table = 'table';
         $GLOBALS['text_dir'] = 'ltr';
         $config = Config::getInstance();
         $config->selectedServer['pmadb'] = '';

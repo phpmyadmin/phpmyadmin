@@ -62,7 +62,7 @@ final class PrimaryController extends AbstractController
                 return;
             }
 
-            $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => $GLOBALS['table']];
+            $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
                 Config::getInstance()->settings['DefaultTabTable'],
                 'table',
@@ -99,7 +99,7 @@ final class PrimaryController extends AbstractController
 
             $this->render('table/structure/primary', [
                 'db' => Current::$database,
-                'table' => $GLOBALS['table'],
+                'table' => Current::$table,
                 'selected' => $selected,
             ]);
 
@@ -107,7 +107,7 @@ final class PrimaryController extends AbstractController
         }
 
         if ($deletionConfirmed === __('Yes') || ! $hasPrimary) {
-            $GLOBALS['sql_query'] = 'ALTER TABLE ' . Util::backquote($GLOBALS['table']);
+            $GLOBALS['sql_query'] = 'ALTER TABLE ' . Util::backquote(Current::$table);
             if ($hasPrimary) {
                 $GLOBALS['sql_query'] .= ' DROP PRIMARY KEY,';
             }
@@ -138,7 +138,7 @@ final class PrimaryController extends AbstractController
 
     private function hasPrimaryKey(): bool
     {
-        $result = $this->dbi->query('SHOW KEYS FROM ' . Util::backquote($GLOBALS['table']));
+        $result = $this->dbi->query('SHOW KEYS FROM ' . Util::backquote(Current::$table));
 
         foreach ($result as $row) {
             if ($row['Key_name'] === 'PRIMARY') {

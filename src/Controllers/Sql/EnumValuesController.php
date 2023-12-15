@@ -35,7 +35,7 @@ final class EnumValuesController extends AbstractController
 
         $column = $request->getParsedBodyParam('column');
         $currValue = $request->getParsedBodyParam('curr_value');
-        $values = $this->sql->getValuesForColumn(Current::$database, $GLOBALS['table'], strval($column));
+        $values = $this->sql->getValuesForColumn(Current::$database, Current::$table, strval($column));
 
         if ($values === null) {
             $this->response->addJSON('message', __('Error in processing request'));

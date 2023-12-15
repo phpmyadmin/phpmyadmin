@@ -68,7 +68,7 @@ class AddFieldController extends AbstractController
          */
         $GLOBALS['errorUrl'] = Url::getFromRoute(
             '/table/sql',
-            ['db' => Current::$database, 'table' => $GLOBALS['table']],
+            ['db' => Current::$database, 'table' => Current::$table],
         );
 
         // check number of fields to be created
@@ -85,7 +85,7 @@ class AddFieldController extends AbstractController
 
             $createAddField = new CreateAddField($this->dbi);
 
-            $GLOBALS['sql_query'] = $createAddField->getColumnCreationQuery($GLOBALS['table']);
+            $GLOBALS['sql_query'] = $createAddField->getColumnCreationQuery(Current::$table);
 
             // If there is a request for SQL previewing.
             if (isset($_POST['preview_sql'])) {
@@ -117,7 +117,7 @@ class AddFieldController extends AbstractController
 
                     $this->transformations->setMime(
                         Current::$database,
-                        $GLOBALS['table'],
+                        Current::$table,
                         $_POST['field_name'][$fieldindex],
                         $mimetype,
                         $_POST['field_transformation'][$fieldindex],
@@ -132,7 +132,7 @@ class AddFieldController extends AbstractController
             $GLOBALS['message'] = Message::success(
                 __('Table %1$s has been altered successfully.'),
             );
-            $GLOBALS['message']->addParam($GLOBALS['table']);
+            $GLOBALS['message']->addParam(Current::$table);
             $this->response->addJSON(
                 'message',
                 Generator::getMessage($GLOBALS['message'], $GLOBALS['sql_query'], 'success'),
@@ -143,7 +143,7 @@ class AddFieldController extends AbstractController
                 'structure_refresh_route',
                 Url::getFromRoute('/table/structure', [
                     'db' => Current::$database,
-                    'table' => $GLOBALS['table'],
+                    'table' => Current::$table,
                     'ajax_request' => '1',
                 ]),
             );
@@ -151,7 +151,7 @@ class AddFieldController extends AbstractController
             return;
         }
 
-        $urlParams = ['db' => Current::$database, 'table' => $GLOBALS['table']];
+        $urlParams = ['db' => Current::$database, 'table' => Current::$table];
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
         $GLOBALS['errorUrl'] .= Url::getCommon($urlParams, '&');
 

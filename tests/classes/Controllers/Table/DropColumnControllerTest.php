@@ -29,7 +29,7 @@ class DropColumnControllerTest extends AbstractTestCase
     public function testDropColumnController(): void
     {
         Current::$database = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$table = 'test_table';
         $_POST = [
             'db' => 'test_db',
             'table' => 'test_table',

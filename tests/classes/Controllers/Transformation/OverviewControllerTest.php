@@ -33,7 +33,7 @@ class OverviewControllerTest extends AbstractTestCase
 
         $GLOBALS['server'] = 1;
         Current::$database = 'db';
-        $GLOBALS['table'] = 'table';
+        Current::$table = 'table';
     }
 
     public function testIndexAction(): void

@@ -45,7 +45,7 @@ class ExportPhparrayTest extends AbstractTestCase
         $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
         Current::$database = '';
-        $GLOBALS['table'] = '';
+        Current::$table = '';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'ltr';
         $this->object = new ExportPhparray(

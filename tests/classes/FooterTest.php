@@ -39,7 +39,7 @@ class FooterTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $_SERVER['SCRIPT_NAME'] = 'index.php';
         Current::$database = '';
-        $GLOBALS['table'] = '';
+        Current::$table = '';
         $GLOBALS['text_dir'] = 'ltr';
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;

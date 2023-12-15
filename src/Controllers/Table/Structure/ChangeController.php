@@ -64,7 +64,7 @@ final class ChangeController extends AbstractController
      */
     private function displayHtmlForColumnChange(array $selected): void
     {
-        $fieldsMeta = $this->dbi->getColumns(Current::$database, $GLOBALS['table'], true);
+        $fieldsMeta = $this->dbi->getColumns(Current::$database, Current::$table, true);
         $fieldsMeta = array_values(array_filter(
             $fieldsMeta,
             static fn (ColumnFull $column): bool => in_array($column->field, $selected, true)

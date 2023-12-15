@@ -1197,7 +1197,7 @@ class Util
         }
 
         $vars['database'] = Current::$database;
-        $vars['table'] = $GLOBALS['table'];
+        $vars['table'] = Current::$table;
         $vars['phpmyadmin_version'] = 'phpMyAdmin ' . Version::VERSION;
 
         /* Update forced variables */
@@ -1235,7 +1235,7 @@ class Util
 
         /* Fetch columns list if required */
         if (str_contains($string, '@COLUMNS@')) {
-            $columnsList = DatabaseInterface::getInstance()->getColumnNames(Current::$database, $GLOBALS['table']);
+            $columnsList = DatabaseInterface::getInstance()->getColumnNames(Current::$database, Current::$table);
 
             $columnNames = [];
             if ($escape !== null) {

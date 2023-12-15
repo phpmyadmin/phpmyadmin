@@ -115,7 +115,7 @@ class ChangeController extends AbstractController
         ] = $this->insertEdit->determineInsertOrEdit(
             $GLOBALS['where_clause'] ?? null,
             Current::$database,
-            $GLOBALS['table'],
+            Current::$table,
         );
         // Increase number of rows if unsaved rows are more
         if (! empty($GLOBALS['unsaved_values']) && count($rows) < count($GLOBALS['unsaved_values'])) {
@@ -127,7 +127,7 @@ class ChangeController extends AbstractController
          * (at this point, $GLOBALS['goto'] will be set but could be empty)
          */
         if (empty($GLOBALS['goto'])) {
-            if (strlen($GLOBALS['table']) > 0) {
+            if (strlen(Current::$table) > 0) {
                 // avoid a problem (see bug #2202709)
                 $GLOBALS['goto'] = Url::getFromRoute('/table/sql');
             } else {
@@ -140,7 +140,7 @@ class ChangeController extends AbstractController
         $GLOBALS['urlParams'] = ['db' => Current::$database, 'sql_query' => is_string($sqlQuery) ? $sqlQuery : ''];
 
         if (str_starts_with($GLOBALS['goto'] ?? '', 'index.php?route=/table')) {
-            $GLOBALS['urlParams']['table'] = $GLOBALS['table'];
+            $GLOBALS['urlParams']['table'] = Current::$table;
         }
 
         $GLOBALS['errorUrl'] = $GLOBALS['goto'] . Url::getCommon(
@@ -149,7 +149,7 @@ class ChangeController extends AbstractController
         );
         unset($GLOBALS['urlParams']);
 
-        $commentsMap = $this->insertEdit->getCommentsMap(Current::$database, $GLOBALS['table']);
+        $commentsMap = $this->insertEdit->getCommentsMap(Current::$database, Current::$table);
 
         /**
          * START REGULAR OUTPUT
@@ -172,15 +172,15 @@ class ChangeController extends AbstractController
             $this->response->addHTML(Generator::getMessage($GLOBALS['disp_message']));
         }
 
-        $tableColumns = $this->insertEdit->getTableColumns(Current::$database, $GLOBALS['table']);
+        $tableColumns = $this->insertEdit->getTableColumns(Current::$database, Current::$table);
 
         // retrieve keys into foreign fields, if any
-        $foreigners = $this->relation->getForeigners(Current::$database, $GLOBALS['table']);
+        $foreigners = $this->relation->getForeigners(Current::$database, Current::$table);
 
         // Retrieve form parameters for insert/edit form
         $formParams = $this->insertEdit->getFormParametersForInsertForm(
             Current::$database,
-            $GLOBALS['table'],
+            Current::$table,
             $whereClauses,
             $whereClauseArray,
             $GLOBALS['errorUrl'],
@@ -195,7 +195,7 @@ class ChangeController extends AbstractController
         $htmlOutput = '';
 
         $GLOBALS['urlParams']['db'] = Current::$database;
-        $GLOBALS['urlParams']['table'] = $GLOBALS['table'];
+        $GLOBALS['urlParams']['table'] = Current::$table;
         $GLOBALS['urlParams'] = $this->urlParamsInEditMode($GLOBALS['urlParams'], $whereClauseArray);
 
         $hasBlobField = false;
@@ -254,7 +254,7 @@ class ChangeController extends AbstractController
                 $currentRow ?: [],
                 $isUpload,
                 $foreigners,
-                $GLOBALS['table'],
+                Current::$table,
                 Current::$database,
                 $rowId,
                 $GLOBALS['text_dir'],
@@ -283,7 +283,7 @@ class ChangeController extends AbstractController
         if ($insertMode) {
             //Continue insertion form
             $htmlOutput .= $this->insertEdit->getContinueInsertionForm(
-                $GLOBALS['table'],
+                Current::$table,
                 Current::$database,
                 $whereClauseArray,
                 $GLOBALS['errorUrl'],

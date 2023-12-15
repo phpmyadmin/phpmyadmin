@@ -40,7 +40,7 @@ class ChangeControllerTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'ltr';
         Config::getInstance()->selectedServer['DisableIS'] = false;
         Current::$database = 'testdb';
-        $GLOBALS['table'] = 'mytable';
+        Current::$table = 'mytable';
         $_REQUEST['field'] = '_id';
 
         $response = new ResponseStub();

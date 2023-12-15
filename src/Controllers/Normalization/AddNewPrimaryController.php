@@ -26,7 +26,7 @@ final class AddNewPrimaryController extends AbstractController
         $numFields = 1;
 
         $db = DatabaseName::tryFrom(Current::$database);
-        $table = TableName::tryFrom($GLOBALS['table']);
+        $table = TableName::tryFrom(Current::$table);
         $dbName = isset($db) ? $db->getName() : '';
         $tableName = isset($table) ? $table->getName() : '';
 

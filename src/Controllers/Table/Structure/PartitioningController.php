@@ -71,7 +71,7 @@ final class PartitioningController extends AbstractController
 
         $this->render('table/structure/partition_definition_form', [
             'db' => Current::$database,
-            'table' => $GLOBALS['table'],
+            'table' => Current::$table,
             'partition_details' => $partitionDetails,
             'storage_engines' => $storageEngines,
         ]);
@@ -84,7 +84,7 @@ final class PartitioningController extends AbstractController
      */
     private function extractPartitionDetails(): array|null
     {
-        $createTable = (new Table($GLOBALS['table'], Current::$database, $this->dbi))->showCreate();
+        $createTable = (new Table(Current::$table, Current::$database, $this->dbi))->showCreate();
         if ($createTable === '') {
             return null;
         }
@@ -243,7 +243,7 @@ final class PartitioningController extends AbstractController
 
     private function updatePartitioning(): void
     {
-        $sqlQuery = 'ALTER TABLE ' . Util::backquote($GLOBALS['table']) . ' '
+        $sqlQuery = 'ALTER TABLE ' . Util::backquote(Current::$table) . ' '
             . $this->createAddField->getPartitionsDefinition();
 
         // Execute alter query
@@ -264,7 +264,7 @@ final class PartitioningController extends AbstractController
         $message = Message::success(
             __('Table %1$s has been altered successfully.'),
         );
-        $message->addParam($GLOBALS['table']);
+        $message->addParam(Current::$table);
         $this->response->addHTML(
             Generator::getMessage($message, $sqlQuery, 'success'),
         );

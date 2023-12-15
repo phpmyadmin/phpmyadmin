@@ -34,13 +34,13 @@ final class DatabaseAndTableSetting implements MiddlewareInterface
         $table = TableName::tryFrom($request->getParam('table'));
 
         Current::$database = $db?->getName() ?? '';
-        $GLOBALS['table'] = $table?->getName() ?? '';
+        Current::$table = $table?->getName() ?? '';
 
         if (! is_array($GLOBALS['urlParams'])) {
             $GLOBALS['urlParams'] = [];
         }
 
         $GLOBALS['urlParams']['db'] = Current::$database;
-        $GLOBALS['urlParams']['table'] = $GLOBALS['table'];
+        $GLOBALS['urlParams']['table'] = Current::$table;
     }
 }

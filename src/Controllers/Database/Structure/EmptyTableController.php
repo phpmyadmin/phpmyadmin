@@ -83,7 +83,7 @@ final class EmptyTableController extends AbstractController
                 new BookmarkRepository($this->dbi, $this->relation),
             );
 
-            $_REQUEST['pos'] = $sql->calculatePosForLastPage(Current::$database, $GLOBALS['table'], $_REQUEST['pos']);
+            $_REQUEST['pos'] = $sql->calculatePosForLastPage(Current::$database, Current::$table, $_REQUEST['pos']);
         }
 
         ForeignKey::handleDisableCheckCleanup($defaultFkCheckValue);

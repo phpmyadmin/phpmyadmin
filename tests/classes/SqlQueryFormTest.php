@@ -60,7 +60,7 @@ class SqlQueryFormTest extends AbstractTestCase
 
         //$GLOBALS
         Current::$database = 'PMA_db';
-        $GLOBALS['table'] = 'PMA_table';
+        Current::$table = 'PMA_table';
         $GLOBALS['text_dir'] = 'text_dir';
         $GLOBALS['server'] = 0;
 
@@ -158,7 +158,7 @@ class SqlQueryFormTest extends AbstractTestCase
         $this->assertStringContainsString('id="sqlqueryform" name="sqlform"', $html);
 
         //validate 4: $db, $table
-        $table = $GLOBALS['table'];
+        $table = Current::$table;
         $db = Current::$database;
         $this->assertStringContainsString(
             Url::getHiddenInputs($db, $table),

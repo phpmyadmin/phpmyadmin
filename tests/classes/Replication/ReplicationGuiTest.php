@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Replication;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Replication\Replication;
 use PhpMyAdmin\Replication\ReplicationGui;
@@ -46,7 +47,7 @@ class ReplicationGuiTest extends AbstractTestCase
         $config->settings['DBG']['sql'] = false;
         $config->settings['ShowHint'] = true;
 
-        $GLOBALS['table'] = 'table';
+        Current::$table = 'table';
         $GLOBALS['server'] = 0;
         $GLOBALS['urlParams'] = [];
 

@@ -51,7 +51,7 @@ class SetValuesControllerTest extends AbstractTestCase
         ]);
 
         Current::$database = 'cvv';
-        $GLOBALS['table'] = 'enums';
+        Current::$table = 'enums';
 
         /** @var SetValuesController $sqlController */
         $sqlController = Core::getContainerBuilder()->get(SetValuesController::class);
@@ -93,7 +93,7 @@ class SetValuesControllerTest extends AbstractTestCase
         ]);
 
         Current::$database = 'cvv';
-        $GLOBALS['table'] = 'enums';
+        Current::$table = 'enums';
 
         /** @var SetValuesController $sqlController */
         $sqlController = Core::getContainerBuilder()->get(SetValuesController::class);

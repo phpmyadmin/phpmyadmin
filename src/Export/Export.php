@@ -1067,7 +1067,7 @@ class Export
             return 'index.php?route=/database/export' . Url::getCommonRaw($params, '&');
         }
 
-        $params = ['db' => Current::$database, 'table' => $GLOBALS['table'], 'single_table' => 'true'];
+        $params = ['db' => Current::$database, 'table' => Current::$table, 'single_table' => 'true'];
 
         return 'index.php?route=/table/export' . Url::getCommonRaw($params, '&');
     }

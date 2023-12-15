@@ -37,7 +37,7 @@ class CheckRelationsControllerTest extends AbstractTestCase
     {
         $GLOBALS['server'] = 1;
         Current::$database = '';
-        $GLOBALS['table'] = '';
+        Current::$table = '';
         $GLOBALS['text_dir'] = 'ltr';
 
         $request = $this->createStub(ServerRequest::class);

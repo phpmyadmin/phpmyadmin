@@ -41,7 +41,7 @@ class NavigationTreeTest extends AbstractTestCase
         $config->settings['ShowDatabasesNavigationAsTree'] = true;
 
         Current::$database = 'db';
-        $GLOBALS['table'] = '';
+        Current::$table = '';
 
         $this->object = new NavigationTree(new Template(), $dbi, new Relation($dbi));
     }

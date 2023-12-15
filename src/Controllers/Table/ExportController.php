@@ -53,7 +53,7 @@ class ExportController extends AbstractController
             return;
         }
 
-        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => $GLOBALS['table']];
+        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
             Config::getInstance()->settings['DefaultTabTable'],
             'table',
@@ -117,7 +117,7 @@ class ExportController extends AbstractController
         $options = $this->export->getOptions(
             $exportType,
             Current::$database,
-            $GLOBALS['table'],
+            Current::$table,
             $GLOBALS['sql_query'],
             $GLOBALS['num_tables'],
             $GLOBALS['unlim_num_rows'],

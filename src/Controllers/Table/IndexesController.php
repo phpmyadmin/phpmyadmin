@@ -52,7 +52,7 @@ class IndexesController extends AbstractController
                 return;
             }
 
-            $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => $GLOBALS['table']];
+            $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
                 Config::getInstance()->settings['DefaultTabTable'],
                 'table',
@@ -93,7 +93,7 @@ class IndexesController extends AbstractController
                 // coming already from form
                 $index = new Index($_POST['index']);
             } else {
-                $index = $this->dbi->getTable(Current::$database, $GLOBALS['table'])->getIndex($_POST['index']);
+                $index = $this->dbi->getTable(Current::$database, Current::$table)->getIndex($_POST['index']);
             }
         } else {
             $index = new Index();
@@ -105,7 +105,7 @@ class IndexesController extends AbstractController
                 $index,
                 false,
                 Current::$database,
-                $GLOBALS['table'],
+                Current::$table,
                 $request->hasBodyParam('preview_sql'),
             );
 
@@ -156,11 +156,11 @@ class IndexesController extends AbstractController
             $index->set($indexParams);
             $addFields = count($fields);
         } else {
-            $fields = $this->dbi->getTable(Current::$database, $GLOBALS['table'])
+            $fields = $this->dbi->getTable(Current::$database, Current::$table)
                 ->getNameAndTypeOfTheColumns();
         }
 
-        $formParams = ['db' => Current::$database, 'table' => $GLOBALS['table']];
+        $formParams = ['db' => Current::$database, 'table' => Current::$table];
 
         if (isset($_POST['create_index'])) {
             $formParams['create_index'] = 1;

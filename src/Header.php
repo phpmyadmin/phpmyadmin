@@ -90,7 +90,7 @@ class Header
         $dbi = DatabaseInterface::getInstance();
         $this->console = $console;
         $this->menuEnabled = $dbi->isConnected();
-        $this->menu = new Menu($dbi, $this->template, Current::$database, $GLOBALS['table'] ?? '');
+        $this->menu = new Menu($dbi, $this->template, Current::$database, Current::$table ?? '');
         $this->scripts = new Scripts($this->template);
         $this->addDefaultScripts();
 
@@ -137,7 +137,7 @@ class Header
             'opendb_url' => Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database'),
             'lang' => $GLOBALS['lang'],
             'server' => $GLOBALS['server'],
-            'table' => $GLOBALS['table'] ?? '',
+            'table' => Current::$table ?? '',
             'db' => Current::$database,
             'token' => $_SESSION[' PMA_token '],
             'text_dir' => $GLOBALS['text_dir'],
@@ -262,10 +262,10 @@ class Header
         }
 
         $recentTable = '';
-        if (empty($_REQUEST['recent_table']) && $GLOBALS['table'] !== '') {
+        if (empty($_REQUEST['recent_table']) && Current::$table !== '') {
             $recentTable = $this->addRecentTable(
                 DatabaseName::from(Current::$database),
-                TableName::from($GLOBALS['table']),
+                TableName::from(Current::$table),
             );
         }
 
@@ -508,7 +508,7 @@ class Header
         if (strlen($this->title) == 0) {
             if ($GLOBALS['server'] > 0) {
                 $config = Config::getInstance();
-                if ($GLOBALS['table'] !== '') {
+                if (Current::$table !== '') {
                     $tempTitle = $config->settings['TitleTable'];
                 } elseif (Current::$database !== '') {
                     $tempTitle = $config->settings['TitleDatabase'];

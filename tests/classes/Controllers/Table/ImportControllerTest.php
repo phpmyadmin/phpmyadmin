@@ -32,7 +32,7 @@ class ImportControllerTest extends AbstractTestCase
     {
         $GLOBALS['server'] = 2;
         Current::$database = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$table = 'test_table';
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['lang'] = 'en';
         $config = Config::getInstance();

@@ -65,14 +65,14 @@ class RoutinesController extends AbstractController
              * Displays the header and tabs
              */
             if (
-                ! empty($GLOBALS['table'])
-                && in_array($GLOBALS['table'], $this->dbi->getTables(Current::$database), true)
+                ! empty(Current::$table)
+                && in_array(Current::$table, $this->dbi->getTables(Current::$database), true)
             ) {
                 if (! $this->checkParameters(['db', 'table'])) {
                     return;
                 }
 
-                $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => $GLOBALS['table']];
+                $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
                 $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
                 $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
@@ -90,7 +90,7 @@ class RoutinesController extends AbstractController
                     return;
                 }
             } else {
-                $GLOBALS['table'] = '';
+                Current::$table = '';
 
                 if (! $this->checkParameters(['db'])) {
                     return;
@@ -485,10 +485,10 @@ class RoutinesController extends AbstractController
 
         $this->render('database/routines/index', [
             'db' => Current::$database,
-            'table' => $GLOBALS['table'],
+            'table' => Current::$table,
             'items' => $items,
             'rows' => $rows,
-            'has_privilege' => Util::currentUserHasPrivilege('CREATE ROUTINE', Current::$database, $GLOBALS['table']),
+            'has_privilege' => Util::currentUserHasPrivilege('CREATE ROUTINE', Current::$database, Current::$table),
         ]);
     }
 }

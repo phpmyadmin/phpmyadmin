@@ -44,7 +44,7 @@ class AuthenticationHttpTest extends AbstractTestCase
         Config::getInstance()->settings['Servers'] = [];
         $GLOBALS['server'] = 0;
         Current::$database = 'db';
-        $GLOBALS['table'] = 'table';
+        Current::$table = 'table';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['token_provided'] = true;

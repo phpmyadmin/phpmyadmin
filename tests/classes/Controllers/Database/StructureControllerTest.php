@@ -44,7 +44,7 @@ class StructureControllerTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = 1;
         Config::getInstance()->selectedServer['DisableIS'] = false;
-        $GLOBALS['table'] = 'table';
+        Current::$table = 'table';
         Current::$database = 'db';
 
         $table = $this->getMockBuilder(Table::class)
@@ -315,7 +315,7 @@ class StructureControllerTest extends AbstractTestCase
         parent::loadDbiIntoContainerBuilder();
 
         Current::$database = 'testdb';
-        $GLOBALS['table'] = 'mytable';
+        Current::$table = 'mytable';
 
         /** @var StructureController $structureController */
         $structureController = Core::getContainerBuilder()->get(StructureController::class);

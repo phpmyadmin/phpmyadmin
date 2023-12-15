@@ -64,7 +64,7 @@ class FindReplaceController extends AbstractController
             return;
         }
 
-        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => $GLOBALS['table']];
+        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
             Config::getInstance()->settings['DefaultTabTable'],
             'table',
@@ -135,7 +135,7 @@ class FindReplaceController extends AbstractController
     private function loadTableInfo(): void
     {
         // Gets the list and number of columns
-        $columns = $this->dbi->getColumns(Current::$database, $GLOBALS['table'], true);
+        $columns = $this->dbi->getColumns(Current::$database, Current::$table, true);
 
         foreach ($columns as $row) {
             // set column name
@@ -184,7 +184,7 @@ class FindReplaceController extends AbstractController
 
         $this->render('table/find_replace/index', [
             'db' => Current::$database,
-            'table' => $GLOBALS['table'],
+            'table' => Current::$table,
             'goto' => $GLOBALS['goto'],
             'column_names' => $this->columnNames,
             'types' => $types,
@@ -222,7 +222,7 @@ class FindReplaceController extends AbstractController
                 . "'),"
                 . ' COUNT(*)'
                 . ' FROM ' . Util::backquote(Current::$database)
-                . '.' . Util::backquote($GLOBALS['table'])
+                . '.' . Util::backquote(Current::$table)
                 . ' WHERE ' . Util::backquote($column)
                 . " LIKE '%" . $find . "%' COLLATE " . $charSet . '_bin'; // here we
             // change the collation of the 2nd operand to a case sensitive
@@ -236,7 +236,7 @@ class FindReplaceController extends AbstractController
 
         return $this->template->render('table/find_replace/replace_preview', [
             'db' => Current::$database,
-            'table' => $GLOBALS['table'],
+            'table' => Current::$table,
             'column_index' => $columnIndex,
             'find' => $find,
             'replace_with' => $replaceWith,
@@ -267,7 +267,7 @@ class FindReplaceController extends AbstractController
             . ' 1,' // to add an extra column that will have replaced value
             . ' COUNT(*)'
             . ' FROM ' . Util::backquote(Current::$database)
-            . '.' . Util::backquote($GLOBALS['table'])
+            . '.' . Util::backquote(Current::$table)
             . ' WHERE ' . Util::backquote($column)
             . ' RLIKE ' . $this->dbi->quoteString($find) . ' COLLATE '
             . $charSet . '_bin'; // here we
@@ -313,7 +313,7 @@ class FindReplaceController extends AbstractController
         $column = $this->columnNames[$columnIndex];
         if ($useRegex) {
             $toReplace = $this->getRegexReplaceRows($columnIndex, $find, $replaceWith, $charSet);
-            $sqlQuery = 'UPDATE ' . Util::backquote($GLOBALS['table'])
+            $sqlQuery = 'UPDATE ' . Util::backquote(Current::$table)
                 . ' SET ' . Util::backquote($column);
 
             if (is_array($toReplace)) {
@@ -338,7 +338,7 @@ class FindReplaceController extends AbstractController
             // binary collation to make sure that the comparison
             // is case sensitive
         } else {
-            $sqlQuery = 'UPDATE ' . Util::backquote($GLOBALS['table'])
+            $sqlQuery = 'UPDATE ' . Util::backquote(Current::$table)
                 . ' SET ' . Util::backquote($column) . ' ='
                 . ' REPLACE('
                 . Util::backquote($column) . ", '" . $find . "', '"

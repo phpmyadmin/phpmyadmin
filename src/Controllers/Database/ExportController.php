@@ -157,7 +157,7 @@ final class ExportController extends AbstractController
         $options = $this->exportOptions->getOptions(
             $exportType,
             Current::$database,
-            $GLOBALS['table'],
+            Current::$table,
             $GLOBALS['sql_query'],
             $GLOBALS['num_tables'],
             $GLOBALS['unlim_num_rows'],

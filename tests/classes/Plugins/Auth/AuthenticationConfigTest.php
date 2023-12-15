@@ -41,7 +41,7 @@ class AuthenticationConfigTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         Current::$database = 'db';
-        $GLOBALS['table'] = 'table';
+        Current::$table = 'table';
         $GLOBALS['token_provided'] = true;
         $GLOBALS['token_mismatch'] = false;
         $this->object = new AuthenticationConfig();

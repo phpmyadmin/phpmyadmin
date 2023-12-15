@@ -21,7 +21,7 @@ class DeleteRowsControllerTest extends AbstractTestCase
     {
         $GLOBALS['goto'] = null;
         Current::$database = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$table = 'test_table';
         $GLOBALS['urlParams'] = [];
         $config = Config::getInstance();
         $config->selectedServer = $config->getSettings()->Servers[1]->asArray();

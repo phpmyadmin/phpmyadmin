@@ -48,7 +48,7 @@ class SqlTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->dbi;
         $GLOBALS['server'] = 1;
         Current::$database = 'db';
-        $GLOBALS['table'] = 'table';
+        Current::$table = 'table';
         $config = Config::getInstance();
         $config->settings['AllowThirdPartyFraming'] = false;
         $config->settings['SendErrorReports'] = 'ask';
@@ -591,7 +591,7 @@ class SqlTest extends AbstractTestCase
         );
         $_SESSION['sql_from_query_box'] = true;
         Current::$database = 'sakila';
-        $GLOBALS['table'] = 'country';
+        Current::$table = 'country';
         $GLOBALS['sql_query'] = 'SELECT * FROM `sakila`.`country` LIMIT 0, 3;';
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = true;

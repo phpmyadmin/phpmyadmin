@@ -64,7 +64,7 @@ class ImportShpTest extends AbstractTestCase
         $GLOBALS['read_multiply'] = 10;
         $GLOBALS['import_type'] = 'ods';
         Current::$database = '';
-        $GLOBALS['table'] = '';
+        Current::$table = '';
     }
 
     /**

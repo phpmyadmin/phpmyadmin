@@ -510,7 +510,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
 
         Current::$database = '';
-        $GLOBALS['table'] = '';
+        Current::$table = '';
         $GLOBALS['server'] = 1;
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = true;

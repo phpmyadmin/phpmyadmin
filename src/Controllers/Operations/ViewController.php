@@ -41,7 +41,7 @@ class ViewController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['urlParams'] ??= null;
-        $tableObject = $this->dbi->getTable(Current::$database, $GLOBALS['table']);
+        $tableObject = $this->dbi->getTable(Current::$database, Current::$table);
 
         $GLOBALS['errorUrl'] ??= null;
         $this->addScriptFiles(['table/operations.js']);
@@ -50,7 +50,7 @@ class ViewController extends AbstractController
             return;
         }
 
-        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => $GLOBALS['table']];
+        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
             Config::getInstance()->settings['DefaultTabTable'],
             'table',
@@ -96,7 +96,7 @@ class ViewController extends AbstractController
             if (is_string($newname) && $tableObject->rename($newname)) {
                 $message->addText($tableObject->getLastMessage());
                 $result = true;
-                $GLOBALS['table'] = $tableObject->getName();
+                Current::$table = $tableObject->getName();
                 /* Force reread after rename */
                 $tableObject->getStatusInfo(null, true);
                 $GLOBALS['reload'] = true;
@@ -137,7 +137,7 @@ class ViewController extends AbstractController
 
         $this->render('table/operations/view', [
             'db' => Current::$database,
-            'table' => $GLOBALS['table'],
+            'table' => Current::$table,
             'url_params' => $GLOBALS['urlParams'],
         ]);
     }

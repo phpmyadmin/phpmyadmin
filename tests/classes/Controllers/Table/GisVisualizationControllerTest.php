@@ -28,7 +28,7 @@ class GisVisualizationControllerTest extends AbstractTestCase
         $GLOBALS['server'] = 2;
         $GLOBALS['lang'] = 'en';
         Current::$database = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$table = 'test_table';
         $_GET['sql_query'] = null;
         $_POST['sql_query'] = 'SELECT * FROM `gis_all`';
         $_POST['pos'] = 0;

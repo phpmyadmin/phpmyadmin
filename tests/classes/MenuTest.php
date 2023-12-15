@@ -36,7 +36,7 @@ class MenuTest extends AbstractTestCase
         $config->selectedServer['verbose'] = 'verbose host';
         $GLOBALS['server'] = 'server';
         Current::$database = 'pma_test';
-        $GLOBALS['table'] = 'table1';
+        Current::$table = 'table1';
     }
 
     /**

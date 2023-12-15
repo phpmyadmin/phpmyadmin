@@ -95,7 +95,7 @@ final class EventsController extends AbstractController
                             'new_row',
                             $this->template->render('database/events/row', [
                                 'db' => Current::$database,
-                                'table' => $GLOBALS['table'],
+                                'table' => Current::$table,
                                 'event' => $event,
                                 'has_privilege' => Util::currentUserHasPrivilege('EVENT', Current::$database),
                                 'sql_drop' => $sqlDrop,

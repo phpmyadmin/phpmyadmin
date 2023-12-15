@@ -23,7 +23,7 @@ final class ZoomSearchControllerTest extends AbstractTestCase
     {
         $GLOBALS['server'] = 2;
         Current::$database = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$table = 'test_table';
         $GLOBALS['text_dir'] = 'ltr';
         Config::getInstance()->selectedServer['DisableIS'] = true;
 
@@ -50,7 +50,7 @@ final class ZoomSearchControllerTest extends AbstractTestCase
 
         $expected = $template->render('table/zoom_search/index', [
             'db' => Current::$database,
-            'table' => $GLOBALS['table'],
+            'table' => Current::$table,
             'goto' => 'index.php?route=/sql&server=2&lang=en',
             'self' => $controller,
             'geom_column_flag' => false,
@@ -68,7 +68,7 @@ final class ZoomSearchControllerTest extends AbstractTestCase
     public function testChangeTableInfoAction(): void
     {
         Current::$database = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$table = 'test_table';
         Config::getInstance()->selectedServer['DisableIS'] = true;
 
         $_POST['field'] = 'datetimefield';

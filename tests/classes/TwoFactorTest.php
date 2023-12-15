@@ -41,7 +41,7 @@ class TwoFactorTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->dbi;
         $GLOBALS['server'] = 1;
         Current::$database = '';
-        $GLOBALS['table'] = 'table';
+        Current::$table = 'table';
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
         $config->settings['DBG'] = ['simple2fa' => false, 'sql' => false];

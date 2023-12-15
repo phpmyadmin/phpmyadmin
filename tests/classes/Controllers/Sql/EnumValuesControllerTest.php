@@ -42,7 +42,7 @@ class EnumValuesControllerTest extends AbstractTestCase
         $this->dummyDbi->addResult('SHOW INDEXES FROM `cvv`.`enums`', false);
 
         Current::$database = 'cvv';
-        $GLOBALS['table'] = 'enums';
+        Current::$table = 'enums';
 
         $request = $this->createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
@@ -83,7 +83,7 @@ class EnumValuesControllerTest extends AbstractTestCase
         $this->dummyDbi->addResult('SHOW INDEXES FROM `cvv`.`enums`', []);
 
         Current::$database = 'cvv';
-        $GLOBALS['table'] = 'enums';
+        Current::$table = 'enums';
 
         $request = $this->createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([

@@ -45,7 +45,7 @@ final class IndexRenameController extends AbstractController
                 return;
             }
 
-            $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => $GLOBALS['table']];
+            $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
                 Config::getInstance()->settings['DefaultTabTable'],
                 'table',
@@ -86,7 +86,7 @@ final class IndexRenameController extends AbstractController
                 // coming already from form
                 $index = new Index($_POST['index']);
             } else {
-                $index = $this->dbi->getTable(Current::$database, $GLOBALS['table'])->getIndex($_POST['index']);
+                $index = $this->dbi->getTable(Current::$database, Current::$table)->getIndex($_POST['index']);
             }
         } else {
             $index = new Index();
@@ -99,7 +99,7 @@ final class IndexRenameController extends AbstractController
                 $index,
                 true,
                 Current::$database,
-                $GLOBALS['table'],
+                Current::$table,
                 $request->hasBodyParam('preview_sql'),
                 $oldIndexName,
             );
@@ -119,7 +119,7 @@ final class IndexRenameController extends AbstractController
     {
         $this->dbi->selectDb(Current::$database);
 
-        $formParams = ['db' => Current::$database, 'table' => $GLOBALS['table']];
+        $formParams = ['db' => Current::$database, 'table' => Current::$table];
 
         if (isset($_POST['old_index'])) {
             $formParams['old_index'] = $_POST['old_index'];

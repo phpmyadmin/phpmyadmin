@@ -30,7 +30,7 @@ final class FirstStepController extends AbstractController
             $normalForm = $normalizeTo;
         }
 
-        $html = $this->normalization->getHtmlFor1NFStep1(Current::$database, $GLOBALS['table'], $normalForm);
+        $html = $this->normalization->getHtmlFor1NFStep1(Current::$database, Current::$table, $normalForm);
         $this->response->addHTML($html);
     }
 }

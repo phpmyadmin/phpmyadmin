@@ -36,7 +36,7 @@ class PrivilegesControllerTest extends AbstractTestCase
     public function testIndex(): void
     {
         Current::$database = 'db';
-        $GLOBALS['table'] = 'table';
+        Current::$table = 'table';
         $GLOBALS['server'] = 0;
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
@@ -58,10 +58,10 @@ class PrivilegesControllerTest extends AbstractTestCase
         ))($request);
         $actual = $response->getHTMLResult();
 
-        $this->assertStringContainsString(Current::$database . '.' . $GLOBALS['table'], $actual);
+        $this->assertStringContainsString(Current::$database . '.' . Current::$table, $actual);
 
         //validate 2: Url::getCommon
-        $item = Url::getCommon(['db' => Current::$database, 'table' => $GLOBALS['table']], '');
+        $item = Url::getCommon(['db' => Current::$database, 'table' => Current::$table], '');
         $this->assertStringContainsString($item, $actual);
 
         //validate 3: items

@@ -182,11 +182,11 @@ final class ExportController extends AbstractController
             // Check if we have something to export
             $GLOBALS['tables'] = $GLOBALS['table_select'] ?? [];
         } elseif (
-            $GLOBALS['export_type'] === 'table' && Current::$database !== '' && strlen($GLOBALS['table']) > 0
+            $GLOBALS['export_type'] === 'table' && Current::$database !== '' && strlen(Current::$table) > 0
         ) {
             $GLOBALS['errorUrl'] = Url::getFromRoute('/table/export', [
                 'db' => Current::$database,
-                'table' => $GLOBALS['table'],
+                'table' => Current::$table,
             ]);
         } elseif ($GLOBALS['export_type'] === 'raw') {
             $GLOBALS['errorUrl'] = Url::getFromRoute('/server/export', ['sql_query' => $GLOBALS['sql_query']]);
@@ -314,7 +314,7 @@ final class ExportController extends AbstractController
             echo $this->export->getHtmlForDisplayedExportHeader(
                 $GLOBALS['export_type'],
                 Current::$database,
-                $GLOBALS['table'],
+                Current::$table,
             );
         }
 
@@ -435,10 +435,10 @@ final class ExportController extends AbstractController
 
                 if ($lockTables) {
                     try {
-                        $this->export->lockTables(DatabaseName::from(Current::$database), [$GLOBALS['table']], 'READ');
+                        $this->export->lockTables(DatabaseName::from(Current::$database), [Current::$table], 'READ');
                         $this->export->exportTable(
                             Current::$database,
-                            $GLOBALS['table'],
+                            Current::$table,
                             $whatStrucOrData,
                             $exportPlugin,
                             $GLOBALS['errorUrl'],
@@ -459,7 +459,7 @@ final class ExportController extends AbstractController
                 } else {
                     $this->export->exportTable(
                         Current::$database,
-                        $GLOBALS['table'],
+                        Current::$table,
                         $whatStrucOrData,
                         $exportPlugin,
                         $GLOBALS['errorUrl'],
@@ -498,7 +498,7 @@ final class ExportController extends AbstractController
             echo $this->export->getHtmlForDisplayedExportFooter(
                 $GLOBALS['export_type'],
                 Current::$database,
-                $GLOBALS['table'],
+                Current::$table,
             );
 
             return;

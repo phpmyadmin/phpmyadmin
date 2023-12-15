@@ -64,10 +64,10 @@ class TableController extends AbstractController
         $this->checkUserPrivileges->getPrivileges();
 
         if ($this->dbi->getLowerCaseNames() === 1) {
-            $GLOBALS['table'] = mb_strtolower($GLOBALS['table']);
+            Current::$table = mb_strtolower(Current::$table);
         }
 
-        $pmaTable = $this->dbi->getTable(Current::$database, $GLOBALS['table']);
+        $pmaTable = $this->dbi->getTable(Current::$database, Current::$table);
 
         $this->addScriptFiles(['table/operations.js']);
 
@@ -76,7 +76,7 @@ class TableController extends AbstractController
         }
 
         $isSystemSchema = Utilities::isSystemSchema(Current::$database);
-        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => $GLOBALS['table']];
+        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
         $config = Config::getInstance();
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
         $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
@@ -147,14 +147,14 @@ class TableController extends AbstractController
             $createOptions['page_checksum'] ??= '';
         }
 
-        $pmaTable = $this->dbi->getTable(Current::$database, $GLOBALS['table']);
+        $pmaTable = $this->dbi->getTable(Current::$database, Current::$table);
         $rereadInfo = false;
 
         /**
          * If the table has to be moved to some other database
          */
         if ($request->hasBodyParam('submit_move') || $request->hasBodyParam('submit_copy')) {
-            $message = $this->operations->moveOrCopyTable(Current::$database, $GLOBALS['table']);
+            $message = $this->operations->moveOrCopyTable(Current::$database, Current::$table);
 
             if (! $request->isAjax()) {
                 return;
@@ -213,7 +213,7 @@ class TableController extends AbstractController
                     $this->dbi->selectDb($oldDb);
                     $newMessage .= $pmaTable->getLastMessage();
                     $result = true;
-                    $GLOBALS['table'] = $pmaTable->getName();
+                    Current::$table = $pmaTable->getName();
                     $rereadInfo = true;
                     $GLOBALS['reload'] = true;
                 } else {
@@ -254,7 +254,7 @@ class TableController extends AbstractController
 
             if ($tableAlters !== []) {
                 $GLOBALS['sql_query'] = 'ALTER TABLE '
-                    . Util::backquote($GLOBALS['table']);
+                    . Util::backquote(Current::$table);
                 $GLOBALS['sql_query'] .= "\r\n" . implode("\r\n", $tableAlters);
                 $GLOBALS['sql_query'] .= ';';
                 $this->dbi->query($GLOBALS['sql_query']);
@@ -269,11 +269,7 @@ class TableController extends AbstractController
                 is_string($tableCollationParam) && $tableCollationParam !== ''
                 && $request->getParsedBodyParam('change_all_collations')
             ) {
-                $this->operations->changeAllColumnsCollation(
-                    Current::$database,
-                    $GLOBALS['table'],
-                    $tableCollationParam,
-                );
+                $this->operations->changeAllColumnsCollation(Current::$database, Current::$table, $tableCollationParam);
             }
 
             if ($tableCollationParam !== null && (! is_string($tableCollationParam) || $tableCollationParam === '')) {
@@ -299,7 +295,7 @@ class TableController extends AbstractController
             /** @var mixed $orderOrder */
             $orderOrder = $request->getParsedBodyParam('order_order');
             $GLOBALS['sql_query'] = QueryGenerator::getQueryForReorderingTable(
-                $GLOBALS['table'],
+                Current::$table,
                 urldecode($orderField),
                 is_string($orderOrder) ? $orderOrder : '',
             );
@@ -319,7 +315,7 @@ class TableController extends AbstractController
             /** @var mixed $partitionNames */
             $partitionNames = $request->getParsedBodyParam('partition_name');
             $GLOBALS['sql_query'] = QueryGenerator::getQueryForPartitioningTable(
-                $GLOBALS['table'],
+                Current::$table,
                 $partitionOperation,
                 is_array($partitionNames) ? $partitionNames : [],
             );
@@ -409,14 +405,14 @@ class TableController extends AbstractController
 
         $GLOBALS['urlParams']['goto'] = $GLOBALS['urlParams']['back'] = Url::getFromRoute('/table/operations');
 
-        $columns = $this->dbi->getColumns(Current::$database, $GLOBALS['table']);
+        $columns = $this->dbi->getColumns(Current::$database, Current::$table);
 
         $hideOrderTable = false;
         // `ALTER TABLE ORDER BY` does not make sense for InnoDB tables that contain
         // a user-defined clustered index (PRIMARY KEY or NOT NULL UNIQUE index).
         // InnoDB always orders table rows according to such an index if one is present.
         if ($tableStorageEngine === 'INNODB') {
-            $indexes = Index::getFromTable($this->dbi, $GLOBALS['table'], Current::$database);
+            $indexes = Index::getFromTable($this->dbi, Current::$table, Current::$database);
             foreach ($indexes as $name => $idx) {
                 if ($name === 'PRIMARY') {
                     $hideOrderTable = true;
@@ -473,7 +469,7 @@ class TableController extends AbstractController
             $databaseList = $listDatabase->getList();
         }
 
-        $hasForeignKeys = $this->relation->getForeigners(Current::$database, $GLOBALS['table'], '', 'foreign') !== [];
+        $hasForeignKeys = $this->relation->getForeigners(Current::$database, Current::$table, '', 'foreign') !== [];
         $hasPrivileges = $GLOBALS['table_priv'] && $GLOBALS['col_priv'] && $GLOBALS['is_reload_priv'];
         $switchToNew = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];
 
@@ -481,7 +477,7 @@ class TableController extends AbstractController
         $partitionsChoices = [];
 
         if (Partition::havePartitioning()) {
-            $partitionNames = Partition::getPartitionNames(Current::$database, $GLOBALS['table']);
+            $partitionNames = Partition::getPartitionNames(Current::$database, Current::$table);
             if (isset($partitionNames[0])) {
                 $partitions = $partitionNames;
                 $partitionsChoices = $this->operations->getPartitionMaintenanceChoices();
@@ -495,7 +491,7 @@ class TableController extends AbstractController
 
         $this->render('table/operations/index', [
             'db' => Current::$database,
-            'table' => $GLOBALS['table'],
+            'table' => Current::$table,
             'url_params' => $GLOBALS['urlParams'],
             'columns' => $columns,
             'hide_order_table' => $hideOrderTable,
