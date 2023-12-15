@@ -53,7 +53,6 @@ class SqlController extends AbstractController
         $GLOBALS['message_to_show'] ??= null;
         $GLOBALS['disp_message'] ??= null;
         $GLOBALS['complete_query'] ??= null;
-        $GLOBALS['is_gotofile'] ??= null;
         $GLOBALS['back'] ??= null;
         $GLOBALS['table_from_sql'] ??= null;
 
@@ -80,7 +79,7 @@ class SqlController extends AbstractController
         /**
          * Defines the url to return to in case of error in a sql statement
          */
-        $GLOBALS['is_gotofile'] = true;
+        $isGotofile = true;
         $config = Config::getInstance();
         if (empty($GLOBALS['goto'])) {
             if (empty($GLOBALS['table'])) {
@@ -186,7 +185,7 @@ class SqlController extends AbstractController
          * Sets or modifies the $goto variable if required
          */
         if ($GLOBALS['goto'] === Url::getFromRoute('/sql')) {
-            $GLOBALS['is_gotofile'] = false;
+            $isGotofile = false;
             $GLOBALS['goto'] = Url::getFromRoute('/sql', [
                 'db' => $GLOBALS['db'],
                 'table' => $GLOBALS['table'],
@@ -196,7 +195,7 @@ class SqlController extends AbstractController
 
         $this->response->addHTML($this->sql->executeQueryAndSendQueryResponse(
             $statementInfo,
-            $GLOBALS['is_gotofile'],
+            $isGotofile,
             $GLOBALS['db'],
             $GLOBALS['table'],
             $GLOBALS['import_text'] ?? null,

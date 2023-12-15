@@ -5281,11 +5281,6 @@ parameters:
 			path: src/Controllers/Sql/SqlController.php
 
 		-
-			message: "#^Parameter \\#2 \\$isGotoFile of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects bool, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Sql/SqlController.php
-
-		-
 			message: "#^Parameter \\#2 \\$signature of static method PhpMyAdmin\\\\Core\\:\\:checkSqlQuerySignature\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
