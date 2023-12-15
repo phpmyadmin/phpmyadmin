@@ -177,12 +177,12 @@ final class ExportController extends AbstractController
         // Generate error url and check for needed variables
         if ($GLOBALS['export_type'] === 'server') {
             $GLOBALS['errorUrl'] = Url::getFromRoute('/server/export');
-        } elseif ($GLOBALS['export_type'] === 'database' && strlen(Current::$database) > 0) {
+        } elseif ($GLOBALS['export_type'] === 'database' && Current::$database !== '') {
             $GLOBALS['errorUrl'] = Url::getFromRoute('/database/export', ['db' => Current::$database]);
             // Check if we have something to export
             $GLOBALS['tables'] = $GLOBALS['table_select'] ?? [];
         } elseif (
-            $GLOBALS['export_type'] === 'table' && strlen(Current::$database) > 0 && strlen($GLOBALS['table']) > 0
+            $GLOBALS['export_type'] === 'table' && Current::$database !== '' && strlen($GLOBALS['table']) > 0
         ) {
             $GLOBALS['errorUrl'] = Url::getFromRoute('/table/export', [
                 'db' => Current::$database,

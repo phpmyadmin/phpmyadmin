@@ -248,9 +248,9 @@ final class ImportController extends AbstractController
         // We don't want anything special in format
         $GLOBALS['format'] = Core::securePath($GLOBALS['format']);
 
-        if (strlen($GLOBALS['table']) > 0 && strlen(Current::$database) > 0) {
+        if (strlen($GLOBALS['table']) > 0 && Current::$database !== '') {
             $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => $GLOBALS['table']];
-        } elseif (strlen(Current::$database) > 0) {
+        } elseif (Current::$database !== '') {
             $GLOBALS['urlParams'] = ['db' => Current::$database];
         } else {
             $GLOBALS['urlParams'] = [];
@@ -264,9 +264,9 @@ final class ImportController extends AbstractController
         } elseif ($GLOBALS['import_type'] === 'server') {
             $GLOBALS['goto'] = Url::getFromRoute('/server/import');
         } elseif (empty($GLOBALS['goto']) || ! preg_match('@^index\.php$@i', $GLOBALS['goto'])) {
-            if (strlen($GLOBALS['table']) > 0 && strlen(Current::$database) > 0) {
+            if (strlen($GLOBALS['table']) > 0 && Current::$database !== '') {
                 $GLOBALS['goto'] = Url::getFromRoute('/table/structure');
-            } elseif (strlen(Current::$database) > 0) {
+            } elseif (Current::$database !== '') {
                 $GLOBALS['goto'] = Url::getFromRoute('/database/structure');
             } else {
                 $GLOBALS['goto'] = Url::getFromRoute('/server/sql');
@@ -276,7 +276,7 @@ final class ImportController extends AbstractController
         $GLOBALS['errorUrl'] = $GLOBALS['goto'] . Url::getCommon($GLOBALS['urlParams'], '&');
         $_SESSION['Import_message']['go_back_url'] = $GLOBALS['errorUrl'];
 
-        if (strlen(Current::$database) > 0) {
+        if (Current::$database !== '') {
             $this->dbi->selectDb(Current::$database);
         }
 

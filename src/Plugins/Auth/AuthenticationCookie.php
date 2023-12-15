@@ -456,7 +456,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // any parameters to pass?
         $urlParams = [];
-        if (strlen(Current::$database) > 0) {
+        if (Current::$database !== '') {
             $urlParams['db'] = Current::$database;
         }
 

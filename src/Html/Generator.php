@@ -130,7 +130,7 @@ class Generator
     public static function getDbLink(string $database): string
     {
         if ($database === '') {
-            if ((string) Current::$database === '') {
+            if (Current::$database === '') {
                 return '';
             }
 
@@ -494,11 +494,7 @@ class Generator
 
         // Basic url query part
         $urlParams = [];
-        if (! isset(Current::$database)) {
-            Current::$database = '';
-        }
-
-        if (strlen(Current::$database) > 0) {
+        if (Current::$database !== '') {
             $urlParams['db'] = Current::$database;
             if (strlen($GLOBALS['table']) > 0) {
                 $urlParams['table'] = $GLOBALS['table'];
@@ -806,7 +802,7 @@ class Generator
                     $urlParams['db'] = Current::$database;
                     $urlParams['table'] = $GLOBALS['table'];
                     $doEditGoto = '<a href="' . Url::getFromRoute('/table/sql', $urlParams) . '">';
-                } elseif (strlen(Current::$database) > 0) {
+                } elseif (Current::$database !== '') {
                     $urlParams['db'] = Current::$database;
                     $doEditGoto = '<a href="' . Url::getFromRoute('/database/sql', $urlParams) . '">';
                 } else {

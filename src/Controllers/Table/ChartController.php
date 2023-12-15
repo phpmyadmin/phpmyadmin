@@ -51,7 +51,8 @@ class ChartController extends AbstractController
         if (isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $request->isAjax()) {
             if (
                 strlen($GLOBALS['table']) > 0
-                && strlen(Current::$database) > 0 && ! $this->checkParameters(['db', 'table'])
+                && Current::$database !== ''
+                && ! $this->checkParameters(['db', 'table'])
             ) {
                 return;
             }
@@ -132,7 +133,7 @@ class ChartController extends AbstractController
             $urlParams['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
             $urlParams['back'] = Url::getFromRoute('/table/sql');
             $this->dbi->selectDb(Current::$database);
-        } elseif (strlen(Current::$database) > 0) {
+        } elseif (Current::$database !== '') {
             $urlParams['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
             $urlParams['back'] = Url::getFromRoute('/sql');
 
@@ -221,7 +222,7 @@ class ChartController extends AbstractController
     {
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
-        if (strlen($GLOBALS['table']) > 0 && strlen(Current::$database) > 0) {
+        if (strlen($GLOBALS['table']) > 0 && Current::$database !== '') {
             $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => $GLOBALS['table']];
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
                 Config::getInstance()->settings['DefaultTabTable'],

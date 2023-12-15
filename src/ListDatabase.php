@@ -171,7 +171,7 @@ class ListDatabase extends ListAbstract
      */
     public function getDefault(): string
     {
-        if (strlen(Current::$database) > 0) {
+        if (Current::$database !== '') {
             return Current::$database;
         }
 

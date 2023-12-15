@@ -90,7 +90,7 @@ class Header
         $dbi = DatabaseInterface::getInstance();
         $this->console = $console;
         $this->menuEnabled = $dbi->isConnected();
-        $this->menu = new Menu($dbi, $this->template, Current::$database ?? '', $GLOBALS['table'] ?? '');
+        $this->menu = new Menu($dbi, $this->template, Current::$database, $GLOBALS['table'] ?? '');
         $this->scripts = new Scripts($this->template);
         $this->addDefaultScripts();
 
@@ -138,7 +138,7 @@ class Header
             'lang' => $GLOBALS['lang'],
             'server' => $GLOBALS['server'],
             'table' => $GLOBALS['table'] ?? '',
-            'db' => Current::$database ?? '',
+            'db' => Current::$database,
             'token' => $_SESSION[' PMA_token '],
             'text_dir' => $GLOBALS['text_dir'],
             'LimitChars' => $config->settings['LimitChars'],

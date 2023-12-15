@@ -28,7 +28,6 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function mb_strtolower;
-use function strlen;
 
 /**
  * Handles miscellaneous database operations.
@@ -66,7 +65,7 @@ class DatabaseController extends AbstractController
          * Rename/move or copy database
          */
         if (
-            strlen(Current::$database) > 0 && ($request->hasBodyParam('db_rename') || $request->hasBodyParam('db_copy'))
+            Current::$database !== '' && ($request->hasBodyParam('db_rename') || $request->hasBodyParam('db_copy'))
         ) {
             $move = $request->hasBodyParam('db_rename');
 

@@ -221,7 +221,7 @@ class NavigationTree
      */
     private function getNavigationDbPos(): int
     {
-        if ((Current::$database ?? '') === '') {
+        if (Current::$database === '') {
             return 0;
         }
 

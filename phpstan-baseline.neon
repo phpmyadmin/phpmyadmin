@@ -9191,11 +9191,6 @@ parameters:
 			path: src/Font.php
 
 		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 1
-			path: src/Footer.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 4
 			path: src/Footer.php
@@ -9222,11 +9217,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#4 \\$sqlquery of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:setHistory\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Footer.php
-
-		-
-			message: "#^Right side of && is always true\\.$#"
 			count: 1
 			path: src/Footer.php
 
@@ -9743,11 +9733,6 @@ parameters:
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
 			count: 5
-			path: src/Html/Generator.php
-
-		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 1
 			path: src/Html/Generator.php
 
 		-
@@ -13061,11 +13046,6 @@ parameters:
 			path: src/Plugins/Import/ImportCsv.php
 
 		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportCsv.php
-
-		-
 			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
 			count: 1
 			path: src/Plugins/Import/ImportCsv.php
@@ -13348,11 +13328,6 @@ parameters:
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 2
-			path: src/Plugins/Import/ImportShp.php
-
-		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 1
 			path: src/Plugins/Import/ImportShp.php
 
 		-
@@ -14881,11 +14856,6 @@ parameters:
 			path: src/Replication/ReplicationInfo.php
 
 		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 1
-			path: src/ResponseRenderer.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 5
 			path: src/ResponseRenderer.php
@@ -14897,11 +14867,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function mb_strlen expects string, mixed given\\.$#"
-			count: 1
-			path: src/ResponseRenderer.php
-
-		-
-			message: "#^Right side of && is always true\\.$#"
 			count: 1
 			path: src/ResponseRenderer.php
 

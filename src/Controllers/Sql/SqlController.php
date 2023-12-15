@@ -127,7 +127,7 @@ class SqlController extends AbstractController
 
         // Default to browse if no query set and we have table
         // (needed for browsing from DefaultTabTable)
-        if (empty($GLOBALS['sql_query']) && strlen($GLOBALS['table']) > 0 && strlen(Current::$database) > 0) {
+        if (empty($GLOBALS['sql_query']) && strlen($GLOBALS['table']) > 0 && Current::$database !== '') {
             $GLOBALS['sql_query'] = $this->sql->getDefaultSqlQueryForBrowse(Current::$database, $GLOBALS['table']);
 
             // set $goto to what will be displayed if query returns 0 rows

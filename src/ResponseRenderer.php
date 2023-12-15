@@ -329,8 +329,7 @@ class ResponseRenderer
                 $this->addJSON(
                     'reloadQuerywindow',
                     [
-                        'db' => isset(Current::$database) && is_scalar(Current::$database)
-                            ? (string) Current::$database : '',
+                        'db' => Current::$database,
                         'table' => isset($GLOBALS['table']) && is_scalar($GLOBALS['table'])
                             ? (string) $GLOBALS['table'] : '',
                         'sql_query' => $query,

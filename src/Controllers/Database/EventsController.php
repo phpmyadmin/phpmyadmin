@@ -23,7 +23,6 @@ use function count;
 use function htmlspecialchars;
 use function mb_strtoupper;
 use function sprintf;
-use function strlen;
 use function trim;
 
 final class EventsController extends AbstractController
@@ -63,7 +62,7 @@ final class EventsController extends AbstractController
 
                 return;
             }
-        } elseif (strlen(Current::$database) > 0) {
+        } elseif (Current::$database !== '') {
             $this->dbi->selectDb(Current::$database);
         }
 

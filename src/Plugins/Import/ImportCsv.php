@@ -582,7 +582,7 @@ class ImportCsv extends AbstractImportCsv
                 array_shift($rows);
             }
 
-            $tblName = $this->getTableNameFromImport((string) Current::$database);
+            $tblName = $this->getTableNameFromImport(Current::$database);
 
             $tables[] = [$tblName, $colNames, $rows];
 

@@ -27,7 +27,6 @@ use function htmlspecialchars;
 use function in_array;
 use function mb_strtoupper;
 use function sprintf;
-use function strlen;
 use function trim;
 
 use const ENT_QUOTES;
@@ -110,7 +109,7 @@ class RoutinesController extends AbstractController
                     return;
                 }
             }
-        } elseif (strlen(Current::$database) > 0) {
+        } elseif (Current::$database !== '') {
             $this->dbi->selectDb(Current::$database);
         }
 

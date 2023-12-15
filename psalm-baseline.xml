@@ -2381,7 +2381,13 @@
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$request->getParsedBodyParam('comment')]]></code>
+      <code>Current::$database</code>
+      <code>Current::$database</code>
+      <code>Current::$database</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[['db' => Current::$database]]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
@@ -6063,9 +6069,6 @@
     <InvalidArgument>
       <code>$params</code>
     </InvalidArgument>
-    <MixedArgument>
-      <code>Current::$database</code>
-    </MixedArgument>
     <MixedAssignment>
       <code>$info</code>
       <code>$subObject</code>
@@ -6083,8 +6086,6 @@
       <code><![CDATA[isset($GLOBALS['table']) && is_scalar($GLOBALS['table'])]]></code>
     </RedundantCondition>
     <TypeDoesNotContainType>
-      <code><![CDATA['']]></code>
-      <code><![CDATA['']]></code>
       <code><![CDATA['']]></code>
     </TypeDoesNotContainType>
     <UnusedReturnValue>
@@ -6475,17 +6476,9 @@
     <PossiblyInvalidArgument>
       <code>$message</code>
     </PossiblyInvalidArgument>
-    <RedundantCondition>
-      <code>Current::$database</code>
-      <code>Current::$database</code>
-    </RedundantCondition>
     <RedundantFunctionCallGivenDocblockType>
       <code>strtolower</code>
     </RedundantFunctionCallGivenDocblockType>
-    <TypeDoesNotContainType>
-      <code><![CDATA['']]></code>
-      <code><![CDATA['']]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="src/Html/Generator.php">
     <DeprecatedMethod>
@@ -6515,10 +6508,13 @@
     <MixedArgument>
       <code><![CDATA[$GLOBALS['special_message']]]></code>
       <code>$alt</code>
+      <code>$database</code>
+      <code>$database</code>
       <code>$title</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$key</code>
+      <code><![CDATA[['db' => $database]]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['Import_message']['go_back_url']]]></code>
@@ -6528,6 +6524,7 @@
     </MixedArrayAssignment>
     <MixedAssignment>
       <code>$alt</code>
+      <code>$database</code>
       <code>$title</code>
       <code>$value</code>
     </MixedAssignment>
@@ -6542,17 +6539,11 @@
     <PossiblyUndefinedArrayOffset>
       <code>$parts[1]</code>
     </PossiblyUndefinedArrayOffset>
-    <RedundantCast>
-      <code>(string) Current::$database</code>
-    </RedundantCast>
     <RiskyCast>
       <code><![CDATA[$_REQUEST['pos']]]></code>
       <code><![CDATA[$_REQUEST['session_max_rows']]]></code>
       <code><![CDATA[$_REQUEST['unlim_num_rows']]]></code>
     </RiskyCast>
-    <TypeDoesNotContainType>
-      <code>isset(Current::$database)</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="src/Http/Middleware/Authentication.php">
     <DeprecatedMethod>
@@ -7214,6 +7205,9 @@
       <code>$separator</code>
       <code>$separator</code>
       <code>$value</code>
+      <code>Current::$database</code>
+      <code>Current::$database</code>
+      <code>Current::$database</code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$node->secondIcon['image']]]></code>
@@ -7276,9 +7270,6 @@
       <code>(string) $key</code>
       <code>(string) $key</code>
     </RedundantCast>
-    <RedundantCondition>
-      <code>Current::$database</code>
-    </RedundantCondition>
     <RiskyCast>
       <code><![CDATA[$_GET['pos']]]></code>
       <code><![CDATA[$_POST['n' . $count . '_pos2_value']]]></code>
@@ -7289,7 +7280,6 @@
     </RiskyCast>
     <TypeDoesNotContainType>
       <code><![CDATA[$value > 500]]></code>
-      <code><![CDATA['']]></code>
     </TypeDoesNotContainType>
     <UndefinedMethod>
       <code>setHiddenCount</code>
@@ -8697,7 +8687,6 @@
       <code>$dbCharset</code>
       <code>$dbCollation</code>
       <code>$table</code>
-      <code>Current::$database</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$events</code>
@@ -9153,9 +9142,6 @@
     <PossiblyUnusedReturnValue>
       <code>string[]</code>
     </PossiblyUnusedReturnValue>
-    <RedundantCast>
-      <code>(string) Current::$database</code>
-    </RedundantCast>
   </file>
   <file src="src/Plugins/Import/ImportLdi.php">
     <DeprecatedMethod>
@@ -9385,9 +9371,6 @@
     <PossiblyUnusedReturnValue>
       <code>string[]</code>
     </PossiblyUnusedReturnValue>
-    <RedundantCast>
-      <code>(string) Current::$database</code>
-    </RedundantCast>
   </file>
   <file src="src/Plugins/Import/ImportSql.php">
     <DeprecatedMethod>
@@ -10709,8 +10692,6 @@
       <code><![CDATA[isset($GLOBALS['table']) && is_scalar($GLOBALS['table'])]]></code>
     </RedundantCondition>
     <TypeDoesNotContainType>
-      <code><![CDATA['']]></code>
-      <code><![CDATA['']]></code>
       <code><![CDATA['']]></code>
     </TypeDoesNotContainType>
   </file>
@@ -12078,12 +12059,6 @@
       <code><![CDATA[$tokens[0]->value]]></code>
       <code><![CDATA[$tokens[2]->value]]></code>
     </PossiblyNullPropertyFetch>
-    <RedundantCondition>
-      <code>Current::$database</code>
-    </RedundantCondition>
-    <TypeDoesNotContainType>
-      <code><![CDATA['']]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="src/Tracking/Tracking.php">
     <DeprecatedMethod>

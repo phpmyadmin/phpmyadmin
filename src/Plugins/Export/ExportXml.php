@@ -26,7 +26,6 @@ use function is_array;
 use function mb_substr;
 use function rtrim;
 use function str_replace;
-use function strlen;
 
 use const PHP_VERSION;
 
@@ -520,6 +519,6 @@ class ExportXml extends ExportPlugin
     public static function isAvailable(): bool
     {
         // Can't do server export.
-        return isset(Current::$database) && strlen(Current::$database) > 0;
+        return Current::$database !== '';
     }
 }

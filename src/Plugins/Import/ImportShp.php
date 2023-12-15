@@ -261,7 +261,7 @@ class ImportShp extends ImportPlugin
         }
 
         // Set table name based on the number of tables
-        if (strlen((string) Current::$database) > 0) {
+        if (Current::$database !== '') {
             $result = DatabaseInterface::getInstance()->fetchResult('SHOW TABLES');
             $tableName = 'TABLE ' . (count($result) + 1);
         } else {

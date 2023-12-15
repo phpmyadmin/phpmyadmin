@@ -560,7 +560,7 @@ class Tracker
         }
 
         // Get database name
-        $dbname = trim(Current::$database ?? '', '`');
+        $dbname = trim(Current::$database, '`');
         // $dbname can be empty, for example when coming from Synchronize
         // and this is a query for the remote server
         if ($dbname === '') {
