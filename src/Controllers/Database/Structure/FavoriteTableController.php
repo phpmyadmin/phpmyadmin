@@ -87,11 +87,7 @@ final class FavoriteTableController extends AbstractController
         $changes = true;
         /** @var string $favoriteTableName */
         $favoriteTableName = $request->getParam('favorite_table', '');
-        // TODO: Why is this $GLOBALS['db'] instead of $databaseName
-        $favoriteTable = new RecentFavoriteTable(
-            DatabaseName::from($GLOBALS['db']),
-            TableName::from($favoriteTableName),
-        );
+        $favoriteTable = new RecentFavoriteTable($databaseName, TableName::from($favoriteTableName));
         $alreadyFavorite = $favoriteInstance->contains($favoriteTable);
 
         if (isset($_REQUEST['remove_favorite'])) {
