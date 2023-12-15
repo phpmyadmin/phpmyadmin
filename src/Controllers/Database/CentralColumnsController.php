@@ -11,6 +11,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -35,6 +36,7 @@ class CentralColumnsController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['message'] ??= null;
+        $db = DatabaseName::from($request->getParam('db'));
 
         if ($request->hasBodyParam('edit_save')) {
             $this->response->addHTML((string) $this->editSave([
@@ -48,7 +50,7 @@ class CentralColumnsController extends AbstractController
                 'col_attribute' => $request->getParsedBodyParam('col_attribute'),
                 'col_type' => $request->getParsedBodyParam('col_type'),
                 'collation' => $request->getParsedBodyParam('collation'),
-            ]));
+            ], $db));
 
             return;
         }
@@ -64,13 +66,14 @@ class CentralColumnsController extends AbstractController
                 'col_attribute' => $request->getParsedBodyParam('col_attribute'),
                 'col_type' => $request->getParsedBodyParam('col_type'),
                 'collation' => $request->getParsedBodyParam('collation'),
-            ]);
+            ], $db);
         }
 
         if ($request->hasBodyParam('getColumnList')) {
-            $this->response->addJSON('message', $this->getColumnList([
-                'cur_table' => $request->getParsedBodyParam('cur_table'),
-            ]));
+            $this->response->addJSON('message', $this->centralColumns->getListRaw(
+                $db->getName(),
+                $request->getParsedBodyParam('cur_table', ''),
+            ));
 
             return;
         }
@@ -124,10 +127,11 @@ class CentralColumnsController extends AbstractController
             ]);
         }
 
-        $this->main([
-            'pos' => $request->getParsedBodyParam('pos'),
-            'total_rows' => $request->getParsedBodyParam('total_rows'),
-        ]);
+        $this->main(
+            $request->getParsedBodyParam('pos', ''),
+            $request->getParsedBodyParam('total_rows', ''),
+            $db,
+        );
 
         $pos = 0;
         if (is_numeric($request->getParsedBodyParam('pos'))) {
@@ -135,7 +139,7 @@ class CentralColumnsController extends AbstractController
         }
 
         $numberOfColumns = $this->centralColumns->getColumnsCount(
-            $GLOBALS['db'],
+            $db->getName(),
             $pos,
             Config::getInstance()->settings['MaxRows'],
         );
@@ -149,24 +153,23 @@ class CentralColumnsController extends AbstractController
         $GLOBALS['message'] = $tmpMsg;
     }
 
-    /** @param mixed[] $params Request parameters */
-    public function main(array $params): void
+    public function main(string $totalRows, string $position, DatabaseName $db): void
     {
         $GLOBALS['text_dir'] ??= null;
 
-        if (! empty($params['total_rows']) && is_numeric($params['total_rows'])) {
-            $totalRows = (int) $params['total_rows'];
+        if ($totalRows !== '' && $totalRows !== '0' && is_numeric($totalRows)) {
+            $totalRows = (int) $totalRows;
         } else {
-            $totalRows = $this->centralColumns->getCount($GLOBALS['db']);
+            $totalRows = $this->centralColumns->getCount($db->getName());
         }
 
         $pos = 0;
-        if (isset($params['pos']) && is_numeric($params['pos'])) {
-            $pos = (int) $params['pos'];
+        if (is_numeric($position)) {
+            $pos = (int) $position;
         }
 
         $variables = $this->centralColumns->getTemplateVariablesForMain(
-            $GLOBALS['db'],
+            $db->getName(),
             $totalRows,
             $pos,
             $GLOBALS['text_dir'],
@@ -178,19 +181,9 @@ class CentralColumnsController extends AbstractController
     /**
      * @param mixed[] $params Request parameters
      *
-     * @return mixed[] JSON
-     */
-    public function getColumnList(array $params): array
-    {
-        return $this->centralColumns->getListRaw($GLOBALS['db'], $params['cur_table'] ?? '');
-    }
-
-    /**
-     * @param mixed[] $params Request parameters
-     *
      * @return true|Message
      */
-    public function editSave(array $params): bool|Message
+    public function editSave(array $params, DatabaseName $db): bool|Message
     {
         $columnDefault = $params['col_default'];
         if ($columnDefault === 'NONE' && $params['col_default_sel'] !== 'USER_DEFINED') {
@@ -198,7 +191,7 @@ class CentralColumnsController extends AbstractController
         }
 
         return $this->centralColumns->updateOneColumn(
-            $GLOBALS['db'],
+            $db->getName(),
             $params['orig_col_name'],
             $params['col_name'],
             $params['col_type'],
@@ -216,7 +209,7 @@ class CentralColumnsController extends AbstractController
      *
      * @return true|Message
      */
-    public function addNewColumn(array $params): bool|Message
+    public function addNewColumn(array $params, DatabaseName $db): bool|Message
     {
         $columnDefault = $params['col_default'];
         if ($columnDefault === 'NONE' && $params['col_default_sel'] !== 'USER_DEFINED') {
@@ -224,7 +217,7 @@ class CentralColumnsController extends AbstractController
         }
 
         return $this->centralColumns->updateOneColumn(
-            $GLOBALS['db'],
+            $db->getName(),
             '',
             $params['col_name'],
             $params['col_type'],
