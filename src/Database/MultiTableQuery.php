@@ -91,7 +91,6 @@ class MultiTableQuery
             false, // is_gotofile
             $db, // db
             null, // table
-            null, // find_real_end
             null, // sql_query_for_bookmark - see below
             null, // message_to_show
             null, // sql_data

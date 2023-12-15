@@ -3516,7 +3516,7 @@ parameters:
 			path: src/Controllers/Import/ImportController.php
 
 		-
-			message: "#^Parameter \\#12 \\$sqlQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndGetQueryResponse\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#11 \\$sqlQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndGetQueryResponse\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Import/ImportController.php
 
@@ -3606,7 +3606,7 @@ parameters:
 			path: src/Controllers/Import/ImportController.php
 
 		-
-			message: "#^Parameter \\#9 \\$goto of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndGetQueryResponse\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#8 \\$goto of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndGetQueryResponse\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Import/ImportController.php
 
@@ -5221,11 +5221,6 @@ parameters:
 			path: src/Controllers/Sql/SqlController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Sql\\:\\:findRealEndOfRows\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Sql/SqlController.php
-
-		-
 			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Sql\\:\\:getDefaultSqlQueryForBrowse\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
@@ -5266,22 +5261,17 @@ parameters:
 			path: src/Controllers/Sql/SqlController.php
 
 		-
-			message: "#^Parameter \\#10 \\$dispQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#10 \\$dispMessage of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects PhpMyAdmin\\\\Message\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
 
 		-
-			message: "#^Parameter \\#11 \\$dispMessage of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects PhpMyAdmin\\\\Message\\|string\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#11 \\$sqlQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
 
 		-
-			message: "#^Parameter \\#12 \\$sqlQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Sql/SqlController.php
-
-		-
-			message: "#^Parameter \\#13 \\$completeQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#12 \\$completeQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
 
@@ -5297,11 +5287,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$signature of static method PhpMyAdmin\\\\Core\\:\\:checkSqlQuerySignature\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Sql/SqlController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Sql\\:\\:findRealEndOfRows\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
 
@@ -5326,22 +5311,22 @@ parameters:
 			path: src/Controllers/Sql/SqlController.php
 
 		-
-			message: "#^Parameter \\#5 \\$findRealEnd of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects bool\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#5 \\$sqlQueryForBookmark of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
 
 		-
-			message: "#^Parameter \\#6 \\$sqlQueryForBookmark of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#6 \\$messageToShow of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
 
 		-
-			message: "#^Parameter \\#7 \\$messageToShow of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#8 \\$goto of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
 
 		-
-			message: "#^Parameter \\#9 \\$goto of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#9 \\$dispQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
 
@@ -5821,17 +5806,12 @@ parameters:
 			path: src/Controllers/Table/DeleteRowsController.php
 
 		-
-			message: "#^Parameter \\#10 \\$dispQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#10 \\$dispMessage of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects PhpMyAdmin\\\\Message\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/DeleteRowsController.php
 
 		-
-			message: "#^Parameter \\#11 \\$dispMessage of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects PhpMyAdmin\\\\Message\\|string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/DeleteRowsController.php
-
-		-
-			message: "#^Parameter \\#12 \\$sqlQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#11 \\$sqlQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/DeleteRowsController.php
 
@@ -5861,7 +5841,12 @@ parameters:
 			path: src/Controllers/Table/DeleteRowsController.php
 
 		-
-			message: "#^Parameter \\#9 \\$goto of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#8 \\$goto of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Table/DeleteRowsController.php
+
+		-
+			message: "#^Parameter \\#9 \\$dispQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/DeleteRowsController.php
 
@@ -6871,7 +6856,7 @@ parameters:
 			path: src/Controllers/Table/SearchController.php
 
 		-
-			message: "#^Parameter \\#9 \\$goto of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#8 \\$goto of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/SearchController.php
 

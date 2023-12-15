@@ -159,17 +159,14 @@ class SqlTest extends AbstractTestCase
 
         $this->assertTrue(Sql::isJustBrowsing(
             ParseAnalyze::sqlQuery('SELECT * FROM db.tbl', $GLOBALS['db'])[0],
-            null,
         ));
 
         $this->assertTrue(Sql::isJustBrowsing(
             ParseAnalyze::sqlQuery('SELECT * FROM tbl WHERE 1', $GLOBALS['db'])[0],
-            null,
         ));
 
         $this->assertFalse(Sql::isJustBrowsing(
             ParseAnalyze::sqlQuery('SELECT * from tbl1, tbl2 LIMIT 0, 10', $GLOBALS['db'])[0],
-            null,
         ));
     }
 
@@ -604,7 +601,6 @@ class SqlTest extends AbstractTestCase
             false,
             'sakila',
             'different_table',
-            null,
             null,
             null,
             null,

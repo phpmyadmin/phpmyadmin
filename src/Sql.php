@@ -369,10 +369,8 @@ class Sql
 
     /**
      * Function to check whether this query is for just browsing
-     *
-     * @param bool|null $findRealEnd whether the real end should be found
      */
-    public static function isJustBrowsing(StatementInfo $statementInfo, bool|null $findRealEnd): bool
+    public static function isJustBrowsing(StatementInfo $statementInfo, bool $findRealEnd = false): bool
     {
         return ! $statementInfo->isGroup
             && ! $statementInfo->isFunction
@@ -384,7 +382,7 @@ class Sql
                 || (count($statementInfo->statement->where) === 1
                     && $statementInfo->statement->where[0]->expr === '1'))
             && ! $statementInfo->group
-            && ! isset($findRealEnd)
+            && ! $findRealEnd
             && ! $statementInfo->isSubquery
             && ! $statementInfo->join
             && ! $statementInfo->having;
@@ -410,22 +408,6 @@ class Sql
         bool $isSuperUser,
     ): bool {
         return ! $allowUserDropDatabase && $statementInfo->dropDatabase && ! $isSuperUser;
-    }
-
-    /**
-     * Function to find the real end of rows
-     *
-     * @param string $db    the current database
-     * @param string $table the current table
-     *
-     * @return int the number of rows
-     */
-    public function findRealEndOfRows(string $db, string $table): int
-    {
-        $unlimNumRows = $this->dbi->getTable($db, $table)->countRecords(true);
-        $_SESSION['tmpval']['pos'] = $this->getStartPosToDisplayRow($unlimNumRows);
-
-        return $unlimNumRows;
     }
 
     /**
@@ -717,7 +699,6 @@ class Sql
      * @param bool        $isGotoFile          whether to go to a file
      * @param string      $db                  current database
      * @param string|null $table               current table
-     * @param bool|null   $findRealEnd         whether to find the real end
      * @param string|null $sqlQueryForBookmark sql query to be stored as bookmark
      *
      * @psalm-return array{
@@ -734,7 +715,6 @@ class Sql
         bool $isGotoFile,
         string $db,
         string|null $table,
-        bool|null $findRealEnd,
         string|null $sqlQueryForBookmark,
     ): array {
         $response = ResponseRenderer::getInstance();
@@ -787,7 +767,7 @@ class Sql
 
         $profilingResults = Profiling::getInformation($this->dbi);
 
-        $justBrowsing = self::isJustBrowsing($statementInfo, $findRealEnd ?? null);
+        $justBrowsing = self::isJustBrowsing($statementInfo);
 
         $unlimNumRows = $this->countQueryResults($numRows, $justBrowsing, $db, $table ?? '', $statementInfo);
 
@@ -1469,7 +1449,6 @@ class Sql
      * @param bool                $isGotoFile          whether goto file or not
      * @param string              $db                  current database
      * @param string|null         $table               current table
-     * @param bool|null           $findRealEnd         whether to find real end or not
      * @param string|null         $sqlQueryForBookmark the sql query to be stored as bookmark
      * @param string|null         $messageToShow       message to show
      * @param mixed[]|null        $sqlData             sql data
@@ -1484,7 +1463,6 @@ class Sql
         bool $isGotoFile,
         string $db,
         string|null $table,
-        bool|null $findRealEnd,
         string|null $sqlQueryForBookmark,
         string|null $messageToShow,
         array|null $sqlData,
@@ -1506,7 +1484,6 @@ class Sql
             $isGotoFile, // is_gotofile
             $db, // db
             $table, // table
-            $findRealEnd, // find_real_end
             $sqlQueryForBookmark, // sql_query_for_bookmark
             $messageToShow, // message_to_show
             $sqlData, // sql_data
@@ -1524,7 +1501,6 @@ class Sql
      * @param bool                $isGotoFile          whether goto file or not
      * @param string              $db                  current database
      * @param string|null         $table               current table
-     * @param bool|null           $findRealEnd         whether to find real end or not
      * @param string|null         $sqlQueryForBookmark the sql query to be stored as bookmark
      * @param string|null         $messageToShow       message to show
      * @param mixed[]|null        $sqlData             sql data
@@ -1541,7 +1517,6 @@ class Sql
         bool $isGotoFile,
         string $db,
         string|null $table,
-        bool|null $findRealEnd,
         string|null $sqlQueryForBookmark,
         string|null $messageToShow,
         array|null $sqlData,
@@ -1611,7 +1586,6 @@ class Sql
             $isGotoFile,
             $db,
             $table,
-            $findRealEnd,
             $sqlQueryForBookmark,
         );
 

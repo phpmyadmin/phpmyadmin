@@ -47,7 +47,6 @@ class SqlController extends AbstractController
         $GLOBALS['ajax_reload'] ??= null;
         $GLOBALS['goto'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
-        $GLOBALS['find_real_end'] ??= null;
         $GLOBALS['unlim_num_rows'] ??= null;
         $GLOBALS['import_text'] ??= null;
         $GLOBALS['disp_query'] ??= null;
@@ -173,13 +172,6 @@ class SqlController extends AbstractController
         }
 
         /**
-         * Need to find the real end of rows?
-         */
-        if (isset($GLOBALS['find_real_end']) && $GLOBALS['find_real_end']) {
-            $GLOBALS['unlim_num_rows'] = $this->sql->findRealEndOfRows($GLOBALS['db'], $GLOBALS['table']);
-        }
-
-        /**
          * Bookmark add
          */
         $storeBkm = $request->hasBodyParam('store_bkm');
@@ -207,7 +199,6 @@ class SqlController extends AbstractController
             $GLOBALS['is_gotofile'],
             $GLOBALS['db'],
             $GLOBALS['table'],
-            $GLOBALS['find_real_end'] ?? null,
             $GLOBALS['import_text'] ?? null,
             $GLOBALS['message_to_show'] ?? null,
             null,
