@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\VariablesController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Html\Generator;
@@ -38,7 +39,7 @@ class VariablesControllerTest extends AbstractTestCase
 
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = 'db';
+        Current::$database = 'db';
         $GLOBALS['table'] = 'table';
         Config::getInstance()->selectedServer['DisableIS'] = false;
 

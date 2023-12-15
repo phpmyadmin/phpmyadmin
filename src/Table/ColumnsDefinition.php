@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Table;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Partitioning\Partition;
 use PhpMyAdmin\Partitioning\TablePartitionDefinition;
@@ -75,7 +76,7 @@ final class ColumnsDefinition
         $regenerate = false;
         $lengthValuesInputSize = 8;
         $contentCells = [];
-        $formParams = ['db' => $GLOBALS['db']];
+        $formParams = ['db' => Current::$database];
 
         if ($action === '/table/create') {
             $formParams['reload'] = 1;
@@ -107,17 +108,17 @@ final class ColumnsDefinition
 
         $relationParameters = $this->relation->getRelationParameters();
 
-        $commentsMap = $this->relation->getComments($GLOBALS['db'], $GLOBALS['table']);
+        $commentsMap = $this->relation->getComments(Current::$database, $GLOBALS['table']);
 
         $moveColumns = [];
         if ($fieldsMeta !== null) {
-            $moveColumns = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table'])->getColumnsMeta();
+            $moveColumns = $this->dbi->getTable(Current::$database, $GLOBALS['table'])->getColumnsMeta();
         }
 
         $availableMime = [];
         $config = Config::getInstance();
         if ($relationParameters->browserTransformationFeature !== null && $config->settings['BrowseMIME']) {
-            $GLOBALS['mime_map'] = $this->transformations->getMime($GLOBALS['db'], $GLOBALS['table']);
+            $GLOBALS['mime_map'] = $this->transformations->getMime(Current::$database, $GLOBALS['table']);
             $availableMime = $this->transformations->getAvailableMimeTypes();
         }
 
@@ -140,12 +141,12 @@ final class ColumnsDefinition
             $regenerate = true;
         }
 
-        $foreigners = $this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'foreign');
+        $foreigners = $this->relation->getForeigners(Current::$database, $GLOBALS['table'], '', 'foreign');
         $childReferences = null;
         // From MySQL 5.6.6 onwards columns with foreign keys can be renamed.
         // Hence, no need to get child references
         if ($this->dbi->getVersion() < 50606) {
-            $childReferences = $this->relation->getChildReferences($GLOBALS['db'], $GLOBALS['table']);
+            $childReferences = $this->relation->getChildReferences(Current::$database, $GLOBALS['table']);
         }
 
         /** @infection-ignore-all */
@@ -181,7 +182,7 @@ final class ColumnsDefinition
                 $columnMeta = $fieldsMeta[$columnNumber];
                 $virtual = ['VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED'];
                 if (in_array($columnMeta['Extra'], $virtual, true)) {
-                    $tableObj = new Table($GLOBALS['table'], $GLOBALS['db'], $this->dbi);
+                    $tableObj = new Table($GLOBALS['table'], Current::$database, $this->dbi);
                     $expressions = $tableObj->getColumnGenerationExpression($columnMeta['Field']);
                     $columnMeta['Expression'] = is_array($expressions) ? $expressions[$columnMeta['Field']] : null;
                 }

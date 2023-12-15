@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table\Structure;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\Structure\ChangeController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Template;
@@ -38,7 +39,7 @@ class ChangeControllerTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
         Config::getInstance()->selectedServer['DisableIS'] = false;
-        $GLOBALS['db'] = 'testdb';
+        Current::$database = 'testdb';
         $GLOBALS['table'] = 'mytable';
         $_REQUEST['field'] = '_id';
 

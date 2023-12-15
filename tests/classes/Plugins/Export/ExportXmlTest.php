@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Plugins\Export\ExportXml;
@@ -48,7 +49,7 @@ class ExportXmlTest extends AbstractTestCase
         $GLOBALS['plugin_param'] = [];
         $GLOBALS['plugin_param']['export_type'] = 'table';
         $GLOBALS['plugin_param']['single_table'] = false;
-        $GLOBALS['db'] = 'db';
+        Current::$database = 'db';
         Config::getInstance()->selectedServer['DisableIS'] = true;
         $this->object = new ExportXml(
             new Relation($dbi),
@@ -184,7 +185,7 @@ class ExportXmlTest extends AbstractTestCase
         $GLOBALS['xml_export_triggers'] = 1;
         $GLOBALS['xml_export_procedures'] = 1;
         $GLOBALS['xml_export_functions'] = 1;
-        $GLOBALS['db'] = 'd<"b';
+        Current::$database = 'd<"b';
 
         $result = [
             0 => ['DEFAULT_COLLATION_NAME' => 'utf8_general_ci', 'DEFAULT_CHARACTER_SET_NAME' => 'utf-8'],

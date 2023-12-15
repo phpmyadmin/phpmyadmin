@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server\Status\Processes;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\Processes\RefreshController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Server\Status\Data;
@@ -34,7 +35,7 @@ class RefreshControllerTest extends AbstractTestCase
         parent::setGlobalConfig();
 
         $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = 'db';
+        Current::$database = 'db';
         $GLOBALS['table'] = 'table';
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;

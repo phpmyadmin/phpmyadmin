@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Auth;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Exceptions\SessionHandlerException;
 use PhpMyAdmin\LanguageManager;
@@ -136,8 +137,8 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         $formParams = [];
-        if ($GLOBALS['db'] !== '') {
-            $formParams['db'] = $GLOBALS['db'];
+        if (Current::$database !== '') {
+            $formParams['db'] = Current::$database;
         }
 
         if ($GLOBALS['table'] !== '') {
@@ -455,8 +456,8 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // any parameters to pass?
         $urlParams = [];
-        if (strlen($GLOBALS['db']) > 0) {
-            $urlParams['db'] = $GLOBALS['db'];
+        if (strlen(Current::$database) > 0) {
+            $urlParams['db'] = Current::$database;
         }
 
         if (strlen($GLOBALS['table']) > 0) {

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\MultiTableQuery;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
@@ -25,7 +26,7 @@ class MultiTableQueryController extends AbstractController
     {
         $this->addScriptFiles(['database/multi_table_query.js', 'database/query_generator.js']);
 
-        $queryInstance = new MultiTableQuery($this->dbi, $this->template, $GLOBALS['db']);
+        $queryInstance = new MultiTableQuery($this->dbi, $this->template, Current::$database);
 
         $this->response->addHTML($queryInstance->getFormHtml());
     }

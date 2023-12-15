@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\CollationsController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
@@ -37,7 +38,7 @@ class CollationsControllerTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->dbi;
 
         $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = 'db';
+        Current::$database = 'db';
         $GLOBALS['table'] = 'table';
         Config::getInstance()->selectedServer['DisableIS'] = false;
     }

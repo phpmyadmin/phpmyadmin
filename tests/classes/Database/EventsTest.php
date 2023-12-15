@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -30,7 +31,7 @@ class EventsTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = 0;
-        $GLOBALS['db'] = 'db';
+        Current::$database = 'db';
         $GLOBALS['table'] = 'table';
         Config::getInstance()->selectedServer['DisableIS'] = false;
 

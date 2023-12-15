@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Navigation;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Template;
@@ -32,7 +33,7 @@ class NavigationTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
         $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = 'db';
+        Current::$database = 'db';
         $GLOBALS['table'] = '';
         $config = Config::getInstance();
         $config->selectedServer['user'] = 'user';

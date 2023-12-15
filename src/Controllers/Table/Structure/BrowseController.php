@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table\Structure;
 
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\ResponseRenderer;
@@ -52,18 +53,18 @@ final class BrowseController extends AbstractController
         $sqlQuery = sprintf(
             'SELECT %s FROM %s.%s',
             implode(', ', $fields),
-            Util::backquote($GLOBALS['db']),
+            Util::backquote(Current::$database),
             Util::backquote($GLOBALS['table']),
         );
 
         // Parse and analyze the query
-        [$statementInfo, $GLOBALS['db']] = ParseAnalyze::sqlQuery($sqlQuery, $GLOBALS['db']);
+        [$statementInfo, Current::$database] = ParseAnalyze::sqlQuery($sqlQuery, Current::$database);
 
         $this->response->addHTML(
             $this->sql->executeQueryAndGetQueryResponse(
                 $statementInfo,
                 false, // is_gotofile
-                $GLOBALS['db'], // db
+                Current::$database, // db
                 $GLOBALS['table'], // table
                 null, // sql_query_for_bookmark
                 null, // message_to_show

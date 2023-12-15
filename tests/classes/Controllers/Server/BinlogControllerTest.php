@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\BinlogController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
@@ -41,7 +42,7 @@ class BinlogControllerTest extends AbstractTestCase
         $config->selectedServer['DisableIS'] = false;
 
         $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = 'db';
+        Current::$database = 'db';
         $GLOBALS['table'] = 'table';
 
         SessionCache::set('profiling_supported', true);

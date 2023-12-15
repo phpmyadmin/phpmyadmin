@@ -9,6 +9,7 @@ use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
@@ -66,7 +67,7 @@ class TableController extends AbstractController
             $GLOBALS['table'] = mb_strtolower($GLOBALS['table']);
         }
 
-        $pmaTable = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
+        $pmaTable = $this->dbi->getTable(Current::$database, $GLOBALS['table']);
 
         $this->addScriptFiles(['table/operations.js']);
 
@@ -74,8 +75,8 @@ class TableController extends AbstractController
             return;
         }
 
-        $isSystemSchema = Utilities::isSystemSchema($GLOBALS['db']);
-        $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+        $isSystemSchema = Utilities::isSystemSchema(Current::$database);
+        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => $GLOBALS['table']];
         $config = Config::getInstance();
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
         $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
@@ -115,7 +116,7 @@ class TableController extends AbstractController
         /**
          * Reselect current db (needed in some cases probably due to the calling of {@link Relation})
          */
-        $this->dbi->selectDb($GLOBALS['db']);
+        $this->dbi->selectDb(Current::$database);
 
         $rereadInfo = $pmaTable->getStatusInfo();
         $showTable = $pmaTable->getStatusInfo(null, ! empty($rereadInfo));
@@ -146,14 +147,14 @@ class TableController extends AbstractController
             $createOptions['page_checksum'] ??= '';
         }
 
-        $pmaTable = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
+        $pmaTable = $this->dbi->getTable(Current::$database, $GLOBALS['table']);
         $rereadInfo = false;
 
         /**
          * If the table has to be moved to some other database
          */
         if ($request->hasBodyParam('submit_move') || $request->hasBodyParam('submit_copy')) {
-            $message = $this->operations->moveOrCopyTable($GLOBALS['db'], $GLOBALS['table']);
+            $message = $this->operations->moveOrCopyTable(Current::$database, $GLOBALS['table']);
 
             if (! $request->isAjax()) {
                 return;
@@ -165,10 +166,10 @@ class TableController extends AbstractController
                 /** @var mixed $targetDbParam */
                 $targetDbParam = $request->getParsedBodyParam('target_db');
                 if ($request->hasBodyParam('submit_move') && is_string($targetDbParam)) {
-                    $GLOBALS['db'] = $targetDbParam; // Used in Header::getJsParams()
+                    Current::$database = $targetDbParam; // Used in Header::getJsParams()
                 }
 
-                $this->response->addJSON('db', $GLOBALS['db']);
+                $this->response->addJSON('db', Current::$database);
 
                 return;
             }
@@ -208,7 +209,7 @@ class TableController extends AbstractController
                     }
 
                     // Reselect the original DB
-                    $GLOBALS['db'] = $oldDb;
+                    Current::$database = $oldDb;
                     $this->dbi->selectDb($oldDb);
                     $newMessage .= $pmaTable->getLastMessage();
                     $result = true;
@@ -268,7 +269,11 @@ class TableController extends AbstractController
                 is_string($tableCollationParam) && $tableCollationParam !== ''
                 && $request->getParsedBodyParam('change_all_collations')
             ) {
-                $this->operations->changeAllColumnsCollation($GLOBALS['db'], $GLOBALS['table'], $tableCollationParam);
+                $this->operations->changeAllColumnsCollation(
+                    Current::$database,
+                    $GLOBALS['table'],
+                    $tableCollationParam,
+                );
             }
 
             if ($tableCollationParam !== null && (! is_string($tableCollationParam) || $tableCollationParam === '')) {
@@ -326,7 +331,7 @@ class TableController extends AbstractController
             // to avoid showing the old value (for example the AUTO_INCREMENT) after
             // a change, clear the cache
             $this->dbi->getCache()->clearTableCache();
-            $this->dbi->selectDb($GLOBALS['db']);
+            $this->dbi->selectDb(Current::$database);
             $showTable = $pmaTable->getStatusInfo(null, true);
             if ($pmaTable->isView()) {
                 $tableIsAView = true;
@@ -404,14 +409,14 @@ class TableController extends AbstractController
 
         $GLOBALS['urlParams']['goto'] = $GLOBALS['urlParams']['back'] = Url::getFromRoute('/table/operations');
 
-        $columns = $this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table']);
+        $columns = $this->dbi->getColumns(Current::$database, $GLOBALS['table']);
 
         $hideOrderTable = false;
         // `ALTER TABLE ORDER BY` does not make sense for InnoDB tables that contain
         // a user-defined clustered index (PRIMARY KEY or NOT NULL UNIQUE index).
         // InnoDB always orders table rows according to such an index if one is present.
         if ($tableStorageEngine === 'INNODB') {
-            $indexes = Index::getFromTable($this->dbi, $GLOBALS['table'], $GLOBALS['db']);
+            $indexes = Index::getFromTable($this->dbi, $GLOBALS['table'], Current::$database);
             foreach ($indexes as $name => $idx) {
                 if ($name === 'PRIMARY') {
                     $hideOrderTable = true;
@@ -468,7 +473,7 @@ class TableController extends AbstractController
             $databaseList = $listDatabase->getList();
         }
 
-        $hasForeignKeys = $this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'foreign') !== [];
+        $hasForeignKeys = $this->relation->getForeigners(Current::$database, $GLOBALS['table'], '', 'foreign') !== [];
         $hasPrivileges = $GLOBALS['table_priv'] && $GLOBALS['col_priv'] && $GLOBALS['is_reload_priv'];
         $switchToNew = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];
 
@@ -476,7 +481,7 @@ class TableController extends AbstractController
         $partitionsChoices = [];
 
         if (Partition::havePartitioning()) {
-            $partitionNames = Partition::getPartitionNames($GLOBALS['db'], $GLOBALS['table']);
+            $partitionNames = Partition::getPartitionNames(Current::$database, $GLOBALS['table']);
             if (isset($partitionNames[0])) {
                 $partitions = $partitionNames;
                 $partitionsChoices = $this->operations->getPartitionMaintenanceChoices();
@@ -489,7 +494,7 @@ class TableController extends AbstractController
         );
 
         $this->render('table/operations/index', [
-            'db' => $GLOBALS['db'],
+            'db' => Current::$database,
             'table' => $GLOBALS['table'],
             'url_params' => $GLOBALS['urlParams'],
             'columns' => $columns,

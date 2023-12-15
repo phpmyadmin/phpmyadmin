@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\IndexRenameController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
@@ -21,7 +22,7 @@ class IndexRenameControllerTest extends AbstractTestCase
     public function testIndexRenameController(): void
     {
         $GLOBALS['server'] = 2;
-        $GLOBALS['db'] = 'test_db';
+        Current::$database = 'test_db';
         $GLOBALS['table'] = 'test_table';
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['lang'] = 'en';

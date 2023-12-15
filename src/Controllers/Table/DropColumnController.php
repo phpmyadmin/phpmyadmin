@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FlashMessages;
 use PhpMyAdmin\Http\ServerRequest;
@@ -47,12 +48,12 @@ final class DropColumnController extends AbstractController
             $statement = 'ALTER TABLE ' . Util::backquote($GLOBALS['table']);
 
             foreach ($selected as $field) {
-                $this->relationCleanup->column($GLOBALS['db'], $GLOBALS['table'], $field);
+                $this->relationCleanup->column(Current::$database, $GLOBALS['table'], $field);
                 $statement .= ' DROP ' . Util::backquote($field);
                 $statement .= $i++ === $selectedCount ? ';' : ',';
             }
 
-            $this->dbi->selectDb($GLOBALS['db']);
+            $this->dbi->selectDb(Current::$database);
             $result = $this->dbi->tryQuery($statement);
 
             if (! $result) {
@@ -74,6 +75,6 @@ final class DropColumnController extends AbstractController
         }
 
         $this->flash->addMessage($message->isError() ? 'danger' : 'success', $message->getMessage());
-        $this->redirect('/table/structure', ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']]);
+        $this->redirect('/table/structure', ['db' => Current::$database, 'table' => $GLOBALS['table']]);
     }
 }

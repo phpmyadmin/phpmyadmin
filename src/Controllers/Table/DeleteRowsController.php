@@ -8,6 +8,7 @@ use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Operations;
@@ -64,12 +65,16 @@ final class DeleteRowsController extends AbstractController
                     $row,
                 );
                 $GLOBALS['sql_query'] .= $query . "\n";
-                $this->dbi->selectDb($GLOBALS['db']);
+                $this->dbi->selectDb(Current::$database);
                 $this->dbi->query($query);
             }
 
             if (! empty($_REQUEST['pos'])) {
-                $_REQUEST['pos'] = $sql->calculatePosForLastPage($GLOBALS['db'], $GLOBALS['table'], $_REQUEST['pos']);
+                $_REQUEST['pos'] = $sql->calculatePosForLastPage(
+                    Current::$database,
+                    $GLOBALS['table'],
+                    $_REQUEST['pos'],
+                );
             }
 
             ForeignKey::handleDisableCheckCleanup($defaultFkCheckValue);
@@ -87,7 +92,7 @@ final class DeleteRowsController extends AbstractController
         $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
             null,
             false,
-            $GLOBALS['db'],
+            Current::$database,
             $GLOBALS['table'],
             null,
             null,

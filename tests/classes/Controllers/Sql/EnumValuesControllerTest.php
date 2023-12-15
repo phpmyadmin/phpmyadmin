@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Sql;
 
 use PhpMyAdmin\Controllers\Sql\EnumValuesController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -40,7 +41,7 @@ class EnumValuesControllerTest extends AbstractTestCase
         $this->dummyDbi->addResult('SHOW COLUMNS FROM `cvv`.`enums` LIKE \'set\'', false);
         $this->dummyDbi->addResult('SHOW INDEXES FROM `cvv`.`enums`', false);
 
-        $GLOBALS['db'] = 'cvv';
+        Current::$database = 'cvv';
         $GLOBALS['table'] = 'enums';
 
         $request = $this->createStub(ServerRequest::class);
@@ -81,7 +82,7 @@ class EnumValuesControllerTest extends AbstractTestCase
         );
         $this->dummyDbi->addResult('SHOW INDEXES FROM `cvv`.`enums`', []);
 
-        $GLOBALS['db'] = 'cvv';
+        Current::$database = 'cvv';
         $GLOBALS['table'] = 'enums';
 
         $request = $this->createStub(ServerRequest::class);

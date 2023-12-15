@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Table\IndexesController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
@@ -38,7 +39,7 @@ class IndexesControllerTest extends AbstractTestCase
          * SET these to avoid undefined index error
          */
         $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = 'db';
+        Current::$database = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['text_dir'] = 'ltr';
         $config = Config::getInstance();

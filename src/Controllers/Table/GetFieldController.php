@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
@@ -43,16 +44,16 @@ class GetFieldController extends AbstractController
         }
 
         /* Select database */
-        if (! $this->dbi->selectDb($GLOBALS['db'])) {
+        if (! $this->dbi->selectDb(Current::$database)) {
             Generator::mysqlDie(
-                sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($GLOBALS['db'])),
+                sprintf(__('\'%s\' database does not exist.'), htmlspecialchars(Current::$database)),
                 '',
                 false,
             );
         }
 
         /* Check if table exists */
-        if ($this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table']) === []) {
+        if ($this->dbi->getColumns(Current::$database, $GLOBALS['table']) === []) {
             Generator::mysqlDie(__('Invalid table name'));
         }
 

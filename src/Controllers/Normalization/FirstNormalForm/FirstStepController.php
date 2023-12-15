@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Normalization\FirstNormalForm;
 
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
@@ -29,7 +30,7 @@ final class FirstStepController extends AbstractController
             $normalForm = $normalizeTo;
         }
 
-        $html = $this->normalization->getHtmlFor1NFStep1($GLOBALS['db'], $GLOBALS['table'], $normalForm);
+        $html = $this->normalization->getHtmlFor1NFStep1(Current::$database, $GLOBALS['table'], $normalForm);
         $this->response->addHTML($html);
     }
 }

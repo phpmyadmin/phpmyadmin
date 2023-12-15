@@ -10,6 +10,7 @@ use PhpMyAdmin\ConfigStorage\Features\RelationFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
@@ -58,19 +59,19 @@ final class RelationController extends AbstractController
             'RESTRICT' => 'RESTRICT',
         ];
 
-        $table = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
+        $table = $this->dbi->getTable(Current::$database, $GLOBALS['table']);
         $storageEngine = $table->getStorageEngine();
 
         $relationParameters = $this->relation->getRelationParameters();
 
         $relations = [];
         if ($relationParameters->relationFeature !== null) {
-            $relations = $this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'internal');
+            $relations = $this->relation->getForeigners(Current::$database, $GLOBALS['table'], '', 'internal');
         }
 
         $relationsForeign = [];
         if (ForeignKey::isSupported($storageEngine)) {
-            $relationsForeign = $this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'foreign');
+            $relationsForeign = $this->relation->getForeigners(Current::$database, $GLOBALS['table'], '', 'foreign');
         }
 
         // Send table of column names to populate corresponding dropdowns depending
@@ -89,7 +90,7 @@ final class RelationController extends AbstractController
         $this->addScriptFiles(['table/relation.js']);
 
         // Set the database
-        $this->dbi->selectDb($GLOBALS['db']);
+        $this->dbi->selectDb(Current::$database);
 
         // updates for Internal relations
         if (isset($_POST['destination_db']) && $relationParameters->relationFeature !== null) {
@@ -146,11 +147,11 @@ final class RelationController extends AbstractController
 
         // If we did an update, refresh our data
         if (isset($_POST['destination_db']) && $relationParameters->relationFeature !== null) {
-            $relations = $this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'internal');
+            $relations = $this->relation->getForeigners(Current::$database, $GLOBALS['table'], '', 'internal');
         }
 
         if (isset($_POST['destination_foreign_db']) && ForeignKey::isSupported($storageEngine)) {
-            $relationsForeign = $this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'foreign');
+            $relationsForeign = $this->relation->getForeigners(Current::$database, $GLOBALS['table'], '', 'foreign');
         }
 
         /**
@@ -159,7 +160,7 @@ final class RelationController extends AbstractController
         // Now find out the columns of our $table
         // need to use DatabaseInterface::QUERY_BUFFERED with $this->dbi->numRows()
         // in mysqli
-        $columns = $this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table']);
+        $columns = $this->dbi->getColumns(Current::$database, $GLOBALS['table']);
 
         $columnArray = [];
         $columnHashArray = [];
@@ -185,13 +186,13 @@ final class RelationController extends AbstractController
         $i = 0;
 
         foreach ($existrelForeign as $oneKey) {
-            $foreignDb = $oneKey['ref_db_name'] ?? $GLOBALS['db'];
+            $foreignDb = $oneKey['ref_db_name'] ?? Current::$database;
             $foreignTable = false;
             if ($foreignDb) {
                 $foreignTable = $oneKey['ref_table_name'] ?? false;
                 $tables = $this->relation->getTables($foreignDb, $storageEngine);
             } else {
-                $tables = $this->relation->getTables($GLOBALS['db'], $storageEngine);
+                $tables = $this->relation->getTables(Current::$database, $storageEngine);
             }
 
             $uniqueColumns = [];
@@ -206,7 +207,7 @@ final class RelationController extends AbstractController
                 'column_array' => $columnArray,
                 'options_array' => $options,
                 'tbl_storage_engine' => $storageEngine,
-                'db' => $GLOBALS['db'],
+                'db' => Current::$database,
                 'table' => $GLOBALS['table'],
                 'url_params' => $GLOBALS['urlParams'],
                 'databases' => $this->dbi->getDatabaseList(),
@@ -218,14 +219,14 @@ final class RelationController extends AbstractController
             $i++;
         }
 
-        $tables = $this->relation->getTables($GLOBALS['db'], $storageEngine);
+        $tables = $this->relation->getTables(Current::$database, $storageEngine);
         $foreignKeyRow .= $this->template->render('table/relation/foreign_key_row', [
             'i' => $i,
             'one_key' => [],
             'column_array' => $columnArray,
             'options_array' => $options,
             'tbl_storage_engine' => $storageEngine,
-            'db' => $GLOBALS['db'],
+            'db' => Current::$database,
             'table' => $GLOBALS['table'],
             'url_params' => $GLOBALS['urlParams'],
             'databases' => $this->dbi->getDatabaseList(),
@@ -238,7 +239,7 @@ final class RelationController extends AbstractController
         // common form
         $this->render('table/relation/common_form', [
             'is_foreign_key_supported' => ForeignKey::isSupported($storageEngine),
-            'db' => $GLOBALS['db'],
+            'db' => Current::$database,
             'table' => $GLOBALS['table'],
             'relation_parameters' => $relationParameters,
             'tbl_storage_engine' => $storageEngine,
@@ -253,7 +254,7 @@ final class RelationController extends AbstractController
             'dbi' => $this->dbi,
             'default_sliders_state' => $config->settings['InitialSlidersState'],
             'route' => $request->getRoute(),
-            'display_field' => $this->relation->getDisplayField($GLOBALS['db'], $GLOBALS['table']),
+            'display_field' => $this->relation->getDisplayField(Current::$database, $GLOBALS['table']),
             'foreign_key_row' => $foreignKeyRow,
         ]);
     }

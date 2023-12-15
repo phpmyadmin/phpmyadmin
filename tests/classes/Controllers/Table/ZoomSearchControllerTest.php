@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\ZoomSearchController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Table\Search;
@@ -21,7 +22,7 @@ final class ZoomSearchControllerTest extends AbstractTestCase
     public function testZoomSearchController(): void
     {
         $GLOBALS['server'] = 2;
-        $GLOBALS['db'] = 'test_db';
+        Current::$database = 'test_db';
         $GLOBALS['table'] = 'test_table';
         $GLOBALS['text_dir'] = 'ltr';
         Config::getInstance()->selectedServer['DisableIS'] = true;
@@ -48,7 +49,7 @@ final class ZoomSearchControllerTest extends AbstractTestCase
         $controller($request);
 
         $expected = $template->render('table/zoom_search/index', [
-            'db' => $GLOBALS['db'],
+            'db' => Current::$database,
             'table' => $GLOBALS['table'],
             'goto' => 'index.php?route=/sql&server=2&lang=en',
             'self' => $controller,
@@ -66,7 +67,7 @@ final class ZoomSearchControllerTest extends AbstractTestCase
 
     public function testChangeTableInfoAction(): void
     {
-        $GLOBALS['db'] = 'test_db';
+        Current::$database = 'test_db';
         $GLOBALS['table'] = 'test_table';
         Config::getInstance()->selectedServer['DisableIS'] = true;
 

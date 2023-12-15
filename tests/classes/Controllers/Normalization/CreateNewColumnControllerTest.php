@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Normalization;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Normalization\CreateNewColumnController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
@@ -23,7 +24,7 @@ class CreateNewColumnControllerTest extends AbstractTestCase
     {
         Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['col_priv'] = false;
-        $GLOBALS['db'] = 'test_db';
+        Current::$database = 'test_db';
         $GLOBALS['table'] = 'test_table';
 
         $dbiDummy = $this->createDbiDummy();

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Database\Structure;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\StructureController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
@@ -39,7 +40,7 @@ final class AddPrefixTableController extends AbstractController
                 . ' RENAME ' . Util::backquote($newTableName);
 
             $GLOBALS['sql_query'] .= $aQuery . ';' . "\n";
-            $this->dbi->selectDb($GLOBALS['db']);
+            $this->dbi->selectDb(Current::$database);
             $this->dbi->query($aQuery);
         }
 

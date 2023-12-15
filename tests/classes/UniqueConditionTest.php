@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\UniqueCondition;
@@ -29,7 +30,7 @@ class UniqueConditionTest extends AbstractTestCase
 {
     public function testGetUniqueCondition(): void
     {
-        $GLOBALS['db'] = 'db';
+        Current::$database = 'db';
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
         $actual = new UniqueCondition([], []);

@@ -8,6 +8,7 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Encoding;
@@ -56,7 +57,7 @@ final class ImportController extends AbstractController
 
         $config = Config::getInstance();
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
-        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
+        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -96,7 +97,7 @@ final class ImportController extends AbstractController
         $charsets = Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
 
         $idKey = $_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getIdKey();
-        $hiddenInputs = [$idKey => $uploadId, 'import_type' => 'database', 'db' => $GLOBALS['db']];
+        $hiddenInputs = [$idKey => $uploadId, 'import_type' => 'database', 'db' => Current::$database];
 
         $default = $request->hasQueryParam('format')
             ? (string) $request->getQueryParam('format')
@@ -113,7 +114,7 @@ final class ImportController extends AbstractController
             'upload_id' => $uploadId,
             'handler' => $_SESSION[$GLOBALS['SESSION_KEY']]['handler'],
             'hidden_inputs' => $hiddenInputs,
-            'db' => $GLOBALS['db'],
+            'db' => Current::$database,
             'table' => $GLOBALS['table'],
             'max_upload_size' => $maxUploadSize,
             'formatted_maximum_upload_size' => Util::getFormattedMaximumUploadSize($maxUploadSize),

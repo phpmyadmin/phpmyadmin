@@ -11,6 +11,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Features\ConfigurableMenusFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
@@ -1907,7 +1908,7 @@ class Privileges
             }
 
             // tracking sets this, causing the deleted db to be shown in navi
-            unset($GLOBALS['db']);
+            Current::$database = '';
 
             $sqlQuery = implode("\n", $queries);
             if ($dropUserError !== '') {
@@ -2928,7 +2929,7 @@ class Privileges
              * Reload the navigation
              */
             $GLOBALS['reload'] = true;
-            $GLOBALS['db'] = $username;
+            Current::$database = $username;
 
             $query = 'GRANT ALL PRIVILEGES ON '
                 . Util::backquote(

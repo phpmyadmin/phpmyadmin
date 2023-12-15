@@ -8,6 +8,7 @@ use Generator;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\RelationController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Template;
@@ -31,7 +32,7 @@ class RelationControllerTest extends AbstractTestCase
         parent::setUp();
 
         $GLOBALS['server'] = 0;
-        $GLOBALS['db'] = 'db';
+        Current::$database = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['text_dir'] = 'ltr';
         Config::getInstance()->selectedServer['DisableIS'] = false;

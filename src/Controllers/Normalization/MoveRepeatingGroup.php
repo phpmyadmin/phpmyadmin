@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Normalization;
 
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
@@ -29,7 +30,7 @@ final class MoveRepeatingGroup extends AbstractController
             $newTable,
             $newColumn,
             $GLOBALS['table'],
-            $GLOBALS['db'],
+            Current::$database,
         );
         $this->response->addJSON($res);
     }

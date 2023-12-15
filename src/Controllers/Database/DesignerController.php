@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Designer;
 use PhpMyAdmin\Database\Designer\Common as DesignerCommon;
 use PhpMyAdmin\DbTableExists;
@@ -156,7 +157,7 @@ class DesignerController extends AbstractController
             Config::getInstance()->settings['DefaultTabDatabase'],
             'database',
         );
-        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
+        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -225,7 +226,7 @@ class DesignerController extends AbstractController
         // by designer/init.js and converted to JS variables.
         $this->response->addHTML(
             $this->databaseDesigner->getHtmlForMain(
-                $GLOBALS['db'],
+                Current::$database,
                 $request->getQueryParam('db'),
                 $scriptDisplayField,
                 $scriptTables,

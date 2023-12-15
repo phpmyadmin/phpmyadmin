@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
@@ -44,7 +45,7 @@ final class IndexRenameController extends AbstractController
                 return;
             }
 
-            $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+            $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => $GLOBALS['table']];
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
                 Config::getInstance()->settings['DefaultTabTable'],
                 'table',
@@ -85,7 +86,7 @@ final class IndexRenameController extends AbstractController
                 // coming already from form
                 $index = new Index($_POST['index']);
             } else {
-                $index = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table'])->getIndex($_POST['index']);
+                $index = $this->dbi->getTable(Current::$database, $GLOBALS['table'])->getIndex($_POST['index']);
             }
         } else {
             $index = new Index();
@@ -97,7 +98,7 @@ final class IndexRenameController extends AbstractController
                 $request,
                 $index,
                 true,
-                $GLOBALS['db'],
+                Current::$database,
                 $GLOBALS['table'],
                 $request->hasBodyParam('preview_sql'),
                 $oldIndexName,
@@ -116,9 +117,9 @@ final class IndexRenameController extends AbstractController
      */
     private function displayRenameForm(Index $index): void
     {
-        $this->dbi->selectDb($GLOBALS['db']);
+        $this->dbi->selectDb(Current::$database);
 
-        $formParams = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+        $formParams = ['db' => Current::$database, 'table' => $GLOBALS['table']];
 
         if (isset($_POST['old_index'])) {
             $formParams['old_index'] = $_POST['old_index'];

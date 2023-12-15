@@ -136,7 +136,7 @@ class SqlQueryForm
     {
         $columnsList = [];
         $config = Config::getInstance();
-        if ($GLOBALS['db'] === '') {
+        if (Current::$database === '') {
             // prepare for server related
             $legend = sprintf(
                 __('Run SQL query/queries on server “%s”'),
@@ -148,7 +148,7 @@ class SqlQueryForm
             );
         } elseif ($GLOBALS['table'] === '') {
             // prepare for db related
-            $db = $GLOBALS['db'];
+            $db = Current::$database;
             // if you want navigation:
             $scriptName = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
             $tmpDbLink = '<a href="' . $scriptName
@@ -160,7 +160,7 @@ class SqlQueryForm
                 $query = Util::expandUserString($config->settings['DefaultQueryDatabase'], Util::backquote(...));
             }
         } else {
-            $db = $GLOBALS['db'];
+            $db = Current::$database;
             $table = $GLOBALS['table'];
             // Get the list and number of fields
             // we do a try_query here, because we could be in the query window,

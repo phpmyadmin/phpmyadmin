@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table\Structure;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\Structure\SaveController;
 use PhpMyAdmin\Controllers\Table\StructureController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
@@ -72,7 +73,7 @@ class SaveControllerTest extends AbstractTestCase
             'do_save_data' => 'Save',
         ];
 
-        $GLOBALS['db'] = 'test_db';
+        Current::$database = 'test_db';
         $GLOBALS['table'] = 'test_table';
 
         $dummyDbi = $this->createDbiDummy();
@@ -105,7 +106,7 @@ class SaveControllerTest extends AbstractTestCase
     {
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['db'] = 'db';
+        Current::$database = 'db';
         $GLOBALS['table'] = 'table';
 
         $dbi = $this->createDatabaseInterface();

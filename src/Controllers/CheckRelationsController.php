@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\ResponseRenderer;
@@ -27,7 +28,7 @@ class CheckRelationsController extends AbstractController
     {
         $cfgStorageDbName = $this->relation->getConfigurationStorageDbName();
 
-        $db = DatabaseName::tryFrom($GLOBALS['db']);
+        $db = DatabaseName::tryFrom(Current::$database);
 
         // If request for creating the pmadb
         if ($request->hasBodyParam('create_pmadb') && $this->relation->createPmaDatabase($cfgStorageDbName)) {

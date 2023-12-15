@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Operations;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
@@ -40,7 +41,7 @@ class ViewController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['urlParams'] ??= null;
-        $tableObject = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
+        $tableObject = $this->dbi->getTable(Current::$database, $GLOBALS['table']);
 
         $GLOBALS['errorUrl'] ??= null;
         $this->addScriptFiles(['table/operations.js']);
@@ -49,7 +50,7 @@ class ViewController extends AbstractController
             return;
         }
 
-        $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => $GLOBALS['table']];
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
             Config::getInstance()->settings['DefaultTabTable'],
             'table',
@@ -135,7 +136,7 @@ class ViewController extends AbstractController
         }
 
         $this->render('table/operations/view', [
-            'db' => $GLOBALS['db'],
+            'db' => Current::$database,
             'table' => $GLOBALS['table'],
             'url_params' => $GLOBALS['urlParams'],
         ]);

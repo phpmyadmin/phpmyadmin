@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Table;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Index;
@@ -26,7 +27,7 @@ class IndexesTest extends AbstractTestCase
          * SET these to avoid undefined index error
          */
         $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = 'db';
+        Current::$database = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['text_dir'] = 'ltr';
         $config = Config::getInstance();
@@ -75,14 +76,14 @@ class IndexesTest extends AbstractTestCase
             ->withQueryParams(['ajax_request' => '1']);
 
         // Preview SQL
-        $indexes->doSaveData($request, $index, false, $GLOBALS['db'], $GLOBALS['table'], true);
+        $indexes->doSaveData($request, $index, false, Current::$database, $GLOBALS['table'], true);
         $jsonArray = $response->getJSONResult();
         $this->assertArrayHasKey('sql_data', $jsonArray);
         $this->assertStringContainsString($sqlQuery, $jsonArray['sql_data']);
 
         // Alter success
         $response->clear();
-        $indexes->doSaveData($request, $index, false, $GLOBALS['db'], $GLOBALS['table'], false);
+        $indexes->doSaveData($request, $index, false, Current::$database, $GLOBALS['table'], false);
         $jsonArray = $response->getJSONResult();
         $this->assertArrayHasKey('index_table', $jsonArray);
         $this->assertArrayHasKey('message', $jsonArray);

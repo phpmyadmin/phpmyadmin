@@ -9,6 +9,7 @@ use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Export\Export;
@@ -63,7 +64,7 @@ class ExportTexytextTest extends AbstractTestCase
         $GLOBALS['plugin_param'] = [];
         $GLOBALS['plugin_param']['export_type'] = 'table';
         $GLOBALS['plugin_param']['single_table'] = false;
-        $GLOBALS['db'] = '';
+        Current::$database = '';
         $GLOBALS['table'] = '';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'ltr';

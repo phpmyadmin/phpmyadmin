@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Navigation;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Navigation\NavigationTree;
 use PhpMyAdmin\Template;
@@ -39,7 +40,7 @@ class NavigationTreeTest extends AbstractTestCase
         $config->settings['NavigationTreeEnableGrouping'] = true;
         $config->settings['ShowDatabasesNavigationAsTree'] = true;
 
-        $GLOBALS['db'] = 'db';
+        Current::$database = 'db';
         $GLOBALS['table'] = '';
 
         $this->object = new NavigationTree(new Template(), $dbi, new Relation($dbi));
@@ -85,7 +86,7 @@ class NavigationTreeTest extends AbstractTestCase
 
     public function testDatabaseGrouping(): void
     {
-        $GLOBALS['db'] = '';
+        Current::$database = '';
         Config::getInstance()->settings['NavigationTreeDbSeparator'] = '__';
 
         // phpcs:disable Generic.Files.LineLength.TooLong

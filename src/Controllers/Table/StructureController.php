@@ -12,6 +12,7 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -60,14 +61,14 @@ class StructureController extends AbstractController
     ) {
         parent::__construct($response, $template);
 
-        $this->tableObj = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
+        $this->tableObj = $this->dbi->getTable(Current::$database, $GLOBALS['table']);
     }
 
     public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['errorUrl'] ??= null;
 
-        $this->dbi->selectDb($GLOBALS['db']);
+        $this->dbi->selectDb(Current::$database);
         $rereadInfo = $this->tableObj->getStatusInfo(null, true);
         $showTable = $this->tableObj->getStatusInfo(null, ! empty($rereadInfo));
 
@@ -86,8 +87,8 @@ class StructureController extends AbstractController
             return;
         }
 
-        $isSystemSchema = Utilities::isSystemSchema($GLOBALS['db']);
-        $urlParams = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+        $isSystemSchema = Utilities::isSystemSchema(Current::$database);
+        $urlParams = ['db' => Current::$database, 'table' => $GLOBALS['table']];
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
             Config::getInstance()->settings['DefaultTabTable'],
             'table',
@@ -122,15 +123,15 @@ class StructureController extends AbstractController
             return;
         }
 
-        $primary = Index::getPrimary($this->dbi, $GLOBALS['table'], $GLOBALS['db']);
+        $primary = Index::getPrimary($this->dbi, $GLOBALS['table'], Current::$database);
         $columnsWithIndex = $this->dbi
-            ->getTable($GLOBALS['db'], $GLOBALS['table'])
+            ->getTable(Current::$database, $GLOBALS['table'])
             ->getColumnsWithIndex(Index::UNIQUE | Index::INDEX | Index::SPATIAL | Index::FULLTEXT);
         $columnsWithUniqueIndex = $this->dbi
-            ->getTable($GLOBALS['db'], $GLOBALS['table'])
+            ->getTable(Current::$database, $GLOBALS['table'])
             ->getColumnsWithIndex(Index::UNIQUE);
 
-        $fields = $this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table'], true);
+        $fields = $this->dbi->getColumns(Current::$database, $GLOBALS['table'], true);
 
         $this->response->addHTML($this->displayStructure(
             $relationParameters,
@@ -176,14 +177,14 @@ class StructureController extends AbstractController
 
         $config = Config::getInstance();
         if ($config->settings['ShowPropertyComments']) {
-            $commentsMap = $this->relation->getComments($GLOBALS['db'], $GLOBALS['table']);
+            $commentsMap = $this->relation->getComments(Current::$database, $GLOBALS['table']);
             if ($relationParameters->browserTransformationFeature !== null && $config->settings['BrowseMIME']) {
-                $mimeMap = $this->transformations->getMime($GLOBALS['db'], $GLOBALS['table'], true);
+                $mimeMap = $this->transformations->getMime(Current::$database, $GLOBALS['table'], true);
             }
         }
 
         $centralColumns = new CentralColumns($this->dbi);
-        $centralList = $centralColumns->getFromTable($GLOBALS['db'], $GLOBALS['table']);
+        $centralList = $centralColumns->getFromTable(Current::$database, $GLOBALS['table']);
 
         /**
          * Displays Space usage and row statistics
@@ -255,11 +256,11 @@ class StructureController extends AbstractController
         return $this->template->render('table/structure/display_structure', [
             'collations' => $collations,
             'is_foreign_key_supported' => ForeignKey::isSupported($engine),
-            'indexes' => Index::getFromTable($this->dbi, $GLOBALS['table'], $GLOBALS['db']),
-            'indexes_duplicates' => Index::findDuplicates($GLOBALS['table'], $GLOBALS['db']),
+            'indexes' => Index::getFromTable($this->dbi, $GLOBALS['table'], Current::$database),
+            'indexes_duplicates' => Index::findDuplicates($GLOBALS['table'], Current::$database),
             'relation_parameters' => $relationParameters,
             'hide_structure_actions' => $config->settings['HideStructureActions'] === true,
-            'db' => $GLOBALS['db'],
+            'db' => Current::$database,
             'table' => $GLOBALS['table'],
             'db_is_system_schema' => $isSystemSchema,
             'tbl_is_view' => $tableIsAView,
@@ -282,8 +283,8 @@ class StructureController extends AbstractController
             'text_dir' => $GLOBALS['text_dir'],
             'is_active' => Tracker::isActive(),
             'have_partitioning' => Partition::havePartitioning(),
-            'partitions' => Partition::getPartitions($GLOBALS['db'], $GLOBALS['table']),
-            'partition_names' => Partition::getPartitionNames($GLOBALS['db'], $GLOBALS['table']),
+            'partitions' => Partition::getPartitions(Current::$database, $GLOBALS['table']),
+            'partition_names' => Partition::getPartitionNames(Current::$database, $GLOBALS['table']),
             'default_sliders_state' => $config->settings['InitialSlidersState'],
             'attributes' => $attributes,
             'displayed_fields' => $displayedFields,
@@ -304,7 +305,8 @@ class StructureController extends AbstractController
         $tableInfoNunRows = $this->tableObj->getNumRows($showTable['Name']);
 
         if (empty($showTable)) {
-            $showTable = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table'])->getStatusInfo(null, true);
+            $showTable = $this->dbi->getTable(Current::$database, $GLOBALS['table'])
+                ->getStatusInfo(null, true);
         }
 
         if (is_string($showTable)) {
@@ -395,7 +397,7 @@ class StructureController extends AbstractController
         }
 
         return $this->template->render('table/structure/display_table_stats', [
-            'db' => $GLOBALS['db'],
+            'db' => Current::$database,
             'table' => $GLOBALS['table'],
             'showtable' => $showTable,
             'table_info_num_rows' => $tableInfoNunRows,

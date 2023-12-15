@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Column;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
@@ -29,7 +30,7 @@ class SqlAutoCompleteController extends AbstractController
     {
         $sqlAutocomplete = [];
         if (Config::getInstance()->settings['EnableAutocompleteForTablesAndColumns']) {
-            $db = $request->getParam('db', $GLOBALS['db']);
+            $db = $request->getParam('db', Current::$database);
             if ($db) {
                 $tableNames = $this->dbi->getTables($db);
                 foreach ($tableNames as $tableName) {

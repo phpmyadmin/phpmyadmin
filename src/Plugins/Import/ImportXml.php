@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
 
+use PhpMyAdmin\Current;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Message;
@@ -300,16 +301,16 @@ class ImportXml extends ImportPlugin
         }
 
         /* Set database name to the currently selected one, if applicable */
-        if ($GLOBALS['db'] !== '') {
+        if (Current::$database !== '') {
             /* Override the database name in the XML file, if one is selected */
-            $dbName = $GLOBALS['db'];
+            $dbName = Current::$database;
             $options = null;
         } else {
             /* Set database collation/charset */
             $options = ['db_collation' => $collation, 'db_charset' => $charset];
         }
 
-        $createDb = $GLOBALS['db'] === '';
+        $createDb = Current::$database === '';
 
         /* Created and execute necessary SQL statements from data */
         $sqlStatements = [];

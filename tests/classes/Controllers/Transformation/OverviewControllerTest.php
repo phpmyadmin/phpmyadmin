@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Transformation;
 
 use PhpMyAdmin\Controllers\Transformation\OverviewController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
@@ -31,7 +32,7 @@ class OverviewControllerTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'ltr';
 
         $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = 'db';
+        Current::$database = 'db';
         $GLOBALS['table'] = 'table';
     }
 

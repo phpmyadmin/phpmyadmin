@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\ShowEngineController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
@@ -42,7 +43,7 @@ class ShowEngineControllerTest extends AbstractTestCase
     public function testShowEngine(): void
     {
         $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = 'db';
+        Current::$database = 'db';
         $GLOBALS['table'] = 'table';
         Config::getInstance()->selectedServer['DisableIS'] = false;
 

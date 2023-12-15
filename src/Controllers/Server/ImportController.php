@@ -8,6 +8,7 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Http\ServerRequest;
@@ -94,7 +95,7 @@ final class ImportController extends AbstractController
             'upload_id' => $uploadId,
             'handler' => $_SESSION[$GLOBALS['SESSION_KEY']]['handler'],
             'hidden_inputs' => $hiddenInputs,
-            'db' => $GLOBALS['db'],
+            'db' => Current::$database,
             'table' => $GLOBALS['table'],
             'max_upload_size' => $maxUploadSize,
             'formatted_maximum_upload_size' => Util::getFormattedMaximumUploadSize($maxUploadSize),

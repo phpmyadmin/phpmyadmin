@@ -10,6 +10,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
@@ -91,7 +92,7 @@ class SqlController extends AbstractController
         if (! isset($GLOBALS['errorUrl'])) {
             $GLOBALS['errorUrl'] = ! empty($GLOBALS['back']) ? $GLOBALS['back'] : $GLOBALS['goto'];
             $GLOBALS['errorUrl'] .= Url::getCommon(
-                ['db' => $GLOBALS['db']],
+                ['db' => Current::$database],
                 ! str_contains($GLOBALS['errorUrl'], '?') ? '?' : '&',
             );
             if (
@@ -121,13 +122,13 @@ class SqlController extends AbstractController
 
         // This one is just to fill $db
         if ($bkmFields !== null && $bkmFields['bkm_database'] != null) {
-            $GLOBALS['db'] = $bkmFields['bkm_database'];
+            Current::$database = $bkmFields['bkm_database'];
         }
 
         // Default to browse if no query set and we have table
         // (needed for browsing from DefaultTabTable)
-        if (empty($GLOBALS['sql_query']) && strlen($GLOBALS['table']) > 0 && strlen($GLOBALS['db']) > 0) {
-            $GLOBALS['sql_query'] = $this->sql->getDefaultSqlQueryForBrowse($GLOBALS['db'], $GLOBALS['table']);
+        if (empty($GLOBALS['sql_query']) && strlen($GLOBALS['table']) > 0 && strlen(Current::$database) > 0) {
+            $GLOBALS['sql_query'] = $this->sql->getDefaultSqlQueryForBrowse(Current::$database, $GLOBALS['table']);
 
             // set $goto to what will be displayed if query returns 0 rows
             $GLOBALS['goto'] = '';
@@ -138,7 +139,10 @@ class SqlController extends AbstractController
         /**
          * Parse and analyze the query
          */
-        [$statementInfo, $GLOBALS['db'], $tableFromSql] = ParseAnalyze::sqlQuery($GLOBALS['sql_query'], $GLOBALS['db']);
+        [$statementInfo, Current::$database, $tableFromSql] = ParseAnalyze::sqlQuery(
+            $GLOBALS['sql_query'],
+            Current::$database,
+        );
 
         if ($GLOBALS['table'] != $tableFromSql && $tableFromSql !== '') {
             $GLOBALS['table'] = $tableFromSql;
@@ -183,7 +187,7 @@ class SqlController extends AbstractController
         if ($GLOBALS['goto'] === Url::getFromRoute('/sql')) {
             $isGotofile = false;
             $GLOBALS['goto'] = Url::getFromRoute('/sql', [
-                'db' => $GLOBALS['db'],
+                'db' => Current::$database,
                 'table' => $GLOBALS['table'],
                 'sql_query' => $GLOBALS['sql_query'],
             ]);
@@ -192,7 +196,7 @@ class SqlController extends AbstractController
         $this->response->addHTML($this->sql->executeQueryAndSendQueryResponse(
             $statementInfo,
             $isGotofile,
-            $GLOBALS['db'],
+            Current::$database,
             $GLOBALS['table'],
             $GLOBALS['import_text'] ?? null,
             $GLOBALS['message_to_show'] ?? null,

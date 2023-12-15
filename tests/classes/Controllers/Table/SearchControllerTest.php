@@ -9,6 +9,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\SearchController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Table\Search;
@@ -52,7 +53,7 @@ class SearchControllerTest extends AbstractTestCase
         $_POST['zoom_submit'] = 'zoom';
 
         $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = 'PMA';
+        Current::$database = 'PMA';
         $GLOBALS['table'] = 'PMA_BookMark';
         $GLOBALS['text_dir'] = 'ltr';
         Config::getInstance()->selectedServer['DisableIS'] = false;

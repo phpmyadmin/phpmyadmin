@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Setup;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\FormDisplay;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\ResponseRenderer;
@@ -34,7 +35,7 @@ class FormProcessingTest extends AbstractTestCase
         parent::setLanguage();
 
         $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = 'db';
+        Current::$database = 'db';
         $GLOBALS['table'] = 'table';
         Config::getInstance()->settings['ServerDefault'] = 1;
     }

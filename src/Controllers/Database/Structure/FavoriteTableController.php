@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Database\Structure;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Favorites\RecentFavoriteTable;
 use PhpMyAdmin\Favorites\RecentFavoriteTables;
@@ -42,13 +43,13 @@ final class FavoriteTableController extends AbstractController
     {
         $GLOBALS['errorUrl'] ??= null;
 
-        if ($GLOBALS['db'] === '') {
+        if (Current::$database === '') {
             return;
         }
 
         $config = Config::getInstance();
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
-        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
+        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
         if (! $request->isAjax()) {
             return;
@@ -124,7 +125,7 @@ final class FavoriteTableController extends AbstractController
 
         // Check if current table is already in favorite list.
         $favoriteParams = [
-            'db' => $GLOBALS['db'],
+            'db' => Current::$database,
             'ajax_request' => true,
             'favorite_table' => $favoriteTableName,
             ($alreadyFavorite ? 'remove' : 'add') . '_favorite' => true,
@@ -135,7 +136,7 @@ final class FavoriteTableController extends AbstractController
         $json['list'] = $favoriteInstance->getHtmlList();
         $json['anchor'] = $this->template->render('database/structure/favorite_anchor', [
             'table_name_hash' => md5($favoriteTableName),
-            'db_table_name_hash' => md5($GLOBALS['db'] . '.' . $favoriteTableName),
+            'db_table_name_hash' => md5(Current::$database . '.' . $favoriteTableName),
             'fav_params' => $favoriteParams,
             'already_favorite' => $alreadyFavorite,
         ]);

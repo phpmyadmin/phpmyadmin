@@ -88,11 +88,11 @@ class Operations
         $GLOBALS['sql_query'] .= $localQuery;
 
         // save the original db name because Tracker.php which
-        // may be called under $this->dbi->query() changes $GLOBALS['db']
+        // may be called under $this->dbi->query() changes \PhpMyAdmin\Current::$database
         // for some statements, one of which being CREATE DATABASE
-        $originalDb = $GLOBALS['db'];
+        $originalDb = Current::$database;
         $this->dbi->query($localQuery);
-        $GLOBALS['db'] = $originalDb;
+        Current::$database = $originalDb;
 
         // Set the SQL mode to NO_AUTO_VALUE_ON_ZERO to prevent MySQL from creating
         // export statements it cannot import
@@ -510,7 +510,7 @@ class Operations
             'TRUNCATE' => __('Truncate'),
         ];
 
-        $partitionMethod = Partition::getPartitionMethod($GLOBALS['db'], $GLOBALS['table']);
+        $partitionMethod = Partition::getPartitionMethod(Current::$database, $GLOBALS['table']);
 
         // add COALESCE or DROP option to choices array depending on Partition method
         if (
@@ -542,8 +542,8 @@ class Operations
         }
 
         $foreigners = [];
-        $this->dbi->selectDb($GLOBALS['db']);
-        $foreign = $this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'internal');
+        $this->dbi->selectDb(Current::$database);
+        $foreign = $this->relation->getForeigners(Current::$database, $GLOBALS['table'], '', 'internal');
 
         foreach ($foreign as $master => $arr) {
             $joinQuery = 'SELECT '

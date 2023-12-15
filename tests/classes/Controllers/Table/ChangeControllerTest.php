@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\ChangeController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\FileListing;
@@ -25,7 +26,7 @@ final class ChangeControllerTest extends AbstractTestCase
 {
     public function testChangeController(): void
     {
-        $GLOBALS['db'] = 'test_db';
+        Current::$database = 'test_db';
         $GLOBALS['table'] = 'test_table';
 
         $dummyDbi = $this->createDbiDummy();
@@ -120,7 +121,7 @@ final class ChangeControllerTest extends AbstractTestCase
 
     public function testChangeController2(): void
     {
-        $GLOBALS['db'] = 'test_db';
+        Current::$database = 'test_db';
         $GLOBALS['table'] = 'test_table';
 
         $dummyDbi = $this->createDbiDummy();

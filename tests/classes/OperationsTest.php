@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -39,7 +40,7 @@ class OperationsTest extends AbstractTestCase
     #[DataProvider('providerGetPartitionMaintenanceChoices')]
     public function testGetPartitionMaintenanceChoices(string $tableName, array $extraChoice): void
     {
-        $GLOBALS['db'] = 'database';
+        Current::$database = 'database';
         $GLOBALS['table'] = $tableName;
 
         $choices = [

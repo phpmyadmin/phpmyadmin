@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers;
 
 use PhpMyAdmin\Controllers\GisDataEditorController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -25,7 +26,7 @@ class GisDataEditorControllerTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
-        $GLOBALS['db'] = 'db';
+        Current::$database = 'db';
         $GLOBALS['table'] = 'table';
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();

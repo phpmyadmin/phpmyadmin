@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Database\Designer;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Designer\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
@@ -429,7 +430,7 @@ class CommonTest extends AbstractTestCase
                 . ') ENGINE=InnoDB DEFAULT CHARSET=latin1',
         );
 
-        $GLOBALS['db'] = 'db\'1';// Fallback for Relation::searchColumnInForeigners
+        Current::$database = 'db\'1';// Fallback for Relation::searchColumnInForeigners
 
         $configurationStorageDeleteQuery = 'DELETE FROM `pmadb`.`rel db`'
             . ' WHERE master_db = \'%s\' AND master_table = \'%s\''

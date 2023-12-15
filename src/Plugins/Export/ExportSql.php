@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
@@ -252,7 +253,7 @@ class ExportSql extends ExportPlugin
             }
 
             if ($GLOBALS['plugin_param']['export_type'] === 'table') {
-                $dropClause = $dbi->getTable($GLOBALS['db'], $GLOBALS['table'])->isView()
+                $dropClause = $dbi->getTable(Current::$database, $GLOBALS['table'])->isView()
                     ? '<code>DROP VIEW</code>'
                     : '<code>DROP TABLE</code>';
             } else {

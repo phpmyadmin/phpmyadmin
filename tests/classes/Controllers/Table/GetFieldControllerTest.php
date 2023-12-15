@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\GetFieldController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
@@ -24,7 +25,7 @@ class GetFieldControllerTest extends AbstractTestCase
     #[RunInSeparateProcess]
     public function testGetFieldController(): void
     {
-        $GLOBALS['db'] = 'test_db';
+        Current::$database = 'test_db';
         $GLOBALS['table'] = 'table_with_blob';
 
         $request = $this->createStub(ServerRequest::class);

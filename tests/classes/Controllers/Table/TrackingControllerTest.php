@@ -8,6 +8,7 @@ use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\TrackingController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
@@ -39,7 +40,7 @@ class TrackingControllerTest extends AbstractTestCase
     public function testTrackingController(): void
     {
         $GLOBALS['server'] = 2;
-        $GLOBALS['db'] = 'test_db';
+        Current::$database = 'test_db';
         $GLOBALS['table'] = 'test_table';
         $GLOBALS['text_dir'] = 'ltr';
         $config = Config::getInstance();
@@ -72,12 +73,12 @@ class TrackingControllerTest extends AbstractTestCase
 
         $main = $template->render('table/tracking/main', [
             'url_params' => [
-                'db' => $GLOBALS['db'],
+                'db' => Current::$database,
                 'table' => $GLOBALS['table'],
                 'goto' => 'index.php?route=/table/tracking&server=2&lang=en',
                 'back' => 'index.php?route=/table/tracking&server=2&lang=en',
             ],
-            'db' => $GLOBALS['db'],
+            'db' => Current::$database,
             'table' => $GLOBALS['table'],
             'selectable_tables_entries' => [],
             'selected_table' => null,

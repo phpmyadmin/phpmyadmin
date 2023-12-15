@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Http\ServerRequest;
@@ -76,7 +77,7 @@ final class ExportController extends AbstractController
 
         $options = $this->export->getOptions(
             'server',
-            $GLOBALS['db'],
+            Current::$database,
             $GLOBALS['table'],
             $GLOBALS['sql_query'],
             $GLOBALS['num_tables'],

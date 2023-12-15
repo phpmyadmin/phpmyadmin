@@ -9,6 +9,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
@@ -44,7 +45,7 @@ final class SaveController extends AbstractController
     ) {
         parent::__construct($response, $template);
 
-        $this->tableObj = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
+        $this->tableObj = $this->dbi->getTable(Current::$database, $GLOBALS['table']);
     }
 
     public function __invoke(ServerRequest $request): void
@@ -65,13 +66,13 @@ final class SaveController extends AbstractController
      */
     private function updateColumns(): bool
     {
-        $errUrl = Url::getFromRoute('/table/structure', ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']]);
+        $errUrl = Url::getFromRoute('/table/structure', ['db' => Current::$database, 'table' => $GLOBALS['table']]);
         $regenerate = false;
         $fieldCnt = count($_POST['field_name'] ?? []);
         $changes = [];
         $adjustPrivileges = [];
         $columnsWithIndex = $this->dbi
-            ->getTable($GLOBALS['db'], $GLOBALS['table'])
+            ->getTable(Current::$database, $GLOBALS['table'])
             ->getColumnsWithIndex(Index::PRIMARY | Index::UNIQUE);
         for ($i = 0; $i < $fieldCnt; $i++) {
             if (! $this->columnNeedsAlterTable($i)) {
@@ -127,10 +128,10 @@ final class SaveController extends AbstractController
 
             // To allow replication, we first select the db to use
             // and then run queries on this db.
-            if (! $this->dbi->selectDb($GLOBALS['db'])) {
+            if (! $this->dbi->selectDb(Current::$database)) {
                 Generator::mysqlDie(
                     $this->dbi->getError(),
-                    'USE ' . Util::backquote($GLOBALS['db']) . ';',
+                    'USE ' . Util::backquote(Current::$database) . ';',
                     false,
                     $errUrl,
                 );
@@ -152,7 +153,7 @@ final class SaveController extends AbstractController
             }
 
             $columnsWithIndex = $this->dbi
-                ->getTable($GLOBALS['db'], $GLOBALS['table'])
+                ->getTable(Current::$database, $GLOBALS['table'])
                 ->getColumnsWithIndex(Index::PRIMARY | Index::UNIQUE | Index::INDEX | Index::SPATIAL | Index::FULLTEXT);
 
             $changedToBlob = [];
@@ -275,7 +276,7 @@ final class SaveController extends AbstractController
                 }
 
                 $this->relation->renameField(
-                    $GLOBALS['db'],
+                    Current::$database,
                     $GLOBALS['table'],
                     $fieldcontent,
                     $_POST['field_name'][$fieldindex],
@@ -295,7 +296,7 @@ final class SaveController extends AbstractController
                 }
 
                 $this->transformations->setMime(
-                    $GLOBALS['db'],
+                    Current::$database,
                     $GLOBALS['table'],
                     $_POST['field_name'][$fieldindex],
                     $mimetype,
@@ -375,7 +376,7 @@ final class SaveController extends AbstractController
                         AND Column_name = "%s";',
                         Util::backquote('columns_priv'),
                         $newCol,
-                        $GLOBALS['db'],
+                        Current::$database,
                         $GLOBALS['table'],
                         $oldCol,
                     ),

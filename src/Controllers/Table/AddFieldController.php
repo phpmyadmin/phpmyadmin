@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\CreateAddField;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
@@ -65,7 +66,10 @@ class AddFieldController extends AbstractController
         /**
          * Defines the url to return to in case of error in a sql statement
          */
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/table/sql', ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']]);
+        $GLOBALS['errorUrl'] = Url::getFromRoute(
+            '/table/sql',
+            ['db' => Current::$database, 'table' => $GLOBALS['table']],
+        );
 
         // check number of fields to be created
         if (is_numeric($numberOfFields) && $numberOfFields > 0) {
@@ -91,7 +95,7 @@ class AddFieldController extends AbstractController
             }
 
             $result = $createAddField->tryColumnCreationQuery(
-                DatabaseName::from($GLOBALS['db']),
+                DatabaseName::from(Current::$database),
                 $GLOBALS['sql_query'],
                 $GLOBALS['errorUrl'],
             );
@@ -112,7 +116,7 @@ class AddFieldController extends AbstractController
                     }
 
                     $this->transformations->setMime(
-                        $GLOBALS['db'],
+                        Current::$database,
                         $GLOBALS['table'],
                         $_POST['field_name'][$fieldindex],
                         $mimetype,
@@ -138,7 +142,7 @@ class AddFieldController extends AbstractController
             $this->response->addJSON(
                 'structure_refresh_route',
                 Url::getFromRoute('/table/structure', [
-                    'db' => $GLOBALS['db'],
+                    'db' => Current::$database,
                     'table' => $GLOBALS['table'],
                     'ajax_request' => '1',
                 ]),
@@ -147,7 +151,7 @@ class AddFieldController extends AbstractController
             return;
         }
 
-        $urlParams = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+        $urlParams = ['db' => Current::$database, 'table' => $GLOBALS['table']];
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
         $GLOBALS['errorUrl'] .= Url::getCommon($urlParams, '&');
 

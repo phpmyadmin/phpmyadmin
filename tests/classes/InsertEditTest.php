@@ -8,6 +8,7 @@ use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Warning;
 use PhpMyAdmin\EditField;
@@ -68,7 +69,7 @@ class InsertEditTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->settings['ServerDefault'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['db'] = 'db';
+        Current::$database = 'db';
         $GLOBALS['table'] = 'table';
         $config->settings['LimitChars'] = 50;
         $config->settings['LongtextDoubleTextarea'] = false;
@@ -1328,7 +1329,7 @@ class InsertEditTest extends AbstractTestCase
             ->willReturn([$meta]);
 
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['db'] = 'db';
+        Current::$database = 'db';
         $GLOBALS['table'] = 'table';
         $this->insertEdit = new InsertEdit(
             $dbi,

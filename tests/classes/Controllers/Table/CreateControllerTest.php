@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\CreateController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Table\ColumnsDefinition;
@@ -23,7 +24,7 @@ class CreateControllerTest extends AbstractTestCase
 {
     public function testCreateController(): void
     {
-        $GLOBALS['db'] = 'test_db';
+        Current::$database = 'test_db';
         $GLOBALS['table'] = 'new_test_table';
         $config = Config::getInstance();
         $config->selectedServer = $config->getSettings()->Servers[1]->asArray();

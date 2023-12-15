@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Normalization\SecondNormalForm;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Normalization\SecondNormalForm\NewTablesController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
@@ -22,7 +23,7 @@ class NewTablesControllerTest extends AbstractTestCase
 {
     public function testDefault(): void
     {
-        $GLOBALS['db'] = 'test_db';
+        Current::$database = 'test_db';
         $GLOBALS['table'] = 'test_table';
 
         $dbi = $this->createDatabaseInterface();

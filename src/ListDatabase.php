@@ -171,8 +171,8 @@ class ListDatabase extends ListAbstract
      */
     public function getDefault(): string
     {
-        if (strlen($GLOBALS['db']) > 0) {
-            return $GLOBALS['db'];
+        if (strlen(Current::$database) > 0) {
+            return Current::$database;
         }
 
         return parent::getDefault();

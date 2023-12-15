@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Plugins\Auth;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings\Server;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Plugins\Auth\AuthenticationSignon;
@@ -42,7 +43,7 @@ class AuthenticationSignonTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
-        $GLOBALS['db'] = 'db';
+        Current::$database = 'db';
         $GLOBALS['table'] = 'table';
         $this->object = new AuthenticationSignon();
     }

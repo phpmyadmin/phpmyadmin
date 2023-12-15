@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Config;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -32,7 +33,7 @@ class PageSettingsTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = 'db';
+        Current::$database = 'db';
         $GLOBALS['table'] = '';
         $_SERVER['SCRIPT_NAME'] = 'index.php';
         Config::getInstance()->selectedServer['DisableIS'] = false;

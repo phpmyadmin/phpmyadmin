@@ -9,6 +9,7 @@ use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
@@ -49,7 +50,7 @@ class TrackingTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
 
         $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = 'PMA_db';
+        Current::$database = 'PMA_db';
         $GLOBALS['table'] = 'PMA_table';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'ltr';
@@ -109,12 +110,12 @@ class TrackingTest extends AbstractTestCase
         $this->assertStringContainsString('<div class="card-header">', $html);
         $this->assertStringContainsString('<div class="card-body">', $html);
         $this->assertStringContainsString('<div class="card-footer">', $html);
-        $this->assertStringContainsString(Url::getHiddenInputs($GLOBALS['db']), $html);
+        $this->assertStringContainsString(Url::getHiddenInputs(Current::$database), $html);
         $this->assertStringContainsString(
             sprintf(
                 __('Create version %1$s of %2$s'),
                 2,
-                htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table']),
+                htmlspecialchars(Current::$database . '.' . $GLOBALS['table']),
             ),
             $html,
         );

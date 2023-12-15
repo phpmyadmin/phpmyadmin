@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
@@ -52,7 +53,7 @@ class SqlController extends AbstractController
             return;
         }
 
-        $urlParams = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+        $urlParams = ['db' => Current::$database, 'table' => $GLOBALS['table']];
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
             Config::getInstance()->settings['DefaultTabTable'],
             'table',
@@ -96,7 +97,7 @@ class SqlController extends AbstractController
         $delimiter = $request->getParsedBodyParam('delimiter', ';');
 
         $this->response->addHTML($this->sqlQueryForm->getHtml(
-            $GLOBALS['db'],
+            Current::$database,
             $GLOBALS['table'],
             $request->getQueryParam('sql_query', true),
             false,

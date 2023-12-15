@@ -11,6 +11,7 @@ use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Favorites\RecentFavoriteTables;
 use PhpMyAdmin\Favorites\TableType;
@@ -220,7 +221,7 @@ class NavigationTree
      */
     private function getNavigationDbPos(): int
     {
-        if (($GLOBALS['db'] ?? '') === '') {
+        if ((Current::$database ?? '') === '') {
             return 0;
         }
 
@@ -242,7 +243,7 @@ class NavigationTree
                     $config->settings['FirstLevelNavigationItems'],
                     $config->settings['FirstLevelNavigationItems'],
                     $this->dbi->quoteString($config->settings['NavigationTreeDbSeparator']),
-                    $this->dbi->quoteString($GLOBALS['db']),
+                    $this->dbi->quoteString(Current::$database),
                 ),
             );
         }
@@ -252,7 +253,7 @@ class NavigationTree
             $handle = $this->dbi->tryQuery('SHOW DATABASES');
             if ($handle !== false) {
                 while ($database = $handle->fetchValue()) {
-                    if (strcasecmp($database, $GLOBALS['db']) >= 0) {
+                    if (strcasecmp($database, Current::$database) >= 0) {
                         break;
                     }
 
@@ -278,7 +279,7 @@ class NavigationTree
 
             sort($databases);
             foreach ($databases as $database) {
-                if (strcasecmp($database, $GLOBALS['db']) >= 0) {
+                if (strcasecmp($database, Current::$database) >= 0) {
                     break;
                 }
 
@@ -1161,7 +1162,7 @@ class NavigationTree
         );
 
         $children = $this->tree->children;
-        $selected = $GLOBALS['db'];
+        $selected = Current::$database;
         $options = [];
         foreach ($children as $node) {
             if ($node->isNew) {

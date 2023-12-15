@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
@@ -34,7 +35,7 @@ class RoutinesTest extends AbstractTestCase
         $config->selectedServer['DisableIS'] = false;
         $config->settings['ActionLinksMode'] = 'icons';
         $GLOBALS['server'] = 0;
-        $GLOBALS['db'] = 'db';
+        Current::$database = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['proc_priv'] = false;

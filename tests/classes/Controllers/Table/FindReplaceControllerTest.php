@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Table\FindReplaceController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\ResponseRenderer;
@@ -27,7 +28,7 @@ class FindReplaceControllerTest extends AbstractTestCase
         parent::setGlobalConfig();
 
         $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = 'db';
+        Current::$database = 'db';
         $GLOBALS['table'] = 'table';
         Config::getInstance()->selectedServer['DisableIS'] = false;
 

@@ -9,6 +9,7 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
@@ -44,7 +45,7 @@ class StructureControllerTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['table'] = 'table';
-        $GLOBALS['db'] = 'db';
+        Current::$database = 'db';
 
         $table = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()
@@ -313,7 +314,7 @@ class StructureControllerTest extends AbstractTestCase
     {
         parent::loadDbiIntoContainerBuilder();
 
-        $GLOBALS['db'] = 'testdb';
+        Current::$database = 'testdb';
         $GLOBALS['table'] = 'mytable';
 
         /** @var StructureController $structureController */

@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
@@ -53,7 +54,7 @@ class TrackingController extends AbstractController
 
         $config = Config::getInstance();
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
-        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
+        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -72,17 +73,17 @@ class TrackingController extends AbstractController
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/table/tracking');
         $GLOBALS['urlParams']['back'] = Url::getFromRoute('/database/tracking');
 
-        [, $numTables] = Util::getDbInfo($request, $GLOBALS['db']);
-        $isSystemSchema = Utilities::isSystemSchema($GLOBALS['db']);
+        [, $numTables] = Util::getDbInfo($request, Current::$database);
+        $isSystemSchema = Utilities::isSystemSchema(Current::$database);
 
         if ($request->hasBodyParam('delete_tracking') && $request->hasBodyParam('table')) {
-            $this->tracking->deleteTracking($GLOBALS['db'], $request->getParsedBodyParam('table'));
+            $this->tracking->deleteTracking(Current::$database, $request->getParsedBodyParam('table'));
             $this->response->addHTML(Message::success(
                 __('Tracking data deleted successfully.'),
             )->getDisplay());
         } elseif ($request->hasBodyParam('submit_create_version')) {
             $this->tracking->createTrackingForMultipleTables(
-                $GLOBALS['db'],
+                Current::$database,
                 $request->getParsedBodyParam('selected'),
                 $request->getParsedBodyParam('version'),
             );
@@ -99,7 +100,7 @@ class TrackingController extends AbstractController
             if (! empty($selectedTable)) {
                 if ($request->getParsedBodyParam('submit_mult') === 'delete_tracking') {
                     foreach ($selectedTable as $table) {
-                        $this->tracking->deleteTracking($GLOBALS['db'], $table);
+                        $this->tracking->deleteTracking(Current::$database, $table);
                     }
 
                     $this->response->addHTML(Message::success(
@@ -110,7 +111,7 @@ class TrackingController extends AbstractController
                         'route' => '/database/tracking',
                         'url_params' => $GLOBALS['urlParams'],
                         'last_version' => 0,
-                        'db' => $GLOBALS['db'],
+                        'db' => Current::$database,
                         'selected' => $selectedTable,
                         'type' => 'both',
                         'default_statements' => $config->selectedServer['tracking_default_statements'],
@@ -126,7 +127,7 @@ class TrackingController extends AbstractController
         }
 
         // Get tracked data about the database
-        $trackedData = $this->tracking->getTrackedData($GLOBALS['db'], '', '1');
+        $trackedData = $this->tracking->getTrackedData(Current::$database, '', '1');
 
         // No tables present and no log exist
         if ($numTables === 0 && $trackedData->ddlog === []) {
@@ -136,15 +137,17 @@ class TrackingController extends AbstractController
                 $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
                 $checkUserPrivileges->getPrivileges();
 
-                $this->render('database/create_table', ['db' => $GLOBALS['db']]);
+                $this->render('database/create_table', ['db' => Current::$database]);
             }
 
             return;
         }
 
-        $this->response->addHTML(
-            $this->tracking->getHtmlForDbTrackingTables($GLOBALS['db'], $GLOBALS['urlParams'], $GLOBALS['text_dir']),
-        );
+        $this->response->addHTML($this->tracking->getHtmlForDbTrackingTables(
+            Current::$database,
+            $GLOBALS['urlParams'],
+            $GLOBALS['text_dir'],
+        ));
 
         // If available print out database log
         if ($trackedData->ddlog === []) {

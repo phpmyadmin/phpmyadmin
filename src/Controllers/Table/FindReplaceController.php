@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
@@ -63,7 +64,7 @@ class FindReplaceController extends AbstractController
             return;
         }
 
-        $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => $GLOBALS['table']];
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
             Config::getInstance()->settings['DefaultTabTable'],
             'table',
@@ -134,7 +135,7 @@ class FindReplaceController extends AbstractController
     private function loadTableInfo(): void
     {
         // Gets the list and number of columns
-        $columns = $this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table'], true);
+        $columns = $this->dbi->getColumns(Current::$database, $GLOBALS['table'], true);
 
         foreach ($columns as $row) {
             // set column name
@@ -182,7 +183,7 @@ class FindReplaceController extends AbstractController
         }
 
         $this->render('table/find_replace/index', [
-            'db' => $GLOBALS['db'],
+            'db' => Current::$database,
             'table' => $GLOBALS['table'],
             'goto' => $GLOBALS['goto'],
             'column_names' => $this->columnNames,
@@ -220,7 +221,7 @@ class FindReplaceController extends AbstractController
                 . $replaceWith
                 . "'),"
                 . ' COUNT(*)'
-                . ' FROM ' . Util::backquote($GLOBALS['db'])
+                . ' FROM ' . Util::backquote(Current::$database)
                 . '.' . Util::backquote($GLOBALS['table'])
                 . ' WHERE ' . Util::backquote($column)
                 . " LIKE '%" . $find . "%' COLLATE " . $charSet . '_bin'; // here we
@@ -234,7 +235,7 @@ class FindReplaceController extends AbstractController
         }
 
         return $this->template->render('table/find_replace/replace_preview', [
-            'db' => $GLOBALS['db'],
+            'db' => Current::$database,
             'table' => $GLOBALS['table'],
             'column_index' => $columnIndex,
             'find' => $find,
@@ -265,7 +266,7 @@ class FindReplaceController extends AbstractController
             . Util::backquote($column) . ','
             . ' 1,' // to add an extra column that will have replaced value
             . ' COUNT(*)'
-            . ' FROM ' . Util::backquote($GLOBALS['db'])
+            . ' FROM ' . Util::backquote(Current::$database)
             . '.' . Util::backquote($GLOBALS['table'])
             . ' WHERE ' . Util::backquote($column)
             . ' RLIKE ' . $this->dbi->quoteString($find) . ' COLLATE '

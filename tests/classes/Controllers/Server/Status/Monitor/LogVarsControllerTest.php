@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server\Status\Monitor;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\Monitor\LogVarsController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Server\Status\Data;
@@ -38,7 +39,7 @@ class LogVarsControllerTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->dbi;
 
         $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = 'db';
+        Current::$database = 'db';
         $GLOBALS['table'] = 'table';
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;

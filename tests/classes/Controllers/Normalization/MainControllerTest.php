@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Normalization;
 
 use PhpMyAdmin\Controllers\Normalization\MainController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
@@ -38,13 +39,13 @@ class MainControllerTest extends AbstractTestCase
 
         parent::loadResponseIntoContainerBuilder();
 
-        $GLOBALS['db'] = 'my_db';
+        Current::$database = 'my_db';
         $GLOBALS['table'] = 'test_tbl';
     }
 
     public function testNormalization(): void
     {
-        $GLOBALS['db'] = 'test_db';
+        Current::$database = 'test_db';
         $GLOBALS['table'] = 'test_table';
         $response = new ResponseRenderer();
 

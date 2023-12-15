@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Table\DropColumnController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FlashMessages;
 use PhpMyAdmin\Http\ServerRequest;
@@ -27,7 +28,7 @@ class DropColumnControllerTest extends AbstractTestCase
 
     public function testDropColumnController(): void
     {
-        $GLOBALS['db'] = 'test_db';
+        Current::$database = 'test_db';
         $GLOBALS['table'] = 'test_table';
         $_POST = [
             'db' => 'test_db',

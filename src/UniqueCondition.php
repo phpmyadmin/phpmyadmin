@@ -74,7 +74,7 @@ class UniqueCondition
             // because there is some caching in the function).
             if (
                 $meta->table !== $meta->orgtable
-                && ! DatabaseInterface::getInstance()->getTable($GLOBALS['db'], $meta->table)->isView()
+                && ! DatabaseInterface::getInstance()->getTable(Current::$database, $meta->table)->isView()
             ) {
                 $meta->table = $meta->orgtable;
             }

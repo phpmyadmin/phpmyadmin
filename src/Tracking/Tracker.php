@@ -11,6 +11,7 @@ use PhpMyAdmin\Cache;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Features\TrackingFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Plugins;
@@ -431,7 +432,7 @@ class Tracker
 
         // Parse USE statement, need it for SQL dump imports
         if ($tokens[0]->value === 'USE') {
-            $GLOBALS['db'] = $tokens[2]->value;
+            Current::$database = $tokens[2]->value;
         }
 
         $result = [];
@@ -457,7 +458,7 @@ class Tracker
                     $result['tablename'] = '';
 
                     // In case of CREATE DATABASE, database field of the CreateStatement is the name of the database
-                    $GLOBALS['db'] = $statement->name?->database;
+                    Current::$database = $statement->name?->database;
                 } elseif (
                     $options[6] === 'INDEX'
                           || $options[6] === 'UNIQUE INDEX'
@@ -482,7 +483,7 @@ class Tracker
                     $result['identifier'] = 'ALTER DATABASE';
                     $result['tablename'] = '';
 
-                    $GLOBALS['db'] = $statement->table->table;
+                    Current::$database = $statement->table->table;
                 }
             } elseif ($statement instanceof DropStatement) { // Parse DROP statement
                 if ($options === null || $options === [] || ! isset($options[1])) {
@@ -496,7 +497,7 @@ class Tracker
                     $result['identifier'] = 'DROP DATABASE';
                     $result['tablename'] = '';
 
-                    $GLOBALS['db'] = $statement->fields[0]->table;
+                    Current::$database = $statement->fields[0]->table;
                 } elseif ($options[1] === 'INDEX') {
                     $result['identifier'] = 'DROP INDEX';
                     $result['tablename'] = $statement->table->table;
@@ -559,7 +560,7 @@ class Tracker
         }
 
         // Get database name
-        $dbname = trim($GLOBALS['db'] ?? '', '`');
+        $dbname = trim(Current::$database ?? '', '`');
         // $dbname can be empty, for example when coming from Synchronize
         // and this is a query for the remote server
         if ($dbname === '') {

@@ -8,6 +8,7 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\CreateAddField;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
@@ -44,7 +45,7 @@ final class PartitioningController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         if (isset($_POST['save_partitioning'])) {
-            $this->dbi->selectDb($GLOBALS['db']);
+            $this->dbi->selectDb(Current::$database);
             $this->updatePartitioning();
             ($this->structureController)($request);
 
@@ -69,7 +70,7 @@ final class PartitioningController extends AbstractController
         }
 
         $this->render('table/structure/partition_definition_form', [
-            'db' => $GLOBALS['db'],
+            'db' => Current::$database,
             'table' => $GLOBALS['table'],
             'partition_details' => $partitionDetails,
             'storage_engines' => $storageEngines,
@@ -83,7 +84,7 @@ final class PartitioningController extends AbstractController
      */
     private function extractPartitionDetails(): array|null
     {
-        $createTable = (new Table($GLOBALS['table'], $GLOBALS['db'], $this->dbi))->showCreate();
+        $createTable = (new Table($GLOBALS['table'], Current::$database, $this->dbi))->showCreate();
         if ($createTable === '') {
             return null;
         }

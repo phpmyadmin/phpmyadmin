@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Database\Structure;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\StructureController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -40,9 +41,9 @@ final class CopyTableWithPrefixController extends AbstractController
             $newTableName = $toPrefix . mb_substr($current, mb_strlen((string) $fromPrefix));
 
             Table::moveCopy(
-                $GLOBALS['db'],
+                Current::$database,
                 $current,
-                $GLOBALS['db'],
+                Current::$database,
                 $newTableName,
                 'data',
                 false,

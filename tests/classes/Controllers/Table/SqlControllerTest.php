@@ -9,6 +9,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\SqlController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\MySQLDocumentation;
@@ -41,7 +42,7 @@ class SqlControllerTest extends AbstractTestCase
     public function testSqlController(): void
     {
         $GLOBALS['server'] = 2;
-        $GLOBALS['db'] = 'test_db';
+        Current::$database = 'test_db';
         $GLOBALS['table'] = 'test_table';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'ltr';

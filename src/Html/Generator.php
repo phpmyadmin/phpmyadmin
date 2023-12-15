@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Html;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Profiling;
@@ -129,11 +130,11 @@ class Generator
     public static function getDbLink(string $database): string
     {
         if ($database === '') {
-            if ((string) $GLOBALS['db'] === '') {
+            if ((string) Current::$database === '') {
                 return '';
             }
 
-            $database = $GLOBALS['db'];
+            $database = Current::$database;
         }
 
         $scriptName = Util::getScriptNameForOption(Config::getInstance()->settings['DefaultTabDatabase'], 'database');
@@ -493,12 +494,12 @@ class Generator
 
         // Basic url query part
         $urlParams = [];
-        if (! isset($GLOBALS['db'])) {
-            $GLOBALS['db'] = '';
+        if (! isset(Current::$database)) {
+            Current::$database = '';
         }
 
-        if (strlen($GLOBALS['db']) > 0) {
-            $urlParams['db'] = $GLOBALS['db'];
+        if (strlen(Current::$database) > 0) {
+            $urlParams['db'] = Current::$database;
             if (strlen($GLOBALS['table']) > 0) {
                 $urlParams['table'] = $GLOBALS['table'];
                 $editLinkRoute = '/table/sql';
@@ -617,9 +618,12 @@ class Generator
         $retval .= '<div class="card-footer tools d-print-none">' . "\n";
         $retval .= '<div class="row align-items-center">' . "\n";
         $retval .= '<div class="col-auto">' . "\n";
-        $retval .= '<form action="' . Url::getFromRoute('/sql', ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']])
+        $retval .= '<form action="' . Url::getFromRoute(
+            '/sql',
+            ['db' => Current::$database, 'table' => $GLOBALS['table']],
+        )
             . '" method="post" class="disableAjax">' . "\n";
-        $retval .= Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']) . "\n";
+        $retval .= Url::getHiddenInputs(Current::$database, $GLOBALS['table']) . "\n";
         $retval .= '<input type="hidden" name="sql_query" value="'
             . htmlspecialchars($sqlQuery) . '">' . "\n";
 
@@ -799,11 +803,11 @@ class Generator
             if ($isModifyLink) {
                 $urlParams = ['sql_query' => $sqlQuery, 'show_query' => 1];
                 if (strlen($GLOBALS['table']) > 0) {
-                    $urlParams['db'] = $GLOBALS['db'];
+                    $urlParams['db'] = Current::$database;
                     $urlParams['table'] = $GLOBALS['table'];
                     $doEditGoto = '<a href="' . Url::getFromRoute('/table/sql', $urlParams) . '">';
-                } elseif (strlen($GLOBALS['db']) > 0) {
-                    $urlParams['db'] = $GLOBALS['db'];
+                } elseif (strlen(Current::$database) > 0) {
+                    $urlParams['db'] = Current::$database;
                     $doEditGoto = '<a href="' . Url::getFromRoute('/database/sql', $urlParams) . '">';
                 } else {
                     $doEditGoto = '<a href="' . Url::getFromRoute('/server/sql', $urlParams) . '">';

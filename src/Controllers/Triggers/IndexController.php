@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Triggers;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
@@ -59,13 +60,13 @@ final class IndexController extends AbstractController
              */
             if (
                 ! empty($GLOBALS['table'])
-                && in_array($GLOBALS['table'], $this->dbi->getTables($GLOBALS['db']), true)
+                && in_array($GLOBALS['table'], $this->dbi->getTables(Current::$database), true)
             ) {
                 if (! $this->checkParameters(['db', 'table'])) {
                     return;
                 }
 
-                $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+                $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => $GLOBALS['table']];
                 $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
                 $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
@@ -93,7 +94,7 @@ final class IndexController extends AbstractController
                     $config->settings['DefaultTabDatabase'],
                     'database',
                 );
-                $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
+                $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
                 $databaseName = DatabaseName::tryFrom($request->getParam('db'));
                 if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -102,8 +103,8 @@ final class IndexController extends AbstractController
                     return;
                 }
             }
-        } elseif (strlen($GLOBALS['db']) > 0) {
-            $this->dbi->selectDb($GLOBALS['db']);
+        } elseif (strlen(Current::$database) > 0) {
+            $this->dbi->selectDb(Current::$database);
         }
 
         /**
@@ -119,7 +120,7 @@ final class IndexController extends AbstractController
             if ($request->isAjax()) {
                 if ($GLOBALS['message']->isSuccess()) {
                     $trigger = $this->triggers->getTriggerByName(
-                        $GLOBALS['db'],
+                        Current::$database,
                         $GLOBALS['table'],
                         $_POST['item_name'],
                     );
@@ -132,13 +133,13 @@ final class IndexController extends AbstractController
                         $insert = true;
                         $hasTriggerPrivilege = Util::currentUserHasPrivilege(
                             'TRIGGER',
-                            $GLOBALS['db'],
+                            Current::$database,
                             $GLOBALS['table'],
                         );
                         $this->response->addJSON(
                             'new_row',
                             $this->template->render('triggers/row', [
-                                'db' => $GLOBALS['db'],
+                                'db' => Current::$database,
                                 'table' => $GLOBALS['table'],
                                 'trigger' => $trigger,
                                 'has_drop_privilege' => $hasTriggerPrivilege,
@@ -190,7 +191,11 @@ final class IndexController extends AbstractController
                 $title = __('Edit trigger');
                 if (! empty($_REQUEST['item_name']) && empty($_POST['editor_process_edit'])) {
                     $item = $this->getDataFromTrigger(
-                        $this->triggers->getTriggerByName($GLOBALS['db'], $GLOBALS['table'], $_REQUEST['item_name']),
+                        $this->triggers->getTriggerByName(
+                            Current::$database,
+                            $GLOBALS['table'],
+                            $_REQUEST['item_name'],
+                        ),
                     );
                 } else {
                     $item = $this->getDataFromRequest($request);
@@ -200,9 +205,9 @@ final class IndexController extends AbstractController
             }
 
             if ($item !== null) {
-                $tables = $this->triggers->getTables($GLOBALS['db']);
+                $tables = $this->triggers->getTables(Current::$database);
                 $editor = $this->template->render('triggers/editor_form', [
-                    'db' => $GLOBALS['db'],
+                    'db' => Current::$database,
                     'table' => $GLOBALS['table'],
                     'is_edit' => $mode === 'edit',
                     'item' => $item,
@@ -227,7 +232,7 @@ final class IndexController extends AbstractController
             $message .= sprintf(
                 __('No trigger with name %1$s found in database %2$s.'),
                 htmlspecialchars(Util::backquote($_REQUEST['item_name'])),
-                htmlspecialchars(Util::backquote($GLOBALS['db'])),
+                htmlspecialchars(Util::backquote(Current::$database)),
             );
             $message = Message::error($message);
             if ($request->isAjax()) {
@@ -244,7 +249,7 @@ final class IndexController extends AbstractController
         $triggerName = TriggerName::tryFrom($request->getQueryParam('item_name'));
         if ($request->hasQueryParam('export_item') && $triggerName !== null) {
             $exportData = $this->triggers->getTriggerByName(
-                $GLOBALS['db'],
+                Current::$database,
                 $GLOBALS['table'],
                 $triggerName->getName(),
             )?->getCreateSql('');
@@ -265,7 +270,7 @@ final class IndexController extends AbstractController
             $message = Message::error(sprintf(
                 __('Error in processing request: No trigger with name %1$s found in database %2$s.'),
                 htmlspecialchars(Util::backquote($triggerName)),
-                htmlspecialchars(Util::backquote($GLOBALS['db'])),
+                htmlspecialchars(Util::backquote(Current::$database)),
             ));
             if ($request->isAjax()) {
                 $this->response->setRequestStatus(false);
@@ -275,12 +280,12 @@ final class IndexController extends AbstractController
             }
         }
 
-        $triggers = Triggers::getDetails($this->dbi, $GLOBALS['db'], $GLOBALS['table']);
-        $hasTriggerPrivilege = Util::currentUserHasPrivilege('TRIGGER', $GLOBALS['db'], $GLOBALS['table']);
+        $triggers = Triggers::getDetails($this->dbi, Current::$database, $GLOBALS['table']);
+        $hasTriggerPrivilege = Util::currentUserHasPrivilege('TRIGGER', Current::$database, $GLOBALS['table']);
         $isAjax = $request->isAjax() && empty($request->getParam('ajax_page_request'));
 
         $this->render('triggers/list', [
-            'db' => $GLOBALS['db'],
+            'db' => Current::$database,
             'table' => $GLOBALS['table'],
             'triggers' => $triggers,
             'has_privilege' => $hasTriggerPrivilege,

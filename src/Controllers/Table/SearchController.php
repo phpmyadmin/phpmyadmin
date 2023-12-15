@@ -10,6 +10,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
@@ -108,7 +109,7 @@ class SearchController extends AbstractController
     private function loadTableInfo(): void
     {
         // Gets the list and number of columns
-        $columns = $this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table'], true);
+        $columns = $this->dbi->getColumns(Current::$database, $GLOBALS['table'], true);
         // Get details about the geometry functions
         $geomTypes = Gis::getDataTypes();
 
@@ -151,7 +152,7 @@ class SearchController extends AbstractController
         }
 
         // Retrieve foreign keys
-        $this->foreigners = $this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table']);
+        $this->foreigners = $this->relation->getForeigners(Current::$database, $GLOBALS['table']);
     }
 
     /**
@@ -163,7 +164,7 @@ class SearchController extends AbstractController
             return;
         }
 
-        $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => $GLOBALS['table']];
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
             Config::getInstance()->settings['DefaultTabTable'],
             'table',
@@ -280,7 +281,7 @@ class SearchController extends AbstractController
         $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
             null,
             false, // is_gotofile
-            $GLOBALS['db'], // db
+            Current::$database, // db
             $GLOBALS['table'], // table
             null, // sql_query_for_bookmark
             null, // message_to_show
@@ -304,7 +305,7 @@ class SearchController extends AbstractController
         }
 
         $this->render('table/search/index', [
-            'db' => $GLOBALS['db'],
+            'db' => Current::$database,
             'table' => $GLOBALS['table'],
             'goto' => $GLOBALS['goto'],
             'self' => $this,
@@ -335,7 +336,7 @@ class SearchController extends AbstractController
     {
         $sqlQuery = 'SELECT MIN(' . Util::backquote($column) . ') AS `min`, '
             . 'MAX(' . Util::backquote($column) . ') AS `max` '
-            . 'FROM ' . Util::backquote($GLOBALS['db']) . '.'
+            . 'FROM ' . Util::backquote(Current::$database) . '.'
             . Util::backquote($GLOBALS['table']);
 
         return $this->dbi->fetchSingleRow($sqlQuery);
@@ -425,7 +426,7 @@ class SearchController extends AbstractController
             'table' => $GLOBALS['table'],
             'column_index' => $searchIndex,
             'criteria_values' => $enteredValue,
-            'db' => $GLOBALS['db'],
+            'db' => Current::$database,
             'in_fbs' => true,
             'foreign_dropdown' => $foreignDropdown,
             'search_column_in_foreigners' => $searchColumnInForeigners,

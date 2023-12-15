@@ -8,6 +8,7 @@ use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Favorites\RecentFavoriteTables;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -197,7 +198,7 @@ class RelationTest extends AbstractTestCase
 
     public function testFixPmaTablesNormal(): void
     {
-        $GLOBALS['db'] = '';
+        Current::$database = '';
         $GLOBALS['server'] = 1;
         $config = Config::getInstance();
         $config->selectedServer['user'] = '';
@@ -259,7 +260,7 @@ class RelationTest extends AbstractTestCase
 
     public function testFixPmaTablesNormalFixTables(): void
     {
-        $GLOBALS['db'] = '';
+        Current::$database = '';
         $GLOBALS['server'] = 1;
         $config = Config::getInstance();
         $config->selectedServer['user'] = '';
@@ -532,7 +533,7 @@ class RelationTest extends AbstractTestCase
 
     public function testFixPmaTablesNormalFixTablesWithCustomOverride(): void
     {
-        $GLOBALS['db'] = '';
+        Current::$database = '';
         $GLOBALS['server'] = 1;
         $config = Config::getInstance();
         $config->selectedServer['user'] = '';
@@ -815,7 +816,7 @@ class RelationTest extends AbstractTestCase
 
     public function testFixPmaTablesNormalFixTablesFails(): void
     {
-        $GLOBALS['db'] = '';
+        Current::$database = '';
         $GLOBALS['server'] = 1;
         $config = Config::getInstance();
         $config->selectedServer['user'] = '';
@@ -1401,7 +1402,7 @@ class RelationTest extends AbstractTestCase
 
     public function testInitRelationParamsCacheDefaultDbNameDbDoesNotExist(): void
     {
-        $GLOBALS['db'] = '';
+        Current::$database = '';
         $GLOBALS['server'] = 0;
 
         $dummyDbi = $this->createDbiDummy();
@@ -1418,7 +1419,7 @@ class RelationTest extends AbstractTestCase
 
     public function testInitRelationParamsCacheDefaultDbNameDbExistsServerZero(): void
     {
-        $GLOBALS['db'] = '';
+        Current::$database = '';
         $GLOBALS['server'] = 0;
         $config = Config::getInstance();
         $config->selectedServer = [];
@@ -1451,7 +1452,7 @@ class RelationTest extends AbstractTestCase
 
     public function testInitRelationParamsCacheDefaultDbNameDbExistsFirstServer(): void
     {
-        $GLOBALS['db'] = '';
+        Current::$database = '';
         $GLOBALS['server'] = 1;
         $config = Config::getInstance();
         $config->selectedServer = [];
@@ -1539,7 +1540,7 @@ class RelationTest extends AbstractTestCase
 
     public function testInitRelationParamsCacheDefaultDbNameDbExistsFirstServerNotWorkingTable(): void
     {
-        $GLOBALS['db'] = '';
+        Current::$database = '';
         $GLOBALS['server'] = 1;
         $config = Config::getInstance();
         $config->selectedServer = [];
@@ -1626,7 +1627,7 @@ class RelationTest extends AbstractTestCase
 
     public function testInitRelationParamsCacheDefaultDbNameDbExistsFirstServerOverride(): void
     {
-        $GLOBALS['db'] = '';
+        Current::$database = '';
         $GLOBALS['server'] = 1;
         $config = Config::getInstance();
         $config->selectedServer = [];
@@ -1736,7 +1737,7 @@ class RelationTest extends AbstractTestCase
 
     public function testInitRelationParamsDisabledTracking(): void
     {
-        $GLOBALS['db'] = '';
+        Current::$database = '';
         $GLOBALS['server'] = 1;
         $config = Config::getInstance();
         $config->selectedServer = [];
@@ -1856,7 +1857,7 @@ class RelationTest extends AbstractTestCase
 
     public function testInitRelationParamsDisabledTrackingOthersExist(): void
     {
-        $GLOBALS['db'] = '';
+        Current::$database = '';
         $GLOBALS['server'] = 1;
         $config = Config::getInstance();
         $config->selectedServer = [];

@@ -849,7 +849,7 @@ class InsertEdit
      */
     public function setSessionForEditNext(string $oneWhereClause): void
     {
-        $localQuery = 'SELECT * FROM ' . Util::backquote($GLOBALS['db'])
+        $localQuery = 'SELECT * FROM ' . Util::backquote(Current::$database)
             . '.' . Util::backquote($GLOBALS['table']) . ' WHERE '
             . str_replace('` =', '` >', $oneWhereClause) . ' LIMIT 1;';
 

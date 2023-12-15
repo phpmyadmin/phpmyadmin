@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Http\Middleware;
 
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
@@ -32,14 +33,14 @@ final class DatabaseAndTableSetting implements MiddlewareInterface
         $db = DatabaseName::tryFrom($request->getParam('db'));
         $table = TableName::tryFrom($request->getParam('table'));
 
-        $GLOBALS['db'] = $db?->getName() ?? '';
+        Current::$database = $db?->getName() ?? '';
         $GLOBALS['table'] = $table?->getName() ?? '';
 
         if (! is_array($GLOBALS['urlParams'])) {
             $GLOBALS['urlParams'] = [];
         }
 
-        $GLOBALS['urlParams']['db'] = $GLOBALS['db'];
+        $GLOBALS['urlParams']['db'] = Current::$database;
         $GLOBALS['urlParams']['table'] = $GLOBALS['table'];
     }
 }

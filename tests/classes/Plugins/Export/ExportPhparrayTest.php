@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Plugins\Export\ExportPhparray;
@@ -43,7 +44,7 @@ class ExportPhparrayTest extends AbstractTestCase
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
-        $GLOBALS['db'] = '';
+        Current::$database = '';
         $GLOBALS['table'] = '';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'ltr';

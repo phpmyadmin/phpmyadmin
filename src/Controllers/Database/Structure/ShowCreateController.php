@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Database\Structure;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
@@ -48,7 +49,7 @@ final class ShowCreateController extends AbstractController
         $tables = ['tables' => [], 'views' => []];
 
         foreach ($selected as $table) {
-            $object = $this->dbi->getTable($GLOBALS['db'], $table);
+            $object = $this->dbi->getTable(Current::$database, $table);
 
             $tables[$object->isView() ? 'views' : 'tables'][] = [
                 'name' => Core::mimeDefaultFunction($table),

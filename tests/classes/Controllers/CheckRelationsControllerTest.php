@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\CheckRelationsController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
@@ -35,7 +36,7 @@ class CheckRelationsControllerTest extends AbstractTestCase
     public function testCheckRelationsController(): void
     {
         $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = '';
+        Current::$database = '';
         $GLOBALS['table'] = '';
         $GLOBALS['text_dir'] = 'ltr';
 

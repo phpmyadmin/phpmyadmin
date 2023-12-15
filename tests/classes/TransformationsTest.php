@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
@@ -30,7 +31,7 @@ class TransformationsTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['table'] = 'table';
-        $GLOBALS['db'] = 'db';
+        Current::$database = 'db';
         $config = Config::getInstance();
         $config->settings = ['ServerDefault' => 1, 'ActionLinksMode' => 'icons'];
         $GLOBALS['server'] = 1;

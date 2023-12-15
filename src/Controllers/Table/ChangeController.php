@@ -9,6 +9,7 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
@@ -113,7 +114,7 @@ class ChangeController extends AbstractController
             $afterInsert,
         ] = $this->insertEdit->determineInsertOrEdit(
             $GLOBALS['where_clause'] ?? null,
-            $GLOBALS['db'],
+            Current::$database,
             $GLOBALS['table'],
         );
         // Increase number of rows if unsaved rows are more
@@ -136,7 +137,7 @@ class ChangeController extends AbstractController
 
         /** @var mixed $sqlQuery */
         $sqlQuery = $request->getParsedBodyParam('sql_query');
-        $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'sql_query' => is_string($sqlQuery) ? $sqlQuery : ''];
+        $GLOBALS['urlParams'] = ['db' => Current::$database, 'sql_query' => is_string($sqlQuery) ? $sqlQuery : ''];
 
         if (str_starts_with($GLOBALS['goto'] ?? '', 'index.php?route=/table')) {
             $GLOBALS['urlParams']['table'] = $GLOBALS['table'];
@@ -148,7 +149,7 @@ class ChangeController extends AbstractController
         );
         unset($GLOBALS['urlParams']);
 
-        $commentsMap = $this->insertEdit->getCommentsMap($GLOBALS['db'], $GLOBALS['table']);
+        $commentsMap = $this->insertEdit->getCommentsMap(Current::$database, $GLOBALS['table']);
 
         /**
          * START REGULAR OUTPUT
@@ -171,14 +172,14 @@ class ChangeController extends AbstractController
             $this->response->addHTML(Generator::getMessage($GLOBALS['disp_message']));
         }
 
-        $tableColumns = $this->insertEdit->getTableColumns($GLOBALS['db'], $GLOBALS['table']);
+        $tableColumns = $this->insertEdit->getTableColumns(Current::$database, $GLOBALS['table']);
 
         // retrieve keys into foreign fields, if any
-        $foreigners = $this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table']);
+        $foreigners = $this->relation->getForeigners(Current::$database, $GLOBALS['table']);
 
         // Retrieve form parameters for insert/edit form
         $formParams = $this->insertEdit->getFormParametersForInsertForm(
-            $GLOBALS['db'],
+            Current::$database,
             $GLOBALS['table'],
             $whereClauses,
             $whereClauseArray,
@@ -193,7 +194,7 @@ class ChangeController extends AbstractController
 
         $htmlOutput = '';
 
-        $GLOBALS['urlParams']['db'] = $GLOBALS['db'];
+        $GLOBALS['urlParams']['db'] = Current::$database;
         $GLOBALS['urlParams']['table'] = $GLOBALS['table'];
         $GLOBALS['urlParams'] = $this->urlParamsInEditMode($GLOBALS['urlParams'], $whereClauseArray);
 
@@ -254,7 +255,7 @@ class ChangeController extends AbstractController
                 $isUpload,
                 $foreigners,
                 $GLOBALS['table'],
-                $GLOBALS['db'],
+                Current::$database,
                 $rowId,
                 $GLOBALS['text_dir'],
                 $repopulate,
@@ -283,7 +284,7 @@ class ChangeController extends AbstractController
             //Continue insertion form
             $htmlOutput .= $this->insertEdit->getContinueInsertionForm(
                 $GLOBALS['table'],
-                $GLOBALS['db'],
+                Current::$database,
                 $whereClauseArray,
                 $GLOBALS['errorUrl'],
             );

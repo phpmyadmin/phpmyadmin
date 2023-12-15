@@ -9,6 +9,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\StructureController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FlashMessages;
 use PhpMyAdmin\Http\ServerRequest;
@@ -48,7 +49,7 @@ final class EmptyTableController extends AbstractController
 
         if ($multBtn !== __('Yes')) {
             $this->flash->addMessage('success', __('No change'));
-            $this->redirect('/database/structure', ['db' => $GLOBALS['db']]);
+            $this->redirect('/database/structure', ['db' => Current::$database]);
 
             return;
         }
@@ -59,7 +60,7 @@ final class EmptyTableController extends AbstractController
         $selectedCount = count($selected);
 
         for ($i = 0; $i < $selectedCount; $i++) {
-            if (! is_string($selected[$i]) || Table::get($selected[$i], $GLOBALS['db'], $this->dbi)->isView()) {
+            if (! is_string($selected[$i]) || Table::get($selected[$i], Current::$database, $this->dbi)->isView()) {
                 continue;
             }
 
@@ -67,7 +68,7 @@ final class EmptyTableController extends AbstractController
             $aQuery .= Util::backquote($selected[$i]);
 
             $GLOBALS['sql_query'] .= $aQuery . ';' . "\n";
-            $this->dbi->selectDb($GLOBALS['db']);
+            $this->dbi->selectDb(Current::$database);
             $this->dbi->query($aQuery);
         }
 
@@ -82,7 +83,7 @@ final class EmptyTableController extends AbstractController
                 new BookmarkRepository($this->dbi, $this->relation),
             );
 
-            $_REQUEST['pos'] = $sql->calculatePosForLastPage($GLOBALS['db'], $GLOBALS['table'], $_REQUEST['pos']);
+            $_REQUEST['pos'] = $sql->calculatePosForLastPage(Current::$database, $GLOBALS['table'], $_REQUEST['pos']);
         }
 
         ForeignKey::handleDisableCheckCleanup($defaultFkCheckValue);

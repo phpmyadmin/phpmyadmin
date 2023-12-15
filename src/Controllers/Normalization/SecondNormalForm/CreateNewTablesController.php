@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Normalization\SecondNormalForm;
 
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
@@ -27,7 +28,7 @@ final class CreateNewTablesController extends AbstractController
             $partialDependencies,
             $tablesName,
             $GLOBALS['table'],
-            $GLOBALS['db'],
+            Current::$database,
         );
         $this->response->addJSON($res);
     }

@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests;
 use CodeLts\U2F\U2FServer\RegistrationRequest;
 use CodeLts\U2F\U2FServer\SignRequest;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\TwoFactor\Application;
@@ -39,7 +40,7 @@ class TwoFactorTest extends AbstractTestCase
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
         $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = '';
+        Current::$database = '';
         $GLOBALS['table'] = 'table';
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;

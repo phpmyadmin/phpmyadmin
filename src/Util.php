@@ -1196,7 +1196,7 @@ class Util
             $vars['server_verbose_or_name'] = $config->selectedServer['verbose'];
         }
 
-        $vars['database'] = $GLOBALS['db'];
+        $vars['database'] = Current::$database;
         $vars['table'] = $GLOBALS['table'];
         $vars['phpmyadmin_version'] = 'phpMyAdmin ' . Version::VERSION;
 
@@ -1235,7 +1235,7 @@ class Util
 
         /* Fetch columns list if required */
         if (str_contains($string, '@COLUMNS@')) {
-            $columnsList = DatabaseInterface::getInstance()->getColumnNames($GLOBALS['db'], $GLOBALS['table']);
+            $columnsList = DatabaseInterface::getInstance()->getColumnNames(Current::$database, $GLOBALS['table']);
 
             $columnNames = [];
             if ($escape !== null) {

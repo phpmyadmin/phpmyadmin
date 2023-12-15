@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Import;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html;
 use PhpMyAdmin\SqlParser\Parser;
@@ -54,7 +55,7 @@ final class SimulateDml
         // Execute the query and get the number of matched rows.
         $matchedRows = $this->executeMatchedRowQuery($matchedRowsQuery);
         $matchedRowsUrl = Url::getFromRoute('/sql', [
-            'db' => $GLOBALS['db'],
+            'db' => Current::$database,
             'sql_query' => $matchedRowsQuery,
             'sql_signature' => Core::signSqlQuery($matchedRowsQuery),
         ]);
@@ -73,7 +74,7 @@ final class SimulateDml
      */
     private function executeMatchedRowQuery(string $matchedRowQuery): int
     {
-        $this->dbi->selectDb($GLOBALS['db']);
+        $this->dbi->selectDb(Current::$database);
         $result = $this->dbi->tryQuery($matchedRowQuery);
         if ($result === false) {
             return 0;

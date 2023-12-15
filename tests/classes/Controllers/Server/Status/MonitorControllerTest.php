@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\MonitorController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Server\Status\Data;
@@ -39,7 +40,7 @@ class MonitorControllerTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->dbi;
 
         $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = 'db';
+        Current::$database = 'db';
         $GLOBALS['table'] = 'table';
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;

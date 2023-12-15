@@ -8,6 +8,7 @@ use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
@@ -110,7 +111,7 @@ class CentralColumnsTest extends AbstractTestCase
         $config->settings['ActionLinksMode'] = 'icons';
         $config->settings['CharEditing'] = '';
         $config->settings['LimitChars'] = 50;
-        $GLOBALS['db'] = 'PMA_db';
+        Current::$database = 'PMA_db';
         $GLOBALS['table'] = 'PMA_table';
 
         $GLOBALS['server'] = 1;

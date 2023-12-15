@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Triggers;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Triggers\Trigger;
@@ -32,7 +33,7 @@ class TriggersTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         Config::getInstance()->selectedServer['DisableIS'] = false;
-        $GLOBALS['db'] = 'pma_test';
+        Current::$database = 'pma_test';
         $GLOBALS['table'] = 'table';
 
         $this->triggers = new Triggers(DatabaseInterface::getInstance());

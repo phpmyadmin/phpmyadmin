@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -44,7 +45,7 @@ class SearchController extends AbstractController
 
         $config = Config::getInstance();
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
-        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
+        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -80,7 +81,7 @@ class SearchController extends AbstractController
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/search');
 
         // Create a database search instance
-        $databaseSearch = new Search($this->dbi, $GLOBALS['db'], $this->template);
+        $databaseSearch = new Search($this->dbi, Current::$database, $this->template);
 
         // Main search form has been submitted, get results
         if ($request->hasBodyParam('submit_search')) {

@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
@@ -52,7 +53,7 @@ class ExportController extends AbstractController
             return;
         }
 
-        $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => $GLOBALS['table']];
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
             Config::getInstance()->settings['DefaultTabTable'],
             'table',
@@ -115,7 +116,7 @@ class ExportController extends AbstractController
 
         $options = $this->export->getOptions(
             $exportType,
-            $GLOBALS['db'],
+            Current::$database,
             $GLOBALS['table'],
             $GLOBALS['sql_query'],
             $GLOBALS['num_tables'],

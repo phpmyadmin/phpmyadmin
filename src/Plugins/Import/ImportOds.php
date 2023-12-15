@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
 
+use PhpMyAdmin\Current;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Message;
@@ -189,8 +190,8 @@ class ImportOds extends ImportPlugin
         }
 
         /* Set database name to the currently selected one, if applicable */
-        $dbName = $GLOBALS['db'] !== '' ? $GLOBALS['db'] : 'ODS_DB';
-        $createDb = $GLOBALS['db'] === '';
+        $dbName = Current::$database !== '' ? Current::$database : 'ODS_DB';
+        $createDb = Current::$database === '';
 
         /* Created and execute necessary SQL statements from data */
         $this->import->buildSql($dbName, $tables, $analyses, createDb:$createDb, sqlData:$sqlStatements);

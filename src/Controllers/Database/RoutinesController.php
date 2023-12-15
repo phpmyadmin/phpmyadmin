@@ -8,6 +8,7 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -66,13 +67,13 @@ class RoutinesController extends AbstractController
              */
             if (
                 ! empty($GLOBALS['table'])
-                && in_array($GLOBALS['table'], $this->dbi->getTables($GLOBALS['db']), true)
+                && in_array($GLOBALS['table'], $this->dbi->getTables(Current::$database), true)
             ) {
                 if (! $this->checkParameters(['db', 'table'])) {
                     return;
                 }
 
-                $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+                $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => $GLOBALS['table']];
                 $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
                 $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
@@ -100,7 +101,7 @@ class RoutinesController extends AbstractController
                     $config->settings['DefaultTabDatabase'],
                     'database',
                 );
-                $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
+                $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
                 $databaseName = DatabaseName::tryFrom($request->getParam('db'));
                 if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -109,8 +110,8 @@ class RoutinesController extends AbstractController
                     return;
                 }
             }
-        } elseif (strlen($GLOBALS['db']) > 0) {
-            $this->dbi->selectDb($GLOBALS['db']);
+        } elseif (strlen(Current::$database) > 0) {
+            $this->dbi->selectDb(Current::$database);
         }
 
         /**
@@ -121,7 +122,7 @@ class RoutinesController extends AbstractController
         $GLOBALS['message'] ??= null;
 
         if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
-            $output = $this->routines->handleRequestCreateOrEdit($GLOBALS['db']);
+            $output = $this->routines->handleRequestCreateOrEdit(Current::$database);
             if ($request->isAjax()) {
                 if (! $GLOBALS['message']->isSuccess()) {
                     $this->response->setRequestStatus(false);
@@ -130,7 +131,12 @@ class RoutinesController extends AbstractController
                     return;
                 }
 
-                $routines = Routines::getDetails($this->dbi, $GLOBALS['db'], $_POST['item_type'], $_POST['item_name']);
+                $routines = Routines::getDetails(
+                    $this->dbi,
+                    Current::$database,
+                    $_POST['item_type'],
+                    $_POST['item_name'],
+                );
                 $routine = $routines[0];
                 $this->response->addJSON(
                     'name',
@@ -254,7 +260,7 @@ class RoutinesController extends AbstractController
                 $charsets = Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
 
                 $editor = $this->template->render('database/routines/editor_form', [
-                    'db' => $GLOBALS['db'],
+                    'db' => Current::$database,
                     'routine' => $routine,
                     'is_edit_mode' => $mode === 'edit',
                     'is_ajax' => $request->isAjax(),
@@ -291,7 +297,7 @@ class RoutinesController extends AbstractController
                 htmlspecialchars(
                     Util::backquote($_REQUEST['item_name']),
                 ),
-                htmlspecialchars(Util::backquote($GLOBALS['db'])),
+                htmlspecialchars(Util::backquote(Current::$database)),
             );
 
             $message = Message::error($message);
@@ -316,7 +322,7 @@ class RoutinesController extends AbstractController
                 $message .= sprintf(
                     __('No routine with name %1$s found in database %2$s.'),
                     htmlspecialchars(Util::backquote($_POST['item_name'])),
-                    htmlspecialchars(Util::backquote($GLOBALS['db'])),
+                    htmlspecialchars(Util::backquote(Current::$database)),
                 );
                 $message = Message::error($message);
                 if ($request->isAjax()) {
@@ -356,7 +362,7 @@ class RoutinesController extends AbstractController
             if ($routine !== null) {
                 [$routine, $params] = $this->routines->getExecuteForm($routine);
                 $form = $this->template->render('database/routines/execute_form', [
-                    'db' => $GLOBALS['db'],
+                    'db' => Current::$database,
                     'routine' => $routine,
                     'ajax' => $request->isAjax(),
                     'show_function_fields' => $config->settings['ShowFunctionFields'],
@@ -384,7 +390,7 @@ class RoutinesController extends AbstractController
                 $message .= sprintf(
                     __('No routine with name %1$s found in database %2$s.'),
                     htmlspecialchars(Util::backquote($_GET['item_name'])),
-                    htmlspecialchars(Util::backquote($GLOBALS['db'])),
+                    htmlspecialchars(Util::backquote(Current::$database)),
                 );
                 $message = Message::error($message);
 
@@ -403,9 +409,17 @@ class RoutinesController extends AbstractController
             && in_array($routineType, ['FUNCTION', 'PROCEDURE'], true)
         ) {
             if ($routineType === 'FUNCTION') {
-                $routineDefinition = Routines::getFunctionDefinition($this->dbi, $GLOBALS['db'], $_GET['item_name']);
+                $routineDefinition = Routines::getFunctionDefinition(
+                    $this->dbi,
+                    Current::$database,
+                    $_GET['item_name'],
+                );
             } else {
-                $routineDefinition = Routines::getProcedureDefinition($this->dbi, $GLOBALS['db'], $_GET['item_name']);
+                $routineDefinition = Routines::getProcedureDefinition(
+                    $this->dbi,
+                    Current::$database,
+                    $_GET['item_name'],
+                );
             }
 
             $exportData = false;
@@ -440,7 +454,7 @@ class RoutinesController extends AbstractController
                         . ' You might be lacking the necessary privileges to view/export this routine.',
                     ),
                     $itemName,
-                    htmlspecialchars(Util::backquote($GLOBALS['db'])),
+                    htmlspecialchars(Util::backquote(Current::$database)),
                 );
                 $message = Message::error($message);
 
@@ -459,7 +473,7 @@ class RoutinesController extends AbstractController
             $type = null;
         }
 
-        $items = Routines::getDetails($this->dbi, $GLOBALS['db'], $type);
+        $items = Routines::getDetails($this->dbi, Current::$database, $type);
         $isAjax = $request->isAjax() && empty($_REQUEST['ajax_page_request']);
 
         $rows = '';
@@ -471,11 +485,11 @@ class RoutinesController extends AbstractController
         }
 
         $this->render('database/routines/index', [
-            'db' => $GLOBALS['db'],
+            'db' => Current::$database,
             'table' => $GLOBALS['table'],
             'items' => $items,
             'rows' => $rows,
-            'has_privilege' => Util::currentUserHasPrivilege('CREATE ROUTINE', $GLOBALS['db'], $GLOBALS['table']),
+            'has_privilege' => Util::currentUserHasPrivilege('CREATE ROUTINE', Current::$database, $GLOBALS['table']),
         ]);
     }
 }

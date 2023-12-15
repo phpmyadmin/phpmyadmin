@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Plugins\Schema;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\Pdf\PdfRelationSchema;
@@ -45,7 +46,7 @@ class PdfRelationSchemaTest extends AbstractTestCase
         $_POST['t_tbl'] = ['test_table'];
 
         $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = 'test_db';
+        Current::$database = 'test_db';
         Config::getInstance()->selectedServer['DisableIS'] = true;
 
         $this->object = new PdfRelationSchema(new Relation($dbi), DatabaseName::from('test_db'));

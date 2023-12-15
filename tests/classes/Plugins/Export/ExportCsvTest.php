@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Plugins\Export\ExportCsv;
@@ -40,7 +41,7 @@ class ExportCsvTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
         $GLOBALS['server'] = 0;
-        $GLOBALS['db'] = '';
+        Current::$database = '';
         $GLOBALS['table'] = '';
         $GLOBALS['lang'] = '';
         $GLOBALS['text_dir'] = '';

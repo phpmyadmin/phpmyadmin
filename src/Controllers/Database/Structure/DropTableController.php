@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Database\Structure;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\StructureController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
@@ -37,7 +38,7 @@ final class DropTableController extends AbstractController
         $multBtn = $_POST['mult_btn'] ?? '';
         $selected = $_POST['selected'] ?? [];
 
-        $views = $this->dbi->getVirtualTables($GLOBALS['db']);
+        $views = $this->dbi->getVirtualTables(Current::$database);
 
         if ($multBtn !== __('Yes')) {
             $GLOBALS['message'] = Message::success(__('No change'));
@@ -55,7 +56,7 @@ final class DropTableController extends AbstractController
         $selectedCount = count($selected);
 
         for ($i = 0; $i < $selectedCount; $i++) {
-            $this->relationCleanup->table($GLOBALS['db'], $selected[$i]);
+            $this->relationCleanup->table(Current::$database, $selected[$i]);
             $current = $selected[$i];
 
             if ($views !== [] && in_array($current, $views)) {
@@ -88,7 +89,7 @@ final class DropTableController extends AbstractController
 
         $GLOBALS['message'] = Message::success();
 
-        $this->dbi->selectDb($GLOBALS['db']);
+        $this->dbi->selectDb(Current::$database);
         $result = $this->dbi->tryQuery($GLOBALS['sql_query']);
 
         if (! $result) {

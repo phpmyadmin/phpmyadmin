@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use Fig\Http\Message\StatusCodeInterface;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -54,6 +55,10 @@ abstract class AbstractController
 
         foreach ($params as $param) {
             if (isset($array[$param]) && $array[$param] !== '') {
+                continue;
+            }
+
+            if (! $request && $param === 'db' && Current::$database !== '') {
                 continue;
             }
 

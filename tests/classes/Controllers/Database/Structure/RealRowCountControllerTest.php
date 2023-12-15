@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Database\Structure;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Database\Structure\RealRowCountController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
@@ -22,7 +23,7 @@ class RealRowCountControllerTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
         Config::getInstance()->selectedServer['DisableIS'] = true;
-        $GLOBALS['db'] = 'world';
+        Current::$database = 'world';
         $_REQUEST['table'] = 'City';
 
         $dbiDummy = $this->createDbiDummy();
