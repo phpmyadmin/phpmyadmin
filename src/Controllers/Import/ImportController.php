@@ -46,7 +46,6 @@ use function min;
 use function preg_match;
 use function preg_quote;
 use function preg_replace;
-use function strlen;
 use function substr;
 use function time;
 use function trim;
@@ -248,7 +247,7 @@ final class ImportController extends AbstractController
         // We don't want anything special in format
         $GLOBALS['format'] = Core::securePath($GLOBALS['format']);
 
-        if (strlen(Current::$table) > 0 && Current::$database !== '') {
+        if (Current::$table !== '' && Current::$database !== '') {
             $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
         } elseif (Current::$database !== '') {
             $GLOBALS['urlParams'] = ['db' => Current::$database];
@@ -264,7 +263,7 @@ final class ImportController extends AbstractController
         } elseif ($GLOBALS['import_type'] === 'server') {
             $GLOBALS['goto'] = Url::getFromRoute('/server/import');
         } elseif (empty($GLOBALS['goto']) || ! preg_match('@^index\.php$@i', $GLOBALS['goto'])) {
-            if (strlen(Current::$table) > 0 && Current::$database !== '') {
+            if (Current::$table !== '' && Current::$database !== '') {
                 $GLOBALS['goto'] = Url::getFromRoute('/table/structure');
             } elseif (Current::$database !== '') {
                 $GLOBALS['goto'] = Url::getFromRoute('/database/structure');

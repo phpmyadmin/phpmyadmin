@@ -2083,8 +2083,10 @@
       <code><![CDATA[$request->getParsedBodyParam('bkm_label')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('sql_query')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('sql_query')]]></code>
+      <code>Current::$table</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
+      <code><![CDATA[$GLOBALS['urlParams']]]></code>
       <code><![CDATA[$GLOBALS['urlParams']]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
@@ -3233,6 +3235,7 @@
       <code><![CDATA[$GLOBALS['sql_query']]]></code>
       <code><![CDATA[$request->getQueryParam('sql_signature')]]></code>
       <code>$sqlQuery</code>
+      <code>Current::$table</code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$GLOBALS['ajax_reload']['reload']]]></code>
@@ -3356,6 +3359,9 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[$GLOBALS['urlParams']]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
@@ -6069,9 +6075,6 @@
     <InvalidArgument>
       <code>$params</code>
     </InvalidArgument>
-    <MixedArgument>
-      <code>Current::$table</code>
-    </MixedArgument>
     <MixedAssignment>
       <code>$info</code>
       <code>$subObject</code>
@@ -6083,10 +6086,6 @@
     <RedundantCast>
       <code><![CDATA[(string) $_REQUEST['no_history']]]></code>
     </RedundantCast>
-    <TypeDoesNotContainType>
-      <code><![CDATA['']]></code>
-      <code><![CDATA['']]></code>
-    </TypeDoesNotContainType>
     <UnusedReturnValue>
       <code>mixed</code>
     </UnusedReturnValue>
@@ -6475,17 +6474,9 @@
     <PossiblyInvalidArgument>
       <code>$message</code>
     </PossiblyInvalidArgument>
-    <RedundantCondition>
-      <code>Current::$table</code>
-      <code>Current::$table</code>
-    </RedundantCondition>
     <RedundantFunctionCallGivenDocblockType>
       <code>strtolower</code>
     </RedundantFunctionCallGivenDocblockType>
-    <TypeDoesNotContainType>
-      <code><![CDATA['']]></code>
-      <code><![CDATA['']]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="src/Html/Generator.php">
     <DeprecatedMethod>
@@ -10691,10 +10682,6 @@
     <MixedAssignment>
       <code>$value</code>
     </MixedAssignment>
-    <TypeDoesNotContainType>
-      <code><![CDATA['']]></code>
-      <code><![CDATA['']]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="src/Routing/Routing.php">
     <DeprecatedMethod>

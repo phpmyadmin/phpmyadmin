@@ -135,7 +135,7 @@ class Footer
             $params['db'] = Current::$database;
         }
 
-        if (isset(Current::$table) && strlen(Current::$table) > 0) {
+        if (Current::$table !== '') {
             $params['table'] = Current::$table;
         }
 
@@ -187,7 +187,7 @@ class Footer
 
         $this->relation->setHistory(
             Current::$database,
-            isset(Current::$table) && is_scalar(Current::$table) ? (string) Current::$table : '',
+            Current::$table,
             Config::getInstance()->selectedServer['user'],
             $GLOBALS['sql_query'],
         );

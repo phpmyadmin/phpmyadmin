@@ -32,7 +32,6 @@ use function in_array;
 use function ini_set;
 use function is_array;
 use function register_shutdown_function;
-use function strlen;
 use function time;
 
 final class ExportController extends AbstractController
@@ -181,9 +180,7 @@ final class ExportController extends AbstractController
             $GLOBALS['errorUrl'] = Url::getFromRoute('/database/export', ['db' => Current::$database]);
             // Check if we have something to export
             $GLOBALS['tables'] = $GLOBALS['table_select'] ?? [];
-        } elseif (
-            $GLOBALS['export_type'] === 'table' && Current::$database !== '' && strlen(Current::$table) > 0
-        ) {
+        } elseif ($GLOBALS['export_type'] === 'table' && Current::$database !== '' && Current::$table !== '') {
             $GLOBALS['errorUrl'] = Url::getFromRoute('/table/export', [
                 'db' => Current::$database,
                 'table' => Current::$table,

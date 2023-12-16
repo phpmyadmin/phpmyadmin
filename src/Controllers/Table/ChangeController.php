@@ -29,7 +29,6 @@ use function is_numeric;
 use function is_string;
 use function str_contains;
 use function str_starts_with;
-use function strlen;
 use function trim;
 
 /**
@@ -127,7 +126,7 @@ class ChangeController extends AbstractController
          * (at this point, $GLOBALS['goto'] will be set but could be empty)
          */
         if (empty($GLOBALS['goto'])) {
-            if (strlen(Current::$table) > 0) {
+            if (Current::$table !== '') {
                 // avoid a problem (see bug #2202709)
                 $GLOBALS['goto'] = Url::getFromRoute('/table/sql');
             } else {

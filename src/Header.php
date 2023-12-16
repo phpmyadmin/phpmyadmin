@@ -90,7 +90,7 @@ class Header
         $dbi = DatabaseInterface::getInstance();
         $this->console = $console;
         $this->menuEnabled = $dbi->isConnected();
-        $this->menu = new Menu($dbi, $this->template, Current::$database, Current::$table ?? '');
+        $this->menu = new Menu($dbi, $this->template, Current::$database, Current::$table);
         $this->scripts = new Scripts($this->template);
         $this->addDefaultScripts();
 
@@ -137,7 +137,7 @@ class Header
             'opendb_url' => Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database'),
             'lang' => $GLOBALS['lang'],
             'server' => $GLOBALS['server'],
-            'table' => Current::$table ?? '',
+            'table' => Current::$table,
             'db' => Current::$database,
             'token' => $_SESSION[' PMA_token '],
             'text_dir' => $GLOBALS['text_dir'],

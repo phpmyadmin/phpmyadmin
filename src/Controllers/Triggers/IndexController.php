@@ -57,10 +57,7 @@ final class IndexController extends AbstractController
             /**
              * Displays the header and tabs
              */
-            if (
-                ! empty(Current::$table)
-                && in_array(Current::$table, $this->dbi->getTables(Current::$database), true)
-            ) {
+            if (Current::$table !== '' && in_array(Current::$table, $this->dbi->getTables(Current::$database), true)) {
                 if (! $this->checkParameters(['db', 'table'])) {
                     return;
                 }
@@ -126,7 +123,7 @@ final class IndexController extends AbstractController
 
                     $insert = false;
                     if (
-                        empty(Current::$table)
+                        Current::$table === ''
                         || ($trigger !== null && Current::$table === $trigger->table->getName())
                     ) {
                         $insert = true;

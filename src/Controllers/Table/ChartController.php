@@ -28,7 +28,6 @@ use function array_keys;
 use function htmlspecialchars;
 use function json_encode;
 use function min;
-use function strlen;
 
 /**
  * Handles creation of the chart.
@@ -49,11 +48,7 @@ class ChartController extends AbstractController
         $GLOBALS['errorUrl'] ??= null;
 
         if (isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $request->isAjax()) {
-            if (
-                strlen(Current::$table) > 0
-                && Current::$database !== ''
-                && ! $this->checkParameters(['db', 'table'])
-            ) {
+            if (Current::$table !== '' && Current::$database !== '' && ! $this->checkParameters(['db', 'table'])) {
                 return;
             }
 
@@ -93,7 +88,7 @@ class ChartController extends AbstractController
         /**
          * Runs common work
          */
-        if (strlen(Current::$table) > 0) {
+        if (Current::$table !== '') {
             if (! $this->checkParameters(['db', 'table'])) {
                 return;
             }
@@ -222,7 +217,7 @@ class ChartController extends AbstractController
     {
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
-        if (strlen(Current::$table) > 0 && Current::$database !== '') {
+        if (Current::$table !== '' && Current::$database !== '') {
             $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
                 Config::getInstance()->settings['DefaultTabTable'],

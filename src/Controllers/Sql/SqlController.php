@@ -25,7 +25,6 @@ use PhpMyAdmin\Util;
 use function __;
 use function mb_strpos;
 use function str_contains;
-use function strlen;
 use function urlencode;
 
 class SqlController extends AbstractController
@@ -82,7 +81,7 @@ class SqlController extends AbstractController
         $isGotofile = true;
         $config = Config::getInstance();
         if (empty($GLOBALS['goto'])) {
-            if (empty(Current::$table)) {
+            if (Current::$table === '') {
                 $GLOBALS['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
             } else {
                 $GLOBALS['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
@@ -98,7 +97,7 @@ class SqlController extends AbstractController
             if (
                 (mb_strpos(' ' . $GLOBALS['errorUrl'], 'db_') !== 1
                     || ! str_contains($GLOBALS['errorUrl'], '?route=/database/'))
-                && strlen(Current::$table) > 0
+                && Current::$table !== ''
             ) {
                 $GLOBALS['errorUrl'] .= '&amp;table=' . urlencode(Current::$table);
             }
@@ -127,7 +126,7 @@ class SqlController extends AbstractController
 
         // Default to browse if no query set and we have table
         // (needed for browsing from DefaultTabTable)
-        if (empty($GLOBALS['sql_query']) && strlen(Current::$table) > 0 && Current::$database !== '') {
+        if (empty($GLOBALS['sql_query']) && Current::$table !== '' && Current::$database !== '') {
             $GLOBALS['sql_query'] = $this->sql->getDefaultSqlQueryForBrowse(Current::$database, Current::$table);
 
             // set $goto to what will be displayed if query returns 0 rows

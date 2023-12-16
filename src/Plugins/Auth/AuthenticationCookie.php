@@ -460,7 +460,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $urlParams['db'] = Current::$database;
         }
 
-        if (strlen(Current::$table) > 0) {
+        if (Current::$table !== '') {
             $urlParams['table'] = Current::$table;
         }
 

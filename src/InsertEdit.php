@@ -42,7 +42,6 @@ use function str_replace;
 use function str_starts_with;
 use function stripcslashes;
 use function stripslashes;
-use function strlen;
 use function substr;
 use function trim;
 
@@ -890,7 +889,7 @@ class InsertEdit
                 $gotoInclude = $GLOBALS['goto'];
             }
 
-            if ($GLOBALS['goto'] === 'index.php?route=/database/sql' && strlen(Current::$table) > 0) {
+            if ($GLOBALS['goto'] === 'index.php?route=/database/sql' && Current::$table !== '') {
                 Current::$table = '';
             }
         }

@@ -496,7 +496,7 @@ class Generator
         $urlParams = [];
         if (Current::$database !== '') {
             $urlParams['db'] = Current::$database;
-            if (strlen(Current::$table) > 0) {
+            if (Current::$table !== '') {
                 $urlParams['table'] = Current::$table;
                 $editLinkRoute = '/table/sql';
             } else {
@@ -798,7 +798,7 @@ class Generator
 
             if ($isModifyLink) {
                 $urlParams = ['sql_query' => $sqlQuery, 'show_query' => 1];
-                if (strlen(Current::$table) > 0) {
+                if (Current::$table !== '') {
                     $urlParams['db'] = Current::$database;
                     $urlParams['table'] = Current::$table;
                     $doEditGoto = '<a href="' . Url::getFromRoute('/table/sql', $urlParams) . '">';
