@@ -31,7 +31,6 @@ import { escapeHtml } from '../modules/functions/escape.ts';
 AJAX.registerTeardown('database/structure.js', function () {
     $(document).off('click', 'a.truncate_table_anchor.ajax');
     $(document).off('click', 'a.drop_table_anchor.ajax');
-    $(document).off('click', '#real_end_input');
     $(document).off('click', 'a.favorite_table_anchor.ajax');
     $('a.real_row_count').off('click');
     $('a.row_count_sum').off('click');
@@ -418,26 +417,6 @@ AJAX.registerOnload('database/structure.js', function () {
             }); // end $.post()
         }, Functions.loadForeignKeyCheckbox);
     }); // end of Drop Table Ajax action
-
-    // Calculate Real End for InnoDB
-    /**
-     * Ajax Event handler for calculating the real end for a InnoDB table
-     *
-     */
-    $(document).on('click', '#real_end_input', function (event) {
-        event.preventDefault();
-
-        /**
-         * @var question    String containing the question to be asked for confirmation
-         */
-        var question = window.Messages.strOperationTakesLongTime;
-
-        $(this).confirm(question, '', function () {
-            return true;
-        });
-
-        return false;
-    }); // end Calculate Real End for InnoDB
 
     // Add tooltip to favorite icons.
     $('.favorite_table_anchor').each(function () {
