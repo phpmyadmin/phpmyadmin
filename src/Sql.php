@@ -642,9 +642,6 @@ class Sql
             // and no WHERE clause (or just 'WHERE 1 '),
             // we do a quick count (which uses MaxExactCount) because
             // SQL_CALC_FOUND_ROWS is not quick on large InnoDB tables
-
-            // However, do not count again if we did it previously
-            // due to $find_real_end == true
             if ($justBrowsing) {
                 // Get row count (is approximate for InnoDB)
                 $unlimNumRows = $this->dbi->getTable($db, $table)->countRecords();
