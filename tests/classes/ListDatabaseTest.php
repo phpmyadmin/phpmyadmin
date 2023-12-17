@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ListDatabase;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -54,13 +55,13 @@ class ListDatabaseTest extends AbstractTestCase
     {
         $arr = new ListDatabase();
 
-        $GLOBALS['db'] = 'db';
+        Current::$database = 'db';
         $this->assertEquals(
             [['name' => 'single_db', 'is_selected' => false]],
             $arr->getList(),
         );
 
-        $GLOBALS['db'] = 'single_db';
+        Current::$database = 'single_db';
         $this->assertEquals(
             [['name' => 'single_db', 'is_selected' => true]],
             $arr->getList(),
@@ -89,13 +90,13 @@ class ListDatabaseTest extends AbstractTestCase
      */
     public function testGetDefault(): void
     {
-        $GLOBALS['db'] = '';
+        Current::$database = '';
         $this->assertEquals(
             $this->object->getDefault(),
             '',
         );
 
-        $GLOBALS['db'] = 'mysql';
+        Current::$database = 'mysql';
         $this->assertEquals(
             $this->object->getDefault(),
             'mysql',

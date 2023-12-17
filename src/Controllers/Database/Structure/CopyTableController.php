@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Database\Structure;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\StructureController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
@@ -34,7 +35,7 @@ final class CopyTableController extends AbstractController
 
         for ($i = 0; $i < $selectedCount; $i++) {
             Table::moveCopy(
-                $GLOBALS['db'],
+                Current::$database,
                 $selected[$i],
                 $targetDb,
                 $selected[$i],
@@ -48,7 +49,7 @@ final class CopyTableController extends AbstractController
                 continue;
             }
 
-            $this->operations->adjustPrivilegesCopyTable($GLOBALS['db'], $selected[$i], $targetDb, $selected[$i]);
+            $this->operations->adjustPrivilegesCopyTable(Current::$database, $selected[$i], $targetDb, $selected[$i]);
         }
 
         $GLOBALS['message'] = Message::success();

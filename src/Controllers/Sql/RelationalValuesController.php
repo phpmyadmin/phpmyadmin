@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Sql;
 
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
@@ -43,8 +44,8 @@ final class RelationalValuesController extends AbstractController
         }
 
         $dropdown = $this->sql->getHtmlForRelationalColumnDropdown(
-            $GLOBALS['db'],
-            $GLOBALS['table'],
+            Current::$database,
+            Current::$table,
             strval($column),
             strval($currValue),
         );

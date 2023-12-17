@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\DeleteConfirmController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
@@ -18,8 +19,8 @@ class DeleteConfirmControllerTest extends AbstractTestCase
 {
     public function testDeleteConfirmController(): void
     {
-        $GLOBALS['db'] = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$database = 'test_db';
+        Current::$table = 'test_table';
         $GLOBALS['sql_query'] = 'SELECT * FROM `test_db`.`test_table`';
         $_POST = [
             'db' => 'test_db',

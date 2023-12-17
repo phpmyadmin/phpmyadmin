@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
@@ -51,7 +52,7 @@ class IndexesController extends AbstractController
                 return;
             }
 
-            $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+            $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
                 Config::getInstance()->settings['DefaultTabTable'],
                 'table',
@@ -92,7 +93,7 @@ class IndexesController extends AbstractController
                 // coming already from form
                 $index = new Index($_POST['index']);
             } else {
-                $index = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table'])->getIndex($_POST['index']);
+                $index = $this->dbi->getTable(Current::$database, Current::$table)->getIndex($_POST['index']);
             }
         } else {
             $index = new Index();
@@ -103,8 +104,8 @@ class IndexesController extends AbstractController
                 $request,
                 $index,
                 false,
-                $GLOBALS['db'],
-                $GLOBALS['table'],
+                Current::$database,
+                Current::$table,
                 $request->hasBodyParam('preview_sql'),
             );
 
@@ -121,7 +122,7 @@ class IndexesController extends AbstractController
      */
     private function displayForm(Index $index): void
     {
-        $this->dbi->selectDb($GLOBALS['db']);
+        $this->dbi->selectDb(Current::$database);
         $addFields = 0;
         if (isset($_POST['index']) && is_array($_POST['index'])) {
             // coming already from form
@@ -155,11 +156,11 @@ class IndexesController extends AbstractController
             $index->set($indexParams);
             $addFields = count($fields);
         } else {
-            $fields = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table'])
+            $fields = $this->dbi->getTable(Current::$database, Current::$table)
                 ->getNameAndTypeOfTheColumns();
         }
 
-        $formParams = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+        $formParams = ['db' => Current::$database, 'table' => Current::$table];
 
         if (isset($_POST['create_index'])) {
             $formParams['create_index'] = 1;

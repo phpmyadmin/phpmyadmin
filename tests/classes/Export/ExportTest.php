@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Export;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\FlashMessages;
@@ -260,7 +261,7 @@ SQL;
     {
         $GLOBALS['lang'] = 'en';
         $GLOBALS['server'] = 2;
-        $GLOBALS['db'] = 'test_db';
+        Current::$database = 'test_db';
         $_SESSION = [];
         $dbi = $this->createDatabaseInterface();
         $export = new Export($dbi);
@@ -273,7 +274,7 @@ SQL;
     {
         $GLOBALS['lang'] = 'en';
         $GLOBALS['server'] = 2;
-        $GLOBALS['db'] = 'test_db';
+        Current::$database = 'test_db';
         $_SESSION = [];
         $dbi = $this->createDatabaseInterface();
         $export = new Export($dbi);
@@ -286,8 +287,8 @@ SQL;
     {
         $GLOBALS['lang'] = 'en';
         $GLOBALS['server'] = 2;
-        $GLOBALS['db'] = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$database = 'test_db';
+        Current::$table = 'test_table';
         $_SESSION = [];
         $dbi = $this->createDatabaseInterface();
         $export = new Export($dbi);
@@ -303,8 +304,8 @@ SQL;
     {
         $GLOBALS['lang'] = 'en';
         $GLOBALS['server'] = 2;
-        $GLOBALS['db'] = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$database = 'test_db';
+        Current::$table = 'test_table';
         $_SESSION = [];
         $dbi = $this->createDatabaseInterface();
         $export = new Export($dbi);

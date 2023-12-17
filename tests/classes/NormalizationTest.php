@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Message;
@@ -48,8 +49,8 @@ class NormalizationTest extends AbstractTestCase
         $config->settings['ShowHint'] = true;
         $config->settings['CharEditing'] = '';
         $config->settings['ActionLinksMode'] = 'icons';
-        $GLOBALS['db'] = 'PMA_db';
-        $GLOBALS['table'] = 'PMA_table';
+        Current::$database = 'PMA_db';
+        Current::$table = 'PMA_table';
         $GLOBALS['server'] = 1;
         $config->selectedServer['DisableIS'] = false;
         $_POST['change_column'] = null;

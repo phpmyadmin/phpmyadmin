@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Normalization;
 
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
@@ -26,8 +27,8 @@ final class GetColumnsController extends AbstractController
             . '<option value="no_such_col">' . __('No such column') . '</option>';
         //get column whose datatype falls under string category
         $html .= $this->normalization->getHtmlForColumnsList(
-            $GLOBALS['db'],
-            $GLOBALS['table'],
+            Current::$database,
+            Current::$table,
             _pgettext('string types', 'String'),
         );
         $this->response->addHTML($html);

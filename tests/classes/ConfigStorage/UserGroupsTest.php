@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\ConfigStorage;
 use Generator;
 use PhpMyAdmin\ConfigStorage\Features\ConfigurableMenusFeature;
 use PhpMyAdmin\ConfigStorage\UserGroups;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Identifiers\DatabaseName;
@@ -30,8 +31,8 @@ class UserGroupsTest extends AbstractTestCase
         parent::setUp();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $GLOBALS['db'] = '';
-        $GLOBALS['table'] = '';
+        Current::$database = '';
+        Current::$table = '';
 
         $this->configurableMenusFeature = new ConfigurableMenusFeature(
             DatabaseName::from('pmadb'),

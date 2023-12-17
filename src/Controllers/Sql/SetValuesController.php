@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Sql;
 
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
@@ -36,7 +37,7 @@ final class SetValuesController extends AbstractController
         $currentValue = $request->getParsedBodyParam('curr_value');
         $whereClause = $request->getParsedBodyParam('where_clause');
 
-        $values = $this->sql->getValuesForColumn($GLOBALS['db'], $GLOBALS['table'], $column);
+        $values = $this->sql->getValuesForColumn(Current::$database, Current::$table, $column);
 
         if ($values === null) {
             $this->response->addJSON('message', __('Error in processing request'));
@@ -48,8 +49,8 @@ final class SetValuesController extends AbstractController
         // If the $currentValue was truncated, we should fetch the correct full values from the table.
         if ($request->hasBodyParam('get_full_values') && ! empty($whereClause)) {
             $currentValue = $this->sql->getFullValuesForSetColumn(
-                $GLOBALS['db'],
-                $GLOBALS['table'],
+                Current::$database,
+                Current::$table,
                 $column,
                 $whereClause,
             );

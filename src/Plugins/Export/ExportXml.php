@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
@@ -25,7 +26,6 @@ use function is_array;
 use function mb_substr;
 use function rtrim;
 use function str_replace;
-use function strlen;
 
 use const PHP_VERSION;
 
@@ -58,7 +58,7 @@ class ExportXml extends ExportPlugin
     {
         $GLOBALS['tables'] ??= null;
 
-        $this->setTable($GLOBALS['table']);
+        $this->setTable(Current::$table);
         if (! is_array($GLOBALS['tables'])) {
             return;
         }
@@ -231,7 +231,7 @@ class ExportXml extends ExportPlugin
             $result = $dbi->fetchResult(
                 'SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME`'
                 . ' FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`'
-                . ' = ' . $dbi->quoteString($GLOBALS['db']) . ' LIMIT 1',
+                . ' = ' . $dbi->quoteString(Current::$database) . ' LIMIT 1',
             );
             $dbCollation = $result[0]['DEFAULT_COLLATION_NAME'];
             $dbCharset = $result[0]['DEFAULT_CHARACTER_SET_NAME'];
@@ -240,7 +240,7 @@ class ExportXml extends ExportPlugin
             $head .= '    - Structure schemas' . "\n";
             $head .= '    -->' . "\n";
             $head .= '    <pma:structure_schemas>' . "\n";
-            $head .= '        <pma:database name="' . htmlspecialchars($GLOBALS['db'])
+            $head .= '        <pma:database name="' . htmlspecialchars(Current::$database)
                 . '" collation="' . htmlspecialchars($dbCollation) . '" charset="' . htmlspecialchars($dbCharset)
                 . '">' . "\n";
 
@@ -251,7 +251,7 @@ class ExportXml extends ExportPlugin
             foreach ($tables as $table) {
                 // Export tables and views
                 $result = $dbi->fetchResult(
-                    'SHOW CREATE TABLE ' . Util::backquote($GLOBALS['db']) . '.'
+                    'SHOW CREATE TABLE ' . Util::backquote(Current::$database) . '.'
                     . Util::backquote($table),
                     0,
                 );
@@ -262,7 +262,7 @@ class ExportXml extends ExportPlugin
 
                 $tbl = (string) $result[$table][1];
 
-                $isView = $dbi->getTable($GLOBALS['db'], $table)
+                $isView = $dbi->getTable(Current::$database, $table)
                     ->isView();
 
                 $type = $isView ? 'view' : 'table';
@@ -289,7 +289,7 @@ class ExportXml extends ExportPlugin
                 }
 
                 // Export triggers
-                $triggers = Triggers::getDetails($dbi, $GLOBALS['db'], $table);
+                $triggers = Triggers::getDetails($dbi, Current::$database, $table);
 
                 foreach ($triggers as $trigger) {
                     $code = $trigger->getCreateSql();
@@ -310,17 +310,17 @@ class ExportXml extends ExportPlugin
 
             if (isset($GLOBALS['xml_export_functions']) && $GLOBALS['xml_export_functions']) {
                 $head .= $this->exportDefinitions(
-                    $GLOBALS['db'],
+                    Current::$database,
                     'function',
-                    Routines::getFunctionNames($dbi, $GLOBALS['db']),
+                    Routines::getFunctionNames($dbi, Current::$database),
                 );
             }
 
             if (isset($GLOBALS['xml_export_procedures']) && $GLOBALS['xml_export_procedures']) {
                 $head .= $this->exportDefinitions(
-                    $GLOBALS['db'],
+                    Current::$database,
                     'procedure',
-                    Routines::getProcedureNames($dbi, $GLOBALS['db']),
+                    Routines::getProcedureNames($dbi, Current::$database),
                 );
             }
 
@@ -328,9 +328,9 @@ class ExportXml extends ExportPlugin
                 // Export events
                 $events = $dbi->fetchResult(
                     'SELECT EVENT_NAME FROM information_schema.EVENTS '
-                    . 'WHERE EVENT_SCHEMA=' . $dbi->quoteString($GLOBALS['db']),
+                    . 'WHERE EVENT_SCHEMA=' . $dbi->quoteString(Current::$database),
                 );
-                $head .= $this->exportDefinitions($GLOBALS['db'], 'event', $events);
+                $head .= $this->exportDefinitions(Current::$database, 'event', $events);
             }
 
             unset($result);
@@ -519,6 +519,6 @@ class ExportXml extends ExportPlugin
     public static function isAvailable(): bool
     {
         // Can't do server export.
-        return isset($GLOBALS['db']) && strlen($GLOBALS['db']) > 0;
+        return Current::$database !== '';
     }
 }

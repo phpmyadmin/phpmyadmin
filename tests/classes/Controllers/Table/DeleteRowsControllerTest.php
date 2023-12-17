@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Table\DeleteRowsController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
@@ -19,8 +20,8 @@ class DeleteRowsControllerTest extends AbstractTestCase
     public function testDeleteRowsController(): void
     {
         $GLOBALS['goto'] = null;
-        $GLOBALS['db'] = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$database = 'test_db';
+        Current::$table = 'test_table';
         $GLOBALS['urlParams'] = [];
         $config = Config::getInstance();
         $config->selectedServer = $config->getSettings()->Servers[1]->asArray();

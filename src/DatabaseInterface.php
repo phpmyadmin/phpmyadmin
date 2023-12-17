@@ -1975,8 +1975,8 @@ class DatabaseInterface implements DbalInterface
 
         $this->selectDb($db);
         $return = (string) $this->fetchValue('SELECT @@collation_database');
-        if ($db !== $GLOBALS['db']) {
-            $this->selectDb($GLOBALS['db']);
+        if ($db !== Current::$database) {
+            $this->selectDb(Current::$database);
         }
 
         return $return;

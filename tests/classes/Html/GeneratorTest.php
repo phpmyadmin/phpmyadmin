@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Html;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
@@ -41,9 +42,9 @@ class GeneratorTest extends AbstractTestCase
     #[Group('medium')]
     public function testGetDbLinkNull(): void
     {
-        $GLOBALS['db'] = 'test_db';
+        Current::$database = 'test_db';
         $GLOBALS['server'] = 99;
-        $database = $GLOBALS['db'];
+        $database = Current::$database;
         $this->assertEquals(
             '<a href="'
             . Util::getScriptNameForOption(
@@ -485,8 +486,8 @@ class GeneratorTest extends AbstractTestCase
         $usingBookmarkMessage = Message::notice('Bookmark message');
         $GLOBALS['using_bookmark_message'] = $usingBookmarkMessage;
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $GLOBALS['db'] = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$database = 'test_db';
+        Current::$table = 'test_table';
         $GLOBALS['server'] = 2;
         $GLOBALS['special_message'] = 'Message [em]two[/em].';
         SessionCache::set('profiling_supported', true);
@@ -540,8 +541,8 @@ HTML;
         $GLOBALS['unparsed_sql'] = null;
         $GLOBALS['sql_query'] = null;
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $GLOBALS['db'] = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$database = 'test_db';
+        Current::$table = 'test_table';
         $GLOBALS['server'] = 2;
         $GLOBALS['show_as_php'] = true;
         $GLOBALS['special_message'] = 'Message [em]two[/em].';

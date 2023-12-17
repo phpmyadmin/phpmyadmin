@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Import;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportShp;
@@ -35,7 +36,7 @@ class ImportShpTest extends AbstractTestCase
         $GLOBALS['maximum_time'] = null;
         $GLOBALS['charset_conversion'] = null;
         $GLOBALS['eof'] = null;
-        $GLOBALS['db'] = '';
+        Current::$database = '';
         $GLOBALS['skip_queries'] = null;
         $GLOBALS['max_sql_len'] = null;
         $GLOBALS['sql_query'] = '';
@@ -62,7 +63,8 @@ class ImportShpTest extends AbstractTestCase
         $GLOBALS['compression'] = 'application/zip';
         $GLOBALS['read_multiply'] = 10;
         $GLOBALS['import_type'] = 'ods';
-        unset($GLOBALS['db'], $GLOBALS['table']);
+        Current::$database = '';
+        Current::$table = '';
     }
 
     /**
@@ -129,7 +131,7 @@ class ImportShpTest extends AbstractTestCase
         //$import_notice will show the import detail result
 
         $GLOBALS['sql_query_disabled'] = false;
-        $GLOBALS['db'] = '';
+        Current::$database = '';
 
         //Test function called
         $this->runImport('tests/test_data/dresden_osm.shp.zip');
@@ -164,7 +166,7 @@ class ImportShpTest extends AbstractTestCase
         //$import_notice will show the import detail result
 
         $GLOBALS['sql_query_disabled'] = false;
-        $GLOBALS['db'] = '';
+        Current::$database = '';
 
         //Test function called
         $this->runImport('tests/test_data/timezone.shp.zip');

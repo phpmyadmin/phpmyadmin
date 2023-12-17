@@ -10,6 +10,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
@@ -24,7 +25,6 @@ use PhpMyAdmin\Util;
 use function __;
 use function mb_strpos;
 use function str_contains;
-use function strlen;
 use function urlencode;
 
 class SqlController extends AbstractController
@@ -81,7 +81,7 @@ class SqlController extends AbstractController
         $isGotofile = true;
         $config = Config::getInstance();
         if (empty($GLOBALS['goto'])) {
-            if (empty($GLOBALS['table'])) {
+            if (Current::$table === '') {
                 $GLOBALS['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
             } else {
                 $GLOBALS['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
@@ -91,15 +91,15 @@ class SqlController extends AbstractController
         if (! isset($GLOBALS['errorUrl'])) {
             $GLOBALS['errorUrl'] = ! empty($GLOBALS['back']) ? $GLOBALS['back'] : $GLOBALS['goto'];
             $GLOBALS['errorUrl'] .= Url::getCommon(
-                ['db' => $GLOBALS['db']],
+                ['db' => Current::$database],
                 ! str_contains($GLOBALS['errorUrl'], '?') ? '?' : '&',
             );
             if (
                 (mb_strpos(' ' . $GLOBALS['errorUrl'], 'db_') !== 1
                     || ! str_contains($GLOBALS['errorUrl'], '?route=/database/'))
-                && strlen($GLOBALS['table']) > 0
+                && Current::$table !== ''
             ) {
-                $GLOBALS['errorUrl'] .= '&amp;table=' . urlencode($GLOBALS['table']);
+                $GLOBALS['errorUrl'] .= '&amp;table=' . urlencode(Current::$table);
             }
         }
 
@@ -121,13 +121,13 @@ class SqlController extends AbstractController
 
         // This one is just to fill $db
         if ($bkmFields !== null && $bkmFields['bkm_database'] != null) {
-            $GLOBALS['db'] = $bkmFields['bkm_database'];
+            Current::$database = $bkmFields['bkm_database'];
         }
 
         // Default to browse if no query set and we have table
         // (needed for browsing from DefaultTabTable)
-        if (empty($GLOBALS['sql_query']) && strlen($GLOBALS['table']) > 0 && strlen($GLOBALS['db']) > 0) {
-            $GLOBALS['sql_query'] = $this->sql->getDefaultSqlQueryForBrowse($GLOBALS['db'], $GLOBALS['table']);
+        if (empty($GLOBALS['sql_query']) && Current::$table !== '' && Current::$database !== '') {
+            $GLOBALS['sql_query'] = $this->sql->getDefaultSqlQueryForBrowse(Current::$database, Current::$table);
 
             // set $goto to what will be displayed if query returns 0 rows
             $GLOBALS['goto'] = '';
@@ -138,10 +138,13 @@ class SqlController extends AbstractController
         /**
          * Parse and analyze the query
          */
-        [$statementInfo, $GLOBALS['db'], $tableFromSql] = ParseAnalyze::sqlQuery($GLOBALS['sql_query'], $GLOBALS['db']);
+        [$statementInfo, Current::$database, $tableFromSql] = ParseAnalyze::sqlQuery(
+            $GLOBALS['sql_query'],
+            Current::$database,
+        );
 
-        if ($GLOBALS['table'] != $tableFromSql && $tableFromSql !== '') {
-            $GLOBALS['table'] = $tableFromSql;
+        if (Current::$table != $tableFromSql && $tableFromSql !== '') {
+            Current::$table = $tableFromSql;
         }
 
         /**
@@ -183,8 +186,8 @@ class SqlController extends AbstractController
         if ($GLOBALS['goto'] === Url::getFromRoute('/sql')) {
             $isGotofile = false;
             $GLOBALS['goto'] = Url::getFromRoute('/sql', [
-                'db' => $GLOBALS['db'],
-                'table' => $GLOBALS['table'],
+                'db' => Current::$database,
+                'table' => Current::$table,
                 'sql_query' => $GLOBALS['sql_query'],
             ]);
         }
@@ -192,8 +195,8 @@ class SqlController extends AbstractController
         $this->response->addHTML($this->sql->executeQueryAndSendQueryResponse(
             $statementInfo,
             $isGotofile,
-            $GLOBALS['db'],
-            $GLOBALS['table'],
+            Current::$database,
+            Current::$table,
             $GLOBALS['import_text'] ?? null,
             $GLOBALS['message_to_show'] ?? null,
             null,

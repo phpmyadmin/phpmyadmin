@@ -9,6 +9,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\StructureController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
@@ -42,8 +43,8 @@ class StructureControllerTest extends AbstractTestCase
     public function testStructureController(): void
     {
         $GLOBALS['server'] = 2;
-        $GLOBALS['db'] = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$database = 'test_db';
+        Current::$table = 'test_table';
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['lang'] = 'en';
         $config = Config::getInstance();
@@ -88,7 +89,7 @@ class StructureControllerTest extends AbstractTestCase
             new UserPreferences($this->dbi, new Relation($this->dbi), new Template()),
         );
         $pageSettings->init('TableStructure');
-        $fields = $this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table'], true);
+        $fields = $this->dbi->getColumns(Current::$database, Current::$table, true);
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
             ->withQueryParams(['route' => '/table/structure', 'db' => 'test_db', 'table' => 'test_table']);
@@ -115,8 +116,8 @@ class StructureControllerTest extends AbstractTestCase
                 ],
             ],
             'is_foreign_key_supported' => true,
-            'indexes' => Index::getFromTable($this->dbi, $GLOBALS['table'], $GLOBALS['db']),
-            'indexes_duplicates' => Index::findDuplicates($GLOBALS['table'], $GLOBALS['db']),
+            'indexes' => Index::getFromTable($this->dbi, Current::$table, Current::$database),
+            'indexes_duplicates' => Index::findDuplicates(Current::$table, Current::$database),
             'relation_parameters' => $relation->getRelationParameters(),
             'hide_structure_actions' => true,
             'db' => 'test_db',
@@ -125,7 +126,7 @@ class StructureControllerTest extends AbstractTestCase
             'tbl_is_view' => false,
             'mime_map' => [],
             'tbl_storage_engine' => 'INNODB',
-            'primary' => Index::getPrimary($this->dbi, $GLOBALS['table'], $GLOBALS['db']),
+            'primary' => Index::getPrimary($this->dbi, Current::$table, Current::$database),
             'columns_with_unique_index' => [],
             'columns_list' => ['id', 'name', 'datetimefield'],
             'table_stats' => null,

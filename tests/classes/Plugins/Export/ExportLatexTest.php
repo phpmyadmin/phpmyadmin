@@ -8,6 +8,7 @@ use PhpMyAdmin\Column;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Plugins\Export\ExportLatex;
@@ -53,8 +54,8 @@ class ExportLatexTest extends AbstractTestCase
         $GLOBALS['plugin_param'] = [];
         $GLOBALS['plugin_param']['export_type'] = 'table';
         $GLOBALS['plugin_param']['single_table'] = false;
-        $GLOBALS['db'] = 'db';
-        $GLOBALS['table'] = 'table';
+        Current::$database = 'db';
+        Current::$table = 'table';
         $this->object = new ExportLatex(
             new Relation($dbi),
             new Export($dbi),

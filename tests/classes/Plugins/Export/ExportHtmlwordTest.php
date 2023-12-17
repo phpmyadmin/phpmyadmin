@@ -8,6 +8,7 @@ use PhpMyAdmin\Column;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Identifiers\TableName;
@@ -66,8 +67,8 @@ class ExportHtmlwordTest extends AbstractTestCase
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
-        $GLOBALS['db'] = '';
-        $GLOBALS['table'] = '';
+        Current::$database = '';
+        Current::$table = '';
         $GLOBALS['lang'] = '';
         $GLOBALS['text_dir'] = '';
         Config::getInstance()->selectedServer['DisableIS'] = true;

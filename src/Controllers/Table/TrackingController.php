@@ -8,6 +8,7 @@ use DateTimeImmutable;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
@@ -57,7 +58,7 @@ final class TrackingController extends AbstractController
             return;
         }
 
-        $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
             Config::getInstance()->settings['DefaultTabTable'],
             'table',
@@ -82,18 +83,18 @@ final class TrackingController extends AbstractController
         $toggleActivation = $request->getParsedBodyParam('toggle_activation');
         $reportExportType = $request->getParsedBodyParam('export_type');
 
-        $trackedTables = $this->trackingChecker->getTrackedTables($GLOBALS['db']);
+        $trackedTables = $this->trackingChecker->getTrackedTables(Current::$database);
         if (
             Tracker::isActive()
-            && isset($trackedTables[$GLOBALS['table']])
-            && $trackedTables[$GLOBALS['table']]->active
+            && isset($trackedTables[Current::$table])
+            && $trackedTables[Current::$table]->active
             && $toggleActivation !== 'deactivate_now'
             && $reportExportType !== 'sqldumpfile'
         ) {
             $activeMessage = Message::notice(
                 sprintf(
                     __('Tracking of %s is activated.'),
-                    htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table']),
+                    htmlspecialchars(Current::$database . '.' . Current::$table),
                 ),
             )->getDisplay();
         }
@@ -120,7 +121,7 @@ final class TrackingController extends AbstractController
 
         // Init vars for tracking report
         if ($request->hasBodyParam('report')) {
-            $trackedData = $this->tracking->getTrackedData($GLOBALS['db'], $GLOBALS['table'], $versionParam);
+            $trackedData = $this->tracking->getTrackedData(Current::$database, Current::$table, $versionParam);
 
             $dateFrom = $this->validateDateTimeParam(
                 $request->getParsedBodyParam('date_from', $trackedData->dateFrom),
@@ -158,26 +159,26 @@ final class TrackingController extends AbstractController
 
             if ($request->hasBodyParam('delete_ddlog')) {
                 $trackingReportRows = $this->tracking->deleteFromTrackingReportLog(
-                    $GLOBALS['db'],
-                    $GLOBALS['table'],
+                    Current::$database,
+                    Current::$table,
                     $versionParam,
                     $trackedData->ddlog,
                     LogTypeEnum::DDL,
                     (int) $request->getParsedBodyParam('delete_ddlog'),
                 );
                 // After deletion reload data from the database
-                $trackedData = $this->tracking->getTrackedData($GLOBALS['db'], $GLOBALS['table'], $versionParam);
+                $trackedData = $this->tracking->getTrackedData(Current::$database, Current::$table, $versionParam);
             } elseif ($request->hasBodyParam('delete_dmlog')) {
                 $trackingReportRows = $this->tracking->deleteFromTrackingReportLog(
-                    $GLOBALS['db'],
-                    $GLOBALS['table'],
+                    Current::$database,
+                    Current::$table,
                     $versionParam,
                     $trackedData->dmlog,
                     LogTypeEnum::DML,
                     (int) $request->getParsedBodyParam('delete_dmlog'),
                 );
                 // After deletion reload data from the database
-                $trackedData = $this->tracking->getTrackedData($GLOBALS['db'], $GLOBALS['table'], $versionParam);
+                $trackedData = $this->tracking->getTrackedData(Current::$database, Current::$table, $versionParam);
             }
 
             $trackingReport = $this->tracking->getHtmlForTrackingReport(
@@ -199,7 +200,7 @@ final class TrackingController extends AbstractController
             if (is_array($selectedVersions) && $selectedVersions !== []) {
                 if ($submitMult === 'delete_version') {
                     foreach ($selectedVersions as $version) {
-                        $this->tracking->deleteTrackingVersion($GLOBALS['db'], $GLOBALS['table'], $version);
+                        $this->tracking->deleteTrackingVersion(Current::$database, Current::$table, $version);
                     }
 
                     $actionMessage = Message::success(
@@ -214,24 +215,24 @@ final class TrackingController extends AbstractController
         }
 
         if ($request->hasBodyParam('submit_delete_version')) {
-            $deleteVersion = $this->tracking->deleteTrackingVersion($GLOBALS['db'], $GLOBALS['table'], $versionParam);
+            $deleteVersion = $this->tracking->deleteTrackingVersion(Current::$database, Current::$table, $versionParam);
         }
 
         if ($request->hasBodyParam('submit_create_version')) {
-            $createVersion = $this->tracking->createTrackingVersion($GLOBALS['db'], $GLOBALS['table'], $versionParam);
+            $createVersion = $this->tracking->createTrackingVersion(Current::$database, Current::$table, $versionParam);
         }
 
         if ($toggleActivation === 'deactivate_now') {
             $deactivateTracking = $this->tracking->changeTracking(
-                $GLOBALS['db'],
-                $GLOBALS['table'],
+                Current::$database,
+                Current::$table,
                 $versionParam,
                 'deactivate',
             );
         } elseif ($toggleActivation === 'activate_now') {
             $activateTracking = $this->tracking->changeTracking(
-                $GLOBALS['db'],
-                $GLOBALS['table'],
+                Current::$database,
+                Current::$table,
                 $versionParam,
                 'activate',
             );
@@ -249,8 +250,8 @@ final class TrackingController extends AbstractController
         }
 
         $main = $this->tracking->getHtmlForMainPage(
-            $GLOBALS['db'],
-            $GLOBALS['table'],
+            Current::$database,
+            Current::$table,
             $GLOBALS['urlParams'],
             $GLOBALS['text_dir'],
         );

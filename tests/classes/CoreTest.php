@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
@@ -40,8 +41,8 @@ class CoreTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
         $GLOBALS['server'] = 0;
-        $GLOBALS['db'] = '';
-        $GLOBALS['table'] = '';
+        Current::$database = '';
+        Current::$table = '';
         Config::getInstance()->set('URLQueryEncryption', false);
     }
 

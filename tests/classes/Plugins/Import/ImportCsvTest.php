@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Import;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportCsv;
@@ -40,8 +41,8 @@ class ImportCsvTest extends AbstractTestCase
         $GLOBALS['plugin_param'] = 'csv';
         $GLOBALS['errorUrl'] = 'index.php?route=/';
         $GLOBALS['error'] = false;
-        $GLOBALS['db'] = '';
-        $GLOBALS['table'] = '';
+        Current::$database = '';
+        Current::$table = '';
         $GLOBALS['sql_query'] = '';
         $GLOBALS['message'] = null;
         $GLOBALS['csv_columns'] = null;

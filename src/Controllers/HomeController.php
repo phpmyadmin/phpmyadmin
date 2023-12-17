@@ -10,6 +10,7 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Favorites\RecentFavoriteTables;
 use PhpMyAdmin\Favorites\TableType;
@@ -81,8 +82,8 @@ class HomeController extends AbstractController
         // This is for $cfg['ShowDatabasesNavigationAsTree'] = false;
         // See: https://github.com/phpmyadmin/phpmyadmin/issues/16520
         // The DB is defined here and sent to the JS front-end to refresh the DB tree
-        $GLOBALS['db'] = $request->getParsedBodyParam('db', '');
-        $GLOBALS['table'] = '';
+        Current::$database = $request->getParsedBodyParam('db', '');
+        Current::$table = '';
         $GLOBALS['show_query'] = '1';
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
@@ -225,8 +226,8 @@ class HomeController extends AbstractController
         $git = new Git($this->config->get('ShowGitRevision') ?? true);
 
         $this->render('home/index', [
-            'db' => $GLOBALS['db'],
-            'table' => $GLOBALS['table'],
+            'db' => Current::$database,
+            'table' => Current::$table,
             'message' => $displayMessage ?? '',
             'partial_logout' => $partialLogout ?? '',
             'is_git_revision' => $git->isGitRevision(),

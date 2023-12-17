@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table\Structure;
 
 use PhpMyAdmin\Controllers\Table\Structure\SpatialController;
 use PhpMyAdmin\Controllers\Table\StructureController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
@@ -20,8 +21,8 @@ class SpatialControllerTest extends AbstractTestCase
 {
     public function testAddSpatialKeyToSingleField(): void
     {
-        $GLOBALS['db'] = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$database = 'test_db';
+        Current::$table = 'test_table';
         $GLOBALS['message'] = null;
         $GLOBALS['sql_query'] = null;
 
@@ -48,8 +49,8 @@ class SpatialControllerTest extends AbstractTestCase
 
     public function testAddSpatialKeyToMultipleFields(): void
     {
-        $GLOBALS['db'] = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$database = 'test_db';
+        Current::$table = 'test_table';
         $GLOBALS['message'] = null;
         $GLOBALS['sql_query'] = null;
 
@@ -76,8 +77,8 @@ class SpatialControllerTest extends AbstractTestCase
 
     public function testNoColumnsSelected(): void
     {
-        $GLOBALS['db'] = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$database = 'test_db';
+        Current::$table = 'test_table';
         $GLOBALS['message'] = null;
         $GLOBALS['sql_query'] = null;
 
@@ -103,8 +104,8 @@ class SpatialControllerTest extends AbstractTestCase
 
     public function testAddSpatialKeyWithError(): void
     {
-        $GLOBALS['db'] = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$database = 'test_db';
+        Current::$table = 'test_table';
         $GLOBALS['message'] = null;
         $GLOBALS['sql_query'] = null;
 

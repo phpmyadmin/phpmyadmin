@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Import;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Import\SimulateDml;
 use PhpMyAdmin\SqlParser\Parser;
@@ -27,7 +28,7 @@ class SimulateDmlTest extends AbstractTestCase
     #[DataProvider('providerForTestGetMatchedRows')]
     public function testGetMatchedRows(string $sqlQuery, string $simulatedQuery, array $columns, array $result): void
     {
-        $GLOBALS['db'] = 'PMA';
+        Current::$database = 'PMA';
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addSelectDb('PMA');
         $dummyDbi->addResult($simulatedQuery, $result, $columns);

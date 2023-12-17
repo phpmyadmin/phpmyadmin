@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Normalization\FirstNormalForm;
 
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
@@ -19,7 +20,7 @@ final class SecondStepController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $res = $this->normalization->getHtmlContentsFor1NFStep2($GLOBALS['db'], $GLOBALS['table']);
+        $res = $this->normalization->getHtmlContentsFor1NFStep2(Current::$database, Current::$table);
         $this->response->addJSON($res);
     }
 }

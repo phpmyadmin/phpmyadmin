@@ -928,7 +928,7 @@ class Sql
         $extraData = [];
         if (! empty($GLOBALS['reload'])) {
             $extraData['reload'] = 1;
-            $extraData['db'] = $GLOBALS['db'];
+            $extraData['db'] = Current::$database;
         }
 
         // For ajax requests add message and sql_query as JSON
@@ -1525,8 +1525,8 @@ class Sql
 
         $displayResultsObject = new DisplayResults(
             $this->dbi,
-            $GLOBALS['db'],
-            $GLOBALS['table'],
+            Current::$database,
+            Current::$table,
             $GLOBALS['server'],
             $goto,
             $sqlQuery,

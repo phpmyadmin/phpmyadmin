@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
@@ -409,7 +410,7 @@ class Routines
         $fields = 'SPECIFIC_NAME, ROUTINE_TYPE, DTD_IDENTIFIER, '
                  . 'ROUTINE_DEFINITION, IS_DETERMINISTIC, SQL_DATA_ACCESS, '
                  . 'ROUTINE_COMMENT, SECURITY_TYPE';
-        $where = 'ROUTINE_SCHEMA ' . Util::getCollateForIS() . '=' . $this->dbi->quoteString($GLOBALS['db'])
+        $where = 'ROUTINE_SCHEMA ' . Util::getCollateForIS() . '=' . $this->dbi->quoteString(Current::$database)
                  . ' AND SPECIFIC_NAME=' . $this->dbi->quoteString($name)
                  . ' AND ROUTINE_TYPE=' . $this->dbi->quoteString($type);
         $query = 'SELECT ' . $fields . ' FROM INFORMATION_SCHEMA.ROUTINES WHERE ' . $where . ';';
@@ -425,9 +426,9 @@ class Routines
         $retval['item_type'] = $routine['ROUTINE_TYPE'];
 
         if ($routine['ROUTINE_TYPE'] === 'FUNCTION') {
-            $definition = self::getFunctionDefinition($this->dbi, $GLOBALS['db'], $routine['SPECIFIC_NAME']);
+            $definition = self::getFunctionDefinition($this->dbi, Current::$database, $routine['SPECIFIC_NAME']);
         } else {
-            $definition = self::getProcedureDefinition($this->dbi, $GLOBALS['db'], $routine['SPECIFIC_NAME']);
+            $definition = self::getProcedureDefinition($this->dbi, Current::$database, $routine['SPECIFIC_NAME']);
         }
 
         if ($definition === null) {
@@ -1117,7 +1118,7 @@ class Routines
 
         // this is for our purpose to decide whether to
         // show the edit link or not, so we need the DEFINER for the routine
-        $where = 'ROUTINE_SCHEMA ' . Util::getCollateForIS() . '=' . $this->dbi->quoteString($GLOBALS['db'])
+        $where = 'ROUTINE_SCHEMA ' . Util::getCollateForIS() . '=' . $this->dbi->quoteString(Current::$database)
             . ' AND SPECIFIC_NAME=' . $this->dbi->quoteString($routine['name'])
             . ' AND ROUTINE_TYPE=' . $this->dbi->quoteString($routine['type']);
         $query = 'SELECT `DEFINER` FROM INFORMATION_SCHEMA.ROUTINES WHERE ' . $where . ';';
@@ -1128,12 +1129,12 @@ class Routines
 
         // Since editing a procedure involved dropping and recreating, check also for
         // CREATE ROUTINE privilege to avoid lost procedures.
-        $hasCreateRoutine = Util::currentUserHasPrivilege('CREATE ROUTINE', $GLOBALS['db']);
+        $hasCreateRoutine = Util::currentUserHasPrivilege('CREATE ROUTINE', Current::$database);
         $hasEditPrivilege = ($hasCreateRoutine && $currentUserIsRoutineDefiner)
                             || $this->dbi->isSuperUser();
         $hasExportPrivilege = ($hasCreateRoutine && $currentUserIsRoutineDefiner)
                             || $this->dbi->isSuperUser();
-        $hasExecutePrivilege = Util::currentUserHasPrivilege('EXECUTE', $GLOBALS['db'])
+        $hasExecutePrivilege = Util::currentUserHasPrivilege('EXECUTE', Current::$database)
                             || $currentUserIsRoutineDefiner;
 
         // There is a problem with Util::currentUserHasPrivilege():
@@ -1148,9 +1149,9 @@ class Routines
         // otherwise we can execute it directly.
 
         if ($routine['type'] === 'FUNCTION') {
-            $definition = self::getFunctionDefinition($this->dbi, $GLOBALS['db'], $routine['name']);
+            $definition = self::getFunctionDefinition($this->dbi, Current::$database, $routine['name']);
         } else {
-            $definition = self::getProcedureDefinition($this->dbi, $GLOBALS['db'], $routine['name']);
+            $definition = self::getProcedureDefinition($this->dbi, Current::$database, $routine['name']);
         }
 
         $executeAction = '';
@@ -1177,8 +1178,8 @@ class Routines
         }
 
         return [
-            'db' => $GLOBALS['db'],
-            'table' => $GLOBALS['table'],
+            'db' => Current::$database,
+            'table' => Current::$table,
             'sql_drop' => $sqlDrop,
             'routine' => $routine,
             'row_class' => $rowClass,

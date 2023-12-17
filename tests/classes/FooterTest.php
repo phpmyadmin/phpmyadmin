@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use ArrayIterator;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Footer;
 use PhpMyAdmin\Template;
@@ -37,8 +38,8 @@ class FooterTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $_SERVER['SCRIPT_NAME'] = 'index.php';
-        $GLOBALS['db'] = '';
-        $GLOBALS['table'] = '';
+        Current::$database = '';
+        Current::$table = '';
         $GLOBALS['text_dir'] = 'ltr';
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;

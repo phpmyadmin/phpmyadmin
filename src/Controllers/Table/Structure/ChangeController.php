@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Table\Structure;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
@@ -63,7 +64,7 @@ final class ChangeController extends AbstractController
      */
     private function displayHtmlForColumnChange(array $selected): void
     {
-        $fieldsMeta = $this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table'], true);
+        $fieldsMeta = $this->dbi->getColumns(Current::$database, Current::$table, true);
         $fieldsMeta = array_values(array_filter(
             $fieldsMeta,
             static fn (ColumnFull $column): bool => in_array($column->field, $selected, true)

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server\Databases;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Databases\CreateController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
@@ -38,8 +39,8 @@ final class CreateControllerTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
         Config::getInstance()->selectedServer['DisableIS'] = false;
-        $GLOBALS['db'] = 'pma_test';
-        $GLOBALS['table'] = '';
+        Current::$database = 'pma_test';
+        Current::$table = '';
 
         $response = new ResponseRenderer();
 

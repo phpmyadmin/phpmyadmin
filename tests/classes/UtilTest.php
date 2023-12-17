@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\MoTranslator\Loader;
@@ -166,8 +167,8 @@ class UtilTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer['host'] = 'host&';
         $config->selectedServer['verbose'] = 'verbose';
-        $GLOBALS['db'] = 'database';
-        $GLOBALS['table'] = 'table';
+        Current::$database = 'database';
+        Current::$table = 'table';
 
         $this->assertEquals(
             $out,

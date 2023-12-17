@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\Column;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Template;
@@ -26,7 +27,7 @@ class SearchTest extends AbstractTestCase
         parent::setUp();
 
         $GLOBALS['server'] = 0;
-        $GLOBALS['db'] = 'pma';
+        Current::$database = 'pma';
         $GLOBALS['_POST'] = [];
 
         //mock DBI

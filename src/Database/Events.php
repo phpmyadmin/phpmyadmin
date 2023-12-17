@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
@@ -79,7 +80,7 @@ class Events
             // Execute the created query
             if (! empty($_POST['editor_process_edit'])) {
                 // Backup the old trigger, in case something goes wrong
-                $createItem = self::getDefinition($this->dbi, $GLOBALS['db'], $_POST['item_original_name']);
+                $createItem = self::getDefinition($this->dbi, Current::$database, $_POST['item_original_name']);
                 $dropItem = 'DROP EVENT IF EXISTS '
                     . Util::backquote($_POST['item_original_name'])
                     . ";\n";
@@ -207,7 +208,7 @@ class Events
         $columns = '`EVENT_NAME`, `STATUS`, `EVENT_TYPE`, `EXECUTE_AT`, '
                  . '`INTERVAL_VALUE`, `INTERVAL_FIELD`, `STARTS`, `ENDS`, '
                  . '`EVENT_DEFINITION`, `ON_COMPLETION`, `DEFINER`, `EVENT_COMMENT`';
-        $where = 'EVENT_SCHEMA ' . Util::getCollateForIS() . '=' . $this->dbi->quoteString($GLOBALS['db'])
+        $where = 'EVENT_SCHEMA ' . Util::getCollateForIS() . '=' . $this->dbi->quoteString(Current::$database)
                  . ' AND EVENT_NAME=' . $this->dbi->quoteString($name);
         $query = 'SELECT ' . $columns . ' FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE ' . $where . ';';
         $item = $this->dbi->fetchSingleRow($query);

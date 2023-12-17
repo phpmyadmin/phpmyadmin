@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
@@ -90,7 +91,7 @@ class ZoomSearchController extends AbstractController
             return;
         }
 
-        $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
         $config = Config::getInstance();
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
         $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
@@ -159,7 +160,7 @@ class ZoomSearchController extends AbstractController
 
         //Set default datalabel if not selected
         if (! isset($_POST['zoom_submit']) || $_POST['dataLabel'] == '') {
-            $dataLabel = $this->relation->getDisplayField($GLOBALS['db'], $GLOBALS['table']);
+            $dataLabel = $this->relation->getDisplayField(Current::$database, Current::$table);
         } else {
             $dataLabel = $_POST['dataLabel'];
         }
@@ -194,7 +195,7 @@ class ZoomSearchController extends AbstractController
     private function loadTableInfo(): void
     {
         // Gets the list and number of columns
-        $columns = $this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table'], true);
+        $columns = $this->dbi->getColumns(Current::$database, Current::$table, true);
         // Get details about the geometry functions
         $geomTypes = Gis::getDataTypes();
 
@@ -237,7 +238,7 @@ class ZoomSearchController extends AbstractController
         }
 
         // Retrieve foreign keys
-        $this->foreigners = $this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table']);
+        $this->foreigners = $this->relation->getForeigners(Current::$database, Current::$table);
     }
 
     /**
@@ -266,8 +267,8 @@ class ZoomSearchController extends AbstractController
         }
 
         $this->render('table/zoom_search/index', [
-            'db' => $GLOBALS['db'],
-            'table' => $GLOBALS['table'],
+            'db' => Current::$database,
+            'table' => Current::$table,
             'goto' => $GLOBALS['goto'],
             'self' => $this,
             'geom_column_flag' => $this->geomColumnFlag,
@@ -412,8 +413,8 @@ class ZoomSearchController extends AbstractController
         }
 
         $this->render('table/zoom_search/result_form', [
-            'db' => $GLOBALS['db'],
-            'table' => $GLOBALS['table'],
+            'db' => Current::$database,
+            'table' => Current::$table,
             'column_names' => $this->columnNames,
             'column_names_hashes' => $columnNamesHashes,
             'foreigners' => $this->foreigners,
@@ -507,10 +508,10 @@ class ZoomSearchController extends AbstractController
             'column_name' => $this->columnNames[$columnIndex],
             'column_name_hash' => md5($this->columnNames[$columnIndex]),
             'foreign_data' => $foreignData,
-            'table' => $GLOBALS['table'],
+            'table' => Current::$table,
             'column_index' => $searchIndex,
             'criteria_values' => $enteredValue,
-            'db' => $GLOBALS['db'],
+            'db' => Current::$database,
             'in_fbs' => true,
             'foreign_dropdown' => $foreignDropdown,
             'search_column_in_foreigners' => $searchColumnInForeigners,

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\GisVisualizationController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
@@ -26,8 +27,8 @@ class GisVisualizationControllerTest extends AbstractTestCase
     {
         $GLOBALS['server'] = 2;
         $GLOBALS['lang'] = 'en';
-        $GLOBALS['db'] = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$database = 'test_db';
+        Current::$table = 'test_table';
         $_GET['sql_query'] = null;
         $_POST['sql_query'] = 'SELECT * FROM `gis_all`';
         $_POST['pos'] = 0;

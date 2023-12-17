@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Auth;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Exceptions\SessionHandlerException;
 use PhpMyAdmin\LanguageManager;
@@ -136,12 +137,12 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         $formParams = [];
-        if ($GLOBALS['db'] !== '') {
-            $formParams['db'] = $GLOBALS['db'];
+        if (Current::$database !== '') {
+            $formParams['db'] = Current::$database;
         }
 
-        if ($GLOBALS['table'] !== '') {
-            $formParams['table'] = $GLOBALS['table'];
+        if (Current::$table !== '') {
+            $formParams['table'] = Current::$table;
         }
 
         $errors = '';
@@ -455,12 +456,12 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // any parameters to pass?
         $urlParams = [];
-        if (strlen($GLOBALS['db']) > 0) {
-            $urlParams['db'] = $GLOBALS['db'];
+        if (Current::$database !== '') {
+            $urlParams['db'] = Current::$database;
         }
 
-        if (strlen($GLOBALS['table']) > 0) {
-            $urlParams['table'] = $GLOBALS['table'];
+        if (Current::$table !== '') {
+            $urlParams['table'] = Current::$table;
         }
 
         // user logged in successfully after session expiration

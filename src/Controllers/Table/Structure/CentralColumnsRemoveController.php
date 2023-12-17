@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Table\Structure;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Table\StructureController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
@@ -42,7 +43,7 @@ final class CentralColumnsRemoveController extends AbstractController
 
         Assert::allString($selected);
 
-        $centralColsError = $this->centralColumns->deleteColumnsFromList($GLOBALS['db'], $selected, false);
+        $centralColsError = $this->centralColumns->deleteColumnsFromList(Current::$database, $selected, false);
 
         if ($centralColsError instanceof Message) {
             $GLOBALS['message'] = $centralColsError;

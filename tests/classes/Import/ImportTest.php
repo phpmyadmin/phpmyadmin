@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Import;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -265,7 +266,7 @@ class ImportTest extends AbstractTestCase
      */
     public function testPMACheckIfRollbackPossible(): void
     {
-        $GLOBALS['db'] = 'PMA';
+        Current::$database = 'PMA';
 
         $sqlQuery = 'UPDATE `table_1` AS t1, `table_2` t2 SET `table_1`.`id` = `table_2`.`id` WHERE 1';
 

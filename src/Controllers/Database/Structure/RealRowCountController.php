@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Database\Structure;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
@@ -49,7 +50,7 @@ final class RealRowCountController extends AbstractController
             Config::getInstance()->settings['DefaultTabDatabase'],
             'database',
         );
-        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
+        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
         if (! $request->isAjax()) {
             return;
@@ -63,13 +64,13 @@ final class RealRowCountController extends AbstractController
             return;
         }
 
-        [$tables] = Util::getDbInfo($request, $GLOBALS['db']);
+        [$tables] = Util::getDbInfo($request, Current::$database);
 
         // If there is a request to update all table's row count.
         if (! isset($parameters['real_row_count_all'])) {
             // Get the real row count for the table.
             $realRowCount = (int) $this->dbi
-                ->getTable($GLOBALS['db'], (string) $parameters['table'])
+                ->getTable(Current::$database, (string) $parameters['table'])
                 ->getRealRowCountTable();
             // Format the number.
             $realRowCount = Util::formatNumber($realRowCount, 0);
@@ -84,7 +85,7 @@ final class RealRowCountController extends AbstractController
         // Iterate over each table and fetch real row count.
         foreach ($tables as $table) {
             $rowCount = $this->dbi
-                ->getTable($GLOBALS['db'], $table['TABLE_NAME'])
+                ->getTable(Current::$database, $table['TABLE_NAME'])
                 ->getRealRowCountTable();
             $realRowCountAll[] = ['table' => $table['TABLE_NAME'], 'row_count' => Util::formatNumber($rowCount, 0)];
         }

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\PluginsController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Server\Plugins;
@@ -39,8 +40,8 @@ class PluginsControllerTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->dbi;
 
         $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = 'db';
-        $GLOBALS['table'] = 'table';
+        Current::$database = 'db';
+        Current::$table = 'table';
         Config::getInstance()->selectedServer['DisableIS'] = false;
     }
 

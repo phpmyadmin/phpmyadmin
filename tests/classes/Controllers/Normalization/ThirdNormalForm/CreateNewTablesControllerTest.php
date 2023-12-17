@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Normalization\ThirdNormalForm;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Normalization\ThirdNormalForm\CreateNewTablesController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
@@ -22,8 +23,8 @@ class CreateNewTablesControllerTest extends AbstractTestCase
 {
     public function testDefault(): void
     {
-        $GLOBALS['db'] = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$database = 'test_db';
+        Current::$table = 'test_table';
         $newTables = json_encode([
             'test_table' => [
                 'event' => [

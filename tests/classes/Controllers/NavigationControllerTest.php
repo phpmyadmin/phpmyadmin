@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\NavigationController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -38,7 +39,7 @@ class NavigationControllerTest extends AbstractTestCase
         parent::setLanguage();
 
         $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = 'air-balloon_burner_dev2';
+        Current::$database = 'air-balloon_burner_dev2';
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
         $config->selectedServer['auth_type'] = 'cookie';
@@ -186,7 +187,7 @@ class NavigationControllerTest extends AbstractTestCase
         parent::setLanguage();
 
         $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = 'air-balloon_burner_dev2';
+        Current::$database = 'air-balloon_burner_dev2';
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
         $config->selectedServer['auth_type'] = 'cookie';

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Auth;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Plugins\Auth\AuthenticationHttp;
@@ -42,8 +43,8 @@ class AuthenticationHttpTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Config::getInstance()->settings['Servers'] = [];
         $GLOBALS['server'] = 0;
-        $GLOBALS['db'] = 'db';
-        $GLOBALS['table'] = 'table';
+        Current::$database = 'db';
+        Current::$table = 'table';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['token_provided'] = true;

@@ -90,7 +90,7 @@ class Header
         $dbi = DatabaseInterface::getInstance();
         $this->console = $console;
         $this->menuEnabled = $dbi->isConnected();
-        $this->menu = new Menu($dbi, $this->template, $GLOBALS['db'] ?? '', $GLOBALS['table'] ?? '');
+        $this->menu = new Menu($dbi, $this->template, Current::$database, Current::$table);
         $this->scripts = new Scripts($this->template);
         $this->addDefaultScripts();
 
@@ -137,8 +137,8 @@ class Header
             'opendb_url' => Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database'),
             'lang' => $GLOBALS['lang'],
             'server' => $GLOBALS['server'],
-            'table' => $GLOBALS['table'] ?? '',
-            'db' => $GLOBALS['db'] ?? '',
+            'table' => Current::$table,
+            'db' => Current::$database,
             'token' => $_SESSION[' PMA_token '],
             'text_dir' => $GLOBALS['text_dir'],
             'LimitChars' => $config->settings['LimitChars'],
@@ -262,10 +262,10 @@ class Header
         }
 
         $recentTable = '';
-        if (empty($_REQUEST['recent_table']) && $GLOBALS['table'] !== '') {
+        if (empty($_REQUEST['recent_table']) && Current::$table !== '') {
             $recentTable = $this->addRecentTable(
-                DatabaseName::from($GLOBALS['db']),
-                TableName::from($GLOBALS['table']),
+                DatabaseName::from(Current::$database),
+                TableName::from(Current::$table),
             );
         }
 
@@ -508,9 +508,9 @@ class Header
         if (strlen($this->title) == 0) {
             if ($GLOBALS['server'] > 0) {
                 $config = Config::getInstance();
-                if ($GLOBALS['table'] !== '') {
+                if (Current::$table !== '') {
                     $tempTitle = $config->settings['TitleTable'];
-                } elseif ($GLOBALS['db'] !== '') {
+                } elseif (Current::$database !== '') {
                     $tempTitle = $config->settings['TitleDatabase'];
                 } elseif ($config->selectedServer['host'] !== '') {
                     $tempTitle = $config->settings['TitleServer'];

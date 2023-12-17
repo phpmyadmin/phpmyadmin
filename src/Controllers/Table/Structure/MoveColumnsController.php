@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table\Structure;
 
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
@@ -35,7 +36,7 @@ final class MoveColumnsController extends AbstractController
     ) {
         parent::__construct($response, $template);
 
-        $this->tableObj = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
+        $this->tableObj = $this->dbi->getTable(Current::$database, Current::$table);
     }
 
     public function __invoke(ServerRequest $request): void
@@ -45,12 +46,12 @@ final class MoveColumnsController extends AbstractController
             return;
         }
 
-        $this->dbi->selectDb($GLOBALS['db']);
+        $this->dbi->selectDb(Current::$database);
 
         /**
          * load the definitions for all columns
          */
-        $columns = $this->dbi->getColumnsFull($GLOBALS['db'], $GLOBALS['table']);
+        $columns = $this->dbi->getColumnsFull(Current::$database, Current::$table);
         $columnNames = array_column($columns, 'Field');
         $changes = [];
 
@@ -141,7 +142,7 @@ final class MoveColumnsController extends AbstractController
         // query for moving the columns
         $sqlQuery = sprintf(
             'ALTER TABLE %s %s',
-            Util::backquote($GLOBALS['table']),
+            Util::backquote(Current::$table),
             implode(', ', $changes),
         );
 

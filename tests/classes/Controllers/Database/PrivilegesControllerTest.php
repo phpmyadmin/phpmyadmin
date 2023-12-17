@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Database;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Database\PrivilegesController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Server\Privileges;
@@ -38,7 +39,7 @@ class PrivilegesControllerTest extends AbstractTestCase
 
     public function testIndex(): void
     {
-        $GLOBALS['db'] = 'test_db';
+        Current::$database = 'test_db';
         $GLOBALS['server'] = 0;
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
@@ -75,11 +76,11 @@ class PrivilegesControllerTest extends AbstractTestCase
         $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString(
-            Url::getCommon(['db' => $GLOBALS['db']], ''),
+            Url::getCommon(['db' => Current::$database], ''),
             $actual,
         );
 
-        $this->assertStringContainsString($GLOBALS['db'], $actual);
+        $this->assertStringContainsString(Current::$database, $actual);
 
         $this->assertStringContainsString(
             __('User'),

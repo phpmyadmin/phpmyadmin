@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Database;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Database\EventsController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -24,7 +25,7 @@ final class EventsControllerTest extends AbstractTestCase
         $GLOBALS['server'] = 2;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
-        $GLOBALS['db'] = 'test_db';
+        Current::$database = 'test_db';
         Config::getInstance()->selectedServer['DisableIS'] = true;
 
         $dummyDbi = $this->createDbiDummy();
@@ -195,7 +196,7 @@ HTML;
         $GLOBALS['server'] = 2;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
-        $GLOBALS['db'] = 'test_db';
+        Current::$database = 'test_db';
         Config::getInstance()->selectedServer['DisableIS'] = true;
 
         $dummyDbi = $this->createDbiDummy();

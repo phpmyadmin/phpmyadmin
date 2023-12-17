@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Index;
@@ -37,28 +38,29 @@ class DataDictionaryController extends AbstractController
 
         $relationParameters = $this->relation->getRelationParameters();
 
-        $comment = $this->relation->getDbComment($GLOBALS['db']);
+        $comment = $this->relation->getDbComment(Current::$database);
 
-        $this->dbi->selectDb($GLOBALS['db']);
-        $tablesNames = $this->dbi->getTables($GLOBALS['db']);
+        $this->dbi->selectDb(Current::$database);
+        $tablesNames = $this->dbi->getTables(Current::$database);
 
         $tables = [];
         foreach ($tablesNames as $tableName) {
-            $showComment = (string) $this->dbi->getTable($GLOBALS['db'], $tableName)->getStatusInfo('TABLE_COMMENT');
+            $showComment = (string) $this->dbi->getTable(Current::$database, $tableName)
+                ->getStatusInfo('TABLE_COMMENT');
 
             [, $primaryKeys] = Util::processIndexData(
-                $this->dbi->getTableIndexes($GLOBALS['db'], $tableName),
+                $this->dbi->getTableIndexes(Current::$database, $tableName),
             );
 
             $foreigners = $this->relation->getRelationsAndStatus(
                 $relationParameters->relationFeature !== null,
-                $GLOBALS['db'],
+                Current::$database,
                 $tableName,
             );
 
-            $columnsComments = $this->relation->getComments($GLOBALS['db'], $tableName);
+            $columnsComments = $this->relation->getComments(Current::$database, $tableName);
 
-            $columns = $this->dbi->getColumns($GLOBALS['db'], $tableName);
+            $columns = $this->dbi->getColumns(Current::$database, $tableName);
             $rows = [];
             foreach ($columns as $row) {
                 $extractedColumnSpec = Util::extractColumnSpec($row->type);
@@ -75,7 +77,7 @@ class DataDictionaryController extends AbstractController
 
                 $mime = '';
                 if ($relationParameters->browserTransformationFeature !== null) {
-                    $mimeMap = $this->transformations->getMime($GLOBALS['db'], $tableName, true);
+                    $mimeMap = $this->transformations->getMime(Current::$database, $tableName, true);
                     if (is_array($mimeMap) && isset($mimeMap[$row->field]['mimetype'])) {
                         $mime = str_replace('_', '/', $mimeMap[$row->field]['mimetype']);
                     }
@@ -100,12 +102,12 @@ class DataDictionaryController extends AbstractController
                 'has_relation' => $foreigners !== [],
                 'has_mime' => $relationParameters->browserTransformationFeature !== null,
                 'columns' => $rows,
-                'indexes' => Index::getFromTable($this->dbi, $tableName, $GLOBALS['db']),
+                'indexes' => Index::getFromTable($this->dbi, $tableName, Current::$database),
             ];
         }
 
         $this->render('database/data_dictionary/index', [
-            'database' => $GLOBALS['db'],
+            'database' => Current::$database,
             'comment' => $comment,
             'tables' => $tables,
         ]);

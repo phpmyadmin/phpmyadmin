@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
@@ -66,7 +67,7 @@ class CreateController extends AbstractController
             Config::getInstance()->settings['DefaultTabDatabase'],
             'database',
         );
-        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
+        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -184,7 +185,7 @@ class CreateController extends AbstractController
             $viewData = array_merge($viewData, $view);
         }
 
-        $GLOBALS['urlParams']['db'] = $GLOBALS['db'];
+        $GLOBALS['urlParams']['db'] = Current::$database;
         $GLOBALS['urlParams']['reload'] = 1;
 
         $this->addScriptFiles(['sql.js']);
@@ -210,7 +211,7 @@ class CreateController extends AbstractController
         }
 
         $systemDb = $this->dbi->getSystemDatabase();
-        $pmaTransformationData = $systemDb->getExistingTransformationData($GLOBALS['db']);
+        $pmaTransformationData = $systemDb->getExistingTransformationData(Current::$database);
 
         if ($pmaTransformationData !== false) {
             $columnMap = $systemDb->getColumnMapFromSql($view['as'], $viewColumns);
@@ -219,7 +220,7 @@ class CreateController extends AbstractController
                 $pmaTransformationData,
                 $columnMap,
                 $view['name'],
-                $GLOBALS['db'],
+                Current::$database,
             );
 
             // Store new transformations

@@ -9,6 +9,7 @@ use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -339,7 +340,7 @@ class TrackerTest extends AbstractTestCase
         $this->assertEquals($tableName, $result['tablename']);
 
         if ($db !== null && $db !== '') {
-            $this->assertEquals($db, $GLOBALS['db']);
+            $this->assertEquals($db, Current::$database);
         }
 
         if ($tableNameAfterRename === null || $tableNameAfterRename === '') {

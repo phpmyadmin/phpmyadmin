@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database\Structure;
 
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
@@ -26,7 +27,7 @@ final class EmptyFormController extends AbstractController
         }
 
         $fullQuery = '';
-        $urlParams = ['db' => $GLOBALS['db']];
+        $urlParams = ['db' => Current::$database];
 
         foreach ($selected as $selectedValue) {
             $fullQuery .= 'TRUNCATE ';

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Import;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportLdi;
@@ -62,7 +63,7 @@ class ImportLdiTest extends AbstractTestCase
         $config->settings['Import']['ldi_new_line'] = 'auto';
         $config->settings['Import']['ldi_columns'] = '';
         $config->settings['Import']['ldi_local_option'] = false;
-        $GLOBALS['table'] = 'phpmyadmintest';
+        Current::$table = 'phpmyadmintest';
     }
 
     /**

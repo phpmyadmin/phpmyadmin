@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Triggers;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
@@ -73,7 +74,7 @@ class Triggers
             // Execute the created query
             if (! empty($_POST['editor_process_edit'])) {
                 // Backup the old trigger, in case something goes wrong
-                $trigger = $this->getTriggerByName($GLOBALS['db'], $GLOBALS['table'], $_POST['item_original_name']);
+                $trigger = $this->getTriggerByName(Current::$database, Current::$table, $_POST['item_original_name']);
                 $createItem = $trigger->getCreateSql('');
                 $dropItem = $trigger->getDropSql();
                 $result = $this->dbi->tryQuery($dropItem);
@@ -206,7 +207,7 @@ class Triggers
         $query .= 'ON ';
         if (
             ! empty($_POST['item_table'])
-            && in_array($_POST['item_table'], $this->dbi->getTables($GLOBALS['db']), true)
+            && in_array($_POST['item_table'], $this->dbi->getTables(Current::$database), true)
         ) {
             $query .= Util::backquote($_POST['item_table']);
         } else {

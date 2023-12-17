@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Menu;
 use PhpMyAdmin\Template;
@@ -34,8 +35,8 @@ class MenuTest extends AbstractTestCase
         $GLOBALS['server'] = 0;
         $config->selectedServer['verbose'] = 'verbose host';
         $GLOBALS['server'] = 'server';
-        $GLOBALS['db'] = 'pma_test';
-        $GLOBALS['table'] = 'table1';
+        Current::$database = 'pma_test';
+        Current::$table = 'table1';
     }
 
     /**

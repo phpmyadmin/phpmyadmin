@@ -1498,6 +1498,9 @@
       <code>$favoriteTables</code>
       <code>$favoriteTables</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[['db' => Current::$database]]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$value['db']]]></code>
       <code><![CDATA[$value['table']]]></code>
@@ -1513,6 +1516,9 @@
       <code>$favoriteTables</code>
       <code>$value</code>
     </MixedAssignment>
+    <MixedOperand>
+      <code>Current::$database</code>
+    </MixedOperand>
   </file>
   <file src="src/Controllers/Database/Structure/RealRowCountController.php">
     <DeprecatedMethod>
@@ -2019,9 +2025,9 @@
       <code><![CDATA[$GLOBALS['language_stats'][$GLOBALS['lang']]]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['db']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['show_query']]]></code>
+      <code>Current::$database</code>
     </MixedAssignment>
     <PossiblyNullArgument>
       <code><![CDATA[$this->config->get('TempDir')]]></code>
@@ -2077,8 +2083,10 @@
       <code><![CDATA[$request->getParsedBodyParam('bkm_label')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('sql_query')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('sql_query')]]></code>
+      <code>Current::$table</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
+      <code><![CDATA[$GLOBALS['urlParams']]]></code>
       <code><![CDATA[$GLOBALS['urlParams']]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
@@ -2375,7 +2383,13 @@
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$request->getParsedBodyParam('comment')]]></code>
+      <code>Current::$database</code>
+      <code>Current::$database</code>
+      <code>Current::$database</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[['db' => Current::$database]]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
@@ -3221,6 +3235,7 @@
       <code><![CDATA[$GLOBALS['sql_query']]]></code>
       <code><![CDATA[$request->getQueryParam('sql_signature')]]></code>
       <code>$sqlQuery</code>
+      <code>Current::$table</code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$GLOBALS['ajax_reload']['reload']]]></code>
@@ -3344,6 +3359,9 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[$GLOBALS['urlParams']]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
@@ -4278,7 +4296,11 @@
       <code><![CDATA[$_REQUEST['item_name']]]></code>
     </PossiblyInvalidCast>
     <PossiblyNullArgument>
-      <code><![CDATA[$this->triggers->getTriggerByName($GLOBALS['db'], $GLOBALS['table'], $_REQUEST['item_name'])]]></code>
+      <code><![CDATA[$this->triggers->getTriggerByName(
+                            Current::$database,
+                            Current::$table,
+                            $_REQUEST['item_name'],
+                        )]]></code>
     </PossiblyNullArgument>
     <PossiblyNullReference>
       <code>isSuccess</code>
@@ -4794,7 +4816,7 @@
       <code>$value</code>
     </MixedAssignment>
     <MixedOperand>
-      <code><![CDATA[$oneKey['ref_db_name'] ?? $GLOBALS['db']]]></code>
+      <code><![CDATA[$oneKey['ref_db_name'] ?? Current::$database]]></code>
       <code><![CDATA[$oneKey['ref_table_name']]]></code>
       <code><![CDATA[$value['foreign_db']]]></code>
       <code><![CDATA[$value['foreign_table']]]></code>
@@ -5364,8 +5386,8 @@
       <code><![CDATA[$expr->alias]]></code>
       <code><![CDATA[$field->table]]></code>
       <code>$newSortExpressionNoDirection</code>
-      <code><![CDATA[$oneKey['ref_db_name'] ?? $GLOBALS['db']]]></code>
-      <code><![CDATA[$oneKey['ref_db_name'] ?? $GLOBALS['db']]]></code>
+      <code><![CDATA[$oneKey['ref_db_name'] ?? Current::$database]]></code>
+      <code><![CDATA[$oneKey['ref_db_name'] ?? Current::$database]]></code>
       <code><![CDATA[$oneKey['ref_index_list'][$index]]]></code>
       <code><![CDATA[$oneKey['ref_table_name']]]></code>
       <code><![CDATA[$oneKey['ref_table_name']]]></code>
@@ -6062,20 +6084,8 @@
       <code>is_array($info) ? $info : []</code>
     </MixedReturnTypeCoercion>
     <RedundantCast>
-      <code><![CDATA[(string) $GLOBALS['db']]]></code>
-      <code><![CDATA[(string) $GLOBALS['table']]]></code>
       <code><![CDATA[(string) $_REQUEST['no_history']]]></code>
     </RedundantCast>
-    <RedundantCondition>
-      <code><![CDATA[is_scalar($GLOBALS['db'])]]></code>
-      <code><![CDATA[is_scalar($GLOBALS['table'])]]></code>
-      <code><![CDATA[isset($GLOBALS['db']) && is_scalar($GLOBALS['db'])]]></code>
-      <code><![CDATA[isset($GLOBALS['table']) && is_scalar($GLOBALS['table'])]]></code>
-    </RedundantCondition>
-    <TypeDoesNotContainType>
-      <code><![CDATA['']]></code>
-      <code><![CDATA['']]></code>
-    </TypeDoesNotContainType>
     <UnusedReturnValue>
       <code>mixed</code>
     </UnusedReturnValue>
@@ -6496,10 +6506,13 @@
     <MixedArgument>
       <code><![CDATA[$GLOBALS['special_message']]]></code>
       <code>$alt</code>
+      <code>$database</code>
+      <code>$database</code>
       <code>$title</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$key</code>
+      <code><![CDATA[['db' => $database]]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['Import_message']['go_back_url']]]></code>
@@ -6509,6 +6522,7 @@
     </MixedArrayAssignment>
     <MixedAssignment>
       <code>$alt</code>
+      <code>$database</code>
       <code>$title</code>
       <code>$value</code>
     </MixedAssignment>
@@ -6523,9 +6537,6 @@
     <PossiblyUndefinedArrayOffset>
       <code>$parts[1]</code>
     </PossiblyUndefinedArrayOffset>
-    <RedundantCast>
-      <code><![CDATA[(string) $GLOBALS['db']]]></code>
-    </RedundantCast>
     <RiskyCast>
       <code><![CDATA[$_REQUEST['pos']]]></code>
       <code><![CDATA[$_REQUEST['session_max_rows']]]></code>
@@ -7192,6 +7203,9 @@
       <code>$separator</code>
       <code>$separator</code>
       <code>$value</code>
+      <code>Current::$database</code>
+      <code>Current::$database</code>
+      <code>Current::$database</code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$node->secondIcon['image']]]></code>
@@ -9126,9 +9140,6 @@
     <PossiblyUnusedReturnValue>
       <code>string[]</code>
     </PossiblyUnusedReturnValue>
-    <RedundantCast>
-      <code><![CDATA[(string) $GLOBALS['db']]]></code>
-    </RedundantCast>
   </file>
   <file src="src/Plugins/Import/ImportLdi.php">
     <DeprecatedMethod>
@@ -9358,9 +9369,6 @@
     <PossiblyUnusedReturnValue>
       <code>string[]</code>
     </PossiblyUnusedReturnValue>
-    <RedundantCast>
-      <code><![CDATA[(string) $GLOBALS['db']]]></code>
-    </RedundantCast>
   </file>
   <file src="src/Plugins/Import/ImportSql.php">
     <DeprecatedMethod>
@@ -10674,20 +10682,6 @@
     <MixedAssignment>
       <code>$value</code>
     </MixedAssignment>
-    <RedundantCast>
-      <code><![CDATA[(string) $GLOBALS['db']]]></code>
-      <code><![CDATA[(string) $GLOBALS['table']]]></code>
-    </RedundantCast>
-    <RedundantCondition>
-      <code><![CDATA[is_scalar($GLOBALS['db'])]]></code>
-      <code><![CDATA[is_scalar($GLOBALS['table'])]]></code>
-      <code><![CDATA[isset($GLOBALS['db']) && is_scalar($GLOBALS['db'])]]></code>
-      <code><![CDATA[isset($GLOBALS['table']) && is_scalar($GLOBALS['table'])]]></code>
-    </RedundantCondition>
-    <TypeDoesNotContainType>
-      <code><![CDATA['']]></code>
-      <code><![CDATA['']]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="src/Routing/Routing.php">
     <DeprecatedMethod>
@@ -11409,6 +11403,16 @@
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
+    <MixedArgument>
+      <code>$table</code>
+      <code>Current::$table</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[['db' => $db, 'table' => $table]]]></code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment>
+      <code>$table</code>
+    </MixedAssignment>
     <PossiblyInvalidArgument>
       <code>$query</code>
     </PossiblyInvalidArgument>
@@ -11994,11 +11998,11 @@
       <code>self::$trackingCache[$dbName][$tableName]</code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['db']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$result['tablename']]]></code>
       <code>$trackingEnabled</code>
       <code>$trackingEnabled</code>
+      <code>Current::$database</code>
     </MixedAssignment>
     <MixedInferredReturnType>
       <code>bool</code>

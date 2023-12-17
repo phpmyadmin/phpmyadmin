@@ -15,7 +15,6 @@ use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 
 use function is_array;
-use function is_scalar;
 use function json_encode;
 use function json_last_error_msg;
 use function mb_strlen;
@@ -328,13 +327,7 @@ class ResponseRenderer
 
                 $this->addJSON(
                     'reloadQuerywindow',
-                    [
-                        'db' => isset($GLOBALS['db']) && is_scalar($GLOBALS['db'])
-                            ? (string) $GLOBALS['db'] : '',
-                        'table' => isset($GLOBALS['table']) && is_scalar($GLOBALS['table'])
-                            ? (string) $GLOBALS['table'] : '',
-                        'sql_query' => $query,
-                    ],
+                    ['db' => Current::$database, 'table' => Current::$table, 'sql_query' => $query],
                 );
                 if (! empty($GLOBALS['focus_querywindow'])) {
                     $this->addJSON('_focusQuerywindow', $query);

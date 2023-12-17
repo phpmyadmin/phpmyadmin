@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\ChartController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
@@ -25,8 +26,8 @@ class ChartControllerTest extends AbstractTestCase
 {
     public function testChartController(): void
     {
-        $GLOBALS['db'] = 'test_db';
-        $GLOBALS['table'] = 'table_for_chart';
+        Current::$database = 'test_db';
+        Current::$table = 'table_for_chart';
         $GLOBALS['sql_query'] = 'SELECT * FROM `test_db`.`table_for_chart`;';
         $_POST = [
             'db' => 'test_db',

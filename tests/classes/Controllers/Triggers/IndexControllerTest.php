@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Triggers;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Triggers\IndexController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
@@ -27,7 +28,7 @@ final class IndexControllerTest extends AbstractTestCase
         $GLOBALS['server'] = 2;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
-        $GLOBALS['db'] = 'test_db';
+        Current::$database = 'test_db';
         Config::getInstance()->selectedServer['DisableIS'] = true;
 
         $dummyDbi = $this->createDbiDummy();
@@ -163,7 +164,7 @@ HTML;
         $GLOBALS['server'] = 2;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
-        $GLOBALS['db'] = 'test_db';
+        Current::$database = 'test_db';
         Config::getInstance()->selectedServer['DisableIS'] = true;
 
         $dummyDbi = $this->createDbiDummy();

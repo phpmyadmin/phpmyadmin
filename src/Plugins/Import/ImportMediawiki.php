@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
 
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Message;
@@ -372,8 +373,8 @@ class ImportMediawiki extends ImportPlugin
      */
     private function executeImportTables(array &$tables, array $analyses, array &$sqlStatements): void
     {
-        $dbName = $GLOBALS['db'] !== '' ? $GLOBALS['db'] : 'mediawiki_DB';
-        $createDb = $GLOBALS['db'] === '';
+        $dbName = Current::$database !== '' ? Current::$database : 'mediawiki_DB';
+        $createDb = Current::$database === '';
 
         // Create and execute necessary SQL statements from data
         $this->import->buildSql($dbName, $tables, $analyses, createDb:$createDb, sqlData:$sqlStatements);

@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Server\Databases;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
@@ -69,14 +70,14 @@ final class CreateController extends AbstractController
 
         if (! $result) {
             // avoid displaying the not-created db name in header or navi panel
-            $GLOBALS['db'] = '';
+            Current::$database = '';
 
             $message = Message::rawError($this->dbi->getError());
             $json = ['message' => $message];
 
             $this->response->setRequestStatus(false);
         } else {
-            $GLOBALS['db'] = $newDb;
+            Current::$database = $newDb;
 
             $message = Message::success(__('Database %1$s has been created.'));
             $message->addParam($newDb);

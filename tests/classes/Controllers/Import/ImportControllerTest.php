@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Import;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Import\ImportController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -41,16 +42,16 @@ class ImportControllerTest extends AbstractTestCase
         parent::loadResponseIntoContainerBuilder();
 
         // Some params were not added as they are not required for this test
-        $GLOBALS['db'] = 'pma_test';
-        $GLOBALS['table'] = 'table1';
+        Current::$database = 'pma_test';
+        Current::$table = 'table1';
         $GLOBALS['sql_query'] = 'SELECT A.*' . "\n"
             . 'FROM table1 A' . "\n"
             . 'WHERE A.nomEtablissement = :nomEta AND foo = :1 AND `:a` IS NULL';
 
         $request = $this->createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
-            ['db', null, $GLOBALS['db']],
-            ['table', null, $GLOBALS['table']],
+            ['db', null, Current::$database],
+            ['table', null, Current::$table],
             ['parameters', null, [':nomEta' => 'Saint-Louis - Châteaulin', ':1' => '4']],
             ['sql_query', null, $GLOBALS['sql_query']],
         ]);

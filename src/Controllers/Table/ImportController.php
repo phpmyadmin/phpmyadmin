@@ -8,6 +8,7 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Encoding;
@@ -56,7 +57,7 @@ final class ImportController extends AbstractController
             return;
         }
 
-        $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
         $config = Config::getInstance();
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
         $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
@@ -119,8 +120,8 @@ final class ImportController extends AbstractController
         $hiddenInputs = [
             $idKey => $uploadId,
             'import_type' => 'table',
-            'db' => $GLOBALS['db'],
-            'table' => $GLOBALS['table'],
+            'db' => Current::$database,
+            'table' => Current::$table,
         ];
 
         $default = $request->hasQueryParam('format')
@@ -138,8 +139,8 @@ final class ImportController extends AbstractController
             'upload_id' => $uploadId,
             'handler' => $_SESSION[$GLOBALS['SESSION_KEY']]['handler'],
             'hidden_inputs' => $hiddenInputs,
-            'db' => $GLOBALS['db'],
-            'table' => $GLOBALS['table'],
+            'db' => Current::$database,
+            'table' => Current::$table,
             'max_upload_size' => $maxUploadSize,
             'formatted_maximum_upload_size' => Util::getFormattedMaximumUploadSize($maxUploadSize),
             'plugins_choice' => $choice,

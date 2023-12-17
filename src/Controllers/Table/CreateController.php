@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\CreateAddField;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
@@ -51,7 +52,7 @@ class CreateController extends AbstractController
         $cfg = $this->config->settings;
 
         /* Check if database name is empty */
-        if ($GLOBALS['db'] === '') {
+        if (Current::$database === '') {
             Generator::mysqlDie(
                 __('The database name is empty!'),
                 '',
@@ -63,22 +64,22 @@ class CreateController extends AbstractController
         /**
          * Selects the database to work with
          */
-        if (! $this->dbi->selectDb($GLOBALS['db'])) {
+        if (! $this->dbi->selectDb(Current::$database)) {
             Generator::mysqlDie(
-                sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($GLOBALS['db'])),
+                sprintf(__('\'%s\' database does not exist.'), htmlspecialchars(Current::$database)),
                 '',
                 false,
                 'index.php',
             );
         }
 
-        if ($this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table']) !== []) {
+        if ($this->dbi->getColumns(Current::$database, Current::$table) !== []) {
             // table exists already
             Generator::mysqlDie(
-                sprintf(__('Table %s already exists!'), htmlspecialchars($GLOBALS['table'])),
+                sprintf(__('Table %s already exists!'), htmlspecialchars(Current::$table)),
                 '',
                 false,
-                Url::getFromRoute('/database/structure', ['db' => $GLOBALS['db']]),
+                Url::getFromRoute('/database/structure', ['db' => Current::$database]),
             );
         }
 
@@ -91,11 +92,11 @@ class CreateController extends AbstractController
          */
         if (isset($_POST['do_save_data'])) {
             if ($this->dbi->getLowerCaseNames() === 1) {
-                $GLOBALS['db'] = mb_strtolower($GLOBALS['db']);
-                $GLOBALS['table'] = mb_strtolower($GLOBALS['table']);
+                Current::$database = mb_strtolower(Current::$database);
+                Current::$table = mb_strtolower(Current::$table);
             }
 
-            $GLOBALS['sql_query'] = $createAddField->getTableCreationQuery($GLOBALS['db'], $GLOBALS['table']);
+            $GLOBALS['sql_query'] = $createAddField->getTableCreationQuery(Current::$database, Current::$table);
 
             // If there is a request for SQL previewing.
             if (isset($_POST['preview_sql'])) {
@@ -119,8 +120,8 @@ class CreateController extends AbstractController
                         }
 
                         $this->transformations->setMime(
-                            $GLOBALS['db'],
-                            $GLOBALS['table'],
+                            Current::$database,
+                            Current::$table,
                             $_POST['field_name'][$fieldindex],
                             $mimetype,
                             $_POST['field_transformation'][$fieldindex],

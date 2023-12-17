@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\SpecialSchemaLinks;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\FieldMetadata;
@@ -3588,7 +3589,7 @@ class Results
                 foreach ($rel as $oneKey) {
                     foreach ($oneKey['index_list'] as $index => $oneField) {
                         $displayField = $this->relation->getDisplayField(
-                            $oneKey['ref_db_name'] ?? $GLOBALS['db'],
+                            $oneKey['ref_db_name'] ?? Current::$database,
                             $oneKey['ref_table_name'],
                         );
 
@@ -3596,7 +3597,7 @@ class Results
                             $oneKey['ref_table_name'],
                             $oneKey['ref_index_list'][$index],
                             $displayField,
-                            $oneKey['ref_db_name'] ?? $GLOBALS['db'],
+                            $oneKey['ref_db_name'] ?? Current::$database,
                         );
                     }
                 }

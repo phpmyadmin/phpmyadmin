@@ -8,6 +8,7 @@ use PhpMyAdmin\Cache;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\LanguageManager;
@@ -73,8 +74,8 @@ abstract class AbstractTestCase extends TestCase
         $_REQUEST = [];
 
         $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = '';
-        $GLOBALS['table'] = '';
+        Current::$database = '';
+        Current::$table = '';
         $GLOBALS['sql_query'] = '';
         $GLOBALS['text_dir'] = 'ltr';
 

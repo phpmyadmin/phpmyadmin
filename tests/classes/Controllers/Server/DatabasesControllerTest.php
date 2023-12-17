@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
@@ -34,8 +35,8 @@ class DatabasesControllerTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->dbi;
 
         $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = 'pma_test';
-        $GLOBALS['table'] = '';
+        Current::$database = 'pma_test';
+        Current::$table = '';
         Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['text_dir'] = 'text_dir';
     }

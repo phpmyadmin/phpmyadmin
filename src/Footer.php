@@ -131,12 +131,12 @@ class Footer
         $params = [];
         $params['route'] = Routing::$route;
 
-        if (isset($GLOBALS['db']) && strlen($GLOBALS['db']) > 0) {
-            $params['db'] = $GLOBALS['db'];
+        if (Current::$database !== '') {
+            $params['db'] = Current::$database;
         }
 
-        if (isset($GLOBALS['table']) && strlen($GLOBALS['table']) > 0) {
-            $params['table'] = $GLOBALS['table'];
+        if (Current::$table !== '') {
+            $params['table'] = Current::$table;
         }
 
         $params['server'] = $GLOBALS['server'];
@@ -186,8 +186,8 @@ class Footer
         }
 
         $this->relation->setHistory(
-            isset($GLOBALS['db']) && is_scalar($GLOBALS['db']) ? (string) $GLOBALS['db'] : '',
-            isset($GLOBALS['table']) && is_scalar($GLOBALS['table']) ? (string) $GLOBALS['table'] : '',
+            Current::$database,
+            Current::$table,
             Config::getInstance()->selectedServer['user'],
             $GLOBALS['sql_query'],
         );

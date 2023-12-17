@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\FieldMetadata;
@@ -27,7 +28,6 @@ use function array_keys;
 use function htmlspecialchars;
 use function json_encode;
 use function min;
-use function strlen;
 
 /**
  * Handles creation of the chart.
@@ -48,9 +48,7 @@ class ChartController extends AbstractController
         $GLOBALS['errorUrl'] ??= null;
 
         if (isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $request->isAjax()) {
-            if (
-                strlen($GLOBALS['table']) > 0 && strlen($GLOBALS['db']) > 0 && ! $this->checkParameters(['db', 'table'])
-            ) {
+            if (Current::$table !== '' && Current::$database !== '' && ! $this->checkParameters(['db', 'table'])) {
                 return;
             }
 
@@ -90,12 +88,12 @@ class ChartController extends AbstractController
         /**
          * Runs common work
          */
-        if (strlen($GLOBALS['table']) > 0) {
+        if (Current::$table !== '') {
             if (! $this->checkParameters(['db', 'table'])) {
                 return;
             }
 
-            $urlParams = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+            $urlParams = ['db' => Current::$database, 'table' => Current::$table];
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
             $GLOBALS['errorUrl'] .= Url::getCommon($urlParams, '&');
 
@@ -129,8 +127,8 @@ class ChartController extends AbstractController
 
             $urlParams['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
             $urlParams['back'] = Url::getFromRoute('/table/sql');
-            $this->dbi->selectDb($GLOBALS['db']);
-        } elseif (strlen($GLOBALS['db']) > 0) {
+            $this->dbi->selectDb(Current::$database);
+        } elseif (Current::$database !== '') {
             $urlParams['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
             $urlParams['back'] = Url::getFromRoute('/sql');
 
@@ -139,7 +137,7 @@ class ChartController extends AbstractController
             }
 
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
-            $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
+            $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
             $databaseName = DatabaseName::tryFrom($request->getParam('db'));
             if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -195,7 +193,7 @@ class ChartController extends AbstractController
             return;
         }
 
-        $urlParams['db'] = $GLOBALS['db'];
+        $urlParams['db'] = Current::$database;
         $urlParams['reload'] = 1;
 
         $startAndNumberOfRowsFieldset = Generator::getStartAndNumberOfRowsFieldsetData($GLOBALS['sql_query']);
@@ -219,8 +217,8 @@ class ChartController extends AbstractController
     {
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
-        if (strlen($GLOBALS['table']) > 0 && strlen($GLOBALS['db']) > 0) {
-            $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+        if (Current::$table !== '' && Current::$database !== '') {
+            $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
                 Config::getInstance()->settings['DefaultTabTable'],
                 'table',

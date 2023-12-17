@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Gis\GisFactory;
@@ -260,7 +261,7 @@ class ImportShp extends ImportPlugin
         }
 
         // Set table name based on the number of tables
-        if (strlen((string) $GLOBALS['db']) > 0) {
+        if (Current::$database !== '') {
             $result = DatabaseInterface::getInstance()->fetchResult('SHOW TABLES');
             $tableName = 'TABLE ' . (count($result) + 1);
         } else {
@@ -279,8 +280,8 @@ class ImportShp extends ImportPlugin
         $analyses[$tableNo][Import::FORMATTEDSQL][$spatialCol] = true;
 
         // Set database name to the currently selected one, if applicable
-        $dbName = $GLOBALS['db'] !== '' ? $GLOBALS['db'] : 'SHP_DB';
-        $createDb = $GLOBALS['db'] === '';
+        $dbName = Current::$database !== '' ? Current::$database : 'SHP_DB';
+        $createDb = Current::$database === '';
 
         // Created and execute necessary SQL statements from data
         $sqlStatements = [];

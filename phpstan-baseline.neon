@@ -1366,11 +1366,6 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:fixPmaTables\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
 			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getDisplayField\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/ConfigStorage/Relation.php
@@ -1496,11 +1491,6 @@ parameters:
 			path: src/Controllers/ChangeLogController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getColumnsNotInCentralList\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/CentralColumns/PopulateColumnsController.php
-
-		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getColumnsNotInCentralList\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/CentralColumns/PopulateColumnsController.php
@@ -1606,56 +1596,6 @@ parameters:
 			path: src/Controllers/Database/DataDictionaryController.php
 
 		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/DataDictionaryController.php
-
-		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTableIndexes\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/DataDictionaryController.php
-
-		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTables\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/DataDictionaryController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getComments\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/DataDictionaryController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getDbComment\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/DataDictionaryController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Transformations\\:\\:getMime\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/DataDictionaryController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/DataDictionaryController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/DataDictionaryController.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getRelationsAndStatus\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/DataDictionaryController.php
-
-		-
-			message: "#^Parameter \\#3 \\$schema of static method PhpMyAdmin\\\\Index\\:\\:getFromTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/DataDictionaryController.php
-
-		-
 			message: "#^Cannot access offset 'dbName' on mixed\\.$#"
 			count: 2
 			path: src/Controllers/Database/DesignerController.php
@@ -1678,11 +1618,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getHtmlForEditOrDeletePages\\(\\) expects string, mixed given\\.$#"
 			count: 2
-			path: src/Controllers/Database/DesignerController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getHtmlForMain\\(\\) expects string, mixed given\\.$#"
-			count: 1
 			path: src/Controllers/Database/DesignerController.php
 
 		-
@@ -1722,11 +1657,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$pageName of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:createNewPage\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/DesignerController.php
-
-		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
 			count: 1
 			path: src/Controllers/Database/DesignerController.php
 
@@ -1866,27 +1796,12 @@ parameters:
 			path: src/Controllers/Database/EventsController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Database\\\\Events\\:\\:getDetails\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Database/EventsController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/EventsController.php
-
-		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 5
+			count: 3
 			path: src/Controllers/Database/EventsController.php
 
 		-
 			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\Database\\\\Events\\:\\:getDataFromName\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/EventsController.php
-
-		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
 			count: 1
 			path: src/Controllers/Database/EventsController.php
 
@@ -1896,23 +1811,8 @@ parameters:
 			path: src/Controllers/Database/EventsController.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/EventsController.php
-
-		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 1
-			path: src/Controllers/Database/EventsController.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\Database\\\\Events\\:\\:getDefinition\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/EventsController.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\Util\\:\\:currentUserHasPrivilege\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 2
 			path: src/Controllers/Database/EventsController.php
 
 		-
@@ -1951,27 +1851,7 @@ parameters:
 			path: src/Controllers/Database/ExportController.php
 
 		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 1
-			path: src/Controllers/Database/ExportController.php
-
-		-
 			message: "#^Parameter \\#2 \\$array of method PhpMyAdmin\\\\Export\\\\Export\\:\\:getCheckedClause\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/ExportController.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of method PhpMyAdmin\\\\Export\\\\Options\\:\\:getOptions\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/ExportController.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\Util\\:\\:getDbInfo\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/ExportController.php
-
-		-
-			message: "#^Parameter \\#3 \\$table of method PhpMyAdmin\\\\Export\\\\Options\\:\\:getOptions\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/ExportController.php
 
@@ -2011,11 +1891,6 @@ parameters:
 			path: src/Controllers/Database/ImportController.php
 
 		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 1
-			path: src/Controllers/Database/ImportController.php
-
-		-
 			message: "#^Parameter \\#1 \\$sqlQuery of static method PhpMyAdmin\\\\Database\\\\MultiTableQuery\\:\\:displayResults\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/MultiTableQuery/QueryController.php
@@ -2024,11 +1899,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\Database\\\\MultiTableQuery\\:\\:displayResults\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/MultiTableQuery/QueryController.php
-
-		-
-			message: "#^Parameter \\#3 \\$db of class PhpMyAdmin\\\\Database\\\\MultiTableQuery constructor expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/MultiTableQueryController.php
 
 		-
 			message: "#^Cannot access an offset on mixed\\.$#"
@@ -2052,37 +1922,17 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 25
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTables\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:handleRequestCreateOrEdit\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
-			count: 1
+			count: 24
 			path: src/Controllers/Database/RoutinesController.php
 
 		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 8
+			count: 4
 			path: src/Controllers/Database/RoutinesController.php
 
 		-
 			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getDataFromName\\(\\) expects string, mixed given\\.$#"
 			count: 3
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 1
 			path: src/Controllers/Database/RoutinesController.php
 
 		-
@@ -2106,31 +1956,6 @@ parameters:
 			path: src/Controllers/Database/RoutinesController.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getDetails\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getFunctionDefinition\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getProcedureDefinition\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\Util\\:\\:currentUserHasPrivilege\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
 			message: "#^Parameter \\#2 \\$type of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getDataFromName\\(\\) expects string, mixed given\\.$#"
 			count: 3
 			path: src/Controllers/Database/RoutinesController.php
@@ -2142,11 +1967,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#3 \\$name of static method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getProcedureDefinition\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
-			message: "#^Parameter \\#3 \\$tbl of static method PhpMyAdmin\\\\Util\\:\\:currentUserHasPrivilege\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/RoutinesController.php
 
@@ -2171,16 +1991,6 @@ parameters:
 			path: src/Controllers/Database/SearchController.php
 
 		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 1
-			path: src/Controllers/Database/SearchController.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of class PhpMyAdmin\\\\Database\\\\Search constructor expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/SearchController.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/SqlAutoCompleteController.php
@@ -2194,16 +2004,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTables\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/SqlAutoCompleteController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\SqlQueryForm\\:\\:getHtml\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/SqlController.php
-
-		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 1
-			path: src/Controllers/Database/SqlController.php
 
 		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
@@ -2226,11 +2026,6 @@ parameters:
 			path: src/Controllers/Database/Structure/AddPrefixTableController.php
 
 		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/AddPrefixTableController.php
-
-		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/AddPrefixTableController.php
@@ -2239,11 +2034,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/AddPrefixTableController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:makeConsistentWithList\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php
 
 		-
 			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:deleteColumnsFromList\\(\\) expects string, mixed given\\.$#"
@@ -2273,16 +2063,6 @@ parameters:
 		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
 			count: 4
-			path: src/Controllers/Database/Structure/CopyTableController.php
-
-		-
-			message: "#^Parameter \\#1 \\$oldDb of method PhpMyAdmin\\\\Operations\\:\\:adjustPrivilegesCopyTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/CopyTableController.php
-
-		-
-			message: "#^Parameter \\#1 \\$sourceDb of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
-			count: 1
 			path: src/Controllers/Database/Structure/CopyTableController.php
 
 		-
@@ -2336,11 +2116,6 @@ parameters:
 			path: src/Controllers/Database/Structure/CopyTableWithPrefixController.php
 
 		-
-			message: "#^Parameter \\#1 \\$sourceDb of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/CopyTableWithPrefixController.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function mb_substr expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/CopyTableWithPrefixController.php
@@ -2356,11 +2131,6 @@ parameters:
 			path: src/Controllers/Database/Structure/CopyTableWithPrefixController.php
 
 		-
-			message: "#^Parameter \\#3 \\$targetDb of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/CopyTableWithPrefixController.php
-
-		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
 			count: 2
 			path: src/Controllers/Database/Structure/DropFormController.php
@@ -2372,11 +2142,6 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/DropFormController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getVirtualTables\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/DropFormController.php
 
@@ -2418,21 +2183,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
 			count: 2
-			path: src/Controllers/Database/Structure/DropTableController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\ConfigStorage\\\\RelationCleanup\\:\\:table\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/DropTableController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getVirtualTables\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/DropTableController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
-			count: 1
 			path: src/Controllers/Database/Structure/DropTableController.php
 
 		-
@@ -2481,27 +2231,7 @@ parameters:
 			path: src/Controllers/Database/Structure/EmptyTableController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Sql\\:\\:calculatePosForLastPage\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/EmptyTableController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/EmptyTableController.php
-
-		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/EmptyTableController.php
-
-		-
-			message: "#^Parameter \\#2 \\$dbName of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:get\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/EmptyTableController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Sql\\:\\:calculatePosForLastPage\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/EmptyTableController.php
 
@@ -2546,11 +2276,6 @@ parameters:
 			path: src/Controllers/Database/Structure/FavoriteTableController.php
 
 		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/FavoriteTableController.php
-
-		-
 			message: "#^Parameter \\#3 \\$favoriteTables of method PhpMyAdmin\\\\Controllers\\\\Database\\\\Structure\\\\FavoriteTableController\\:\\:synchronizeFavoriteTables\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/FavoriteTableController.php
@@ -2566,22 +2291,7 @@ parameters:
 			path: src/Controllers/Database/Structure/RealRowCountController.php
 
 		-
-			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Database/Structure/RealRowCountController.php
-
-		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/RealRowCountController.php
-
-		-
 			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Util\\:\\:formatNumber\\(\\) expects float\\|int\\|string, int\\|null given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/RealRowCountController.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\Util\\:\\:getDbInfo\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/RealRowCountController.php
 
@@ -2597,11 +2307,6 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/ReplacePrefixController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/ReplacePrefixController.php
 
@@ -2622,11 +2327,6 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/ShowCreateController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/ShowCreateController.php
 
@@ -2756,33 +2456,8 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getDbCollation\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 4
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\Tracking\\\\TrackingChecker\\:\\:getTrackedTables\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
 			count: 2
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Parameter \\#1 \\$schemaName of static method PhpMyAdmin\\\\Query\\\\Utilities\\:\\:isSystemSchema\\(\\) expects string, mixed given\\.$#"
-			count: 1
 			path: src/Controllers/Database/StructureController.php
 
 		-
@@ -2817,16 +2492,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Util\\:\\:formatByteDown\\(\\) expects float\\|int\\|string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\Util\\:\\:getDbInfo\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\Util\\:\\:getTableListPosition\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/StructureController.php
 
@@ -2886,42 +2551,7 @@ parameters:
 			path: src/Controllers/Database/TrackingController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:createTrackingForMultipleTables\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/TrackingController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForDbTrackingTables\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/TrackingController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:deleteTracking\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Database/TrackingController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getTrackedData\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/TrackingController.php
-
-		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 1
-			path: src/Controllers/Database/TrackingController.php
-
-		-
-			message: "#^Parameter \\#1 \\$schemaName of static method PhpMyAdmin\\\\Query\\\\Utilities\\:\\:isSystemSchema\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/TrackingController.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/TrackingController.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\Util\\:\\:getDbInfo\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/TrackingController.php
 
@@ -3006,16 +2636,6 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:getAliases\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Export\\\\Export\\:\\:exportTable\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Export/ExportController.php
-
-		-
 			message: "#^Parameter \\#1 \\$dbSelect of method PhpMyAdmin\\\\Export\\\\Export\\:\\:exportServer\\(\\) expects array\\|string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Export/ExportController.php
@@ -3053,11 +2673,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$list of class PhpMyAdmin\\\\SqlParser\\\\Parser constructor expects PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string\\|null, mixed given\\.$#"
 			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
-			count: 3
 			path: src/Controllers/Export/ExportController.php
 
 		-
@@ -3101,16 +2716,6 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: "#^Parameter \\#2 \\$db of method PhpMyAdmin\\\\Export\\\\Export\\:\\:getHtmlForDisplayedExportFooter\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of method PhpMyAdmin\\\\Export\\\\Export\\:\\:getHtmlForDisplayedExportHeader\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
 			message: "#^Parameter \\#2 \\$destCharset of static method PhpMyAdmin\\\\Encoding\\:\\:convertString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Export/ExportController.php
@@ -3123,11 +2728,6 @@ parameters:
 		-
 			message: "#^Parameter \\#2 \\$rememberTemplate of method PhpMyAdmin\\\\Export\\\\Export\\:\\:getFilenameAndMimetype\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Export\\\\Export\\:\\:exportTable\\(\\) expects string, mixed given\\.$#"
-			count: 2
 			path: src/Controllers/Export/ExportController.php
 
 		-
@@ -3166,16 +2766,6 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: "#^Parameter \\#3 \\$table of method PhpMyAdmin\\\\Export\\\\Export\\:\\:getHtmlForDisplayedExportFooter\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: "#^Parameter \\#3 \\$table of method PhpMyAdmin\\\\Export\\\\Export\\:\\:getHtmlForDisplayedExportHeader\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
 			message: "#^Parameter \\#3 \\$whatStrucOrData of method PhpMyAdmin\\\\Export\\\\Export\\:\\:exportDatabase\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Export/ExportController.php
@@ -3187,11 +2777,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#4 \\$compression of method PhpMyAdmin\\\\Export\\\\Export\\:\\:getFilenameAndMimetype\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: "#^Parameter \\#4 \\$db of static method PhpMyAdmin\\\\Export\\\\Export\\:\\:exportRaw\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Export/ExportController.php
 
@@ -3341,6 +2926,11 @@ parameters:
 			path: src/Controllers/HomeController.php
 
 		-
+			message: "#^Static property PhpMyAdmin\\\\Current\\:\\:\\$database \\(string\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Controllers/HomeController.php
+
+		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: src/Controllers/Import/ImportController.php
@@ -3421,11 +3011,6 @@ parameters:
 			path: src/Controllers/Import/ImportController.php
 
 		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
 			message: "#^Parameter \\#1 \\$filename of function is_uploaded_file expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Import/ImportController.php
@@ -3476,11 +3061,6 @@ parameters:
 			path: src/Controllers/Import/ImportController.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
-			count: 7
-			path: src/Controllers/Import/ImportController.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of static method PhpMyAdmin\\\\Message\\:\\:error\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Import/ImportController.php
@@ -3498,16 +3078,6 @@ parameters:
 		-
 			message: "#^Parameter \\#11 \\$sqlQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndGetQueryResponse\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of method PhpMyAdmin\\\\Sql\\:\\:storeTheQueryAsBookmark\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\ParseAnalyze\\:\\:sqlQuery\\(\\) expects string, mixed given\\.$#"
-			count: 2
 			path: src/Controllers/Import/ImportController.php
 
 		-
@@ -3533,11 +3103,6 @@ parameters:
 		-
 			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, mixed given\\.$#"
 			count: 5
-			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Parameter \\#3 \\$db of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndGetQueryResponse\\(\\) expects string, mixed given\\.$#"
-			count: 1
 			path: src/Controllers/Import/ImportController.php
 
 		-
@@ -3568,11 +3133,6 @@ parameters:
 		-
 			message: "#^Parameter \\#4 \\$sqlQueryForBookmark of method PhpMyAdmin\\\\Sql\\:\\:storeTheQueryAsBookmark\\(\\) expects string, mixed given\\.$#"
 			count: 2
-			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Parameter \\#4 \\$table of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndGetQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
 			path: src/Controllers/Import/ImportController.php
 
 		-
@@ -3681,79 +3241,9 @@ parameters:
 			path: src/Controllers/NavigationController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\Url\\:\\:getHiddenInputs\\(\\) expects array\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Normalization/CreateNewColumnController.php
-
-		-
 			message: "#^Parameter \\#1 \\$value of function intval expects array\\|bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Normalization/CreateNewColumnController.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlForCreateNewColumn\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Normalization/CreateNewColumnController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\Url\\:\\:getHiddenInputs\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Normalization/CreateNewColumnController.php
-
-		-
-			message: "#^Parameter \\#3 \\$table of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlForCreateNewColumn\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Normalization/CreateNewColumnController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlFor1NFStep1\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Normalization/FirstNormalForm/FirstStepController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlFor1NFStep1\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Normalization/FirstNormalForm/FirstStepController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlContentsFor1NFStep4\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Normalization/FirstNormalForm/FourthStepController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlContentsFor1NFStep4\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Normalization/FirstNormalForm/FourthStepController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlContentsFor1NFStep2\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Normalization/FirstNormalForm/SecondStepController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlContentsFor1NFStep2\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Normalization/FirstNormalForm/SecondStepController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlContentsFor1NFStep3\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Normalization/FirstNormalForm/ThirdStepController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlContentsFor1NFStep3\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Normalization/FirstNormalForm/ThirdStepController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlForColumnsList\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Normalization/GetColumnsController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlForColumnsList\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Normalization/GetColumnsController.php
 
 		-
 			message: "#^Parameter \\#1 \\$repeatingColumns of method PhpMyAdmin\\\\Normalization\\:\\:moveRepeatingGroup\\(\\) expects string, mixed given\\.$#"
@@ -3776,26 +3266,6 @@ parameters:
 			path: src/Controllers/Normalization/MoveRepeatingGroup.php
 
 		-
-			message: "#^Parameter \\#5 \\$table of method PhpMyAdmin\\\\Normalization\\:\\:moveRepeatingGroup\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Normalization/MoveRepeatingGroup.php
-
-		-
-			message: "#^Parameter \\#6 \\$db of method PhpMyAdmin\\\\Normalization\\:\\:moveRepeatingGroup\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Normalization/MoveRepeatingGroup.php
-
-		-
-			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\Normalization\\:\\:findPartialDependencies\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Normalization/PartialDependenciesController.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of method PhpMyAdmin\\\\Normalization\\:\\:findPartialDependencies\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Normalization/PartialDependenciesController.php
-
-		-
 			message: "#^Parameter \\#1 \\$json of function json_decode expects string, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Normalization/SecondNormalForm/CreateNewTablesController.php
@@ -3811,37 +3281,12 @@ parameters:
 			path: src/Controllers/Normalization/SecondNormalForm/CreateNewTablesController.php
 
 		-
-			message: "#^Parameter \\#3 \\$table of method PhpMyAdmin\\\\Normalization\\:\\:createNewTablesFor2NF\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Normalization/SecondNormalForm/CreateNewTablesController.php
-
-		-
-			message: "#^Parameter \\#4 \\$db of method PhpMyAdmin\\\\Normalization\\:\\:createNewTablesFor2NF\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Normalization/SecondNormalForm/CreateNewTablesController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlFor2NFstep1\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Normalization/SecondNormalForm/FirstStepController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlFor2NFstep1\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Normalization/SecondNormalForm/FirstStepController.php
-
-		-
 			message: "#^Parameter \\#1 \\$json of function json_decode expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Normalization/SecondNormalForm/NewTablesController.php
 
 		-
 			message: "#^Parameter \\#1 \\$partialDependencies of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlForNewTables2NF\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Normalization/SecondNormalForm/NewTablesController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlForNewTables2NF\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Normalization/SecondNormalForm/NewTablesController.php
 
@@ -3854,16 +3299,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$newTables of method PhpMyAdmin\\\\Normalization\\:\\:createNewTablesFor3NF\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Normalization/ThirdNormalForm/CreateNewTablesController.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of method PhpMyAdmin\\\\Normalization\\:\\:createNewTablesFor3NF\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Normalization/ThirdNormalForm/CreateNewTablesController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlFor3NFstep1\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Normalization/ThirdNormalForm/FirstStepController.php
 
 		-
 			message: "#^Parameter \\#2 \\$tables of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlFor3NFstep1\\(\\) expects array, mixed given\\.$#"
@@ -3886,11 +3321,6 @@ parameters:
 			path: src/Controllers/Normalization/ThirdNormalForm/NewTablesController.php
 
 		-
-			message: "#^Parameter \\#3 \\$db of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlForNewTables3NF\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Normalization/ThirdNormalForm/NewTablesController.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 1
 			path: src/Controllers/Operations/Database/CollationController.php
@@ -3901,27 +3331,7 @@ parameters:
 			path: src/Controllers/Operations/Database/CollationController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Operations\\:\\:changeAllColumnsCollation\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/Database/CollationController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/Database/CollationController.php
-
-		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 3
-			path: src/Controllers/Operations/Database/CollationController.php
-
-		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/Database/CollationController.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\Util\\:\\:getDbInfo\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Operations/Database/CollationController.php
 
@@ -3956,72 +3366,7 @@ parameters:
 			path: src/Controllers/Operations/DatabaseController.php
 
 		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTables\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/DatabaseController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getDbComment\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/DatabaseController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:setDbComment\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/DatabaseController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\ConfigStorage\\\\RelationCleanup\\:\\:database\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/DatabaseController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getDbCollation\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/DatabaseController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Operations\\:\\:runEventDefinitionsForDb\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/DatabaseController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Operations\\:\\:runProcedureAndFunctionDefinitions\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/DatabaseController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Operations/DatabaseController.php
-
-		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/DatabaseController.php
-
-		-
 			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getMessage\\(\\) expects PhpMyAdmin\\\\Message\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/DatabaseController.php
-
-		-
-			message: "#^Parameter \\#1 \\$oldDb of method PhpMyAdmin\\\\Operations\\:\\:adjustPrivilegesCopyDb\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/DatabaseController.php
-
-		-
-			message: "#^Parameter \\#1 \\$oldDb of method PhpMyAdmin\\\\Operations\\:\\:adjustPrivilegesMoveDb\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/DatabaseController.php
-
-		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 2
-			path: src/Controllers/Operations/DatabaseController.php
-
-		-
-			message: "#^Parameter \\#1 \\$schemaName of static method PhpMyAdmin\\\\Query\\\\Utilities\\:\\:isSystemSchema\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Operations/DatabaseController.php
 
@@ -4031,17 +3376,7 @@ parameters:
 			path: src/Controllers/Operations/DatabaseController.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/DatabaseController.php
-
-		-
 			message: "#^Parameter \\#2 \\$comment of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:setDbComment\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/DatabaseController.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of method PhpMyAdmin\\\\Operations\\:\\:duplicateBookmarks\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Operations/DatabaseController.php
 
@@ -4053,21 +3388,6 @@ parameters:
 		-
 			message: "#^Parameter \\#2 \\$sqlQuery of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getMessage\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 2
-			path: src/Controllers/Operations/DatabaseController.php
-
-		-
-			message: "#^Parameter \\#3 \\$db of method PhpMyAdmin\\\\Operations\\:\\:copyTables\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/DatabaseController.php
-
-		-
-			message: "#^Parameter \\#3 \\$db of method PhpMyAdmin\\\\Operations\\:\\:getViewsAndCreateSqlViewStandIn\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/DatabaseController.php
-
-		-
-			message: "#^Parameter \\#3 \\$db of method PhpMyAdmin\\\\Operations\\:\\:handleTheViews\\(\\) expects string, mixed given\\.$#"
-			count: 1
 			path: src/Controllers/Operations/DatabaseController.php
 
 		-
@@ -4101,72 +3421,12 @@ parameters:
 			path: src/Controllers/Operations/TableController.php
 
 		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/TableController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getForeigners\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/TableController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Operations\\:\\:changeAllColumnsCollation\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/TableController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Operations\\:\\:moveOrCopyTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/TableController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\Partitioning\\\\Partition\\:\\:getPartitionNames\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/TableController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Operations/TableController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Operations/TableController.php
-
-		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/TableController.php
-
-		-
 			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Operations/TableController.php
 
 		-
-			message: "#^Parameter \\#1 \\$schemaName of static method PhpMyAdmin\\\\Query\\\\Utilities\\:\\:isSystemSchema\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/TableController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function mb_strtolower expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/TableController.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/TableController.php
-
-		-
-			message: "#^Parameter \\#1 \\$table of static method PhpMyAdmin\\\\Query\\\\Generator\\:\\:getQueryForPartitioningTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/TableController.php
-
-		-
-			message: "#^Parameter \\#1 \\$table of static method PhpMyAdmin\\\\Query\\\\Generator\\:\\:getQueryForReorderingTable\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Operations/TableController.php
 
@@ -4181,47 +3441,7 @@ parameters:
 			path: src/Controllers/Operations/TableController.php
 
 		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getForeigners\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/TableController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/TableController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Operations\\:\\:changeAllColumnsCollation\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/TableController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Operations\\:\\:moveOrCopyTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/TableController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\Index\\:\\:getFromTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/TableController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\Partitioning\\\\Partition\\:\\:getPartitionNames\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/TableController.php
-
-		-
-			message: "#^Parameter \\#2 \\$tableName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Operations/TableController.php
-
-		-
 			message: "#^Parameter \\#3 \\$partitionNames of static method PhpMyAdmin\\\\Query\\\\Generator\\:\\:getQueryForPartitioningTable\\(\\) expects array\\<string\\>, array given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/TableController.php
-
-		-
-			message: "#^Parameter \\#3 \\$schema of static method PhpMyAdmin\\\\Index\\:\\:getFromTable\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Operations/TableController.php
 
@@ -4236,22 +3456,12 @@ parameters:
 			path: src/Controllers/Operations/ViewController.php
 
 		-
-			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/ViewController.php
-
-		-
 			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Operations/ViewController.php
 
 		-
 			message: "#^Parameter \\#2 \\$sqlQuery of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getMessage\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/ViewController.php
-
-		-
-			message: "#^Parameter \\#2 \\$tableName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Operations/ViewController.php
 
@@ -4557,16 +3767,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$tmpSelect of method PhpMyAdmin\\\\Export\\\\Options\\:\\:getDatabasesForSelectOptions\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Server/ExportController.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of method PhpMyAdmin\\\\Export\\\\Options\\:\\:getOptions\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Server/ExportController.php
-
-		-
-			message: "#^Parameter \\#3 \\$table of method PhpMyAdmin\\\\Export\\\\Options\\:\\:getOptions\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Server/ExportController.php
 
@@ -5096,28 +4296,8 @@ parameters:
 			path: src/Controllers/Setup/ValidateController.php
 
 		-
-			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Sql/ColumnPreferencesController.php
-
-		-
-			message: "#^Parameter \\#2 \\$tableName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Sql/ColumnPreferencesController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Sql\\:\\:getValuesForColumn\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Sql/EnumValuesController.php
-
-		-
 			message: "#^Parameter \\#1 \\$value of function strval expects bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
 			count: 2
-			path: src/Controllers/Sql/EnumValuesController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Sql\\:\\:getValuesForColumn\\(\\) expects string, mixed given\\.$#"
-			count: 1
 			path: src/Controllers/Sql/EnumValuesController.php
 
 		-
@@ -5126,18 +4306,8 @@ parameters:
 			path: src/Controllers/Sql/RelationalValuesController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Sql\\:\\:getHtmlForRelationalColumnDropdown\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Sql/RelationalValuesController.php
-
-		-
 			message: "#^Parameter \\#1 \\$value of function strval expects bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
 			count: 2
-			path: src/Controllers/Sql/RelationalValuesController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Sql\\:\\:getHtmlForRelationalColumnDropdown\\(\\) expects string, mixed given\\.$#"
-			count: 1
 			path: src/Controllers/Sql/RelationalValuesController.php
 
 		-
@@ -5146,27 +4316,7 @@ parameters:
 			path: src/Controllers/Sql/SetValuesController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Sql\\:\\:getFullValuesForSetColumn\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Sql/SetValuesController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Sql\\:\\:getValuesForColumn\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Sql/SetValuesController.php
-
-		-
 			message: "#^Parameter \\#2 \\$string of function explode expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Sql/SetValuesController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Sql\\:\\:getFullValuesForSetColumn\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Sql/SetValuesController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Sql\\:\\:getValuesForColumn\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Sql/SetValuesController.php
 
@@ -5201,11 +4351,6 @@ parameters:
 			path: src/Controllers/Sql/SqlController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Sql\\:\\:getDefaultSqlQueryForBrowse\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Sql/SqlController.php
-
-		-
 			message: "#^Parameter \\#1 \\$goto of method PhpMyAdmin\\\\Controllers\\\\Sql\\\\SqlController\\:\\:addBookmark\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
@@ -5216,27 +4361,12 @@ parameters:
 			path: src/Controllers/Sql/SqlController.php
 
 		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 1
-			path: src/Controllers/Sql/SqlController.php
-
-		-
 			message: "#^Parameter \\#1 \\$sqlQuery of static method PhpMyAdmin\\\\Core\\:\\:checkSqlQuerySignature\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
 
 		-
 			message: "#^Parameter \\#1 \\$sqlQuery of static method PhpMyAdmin\\\\ParseAnalyze\\:\\:sqlQuery\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Sql/SqlController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
-			count: 3
-			path: src/Controllers/Sql/SqlController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function urlencode expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
 
@@ -5256,32 +4386,12 @@ parameters:
 			path: src/Controllers/Sql/SqlController.php
 
 		-
-			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\ParseAnalyze\\:\\:sqlQuery\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Sql/SqlController.php
-
-		-
 			message: "#^Parameter \\#2 \\$signature of static method PhpMyAdmin\\\\Core\\:\\:checkSqlQuerySignature\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
 
 		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Sql\\:\\:getDefaultSqlQueryForBrowse\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Sql/SqlController.php
-
-		-
-			message: "#^Parameter \\#3 \\$db of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Sql/SqlController.php
-
-		-
 			message: "#^Parameter \\#4 \\$backUrl of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:mysqlDie\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Sql/SqlController.php
-
-		-
-			message: "#^Parameter \\#4 \\$table of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
 
@@ -5311,32 +4421,12 @@ parameters:
 			path: src/Controllers/Table/AddFieldController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Transformations\\:\\:setMime\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/AddFieldController.php
-
-		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 1
-			path: src/Controllers/Table/AddFieldController.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/AddFieldController.php
 
 		-
-			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\CreateAddField\\:\\:getColumnCreationQuery\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/AddFieldController.php
-
-		-
 			message: "#^Parameter \\#2 \\$sqlQuery of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getMessage\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/AddFieldController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Transformations\\:\\:setMime\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/AddFieldController.php
 
@@ -5406,26 +4496,6 @@ parameters:
 			path: src/Controllers/Table/ChangeController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getForeigners\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\InsertEdit\\:\\:getCommentsMap\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\InsertEdit\\:\\:getFormParametersForInsertForm\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\InsertEdit\\:\\:getTableColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
 			message: "#^Parameter \\#1 \\$files of method PhpMyAdmin\\\\Controllers\\\\AbstractController\\:\\:addScriptFiles\\(\\) expects array\\<string\\>, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ChangeController.php
@@ -5461,17 +4531,7 @@ parameters:
 			path: src/Controllers/Table/ChangeController.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function trim expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
-			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\InsertEdit\\:\\:getContinueInsertionForm\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ChangeController.php
 
@@ -5501,11 +4561,6 @@ parameters:
 			path: src/Controllers/Table/ChangeController.php
 
 		-
-			message: "#^Parameter \\#10 \\$db of method PhpMyAdmin\\\\InsertEdit\\:\\:getHtmlForInsertEditRow\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
 			message: "#^Parameter \\#11 \\$rowId of method PhpMyAdmin\\\\InsertEdit\\:\\:getHtmlForInsertEditRow\\(\\) expects int, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ChangeController.php
@@ -5521,47 +4576,12 @@ parameters:
 			path: src/Controllers/Table/ChangeController.php
 
 		-
-			message: "#^Parameter \\#2 \\$db of method PhpMyAdmin\\\\InsertEdit\\:\\:determineInsertOrEdit\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of method PhpMyAdmin\\\\InsertEdit\\:\\:getContinueInsertionForm\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
 			message: "#^Parameter \\#2 \\$isUpload of method PhpMyAdmin\\\\InsertEdit\\:\\:getHtmlForInsertEditFormHeader\\(\\) expects bool, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ChangeController.php
 
 		-
 			message: "#^Parameter \\#2 \\$signature of static method PhpMyAdmin\\\\Core\\:\\:checkSqlQuerySignature\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getForeigners\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\InsertEdit\\:\\:getCommentsMap\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\InsertEdit\\:\\:getFormParametersForInsertForm\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\InsertEdit\\:\\:getTableColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
-			message: "#^Parameter \\#3 \\$table of method PhpMyAdmin\\\\InsertEdit\\:\\:determineInsertOrEdit\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ChangeController.php
 
@@ -5586,11 +4606,6 @@ parameters:
 			path: src/Controllers/Table/ChangeController.php
 
 		-
-			message: "#^Parameter \\#9 \\$table of method PhpMyAdmin\\\\InsertEdit\\:\\:getHtmlForInsertEditRow\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
 			message: "#^Short ternary operator is not allowed\\. Use null coalesce operator if applicable or consider using long ternary\\.$#"
 			count: 1
 			path: src/Controllers/Table/ChangeController.php
@@ -5611,18 +4626,8 @@ parameters:
 			path: src/Controllers/Table/ChartController.php
 
 		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ChartController.php
-
-		-
 			message: "#^Parameter \\#1 \\$list of class PhpMyAdmin\\\\SqlParser\\\\Parser constructor expects PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string\\|null, mixed given\\.$#"
 			count: 1
-			path: src/Controllers/Table/ChartController.php
-
-		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 2
 			path: src/Controllers/Table/ChartController.php
 
 		-
@@ -5646,11 +4651,6 @@ parameters:
 			path: src/Controllers/Table/ChartController.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
-			count: 6
-			path: src/Controllers/Table/ChartController.php
-
-		-
 			message: "#^Parameter \\#2 \\$offset of class PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit constructor expects int\\|string, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Table/ChartController.php
@@ -5666,36 +4666,6 @@ parameters:
 			path: src/Controllers/Table/CreateController.php
 
 		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/CreateController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\CreateAddField\\:\\:getTableCreationQuery\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/CreateController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Transformations\\:\\:setMime\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/CreateController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/CreateController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Table/CreateController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function mb_strtolower expects string, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Table/CreateController.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/CreateController.php
@@ -5703,21 +4673,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$value of function intval expects array\\|bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
 			count: 5
-			path: src/Controllers/Table/CreateController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\CreateAddField\\:\\:getTableCreationQuery\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/CreateController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/CreateController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Transformations\\:\\:setMime\\(\\) expects string, mixed given\\.$#"
-			count: 1
 			path: src/Controllers/Table/CreateController.php
 
 		-
@@ -5766,21 +4721,6 @@ parameters:
 			path: src/Controllers/Table/DeleteRowsController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Sql\\:\\:calculatePosForLastPage\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/DeleteRowsController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/DeleteRowsController.php
-
-		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/DeleteRowsController.php
-
-		-
 			message: "#^Parameter \\#10 \\$dispMessage of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects PhpMyAdmin\\\\Message\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/DeleteRowsController.php
@@ -5791,27 +4731,12 @@ parameters:
 			path: src/Controllers/Table/DeleteRowsController.php
 
 		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Sql\\:\\:calculatePosForLastPage\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/DeleteRowsController.php
-
-		-
-			message: "#^Parameter \\#3 \\$db of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/DeleteRowsController.php
-
-		-
 			message: "#^Parameter \\#3 \\$pos of method PhpMyAdmin\\\\Sql\\:\\:calculatePosForLastPage\\(\\) expects int\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/DeleteRowsController.php
 
 		-
 			message: "#^Parameter \\#3 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/DeleteRowsController.php
-
-		-
-			message: "#^Parameter \\#4 \\$table of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/DeleteRowsController.php
 
@@ -5841,27 +4766,12 @@ parameters:
 			path: src/Controllers/Table/DropColumnController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\ConfigStorage\\\\RelationCleanup\\:\\:column\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/DropColumnController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/DropColumnController.php
-
-		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: src/Controllers/Table/DropColumnController.php
 
 		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/DropColumnController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\ConfigStorage\\\\RelationCleanup\\:\\:column\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/DropColumnController.php
 
@@ -5896,17 +4806,7 @@ parameters:
 			path: src/Controllers/Table/ExportController.php
 
 		-
-			message: "#^Parameter \\#2 \\$db of method PhpMyAdmin\\\\Export\\\\Options\\:\\:getOptions\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ExportController.php
-
-		-
 			message: "#^Parameter \\#2 \\$list of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:replaceClauses\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\TokensList, PhpMyAdmin\\\\SqlParser\\\\TokensList\\|null given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ExportController.php
-
-		-
-			message: "#^Parameter \\#3 \\$table of method PhpMyAdmin\\\\Export\\\\Options\\:\\:getOptions\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ExportController.php
 
@@ -5951,13 +4851,8 @@ parameters:
 			path: src/Controllers/Table/FindReplaceController.php
 
 		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/FindReplaceController.php
-
-		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 22
+			count: 16
 			path: src/Controllers/Table/FindReplaceController.php
 
 		-
@@ -5971,11 +4866,6 @@ parameters:
 			path: src/Controllers/Table/FindReplaceController.php
 
 		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/FindReplaceController.php
-
-		-
 			message: "#^Parameter \\#3 \\$subject of function preg_replace expects array\\|string, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Table/FindReplaceController.php
@@ -5986,37 +4876,12 @@ parameters:
 			path: src/Controllers/Table/GetFieldController.php
 
 		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/GetFieldController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/GetFieldController.php
-
-		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/GetFieldController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/GetFieldController.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function mb_strlen expects string, string\\|null given\\.$#"
 			count: 1
 			path: src/Controllers/Table/GetFieldController.php
 
 		-
 			message: "#^Parameter \\#1 \\$test of static method PhpMyAdmin\\\\Mime\\:\\:detect\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: src/Controllers/Table/GetFieldController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/GetFieldController.php
 
@@ -6061,11 +4926,6 @@ parameters:
 			path: src/Controllers/Table/GisVisualizationController.php
 
 		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 1
-			path: src/Controllers/Table/GisVisualizationController.php
-
-		-
 			message: "#^Parameter \\#2 \\$format of method PhpMyAdmin\\\\Gis\\\\GisVisualization\\:\\:toFile\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/GisVisualizationController.php
@@ -6106,37 +4966,12 @@ parameters:
 			path: src/Controllers/Table/ImportController.php
 
 		-
-			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/IndexRenameController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/IndexRenameController.php
-
-		-
 			message: "#^Parameter \\#1 \\$index of method PhpMyAdmin\\\\Table\\\\Table\\:\\:getIndex\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/IndexRenameController.php
 
 		-
 			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/IndexRenameController.php
-
-		-
-			message: "#^Parameter \\#2 \\$tableName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/IndexRenameController.php
-
-		-
-			message: "#^Parameter \\#4 \\$db of method PhpMyAdmin\\\\Table\\\\Indexes\\:\\:doSaveData\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/IndexRenameController.php
-
-		-
-			message: "#^Parameter \\#5 \\$table of method PhpMyAdmin\\\\Table\\\\Indexes\\:\\:doSaveData\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/IndexRenameController.php
 
@@ -6152,16 +4987,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'names' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Table/IndexesController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Table/IndexesController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/IndexesController.php
 
@@ -6183,21 +5008,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 2
-			path: src/Controllers/Table/IndexesController.php
-
-		-
-			message: "#^Parameter \\#2 \\$tableName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Table/IndexesController.php
-
-		-
-			message: "#^Parameter \\#4 \\$db of method PhpMyAdmin\\\\Table\\\\Indexes\\:\\:doSaveData\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/IndexesController.php
-
-		-
-			message: "#^Parameter \\#5 \\$table of method PhpMyAdmin\\\\Table\\\\Indexes\\:\\:doSaveData\\(\\) expects string, mixed given\\.$#"
-			count: 1
 			path: src/Controllers/Table/IndexesController.php
 
 		-
@@ -6286,27 +5096,7 @@ parameters:
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/RelationController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getDisplayField\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/RelationController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getForeigners\\(\\) expects string, mixed given\\.$#"
-			count: 4
-			path: src/Controllers/Table/RelationController.php
-
-		-
 			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Table/RelationController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/RelationController.php
 
@@ -6322,7 +5112,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$foreignDb of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getTables\\(\\) expects string, mixed given\\.$#"
-			count: 3
+			count: 1
 			path: src/Controllers/Table/RelationController.php
 
 		-
@@ -6371,28 +5161,13 @@ parameters:
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getDisplayField\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/RelationController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getForeigners\\(\\) expects string, mixed given\\.$#"
-			count: 4
-			path: src/Controllers/Table/RelationController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/RelationController.php
-
-		-
 			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\Index\\:\\:getPrimary\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/RelationController.php
 
 		-
 			message: "#^Parameter \\#2 \\$tableName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: src/Controllers/Table/RelationController.php
 
 		-
@@ -6417,11 +5192,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#4 \\$destinationForeignColumn of method PhpMyAdmin\\\\Table\\\\Table\\:\\:updateForeignKeys\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/RelationController.php
-
-		-
-			message: "#^Parameter \\#6 \\$table of method PhpMyAdmin\\\\Table\\\\Table\\:\\:updateForeignKeys\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/RelationController.php
 
@@ -6551,36 +5321,6 @@ parameters:
 			path: src/Controllers/Table/ReplaceController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getForeigners\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ReplaceController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\InsertEdit\\:\\:transformEditedValues\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ReplaceController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\InsertEdit\\:\\:verifyWhetherValueCanBeTruncatedAndAppendExtraData\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ReplaceController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Transformations\\:\\:getMime\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ReplaceController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ReplaceController.php
-
-		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ReplaceController.php
-
-		-
 			message: "#^Parameter \\#1 \\$json of method PhpMyAdmin\\\\ResponseRenderer\\:\\:addJSON\\(\\) expects array\\|int\\|string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ReplaceController.php
@@ -6631,11 +5371,6 @@ parameters:
 			path: src/Controllers/Table/ReplaceController.php
 
 		-
-			message: "#^Parameter \\#1 \\$table of static method PhpMyAdmin\\\\Query\\\\Generator\\:\\:buildInsertSqlQuery\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ReplaceController.php
-
-		-
 			message: "#^Parameter \\#1 \\$urlParams of method PhpMyAdmin\\\\InsertEdit\\:\\:getErrorUrl\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ReplaceController.php
@@ -6652,26 +5387,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$sqlQuery of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getMessage\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ReplaceController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getForeigners\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ReplaceController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\InsertEdit\\:\\:transformEditedValues\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ReplaceController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\InsertEdit\\:\\:verifyWhetherValueCanBeTruncatedAndAppendExtraData\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ReplaceController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Transformations\\:\\:getMime\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ReplaceController.php
 
@@ -6756,18 +5471,8 @@ parameters:
 			path: src/Controllers/Table/SearchController.php
 
 		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/SearchController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getForeigners\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/SearchController.php
-
-		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 4
+			count: 2
 			path: src/Controllers/Table/SearchController.php
 
 		-
@@ -6806,27 +5511,7 @@ parameters:
 			path: src/Controllers/Table/SearchController.php
 
 		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getForeigners\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/SearchController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/SearchController.php
-
-		-
-			message: "#^Parameter \\#3 \\$db of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/SearchController.php
-
-		-
 			message: "#^Parameter \\#3 \\$selectedOperator of method PhpMyAdmin\\\\Types\\:\\:getTypeOperatorsHtml\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/SearchController.php
-
-		-
-			message: "#^Parameter \\#4 \\$table of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/SearchController.php
 
@@ -6836,22 +5521,7 @@ parameters:
 			path: src/Controllers/Table/SearchController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\SqlQueryForm\\:\\:getHtml\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/SqlController.php
-
-		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 1
-			path: src/Controllers/Table/SqlController.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/SqlController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\SqlQueryForm\\:\\:getHtml\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/SqlController.php
 
@@ -6859,16 +5529,6 @@ parameters:
 			message: "#^Parameter \\#3 \\$query of method PhpMyAdmin\\\\SqlQueryForm\\:\\:getHtml\\(\\) expects bool\\|string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/SqlController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Table\\\\Indexes\\:\\:executeAddIndexSql\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/AbstractIndexController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\Query\\\\Generator\\:\\:getAddIndexSql\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/AbstractIndexController.php
 
 		-
 			message: "#^Parameter \\#3 \\$selectedColumns of static method PhpMyAdmin\\\\Query\\\\Generator\\:\\:getAddIndexSql\\(\\) expects array\\<string\\>, array given\\.$#"
@@ -6892,16 +5552,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 3
-			path: src/Controllers/Table/Structure/BrowseController.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\ParseAnalyze\\:\\:sqlQuery\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/BrowseController.php
-
-		-
-			message: "#^Parameter \\#4 \\$table of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndGetQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/BrowseController.php
 
@@ -6916,27 +5566,12 @@ parameters:
 			path: src/Controllers/Table/Structure/CentralColumnsRemoveController.php
 
 		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:deleteColumnsFromList\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/CentralColumnsRemoveController.php
-
-		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/ChangeController.php
-
-		-
 			message: "#^Parameter \\#1 \\$selected of method PhpMyAdmin\\\\Controllers\\\\Table\\\\Structure\\\\ChangeController\\:\\:displayHtmlForColumnChange\\(\\) expects array\\<string\\>, array given\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/ChangeController.php
 
 		-
 			message: "#^Parameter \\#1 \\$selected of method PhpMyAdmin\\\\Controllers\\\\Table\\\\Structure\\\\ChangeController\\:\\:displayHtmlForColumnChange\\(\\) expects array\\<string\\>, array\\<int, mixed\\> given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/ChangeController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/ChangeController.php
 
@@ -6996,26 +5631,6 @@ parameters:
 			path: src/Controllers/Table/Structure/MoveColumnsController.php
 
 		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumnsFull\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/MoveColumnsController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/MoveColumnsController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/MoveColumnsController.php
-
-		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/MoveColumnsController.php
-
-		-
 			message: "#^Parameter \\#1 \\$oldcol of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/MoveColumnsController.php
@@ -7052,16 +5667,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$newcol of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/MoveColumnsController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumnsFull\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/MoveColumnsController.php
-
-		-
-			message: "#^Parameter \\#2 \\$tableName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/MoveColumnsController.php
 
@@ -7111,27 +5716,7 @@ parameters:
 			path: src/Controllers/Table/Structure/PartitioningController.php
 
 		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/PartitioningController.php
-
-		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/PartitioningController.php
-
-		-
-			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Table\\\\Table constructor expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/PartitioningController.php
-
-		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\>\\|null given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/PartitioningController.php
-
-		-
-			message: "#^Parameter \\#2 \\$dbName of class PhpMyAdmin\\\\Table\\\\Table constructor expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/PartitioningController.php
 
@@ -7143,16 +5728,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
 			count: 1
-			path: src/Controllers/Table/Structure/PrimaryController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Table/Structure/PrimaryController.php
-
-		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 2
 			path: src/Controllers/Table/Structure/PrimaryController.php
 
 		-
@@ -7177,7 +5752,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function trim expects string, mixed given\\.$#"
-			count: 4
+			count: 2
 			path: src/Controllers/Table/Structure/ReservedWordCheckController.php
 
 		-
@@ -7211,28 +5786,8 @@ parameters:
 			path: src/Controllers/Table/Structure/SaveController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:renameField\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/SaveController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Transformations\\:\\:setMime\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/SaveController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 3
-			path: src/Controllers/Table/Structure/SaveController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/SaveController.php
-
-		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 7
+			count: 3
 			path: src/Controllers/Table/Structure/SaveController.php
 
 		-
@@ -7281,21 +5836,6 @@ parameters:
 			path: src/Controllers/Table/Structure/SaveController.php
 
 		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:renameField\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/SaveController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Transformations\\:\\:setMime\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/SaveController.php
-
-		-
-			message: "#^Parameter \\#2 \\$tableName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 3
-			path: src/Controllers/Table/Structure/SaveController.php
-
-		-
 			message: "#^Parameter \\#3 \\$field of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:renameField\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/SaveController.php
@@ -7331,22 +5871,12 @@ parameters:
 			path: src/Controllers/Table/Structure/SaveController.php
 
 		-
-			message: "#^Parameter \\#4 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/SaveController.php
-
-		-
 			message: "#^Parameter \\#5 \\$attribute of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Table/Structure/SaveController.php
 
 		-
 			message: "#^Parameter \\#5 \\$transformation of method PhpMyAdmin\\\\Transformations\\:\\:setMime\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/SaveController.php
-
-		-
-			message: "#^Parameter \\#5 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/SaveController.php
 
@@ -7451,67 +5981,12 @@ parameters:
 			path: src/Controllers/Table/StructureController.php
 
 		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
 			message: "#^Parameter \\#1 \\$datetime of function strtotime expects string, mixed given\\.$#"
 			count: 3
 			path: src/Controllers/Table/StructureController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getComments\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getFromTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Transformations\\:\\:getMime\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\Partitioning\\\\Partition\\:\\:getPartitionNames\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\Partitioning\\\\Partition\\:\\:getPartitions\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 4
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#1 \\$schemaName of static method PhpMyAdmin\\\\Query\\\\Utilities\\:\\:isSystemSchema\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
 			message: "#^Parameter \\#1 \\$showTableName of method PhpMyAdmin\\\\Table\\\\Table\\:\\:getNumRows\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#1 \\$table of static method PhpMyAdmin\\\\Index\\:\\:findDuplicates\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/StructureController.php
 
@@ -7531,66 +6006,6 @@ parameters:
 			path: src/Controllers/Table/StructureController.php
 
 		-
-			message: "#^Parameter \\#2 \\$schema of static method PhpMyAdmin\\\\Index\\:\\:findDuplicates\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getComments\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getFromTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Transformations\\:\\:getMime\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\Index\\:\\:getFromTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\Index\\:\\:getPrimary\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\Partitioning\\\\Partition\\:\\:getPartitionNames\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\Partitioning\\\\Partition\\:\\:getPartitions\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#2 \\$tableName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 4
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#3 \\$schema of static method PhpMyAdmin\\\\Index\\:\\:getFromTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#3 \\$schema of static method PhpMyAdmin\\\\Index\\:\\:getPrimary\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
 			message: "#^Cannot access offset 'back' on mixed\\.$#"
 			count: 1
 			path: src/Controllers/Table/TrackingController.php
@@ -7606,41 +6021,6 @@ parameters:
 			path: src/Controllers/Table/TrackingController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:changeTracking\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Table/TrackingController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:createTrackingVersion\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/TrackingController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:deleteFromTrackingReportLog\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Table/TrackingController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:deleteTrackingVersion\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Table/TrackingController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForMainPage\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/TrackingController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\Tracking\\\\TrackingChecker\\:\\:getTrackedTables\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/TrackingController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getTrackedData\\(\\) expects string, mixed given\\.$#"
-			count: 3
-			path: src/Controllers/Table/TrackingController.php
-
-		-
 			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/TrackingController.php
@@ -7648,36 +6028,6 @@ parameters:
 		-
 			message: "#^Parameter \\#2 \\$entries of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getDownloadInfoForExport\\(\\) expects array\\<int, array\\<string, int\\|string\\>\\>, array given\\.$#"
 			count: 1
-			path: src/Controllers/Table/TrackingController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:changeTracking\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Table/TrackingController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:createTrackingVersion\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/TrackingController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:deleteFromTrackingReportLog\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Table/TrackingController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:deleteTrackingVersion\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Table/TrackingController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForMainPage\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/TrackingController.php
-
-		-
-			message: "#^Parameter \\#2 \\$tablename of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getTrackedData\\(\\) expects string, mixed given\\.$#"
-			count: 3
 			path: src/Controllers/Table/TrackingController.php
 
 		-
@@ -7771,21 +6121,6 @@ parameters:
 			path: src/Controllers/Table/ZoomSearchController.php
 
 		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getDisplayField\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getForeigners\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ZoomSearchController.php
-
-		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Table/ZoomSearchController.php
@@ -7846,21 +6181,6 @@ parameters:
 			path: src/Controllers/Table/ZoomSearchController.php
 
 		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getDisplayField\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getForeigners\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ZoomSearchController.php
-
-		-
 			message: "#^Parameter \\#3 \\$selectedOperator of method PhpMyAdmin\\\\Types\\:\\:getTypeOperatorsHtml\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ZoomSearchController.php
@@ -7897,7 +6217,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 13
+			count: 11
 			path: src/Controllers/Triggers/IndexController.php
 
 		-
@@ -7906,32 +6226,7 @@ parameters:
 			path: src/Controllers/Triggers/IndexController.php
 
 		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTables\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Triggers/IndexController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getTables\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Triggers/IndexController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getTriggerByName\\(\\) expects string, mixed given\\.$#"
-			count: 3
-			path: src/Controllers/Triggers/IndexController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Triggers/IndexController.php
-
-		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 3
-			path: src/Controllers/Triggers/IndexController.php
-
-		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
 			count: 1
 			path: src/Controllers/Triggers/IndexController.php
 
@@ -7946,11 +6241,6 @@ parameters:
 			path: src/Controllers/Triggers/IndexController.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Triggers/IndexController.php
-
-		-
 			message: "#^Parameter \\#1 \\$trigger of method PhpMyAdmin\\\\Controllers\\\\Triggers\\\\IndexController\\:\\:getDataFromTrigger\\(\\) expects PhpMyAdmin\\\\Triggers\\\\Trigger, PhpMyAdmin\\\\Triggers\\\\Trigger\\|null given\\.$#"
 			count: 1
 			path: src/Controllers/Triggers/IndexController.php
@@ -7961,32 +6251,7 @@ parameters:
 			path: src/Controllers/Triggers/IndexController.php
 
 		-
-			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getDetails\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Triggers/IndexController.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\Util\\:\\:currentUserHasPrivilege\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Triggers/IndexController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getTriggerByName\\(\\) expects string, mixed given\\.$#"
-			count: 3
-			path: src/Controllers/Triggers/IndexController.php
-
-		-
 			message: "#^Parameter \\#3 \\$name of method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getTriggerByName\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Triggers/IndexController.php
-
-		-
-			message: "#^Parameter \\#3 \\$table of static method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getDetails\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Triggers/IndexController.php
-
-		-
-			message: "#^Parameter \\#3 \\$tbl of static method PhpMyAdmin\\\\Util\\:\\:currentUserHasPrivilege\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Triggers/IndexController.php
 
@@ -8096,11 +6361,6 @@ parameters:
 			path: src/Controllers/View/CreateController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\SystemDatabase\\:\\:getExistingTransformationData\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/View/CreateController.php
-
-		-
 			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/View/CreateController.php
@@ -8113,11 +6373,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
 			count: 2
-			path: src/Controllers/View/CreateController.php
-
-		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 1
 			path: src/Controllers/View/CreateController.php
 
 		-
@@ -8147,11 +6402,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#3 \\$viewName of method PhpMyAdmin\\\\SystemDatabase\\:\\:getNewTransformationDataSql\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/View/CreateController.php
-
-		-
-			message: "#^Parameter \\#4 \\$db of method PhpMyAdmin\\\\SystemDatabase\\:\\:getNewTransformationDataSql\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/View/CreateController.php
 
@@ -8726,33 +6976,8 @@ parameters:
 			path: src/Database/Designer/Common.php
 
 		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTablesFull\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Database/Designer/Common.php
-
-		-
-			message: "#^Parameter \\#1 \\$databaseName of class PhpMyAdmin\\\\Database\\\\Designer\\\\DesignerTable constructor expects string, mixed given\\.$#"
-			count: 1
-			path: src/Database/Designer/Common.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getDisplayField\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Database/Designer/Common.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getForeigners\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Database/Designer/Common.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
-			count: 2
-			path: src/Database/Designer/Common.php
-
-		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: src/Database/Designer/Common.php
 
 		-
@@ -8847,16 +7072,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, mixed given\\.$#"
-			count: 5
+			count: 4
 			path: src/Database/Events.php
 
 		-
 			message: "#^Parameter \\#1 \\$value of function intval expects array\\|bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Database/Events.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\Database\\\\Events\\:\\:getDefinition\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Database/Events.php
 
@@ -9047,7 +7267,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, mixed given\\.$#"
-			count: 7
+			count: 5
 			path: src/Database/Routines.php
 
 		-
@@ -9083,21 +7303,6 @@ parameters:
 		-
 			message: "#^Parameter \\#2 \\$createRoutine of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:create\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
-			path: src/Database/Routines.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getFunctionDefinition\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Database/Routines.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getProcedureDefinition\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Database/Routines.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\Util\\:\\:currentUserHasPrivilege\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 2
 			path: src/Database/Routines.php
 
 		-
@@ -9148,16 +7353,6 @@ parameters:
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 4
-			path: src/Database/Search.php
-
-		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Database/Search.php
-
-		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 1
 			path: src/Database/Search.php
 
 		-
@@ -9292,11 +7487,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$callback of function array_map expects \\(callable\\(mixed\\)\\: mixed\\)\\|null, Closure\\(string, 0\\|1\\|2\\=\\)\\: non\\-empty\\-string given\\.$#"
-			count: 1
-			path: src/DatabaseInterface.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
 			count: 1
 			path: src/DatabaseInterface.php
 
@@ -10106,11 +8296,6 @@ parameters:
 			path: src/Export/Export.php
 
 		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommonRaw\\(\\) expects array\\<int\\|string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 2
-			path: src/Export/Export.php
-
-		-
 			message: "#^Parameter \\#1 \\$stream of function fwrite expects resource, mixed given\\.$#"
 			count: 2
 			path: src/Export/Export.php
@@ -10398,11 +8583,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommonRaw\\(\\) expects array\\<int\\|string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
 			count: 1
-			path: src/Footer.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
-			count: 2
 			path: src/Footer.php
 
 		-
@@ -10886,16 +9066,6 @@ parameters:
 			path: src/Header.php
 
 		-
-			message: "#^Parameter \\#3 \\$db of class PhpMyAdmin\\\\Menu constructor expects string, mixed given\\.$#"
-			count: 1
-			path: src/Header.php
-
-		-
-			message: "#^Parameter \\#4 \\$table of class PhpMyAdmin\\\\Menu constructor expects string, mixed given\\.$#"
-			count: 1
-			path: src/Header.php
-
-		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
 			count: 1
 			path: src/Html/Generator.php
@@ -10931,11 +9101,6 @@ parameters:
 			path: src/Html/Generator.php
 
 		-
-			message: "#^Cannot cast mixed to string\\.$#"
-			count: 1
-			path: src/Html/Generator.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 16
 			path: src/Html/Generator.php
@@ -10966,11 +9131,6 @@ parameters:
 			path: src/Html/Generator.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\Url\\:\\:getHiddenInputs\\(\\) expects array\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Html/Generator.php
-
-		-
 			message: "#^Parameter \\#1 \\$message of method PhpMyAdmin\\\\Message\\:\\:addText\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Html/Generator.php
@@ -10978,11 +9138,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<int\\|string, mixed\\> given\\.$#"
 			count: 2
-			path: src/Html/Generator.php
-
-		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 1
 			path: src/Html/Generator.php
 
 		-
@@ -11002,7 +9157,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: src/Html/Generator.php
 
 		-
@@ -11016,11 +9171,6 @@ parameters:
 			path: src/Html/Generator.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
-			count: 4
-			path: src/Html/Generator.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function trim expects string, mixed given\\.$#"
 			count: 1
 			path: src/Html/Generator.php
@@ -11031,13 +9181,8 @@ parameters:
 			path: src/Html/Generator.php
 
 		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\Url\\:\\:getHiddenInputs\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Html/Generator.php
-
-		-
 			message: "#^Parameter \\#2 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: src/Html/Generator.php
 
 		-
@@ -11287,7 +9432,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 9
+			count: 8
 			path: src/Import/Import.php
 
 		-
@@ -11322,11 +9467,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$srcCharset of static method PhpMyAdmin\\\\Encoding\\:\\:convertString\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Import/Import.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Import/Import.php
 
@@ -11369,11 +9509,6 @@ parameters:
 			message: "#^Parameter \\#3 \\$subject of function preg_replace expects array\\|string, mixed given\\.$#"
 			count: 1
 			path: src/Import/Import.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Import/SimulateDml.php
 
 		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
@@ -11652,7 +9787,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 9
+			count: 6
 			path: src/InsertEdit.php
 
 		-
@@ -11698,11 +9833,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
 			count: 4
-			path: src/InsertEdit.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
-			count: 1
 			path: src/InsertEdit.php
 
 		-
@@ -11891,11 +10021,6 @@ parameters:
 			path: src/ListDatabase.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\ListDatabase\\:\\:getDefault\\(\\) should return string but returns mixed\\.$#"
-			count: 1
-			path: src/ListDatabase.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
 			count: 2
 			path: src/ListDatabase.php
@@ -11912,11 +10037,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$str of function strtr expects string, array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string given\\.$#"
-			count: 1
-			path: src/ListDatabase.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
 			count: 1
 			path: src/ListDatabase.php
 
@@ -12146,11 +10266,6 @@ parameters:
 			path: src/Navigation/NavigationTree.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Navigation/NavigationTree.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
 			count: 1
 			path: src/Navigation/NavigationTree.php
@@ -12178,11 +10293,6 @@ parameters:
 		-
 			message: "#^Parameter \\#2 \\$searchClause of method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeDatabase\\:\\:getPresence\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: src/Navigation/NavigationTree.php
-
-		-
-			message: "#^Parameter \\#2 \\$string2 of function strcasecmp expects string, mixed given\\.$#"
-			count: 2
 			path: src/Navigation/NavigationTree.php
 
 		-
@@ -12546,28 +10656,13 @@ parameters:
 			path: src/Operations.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getForeigners\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Operations.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\Partitioning\\\\Partition\\:\\:getPartitionMethod\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Operations.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Operations.php
-
-		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, \\(int\\|string\\) given\\.$#"
 			count: 2
 			path: src/Operations.php
 
 		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 12
+			count: 8
 			path: src/Operations.php
 
 		-
@@ -12607,16 +10702,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$sourceTable of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Operations.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getForeigners\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Operations.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\Partitioning\\\\Partition\\:\\:getPartitionMethod\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Operations.php
 
@@ -13036,18 +11121,13 @@ parameters:
 			path: src/Plugins/Auth/AuthenticationCookie.php
 
 		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommonRaw\\(\\) expects array\\<int\\|string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 1
-			path: src/Plugins/Auth/AuthenticationCookie.php
-
-		-
 			message: "#^Parameter \\#1 \\$response of method ReCaptcha\\\\ReCaptcha\\:\\:verify\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Plugins/Auth/AuthenticationCookie.php
 
 		-
 			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
-			count: 4
+			count: 2
 			path: src/Plugins/Auth/AuthenticationCookie.php
 
 		-
@@ -13776,11 +11856,6 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
 			message: "#^Parameter \\#1 \\$haystack of function mb_strpos expects string, string\\|null given\\.$#"
 			count: 3
 			path: src/Plugins/Export/ExportSql.php
@@ -13842,11 +11917,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$string of function explode expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Parameter \\#2 \\$tableName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Plugins/Export/ExportSql.php
 
@@ -13981,53 +12051,13 @@ parameters:
 			path: src/Plugins/Export/ExportXml.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportXml\\:\\:exportDefinitions\\(\\) expects string, mixed given\\.$#"
-			count: 3
-			path: src/Plugins/Export/ExportXml.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportXml.php
-
-		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 2
-			path: src/Plugins/Export/ExportXml.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportXml.php
 
 		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 7
-			path: src/Plugins/Export/ExportXml.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportXml.php
-
-		-
-			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportXml\\:\\:setTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportXml.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getFunctionNames\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportXml.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getProcedureNames\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportXml.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getDetails\\(\\) expects string, mixed given\\.$#"
-			count: 1
+			count: 6
 			path: src/Plugins/Export/ExportXml.php
 
 		-
@@ -14337,7 +12367,7 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 4
+			count: 3
 			path: src/Plugins/Import/ImportCsv.php
 
 		-
@@ -14367,11 +12397,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$csvTerminated of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportCsv\\:\\:buildErrorsForParams\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportCsv.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportCsv\\:\\:getSqlTemplateAndRequiredFields\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Plugins/Import/ImportCsv.php
 
@@ -14421,11 +12446,6 @@ parameters:
 			path: src/Plugins/Import/ImportCsv.php
 
 		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportCsv\\:\\:getSqlTemplateAndRequiredFields\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportCsv.php
-
-		-
 			message: "#^Parameter \\#3 \\$csvColumns of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportCsv\\:\\:getSqlTemplateAndRequiredFields\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Plugins/Import/ImportCsv.php
@@ -14442,11 +12462,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportLdi\\:\\:doImport\\(\\) should return array\\<string\\> but returns mixed\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportLdi.php
-
-		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Plugins/Import/ImportLdi.php
 
@@ -14492,11 +12507,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$cell of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportMediawiki\\:\\:getCellData\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportMediawiki.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\Import\\\\Import\\:\\:buildSql\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Plugins/Import/ImportMediawiki.php
 
@@ -14571,11 +12581,6 @@ parameters:
 			path: src/Plugins/Import/ImportOds.php
 
 		-
-			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\Import\\\\Import\\:\\:buildSql\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportOds.php
-
-		-
 			message: "#^Parameter \\#1 \\$sheets of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:iterateOverTables\\(\\) expects array\\|SimpleXMLElement, array\\|SimpleXMLElement\\|null given\\.$#"
 			count: 1
 			path: src/Plugins/Import/ImportOds.php
@@ -14637,7 +12642,7 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 3
+			count: 2
 			path: src/Plugins/Import/ImportShp.php
 
 		-
@@ -14652,11 +12657,6 @@ parameters:
 
 		-
 			message: "#^Offset 'dirname' does not exist on array\\{dirname\\?\\: string, basename\\: string, extension\\?\\: string, filename\\: string\\}\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportShp.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\Import\\\\Import\\:\\:buildSql\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Plugins/Import/ImportShp.php
 
@@ -14737,11 +12737,6 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in &&, int given on the right side\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportXml.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\Import\\\\Import\\:\\:buildSql\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Plugins/Import/ImportXml.php
 
@@ -17256,11 +15251,6 @@ parameters:
 			path: src/Sql.php
 
 		-
-			message: "#^Parameter \\#2 \\$db of class PhpMyAdmin\\\\Display\\\\Results constructor expects string, mixed given\\.$#"
-			count: 1
-			path: src/Sql.php
-
-		-
 			message: "#^Parameter \\#2 \\$foreignField of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:foreignDropdown\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Sql.php
@@ -17301,11 +15291,6 @@ parameters:
 			path: src/Sql.php
 
 		-
-			message: "#^Parameter \\#3 \\$table of class PhpMyAdmin\\\\Display\\\\Results constructor expects string, mixed given\\.$#"
-			count: 1
-			path: src/Sql.php
-
-		-
 			message: "#^Parameter \\#4 \\$server of class PhpMyAdmin\\\\Display\\\\Results constructor expects int, mixed given\\.$#"
 			count: 1
 			path: src/Sql.php
@@ -17336,27 +15321,7 @@ parameters:
 			path: src/SqlQueryForm.php
 
 		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/SqlQueryForm.php
-
-		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 2
-			path: src/SqlQueryForm.php
-
-		-
 			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\SqlQueryForm\\:\\:init\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/SqlQueryForm.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 3
-			path: src/SqlQueryForm.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/SqlQueryForm.php
 
@@ -17516,36 +15481,6 @@ parameters:
 			path: src/Table/ColumnsDefinition.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getChildReferences\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getComments\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getForeigners\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Transformations\\:\\:getMime\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Table\\\\Table constructor expects string, mixed given\\.$#"
-			count: 1
-			path: src/Table/ColumnsDefinition.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of function preg_quote expects string, mixed given\\.$#"
 			count: 1
 			path: src/Table/ColumnsDefinition.php
@@ -17566,42 +15501,12 @@ parameters:
 			path: src/Table/ColumnsDefinition.php
 
 		-
-			message: "#^Parameter \\#2 \\$dbName of class PhpMyAdmin\\\\Table\\\\Table constructor expects string, mixed given\\.$#"
-			count: 1
-			path: src/Table/ColumnsDefinition.php
-
-		-
 			message: "#^Parameter \\#2 \\$string of function explode expects string, mixed given\\.$#"
 			count: 1
 			path: src/Table/ColumnsDefinition.php
 
 		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:checkChildForeignReferences\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getChildReferences\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getComments\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getForeigners\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Transformations\\:\\:getMime\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Parameter \\#2 \\$tableName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Table/ColumnsDefinition.php
 
@@ -18156,11 +16061,6 @@ parameters:
 			path: src/Tracking/Tracker.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function trim expects string, mixed given\\.$#"
-			count: 1
-			path: src/Tracking/Tracker.php
-
-		-
 			message: "#^Parameter \\#2 \\$tableName of static method PhpMyAdmin\\\\Tracking\\\\Tracker\\:\\:createVersion\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Tracking/Tracker.php
@@ -18178,6 +16078,16 @@ parameters:
 		-
 			message: "#^Parameter \\#3 \\$statement of static method PhpMyAdmin\\\\Tracking\\\\Tracker\\:\\:getVersion\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
+			path: src/Tracking/Tracker.php
+
+		-
+			message: "#^Static property PhpMyAdmin\\\\Current\\:\\:\\$database \\(string\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Tracking/Tracker.php
+
+		-
+			message: "#^Static property PhpMyAdmin\\\\Current\\:\\:\\$database \\(string\\) does not accept string\\|null\\.$#"
+			count: 3
 			path: src/Tracking/Tracker.php
 
 		-
@@ -18326,16 +16236,6 @@ parameters:
 			path: src/Triggers/Triggers.php
 
 		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTables\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Triggers/Triggers.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getTriggerByName\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Triggers/Triggers.php
-
-		-
 			message: "#^Parameter \\#1 \\$haystack of function str_contains expects string, mixed given\\.$#"
 			count: 1
 			path: src/Triggers/Triggers.php
@@ -18361,11 +16261,6 @@ parameters:
 			path: src/Triggers/Triggers.php
 
 		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getTriggerByName\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Triggers/Triggers.php
-
-		-
 			message: "#^Parameter \\#3 \\$name of method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getTriggerByName\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Triggers/Triggers.php
@@ -18377,11 +16272,6 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in &&, bool\\|string given on the left side\\.$#"
-			count: 1
-			path: src/UniqueCondition.php
-
-		-
-			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/UniqueCondition.php
 
@@ -18631,12 +16521,7 @@ parameters:
 			path: src/Util.php
 
 		-
-			message: "#^Parameter \\#1 \\$callback of function array_map expects \\(callable\\(mixed\\)\\: mixed\\)\\|null, callable\\(string\\)\\: string given\\.$#"
-			count: 1
-			path: src/Util.php
-
-		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumnNames\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$callback of function array_map expects \\(callable\\(string\\|null\\)\\: mixed\\)\\|null, callable\\(string\\)\\: string given\\.$#"
 			count: 1
 			path: src/Util.php
 
@@ -18647,11 +16532,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeMysqlWildcards\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Util.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumnNames\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Util.php
 
@@ -19201,16 +17081,6 @@ parameters:
 			path: tests/classes/ConfigTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$needle of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: tests/classes/Controllers/Database/PrivilegesControllerTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 1
-			path: tests/classes/Controllers/Database/PrivilegesControllerTest.php
-
-		-
 			message: "#^Cannot access offset 'COUNTED' on mixed\\.$#"
 			count: 4
 			path: tests/classes/Controllers/Database/StructureControllerTest.php
@@ -19331,11 +17201,6 @@ parameters:
 			path: tests/classes/Controllers/Server/VariablesControllerTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 1
-			path: tests/classes/Controllers/Table/PrivilegesControllerTest.php
-
-		-
 			message: "#^Call to an undefined method PhpMyAdmin\\\\DatabaseInterface\\:\\:expects\\(\\)\\.$#"
 			count: 4
 			path: tests/classes/Controllers/Table/RelationControllerTest.php
@@ -19374,46 +17239,6 @@ parameters:
 			message: "#^Cannot call method with\\(\\) on mixed\\.$#"
 			count: 1
 			path: tests/classes/Controllers/Table/SearchControllerTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: tests/classes/Controllers/Table/StructureControllerTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$table of static method PhpMyAdmin\\\\Index\\:\\:findDuplicates\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: tests/classes/Controllers/Table/StructureControllerTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$schema of static method PhpMyAdmin\\\\Index\\:\\:findDuplicates\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: tests/classes/Controllers/Table/StructureControllerTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: tests/classes/Controllers/Table/StructureControllerTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\Index\\:\\:getFromTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: tests/classes/Controllers/Table/StructureControllerTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\Index\\:\\:getPrimary\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: tests/classes/Controllers/Table/StructureControllerTest.php
-
-		-
-			message: "#^Parameter \\#3 \\$schema of static method PhpMyAdmin\\\\Index\\:\\:getFromTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: tests/classes/Controllers/Table/StructureControllerTest.php
-
-		-
-			message: "#^Parameter \\#3 \\$schema of static method PhpMyAdmin\\\\Index\\:\\:getPrimary\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: tests/classes/Controllers/Table/StructureControllerTest.php
 
 		-
 			message: "#^Call to an undefined method PhpMyAdmin\\\\Http\\\\ServerRequest&PHPUnit\\\\Framework\\\\MockObject\\\\Stub\\:\\:expects\\(\\)\\.$#"
@@ -19636,16 +17461,6 @@ parameters:
 			path: tests/classes/Display/ResultsTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$db of class PhpMyAdmin\\\\Display\\\\Results constructor expects string, mixed given\\.$#"
-			count: 2
-			path: tests/classes/Display/ResultsTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\ParseAnalyze\\:\\:sqlQuery\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: tests/classes/Display/ResultsTest.php
-
-		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 4
 			path: tests/classes/Display/ResultsTest.php
@@ -19719,11 +17534,6 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 1
 			path: tests/classes/HeaderTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 2
-			path: tests/classes/Html/GeneratorTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{ssl\\: false, host\\: '127\\.0\\.0\\.1'\\}\\.$#"
@@ -20391,17 +18201,7 @@ parameters:
 			path: tests/classes/SqlQueryFormTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\Url\\:\\:getHiddenInputs\\(\\) expects array\\|string, mixed given\\.$#"
-			count: 1
-			path: tests/classes/SqlQueryFormTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 1
-			path: tests/classes/SqlQueryFormTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\Url\\:\\:getHiddenInputs\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: tests/classes/SqlQueryFormTest.php
 
@@ -20423,11 +18223,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'tmpval' on mixed\\.$#"
 			count: 4
-			path: tests/classes/SqlTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\ParseAnalyze\\:\\:sqlQuery\\(\\) expects string, mixed given\\.$#"
-			count: 18
 			path: tests/classes/SqlTest.php
 
 		-
@@ -20478,16 +18273,6 @@ parameters:
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: tests/classes/Table/IndexesTest.php
-
-		-
-			message: "#^Parameter \\#4 \\$db of method PhpMyAdmin\\\\Table\\\\Indexes\\:\\:doSaveData\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: tests/classes/Table/IndexesTest.php
-
-		-
-			message: "#^Parameter \\#5 \\$table of method PhpMyAdmin\\\\Table\\\\Indexes\\:\\:doSaveData\\(\\) expects string, mixed given\\.$#"
-			count: 2
 			path: tests/classes/Table/IndexesTest.php
 
 		-
@@ -20563,11 +18348,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'username' on mixed\\.$#"
 			count: 2
-			path: tests/classes/Tracking/TrackingTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\Url\\:\\:getHiddenInputs\\(\\) expects array\\|string, mixed given\\.$#"
-			count: 1
 			path: tests/classes/Tracking/TrackingTest.php
 
 		-

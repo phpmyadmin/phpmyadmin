@@ -16,6 +16,7 @@ use PhpMyAdmin\Controllers\Sql\SqlController;
 use PhpMyAdmin\Controllers\Table\ChangeController;
 use PhpMyAdmin\Controllers\Table\ReplaceController;
 use PhpMyAdmin\Controllers\Table\SqlController as TableSqlController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FileListing;
 use PhpMyAdmin\Http\ServerRequest;
@@ -45,8 +46,8 @@ class ReplaceControllerTest extends AbstractTestCase
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
         $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = 'my_db';
-        $GLOBALS['table'] = 'test_tbl';
+        Current::$database = 'my_db';
+        Current::$table = 'test_tbl';
 
         $config = Config::getInstance();
         $config->selectedServer['user'] = 'user';
@@ -74,8 +75,8 @@ class ReplaceControllerTest extends AbstractTestCase
     public function testReplace(): void
     {
         $GLOBALS['urlParams'] = [];
-        $_POST['db'] = $GLOBALS['db'];
-        $_POST['table'] = $GLOBALS['table'];
+        $_POST['db'] = Current::$database;
+        $_POST['table'] = Current::$table;
         $_POST['ajax_request'] = 'true';
         $_POST['relational_display'] = 'K';
         $_POST['goto'] = 'index.php?route=/sql';

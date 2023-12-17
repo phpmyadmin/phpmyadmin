@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Schema;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\ResponseRenderer;
@@ -258,7 +259,7 @@ class ExportRelationSchema
         echo '</p>' , "\n";
         echo '<a href="';
         echo Url::getFromRoute('/database/designer', [
-            'db' => $GLOBALS['db'],
+            'db' => Current::$database,
             'server' => $GLOBALS['server'],
             'page' => $pageNumber,
         ]);

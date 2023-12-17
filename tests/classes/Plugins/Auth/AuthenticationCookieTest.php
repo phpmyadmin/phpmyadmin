@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Auth;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Exceptions\ExitException;
@@ -57,8 +58,8 @@ class AuthenticationCookieTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['db'] = 'db';
-        $GLOBALS['table'] = 'table';
+        Current::$database = 'db';
+        Current::$table = 'table';
         $_POST['pma_password'] = '';
         $this->object = new AuthenticationCookie();
         $_SERVER['PHP_SELF'] = '/phpmyadmin/index.php';
@@ -138,8 +139,8 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config->settings['CaptchaResponseParam'] = '';
         $config->settings['CaptchaLoginPrivateKey'] = '';
         $config->settings['CaptchaLoginPublicKey'] = '';
-        $GLOBALS['db'] = 'testDb';
-        $GLOBALS['table'] = 'testTable';
+        Current::$database = 'testDb';
+        Current::$table = 'testTable';
         $config->settings['Servers'] = [1, 2];
 
         $responseStub = new ResponseRendererStub();

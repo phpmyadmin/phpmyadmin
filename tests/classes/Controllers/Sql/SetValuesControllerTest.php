@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Sql;
 
 use PhpMyAdmin\Controllers\Sql\SetValuesController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -49,8 +50,8 @@ class SetValuesControllerTest extends AbstractTestCase
             ['curr_value', null, 'b&c'],
         ]);
 
-        $GLOBALS['db'] = 'cvv';
-        $GLOBALS['table'] = 'enums';
+        Current::$database = 'cvv';
+        Current::$table = 'enums';
 
         /** @var SetValuesController $sqlController */
         $sqlController = Core::getContainerBuilder()->get(SetValuesController::class);
@@ -91,8 +92,8 @@ class SetValuesControllerTest extends AbstractTestCase
             ['curr_value', null, 'b&c'],
         ]);
 
-        $GLOBALS['db'] = 'cvv';
-        $GLOBALS['table'] = 'enums';
+        Current::$database = 'cvv';
+        Current::$table = 'enums';
 
         /** @var SetValuesController $sqlController */
         $sqlController = Core::getContainerBuilder()->get(SetValuesController::class);

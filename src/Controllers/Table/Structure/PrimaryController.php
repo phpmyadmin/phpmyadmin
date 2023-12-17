@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Table\Structure;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Table\StructureController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
@@ -50,7 +51,7 @@ final class PrimaryController extends AbstractController
             return;
         }
 
-        $this->dbi->selectDb($GLOBALS['db']);
+        $this->dbi->selectDb(Current::$database);
         $hasPrimary = $this->hasPrimaryKey();
 
         /** @var string|null $deletionConfirmed */
@@ -61,7 +62,7 @@ final class PrimaryController extends AbstractController
                 return;
             }
 
-            $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+            $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
                 Config::getInstance()->settings['DefaultTabTable'],
                 'table',
@@ -97,8 +98,8 @@ final class PrimaryController extends AbstractController
             }
 
             $this->render('table/structure/primary', [
-                'db' => $GLOBALS['db'],
-                'table' => $GLOBALS['table'],
+                'db' => Current::$database,
+                'table' => Current::$table,
                 'selected' => $selected,
             ]);
 
@@ -106,7 +107,7 @@ final class PrimaryController extends AbstractController
         }
 
         if ($deletionConfirmed === __('Yes') || ! $hasPrimary) {
-            $GLOBALS['sql_query'] = 'ALTER TABLE ' . Util::backquote($GLOBALS['table']);
+            $GLOBALS['sql_query'] = 'ALTER TABLE ' . Util::backquote(Current::$table);
             if ($hasPrimary) {
                 $GLOBALS['sql_query'] .= ' DROP PRIMARY KEY,';
             }
@@ -120,7 +121,7 @@ final class PrimaryController extends AbstractController
                 $GLOBALS['sql_query'] .= $i++ === $selectedCount ? ');' : ', ';
             }
 
-            $this->dbi->selectDb($GLOBALS['db']);
+            $this->dbi->selectDb(Current::$database);
             $result = $this->dbi->tryQuery($GLOBALS['sql_query']);
 
             if (! $result) {
@@ -137,7 +138,7 @@ final class PrimaryController extends AbstractController
 
     private function hasPrimaryKey(): bool
     {
-        $result = $this->dbi->query('SHOW KEYS FROM ' . Util::backquote($GLOBALS['table']));
+        $result = $this->dbi->query('SHOW KEYS FROM ' . Util::backquote(Current::$table));
 
         foreach ($result as $row) {
             if ($row['Key_name'] === 'PRIMARY') {

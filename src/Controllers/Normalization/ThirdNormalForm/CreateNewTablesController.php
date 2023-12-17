@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Normalization\ThirdNormalForm;
 
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
@@ -22,7 +23,7 @@ final class CreateNewTablesController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $newtables = json_decode($request->getParsedBodyParam('newTables'), true);
-        $res = $this->normalization->createNewTablesFor3NF($newtables, $GLOBALS['db']);
+        $res = $this->normalization->createNewTablesFor3NF($newtables, Current::$database);
         $this->response->addJSON($res);
     }
 }

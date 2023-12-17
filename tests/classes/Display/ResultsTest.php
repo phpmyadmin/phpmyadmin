@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Display;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\DeleteLinkEnum;
 use PhpMyAdmin\Display\DisplayParts;
@@ -72,8 +73,8 @@ class ResultsTest extends AbstractTestCase
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
         $GLOBALS['server'] = 0;
-        $GLOBALS['db'] = 'db';
-        $GLOBALS['table'] = 'table';
+        Current::$database = 'db';
+        Current::$table = 'table';
         $this->object = new DisplayResults($this->dbi, 'as', '', 0, '', '');
         $GLOBALS['text_dir'] = 'ltr';
         Config::getInstance()->selectedServer['DisableIS'] = false;
@@ -1130,15 +1131,15 @@ class ResultsTest extends AbstractTestCase
     {
         Config::getInstance()->selectedServer['DisableIS'] = true;
 
-        $GLOBALS['db'] = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$database = 'test_db';
+        Current::$table = 'test_table';
         $query = 'SELECT * FROM `test_db`.`test_table`;';
 
-        $object = new DisplayResults($this->dbi, $GLOBALS['db'], $GLOBALS['table'], 1, '', $query);
+        $object = new DisplayResults($this->dbi, Current::$database, Current::$table, 1, '', $query);
 
         (new ReflectionProperty(DisplayResults::class, 'uniqueId'))->setValue($object, 1234567890);
 
-        [$statementInfo] = ParseAnalyze::sqlQuery($query, $GLOBALS['db']);
+        [$statementInfo] = ParseAnalyze::sqlQuery($query, Current::$database);
         $fieldsMeta = [
             FieldHelper::fromArray([
                 'type' => MYSQLI_TYPE_DECIMAL,
@@ -1306,8 +1307,8 @@ class ResultsTest extends AbstractTestCase
                 'number_total_page' => 1,
                 'has_show_all' => true,
                 'hidden_fields' => [
-                    'db' => $GLOBALS['db'],
-                    'table' => $GLOBALS['table'],
+                    'db' => Current::$database,
+                    'table' => Current::$table,
                     'server' => 1,
                     'sql_query' => $query,
                     'is_browse_distinct' => false,
@@ -1319,8 +1320,8 @@ class ResultsTest extends AbstractTestCase
                 'pos' => 0,
                 'sort_by_key' => [
                     'hidden_fields' => [
-                        'db' => $GLOBALS['db'],
-                        'table' => $GLOBALS['table'],
+                        'db' => Current::$database,
+                        'table' => Current::$table,
                         'server' => 1,
                         'sort_by_key' => '1',
                         'session_max_rows' => 25,
@@ -1394,16 +1395,16 @@ class ResultsTest extends AbstractTestCase
                 'has_print_link' => true,
                 'has_export_link' => true,
                 'url_params' => [
-                    'db' => $GLOBALS['db'],
-                    'table' => $GLOBALS['table'],
+                    'db' => Current::$database,
+                    'table' => Current::$table,
                     'printview' => '1',
                     'sql_query' => $query,
                     'single_table' => 'true',
                     'unlim_num_rows' => 3,
                 ],
             ],
-            'db' => $GLOBALS['db'],
-            'table' => $GLOBALS['table'],
+            'db' => Current::$database,
+            'table' => Current::$table,
             'unique_id' => 1234567890,
             'sql_query' => $query,
             'goto' => '',
@@ -1422,18 +1423,18 @@ class ResultsTest extends AbstractTestCase
     {
         Config::getInstance()->selectedServer['DisableIS'] = true;
 
-        $GLOBALS['db'] = 'test_db';
-        $GLOBALS['table'] = 'test_table';
+        Current::$database = 'test_db';
+        Current::$table = 'test_table';
         $query = 'SELECT COUNT(*) AS `Rows`, `name` FROM `test_table` GROUP BY `name` ORDER BY `name`';
 
         $dummyDbi = $this->createDbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);
 
-        $object = new DisplayResults($dbi, $GLOBALS['db'], $GLOBALS['table'], 1, '', $query);
+        $object = new DisplayResults($dbi, Current::$database, Current::$table, 1, '', $query);
 
         (new ReflectionProperty(DisplayResults::class, 'uniqueId'))->setValue($object, 1234567890);
 
-        [$statementInfo] = ParseAnalyze::sqlQuery($query, $GLOBALS['db']);
+        [$statementInfo] = ParseAnalyze::sqlQuery($query, Current::$database);
         $fieldsMeta = [
             FieldHelper::fromArray([
                 'type' => MYSQLI_TYPE_LONG,
@@ -1573,8 +1574,8 @@ class ResultsTest extends AbstractTestCase
                 'number_total_page' => 1,
                 'has_show_all' => true,
                 'hidden_fields' => [
-                    'db' => $GLOBALS['db'],
-                    'table' => $GLOBALS['table'],
+                    'db' => Current::$database,
+                    'table' => Current::$table,
                     'server' => 1,
                     'sql_query' => $query,
                     'is_browse_distinct' => true,
@@ -1628,16 +1629,16 @@ class ResultsTest extends AbstractTestCase
                 'has_print_link' => true,
                 'has_export_link' => true,
                 'url_params' => [
-                    'db' => $GLOBALS['db'],
-                    'table' => $GLOBALS['table'],
+                    'db' => Current::$database,
+                    'table' => Current::$table,
                     'printview' => '1',
                     'sql_query' => $query,
                     'single_table' => 'true',
                     'unlim_num_rows' => 2,
                 ],
             ],
-            'db' => $GLOBALS['db'],
-            'table' => $GLOBALS['table'],
+            'db' => Current::$database,
+            'table' => Current::$table,
             'unique_id' => 1234567890,
             'sql_query' => $query,
             'goto' => '',

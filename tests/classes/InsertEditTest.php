@@ -8,6 +8,7 @@ use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Warning;
 use PhpMyAdmin\EditField;
@@ -68,8 +69,8 @@ class InsertEditTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->settings['ServerDefault'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['db'] = 'db';
-        $GLOBALS['table'] = 'table';
+        Current::$database = 'db';
+        Current::$table = 'table';
         $config->settings['LimitChars'] = 50;
         $config->settings['LongtextDoubleTextarea'] = false;
         $config->settings['ShowFieldTypesInDataEditView'] = true;
@@ -1328,8 +1329,8 @@ class InsertEditTest extends AbstractTestCase
             ->willReturn([$meta]);
 
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['db'] = 'db';
-        $GLOBALS['table'] = 'table';
+        Current::$database = 'db';
+        Current::$table = 'table';
         $this->insertEdit = new InsertEdit(
             $dbi,
             new Relation($dbi),
@@ -1348,14 +1349,14 @@ class InsertEditTest extends AbstractTestCase
     public function testGetGotoInclude(): void
     {
         $GLOBALS['goto'] = '123.php';
-        $GLOBALS['table'] = '';
+        Current::$table = '';
 
         $this->assertEquals(
             '/database/sql',
             $this->insertEdit->getGotoInclude('index'),
         );
 
-        $GLOBALS['table'] = 'tbl';
+        Current::$table = 'tbl';
         $this->assertEquals(
             '/table/sql',
             $this->insertEdit->getGotoInclude('index'),
@@ -1368,7 +1369,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit->getGotoInclude('index'),
         );
 
-        $this->assertEquals('', $GLOBALS['table']);
+        $this->assertEquals('', Current::$table);
 
         $_POST['after_insert'] = 'new_insert';
         $this->assertEquals(
@@ -1769,7 +1770,7 @@ class InsertEditTest extends AbstractTestCase
         // Test different data types
 
         // Datatype: protected copied from the databse
-        $GLOBALS['table'] = 'test_table';
+        Current::$table = 'test_table';
         $result = $this->insertEdit->getQueryValueForInsert(
             new EditField(
                 'name',

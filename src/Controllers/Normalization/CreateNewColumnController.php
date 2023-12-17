@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Normalization;
 
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
@@ -24,8 +25,8 @@ final class CreateNewColumnController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $numFields = min(4096, intval($request->getParsedBodyParam('numFields')));
-        $html = $this->normalization->getHtmlForCreateNewColumn($numFields, $GLOBALS['db'], $GLOBALS['table']);
-        $html .= Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
+        $html = $this->normalization->getHtmlForCreateNewColumn($numFields, Current::$database, Current::$table);
+        $html .= Url::getHiddenInputs(Current::$database, Current::$table);
         $this->response->addHTML($html);
     }
 }

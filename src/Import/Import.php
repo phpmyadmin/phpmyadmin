@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Import;
 
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\File;
@@ -175,7 +176,7 @@ class Import
         if ($GLOBALS['result'] != false) {
             $dbNameInsideUse = $this->lookForUse($sql);
             if ($dbNameInsideUse !== '') {
-                $GLOBALS['db'] = $dbNameInsideUse;
+                Current::$database = $dbNameInsideUse;
                 $GLOBALS['reload'] = true;
             }
         }
@@ -1380,7 +1381,7 @@ class Import
             $db = Util::unQuote($table[0]);
             $table = Util::unQuote($table[1]);
         } else {
-            $db = $GLOBALS['db'];
+            $db = Current::$database;
             $table = Util::unQuote($table[0]);
         }
 

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Database\Designer;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Index;
@@ -48,7 +49,7 @@ class Common
     public function getTablesInfo(string|null $db = null, string|null $table = null): array
     {
         $designerTables = [];
-        $db ??= $GLOBALS['db'];
+        $db ??= Current::$database;
         // seems to be needed later
         $this->dbi->selectDb($db);
         if ($table === null) {
@@ -110,26 +111,26 @@ class Common
      */
     public function getScriptContr(array $designerTables): array
     {
-        $this->dbi->selectDb($GLOBALS['db']);
+        $this->dbi->selectDb(Current::$database);
         /** @var array{C_NAME: string[], DTN: string[], DCN: string[], STN: string[], SCN: string[]} $con */
         $con = ['C_NAME' => [], 'DTN' => [], 'DCN' => [], 'STN' => [], 'SCN' => []];
         $i = 0;
-        $allTabRs = $this->dbi->query('SHOW TABLES FROM ' . Util::backquote($GLOBALS['db']));
+        $allTabRs = $this->dbi->query('SHOW TABLES FROM ' . Util::backquote(Current::$database));
         while ($val = $allTabRs->fetchRow()) {
             $val = (string) $val[0];
 
-            $row = $this->relation->getForeigners($GLOBALS['db'], $val, '', 'internal');
+            $row = $this->relation->getForeigners(Current::$database, $val, '', 'internal');
 
             foreach ($row as $field => $value) {
                 $con['C_NAME'][$i] = '';
-                $con['DTN'][$i] = rawurlencode($GLOBALS['db'] . '.' . $val);
+                $con['DTN'][$i] = rawurlencode(Current::$database . '.' . $val);
                 $con['DCN'][$i] = rawurlencode((string) $field);
                 $con['STN'][$i] = rawurlencode($value['foreign_db'] . '.' . $value['foreign_table']);
                 $con['SCN'][$i] = rawurlencode($value['foreign_field']);
                 $i++;
             }
 
-            $row = $this->relation->getForeigners($GLOBALS['db'], $val, '', 'foreign');
+            $row = $this->relation->getForeigners(Current::$database, $val, '', 'foreign');
 
             // We do not have access to the foreign keys if the user has partial access to the columns
             if (! isset($row['foreign_keys_data'])) {
@@ -139,10 +140,10 @@ class Common
             foreach ($row['foreign_keys_data'] as $oneKey) {
                 foreach ($oneKey['index_list'] as $index => $oneField) {
                     $con['C_NAME'][$i] = rawurlencode($oneKey['constraint']);
-                    $con['DTN'][$i] = rawurlencode($GLOBALS['db'] . '.' . $val);
+                    $con['DTN'][$i] = rawurlencode(Current::$database . '.' . $val);
                     $con['DCN'][$i] = rawurlencode($oneField);
                     $con['STN'][$i] = rawurlencode(
-                        ($oneKey['ref_db_name'] ?? $GLOBALS['db'])
+                        ($oneKey['ref_db_name'] ?? Current::$database)
                         . '.' . $oneKey['ref_table_name'],
                     );
                     $con['SCN'][$i] = rawurlencode($oneKey['ref_index_list'][$index]);

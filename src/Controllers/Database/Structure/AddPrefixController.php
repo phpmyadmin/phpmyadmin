@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database\Structure;
 
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\ServerRequest;
 
 use function __;
@@ -22,7 +23,7 @@ final class AddPrefixController extends AbstractController
             return;
         }
 
-        $params = ['db' => $GLOBALS['db']];
+        $params = ['db' => Current::$database];
         foreach ($selected as $selectedValue) {
             $params['selected'][] = $selectedValue;
         }

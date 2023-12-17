@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Designer\ColumnInfo;
 use PhpMyAdmin\Database\Designer\DesignerTable;
 use PhpMyAdmin\DatabaseInterface;
@@ -265,7 +266,7 @@ class Designer
         }
 
         return $this->template->render('database/designer/database_tables', [
-            'db' => $GLOBALS['db'],
+            'db' => Current::$database,
             'text_dir' => $GLOBALS['text_dir'],
             'get_db' => $db,
             'has_query' => isset($_REQUEST['query']),

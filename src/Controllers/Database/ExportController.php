@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\Options;
@@ -58,7 +59,7 @@ final class ExportController extends AbstractController
             Config::getInstance()->settings['DefaultTabDatabase'],
             'database',
         );
-        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
+        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -76,7 +77,7 @@ final class ExportController extends AbstractController
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/export');
 
-        [$GLOBALS['tables'], $GLOBALS['num_tables']] = Util::getDbInfo($request, $GLOBALS['db'], false);
+        [$GLOBALS['tables'], $GLOBALS['num_tables']] = Util::getDbInfo($request, Current::$database, false);
 
         // exit if no tables in db found
         if ($GLOBALS['num_tables'] < 1) {
@@ -155,8 +156,8 @@ final class ExportController extends AbstractController
 
         $options = $this->exportOptions->getOptions(
             $exportType,
-            $GLOBALS['db'],
-            $GLOBALS['table'],
+            Current::$database,
+            Current::$table,
             $GLOBALS['sql_query'],
             $GLOBALS['num_tables'],
             $GLOBALS['unlim_num_rows'],

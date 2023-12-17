@@ -9,6 +9,7 @@ use PhpMyAdmin\ConfigStorage\Features\DisplayFeature;
 use PhpMyAdmin\ConfigStorage\Features\RelationFeature;
 use PhpMyAdmin\ConfigStorage\Features\UiPreferencesFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\FieldMetadata;
@@ -2176,7 +2177,7 @@ class Table implements Stringable
             $foreignTable = $destinationForeignTable[$masterFieldMd5];
             $foreignField = $destinationForeignColumn[$masterFieldMd5];
 
-            $refDbName = $existrelForeign[$masterFieldMd5]['ref_db_name'] ?? $GLOBALS['db'];
+            $refDbName = $existrelForeign[$masterFieldMd5]['ref_db_name'] ?? Current::$database;
 
             $emptyFields = false;
             foreach ($masterField as $key => $oneField) {

@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\CreateAddField;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
@@ -65,7 +66,10 @@ class AddFieldController extends AbstractController
         /**
          * Defines the url to return to in case of error in a sql statement
          */
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/table/sql', ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']]);
+        $GLOBALS['errorUrl'] = Url::getFromRoute(
+            '/table/sql',
+            ['db' => Current::$database, 'table' => Current::$table],
+        );
 
         // check number of fields to be created
         if (is_numeric($numberOfFields) && $numberOfFields > 0) {
@@ -81,7 +85,7 @@ class AddFieldController extends AbstractController
 
             $createAddField = new CreateAddField($this->dbi);
 
-            $GLOBALS['sql_query'] = $createAddField->getColumnCreationQuery($GLOBALS['table']);
+            $GLOBALS['sql_query'] = $createAddField->getColumnCreationQuery(Current::$table);
 
             // If there is a request for SQL previewing.
             if (isset($_POST['preview_sql'])) {
@@ -91,7 +95,7 @@ class AddFieldController extends AbstractController
             }
 
             $result = $createAddField->tryColumnCreationQuery(
-                DatabaseName::from($GLOBALS['db']),
+                DatabaseName::from(Current::$database),
                 $GLOBALS['sql_query'],
                 $GLOBALS['errorUrl'],
             );
@@ -112,8 +116,8 @@ class AddFieldController extends AbstractController
                     }
 
                     $this->transformations->setMime(
-                        $GLOBALS['db'],
-                        $GLOBALS['table'],
+                        Current::$database,
+                        Current::$table,
                         $_POST['field_name'][$fieldindex],
                         $mimetype,
                         $_POST['field_transformation'][$fieldindex],
@@ -128,7 +132,7 @@ class AddFieldController extends AbstractController
             $GLOBALS['message'] = Message::success(
                 __('Table %1$s has been altered successfully.'),
             );
-            $GLOBALS['message']->addParam($GLOBALS['table']);
+            $GLOBALS['message']->addParam(Current::$table);
             $this->response->addJSON(
                 'message',
                 Generator::getMessage($GLOBALS['message'], $GLOBALS['sql_query'], 'success'),
@@ -138,8 +142,8 @@ class AddFieldController extends AbstractController
             $this->response->addJSON(
                 'structure_refresh_route',
                 Url::getFromRoute('/table/structure', [
-                    'db' => $GLOBALS['db'],
-                    'table' => $GLOBALS['table'],
+                    'db' => Current::$database,
+                    'table' => Current::$table,
                     'ajax_request' => '1',
                 ]),
             );
@@ -147,7 +151,7 @@ class AddFieldController extends AbstractController
             return;
         }
 
-        $urlParams = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+        $urlParams = ['db' => Current::$database, 'table' => Current::$table];
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
         $GLOBALS['errorUrl'] .= Url::getCommon($urlParams, '&');
 

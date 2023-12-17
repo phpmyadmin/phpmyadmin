@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Sql;
 
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
@@ -33,7 +34,7 @@ final class ColumnPreferencesController extends AbstractController
     {
         $this->checkUserPrivileges->getPrivileges();
 
-        $tableObject = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
+        $tableObject = $this->dbi->getTable(Current::$database, Current::$table);
         $status = false;
 
         /** @var string|null $tableCreateTime */

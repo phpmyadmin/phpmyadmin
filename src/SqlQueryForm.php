@@ -136,7 +136,7 @@ class SqlQueryForm
     {
         $columnsList = [];
         $config = Config::getInstance();
-        if ($GLOBALS['db'] === '') {
+        if (Current::$database === '') {
             // prepare for server related
             $legend = sprintf(
                 __('Run SQL query/queries on server “%s”'),
@@ -146,9 +146,9 @@ class SqlQueryForm
                     : $config->settings['Servers'][$GLOBALS['server']]['host'],
                 ),
             );
-        } elseif ($GLOBALS['table'] === '') {
+        } elseif (Current::$table === '') {
             // prepare for db related
-            $db = $GLOBALS['db'];
+            $db = Current::$database;
             // if you want navigation:
             $scriptName = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
             $tmpDbLink = '<a href="' . $scriptName
@@ -160,12 +160,12 @@ class SqlQueryForm
                 $query = Util::expandUserString($config->settings['DefaultQueryDatabase'], Util::backquote(...));
             }
         } else {
-            $db = $GLOBALS['db'];
-            $table = $GLOBALS['table'];
+            $db = Current::$database;
+            $table = Current::$table;
             // Get the list and number of fields
             // we do a try_query here, because we could be in the query window,
             // trying to synchronize and the table has not yet been created
-            $columnsList = $this->dbi->getColumns($db, $GLOBALS['table'], true);
+            $columnsList = $this->dbi->getColumns($db, Current::$table, true);
 
             $scriptName = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
             $tmpTblLink = '<a href="' . $scriptName . Url::getCommon(['db' => $db, 'table' => $table], '&') . '">';

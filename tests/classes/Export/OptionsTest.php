@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Export;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Export\Options;
@@ -35,8 +36,8 @@ class OptionsTest extends AbstractTestCase
 
         $GLOBALS['server'] = 0;
 
-        $GLOBALS['table'] = 'table';
-        $GLOBALS['db'] = 'PMA';
+        Current::$table = 'table';
+        Current::$database = 'PMA';
 
         $this->export = new Options(
             new Relation($dbi),

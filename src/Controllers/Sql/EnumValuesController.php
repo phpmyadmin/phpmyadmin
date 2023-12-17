@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Sql;
 
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
@@ -34,7 +35,7 @@ final class EnumValuesController extends AbstractController
 
         $column = $request->getParsedBodyParam('column');
         $currValue = $request->getParsedBodyParam('curr_value');
-        $values = $this->sql->getValuesForColumn($GLOBALS['db'], $GLOBALS['table'], strval($column));
+        $values = $this->sql->getValuesForColumn(Current::$database, Current::$table, strval($column));
 
         if ($values === null) {
             $this->response->addJSON('message', __('Error in processing request'));

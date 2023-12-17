@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Database;
 
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
@@ -132,7 +133,7 @@ class Search
         $sqlStrSelect = 'SELECT';
         $sqlStrDelete = 'DELETE';
         // Table to use
-        $sqlStrFrom = ' FROM ' . Util::backquote($GLOBALS['db']) . '.' . Util::backquote($table);
+        $sqlStrFrom = ' FROM ' . Util::backquote(Current::$database) . '.' . Util::backquote($table);
         // Gets where clause for the query
         $whereClause = $this->getWhereClause($table);
         // Builds complete queries
@@ -156,7 +157,7 @@ class Search
     private function getWhereClause(string $table): string
     {
         // Columns to select
-        $allColumns = $this->dbi->getColumns($GLOBALS['db'], $table);
+        $allColumns = $this->dbi->getColumns(Current::$database, $table);
         $likeClauses = [];
         // Based on search type, decide like/regex & '%'/''
         $likeOrRegex = ($this->criteriaSearchType == 5 ? 'REGEXP' : 'LIKE');

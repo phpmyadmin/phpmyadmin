@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Table;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -74,8 +75,8 @@ SQL;
         $columnsDefinition = new ColumnsDefinition($dbi, $relation, new Transformations());
 
         $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = 'sakila';
-        $GLOBALS['table'] = 'actor';
+        Current::$database = 'sakila';
+        Current::$table = 'actor';
         $GLOBALS['col_priv'] = true;
         $GLOBALS['is_reload_priv'] = true;
         $GLOBALS['mime_map'] = null;

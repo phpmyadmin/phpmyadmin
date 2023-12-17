@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
@@ -43,16 +44,16 @@ class GetFieldController extends AbstractController
         }
 
         /* Select database */
-        if (! $this->dbi->selectDb($GLOBALS['db'])) {
+        if (! $this->dbi->selectDb(Current::$database)) {
             Generator::mysqlDie(
-                sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($GLOBALS['db'])),
+                sprintf(__('\'%s\' database does not exist.'), htmlspecialchars(Current::$database)),
                 '',
                 false,
             );
         }
 
         /* Check if table exists */
-        if ($this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table']) === []) {
+        if ($this->dbi->getColumns(Current::$database, Current::$table) === []) {
             Generator::mysqlDie(__('Invalid table name'));
         }
 
@@ -72,7 +73,7 @@ class GetFieldController extends AbstractController
         $transformKey = (string) $request->getQueryParam('transform_key', '');
         /* Grab data */
         $sql = 'SELECT ' . Util::backquote($transformKey)
-            . ' FROM ' . Util::backquote($GLOBALS['table'])
+            . ' FROM ' . Util::backquote(Current::$table)
             . ' WHERE ' . $whereClause . ';';
         $result = $this->dbi->fetchValue($sql);
 
@@ -90,7 +91,7 @@ class GetFieldController extends AbstractController
         ini_set('url_rewriter.tags', '');
 
         Core::downloadHeader(
-            $GLOBALS['table'] . '-' . $transformKey . '.bin',
+            Current::$table . '-' . $transformKey . '.bin',
             Mime::detect($result),
             mb_strlen($result, '8bit'),
         );

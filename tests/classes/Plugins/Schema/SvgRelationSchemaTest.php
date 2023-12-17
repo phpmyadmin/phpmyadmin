@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Plugins\Schema;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\Svg\SvgRelationSchema;
@@ -43,8 +44,8 @@ class SvgRelationSchemaTest extends AbstractTestCase
         $_POST['t_tbl'] = ['test_table'];
 
         $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = 'test_db';
-        $GLOBALS['table'] = '';
+        Current::$database = 'test_db';
+        Current::$table = '';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'en';
         Config::getInstance()->selectedServer['DisableIS'] = true;

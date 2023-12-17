@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
 
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Html\Generator;
@@ -187,8 +188,8 @@ class ImportCsv extends AbstractImportCsv
         );
 
         [$sqlTemplate, $fields] = $this->getSqlTemplateAndRequiredFields(
-            $GLOBALS['db'],
-            $GLOBALS['table'],
+            Current::$database,
+            Current::$table,
             $GLOBALS['csv_columns'],
         );
 
@@ -581,7 +582,7 @@ class ImportCsv extends AbstractImportCsv
                 array_shift($rows);
             }
 
-            $tblName = $this->getTableNameFromImport((string) $GLOBALS['db']);
+            $tblName = $this->getTableNameFromImport(Current::$database);
 
             $tables[] = [$tblName, $colNames, $rows];
 
@@ -602,8 +603,8 @@ class ImportCsv extends AbstractImportCsv
                 $newDb = 'CSV_DB ' . (count($result) + 1);
             }
 
-            $dbName = $GLOBALS['db'] !== '' ? $GLOBALS['db'] : $newDb;
-            $createDb = $GLOBALS['db'] === '';
+            $dbName = Current::$database !== '' ? Current::$database : $newDb;
+            $createDb = Current::$database === '';
 
             /* Created and execute necessary SQL statements from data */
             $this->import->buildSql($dbName, $tables, $analyses, createDb:$createDb, sqlData:$sqlStatements);

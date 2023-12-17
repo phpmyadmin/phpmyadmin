@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Operations\Database;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
@@ -55,7 +56,7 @@ final class CollationController extends AbstractController
             Config::getInstance()->settings['DefaultTabDatabase'],
             'database',
         );
-        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
+        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -65,7 +66,7 @@ final class CollationController extends AbstractController
             return;
         }
 
-        $sqlQuery = 'ALTER DATABASE ' . Util::backquote($GLOBALS['db'])
+        $sqlQuery = 'ALTER DATABASE ' . Util::backquote(Current::$database)
             . ' DEFAULT' . Util::getCharsetQueryPart($dbCollation);
         $this->dbi->query($sqlQuery);
         $message = Message::success();
@@ -74,16 +75,16 @@ final class CollationController extends AbstractController
          * Changes tables charset if requested by the user
          */
         if ($request->getParsedBodyParam('change_all_tables_collations') === 'on') {
-            [$tables] = Util::getDbInfo($request, $GLOBALS['db']);
+            [$tables] = Util::getDbInfo($request, Current::$database);
             foreach ($tables as ['Name' => $tableName]) {
-                if ($this->dbi->getTable($GLOBALS['db'], $tableName)->isView()) {
+                if ($this->dbi->getTable(Current::$database, $tableName)->isView()) {
                     // Skip views, we can not change the collation of a view.
                     // issue #15283
                     continue;
                 }
 
                 $sqlQuery = 'ALTER TABLE '
-                    . Util::backquote($GLOBALS['db'])
+                    . Util::backquote(Current::$database)
                     . '.'
                     . Util::backquote($tableName)
                     . ' DEFAULT '
@@ -97,7 +98,7 @@ final class CollationController extends AbstractController
                     continue;
                 }
 
-                $this->operations->changeAllColumnsCollation($GLOBALS['db'], $tableName, $dbCollation);
+                $this->operations->changeAllColumnsCollation(Current::$database, $tableName, $dbCollation);
             }
         }
 

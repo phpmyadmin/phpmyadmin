@@ -10,6 +10,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\File;
@@ -45,7 +46,6 @@ use function min;
 use function preg_match;
 use function preg_quote;
 use function preg_replace;
-use function strlen;
 use function substr;
 use function time;
 use function trim;
@@ -247,10 +247,10 @@ final class ImportController extends AbstractController
         // We don't want anything special in format
         $GLOBALS['format'] = Core::securePath($GLOBALS['format']);
 
-        if (strlen($GLOBALS['table']) > 0 && strlen($GLOBALS['db']) > 0) {
-            $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
-        } elseif (strlen($GLOBALS['db']) > 0) {
-            $GLOBALS['urlParams'] = ['db' => $GLOBALS['db']];
+        if (Current::$table !== '' && Current::$database !== '') {
+            $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
+        } elseif (Current::$database !== '') {
+            $GLOBALS['urlParams'] = ['db' => Current::$database];
         } else {
             $GLOBALS['urlParams'] = [];
         }
@@ -263,9 +263,9 @@ final class ImportController extends AbstractController
         } elseif ($GLOBALS['import_type'] === 'server') {
             $GLOBALS['goto'] = Url::getFromRoute('/server/import');
         } elseif (empty($GLOBALS['goto']) || ! preg_match('@^index\.php$@i', $GLOBALS['goto'])) {
-            if (strlen($GLOBALS['table']) > 0 && strlen($GLOBALS['db']) > 0) {
+            if (Current::$table !== '' && Current::$database !== '') {
                 $GLOBALS['goto'] = Url::getFromRoute('/table/structure');
-            } elseif (strlen($GLOBALS['db']) > 0) {
+            } elseif (Current::$database !== '') {
                 $GLOBALS['goto'] = Url::getFromRoute('/database/structure');
             } else {
                 $GLOBALS['goto'] = Url::getFromRoute('/server/sql');
@@ -275,8 +275,8 @@ final class ImportController extends AbstractController
         $GLOBALS['errorUrl'] = $GLOBALS['goto'] . Url::getCommon($GLOBALS['urlParams'], '&');
         $_SESSION['Import_message']['go_back_url'] = $GLOBALS['errorUrl'];
 
-        if (strlen($GLOBALS['db']) > 0) {
-            $this->dbi->selectDb($GLOBALS['db']);
+        if (Current::$database !== '') {
+            $this->dbi->selectDb(Current::$database);
         }
 
         Util::setTimeLimit();
@@ -657,16 +657,16 @@ final class ImportController extends AbstractController
         //  can choke on it so avoid parsing)
         $sqlLength = mb_strlen($GLOBALS['sql_query']);
         if ($sqlLength <= $config->settings['MaxCharactersInDisplayedSQL']) {
-            [$statementInfo, $GLOBALS['db'], $tableFromSql] = ParseAnalyze::sqlQuery(
+            [$statementInfo, Current::$database, $tableFromSql] = ParseAnalyze::sqlQuery(
                 $GLOBALS['sql_query'],
-                $GLOBALS['db'],
+                Current::$database,
             );
 
             $GLOBALS['reload'] = $statementInfo->reload;
             $GLOBALS['offset'] = $statementInfo->offset;
 
-            if ($GLOBALS['table'] != $tableFromSql && $tableFromSql !== '') {
-                $GLOBALS['table'] = $tableFromSql;
+            if (Current::$table != $tableFromSql && $tableFromSql !== '') {
+                Current::$table = $tableFromSql;
             }
         }
 
@@ -688,9 +688,9 @@ final class ImportController extends AbstractController
 
             foreach ($queriesToBeExecuted as $GLOBALS['sql_query']) {
                 // parse sql query
-                [$statementInfo, $GLOBALS['db'], $tableFromSql] = ParseAnalyze::sqlQuery(
+                [$statementInfo, Current::$database, $tableFromSql] = ParseAnalyze::sqlQuery(
                     $GLOBALS['sql_query'],
-                    $GLOBALS['db'],
+                    Current::$database,
                 );
 
                 $GLOBALS['offset'] = $statementInfo->offset;
@@ -714,15 +714,15 @@ final class ImportController extends AbstractController
                     return;
                 }
 
-                if ($GLOBALS['table'] != $tableFromSql && $tableFromSql !== '') {
-                    $GLOBALS['table'] = $tableFromSql;
+                if (Current::$table != $tableFromSql && $tableFromSql !== '') {
+                    Current::$table = $tableFromSql;
                 }
 
                 $htmlOutput .= $this->sql->executeQueryAndGetQueryResponse(
                     $statementInfo,
                     false, // is_gotofile
-                    $GLOBALS['db'], // db
-                    $GLOBALS['table'], // table
+                    Current::$database, // db
+                    Current::$table, // table
                     null, // sql_query_for_bookmark - see below
                     null, // message_to_show
                     null, // sql_data
@@ -742,7 +742,7 @@ final class ImportController extends AbstractController
 
                 $this->sql->storeTheQueryAsBookmark(
                     $relation->getRelationParameters()->bookmarkFeature,
-                    $GLOBALS['db'],
+                    Current::$database,
                     $config->selectedServer['user'],
                     $request->getParsedBodyParam('sql_query'),
                     $request->getParsedBodyParam('bkm_label'),
@@ -763,7 +763,7 @@ final class ImportController extends AbstractController
 
                 $this->sql->storeTheQueryAsBookmark(
                     $relation->getRelationParameters()->bookmarkFeature,
-                    $GLOBALS['db'],
+                    Current::$database,
                     $config->selectedServer['user'],
                     $request->getParsedBodyParam('sql_query'),
                     $request->getParsedBodyParam('bkm_label'),

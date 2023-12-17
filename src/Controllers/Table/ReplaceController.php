@@ -10,6 +10,7 @@ use PhpMyAdmin\Controllers\Database\SqlController as DatabaseSqlController;
 use PhpMyAdmin\Controllers\Sql\SqlController;
 use PhpMyAdmin\Controllers\Table\SqlController as TableSqlController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\EditField;
 use PhpMyAdmin\File;
@@ -72,7 +73,7 @@ final class ReplaceController extends AbstractController
         $GLOBALS['disp_message'] ??= null;
         $GLOBALS['query'] ??= null;
 
-        $this->dbi->selectDb($GLOBALS['db']);
+        $this->dbi->selectDb(Current::$database);
 
         $this->addScriptFiles(['makegrid.js', 'sql.js', 'gis_data_editor.js']);
 
@@ -107,7 +108,7 @@ final class ReplaceController extends AbstractController
         $GLOBALS['query'] = [];
         $valueSets = [];
 
-        $mimeMap = $this->transformations->getMime($GLOBALS['db'], $GLOBALS['table']) ?? [];
+        $mimeMap = $this->transformations->getMime(Current::$database, Current::$table) ?? [];
 
         $queryFields = [];
         $insertErrors = [];
@@ -258,7 +259,7 @@ final class ReplaceController extends AbstractController
             } else {
                 // build update query
                 $clauseIsUnique = $request->getParam('clause_is_unique', '');// Should contain 0 or 1
-                $GLOBALS['query'][] = 'UPDATE ' . Util::backquote($GLOBALS['table'])
+                $GLOBALS['query'][] = 'UPDATE ' . Util::backquote(Current::$table)
                     . ' SET ' . implode(', ', $queryValues)
                     . ' WHERE ' . $whereClause
                     . ($clauseIsUnique ? '' : ' LIMIT 1');
@@ -283,7 +284,7 @@ final class ReplaceController extends AbstractController
         // Builds the sql query
         if ($isInsert && $valueSets !== []) {
             $GLOBALS['query'] = (array) QueryGenerator::buildInsertSqlQuery(
-                $GLOBALS['table'],
+                Current::$table,
                 $isInsertignore,
                 $queryFields,
                 $valueSets,
@@ -395,7 +396,7 @@ final class ReplaceController extends AbstractController
     {
         $relFieldsList = $request->getParsedBodyParam('rel_fields_list', '');
         if ($relFieldsList !== '') {
-            $map = $this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table']);
+            $map = $this->relation->getForeigners(Current::$database, Current::$table);
 
             /** @var array<int,array> $relationFields */
             $relationFields = [];
@@ -436,8 +437,8 @@ final class ReplaceController extends AbstractController
                 foreach ($transformationTypes as $type) {
                     $file = Core::securePath($transformation[$type]);
                     $extraData = $this->insertEdit->transformEditedValues(
-                        $GLOBALS['db'],
-                        $GLOBALS['table'],
+                        Current::$database,
+                        Current::$table,
                         $transformation,
                         $editedValues,
                         $file,
@@ -454,8 +455,8 @@ final class ReplaceController extends AbstractController
         $columnName = $request->getParsedBodyParam('fields_name')['multi_edit'][0][0];
 
         $this->insertEdit->verifyWhetherValueCanBeTruncatedAndAppendExtraData(
-            $GLOBALS['db'],
-            $GLOBALS['table'],
+            Current::$database,
+            Current::$table,
             $columnName,
             $extraData,
         );

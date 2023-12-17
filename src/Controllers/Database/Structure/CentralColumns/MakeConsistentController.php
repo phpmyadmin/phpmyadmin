@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Database\Structure\CentralColumns;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\StructureController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
@@ -44,7 +45,7 @@ final class MakeConsistentController extends AbstractController
         Assert::allString($selected);
 
         $centralColumns = new CentralColumns($this->dbi);
-        $error = $centralColumns->makeConsistentWithList($GLOBALS['db'], $selected);
+        $error = $centralColumns->makeConsistentWithList(Current::$database, $selected);
 
         $GLOBALS['message'] = $error instanceof Message ? $error : Message::success(__('Success!'));
 

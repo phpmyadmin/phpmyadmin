@@ -6,6 +6,7 @@ namespace PhpMyAdmin\ConfigStorage;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Features\PdfFeature;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Identifiers\DatabaseName;
@@ -1378,7 +1379,7 @@ class Relation
             $columnIndex = array_search($column, $oneKey['index_list']);
             if ($columnIndex !== false) {
                 $foreigner['foreign_field'] = $oneKey['ref_index_list'][$columnIndex];
-                $foreigner['foreign_db'] = $oneKey['ref_db_name'] ?? $GLOBALS['db'];
+                $foreigner['foreign_db'] = $oneKey['ref_db_name'] ?? Current::$database;
                 $foreigner['foreign_table'] = $oneKey['ref_table_name'];
                 $foreigner['constraint'] = $oneKey['constraint'];
                 $foreigner['on_update'] = $oneKey['on_update'] ?? 'RESTRICT';
@@ -1689,7 +1690,7 @@ class Relation
             return;
         }
 
-        $this->fixPmaTables($GLOBALS['db'], false);
+        $this->fixPmaTables(Current::$database, false);
     }
 
     /**

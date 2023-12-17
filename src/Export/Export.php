@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Export;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Exceptions\ExportException;
@@ -1061,12 +1062,12 @@ class Export
         }
 
         if ($exportType === 'database') {
-            $params = ['db' => $GLOBALS['db']];
+            $params = ['db' => Current::$database];
 
             return 'index.php?route=/database/export' . Url::getCommonRaw($params, '&');
         }
 
-        $params = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table'], 'single_table' => 'true'];
+        $params = ['db' => Current::$database, 'table' => Current::$table, 'single_table' => 'true'];
 
         return 'index.php?route=/table/export' . Url::getCommonRaw($params, '&');
     }

@@ -8,6 +8,7 @@ use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Console;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Template;
@@ -38,8 +39,8 @@ class HeaderTest extends AbstractTestCase
         $GLOBALS['server'] = 0;
         $GLOBALS['message'] = 'phpmyadminmessage';
         $GLOBALS['server'] = 'server';
-        $GLOBALS['db'] = 'db';
-        $GLOBALS['table'] = '';
+        Current::$database = 'db';
+        Current::$table = '';
 
         parent::setGlobalConfig();
 

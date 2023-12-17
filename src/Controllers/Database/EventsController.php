@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -22,7 +23,6 @@ use function count;
 use function htmlspecialchars;
 use function mb_strtoupper;
 use function sprintf;
-use function strlen;
 use function trim;
 
 final class EventsController extends AbstractController
@@ -54,7 +54,7 @@ final class EventsController extends AbstractController
                 Config::getInstance()->settings['DefaultTabDatabase'],
                 'database',
             );
-            $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
+            $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
             $databaseName = DatabaseName::tryFrom($request->getParam('db'));
             if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -62,8 +62,8 @@ final class EventsController extends AbstractController
 
                 return;
             }
-        } elseif (strlen($GLOBALS['db']) > 0) {
-            $this->dbi->selectDb($GLOBALS['db']);
+        } elseif (Current::$database !== '') {
+            $this->dbi->selectDb(Current::$database);
         }
 
         /**
@@ -78,7 +78,7 @@ final class EventsController extends AbstractController
 
             if ($request->isAjax()) {
                 if ($GLOBALS['message']->isSuccess()) {
-                    $events = $this->events->getDetails($GLOBALS['db'], $_POST['item_name']);
+                    $events = $this->events->getDetails(Current::$database, $_POST['item_name']);
                     $event = $events[0];
                     $this->response->addJSON(
                         'name',
@@ -94,10 +94,10 @@ final class EventsController extends AbstractController
                         $this->response->addJSON(
                             'new_row',
                             $this->template->render('database/events/row', [
-                                'db' => $GLOBALS['db'],
-                                'table' => $GLOBALS['table'],
+                                'db' => Current::$database,
+                                'table' => Current::$table,
                                 'event' => $event,
-                                'has_privilege' => Util::currentUserHasPrivilege('EVENT', $GLOBALS['db']),
+                                'has_privilege' => Util::currentUserHasPrivilege('EVENT', Current::$database),
                                 'sql_drop' => $sqlDrop,
                                 'row_class' => '',
                             ]),
@@ -174,7 +174,7 @@ final class EventsController extends AbstractController
                 }
 
                 $editor = $this->template->render('database/events/editor_form', [
-                    'db' => $GLOBALS['db'],
+                    'db' => Current::$database,
                     'event' => $item,
                     'mode' => $mode,
                     'is_ajax' => $request->isAjax(),
@@ -198,7 +198,7 @@ final class EventsController extends AbstractController
             $message .= sprintf(
                 __('No event with name %1$s found in database %2$s.'),
                 htmlspecialchars(Util::backquote($_REQUEST['item_name'])),
-                htmlspecialchars(Util::backquote($GLOBALS['db'])),
+                htmlspecialchars(Util::backquote(Current::$database)),
             );
             $message = Message::error($message);
             if ($request->isAjax()) {
@@ -213,7 +213,7 @@ final class EventsController extends AbstractController
 
         if (! empty($_GET['export_item']) && ! empty($_GET['item_name'])) {
             $itemName = $_GET['item_name'];
-            $exportData = Events::getDefinition($this->dbi, $GLOBALS['db'], $itemName);
+            $exportData = Events::getDefinition($this->dbi, Current::$database, $itemName);
 
             if ($exportData === null || $exportData === '') {
                 $exportData = false;
@@ -242,7 +242,7 @@ final class EventsController extends AbstractController
                 $message = sprintf(
                     __('Error in processing request: No event with name %1$s found in database %2$s.'),
                     $itemName,
-                    htmlspecialchars(Util::backquote($GLOBALS['db'])),
+                    htmlspecialchars(Util::backquote(Current::$database)),
                 );
                 $message = Message::error($message);
 
@@ -257,12 +257,12 @@ final class EventsController extends AbstractController
             }
         }
 
-        $items = $this->events->getDetails($GLOBALS['db']);
+        $items = $this->events->getDetails(Current::$database);
 
         $this->render('database/events/index', [
-            'db' => $GLOBALS['db'],
+            'db' => Current::$database,
             'items' => $items,
-            'has_privilege' => Util::currentUserHasPrivilege('EVENT', $GLOBALS['db']),
+            'has_privilege' => Util::currentUserHasPrivilege('EVENT', Current::$database),
             'scheduler_state' => $this->events->getEventSchedulerStatus(),
             'text_dir' => $GLOBALS['text_dir'],
             'is_ajax' => $request->isAjax() && empty($_REQUEST['ajax_page_request']),
