@@ -1506,38 +1506,8 @@ parameters:
 			path: src/Controllers/Database/CentralColumns/PopulateColumnsController.php
 
 		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: src/Controllers/Database/CentralColumnsController.php
-
-		-
 			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:deleteColumnsFromList\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: src/Controllers/Database/CentralColumnsController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getColumnsCount\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/CentralColumnsController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getCount\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/CentralColumnsController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getListRaw\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/CentralColumnsController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getTemplateVariablesForMain\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/CentralColumnsController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:updateOneColumn\\(\\) expects string, mixed given\\.$#"
-			count: 2
 			path: src/Controllers/Database/CentralColumnsController.php
 
 		-
@@ -1551,12 +1521,22 @@ parameters:
 			path: src/Controllers/Database/CentralColumnsController.php
 
 		-
+			message: "#^Parameter \\#1 \\$totalRows of method PhpMyAdmin\\\\Controllers\\\\Database\\\\CentralColumnsController\\:\\:main\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Database/CentralColumnsController.php
+
+		-
 			message: "#^Parameter \\#10 \\$colDefault of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:updateOneColumn\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Database/CentralColumnsController.php
 
 		-
 			message: "#^Parameter \\#2 \\$origColName of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:updateOneColumn\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Database/CentralColumnsController.php
+
+		-
+			message: "#^Parameter \\#2 \\$position of method PhpMyAdmin\\\\Controllers\\\\Database\\\\CentralColumnsController\\:\\:main\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/CentralColumnsController.php
 

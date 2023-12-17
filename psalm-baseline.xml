@@ -917,11 +917,13 @@
       <code><![CDATA[$params['col_type']]]></code>
       <code><![CDATA[$params['collation']]]></code>
       <code><![CDATA[$params['collation']]]></code>
-      <code><![CDATA[$params['cur_table'] ?? '']]></code>
       <code><![CDATA[$params['db']]]></code>
       <code><![CDATA[$params['db']]]></code>
       <code><![CDATA[$params['orig_col_name']]]></code>
       <code><![CDATA[$params['table-select']]]></code>
+      <code><![CDATA[$request->getParsedBodyParam('cur_table', '')]]></code>
+      <code><![CDATA[$request->getParsedBodyParam('pos', '')]]></code>
+      <code><![CDATA[$request->getParsedBodyParam('total_rows', '')]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$variables</code>
