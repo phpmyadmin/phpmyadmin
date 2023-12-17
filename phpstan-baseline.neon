@@ -3516,7 +3516,7 @@ parameters:
 			path: src/Controllers/Import/ImportController.php
 
 		-
-			message: "#^Parameter \\#12 \\$sqlQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndGetQueryResponse\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#11 \\$sqlQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndGetQueryResponse\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Import/ImportController.php
 
@@ -3606,7 +3606,7 @@ parameters:
 			path: src/Controllers/Import/ImportController.php
 
 		-
-			message: "#^Parameter \\#9 \\$goto of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndGetQueryResponse\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#8 \\$goto of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndGetQueryResponse\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Import/ImportController.php
 
@@ -5212,16 +5212,11 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 5
+			count: 4
 			path: src/Controllers/Sql/SqlController.php
 
 		-
 			message: "#^Only booleans are allowed in an if condition, bool\\|null given\\.$#"
-			count: 1
-			path: src/Controllers/Sql/SqlController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Sql\\:\\:findRealEndOfRows\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
 
@@ -5266,22 +5261,17 @@ parameters:
 			path: src/Controllers/Sql/SqlController.php
 
 		-
-			message: "#^Parameter \\#10 \\$dispQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#10 \\$dispMessage of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects PhpMyAdmin\\\\Message\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
 
 		-
-			message: "#^Parameter \\#11 \\$dispMessage of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects PhpMyAdmin\\\\Message\\|string\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#11 \\$sqlQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
 
 		-
-			message: "#^Parameter \\#12 \\$sqlQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Sql/SqlController.php
-
-		-
-			message: "#^Parameter \\#13 \\$completeQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#12 \\$completeQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
 
@@ -5291,17 +5281,7 @@ parameters:
 			path: src/Controllers/Sql/SqlController.php
 
 		-
-			message: "#^Parameter \\#2 \\$isGotoFile of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects bool, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Sql/SqlController.php
-
-		-
 			message: "#^Parameter \\#2 \\$signature of static method PhpMyAdmin\\\\Core\\:\\:checkSqlQuerySignature\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Sql/SqlController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Sql\\:\\:findRealEndOfRows\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
 
@@ -5326,22 +5306,22 @@ parameters:
 			path: src/Controllers/Sql/SqlController.php
 
 		-
-			message: "#^Parameter \\#5 \\$findRealEnd of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects bool\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#5 \\$sqlQueryForBookmark of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
 
 		-
-			message: "#^Parameter \\#6 \\$sqlQueryForBookmark of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#6 \\$messageToShow of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
 
 		-
-			message: "#^Parameter \\#7 \\$messageToShow of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#8 \\$goto of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
 
 		-
-			message: "#^Parameter \\#9 \\$goto of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#9 \\$dispQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
 
@@ -5821,17 +5801,12 @@ parameters:
 			path: src/Controllers/Table/DeleteRowsController.php
 
 		-
-			message: "#^Parameter \\#10 \\$dispQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#10 \\$dispMessage of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects PhpMyAdmin\\\\Message\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/DeleteRowsController.php
 
 		-
-			message: "#^Parameter \\#11 \\$dispMessage of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects PhpMyAdmin\\\\Message\\|string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/DeleteRowsController.php
-
-		-
-			message: "#^Parameter \\#12 \\$sqlQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#11 \\$sqlQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/DeleteRowsController.php
 
@@ -5861,7 +5836,12 @@ parameters:
 			path: src/Controllers/Table/DeleteRowsController.php
 
 		-
-			message: "#^Parameter \\#9 \\$goto of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#8 \\$goto of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Table/DeleteRowsController.php
+
+		-
+			message: "#^Parameter \\#9 \\$dispQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/DeleteRowsController.php
 
@@ -6871,7 +6851,7 @@ parameters:
 			path: src/Controllers/Table/SearchController.php
 
 		-
-			message: "#^Parameter \\#9 \\$goto of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#8 \\$goto of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/SearchController.php
 
@@ -7456,6 +7436,11 @@ parameters:
 			path: src/Controllers/Table/StructureController.php
 
 		-
+			message: "#^Cannot access offset 'Name' on mixed\\.$#"
+			count: 1
+			path: src/Controllers/Table/StructureController.php
+
+		-
 			message: "#^Cannot access offset 'Rows' on mixed\\.$#"
 			count: 1
 			path: src/Controllers/Table/StructureController.php
@@ -7537,6 +7522,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$schemaName of static method PhpMyAdmin\\\\Query\\\\Utilities\\:\\:isSystemSchema\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Table/StructureController.php
+
+		-
+			message: "#^Parameter \\#1 \\$showTableName of method PhpMyAdmin\\\\Table\\\\Table\\:\\:getNumRows\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/StructureController.php
 
@@ -17152,7 +17142,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'pos' on mixed\\.$#"
-			count: 4
+			count: 3
 			path: src/Sql.php
 
 		-
@@ -17286,11 +17276,6 @@ parameters:
 			path: src/Sql.php
 
 		-
-			message: "#^Parameter \\#13 \\$showTable of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects array\\<string, mixed\\>\\|null, array\\|null given\\.$#"
-			count: 2
-			path: src/Sql.php
-
-		-
 			message: "#^Parameter \\#2 \\$db of class PhpMyAdmin\\\\Display\\\\Results constructor expects string, mixed given\\.$#"
 			count: 1
 			path: src/Sql.php
@@ -17347,11 +17332,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#5 \\$bookmarkLabel of method PhpMyAdmin\\\\Sql\\:\\:storeTheQueryAsBookmark\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Sql.php
-
-		-
-			message: "#^Parameter \\#6 \\$showTable of method PhpMyAdmin\\\\Sql\\:\\:getHtmlForSqlQueryResultsTable\\(\\) expects array\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Sql.php
 
@@ -17766,11 +17746,6 @@ parameters:
 			path: src/Table/Table.php
 
 		-
-			message: "#^Cannot access offset 'Name' on mixed\\.$#"
-			count: 1
-			path: src/Table/Table.php
-
-		-
 			message: "#^Cannot access offset 'Type' on mixed\\.$#"
 			count: 2
 			path: src/Table/Table.php
@@ -18037,11 +18012,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, mixed given\\.$#"
-			count: 1
-			path: src/Table/Table.php
-
-		-
-			message: "#^Parameter \\#2 \\$tableName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Table/Table.php
 

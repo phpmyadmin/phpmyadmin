@@ -36,7 +36,6 @@ use function count;
 use function defined;
 use function htmlspecialchars;
 use function in_array;
-use function is_array;
 use function session_start;
 use function session_write_close;
 use function sprintf;
@@ -369,10 +368,8 @@ class Sql
 
     /**
      * Function to check whether this query is for just browsing
-     *
-     * @param bool|null $findRealEnd whether the real end should be found
      */
-    public static function isJustBrowsing(StatementInfo $statementInfo, bool|null $findRealEnd): bool
+    public static function isJustBrowsing(StatementInfo $statementInfo, bool $findRealEnd = false): bool
     {
         return ! $statementInfo->isGroup
             && ! $statementInfo->isFunction
@@ -384,7 +381,7 @@ class Sql
                 || (count($statementInfo->statement->where) === 1
                     && $statementInfo->statement->where[0]->expr === '1'))
             && ! $statementInfo->group
-            && ! isset($findRealEnd)
+            && ! $findRealEnd
             && ! $statementInfo->isSubquery
             && ! $statementInfo->join
             && ! $statementInfo->having;
@@ -410,22 +407,6 @@ class Sql
         bool $isSuperUser,
     ): bool {
         return ! $allowUserDropDatabase && $statementInfo->dropDatabase && ! $isSuperUser;
-    }
-
-    /**
-     * Function to find the real end of rows
-     *
-     * @param string $db    the current database
-     * @param string $table the current table
-     *
-     * @return int the number of rows
-     */
-    public function findRealEndOfRows(string $db, string $table): int
-    {
-        $unlimNumRows = $this->dbi->getTable($db, $table)->countRecords(true);
-        $_SESSION['tmpval']['pos'] = $this->getStartPosToDisplayRow($unlimNumRows);
-
-        return $unlimNumRows;
     }
 
     /**
@@ -661,9 +642,6 @@ class Sql
             // and no WHERE clause (or just 'WHERE 1 '),
             // we do a quick count (which uses MaxExactCount) because
             // SQL_CALC_FOUND_ROWS is not quick on large InnoDB tables
-
-            // However, do not count again if we did it previously
-            // due to $find_real_end == true
             if ($justBrowsing) {
                 // Get row count (is approximate for InnoDB)
                 $unlimNumRows = $this->dbi->getTable($db, $table)->countRecords();
@@ -717,7 +695,6 @@ class Sql
      * @param bool        $isGotoFile          whether to go to a file
      * @param string      $db                  current database
      * @param string|null $table               current table
-     * @param bool|null   $findRealEnd         whether to find the real end
      * @param string|null $sqlQueryForBookmark sql query to be stored as bookmark
      *
      * @psalm-return array{
@@ -734,7 +711,6 @@ class Sql
         bool $isGotoFile,
         string $db,
         string|null $table,
-        bool|null $findRealEnd,
         string|null $sqlQueryForBookmark,
     ): array {
         $response = ResponseRenderer::getInstance();
@@ -787,7 +763,7 @@ class Sql
 
         $profilingResults = Profiling::getInformation($this->dbi);
 
-        $justBrowsing = self::isJustBrowsing($statementInfo, $findRealEnd ?? null);
+        $justBrowsing = self::isJustBrowsing($statementInfo);
 
         $unlimNumRows = $this->countQueryResults($numRows, $justBrowsing, $db, $table ?? '', $statementInfo);
 
@@ -999,7 +975,6 @@ class Sql
             false,
             0,
             $numRows,
-            null,
             $result,
             $statementInfo,
             true,
@@ -1083,7 +1058,6 @@ class Sql
      * @param bool            $editable             whether the result table is editable or not
      * @param int|string      $unlimNumRows         unlimited number of rows
      * @param int|string      $numRows              number of rows
-     * @param mixed[]|null    $showTable            table definitions
      * @param ResultInterface $result               result of the executed query
      * @param bool            $isLimitedDisplay     Show only limited operations or not
      * @psalm-param int|numeric-string $unlimNumRows
@@ -1095,7 +1069,6 @@ class Sql
         bool $editable,
         int|string $unlimNumRows,
         int|string $numRows,
-        array|null $showTable,
         ResultInterface $result,
         StatementInfo $statementInfo,
         bool $isLimitedDisplay = false,
@@ -1108,7 +1081,6 @@ class Sql
                 $result,
                 $displayResultsObject,
                 $statementInfo,
-                $showTable,
                 $printView,
                 $editable,
                 $isBrowseDistinct,
@@ -1130,7 +1102,6 @@ class Sql
             $statementInfo->isMaint,
             $statementInfo->isExplain,
             $statementInfo->isShow,
-            $showTable,
             $printView,
             $editable,
             $isBrowseDistinct,
@@ -1139,12 +1110,10 @@ class Sql
         return $displayResultsObject->getTable($result, $displayParts, $statementInfo, $isLimitedDisplay);
     }
 
-    /** @param mixed[]|null $showTable table definitions */
     private function getHtmlForStoredProcedureResults(
         ResultInterface $result,
         DisplayResults $displayResultsObject,
         StatementInfo $statementInfo,
-        array|null $showTable,
         bool $printView,
         bool $editable,
         bool $isBrowseDistinct,
@@ -1169,7 +1138,6 @@ class Sql
                     $statementInfo->isMaint,
                     $statementInfo->isExplain,
                     $statementInfo->isShow,
-                    $showTable,
                     $printView,
                     $editable,
                     $isBrowseDistinct,
@@ -1307,8 +1275,6 @@ class Sql
         string $sqlQuery,
         string|null $completeQuery,
     ): string {
-        $GLOBALS['showtable'] ??= null;
-
         // If we are retrieving the full value of a truncated field or the original
         // value of a transformed field, show it here
         if (isset($_POST['grid_edit']) && $_POST['grid_edit'] == true) {
@@ -1318,11 +1284,6 @@ class Sql
 
         // Gets the list of fields properties
         $fieldsMeta = $this->dbi->getFieldsMeta($result);
-
-        // Should be initialized these parameters before parsing
-        if (! is_array($GLOBALS['showtable'])) {
-            $GLOBALS['showtable'] = null;
-        }
 
         $response = ResponseRenderer::getInstance();
         $header = $response->getHeader();
@@ -1427,7 +1388,6 @@ class Sql
             $editable,
             $unlimNumRows,
             $numRows,
-            $GLOBALS['showtable'],
             $result,
             $statementInfo,
         );
@@ -1469,7 +1429,6 @@ class Sql
      * @param bool                $isGotoFile          whether goto file or not
      * @param string              $db                  current database
      * @param string|null         $table               current table
-     * @param bool|null           $findRealEnd         whether to find real end or not
      * @param string|null         $sqlQueryForBookmark the sql query to be stored as bookmark
      * @param string|null         $messageToShow       message to show
      * @param mixed[]|null        $sqlData             sql data
@@ -1484,7 +1443,6 @@ class Sql
         bool $isGotoFile,
         string $db,
         string|null $table,
-        bool|null $findRealEnd,
         string|null $sqlQueryForBookmark,
         string|null $messageToShow,
         array|null $sqlData,
@@ -1506,7 +1464,6 @@ class Sql
             $isGotoFile, // is_gotofile
             $db, // db
             $table, // table
-            $findRealEnd, // find_real_end
             $sqlQueryForBookmark, // sql_query_for_bookmark
             $messageToShow, // message_to_show
             $sqlData, // sql_data
@@ -1524,7 +1481,6 @@ class Sql
      * @param bool                $isGotoFile          whether goto file or not
      * @param string              $db                  current database
      * @param string|null         $table               current table
-     * @param bool|null           $findRealEnd         whether to find real end or not
      * @param string|null         $sqlQueryForBookmark the sql query to be stored as bookmark
      * @param string|null         $messageToShow       message to show
      * @param mixed[]|null        $sqlData             sql data
@@ -1541,7 +1497,6 @@ class Sql
         bool $isGotoFile,
         string $db,
         string|null $table,
-        bool|null $findRealEnd,
         string|null $sqlQueryForBookmark,
         string|null $messageToShow,
         array|null $sqlData,
@@ -1611,7 +1566,6 @@ class Sql
             $isGotoFile,
             $db,
             $table,
-            $findRealEnd,
             $sqlQueryForBookmark,
         );
 

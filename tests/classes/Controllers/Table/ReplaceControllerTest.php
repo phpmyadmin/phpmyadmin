@@ -45,7 +45,6 @@ class ReplaceControllerTest extends AbstractTestCase
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
         $GLOBALS['server'] = 1;
-        $GLOBALS['showtable'] = null;
         $GLOBALS['db'] = 'my_db';
         $GLOBALS['table'] = 'test_tbl';
 

@@ -375,11 +375,11 @@ class Table implements Stringable
      *
      * @return int Return no of rows info if it is not null for the selected table or return 0.
      */
-    public function getNumRows(): int
+    public function getNumRows(string $showTableName): int
     {
         $tableNumRowInfo = $this->getStatusInfo('TABLE_ROWS', false, true);
         if ($tableNumRowInfo === false) {
-            $tableNumRowInfo = $this->dbi->getTable($this->dbName, $GLOBALS['showtable']['Name'])
+            $tableNumRowInfo = $this->dbi->getTable($this->dbName, $showTableName)
             ->countRecords(true);
         }
 

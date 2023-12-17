@@ -47,16 +47,13 @@ class SqlController extends AbstractController
         $GLOBALS['ajax_reload'] ??= null;
         $GLOBALS['goto'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
-        $GLOBALS['find_real_end'] ??= null;
         $GLOBALS['unlim_num_rows'] ??= null;
         $GLOBALS['import_text'] ??= null;
         $GLOBALS['disp_query'] ??= null;
         $GLOBALS['message_to_show'] ??= null;
         $GLOBALS['disp_message'] ??= null;
         $GLOBALS['complete_query'] ??= null;
-        $GLOBALS['is_gotofile'] ??= null;
         $GLOBALS['back'] ??= null;
-        $GLOBALS['table_from_sql'] ??= null;
 
         $this->checkUserPrivileges->getPrivileges();
 
@@ -81,7 +78,7 @@ class SqlController extends AbstractController
         /**
          * Defines the url to return to in case of error in a sql statement
          */
-        $GLOBALS['is_gotofile'] = true;
+        $isGotofile = true;
         $config = Config::getInstance();
         if (empty($GLOBALS['goto'])) {
             if (empty($GLOBALS['table'])) {
@@ -141,13 +138,10 @@ class SqlController extends AbstractController
         /**
          * Parse and analyze the query
          */
-        [$statementInfo, $GLOBALS['db'], $GLOBALS['table_from_sql']] = ParseAnalyze::sqlQuery(
-            $GLOBALS['sql_query'],
-            $GLOBALS['db'],
-        );
+        [$statementInfo, $GLOBALS['db'], $tableFromSql] = ParseAnalyze::sqlQuery($GLOBALS['sql_query'], $GLOBALS['db']);
 
-        if ($GLOBALS['table'] != $GLOBALS['table_from_sql'] && ! empty($GLOBALS['table_from_sql'])) {
-            $GLOBALS['table'] = $GLOBALS['table_from_sql'];
+        if ($GLOBALS['table'] != $tableFromSql && $tableFromSql !== '') {
+            $GLOBALS['table'] = $tableFromSql;
         }
 
         /**
@@ -173,13 +167,6 @@ class SqlController extends AbstractController
         }
 
         /**
-         * Need to find the real end of rows?
-         */
-        if (isset($GLOBALS['find_real_end']) && $GLOBALS['find_real_end']) {
-            $GLOBALS['unlim_num_rows'] = $this->sql->findRealEndOfRows($GLOBALS['db'], $GLOBALS['table']);
-        }
-
-        /**
          * Bookmark add
          */
         $storeBkm = $request->hasBodyParam('store_bkm');
@@ -194,7 +181,7 @@ class SqlController extends AbstractController
          * Sets or modifies the $goto variable if required
          */
         if ($GLOBALS['goto'] === Url::getFromRoute('/sql')) {
-            $GLOBALS['is_gotofile'] = false;
+            $isGotofile = false;
             $GLOBALS['goto'] = Url::getFromRoute('/sql', [
                 'db' => $GLOBALS['db'],
                 'table' => $GLOBALS['table'],
@@ -204,10 +191,9 @@ class SqlController extends AbstractController
 
         $this->response->addHTML($this->sql->executeQueryAndSendQueryResponse(
             $statementInfo,
-            $GLOBALS['is_gotofile'],
+            $isGotofile,
             $GLOBALS['db'],
             $GLOBALS['table'],
-            $GLOBALS['find_real_end'] ?? null,
             $GLOBALS['import_text'] ?? null,
             $GLOBALS['message_to_show'] ?? null,
             null,

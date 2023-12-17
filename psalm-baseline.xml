@@ -2402,15 +2402,15 @@
       <code>is_array($partitionNames) ? $partitionNames : []</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
-      <code><![CDATA[$GLOBALS['showtable']['Row_format']]]></code>
+      <code><![CDATA[$showTable['Row_format']]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['auto_increment']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
-      <code><![CDATA[$GLOBALS['showtable']]]></code>
-      <code><![CDATA[$GLOBALS['showtable']]]></code>
       <code>$rereadInfo</code>
+      <code>$showTable</code>
+      <code>$showTable</code>
     </MixedAssignment>
     <PossiblyUnusedMethod>
       <code>__construct</code>
@@ -3207,17 +3207,13 @@
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['disp_query']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['find_real_end']]]></code>
-      <code><![CDATA[$GLOBALS['is_gotofile']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
-      <code><![CDATA[$GLOBALS['table_from_sql']]]></code>
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['disp_message'] ?? null]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['find_real_end'] ?? null]]></code>
       <code><![CDATA[$GLOBALS['message_to_show'] ?? null]]></code>
       <code><![CDATA[$GLOBALS['sql_query']]]></code>
       <code><![CDATA[$GLOBALS['sql_query']]]></code>
@@ -3234,11 +3230,8 @@
       <code><![CDATA[$GLOBALS['disp_query']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['find_real_end']]]></code>
-      <code><![CDATA[$GLOBALS['is_gotofile']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
       <code><![CDATA[$GLOBALS['sql_query']]]></code>
-      <code><![CDATA[$GLOBALS['table_from_sql']]]></code>
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
       <code>$bkmAllUsers</code>
       <code>$sqlQuery</code>
@@ -4105,55 +4098,48 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['showtable']['Check_time']]]></code>
-      <code><![CDATA[$GLOBALS['showtable']['Create_time']]]></code>
-      <code><![CDATA[$GLOBALS['showtable']['Data_free']]]></code>
-      <code><![CDATA[$GLOBALS['showtable']['Data_length']]]></code>
-      <code><![CDATA[$GLOBALS['showtable']['Data_length']
-                + $GLOBALS['showtable']['Index_length']]]></code>
-      <code><![CDATA[$GLOBALS['showtable']['Data_length']
-                + $GLOBALS['showtable']['Index_length']
-                - $GLOBALS['showtable']['Data_free']]]></code>
-      <code><![CDATA[$GLOBALS['showtable']['Data_length'] + $GLOBALS['showtable']['Index_length']]]></code>
-      <code><![CDATA[$GLOBALS['showtable']['Index_length']]]></code>
-      <code><![CDATA[$GLOBALS['showtable']['Update_time']]]></code>
-      <code><![CDATA[($GLOBALS['showtable']['Data_length']
-                + $GLOBALS['showtable']['Index_length'])
-                / $GLOBALS['showtable']['Rows']]]></code>
+      <code><![CDATA[$showTable['Check_time']]]></code>
+      <code><![CDATA[$showTable['Create_time']]]></code>
+      <code><![CDATA[$showTable['Data_free']]]></code>
+      <code><![CDATA[$showTable['Data_length']]]></code>
+      <code><![CDATA[$showTable['Data_length']
+                + $showTable['Index_length']]]></code>
+      <code><![CDATA[$showTable['Data_length']
+                + $showTable['Index_length']
+                - $showTable['Data_free']]]></code>
+      <code><![CDATA[$showTable['Data_length'] + $showTable['Index_length']]]></code>
+      <code><![CDATA[$showTable['Index_length']]]></code>
+      <code><![CDATA[$showTable['Name']]]></code>
+      <code><![CDATA[$showTable['Update_time']]]></code>
+      <code><![CDATA[($showTable['Data_length']
+                + $showTable['Index_length'])
+                / $showTable['Rows']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$GLOBALS['showtable']['Data_length']]]></code>
-      <code><![CDATA[$GLOBALS['showtable']['Index_length']]]></code>
-      <code><![CDATA[$GLOBALS['showtable']['Rows']]]></code>
+      <code><![CDATA[$showTable['Name']]]></code>
+      <code><![CDATA[$showTable['Rows']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
-      <code><![CDATA[$GLOBALS['showtable']['Data_length']]]></code>
-      <code><![CDATA[$GLOBALS['showtable']['Index_length']]]></code>
+      <code><![CDATA[$showTable['Data_length']]]></code>
+      <code><![CDATA[$showTable['Index_length']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['showtable']]]></code>
-      <code><![CDATA[$GLOBALS['showtable']]]></code>
       <code>$attributes[$rownum]</code>
       <code>$rereadInfo</code>
+      <code>$showTable</code>
+      <code>$showTable</code>
     </MixedAssignment>
     <MixedOperand>
-      <code><![CDATA[$GLOBALS['showtable']['Data_length']]]></code>
-      <code><![CDATA[$GLOBALS['showtable']['Data_length']
-                + $GLOBALS['showtable']['Index_length']]]></code>
-      <code><![CDATA[$GLOBALS['showtable']['Index_length']]]></code>
-      <code><![CDATA[$GLOBALS['showtable']['Index_length']]]></code>
-      <code><![CDATA[$GLOBALS['showtable']['Index_length']]]></code>
       <code><![CDATA[$displayedFields[$rownum]->icon]]></code>
       <code><![CDATA[$displayedFields[$rownum]->icon]]></code>
+      <code><![CDATA[$showTable['Data_length']]]></code>
+      <code><![CDATA[$showTable['Data_length']
+                + $showTable['Index_length']]]></code>
+      <code><![CDATA[$showTable['Index_length']]]></code>
+      <code><![CDATA[$showTable['Index_length']]]></code>
+      <code><![CDATA[$showTable['Index_length']]]></code>
     </MixedOperand>
-    <PossiblyNullOperand>
-      <code><![CDATA[$GLOBALS['showtable']['Data_length']]]></code>
-      <code><![CDATA[$GLOBALS['showtable']['Data_length']]]></code>
-      <code><![CDATA[$GLOBALS['showtable']['Index_length']]]></code>
-      <code><![CDATA[$GLOBALS['showtable']['Index_length']]]></code>
-      <code><![CDATA[$GLOBALS['showtable']['Rows']]]></code>
-    </PossiblyNullOperand>
   </file>
   <file src="src/Controllers/Table/TrackingController.php">
     <DeprecatedMethod>
@@ -11326,10 +11312,6 @@
       <code>$sortCol</code>
       <code><![CDATA[$statement->expr]]></code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code>$showTable</code>
-      <code>$showTable</code>
-    </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
@@ -11341,7 +11323,6 @@
       <code><![CDATA[$statementInfo->statement->where[0]]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
-      <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['possible_as_geometry']]]></code>
       <code><![CDATA[$statement->expr[0]]]></code>
     </MixedArrayAssignment>
@@ -11876,7 +11857,6 @@
       <code><![CDATA[$_POST['on_update'][$masterFieldMd5]]]></code>
     </PossiblyInvalidArrayOffset>
     <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['showtable']['Name']]]></code>
       <code><![CDATA[$commentsCopyRow['column_name']]]></code>
       <code><![CDATA[$commentsCopyRow['comment']]]></code>
       <code><![CDATA[$commentsCopyRow['mimetype']]]></code>

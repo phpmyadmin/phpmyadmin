@@ -723,7 +723,6 @@ final class ImportController extends AbstractController
                     false, // is_gotofile
                     $GLOBALS['db'], // db
                     $GLOBALS['table'], // table
-                    null, // find_real_end
                     null, // sql_query_for_bookmark - see below
                     null, // message_to_show
                     null, // sql_data

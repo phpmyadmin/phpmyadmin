@@ -65,7 +65,6 @@ final class JavaScriptMessagesController
             'strDeletingTrackingData' => __('Deleting tracking data'),
             'strDroppingPrimaryKeyIndex' => __('Dropping Primary Key/Index'),
             'strDroppingForeignKey' => __('Dropping Foreign key.'),
-            'strOperationTakesLongTime' => __('This operation could take a long time. Proceed anyway?'),
             'strDropUserGroupWarning' => __('Do you really want to delete user group "%s"?'),
             'strConfirmNavigation' => __('You have unsaved changes; are you sure you want to leave this page?'),
             'strConfirmRowChange' => __(
