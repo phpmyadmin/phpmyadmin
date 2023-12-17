@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-12-10 00:19+0000\n"
+"POT-Creation-Date: 2023-12-17 00:20+0000\n"
 "PO-Revision-Date: 2023-11-05 17:14+0000\n"
 "Last-Translator: \"White Night(SZTU)\" <127086499+WhiteNight-SZTU@users."
 "noreply.github.com>\n"
@@ -473,7 +473,7 @@ msgstr "节点用户"
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:715
-#: src/Import/Import.php:1245 src/Menu.php:226 src/Menu.php:330
+#: src/Import/Import.php:1245 src/Menu.php:220 src/Menu.php:324
 #: src/Navigation/Nodes/NodeColumn.php:40
 #: src/Navigation/Nodes/NodeDatabase.php:56
 #: src/Navigation/Nodes/NodeTable.php:289 src/Util.php:1056 src/Util.php:1483
@@ -1637,7 +1637,7 @@ msgstr "事件名称"
 #: resources/templates/database/tracking/tables.twig:16
 #: resources/templates/table/tracking/main.twig:30
 #: src/Config/ConfigFile.php:579
-#: src/Controllers/JavaScriptMessagesController.php:287 src/Menu.php:458
+#: src/Controllers/JavaScriptMessagesController.php:287 src/Menu.php:452
 #: src/Server/Status/Processes.php:96 src/Util.php:1470
 msgid "Status"
 msgstr "状态"
@@ -1692,7 +1692,7 @@ msgstr "过期后禁用事件而不删除"
 msgid "Definer"
 msgstr "用户"
 
-#: resources/templates/database/events/index.twig:3 src/Menu.php:389
+#: resources/templates/database/events/index.twig:3 src/Menu.php:383
 #: src/Navigation/Nodes/NodeEventContainer.php:23
 #: src/Navigation/Nodes/NodeEventContainer.php:25
 #: src/Plugins/Export/ExportSql.php:949 src/Plugins/Export/ExportXml.php:100
@@ -1755,8 +1755,8 @@ msgstr "全选"
 #: resources/templates/triggers/list.twig:18
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
-#: src/Controllers/JavaScriptMessagesController.php:385 src/Menu.php:253
-#: src/Menu.php:355 src/Menu.php:477 src/Server/Privileges.php:1288
+#: src/Controllers/JavaScriptMessagesController.php:385 src/Menu.php:247
+#: src/Menu.php:349 src/Menu.php:471 src/Server/Privileges.php:1288
 #: src/Util.php:1472 src/Util.php:1487 src/Util.php:1504
 msgid "Export"
 msgstr "导出"
@@ -2117,8 +2117,8 @@ msgstr "主机名"
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:21
 #: src/Config/ConfigFile.php:583
-#: src/Controllers/Server/PrivilegesController.php:412 src/Menu.php:269
-#: src/Menu.php:377 src/Util.php:1490 src/Util.php:1506
+#: src/Controllers/Server/PrivilegesController.php:412 src/Menu.php:263
+#: src/Menu.php:371 src/Util.php:1490 src/Util.php:1506
 msgid "Privileges"
 msgstr "权限"
 
@@ -2270,7 +2270,7 @@ msgstr "程序参数"
 msgid "Function"
 msgstr "函数"
 
-#: resources/templates/database/routines/index.twig:3 src/Menu.php:383
+#: resources/templates/database/routines/index.twig:3 src/Menu.php:377
 #: src/Util.php:1491
 msgid "Routines"
 msgstr "程序"
@@ -2282,8 +2282,8 @@ msgstr "程序"
 #: resources/templates/server/databases/index.twig:76
 #: resources/templates/server/databases/index.twig:77
 #: src/Config/ConfigFile.php:523 src/Config/ConfigFile.php:537
-#: src/Config/ConfigFile.php:591 src/Config/ConfigFile.php:601 src/Menu.php:235
-#: src/Menu.php:339 src/Navigation/Nodes/NodeTable.php:290 src/Util.php:1058
+#: src/Config/ConfigFile.php:591 src/Config/ConfigFile.php:601 src/Menu.php:229
+#: src/Menu.php:333 src/Navigation/Nodes/NodeTable.php:290 src/Util.php:1058
 #: src/Util.php:1485 src/Util.php:1502
 msgid "Search"
 msgstr "搜索"
@@ -2373,7 +2373,7 @@ msgstr[0] "在 <strong>%2$s</strong> 中找到 %1$s 个"
 #: resources/templates/database/structure/structure_table_row.twig:43
 #: resources/templates/table/structure/display_structure.twig:282
 #: src/Config/ConfigFile.php:527 src/Config/ConfigFile.php:541
-#: src/Config/ConfigFile.php:605 src/Menu.php:219
+#: src/Config/ConfigFile.php:605 src/Menu.php:213
 #: src/Navigation/Nodes/NodeTable.php:293 src/Util.php:1060 src/Util.php:1499
 msgid "Browse"
 msgstr "浏览"
@@ -2395,7 +2395,7 @@ msgstr[0] "%s 张表"
 
 #: resources/templates/database/structure/body_for_table_summary.twig:11
 #: resources/templates/database/structure/table_header.twig:10
-#: resources/templates/server/replication/index.twig:4 src/Menu.php:509
+#: resources/templates/server/replication/index.twig:4 src/Menu.php:503
 #: src/Server/Status/Data.php:149 src/Util.php:1476
 msgid "Replication"
 msgstr "复制"
@@ -2500,7 +2500,7 @@ msgid "Copy table with prefix"
 msgstr "复制表为新前缀"
 
 #: resources/templates/database/structure/check_all_tables.twig:32
-#: src/Menu.php:417 src/Util.php:1496
+#: src/Menu.php:411 src/Util.php:1496
 msgid "Central columns"
 msgstr "文本框列"
 
@@ -2527,9 +2527,9 @@ msgid ""
 msgstr "该操作有可能影响一些列的定义[br]你确认做此更改吗？"
 
 #: resources/templates/database/structure/copy_form.twig:2
-#: resources/templates/menu/breadcrumbs.twig:16
-#: src/Plugins/Export/ExportLatex.php:241 src/Plugins/Export/ExportSql.php:886
-#: src/Plugins/Export/ExportXml.php:373 src/Plugins/Export/Helpers/Pdf.php:176
+#: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:241
+#: src/Plugins/Export/ExportSql.php:886 src/Plugins/Export/ExportXml.php:373
+#: src/Plugins/Export/Helpers/Pdf.php:176
 msgid "Database:"
 msgstr "数据库："
 
@@ -2648,7 +2648,7 @@ msgstr "已复制"
 
 #: resources/templates/database/structure/structure_table_row.twig:59
 #: resources/templates/sql/query.twig:74 src/Config/ConfigFile.php:525
-#: src/Config/ConfigFile.php:539 src/Config/ConfigFile.php:603 src/Menu.php:246
+#: src/Config/ConfigFile.php:539 src/Config/ConfigFile.php:603 src/Menu.php:240
 #: src/Navigation/Nodes/NodeTable.php:291 src/Util.php:1059 src/Util.php:1503
 msgid "Insert"
 msgstr "插入"
@@ -3300,7 +3300,7 @@ msgstr "暗色"
 
 #: resources/templates/header.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
-#: src/Controllers/JavaScriptMessagesController.php:217 src/Menu.php:487
+#: src/Controllers/JavaScriptMessagesController.php:217 src/Menu.php:481
 #: src/Util.php:1474
 msgid "Settings"
 msgstr "设置"
@@ -3403,8 +3403,7 @@ msgid "Database server"
 msgstr "数据库服务器"
 
 #: resources/templates/home/index.twig:181
-#: resources/templates/login/form.twig:64
-#: resources/templates/menu/breadcrumbs.twig:7
+#: resources/templates/login/form.twig:64 resources/templates/menu/main.twig:7
 msgid "Server:"
 msgstr "服务器："
 
@@ -3529,8 +3528,8 @@ msgstr "返回"
 #: resources/templates/preferences/manage/main.twig:3
 #: resources/templates/server/status/monitor/index.twig:61
 #: src/Config/Forms/User/ImportForm.php:58
-#: src/Controllers/JavaScriptMessagesController.php:322 src/Menu.php:262
-#: src/Menu.php:365 src/Menu.php:482 src/Util.php:1473 src/Util.php:1488
+#: src/Controllers/JavaScriptMessagesController.php:322 src/Menu.php:256
+#: src/Menu.php:359 src/Menu.php:476 src/Util.php:1473 src/Util.php:1488
 #: src/Util.php:1505
 msgid "Import"
 msgstr "导入"
@@ -3781,14 +3780,23 @@ msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm login on the device."
 msgstr "请连接您的 WebAuthn/FIDO2 设备。然后在设备上确认登录。"
 
-#: resources/templates/menu/breadcrumbs.twig:27
+#: resources/templates/menu/main.twig:27
 msgid "View:"
 msgstr "视图："
 
-#: resources/templates/menu/breadcrumbs.twig:29
-#: src/Plugins/Export/Helpers/Pdf.php:177
+#: resources/templates/menu/main.twig:29 src/Plugins/Export/Helpers/Pdf.php:177
 msgid "Table:"
 msgstr "表:"
+
+#. l10n: Show or hide the menu using the hamburger style button
+#: resources/templates/menu/main.twig:43
+msgid "Toggle navigation"
+msgstr "切换导航"
+
+#. l10n: Current page
+#: resources/templates/menu/main.twig:59
+msgid "(current)"
+msgstr "（当前的）"
 
 #: resources/templates/modals/build_query.twig:16
 #: resources/templates/sql/query.twig:175
@@ -3862,7 +3870,7 @@ msgstr "SQL 上传"
 #: resources/templates/server/export/index.twig:11
 #: resources/templates/server/privileges/user_properties.twig:20
 #: src/Config/ConfigFile.php:577 src/Config/Descriptions.php:728
-#: src/Config/Descriptions.php:739 src/Menu.php:448 src/Util.php:1468
+#: src/Config/Descriptions.php:739 src/Menu.php:442 src/Util.php:1468
 msgid "Databases"
 msgstr "数据库"
 
@@ -4279,7 +4287,7 @@ msgstr ""
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr "请重新登录 phpMyAdmin 以加载新配置并使其生效。"
 
-#: resources/templates/server/binlog/index.twig:2 src/Menu.php:502
+#: resources/templates/server/binlog/index.twig:2 src/Menu.php:496
 #: src/Server/Status/Data.php:144 src/Util.php:1475
 msgid "Binary log"
 msgstr "二进制日志"
@@ -4413,7 +4421,7 @@ msgstr "说明"
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:20
 #: resources/templates/sql/query.twig:188 src/Config/ConfigFile.php:581
-#: src/Menu.php:515 src/Server/Status/Data.php:211 src/Util.php:1477
+#: src/Menu.php:509 src/Server/Status/Data.php:211 src/Util.php:1477
 msgid "Variables"
 msgstr "变量"
 
@@ -4433,7 +4441,7 @@ msgstr "正在从当前服务器中导出数据库"
 msgid "Importing into the current server"
 msgstr "正在导入到当前服务器"
 
-#: resources/templates/server/plugins/index.twig:3 src/Menu.php:530
+#: resources/templates/server/plugins/index.twig:3 src/Menu.php:524
 #: src/Util.php:1479
 msgid "Plugins"
 msgstr "插件"
@@ -6520,7 +6528,7 @@ msgstr "刷新表 (FLUSH)"
 
 #: resources/templates/table/operations/index.twig:411
 #: resources/templates/table/operations/index.twig:429
-#: src/Controllers/Database/StructureController.php:404
+#: src/Controllers/Database/StructureController.php:408
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "已清空表 %s。"
@@ -6535,13 +6543,13 @@ msgstr "清空数据表 (DELETE FROM)"
 
 #: resources/templates/table/operations/index.twig:452
 #: resources/templates/table/operations/view.twig:32
-#: src/Controllers/Database/StructureController.php:356
+#: src/Controllers/Database/StructureController.php:360
 #, php-format
 msgid "View %s has been dropped."
 msgstr "已删除视图 %s。"
 
 #: resources/templates/table/operations/index.twig:452
-#: src/Controllers/Database/StructureController.php:357
+#: src/Controllers/Database/StructureController.php:361
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "已删除表 %s。"
@@ -6564,8 +6572,8 @@ msgid "Check referential integrity"
 msgstr "检查引用完整性"
 
 #: resources/templates/table/operations/view.twig:3
-#: src/Config/ConfigFile.php:593 src/Menu.php:280 src/Menu.php:290
-#: src/Menu.php:370 src/Util.php:1061 src/Util.php:1489 src/Util.php:1507
+#: src/Config/ConfigFile.php:593 src/Menu.php:274 src/Menu.php:284
+#: src/Menu.php:364 src/Util.php:1061 src/Util.php:1489 src/Util.php:1507
 msgid "Operations"
 msgstr "操作"
 
@@ -7008,16 +7016,6 @@ msgid "One table"
 msgid_plural "%count% tables"
 msgstr[0] "使用表"
 
-#. l10n: Show or hide the menu using the hamburger style button
-#: resources/templates/top_menu.twig:1
-msgid "Toggle navigation"
-msgstr "切换导航"
-
-#. l10n: Current page
-#: resources/templates/top_menu.twig:14
-msgid "(current)"
-msgstr "（当前的）"
-
 #: resources/templates/transformation_overview.twig:1
 msgid "Available media types"
 msgstr "可用的媒体类型"
@@ -7061,7 +7059,7 @@ msgstr "事件"
 msgid "Export of trigger %s"
 msgstr "导出触发器 %s"
 
-#: resources/templates/triggers/list.twig:3 src/Menu.php:303 src/Menu.php:396
+#: resources/templates/triggers/list.twig:3 src/Menu.php:297 src/Menu.php:390
 #: src/Navigation/Nodes/NodeTriggerContainer.php:25
 #: src/Navigation/Nodes/NodeTriggerContainer.php:27
 #: src/Plugins/Export/ExportHtmlword.php:534
@@ -8542,8 +8540,8 @@ msgstr "越南语"
 
 #: src/Config/ConfigFile.php:521 src/Config/ConfigFile.php:535
 #: src/Config/ConfigFile.php:589 src/Config/ConfigFile.php:599
-#: src/Config/Descriptions.php:755 src/Menu.php:231 src/Menu.php:335
-#: src/Menu.php:453 src/Navigation/Nodes/NodeTable.php:292 src/Util.php:1057
+#: src/Config/Descriptions.php:755 src/Menu.php:225 src/Menu.php:329
+#: src/Menu.php:447 src/Navigation/Nodes/NodeTable.php:292 src/Util.php:1057
 #: src/Util.php:1469 src/Util.php:1484 src/Util.php:1501
 msgid "SQL"
 msgstr "SQL"
@@ -10432,7 +10430,7 @@ msgstr "导航面板宽度"
 
 #: src/Config/Descriptions.php:811
 #: src/Controllers/JavaScriptMessagesController.php:607
-#: src/Navigation/NavigationTree.php:1281
+#: src/Navigation/NavigationTree.php:1282
 msgid "Link with main panel"
 msgstr "与主面板链接"
 
@@ -10520,7 +10518,7 @@ msgstr "展开单个数据库"
 msgid "Recently used tables"
 msgstr "最近使用的表"
 
-#: src/Config/Descriptions.php:835 src/RecentFavoriteTable.php:223
+#: src/Config/Descriptions.php:835 src/Favorites/RecentFavoriteTables.php:236
 msgid "Favorite tables"
 msgstr "表收藏夹"
 
@@ -11368,9 +11366,9 @@ msgstr "已经有名为 “%s” 的页面了，请重新命名。"
 #: src/Controllers/Database/SearchController.php:58
 #: src/Controllers/Database/SqlController.php:64
 #: src/Controllers/Database/SqlController.php:69
-#: src/Controllers/Database/StructureController.php:140
-#: src/Controllers/Database/StructureController.php:145
-#: src/Controllers/Database/Structure/FavoriteTableController.php:79
+#: src/Controllers/Database/StructureController.php:143
+#: src/Controllers/Database/StructureController.php:148
+#: src/Controllers/Database/Structure/FavoriteTableController.php:82
 #: src/Controllers/Database/Structure/RealRowCountController.php:61
 #: src/Controllers/Database/TrackingController.php:62
 #: src/Controllers/Database/TrackingController.php:67
@@ -11590,7 +11588,7 @@ msgstr "[code]$cfg['UseDbSearch'][/code] 配置禁用了数据库内部搜索。
 msgid "Success!"
 msgstr "成功！"
 
-#: src/Controllers/Database/StructureController.php:569
+#: src/Controllers/Database/StructureController.php:578
 #: src/Display/Results.php:3539
 #, php-format
 msgid ""
@@ -11598,11 +11596,11 @@ msgid ""
 "%sdocumentation%s."
 msgstr "此视图的行数最少有这么多。请参阅%s档案%s。"
 
-#: src/Controllers/Database/StructureController.php:749
+#: src/Controllers/Database/StructureController.php:741
 msgid "unknown"
 msgstr "未知"
 
-#: src/Controllers/Database/Structure/FavoriteTableController.php:113
+#: src/Controllers/Database/Structure/FavoriteTableController.php:118
 msgid "Favorite List is full!"
 msgstr "收藏夹数量已达上限！"
 
@@ -11657,26 +11655,26 @@ msgstr "类型无效！"
 msgid "Bad parameters!"
 msgstr "参数无效！"
 
-#: src/Controllers/HomeController.php:101
+#: src/Controllers/HomeController.php:102
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
 "您已从一台服务器退出登录，要从phpMyAdmin完全退出，您需要从所有服务器退出。"
 
-#: src/Controllers/HomeController.php:198
+#: src/Controllers/HomeController.php:199
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr "phpMyAdmin 高级功能尚未完全设置，部分功能未激活。%s查找原因%s。 "
 
-#: src/Controllers/HomeController.php:204
+#: src/Controllers/HomeController.php:205
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr "或者也可以去某个数据库的“操作”选项卡那里进行设置。"
 
-#: src/Controllers/HomeController.php:272
+#: src/Controllers/HomeController.php:273
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -11688,7 +11686,7 @@ msgstr ""
 "中设置的 Cookies 有效期，因此您的登录会话有效期可能会比您在 phpMyAdmin 中设置"
 "的时间要更短。"
 
-#: src/Controllers/HomeController.php:292
+#: src/Controllers/HomeController.php:293
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -11696,7 +11694,7 @@ msgstr ""
 "phpMyAdmin 中所设置的登录 cookie 存储小于 cookie 有效期，因此您的登录过期时间"
 "将会比您在 phpMyAdmin 中设置的时间要更短。"
 
-#: src/Controllers/HomeController.php:311
+#: src/Controllers/HomeController.php:312
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -11705,7 +11703,7 @@ msgstr ""
 "您的服务器使用控制用户（controluser）和密码（controlpass）的默认值运行，可能"
 "会遭到入侵；你确实应该通过改变控制用户“pma”的密码来解决这个安全漏洞。"
 
-#: src/Controllers/HomeController.php:330
+#: src/Controllers/HomeController.php:331
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
@@ -11714,7 +11712,7 @@ msgstr ""
 "配置文件需要一个有效的密钥才能进行 Cookie 加密。已为您自动生成临时密钥。请参"
 "阅 [doc@cfg_blowfish_secret] 文档 [/doc]。"
 
-#: src/Controllers/HomeController.php:340
+#: src/Controllers/HomeController.php:341
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -11724,7 +11722,7 @@ msgstr ""
 "配置文件中的 Cookie 加密密钥比所需的时间长。它的长度应仅为 %d 字节。请参阅 "
 "[doc@cfg_blowfish_secret] 文档 [/doc]。"
 
-#: src/Controllers/HomeController.php:358
+#: src/Controllers/HomeController.php:359
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -11735,14 +11733,14 @@ msgstr ""
 "phpMyAdmin 安装后立即删除该文件夹。否则未经授权的用户都可以下载您的配置文件从"
 "而使服务器陷入危险。"
 
-#: src/Controllers/HomeController.php:379
+#: src/Controllers/HomeController.php:380
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr "服务器上运行了 Suhosin。请查看%s文档%s了解可能发生的问题。"
 
-#: src/Controllers/HomeController.php:393
+#: src/Controllers/HomeController.php:394
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -11751,7 +11749,7 @@ msgstr ""
 "变量 $cfg['TempDir'] （%s）无法访问。phpMyAdmin无法缓存模板文件，所以会运行缓"
 "慢。"
 
-#: src/Controllers/HomeController.php:450
+#: src/Controllers/HomeController.php:451
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -11760,7 +11758,7 @@ msgstr ""
 "没有找到 PHP 扩展 mbstring，而您现在正在使用多字节字符集。没有 mbstring 扩展"
 "的 phpMyAdmin 不能正确分割字符串并可能产生意料之外的结果。"
 
-#: src/Controllers/HomeController.php:468
+#: src/Controllers/HomeController.php:469
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -13103,7 +13101,7 @@ msgid "Hide panel"
 msgstr "隐藏导航面板"
 
 #: src/Controllers/JavaScriptMessagesController.php:608
-#: src/Navigation/NavigationTree.php:1284
+#: src/Navigation/NavigationTree.php:1285
 msgid "Unlink from main panel"
 msgstr "从主面板取消链接"
 
@@ -14610,7 +14608,7 @@ msgstr "对多个表的维护操作是禁用的。"
 msgid "The partition name must be a non-empty string."
 msgstr "分区名称必须是一个非空的字符串。"
 
-#: src/Controllers/Table/RecentFavoriteController.php:27
+#: src/Controllers/Table/RecentFavoriteController.php:29
 msgid "Invalid database or table name."
 msgstr "无效的数据库或表名。"
 
@@ -14725,7 +14723,7 @@ msgstr "无法删除不存在中央列的 %1$s 列！"
 msgid "Could not remove columns!"
 msgstr "无法移除列！"
 
-#: src/Database/Designer/Common.php:479
+#: src/Database/Designer/Common.php:473
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
@@ -14733,43 +14731,43 @@ msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr "phpMyAdmin配置存储并没有针对“显示功能”进行配置。"
 
-#: src/Database/Designer/Common.php:526
+#: src/Database/Designer/Common.php:520
 msgid "Error: relationship already exists."
 msgstr "错误：关系已存在。"
 
-#: src/Database/Designer/Common.php:575
+#: src/Database/Designer/Common.php:569
 msgid "FOREIGN KEY relationship has been added."
 msgstr "已添加外键关联。"
 
-#: src/Database/Designer/Common.php:580
+#: src/Database/Designer/Common.php:574
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "错误：无法添加外键关系！"
 
-#: src/Database/Designer/Common.php:583
+#: src/Database/Designer/Common.php:577
 msgid "Error: Missing index on column(s)."
 msgstr "错误：列上缺少索引。"
 
-#: src/Database/Designer/Common.php:588 src/Database/Designer/Common.php:654
+#: src/Database/Designer/Common.php:582 src/Database/Designer/Common.php:648
 msgid "Error: Relational features are disabled!"
 msgstr "错误：关系功能被禁用！"
 
-#: src/Database/Designer/Common.php:609
+#: src/Database/Designer/Common.php:603
 msgid "Internal relationship has been added."
 msgstr "已添加内联关系。"
 
-#: src/Database/Designer/Common.php:614
+#: src/Database/Designer/Common.php:608
 msgid "Error: Internal relationship could not be added!"
 msgstr "错误：内联关系无法添加！"
 
-#: src/Database/Designer/Common.php:648
+#: src/Database/Designer/Common.php:642
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "已移除外键关联。"
 
-#: src/Database/Designer/Common.php:673
+#: src/Database/Designer/Common.php:667
 msgid "Error: Internal relationship could not be removed!"
 msgstr "错误：内联关系无法移除！"
 
-#: src/Database/Designer/Common.php:676
+#: src/Database/Designer/Common.php:670
 msgid "Internal relationship has been removed."
 msgstr "已移除内联关系。"
 
@@ -15317,6 +15315,26 @@ msgstr "已保存转储到文件 %s 中。"
 msgid "Exporting a raw query is not supported for this export method."
 msgstr "此导出方法不支持导出原始查询。"
 
+#: src/Favorites/RecentFavoriteTables.php:157
+msgid "Could not save recent table!"
+msgstr "无法保存最近使用的表！"
+
+#: src/Favorites/RecentFavoriteTables.php:158
+msgid "Could not save favorite table!"
+msgstr "无法保存到表收藏夹！"
+
+#: src/Favorites/RecentFavoriteTables.php:232
+msgid "Recent tables"
+msgstr "最近使用的表"
+
+#: src/Favorites/RecentFavoriteTables.php:234
+msgid "Recent"
+msgstr "近期访问"
+
+#: src/Favorites/RecentFavoriteTables.php:238
+msgid "Favorites"
+msgstr "表收藏夹"
+
 #: src/File.php:225
 msgid "File was not an uploaded file."
 msgstr "文件不是上传的文件。"
@@ -15597,31 +15615,31 @@ msgstr "由于超出最大长度，本次查询结果的归整化已禁用。"
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr "%1$s (<code>%2$s</code> 附近)"
 
-#: src/Menu.php:296 src/Menu.php:403 src/Util.php:1494 src/Util.php:1508
+#: src/Menu.php:290 src/Menu.php:397 src/Util.php:1494 src/Util.php:1508
 msgid "Tracking"
 msgstr "追踪"
 
-#: src/Menu.php:344 src/Menu.php:352 src/Menu.php:360
+#: src/Menu.php:338 src/Menu.php:346 src/Menu.php:354
 msgid "Database seems to be empty!"
 msgstr "数据库是空的！"
 
-#: src/Menu.php:347 src/Util.php:1486
+#: src/Menu.php:341 src/Util.php:1486
 msgid "Query"
 msgstr "查询"
 
-#: src/Menu.php:410 src/Util.php:1495
+#: src/Menu.php:404 src/Util.php:1495
 msgid "Designer"
 msgstr "设计器"
 
-#: src/Menu.php:471
+#: src/Menu.php:465
 msgid "User accounts"
 msgstr "账户"
 
-#: src/Menu.php:520 src/Util.php:1478
+#: src/Menu.php:514 src/Util.php:1478
 msgid "Charsets"
 msgstr "字符集"
 
-#: src/Menu.php:525 src/Util.php:1480
+#: src/Menu.php:519 src/Util.php:1480
 msgid "Engines"
 msgstr "引擎"
 
@@ -15663,23 +15681,23 @@ msgstr "存储过程："
 msgid "Views:"
 msgstr "视图："
 
-#: src/Navigation/NavigationTree.php:734
+#: src/Navigation/NavigationTree.php:735
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr "导航面板中存在较大的项目组合，可能影响性能。请考虑禁用项目组合。"
 
-#: src/Navigation/NavigationTree.php:794
+#: src/Navigation/NavigationTree.php:795
 msgid "Groups"
 msgstr "组"
 
-#: src/Navigation/NavigationTree.php:902
+#: src/Navigation/NavigationTree.php:903
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] "找到 %s 条结果"
 
-#: src/Navigation/NavigationTree.php:1276
+#: src/Navigation/NavigationTree.php:1277
 msgid "Collapse all"
 msgstr "全部折叠"
 
@@ -17061,26 +17079,6 @@ msgstr "请检查数据库所在文件夹的权限。"
 #: src/Query/Utilities.php:114
 msgid "Details…"
 msgstr "详细…"
-
-#: src/RecentFavoriteTable.php:141
-msgid "Could not save recent table!"
-msgstr "无法保存最近使用的表！"
-
-#: src/RecentFavoriteTable.php:142
-msgid "Could not save favorite table!"
-msgstr "无法保存到表收藏夹！"
-
-#: src/RecentFavoriteTable.php:219
-msgid "Recent tables"
-msgstr "最近使用的表"
-
-#: src/RecentFavoriteTable.php:221
-msgid "Recent"
-msgstr "近期访问"
-
-#: src/RecentFavoriteTable.php:225
-msgid "Favorites"
-msgstr "表收藏夹"
 
 #: src/Replication/ReplicationGui.php:417
 msgid ""

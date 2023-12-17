@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-12-10 00:19+0000\n"
+"POT-Creation-Date: 2023-12-17 00:20+0000\n"
 "PO-Revision-Date: 2023-11-27 14:26+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
@@ -475,7 +475,7 @@ msgstr "Grupo de nós"
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:715
-#: src/Import/Import.php:1245 src/Menu.php:226 src/Menu.php:330
+#: src/Import/Import.php:1245 src/Menu.php:220 src/Menu.php:324
 #: src/Navigation/Nodes/NodeColumn.php:40
 #: src/Navigation/Nodes/NodeDatabase.php:56
 #: src/Navigation/Nodes/NodeTable.php:289 src/Util.php:1056 src/Util.php:1483
@@ -1648,7 +1648,7 @@ msgstr "Nome do evento"
 #: resources/templates/database/tracking/tables.twig:16
 #: resources/templates/table/tracking/main.twig:30
 #: src/Config/ConfigFile.php:579
-#: src/Controllers/JavaScriptMessagesController.php:287 src/Menu.php:458
+#: src/Controllers/JavaScriptMessagesController.php:287 src/Menu.php:452
 #: src/Server/Status/Processes.php:96 src/Util.php:1470
 msgid "Status"
 msgstr "Status"
@@ -1703,7 +1703,7 @@ msgstr "Guardar após a conclusão"
 msgid "Definer"
 msgstr "Definidor"
 
-#: resources/templates/database/events/index.twig:3 src/Menu.php:389
+#: resources/templates/database/events/index.twig:3 src/Menu.php:383
 #: src/Navigation/Nodes/NodeEventContainer.php:23
 #: src/Navigation/Nodes/NodeEventContainer.php:25
 #: src/Plugins/Export/ExportSql.php:949 src/Plugins/Export/ExportXml.php:100
@@ -1766,8 +1766,8 @@ msgstr "Marcar todos"
 #: resources/templates/triggers/list.twig:18
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
-#: src/Controllers/JavaScriptMessagesController.php:385 src/Menu.php:253
-#: src/Menu.php:355 src/Menu.php:477 src/Server/Privileges.php:1288
+#: src/Controllers/JavaScriptMessagesController.php:385 src/Menu.php:247
+#: src/Menu.php:349 src/Menu.php:471 src/Server/Privileges.php:1288
 #: src/Util.php:1472 src/Util.php:1487 src/Util.php:1504
 msgid "Export"
 msgstr "Exportar"
@@ -2132,8 +2132,8 @@ msgstr "Nome do Host"
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:21
 #: src/Config/ConfigFile.php:583
-#: src/Controllers/Server/PrivilegesController.php:412 src/Menu.php:269
-#: src/Menu.php:377 src/Util.php:1490 src/Util.php:1506
+#: src/Controllers/Server/PrivilegesController.php:412 src/Menu.php:263
+#: src/Menu.php:371 src/Util.php:1490 src/Util.php:1506
 msgid "Privileges"
 msgstr "Privilégios"
 
@@ -2287,7 +2287,7 @@ msgstr "Parâmetros da rotina"
 msgid "Function"
 msgstr "Função"
 
-#: resources/templates/database/routines/index.twig:3 src/Menu.php:383
+#: resources/templates/database/routines/index.twig:3 src/Menu.php:377
 #: src/Util.php:1491
 msgid "Routines"
 msgstr "Rotinas"
@@ -2299,8 +2299,8 @@ msgstr "Rotinas"
 #: resources/templates/server/databases/index.twig:76
 #: resources/templates/server/databases/index.twig:77
 #: src/Config/ConfigFile.php:523 src/Config/ConfigFile.php:537
-#: src/Config/ConfigFile.php:591 src/Config/ConfigFile.php:601 src/Menu.php:235
-#: src/Menu.php:339 src/Navigation/Nodes/NodeTable.php:290 src/Util.php:1058
+#: src/Config/ConfigFile.php:591 src/Config/ConfigFile.php:601 src/Menu.php:229
+#: src/Menu.php:333 src/Navigation/Nodes/NodeTable.php:290 src/Util.php:1058
 #: src/Util.php:1485 src/Util.php:1502
 msgid "Search"
 msgstr "Procurar"
@@ -2391,7 +2391,7 @@ msgstr[1] "%1$s resultados em <strong>%2$s</strong>"
 #: resources/templates/database/structure/structure_table_row.twig:43
 #: resources/templates/table/structure/display_structure.twig:282
 #: src/Config/ConfigFile.php:527 src/Config/ConfigFile.php:541
-#: src/Config/ConfigFile.php:605 src/Menu.php:219
+#: src/Config/ConfigFile.php:605 src/Menu.php:213
 #: src/Navigation/Nodes/NodeTable.php:293 src/Util.php:1060 src/Util.php:1499
 msgid "Browse"
 msgstr "Visualizar"
@@ -2415,7 +2415,7 @@ msgstr[1] "%s tabelas"
 
 #: resources/templates/database/structure/body_for_table_summary.twig:11
 #: resources/templates/database/structure/table_header.twig:10
-#: resources/templates/server/replication/index.twig:4 src/Menu.php:509
+#: resources/templates/server/replication/index.twig:4 src/Menu.php:503
 #: src/Server/Status/Data.php:149 src/Util.php:1476
 msgid "Replication"
 msgstr "Replicação"
@@ -2520,7 +2520,7 @@ msgid "Copy table with prefix"
 msgstr "Copiar tabelas com prefixo"
 
 #: resources/templates/database/structure/check_all_tables.twig:32
-#: src/Menu.php:417 src/Util.php:1496
+#: src/Menu.php:411 src/Util.php:1496
 msgid "Central columns"
 msgstr "Colunas centrais"
 
@@ -2549,9 +2549,9 @@ msgstr ""
 "que deseja continuar?"
 
 #: resources/templates/database/structure/copy_form.twig:2
-#: resources/templates/menu/breadcrumbs.twig:16
-#: src/Plugins/Export/ExportLatex.php:241 src/Plugins/Export/ExportSql.php:886
-#: src/Plugins/Export/ExportXml.php:373 src/Plugins/Export/Helpers/Pdf.php:176
+#: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:241
+#: src/Plugins/Export/ExportSql.php:886 src/Plugins/Export/ExportXml.php:373
+#: src/Plugins/Export/Helpers/Pdf.php:176
 msgid "Database:"
 msgstr "Banco de dados:"
 
@@ -2673,7 +2673,7 @@ msgstr "Replicado"
 
 #: resources/templates/database/structure/structure_table_row.twig:59
 #: resources/templates/sql/query.twig:74 src/Config/ConfigFile.php:525
-#: src/Config/ConfigFile.php:539 src/Config/ConfigFile.php:603 src/Menu.php:246
+#: src/Config/ConfigFile.php:539 src/Config/ConfigFile.php:603 src/Menu.php:240
 #: src/Navigation/Nodes/NodeTable.php:291 src/Util.php:1059 src/Util.php:1503
 msgid "Insert"
 msgstr "Inserir"
@@ -3325,7 +3325,7 @@ msgstr "Escuro"
 
 #: resources/templates/header.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
-#: src/Controllers/JavaScriptMessagesController.php:217 src/Menu.php:487
+#: src/Controllers/JavaScriptMessagesController.php:217 src/Menu.php:481
 #: src/Util.php:1474
 msgid "Settings"
 msgstr "Configurações"
@@ -3429,8 +3429,7 @@ msgid "Database server"
 msgstr "Servidor de banco de dados"
 
 #: resources/templates/home/index.twig:181
-#: resources/templates/login/form.twig:64
-#: resources/templates/menu/breadcrumbs.twig:7
+#: resources/templates/login/form.twig:64 resources/templates/menu/main.twig:7
 msgid "Server:"
 msgstr "Servidor:"
 
@@ -3555,8 +3554,8 @@ msgstr "Voltar"
 #: resources/templates/preferences/manage/main.twig:3
 #: resources/templates/server/status/monitor/index.twig:61
 #: src/Config/Forms/User/ImportForm.php:58
-#: src/Controllers/JavaScriptMessagesController.php:322 src/Menu.php:262
-#: src/Menu.php:365 src/Menu.php:482 src/Util.php:1473 src/Util.php:1488
+#: src/Controllers/JavaScriptMessagesController.php:322 src/Menu.php:256
+#: src/Menu.php:359 src/Menu.php:476 src/Util.php:1473 src/Util.php:1488
 #: src/Util.php:1505
 msgid "Import"
 msgstr "Importar"
@@ -3833,14 +3832,23 @@ msgstr ""
 "Por favor, conecte seu aparelho WebAuthn/FIDO2. Então confirme o login no "
 "aparelho."
 
-#: resources/templates/menu/breadcrumbs.twig:27
+#: resources/templates/menu/main.twig:27
 msgid "View:"
 msgstr "View:"
 
-#: resources/templates/menu/breadcrumbs.twig:29
-#: src/Plugins/Export/Helpers/Pdf.php:177
+#: resources/templates/menu/main.twig:29 src/Plugins/Export/Helpers/Pdf.php:177
 msgid "Table:"
 msgstr "Tabela:"
+
+#. l10n: Show or hide the menu using the hamburger style button
+#: resources/templates/menu/main.twig:43
+msgid "Toggle navigation"
+msgstr "Alternar a navegação"
+
+#. l10n: Current page
+#: resources/templates/menu/main.twig:59
+msgid "(current)"
+msgstr "(atual)"
 
 #: resources/templates/modals/build_query.twig:16
 #: resources/templates/sql/query.twig:175
@@ -3914,7 +3922,7 @@ msgstr "Envio de SQL"
 #: resources/templates/server/export/index.twig:11
 #: resources/templates/server/privileges/user_properties.twig:20
 #: src/Config/ConfigFile.php:577 src/Config/Descriptions.php:728
-#: src/Config/Descriptions.php:739 src/Menu.php:448 src/Util.php:1468
+#: src/Config/Descriptions.php:739 src/Menu.php:442 src/Util.php:1468
 msgid "Databases"
 msgstr "Bancos de dados"
 
@@ -4361,7 +4369,7 @@ msgstr ""
 "Logar novamente no phpMyAdmin para carregar o arquivo de configuração "
 "atualizado."
 
-#: resources/templates/server/binlog/index.twig:2 src/Menu.php:502
+#: resources/templates/server/binlog/index.twig:2 src/Menu.php:496
 #: src/Server/Status/Data.php:144 src/Util.php:1475
 msgid "Binary log"
 msgstr "Log binário"
@@ -4496,7 +4504,7 @@ msgstr "Descrição"
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:20
 #: resources/templates/sql/query.twig:188 src/Config/ConfigFile.php:581
-#: src/Menu.php:515 src/Server/Status/Data.php:211 src/Util.php:1477
+#: src/Menu.php:509 src/Server/Status/Data.php:211 src/Util.php:1477
 msgid "Variables"
 msgstr "Variáveis"
 
@@ -4516,7 +4524,7 @@ msgstr "Exportando os bancos de dados do servidor atual"
 msgid "Importing into the current server"
 msgstr "Importando para o servidor atual"
 
-#: resources/templates/server/plugins/index.twig:3 src/Menu.php:530
+#: resources/templates/server/plugins/index.twig:3 src/Menu.php:524
 #: src/Util.php:1479
 msgid "Plugins"
 msgstr "Plugins"
@@ -6683,7 +6691,7 @@ msgstr "Limpar a tabela (FLUSH)"
 
 #: resources/templates/table/operations/index.twig:411
 #: resources/templates/table/operations/index.twig:429
-#: src/Controllers/Database/StructureController.php:404
+#: src/Controllers/Database/StructureController.php:408
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "A tabela %s foi esvaziada."
@@ -6698,13 +6706,13 @@ msgstr "Esvaziar a tabela (DELETE FROM)"
 
 #: resources/templates/table/operations/index.twig:452
 #: resources/templates/table/operations/view.twig:32
-#: src/Controllers/Database/StructureController.php:356
+#: src/Controllers/Database/StructureController.php:360
 #, php-format
 msgid "View %s has been dropped."
 msgstr "A view %s foi apagada."
 
 #: resources/templates/table/operations/index.twig:452
-#: src/Controllers/Database/StructureController.php:357
+#: src/Controllers/Database/StructureController.php:361
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "A tabela %s foi apagada."
@@ -6727,8 +6735,8 @@ msgid "Check referential integrity"
 msgstr "Verificar integridade referencial"
 
 #: resources/templates/table/operations/view.twig:3
-#: src/Config/ConfigFile.php:593 src/Menu.php:280 src/Menu.php:290
-#: src/Menu.php:370 src/Util.php:1061 src/Util.php:1489 src/Util.php:1507
+#: src/Config/ConfigFile.php:593 src/Menu.php:274 src/Menu.php:284
+#: src/Menu.php:364 src/Util.php:1061 src/Util.php:1489 src/Util.php:1507
 msgid "Operations"
 msgstr "Operações"
 
@@ -7178,16 +7186,6 @@ msgid_plural "%count% tables"
 msgstr[0] "Usar tabelas"
 msgstr[1] "Usar tabelas"
 
-#. l10n: Show or hide the menu using the hamburger style button
-#: resources/templates/top_menu.twig:1
-msgid "Toggle navigation"
-msgstr "Alternar a navegação"
-
-#. l10n: Current page
-#: resources/templates/top_menu.twig:14
-msgid "(current)"
-msgstr "(atual)"
-
 #: resources/templates/transformation_overview.twig:1
 msgid "Available media types"
 msgstr "Tipos de mídia disponíveis"
@@ -7231,7 +7229,7 @@ msgstr "Evento"
 msgid "Export of trigger %s"
 msgstr "Exportação do acionador %s"
 
-#: resources/templates/triggers/list.twig:3 src/Menu.php:303 src/Menu.php:396
+#: resources/templates/triggers/list.twig:3 src/Menu.php:297 src/Menu.php:390
 #: src/Navigation/Nodes/NodeTriggerContainer.php:25
 #: src/Navigation/Nodes/NodeTriggerContainer.php:27
 #: src/Plugins/Export/ExportHtmlword.php:534
@@ -8873,8 +8871,8 @@ msgstr "Vietnamita"
 
 #: src/Config/ConfigFile.php:521 src/Config/ConfigFile.php:535
 #: src/Config/ConfigFile.php:589 src/Config/ConfigFile.php:599
-#: src/Config/Descriptions.php:755 src/Menu.php:231 src/Menu.php:335
-#: src/Menu.php:453 src/Navigation/Nodes/NodeTable.php:292 src/Util.php:1057
+#: src/Config/Descriptions.php:755 src/Menu.php:225 src/Menu.php:329
+#: src/Menu.php:447 src/Navigation/Nodes/NodeTable.php:292 src/Util.php:1057
 #: src/Util.php:1469 src/Util.php:1484 src/Util.php:1501
 msgid "SQL"
 msgstr "SQL"
@@ -10947,7 +10945,7 @@ msgstr "Largura do painel de navegação"
 
 #: src/Config/Descriptions.php:811
 #: src/Controllers/JavaScriptMessagesController.php:607
-#: src/Navigation/NavigationTree.php:1281
+#: src/Navigation/NavigationTree.php:1282
 msgid "Link with main panel"
 msgstr "Fazer ligação com painel principal"
 
@@ -11037,7 +11035,7 @@ msgstr "Expandir banco de dados único"
 msgid "Recently used tables"
 msgstr "Tabelas recentemente utilizadas"
 
-#: src/Config/Descriptions.php:835 src/RecentFavoriteTable.php:223
+#: src/Config/Descriptions.php:835 src/Favorites/RecentFavoriteTables.php:236
 msgid "Favorite tables"
 msgstr "Tabelas favoritas"
 
@@ -11925,9 +11923,9 @@ msgstr ""
 #: src/Controllers/Database/SearchController.php:58
 #: src/Controllers/Database/SqlController.php:64
 #: src/Controllers/Database/SqlController.php:69
-#: src/Controllers/Database/StructureController.php:140
-#: src/Controllers/Database/StructureController.php:145
-#: src/Controllers/Database/Structure/FavoriteTableController.php:79
+#: src/Controllers/Database/StructureController.php:143
+#: src/Controllers/Database/StructureController.php:148
+#: src/Controllers/Database/Structure/FavoriteTableController.php:82
 #: src/Controllers/Database/Structure/RealRowCountController.php:61
 #: src/Controllers/Database/TrackingController.php:62
 #: src/Controllers/Database/TrackingController.php:67
@@ -12154,7 +12152,7 @@ msgstr ""
 msgid "Success!"
 msgstr "Sucesso!"
 
-#: src/Controllers/Database/StructureController.php:569
+#: src/Controllers/Database/StructureController.php:578
 #: src/Display/Results.php:3539
 #, php-format
 msgid ""
@@ -12164,11 +12162,11 @@ msgstr ""
 "Esta view tem pelo menos esse número de linhas. Por favor, consulte a "
 "%sdocumentação%s."
 
-#: src/Controllers/Database/StructureController.php:749
+#: src/Controllers/Database/StructureController.php:741
 msgid "unknown"
 msgstr "desconhecido"
 
-#: src/Controllers/Database/Structure/FavoriteTableController.php:113
+#: src/Controllers/Database/Structure/FavoriteTableController.php:118
 msgid "Favorite List is full!"
 msgstr "A lista de favoritos está cheia!"
 
@@ -12231,7 +12229,7 @@ msgstr "Tipo incorreto!"
 msgid "Bad parameters!"
 msgstr "Parâmetros incorretos!"
 
-#: src/Controllers/HomeController.php:101
+#: src/Controllers/HomeController.php:102
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
@@ -12239,7 +12237,7 @@ msgstr ""
 "Você foi desconectado de um servidor, para se desconectar completamente do "
 "phpMyAdmin, é necessário que se desconecte de todos os servidores."
 
-#: src/Controllers/HomeController.php:198
+#: src/Controllers/HomeController.php:199
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -12249,14 +12247,14 @@ msgstr ""
 "configurado, algumas funções avançadas foram desativadas. %sDescubra "
 "porque%s. "
 
-#: src/Controllers/HomeController.php:204
+#: src/Controllers/HomeController.php:205
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Ou, alternativamente, vá à aba 'Operações' de qualquer banco de dados para "
 "configurá-lo lá."
 
-#: src/Controllers/HomeController.php:272
+#: src/Controllers/HomeController.php:273
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -12268,7 +12266,7 @@ msgstr ""
 "que a validade de cookies configurada no phpMyAdmin, por isso, o seu login "
 "poderá expirar mais cedo do que o configurado no phpMyAdmin."
 
-#: src/Controllers/HomeController.php:292
+#: src/Controllers/HomeController.php:293
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -12277,7 +12275,7 @@ msgstr ""
 "phpMyAdmin, por isso, o seu login expirará mais cedo do que o configurado no "
 "phpMyAdmin."
 
-#: src/Controllers/HomeController.php:311
+#: src/Controllers/HomeController.php:312
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -12287,7 +12285,7 @@ msgstr ""
 "(controlpass) e está aberto para intrusão; você realmente deve corrigir essa "
 "falha de segurança alterando a senha para o controluser 'pma'."
 
-#: src/Controllers/HomeController.php:330
+#: src/Controllers/HomeController.php:331
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
@@ -12297,7 +12295,7 @@ msgstr ""
 "cookies. Uma chave temporária foi gerada automaticamente para você. Por "
 "favor consulte a [doc@cfg_blowfish_secret]documentação[/doc]."
 
-#: src/Controllers/HomeController.php:340
+#: src/Controllers/HomeController.php:341
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -12308,7 +12306,7 @@ msgstr ""
 "que o necessário. Ela deve ter apenas %d bytes de comprimento. Por favor "
 "consulte a [doc@cfg_blowfish_secret]documentação[/doc]."
 
-#: src/Controllers/HomeController.php:358
+#: src/Controllers/HomeController.php:359
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -12321,7 +12319,7 @@ msgstr ""
 "servidor pode ser comprometida por indivíduos não autorizados realizando "
 "downloads de suas configurações."
 
-#: src/Controllers/HomeController.php:379
+#: src/Controllers/HomeController.php:380
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -12330,7 +12328,7 @@ msgstr ""
 "Servidor rodando com Suhosin. Favor utilizar a %sdocumentação%s para "
 "possíveis problemas."
 
-#: src/Controllers/HomeController.php:393
+#: src/Controllers/HomeController.php:394
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -12339,7 +12337,7 @@ msgstr ""
 "O $cfg['TempDir'](%s) não está acessível. phpMyAdmin não será capaz de "
 "cachear os modelos e deve ficar mais lento por causa disso."
 
-#: src/Controllers/HomeController.php:450
+#: src/Controllers/HomeController.php:451
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12350,7 +12348,7 @@ msgstr ""
 "será capaz de dividir as strings corretamente e isso pode causar resultados "
 "inesperados."
 
-#: src/Controllers/HomeController.php:468
+#: src/Controllers/HomeController.php:469
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -13771,7 +13769,7 @@ msgid "Hide panel"
 msgstr "Ocultar painel"
 
 #: src/Controllers/JavaScriptMessagesController.php:608
-#: src/Navigation/NavigationTree.php:1284
+#: src/Navigation/NavigationTree.php:1285
 msgid "Unlink from main panel"
 msgstr "Encerrar ligação com painel principal"
 
@@ -15381,7 +15379,7 @@ msgstr "Operações de manutenção em várias tabelas estão desabilitadas."
 msgid "The partition name must be a non-empty string."
 msgstr "O nome da partição deve ser uma string não vazia."
 
-#: src/Controllers/Table/RecentFavoriteController.php:27
+#: src/Controllers/Table/RecentFavoriteController.php:29
 msgid "Invalid database or table name."
 msgstr "Nome de banco de dados ou tabela inválido."
 
@@ -15505,7 +15503,7 @@ msgstr ""
 msgid "Could not remove columns!"
 msgstr "Não foi possível remover a coluna!"
 
-#: src/Database/Designer/Common.php:479
+#: src/Database/Designer/Common.php:473
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
@@ -15515,43 +15513,43 @@ msgstr ""
 "O armazenamento de configuração do phpMyAdmin não está configurado para "
 "\"Mostrar Recursos\"."
 
-#: src/Database/Designer/Common.php:526
+#: src/Database/Designer/Common.php:520
 msgid "Error: relationship already exists."
 msgstr "Erro: relacionamento já existe."
 
-#: src/Database/Designer/Common.php:575
+#: src/Database/Designer/Common.php:569
 msgid "FOREIGN KEY relationship has been added."
 msgstr "Relacionamento de FOREIGN KEY foi adicionado."
 
-#: src/Database/Designer/Common.php:580
+#: src/Database/Designer/Common.php:574
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Erro: Relacionamento de FOREIGN KEY não pôde ser adicionado!"
 
-#: src/Database/Designer/Common.php:583
+#: src/Database/Designer/Common.php:577
 msgid "Error: Missing index on column(s)."
 msgstr "Erro: Falta o Índice(s) de coluna(s)."
 
-#: src/Database/Designer/Common.php:588 src/Database/Designer/Common.php:654
+#: src/Database/Designer/Common.php:582 src/Database/Designer/Common.php:648
 msgid "Error: Relational features are disabled!"
 msgstr "Erro: Relacionamentos estão desativados!"
 
-#: src/Database/Designer/Common.php:609
+#: src/Database/Designer/Common.php:603
 msgid "Internal relationship has been added."
 msgstr "Relacionamento interno foi adicionado."
 
-#: src/Database/Designer/Common.php:614
+#: src/Database/Designer/Common.php:608
 msgid "Error: Internal relationship could not be added!"
 msgstr "Erro: Não foi possível adicionar relacionamento interno!"
 
-#: src/Database/Designer/Common.php:648
+#: src/Database/Designer/Common.php:642
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "Relacionamento de FOREIGN KEY foi removido."
 
-#: src/Database/Designer/Common.php:673
+#: src/Database/Designer/Common.php:667
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Erro: Relacionamento interno não pôde ser removido!"
 
-#: src/Database/Designer/Common.php:676
+#: src/Database/Designer/Common.php:670
 msgid "Internal relationship has been removed."
 msgstr "Relacionamento interno foi removido."
 
@@ -16147,6 +16145,26 @@ msgstr ""
 "A exportação de uma consulta bruta não é suportada para este método de "
 "exportação."
 
+#: src/Favorites/RecentFavoriteTables.php:157
+msgid "Could not save recent table!"
+msgstr "Não foi possível salvar a tabela recente!"
+
+#: src/Favorites/RecentFavoriteTables.php:158
+msgid "Could not save favorite table!"
+msgstr "Não foi possível salvar a tabela favorita!"
+
+#: src/Favorites/RecentFavoriteTables.php:232
+msgid "Recent tables"
+msgstr "Tabelas recentes"
+
+#: src/Favorites/RecentFavoriteTables.php:234
+msgid "Recent"
+msgstr "Recente"
+
+#: src/Favorites/RecentFavoriteTables.php:238
+msgid "Favorites"
+msgstr "Favoritos"
+
 #: src/File.php:225
 msgid "File was not an uploaded file."
 msgstr "Arquivo não era um arquivo carregado."
@@ -16442,31 +16460,31 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr "%1$s (próximo a <code>%2$s</code>)"
 
-#: src/Menu.php:296 src/Menu.php:403 src/Util.php:1494 src/Util.php:1508
+#: src/Menu.php:290 src/Menu.php:397 src/Util.php:1494 src/Util.php:1508
 msgid "Tracking"
 msgstr "Monitoramento"
 
-#: src/Menu.php:344 src/Menu.php:352 src/Menu.php:360
+#: src/Menu.php:338 src/Menu.php:346 src/Menu.php:354
 msgid "Database seems to be empty!"
 msgstr "O banco de dados parece estar vazio!"
 
-#: src/Menu.php:347 src/Util.php:1486
+#: src/Menu.php:341 src/Util.php:1486
 msgid "Query"
 msgstr "Consulta"
 
-#: src/Menu.php:410 src/Util.php:1495
+#: src/Menu.php:404 src/Util.php:1495
 msgid "Designer"
 msgstr "Designer"
 
-#: src/Menu.php:471
+#: src/Menu.php:465
 msgid "User accounts"
 msgstr "Contas de usuário"
 
-#: src/Menu.php:520 src/Util.php:1478
+#: src/Menu.php:514 src/Util.php:1478
 msgid "Charsets"
 msgstr "Charsets"
 
-#: src/Menu.php:525 src/Util.php:1480
+#: src/Menu.php:519 src/Util.php:1480
 msgid "Engines"
 msgstr "Motores"
 
@@ -16511,7 +16529,7 @@ msgstr "Procedimentos:"
 msgid "Views:"
 msgstr "Views:"
 
-#: src/Navigation/NavigationTree.php:734
+#: src/Navigation/NavigationTree.php:735
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
@@ -16519,18 +16537,18 @@ msgstr ""
 "Há grandes grupos de itens no painel de navegação que podem afetar o "
 "desempenho. Considere desativar agrupamento item no painel de navegação."
 
-#: src/Navigation/NavigationTree.php:794
+#: src/Navigation/NavigationTree.php:795
 msgid "Groups"
 msgstr "Grupos"
 
-#: src/Navigation/NavigationTree.php:902
+#: src/Navigation/NavigationTree.php:903
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] "%s resultado encontrado"
 msgstr[1] "%s resultados encontrados"
 
-#: src/Navigation/NavigationTree.php:1276
+#: src/Navigation/NavigationTree.php:1277
 msgid "Collapse all"
 msgstr "Reduzir tudo"
 
@@ -18011,26 +18029,6 @@ msgstr ""
 #: src/Query/Utilities.php:114
 msgid "Details…"
 msgstr "Detalhes…"
-
-#: src/RecentFavoriteTable.php:141
-msgid "Could not save recent table!"
-msgstr "Não foi possível salvar a tabela recente!"
-
-#: src/RecentFavoriteTable.php:142
-msgid "Could not save favorite table!"
-msgstr "Não foi possível salvar a tabela favorita!"
-
-#: src/RecentFavoriteTable.php:219
-msgid "Recent tables"
-msgstr "Tabelas recentes"
-
-#: src/RecentFavoriteTable.php:221
-msgid "Recent"
-msgstr "Recente"
-
-#: src/RecentFavoriteTable.php:225
-msgid "Favorites"
-msgstr "Favoritos"
 
 #: src/Replication/ReplicationGui.php:417
 msgid ""

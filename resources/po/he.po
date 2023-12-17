@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-12-10 00:19+0000\n"
+"POT-Creation-Date: 2023-12-17 00:20+0000\n"
 "PO-Revision-Date: 2021-07-22 19:35+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -519,7 +519,7 @@ msgstr "משתמש"
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:715
-#: src/Import/Import.php:1245 src/Menu.php:226 src/Menu.php:330
+#: src/Import/Import.php:1245 src/Menu.php:220 src/Menu.php:324
 #: src/Navigation/Nodes/NodeColumn.php:40
 #: src/Navigation/Nodes/NodeDatabase.php:56
 #: src/Navigation/Nodes/NodeTable.php:289 src/Util.php:1056 src/Util.php:1483
@@ -1790,7 +1790,7 @@ msgstr "סוג אירוע"
 #: resources/templates/database/tracking/tables.twig:16
 #: resources/templates/table/tracking/main.twig:30
 #: src/Config/ConfigFile.php:579
-#: src/Controllers/JavaScriptMessagesController.php:287 src/Menu.php:458
+#: src/Controllers/JavaScriptMessagesController.php:287 src/Menu.php:452
 #: src/Server/Status/Processes.php:96 src/Util.php:1470
 msgid "Status"
 msgstr "מצב"
@@ -1853,7 +1853,7 @@ msgstr "השלם הכנסות"
 msgid "Definer"
 msgstr ""
 
-#: resources/templates/database/events/index.twig:3 src/Menu.php:389
+#: resources/templates/database/events/index.twig:3 src/Menu.php:383
 #: src/Navigation/Nodes/NodeEventContainer.php:23
 #: src/Navigation/Nodes/NodeEventContainer.php:25
 #: src/Plugins/Export/ExportSql.php:949 src/Plugins/Export/ExportXml.php:100
@@ -1916,8 +1916,8 @@ msgstr "סימון הכול"
 #: resources/templates/triggers/list.twig:18
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
-#: src/Controllers/JavaScriptMessagesController.php:385 src/Menu.php:253
-#: src/Menu.php:355 src/Menu.php:477 src/Server/Privileges.php:1288
+#: src/Controllers/JavaScriptMessagesController.php:385 src/Menu.php:247
+#: src/Menu.php:349 src/Menu.php:471 src/Server/Privileges.php:1288
 #: src/Util.php:1472 src/Util.php:1487 src/Util.php:1504
 msgid "Export"
 msgstr "יצוא"
@@ -2296,8 +2296,8 @@ msgstr "שם מארח"
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:21
 #: src/Config/ConfigFile.php:583
-#: src/Controllers/Server/PrivilegesController.php:412 src/Menu.php:269
-#: src/Menu.php:377 src/Util.php:1490 src/Util.php:1506
+#: src/Controllers/Server/PrivilegesController.php:412 src/Menu.php:263
+#: src/Menu.php:371 src/Util.php:1490 src/Util.php:1506
 msgid "Privileges"
 msgstr "הרשאות"
 
@@ -2468,7 +2468,7 @@ msgstr ""
 msgid "Function"
 msgstr "פונקציה"
 
-#: resources/templates/database/routines/index.twig:3 src/Menu.php:383
+#: resources/templates/database/routines/index.twig:3 src/Menu.php:377
 #: src/Util.php:1491
 msgid "Routines"
 msgstr ""
@@ -2480,8 +2480,8 @@ msgstr ""
 #: resources/templates/server/databases/index.twig:76
 #: resources/templates/server/databases/index.twig:77
 #: src/Config/ConfigFile.php:523 src/Config/ConfigFile.php:537
-#: src/Config/ConfigFile.php:591 src/Config/ConfigFile.php:601 src/Menu.php:235
-#: src/Menu.php:339 src/Navigation/Nodes/NodeTable.php:290 src/Util.php:1058
+#: src/Config/ConfigFile.php:591 src/Config/ConfigFile.php:601 src/Menu.php:229
+#: src/Menu.php:333 src/Navigation/Nodes/NodeTable.php:290 src/Util.php:1058
 #: src/Util.php:1485 src/Util.php:1502
 msgid "Search"
 msgstr "חיפוש"
@@ -2580,7 +2580,7 @@ msgstr[1] "%1$s תוצאות בטבלה <i>%2$s</i>"
 #: resources/templates/database/structure/structure_table_row.twig:43
 #: resources/templates/table/structure/display_structure.twig:282
 #: src/Config/ConfigFile.php:527 src/Config/ConfigFile.php:541
-#: src/Config/ConfigFile.php:605 src/Menu.php:219
+#: src/Config/ConfigFile.php:605 src/Menu.php:213
 #: src/Navigation/Nodes/NodeTable.php:293 src/Util.php:1060 src/Util.php:1499
 msgid "Browse"
 msgstr "עיון"
@@ -2604,7 +2604,7 @@ msgstr[1] "%s טבלאות"
 
 #: resources/templates/database/structure/body_for_table_summary.twig:11
 #: resources/templates/database/structure/table_header.twig:10
-#: resources/templates/server/replication/index.twig:4 src/Menu.php:509
+#: resources/templates/server/replication/index.twig:4 src/Menu.php:503
 #: src/Server/Status/Data.php:149 src/Util.php:1476
 msgid "Replication"
 msgstr "שכפול"
@@ -2719,7 +2719,7 @@ msgid "Copy table with prefix"
 msgstr "העתקת הטבלה עם קידומת"
 
 #: resources/templates/database/structure/check_all_tables.twig:32
-#: src/Menu.php:417 src/Util.php:1496
+#: src/Menu.php:411 src/Util.php:1496
 msgid "Central columns"
 msgstr "עמודות מרכזיות"
 
@@ -2750,9 +2750,9 @@ msgid ""
 msgstr "פעולה זו עשויה לשנות חלק מהגדרת העמודות.[br]להמשיך בפעולה?"
 
 #: resources/templates/database/structure/copy_form.twig:2
-#: resources/templates/menu/breadcrumbs.twig:16
-#: src/Plugins/Export/ExportLatex.php:241 src/Plugins/Export/ExportSql.php:886
-#: src/Plugins/Export/ExportXml.php:373 src/Plugins/Export/Helpers/Pdf.php:176
+#: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:241
+#: src/Plugins/Export/ExportSql.php:886 src/Plugins/Export/ExportXml.php:373
+#: src/Plugins/Export/Helpers/Pdf.php:176
 #, fuzzy
 #| msgid "Database"
 msgid "Database:"
@@ -2880,7 +2880,7 @@ msgstr "משוכפל"
 
 #: resources/templates/database/structure/structure_table_row.twig:59
 #: resources/templates/sql/query.twig:74 src/Config/ConfigFile.php:525
-#: src/Config/ConfigFile.php:539 src/Config/ConfigFile.php:603 src/Menu.php:246
+#: src/Config/ConfigFile.php:539 src/Config/ConfigFile.php:603 src/Menu.php:240
 #: src/Navigation/Nodes/NodeTable.php:291 src/Util.php:1059 src/Util.php:1503
 msgid "Insert"
 msgstr "הכנסה"
@@ -3564,7 +3564,7 @@ msgstr ""
 
 #: resources/templates/header.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
-#: src/Controllers/JavaScriptMessagesController.php:217 src/Menu.php:487
+#: src/Controllers/JavaScriptMessagesController.php:217 src/Menu.php:481
 #: src/Util.php:1474
 msgid "Settings"
 msgstr "הגדרות"
@@ -3674,8 +3674,7 @@ msgid "Database server"
 msgstr "שרת מסד נתונים"
 
 #: resources/templates/home/index.twig:181
-#: resources/templates/login/form.twig:64
-#: resources/templates/menu/breadcrumbs.twig:7
+#: resources/templates/login/form.twig:64 resources/templates/menu/main.twig:7
 msgid "Server:"
 msgstr "שרת:"
 
@@ -3805,8 +3804,8 @@ msgstr "חזרה"
 #: resources/templates/preferences/manage/main.twig:3
 #: resources/templates/server/status/monitor/index.twig:61
 #: src/Config/Forms/User/ImportForm.php:58
-#: src/Controllers/JavaScriptMessagesController.php:322 src/Menu.php:262
-#: src/Menu.php:365 src/Menu.php:482 src/Util.php:1473 src/Util.php:1488
+#: src/Controllers/JavaScriptMessagesController.php:322 src/Menu.php:256
+#: src/Menu.php:359 src/Menu.php:476 src/Util.php:1473 src/Util.php:1488
 #: src/Util.php:1505
 msgid "Import"
 msgstr "ייבוא"
@@ -4065,18 +4064,29 @@ msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm login on the device."
 msgstr ""
 
-#: resources/templates/menu/breadcrumbs.twig:27
+#: resources/templates/menu/main.twig:27
 #, fuzzy
 #| msgid "Views:"
 msgid "View:"
 msgstr "תצוגות:"
 
-#: resources/templates/menu/breadcrumbs.twig:29
-#: src/Plugins/Export/Helpers/Pdf.php:177
+#: resources/templates/menu/main.twig:29 src/Plugins/Export/Helpers/Pdf.php:177
 #, fuzzy
 #| msgid "Table"
 msgid "Table:"
 msgstr "טבלה"
+
+#. l10n: Show or hide the menu using the hamburger style button
+#: resources/templates/menu/main.twig:43
+#, fuzzy
+#| msgid "Table navigation bar"
+msgid "Toggle navigation"
+msgstr "סרגל ניווט בטבלה"
+
+#. l10n: Current page
+#: resources/templates/menu/main.twig:59
+msgid "(current)"
+msgstr ""
 
 #: resources/templates/modals/build_query.twig:16
 #: resources/templates/sql/query.twig:175
@@ -4156,7 +4166,7 @@ msgstr "תוצאת SQL"
 #: resources/templates/server/export/index.twig:11
 #: resources/templates/server/privileges/user_properties.twig:20
 #: src/Config/ConfigFile.php:577 src/Config/Descriptions.php:728
-#: src/Config/Descriptions.php:739 src/Menu.php:448 src/Util.php:1468
+#: src/Config/Descriptions.php:739 src/Menu.php:442 src/Util.php:1468
 msgid "Databases"
 msgstr "מסדי נתונים"
 
@@ -4621,7 +4631,7 @@ msgstr ""
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr "כניסה מחדש ל־phpMyAdmin כדי לטעון את קובץ התצורה המעודכן."
 
-#: resources/templates/server/binlog/index.twig:2 src/Menu.php:502
+#: resources/templates/server/binlog/index.twig:2 src/Menu.php:496
 #: src/Server/Status/Data.php:144 src/Util.php:1475
 msgid "Binary log"
 msgstr "דו\"ח בינארי"
@@ -4771,7 +4781,7 @@ msgstr "תיאור"
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:20
 #: resources/templates/sql/query.twig:188 src/Config/ConfigFile.php:581
-#: src/Menu.php:515 src/Server/Status/Data.php:211 src/Util.php:1477
+#: src/Menu.php:509 src/Server/Status/Data.php:211 src/Util.php:1477
 msgid "Variables"
 msgstr "משתנים"
 
@@ -4795,7 +4805,7 @@ msgstr "נכשל בכניסה לשרת MySQL"
 msgid "Importing into the current server"
 msgstr "מתבצע ייבוא לתוך השרת הנוכחי"
 
-#: resources/templates/server/plugins/index.twig:3 src/Menu.php:530
+#: resources/templates/server/plugins/index.twig:3 src/Menu.php:524
 #: src/Util.php:1479
 msgid "Plugins"
 msgstr ""
@@ -7073,7 +7083,7 @@ msgstr "פינוי הטבלה (FLUSH)"
 
 #: resources/templates/table/operations/index.twig:411
 #: resources/templates/table/operations/index.twig:429
-#: src/Controllers/Database/StructureController.php:404
+#: src/Controllers/Database/StructureController.php:408
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "הטבלה %s רוקנה."
@@ -7090,13 +7100,13 @@ msgstr "השמטת הטבלה (DROP)"
 
 #: resources/templates/table/operations/index.twig:452
 #: resources/templates/table/operations/view.twig:32
-#: src/Controllers/Database/StructureController.php:356
+#: src/Controllers/Database/StructureController.php:360
 #, php-format
 msgid "View %s has been dropped."
 msgstr "התצוגה %s נשמטה."
 
 #: resources/templates/table/operations/index.twig:452
-#: src/Controllers/Database/StructureController.php:357
+#: src/Controllers/Database/StructureController.php:361
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "הטבלה %s נשמטה."
@@ -7119,8 +7129,8 @@ msgid "Check referential integrity"
 msgstr ""
 
 #: resources/templates/table/operations/view.twig:3
-#: src/Config/ConfigFile.php:593 src/Menu.php:280 src/Menu.php:290
-#: src/Menu.php:370 src/Util.php:1061 src/Util.php:1489 src/Util.php:1507
+#: src/Config/ConfigFile.php:593 src/Menu.php:274 src/Menu.php:284
+#: src/Menu.php:364 src/Util.php:1061 src/Util.php:1489 src/Util.php:1507
 msgid "Operations"
 msgstr "פעולות"
 
@@ -7621,18 +7631,6 @@ msgid_plural "%count% tables"
 msgstr[0] "שימוש בטבלאות"
 msgstr[1] "שימוש בטבלאות"
 
-#. l10n: Show or hide the menu using the hamburger style button
-#: resources/templates/top_menu.twig:1
-#, fuzzy
-#| msgid "Table navigation bar"
-msgid "Toggle navigation"
-msgstr "סרגל ניווט בטבלה"
-
-#. l10n: Current page
-#: resources/templates/top_menu.twig:14
-msgid "(current)"
-msgstr ""
-
 #: resources/templates/transformation_overview.twig:1
 #, fuzzy
 #| msgid "Available MIME types"
@@ -7688,7 +7686,7 @@ msgstr "אירוע"
 msgid "Export of trigger %s"
 msgstr ""
 
-#: resources/templates/triggers/list.twig:3 src/Menu.php:303 src/Menu.php:396
+#: resources/templates/triggers/list.twig:3 src/Menu.php:297 src/Menu.php:390
 #: src/Navigation/Nodes/NodeTriggerContainer.php:25
 #: src/Navigation/Nodes/NodeTriggerContainer.php:27
 #: src/Plugins/Export/ExportHtmlword.php:534
@@ -9139,8 +9137,8 @@ msgstr "וייטנאמי"
 
 #: src/Config/ConfigFile.php:521 src/Config/ConfigFile.php:535
 #: src/Config/ConfigFile.php:589 src/Config/ConfigFile.php:599
-#: src/Config/Descriptions.php:755 src/Menu.php:231 src/Menu.php:335
-#: src/Menu.php:453 src/Navigation/Nodes/NodeTable.php:292 src/Util.php:1057
+#: src/Config/Descriptions.php:755 src/Menu.php:225 src/Menu.php:329
+#: src/Menu.php:447 src/Navigation/Nodes/NodeTable.php:292 src/Util.php:1057
 #: src/Util.php:1469 src/Util.php:1484 src/Util.php:1501
 msgid "SQL"
 msgstr "SQL"
@@ -11010,7 +11008,7 @@ msgstr "רוחב לוח ניווט"
 
 #: src/Config/Descriptions.php:811
 #: src/Controllers/JavaScriptMessagesController.php:607
-#: src/Navigation/NavigationTree.php:1281
+#: src/Navigation/NavigationTree.php:1282
 msgid "Link with main panel"
 msgstr "קישור ללוח הראשי"
 
@@ -11100,7 +11098,7 @@ msgstr "מסד הנתונים מועתק"
 msgid "Recently used tables"
 msgstr "טבלאות שהיו בשימוש לאחרונה"
 
-#: src/Config/Descriptions.php:835 src/RecentFavoriteTable.php:223
+#: src/Config/Descriptions.php:835 src/Favorites/RecentFavoriteTables.php:236
 msgid "Favorite tables"
 msgstr "טבלאות מועדפות"
 
@@ -11936,9 +11934,9 @@ msgstr ""
 #: src/Controllers/Database/SearchController.php:58
 #: src/Controllers/Database/SqlController.php:64
 #: src/Controllers/Database/SqlController.php:69
-#: src/Controllers/Database/StructureController.php:140
-#: src/Controllers/Database/StructureController.php:145
-#: src/Controllers/Database/Structure/FavoriteTableController.php:79
+#: src/Controllers/Database/StructureController.php:143
+#: src/Controllers/Database/StructureController.php:148
+#: src/Controllers/Database/Structure/FavoriteTableController.php:82
 #: src/Controllers/Database/Structure/RealRowCountController.php:61
 #: src/Controllers/Database/TrackingController.php:62
 #: src/Controllers/Database/TrackingController.php:67
@@ -12162,7 +12160,7 @@ msgstr ""
 msgid "Success!"
 msgstr ""
 
-#: src/Controllers/Database/StructureController.php:569
+#: src/Controllers/Database/StructureController.php:578
 #: src/Display/Results.php:3539
 #, php-format
 msgid ""
@@ -12170,11 +12168,11 @@ msgid ""
 "%sdocumentation%s."
 msgstr "לתצוגה זו יש לפחות מספר כזה של שורות. נא לפנות ל%sתיעוד%s."
 
-#: src/Controllers/Database/StructureController.php:749
+#: src/Controllers/Database/StructureController.php:741
 msgid "unknown"
 msgstr "לא ידוע"
 
-#: src/Controllers/Database/Structure/FavoriteTableController.php:113
+#: src/Controllers/Database/Structure/FavoriteTableController.php:118
 msgid "Favorite List is full!"
 msgstr ""
 
@@ -12229,13 +12227,13 @@ msgstr "הסוג שגוי!"
 msgid "Bad parameters!"
 msgstr "פרמטרים שגויים!"
 
-#: src/Controllers/HomeController.php:101
+#: src/Controllers/HomeController.php:102
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr "יצאת משרת אחד, כדי לצאת לחלוטין מ־phpMyAdmin עליך לצאת מכל השרתים."
 
-#: src/Controllers/HomeController.php:198
+#: src/Controllers/HomeController.php:199
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -12244,13 +12242,13 @@ msgstr ""
 "אחסון התצורה של phpMyAdmin לא מוגדר לחלוטין, חלק מהתכונות המורחבות הושבתו. "
 "%sהסיבה%s. "
 
-#: src/Controllers/HomeController.php:204
+#: src/Controllers/HomeController.php:205
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "או לחלופין יש לגשת ללשונית ‚פעולות’ של כל מסד נתונים כדי להגדיר אותו כאן."
 
-#: src/Controllers/HomeController.php:272
+#: src/Controllers/HomeController.php:273
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -12262,7 +12260,7 @@ msgstr ""
 "העוגייה שמוגדר ב־phpMyAdmin, עקב כך, הכניסה שלך צפויה לפוג מוקדם ממה שמוגדר "
 "ב־phpMyAdmin."
 
-#: src/Controllers/HomeController.php:292
+#: src/Controllers/HomeController.php:293
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -12270,21 +12268,21 @@ msgstr ""
 "חנות עוגיית כניסה נמוכה מתוקף עוגייה המוגדר בphpMyAdmin, בגלל זה, הכניסה שלך "
 "תפוג מוקדם יותר מאשר מוגדרת בphpMyAdmin."
 
-#: src/Controllers/HomeController.php:311
+#: src/Controllers/HomeController.php:312
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 
-#: src/Controllers/HomeController.php:330
+#: src/Controllers/HomeController.php:331
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:340
+#: src/Controllers/HomeController.php:341
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -12292,7 +12290,7 @@ msgid ""
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:358
+#: src/Controllers/HomeController.php:359
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -12302,7 +12300,7 @@ msgstr ""
 "מדריך [code]תצורה[/code], שהשתמש על ידי התקנת סקריפט, עוד קיים במדריך "
 "הphpMyAdmin שלך. עדיף לך להסיר אותו בסוף מהתצורה phpMyAdmin."
 
-#: src/Controllers/HomeController.php:379
+#: src/Controllers/HomeController.php:380
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -12310,7 +12308,7 @@ msgid ""
 msgstr ""
 "השרת פעיל עם Suhosin. נא לעיין ב%sתיעוד%s כדי לחקור עוד על תקלות אפשריות."
 
-#: src/Controllers/HomeController.php:393
+#: src/Controllers/HomeController.php:394
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -12319,7 +12317,7 @@ msgstr ""
 "ההגדרה $cfg['TempDir'] (%s) אינה נגישה. ל־phpMyAdmin אין אפשרות לשמור תבניות "
 "והמערכת תאט בעקבות כך."
 
-#: src/Controllers/HomeController.php:450
+#: src/Controllers/HomeController.php:451
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12329,7 +12327,7 @@ msgstr ""
 "mbstring מותקנת, phpMyAdmin אינו יכול לחלק מחרוזות באופן תקין וזה יכול לגרום "
 "לתוצאות לא רצויות."
 
-#: src/Controllers/HomeController.php:468
+#: src/Controllers/HomeController.php:469
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -13704,7 +13702,7 @@ msgid "Hide panel"
 msgstr "הסתרת לוח"
 
 #: src/Controllers/JavaScriptMessagesController.php:608
-#: src/Navigation/NavigationTree.php:1284
+#: src/Navigation/NavigationTree.php:1285
 msgid "Unlink from main panel"
 msgstr "ניתוק מהלוח הראשי"
 
@@ -15270,7 +15268,7 @@ msgstr ""
 msgid "The partition name must be a non-empty string."
 msgstr "שם הטבלה ריק!"
 
-#: src/Controllers/Table/RecentFavoriteController.php:27
+#: src/Controllers/Table/RecentFavoriteController.php:29
 #, fuzzy
 #| msgid "Invalid table name:"
 msgid "Invalid database or table name."
@@ -15393,7 +15391,7 @@ msgstr ""
 msgid "Could not remove columns!"
 msgstr "לא ניתן להסיר עמודות!"
 
-#: src/Database/Designer/Common.php:479
+#: src/Database/Designer/Common.php:473
 #, fuzzy
 #| msgid ""
 #| "The configuration storage is not ready for the central list of columns "
@@ -15405,43 +15403,43 @@ msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr "אחסון התצורה לא מוכן לתכונת רשימת העמודות המרכזית."
 
-#: src/Database/Designer/Common.php:526
+#: src/Database/Designer/Common.php:520
 msgid "Error: relationship already exists."
 msgstr "שגיאה: היחס כבר קיים."
 
-#: src/Database/Designer/Common.php:575
+#: src/Database/Designer/Common.php:569
 msgid "FOREIGN KEY relationship has been added."
 msgstr "נוסף יחס מפתח זר (FOREIGN KEY)."
 
-#: src/Database/Designer/Common.php:580
+#: src/Database/Designer/Common.php:574
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "שגיאה: לא ניתן להוסיף יחס מפתח זר (FOREIGN KEY)!"
 
-#: src/Database/Designer/Common.php:583
+#: src/Database/Designer/Common.php:577
 msgid "Error: Missing index on column(s)."
 msgstr "שגיאה: חסר אינדקס בעמודה/ות."
 
-#: src/Database/Designer/Common.php:588 src/Database/Designer/Common.php:654
+#: src/Database/Designer/Common.php:582 src/Database/Designer/Common.php:648
 msgid "Error: Relational features are disabled!"
 msgstr "שגיאה: תכונות היחסים מושבתות!"
 
-#: src/Database/Designer/Common.php:609
+#: src/Database/Designer/Common.php:603
 msgid "Internal relationship has been added."
 msgstr "נוסף יחס פנימי."
 
-#: src/Database/Designer/Common.php:614
+#: src/Database/Designer/Common.php:608
 msgid "Error: Internal relationship could not be added!"
 msgstr "שגיאה: לא ניתן להוסיף יחס פנימי!"
 
-#: src/Database/Designer/Common.php:648
+#: src/Database/Designer/Common.php:642
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "יחס מפתח זר (FOREIGN KEY) הוסר."
 
-#: src/Database/Designer/Common.php:673
+#: src/Database/Designer/Common.php:667
 msgid "Error: Internal relationship could not be removed!"
 msgstr "שגיאה: לא ניתן להסיר יחס פנימי!"
 
-#: src/Database/Designer/Common.php:676
+#: src/Database/Designer/Common.php:670
 msgid "Internal relationship has been removed."
 msgstr "הוסר יחס פנימי."
 
@@ -15976,6 +15974,35 @@ msgstr "השליפה נשמרה אל הקובץ %s."
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
+#: src/Favorites/RecentFavoriteTables.php:157
+#, fuzzy
+#| msgid "Documentation"
+msgid "Could not save recent table!"
+msgstr "תיעוד"
+
+#: src/Favorites/RecentFavoriteTables.php:158
+#, fuzzy
+#| msgid "Documentation"
+msgid "Could not save favorite table!"
+msgstr "תיעוד"
+
+#: src/Favorites/RecentFavoriteTables.php:232
+#, fuzzy
+msgid "Recent tables"
+msgstr "אין טבלאות"
+
+#: src/Favorites/RecentFavoriteTables.php:234
+#, fuzzy
+#| msgid "Reset"
+msgid "Recent"
+msgstr "איפוס"
+
+#: src/Favorites/RecentFavoriteTables.php:238
+#, fuzzy
+#| msgid "Variables"
+msgid "Favorites"
+msgstr "משתנים"
+
 #: src/File.php:225
 msgid "File was not an uploaded file."
 msgstr ""
@@ -16271,31 +16298,31 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr ""
 
-#: src/Menu.php:296 src/Menu.php:403 src/Util.php:1494 src/Util.php:1508
+#: src/Menu.php:290 src/Menu.php:397 src/Util.php:1494 src/Util.php:1508
 msgid "Tracking"
 msgstr ""
 
-#: src/Menu.php:344 src/Menu.php:352 src/Menu.php:360
+#: src/Menu.php:338 src/Menu.php:346 src/Menu.php:354
 msgid "Database seems to be empty!"
 msgstr ""
 
-#: src/Menu.php:347 src/Util.php:1486
+#: src/Menu.php:341 src/Util.php:1486
 msgid "Query"
 msgstr "שאילתה"
 
-#: src/Menu.php:410 src/Util.php:1495
+#: src/Menu.php:404 src/Util.php:1495
 msgid "Designer"
 msgstr ""
 
-#: src/Menu.php:471
+#: src/Menu.php:465
 msgid "User accounts"
 msgstr "חשבונות משתמשים"
 
-#: src/Menu.php:520 src/Util.php:1478
+#: src/Menu.php:514 src/Util.php:1478
 msgid "Charsets"
 msgstr "קידודים"
 
-#: src/Menu.php:525 src/Util.php:1480
+#: src/Menu.php:519 src/Util.php:1480
 msgid "Engines"
 msgstr "מנועים"
 
@@ -16342,26 +16369,26 @@ msgstr "נהלים:"
 msgid "Views:"
 msgstr "תצוגות:"
 
-#: src/Navigation/NavigationTree.php:734
+#: src/Navigation/NavigationTree.php:735
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
 
-#: src/Navigation/NavigationTree.php:794
+#: src/Navigation/NavigationTree.php:795
 #, fuzzy
 #| msgid "Groups:"
 msgid "Groups"
 msgstr "קבוצות:"
 
-#: src/Navigation/NavigationTree.php:902
+#: src/Navigation/NavigationTree.php:903
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Navigation/NavigationTree.php:1276
+#: src/Navigation/NavigationTree.php:1277
 msgid "Collapse all"
 msgstr ""
 
@@ -17777,35 +17804,6 @@ msgstr ""
 #: src/Query/Utilities.php:114
 msgid "Details…"
 msgstr ""
-
-#: src/RecentFavoriteTable.php:141
-#, fuzzy
-#| msgid "Documentation"
-msgid "Could not save recent table!"
-msgstr "תיעוד"
-
-#: src/RecentFavoriteTable.php:142
-#, fuzzy
-#| msgid "Documentation"
-msgid "Could not save favorite table!"
-msgstr "תיעוד"
-
-#: src/RecentFavoriteTable.php:219
-#, fuzzy
-msgid "Recent tables"
-msgstr "אין טבלאות"
-
-#: src/RecentFavoriteTable.php:221
-#, fuzzy
-#| msgid "Reset"
-msgid "Recent"
-msgstr "איפוס"
-
-#: src/RecentFavoriteTable.php:225
-#, fuzzy
-#| msgid "Variables"
-msgid "Favorites"
-msgstr "משתנים"
 
 #: src/Replication/ReplicationGui.php:417
 msgid ""

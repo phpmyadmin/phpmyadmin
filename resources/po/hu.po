@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-12-10 00:19+0000\n"
+"POT-Creation-Date: 2023-12-17 00:20+0000\n"
 "PO-Revision-Date: 2022-02-17 10:35+0000\n"
 "Last-Translator: Péter Báthory <bathory86p@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -479,7 +479,7 @@ msgstr "Csomópontcsoport"
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:715
-#: src/Import/Import.php:1245 src/Menu.php:226 src/Menu.php:330
+#: src/Import/Import.php:1245 src/Menu.php:220 src/Menu.php:324
 #: src/Navigation/Nodes/NodeColumn.php:40
 #: src/Navigation/Nodes/NodeDatabase.php:56
 #: src/Navigation/Nodes/NodeTable.php:289 src/Util.php:1056 src/Util.php:1483
@@ -1675,7 +1675,7 @@ msgstr "Eseménynév"
 #: resources/templates/database/tracking/tables.twig:16
 #: resources/templates/table/tracking/main.twig:30
 #: src/Config/ConfigFile.php:579
-#: src/Controllers/JavaScriptMessagesController.php:287 src/Menu.php:458
+#: src/Controllers/JavaScriptMessagesController.php:287 src/Menu.php:452
 #: src/Server/Status/Processes.php:96 src/Util.php:1470
 msgid "Status"
 msgstr "Állapot"
@@ -1730,7 +1730,7 @@ msgstr "befejezés során megőrzés"
 msgid "Definer"
 msgstr "Meghatározó"
 
-#: resources/templates/database/events/index.twig:3 src/Menu.php:389
+#: resources/templates/database/events/index.twig:3 src/Menu.php:383
 #: src/Navigation/Nodes/NodeEventContainer.php:23
 #: src/Navigation/Nodes/NodeEventContainer.php:25
 #: src/Plugins/Export/ExportSql.php:949 src/Plugins/Export/ExportXml.php:100
@@ -1793,8 +1793,8 @@ msgstr "Összes bejelölése"
 #: resources/templates/triggers/list.twig:18
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
-#: src/Controllers/JavaScriptMessagesController.php:385 src/Menu.php:253
-#: src/Menu.php:355 src/Menu.php:477 src/Server/Privileges.php:1288
+#: src/Controllers/JavaScriptMessagesController.php:385 src/Menu.php:247
+#: src/Menu.php:349 src/Menu.php:471 src/Server/Privileges.php:1288
 #: src/Util.php:1472 src/Util.php:1487 src/Util.php:1504
 msgid "Export"
 msgstr "Exportálás"
@@ -2195,8 +2195,8 @@ msgstr "Gépnév"
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:21
 #: src/Config/ConfigFile.php:583
-#: src/Controllers/Server/PrivilegesController.php:412 src/Menu.php:269
-#: src/Menu.php:377 src/Util.php:1490 src/Util.php:1506
+#: src/Controllers/Server/PrivilegesController.php:412 src/Menu.php:263
+#: src/Menu.php:371 src/Util.php:1490 src/Util.php:1506
 msgid "Privileges"
 msgstr "Jogok"
 
@@ -2354,7 +2354,7 @@ msgstr "Eljárás paraméterei"
 msgid "Function"
 msgstr "Függvény"
 
-#: resources/templates/database/routines/index.twig:3 src/Menu.php:383
+#: resources/templates/database/routines/index.twig:3 src/Menu.php:377
 #: src/Util.php:1491
 msgid "Routines"
 msgstr "Eljárások"
@@ -2366,8 +2366,8 @@ msgstr "Eljárások"
 #: resources/templates/server/databases/index.twig:76
 #: resources/templates/server/databases/index.twig:77
 #: src/Config/ConfigFile.php:523 src/Config/ConfigFile.php:537
-#: src/Config/ConfigFile.php:591 src/Config/ConfigFile.php:601 src/Menu.php:235
-#: src/Menu.php:339 src/Navigation/Nodes/NodeTable.php:290 src/Util.php:1058
+#: src/Config/ConfigFile.php:591 src/Config/ConfigFile.php:601 src/Menu.php:229
+#: src/Menu.php:333 src/Navigation/Nodes/NodeTable.php:290 src/Util.php:1058
 #: src/Util.php:1485 src/Util.php:1502
 msgid "Search"
 msgstr "Keresés"
@@ -2460,7 +2460,7 @@ msgstr[1] "%1$s találat ebben: <strong>%2$s</strong>"
 #: resources/templates/database/structure/structure_table_row.twig:43
 #: resources/templates/table/structure/display_structure.twig:282
 #: src/Config/ConfigFile.php:527 src/Config/ConfigFile.php:541
-#: src/Config/ConfigFile.php:605 src/Menu.php:219
+#: src/Config/ConfigFile.php:605 src/Menu.php:213
 #: src/Navigation/Nodes/NodeTable.php:293 src/Util.php:1060 src/Util.php:1499
 msgid "Browse"
 msgstr "Tartalom"
@@ -2487,7 +2487,7 @@ msgstr[1] "%s tábla"
 
 #: resources/templates/database/structure/body_for_table_summary.twig:11
 #: resources/templates/database/structure/table_header.twig:10
-#: resources/templates/server/replication/index.twig:4 src/Menu.php:509
+#: resources/templates/server/replication/index.twig:4 src/Menu.php:503
 #: src/Server/Status/Data.php:149 src/Util.php:1476
 msgid "Replication"
 msgstr "Többszörözés"
@@ -2592,7 +2592,7 @@ msgid "Copy table with prefix"
 msgstr "Tábla másolása előtaggal"
 
 #: resources/templates/database/structure/check_all_tables.twig:32
-#: src/Menu.php:417 src/Util.php:1496
+#: src/Menu.php:411 src/Util.php:1496
 msgid "Central columns"
 msgstr "Központi oszlopok"
 
@@ -2621,9 +2621,9 @@ msgstr ""
 "folytatni szeretné?"
 
 #: resources/templates/database/structure/copy_form.twig:2
-#: resources/templates/menu/breadcrumbs.twig:16
-#: src/Plugins/Export/ExportLatex.php:241 src/Plugins/Export/ExportSql.php:886
-#: src/Plugins/Export/ExportXml.php:373 src/Plugins/Export/Helpers/Pdf.php:176
+#: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:241
+#: src/Plugins/Export/ExportSql.php:886 src/Plugins/Export/ExportXml.php:373
+#: src/Plugins/Export/Helpers/Pdf.php:176
 msgid "Database:"
 msgstr "Adatbázis:"
 
@@ -2744,7 +2744,7 @@ msgstr "Többszörözzött"
 
 #: resources/templates/database/structure/structure_table_row.twig:59
 #: resources/templates/sql/query.twig:74 src/Config/ConfigFile.php:525
-#: src/Config/ConfigFile.php:539 src/Config/ConfigFile.php:603 src/Menu.php:246
+#: src/Config/ConfigFile.php:539 src/Config/ConfigFile.php:603 src/Menu.php:240
 #: src/Navigation/Nodes/NodeTable.php:291 src/Util.php:1059 src/Util.php:1503
 msgid "Insert"
 msgstr "Beszúrás"
@@ -3436,7 +3436,7 @@ msgstr ""
 
 #: resources/templates/header.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
-#: src/Controllers/JavaScriptMessagesController.php:217 src/Menu.php:487
+#: src/Controllers/JavaScriptMessagesController.php:217 src/Menu.php:481
 #: src/Util.php:1474
 msgid "Settings"
 msgstr "Beállítások"
@@ -3546,8 +3546,7 @@ msgid "Database server"
 msgstr "Adatbázis-kiszolgáló"
 
 #: resources/templates/home/index.twig:181
-#: resources/templates/login/form.twig:64
-#: resources/templates/menu/breadcrumbs.twig:7
+#: resources/templates/login/form.twig:64 resources/templates/menu/main.twig:7
 msgid "Server:"
 msgstr "Kiszolgáló:"
 
@@ -3677,8 +3676,8 @@ msgstr "Vissza"
 #: resources/templates/preferences/manage/main.twig:3
 #: resources/templates/server/status/monitor/index.twig:61
 #: src/Config/Forms/User/ImportForm.php:58
-#: src/Controllers/JavaScriptMessagesController.php:322 src/Menu.php:262
-#: src/Menu.php:365 src/Menu.php:482 src/Util.php:1473 src/Util.php:1488
+#: src/Controllers/JavaScriptMessagesController.php:322 src/Menu.php:256
+#: src/Menu.php:359 src/Menu.php:476 src/Util.php:1473 src/Util.php:1488
 #: src/Util.php:1505
 msgid "Import"
 msgstr "Importálás"
@@ -3963,16 +3962,27 @@ msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm login on the device."
 msgstr ""
 
-#: resources/templates/menu/breadcrumbs.twig:27
+#: resources/templates/menu/main.twig:27
 #, fuzzy
 #| msgid "Views:"
 msgid "View:"
 msgstr "Nézetek:"
 
-#: resources/templates/menu/breadcrumbs.twig:29
-#: src/Plugins/Export/Helpers/Pdf.php:177
+#: resources/templates/menu/main.twig:29 src/Plugins/Export/Helpers/Pdf.php:177
 msgid "Table:"
 msgstr "Tábla:"
+
+#. l10n: Show or hide the menu using the hamburger style button
+#: resources/templates/menu/main.twig:43
+#, fuzzy
+#| msgid "Table navigation bar"
+msgid "Toggle navigation"
+msgstr "Navigációs sáv"
+
+#. l10n: Current page
+#: resources/templates/menu/main.twig:59
+msgid "(current)"
+msgstr ""
 
 #: resources/templates/modals/build_query.twig:16
 #: resources/templates/sql/query.twig:175
@@ -4052,7 +4062,7 @@ msgstr "SQL kiírás"
 #: resources/templates/server/export/index.twig:11
 #: resources/templates/server/privileges/user_properties.twig:20
 #: src/Config/ConfigFile.php:577 src/Config/Descriptions.php:728
-#: src/Config/Descriptions.php:739 src/Menu.php:448 src/Util.php:1468
+#: src/Config/Descriptions.php:739 src/Menu.php:442 src/Util.php:1468
 msgid "Databases"
 msgstr "Adatbázisok"
 
@@ -4537,7 +4547,7 @@ msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 "Jelentkezzen be újra a phpMyAdminba a frissített beállítófájl betöltéséhez."
 
-#: resources/templates/server/binlog/index.twig:2 src/Menu.php:502
+#: resources/templates/server/binlog/index.twig:2 src/Menu.php:496
 #: src/Server/Status/Data.php:144 src/Util.php:1475
 msgid "Binary log"
 msgstr "Bináris napló"
@@ -4689,7 +4699,7 @@ msgstr "Leírás"
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:20
 #: resources/templates/sql/query.twig:188 src/Config/ConfigFile.php:581
-#: src/Menu.php:515 src/Server/Status/Data.php:211 src/Util.php:1477
+#: src/Menu.php:509 src/Server/Status/Data.php:211 src/Util.php:1477
 msgid "Variables"
 msgstr "Változók"
 
@@ -4713,7 +4723,7 @@ msgstr "Adatbázisok exportálása a jelenlegi kiszolgálóról"
 msgid "Importing into the current server"
 msgstr "Importálás a jelenlegi kiszolgálóra"
 
-#: resources/templates/server/plugins/index.twig:3 src/Menu.php:530
+#: resources/templates/server/plugins/index.twig:3 src/Menu.php:524
 #: src/Util.php:1479
 msgid "Plugins"
 msgstr "Bővítmények"
@@ -7050,7 +7060,7 @@ msgstr "Tábla kiöblítése (FLUSH)"
 
 #: resources/templates/table/operations/index.twig:411
 #: resources/templates/table/operations/index.twig:429
-#: src/Controllers/Database/StructureController.php:404
+#: src/Controllers/Database/StructureController.php:408
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "A(z) %s tábla kiürítése megtörtént."
@@ -7067,13 +7077,13 @@ msgstr "Tábla kiürítése (TRUNCATE)"
 
 #: resources/templates/table/operations/index.twig:452
 #: resources/templates/table/operations/view.twig:32
-#: src/Controllers/Database/StructureController.php:356
+#: src/Controllers/Database/StructureController.php:360
 #, php-format
 msgid "View %s has been dropped."
 msgstr "A(z) %s nézet el lett dobva."
 
 #: resources/templates/table/operations/index.twig:452
-#: src/Controllers/Database/StructureController.php:357
+#: src/Controllers/Database/StructureController.php:361
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "A(z) %s tábla el lett dobva."
@@ -7098,8 +7108,8 @@ msgid "Check referential integrity"
 msgstr "Hivatkozási sértetlenség ellenőrzése:"
 
 #: resources/templates/table/operations/view.twig:3
-#: src/Config/ConfigFile.php:593 src/Menu.php:280 src/Menu.php:290
-#: src/Menu.php:370 src/Util.php:1061 src/Util.php:1489 src/Util.php:1507
+#: src/Config/ConfigFile.php:593 src/Menu.php:274 src/Menu.php:284
+#: src/Menu.php:364 src/Util.php:1061 src/Util.php:1489 src/Util.php:1507
 msgid "Operations"
 msgstr "Műveletek"
 
@@ -7567,18 +7577,6 @@ msgid_plural "%count% tables"
 msgstr[0] "Felhasználandó táblák"
 msgstr[1] "Felhasználandó táblák"
 
-#. l10n: Show or hide the menu using the hamburger style button
-#: resources/templates/top_menu.twig:1
-#, fuzzy
-#| msgid "Table navigation bar"
-msgid "Toggle navigation"
-msgstr "Navigációs sáv"
-
-#. l10n: Current page
-#: resources/templates/top_menu.twig:14
-msgid "(current)"
-msgstr ""
-
 #: resources/templates/transformation_overview.twig:1
 #, fuzzy
 #| msgid "Available MIME types"
@@ -7626,7 +7624,7 @@ msgstr "Esemény"
 msgid "Export of trigger %s"
 msgstr "%s eseményindító exportálása"
 
-#: resources/templates/triggers/list.twig:3 src/Menu.php:303 src/Menu.php:396
+#: resources/templates/triggers/list.twig:3 src/Menu.php:297 src/Menu.php:390
 #: src/Navigation/Nodes/NodeTriggerContainer.php:25
 #: src/Navigation/Nodes/NodeTriggerContainer.php:27
 #: src/Plugins/Export/ExportHtmlword.php:534
@@ -9323,8 +9321,8 @@ msgstr "vietnámi"
 
 #: src/Config/ConfigFile.php:521 src/Config/ConfigFile.php:535
 #: src/Config/ConfigFile.php:589 src/Config/ConfigFile.php:599
-#: src/Config/Descriptions.php:755 src/Menu.php:231 src/Menu.php:335
-#: src/Menu.php:453 src/Navigation/Nodes/NodeTable.php:292 src/Util.php:1057
+#: src/Config/Descriptions.php:755 src/Menu.php:225 src/Menu.php:329
+#: src/Menu.php:447 src/Navigation/Nodes/NodeTable.php:292 src/Util.php:1057
 #: src/Util.php:1469 src/Util.php:1484 src/Util.php:1501
 msgid "SQL"
 msgstr "SQL"
@@ -11473,7 +11471,7 @@ msgstr "Navigációs keret"
 
 #: src/Config/Descriptions.php:811
 #: src/Controllers/JavaScriptMessagesController.php:607
-#: src/Navigation/NavigationTree.php:1281
+#: src/Navigation/NavigationTree.php:1282
 msgid "Link with main panel"
 msgstr "Hozzákapcsolás a fő panelhez"
 
@@ -11563,7 +11561,7 @@ msgstr "Adatbázis másolása"
 msgid "Recently used tables"
 msgstr "Utoljára használt táblák"
 
-#: src/Config/Descriptions.php:835 src/RecentFavoriteTable.php:223
+#: src/Config/Descriptions.php:835 src/Favorites/RecentFavoriteTables.php:236
 msgid "Favorite tables"
 msgstr "Kedvenc táblák"
 
@@ -12495,9 +12493,9 @@ msgstr ""
 #: src/Controllers/Database/SearchController.php:58
 #: src/Controllers/Database/SqlController.php:64
 #: src/Controllers/Database/SqlController.php:69
-#: src/Controllers/Database/StructureController.php:140
-#: src/Controllers/Database/StructureController.php:145
-#: src/Controllers/Database/Structure/FavoriteTableController.php:79
+#: src/Controllers/Database/StructureController.php:143
+#: src/Controllers/Database/StructureController.php:148
+#: src/Controllers/Database/Structure/FavoriteTableController.php:82
 #: src/Controllers/Database/Structure/RealRowCountController.php:61
 #: src/Controllers/Database/TrackingController.php:62
 #: src/Controllers/Database/TrackingController.php:67
@@ -12724,7 +12722,7 @@ msgstr ""
 msgid "Success!"
 msgstr "Sikerült!"
 
-#: src/Controllers/Database/StructureController.php:569
+#: src/Controllers/Database/StructureController.php:578
 #: src/Display/Results.php:3539
 #, php-format
 msgid ""
@@ -12734,11 +12732,11 @@ msgstr ""
 "Ebben a nézetben legalább ennyi számú sor van. Kérjük, hogy nézzen utána a "
 "%sdokumentációban%s."
 
-#: src/Controllers/Database/StructureController.php:749
+#: src/Controllers/Database/StructureController.php:741
 msgid "unknown"
 msgstr "ismeretlen"
 
-#: src/Controllers/Database/Structure/FavoriteTableController.php:113
+#: src/Controllers/Database/Structure/FavoriteTableController.php:118
 msgid "Favorite List is full!"
 msgstr "A kedvencek listája tele van!"
 
@@ -12796,7 +12794,7 @@ msgstr "Rossz típus!"
 msgid "Bad parameters!"
 msgstr "Rossz paraméterek!"
 
-#: src/Controllers/HomeController.php:101
+#: src/Controllers/HomeController.php:102
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
@@ -12804,7 +12802,7 @@ msgstr ""
 "Megtörtént a kijelentkezés egy szerverről, a phpMyAdmin teljes elhagyásához "
 "az összes szerverről ki kell jelentkezni."
 
-#: src/Controllers/HomeController.php:198
+#: src/Controllers/HomeController.php:199
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -12813,14 +12811,14 @@ msgstr ""
 "A phpMyAdmin beállítástárolója nincs teljesen beállítva, néhány kibővített "
 "funkció ki lett kapcsolva. %sTudja meg, hogy miért%s. "
 
-#: src/Controllers/HomeController.php:204
+#: src/Controllers/HomeController.php:205
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Vagy alternatív megoldásként menjen bármelyik adatbázis „Műveletek” lapjára, "
 "hogy ott beállíthassa."
 
-#: src/Controllers/HomeController.php:272
+#: src/Controllers/HomeController.php:273
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -12832,7 +12830,7 @@ msgstr ""
 "phpMyAdminban beállított cookie érvényességénél. Emiatt a bejelentkezése a "
 "phpMyAdminban beállítottnál előbb járhat le."
 
-#: src/Controllers/HomeController.php:292
+#: src/Controllers/HomeController.php:293
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -12841,21 +12839,21 @@ msgstr ""
 "érvényességénél. Emiatt a bejelentkezése a phpMyAdminban beállítottnál előbb "
 "fog lejárni."
 
-#: src/Controllers/HomeController.php:311
+#: src/Controllers/HomeController.php:312
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 
-#: src/Controllers/HomeController.php:330
+#: src/Controllers/HomeController.php:331
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:340
+#: src/Controllers/HomeController.php:341
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -12863,7 +12861,7 @@ msgid ""
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:358
+#: src/Controllers/HomeController.php:359
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -12874,7 +12872,7 @@ msgstr ""
 "phpMyAdmin könyvtárában. Távolítsa el a phpMyAdmin beállítása után. "
 "Máskülönben az illetéktelen behatolás veszélye magas lesz."
 
-#: src/Controllers/HomeController.php:379
+#: src/Controllers/HomeController.php:380
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -12883,7 +12881,7 @@ msgstr ""
 "A kiszolgáló Suhosinnal fut. Kérjük, hogy a lehetséges problémáknak nézzen "
 "utána a %sdokumentációban%s."
 
-#: src/Controllers/HomeController.php:393
+#: src/Controllers/HomeController.php:394
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -12892,7 +12890,7 @@ msgstr ""
 "A $cfg ['TempDir'] (%s 1) nem elérhető. A phpMyAdmin nem képes  a sablonok "
 "elrejtésére  és lassú lesz."
 
-#: src/Controllers/HomeController.php:450
+#: src/Controllers/HomeController.php:451
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12903,7 +12901,7 @@ msgstr ""
 "tudja megfelelően felosztani a karakterláncokat, mely nem várt eredményhez "
 "vezethet."
 
-#: src/Controllers/HomeController.php:468
+#: src/Controllers/HomeController.php:469
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -14339,7 +14337,7 @@ msgid "Hide panel"
 msgstr "Panel elrejtése"
 
 #: src/Controllers/JavaScriptMessagesController.php:608
-#: src/Navigation/NavigationTree.php:1284
+#: src/Navigation/NavigationTree.php:1285
 msgid "Unlink from main panel"
 msgstr "Eltávolítás a fő panelről"
 
@@ -16081,7 +16079,7 @@ msgstr ""
 msgid "The partition name must be a non-empty string."
 msgstr "Üres a tábla neve!"
 
-#: src/Controllers/Table/RecentFavoriteController.php:27
+#: src/Controllers/Table/RecentFavoriteController.php:29
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid database or table name."
@@ -16207,7 +16205,7 @@ msgstr ""
 msgid "Could not remove columns!"
 msgstr "Nem sikerült oszlopokat eltávolítani!"
 
-#: src/Database/Designer/Common.php:479
+#: src/Database/Designer/Common.php:473
 #, fuzzy
 #| msgid ""
 #| "The configuration storage is not ready for the central list of columns "
@@ -16221,43 +16219,43 @@ msgstr ""
 "A beállítástároló nem áll készen az oszlopok központi listája "
 "szolgáltatáshoz."
 
-#: src/Database/Designer/Common.php:526
+#: src/Database/Designer/Common.php:520
 msgid "Error: relationship already exists."
 msgstr "Hiba: a kapcsolat már létezik."
 
-#: src/Database/Designer/Common.php:575
+#: src/Database/Designer/Common.php:569
 msgid "FOREIGN KEY relationship has been added."
 msgstr "Az IDEGEN KULCS kapcsolat hozzáadása megtörtént."
 
-#: src/Database/Designer/Common.php:580
+#: src/Database/Designer/Common.php:574
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Hiba: nem sikerült hozzáadni az IDEGEN KULCS kapcsolatot!"
 
-#: src/Database/Designer/Common.php:583
+#: src/Database/Designer/Common.php:577
 msgid "Error: Missing index on column(s)."
 msgstr "Hiba: hiányzó index az oszlopokról."
 
-#: src/Database/Designer/Common.php:588 src/Database/Designer/Common.php:654
+#: src/Database/Designer/Common.php:582 src/Database/Designer/Common.php:648
 msgid "Error: Relational features are disabled!"
 msgstr "Hiba: a relációs szolgáltatások le vannak tiltva!"
 
-#: src/Database/Designer/Common.php:609
+#: src/Database/Designer/Common.php:603
 msgid "Internal relationship has been added."
 msgstr "A belső kapcsolat hozzáadása megtörtént."
 
-#: src/Database/Designer/Common.php:614
+#: src/Database/Designer/Common.php:608
 msgid "Error: Internal relationship could not be added!"
 msgstr "Hiba: nem sikerült hozzáadni a belső kapcsolatot!"
 
-#: src/Database/Designer/Common.php:648
+#: src/Database/Designer/Common.php:642
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "Az IDEGEN KULCS kapcsolat eltávolítása megtörtént."
 
-#: src/Database/Designer/Common.php:673
+#: src/Database/Designer/Common.php:667
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Hiba: nem sikerült eltávolítani a belső kapcsolatot!"
 
-#: src/Database/Designer/Common.php:676
+#: src/Database/Designer/Common.php:670
 msgid "Internal relationship has been removed."
 msgstr "A belső kapcsolat eltávolítása megtörtént."
 
@@ -16852,6 +16850,26 @@ msgstr "A kiíratás mentése a(z) %s fájlba megtörtént."
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
+#: src/Favorites/RecentFavoriteTables.php:157
+msgid "Could not save recent table!"
+msgstr "Nem sikerült elmenteni a legutóbbi táblát!"
+
+#: src/Favorites/RecentFavoriteTables.php:158
+msgid "Could not save favorite table!"
+msgstr "Nem sikerült elmenteni a kedvenc táblát!"
+
+#: src/Favorites/RecentFavoriteTables.php:232
+msgid "Recent tables"
+msgstr "Legutóbbi táblák"
+
+#: src/Favorites/RecentFavoriteTables.php:234
+msgid "Recent"
+msgstr "Legutóbbi"
+
+#: src/Favorites/RecentFavoriteTables.php:238
+msgid "Favorites"
+msgstr "Kedvencek"
+
 #: src/File.php:225
 msgid "File was not an uploaded file."
 msgstr "A fájl nem feltöltött fájl."
@@ -17163,31 +17181,31 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr "%1$s (<code>%2$s</code> közelében)"
 
-#: src/Menu.php:296 src/Menu.php:403 src/Util.php:1494 src/Util.php:1508
+#: src/Menu.php:290 src/Menu.php:397 src/Util.php:1494 src/Util.php:1508
 msgid "Tracking"
 msgstr "Követés"
 
-#: src/Menu.php:344 src/Menu.php:352 src/Menu.php:360
+#: src/Menu.php:338 src/Menu.php:346 src/Menu.php:354
 msgid "Database seems to be empty!"
 msgstr "Üresnek tűnik az adatbázis!"
 
-#: src/Menu.php:347 src/Util.php:1486
+#: src/Menu.php:341 src/Util.php:1486
 msgid "Query"
 msgstr "Lekérdezés"
 
-#: src/Menu.php:410 src/Util.php:1495
+#: src/Menu.php:404 src/Util.php:1495
 msgid "Designer"
 msgstr "Tervező"
 
-#: src/Menu.php:471
+#: src/Menu.php:465
 msgid "User accounts"
 msgstr "Felhasználói fiókok"
 
-#: src/Menu.php:520 src/Util.php:1478
+#: src/Menu.php:514 src/Util.php:1478
 msgid "Charsets"
 msgstr "Karakterkészlet"
 
-#: src/Menu.php:525 src/Util.php:1480
+#: src/Menu.php:519 src/Util.php:1480
 msgid "Engines"
 msgstr "Motorok"
 
@@ -17232,7 +17250,7 @@ msgstr "Eljárások:"
 msgid "Views:"
 msgstr "Nézetek:"
 
-#: src/Navigation/NavigationTree.php:734
+#: src/Navigation/NavigationTree.php:735
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
@@ -17241,20 +17259,20 @@ msgstr ""
 "teljesítményre. Fontolja meg az elemcsoportosítás letiltását a navigációs "
 "panelen."
 
-#: src/Navigation/NavigationTree.php:794
+#: src/Navigation/NavigationTree.php:795
 #, fuzzy
 #| msgid "Groups:"
 msgid "Groups"
 msgstr "Csoportok:"
 
-#: src/Navigation/NavigationTree.php:902
+#: src/Navigation/NavigationTree.php:903
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] "%s eredmény található"
 msgstr[1] "%s eredmény található"
 
-#: src/Navigation/NavigationTree.php:1276
+#: src/Navigation/NavigationTree.php:1277
 msgid "Collapse all"
 msgstr "Összes összecsukása"
 
@@ -18767,26 +18785,6 @@ msgstr ""
 #: src/Query/Utilities.php:114
 msgid "Details…"
 msgstr "Részletek…"
-
-#: src/RecentFavoriteTable.php:141
-msgid "Could not save recent table!"
-msgstr "Nem sikerült elmenteni a legutóbbi táblát!"
-
-#: src/RecentFavoriteTable.php:142
-msgid "Could not save favorite table!"
-msgstr "Nem sikerült elmenteni a kedvenc táblát!"
-
-#: src/RecentFavoriteTable.php:219
-msgid "Recent tables"
-msgstr "Legutóbbi táblák"
-
-#: src/RecentFavoriteTable.php:221
-msgid "Recent"
-msgstr "Legutóbbi"
-
-#: src/RecentFavoriteTable.php:225
-msgid "Favorites"
-msgstr "Kedvencek"
 
 #: src/Replication/ReplicationGui.php:417
 msgid ""
