@@ -4036,22 +4036,22 @@
       <code><![CDATA[$_POST['field_transformation'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_transformation_options'][$fieldindex]]]></code>
       <code>$newCol</code>
-      <code><![CDATA[Util::getValueByKey($_POST, 'field_collation.' . $i, '')]]></code>
-      <code><![CDATA[Util::getValueByKey($_POST, 'field_collation_orig.' . $i, '')]]></code>
-      <code><![CDATA[Util::getValueByKey($_POST, 'field_comments.' . $i, '')]]></code>
-      <code><![CDATA[Util::getValueByKey($_POST, 'field_comments_orig.' . $i, '')]]></code>
-      <code><![CDATA[Util::getValueByKey($_POST, 'field_expression.' . $i, '')]]></code>
-      <code><![CDATA[Util::getValueByKey($_POST, 'field_expression_orig.' . $i, '')]]></code>
-      <code><![CDATA[Util::getValueByKey($_POST, 'field_extra.' . $i, '')]]></code>
-      <code><![CDATA[Util::getValueByKey($_POST, 'field_extra_orig.' . $i, '')]]></code>
-      <code><![CDATA[Util::getValueByKey($_POST, 'field_move_to.' . $i, '')]]></code>
-      <code><![CDATA[Util::getValueByKey($_POST, 'field_move_to_orig.' . $i, '')]]></code>
-      <code><![CDATA[Util::getValueByKey($_POST, 'field_null.' . $i, 'NO')]]></code>
-      <code><![CDATA[Util::getValueByKey($_POST, 'field_null_orig.' . $i, 'NO')]]></code>
-      <code><![CDATA[Util::getValueByKey($_POST, 'field_orig.' . $i, '')]]></code>
-      <code><![CDATA[Util::getValueByKey($_POST, 'field_orig.' . $i, '')]]></code>
-      <code><![CDATA[Util::getValueByKey($_POST, 'field_virtuality.' . $i, '')]]></code>
-      <code><![CDATA[Util::getValueByKey($_POST, 'field_virtuality_orig.' . $i, '')]]></code>
+      <code><![CDATA[Util::getValueByKey($_POST, ['field_collation', $i], '')]]></code>
+      <code><![CDATA[Util::getValueByKey($_POST, ['field_collation_orig', $i], '')]]></code>
+      <code><![CDATA[Util::getValueByKey($_POST, ['field_comments', $i], '')]]></code>
+      <code><![CDATA[Util::getValueByKey($_POST, ['field_comments_orig', $i], '')]]></code>
+      <code><![CDATA[Util::getValueByKey($_POST, ['field_expression', $i], '')]]></code>
+      <code><![CDATA[Util::getValueByKey($_POST, ['field_expression_orig', $i], '')]]></code>
+      <code><![CDATA[Util::getValueByKey($_POST, ['field_extra', $i], '')]]></code>
+      <code><![CDATA[Util::getValueByKey($_POST, ['field_extra_orig', $i], '')]]></code>
+      <code><![CDATA[Util::getValueByKey($_POST, ['field_move_to', $i], '')]]></code>
+      <code><![CDATA[Util::getValueByKey($_POST, ['field_move_to_orig', $i], '')]]></code>
+      <code><![CDATA[Util::getValueByKey($_POST, ['field_null', $i], 'NO')]]></code>
+      <code><![CDATA[Util::getValueByKey($_POST, ['field_null_orig', $i], 'NO')]]></code>
+      <code><![CDATA[Util::getValueByKey($_POST, ['field_orig', $i], '')]]></code>
+      <code><![CDATA[Util::getValueByKey($_POST, ['field_orig', $i], '')]]></code>
+      <code><![CDATA[Util::getValueByKey($_POST, ['field_virtuality', $i], '')]]></code>
+      <code><![CDATA[Util::getValueByKey($_POST, ['field_virtuality_orig', $i], '')]]></code>
     </MixedArgument>
     <MixedAssignment>
       <code>$newCol</code>
@@ -11522,7 +11522,7 @@
       <code><![CDATA[$formParams['db']]]></code>
       <code><![CDATA[$formParams['table']]]></code>
       <code>$type</code>
-      <code><![CDATA[Util::getValueByKey($_POST, 'field_key.' . $columnNumber, '')]]></code>
+      <code><![CDATA[Util::getValueByKey($_POST, ['field_key', $columnNumber], '')]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
@@ -12301,13 +12301,15 @@
       <code>$byteUnits[$d]</code>
       <code>$units[$d]</code>
     </InvalidArrayOffset>
+    <MixedArgument>
+      <code>$array</code>
+    </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$columnNames</code>
       <code><![CDATA[uksort($tables, 'strnatcasecmp')]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
-      <code>$array[$p]</code>
       <code><![CDATA[$row['Cardinality']]]></code>
       <code><![CDATA[$row['Column_name']]]></code>
       <code><![CDATA[$row['Column_name']]]></code>
@@ -12334,8 +12336,6 @@
       <code><![CDATA[$_SESSION['tmpval']['table_limit_offset_db']]]></code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
-      <code>$array[$p]</code>
-      <code>$array[$p]</code>
       <code><![CDATA[$indexesData[$row['Key_name']]]]></code>
       <code><![CDATA[$indexesData[$row['Key_name']]]]></code>
       <code><![CDATA[$indexesData[$row['Key_name']][$row['Seq_in_index']]]]></code>
@@ -12356,8 +12356,6 @@
       <code><![CDATA[$indexesInfo[$row['Key_name']]['Non_unique']]]></code>
       <code><![CDATA[$indexesInfo[$row['Key_name']]['Sequences'][]]]></code>
       <code>$lastIndex</code>
-      <code>$p</code>
-      <code>$p</code>
       <code>$row</code>
       <code>$unit</code>
       <code>$value</code>
@@ -15773,6 +15771,7 @@
       <code>providerForTestBackquote</code>
       <code>providerForTestGetLowerCaseNames</code>
       <code>providerForTestGetMySQLDocuURL</code>
+      <code>providerForTestGetValueByKey</code>
       <code>providerFormatByteDown</code>
       <code>providerFormatNumber</code>
       <code>providerForwardedHeaders</code>

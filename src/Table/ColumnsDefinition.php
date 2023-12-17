@@ -160,21 +160,21 @@ final class ColumnsDefinition
             if ($regenerate) {
                 $columnMeta = $this->getColumnMetaForRegeneratedFields($columnNumber);
 
-                $length = Util::getValueByKey($_POST, 'field_length.' . $columnNumber, $length);
-                $submitAttribute = Util::getValueByKey($_POST, 'field_attribute.' . $columnNumber, false);
-                $commentsMap[$columnMeta['Field']] = Util::getValueByKey($_POST, 'field_comments.' . $columnNumber);
+                $length = Util::getValueByKey($_POST, ['field_length', $columnNumber], $length);
+                $submitAttribute = Util::getValueByKey($_POST, ['field_attribute', $columnNumber], false);
+                $commentsMap[$columnMeta['Field']] = Util::getValueByKey($_POST, ['field_comments', $columnNumber]);
 
                 $GLOBALS['mime_map'][$columnMeta['Field']] = array_merge(
                     $GLOBALS['mime_map'][$columnMeta['Field']] ?? [],
                     [
-                        'mimetype' => Util::getValueByKey($_POST, 'field_mimetype.' . $columnNumber),
+                        'mimetype' => Util::getValueByKey($_POST, ['field_mimetype', $columnNumber]),
                         'transformation' => Util::getValueByKey(
                             $_POST,
-                            'field_transformation.' . $columnNumber,
+                            ['field_transformation' , $columnNumber],
                         ),
                         'transformation_options' => Util::getValueByKey(
                             $_POST,
-                            'field_transformation_options.' . $columnNumber,
+                            ['field_transformation_options' , $columnNumber],
                         ),
                     ],
                 );
@@ -406,22 +406,22 @@ final class ColumnsDefinition
     private function getColumnMetaForRegeneratedFields(int $columnNumber): array
     {
         $columnMeta = [
-            'Field' => Util::getValueByKey($_POST, 'field_name.' . $columnNumber),
-            'Type' => Util::getValueByKey($_POST, 'field_type.' . $columnNumber),
-            'Collation' => Util::getValueByKey($_POST, 'field_collation.' . $columnNumber, ''),
-            'Null' => Util::getValueByKey($_POST, 'field_null.' . $columnNumber, ''),
-            'DefaultType' => Util::getValueByKey($_POST, 'field_default_type.' . $columnNumber, 'NONE'),
-            'DefaultValue' => Util::getValueByKey($_POST, 'field_default_value.' . $columnNumber, ''),
-            'Extra' => Util::getValueByKey($_POST, 'field_extra.' . $columnNumber),
-            'Virtuality' => Util::getValueByKey($_POST, 'field_virtuality.' . $columnNumber, ''),
-            'Expression' => Util::getValueByKey($_POST, 'field_expression.' . $columnNumber, ''),
+            'Field' => Util::getValueByKey($_POST, ['field_name', $columnNumber]),
+            'Type' => Util::getValueByKey($_POST, ['field_type', $columnNumber]),
+            'Collation' => Util::getValueByKey($_POST, ['field_collation', $columnNumber], ''),
+            'Null' => Util::getValueByKey($_POST, ['field_null', $columnNumber], ''),
+            'DefaultType' => Util::getValueByKey($_POST, ['field_default_type', $columnNumber], 'NONE'),
+            'DefaultValue' => Util::getValueByKey($_POST, ['field_default_value', $columnNumber], ''),
+            'Extra' => Util::getValueByKey($_POST, ['field_extra', $columnNumber]),
+            'Virtuality' => Util::getValueByKey($_POST, ['field_virtuality', $columnNumber], ''),
+            'Expression' => Util::getValueByKey($_POST, ['field_expression', $columnNumber], ''),
             'Key' => '',
             'Comment' => false,
         ];
 
         $parts = explode(
             '_',
-            Util::getValueByKey($_POST, 'field_key.' . $columnNumber, ''),
+            Util::getValueByKey($_POST, ['field_key', $columnNumber], ''),
             2,
         );
         if (count($parts) === 2 && $parts[1] == $columnNumber) {

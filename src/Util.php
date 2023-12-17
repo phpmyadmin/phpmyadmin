@@ -18,7 +18,6 @@ use function _pgettext;
 use function abs;
 use function array_key_exists;
 use function array_map;
-use function array_shift;
 use function array_unique;
 use function bin2hex;
 use function chr;
@@ -1962,28 +1961,22 @@ class Util
     }
 
     /**
-     * Access to a multidimensional array by dot notation
+     * Access to a multidimensional array recursively by the keys specified in $path
      *
      * @param mixed[]        $array   List of values
-     * @param string|mixed[] $path    Path to searched value
+     * @param (int|string)[] $path    Path to searched value
      * @param mixed          $default Default value
      *
      * @return mixed Searched value
      */
-    public static function getValueByKey(array $array, string|array $path, mixed $default = null): mixed
+    public static function getValueByKey(array $array, array $path, mixed $default = null): mixed
     {
-        if (is_string($path)) {
-            $path = explode('.', $path);
-        }
-
-        $p = array_shift($path);
-        while ($p !== null) {
-            if (! isset($array[$p])) {
+        foreach ($path as $key) {
+            if (! array_key_exists($key, $array)) {
                 return $default;
             }
 
-            $array = $array[$p];
-            $p = array_shift($path);
+            $array = $array[$key];
         }
 
         return $array;
