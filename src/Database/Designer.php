@@ -217,7 +217,6 @@ class Designer
      * @param DesignerTable[]    $designerTables       The designer tables
      * @param mixed[]            $scriptTables         array on foreign key support for each table
      * @param mixed[]            $scriptContr          initialization data array
-     * @param DesignerTable[]    $scriptDisplayField   displayed tables in designer with their display fields
      * @param int                $displayPage          page number of the selected page
      * @param bool               $visualBuilderMode    whether this is visual query builder
      * @param string|null        $selectedPage         name of the selected page
@@ -235,7 +234,6 @@ class Designer
         array $designerTables,
         array $scriptTables,
         array $scriptContr,
-        array $scriptDisplayField,
         int $displayPage,
         bool $visualBuilderMode,
         string|null $selectedPage,
@@ -251,7 +249,7 @@ class Designer
         $columnsType = $this->getColumnTypes($tableColumnsInfo, $tablesPkOrUniqueKeys);
 
         $displayedFields = [];
-        foreach ($scriptDisplayField as $designerTable) {
+        foreach ($designerTables as $designerTable) {
             if ($designerTable->getDisplayField() === null) {
                 continue;
             }

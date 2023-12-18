@@ -239,7 +239,6 @@ class DesignerController extends AbstractController
                 $scriptDisplayField,
                 $scriptTables,
                 $scriptContr,
-                $scriptDisplayField,
                 $displayPage,
                 $visualBuilderMode,
                 $selectedPage,
