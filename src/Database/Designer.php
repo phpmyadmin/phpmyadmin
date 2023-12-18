@@ -213,19 +213,18 @@ class Designer
     /**
      * Returns HTML for Designer page
      *
-     * @param string             $db                   database in use
-     * @param string             $getDb                database in url
-     * @param DesignerTable[]    $designerTables       The designer tables
-     * @param mixed[]            $scriptTables         array on foreign key support for each table
-     * @param mixed[]            $scriptContr          initialization data array
-     * @param int                $displayPage          page number of the selected page
-     * @param bool               $visualBuilderMode    whether this is visual query builder
-     * @param string|null        $selectedPage         name of the selected page
-     * @param mixed[]            $paramsArray          array with class name for various buttons on side menu
-     * @param mixed[]            $tablePositions       table positions
-     * @param list<ColumnInfo>[] $tableColumnsInfo     table column info
-     * @param mixed[]            $tablesAllKeys        all indices
-     * @param mixed[]            $tablesPkOrUniqueKeys unique or primary indices
+     * @param string              $db                database in use
+     * @param string              $getDb             database in url
+     * @param DesignerTable[]     $designerTables    The designer tables
+     * @param mixed[]             $scriptTables      array on foreign key support for each table
+     * @param mixed[]             $scriptContr       initialization data array
+     * @param int                 $displayPage       page number of the selected page
+     * @param bool                $visualBuilderMode whether this is visual query builder
+     * @param string|null         $selectedPage      name of the selected page
+     * @param mixed[]             $paramsArray       array with class name for various buttons on side menu
+     * @param mixed[]             $tablePositions    table positions
+     * @param list<ColumnInfo>[]  $tableColumnsInfo  table column info
+     * @param array<string, bool> $tablesAllKeys     all indices
      *
      * @return string html
      */
@@ -242,12 +241,11 @@ class Designer
         array $tablePositions,
         array $tableColumnsInfo,
         array $tablesAllKeys,
-        array $tablesPkOrUniqueKeys,
     ): string {
         $GLOBALS['text_dir'] ??= null;
 
         $relationParameters = $this->relation->getRelationParameters();
-        $columnsType = $this->getColumnTypes($tableColumnsInfo, $tablesPkOrUniqueKeys);
+        $columnsType = $this->getColumnTypes($tableColumnsInfo, $tablesAllKeys);
 
         $displayedFields = [];
         foreach ($designerTables as $designerTable) {
@@ -280,25 +278,24 @@ class Designer
             'tab_pos' => $tablePositions,
             'tab_column' => $tableColumnsInfo,
             'tables_all_keys' => $tablesAllKeys,
-            'tables_pk_or_unique_keys' => $tablesPkOrUniqueKeys,
             'designerTables' => $designerTables,
             'columns_type' => $columnsType,
         ]);
     }
 
     /**
-     * @param list<ColumnInfo>[] $tableColumnsInfo     table column info
-     * @param mixed[]            $tablesPkOrUniqueKeys unique or primary indices
+     * @param list<ColumnInfo>[]  $tableColumnsInfo table column info
+     * @param array<string, bool> $tablesAllKeys    unique or primary indices
      *
      * @return array<string, string>
      */
-    public function getColumnTypes(array $tableColumnsInfo, array $tablesPkOrUniqueKeys): array
+    public function getColumnTypes(array $tableColumnsInfo, array $tablesAllKeys): array
     {
         $columnsType = [];
         foreach ($tableColumnsInfo as $tableName => $columnsInfo) {
             foreach ($columnsInfo as $columnInfo) {
                 $tableColumnName = $tableName . '.' . $columnInfo->name;
-                if (isset($tablesPkOrUniqueKeys[$tableColumnName])) {
+                if (isset($tablesAllKeys[$tableColumnName]) && $tablesAllKeys[$tableColumnName]) {
                     $columnsType[$tableColumnName] = 'designer/FieldKey_small';
                 } else {
                     $columnsType[$tableColumnName] = 'designer/Field_small';

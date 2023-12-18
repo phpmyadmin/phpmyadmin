@@ -62,13 +62,12 @@ class DesignerController extends AbstractController
                 $scriptDisplayField = $this->designerCommon->getTablesInfo($db, $table);
                 $tableColumn = $this->designerCommon->getColumnsInfo($scriptDisplayField);
                 $tablesAllKeys = $this->designerCommon->getAllKeys($scriptDisplayField);
-                $tablesPkOrUniqueKeys = $this->designerCommon->getPkOrUniqueKeys($scriptDisplayField);
 
                 $GLOBALS['text_dir'] ??= null;
 
-                $columnsType = $this->databaseDesigner->getColumnTypes($tableColumn, $tablesPkOrUniqueKeys);
+                $columnsType = $this->databaseDesigner->getColumnTypes($tableColumn, $tablesAllKeys);
 
-                $html =  $this->template->render('database/designer/database_tables', [
+                $html = $this->template->render('database/designer/database_tables', [
                     'db' => Current::$database,
                     'text_dir' => $GLOBALS['text_dir'],
                     'has_query' => isset($_REQUEST['query']),
@@ -76,7 +75,6 @@ class DesignerController extends AbstractController
                     'display_page' => -1,
                     'tab_column' => $tableColumn,
                     'tables_all_keys' => $tablesAllKeys,
-                    'tables_pk_or_unique_keys' => $tablesPkOrUniqueKeys,
                     'tables' => $scriptDisplayField,
                     'columns_type' => $columnsType,
                 ]);
@@ -217,7 +215,6 @@ class DesignerController extends AbstractController
 
         $tableColumn = $this->designerCommon->getColumnsInfo($scriptDisplayField);
         $scriptTables = $this->designerCommon->getScriptTabs($scriptDisplayField);
-        $tablesPkOrUniqueKeys = $this->designerCommon->getPkOrUniqueKeys($scriptDisplayField);
         $tablesAllKeys = $this->designerCommon->getAllKeys($scriptDisplayField);
         $classesSideMenu = $this->databaseDesigner->returnClassNamesFromMenuButtons();
 
@@ -245,7 +242,6 @@ class DesignerController extends AbstractController
                 $tablePositions,
                 $tableColumn,
                 $tablesAllKeys,
-                $tablesPkOrUniqueKeys,
             ),
         );
 
