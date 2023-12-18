@@ -1611,11 +1611,6 @@ parameters:
 			path: src/Controllers/Database/DesignerController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getDatabaseTables\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/DesignerController.php
-
-		-
 			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getHtmlForEditOrDeletePages\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Database/DesignerController.php

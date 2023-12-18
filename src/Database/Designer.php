@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Designer\ColumnInfo;
 use PhpMyAdmin\Database\Designer\DesignerTable;
 use PhpMyAdmin\DatabaseInterface;
@@ -211,47 +210,6 @@ class Designer
     }
 
     /**
-     * Get HTML to display tables on designer page
-     *
-     * @param string             $db                   The database name from the request
-     * @param DesignerTable[]    $designerTables       The designer tables
-     * @param mixed[]            $tabPos               tables positions
-     * @param int                $displayPage          page number of the selected page
-     * @param list<ColumnInfo>[] $tableColumnsInfo     table column info
-     * @param mixed[]            $tablesAllKeys        all indices
-     * @param mixed[]            $tablesPkOrUniqueKeys unique or primary indices
-     *
-     * @return string html
-     */
-    public function getDatabaseTables(
-        string $db,
-        array $designerTables,
-        array $tabPos,
-        int $displayPage,
-        array $tableColumnsInfo,
-        array $tablesAllKeys,
-        array $tablesPkOrUniqueKeys,
-    ): string {
-        $GLOBALS['text_dir'] ??= null;
-
-        $columnsType = $this->getColumnTypes($tableColumnsInfo, $tablesPkOrUniqueKeys);
-
-        return $this->template->render('database/designer/database_tables', [
-            'db' => Current::$database,
-            'text_dir' => $GLOBALS['text_dir'],
-            'get_db' => $db,
-            'has_query' => isset($_REQUEST['query']),
-            'tab_pos' => $tabPos,
-            'display_page' => $displayPage,
-            'tab_column' => $tableColumnsInfo,
-            'tables_all_keys' => $tablesAllKeys,
-            'tables_pk_or_unique_keys' => $tablesPkOrUniqueKeys,
-            'tables' => $designerTables,
-            'columns_type' => $columnsType,
-        ]);
-    }
-
-    /**
      * Returns HTML for Designer page
      *
      * @param string             $db                   database in use
@@ -335,7 +293,7 @@ class Designer
      *
      * @return array<string, string>
      */
-    private function getColumnTypes(array $tableColumnsInfo, array $tablesPkOrUniqueKeys): array
+    public function getColumnTypes(array $tableColumnsInfo, array $tablesPkOrUniqueKeys): array
     {
         $columnsType = [];
         foreach ($tableColumnsInfo as $tableName => $columnsInfo) {
