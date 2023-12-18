@@ -244,26 +244,9 @@ class Designer
     ): string {
         $GLOBALS['text_dir'] ??= null;
 
-        $relationParameters = $this->relation->getRelationParameters();
         $columnsType = $this->getColumnTypes($tableColumnsInfo, $tablesAllKeys);
 
-        $displayedFields = [];
-        foreach ($designerTables as $designerTable) {
-            if ($designerTable->getDisplayField() === null) {
-                continue;
-            }
-
-            $displayedFields[$designerTable->getTableName()] = $designerTable->getDisplayField();
-        }
-
-        $designerConfig = new stdClass();
-        $designerConfig->db = $db;
-        $designerConfig->scriptTables = $scriptTables;
-        $designerConfig->scriptContr = $scriptContr;
-        $designerConfig->server = $GLOBALS['server'];
-        $designerConfig->scriptDisplayField = $displayedFields;
-        $designerConfig->displayPage = $displayPage;
-        $designerConfig->tablesEnabled = $relationParameters->pdfFeature !== null;
+        $designerConfig = $this->getDesignerConfig($db, $designerTables, $scriptTables, $scriptContr, $displayPage);
 
         return $this->template->render('database/designer/main', [
             'db' => $db,
@@ -323,5 +306,40 @@ class Designer
         }
 
         return $columnsType;
+    }
+
+    /**
+     * @param DesignerTable[] $designerTables The designer tables
+     * @param mixed[]         $scriptTables   array on foreign key support for each table
+     * @param mixed[]         $scriptContr    initialization data array
+     */
+    private function getDesignerConfig(
+        string $db,
+        array $designerTables,
+        array $scriptTables,
+        array $scriptContr,
+        int $displayPage,
+    ): stdClass {
+        $relationParameters = $this->relation->getRelationParameters();
+
+        $displayedFields = [];
+        foreach ($designerTables as $designerTable) {
+            if ($designerTable->getDisplayField() === null) {
+                continue;
+            }
+
+            $displayedFields[$designerTable->getTableName()] = $designerTable->getDisplayField();
+        }
+
+        $designerConfig = new stdClass();
+        $designerConfig->db = $db;
+        $designerConfig->scriptTables = $scriptTables;
+        $designerConfig->scriptContr = $scriptContr;
+        $designerConfig->server = $GLOBALS['server'];
+        $designerConfig->scriptDisplayField = $displayedFields;
+        $designerConfig->displayPage = $displayPage;
+        $designerConfig->tablesEnabled = $relationParameters->pdfFeature !== null;
+
+        return $designerConfig;
     }
 }
