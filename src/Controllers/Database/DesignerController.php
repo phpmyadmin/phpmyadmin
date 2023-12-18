@@ -64,7 +64,6 @@ class DesignerController extends AbstractController
                 $scriptDisplayField = $this->designerCommon->getTablesInfo($db, $table);
                 $tableColumn = $this->designerCommon->getColumnsInfo($scriptDisplayField);
                 $tablesAllKeys = $this->designerCommon->getAllKeys($scriptDisplayField);
-
                 $columnsType = $this->databaseDesigner->getColumnTypes($tableColumn, $tablesAllKeys);
 
                 $html = $this->template->render('database/designer/database_tables', [
@@ -217,7 +216,6 @@ class DesignerController extends AbstractController
         $scriptTables = $this->designerCommon->getScriptTabs($scriptDisplayField);
         $tablesAllKeys = $this->designerCommon->getAllKeys($scriptDisplayField);
         $classesSideMenu = $this->databaseDesigner->returnClassNamesFromMenuButtons();
-
         $scriptContr = $this->designerCommon->getScriptContr($scriptDisplayField);
 
         $this->response->setMinimalFooter();

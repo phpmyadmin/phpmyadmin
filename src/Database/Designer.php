@@ -166,46 +166,18 @@ class Designer
      */
     public function returnClassNamesFromMenuButtons(): array
     {
-        $classesArray = [];
         $paramsArray = $this->getSideMenuParamsArray();
+        $selectedButton = 'M_butt_Selected_down';
+        $normalButton = 'M_butt';
 
-        if (isset($paramsArray['angular_direct']) && $paramsArray['angular_direct'] === 'angular') {
-            $classesArray['angular_direct'] = 'M_butt_Selected_down';
-        } else {
-            $classesArray['angular_direct'] = 'M_butt';
-        }
-
-        if (isset($paramsArray['snap_to_grid']) && $paramsArray['snap_to_grid'] === 'on') {
-            $classesArray['snap_to_grid'] = 'M_butt_Selected_down';
-        } else {
-            $classesArray['snap_to_grid'] = 'M_butt';
-        }
-
-        if (isset($paramsArray['pin_text']) && $paramsArray['pin_text'] === 'true') {
-            $classesArray['pin_text'] = 'M_butt_Selected_down';
-        } else {
-            $classesArray['pin_text'] = 'M_butt';
-        }
-
-        if (isset($paramsArray['relation_lines']) && $paramsArray['relation_lines'] === 'false') {
-            $classesArray['relation_lines'] = 'M_butt_Selected_down';
-        } else {
-            $classesArray['relation_lines'] = 'M_butt';
-        }
-
-        if (isset($paramsArray['small_big_all']) && $paramsArray['small_big_all'] === 'v') {
-            $classesArray['small_big_all'] = 'M_butt_Selected_down';
-        } else {
-            $classesArray['small_big_all'] = 'M_butt';
-        }
-
-        if (isset($paramsArray['side_menu']) && $paramsArray['side_menu'] === 'true') {
-            $classesArray['side_menu'] = 'M_butt_Selected_down';
-        } else {
-            $classesArray['side_menu'] = 'M_butt';
-        }
-
-        return $classesArray;
+        return [
+            'angular_direct' => ($paramsArray['angular_direct'] ?? '') === 'angular' ? $selectedButton : $normalButton,
+            'snap_to_grid' => ($paramsArray['snap_to_grid'] ?? '') === 'on' ? $selectedButton : $normalButton,
+            'pin_text' => ($paramsArray['pin_text'] ?? '') === 'true' ? $selectedButton : $normalButton,
+            'relation_lines' => ($paramsArray['relation_lines'] ?? '') === 'false' ? $selectedButton : $normalButton,
+            'small_big_all' => ($paramsArray['small_big_all'] ?? '') === 'v' ? $selectedButton : $normalButton,
+            'side_menu' => ($paramsArray['side_menu'] ?? '') === 'true' ? $selectedButton : $normalButton,
+        ];
     }
 
     /**
