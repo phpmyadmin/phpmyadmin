@@ -75,8 +75,8 @@ class Cache
     /**
      * Get a cached value from table cache.
      *
-     * @param mixed[] $contentPath Array of the name of the target value
-     * @param mixed   $default     Return value on cache miss
+     * @param (int|string)[] $contentPath Array of the name of the target value
+     * @param mixed          $default     Return value on cache miss
      *
      * @return mixed cached value or default
      */

@@ -1628,4 +1628,46 @@ SQL;
         ];
         $this->assertSame($expected, Util::getSupportedDatatypes());
     }
+
+    /**
+     * @param mixed[]        $array
+     * @param (string|int)[] $path
+     */
+    #[DataProvider('providerForTestGetValueByKey')]
+    public function testGetValueByKey(mixed $expected, array $array, array $path, mixed $default = null): void
+    {
+        $this->assertSame($expected, Util::getValueByKey($array, $path, $default));
+    }
+
+    /** @return iterable<string, array{mixed, mixed[], (string|int)[], mixed}> */
+    public static function providerForTestGetValueByKey(): iterable
+    {
+        yield 'array_has_all_keys' => [
+            'foo',
+            ['key1' => ['key2' => 'foo']],
+            ['key1', 'key2'],
+            null,
+        ];
+
+        yield 'key_not_found' => [
+            'def',
+            ['key1' => ['key2' => 'foo']],
+            ['key1', 'key3'],
+            'def',
+        ];
+
+        yield 'subarray_requested' => [
+            ['key2' => 'foo'],
+            ['key1' => ['key2' => 'foo']],
+            ['key1'],
+            'def',
+        ];
+
+        yield 'no_keys_specified' => [
+            ['key1' => ['key2' => 'foo']],
+            ['key1' => ['key2' => 'foo']],
+            [],
+            'def',
+        ];
+    }
 }
