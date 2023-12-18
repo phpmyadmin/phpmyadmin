@@ -12,6 +12,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use stdClass;
 
@@ -269,7 +270,7 @@ class Designer
         return $this->template->render('database/designer/main', [
             'db' => $db,
             'text_dir' => $GLOBALS['text_dir'],
-            'get_db' => $getDb,
+            'hidden_input_fields' => Url::getHiddenInputs($getDb),
             'designer_config' => json_encode($designerConfig),
             'display_page' => $displayPage,
             'has_query' => $visualBuilderMode,
