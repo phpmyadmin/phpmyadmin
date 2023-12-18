@@ -192,7 +192,8 @@ class Common
             foreach (Index::getFromTable($this->dbi, $designerTable->getTableName(), $schema) as $index) {
                 $columns = $index->getColumns();
                 foreach (array_keys($columns) as $columnName) {
-                    $keys[$schema . '.' . $designerTable->getTableName() . '.' . $columnName] = ! $index->getNonUnique();
+                    $key = $schema . '.' . $designerTable->getTableName() . '.' . $columnName;
+                    $keys[$key] = ! $index->getNonUnique();
                 }
             }
         }
