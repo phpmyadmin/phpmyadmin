@@ -71,7 +71,6 @@ class DesignerController extends AbstractController
                 $html =  $this->template->render('database/designer/database_tables', [
                     'db' => Current::$database,
                     'text_dir' => $GLOBALS['text_dir'],
-                    'get_db' => $db,
                     'has_query' => isset($_REQUEST['query']),
                     'tab_pos' => [],
                     'display_page' => -1,
