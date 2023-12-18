@@ -234,36 +234,7 @@ class Designer
     ): string {
         $GLOBALS['text_dir'] ??= null;
 
-        $columnsType = [];
-        foreach ($tableColumnsInfo as $tableName => $columnsInfo) {
-            foreach ($columnsInfo as $columnInfo) {
-                $tableColumnName = $tableName . '.' . $columnInfo->name;
-                if (isset($tablesPkOrUniqueKeys[$tableColumnName])) {
-                    $columnsType[$tableColumnName] = 'designer/FieldKey_small';
-                } else {
-                    $columnsType[$tableColumnName] = 'designer/Field_small';
-                    if (
-                        str_contains($columnInfo->type, 'char')
-                        || str_contains($columnInfo->type, 'text')
-                    ) {
-                        $columnsType[$tableColumnName] .= '_char';
-                    } elseif (
-                        str_contains($columnInfo->type, 'int')
-                        || str_contains($columnInfo->type, 'float')
-                        || str_contains($columnInfo->type, 'double')
-                        || str_contains($columnInfo->type, 'decimal')
-                    ) {
-                        $columnsType[$tableColumnName] .= '_int';
-                    } elseif (
-                        str_contains($columnInfo->type, 'date')
-                        || str_contains($columnInfo->type, 'time')
-                        || str_contains($columnInfo->type, 'year')
-                    ) {
-                        $columnsType[$tableColumnName] .= '_date';
-                    }
-                }
-            }
-        }
+        $columnsType = $this->getColumnTypes($tableColumnsInfo, $tablesPkOrUniqueKeys);
 
         return $this->template->render('database/designer/database_tables', [
             'db' => Current::$database,
@@ -319,36 +290,7 @@ class Designer
         $GLOBALS['text_dir'] ??= null;
 
         $relationParameters = $this->relation->getRelationParameters();
-        $columnsType = [];
-        foreach ($tableColumnsInfo as $tableName => $columnsInfo) {
-            foreach ($columnsInfo as $columnInfo) {
-                $tableColumnName = $tableName . '.' . $columnInfo->name;
-                if (isset($tablesPkOrUniqueKeys[$tableColumnName])) {
-                    $columnsType[$tableColumnName] = 'designer/FieldKey_small';
-                } else {
-                    $columnsType[$tableColumnName] = 'designer/Field_small';
-                    if (
-                        str_contains($columnInfo->type, 'char')
-                        || str_contains($columnInfo->type, 'text')
-                    ) {
-                        $columnsType[$tableColumnName] .= '_char';
-                    } elseif (
-                        str_contains($columnInfo->type, 'int')
-                        || str_contains($columnInfo->type, 'float')
-                        || str_contains($columnInfo->type, 'double')
-                        || str_contains($columnInfo->type, 'decimal')
-                    ) {
-                        $columnsType[$tableColumnName] .= '_int';
-                    } elseif (
-                        str_contains($columnInfo->type, 'date')
-                        || str_contains($columnInfo->type, 'time')
-                        || str_contains($columnInfo->type, 'year')
-                    ) {
-                        $columnsType[$tableColumnName] .= '_date';
-                    }
-                }
-            }
-        }
+        $columnsType = $this->getColumnTypes($tableColumnsInfo, $tablesPkOrUniqueKeys);
 
         $displayedFields = [];
         foreach ($scriptDisplayField as $designerTable) {
@@ -385,5 +327,47 @@ class Designer
             'designerTables' => $designerTables,
             'columns_type' => $columnsType,
         ]);
+    }
+
+    /**
+     * @param list<ColumnInfo>[] $tableColumnsInfo     table column info
+     * @param mixed[]            $tablesPkOrUniqueKeys unique or primary indices
+     *
+     * @return array<string, string>
+     */
+    private function getColumnTypes(array $tableColumnsInfo, array $tablesPkOrUniqueKeys): array
+    {
+        $columnsType = [];
+        foreach ($tableColumnsInfo as $tableName => $columnsInfo) {
+            foreach ($columnsInfo as $columnInfo) {
+                $tableColumnName = $tableName . '.' . $columnInfo->name;
+                if (isset($tablesPkOrUniqueKeys[$tableColumnName])) {
+                    $columnsType[$tableColumnName] = 'designer/FieldKey_small';
+                } else {
+                    $columnsType[$tableColumnName] = 'designer/Field_small';
+                    if (
+                        str_contains($columnInfo->type, 'char')
+                        || str_contains($columnInfo->type, 'text')
+                    ) {
+                        $columnsType[$tableColumnName] .= '_char';
+                    } elseif (
+                        str_contains($columnInfo->type, 'int')
+                        || str_contains($columnInfo->type, 'float')
+                        || str_contains($columnInfo->type, 'double')
+                        || str_contains($columnInfo->type, 'decimal')
+                    ) {
+                        $columnsType[$tableColumnName] .= '_int';
+                    } elseif (
+                        str_contains($columnInfo->type, 'date')
+                        || str_contains($columnInfo->type, 'time')
+                        || str_contains($columnInfo->type, 'year')
+                    ) {
+                        $columnsType[$tableColumnName] .= '_date';
+                    }
+                }
+            }
+        }
+
+        return $columnsType;
     }
 }
