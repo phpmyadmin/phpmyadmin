@@ -12,7 +12,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use stdClass;
 
@@ -20,7 +19,6 @@ use function __;
 use function intval;
 use function is_array;
 use function json_decode;
-use function json_encode;
 use function str_contains;
 
 /**
@@ -211,62 +209,6 @@ class Designer
     }
 
     /**
-     * Returns HTML for Designer page
-     *
-     * @param string              $db                database in use
-     * @param string              $getDb             database in url
-     * @param DesignerTable[]     $designerTables    The designer tables
-     * @param mixed[]             $scriptTables      array on foreign key support for each table
-     * @param mixed[]             $scriptContr       initialization data array
-     * @param int                 $displayPage       page number of the selected page
-     * @param bool                $visualBuilderMode whether this is visual query builder
-     * @param string|null         $selectedPage      name of the selected page
-     * @param mixed[]             $paramsArray       array with class name for various buttons on side menu
-     * @param mixed[]             $tablePositions    table positions
-     * @param list<ColumnInfo>[]  $tableColumnsInfo  table column info
-     * @param array<string, bool> $tablesAllKeys     all indices
-     *
-     * @return string html
-     */
-    public function getHtmlForMain(
-        string $db,
-        string $getDb,
-        array $designerTables,
-        array $scriptTables,
-        array $scriptContr,
-        int $displayPage,
-        bool $visualBuilderMode,
-        string|null $selectedPage,
-        array $paramsArray,
-        array $tablePositions,
-        array $tableColumnsInfo,
-        array $tablesAllKeys,
-    ): string {
-        $GLOBALS['text_dir'] ??= null;
-
-        $columnsType = $this->getColumnTypes($tableColumnsInfo, $tablesAllKeys);
-
-        $designerConfig = $this->getDesignerConfig($db, $designerTables, $scriptTables, $scriptContr, $displayPage);
-
-        return $this->template->render('database/designer/main', [
-            'db' => $db,
-            'text_dir' => $GLOBALS['text_dir'],
-            'hidden_input_fields' => Url::getHiddenInputs($getDb),
-            'designer_config' => json_encode($designerConfig),
-            'display_page' => $displayPage,
-            'has_query' => $visualBuilderMode,
-            'visual_builder' => $visualBuilderMode,
-            'selected_page' => $selectedPage,
-            'params_array' => $paramsArray,
-            'tab_pos' => $tablePositions,
-            'tab_column' => $tableColumnsInfo,
-            'tables_all_keys' => $tablesAllKeys,
-            'designerTables' => $designerTables,
-            'columns_type' => $columnsType,
-        ]);
-    }
-
-    /**
      * @param list<ColumnInfo>[]  $tableColumnsInfo table column info
      * @param array<string, bool> $tablesAllKeys    unique or primary indices
      *
@@ -313,7 +255,7 @@ class Designer
      * @param mixed[]         $scriptTables   array on foreign key support for each table
      * @param mixed[]         $scriptContr    initialization data array
      */
-    private function getDesignerConfig(
+    public function getDesignerConfig(
         string $db,
         array $designerTables,
         array $scriptTables,

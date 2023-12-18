@@ -1646,6 +1646,11 @@ parameters:
 			path: src/Controllers/Database/DesignerController.php
 
 		-
+			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\Url\\:\\:getHiddenInputs\\(\\) expects array\\|string, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Database/DesignerController.php
+
+		-
 			message: "#^Parameter \\#1 \\$index of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:saveSetting\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/DesignerController.php
@@ -1702,11 +1707,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$f1 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:removeRelation\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/DesignerController.php
-
-		-
-			message: "#^Parameter \\#2 \\$getDb of method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getHtmlForMain\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/DesignerController.php
 

@@ -21,6 +21,7 @@ use PhpMyAdmin\Util;
 use function __;
 use function htmlspecialchars;
 use function in_array;
+use function json_encode;
 use function sprintf;
 
 class DesignerController extends AbstractController
@@ -39,6 +40,7 @@ class DesignerController extends AbstractController
     {
         $GLOBALS['message'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
+        $GLOBALS['text_dir'] ??= null;
 
         $db = $request->getParsedBodyParam('db');
         $table = $request->getParsedBodyParam('table');
@@ -62,8 +64,6 @@ class DesignerController extends AbstractController
                 $scriptDisplayField = $this->designerCommon->getTablesInfo($db, $table);
                 $tableColumn = $this->designerCommon->getColumnsInfo($scriptDisplayField);
                 $tablesAllKeys = $this->designerCommon->getAllKeys($scriptDisplayField);
-
-                $GLOBALS['text_dir'] ??= null;
 
                 $columnsType = $this->databaseDesigner->getColumnTypes($tableColumn, $tablesAllKeys);
 
@@ -226,24 +226,36 @@ class DesignerController extends AbstractController
 
         $this->addScriptFiles(['designer/init.js']);
 
+        $columnsType = $this->databaseDesigner->getColumnTypes($tableColumn, $tablesAllKeys);
+
+        $designerConfig = $this->databaseDesigner->getDesignerConfig(
+            Current::$database,
+            $scriptDisplayField,
+            $scriptTables,
+            $scriptContr,
+            $displayPage,
+        );
+
+        $mainHtml = $this->template->render('database/designer/main', [
+            'db' => Current::$database,
+            'text_dir' => $GLOBALS['text_dir'],
+            'hidden_input_fields' => Url::getHiddenInputs($request->getQueryParam('db')),
+            'designer_config' => json_encode($designerConfig),
+            'display_page' => $displayPage,
+            'has_query' => $visualBuilderMode,
+            'visual_builder' => $visualBuilderMode,
+            'selected_page' => $selectedPage,
+            'params_array' => $classesSideMenu,
+            'tab_pos' => $tablePositions,
+            'tab_column' => $tableColumn,
+            'tables_all_keys' => $tablesAllKeys,
+            'designerTables' => $scriptDisplayField,
+            'columns_type' => $columnsType,
+        ]);
+
         // Embed some data into HTML, later it will be read
         // by designer/init.js and converted to JS variables.
-        $this->response->addHTML(
-            $this->databaseDesigner->getHtmlForMain(
-                Current::$database,
-                $request->getQueryParam('db'),
-                $scriptDisplayField,
-                $scriptTables,
-                $scriptContr,
-                $displayPage,
-                $visualBuilderMode,
-                $selectedPage,
-                $classesSideMenu,
-                $tablePositions,
-                $tableColumn,
-                $tablesAllKeys,
-            ),
-        );
+        $this->response->addHTML($mainHtml);
 
         $this->response->addHTML('<div id="PMA_disable_floating_menubar"></div>');
     }
