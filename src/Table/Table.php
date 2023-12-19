@@ -325,7 +325,7 @@ class Table implements Stringable
             return false;
         }
 
-        return $this->dbi->getCache()->getCachedTableContent([$this->dbName, $this->name, $info]);
+        return $cachedResult[$info];
     }
 
     /**
