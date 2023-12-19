@@ -42,18 +42,12 @@ class Cache
     /**
      * Set an item in table cache using dot notation.
      *
-     * @param mixed[]|null $contentPath Array with the target path
-     * @param mixed        $value       Target value
+     * @param string[] $contentPath Array with the target path
+     * @param mixed    $value       Target value
      */
-    public function cacheTableContent(array|null $contentPath, mixed $value): void
+    public function cacheTableContent(array $contentPath, mixed $value): void
     {
         $loc = &$this->tableCache;
-
-        if (! isset($contentPath)) {
-            $loc = $value;
-
-            return;
-        }
 
         while (count($contentPath) > 1) {
             $key = array_shift($contentPath);

@@ -10493,14 +10493,7 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Query/Cache.php">
-    <MixedArrayOffset>
-      <code>$loc[$key]</code>
-      <code>$loc[$key]</code>
-      <code>$loc[array_shift($contentPath)]</code>
-    </MixedArrayOffset>
     <MixedAssignment>
-      <code>$key</code>
-      <code>$loc</code>
       <code>$loc[array_shift($contentPath)]</code>
     </MixedAssignment>
     <UnsupportedPropertyReferenceUsage>
