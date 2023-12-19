@@ -1081,11 +1081,8 @@ class Results
 
         [$columnOrder, $columnVisibility] = $this->getColumnParams($statementInfo);
 
-        $tableCreateTime = '';
         $table = new Table($this->table, $this->db, $this->dbi);
-        if (! $table->isView()) {
-            $tableCreateTime = $this->dbi->getTable($this->db, $this->table)->getStatusInfo('Create_time');
-        }
+        $tableCreateTime = ! $table->isView() ? $table->getStatusInfo('Create_time') : '';
 
         return [
             'order' => $columnOrder,
