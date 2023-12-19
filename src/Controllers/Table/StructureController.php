@@ -69,8 +69,6 @@ class StructureController extends AbstractController
         $GLOBALS['errorUrl'] ??= null;
 
         $this->dbi->selectDb(Current::$database);
-        $rereadInfo = $this->tableObj->getStatusInfo(null, true);
-        $showTable = $this->tableObj->getStatusInfo(null, ! empty($rereadInfo));
 
         $this->pageSettings->init('TableStructure');
         $this->response->addHTML($this->pageSettings->getErrorHTML());
@@ -141,7 +139,6 @@ class StructureController extends AbstractController
             $columnsWithIndex,
             $isSystemSchema,
             $request->getRoute(),
-            $showTable,
         ));
     }
 
@@ -161,7 +158,6 @@ class StructureController extends AbstractController
         array $columnsWithIndex,
         bool $isSystemSchema,
         string $route,
-        mixed $showTable,
     ): string {
         if ($this->tableObj->isView()) {
             $tableIsAView = true;
@@ -193,7 +189,7 @@ class StructureController extends AbstractController
         // Get valid statistics whatever is the table type
         if ($config->settings['ShowStats']) {
             //get table stats in HTML format
-            $tablestats = $this->getTableStats($isSystemSchema, $tableIsAView, $tableStorageEngine, $showTable);
+            $tablestats = $this->getTableStats($isSystemSchema, $tableIsAView, $tableStorageEngine);
             //returning the response in JSON format to be used by Ajax
             $this->response->addJSON('tableStat', $tablestats);
         }
@@ -300,14 +296,9 @@ class StructureController extends AbstractController
         bool $isSystemSchema,
         bool $tableIsAView,
         string $tableStorageEngine,
-        mixed $showTable,
     ): string {
+        $showTable = $this->dbi->getTable(Current::$database, Current::$table)->getStatusInfo(forceRead: true);
         $tableInfoNunRows = $this->tableObj->getNumRows($showTable['Name']);
-
-        if (empty($showTable)) {
-            $showTable = $this->dbi->getTable(Current::$database, Current::$table)
-                ->getStatusInfo(null, true);
-        }
 
         if (is_string($showTable)) {
             $showTable = [];

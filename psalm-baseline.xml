@@ -2424,7 +2424,6 @@
       <code><![CDATA[$GLOBALS['auto_increment']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
-      <code>$rereadInfo</code>
       <code>$showTable</code>
       <code>$showTable</code>
     </MixedAssignment>
@@ -4146,8 +4145,6 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code>$attributes[$rownum]</code>
-      <code>$rereadInfo</code>
-      <code>$showTable</code>
       <code>$showTable</code>
     </MixedAssignment>
     <MixedOperand>
