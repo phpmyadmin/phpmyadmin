@@ -736,7 +736,7 @@ class Table implements Stringable
         }
 
         if (is_numeric($rowCount)) {
-            $cache->cacheTableContent([$this->dbName, $this->name, 'ExactRows'], (int) $rowCount);
+            $cache->cacheTableValue($this->dbName, $this->name, 'ExactRows', (int) $rowCount);
 
             return (int) $rowCount;
         }

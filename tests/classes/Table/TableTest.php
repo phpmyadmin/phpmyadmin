@@ -949,10 +949,7 @@ class TableTest extends AbstractTestCase
     public function testIsMergeCase2(): void
     {
         $dbi = DatabaseInterface::getInstance();
-        $dbi->getCache()->cacheTableContent(
-            ['PMA', 'PMA_BookMark'],
-            ['ENGINE' => 'MERGE'],
-        );
+        $dbi->getCache()->cacheTableValue('PMA', 'PMA_BookMark', 'ENGINE', 'MERGE');
 
         $tableObj = new Table('PMA_BookMark', 'PMA', $dbi);
         $this->assertTrue(
@@ -966,10 +963,7 @@ class TableTest extends AbstractTestCase
     public function testIsMergeCase3(): void
     {
         $dbi = DatabaseInterface::getInstance();
-        $dbi->getCache()->cacheTableContent(
-            ['PMA', 'PMA_BookMark'],
-            ['ENGINE' => 'MRG_MYISAM'],
-        );
+        $dbi->getCache()->cacheTableValue('PMA', 'PMA_BookMark', 'ENGINE', 'MRG_MYISAM');
 
         $tableObj = new Table('PMA_BookMark', 'PMA', $dbi);
         $this->assertTrue(

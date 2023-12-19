@@ -13641,6 +13641,11 @@ parameters:
 			path: src/Profiling.php
 
 		-
+			message: "#^Cannot access offset string on mixed\\.$#"
+			count: 1
+			path: src/Query/Cache.php
+
+		-
 			message: "#^Cannot access offset 'CHARACTER_MAXIMUM…' on mixed\\.$#"
 			count: 1
 			path: src/Query/Compatibility.php

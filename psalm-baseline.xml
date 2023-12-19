@@ -10493,12 +10493,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Query/Cache.php">
-    <MixedAssignment>
-      <code>$loc[array_shift($contentPath)]</code>
-    </MixedAssignment>
-    <UnsupportedPropertyReferenceUsage>
-      <code><![CDATA[$loc = &$this->tableCache]]></code>
-    </UnsupportedPropertyReferenceUsage>
+    <MixedArrayAssignment>
+      <code><![CDATA[$this->tableCache[$db][$table][$key]]]></code>
+    </MixedArrayAssignment>
   </file>
   <file src="src/Query/Compatibility.php">
     <MixedArrayAccess>
