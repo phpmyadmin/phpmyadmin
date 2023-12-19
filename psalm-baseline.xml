@@ -14108,7 +14108,6 @@
   <file src="tests/classes/Export/OptionsTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$config->settings]]></code>

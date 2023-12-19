@@ -936,11 +936,6 @@ class TableTest extends AbstractTestCase
     public function testIsMergeCase1(): void
     {
         $dbi = DatabaseInterface::getInstance();
-        $tableObj = new Table('PMA_BookMark', 'PMA', $dbi);
-        $this->assertEquals(
-            '',
-            $tableObj->isMerge(),
-        );
 
         $tableObj = new Table('PMA_BookMark', 'PMA', $dbi);
         $this->assertFalse(
