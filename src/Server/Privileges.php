@@ -56,6 +56,7 @@ use function range;
 use function sprintf;
 use function str_contains;
 use function str_replace;
+use function strnatcasecmp;
 use function strtr;
 use function trim;
 use function uksort;
@@ -1837,7 +1838,7 @@ class Privileges
         // just letters. For letters A-Z, we add the non-used letters
         // as greyed out.
         $initialsMap = array_fill_keys($initials, true) + array_fill_keys(range('A', 'Z'), false);
-        uksort($initialsMap, 'strnatcasecmp');
+        uksort($initialsMap, strnatcasecmp(...));
 
         return $this->template->render('server/privileges/initials_row', [
             'array_initials' => $initialsMap,

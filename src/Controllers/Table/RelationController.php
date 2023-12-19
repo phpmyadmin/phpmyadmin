@@ -27,6 +27,7 @@ use function array_key_exists;
 use function array_keys;
 use function mb_strtoupper;
 use function md5;
+use function strnatcasecmp;
 use function strtoupper;
 use function uksort;
 use function usort;
@@ -176,7 +177,7 @@ final class RelationController extends AbstractController
 
         $config = Config::getInstance();
         if ($config->settings['NaturalOrder']) {
-            uksort($columnArray, 'strnatcasecmp');
+            uksort($columnArray, strnatcasecmp(...));
         }
 
         $foreignKeyRow = '';
@@ -325,7 +326,7 @@ final class RelationController extends AbstractController
         }
 
         if (Config::getInstance()->settings['NaturalOrder']) {
-            usort($columnList, 'strnatcasecmp');
+            usort($columnList, strnatcasecmp(...));
         }
 
         $this->response->addJSON('columns', $columnList);
@@ -368,7 +369,7 @@ final class RelationController extends AbstractController
         }
 
         if (Config::getInstance()->settings['NaturalOrder']) {
-            usort($tables, 'strnatcasecmp');
+            usort($tables, strnatcasecmp(...));
         }
 
         $this->response->addJSON('tables', $tables);

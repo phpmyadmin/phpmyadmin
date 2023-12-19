@@ -50,6 +50,7 @@ use function sprintf;
 use function str_contains;
 use function str_starts_with;
 use function stripos;
+use function strnatcasecmp;
 use function strtolower;
 use function strtoupper;
 use function strtr;
@@ -329,7 +330,7 @@ class DatabaseInterface implements DbalInterface
             $connectionType,
         );
         if (Config::getInstance()->settings['NaturalOrder']) {
-            usort($tables, 'strnatcasecmp');
+            usort($tables, strnatcasecmp(...));
         }
 
         return $tables;
@@ -455,7 +456,7 @@ class DatabaseInterface implements DbalInterface
             if ($sortBy === 'Name' && $config->settings['NaturalOrder']) {
                 // here, the array's first key is by schema name
                 foreach ($tables as $oneDatabaseName => $oneDatabaseTables) {
-                    uksort($oneDatabaseTables, 'strnatcasecmp');
+                    uksort($oneDatabaseTables, strnatcasecmp(...));
 
                     if ($sortOrder === 'DESC') {
                         $oneDatabaseTables = array_reverse($oneDatabaseTables);
@@ -555,7 +556,7 @@ class DatabaseInterface implements DbalInterface
             // Sort naturally if the config allows it and we're sorting
             // the Name column.
             if ($sortBy === 'Name' && $config->settings['NaturalOrder']) {
-                uksort($eachTables, 'strnatcasecmp');
+                uksort($eachTables, strnatcasecmp(...));
 
                 if ($sortOrder === 'DESC') {
                     $eachTables = array_reverse($eachTables);

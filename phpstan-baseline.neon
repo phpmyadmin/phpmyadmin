@@ -1406,7 +1406,7 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
-			message: "#^Parameter \\#2 \\$callback of function usort expects callable\\(string\\|null, string\\|null\\)\\: int, 'strnatcasecmp' given\\.$#"
+			message: "#^Parameter \\#2 \\$callback of function usort expects callable\\(string\\|null, string\\|null\\)\\: int, Closure\\(string, string\\)\\: int\\<\\-1, 1\\> given\\.$#"
 			count: 1
 			path: src/ConfigStorage/Relation.php
 
@@ -5136,12 +5136,12 @@ parameters:
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: "#^Parameter \\#2 \\$callback of function usort expects callable\\(mixed, mixed\\)\\: int, 'strnatcasecmp' given\\.$#"
+			message: "#^Parameter \\#2 \\$callback of function usort expects callable\\(mixed, mixed\\)\\: int, Closure\\(string, string\\)\\: int\\<\\-1, 1\\> given\\.$#"
 			count: 1
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: "#^Parameter \\#2 \\$callback of function usort expects callable\\(string\\|null, string\\|null\\)\\: int, 'strnatcasecmp' given\\.$#"
+			message: "#^Parameter \\#2 \\$callback of function usort expects callable\\(string\\|null, string\\|null\\)\\: int, Closure\\(string, string\\)\\: int\\<\\-1, 1\\> given\\.$#"
 			count: 1
 			path: src/Controllers/Table/RelationController.php
 
@@ -10041,7 +10041,7 @@ parameters:
 			path: src/ListDatabase.php
 
 		-
-			message: "#^Parameter \\#2 \\$callback of function usort expects callable\\(mixed, mixed\\)\\: int, 'strnatcasecmp' given\\.$#"
+			message: "#^Parameter \\#2 \\$callback of function usort expects callable\\(mixed, mixed\\)\\: int, Closure\\(string, string\\)\\: int\\<\\-1, 1\\> given\\.$#"
 			count: 1
 			path: src/ListDatabase.php
 
