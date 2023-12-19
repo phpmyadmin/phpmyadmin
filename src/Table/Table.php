@@ -697,7 +697,7 @@ class Table implements Stringable
         $rowCount = null;
 
         if (! $forceExact) {
-            if (($cache->getCachedTableContent([$this->dbName, $this->name, 'Rows']) == null) && ! $isView) {
+            if (($cache->getCachedTableContent([$this->dbName, $this->name, 'Rows']) === null) && ! $isView) {
                 $this->dbi->getTablesFull($this->dbName, $this->name);
             }
 
