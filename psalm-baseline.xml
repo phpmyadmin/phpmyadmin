@@ -4770,16 +4770,9 @@
       <code>$oneField</code>
       <code><![CDATA[$oneKey['constraint']]]></code>
       <code><![CDATA[$oneKey['ref_index_list'][$index]]]></code>
-      <code><![CDATA[$oneTable['TABLE_NAME']]]></code>
-      <code><![CDATA[$oneTable['TABLE_NAME']]]></code>
       <code><![CDATA[$origData['settings_data']]]></code>
       <code>$tab</code>
-      <code><![CDATA[$tables[$t1]['ENGINE']]]></code>
-      <code><![CDATA[$tables[$t1]['ENGINE'] ?? '']]></code>
-      <code><![CDATA[$tables[$t2]['ENGINE']]]></code>
-      <code><![CDATA[$tables[$t2]['ENGINE'] ?? '']]></code>
       <code><![CDATA[$value['foreign_field']]]></code>
-      <code><![CDATA[is_string($oneTable['ENGINE']) ? $oneTable['ENGINE'] : '']]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$oneKey['constraint']]]></code>
@@ -4788,12 +4781,6 @@
       <code><![CDATA[$oneKey['ref_index_list']]]></code>
       <code><![CDATA[$oneKey['ref_index_list'][$index]]]></code>
       <code><![CDATA[$oneKey['ref_table_name']]]></code>
-      <code><![CDATA[$oneTable['ENGINE']]]></code>
-      <code><![CDATA[$oneTable['ENGINE']]]></code>
-      <code><![CDATA[$oneTable['TABLE_NAME']]]></code>
-      <code><![CDATA[$oneTable['TABLE_NAME']]]></code>
-      <code><![CDATA[$tables[$t1]['ENGINE']]]></code>
-      <code><![CDATA[$tables[$t2]['ENGINE']]]></code>
       <code><![CDATA[$value['foreign_db']]]></code>
       <code><![CDATA[$value['foreign_field']]]></code>
       <code><![CDATA[$value['foreign_table']]]></code>
@@ -4809,7 +4796,6 @@
       <code>$index</code>
       <code>$oneField</code>
       <code>$oneKey</code>
-      <code>$oneTable</code>
       <code>$origData</code>
       <code>$tab</code>
       <code>$value</code>
@@ -4825,7 +4811,13 @@
       <code><![CDATA[$_POST['t_x'][$key]]]></code>
       <code><![CDATA[$_POST['t_y'][$key]]]></code>
       <code>$db</code>
+      <code><![CDATA[$oneTable['TABLE_NAME']]]></code>
+      <code><![CDATA[$oneTable['TABLE_NAME']]]></code>
       <code>$tab</code>
+      <code><![CDATA[$tables[$t1]['ENGINE']]]></code>
+      <code><![CDATA[$tables[$t1]['ENGINE'] ?? '']]></code>
+      <code><![CDATA[$tables[$t2]['ENGINE']]]></code>
+      <code><![CDATA[$tables[$t2]['ENGINE'] ?? '']]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidArrayOffset>
       <code><![CDATA[$_POST['t_db'][$key]]]></code>
@@ -5195,7 +5187,6 @@
     <MixedArgument>
       <code>$a</code>
       <code>$b</code>
-      <code><![CDATA[$tableData[$sortBy] ?? '']]></code>
       <code><![CDATA[$this->connections[$connectionType]]]></code>
       <code><![CDATA[$this->connections[$connectionType]]]></code>
       <code><![CDATA[$this->connections[$connectionType]]]></code>
@@ -5219,10 +5210,6 @@
     <MixedArrayAccess>
       <code>$resultTarget[$row[$keyIndex]]</code>
       <code>$resultTarget[]</code>
-      <code>$tableData[$sortBy]</code>
-      <code><![CDATA[$tableData['Data_length']]]></code>
-      <code><![CDATA[$tableData['Engine']]]></code>
-      <code><![CDATA[$tableData['Index_length']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code>$resultTarget[$row[$keyIndex]]</code>
@@ -5241,9 +5228,6 @@
       <code>$resultTarget</code>
       <code>$resultTarget</code>
       <code>$resultTarget</code>
-      <code>$tableData</code>
-      <code>$tableData</code>
-      <code>$tableData</code>
       <code><![CDATA[$this->versionComment]]></code>
       <code><![CDATA[$this->versionString]]></code>
     </MixedAssignment>
@@ -5255,7 +5239,6 @@
     <MixedOperand>
       <code><![CDATA[$a['Data_length']]]></code>
       <code><![CDATA[$b['Data_length']]]></code>
-      <code><![CDATA[$tableData['Data_length']]]></code>
     </MixedOperand>
     <MixedReturnStatement>
       <code>$resultRows</code>
@@ -5289,9 +5272,16 @@
     <NullableReturnStatement>
       <code>$user</code>
     </NullableReturnStatement>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[$tableData[$sortBy] ?? '']]></code>
+    </PossiblyInvalidArgument>
     <PossiblyInvalidArrayOffset>
       <code>$row[$value]</code>
     </PossiblyInvalidArrayOffset>
+    <PossiblyInvalidOperand>
+      <code><![CDATA[$tableData['Data_length']]]></code>
+      <code><![CDATA[$tableData['Index_length']]]></code>
+    </PossiblyInvalidOperand>
     <PossiblyNullArrayOffset>
       <code>$resultTarget</code>
       <code>$resultTarget</code>
@@ -5304,6 +5294,8 @@
       <code><![CDATA[$row['Index_length']]]></code>
       <code><![CDATA[$row['Max_data_length']]]></code>
       <code><![CDATA[$row['Rows']]]></code>
+      <code><![CDATA[$tableData['Data_length']]]></code>
+      <code><![CDATA[$tableData['Index_length']]]></code>
     </PossiblyNullOperand>
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$_SERVER['SCRIPT_NAME']]]></code>
@@ -10520,9 +10512,6 @@
     </UnsupportedPropertyReferenceUsage>
   </file>
   <file src="src/Query/Compatibility.php">
-    <MixedArgument>
-      <code><![CDATA[$eachTables[$tableName]['Comment'] ?? '']]></code>
-    </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$columns[$columnName]['Collation']]]></code>
       <code><![CDATA[$columns[$columnName]['Comment']]]></code>
@@ -10533,24 +10522,6 @@
       <code><![CDATA[$columns[$columnName]['Null']]]></code>
       <code><![CDATA[$columns[$columnName]['Privileges']]]></code>
       <code><![CDATA[$columns[$columnName]['Type']]]></code>
-      <code><![CDATA[$eachTables[$tableName]['Auto_increment']]]></code>
-      <code><![CDATA[$eachTables[$tableName]['Avg_row_length']]]></code>
-      <code><![CDATA[$eachTables[$tableName]['Check_time']]]></code>
-      <code><![CDATA[$eachTables[$tableName]['Checksum']]]></code>
-      <code><![CDATA[$eachTables[$tableName]['Collation']]]></code>
-      <code><![CDATA[$eachTables[$tableName]['Comment']]]></code>
-      <code><![CDATA[$eachTables[$tableName]['Create_options']]]></code>
-      <code><![CDATA[$eachTables[$tableName]['Create_time']]]></code>
-      <code><![CDATA[$eachTables[$tableName]['Data_free']]]></code>
-      <code><![CDATA[$eachTables[$tableName]['Data_length']]]></code>
-      <code><![CDATA[$eachTables[$tableName]['Engine']]]></code>
-      <code><![CDATA[$eachTables[$tableName]['Index_length']]]></code>
-      <code><![CDATA[$eachTables[$tableName]['Max_data_length']]]></code>
-      <code><![CDATA[$eachTables[$tableName]['Name']]]></code>
-      <code><![CDATA[$eachTables[$tableName]['Row_format']]]></code>
-      <code><![CDATA[$eachTables[$tableName]['Rows']]]></code>
-      <code><![CDATA[$eachTables[$tableName]['Update_time']]]></code>
-      <code><![CDATA[$eachTables[$tableName]['Version']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$columns[$columnName]['CHARACTER_MAXIMUM_LENGTH']]]></code>
@@ -10563,19 +10534,14 @@
       <code><![CDATA[$columns[$columnName]['TABLE_CATALOG']]]></code>
       <code><![CDATA[$columns[$columnName]['TABLE_NAME']]]></code>
       <code><![CDATA[$columns[$columnName]['TABLE_SCHEMA']]]></code>
-      <code><![CDATA[$eachTables[$tableName]['TABLE_SCHEMA']]]></code>
-      <code><![CDATA[$eachTables[$tableName]['TABLE_TYPE']]]></code>
-      <code><![CDATA[$eachTables[$tableName]['TABLE_TYPE']]]></code>
-      <code><![CDATA[$eachTables[$tableName]['TABLE_TYPE']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
       <code>$colCollation</code>
       <code>$colType</code>
     </MixedAssignment>
-    <MixedReturnTypeCoercion>
-      <code>$eachTables</code>
-      <code>mixed[][]</code>
-    </MixedReturnTypeCoercion>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[$eachTables[$tableName]['Comment'] ?? '']]></code>
+    </PossiblyInvalidArgument>
   </file>
   <file src="src/Query/Utilities.php">
     <DeprecatedMethod>

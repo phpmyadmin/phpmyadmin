@@ -360,7 +360,7 @@ class DatabaseInterface implements DbalInterface
      * @param string|null    $tableType    whether table or view
      * @psalm-param ConnectionType $connectionType
      *
-     * @return mixed[]           list of tables in given db(s)
+     * @return (string|int|null)[][]           list of tables in given db(s)
      *
      * @todo    move into Table
      */
@@ -426,7 +426,7 @@ class DatabaseInterface implements DbalInterface
                 $sql .= ' LIMIT ' . $limitCount . ' OFFSET ' . $limitOffset;
             }
 
-            /** @var mixed[][][] $tables */
+            /** @var (string|int|null)[][][] $tables */
             $tables = $this->fetchResult(
                 $sql,
                 ['TABLE_SCHEMA', 'TABLE_NAME'],
@@ -534,6 +534,7 @@ class DatabaseInterface implements DbalInterface
                 }
             }
 
+            /** @var (string|int|null)[][] $eachTables */
             $eachTables = $this->fetchResult($sql, 'Name', null, $connectionType);
 
             // here, we check for Mroonga engine and compute the good data_length and index_length
