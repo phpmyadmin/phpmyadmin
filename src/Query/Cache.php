@@ -11,14 +11,14 @@ use PhpMyAdmin\Util;
  */
 class Cache
 {
-    /** @var mixed[][] Table data cache */
+    /** @var (string|int|null)[][][] Table data cache */
     private array $tableCache = [];
 
     /**
      * Caches table data so Table does not require to issue
      * SHOW TABLE STATUS again
      *
-     * @param mixed[][] $tables information for tables of some databases
+     * @param (string|int|null)[][] $tables information for tables of some databases
      */
     public function cacheTableData(string $database, array $tables): void
     {

@@ -10492,11 +10492,6 @@
       <code>getUploadStatus</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="src/Query/Cache.php">
-    <MixedArrayAssignment>
-      <code><![CDATA[$this->tableCache[$db][$table][$key]]]></code>
-    </MixedArrayAssignment>
-  </file>
   <file src="src/Query/Compatibility.php">
     <MixedArrayAccess>
       <code><![CDATA[$columns[$columnName]['Collation']]]></code>
