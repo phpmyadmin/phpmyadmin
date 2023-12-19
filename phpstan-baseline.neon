@@ -6986,16 +6986,6 @@ parameters:
 			path: src/Database/Designer/Common.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function mb_strtoupper expects string, int\\|string given\\.$#"
-			count: 2
-			path: src/Database/Designer/Common.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function mb_strtoupper expects string, int\\|string\\|null given\\.$#"
-			count: 2
-			path: src/Database/Designer/Common.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function rawurlencode expects string, mixed given\\.$#"
 			count: 4
 			path: src/Database/Designer/Common.php

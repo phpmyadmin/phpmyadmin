@@ -4814,10 +4814,6 @@
       <code><![CDATA[$oneTable['TABLE_NAME']]]></code>
       <code><![CDATA[$oneTable['TABLE_NAME']]]></code>
       <code>$tab</code>
-      <code><![CDATA[$tables[$t1]['ENGINE']]]></code>
-      <code><![CDATA[$tables[$t1]['ENGINE'] ?? '']]></code>
-      <code><![CDATA[$tables[$t2]['ENGINE']]]></code>
-      <code><![CDATA[$tables[$t2]['ENGINE'] ?? '']]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidArrayOffset>
       <code><![CDATA[$_POST['t_db'][$key]]]></code>
