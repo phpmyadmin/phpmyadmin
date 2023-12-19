@@ -848,7 +848,7 @@ class NavigationTree
 
         $this->groupTree();
         $children = $this->tree->children;
-        usort($children, [self::class, 'sortNode']);
+        usort($children, self::sortNode(...));
         $this->setVisibility();
 
         $nodes = $this->renderNodes($children);
@@ -877,7 +877,7 @@ class NavigationTree
             $listContent = $this->fastFilterHtml($node);
             $listContent .= $this->getPageSelector($node);
             $children = $node->children;
-            usort($children, [self::class, 'sortNode']);
+            usort($children, self::sortNode(...));
 
             $listContent .= $this->renderNodes($children, false);
 
@@ -1098,7 +1098,7 @@ class NavigationTree
         }
 
         $children = $node->children;
-        usort($children, [self::class, 'sortNode']);
+        usort($children, self::sortNode(...));
         $buffer = '';
         $extraClass = '';
         for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
@@ -1184,7 +1184,7 @@ class NavigationTree
         }
 
         $children = $this->tree->children;
-        usort($children, [self::class, 'sortNode']);
+        usort($children, self::sortNode(...));
         $this->setVisibility();
 
         $nodes = $this->renderNodes($children);
