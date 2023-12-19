@@ -687,7 +687,7 @@
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
     <InvalidArgument>
-      <code><![CDATA[usort($tables, 'strnatcasecmp')]]></code>
+      <code>usort($tables, strnatcasecmp(...))</code>
     </InvalidArgument>
     <InvalidReturnStatement>
       <code>$tableNameReplacements</code>
@@ -722,7 +722,7 @@
       <code><![CDATA[$oneKey['index_list']]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code><![CDATA[uksort($foreign, 'strnatcasecmp')]]></code>
+      <code>uksort($foreign, strnatcasecmp(...))</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$column['COLUMN_NAME']]]></code>
@@ -3685,7 +3685,7 @@
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
     <InvalidArgument>
-      <code><![CDATA[usort($tables, 'strnatcasecmp')]]></code>
+      <code>usort($tables, strnatcasecmp(...))</code>
     </InvalidArgument>
     <MixedArgument>
       <code>$foreignDb</code>
@@ -3697,7 +3697,7 @@
                     : []]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code><![CDATA[usort($columnList, 'strnatcasecmp')]]></code>
+      <code>usort($columnList, strnatcasecmp(...))</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$oneKey['ref_db_name']]]></code>
@@ -5197,8 +5197,8 @@
       <code><![CDATA[$this->versionString]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code><![CDATA[uksort($eachTables, 'strnatcasecmp')]]></code>
-      <code><![CDATA[uksort($oneDatabaseTables, 'strnatcasecmp')]]></code>
+      <code>uksort($eachTables, strnatcasecmp(...))</code>
+      <code>uksort($oneDatabaseTables, strnatcasecmp(...))</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code>$resultTarget[$row[$keyIndex]]</code>
@@ -7103,7 +7103,7 @@
       <code>$db</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code><![CDATA[usort($databaseList, 'strnatcasecmp')]]></code>
+      <code>usort($databaseList, strnatcasecmp(...))</code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code>$db</code>
@@ -7259,9 +7259,6 @@
     <PossiblyNullPropertyFetch>
       <code><![CDATA[$container->parent->pos2]]></code>
     </PossiblyNullPropertyFetch>
-    <PossiblyUnusedReturnValue>
-      <code>int</code>
-    </PossiblyUnusedReturnValue>
     <RedundantCast>
       <code>(string) $key</code>
       <code>(string) $key</code>
@@ -12306,7 +12303,7 @@
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$columnNames</code>
-      <code><![CDATA[uksort($tables, 'strnatcasecmp')]]></code>
+      <code>uksort($tables, strnatcasecmp(...))</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>

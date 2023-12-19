@@ -70,6 +70,7 @@ use function str_replace;
 use function str_starts_with;
 use function strftime;
 use function strlen;
+use function strnatcasecmp;
 use function strrev;
 use function strtolower;
 use function strtr;
@@ -1856,7 +1857,7 @@ class Util
                 }
 
                 if ($config->settings['NaturalOrder']) {
-                    uksort($tables, 'strnatcasecmp');
+                    uksort($tables, strnatcasecmp(...));
                 }
             }
 

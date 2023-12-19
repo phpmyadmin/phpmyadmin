@@ -12,6 +12,7 @@ use function is_string;
 use function preg_match;
 use function sort;
 use function strlen;
+use function strnatcasecmp;
 use function strtr;
 use function usort;
 
@@ -108,7 +109,7 @@ class ListDatabase extends ListAbstract
         }
 
         if ($config->settings['NaturalOrder']) {
-            usort($databaseList, 'strnatcasecmp');
+            usort($databaseList, strnatcasecmp(...));
         } else {
             // need to sort anyway, otherwise information_schema
             // goes at the top

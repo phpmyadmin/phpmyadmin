@@ -46,6 +46,7 @@ use function sprintf;
 use function str_contains;
 use function str_replace;
 use function strlen;
+use function strnatcasecmp;
 use function trim;
 use function uksort;
 use function usort;
@@ -749,7 +750,7 @@ class Relation
         if ($mode === 'id-content' || $mode === 'id-only') {
             // sort for id-content
             if ($config->settings['NaturalOrder']) {
-                uksort($foreign, 'strnatcasecmp');
+                uksort($foreign, strnatcasecmp(...));
             } else {
                 ksort($foreign);
             }
@@ -1655,7 +1656,7 @@ class Relation
         }
 
         if (Config::getInstance()->settings['NaturalOrder']) {
-            usort($tables, 'strnatcasecmp');
+            usort($tables, strnatcasecmp(...));
         }
 
         return $tables;
