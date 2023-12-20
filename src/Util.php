@@ -1743,8 +1743,7 @@ class Util
                 // all tables in db
                 // - get the total number of tables
                 //  (needed for proper working of the MaxTableList feature)
-                $tables = $dbi->getTables($db);
-                $totalNumTables = count($tables);
+                $totalNumTables = count($dbi->getTables($db));
                 if ($isResultLimited) {
                     // fetch the details for a possible limited subset
                     $limitOffset = self::getTableListPosition($request, $db);
@@ -1755,7 +1754,7 @@ class Util
             // We must use union operator here instead of array_merge to preserve numerical keys
             $tables = $groupTable + $dbi->getTablesFull(
                 $db,
-                $groupWithSeparator !== false ? $groupWithSeparator : $tables,
+                $groupWithSeparator !== false ? $groupWithSeparator : '',
                 $groupWithSeparator !== false,
                 $limitOffset,
                 $limitCount,

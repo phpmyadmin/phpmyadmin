@@ -2115,7 +2115,7 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query' => "SHOW TABLE STATUS FROM `world` WHERE `Name` IN ('City', 'Country', 'CountryLanguage')",
+                'query' => 'SHOW TABLE STATUS FROM `world`',
                 'columns' => [
                     'Name',
                     'Engine',
