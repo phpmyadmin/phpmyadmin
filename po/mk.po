@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-11-06 20:01+0000\n"
+"PO-Revision-Date: 2023-12-20 23:46+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 5.2-dev\n"
+"X-Generator: Weblate 5.3\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -1071,7 +1071,7 @@ msgstr "Молиме одберете колон(а/и) за индексот."
 #: templates/table/index_form.twig:216
 #: templates/table/relation/common_form.twig:188
 msgid "Preview SQL"
-msgstr ""
+msgstr "Преглед на SQL"
 
 #: js/messages.php:133
 #, fuzzy
@@ -6973,7 +6973,7 @@ msgstr "Единствен"
 #: libraries/classes/Controllers/Table/TableStructureController.php:1239
 #: templates/columns_definitions/column_indexes.twig:20
 msgid "Spatial"
-msgstr ""
+msgstr "Просторен"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1235
 #: libraries/classes/Controllers/Table/TableStructureController.php:1240
@@ -8137,9 +8137,8 @@ msgstr "Кардиналност"
 #: templates/database/structure/table_header.twig:48
 #: templates/table/tracking/structure_snapshot_columns.twig:12
 #: templates/columns_definitions/partitions.twig:85
-#, fuzzy
 msgid "Comment"
-msgstr "Коментари"
+msgstr "Коментар"
 
 #: libraries/classes/Index.php:753
 msgid "The primary key has been dropped."
@@ -15403,10 +15402,8 @@ msgstr ""
 
 #: templates/table/structure/display_partitions.twig:24
 #: templates/columns_definitions/partitions.twig:76
-#, fuzzy
-#| msgid "Position"
 msgid "Partition"
-msgstr "Позиција"
+msgstr "Партиција"
 
 #: templates/table/structure/display_partitions.twig:29
 #, fuzzy
@@ -15435,7 +15432,7 @@ msgstr "Додади ново поле"
 
 #: templates/columns_definitions/move_column.twig:7
 msgid "first"
-msgstr ""
+msgstr "прв"
 
 #: templates/privileges/resource_limits.twig:2
 msgid "Resource limits"
@@ -15554,7 +15551,7 @@ msgstr "Никои"
 
 #: templates/columns_definitions/column_default.twig:5
 msgid "As defined:"
-msgstr ""
+msgstr "Дефинирани како:"
 
 #: templates/server/databases/table_row.twig:13
 #, php-format
@@ -15630,7 +15627,7 @@ msgstr "Вредност на сесијата"
 
 #: templates/columns_definitions/column_definitions_form.twig:23
 msgid "Table name"
-msgstr ""
+msgstr "Име на табела"
 
 #: templates/columns_definitions/column_definitions_form.twig:40
 msgid "column(s)"
@@ -15650,7 +15647,7 @@ msgstr "Конекциja:"
 
 #: templates/columns_definitions/column_definitions_form.twig:128
 msgid "PARTITION definition:"
-msgstr ""
+msgstr "Дефиниција на ПАРТИЦИЈА:"
 
 #: templates/prefs_twofactor_confirm.twig:2
 msgid "Confirm disabling two-factor authentication"
@@ -16417,10 +16414,8 @@ msgid "Is a foreign key."
 msgstr "Е надворешен клуч."
 
 #: templates/columns_definitions/column_name.twig:40
-#, fuzzy
-#| msgid "Remove database"
 msgid "Pick from Central Columns"
-msgstr "Избриши ја базата на податоци."
+msgstr "Изберете од Централните Колони"
 
 #: templates/table/tracking/structure_snapshot_columns.twig:47
 #: templates/table/structure/table_structure_row.twig:34
@@ -16471,16 +16466,12 @@ msgid "Subpartitions:"
 msgstr "Подпартиции:"
 
 #: templates/columns_definitions/partitions.twig:78
-#, fuzzy
-#| msgid "Value"
 msgid "Values"
-msgstr "Вредност"
+msgstr "Вредности"
 
 #: templates/columns_definitions/partitions.twig:82
-#, fuzzy
-#| msgid "Position"
 msgid "Subpartition"
-msgstr "Позиција"
+msgstr "Подпартиција"
 
 #: templates/columns_definitions/partitions.twig:84
 msgid "Engine"
