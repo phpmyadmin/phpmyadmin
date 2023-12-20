@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-12-17 00:20+0000\n"
-"PO-Revision-Date: 2023-11-06 19:17+0000\n"
+"PO-Revision-Date: 2023-12-20 23:46+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 5.2-dev\n"
+"X-Generator: Weblate 5.3\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:30
 #: resources/templates/database/central_columns/edit_table_row.twig:22
@@ -35,7 +35,7 @@ msgstr "Никои"
 #: resources/templates/database/central_columns/main.twig:76
 #: resources/templates/database/central_columns/main.twig:317
 msgid "As defined:"
-msgstr ""
+msgstr "Дефинирани како:"
 
 #: resources/templates/columns_definitions/column_attributes.twig:102
 msgid ""
@@ -90,7 +90,7 @@ msgstr "Текст клуч"
 #: resources/templates/table/structure/display_structure.twig:200
 #: resources/templates/table/structure/display_structure.twig:304
 msgid "Spatial"
-msgstr ""
+msgstr "Просторен"
 
 #: resources/templates/columns_definitions/column_attributes.twig:165
 #: resources/templates/table/structure/display_partitions.twig:27
@@ -99,7 +99,7 @@ msgstr "Израз"
 
 #: resources/templates/columns_definitions/column_attributes.twig:184
 msgid "first"
-msgstr ""
+msgstr "прв"
 
 #: resources/templates/columns_definitions/column_attributes.twig:190
 #: resources/templates/table/structure/display_structure.twig:450
@@ -129,7 +129,7 @@ msgstr "нема"
 #: resources/templates/database/create_table.twig:3
 #: resources/templates/database/operations/index.twig:28
 msgid "Table name"
-msgstr ""
+msgstr "Име на табела"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:27
 #: resources/templates/console/display.twig:124
@@ -227,7 +227,7 @@ msgstr "Мотор на складиште"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:133
 msgid "PARTITION definition:"
-msgstr ""
+msgstr "Дефиниција на ПАРТИЦИЈА:"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:154
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
@@ -245,7 +245,7 @@ msgstr "Онлајн трансакција"
 #: resources/templates/table/structure/display_structure.twig:345
 #: src/Controllers/JavaScriptMessagesController.php:128
 msgid "Preview SQL"
-msgstr ""
+msgstr "Преглед на SQL"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:157
 #: resources/templates/database/central_columns/edit.twig:18
@@ -381,9 +381,8 @@ msgid "Column"
 msgstr "Колона"
 
 #: resources/templates/columns_definitions/column_name.twig:36
-#, fuzzy
 msgid "Pick from Central Columns"
-msgstr "Избриши ја базата на податоци."
+msgstr "Изберете од Централните Колони"
 
 #: resources/templates/columns_definitions/partitions.twig:14
 msgid "Partition by:"
@@ -410,19 +409,16 @@ msgstr "Подпартиции:"
 #: resources/templates/columns_definitions/partitions.twig:74
 #: resources/templates/table/operations/index.twig:476
 #: resources/templates/table/structure/display_partitions.twig:21
-#, fuzzy
 msgid "Partition"
-msgstr "Позиција"
+msgstr "Партиција"
 
 #: resources/templates/columns_definitions/partitions.twig:78
-#, fuzzy
 msgid "Values"
-msgstr "Вредност"
+msgstr "Вредности"
 
 #: resources/templates/columns_definitions/partitions.twig:82
-#, fuzzy
 msgid "Subpartition"
-msgstr "Позиција"
+msgstr "Подпартиција"
 
 #: resources/templates/columns_definitions/partitions.twig:84
 msgid "Engine"
@@ -439,9 +435,8 @@ msgstr "Мотор"
 #: resources/templates/table/structure/display_structure.twig:482
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:11
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:12
-#, fuzzy
 msgid "Comment"
-msgstr "Коментари"
+msgstr "Коментар"
 
 #: resources/templates/columns_definitions/partitions.twig:85
 #, fuzzy
