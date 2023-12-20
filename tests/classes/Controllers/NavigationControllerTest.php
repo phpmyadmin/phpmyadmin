@@ -34,8 +34,6 @@ class NavigationControllerTest extends AbstractTestCase
 
     public function testIndex(): void
     {
-        parent::loadDbiIntoContainerBuilder();
-
         parent::setLanguage();
 
         $GLOBALS['server'] = 1;
@@ -182,8 +180,6 @@ class NavigationControllerTest extends AbstractTestCase
 
     public function testIndexWithPosAndValue(): void
     {
-        parent::loadDbiIntoContainerBuilder();
-
         parent::setLanguage();
 
         $GLOBALS['server'] = 1;

@@ -87,13 +87,6 @@ abstract class AbstractTestCase extends TestCase
         Core::$containerBuilder = null;
     }
 
-    protected function loadDbiIntoContainerBuilder(): void
-    {
-        $containerBuilder = Core::getContainerBuilder();
-        $containerBuilder->set(DatabaseInterface::class, DatabaseInterface::getInstance());
-        $containerBuilder->setAlias('dbi', DatabaseInterface::class);
-    }
-
     protected function loadResponseIntoContainerBuilder(): void
     {
         $response = new ResponseRenderer();

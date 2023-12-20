@@ -40,8 +40,6 @@ class ExportControllerTest extends AbstractTestCase
 
     public function testExportController(): void
     {
-        parent::loadDbiIntoContainerBuilder();
-
         Current::$database = 'test_db';
         Current::$table = 'test_table';
         $config = Config::getInstance();

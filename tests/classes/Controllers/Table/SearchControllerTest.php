@@ -125,8 +125,6 @@ class SearchControllerTest extends AbstractTestCase
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
 
-        parent::loadDbiIntoContainerBuilder();
-
         parent::loadResponseIntoContainerBuilder();
 
         $_SESSION[' HMAC_secret '] = hash('sha1', 'test');

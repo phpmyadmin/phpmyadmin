@@ -32,8 +32,6 @@ class ImportControllerTest extends AbstractTestCase
 
     public function testIndexParametrized(): void
     {
-        parent::loadDbiIntoContainerBuilder();
-
         parent::setLanguage();
 
         $GLOBALS['server'] = 1;

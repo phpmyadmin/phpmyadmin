@@ -312,8 +312,6 @@ class StructureControllerTest extends AbstractTestCase
      */
     public function testGetValuesForMroongaTable(): void
     {
-        parent::loadDbiIntoContainerBuilder();
-
         Current::$database = 'testdb';
         Current::$table = 'mytable';
 

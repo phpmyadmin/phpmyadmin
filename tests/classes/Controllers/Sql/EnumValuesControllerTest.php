@@ -28,8 +28,6 @@ class EnumValuesControllerTest extends AbstractTestCase
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
 
-        parent::loadDbiIntoContainerBuilder();
-
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
 

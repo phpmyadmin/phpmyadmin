@@ -29,8 +29,6 @@ class TablesControllerTest extends AbstractTestCase
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
 
-        parent::loadDbiIntoContainerBuilder();
-
         $GLOBALS['server'] = 1;
 
         parent::loadResponseIntoContainerBuilder();

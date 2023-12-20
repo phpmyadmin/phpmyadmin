@@ -45,7 +45,6 @@ class TableControllerTest extends AbstractTestCase
         $config->selectServer('1');
         $config->settings['MaxDbList'] = 0;
 
-        $this->loadDbiIntoContainerBuilder();
         $this->loadResponseIntoContainerBuilder();
 
         $this->dummyDbi->addResult(
