@@ -1991,21 +1991,6 @@ parameters:
 			path: src/Controllers/Database/SearchController.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/SqlAutoCompleteController.php
-
-		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/SqlAutoCompleteController.php
-
-		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTables\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/SqlAutoCompleteController.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/SqlController.php
