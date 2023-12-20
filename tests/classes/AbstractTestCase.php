@@ -95,14 +95,6 @@ abstract class AbstractTestCase extends TestCase
         $containerBuilder->setAlias('response', ResponseRenderer::class);
     }
 
-    protected function getResponseHtmlResult(): string
-    {
-        /** @var ResponseRenderer $response */
-        $response = Core::getContainerBuilder()->get(ResponseRenderer::class);
-
-        return $response->getHTMLResult();
-    }
-
     /** @return mixed[] */
     protected function getResponseJsonResult(): array
     {

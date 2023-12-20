@@ -5,16 +5,20 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Operations;
 
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Operations\TableController;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
+use PhpMyAdmin\Operations;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(TableController::class)]
@@ -44,8 +48,6 @@ class TableControllerTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectServer('1');
         $config->settings['MaxDbList'] = 0;
-
-        $this->loadResponseIntoContainerBuilder();
 
         $this->dummyDbi->addResult(
             'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`',
@@ -120,10 +122,19 @@ class TableControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
             ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
 
-        /** @var TableController $controller */
-        $controller = Core::getContainerBuilder()->get(TableController::class);
+        $responseRenderer = new ResponseRenderer();
+        $relation = new Relation($this->dbi);
+        $controller = new TableController(
+            $responseRenderer,
+            new Template($config),
+            new Operations($this->dbi, $relation),
+            new CheckUserPrivileges($this->dbi),
+            $relation,
+            $this->dbi,
+            new DbTableExists($this->dbi),
+        );
         $controller($request);
 
-        $this->assertEquals($expectedOutput, $this->getResponseHtmlResult());
+        $this->assertEquals($expectedOutput, $responseRenderer->getHTMLResult());
     }
 }

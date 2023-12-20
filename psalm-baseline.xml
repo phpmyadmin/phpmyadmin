@@ -2425,9 +2425,6 @@
       <code>$showTable</code>
       <code>$showTable</code>
     </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Operations/ViewController.php">
     <DeprecatedMethod>
