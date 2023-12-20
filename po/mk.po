@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2023-11-07 15:05+0000\n"
+"PO-Revision-Date: 2023-12-20 23:46+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
-"Language-Team: Macedonian <https://hosted.weblate.org/projects/"
-"phpmyadmin/5-2/mk/>\n"
+"Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
+"5-2/mk/>\n"
 "Language: mk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 5.2-dev\n"
+"X-Generator: Weblate 5.3\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5368,7 +5368,7 @@ msgstr "Молиме одберете колон(а/и) за индексот."
 #: templates/table/structure/display_structure.twig:344
 #: templates/table/structure/display_structure.twig:354
 msgid "Preview SQL"
-msgstr ""
+msgstr "Преглед на SQL"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:120
 #: templates/sql/query.twig:218
@@ -13019,7 +13019,7 @@ msgstr "Никои"
 #: templates/database/central_columns/main.twig:77
 #: templates/database/central_columns/main.twig:312
 msgid "As defined:"
-msgstr ""
+msgstr "Дефинирани како:"
 
 #: templates/columns_definitions/column_attributes.twig:102
 msgid ""
@@ -13051,7 +13051,7 @@ msgstr "Текст клуч"
 #: templates/table/structure/display_structure.twig:200
 #: templates/table/structure/display_structure.twig:304
 msgid "Spatial"
-msgstr ""
+msgstr "Просторен"
 
 #: templates/columns_definitions/column_attributes.twig:165
 #: templates/table/structure/display_partitions.twig:26
@@ -13060,7 +13060,7 @@ msgstr "Израз"
 
 #: templates/columns_definitions/column_attributes.twig:186
 msgid "first"
-msgstr ""
+msgstr "прв"
 
 #: templates/columns_definitions/column_attributes.twig:191
 #: templates/table/structure/display_structure.twig:450
@@ -13072,7 +13072,7 @@ msgstr "после %s"
 #: templates/database/create_table.twig:6
 #: templates/database/operations/index.twig:30
 msgid "Table name"
-msgstr ""
+msgstr "Име на табела"
 
 #: templates/columns_definitions/column_definitions_form.twig:32
 #: templates/console/display.twig:99
@@ -13105,7 +13105,7 @@ msgstr "Мотор на складиште"
 
 #: templates/columns_definitions/column_definitions_form.twig:136
 msgid "PARTITION definition:"
-msgstr ""
+msgstr "Дефиниција на ПАРТИЦИЈА:"
 
 #: templates/columns_definitions/column_definitions_form.twig:154
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
@@ -13142,9 +13142,8 @@ msgid "Is a foreign key."
 msgstr "Е надворешен клуч."
 
 #: templates/columns_definitions/column_name.twig:39
-#, fuzzy
 msgid "Pick from Central Columns"
-msgstr "Избриши ја базата на податоци."
+msgstr "Изберете од Централните Колони"
 
 #: templates/columns_definitions/partitions.twig:17
 msgid "Partition by:"
@@ -13171,19 +13170,16 @@ msgstr "Подпартиции:"
 #: templates/columns_definitions/partitions.twig:76
 #: templates/table/operations/index.twig:480
 #: templates/table/structure/display_partitions.twig:24
-#, fuzzy
 msgid "Partition"
-msgstr "Позиција"
+msgstr "Партиција"
 
 #: templates/columns_definitions/partitions.twig:78
-#, fuzzy
 msgid "Values"
-msgstr "Вредност"
+msgstr "Вредности"
 
 #: templates/columns_definitions/partitions.twig:82
-#, fuzzy
 msgid "Subpartition"
-msgstr "Позиција"
+msgstr "Подпартиција"
 
 #: templates/columns_definitions/partitions.twig:84
 msgid "Engine"
@@ -13199,9 +13195,8 @@ msgstr "Мотор"
 #: templates/table/structure/display_structure.twig:483
 #: templates/table/tracking/structure_snapshot_columns.twig:12
 #: templates/table/tracking/structure_snapshot_indexes.twig:13
-#, fuzzy
 msgid "Comment"
-msgstr "Коментари"
+msgstr "Коментар"
 
 #: templates/columns_definitions/partitions.twig:86
 #, fuzzy
