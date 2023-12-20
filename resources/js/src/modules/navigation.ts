@@ -185,7 +185,7 @@ function loadChildNodes (isNode, $expandElem, callback): void {
             if (data.errors) {
                 var $errors = $(data.errors);
                 if ($errors.children().length > 0) {
-                    $('#pma_errors').replaceWith(data.errors);
+                    $('#pma_errors').append(data.errors);
                 }
             }
 

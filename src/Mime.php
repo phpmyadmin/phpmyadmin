@@ -35,7 +35,7 @@ class Mime
             return 'image/gif';
         }
 
-        if ($len >= 4 && mb_substr($test, 0, 4) == "\x89PNG") {
+        if ($len >= 4 && mb_substr($test, 0, 4, '8bit') === "\x89PNG") {
             return 'image/png';
         }
 
