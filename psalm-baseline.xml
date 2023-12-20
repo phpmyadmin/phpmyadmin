@@ -3203,9 +3203,6 @@
       <code>$currentValue</code>
       <code>$whereClause</code>
     </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Sql/SqlController.php">
     <DeprecatedMethod>
