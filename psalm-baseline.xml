@@ -2149,9 +2149,6 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[min($skip, $GLOBALS['read_limit'])]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
     <RedundantCondition>
       <code><![CDATA[! $GLOBALS['finished']]]></code>
       <code><![CDATA[$GLOBALS['offset'] == 0]]></code>
