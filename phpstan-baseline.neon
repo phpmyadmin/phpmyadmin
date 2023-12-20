@@ -6366,21 +6366,6 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
-			message: "#^Offset 'name' does not exist on SimpleXMLElement\\|null\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Import/ImportOds.php
-
-		-
-			message: "#^Offset 'number\\-columns…' does not exist on SimpleXMLElement\\|null\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Import/ImportOds.php
-
-		-
-			message: "#^Parameter \\#1 \\$cell_attrs of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:getValue\\(\\) expects SimpleXMLElement, SimpleXMLElement\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportOds.php
-
-		-
 			message: "#^Parameter \\#1 \\$sheets of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:iterateOverTables\\(\\) expects array\\|SimpleXMLElement, array\\|SimpleXMLElement\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportOds.php
@@ -6413,21 +6398,6 @@ parameters:
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportXml\\:\\:doImport\\(\\) has parameter \\$sql_data with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/Plugins/Import/ImportXml.php
-
-		-
-			message: "#^Offset 'charset' does not exist on SimpleXMLElement\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportXml.php
-
-		-
-			message: "#^Offset 'collation' does not exist on SimpleXMLElement\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportXml.php
-
-		-
-			message: "#^Offset 'name' does not exist on SimpleXMLElement\\|null\\.$#"
-			count: 8
 			path: libraries/classes/Plugins/Import/ImportXml.php
 
 		-
