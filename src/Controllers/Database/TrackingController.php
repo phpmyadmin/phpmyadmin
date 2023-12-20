@@ -22,6 +22,7 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
+use function count;
 use function htmlspecialchars;
 use function sprintf;
 
@@ -73,7 +74,7 @@ class TrackingController extends AbstractController
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/table/tracking');
         $GLOBALS['urlParams']['back'] = Url::getFromRoute('/database/tracking');
 
-        [, $numTables] = Util::getDbInfo($request, Current::$database);
+        $numTables = count(Util::getDbInfo($request, Current::$database)[0]);
         $isSystemSchema = Utilities::isSystemSchema(Current::$database);
 
         if ($request->hasBodyParam('delete_tracking') && $request->hasBodyParam('table')) {

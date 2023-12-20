@@ -1496,7 +1496,7 @@ SQL;
             'TABLE_COMMENT' => '',
             'TABLE_TYPE' => 'BASE TABLE',
         ];
-        $expected = [['test_table' => $tableInfo], 1, 1];
+        $expected = [['test_table' => $tableInfo], 1];
         $actual = Util::getDbInfo($this->createStub(ServerRequest::class), 'test_db');
         $this->assertSame($expected, $actual);
     }

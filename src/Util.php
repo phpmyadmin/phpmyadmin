@@ -1658,7 +1658,7 @@ class Util
      * Gets the list of tables in the current db and information about these tables if possible.
      *
      * @return array<int, array|int>
-     * @psalm-return array{array, int, int}
+     * @psalm-return array{array, int}
      */
     public static function getDbInfo(ServerRequest $request, string $db, bool $isResultLimited = true): array
     {
@@ -1765,12 +1765,9 @@ class Util
             );
         }
 
-        $numTables = count($tables);
-
         return [
             $tables,
-            $numTables,
-            $totalNumTables ?? $numTables, // needed for proper working of the MaxTableList feature
+            $totalNumTables ?? count($tables), // needed for proper working of the MaxTableList feature
         ];
     }
 
