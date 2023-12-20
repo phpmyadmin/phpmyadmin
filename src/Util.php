@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Query\Compatibility;
@@ -1672,14 +1671,7 @@ class Util
         $config = Config::getInstance();
         // Special speedup for newer MySQL Versions (in 4.0 format changed)
         if ($config->settings['SkipLockedTables'] === true) {
-            $dbInfoResult = $dbi->query(
-                'SHOW OPEN TABLES FROM ' . self::backquote($db) . ' WHERE In_use > 0;',
-            );
-
-            // Blending out tables in use
-            if ($dbInfoResult->numRows() > 0) {
-                $tables = self::getTablesWhenOpen($db, $dbInfoResult);
-            }
+            $tables = self::getTablesWhenOpen($db);
         }
 
         $totalNumTables = null;
@@ -1786,82 +1778,85 @@ class Util
      * Gets the list of tables in the current db, taking into account
      * that they might be "in use"
      *
-     * @param string          $db           database name
-     * @param ResultInterface $dbInfoResult result set
-     *
      * @return mixed[] list of tables
      */
-    private static function getTablesWhenOpen(string $db, ResultInterface $dbInfoResult): array
+    private static function getTablesWhenOpen(string $db): array
     {
-        $sotCache = [];
-        $tables = [];
+        $dbi = DatabaseInterface::getInstance();
 
-        foreach ($dbInfoResult as $tmp) {
-            $sotCache[$tmp['Table']] = true;
+        $openTables = $dbi->query(
+            'SHOW OPEN TABLES FROM ' . self::backquote($db) . ' WHERE In_use > 0;',
+        );
+
+        // Blending out tables in use
+        $openTableNames = [];
+
+        /** @var string $tableName */
+        foreach ($openTables as ['Table' => $tableName]) {
+            $openTableNames[] = $tableName;
         }
 
         // is there at least one "in use" table?
-        if ($sotCache !== []) {
-            $tblGroupSql = '';
-            $whereAdded = false;
-            $dbi = DatabaseInterface::getInstance();
-            $config = Config::getInstance();
-            if (
-                isset($_REQUEST['tbl_group'])
-                && is_scalar($_REQUEST['tbl_group'])
-                && strlen((string) $_REQUEST['tbl_group']) > 0
-            ) {
-                $group = $dbi->escapeMysqlWildcards((string) $_REQUEST['tbl_group']);
-                $groupWithSeparator = $dbi->escapeMysqlWildcards(
-                    $_REQUEST['tbl_group'] . $config->settings['NavigationTreeTableSeparator'],
-                );
-                $tblGroupSql .= ' WHERE ('
-                    . self::backquote('Tables_in_' . $db)
-                    . ' LIKE ' . $dbi->quoteString($groupWithSeparator . '%')
-                    . ' OR '
-                    . self::backquote('Tables_in_' . $db)
-                    . ' LIKE ' . $dbi->quoteString($group) . ')';
-                $whereAdded = true;
+        if ($openTableNames === []) {
+            return [];
+        }
+
+        $tables = [];
+        $tblGroupSql = '';
+        $whereAdded = false;
+        $config = Config::getInstance();
+        if (
+            isset($_REQUEST['tbl_group'])
+            && is_scalar($_REQUEST['tbl_group'])
+            && strlen((string) $_REQUEST['tbl_group']) > 0
+        ) {
+            $group = $dbi->escapeMysqlWildcards((string) $_REQUEST['tbl_group']);
+            $groupWithSeparator = $dbi->escapeMysqlWildcards(
+                $_REQUEST['tbl_group'] . $config->settings['NavigationTreeTableSeparator'],
+            );
+            $tblGroupSql .= ' WHERE ('
+                . self::backquote('Tables_in_' . $db)
+                . ' LIKE ' . $dbi->quoteString($groupWithSeparator . '%')
+                . ' OR '
+                . self::backquote('Tables_in_' . $db)
+                . ' LIKE ' . $dbi->quoteString($group) . ')';
+            $whereAdded = true;
+        }
+
+        if (isset($_REQUEST['tbl_type']) && in_array($_REQUEST['tbl_type'], ['table', 'view'], true)) {
+            $tblGroupSql .= $whereAdded ? ' AND' : ' WHERE';
+            if ($_REQUEST['tbl_type'] === 'view') {
+                $tblGroupSql .= " `Table_type` NOT IN ('BASE TABLE', 'SYSTEM VERSIONED')";
+            } else {
+                $tblGroupSql .= " `Table_type` IN ('BASE TABLE', 'SYSTEM VERSIONED')";
             }
+        }
 
-            if (isset($_REQUEST['tbl_type']) && in_array($_REQUEST['tbl_type'], ['table', 'view'], true)) {
-                $tblGroupSql .= $whereAdded ? ' AND' : ' WHERE';
-                if ($_REQUEST['tbl_type'] === 'view') {
-                    $tblGroupSql .= " `Table_type` NOT IN ('BASE TABLE', 'SYSTEM VERSIONED')";
-                } else {
-                    $tblGroupSql .= " `Table_type` IN ('BASE TABLE', 'SYSTEM VERSIONED')";
-                }
-            }
+        $dbInfoResult = $dbi->query('SHOW FULL TABLES FROM ' . self::backquote($db) . $tblGroupSql);
 
-            $dbInfoResult = $dbi->query('SHOW FULL TABLES FROM ' . self::backquote($db) . $tblGroupSql);
-            unset($tblGroupSql, $whereAdded);
-
-            if ($dbInfoResult->numRows() > 0) {
-                $names = [];
-                while ($tmp = $dbInfoResult->fetchRow()) {
-                    if (! isset($sotCache[$tmp[0]])) {
-                        $names[] = $tmp[0];
-                    } else { // table in use
-                        $tables[$tmp[0]] = [
-                            'TABLE_NAME' => $tmp[0],
-                            'ENGINE' => '',
-                            'TABLE_TYPE' => '',
-                            'TABLE_ROWS' => 0,
-                            'TABLE_COMMENT' => '',
-                        ];
-                    }
-                }
-
-                if ($names !== []) {
-                    $tables += $dbi->getTablesFull($db, $names);
-                }
-
-                if ($config->settings['NaturalOrder']) {
-                    uksort($tables, strnatcasecmp(...));
+        if ($dbInfoResult->numRows() > 0) {
+            $names = [];
+            while ($tableName = $dbInfoResult->fetchValue()) {
+                if (! in_array($tableName, $openTableNames, true)) {
+                    $names[] = $tableName;
+                } else { // table in use
+                    $tables[$tableName] = [
+                        'TABLE_NAME' => $tableName,
+                        'ENGINE' => '',
+                        'TABLE_TYPE' => '',
+                        'TABLE_ROWS' => 0,
+                        'TABLE_COMMENT' => '',
+                    ];
                 }
             }
 
-            unset($sotCache);
+            if ($names !== []) {
+                $tables += $dbi->getTablesFull($db, $names);
+            }
+
+            if ($config->settings['NaturalOrder']) {
+                uksort($tables, strnatcasecmp(...));
+            }
         }
 
         return $tables;
