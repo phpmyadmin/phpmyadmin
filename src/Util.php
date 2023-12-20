@@ -1791,7 +1791,7 @@ class Util
      *
      * @return mixed[] list of tables
      */
-    public static function getTablesWhenOpen(string $db, ResultInterface $dbInfoResult): array
+    private static function getTablesWhenOpen(string $db, ResultInterface $dbInfoResult): array
     {
         $sotCache = [];
         $tables = [];
