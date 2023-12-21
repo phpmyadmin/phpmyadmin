@@ -2231,9 +2231,6 @@
       <code>$itemName</code>
       <code>$itemType</code>
     </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Normalization/AddNewPrimaryController.php">
     <UnusedParam>

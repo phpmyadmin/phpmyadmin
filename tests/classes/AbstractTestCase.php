@@ -104,14 +104,6 @@ abstract class AbstractTestCase extends TestCase
         return $response->getJSONResult();
     }
 
-    protected function assertResponseWasSuccessfull(): void
-    {
-        /** @var ResponseRenderer $response */
-        $response = Core::getContainerBuilder()->get(ResponseRenderer::class);
-
-        $this->assertTrue($response->hasSuccessState(), 'expected the request not to fail');
-    }
-
     protected function createDatabaseInterface(DbiExtension|null $extension = null): DatabaseInterface
     {
         return new DatabaseInterface($extension ?? $this->createDbiDummy());

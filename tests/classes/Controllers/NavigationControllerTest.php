@@ -5,13 +5,18 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\NavigationController;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Navigation\Navigation;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\UserPreferences;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 use function sprintf;
@@ -41,8 +46,6 @@ class NavigationControllerTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
         $config->selectedServer['auth_type'] = 'cookie';
-
-        parent::loadResponseIntoContainerBuilder();
 
         // This example path data has nothing to do with the actual test
         // root.air-balloon_burner_dev2
@@ -120,17 +123,26 @@ class NavigationControllerTest extends AbstractTestCase
             [[0]],
         );
 
-        /** @var NavigationController $navigationController */
-        $navigationController = Core::getContainerBuilder()->get(NavigationController::class);
+        $responseRenderer = new ResponseRenderer();
+        $template = new Template();
+        $relation = new Relation($this->dbi);
+        $navigationController = new NavigationController(
+            $responseRenderer,
+            $template,
+            new Navigation($template, $relation, $this->dbi),
+            $relation,
+            new PageSettings(new UserPreferences($this->dbi, $relation, $template)),
+        );
+
         $_POST['full'] = '1';
 
         $request = $this->createStub(ServerRequest::class);
         $request->method('isAjax')->willReturn(true);
 
         $navigationController($request);
-        $this->assertResponseWasSuccessfull();
+        $this->assertTrue($responseRenderer->hasSuccessState(), 'expected the request not to fail');
 
-        $responseMessage = $this->getResponseJsonResult()['message'];
+        $responseMessage = $responseRenderer->getJSONResult()['message'];
 
         $this->assertStringContainsString('<div id=\'pma_navigation_tree_content\'>', $responseMessage);
 
@@ -187,8 +199,6 @@ class NavigationControllerTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
         $config->selectedServer['auth_type'] = 'cookie';
-
-        parent::loadResponseIntoContainerBuilder();
 
         // root.air-balloon_burner_dev2
         $_POST['n0_aPath'] = 'cm9vdA==.YWlyLWJhbGxvb25fYnVybmVyX2RldjI=';
@@ -268,17 +278,26 @@ class NavigationControllerTest extends AbstractTestCase
             [[0]],
         );
 
-        /** @var NavigationController $navigationController */
-        $navigationController = Core::getContainerBuilder()->get(NavigationController::class);
+        $responseRenderer = new ResponseRenderer();
+        $template = new Template();
+        $relation = new Relation($this->dbi);
+        $navigationController = new NavigationController(
+            $responseRenderer,
+            $template,
+            new Navigation($template, $relation, $this->dbi),
+            $relation,
+            new PageSettings(new UserPreferences($this->dbi, $relation, $template)),
+        );
+
         $_POST['full'] = '1';
 
         $request = $this->createStub(ServerRequest::class);
         $request->method('isAjax')->willReturn(true);
 
         $navigationController($request);
-        $this->assertResponseWasSuccessfull();
+        $this->assertTrue($responseRenderer->hasSuccessState(), 'expected the request not to fail');
 
-        $responseMessage = $this->getResponseJsonResult()['message'];
+        $responseMessage = $responseRenderer->getJSONResult()['message'];
 
         $this->assertStringContainsString('<div id=\'pma_navigation_tree_content\'>', $responseMessage);
 
