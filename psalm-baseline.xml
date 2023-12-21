@@ -13175,6 +13175,7 @@
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
+      <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <MixedArgument>
       <code>$currentTable</code>
