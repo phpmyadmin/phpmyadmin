@@ -95,15 +95,6 @@ abstract class AbstractTestCase extends TestCase
         $containerBuilder->setAlias('response', ResponseRenderer::class);
     }
 
-    /** @return mixed[] */
-    protected function getResponseJsonResult(): array
-    {
-        /** @var ResponseRenderer $response */
-        $response = Core::getContainerBuilder()->get(ResponseRenderer::class);
-
-        return $response->getJSONResult();
-    }
-
     protected function createDatabaseInterface(DbiExtension|null $extension = null): DatabaseInterface
     {
         return new DatabaseInterface($extension ?? $this->createDbiDummy());

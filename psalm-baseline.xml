@@ -1144,11 +1144,6 @@
       <code><![CDATA[$request->getParsedBodyParam('sql_query')]]></code>
     </MixedArgument>
   </file>
-  <file src="src/Controllers/Database/MultiTableQuery/TablesController.php">
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/Controllers/Database/MultiTableQueryController.php">
     <PossiblyUnusedMethod>
       <code>__construct</code>
