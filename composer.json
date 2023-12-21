@@ -65,6 +65,7 @@
         "phpmyadmin/shapefile": "^4.0-dev",
         "phpmyadmin/sql-parser": "^6.0-dev",
         "phpmyadmin/twig-i18n-extension": "^5.0-dev",
+        "psr/container": "^2.0",
         "psr/http-factory": "^1.0",
         "psr/http-message": "^1.1",
         "psr/http-server-handler": "^1.0",

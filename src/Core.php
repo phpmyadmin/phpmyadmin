@@ -6,6 +6,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Exceptions\MissingExtensionException;
 use PhpMyAdmin\Http\ServerRequest;
+use Psr\Container\ContainerInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
@@ -57,7 +58,7 @@ use const FILTER_VALIDATE_IP;
  */
 class Core
 {
-    public static ContainerBuilder|null $containerBuilder = null;
+    public static ContainerInterface|null $containerBuilder = null;
 
     /**
      * Removes insecure parts in a path; used before include() or
@@ -746,7 +747,7 @@ class Core
         return hash_equals($hmac, $signature);
     }
 
-    public static function getContainerBuilder(): ContainerBuilder
+    public static function getContainerBuilder(): ContainerInterface
     {
         if (self::$containerBuilder !== null) {
             return self::$containerBuilder;
