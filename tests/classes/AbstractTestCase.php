@@ -15,7 +15,6 @@ use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\SqlParser\Translator;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
-use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Utils\HttpRequest;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
@@ -85,14 +84,6 @@ abstract class AbstractTestCase extends TestCase
 
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
         Core::$containerBuilder = null;
-    }
-
-    protected function loadResponseIntoContainerBuilder(): void
-    {
-        $response = new ResponseRenderer();
-        $containerBuilder = Core::getContainerBuilder();
-        $containerBuilder->set(ResponseRenderer::class, $response);
-        $containerBuilder->setAlias('response', ResponseRenderer::class);
     }
 
     protected function createDatabaseInterface(DbiExtension|null $extension = null): DatabaseInterface
