@@ -104,14 +104,6 @@ abstract class AbstractTestCase extends TestCase
         return $response->getJSONResult();
     }
 
-    protected function assertResponseWasNotSuccessfull(): void
-    {
-        /** @var ResponseRenderer $response */
-        $response = Core::getContainerBuilder()->get(ResponseRenderer::class);
-
-        $this->assertFalse($response->hasSuccessState(), 'expected the request to fail');
-    }
-
     protected function assertResponseWasSuccessfull(): void
     {
         /** @var ResponseRenderer $response */

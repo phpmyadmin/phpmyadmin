@@ -3170,9 +3170,6 @@
       <code>$column</code>
       <code>$currValue</code>
     </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Sql/RelationalValuesController.php">
     <MixedArgument>
