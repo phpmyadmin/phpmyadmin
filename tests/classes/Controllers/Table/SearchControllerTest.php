@@ -125,8 +125,6 @@ class SearchControllerTest extends AbstractTestCase
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
 
-        parent::loadResponseIntoContainerBuilder();
-
         $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
 
         $this->dummyDbi->addResult(
@@ -149,8 +147,14 @@ class SearchControllerTest extends AbstractTestCase
             ],
         );
 
-        /** @var SearchController $ctrl */
-        $ctrl = Core::getContainerBuilder()->get(SearchController::class);
+        $ctrl = new SearchController(
+            $this->response,
+            $this->template,
+            new Search($this->dbi),
+            new Relation($this->dbi),
+            $this->dbi,
+            new DbTableExists($this->dbi),
+        );
 
         $_POST['db'] = 'PMA';
         $_POST['table'] = 'PMA_BookMark';
@@ -159,7 +163,7 @@ class SearchControllerTest extends AbstractTestCase
         $expected = ['col1' => 1, 'col2' => 2];
         $ctrl->getDataRowAction();
 
-        $json = $this->getResponseJsonResult();
+        $json = $this->response->getJSONResult();
         $this->assertEquals($expected, $json['row_info']);
     }
 }
