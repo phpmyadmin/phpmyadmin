@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-12-17 00:20+0000\n"
-"PO-Revision-Date: 2023-12-20 23:46+0000\n"
+"PO-Revision-Date: 2023-12-23 01:09+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 5.3\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:30
 #: resources/templates/database/central_columns/edit_table_row.twig:22
@@ -7464,11 +7464,10 @@ msgstr "Следен"
 #. l10n: Number of tables
 #: resources/templates/test/gettext/plural_notes.twig:0
 #: resources/templates/test/gettext/plural.twig:0
-#, fuzzy
 msgid "One table"
 msgid_plural "%count% tables"
-msgstr[0] "Користи табели"
-msgstr[1] "Користи табели"
+msgstr[0] "Една табела"
+msgstr[1] "%count% табели"
 
 #: resources/templates/transformation_overview.twig:1
 #, fuzzy
