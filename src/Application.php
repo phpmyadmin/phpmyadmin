@@ -7,6 +7,7 @@ namespace PhpMyAdmin;
 use Fig\Http\Message\StatusCodeInterface;
 use Laminas\HttpHandlerRunner\Emitter\SapiEmitter;
 use Laminas\HttpHandlerRunner\RequestHandlerRunner;
+use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\Handler\ApplicationHandler;
@@ -66,7 +67,7 @@ class Application
     public static function init(): self
     {
         /** @var Application $application */
-        $application = Core::getContainerBuilder()->get(self::class);
+        $application = ContainerBuilder::getContainer()->get(self::class);
 
         return $application;
     }
@@ -139,7 +140,7 @@ class Application
         return Routing::callControllerForRoute(
             $request,
             Routing::getDispatcher(),
-            Core::getContainerBuilder(),
+            ContainerBuilder::getContainer(),
             $this->responseFactory,
         );
     }

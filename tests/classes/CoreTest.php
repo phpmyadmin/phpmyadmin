@@ -732,14 +732,4 @@ class CoreTest extends AbstractTestCase
 
         self::assertSame('', Core::getEnv('PHPMYADMIN_GET_ENV_TEST'));
     }
-
-    public function testGetContainerBuilder(): void
-    {
-        Core::$containerBuilder = null;
-        $containerBuilder = Core::getContainerBuilder();
-        self::assertSame($containerBuilder, Core::getContainerBuilder());
-        Core::$containerBuilder = null;
-        self::assertNotSame($containerBuilder, Core::getContainerBuilder());
-        Core::$containerBuilder = null;
-    }
 }

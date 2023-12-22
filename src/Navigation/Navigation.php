@@ -11,7 +11,7 @@ namespace PhpMyAdmin\Navigation;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Core;
+use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\ResponseRenderer;
@@ -256,7 +256,7 @@ class Navigation
     private function getLogoSource(): string
     {
         /** @var ThemeManager $themeManager */
-        $themeManager = Core::getContainerBuilder()->get(ThemeManager::class);
+        $themeManager = ContainerBuilder::getContainer()->get(ThemeManager::class);
         $theme = $themeManager->theme;
 
         if (@file_exists($theme->getFsPath() . 'img/logo_left.png')) {

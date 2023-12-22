@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use FilesystemIterator;
+use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\ImportPlugin;
@@ -65,7 +66,7 @@ class Plugins
         }
 
         if ($type === 'export') {
-            $container = Core::getContainerBuilder();
+            $container = ContainerBuilder::getContainer();
 
             /** @psalm-suppress MixedMethodCall */
             return new $class(
@@ -154,7 +155,7 @@ class Plugins
             }
 
             if ($type === 'Export' && is_subclass_of($class, ExportPlugin::class)) {
-                $container = Core::getContainerBuilder();
+                $container = ContainerBuilder::getContainer();
                 $plugins[] = new $class(
                     $container->get('relation'),
                     $container->get('export'),

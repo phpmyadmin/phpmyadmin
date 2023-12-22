@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\View;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Table\StructureController;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -232,7 +232,7 @@ class CreateController extends AbstractController
         if ($ajaxdialog) {
             $GLOBALS['message'] = Message::success();
             /** @var StructureController $controller */
-            $controller = Core::getContainerBuilder()->get(StructureController::class);
+            $controller = ContainerBuilder::getContainer()->get(StructureController::class);
             $controller($request);
         } else {
             $this->response->addJSON(

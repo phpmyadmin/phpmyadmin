@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Http\Response;
 
 use function __;
@@ -16,7 +17,7 @@ final class UrlRedirector
 {
     public static function redirect(string $url): Response
     {
-        $container = Core::getContainerBuilder();
+        $container = ContainerBuilder::getContainer();
 
         // Only output the http headers
         $response = ResponseRenderer::getInstance();

@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Cache;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Core;
+use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\DbiExtension;
@@ -83,7 +83,7 @@ abstract class AbstractTestCase extends TestCase
         Cache::purge();
 
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
-        Core::$containerBuilder = null;
+        ContainerBuilder::$container = null;
     }
 
     protected function createDatabaseInterface(DbiExtension|null $extension = null): DatabaseInterface
@@ -136,7 +136,7 @@ abstract class AbstractTestCase extends TestCase
      */
     protected function tearDown(): void
     {
-        Core::$containerBuilder = null;
+        ContainerBuilder::$container = null;
         DatabaseInterface::$instance = null;
         Config::$instance = null;
         (new ReflectionProperty(Template::class, 'twig'))->setValue(null, null);

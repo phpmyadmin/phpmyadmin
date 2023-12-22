@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Twig\AssetExtension;
 use PhpMyAdmin\Twig\CoreExtension;
 use PhpMyAdmin\Twig\Extensions\Node\TransNode;
@@ -61,7 +62,7 @@ class Template
         $loader = new FilesystemLoader(self::TEMPLATES_FOLDER);
         $twig = new Environment($loader, ['auto_reload' => true, 'cache' => $cacheDir]);
 
-        $twig->addRuntimeLoader(new ContainerRuntimeLoader(Core::getContainerBuilder()));
+        $twig->addRuntimeLoader(new ContainerRuntimeLoader(ContainerBuilder::getContainer()));
 
         if ($isDevEnv) {
             $twig->enableDebug();

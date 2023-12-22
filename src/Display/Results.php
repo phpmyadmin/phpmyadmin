@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Display;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\SpecialSchemaLinks;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
@@ -1152,7 +1153,7 @@ class Results
         }
 
         /** @var ThemeManager $themeManager */
-        $themeManager = Core::getContainerBuilder()->get(ThemeManager::class);
+        $themeManager = ContainerBuilder::getContainer()->get(ThemeManager::class);
 
         $tmpImage = '<img class="fulltext" src="'
             . $themeManager->theme->getImgPath($tmpImageFile)

@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Http\Middleware;
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings\Server;
-use PhpMyAdmin\Core;
+use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Exceptions\AuthenticationPluginException;
@@ -43,7 +43,7 @@ final class Authentication implements MiddlewareInterface
         }
 
         /** @var AuthenticationPluginFactory $authPluginFactory */
-        $authPluginFactory = Core::getContainerBuilder()->get(AuthenticationPluginFactory::class);
+        $authPluginFactory = ContainerBuilder::getContainer()->get(AuthenticationPluginFactory::class);
         try {
             $authPlugin = $authPluginFactory->create();
         } catch (AuthenticationPluginException $exception) {
