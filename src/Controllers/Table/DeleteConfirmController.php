@@ -24,8 +24,8 @@ use function is_array;
 final class DeleteConfirmController extends AbstractController
 {
     public function __construct(
-        protected ResponseRenderer $response,
-        protected Template $template,
+        ResponseRenderer $response,
+        Template $template,
         private readonly DbTableExists $dbTableExists,
     ) {
         parent::__construct($response, $template);

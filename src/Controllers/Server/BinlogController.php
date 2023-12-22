@@ -20,14 +20,14 @@ use function array_key_exists;
 /**
  * Handles viewing binary logs
  */
-class BinlogController extends AbstractController
+final class BinlogController extends AbstractController
 {
     /**
      * binary log files
      *
      * @var mixed[]
      */
-    protected array $binaryLogs;
+    private array $binaryLogs;
 
     public function __construct(ResponseRenderer $response, Template $template, private DatabaseInterface $dbi)
     {

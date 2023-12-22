@@ -56,25 +56,25 @@ use function urlencode;
 /**
  * Handles database structure logic
  */
-class StructureController extends AbstractController
+final class StructureController extends AbstractController
 {
     /** @var int Number of tables */
-    protected int $numTables = 0;
+    private int $numTables = 0;
 
     /** @var int Current position in the list */
-    protected int $position = 0;
+    private int $position = 0;
 
     /** @var bool DB is information_schema */
-    protected bool $dbIsSystemSchema = false;
+    private bool $dbIsSystemSchema = false;
 
     /** @var int Number of tables */
-    protected int $totalNumTables = 0;
+    private int $totalNumTables = 0;
 
     /** @var mixed[] Tables in the database */
-    protected array $tables = [];
+    private array $tables = [];
 
     /** @var bool whether stats show or not */
-    protected bool $isShowStats = false;
+    private bool $isShowStats = false;
 
     private ReplicationInfo $replicationInfo;
 
@@ -215,7 +215,7 @@ class StructureController extends AbstractController
     }
 
     /** @param mixed[] $replicaInfo */
-    protected function displayTableList(array $replicaInfo): string
+    private function displayTableList(array $replicaInfo): string
     {
         $html = '';
 
@@ -530,7 +530,7 @@ class StructureController extends AbstractController
      *
      * @return string HTML for tracking icon
      */
-    protected function getTrackingIcon(string $table, TrackedTable|null $trackedTable): string
+    private function getTrackingIcon(string $table, TrackedTable|null $trackedTable): string
     {
         $trackingIcon = '';
         if (Tracker::isActive() && $trackedTable !== null) {
@@ -552,7 +552,7 @@ class StructureController extends AbstractController
      *
      * @return mixed[]
      */
-    protected function isRowCountApproximated(
+    private function isRowCountApproximated(
         array $currentTable,
         bool $tableIsView,
     ): array {
@@ -597,7 +597,7 @@ class StructureController extends AbstractController
      *
      * @return mixed[]
      */
-    protected function getReplicationStatus(array $replicaInfo, string $table): array
+    private function getReplicationStatus(array $replicaInfo, string $table): array
     {
         $do = $ignored = false;
         if ($replicaInfo['status']) {
@@ -627,7 +627,7 @@ class StructureController extends AbstractController
      * @param mixed[] $db       DB to look into
      * @param string  $truename Table name
      */
-    protected function hasTable(array $db, string $truename): bool
+    private function hasTable(array $db, string $truename): bool
     {
         foreach ($db as $dbTable) {
             if (
@@ -656,7 +656,7 @@ class StructureController extends AbstractController
      *
      * @return mixed[]
      */
-    protected function getStuffForEngineTypeTable(
+    private function getStuffForEngineTypeTable(
         array $currentTable,
         int $sumSize,
         int $overheadSize,
@@ -776,7 +776,7 @@ class StructureController extends AbstractController
      *
      * @return mixed[]
      */
-    protected function getValuesForAriaTable(
+    private function getValuesForAriaTable(
         array $currentTable,
         int $sumSize,
         int $overheadSize,
@@ -814,7 +814,7 @@ class StructureController extends AbstractController
      *
      * @return mixed[]
      */
-    protected function getValuesForInnodbTable(
+    private function getValuesForInnodbTable(
         array $currentTable,
         int $sumSize,
     ): array {
@@ -852,7 +852,7 @@ class StructureController extends AbstractController
      *
      * @return mixed[]
      */
-    protected function getValuesForMroongaTable(
+    private function getValuesForMroongaTable(
         array $currentTable,
         int $sumSize,
     ): array {
