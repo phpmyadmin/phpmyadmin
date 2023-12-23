@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Database\MultiTableQuery;
 
 use PhpMyAdmin\Controllers\Database\MultiTableQuery\TablesController;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(TablesController::class)]
@@ -29,11 +30,7 @@ class TablesControllerTest extends AbstractTestCase
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
 
-        parent::loadDbiIntoContainerBuilder();
-
         $GLOBALS['server'] = 1;
-
-        parent::loadResponseIntoContainerBuilder();
     }
 
     public function testGetForeignKeyConstrainsForTable(): void
@@ -41,8 +38,9 @@ class TablesControllerTest extends AbstractTestCase
         $_GET['tables'] = ['table1', 'table2'];
         $_GET['db'] = 'test';
 
-        /** @var TablesController $multiTableQueryController */
-        $multiTableQueryController = Core::getContainerBuilder()->get(TablesController::class);
+        $responseRenderer = new ResponseRenderer();
+        $multiTableQueryController = new TablesController($responseRenderer, new Template(), $this->dbi);
+
         $request = $this->createStub(ServerRequest::class);
         $request->method('getQueryParam')->willReturn($_GET['tables'], $_GET['db']);
         $multiTableQueryController($request);
@@ -57,7 +55,7 @@ class TablesControllerTest extends AbstractTestCase
                     ],
                 ],
             ],
-            $this->getResponseJsonResult(),
+            $responseRenderer->getJSONResult(),
         );
     }
 }

@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Favorites\RecentFavoriteTable;
 use PhpMyAdmin\Favorites\RecentFavoriteTables;
 use PhpMyAdmin\Favorites\TableType;
@@ -278,7 +279,7 @@ class Header
         $baseDir = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
 
         /** @var ThemeManager $themeManager */
-        $themeManager = Core::getContainerBuilder()->get(ThemeManager::class);
+        $themeManager = ContainerBuilder::getContainer()->get(ThemeManager::class);
         $theme = $themeManager->theme;
 
         $version = self::getVersionParameter();

@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Application;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Core;
+use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Exceptions\ConfigException;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
@@ -19,7 +19,7 @@ final class ApplicationTest extends AbstractTestCase
 {
     public function testInit(): void
     {
-        $application = Core::getContainerBuilder()->get(Application::class);
+        $application = ContainerBuilder::getContainer()->get(Application::class);
         self::assertInstanceOf(Application::class, $application);
         self::assertSame($application, Application::init());
     }

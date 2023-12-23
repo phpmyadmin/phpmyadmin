@@ -1144,11 +1144,6 @@
       <code><![CDATA[$request->getParsedBodyParam('sql_query')]]></code>
     </MixedArgument>
   </file>
-  <file src="src/Controllers/Database/MultiTableQuery/TablesController.php">
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/Controllers/Database/MultiTableQueryController.php">
     <PossiblyUnusedMethod>
       <code>__construct</code>
@@ -2149,9 +2144,6 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[min($skip, $GLOBALS['read_limit'])]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
     <RedundantCondition>
       <code><![CDATA[! $GLOBALS['finished']]]></code>
       <code><![CDATA[$GLOBALS['offset'] == 0]]></code>
@@ -2234,9 +2226,6 @@
       <code>$itemName</code>
       <code>$itemType</code>
     </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Normalization/AddNewPrimaryController.php">
     <UnusedParam>
@@ -2428,9 +2417,6 @@
       <code>$showTable</code>
       <code>$showTable</code>
     </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Operations/ViewController.php">
     <DeprecatedMethod>
@@ -3176,9 +3162,6 @@
       <code>$column</code>
       <code>$currValue</code>
     </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Sql/RelationalValuesController.php">
     <MixedArgument>
@@ -3209,9 +3192,6 @@
       <code>$currentValue</code>
       <code>$whereClause</code>
     </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Sql/SqlController.php">
     <DeprecatedMethod>
@@ -12242,11 +12222,6 @@
       <code><![CDATA[$values['token']]]></code>
     </MixedAssignment>
   </file>
-  <file src="src/UrlRedirector.php">
-    <DeprecatedMethod>
-      <code>DatabaseInterface::getInstance()</code>
-    </DeprecatedMethod>
-  </file>
   <file src="src/UserPassword.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
@@ -12580,7 +12555,6 @@
   <file src="tests/classes/AbstractTestCase.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$_SERVER['PHP_SELF']]]></code>
@@ -13192,6 +13166,7 @@
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
+      <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>

@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Cache;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Core;
+use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\DbiExtension;
@@ -15,7 +15,6 @@ use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\SqlParser\Translator;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
-use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Utils\HttpRequest;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
@@ -84,55 +83,7 @@ abstract class AbstractTestCase extends TestCase
         Cache::purge();
 
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
-        Core::$containerBuilder = null;
-    }
-
-    protected function loadDbiIntoContainerBuilder(): void
-    {
-        $containerBuilder = Core::getContainerBuilder();
-        $containerBuilder->set(DatabaseInterface::class, DatabaseInterface::getInstance());
-        $containerBuilder->setAlias('dbi', DatabaseInterface::class);
-    }
-
-    protected function loadResponseIntoContainerBuilder(): void
-    {
-        $response = new ResponseRenderer();
-        $containerBuilder = Core::getContainerBuilder();
-        $containerBuilder->set(ResponseRenderer::class, $response);
-        $containerBuilder->setAlias('response', ResponseRenderer::class);
-    }
-
-    protected function getResponseHtmlResult(): string
-    {
-        /** @var ResponseRenderer $response */
-        $response = Core::getContainerBuilder()->get(ResponseRenderer::class);
-
-        return $response->getHTMLResult();
-    }
-
-    /** @return mixed[] */
-    protected function getResponseJsonResult(): array
-    {
-        /** @var ResponseRenderer $response */
-        $response = Core::getContainerBuilder()->get(ResponseRenderer::class);
-
-        return $response->getJSONResult();
-    }
-
-    protected function assertResponseWasNotSuccessfull(): void
-    {
-        /** @var ResponseRenderer $response */
-        $response = Core::getContainerBuilder()->get(ResponseRenderer::class);
-
-        $this->assertFalse($response->hasSuccessState(), 'expected the request to fail');
-    }
-
-    protected function assertResponseWasSuccessfull(): void
-    {
-        /** @var ResponseRenderer $response */
-        $response = Core::getContainerBuilder()->get(ResponseRenderer::class);
-
-        $this->assertTrue($response->hasSuccessState(), 'expected the request not to fail');
+        ContainerBuilder::$container = null;
     }
 
     protected function createDatabaseInterface(DbiExtension|null $extension = null): DatabaseInterface
@@ -185,7 +136,7 @@ abstract class AbstractTestCase extends TestCase
      */
     protected function tearDown(): void
     {
-        Core::$containerBuilder = null;
+        ContainerBuilder::$container = null;
         DatabaseInterface::$instance = null;
         Config::$instance = null;
         (new ReflectionProperty(Template::class, 'twig'))->setValue(null, null);

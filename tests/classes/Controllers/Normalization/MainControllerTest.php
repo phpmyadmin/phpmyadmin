@@ -33,11 +33,7 @@ class MainControllerTest extends AbstractTestCase
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
 
-        parent::loadDbiIntoContainerBuilder();
-
         $GLOBALS['server'] = 1;
-
-        parent::loadResponseIntoContainerBuilder();
 
         Current::$database = 'my_db';
         Current::$table = 'test_tbl';

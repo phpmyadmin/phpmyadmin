@@ -1436,8 +1436,6 @@ class TableTest extends AbstractTestCase
                 'utf8mb4_unicode_ci',
             ]);
 
-        $this->loadDbiIntoContainerBuilder();
-
         $GLOBALS['sql_query'] = '';
         $return = Table::moveCopy('aa', 'ad', 'bb', 'ad', 'structure', true, 'db_copy', true);
         $this->assertTrue($return);

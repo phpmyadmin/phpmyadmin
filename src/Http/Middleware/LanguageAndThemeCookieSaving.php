@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Http\Middleware;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Core;
+use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Theme\ThemeManager;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -22,7 +22,7 @@ final class LanguageAndThemeCookieSaving implements MiddlewareInterface
     {
         $this->config->setCookie('pma_lang', (string) $GLOBALS['lang']);
         /** @var ThemeManager $themeManager */
-        $themeManager = Core::getContainerBuilder()->get(ThemeManager::class);
+        $themeManager = ContainerBuilder::getContainer()->get(ThemeManager::class);
         $themeManager->setThemeCookie();
 
         return $handler->handle($request);

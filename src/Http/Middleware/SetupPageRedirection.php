@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Http\Middleware;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
-use PhpMyAdmin\Core;
+use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\ServerRequest;
@@ -35,7 +35,7 @@ final class SetupPageRedirection implements MiddlewareInterface
             return $handler->handle($request);
         }
 
-        $container = Core::getContainerBuilder();
+        $container = ContainerBuilder::getContainer();
         /** @var ThemeManager $themeManager */
         $themeManager = $container->get(ThemeManager::class);
         $this->config->loadUserPreferences($themeManager, true);

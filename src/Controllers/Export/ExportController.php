@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Export;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\ExportController as DatabaseExportController;
 use PhpMyAdmin\Core;
@@ -301,7 +302,7 @@ final class ExportController extends AbstractController
                     );
                     $GLOBALS['active_page'] = Url::getFromRoute('/database/export');
                     /** @var DatabaseExportController $controller */
-                    $controller = Core::getContainerBuilder()->get(DatabaseExportController::class);
+                    $controller = ContainerBuilder::getContainer()->get(DatabaseExportController::class);
                     $controller($request);
 
                     return;

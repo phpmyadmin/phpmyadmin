@@ -6,9 +6,6 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Exceptions\MissingExtensionException;
 use PhpMyAdmin\Http\ServerRequest;
-use Symfony\Component\Config\FileLocator;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
 
 use function __;
 use function array_keys;
@@ -57,8 +54,6 @@ use const FILTER_VALIDATE_IP;
  */
 class Core
 {
-    public static ContainerBuilder|null $containerBuilder = null;
-
     /**
      * Removes insecure parts in a path; used before include() or
      * require() when a part of the path comes from an insecure source
@@ -744,19 +739,6 @@ class Core
         $hmac = hash_hmac('sha256', $sqlQuery, $secret . Config::getInstance()->settings['blowfish_secret']);
 
         return hash_equals($hmac, $signature);
-    }
-
-    public static function getContainerBuilder(): ContainerBuilder
-    {
-        if (self::$containerBuilder !== null) {
-            return self::$containerBuilder;
-        }
-
-        self::$containerBuilder = new ContainerBuilder();
-        $loader = new PhpFileLoader(self::$containerBuilder, new FileLocator(ROOT_PATH . 'app'));
-        $loader->load('services_loader.php');
-
-        return self::$containerBuilder;
     }
 
     public static function populateRequestWithEncryptedQueryParams(ServerRequest $request): ServerRequest

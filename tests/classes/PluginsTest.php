@@ -21,8 +21,6 @@ class PluginsTest extends AbstractTestCase
         parent::setUp();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-
-        parent::loadDbiIntoContainerBuilder();
     }
 
     public function testGetExport(): void

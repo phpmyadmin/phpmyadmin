@@ -4,13 +4,21 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Sql;
 
+use PhpMyAdmin\Bookmarks\BookmarkRepository;
+use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Sql\SetValuesController;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Operations;
+use PhpMyAdmin\Sql;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(SetValuesController::class)]
@@ -28,12 +36,8 @@ class SetValuesControllerTest extends AbstractTestCase
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
 
-        parent::loadDbiIntoContainerBuilder();
-
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
-
-        parent::loadResponseIntoContainerBuilder();
     }
 
     public function testError(): void
@@ -53,16 +57,31 @@ class SetValuesControllerTest extends AbstractTestCase
         Current::$database = 'cvv';
         Current::$table = 'enums';
 
-        /** @var SetValuesController $sqlController */
-        $sqlController = Core::getContainerBuilder()->get(SetValuesController::class);
+        $responseRenderer = new ResponseRenderer();
+        $template = new Template();
+        $relation = new Relation($this->dbi);
+        $bookmarkRepository = new BookmarkRepository($this->dbi, $relation);
+        $sql = new Sql(
+            $this->dbi,
+            $relation,
+            self::createStub(RelationCleanup::class),
+            self::createStub(Operations::class),
+            self::createStub(Transformations::class),
+            $template,
+            $bookmarkRepository,
+        );
+
+        $sqlController = new SetValuesController(
+            $responseRenderer,
+            $template,
+            $sql,
+            new CheckUserPrivileges($this->dbi),
+        );
         $sqlController($request);
 
-        $this->assertResponseWasNotSuccessfull();
+        $this->assertFalse($responseRenderer->hasSuccessState(), 'expected the request to fail');
 
-        $this->assertSame(
-            ['message' => 'Error in processing request'],
-            $this->getResponseJsonResult(),
-        );
+        $this->assertSame(['message' => 'Error in processing request'], $responseRenderer->getJSONResult());
     }
 
     public function testSuccess(): void
@@ -95,11 +114,29 @@ class SetValuesControllerTest extends AbstractTestCase
         Current::$database = 'cvv';
         Current::$table = 'enums';
 
-        /** @var SetValuesController $sqlController */
-        $sqlController = Core::getContainerBuilder()->get(SetValuesController::class);
+        $responseRenderer = new ResponseRenderer();
+        $template = new Template();
+        $relation = new Relation($this->dbi);
+        $bookmarkRepository = new BookmarkRepository($this->dbi, $relation);
+        $sql = new Sql(
+            $this->dbi,
+            $relation,
+            self::createStub(RelationCleanup::class),
+            self::createStub(Operations::class),
+            self::createStub(Transformations::class),
+            $template,
+            $bookmarkRepository,
+        );
+
+        $sqlController = new SetValuesController(
+            $responseRenderer,
+            $template,
+            $sql,
+            new CheckUserPrivileges($this->dbi),
+        );
         $sqlController($request);
 
-        $this->assertResponseWasSuccessfull();
+        $this->assertTrue($responseRenderer->hasSuccessState(), 'expected the request not to fail');
 
         $this->assertSame(
             [
@@ -112,7 +149,7 @@ class SetValuesControllerTest extends AbstractTestCase
                     . '      <option value=""></option>' . "\n"
                     . '  </select>' . "\n",
             ],
-            $this->getResponseJsonResult(),
+            $responseRenderer->getJSONResult(),
         );
     }
 }

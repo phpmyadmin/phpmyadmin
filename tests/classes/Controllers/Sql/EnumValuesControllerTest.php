@@ -4,13 +4,21 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Sql;
 
+use PhpMyAdmin\Bookmarks\BookmarkRepository;
+use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Sql\EnumValuesController;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Operations;
+use PhpMyAdmin\Sql;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(EnumValuesController::class)]
@@ -28,12 +36,8 @@ class EnumValuesControllerTest extends AbstractTestCase
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
 
-        parent::loadDbiIntoContainerBuilder();
-
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
-
-        parent::loadResponseIntoContainerBuilder();
     }
 
     public function testGetEnumValuesError(): void
@@ -52,16 +56,31 @@ class EnumValuesControllerTest extends AbstractTestCase
             ['curr_value', null, 'b&c'],
         ]);
 
-        /** @var EnumValuesController $sqlController */
-        $sqlController = Core::getContainerBuilder()->get(EnumValuesController::class);
+        $responseRenderer = new ResponseRenderer();
+        $template = new Template();
+        $relation = new Relation($this->dbi);
+        $bookmarkRepository = new BookmarkRepository($this->dbi, $relation);
+        $sql = new Sql(
+            $this->dbi,
+            $relation,
+            self::createStub(RelationCleanup::class),
+            self::createStub(Operations::class),
+            self::createStub(Transformations::class),
+            $template,
+            $bookmarkRepository,
+        );
+
+        $sqlController = new EnumValuesController(
+            $responseRenderer,
+            $template,
+            $sql,
+            new CheckUserPrivileges($this->dbi),
+        );
         $sqlController($request);
 
-        $this->assertResponseWasNotSuccessfull();
+        $this->assertFalse($responseRenderer->hasSuccessState(), 'expected the request to fail');
 
-        $this->assertSame(
-            ['message' => 'Error in processing request'],
-            $this->getResponseJsonResult(),
-        );
+        $this->assertSame(['message' => 'Error in processing request'], $responseRenderer->getJSONResult());
     }
 
     public function testGetEnumValuesSuccess(): void
@@ -93,11 +112,29 @@ class EnumValuesControllerTest extends AbstractTestCase
             ['curr_value', null, 'b&c'],
         ]);
 
-        /** @var EnumValuesController $sqlController */
-        $sqlController = Core::getContainerBuilder()->get(EnumValuesController::class);
+        $responseRenderer = new ResponseRenderer();
+        $template = new Template();
+        $relation = new Relation($this->dbi);
+        $bookmarkRepository = new BookmarkRepository($this->dbi, $relation);
+        $sql = new Sql(
+            $this->dbi,
+            $relation,
+            self::createStub(RelationCleanup::class),
+            self::createStub(Operations::class),
+            self::createStub(Transformations::class),
+            $template,
+            $bookmarkRepository,
+        );
+
+        $sqlController = new EnumValuesController(
+            $responseRenderer,
+            $template,
+            $sql,
+            new CheckUserPrivileges($this->dbi),
+        );
         $sqlController($request);
 
-        $this->assertResponseWasSuccessfull();
+        $this->assertTrue($responseRenderer->hasSuccessState(), 'expected the request not to fail');
 
         $this->assertSame(
             [
@@ -114,7 +151,7 @@ class EnumValuesControllerTest extends AbstractTestCase
                     . '      <option value="&quot;\&#039;">&quot;\&#039;</option>' . "\n"
                     . '  </select>' . "\n",
             ],
-            $this->getResponseJsonResult(),
+            $responseRenderer->getJSONResult(),
         );
     }
 }
