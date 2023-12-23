@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-12-17 00:20+0000\n"
-"PO-Revision-Date: 2023-12-23 01:09+0000\n"
+"PO-Revision-Date: 2023-12-24 00:19+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -2107,11 +2107,12 @@ msgstr "База на податоци"
 #: resources/templates/table/operations/index.twig:77
 #: resources/templates/table/operations/index.twig:113
 #: resources/templates/table/operations/index.twig:313
-#, fuzzy
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
-msgstr "Немате право на пристап овде!"
+msgstr ""
+"Немате доволно привилегии за да ја извршите оваа операција; Ве молиме "
+"погледнете во документацијата за повеќе детали."
 
 #: resources/templates/database/operations/index.twig:84
 msgid "Remove database"
@@ -2374,7 +2375,9 @@ msgstr ""
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details."
-msgstr "Немате право на пристап овде!"
+msgstr ""
+"Немате доволно привилегии за да ја извршите оваа операција; Ве молиме "
+"погледнете во документацијата за повеќе детали."
 
 #: resources/templates/database/routines/editor_form.twig:149
 #, fuzzy
@@ -3425,9 +3428,8 @@ msgid "Currently running Git revision %1$s from the %2$s branch."
 msgstr ""
 
 #: resources/templates/footer.twig:39
-#, fuzzy
 msgid "Git information missing!"
-msgstr "Информации за верзијата"
+msgstr "Гит информацијата недостига!"
 
 #: resources/templates/gis_data_editor_form.twig:4
 #, php-format
@@ -16133,9 +16135,9 @@ msgid "The trigger name must not be empty."
 msgstr "Името на табелата мора да биде непразна низа на карактери."
 
 #: src/Identifiers/InvalidTriggerName.php:20
-#, fuzzy, php-format
+#, php-format
 msgid "The trigger name cannot be longer than %d characters."
-msgstr "Зборовите се одвојуваат со празно место (\" \")."
+msgstr "Името на прекинувачот неможе да биде подолго од %d карактери."
 
 #: src/Identifiers/InvalidTriggerName.php:25
 #, fuzzy
