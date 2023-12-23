@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2023-12-23 01:07+0000\n"
+"PO-Revision-Date: 2023-12-24 03:06+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-1/mk/>\n"
@@ -9987,10 +9987,8 @@ msgid "Currently running Git revision %1$s from the %2$s branch."
 msgstr ""
 
 #: libraries/classes/Footer.php:100
-#, fuzzy
-#| msgid "Version information"
 msgid "Git information missing!"
-msgstr "Информации за верзијата"
+msgstr "Гит информацијата недостига!"
 
 #: libraries/classes/Footer.php:218 libraries/classes/Footer.php:222
 #: libraries/classes/Footer.php:225
@@ -15253,12 +15251,12 @@ msgstr "База на податоци"
 #: templates/table/operations/index.twig:79
 #: templates/table/operations/index.twig:113
 #: templates/table/operations/index.twig:291
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
-msgstr "Немате право на пристап овде!"
+msgstr ""
+"Немате доволно привилегии за да ја извршите оваа операција; Ве молиме "
+"погледнете во документацијата за повеќе детали."
 
 #: templates/database/operations/index.twig:89
 msgid "Remove database"
