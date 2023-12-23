@@ -19,26 +19,19 @@ use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 
 use function md5;
+use function sprintf;
 
 /**
  * Class to handle database Multi-table querying
  */
 class MultiTableQuery
 {
-    /**
-     * Table names
-     *
-     * @var array<int, string>
-     */
-    private array $tables;
-
     public function __construct(
         private DatabaseInterface $dbi,
         public Template $template,
         private string $db,
         private int $defaultNoOfColumns = 3,
     ) {
-        $this->tables = $this->dbi->getTables($this->db);
     }
 
     /**
@@ -48,10 +41,17 @@ class MultiTableQuery
      */
     public function getFormHtml(): string
     {
+        $columnsInTables = $this->dbi->query(sprintf(
+            'SELECT TABLE_NAME, COLUMN_NAME FROM information_schema.columns WHERE table_schema = %s',
+            $this->dbi->quoteString($this->db),
+        ));
+
         $tables = [];
-        foreach ($this->tables as $table) {
-            $tables[$table]['hash'] = md5($table);
-            $tables[$table]['columns'] = $this->dbi->getColumnNames($this->db, $table);
+        /** @var array{TABLE_NAME:string, COLUMN_NAME:string} $column */
+        foreach ($columnsInTables as $column) {
+            $table = $column['TABLE_NAME'];
+            $tables[$table]['hash'] ??= md5($table);
+            $tables[$table]['columns'][] = $column['COLUMN_NAME'];
         }
 
         return $this->template->render('database/multi_table_query/form', [
