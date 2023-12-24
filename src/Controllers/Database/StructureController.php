@@ -98,10 +98,10 @@ final class StructureController extends AbstractController
      */
     private function getDatabaseInfo(ServerRequest $request): void
     {
-        [$tables, $numTables, $totalNumTables] = Util::getDbInfo($request, Current::$database);
+        [$tables, $totalNumTables] = Util::getDbInfo($request, Current::$database);
 
         $this->tables = $tables;
-        $this->numTables = $numTables;
+        $this->numTables = count($tables);
         $this->position = Util::getTableListPosition($request, Current::$database);
         $this->totalNumTables = $totalNumTables;
 

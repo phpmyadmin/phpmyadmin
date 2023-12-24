@@ -22,6 +22,7 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function array_merge;
+use function count;
 use function is_array;
 
 final class ExportController extends AbstractController
@@ -77,7 +78,8 @@ final class ExportController extends AbstractController
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/export');
 
-        [$GLOBALS['tables'], $GLOBALS['num_tables']] = Util::getDbInfo($request, Current::$database, false);
+        [$GLOBALS['tables']] = Util::getDbInfo($request, Current::$database, false);
+        $GLOBALS['num_tables'] = count($GLOBALS['tables']);
 
         // exit if no tables in db found
         if ($GLOBALS['num_tables'] < 1) {

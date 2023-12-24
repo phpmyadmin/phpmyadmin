@@ -12309,10 +12309,6 @@
     <PossiblyNullArgument>
       <code>$value</code>
     </PossiblyNullArgument>
-    <PossiblyNullArrayOffset>
-      <code>$sotCache</code>
-      <code>$tables</code>
-    </PossiblyNullArrayOffset>
     <RedundantCast>
       <code><![CDATA[(string) $_REQUEST['tbl_group']]]></code>
       <code><![CDATA[(string) $_REQUEST['tbl_group']]]></code>
