@@ -176,26 +176,13 @@ class Common
     }
 
     /**
-     * Returns UNIQUE and PRIMARY indices
-     *
-     * @param DesignerTable[] $designerTables The designer tables
-     *
-     * @return mixed[] unique or primary indices
-     */
-    public function getPkOrUniqueKeys(array $designerTables): array
-    {
-        return $this->getAllKeys($designerTables, true);
-    }
-
-    /**
      * Returns all indices
      *
      * @param DesignerTable[] $designerTables The designer tables
-     * @param bool            $uniqueOnly     whether to include only unique ones
      *
-     * @return mixed[] indices
+     * @return array<string, bool>
      */
-    public function getAllKeys(array $designerTables, bool $uniqueOnly = false): array
+    public function getAllKeys(array $designerTables): array
     {
         $keys = [];
 
@@ -203,13 +190,10 @@ class Common
             $schema = $designerTable->getDatabaseName();
             // for now, take into account only the first index segment
             foreach (Index::getFromTable($this->dbi, $designerTable->getTableName(), $schema) as $index) {
-                if ($uniqueOnly && ! $index->isUnique()) {
-                    continue;
-                }
-
                 $columns = $index->getColumns();
                 foreach (array_keys($columns) as $columnName) {
-                    $keys[$schema . '.' . $designerTable->getTableName() . '.' . $columnName] = 1;
+                    $key = $schema . '.' . $designerTable->getTableName() . '.' . $columnName;
+                    $keys[$key] = ! $index->getNonUnique();
                 }
             }
         }

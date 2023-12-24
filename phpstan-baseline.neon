@@ -1611,11 +1611,6 @@ parameters:
 			path: src/Controllers/Database/DesignerController.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getDatabaseTables\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/DesignerController.php
-
-		-
 			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getHtmlForEditOrDeletePages\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Database/DesignerController.php
@@ -1647,6 +1642,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:saveDisplayField\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#1 \\$db of static method PhpMyAdmin\\\\Url\\:\\:getHiddenInputs\\(\\) expects array\\|string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/DesignerController.php
 
@@ -1707,11 +1707,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$f1 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:removeRelation\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/DesignerController.php
-
-		-
-			message: "#^Parameter \\#2 \\$getDb of method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getHtmlForMain\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/DesignerController.php
 
@@ -6962,11 +6957,6 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
-			count: 1
-			path: src/Database/Designer/Common.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, bool\\|string given\\.$#"
 			count: 1
 			path: src/Database/Designer/Common.php
 

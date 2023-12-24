@@ -70,12 +70,14 @@
                     designerTable.getTableName()|escape('url'),
                     tab_column[t_n][j].name|url_encode
                 ] %}
-                {% if not designerTable.supportsForeignkeys() %}
-                    {% set click_field_param = click_field_param|merge([tables_pk_or_unique_keys[tmp_column] is defined ? 1 : 0]) %}
-                {% else %}
-                    {# if foreign keys are supported, it's not necessary that the
-                    index is a primary key #}
-                    {% set click_field_param = click_field_param|merge([tables_all_keys[tmp_column] is defined ? 1 : 0]) %}
+                {% if tables_all_keys[tmp_column] is defined %}
+                    {% if not designerTable.supportsForeignkeys() %}
+                        {% set click_field_param = click_field_param|merge([tables_all_keys[tmp_column] ? 1 : 0]) %}
+                    {% else %}
+                        {# if foreign keys are supported, it's not necessary that the
+                        index is a primary key #}
+                        {% set click_field_param = click_field_param|merge([1]) %}
+                    {% endif %}
                 {% endif %}
                 {% set click_field_param = click_field_param|merge([db]) %}
                 <tr id="id_tr_{{ designerTable.getTableName()|escape('url') }}.{{ tab_column[t_n][j].name }}" class="tab_field
