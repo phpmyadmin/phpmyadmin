@@ -114,7 +114,6 @@ class CentralColumnsTest extends AbstractTestCase
         Current::$database = 'PMA_db';
         Current::$table = 'PMA_table';
 
-        $GLOBALS['server'] = 1;
         $relationParameters = RelationParameters::fromArray([
             'centralcolumnswork' => true,
             'relwork' => true,

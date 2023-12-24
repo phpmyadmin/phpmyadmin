@@ -137,7 +137,7 @@ class Header
             'common_query' => Url::getCommonRaw([], ''),
             'opendb_url' => Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database'),
             'lang' => $GLOBALS['lang'],
-            'server' => $GLOBALS['server'],
+            'server' => Current::$server,
             'table' => Current::$table,
             'db' => Current::$database,
             'token' => $_SESSION[' PMA_token '],
@@ -320,7 +320,7 @@ class Header
         $this->scripts->addFiles($this->console->getScripts());
 
         $dbi = DatabaseInterface::getInstance();
-        if ($this->menuEnabled && $GLOBALS['server'] > 0) {
+        if ($this->menuEnabled && Current::$server > 0) {
             $nav = new Navigation(
                 $this->template,
                 new Relation($dbi),
@@ -339,7 +339,7 @@ class Header
             $loadUserPreferences = $this->userPreferences->autoloadGetHeader();
         }
 
-        if ($this->menuEnabled && $GLOBALS['server'] > 0) {
+        if ($this->menuEnabled && Current::$server > 0) {
             $menu = $this->menu->getDisplay();
         }
 
@@ -357,7 +357,7 @@ class Header
             'theme_path' => $theme->getPath(),
             'version' => $version,
             'text_dir' => $GLOBALS['text_dir'],
-            'server' => $GLOBALS['server'] ?? null,
+            'server' => Current::$server,
             'title' => $this->getPageTitle(),
             'scripts' => $this->scripts->getDisplay(),
             'body_id' => $this->bodyId,
@@ -507,7 +507,7 @@ class Header
     public function getPageTitle(): string
     {
         if (strlen($this->title) == 0) {
-            if ($GLOBALS['server'] > 0) {
+            if (Current::$server > 0) {
                 $config = Config::getInstance();
                 if (Current::$table !== '') {
                     $tempTitle = $config->settings['TitleTable'];

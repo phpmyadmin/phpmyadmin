@@ -43,7 +43,7 @@ class GeneratorTest extends AbstractTestCase
     public function testGetDbLinkNull(): void
     {
         Current::$database = 'test_db';
-        $GLOBALS['server'] = 99;
+        Current::$server = 99;
         $database = Current::$database;
         $this->assertEquals(
             '<a href="'
@@ -65,7 +65,7 @@ class GeneratorTest extends AbstractTestCase
      */
     public function testGetDbLink(): void
     {
-        $GLOBALS['server'] = 99;
+        Current::$server = 99;
         $database = 'test_database';
         $this->assertEquals(
             '<a href="' . Util::getScriptNameForOption(
@@ -85,7 +85,7 @@ class GeneratorTest extends AbstractTestCase
      */
     public function testGetDbLinkWithSpecialChars(): void
     {
-        $GLOBALS['server'] = 99;
+        Current::$server = 99;
         $database = 'test&data\'base';
         $this->assertEquals(
             '<a href="'
@@ -167,7 +167,6 @@ class GeneratorTest extends AbstractTestCase
      */
     public function testShowPHPDocumentation(): void
     {
-        $GLOBALS['server'] = 99;
         Config::getInstance()->settings['ServerDefault'] = 0;
 
         $target = 'docu';
@@ -488,7 +487,7 @@ class GeneratorTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Current::$database = 'test_db';
         Current::$table = 'test_table';
-        $GLOBALS['server'] = 2;
+        Current::$server = 2;
         $GLOBALS['special_message'] = 'Message [em]two[/em].';
         SessionCache::set('profiling_supported', true);
 
@@ -543,7 +542,7 @@ HTML;
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Current::$database = 'test_db';
         Current::$table = 'test_table';
-        $GLOBALS['server'] = 2;
+        Current::$server = 2;
         $GLOBALS['show_as_php'] = true;
         $GLOBALS['special_message'] = 'Message [em]two[/em].';
         SessionCache::set('profiling_supported', true);

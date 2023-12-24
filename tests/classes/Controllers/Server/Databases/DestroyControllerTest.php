@@ -30,7 +30,6 @@ class DestroyControllerTest extends AbstractTestCase
 
     public function testDropDatabases(): void
     {
-        $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

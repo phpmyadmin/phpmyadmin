@@ -36,9 +36,7 @@ class HeaderTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
-        $GLOBALS['server'] = 0;
         $GLOBALS['message'] = 'phpmyadminmessage';
-        $GLOBALS['server'] = 'server';
         Current::$database = 'db';
         Current::$table = '';
 
@@ -80,7 +78,7 @@ class HeaderTest extends AbstractTestCase
      */
     public function testEnable(): void
     {
-        $GLOBALS['server'] = 0;
+        Current::$server = 0;
         $header = $this->getNewHeaderInstance();
         $this->assertStringContainsString(
             '<title>phpMyAdmin</title>',

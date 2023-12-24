@@ -31,7 +31,6 @@ class SelectTest extends AbstractTestCase
         //$GLOBALS
         $config = Config::getInstance();
         $config->settings['MaxRows'] = 10;
-        $GLOBALS['server'] = 1;
         $config->settings['ServerDefault'] = 'server';
         $config->settings['RememberSorting'] = true;
         $config->settings['SQP'] = [];

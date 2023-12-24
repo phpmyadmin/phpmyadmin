@@ -387,7 +387,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 8
+			count: 7
 			path: src/Config.php
 
 		-
@@ -2241,7 +2241,7 @@ parameters:
 			path: src/Controllers/Database/Structure/FavoriteTableController.php
 
 		-
-			message: "#^Cannot access offset mixed on mixed\\.$#"
+			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/FavoriteTableController.php
 
@@ -7466,16 +7466,6 @@ parameters:
 			path: src/DatabaseInterface.php
 
 		-
-			message: "#^Parameter \\#3 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/DatabaseInterface.php
-
-		-
-			message: "#^Parameter \\#4 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/DatabaseInterface.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\DatabaseInterface\\:\\:\\$versionComment \\(string\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/DatabaseInterface.php
@@ -8366,17 +8356,12 @@ parameters:
 			path: src/Favorites/RecentFavoriteTables.php
 
 		-
-			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 1
-			path: src/Favorites/RecentFavoriteTables.php
-
-		-
-			message: "#^Cannot access offset string on mixed\\.$#"
+			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
 			count: 5
 			path: src/Favorites/RecentFavoriteTables.php
 
 		-
-			message: "#^Cannot cast mixed to string\\.$#"
+			message: "#^Cannot access offset int\\<1, max\\> on mixed\\.$#"
 			count: 1
 			path: src/Favorites/RecentFavoriteTables.php
 
@@ -9171,11 +9156,6 @@ parameters:
 			path: src/Http/Middleware/LanguageAndThemeCookieSaving.php
 
 		-
-			message: "#^Parameter \\#1 \\$server of method PhpMyAdmin\\\\Config\\:\\:getLoginCookieValidityFromCache\\(\\) expects int, mixed given\\.$#"
-			count: 1
-			path: src/Http/Middleware/LoginCookieValiditySetting.php
-
-		-
 			message: "#^Parameter \\#2 \\$value of method PhpMyAdmin\\\\Config\\:\\:setCookie\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Http/Middleware/SetupPageRedirection.php
@@ -9194,11 +9174,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$page of static method PhpMyAdmin\\\\Core\\:\\:checkPageValidity\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Http/Middleware/UrlParamsSetting.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: src/Http/Middleware/ZeroConfPostConnection.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Http\\\\ServerRequest\\:\\:getAttributes\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -14456,13 +14431,8 @@ parameters:
 			path: src/Server/Select.php
 
 		-
-			message: "#^Cannot cast mixed to int\\.$#"
-			count: 1
-			path: src/Server/Select.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 6
+			count: 5
 			path: src/Server/Select.php
 
 		-
@@ -15066,11 +15036,6 @@ parameters:
 			path: src/Sql.php
 
 		-
-			message: "#^Parameter \\#4 \\$server of class PhpMyAdmin\\\\Display\\\\Results constructor expects int, mixed given\\.$#"
-			count: 1
-			path: src/Sql.php
-
-		-
 			message: "#^Parameter \\#5 \\$bookmarkLabel of method PhpMyAdmin\\\\Sql\\:\\:storeTheQueryAsBookmark\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Sql.php
@@ -15476,8 +15441,13 @@ parameters:
 			path: src/Table/Table.php
 
 		-
+			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
+			count: 3
+			path: src/Table/Table.php
+
+		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 8
+			count: 5
 			path: src/Table/Table.php
 
 		-
@@ -16072,7 +16042,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 5
+			count: 4
 			path: src/Url.php
 
 		-
@@ -17151,7 +17121,12 @@ parameters:
 			path: tests/classes/DatabaseInterfaceTest.php
 
 		-
-			message: "#^Cannot access offset '27b1330f2076ef45d23…' on mixed\\.$#"
+			message: "#^Cannot access offset '2b7b3faf4b48255e478…' on mixed\\.$#"
+			count: 1
+			path: tests/classes/Display/ResultsTest.php
+
+		-
+			message: "#^Cannot access offset '5ce1ef88afb4e13d3b8…' on mixed\\.$#"
 			count: 1
 			path: tests/classes/Display/ResultsTest.php
 
@@ -17163,11 +17138,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'display_blob' on mixed\\.$#"
 			count: 4
-			path: tests/classes/Display/ResultsTest.php
-
-		-
-			message: "#^Cannot access offset 'f2a8e80312ca180031a…' on mixed\\.$#"
-			count: 1
 			path: tests/classes/Display/ResultsTest.php
 
 		-
@@ -18146,11 +18116,6 @@ parameters:
 			path: tests/classes/TransformationsTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\) expects Countable\\|iterable, mixed given\\.$#"
-			count: 1
-			path: tests/classes/Triggers/TriggersTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\TwoFactorTest\\:\\:loadResultForConfig\\(\\) has parameter \\$config with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/classes/TwoFactorTest.php
@@ -18174,11 +18139,6 @@ parameters:
 			message: "#^Class PhpMyAdmin\\\\Tests\\\\TypesByDatabaseVersionTest has an uninitialized property \\$object\\. Give it default value or assign it in the constructor\\.$#"
 			count: 1
 			path: tests/classes/TypesByDatabaseVersionTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
-			count: 4
-			path: tests/classes/UrlTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\UserPasswordTest\\:\\:providerSetChangePasswordMsg\\(\\) should return array\\<array\\{bool, PhpMyAdmin\\\\Message, string, string, string\\}\\> but returns array\\{array\\{false, PhpMyAdmin\\\\Message, true, '', ''\\}, array\\{true, PhpMyAdmin\\\\Message, false, '', ''\\}, array\\{true, PhpMyAdmin\\\\Message, false, 'a', ''\\}, array\\{true, PhpMyAdmin\\\\Message, false, '', 'a'\\}, array\\{true, PhpMyAdmin\\\\Message, false, 'a', 'b'\\}, array\\{true, PhpMyAdmin\\\\Message, false, literal\\-string&non\\-falsy\\-string, literal\\-string&non\\-falsy\\-string\\}, array\\{false, PhpMyAdmin\\\\Message, false, literal\\-string&non\\-falsy\\-string, literal\\-string&non\\-falsy\\-string\\}\\}\\.$#"
@@ -18231,7 +18191,7 @@ parameters:
 			path: tests/classes/UtilTest.php
 
 		-
-			message: "#^Cannot access offset 'server_server' on mixed\\.$#"
+			message: "#^Cannot access offset 'server_2' on mixed\\.$#"
 			count: 4
 			path: tests/classes/UtilTest.php
 
@@ -18276,7 +18236,7 @@ parameters:
 			path: tests/classes/Utils/HttpRequestTest.php
 
 		-
-			message: "#^Cannot access offset 'server_server' on mixed\\.$#"
+			message: "#^Cannot access offset 'server_2' on mixed\\.$#"
 			count: 4
 			path: tests/classes/Utils/SessionCacheTest.php
 

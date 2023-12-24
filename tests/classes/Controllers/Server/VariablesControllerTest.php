@@ -38,7 +38,6 @@ class VariablesControllerTest extends AbstractTestCase
         parent::setLanguage();
 
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['server'] = 1;
         Current::$database = 'db';
         Current::$table = 'table';
         Config::getInstance()->selectedServer['DisableIS'] = false;

@@ -38,7 +38,6 @@ class ImportOdsTest extends AbstractTestCase
         parent::setUp();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $GLOBALS['server'] = 0;
         $GLOBALS['plugin_param'] = 'csv';
         $GLOBALS['error'] = null;
         $GLOBALS['timeout_passed'] = null;

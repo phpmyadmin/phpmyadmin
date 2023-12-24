@@ -23,7 +23,6 @@ class CheckUserPrivilegesTest extends AbstractTestCase
         parent::setUp();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $GLOBALS['server'] = 1;
         Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['col_priv'] = false;
         $GLOBALS['db_priv'] = false;

@@ -30,7 +30,6 @@ class EventsTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['server'] = 0;
         Current::$database = 'db';
         Current::$table = 'table';
         Config::getInstance()->selectedServer['DisableIS'] = false;

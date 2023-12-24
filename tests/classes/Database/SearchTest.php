@@ -26,7 +26,6 @@ class SearchTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['server'] = 0;
         Current::$database = 'pma';
         $GLOBALS['_POST'] = [];
 

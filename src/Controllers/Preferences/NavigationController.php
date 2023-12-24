@@ -9,6 +9,7 @@ use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\NaviForm;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -40,7 +41,6 @@ class NavigationController extends AbstractController
         $GLOBALS['error'] ??= null;
         $GLOBALS['tabHash'] ??= null;
         $GLOBALS['hash'] ??= null;
-        $GLOBALS['server'] ??= null;
 
         $GLOBALS['cf'] = new ConfigFile($this->config->baseSettings);
         $this->userPreferences->pageInit($GLOBALS['cf']);
@@ -93,7 +93,7 @@ class NavigationController extends AbstractController
             'form' => $formDisplay->getDisplay(
                 true,
                 Url::getFromRoute('/preferences/navigation'),
-                ['server' => $GLOBALS['server']],
+                ['server' => Current::$server],
             ),
         ]);
 

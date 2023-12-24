@@ -63,7 +63,6 @@ class AddControllerTest extends AbstractTestCase
     public function testWithValidParameters(): void
     {
         Config::getInstance()->selectedServer['user'] = 'test_user';
-        $GLOBALS['server'] = 1;
         $relationParameters = RelationParameters::fromArray([
             'user' => 'test_user',
             'db' => 'pmadb',

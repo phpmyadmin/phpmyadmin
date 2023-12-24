@@ -40,7 +40,6 @@ class SanitizeTest extends AbstractTestCase
     {
         $lang = $GLOBALS['lang'];
 
-        unset($GLOBALS['server']);
         unset($GLOBALS['lang']);
         $this->assertEquals(
             '<a href="index.php?route=/url&url=https%3A%2F%2Fwww.phpmyadmin.net%2F" target="target">link</a>',

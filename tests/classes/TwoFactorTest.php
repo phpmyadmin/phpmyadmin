@@ -39,7 +39,6 @@ class TwoFactorTest extends AbstractTestCase
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
-        $GLOBALS['server'] = 1;
         Current::$database = '';
         Current::$table = 'table';
         $config = Config::getInstance();

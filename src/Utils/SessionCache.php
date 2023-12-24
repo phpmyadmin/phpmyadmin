@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Utils;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 
 final class SessionCache
 {
     private static function key(): string
     {
-        $GLOBALS['server'] ??= null;
-        $key = 'server_' . $GLOBALS['server'];
+        $key = 'server_' . Current::$server;
 
         $config = Config::getInstance();
         if (isset($config->selectedServer['user'])) {

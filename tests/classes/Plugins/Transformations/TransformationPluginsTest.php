@@ -115,8 +115,6 @@ class TransformationPluginsTest extends AbstractTestCase
         // For Image_*_Inline plugin
         parent::setGlobalConfig();
 
-        $GLOBALS['Server'] = 1;
-
         // For Date Format plugin
         date_default_timezone_set('UTC');
     }

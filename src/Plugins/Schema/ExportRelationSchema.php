@@ -260,7 +260,7 @@ class ExportRelationSchema
         echo '<a href="';
         echo Url::getFromRoute('/database/designer', [
             'db' => Current::$database,
-            'server' => $GLOBALS['server'],
+            'server' => Current::$server,
             'page' => $pageNumber,
         ]);
         echo '">' . __('Back') . '</a>';

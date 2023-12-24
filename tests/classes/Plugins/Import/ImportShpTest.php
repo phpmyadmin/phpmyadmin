@@ -44,7 +44,6 @@ class ImportShpTest extends AbstractTestCase
         $GLOBALS['run_query'] = null;
         $GLOBALS['go_sql'] = null;
 
-        $GLOBALS['server'] = 0;
         //setting
         $GLOBALS['plugin_param'] = 'table';
         $GLOBALS['finished'] = false;

@@ -32,8 +32,6 @@ class OptionsTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
 
-        $GLOBALS['server'] = 0;
-
         Current::$table = 'table';
         Current::$database = 'PMA';
 

@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Config;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 
 use function __;
 use function _pgettext;
@@ -88,7 +89,7 @@ class ConfigFile
         // load additional config information
         $this->cfgDb = $this->getAllowedValues();
         $this->isInSetup = $baseConfig === null;
-        $this->id = 'ConfigFile' . $GLOBALS['server'];
+        $this->id = 'ConfigFile' . Current::$server;
         if (isset($_SESSION[$this->id])) {
             return;
         }

@@ -35,7 +35,6 @@ class AdvisorControllerTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
-        $GLOBALS['server'] = 1;
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
         $config->selectedServer['host'] = 'localhost';

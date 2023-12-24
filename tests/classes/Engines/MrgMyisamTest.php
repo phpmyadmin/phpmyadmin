@@ -23,7 +23,6 @@ class MrgMyisamTest extends AbstractTestCase
         parent::setUp();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $GLOBALS['server'] = 0;
         $this->object = new MrgMyisam('mrg_myisam');
     }
 

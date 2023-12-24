@@ -8,6 +8,7 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Http\ServerRequest;
@@ -59,7 +60,6 @@ class DatabasesController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['server'] ??= null;
         $GLOBALS['is_create_db_priv'] ??= null;
         $GLOBALS['db_to_create'] ??= null;
         $GLOBALS['text_dir'] ??= null;
@@ -92,7 +92,7 @@ class DatabasesController extends AbstractController
         /**
          * Gets the databases list
          */
-        if ($GLOBALS['server'] > 0) {
+        if (Current::$server > 0) {
             $this->databases = $this->dbi->getDatabasesFull(
                 null,
                 $this->hasStatistics,

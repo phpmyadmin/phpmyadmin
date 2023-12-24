@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\RecentFavoriteController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Favorites\RecentFavoriteTable;
 use PhpMyAdmin\Favorites\RecentFavoriteTables;
@@ -28,7 +29,7 @@ class RecentFavoriteControllerTest extends AbstractTestCase
 {
     public function testRecentFavoriteControllerWithValidDbAndTable(): void
     {
-        $GLOBALS['server'] = 2;
+        Current::$server = 2;
         $GLOBALS['text_dir'] = 'ltr';
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 
@@ -68,7 +69,7 @@ class RecentFavoriteControllerTest extends AbstractTestCase
 
     public function testRecentFavoriteControllerWithInvalidDbAndTable(): void
     {
-        $GLOBALS['server'] = 2;
+        Current::$server = 2;
         $GLOBALS['text_dir'] = 'ltr';
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 
@@ -109,7 +110,7 @@ class RecentFavoriteControllerTest extends AbstractTestCase
 
     public function testRecentFavoriteControllerWithInvalidDbAndTableName(): void
     {
-        $GLOBALS['server'] = 2;
+        Current::$server = 2;
         $GLOBALS['text_dir'] = 'ltr';
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')

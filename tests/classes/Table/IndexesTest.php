@@ -26,7 +26,6 @@ class IndexesTest extends AbstractTestCase
         /**
          * SET these to avoid undefined index error
          */
-        $GLOBALS['server'] = 1;
         Current::$database = 'db';
         Current::$table = 'table';
         $GLOBALS['text_dir'] = 'ltr';

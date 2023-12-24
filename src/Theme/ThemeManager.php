@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Theme;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 
 use function __;
 use function array_key_exists;
@@ -143,8 +144,8 @@ class ThemeManager
     public function getThemeCookieName(): string
     {
         // Allow different theme per server
-        if (isset($GLOBALS['server']) && $this->perServer) {
-            return $this->cookieName . '-' . $GLOBALS['server'];
+        if ($this->perServer) {
+            return $this->cookieName . '-' . Current::$server;
         }
 
         return $this->cookieName;

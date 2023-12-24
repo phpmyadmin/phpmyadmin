@@ -31,7 +31,6 @@ class OverviewControllerTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['text_dir'] = 'ltr';
 
-        $GLOBALS['server'] = 1;
         Current::$database = 'db';
         Current::$table = 'table';
     }

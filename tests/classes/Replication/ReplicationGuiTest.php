@@ -48,7 +48,6 @@ class ReplicationGuiTest extends AbstractTestCase
         $config->settings['ShowHint'] = true;
 
         Current::$table = 'table';
-        $GLOBALS['server'] = 0;
         $GLOBALS['urlParams'] = [];
 
         $this->replicationGui = new ReplicationGui(new Replication(DatabaseInterface::getInstance()), new Template());

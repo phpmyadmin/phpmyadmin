@@ -72,10 +72,10 @@ class ResultsTest extends AbstractTestCase
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
-        $GLOBALS['server'] = 0;
+        Current::$server = 2;
         Current::$database = 'db';
         Current::$table = 'table';
-        $this->object = new DisplayResults($this->dbi, 'as', '', 0, '', '');
+        $this->object = new DisplayResults($this->dbi, 'as', '', 2, '', '');
         $GLOBALS['text_dir'] = 'ltr';
         Config::getInstance()->selectedServer['DisableIS'] = false;
         $_SESSION[' HMAC_secret '] = 'test';
@@ -196,7 +196,7 @@ class ResultsTest extends AbstractTestCase
                 ['routine_name' => 'circumference', 'routine_schema' => 'data', 'routine_type' => 'FUNCTION'],
                 'routine_name',
                 'index.php?route=/database/routines&item_name=circumference&db=data'
-                . '&item_type=FUNCTION&server=0&lang=en',
+                . '&item_type=FUNCTION&server=2&lang=en',
             ],
             [
                 'information_schema',
@@ -204,7 +204,7 @@ class ResultsTest extends AbstractTestCase
                 'area',
                 ['routine_name' => 'area', 'routine_schema' => 'data', 'routine_type' => 'PROCEDURE'],
                 'routine_name',
-                'index.php?route=/database/routines&item_name=area&db=data&item_type=PROCEDURE&server=0&lang=en',
+                'index.php?route=/database/routines&item_name=area&db=data&item_type=PROCEDURE&server=2&lang=en',
             ],
         ];
     }
@@ -656,7 +656,7 @@ class ResultsTest extends AbstractTestCase
 
         // Basic data
         $query = 'SELECT 1';
-        $this->object = new DisplayResults($this->dbi, 'db', '', 0, '', '');
+        $this->object = new DisplayResults($this->dbi, 'db', '', 2, '', '');
 
         // Field meta information
         (new ReflectionProperty(DisplayResults::class, 'fieldsMeta'))->setValue($this->object, [
@@ -871,7 +871,7 @@ class ResultsTest extends AbstractTestCase
         $query = 'ANALYZE FORMAT=JSON SELECT * FROM test_table';
         [$analyzedSqlResults] = ParseAnalyze::sqlQuery($query, $db);
 
-        $object = new DisplayResults($this->dbi, $db, $table, 1, '', $query);
+        $object = new DisplayResults($this->dbi, $db, $table, 2, '', $query);
         $object->setConfigParamsForDisplayTable($analyzedSqlResults);
 
         $this->assertSame('F', $_SESSION['tmpval']['pftext']);
@@ -879,7 +879,7 @@ class ResultsTest extends AbstractTestCase
         $query = 'ANALYZE NO_WRITE_TO_BINLOG TABLE test_table';
         [$analyzedSqlResults] = ParseAnalyze::sqlQuery($query, $db);
 
-        $object = new DisplayResults($this->dbi, $db, $table, 1, '', $query);
+        $object = new DisplayResults($this->dbi, $db, $table, 2, '', $query);
         $object->setConfigParamsForDisplayTable($analyzedSqlResults);
 
         $this->assertSame('P', $_SESSION['tmpval']['pftext']);
@@ -910,7 +910,7 @@ class ResultsTest extends AbstractTestCase
         $query = 'SELECT * FROM `test_db`.`test_table`;';
         [$analyzedSqlResults] = ParseAnalyze::sqlQuery($query, $db);
 
-        $object = new DisplayResults($this->dbi, $db, $table, 1, '', $query);
+        $object = new DisplayResults($this->dbi, $db, $table, 2, '', $query);
         $object->setConfigParamsForDisplayTable($analyzedSqlResults);
 
         $this->assertArrayHasKey('tmpval', $_SESSION);
@@ -931,7 +931,7 @@ class ResultsTest extends AbstractTestCase
                 [],
                 [
                     'query' => [
-                        '27b1330f2076ef45d236f20839a92831' => [
+                        '2b7b3faf4b48255e47876f6d5bd2da35' => [
                             'sql' => 'SELECT * FROM `test_db`.`test_table`;',
                             'repeat_cells' => $cfg['RepeatCells'],
                             'max_rows' => $cfg['MaxRows'],
@@ -957,7 +957,7 @@ class ResultsTest extends AbstractTestCase
                 [
                     'tmpval' => [
                         'query' => [
-                            '27b1330f2076ef45d236f20839a92831' => [
+                            '2b7b3faf4b48255e47876f6d5bd2da35' => [
                                 'sql' => 'SELECT * FROM `test_db`.`test_table`;',
                                 'repeat_cells' => 90,
                                 'max_rows' => 26,
@@ -995,7 +995,7 @@ class ResultsTest extends AbstractTestCase
                         'h' => [],
                         'i' => [],
                         'j' => [],
-                        '27b1330f2076ef45d236f20839a92831' => [
+                        '2b7b3faf4b48255e47876f6d5bd2da35' => [
                             'sql' => 'SELECT * FROM `test_db`.`test_table`;',
                             'repeat_cells' => 90,
                             'max_rows' => 26,
@@ -1032,7 +1032,7 @@ class ResultsTest extends AbstractTestCase
                 ],
                 [
                     'query' => [
-                        '27b1330f2076ef45d236f20839a92831' => [
+                        '2b7b3faf4b48255e47876f6d5bd2da35' => [
                             'sql' => 'SELECT * FROM `test_db`.`test_table`;',
                             'repeat_cells' => $cfg['RepeatCells'],
                             'max_rows' => 27,
@@ -1060,7 +1060,7 @@ class ResultsTest extends AbstractTestCase
                 [
                     'tmpval' => [
                         'query' => [
-                            '27b1330f2076ef45d236f20839a92831' => [
+                            '2b7b3faf4b48255e47876f6d5bd2da35' => [
                                 'sql' => 'SELECT * FROM `test_db`.`test_table`;',
                                 'repeat_cells' => $cfg['RepeatCells'],
                                 'max_rows' => $cfg['MaxRows'],
@@ -1103,7 +1103,7 @@ class ResultsTest extends AbstractTestCase
                         'g' => [],
                         'h' => [],
                         'i' => [],
-                        '27b1330f2076ef45d236f20839a92831' => [
+                        '2b7b3faf4b48255e47876f6d5bd2da35' => [
                             'sql' => 'SELECT * FROM `test_db`.`test_table`;',
                             'repeat_cells' => $cfg['RepeatCells'],
                             'max_rows' => DisplayResults::ALL_ROWS,
@@ -1131,11 +1131,12 @@ class ResultsTest extends AbstractTestCase
     {
         Config::getInstance()->selectedServer['DisableIS'] = true;
 
+        Current::$server = 2;
         Current::$database = 'test_db';
         Current::$table = 'test_table';
         $query = 'SELECT * FROM `test_db`.`test_table`;';
 
-        $object = new DisplayResults($this->dbi, Current::$database, Current::$table, 1, '', $query);
+        $object = new DisplayResults($this->dbi, Current::$database, Current::$table, Current::$server, '', $query);
 
         (new ReflectionProperty(DisplayResults::class, 'uniqueId'))->setValue($object, 1234567890);
 
@@ -1187,7 +1188,7 @@ class ResultsTest extends AbstractTestCase
         $_SESSION['tmpval']['max_rows'] = 25;
         $_SESSION['tmpval']['pos'] = 0;
         $_SESSION['tmpval']['repeat_cells'] = 0;
-        $_SESSION['tmpval']['query']['27b1330f2076ef45d236f20839a92831']['max_rows'] = 25;
+        $_SESSION['tmpval']['query']['2b7b3faf4b48255e47876f6d5bd2da35']['max_rows'] = 25;
 
         $dtResult = $this->dbi->tryQuery($query);
 
@@ -1211,25 +1212,25 @@ class ResultsTest extends AbstractTestCase
             'columns' => [
                 [
                     'column_name' => 'id',
-                    'order_link' => '<a href="index.php?route=/sql&server=0&lang=en&db=test_db&table=test_table'
+                    'order_link' => '<a href="index.php?route=/sql&server=2&lang=en&db=test_db&table=test_table'
                         . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60id%60+ASC'
                         . '&sql_signature=dcfe20b407b35309f6af81f745e77a10f723d39b082d2a8f9cb8e75b17c4d3ce'
-                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en" class="sortlink">id'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=2&lang=en" class="sortlink">id'
                         . '<input type="hidden" value="'
-                        . 'index.php?route=/sql&server=0&lang=en&db=test_db&table=test_table'
+                        . 'index.php?route=/sql&server=2&lang=en&db=test_db&table=test_table'
                         . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60id%60+ASC'
                         . '&sql_signature=dcfe20b407b35309f6af81f745e77a10f723d39b082d2a8f9cb8e75b17c4d3ce'
-                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en"></a>'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=2&lang=en"></a>'
                         . '<input type="hidden" name="url-remove-order" value="index.php?route=/sql&db=test_db'
                         . '&table=test_table&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60'
                         . '&sql_signature=61b0c8c5657483469636496ed02311acefd66dda3892b0d5b23d23c621486dd7'
-                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=2&lang=en'
                         . '&discard_remembered_sort=1">' . "\n"
                         . '<input type="hidden" name="url-add-order" value="'
                         . 'index.php?route=/sql&db=test_db&table=test_table'
                         . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60id%60+ASC'
                         . '&sql_signature=dcfe20b407b35309f6af81f745e77a10f723d39b082d2a8f9cb8e75b17c4d3ce'
-                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en">',
+                        . '&session_max_rows=25&is_browse_distinct=0&server=2&lang=en">',
                     'comments' => '',
                     'is_browse_pointer_enabled' => true,
                     'is_browse_marker_enabled' => true,
@@ -1238,25 +1239,25 @@ class ResultsTest extends AbstractTestCase
                 ],
                 [
                     'column_name' => 'name',
-                    'order_link' => '<a href="index.php?route=/sql&server=0&lang=en&db=test_db&table=test_table'
+                    'order_link' => '<a href="index.php?route=/sql&server=2&lang=en&db=test_db&table=test_table'
                         . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60name%60+ASC'
                         . '&sql_signature=0d06fa8d6795b1c69892cca27d6213c08401bd434145d16cb35c365ab3e03039'
-                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en" class="sortlink">name'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=2&lang=en" class="sortlink">name'
                         . '<input type="hidden" value="'
-                        . 'index.php?route=/sql&server=0&lang=en&db=test_db&table=test_table'
+                        . 'index.php?route=/sql&server=2&lang=en&db=test_db&table=test_table'
                         . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60name%60+ASC'
                         . '&sql_signature=0d06fa8d6795b1c69892cca27d6213c08401bd434145d16cb35c365ab3e03039'
-                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en"></a>'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=2&lang=en"></a>'
                         . '<input type="hidden" name="url-remove-order" value="index.php?route=/sql&db=test_db'
                         . '&table=test_table&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60'
                         . '&sql_signature=61b0c8c5657483469636496ed02311acefd66dda3892b0d5b23d23c621486dd7'
-                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=2&lang=en'
                         . '&discard_remembered_sort=1">' . "\n"
                         . '<input type="hidden" name="url-add-order" value="'
                         . 'index.php?route=/sql&db=test_db&table=test_table'
                         . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60name%60+ASC'
                         . '&sql_signature=0d06fa8d6795b1c69892cca27d6213c08401bd434145d16cb35c365ab3e03039'
-                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en">',
+                        . '&session_max_rows=25&is_browse_distinct=0&server=2&lang=en">',
                     'comments' => '',
                     'is_browse_pointer_enabled' => true,
                     'is_browse_marker_enabled' => true,
@@ -1265,28 +1266,28 @@ class ResultsTest extends AbstractTestCase
                 ],
                 [
                     'column_name' => 'datetimefield',
-                    'order_link' => '<a href="index.php?route=/sql&server=0&lang=en&db=test_db&table=test_table'
+                    'order_link' => '<a href="index.php?route=/sql&server=2&lang=en&db=test_db&table=test_table'
                         . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0A'
                         . 'ORDER+BY+%60datetimefield%60+DESC'
                         . '&sql_signature=1c46f7e3c625f9e0846fb2de844ca1732319e5fb7fb93e96c89a4b6218579358'
-                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en" class="sortlink">datetimefield'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=2&lang=en" class="sortlink">datetimefield'
                         . '<input type="hidden" value="'
-                        . 'index.php?route=/sql&server=0&lang=en&db=test_db&table=test_table'
+                        . 'index.php?route=/sql&server=2&lang=en&db=test_db&table=test_table'
                         . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0A'
                         . 'ORDER+BY+%60datetimefield%60+DESC'
                         . '&sql_signature=1c46f7e3c625f9e0846fb2de844ca1732319e5fb7fb93e96c89a4b6218579358'
-                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en"></a>'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=2&lang=en"></a>'
                         . '<input type="hidden" name="url-remove-order" value="index.php?route=/sql&db=test_db'
                         . '&table=test_table&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60'
                         . '&sql_signature=61b0c8c5657483469636496ed02311acefd66dda3892b0d5b23d23c621486dd7'
-                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=2&lang=en'
                         . '&discard_remembered_sort=1">' . "\n"
                         . '<input type="hidden" name="url-add-order" value="'
                         . 'index.php?route=/sql&db=test_db&table=test_table'
                         . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0A'
                         . 'ORDER+BY+%60datetimefield%60+DESC'
                         . '&sql_signature=1c46f7e3c625f9e0846fb2de844ca1732319e5fb7fb93e96c89a4b6218579358'
-                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en">',
+                        . '&session_max_rows=25&is_browse_distinct=0&server=2&lang=en">',
                     'comments' => '',
                     'is_browse_pointer_enabled' => true,
                     'is_browse_marker_enabled' => true,
@@ -1309,7 +1310,7 @@ class ResultsTest extends AbstractTestCase
                 'hidden_fields' => [
                     'db' => Current::$database,
                     'table' => Current::$table,
-                    'server' => 1,
+                    'server' => 2,
                     'sql_query' => $query,
                     'is_browse_distinct' => false,
                     'goto' => '',
@@ -1322,7 +1323,7 @@ class ResultsTest extends AbstractTestCase
                     'hidden_fields' => [
                         'db' => Current::$database,
                         'table' => Current::$table,
-                        'server' => 1,
+                        'server' => 2,
                         'sort_by_key' => '1',
                         'session_max_rows' => 25,
                     ],
@@ -1423,6 +1424,7 @@ class ResultsTest extends AbstractTestCase
     {
         Config::getInstance()->selectedServer['DisableIS'] = true;
 
+        Current::$server = 2;
         Current::$database = 'test_db';
         Current::$table = 'test_table';
         $query = 'SELECT COUNT(*) AS `Rows`, `name` FROM `test_table` GROUP BY `name` ORDER BY `name`';
@@ -1430,7 +1432,7 @@ class ResultsTest extends AbstractTestCase
         $dummyDbi = $this->createDbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);
 
-        $object = new DisplayResults($dbi, Current::$database, Current::$table, 1, '', $query);
+        $object = new DisplayResults($dbi, Current::$database, Current::$table, 2, '', $query);
 
         (new ReflectionProperty(DisplayResults::class, 'uniqueId'))->setValue($object, 1234567890);
 
@@ -1479,7 +1481,7 @@ class ResultsTest extends AbstractTestCase
         $_SESSION['tmpval']['max_rows'] = 25;
         $_SESSION['tmpval']['pos'] = 0;
         $_SESSION['tmpval']['repeat_cells'] = 0;
-        $_SESSION['tmpval']['query']['f2a8e80312ca180031ad773b573adbe1']['max_rows'] = 25;
+        $_SESSION['tmpval']['query']['5ce1ef88afb4e13d3b8c0a55c2c9657a']['max_rows'] = 25;
 
         $dtResult = $dbi->tryQuery($query);
 
@@ -1503,27 +1505,27 @@ class ResultsTest extends AbstractTestCase
             'columns' => [
                 [
                     'column_name' => 'Rows',
-                    'order_link' => '<a href="index.php?route=/sql&server=0&lang=en&db=test_db&table=test_table'
+                    'order_link' => '<a href="index.php?route=/sql&server=2&lang=en&db=test_db&table=test_table'
                         . '&sql_query=SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table'
                         . '%60+GROUP+BY+%60name%60++%0AORDER+BY+%60Rows%60+ASC&sql_signature='
                         . '8412b2f6bb4473905c68b2612d95d0020dda32282b3f5bf7a63fbaa98163016e&session_max_rows=25'
-                        . '&is_browse_distinct=1&server=0&lang=en" class="sortlink">Rows<input type="hidden" value="'
-                        . 'index.php?route=/sql&server=0&lang=en&db=test_db&table=test_table&sql_query='
+                        . '&is_browse_distinct=1&server=2&lang=en" class="sortlink">Rows<input type="hidden" value="'
+                        . 'index.php?route=/sql&server=2&lang=en&db=test_db&table=test_table&sql_query='
                         . 'SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table%60+GROUP+BY+'
                         . '%60name%60++%0AORDER+BY+%60name%60+ASC%2C+%60Rows%60+ASC&sql_signature='
                         . '6077a1df2401b3fa1ca67a940e3bb3cf6ff126ee5245137b07d68b1e7fe4075a&session_max_rows=25'
-                        . '&is_browse_distinct=1&server=0&lang=en"></a><input type="hidden" name="url-remove-order"'
+                        . '&is_browse_distinct=1&server=2&lang=en"></a><input type="hidden" name="url-remove-order"'
                         . ' value="index.php?route=/sql&db=test_db&table=test_table&sql_query='
                         . 'SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table%60+GROUP+BY+%60name'
                         . '%60+ORDER+BY+%60name%60+ASC&sql_signature='
                         . 'a6daf20f5593bc5d7c62fdb7dc564994f9e4a928f4488ab41b653c264bed70e7&session_max_rows=25'
-                        . '&is_browse_distinct=1&server=0&lang=en">' . "\n"
+                        . '&is_browse_distinct=1&server=2&lang=en">' . "\n"
                         . '<input type="hidden" name="url-add-order" value="'
                         . 'index.php?route=/sql&db=test_db&table=test_table&sql_query='
                         . 'SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table%60+GROUP+BY+'
                         . '%60name%60++%0AORDER+BY+%60name%60+ASC%2C+%60Rows%60+ASC&sql_signature='
                         . '6077a1df2401b3fa1ca67a940e3bb3cf6ff126ee5245137b07d68b1e7fe4075a&session_max_rows=25'
-                        . '&is_browse_distinct=1&server=0&lang=en">',
+                        . '&is_browse_distinct=1&server=2&lang=en">',
                     'comments' => '',
                     'is_browse_pointer_enabled' => true,
                     'is_browse_marker_enabled' => true,
@@ -1532,28 +1534,28 @@ class ResultsTest extends AbstractTestCase
                 ],
                 [
                     'column_name' => 'name',
-                    'order_link' => '<a href="index.php?route=/sql&server=0&lang=en&db=test_db&table=test_table'
+                    'order_link' => '<a href="index.php?route=/sql&server=2&lang=en&db=test_db&table=test_table'
                         . '&sql_query=SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table'
                         . '%60+GROUP+BY+%60name%60++%0AORDER+BY+%60name%60+DESC&sql_signature='
                         . 'de2cda64ffdeae7d1181feb386c1c47acea4de444235f1cdc29cf4556d4bae4c&session_max_rows=25'
-                        . '&is_browse_distinct=1&server=0&lang=en" class="sortlink">name <img src="themes/dot.gif"'
+                        . '&is_browse_distinct=1&server=2&lang=en" class="sortlink">name <img src="themes/dot.gif"'
                         . ' title="" alt="Ascending" class="icon ic_s_asc soimg"> <img src="themes/dot.gif" title=""'
                         . ' alt="Descending" class="icon ic_s_desc soimg hide"> <small>1</small><input type="hidden"'
-                        . ' value="index.php?route=/sql&server=0&lang=en&db=test_db&table=test_table&sql_query='
+                        . ' value="index.php?route=/sql&server=2&lang=en&db=test_db&table=test_table&sql_query='
                         . 'SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table%60+GROUP+BY+'
                         . '%60name%60++%0AORDER+BY+%60name%60+DESC&sql_signature='
                         . 'de2cda64ffdeae7d1181feb386c1c47acea4de444235f1cdc29cf4556d4bae4c&session_max_rows=25'
-                        . '&is_browse_distinct=1&server=0&lang=en"></a><input type="hidden" name="url-remove-order"'
+                        . '&is_browse_distinct=1&server=2&lang=en"></a><input type="hidden" name="url-remove-order"'
                         . ' value="index.php?route=/sql&db=test_db&table=test_table&sql_query='
                         . 'SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table%60+GROUP+BY+'
                         . '%60name%60&sql_signature=1e391c9073b55f6d88696ff3b6991df45636bd24c32e7c235c8ff7ef640161ce'
-                        . '&session_max_rows=25&is_browse_distinct=1&server=0&lang=en'
+                        . '&session_max_rows=25&is_browse_distinct=1&server=2&lang=en'
                         . '&discard_remembered_sort=1">' . "\n" . '<input type="hidden" name="url-add-order" value="'
                         . 'index.php?route=/sql&db=test_db&table=test_table&sql_query='
                         . 'SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table%60+GROUP+BY+'
                         . '%60name%60++%0AORDER+BY+%60name%60+DESC&sql_signature='
                         . 'de2cda64ffdeae7d1181feb386c1c47acea4de444235f1cdc29cf4556d4bae4c&session_max_rows=25'
-                        . '&is_browse_distinct=1&server=0&lang=en">',
+                        . '&is_browse_distinct=1&server=2&lang=en">',
                     'comments' => '',
                     'is_browse_pointer_enabled' => true,
                     'is_browse_marker_enabled' => true,
@@ -1576,7 +1578,7 @@ class ResultsTest extends AbstractTestCase
                 'hidden_fields' => [
                     'db' => Current::$database,
                     'table' => Current::$table,
-                    'server' => 1,
+                    'server' => 2,
                     'sql_query' => $query,
                     'is_browse_distinct' => true,
                     'goto' => '',
@@ -1607,19 +1609,19 @@ class ResultsTest extends AbstractTestCase
             'body' => '<tr><td data-decimals="0" data-type="int" class="'
                 . 'text-end data not_null text-nowrap">2</td>' . "\n"
                 . '<td data-decimals="0" data-type="string" data-originallength="4" class="'
-                . 'data not_null relation text pre_wrap"><a href="index.php?route=/sql&server=0&lang=en'
+                . 'data not_null relation text pre_wrap"><a href="index.php?route=/sql&server=2&lang=en'
                 . '&db=test_db&table=test_table&pos=0&sql_signature='
                 . '435bef10ad40031af7da88ea735cdc55ee91ac589b93adf10a10101b00e4d7ac&sql_query='
-                . 'SELECT+%2A+FROM+%60test_db%60.%60test_table%60+WHERE+%60name%60+%3D+%27abcd%27&server=0&lang=en'
+                . 'SELECT+%2A+FROM+%60test_db%60.%60test_table%60+WHERE+%60name%60+%3D+%27abcd%27&server=2&lang=en'
                 . '" title="abcd">abcd</a></td>' . "\n"
                 . '</tr>' . "\n"
                 . '<tr><td data-decimals="0" data-type="int" class="'
                 . 'text-end data not_null text-nowrap">1</td>' . "\n"
                 . '<td data-decimals="0" data-type="string" data-originallength="3" class="'
-                . 'data not_null relation text pre_wrap"><a href="index.php?route=/sql&server=0&lang=en&db=test_db'
+                . 'data not_null relation text pre_wrap"><a href="index.php?route=/sql&server=2&lang=en&db=test_db'
                 . '&table=test_table&pos=0&sql_signature='
                 . '8b25f948acdbde1631297c34c6fe773c1751dfed5e59a30e3ee909773512e297&sql_query='
-                . 'SELECT+%2A+FROM+%60test_db%60.%60test_table%60+WHERE+%60name%60+%3D+%27foo%27&server=0&lang=en"'
+                . 'SELECT+%2A+FROM+%60test_db%60.%60test_table%60+WHERE+%60name%60+%3D+%27foo%27&server=2&lang=en"'
                 . ' title="foo">foo</a></td>' . "\n"
                 . '</tr>' . "\n",
             'bulk_links' => [],

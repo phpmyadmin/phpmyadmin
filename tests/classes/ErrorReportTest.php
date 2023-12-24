@@ -40,7 +40,6 @@ class ErrorReportTest extends AbstractTestCase
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
-        $GLOBALS['server'] = 1;
         $config = Config::getInstance();
         $config->settings['ServerDefault'] = 1;
         $config->settings['ProxyUrl'] = '';

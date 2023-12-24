@@ -62,7 +62,6 @@ class ConfigTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $_SERVER['HTTP_USER_AGENT'] = '';
         $this->object = $this->createConfig();
-        $GLOBALS['server'] = 0;
         $_SESSION['git_location'] = '.git';
         $_SESSION['is_git_revision'] = true;
         Config::$instance = null;

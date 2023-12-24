@@ -56,7 +56,6 @@ class AuthenticationCookieTest extends AbstractTestCase
         parent::setGlobalConfig();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $GLOBALS['server'] = 0;
         $GLOBALS['text_dir'] = 'ltr';
         Current::$database = 'db';
         Current::$table = 'table';
@@ -211,7 +210,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config->settings['CaptchaResponseParam'] = 'g-recaptcha-response';
         $config->settings['CaptchaLoginPrivateKey'] = 'testprivkey';
         $config->settings['CaptchaLoginPublicKey'] = 'testpubkey';
-        $GLOBALS['server'] = 0;
+        Current::$server = 2;
 
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
@@ -243,7 +242,7 @@ class AuthenticationCookieTest extends AbstractTestCase
             $result,
         );
 
-        $this->assertStringContainsString('<input type="hidden" name="server" value="0">', $result);
+        $this->assertStringContainsString('<input type="hidden" name="server" value="2">', $result);
 
         $this->assertStringContainsString(
             '<script src="https://www.google.com/recaptcha/api.js?hl=en" async defer></script>',
@@ -275,7 +274,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config->settings['CaptchaLoginPrivateKey'] = 'testprivkey';
         $config->settings['CaptchaLoginPublicKey'] = 'testpubkey';
         $config->settings['CaptchaMethod'] = 'checkbox';
-        $GLOBALS['server'] = 0;
+        Current::$server = 2;
 
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
@@ -307,7 +306,7 @@ class AuthenticationCookieTest extends AbstractTestCase
             $result,
         );
 
-        $this->assertStringContainsString('<input type="hidden" name="server" value="0">', $result);
+        $this->assertStringContainsString('<input type="hidden" name="server" value="2">', $result);
 
         $this->assertStringContainsString(
             '<script src="https://www.google.com/recaptcha/api.js?hl=en" async defer></script>',
@@ -433,7 +432,6 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config->set('PmaAbsoluteUri', '');
         $config->set('is_https', false);
         $config->settings['Servers'] = [1];
-        $GLOBALS['server'] = 1;
         $config->selectedServer = ['auth_type' => 'cookie'];
 
         $_COOKIE['pmaAuth-1'] = 'test';
@@ -480,7 +478,6 @@ class AuthenticationCookieTest extends AbstractTestCase
         $_REQUEST['pma_servername'] = 'testPMAServer';
         $_POST['pma_password'] = 'testPMAPSWD';
         $_POST['pma_username'] = '';
-        $GLOBALS['server'] = 1;
         $_COOKIE['pmaUser-1'] = '';
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
 
@@ -491,7 +488,6 @@ class AuthenticationCookieTest extends AbstractTestCase
 
     public function testAuthCheckExpires(): void
     {
-        $GLOBALS['server'] = 1;
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
@@ -508,7 +504,6 @@ class AuthenticationCookieTest extends AbstractTestCase
 
     public function testAuthCheckDecryptUser(): void
     {
-        $GLOBALS['server'] = 1;
         $_REQUEST['old_usr'] = '';
         $_POST['pma_username'] = '';
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
@@ -543,7 +538,6 @@ class AuthenticationCookieTest extends AbstractTestCase
 
     public function testAuthCheckDecryptPassword(): void
     {
-        $GLOBALS['server'] = 1;
         $_REQUEST['old_usr'] = '';
         $_POST['pma_username'] = '';
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
@@ -582,7 +576,6 @@ class AuthenticationCookieTest extends AbstractTestCase
 
     public function testAuthCheckAuthFails(): void
     {
-        $GLOBALS['server'] = 1;
         $_REQUEST['old_usr'] = '';
         $_POST['pma_username'] = '';
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
@@ -630,7 +623,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config->settings['AllowArbitraryServer'] = true;
         $GLOBALS['pma_auth_server'] = 'b 2';
         $this->object->password = 'testPW';
-        $GLOBALS['server'] = 2;
+        Current::$server = 2;
         $config->settings['LoginCookieStore'] = 100;
         $GLOBALS['from_cookie'] = true;
         $config->set('is_https', false);
@@ -662,7 +655,6 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config->settings['AllowArbitraryServer'] = true;
         $GLOBALS['pma_auth_server'] = 'b 2';
         $this->object->password = 'testPW';
-        $GLOBALS['server'] = 2;
         $config->settings['LoginCookieStore'] = 100;
         $GLOBALS['from_cookie'] = false;
 
@@ -687,7 +679,6 @@ class AuthenticationCookieTest extends AbstractTestCase
             ->method('showLoginForm')
             ->willThrowException(new ExitException());
 
-        $GLOBALS['server'] = 2;
         $_COOKIE['pmaAuth-2'] = 'pass';
 
         $responseStub = new ResponseRendererStub();
@@ -763,7 +754,6 @@ class AuthenticationCookieTest extends AbstractTestCase
             ->method('showLoginForm')
             ->willThrowException(new ExitException());
 
-        $GLOBALS['server'] = 2;
         $_COOKIE['pmaAuth-2'] = 'pass';
 
         $responseStub = new ResponseRendererStub();
@@ -796,7 +786,6 @@ class AuthenticationCookieTest extends AbstractTestCase
             ->method('showLoginForm')
             ->willThrowException(new ExitException());
 
-        $GLOBALS['server'] = 2;
         $_COOKIE['pmaAuth-2'] = 'pass';
 
         $GLOBALS['allowDeny_forbidden'] = '';
@@ -836,7 +825,6 @@ class AuthenticationCookieTest extends AbstractTestCase
             ->method('showLoginForm')
             ->willThrowException(new ExitException());
 
-        $GLOBALS['server'] = 2;
         $_COOKIE['pmaAuth-2'] = 'pass';
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -889,7 +877,6 @@ class AuthenticationCookieTest extends AbstractTestCase
             ->willReturn('');
 
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['server'] = 2;
         $_COOKIE['pmaAuth-2'] = 'pass';
 
         unset($GLOBALS['errno']);
@@ -974,7 +961,6 @@ class AuthenticationCookieTest extends AbstractTestCase
     /** @throws ReflectionException */
     public function testPasswordChange(): void
     {
-        $GLOBALS['server'] = 1;
         $newPassword = 'PMAPASSWD2';
         $config = Config::getInstance();
         $config->set('is_https', false);
@@ -988,9 +974,9 @@ class AuthenticationCookieTest extends AbstractTestCase
         $payload = ['password' => $newPassword, 'server' => 'b 2'];
 
         /** @psalm-suppress EmptyArrayAccess */
-        $this->assertIsString($_COOKIE['pmaAuth-' . $GLOBALS['server']]);
+        $this->assertIsString($_COOKIE['pmaAuth-' . Current::$server]);
         $decryptedCookie = $this->object->cookieDecrypt(
-            $_COOKIE['pmaAuth-' . $GLOBALS['server']],
+            $_COOKIE['pmaAuth-' . Current::$server],
             $_SESSION['encryption_key'],
         );
         $this->assertSame(json_encode($payload), $decryptedCookie);

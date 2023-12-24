@@ -21,7 +21,6 @@ class TablePropertyTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['server'] = 0;
         $row = [' name ', 'int ', true, ' PRI', '0', 'mysql'];
         $this->object = new TableProperty($row);
     }

@@ -59,8 +59,8 @@ class Url
         }
 
         $config = Config::getInstance();
-        if (! empty($GLOBALS['server']) && $GLOBALS['server'] != $config->settings['ServerDefault']) {
-            $params['server'] = $GLOBALS['server'];
+        if (Current::$server > 0 && Current::$server !== $config->settings['ServerDefault']) {
+            $params['server'] = Current::$server;
         }
 
         if (empty($config->getCookie('pma_lang')) && ! empty($GLOBALS['lang'])) {
@@ -211,12 +211,12 @@ class Url
         // avoid overwriting when creating navigation panel links to servers
         $config = Config::getInstance();
         if (
-            isset($GLOBALS['server'])
-            && $GLOBALS['server'] != $config->settings['ServerDefault']
+            Current::$server > 0
+            && Current::$server !== $config->settings['ServerDefault']
             && ! isset($params['server'])
             && ! $config->get('is_setup')
         ) {
-            $params['server'] = $GLOBALS['server'];
+            $params['server'] = Current::$server;
         }
 
         // Can be null when the user is missing an extension.

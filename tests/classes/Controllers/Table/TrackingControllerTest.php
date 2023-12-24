@@ -39,7 +39,7 @@ class TrackingControllerTest extends AbstractTestCase
 
     public function testTrackingController(): void
     {
-        $GLOBALS['server'] = 2;
+        Current::$server = 2;
         Current::$database = 'test_db';
         Current::$table = 'test_table';
         $GLOBALS['text_dir'] = 'ltr';

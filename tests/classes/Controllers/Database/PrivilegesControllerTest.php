@@ -40,7 +40,6 @@ class PrivilegesControllerTest extends AbstractTestCase
     public function testIndex(): void
     {
         Current::$database = 'test_db';
-        $GLOBALS['server'] = 0;
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
         $this->dummyDbi->addResult(

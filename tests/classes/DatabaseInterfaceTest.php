@@ -216,7 +216,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
     {
         $dbi = $this->createDatabaseInterface();
 
-        $GLOBALS['server'] = 1;
         // test case for system schema
         $this->assertEquals(
             'utf8_general_ci',
@@ -239,7 +238,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
     public function testGetServerCollation(): void
     {
         $dbi = $this->createDatabaseInterface();
-        $GLOBALS['server'] = 1;
         Config::getInstance()->settings['DBG']['sql'] = true;
         $this->assertEquals('utf8_general_ci', $dbi->getServerCollation());
     }
@@ -511,7 +509,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
         Current::$database = '';
         Current::$table = '';
-        $GLOBALS['server'] = 1;
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = true;
         $config->selectedServer['only_db'] = '';

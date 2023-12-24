@@ -199,7 +199,6 @@ class RelationTest extends AbstractTestCase
     public function testFixPmaTablesNormal(): void
     {
         Current::$database = '';
-        $GLOBALS['server'] = 1;
         $config = Config::getInstance();
         $config->selectedServer['user'] = '';
         $config->selectedServer['pmadb'] = '';
@@ -261,7 +260,6 @@ class RelationTest extends AbstractTestCase
     public function testFixPmaTablesNormalFixTables(): void
     {
         Current::$database = '';
-        $GLOBALS['server'] = 1;
         $config = Config::getInstance();
         $config->selectedServer['user'] = '';
         $config->selectedServer['pmadb'] = '';
@@ -534,7 +532,6 @@ class RelationTest extends AbstractTestCase
     public function testFixPmaTablesNormalFixTablesWithCustomOverride(): void
     {
         Current::$database = '';
-        $GLOBALS['server'] = 1;
         $config = Config::getInstance();
         $config->selectedServer['user'] = '';
         $config->selectedServer['pmadb'] = 'db_pma';
@@ -817,7 +814,6 @@ class RelationTest extends AbstractTestCase
     public function testFixPmaTablesNormalFixTablesFails(): void
     {
         Current::$database = '';
-        $GLOBALS['server'] = 1;
         $config = Config::getInstance();
         $config->selectedServer['user'] = '';
         $config->selectedServer['pmadb'] = '';
@@ -1403,7 +1399,6 @@ class RelationTest extends AbstractTestCase
     public function testInitRelationParamsCacheDefaultDbNameDbDoesNotExist(): void
     {
         Current::$database = '';
-        $GLOBALS['server'] = 0;
 
         $dummyDbi = $this->createDbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);
@@ -1420,7 +1415,7 @@ class RelationTest extends AbstractTestCase
     public function testInitRelationParamsCacheDefaultDbNameDbExistsServerZero(): void
     {
         Current::$database = '';
-        $GLOBALS['server'] = 0;
+        Current::$server = 0;
         $config = Config::getInstance();
         $config->selectedServer = [];
 
@@ -1453,7 +1448,6 @@ class RelationTest extends AbstractTestCase
     public function testInitRelationParamsCacheDefaultDbNameDbExistsFirstServer(): void
     {
         Current::$database = '';
-        $GLOBALS['server'] = 1;
         $config = Config::getInstance();
         $config->selectedServer = [];
         $config->selectedServer['user'] = '';
@@ -1541,7 +1535,6 @@ class RelationTest extends AbstractTestCase
     public function testInitRelationParamsCacheDefaultDbNameDbExistsFirstServerNotWorkingTable(): void
     {
         Current::$database = '';
-        $GLOBALS['server'] = 1;
         $config = Config::getInstance();
         $config->selectedServer = [];
         $config->selectedServer['user'] = '';
@@ -1628,7 +1621,6 @@ class RelationTest extends AbstractTestCase
     public function testInitRelationParamsCacheDefaultDbNameDbExistsFirstServerOverride(): void
     {
         Current::$database = '';
-        $GLOBALS['server'] = 1;
         $config = Config::getInstance();
         $config->selectedServer = [];
         $config->selectedServer['user'] = '';
@@ -1738,7 +1730,6 @@ class RelationTest extends AbstractTestCase
     public function testInitRelationParamsDisabledTracking(): void
     {
         Current::$database = '';
-        $GLOBALS['server'] = 1;
         $config = Config::getInstance();
         $config->selectedServer = [];
         $config->selectedServer['user'] = '';
@@ -1858,7 +1849,6 @@ class RelationTest extends AbstractTestCase
     public function testInitRelationParamsDisabledTrackingOthersExist(): void
     {
         Current::$database = '';
-        $GLOBALS['server'] = 1;
         $config = Config::getInstance();
         $config->selectedServer = [];
         $config->selectedServer['user'] = '';
@@ -2125,7 +2115,6 @@ class RelationTest extends AbstractTestCase
 
         $relation = new Relation($dbi);
 
-        $GLOBALS['server'] = 1;
         $relationParameters = RelationParameters::fromArray($params);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
@@ -2187,7 +2176,6 @@ class RelationTest extends AbstractTestCase
 
         $relation = new Relation($dbi);
 
-        $GLOBALS['server'] = 1;
         $relationParameters = RelationParameters::fromArray([
             'user' => 'user',
             'db' => 'pma`db',

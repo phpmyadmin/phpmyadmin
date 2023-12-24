@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\ExportController;
 use PhpMyAdmin\Controllers\Table\ExportRowsController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
@@ -21,7 +22,7 @@ class ExportRowsControllerTest extends AbstractTestCase
         parent::setUp();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $GLOBALS['server'] = 2;
+        Current::$server = 2;
         $GLOBALS['active_page'] = null;
         $GLOBALS['single_table'] = null;
         $GLOBALS['where_clause'] = null;

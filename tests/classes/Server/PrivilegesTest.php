@@ -1140,7 +1140,6 @@ class PrivilegesTest extends AbstractTestCase
 
     public function testGetUserGroupForUser(): void
     {
-        $GLOBALS['server'] = 1;
         $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',
             'users' => 'users',
@@ -1164,7 +1163,6 @@ class PrivilegesTest extends AbstractTestCase
     {
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
-        $GLOBALS['server'] = 1;
         $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',
             'users' => 'users',

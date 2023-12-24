@@ -42,7 +42,6 @@ class ErrorHandlerTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $this->object = new ErrorHandler();
         $_SESSION['errors'] = [];
-        $GLOBALS['server'] = 0;
         $config = Config::getInstance();
         $config->settings['environment'] = 'production';
         $config->settings['SendErrorReports'] = 'always';

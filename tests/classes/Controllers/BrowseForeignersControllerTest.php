@@ -8,6 +8,7 @@ use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\BrowseForeignersController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
@@ -22,7 +23,7 @@ final class BrowseForeignersControllerTest extends AbstractTestCase
 {
     public function testBrowseForeignValues(): void
     {
-        $GLOBALS['server'] = 2;
+        Current::$server = 2;
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = true;
 

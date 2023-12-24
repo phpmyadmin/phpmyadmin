@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Utils;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Utils\SessionCache;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
@@ -16,7 +17,6 @@ class SessionCacheTest extends TestCase
     {
         $_SESSION = [];
         Config::getInstance()->selectedServer['user'] = null;
-        $GLOBALS['server'] = 'server';
 
         SessionCache::set('test_data', 5);
         SessionCache::set('test_data_2', 5);
@@ -30,35 +30,34 @@ class SessionCacheTest extends TestCase
     {
         $_SESSION = [];
         Config::getInstance()->selectedServer['user'] = null;
-        $GLOBALS['server'] = 'server';
+        Current::$server = 2;
 
         SessionCache::set('test_data', 25);
         SessionCache::set('test_data_2', 25);
 
         SessionCache::remove('test_data');
-        $this->assertArrayNotHasKey('test_data', $_SESSION['cache']['server_server']);
+        $this->assertArrayNotHasKey('test_data', $_SESSION['cache']['server_2']);
         SessionCache::remove('test_data_2');
-        $this->assertArrayNotHasKey('test_data_2', $_SESSION['cache']['server_server']);
+        $this->assertArrayNotHasKey('test_data_2', $_SESSION['cache']['server_2']);
     }
 
     public function testSet(): void
     {
         $_SESSION = [];
         Config::getInstance()->selectedServer['user'] = null;
-        $GLOBALS['server'] = 'server';
+        Current::$server = 2;
 
         SessionCache::set('test_data', 25);
         SessionCache::set('test_data', 5);
-        $this->assertEquals(5, $_SESSION['cache']['server_server']['test_data']);
+        $this->assertEquals(5, $_SESSION['cache']['server_2']['test_data']);
         SessionCache::set('test_data_3', 3);
-        $this->assertEquals(3, $_SESSION['cache']['server_server']['test_data_3']);
+        $this->assertEquals(3, $_SESSION['cache']['server_2']['test_data_3']);
     }
 
     public function testHas(): void
     {
         $_SESSION = [];
         Config::getInstance()->selectedServer['user'] = null;
-        $GLOBALS['server'] = 'server';
 
         SessionCache::set('test_data', 5);
         SessionCache::set('test_data_2', 5);
@@ -76,7 +75,7 @@ class SessionCacheTest extends TestCase
     {
         $_SESSION = [];
         Config::getInstance()->selectedServer['user'] = null;
-        $GLOBALS['server'] = 123;
+        Current::$server = 123;
 
         SessionCache::set('test_data', 5);
         $this->assertArrayHasKey('cache', $_SESSION);
@@ -91,7 +90,7 @@ class SessionCacheTest extends TestCase
     {
         $_SESSION = [];
         Config::getInstance()->selectedServer['user'] = 'test_user';
-        $GLOBALS['server'] = 123;
+        Current::$server = 123;
 
         SessionCache::set('test_data', 5);
         $this->assertArrayHasKey('cache', $_SESSION);

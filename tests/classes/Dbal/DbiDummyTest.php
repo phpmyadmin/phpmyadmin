@@ -33,7 +33,6 @@ class DbiDummyTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->settings['DBG']['sql'] = false;
         $config->settings['IconvExtraParams'] = '';
-        $GLOBALS['server'] = 1;
     }
 
     public function testGetClientInfo(): void
@@ -93,7 +92,6 @@ class DbiDummyTest extends AbstractTestCase
     #[DataProvider('errorData')]
     public function testFormatError(int $number, string $message, string $expected): void
     {
-        $GLOBALS['server'] = 1;
         $this->assertEquals(
             $expected,
             Utilities::formatError($number, $message),

@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Favorites;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\DbTableExists;
@@ -52,13 +53,11 @@ class RecentFavoriteTables
      */
     private static array $instances = [];
 
-    /**
-     * Creates a new instance of RecentFavoriteTable
-     */
+    /** @psalm-param int<0, max> $serverId */
     private function __construct(
         public Template $template,
         private readonly TableType $tableType,
-        private readonly string $serverId,
+        private readonly int $serverId,
         private readonly DatabaseInterface $dbi,
         private readonly Relation $relation,
         private readonly DbTableExists $dbTableExists,
@@ -95,7 +94,7 @@ class RecentFavoriteTables
             self::$instances[$type->value] = new RecentFavoriteTables(
                 $template,
                 $type,
-                (string) $GLOBALS['server'],
+                Current::$server,
                 $dbi,
                 new Relation($dbi),
                 new DbTableExists($dbi),
@@ -333,8 +332,7 @@ class RecentFavoriteTables
     public function getHtmlSyncFavoriteTables(): string
     {
         $retval = '';
-        $serverId = $GLOBALS['server'];
-        if ($serverId == 0) {
+        if (Current::$server === 0) {
             return '';
         }
 
@@ -342,7 +340,7 @@ class RecentFavoriteTables
         // Not to show this once list is synchronized.
         if (
             $relationParameters->favoriteTablesFeature !== null
-            && ! isset($_SESSION['tmpval']['favorites_synced'][$serverId])
+            && ! isset($_SESSION['tmpval']['favorites_synced'][Current::$server])
         ) {
             $url = Url::getFromRoute('/database/structure/favorite-table', [
                 'ajax_request' => true,

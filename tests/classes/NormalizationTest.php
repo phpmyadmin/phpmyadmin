@@ -51,7 +51,6 @@ class NormalizationTest extends AbstractTestCase
         $config->settings['ActionLinksMode'] = 'icons';
         Current::$database = 'PMA_db';
         Current::$table = 'PMA_table';
-        $GLOBALS['server'] = 1;
         $config->selectedServer['DisableIS'] = false;
         $_POST['change_column'] = null;
 

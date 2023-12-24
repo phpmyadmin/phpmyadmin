@@ -1527,7 +1527,7 @@ class Sql
             $this->dbi,
             Current::$database,
             Current::$table,
-            $GLOBALS['server'],
+            Current::$server,
             $goto,
             $sqlQuery,
         );

@@ -36,7 +36,6 @@ class LoadControllerTest extends AbstractTestCase
 
     public function testLoad(): void
     {
-        $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
 
         $relationParameters = RelationParameters::fromArray([

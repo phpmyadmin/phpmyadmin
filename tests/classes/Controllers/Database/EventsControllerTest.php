@@ -22,7 +22,7 @@ final class EventsControllerTest extends AbstractTestCase
 {
     public function testWithEvents(): void
     {
-        $GLOBALS['server'] = 2;
+        Current::$server = 2;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         Current::$database = 'test_db';
@@ -193,7 +193,7 @@ HTML;
 
     public function testWithoutEvents(): void
     {
-        $GLOBALS['server'] = 2;
+        Current::$server = 2;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         Current::$database = 'test_db';

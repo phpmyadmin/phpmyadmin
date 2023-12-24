@@ -42,7 +42,6 @@ class ShowEngineControllerTest extends AbstractTestCase
 
     public function testShowEngine(): void
     {
-        $GLOBALS['server'] = 1;
         Current::$database = 'db';
         Current::$table = 'table';
         Config::getInstance()->selectedServer['DisableIS'] = false;

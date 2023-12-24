@@ -407,13 +407,8 @@ class Config
      */
     public function loadUserPreferences(ThemeManager $themeManager, bool $isMinimumCommon = false): void
     {
-        // index.php should load these settings, so that phpmyadmin.css.php
-        // will have everything available in session cache
-        $server = $GLOBALS['server'] ?? (! empty($this->settings['ServerDefault'])
-                ? $this->settings['ServerDefault']
-                : 0);
-        $cacheKey = 'server_' . $server;
-        if ($server > 0 && ! $isMinimumCommon) {
+        $cacheKey = 'server_' . Current::$server;
+        if (Current::$server > 0 && ! $isMinimumCommon) {
             // cache user preferences, use database only when needed
             if (
                 ! isset($_SESSION['cache'][$cacheKey]['userprefs'])
@@ -427,7 +422,7 @@ class Config
                 $_SESSION['cache'][$cacheKey]['userprefs_type'] = $prefs['type'];
                 $_SESSION['cache'][$cacheKey]['config_mtime'] = $this->sourceMtime;
             }
-        } elseif ($server == 0 || ! isset($_SESSION['cache'][$cacheKey]['userprefs'])) {
+        } elseif (Current::$server === 0 || ! isset($_SESSION['cache'][$cacheKey]['userprefs'])) {
             $this->set('user_preferences', false);
 
             return;

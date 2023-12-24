@@ -58,6 +58,10 @@ abstract class AbstractController
                 continue;
             }
 
+            if (! $request && $param === 'server' && Current::$server > 0) {
+                continue;
+            }
+
             if (! $request && $param === 'db' && Current::$database !== '') {
                 continue;
             }

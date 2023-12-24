@@ -30,7 +30,6 @@ class PluginsTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->settings['MaxCharactersInDisplayedSQL'] = 1000;
         $config->selectedServer['DisableIS'] = false;
-        $GLOBALS['server'] = 0;
 
         $this->plugins = new Plugins(DatabaseInterface::getInstance());
 
@@ -64,7 +63,6 @@ class PluginsTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->settings['MaxCharactersInDisplayedSQL'] = 1000;
         $config->selectedServer['DisableIS'] = true;
-        $GLOBALS['server'] = 0;
 
         $this->plugins = new Plugins(DatabaseInterface::getInstance());
 
@@ -95,7 +93,6 @@ class PluginsTest extends AbstractTestCase
 
     public function testGetAuthentication(): void
     {
-        $GLOBALS['server'] = 0;
         $this->plugins = new Plugins(DatabaseInterface::getInstance());
         $plugins = $this->plugins->getAuthentication();
         $this->assertIsArray($plugins);

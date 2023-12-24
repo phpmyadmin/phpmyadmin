@@ -44,7 +44,6 @@ class FooterTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
         $config->selectedServer['verbose'] = 'verbose host';
-        $GLOBALS['server'] = '1';
         $_GET['reload_left_frame'] = '1';
         $GLOBALS['focus_querywindow'] = 'main_pane_left';
         $this->object = new Footer(new Template());

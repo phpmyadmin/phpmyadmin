@@ -43,7 +43,6 @@ class SvgRelationSchemaTest extends AbstractTestCase
         $_POST['t_db'] = ['test_db'];
         $_POST['t_tbl'] = ['test_table'];
 
-        $GLOBALS['server'] = 1;
         Current::$database = 'test_db';
         Current::$table = '';
         $GLOBALS['lang'] = 'en';

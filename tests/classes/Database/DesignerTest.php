@@ -30,7 +30,6 @@ class DesignerTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
-        $GLOBALS['server'] = 1;
         $config = Config::getInstance();
         $config->settings['ServerDefault'] = 1;
         $config->settings['PDFPageSizes'] = ['A3', 'A4'];

@@ -107,16 +107,16 @@ class UtilTest extends AbstractTestCase
     public function testClearUserCache(): void
     {
         Config::getInstance()->selectedServer['user'] = null;
-        $GLOBALS['server'] = 'server';
+        Current::$server = 2;
         SessionCache::set('is_superuser', 'yes');
-        $this->assertEquals('yes', $_SESSION['cache']['server_server']['is_superuser']);
+        $this->assertEquals('yes', $_SESSION['cache']['server_2']['is_superuser']);
 
         SessionCache::set('mysql_cur_user', 'mysql');
-        $this->assertEquals('mysql', $_SESSION['cache']['server_server']['mysql_cur_user']);
+        $this->assertEquals('mysql', $_SESSION['cache']['server_2']['mysql_cur_user']);
 
         Util::clearUserCache();
-        $this->assertArrayNotHasKey('is_superuser', $_SESSION['cache']['server_server']);
-        $this->assertArrayNotHasKey('mysql_cur_user', $_SESSION['cache']['server_server']);
+        $this->assertArrayNotHasKey('is_superuser', $_SESSION['cache']['server_2']);
+        $this->assertArrayNotHasKey('mysql_cur_user', $_SESSION['cache']['server_2']);
     }
 
     /**

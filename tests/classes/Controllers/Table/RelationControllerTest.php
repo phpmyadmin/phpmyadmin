@@ -31,7 +31,6 @@ class RelationControllerTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['server'] = 0;
         Current::$database = 'db';
         Current::$table = 'table';
         $GLOBALS['text_dir'] = 'ltr';

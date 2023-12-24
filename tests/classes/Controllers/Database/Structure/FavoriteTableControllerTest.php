@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Database\Structure;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Database\Structure\FavoriteTableController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Favorites\RecentFavoriteTables;
@@ -24,8 +25,6 @@ final class FavoriteTableControllerTest extends AbstractTestCase
 {
     public function testSynchronizeFavoriteTables(): void
     {
-        $GLOBALS['server'] = 1;
-
         $dbiDummy = $this->createDbiDummy();
         $dbi = $this->createDatabaseInterface($dbiDummy);
         DatabaseInterface::$instance = $dbi;
@@ -46,7 +45,7 @@ final class FavoriteTableControllerTest extends AbstractTestCase
         $user = 'abcdefg';
         $favoriteTable = [$user => [['db' => 'test_db', 'table' => 'test_table']]];
 
-        $_SESSION['tmpval'] = ['favorites_synced' => [$GLOBALS['server'] => null]];
+        $_SESSION['tmpval'] = ['favorites_synced' => [Current::$server => null]];
 
         $method = new ReflectionMethod(FavoriteTableController::class, 'synchronizeFavoriteTables');
         $json = $method->invokeArgs($controller, [$favoriteInstance, $user, $favoriteTable]);
@@ -58,7 +57,7 @@ final class FavoriteTableControllerTest extends AbstractTestCase
          * @psalm-suppress TypeDoesNotContainType
          * @phpstan-ignore-next-line
          */
-        self::assertTrue($_SESSION['tmpval']['favorites_synced'][$GLOBALS['server']]);
+        self::assertTrue($_SESSION['tmpval']['favorites_synced'][Current::$server]);
 
         $dbiDummy->assertAllQueriesConsumed();
     }

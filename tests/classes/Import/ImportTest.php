@@ -29,7 +29,6 @@ class ImportTest extends AbstractTestCase
         parent::setUp();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $GLOBALS['server'] = 0;
         Config::getInstance()->settings['ServerDefault'] = '';
         $GLOBALS['complete_query'] = null;
         $GLOBALS['display_query'] = null;

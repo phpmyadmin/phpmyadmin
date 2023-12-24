@@ -25,7 +25,6 @@ class MyisamTest extends AbstractTestCase
         parent::setUp();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $GLOBALS['server'] = 0;
         $this->object = new Myisam('myisam');
     }
 

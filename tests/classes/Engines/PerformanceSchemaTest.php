@@ -23,7 +23,6 @@ class PerformanceSchemaTest extends AbstractTestCase
         parent::setUp();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $GLOBALS['server'] = 0;
         $this->object = new PerformanceSchema('PERFORMANCE_SCHEMA');
     }
 

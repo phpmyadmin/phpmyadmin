@@ -30,8 +30,6 @@ class ForeignKeyTest extends AbstractTestCase
     #[DataProvider('providerIsSupported')]
     public function testIsSupported(string $a, bool $e): void
     {
-        $GLOBALS['server'] = 1;
-
         $this->assertEquals(
             $e,
             ForeignKey::isSupported($a),
@@ -50,8 +48,6 @@ class ForeignKeyTest extends AbstractTestCase
 
     public function testIsCheckEnabled(): void
     {
-        $GLOBALS['server'] = 1;
-
         $config = Config::getInstance();
         $config->settings['DefaultForeignKeyChecks'] = 'enable';
         $this->assertTrue(

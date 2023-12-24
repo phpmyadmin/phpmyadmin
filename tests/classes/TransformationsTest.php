@@ -34,7 +34,6 @@ class TransformationsTest extends AbstractTestCase
         Current::$database = 'db';
         $config = Config::getInstance();
         $config->settings = ['ServerDefault' => 1, 'ActionLinksMode' => 'icons'];
-        $GLOBALS['server'] = 1;
         $config->selectedServer['pmadb'] = 'pmadb';
         $config->selectedServer['user'] = 'user';
         $config->selectedServer['bookmarktable'] = '';
