@@ -225,7 +225,12 @@ return [
         ],
         Database\SqlAutoCompleteController::class => [
             'class' => Database\SqlAutoCompleteController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$dbi' => '@dbi',
+                '$config' => '@config',
+            ],
         ],
         Database\SqlController::class => [
             'class' => Database\SqlController::class,

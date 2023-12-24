@@ -1279,15 +1279,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/SqlAutoCompleteController.php">
-    <DeprecatedMethod>
-      <code>Config::getInstance()</code>
-    </DeprecatedMethod>
-    <MixedArgument>
-      <code>$db</code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code>$db</code>
-    </MixedAssignment>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
