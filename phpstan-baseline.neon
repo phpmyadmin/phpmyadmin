@@ -3402,7 +3402,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 10
+			count: 9
 			path: src/Controllers/Operations/TableController.php
 
 		-
@@ -5967,7 +5967,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 4
+			count: 2
 			path: src/Controllers/Table/StructureController.php
 
 		-
@@ -6881,16 +6881,6 @@ parameters:
 			path: src/Database/Designer/Common.php
 
 		-
-			message: "#^Cannot access offset 'ENGINE' on mixed\\.$#"
-			count: 5
-			path: src/Database/Designer/Common.php
-
-		-
-			message: "#^Cannot access offset 'TABLE_NAME' on mixed\\.$#"
-			count: 2
-			path: src/Database/Designer/Common.php
-
-		-
 			message: "#^Cannot access offset 'constraint' on mixed\\.$#"
 			count: 1
 			path: src/Database/Designer/Common.php
@@ -6986,22 +6976,17 @@ parameters:
 			path: src/Database/Designer/Common.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function mb_strtoupper expects string, mixed given\\.$#"
-			count: 4
-			path: src/Database/Designer/Common.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function rawurlencode expects string, mixed given\\.$#"
 			count: 4
 			path: src/Database/Designer/Common.php
 
 		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getDisplayField\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getDisplayField\\(\\) expects string, int\\|string\\|null given\\.$#"
 			count: 1
 			path: src/Database/Designer/Common.php
 
 		-
-			message: "#^Parameter \\#2 \\$tableName of class PhpMyAdmin\\\\Database\\\\Designer\\\\DesignerTable constructor expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$tableName of class PhpMyAdmin\\\\Database\\\\Designer\\\\DesignerTable constructor expects string, int\\|string\\|null given\\.$#"
 			count: 1
 			path: src/Database/Designer/Common.php
 
@@ -7356,6 +7341,11 @@ parameters:
 			path: src/Database/Search.php
 
 		-
+			message: "#^Binary operation \"\\+\" between int\\|string\\|null and int\\|string\\|null results in an error\\.$#"
+			count: 3
+			path: src/DatabaseInterface.php
+
+		-
 			message: "#^Binary operation \"\\+\" between string\\|null and string\\|null results in an error\\.$#"
 			count: 1
 			path: src/DatabaseInterface.php
@@ -7371,28 +7361,13 @@ parameters:
 			path: src/DatabaseInterface.php
 
 		-
-			message: "#^Cannot access offset 'Data_length' on mixed\\.$#"
-			count: 3
-			path: src/DatabaseInterface.php
-
-		-
-			message: "#^Cannot access offset 'Engine' on mixed\\.$#"
-			count: 1
-			path: src/DatabaseInterface.php
-
-		-
-			message: "#^Cannot access offset 'Index_length' on mixed\\.$#"
-			count: 3
-			path: src/DatabaseInterface.php
-
-		-
-			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 1
-			path: src/DatabaseInterface.php
-
-		-
 			message: "#^Cannot access offset string\\|null on mixed\\.$#"
 			count: 3
+			path: src/DatabaseInterface.php
+
+		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
 			path: src/DatabaseInterface.php
 
 		-
@@ -7491,7 +7466,7 @@ parameters:
 			path: src/DatabaseInterface.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function strtolower expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$string of function strtolower expects string, int\\|string given\\.$#"
 			count: 1
 			path: src/DatabaseInterface.php
 
@@ -13656,26 +13631,6 @@ parameters:
 			path: src/Profiling.php
 
 		-
-			message: "#^Cannot access offset 'AUTO_INCREMENT' on mixed\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: "#^Cannot access offset 'AVG_ROW_LENGTH' on mixed\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: "#^Cannot access offset 'Auto_increment' on mixed\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: "#^Cannot access offset 'Avg_row_length' on mixed\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
 			message: "#^Cannot access offset 'CHARACTER_MAXIMUM…' on mixed\\.$#"
 			count: 1
 			path: src/Query/Compatibility.php
@@ -13687,16 +13642,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'CHARACTER_SET_NAME' on mixed\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: "#^Cannot access offset 'CHECKSUM' on mixed\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: "#^Cannot access offset 'CHECK_TIME' on mixed\\.$#"
 			count: 1
 			path: src/Query/Compatibility.php
 
@@ -13731,52 +13676,12 @@ parameters:
 			path: src/Query/Compatibility.php
 
 		-
-			message: "#^Cannot access offset 'CREATE_OPTIONS' on mixed\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: "#^Cannot access offset 'CREATE_TIME' on mixed\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: "#^Cannot access offset 'Check_time' on mixed\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: "#^Cannot access offset 'Checksum' on mixed\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
 			message: "#^Cannot access offset 'Collation' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Query/Compatibility.php
 
 		-
 			message: "#^Cannot access offset 'Comment' on mixed\\.$#"
-			count: 3
-			path: src/Query/Compatibility.php
-
-		-
-			message: "#^Cannot access offset 'Create_options' on mixed\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: "#^Cannot access offset 'Create_time' on mixed\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: "#^Cannot access offset 'DATA_FREE' on mixed\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: "#^Cannot access offset 'DATA_LENGTH' on mixed\\.$#"
 			count: 1
 			path: src/Query/Compatibility.php
 
@@ -13786,33 +13691,13 @@ parameters:
 			path: src/Query/Compatibility.php
 
 		-
-			message: "#^Cannot access offset 'Data_free' on mixed\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: "#^Cannot access offset 'Data_length' on mixed\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
 			message: "#^Cannot access offset 'Default' on mixed\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: "#^Cannot access offset 'ENGINE' on mixed\\.$#"
 			count: 1
 			path: src/Query/Compatibility.php
 
 		-
 			message: "#^Cannot access offset 'EXTRA' on mixed\\.$#"
 			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: "#^Cannot access offset 'Engine' on mixed\\.$#"
-			count: 5
 			path: src/Query/Compatibility.php
 
 		-
@@ -13826,32 +13711,12 @@ parameters:
 			path: src/Query/Compatibility.php
 
 		-
-			message: "#^Cannot access offset 'INDEX_LENGTH' on mixed\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
 			message: "#^Cannot access offset 'IS_NULLABLE' on mixed\\.$#"
 			count: 1
 			path: src/Query/Compatibility.php
 
 		-
-			message: "#^Cannot access offset 'Index_length' on mixed\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
 			message: "#^Cannot access offset 'Key' on mixed\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: "#^Cannot access offset 'MAX_DATA_LENGTH' on mixed\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: "#^Cannot access offset 'Max_data_length' on mixed\\.$#"
 			count: 1
 			path: src/Query/Compatibility.php
 
@@ -13862,11 +13727,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'NUMERIC_SCALE' on mixed\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: "#^Cannot access offset 'Name' on mixed\\.$#"
 			count: 1
 			path: src/Query/Compatibility.php
 
@@ -13891,87 +13751,27 @@ parameters:
 			path: src/Query/Compatibility.php
 
 		-
-			message: "#^Cannot access offset 'ROW_FORMAT' on mixed\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: "#^Cannot access offset 'Row_format' on mixed\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: "#^Cannot access offset 'Rows' on mixed\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
 			message: "#^Cannot access offset 'TABLE_CATALOG' on mixed\\.$#"
 			count: 1
 			path: src/Query/Compatibility.php
 
 		-
-			message: "#^Cannot access offset 'TABLE_COLLATION' on mixed\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: "#^Cannot access offset 'TABLE_COMMENT' on mixed\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
 			message: "#^Cannot access offset 'TABLE_NAME' on mixed\\.$#"
-			count: 2
-			path: src/Query/Compatibility.php
-
-		-
-			message: "#^Cannot access offset 'TABLE_ROWS' on mixed\\.$#"
 			count: 1
 			path: src/Query/Compatibility.php
 
 		-
 			message: "#^Cannot access offset 'TABLE_SCHEMA' on mixed\\.$#"
-			count: 2
-			path: src/Query/Compatibility.php
-
-		-
-			message: "#^Cannot access offset 'TABLE_TYPE' on mixed\\.$#"
-			count: 3
+			count: 1
 			path: src/Query/Compatibility.php
 
 		-
 			message: "#^Cannot access offset 'Type' on mixed\\.$#"
-			count: 4
-			path: src/Query/Compatibility.php
-
-		-
-			message: "#^Cannot access offset 'UPDATE_TIME' on mixed\\.$#"
 			count: 1
 			path: src/Query/Compatibility.php
 
 		-
-			message: "#^Cannot access offset 'Update_time' on mixed\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: "#^Cannot access offset 'VERSION' on mixed\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: "#^Cannot access offset 'Version' on mixed\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Query\\\\Compatibility\\:\\:getISCompatForGetTablesFull\\(\\) should return array\\<array\\> but returns array\\.$#"
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function strtoupper expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$string of function strtoupper expects string, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: src/Query/Compatibility.php
 

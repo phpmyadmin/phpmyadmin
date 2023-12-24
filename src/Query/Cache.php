@@ -6,23 +6,19 @@ namespace PhpMyAdmin\Query;
 
 use PhpMyAdmin\Util;
 
-use function array_shift;
-use function count;
-use function is_array;
-
 /**
  * Handles caching results
  */
 class Cache
 {
-    /** @var mixed[][] Table data cache */
+    /** @var (string|int|null)[][][] Table data cache */
     private array $tableCache = [];
 
     /**
      * Caches table data so Table does not require to issue
      * SHOW TABLE STATUS again
      *
-     * @param mixed[][] $tables information for tables of some databases
+     * @param (string|int|null)[][] $tables information for tables of some databases
      */
     public function cacheTableData(string $database, array $tables): void
     {
@@ -40,36 +36,11 @@ class Cache
     }
 
     /**
-     * Set an item in table cache using dot notation.
-     *
-     * @param mixed[]|null $contentPath Array with the target path
-     * @param mixed        $value       Target value
+     * Set an item in the cache
      */
-    public function cacheTableContent(array|null $contentPath, mixed $value): void
+    public function cacheTableValue(string $db, string $table, string $key, string|int|null $value): void
     {
-        $loc = &$this->tableCache;
-
-        if (! isset($contentPath)) {
-            $loc = $value;
-
-            return;
-        }
-
-        while (count($contentPath) > 1) {
-            $key = array_shift($contentPath);
-
-            // If the key doesn't exist at this depth, we will just create an empty
-            // array to hold the next value, allowing us to create the arrays to hold
-            // final values at the correct depth. Then we'll keep digging into the
-            // array.
-            if (! isset($loc[$key]) || ! is_array($loc[$key])) {
-                $loc[$key] = [];
-            }
-
-            $loc = &$loc[$key];
-        }
-
-        $loc[array_shift($contentPath)] = $value;
+        $this->tableCache[$db][$table][$key] = $value;
     }
 
     /**

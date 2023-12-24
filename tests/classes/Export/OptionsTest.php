@@ -63,8 +63,6 @@ class OptionsTest extends AbstractTestCase
         $table = 'PMA_test';
         $numTablesStr = '10';
         $unlimNumRowsStr = 'unlim_num_rows_str';
-        //$single_table = "single_table";
-        DatabaseInterface::getInstance()->getCache()->cacheTableContent([$db, $table, 'ENGINE'], 'MERGE');
 
         $columnsInfo = [
             'test_column1' => ['COLUMN_NAME' => 'test_column1'],

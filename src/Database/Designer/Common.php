@@ -26,7 +26,6 @@ use function is_array;
 use function is_string;
 use function json_decode;
 use function json_encode;
-use function mb_strtoupper;
 use function rawurlencode;
 
 /**
@@ -491,13 +490,11 @@ class Common
         string $db1,
         string $db2,
     ): array {
-        $tables = $this->dbi->getTablesFull($db1, $t1);
-        $typeT1 = mb_strtoupper($tables[$t1]['ENGINE'] ?? '');
-        $tables = $this->dbi->getTablesFull($db2, $t2);
-        $typeT2 = mb_strtoupper($tables[$t2]['ENGINE'] ?? '');
+        $typeT1 = Table::get($t1, $db1, $this->dbi)->getStorageEngine();
+        $typeT2 = Table::get($t2, $db2, $this->dbi)->getStorageEngine();
 
         // native foreign key
-        if (ForeignKey::isSupported($typeT1) && ForeignKey::isSupported($typeT2) && $typeT1 === $typeT2) {
+        if (ForeignKey::isSupported($typeT1) && $typeT1 === $typeT2) {
             // relation exists?
             $existRelForeign = $this->relation->getForeigners($db2, $t2, '', 'foreign');
             $foreigner = $this->relation->searchColumnInForeigners($existRelForeign, $f2);
@@ -608,12 +605,10 @@ class Common
         [$db1, $t1] = explode('.', $t1);
         [$db2, $t2] = explode('.', $t2);
 
-        $tables = $this->dbi->getTablesFull($db1, $t1);
-        $typeT1 = mb_strtoupper($tables[$t1]['ENGINE']);
-        $tables = $this->dbi->getTablesFull($db2, $t2);
-        $typeT2 = mb_strtoupper($tables[$t2]['ENGINE']);
+        $typeT1 = Table::get($t1, $db1, $this->dbi)->getStorageEngine();
+        $typeT2 = Table::get($t2, $db2, $this->dbi)->getStorageEngine();
 
-        if (ForeignKey::isSupported($typeT1) && ForeignKey::isSupported($typeT2) && $typeT1 === $typeT2) {
+        if (ForeignKey::isSupported($typeT1) && $typeT1 === $typeT2) {
             // InnoDB
             $existRelForeign = $this->relation->getForeigners($db2, $t2, '', 'foreign');
             $foreigner = $this->relation->searchColumnInForeigners($existRelForeign, $f2);

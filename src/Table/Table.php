@@ -325,7 +325,7 @@ class Table implements Stringable
             return false;
         }
 
-        return $this->dbi->getCache()->getCachedTableContent([$this->dbName, $this->name, $info]);
+        return $cachedResult[$info];
     }
 
     /**
@@ -697,11 +697,8 @@ class Table implements Stringable
         $rowCount = null;
 
         if (! $forceExact) {
-            if (($cache->getCachedTableContent([$this->dbName, $this->name, 'Rows']) == null) && ! $isView) {
-                $tmpTables = $this->dbi->getTablesFull($this->dbName, $this->name);
-                if (isset($tmpTables[$this->name])) {
-                    $cache->cacheTableContent([$this->dbName, $this->name], $tmpTables[$this->name]);
-                }
+            if (($cache->getCachedTableContent([$this->dbName, $this->name, 'Rows']) === null) && ! $isView) {
+                $this->dbi->getTablesFull($this->dbName, $this->name);
             }
 
             $rowCount = $cache->getCachedTableContent([$this->dbName, $this->name, 'Rows']);
@@ -739,7 +736,7 @@ class Table implements Stringable
         }
 
         if (is_numeric($rowCount)) {
-            $cache->cacheTableContent([$this->dbName, $this->name, 'ExactRows'], (int) $rowCount);
+            $cache->cacheTableValue($this->dbName, $this->name, 'ExactRows', (int) $rowCount);
 
             return (int) $rowCount;
         }

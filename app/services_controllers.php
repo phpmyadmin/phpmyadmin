@@ -1576,6 +1576,7 @@ return [
                 '$transformations' => '@transformations',
                 '$relation' => '@relation',
                 '$dbi' => '@dbi',
+                '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
         UserPasswordController::class => [

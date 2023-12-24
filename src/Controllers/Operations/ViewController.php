@@ -98,7 +98,7 @@ class ViewController extends AbstractController
                 $result = true;
                 Current::$table = $tableObject->getName();
                 /* Force reread after rename */
-                $tableObject->getStatusInfo(null, true);
+                $this->dbi->getCache()->clearTableCache();
                 $GLOBALS['reload'] = true;
             } else {
                 $message->addText($tableObject->getLastError());

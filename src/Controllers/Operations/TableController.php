@@ -118,8 +118,7 @@ class TableController extends AbstractController
          */
         $this->dbi->selectDb(Current::$database);
 
-        $rereadInfo = $pmaTable->getStatusInfo();
-        $showTable = $pmaTable->getStatusInfo(null, ! empty($rereadInfo));
+        $showTable = $pmaTable->getStatusInfo();
         if ($pmaTable->isView()) {
             $tableIsAView = true;
             $tableStorageEngine = __('View');
@@ -328,7 +327,7 @@ class TableController extends AbstractController
             // a change, clear the cache
             $this->dbi->getCache()->clearTableCache();
             $this->dbi->selectDb(Current::$database);
-            $showTable = $pmaTable->getStatusInfo(null, true);
+            $showTable = $pmaTable->getStatusInfo(forceRead: true);
             if ($pmaTable->isView()) {
                 $tableIsAView = true;
                 $tableStorageEngine = __('View');

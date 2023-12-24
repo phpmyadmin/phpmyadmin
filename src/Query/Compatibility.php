@@ -21,9 +21,9 @@ use function substr;
 class Compatibility
 {
     /**
-     * @param mixed[] $eachTables
+     * @param (string|int|null)[][] $eachTables
      *
-     * @return mixed[][]
+     * @return (string|int|null)[][]
      */
     public static function getISCompatForGetTablesFull(array $eachTables, string $eachDatabase): array
     {
