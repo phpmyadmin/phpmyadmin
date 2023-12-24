@@ -38,7 +38,6 @@ class CommonTest extends AbstractTestCase
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
-        $GLOBALS['server'] = 1;
         $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',
             'pdf_pages' => 'pdf_pages',

@@ -32,9 +32,7 @@ class MenuTest extends AbstractTestCase
 
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
-        $GLOBALS['server'] = 0;
         $config->selectedServer['verbose'] = 'verbose host';
-        $GLOBALS['server'] = 'server';
         Current::$database = 'pma_test';
         Current::$table = 'table1';
     }

@@ -32,7 +32,6 @@ class PageSettingsTest extends AbstractTestCase
         parent::setGlobalConfig();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $GLOBALS['server'] = 1;
         Current::$database = 'db';
         Current::$table = '';
         $_SERVER['SCRIPT_NAME'] = 'index.php';

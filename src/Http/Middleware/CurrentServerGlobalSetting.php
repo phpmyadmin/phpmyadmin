@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Http\Middleware;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\ServerRequest;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -31,8 +32,7 @@ final class CurrentServerGlobalSetting implements MiddlewareInterface
         Config $config,
         mixed $serverParamFromRequest,
     ): void {
-        $server = $config->selectServer($serverParamFromRequest);
-        $GLOBALS['server'] = $server;
-        $GLOBALS['urlParams']['server'] = $server;
+        Current::$server = $config->selectServer($serverParamFromRequest);
+        $GLOBALS['urlParams']['server'] = Current::$server;
     }
 }

@@ -34,7 +34,6 @@ class RefreshControllerTest extends AbstractTestCase
 
         parent::setGlobalConfig();
 
-        $GLOBALS['server'] = 1;
         Current::$database = 'db';
         Current::$table = 'table';
         $config = Config::getInstance();

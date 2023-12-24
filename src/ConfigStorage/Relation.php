@@ -245,7 +245,7 @@ class Relation
 
         $config = Config::getInstance();
         if (
-            $GLOBALS['server'] == 0
+            Current::$server === 0
             || $config->selectedServer['pmadb'] === ''
             || ! $this->dbi->selectDb($config->selectedServer['pmadb'], Connection::TYPE_CONTROL)
         ) {

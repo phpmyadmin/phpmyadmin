@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Setup;
 
 use PhpMyAdmin\Config\ConfigFile;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Setup\ConfigGenerator;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Version;
@@ -32,10 +33,10 @@ class ConfigGeneratorTest extends AbstractTestCase
 
         parent::setGlobalConfig();
 
-        $GLOBALS['server'] = 0;
+        Current::$server = 2;
         $cf = new ConfigFile();
-        $_SESSION['ConfigFile0'] = ['a', 'b', 'c'];
-        $_SESSION['ConfigFile0']['Servers'] = [[1, 2, 3]];
+        $_SESSION['ConfigFile2'] = ['a', 'b', 'c'];
+        $_SESSION['ConfigFile2']['Servers'] = [[1, 2, 3]];
 
         $cf->setPersistKeys(['1/', 2]);
 

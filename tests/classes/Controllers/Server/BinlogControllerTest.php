@@ -41,7 +41,6 @@ class BinlogControllerTest extends AbstractTestCase
         $config->settings['ServerDefault'] = 'server';
         $config->selectedServer['DisableIS'] = false;
 
-        $GLOBALS['server'] = 1;
         Current::$database = 'db';
         Current::$table = 'table';
 

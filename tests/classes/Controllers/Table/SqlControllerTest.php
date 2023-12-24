@@ -41,7 +41,7 @@ class SqlControllerTest extends AbstractTestCase
 
     public function testSqlController(): void
     {
-        $GLOBALS['server'] = 2;
+        Current::$server = 2;
         Current::$database = 'test_db';
         Current::$table = 'test_table';
         $GLOBALS['lang'] = 'en';

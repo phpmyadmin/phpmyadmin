@@ -25,7 +25,6 @@ class PluginsTest extends AbstractTestCase
 
     public function testGetExport(): void
     {
-        $GLOBALS['server'] = 1;
         $plugins = Plugins::getExport('database', false);
         $this->assertEquals(['export_type' => 'database', 'single_table' => false], $GLOBALS['plugin_param']);
         $this->assertIsArray($plugins);
@@ -104,7 +103,6 @@ class PluginsTest extends AbstractTestCase
 
     public function testGetChoice(): void
     {
-        $GLOBALS['server'] = 1;
         $GLOBALS['plugin_param'] = ['export_type' => 'database', 'single_table' => false];
         $dbi = DatabaseInterface::getInstance();
         $exportList = [

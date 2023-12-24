@@ -42,7 +42,6 @@ class AuthenticationHttpTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Config::getInstance()->settings['Servers'] = [];
-        $GLOBALS['server'] = 0;
         Current::$database = 'db';
         Current::$table = 'table';
         $GLOBALS['lang'] = 'en';
@@ -225,7 +224,7 @@ class AuthenticationHttpTest extends AbstractTestCase
 
         $this->object->user = 'testUser';
         $this->object->password = 'testPass';
-        $GLOBALS['server'] = 2;
+        Current::$server = 2;
         $config = Config::getInstance();
         $config->selectedServer['user'] = 'testUser';
 
@@ -239,7 +238,7 @@ class AuthenticationHttpTest extends AbstractTestCase
 
         $this->assertArrayNotHasKey('PHP_AUTH_PW', $_SERVER);
 
-        $this->assertEquals(2, $GLOBALS['server']);
+        $this->assertEquals(2, Current::$server);
 
         // case 2
         $this->object->user = 'testUser';
@@ -257,10 +256,10 @@ class AuthenticationHttpTest extends AbstractTestCase
             $config->selectedServer,
         );
 
-        $this->assertEquals(2, $GLOBALS['server']);
+        $this->assertEquals(2, Current::$server);
 
         // case 3
-        $GLOBALS['server'] = 3;
+        Current::$server = 3;
         $this->object->user = 'testUser';
         $this->object->password = 'testPass';
         $config->settings['Servers'][1] = ['host' => 'a', 'user' => 'testUsers', 'foo' => 'bar'];
@@ -276,7 +275,7 @@ class AuthenticationHttpTest extends AbstractTestCase
             $config->selectedServer,
         );
 
-        $this->assertEquals(3, $GLOBALS['server']);
+        $this->assertEquals(3, Current::$server);
     }
 
     #[Group('medium')]

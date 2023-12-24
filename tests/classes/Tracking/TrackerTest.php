@@ -36,7 +36,6 @@ class TrackerTest extends AbstractTestCase
         /**
          * SET these to avoid undefined index error
          */
-        $GLOBALS['server'] = 1;
         $config = Config::getInstance();
         $config->selectedServer['tracking_add_drop_table'] = '';
         $config->selectedServer['tracking_add_drop_view'] = '';

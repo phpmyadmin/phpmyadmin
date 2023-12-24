@@ -68,7 +68,6 @@ class HomeController extends AbstractController
             return $this->redirectToDatabaseOrTablePage($request);
         }
 
-        $GLOBALS['server'] ??= null;
         $GLOBALS['message'] ??= null;
         $GLOBALS['show_query'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -87,7 +86,7 @@ class HomeController extends AbstractController
         $GLOBALS['show_query'] = '1';
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
-        if ($GLOBALS['server'] > 0 && $this->dbi->isSuperUser()) {
+        if (Current::$server > 0 && $this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
         }
 
@@ -110,17 +109,17 @@ class HomeController extends AbstractController
             ->getHtmlSyncFavoriteTables();
 
         $config = Config::getInstance();
-        $hasServer = $GLOBALS['server'] > 0 || count($config->settings['Servers']) > 1;
+        $hasServer = Current::$server > 0 || count($config->settings['Servers']) > 1;
         if ($hasServer) {
             $hasServerSelection = $config->settings['ServerDefault'] == 0
                 || (! $config->settings['NavigationDisplayServers']
                 && (count($config->settings['Servers']) > 1
-                || ($GLOBALS['server'] == 0 && count($config->settings['Servers']) === 1)));
+                || (Current::$server === 0 && count($config->settings['Servers']) === 1)));
             if ($hasServerSelection) {
                 $serverSelection = Select::render(true);
             }
 
-            if ($GLOBALS['server'] > 0) {
+            if (Current::$server > 0) {
                 $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
                 $checkUserPrivileges->getPrivileges();
 
@@ -153,7 +152,7 @@ class HomeController extends AbstractController
 
         $showServerInfo = $config->settings['ShowServerInfo'];
         $databaseServer = [];
-        if ($GLOBALS['server'] > 0 && ($showServerInfo === true || $showServerInfo === 'database-server')) {
+        if (Current::$server > 0 && ($showServerInfo === true || $showServerInfo === 'database-server')) {
             $hostInfo = '';
             if (! empty($config->selectedServer['verbose'])) {
                 $hostInfo .= $config->selectedServer['verbose'] . ' (';
@@ -180,7 +179,7 @@ class HomeController extends AbstractController
         if ($showServerInfo === true || $showServerInfo === 'web-server') {
             $webServer['software'] = $_SERVER['SERVER_SOFTWARE'] ?? null;
 
-            if ($GLOBALS['server'] > 0) {
+            if (Current::$server > 0) {
                 $clientVersion = $this->dbi->getClientInfo();
                 if (preg_match('#\d+\.\d+\.\d+#', $clientVersion)) {
                     $clientVersion = 'libmysql - ' . $clientVersion;
@@ -193,7 +192,7 @@ class HomeController extends AbstractController
         }
 
         $relation = new Relation($this->dbi);
-        if ($GLOBALS['server'] > 0 && $relation->arePmadbTablesAllDisabled() === false) {
+        if (Current::$server > 0 && $relation->arePmadbTablesAllDisabled() === false) {
             $relationParameters = $relation->getRelationParameters();
             if (! $relationParameters->hasAllFeatures() && $config->settings['PmaNoRelation_DisableWarning'] == false) {
                 $messageText = __(
@@ -213,7 +212,7 @@ class HomeController extends AbstractController
                 );
                 $messageInstance->addParamHtml('</a>');
                 /* Show error if user has configured something, notice elsewhere */
-                if (! empty($config->settings['Servers'][$GLOBALS['server']]['pmadb'])) {
+                if (! empty($config->settings['Servers'][Current::$server]['pmadb'])) {
                     $messageInstance->setType(Message::ERROR);
                 }
 
@@ -231,7 +230,7 @@ class HomeController extends AbstractController
             'message' => $displayMessage ?? '',
             'partial_logout' => $partialLogout ?? '',
             'is_git_revision' => $git->isGitRevision(),
-            'server' => $GLOBALS['server'],
+            'server' => Current::$server,
             'sync_favorite_tables' => $syncFavoriteTables,
             'has_server' => $hasServer,
             'is_demo' => $config->settings['DBG']['demo'],
@@ -258,8 +257,6 @@ class HomeController extends AbstractController
 
     private function checkRequirements(): void
     {
-        $GLOBALS['server'] ??= null;
-
         $this->checkPhpExtensionsRequirements();
 
         $config = Config::getInstance();
@@ -304,7 +301,7 @@ class HomeController extends AbstractController
          */
         if (
             isset($config->selectedServer['controluser'], $config->selectedServer['controlpass'])
-            && $GLOBALS['server'] != 0
+            && Current::$server > 0
             && $config->selectedServer['controluser'] === 'pma'
             && $config->selectedServer['controlpass'] === 'pmapass'
         ) {

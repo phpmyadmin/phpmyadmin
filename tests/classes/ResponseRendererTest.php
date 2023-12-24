@@ -23,7 +23,6 @@ class ResponseRendererTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
         $GLOBALS['lang'] = 'en';
-        $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
     }
 

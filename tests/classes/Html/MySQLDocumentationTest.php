@@ -14,7 +14,6 @@ class MySQLDocumentationTest extends AbstractTestCase
 {
     public function testShowDocumentation(): void
     {
-        $GLOBALS['server'] = '99';
         Config::getInstance()->settings['ServerDefault'] = 1;
 
         $this->assertEquals(

@@ -39,8 +39,6 @@ class CoreTest extends AbstractTestCase
         parent::setLanguage();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-
-        $GLOBALS['server'] = 0;
         Current::$database = '';
         Current::$table = '';
         Config::getInstance()->set('URLQueryEncryption', false);

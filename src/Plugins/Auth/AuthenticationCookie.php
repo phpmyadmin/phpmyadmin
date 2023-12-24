@@ -173,7 +173,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             'default_user' => $defaultUser,
             'has_servers' => $hasServers,
             'server_options' => $serversOptions,
-            'server' => $GLOBALS['server'],
+            'server' => Current::$server,
             'lang' => $GLOBALS['lang'],
             'has_captcha' => ! empty($config->settings['CaptchaApi'])
                 && ! empty($config->settings['CaptchaRequestParam'])
@@ -331,7 +331,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         // and $this->password variables from cookies
 
         // check cookies
-        $serverCookie = $config->getCookie('pmaUser-' . $GLOBALS['server']);
+        $serverCookie = $config->getCookie('pmaUser-' . Current::$server);
         if (empty($serverCookie)) {
             return false;
         }
@@ -376,7 +376,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         // check password cookie
-        $serverCookie = $config->getCookie('pmaAuth-' . $GLOBALS['server']);
+        $serverCookie = $config->getCookie('pmaAuth-' . Current::$server);
 
         if (empty($serverCookie)) {
             return false;
@@ -502,7 +502,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         // Name and password cookies need to be refreshed each time
         // Duration = one month for username
         Config::getInstance()->setCookie(
-            'pmaUser-' . $GLOBALS['server'],
+            'pmaUser-' . Current::$server,
             $this->cookieEncrypt(
                 $username,
                 $this->getEncryptionSecret(),
@@ -525,7 +525,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // Duration = as configured
         $config->setCookie(
-            'pmaAuth-' . $GLOBALS['server'],
+            'pmaAuth-' . Current::$server,
             $this->cookieEncrypt(
                 (string) json_encode($payload),
                 $this->getSessionEncryptionSecret(),
@@ -550,7 +550,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         parent::showFailure($failure);
 
         // Deletes password cookie and displays the login form
-        Config::getInstance()->removeCookie('pmaAuth-' . $GLOBALS['server']);
+        Config::getInstance()->removeCookie('pmaAuth-' . Current::$server);
 
         $GLOBALS['conn_error'] = $this->getErrorMessage($failure);
 
@@ -656,7 +656,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 $config->removeCookie('pmaAuth-' . $key);
             }
         } else {
-            $cookieName = 'pmaAuth-' . $GLOBALS['server'];
+            $cookieName = 'pmaAuth-' . Current::$server;
             $config->removeCookie($cookieName);
             if ($config->issetCookie($cookieName)) {
                 $config->removeCookie($cookieName);

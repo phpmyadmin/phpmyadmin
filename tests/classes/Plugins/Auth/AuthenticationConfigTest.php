@@ -39,7 +39,7 @@ class AuthenticationConfigTest extends AbstractTestCase
         parent::setGlobalConfig();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $GLOBALS['server'] = 0;
+        Current::$server = 2;
         Current::$database = 'db';
         Current::$table = 'table';
         $GLOBALS['token_provided'] = true;
@@ -126,7 +126,7 @@ class AuthenticationConfigTest extends AbstractTestCase
         $this->assertStringContainsString('Cannot connect: invalid settings.', $html);
 
         $this->assertStringContainsString(
-            '<a href="index.php?route=/&server=0&lang=en" '
+            '<a href="index.php?route=/&server=2&lang=en" '
             . 'class="btn btn-primary mt-1 mb-1 disableAjax">Retry to connect</a>',
             $html,
         );

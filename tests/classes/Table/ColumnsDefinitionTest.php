@@ -74,7 +74,6 @@ SQL;
         $relation = new Relation($dbi);
         $columnsDefinition = new ColumnsDefinition($dbi, $relation, new Transformations());
 
-        $GLOBALS['server'] = 1;
         Current::$database = 'sakila';
         Current::$table = 'actor';
         $GLOBALS['col_priv'] = true;

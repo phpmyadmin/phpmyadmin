@@ -25,7 +25,7 @@ final class IndexControllerTest extends AbstractTestCase
 {
     public function testWithTriggers(): void
     {
-        $GLOBALS['server'] = 2;
+        Current::$server = 2;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         Current::$database = 'test_db';
@@ -161,7 +161,7 @@ HTML;
 
     public function testWithoutTriggers(): void
     {
-        $GLOBALS['server'] = 2;
+        Current::$server = 2;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         Current::$database = 'test_db';

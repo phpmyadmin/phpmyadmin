@@ -206,6 +206,7 @@ class Results
      * @param int    $server   the server id
      * @param string $goto     the URL to go back in case of errors
      * @param string $sqlQuery the SQL query
+     * @psalm-param int<0, max> $server
      */
     public function __construct(
         private DatabaseInterface $dbi,

@@ -36,7 +36,6 @@ class ThemeTest extends AbstractTestCase
         parent::setGlobalConfig();
 
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['server'] = '99';
     }
 
     /**

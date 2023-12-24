@@ -12,6 +12,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Container\ContainerBuilder;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\ResponseRenderer;
@@ -120,7 +121,7 @@ class Navigation
             'is_synced' => $config->settings['NavigationLinkWithMainPanel'],
             'is_highlighted' => $config->settings['NavigationTreePointerEnable'],
             'is_autoexpanded' => $config->settings['NavigationTreeAutoexpandSingleDb'],
-            'server' => $GLOBALS['server'],
+            'server' => Current::$server,
             'auth_type' => $config->selectedServer['auth_type'],
             'is_servers_displayed' => $config->settings['NavigationDisplayServers'],
             'servers' => $config->settings['Servers'],

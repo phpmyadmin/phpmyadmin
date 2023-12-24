@@ -29,7 +29,6 @@ class FormTest extends AbstractTestCase
 
         parent::setGlobalConfig();
 
-        $GLOBALS['server'] = 0;
         $this->object = new Form(
             'pma_form_name',
             ['pma_form1', 'pma_form2'],

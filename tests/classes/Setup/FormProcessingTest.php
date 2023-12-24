@@ -34,7 +34,6 @@ class FormProcessingTest extends AbstractTestCase
 
         parent::setLanguage();
 
-        $GLOBALS['server'] = 1;
         Current::$database = 'db';
         Current::$table = 'table';
         Config::getInstance()->settings['ServerDefault'] = 1;

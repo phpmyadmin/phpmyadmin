@@ -25,7 +25,7 @@ class GisVisualizationControllerTest extends AbstractTestCase
 {
     public function testGisVisualizationController(): void
     {
-        $GLOBALS['server'] = 2;
+        Current::$server = 2;
         $GLOBALS['lang'] = 'en';
         Current::$database = 'test_db';
         Current::$table = 'test_table';

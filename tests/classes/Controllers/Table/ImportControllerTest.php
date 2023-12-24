@@ -30,7 +30,6 @@ class ImportControllerTest extends AbstractTestCase
      */
     public function testImportController(): void
     {
-        $GLOBALS['server'] = 2;
         Current::$database = 'test_db';
         Current::$table = 'test_table';
         $GLOBALS['text_dir'] = 'ltr';

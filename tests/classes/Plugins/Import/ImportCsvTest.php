@@ -37,7 +37,6 @@ class ImportCsvTest extends AbstractTestCase
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
-        $GLOBALS['server'] = 0;
         $GLOBALS['plugin_param'] = 'csv';
         $GLOBALS['errorUrl'] = 'index.php?route=/';
         $GLOBALS['error'] = false;

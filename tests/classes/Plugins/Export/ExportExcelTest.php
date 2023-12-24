@@ -37,7 +37,6 @@ class ExportExcelTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['server'] = 0;
         $this->object = new ExportExcel(
             new Relation($dbi),
             new Export($dbi),

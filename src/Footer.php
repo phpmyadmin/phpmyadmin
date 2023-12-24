@@ -126,8 +126,6 @@ class Footer
      */
     public function getSelfUrl(): string
     {
-        $GLOBALS['server'] ??= null;
-
         $params = [];
         $params['route'] = Routing::$route;
 
@@ -139,7 +137,7 @@ class Footer
             $params['table'] = Current::$table;
         }
 
-        $params['server'] = $GLOBALS['server'];
+        $params['server'] = Current::$server;
 
         if (isset($_REQUEST['single_table'])) {
             $params['single_table'] = $_REQUEST['single_table'];

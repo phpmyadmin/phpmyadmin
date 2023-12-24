@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Server;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -47,7 +48,7 @@ class Select
                 continue;
             }
 
-            $selected = ! empty($GLOBALS['server']) && (int) $GLOBALS['server'] === $key;
+            $selected = Current::$server > 0 && Current::$server === $key;
 
             if (! empty($server['verbose'])) {
                 $label = $server['verbose'];

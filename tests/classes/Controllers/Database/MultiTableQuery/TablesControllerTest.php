@@ -29,8 +29,6 @@ class TablesControllerTest extends AbstractTestCase
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
-
-        $GLOBALS['server'] = 1;
     }
 
     public function testGetForeignKeyConstrainsForTable(): void

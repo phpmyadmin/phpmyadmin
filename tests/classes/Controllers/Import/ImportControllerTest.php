@@ -42,7 +42,6 @@ class ImportControllerTest extends AbstractTestCase
     {
         parent::setLanguage();
 
-        $GLOBALS['server'] = 1;
         Config::getInstance()->selectedServer['user'] = 'user';
 
         // Some params were not added as they are not required for this test

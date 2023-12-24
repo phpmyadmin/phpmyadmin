@@ -21,7 +21,7 @@ final class ZoomSearchControllerTest extends AbstractTestCase
 {
     public function testZoomSearchController(): void
     {
-        $GLOBALS['server'] = 2;
+        Current::$server = 2;
         Current::$database = 'test_db';
         Current::$table = 'test_table';
         $GLOBALS['text_dir'] = 'ltr';

@@ -37,7 +37,6 @@ class NodeDatabaseChildTest extends AbstractTestCase
 
         $config = Config::getInstance();
         $config->settings['DefaultTabDatabase'] = 'structure';
-        $GLOBALS['server'] = 1;
         $config->settings['ServerDefault'] = 1;
         $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',

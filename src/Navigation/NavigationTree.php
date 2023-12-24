@@ -1153,7 +1153,7 @@ class NavigationTree
         $listNavigator = Generator::getListNavigator(
             $this->tree->getPresence('databases'),
             $this->pos,
-            ['server' => $GLOBALS['server']],
+            ['server' => Current::$server],
             Url::getFromRoute('/navigation'),
             'frame_navigation',
             $config->settings['FirstLevelNavigationItems'],
@@ -1194,7 +1194,7 @@ class NavigationTree
         return $this->template->render('navigation/tree/database_select', [
             'quick_warp' => $quickWarp,
             'list_navigator' => $listNavigator,
-            'server' => $GLOBALS['server'],
+            'server' => Current::$server,
             'options' => $options,
             'nodes' => $nodes,
             'database_url' => $databaseUrl,
@@ -1308,7 +1308,7 @@ class NavigationTree
             $retval .= Generator::getListNavigator(
                 $this->tree->getPresence('databases', $this->searchClause),
                 $this->pos,
-                ['server' => $GLOBALS['server']],
+                ['server' => Current::$server],
                 Url::getFromRoute('/navigation'),
                 'frame_navigation',
                 $config->settings['FirstLevelNavigationItems'],
@@ -1322,7 +1322,7 @@ class NavigationTree
                 'aPath' => $paths['aPath'],
                 'vPath' => $paths['vPath'],
                 'pos' => $this->pos,
-                'server' => $GLOBALS['server'],
+                'server' => Current::$server,
                 'pos2_name' => $paths['aPath_clean'][2],
             ];
             if ($level == 3) {

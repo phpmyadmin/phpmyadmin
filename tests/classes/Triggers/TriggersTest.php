@@ -31,7 +31,6 @@ class TriggersTest extends AbstractTestCase
         parent::setLanguage();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $GLOBALS['server'] = 0;
         Config::getInstance()->selectedServer['DisableIS'] = false;
         Current::$database = 'pma_test';
         Current::$table = 'table';
@@ -70,7 +69,6 @@ class TriggersTest extends AbstractTestCase
         $_POST['item_event'] = $event;
         $_POST['item_table'] = $table;
         $_POST['item_definition'] = $definition;
-        $GLOBALS['server'] = 1;
 
         $this->assertEquals($query, $this->triggers->getQueryFromRequest());
         $this->assertCount($numErr, $GLOBALS['errors']);

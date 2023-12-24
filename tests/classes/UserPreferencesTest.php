@@ -36,7 +36,7 @@ class UserPreferencesTest extends AbstractTestCase
         parent::setUp();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $GLOBALS['server'] = 0;
+        Current::$server = 2;
         $GLOBALS['text_dir'] = 'ltr';
         $_SERVER['PHP_SELF'] = '/phpmyadmin/';
     }
@@ -57,7 +57,7 @@ class UserPreferencesTest extends AbstractTestCase
 
         $this->assertEquals(
             ['Servers' => [1 => ['hide_db' => 'testval123']]],
-            $_SESSION['ConfigFile' . $GLOBALS['server']],
+            $_SESSION['ConfigFile' . Current::$server],
         );
     }
 
@@ -130,7 +130,6 @@ class UserPreferencesTest extends AbstractTestCase
     public function testSave(): void
     {
         Config::getInstance()->selectedServer['DisableIS'] = true;
-        $GLOBALS['server'] = 2;
         $relationParameters = RelationParameters::fromArray([]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
@@ -300,7 +299,6 @@ class UserPreferencesTest extends AbstractTestCase
         $_SESSION['userconfig']['ts'] = '123';
         $_SESSION['userconfig']['db'] = ['Server/hide_db' => true, 'Server/only_db' => true];
 
-        $GLOBALS['server'] = 2;
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $dbi = DatabaseInterface::getInstance();
@@ -339,7 +337,7 @@ class UserPreferencesTest extends AbstractTestCase
         );
 
         $response = $responseStub->getResponse();
-        $this->assertSame(['/phpmyadmin/file.html?a=b&saved=1&server=0#h+ash'], $response->getHeader('Location'));
+        $this->assertSame(['/phpmyadmin/file.html?a=b&saved=1&server=2#h+ash'], $response->getHeader('Location'));
         $this->assertSame(302, $response->getStatusCode());
     }
 

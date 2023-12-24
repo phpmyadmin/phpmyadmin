@@ -42,7 +42,6 @@ class AuthenticationSignonTest extends AbstractTestCase
         parent::setGlobalConfig();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $GLOBALS['server'] = 0;
         Current::$database = 'db';
         Current::$table = 'table';
         $this->object = new AuthenticationSignon();

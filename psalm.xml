@@ -101,7 +101,6 @@
             querytime: float|int,
             read_limit: int,
             save_on_server: bool,
-            server: int,
             SESSION_KEY: string,
             showtable: array&lt;string, string|null&gt;,
             sql_compatibility: 'NONE'|'ANSI'|'DB2'|'MAXDB'|'MYSQL323'|'MYSQL40'|'MSSQL'|'ORACLE'|'TRADITIONAL',

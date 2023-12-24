@@ -34,7 +34,6 @@ class SystemDatabaseTest extends AbstractTestCase
         /**
          * SET these to avoid undefine d index error
          */
-        $GLOBALS['server'] = 1;
         Config::getInstance()->selectedServer['pmadb'] = '';
 
         $resultStub = $this->createMock(DummyResult::class);

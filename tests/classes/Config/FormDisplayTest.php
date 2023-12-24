@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Form;
 use PhpMyAdmin\Config\FormDisplay;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Group;
@@ -32,7 +33,7 @@ class FormDisplayTest extends AbstractTestCase
 
         parent::setGlobalConfig();
 
-        $GLOBALS['server'] = 0;
+        Current::$server = 2;
         $this->object = new FormDisplay(new ConfigFile());
         Form::resetGroupCounter();
     }
@@ -175,7 +176,7 @@ class FormDisplayTest extends AbstractTestCase
 
         $this->assertEquals(
             ['Servers' => ['1' => ['test' => 'localhost']]],
-            $_SESSION['ConfigFile0'],
+            $_SESSION['ConfigFile2'],
         );
     }
 

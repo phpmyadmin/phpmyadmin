@@ -42,7 +42,6 @@ class EpsRelationSchemaTest extends AbstractTestCase
         $_POST['t_db'] = ['test_db'];
         $_POST['t_tbl'] = ['test_table'];
 
-        $GLOBALS['server'] = 1;
         Current::$database = 'test_db';
         Config::getInstance()->selectedServer['DisableIS'] = true;
 

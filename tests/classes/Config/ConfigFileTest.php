@@ -34,7 +34,6 @@ class ConfigFileTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['server'] = 1;
         $this->object = new ConfigFile();
     }
 

@@ -37,7 +37,6 @@ class StatusControllerTest extends AbstractTestCase
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
 
-        $GLOBALS['server'] = 1;
         Current::$database = 'db';
         Current::$table = 'table';
         $config = Config::getInstance();

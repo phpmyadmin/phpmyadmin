@@ -35,7 +35,6 @@ class AccountUnlockControllerTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
-        $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
 
         $this->dbiStub = $this->createStub(DatabaseInterface::class);

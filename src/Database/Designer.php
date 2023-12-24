@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Designer\ColumnInfo;
 use PhpMyAdmin\Database\Designer\DesignerTable;
 use PhpMyAdmin\DatabaseInterface;
@@ -249,7 +250,7 @@ class Designer
         $designerConfig->db = $db;
         $designerConfig->scriptTables = $scriptTables;
         $designerConfig->scriptContr = $scriptContr;
-        $designerConfig->server = $GLOBALS['server'];
+        $designerConfig->server = Current::$server;
         $designerConfig->scriptDisplayField = $displayedFields;
         $designerConfig->displayPage = $displayPage;
         $designerConfig->tablesEnabled = $relationParameters->pdfFeature !== null;

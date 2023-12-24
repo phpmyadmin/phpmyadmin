@@ -41,7 +41,6 @@ class ImportLdiTest extends AbstractTestCase
         $GLOBALS['run_query'] = null;
         $GLOBALS['go_sql'] = null;
         //setting
-        $GLOBALS['server'] = 0;
         $GLOBALS['plugin_param'] = 'table';
         $GLOBALS['finished'] = false;
         $GLOBALS['read_limit'] = 100000000;

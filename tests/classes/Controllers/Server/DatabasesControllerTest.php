@@ -34,7 +34,6 @@ class DatabasesControllerTest extends AbstractTestCase
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
 
-        $GLOBALS['server'] = 1;
         Current::$database = 'pma_test';
         Current::$table = '';
         Config::getInstance()->selectedServer['DisableIS'] = false;

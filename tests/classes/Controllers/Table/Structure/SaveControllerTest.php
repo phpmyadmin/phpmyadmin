@@ -104,7 +104,6 @@ class SaveControllerTest extends AbstractTestCase
 
     public function testAdjustColumnPrivileges(): void
     {
-        $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
         Current::$database = 'db';
         Current::$table = 'table';

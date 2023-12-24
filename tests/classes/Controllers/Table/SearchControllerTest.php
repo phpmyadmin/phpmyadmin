@@ -52,7 +52,6 @@ class SearchControllerTest extends AbstractTestCase
          */
         $_POST['zoom_submit'] = 'zoom';
 
-        $GLOBALS['server'] = 1;
         Current::$database = 'PMA';
         Current::$table = 'PMA_BookMark';
         $GLOBALS['text_dir'] = 'ltr';

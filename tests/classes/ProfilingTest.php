@@ -16,7 +16,6 @@ class ProfilingTest extends AbstractTestCase
     {
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['server'] = 1;
 
         SessionCache::set('profiling_supported', true);
         $condition = Profiling::isSupported($dbi);

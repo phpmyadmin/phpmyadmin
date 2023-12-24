@@ -113,8 +113,7 @@ class UserPreferences
     public function save(array $configArray): bool|Message
     {
         $relationParameters = $this->relation->getRelationParameters();
-        $server = $GLOBALS['server'] ?? Config::getInstance()->settings['ServerDefault'];
-        $cacheKey = 'server_' . $server;
+        $cacheKey = 'server_' . Current::$server;
         if (
             $relationParameters->userPreferencesFeature === null
             || $relationParameters->user === null

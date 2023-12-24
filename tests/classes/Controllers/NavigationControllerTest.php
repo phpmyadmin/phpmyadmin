@@ -41,7 +41,6 @@ class NavigationControllerTest extends AbstractTestCase
     {
         parent::setLanguage();
 
-        $GLOBALS['server'] = 1;
         Current::$database = 'air-balloon_burner_dev2';
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
@@ -194,7 +193,6 @@ class NavigationControllerTest extends AbstractTestCase
     {
         parent::setLanguage();
 
-        $GLOBALS['server'] = 1;
         Current::$database = 'air-balloon_burner_dev2';
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;

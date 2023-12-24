@@ -37,7 +37,6 @@ class PrivilegesControllerTest extends AbstractTestCase
     {
         Current::$database = 'db';
         Current::$table = 'table';
-        $GLOBALS['server'] = 0;
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
         $privileges = [];

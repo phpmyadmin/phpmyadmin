@@ -1162,8 +1162,8 @@ class DatabaseInterface implements DbalInterface
                         . 'of the database server.',
                     ),
                     $currentServer->sessionTimeZone,
-                    $GLOBALS['server'],
-                    $GLOBALS['server'],
+                    Current::$server,
+                    Current::$server,
                 );
 
                 trigger_error($errorMessageTz, E_USER_WARNING);

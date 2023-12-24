@@ -49,7 +49,6 @@ class DatabaseController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['server'] ??= null;
         $GLOBALS['message'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['urlParams'] ??= null;
@@ -283,7 +282,7 @@ class DatabaseController extends AbstractController
             );
             $GLOBALS['message']->addParamHtml('</a>');
             /* Show error if user has configured something, notice elsewhere */
-            if (! empty($config->settings['Servers'][$GLOBALS['server']]['pmadb'])) {
+            if (! empty($config->settings['Servers'][Current::$server]['pmadb'])) {
                 $GLOBALS['message']->setType(Message::ERROR);
             }
         }

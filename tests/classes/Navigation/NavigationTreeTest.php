@@ -31,7 +31,6 @@ class NavigationTreeTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['server'] = 1;
         $config = Config::getInstance();
         $config->selectedServer['host'] = 'localhost';
         $config->selectedServer['user'] = 'user';

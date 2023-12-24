@@ -49,7 +49,6 @@ class TrackingTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
 
-        $GLOBALS['server'] = 1;
         Current::$database = 'PMA_db';
         Current::$table = 'PMA_table';
         $GLOBALS['lang'] = 'en';

@@ -31,8 +31,6 @@ class OperationsTest extends AbstractTestCase
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
 
-        $GLOBALS['server'] = 1;
-
         $this->object = new Operations($this->dbi, new Relation($this->dbi));
     }
 

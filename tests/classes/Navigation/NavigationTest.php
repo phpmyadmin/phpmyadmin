@@ -32,7 +32,6 @@ class NavigationTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['server'] = 1;
         Current::$database = 'db';
         Current::$table = '';
         $config = Config::getInstance();

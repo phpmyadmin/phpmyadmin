@@ -27,7 +27,6 @@ class FindReplaceControllerTest extends AbstractTestCase
 
         parent::setGlobalConfig();
 
-        $GLOBALS['server'] = 1;
         Current::$database = 'db';
         Current::$table = 'table';
         Config::getInstance()->selectedServer['DisableIS'] = false;

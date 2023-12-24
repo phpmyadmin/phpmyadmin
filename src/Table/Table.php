@@ -1704,7 +1704,7 @@ class Table implements Stringable
      */
     protected function loadUiPrefs(): void
     {
-        $serverId = $GLOBALS['server'];
+        $serverId = Current::$server;
 
         // set session variable if it's still undefined
         if (! isset($_SESSION['tmpval']['table_uiprefs'][$serverId][$this->dbName][$this->name])) {

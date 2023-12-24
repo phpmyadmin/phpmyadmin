@@ -26,7 +26,6 @@ class ImportSqlTest extends AbstractTestCase
         parent::setUp();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $GLOBALS['server'] = 0;
         $GLOBALS['error'] = null;
         $GLOBALS['timeout_passed'] = null;
         $GLOBALS['maximum_time'] = null;

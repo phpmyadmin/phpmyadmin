@@ -72,7 +72,7 @@ abstract class AbstractTestCase extends TestCase
         $_FILES = [];
         $_REQUEST = [];
 
-        $GLOBALS['server'] = 1;
+        Current::$server = 1;
         Current::$database = '';
         Current::$table = '';
         $GLOBALS['sql_query'] = '';

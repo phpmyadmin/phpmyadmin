@@ -26,7 +26,7 @@
             {{- get_image('b_home', 'Home'|trans) -}}
           </a>
 
-          {% if server != 0 %}
+          {% if server > 0 %}
             <a class="logout disableAjax" href="{{ url('/logout') }}" title="{{ auth_type == 'config' ? 'Empty session data'|trans : 'Log out'|trans }}">
               {{- get_image('s_loggoff', auth_type == 'config' ? 'Empty session data'|trans : 'Log out'|trans) -}}
             </a>

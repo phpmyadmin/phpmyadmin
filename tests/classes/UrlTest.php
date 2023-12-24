@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -41,11 +42,11 @@ class UrlTest extends AbstractTestCase
      */
     public function testDbOnly(): void
     {
-        $GLOBALS['server'] = 'x';
-        Config::getInstance()->settings['ServerDefault'] = 'y';
+        Current::$server = 2;
+        Config::getInstance()->settings['ServerDefault'] = 3;
 
         $separator = Url::getArgSeparator();
-        $expected = 'server=x' . $separator . 'lang=en';
+        $expected = 'server=2' . $separator . 'lang=en';
 
         $expected = '?db=db'
             . $separator . $expected;
@@ -58,11 +59,11 @@ class UrlTest extends AbstractTestCase
      */
     public function testNewStyle(): void
     {
-        $GLOBALS['server'] = 'x';
-        Config::getInstance()->settings['ServerDefault'] = 'y';
+        Current::$server = 2;
+        Config::getInstance()->settings['ServerDefault'] = 3;
 
         $separator = Url::getArgSeparator();
-        $expected = 'server=x' . $separator . 'lang=en';
+        $expected = 'server=2' . $separator . 'lang=en';
 
         $expected = '?db=db'
             . $separator . 'table=table'
@@ -76,11 +77,11 @@ class UrlTest extends AbstractTestCase
      */
     public function testWithAlternateDivider(): void
     {
-        $GLOBALS['server'] = 'x';
-        Config::getInstance()->settings['ServerDefault'] = 'y';
+        Current::$server = 2;
+        Config::getInstance()->settings['ServerDefault'] = 3;
 
         $separator = Url::getArgSeparator();
-        $expected = 'server=x' . $separator . 'lang=en';
+        $expected = 'server=2' . $separator . 'lang=en';
 
         $expected = '#ABC#db=db' . $separator . 'table=table' . $separator
             . $expected;
@@ -98,11 +99,11 @@ class UrlTest extends AbstractTestCase
      */
     public function testDefault(): void
     {
-        $GLOBALS['server'] = 'x';
-        Config::getInstance()->settings['ServerDefault'] = 'y';
+        Current::$server = 2;
+        Config::getInstance()->settings['ServerDefault'] = 3;
 
         $separator = Url::getArgSeparator();
-        $expected = '?server=x' . $separator . 'lang=en';
+        $expected = '?server=2' . $separator . 'lang=en';
         $this->assertEquals($expected, Url::getCommon());
     }
 
@@ -111,7 +112,6 @@ class UrlTest extends AbstractTestCase
      */
     public function testGetFromRoute(): void
     {
-        unset($GLOBALS['server']);
         $generatedUrl = Url::getFromRoute('/test', [
             'db' => '%3\$s',
             'table' => '%2\$s',
@@ -129,7 +129,6 @@ class UrlTest extends AbstractTestCase
      */
     public function testGetFromRouteSpecialDbName(): void
     {
-        unset($GLOBALS['server']);
         $generatedUrl = Url::getFromRoute('/test', [
             'db' => '&test=_database=',
             'table' => '&test=_database=',
@@ -154,7 +153,6 @@ class UrlTest extends AbstractTestCase
      */
     public function testGetFromRouteMaliciousScript(): void
     {
-        unset($GLOBALS['server']);
         $generatedUrl = Url::getFromRoute('/test', [
             'db' => '<script src="https://domain.tld/svn/trunk/html5.js"></script>',
             'table' => '<script src="https://domain.tld/maybeweshouldusegit/trunk/html5.js"></script>',

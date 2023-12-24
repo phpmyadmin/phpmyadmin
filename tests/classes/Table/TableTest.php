@@ -34,7 +34,6 @@ class TableTest extends AbstractTestCase
         /**
          * SET these to avoid undefined index error
          */
-        $GLOBALS['server'] = 0;
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
         $config->settings['MaxExactCount'] = 100;

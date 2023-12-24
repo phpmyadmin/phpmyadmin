@@ -40,7 +40,6 @@ class ExportCsvTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['server'] = 0;
         Current::$database = '';
         Current::$table = '';
         $GLOBALS['lang'] = '';

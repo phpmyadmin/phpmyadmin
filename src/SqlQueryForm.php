@@ -141,9 +141,9 @@ class SqlQueryForm
             $legend = sprintf(
                 __('Run SQL query/queries on server “%s”'),
                 htmlspecialchars(
-                    ! empty($config->settings['Servers'][$GLOBALS['server']]['verbose'])
-                    ? $config->settings['Servers'][$GLOBALS['server']]['verbose']
-                    : $config->settings['Servers'][$GLOBALS['server']]['host'],
+                    ! empty($config->settings['Servers'][Current::$server]['verbose'])
+                    ? $config->settings['Servers'][Current::$server]['verbose']
+                    : $config->settings['Servers'][Current::$server]['host'],
                 ),
             );
         } elseif (Current::$table === '') {
