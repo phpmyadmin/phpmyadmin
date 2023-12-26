@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-12-24 00:19+0000\n"
-"PO-Revision-Date: 2023-12-23 01:09+0000\n"
+"PO-Revision-Date: 2023-12-26 22:01+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -3631,9 +3631,8 @@ msgid "Output"
 msgstr "Излез"
 
 #: resources/templates/header.twig:36 resources/templates/login/header.twig:13
-#, fuzzy
 msgid "Javascript must be enabled past this point!"
-msgstr "вашиот веб прелистувач треба да допушти cookies"
+msgstr "Javascript мора да е уклучен после оваа точка!"
 
 #: resources/templates/header.twig:46
 #, fuzzy
@@ -3968,9 +3967,8 @@ msgid "Select from the web server upload directory [strong]%s[/strong]:"
 msgstr "Избери од веб серверот уплоад директориум [strong]%s[/strong]:"
 
 #: resources/templates/import.twig:64 resources/templates/import.twig:90
-#, fuzzy
 msgid "There are no files to import!"
-msgstr "Дел на текстот"
+msgstr "Нема фајлови за импортирање!"
 
 #: resources/templates/import.twig:95
 msgid "File uploads are not allowed on this server."
@@ -4112,9 +4110,8 @@ msgstr ""
 #: resources/templates/login/twofactor/key_configure.twig:3
 #: resources/templates/login/twofactor/key.twig:3
 #: resources/templates/preferences/two_factor/main.twig:56
-#, fuzzy
 msgid "Deprecated!"
-msgstr "Релации"
+msgstr "Остарено!"
 
 #: resources/templates/login/twofactor/key_configure.twig:4
 #: resources/templates/login/twofactor/key.twig:4
@@ -16773,9 +16770,8 @@ msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
 #: src/Favorites/RecentFavoriteTables.php:157
-#, fuzzy
 msgid "Could not save recent table!"
-msgstr "Документација"
+msgstr "Не можеше да се зачува неодамнешната табела!"
 
 #: src/Favorites/RecentFavoriteTables.php:158
 #, fuzzy
