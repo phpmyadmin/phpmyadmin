@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2023-12-24 03:06+0000\n"
+"PO-Revision-Date: 2023-12-26 22:01+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-1/mk/>\n"
@@ -12359,10 +12359,8 @@ msgid "Details…"
 msgstr ""
 
 #: libraries/classes/RecentFavoriteTable.php:158
-#, fuzzy
-#| msgid "Documentation"
 msgid "Could not save recent table!"
-msgstr "Документација"
+msgstr "Не можеше да се зачува неодамнешната табела!"
 
 #: libraries/classes/RecentFavoriteTable.php:162
 #, fuzzy
@@ -16246,10 +16244,8 @@ msgid ""
 msgstr ""
 
 #: templates/header.twig:41 templates/login/header.twig:13
-#, fuzzy
-#| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point!"
-msgstr "вашиот веб прелистувач треба да допушти cookies"
+msgstr "Javascript мора да е уклучен после оваа точка!"
 
 #: templates/header.twig:52
 msgid "Click on the bar to scroll to top of page"
