@@ -13,6 +13,7 @@ use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
@@ -43,7 +44,6 @@ class TrackingController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['text_dir'] ??= null;
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
@@ -147,7 +147,7 @@ class TrackingController extends AbstractController
         $this->response->addHTML($this->tracking->getHtmlForDbTrackingTables(
             Current::$database,
             $GLOBALS['urlParams'],
-            $GLOBALS['text_dir'],
+            LanguageManager::$textDir,
         ));
 
         // If available print out database log

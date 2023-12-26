@@ -24,7 +24,6 @@ final class ZoomSearchControllerTest extends AbstractTestCase
         Current::$server = 2;
         Current::$database = 'test_db';
         Current::$table = 'test_table';
-        $GLOBALS['text_dir'] = 'ltr';
         Config::getInstance()->selectedServer['DisableIS'] = true;
 
         $dbiDummy = $this->createDbiDummy();

@@ -61,7 +61,6 @@ class SqlQueryFormTest extends AbstractTestCase
         //$GLOBALS
         Current::$database = 'PMA_db';
         Current::$table = 'PMA_table';
-        $GLOBALS['text_dir'] = 'text_dir';
 
         $config = Config::getInstance();
         $config->settings['GZipDump'] = false;

@@ -12,6 +12,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Replication\ReplicationInfo;
 use PhpMyAdmin\ResponseRenderer;
@@ -62,7 +63,6 @@ class DatabasesController extends AbstractController
     {
         $GLOBALS['is_create_db_priv'] ??= null;
         $GLOBALS['db_to_create'] ??= null;
-        $GLOBALS['text_dir'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
         $params = [
@@ -156,7 +156,7 @@ class DatabasesController extends AbstractController
             'has_primary_replication' => $primaryInfo['status'],
             'has_replica_replication' => $replicaInfo['status'],
             'is_drop_allowed' => $this->dbi->isSuperUser() || $config->settings['AllowUserDropDatabase'],
-            'text_dir' => $GLOBALS['text_dir'],
+            'text_dir' => LanguageManager::$textDir,
         ]);
     }
 

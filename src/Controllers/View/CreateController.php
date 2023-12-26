@@ -14,6 +14,7 @@ use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlParser\Parser;
@@ -59,7 +60,6 @@ class CreateController extends AbstractController
             return;
         }
 
-        $GLOBALS['text_dir'] ??= null;
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['message'] ??= null;
 
@@ -192,7 +192,7 @@ class CreateController extends AbstractController
 
         $this->render('view_create', [
             'ajax_dialog' => $ajaxdialog,
-            'text_dir' => $GLOBALS['text_dir'],
+            'text_dir' => LanguageManager::$textDir,
             'url_params' => $GLOBALS['urlParams'],
             'view' => $viewData,
             'view_algorithm_options' => self::VIEW_ALGORITHM_OPTIONS,

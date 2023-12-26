@@ -722,6 +722,9 @@ class LanguageManager
 
     private static LanguageManager|null $instance = null;
 
+    /** @psalm-var 'ltr'|'rtl' */
+    public static string $textDir = 'ltr';
+
     /**
      * Returns LanguageManager singleton
      */

@@ -34,8 +34,6 @@ class UpdateControllerTest extends AbstractTestCase
 
     public function testUpdate(): void
     {
-        $GLOBALS['text_dir'] = 'ltr';
-
         Config::getInstance()->selectedServer['user'] = 'user';
 
         $response = new ResponseRenderer();

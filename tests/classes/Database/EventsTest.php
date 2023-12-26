@@ -29,7 +29,6 @@ class EventsTest extends AbstractTestCase
         parent::setLanguage();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $GLOBALS['text_dir'] = 'ltr';
         Current::$database = 'db';
         Current::$table = 'table';
         Config::getInstance()->selectedServer['DisableIS'] = false;

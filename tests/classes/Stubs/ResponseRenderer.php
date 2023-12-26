@@ -51,7 +51,6 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
         $this->isDisabled = false;
 
         $GLOBALS['lang'] = 'en';
-        $GLOBALS['text_dir'] ??= 'ltr';
         $this->template = new Template();
         Config::getInstance()->selectedServer['pmadb'] = 'phpmyadmin';
         $dummyDbi = new DbiDummy();

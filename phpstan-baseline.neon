@@ -1561,11 +1561,6 @@ parameters:
 			path: src/Controllers/Database/CentralColumnsController.php
 
 		-
-			message: "#^Parameter \\#4 \\$textDir of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getTemplateVariablesForMain\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/CentralColumnsController.php
-
-		-
 			message: "#^Parameter \\#5 \\$colAttribute of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:updateOneColumn\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Database/CentralColumnsController.php
@@ -2547,11 +2542,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$urlParams of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForDbTrackingTables\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/TrackingController.php
-
-		-
-			message: "#^Parameter \\#3 \\$textDir of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForDbTrackingTables\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/TrackingController.php
 
@@ -3836,11 +3826,6 @@ parameters:
 			path: src/Controllers/Server/PrivilegesController.php
 
 		-
-			message: "#^Parameter \\#1 \\$textDir of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getHtmlForUserOverview\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
 			message: "#^Parameter \\#1 \\$username of method PhpMyAdmin\\\\Controllers\\\\Server\\\\PrivilegesController\\:\\:getExportPageTitle\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Server/PrivilegesController.php
@@ -4542,11 +4527,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#11 \\$rowId of method PhpMyAdmin\\\\InsertEdit\\:\\:getHtmlForInsertEditRow\\(\\) expects int, \\(int\\|string\\) given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
-			message: "#^Parameter \\#12 \\$textDir of method PhpMyAdmin\\\\InsertEdit\\:\\:getHtmlForInsertEditRow\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ChangeController.php
 
@@ -6027,11 +6007,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#4 \\$params of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForSchemaSnapshot\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/TrackingController.php
-
-		-
-			message: "#^Parameter \\#4 \\$textDir of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForMainPage\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/TrackingController.php
 
@@ -15047,11 +15022,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#8 \\$queryTime of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects float, mixed given\\.$#"
-			count: 2
-			path: src/Sql.php
-
-		-
-			message: "#^Parameter \\#9 \\$textDirection of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Sql.php
 

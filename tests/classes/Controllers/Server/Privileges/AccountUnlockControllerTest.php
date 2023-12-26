@@ -35,8 +35,6 @@ class AccountUnlockControllerTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
-        $GLOBALS['text_dir'] = 'ltr';
-
         $this->dbiStub = $this->createStub(DatabaseInterface::class);
         $this->dbiStub->method('isMariaDB')->willReturn(true);
 

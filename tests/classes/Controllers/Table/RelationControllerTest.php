@@ -33,7 +33,6 @@ class RelationControllerTest extends AbstractTestCase
 
         Current::$database = 'db';
         Current::$table = 'table';
-        $GLOBALS['text_dir'] = 'ltr';
         Config::getInstance()->selectedServer['DisableIS'] = false;
         //$_SESSION
 

@@ -12,6 +12,7 @@ use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\ResponseRenderer;
@@ -188,7 +189,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         if ($error && $GLOBALS['errno'] != 1045) {
             echo $this->template->render('error/generic', [
                 'lang' => $GLOBALS['lang'] ?? 'en',
-                'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+                'dir' => LanguageManager::$textDir,
                 'error_message' => $error,
             ]);
 

@@ -36,7 +36,6 @@ final class CreateControllerTest extends AbstractTestCase
 
     public function testCreateDatabase(): void
     {
-        $GLOBALS['text_dir'] = 'ltr';
         Config::getInstance()->selectedServer['DisableIS'] = false;
         Current::$database = 'pma_test';
         Current::$table = '';

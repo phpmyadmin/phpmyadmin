@@ -35,7 +35,6 @@ class VariablesControllerTest extends AbstractTestCase
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
 
-        $GLOBALS['text_dir'] = 'ltr';
         Current::$database = 'db';
         Current::$table = 'table';
         $config = Config::getInstance();

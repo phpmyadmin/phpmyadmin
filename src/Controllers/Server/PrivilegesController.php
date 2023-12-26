@@ -12,6 +12,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Plugins;
@@ -45,7 +46,6 @@ class PrivilegesController extends AbstractController
     {
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['message'] ??= null;
-        $GLOBALS['text_dir'] ??= null;
         $GLOBALS['username'] ??= null;
         $GLOBALS['hostname'] ??= null;
         $GLOBALS['dbname'] ??= null;
@@ -364,7 +364,7 @@ class PrivilegesController extends AbstractController
                 // No username is given --> display the overview
                 $this->response->addHTML(
                     $serverPrivileges->getHtmlForUserOverview(
-                        $GLOBALS['text_dir'],
+                        LanguageManager::$textDir,
                         $request->getQueryParam('initial'),
                     ),
                 );

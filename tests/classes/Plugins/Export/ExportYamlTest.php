@@ -45,7 +45,6 @@ class ExportYamlTest extends AbstractTestCase
         Current::$database = '';
         Current::$table = '';
         $GLOBALS['lang'] = 'en';
-        $GLOBALS['text_dir'] = 'ltr';
         $this->object = new ExportYaml(
             new Relation($dbi),
             new Export($dbi),

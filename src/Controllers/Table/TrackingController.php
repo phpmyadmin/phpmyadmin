@@ -12,6 +12,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -48,7 +49,6 @@ final class TrackingController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['text_dir'] ??= null;
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
@@ -253,7 +253,7 @@ final class TrackingController extends AbstractController
             Current::$database,
             Current::$table,
             $GLOBALS['urlParams'],
-            $GLOBALS['text_dir'],
+            LanguageManager::$textDir,
         );
 
         $this->render('table/tracking/index', [

@@ -317,7 +317,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 $responseRenderer = ResponseRenderer::getInstance();
                 $responseRenderer->addHTML((new Template())->render('error/generic', [
                     'lang' => $GLOBALS['lang'] ?? 'en',
-                    'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+                    'dir' => LanguageManager::$textDir,
                     'error_message' => $exception->getMessage(),
                 ]));
 

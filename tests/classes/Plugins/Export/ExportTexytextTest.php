@@ -66,7 +66,6 @@ class ExportTexytextTest extends AbstractTestCase
         Current::$database = '';
         Current::$table = '';
         $GLOBALS['lang'] = 'en';
-        $GLOBALS['text_dir'] = 'ltr';
         Config::getInstance()->selectedServer['DisableIS'] = true;
         $this->object = new ExportTexytext(
             new Relation($this->dbi),

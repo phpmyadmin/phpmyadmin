@@ -15,6 +15,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\InvalidIdentifier;
 use PhpMyAdmin\Identifiers\TableName;
+use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Privileges;
@@ -92,7 +93,7 @@ class PrivilegesController extends AbstractController
             'table' => $table->getName(),
             'is_superuser' => $this->dbi->isSuperUser(),
             'table_url' => $scriptName,
-            'text_dir' => $GLOBALS['text_dir'],
+            'text_dir' => LanguageManager::$textDir,
             'is_createuser' => $this->dbi->isCreateUser(),
             'is_grantuser' => $this->dbi->isGrantUser(),
             'privileges' => $privileges,

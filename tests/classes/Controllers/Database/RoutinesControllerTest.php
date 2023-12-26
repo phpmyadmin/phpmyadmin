@@ -24,7 +24,6 @@ final class RoutinesControllerTest extends AbstractTestCase
     public function testWithRoutines(): void
     {
         Current::$server = 2;
-        $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         Current::$database = 'test_db';
         Config::getInstance()->selectedServer['DisableIS'] = true;
@@ -247,7 +246,6 @@ HTML;
     public function testWithoutRoutines(): void
     {
         Current::$server = 2;
-        $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         Current::$database = 'test_db';
         Config::getInstance()->selectedServer['DisableIS'] = true;

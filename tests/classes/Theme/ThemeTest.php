@@ -34,8 +34,6 @@ class ThemeTest extends AbstractTestCase
         $this->object = new Theme();
 
         parent::setGlobalConfig();
-
-        $GLOBALS['text_dir'] = 'ltr';
     }
 
     /**

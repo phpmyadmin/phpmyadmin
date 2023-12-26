@@ -304,7 +304,6 @@ class ErrorHandlerTest extends AbstractTestCase
     public function testHandleExceptionForDevEnv(): void
     {
         $GLOBALS['lang'] = 'en';
-        $GLOBALS['text_dir'] = 'ltr';
         Config::getInstance()->set('environment', 'development');
         $errorHandler = new ErrorHandler();
         $this->assertSame([], $errorHandler->getCurrentErrors());
@@ -329,7 +328,6 @@ class ErrorHandlerTest extends AbstractTestCase
     public function testHandleExceptionForProdEnv(): void
     {
         $GLOBALS['lang'] = 'en';
-        $GLOBALS['text_dir'] = 'ltr';
         Config::getInstance()->set('environment', 'production');
         $errorHandler = new ErrorHandler();
         $this->assertSame([], $errorHandler->getCurrentErrors());
@@ -353,7 +351,6 @@ class ErrorHandlerTest extends AbstractTestCase
     public function testAddErrorWithFatalError(): void
     {
         $GLOBALS['lang'] = 'en';
-        $GLOBALS['text_dir'] = 'ltr';
         Config::getInstance()->set('environment', 'production');
         $errorHandler = new ErrorHandler();
         try {

@@ -35,8 +35,6 @@ class EnumValuesControllerTest extends AbstractTestCase
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
-
-        $GLOBALS['text_dir'] = 'ltr';
     }
 
     public function testGetEnumValuesError(): void

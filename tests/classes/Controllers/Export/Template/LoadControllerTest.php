@@ -36,8 +36,6 @@ class LoadControllerTest extends AbstractTestCase
 
     public function testLoad(): void
     {
-        $GLOBALS['text_dir'] = 'ltr';
-
         $relationParameters = RelationParameters::fromArray([
             'exporttemplateswork' => true,
             'db' => 'db',

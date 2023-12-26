@@ -30,7 +30,6 @@ class RecentFavoriteControllerTest extends AbstractTestCase
     public function testRecentFavoriteControllerWithValidDbAndTable(): void
     {
         Current::$server = 2;
-        $GLOBALS['text_dir'] = 'ltr';
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 
         $_SESSION['tmpval'] = [
@@ -70,7 +69,6 @@ class RecentFavoriteControllerTest extends AbstractTestCase
     public function testRecentFavoriteControllerWithInvalidDbAndTable(): void
     {
         Current::$server = 2;
-        $GLOBALS['text_dir'] = 'ltr';
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 
         $_SESSION['tmpval'] = [
@@ -111,7 +109,6 @@ class RecentFavoriteControllerTest extends AbstractTestCase
     public function testRecentFavoriteControllerWithInvalidDbAndTableName(): void
     {
         Current::$server = 2;
-        $GLOBALS['text_dir'] = 'ltr';
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
             ->withQueryParams(['db' => '', 'table' => '']);

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Setup;
 
 use PhpMyAdmin\Config\Forms\Setup\SetupFormList;
+use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Setup\FormProcessing;
 
 use function __;
@@ -29,7 +30,7 @@ class FormController extends AbstractController
         if ($formClass === null) {
             return $this->template->render('error/generic', [
                 'lang' => $GLOBALS['lang'] ?? 'en',
-                'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+                'dir' => LanguageManager::$textDir,
                 'error_message' => __('Incorrect form specified!'),
             ]);
         }

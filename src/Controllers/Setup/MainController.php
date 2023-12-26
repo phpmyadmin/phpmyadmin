@@ -11,6 +11,7 @@ use PhpMyAdmin\Header;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
@@ -36,7 +37,7 @@ final class MainController
 
             return $response->write($this->template->render('error/generic', [
                 'lang' => $GLOBALS['lang'] ?? 'en',
-                'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+                'dir' => LanguageManager::$textDir,
                 'error_message' => __('Configuration already exists, setup is disabled!'),
             ]));
         }

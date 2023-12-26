@@ -50,7 +50,6 @@ class ExportControllerTest extends AbstractTestCase
 
     public function testExportController(): void
     {
-        $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['sql_indexes'] = null;
         $GLOBALS['sql_auto_increments'] = null;

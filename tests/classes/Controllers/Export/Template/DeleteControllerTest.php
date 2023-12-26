@@ -34,8 +34,6 @@ class DeleteControllerTest extends AbstractTestCase
 
     public function testDelete(): void
     {
-        $GLOBALS['text_dir'] = 'ltr';
-
         Config::getInstance()->selectedServer['user'] = 'user';
 
         $response = new ResponseRenderer();

@@ -76,7 +76,6 @@ class ResultsTest extends AbstractTestCase
         Current::$database = 'db';
         Current::$table = 'table';
         $this->object = new DisplayResults($this->dbi, 'as', '', 2, '', '');
-        $GLOBALS['text_dir'] = 'ltr';
         Config::getInstance()->selectedServer['DisableIS'] = false;
         $_SESSION[' HMAC_secret '] = 'test';
     }

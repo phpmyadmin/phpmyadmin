@@ -54,7 +54,6 @@ class SearchControllerTest extends AbstractTestCase
 
         Current::$database = 'PMA';
         Current::$table = 'PMA_BookMark';
-        $GLOBALS['text_dir'] = 'ltr';
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

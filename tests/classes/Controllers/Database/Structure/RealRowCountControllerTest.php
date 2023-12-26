@@ -20,7 +20,6 @@ class RealRowCountControllerTest extends AbstractTestCase
 {
     public function testRealRowCount(): void
     {
-        $GLOBALS['text_dir'] = 'ltr';
         Config::getInstance()->selectedServer['DisableIS'] = true;
         Current::$database = 'world';
         $_REQUEST['table'] = 'City';

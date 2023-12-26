@@ -30,8 +30,6 @@ class GeneralLogControllerTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['text_dir'] = 'ltr';
-
         parent::setGlobalConfig();
 
         $this->dummyDbi = $this->createDbiDummy();
