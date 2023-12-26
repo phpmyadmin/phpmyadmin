@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2023-12-24 03:07+0000\n"
+"PO-Revision-Date: 2023-12-26 22:01+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/mk/>\n"
@@ -11442,9 +11442,8 @@ msgid "Details…"
 msgstr ""
 
 #: libraries/classes/RecentFavoriteTable.php:162
-#, fuzzy
 msgid "Could not save recent table!"
-msgstr "Документација"
+msgstr "Не можеше да се зачува неодамнешната табела!"
 
 #: libraries/classes/RecentFavoriteTable.php:166
 #, fuzzy
@@ -15221,9 +15220,8 @@ msgid ""
 msgstr ""
 
 #: templates/header.twig:35 templates/login/header.twig:13
-#, fuzzy
 msgid "Javascript must be enabled past this point!"
-msgstr "вашиот веб прелистувач треба да допушти cookies"
+msgstr "Javascript мора да е уклучен после оваа точка!"
 
 #: templates/header.twig:46
 msgid "Click on the bar to scroll to top of page"
@@ -15479,9 +15477,8 @@ msgid "Select from the web server upload directory [strong]%s[/strong]:"
 msgstr "Избери од веб серверот уплоад директориум [strong]%s[/strong]:"
 
 #: templates/import.twig:69 templates/import.twig:96
-#, fuzzy
 msgid "There are no files to import!"
-msgstr "Дел на текстот"
+msgstr "Нема фајлови за импортирање!"
 
 #: templates/import.twig:100
 msgid "File uploads are not allowed on this server."
@@ -15839,9 +15836,8 @@ msgstr ""
 #: templates/login/twofactor/key_configure.twig:3
 #: templates/login/twofactor/key.twig:3
 #: templates/preferences/two_factor/main.twig:56
-#, fuzzy
 msgid "Deprecated!"
-msgstr "Релации"
+msgstr "Остарено!"
 
 #: templates/login/twofactor/key_configure.twig:4
 #: templates/login/twofactor/key.twig:4
