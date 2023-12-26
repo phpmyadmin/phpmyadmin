@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-12-24 03:07+0000\n"
+"PO-Revision-Date: 2023-12-26 22:01+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -8007,10 +8007,8 @@ msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
 #: libraries/classes/Header.php:775 templates/login/header.twig:8
-#, fuzzy
-#| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point!"
-msgstr "вашиот веб прелистувач треба да допушти cookies"
+msgstr "Javascript мора да е уклучен после оваа точка!"
 
 #: libraries/classes/Import.php:130 libraries/classes/InsertEdit.php:179
 #: libraries/classes/Rte/Routines.php:1486 libraries/classes/Sql.php:1429
@@ -10433,10 +10431,8 @@ msgid "Login using password only."
 msgstr ""
 
 #: libraries/classes/RecentFavoriteTable.php:145
-#, fuzzy
-#| msgid "Documentation"
 msgid "Could not save recent table!"
-msgstr "Документација"
+msgstr "Не можеше да се зачува неодамнешната табела!"
 
 #: libraries/classes/RecentFavoriteTable.php:149
 #, fuzzy
