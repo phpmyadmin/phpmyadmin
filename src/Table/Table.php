@@ -273,21 +273,18 @@ class Table implements Stringable
      * Returns full table status info, or specific if $info provided
      * this info is collected from information_schema
      *
-     * @param string|null $info      specific information to be fetched
-     * @param bool        $forceRead read new rather than serving from cache
+     * @param string|null $info specific information to be fetched
      *
      * @todo DatabaseInterface::getTablesFull needs to be merged
      * somehow into this class or at least better documented
      */
-    public function getStatusInfo(
-        string|null $info = null,
-        bool $forceRead = false,
-    ): mixed {
+    public function getStatusInfo(string|null $info = null): mixed
+    {
         $cachedResult = $this->dbi->getCache()->getCachedTableContent([$this->dbName, $this->name]);
 
         // sometimes there is only one entry (ExactRows) so
         // we have to get the table's details
-        if ($cachedResult === null || $forceRead || count($cachedResult) === 1) {
+        if ($cachedResult === null || count($cachedResult) === 1) {
             $this->dbi->getTablesFull($this->dbName, $this->name);
             $cachedResult = $this->dbi->getCache()->getCachedTableContent([$this->dbName, $this->name]);
         }
