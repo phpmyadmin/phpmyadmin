@@ -2404,8 +2404,6 @@
       <code><![CDATA[$GLOBALS['auto_increment']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
-      <code>$rowFormat</code>
-      <code>$rowFormat</code>
     </MixedAssignment>
   </file>
   <file src="src/Controllers/Operations/ViewController.php">
@@ -4087,47 +4085,34 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
-    <MixedArgument>
-      <code><![CDATA[$showTable['Check_time']]]></code>
-      <code><![CDATA[$showTable['Create_time']]]></code>
-      <code><![CDATA[$showTable['Data_free']]]></code>
-      <code><![CDATA[$showTable['Data_length']]]></code>
-      <code><![CDATA[$showTable['Data_length']
-                + $showTable['Index_length']]]></code>
-      <code><![CDATA[$showTable['Data_length']
-                + $showTable['Index_length']
-                - $showTable['Data_free']]]></code>
-      <code><![CDATA[$showTable['Data_length'] + $showTable['Index_length']]]></code>
-      <code><![CDATA[$showTable['Index_length']]]></code>
-      <code><![CDATA[$showTable['Name']]]></code>
-      <code><![CDATA[$showTable['Update_time']]]></code>
-      <code><![CDATA[($showTable['Data_length']
-                + $showTable['Index_length'])
-                / $showTable['Rows']]]></code>
-    </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$showTable['Name']]]></code>
-      <code><![CDATA[$showTable['Rows']]]></code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$showTable['Data_length']]]></code>
-      <code><![CDATA[$showTable['Index_length']]]></code>
-    </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code>$attributes[$rownum]</code>
-      <code>$showTable</code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$displayedFields[$rownum]->icon]]></code>
       <code><![CDATA[$displayedFields[$rownum]->icon]]></code>
-      <code><![CDATA[$showTable['Data_length']]]></code>
-      <code><![CDATA[$showTable['Data_length']
-                + $showTable['Index_length']]]></code>
-      <code><![CDATA[$showTable['Index_length']]]></code>
-      <code><![CDATA[$showTable['Index_length']]]></code>
-      <code><![CDATA[$showTable['Index_length']]]></code>
     </MixedOperand>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[$showTable['Check_time']]]></code>
+      <code><![CDATA[$showTable['Create_time']]]></code>
+      <code><![CDATA[$showTable['Update_time']]]></code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidOperand>
+      <code><![CDATA[$showTable['Data_free']]]></code>
+      <code><![CDATA[$showTable['Data_length']]]></code>
+      <code><![CDATA[$showTable['Data_length']]]></code>
+      <code><![CDATA[$showTable['Data_length']]]></code>
+      <code><![CDATA[$showTable['Data_length']]]></code>
+      <code><![CDATA[$showTable['Index_length']]]></code>
+      <code><![CDATA[$showTable['Index_length']]]></code>
+      <code><![CDATA[$showTable['Index_length']]]></code>
+      <code><![CDATA[$showTable['Index_length']]]></code>
+      <code><![CDATA[$showTable['Rows']]]></code>
+    </PossiblyInvalidOperand>
+    <PossiblyNullOperand>
+      <code><![CDATA[$showTable['Rows']]]></code>
+    </PossiblyNullOperand>
   </file>
   <file src="src/Controllers/Table/TrackingController.php">
     <DeprecatedMethod>
@@ -5529,7 +5514,6 @@
       <code>$query</code>
       <code>$rel</code>
       <code>$relationalDisplay</code>
-      <code>$tableCreateTime</code>
       <code>$value</code>
     </MixedAssignment>
     <MixedInferredReturnType>
@@ -9806,9 +9790,6 @@
       <code><![CDATA[$oneKey['ref_table_name']]]></code>
       <code><![CDATA[$rel['foreign_field']]]></code>
       <code><![CDATA[$rel['foreign_table']]]></code>
-      <code><![CDATA[$showTable['Check_time']]]></code>
-      <code><![CDATA[$showTable['Create_time']]]></code>
-      <code><![CDATA[$showTable['Update_time']]]></code>
       <code>$table</code>
       <code>$table</code>
       <code>$table</code>
@@ -9831,10 +9812,6 @@
       <code><![CDATA[$rel['foreign_field']]]></code>
       <code><![CDATA[$rel['foreign_table']]]></code>
       <code><![CDATA[$rel['foreign_table']]]></code>
-      <code><![CDATA[$showTable['Check_time']]]></code>
-      <code><![CDATA[$showTable['Comment']]]></code>
-      <code><![CDATA[$showTable['Create_time']]]></code>
-      <code><![CDATA[$showTable['Update_time']]]></code>
       <code><![CDATA[$this->pdf->customLinks['RT']['-']]]></code>
       <code><![CDATA[$this->pdf->customLinks['doc'][$foreigner['foreign_table']]]]></code>
       <code><![CDATA[$this->pdf->customLinks['doc'][$table]]]></code>
@@ -9872,8 +9849,6 @@
       <code>$oneField</code>
       <code>$oneKey</code>
       <code>$rel</code>
-      <code>$showComment</code>
-      <code>$showTable</code>
       <code>$table</code>
       <code>$table</code>
       <code>$type</code>
@@ -9884,12 +9859,14 @@
       <code><![CDATA[$foreigner['foreign_table']]]></code>
       <code><![CDATA[$foreigner['on_delete']]]></code>
       <code><![CDATA[$foreigner['on_update']]]></code>
-      <code>$showComment</code>
       <code>$table</code>
       <code>$table</code>
     </MixedOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_REQUEST['pdf_table_order']]]></code>
+      <code><![CDATA[$showTable['Check_time']]]></code>
+      <code><![CDATA[$showTable['Create_time']]]></code>
+      <code><![CDATA[$showTable['Update_time']]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_REQUEST['pdf_orientation']]]></code>
@@ -11588,6 +11565,16 @@
       <code><![CDATA[$GLOBALS['sql_auto_increments']]]></code>
       <code><![CDATA[$GLOBALS['sql_indexes']]]></code>
     </InvalidArrayOffset>
+    <InvalidReturnStatement>
+      <code><![CDATA[$tableAutoIncrement ?? '']]></code>
+      <code><![CDATA[$this->getStatusInfo('TABLE_COLLATION') ?? '']]></code>
+      <code><![CDATA[$this->getStatusInfo('TABLE_COMMENT') ?? '']]></code>
+    </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code>string</code>
+      <code>string</code>
+      <code>string</code>
+    </InvalidReturnType>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['sql_auto_increments']]]></code>
       <code><![CDATA[$GLOBALS['sql_indexes']]]></code>
@@ -11627,7 +11614,6 @@
       <code><![CDATA[$optionsArray[$existrelForeign[$masterFieldMd5]['on_update'] ?? ''] ?? null]]></code>
       <code><![CDATA[$options['expr']]]></code>
       <code><![CDATA[$row['Type']]]></code>
-      <code>$tableOptions</code>
       <code><![CDATA[$this->uiprefs[$property]]]></code>
       <code><![CDATA[$this->uiprefs[$property]]]></code>
       <code>$value</code>
@@ -11703,7 +11689,6 @@
       <code>$column</code>
       <code><![CDATA[$columns[$row['Field']]]]></code>
       <code>$constraintName</code>
-      <code>$currCreateTime</code>
       <code>$eachCol</code>
       <code>$foreignDb</code>
       <code>$foreignDb</code>
@@ -11723,23 +11708,12 @@
       <code>$refDbName</code>
       <code>$ret[]</code>
       <code>$row</code>
-      <code>$tableAutoIncrement</code>
-      <code>$tableCollation</code>
-      <code>$tableComment</code>
-      <code>$tableNumRowInfo</code>
-      <code>$tableOptions</code>
-      <code>$tableRowFormat</code>
-      <code>$tableStorageEngine</code>
-      <code>$type</code>
       <code>$value</code>
       <code>$value</code>
       <code>$value</code>
     </MixedAssignment>
     <MixedInferredReturnType>
       <code>mixed[]</code>
-      <code>string</code>
-      <code>string</code>
-      <code>string</code>
       <code>string</code>
       <code>string</code>
     </MixedInferredReturnType>
@@ -11760,11 +11734,6 @@
       <code><![CDATA[$altered->options]]></code>
     </MixedPropertyFetch>
     <MixedReturnStatement>
-      <code><![CDATA[$tableAutoIncrement ?? '']]></code>
-      <code><![CDATA[$tableAutoIncrement ?? '']]></code>
-      <code><![CDATA[$tableCollation ?? '']]></code>
-      <code><![CDATA[$tableCollation ?? '']]></code>
-      <code>$tableComment</code>
       <code><![CDATA[end($this->errors)]]></code>
       <code><![CDATA[end($this->messages)]]></code>
       <code>json_decode($value, true)</code>

@@ -273,12 +273,13 @@ class Table implements Stringable
      * Returns full table status info, or specific if $info provided
      * this info is collected from information_schema
      *
-     * @param string|null $info specific information to be fetched
+     * @param T $info specific information to be fetched
      *
-     * @todo DatabaseInterface::getTablesFull needs to be merged
-     * somehow into this class or at least better documented
+     * @return (T is null ? (string|int|null)[]|null : (string|int|null))
+     *
+     * @template T of string|null
      */
-    public function getStatusInfo(string|null $info = null): mixed
+    public function getStatusInfo(string|null $info = null): array|string|int|null
     {
         $cachedResult = $this->dbi->getCache()->getCachedTableContent($this->dbName, $this->name);
 
@@ -293,7 +294,7 @@ class Table implements Stringable
             // happens when we enter the table creation dialog
             // or when we really did not get any status info, for example
             // when $table === 'TABLE_NAMES' after the user tried SHOW TABLES
-            return '';
+            return null;
         }
 
         if ($info === null) {
@@ -323,12 +324,7 @@ class Table implements Stringable
      */
     public function getComment(): string
     {
-        $tableComment = $this->getStatusInfo('TABLE_COMMENT');
-        if ($tableComment === false) {
-            return '';
-        }
-
-        return $tableComment;
+        return $this->getStatusInfo('TABLE_COMMENT') ?? '';
     }
 
     /**
@@ -338,12 +334,7 @@ class Table implements Stringable
      */
     public function getCollation(): string
     {
-        $tableCollation = $this->getStatusInfo('TABLE_COLLATION');
-        if ($tableCollation === false) {
-            return '';
-        }
-
-        return $tableCollation ?? '';
+        return $this->getStatusInfo('TABLE_COLLATION') ?? '';
     }
 
     /**
@@ -351,15 +342,9 @@ class Table implements Stringable
      *
      * @return int Return no of rows info if it is not null for the selected table or return 0.
      */
-    public function getNumRows(string $showTableName): int
+    public function getNumRows(): int
     {
-        $tableNumRowInfo = $this->getStatusInfo('TABLE_ROWS');
-        if ($tableNumRowInfo === false) {
-            $tableNumRowInfo = $this->dbi->getTable($this->dbName, $showTableName)
-            ->countRecords(true);
-        }
-
-        return (int) $tableNumRowInfo;
+        return (int) $this->getStatusInfo('TABLE_ROWS');
     }
 
     /**
@@ -394,7 +379,7 @@ class Table implements Stringable
     public function getCreateOptions(): array
     {
         $tableOptions = $this->getStatusInfo('CREATE_OPTIONS');
-        $createOptionsTmp = empty($tableOptions) ? [] : explode(' ', $tableOptions);
+        $createOptionsTmp = is_string($tableOptions) && $tableOptions !== '' ? explode(' ', $tableOptions) : [];
         $createOptions = [];
         // export create options by its name as variables into global namespace
         // f.e. pack_keys=1 becomes available as $pack_keys with value of '1'
@@ -1775,7 +1760,7 @@ class Table implements Stringable
         // we want to save the create time if the property is PROP_COLUMN_ORDER
         if (! $this->isView() && ($property == self::PROP_COLUMN_ORDER || $property == self::PROP_COLUMN_VISIB)) {
             $currCreateTime = $this->getStatusInfo('CREATE_TIME');
-            if (! isset($tableCreateTime) || $tableCreateTime != $currCreateTime) {
+            if ($tableCreateTime === null || $tableCreateTime != $currCreateTime) {
                 // there is no $table_create_time, or
                 // supplied $table_create_time is older than current create time,
                 // so don't save

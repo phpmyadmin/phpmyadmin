@@ -38,7 +38,6 @@ use stdClass;
 
 use function __;
 use function in_array;
-use function is_string;
 use function str_contains;
 use function strtotime;
 
@@ -300,11 +299,6 @@ class StructureController extends AbstractController
         // Clear the cache as some table information might have gotten changed due to the user action.
         $this->dbi->getCache()->clearTableCache();
         $showTable = $this->tableObj->getStatusInfo();
-        $tableInfoNunRows = $this->tableObj->getNumRows($showTable['Name']);
-
-        if (is_string($showTable)) {
-            $showTable = [];
-        }
 
         if (empty($showTable['Data_length'])) {
             $showTable['Data_length'] = 0;
@@ -353,7 +347,7 @@ class StructureController extends AbstractController
 
         $avgSize = '';
         $avgUnit = '';
-        if ($tableInfoNunRows > 0) {
+        if ($this->tableObj->getNumRows() > 0) {
             [$avgSize, $avgUnit] = Util::formatByteDown(
                 ($showTable['Data_length']
                 + $showTable['Index_length'])
@@ -393,7 +387,6 @@ class StructureController extends AbstractController
             'db' => Current::$database,
             'table' => Current::$table,
             'showtable' => $showTable,
-            'table_info_num_rows' => $tableInfoNunRows,
             'tbl_is_view' => $tableIsAView,
             'db_is_system_schema' => $isSystemSchema,
             'tbl_storage_engine' => $tableStorageEngine,

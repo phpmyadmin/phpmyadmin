@@ -1591,11 +1591,6 @@ parameters:
 			path: src/Controllers/Database/DataDictionaryController.php
 
 		-
-			message: "#^Cannot cast mixed to string\\.$#"
-			count: 1
-			path: src/Controllers/Database/DataDictionaryController.php
-
-		-
 			message: "#^Cannot access offset 'dbName' on mixed\\.$#"
 			count: 2
 			path: src/Controllers/Database/DesignerController.php
@@ -5891,58 +5886,28 @@ parameters:
 			path: src/Controllers/Table/Structure/SaveController.php
 
 		-
+			message: "#^Binary operation \"\\+\" between int\\|non\\-falsy\\-string and int\\|non\\-falsy\\-string results in an error\\.$#"
+			count: 4
+			path: src/Controllers/Table/StructureController.php
+
+		-
+			message: "#^Binary operation \"\\-\" between mixed and int\\|string results in an error\\.$#"
+			count: 1
+			path: src/Controllers/Table/StructureController.php
+
+		-
+			message: "#^Binary operation \"/\" between mixed and int\\|string\\|null results in an error\\.$#"
+			count: 1
+			path: src/Controllers/Table/StructureController.php
+
+		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
 			count: 1
 			path: src/Controllers/Table/StructureController.php
 
 		-
-			message: "#^Cannot access offset 'Check_time' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Cannot access offset 'Create_time' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Cannot access offset 'Data_free' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Cannot access offset 'Data_length' on mixed\\.$#"
-			count: 7
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Cannot access offset 'Index_length' on mixed\\.$#"
-			count: 2
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Cannot access offset 'Name' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Cannot access offset 'Rows' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Cannot access offset 'Type' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Cannot access offset 'Update_time' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
 			message: "#^Cannot use array destructuring on array\\<int, string\\>\\|null\\.$#"
-			count: 1
+			count: 4
 			path: src/Controllers/Table/StructureController.php
 
 		-
@@ -5956,28 +5921,18 @@ parameters:
 			path: src/Controllers/Table/StructureController.php
 
 		-
-			message: "#^Parameter \\#1 \\$datetime of function strtotime expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$datetime of function strtotime expects string, int\\|string given\\.$#"
 			count: 3
 			path: src/Controllers/Table/StructureController.php
 
 		-
-			message: "#^Parameter \\#1 \\$showTableName of method PhpMyAdmin\\\\Table\\\\Table\\:\\:getNumRows\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#1 \\$timestamp of static method PhpMyAdmin\\\\Util\\:\\:localisedDate\\(\\) expects int, \\(int\\|false\\) given\\.$#"
+			message: "#^Parameter \\#1 \\$timestamp of static method PhpMyAdmin\\\\Util\\:\\:localisedDate\\(\\) expects int, int\\|false given\\.$#"
 			count: 3
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Util\\:\\:formatByteDown\\(\\) expects float\\|int\\|string\\|null, \\(array\\|float\\|int\\) given\\.$#"
-			count: 2
 			path: src/Controllers/Table/StructureController.php
 
 		-
 			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Util\\:\\:formatByteDown\\(\\) expects float\\|int\\|string\\|null, mixed given\\.$#"
-			count: 3
+			count: 4
 			path: src/Controllers/Table/StructureController.php
 
 		-
@@ -13016,26 +12971,6 @@ parameters:
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Cannot access offset 'Check_time' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'Comment' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'Create_time' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'Update_time' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
 			message: "#^Cannot access offset 'foreign_field' on mixed\\.$#"
 			count: 1
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
@@ -13091,7 +13026,7 @@ parameters:
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Parameter \\#1 \\$datetime of function strtotime expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$datetime of function strtotime expects string, int\\|string given\\.$#"
 			count: 3
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
@@ -13101,7 +13036,7 @@ parameters:
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Parameter \\#1 \\$timestamp of static method PhpMyAdmin\\\\Util\\:\\:localisedDate\\(\\) expects int, \\(int\\|false\\) given\\.$#"
+			message: "#^Parameter \\#1 \\$timestamp of static method PhpMyAdmin\\\\Util\\:\\:localisedDate\\(\\) expects int, int\\|false given\\.$#"
 			count: 3
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
@@ -15452,31 +15387,31 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
-			count: 2
+			count: 1
 			path: src/Table/Table.php
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 3
+			count: 2
 			path: src/Table/Table.php
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 19
+			count: 18
 			path: src/Table/Table.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Table\\\\Table\\:\\:getAutoIncrement\\(\\) should return string but returns mixed\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Table\\\\Table\\:\\:getAutoIncrement\\(\\) should return string but returns int\\|string\\.$#"
 			count: 1
 			path: src/Table/Table.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Table\\\\Table\\:\\:getCollation\\(\\) should return string but returns mixed\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Table\\\\Table\\:\\:getCollation\\(\\) should return string but returns int\\|string\\.$#"
 			count: 1
 			path: src/Table/Table.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Table\\\\Table\\:\\:getComment\\(\\) should return string but returns mixed\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Table\\\\Table\\:\\:getComment\\(\\) should return string but returns int\\|string\\.$#"
 			count: 1
 			path: src/Table/Table.php
 
@@ -15627,7 +15562,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$string of function explode expects string, mixed given\\.$#"
-			count: 3
+			count: 2
 			path: src/Table/Table.php
 
 		-
