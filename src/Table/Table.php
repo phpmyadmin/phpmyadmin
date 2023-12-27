@@ -289,10 +289,6 @@ class Table implements Stringable
         bool $forceRead = false,
         bool $disableError = false,
     ): mixed {
-        if (! empty($_SESSION['is_multi_query'])) {
-            $disableError = true;
-        }
-
         $cachedResult = $this->dbi->getCache()->getCachedTableContent([$this->dbName, $this->name]);
 
         // sometimes there is only one entry (ExactRows) so

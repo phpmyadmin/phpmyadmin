@@ -112,12 +112,6 @@ final class ImportController extends AbstractController
         // default values
         $GLOBALS['reload'] = false;
 
-        // Use to identify current cycle is executing
-        // a multiquery statement or stored routine
-        if (! isset($_SESSION['is_multi_query'])) {
-            $_SESSION['is_multi_query'] = false;
-        }
-
         $GLOBALS['ajax_reload'] = [];
         $GLOBALS['import_text'] = '';
         // Are we just executing plain query or sql file?
@@ -678,9 +672,7 @@ final class ImportController extends AbstractController
         }
 
         if ($GLOBALS['go_sql']) {
-            if ($queriesToBeExecuted !== []) {
-                $_SESSION['is_multi_query'] = true;
-            } else {
+            if ($queriesToBeExecuted === []) {
                 $queriesToBeExecuted = [$GLOBALS['sql_query']];
             }
 
