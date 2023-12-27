@@ -297,7 +297,9 @@ class StructureController extends AbstractController
         bool $tableIsAView,
         string $tableStorageEngine,
     ): string {
-        $showTable = $this->dbi->getTable(Current::$database, Current::$table)->getStatusInfo(forceRead: true);
+        // Clear the cache as some table information might have gotten changed due to the user action.
+        $this->dbi->getCache()->clearTableCache();
+        $showTable = $this->tableObj->getStatusInfo();
         $tableInfoNunRows = $this->tableObj->getNumRows($showTable['Name']);
 
         if (is_string($showTable)) {
