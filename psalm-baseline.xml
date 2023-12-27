@@ -3363,6 +3363,14 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
+    <PossiblyInvalidArgument occurrences="2">
+      <code>$_POST['index']['Key_name']</code>
+      <code>$oldIndex</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidCast occurrences="2">
+      <code>$_POST['index']['Key_name']</code>
+      <code>$oldIndex</code>
+    </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/Table/IndexesController.php">
     <MixedArgument occurrences="2">

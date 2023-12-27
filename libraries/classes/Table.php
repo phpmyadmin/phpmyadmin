@@ -2127,7 +2127,7 @@ class Table implements Stringable
                     ' ADD %s ',
                     $index->getChoice()
                 );
-                if ($index->getName()) {
+                if ($index->getName() !== '') {
                     $sqlQuery .= Util::backquote($index->getName());
                 }
 
