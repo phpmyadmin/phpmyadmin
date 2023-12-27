@@ -118,7 +118,7 @@ class TableController extends AbstractController
          */
         $this->dbi->selectDb(Current::$database);
 
-        $showTable = $pmaTable->getStatusInfo();
+        $rowFormat = $pmaTable->getStatusInfo('Row_format');
         if ($pmaTable->isView()) {
             $tableIsAView = true;
             $tableStorageEngine = __('View');
@@ -327,7 +327,7 @@ class TableController extends AbstractController
             // a change, clear the cache
             $this->dbi->getCache()->clearTableCache();
             $this->dbi->selectDb(Current::$database);
-            $showTable = $pmaTable->getStatusInfo(forceRead: true);
+            $rowFormat = $pmaTable->getStatusInfo('Row_format');
             if ($pmaTable->isView()) {
                 $tableIsAView = true;
                 $tableStorageEngine = __('View');
@@ -501,7 +501,7 @@ class TableController extends AbstractController
             'collations' => $collations,
             'tbl_collation' => $tableCollation,
             'row_formats' => $possibleRowFormats[$tableStorageEngine] ?? [],
-            'row_format_current' => $showTable['Row_format'],
+            'row_format_current' => $rowFormat,
             'has_auto_increment' => $hasAutoIncrement,
             'auto_increment' => $GLOBALS['auto_increment'],
             'has_pack_keys' => $hasPackKeys,

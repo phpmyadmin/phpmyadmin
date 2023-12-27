@@ -3371,11 +3371,6 @@ parameters:
 			path: src/Controllers/Operations/DatabaseController.php
 
 		-
-			message: "#^Cannot access offset 'Row_format' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Operations/TableController.php
-
-		-
 			message: "#^Cannot access offset 'back' on mixed\\.$#"
 			count: 2
 			path: src/Controllers/Operations/TableController.php
