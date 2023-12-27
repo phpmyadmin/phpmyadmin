@@ -48,7 +48,7 @@ use function strtotime;
  */
 class StructureController extends AbstractController
 {
-    protected readonly Table $tableObj;
+    private readonly Table $tableObj;
 
     public function __construct(
         ResponseRenderer $response,
@@ -150,7 +150,7 @@ class StructureController extends AbstractController
      * @param (string|int)[] $columnsWithIndex       Columns with index
      * @psalm-param non-empty-string $route
      */
-    protected function displayStructure(
+    private function displayStructure(
         RelationParameters $relationParameters,
         array $columnsWithUniqueIndex,
         Index|null $primaryIndex,
@@ -292,7 +292,7 @@ class StructureController extends AbstractController
     /**
      * Get HTML snippet for display table statistics
      */
-    protected function getTableStats(
+    private function getTableStats(
         bool $isSystemSchema,
         bool $tableIsAView,
         string $tableStorageEngine,
