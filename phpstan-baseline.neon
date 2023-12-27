@@ -15452,7 +15452,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 6
+			count: 7
 			path: src/Table/Table.php
 
 		-
@@ -15608,11 +15608,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 2
-			path: src/Table/Table.php
-
-		-
-			message: "#^Parameter \\#2 \\$array of function array_key_exists expects array, mixed given\\.$#"
-			count: 1
 			path: src/Table/Table.php
 
 		-

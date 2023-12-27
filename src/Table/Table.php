@@ -34,7 +34,6 @@ use PhpMyAdmin\Util;
 use Stringable;
 
 use function __;
-use function array_key_exists;
 use function array_keys;
 use function array_map;
 use function array_merge;
@@ -64,10 +63,7 @@ use function strtolower;
 use function strtoupper;
 use function substr;
 use function substr_compare;
-use function trigger_error;
 use function trim;
-
-use const E_USER_WARNING;
 
 /**
  * Handles everything related to tables
@@ -277,9 +273,8 @@ class Table implements Stringable
      * Returns full table status info, or specific if $info provided
      * this info is collected from information_schema
      *
-     * @param string|null $info         specific information to be fetched
-     * @param bool        $forceRead    read new rather than serving from cache
-     * @param bool        $disableError if true, disables error message
+     * @param string|null $info      specific information to be fetched
+     * @param bool        $forceRead read new rather than serving from cache
      *
      * @todo DatabaseInterface::getTablesFull needs to be merged
      * somehow into this class or at least better documented
@@ -287,7 +282,6 @@ class Table implements Stringable
     public function getStatusInfo(
         string|null $info = null,
         bool $forceRead = false,
-        bool $disableError = false,
     ): mixed {
         $cachedResult = $this->dbi->getCache()->getCachedTableContent([$this->dbName, $this->name]);
 
@@ -309,18 +303,6 @@ class Table implements Stringable
             return $cachedResult;
         }
 
-        // array_key_exists allows for null values
-        if (! array_key_exists($info, $cachedResult)) {
-            if (! $disableError) {
-                trigger_error(
-                    __('Unknown table status:') . ' ' . $info,
-                    E_USER_WARNING,
-                );
-            }
-
-            return false;
-        }
-
         return $cachedResult[$info];
     }
 
@@ -332,7 +314,7 @@ class Table implements Stringable
      */
     public function getStorageEngine(): string
     {
-        $tableStorageEngine = $this->getStatusInfo('ENGINE', false, true);
+        $tableStorageEngine = $this->getStatusInfo('ENGINE', false);
 
         return strtoupper((string) $tableStorageEngine);
     }
@@ -344,7 +326,7 @@ class Table implements Stringable
      */
     public function getComment(): string
     {
-        $tableComment = $this->getStatusInfo('TABLE_COMMENT', false, true);
+        $tableComment = $this->getStatusInfo('TABLE_COMMENT', false);
         if ($tableComment === false) {
             return '';
         }
@@ -359,7 +341,7 @@ class Table implements Stringable
      */
     public function getCollation(): string
     {
-        $tableCollation = $this->getStatusInfo('TABLE_COLLATION', false, true);
+        $tableCollation = $this->getStatusInfo('TABLE_COLLATION', false);
         if ($tableCollation === false) {
             return '';
         }
@@ -374,7 +356,7 @@ class Table implements Stringable
      */
     public function getNumRows(string $showTableName): int
     {
-        $tableNumRowInfo = $this->getStatusInfo('TABLE_ROWS', false, true);
+        $tableNumRowInfo = $this->getStatusInfo('TABLE_ROWS', false);
         if ($tableNumRowInfo === false) {
             $tableNumRowInfo = $this->dbi->getTable($this->dbName, $showTableName)
             ->countRecords(true);
@@ -390,7 +372,7 @@ class Table implements Stringable
      */
     public function getRowFormat(): string
     {
-        $tableRowFormat = $this->getStatusInfo('ROW_FORMAT', false, true);
+        $tableRowFormat = $this->getStatusInfo('ROW_FORMAT', false);
 
         return is_string($tableRowFormat) ? $tableRowFormat : '';
     }
@@ -402,7 +384,7 @@ class Table implements Stringable
      */
     public function getAutoIncrement(): string
     {
-        $tableAutoIncrement = $this->getStatusInfo('AUTO_INCREMENT', false, true);
+        $tableAutoIncrement = $this->getStatusInfo('AUTO_INCREMENT', false);
 
         return $tableAutoIncrement ?? '';
     }
@@ -414,7 +396,7 @@ class Table implements Stringable
      */
     public function getCreateOptions(): array
     {
-        $tableOptions = $this->getStatusInfo('CREATE_OPTIONS', false, true);
+        $tableOptions = $this->getStatusInfo('CREATE_OPTIONS', false);
         $createOptionsTmp = empty($tableOptions) ? [] : explode(' ', $tableOptions);
         $createOptions = [];
         // export create options by its name as variables into global namespace
