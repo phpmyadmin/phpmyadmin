@@ -218,7 +218,7 @@ class Table implements Stringable
 
         // use cached data or load information with SHOW command
         if (
-            $this->dbi->getCache()->getCachedTableContent([$this->dbName, $this->name]) != null
+            $this->dbi->getCache()->getCachedTableContent($this->dbName, $this->name) !== null
             || Config::getInstance()->selectedServer['DisableIS']
         ) {
             $type = $this->getStatusInfo('TABLE_TYPE');
@@ -280,13 +280,13 @@ class Table implements Stringable
      */
     public function getStatusInfo(string|null $info = null): mixed
     {
-        $cachedResult = $this->dbi->getCache()->getCachedTableContent([$this->dbName, $this->name]);
+        $cachedResult = $this->dbi->getCache()->getCachedTableContent($this->dbName, $this->name);
 
         // sometimes there is only one entry (ExactRows) so
         // we have to get the table's details
         if ($cachedResult === null || count($cachedResult) === 1) {
             $this->dbi->getTablesFull($this->dbName, $this->name);
-            $cachedResult = $this->dbi->getCache()->getCachedTableContent([$this->dbName, $this->name]);
+            $cachedResult = $this->dbi->getCache()->getCachedTableContent($this->dbName, $this->name);
         }
 
         if ($cachedResult === null) {
@@ -664,7 +664,7 @@ class Table implements Stringable
         $isView = $this->isView();
         $cache = $this->dbi->getCache();
 
-        $exactRowsCached = $cache->getCachedTableContent([$this->dbName, $this->name, 'ExactRows']);
+        $exactRowsCached = $cache->getCachedTableContent($this->dbName, $this->name, 'ExactRows');
         if ($exactRowsCached !== null) {
             return (int) $exactRowsCached;
         }
@@ -672,11 +672,11 @@ class Table implements Stringable
         $rowCount = null;
 
         if (! $forceExact) {
-            if (($cache->getCachedTableContent([$this->dbName, $this->name, 'Rows']) === null) && ! $isView) {
+            if (($cache->getCachedTableContent($this->dbName, $this->name, 'Rows') === null) && ! $isView) {
                 $this->dbi->getTablesFull($this->dbName, $this->name);
             }
 
-            $rowCount = $cache->getCachedTableContent([$this->dbName, $this->name, 'Rows']);
+            $rowCount = $cache->getCachedTableContent($this->dbName, $this->name, 'Rows');
         }
 
         // for a VIEW, $row_count is always false at this point

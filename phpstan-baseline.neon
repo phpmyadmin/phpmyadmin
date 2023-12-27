@@ -15447,12 +15447,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 7
+			count: 6
 			path: src/Table/Table.php
 
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
-			count: 4
+			count: 2
 			path: src/Table/Table.php
 
 		-
@@ -15602,7 +15602,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: src/Table/Table.php
 
 		-
