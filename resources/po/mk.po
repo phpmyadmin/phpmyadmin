@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-12-24 00:19+0000\n"
-"PO-Revision-Date: 2023-12-26 22:01+0000\n"
+"PO-Revision-Date: 2023-12-28 22:37+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -16774,9 +16774,8 @@ msgid "Could not save recent table!"
 msgstr "Не можеше да се зачува неодамнешната табела!"
 
 #: src/Favorites/RecentFavoriteTables.php:158
-#, fuzzy
 msgid "Could not save favorite table!"
-msgstr "Документација"
+msgstr "Не можеше да се зачува омилената табела!"
 
 #: src/Favorites/RecentFavoriteTables.php:232
 #, fuzzy
@@ -17598,9 +17597,8 @@ msgstr ""
 
 #: src/Plugins/Auth/AuthenticationCookie.php:304
 #: src/Plugins/Auth/AuthenticationCookie.php:303
-#, fuzzy
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "Не можам да се пријавам на MySQL серверот"
+msgstr "Не сте дозволени да се пријавате на овој MySQL сервер!"
 
 #: src/Plugins/Auth/AuthenticationHttp.php:87
 msgid "Wrong username/password. Access denied."
