@@ -4956,6 +4956,11 @@ parameters:
 			path: src/Controllers/Table/IndexesController.php
 
 		-
+			message: "#^Parameter \\#1 \\$oldIndexName of method PhpMyAdmin\\\\Table\\\\Indexes\\:\\:getSqlQueryForIndexCreateOrEdit\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Table/IndexesController.php
+
+		-
 			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/IndexesController.php
@@ -15167,11 +15172,6 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in a negated boolean, int\\|null given\\.$#"
-			count: 1
-			path: src/Table/Indexes.php
-
-		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Table/Indexes.php
 

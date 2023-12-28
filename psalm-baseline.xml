@@ -3596,6 +3596,7 @@
     </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['columns']]]></code>
+      <code>$oldIndex</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidArrayOffset>
       <code><![CDATA[$_POST['index']['Index_choice']]]></code>
@@ -11462,9 +11463,6 @@
     </PossiblyUndefinedArrayOffset>
   </file>
   <file src="src/Table/Indexes.php">
-    <PossiblyInvalidArgument>
-      <code>$oldIndex</code>
-    </PossiblyInvalidArgument>
     <PossiblyNullOperand>
       <code><![CDATA[$column->getSubPart()]]></code>
     </PossiblyNullOperand>

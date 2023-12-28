@@ -15,7 +15,6 @@ use PhpMyAdmin\Util;
 use function __;
 use function implode;
 use function in_array;
-use function is_array;
 use function sprintf;
 
 final class Indexes
@@ -36,8 +35,12 @@ final class Indexes
      *
      * @param Index $index current index
      */
-    public function getSqlQueryForIndexCreateOrEdit(string $dbName, string $tableName, Index $index): string
-    {
+    public function getSqlQueryForIndexCreateOrEdit(
+        string|null $oldIndexName,
+        Index $index,
+        string $dbName,
+        string $tableName,
+    ): string {
         // $sql_query is the one displayed in the query box
         $sqlQuery = sprintf(
             'ALTER TABLE %s.%s',
@@ -46,14 +49,13 @@ final class Indexes
         );
 
         // Drops the old index
-        if (isset($_POST['old_index'])) {
-            $oldIndex = is_array($_POST['old_index']) ? $_POST['old_index']['Key_name'] : $_POST['old_index'];
-            if ($oldIndex === 'PRIMARY') {
+        if ($oldIndexName !== null) {
+            if ($oldIndexName === 'PRIMARY') {
                 $sqlQuery .= ' DROP PRIMARY KEY,';
             } else {
                 $sqlQuery .= sprintf(
                     ' DROP INDEX %s,',
-                    Util::backquote($oldIndex),
+                    Util::backquote($oldIndexName),
                 );
             }
         }
@@ -147,7 +149,7 @@ final class Indexes
     public function getSqlQueryForRename(string $oldIndexName, Index $index, string $db, string $table): string
     {
         if (! Compatibility::isCompatibleRenameIndex($this->dbi->getVersion())) {
-            return $this->getSqlQueryForIndexCreateOrEdit($db, $table, $index);
+            return $this->getSqlQueryForIndexCreateOrEdit($oldIndexName, $index, $db, $table);
         }
 
         if ($oldIndexName === 'PRIMARY') {

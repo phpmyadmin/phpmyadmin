@@ -70,15 +70,14 @@ class IndexesTest extends AbstractTestCase
         $sqlQueryExpected = 'ALTER TABLE `pma_db`.`pma_table` DROP PRIMARY KEY, ADD PRIMARY KEY (`id`);';
 
         $_POST['old_index'] = 'PRIMARY';
-        $this->assertEquals($sqlQueryExpected, $indexes->getSqlQueryForIndexCreateOrEdit($db, $table, $index));
-
-        $_POST['old_index'] = [];
-        $_POST['old_index']['Key_name'] = 'PRIMARY';
-        $this->assertEquals($sqlQueryExpected, $indexes->getSqlQueryForIndexCreateOrEdit($db, $table, $index));
+        $this->assertEquals(
+            $sqlQueryExpected,
+            $indexes->getSqlQueryForIndexCreateOrEdit('PRIMARY', $index, $db, $table),
+        );
 
         // Error message
         $index->setName('NOT PRIMARY'); // Cannot rename primary so the operation should fail
-        $indexes->getSqlQueryForIndexCreateOrEdit($db, $table, $index);
+        $indexes->getSqlQueryForIndexCreateOrEdit('PRIMARY', $index, $db, $table);
         $this->assertInstanceOf(Message::class, $indexes->getError());
     }
 }

@@ -103,8 +103,18 @@ class IndexesController extends AbstractController
 
         if (isset($_POST['do_save_data'])) {
             $previewSql = $request->hasBodyParam('preview_sql');
+            if (isset($_POST['old_index'])) {
+                $oldIndex = is_array($_POST['old_index']) ? $_POST['old_index']['Key_name'] : $_POST['old_index'];
+            } else {
+                $oldIndex = null;
+            }
 
-            $sqlQuery = $this->indexes->getSqlQueryForIndexCreateOrEdit(Current::$database, Current::$table, $index);
+            $sqlQuery = $this->indexes->getSqlQueryForIndexCreateOrEdit(
+                $oldIndex,
+                $index,
+                Current::$database,
+                Current::$table,
+            );
 
             // If there is a request for SQL previewing.
             if ($previewSql) {
