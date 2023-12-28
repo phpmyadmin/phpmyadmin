@@ -13,6 +13,7 @@ use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Exceptions\SessionHandlerException;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\IpAllowDeny;
+use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Logging;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -249,7 +250,7 @@ abstract class AuthenticationPlugin
                 $responseRenderer = ResponseRenderer::getInstance();
                 $responseRenderer->addHTML((new Template())->render('error/generic', [
                     'lang' => $GLOBALS['lang'] ?? 'en',
-                    'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+                    'dir' => LanguageManager::$textDir,
                     'error_message' => $exception->getMessage(),
                 ]));
 

@@ -37,7 +37,6 @@ class DatabasesControllerTest extends AbstractTestCase
         Current::$database = 'pma_test';
         Current::$table = '';
         Config::getInstance()->selectedServer['DisableIS'] = false;
-        $GLOBALS['text_dir'] = 'text_dir';
     }
 
     public function testIndexAction(): void

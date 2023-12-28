@@ -37,7 +37,6 @@ class UserPreferencesTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Current::$server = 2;
-        $GLOBALS['text_dir'] = 'ltr';
         $_SERVER['PHP_SELF'] = '/phpmyadmin/';
     }
 

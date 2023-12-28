@@ -37,7 +37,6 @@ class CheckRelationsControllerTest extends AbstractTestCase
     {
         Current::$database = '';
         Current::$table = '';
-        $GLOBALS['text_dir'] = 'ltr';
 
         $request = $this->createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([

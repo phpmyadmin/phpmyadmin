@@ -40,7 +40,6 @@ class FooterTest extends AbstractTestCase
         $_SERVER['SCRIPT_NAME'] = 'index.php';
         Current::$database = '';
         Current::$table = '';
-        $GLOBALS['text_dir'] = 'ltr';
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
         $config->selectedServer['verbose'] = 'verbose host';

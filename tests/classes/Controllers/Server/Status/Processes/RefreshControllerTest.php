@@ -30,7 +30,6 @@ class RefreshControllerTest extends AbstractTestCase
         parent::setUp();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $GLOBALS['text_dir'] = 'ltr';
 
         parent::setGlobalConfig();
 

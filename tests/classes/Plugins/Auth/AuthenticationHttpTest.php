@@ -45,7 +45,6 @@ class AuthenticationHttpTest extends AbstractTestCase
         Current::$database = 'db';
         Current::$table = 'table';
         $GLOBALS['lang'] = 'en';
-        $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['token_provided'] = true;
         $GLOBALS['token_mismatch'] = false;
         $this->object = new AuthenticationHttp();

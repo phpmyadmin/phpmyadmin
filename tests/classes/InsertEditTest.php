@@ -67,7 +67,6 @@ class InsertEditTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->dbi;
         $config = Config::getInstance();
         $config->settings['ServerDefault'] = 1;
-        $GLOBALS['text_dir'] = 'ltr';
         Current::$database = 'db';
         Current::$table = 'table';
         $config->settings['LimitChars'] = 50;

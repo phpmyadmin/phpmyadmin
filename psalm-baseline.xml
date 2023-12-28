@@ -934,9 +934,6 @@
       <code>$columnDefault</code>
       <code>$columnDefault</code>
     </MixedAssignment>
-    <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['text_dir']]]></code>
-    </PossiblyNullArgument>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
@@ -1687,9 +1684,6 @@
       <code>$selectedTable</code>
       <code>$table</code>
     </MixedAssignment>
-    <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['text_dir']]]></code>
-    </PossiblyNullArgument>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
@@ -2841,9 +2835,6 @@
       <code><![CDATA[$GLOBALS['message']]]></code>
       <code>$dbName</code>
     </MixedAssignment>
-    <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['text_dir']]]></code>
-    </PossiblyNullArgument>
     <UnusedVariable>
       <code>$key</code>
     </UnusedVariable>
@@ -3308,7 +3299,6 @@
       <code><![CDATA[$GLOBALS['current_result']]]></code>
     </PossiblyInvalidArgument>
     <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['text_dir']]]></code>
       <code>$isUpload</code>
     </PossiblyNullArgument>
   </file>
@@ -4153,9 +4143,6 @@
       <code>$toggleActivation</code>
       <code>$version</code>
     </MixedAssignment>
-    <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['text_dir']]]></code>
-    </PossiblyNullArgument>
   </file>
   <file src="src/Controllers/Table/ZoomSearchController.php">
     <DeprecatedMethod>

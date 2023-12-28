@@ -116,7 +116,6 @@
             sql_type: 'INSERT'|'UPDATE'|'REPLACE',
             table_priv: bool,
             tbl_storage_engine: string,
-            text_dir: string,
             token_mismatch: bool,
             token_provided: bool,
             unparsed_sql?: string,

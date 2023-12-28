@@ -43,7 +43,6 @@ class ExportCsvTest extends AbstractTestCase
         Current::$database = '';
         Current::$table = '';
         $GLOBALS['lang'] = '';
-        $GLOBALS['text_dir'] = '';
         $GLOBALS['csv_enclosed'] = null;
         $GLOBALS['csv_separator'] = null;
         $GLOBALS['save_filename'] = null;

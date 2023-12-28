@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Http\Middleware;
 
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
+use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Template;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -43,7 +44,7 @@ final class RequestProblemChecking implements MiddlewareInterface
 
             return $response->write($this->template->render('error/generic', [
                 'lang' => $GLOBALS['lang'] ?? 'en',
-                'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+                'dir' => LanguageManager::$textDir,
                 'error_message' => $exception->getMessage(),
             ]));
         }

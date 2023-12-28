@@ -36,7 +36,6 @@ class RoutinesTest extends AbstractTestCase
         $config->settings['ActionLinksMode'] = 'icons';
         Current::$database = 'db';
         Current::$table = 'table';
-        $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['proc_priv'] = false;
         $GLOBALS['is_reload_priv'] = false;
         $GLOBALS['errors'] = [];

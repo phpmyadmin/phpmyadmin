@@ -40,7 +40,6 @@ class StructureControllerTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['text_dir'] = 'ltr';
         Config::getInstance()->selectedServer['DisableIS'] = false;
         Current::$table = 'table';
         Current::$database = 'db';

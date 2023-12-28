@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Auth;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Util;
@@ -41,7 +42,7 @@ class AuthenticationSignon extends AuthenticationPlugin
         if (empty($config->selectedServer['SignonURL'])) {
             echo $this->template->render('error/generic', [
                 'lang' => $GLOBALS['lang'] ?? 'en',
-                'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+                'dir' => LanguageManager::$textDir,
                 'error_message' => 'You must set SignonURL!',
             ]);
 
@@ -119,7 +120,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             if (! @file_exists($scriptName)) {
                 echo $this->template->render('error/generic', [
                     'lang' => $GLOBALS['lang'] ?? 'en',
-                    'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+                    'dir' => LanguageManager::$textDir,
                     'error_message' => __('Can not find signon authentication script:') . ' ' . $scriptName,
                 ]);
 

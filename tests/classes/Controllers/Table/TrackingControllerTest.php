@@ -42,7 +42,6 @@ class TrackingControllerTest extends AbstractTestCase
         Current::$server = 2;
         Current::$database = 'test_db';
         Current::$table = 'test_table';
-        $GLOBALS['text_dir'] = 'ltr';
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = true;
         $config->selectedServer['tracking_default_statements'] = 'CREATE TABLE,ALTER TABLE,DROP TABLE';

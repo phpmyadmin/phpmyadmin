@@ -12,6 +12,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -155,8 +156,6 @@ class CentralColumnsController extends AbstractController
 
     public function main(string $totalRows, string $position, DatabaseName $db): void
     {
-        $GLOBALS['text_dir'] ??= null;
-
         if ($totalRows !== '' && $totalRows !== '0' && is_numeric($totalRows)) {
             $totalRows = (int) $totalRows;
         } else {
@@ -172,7 +171,7 @@ class CentralColumnsController extends AbstractController
             $db->getName(),
             $totalRows,
             $pos,
-            $GLOBALS['text_dir'],
+            LanguageManager::$textDir,
         );
 
         $this->render('database/central_columns/main', $variables);

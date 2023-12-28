@@ -37,8 +37,6 @@ class CreateControllerTest extends AbstractTestCase
 
     public function testCreate(): void
     {
-        $GLOBALS['text_dir'] = 'ltr';
-
         $relationParameters = RelationParameters::fromArray([
             'exporttemplateswork' => true,
             'db' => 'db',

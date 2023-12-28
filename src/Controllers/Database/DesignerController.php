@@ -12,6 +12,7 @@ use PhpMyAdmin\Database\Designer\Common as DesignerCommon;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -40,7 +41,6 @@ class DesignerController extends AbstractController
     {
         $GLOBALS['message'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
-        $GLOBALS['text_dir'] ??= null;
 
         $db = $request->getParsedBodyParam('db');
         $table = $request->getParsedBodyParam('table');
@@ -68,7 +68,7 @@ class DesignerController extends AbstractController
 
                 $html = $this->template->render('database/designer/database_tables', [
                     'db' => Current::$database,
-                    'text_dir' => $GLOBALS['text_dir'],
+                    'text_dir' => LanguageManager::$textDir,
                     'has_query' => isset($_REQUEST['query']),
                     'tab_pos' => [],
                     'display_page' => -1,
@@ -236,7 +236,7 @@ class DesignerController extends AbstractController
 
         $mainHtml = $this->template->render('database/designer/main', [
             'db' => Current::$database,
-            'text_dir' => $GLOBALS['text_dir'],
+            'text_dir' => LanguageManager::$textDir,
             'hidden_input_fields' => Url::getHiddenInputs($request->getQueryParam('db')),
             'designer_config' => json_encode($designerConfig),
             'display_page' => $displayPage,

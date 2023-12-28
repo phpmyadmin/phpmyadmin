@@ -23,7 +23,6 @@ class GisDataEditorControllerTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         Current::$database = 'db';
         Current::$table = 'table';

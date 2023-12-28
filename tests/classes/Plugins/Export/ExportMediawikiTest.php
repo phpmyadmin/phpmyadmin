@@ -50,7 +50,6 @@ class ExportMediawikiTest extends AbstractTestCase
         Current::$database = '';
         Current::$table = '';
         $GLOBALS['lang'] = 'en';
-        $GLOBALS['text_dir'] = 'ltr';
         $this->object = new ExportMediawiki(
             new Relation($dbi),
             new Export($dbi),

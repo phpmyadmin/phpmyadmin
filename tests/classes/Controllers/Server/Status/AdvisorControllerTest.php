@@ -29,8 +29,6 @@ class AdvisorControllerTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['text_dir'] = 'ltr';
-
         parent::setGlobalConfig();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();

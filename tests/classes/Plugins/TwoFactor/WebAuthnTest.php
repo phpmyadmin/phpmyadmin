@@ -43,7 +43,6 @@ class WebAuthnTest extends AbstractTestCase
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
 
         $GLOBALS['lang'] = 'en';
-        $GLOBALS['text_dir'] = 'ltr';
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
         $uri = $this->createStub(UriInterface::class);
@@ -107,7 +106,6 @@ class WebAuthnTest extends AbstractTestCase
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
 
         $GLOBALS['lang'] = 'en';
-        $GLOBALS['text_dir'] = 'ltr';
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
         $uri = $this->createStub(UriInterface::class);

@@ -12,6 +12,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -40,7 +41,6 @@ final class EventsController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['errors'] ??= null;
-        $GLOBALS['text_dir'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
         $this->addScriptFiles(['database/events.js']);
@@ -264,7 +264,7 @@ final class EventsController extends AbstractController
             'items' => $items,
             'has_privilege' => Util::currentUserHasPrivilege('EVENT', Current::$database),
             'scheduler_state' => $this->events->getEventSchedulerStatus(),
-            'text_dir' => $GLOBALS['text_dir'],
+            'text_dir' => LanguageManager::$textDir,
             'is_ajax' => $request->isAjax() && empty($_REQUEST['ajax_page_request']),
         ]);
     }

@@ -46,7 +46,6 @@ class ExportPhparrayTest extends AbstractTestCase
         Current::$database = '';
         Current::$table = '';
         $GLOBALS['lang'] = 'en';
-        $GLOBALS['text_dir'] = 'ltr';
         $this->object = new ExportPhparray(
             new Relation($dbi),
             new Export($dbi),

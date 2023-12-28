@@ -28,7 +28,6 @@ class IndexesTest extends AbstractTestCase
          */
         Current::$database = 'db';
         Current::$table = 'table';
-        $GLOBALS['text_dir'] = 'ltr';
         $config = Config::getInstance();
         $config->selectedServer['pmadb'] = '';
         $config->selectedServer['DisableIS'] = false;

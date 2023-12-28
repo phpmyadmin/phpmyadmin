@@ -39,7 +39,6 @@ class TableControllerTest extends AbstractTestCase
 
     public function testOperationsController(): void
     {
-        $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['lang'] = 'en';
         Current::$database = 'test_db';
         Current::$table = 'test_table';

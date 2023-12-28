@@ -164,20 +164,20 @@ class Language
         }
 
         /* Text direction for language */
-        $GLOBALS['text_dir'] = $this->isRTL() ? 'rtl' : 'ltr';
+        LanguageManager::$textDir = $this->isRTL() ? 'rtl' : 'ltr';
 
         /* TCPDF */
         $GLOBALS['l'] = [];
 
         /* TCPDF settings */
         $GLOBALS['l']['a_meta_charset'] = 'UTF-8';
-        $GLOBALS['l']['a_meta_dir'] = $GLOBALS['text_dir'];
+        $GLOBALS['l']['a_meta_dir'] = LanguageManager::$textDir;
         $GLOBALS['l']['a_meta_language'] = $this->code;
 
         /* TCPDF translations */
         $GLOBALS['l']['w_page'] = __('Page number:');
 
-        /* Show possible warnings from langauge selection */
+        /* Show possible warnings from language selection */
         LanguageManager::getInstance()->showWarnings();
     }
 }

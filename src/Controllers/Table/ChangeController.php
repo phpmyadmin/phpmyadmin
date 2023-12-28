@@ -16,6 +16,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\InsertEdit;
+use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -50,7 +51,6 @@ class ChangeController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['text_dir'] ??= null;
         $GLOBALS['disp_message'] ??= null;
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -256,7 +256,7 @@ class ChangeController extends AbstractController
                 Current::$table,
                 Current::$database,
                 $rowId,
-                $GLOBALS['text_dir'],
+                LanguageManager::$textDir,
                 $repopulate,
                 $whereClauseArray,
             );
