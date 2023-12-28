@@ -104,24 +104,27 @@ class IndexesController extends AbstractController
         if (isset($_POST['do_save_data'])) {
             $previewSql = $request->hasBodyParam('preview_sql');
 
-            $sqlResult = $this->indexes->doSaveData($index, false, Current::$database, Current::$table, $previewSql);
-
-            if ($sqlResult instanceof Message) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', $sqlResult);
-
-                return;
-            }
+            $sqlQuery = $this->indexes->getSqlQueryForIndexCreateOrEdit(Current::$database, Current::$table, $index);
 
             // If there is a request for SQL previewing.
             if ($previewSql) {
                 $this->response->addJSON(
                     'sql_data',
-                    $this->template->render('preview_sql', ['query_data' => $sqlResult]),
+                    $this->template->render('preview_sql', ['query_data' => $sqlQuery]),
                 );
 
                 return;
             }
+
+            $logicError = $this->indexes->getError();
+            if ($logicError instanceof Message) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', $logicError);
+
+                return;
+            }
+
+            $this->dbi->query($sqlQuery);
 
             if ($request->isAjax()) {
                 $message = Message::success(
@@ -130,7 +133,7 @@ class IndexesController extends AbstractController
                 $message->addParam(Current::$table);
                 $this->response->addJSON(
                     'message',
-                    Generator::getMessage($message, $sqlResult, 'success'),
+                    Generator::getMessage($message, $sqlQuery, 'success'),
                 );
 
                 $indexes = Index::getFromTable($this->dbi, Current::$table, Current::$database);

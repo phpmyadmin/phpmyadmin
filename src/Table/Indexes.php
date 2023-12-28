@@ -22,60 +22,13 @@ final class Indexes
 {
     private Message|null $error = null;
 
-    public function __construct(
-        private DatabaseInterface $dbi,
-    ) {
+    public function __construct(private readonly DatabaseInterface $dbi)
+    {
     }
 
-    /**
-     * Process the data from the edit/create index form,
-     * run the query to build the new index
-     * and moves back to /table/sql
-     *
-     * @param Index $index      An Index instance.
-     * @param bool  $renameMode Rename the Index mode
-     */
-    public function doSaveData(
-        Index $index,
-        bool $renameMode,
-        string $db,
-        string $table,
-        bool $previewSql,
-        string $oldIndexName = '',
-    ): string|Message {
-        if ($renameMode && Compatibility::isCompatibleRenameIndex($this->dbi->getVersion())) {
-            if ($oldIndexName === 'PRIMARY') {
-                if ($index->getName() === '') {
-                    $index->setName('PRIMARY');
-                } elseif ($index->getName() !== 'PRIMARY') {
-                    $this->error = Message::error(
-                        __('The name of the primary key must be "PRIMARY"!'),
-                    );
-                }
-            }
-
-            $sqlQuery = QueryGenerator::getSqlQueryForIndexRename(
-                $db,
-                $table,
-                $oldIndexName,
-                $index->getName(),
-            );
-        } else {
-            $sqlQuery = $this->getSqlQueryForIndexCreateOrEdit($db, $table, $index);
-        }
-
-        // If there is a request for SQL previewing.
-        if ($previewSql) {
-            return $sqlQuery;
-        }
-
-        if ($this->error instanceof Message) {
-            return $this->error;
-        }
-
-        $this->dbi->query($sqlQuery);
-
-        return $sqlQuery;
+    public function getError(): Message|null
+    {
+        return $this->error;
     }
 
     /**
@@ -189,6 +142,30 @@ final class Indexes
         $sqlQuery .= ';';
 
         return $sqlQuery;
+    }
+
+    public function getSqlQueryForRename(string $oldIndexName, Index $index, string $db, string $table): string
+    {
+        if (! Compatibility::isCompatibleRenameIndex($this->dbi->getVersion())) {
+            return $this->getSqlQueryForIndexCreateOrEdit($db, $table, $index);
+        }
+
+        if ($oldIndexName === 'PRIMARY') {
+            if ($index->getName() === '') {
+                $index->setName('PRIMARY');
+            } elseif ($index->getName() !== 'PRIMARY') {
+                $this->error = Message::error(
+                    __('The name of the primary key must be "PRIMARY"!'),
+                );
+            }
+        }
+
+        return QueryGenerator::getSqlQueryForIndexRename(
+            $db,
+            $table,
+            $oldIndexName,
+            $index->getName(),
+        );
     }
 
     public function executeAddIndexSql(string|DatabaseName $db, string $sql): Message

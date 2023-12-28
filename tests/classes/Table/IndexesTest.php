@@ -31,40 +31,24 @@ class IndexesTest extends AbstractTestCase
             ->getMock();
     }
 
-    public function testDoSaveData(): void
+    public function testGetSqlQueryForRename(): void
     {
-        $sqlQuery = 'ALTER TABLE `db`.`table` DROP PRIMARY KEY, ADD PRIMARY KEY (`id`);';
+        $sqlQuery = 'ALTER TABLE `db`.`table` RENAME INDEX `0` TO `ABC`;';
 
-        $table = $this->getMockBuilder(Table::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $this->dbi->expects($this->any())->method('getTable')
-            ->willReturn($table);
+        $this->dbi->expects($this->any())->method('getVersion')
+            ->willReturn(50700);
 
-        $index = new Index();
-        $index->set([
-            'Key_name' => 'PRIMARY',
-            'columns' => [['Column_name' => 'id']],
-        ]);
+        $index = new Index(['Key_name' => 'ABC']);
 
         $indexes = new Indexes($this->dbi);
 
-        $_POST['old_index'] = 'PRIMARY';
-
-        // Preview SQL
-        $sqlResult = $indexes->doSaveData($index, false, Current::$database, Current::$table, true);
-        $this->assertIsString($sqlResult);
-        $this->assertStringContainsString($sqlQuery, $sqlResult);
-
-        // Alter success
-        $sqlResult = $indexes->doSaveData($index, false, Current::$database, Current::$table, false);
-        $this->assertIsString($sqlResult);
+        $sqlResult = $indexes->getSqlQueryForRename('0', $index, Current::$database, Current::$table);
         $this->assertStringContainsString($sqlQuery, $sqlResult);
 
         // Error message
         $index->setName('NOT PRIMARY'); // Cannot rename primary so the operation should fail
-        $sqlResult = $indexes->doSaveData($index, false, Current::$database, Current::$table, false);
-        $this->assertInstanceOf(Message::class, $sqlResult);
+        $indexes->getSqlQueryForRename('PRIMARY', $index, Current::$database, Current::$table);
+        $this->assertInstanceOf(Message::class, $indexes->getError());
     }
 
     public function testGetSqlQueryForIndexCreateOrEdit(): void
@@ -78,15 +62,23 @@ class IndexesTest extends AbstractTestCase
 
         $db = 'pma_db';
         $table = 'pma_table';
-        $index = new Index();
+        $index = new Index([
+            'Key_name' => 'PRIMARY',
+            'columns' => [['Column_name' => 'id']],
+        ]);
+
+        $sqlQueryExpected = 'ALTER TABLE `pma_db`.`pma_table` DROP PRIMARY KEY, ADD PRIMARY KEY (`id`);';
 
         $_POST['old_index'] = 'PRIMARY';
-        $sql = $indexes->getSqlQueryForIndexCreateOrEdit($db, $table, $index);
-        $this->assertEquals('ALTER TABLE `pma_db`.`pma_table` DROP PRIMARY KEY, ADD UNIQUE;', $sql);
+        $this->assertEquals($sqlQueryExpected, $indexes->getSqlQueryForIndexCreateOrEdit($db, $table, $index));
 
         $_POST['old_index'] = [];
         $_POST['old_index']['Key_name'] = 'PRIMARY';
-        $sql = $indexes->getSqlQueryForIndexCreateOrEdit($db, $table, $index);
-        $this->assertEquals('ALTER TABLE `pma_db`.`pma_table` DROP PRIMARY KEY, ADD UNIQUE;', $sql);
+        $this->assertEquals($sqlQueryExpected, $indexes->getSqlQueryForIndexCreateOrEdit($db, $table, $index));
+
+        // Error message
+        $index->setName('NOT PRIMARY'); // Cannot rename primary so the operation should fail
+        $indexes->getSqlQueryForIndexCreateOrEdit($db, $table, $index);
+        $this->assertInstanceOf(Message::class, $indexes->getError());
     }
 }

@@ -101,36 +101,37 @@ final class IndexRenameController extends AbstractController
 
         $previewSql = $request->hasBodyParam('preview_sql');
 
-        $sqlResult = $this->indexes->doSaveData(
+        $sqlQuery = $this->indexes->getSqlQueryForRename(
+            $oldIndexName,
             $index,
-            true,
             $databaseName->getName(),
             $tableName->getName(),
-            $previewSql,
-            $oldIndexName,
         );
 
         if ($previewSql) {
             $this->response->addJSON(
                 'sql_data',
-                $this->template->render('preview_sql', ['query_data' => $sqlResult]),
+                $this->template->render('preview_sql', ['query_data' => $sqlQuery]),
             );
 
             return;
         }
 
-        if ($sqlResult instanceof Message) {
+        $logicError = $this->indexes->getError();
+        if ($logicError instanceof Message) {
             $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', $sqlResult);
+            $this->response->addJSON('message', $logicError);
 
             return;
         }
+
+        $this->dbi->query($sqlQuery);
 
         $message = Message::success(__('Table %1$s has been altered successfully.'));
         $message->addParam($tableName->getName());
         $this->response->addJSON(
             'message',
-            Generator::getMessage($message, $sqlResult, 'success'),
+            Generator::getMessage($message, $sqlQuery, 'success'),
         );
 
         $indexes = Index::getFromTable($this->dbi, $tableName->getName(), $databaseName->getName());

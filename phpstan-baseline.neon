@@ -4926,12 +4926,12 @@ parameters:
 			path: src/Controllers/Table/IndexRenameController.php
 
 		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$oldIndexName of method PhpMyAdmin\\\\Table\\\\Indexes\\:\\:getSqlQueryForRename\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/IndexRenameController.php
 
 		-
-			message: "#^Parameter \\#6 \\$oldIndexName of method PhpMyAdmin\\\\Table\\\\Indexes\\:\\:doSaveData\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/IndexRenameController.php
 
