@@ -36,12 +36,13 @@ class IndexRenameControllerTest extends AbstractTestCase
 
         $template = new Template();
         $expected = $template->render('table/index_rename_form', [
-            'index' => new Index(),
-            'form_params' => ['db' => 'test_db', 'table' => 'test_table'],
+            'index' => new Index(['Key_name' => 'index']),
+            'form_params' => ['db' => 'test_db', 'table' => 'test_table', 'old_index' => 'index'],
         ]);
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
-            ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
+            ->withQueryParams(['db' => 'test_db', 'table' => 'test_table'])
+            ->withParsedBody(['index' => 'index']);
 
         $response = new ResponseRenderer();
         (new IndexRenameController(
