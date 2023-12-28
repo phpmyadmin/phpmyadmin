@@ -10,11 +10,18 @@ use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
+use PhpMyAdmin\Util;
 
 use function __;
+use function implode;
+use function in_array;
+use function is_array;
+use function sprintf;
 
 final class Indexes
 {
+    private Message|null $error = null;
+
     public function __construct(
         private DatabaseInterface $dbi,
     ) {
@@ -36,13 +43,12 @@ final class Indexes
         bool $previewSql,
         string $oldIndexName = '',
     ): string|Message {
-        $error = false;
         if ($renameMode && Compatibility::isCompatibleRenameIndex($this->dbi->getVersion())) {
             if ($oldIndexName === 'PRIMARY') {
                 if ($index->getName() === '') {
                     $index->setName('PRIMARY');
                 } elseif ($index->getName() !== 'PRIMARY') {
-                    $error = Message::error(
+                    $this->error = Message::error(
                         __('The name of the primary key must be "PRIMARY"!'),
                     );
                 }
@@ -55,7 +61,7 @@ final class Indexes
                 $index->getName(),
             );
         } else {
-            $sqlQuery = $this->dbi->getTable($db, $table)->getSqlQueryForIndexCreateOrEdit($index, $error);
+            $sqlQuery = $this->getSqlQueryForIndexCreateOrEdit($db, $table, $index);
         }
 
         // If there is a request for SQL previewing.
@@ -63,11 +69,124 @@ final class Indexes
             return $sqlQuery;
         }
 
-        if ($error instanceof Message) {
-            return $error;
+        if ($this->error instanceof Message) {
+            return $this->error;
         }
 
         $this->dbi->query($sqlQuery);
+
+        return $sqlQuery;
+    }
+
+    /**
+     * Function to get the sql query for index creation or edit
+     *
+     * @param Index $index current index
+     */
+    public function getSqlQueryForIndexCreateOrEdit(string $dbName, string $tableName, Index $index): string
+    {
+        // $sql_query is the one displayed in the query box
+        $sqlQuery = sprintf(
+            'ALTER TABLE %s.%s',
+            Util::backquote($dbName),
+            Util::backquote($tableName),
+        );
+
+        // Drops the old index
+        if (isset($_POST['old_index'])) {
+            $oldIndex = is_array($_POST['old_index']) ? $_POST['old_index']['Key_name'] : $_POST['old_index'];
+            if ($oldIndex === 'PRIMARY') {
+                $sqlQuery .= ' DROP PRIMARY KEY,';
+            } else {
+                $sqlQuery .= sprintf(
+                    ' DROP INDEX %s,',
+                    Util::backquote($oldIndex),
+                );
+            }
+        }
+
+        // Builds the new one
+        switch ($index->getChoice()) {
+            case 'PRIMARY':
+                if ($index->getName() == '') {
+                    $index->setName('PRIMARY');
+                } elseif ($index->getName() !== 'PRIMARY') {
+                    $this->error = Message::error(
+                        __('The name of the primary key must be "PRIMARY"!'),
+                    );
+                }
+
+                $sqlQuery .= ' ADD PRIMARY KEY';
+                break;
+            case 'FULLTEXT':
+            case 'UNIQUE':
+            case 'INDEX':
+            case 'SPATIAL':
+                if ($index->getName() === 'PRIMARY') {
+                    $this->error = Message::error(
+                        __('Can\'t rename index to PRIMARY!'),
+                    );
+                }
+
+                $sqlQuery .= sprintf(
+                    ' ADD %s',
+                    $index->getChoice(),
+                );
+                if ($index->getName() !== '') {
+                    $sqlQuery .= ' ' . Util::backquote($index->getName());
+                }
+
+                break;
+        }
+
+        $indexFields = [];
+        foreach ($index->getColumns() as $key => $column) {
+            $indexFields[$key] = Util::backquote($column->getName());
+            if (! $column->getSubPart()) {
+                continue;
+            }
+
+            $indexFields[$key] .= '(' . $column->getSubPart() . ')';
+        }
+
+        if ($indexFields === []) {
+            $this->error = Message::error(__('No index parts defined!'));
+        } else {
+            $sqlQuery .= ' (' . implode(', ', $indexFields) . ')';
+        }
+
+        $keyBlockSizes = $index->getKeyBlockSize();
+        if ($keyBlockSizes !== 0) {
+            $sqlQuery .= ' KEY_BLOCK_SIZE = ' . $keyBlockSizes;
+        }
+
+        // specifying index type is allowed only for primary, unique and index only
+        // TokuDB is using Fractal Tree, Using Type is not useless
+        // Ref: https://mariadb.com/kb/en/storage-engine-index-types/
+        $type = $index->getType();
+        if (
+            $index->getChoice() !== 'SPATIAL'
+            && $index->getChoice() !== 'FULLTEXT'
+            && in_array($type, Index::getIndexTypes(), true)
+            && ! $this->dbi->getTable($dbName, $tableName)->isEngine('TOKUDB')
+        ) {
+            $sqlQuery .= ' USING ' . $type;
+        }
+
+        $parser = $index->getParser();
+        if ($index->getChoice() === 'FULLTEXT' && $parser !== '') {
+            $sqlQuery .= ' WITH PARSER ' . $parser;
+        }
+
+        $comment = $index->getComment();
+        if ($comment !== '') {
+            $sqlQuery .= sprintf(
+                ' COMMENT %s',
+                $this->dbi->quoteString($comment),
+            );
+        }
+
+        $sqlQuery .= ';';
 
         return $sqlQuery;
     }

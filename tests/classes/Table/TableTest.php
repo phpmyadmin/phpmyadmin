@@ -9,7 +9,6 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
-use PhpMyAdmin\Index;
 use PhpMyAdmin\ListDatabase;
 use PhpMyAdmin\Query\Cache;
 use PhpMyAdmin\SqlParser\Context;
@@ -1178,42 +1177,6 @@ class TableTest extends AbstractTestCase
             . 'FOREIGN KEY (`PMA_field1`, `PMA_field2`) REFERENCES '
             . '`foreignTable`(`foreignField1`, `foreignField2`);';
         $this->assertEquals($sqlExcepted, $sql);
-    }
-
-    /**
-     * Tests for getSqlQueryForIndexCreateOrEdit() method.
-     */
-    public function testGetSqlQueryForIndexCreateOrEdit(): void
-    {
-        $db = 'pma_db';
-        $table = 'pma_table';
-        $index = new Index();
-        $error = false;
-
-        $_POST['old_index'] = 'PRIMARY';
-
-        $table = new Table($table, $db, DatabaseInterface::getInstance());
-        $sql = $table->getSqlQueryForIndexCreateOrEdit($index, $error);
-
-        $this->assertEquals('ALTER TABLE `pma_db`.`pma_table` DROP PRIMARY KEY, ADD UNIQUE;', $sql);
-    }
-
-    /**
-     * Tests for getSqlQueryForIndexCreateOrEdit() method.
-     */
-    public function testGetSqlQueryForIndexCreateOrEditSecondFormat(): void
-    {
-        $db = 'pma_db';
-        $table = 'pma_table';
-        $index = new Index();
-        $error = false;
-
-        $_POST['old_index']['Key_name'] = 'PRIMARY';
-
-        $table = new Table($table, $db, DatabaseInterface::getInstance());
-        $sql = $table->getSqlQueryForIndexCreateOrEdit($index, $error);
-
-        $this->assertEquals('ALTER TABLE `pma_db`.`pma_table` DROP PRIMARY KEY, ADD UNIQUE;', $sql);
     }
 
     /**

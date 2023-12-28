@@ -15166,6 +15166,16 @@ parameters:
 			path: src/Table/Indexes.php
 
 		-
+			message: "#^Only booleans are allowed in a negated boolean, int\\|null given\\.$#"
+			count: 1
+			path: src/Table/Indexes.php
+
+		-
+			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
+			count: 1
+			path: src/Table/Indexes.php
+
+		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
 			count: 2
 			path: src/Table/Search.php
@@ -15437,7 +15447,7 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in a negated boolean, int\\|null given\\.$#"
-			count: 2
+			count: 1
 			path: src/Table/Table.php
 
 		-
@@ -15477,7 +15487,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 7
+			count: 6
 			path: src/Table/Table.php
 
 		-
@@ -17897,31 +17907,11 @@ parameters:
 
 		-
 			message: "#^Call to an undefined method PhpMyAdmin\\\\DatabaseInterface\\:\\:expects\\(\\)\\.$#"
-			count: 1
-			path: tests/classes/Table/IndexesTest.php
-
-		-
-			message: "#^Cannot call method method\\(\\) on mixed\\.$#"
-			count: 1
-			path: tests/classes/Table/IndexesTest.php
-
-		-
-			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
-			count: 1
-			path: tests/classes/Table/IndexesTest.php
-
-		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\DatabaseInterface\\:\\:expects\\(\\)\\.$#"
 			count: 4
 			path: tests/classes/Table/TableTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Table\\\\\\\\Table' and PhpMyAdmin\\\\Table\\\\Table will always evaluate to true\\.$#"
-			count: 1
-			path: tests/classes/Table/TableTest.php
-
-		-
-			message: "#^Cannot access offset 'Key_name' on mixed\\.$#"
 			count: 1
 			path: tests/classes/Table/TableTest.php
 

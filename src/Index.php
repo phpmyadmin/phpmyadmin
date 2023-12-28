@@ -209,7 +209,7 @@ class Index
             $key .= $params['Seq_in_index'];
         }
 
-        if (strlen($key) <= 0) {
+        if ($key === '') {
             return;
         }
 
