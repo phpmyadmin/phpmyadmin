@@ -4,26 +4,18 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Table;
 
-use PhpMyAdmin\Container\ContainerBuilder;
-use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
-use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 
 use function __;
 
 final class Indexes
 {
     public function __construct(
-        protected ResponseRenderer $response,
-        protected Template $template,
         private DatabaseInterface $dbi,
     ) {
     }
@@ -37,14 +29,13 @@ final class Indexes
      * @param bool  $renameMode Rename the Index mode
      */
     public function doSaveData(
-        ServerRequest $request,
         Index $index,
         bool $renameMode,
         string $db,
         string $table,
         bool $previewSql,
         string $oldIndexName = '',
-    ): void {
+    ): string|Message {
         $error = false;
         if ($renameMode && Compatibility::isCompatibleRenameIndex($this->dbi->getVersion())) {
             if ($oldIndexName === 'PRIMARY') {
@@ -64,56 +55,21 @@ final class Indexes
                 $index->getName(),
             );
         } else {
-            $sqlQuery = $this->dbi->getTable($db, $table)
-                ->getSqlQueryForIndexCreateOrEdit($index, $error);
+            $sqlQuery = $this->dbi->getTable($db, $table)->getSqlQueryForIndexCreateOrEdit($index, $error);
         }
 
         // If there is a request for SQL previewing.
         if ($previewSql) {
-            $this->response->addJSON(
-                'sql_data',
-                $this->template->render('preview_sql', ['query_data' => $sqlQuery]),
-            );
-
-            return;
+            return $sqlQuery;
         }
 
-        if ($error) {
-            $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', $error);
-
-            return;
+        if ($error instanceof Message) {
+            return $error;
         }
 
         $this->dbi->query($sqlQuery);
-        if ($request->isAjax()) {
-            $message = Message::success(
-                __('Table %1$s has been altered successfully.'),
-            );
-            $message->addParam($table);
-            $this->response->addJSON(
-                'message',
-                Generator::getMessage($message, $sqlQuery, 'success'),
-            );
 
-            $indexes = Index::getFromTable($this->dbi, $table, $db);
-            $indexesDuplicates = Index::findDuplicates($table, $db);
-
-            $this->response->addJSON(
-                'index_table',
-                $this->template->render('indexes', [
-                    'url_params' => ['db' => $db, 'table' => $table],
-                    'indexes' => $indexes,
-                    'indexes_duplicates' => $indexesDuplicates,
-                ]),
-            );
-
-            return;
-        }
-
-        /** @var StructureController $controller */
-        $controller = ContainerBuilder::getContainer()->get(StructureController::class);
-        $controller($request);
+        return $sqlQuery;
     }
 
     public function executeAddIndexSql(string|DatabaseName $db, string $sql): Message

@@ -48,7 +48,7 @@ class IndexRenameControllerTest extends AbstractTestCase
             $response,
             $template,
             $dbi,
-            new Indexes($response, $template, $dbi),
+            new Indexes($dbi),
             new DbTableExists($dbi),
         ))($request);
         $this->assertSame($expected, $response->getHTMLResult());

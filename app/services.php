@@ -193,7 +193,7 @@ return [
         ],
         'table_indexes' => [
             'class' => Indexes::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
+            'arguments' => ['$dbi' => '@dbi'],
         ],
         'table_maintenance' => ['class' => PhpMyAdmin\Table\Maintenance::class, 'arguments' => ['$dbi' => '@dbi']],
         'table_search' => ['class' => Search::class, 'arguments' => ['$dbi' => '@dbi']],

@@ -36,7 +36,7 @@ class SpatialControllerTest extends AbstractTestCase
         $controllerStub = $this->createMock(StructureController::class);
         $controllerStub->expects($this->once())->method('__invoke')->with($request);
 
-        $indexes = new Indexes(new ResponseRenderer(), new Template(), DatabaseInterface::getInstance());
+        $indexes = new Indexes(DatabaseInterface::getInstance());
         $controller = new SpatialController(new ResponseRenderer(), new Template(), $controllerStub, $indexes);
         $controller($request);
 
@@ -64,7 +64,7 @@ class SpatialControllerTest extends AbstractTestCase
         $controllerStub = $this->createMock(StructureController::class);
         $controllerStub->expects($this->once())->method('__invoke')->with($request);
 
-        $indexes = new Indexes(new ResponseRenderer(), new Template(), DatabaseInterface::getInstance());
+        $indexes = new Indexes(DatabaseInterface::getInstance());
         $controller = new SpatialController(new ResponseRenderer(), new Template(), $controllerStub, $indexes);
         $controller($request);
 
@@ -90,7 +90,7 @@ class SpatialControllerTest extends AbstractTestCase
         $controllerStub->expects($this->never())->method('__invoke');
         $response = new ResponseRenderer();
 
-        $indexes = new Indexes(new ResponseRenderer(), new Template(), DatabaseInterface::getInstance());
+        $indexes = new Indexes(DatabaseInterface::getInstance());
         $controller = new SpatialController($response, new Template(), $controllerStub, $indexes);
         $controller($request);
 
@@ -120,7 +120,7 @@ class SpatialControllerTest extends AbstractTestCase
         $controllerStub = $this->createMock(StructureController::class);
         $controllerStub->expects($this->once())->method('__invoke')->with($request);
 
-        $indexes = new Indexes(new ResponseRenderer(), new Template(), DatabaseInterface::getInstance());
+        $indexes = new Indexes(DatabaseInterface::getInstance());
         $controller = new SpatialController(new ResponseRenderer(), new Template(), $controllerStub, $indexes);
         $controller($request);
 

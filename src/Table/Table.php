@@ -1878,10 +1878,10 @@ class Table implements Stringable
     /**
      * Function to get the sql query for index creation or edit
      *
-     * @param Index $index current index
-     * @param bool  $error whether error occurred or not
+     * @param Index         $index current index
+     * @param Message|false $error whether error occurred or not
      */
-    public function getSqlQueryForIndexCreateOrEdit(Index $index, bool &$error): string
+    public function getSqlQueryForIndexCreateOrEdit(Index $index, Message|false &$error): string
     {
         // $sql_query is the one displayed in the query box
         $sqlQuery = sprintf(
@@ -1891,7 +1891,7 @@ class Table implements Stringable
         );
 
         // Drops the old index
-        if (! empty($_POST['old_index'])) {
+        if (isset($_POST['old_index'])) {
             $oldIndex = is_array($_POST['old_index']) ? $_POST['old_index']['Key_name'] : $_POST['old_index'];
             if ($oldIndex === 'PRIMARY') {
                 $sqlQuery .= ' DROP PRIMARY KEY,';

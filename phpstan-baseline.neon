@@ -4931,7 +4931,7 @@ parameters:
 			path: src/Controllers/Table/IndexRenameController.php
 
 		-
-			message: "#^Parameter \\#7 \\$oldIndexName of method PhpMyAdmin\\\\Table\\\\Indexes\\:\\:doSaveData\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#6 \\$oldIndexName of method PhpMyAdmin\\\\Table\\\\Indexes\\:\\:doSaveData\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/IndexRenameController.php
 
@@ -15367,7 +15367,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 18
+			count: 19
 			path: src/Table/Table.php
 
 		-
@@ -17907,11 +17907,6 @@ parameters:
 
 		-
 			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
-			count: 1
-			path: tests/classes/Table/IndexesTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: tests/classes/Table/IndexesTest.php
 

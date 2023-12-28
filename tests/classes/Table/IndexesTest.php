@@ -7,13 +7,10 @@ namespace PhpMyAdmin\Tests\Table;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Table\Indexes;
 use PhpMyAdmin\Table\Table;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(Indexes::class)]
@@ -65,25 +62,24 @@ class IndexesTest extends AbstractTestCase
         $dbi->expects($this->any())->method('getTable')
             ->willReturn($table);
 
-        $response = new ResponseStub();
         $index = new Index();
 
-        $indexes = new Indexes($response, new Template(), $dbi);
-
-        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
-            ->withQueryParams(['ajax_request' => '1']);
+        $indexes = new Indexes($dbi);
 
         // Preview SQL
-        $indexes->doSaveData($request, $index, false, Current::$database, Current::$table, true);
-        $jsonArray = $response->getJSONResult();
-        $this->assertArrayHasKey('sql_data', $jsonArray);
-        $this->assertStringContainsString($sqlQuery, $jsonArray['sql_data']);
+        $sqlResult = $indexes->doSaveData($index, false, Current::$database, Current::$table, true);
+        $this->assertIsString($sqlResult);
+        $this->assertStringContainsString($sqlQuery, $sqlResult);
 
         // Alter success
-        $response->clear();
-        $indexes->doSaveData($request, $index, false, Current::$database, Current::$table, false);
-        $jsonArray = $response->getJSONResult();
-        $this->assertArrayHasKey('index_table', $jsonArray);
-        $this->assertArrayHasKey('message', $jsonArray);
+        $sqlResult = $indexes->doSaveData($index, false, Current::$database, Current::$table, false);
+        $this->assertIsString($sqlResult);
+        $this->assertStringContainsString($sqlQuery, $sqlResult);
+
+        // Error message
+        // Cannot be tested at the moment.
+        // $index->setName('PRIMARY'); // Cannot rename any index to primary so the operation should fail
+        // $indexes->doSaveData($index, false, Current::$database, Current::$table, false);
+        // $this->assertInstanceOf(Message::class, $sqlResult);
     }
 }
