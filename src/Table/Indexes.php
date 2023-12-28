@@ -162,6 +162,12 @@ final class Indexes
             }
         }
 
+        if ($index->getName() === 'PRIMARY') {
+            $this->error = Message::error(
+                __('Can\'t rename index to PRIMARY!'),
+            );
+        }
+
         return QueryGenerator::getSqlQueryForIndexRename(
             $db,
             $table,

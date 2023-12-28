@@ -48,7 +48,13 @@ class IndexesTest extends AbstractTestCase
         // Error message
         $index->setName('NOT PRIMARY'); // Cannot rename primary so the operation should fail
         $indexes->getSqlQueryForRename('PRIMARY', $index, Current::$database, Current::$table);
-        $this->assertInstanceOf(Message::class, $indexes->getError());
+        $error = $indexes->getError();
+        $this->assertInstanceOf(Message::class, $error);
+
+        $index->setName('PRIMARY'); // The new name cannot be PRIMARY so the operation should fail
+        $indexes->getSqlQueryForRename('NOT PRIMARY', $index, Current::$database, Current::$table);
+        $error = $indexes->getError();
+        $this->assertInstanceOf(Message::class, $error);
     }
 
     public function testGetSqlQueryForIndexCreateOrEdit(): void
