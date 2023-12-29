@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-12-24 00:19+0000\n"
-"PO-Revision-Date: 2023-11-27 14:26+0000\n"
+"PO-Revision-Date: 2023-12-30 14:55+0000\n"
 "Last-Translator: Yong Kim <kim@nhn.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ko/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:30
 #: resources/templates/database/central_columns/edit_table_row.twig:22
@@ -1704,7 +1704,7 @@ msgstr "완료 후에 남기기"
 #: resources/templates/triggers/editor_form.twig:63
 #: resources/templates/view_create.twig:50
 msgid "Definer"
-msgstr "디파이너"
+msgstr "정의자"
 
 #: resources/templates/database/events/index.twig:3 src/Menu.php:383
 #: src/Navigation/Nodes/NodeEventContainer.php:23
@@ -6178,7 +6178,7 @@ msgstr "열(컬럼)"
 
 #: resources/templates/sql/query.twig:82
 msgid "Bookmark this SQL query:"
-msgstr "이 SQL 쿼리 북마크하기:"
+msgstr "이 SQL 쿼리를 북마크하기:"
 
 #: resources/templates/sql/query.twig:98
 msgid "Replace existing bookmark of same name"
