@@ -17,6 +17,8 @@ interface DbiExtension
 {
     /**
      * Connects to the database server.
+     *
+     * @throws ConnectionException
      */
     public function connect(Server $server): Connection|null;
 

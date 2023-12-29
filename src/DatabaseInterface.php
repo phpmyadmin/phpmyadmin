@@ -7,6 +7,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionException;
 use PhpMyAdmin\Dbal\DbalInterface;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\DbiMysqli;
@@ -1636,7 +1637,14 @@ class DatabaseInterface implements DbalInterface
         // Do not show location and backtrace for connection errors
         $errorHandler = ErrorHandler::getInstance();
         $errorHandler->setHideLocation(true);
-        $result = $this->extension->connect($server);
+        try {
+            $result = $this->extension->connect($server);
+        } catch (ConnectionException $exception) {
+            trigger_error($exception->getMessage(), E_USER_WARNING);
+
+            return null;
+        }
+
         $errorHandler->setHideLocation(false);
 
         if ($result !== null) {

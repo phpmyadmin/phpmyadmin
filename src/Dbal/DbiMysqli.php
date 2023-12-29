@@ -23,10 +23,7 @@ use function mysqli_report;
 use function sprintf;
 use function str_contains;
 use function strtolower;
-use function trigger_error;
 
-use const E_USER_ERROR;
-use const E_USER_WARNING;
 use const MYSQLI_CLIENT_COMPRESS;
 use const MYSQLI_CLIENT_SSL;
 use const MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT;
@@ -115,8 +112,10 @@ class DbiMysqli implements DbiExtension
                 return self::connect($server->withSSL(true));
             }
 
+            mysqli_report(MYSQLI_REPORT_OFF);
+
             if ($errorNumber === 1045 && $server->hideConnectionErrors) {
-                trigger_error(
+                throw new ConnectionException(
                     sprintf(
                         __(
                             'Error 1045: Access denied for user. Additional error information'
@@ -125,15 +124,12 @@ class DbiMysqli implements DbiExtension
                         '[code][doc@cfg_Servers_hide_connection_errors]'
                         . '$cfg[\'Servers\'][$i][\'hide_connection_errors\'][/doc][/code]',
                     ),
-                    E_USER_ERROR,
+                    $errorNumber,
+                    $exception,
                 );
-            } else {
-                trigger_error($errorNumber . ': ' . $errorMessage, E_USER_WARNING);
             }
 
-            mysqli_report(MYSQLI_REPORT_OFF);
-
-            return null;
+            throw new ConnectionException($errorNumber . ': ' . $errorMessage, $errorNumber, $exception);
         }
 
         $mysqli->options(MYSQLI_OPT_LOCAL_INFILE, (int) defined('PMA_ENABLE_LDI'));
