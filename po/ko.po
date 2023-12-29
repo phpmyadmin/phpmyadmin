@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2023-11-27 13:03+0000\n"
+"PO-Revision-Date: 2023-12-30 21:39+0000\n"
 "Last-Translator: Yong Kim <kim@nhn.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/5-1/ko/"
 ">\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -8849,7 +8849,7 @@ msgstr ""
 #: libraries/classes/Database/Triggers.php:450
 #: templates/database/events/editor_form.twig:89 templates/view_create.twig:45
 msgid "Definer"
-msgstr "디파이너"
+msgstr "정의자"
 
 #: libraries/classes/Database/Routines.php:1001
 msgid "Security type"
@@ -17444,7 +17444,7 @@ msgstr "파라미터 연결"
 
 #: templates/sql/query.twig:85
 msgid "Bookmark this SQL query:"
-msgstr "이 SQL 쿼리 북마크하기:"
+msgstr "이 SQL 쿼리를 북마크하기:"
 
 #: templates/sql/query.twig:96
 msgid "Replace existing bookmark of same name"
