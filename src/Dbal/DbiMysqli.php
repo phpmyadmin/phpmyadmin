@@ -21,7 +21,8 @@ use function mysqli_get_client_info;
 use function mysqli_init;
 use function mysqli_report;
 use function sprintf;
-use function stripos;
+use function str_contains;
+use function strtolower;
 use function trigger_error;
 
 use const E_USER_ERROR;
@@ -106,30 +107,11 @@ class DbiMysqli implements DbiExtension
                 $server->socket,
                 $clientFlags,
             );
-        } catch (mysqli_sql_exception) {
-            /**
-             * Switch to SSL if server asked us to do so, unfortunately
-             * there are more ways MySQL server can tell this:
-             *
-             * - MySQL 8.0 and newer should return error 3159
-             * - #2001 - SSL Connection is required. Please specify SSL options and retry.
-             * - #9002 - SSL connection is required. Please specify SSL options and retry.
-             */
-            // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-            $errorNumber = $mysqli->connect_errno;
-            // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-            $errorMessage = $mysqli->connect_error;
-            if (
-                ! $server->ssl
-                && ($errorNumber == 3159
-                    || (($errorNumber == 2001 || $errorNumber == 9002)
-                        && stripos($errorMessage, 'SSL Connection is required') !== false))
-            ) {
-                trigger_error(
-                    __('SSL connection enforced by server, automatically enabling it.'),
-                    E_USER_WARNING,
-                );
+        } catch (mysqli_sql_exception $exception) {
+            $errorNumber = $exception->getCode();
+            $errorMessage = $exception->getMessage();
 
+            if (! $server->ssl && $this->isSslRequiredByServer($errorNumber, $errorMessage)) {
                 return self::connect($server->withSSL(true));
             }
 
@@ -355,5 +337,20 @@ class DbiMysqli implements DbiExtension
 
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         return $mysqli->warning_count;
+    }
+
+    /**
+     * Switch to SSL if server asked us to do so, unfortunately
+     * there are more ways MySQL server can tell this:
+     *
+     * - MySQL 8.0 and newer should return error 3159
+     * - #2001 - SSL Connection is required. Please specify SSL options and retry.
+     * - #9002 - SSL connection is required. Please specify SSL options and retry.
+     */
+    private function isSslRequiredByServer(int $errorNumber, string $errorMessage): bool
+    {
+        return $errorNumber === 3159
+            || ($errorNumber === 2001 || $errorNumber === 9002)
+            && str_contains(strtolower($errorMessage), 'ssl connection is required');
     }
 }

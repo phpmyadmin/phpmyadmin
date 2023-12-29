@@ -5273,12 +5273,6 @@
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
-    <PossiblyNullArgument>
-      <code>$errorMessage</code>
-    </PossiblyNullArgument>
-    <PossiblyNullOperand>
-      <code>$errorMessage</code>
-    </PossiblyNullOperand>
   </file>
   <file src="src/Dbal/MysqliResult.php">
     <InvalidReturnStatement>
