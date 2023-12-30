@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2023-11-17 03:54+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2023-12-30 21:39+0000\n"
+"Last-Translator: Marco Aurélio Cardoso <marcoaurelio.cardoso@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-2/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.2\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5068,7 +5068,7 @@ msgstr "Mostrando registros %1$s - %2$s."
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
-"Já existe uma página chamada \"%s\", por favor, renomeie com outro nome."
+"Já existe uma página chamada \"%s\", por favor renomeie-a para outro nome."
 
 #: libraries/classes/Controllers/Database/ExportController.php:81
 #: libraries/classes/Controllers/Database/TrackingController.php:130
@@ -7524,7 +7524,7 @@ msgstr "Forte"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:683
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
-msgstr "O tempo de espera para ativação com chave de segurança foi excedido."
+msgstr "Tempo limite esgotado aguardando ativação da chave de segurança."
 
 #. l10n: error code 2 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:685
@@ -7571,7 +7571,7 @@ msgid ""
 "configured for this."
 msgstr ""
 "Você não pode abrir, salvar ou excluir o layout da sua página, pois o "
-"IndexedDB não está funcionando em seu navegador e seu armazenamento de "
+"IndexedDB não está funcionando no seu navegador e o armazenamento de "
 "configuração do phpMyAdmin não está configurado para isso."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:706
@@ -8229,7 +8229,7 @@ msgid ""
 "table_open_cache value is probably too small."
 msgstr ""
 "O número de tabelas que foram abertas. Se este número for grande, o valor de "
-"seu table_open_cache provavelmente é muito pequeno."
+"table_open_cache provavelmente está muito pequeno."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:440
 msgid "The number of files that are open."
@@ -9198,7 +9198,7 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
-"Erro 1045: Acesso negado para o usuário. Informações de erro adicionais "
+"Erro 1045: Acesso negado ao usuário. Informações adicionais sobre erros "
 "podem estar disponíveis, mas estão sendo ocultadas pela diretiva de "
 "configuração %s."
 
@@ -10784,10 +10784,8 @@ msgid "The table name is empty!"
 msgstr "O nome da tabela está vazio!"
 
 #: libraries/classes/Partitioning/Maintenance.php:141
-#, fuzzy
-#| msgid "This is a read-only variable and can not be edited"
 msgid "This table is a view, it can not be truncated."
-msgstr "Esta é uma variável somente leitura e não pode ser editada"
+msgstr "Esta tabela é uma view, não pode ser truncada."
 
 #: libraries/classes/Pdf.php:136
 msgid "Error while creating PDF:"
@@ -10848,16 +10846,12 @@ msgstr ""
 "O valor digitado na imagem de verificação está errado, tente novamente!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:301
-#, fuzzy
-#| msgid ""
-#| "Your password is too long. To prevent denial-of-service attacks, "
-#| "phpMyAdmin restricts passwords to less than 1000 characters."
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
 msgstr ""
 "Sua senha é muito longa. Para evitar ataques de negação de serviço, o "
-"phpMyAdmin restringe as senhas a menos de 1000 caracteres."
+"phpMyAdmin restringe as senhas a menos de 2000 caracteres."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:320
 msgid "You are not allowed to log in to this MySQL server!"
@@ -13925,10 +13919,10 @@ msgid ""
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Se o tipo de campo é \"ENUM\" ou \"SET\", por favor entre com valores usando "
-"este formato: 'a','b','c'…<br>Se você precisar colocar uma barra contrária "
-"(\" \\ \") ou uma aspa simples (\" ' \") entre esses valores, coloque uma "
-"barra contrária antes (por exemplo \"\\\\xyz\" ou \"\\'a\\'b\")."
+"Se o tipo de coluna for \"enum\" ou \"set\", insira os valores usando este "
+"formato: 'a','b','c'…<br>Se você precisar colocar uma barra invertida (\"\\\""
+") ou um aspas simples (\"'\") entre esses valores, preceda-as com uma barra "
+"invertida (por exemplo '\\\\xyz' ou 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
@@ -16297,9 +16291,8 @@ msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
-"Essas funções têm como objetivo retornar um resultado binário. Para evitar "
-"resultados inconsistentes, você deve armazená-lo em uma coluna BINARY, "
-"VARBINARY ou BLOB."
+"Essas funções retornam um resultado binário; para evitar resultados "
+"inconsistentes você deve armazená-lo em uma coluna BINARY, VARBINARY ou BLOB."
 
 #: templates/login/form.twig:58 templates/login/form.twig:117
 #: templates/login/form.twig:121 templates/login/form.twig:124
@@ -17355,7 +17348,7 @@ msgstr "Não usado no MariaDB."
 
 #: templates/server/privileges/privileges_table.twig:670
 msgid "Not used for this MySQL version."
-msgstr "Não usado nessa versão do MySQL."
+msgstr "Não usado para esta versão do MySQL."
 
 #: templates/server/privileges/privileges_table.twig:721
 msgid "Resource limits"
@@ -18731,7 +18724,7 @@ msgstr "Verificar partição"
 
 #: templates/table/partition/drop.twig:2
 msgid "Drop partition"
-msgstr "Remover partição"
+msgstr "Eliminar partição"
 
 #: templates/table/partition/optimize.twig:2
 msgid "Optimize partition"
@@ -18755,7 +18748,7 @@ msgstr "específico de tabela"
 
 #: templates/table/relation/common_form.twig:9
 msgid "Foreign key constraints"
-msgstr "Restrições de chave estrangeira"
+msgstr "Constraints de chave estrangeira"
 
 #: templates/table/relation/common_form.twig:14
 msgid "Actions"
@@ -18784,7 +18777,7 @@ msgstr ""
 
 #: templates/table/relation/common_form.twig:28
 msgid "Foreign key constraint"
-msgstr "Restrição de chave estrangeira"
+msgstr "Constraint de chave estrangeira"
 
 #: templates/table/relation/common_form.twig:93
 msgid "+ Add constraint"
