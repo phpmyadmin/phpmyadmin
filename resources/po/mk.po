@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-12-24 00:19+0000\n"
-"PO-Revision-Date: 2023-12-30 14:55+0000\n"
+"PO-Revision-Date: 2023-12-30 21:39+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -2965,13 +2965,12 @@ msgid "Rows"
 msgstr "Записи"
 
 #: resources/templates/database/structure/table_header.twig:27
-#, fuzzy
 msgid ""
 "May be approximate. Click on the number to get the exact count. See "
 "[doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
-"Бројот на записи може да биде приближен. За подетални информации види "
-"[doc@faq3-11]FAQ 3.11[/doc]"
+"Може да биде приближно. Кликнете на бројот за да добиете точна бројка. "
+"Видете [doc@faq3-11]ЧПП 3.11[/doc]"
 
 #: resources/templates/database/structure/table_header.twig:36
 #: resources/templates/table/index_form.twig:142
@@ -3040,9 +3039,8 @@ msgstr ""
 #: resources/templates/database/tracking/tables.twig:93
 #: resources/templates/database/tracking/tables.twig:137
 #: resources/templates/database/tracking/tables.twig:139
-#, fuzzy
 msgid "Delete tracking"
-msgstr "Дозволува вметнување и замена на података."
+msgstr "Избришете тракирање"
 
 #: resources/templates/database/tracking/tables.twig:104
 msgid "Versions"
@@ -4186,9 +4184,8 @@ msgid "Ok"
 msgstr ""
 
 #: resources/templates/modals/unhide_nav_item.twig:1
-#, fuzzy
 msgid "Show hidden navigation tree items."
-msgstr "Прикажи мрежа"
+msgstr "Покажи скриени навигациски дрвстевни елементи."
 
 #: resources/templates/navigation/item_unhide_dialog.twig:19
 msgid "Unhide"
@@ -4271,9 +4268,8 @@ msgid ""
 msgstr ""
 
 #: resources/templates/preferences/autoload.twig:12
-#, fuzzy
 msgid "Delete settings"
-msgstr "Дозволува вметнување и замена на података."
+msgstr "Избриши подесувања"
 
 #: resources/templates/preferences/forms/main.twig:3
 msgid "Cannot save settings, submitted form contains errors!"
@@ -4311,9 +4307,8 @@ msgstr "Главен панел"
 
 #: resources/templates/preferences/header.twig:55
 #: resources/templates/preferences/manage/main.twig:71
-#, fuzzy
 msgid "Configuration has been saved."
-msgstr "Измените се сочувани"
+msgstr "Подесувањата беа зачувани."
 
 #: resources/templates/preferences/header.twig:60
 #, php-format
@@ -4476,14 +4471,12 @@ msgid "No change"
 msgstr "Нема измени"
 
 #: resources/templates/recent_favorite_table_no_tables.twig:3
-#, fuzzy
 msgid "There are no recent tables."
-msgstr "Серверот не одговара"
+msgstr "Нема неодамнешни табели."
 
 #: resources/templates/recent_favorite_table_no_tables.twig:5
-#, fuzzy
 msgid "There are no favorite tables."
-msgstr "Серверот не одговара"
+msgstr "Нема омилени табели."
 
 #: resources/templates/relation/check_relations.twig:1
 msgid "phpMyAdmin configuration storage"
