@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2023-12-28 22:37+0000\n"
+"PO-Revision-Date: 2023-12-30 21:39+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-1/mk/>\n"
@@ -7269,10 +7269,8 @@ msgid "Hide panel"
 msgstr "Додади ново поле"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:621
-#, fuzzy
-#| msgid "Show grid"
 msgid "Show hidden navigation tree items."
-msgstr "Прикажи мрежа"
+msgstr "Покажи скриени навигациски дрвстевни елементи."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:623
 #: libraries/classes/Navigation/NavigationTree.php:1484
@@ -9098,10 +9096,8 @@ msgid "Add parameter"
 msgstr "Додади ново поле"
 
 #: libraries/classes/Database/Routines.php:911
-#, fuzzy
-#| msgid "Remove database"
 msgid "Remove last parameter"
-msgstr "Избриши ја базата на податоци."
+msgstr "Отстранете го последниот параметар"
 
 #: libraries/classes/Database/Routines.php:916
 msgid "Return type"
@@ -11859,10 +11855,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportOds.php:170
-#, fuzzy
-#| msgid "Documentation"
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr "Документација"
+msgstr "Неможеше да се парсира OpenDocument Spreadsheet!"
 
 #: libraries/classes/Plugins/Import/ImportShp.php:65
 msgid "ESRI Shape File"
@@ -12366,22 +12360,16 @@ msgstr "Не можеше да се зачува омилената табела
 
 #: libraries/classes/RecentFavoriteTable.php:232
 #: templates/database/structure/favorite_anchor.twig:4
-#, fuzzy
-#| msgid "Remove database"
 msgid "Remove from Favorites"
-msgstr "Избриши ја базата на податоци."
+msgstr "Отстранете од Омилени"
 
 #: libraries/classes/RecentFavoriteTable.php:252
-#, fuzzy
-#| msgid "The server is not responding"
 msgid "There are no recent tables."
-msgstr "Серверот не одговара"
+msgstr "Нема неодамнешни табели."
 
 #: libraries/classes/RecentFavoriteTable.php:253
-#, fuzzy
-#| msgid "The server is not responding"
 msgid "There are no favorite tables."
-msgstr "Серверот не одговара"
+msgstr "Нема омилени табели."
 
 #: libraries/classes/RecentFavoriteTable.php:269
 #, fuzzy
@@ -13735,10 +13723,8 @@ msgid "The profile has been updated."
 msgstr "Профилот е променет."
 
 #: libraries/classes/UserPassword.php:48
-#, fuzzy
-#| msgid "Password Hashing"
 msgid "Password is too long!"
-msgstr "Хеширање на лозинката"
+msgstr "Лозинката е предолга!"
 
 #: libraries/classes/UserPreferences.php:169
 msgid "Could not save configuration"
@@ -14638,10 +14624,8 @@ msgid "A_I"
 msgstr ""
 
 #: templates/database/central_columns/main.twig:131
-#, fuzzy
-#| msgid "The central list of columns for the current database is empty."
 msgid "The central list of columns for the current database is empty"
-msgstr "Главната листа на колони за тековната база на податоци е празна."
+msgstr "Централната листа на колони за тековната база на податоци е празна"
 
 #: templates/database/central_columns/main.twig:168
 #: templates/display/results/table.twig:62
@@ -14670,10 +14654,8 @@ msgid "Select a table"
 msgstr "Избери табели"
 
 #: templates/database/central_columns/main.twig:196
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Select a column."
-msgstr "Додади/избриши колона"
+msgstr "Одберете колона."
 
 #: templates/database/central_columns/main.twig:215
 msgid "Click to sort."
@@ -14907,10 +14889,8 @@ msgid "Number of tables:"
 msgstr "Број на записи на страница"
 
 #: templates/database/designer/main.twig:382
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
 msgid "Delete relationship"
-msgstr "Дозволува вметнување и замена на података."
+msgstr "Избришете врска"
 
 #: templates/database/designer/main.twig:446
 #: templates/database/designer/main.twig:611
@@ -15203,10 +15183,8 @@ msgid "Enter criteria as free text"
 msgstr ""
 
 #: templates/database/multi_table_query/form.twig:145
-#, fuzzy
-#| msgid "Remove database"
 msgid "Remove this column"
-msgstr "Избриши ја базата на податоци."
+msgstr "Отстранете ја оваа колона"
 
 #: templates/database/multi_table_query/form.twig:154
 #: templates/table/relation/foreign_key_row.twig:85
@@ -15732,14 +15710,12 @@ msgid "in use"
 msgstr "се користи"
 
 #: templates/database/structure/table_header.twig:27
-#, fuzzy
-#| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid ""
 "May be approximate. Click on the number to get the exact count. See "
 "[doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
-"Бројот на записи може да биде приближен. За подетални информации види "
-"[doc@faq3-11]FAQ 3.11[/doc]"
+"Може да биде приближно. Кликнете на бројот за да добиете точна бројка. "
+"Видете [doc@faq3-11]ЧПП 3.11[/doc]"
 
 #: templates/database/structure/table_header.twig:36
 #: templates/table/index_form.twig:134
@@ -15800,10 +15776,8 @@ msgstr ""
 #: templates/database/tracking/tables.twig:93
 #: templates/database/tracking/tables.twig:139
 #: templates/database/tracking/tables.twig:140
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
 msgid "Delete tracking"
-msgstr "Дозволува вметнување и замена на података."
+msgstr "Избришете тракирање"
 
 #: templates/database/tracking/tables.twig:104
 #, fuzzy
@@ -16929,10 +16903,8 @@ msgid ""
 msgstr ""
 
 #: templates/preferences/autoload.twig:13
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
 msgid "Delete settings"
-msgstr "Дозволува вметнување и замена на података."
+msgstr "Избриши подесувања"
 
 #: templates/preferences/forms/main.twig:4
 msgid "Cannot save settings, submitted form contains errors!"
@@ -16950,10 +16922,8 @@ msgstr "Дво-факторна автентикација"
 
 #: templates/preferences/header.twig:55
 #: templates/preferences/manage/main.twig:72
-#, fuzzy
-#| msgid "Modifications have been saved"
 msgid "Configuration has been saved."
-msgstr "Измените се сочувани"
+msgstr "Подесувањата беа зачувани."
 
 #: templates/preferences/header.twig:60
 #, php-format
