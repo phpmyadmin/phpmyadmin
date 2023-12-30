@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2022-03-21 18:57+0000\n"
-"Last-Translator: Mauricio Bastos <msbmail@gmail.com>\n"
+"PO-Revision-Date: 2023-12-30 21:39+0000\n"
+"Last-Translator: Marco Aurélio Cardoso <marcoaurelio.cardoso@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-1/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -1807,23 +1807,27 @@ msgid "Enable bzip2 compression for import operations."
 msgstr "Habilitar compressão bzip2 para operações de importação."
 
 #: libraries/classes/Config/Descriptions.php:88
-#, fuzzy
 msgid "Enter the URL for your reCaptcha v2 compatible API."
-msgstr "Digite a sua URL siteverify para o seu serviço reCaptcha."
+msgstr "Insira o URL da sua API compatível com reCaptcha v2."
 
 #: libraries/classes/Config/Descriptions.php:89
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCaptcha v2 compatible "
 "API."
 msgstr ""
+"Insira o snippet Content-Security-Policy para sua API compatível com "
+"reCaptcha v2."
 
 #: libraries/classes/Config/Descriptions.php:90
 msgid "Enter the request parameter used by your reCaptcha v2 compatible API."
 msgstr ""
+"Insira o parâmetro de solicitação usado por sua API compatível com reCaptcha "
+"v2."
 
 #: libraries/classes/Config/Descriptions.php:91
 msgid "Enter the response parameter used by your reCaptcha v2 compatible API."
 msgstr ""
+"Insira o parâmetro de resposta usado por sua API compatível com reCaptcha v2."
 
 #: libraries/classes/Config/Descriptions.php:92
 msgid "Enter your public key for your domain reCaptcha service."
@@ -4462,21 +4466,22 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/classes/Config/Descriptions.php:976
-#, fuzzy
 msgid "URL for reCaptcha v2 API"
-msgstr "URL para o siteverify do reCaptcha"
+msgstr "URL para API reCaptcha v2"
 
 #: libraries/classes/Config/Descriptions.php:977
 msgid "Content-Security-Policy snippet for reCaptcha v2 API"
 msgstr ""
+"Snippet de política de segurança de conteúdo (Content-Security-Policy) para "
+"API reCaptcha v2"
 
 #: libraries/classes/Config/Descriptions.php:978
 msgid "Request parameter for reCaptcha v2 API"
-msgstr ""
+msgstr "Parâmetro de Request para API reCaptcha v2"
 
 #: libraries/classes/Config/Descriptions.php:979
 msgid "Response parameter for reCaptcha v2 API"
-msgstr ""
+msgstr "Parâmetro de Response para API reCaptcha v2"
 
 #: libraries/classes/Config/Descriptions.php:980
 msgid "Public key for reCaptcha"
@@ -5164,6 +5169,7 @@ msgstr "Mostrando registros %1$s - %2$s."
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
+"Já existe uma página chamada \"%s\", por favor renomeie-a para outro nome."
 
 #: libraries/classes/Controllers/Database/ExportController.php:78
 #: libraries/classes/Controllers/Database/TrackingController.php:128
@@ -5773,9 +5779,8 @@ msgstr "Editar índice"
 
 #. l10n: Rename a table Index
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:106
-#, fuzzy
 msgid "Rename index"
-msgstr "Remover índice(s)"
+msgstr "Renomear índice"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:107
 #: templates/table/index_form.twig:227
@@ -7528,10 +7533,9 @@ msgstr "Forte"
 
 #. l10n: error code 5 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:716
-#, fuzzy
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
-msgstr "O tempo de espera para ativação com chave de segurança foi excedido."
+msgstr "Tempo limite esgotado aguardando ativação da chave de segurança."
 
 #. l10n: error code 2 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:718
@@ -7569,6 +7573,9 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
+"Você não pode abrir, salvar ou excluir o layout da sua página, pois o "
+"IndexedDB não está funcionando no seu navegador e o armazenamento de "
+"configuração do phpMyAdmin não está configurado para isso."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:735
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:731
@@ -8246,13 +8253,12 @@ msgstr ""
 "O número de linhas esperando para serem escritas na fila de INSERT DELAYED."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:549
-#, fuzzy
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table_open_cache value is probably too small."
 msgstr ""
-"O número de tabelas que foram abertas. Se este número for grande, o valor do "
-"cache de tabelas provavelmente está muito pequeno."
+"O número de tabelas que foram abertas. Se este número for grande, o valor de "
+"table_open_cache provavelmente está muito pequeno."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:553
 msgid "The number of files that are open."
@@ -9546,6 +9552,9 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+"Erro 1045: Acesso negado ao usuário. Informações adicionais sobre erros "
+"podem estar disponíveis, mas estão sendo ocultadas pela diretiva de "
+"configuração %s."
 
 #: libraries/classes/Display/Results.php:907
 #: libraries/classes/Html/Generator.php:1254
@@ -12726,6 +12735,8 @@ msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
+"O cache de roteamento não pôde ser gravado, você precisa ajustar as "
+"permissões na pasta/arquivo \"%s\""
 
 #: libraries/classes/Routing.php:169 libraries/classes/Routing.php:165
 #, php-format
@@ -13884,11 +13895,10 @@ msgid "Could not save configuration"
 msgstr "A configuração não pôde ser salva"
 
 #: libraries/classes/UserPreferences.php:178
-#, fuzzy
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr ""
-"%sCreate%s o armazenamento de configuração do phpMyAdmin no banco de dados "
-"atual."
+"O banco de dados de armazenamento de configuração do phpMyAdmin não pôde ser "
+"acessado."
 
 #: libraries/classes/Util.php:138
 #, php-format
@@ -14389,17 +14399,16 @@ msgid "Node group"
 msgstr "Grupo de nós"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br>If you ever need to put a backslash (\"\\\") or a "
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Se o tipo de campo é \"enum\" ou \"set\", por favor entre com valores usando "
-"este formato: 'a','b','c'…<br>Se você precisar colocar uma barra contrária "
-"(\"\\\") ou aspas simples (\"'\") entre esses valores, coloque uma barra "
-"contrária antes (por exemplo '\\\\xyz' ou 'a\\'b')."
+"Se o tipo de coluna for \"enum\" ou \"set\", insira os valores usando este "
+"formato: 'a','b','c'…<br>Se você precisar colocar uma barra invertida (\"\\\""
+") ou um aspas simples (\"'\") entre esses valores, preceda-as com uma barra "
+"invertida (por exemplo '\\\\xyz' ou 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
@@ -16517,7 +16526,7 @@ msgstr "Por favor, digite um número hexadecimal válido"
 #. l10n: To validate the usage of a MD5 function on the column
 #: templates/javascript/variables.twig:108
 msgid "This column can not contain a 32 chars value"
-msgstr ""
+msgstr "Esta coluna não pode conter um valor de 32 caracteres"
 
 #. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
 #: templates/javascript/variables.twig:109
@@ -16525,6 +16534,8 @@ msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
+"Essas funções retornam um resultado binário; para evitar resultados "
+"inconsistentes você deve armazená-lo em uma coluna BINARY, VARBINARY ou BLOB."
 
 #: templates/login/form.twig:30
 msgid "Log in"
@@ -16920,9 +16931,8 @@ msgid "Character sets and collations"
 msgstr "Conjuntos de caracteres e collations"
 
 #: templates/server/collations/index.twig:32
-#, fuzzy
 msgid "(default)"
-msgstr "Padrão"
+msgstr "(padrão)"
 
 #: templates/server/databases/index.twig:6
 msgid "Databases statistics"
@@ -17316,18 +17326,16 @@ msgstr ""
 "privilégios."
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
 msgid "Allows creating foreign key relations."
-msgstr "Permitir criar rotinas armazenadas."
+msgstr "Permite criar relações de chave estrangeira."
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Not used on MariaDB."
-msgstr ""
+msgstr "Não usado no MariaDB."
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
 msgid "Not used for this MySQL version."
-msgstr "Não tem nenhum efeito nessa versão do MySQL."
+msgstr "Não usado para esta versão do MySQL."
 
 #: templates/server/privileges/privileges_table.twig:697
 msgid "Resource limits"
@@ -17998,9 +18006,8 @@ msgstr "#"
 #: templates/server/status/queries/index.twig:39
 #: templates/server/status/status/index.twig:18
 #: templates/server/status/status/index.twig:38
-#, fuzzy
 msgid "ø per hour"
-msgstr "por hora"
+msgstr "ø por hora"
 
 #: templates/server/status/queries/index.twig:59
 msgid "Not enough privilege to view query statistics."
@@ -18200,7 +18207,7 @@ msgstr "Adicionar novo servidor"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "Algo deu errado."
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
@@ -18593,39 +18600,32 @@ msgid "Relation view"
 msgstr "Visão de relação(ões)"
 
 #: templates/table/partition/analyze.twig:2
-#, fuzzy
 msgid "Analyze partition"
-msgstr "particionado"
+msgstr "Analisar partição"
 
 #: templates/table/partition/check.twig:2
-#, fuzzy
 msgid "Check partition"
-msgstr "particionado"
+msgstr "Verificar partição"
 
 #: templates/table/partition/drop.twig:2
-#, fuzzy
 msgid "Drop partition"
-msgstr "particionado"
+msgstr "Eliminar partição"
 
 #: templates/table/partition/optimize.twig:2
-#, fuzzy
 msgid "Optimize partition"
-msgstr "Remover particionamento"
+msgstr "Otimizar partição"
 
 #: templates/table/partition/rebuild.twig:2
-#, fuzzy
 msgid "Rebuild partition"
-msgstr "Subpartição"
+msgstr "Reconstruir partição"
 
 #: templates/table/partition/repair.twig:2
-#, fuzzy
 msgid "Repair partition"
-msgstr "Remover particionamento"
+msgstr "Reparar partição"
 
 #: templates/table/partition/truncate.twig:2
-#, fuzzy
 msgid "Truncate partition"
-msgstr "Subpartição"
+msgstr "Truncar partição"
 
 #: templates/table/privileges/index.twig:57
 msgid "table-specific"
@@ -18633,7 +18633,7 @@ msgstr "específico de tabela"
 
 #: templates/table/relation/common_form.twig:9
 msgid "Foreign key constraints"
-msgstr "Restrições de chave estrangeira"
+msgstr "Constraints de chave estrangeira"
 
 #: templates/table/relation/common_form.twig:14
 msgid "Actions"
@@ -18662,7 +18662,7 @@ msgstr ""
 
 #: templates/table/relation/common_form.twig:28
 msgid "Foreign key constraint"
-msgstr "Restrição de chave estrangeira"
+msgstr "Constraint de chave estrangeira"
 
 #: templates/table/relation/common_form.twig:93
 msgid "+ Add constraint"
