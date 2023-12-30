@@ -7461,11 +7461,6 @@ parameters:
 			path: src/Dbal/DbalInterface.php
 
 		-
-			message: "#^Parameter \\#1 \\$haystack of function stripos expects string, string\\|null given\\.$#"
-			count: 1
-			path: src/Dbal/DbiMysqli.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:fetchAllAssoc\\(\\) should return array\\<int, array\\<string\\|null\\>\\> but returns array\\.$#"
 			count: 1
 			path: src/Dbal/MysqliResult.php
