@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-12-24 00:19+0000\n"
-"PO-Revision-Date: 2023-12-28 22:37+0000\n"
+"PO-Revision-Date: 2023-12-30 14:55+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -1294,9 +1294,8 @@ msgid "A_I"
 msgstr ""
 
 #: resources/templates/database/central_columns/main.twig:128
-#, fuzzy
 msgid "The central list of columns for the current database is empty"
-msgstr "Главната листа на колони за тековната база на податоци е празна."
+msgstr "Централната листа на колони за тековната база на податоци е празна"
 
 #: resources/templates/database/central_columns/main.twig:164
 #: resources/templates/display/results/table.twig:129
@@ -1323,9 +1322,8 @@ msgid "Select a table"
 msgstr "Избери табели"
 
 #: resources/templates/database/central_columns/main.twig:198
-#, fuzzy
 msgid "Select a column."
-msgstr "Додади/избриши колона"
+msgstr "Одберете колона."
 
 #: resources/templates/database/central_columns/main.twig:219
 msgid "Click to sort."
@@ -1684,9 +1682,8 @@ msgstr "Број на табели:"
 
 #: resources/templates/database/designer/main.twig:359
 #: resources/templates/database/designer/main.twig:361
-#, fuzzy
 msgid "Delete relationship"
-msgstr "Дозволува вметнување и замена на података."
+msgstr "Избришете врска"
 
 #: resources/templates/database/designer/main.twig:410
 #: resources/templates/database/designer/main.twig:587
@@ -2076,9 +2073,8 @@ msgid "Export the structure of all tables."
 msgstr "Дозволува промена на структурата на постоечките табели."
 
 #: resources/templates/database/export/index.twig:30
-#, fuzzy
 msgid "Export the data of all tables."
-msgstr "Креирај нова табела во базата на податоци %s"
+msgstr "Извезете ги податоците на сите табели."
 
 #: resources/templates/database/import/index.twig:3
 #, php-format
@@ -2186,9 +2182,8 @@ msgid "Enter criteria as free text"
 msgstr ""
 
 #: resources/templates/database/multi_table_query/form.twig:135
-#, fuzzy
 msgid "Remove this column"
-msgstr "Избриши ја базата на податоци."
+msgstr "Отстранете ја оваа колона"
 
 #: resources/templates/database/multi_table_query/form.twig:147
 #: resources/templates/table/relation/foreign_key_row.twig:84
@@ -2470,9 +2465,8 @@ msgid "Add parameter"
 msgstr "Додади ново поле"
 
 #: resources/templates/database/routines/editor_form.twig:74
-#, fuzzy
 msgid "Remove last parameter"
-msgstr "Избриши ја базата на податоци."
+msgstr "Отстранете го последниот параметар"
 
 #: resources/templates/database/routines/editor_form.twig:79
 msgid "Return type"
@@ -2855,9 +2849,8 @@ msgstr "Исклучи проверка на надворешни клучеви
 
 #: resources/templates/database/structure/favorite_anchor.twig:4
 #: resources/templates/recent_favorite_table_favorite.twig:5
-#, fuzzy
 msgid "Remove from Favorites"
-msgstr "Избриши ја базата на податоци."
+msgstr "Отстранете од Омилени"
 
 #: resources/templates/database/structure/favorite_anchor.twig:4
 #, fuzzy
@@ -18175,9 +18168,8 @@ msgid ""
 msgstr ""
 
 #: src/Plugins/Import/ImportOds.php:152 src/Plugins/Import/ImportOds.php:151
-#, fuzzy
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr "Документација"
+msgstr "Неможеше да се парсира OpenDocument Spreadsheet!"
 
 #: src/Plugins/Import/ImportShp.php:67 src/Plugins/Import/ImportShp.php:66
 msgid "ESRI Shape File"
@@ -19430,9 +19422,8 @@ msgid "The profile has been updated."
 msgstr "Профилот е променет."
 
 #: src/UserPassword.php:47
-#, fuzzy
 msgid "Password is too long!"
-msgstr "Хеширање на лозинката"
+msgstr "Лозинката е предолга!"
 
 #: src/UserPreferences.php:160
 msgid "Could not save configuration"
