@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-12-24 00:19+0000\n"
-"PO-Revision-Date: 2023-12-30 14:55+0000\n"
+"PO-Revision-Date: 2023-12-30 21:39+0000\n"
 "Last-Translator: Marco Aurélio Cardoso <marcoaurelio.cardoso@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/pt_BR/>\n"
@@ -547,10 +547,10 @@ msgid ""
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Se o tipo de campo é \"ENUM\" ou \"SET\", por favor entre com valores usando "
-"este formato: 'a','b','c'…<br>Se você precisar colocar uma barra contrária "
-"(\" \\ \") ou uma aspa simples (\" ' \") entre esses valores, coloque uma "
-"barra contrária antes (por exemplo \"\\\\xyz\" ou \"\\'a\\'b\")."
+"Se o tipo de coluna for \"enum\" ou \"set\", insira os valores usando este "
+"formato: 'a','b','c'…<br>Se você precisar colocar uma barra invertida (\"\\\""
+") ou um aspas simples (\"'\") entre esses valores, preceda-as com uma barra "
+"invertida (por exemplo '\\\\xyz' ou 'a\\'b')."
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:17
 #: resources/templates/database/central_columns/edit.twig:10
@@ -5085,7 +5085,7 @@ msgstr "Não usado no MariaDB."
 
 #: resources/templates/server/privileges/privileges_table.twig:681
 msgid "Not used for this MySQL version."
-msgstr "Não usado nessa versão do MySQL."
+msgstr "Não usado para esta versão do MySQL."
 
 #: resources/templates/server/privileges/privileges_table.twig:691
 #: resources/templates/server/privileges/privileges_table.twig:692
@@ -6767,7 +6767,7 @@ msgstr "Verificar partição"
 
 #: resources/templates/table/partition/drop.twig:1
 msgid "Drop partition"
-msgstr "Remover partição"
+msgstr "Eliminar partição"
 
 #: resources/templates/table/partition/optimize.twig:1
 msgid "Optimize partition"
@@ -7179,12 +7179,10 @@ msgstr "Texto"
 #. l10n: Number of tables
 #: resources/templates/test/gettext/plural_notes.twig:0
 #: resources/templates/test/gettext/plural.twig:0
-#, fuzzy
-#| msgid "Use tables"
 msgid "One table"
 msgid_plural "%count% tables"
-msgstr[0] "Usar tabelas"
-msgstr[1] "Usar tabelas"
+msgstr[0] "Uma tabela"
+msgstr[1] "%count% tabelas"
 
 #: resources/templates/transformation_overview.twig:1
 msgid "Available media types"
@@ -11908,7 +11906,7 @@ msgstr "Mostrando registros %1$s - %2$s."
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
-"Já existe uma página chamada \"%s\", por favor, renomeie com outro nome."
+"Já existe uma página chamada \"%s\", por favor renomeie-a para outro nome."
 
 #: src/Controllers/Database/DesignerController.php:170
 #: src/Controllers/Database/DesignerController.php:175
@@ -12439,13 +12437,10 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Você está prestes à DESTRUIR um banco de dados completamente!"
 
 #: src/Controllers/JavaScriptMessagesController.php:55
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr ""
 "Não é possível renomear o banco de dados para o mesmo nome. Altere o nome e "
-"tente novamente"
+"tente novamente."
 
 #: src/Controllers/JavaScriptMessagesController.php:57
 msgid "You are about to DESTROY a complete table!"
@@ -13943,7 +13938,7 @@ msgstr "Forte"
 #: src/Controllers/JavaScriptMessagesController.php:687
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
-msgstr "O tempo de espera para ativação com chave de segurança foi excedido."
+msgstr "Tempo limite esgotado aguardando ativação da chave de segurança."
 
 #. l10n: error code 2 (from U2F API)
 #: src/Controllers/JavaScriptMessagesController.php:689
@@ -13990,7 +13985,7 @@ msgid ""
 "configured for this."
 msgstr ""
 "Você não pode abrir, salvar ou excluir o layout da sua página, pois o "
-"IndexedDB não está funcionando em seu navegador e seu armazenamento de "
+"IndexedDB não está funcionando no seu navegador e o armazenamento de "
 "configuração do phpMyAdmin não está configurado para isso."
 
 #: src/Controllers/JavaScriptMessagesController.php:710
@@ -14345,9 +14340,8 @@ msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
-"Essas funções têm como objetivo retornar um resultado binário. Para evitar "
-"resultados inconsistentes, você deve armazená-lo em uma coluna BINARY, "
-"VARBINARY ou BLOB."
+"Essas funções retornam um resultado binário; para evitar resultados "
+"inconsistentes você deve armazená-lo em uma coluna BINARY, VARBINARY ou BLOB."
 
 #: src/Controllers/JavaScriptMessagesController.php:809
 msgid ""
@@ -15013,7 +15007,7 @@ msgid ""
 "table_open_cache value is probably too small."
 msgstr ""
 "O número de tabelas que foram abertas. Se este número for grande, o valor de "
-"seu table_open_cache provavelmente é muito pequeno."
+"table_open_cache provavelmente está muito pequeno."
 
 #: src/Controllers/Server/Status/VariablesController.php:420
 msgid "The number of files that are open."
@@ -15720,7 +15714,7 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
-"Erro 1045: Acesso negado para o usuário. Informações de erro adicionais "
+"Erro 1045: Acesso negado ao usuário. Informações adicionais sobre erros "
 "podem estar disponíveis, mas estão sendo ocultadas pela diretiva de "
 "configuração %s."
 
@@ -16930,9 +16924,8 @@ msgid "The table name is empty!"
 msgstr "O nome da tabela está vazio!"
 
 #: src/Partitioning/Maintenance.php:142
-#, fuzzy
 msgid "This table is a view, it can not be truncated."
-msgstr "Esta é uma variável somente leitura e não pode ser editada"
+msgstr "Esta tabela é uma view, não pode ser truncada."
 
 #: src/Pdf.php:138
 msgid "Error while creating PDF:"
