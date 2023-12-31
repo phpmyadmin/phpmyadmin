@@ -1652,6 +1652,11 @@ class DbiDummy implements DbiExtension
                 'result' => [['test_table', 'InnoDB', '3']],
             ],
             [
+                'query' => 'SHOW TABLE STATUS FROM `test_db` WHERE `Name` LIKE \'test\\\\_table\\\\_index\\\\_rename%\'',
+                'columns' => ['Name', 'Engine', 'Rows'],
+                'result' => [['test_table_index_rename', 'InnoDB', '3']],
+            ],
+            [
                 'query' => 'SHOW TABLE STATUS FROM `test_db` WHERE Name = \'test_table\'',
                 'columns' => ['Name', 'Engine', 'Rows'],
                 'result' => [['test_table', 'InnoDB', '3']],
@@ -1660,6 +1665,11 @@ class DbiDummy implements DbiExtension
                 'query' => 'SHOW INDEXES FROM `test_db`.`test_table`',
                 'columns' => ['Table', 'Non_unique', 'Key_name', 'Column_name'],
                 'result' => [['test_table', '0', 'PRIMARY', 'id']],
+            ],
+            [
+                'query' => 'SHOW INDEXES FROM `test_db`.`test_table_index_rename`',
+                'columns' => ['Table', 'Non_unique', 'Key_name', 'Column_name'],
+                'result' => [['test_table_index_rename', '0', 'PRIMARY', 'id']],
             ],
             [
                 'query' => 'SHOW INDEX FROM `test_table`;',
