@@ -86,6 +86,13 @@ abstract class AbstractTestCase extends TestCase
         $_COOKIE = [];
         $_FILES = [];
         $_REQUEST = [];
+
+        $GLOBALS['server'] = 1;
+        $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['db'] = '';
+        $GLOBALS['table'] = '';
+        $GLOBALS['PMA_PHP_SELF'] = '';
+
         // Config before DBI
         $this->setGlobalConfig();
         $this->loadContainerBuilder();
