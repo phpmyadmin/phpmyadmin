@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-12-24 00:19+0000\n"
+"POT-Creation-Date: 2023-12-31 00:20+0000\n"
 "PO-Revision-Date: 2022-07-05 15:20+0000\n"
 "Last-Translator: Ugnius Vaičeskas <ugninis.vai@gmail.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -53,7 +53,7 @@ msgstr "Neturite pakankamai teisių čia būti!"
 #: resources/templates/table/structure/display_structure.twig:145
 #: resources/templates/table/structure/display_structure.twig:295
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:25
-#: src/Controllers/Table/StructureController.php:232
+#: src/Controllers/Table/StructureController.php:229
 msgid "Primary"
 msgstr "Pirminis"
 
@@ -75,7 +75,7 @@ msgstr "Unikalus"
 #: resources/templates/table/structure/display_structure.twig:301
 #: resources/templates/table/structure/display_table_stats.twig:23
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:27
-#: src/Controllers/Table/StructureController.php:236
+#: src/Controllers/Table/StructureController.php:233
 #: src/Navigation/Nodes/NodeIndex.php:26
 msgid "Index"
 msgstr "Indeksas"
@@ -123,9 +123,9 @@ msgstr "Po %s"
 #: resources/templates/server/status/processes/list.twig:72
 #: resources/templates/table/zoom_search/index.twig:60
 #: resources/templates/table/zoom_search/index.twig:117
-#: src/Config/ConfigFile.php:555
+#: src/Config/ConfigFile.php:556
 #: src/Controllers/JavaScriptMessagesController.php:219
-#: src/Display/Results.php:961 src/Plugins/Export/ExportSql.php:2052
+#: src/Display/Results.php:962 src/Plugins/Export/ExportSql.php:2052
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Ne"
@@ -525,8 +525,8 @@ msgstr "Naudotojai"
 #: resources/templates/database/structure/structure_table_row.twig:48
 #: resources/templates/server/privileges/privileges_table.twig:356
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:1
-#: src/Config/ConfigFile.php:519 src/Config/ConfigFile.php:533
-#: src/Config/ConfigFile.php:587 src/Config/ConfigFile.php:597
+#: src/Config/ConfigFile.php:520 src/Config/ConfigFile.php:534
+#: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
 #: src/Config/Forms/User/ExportForm.php:53
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
@@ -534,8 +534,8 @@ msgstr "Naudotojai"
 #: src/Import/Import.php:1246 src/Menu.php:220 src/Menu.php:324
 #: src/Navigation/Nodes/NodeColumn.php:40
 #: src/Navigation/Nodes/NodeDatabase.php:56
-#: src/Navigation/Nodes/NodeTable.php:289 src/Util.php:1056 src/Util.php:1483
-#: src/Util.php:1500
+#: src/Navigation/Nodes/NodeTable.php:289 src/Util.php:1055 src/Util.php:1482
+#: src/Util.php:1499
 msgid "Structure"
 msgstr "Struktūra"
 
@@ -842,7 +842,7 @@ msgstr "Šis nustatymas išjungtas, tai nebus taikoma jūsų konfigūracijoje."
 #: resources/templates/relation/check_relations.twig:462
 #: resources/templates/relation/check_relations.twig:487
 #: resources/templates/relation/check_relations.twig:512
-#: src/Config/ConfigFile.php:570 src/Config/ConfigFile.php:607
+#: src/Config/ConfigFile.php:571 src/Config/ConfigFile.php:608
 msgid "Disabled"
 msgstr "Išjungta"
 
@@ -985,7 +985,7 @@ msgstr "SQL užklausa"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:399
-#: src/Display/Results.php:2550 src/Html/Generator.php:547
+#: src/Display/Results.php:2548 src/Html/Generator.php:547
 #: src/Html/Generator.php:813
 msgid "Edit"
 msgstr "Redaguoti"
@@ -1004,7 +1004,7 @@ msgstr "Redaguoti"
 #: resources/templates/setup/home/index.twig:68
 #: resources/templates/sql/query.twig:184
 #: src/Controllers/JavaScriptMessagesController.php:400
-#: src/Display/Results.php:2609 src/Tracking/Tracking.php:230
+#: src/Display/Results.php:2607 src/Tracking/Tracking.php:230
 msgid "Delete"
 msgstr "Trinti"
 
@@ -1859,9 +1859,9 @@ msgstr "Įvykio tipas"
 #: resources/templates/database/events/index.twig:45
 #: resources/templates/database/tracking/tables.twig:16
 #: resources/templates/table/tracking/main.twig:30
-#: src/Config/ConfigFile.php:579
+#: src/Config/ConfigFile.php:580
 #: src/Controllers/JavaScriptMessagesController.php:286 src/Menu.php:452
-#: src/Server/Status/Processes.php:96 src/Util.php:1470
+#: src/Server/Status/Processes.php:96 src/Util.php:1469
 msgid "Status"
 msgstr "Būsena"
 
@@ -1925,7 +1925,7 @@ msgstr ""
 #: src/Navigation/Nodes/NodeEventContainer.php:23
 #: src/Navigation/Nodes/NodeEventContainer.php:25
 #: src/Plugins/Export/ExportSql.php:950 src/Plugins/Export/ExportXml.php:100
-#: src/Util.php:1492
+#: src/Util.php:1491
 msgid "Events"
 msgstr "Įvykiai"
 
@@ -1988,7 +1988,7 @@ msgstr "Pažymėti visas"
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:384 src/Menu.php:247
 #: src/Menu.php:349 src/Menu.php:471 src/Server/Privileges.php:1290
-#: src/Util.php:1472 src/Util.php:1487 src/Util.php:1504
+#: src/Util.php:1471 src/Util.php:1486 src/Util.php:1503
 msgid "Export"
 msgstr "Eksportuoti"
 
@@ -2069,7 +2069,7 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "Eksportuojamos duomenų bazės „%s“ lentelės"
 
 #: resources/templates/database/export/index.twig:13
-#: src/Navigation/Navigation.php:212
+#: src/Navigation/Navigation.php:213
 #, fuzzy
 #| msgid "Tables"
 msgid "Tables:"
@@ -2162,7 +2162,7 @@ msgid "criteria"
 msgstr "Kriterijai"
 
 #: resources/templates/database/multi_table_query/form.twig:50
-#: src/Util.php:2010
+#: src/Util.php:2001
 msgid "Sort"
 msgstr "Rūšiuoti"
 
@@ -2173,8 +2173,8 @@ msgstr "Rūšiuoti"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:22
 #: resources/templates/table/search/index.twig:154
-#: src/Config/ConfigFile.php:555 src/Display/Results.php:1504
-#: src/Display/Results.php:1511 src/Util.php:2018 src/Util.php:2035
+#: src/Config/ConfigFile.php:556 src/Display/Results.php:1502
+#: src/Display/Results.php:1509 src/Util.php:2009 src/Util.php:2026
 msgid "Ascending"
 msgstr "Didėjimo tvarka"
 
@@ -2185,8 +2185,8 @@ msgstr "Didėjimo tvarka"
 #: resources/templates/server/status/processes/list.twig:11
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:159
-#: src/Config/ConfigFile.php:555 src/Display/Results.php:1499
-#: src/Display/Results.php:1516 src/Util.php:2023 src/Util.php:2040
+#: src/Config/ConfigFile.php:556 src/Display/Results.php:1497
+#: src/Display/Results.php:1514 src/Util.php:2014 src/Util.php:2031
 msgid "Descending"
 msgstr "Mažėjimo tvarka"
 
@@ -2199,8 +2199,8 @@ msgstr "Pridėti %s"
 #. l10n: Notes
 #: resources/templates/database/multi_table_query/form.twig:73
 #: resources/templates/test/gettext/gettext.twig:0
-#: resources/templates/test/gettext/notes.twig:0 src/Config/ConfigFile.php:546
-#: src/Config/ConfigFile.php:558 src/Config/ConfigFile.php:566
+#: resources/templates/test/gettext/notes.twig:0 src/Config/ConfigFile.php:547
+#: src/Config/ConfigFile.php:559 src/Config/ConfigFile.php:567
 #, fuzzy
 #| msgid "Test"
 msgid "Text"
@@ -2393,9 +2393,9 @@ msgstr "Logo pavadinimas"
 #: resources/templates/server/privileges/privileges_summary.twig:15
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:21
-#: src/Config/ConfigFile.php:583
+#: src/Config/ConfigFile.php:584
 #: src/Controllers/Server/PrivilegesController.php:412 src/Menu.php:263
-#: src/Menu.php:371 src/Util.php:1490 src/Util.php:1506
+#: src/Menu.php:371 src/Util.php:1489 src/Util.php:1505
 msgid "Privileges"
 msgstr "Privilegijos"
 
@@ -2556,7 +2556,7 @@ msgid "Function"
 msgstr "Funkcija"
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:377
-#: src/Util.php:1491
+#: src/Util.php:1490
 msgid "Routines"
 msgstr ""
 
@@ -2566,10 +2566,10 @@ msgstr ""
 #: resources/templates/database/structure/structure_table_row.twig:53
 #: resources/templates/server/databases/index.twig:76
 #: resources/templates/server/databases/index.twig:77
-#: src/Config/ConfigFile.php:523 src/Config/ConfigFile.php:537
-#: src/Config/ConfigFile.php:591 src/Config/ConfigFile.php:601 src/Menu.php:229
-#: src/Menu.php:333 src/Navigation/Nodes/NodeTable.php:290 src/Util.php:1058
-#: src/Util.php:1485 src/Util.php:1502
+#: src/Config/ConfigFile.php:524 src/Config/ConfigFile.php:538
+#: src/Config/ConfigFile.php:592 src/Config/ConfigFile.php:602 src/Menu.php:229
+#: src/Menu.php:333 src/Navigation/Nodes/NodeTable.php:290 src/Util.php:1057
+#: src/Util.php:1484 src/Util.php:1501
 msgid "Search"
 msgstr "Paieška"
 
@@ -2671,9 +2671,9 @@ msgstr[2] "%s atitikmenų lentelėse <i>%s</i>"
 #: resources/templates/database/search/results.twig:32
 #: resources/templates/database/structure/structure_table_row.twig:43
 #: resources/templates/table/structure/display_structure.twig:282
-#: src/Config/ConfigFile.php:527 src/Config/ConfigFile.php:541
-#: src/Config/ConfigFile.php:605 src/Menu.php:213
-#: src/Navigation/Nodes/NodeTable.php:293 src/Util.php:1060 src/Util.php:1499
+#: src/Config/ConfigFile.php:528 src/Config/ConfigFile.php:542
+#: src/Config/ConfigFile.php:606 src/Menu.php:213
+#: src/Navigation/Nodes/NodeTable.php:293 src/Util.php:1059 src/Util.php:1498
 msgid "Browse"
 msgstr "Peržiūrėti"
 
@@ -2702,7 +2702,7 @@ msgstr[3] ""
 #: resources/templates/database/structure/body_for_table_summary.twig:11
 #: resources/templates/database/structure/table_header.twig:10
 #: resources/templates/server/replication/index.twig:4 src/Menu.php:503
-#: src/Server/Status/Data.php:149 src/Util.php:1476
+#: src/Server/Status/Data.php:149 src/Util.php:1475
 msgid "Replication"
 msgstr "Replikavimas"
 
@@ -2816,7 +2816,7 @@ msgid "Copy table with prefix"
 msgstr "Kopijuoti lentelę su pavadinimo priešdėliu"
 
 #: resources/templates/database/structure/check_all_tables.twig:32
-#: src/Menu.php:411 src/Util.php:1496
+#: src/Menu.php:411 src/Util.php:1495
 #, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns"
@@ -2916,8 +2916,8 @@ msgstr "Duomenų žodynas"
 
 #: resources/templates/database/structure/index.twig:25
 #: resources/templates/navigation/tree/path.twig:9
-#: src/Controllers/Database/ExportController.php:85
-#: src/Controllers/Database/TrackingController.php:134
+#: src/Controllers/Database/ExportController.php:87
+#: src/Controllers/Database/TrackingController.php:135
 #: src/Controllers/Export/ExportController.php:301
 msgid "No tables found in database."
 msgstr "Duomenų bazėje nerasta lentelių."
@@ -2959,9 +2959,9 @@ msgstr "Rodinys (Views)"
 #: resources/templates/database/structure/show_create.twig:30
 #: resources/templates/database/structure/structure_table_row.twig:122
 #: resources/templates/database/structure/structure_table_row.twig:184
-#: src/Controllers/Operations/TableController.php:125
-#: src/Controllers/Operations/TableController.php:334
-#: src/Controllers/Table/StructureController.php:168
+#: src/Controllers/Operations/TableController.php:124
+#: src/Controllers/Operations/TableController.php:333
+#: src/Controllers/Table/StructureController.php:165
 #: src/Navigation/Nodes/NodeView.php:26
 msgid "View"
 msgstr "Rodinys"
@@ -2987,9 +2987,9 @@ msgid "Replicated"
 msgstr "Padaugintas"
 
 #: resources/templates/database/structure/structure_table_row.twig:59
-#: resources/templates/sql/query.twig:74 src/Config/ConfigFile.php:525
-#: src/Config/ConfigFile.php:539 src/Config/ConfigFile.php:603 src/Menu.php:240
-#: src/Navigation/Nodes/NodeTable.php:291 src/Util.php:1059 src/Util.php:1503
+#: resources/templates/sql/query.twig:74 src/Config/ConfigFile.php:526
+#: src/Config/ConfigFile.php:540 src/Config/ConfigFile.php:604 src/Menu.php:240
+#: src/Navigation/Nodes/NodeTable.php:291 src/Util.php:1058 src/Util.php:1502
 msgid "Insert"
 msgstr "Įterpti"
 
@@ -3208,12 +3208,12 @@ msgid "Extra options"
 msgstr "Grąžinimo parametrai"
 
 #: resources/templates/display/results/table.twig:209
-#: src/Display/Results.php:1147
+#: src/Display/Results.php:1145
 msgid "Partial texts"
 msgstr "Tekstus rodyti dalinai"
 
 #: resources/templates/display/results/table.twig:213
-#: src/Display/Results.php:1151
+#: src/Display/Results.php:1149
 msgid "Full texts"
 msgstr "Tekstus rodyti pilnai"
 
@@ -3258,7 +3258,7 @@ msgstr ""
 #: resources/templates/display/results/table.twig:321
 #: resources/templates/gis_data_editor_form.twig:62
 #: src/Controllers/JavaScriptMessagesController.php:487
-#: src/Display/Results.php:2554 src/Html/Generator.php:80
+#: src/Display/Results.php:2552 src/Html/Generator.php:80
 msgid "Copy"
 msgstr "Kopijuoti"
 
@@ -3724,7 +3724,7 @@ msgstr ""
 #: resources/templates/header.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
 #: src/Controllers/JavaScriptMessagesController.php:216 src/Menu.php:481
-#: src/Util.php:1474
+#: src/Util.php:1473
 msgid "Settings"
 msgstr "Nustatymai"
 
@@ -3978,8 +3978,8 @@ msgstr "Atgal"
 #: resources/templates/server/status/monitor/index.twig:61
 #: src/Config/Forms/User/ImportForm.php:58
 #: src/Controllers/JavaScriptMessagesController.php:321 src/Menu.php:256
-#: src/Menu.php:359 src/Menu.php:476 src/Util.php:1473 src/Util.php:1488
-#: src/Util.php:1505
+#: src/Menu.php:359 src/Menu.php:476 src/Util.php:1472 src/Util.php:1487
+#: src/Util.php:1504
 msgid "Import"
 msgstr "Importuoti"
 
@@ -4166,7 +4166,7 @@ msgstr "Pasirinkti serverį"
 
 #: resources/templates/login/header.twig:10
 #: src/Plugins/Auth/AuthenticationConfig.php:90
-#: src/Plugins/Auth/AuthenticationHttp.php:82
+#: src/Plugins/Auth/AuthenticationHttp.php:83
 #, php-format
 msgid "Welcome to %s"
 msgstr "Jūs naudojate %s"
@@ -4371,8 +4371,8 @@ msgstr "SQL rezultatas"
 #: resources/templates/server/export/index.twig:6
 #: resources/templates/server/export/index.twig:11
 #: resources/templates/server/privileges/user_properties.twig:20
-#: src/Config/ConfigFile.php:577 src/Config/Descriptions.php:728
-#: src/Config/Descriptions.php:739 src/Menu.php:442 src/Util.php:1468
+#: src/Config/ConfigFile.php:578 src/Config/Descriptions.php:728
+#: src/Config/Descriptions.php:739 src/Menu.php:442 src/Util.php:1467
 msgid "Databases"
 msgstr "Duomenų bazės"
 
@@ -4605,7 +4605,7 @@ msgstr ""
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:44
 #: src/Controllers/Database/Structure/EmptyTableController.php:51
-#: src/Controllers/Operations/TableController.php:350
+#: src/Controllers/Operations/TableController.php:349
 #: src/Controllers/Table/DropColumnController.php:63
 #: src/Controllers/Table/ReplaceController.php:296 src/Core.php:500
 msgid "No change"
@@ -4872,7 +4872,7 @@ msgstr ""
 "konfigūracijos failą."
 
 #: resources/templates/server/binlog/index.twig:2 src/Menu.php:496
-#: src/Server/Status/Data.php:144 src/Util.php:1475
+#: src/Server/Status/Data.php:144 src/Util.php:1474
 msgid "Binary log"
 msgstr "Dvejetainis log'as"
 
@@ -5024,8 +5024,8 @@ msgstr "Paaiškinimas"
 
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:20
-#: resources/templates/sql/query.twig:188 src/Config/ConfigFile.php:581
-#: src/Menu.php:509 src/Server/Status/Data.php:211 src/Util.php:1477
+#: resources/templates/sql/query.twig:188 src/Config/ConfigFile.php:582
+#: src/Menu.php:509 src/Server/Status/Data.php:211 src/Util.php:1476
 msgid "Variables"
 msgstr "Kintamieji"
 
@@ -5050,7 +5050,7 @@ msgid "Importing into the current server"
 msgstr "Importuojama į šį serverį"
 
 #: resources/templates/server/plugins/index.twig:3 src/Menu.php:524
-#: src/Util.php:1479
+#: src/Util.php:1478
 msgid "Plugins"
 msgstr ""
 
@@ -6432,13 +6432,13 @@ msgstr ""
 
 #. l10n: shortcuts for Kilobyte
 #: resources/templates/server/status/monitor/index.twig:163
-#: src/Controllers/JavaScriptMessagesController.php:205 src/Util.php:300
+#: src/Controllers/JavaScriptMessagesController.php:205 src/Util.php:299
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: resources/templates/server/status/monitor/index.twig:167
-#: src/Controllers/JavaScriptMessagesController.php:206 src/Util.php:302
+#: src/Controllers/JavaScriptMessagesController.php:206 src/Util.php:301
 msgid "MiB"
 msgstr "MiB"
 
@@ -6519,7 +6519,7 @@ msgid "Start auto refresh"
 msgstr ""
 
 #: resources/templates/server/status/processes/list.twig:43
-#: src/Display/Results.php:2628
+#: src/Display/Results.php:2626
 msgid "Kill"
 msgstr "Stabdyti procesą"
 
@@ -6949,7 +6949,7 @@ msgstr "Profiliavimo rezultatai"
 #: src/Controllers/Table/Partition/RepairController.php:50
 #: src/Controllers/Table/Partition/TruncateController.php:51
 #: src/Controllers/Table/RelationController.php:137
-#: src/Database/Routines.php:980 src/Display/Results.php:3223
+#: src/Database/Routines.php:980 src/Display/Results.php:3221
 #: src/Message.php:129
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully."
@@ -7492,7 +7492,7 @@ msgstr "Išvalyti ir perkrauti lentelės podėlį (FLUSH)"
 
 #: resources/templates/table/operations/index.twig:411
 #: resources/templates/table/operations/index.twig:429
-#: src/Controllers/Database/StructureController.php:409
+#: src/Controllers/Database/StructureController.php:410
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Lentelės reikšmės %s ištuštintos."
@@ -7509,14 +7509,14 @@ msgstr "Ištrinti lentelės duomenis (TRUNCATE)"
 
 #: resources/templates/table/operations/index.twig:452
 #: resources/templates/table/operations/view.twig:32
-#: src/Controllers/Database/StructureController.php:361
+#: src/Controllers/Database/StructureController.php:362
 #, fuzzy, php-format
 #| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "Rodinys %s buvo panaikintas"
 
 #: resources/templates/table/operations/index.twig:452
-#: src/Controllers/Database/StructureController.php:362
+#: src/Controllers/Database/StructureController.php:363
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
@@ -7542,8 +7542,8 @@ msgid "Check referential integrity"
 msgstr "Patikrinti sąryšių vientisumą:"
 
 #: resources/templates/table/operations/view.twig:3
-#: src/Config/ConfigFile.php:593 src/Menu.php:274 src/Menu.php:284
-#: src/Menu.php:364 src/Util.php:1061 src/Util.php:1489 src/Util.php:1507
+#: src/Config/ConfigFile.php:594 src/Menu.php:274 src/Menu.php:284
+#: src/Menu.php:364 src/Util.php:1060 src/Util.php:1488 src/Util.php:1506
 msgid "Operations"
 msgstr "Veiksmai"
 
@@ -8137,7 +8137,7 @@ msgstr ""
 #: src/Plugins/Export/ExportOdt.php:657 src/Plugins/Export/ExportPdf.php:251
 #: src/Plugins/Export/ExportSql.php:1924
 #: src/Plugins/Export/ExportTexytext.php:498
-#: src/Plugins/Export/ExportXml.php:120 src/Util.php:1493 src/Util.php:1509
+#: src/Plugins/Export/ExportXml.php:120 src/Util.php:1492 src/Util.php:1508
 msgid "Triggers"
 msgstr ""
 
@@ -9704,71 +9704,71 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Failo pavadinimas"
 
-#: src/Config/ConfigFile.php:521 src/Config/ConfigFile.php:535
-#: src/Config/ConfigFile.php:589 src/Config/ConfigFile.php:599
+#: src/Config/ConfigFile.php:522 src/Config/ConfigFile.php:536
+#: src/Config/ConfigFile.php:590 src/Config/ConfigFile.php:600
 #: src/Config/Descriptions.php:755 src/Menu.php:225 src/Menu.php:329
-#: src/Menu.php:447 src/Navigation/Nodes/NodeTable.php:292 src/Util.php:1057
-#: src/Util.php:1469 src/Util.php:1484 src/Util.php:1501
+#: src/Menu.php:447 src/Navigation/Nodes/NodeTable.php:292 src/Util.php:1056
+#: src/Util.php:1468 src/Util.php:1483 src/Util.php:1500
 msgid "SQL"
 msgstr "SQL"
 
-#: src/Config/ConfigFile.php:546 src/Config/ConfigFile.php:558
-#: src/Config/ConfigFile.php:566
+#: src/Config/ConfigFile.php:547 src/Config/ConfigFile.php:559
+#: src/Config/ConfigFile.php:567
 #, fuzzy
 #| msgid "Ins"
 msgid "Icons"
 msgstr "Įterpiant"
 
-#: src/Config/ConfigFile.php:546 src/Config/ConfigFile.php:553
-#: src/Config/ConfigFile.php:558 src/Config/ConfigFile.php:566
+#: src/Config/ConfigFile.php:547 src/Config/ConfigFile.php:554
+#: src/Config/ConfigFile.php:559 src/Config/ConfigFile.php:567
 msgid "Both"
 msgstr "Abu"
 
-#: src/Config/ConfigFile.php:550
+#: src/Config/ConfigFile.php:551
 msgid "Nowhere"
 msgstr "Niekur"
 
-#: src/Config/ConfigFile.php:551
+#: src/Config/ConfigFile.php:552
 msgid "Left"
 msgstr "Kairė"
 
-#: src/Config/ConfigFile.php:552
+#: src/Config/ConfigFile.php:553
 msgid "Right"
 msgstr "Dešinė"
 
-#: src/Config/ConfigFile.php:568
+#: src/Config/ConfigFile.php:569
 msgid "Click"
 msgstr ""
 
-#: src/Config/ConfigFile.php:569
+#: src/Config/ConfigFile.php:570
 msgid "Double click"
 msgstr ""
 
-#: src/Config/ConfigFile.php:572
+#: src/Config/ConfigFile.php:573
 msgid "key"
 msgstr ""
 
-#: src/Config/ConfigFile.php:572
+#: src/Config/ConfigFile.php:573
 #, fuzzy
 #| msgid "Display columns table"
 msgid "display column"
 msgstr "Rodyti lentelės stulpelius"
 
-#: src/Config/ConfigFile.php:575
+#: src/Config/ConfigFile.php:576
 #, fuzzy
 #| msgid "Welcome to %s"
 msgid "Welcome"
 msgstr "Jūs naudojate %s"
 
-#: src/Config/ConfigFile.php:607
+#: src/Config/ConfigFile.php:608
 msgid "Open"
 msgstr "Atverti"
 
-#: src/Config/ConfigFile.php:607
+#: src/Config/ConfigFile.php:608
 msgid "Closed"
 msgstr "Uždarytas"
 
-#: src/Config/ConfigFile.php:609
+#: src/Config/ConfigFile.php:610
 #: src/Controllers/JavaScriptMessagesController.php:741
 #, fuzzy
 #| msgid "Monday"
@@ -9776,7 +9776,7 @@ msgctxt "Week day name"
 msgid "Monday"
 msgstr "Pirmadienis"
 
-#: src/Config/ConfigFile.php:610
+#: src/Config/ConfigFile.php:611
 #: src/Controllers/JavaScriptMessagesController.php:742
 #, fuzzy
 #| msgid "Tuesday"
@@ -9784,7 +9784,7 @@ msgctxt "Week day name"
 msgid "Tuesday"
 msgstr "Antradienis"
 
-#: src/Config/ConfigFile.php:611
+#: src/Config/ConfigFile.php:612
 #: src/Controllers/JavaScriptMessagesController.php:743
 #, fuzzy
 #| msgid "Wednesday"
@@ -9792,7 +9792,7 @@ msgctxt "Week day name"
 msgid "Wednesday"
 msgstr "Trečiadienis"
 
-#: src/Config/ConfigFile.php:612
+#: src/Config/ConfigFile.php:613
 #: src/Controllers/JavaScriptMessagesController.php:744
 #, fuzzy
 #| msgid "Thursday"
@@ -9800,7 +9800,7 @@ msgctxt "Week day name"
 msgid "Thursday"
 msgstr "Ketvirtadienis"
 
-#: src/Config/ConfigFile.php:613
+#: src/Config/ConfigFile.php:614
 #: src/Controllers/JavaScriptMessagesController.php:745
 #, fuzzy
 #| msgid "Friday"
@@ -9808,7 +9808,7 @@ msgctxt "Week day name"
 msgid "Friday"
 msgstr "Penktadienis"
 
-#: src/Config/ConfigFile.php:614
+#: src/Config/ConfigFile.php:615
 #: src/Controllers/JavaScriptMessagesController.php:746
 #, fuzzy
 #| msgid "Saturday"
@@ -9816,7 +9816,7 @@ msgctxt "Week day name"
 msgid "Saturday"
 msgstr "Šeštadienis"
 
-#: src/Config/ConfigFile.php:615
+#: src/Config/ConfigFile.php:616
 #: src/Controllers/JavaScriptMessagesController.php:740
 #, fuzzy
 #| msgid "Sunday"
@@ -9824,46 +9824,35 @@ msgctxt "Week day name"
 msgid "Sunday"
 msgstr "Sekmadienis"
 
-#: src/Config/ConfigFile.php:618
+#: src/Config/ConfigFile.php:619
 msgid "Ask before sending error reports"
 msgstr ""
 
-#: src/Config/ConfigFile.php:619
+#: src/Config/ConfigFile.php:620
 msgid "Always send error reports"
 msgstr ""
 
-#: src/Config/ConfigFile.php:620
+#: src/Config/ConfigFile.php:621
 msgid "Never send error reports"
 msgstr ""
 
-#: src/Config/ConfigFile.php:623
+#: src/Config/ConfigFile.php:624
 #, fuzzy
 #| msgid "Reset to default"
 msgid "Server default"
 msgstr "Atstatyti numatytąsias reikšmes"
 
-#: src/Config/ConfigFile.php:624
+#: src/Config/ConfigFile.php:625
 #, fuzzy
 #| msgid "Enabled"
 msgid "Enable"
 msgstr "Įjungta"
 
-#: src/Config/ConfigFile.php:625
+#: src/Config/ConfigFile.php:626
 #, fuzzy
 #| msgid "Disabled"
 msgid "Disable"
 msgstr "Išjungta"
-
-#: src/Config/ConfigFile.php:665 src/Config/ConfigFile.php:718
-#: src/Config/ConfigFile.php:730 src/Config/ConfigFile.php:738
-#: src/Config/ConfigFile.php:743 src/Plugins/Export/ExportHtmlword.php:62
-#: src/Plugins/Export/ExportLatex.php:94
-#: src/Plugins/Export/ExportMediawiki.php:64
-#: src/Plugins/Export/ExportOdt.php:75 src/Plugins/Export/ExportPdf.php:85
-#: src/Plugins/Export/ExportSql.php:213
-#: src/Plugins/Export/ExportTexytext.php:61
-msgid "structure"
-msgstr "struktūra"
 
 #: src/Config/ConfigFile.php:666 src/Config/ConfigFile.php:719
 #: src/Config/ConfigFile.php:731 src/Config/ConfigFile.php:739
@@ -9873,8 +9862,8 @@ msgstr "struktūra"
 #: src/Plugins/Export/ExportOdt.php:75 src/Plugins/Export/ExportPdf.php:85
 #: src/Plugins/Export/ExportSql.php:213
 #: src/Plugins/Export/ExportTexytext.php:61
-msgid "data"
-msgstr "duomenys"
+msgid "structure"
+msgstr "struktūra"
 
 #: src/Config/ConfigFile.php:667 src/Config/ConfigFile.php:720
 #: src/Config/ConfigFile.php:732 src/Config/ConfigFile.php:740
@@ -9884,35 +9873,46 @@ msgstr "duomenys"
 #: src/Plugins/Export/ExportOdt.php:75 src/Plugins/Export/ExportPdf.php:85
 #: src/Plugins/Export/ExportSql.php:213
 #: src/Plugins/Export/ExportTexytext.php:61
+msgid "data"
+msgstr "duomenys"
+
+#: src/Config/ConfigFile.php:668 src/Config/ConfigFile.php:721
+#: src/Config/ConfigFile.php:733 src/Config/ConfigFile.php:741
+#: src/Config/ConfigFile.php:746 src/Plugins/Export/ExportHtmlword.php:62
+#: src/Plugins/Export/ExportLatex.php:94
+#: src/Plugins/Export/ExportMediawiki.php:64
+#: src/Plugins/Export/ExportOdt.php:75 src/Plugins/Export/ExportPdf.php:85
+#: src/Plugins/Export/ExportSql.php:213
+#: src/Plugins/Export/ExportTexytext.php:61
 msgid "structure and data"
 msgstr "struktūra ir duomenys"
 
-#: src/Config/ConfigFile.php:670
+#: src/Config/ConfigFile.php:671
 msgid "Quick - display only the minimal options to configure"
 msgstr "Greitas - rodomi tik minimalūs nustatymai"
 
-#: src/Config/ConfigFile.php:671
+#: src/Config/ConfigFile.php:672
 msgid "Custom - display all possible options to configure"
 msgstr "Individualizuotas - rodyti visus nustatymus"
 
-#: src/Config/ConfigFile.php:672
+#: src/Config/ConfigFile.php:673
 msgid "Custom - like above, but without the quick/custom choice"
 msgstr ""
 "Individualizuotas - kaip paminėtas, bet be greito/adaptuoto pasirinkimo"
 
-#: src/Config/ConfigFile.php:724
+#: src/Config/ConfigFile.php:725
 msgid "complete inserts"
 msgstr "užbaigti įterpimus"
 
-#: src/Config/ConfigFile.php:725
+#: src/Config/ConfigFile.php:726
 msgid "extended inserts"
 msgstr "praplėsti įterpimus"
 
-#: src/Config/ConfigFile.php:726
+#: src/Config/ConfigFile.php:727
 msgid "both of the above"
 msgstr "abu iš paminėtų"
 
-#: src/Config/ConfigFile.php:727
+#: src/Config/ConfigFile.php:728
 msgid "neither of the above"
 msgstr "nei vieną iš paminėtų"
 
@@ -12235,7 +12235,7 @@ msgstr "Kopijuojama duomenų bazė"
 msgid "Recently used tables"
 msgstr "Paskiausiai naudotos lentelės"
 
-#: src/Config/Descriptions.php:835 src/Favorites/RecentFavoriteTables.php:236
+#: src/Config/Descriptions.php:835 src/Favorites/RecentFavoriteTables.php:235
 #, fuzzy
 #| msgid "Variables"
 msgid "Favorite tables"
@@ -12859,23 +12859,23 @@ msgstr "Naršyklės transformacija"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr "Nepavyko išsaugoti nustatymų, išsiųstoje formoje yra klaidų"
 
-#: src/Config.php:616
+#: src/Config.php:611
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Esamo konfigūracinio failo (%s) neina nuskaityti."
 
-#: src/Config.php:652
+#: src/Config.php:647
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Blogos teisės konfigūracinio failo, neturėtų būti įrašymo galimybė visiems!"
 
-#: src/Config.php:666
+#: src/Config.php:661
 #, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
 msgstr "Nepavyko perskaityti konfigūracijos failo"
 
-#: src/Config.php:668
+#: src/Config.php:663
 #, fuzzy
 #| msgid ""
 #| "This usually means there is a syntax error in it, please check any errors "
@@ -13173,7 +13173,7 @@ msgstr[2] ""
 msgid "No bookmarks"
 msgstr "Ištrinti sąryšį"
 
-#: src/Controllers/AbstractController.php:70
+#: src/Controllers/AbstractController.php:74
 #: src/Controllers/SchemaExportController.php:35
 #: src/Controllers/Server/UserGroupsFormController.php:45
 msgid "Missing parameter:"
@@ -13202,7 +13202,7 @@ msgstr "Nepavyko"
 msgid "Succeeded"
 msgstr "Pavyko"
 
-#: src/Controllers/Database/CentralColumnsController.php:147
+#: src/Controllers/Database/CentralColumnsController.php:148
 #, php-format
 msgid "Showing rows %1$s - %2$s."
 msgstr "Rodomos eilutės %1$s - %2$s."
@@ -13217,8 +13217,8 @@ msgstr ""
 #: src/Controllers/Database/DesignerController.php:170
 #: src/Controllers/Database/DesignerController.php:175
 #: src/Controllers/Database/EventsController.php:61
-#: src/Controllers/Database/ExportController.php:68
-#: src/Controllers/Database/ExportController.php:73
+#: src/Controllers/Database/ExportController.php:69
+#: src/Controllers/Database/ExportController.php:74
 #: src/Controllers/Database/ImportController.php:66
 #: src/Controllers/Database/ImportController.php:71
 #: src/Controllers/Database/RoutinesController.php:78
@@ -13227,16 +13227,16 @@ msgstr ""
 #: src/Controllers/Database/SearchController.php:59
 #: src/Controllers/Database/SqlController.php:65
 #: src/Controllers/Database/SqlController.php:70
-#: src/Controllers/Database/StructureController.php:144
-#: src/Controllers/Database/StructureController.php:149
+#: src/Controllers/Database/StructureController.php:145
+#: src/Controllers/Database/StructureController.php:150
 #: src/Controllers/Database/Structure/FavoriteTableController.php:83
 #: src/Controllers/Database/Structure/RealRowCountController.php:62
-#: src/Controllers/Database/TrackingController.php:63
-#: src/Controllers/Database/TrackingController.php:68
+#: src/Controllers/Database/TrackingController.php:64
+#: src/Controllers/Database/TrackingController.php:69
 #: src/Controllers/JavaScriptMessagesController.php:354
 #: src/Controllers/Operations/Database/CollationController.php:64
-#: src/Controllers/Operations/DatabaseController.php:234
-#: src/Controllers/Operations/DatabaseController.php:239
+#: src/Controllers/Operations/DatabaseController.php:233
+#: src/Controllers/Operations/DatabaseController.php:238
 #: src/Controllers/Operations/TableController.php:88
 #: src/Controllers/Operations/TableController.php:93
 #: src/Controllers/Operations/ViewController.php:64
@@ -13269,8 +13269,8 @@ msgstr ""
 #: src/Controllers/Table/SearchController.php:183
 #: src/Controllers/Table/SqlController.php:67
 #: src/Controllers/Table/SqlController.php:72
-#: src/Controllers/Table/StructureController.php:102
-#: src/Controllers/Table/StructureController.php:107
+#: src/Controllers/Table/StructureController.php:101
+#: src/Controllers/Table/StructureController.php:106
 #: src/Controllers/Table/Structure/PrimaryController.php:76
 #: src/Controllers/Table/Structure/PrimaryController.php:81
 #: src/Controllers/Table/TrackingController.php:72
@@ -13320,7 +13320,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "Nėra įvykio su vardu %1$s duomenų bazėje %2$s"
 
-#: src/Controllers/Database/ExportController.php:151
+#: src/Controllers/Database/ExportController.php:153
 #: src/Controllers/Server/ExportController.php:72
 #: src/Controllers/Table/ExportController.php:105
 msgid "Could not load export plugins, please check your installation!"
@@ -13333,16 +13333,16 @@ msgstr "Nepavyko įkelti eksportuojamų plėtinių, prašome patikrinti įdiegt�
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Nepavyko įkelti importuotų įskiepių, prašome patikrinti įdiegimą!"
 
-#: src/Controllers/Database/PrivilegesController.php:67
+#: src/Controllers/Database/PrivilegesController.php:68
 #: src/Controllers/Server/PrivilegesController.php:111
 #: src/Controllers/Server/UserGroupsController.php:47
-#: src/Controllers/Table/PrivilegesController.php:70
+#: src/Controllers/Table/PrivilegesController.php:71
 msgid "No Privileges"
 msgstr "Nėra privilegijų"
 
-#: src/Controllers/Database/PrivilegesController.php:76
+#: src/Controllers/Database/PrivilegesController.php:77
 #: src/Controllers/Server/PrivilegesController.php:120
-#: src/Controllers/Table/PrivilegesController.php:79
+#: src/Controllers/Table/PrivilegesController.php:80
 #, fuzzy
 #| msgid "You do not have the necessary privileges to create an event"
 msgid "You do not have the privileges to administrate the users!"
@@ -13392,8 +13392,8 @@ msgstr "Neturite pakankamai teisių sukurti įvykį"
 #: src/Controllers/Table/SearchController.php:197
 #: src/Controllers/Table/SqlController.php:81
 #: src/Controllers/Table/SqlController.php:86
-#: src/Controllers/Table/StructureController.php:116
-#: src/Controllers/Table/StructureController.php:121
+#: src/Controllers/Table/StructureController.php:115
+#: src/Controllers/Table/StructureController.php:120
 #: src/Controllers/Table/Structure/PrimaryController.php:90
 #: src/Controllers/Table/Structure/PrimaryController.php:95
 #: src/Controllers/Table/ZoomSearchController.php:117
@@ -13458,8 +13458,8 @@ msgstr ""
 msgid "Success!"
 msgstr ""
 
-#: src/Controllers/Database/StructureController.php:579
-#: src/Display/Results.php:3510
+#: src/Controllers/Database/StructureController.php:580
+#: src/Display/Results.php:3508
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -13468,7 +13468,7 @@ msgstr ""
 "Šis rodinys turi mažiausiai tiek eilučių. Daugiau informacijos "
 "%sdokumentacijoje%s."
 
-#: src/Controllers/Database/StructureController.php:742
+#: src/Controllers/Database/StructureController.php:743
 msgid "unknown"
 msgstr "nežinoma"
 
@@ -13476,22 +13476,22 @@ msgstr "nežinoma"
 msgid "Favorite List is full!"
 msgstr ""
 
-#: src/Controllers/Database/TrackingController.php:82
-#: src/Controllers/Database/TrackingController.php:107
+#: src/Controllers/Database/TrackingController.php:83
+#: src/Controllers/Database/TrackingController.php:108
 msgid "Tracking data deleted successfully."
 msgstr "Sekimo duomenys ištrinti sėkmingai."
 
-#: src/Controllers/Database/TrackingController.php:93
+#: src/Controllers/Database/TrackingController.php:94
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr "Versija %1$s buvo sukurta pažymėtoms lantelėms, jų sekimas aktyvus."
 
-#: src/Controllers/Database/TrackingController.php:124
+#: src/Controllers/Database/TrackingController.php:125
 msgid "No tables selected."
 msgstr "Nėra pažymėtų lentelių."
 
-#: src/Controllers/Database/TrackingController.php:163
+#: src/Controllers/Database/TrackingController.php:164
 msgid "Database Log"
 msgstr "Duomenų bazės žurnalas"
 
@@ -13533,7 +13533,7 @@ msgstr "Blogas tipas!"
 msgid "Bad parameters!"
 msgstr "Blogi parametrai!"
 
-#: src/Controllers/HomeController.php:103
+#: src/Controllers/HomeController.php:102
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
@@ -13541,7 +13541,7 @@ msgstr ""
 "Jūs atsijungėte iš vieno serverio, kad visiškai išeitumėte iš phpMyAdmin, "
 "turite atsijungti iš visų serverių."
 
-#: src/Controllers/HomeController.php:200
+#: src/Controllers/HomeController.php:199
 #, fuzzy, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
@@ -13553,12 +13553,12 @@ msgstr ""
 "phpMyAdmin nustatymų saugykla nėra visiškai sukonfigūruota, išplėstinės "
 "funkcijos išjungtos. %sIšsiaiškinkite kodėl%s."
 
-#: src/Controllers/HomeController.php:206
+#: src/Controllers/HomeController.php:205
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 
-#: src/Controllers/HomeController.php:274
+#: src/Controllers/HomeController.php:271
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -13566,27 +13566,27 @@ msgid ""
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: src/Controllers/HomeController.php:294
+#: src/Controllers/HomeController.php:291
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: src/Controllers/HomeController.php:313
+#: src/Controllers/HomeController.php:310
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 
-#: src/Controllers/HomeController.php:332
+#: src/Controllers/HomeController.php:329
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:342
+#: src/Controllers/HomeController.php:339
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -13594,7 +13594,7 @@ msgid ""
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:360
+#: src/Controllers/HomeController.php:357
 #, fuzzy
 #| msgid ""
 #| "Directory [code]config[/code], which is used by the setup script, still "
@@ -13610,7 +13610,7 @@ msgstr ""
 "yra Jūsų phpMyAdmin kataloge. Jūs turėtumėte jį pašalinti iškart po to kai "
 "sukonfigūruosite phpMyAdmin."
 
-#: src/Controllers/HomeController.php:381
+#: src/Controllers/HomeController.php:378
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -13619,14 +13619,14 @@ msgstr ""
 "Serveris veikia su Suhosin. Prašome perskaityti %sdokumentaciją%s dėl galimų "
 "problemų."
 
-#: src/Controllers/HomeController.php:395
+#: src/Controllers/HomeController.php:392
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
 
-#: src/Controllers/HomeController.php:452
+#: src/Controllers/HomeController.php:449
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -13636,7 +13636,7 @@ msgstr ""
 "simbolių kodaciją. Be mbstring plėtinio phpMyAdmin negali tesingai skaidyti "
 "stringų, todėl galite sulaukti netikėtų rezultatų."
 
-#: src/Controllers/HomeController.php:470
+#: src/Controllers/HomeController.php:467
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -14004,14 +14004,14 @@ msgid "Other"
 msgstr "Kita"
 
 #. l10n: Thousands separator
-#: src/Controllers/JavaScriptMessagesController.php:161 src/Util.php:388
-#: src/Util.php:420
+#: src/Controllers/JavaScriptMessagesController.php:161 src/Util.php:387
+#: src/Util.php:419
 msgid ","
 msgstr " "
 
 #. l10n: Decimal separator
-#: src/Controllers/JavaScriptMessagesController.php:163 src/Util.php:386
-#: src/Util.php:418
+#: src/Controllers/JavaScriptMessagesController.php:163 src/Util.php:385
+#: src/Util.php:417
 msgid "."
 msgstr ","
 
@@ -14122,27 +14122,27 @@ msgid "Bytes received"
 msgstr "Gauta baitų"
 
 #. l10n: shortcuts for Byte
-#: src/Controllers/JavaScriptMessagesController.php:204 src/Util.php:298
+#: src/Controllers/JavaScriptMessagesController.php:204 src/Util.php:297
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Gigabyte
-#: src/Controllers/JavaScriptMessagesController.php:207 src/Util.php:304
+#: src/Controllers/JavaScriptMessagesController.php:207 src/Util.php:303
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
-#: src/Controllers/JavaScriptMessagesController.php:208 src/Util.php:306
+#: src/Controllers/JavaScriptMessagesController.php:208 src/Util.php:305
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
-#: src/Controllers/JavaScriptMessagesController.php:209 src/Util.php:308
+#: src/Controllers/JavaScriptMessagesController.php:209 src/Util.php:307
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
-#: src/Controllers/JavaScriptMessagesController.php:210 src/Util.php:310
+#: src/Controllers/JavaScriptMessagesController.php:210 src/Util.php:309
 msgid "EiB"
 msgstr "EiB"
 
@@ -15458,133 +15458,133 @@ msgctxt "Month name"
 msgid "December"
 msgstr "gruodžio"
 
-#: src/Controllers/JavaScriptMessagesController.php:728 src/Util.php:497
+#: src/Controllers/JavaScriptMessagesController.php:728 src/Util.php:496
 #, fuzzy
 #| msgid "Jan"
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "Sau"
 
-#: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:498
+#: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:497
 #, fuzzy
 #| msgid "Feb"
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "Vas"
 
-#: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:499
+#: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:498
 #, fuzzy
 #| msgid "Mar"
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "Kov"
 
-#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:500
+#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:499
 #, fuzzy
 #| msgid "Apr"
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "Bal"
 
-#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:501
+#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:500
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "Geg"
 
-#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:502
+#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:501
 #, fuzzy
 #| msgid "Jun"
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "Bir"
 
-#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:503
+#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:502
 #, fuzzy
 #| msgid "Jul"
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "Lie"
 
-#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:504
+#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:503
 #, fuzzy
 #| msgid "Aug"
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "Rgp"
 
-#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:505
+#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:504
 #, fuzzy
 #| msgid "Sep"
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "Rgs"
 
-#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:506
+#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:505
 #, fuzzy
 #| msgid "Oct"
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "Spa"
 
-#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:507
+#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:506
 #, fuzzy
 #| msgid "Nov"
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "Lap"
 
-#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:508
+#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:507
 #, fuzzy
 #| msgid "Dec"
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "Grd"
 
-#: src/Controllers/JavaScriptMessagesController.php:747 src/Util.php:511
+#: src/Controllers/JavaScriptMessagesController.php:747 src/Util.php:510
 #, fuzzy
 #| msgid "Sun"
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "Sek"
 
-#: src/Controllers/JavaScriptMessagesController.php:748 src/Util.php:512
+#: src/Controllers/JavaScriptMessagesController.php:748 src/Util.php:511
 #, fuzzy
 #| msgid "Mon"
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "Pir"
 
-#: src/Controllers/JavaScriptMessagesController.php:749 src/Util.php:513
+#: src/Controllers/JavaScriptMessagesController.php:749 src/Util.php:512
 #, fuzzy
 #| msgid "Tue"
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "Ant"
 
-#: src/Controllers/JavaScriptMessagesController.php:750 src/Util.php:514
+#: src/Controllers/JavaScriptMessagesController.php:750 src/Util.php:513
 #, fuzzy
 #| msgid "Wed"
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "Tre"
 
-#: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:515
+#: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:514
 #, fuzzy
 #| msgid "Thu"
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "Ket"
 
-#: src/Controllers/JavaScriptMessagesController.php:752 src/Util.php:516
+#: src/Controllers/JavaScriptMessagesController.php:752 src/Util.php:515
 #, fuzzy
 #| msgid "Fri"
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "Pen"
 
-#: src/Controllers/JavaScriptMessagesController.php:753 src/Util.php:517
+#: src/Controllers/JavaScriptMessagesController.php:753 src/Util.php:516
 #, fuzzy
 #| msgid "Sat"
 msgctxt "Short week day name for Saturday"
@@ -15919,27 +15919,27 @@ msgid "String"
 msgstr "Eilutės baigiasi"
 
 #: src/Controllers/Operations/Database/CollationController.php:46
-#: src/Controllers/Operations/TableController.php:280
+#: src/Controllers/Operations/TableController.php:279
 msgid "No collation provided."
 msgstr ""
 
-#: src/Controllers/Operations/DatabaseController.php:85
+#: src/Controllers/Operations/DatabaseController.php:84
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 "Negalima kopijuoti duombazės su tokiu pat pavadinimu. Pakeiskite pavadinimą "
 "ir bandykite dar kartą."
 
-#: src/Controllers/Operations/DatabaseController.php:164
+#: src/Controllers/Operations/DatabaseController.php:163
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "Duomenų bazė %1$s pervadinta į %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:174
+#: src/Controllers/Operations/DatabaseController.php:173
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Duomenų bazė %1$s buvo nukopijuota į %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:277
+#: src/Controllers/Operations/DatabaseController.php:276
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -16622,7 +16622,7 @@ msgstr "Serveris neatsako"
 msgid "Setting variable failed"
 msgstr ""
 
-#: src/Controllers/Setup/FormController.php:33
+#: src/Controllers/Setup/FormController.php:34
 msgid "Incorrect form specified!"
 msgstr ""
 
@@ -16651,7 +16651,7 @@ msgstr ""
 msgid "Insecure connection"
 msgstr "Nesaugus susijungimas"
 
-#: src/Controllers/Setup/MainController.php:40
+#: src/Controllers/Setup/MainController.php:41
 msgid "Configuration already exists, setup is disabled!"
 msgstr ""
 
@@ -16750,7 +16750,7 @@ msgstr "Neteisingas lentelės vardas"
 
 #. l10n: In case a SQL query did not pass a security check
 #: src/Controllers/Table/GetFieldController.php:68
-#: src/Controllers/Transformation/WrapperController.php:77
+#: src/Controllers/Transformation/WrapperController.php:74
 msgid "There is an issue with your request."
 msgstr ""
 
@@ -16923,7 +16923,7 @@ msgstr ""
 msgid "Could not remove columns!"
 msgstr "Negalėjo išsaugoti paskiausios lentelės"
 
-#: src/Database/Designer/Common.php:458
+#: src/Database/Designer/Common.php:457
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgctxt ""
@@ -16933,65 +16933,65 @@ msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr "Trūksta phpMyAdmin nustatymų saugyklos lentelių"
 
-#: src/Database/Designer/Common.php:505
+#: src/Database/Designer/Common.php:502
 #, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
 msgstr "Klaida: toks sąryšis jau yra."
 
-#: src/Database/Designer/Common.php:554
+#: src/Database/Designer/Common.php:551
 #, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been added."
 msgstr "FOREIGN KEY sąryšis įdėtas"
 
-#: src/Database/Designer/Common.php:559
+#: src/Database/Designer/Common.php:556
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Klaida: Sąryšis neįdėtas."
 
-#: src/Database/Designer/Common.php:562
+#: src/Database/Designer/Common.php:559
 msgid "Error: Missing index on column(s)."
 msgstr ""
 
-#: src/Database/Designer/Common.php:567 src/Database/Designer/Common.php:633
+#: src/Database/Designer/Common.php:564 src/Database/Designer/Common.php:628
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relational features are disabled!"
 msgstr "Klaida: Sąryšis neįdėtas."
 
-#: src/Database/Designer/Common.php:588
+#: src/Database/Designer/Common.php:585
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been added."
 msgstr "Vidinis sąryšis įdėtas"
 
-#: src/Database/Designer/Common.php:593
+#: src/Database/Designer/Common.php:590
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be added!"
 msgstr "Klaida: Sąryšis neįdėtas."
 
-#: src/Database/Designer/Common.php:627
+#: src/Database/Designer/Common.php:622
 #, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "FOREIGN KEY sąryšis įdėtas"
 
-#: src/Database/Designer/Common.php:652
+#: src/Database/Designer/Common.php:647
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Klaida: Sąryšis neįdėtas."
 
-#: src/Database/Designer/Common.php:655
+#: src/Database/Designer/Common.php:650
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been removed."
 msgstr "Vidinis sąryšis įdėtas"
 
-#: src/Database/Designer.php:117
+#: src/Database/Designer.php:118
 #, fuzzy
 #| msgid "Could not load import plugins, please check your installation!"
 msgid "Could not load schema plugins, please check your installation!"
@@ -17070,7 +17070,7 @@ msgstr "Atsiprašome, nepavyko atstatyti pašalinto įvykio."
 msgid "The backed up query was:"
 msgstr ""
 
-#: src/DatabaseInterface.php:1158
+#: src/DatabaseInterface.php:1160
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -17078,13 +17078,13 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: src/DatabaseInterface.php:1200
+#: src/DatabaseInterface.php:1202
 #, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to set configured collation connection!"
 msgstr "Nepavyko perskaityti konfigūracijos failo"
 
-#: src/DatabaseInterface.php:1654
+#: src/DatabaseInterface.php:1663
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
@@ -17158,47 +17158,43 @@ msgstr[2] ""
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr ""
 
-#: src/Dbal/DbiMysqli.php:129
-msgid "SSL connection enforced by server, automatically enabling it."
-msgstr ""
-
-#: src/Dbal/DbiMysqli.php:140
+#: src/Dbal/DbiMysqli.php:121
 #, php-format
 msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: src/Display/Results.php:2585 src/Display/Results.php:2600
+#: src/Display/Results.php:2583 src/Display/Results.php:2598
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Eilutė buvo ištrinta"
 
-#: src/Display/Results.php:3519
+#: src/Display/Results.php:3517
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "Rodomi įrašai"
 
-#: src/Display/Results.php:3533
+#: src/Display/Results.php:3531
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr ""
 
-#: src/Display/Results.php:3538
+#: src/Display/Results.php:3536
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%s total"
 msgstr "iš viso"
 
-#: src/Display/Results.php:3551 src/Sql.php:860
+#: src/Display/Results.php:3549 src/Sql.php:860
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "Užklausa užtruko %01.4f sek."
 
-#: src/Display/Results.php:3858
+#: src/Display/Results.php:3856
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -17552,29 +17548,29 @@ msgstr "Atvaizdis įrašytas faile %s."
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
-#: src/Favorites/RecentFavoriteTables.php:157
+#: src/Favorites/RecentFavoriteTables.php:156
 #, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not save recent table!"
 msgstr "Negalėjo išsaugoti paskiausios lentelės"
 
-#: src/Favorites/RecentFavoriteTables.php:158
+#: src/Favorites/RecentFavoriteTables.php:157
 #, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not save favorite table!"
 msgstr "Negalėjo išsaugoti paskiausios lentelės"
 
-#: src/Favorites/RecentFavoriteTables.php:232
+#: src/Favorites/RecentFavoriteTables.php:231
 msgid "Recent tables"
 msgstr "Paskiausios lentelės"
 
-#: src/Favorites/RecentFavoriteTables.php:234
+#: src/Favorites/RecentFavoriteTables.php:233
 #, fuzzy
 #| msgid "Reset"
 msgid "Recent"
 msgstr "Atstatyti į pradinę būseną"
 
-#: src/Favorites/RecentFavoriteTables.php:238
+#: src/Favorites/RecentFavoriteTables.php:237
 #, fuzzy
 #| msgid "Variables"
 msgid "Favorites"
@@ -17715,7 +17711,7 @@ msgstr "Statiniai duomenys"
 msgid "%d errors were found during analysis."
 msgstr ""
 
-#: src/Http/Middleware/DatabaseServerVersionChecking.php:42
+#: src/Http/Middleware/DatabaseServerVersionChecking.php:43
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Rekomenduojame atnaujint %s iki %s ar vėlesnės versijos."
@@ -17725,11 +17721,11 @@ msgstr "Rekomenduojame atnaujint %s iki %s ar vėlesnės versijos."
 msgid "See %sour documentation%s for more information."
 msgstr ""
 
-#: src/Http/Middleware/RequestProblemChecking.php:32
+#: src/Http/Middleware/RequestProblemChecking.php:33
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: src/Http/Middleware/RequestProblemChecking.php:39
+#: src/Http/Middleware/RequestProblemChecking.php:40
 msgid "possible exploit"
 msgstr "galimas pažeidžiamumas"
 
@@ -17888,7 +17884,7 @@ msgstr "Rodoma SQL užklausa"
 msgid "Inserted row id: %1$d"
 msgstr "Įterpto įrašo id: %1$d"
 
-#: src/LanguageManager.php:964
+#: src/LanguageManager.php:967
 msgid "Ignoring unsupported language code."
 msgstr ""
 
@@ -17902,7 +17898,7 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr ""
 
-#: src/Menu.php:290 src/Menu.php:397 src/Util.php:1494 src/Util.php:1508
+#: src/Menu.php:290 src/Menu.php:397 src/Util.php:1493 src/Util.php:1507
 msgid "Tracking"
 msgstr "Sekimas"
 
@@ -17910,11 +17906,11 @@ msgstr "Sekimas"
 msgid "Database seems to be empty!"
 msgstr "Duomenų bazė atrodo tuščia!"
 
-#: src/Menu.php:341 src/Util.php:1486
+#: src/Menu.php:341 src/Util.php:1485
 msgid "Query"
 msgstr "SQL užklausa"
 
-#: src/Menu.php:404 src/Util.php:1495
+#: src/Menu.php:404 src/Util.php:1494
 msgid "Designer"
 msgstr "Projektavimas"
 
@@ -17924,11 +17920,11 @@ msgstr "Projektavimas"
 msgid "User accounts"
 msgstr "Naudotojai"
 
-#: src/Menu.php:514 src/Util.php:1478
+#: src/Menu.php:514 src/Util.php:1477
 msgid "Charsets"
 msgstr "Koduotės"
 
-#: src/Menu.php:519 src/Util.php:1480
+#: src/Menu.php:519 src/Util.php:1479
 msgid "Engines"
 msgstr "Varikliai"
 
@@ -17959,31 +17955,31 @@ msgstr[1] "Įterptos %1$d eilutės."
 msgstr[2] "Įterpta %1$d eilučių."
 msgstr[3] ""
 
-#: src/Navigation/Navigation.php:208
+#: src/Navigation/Navigation.php:209
 #, fuzzy
 #| msgid "Column names: "
 msgid "Groups:"
 msgstr "Stulpelių vardai: "
 
-#: src/Navigation/Navigation.php:209
+#: src/Navigation/Navigation.php:210
 #, fuzzy
 #| msgid "Events"
 msgid "Events:"
 msgstr "Įvykiai"
 
-#: src/Navigation/Navigation.php:210
+#: src/Navigation/Navigation.php:211
 #, fuzzy
 #| msgid "Functions"
 msgid "Functions:"
 msgstr "Funkcijos"
 
-#: src/Navigation/Navigation.php:211
+#: src/Navigation/Navigation.php:212
 #, fuzzy
 #| msgid "Procedures"
 msgid "Procedures:"
 msgstr "Procedūros"
 
-#: src/Navigation/Navigation.php:213
+#: src/Navigation/Navigation.php:214
 #, fuzzy
 #| msgid "Views"
 msgid "Views:"
@@ -18388,8 +18384,8 @@ msgstr "Neįmanoma prisijungti: neteisingi duomenys."
 
 #: src/Plugins/Auth/AuthenticationConfig.php:85
 #: src/Plugins/Auth/AuthenticationConfig.php:99
-#: src/Plugins/Auth/AuthenticationHttp.php:77
-#: src/Plugins/AuthenticationPlugin.php:170
+#: src/Plugins/Auth/AuthenticationHttp.php:78
+#: src/Plugins/AuthenticationPlugin.php:171
 msgid "Access denied!"
 msgstr "Priėjimas uždraustas!"
 
@@ -18449,11 +18445,11 @@ msgstr ""
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "Nepavyksta prisijungti prie MySQL darbinės stoties"
 
-#: src/Plugins/Auth/AuthenticationHttp.php:87
+#: src/Plugins/Auth/AuthenticationHttp.php:88
 msgid "Wrong username/password. Access denied."
 msgstr "Neteisingas naudotojo vardas arba slaptažodis. Priėjimas uždraustas."
 
-#: src/Plugins/Auth/AuthenticationSignon.php:123
+#: src/Plugins/Auth/AuthenticationSignon.php:124
 msgid "Can not find signon authentication script:"
 msgstr "Nepavyko surasti prisijungimo tapatumo nustatymo scenarijaus:"
 
@@ -18461,25 +18457,25 @@ msgstr "Nepavyko surasti prisijungimo tapatumo nustatymo scenarijaus:"
 msgid "Invalid authentication method set in configuration:"
 msgstr "Blogai nustatytas identifikavimo metodas nustatymuose:"
 
-#: src/Plugins/AuthenticationPlugin.php:166
+#: src/Plugins/AuthenticationPlugin.php:167
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "Prisijungimą be slaptažodžio draudžia nustatymai (žiūrėti AllowNoPassword)"
 
-#: src/Plugins/AuthenticationPlugin.php:175
+#: src/Plugins/AuthenticationPlugin.php:176
 #, php-format
 msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
 "you log in again, you should be able to resume the work where you left off."
 msgstr ""
 
-#: src/Plugins/AuthenticationPlugin.php:188
-#: src/Plugins/AuthenticationPlugin.php:191
+#: src/Plugins/AuthenticationPlugin.php:189
+#: src/Plugins/AuthenticationPlugin.php:192
 msgid "Cannot log in to the MySQL server"
 msgstr "Nepavyksta prisijungti prie MySQL darbinės stoties"
 
-#: src/Plugins/AuthenticationPlugin.php:329
+#: src/Plugins/AuthenticationPlugin.php:330
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
@@ -19233,7 +19229,7 @@ msgstr ""
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:70
-#: src/Util.php:522
+#: src/Util.php:521
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%Y m. %B %d d. %H:%M"
 
@@ -19641,20 +19637,20 @@ msgstr "Nepavyko pakeisti pagrindinio (master) serverio"
 msgid "Primary server changed successfully to %s."
 msgstr "Pagrindinis (master) serveris sėkmingai pakeistas į %s"
 
-#: src/Routing/Routing.php:119
+#: src/Routing/Routing.php:120
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: src/Routing/Routing.php:153 src/Routing/Routing.php:213
+#: src/Routing/Routing.php:154 src/Routing/Routing.php:214
 #, fuzzy, php-format
 #| msgid "Source database"
 msgid "Error 404! The page %s was not found."
 msgstr "Iš duomenų bazės"
 
-#: src/Routing/Routing.php:161
+#: src/Routing/Routing.php:162
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
@@ -19953,7 +19949,7 @@ msgstr "%s šiame MySQL serveryje yra išjungtas."
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Šis MySQL serveris nepalaiko %s saugojimo variklio."
 
-#: src/Table/Indexes.php:55 src/Table/Table.php:1956
+#: src/Table/Indexes.php:55 src/Table/Table.php:1953
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Pirminio rakto pavadinimas turi būti \"PRIMARY\"!"
 
@@ -19968,50 +19964,50 @@ msgstr "Iškilo problemos su `%s` lentelės indeksais"
 msgid "Unknown table status:"
 msgstr "lentelės būsena nežinoma: "
 
-#: src/Table/Table.php:939
+#: src/Table/Table.php:936
 #, fuzzy, php-format
 #| msgid "Source database"
 msgid "Source database `%s` was not found!"
 msgstr "Iš duomenų bazės"
 
-#: src/Table/Table.php:948
+#: src/Table/Table.php:945
 #, fuzzy, php-format
 #| msgid "Theme %s not found!"
 msgid "Target database `%s` was not found!"
 msgstr "Tema %s nerasta!"
 
-#: src/Table/Table.php:1362
+#: src/Table/Table.php:1359
 #, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
 msgstr "Neteisingas duomenų bazės vardas"
 
-#: src/Table/Table.php:1380
+#: src/Table/Table.php:1377
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
 msgstr "Neteisingas lentelės vardas"
 
-#: src/Table/Table.php:1426
+#: src/Table/Table.php:1423
 #, fuzzy, php-format
 #| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Lentelė %s pervadinta į %s"
 
-#: src/Table/Table.php:1663
+#: src/Table/Table.php:1660
 #, fuzzy
 #| msgid "Could not save table UI preferences"
 msgid "Could not save table UI preferences!"
 msgstr "Nepavyko išsaugoti lentelės naudotojo sąsajos nustatymų"
 
-#: src/Table/Table.php:1685
+#: src/Table/Table.php:1682
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: src/Table/Table.php:1813
+#: src/Table/Table.php:1810
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -20019,15 +20015,15 @@ msgid ""
 "changed."
 msgstr ""
 
-#: src/Table/Table.php:1968
+#: src/Table/Table.php:1965
 msgid "Can't rename index to PRIMARY!"
 msgstr "Negalima pervadinti indekso į PRIMARY!"
 
-#: src/Table/Table.php:1994
+#: src/Table/Table.php:1991
 msgid "No index parts defined!"
 msgstr "Neaprašytos indekso dalys!"
 
-#: src/Table/Table.php:2281
+#: src/Table/Table.php:2278
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -20038,12 +20034,12 @@ msgstr ""
 msgid "Error while working with template cache: %s"
 msgstr "Klaida perkeliant atsiųstą failą."
 
-#: src/Theme/ThemeManager.php:74
+#: src/Theme/ThemeManager.php:75
 #, php-format
 msgid "Default theme %s not found!"
 msgstr "Standartinė tema %s nerasta!"
 
-#: src/Theme/ThemeManager.php:120
+#: src/Theme/ThemeManager.php:121
 #, php-format
 msgid "Theme %s not found!"
 msgstr "Tema %s nerasta!"
@@ -20462,37 +20458,37 @@ msgstr "Profilis papildytas."
 msgid "Password is too long!"
 msgstr "Slaptažodžių Hešavimas"
 
-#: src/UserPreferences.php:160
+#: src/UserPreferences.php:159
 msgid "Could not save configuration"
 msgstr "Nepavyko išsaugoti konfigūracijos"
 
-#: src/UserPreferences.php:171
+#: src/UserPreferences.php:170
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr "Trūksta phpMyAdmin nustatymų saugyklos lentelių"
 
-#: src/Util.php:124
+#: src/Util.php:123
 #, php-format
 msgid "Max: %s%s"
 msgstr "Didžiausias dydis: %s%s"
 
-#: src/Util.php:545
+#: src/Util.php:544
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr ""
 
-#: src/Util.php:547
+#: src/Util.php:546
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr ""
 
-#: src/Util.php:619
+#: src/Util.php:618
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s d., %s val., %s min. ir %s s"
 
-#: src/Util.php:1471
+#: src/Util.php:1470
 msgid "Users"
 msgstr "Naudotojai"
 
