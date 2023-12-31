@@ -537,11 +537,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 $mimeMap = $this->transformations->getMime($this->db->getName(), $table, true);
             }
 
-            /**
-             * Gets table information
-             */
-            $showTable = $dbi->getTable($this->db->getName(), $table)
-                ->getStatusInfo();
+            $showTable = $dbi->getTable($this->db->getName(), $table)->getStatusInfo();
             $showComment = $showTable['Comment'] ?? '';
             $createTime = isset($showTable['Create_time'])
                 ? Util::localisedDate(

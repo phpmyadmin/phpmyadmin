@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Query;
 
-use PhpMyAdmin\Util;
-
 /**
  * Handles caching results
  */
@@ -46,14 +44,19 @@ class Cache
     /**
      * Get a cached value from table cache.
      *
-     * @param (int|string)[] $contentPath Array of the name of the target value
-     * @param mixed          $default     Return value on cache miss
+     * @param T $key
      *
-     * @return mixed cached value or default
+     * @return (T is null ? (string|int|null)[] : (string|int|null))|null
+     *
+     * @template T of string|null
      */
-    public function getCachedTableContent(array $contentPath, mixed $default = null): mixed
+    public function getCachedTableContent(string $db, string $table, string|null $key = null): array|string|int|null
     {
-        return Util::getValueByKey($this->tableCache, $contentPath, $default);
+        if ($key === null) {
+            return $this->tableCache[$db][$table] ?? null;
+        }
+
+        return $this->tableCache[$db][$table][$key] ?? null;
     }
 
     public function clearTableCache(): void

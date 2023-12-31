@@ -39,7 +39,6 @@ use stdClass;
 
 use function __;
 use function in_array;
-use function is_string;
 use function str_contains;
 use function strtotime;
 
@@ -49,7 +48,7 @@ use function strtotime;
  */
 class StructureController extends AbstractController
 {
-    protected readonly Table $tableObj;
+    private readonly Table $tableObj;
 
     public function __construct(
         ResponseRenderer $response,
@@ -151,7 +150,7 @@ class StructureController extends AbstractController
      * @param (string|int)[] $columnsWithIndex       Columns with index
      * @psalm-param non-empty-string $route
      */
-    protected function displayStructure(
+    private function displayStructure(
         RelationParameters $relationParameters,
         array $columnsWithUniqueIndex,
         Index|null $primaryIndex,
@@ -293,17 +292,14 @@ class StructureController extends AbstractController
     /**
      * Get HTML snippet for display table statistics
      */
-    protected function getTableStats(
+    private function getTableStats(
         bool $isSystemSchema,
         bool $tableIsAView,
         string $tableStorageEngine,
     ): string {
-        $showTable = $this->dbi->getTable(Current::$database, Current::$table)->getStatusInfo(forceRead: true);
-        $tableInfoNunRows = $this->tableObj->getNumRows($showTable['Name']);
-
-        if (is_string($showTable)) {
-            $showTable = [];
-        }
+        // Clear the cache as some table information might have gotten changed due to the user action.
+        $this->dbi->getCache()->clearTableCache();
+        $showTable = $this->tableObj->getStatusInfo();
 
         if (empty($showTable['Data_length'])) {
             $showTable['Data_length'] = 0;
@@ -352,7 +348,7 @@ class StructureController extends AbstractController
 
         $avgSize = '';
         $avgUnit = '';
-        if ($tableInfoNunRows > 0) {
+        if ($this->tableObj->getNumRows() > 0) {
             [$avgSize, $avgUnit] = Util::formatByteDown(
                 ($showTable['Data_length']
                 + $showTable['Index_length'])
@@ -392,7 +388,6 @@ class StructureController extends AbstractController
             'db' => Current::$database,
             'table' => Current::$table,
             'showtable' => $showTable,
-            'table_info_num_rows' => $tableInfoNunRows,
             'tbl_is_view' => $tableIsAView,
             'db_is_system_schema' => $isSystemSchema,
             'tbl_storage_engine' => $tableStorageEngine,

@@ -1446,7 +1446,7 @@ class TableTest extends AbstractTestCase
         $extension = new DbiDummy();
         $dbi = new DatabaseInterface($extension);
         $tblObject = new Table($targetTable, $targetDb, $dbi);
-        $tblObject->getStatusInfo(null, true);
+        $tblObject->getStatusInfo(null);
         $expect = 'DBIDUMMY';
         $tblStorageEngine = $dbi->getTable($targetDb, $targetTable)->getStorageEngine();
         $this->assertEquals($expect, $tblStorageEngine);
@@ -1462,7 +1462,7 @@ class TableTest extends AbstractTestCase
         $extension = new DbiDummy();
         $dbi = new DatabaseInterface($extension);
         $tblObject = new Table($targetTable, $targetDb, $dbi);
-        $tblObject->getStatusInfo(null, true);
+        $tblObject->getStatusInfo(null);
         $expect = 'Test comment for "table1" in \'pma_test\'';
         $showComment = $dbi->getTable($targetDb, $targetTable)->getComment();
         $this->assertEquals($expect, $showComment);
@@ -1478,7 +1478,7 @@ class TableTest extends AbstractTestCase
         $extension = new DbiDummy();
         $dbi = new DatabaseInterface($extension);
         $tblObject = new Table($targetTable, $targetDb, $dbi);
-        $tblObject->getStatusInfo(null, true);
+        $tblObject->getStatusInfo(null);
         $expect = 'utf8mb4_general_ci';
         $tblCollation = $dbi->getTable($targetDb, $targetTable)->getCollation();
         $this->assertEquals($expect, $tblCollation);
@@ -1494,7 +1494,7 @@ class TableTest extends AbstractTestCase
         $extension = new DbiDummy();
         $dbi = new DatabaseInterface($extension);
         $tblObject = new Table($targetTable, $targetDb, $dbi);
-        $tblObject->getStatusInfo(null, true);
+        $tblObject->getStatusInfo(null);
         $expect = 'Redundant';
         $rowFormat = $dbi->getTable($targetDb, $targetTable)->getRowFormat();
         $this->assertEquals($expect, $rowFormat);
@@ -1510,7 +1510,7 @@ class TableTest extends AbstractTestCase
         $extension = new DbiDummy();
         $dbi = new DatabaseInterface($extension);
         $tblObject = new Table($targetTable, $targetDb, $dbi);
-        $tblObject->getStatusInfo(null, true);
+        $tblObject->getStatusInfo(null);
         $expect = '5';
         $autoIncrement = $dbi->getTable($targetDb, $targetTable)->getAutoIncrement();
         $this->assertEquals($expect, $autoIncrement);
@@ -1526,7 +1526,7 @@ class TableTest extends AbstractTestCase
         $extension = new DbiDummy();
         $dbi = new DatabaseInterface($extension);
         $tblObject = new Table($targetTable, $targetDb, $dbi);
-        $tblObject->getStatusInfo(null, true);
+        $tblObject->getStatusInfo(null);
         $expect = ['pack_keys' => 'DEFAULT', 'row_format' => 'REDUNDANT'];
         $createOptions = $dbi->getTable($targetDb, $targetTable)->getCreateOptions();
         $this->assertEquals($expect, $createOptions);

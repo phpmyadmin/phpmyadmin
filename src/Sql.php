@@ -1088,7 +1088,6 @@ class Sql
             );
         }
 
-        $_SESSION['is_multi_query'] = false;
         $displayResultsObject->setProperties(
             $unlimNumRows,
             $this->dbi->getFieldsMeta($result),

@@ -34,7 +34,6 @@ use PhpMyAdmin\Util;
 use Stringable;
 
 use function __;
-use function array_key_exists;
 use function array_keys;
 use function array_map;
 use function array_merge;
@@ -64,10 +63,7 @@ use function strtolower;
 use function strtoupper;
 use function substr;
 use function substr_compare;
-use function trigger_error;
 use function trim;
-
-use const E_USER_WARNING;
 
 /**
  * Handles everything related to tables
@@ -222,7 +218,7 @@ class Table implements Stringable
 
         // use cached data or load information with SHOW command
         if (
-            $this->dbi->getCache()->getCachedTableContent([$this->dbName, $this->name]) != null
+            $this->dbi->getCache()->getCachedTableContent($this->dbName, $this->name) !== null
             || Config::getInstance()->selectedServer['DisableIS']
         ) {
             $type = $this->getStatusInfo('TABLE_TYPE');
@@ -277,52 +273,32 @@ class Table implements Stringable
      * Returns full table status info, or specific if $info provided
      * this info is collected from information_schema
      *
-     * @param string|null $info         specific information to be fetched
-     * @param bool        $forceRead    read new rather than serving from cache
-     * @param bool        $disableError if true, disables error message
+     * @param T $info specific information to be fetched
      *
-     * @todo DatabaseInterface::getTablesFull needs to be merged
-     * somehow into this class or at least better documented
+     * @return (T is null ? (string|int|null)[]|null : (string|int|null))
+     *
+     * @template T of string|null
      */
-    public function getStatusInfo(
-        string|null $info = null,
-        bool $forceRead = false,
-        bool $disableError = false,
-    ): mixed {
-        if (! empty($_SESSION['is_multi_query'])) {
-            $disableError = true;
-        }
-
-        $cachedResult = $this->dbi->getCache()->getCachedTableContent([$this->dbName, $this->name]);
+    public function getStatusInfo(string|null $info = null): array|string|int|null
+    {
+        $cachedResult = $this->dbi->getCache()->getCachedTableContent($this->dbName, $this->name);
 
         // sometimes there is only one entry (ExactRows) so
         // we have to get the table's details
-        if ($cachedResult === null || $forceRead || count($cachedResult) === 1) {
+        if ($cachedResult === null || count($cachedResult) === 1) {
             $this->dbi->getTablesFull($this->dbName, $this->name);
-            $cachedResult = $this->dbi->getCache()->getCachedTableContent([$this->dbName, $this->name]);
+            $cachedResult = $this->dbi->getCache()->getCachedTableContent($this->dbName, $this->name);
         }
 
         if ($cachedResult === null) {
             // happens when we enter the table creation dialog
             // or when we really did not get any status info, for example
             // when $table === 'TABLE_NAMES' after the user tried SHOW TABLES
-            return '';
+            return null;
         }
 
         if ($info === null) {
             return $cachedResult;
-        }
-
-        // array_key_exists allows for null values
-        if (! array_key_exists($info, $cachedResult)) {
-            if (! $disableError) {
-                trigger_error(
-                    __('Unknown table status:') . ' ' . $info,
-                    E_USER_WARNING,
-                );
-            }
-
-            return false;
         }
 
         return $cachedResult[$info];
@@ -336,7 +312,7 @@ class Table implements Stringable
      */
     public function getStorageEngine(): string
     {
-        $tableStorageEngine = $this->getStatusInfo('ENGINE', false, true);
+        $tableStorageEngine = $this->getStatusInfo('ENGINE');
 
         return strtoupper((string) $tableStorageEngine);
     }
@@ -348,12 +324,7 @@ class Table implements Stringable
      */
     public function getComment(): string
     {
-        $tableComment = $this->getStatusInfo('TABLE_COMMENT', false, true);
-        if ($tableComment === false) {
-            return '';
-        }
-
-        return $tableComment;
+        return $this->getStatusInfo('TABLE_COMMENT') ?? '';
     }
 
     /**
@@ -363,12 +334,7 @@ class Table implements Stringable
      */
     public function getCollation(): string
     {
-        $tableCollation = $this->getStatusInfo('TABLE_COLLATION', false, true);
-        if ($tableCollation === false) {
-            return '';
-        }
-
-        return $tableCollation ?? '';
+        return $this->getStatusInfo('TABLE_COLLATION') ?? '';
     }
 
     /**
@@ -376,15 +342,9 @@ class Table implements Stringable
      *
      * @return int Return no of rows info if it is not null for the selected table or return 0.
      */
-    public function getNumRows(string $showTableName): int
+    public function getNumRows(): int
     {
-        $tableNumRowInfo = $this->getStatusInfo('TABLE_ROWS', false, true);
-        if ($tableNumRowInfo === false) {
-            $tableNumRowInfo = $this->dbi->getTable($this->dbName, $showTableName)
-            ->countRecords(true);
-        }
-
-        return (int) $tableNumRowInfo;
+        return (int) $this->getStatusInfo('TABLE_ROWS');
     }
 
     /**
@@ -394,7 +354,7 @@ class Table implements Stringable
      */
     public function getRowFormat(): string
     {
-        $tableRowFormat = $this->getStatusInfo('ROW_FORMAT', false, true);
+        $tableRowFormat = $this->getStatusInfo('ROW_FORMAT');
 
         return is_string($tableRowFormat) ? $tableRowFormat : '';
     }
@@ -406,7 +366,7 @@ class Table implements Stringable
      */
     public function getAutoIncrement(): string
     {
-        $tableAutoIncrement = $this->getStatusInfo('AUTO_INCREMENT', false, true);
+        $tableAutoIncrement = $this->getStatusInfo('AUTO_INCREMENT');
 
         return $tableAutoIncrement ?? '';
     }
@@ -418,8 +378,8 @@ class Table implements Stringable
      */
     public function getCreateOptions(): array
     {
-        $tableOptions = $this->getStatusInfo('CREATE_OPTIONS', false, true);
-        $createOptionsTmp = empty($tableOptions) ? [] : explode(' ', $tableOptions);
+        $tableOptions = $this->getStatusInfo('CREATE_OPTIONS');
+        $createOptionsTmp = is_string($tableOptions) && $tableOptions !== '' ? explode(' ', $tableOptions) : [];
         $createOptions = [];
         // export create options by its name as variables into global namespace
         // f.e. pack_keys=1 becomes available as $pack_keys with value of '1'
@@ -689,7 +649,7 @@ class Table implements Stringable
         $isView = $this->isView();
         $cache = $this->dbi->getCache();
 
-        $exactRowsCached = $cache->getCachedTableContent([$this->dbName, $this->name, 'ExactRows']);
+        $exactRowsCached = $cache->getCachedTableContent($this->dbName, $this->name, 'ExactRows');
         if ($exactRowsCached !== null) {
             return (int) $exactRowsCached;
         }
@@ -697,11 +657,11 @@ class Table implements Stringable
         $rowCount = null;
 
         if (! $forceExact) {
-            if (($cache->getCachedTableContent([$this->dbName, $this->name, 'Rows']) === null) && ! $isView) {
+            if (($cache->getCachedTableContent($this->dbName, $this->name, 'Rows') === null) && ! $isView) {
                 $this->dbi->getTablesFull($this->dbName, $this->name);
             }
 
-            $rowCount = $cache->getCachedTableContent([$this->dbName, $this->name, 'Rows']);
+            $rowCount = $cache->getCachedTableContent($this->dbName, $this->name, 'Rows');
         }
 
         // for a VIEW, $row_count is always false at this point
@@ -1800,7 +1760,7 @@ class Table implements Stringable
         // we want to save the create time if the property is PROP_COLUMN_ORDER
         if (! $this->isView() && ($property == self::PROP_COLUMN_ORDER || $property == self::PROP_COLUMN_VISIB)) {
             $currCreateTime = $this->getStatusInfo('CREATE_TIME');
-            if (! isset($tableCreateTime) || $tableCreateTime != $currCreateTime) {
+            if ($tableCreateTime === null || $tableCreateTime != $currCreateTime) {
                 // there is no $table_create_time, or
                 // supplied $table_create_time is older than current create time,
                 // so don't save
