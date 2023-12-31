@@ -3579,6 +3579,14 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code>$oldIndexName</code>
     </MixedAssignment>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[$_POST['index']['Key_name']]]></code>
+      <code>$oldIndex</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidCast>
+      <code><![CDATA[$_POST['index']['Key_name']]]></code>
+      <code>$oldIndex</code>
+    </PossiblyInvalidCast>
   </file>
   <file src="src/Controllers/Table/IndexesController.php">
     <DeprecatedMethod>
@@ -13444,6 +13452,11 @@
     </DeprecatedMethod>
   </file>
   <file src="tests/classes/Controllers/Table/ImportControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="tests/classes/Controllers/Table/IndexRenameControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>

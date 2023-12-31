@@ -4927,6 +4927,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$index of method PhpMyAdmin\\\\Table\\\\Table\\:\\:getIndex\\(\\) expects string, mixed given\\.$#"
+			count: 2
+			path: src/Controllers/Table/IndexRenameController.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\Index\\:\\:setName\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/IndexRenameController.php
 
