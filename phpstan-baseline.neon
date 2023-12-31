@@ -15377,7 +15377,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 19
+			count: 17
 			path: src/Table/Table.php
 
 		-

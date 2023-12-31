@@ -100,7 +100,7 @@ HTML;
             ->withQueryParams(['db' => 'test_db', 'table' => 'test_table'])
             ->withParsedBody([
                 'old_index' => 'old_name',
-                'index' => ['Key_name' => 'new_name'],
+                'index' => 'new_name',
                 'do_save_data' => '1',
                 'preview_sql' => '1',
             ]);
@@ -111,7 +111,7 @@ HTML;
             $responseRenderer,
             $template,
             $dbi,
-            new Indexes($responseRenderer, $template, $dbi),
+            new Indexes($dbi),
             new DbTableExists($dbi),
         );
         $controller($request);
