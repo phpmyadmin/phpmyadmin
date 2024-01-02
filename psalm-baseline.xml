@@ -3568,20 +3568,15 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
+      <code>$indexName</code>
+      <code>$indexName</code>
       <code>$oldIndexName</code>
     </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code>$indexName</code>
       <code>$oldIndexName</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$_POST['index']['Key_name']]]></code>
-      <code>$oldIndex</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['index']['Key_name']]]></code>
-      <code>$oldIndex</code>
-    </PossiblyInvalidCast>
   </file>
   <file src="src/Controllers/Table/IndexesController.php">
     <DeprecatedMethod>
@@ -3601,6 +3596,7 @@
     </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['columns']]]></code>
+      <code>$oldIndex</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidArrayOffset>
       <code><![CDATA[$_POST['index']['Index_choice']]]></code>
@@ -11466,6 +11462,11 @@
       <code><![CDATA[$columnMeta['DefaultValue']]]></code>
     </PossiblyUndefinedArrayOffset>
   </file>
+  <file src="src/Table/Indexes.php">
+    <PossiblyNullOperand>
+      <code><![CDATA[$column->getSubPart()]]></code>
+    </PossiblyNullOperand>
+  </file>
   <file src="src/Table/Search.php">
     <MixedArgument>
       <code><![CDATA[$_POST['criteriaColumnNames'][$columnIndex]]]></code>
@@ -11736,7 +11737,6 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['constraint_name'][$masterFieldMd5]]]></code>
       <code><![CDATA[$fields[$column]['expr']]]></code>
-      <code>$oldIndex</code>
       <code><![CDATA[$options['expr']]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidArrayOffset>
@@ -11776,7 +11776,6 @@
       <code><![CDATA[$statement->altered]]></code>
     </PossiblyNullIterator>
     <PossiblyNullOperand>
-      <code><![CDATA[$column->getSubPart()]]></code>
       <code><![CDATA[Generator::mysqlDie($tmpErrorCreate, $createQuery, false, '', false)]]></code>
       <code><![CDATA[Generator::mysqlDie($tmpErrorDrop, $dropQuery, false, '', false)]]></code>
     </PossiblyNullOperand>
@@ -11787,9 +11786,6 @@
     <PossiblyUnusedReturnValue>
       <code>true|Message</code>
     </PossiblyUnusedReturnValue>
-    <ReferenceConstraintViolation>
-      <code>return $sqlQuery;</code>
-    </ReferenceConstraintViolation>
     <UnsupportedPropertyReferenceUsage>
       <code><![CDATA[$this->uiprefs =& $_SESSION['tmpval']['table_uiprefs'][$serverId][$this->dbName][$this->name]]]></code>
     </UnsupportedPropertyReferenceUsage>
@@ -15256,6 +15252,9 @@
     <MixedAssignment>
       <code>$value</code>
     </MixedAssignment>
+    <PossiblyUnusedMethod>
+      <code>clear</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="tests/classes/SystemDatabaseTest.php">
     <DeprecatedMethod>
@@ -15269,22 +15268,6 @@
     <PossiblyUnusedMethod>
       <code>providerColumnMetaDefault</code>
     </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/classes/Table/IndexesTest.php">
-    <DeprecatedMethod>
-      <code>Config::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-    </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[$jsonArray['sql_data']]]></code>
-    </MixedArgument>
-    <MixedMethodCall>
-      <code>method</code>
-      <code>willReturn</code>
-    </MixedMethodCall>
-    <UndefinedMethod>
-      <code>expects</code>
-    </UndefinedMethod>
   </file>
   <file src="tests/classes/Table/Maintenance/MessageTest.php">
     <PossiblyUnusedMethod>
@@ -15300,8 +15283,6 @@
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>

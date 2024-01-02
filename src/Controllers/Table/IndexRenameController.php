@@ -9,6 +9,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
@@ -21,7 +22,6 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
-use function is_array;
 
 final class IndexRenameController extends AbstractController
 {
@@ -40,95 +40,110 @@ final class IndexRenameController extends AbstractController
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
-        if (! isset($_POST['create_edit_table'])) {
-            if (! $this->checkParameters(['db', 'table'])) {
-                return;
-            }
-
-            $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
-            $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
-                Config::getInstance()->settings['DefaultTabTable'],
-                'table',
-            );
-            $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
-
-            $databaseName = DatabaseName::tryFrom($request->getParam('db'));
-            if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-                if ($request->isAjax()) {
-                    $this->response->setRequestStatus(false);
-                    $this->response->addJSON('message', Message::error(__('No databases selected.')));
-
-                    return;
-                }
-
-                $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
-
-                return;
-            }
-
-            $tableName = TableName::tryFrom($request->getParam('table'));
-            if ($tableName === null || ! $this->dbTableExists->hasTable($databaseName, $tableName)) {
-                if ($request->isAjax()) {
-                    $this->response->setRequestStatus(false);
-                    $this->response->addJSON('message', Message::error(__('No table selected.')));
-
-                    return;
-                }
-
-                $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
-
-                return;
-            }
+        if (! $this->checkParameters(['db', 'table'])) {
+            return;
         }
 
-        if (isset($_POST['index'])) {
-            if (is_array($_POST['index'])) {
-                // coming already from form
-                $oldIndex = is_array($_POST['old_index']) ? $_POST['old_index']['Key_name'] : $_POST['old_index'];
-                $index = clone $this->dbi->getTable(Current::$database, Current::$table)->getIndex($oldIndex);
-                $index->setName($_POST['index']['Key_name']);
-            } else {
-                $index = $this->dbi->getTable(Current::$database, Current::$table)->getIndex($_POST['index']);
+        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
+            Config::getInstance()->settings['DefaultTabTable'],
+            'table',
+        );
+        $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
+
+        $databaseName = DatabaseName::tryFrom($request->getParam('db'));
+        if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
+            if ($request->isAjax()) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', Message::error(__('No databases selected.')));
+
+                return;
             }
-        } else {
-            $index = new Index();
+
+            $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+
+            return;
         }
 
-        if (isset($_POST['do_save_data'])) {
-            $oldIndexName = $request->getParsedBodyParam('old_index', '');
-            $this->indexes->doSaveData(
-                $request,
-                $index,
-                true,
-                Current::$database,
-                Current::$table,
-                $request->hasBodyParam('preview_sql'),
-                $oldIndexName,
+        $tableName = TableName::tryFrom($request->getParam('table'));
+        if ($tableName === null || ! $this->dbTableExists->hasTable($databaseName, $tableName)) {
+            if ($request->isAjax()) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', Message::error(__('No table selected.')));
+
+                return;
+            }
+
+            $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
+
+            return;
+        }
+
+        $oldIndexName = $request->getParsedBodyParam('old_index');
+        $indexName = $request->getParsedBodyParam('index');
+        if ($oldIndexName === null) {
+            $index = $this->dbi->getTable($databaseName->getName(), $tableName->getName())->getIndex($indexName);
+
+            $formParams = [
+                'db' => $databaseName->getName(),
+                'table' => $tableName->getName(),
+                'old_index' => $index->getName(),
+            ];
+
+            $this->render('table/index_rename_form', ['index' => $index, 'form_params' => $formParams]);
+
+            return;
+        }
+
+        // coming already from form
+        $index = $this->dbi->getTable($databaseName->getName(), $tableName->getName())->getIndex($oldIndexName);
+        $index->setName($indexName);
+
+        $previewSql = $request->hasBodyParam('preview_sql');
+
+        $sqlQuery = $this->indexes->getSqlQueryForRename(
+            $oldIndexName,
+            $index,
+            $databaseName->getName(),
+            $tableName->getName(),
+        );
+
+        if ($previewSql) {
+            $this->response->addJSON(
+                'sql_data',
+                $this->template->render('preview_sql', ['query_data' => $sqlQuery]),
             );
 
             return;
         }
 
-        $this->displayRenameForm($index);
-    }
+        $logicError = $this->indexes->getError();
+        if ($logicError instanceof Message) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', $logicError);
 
-    /**
-     * Display the rename form to rename an index
-     *
-     * @param Index $index An Index instance.
-     */
-    private function displayRenameForm(Index $index): void
-    {
-        $this->dbi->selectDb(Current::$database);
-
-        $formParams = ['db' => Current::$database, 'table' => Current::$table];
-
-        if (isset($_POST['old_index'])) {
-            $formParams['old_index'] = $_POST['old_index'];
-        } elseif (isset($_POST['index'])) {
-            $formParams['old_index'] = $_POST['index'];
+            return;
         }
 
-        $this->render('table/index_rename_form', ['index' => $index, 'form_params' => $formParams]);
+        $this->dbi->query($sqlQuery);
+
+        $message = Message::success(__('Table %1$s has been altered successfully.'));
+        $message->addParam($tableName->getName());
+        $this->response->addJSON(
+            'message',
+            Generator::getMessage($message, $sqlQuery, 'success'),
+        );
+
+        $indexes = Index::getFromTable($this->dbi, $tableName->getName(), $databaseName->getName());
+        $indexesDuplicates = Index::findDuplicates($tableName->getName(), $databaseName->getName());
+
+        $this->response->addJSON(
+            'index_table',
+            $this->template->render('indexes', [
+                'url_params' => ['db' => $databaseName->getName(), 'table' => $tableName->getName()],
+                'indexes' => $indexes,
+                'indexes_duplicates' => $indexesDuplicates,
+            ]),
+        );
     }
 }

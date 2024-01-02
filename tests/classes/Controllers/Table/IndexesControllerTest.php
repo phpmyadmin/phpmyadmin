@@ -96,7 +96,7 @@ class IndexesControllerTest extends AbstractTestCase
             $response,
             $template,
             $dbi,
-            new Indexes($response, $template, $dbi),
+            new Indexes($dbi),
             new DbTableExists($dbi),
         );
 

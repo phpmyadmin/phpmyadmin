@@ -4,86 +4,86 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Table;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Index;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Table\Indexes;
 use PhpMyAdmin\Table\Table;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\MockObject\MockObject;
 
 #[CoversClass(Indexes::class)]
 class IndexesTest extends AbstractTestCase
 {
+    private DatabaseInterface&MockObject $dbi;
+
     protected function setUp(): void
     {
         parent::setUp();
 
-        /**
-         * SET these to avoid undefined index error
-         */
         Current::$database = 'db';
         Current::$table = 'table';
-        $config = Config::getInstance();
-        $config->selectedServer['pmadb'] = '';
-        $config->selectedServer['DisableIS'] = false;
-        $GLOBALS['urlParams'] = ['db' => 'db', 'server' => 1];
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+        $this->dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-
-        $indexs = [
-            ['Schema' => 'Schema1', 'Key_name' => 'Key_name1', 'Column_name' => 'Column_name1'],
-            ['Schema' => 'Schema2', 'Key_name' => 'Key_name2', 'Column_name' => 'Column_name2'],
-            ['Schema' => 'Schema3', 'Key_name' => 'Key_name3', 'Column_name' => 'Column_name3'],
-        ];
-
-        $dbi->expects($this->any())->method('getTableIndexes')
-            ->willReturn($indexs);
-
-        DatabaseInterface::$instance = $dbi;
-
-        //$_SESSION
     }
 
-    public function testDoSaveData(): void
+    public function testGetSqlQueryForRename(): void
     {
-        $sqlQuery = 'ALTER TABLE `db`.`table` DROP PRIMARY KEY, ADD UNIQUE ;';
+        $sqlQuery = 'ALTER TABLE `db`.`table` RENAME INDEX `0` TO `ABC`;';
 
+        $this->dbi->expects($this->any())->method('getVersion')
+            ->willReturn(50700);
+
+        $index = new Index(['Key_name' => 'ABC']);
+
+        $indexes = new Indexes($this->dbi);
+
+        $sqlResult = $indexes->getSqlQueryForRename('0', $index, Current::$database, Current::$table);
+        $this->assertStringContainsString($sqlQuery, $sqlResult);
+
+        // Error message
+        $index->setName('NOT PRIMARY'); // Cannot rename primary so the operation should fail
+        $indexes->getSqlQueryForRename('PRIMARY', $index, Current::$database, Current::$table);
+        $error = $indexes->getError();
+        $this->assertInstanceOf(Message::class, $error);
+
+        $index->setName('PRIMARY'); // The new name cannot be PRIMARY so the operation should fail
+        $indexes->getSqlQueryForRename('NOT PRIMARY', $index, Current::$database, Current::$table);
+        $error = $indexes->getError();
+        $this->assertInstanceOf(Message::class, $error);
+    }
+
+    public function testGetSqlQueryForIndexCreateOrEdit(): void
+    {
         $table = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $table->expects($this->any())->method('getSqlQueryForIndexCreateOrEdit')
-            ->willReturn($sqlQuery);
-
-        $dbi = DatabaseInterface::getInstance();
-        $dbi->expects($this->any())->method('getTable')
+        $this->dbi->expects($this->any())->method('getTable')
             ->willReturn($table);
+        $indexes = new Indexes($this->dbi);
 
-        $response = new ResponseStub();
-        $index = new Index();
+        $db = 'pma_db';
+        $table = 'pma_table';
+        $index = new Index([
+            'Key_name' => 'PRIMARY',
+            'columns' => [['Column_name' => 'id']],
+        ]);
 
-        $indexes = new Indexes($response, new Template(), $dbi);
+        $sqlQueryExpected = 'ALTER TABLE `pma_db`.`pma_table` DROP PRIMARY KEY, ADD PRIMARY KEY (`id`);';
 
-        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
-            ->withQueryParams(['ajax_request' => '1']);
+        $_POST['old_index'] = 'PRIMARY';
+        $this->assertEquals(
+            $sqlQueryExpected,
+            $indexes->getSqlQueryForIndexCreateOrEdit('PRIMARY', $index, $db, $table),
+        );
 
-        // Preview SQL
-        $indexes->doSaveData($request, $index, false, Current::$database, Current::$table, true);
-        $jsonArray = $response->getJSONResult();
-        $this->assertArrayHasKey('sql_data', $jsonArray);
-        $this->assertStringContainsString($sqlQuery, $jsonArray['sql_data']);
-
-        // Alter success
-        $response->clear();
-        $indexes->doSaveData($request, $index, false, Current::$database, Current::$table, false);
-        $jsonArray = $response->getJSONResult();
-        $this->assertArrayHasKey('index_table', $jsonArray);
-        $this->assertArrayHasKey('message', $jsonArray);
+        // Error message
+        $index->setName('NOT PRIMARY'); // Cannot rename primary so the operation should fail
+        $indexes->getSqlQueryForIndexCreateOrEdit('PRIMARY', $index, $db, $table);
+        $this->assertInstanceOf(Message::class, $indexes->getError());
     }
 }

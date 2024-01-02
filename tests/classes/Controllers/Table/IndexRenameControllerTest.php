@@ -24,31 +24,32 @@ class IndexRenameControllerTest extends AbstractTestCase
     public function testIndexRenameController(): void
     {
         Current::$database = 'test_db';
-        Current::$table = 'test_table';
+        Current::$table = 'test_table_index_rename';
         $GLOBALS['lang'] = 'en';
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addSelectDb('test_db');
         $dummyDbi->addSelectDb('test_db');
-        $dummyDbi->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']]);
+        $dummyDbi->addResult('SELECT 1 FROM `test_db`.`test_table_index_rename` LIMIT 1;', [['1']]);
         $dbi = $this->createDatabaseInterface($dummyDbi);
         DatabaseInterface::$instance = $dbi;
 
         $template = new Template();
         $expected = $template->render('table/index_rename_form', [
-            'index' => new Index(),
-            'form_params' => ['db' => 'test_db', 'table' => 'test_table'],
+            'index' => new Index(['Key_name' => 'index']),
+            'form_params' => ['db' => 'test_db', 'table' => 'test_table_index_rename', 'old_index' => 'index'],
         ]);
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
-            ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
+            ->withQueryParams(['db' => 'test_db', 'table' => 'test_table_index_rename'])
+            ->withParsedBody(['index' => 'index']);
 
         $response = new ResponseRenderer();
         (new IndexRenameController(
             $response,
             $template,
             $dbi,
-            new Indexes($response, $template, $dbi),
+            new Indexes($dbi),
             new DbTableExists($dbi),
         ))($request);
         $this->assertSame($expected, $response->getHTMLResult());
@@ -62,9 +63,9 @@ class IndexRenameControllerTest extends AbstractTestCase
         Config::getInstance()->selectedServer['DisableIS'] = true;
 
         Current::$database = 'test_db';
-        Current::$table = 'test_table';
+        Current::$table = 'test_table_index_rename';
         $_POST['db'] = 'test_db';
-        $_POST['table'] = 'test_table';
+        $_POST['table'] = 'test_table_index_rename';
         $_POST['old_index'] = 'old_name';
         $_POST['index'] = ['Key_name' => 'new_name'];
         $_POST['do_save_data'] = '1';
@@ -72,12 +73,12 @@ class IndexRenameControllerTest extends AbstractTestCase
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addSelectDb('test_db');
-        $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']], ['1']);
+        $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table_index_rename` LIMIT 1;', [['1']], ['1']);
         $dbiDummy->addResult(
-            'SHOW INDEXES FROM `test_db`.`test_table`',
+            'SHOW INDEXES FROM `test_db`.`test_table_index_rename`',
             [
-                ['test_table', '0', 'PRIMARY', 'id', 'BTREE'],
-                ['test_table', '1', 'old_name', 'name', 'BTREE'],
+                ['test_table_index_rename', '0', 'PRIMARY', 'id', 'BTREE'],
+                ['test_table_index_rename', '1', 'old_name', 'name', 'BTREE'],
             ],
             ['Table', 'Non_unique', 'Key_name', 'Column_name', 'Index_type'],
         );
@@ -89,17 +90,17 @@ class IndexRenameControllerTest extends AbstractTestCase
         $expected = <<<'HTML'
 <div class="preview_sql">
             <code class="sql" dir="ltr"><pre>
-ALTER TABLE `test_db`.`test_table` DROP INDEX `old_name`, ADD INDEX `new_name` (`name`) USING BTREE;
+ALTER TABLE `test_db`.`test_table_index_rename` DROP INDEX `old_name`, ADD INDEX `new_name` (`name`) USING BTREE;
 </pre></code>
     </div>
 
 HTML;
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
-            ->withQueryParams(['db' => 'test_db', 'table' => 'test_table'])
+            ->withQueryParams(['db' => 'test_db', 'table' => 'test_table_index_rename'])
             ->withParsedBody([
                 'old_index' => 'old_name',
-                'index' => ['Key_name' => 'new_name'],
+                'index' => 'new_name',
                 'do_save_data' => '1',
                 'preview_sql' => '1',
             ]);
@@ -110,7 +111,7 @@ HTML;
             $responseRenderer,
             $template,
             $dbi,
-            new Indexes($responseRenderer, $template, $dbi),
+            new Indexes($dbi),
             new DbTableExists($dbi),
         );
         $controller($request);

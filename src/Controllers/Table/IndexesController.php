@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
@@ -100,14 +102,68 @@ class IndexesController extends AbstractController
         }
 
         if (isset($_POST['do_save_data'])) {
-            $this->indexes->doSaveData(
-                $request,
+            $previewSql = $request->hasBodyParam('preview_sql');
+            if (isset($_POST['old_index'])) {
+                $oldIndex = is_array($_POST['old_index']) ? $_POST['old_index']['Key_name'] : $_POST['old_index'];
+            } else {
+                $oldIndex = null;
+            }
+
+            $sqlQuery = $this->indexes->getSqlQueryForIndexCreateOrEdit(
+                $oldIndex,
                 $index,
-                false,
                 Current::$database,
                 Current::$table,
-                $request->hasBodyParam('preview_sql'),
             );
+
+            // If there is a request for SQL previewing.
+            if ($previewSql) {
+                $this->response->addJSON(
+                    'sql_data',
+                    $this->template->render('preview_sql', ['query_data' => $sqlQuery]),
+                );
+
+                return;
+            }
+
+            $logicError = $this->indexes->getError();
+            if ($logicError instanceof Message) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', $logicError);
+
+                return;
+            }
+
+            $this->dbi->query($sqlQuery);
+
+            if ($request->isAjax()) {
+                $message = Message::success(
+                    __('Table %1$s has been altered successfully.'),
+                );
+                $message->addParam(Current::$table);
+                $this->response->addJSON(
+                    'message',
+                    Generator::getMessage($message, $sqlQuery, 'success'),
+                );
+
+                $indexes = Index::getFromTable($this->dbi, Current::$table, Current::$database);
+                $indexesDuplicates = Index::findDuplicates(Current::$table, Current::$database);
+
+                $this->response->addJSON(
+                    'index_table',
+                    $this->template->render('indexes', [
+                        'url_params' => ['db' => Current::$database, 'table' => Current::$table],
+                        'indexes' => $indexes,
+                        'indexes_duplicates' => $indexesDuplicates,
+                    ]),
+                );
+
+                return;
+            }
+
+            /** @var StructureController $controller */
+            $controller = ContainerBuilder::getContainer()->get(StructureController::class);
+            $controller($request);
 
             return;
         }
