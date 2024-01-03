@@ -13964,7 +13964,6 @@
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
     </DeprecatedMethod>
     <InvalidScalarArgument>
       <code>$_SESSION</code>
@@ -13972,9 +13971,9 @@
     <PossiblyUnusedMethod>
       <code>providerForTestHandleError</code>
     </PossiblyUnusedMethod>
-    <RedundantCondition>
-      <code>assertIsString</code>
-    </RedundantCondition>
+    <PropertyTypeCoercion>
+      <code><![CDATA[$config->settings]]></code>
+    </PropertyTypeCoercion>
   </file>
   <file src="tests/classes/ErrorReportTest.php">
     <DeprecatedMethod>
