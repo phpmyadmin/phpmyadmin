@@ -36,6 +36,7 @@ use function sys_get_temp_dir;
 use function tempnam;
 use function unlink;
 
+use const CHANGELOG_FILE;
 use const CONFIG_FILE;
 use const DIRECTORY_SEPARATOR;
 use const INFO_MODULES;
@@ -925,5 +926,10 @@ PHP;
         self::assertIsString($vendorConfig['cacheDir']);
         self::assertDirectoryExists($vendorConfig['cacheDir']);
         self::assertIsString($vendorConfig['versionSuffix']);
+    }
+
+    public function testGetChangeLogFilePath(): void
+    {
+        self::assertSame(CHANGELOG_FILE, (new Config())->getChangeLogFilePath());
     }
 }

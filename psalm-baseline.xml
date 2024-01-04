@@ -851,12 +851,12 @@
     </MixedArgumentTypeCoercion>
   </file>
   <file src="src/Controllers/ChangeLogController.php">
-    <PossiblyUnusedParam>
-      <code>$request</code>
-    </PossiblyUnusedParam>
     <UnusedFunctionCall>
       <code>readgzfile</code>
     </UnusedFunctionCall>
+    <UnusedParam>
+      <code>$request</code>
+    </UnusedParam>
   </file>
   <file src="src/Controllers/CheckRelationsController.php">
     <DeprecatedMethod>

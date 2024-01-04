@@ -61,6 +61,7 @@ use function sys_get_temp_dir;
 use function time;
 use function trim;
 
+use const CHANGELOG_FILE;
 use const DIRECTORY_SEPARATOR;
 use const PHP_OS;
 use const PHP_URL_PATH;
@@ -1207,5 +1208,10 @@ class Config
     public function hasSelectedServer(): bool
     {
         return $this->hasSelectedServer;
+    }
+
+    public function getChangeLogFilePath(): string
+    {
+        return CHANGELOG_FILE;
     }
 }
