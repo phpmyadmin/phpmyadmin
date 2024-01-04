@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -12,6 +13,7 @@ use PhpMyAdmin\Url;
 
 use function __;
 use function array_keys;
+use function basename;
 use function file_get_contents;
 use function htmlspecialchars;
 use function is_readable;
@@ -45,8 +47,9 @@ final class ChangeLogController extends AbstractController
                 __(
                     'The %s file is not available on this system, please visit %s for more information.',
                 ),
-                $filename,
-                '<a href="https://www.phpmyadmin.net/">phpmyadmin.net</a>',
+                basename($filename),
+                '<a href="' . Core::linkURL('https://www.phpmyadmin.net/')
+                . '" rel="noopener noreferrer" target="_blank">phpmyadmin.net</a>',
             );
 
             return;

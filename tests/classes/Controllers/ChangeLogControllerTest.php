@@ -92,8 +92,9 @@ HTML;
 
         self::assertSame('', $responseRenderer->getHTMLResult());
         self::assertSame(
-            'The ' . TEST_PATH . 'tests/test_data/changelog/InvalidChangeLog file is not available on this system,'
-            . ' please visit <a href="https://www.phpmyadmin.net/">phpmyadmin.net</a> for more information.',
+            'The InvalidChangeLog file is not available on this system, please visit'
+            . ' <a href="index.php?route=/url&url=https%3A%2F%2Fwww.phpmyadmin.net%2F"'
+            . ' rel="noopener noreferrer" target="_blank">phpmyadmin.net</a> for more information.',
             self::getActualOutputForAssertion(),
         );
     }
