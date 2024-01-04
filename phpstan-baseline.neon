@@ -5197,7 +5197,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset int\\|string on mixed\\.$#"
-			count: 11
+			count: 9
 			path: src/Controllers/Table/ReplaceController.php
 
 		-
@@ -10131,13 +10131,8 @@ parameters:
 			path: src/Navigation/NavigationTree.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Navigation\\\\NavigationTree\\:\\:\\$pos2Name \\(array\\<string\\>\\) does not accept array\\.$#"
-			count: 1
-			path: src/Navigation/NavigationTree.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Navigation\\\\NavigationTree\\:\\:\\$pos2Name \\(array\\<string\\>\\) does not accept array\\<mixed\\>\\.$#"
-			count: 1
+			count: 2
 			path: src/Navigation/NavigationTree.php
 
 		-
