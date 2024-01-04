@@ -391,6 +391,11 @@ parameters:
 			path: src/Config.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Config\\:\\:getChangeLogFilePath\\(\\) should return string but returns mixed\\.$#"
+			count: 1
+			path: src/Config.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Config\\:\\:getUploadTempDir\\(\\) should return string\\|null but returns string\\|false\\.$#"
 			count: 1
 			path: src/Config.php
@@ -1464,31 +1469,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommonRaw\\(\\) expects array\\<int\\|string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
 			count: 1
 			path: src/Controllers/AbstractController.php
-
-		-
-			message: "#^Parameter \\#1 \\$filename of function file_get_contents expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/ChangeLogController.php
-
-		-
-			message: "#^Parameter \\#1 \\$filename of function is_readable expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/ChangeLogController.php
-
-		-
-			message: "#^Parameter \\#1 \\$filename of function readgzfile expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/ChangeLogController.php
-
-		-
-			message: "#^Parameter \\#1 \\$haystack of function str_ends_with expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/ChangeLogController.php
-
-		-
-			message: "#^Parameter \\#2 \\.\\.\\.\\$values of function printf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/ChangeLogController.php
 
 		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getColumnsNotInCentralList\\(\\) expects string, mixed given\\.$#"

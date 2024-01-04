@@ -1,13 +1,13 @@
 <?php
-/**
- * Simple script to set correct charset for changelog
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
 use function __;
@@ -22,14 +22,19 @@ use function printf;
 use function readgzfile;
 use function str_ends_with;
 
-class ChangeLogController extends AbstractController
+final class ChangeLogController extends AbstractController
 {
+    public function __construct(ResponseRenderer $response, Template $template, private readonly Config $config)
+    {
+        parent::__construct($response, $template);
+    }
+
     public function __invoke(ServerRequest $request): void
     {
         $this->response->disable();
         $this->response->getHeader()->sendHttpHeaders();
 
-        $filename = CHANGELOG_FILE;
+        $filename = $this->config->getChangeLogFilePath();
 
         /**
          * Read changelog.
@@ -47,7 +52,7 @@ class ChangeLogController extends AbstractController
             return;
         }
 
-        // Test if the if is in a compressed format
+        // Test if the file is in a compressed format
         if (str_ends_with($filename, '.gz')) {
             ob_start();
             readgzfile($filename);
