@@ -11,6 +11,7 @@ use PhpMyAdmin\Navigation\Nodes\Node;
 use PhpMyAdmin\Navigation\NodeType;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PhpMyAdmin\UserPrivileges;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionMethod;
 
@@ -398,7 +399,7 @@ final class NodeTest extends AbstractTestCase
     {
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = true;
-        $GLOBALS['dbs_to_test'] = false;
+        UserPrivileges::$databasesToTest = false;
         $config->settings['NavigationTreeEnableGrouping'] = true;
         $config->settings['FirstLevelNavigationItems'] = 10;
         $config->settings['NavigationTreeDbSeparator'] = '_';
@@ -491,7 +492,7 @@ final class NodeTest extends AbstractTestCase
     {
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = true;
-        $GLOBALS['dbs_to_test'] = false;
+        UserPrivileges::$databasesToTest = false;
         $config->settings['NavigationTreeEnableGrouping'] = true;
 
         $node = new Node('node');

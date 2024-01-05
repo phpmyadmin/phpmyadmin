@@ -132,14 +132,14 @@
   </file>
   <file src="src/CheckUserPrivileges.php">
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['col_priv']]]></code>
-      <code><![CDATA[$GLOBALS['db_priv']]]></code>
-      <code><![CDATA[$GLOBALS['db_to_create']]]></code>
-      <code><![CDATA[$GLOBALS['dbs_to_test']]]></code>
-      <code><![CDATA[$GLOBALS['is_create_db_priv']]]></code>
-      <code><![CDATA[$GLOBALS['is_reload_priv']]]></code>
-      <code><![CDATA[$GLOBALS['proc_priv']]]></code>
-      <code><![CDATA[$GLOBALS['table_priv']]]></code>
+      <code>UserPrivileges::$column</code>
+      <code>UserPrivileges::$database</code>
+      <code>UserPrivileges::$databaseToCreate</code>
+      <code>UserPrivileges::$databasesToTest</code>
+      <code>UserPrivileges::$isCreateDatabase</code>
+      <code>UserPrivileges::$isReload</code>
+      <code>UserPrivileges::$routines</code>
+      <code>UserPrivileges::$table</code>
     </MixedAssignment>
   </file>
   <file src="src/Command/CacheWarmupCommand.php">
@@ -2674,7 +2674,6 @@
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['db_to_create']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
@@ -2716,7 +2715,6 @@
       <code><![CDATA[$databases[$database['SCHEMA_NAME']]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['db_to_create']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code>$database</code>
       <code>$key</code>
@@ -7246,6 +7244,7 @@
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <MixedArgument>
+      <code>$databases</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
@@ -7253,15 +7252,13 @@
       <code>$db</code>
     </MixedArgument>
     <MixedAssignment>
+      <code>$databases</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code>$databases</code>
-    </PossiblyInvalidArgument>
     <PossiblyNullArgument>
       <code>$arr[0]</code>
       <code>$arr[0]</code>

@@ -17,6 +17,7 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Types;
+use PhpMyAdmin\UserPrivileges;
 use PHPUnit\Framework\Attributes\CoversClass;
 use stdClass;
 
@@ -124,7 +125,7 @@ class NormalizationTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->settings['BrowseMIME'] = true;
         $config->settings['MaxRows'] = 25;
-        $GLOBALS['col_priv'] = false;
+        UserPrivileges::$column = false;
         $config->selectedServer['DisableIS'] = false;
         DatabaseInterface::$instance = $this->dbi;
         $db = 'testdb';

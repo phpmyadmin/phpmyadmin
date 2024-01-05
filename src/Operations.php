@@ -292,9 +292,9 @@ class Operations
     public function adjustPrivilegesMoveDb(string $oldDb, DatabaseName $newDatabaseName): void
     {
         if (
-            ! $GLOBALS['db_priv'] || ! $GLOBALS['table_priv']
-            || ! $GLOBALS['col_priv'] || ! $GLOBALS['proc_priv']
-            || ! $GLOBALS['is_reload_priv']
+            ! UserPrivileges::$database || ! UserPrivileges::$table
+            || ! UserPrivileges::$column || ! UserPrivileges::$routines
+            || ! UserPrivileges::$isReload
         ) {
             return;
         }
@@ -335,9 +335,9 @@ class Operations
     public function adjustPrivilegesCopyDb(string $oldDb, DatabaseName $newDatabaseName): void
     {
         if (
-            ! $GLOBALS['db_priv'] || ! $GLOBALS['table_priv']
-            || ! $GLOBALS['col_priv'] || ! $GLOBALS['proc_priv']
-            || ! $GLOBALS['is_reload_priv']
+            ! UserPrivileges::$database || ! UserPrivileges::$table
+            || ! UserPrivileges::$column || ! UserPrivileges::$routines
+            || ! UserPrivileges::$isReload
         ) {
             return;
         }
@@ -741,7 +741,7 @@ class Operations
         string $newDb,
         string $newTable,
     ): void {
-        if (! $GLOBALS['table_priv'] || ! $GLOBALS['col_priv'] || ! $GLOBALS['is_reload_priv']) {
+        if (! UserPrivileges::$table || ! UserPrivileges::$column || ! UserPrivileges::$isReload) {
             return;
         }
 
@@ -777,7 +777,7 @@ class Operations
      */
     public function adjustPrivilegesCopyTable(string $oldDb, string $oldTable, string $newDb, string $newTable): void
     {
-        if (! $GLOBALS['table_priv'] || ! $GLOBALS['col_priv'] || ! $GLOBALS['is_reload_priv']) {
+        if (! UserPrivileges::$table || ! UserPrivileges::$column || ! UserPrivileges::$isReload) {
             return;
         }
 

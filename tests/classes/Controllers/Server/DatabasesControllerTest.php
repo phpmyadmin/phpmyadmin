@@ -13,6 +13,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\UserPrivileges;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 use function __;
@@ -80,7 +81,7 @@ class DatabasesControllerTest extends AbstractTestCase
         $controller = new DatabasesController($response, $template, DatabaseInterface::getInstance());
 
         $config->settings['ShowCreateDb'] = true;
-        $GLOBALS['is_create_db_priv'] = true;
+        UserPrivileges::$isCreateDatabase = true;
         $_REQUEST['statistics'] = '1';
         $_REQUEST['sort_by'] = 'SCHEMA_TABLES';
         $_REQUEST['sort_order'] = 'desc';

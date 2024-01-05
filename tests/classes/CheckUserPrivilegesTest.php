@@ -8,6 +8,7 @@ use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ShowGrants;
+use PhpMyAdmin\UserPrivileges;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(CheckUserPrivileges::class)]
@@ -24,11 +25,11 @@ class CheckUserPrivilegesTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Config::getInstance()->selectedServer['DisableIS'] = false;
-        $GLOBALS['col_priv'] = false;
-        $GLOBALS['db_priv'] = false;
-        $GLOBALS['proc_priv'] = false;
-        $GLOBALS['table_priv'] = false;
-        $GLOBALS['is_reload_priv'] = false;
+        UserPrivileges::$column = false;
+        UserPrivileges::$database = false;
+        UserPrivileges::$routines = false;
+        UserPrivileges::$table = false;
+        UserPrivileges::$isReload = false;
 
         $this->checkUserPrivileges = new CheckUserPrivileges(DatabaseInterface::getInstance());
     }
@@ -44,13 +45,10 @@ class CheckUserPrivilegesTest extends AbstractTestCase
         // call the to-be-tested function
         $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust($showGrants);
 
-        $this->assertTrue($GLOBALS['col_priv']);
-
-        $this->assertTrue($GLOBALS['db_priv']);
-
-        $this->assertTrue($GLOBALS['proc_priv']);
-
-        $this->assertTrue($GLOBALS['table_priv']);
+        $this->assertTrue(UserPrivileges::$column);
+        $this->assertTrue(UserPrivileges::$database);
+        $this->assertTrue(UserPrivileges::$routines);
+        $this->assertTrue(UserPrivileges::$table);
 
         // re-initialise the privileges
         $this->setUp();
@@ -61,13 +59,10 @@ class CheckUserPrivilegesTest extends AbstractTestCase
         // call the to-be-tested function
         $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust($showGrants);
 
-        $this->assertTrue($GLOBALS['col_priv']);
-
-        $this->assertTrue($GLOBALS['db_priv']);
-
-        $this->assertTrue($GLOBALS['proc_priv']);
-
-        $this->assertTrue($GLOBALS['table_priv']);
+        $this->assertTrue(UserPrivileges::$column);
+        $this->assertTrue(UserPrivileges::$database);
+        $this->assertTrue(UserPrivileges::$routines);
+        $this->assertTrue(UserPrivileges::$table);
 
         // re-initialise the privileges
         $this->setUp();
@@ -78,13 +73,10 @@ class CheckUserPrivilegesTest extends AbstractTestCase
         // call the to-be-tested function
         $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust($showGrants);
 
-        $this->assertTrue($GLOBALS['col_priv']);
-
-        $this->assertTrue($GLOBALS['db_priv']);
-
-        $this->assertTrue($GLOBALS['proc_priv']);
-
-        $this->assertTrue($GLOBALS['table_priv']);
+        $this->assertTrue(UserPrivileges::$column);
+        $this->assertTrue(UserPrivileges::$database);
+        $this->assertTrue(UserPrivileges::$routines);
+        $this->assertTrue(UserPrivileges::$table);
 
         // re-initialise the privileges
         $this->setUp();
@@ -95,12 +87,9 @@ class CheckUserPrivilegesTest extends AbstractTestCase
         // call the to-be-tested function
         $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust($showGrants);
 
-        $this->assertFalse($GLOBALS['col_priv']);
-
-        $this->assertTrue($GLOBALS['db_priv']);
-
-        $this->assertFalse($GLOBALS['proc_priv']);
-
-        $this->assertFalse($GLOBALS['table_priv']);
+        $this->assertFalse(UserPrivileges::$column);
+        $this->assertTrue(UserPrivileges::$database);
+        $this->assertFalse(UserPrivileges::$routines);
+        $this->assertFalse(UserPrivileges::$table);
     }
 }

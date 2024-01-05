@@ -90,13 +90,13 @@ class ListDatabase extends ListAbstract
             if ($likeDbName !== null) {
                 $command .= " WHERE `SCHEMA_NAME` LIKE '" . $likeDbName . "'";
             }
-        } elseif ($GLOBALS['dbs_to_test'] === false || $likeDbName !== null) {
+        } elseif (UserPrivileges::$databasesToTest === false || $likeDbName !== null) {
             $command .= 'SHOW DATABASES';
             if ($likeDbName !== null) {
                 $command .= " LIKE '" . $likeDbName . "'";
             }
         } else {
-            foreach ($GLOBALS['dbs_to_test'] as $db) {
+            foreach (UserPrivileges::$databasesToTest as $db) {
                 $databaseList = array_merge(
                     $databaseList,
                     $this->retrieve($db),

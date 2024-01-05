@@ -12,6 +12,7 @@ use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\UserPrivileges;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 
@@ -76,8 +77,8 @@ SQL;
 
         Current::$database = 'sakila';
         Current::$table = 'actor';
-        $GLOBALS['col_priv'] = true;
-        $GLOBALS['is_reload_priv'] = true;
+        UserPrivileges::$column = true;
+        UserPrivileges::$isReload = true;
         $GLOBALS['mime_map'] = null;
 
         $actual = $columnsDefinition->displayForm('/table/structure/save', 1, ['actor_id'], [$columnMeta]);

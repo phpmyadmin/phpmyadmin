@@ -19,6 +19,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UserPrivileges;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -263,7 +264,7 @@ class RoutinesController extends AbstractController
                     'parameter_rows' => $parameterRows,
                     'charsets' => $charsets,
                     'numeric_options' => $this->routines->numericOptions,
-                    'has_privileges' => $GLOBALS['proc_priv'] && $GLOBALS['is_reload_priv'],
+                    'has_privileges' => UserPrivileges::$routines && UserPrivileges::$isReload,
                     'sql_data_access' => $this->routines->sqlDataAccess,
                 ]);
 

@@ -25,6 +25,7 @@ use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UserPrivileges;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -2608,7 +2609,7 @@ class Privileges
 
             $response = ResponseRenderer::getInstance();
             if (! $response->isAjax() || ! empty($_REQUEST['ajax_page_request'])) {
-                if ($GLOBALS['is_reload_priv']) {
+                if (UserPrivileges::$isReload) {
                     $flushnote = new Message(
                         __(
                             'Note: phpMyAdmin gets the users’ privileges directly '

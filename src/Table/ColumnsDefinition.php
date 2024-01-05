@@ -14,6 +14,7 @@ use PhpMyAdmin\Partitioning\TablePartitionDefinition;
 use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\UserPrivileges;
 use PhpMyAdmin\Util;
 
 use function array_keys;
@@ -69,8 +70,6 @@ final class ColumnsDefinition
         array|null $selected = null,
         array|null $fieldsMeta = null,
     ): array {
-        $GLOBALS['col_priv'] ??= null;
-        $GLOBALS['is_reload_priv'] ??= null;
         $GLOBALS['mime_map'] ??= null;
 
         $regenerate = false;
@@ -357,7 +356,7 @@ final class ColumnsDefinition
             'max_rows' => intval($config->settings['MaxRows']),
             'char_editing' => $config->settings['CharEditing'] ?? null,
             'attribute_types' => $this->dbi->types->getAttributes(),
-            'privs_available' => ($GLOBALS['col_priv'] ?? false) && ($GLOBALS['is_reload_priv'] ?? false),
+            'privs_available' => UserPrivileges::$column && UserPrivileges::$isReload,
             'max_length' => $this->dbi->getVersion() >= 50503 ? 1024 : 255,
             'have_partitioning' => Partition::havePartitioning(),
             'disable_is' => $config->selectedServer['DisableIS'],

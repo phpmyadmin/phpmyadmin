@@ -44,13 +44,13 @@ class CheckUserPrivileges
         }
 
         if ($showGrants->dbName === '*' && $showGrants->tableName === '*') {
-            $GLOBALS['col_priv'] = true;
-            $GLOBALS['db_priv'] = true;
-            $GLOBALS['proc_priv'] = true;
-            $GLOBALS['table_priv'] = true;
+            UserPrivileges::$column = true;
+            UserPrivileges::$database = true;
+            UserPrivileges::$routines = true;
+            UserPrivileges::$table = true;
 
             if ($showGrants->grants === 'ALL PRIVILEGES' || $showGrants->grants === 'ALL') {
-                $GLOBALS['is_reload_priv'] = true;
+                UserPrivileges::$isReload = true;
             }
         }
 
@@ -62,22 +62,22 @@ class CheckUserPrivileges
 
         switch ($showGrants->tableName) {
             case 'columns_priv':
-                $GLOBALS['col_priv'] = true;
+                UserPrivileges::$column = true;
                 break;
             case 'db':
-                $GLOBALS['db_priv'] = true;
+                UserPrivileges::$database = true;
                 break;
             case 'procs_priv':
-                $GLOBALS['proc_priv'] = true;
+                UserPrivileges::$routines = true;
                 break;
             case 'tables_priv':
-                $GLOBALS['table_priv'] = true;
+                UserPrivileges::$table = true;
                 break;
             case '*':
-                $GLOBALS['col_priv'] = true;
-                $GLOBALS['db_priv'] = true;
-                $GLOBALS['proc_priv'] = true;
-                $GLOBALS['table_priv'] = true;
+                UserPrivileges::$column = true;
+                UserPrivileges::$database = true;
+                UserPrivileges::$routines = true;
+                UserPrivileges::$table = true;
                 break;
             default:
         }
@@ -102,28 +102,28 @@ class CheckUserPrivileges
     private function analyseShowGrant(): void
     {
         if (SessionCache::has('is_create_db_priv')) {
-            $GLOBALS['is_create_db_priv'] = SessionCache::get('is_create_db_priv');
-            $GLOBALS['is_reload_priv'] = SessionCache::get('is_reload_priv');
-            $GLOBALS['db_to_create'] = SessionCache::get('db_to_create');
-            $GLOBALS['dbs_to_test'] = SessionCache::get('dbs_to_test');
+            UserPrivileges::$isCreateDatabase = SessionCache::get('is_create_db_priv');
+            UserPrivileges::$isReload = SessionCache::get('is_reload_priv');
+            UserPrivileges::$databaseToCreate = SessionCache::get('db_to_create');
+            UserPrivileges::$databasesToTest = SessionCache::get('dbs_to_test');
 
-            $GLOBALS['db_priv'] = SessionCache::get('db_priv');
-            $GLOBALS['col_priv'] = SessionCache::get('col_priv');
-            $GLOBALS['table_priv'] = SessionCache::get('table_priv');
-            $GLOBALS['proc_priv'] = SessionCache::get('proc_priv');
+            UserPrivileges::$database = SessionCache::get('db_priv');
+            UserPrivileges::$column = SessionCache::get('col_priv');
+            UserPrivileges::$table = SessionCache::get('table_priv');
+            UserPrivileges::$routines = SessionCache::get('proc_priv');
 
             return;
         }
 
         // defaults
-        $GLOBALS['is_create_db_priv'] = false;
-        $GLOBALS['is_reload_priv'] = false;
-        $GLOBALS['db_to_create'] = '';
-        $GLOBALS['dbs_to_test'] = Utilities::getSystemSchemas();
-        $GLOBALS['proc_priv'] = false;
-        $GLOBALS['db_priv'] = false;
-        $GLOBALS['col_priv'] = false;
-        $GLOBALS['table_priv'] = false;
+        UserPrivileges::$isCreateDatabase = false;
+        UserPrivileges::$isReload = false;
+        UserPrivileges::$databaseToCreate = '';
+        UserPrivileges::$databasesToTest = Utilities::getSystemSchemas();
+        UserPrivileges::$routines = false;
+        UserPrivileges::$database = false;
+        UserPrivileges::$column = false;
+        UserPrivileges::$table = false;
 
         $showGrantsResult = $this->dbi->tryQuery('SHOW GRANTS');
 
@@ -139,14 +139,14 @@ class CheckUserPrivileges
 
             if ($showGrants->dbName === '*') {
                 if ($showGrants->grants !== 'USAGE') {
-                    $GLOBALS['dbs_to_test'] = false;
+                    UserPrivileges::$databasesToTest = false;
                 }
-            } elseif ($GLOBALS['dbs_to_test'] !== false) {
-                $GLOBALS['dbs_to_test'][] = $showGrants->dbName;
+            } elseif (UserPrivileges::$databasesToTest !== false) {
+                UserPrivileges::$databasesToTest[] = $showGrants->dbName;
             }
 
             if (str_contains($showGrants->grants, 'RELOAD')) {
-                $GLOBALS['is_reload_priv'] = true;
+                UserPrivileges::$isReload = true;
             }
 
             // check for the required privileges for adjust
@@ -167,9 +167,9 @@ class CheckUserPrivileges
 
             if ($showGrants->dbName === '*') {
                 // a global CREATE privilege
-                $GLOBALS['is_create_db_priv'] = true;
-                $GLOBALS['is_reload_priv'] = true;
-                $GLOBALS['db_to_create'] = '';
+                UserPrivileges::$isCreateDatabase = true;
+                UserPrivileges::$isReload = true;
+                UserPrivileges::$databaseToCreate = '';
                 // @todo we should not break here, cause GRANT ALL *.*
                 // could be revoked by a later rule like GRANT SELECT ON db.*
                 break;
@@ -177,7 +177,7 @@ class CheckUserPrivileges
 
             $dbNameToTest = Util::backquote($showGrants->dbName);
 
-            if ($GLOBALS['is_create_db_priv']) {
+            if (UserPrivileges::$isCreateDatabase) {
                 // no need for any more tests if we already know this
                 continue;
             }
@@ -202,12 +202,16 @@ class CheckUserPrivileges
              * Do not handle the underscore wildcard
              * (this case must be rare anyway)
              */
-            $GLOBALS['db_to_create'] = preg_replace('/' . $re0 . '%/', '\\1', $showGrants->dbName);
-            $GLOBALS['db_to_create'] = preg_replace('/' . $re1 . '(%|_)/', '\\1\\3', $GLOBALS['db_to_create']);
-            $GLOBALS['is_create_db_priv'] = true;
+            UserPrivileges::$databaseToCreate = preg_replace('/' . $re0 . '%/', '\\1', $showGrants->dbName);
+            UserPrivileges::$databaseToCreate = preg_replace(
+                '/' . $re1 . '(%|_)/',
+                '\\1\\3',
+                UserPrivileges::$databaseToCreate,
+            );
+            UserPrivileges::$isCreateDatabase = true;
 
             /**
-             * @todo collect $GLOBALS['db_to_create'] into an array,
+             * @todo collect \PhpMyAdmin\UserPrivileges::$dbToCreate into an array,
              * to display a drop-down in the "Create database" dialog
              */
             // we don't break, we want all possible databases
@@ -216,15 +220,15 @@ class CheckUserPrivileges
 
         // must also cacheUnset() them in
         // PhpMyAdmin\Plugins\Auth\AuthenticationCookie
-        SessionCache::set('is_create_db_priv', $GLOBALS['is_create_db_priv']);
-        SessionCache::set('is_reload_priv', $GLOBALS['is_reload_priv']);
-        SessionCache::set('db_to_create', $GLOBALS['db_to_create']);
-        SessionCache::set('dbs_to_test', $GLOBALS['dbs_to_test']);
+        SessionCache::set('is_create_db_priv', UserPrivileges::$isCreateDatabase);
+        SessionCache::set('is_reload_priv', UserPrivileges::$isReload);
+        SessionCache::set('db_to_create', UserPrivileges::$databaseToCreate);
+        SessionCache::set('dbs_to_test', UserPrivileges::$databasesToTest);
 
-        SessionCache::set('proc_priv', $GLOBALS['proc_priv']);
-        SessionCache::set('table_priv', $GLOBALS['table_priv']);
-        SessionCache::set('col_priv', $GLOBALS['col_priv']);
-        SessionCache::set('db_priv', $GLOBALS['db_priv']);
+        SessionCache::set('proc_priv', UserPrivileges::$routines);
+        SessionCache::set('table_priv', UserPrivileges::$table);
+        SessionCache::set('col_priv', UserPrivileges::$column);
+        SessionCache::set('db_priv', UserPrivileges::$database);
     }
 
     /**
@@ -241,14 +245,14 @@ class CheckUserPrivileges
 
         // If MySQL is started with --skip-grant-tables
         if ($username === '') {
-            $GLOBALS['is_create_db_priv'] = true;
-            $GLOBALS['is_reload_priv'] = true;
-            $GLOBALS['db_to_create'] = '';
-            $GLOBALS['dbs_to_test'] = false;
-            $GLOBALS['db_priv'] = true;
-            $GLOBALS['col_priv'] = true;
-            $GLOBALS['table_priv'] = true;
-            $GLOBALS['proc_priv'] = true;
+            UserPrivileges::$isCreateDatabase = true;
+            UserPrivileges::$isReload = true;
+            UserPrivileges::$databaseToCreate = '';
+            UserPrivileges::$databasesToTest = false;
+            UserPrivileges::$database = true;
+            UserPrivileges::$column = true;
+            UserPrivileges::$table = true;
+            UserPrivileges::$routines = true;
 
             return;
         }
