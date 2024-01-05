@@ -398,7 +398,7 @@ return [
         ],
         DatabaseController::class => [
             'class' => DatabaseController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template'],
+            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
         ],
         ErrorReportController::class => [
             'class' => ErrorReportController::class,

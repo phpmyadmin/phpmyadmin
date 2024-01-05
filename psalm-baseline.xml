@@ -1689,9 +1689,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/DatabaseController.php">
-    <DeprecatedMethod>
-      <code>DatabaseInterface::getInstance()</code>
-    </DeprecatedMethod>
     <UnusedParam>
       <code>$request</code>
     </UnusedParam>
