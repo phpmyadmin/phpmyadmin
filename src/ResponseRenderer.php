@@ -10,6 +10,7 @@ namespace PhpMyAdmin;
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;

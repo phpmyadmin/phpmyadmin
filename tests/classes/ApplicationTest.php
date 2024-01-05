@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Application;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Container\ContainerBuilder;
-use PhpMyAdmin\ErrorHandler;
+use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Exceptions\ConfigException;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Template;

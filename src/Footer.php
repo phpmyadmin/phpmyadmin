@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Routing\Routing;
 use Traversable;
 

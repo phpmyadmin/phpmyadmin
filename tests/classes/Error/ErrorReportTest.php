@@ -2,14 +2,15 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\Error;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Error;
-use PhpMyAdmin\ErrorReport;
+use PhpMyAdmin\Error\Error;
+use PhpMyAdmin\Error\ErrorReport;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Utils\HttpRequest;
 use PhpMyAdmin\Version;

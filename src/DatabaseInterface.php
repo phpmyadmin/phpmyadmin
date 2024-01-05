@@ -14,6 +14,7 @@ use PhpMyAdmin\Dbal\DbiMysqli;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Dbal\Statement;
 use PhpMyAdmin\Dbal\Warning;
+use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Query\Cache;

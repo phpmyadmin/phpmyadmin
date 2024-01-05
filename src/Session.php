@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Exceptions\SessionHandlerException;
 
 use function htmlspecialchars;
@@ -72,7 +73,7 @@ class Session
     /**
      * Session failed function
      *
-     * @param mixed[] $errors PhpMyAdmin\ErrorHandler array
+     * @param mixed[] $errors PhpMyAdmin\Error\ErrorHandler array
      *
      * @throws SessionHandlerException
      */

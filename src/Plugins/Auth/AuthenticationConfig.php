@@ -9,7 +9,7 @@ namespace PhpMyAdmin\Plugins\Auth;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\ErrorHandler;
+use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\ResponseRenderer;

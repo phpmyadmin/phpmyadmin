@@ -2,9 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\Error;
 
-use PhpMyAdmin\Error;
+use PhpMyAdmin\Error\Error;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 
@@ -46,7 +47,7 @@ class ErrorTest extends AbstractTestCase
     {
         $bt = [['file' => 'bt1', 'line' => 2, 'function' => 'bar', 'args' => ['foo' => $this]]];
         $this->object->setBacktrace($bt);
-        $bt[0]['args']['foo'] = '<Class:PhpMyAdmin\Tests\ErrorTest>';
+        $bt[0]['args']['foo'] = '<Class:PhpMyAdmin\Tests\Error\ErrorTest>';
         $this->assertEquals($bt, $this->object->getBacktrace());
     }
 
@@ -84,7 +85,7 @@ class ErrorTest extends AbstractTestCase
             [
                 __FILE__,
                 '.' . DIRECTORY_SEPARATOR . 'tests' . DIRECTORY_SEPARATOR
-                    . 'classes' . DIRECTORY_SEPARATOR . 'ErrorTest.php',
+                    . 'classes' . DIRECTORY_SEPARATOR . 'Error' . DIRECTORY_SEPARATOR . 'ErrorTest.php',
             ],
             ['./NONEXISTING', 'NONEXISTING'],
         ];
@@ -107,7 +108,7 @@ class ErrorTest extends AbstractTestCase
     public function testGetBacktraceDisplay(): void
     {
         $this->assertStringContainsString(
-            'PHPUnit\Framework\TestRunner->run(<Class:PhpMyAdmin\Tests\ErrorTest>)',
+            'PHPUnit\Framework\TestRunner->run(<Class:PhpMyAdmin\Tests\Error\ErrorTest>)',
             $this->object->getBacktraceDisplay(),
         );
     }
@@ -125,7 +126,8 @@ class ErrorTest extends AbstractTestCase
             $actual,
         );
         $this->assertStringContainsString(
-            'PHPUnit\Framework\TestRunner->run(<Class:PhpMyAdmin\Tests\ErrorTest>)</li><li class="list-group-item">',
+            'PHPUnit\Framework\TestRunner->run(<Class:PhpMyAdmin\Tests\Error\ErrorTest>)</li>'
+            . '<li class="list-group-item">',
             $actual,
         );
         $this->assertStringEndsWith('</li></ol></div>' . "\n", $actual);
