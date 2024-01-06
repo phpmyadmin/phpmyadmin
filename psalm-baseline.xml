@@ -5631,7 +5631,7 @@
       <code>getPageDocumentation</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="src/Error.php">
+  <file src="src/Error/Error.php">
     <MixedArgument>
       <code>$arg</code>
       <code>$step</code>
@@ -5671,7 +5671,7 @@
       <code><![CDATA[$step['line']]]></code>
     </MixedOperand>
   </file>
-  <file src="src/ErrorHandler.php">
+  <file src="src/Error/ErrorHandler.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -5695,7 +5695,7 @@
       <code>$hash</code>
     </MixedAssignment>
   </file>
-  <file src="src/ErrorReport.php">
+  <file src="src/Error/ErrorReport.php">
     <MixedArgument>
       <code><![CDATA[$level['url']]]></code>
       <code>$line</code>
@@ -13950,7 +13950,7 @@
       <code>providerFortTestResolveTypeSize</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="tests/classes/ErrorHandlerTest.php">
+  <file src="tests/classes/Error/ErrorHandlerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -13967,7 +13967,7 @@
       <code><![CDATA[$config->settings]]></code>
     </PropertyTypeCoercion>
   </file>
-  <file src="tests/classes/ErrorReportTest.php">
+  <file src="tests/classes/Error/ErrorReportTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -13984,7 +13984,7 @@
       <code>urlsToSanitize</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="tests/classes/ErrorTest.php">
+  <file src="tests/classes/Error/ErrorTest.php">
     <PossiblyUnusedMethod>
       <code>filePathProvider</code>
     </PossiblyUnusedMethod>

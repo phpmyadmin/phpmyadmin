@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Http\Middleware;
 
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\ErrorHandler;
+use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Exceptions\SessionHandlerException;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\LanguageManager;

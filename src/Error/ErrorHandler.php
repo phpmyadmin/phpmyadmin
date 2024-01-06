@@ -2,13 +2,17 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Error;
 
 use ErrorException;
 use Fig\Http\Message\StatusCodeInterface;
 use Laminas\HttpHandlerRunner\Emitter\SapiEmitter;
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
+use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Url;
 use Throwable;
 
 use function __;

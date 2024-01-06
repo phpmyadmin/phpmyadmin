@@ -7908,167 +7908,167 @@ parameters:
 		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
 			count: 3
-			path: src/Error.php
+			path: src/Error/Error.php
 
 		-
 			message: "#^Cannot access offset 'args' on mixed\\.$#"
 			count: 1
-			path: src/Error.php
+			path: src/Error/Error.php
 
 		-
 			message: "#^Cannot access offset 'class' on mixed\\.$#"
 			count: 1
-			path: src/Error.php
+			path: src/Error/Error.php
 
 		-
 			message: "#^Cannot access offset 'class'\\|'function'\\|'line'\\|'type' on mixed\\.$#"
 			count: 1
-			path: src/Error.php
+			path: src/Error/Error.php
 
 		-
 			message: "#^Cannot access offset 'file' on mixed\\.$#"
 			count: 2
-			path: src/Error.php
+			path: src/Error/Error.php
 
 		-
 			message: "#^Cannot access offset 'function' on mixed\\.$#"
 			count: 1
-			path: src/Error.php
+			path: src/Error/Error.php
 
 		-
 			message: "#^Cannot access offset 'line' on mixed\\.$#"
 			count: 1
-			path: src/Error.php
+			path: src/Error/Error.php
 
 		-
 			message: "#^Cannot access offset 'type' on mixed\\.$#"
 			count: 1
-			path: src/Error.php
+			path: src/Error/Error.php
 
 		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
 			count: 1
-			path: src/Error.php
+			path: src/Error/Error.php
 
 		-
 			message: "#^Match expression does not handle remaining values\\: 3\\|int\\<min, \\-1\\>\\|int\\<5, 7\\>\\|int\\<9, 15\\>\\|int\\<17, 31\\>\\|int\\<33, 63\\>\\|int\\<65, 127\\>\\|int\\<129, 255\\>\\|int\\<257, 511\\>\\|int\\<513, 1023\\>\\|int\\<1025, 2047\\>\\|int\\<2049, 4095\\>\\|int\\<4097, 8191\\>\\|int\\<8193, 16383\\>\\|int\\<16385, max\\>$#"
 			count: 2
-			path: src/Error.php
+			path: src/Error/Error.php
 
 		-
 			message: "#^Only booleans are allowed in \\|\\|, int\\<0, 18176\\> given on the right side\\.$#"
 			count: 1
-			path: src/Error.php
+			path: src/Error/Error.php
 
 		-
-			message: "#^Parameter \\#1 \\$path of static method PhpMyAdmin\\\\Error\\:\\:relPath\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$path of static method PhpMyAdmin\\\\Error\\\\Error\\:\\:relPath\\(\\) expects string, mixed given\\.$#"
 			count: 3
-			path: src/Error.php
+			path: src/Error/Error.php
 
 		-
-			message: "#^Parameter \\#1 \\$step of static method PhpMyAdmin\\\\Error\\:\\:getFunctionCall\\(\\) expects array, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$step of static method PhpMyAdmin\\\\Error\\\\Error\\:\\:getFunctionCall\\(\\) expects array, mixed given\\.$#"
 			count: 1
-			path: src/Error.php
+			path: src/Error/Error.php
 
 		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 2
-			path: src/Error.php
+			path: src/Error/Error.php
 
 		-
-			message: "#^Parameter \\#2 \\$function of static method PhpMyAdmin\\\\Error\\:\\:getArg\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$function of static method PhpMyAdmin\\\\Error\\\\Error\\:\\:getArg\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: src/Error.php
+			path: src/Error/Error.php
 
 		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
 			count: 1
-			path: src/ErrorHandler.php
+			path: src/Error/ErrorHandler.php
 
 		-
 			message: "#^Cannot access offset \\(int\\|string\\) on mixed\\.$#"
 			count: 1
-			path: src/ErrorHandler.php
+			path: src/Error/ErrorHandler.php
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
 			count: 1
-			path: src/ErrorHandler.php
+			path: src/Error/ErrorHandler.php
 
 		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 1
-			path: src/ErrorHandler.php
+			path: src/Error/ErrorHandler.php
 
 		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
 			count: 2
-			path: src/ErrorReport.php
+			path: src/Error/ErrorReport.php
 
 		-
 			message: "#^Cannot access offset 'context' on mixed\\.$#"
 			count: 1
-			path: src/ErrorReport.php
+			path: src/Error/ErrorReport.php
 
 		-
 			message: "#^Cannot access offset 'scriptname' on mixed\\.$#"
 			count: 1
-			path: src/ErrorReport.php
+			path: src/Error/ErrorReport.php
 
 		-
 			message: "#^Cannot access offset 'stack' on mixed\\.$#"
 			count: 1
-			path: src/ErrorReport.php
+			path: src/Error/ErrorReport.php
 
 		-
 			message: "#^Cannot access offset 'uri' on mixed\\.$#"
 			count: 3
-			path: src/ErrorReport.php
+			path: src/Error/ErrorReport.php
 
 		-
 			message: "#^Cannot access offset 'url' on mixed\\.$#"
 			count: 4
-			path: src/ErrorReport.php
+			path: src/Error/ErrorReport.php
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 2
-			path: src/ErrorReport.php
+			path: src/Error/ErrorReport.php
 
 		-
 			message: "#^Only booleans are allowed in &&, int\\|false given on the right side\\.$#"
 			count: 1
-			path: src/ErrorReport.php
+			path: src/Error/ErrorReport.php
 
 		-
 			message: "#^Only booleans are allowed in a negated boolean, int given\\.$#"
 			count: 1
-			path: src/ErrorReport.php
+			path: src/Error/ErrorReport.php
 
 		-
 			message: "#^Only booleans are allowed in a negated boolean, string given\\.$#"
 			count: 1
-			path: src/ErrorReport.php
+			path: src/Error/ErrorReport.php
 
 		-
-			message: "#^Parameter \\#1 \\$stack of method PhpMyAdmin\\\\ErrorReport\\:\\:translateStacktrace\\(\\) expects array, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$stack of method PhpMyAdmin\\\\Error\\\\ErrorReport\\:\\:translateStacktrace\\(\\) expects array, mixed given\\.$#"
 			count: 1
-			path: src/ErrorReport.php
+			path: src/Error/ErrorReport.php
 
 		-
 			message: "#^Parameter \\#1 \\$string of function mb_strlen expects string, mixed given\\.$#"
 			count: 1
-			path: src/ErrorReport.php
+			path: src/Error/ErrorReport.php
 
 		-
 			message: "#^Parameter \\#1 \\$string of function mb_substr expects string, mixed given\\.$#"
 			count: 1
-			path: src/ErrorReport.php
+			path: src/Error/ErrorReport.php
 
 		-
-			message: "#^Parameter \\#1 \\$url of method PhpMyAdmin\\\\ErrorReport\\:\\:sanitizeUrl\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$url of method PhpMyAdmin\\\\Error\\\\ErrorReport\\:\\:sanitizeUrl\\(\\) expects string, mixed given\\.$#"
 			count: 3
-			path: src/ErrorReport.php
+			path: src/Error/ErrorReport.php
 
 		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
@@ -17098,7 +17098,7 @@ parameters:
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 1
-			path: tests/classes/ErrorHandlerTest.php
+			path: tests/classes/Error/ErrorHandlerTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"

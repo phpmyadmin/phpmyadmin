@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Query;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Dbal\ResultInterface;
-use PhpMyAdmin\Error;
+use PhpMyAdmin\Error\Error;
 use PhpMyAdmin\Url;
 
 use function __;

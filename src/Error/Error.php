@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Error;
 
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Template;
 use Throwable;
 
 use function array_pop;
@@ -153,7 +155,7 @@ class Error extends Message
     }
 
     /**
-     * sets PhpMyAdmin\Error::$_backtrace
+     * sets PhpMyAdmin\Error\Error::$_backtrace
      *
      * We don't store full arguments to avoid wakeup or memory problems.
      *
@@ -165,7 +167,7 @@ class Error extends Message
     }
 
     /**
-     * sets PhpMyAdmin\Error::$_line
+     * sets PhpMyAdmin\Error\Error::$_line
      *
      * @param int $line the line
      */
@@ -175,7 +177,7 @@ class Error extends Message
     }
 
     /**
-     * sets PhpMyAdmin\Error::$_file
+     * sets PhpMyAdmin\Error\Error::$_file
      *
      * @param string $file the file
      */
@@ -185,9 +187,9 @@ class Error extends Message
     }
 
     /**
-     * returns unique PhpMyAdmin\Error::$hash, if not exists it will be created
+     * returns unique PhpMyAdmin\Error\Error::$hash, if not exists it will be created
      *
-     * @return string PhpMyAdmin\Error::$hash
+     * @return string PhpMyAdmin\Error\Error::$hash
      */
     public function getHash(): string
     {
@@ -211,13 +213,13 @@ class Error extends Message
     }
 
     /**
-     * returns PhpMyAdmin\Error::$_backtrace for first $count frames
+     * returns PhpMyAdmin\Error\Error::$_backtrace for first $count frames
      * pass $count = -1 to get full backtrace.
      * The same can be done by not passing $count at all.
      *
      * @param int $count Number of stack frames.
      *
-     * @return mixed[] PhpMyAdmin\Error::$_backtrace
+     * @return mixed[] PhpMyAdmin\Error\Error::$_backtrace
      */
     public function getBacktrace(int $count = -1): array
     {
@@ -229,9 +231,9 @@ class Error extends Message
     }
 
     /**
-     * returns PhpMyAdmin\Error::$file
+     * returns PhpMyAdmin\Error\Error::$file
      *
-     * @return string PhpMyAdmin\Error::$file
+     * @return string PhpMyAdmin\Error\Error::$file
      */
     public function getFile(): string
     {
@@ -239,9 +241,9 @@ class Error extends Message
     }
 
     /**
-     * returns PhpMyAdmin\Error::$line
+     * returns PhpMyAdmin\Error\Error::$line
      *
-     * @return int PhpMyAdmin\Error::$line
+     * @return int PhpMyAdmin\Error\Error::$line
      */
     public function getLine(): int
     {
@@ -485,7 +487,7 @@ class Error extends Message
 
         $hereParts = explode(
             DIRECTORY_SEPARATOR,
-            (string) realpath(__DIR__ . DIRECTORY_SEPARATOR . '..'),
+            (string) realpath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..'),
         );
         $destParts = explode(DIRECTORY_SEPARATOR, $dest);
 
@@ -494,7 +496,7 @@ class Error extends Message
         while (implode(DIRECTORY_SEPARATOR, $destParts) !== implode(DIRECTORY_SEPARATOR, $hereParts)) {
             if (count($hereParts) > count($destParts)) {
                 array_pop($hereParts);
-                $result .= DIRECTORY_SEPARATOR . '..';
+                $result .= DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..';
             } else {
                 array_pop($destParts);
             }
