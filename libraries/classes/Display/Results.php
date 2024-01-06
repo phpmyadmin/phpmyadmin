@@ -3121,7 +3121,7 @@ class Results
         $fieldTypeClass = '';
 
         if ($meta->isMappedTypeTimestamp || $meta->isType(FieldMetadata::TYPE_DATETIME)) {
-            $fieldTypeClass = 'datetimefield';
+            $fieldTypeClass = 'datetimefield text-nowrap';
         } elseif ($meta->isType(FieldMetadata::TYPE_DATE)) {
             $fieldTypeClass = 'datefield';
         } elseif ($meta->isType(FieldMetadata::TYPE_TIME)) {
