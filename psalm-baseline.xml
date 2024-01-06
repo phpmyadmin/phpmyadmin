@@ -863,11 +863,6 @@
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
-  <file src="src/Controllers/ColumnController.php">
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/Controllers/Config/GetConfigController.php">
     <PossiblyUnusedMethod>
       <code>__construct</code>
