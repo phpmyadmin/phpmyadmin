@@ -175,7 +175,7 @@ class Normalization
             'max_rows' => intval($config->settings['MaxRows']),
             'char_editing' => $config->settings['CharEditing'],
             'attribute_types' => $this->dbi->types->getAttributes(),
-            'privs_available' => $GLOBALS['col_priv'] && $GLOBALS['is_reload_priv'],
+            'privs_available' => UserPrivileges::$column && UserPrivileges::$isReload,
             'max_length' => $this->dbi->getVersion() >= 50503 ? 1024 : 255,
             'charsets' => $charsetsList,
         ]);

@@ -11,6 +11,7 @@ use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Navigation\NodeType;
+use PhpMyAdmin\UserPrivileges;
 
 use function _pgettext;
 
@@ -31,7 +32,7 @@ class NodeDatabaseContainer extends Node
 
         parent::__construct($name, NodeType::Container);
 
-        if (! $GLOBALS['is_create_db_priv'] || Config::getInstance()->settings['ShowCreateDb'] === false) {
+        if (! UserPrivileges::$isCreateDatabase || Config::getInstance()->settings['ShowCreateDb'] === false) {
             return;
         }
 

@@ -24,6 +24,7 @@ use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UserPrivileges;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -259,8 +260,8 @@ class DatabaseController extends AbstractController
             $databaseComment = $this->relation->getDbComment(Current::$database);
         }
 
-        $hasAdjustPrivileges = $GLOBALS['db_priv'] && $GLOBALS['table_priv']
-            && $GLOBALS['col_priv'] && $GLOBALS['proc_priv'] && $GLOBALS['is_reload_priv'];
+        $hasAdjustPrivileges = UserPrivileges::$database && UserPrivileges::$table
+            && UserPrivileges::$column && UserPrivileges::$routines && UserPrivileges::$isReload;
 
         $isDropDatabaseAllowed = ($this->dbi->isSuperUser() || $config->settings['AllowUserDropDatabase'])
             && Current::$database !== 'mysql';

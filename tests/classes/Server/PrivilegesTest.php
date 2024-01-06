@@ -21,6 +21,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UserPrivileges;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -1464,7 +1465,7 @@ class PrivilegesTest extends AbstractTestCase
     {
         Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['lang'] = 'en';
-        $GLOBALS['is_reload_priv'] = true;
+        UserPrivileges::$isReload = true;
 
         $dummyDbi = $this->createDbiDummy();
         // phpcs:disable Generic.Files.LineLength.TooLong

@@ -15,6 +15,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\Utils\Routine;
+use PhpMyAdmin\UserPrivileges;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -163,7 +164,7 @@ class Routines
      */
     public function backupPrivileges(): array
     {
-        if (! $GLOBALS['proc_priv'] || ! $GLOBALS['is_reload_priv']) {
+        if (! UserPrivileges::$routines || ! UserPrivileges::$isReload) {
             return [];
         }
 
@@ -219,7 +220,7 @@ class Routines
         // Default value
         $resultAdjust = false;
 
-        if ($GLOBALS['proc_priv'] && $GLOBALS['is_reload_priv']) {
+        if (UserPrivileges::$routines && UserPrivileges::$isReload) {
             // Insert all the previous privileges
             // but with the new name and the new type
             foreach ($privilegesBackup as $priv) {

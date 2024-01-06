@@ -20,6 +20,7 @@ use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UserPrivileges;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -363,7 +364,7 @@ final class SaveController extends AbstractController
     {
         $changed = false;
 
-        if (($GLOBALS['col_priv'] ?? false) && ($GLOBALS['is_reload_priv'] ?? false)) {
+        if (UserPrivileges::$column && UserPrivileges::$isReload) {
             $this->dbi->selectDb('mysql');
 
             // For Column specific privileges

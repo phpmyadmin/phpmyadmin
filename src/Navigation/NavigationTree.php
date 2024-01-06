@@ -38,6 +38,7 @@ use PhpMyAdmin\Navigation\Nodes\NodeViewContainer;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UserPrivileges;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -249,7 +250,7 @@ class NavigationTree
         }
 
         $prefixMap = [];
-        if ($GLOBALS['dbs_to_test'] === false) {
+        if (UserPrivileges::$databasesToTest === false) {
             $handle = $this->dbi->tryQuery('SHOW DATABASES');
             if ($handle !== false) {
                 while ($database = $handle->fetchValue()) {
@@ -267,7 +268,7 @@ class NavigationTree
             }
         } else {
             $databases = [];
-            foreach ($GLOBALS['dbs_to_test'] as $db) {
+            foreach (UserPrivileges::$databasesToTest as $db) {
                 $query = "SHOW DATABASES LIKE '" . $db . "'";
                 $handle = $this->dbi->tryQuery($query);
                 if ($handle === false) {

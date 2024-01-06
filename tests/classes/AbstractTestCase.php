@@ -15,6 +15,7 @@ use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\SqlParser\Translator;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use PhpMyAdmin\UserPrivileges;
 use PhpMyAdmin\Utils\HttpRequest;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
@@ -76,6 +77,16 @@ abstract class AbstractTestCase extends TestCase
         Current::$database = '';
         Current::$table = '';
         $GLOBALS['sql_query'] = '';
+
+        UserPrivileges::$column = false;
+        UserPrivileges::$database = false;
+        UserPrivileges::$table = false;
+        UserPrivileges::$column = false;
+        UserPrivileges::$routines = false;
+        UserPrivileges::$isReload = false;
+        UserPrivileges::$isCreateDatabase = false;
+        UserPrivileges::$databaseToCreate = '';
+        UserPrivileges::$databasesToTest = false;
 
         // Config before DBI
         $this->setGlobalConfig();

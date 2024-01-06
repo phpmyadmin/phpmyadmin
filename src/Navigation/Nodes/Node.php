@@ -14,6 +14,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\NodeType;
+use PhpMyAdmin\UserPrivileges;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -371,7 +372,7 @@ class Node
             return $this->getDataFromInfoSchema($pos, $searchClause);
         }
 
-        if ($GLOBALS['dbs_to_test'] === false) {
+        if (UserPrivileges::$databasesToTest === false) {
             return $this->getDataFromShowDatabases($pos, $searchClause);
         }
 
@@ -402,7 +403,7 @@ class Node
                 return (int) $dbi->fetchValue($query);
             }
 
-            if ($GLOBALS['dbs_to_test'] === false) {
+            if (UserPrivileges::$databasesToTest === false) {
                 $query = 'SHOW DATABASES ';
                 $query .= $this->getWhereClause('Database', $searchClause);
 
@@ -432,7 +433,7 @@ class Node
             return (int) $dbi->fetchValue($query);
         }
 
-        if ($GLOBALS['dbs_to_test'] !== false) {
+        if (UserPrivileges::$databasesToTest !== false) {
             $prefixMap = [];
             foreach ($this->getDatabasesToSearch($searchClause) as $db) {
                 $query = 'SHOW DATABASES LIKE ' . $dbi->quoteString($db);
@@ -507,8 +508,8 @@ class Node
             $databases = ['%' . DatabaseInterface::getInstance()->escapeMysqlWildcards($searchClause) . '%'];
         } elseif (! empty($config->selectedServer['only_db'])) {
             $databases = $config->selectedServer['only_db'];
-        } elseif (! empty($GLOBALS['dbs_to_test'])) {
-            $databases = $GLOBALS['dbs_to_test'];
+        } elseif (UserPrivileges::$databasesToTest !== false && UserPrivileges::$databasesToTest !== []) {
+            $databases = UserPrivileges::$databasesToTest;
         }
 
         sort($databases);

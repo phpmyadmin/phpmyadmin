@@ -11,6 +11,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Types;
+use PhpMyAdmin\UserPrivileges;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 
@@ -36,8 +37,8 @@ class RoutinesTest extends AbstractTestCase
         $config->settings['ActionLinksMode'] = 'icons';
         Current::$database = 'db';
         Current::$table = 'table';
-        $GLOBALS['proc_priv'] = false;
-        $GLOBALS['is_reload_priv'] = false;
+        UserPrivileges::$routines = false;
+        UserPrivileges::$isReload = false;
         $GLOBALS['errors'] = [];
 
         $this->routines = new Routines(DatabaseInterface::getInstance());
