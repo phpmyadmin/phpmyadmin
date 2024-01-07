@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use ArrayObject;
 use PhpMyAdmin\Query\Utilities;
 
 use function array_merge;
+use function in_array;
 use function is_array;
 use function is_string;
 use function preg_match;
@@ -17,15 +19,11 @@ use function strtr;
 use function usort;
 
 /**
- * handles database lists
+ * Handles database lists
  *
- * <code>
- * $ListDatabase = new ListDatabase();
- * </code>
- *
- * @todo this object should be attached to the PMA_Server object
+ * @extends ArrayObject<int, string>
  */
-class ListDatabase extends ListAbstract
+class ListDatabase extends ArrayObject
 {
     public function __construct()
     {
@@ -159,6 +157,22 @@ class ListDatabase extends ListAbstract
         }
 
         $this->exchangeArray($items);
+
+        return true;
+    }
+
+    /**
+     * Checks if the given strings exists in the current list, if there is
+     * missing at least one item it returns false otherwise true
+     */
+    public function exists(string ...$params): bool
+    {
+        $elements = $this->getArrayCopy();
+        foreach ($params as $param) {
+            if (! in_array($param, $elements, true)) {
+                return false;
+            }
+        }
 
         return true;
     }
