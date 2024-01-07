@@ -25,12 +25,14 @@ use function usort;
  */
 class ListDatabase extends ArrayObject
 {
-    public function __construct()
-    {
+    public function __construct(
+        private readonly DatabaseInterface $dbi,
+        private readonly Config $config,
+        private readonly CheckUserPrivileges $checkUserPrivileges,
+    ) {
         parent::__construct();
 
-        $checkUserPrivileges = new CheckUserPrivileges(DatabaseInterface::getInstance());
-        $checkUserPrivileges->getPrivileges();
+        $this->checkUserPrivileges->getPrivileges();
 
         $this->build();
     }
@@ -55,13 +57,12 @@ class ListDatabase extends ArrayObject
      */
     protected function checkHideDatabase(): void
     {
-        $config = Config::getInstance();
-        if (empty($config->selectedServer['hide_db'])) {
+        if (empty($this->config->selectedServer['hide_db'])) {
             return;
         }
 
         foreach ($this->getArrayCopy() as $key => $db) {
-            if (! preg_match('/' . $config->selectedServer['hide_db'] . '/', $db)) {
+            if (! preg_match('/' . $this->config->selectedServer['hide_db'] . '/', $db)) {
                 continue;
             }
 
@@ -80,8 +81,7 @@ class ListDatabase extends ArrayObject
     {
         $databaseList = [];
         $command = '';
-        $config = Config::getInstance();
-        if (! $config->selectedServer['DisableIS']) {
+        if (! $this->config->selectedServer['DisableIS']) {
             $command .= 'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`';
             if ($likeDbName !== null) {
                 $command .= " WHERE `SCHEMA_NAME` LIKE '" . $likeDbName . "'";
@@ -101,10 +101,10 @@ class ListDatabase extends ArrayObject
         }
 
         if ($command !== '') {
-            $databaseList = DatabaseInterface::getInstance()->fetchResult($command);
+            $databaseList = $this->dbi->fetchResult($command);
         }
 
-        if ($config->settings['NaturalOrder']) {
+        if ($this->config->settings['NaturalOrder']) {
             usort($databaseList, strnatcasecmp(...));
         } else {
             // need to sort anyway, otherwise information_schema
@@ -133,18 +133,19 @@ class ListDatabase extends ArrayObject
      */
     protected function checkOnlyDatabase(): bool
     {
-        $config = Config::getInstance();
-        if (is_string($config->selectedServer['only_db']) && strlen($config->selectedServer['only_db']) > 0) {
-            $config->selectedServer['only_db'] = [$config->selectedServer['only_db']];
+        if (
+            is_string($this->config->selectedServer['only_db']) && strlen($this->config->selectedServer['only_db']) > 0
+        ) {
+            $this->config->selectedServer['only_db'] = [$this->config->selectedServer['only_db']];
         }
 
-        if (! is_array($config->selectedServer['only_db'])) {
+        if (! is_array($this->config->selectedServer['only_db'])) {
             return false;
         }
 
         $items = [];
 
-        foreach ($config->selectedServer['only_db'] as $eachOnlyDb) {
+        foreach ($this->config->selectedServer['only_db'] as $eachOnlyDb) {
             // check if the db name contains wildcard,
             // thus containing not escaped _ or %
             if (! preg_match('/(^|[^\\\\])(_|%)/', $eachOnlyDb)) {

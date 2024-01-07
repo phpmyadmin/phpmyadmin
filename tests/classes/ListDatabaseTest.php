@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ListDatabase;
 use PHPUnit\Framework\Attributes\CoversClass;
 
@@ -25,11 +25,11 @@ class ListDatabaseTest extends AbstractTestCase
     {
         parent::setUp();
 
-        DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $config = Config::getInstance();
+        $dbi = $this->createDatabaseInterface();
+        $config = new Config();
         $config->selectedServer['DisableIS'] = false;
         $config->selectedServer['only_db'] = ['single\\_db'];
-        $this->object = new ListDatabase();
+        $this->object = new ListDatabase($dbi, $config, new CheckUserPrivileges($dbi));
     }
 
     /**
@@ -37,13 +37,21 @@ class ListDatabaseTest extends AbstractTestCase
      */
     public function testExists(): void
     {
-        $arr = new ListDatabase();
+        $dbi = $this->createDatabaseInterface();
+        $config = new Config();
+        $config->selectedServer['DisableIS'] = false;
+        $config->selectedServer['only_db'] = ['single\\_db'];
+        $arr = new ListDatabase($dbi, $config, new CheckUserPrivileges($dbi));
         $this->assertTrue($arr->exists('single_db'));
     }
 
     public function testGetList(): void
     {
-        $arr = new ListDatabase();
+        $dbi = $this->createDatabaseInterface();
+        $config = new Config();
+        $config->selectedServer['DisableIS'] = false;
+        $config->selectedServer['only_db'] = ['single\\_db'];
+        $arr = new ListDatabase($dbi, $config, new CheckUserPrivileges($dbi));
 
         Current::$database = 'db';
         $this->assertEquals(
