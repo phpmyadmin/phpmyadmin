@@ -28,14 +28,6 @@ abstract class ListAbstract extends ArrayObject
     }
 
     /**
-     * Returns default item
-     */
-    public function getDefault(): string
-    {
-        return '';
-    }
-
-    /**
      * builds up the list
      */
     abstract public function build(): void;

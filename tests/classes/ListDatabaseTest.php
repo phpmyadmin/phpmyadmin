@@ -33,15 +33,6 @@ class ListDatabaseTest extends AbstractTestCase
     }
 
     /**
-     * Test for ListDatabase::getDefault
-     */
-    public function testEmpty(): void
-    {
-        $arr = new ListDatabase();
-        $this->assertEquals('', $arr->getDefault());
-    }
-
-    /**
      * Test for ListDatabase::exists
      */
     public function testExists(): void
@@ -81,24 +72,6 @@ class ListDatabaseTest extends AbstractTestCase
                 [],
             ),
             '',
-        );
-    }
-
-    /**
-     * Test for getDefault
-     */
-    public function testGetDefault(): void
-    {
-        Current::$database = '';
-        $this->assertEquals(
-            $this->object->getDefault(),
-            '',
-        );
-
-        Current::$database = 'mysql';
-        $this->assertEquals(
-            $this->object->getDefault(),
-            'mysql',
         );
     }
 }

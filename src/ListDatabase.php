@@ -40,15 +40,13 @@ class ListDatabase extends ListAbstract
     /** @return array<int, array<string, bool|string>> */
     public function getList(): array
     {
-        $selected = $this->getDefault();
-
         $list = [];
         foreach ($this as $eachItem) {
             if (Utilities::isSystemSchema($eachItem)) {
                 continue;
             }
 
-            $list[] = ['name' => $eachItem, 'is_selected' => $selected === $eachItem];
+            $list[] = ['name' => $eachItem, 'is_selected' => $eachItem === Current::$database];
         }
 
         return $list;
@@ -163,19 +161,5 @@ class ListDatabase extends ListAbstract
         $this->exchangeArray($items);
 
         return true;
-    }
-
-    /**
-     * returns default item
-     *
-     * @return string default item
-     */
-    public function getDefault(): string
-    {
-        if (Current::$database !== '') {
-            return Current::$database;
-        }
-
-        return parent::getDefault();
     }
 }
