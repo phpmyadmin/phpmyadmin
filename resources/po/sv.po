@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-12-31 00:20+0000\n"
+"POT-Creation-Date: 2024-01-07 00:19+0000\n"
 "PO-Revision-Date: 2023-02-17 01:47+0000\n"
 "Last-Translator: Anders Johansson <johansson@aljmedia.se>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -51,7 +51,7 @@ msgstr ""
 #: resources/templates/table/structure/display_structure.twig:145
 #: resources/templates/table/structure/display_structure.twig:295
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:25
-#: src/Controllers/Table/StructureController.php:229
+#: src/Controllers/Table/StructureController.php:228
 msgid "Primary"
 msgstr "Primär"
 
@@ -73,7 +73,7 @@ msgstr "Unik"
 #: resources/templates/table/structure/display_structure.twig:301
 #: resources/templates/table/structure/display_table_stats.twig:23
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:27
-#: src/Controllers/Table/StructureController.php:233
+#: src/Controllers/Table/StructureController.php:232
 #: src/Navigation/Nodes/NodeIndex.php:26
 msgid "Index"
 msgstr "Index"
@@ -205,7 +205,7 @@ msgstr "Kör"
 #: resources/templates/columns_definitions/column_definitions_form.twig:68
 #: resources/templates/database/data_dictionary/index.twig:16
 #: resources/templates/table/structure/display_table_stats.twig:5
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:580
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:576
 msgid "Table comments:"
 msgstr "Tabellkommentarer:"
 
@@ -383,8 +383,8 @@ msgstr "Är en främmande nyckel."
 #: src/Plugins/Export/ExportTexytext.php:285
 #: src/Plugins/Export/ExportTexytext.php:366
 #: src/Plugins/Export/Helpers/Pdf.php:489
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:627
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:649
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:623
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:645
 msgid "Column"
 msgstr "Kolumn"
 
@@ -565,8 +565,8 @@ msgstr "Namn"
 #: src/Plugins/Export/ExportTexytext.php:286
 #: src/Plugins/Export/ExportTexytext.php:367
 #: src/Plugins/Export/Helpers/Pdf.php:491
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:628
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:650
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:624
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:646
 msgid "Type"
 msgstr "Typ"
 
@@ -604,8 +604,8 @@ msgstr ""
 #: src/Plugins/Export/ExportTexytext.php:288
 #: src/Plugins/Export/ExportTexytext.php:369
 #: src/Plugins/Export/Helpers/Pdf.php:495
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:631
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:653
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:627
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:649
 msgid "Default"
 msgstr "Standardvärde"
 
@@ -642,8 +642,8 @@ msgstr "Kollationering"
 #: resources/templates/columns_definitions/table_fields_definitions.twig:25
 #: resources/templates/database/central_columns/edit.twig:12
 #: resources/templates/table/structure/display_structure.twig:23
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:629
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:651
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:625
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:647
 msgid "Attributes"
 msgstr "Attribut"
 
@@ -667,8 +667,8 @@ msgstr "Attribut"
 #: src/Plugins/Export/ExportTexytext.php:287
 #: src/Plugins/Export/ExportTexytext.php:368
 #: src/Plugins/Export/Helpers/Pdf.php:493
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:630
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:652
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:626
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:648
 msgid "Null"
 msgstr "nolläge"
 
@@ -691,8 +691,8 @@ msgstr "Ändra privilegier"
 #: src/Plugins/Export/ExportLatex.php:514 src/Plugins/Export/ExportOdt.php:473
 #: src/Plugins/Export/ExportTexytext.php:375
 #: src/Plugins/Export/Helpers/Pdf.php:512
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:643
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:656
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:639
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:652
 msgid "Comments"
 msgstr "Kommentarer"
 
@@ -843,7 +843,7 @@ msgstr "Inaktiverad"
 #: src/Plugins/Export/ExportHtmlword.php:601
 #: src/Plugins/Export/ExportLatex.php:573 src/Plugins/Export/ExportOdt.php:716
 #: src/Plugins/Export/ExportTexytext.php:555
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:695
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:691
 msgid "Yes"
 msgstr "Ja"
 
@@ -879,7 +879,7 @@ msgstr "Ja"
 #: src/Plugins/Export/ExportHtmlword.php:601
 #: src/Plugins/Export/ExportLatex.php:573 src/Plugins/Export/ExportOdt.php:716
 #: src/Plugins/Export/ExportTexytext.php:555
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:695
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:691
 msgid "No"
 msgstr "Nej"
 
@@ -983,8 +983,8 @@ msgstr "Radera"
 #: resources/templates/table/relation/foreign_key_row.twig:91
 #: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:138
 #: src/Plugins/Export/ExportOdt.php:182
-#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1573
-#: src/Server/Privileges.php:1575 src/Server/Status/Processes.php:93
+#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1574
+#: src/Server/Privileges.php:1576 src/Server/Status/Processes.php:93
 msgid "Database"
 msgstr "Databas"
 
@@ -1374,8 +1374,8 @@ msgstr "Skriv ut"
 #: src/Plugins/Export/ExportLatex.php:510 src/Plugins/Export/ExportOdt.php:467
 #: src/Plugins/Export/ExportTexytext.php:371
 #: src/Plugins/Export/Helpers/Pdf.php:504
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:633
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:655
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:629
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:651
 msgid "Links to"
 msgstr "Länkar till"
 
@@ -1383,7 +1383,7 @@ msgstr "Länkar till"
 #: resources/templates/indexes.twig:1
 #: resources/templates/table/structure/display_structure.twig:459
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:1
-#: src/Controllers/Server/DatabasesController.php:292
+#: src/Controllers/Server/DatabasesController.php:291
 #: src/Navigation/Nodes/NodeIndexContainer.php:25
 #: src/Navigation/Nodes/NodeIndexContainer.php:27
 msgid "Indexes"
@@ -1843,7 +1843,7 @@ msgstr "Markera alla"
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:384 src/Menu.php:247
-#: src/Menu.php:349 src/Menu.php:471 src/Server/Privileges.php:1290
+#: src/Menu.php:349 src/Menu.php:471 src/Server/Privileges.php:1291
 #: src/Util.php:1471 src/Util.php:1486 src/Util.php:1503
 msgid "Export"
 msgstr "Exportera"
@@ -1932,7 +1932,7 @@ msgstr "Tabeller:"
 #: resources/templates/database/export/index.twig:16
 #: resources/templates/database/structure/show_create.twig:5
 #: src/Config/Descriptions.php:743
-#: src/Controllers/Server/DatabasesController.php:289
+#: src/Controllers/Server/DatabasesController.php:288
 #: src/Navigation/Nodes/NodeTableContainer.php:23
 #: src/Navigation/Nodes/NodeTableContainer.php:25
 #: src/Plugins/Export/ExportXml.php:115 src/Server/Status/Data.php:151
@@ -1946,7 +1946,7 @@ msgstr "Tabeller"
 #: src/Config/Forms/User/ExportForm.php:106
 #: src/Config/Forms/User/ExportForm.php:131
 #: src/Config/Forms/User/ExportForm.php:137
-#: src/Controllers/Server/DatabasesController.php:291
+#: src/Controllers/Server/DatabasesController.php:290
 msgid "Data"
 msgstr "Data"
 
@@ -2288,13 +2288,13 @@ msgstr "Rutin"
 #: resources/templates/server/privileges/new_user_ajax.twig:45
 #: resources/templates/server/privileges/users_overview.twig:75
 #: resources/templates/table/privileges/index.twig:84
-#: src/Server/Privileges.php:1282
+#: src/Server/Privileges.php:1283
 msgid "Edit privileges"
 msgstr "Redigera behörigheter"
 
 #: resources/templates/database/privileges/index.twig:100
 #: resources/templates/table/privileges/index.twig:104
-#: src/Server/Privileges.php:2069
+#: src/Server/Privileges.php:2070
 msgid "No user found."
 msgstr "Ingen användare hittades."
 
@@ -2315,7 +2315,7 @@ msgstr "Med markerade:"
 
 #: resources/templates/database/privileges/index.twig:122
 #: resources/templates/table/privileges/index.twig:126
-#: src/Server/Privileges.php:1226
+#: src/Server/Privileges.php:1227
 msgid "Not enough privilege to view users."
 msgstr "Inte tillräckligt privilegier för att visa användare."
 
@@ -2757,8 +2757,8 @@ msgstr "Visa skapade frågor"
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:29
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
-#: src/Plugins/Export/ExportXml.php:441 src/Server/Privileges.php:1579
-#: src/Server/Privileges.php:1581
+#: src/Plugins/Export/ExportXml.php:441 src/Server/Privileges.php:1580
+#: src/Server/Privileges.php:1582
 msgid "Table"
 msgstr "Tabell"
 
@@ -2772,9 +2772,9 @@ msgstr "Vy"
 #: resources/templates/database/structure/show_create.twig:30
 #: resources/templates/database/structure/structure_table_row.twig:122
 #: resources/templates/database/structure/structure_table_row.twig:184
-#: src/Controllers/Operations/TableController.php:124
-#: src/Controllers/Operations/TableController.php:333
-#: src/Controllers/Table/StructureController.php:165
+#: src/Controllers/Operations/TableController.php:125
+#: src/Controllers/Operations/TableController.php:334
+#: src/Controllers/Table/StructureController.php:164
 #: src/Navigation/Nodes/NodeView.php:26
 msgid "View"
 msgstr "Vy"
@@ -2814,7 +2814,7 @@ msgstr "används"
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:230
 #: resources/templates/table/structure/display_table_stats.twig:118
-#: src/Controllers/Server/DatabasesController.php:290 src/Import/Import.php:157
+#: src/Controllers/Server/DatabasesController.php:289 src/Import/Import.php:157
 msgid "Rows"
 msgstr "Rader"
 
@@ -2833,7 +2833,7 @@ msgstr "Storlek"
 
 #: resources/templates/database/structure/table_header.twig:38
 #: resources/templates/table/structure/display_table_stats.twig:31
-#: src/Controllers/Server/DatabasesController.php:294
+#: src/Controllers/Server/DatabasesController.php:293
 msgid "Overhead"
 msgstr "Outnyttjat"
 
@@ -3132,7 +3132,7 @@ msgstr ""
 msgid "You may examine the data in the error report:"
 msgstr "Du kan undersöka data i felrapporten:"
 
-#: resources/templates/error/report_form.twig:19 src/ErrorHandler.php:400
+#: resources/templates/error/report_form.twig:19 src/Error/ErrorHandler.php:404
 msgid "Automatically send report next time"
 msgstr "Skicka rapport automatiskt nästa gång"
 
@@ -4357,9 +4357,9 @@ msgstr ""
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:44
 #: src/Controllers/Database/Structure/EmptyTableController.php:51
-#: src/Controllers/Operations/TableController.php:349
+#: src/Controllers/Operations/TableController.php:350
 #: src/Controllers/Table/DropColumnController.php:63
-#: src/Controllers/Table/ReplaceController.php:296 src/Core.php:500
+#: src/Controllers/Table/ReplaceController.php:296 src/Core.php:501
 msgid "No change"
 msgstr "Ingen förändring"
 
@@ -4911,7 +4911,7 @@ msgstr "Användarkonto"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:25
 #: resources/templates/server/privileges/edit_routine_privileges.twig:43
 #: resources/templates/server/privileges/edit_routine_privileges.twig:58
-#: src/Server/Privileges.php:1585 src/Server/Privileges.php:1587
+#: src/Server/Privileges.php:1586 src/Server/Privileges.php:1588
 #, fuzzy
 #| msgid "Routines"
 msgid "Routine"
@@ -4927,7 +4927,7 @@ msgstr ""
 "som."
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
-#: src/Server/Privileges.php:1586
+#: src/Server/Privileges.php:1587
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
@@ -5097,7 +5097,7 @@ msgstr "Redigera användargrupp"
 #: resources/templates/server/privileges/privileges_summary.twig:19
 #: resources/templates/server/privileges/privileges_table.twig:6
 #: resources/templates/server/privileges/privileges_table.twig:267
-#: src/Server/Privileges.php:1580
+#: src/Server/Privileges.php:1581
 msgid "Table-specific privileges"
 msgstr "Tabellspecifika privilegier"
 
@@ -5128,7 +5128,7 @@ msgstr "Lägg till privilegier till följande tabell:"
 #: resources/templates/server/privileges/privileges_table.twig:11
 #: resources/templates/server/privileges/privileges_table.twig:286
 #: resources/templates/server/privileges/privileges_table.twig:287
-#: src/Server/Privileges.php:306
+#: src/Server/Privileges.php:307
 msgid "Allows reading data."
 msgstr "Tillåter läsning av data."
 
@@ -5155,20 +5155,20 @@ msgstr "Inget"
 #: resources/templates/server/privileges/privileges_table.twig:38
 #: resources/templates/server/privileges/privileges_table.twig:299
 #: resources/templates/server/privileges/privileges_table.twig:300
-#: src/Server/Privileges.php:307
+#: src/Server/Privileges.php:308
 msgid "Allows inserting and replacing data."
 msgstr "Tillåter infogning och ersättning av data."
 
 #: resources/templates/server/privileges/privileges_table.twig:65
 #: resources/templates/server/privileges/privileges_table.twig:312
 #: resources/templates/server/privileges/privileges_table.twig:313
-#: src/Server/Privileges.php:308
+#: src/Server/Privileges.php:309
 msgid "Allows changing data."
 msgstr "Tillåter ändring av data."
 
 #: resources/templates/server/privileges/privileges_table.twig:92
 #: resources/templates/server/privileges/privileges_table.twig:676
-#: src/Server/Privileges.php:316
+#: src/Server/Privileges.php:317
 msgid "Has no effect in this MySQL version."
 msgstr "Har ingen effekt i denna version av MySQL."
 
@@ -5176,7 +5176,7 @@ msgstr "Har ingen effekt i denna version av MySQL."
 #: resources/templates/server/privileges/privileges_table.twig:125
 #: resources/templates/server/privileges/privileges_table.twig:325
 #: resources/templates/server/privileges/privileges_table.twig:326
-#: src/Server/Privileges.php:286 src/Server/Privileges.php:309
+#: src/Server/Privileges.php:287 src/Server/Privileges.php:310
 msgid "Allows deleting data."
 msgstr "Tillåter borttagning av data."
 
@@ -5184,7 +5184,7 @@ msgstr "Tillåter borttagning av data."
 #: resources/templates/server/privileges/privileges_table.twig:137
 #: resources/templates/server/privileges/privileges_table.twig:364
 #: resources/templates/server/privileges/privileges_table.twig:372
-#: src/Server/Privileges.php:287
+#: src/Server/Privileges.php:288
 msgid "Allows creating new tables."
 msgstr "Tillåter skapande av nya tabeller."
 
@@ -5192,7 +5192,7 @@ msgstr "Tillåter skapande av nya tabeller."
 #: resources/templates/server/privileges/privileges_table.twig:149
 #: resources/templates/server/privileges/privileges_table.twig:412
 #: resources/templates/server/privileges/privileges_table.twig:420
-#: src/Server/Privileges.php:288
+#: src/Server/Privileges.php:289
 msgid "Allows dropping tables."
 msgstr "Tillåter borttagning av tabeller."
 
@@ -5209,7 +5209,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:174
 #: resources/templates/server/privileges/privileges_table.twig:398
 #: resources/templates/server/privileges/privileges_table.twig:399
-#: src/Server/Privileges.php:289 src/Server/Privileges.php:317
+#: src/Server/Privileges.php:290 src/Server/Privileges.php:318
 msgid "Allows creating and dropping indexes."
 msgstr "Tillåter skapande och borttagning av index."
 
@@ -5217,7 +5217,7 @@ msgstr "Tillåter skapande och borttagning av index."
 #: resources/templates/server/privileges/privileges_table.twig:186
 #: resources/templates/server/privileges/privileges_table.twig:385
 #: resources/templates/server/privileges/privileges_table.twig:386
-#: src/Server/Privileges.php:290 src/Server/Privileges.php:318
+#: src/Server/Privileges.php:291 src/Server/Privileges.php:319
 msgid "Allows altering the structure of existing tables."
 msgstr "Tillåter ändring av befintliga tabellers struktur."
 
@@ -5227,8 +5227,8 @@ msgstr "Tillåter ändring av befintliga tabellers struktur."
 #: resources/templates/server/privileges/privileges_table.twig:500
 #: resources/templates/server/privileges/privileges_table.twig:514
 #: resources/templates/server/privileges/privileges_table.twig:515
-#: src/Server/Privileges.php:291 src/Server/Privileges.php:337
-#: src/Server/Privileges.php:341
+#: src/Server/Privileges.php:292 src/Server/Privileges.php:338
+#: src/Server/Privileges.php:342
 msgid "Allows creating new views."
 msgstr "Tillåter skapande av nya vyer."
 
@@ -5236,8 +5236,8 @@ msgstr "Tillåter skapande av nya vyer."
 #: resources/templates/server/privileges/privileges_table.twig:210
 #: resources/templates/server/privileges/privileges_table.twig:446
 #: resources/templates/server/privileges/privileges_table.twig:447
-#: src/Server/Privileges.php:292 src/Server/Privileges.php:342
-#: src/Server/Privileges.php:344
+#: src/Server/Privileges.php:293 src/Server/Privileges.php:343
+#: src/Server/Privileges.php:345
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Tillåter utförande av SHOW CREATE VIEW-frågor."
 
@@ -5245,14 +5245,14 @@ msgstr "Tillåter utförande av SHOW CREATE VIEW-frågor."
 #: resources/templates/server/privileges/privileges_table.twig:222
 #: resources/templates/server/privileges/privileges_table.twig:542
 #: resources/templates/server/privileges/privileges_table.twig:543
-#: src/Server/Privileges.php:293 src/Server/Privileges.php:339
+#: src/Server/Privileges.php:294 src/Server/Privileges.php:340
 msgid "Allows creating and dropping triggers."
 msgstr "Tillåter skapande och borttagning av triggers."
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: resources/templates/server/privileges/privileges_table.twig:233
 #: resources/templates/server/privileges/privileges_table.twig:236
-#: src/Server/Privileges.php:350 src/Server/Privileges.php:359
+#: src/Server/Privileges.php:351 src/Server/Privileges.php:360
 #, fuzzy
 #| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
@@ -5268,55 +5268,55 @@ msgid "Global privileges"
 msgstr "Globala privilegier"
 
 #: resources/templates/server/privileges/privileges_table.twig:265
-#: src/Server/Privileges.php:1574
+#: src/Server/Privileges.php:1575
 msgid "Database-specific privileges"
 msgstr "Databasspecifika privilegier"
 
 #: resources/templates/server/privileges/privileges_table.twig:339
 #: resources/templates/server/privileges/privileges_table.twig:340
-#: src/Server/Privileges.php:315
+#: src/Server/Privileges.php:316
 msgid "Allows importing data from and exporting data into files."
 msgstr "Tillåter import av data från och export av data till filer."
 
 #: resources/templates/server/privileges/privileges_table.twig:364
 #: resources/templates/server/privileges/privileges_table.twig:372
-#: src/Server/Privileges.php:310
+#: src/Server/Privileges.php:311
 msgid "Allows creating new databases and tables."
 msgstr "Tillåter skapande av nya databaser och tabeller."
 
 #: resources/templates/server/privileges/privileges_table.twig:412
 #: resources/templates/server/privileges/privileges_table.twig:420
-#: src/Server/Privileges.php:311
+#: src/Server/Privileges.php:312
 msgid "Allows dropping databases and tables."
 msgstr "Tillåter borttagning av databaser och tabeller."
 
 #: resources/templates/server/privileges/privileges_table.twig:433
 #: resources/templates/server/privileges/privileges_table.twig:434
-#: src/Server/Privileges.php:329
+#: src/Server/Privileges.php:330
 msgid "Allows creating temporary tables."
 msgstr "Tillåter skapande av temporära tabeller."
 
 #: resources/templates/server/privileges/privileges_table.twig:459
 #: resources/templates/server/privileges/privileges_table.twig:460
-#: src/Server/Privileges.php:361
+#: src/Server/Privileges.php:362
 msgid "Allows creating stored routines."
 msgstr "Tillåter skapande av lagrade rutiner."
 
 #: resources/templates/server/privileges/privileges_table.twig:472
 #: resources/templates/server/privileges/privileges_table.twig:473
-#: src/Server/Privileges.php:362
+#: src/Server/Privileges.php:363
 msgid "Allows altering and dropping stored routines."
 msgstr "Tillåter ändring och borttagning av lagrade rutiner."
 
 #: resources/templates/server/privileges/privileges_table.twig:485
 #: resources/templates/server/privileges/privileges_table.twig:486
-#: src/Server/Privileges.php:364
+#: src/Server/Privileges.php:365
 msgid "Allows executing stored routines."
 msgstr "Tillåter utförande av lagrade rutiner."
 
 #: resources/templates/server/privileges/privileges_table.twig:529
 #: resources/templates/server/privileges/privileges_table.twig:530
-#: src/Server/Privileges.php:338
+#: src/Server/Privileges.php:339
 msgid "Allows to set up events for the event scheduler."
 msgstr "Tillåter skapande av händelser för händelseschemaläggaren."
 
@@ -5334,7 +5334,7 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:582
 #: resources/templates/server/privileges/privileges_table.twig:584
-#: src/Server/Privileges.php:324
+#: src/Server/Privileges.php:325
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -5346,32 +5346,32 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:596
 #: resources/templates/server/privileges/privileges_table.twig:597
-#: src/Server/Privileges.php:314
+#: src/Server/Privileges.php:315
 msgid "Allows viewing processes of all users."
 msgstr "Tillåter visning av processer för alla användare."
 
 #: resources/templates/server/privileges/privileges_table.twig:609
 #: resources/templates/server/privileges/privileges_table.twig:610
-#: src/Server/Privileges.php:312
+#: src/Server/Privileges.php:313
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Tillåter omladdning av serverinställningar och rensning av serverns cache."
 
 #: resources/templates/server/privileges/privileges_table.twig:622
 #: resources/templates/server/privileges/privileges_table.twig:623
-#: src/Server/Privileges.php:313
+#: src/Server/Privileges.php:314
 msgid "Allows shutting down the server."
 msgstr "Tillåter avstängning av servern."
 
 #: resources/templates/server/privileges/privileges_table.twig:635
 #: resources/templates/server/privileges/privileges_table.twig:636
-#: src/Server/Privileges.php:319
+#: src/Server/Privileges.php:320
 msgid "Gives access to the complete list of databases."
 msgstr "Ger tillgång till den fullständiga databaslistan."
 
 #: resources/templates/server/privileges/privileges_table.twig:663
 #: resources/templates/server/privileges/privileges_table.twig:664
-#: src/Server/Privileges.php:330
+#: src/Server/Privileges.php:331
 msgid "Allows locking tables for the current thread."
 msgstr "Tillåter låsning av tabeller för gällande tråd."
 
@@ -5391,7 +5391,7 @@ msgstr "Har ingen effekt i denna version av MySQL."
 
 #: resources/templates/server/privileges/privileges_table.twig:691
 #: resources/templates/server/privileges/privileges_table.twig:692
-#: src/Server/Privileges.php:335
+#: src/Server/Privileges.php:336
 #, fuzzy
 #| msgid "Allows the user to ask where the slaves / masters are."
 msgid "Allows the user to ask where the replicas / primaries are."
@@ -5399,7 +5399,7 @@ msgstr "Ger användaren rätt att fråga var slav- / huvudservrarna är."
 
 #: resources/templates/server/privileges/privileges_table.twig:704
 #: resources/templates/server/privileges/privileges_table.twig:705
-#: src/Server/Privileges.php:331
+#: src/Server/Privileges.php:332
 #, fuzzy
 #| msgid "Needed for the replication slaves."
 msgid "Needed for the replication replicas."
@@ -5407,7 +5407,7 @@ msgstr "Nödvändigt för replikeringsslavar."
 
 #: resources/templates/server/privileges/privileges_table.twig:717
 #: resources/templates/server/privileges/privileges_table.twig:718
-#: src/Server/Privileges.php:363
+#: src/Server/Privileges.php:364
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Tillåter skapande, borttagning och omdöpning av användarkonton."
 
@@ -6634,7 +6634,7 @@ msgstr "Profilering av resultat"
 #: src/Controllers/Table/Partition/RepairController.php:50
 #: src/Controllers/Table/Partition/TruncateController.php:51
 #: src/Controllers/Table/RelationController.php:137
-#: src/Database/Routines.php:980 src/Display/Results.php:3221
+#: src/Database/Routines.php:981 src/Display/Results.php:3221
 #: src/Message.php:129
 msgid "Your SQL query has been executed successfully."
 msgstr "Din SQL-fråga utfördes korrekt."
@@ -6942,7 +6942,7 @@ msgstr "Dra om du vill ändra ordning"
 #: resources/templates/table/index_form.twig:199
 #: src/Controllers/JavaScriptMessagesController.php:486
 #: src/Controllers/JavaScriptMessagesController.php:637
-#: src/ErrorHandler.php:406 src/InsertEdit.php:1542
+#: src/Error/ErrorHandler.php:410 src/InsertEdit.php:1542
 msgid "Ignore"
 msgstr "Ignorera"
 
@@ -7403,8 +7403,8 @@ msgstr "Ta bort partitionering"
 
 #: resources/templates/table/structure/display_structure.twig:30
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:10
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:632
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:654
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:628
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:650
 msgid "Extra"
 msgstr "Extra"
 
@@ -7513,7 +7513,7 @@ msgid "Effective"
 msgstr "Effektiv"
 
 #: resources/templates/table/structure/display_table_stats.twig:44
-#: src/Controllers/Server/DatabasesController.php:293
+#: src/Controllers/Server/DatabasesController.php:292
 #: src/Controllers/Server/Status/StatusController.php:137
 #: src/Controllers/Server/Status/StatusController.php:187
 msgid "Total"
@@ -11527,7 +11527,7 @@ msgstr "Navigationspanel"
 
 #: src/Config/Descriptions.php:811
 #: src/Controllers/JavaScriptMessagesController.php:606
-#: src/Navigation/NavigationTree.php:1283
+#: src/Navigation/NavigationTree.php:1284
 msgid "Link with main panel"
 msgstr "Länka med huvudpanelen"
 
@@ -12192,21 +12192,21 @@ msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 "Kan inte spara inställningar, sänt konfigurationsformulär innehåller fel!"
 
-#: src/Config.php:611
+#: src/Config.php:612
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Befintlig konfigurationsfil (%s) är inte läsbar."
 
-#: src/Config.php:647
+#: src/Config.php:648
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Fel behörigheter på konfigurationsfilen, bör inte vara \"world\" skrivbar!"
 
-#: src/Config.php:661
+#: src/Config.php:662
 msgid "Failed to read configuration file!"
 msgstr "Kunde inte läsa konfigurationsfilen!"
 
-#: src/Config.php:663
+#: src/Config.php:664
 #, fuzzy
 #| msgid ""
 #| "This usually means there is a syntax error in it, please check any errors "
@@ -12495,7 +12495,7 @@ msgstr "Inga bokmärken"
 msgid "Missing parameter:"
 msgstr "Saknade parametrar:"
 
-#: src/Controllers/ChangeLogController.php:41
+#: src/Controllers/ChangeLogController.php:48
 #: src/Controllers/LicenseController.php:38
 #, php-format
 msgid ""
@@ -12536,8 +12536,8 @@ msgstr ""
 #: src/Controllers/Database/ExportController.php:74
 #: src/Controllers/Database/ImportController.php:66
 #: src/Controllers/Database/ImportController.php:71
-#: src/Controllers/Database/RoutinesController.php:78
-#: src/Controllers/Database/RoutinesController.php:104
+#: src/Controllers/Database/RoutinesController.php:79
+#: src/Controllers/Database/RoutinesController.php:105
 #: src/Controllers/Database/SearchController.php:54
 #: src/Controllers/Database/SearchController.php:59
 #: src/Controllers/Database/SqlController.php:65
@@ -12550,10 +12550,10 @@ msgstr ""
 #: src/Controllers/Database/TrackingController.php:69
 #: src/Controllers/JavaScriptMessagesController.php:354
 #: src/Controllers/Operations/Database/CollationController.php:64
-#: src/Controllers/Operations/DatabaseController.php:233
-#: src/Controllers/Operations/DatabaseController.php:238
-#: src/Controllers/Operations/TableController.php:88
-#: src/Controllers/Operations/TableController.php:93
+#: src/Controllers/Operations/DatabaseController.php:234
+#: src/Controllers/Operations/DatabaseController.php:239
+#: src/Controllers/Operations/TableController.php:89
+#: src/Controllers/Operations/TableController.php:94
 #: src/Controllers/Operations/ViewController.php:64
 #: src/Controllers/Operations/ViewController.php:69
 #: src/Controllers/Server/Databases/DestroyController.php:59
@@ -12576,16 +12576,16 @@ msgstr ""
 #: src/Controllers/Table/GisVisualizationController.php:64
 #: src/Controllers/Table/ImportController.php:69
 #: src/Controllers/Table/ImportController.php:74
-#: src/Controllers/Table/IndexesController.php:66
-#: src/Controllers/Table/IndexesController.php:71
-#: src/Controllers/Table/IndexRenameController.php:59
-#: src/Controllers/Table/IndexRenameController.php:64
+#: src/Controllers/Table/IndexesController.php:68
+#: src/Controllers/Table/IndexesController.php:73
+#: src/Controllers/Table/IndexRenameController.php:58
+#: src/Controllers/Table/IndexRenameController.php:63
 #: src/Controllers/Table/SearchController.php:178
 #: src/Controllers/Table/SearchController.php:183
 #: src/Controllers/Table/SqlController.php:67
 #: src/Controllers/Table/SqlController.php:72
-#: src/Controllers/Table/StructureController.php:101
-#: src/Controllers/Table/StructureController.php:106
+#: src/Controllers/Table/StructureController.php:100
+#: src/Controllers/Table/StructureController.php:105
 #: src/Controllers/Table/Structure/PrimaryController.php:76
 #: src/Controllers/Table/Structure/PrimaryController.php:81
 #: src/Controllers/Table/TrackingController.php:72
@@ -12608,9 +12608,9 @@ msgid "Edit event"
 msgstr "Redigera händelse"
 
 #: src/Controllers/Database/EventsController.php:197
-#: src/Controllers/Database/RoutinesController.php:287
-#: src/Controllers/Database/RoutinesController.php:317
-#: src/Controllers/Database/RoutinesController.php:385
+#: src/Controllers/Database/RoutinesController.php:288
+#: src/Controllers/Database/RoutinesController.php:318
+#: src/Controllers/Database/RoutinesController.php:386
 #: src/Controllers/Triggers/IndexController.php:227
 msgid "Error in processing request:"
 msgstr "Fel i processbegäran:"
@@ -12641,7 +12641,7 @@ msgstr ""
 "Kunde inte läsa in insticksprogram för export. Kontrollera din installation!"
 
 #: src/Controllers/Database/ImportController.php:82
-#: src/Controllers/Import/ImportController.php:545
+#: src/Controllers/Import/ImportController.php:539
 #: src/Controllers/Server/ImportController.php:62
 #: src/Controllers/Table/ImportController.php:102
 msgid "Could not load import plugins, please check your installation!"
@@ -12663,7 +12663,7 @@ msgstr "Inga privilegier"
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Du har inte den nödvändiga behörigheten att skapa en trigger"
 
-#: src/Controllers/Database/RoutinesController.php:85
+#: src/Controllers/Database/RoutinesController.php:86
 #: src/Controllers/Database/Structure/AddPrefixController.php:21
 #: src/Controllers/Database/Structure/CentralColumns/AddController.php:39
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:40
@@ -12675,8 +12675,8 @@ msgstr "Du har inte den nödvändiga behörigheten att skapa en trigger"
 #: src/Controllers/Database/Structure/ShowCreateController.php:30
 #: src/Controllers/Export/TablesController.php:29
 #: src/Controllers/JavaScriptMessagesController.php:355
-#: src/Controllers/Operations/TableController.php:102
-#: src/Controllers/Operations/TableController.php:107
+#: src/Controllers/Operations/TableController.php:103
+#: src/Controllers/Operations/TableController.php:108
 #: src/Controllers/Operations/ViewController.php:78
 #: src/Controllers/Operations/ViewController.php:83
 #: src/Controllers/Table/AddFieldController.php:176
@@ -12694,10 +12694,10 @@ msgstr "Du har inte den nödvändiga behörigheten att skapa en trigger"
 #: src/Controllers/Table/FindReplaceController.php:97
 #: src/Controllers/Table/ImportController.php:83
 #: src/Controllers/Table/ImportController.php:88
-#: src/Controllers/Table/IndexesController.php:80
-#: src/Controllers/Table/IndexesController.php:85
-#: src/Controllers/Table/IndexRenameController.php:73
-#: src/Controllers/Table/IndexRenameController.php:78
+#: src/Controllers/Table/IndexesController.php:82
+#: src/Controllers/Table/IndexesController.php:87
+#: src/Controllers/Table/IndexRenameController.php:72
+#: src/Controllers/Table/IndexRenameController.php:77
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:45
 #: src/Controllers/Table/Maintenance/CheckController.php:45
 #: src/Controllers/Table/Maintenance/ChecksumController.php:45
@@ -12707,8 +12707,8 @@ msgstr "Du har inte den nödvändiga behörigheten att skapa en trigger"
 #: src/Controllers/Table/SearchController.php:197
 #: src/Controllers/Table/SqlController.php:81
 #: src/Controllers/Table/SqlController.php:86
-#: src/Controllers/Table/StructureController.php:115
-#: src/Controllers/Table/StructureController.php:120
+#: src/Controllers/Table/StructureController.php:114
+#: src/Controllers/Table/StructureController.php:119
 #: src/Controllers/Table/Structure/PrimaryController.php:90
 #: src/Controllers/Table/Structure/PrimaryController.php:95
 #: src/Controllers/Table/ZoomSearchController.php:117
@@ -12719,39 +12719,39 @@ msgstr "Du har inte den nödvändiga behörigheten att skapa en trigger"
 msgid "No table selected."
 msgstr "Inga tabeller markerade."
 
-#: src/Controllers/Database/RoutinesController.php:187
+#: src/Controllers/Database/RoutinesController.php:188
 msgid "Add routine"
 msgstr "Lägg till rutin"
 
-#: src/Controllers/Database/RoutinesController.php:191
+#: src/Controllers/Database/RoutinesController.php:192
 msgid "Edit routine"
 msgstr "Redigera rutin"
 
-#: src/Controllers/Database/RoutinesController.php:290
+#: src/Controllers/Database/RoutinesController.php:291
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
 
-#: src/Controllers/Database/RoutinesController.php:319
-#: src/Controllers/Database/RoutinesController.php:387
+#: src/Controllers/Database/RoutinesController.php:320
+#: src/Controllers/Database/RoutinesController.php:388
 #, fuzzy, php-format
 #| msgid "No routine with name %1$s found in database %2$s"
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "Ingen rutin med namnet %1$s finns i databasen %2$s"
 
-#: src/Controllers/Database/RoutinesController.php:368
-#: src/Controllers/Database/RoutinesController.php:378
+#: src/Controllers/Database/RoutinesController.php:369
+#: src/Controllers/Database/RoutinesController.php:379
 msgid "Execute routine"
 msgstr "Utför rutin"
 
-#: src/Controllers/Database/RoutinesController.php:430
+#: src/Controllers/Database/RoutinesController.php:431
 #, php-format
 msgid "Export of routine %s"
 msgstr "Exportera rutin %s"
 
-#: src/Controllers/Database/RoutinesController.php:449
+#: src/Controllers/Database/RoutinesController.php:450
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -12953,7 +12953,7 @@ msgstr ""
 "av detta är vissa funktioner, som felrapportering och versionskontroll, "
 "avstängda."
 
-#: src/Controllers/Import/ImportController.php:202
+#: src/Controllers/Import/ImportController.php:196
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -12962,23 +12962,23 @@ msgstr ""
 "Du försökte ladda upp en fil som är för stor. Se %sdocumentation%s för att "
 "gå runt denna begränsning."
 
-#: src/Controllers/Import/ImportController.php:234
+#: src/Controllers/Import/ImportController.php:228
 #, fuzzy
 #| msgid "Remove last parameter"
 msgid "Incorrect format parameter"
 msgstr "Ta bort senaste parametern"
 
-#: src/Controllers/Import/ImportController.php:354
-#: src/Controllers/Import/ImportController.php:585
+#: src/Controllers/Import/ImportController.php:348
+#: src/Controllers/Import/ImportController.php:579
 msgid "Showing bookmark"
 msgstr "Visar bokmärke"
 
-#: src/Controllers/Import/ImportController.php:374
-#: src/Controllers/Import/ImportController.php:581
+#: src/Controllers/Import/ImportController.php:368
+#: src/Controllers/Import/ImportController.php:575
 msgid "The bookmark has been deleted."
 msgstr "Bokmärket har tagits bort."
 
-#: src/Controllers/Import/ImportController.php:493
+#: src/Controllers/Import/ImportController.php:487
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -12988,14 +12988,14 @@ msgstr ""
 "översteg filens storlek den maximalt tillåtna storleken i din PHP-"
 "konfiguration. Se [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: src/Controllers/Import/ImportController.php:593
+#: src/Controllers/Import/ImportController.php:587
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Importen har slutförts korrekt, %d förfrågan genomförd."
 msgstr[1] "Importen har slutförts korrekt, %d förfrågningar genomförda."
 
-#: src/Controllers/Import/ImportController.php:630
+#: src/Controllers/Import/ImportController.php:624
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -13004,7 +13004,7 @@ msgstr ""
 "Timeout för skript passerade, om du vill avsluta import, vänligen %sresubmit "
 "samma fil%s och import kommer att återupptas."
 
-#: src/Controllers/Import/ImportController.php:640
+#: src/Controllers/Import/ImportController.php:634
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -13013,7 +13013,7 @@ msgstr ""
 "att phpMyAdmin inte kan slutföra denna import såvida du inte ökar PHP:s "
 "tidsbegränsningar."
 
-#: src/Controllers/Import/ImportController.php:708
+#: src/Controllers/Import/ImportController.php:700
 #: src/Controllers/Sql/SqlController.php:165
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\"-satser är inaktiverade."
@@ -13256,12 +13256,12 @@ msgid "The user name is empty!"
 msgstr "Användarnamnet saknas!"
 
 #: src/Controllers/JavaScriptMessagesController.php:143
-#: src/Server/Privileges.php:763 src/UserPassword.php:39
+#: src/Server/Privileges.php:764 src/UserPassword.php:39
 msgid "The password is empty!"
 msgstr "Lösenordet saknas!"
 
 #: src/Controllers/JavaScriptMessagesController.php:144
-#: src/Server/Privileges.php:761 src/UserPassword.php:43
+#: src/Server/Privileges.php:762 src/UserPassword.php:43
 msgid "The passwords aren't the same!"
 msgstr "Lösenorden överensstämmer inte!"
 
@@ -14347,7 +14347,7 @@ msgid "Hide panel"
 msgstr "Dölj Panel"
 
 #: src/Controllers/JavaScriptMessagesController.php:607
-#: src/Navigation/NavigationTree.php:1286
+#: src/Navigation/NavigationTree.php:1287
 msgid "Unlink from main panel"
 msgstr "Avlänka från huvudpanelen"
 
@@ -14417,7 +14417,7 @@ msgid "Please look at the bottom of this window."
 msgstr "Titta längst ned i fönstret."
 
 #: src/Controllers/JavaScriptMessagesController.php:640
-#: src/ErrorHandler.php:411
+#: src/Error/ErrorHandler.php:415
 msgid "Ignore All"
 msgstr "Ignorera alla"
 
@@ -15098,25 +15098,25 @@ msgid "String"
 msgstr "Sträng"
 
 #: src/Controllers/Operations/Database/CollationController.php:46
-#: src/Controllers/Operations/TableController.php:279
+#: src/Controllers/Operations/TableController.php:280
 msgid "No collation provided."
 msgstr ""
 
-#: src/Controllers/Operations/DatabaseController.php:84
+#: src/Controllers/Operations/DatabaseController.php:85
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr "Kan inte kopiera databasen till samma namn. Byt namn och försök igen."
 
-#: src/Controllers/Operations/DatabaseController.php:163
+#: src/Controllers/Operations/DatabaseController.php:164
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "Databasen %1$s har bytt namn till %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:173
+#: src/Controllers/Operations/DatabaseController.php:174
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Databasen %1$s har kopierats till %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:276
+#: src/Controllers/Operations/DatabaseController.php:277
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -15972,9 +15972,10 @@ msgid "Bookmark not created!"
 msgstr "Bokmärke ej skapat!"
 
 #: src/Controllers/Table/AddFieldController.php:133
+#: src/Controllers/Table/IndexesController.php:141
+#: src/Controllers/Table/IndexRenameController.php:130
 #: src/Controllers/Table/Structure/PartitioningController.php:265
-#: src/Controllers/Table/Structure/SaveController.php:212
-#: src/Table/Indexes.php:91
+#: src/Controllers/Table/Structure/SaveController.php:213
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Tabellen %1$s har ändrats."
@@ -16046,7 +16047,7 @@ msgid "There is an issue with your request."
 msgstr "Det finns för många JOINS som saknar index."
 
 #: src/Controllers/Table/GetFieldController.php:83
-#: src/Database/Routines.php:997 src/Import/Import.php:162
+#: src/Database/Routines.php:998 src/Import/Import.php:162
 #: src/InsertEdit.php:201 src/Sql.php:854
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL returnerade ett tomt resultat (dvs inga rader)."
@@ -16103,7 +16104,7 @@ msgid "The columns have been moved successfully."
 msgstr "Kolumnerna har flyttats framgångsrikt."
 
 #: src/Controllers/Table/Structure/PartitioningController.php:257
-#: src/Controllers/Table/Structure/SaveController.php:262
+#: src/Controllers/Table/Structure/SaveController.php:263
 #: src/Tracking/Tracking.php:779
 msgid "Query error"
 msgstr "Sökningsfel"
@@ -16115,7 +16116,7 @@ msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] "Kolumnnamnet '%s' är ett reserverat nyckelord i MySQL."
 msgstr[1] "Kolumnnamnen '%s' är reserverade nyckelord i MySQL."
 
-#: src/Controllers/Table/Structure/SaveController.php:207
+#: src/Controllers/Table/Structure/SaveController.php:208
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
@@ -16168,7 +16169,7 @@ msgstr "Du har inte tillräcklig behörighet för att vara här nu!"
 msgid "View name can not be empty!"
 msgstr ""
 
-#: src/Core.php:106 src/ZipExtension.php:57
+#: src/Core.php:107 src/ZipExtension.php:57
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Tillägget %s saknas. Vänligen kontrollera din PHP-konfiguration."
@@ -16273,9 +16274,9 @@ msgid "Could not load schema plugins, please check your installation!"
 msgstr "Kunde inte läsa in insticksprogram, kontrollera din installation!"
 
 #: src/Database/Events.php:90 src/Database/Events.php:99
-#: src/Database/Events.php:125 src/Database/Routines.php:100
-#: src/Database/Routines.php:125 src/Database/Routines.php:203
-#: src/Database/Routines.php:957 src/Triggers/Triggers.php:83
+#: src/Database/Events.php:125 src/Database/Routines.php:101
+#: src/Database/Routines.php:126 src/Database/Routines.php:204
+#: src/Database/Routines.php:958 src/Triggers/Triggers.php:83
 #: src/Triggers/Triggers.php:92 src/Triggers/Triggers.php:119
 #, php-format
 msgid "The following query has failed: \"%s\""
@@ -16283,9 +16284,9 @@ msgstr "Följande fråga har fallerat: \"%s\""
 
 #: src/Database/Events.php:94 src/Database/Events.php:103
 #: src/Database/Events.php:129 src/Database/Events.php:354
-#: src/Database/Routines.php:104 src/Database/Routines.php:129
-#: src/Database/Routines.php:207 src/Database/Routines.php:961
-#: src/Database/Routines.php:1209 src/Html/Generator.php:829
+#: src/Database/Routines.php:105 src/Database/Routines.php:130
+#: src/Database/Routines.php:208 src/Database/Routines.php:962
+#: src/Database/Routines.php:1210 src/Html/Generator.php:829
 #: src/Triggers/Triggers.php:87 src/Triggers/Triggers.php:96
 #: src/Triggers/Triggers.php:123 src/Triggers/Triggers.php:243
 msgid "MySQL said: "
@@ -16301,12 +16302,12 @@ msgstr "Händelsen %1$s har ändrats."
 msgid "Event %1$s has been created."
 msgstr "Händelsen %1$s har skapats."
 
-#: src/Database/Events.php:146 src/Database/Routines.php:145
+#: src/Database/Events.php:146 src/Database/Routines.php:146
 #: src/Triggers/Triggers.php:140
 msgid "One or more errors have occurred while processing your request:"
 msgstr "Ett eller flera fel har inträffat under hanteringen av din begäran:"
 
-#: src/Database/Events.php:261 src/Database/Routines.php:759
+#: src/Database/Events.php:261 src/Database/Routines.php:760
 #: src/Triggers/Triggers.php:184
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "Definieraren måste vara i formatet: \"användarnamn@hostname\"!"
@@ -16335,12 +16336,12 @@ msgstr "Du måste ange en händelsedefinition."
 msgid "Sorry, we failed to restore the dropped event."
 msgstr "Tyvärr kunde vi inte återställa tappade händelsen."
 
-#: src/Database/Events.php:352 src/Database/Routines.php:1207
+#: src/Database/Events.php:352 src/Database/Routines.php:1208
 #: src/Triggers/Triggers.php:241
 msgid "The backed up query was:"
 msgstr "Den säkerhetskopierade frågan var:"
 
-#: src/DatabaseInterface.php:1160
+#: src/DatabaseInterface.php:1161
 #, fuzzy, php-format
 #| msgid ""
 #| "Unable to use timezone %1$s for server %2$d. Please check your "
@@ -16357,45 +16358,45 @@ msgstr ""
 "['SessionTimeZone'][/em]. phpMyAdmin för närvarande används "
 "standardtidszonen på databasservern."
 
-#: src/DatabaseInterface.php:1202
+#: src/DatabaseInterface.php:1203
 msgid "Failed to set configured collation connection!"
 msgstr "Kunde inte applicera den konfigurerade sorteringsanslutningen!"
 
-#: src/DatabaseInterface.php:1663
+#: src/DatabaseInterface.php:1664
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Uppkoppling för kontrollanvändare enligt din konfiguration misslyckades."
 
-#: src/Database/Routines.php:81 src/Database/Routines.php:767
+#: src/Database/Routines.php:82 src/Database/Routines.php:768
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Ogiltig rutintyp: \"%s\""
 
-#: src/Database/Routines.php:132
+#: src/Database/Routines.php:133
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "Rutinen %1$s har skapats."
 
-#: src/Database/Routines.php:260
+#: src/Database/Routines.php:261
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "Rutin %1$s har ändrats. Privilegier har justerats."
 
-#: src/Database/Routines.php:265
+#: src/Database/Routines.php:266
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "Rutinen %1$s har modifierats."
 
-#: src/Database/Routines.php:600
+#: src/Database/Routines.php:601
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "Du måste ange ett namn och en typ för varje rutinparameter."
 
-#: src/Database/Routines.php:618
+#: src/Database/Routines.php:619
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "Ogiltig riktning \"%s\" angiven för parameter."
 
-#: src/Database/Routines.php:638 src/Database/Routines.php:705
+#: src/Database/Routines.php:639 src/Database/Routines.php:706
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -16403,31 +16404,31 @@ msgstr ""
 "Du måste ange längd/värden för rutinparametrar av typen ENUM, SET, VARCHAR "
 "och VARBINARY."
 
-#: src/Database/Routines.php:687
+#: src/Database/Routines.php:688
 msgid "You must provide a valid return type for the routine."
 msgstr "Du måste ange en giltig returtyp för händelsen."
 
-#: src/Database/Routines.php:775
+#: src/Database/Routines.php:776
 msgid "You must provide a routine name!"
 msgstr "Du måste ange ett rutinnamn!"
 
-#: src/Database/Routines.php:839
+#: src/Database/Routines.php:840
 msgid "You must provide a routine definition."
 msgstr "Du måste ange en rutindefinition."
 
-#: src/Database/Routines.php:973
+#: src/Database/Routines.php:974
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Exekveringsresultat av rutin %s"
 
-#: src/Database/Routines.php:988
+#: src/Database/Routines.php:989
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "%d rad berörs av det sista uttrycket inom proceduren."
 msgstr[1] "%d rader berörs av det sista uttrycket inom proceduren."
 
-#: src/Database/Routines.php:1206
+#: src/Database/Routines.php:1207
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Tyvärr, vi lyckades inte återställa den slängda rutinen."
 
@@ -16808,11 +16809,11 @@ msgstr ""
 "Dokumentation och ytterligare information finns på %sPrimeBase XT Home "
 "Page%s."
 
-#: src/ErrorHandler.php:101
+#: src/Error/ErrorHandler.php:105
 msgid "Too many error messages, some are not displayed."
 msgstr "För många felmeddelanden, en del kommer inte visas."
 
-#: src/ErrorHandler.php:395
+#: src/Error/ErrorHandler.php:399
 msgid "Report"
 msgstr "Rapport"
 
@@ -17239,7 +17240,7 @@ msgstr "Procedurer:"
 msgid "Views:"
 msgstr "Vyer:"
 
-#: src/Navigation/NavigationTree.php:736
+#: src/Navigation/NavigationTree.php:737
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
@@ -17247,20 +17248,20 @@ msgstr ""
 "Det finns stora artikelgrupper i navigeringspanelen som kan påverka "
 "prestanda. Överväga att inaktivera objektgruppering i navigeringspanelen."
 
-#: src/Navigation/NavigationTree.php:796
+#: src/Navigation/NavigationTree.php:797
 #, fuzzy
 #| msgid "Groups:"
 msgid "Groups"
 msgstr "Grupper:"
 
-#: src/Navigation/NavigationTree.php:904
+#: src/Navigation/NavigationTree.php:905
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] "%s resultat hittat"
 msgstr[1] "%s resultat hittade"
 
-#: src/Navigation/NavigationTree.php:1278
+#: src/Navigation/NavigationTree.php:1279
 msgid "Collapse all"
 msgstr "Dölj alla"
 
@@ -17269,7 +17270,7 @@ msgctxt "Create new column"
 msgid "New"
 msgstr "Ny"
 
-#: src/Navigation/Nodes/NodeDatabaseContainer.php:38
+#: src/Navigation/Nodes/NodeDatabaseContainer.php:39
 msgctxt "Create new database"
 msgid "New"
 msgstr "Ny"
@@ -17299,7 +17300,7 @@ msgctxt "Create new index"
 msgid "New"
 msgstr "Ny"
 
-#: src/Navigation/Nodes/Node.php:614
+#: src/Navigation/Nodes/Node.php:615
 msgid "Expand/Collapse"
 msgstr "Expandera/Vik ihop"
 
@@ -18164,17 +18165,17 @@ msgid "Error reading data for table %s:"
 msgstr "Fel vid läsning av data:"
 
 #: src/Plugins/Export/ExportSql.php:2658
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:591
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:587
 msgid "Creation:"
 msgstr "Skapat:"
 
 #: src/Plugins/Export/ExportSql.php:2668
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:598
 msgid "Last update:"
 msgstr "Senaste uppdatering:"
 
 #: src/Plugins/Export/ExportSql.php:2678
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:613
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:609
 msgid "Last check:"
 msgstr "Senaste kontroll:"
 
@@ -18835,8 +18836,8 @@ msgstr "Fel 404! Sidan %s hittades inte."
 msgid "Error 405! Request method not allowed."
 msgstr "Fel 405! Förfrågningsmetoden ej tillåten."
 
-#: src/Server/Plugins.php:53 src/Server/Privileges.php:630
-#: src/Server/Privileges.php:3274
+#: src/Server/Plugins.php:53 src/Server/Privileges.php:631
+#: src/Server/Privileges.php:3275
 msgid "Native MySQL authentication"
 msgstr "MySQL-autentisering"
 
@@ -18867,65 +18868,65 @@ msgstr "MySQL-autentisering"
 msgid "Account locking is not supported."
 msgstr ""
 
-#: src/Server/Privileges.php:263
+#: src/Server/Privileges.php:264
 msgid "No privileges."
 msgstr "Inga privilegier."
 
-#: src/Server/Privileges.php:269
+#: src/Server/Privileges.php:270
 msgid "Includes all privileges except GRANT."
 msgstr "Inkluderar alla privilegier förutom GRANT."
 
-#: src/Server/Privileges.php:890
+#: src/Server/Privileges.php:891
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Lösenordet för %s har ändrats."
 
-#: src/Server/Privileges.php:938
+#: src/Server/Privileges.php:939
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Du har upphävt privilegierna för %s."
 
-#: src/Server/Privileges.php:1286
+#: src/Server/Privileges.php:1287
 msgid "Revoke"
 msgstr "Upphäv"
 
-#: src/Server/Privileges.php:1891
+#: src/Server/Privileges.php:1892
 msgid "No users selected for deleting!"
 msgstr "Inga användare valda för borttagning!"
 
-#: src/Server/Privileges.php:1894
+#: src/Server/Privileges.php:1895
 msgid "Reloading the privileges"
 msgstr "Laddar om privilegierna"
 
-#: src/Server/Privileges.php:1919
+#: src/Server/Privileges.php:1920
 msgid "The selected users have been deleted successfully."
 msgstr "De valda användarna har tagits bort."
 
-#: src/Server/Privileges.php:1993
+#: src/Server/Privileges.php:1994
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Du har uppdaterat privilegierna för %s."
 
-#: src/Server/Privileges.php:2150
+#: src/Server/Privileges.php:2151
 #, php-format
 msgid "Deleting %s"
 msgstr "Tar bort %s"
 
-#: src/Server/Privileges.php:2181
+#: src/Server/Privileges.php:2182
 msgid "The privileges were reloaded successfully."
 msgstr "Privilegierna har laddats om."
 
-#: src/Server/Privileges.php:2282
+#: src/Server/Privileges.php:2283
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Användaren %s finns redan!"
 
-#: src/Server/Privileges.php:2526
+#: src/Server/Privileges.php:2527
 #, php-format
 msgid "Privileges for %s"
 msgstr "Privilegier för %s"
 
-#: src/Server/Privileges.php:2614
+#: src/Server/Privileges.php:2615
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -18943,7 +18944,7 @@ msgstr ""
 "behörigheter servern använder, om manuella ändringar har gjorts. Är så "
 "fallet bör du %sladda om behörigheterna%s innan du fortsätter."
 
-#: src/Server/Privileges.php:2630
+#: src/Server/Privileges.php:2631
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -18964,11 +18965,11 @@ msgstr ""
 "fallet bör du ladda om behörigheterna innan du fortsätter, du har dock inte "
 "privilegierna för detta."
 
-#: src/Server/Privileges.php:2918
+#: src/Server/Privileges.php:2919
 msgid "You have added a new user."
 msgstr "Du har lagt till en ny användare."
 
-#: src/Server/Privileges.php:3367
+#: src/Server/Privileges.php:3368
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -19080,7 +19081,7 @@ msgstr "Använd bokmärket \"%s\" som standard webbläsarfråga."
 msgid "Showing as PHP code"
 msgstr "Visar som PHP-kod"
 
-#: src/Sql.php:1214
+#: src/Sql.php:1213
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -19090,7 +19091,7 @@ msgstr ""
 "rutnätsredigera, kryssruta, redigera, kopiera och radera är inte "
 "tillgängliga. %s"
 
-#: src/Sql.php:1228
+#: src/Sql.php:1227
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -19138,47 +19139,51 @@ msgstr "%s har inaktiverats på denna MySQL-server."
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Denna MySQL-server stödjer inte lagringsmotorn %s."
 
-#: src/Table/Indexes.php:55 src/Table/Table.php:1953
+#: src/Table/Indexes.php:70 src/Table/Indexes.php:160
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Primärnyckelns namn måste vara \"PRIMARY\"!"
+
+#: src/Table/Indexes.php:82 src/Table/Indexes.php:167
+msgid "Can't rename index to PRIMARY!"
+msgstr "Kan inte byta namn på index till \"PRIMARY\"!"
+
+#: src/Table/Indexes.php:108
+msgid "No index parts defined!"
+msgstr "Inga delar av index är definierade!"
 
 #: src/Table/Maintenance.php:116
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problem med index för tabell `%s`"
 
-#: src/Table/Table.php:320
-msgid "Unknown table status:"
-msgstr "Okänd tabellstatus:"
-
-#: src/Table/Table.php:936
+#: src/Table/Table.php:896
 #, php-format
 msgid "Source database `%s` was not found!"
 msgstr "Källdatabas `%s` hittades inte!"
 
-#: src/Table/Table.php:945
+#: src/Table/Table.php:905
 #, php-format
 msgid "Target database `%s` was not found!"
 msgstr "Måldatabas `%s` hittades inte!"
 
-#: src/Table/Table.php:1359
+#: src/Table/Table.php:1319
 msgid "Invalid database:"
 msgstr "Ogiltig databas:"
 
-#: src/Table/Table.php:1377
+#: src/Table/Table.php:1337
 msgid "Invalid table name:"
 msgstr "Ogiltigt tabellnamn:"
 
-#: src/Table/Table.php:1423
+#: src/Table/Table.php:1383
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabell %1$s har döpts om till %2$s."
 
-#: src/Table/Table.php:1660
+#: src/Table/Table.php:1620
 msgid "Could not save table UI preferences!"
 msgstr "Kunde inte spara gränssnittsinställningarna för tabellen!"
 
-#: src/Table/Table.php:1682
+#: src/Table/Table.php:1642
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -19187,7 +19192,7 @@ msgstr ""
 "Misslyckades med att rensa gränssnittsinställningar för tabell (se "
 "$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
-#: src/Table/Table.php:1810
+#: src/Table/Table.php:1770
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -19198,15 +19203,7 @@ msgstr ""
 "beständiga efter att du uppdaterar denna sida. Kontrollera om tabellens "
 "struktur har förändrats."
 
-#: src/Table/Table.php:1965
-msgid "Can't rename index to PRIMARY!"
-msgstr "Kan inte byta namn på index till \"PRIMARY\"!"
-
-#: src/Table/Table.php:1991
-msgid "No index parts defined!"
-msgstr "Inga delar av index är definierade!"
-
-#: src/Table/Table.php:2278
+#: src/Table/Table.php:2124
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Fel vid skapande av främmande nyckel för %1$s (kontrollera datatyper)"
@@ -19724,6 +19721,9 @@ msgstr "Fel i ZIP-arkiv:"
 #: src/ZipExtension.php:75
 msgid "No files found inside ZIP archive!"
 msgstr "Inga filer hittades i ZIP-arkivet!"
+
+#~ msgid "Unknown table status:"
+#~ msgstr "Okänd tabellstatus:"
 
 #~ msgid "This operation could take a long time. Proceed anyway?"
 #~ msgstr "Denna operation kan ta lång tid. Fortsätt ändå?"

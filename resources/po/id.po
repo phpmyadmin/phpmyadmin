@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-12-31 00:20+0000\n"
+"POT-Creation-Date: 2024-01-07 00:19+0000\n"
 "PO-Revision-Date: 2022-12-30 07:50+0000\n"
 "Last-Translator: Iwan Haryatno <iwnharry61@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -50,7 +50,7 @@ msgstr "Hak Akses Anda untuk melanjut tidak cukup!"
 #: resources/templates/table/structure/display_structure.twig:145
 #: resources/templates/table/structure/display_structure.twig:295
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:25
-#: src/Controllers/Table/StructureController.php:229
+#: src/Controllers/Table/StructureController.php:228
 msgid "Primary"
 msgstr "Utama"
 
@@ -72,7 +72,7 @@ msgstr "Unik"
 #: resources/templates/table/structure/display_structure.twig:301
 #: resources/templates/table/structure/display_table_stats.twig:23
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:27
-#: src/Controllers/Table/StructureController.php:233
+#: src/Controllers/Table/StructureController.php:232
 #: src/Navigation/Nodes/NodeIndex.php:26
 msgid "Index"
 msgstr "Indeks"
@@ -203,7 +203,7 @@ msgstr "Kirim"
 #: resources/templates/columns_definitions/column_definitions_form.twig:68
 #: resources/templates/database/data_dictionary/index.twig:16
 #: resources/templates/table/structure/display_table_stats.twig:5
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:580
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:576
 msgid "Table comments:"
 msgstr "Komentar tabel:"
 
@@ -381,8 +381,8 @@ msgstr "Pilih Foreign Key"
 #: src/Plugins/Export/ExportTexytext.php:285
 #: src/Plugins/Export/ExportTexytext.php:366
 #: src/Plugins/Export/Helpers/Pdf.php:489
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:627
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:649
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:623
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:645
 msgid "Column"
 msgstr "Kolom"
 
@@ -546,8 +546,8 @@ msgstr "Nama"
 #: src/Plugins/Export/ExportTexytext.php:286
 #: src/Plugins/Export/ExportTexytext.php:367
 #: src/Plugins/Export/Helpers/Pdf.php:491
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:628
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:650
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:624
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:646
 msgid "Type"
 msgstr "Jenis"
 
@@ -586,8 +586,8 @@ msgstr ""
 #: src/Plugins/Export/ExportTexytext.php:288
 #: src/Plugins/Export/ExportTexytext.php:369
 #: src/Plugins/Export/Helpers/Pdf.php:495
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:631
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:653
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:627
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:649
 msgid "Default"
 msgstr "Bawaan"
 
@@ -624,8 +624,8 @@ msgstr "Penyortiran"
 #: resources/templates/columns_definitions/table_fields_definitions.twig:25
 #: resources/templates/database/central_columns/edit.twig:12
 #: resources/templates/table/structure/display_structure.twig:23
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:629
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:651
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:625
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:647
 msgid "Attributes"
 msgstr "Atribut"
 
@@ -649,8 +649,8 @@ msgstr "Atribut"
 #: src/Plugins/Export/ExportTexytext.php:287
 #: src/Plugins/Export/ExportTexytext.php:368
 #: src/Plugins/Export/Helpers/Pdf.php:493
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:630
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:652
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:626
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:648
 msgid "Null"
 msgstr "Tak Ternilai"
 
@@ -674,8 +674,8 @@ msgstr "Edit Hak Akses"
 #: src/Plugins/Export/ExportLatex.php:514 src/Plugins/Export/ExportOdt.php:473
 #: src/Plugins/Export/ExportTexytext.php:375
 #: src/Plugins/Export/Helpers/Pdf.php:512
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:643
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:656
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:639
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:652
 msgid "Comments"
 msgstr "Komentar"
 
@@ -833,7 +833,7 @@ msgstr "Tidak aktif"
 #: src/Plugins/Export/ExportHtmlword.php:601
 #: src/Plugins/Export/ExportLatex.php:573 src/Plugins/Export/ExportOdt.php:716
 #: src/Plugins/Export/ExportTexytext.php:555
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:695
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:691
 msgid "Yes"
 msgstr "Ya"
 
@@ -869,7 +869,7 @@ msgstr "Ya"
 #: src/Plugins/Export/ExportHtmlword.php:601
 #: src/Plugins/Export/ExportLatex.php:573 src/Plugins/Export/ExportOdt.php:716
 #: src/Plugins/Export/ExportTexytext.php:555
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:695
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:691
 msgid "No"
 msgstr "Tidak"
 
@@ -973,8 +973,8 @@ msgstr "Hapus"
 #: resources/templates/table/relation/foreign_key_row.twig:91
 #: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:138
 #: src/Plugins/Export/ExportOdt.php:182
-#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1573
-#: src/Server/Privileges.php:1575 src/Server/Status/Processes.php:93
+#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1574
+#: src/Server/Privileges.php:1576 src/Server/Status/Processes.php:93
 msgid "Database"
 msgstr "Basis data"
 
@@ -1368,8 +1368,8 @@ msgstr "Cetak"
 #: src/Plugins/Export/ExportLatex.php:510 src/Plugins/Export/ExportOdt.php:467
 #: src/Plugins/Export/ExportTexytext.php:371
 #: src/Plugins/Export/Helpers/Pdf.php:504
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:633
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:655
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:629
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:651
 msgid "Links to"
 msgstr "Tautan ke"
 
@@ -1377,7 +1377,7 @@ msgstr "Tautan ke"
 #: resources/templates/indexes.twig:1
 #: resources/templates/table/structure/display_structure.twig:459
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:1
-#: src/Controllers/Server/DatabasesController.php:292
+#: src/Controllers/Server/DatabasesController.php:291
 #: src/Navigation/Nodes/NodeIndexContainer.php:25
 #: src/Navigation/Nodes/NodeIndexContainer.php:27
 msgid "Indexes"
@@ -1843,7 +1843,7 @@ msgstr "Pilih Semua"
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:384 src/Menu.php:247
-#: src/Menu.php:349 src/Menu.php:471 src/Server/Privileges.php:1290
+#: src/Menu.php:349 src/Menu.php:471 src/Server/Privileges.php:1291
 #: src/Util.php:1471 src/Util.php:1486 src/Util.php:1503
 msgid "Export"
 msgstr "Ekspor"
@@ -1929,7 +1929,7 @@ msgstr "Tabel:"
 #: resources/templates/database/export/index.twig:16
 #: resources/templates/database/structure/show_create.twig:5
 #: src/Config/Descriptions.php:743
-#: src/Controllers/Server/DatabasesController.php:289
+#: src/Controllers/Server/DatabasesController.php:288
 #: src/Navigation/Nodes/NodeTableContainer.php:23
 #: src/Navigation/Nodes/NodeTableContainer.php:25
 #: src/Plugins/Export/ExportXml.php:115 src/Server/Status/Data.php:151
@@ -1943,7 +1943,7 @@ msgstr "Tabel"
 #: src/Config/Forms/User/ExportForm.php:106
 #: src/Config/Forms/User/ExportForm.php:131
 #: src/Config/Forms/User/ExportForm.php:137
-#: src/Controllers/Server/DatabasesController.php:291
+#: src/Controllers/Server/DatabasesController.php:290
 msgid "Data"
 msgstr "Data"
 
@@ -2270,14 +2270,14 @@ msgstr "routine"
 #: resources/templates/server/privileges/new_user_ajax.twig:45
 #: resources/templates/server/privileges/users_overview.twig:75
 #: resources/templates/table/privileges/index.twig:84
-#: src/Server/Privileges.php:1282
+#: src/Server/Privileges.php:1283
 #, fuzzy
 msgid "Edit privileges"
 msgstr "Edit Hak Akses"
 
 #: resources/templates/database/privileges/index.twig:100
 #: resources/templates/table/privileges/index.twig:104
-#: src/Server/Privileges.php:2069
+#: src/Server/Privileges.php:2070
 msgid "No user found."
 msgstr "Pengguna tidak ditemukan."
 
@@ -2298,7 +2298,7 @@ msgstr "Dengan pilihan:"
 
 #: resources/templates/database/privileges/index.twig:122
 #: resources/templates/table/privileges/index.twig:126
-#: src/Server/Privileges.php:1226
+#: src/Server/Privileges.php:1227
 #, fuzzy
 msgid "Not enough privilege to view users."
 msgstr "Hak akses tidak cukup untuk melihat pengguna."
@@ -2736,8 +2736,8 @@ msgstr "Tampilkan kueri SQL"
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:29
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
-#: src/Plugins/Export/ExportXml.php:441 src/Server/Privileges.php:1579
-#: src/Server/Privileges.php:1581
+#: src/Plugins/Export/ExportXml.php:441 src/Server/Privileges.php:1580
+#: src/Server/Privileges.php:1582
 msgid "Table"
 msgstr "Tabel"
 
@@ -2751,9 +2751,9 @@ msgstr "View"
 #: resources/templates/database/structure/show_create.twig:30
 #: resources/templates/database/structure/structure_table_row.twig:122
 #: resources/templates/database/structure/structure_table_row.twig:184
-#: src/Controllers/Operations/TableController.php:124
-#: src/Controllers/Operations/TableController.php:333
-#: src/Controllers/Table/StructureController.php:165
+#: src/Controllers/Operations/TableController.php:125
+#: src/Controllers/Operations/TableController.php:334
+#: src/Controllers/Table/StructureController.php:164
 #: src/Navigation/Nodes/NodeView.php:26
 msgid "View"
 msgstr "Gambarkan"
@@ -2793,7 +2793,7 @@ msgstr "sedang digunakan"
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:230
 #: resources/templates/table/structure/display_table_stats.twig:118
-#: src/Controllers/Server/DatabasesController.php:290 src/Import/Import.php:157
+#: src/Controllers/Server/DatabasesController.php:289 src/Import/Import.php:157
 msgid "Rows"
 msgstr "Baris"
 
@@ -2811,7 +2811,7 @@ msgstr "Ukuran"
 
 #: resources/templates/database/structure/table_header.twig:38
 #: resources/templates/table/structure/display_table_stats.twig:31
-#: src/Controllers/Server/DatabasesController.php:294
+#: src/Controllers/Server/DatabasesController.php:293
 msgid "Overhead"
 msgstr "Beban"
 
@@ -3102,7 +3102,7 @@ msgstr ""
 msgid "You may examine the data in the error report:"
 msgstr "Anda dapat memeriksa data dalam laporan galat:"
 
-#: resources/templates/error/report_form.twig:19 src/ErrorHandler.php:400
+#: resources/templates/error/report_form.twig:19 src/Error/ErrorHandler.php:404
 msgid "Automatically send report next time"
 msgstr "Selanjutnya kirim laporan otomatis"
 
@@ -4286,9 +4286,9 @@ msgstr "Anda mengaktifkan otentikasi dua langkah."
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:44
 #: src/Controllers/Database/Structure/EmptyTableController.php:51
-#: src/Controllers/Operations/TableController.php:349
+#: src/Controllers/Operations/TableController.php:350
 #: src/Controllers/Table/DropColumnController.php:63
-#: src/Controllers/Table/ReplaceController.php:296 src/Core.php:500
+#: src/Controllers/Table/ReplaceController.php:296 src/Core.php:501
 msgid "No change"
 msgstr "Tidak ada perubahan"
 
@@ -4811,7 +4811,7 @@ msgstr "Akun pengguna"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:25
 #: resources/templates/server/privileges/edit_routine_privileges.twig:43
 #: resources/templates/server/privileges/edit_routine_privileges.twig:58
-#: src/Server/Privileges.php:1585 src/Server/Privileges.php:1587
+#: src/Server/Privileges.php:1586 src/Server/Privileges.php:1588
 msgid "Routine"
 msgstr "Rutinitas"
 
@@ -4825,7 +4825,7 @@ msgstr ""
 "Catatan: Anda mencoba untuk mengedit hak-hak user yang Anda sedang login."
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
-#: src/Server/Privileges.php:1586
+#: src/Server/Privileges.php:1587
 #, fuzzy
 msgid "Routine-specific privileges"
 msgstr "Hak akses khusus kolom"
@@ -4985,7 +4985,7 @@ msgstr "Edit pengguna grup"
 #: resources/templates/server/privileges/privileges_summary.twig:19
 #: resources/templates/server/privileges/privileges_table.twig:6
 #: resources/templates/server/privileges/privileges_table.twig:267
-#: src/Server/Privileges.php:1580
+#: src/Server/Privileges.php:1581
 msgid "Table-specific privileges"
 msgstr "Hak akses khusus tabel"
 
@@ -5017,7 +5017,7 @@ msgstr "Tambahkan hak akses pada tabel berikut"
 #: resources/templates/server/privileges/privileges_table.twig:11
 #: resources/templates/server/privileges/privileges_table.twig:286
 #: resources/templates/server/privileges/privileges_table.twig:287
-#: src/Server/Privileges.php:306
+#: src/Server/Privileges.php:307
 msgid "Allows reading data."
 msgstr "Mengizinkan untuk baca data."
 
@@ -5044,20 +5044,20 @@ msgstr "Tidak ada"
 #: resources/templates/server/privileges/privileges_table.twig:38
 #: resources/templates/server/privileges/privileges_table.twig:299
 #: resources/templates/server/privileges/privileges_table.twig:300
-#: src/Server/Privileges.php:307
+#: src/Server/Privileges.php:308
 msgid "Allows inserting and replacing data."
 msgstr "Mengizinkan untuk tambah dan ganti data."
 
 #: resources/templates/server/privileges/privileges_table.twig:65
 #: resources/templates/server/privileges/privileges_table.twig:312
 #: resources/templates/server/privileges/privileges_table.twig:313
-#: src/Server/Privileges.php:308
+#: src/Server/Privileges.php:309
 msgid "Allows changing data."
 msgstr "Mengizinkan untuk ubah data."
 
 #: resources/templates/server/privileges/privileges_table.twig:92
 #: resources/templates/server/privileges/privileges_table.twig:676
-#: src/Server/Privileges.php:316
+#: src/Server/Privileges.php:317
 msgid "Has no effect in this MySQL version."
 msgstr "Tidak ada efek dalam versi MySQL yang digunakan."
 
@@ -5065,7 +5065,7 @@ msgstr "Tidak ada efek dalam versi MySQL yang digunakan."
 #: resources/templates/server/privileges/privileges_table.twig:125
 #: resources/templates/server/privileges/privileges_table.twig:325
 #: resources/templates/server/privileges/privileges_table.twig:326
-#: src/Server/Privileges.php:286 src/Server/Privileges.php:309
+#: src/Server/Privileges.php:287 src/Server/Privileges.php:310
 msgid "Allows deleting data."
 msgstr "Mengizinkan untuk menghapus data."
 
@@ -5073,7 +5073,7 @@ msgstr "Mengizinkan untuk menghapus data."
 #: resources/templates/server/privileges/privileges_table.twig:137
 #: resources/templates/server/privileges/privileges_table.twig:364
 #: resources/templates/server/privileges/privileges_table.twig:372
-#: src/Server/Privileges.php:287
+#: src/Server/Privileges.php:288
 msgid "Allows creating new tables."
 msgstr "Mengizinkan untuk membuat tabel baru."
 
@@ -5081,7 +5081,7 @@ msgstr "Mengizinkan untuk membuat tabel baru."
 #: resources/templates/server/privileges/privileges_table.twig:149
 #: resources/templates/server/privileges/privileges_table.twig:412
 #: resources/templates/server/privileges/privileges_table.twig:420
-#: src/Server/Privileges.php:288
+#: src/Server/Privileges.php:289
 msgid "Allows dropping tables."
 msgstr "Mengizinkan untuk hapus tabel."
 
@@ -5101,7 +5101,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:174
 #: resources/templates/server/privileges/privileges_table.twig:398
 #: resources/templates/server/privileges/privileges_table.twig:399
-#: src/Server/Privileges.php:289 src/Server/Privileges.php:317
+#: src/Server/Privileges.php:290 src/Server/Privileges.php:318
 msgid "Allows creating and dropping indexes."
 msgstr "Mengizinkan untuk menciptakan dan hapus Indeks."
 
@@ -5109,7 +5109,7 @@ msgstr "Mengizinkan untuk menciptakan dan hapus Indeks."
 #: resources/templates/server/privileges/privileges_table.twig:186
 #: resources/templates/server/privileges/privileges_table.twig:385
 #: resources/templates/server/privileges/privileges_table.twig:386
-#: src/Server/Privileges.php:290 src/Server/Privileges.php:318
+#: src/Server/Privileges.php:291 src/Server/Privileges.php:319
 msgid "Allows altering the structure of existing tables."
 msgstr "Mengizinkan untuk mengubah struktur dari tabel yang ada."
 
@@ -5119,8 +5119,8 @@ msgstr "Mengizinkan untuk mengubah struktur dari tabel yang ada."
 #: resources/templates/server/privileges/privileges_table.twig:500
 #: resources/templates/server/privileges/privileges_table.twig:514
 #: resources/templates/server/privileges/privileges_table.twig:515
-#: src/Server/Privileges.php:291 src/Server/Privileges.php:337
-#: src/Server/Privileges.php:341
+#: src/Server/Privileges.php:292 src/Server/Privileges.php:338
+#: src/Server/Privileges.php:342
 msgid "Allows creating new views."
 msgstr "Mengizinkan untuk membuat view baru."
 
@@ -5128,8 +5128,8 @@ msgstr "Mengizinkan untuk membuat view baru."
 #: resources/templates/server/privileges/privileges_table.twig:210
 #: resources/templates/server/privileges/privileges_table.twig:446
 #: resources/templates/server/privileges/privileges_table.twig:447
-#: src/Server/Privileges.php:292 src/Server/Privileges.php:342
-#: src/Server/Privileges.php:344
+#: src/Server/Privileges.php:293 src/Server/Privileges.php:343
+#: src/Server/Privileges.php:345
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Mengizinkan pencarian dengan cara SHOW CREATE VIEW."
 
@@ -5137,14 +5137,14 @@ msgstr "Mengizinkan pencarian dengan cara SHOW CREATE VIEW."
 #: resources/templates/server/privileges/privileges_table.twig:222
 #: resources/templates/server/privileges/privileges_table.twig:542
 #: resources/templates/server/privileges/privileges_table.twig:543
-#: src/Server/Privileges.php:293 src/Server/Privileges.php:339
+#: src/Server/Privileges.php:294 src/Server/Privileges.php:340
 msgid "Allows creating and dropping triggers."
 msgstr "Mengizinkan untuk membuat dan menghapus trigger."
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: resources/templates/server/privileges/privileges_table.twig:233
 #: resources/templates/server/privileges/privileges_table.twig:236
-#: src/Server/Privileges.php:350 src/Server/Privileges.php:359
+#: src/Server/Privileges.php:351 src/Server/Privileges.php:360
 #, fuzzy
 msgid "Allows deleting historical rows."
 msgstr "Mengizinkan untuk menghapus data."
@@ -5159,55 +5159,55 @@ msgid "Global privileges"
 msgstr "Hak akses global"
 
 #: resources/templates/server/privileges/privileges_table.twig:265
-#: src/Server/Privileges.php:1574
+#: src/Server/Privileges.php:1575
 msgid "Database-specific privileges"
 msgstr "Hak akses khusus basis data"
 
 #: resources/templates/server/privileges/privileges_table.twig:339
 #: resources/templates/server/privileges/privileges_table.twig:340
-#: src/Server/Privileges.php:315
+#: src/Server/Privileges.php:316
 msgid "Allows importing data from and exporting data into files."
 msgstr "Mengizinkan mengimpor data dari dan mengekspor data ke berkas."
 
 #: resources/templates/server/privileges/privileges_table.twig:364
 #: resources/templates/server/privileges/privileges_table.twig:372
-#: src/Server/Privileges.php:310
+#: src/Server/Privileges.php:311
 msgid "Allows creating new databases and tables."
 msgstr "Mengizinkan untuk membuat basis data dan tabel baru."
 
 #: resources/templates/server/privileges/privileges_table.twig:412
 #: resources/templates/server/privileges/privileges_table.twig:420
-#: src/Server/Privileges.php:311
+#: src/Server/Privileges.php:312
 msgid "Allows dropping databases and tables."
 msgstr "Mengizinkan penghapusan basis data dan tabel."
 
 #: resources/templates/server/privileges/privileges_table.twig:433
 #: resources/templates/server/privileges/privileges_table.twig:434
-#: src/Server/Privileges.php:329
+#: src/Server/Privileges.php:330
 msgid "Allows creating temporary tables."
 msgstr "Mengizinkan untuk membuat tabel temporer."
 
 #: resources/templates/server/privileges/privileges_table.twig:459
 #: resources/templates/server/privileges/privileges_table.twig:460
-#: src/Server/Privileges.php:361
+#: src/Server/Privileges.php:362
 msgid "Allows creating stored routines."
 msgstr "Mengizinkan untuk membuat routine tersimpan."
 
 #: resources/templates/server/privileges/privileges_table.twig:472
 #: resources/templates/server/privileges/privileges_table.twig:473
-#: src/Server/Privileges.php:362
+#: src/Server/Privileges.php:363
 msgid "Allows altering and dropping stored routines."
 msgstr "Mengizinkan untuk mengubah dan menghapus routine tersimpan."
 
 #: resources/templates/server/privileges/privileges_table.twig:485
 #: resources/templates/server/privileges/privileges_table.twig:486
-#: src/Server/Privileges.php:364
+#: src/Server/Privileges.php:365
 msgid "Allows executing stored routines."
 msgstr "Mengizinkan eksekusi routine tersimpan."
 
 #: resources/templates/server/privileges/privileges_table.twig:529
 #: resources/templates/server/privileges/privileges_table.twig:530
-#: src/Server/Privileges.php:338
+#: src/Server/Privileges.php:339
 #, fuzzy
 msgid "Allows to set up events for the event scheduler."
 msgstr "Mengizinkan penyiapan event untuk penjadwal event"
@@ -5226,7 +5226,7 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:582
 #: resources/templates/server/privileges/privileges_table.twig:584
-#: src/Server/Privileges.php:324
+#: src/Server/Privileges.php:325
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -5239,13 +5239,13 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:596
 #: resources/templates/server/privileges/privileges_table.twig:597
-#: src/Server/Privileges.php:314
+#: src/Server/Privileges.php:315
 msgid "Allows viewing processes of all users."
 msgstr "Mengizinkan untuk melihat proses oleh semua pengguna."
 
 #: resources/templates/server/privileges/privileges_table.twig:609
 #: resources/templates/server/privileges/privileges_table.twig:610
-#: src/Server/Privileges.php:312
+#: src/Server/Privileges.php:313
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Mengizinkan untuk memuat ulang pengaturan server dan membersihkan singgahan "
@@ -5253,19 +5253,19 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:622
 #: resources/templates/server/privileges/privileges_table.twig:623
-#: src/Server/Privileges.php:313
+#: src/Server/Privileges.php:314
 msgid "Allows shutting down the server."
 msgstr "Mengizinkan untuk shut-down server."
 
 #: resources/templates/server/privileges/privileges_table.twig:635
 #: resources/templates/server/privileges/privileges_table.twig:636
-#: src/Server/Privileges.php:319
+#: src/Server/Privileges.php:320
 msgid "Gives access to the complete list of databases."
 msgstr "Memberi akses ke seluruh daftar basis data."
 
 #: resources/templates/server/privileges/privileges_table.twig:663
 #: resources/templates/server/privileges/privileges_table.twig:664
-#: src/Server/Privileges.php:330
+#: src/Server/Privileges.php:331
 msgid "Allows locking tables for the current thread."
 msgstr "Mengizinkan untuk mengunci tabel dalam Thread yang lagi berjalan."
 
@@ -5285,7 +5285,7 @@ msgstr "Tidak ada efek dalam versi MySQL yang digunakan."
 
 #: resources/templates/server/privileges/privileges_table.twig:691
 #: resources/templates/server/privileges/privileges_table.twig:692
-#: src/Server/Privileges.php:335
+#: src/Server/Privileges.php:336
 #, fuzzy
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr ""
@@ -5293,14 +5293,14 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:704
 #: resources/templates/server/privileges/privileges_table.twig:705
-#: src/Server/Privileges.php:331
+#: src/Server/Privileges.php:332
 #, fuzzy
 msgid "Needed for the replication replicas."
 msgstr "Digunakan untuk replikasi dari slaves."
 
 #: resources/templates/server/privileges/privileges_table.twig:717
 #: resources/templates/server/privileges/privileges_table.twig:718
-#: src/Server/Privileges.php:363
+#: src/Server/Privileges.php:364
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Mengizinkan untuk membuat, menghapus, dan mengubah nama akun pengguna."
 
@@ -6501,7 +6501,7 @@ msgstr "Profil Hasil"
 #: src/Controllers/Table/Partition/RepairController.php:50
 #: src/Controllers/Table/Partition/TruncateController.php:51
 #: src/Controllers/Table/RelationController.php:137
-#: src/Database/Routines.php:980 src/Display/Results.php:3221
+#: src/Database/Routines.php:981 src/Display/Results.php:3221
 #: src/Message.php:129
 msgid "Your SQL query has been executed successfully."
 msgstr "Kueri SQL Anda berhasil dieksekusi."
@@ -6814,7 +6814,7 @@ msgstr "Seret untuk mengubah urutan"
 #: resources/templates/table/index_form.twig:199
 #: src/Controllers/JavaScriptMessagesController.php:486
 #: src/Controllers/JavaScriptMessagesController.php:637
-#: src/ErrorHandler.php:406 src/InsertEdit.php:1542
+#: src/Error/ErrorHandler.php:410 src/InsertEdit.php:1542
 msgid "Ignore"
 msgstr "Abaikan"
 
@@ -7281,8 +7281,8 @@ msgstr "Hapus partisi"
 
 #: resources/templates/table/structure/display_structure.twig:30
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:10
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:632
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:654
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:628
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:650
 msgid "Extra"
 msgstr "Ekstra"
 
@@ -7395,7 +7395,7 @@ msgid "Effective"
 msgstr "Efektif"
 
 #: resources/templates/table/structure/display_table_stats.twig:44
-#: src/Controllers/Server/DatabasesController.php:293
+#: src/Controllers/Server/DatabasesController.php:292
 #: src/Controllers/Server/Status/StatusController.php:137
 #: src/Controllers/Server/Status/StatusController.php:187
 msgid "Total"
@@ -11336,7 +11336,7 @@ msgstr "Lebar panel navigasi"
 
 #: src/Config/Descriptions.php:811
 #: src/Controllers/JavaScriptMessagesController.php:606
-#: src/Navigation/NavigationTree.php:1283
+#: src/Navigation/NavigationTree.php:1284
 msgid "Link with main panel"
 msgstr "Link ke panel utama"
 
@@ -11998,21 +11998,21 @@ msgstr ""
 "Pengaturan tidak dapat disimpan, konfigurasi yang diserahkan mengandung "
 "kesalahan!"
 
-#: src/Config.php:611
+#: src/Config.php:612
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "File configuration yang ada (%s) tidak dapat di baca."
 
-#: src/Config.php:647
+#: src/Config.php:648
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Perizinan yang salah pada file konfigurasi, sehingga tidak dapat ditulis!"
 
-#: src/Config.php:661
+#: src/Config.php:662
 msgid "Failed to read configuration file!"
 msgstr "Gagal membaca file konfigurasi!"
 
-#: src/Config.php:663
+#: src/Config.php:664
 #, fuzzy
 msgid "This usually means there is a syntax error in it."
 msgstr ""
@@ -12288,7 +12288,7 @@ msgstr "Tidak ada penanda"
 msgid "Missing parameter:"
 msgstr "Parameter yang hilang:"
 
-#: src/Controllers/ChangeLogController.php:41
+#: src/Controllers/ChangeLogController.php:48
 #: src/Controllers/LicenseController.php:38
 #, php-format
 msgid ""
@@ -12330,8 +12330,8 @@ msgstr ""
 #: src/Controllers/Database/ExportController.php:74
 #: src/Controllers/Database/ImportController.php:66
 #: src/Controllers/Database/ImportController.php:71
-#: src/Controllers/Database/RoutinesController.php:78
-#: src/Controllers/Database/RoutinesController.php:104
+#: src/Controllers/Database/RoutinesController.php:79
+#: src/Controllers/Database/RoutinesController.php:105
 #: src/Controllers/Database/SearchController.php:54
 #: src/Controllers/Database/SearchController.php:59
 #: src/Controllers/Database/SqlController.php:65
@@ -12344,10 +12344,10 @@ msgstr ""
 #: src/Controllers/Database/TrackingController.php:69
 #: src/Controllers/JavaScriptMessagesController.php:354
 #: src/Controllers/Operations/Database/CollationController.php:64
-#: src/Controllers/Operations/DatabaseController.php:233
-#: src/Controllers/Operations/DatabaseController.php:238
-#: src/Controllers/Operations/TableController.php:88
-#: src/Controllers/Operations/TableController.php:93
+#: src/Controllers/Operations/DatabaseController.php:234
+#: src/Controllers/Operations/DatabaseController.php:239
+#: src/Controllers/Operations/TableController.php:89
+#: src/Controllers/Operations/TableController.php:94
 #: src/Controllers/Operations/ViewController.php:64
 #: src/Controllers/Operations/ViewController.php:69
 #: src/Controllers/Server/Databases/DestroyController.php:59
@@ -12370,16 +12370,16 @@ msgstr ""
 #: src/Controllers/Table/GisVisualizationController.php:64
 #: src/Controllers/Table/ImportController.php:69
 #: src/Controllers/Table/ImportController.php:74
-#: src/Controllers/Table/IndexesController.php:66
-#: src/Controllers/Table/IndexesController.php:71
-#: src/Controllers/Table/IndexRenameController.php:59
-#: src/Controllers/Table/IndexRenameController.php:64
+#: src/Controllers/Table/IndexesController.php:68
+#: src/Controllers/Table/IndexesController.php:73
+#: src/Controllers/Table/IndexRenameController.php:58
+#: src/Controllers/Table/IndexRenameController.php:63
 #: src/Controllers/Table/SearchController.php:178
 #: src/Controllers/Table/SearchController.php:183
 #: src/Controllers/Table/SqlController.php:67
 #: src/Controllers/Table/SqlController.php:72
-#: src/Controllers/Table/StructureController.php:101
-#: src/Controllers/Table/StructureController.php:106
+#: src/Controllers/Table/StructureController.php:100
+#: src/Controllers/Table/StructureController.php:105
 #: src/Controllers/Table/Structure/PrimaryController.php:76
 #: src/Controllers/Table/Structure/PrimaryController.php:81
 #: src/Controllers/Table/TrackingController.php:72
@@ -12402,9 +12402,9 @@ msgid "Edit event"
 msgstr "Edit kejadian"
 
 #: src/Controllers/Database/EventsController.php:197
-#: src/Controllers/Database/RoutinesController.php:287
-#: src/Controllers/Database/RoutinesController.php:317
-#: src/Controllers/Database/RoutinesController.php:385
+#: src/Controllers/Database/RoutinesController.php:288
+#: src/Controllers/Database/RoutinesController.php:318
+#: src/Controllers/Database/RoutinesController.php:386
 #: src/Controllers/Triggers/IndexController.php:227
 #, fuzzy
 msgid "Error in processing request:"
@@ -12433,7 +12433,7 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "Tidak dapat memuat plugin export, harap periksa instalasi Anda!"
 
 #: src/Controllers/Database/ImportController.php:82
-#: src/Controllers/Import/ImportController.php:545
+#: src/Controllers/Import/ImportController.php:539
 #: src/Controllers/Server/ImportController.php:62
 #: src/Controllers/Table/ImportController.php:102
 msgid "Could not load import plugins, please check your installation!"
@@ -12453,7 +12453,7 @@ msgstr "Tidak Ada Hak Akses"
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Anda tidak punya hak akses untuk membuat trigger"
 
-#: src/Controllers/Database/RoutinesController.php:85
+#: src/Controllers/Database/RoutinesController.php:86
 #: src/Controllers/Database/Structure/AddPrefixController.php:21
 #: src/Controllers/Database/Structure/CentralColumns/AddController.php:39
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:40
@@ -12465,8 +12465,8 @@ msgstr "Anda tidak punya hak akses untuk membuat trigger"
 #: src/Controllers/Database/Structure/ShowCreateController.php:30
 #: src/Controllers/Export/TablesController.php:29
 #: src/Controllers/JavaScriptMessagesController.php:355
-#: src/Controllers/Operations/TableController.php:102
-#: src/Controllers/Operations/TableController.php:107
+#: src/Controllers/Operations/TableController.php:103
+#: src/Controllers/Operations/TableController.php:108
 #: src/Controllers/Operations/ViewController.php:78
 #: src/Controllers/Operations/ViewController.php:83
 #: src/Controllers/Table/AddFieldController.php:176
@@ -12484,10 +12484,10 @@ msgstr "Anda tidak punya hak akses untuk membuat trigger"
 #: src/Controllers/Table/FindReplaceController.php:97
 #: src/Controllers/Table/ImportController.php:83
 #: src/Controllers/Table/ImportController.php:88
-#: src/Controllers/Table/IndexesController.php:80
-#: src/Controllers/Table/IndexesController.php:85
-#: src/Controllers/Table/IndexRenameController.php:73
-#: src/Controllers/Table/IndexRenameController.php:78
+#: src/Controllers/Table/IndexesController.php:82
+#: src/Controllers/Table/IndexesController.php:87
+#: src/Controllers/Table/IndexRenameController.php:72
+#: src/Controllers/Table/IndexRenameController.php:77
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:45
 #: src/Controllers/Table/Maintenance/CheckController.php:45
 #: src/Controllers/Table/Maintenance/ChecksumController.php:45
@@ -12497,8 +12497,8 @@ msgstr "Anda tidak punya hak akses untuk membuat trigger"
 #: src/Controllers/Table/SearchController.php:197
 #: src/Controllers/Table/SqlController.php:81
 #: src/Controllers/Table/SqlController.php:86
-#: src/Controllers/Table/StructureController.php:115
-#: src/Controllers/Table/StructureController.php:120
+#: src/Controllers/Table/StructureController.php:114
+#: src/Controllers/Table/StructureController.php:119
 #: src/Controllers/Table/Structure/PrimaryController.php:90
 #: src/Controllers/Table/Structure/PrimaryController.php:95
 #: src/Controllers/Table/ZoomSearchController.php:117
@@ -12508,15 +12508,15 @@ msgstr "Anda tidak punya hak akses untuk membuat trigger"
 msgid "No table selected."
 msgstr "Tidak ada tabel yang dipilih."
 
-#: src/Controllers/Database/RoutinesController.php:187
+#: src/Controllers/Database/RoutinesController.php:188
 msgid "Add routine"
 msgstr "Tambahkan routine"
 
-#: src/Controllers/Database/RoutinesController.php:191
+#: src/Controllers/Database/RoutinesController.php:192
 msgid "Edit routine"
 msgstr "Edit rutinitas"
 
-#: src/Controllers/Database/RoutinesController.php:290
+#: src/Controllers/Database/RoutinesController.php:291
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
@@ -12525,23 +12525,23 @@ msgstr ""
 "Tidak ada rutinitas ditemukan dengan nama %1$s dalam database %2$s. Anda "
 "mungkin tidak memiliki otoritas untuk menyunting rutinitas ini."
 
-#: src/Controllers/Database/RoutinesController.php:319
-#: src/Controllers/Database/RoutinesController.php:387
+#: src/Controllers/Database/RoutinesController.php:320
+#: src/Controllers/Database/RoutinesController.php:388
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "Routine dengan nama %1$s tidak ditemukan dalam basis data %2$s."
 
-#: src/Controllers/Database/RoutinesController.php:368
-#: src/Controllers/Database/RoutinesController.php:378
+#: src/Controllers/Database/RoutinesController.php:369
+#: src/Controllers/Database/RoutinesController.php:379
 msgid "Execute routine"
 msgstr "Jalankan routine"
 
-#: src/Controllers/Database/RoutinesController.php:430
+#: src/Controllers/Database/RoutinesController.php:431
 #, php-format
 msgid "Export of routine %s"
 msgstr "Ekspor routine %s"
 
-#: src/Controllers/Database/RoutinesController.php:449
+#: src/Controllers/Database/RoutinesController.php:450
 #, fuzzy, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -12760,7 +12760,7 @@ msgstr ""
 "Sehingga menyebabkan beberapa fitur seperti laporan kesalahan atau "
 "pengecekan versi tidak aktif."
 
-#: src/Controllers/Import/ImportController.php:202
+#: src/Controllers/Import/ImportController.php:196
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -12769,22 +12769,22 @@ msgstr ""
 "Anda mungkin mencoba mengunggah berkas yang terlalu besar. Silakan lihat "
 "%sdokumentasi%s untuk mendapatkan solusi tentang batasan ini."
 
-#: src/Controllers/Import/ImportController.php:234
+#: src/Controllers/Import/ImportController.php:228
 #, fuzzy
 msgid "Incorrect format parameter"
 msgstr "Formulir salah yang ditentukan!"
 
-#: src/Controllers/Import/ImportController.php:354
-#: src/Controllers/Import/ImportController.php:585
+#: src/Controllers/Import/ImportController.php:348
+#: src/Controllers/Import/ImportController.php:579
 msgid "Showing bookmark"
 msgstr "Menampilkan markah"
 
-#: src/Controllers/Import/ImportController.php:374
-#: src/Controllers/Import/ImportController.php:581
+#: src/Controllers/Import/ImportController.php:368
+#: src/Controllers/Import/ImportController.php:575
 msgid "The bookmark has been deleted."
 msgstr "Markah telah dihapus."
 
-#: src/Controllers/Import/ImportController.php:493
+#: src/Controllers/Import/ImportController.php:487
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -12794,13 +12794,13 @@ msgstr ""
 "nama berkas yang diberikan, atau ukuran berkas melebihi ukuran maksimum yang "
 "diizinkan oleh konfigurasi PHP Anda. Lihat [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: src/Controllers/Import/ImportController.php:593
+#: src/Controllers/Import/ImportController.php:587
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Impor telah selesai, %d kueri dilakukan."
 
-#: src/Controllers/Import/ImportController.php:630
+#: src/Controllers/Import/ImportController.php:624
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -12809,7 +12809,7 @@ msgstr ""
 "Masa waktu skrip telah habis, jika Anda ingin menyelesaikan mengimpor, "
 "%skirim kembali berkas yang sama%s dan impor akan berlanjut."
 
-#: src/Controllers/Import/ImportController.php:640
+#: src/Controllers/Import/ImportController.php:634
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -12818,7 +12818,7 @@ msgstr ""
 "phpMyAdmin tidak bisa menyelesaikan proses impor kecuali Anda menambah batas "
 "waktu eksekusi php."
 
-#: src/Controllers/Import/ImportController.php:708
+#: src/Controllers/Import/ImportController.php:700
 #: src/Controllers/Sql/SqlController.php:165
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Perintah \"DROP DATABASE\" dinonaktifkan."
@@ -13063,12 +13063,12 @@ msgid "The user name is empty!"
 msgstr "Nama pengguna kosong!"
 
 #: src/Controllers/JavaScriptMessagesController.php:143
-#: src/Server/Privileges.php:763 src/UserPassword.php:39
+#: src/Server/Privileges.php:764 src/UserPassword.php:39
 msgid "The password is empty!"
 msgstr "Kata sandi kosong!"
 
 #: src/Controllers/JavaScriptMessagesController.php:144
-#: src/Server/Privileges.php:761 src/UserPassword.php:43
+#: src/Server/Privileges.php:762 src/UserPassword.php:43
 msgid "The passwords aren't the same!"
 msgstr "Kata sandi tidak sama!"
 
@@ -14164,7 +14164,7 @@ msgid "Hide panel"
 msgstr "Sembunyikan panel"
 
 #: src/Controllers/JavaScriptMessagesController.php:607
-#: src/Navigation/NavigationTree.php:1286
+#: src/Navigation/NavigationTree.php:1287
 msgid "Unlink from main panel"
 msgstr "Unlink dari panel utama"
 
@@ -14234,7 +14234,7 @@ msgid "Please look at the bottom of this window."
 msgstr "Silahkan lihat di bagian bawah jendela ini."
 
 #: src/Controllers/JavaScriptMessagesController.php:640
-#: src/ErrorHandler.php:411
+#: src/Error/ErrorHandler.php:415
 msgid "Ignore All"
 msgstr "Abaikan"
 
@@ -14857,27 +14857,27 @@ msgid "String"
 msgstr "String"
 
 #: src/Controllers/Operations/Database/CollationController.php:46
-#: src/Controllers/Operations/TableController.php:279
+#: src/Controllers/Operations/TableController.php:280
 msgid "No collation provided."
 msgstr "Tidak ada pemeriksaan yang tersedia."
 
-#: src/Controllers/Operations/DatabaseController.php:84
+#: src/Controllers/Operations/DatabaseController.php:85
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 "Tidak dapat menyalin database dengan nama yang sama. Gunakan nama lain dan "
 "coba lagi."
 
-#: src/Controllers/Operations/DatabaseController.php:163
+#: src/Controllers/Operations/DatabaseController.php:164
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "Nama database %1$s telah diubah menjadi %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:173
+#: src/Controllers/Operations/DatabaseController.php:174
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Database %1$s telah disalin ke %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:276
+#: src/Controllers/Operations/DatabaseController.php:277
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -15790,9 +15790,10 @@ msgid "Bookmark not created!"
 msgstr "Bookmark tidak dibuat!"
 
 #: src/Controllers/Table/AddFieldController.php:133
+#: src/Controllers/Table/IndexesController.php:141
+#: src/Controllers/Table/IndexRenameController.php:130
 #: src/Controllers/Table/Structure/PartitioningController.php:265
-#: src/Controllers/Table/Structure/SaveController.php:212
-#: src/Table/Indexes.php:91
+#: src/Controllers/Table/Structure/SaveController.php:213
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Tabel %1$s berhasil diubah."
@@ -15861,7 +15862,7 @@ msgid "There is an issue with your request."
 msgstr "Terlalu banyak join tanpa indeks."
 
 #: src/Controllers/Table/GetFieldController.php:83
-#: src/Database/Routines.php:997 src/Import/Import.php:162
+#: src/Database/Routines.php:998 src/Import/Import.php:162
 #: src/InsertEdit.php:201 src/Sql.php:854
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL memberikan hasil kosong (atau nol baris)."
@@ -15913,7 +15914,7 @@ msgid "The columns have been moved successfully."
 msgstr "Kolom sukses dipindah."
 
 #: src/Controllers/Table/Structure/PartitioningController.php:257
-#: src/Controllers/Table/Structure/SaveController.php:262
+#: src/Controllers/Table/Structure/SaveController.php:263
 #: src/Tracking/Tracking.php:779
 msgid "Query error"
 msgstr "Galat kueri"
@@ -15924,7 +15925,7 @@ msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] "Nama '%s' adalah kata kunci pesanan MySQL."
 
-#: src/Controllers/Table/Structure/SaveController.php:207
+#: src/Controllers/Table/Structure/SaveController.php:208
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
@@ -15978,7 +15979,7 @@ msgstr "Hak Akses Anda untuk melanjut tidak cukup!"
 msgid "View name can not be empty!"
 msgstr "Lihat nama tidak boleh kosong"
 
-#: src/Core.php:106 src/ZipExtension.php:57
+#: src/Core.php:107 src/ZipExtension.php:57
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Ekstensi %s tidak ditemukan. Harap periksa konfigurasi PHP Anda."
@@ -16072,9 +16073,9 @@ msgid "Could not load schema plugins, please check your installation!"
 msgstr "Tidak dapat memuat skema plugin, harap periksa instalasi Anda!"
 
 #: src/Database/Events.php:90 src/Database/Events.php:99
-#: src/Database/Events.php:125 src/Database/Routines.php:100
-#: src/Database/Routines.php:125 src/Database/Routines.php:203
-#: src/Database/Routines.php:957 src/Triggers/Triggers.php:83
+#: src/Database/Events.php:125 src/Database/Routines.php:101
+#: src/Database/Routines.php:126 src/Database/Routines.php:204
+#: src/Database/Routines.php:958 src/Triggers/Triggers.php:83
 #: src/Triggers/Triggers.php:92 src/Triggers/Triggers.php:119
 #, fuzzy, php-format
 msgid "The following query has failed: \"%s\""
@@ -16082,9 +16083,9 @@ msgstr "Query berikut telah gagal: \"%s\""
 
 #: src/Database/Events.php:94 src/Database/Events.php:103
 #: src/Database/Events.php:129 src/Database/Events.php:354
-#: src/Database/Routines.php:104 src/Database/Routines.php:129
-#: src/Database/Routines.php:207 src/Database/Routines.php:961
-#: src/Database/Routines.php:1209 src/Html/Generator.php:829
+#: src/Database/Routines.php:105 src/Database/Routines.php:130
+#: src/Database/Routines.php:208 src/Database/Routines.php:962
+#: src/Database/Routines.php:1210 src/Html/Generator.php:829
 #: src/Triggers/Triggers.php:87 src/Triggers/Triggers.php:96
 #: src/Triggers/Triggers.php:123 src/Triggers/Triggers.php:243
 msgid "MySQL said: "
@@ -16100,14 +16101,14 @@ msgstr "Event %1$s telah diubah."
 msgid "Event %1$s has been created."
 msgstr "Event %1$s telah dibuat."
 
-#: src/Database/Events.php:146 src/Database/Routines.php:145
+#: src/Database/Events.php:146 src/Database/Routines.php:146
 #: src/Triggers/Triggers.php:140
 #, fuzzy
 msgid "One or more errors have occurred while processing your request:"
 msgstr ""
 "Satu atau lebih kesalahan telah terjadi saat memproses permintaan Anda:"
 
-#: src/Database/Events.php:261 src/Database/Routines.php:759
+#: src/Database/Events.php:261 src/Database/Routines.php:760
 #: src/Triggers/Triggers.php:184
 #, fuzzy
 msgid "The definer must be in the \"username@hostname\" format!"
@@ -16138,13 +16139,13 @@ msgstr "Anda harus memasukkan definisi event."
 msgid "Sorry, we failed to restore the dropped event."
 msgstr "Maaf, kami gagal memulihkan event yang dihapus."
 
-#: src/Database/Events.php:352 src/Database/Routines.php:1207
+#: src/Database/Events.php:352 src/Database/Routines.php:1208
 #: src/Triggers/Triggers.php:241
 #, fuzzy
 msgid "The backed up query was:"
 msgstr "Didukung query adalah:"
 
-#: src/DatabaseInterface.php:1160
+#: src/DatabaseInterface.php:1161
 #, fuzzy, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -16156,45 +16157,45 @@ msgstr ""
 "['SessionTimeZone'][/em]. phpMyAdmin saat ini menggunakan zona waktu semula "
 "dari server database."
 
-#: src/DatabaseInterface.php:1202
+#: src/DatabaseInterface.php:1203
 msgid "Failed to set configured collation connection!"
 msgstr "Gagal untuk menyetel pemeriksaan koneksi yang telah terkonfigurasi!"
 
-#: src/DatabaseInterface.php:1663
+#: src/DatabaseInterface.php:1664
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Koneksi untuk controluser yang di definisikan di konfigurasi Anda gagal."
 
-#: src/Database/Routines.php:81 src/Database/Routines.php:767
+#: src/Database/Routines.php:82 src/Database/Routines.php:768
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Jenis routine invalid: \"%s\""
 
-#: src/Database/Routines.php:132
+#: src/Database/Routines.php:133
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "Routine %1$s telah dibuat."
 
-#: src/Database/Routines.php:260
+#: src/Database/Routines.php:261
 #, fuzzy, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "Routine %1$s telah diubah."
 
-#: src/Database/Routines.php:265
+#: src/Database/Routines.php:266
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "Routine %1$s telah dimodifikasi."
 
-#: src/Database/Routines.php:600
+#: src/Database/Routines.php:601
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "Anda harus memasukkan nama dan jenis setiap parameter rutin."
 
-#: src/Database/Routines.php:618
+#: src/Database/Routines.php:619
 #, fuzzy, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "Arah tidak valid \"%s\" diberikan untuk parameter."
 
-#: src/Database/Routines.php:638 src/Database/Routines.php:705
+#: src/Database/Routines.php:639 src/Database/Routines.php:706
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -16202,31 +16203,31 @@ msgstr ""
 "Anda harus memasukkan panjang/nilai untuk parameter routine bagi jenis ENUM, "
 "SET, VARCHAR, dan VARBINARY."
 
-#: src/Database/Routines.php:687
+#: src/Database/Routines.php:688
 msgid "You must provide a valid return type for the routine."
 msgstr "Anda harus memasukkan jenis hasil yang valid untuk routine."
 
-#: src/Database/Routines.php:775
+#: src/Database/Routines.php:776
 #, fuzzy
 msgid "You must provide a routine name!"
 msgstr "Anda harus memasukkan nama routine"
 
-#: src/Database/Routines.php:839
+#: src/Database/Routines.php:840
 msgid "You must provide a routine definition."
 msgstr "Anda harus memasukkan definisi routine."
 
-#: src/Database/Routines.php:973
+#: src/Database/Routines.php:974
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Hasil eksekusi routine %s"
 
-#: src/Database/Routines.php:988
+#: src/Database/Routines.php:989
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "%d baris dipengaruh oleh pernyataan terakhir dalam prosedur."
 
-#: src/Database/Routines.php:1206
+#: src/Database/Routines.php:1207
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Maaf, kami gagal memulihkan routine yang dihapus."
 
@@ -16611,11 +16612,11 @@ msgstr ""
 "Dokumentasi dan informasi lebih lanjut mengenai PBXT dapat ditemukan pada %s "
 "Halaman PrimeBase XT %s."
 
-#: src/ErrorHandler.php:101
+#: src/Error/ErrorHandler.php:105
 msgid "Too many error messages, some are not displayed."
 msgstr "Terlalu banyak pesan kesalahan, sebagian tidak bisa ditampilkan."
 
-#: src/ErrorHandler.php:395
+#: src/Error/ErrorHandler.php:399
 msgid "Report"
 msgstr "Laporan"
 
@@ -17042,7 +17043,7 @@ msgstr "Prosedur:"
 msgid "Views:"
 msgstr "Penonton:"
 
-#: src/Navigation/NavigationTree.php:736
+#: src/Navigation/NavigationTree.php:737
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
@@ -17050,18 +17051,18 @@ msgstr ""
 "Terdapat grup item besar di panel navigasi yang dapat mempengaruhi kinerja. "
 "Pertimbangkan untuk menonaktifkan pengelompokan barang di panel navigasi."
 
-#: src/Navigation/NavigationTree.php:796
+#: src/Navigation/NavigationTree.php:797
 #, fuzzy
 msgid "Groups"
 msgstr "Kelompok:"
 
-#: src/Navigation/NavigationTree.php:904
+#: src/Navigation/NavigationTree.php:905
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] "ditemukan %s hasil"
 
-#: src/Navigation/NavigationTree.php:1278
+#: src/Navigation/NavigationTree.php:1279
 msgid "Collapse all"
 msgstr "Tutup semua"
 
@@ -17070,7 +17071,7 @@ msgctxt "Create new column"
 msgid "New"
 msgstr "Baru"
 
-#: src/Navigation/Nodes/NodeDatabaseContainer.php:38
+#: src/Navigation/Nodes/NodeDatabaseContainer.php:39
 msgctxt "Create new database"
 msgid "New"
 msgstr "Baru"
@@ -17100,7 +17101,7 @@ msgctxt "Create new index"
 msgid "New"
 msgstr "Baru"
 
-#: src/Navigation/Nodes/Node.php:614
+#: src/Navigation/Nodes/Node.php:615
 msgid "Expand/Collapse"
 msgstr "Bentangkan/Tutup"
 
@@ -17998,17 +17999,17 @@ msgid "Error reading data for table %s:"
 msgstr "Kesalahan membaca data untuk tabel %s:"
 
 #: src/Plugins/Export/ExportSql.php:2658
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:591
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:587
 msgid "Creation:"
 msgstr "Pembuatan:"
 
 #: src/Plugins/Export/ExportSql.php:2668
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:598
 msgid "Last update:"
 msgstr "Pembaruan terakhir:"
 
 #: src/Plugins/Export/ExportSql.php:2678
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:613
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:609
 msgid "Last check:"
 msgstr "Pemeriksaan terakhir:"
 
@@ -18672,8 +18673,8 @@ msgstr "Sumber Basis data `%s` tidak ditemukan!"
 msgid "Error 405! Request method not allowed."
 msgstr "Kesalahan 405! Jalur permintaan tidak dibolehkan."
 
-#: src/Server/Plugins.php:53 src/Server/Privileges.php:630
-#: src/Server/Privileges.php:3274
+#: src/Server/Plugins.php:53 src/Server/Privileges.php:631
+#: src/Server/Privileges.php:3275
 msgid "Native MySQL authentication"
 msgstr "Autentikasi asli MySQL"
 
@@ -18701,65 +18702,65 @@ msgstr "Autentikasi asli MySQL"
 msgid "Account locking is not supported."
 msgstr ""
 
-#: src/Server/Privileges.php:263
+#: src/Server/Privileges.php:264
 msgid "No privileges."
 msgstr "Tanpa hak akses."
 
-#: src/Server/Privileges.php:269
+#: src/Server/Privileges.php:270
 msgid "Includes all privileges except GRANT."
 msgstr "Mencakup semua hak akses selain GRANT."
 
-#: src/Server/Privileges.php:890
+#: src/Server/Privileges.php:891
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Sukses mengubah Kata Sandi untuk %s ."
 
-#: src/Server/Privileges.php:938
+#: src/Server/Privileges.php:939
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Anda telah mencabut hak akses untuk %s."
 
-#: src/Server/Privileges.php:1286
+#: src/Server/Privileges.php:1287
 msgid "Revoke"
 msgstr "Cabut"
 
-#: src/Server/Privileges.php:1891
+#: src/Server/Privileges.php:1892
 msgid "No users selected for deleting!"
 msgstr "Tidak ada pengguna yang dipilih untuk dihapus!"
 
-#: src/Server/Privileges.php:1894
+#: src/Server/Privileges.php:1895
 msgid "Reloading the privileges"
 msgstr "Memuat hak akses"
 
-#: src/Server/Privileges.php:1919
+#: src/Server/Privileges.php:1920
 msgid "The selected users have been deleted successfully."
 msgstr "Sukses menghapus pengguna yang dipilih."
 
-#: src/Server/Privileges.php:1993
+#: src/Server/Privileges.php:1994
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Anda telah memperbarui hak akses untuk %s."
 
-#: src/Server/Privileges.php:2150
+#: src/Server/Privileges.php:2151
 #, php-format
 msgid "Deleting %s"
 msgstr "Menghapus %s"
 
-#: src/Server/Privileges.php:2181
+#: src/Server/Privileges.php:2182
 msgid "The privileges were reloaded successfully."
 msgstr "Hak akses berhasil dimuat ulang."
 
-#: src/Server/Privileges.php:2282
+#: src/Server/Privileges.php:2283
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Pengguna %s telah terdaftar!"
 
-#: src/Server/Privileges.php:2526
+#: src/Server/Privileges.php:2527
 #, php-format
 msgid "Privileges for %s"
 msgstr "Hak akses untuk %s"
 
-#: src/Server/Privileges.php:2614
+#: src/Server/Privileges.php:2615
 #, fuzzy, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -18773,7 +18774,7 @@ msgstr ""
 "diubah secara manual. Disarankan untuk %sme-reload profil pengguna%s sebelum "
 "melanjut."
 
-#: src/Server/Privileges.php:2630
+#: src/Server/Privileges.php:2631
 #, fuzzy
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -18788,11 +18789,11 @@ msgstr ""
 "diubah secara manual. Disarankan untuk %sme-reload profil pengguna%s sebelum "
 "melanjut."
 
-#: src/Server/Privileges.php:2918
+#: src/Server/Privileges.php:2919
 msgid "You have added a new user."
 msgstr "Pengguna baru telah ditambahkan."
 
-#: src/Server/Privileges.php:3367
+#: src/Server/Privileges.php:3368
 #, fuzzy
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
@@ -18904,7 +18905,7 @@ msgstr "Menggunakan markah \"%s\" sebagai kueri penjelajahan bawaan."
 msgid "Showing as PHP code"
 msgstr "Tampilkan sebagai kode PHP"
 
-#: src/Sql.php:1214
+#: src/Sql.php:1213
 #, fuzzy, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18914,7 +18915,7 @@ msgstr ""
 "grid, kotak centang, Edit, Copy dan Delete link mungkin tidak bekerja "
 "setelah disimpan."
 
-#: src/Sql.php:1228
+#: src/Sql.php:1227
 #, fuzzy, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -18959,47 +18960,51 @@ msgstr "%s didinonaktifkan untuk server MySQL ini."
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Server MySQL ini tidak mendukung mesin penyimpanan %s."
 
-#: src/Table/Indexes.php:55 src/Table/Table.php:1953
+#: src/Table/Indexes.php:70 src/Table/Indexes.php:160
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Nama kunci primer harus \"PRIMARY\"!"
+
+#: src/Table/Indexes.php:82 src/Table/Indexes.php:167
+msgid "Can't rename index to PRIMARY!"
+msgstr "Gagal ubah nama Indeks ke PRIMARY!"
+
+#: src/Table/Indexes.php:108
+msgid "No index parts defined!"
+msgstr "Bagian indeks belum diberi definisin!"
 
 #: src/Table/Maintenance.php:116
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Ditemukan masalah dengan indeks dalam tabel `%s`"
 
-#: src/Table/Table.php:320
-msgid "Unknown table status:"
-msgstr "status tabel tidak diketahui:"
-
-#: src/Table/Table.php:936
+#: src/Table/Table.php:896
 #, php-format
 msgid "Source database `%s` was not found!"
 msgstr "Sumber Basis data `%s` tidak ditemukan!"
 
-#: src/Table/Table.php:945
+#: src/Table/Table.php:905
 #, php-format
 msgid "Target database `%s` was not found!"
 msgstr "Target Basis data `%s` tidak ditemukan!"
 
-#: src/Table/Table.php:1359
+#: src/Table/Table.php:1319
 msgid "Invalid database:"
 msgstr "Basis data tidak valid:"
 
-#: src/Table/Table.php:1377
+#: src/Table/Table.php:1337
 msgid "Invalid table name:"
 msgstr "Nama tabel tidak valid:"
 
-#: src/Table/Table.php:1423
+#: src/Table/Table.php:1383
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabel %1$s telah berubah nama menjadi %2$s."
 
-#: src/Table/Table.php:1660
+#: src/Table/Table.php:1620
 msgid "Could not save table UI preferences!"
 msgstr "Tidak dapat menyimpan preferensi UI tabel!"
 
-#: src/Table/Table.php:1682
+#: src/Table/Table.php:1642
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -19008,7 +19013,7 @@ msgstr ""
 "Gagal membersihkan tabel UI preferences (lihat $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: src/Table/Table.php:1810
+#: src/Table/Table.php:1770
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -19019,15 +19024,7 @@ msgstr ""
 "terus-menerus setelah Anda me-refresh halaman ini. Silakan periksa jika "
 "struktur tabel telah berubah."
 
-#: src/Table/Table.php:1965
-msgid "Can't rename index to PRIMARY!"
-msgstr "Gagal ubah nama Indeks ke PRIMARY!"
-
-#: src/Table/Table.php:1991
-msgid "No index parts defined!"
-msgstr "Bagian indeks belum diberi definisin!"
-
-#: src/Table/Table.php:2278
+#: src/Table/Table.php:2124
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Kesalahan membuat kunci asing pada %1$s (periksa tipe data)"
@@ -19551,6 +19548,9 @@ msgstr "Galat pada arsip ZIP:"
 #: src/ZipExtension.php:75
 msgid "No files found inside ZIP archive!"
 msgstr "Tidak ada berkas ditemukan dalam arsip ZIP!"
+
+#~ msgid "Unknown table status:"
+#~ msgstr "status tabel tidak diketahui:"
 
 #~ msgid "SSL connection enforced by server, automatically enabling it."
 #~ msgstr ""
