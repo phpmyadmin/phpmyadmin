@@ -9836,7 +9836,7 @@ parameters:
 			path: src/LanguageManager.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\LanguageManager\\:\\:availableLocales\\(\\) should return array but returns array\\|false\\.$#"
+			message: "#^Method PhpMyAdmin\\\\LanguageManager\\:\\:availableLocales\\(\\) should return array\\<string\\> but returns array\\|false\\.$#"
 			count: 1
 			path: src/LanguageManager.php
 
@@ -9857,11 +9857,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function strtolower expects string, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: src/LanguageManager.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\LanguageManager\\:\\:\\$availableLocales \\(array\\) does not accept array\\|false\\.$#"
+			message: "#^Property PhpMyAdmin\\\\LanguageManager\\:\\:\\$availableLocales \\(array\\<string\\>\\) does not accept array\\|false\\.$#"
 			count: 1
 			path: src/LanguageManager.php
 
