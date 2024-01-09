@@ -5099,6 +5099,7 @@
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
     </DeprecatedMethod>
     <DeprecatedProperty>
       <code>Routing::$route</code>
@@ -7026,13 +7027,6 @@
     </PossiblyNullOperand>
   </file>
   <file src="src/ListDatabase.php">
-    <DeprecatedMethod>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code>$db</code>
     </MixedArgument>
@@ -7042,6 +7036,9 @@
     <MixedAssignment>
       <code>$db</code>
     </MixedAssignment>
+    <UnusedProperty>
+      <code>$checkUserPrivileges</code>
+    </UnusedProperty>
   </file>
   <file src="src/Menu.php">
     <DeprecatedMethod>
@@ -14450,7 +14447,6 @@
   </file>
   <file src="tests/classes/ListDatabaseTest.php">
     <DeprecatedMethod>
-      <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>

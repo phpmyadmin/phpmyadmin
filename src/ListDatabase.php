@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use ArrayObject;
 use PhpMyAdmin\Query\Utilities;
 
 use function array_merge;
+use function in_array;
 use function is_array;
 use function is_string;
 use function preg_match;
@@ -17,22 +19,20 @@ use function strtr;
 use function usort;
 
 /**
- * handles database lists
+ * Handles database lists
  *
- * <code>
- * $ListDatabase = new ListDatabase();
- * </code>
- *
- * @todo this object should be attached to the PMA_Server object
+ * @extends ArrayObject<int, string>
  */
-class ListDatabase extends ListAbstract
+class ListDatabase extends ArrayObject
 {
-    public function __construct()
-    {
+    public function __construct(
+        private readonly DatabaseInterface $dbi,
+        private readonly Config $config,
+        private readonly CheckUserPrivileges $checkUserPrivileges,
+    ) {
         parent::__construct();
 
-        $checkUserPrivileges = new CheckUserPrivileges(DatabaseInterface::getInstance());
-        $checkUserPrivileges->getPrivileges();
+        $this->checkUserPrivileges->getPrivileges();
 
         $this->build();
     }
@@ -40,15 +40,13 @@ class ListDatabase extends ListAbstract
     /** @return array<int, array<string, bool|string>> */
     public function getList(): array
     {
-        $selected = $this->getDefault();
-
         $list = [];
         foreach ($this as $eachItem) {
             if (Utilities::isSystemSchema($eachItem)) {
                 continue;
             }
 
-            $list[] = ['name' => $eachItem, 'is_selected' => $selected === $eachItem];
+            $list[] = ['name' => $eachItem, 'is_selected' => $eachItem === Current::$database];
         }
 
         return $list;
@@ -59,13 +57,12 @@ class ListDatabase extends ListAbstract
      */
     protected function checkHideDatabase(): void
     {
-        $config = Config::getInstance();
-        if (empty($config->selectedServer['hide_db'])) {
+        if (empty($this->config->selectedServer['hide_db'])) {
             return;
         }
 
         foreach ($this->getArrayCopy() as $key => $db) {
-            if (! preg_match('/' . $config->selectedServer['hide_db'] . '/', $db)) {
+            if (! preg_match('/' . $this->config->selectedServer['hide_db'] . '/', $db)) {
                 continue;
             }
 
@@ -84,8 +81,7 @@ class ListDatabase extends ListAbstract
     {
         $databaseList = [];
         $command = '';
-        $config = Config::getInstance();
-        if (! $config->selectedServer['DisableIS']) {
+        if (! $this->config->selectedServer['DisableIS']) {
             $command .= 'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`';
             if ($likeDbName !== null) {
                 $command .= " WHERE `SCHEMA_NAME` LIKE '" . $likeDbName . "'";
@@ -105,10 +101,10 @@ class ListDatabase extends ListAbstract
         }
 
         if ($command !== '') {
-            $databaseList = DatabaseInterface::getInstance()->fetchResult($command);
+            $databaseList = $this->dbi->fetchResult($command);
         }
 
-        if ($config->settings['NaturalOrder']) {
+        if ($this->config->settings['NaturalOrder']) {
             usort($databaseList, strnatcasecmp(...));
         } else {
             // need to sort anyway, otherwise information_schema
@@ -137,18 +133,19 @@ class ListDatabase extends ListAbstract
      */
     protected function checkOnlyDatabase(): bool
     {
-        $config = Config::getInstance();
-        if (is_string($config->selectedServer['only_db']) && strlen($config->selectedServer['only_db']) > 0) {
-            $config->selectedServer['only_db'] = [$config->selectedServer['only_db']];
+        if (
+            is_string($this->config->selectedServer['only_db']) && strlen($this->config->selectedServer['only_db']) > 0
+        ) {
+            $this->config->selectedServer['only_db'] = [$this->config->selectedServer['only_db']];
         }
 
-        if (! is_array($config->selectedServer['only_db'])) {
+        if (! is_array($this->config->selectedServer['only_db'])) {
             return false;
         }
 
         $items = [];
 
-        foreach ($config->selectedServer['only_db'] as $eachOnlyDb) {
+        foreach ($this->config->selectedServer['only_db'] as $eachOnlyDb) {
             // check if the db name contains wildcard,
             // thus containing not escaped _ or %
             if (! preg_match('/(^|[^\\\\])(_|%)/', $eachOnlyDb)) {
@@ -166,16 +163,18 @@ class ListDatabase extends ListAbstract
     }
 
     /**
-     * returns default item
-     *
-     * @return string default item
+     * Checks if the given strings exists in the current list, if there is
+     * missing at least one item it returns false otherwise true
      */
-    public function getDefault(): string
+    public function exists(string ...$params): bool
     {
-        if (Current::$database !== '') {
-            return Current::$database;
+        $elements = $this->getArrayCopy();
+        foreach ($params as $param) {
+            if (! in_array($param, $elements, true)) {
+                return false;
+            }
         }
 
-        return parent::getDefault();
+        return true;
     }
 }
