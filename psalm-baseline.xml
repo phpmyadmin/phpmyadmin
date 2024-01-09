@@ -5095,7 +5095,6 @@
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
     </DeprecatedMethod>
     <DeprecatedProperty>
       <code>Routing::$route</code>
@@ -6512,11 +6511,6 @@
       <code><![CDATA[$_REQUEST['back']]]></code>
       <code><![CDATA[$_REQUEST['goto']]]></code>
     </PossiblyInvalidCast>
-  </file>
-  <file src="src/Http/Middleware/ZeroConfPostConnection.php">
-    <DeprecatedMethod>
-      <code>DatabaseInterface::getInstance()</code>
-    </DeprecatedMethod>
   </file>
   <file src="src/Image/ImageWrapper.php">
     <PossiblyUnusedReturnValue>
@@ -11857,8 +11851,6 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$result['tablename']]]></code>
-      <code>$trackingEnabled</code>
-      <code>$trackingEnabled</code>
       <code>Current::$database</code>
     </MixedAssignment>
     <MixedInferredReturnType>
@@ -11965,11 +11957,6 @@
       <code>$tableName</code>
       <code>$versionNumber</code>
     </PossiblyNullArgument>
-  </file>
-  <file src="src/Tracking/TrackingChecker.php">
-    <MixedAssignment>
-      <code>$trackingEnabled</code>
-    </MixedAssignment>
   </file>
   <file src="src/Transformations.php">
     <DeprecatedMethod>
@@ -13803,8 +13790,6 @@
   </file>
   <file src="tests/classes/DatabaseInterfaceTest.php">
     <DeprecatedMethod>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>

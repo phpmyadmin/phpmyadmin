@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tracking;
 
-use PhpMyAdmin\Cache;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Features\TrackingFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
@@ -43,7 +42,7 @@ use function trim;
  */
 class Tracker
 {
-    public const TRACKER_ENABLED_CACHE_KEY = 'phpmyadmin.tracker.enabled';
+    private static bool $enabled = false;
 
     /**
      * Cache to avoid quering tracking status multiple times.
@@ -58,7 +57,17 @@ class Tracker
      */
     public static function enable(): void
     {
-        Cache::set(self::TRACKER_ENABLED_CACHE_KEY, true);
+        self::$enabled = true;
+    }
+
+    public static function disable(): void
+    {
+        self::$enabled = false;
+    }
+
+    public static function isEnabled(): bool
+    {
+        return self::$enabled;
     }
 
     /**
@@ -66,19 +75,12 @@ class Tracker
      */
     public static function isActive(): bool
     {
-        $trackingEnabled = Cache::get(self::TRACKER_ENABLED_CACHE_KEY, false);
-        if (! $trackingEnabled) {
+        if (! self::$enabled) {
             return false;
         }
 
-        /**
-         * We need to avoid attempt to track any queries from {@link Relation::getRelationParameters()}
-         */
-        Cache::set(self::TRACKER_ENABLED_CACHE_KEY, false);
         $relation = new Relation(DatabaseInterface::getInstance());
         $relationParameters = $relation->getRelationParameters();
-        /* Restore original state */
-        Cache::set(self::TRACKER_ENABLED_CACHE_KEY, true);
 
         return $relationParameters->trackingFeature !== null;
     }
@@ -91,8 +93,7 @@ class Tracker
      */
     public static function isTracked(string $dbName, string $tableName): bool
     {
-        $trackingEnabled = Cache::get(self::TRACKER_ENABLED_CACHE_KEY, false);
-        if (! $trackingEnabled) {
+        if (! self::$enabled) {
             return false;
         }
 
@@ -100,15 +101,9 @@ class Tracker
             return self::$trackingCache[$dbName][$tableName];
         }
 
-        /**
-         * We need to avoid attempt to track any queries from {@link Relation::getRelationParameters()}
-         */
-        Cache::set(self::TRACKER_ENABLED_CACHE_KEY, false);
         $dbi = DatabaseInterface::getInstance();
         $relation = new Relation($dbi);
         $trackingFeature = $relation->getRelationParameters()->trackingFeature;
-        /* Restore original state */
-        Cache::set(self::TRACKER_ENABLED_CACHE_KEY, true);
         if ($trackingFeature === null) {
             return false;
         }

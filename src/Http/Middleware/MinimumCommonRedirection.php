@@ -12,7 +12,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Routing;
 use PhpMyAdmin\Theme\ThemeManager;
-use PhpMyAdmin\Tracking\Tracker;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -36,7 +35,6 @@ final class MinimumCommonRedirection implements MiddlewareInterface
         /** @var ThemeManager $themeManager */
         $themeManager = $container->get(ThemeManager::class);
         $this->config->loadUserPreferences($themeManager, true);
-        Tracker::enable();
         assert($request instanceof ServerRequest);
 
         try {

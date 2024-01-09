@@ -40,12 +40,10 @@ use PhpMyAdmin\Http\Middleware\SqlQueryGlobalSetting;
 use PhpMyAdmin\Http\Middleware\ThemeInitialization;
 use PhpMyAdmin\Http\Middleware\TokenMismatchChecking;
 use PhpMyAdmin\Http\Middleware\TokenRequestParamChecking;
-use PhpMyAdmin\Http\Middleware\TrackerEnabling;
 use PhpMyAdmin\Http\Middleware\UriSchemeUpdating;
 use PhpMyAdmin\Http\Middleware\UrlParamsSetting;
 use PhpMyAdmin\Http\Middleware\UrlRedirection;
 use PhpMyAdmin\Http\Middleware\UserPreferencesLoading;
-use PhpMyAdmin\Http\Middleware\ZeroConfPostConnection;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Routing\Routing;
@@ -116,8 +114,6 @@ class Application
         $requestHandler->add(new TokenMismatchChecking());
         $requestHandler->add(new ProfilingChecking());
         $requestHandler->add(new UserPreferencesLoading($this->config));
-        $requestHandler->add(new TrackerEnabling());
-        $requestHandler->add(new ZeroConfPostConnection($this->config));
 
         $runner = new RequestHandlerRunner(
             $requestHandler,

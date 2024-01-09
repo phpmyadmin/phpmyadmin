@@ -15,6 +15,7 @@ use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\SqlParser\Translator;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\UserPrivileges;
 use PhpMyAdmin\Utils\HttpRequest;
 use PHPUnit\Framework\TestCase;
@@ -91,6 +92,7 @@ abstract class AbstractTestCase extends TestCase
         // Config before DBI
         $this->setGlobalConfig();
         Cache::purge();
+        Tracker::disable();
 
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
         ContainerBuilder::$container = null;

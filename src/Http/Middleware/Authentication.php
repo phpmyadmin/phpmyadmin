@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Http\Middleware;
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings\Server;
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
@@ -20,6 +21,7 @@ use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tracking\Tracker;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -70,6 +72,15 @@ final class Authentication implements MiddlewareInterface
             }
 
             $this->connectToDatabaseServer(DatabaseInterface::getInstance(), $authPlugin, $currentServer);
+
+            // Relation should only be initialized after the connection is successful
+            /** @var Relation $relation */
+            $relation = ContainerBuilder::getContainer()->get('relation');
+            $relation->initRelationParamsCache();
+
+            // Tracker can only be activated after the relation has been initialized
+            Tracker::enable();
+
             $authPlugin->rememberCredentials();
             assert($request instanceof ServerRequest);
             $authPlugin->checkTwoFactor($request);

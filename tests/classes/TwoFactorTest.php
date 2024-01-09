@@ -7,6 +7,8 @@ namespace PhpMyAdmin\Tests;
 use CodeLts\U2F\U2FServer\RegistrationRequest;
 use CodeLts\U2F\U2FServer\SignRequest;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
@@ -17,6 +19,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use Psr\Http\Message\ServerRequestInterface;
+use ReflectionProperty;
 
 use function count;
 use function in_array;
@@ -81,25 +84,13 @@ class TwoFactorTest extends AbstractTestCase
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
 
-        $this->dummyDbi->removeDefaultResults();
-
-        $this->dummyDbi->addResult(
-            'SHOW TABLES FROM `phpmyadmin`;',
-            [
-                ['pma__userconfig'],// Minimal working setup for 2FA
-            ],
-            ['Tables_in_phpmyadmin'],
-        );
-
-        $this->dummyDbi->addResult(
-            'SHOW TABLES FROM `phpmyadmin`',
-            [
-                ['pma__userconfig'],// Minimal working setup for 2FA
-            ],
-            ['Tables_in_phpmyadmin'],
-        );
-
-        $this->dummyDbi->addResult('SELECT NULL FROM `pma__userconfig` LIMIT 0', [], ['NULL']);
+        $relationParameters = RelationParameters::fromArray([
+            'db' => 'phpmyadmin',
+            'user' => 'groot',
+            'userconfigwork' => true,
+            'userconfig' => 'pma__userconfig',
+        ]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
     }
 
     /**
@@ -118,7 +109,6 @@ class TwoFactorTest extends AbstractTestCase
             $config['settings'] = [];
         }
 
-        $this->dummyDbi->addSelectDb('phpmyadmin');
         $this->loadResultForConfig($config);
 
         return new TwoFactor($user);
