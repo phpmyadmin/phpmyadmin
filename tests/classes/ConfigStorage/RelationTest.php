@@ -234,7 +234,7 @@ class RelationTest extends AbstractTestCase
         );
 
         $dummyDbi->addResult(
-            'SHOW TABLES FROM `db_pma`',
+            'SHOW TABLES FROM `db_pma`;',
             [['pma__userconfig']],
             ['Tables_in_db_pma'],
         );
@@ -296,7 +296,7 @@ class RelationTest extends AbstractTestCase
         );
 
         $dummyDbi->addResult(
-            'SHOW TABLES FROM `db_pma`',
+            'SHOW TABLES FROM `db_pma`;',
             [['pma__userconfig']],
             ['Tables_in_db_pma'],
         );
@@ -573,7 +573,7 @@ class RelationTest extends AbstractTestCase
         );
 
         $dummyDbi->addResult(
-            'SHOW TABLES FROM `db_pma`',
+            'SHOW TABLES FROM `db_pma`;',
             [
                 ['pma__userconfig'],
                 // This is important as it tricks default existing table detection
@@ -897,7 +897,7 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->addResult('CREATE DATABASE IF NOT EXISTS `phpmyadmin`', true);
 
         $dummyDbi->addResult(
-            'SHOW TABLES FROM `phpmyadmin`',
+            'SHOW TABLES FROM `phpmyadmin`;',
             [],
         );
         $dummyDbi->addSelectDb('phpmyadmin');
@@ -1483,7 +1483,7 @@ class RelationTest extends AbstractTestCase
         );
 
         $dummyDbi->addResult(
-            'SHOW TABLES FROM `phpmyadmin`',
+            'SHOW TABLES FROM `phpmyadmin`;',
             [['pma__userconfig']],
             ['Tables_in_phpmyadmin'],
         );
@@ -1570,7 +1570,7 @@ class RelationTest extends AbstractTestCase
         );
 
         $dummyDbi->addResult(
-            'SHOW TABLES FROM `phpmyadmin`',
+            'SHOW TABLES FROM `phpmyadmin`;',
             [['pma__userconfig']],
             ['Tables_in_phpmyadmin'],
         );
@@ -1656,7 +1656,7 @@ class RelationTest extends AbstractTestCase
         );
 
         $dummyDbi->addResult(
-            'SHOW TABLES FROM `PMA-storage`',
+            'SHOW TABLES FROM `PMA-storage`;',
             [['pma__userconfig_custom', 'pma__usergroups']],
             ['Tables_in_PMA-storage'],
         );
@@ -1681,7 +1681,7 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->assertAllSelectsConsumed();
 
         $dummyDbi->addResult(
-            'SHOW TABLES FROM `PMA-storage`',
+            'SHOW TABLES FROM `PMA-storage`;',
             [['pma__userconfig_custom', 'pma__usergroups']],
             ['Tables_in_PMA-storage'],
         );
@@ -1766,7 +1766,7 @@ class RelationTest extends AbstractTestCase
             ['Tables_in_PMA-storage'],
         );
         $dummyDbi->addResult(
-            'SHOW TABLES FROM `PMA-storage`',
+            'SHOW TABLES FROM `PMA-storage`;',
             [
                 ['pma__tracking'],
             ],
@@ -1796,7 +1796,7 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->assertAllSelectsConsumed();
 
         $dummyDbi->addResult(
-            'SHOW TABLES FROM `PMA-storage`',
+            'SHOW TABLES FROM `PMA-storage`;',
             [
                 [
                     'pma__userconfig_custom',
@@ -1888,7 +1888,7 @@ class RelationTest extends AbstractTestCase
         );
 
         $dummyDbi->addResult(
-            'SHOW TABLES FROM `PMA-storage`',
+            'SHOW TABLES FROM `PMA-storage`;',
             [
                 ['pma__favorite_custom'],
             ],
