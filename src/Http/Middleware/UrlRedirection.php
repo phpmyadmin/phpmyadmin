@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Http\Middleware;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Theme\ThemeManager;
-use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\UrlRedirector;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -32,7 +31,6 @@ final class UrlRedirection implements MiddlewareInterface
         /** @var ThemeManager $themeManager */
         $themeManager = $container->get(ThemeManager::class);
         $this->config->loadUserPreferences($themeManager, true);
-        Tracker::enable();
 
         return UrlRedirector::redirect($this->getUrlParam($request->getQueryParams()['url'] ?? null));
     }

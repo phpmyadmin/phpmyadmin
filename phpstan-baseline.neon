@@ -15696,11 +15696,6 @@ parameters:
 			path: src/Tracking/Tracker.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, mixed given\\.$#"
-			count: 2
-			path: src/Tracking/Tracker.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, string\\|false given\\.$#"
 			count: 1
 			path: src/Tracking/Tracker.php
@@ -15824,11 +15819,6 @@ parameters:
 			message: "#^Parameter \\#4 \\$ddlogCount of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForDataManipulationStatements\\(\\) expects int, mixed given\\.$#"
 			count: 1
 			path: src/Tracking/Tracking.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, mixed given\\.$#"
-			count: 1
-			path: src/Tracking/TrackingChecker.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Transformations\\:\\:getAvailableMimeTypes\\(\\) should return array but returns mixed\\.$#"

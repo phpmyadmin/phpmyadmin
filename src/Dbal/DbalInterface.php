@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Dbal;
 use PhpMyAdmin\Column;
 use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config\Settings\Server;
-use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Identifiers\DatabaseName;
@@ -297,13 +296,6 @@ interface DbalInterface
      * @param string $collation collation to set
      */
     public function setCollation(string $collation): void;
-
-    /**
-     * Function called just after a connection to the MySQL database server has
-     * been established. It sets the connection collation, and determines the
-     * version of MySQL which is running.
-     */
-    public function postConnectControl(Relation $relation): void;
 
     /**
      * returns a single value from the given result or query,

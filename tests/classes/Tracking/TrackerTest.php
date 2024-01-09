@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Tracking;
 
-use PhpMyAdmin\Cache;
 use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
@@ -58,13 +57,11 @@ class TrackerTest extends AbstractTestCase
      */
     public function testEnabled(): void
     {
-        $this->assertFalse(
-            Cache::has(Tracker::TRACKER_ENABLED_CACHE_KEY),
-        );
+        $this->assertFalse(Tracker::isEnabled());
         Tracker::enable();
-        $this->assertTrue(
-            Cache::get(Tracker::TRACKER_ENABLED_CACHE_KEY),
-        );
+        $this->assertTrue(Tracker::isEnabled());
+        Tracker::disable();
+        $this->assertFalse(Tracker::isEnabled());
     }
 
     /**
@@ -72,9 +69,7 @@ class TrackerTest extends AbstractTestCase
      */
     public function testIsActive(): void
     {
-        $this->assertFalse(
-            Cache::has(Tracker::TRACKER_ENABLED_CACHE_KEY),
-        );
+        $this->assertFalse(Tracker::isEnabled());
 
         $this->assertFalse(
             Tracker::isActive(),
@@ -106,9 +101,7 @@ class TrackerTest extends AbstractTestCase
      */
     public function testIsTracked(): void
     {
-        $this->assertFalse(
-            Cache::has(Tracker::TRACKER_ENABLED_CACHE_KEY),
-        );
+        $this->assertFalse(Tracker::isEnabled());
 
         $this->assertFalse(
             Tracker::isTracked('', ''),

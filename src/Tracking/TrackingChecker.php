@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tracking;
 
-use PhpMyAdmin\Cache;
 use PhpMyAdmin\ConfigStorage\Features\TrackingFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
@@ -50,8 +49,7 @@ class TrackingChecker
     /** @return TrackedTable[] */
     public function getTrackedTables(string $dbName): array
     {
-        $trackingEnabled = Cache::get(Tracker::TRACKER_ENABLED_CACHE_KEY, false);
-        if (! $trackingEnabled) {
+        if (! Tracker::isEnabled()) {
             return [];
         }
 

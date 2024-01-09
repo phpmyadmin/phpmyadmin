@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Config\Settings\Server;
-use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\ConnectionException;
 use PhpMyAdmin\Dbal\DbalInterface;
@@ -1209,23 +1208,6 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * Function called just after a connection to the MySQL database server has
-     * been established. It sets the connection collation, and determines the
-     * version of MySQL which is running.
-     */
-    public function postConnectControl(Relation $relation): void
-    {
-        // If Zero configuration mode enabled, check PMA tables in current db.
-        if (! Config::getInstance()->settings['ZeroConf']) {
-            return;
-        }
-
-        $this->databaseList = null;
-
-        $relation->initRelationParamsCache();
-    }
-
-    /**
      * returns a single value from the given result or query,
      * if the query or the result has more than one row or field
      * the first field of the first row is returned
@@ -1665,14 +1647,6 @@ class DatabaseInterface implements DbalInterface
                 ),
                 E_USER_WARNING,
             );
-
-            return null;
-        }
-
-        if ($connectionType === Connection::TYPE_AUXILIARY) {
-            // Do not go back to main login if connection failed
-            // (currently used only in unit testing)
-            return null;
         }
 
         return null;

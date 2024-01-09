@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Tracking;
 
-use PhpMyAdmin\Cache;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
@@ -46,9 +45,7 @@ class TrackingCheckerTest extends AbstractTestCase
 
     public function testGetTrackedTables(): void
     {
-        $this->assertFalse(
-            Cache::has(Tracker::TRACKER_ENABLED_CACHE_KEY),
-        );
+        $this->assertFalse(Tracker::isEnabled());
 
         $actual = $this->trackingChecker->getTrackedTables('dummyDb');
         $this->assertEquals([], $actual);
@@ -67,9 +64,7 @@ class TrackingCheckerTest extends AbstractTestCase
 
     public function testGetUntrackedTableNames(): void
     {
-        $this->assertFalse(
-            Cache::has(Tracker::TRACKER_ENABLED_CACHE_KEY),
-        );
+        $this->assertFalse(Tracker::isEnabled());
 
         $expectation = ['0', 'actor', 'untrackedTable'];
         $actual = $this->trackingChecker->getUntrackedTableNames('dummyDb');

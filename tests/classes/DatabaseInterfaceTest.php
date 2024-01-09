@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings\Server;
-use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
@@ -103,24 +102,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface();
         $sd = $dbi->getSystemDatabase();
         $this->assertInstanceOf(SystemDatabase::class, $sd);
-    }
-
-    public function testPostConnectControlWithZeroConf(): void
-    {
-        Config::getInstance()->settings['ZeroConf'] = true;
-        $dbi = $this->createDatabaseInterface();
-        $relationMock = $this->createMock(Relation::class);
-        $relationMock->expects($this->once())->method('initRelationParamsCache');
-        $dbi->postConnectControl($relationMock);
-    }
-
-    public function testPostConnectControlWithoutZeroConf(): void
-    {
-        Config::getInstance()->settings['ZeroConf'] = false;
-        $dbi = $this->createDatabaseInterface();
-        $relationMock = $this->createMock(Relation::class);
-        $relationMock->expects($this->never())->method('initRelationParamsCache');
-        $dbi->postConnectControl($relationMock);
     }
 
     /**
