@@ -711,7 +711,7 @@ class LanguageManager
     /** @var mixed[] */
     private array $availableLocales = [];
 
-    /** @var Language[] */
+    /** @var array<string, Language> */
     private array $availableLanguages = [];
 
     private bool $langFailedConfig = false;
@@ -810,28 +810,18 @@ class LanguageManager
     /**
      * Returns (cached) list of all available languages
      *
-     * @return Language[] array of Language objects
+     * @return array<string, Language>
      */
     public function availableLanguages(): array
     {
-        if ($this->availableLanguages === []) {
-            $this->availableLanguages = [];
+        if ($this->availableLanguages !== []) {
+            return $this->availableLanguages;
+        }
 
-            foreach ($this->availableLocales() as $lang) {
-                $lang = strtolower($lang);
-                if (isset(static::$languageData[$lang])) {
-                    $data = static::$languageData[$lang];
-                    $this->availableLanguages[$lang] = new Language($data[0], $data[1], $data[2], $data[3], $data[4]);
-                } else {
-                    $this->availableLanguages[$lang] = new Language(
-                        $lang,
-                        ucfirst($lang),
-                        ucfirst($lang),
-                        $lang,
-                        '',
-                    );
-                }
-            }
+        foreach ($this->availableLocales() as $lang) {
+            $lang = strtolower($lang);
+            $data = self::$languageData[$lang] ?? [$lang, ucfirst($lang), ucfirst($lang), $lang, ''];
+            $this->availableLanguages[$lang] = new Language(...$data);
         }
 
         return $this->availableLanguages;

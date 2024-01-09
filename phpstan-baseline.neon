@@ -9866,11 +9866,6 @@ parameters:
 			path: src/LanguageManager.php
 
 		-
-			message: "#^Unsafe access to private property PhpMyAdmin\\\\LanguageManager\\:\\:\\$languageData through static\\:\\:\\.$#"
-			count: 2
-			path: src/LanguageManager.php
-
-		-
 			message: "#^Binary operation \"\\+\" between int\\|string\\|null and int\\<0, max\\> results in an error\\.$#"
 			count: 1
 			path: src/Linter.php
