@@ -121,13 +121,8 @@ parameters:
 			path: src/Advisory/Advisor.php
 
 		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: src/Bookmarks/Bookmark.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, mixed given\\.$#"
-			count: 1
+			message: "#^Parameter \\#2 \\$replace of function str_replace expects array\\|string, mixed given\\.$#"
+			count: 2
 			path: src/Bookmarks/Bookmark.php
 
 		-

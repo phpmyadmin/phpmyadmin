@@ -40,12 +40,13 @@
     </MixedAssignment>
   </file>
   <file src="src/Bookmarks/Bookmark.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <MixedArgument>
-      <code>$variables[$i]</code>
+      <code>$var</code>
+      <code>$var</code>
     </MixedArgument>
+    <MixedAssignment>
+      <code>$var</code>
+    </MixedAssignment>
     <PossiblyUnusedMethod>
       <code>getDatabase</code>
     </PossiblyUnusedMethod>

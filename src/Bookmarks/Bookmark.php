@@ -137,10 +137,7 @@ class Bookmark
         // replace variable placeholders with values
         $numberOfVariables = $this->getVariableCount();
         for ($i = 1; $i <= $numberOfVariables; $i++) {
-            $var = '';
-            if (! empty($variables[$i])) {
-                $var = $this->dbi->escapeString($variables[$i]);
-            }
+            $var = $variables[$i] ?? '';
 
             $query = str_replace('[VARIABLE' . $i . ']', $var, $query);
             // backward compatibility
