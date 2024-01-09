@@ -165,8 +165,7 @@ class CreateAddField
         $sqlQuery .= ' (' . implode(', ', $indexFields) . ')';
 
         if ($index['Key_block_size']) {
-            $sqlQuery .= ' KEY_BLOCK_SIZE = '
-                 . $this->dbi->escapeString($index['Key_block_size']);
+            $sqlQuery .= ' KEY_BLOCK_SIZE = ' . (int) $index['Key_block_size'];
         }
 
         // specifying index type is allowed only for primary, unique and index only
@@ -179,7 +178,7 @@ class CreateAddField
         }
 
         if ($index['Index_choice'] === 'FULLTEXT' && $index['Parser']) {
-            $sqlQuery .= ' WITH PARSER ' . $this->dbi->escapeString($index['Parser']);
+            $sqlQuery .= ' WITH PARSER ' . $index['Parser'];
         }
 
         if ($index['Index_comment']) {

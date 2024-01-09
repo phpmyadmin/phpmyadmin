@@ -1879,25 +1879,6 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * returns properly escaped string for use in MySQL queries
-     *
-     * @deprecated Use {@see quoteString()} instead.
-     *
-     * @param string $str string to be escaped
-     * @psalm-param ConnectionType $connectionType
-     *
-     * @return string a MySQL escaped string
-     */
-    public function escapeString(string $str, int $connectionType = Connection::TYPE_USER): string
-    {
-        if (isset($this->connections[$connectionType])) {
-            return $this->extension->escapeString($this->connections[$connectionType], $str);
-        }
-
-        return $str;
-    }
-
-    /**
      * Returns properly escaped string for use in MySQL LIKE clauses.
      * This method escapes only _, %, and /. It does not escape quotes or any other characters.
      *

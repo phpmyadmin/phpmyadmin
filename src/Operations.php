@@ -18,6 +18,7 @@ use function __;
 use function array_merge;
 use function count;
 use function explode;
+use function in_array;
 use function is_scalar;
 use function is_string;
 use function mb_strtolower;
@@ -677,8 +678,7 @@ class Operations
             || $_POST['new_auto_increment'] !== $GLOBALS['auto_increment'])
             && $_POST['new_auto_increment'] !== $_POST['hidden_auto_increment']
         ) {
-            $tableAlters[] = 'auto_increment = '
-                . $this->dbi->escapeString($_POST['new_auto_increment']);
+            $tableAlters[] = 'auto_increment = ' . (int) $_POST['new_auto_increment'];
         }
 
         if (! empty($_POST['new_row_format'])) {
@@ -686,11 +686,10 @@ class Operations
             $newRowFormatLower = mb_strtolower($newRowFormat);
             if (
                 $pmaTable->isEngine(['MYISAM', 'ARIA', 'INNODB', 'PBXT'])
-                && ($rowFormat === ''
-                || $newRowFormatLower !== mb_strtolower($rowFormat))
+                && ($rowFormat === '' || $newRowFormatLower !== mb_strtolower($rowFormat))
+                && in_array($newRowFormat, ['DEFAULT', 'DYNAMIC', 'FIXED', 'COMPRESSED', 'REDUNDANT', 'COMPACT'], true)
             ) {
-                $tableAlters[] = 'ROW_FORMAT = '
-                    . $this->dbi->escapeString($newRowFormat);
+                $tableAlters[] = 'ROW_FORMAT = ' . $newRowFormat;
             }
         }
 
