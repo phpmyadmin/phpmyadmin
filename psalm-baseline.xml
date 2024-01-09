@@ -4381,10 +4381,6 @@
     </UnsupportedReferenceUsage>
   </file>
   <file src="src/CreateAddField.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$_POST['field_name'][$column['col_index']]]]></code>
       <code><![CDATA[$_POST['field_name'][$i]]]></code>
@@ -4394,9 +4390,7 @@
       <code>$index</code>
       <code>$index</code>
       <code><![CDATA[$index['Index_comment']]]></code>
-      <code><![CDATA[$index['Key_block_size']]]></code>
       <code><![CDATA[$index['Key_name']]]></code>
-      <code><![CDATA[$index['Parser']]]></code>
       <code>$partition</code>
       <code>$subpartition</code>
     </MixedArgument>
@@ -4430,6 +4424,7 @@
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$column['size']]]></code>
+      <code><![CDATA[$index['Parser']]]></code>
       <code><![CDATA[$partition['comment']]]></code>
       <code><![CDATA[$partition['data_directory']]]></code>
       <code><![CDATA[$partition['engine']]]></code>
