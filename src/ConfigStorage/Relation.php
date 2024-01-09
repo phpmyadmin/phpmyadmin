@@ -1541,8 +1541,7 @@ class Relation
 
         $config->selectedServer['pmadb'] = $db;
 
-        //NOTE: I am unsure why we do that, as it defeats the purpose of the session cache
-        // Unset the cache
+        // Unset the cache as new tables might have been added
         self::$cache = null;
         // Fill back the cache
         $this->getRelationParameters();
