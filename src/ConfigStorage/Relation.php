@@ -154,52 +154,50 @@ class Relation
         }
 
         $config = Config::getInstance();
-        $tabQuery = 'SHOW TABLES FROM '
-        . Util::backquote($config->selectedServer['pmadb']);
-        $tableRes = $this->dbi->tryQueryAsControlUser($tabQuery);
-        if ($tableRes === false) {
+        $tables = $this->dbi->getTables($config->selectedServer['pmadb'], Connection::TYPE_CONTROL);
+        if ($tables === []) {
             return null;
         }
 
-        while ($currTable = $tableRes->fetchRow()) {
-            if ($currTable[0] == $config->selectedServer['bookmarktable']) {
-                $relationParams['bookmark'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $config->selectedServer['relation']) {
-                $relationParams['relation'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $config->selectedServer['table_info']) {
-                $relationParams['table_info'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $config->selectedServer['table_coords']) {
-                $relationParams['table_coords'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $config->selectedServer['column_info']) {
-                $relationParams['column_info'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $config->selectedServer['pdf_pages']) {
-                $relationParams['pdf_pages'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $config->selectedServer['history']) {
-                $relationParams['history'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $config->selectedServer['recent']) {
-                $relationParams['recent'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $config->selectedServer['favorite']) {
-                $relationParams['favorite'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $config->selectedServer['table_uiprefs']) {
-                $relationParams['table_uiprefs'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $config->selectedServer['tracking']) {
-                $relationParams['tracking'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $config->selectedServer['userconfig']) {
-                $relationParams['userconfig'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $config->selectedServer['users']) {
-                $relationParams['users'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $config->selectedServer['usergroups']) {
-                $relationParams['usergroups'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $config->selectedServer['navigationhiding']) {
-                $relationParams['navigationhiding'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $config->selectedServer['savedsearches']) {
-                $relationParams['savedsearches'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $config->selectedServer['central_columns']) {
-                $relationParams['central_columns'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $config->selectedServer['designer_settings']) {
-                $relationParams['designer_settings'] = (string) $currTable[0];
-            } elseif ($currTable[0] == $config->selectedServer['export_templates']) {
-                $relationParams['export_templates'] = (string) $currTable[0];
+        foreach ($tables as $table) {
+            if ($table == $config->selectedServer['bookmarktable']) {
+                $relationParams['bookmark'] = $table;
+            } elseif ($table == $config->selectedServer['relation']) {
+                $relationParams['relation'] = $table;
+            } elseif ($table == $config->selectedServer['table_info']) {
+                $relationParams['table_info'] = $table;
+            } elseif ($table == $config->selectedServer['table_coords']) {
+                $relationParams['table_coords'] = $table;
+            } elseif ($table == $config->selectedServer['column_info']) {
+                $relationParams['column_info'] = $table;
+            } elseif ($table == $config->selectedServer['pdf_pages']) {
+                $relationParams['pdf_pages'] = $table;
+            } elseif ($table == $config->selectedServer['history']) {
+                $relationParams['history'] = $table;
+            } elseif ($table == $config->selectedServer['recent']) {
+                $relationParams['recent'] = $table;
+            } elseif ($table == $config->selectedServer['favorite']) {
+                $relationParams['favorite'] = $table;
+            } elseif ($table == $config->selectedServer['table_uiprefs']) {
+                $relationParams['table_uiprefs'] = $table;
+            } elseif ($table == $config->selectedServer['tracking']) {
+                $relationParams['tracking'] = $table;
+            } elseif ($table == $config->selectedServer['userconfig']) {
+                $relationParams['userconfig'] = $table;
+            } elseif ($table == $config->selectedServer['users']) {
+                $relationParams['users'] = $table;
+            } elseif ($table == $config->selectedServer['usergroups']) {
+                $relationParams['usergroups'] = $table;
+            } elseif ($table == $config->selectedServer['navigationhiding']) {
+                $relationParams['navigationhiding'] = $table;
+            } elseif ($table == $config->selectedServer['savedsearches']) {
+                $relationParams['savedsearches'] = $table;
+            } elseif ($table == $config->selectedServer['central_columns']) {
+                $relationParams['central_columns'] = $table;
+            } elseif ($table == $config->selectedServer['designer_settings']) {
+                $relationParams['designer_settings'] = $table;
+            } elseif ($table == $config->selectedServer['export_templates']) {
+                $relationParams['export_templates'] = $table;
             }
         }
 

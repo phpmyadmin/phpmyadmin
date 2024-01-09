@@ -852,7 +852,7 @@ class DbiDummy implements DbiExtension
                 'result' => [['utf8_general_ci']],
             ],
             ['query' => 'SELECT @@collation_database', 'columns' => ['@@collation_database'], 'result' => [['bar']]],
-            ['query' => 'SHOW TABLES FROM `phpmyadmin`', 'result' => []],
+            ['query' => 'SHOW TABLES FROM `phpmyadmin`;', 'result' => []],
             [
                 'query' => 'SELECT tracking_active FROM `pmadb`.`tracking`' .
                     " WHERE db_name = 'pma_test_db'" .
