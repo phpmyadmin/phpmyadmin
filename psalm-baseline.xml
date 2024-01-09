@@ -7452,10 +7452,6 @@
     </RedundantCast>
   </file>
   <file src="src/Operations.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['auto_increment']]]></code>
     </InvalidArrayOffset>
@@ -7573,23 +7569,19 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['comment']]]></code>
       <code><![CDATA[$_POST['db_collation']]]></code>
-      <code><![CDATA[$_POST['new_auto_increment']]]></code>
       <code><![CDATA[$_POST['prev_comment']]]></code>
       <code><![CDATA[$_POST['tbl_collation']]]></code>
       <code><![CDATA[$_POST['what']]]></code>
       <code><![CDATA[$copyMode ?? 'data']]></code>
-      <code>$newRowFormat</code>
       <code>$newRowFormat</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['comment']]]></code>
       <code><![CDATA[$_POST['db_collation']]]></code>
-      <code><![CDATA[$_POST['new_auto_increment']]]></code>
       <code><![CDATA[$_POST['prev_comment']]]></code>
       <code><![CDATA[$_POST['tbl_collation']]]></code>
       <code><![CDATA[$_POST['what']]]></code>
       <code><![CDATA[$copyMode ?? 'data']]></code>
-      <code>$newRowFormat</code>
       <code>$newRowFormat</code>
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
@@ -7611,6 +7603,9 @@
     <RedundantCondition>
       <code>$copyMode</code>
     </RedundantCondition>
+    <RiskyCast>
+      <code><![CDATA[$_POST['new_auto_increment']]]></code>
+    </RiskyCast>
     <TypeDoesNotContainNull>
       <code><![CDATA['data']]></code>
     </TypeDoesNotContainNull>
