@@ -5125,7 +5125,6 @@
       <code><![CDATA[$this->connections[$connectionType]]]></code>
       <code><![CDATA[$this->connections[$connectionType]]]></code>
       <code><![CDATA[$this->connections[$connectionType]]]></code>
-      <code><![CDATA[$this->connections[$connectionType]]]></code>
       <code><![CDATA[$this->versionComment]]></code>
       <code><![CDATA[$this->versionString]]></code>
     </MixedArgument>
@@ -13830,8 +13829,6 @@
   <file src="tests/classes/Dbal/DbiDummyTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
     </DeprecatedMethod>
     <PossiblyUnusedMethod>
       <code>errorData</code>

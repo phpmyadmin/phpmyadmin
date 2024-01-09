@@ -112,19 +112,4 @@ class DbiDummyTest extends AbstractTestCase
             ],
         ];
     }
-
-    /**
-     * Test for string escaping
-     */
-    public function testEscapeString(): void
-    {
-        $this->assertEquals(
-            'a',
-            $this->dbi->escapeString('a'),
-        );
-        $this->assertEquals(
-            'a\\\'',
-            $this->dbi->escapeString('a\''),
-        );
-    }
 }
