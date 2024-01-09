@@ -708,7 +708,7 @@ class LanguageManager
         ],
     ];
 
-    /** @var mixed[] */
+    /** @var string[] */
     private array $availableLocales = [];
 
     /** @var array<string, Language> */
@@ -740,7 +740,7 @@ class LanguageManager
     /**
      * Returns list of available locales
      *
-     * @return mixed[]
+     * @return string[]
      */
     public function listLocaleDir(): array
     {
@@ -780,7 +780,7 @@ class LanguageManager
     /**
      * Returns (cached) list of all available locales
      *
-     * @return mixed[] of strings
+     * @return string[]
      */
     public function availableLocales(): array
     {
