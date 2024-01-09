@@ -239,7 +239,6 @@ class RelationTest extends AbstractTestCase
             ['Tables_in_db_pma'],
         );
 
-        $dummyDbi->addResult('SELECT NULL FROM `pma__userconfig` LIMIT 0', []);
         $dummyDbi->addSelectDb('db_pma');
 
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
@@ -301,7 +300,6 @@ class RelationTest extends AbstractTestCase
             ['Tables_in_db_pma'],
         );
 
-        $dummyDbi->addResult('SELECT NULL FROM `pma__userconfig` LIMIT 0', []);
         $dummyDbi->addSelectDb('db_pma');
         $dummyDbi->addSelectDb('db_pma');
 
@@ -582,8 +580,6 @@ class RelationTest extends AbstractTestCase
             ],
             ['Tables_in_db_pma'],
         );
-
-        $dummyDbi->addResult('SELECT NULL FROM `pma__userconfig` LIMIT 0', []);
 
         $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
@@ -1488,8 +1484,6 @@ class RelationTest extends AbstractTestCase
             ['Tables_in_phpmyadmin'],
         );
 
-        $dummyDbi->addResult('SELECT NULL FROM `pma__userconfig` LIMIT 0', [], ['NULL']);
-
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 
         $dummyDbi->addSelectDb('phpmyadmin');
@@ -1501,92 +1495,6 @@ class RelationTest extends AbstractTestCase
         $relationParameters = RelationParameters::fromArray([
             'db' => 'phpmyadmin',
             'userconfigwork' => true,
-            'userconfig' => 'pma__userconfig',
-        ]);
-        $this->assertSame($relationParameters->toArray(), $relation->getRelationParameters()->toArray());
-
-        $this->assertSame([
-            'user' => '',
-            'pmadb' => 'phpmyadmin',
-            'bookmarktable' => '',
-            'relation' => '',
-            'table_info' => '',
-            'table_coords' => '',
-            'column_info' => '',
-            'pdf_pages' => '',
-            'history' => '',
-            'recent' => '',
-            'favorite' => '',
-            'table_uiprefs' => '',
-            'tracking' => '',
-            'userconfig' => 'pma__userconfig',
-            'users' => '',
-            'usergroups' => '',
-            'navigationhiding' => '',
-            'savedsearches' => '',
-            'central_columns' => '',
-            'designer_settings' => '',
-            'export_templates' => '',
-        ], $config->selectedServer);
-
-        $dummyDbi->assertAllQueriesConsumed();
-    }
-
-    public function testInitRelationParamsCacheDefaultDbNameDbExistsFirstServerNotWorkingTable(): void
-    {
-        Current::$database = '';
-        $config = Config::getInstance();
-        $config->selectedServer = [];
-        $config->selectedServer['user'] = '';
-        $config->selectedServer['pmadb'] = '';
-        $config->selectedServer['bookmarktable'] = '';
-        $config->selectedServer['relation'] = '';
-        $config->selectedServer['table_info'] = '';
-        $config->selectedServer['table_coords'] = '';
-        $config->selectedServer['column_info'] = '';
-        $config->selectedServer['pdf_pages'] = '';
-        $config->selectedServer['history'] = '';
-        $config->selectedServer['recent'] = '';
-        $config->selectedServer['favorite'] = '';
-        $config->selectedServer['table_uiprefs'] = '';
-        $config->selectedServer['tracking'] = '';
-        $config->selectedServer['userconfig'] = '';
-        $config->selectedServer['users'] = '';
-        $config->selectedServer['usergroups'] = '';
-        $config->selectedServer['navigationhiding'] = '';
-        $config->selectedServer['savedsearches'] = '';
-        $config->selectedServer['central_columns'] = '';
-        $config->selectedServer['designer_settings'] = '';
-        $config->selectedServer['export_templates'] = '';
-
-        $dummyDbi = $this->createDbiDummy();
-        $dbi = $this->createDatabaseInterface($dummyDbi);
-
-        $dummyDbi->removeDefaultResults();
-        $dummyDbi->addResult(
-            'SHOW TABLES FROM `phpmyadmin`;',
-            [['pma__userconfig']],
-            ['Tables_in_phpmyadmin'],
-        );
-
-        $dummyDbi->addResult(
-            'SHOW TABLES FROM `phpmyadmin`;',
-            [['pma__userconfig']],
-            ['Tables_in_phpmyadmin'],
-        );
-
-        $dummyDbi->addResult('SELECT NULL FROM `pma__userconfig` LIMIT 0', false);
-
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
-
-        $dummyDbi->addSelectDb('phpmyadmin');
-        $relation = new Relation($dbi);
-        $relation->initRelationParamsCache();
-        $dummyDbi->assertAllSelectsConsumed();
-
-        $relationParameters = RelationParameters::fromArray([
-            'db' => 'phpmyadmin',
-            'userconfigwork' => false,
             'userconfig' => 'pma__userconfig',
         ]);
         $this->assertSame($relationParameters->toArray(), $relation->getRelationParameters()->toArray());
@@ -1661,8 +1569,6 @@ class RelationTest extends AbstractTestCase
             ['Tables_in_PMA-storage'],
         );
 
-        $dummyDbi->addResult('SELECT NULL FROM `pma__userconfig_custom` LIMIT 0', [], ['NULL']);
-
         $dummyDbi->addSelectDb('PMA-storage');
 
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
@@ -1685,8 +1591,6 @@ class RelationTest extends AbstractTestCase
             [['pma__userconfig_custom', 'pma__usergroups']],
             ['Tables_in_PMA-storage'],
         );
-
-        $dummyDbi->addResult('SELECT NULL FROM `pma__userconfig_custom` LIMIT 0', [], ['NULL']);
 
         $dummyDbi->addSelectDb('PMA-storage');
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
@@ -1894,8 +1798,6 @@ class RelationTest extends AbstractTestCase
             ],
             ['Tables_in_PMA-storage'],
         );
-
-        $dummyDbi->addResult('SELECT NULL FROM `pma__favorite_custom` LIMIT 0', [], ['NULL']);
 
         $_SESSION['tmpval'] = [];
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);

@@ -81,34 +81,22 @@ class Relation
     private function checkTableAccess(array $relationParams): array
     {
         if (isset($relationParams['relation'], $relationParams['table_info'])) {
-            if ($this->canAccessStorageTable((string) $relationParams['table_info'])) {
-                $relationParams['displaywork'] = true;
-            }
+            $relationParams['displaywork'] = true;
         }
 
         if (isset($relationParams['table_coords'], $relationParams['pdf_pages'])) {
-            if ($this->canAccessStorageTable((string) $relationParams['table_coords'])) {
-                if ($this->canAccessStorageTable((string) $relationParams['pdf_pages'])) {
-                    $relationParams['pdfwork'] = true;
-                }
-            }
+            $relationParams['pdfwork'] = true;
         }
 
         if (isset($relationParams['column_info'])) {
-            if ($this->canAccessStorageTable((string) $relationParams['column_info'])) {
-                $relationParams['commwork'] = true;
-                // phpMyAdmin 4.3+
-                // Check for input transformations upgrade.
-                $relationParams['mimework'] = $this->tryUpgradeTransformations();
-            }
+            $relationParams['commwork'] = true;
+            // phpMyAdmin 4.3+
+            // Check for input transformations upgrade.
+            $relationParams['mimework'] = $this->tryUpgradeTransformations();
         }
 
         if (isset($relationParams['users'], $relationParams['usergroups'])) {
-            if ($this->canAccessStorageTable((string) $relationParams['users'])) {
-                if ($this->canAccessStorageTable((string) $relationParams['usergroups'])) {
-                    $relationParams['menuswork'] = true;
-                }
-            }
+            $relationParams['menuswork'] = true;
         }
 
         $settings = [
@@ -129,10 +117,6 @@ class Relation
 
         foreach ($settings as $setingName => $worksKey) {
             if (! isset($relationParams[$setingName])) {
-                continue;
-            }
-
-            if (! $this->canAccessStorageTable((string) $relationParams[$setingName])) {
                 continue;
             }
 
@@ -293,18 +277,6 @@ class Relation
         $relationParams['allworks'] = $allWorks;
 
         return $relationParams;
-    }
-
-    /**
-     * Check if the table is accessible
-     *
-     * @param string $tableDbName The table or table.db
-     */
-    public function canAccessStorageTable(string $tableDbName): bool
-    {
-        $result = $this->dbi->tryQueryAsControlUser('SELECT NULL FROM ' . Util::backquote($tableDbName) . ' LIMIT 0');
-
-        return $result !== false;
     }
 
     /**

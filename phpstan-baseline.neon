@@ -16667,7 +16667,7 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{\\}\\.$#"
-			count: 6
+			count: 5
 			path: tests/classes/ConfigStorage/RelationTest.php
 
 		-

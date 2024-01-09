@@ -12782,7 +12782,6 @@
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
     </DeprecatedMethod>
     <DocblockTypeContradiction>
       <code>assertSame</code>
@@ -12872,28 +12871,6 @@
       <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[$config->selectedServer]]></code>
-      <code>[]</code>
       <code>[]</code>
       <code>[]</code>
       <code>[]</code>
@@ -12913,7 +12890,6 @@
       <code>assertSame</code>
     </RedundantConditionGivenDocblockType>
     <TypeDoesNotContainType>
-      <code>assertSame</code>
       <code>assertSame</code>
       <code>assertSame</code>
       <code>assertSame</code>
