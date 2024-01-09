@@ -247,7 +247,6 @@ class Relation
             || $config->selectedServer['pmadb'] === ''
             || ! $this->dbi->selectDb($config->selectedServer['pmadb'], Connection::TYPE_CONTROL)
         ) {
-            // No server selected -> no bookmark table
             $config->selectedServer['pmadb'] = '';
 
             return $relationParams;
@@ -256,22 +255,13 @@ class Relation
         $relationParams['user'] = $config->selectedServer['user'];
         $relationParams['db'] = $config->selectedServer['pmadb'];
 
-        //  Now I just check if all tables that i need are present so I can for
-        //  example enable relations but not pdf...
-        //  I was thinking of checking if they have all required columns but I
-        //  fear it might be too slow
-
         $relationParamsFilled = $this->fillRelationParamsWithTableNames($relationParams);
 
         if ($relationParamsFilled === null) {
-            // query failed ... ?
             return $relationParams;
         }
 
-        // Filling did success
-        $relationParams = $relationParamsFilled;
-
-        $relationParams = $this->checkTableAccess($relationParams);
+        $relationParams = $this->checkTableAccess($relationParamsFilled);
 
         $allWorks = true;
         foreach ($workToTable as $work => $table) {
