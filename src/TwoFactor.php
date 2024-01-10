@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use BaconQrCode\Renderer\ImageRenderer;
+use chillerlan\QRCode\QRCode;
 use CodeLts\U2F\U2FServer\U2FServer;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\DatabaseInterface;
@@ -16,12 +16,9 @@ use PhpMyAdmin\Plugins\TwoFactor\Application;
 use PhpMyAdmin\Plugins\TwoFactor\Invalid;
 use PhpMyAdmin\Plugins\TwoFactor\Key;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
-use PragmaRX\Google2FAQRCode\Google2FA;
-use XMLWriter;
 
 use function array_merge;
 use function class_exists;
-use function extension_loaded;
 use function in_array;
 use function is_array;
 use function is_bool;
@@ -124,14 +121,7 @@ class TwoFactor
             $result[] = 'simple';
         }
 
-        if (
-            class_exists(Google2FA::class)
-            && class_exists(ImageRenderer::class)
-            && (class_exists(XMLWriter::class) || extension_loaded('imagick'))
-        ) {
-            $result[] = 'application';
-        }
-
+        $result[] = 'application';
         $result[] = 'WebAuthn';
 
         if (class_exists(U2FServer::class)) {
@@ -149,12 +139,9 @@ class TwoFactor
     public function getMissingDeps(): array
     {
         $result = [];
-        if (! class_exists(Google2FA::class)) {
-            $result[] = ['class' => Application::getName(), 'dep' => 'pragmarx/google2fa-qrcode'];
-        }
 
-        if (! class_exists(ImageRenderer::class)) {
-            $result[] = ['class' => Application::getName(), 'dep' => 'bacon/bacon-qr-code'];
+        if (! class_exists(QRCode::class)) {
+            $result[] = ['class' => Application::getName(), 'dep' => 'chillerlan/php-qrcode'];
         }
 
         if (! class_exists(U2FServer::class)) {
