@@ -19,16 +19,8 @@
 >
   <source>
     <include>
-      <directory suffix=".php">.</directory>
+      <directory suffix=".php">src</directory>
     </include>
-    <exclude>
-      <directory>app/cache</directory>
-      <directory>examples</directory>
-      <directory>node_modules</directory>
-      <directory>tests</directory>
-      <directory>tmp</directory>
-      <directory>vendor</directory>
-    </exclude>
   </source>
   <coverage>
     <report>
