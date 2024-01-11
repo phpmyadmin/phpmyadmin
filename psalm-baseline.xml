@@ -10847,8 +10847,6 @@
       <code><![CDATA[$dbRights[$row['User']]]]></code>
       <code>$groupAssignment</code>
       <code>$row</code>
-      <code>$row</code>
-      <code>$row</code>
     </PossiblyNullArrayOffset>
     <PossiblyNullOperand>
       <code>$alterUserQuery</code>

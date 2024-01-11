@@ -57,6 +57,7 @@ use function range;
 use function sprintf;
 use function str_contains;
 use function str_replace;
+use function str_starts_with;
 use function strnatcasecmp;
 use function strtr;
 use function trim;
@@ -476,9 +477,9 @@ class Privileges
 
                 $res = $this->dbi->query($sqlQuery);
                 while ($row1 = $res->fetchRow()) {
-                    if (mb_substr($row1[0], 0, 4) === 'max_') {
+                    if (str_starts_with($row1[0], 'max_')) {
                         $row[$row1[0]] = 0;
-                    } elseif (mb_substr($row1[0], 0, 5) === 'x509_' || mb_substr($row1[0], 0, 4) === 'ssl_') {
+                    } elseif (str_starts_with($row1[0], 'x509_') || str_starts_with($row1[0], 'ssl_')) {
                         $row[$row1[0]] = '';
                     } else {
                         $row[$row1[0]] = 'N';

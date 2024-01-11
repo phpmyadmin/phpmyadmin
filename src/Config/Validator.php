@@ -35,6 +35,7 @@ use function preg_match;
 use function preg_replace;
 use function sprintf;
 use function str_replace;
+use function str_starts_with;
 use function trim;
 
 use const FILTER_FLAG_IPV4;
@@ -90,7 +91,7 @@ class Validator
                 }
 
                 for ($i = 1, $nb = count($uv); $i < $nb; $i++) {
-                    if (mb_substr($uv[$i], 0, 6) !== 'value:') {
+                    if (! str_starts_with($uv[$i], 'value:')) {
                         continue;
                     }
 
