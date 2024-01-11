@@ -12931,9 +12931,6 @@
       <code><![CDATA[$config->settings['Server']]]></code>
       <code><![CDATA[$config->settings['Server']]]></code>
     </InvalidArrayOffset>
-    <InvalidCast>
-      <code>$v</code>
-    </InvalidCast>
     <MixedArgument>
       <code><![CDATA[$gdNfo['GD Version']]]></code>
     </MixedArgument>
@@ -12949,6 +12946,9 @@
     <RedundantConditionGivenDocblockType>
       <code>assertIsArray</code>
     </RedundantConditionGivenDocblockType>
+    <TypeDoesNotContainType>
+      <code><![CDATA[str_contains($v, '2.')]]></code>
+    </TypeDoesNotContainType>
   </file>
   <file src="tests/classes/ConsoleTest.php">
     <DeprecatedMethod>

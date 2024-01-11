@@ -27,12 +27,12 @@ use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
 use PhpMyAdmin\Util;
 
 use function intval;
-use function mb_strstr;
 use function preg_quote;
 use function preg_replace;
 use function serialize;
 use function sprintf;
 use function str_ends_with;
+use function str_starts_with;
 use function trim;
 
 /**
@@ -546,7 +546,7 @@ class Tracker
     public static function handleQuery(string $query): void
     {
         // If query is marked as untouchable, leave
-        if (mb_strstr($query, '/*NOTRACK*/')) {
+        if (str_starts_with($query, '/*NOTRACK*/')) {
             return;
         }
 

@@ -19,9 +19,9 @@ use function array_intersect_key;
 use function count;
 use function in_array;
 use function mb_strpos;
-use function mb_strstr;
 use function mb_substr;
 use function preg_replace;
+use function str_contains;
 
 /**
  * Class for generating the top menu
@@ -168,7 +168,7 @@ class Menu
                     $table['comment'] = $tableObj->getComment();
                 }
 
-                if (mb_strstr($table['comment'], '; InnoDB free')) {
+                if (str_contains($table['comment'], '; InnoDB free')) {
                     $table['comment'] = (string) preg_replace('@; InnoDB free:.*?$@', '', $table['comment']);
                 }
             } else {

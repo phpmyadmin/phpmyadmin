@@ -22,7 +22,6 @@ use function file_put_contents;
 use function fileperms;
 use function function_exists;
 use function gd_info;
-use function mb_strstr;
 use function md5;
 use function ob_end_clean;
 use function ob_get_contents;
@@ -30,6 +29,7 @@ use function ob_start;
 use function phpinfo;
 use function preg_match;
 use function realpath;
+use function str_contains;
 use function strip_tags;
 use function stristr;
 use function sys_get_temp_dir;
@@ -279,7 +279,7 @@ PHP;
         if (function_exists('gd_info')) {
             $this->object->checkGd2();
             $gdNfo = gd_info();
-            if (mb_strstr($gdNfo['GD Version'], '2.')) {
+            if (str_contains($gdNfo['GD Version'], '2.')) {
                 $this->assertEquals(
                     1,
                     $this->object->get('PMA_IS_GD2'),
@@ -304,7 +304,8 @@ PHP;
             return;
         }
 
-        if (mb_strstr($v, '2.')) {
+        // TODO: The variable $v clearly is incorrect. Was this meant to be $a?
+        if (str_contains($v, '2.')) {
             $this->assertEquals(
                 1,
                 $this->object->get('PMA_IS_GD2'),
