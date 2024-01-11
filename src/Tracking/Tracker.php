@@ -37,8 +37,6 @@ use function trim;
 
 /**
  * This class tracks changes on databases, tables and views.
- *
- * @todo use stristr instead of strstr
  */
 class Tracker
 {
