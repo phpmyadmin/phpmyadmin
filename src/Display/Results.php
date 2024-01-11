@@ -418,8 +418,7 @@ class Results
 
         $bIsProcessList = isset($which[1]);
         if ($bIsProcessList) {
-            $str = ' ' . strtoupper($which[1]);
-            $bIsProcessList = strpos($str, 'PROCESSLIST') > 0;
+            $bIsProcessList = str_contains(strtoupper($which[1]), 'PROCESSLIST');
         }
 
         return $displayParts->with([
@@ -2080,9 +2079,7 @@ class Results
             );
 
             if (isset($which[1])) {
-                $str = ' ' . strtoupper($which[1]);
-                $isShowProcessList = strpos($str, 'PROCESSLIST') > 0;
-                if ($isShowProcessList) {
+                if (str_contains(strtoupper($which[1]), 'PROCESSLIST')) {
                     $mediaTypeMap['..Info'] = [
                         'mimetype' => 'Text_Plain',
                         'transformation' => 'output/Text_Plain_Sql.php',
@@ -3773,8 +3770,7 @@ class Results
                 $transformationPlugin->getMIMESubtype(),
                 'Octetstream',
             );
-            $posMimeText = strpos($transformationPlugin->getMIMEType(), 'Text');
-            if ($posMimeOctetstream || $posMimeText !== false) {
+            if ($posMimeOctetstream || str_contains($transformationPlugin->getMIMEType(), 'Text')) {
                 // Applying Transformations on hex string of binary data
                 // seems more appropriate
                 $result = pack('H*', bin2hex($content));

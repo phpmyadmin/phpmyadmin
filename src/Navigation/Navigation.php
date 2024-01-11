@@ -28,9 +28,8 @@ use function __;
 use function count;
 use function defined;
 use function file_exists;
-use function is_bool;
 use function parse_url;
-use function strpos;
+use function str_contains;
 use function trim;
 
 use const PHP_URL_HOST;
@@ -74,10 +73,9 @@ class Navigation
 
             if ($config->settings['NavigationLogoLinkWindow'] === 'main') {
                 if (empty(parse_url($logo['link'], PHP_URL_HOST))) {
-                    $hasStartChar = strpos($logo['link'], '?');
                     $logo['link'] .= Url::getCommon(
                         [],
-                        is_bool($hasStartChar) ? '?' : Url::getArgSeparator(),
+                        ! str_contains($logo['link'], '?') ? '?' : Url::getArgSeparator(),
                     );
                     // Internal link detected
                     $logo['attributes'] = '';
