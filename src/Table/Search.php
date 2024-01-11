@@ -13,7 +13,6 @@ use function explode;
 use function implode;
 use function in_array;
 use function is_array;
-use function mb_strpos;
 use function preg_match;
 use function str_contains;
 use function str_replace;
@@ -163,7 +162,7 @@ final class Search
             // strings to numbers and numbers to strings as necessary
             // during the comparison
             $needsQuoting = preg_match('@char|binary|blob|text|set|date|time|year|uuid@i', $types)
-                || mb_strpos(' ' . $funcType, 'LIKE');
+                || str_contains($funcType, 'LIKE');
 
             // LIKE %...%
             if ($funcType === 'LIKE %...%') {

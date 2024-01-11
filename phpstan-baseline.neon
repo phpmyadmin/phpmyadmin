@@ -7741,13 +7741,8 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: "#^Parameter \\#1 \\$haystack of function mb_strpos expects string, mixed given\\.$#"
-			count: 2
-			path: src/Display/Results.php
-
-		-
 			message: "#^Parameter \\#1 \\$haystack of function str_contains expects string, mixed given\\.$#"
-			count: 1
+			count: 3
 			path: src/Display/Results.php
 
 		-
@@ -8156,11 +8151,6 @@ parameters:
 			path: src/Export/Export.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\<0, max\\>\\|false given\\.$#"
-			count: 2
-			path: src/Export/Export.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
 			count: 1
 			path: src/Export/Export.php
@@ -8227,11 +8217,6 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in &&, bool\\|int\\<0, max\\>\\|string given on the right side\\.$#"
-			count: 1
-			path: src/Export/Options.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\<0, max\\>\\|false given\\.$#"
 			count: 1
 			path: src/Export/Options.php
 
@@ -10796,11 +10781,6 @@ parameters:
 			path: src/Plugins.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, int\\<0, max\\>\\|false given\\.$#"
-			count: 2
-			path: src/Plugins.php
-
-		-
 			message: "#^Parameter \\#1 \\$link of static method PhpMyAdmin\\\\Html\\\\MySQLDocumentation\\:\\:show\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Plugins.php
@@ -11601,11 +11581,6 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Casting to int something that's already int\\<1, max\\>\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
 			message: "#^Casting to string something that's already string\\.$#"
 			count: 2
 			path: src/Plugins/Export/ExportSql.php
@@ -11626,11 +11601,6 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Only booleans are allowed in an elseif condition, int\\<0, max\\>\\|false given\\.$#"
-			count: 2
-			path: src/Plugins/Export/ExportSql.php
-
-		-
 			message: "#^Only booleans are allowed in an elseif condition, mixed given\\.$#"
 			count: 1
 			path: src/Plugins/Export/ExportSql.php
@@ -11638,11 +11608,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in an if condition, bool\\|null given\\.$#"
 			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\<0, max\\>\\|false given\\.$#"
-			count: 2
 			path: src/Plugins/Export/ExportSql.php
 
 		-
@@ -11676,7 +11641,7 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Parameter \\#1 \\$haystack of function mb_strpos expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$haystack of function str_contains expects string, string\\|null given\\.$#"
 			count: 3
 			path: src/Plugins/Export/ExportSql.php
 
@@ -15153,11 +15118,6 @@ parameters:
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 3
-			path: src/Table/Search.php
-
-		-
-			message: "#^Only booleans are allowed in \\|\\|, int\\<0, max\\>\\|false given on the right side\\.$#"
-			count: 1
 			path: src/Table/Search.php
 
 		-

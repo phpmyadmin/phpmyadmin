@@ -31,13 +31,13 @@ use function count;
 use function htmlspecialchars;
 use function is_array;
 use function is_subclass_of;
-use function mb_strpos;
 use function mb_strtolower;
 use function mb_strtoupper;
 use function mb_substr;
 use function method_exists;
 use function preg_match_all;
 use function sprintf;
+use function str_contains;
 use function str_replace;
 use function str_starts_with;
 use function strcasecmp;
@@ -303,7 +303,7 @@ class Plugins
         $properties = null;
         if (! $isSubgroup) {
             // for subgroup headers
-            if (mb_strpos($propertyGroup::class, 'PropertyItem')) {
+            if (str_contains($propertyGroup::class, 'PropertyItem')) {
                 $properties = [$propertyGroup];
             } else {
                 // for main groups
@@ -336,7 +336,7 @@ class Plugins
             foreach ($properties as $propertyItem) {
                 $propertyClass = $propertyItem::class;
                 // if the property is a subgroup, we deal with it recursively
-                if (mb_strpos($propertyClass, 'Subgroup')) {
+                if (str_contains($propertyClass, 'Subgroup')) {
                     // for subgroups
                     // each subgroup can have a header, which may also be a form element
                     /** @var OptionsPropertyItem|null $subgroupHeader */

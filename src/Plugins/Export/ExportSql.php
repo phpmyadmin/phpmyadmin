@@ -52,6 +52,7 @@ use function preg_quote;
 use function preg_replace;
 use function preg_split;
 use function sprintf;
+use function str_contains;
 use function str_repeat;
 use function str_replace;
 use function strtotime;
@@ -825,7 +826,7 @@ class ExportSql extends ExportPlugin
         $createQuery = 'CREATE DATABASE IF NOT EXISTS '
             . Util::backquoteCompat($dbAlias, $compat, $this->useSqlBackquotes);
         $collation = DatabaseInterface::getInstance()->getDbCollation($db);
-        if (mb_strpos($collation, '_')) {
+        if (str_contains($collation, '_')) {
             $createQuery .= ' DEFAULT CHARACTER SET '
                 . mb_substr(
                     $collation,
@@ -1413,11 +1414,11 @@ class ExportSql extends ExportPlugin
 
             // Convert end of line chars to one that we want (note that MySQL
             // doesn't return query it will accept in all cases)
-            if (mb_strpos($createQuery, "(\r\n ")) {
+            if (str_contains($createQuery, "(\r\n ")) {
                 $createQuery = str_replace("\r\n", "\n", $createQuery);
-            } elseif (mb_strpos($createQuery, "(\n ")) {
+            } elseif (str_contains($createQuery, "(\n ")) {
                 $createQuery = str_replace("\n", "\n", $createQuery);
-            } elseif (mb_strpos($createQuery, "(\r ")) {
+            } elseif (str_contains($createQuery, "(\r ")) {
                 $createQuery = str_replace("\r", "\n", $createQuery);
             }
 

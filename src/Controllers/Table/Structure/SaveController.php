@@ -28,8 +28,8 @@ use function count;
 use function implode;
 use function in_array;
 use function is_array;
-use function mb_strpos;
 use function sprintf;
+use function str_contains;
 use function strlen;
 
 final class SaveController extends AbstractController
@@ -101,7 +101,7 @@ final class SaveController extends AbstractController
             // find the remembered sort expression
             $sortedCol = $this->tableObj->getUiProp(Table::PROP_SORTED_COLUMN);
             // if the old column name is part of the remembered sort expression
-            if (mb_strpos((string) $sortedCol, Util::backquote($_POST['field_orig'][$i])) !== false) {
+            if (str_contains((string) $sortedCol, Util::backquote($_POST['field_orig'][$i]))) {
                 // delete the whole remembered sort expression
                 $this->tableObj->removeUiProp(Table::PROP_SORTED_COLUMN);
             }

@@ -15,11 +15,11 @@ use function hash_equals;
 use function hexdec;
 use function inet_pton;
 use function ip2long;
-use function mb_strpos;
 use function mb_strtolower;
 use function mb_substr;
 use function min;
 use function preg_match;
+use function str_contains;
 use function str_replace;
 use function substr_replace;
 
@@ -36,7 +36,7 @@ class IpAllowDeny
      */
     public function ipMaskTest(string $testRange, string $ipToTest): bool
     {
-        if (mb_strpos($testRange, ':') > -1 || mb_strpos($ipToTest, ':') > -1) {
+        if (str_contains($testRange, ':') || str_contains($ipToTest, ':')) {
             // assume IPv6
             return $this->ipv6MaskTest($testRange, $ipToTest);
         }
@@ -130,8 +130,8 @@ class IpAllowDeny
         $testRange = mb_strtolower($testRange);
         $ipToTest = mb_strtolower($ipToTest);
 
-        $isCidr = mb_strpos($testRange, '/') > -1;
-        $isRange = mb_strpos($testRange, '[') > -1;
+        $isCidr = str_contains($testRange, '/');
+        $isRange = str_contains($testRange, '[');
         $isSingle = ! $isCidr && ! $isRange;
 
         $ipHex = bin2hex((string) inet_pton($ipToTest));
