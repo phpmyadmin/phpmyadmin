@@ -29,12 +29,10 @@ use function ucfirst;
  */
 class ExportCodegen extends ExportPlugin
 {
-    /**
-     * CodeGen Formats
-     *
-     * @var mixed[]
-     */
-    private array $cgFormats = [];
+    private const CODEGEN_FORMATS = [
+        self::HANDLER_NHIBERNATE_CS => 'NHibernate C# DO',
+        self::HANDLER_NHIBERNATE_XML => 'NHibernate XML',
+    ];
 
     private const HANDLER_NHIBERNATE_CS = 0;
     private const HANDLER_NHIBERNATE_XML = 1;
@@ -43,17 +41,6 @@ class ExportCodegen extends ExportPlugin
     public function getName(): string
     {
         return 'codegen';
-    }
-
-    /**
-     * Initialize the local variables that are used for export CodeGen.
-     */
-    protected function init(): void
-    {
-        $this->setCgFormats([
-            self::HANDLER_NHIBERNATE_CS => 'NHibernate C# DO',
-            self::HANDLER_NHIBERNATE_XML => 'NHibernate XML',
-        ]);
     }
 
     protected function setProperties(): ExportPluginProperties
@@ -78,7 +65,7 @@ class ExportCodegen extends ExportPlugin
             'format',
             __('Format:'),
         );
-        $leaf->setValues($this->getCgFormats());
+        $leaf->setValues(self::CODEGEN_FORMATS);
         $generalOptions->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($generalOptions);
@@ -358,25 +345,5 @@ class ExportCodegen extends ExportPlugin
         $lines[] = '</hibernate-mapping>';
 
         return implode("\n", $lines);
-    }
-
-    /**
-     * Getter for CodeGen formats
-     *
-     * @return mixed[]
-     */
-    private function getCgFormats(): array
-    {
-        return $this->cgFormats;
-    }
-
-    /**
-     * Setter for CodeGen formats
-     *
-     * @param mixed[] $cgFormats contains CodeGen Formats
-     */
-    private function setCgFormats(array $cgFormats): void
-    {
-        $this->cgFormats = $cgFormats;
     }
 }

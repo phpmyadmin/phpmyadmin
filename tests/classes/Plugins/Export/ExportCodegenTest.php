@@ -17,7 +17,6 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Group;
-use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;
 
@@ -54,19 +53,6 @@ class ExportCodegenTest extends AbstractTestCase
         parent::tearDown();
 
         unset($this->object);
-    }
-
-    public function testInitSpecificVariables(): void
-    {
-        $method = new ReflectionMethod(ExportCodegen::class, 'init');
-        $method->invoke($this->object, null);
-
-        $attrCgFormats = new ReflectionProperty(ExportCodegen::class, 'cgFormats');
-
-        $this->assertEquals(
-            ['NHibernate C# DO', 'NHibernate XML'],
-            $attrCgFormats->getValue($this->object),
-        );
     }
 
     public function testSetProperties(): void
@@ -310,26 +296,6 @@ class ExportCodegenTest extends AbstractTestCase
             '    </class>' . "\n" .
             '</hibernate-mapping>',
             $result,
-        );
-    }
-
-    /**
-     * Test for
-     *     - PhpMyAdmin\Plugins\Export\ExportCodegen::getCgFormats
-     *     - PhpMyAdmin\Plugins\Export\ExportCodegen::setCgFormats
-     */
-    public function testSetGetCgFormats(): void
-    {
-        $reflection = new ReflectionClass(ExportCodegen::class);
-
-        $getter = $reflection->getMethod('getCgFormats');
-        $setter = $reflection->getMethod('setCgFormats');
-
-        $setter->invoke($this->object, [1, 2]);
-
-        $this->assertEquals(
-            [1, 2],
-            $getter->invoke($this->object),
         );
     }
 }
