@@ -382,7 +382,7 @@ class CreateAddField
         // Adds table type, character set, comments and partition definition
         if (
             ! empty($_POST['tbl_storage_engine'])
-            && ($_POST['tbl_storage_engine'] !== 'Default')
+            && $_POST['tbl_storage_engine'] !== 'Default'
             && StorageEngine::isValid($_POST['tbl_storage_engine'])
         ) {
             $sqlQuery .= ' ENGINE = ' . $_POST['tbl_storage_engine'];

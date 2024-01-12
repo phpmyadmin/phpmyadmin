@@ -191,11 +191,9 @@ class ConfigFile
         }
 
         $defaultValue = $this->getDefault($canonicalPath);
-        $removePath = $value === $defaultValue;
         if ($this->isInSetup) {
             // remove if it has a default value or is empty
-            $removePath = $removePath
-                || (empty($value) && empty($defaultValue));
+            $removePath = $value === $defaultValue || empty($value) && empty($defaultValue);
         } else {
             // get original config values not overwritten by user
             // preferences to allow for overwriting options set in
@@ -203,8 +201,7 @@ class ConfigFile
             $instanceDefaultValue = Core::arrayRead($canonicalPath, $this->baseConfig);
             // remove if it has a default value and base config (config.inc.php)
             // uses default value
-            $removePath = $removePath
-                && ($instanceDefaultValue === $defaultValue);
+            $removePath = $value === $defaultValue && $instanceDefaultValue === $defaultValue;
         }
 
         if ($removePath) {

@@ -575,7 +575,7 @@ class Results
         return ! ($this->isCount || $this->isExport || $this->isFunction || $this->isAnalyse)
             && $statementInfo->selectFrom
             && ! empty($statementInfo->statement->from)
-            && (count($statementInfo->statement->from) === 1)
+            && count($statementInfo->statement->from) === 1
             && ! empty($statementInfo->statement->from[0]->table);
     }
 
@@ -672,7 +672,7 @@ class Results
         return [
             'page_selector' => $pageSelector,
             'number_total_page' => $numberTotalPage,
-            'has_show_all' => $config->settings['ShowAll'] || ($this->unlimNumRows <= 500),
+            'has_show_all' => $config->settings['ShowAll'] || $this->unlimNumRows <= 500,
             'hidden_fields' => $hiddenFields,
             'session_max_rows' => $isShowingAll ? $config->settings['MaxRows'] : 'all',
             'is_showing_all' => $isShowingAll,
@@ -909,7 +909,7 @@ class Results
         ];
 
         // Keep the number of rows (25, 50, 100, ...) when changing sort key value
-        if (isset($_SESSION['tmpval']) && isset($_SESSION['tmpval']['max_rows'])) {
+        if (isset($_SESSION['tmpval'], $_SESSION['tmpval']['max_rows'])) {
             $hiddenFields['session_max_rows'] = $_SESSION['tmpval']['max_rows'];
         }
 
@@ -1339,7 +1339,7 @@ class Results
             $sortOrder = '';
             // check if this is the first clause,
             // if it is then we have to add "order by"
-            $isFirstClause = ($index === 0);
+            $isFirstClause = $index === 0;
             $nameToUseInSort = $expression;
             $sortTableNew = $sortTable;
             // Test to detect if the column name is a standard name
@@ -1846,7 +1846,7 @@ class Results
         while ($GLOBALS['row'] = $dtResult->fetchRow()) {
             // add repeating headers
             if (
-                ($rowNumber !== 0) && ($_SESSION['tmpval']['repeat_cells'] > 0)
+                $rowNumber !== 0 && $_SESSION['tmpval']['repeat_cells'] > 0
                 && ($rowNumber % $_SESSION['tmpval']['repeat_cells']) === 0
             ) {
                 $tableBodyHtml .= $this->getRepeatingHeaders();
@@ -1881,7 +1881,7 @@ class Results
 
             if (
                 $displayParts->hasEditLink
-                || ($displayParts->deleteLink !== DeleteLinkEnum::NO_DELETE)
+                || $displayParts->deleteLink !== DeleteLinkEnum::NO_DELETE
             ) {
                 $expressions = [];
 
@@ -1933,8 +1933,8 @@ class Results
 
                 // 1.3 Displays the links at left if required
                 if (
-                    ($config->settings['RowActionLinks'] === self::POSITION_LEFT)
-                    || ($config->settings['RowActionLinks'] === self::POSITION_BOTH)
+                    $config->settings['RowActionLinks'] === self::POSITION_LEFT
+                    || $config->settings['RowActionLinks'] === self::POSITION_BOTH
                 ) {
                     $tableBodyHtml .= $this->template->render('display/results/checkbox_and_links', [
                         'position' => self::POSITION_LEFT,
@@ -2170,8 +2170,8 @@ class Results
 
             //  See if this column should get highlight because it's used in the
             //  where-query.
-            $conditionField = (isset($this->highlightColumns[$meta->name])
-                || isset($this->highlightColumns[Util::backquote($meta->name)]));
+            $conditionField = isset($this->highlightColumns[$meta->name])
+                || isset($this->highlightColumns[Util::backquote($meta->name)]);
 
             // Wrap MIME-transformations. [MIME]
             $transformationPlugin = null;
@@ -2214,7 +2214,7 @@ class Results
             if (
                 ! empty($this->transformationInfo[$dbLower][$tblLower][$nameLower])
                 && isset($row[$i])
-                && (trim($row[$i]) !== '')
+                && trim($row[$i]) !== ''
                 && ! $_SESSION['tmpval']['hide_transformation']
             ) {
                 /** @psalm-suppress UnresolvableInclude */
@@ -3376,7 +3376,7 @@ class Results
         $sortedColumnIndex = false;
 
         foreach ($this->fieldsMeta as $key => $meta) {
-            if (($meta->table === $sortTable) && ($meta->name === $sortColumn)) {
+            if ($meta->table === $sortTable && $meta->name === $sortColumn) {
                 $sortedColumnIndex = $key;
                 break;
             }
@@ -3485,7 +3485,7 @@ class Results
             } else {
                 $lastShownRec = $firstShownRec + $total - 1;
             }
-        } elseif (($_SESSION['tmpval']['max_rows'] === self::ALL_ROWS) || ($posNext > $total)) {
+        } elseif ($_SESSION['tmpval']['max_rows'] === self::ALL_ROWS || $posNext > $total) {
             $firstShownRec = $_SESSION['tmpval']['pos'];
             $lastShownRec = $total - 1;
         } else {
@@ -3495,7 +3495,7 @@ class Results
 
         $messageViewWarning = false;
         $table = new Table($this->table, $this->db, $this->dbi);
-        if ($table->isView() && ($total == Config::getInstance()->settings['MaxExactCountViews'])) {
+        if ($table->isView() && $total == Config::getInstance()->settings['MaxExactCountViews']) {
             $message = Message::notice(
                 __(
                     'This view has at least this number of rows. Please refer to %sdocumentation%s.',
@@ -3683,7 +3683,7 @@ class Results
         // (most probably PROCEDURE ANALYSE()) it makes no sense to
         // display the Export link).
         if (
-            ($statementInfo->queryType === self::QUERY_TYPE_SELECT)
+            $statementInfo->queryType === self::QUERY_TYPE_SELECT
             && ! $statementInfo->isProcedure
         ) {
             if (count($statementInfo->selectTables) === 1) {

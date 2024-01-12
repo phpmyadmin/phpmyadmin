@@ -194,10 +194,10 @@ class PrivilegesController extends AbstractController
             if (is_array($GLOBALS['dbname'])) {
                 foreach ($GLOBALS['dbname'] as $key => $dbName) {
                     [$GLOBALS['sql_query'][$key], $GLOBALS['message']] = $serverPrivileges->updatePrivileges(
-                        ($GLOBALS['username'] ?? ''),
-                        ($GLOBALS['hostname'] ?? ''),
-                        ($tablename ?? ($routinename ?? '')),
-                        ($dbName ?? ''),
+                        $GLOBALS['username'] ?? '',
+                        $GLOBALS['hostname'] ?? '',
+                        $tablename ?? $routinename ?? '',
+                        $dbName ?? '',
                         $itemType,
                     );
                 }
@@ -205,10 +205,10 @@ class PrivilegesController extends AbstractController
                 $GLOBALS['sql_query'] = implode("\n", $GLOBALS['sql_query']);
             } else {
                 [$GLOBALS['sql_query'], $GLOBALS['message']] = $serverPrivileges->updatePrivileges(
-                    ($GLOBALS['username'] ?? ''),
-                    ($GLOBALS['hostname'] ?? ''),
-                    ($tablename ?? ($routinename ?? '')),
-                    ($GLOBALS['dbname'] ?? ''),
+                    $GLOBALS['username'] ?? '',
+                    $GLOBALS['hostname'] ?? '',
+                    $tablename ?? $routinename ?? '',
+                    $GLOBALS['dbname'] ?? '',
                     $itemType,
                 );
             }
@@ -230,8 +230,8 @@ class PrivilegesController extends AbstractController
          */
         if ($request->hasBodyParam('revokeall')) {
             [$GLOBALS['message'], $GLOBALS['sql_query']] = $serverPrivileges->getMessageAndSqlQueryForPrivilegesRevoke(
-                (is_string($GLOBALS['dbname']) ? $GLOBALS['dbname'] : ''),
-                ($tablename ?? ($routinename ?? '')),
+                is_string($GLOBALS['dbname']) ? $GLOBALS['dbname'] : '',
+                $tablename ?? $routinename ?? '',
                 $GLOBALS['username'] ?? '',
                 $GLOBALS['hostname'] ?? '',
                 $itemType,
@@ -295,10 +295,10 @@ class PrivilegesController extends AbstractController
             && ! $request->hasQueryParam('showall')
         ) {
             $extraData = $serverPrivileges->getExtraDataForAjaxBehavior(
-                ($password ?? ''),
-                ($GLOBALS['sql_query'] ?? ''),
-                ($GLOBALS['hostname'] ?? ''),
-                ($GLOBALS['username'] ?? ''),
+                $password ?? '',
+                $GLOBALS['sql_query'] ?? '',
+                $GLOBALS['hostname'] ?? '',
+                $GLOBALS['username'] ?? '',
             );
 
             if (! empty($GLOBALS['message']) && $GLOBALS['message'] instanceof Message) {

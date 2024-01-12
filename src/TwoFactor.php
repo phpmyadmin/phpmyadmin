@@ -59,7 +59,7 @@ class TwoFactor
         $this->userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
         $this->available = $this->getAvailableBackends();
         $this->config = $this->readConfig();
-        $this->writable = ($this->config['type'] === 'db');
+        $this->writable = $this->config['type'] === 'db';
         $this->backend = $this->getBackendForCurrentUser();
     }
 

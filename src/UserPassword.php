@@ -142,7 +142,7 @@ class UserPassword
             return 'ALTER USER ' . $dbi->quoteString($username)
                 . '@' . $dbi->quoteString($hostname)
                 . ' IDENTIFIED WITH ' . $authPlugin . ' BY '
-                . ($password === '' ? "''" : '' . $dbi->quoteString($password) . '');
+                . ($password === '' ? "''" : $dbi->quoteString($password));
         }
 
         $sqlQuery = 'ALTER USER ' . $dbi->quoteString($username)

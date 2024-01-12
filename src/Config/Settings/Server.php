@@ -1043,7 +1043,7 @@ final class Server
         ];
     }
 
-    public function withSSL(bool $ssl): static
+    public function withSSL(bool $ssl): self
     {
         $clone = clone $this;
         $clone->ssl = $ssl;

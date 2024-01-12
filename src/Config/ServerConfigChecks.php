@@ -117,7 +117,7 @@ class ServerConfigChecks
         $isCookieAuthUsed = 0;
         /** @infection-ignore-all */
         for ($i = 1; $i <= $serverCnt; $i++) {
-            $cookieAuthServer = ($this->cfg->getValue('Servers/' . $i . '/auth_type') === 'cookie');
+            $cookieAuthServer = $this->cfg->getValue('Servers/' . $i . '/auth_type') === 'cookie';
             $isCookieAuthUsed |= (int) $cookieAuthServer;
             $serverName = $this->performConfigChecksServersGetServerName(
                 $this->cfg->getServerName($i),
@@ -125,7 +125,7 @@ class ServerConfigChecks
             );
             $serverName = htmlspecialchars($serverName);
 
-            if ($cookieAuthServer && (mb_strlen($blowfishSecret, '8bit') !== SODIUM_CRYPTO_SECRETBOX_KEYBYTES)) {
+            if ($cookieAuthServer && mb_strlen($blowfishSecret, '8bit') !== SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
                 $blowfishSecretSet = true;
                 $this->cfg->set('blowfish_secret', sodium_crypto_secretbox_keygen());
             }
@@ -351,8 +351,8 @@ class ServerConfigChecks
         // $cfg['LoginCookieStore']
         // LoginCookieValidity must be less or equal to LoginCookieStore
         if (
-            ($this->cfg->getValue('LoginCookieStore') == 0)
-            || ($loginCookieValidity <= $this->cfg->getValue('LoginCookieStore'))
+            $this->cfg->getValue('LoginCookieStore') == 0
+            || $loginCookieValidity <= $this->cfg->getValue('LoginCookieStore')
         ) {
             return;
         }

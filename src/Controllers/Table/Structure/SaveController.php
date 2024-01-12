@@ -167,13 +167,11 @@ final class SaveController extends AbstractController
                     && $_POST['field_collation'][$i] !== $_POST['field_collation_orig'][$i]
                     && ! in_array($_POST['field_orig'][$i], $columnsWithIndex)
                 ) {
-                    if ($_POST['field_type_orig'][$i] === 'MEDIUMTEXT') {
-                        $blobType = 'MEDIUMBLOB';
-                    } elseif ($_POST['field_type_orig'][$i] === 'LONGTEXT') {
-                        $blobType = 'LONGBLOB';
-                    } else {
-                        $blobType = 'BLOB';
-                    }
+                    $blobType = match ($_POST['field_type_orig'][$i]) {
+                        'MEDIUMTEXT' => 'MEDIUMBLOB',
+                        'LONGTEXT' => 'LONGBLOB',
+                        default => 'BLOB',
+                    };
 
                     $secondaryQuery = 'ALTER TABLE ' . Util::backquote(Current::$table)
                         . ' CHANGE ' . Util::backquote($_POST['field_orig'][$i])

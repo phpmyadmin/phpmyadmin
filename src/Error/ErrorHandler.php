@@ -431,7 +431,7 @@ class ErrorHandler
 
         // restore saved errors
         foreach ($_SESSION['errors'] as $hash => $error) {
-            if (! ($error instanceof Error) || isset($this->errors[$hash])) {
+            if (! $error instanceof Error || isset($this->errors[$hash])) {
                 continue;
             }
 

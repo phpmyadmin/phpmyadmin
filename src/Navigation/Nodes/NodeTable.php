@@ -193,7 +193,7 @@ class NodeTable extends NodeDatabaseChild
                             'key' => $arr['Key'],
                             'type' => Util::extractColumnSpec($arr['Type'])['type'],
                             'default' => $arr['Default'],
-                            'nullable' => ($arr['Null'] === 'NO' ? '' : 'nullable'),
+                            'nullable' => $arr['Null'] === 'NO' ? '' : 'nullable',
                         ];
                         $count++;
                     }

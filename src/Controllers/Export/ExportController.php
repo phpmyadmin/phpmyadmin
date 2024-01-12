@@ -200,7 +200,7 @@ final class ExportController extends AbstractController
         // preference over SQL Query aliases.
         $parser = new Parser($GLOBALS['sql_query']);
         $aliases = [];
-        if (! empty($parser->statements[0]) && ($parser->statements[0] instanceof SelectStatement)) {
+        if (! empty($parser->statements[0]) && $parser->statements[0] instanceof SelectStatement) {
             $aliases = $parser->statements[0]->getAliases(Current::$database);
         }
 

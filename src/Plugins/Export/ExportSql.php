@@ -1527,7 +1527,7 @@ class ExportSql extends ExportPlugin
 
             /* Avoid operation on ARCHIVE tables as those can not be altered */
             if (
-                (! empty($statement->fields) && is_array($statement->fields))
+                ! empty($statement->fields) && is_array($statement->fields)
                 && (empty($engine) || strtoupper($engine) !== 'ARCHIVE')
             ) {
 
@@ -1668,7 +1668,7 @@ class ExportSql extends ExportPlugin
                         . implode(',' . "\n" . '  MODIFY ', $autoIncrement);
                     if (
                         isset($GLOBALS['sql_auto_increment'])
-                        && ($statement->entityOptions->has('AUTO_INCREMENT') !== false)
+                        && $statement->entityOptions->has('AUTO_INCREMENT') !== false
                         && (! isset($GLOBALS['table_data']) || in_array($table, $GLOBALS['table_data']))
                     ) {
                         $sqlAutoIncrementsQuery .= ', AUTO_INCREMENT='
@@ -2485,7 +2485,7 @@ class ExportSql extends ExportPlugin
             }
 
             // Replacing new values.
-            if (($statement->name->database !== $newDatabase) || ($statement->name->table !== $newTable)) {
+            if ($statement->name->database !== $newDatabase || $statement->name->table !== $newTable) {
                 $statement->name->database = $newDatabase;
                 $statement->name->table = $newTable;
                 $statement->name->expr = ''; // Force rebuild.

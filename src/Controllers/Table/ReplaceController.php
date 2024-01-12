@@ -517,9 +517,9 @@ final class ReplaceController extends AbstractController
                 : [$whereClause];
             $usingKey = true;
             $submitType = $request->getParsedBodyParam('submit_type');
-            $isInsert = ($submitType === 'insert'
+            $isInsert = $submitType === 'insert'
                     || $submitType === 'showinsert'
-                    || $submitType === 'insertignore');
+                    || $submitType === 'insertignore';
         } else {
             // new row => use indexes
             $loopArray = [];

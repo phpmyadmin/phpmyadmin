@@ -375,13 +375,12 @@ class Transformations
         $transformation = mb_strtolower($transformation);
 
         // Do we have any parameter to set?
-        $hasValue = (
+        $hasValue =
             strlen($mimetype) > 0 ||
             strlen($transformation) > 0 ||
             strlen($transformationOpts) > 0 ||
             strlen($inputTransform) > 0 ||
-            strlen($inputTransformOpts) > 0
-        );
+            strlen($inputTransformOpts) > 0;
 
         $testQry = '
              SELECT `mimetype`,
@@ -473,7 +472,7 @@ class Transformations
             . Util::backquote($browserTransformationFeature->columnInfo)
             . ' WHERE ';
 
-        if (($column != '') && ($table != '')) {
+        if ($column != '' && $table != '') {
             $deleteSql .= '`db_name` = \'' . $db . '\' AND '
                 . '`table_name` = \'' . $table . '\' AND '
                 . '`column_name` = \'' . $column . '\' ';

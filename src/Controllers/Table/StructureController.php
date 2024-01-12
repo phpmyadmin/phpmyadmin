@@ -309,8 +309,7 @@ class StructureController extends AbstractController
             $showTable['Index_length'] = 0;
         }
 
-        $isInnoDB = (isset($showTable['Type'])
-            && $showTable['Type'] === 'InnoDB');
+        $isInnoDB = isset($showTable['Type']) && $showTable['Type'] === 'InnoDB';
 
         $mergetable = $this->tableObj->isMerge();
 

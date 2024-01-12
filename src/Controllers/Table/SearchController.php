@@ -353,8 +353,8 @@ class SearchController extends AbstractController
      */
     public function getColumnProperties(int $searchIndex, int $columnIndex): array
     {
-        $selectedOperator = ($_POST['criteriaColumnOperators'][$searchIndex] ?? '');
-        $enteredValue = ($_POST['criteriaValues'] ?? '');
+        $selectedOperator = $_POST['criteriaColumnOperators'][$searchIndex] ?? '';
+        $enteredValue = $_POST['criteriaValues'] ?? '';
         //Gets column's type and collation
         $type = $this->columnTypes[$columnIndex];
         $collation = $this->columnCollations[$columnIndex];

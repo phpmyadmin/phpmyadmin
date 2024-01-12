@@ -30,11 +30,11 @@ class Text_Plain_Iptolong extends IOTransformationsPlugin
     /**
      * Does the actual work of each specific transformations plugin.
      *
-     * @param string        $buffer  text to be transformed. a binary string containing
-     *                               an IP address, as returned from MySQL's INET6_ATON
-     *                               function
-     * @param mixed[]       $options transformation options
-     * @param FieldMetadata $meta    meta information
+     * @param string             $buffer  text to be transformed. a binary string containing
+     *                                            an IP address, as returned from MySQL's INET6_ATON
+     *                                            function
+     * @param mixed[]            $options transformation options
+     * @param FieldMetadata|null $meta    meta information
      *
      * @return string IP address
      */

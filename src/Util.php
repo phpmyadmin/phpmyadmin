@@ -129,8 +129,8 @@ class Util
      *
      * checks if the string is quoted and removes this quotes
      *
-     * @param string $quotedString string to remove quotes from
-     * @param string $quote        type of quote to remove
+     * @param string      $quotedString string to remove quotes from
+     * @param string|null $quote        type of quote to remove
      *
      * @return string unquoted string
      */
@@ -387,7 +387,7 @@ class Util
                 /* l10n: Thousands separator */
                 __(','),
             );
-            if (($originalValue != 0) && (floatval($value) == 0)) {
+            if ($originalValue != 0 && floatval($value) == 0) {
                 return ' <' . (1 / 10 ** $digitsRight);
             }
 
@@ -746,7 +746,7 @@ class Util
             $i = $pageNow;
             $dist = 1;
             while ($i < $x) {
-                $dist = 2 * $dist;
+                $dist *= 2;
                 $i = $pageNow + $dist;
                 if ($i <= 0 || $i > $x) {
                     continue;
@@ -758,7 +758,7 @@ class Util
             $i = $pageNow;
             $dist = 1;
             while ($i > 0) {
-                $dist = 2 * $dist;
+                $dist *= 2;
                 $i = $pageNow - $dist;
                 if ($i <= 0 || $i > $x) {
                     continue;
@@ -961,11 +961,11 @@ class Util
             }
 
             $printType = (string) preg_replace('@zerofill@', '', $printType, -1, $zerofillCount);
-            $zerofill = ($zerofillCount > 0);
+            $zerofill = $zerofillCount > 0;
             $printType = (string) preg_replace('@unsigned@', '', $printType, -1, $unsignedCount);
-            $unsigned = ($unsignedCount > 0);
+            $unsigned = $unsignedCount > 0;
             $printType = (string) preg_replace('@\/\*!100301 compressed\*\/@', '', $printType, -1, $compressedCount);
-            $compressed = ($compressedCount > 0);
+            $compressed = $compressedCount > 0;
             $printType = trim($printType);
         }
 

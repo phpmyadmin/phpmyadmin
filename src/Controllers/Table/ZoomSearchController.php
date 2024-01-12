@@ -330,8 +330,8 @@ class ZoomSearchController extends AbstractController
         }
 
         $key = array_search($field, $this->columnNames);
-        $searchIndex = (isset($_POST['it']) && is_numeric($_POST['it'])
-            ? intval($_POST['it']) : 0);
+        $searchIndex = isset($_POST['it']) && is_numeric($_POST['it'])
+            ? intval($_POST['it']) : 0;
 
         $properties = $this->getColumnProperties($searchIndex, $key);
         $this->response->addJSON(
@@ -441,8 +441,8 @@ class ZoomSearchController extends AbstractController
      */
     public function getColumnProperties(int $searchIndex, int $columnIndex): array
     {
-        $selectedOperator = ($_POST['criteriaColumnOperators'][$searchIndex] ?? '');
-        $enteredValue = ($_POST['criteriaValues'] ?? '');
+        $selectedOperator = $_POST['criteriaColumnOperators'][$searchIndex] ?? '';
+        $enteredValue = $_POST['criteriaValues'] ?? '';
         //Gets column's type and collation
         $type = $this->columnTypes[$columnIndex];
         $collation = $this->columnCollations[$columnIndex];

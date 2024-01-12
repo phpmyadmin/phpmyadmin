@@ -39,7 +39,6 @@ use function htmlspecialchars;
 use function implode;
 use function in_array;
 use function ini_get;
-use function intval;
 use function is_array;
 use function is_string;
 use function json_encode;
@@ -82,9 +81,9 @@ class Generator
     /**
      * Get a link to variable documentation
      *
-     * @param string $name       The variable name
-     * @param bool   $useMariaDB Use only MariaDB documentation
-     * @param string $text       (optional) The text for the link
+     * @param string      $name       The variable name
+     * @param bool        $useMariaDB Use only MariaDB documentation
+     * @param string|null $text       (optional) The text for the link
      *
      * @return string link or empty string
      */
@@ -278,7 +277,7 @@ class Generator
         // and the column does not have the
         // ON UPDATE DEFAULT TIMESTAMP attribute.
         if (
-            ($trueType === 'timestamp')
+            $trueType === 'timestamp'
             && $firstTimestamp
             && ($defaultValue === null || $defaultValue === '')
             && $extra !== 'on update CURRENT_TIMESTAMP'
@@ -1051,9 +1050,6 @@ class Generator
         string $name = 'pos',
         array $classes = [],
     ): string {
-        // This is often coming from $cfg['MaxTableList'] and
-        // people sometimes set it to empty string
-        $maxCount = intval($maxCount);
         if ($maxCount <= 0) {
             $maxCount = 250;
         }

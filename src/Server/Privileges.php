@@ -770,10 +770,10 @@ class Privileges
         if ($message === null) {
             $hashingFunction = 'PASSWORD';
             $serverVersion = $this->dbi->getVersion();
-            $authenticationPlugin = ($_POST['authentication_plugin'] ?? $this->getCurrentAuthenticationPlugin(
+            $authenticationPlugin = $_POST['authentication_plugin'] ?? $this->getCurrentAuthenticationPlugin(
                 $username,
                 $hostname,
-            ));
+            );
 
             // Use 'ALTER USER ...' syntax for MySQL 5.7.6+
             if (Compatibility::isMySqlOrPerconaDb() && $serverVersion >= 50706) {
@@ -1869,7 +1869,7 @@ class Privileges
 
         $userDefaults = ['User' => '', 'Host' => '%', 'Password' => '?', 'Grant_priv' => 'N', 'privs' => ['USAGE']];
         $dbRights = [];
-        while (($row = $result->fetchAssoc())) {
+        while ($row = $result->fetchAssoc()) {
             /** @psalm-var array{User: string, Host: string} $row */
             $dbRights[$row['User']][$row['Host']] = array_merge($userDefaults, $row);
         }
@@ -2303,7 +2303,7 @@ class Privileges
             $passwordSetShow,
             $alterRealSqlQuery,
             $alterSqlQuery,
-        ] = $this->getSqlQueriesForDisplayAndAddUser($username, $hostname, ($password ?? ''));
+        ] = $this->getSqlQueriesForDisplayAndAddUser($username, $hostname, $password ?? '');
 
         if (empty($_POST['change_copy'])) {
             $error = false;

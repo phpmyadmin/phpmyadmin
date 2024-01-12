@@ -752,7 +752,7 @@ class Pdf extends PdfLib
             foreach ($colFits as $key => $val) {
                 $stringWidth = $this->GetStringWidth($row[$key] ?? 'NULL');
                 $stringWidth += 6;
-                if ($adjustingMode && ($stringWidth > $sColWidth)) {
+                if ($adjustingMode && $stringWidth > $sColWidth) {
                     // any column whose data's width is bigger than
                     // the start width is now discarded
                     unset($colFits[$key]);

@@ -360,9 +360,9 @@ class Tracker
      * Gets the newest version of a tracking job
      * (in other words: gets the HEAD version).
      *
-     * @param string $dbname    name of database
-     * @param string $tablename name of table
-     * @param string $statement tracked statement
+     * @param string      $dbname    name of database
+     * @param string      $tablename name of table
+     * @param string|null $statement tracked statement
      *
      * @return int (-1 if no version exists | >  0 if a version exists)
      */
