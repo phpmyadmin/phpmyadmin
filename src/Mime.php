@@ -11,7 +11,6 @@ namespace PhpMyAdmin;
 
 use function chr;
 use function mb_strlen;
-use function mb_substr;
 use function str_starts_with;
 
 /**
@@ -35,7 +34,7 @@ class Mime
             return 'image/gif';
         }
 
-        if ($len >= 4 && mb_substr($test, 0, 4, '8bit') === "\x89PNG") {
+        if ($len >= 4 && str_starts_with($test, "\x89PNG")) {
             return 'image/png';
         }
 

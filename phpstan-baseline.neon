@@ -462,17 +462,12 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in a negated boolean, string\\|false given\\.$#"
-			count: 3
+			count: 2
 			path: src/Config.php
 
 		-
 			message: "#^Only booleans are allowed in an elseif condition, int\\|false given\\.$#"
 			count: 6
-			path: src/Config.php
-
-		-
-			message: "#^Only booleans are allowed in an elseif condition, string\\|false given\\.$#"
-			count: 4
 			path: src/Config.php
 
 		-
@@ -487,7 +482,7 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in an if condition, string\\|false given\\.$#"
-			count: 4
+			count: 2
 			path: src/Config.php
 
 		-
@@ -511,7 +506,7 @@ parameters:
 			path: src/Config.php
 
 		-
-			message: "#^Parameter \\#1 \\$haystack of function mb_strstr expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$haystack of function str_contains expects string, mixed given\\.$#"
 			count: 1
 			path: src/Config.php
 
@@ -1091,6 +1086,11 @@ parameters:
 			path: src/Config/Validator.php
 
 		-
+			message: "#^Parameter \\#1 \\$haystack of function str_starts_with expects string, mixed given\\.$#"
+			count: 1
+			path: src/Config/Validator.php
+
+		-
 			message: "#^Parameter \\#1 \\$host of static method PhpMyAdmin\\\\Config\\\\Validator\\:\\:testDBConnection\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Config/Validator.php
@@ -1107,7 +1107,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function mb_substr expects string, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: src/Config/Validator.php
 
 		-
@@ -7746,13 +7746,8 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: "#^Parameter \\#1 \\$haystack of function mb_strpos expects string, mixed given\\.$#"
-			count: 2
-			path: src/Display/Results.php
-
-		-
 			message: "#^Parameter \\#1 \\$haystack of function str_contains expects string, mixed given\\.$#"
-			count: 1
+			count: 3
 			path: src/Display/Results.php
 
 		-
@@ -8161,11 +8156,6 @@ parameters:
 			path: src/Export/Export.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\<0, max\\>\\|false given\\.$#"
-			count: 2
-			path: src/Export/Export.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
 			count: 1
 			path: src/Export/Export.php
@@ -8232,11 +8222,6 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in &&, bool\\|int\\<0, max\\>\\|string given on the right side\\.$#"
-			count: 1
-			path: src/Export/Options.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\<0, max\\>\\|false given\\.$#"
 			count: 1
 			path: src/Export/Options.php
 
@@ -8991,11 +8976,6 @@ parameters:
 			path: src/Html/Generator.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, string\\|false given\\.$#"
-			count: 1
-			path: src/Html/Generator.php
-
-		-
 			message: "#^Only booleans are allowed in an elseif condition, int\\|false given\\.$#"
 			count: 1
 			path: src/Html/Generator.php
@@ -9007,7 +8987,7 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in an if condition, string\\|false given\\.$#"
-			count: 3
+			count: 1
 			path: src/Html/Generator.php
 
 		-
@@ -9586,11 +9566,6 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: "#^Only booleans are allowed in &&, string\\|false given on the right side\\.$#"
-			count: 2
-			path: src/InsertEdit.php
-
-		-
 			message: "#^Only booleans are allowed in &&, string\\|null given on the left side\\.$#"
 			count: 1
 			path: src/InsertEdit.php
@@ -9611,22 +9586,12 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: "#^Only booleans are allowed in an elseif condition, string\\|false given\\.$#"
-			count: 1
-			path: src/InsertEdit.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, array\\<array\\<int\\|string, array\\<array\\<string\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string\\|null\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string given\\.$#"
 			count: 1
 			path: src/InsertEdit.php
 
 		-
 			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
-			count: 1
-			path: src/InsertEdit.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, string\\|false given\\.$#"
 			count: 1
 			path: src/InsertEdit.php
 
@@ -9952,11 +9917,6 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in an if condition, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
-			count: 1
-			path: src/Menu.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, string\\|false given\\.$#"
 			count: 1
 			path: src/Menu.php
 
@@ -10826,11 +10786,6 @@ parameters:
 			path: src/Plugins.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, int\\<0, max\\>\\|false given\\.$#"
-			count: 2
-			path: src/Plugins.php
-
-		-
 			message: "#^Parameter \\#1 \\$link of static method PhpMyAdmin\\\\Html\\\\MySQLDocumentation\\:\\:show\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Plugins.php
@@ -11631,11 +11586,6 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Casting to int something that's already int\\<1, max\\>\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
 			message: "#^Casting to string something that's already string\\.$#"
 			count: 2
 			path: src/Plugins/Export/ExportSql.php
@@ -11656,11 +11606,6 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Only booleans are allowed in an elseif condition, int\\<0, max\\>\\|false given\\.$#"
-			count: 2
-			path: src/Plugins/Export/ExportSql.php
-
-		-
 			message: "#^Only booleans are allowed in an elseif condition, mixed given\\.$#"
 			count: 1
 			path: src/Plugins/Export/ExportSql.php
@@ -11668,11 +11613,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in an if condition, bool\\|null given\\.$#"
 			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\<0, max\\>\\|false given\\.$#"
-			count: 2
 			path: src/Plugins/Export/ExportSql.php
 
 		-
@@ -11706,7 +11646,7 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Parameter \\#1 \\$haystack of function mb_strpos expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$haystack of function str_contains expects string, string\\|null given\\.$#"
 			count: 3
 			path: src/Plugins/Export/ExportSql.php
 
@@ -14166,6 +14106,11 @@ parameters:
 			path: src/Server/Privileges.php
 
 		-
+			message: "#^Parameter \\#1 \\$haystack of function str_starts_with expects string, string\\|null given\\.$#"
+			count: 3
+			path: src/Server/Privileges.php
+
+		-
 			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:escapeGrantWildcards\\(\\) expects string, array\\<int, string\\>\\|string\\|true\\|null given\\.$#"
 			count: 1
 			path: src/Server/Privileges.php
@@ -14218,11 +14163,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$string of function mb_substr expects string, mixed given\\.$#"
 			count: 1
-			path: src/Server/Privileges.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function mb_substr expects string, string\\|null given\\.$#"
-			count: 3
 			path: src/Server/Privileges.php
 
 		-
@@ -15186,11 +15126,6 @@ parameters:
 			path: src/Table/Search.php
 
 		-
-			message: "#^Only booleans are allowed in \\|\\|, int\\<0, max\\>\\|false given on the right side\\.$#"
-			count: 1
-			path: src/Table/Search.php
-
-		-
 			message: "#^Only booleans are allowed in \\|\\|, int\\|false given on the left side\\.$#"
 			count: 1
 			path: src/Table/Search.php
@@ -15691,11 +15626,6 @@ parameters:
 			path: src/Tracking/Tracker.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, string\\|false given\\.$#"
-			count: 1
-			path: src/Tracking/Tracker.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Tracking/Tracker.php
@@ -15762,16 +15692,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:getHtmlForDataManipulationStatements\\(\\) should return string but returns mixed\\.$#"
-			count: 1
-			path: src/Tracking/Tracking.php
-
-		-
-			message: "#^Only booleans are allowed in \\|\\|, string\\|false given on the left side\\.$#"
-			count: 1
-			path: src/Tracking/Tracking.php
-
-		-
-			message: "#^Only booleans are allowed in \\|\\|, string\\|false given on the right side\\.$#"
 			count: 1
 			path: src/Tracking/Tracking.php
 
@@ -16697,16 +16617,16 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in an if condition, string\\|false given\\.$#"
-			count: 3
-			path: tests/classes/ConfigTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$haystack of function mb_strstr expects string, array\\<string\\> given\\.$#"
 			count: 1
 			path: tests/classes/ConfigTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$haystack of function mb_strstr expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$haystack of function str_contains expects string, array\\<string\\> given\\.$#"
+			count: 1
+			path: tests/classes/ConfigTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$haystack of function str_contains expects string, mixed given\\.$#"
 			count: 1
 			path: tests/classes/ConfigTest.php
 

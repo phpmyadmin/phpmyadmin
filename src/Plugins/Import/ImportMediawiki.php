@@ -18,7 +18,6 @@ use function __;
 use function count;
 use function explode;
 use function mb_strlen;
-use function mb_strpos;
 use function mb_substr;
 use function preg_match;
 use function str_contains;
@@ -545,7 +544,7 @@ class ImportMediawiki extends ImportPlugin
      */
     private function getCellContent(string $cell, string $colStartChar): string
     {
-        if (mb_strpos($cell, $colStartChar) === 0) {
+        if (str_starts_with($cell, $colStartChar)) {
             return trim(mb_substr($cell, 1));
         }
 

@@ -31,7 +31,6 @@ use function json_encode;
 use function max;
 use function mb_stripos;
 use function mb_strlen;
-use function mb_strstr;
 use function min;
 use function password_hash;
 use function preg_match;
@@ -344,9 +343,9 @@ class InsertEdit
         array $foreignData,
     ): string {
         $foreigner = $this->relation->searchColumnInForeigners($foreigners, $column->field);
-        if (mb_strstr($column->trueType, 'enum')) {
+        if (str_contains($column->trueType, 'enum')) {
             $nullifyCode = mb_strlen($column->type) > 20 ? '1' : '2';
-        } elseif (mb_strstr($column->trueType, 'set')) {
+        } elseif (str_contains($column->trueType, 'set')) {
             $nullifyCode = '3';
         } elseif ($foreigner && $foreignData['foreign_link'] == false) {
             // foreign key in a drop-down
@@ -399,7 +398,7 @@ class InsertEdit
             $textareaCols = $config->settings['CharTextareaCols'];
             $extractedColumnspec = Util::extractColumnSpec($column->type);
             $maxlength = $extractedColumnspec['spec_in_brackets'];
-        } elseif ($config->settings['LongtextDoubleTextarea'] && mb_strstr($column->pmaType, 'longtext')) {
+        } elseif ($config->settings['LongtextDoubleTextarea'] && str_contains($column->pmaType, 'longtext')) {
             $textAreaRows = $config->settings['TextareaRows'] * 2;
             $textareaCols = $config->settings['TextareaCols'] * 2;
         }
@@ -1779,7 +1778,7 @@ class InsertEdit
                 $textAreaRows = max($config->settings['CharTextareaRows'], 7);
                 $textareaCols = $config->settings['CharTextareaCols'];
                 $maxlength = $extractedColumnspec['spec_in_brackets'];
-            } elseif ($config->settings['LongtextDoubleTextarea'] && mb_strstr($column->pmaType, 'longtext')) {
+            } elseif ($config->settings['LongtextDoubleTextarea'] && str_contains($column->pmaType, 'longtext')) {
                 $textAreaRows = $config->settings['TextareaRows'] * 2;
                 $textareaCols = $config->settings['TextareaCols'] * 2;
             }

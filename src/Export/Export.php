@@ -47,12 +47,12 @@ use function is_numeric;
 use function is_string;
 use function is_writable;
 use function mb_strlen;
-use function mb_strpos;
 use function mb_strtolower;
 use function mb_substr;
 use function ob_list_handlers;
 use function preg_match;
 use function preg_replace;
+use function str_contains;
 use function strlen;
 use function strtolower;
 use function substr;
@@ -83,7 +83,7 @@ class Export
     public function shutdown(): void
     {
         $error = error_get_last();
-        if ($error == null || ! mb_strpos($error['message'], 'execution time')) {
+        if ($error === null || ! str_contains($error['message'], 'execution time')) {
             return;
         }
 
@@ -567,7 +567,7 @@ class Export
 
         // Walk over databases
         foreach ($this->dbi->getDatabaseList() as $currentDb) {
-            if (! isset($tmpSelect) || ! mb_strpos(' ' . $tmpSelect, '|' . $currentDb . '|')) {
+            if (! isset($tmpSelect) || ! str_contains(' ' . $tmpSelect, '|' . $currentDb . '|')) {
                 continue;
             }
 

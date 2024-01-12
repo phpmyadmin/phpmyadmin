@@ -34,10 +34,10 @@ use function count;
 use function implode;
 use function is_array;
 use function is_string;
-use function mb_strstr;
 use function mb_strtolower;
 use function mb_strtoupper;
 use function preg_replace;
+use function str_contains;
 use function strlen;
 use function urldecode;
 
@@ -439,8 +439,8 @@ class TableController extends AbstractController
         }
 
         $comment = '';
-        if (mb_strstr($showComment, '; InnoDB free') === false) {
-            if (mb_strstr($showComment, 'InnoDB free') === false) {
+        if (! str_contains($showComment, '; InnoDB free')) {
+            if (! str_contains($showComment, 'InnoDB free')) {
                 // only user entered comment
                 $comment = $showComment;
             }

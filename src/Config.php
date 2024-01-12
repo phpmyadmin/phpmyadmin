@@ -39,7 +39,6 @@ use function is_numeric;
 use function is_readable;
 use function is_string;
 use function is_writable;
-use function mb_strstr;
 use function mb_strtolower;
 use function md5;
 use function min;
@@ -53,6 +52,7 @@ use function realpath;
 use function rtrim;
 use function setcookie;
 use function sprintf;
+use function str_contains;
 use function str_ends_with;
 use function stripos;
 use function strtolower;
@@ -187,15 +187,15 @@ class Config
      */
     private function setClientPlatform(string $userAgent): void
     {
-        if (mb_strstr($userAgent, 'Win')) {
+        if (str_contains($userAgent, 'Win')) {
             $this->set('PMA_USR_OS', 'Win');
-        } elseif (mb_strstr($userAgent, 'Mac')) {
+        } elseif (str_contains($userAgent, 'Mac')) {
             $this->set('PMA_USR_OS', 'Mac');
-        } elseif (mb_strstr($userAgent, 'Linux')) {
+        } elseif (str_contains($userAgent, 'Linux')) {
             $this->set('PMA_USR_OS', 'Linux');
-        } elseif (mb_strstr($userAgent, 'Unix')) {
+        } elseif (str_contains($userAgent, 'Unix')) {
             $this->set('PMA_USR_OS', 'Unix');
-        } elseif (mb_strstr($userAgent, 'OS/2')) {
+        } elseif (str_contains($userAgent, 'OS/2')) {
             $this->set('PMA_USR_OS', 'OS/2');
         } else {
             $this->set('PMA_USR_OS', 'Other');
@@ -254,7 +254,7 @@ class Config
             $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
             // Firefox
         } elseif (
-            ! mb_strstr($httpUserAgent, 'compatible')
+            ! str_contains($httpUserAgent, 'compatible')
             && preg_match('@Firefox/([\w.]+)@', $httpUserAgent, $logVersion)
         ) {
             $this->set('PMA_USR_BROWSER_VER', $logVersion[1]);
@@ -296,7 +296,7 @@ class Config
 
         if (function_exists('gd_info')) {
             $gdInfo = gd_info();
-            if (mb_strstr($gdInfo['GD Version'], '2.')) {
+            if (str_contains($gdInfo['GD Version'], '2.')) {
                 $this->set('PMA_IS_GD2', 1);
 
                 return;

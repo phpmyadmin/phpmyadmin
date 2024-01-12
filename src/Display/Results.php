@@ -59,7 +59,6 @@ use function json_encode;
 use function max;
 use function mb_check_encoding;
 use function mb_strlen;
-use function mb_strpos;
 use function mb_strtolower;
 use function mb_strtoupper;
 use function mb_substr;
@@ -419,8 +418,7 @@ class Results
 
         $bIsProcessList = isset($which[1]);
         if ($bIsProcessList) {
-            $str = ' ' . strtoupper($which[1]);
-            $bIsProcessList = strpos($str, 'PROCESSLIST') > 0;
+            $bIsProcessList = str_contains(strtoupper($which[1]), 'PROCESSLIST');
         }
 
         return $displayParts->with([
@@ -1456,11 +1454,8 @@ class Results
         // Another query to test this:
         // SELECT p.*, FROM_UNIXTIME(p.temps) FROM mytable AS p
         // (and try clicking on each column's header twice)
-        $noSortTable = $sortTable === '' || mb_strpos(
-            $sortExpressionNoDirection[$indexInExpression],
-            $sortTable,
-        ) === false;
-        $noOpenParenthesis = mb_strpos($sortExpressionNoDirection[$indexInExpression], '(') === false;
+        $noSortTable = $sortTable === '' || ! str_contains($sortExpressionNoDirection[$indexInExpression], $sortTable);
+        $noOpenParenthesis = ! str_contains($sortExpressionNoDirection[$indexInExpression], '(');
         if ($sortTable !== '' && $noSortTable && $noOpenParenthesis) {
             $newSortExpressionNoDirection = $sortTable
                 . $sortExpressionNoDirection[$indexInExpression];
@@ -2084,9 +2079,7 @@ class Results
             );
 
             if (isset($which[1])) {
-                $str = ' ' . strtoupper($which[1]);
-                $isShowProcessList = strpos($str, 'PROCESSLIST') > 0;
-                if ($isShowProcessList) {
+                if (str_contains(strtoupper($which[1]), 'PROCESSLIST')) {
                     $mediaTypeMap['..Info'] = [
                         'mimetype' => 'Text_Plain',
                         'transformation' => 'output/Text_Plain_Sql.php',
@@ -3777,8 +3770,7 @@ class Results
                 $transformationPlugin->getMIMESubtype(),
                 'Octetstream',
             );
-            $posMimeText = strpos($transformationPlugin->getMIMEType(), 'Text');
-            if ($posMimeOctetstream || $posMimeText !== false) {
+            if ($posMimeOctetstream || str_contains($transformationPlugin->getMIMEType(), 'Text')) {
                 // Applying Transformations on hex string of binary data
                 // seems more appropriate
                 $result = pack('H*', bin2hex($content));

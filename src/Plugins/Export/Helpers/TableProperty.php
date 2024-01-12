@@ -10,6 +10,7 @@ use function htmlspecialchars;
 use function mb_strpos;
 use function mb_substr;
 use function str_replace;
+use function str_starts_with;
 use function strlen;
 use function trim;
 
@@ -103,35 +104,35 @@ class TableProperty
      */
     public function getDotNetPrimitiveType(): string
     {
-        if (mb_strpos($this->type, 'int') === 0) {
+        if (str_starts_with($this->type, 'int')) {
             return 'int';
         }
 
-        if (mb_strpos($this->type, 'longtext') === 0) {
+        if (str_starts_with($this->type, 'longtext')) {
             return 'string';
         }
 
-        if (mb_strpos($this->type, 'long') === 0) {
+        if (str_starts_with($this->type, 'long')) {
             return 'long';
         }
 
-        if (mb_strpos($this->type, 'char') === 0) {
+        if (str_starts_with($this->type, 'char')) {
             return 'string';
         }
 
-        if (mb_strpos($this->type, 'varchar') === 0) {
+        if (str_starts_with($this->type, 'varchar')) {
             return 'string';
         }
 
-        if (mb_strpos($this->type, 'text') === 0) {
+        if (str_starts_with($this->type, 'text')) {
             return 'string';
         }
 
-        if (mb_strpos($this->type, 'tinyint') === 0) {
+        if (str_starts_with($this->type, 'tinyint')) {
             return 'bool';
         }
 
-        if (mb_strpos($this->type, 'datetime') === 0) {
+        if (str_starts_with($this->type, 'datetime')) {
             return 'DateTime';
         }
 
@@ -145,35 +146,35 @@ class TableProperty
      */
     public function getDotNetObjectType(): string
     {
-        if (mb_strpos($this->type, 'int') === 0) {
+        if (str_starts_with($this->type, 'int')) {
             return 'Int32';
         }
 
-        if (mb_strpos($this->type, 'longtext') === 0) {
+        if (str_starts_with($this->type, 'longtext')) {
             return 'String';
         }
 
-        if (mb_strpos($this->type, 'long') === 0) {
+        if (str_starts_with($this->type, 'long')) {
             return 'Long';
         }
 
-        if (mb_strpos($this->type, 'char') === 0) {
+        if (str_starts_with($this->type, 'char')) {
             return 'String';
         }
 
-        if (mb_strpos($this->type, 'varchar') === 0) {
+        if (str_starts_with($this->type, 'varchar')) {
             return 'String';
         }
 
-        if (mb_strpos($this->type, 'text') === 0) {
+        if (str_starts_with($this->type, 'text')) {
             return 'String';
         }
 
-        if (mb_strpos($this->type, 'tinyint') === 0) {
+        if (str_starts_with($this->type, 'tinyint')) {
             return 'Boolean';
         }
 
-        if (mb_strpos($this->type, 'datetime') === 0) {
+        if (str_starts_with($this->type, 'datetime')) {
             return 'DateTime';
         }
 

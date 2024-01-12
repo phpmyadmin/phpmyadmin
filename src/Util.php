@@ -63,6 +63,7 @@ use function set_time_limit;
 use function sort;
 use function sprintf;
 use function str_contains;
+use function str_ends_with;
 use function str_getcsv;
 use function str_pad;
 use function str_replace;
@@ -146,7 +147,7 @@ class Util
         }
 
         foreach ($quotes as $quote) {
-            if (mb_substr($quotedString, 0, 1) === $quote && mb_substr($quotedString, -1, 1) === $quote) {
+            if (str_starts_with($quotedString, $quote) && str_ends_with($quotedString, $quote)) {
                 // replace escaped quotes
                 return str_replace($quote . $quote, $quote, mb_substr($quotedString, 1, -1));
             }
@@ -821,7 +822,7 @@ class Util
     public static function userDir(string $dir): string
     {
         // add trailing slash
-        if (mb_substr($dir, -1) !== '/') {
+        if (! str_ends_with($dir, '/')) {
             $dir .= '/';
         }
 

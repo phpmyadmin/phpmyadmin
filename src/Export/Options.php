@@ -20,7 +20,7 @@ use function function_exists;
 use function in_array;
 use function is_array;
 use function is_string;
-use function mb_strpos;
+use function str_contains;
 use function urldecode;
 
 final class Options
@@ -73,7 +73,7 @@ final class Options
                     $isSelected = true;
                 }
             } elseif ($tmpSelect !== '') {
-                if (mb_strpos(' ' . $tmpSelect, '|' . $currentDb . '|')) {
+                if (str_contains(' ' . $tmpSelect, '|' . $currentDb . '|')) {
                     $isSelected = true;
                 }
             } else {

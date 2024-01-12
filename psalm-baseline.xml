@@ -5809,6 +5809,9 @@
     <PossiblyNullArgument>
       <code><![CDATA[$GLOBALS['file_handle']]]></code>
     </PossiblyNullArgument>
+    <PossiblyNullArrayAccess>
+      <code><![CDATA[$error['message']]]></code>
+    </PossiblyNullArrayAccess>
     <RedundantCondition>
       <code>mb_strtolower($userExtension) !== $requiredExtension</code>
       <code>mb_strtolower($userExtension) !== $requiredExtension</code>
@@ -10841,8 +10844,6 @@
       <code><![CDATA[$dbRights[$row['User']]]]></code>
       <code>$groupAssignment</code>
       <code>$row</code>
-      <code>$row</code>
-      <code>$row</code>
     </PossiblyNullArrayOffset>
     <PossiblyNullOperand>
       <code>$alterUserQuery</code>
@@ -12928,9 +12929,6 @@
       <code><![CDATA[$config->settings['Server']]]></code>
       <code><![CDATA[$config->settings['Server']]]></code>
     </InvalidArrayOffset>
-    <InvalidCast>
-      <code>$v</code>
-    </InvalidCast>
     <MixedArgument>
       <code><![CDATA[$gdNfo['GD Version']]]></code>
     </MixedArgument>
@@ -12946,6 +12944,9 @@
     <RedundantConditionGivenDocblockType>
       <code>assertIsArray</code>
     </RedundantConditionGivenDocblockType>
+    <TypeDoesNotContainType>
+      <code><![CDATA[str_contains($v, '2.')]]></code>
+    </TypeDoesNotContainType>
   </file>
   <file src="tests/classes/ConsoleTest.php">
     <DeprecatedMethod>

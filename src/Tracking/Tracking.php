@@ -37,6 +37,7 @@ use function mb_substr;
 use function preg_replace;
 use function rtrim;
 use function sprintf;
+use function str_contains;
 use function strtotime;
 use function trim;
 
@@ -593,8 +594,8 @@ class Tracking
         $dropCreateStatements = $trackedData->ddlog[0]['statement'];
 
         if (
-            mb_strstr($trackedData->ddlog[0]['statement'], 'DROP TABLE')
-            || mb_strstr($trackedData->ddlog[0]['statement'], 'DROP VIEW')
+            str_contains($trackedData->ddlog[0]['statement'], 'DROP TABLE')
+            || str_contains($trackedData->ddlog[0]['statement'], 'DROP VIEW')
         ) {
             $dropCreateStatements .= $trackedData->ddlog[1]['statement'];
         }

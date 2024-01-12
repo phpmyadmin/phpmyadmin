@@ -35,7 +35,9 @@ use function mb_substr;
 use function preg_match;
 use function settype;
 use function sprintf;
+use function str_ends_with;
 use function str_replace;
+use function str_starts_with;
 use function trigger_error;
 use function trim;
 
@@ -396,9 +398,9 @@ class FormDisplay
         // detect password fields
         if (
             $type === 'text'
-            && (mb_substr($translatedPath, -9) === '-password'
-               || mb_substr($translatedPath, -4) === 'pass'
-               || mb_substr($translatedPath, -4) === 'Pass')
+            && (str_ends_with($translatedPath, '-password')
+               || str_ends_with($translatedPath, 'pass')
+               || str_ends_with($translatedPath, 'Pass'))
         ) {
             $type = 'password';
         }
@@ -711,8 +713,7 @@ class FormDisplay
      */
     public function getDocLink(string $path): string
     {
-        $test = mb_substr($path, 0, 6);
-        if ($test === 'Import' || $test === 'Export') {
+        if (str_starts_with($path, 'Import') || str_starts_with($path, 'Export')) {
             return '';
         }
 

@@ -44,7 +44,6 @@ use function is_array;
 use function is_string;
 use function json_encode;
 use function mb_strlen;
-use function mb_strstr;
 use function mb_strtolower;
 use function mb_substr;
 use function nl2br;
@@ -765,7 +764,7 @@ class Generator
 
         // For security reasons, if the MySQL refuses the connection, the query
         // is hidden so no details are revealed.
-        if ($sqlQuery !== '' && ! mb_strstr($sqlQuery, 'connect')) {
+        if ($sqlQuery !== '' && ! str_contains($sqlQuery, 'connect')) {
             // Static analysis errors.
             if ($errors !== []) {
                 $errorMessage .= '<p><strong>' . __('Static analysis:')
@@ -791,7 +790,7 @@ class Generator
             $formattedSqlToLower = mb_strtolower($formattedSql);
 
             // TODO: Show documentation for all statement types.
-            if (mb_strstr($formattedSqlToLower, 'select')) {
+            if (str_contains($formattedSqlToLower, 'select')) {
                 // please show me help to the error on select
                 $errorMessage .= MySQLDocumentation::show('SELECT');
             }
@@ -867,7 +866,7 @@ class Generator
         }
 
         if ($backUrl !== '') {
-            if (mb_strstr($backUrl, '?')) {
+            if (str_contains($backUrl, '?')) {
                 $backUrl .= '&amp;no_history=true';
             } else {
                 $backUrl .= '?no_history=true';

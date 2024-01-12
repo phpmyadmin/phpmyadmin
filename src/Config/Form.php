@@ -17,10 +17,10 @@ use function is_bool;
 use function is_int;
 use function is_string;
 use function ltrim;
-use function mb_strpos;
 use function mb_strrpos;
 use function mb_substr;
 use function str_replace;
+use function str_starts_with;
 use function trigger_error;
 
 use const E_USER_ERROR;
@@ -233,7 +233,7 @@ class Form
     protected function readTypes(): void
     {
         foreach ($this->fields as $name => $path) {
-            if (mb_strpos((string) $name, ':group:') === 0) {
+            if (str_starts_with((string) $name, ':group:')) {
                 $this->fieldsTypes[$name] = 'group';
                 continue;
             }
@@ -265,7 +265,7 @@ class Form
                 continue;
             }
 
-            if (mb_strpos($name, ':group:') !== 0) {
+            if (! str_starts_with($name, ':group:')) {
                 continue;
             }
 

@@ -10,7 +10,6 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Utils\SessionCache;
 
-use function mb_strpos;
 use function mb_substr;
 use function preg_match;
 use function preg_replace;
@@ -38,7 +37,7 @@ class CheckUserPrivileges
         if (
             $showGrants->grants !== 'ALL'
             && $showGrants->grants !== 'ALL PRIVILEGES'
-            && (mb_strpos($showGrants->grants, 'SELECT, INSERT, UPDATE, DELETE') === false)
+            && ! str_contains($showGrants->grants, 'SELECT, INSERT, UPDATE, DELETE')
         ) {
             return;
         }
