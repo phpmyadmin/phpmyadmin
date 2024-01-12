@@ -746,7 +746,7 @@ class Util
             $i = $pageNow;
             $dist = 1;
             while ($i < $x) {
-                $dist = 2 * $dist;
+                $dist *= 2;
                 $i = $pageNow + $dist;
                 if ($i <= 0 || $i > $x) {
                     continue;
@@ -758,7 +758,7 @@ class Util
             $i = $pageNow;
             $dist = 1;
             while ($i > 0) {
-                $dist = 2 * $dist;
+                $dist *= 2;
                 $i = $pageNow - $dist;
                 if ($i <= 0 || $i > $x) {
                     continue;

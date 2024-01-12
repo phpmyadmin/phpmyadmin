@@ -110,11 +110,7 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
         $cfg = Config::getInstance()->settings;
         $options = $this->getOptions($options, $cfg['DefaultTransformations']['External']);
 
-        if (isset($allowedPrograms[$options[0]])) {
-            $program = $allowedPrograms[$options[0]];
-        } else {
-            $program = $allowedPrograms[0];
-        }
+        $program = $allowedPrograms[$options[0]] ?? $allowedPrograms[0];
 
         if (isset($options[1]) && strlen((string) $options[1]) > 0) {
             trigger_error(sprintf(

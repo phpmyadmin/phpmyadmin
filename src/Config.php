@@ -906,7 +906,7 @@ class Config
                 /* Valid for session */
                 $validity = 0;
             } else {
-                $validity = time() + $validity;
+                $validity += time();
             }
 
             if (defined('TESTSUITE')) {

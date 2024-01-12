@@ -10150,10 +10150,8 @@
     </MixedArrayAccess>
     <MixedArrayOffset>
       <code>$allowedPrograms[$options[0]]</code>
-      <code>$allowedPrograms[$options[0]]</code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code>$program</code>
       <code>$program</code>
     </MixedAssignment>
     <MixedOperand>

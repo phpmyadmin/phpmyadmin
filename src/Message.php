@@ -591,13 +591,11 @@ class Message implements Stringable
      */
     public function getMessageWithIcon(string $message): string
     {
-        if ($this->getLevel() === 'error') {
-            $image = 's_error';
-        } elseif ($this->getLevel() === 'success') {
-            $image = 's_success';
-        } else {
-            $image = 's_notice';
-        }
+        $image = match ($this->getLevel()) {
+            'error' => 's_error',
+            'success' => 's_success',
+            default =>'s_notice',
+        };
 
         return self::notice(Html\Generator::getImage($image)) . ' ' . $message;
     }

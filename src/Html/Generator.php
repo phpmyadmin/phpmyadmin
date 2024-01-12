@@ -1051,9 +1051,6 @@ class Generator
         string $name = 'pos',
         array $classes = [],
     ): string {
-        // This is often coming from $cfg['MaxTableList'] and
-        // people sometimes set it to empty string
-        $maxCount = intval($maxCount);
         if ($maxCount <= 0) {
             $maxCount = 250;
         }

@@ -230,9 +230,11 @@ class Data
     {
         // Key_buffer_fraction
         if (
-            isset($serverStatus['Key_blocks_unused'], $serverVariables['key_cache_block_size'])
-            && isset($serverVariables['key_buffer_size'])
-            && $serverVariables['key_buffer_size'] != 0
+            isset(
+                $serverStatus['Key_blocks_unused'],
+                $serverVariables['key_cache_block_size'],
+                $serverVariables['key_buffer_size'],
+            ) && $serverVariables['key_buffer_size'] != 0
         ) {
             $serverStatus['Key_buffer_fraction_%'] = 100
                 - $serverStatus['Key_blocks_unused']

@@ -319,10 +319,13 @@ class Routines
         $retval['item_param_opts_num'] = [];
         $retval['item_param_opts_text'] = [];
         if (
-            isset($_POST['item_param_name'], $_POST['item_param_type'])
-            && isset($_POST['item_param_length'])
-            && isset($_POST['item_param_opts_num'])
-            && isset($_POST['item_param_opts_text'])
+            isset(
+                $_POST['item_param_name'],
+                $_POST['item_param_type'],
+                $_POST['item_param_length'],
+                $_POST['item_param_opts_num'],
+                $_POST['item_param_opts_text'],
+            )
             && is_array($_POST['item_param_name'])
             && is_array($_POST['item_param_type'])
             && is_array($_POST['item_param_length'])
