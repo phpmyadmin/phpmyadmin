@@ -1015,9 +1015,6 @@
     <PossiblyNullArgument>
       <code>$page</code>
     </PossiblyNullArgument>
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/EventsController.php">
     <DeprecatedMethod>
