@@ -64,7 +64,7 @@ class ErrorHandlerTest extends AbstractTestCase
         ErrorHandler::$instance = null;
         $instanceOne = ErrorHandler::getInstance();
         $instanceTwo = ErrorHandler::getInstance();
-        $this->assertSame($instanceOne, $instanceTwo);
+        self::assertSame($instanceOne, $instanceTwo);
     }
 
     /** @return array<array{int, string, string, int, string, string}> */
@@ -116,7 +116,7 @@ class ErrorHandlerTest extends AbstractTestCase
             'checkSavedErrors',
             [],
         );
-        $this->assertArrayNotHasKey('errors', $_SESSION);
+        self::assertArrayNotHasKey('errors', $_SESSION);
     }
 
     /**
@@ -126,7 +126,7 @@ class ErrorHandlerTest extends AbstractTestCase
     public function testCountErrors(): void
     {
         $this->object->addError('Compile Error', E_WARNING, 'error.txt', 15);
-        $this->assertEquals(
+        self::assertEquals(
             1,
             $this->object->countErrors(),
         );
@@ -140,23 +140,23 @@ class ErrorHandlerTest extends AbstractTestCase
     {
         $this->object->addError('Compile Error', E_WARNING, 'error.txt', 15);
         $this->object->addError('Compile Error', E_WARNING, 'error.txt', 16);
-        $this->assertEquals(
+        self::assertEquals(
             2,
             $this->object->countErrors(),
         );
-        $this->assertEquals(
+        self::assertEquals(
             [],
             $this->object->sliceErrors(2),
         );
-        $this->assertEquals(
+        self::assertEquals(
             2,
             $this->object->countErrors(),
         );
-        $this->assertCount(
+        self::assertCount(
             1,
             $this->object->sliceErrors(1),
         );
-        $this->assertEquals(
+        self::assertEquals(
             1,
             $this->object->countErrors(),
         );
@@ -173,32 +173,32 @@ class ErrorHandlerTest extends AbstractTestCase
         }
 
         // 10 initial items
-        $this->assertEquals(10, $this->object->countErrors());
-        $this->assertEquals(10, count($this->object->getCurrentErrors()));
+        self::assertEquals(10, $this->object->countErrors());
+        self::assertEquals(10, count($this->object->getCurrentErrors()));
 
         // slice 9 elements, returns one 10 - 9
         $elements = $this->object->sliceErrors(9);
         $firstKey = array_keys($elements)[0];
 
         // Gives the last element
-        $this->assertEquals(
+        self::assertEquals(
             [$firstKey => $elements[$firstKey]],
             $elements,
         );
-        $this->assertEquals(9, count($this->object->getCurrentErrors()));
-        $this->assertEquals(9, $this->object->countErrors());
+        self::assertEquals(9, count($this->object->getCurrentErrors()));
+        self::assertEquals(9, $this->object->countErrors());
 
         // Slice as much as there is (9), does nothing
         $elements = $this->object->sliceErrors(9);
-        $this->assertEquals([], $elements);
-        $this->assertEquals(9, count($this->object->getCurrentErrors()));
-        $this->assertEquals(9, $this->object->countErrors());
+        self::assertEquals([], $elements);
+        self::assertEquals(9, count($this->object->getCurrentErrors()));
+        self::assertEquals(9, $this->object->countErrors());
 
         // Slice 0, removes everything
         $elements = $this->object->sliceErrors(0);
-        $this->assertEquals(9, count($elements));
-        $this->assertEquals(0, count($this->object->getCurrentErrors()));
-        $this->assertEquals(0, $this->object->countErrors());
+        self::assertEquals(9, count($elements));
+        self::assertEquals(0, count($this->object->getCurrentErrors()));
+        self::assertEquals(0, $this->object->countErrors());
     }
 
     /**
@@ -207,12 +207,12 @@ class ErrorHandlerTest extends AbstractTestCase
     public function testCountUserErrors(): void
     {
         $this->object->addError('Compile Error', E_WARNING, 'error.txt', 15);
-        $this->assertEquals(
+        self::assertEquals(
             0,
             $this->object->countUserErrors(),
         );
         $this->object->addError('Compile Error', E_USER_WARNING, 'error.txt', 15);
-        $this->assertEquals(
+        self::assertEquals(
             1,
             $this->object->countUserErrors(),
         );
@@ -223,7 +223,7 @@ class ErrorHandlerTest extends AbstractTestCase
      */
     public function testHasUserErrors(): void
     {
-        $this->assertFalse($this->object->hasUserErrors());
+        self::assertFalse($this->object->hasUserErrors());
     }
 
     /**
@@ -231,7 +231,7 @@ class ErrorHandlerTest extends AbstractTestCase
      */
     public function testHasErrors(): void
     {
-        $this->assertFalse($this->object->hasErrors());
+        self::assertFalse($this->object->hasErrors());
     }
 
     /**
@@ -239,7 +239,7 @@ class ErrorHandlerTest extends AbstractTestCase
      */
     public function testCountDisplayErrorsForDisplayTrue(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             0,
             $this->object->countDisplayErrors(),
         );
@@ -250,7 +250,7 @@ class ErrorHandlerTest extends AbstractTestCase
      */
     public function testCountDisplayErrorsForDisplayFalse(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             0,
             $this->object->countDisplayErrors(),
         );
@@ -261,7 +261,7 @@ class ErrorHandlerTest extends AbstractTestCase
      */
     public function testHasDisplayErrors(): void
     {
-        $this->assertFalse($this->object->hasDisplayErrors());
+        self::assertFalse($this->object->hasDisplayErrors());
     }
 
     public function testHandleExceptionForDevEnv(): void
@@ -269,23 +269,23 @@ class ErrorHandlerTest extends AbstractTestCase
         $GLOBALS['lang'] = 'en';
         Config::getInstance()->set('environment', 'development');
         $errorHandler = new ErrorHandler();
-        $this->assertSame([], $errorHandler->getCurrentErrors());
+        self::assertSame([], $errorHandler->getCurrentErrors());
         try {
             $errorHandler->handleException(new Exception('Exception message.'));
         } catch (Throwable $throwable) {
         }
 
-        $this->assertInstanceOf(ExitException::class, $throwable ?? null);
+        self::assertInstanceOf(ExitException::class, $throwable ?? null);
         $output = $this->getActualOutputForAssertion();
         $errors = $errorHandler->getCurrentErrors();
-        $this->assertCount(1, $errors);
+        self::assertCount(1, $errors);
         $error = array_pop($errors);
-        $this->assertInstanceOf(Error::class, $error);
-        $this->assertSame('Exception: Exception message.', $error->getOnlyMessage());
-        $this->assertStringContainsString($error->getDisplay(), $output);
-        $this->assertStringContainsString('Internal error', $output);
-        $this->assertStringContainsString('ErrorHandlerTest.php#' . $error->getLine(), $output);
-        $this->assertStringContainsString('Exception: Exception message.', $output);
+        self::assertInstanceOf(Error::class, $error);
+        self::assertSame('Exception: Exception message.', $error->getOnlyMessage());
+        self::assertStringContainsString($error->getDisplay(), $output);
+        self::assertStringContainsString('Internal error', $output);
+        self::assertStringContainsString('ErrorHandlerTest.php#' . $error->getLine(), $output);
+        self::assertStringContainsString('Exception: Exception message.', $output);
     }
 
     public function testHandleExceptionForProdEnv(): void
@@ -293,22 +293,22 @@ class ErrorHandlerTest extends AbstractTestCase
         $GLOBALS['lang'] = 'en';
         Config::getInstance()->set('environment', 'production');
         $errorHandler = new ErrorHandler();
-        $this->assertSame([], $errorHandler->getCurrentErrors());
+        self::assertSame([], $errorHandler->getCurrentErrors());
         try {
             $errorHandler->handleException(new Exception('Exception message.'));
         } catch (Throwable $throwable) {
         }
 
-        $this->assertInstanceOf(ExitException::class, $throwable ?? null);
+        self::assertInstanceOf(ExitException::class, $throwable ?? null);
         $output = $this->getActualOutputForAssertion();
         $errors = $errorHandler->getCurrentErrors();
-        $this->assertCount(1, $errors);
+        self::assertCount(1, $errors);
         $error = array_pop($errors);
-        $this->assertInstanceOf(Error::class, $error);
-        $this->assertSame('Exception: Exception message.', $error->getOnlyMessage());
-        $this->assertStringContainsString($error->getDisplay(), $output);
-        $this->assertStringContainsString('Exception: Exception message.', $output);
-        $this->assertStringNotContainsString('ErrorHandlerTest.php#' . $error->getLine(), $output);
+        self::assertInstanceOf(Error::class, $error);
+        self::assertSame('Exception: Exception message.', $error->getOnlyMessage());
+        self::assertStringContainsString($error->getDisplay(), $output);
+        self::assertStringContainsString('Exception: Exception message.', $output);
+        self::assertStringNotContainsString('ErrorHandlerTest.php#' . $error->getLine(), $output);
     }
 
     public function testAddErrorWithFatalError(): void
@@ -321,7 +321,7 @@ class ErrorHandlerTest extends AbstractTestCase
         } catch (Throwable $exception) {
         }
 
-        $this->assertInstanceOf(ExitException::class, $exception ?? null);
+        self::assertInstanceOf(ExitException::class, $exception ?? null);
         // phpcs:disable Generic.Files.LineLength.TooLong
         $expectedStart = <<<'HTML'
 <!DOCTYPE html>
@@ -332,7 +332,7 @@ class ErrorHandlerTest extends AbstractTestCase
 HTML;
         // phpcs:enable
         $output = $this->getActualOutputForAssertion();
-        $this->assertStringStartsWith($expectedStart, $output);
-        $this->assertStringEndsWith('</li></ol></div>' . "\n\n" . '</body>' . "\n" . '</html>', $output);
+        self::assertStringStartsWith($expectedStart, $output);
+        self::assertStringEndsWith('</li></ol></div>' . "\n\n" . '</body>' . "\n" . '</html>', $output);
     }
 }

@@ -14,7 +14,7 @@ class KeyTest extends AbstractTestCase
 {
     public function testGetRegistrations(): void
     {
-        $twoFactor = $this->createStub(TwoFactor::class);
+        $twoFactor = self::createStub(TwoFactor::class);
         $twoFactor->config = [
             'backend' => 'key',
             'settings' => [
@@ -39,6 +39,6 @@ class KeyTest extends AbstractTestCase
                 'index' => 0,
             ],
         ];
-        $this->assertEquals($expected, $actual);
+        self::assertEquals($expected, $actual);
     }
 }

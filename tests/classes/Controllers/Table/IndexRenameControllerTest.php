@@ -52,7 +52,7 @@ class IndexRenameControllerTest extends AbstractTestCase
             new Indexes($dbi),
             new DbTableExists($dbi),
         ))($request);
-        $this->assertSame($expected, $response->getHTMLResult());
+        self::assertSame($expected, $response->getHTMLResult());
     }
 
     public function testPreviewSqlWithOldStatement(): void

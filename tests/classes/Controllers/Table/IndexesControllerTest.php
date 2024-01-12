@@ -68,7 +68,7 @@ class IndexesControllerTest extends AbstractTestCase
             ['Schema' => 'Schema3', 'Key_name' => 'Key_name3', 'Column_name' => 'Column_name3'],
         ];
 
-        $dbi->expects($this->any())->method('getTableIndexes')
+        $dbi->expects(self::any())->method('getTableIndexes')
             ->willReturn($indexs);
 
         DatabaseInterface::$instance = $dbi;
@@ -76,14 +76,14 @@ class IndexesControllerTest extends AbstractTestCase
         $table = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $table->expects($this->any())->method('getStatusInfo')
+        $table->expects(self::any())->method('getStatusInfo')
             ->willReturn('');
-        $table->expects($this->any())->method('isView')
+        $table->expects(self::any())->method('isView')
             ->willReturn(false);
-        $table->expects($this->any())->method('getNameAndTypeOfTheColumns')
+        $table->expects(self::any())->method('getNameAndTypeOfTheColumns')
             ->willReturn(['field_name' => 'field_type']);
 
-        $dbi->expects($this->any())->method('getTable')
+        $dbi->expects(self::any())->method('getTable')
             ->willReturn($table);
 
         $response = new ResponseStub();
@@ -106,7 +106,7 @@ class IndexesControllerTest extends AbstractTestCase
         $html = $response->getHTMLResult();
 
         //Url::getHiddenInputs
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             Url::getHiddenInputs(
                 ['db' => 'db', 'table' => 'table', 'create_index' => 1],
             ),
@@ -120,20 +120,20 @@ class IndexesControllerTest extends AbstractTestCase
                 ),
             )->getMessage(),
         );
-        $this->assertStringContainsString($docHtml, $html);
+        self::assertStringContainsString($docHtml, $html);
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             MySQLDocumentation::show('ALTER_TABLE'),
             $html,
         );
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             sprintf(__('Add %s column(s) to index'), 1),
             $html,
         );
 
         //$field_name & $field_type
-        $this->assertStringContainsString('field_name', $html);
-        $this->assertStringContainsString('field_type', $html);
+        self::assertStringContainsString('field_name', $html);
+        self::assertStringContainsString('field_type', $html);
     }
 }

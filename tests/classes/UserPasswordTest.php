@@ -38,7 +38,7 @@ class UserPasswordTest extends AbstractTestCase
         );
         $this->object = new UserPassword(
             $serverPrivileges,
-            $this->createStub(AuthenticationPluginFactory::class),
+            self::createStub(AuthenticationPluginFactory::class),
             $dbi,
         );
     }
@@ -51,7 +51,7 @@ class UserPasswordTest extends AbstractTestCase
         string $password,
         string $passwordConfirmation,
     ): void {
-        $this->assertEquals(
+        self::assertEquals(
             ['error' => $error, 'msg' => $message],
             $this->object->setChangePasswordMsg(
                 $password,

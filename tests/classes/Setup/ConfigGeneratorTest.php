@@ -42,7 +42,7 @@ class ConfigGeneratorTest extends AbstractTestCase
 
         $result = ConfigGenerator::getConfigFile($cf);
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             "<?php\n" .
             "/**\n" .
             " * Generated configuration file\n" .
@@ -50,7 +50,7 @@ class ConfigGeneratorTest extends AbstractTestCase
             $result,
         );
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             "/* Servers configuration */\n" .
             '$i = 0;' . "\n\n" .
             "/* Server: localhost [0] */\n" .
@@ -71,18 +71,18 @@ class ConfigGeneratorTest extends AbstractTestCase
         $reflection = new ReflectionClass(ConfigGenerator::class);
         $method = $reflection->getMethod('getVarExport');
 
-        $this->assertEquals(
+        self::assertEquals(
             '$cfg[\'var_name\'] = 1;' . "\n",
             $method->invoke(null, 'var_name', 1, "\n"),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             '$cfg[\'var_name\'] = array (' .
             "\n);\n",
             $method->invoke(null, 'var_name', [], "\n"),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             '$cfg[\'var_name\'] = [1, 2, 3];' . "\n",
             $method->invoke(
                 null,
@@ -92,7 +92,7 @@ class ConfigGeneratorTest extends AbstractTestCase
             ),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             '$cfg[\'var_name\'][\'1a\'] = \'foo\';' . "\n" .
             '$cfg[\'var_name\'][\'b\'] = \'bar\';' . "\n",
             $method->invoke(
@@ -109,7 +109,7 @@ class ConfigGeneratorTest extends AbstractTestCase
         $reflection = new ReflectionClass(ConfigGenerator::class);
         $method = $reflection->getMethod('getVarExport');
 
-        $this->assertEquals(
+        self::assertEquals(
             '$cfg[\'blowfish_secret\'] = \sodium_hex2bin(\''
             . '6161616161616161616161616161616161616161616161616161616161616161\');' . "\n",
             $method->invoke(null, 'blowfish_secret', str_repeat('a', SODIUM_CRYPTO_SECRETBOX_KEYBYTES), "\n"),
@@ -117,13 +117,13 @@ class ConfigGeneratorTest extends AbstractTestCase
 
         /** @var string $actual */
         $actual = $method->invoke(null, 'blowfish_secret', 'invalid secret', "\n");
-        $this->assertStringStartsWith('$cfg[\'blowfish_secret\'] = \sodium_hex2bin(\'', $actual);
-        $this->assertStringEndsWith('\');' . "\n", $actual);
+        self::assertStringStartsWith('$cfg[\'blowfish_secret\'] = \sodium_hex2bin(\'', $actual);
+        self::assertStringEndsWith('\');' . "\n", $actual);
         $pieces = explode('\'', $actual);
-        $this->assertCount(5, $pieces);
+        self::assertCount(5, $pieces);
         $binaryString = hex2bin($pieces[3]);
-        $this->assertIsString($binaryString);
-        $this->assertSame(SODIUM_CRYPTO_SECRETBOX_KEYBYTES, mb_strlen($binaryString, '8bit'));
+        self::assertIsString($binaryString);
+        self::assertSame(SODIUM_CRYPTO_SECRETBOX_KEYBYTES, mb_strlen($binaryString, '8bit'));
     }
 
     /**
@@ -134,28 +134,28 @@ class ConfigGeneratorTest extends AbstractTestCase
         $reflection = new ReflectionClass(ConfigGenerator::class);
         $method = $reflection->getMethod('isZeroBasedArray');
 
-        $this->assertFalse(
+        self::assertFalse(
             $method->invoke(
                 null,
                 ['a' => 1, 'b' => 2],
             ),
         );
 
-        $this->assertFalse(
+        self::assertFalse(
             $method->invoke(
                 null,
                 [0 => 1, 1 => 2, 3 => 3],
             ),
         );
 
-        $this->assertTrue(
+        self::assertTrue(
             $method->invoke(
                 null,
                 [],
             ),
         );
 
-        $this->assertTrue(
+        self::assertTrue(
             $method->invoke(
                 null,
                 [1, 2, 3],
@@ -175,13 +175,13 @@ class ConfigGeneratorTest extends AbstractTestCase
 
         $result = $method->invoke(null, $arr, "\n");
 
-        $this->assertEquals('[1, 2, 3, 4]', $result);
+        self::assertEquals('[1, 2, 3, 4]', $result);
 
         $arr = [1, 2, 3, 4, 7, 'foo'];
 
         $result = $method->invoke(null, $arr, "\n");
 
-        $this->assertEquals(
+        self::assertEquals(
             '[' . "\n" .
             '    1,' . "\n" .
             '    2,' . "\n" .

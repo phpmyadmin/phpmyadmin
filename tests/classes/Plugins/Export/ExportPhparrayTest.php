@@ -71,33 +71,33 @@ class ExportPhparrayTest extends AbstractTestCase
         $attrProperties = new ReflectionProperty(ExportPhparray::class, 'properties');
         $properties = $attrProperties->getValue($this->object);
 
-        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
+        self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        $this->assertEquals(
+        self::assertEquals(
             'PHP array',
             $properties->getText(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'php',
             $properties->getExtension(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'text/plain',
             $properties->getMimeType(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Options',
             $properties->getOptionsText(),
         );
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
+        self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        $this->assertEquals(
+        self::assertEquals(
             'Format Specific Options',
             $options->getName(),
         );
@@ -105,9 +105,9 @@ class ExportPhparrayTest extends AbstractTestCase
         $generalOptionsArray = $options->getProperties();
         $generalOptions = $generalOptionsArray->current();
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
+        self::assertEquals(
             'general_opts',
             $generalOptions->getName(),
         );
@@ -116,25 +116,25 @@ class ExportPhparrayTest extends AbstractTestCase
 
         $property = $generalProperties->current();
 
-        $this->assertInstanceOf(HiddenPropertyItem::class, $property);
+        self::assertInstanceOf(HiddenPropertyItem::class, $property);
     }
 
     public function testExportHeader(): void
     {
         ob_start();
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportHeader(),
         );
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
+        self::assertIsString($result);
 
-        $this->assertStringContainsString('<?php' . "\n", $result);
+        self::assertStringContainsString('<?php' . "\n", $result);
     }
 
     public function testExportFooter(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportFooter(),
         );
     }
@@ -142,26 +142,26 @@ class ExportPhparrayTest extends AbstractTestCase
     public function testExportDBHeader(): void
     {
         ob_start();
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBHeader('db'),
         );
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
+        self::assertIsString($result);
 
-        $this->assertStringContainsString("/**\n * Database `db`\n */", $result);
+        self::assertStringContainsString("/**\n * Database `db`\n */", $result);
     }
 
     public function testExportDBFooter(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBFooter('testDB'),
         );
     }
 
     public function testExportDBCreate(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBCreate('testDB', 'database'),
         );
     }
@@ -169,7 +169,7 @@ class ExportPhparrayTest extends AbstractTestCase
     public function testExportData(): void
     {
         ob_start();
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportData(
                 'test_db',
                 'test_table',
@@ -179,7 +179,7 @@ class ExportPhparrayTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertEquals(
+        self::assertEquals(
             "\n" . '/* `test_db`.`test_table` */' . "\n" .
             '$test_table = array(' . "\n" .
             '  array(\'id\' => \'1\',\'name\' => \'abcd\',\'datetimefield\' => \'2011-01-20 02:00:02\'),' . "\n" .
@@ -191,7 +191,7 @@ class ExportPhparrayTest extends AbstractTestCase
 
         // case 2: test invalid variable name fix
         ob_start();
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportData(
                 'test_db',
                 '0`932table',
@@ -201,8 +201,8 @@ class ExportPhparrayTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
-        $this->assertEquals(
+        self::assertIsString($result);
+        self::assertEquals(
             "\n" . '/* `test_db`.`0``932table` */' . "\n" .
             '$_0_932table = array(' . "\n" .
             '  array(\'id\' => \'1\',\'name\' => \'abcd\',\'datetimefield\' => \'2011-01-20 02:00:02\'),' . "\n" .

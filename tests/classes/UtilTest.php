@@ -47,7 +47,7 @@ class UtilTest extends AbstractTestCase
     #[RequiresPhpExtension('sodium')]
     public function testListPHPExtensions(): void
     {
-        $this->assertSame(
+        self::assertSame(
             ['mysqli', 'curl', 'mbstring', 'sodium'],
             Util::listPHPExtensions(),
         );
@@ -58,13 +58,13 @@ class UtilTest extends AbstractTestCase
      */
     public function testPageSelector(): void
     {
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<select class="pageselector ajax" name="pma" >',
             Util::pageselector('pma', 3),
         );
 
         // If pageNow > nbTotalPage, show the pageNow number to avoid confusion
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<option selected="selected" style="font-weight: bold" value="297">100</option>',
             Util::pageselector('pma', 3, 100, 50),
         );
@@ -79,7 +79,7 @@ class UtilTest extends AbstractTestCase
     #[DataProvider('charsetQueryData')]
     public function testGenerateCharsetQueryPart(string $collation, string $expected): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             $expected,
             Util::getCharsetQueryPart($collation),
         );
@@ -100,8 +100,8 @@ class UtilTest extends AbstractTestCase
      */
     public function testGenerateRandom(): void
     {
-        $this->assertEquals(32, strlen(Util::generateRandom(32)));
-        $this->assertEquals(16, strlen(Util::generateRandom(16)));
+        self::assertEquals(32, strlen(Util::generateRandom(32)));
+        self::assertEquals(16, strlen(Util::generateRandom(16)));
     }
 
     public function testClearUserCache(): void
@@ -109,14 +109,14 @@ class UtilTest extends AbstractTestCase
         Config::getInstance()->selectedServer['user'] = null;
         Current::$server = 2;
         SessionCache::set('is_superuser', 'yes');
-        $this->assertEquals('yes', $_SESSION['cache']['server_2']['is_superuser']);
+        self::assertEquals('yes', $_SESSION['cache']['server_2']['is_superuser']);
 
         SessionCache::set('mysql_cur_user', 'mysql');
-        $this->assertEquals('mysql', $_SESSION['cache']['server_2']['mysql_cur_user']);
+        self::assertEquals('mysql', $_SESSION['cache']['server_2']['mysql_cur_user']);
 
         Util::clearUserCache();
-        $this->assertArrayNotHasKey('is_superuser', $_SESSION['cache']['server_2']);
-        $this->assertArrayNotHasKey('mysql_cur_user', $_SESSION['cache']['server_2']);
+        self::assertArrayNotHasKey('is_superuser', $_SESSION['cache']['server_2']);
+        self::assertArrayNotHasKey('mysql_cur_user', $_SESSION['cache']['server_2']);
     }
 
     /**
@@ -128,7 +128,7 @@ class UtilTest extends AbstractTestCase
     #[DataProvider('providerConvertBitDefaultValue')]
     public function testConvertBitDefaultValue(string|null $bit, string $val): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             $val,
             Util::convertBitDefaultValue($bit),
         );
@@ -170,12 +170,12 @@ class UtilTest extends AbstractTestCase
         Current::$database = 'database';
         Current::$table = 'table';
 
-        $this->assertEquals(
+        self::assertEquals(
             $out,
             Util::expandUserString($in),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             htmlspecialchars($out),
             Util::expandUserString(
                 $in,
@@ -212,7 +212,7 @@ class UtilTest extends AbstractTestCase
     {
         Config::getInstance()->settings['LimitChars'] = 1000;
 
-        $this->assertEquals(
+        self::assertEquals(
             $out,
             Util::extractColumnSpec($in),
         );
@@ -357,7 +357,7 @@ class UtilTest extends AbstractTestCase
     #[DataProvider('providerParseEnumSetValues')]
     public function testParseEnumSetValues(string $in, bool $escapeHTML, array $out): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             $out,
             Util::parseEnumSetValues($in, $escapeHTML),
         );
@@ -477,7 +477,7 @@ class UtilTest extends AbstractTestCase
     #[DataProvider('providerExtractValueFromFormattedSize')]
     public function testExtractValueFromFormattedSize(int|string $size, int|float $expected): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             $expected,
             Util::extractValueFromFormattedSize($size),
         );
@@ -505,7 +505,7 @@ class UtilTest extends AbstractTestCase
     public function testFormatByteDown(float|int|string|null $a, int $b, int $c, array|null $e): void
     {
         $result = Util::formatByteDown($a, $b, $c);
-        $this->assertSame($e, $result);
+        self::assertSame($e, $result);
     }
 
     /**
@@ -548,7 +548,7 @@ class UtilTest extends AbstractTestCase
      */
     private function assertFormatNumber(float|int|string $a, int $b, int $c, string $d): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             $d,
             Util::formatNumber(
                 $a,
@@ -650,7 +650,7 @@ class UtilTest extends AbstractTestCase
     #[DataProvider('providerGetFormattedMaximumUploadSize')]
     public function testGetFormattedMaximumUploadSize(int|float|string $size, string $unit, string $res): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             '(' . __('Max: ') . $res . $unit . ')',
             Util::getFormattedMaximumUploadSize($size),
         );
@@ -692,7 +692,7 @@ class UtilTest extends AbstractTestCase
     #[DataProvider('providerGetTitleForTarget')]
     public function testGetTitleForTarget(string $target, string $result): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             $result,
             Util::getTitleForTarget($target),
         );
@@ -728,7 +728,7 @@ class UtilTest extends AbstractTestCase
     public function testLocalisedDate(int $a, string $b, string $e, string $tz, string $locale): void
     {
         if (! is_readable(LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo')) {
-            $this->markTestSkipped('Missing compiled locales.');
+            self::markTestSkipped('Missing compiled locales.');
         }
 
         parent::setLanguage();
@@ -739,7 +739,7 @@ class UtilTest extends AbstractTestCase
         $tmpTimezone = date_default_timezone_get();
         date_default_timezone_set($tz);
 
-        $this->assertEquals(
+        self::assertEquals(
             $e,
             Util::localisedDate($a, $b),
         );
@@ -818,7 +818,7 @@ class UtilTest extends AbstractTestCase
         $tmpTimezone = date_default_timezone_get();
         date_default_timezone_set('Europe/London');
 
-        $this->assertEquals(
+        self::assertEquals(
             $e,
             Util::timespanFormat($a),
         );
@@ -849,7 +849,7 @@ class UtilTest extends AbstractTestCase
     #[DataProvider('providerPrintableBitValue')]
     public function testPrintableBitValue(int $a, int $b, string $e): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             $e,
             Util::printableBitValue($a, $b),
         );
@@ -877,7 +877,7 @@ class UtilTest extends AbstractTestCase
     #[DataProvider('providerUnQuote')]
     public function testUnQuote(string $param, string $expected): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             $expected,
             Util::unQuote($param),
         );
@@ -902,7 +902,7 @@ class UtilTest extends AbstractTestCase
     #[DataProvider('providerUnQuoteSelectedChar')]
     public function testUnQuoteSelectedChar(string $param, string $expected): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             $expected,
             Util::unQuote($param, '"'),
         );
@@ -921,11 +921,11 @@ class UtilTest extends AbstractTestCase
     #[DataProvider('providerForTestBackquote')]
     public function testBackquote(string|null $entry, string $expectedNoneOutput, string $expectedMssqlOutput): void
     {
-        $this->assertSame($expectedNoneOutput, Util::backquote($entry));
-        $this->assertEquals($entry, Util::backquoteCompat($entry, 'NONE', false));
-        $this->assertEquals($entry, Util::backquoteCompat($entry, 'MSSQL', false));
-        $this->assertSame($expectedNoneOutput, Util::backquoteCompat($entry, 'NONE'));
-        $this->assertSame($expectedMssqlOutput, Util::backquoteCompat($entry, 'MSSQL'));
+        self::assertSame($expectedNoneOutput, Util::backquote($entry));
+        self::assertEquals($entry, Util::backquoteCompat($entry, 'NONE', false));
+        self::assertEquals($entry, Util::backquoteCompat($entry, 'MSSQL', false));
+        self::assertSame($expectedNoneOutput, Util::backquoteCompat($entry, 'NONE'));
+        self::assertSame($expectedMssqlOutput, Util::backquoteCompat($entry, 'MSSQL'));
     }
 
     /** @return array<int|string, string|null>[] */
@@ -951,7 +951,7 @@ class UtilTest extends AbstractTestCase
                 $expected = '`' . $keyword . '`';
             }
 
-            $this->assertSame($expected, Util::backquoteCompat($keyword, 'NONE', false));
+            self::assertSame($expected, Util::backquoteCompat($keyword, 'NONE', false));
         }
     }
 
@@ -966,7 +966,7 @@ class UtilTest extends AbstractTestCase
     {
         Config::getInstance()->selectedServer['user'] = 'root';
 
-        $this->assertEquals($e, Util::userDir($a));
+        self::assertEquals($e, Util::userDir($a));
     }
 
     /**
@@ -988,7 +988,7 @@ class UtilTest extends AbstractTestCase
     #[DataProvider('providerDuplicateFirstNewline')]
     public function testDuplicateFirstNewline(string $a, string $e): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             $e,
             Util::duplicateFirstNewline($a),
         );
@@ -1007,7 +1007,7 @@ class UtilTest extends AbstractTestCase
     public function testUnsupportedDatatypes(): void
     {
         $noSupportTypes = [];
-        $this->assertEquals(
+        self::assertEquals(
             $noSupportTypes,
             Util::unsupportedDatatypes(),
         );
@@ -1015,10 +1015,10 @@ class UtilTest extends AbstractTestCase
 
     public function testGetPageFromPosition(): void
     {
-        $this->assertEquals(Util::getPageFromPosition(0, 1), 1);
-        $this->assertEquals(Util::getPageFromPosition(1, 1), 2);
-        $this->assertEquals(Util::getPageFromPosition(1, 2), 1);
-        $this->assertEquals(Util::getPageFromPosition(1, 6), 1);
+        self::assertEquals(Util::getPageFromPosition(0, 1), 1);
+        self::assertEquals(Util::getPageFromPosition(1, 1), 2);
+        self::assertEquals(Util::getPageFromPosition(1, 2), 1);
+        self::assertEquals(Util::getPageFromPosition(1, 6), 1);
     }
 
     /**
@@ -1031,7 +1031,7 @@ class UtilTest extends AbstractTestCase
     public function testIsInteger(bool $expected, mixed $input): void
     {
         $isInteger = Util::isInteger($input);
-        $this->assertEquals($expected, $isInteger);
+        self::assertEquals($expected, $isInteger);
     }
 
     /**
@@ -1054,7 +1054,7 @@ class UtilTest extends AbstractTestCase
     public function testGetProtoFromForwardedHeader(string $header, string $proto): void
     {
         $protocolDetected = Util::getProtoFromForwardedHeader($header);
-        $this->assertEquals($proto, $protocolDetected);
+        self::assertEquals($proto, $protocolDetected);
     }
 
     /**
@@ -1102,7 +1102,7 @@ class UtilTest extends AbstractTestCase
         $dbiDummy->addResult('SELECT CURRENT_USER();', []);
         DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
 
-        $this->assertTrue(Util::currentUserHasPrivilege('EVENT'));
+        self::assertTrue(Util::currentUserHasPrivilege('EVENT'));
         $dbiDummy->assertAllQueriesConsumed();
     }
 
@@ -1118,7 +1118,7 @@ SQL;
         $dbiDummy->addResult($globalPrivilegeQuery, [['EVENT']]);
         DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
 
-        $this->assertTrue(Util::currentUserHasPrivilege('EVENT'));
+        self::assertTrue(Util::currentUserHasPrivilege('EVENT'));
         $dbiDummy->assertAllQueriesConsumed();
     }
 
@@ -1134,7 +1134,7 @@ SQL;
         $dbiDummy->addResult($globalPrivilegeQuery, []);
         DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
 
-        $this->assertFalse(Util::currentUserHasPrivilege('EVENT'));
+        self::assertFalse(Util::currentUserHasPrivilege('EVENT'));
         $dbiDummy->assertAllQueriesConsumed();
     }
 
@@ -1154,7 +1154,7 @@ SQL;
         $dbiDummy->addResult($databasePrivilegeQuery, [['EVENT']]);
         DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
 
-        $this->assertTrue(Util::currentUserHasPrivilege('EVENT', 'my_data_base'));
+        self::assertTrue(Util::currentUserHasPrivilege('EVENT', 'my_data_base'));
         $dbiDummy->assertAllQueriesConsumed();
     }
 
@@ -1174,7 +1174,7 @@ SQL;
         $dbiDummy->addResult($databasePrivilegeQuery, []);
         DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
 
-        $this->assertFalse(Util::currentUserHasPrivilege('EVENT', 'my_data_base'));
+        self::assertFalse(Util::currentUserHasPrivilege('EVENT', 'my_data_base'));
         $dbiDummy->assertAllQueriesConsumed();
     }
 
@@ -1198,7 +1198,7 @@ SQL;
         $dbiDummy->addResult($tablePrivilegeQuery, [['EVENT']]);
         DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
 
-        $this->assertTrue(Util::currentUserHasPrivilege('EVENT', 'my_data_base', 'my_data_table'));
+        self::assertTrue(Util::currentUserHasPrivilege('EVENT', 'my_data_base', 'my_data_table'));
         $dbiDummy->assertAllQueriesConsumed();
     }
 
@@ -1222,7 +1222,7 @@ SQL;
         $dbiDummy->addResult($tablePrivilegeQuery, []);
         DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
 
-        $this->assertFalse(Util::currentUserHasPrivilege('EVENT', 'my_data_base', 'my_data_table'));
+        self::assertFalse(Util::currentUserHasPrivilege('EVENT', 'my_data_base', 'my_data_table'));
         $dbiDummy->assertAllQueriesConsumed();
     }
 
@@ -1334,7 +1334,7 @@ SQL;
     public function testGetScriptNameForOption(string $target, string $location, string $finalLink): void
     {
         $GLOBALS['lang'] = 'en';
-        $this->assertSame(
+        self::assertSame(
             $finalLink,
             Util::getScriptNameForOption($target, $location),
         );
@@ -1344,22 +1344,22 @@ SQL;
     {
         $config = Config::getInstance();
         $config->settings['ActionLinksMode'] = 'icons';
-        $this->assertTrue(Util::showIcons('ActionLinksMode'));
+        self::assertTrue(Util::showIcons('ActionLinksMode'));
         $config->settings['ActionLinksMode'] = 'both';
-        $this->assertTrue(Util::showIcons('ActionLinksMode'));
+        self::assertTrue(Util::showIcons('ActionLinksMode'));
         $config->settings['ActionLinksMode'] = 'text';
-        $this->assertFalse(Util::showIcons('ActionLinksMode'));
+        self::assertFalse(Util::showIcons('ActionLinksMode'));
     }
 
     public function testShowText(): void
     {
         $config = Config::getInstance();
         $config->settings['ActionLinksMode'] = 'text';
-        $this->assertTrue(Util::showText('ActionLinksMode'));
+        self::assertTrue(Util::showText('ActionLinksMode'));
         $config->settings['ActionLinksMode'] = 'both';
-        $this->assertTrue(Util::showText('ActionLinksMode'));
+        self::assertTrue(Util::showText('ActionLinksMode'));
         $config->settings['ActionLinksMode'] = 'icons';
-        $this->assertFalse(Util::showText('ActionLinksMode'));
+        self::assertFalse(Util::showText('ActionLinksMode'));
     }
 
     #[DataProvider('providerForTestGetMySQLDocuURL')]
@@ -1368,7 +1368,7 @@ SQL;
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
         $dbi->setVersion(['@@version' => $version, '@@version_comment' => 'MySQL Community Server (GPL)']);
-        $this->assertSame($expected, Util::getMySQLDocuURL($link, $anchor));
+        self::assertSame($expected, Util::getMySQLDocuURL($link, $anchor));
     }
 
     /**
@@ -1421,15 +1421,15 @@ SQL;
         $dbi = $this->createDatabaseInterface();
         $dbi->setVersion(['@@version' => '5.5.0']);
         DatabaseInterface::$instance = $dbi;
-        $this->assertSame(
+        self::assertSame(
             'index.php?route=/url&url=https%3A%2F%2Fmariadb.com%2Fkb%2Fen%2Fdocumentation%2F',
             Util::getDocuURL(true),
         );
-        $this->assertSame(
+        self::assertSame(
             'index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Findex.html',
             Util::getDocuURL(false),
         );
-        $this->assertSame(
+        self::assertSame(
             'index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Findex.html',
             Util::getDocuURL(),
         );
@@ -1438,11 +1438,11 @@ SQL;
     public function testSplitURLQuery(): void
     {
         $actual = Util::splitURLQuery('');
-        $this->assertSame([], $actual);
+        self::assertSame([], $actual);
         $actual = Util::splitURLQuery('index.php');
-        $this->assertSame([], $actual);
+        self::assertSame([], $actual);
         $actual = Util::splitURLQuery('index.php?route=/table/structure&db=sakila&table=address');
-        $this->assertSame(['route=/table/structure', 'db=sakila', 'table=address'], $actual);
+        self::assertSame(['route=/table/structure', 'db=sakila', 'table=address'], $actual);
     }
 
     public function testGetDbInfo(): void
@@ -1497,27 +1497,27 @@ SQL;
             'TABLE_TYPE' => 'BASE TABLE',
         ];
         $expected = [['test_table' => $tableInfo], 1];
-        $actual = Util::getDbInfo($this->createStub(ServerRequest::class), 'test_db');
-        $this->assertSame($expected, $actual);
+        $actual = Util::getDbInfo(self::createStub(ServerRequest::class), 'test_db');
+        self::assertSame($expected, $actual);
     }
 
     public function testGetTableListPosition(): void
     {
         // Default 0
-        $actual = Util::getTableListPosition($this->createStub(ServerRequest::class), 'test_db');
-        $this->assertSame(0, $actual);
+        $actual = Util::getTableListPosition(self::createStub(ServerRequest::class), 'test_db');
+        self::assertSame(0, $actual);
 
         // From POST
-        $requestStub = $this->createStub(ServerRequestInterface::class);
+        $requestStub = self::createStub(ServerRequestInterface::class);
         $requestStub->method('getQueryParams')->willReturn([]);
         $requestStub->method('getParsedBody')->willReturn(['pos' => '250']);
         $request = new ServerRequest($requestStub);
         $actual = Util::getTableListPosition($request, 'test_db');
-        $this->assertSame(250, $actual);
+        self::assertSame(250, $actual);
 
         // From SESSION
-        $actual = Util::getTableListPosition($this->createStub(ServerRequest::class), 'test_db');
-        $this->assertSame(250, $actual);
+        $actual = Util::getTableListPosition(self::createStub(ServerRequest::class), 'test_db');
+        self::assertSame(250, $actual);
     }
 
     /**
@@ -1534,16 +1534,16 @@ SQL;
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->any())
+        $dbi->expects(self::any())
             ->method('isMariaDB')
             ->willReturn($isMariaDB);
 
-        $dbi->expects($this->any())
+        $dbi->expects(self::any())
             ->method('getVersion')
             ->willReturn($version);
 
         DatabaseInterface::$instance = $dbi;
-        $this->assertEquals(Util::isUUIDSupported(), $expected);
+        self::assertEquals(Util::isUUIDSupported(), $expected);
         DatabaseInterface::$instance = null;
     }
 
@@ -1564,7 +1564,7 @@ SQL;
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addResult('SELECT @@lower_case_table_names', [[$lowerCaseTableNames]], ['@@lower_case_table_names']);
         DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
-        $this->assertSame($expected, Util::getCollateForIS());
+        self::assertSame($expected, Util::getCollateForIS());
         $dbiDummy->assertAllQueriesConsumed();
     }
 
@@ -1626,7 +1626,7 @@ SQL;
             'GEOMETRYCOLLECTION',
             'JSON',
         ];
-        $this->assertSame($expected, Util::getSupportedDatatypes());
+        self::assertSame($expected, Util::getSupportedDatatypes());
     }
 
     /**
@@ -1636,7 +1636,7 @@ SQL;
     #[DataProvider('providerForTestGetValueByKey')]
     public function testGetValueByKey(mixed $expected, array $array, array $path, mixed $default = null): void
     {
-        $this->assertSame($expected, Util::getValueByKey($array, $path, $default));
+        self::assertSame($expected, Util::getValueByKey($array, $path, $default));
     }
 
     /** @return iterable<string, array{mixed, mixed[], (string|int)[], mixed}> */

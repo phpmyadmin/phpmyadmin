@@ -63,7 +63,7 @@ class VariablesControllerTest extends AbstractTestCase
             ['SHOW GLOBAL VARIABLES;', 0, 1, ConnectionType::User, $serverGlobalVariables],
         ];
 
-        $this->mockedDbi->expects($this->any())->method('fetchResult')
+        $this->mockedDbi->expects(self::any())->method('fetchResult')
             ->willReturnMap($fetchResult);
     }
 
@@ -73,44 +73,44 @@ class VariablesControllerTest extends AbstractTestCase
 
         $resultStub = $this->createMock(DummyResult::class);
 
-        $this->mockedDbi->expects($this->once())
+        $this->mockedDbi->expects(self::once())
             ->method('tryQuery')
             ->with('SHOW SESSION VARIABLES;')
             ->willReturn($resultStub);
 
         $controller = new VariablesController($response, new Template(), $this->mockedDbi);
 
-        $controller($this->createStub(ServerRequest::class));
+        $controller(self::createStub(ServerRequest::class));
         $html = $response->getHTMLResult();
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             Generator::getIcon('b_save', __('Save')),
             $html,
         );
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             Generator::getIcon('b_close', __('Cancel')),
             $html,
         );
-        $this->assertStringContainsString('<div class="card-header">' . __('Filters') . '</div>', $html);
-        $this->assertStringContainsString(
+        self::assertStringContainsString('<div class="card-header">' . __('Filters') . '</div>', $html);
+        self::assertStringContainsString(
             __('Containing the word:'),
             $html,
         );
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             __('Variable'),
             $html,
         );
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             __('Value'),
             $html,
         );
 
         $name = 'auto_increment_increment';
         $value = htmlspecialchars(str_replace('_', ' ', $name));
-        $this->assertStringContainsString($value, $html);
+        self::assertStringContainsString($value, $html);
         $name = 'auto_increment_offset';
         $value = htmlspecialchars(str_replace('_', ' ', $name));
-        $this->assertStringContainsString($value, $html);
+        self::assertStringContainsString($value, $html);
     }
 
     /**
@@ -132,7 +132,7 @@ class VariablesControllerTest extends AbstractTestCase
         $voidProviderMock = $this->getMockBuilder(ServerVariablesVoidProvider::class)->getMock();
 
         $voidProviderMock
-            ->expects($this->exactly(2))
+            ->expects(self::exactly(2))
             ->method('getVariableType')
             ->willReturn('byte', 'string');
 
@@ -146,8 +146,8 @@ class VariablesControllerTest extends AbstractTestCase
             $args,
         );
 
-        $this->assertEquals('<abbr title="3">3 B</abbr>', $formattedValue);
-        $this->assertTrue($isHtmlFormatted);
+        self::assertEquals('<abbr title="3">3 B</abbr>', $formattedValue);
+        self::assertTrue($isHtmlFormatted);
 
         //name is_numeric and the value type is not byte
         $args = [$nameForValueNotByte, '3'];
@@ -157,8 +157,8 @@ class VariablesControllerTest extends AbstractTestCase
             'formatVariable',
             $args,
         );
-        $this->assertEquals('3', $formattedValue);
-        $this->assertFalse($isHtmlFormatted);
+        self::assertEquals('3', $formattedValue);
+        self::assertFalse($isHtmlFormatted);
 
         //value is not a number
         $args = [$nameForValueNotByte, 'value'];
@@ -168,8 +168,8 @@ class VariablesControllerTest extends AbstractTestCase
             'formatVariable',
             $args,
         );
-        $this->assertEquals('value', $formattedValue);
-        $this->assertFalse($isHtmlFormatted);
+        self::assertEquals('value', $formattedValue);
+        self::assertFalse($isHtmlFormatted);
     }
 
     /**
@@ -178,7 +178,7 @@ class VariablesControllerTest extends AbstractTestCase
     public function testFormatVariableMariaDbMySqlKbs(): void
     {
         if (! ServerVariablesProvider::mariaDbMySqlKbsExists()) {
-            $this->markTestSkipped('MariaDbMySqlKbs is missing');
+            self::markTestSkipped('MariaDbMySqlKbs is missing');
         }
 
         $response = new ReflectionProperty(ServerVariablesProvider::class, 'instance');
@@ -203,8 +203,8 @@ class VariablesControllerTest extends AbstractTestCase
             $args,
         );
 
-        $this->assertEquals('<abbr title="3">3 B</abbr>', $formattedValue);
-        $this->assertTrue($isHtmlFormatted);
+        self::assertEquals('<abbr title="3">3 B</abbr>', $formattedValue);
+        self::assertTrue($isHtmlFormatted);
 
         //name is_numeric and the value type is not byte
         $args = [$nameForValueNotByte, '3'];
@@ -214,8 +214,8 @@ class VariablesControllerTest extends AbstractTestCase
             'formatVariable',
             $args,
         );
-        $this->assertEquals('3', $formattedValue);
-        $this->assertFalse($isHtmlFormatted);
+        self::assertEquals('3', $formattedValue);
+        self::assertFalse($isHtmlFormatted);
 
         //value is not a number
         $args = [$nameForValueNotByte, 'value'];
@@ -225,8 +225,8 @@ class VariablesControllerTest extends AbstractTestCase
             'formatVariable',
             $args,
         );
-        $this->assertEquals('value', $formattedValue);
-        $this->assertFalse($isHtmlFormatted);
+        self::assertEquals('value', $formattedValue);
+        self::assertFalse($isHtmlFormatted);
     }
 
     /**
@@ -255,7 +255,7 @@ class VariablesControllerTest extends AbstractTestCase
             $args,
         );
 
-        $this->assertEquals('3', $formattedValue);
-        $this->assertFalse($isHtmlFormatted);
+        self::assertEquals('3', $formattedValue);
+        self::assertFalse($isHtmlFormatted);
     }
 }

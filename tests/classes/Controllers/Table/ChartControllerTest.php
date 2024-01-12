@@ -105,6 +105,6 @@ class ChartControllerTest extends AbstractTestCase
             ]);
 
         (new ChartController($response, $template, $dbi, new DbTableExists($dbi)))($request);
-        $this->assertSame($expected, $response->getHTMLResult());
+        self::assertSame($expected, $response->getHTMLResult());
     }
 }

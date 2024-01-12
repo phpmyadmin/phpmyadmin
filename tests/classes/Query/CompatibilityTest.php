@@ -16,7 +16,7 @@ class CompatibilityTest extends TestCase
     #[DataProvider('providerForTestHasAccountLocking')]
     public function testHasAccountLocking(bool $expected, bool $isMariaDb, int $version): void
     {
-        $this->assertSame($expected, Compatibility::hasAccountLocking($isMariaDb, $version));
+        self::assertSame($expected, Compatibility::hasAccountLocking($isMariaDb, $version));
     }
 
     /**
@@ -38,12 +38,12 @@ class CompatibilityTest extends TestCase
     #[DataProvider('providerForTestIsUUIDSupported')]
     public function testIsUUIDSupported(bool $expected, bool $isMariaDb, int $version): void
     {
-        $dbiStub = $this->createStub(DatabaseInterface::class);
+        $dbiStub = self::createStub(DatabaseInterface::class);
 
         $dbiStub->method('isMariaDB')->willReturn($isMariaDb);
         $dbiStub->method('getVersion')->willReturn($version);
 
-        $this->assertSame($expected, Compatibility::isUUIDSupported($dbiStub));
+        self::assertSame($expected, Compatibility::isUUIDSupported($dbiStub));
     }
 
     /**

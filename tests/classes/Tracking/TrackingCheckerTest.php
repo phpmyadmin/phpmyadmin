@@ -45,10 +45,10 @@ class TrackingCheckerTest extends AbstractTestCase
 
     public function testGetTrackedTables(): void
     {
-        $this->assertFalse(Tracker::isEnabled());
+        self::assertFalse(Tracker::isEnabled());
 
         $actual = $this->trackingChecker->getTrackedTables('dummyDb');
-        $this->assertEquals([], $actual);
+        self::assertEquals([], $actual);
 
         Tracker::enable();
 
@@ -59,21 +59,21 @@ class TrackingCheckerTest extends AbstractTestCase
 
         $actual = $this->trackingChecker->getTrackedTables('dummyDb');
 
-        $this->assertEquals($expectation, $actual);
+        self::assertEquals($expectation, $actual);
     }
 
     public function testGetUntrackedTableNames(): void
     {
-        $this->assertFalse(Tracker::isEnabled());
+        self::assertFalse(Tracker::isEnabled());
 
         $expectation = ['0', 'actor', 'untrackedTable'];
         $actual = $this->trackingChecker->getUntrackedTableNames('dummyDb');
-        $this->assertEquals($expectation, $actual);
+        self::assertEquals($expectation, $actual);
 
         Tracker::enable();
 
         $expectation = ['untrackedTable'];
         $actual = $this->trackingChecker->getUntrackedTableNames('dummyDb');
-        $this->assertEquals($expectation, $actual);
+        self::assertEquals($expectation, $actual);
     }
 }

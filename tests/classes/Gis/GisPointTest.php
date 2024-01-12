@@ -50,7 +50,7 @@ class GisPointTest extends GisGeomTestCase
     public function testGenerateWkt(array $gisData, int $index, string $empty, string $output): void
     {
         $object = GisPoint::singleton();
-        $this->assertEquals($output, $object->generateWkt($gisData, $index, $empty));
+        self::assertEquals($output, $object->generateWkt($gisData, $index, $empty));
     }
 
     /**
@@ -63,7 +63,7 @@ class GisPointTest extends GisGeomTestCase
     public function testGetShape(array $rowData, string $shape): void
     {
         $object = GisPoint::singleton();
-        $this->assertEquals($shape, $object->getShape($rowData));
+        self::assertEquals($shape, $object->getShape($rowData));
     }
 
     /**
@@ -86,7 +86,7 @@ class GisPointTest extends GisGeomTestCase
     public function testGenerateParams(string $wkt, array $params): void
     {
         $object = GisPoint::singleton();
-        $this->assertEquals($params, $object->generateParams($wkt));
+        self::assertEquals($params, $object->generateParams($wkt));
     }
 
     /**
@@ -134,7 +134,7 @@ class GisPointTest extends GisGeomTestCase
     public function testGetExtent(string $spatial, Extent $extent): void
     {
         $object = GisPoint::singleton();
-        $this->assertEquals($extent, $object->getExtent($spatial));
+        self::assertEquals($extent, $object->getExtent($spatial));
     }
 
     /**
@@ -152,7 +152,7 @@ class GisPointTest extends GisGeomTestCase
     {
         $object = GisPoint::singleton();
         $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
-        $this->assertNotNull($image);
+        self::assertNotNull($image);
         $object->prepareRowAsPng(
             'POINT(12 35)',
             'image',
@@ -160,13 +160,13 @@ class GisPointTest extends GisGeomTestCase
             new ScaleData(offsetX: -88, offsetY: -27, scale: 1, height: 124),
             $image,
         );
-        $this->assertEquals(200, $image->width());
-        $this->assertEquals(124, $image->height());
+        self::assertEquals(200, $image->width());
+        self::assertEquals(124, $image->height());
 
         $fileExpected = $this->testDir . '/point-expected.png';
         $fileActual = $this->testDir . '/point-actual.png';
-        $this->assertTrue($image->png($fileActual));
-        $this->assertFileEquals($fileExpected, $fileActual);
+        self::assertTrue($image->png($fileActual));
+        self::assertFileEquals($fileExpected, $fileActual);
     }
 
     /**
@@ -191,7 +191,7 @@ class GisPointTest extends GisGeomTestCase
         $fileExpectedArch = $this->testDir . '/point-expected-' . $this->getArch() . '.pdf';
         $fileExpectedGeneric = $this->testDir . '/point-expected.pdf';
         $fileExpected = file_exists($fileExpectedArch) ? $fileExpectedArch : $fileExpectedGeneric;
-        $this->assertStringEqualsFile($fileExpected, $pdf->Output(dest: 'S'));
+        self::assertStringEqualsFile($fileExpected, $pdf->Output(dest: 'S'));
     }
 
     /**
@@ -232,7 +232,7 @@ class GisPointTest extends GisGeomTestCase
     ): void {
         $object = GisPoint::singleton();
         $svg = $object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
-        $this->assertEquals($output, $svg);
+        self::assertEquals($output, $svg);
     }
 
     /**
@@ -272,7 +272,7 @@ class GisPointTest extends GisGeomTestCase
     ): void {
         $object = GisPoint::singleton();
         $ol = $object->prepareRowAsOl($spatial, $srid, $label, $color);
-        $this->assertEquals($output, $ol);
+        self::assertEquals($output, $ol);
     }
 
     /**

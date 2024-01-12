@@ -72,11 +72,11 @@ class ImportLdiTest extends AbstractTestCase
     public function testGetProperties(): void
     {
         $properties = (new ImportLdi())->getProperties();
-        $this->assertEquals(
+        self::assertEquals(
             __('CSV using LOAD DATA'),
             $properties->getText(),
         );
-        $this->assertEquals(
+        self::assertEquals(
             'ldi',
             $properties->getExtension(),
         );
@@ -88,29 +88,29 @@ class ImportLdiTest extends AbstractTestCase
     #[Group('medium')]
     public function testGetPropertiesAutoLdi(): void
     {
-        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi = self::createMock(DatabaseInterface::class);
         DatabaseInterface::$instance = $dbi;
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createMock(DummyResult::class);
 
-        $dbi->expects($this->any())->method('tryQuery')
+        $dbi->expects(self::any())->method('tryQuery')
             ->willReturn($resultStub);
 
-        $resultStub->expects($this->any())->method('numRows')
+        $resultStub->expects(self::any())->method('numRows')
             ->willReturn(10);
 
-        $resultStub->expects($this->any())->method('fetchValue')
+        $resultStub->expects(self::any())->method('fetchValue')
             ->willReturn('ON');
 
         $config = Config::getInstance();
         $config->settings['Import']['ldi_local_option'] = 'auto';
         $properties = (new ImportLdi())->getProperties();
-        $this->assertTrue($config->settings['Import']['ldi_local_option']);
-        $this->assertEquals(
+        self::assertTrue($config->settings['Import']['ldi_local_option']);
+        self::assertEquals(
             __('CSV using LOAD DATA'),
             $properties->getText(),
         );
-        $this->assertEquals(
+        self::assertEquals(
             'ldi',
             $properties->getExtension(),
         );
@@ -125,8 +125,8 @@ class ImportLdiTest extends AbstractTestCase
         //$sql_query_disabled will show the import SQL detail
 
         $GLOBALS['sql_query_disabled'] = false;
-        $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->any())->method('quoteString')
+        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi->expects(self::any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         DatabaseInterface::$instance = $dbi;
 
@@ -137,12 +137,12 @@ class ImportLdiTest extends AbstractTestCase
         (new ImportLdi())->doImport($importHandle);
 
         //asset that all sql are executed
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'LOAD DATA INFILE \'tests/test_data/db_test_ldi.csv\' INTO TABLE `phpmyadmintest`',
             $GLOBALS['sql_query'],
         );
 
-        $this->assertTrue($GLOBALS['finished']);
+        self::assertTrue($GLOBALS['finished']);
     }
 
     /**
@@ -157,12 +157,12 @@ class ImportLdiTest extends AbstractTestCase
         (new ImportLdi())->doImport();
 
         // We handle only some kind of data!
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             __('This plugin does not support compressed imports!'),
             $GLOBALS['message']->__toString(),
         );
 
-        $this->assertTrue($GLOBALS['error']);
+        self::assertTrue($GLOBALS['error']);
     }
 
     /**
@@ -174,8 +174,8 @@ class ImportLdiTest extends AbstractTestCase
         //$sql_query_disabled will show the import SQL detail
 
         $GLOBALS['sql_query_disabled'] = false;
-        $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->any())->method('quoteString')
+        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi->expects(self::any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         DatabaseInterface::$instance = $dbi;
 
@@ -195,20 +195,20 @@ class ImportLdiTest extends AbstractTestCase
 
         //asset that all sql are executed
         //replace
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'LOAD DATA LOCAL INFILE \'tests/test_data/db_test_ldi.csv\' REPLACE INTO TABLE `phpmyadmintest`',
             $GLOBALS['sql_query'],
         );
 
         //FIELDS TERMINATED
-        $this->assertStringContainsString("FIELDS TERMINATED BY ','", $GLOBALS['sql_query']);
+        self::assertStringContainsString("FIELDS TERMINATED BY ','", $GLOBALS['sql_query']);
 
         //LINES TERMINATED
-        $this->assertStringContainsString("LINES TERMINATED BY 'newline_mark'", $GLOBALS['sql_query']);
+        self::assertStringContainsString("LINES TERMINATED BY 'newline_mark'", $GLOBALS['sql_query']);
 
         //IGNORE
-        $this->assertStringContainsString('IGNORE 1 LINES', $GLOBALS['sql_query']);
+        self::assertStringContainsString('IGNORE 1 LINES', $GLOBALS['sql_query']);
 
-        $this->assertTrue($GLOBALS['finished']);
+        self::assertTrue($GLOBALS['finished']);
     }
 }

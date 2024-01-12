@@ -54,7 +54,7 @@ class EventsTest extends AbstractTestCase
             $_POST[$key] = $value;
         }
 
-        $this->assertEquals($out, $this->events->getDataFromRequest());
+        self::assertEquals($out, $this->events->getDataFromRequest());
     }
 
     /**
@@ -154,8 +154,8 @@ class EventsTest extends AbstractTestCase
             ->getMock();
         DatabaseInterface::$instance = $dbi;
 
-        $this->assertEquals($query, $this->events->getQueryFromRequest());
-        $this->assertCount($numErr, $GLOBALS['errors']);
+        self::assertEquals($query, $this->events->getQueryFromRequest());
+        self::assertCount($numErr, $GLOBALS['errors']);
     }
 
     /**

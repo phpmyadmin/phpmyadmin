@@ -34,9 +34,9 @@ class FirstStepControllerTest extends AbstractTestCase
             $template,
             new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
         );
-        $controller($this->createStub(ServerRequest::class));
+        $controller(self::createStub(ServerRequest::class));
 
-        $this->assertSame([
+        self::assertSame([
             'legendText' => 'Step 2.1 Find partial dependencies',
             'headText' => 'No partial dependencies possible as the primary key ( id ) has just one column.<br>',
             'subText' => '',

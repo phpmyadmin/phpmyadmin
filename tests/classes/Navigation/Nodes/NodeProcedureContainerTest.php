@@ -17,13 +17,13 @@ class NodeProcedureContainerTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = new NodeProcedureContainer();
-        $this->assertEquals(
+        self::assertEquals(
             [
                 'text' => ['route' => '/database/routines', 'params' => ['type' => 'PROCEDURE', 'db' => null]],
                 'icon' => ['route' => '/database/routines', 'params' => ['type' => 'PROCEDURE', 'db' => null]],
             ],
             $parent->links,
         );
-        $this->assertEquals('procedures', $parent->realName);
+        self::assertEquals('procedures', $parent->realName);
     }
 }

@@ -25,7 +25,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->dbiStub = $this->createStub(DatabaseInterface::class);
+        $this->dbiStub = self::createStub(DatabaseInterface::class);
     }
 
     /**
@@ -62,7 +62,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
         $result = $this->object->getFunctionsClass($class);
 
         foreach ($includes as $value) {
-            $this->assertContains($value, $result);
+            self::assertContains($value, $result);
         }
 
         if ($excludes === []) {
@@ -70,7 +70,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
         }
 
         foreach ($excludes as $value) {
-            $this->assertNotContains($value, $result);
+            self::assertNotContains($value, $result);
         }
     }
 
@@ -279,7 +279,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
         $result = $this->object->getFunctions('enum');
 
         foreach ($includes as $value) {
-            $this->assertContains($value, $result);
+            self::assertContains($value, $result);
         }
 
         if ($excludes === []) {
@@ -287,7 +287,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
         }
 
         foreach ($excludes as $value) {
-            $this->assertNotContains($value, $result);
+            self::assertNotContains($value, $result);
         }
     }
 
@@ -352,7 +352,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
         $result = $this->object->getAllFunctions();
 
         foreach ($includes as $value) {
-            $this->assertContains($value, $result);
+            self::assertContains($value, $result);
         }
 
         if ($excludes === []) {
@@ -360,7 +360,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
         }
 
         foreach ($excludes as $value) {
-            $this->assertNotContains($value, $result);
+            self::assertNotContains($value, $result);
         }
     }
 
@@ -606,7 +606,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
     {
         $this->createObject($database, $dbVersion);
 
-        $this->assertEquals($expected, $this->object->getColumns());
+        self::assertEquals($expected, $this->object->getColumns());
     }
 
     /**

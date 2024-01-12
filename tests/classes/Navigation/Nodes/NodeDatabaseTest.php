@@ -20,7 +20,7 @@ class NodeDatabaseTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = new NodeDatabase('default');
-        $this->assertEquals(
+        self::assertEquals(
             [
                 'text' => ['route' => '/database/structure', 'params' => ['db' => null]],
                 'icon' => ['route' => '/database/operations', 'params' => ['db' => null]],
@@ -28,7 +28,7 @@ class NodeDatabaseTest extends AbstractTestCase
             ],
             $parent->links,
         );
-        $this->assertStringContainsString('database', $parent->classes);
+        self::assertStringContainsString('database', $parent->classes);
     }
 
     /**
@@ -40,23 +40,23 @@ class NodeDatabaseTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
         $parent = new NodeDatabase('default');
-        $this->assertEquals(
+        self::assertEquals(
             2,
             $parent->getPresence('tables'),
         );
-        $this->assertEquals(
+        self::assertEquals(
             0,
             $parent->getPresence('views'),
         );
-        $this->assertEquals(
+        self::assertEquals(
             1,
             $parent->getPresence('functions'),
         );
-        $this->assertEquals(
+        self::assertEquals(
             0,
             $parent->getPresence('procedures'),
         );
-        $this->assertEquals(
+        self::assertEquals(
             0,
             $parent->getPresence('events'),
         );
@@ -79,18 +79,18 @@ class NodeDatabaseTest extends AbstractTestCase
         $parent = new NodeDatabase('default');
 
         $tables = $parent->getData($relationParameters, 'tables', 0);
-        $this->assertContains('test1', $tables);
-        $this->assertContains('test2', $tables);
+        self::assertContains('test1', $tables);
+        self::assertContains('test2', $tables);
 
         $views = $parent->getData($relationParameters, 'views', 0);
-        $this->assertEmpty($views);
+        self::assertEmpty($views);
 
         $functions = $parent->getData($relationParameters, 'functions', 0);
-        $this->assertContains('testFunction', $functions);
-        $this->assertCount(1, $functions);
+        self::assertContains('testFunction', $functions);
+        self::assertCount(1, $functions);
 
-        $this->assertEmpty($parent->getData($relationParameters, 'procedures', 0));
-        $this->assertEmpty($parent->getData($relationParameters, 'events', 0));
+        self::assertEmpty($parent->getData($relationParameters, 'procedures', 0));
+        self::assertEmpty($parent->getData($relationParameters, 'events', 0));
     }
 
     /**
@@ -100,10 +100,10 @@ class NodeDatabaseTest extends AbstractTestCase
     {
         $parent = new NodeDatabase('default');
         $parent->setHiddenCount(1);
-        $this->assertSame(1, $parent->getHiddenCount());
+        self::assertSame(1, $parent->getHiddenCount());
         $parent->setHiddenCount(0);
-        $this->assertSame(0, $parent->getHiddenCount());
+        self::assertSame(0, $parent->getHiddenCount());
         $parent->setHiddenCount(-1);
-        $this->assertSame(0, $parent->getHiddenCount());
+        self::assertSame(0, $parent->getHiddenCount());
     }
 }

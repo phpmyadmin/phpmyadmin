@@ -28,20 +28,20 @@ class LintControllerTest extends AbstractTestCase
 
     public function testWithoutParams(): void
     {
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('isAjax')->willReturn(true);
         $request->method('getParsedBodyParam')->willReturnMap([['sql_query', '', ''], ['options', null, null]]);
 
         $this->getLintController()($request);
 
         $output = $this->getActualOutputForAssertion();
-        $this->assertJson($output);
-        $this->assertJsonStringEqualsJsonString('[]', $output);
+        self::assertJson($output);
+        self::assertJsonStringEqualsJsonString('[]', $output);
     }
 
     public function testWithoutSqlErrors(): void
     {
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('isAjax')->willReturn(true);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['sql_query', '', 'SELECT * FROM `actor` WHERE `actor_id` = 1;'],
@@ -51,8 +51,8 @@ class LintControllerTest extends AbstractTestCase
         $this->getLintController()($request);
 
         $output = $this->getActualOutputForAssertion();
-        $this->assertJson($output);
-        $this->assertJsonStringEqualsJsonString('[]', $output);
+        self::assertJson($output);
+        self::assertJsonStringEqualsJsonString('[]', $output);
     }
 
     public function testWithSqlErrors(): void
@@ -91,9 +91,9 @@ class LintControllerTest extends AbstractTestCase
                 'severity' => 'error',
             ],
         ]);
-        $this->assertNotFalse($expectedJson);
+        self::assertNotFalse($expectedJson);
 
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('isAjax')->willReturn(true);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['sql_query', '', 'SELECT * FROM `actor` WHEREE `actor_id` = 1'],
@@ -103,8 +103,8 @@ class LintControllerTest extends AbstractTestCase
         $this->getLintController()($request);
 
         $output = $this->getActualOutputForAssertion();
-        $this->assertJson($output);
-        $this->assertJsonStringEqualsJsonString($expectedJson, $output);
+        self::assertJson($output);
+        self::assertJsonStringEqualsJsonString($expectedJson, $output);
     }
 
     private function getLintController(): LintController

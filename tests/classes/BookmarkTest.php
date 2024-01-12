@@ -63,7 +63,7 @@ class BookmarkTest extends AbstractTestCase
             Config::getInstance()->selectedServer['user'],
             'sakila',
         );
-        $this->assertContainsOnlyInstancesOf(Bookmark::class, $actual);
+        self::assertContainsOnlyInstancesOf(Bookmark::class, $actual);
         $this->dummyDbi->assertAllSelectsConsumed();
     }
 
@@ -78,7 +78,7 @@ class BookmarkTest extends AbstractTestCase
             ['id', 'dbase', 'user', 'label', 'query'],
         );
         $dbi = DatabaseInterface::getInstance();
-        $this->assertNull(
+        self::assertNull(
             (new BookmarkRepository($dbi, new Relation($dbi)))->get(
                 Config::getInstance()->selectedServer['user'],
                 1,
@@ -103,7 +103,7 @@ class BookmarkTest extends AbstractTestCase
             'root',
             'phpmyadmin',
         );
-        $this->assertNotFalse($bookmark);
-        $this->assertTrue($bookmark->save());
+        self::assertNotFalse($bookmark);
+        self::assertTrue($bookmark->save());
     }
 }

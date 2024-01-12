@@ -48,15 +48,15 @@ class StructureControllerTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
         // Expect the table will have 6 rows
-        $table->expects($this->any())->method('getRealRowCountTable')
+        $table->expects(self::any())->method('getRealRowCountTable')
             ->willReturn(6);
-        $table->expects($this->any())->method('countRecords')
+        $table->expects(self::any())->method('countRecords')
             ->willReturn(6);
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $dbi->expects($this->any())->method('getTable')
+        $dbi->expects(self::any())->method('getTable')
             ->willReturn($table);
 
         DatabaseInterface::$instance = $dbi;
@@ -81,8 +81,8 @@ class StructureControllerTest extends AbstractTestCase
             $this->relation,
             $this->replication,
             $dbi,
-            $this->createStub(TrackingChecker::class),
-            $this->createStub(PageSettings::class),
+            self::createStub(TrackingChecker::class),
+            self::createStub(PageSettings::class),
             new DbTableExists($dbi),
         );
         // Showing statistics
@@ -102,9 +102,9 @@ class StructureControllerTest extends AbstractTestCase
             [$currentTable, 10],
         );
 
-        $this->assertTrue($currentTable['COUNTED']);
-        $this->assertEquals(6, $currentTable['TABLE_ROWS']);
-        $this->assertEquals(16394, $sumSize);
+        self::assertTrue($currentTable['COUNTED']);
+        self::assertEquals(6, $currentTable['TABLE_ROWS']);
+        self::assertEquals(16394, $sumSize);
 
         $currentTable['ENGINE'] = 'MYISAM';
         [$currentTable, , , $sumSize] = $method->invokeArgs(
@@ -112,8 +112,8 @@ class StructureControllerTest extends AbstractTestCase
             [$currentTable, 10],
         );
 
-        $this->assertFalse($currentTable['COUNTED']);
-        $this->assertEquals(16394, $sumSize);
+        self::assertFalse($currentTable['COUNTED']);
+        self::assertEquals(16394, $sumSize);
 
         $controller = new StructureController(
             $this->response,
@@ -121,20 +121,20 @@ class StructureControllerTest extends AbstractTestCase
             $this->relation,
             $this->replication,
             $dbi,
-            $this->createStub(TrackingChecker::class),
-            $this->createStub(PageSettings::class),
+            self::createStub(TrackingChecker::class),
+            self::createStub(PageSettings::class),
             new DbTableExists($dbi),
         );
 
         $currentTable['ENGINE'] = 'InnoDB';
         [$currentTable, , , $sumSize] = $method->invokeArgs($controller, [$currentTable, 10]);
-        $this->assertTrue($currentTable['COUNTED']);
-        $this->assertEquals(10, $sumSize);
+        self::assertTrue($currentTable['COUNTED']);
+        self::assertEquals(10, $sumSize);
 
         $currentTable['ENGINE'] = 'MYISAM';
         [$currentTable, , , $sumSize] = $method->invokeArgs($controller, [$currentTable, 10]);
-        $this->assertFalse($currentTable['COUNTED']);
-        $this->assertEquals(10, $sumSize);
+        self::assertFalse($currentTable['COUNTED']);
+        self::assertEquals(10, $sumSize);
     }
 
     /**
@@ -152,8 +152,8 @@ class StructureControllerTest extends AbstractTestCase
             $this->relation,
             $this->replication,
             $dbi,
-            $this->createStub(TrackingChecker::class),
-            $this->createStub(PageSettings::class),
+            self::createStub(TrackingChecker::class),
+            self::createStub(PageSettings::class),
             new DbTableExists($dbi),
         );
         // Showing statistics
@@ -167,16 +167,16 @@ class StructureControllerTest extends AbstractTestCase
             $controller,
             [$currentTable, 0, 0, 0, 0, 0, 0],
         );
-        $this->assertEquals(6, $currentTable['Rows']);
-        $this->assertEquals(16384, $sumSize);
-        $this->assertEquals(300, $overheadSize);
+        self::assertEquals(6, $currentTable['Rows']);
+        self::assertEquals(16384, $sumSize);
+        self::assertEquals(300, $overheadSize);
 
         unset($currentTable['Data_free']);
         [$currentTable, , , , , $overheadSize] = $method->invokeArgs(
             $controller,
             [$currentTable, 0, 0, 0, 0, 0, 0],
         );
-        $this->assertEquals(0, $overheadSize);
+        self::assertEquals(0, $overheadSize);
 
         $controller = new StructureController(
             $this->response,
@@ -184,15 +184,15 @@ class StructureControllerTest extends AbstractTestCase
             $this->relation,
             $this->replication,
             $dbi,
-            $this->createStub(TrackingChecker::class),
-            $this->createStub(PageSettings::class),
+            self::createStub(TrackingChecker::class),
+            self::createStub(PageSettings::class),
             new DbTableExists($dbi),
         );
         [$currentTable, , , , , , $sumSize] = $method->invokeArgs(
             $controller,
             [$currentTable, 0, 0, 0, 0, 0, 0],
         );
-        $this->assertEquals(0, $sumSize);
+        self::assertEquals(0, $sumSize);
 
         $controller = new StructureController(
             $this->response,
@@ -200,15 +200,15 @@ class StructureControllerTest extends AbstractTestCase
             $this->relation,
             $this->replication,
             $dbi,
-            $this->createStub(TrackingChecker::class),
-            $this->createStub(PageSettings::class),
+            self::createStub(TrackingChecker::class),
+            self::createStub(PageSettings::class),
             new DbTableExists($dbi),
         );
         [$currentTable] = $method->invokeArgs(
             $controller,
             [$currentTable, 0, 0, 0, 0, 0, 0],
         );
-        $this->assertArrayNotHasKey('Row', $currentTable);
+        self::assertArrayNotHasKey('Row', $currentTable);
     }
 
     /**
@@ -226,25 +226,25 @@ class StructureControllerTest extends AbstractTestCase
             $this->relation,
             $this->replication,
             $dbi,
-            $this->createStub(TrackingChecker::class),
-            $this->createStub(PageSettings::class),
+            self::createStub(TrackingChecker::class),
+            self::createStub(PageSettings::class),
             new DbTableExists($dbi),
         );
 
         // When parameter $db is empty
-        $this->assertFalse(
+        self::assertFalse(
             $method->invokeArgs($controller, [[], 'table']),
         );
 
         // Correct parameter
         $tables = ['db.table'];
-        $this->assertTrue(
+        self::assertTrue(
             $method->invokeArgs($controller, [$tables, 'table']),
         );
 
         // Table not in database
         $tables = ['db.tab1e'];
-        $this->assertFalse(
+        self::assertFalse(
             $method->invokeArgs($controller, [$tables, 'table']),
         );
     }
@@ -262,8 +262,8 @@ class StructureControllerTest extends AbstractTestCase
             $this->relation,
             $this->replication,
             $dbi,
-            $this->createStub(TrackingChecker::class),
-            $this->createStub(PageSettings::class),
+            self::createStub(TrackingChecker::class),
+            self::createStub(PageSettings::class),
             new DbTableExists($dbi),
         );
         // Showing statistics
@@ -280,8 +280,8 @@ class StructureControllerTest extends AbstractTestCase
         $_REQUEST['db'] = 'my_unique_test_db';
         $tablesProperty->setValue($controller, []);
         $result = $method->invoke($controller, ['status' => false]);
-        $this->assertStringContainsString($_REQUEST['db'], $result);
-        $this->assertStringNotContainsString('id="overhead"', $result);
+        self::assertStringContainsString($_REQUEST['db'], $result);
+        self::assertStringNotContainsString('id="overhead"', $result);
 
         //with table
         $_REQUEST['db'] = 'my_unique_test_db';
@@ -299,9 +299,9 @@ class StructureControllerTest extends AbstractTestCase
         ]);
         $result = $method->invoke($controller, ['status' => false]);
 
-        $this->assertStringContainsString($_REQUEST['db'], $result);
-        $this->assertStringContainsString('id="overhead"', $result);
-        $this->assertStringContainsString('9.8', $result);
+        self::assertStringContainsString($_REQUEST['db'], $result);
+        self::assertStringContainsString('id="overhead"', $result);
+        self::assertStringContainsString('9.8', $result);
     }
 
     /**
@@ -319,12 +319,12 @@ class StructureControllerTest extends AbstractTestCase
             $this->relation,
             $this->replication,
             $dbi,
-            $this->createStub(TrackingChecker::class),
-            $this->createStub(PageSettings::class),
+            self::createStub(TrackingChecker::class),
+            self::createStub(PageSettings::class),
             new DbTableExists($dbi),
         );
 
-        $this->assertSame(
+        self::assertSame(
             [[], '', '', 0],
             $this->callFunction(
                 $structureController,
@@ -340,10 +340,10 @@ class StructureControllerTest extends AbstractTestCase
             $structureController,
             StructureController::class,
             'getDatabaseInfo',
-            [$this->createStub(ServerRequest::class)],
+            [self::createStub(ServerRequest::class)],
         );
 
-        $this->assertSame(
+        self::assertSame(
             [['Data_length' => 45, 'Index_length' => 60], '105', 'B', 105],
             $this->callFunction(
                 $structureController,
@@ -353,7 +353,7 @@ class StructureControllerTest extends AbstractTestCase
             ),
         );
 
-        $this->assertSame(
+        self::assertSame(
             [
                 ['Data_length' => 45, 'Index_length' => 60],
                 '105',

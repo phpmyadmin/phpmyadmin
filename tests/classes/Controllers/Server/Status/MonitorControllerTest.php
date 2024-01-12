@@ -58,43 +58,43 @@ class MonitorControllerTest extends AbstractTestCase
         );
 
         $this->dummyDbi->addSelectDb('mysql');
-        $controller($this->createStub(ServerRequest::class));
+        $controller(self::createStub(ServerRequest::class));
         $this->dummyDbi->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 
-        $this->assertStringContainsString(__('Start monitor'), $html);
-        $this->assertStringContainsString(
+        self::assertStringContainsString(__('Start monitor'), $html);
+        self::assertStringContainsString(
             __('Settings'),
             $html,
         );
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             __('Done dragging (rearranging) charts'),
             $html,
         );
 
-        $this->assertStringContainsString('<div class="collapse" id="monitorSettingsContent">', $html);
-        $this->assertStringContainsString(
+        self::assertStringContainsString('<div class="collapse" id="monitorSettingsContent">', $html);
+        self::assertStringContainsString(
             __('Enable charts dragging'),
             $html,
         );
-        $this->assertStringContainsString('<option>3</option>', $html);
+        self::assertStringContainsString('<option>3</option>', $html);
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             __('Monitor Instructions'),
             $html,
         );
-        $this->assertStringContainsString('monitorInstructionsDialog', $html);
+        self::assertStringContainsString('monitorInstructionsDialog', $html);
 
-        $this->assertStringContainsString('<div class="modal fade" id="addChartModal"', $html);
-        $this->assertStringContainsString('<div id="chartVariableSettings">', $html);
-        $this->assertStringContainsString('<option>Processes</option>', $html);
-        $this->assertStringContainsString('<option>Connections</option>', $html);
+        self::assertStringContainsString('<div class="modal fade" id="addChartModal"', $html);
+        self::assertStringContainsString('<div id="chartVariableSettings">', $html);
+        self::assertStringContainsString('<option>Processes</option>', $html);
+        self::assertStringContainsString('<option>Connections</option>', $html);
 
-        $this->assertStringContainsString('<form id="js_data" class="hide">', $html);
-        $this->assertStringContainsString('<input type="hidden" name="server_time"', $html);
+        self::assertStringContainsString('<form id="js_data" class="hide">', $html);
+        self::assertStringContainsString('<input type="hidden" name="server_time"', $html);
         //validate 2: inputs
-        $this->assertStringContainsString('<input type="hidden" name="is_superuser"', $html);
-        $this->assertStringContainsString('<input type="hidden" name="server_db_isLocal"', $html);
-        $this->assertStringContainsString('<div id="explain_docu" class="hide">', $html);
+        self::assertStringContainsString('<input type="hidden" name="is_superuser"', $html);
+        self::assertStringContainsString('<input type="hidden" name="server_db_isLocal"', $html);
+        self::assertStringContainsString('<div id="explain_docu" class="hide">', $html);
     }
 }

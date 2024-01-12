@@ -62,18 +62,18 @@ class FormDisplayTest extends AbstractTestCase
 
         $this->object->registerForm('pma_testform', $array, 2);
         $forms = $attrForms->getValue($this->object);
-        $this->assertInstanceOf(Form::class, $forms['pma_testform']);
+        self::assertInstanceOf(Form::class, $forms['pma_testform']);
 
         $attrSystemPaths = $reflection->getProperty('systemPaths');
 
-        $this->assertEquals(
+        self::assertEquals(
             ['Servers/2/test' => 'Servers/1/test', 'Servers/2/:group:end:0' => 'Servers/1/:group:end:0'],
             $attrSystemPaths->getValue($this->object),
         );
 
         $attrTranslatedPaths = $reflection->getProperty('translatedPaths');
 
-        $this->assertEquals(
+        self::assertEquals(
             ['Servers/2/test' => 'Servers-2-test', 'Servers/2/:group:end:0' => 'Servers-2-:group:end:0'],
             $attrTranslatedPaths->getValue($this->object),
         );
@@ -85,7 +85,7 @@ class FormDisplayTest extends AbstractTestCase
     #[Group('medium')]
     public function testProcess(): void
     {
-        $this->assertFalse(
+        self::assertFalse(
             $this->object->process(true, true),
         );
 
@@ -97,18 +97,18 @@ class FormDisplayTest extends AbstractTestCase
         $attrForms = new ReflectionProperty(FormDisplay::class, 'forms');
         $attrForms->setValue($this->object, [1, 2, 3]);
 
-        $this->object->expects($this->once())
+        $this->object->expects(self::once())
             ->method('save')
             ->with([0, 1, 2], false)
             ->willReturn(true);
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->process(false, false),
         );
 
         $attrForms->setValue($this->object, []);
 
-        $this->assertFalse(
+        self::assertFalse(
             $this->object->process(false, false),
         );
     }
@@ -128,7 +128,7 @@ class FormDisplayTest extends AbstractTestCase
 
         $result = $this->object->displayErrors();
 
-        $this->assertSame($result, '');
+        self::assertSame($result, '');
 
         $arr = ['Servers/1/test' => ['e1'], 'foobar' => ['e2', 'e3']];
 
@@ -141,11 +141,11 @@ class FormDisplayTest extends AbstractTestCase
 
         $result = $this->object->displayErrors();
 
-        $this->assertStringContainsString('<dt>Servers/1/test2</dt>', $result);
-        $this->assertStringContainsString('<dd>e1</dd>', $result);
-        $this->assertStringContainsString('<dt>Form_foobar</dt>', $result);
-        $this->assertStringContainsString('<dd>e2</dd>', $result);
-        $this->assertStringContainsString('<dd>e3</dd>', $result);
+        self::assertStringContainsString('<dt>Servers/1/test2</dt>', $result);
+        self::assertStringContainsString('<dd>e1</dd>', $result);
+        self::assertStringContainsString('<dt>Form_foobar</dt>', $result);
+        self::assertStringContainsString('<dd>e2</dd>', $result);
+        self::assertStringContainsString('<dd>e3</dd>', $result);
     }
 
     /**
@@ -174,7 +174,7 @@ class FormDisplayTest extends AbstractTestCase
 
         $this->object->fixErrors();
 
-        $this->assertEquals(
+        self::assertEquals(
             ['Servers' => ['1' => ['test' => 'localhost']]],
             $_SESSION['ConfigFile2'],
         );
@@ -189,7 +189,7 @@ class FormDisplayTest extends AbstractTestCase
 
         $arr = ['foo' => 'var'];
         $value = 'foo';
-        $this->assertTrue(
+        self::assertTrue(
             $attrValidateSelect->invokeArgs(
                 $this->object,
                 [&$value, $arr],
@@ -198,20 +198,20 @@ class FormDisplayTest extends AbstractTestCase
 
         $arr = ['' => 'foobar'];
         $value = '';
-        $this->assertTrue(
+        self::assertTrue(
             $attrValidateSelect->invokeArgs(
                 $this->object,
                 [&$value, $arr],
             ),
         );
-        $this->assertEquals(
+        self::assertEquals(
             'string',
             gettype($value),
         );
 
         $arr = [0 => 'foobar'];
         $value = 0;
-        $this->assertTrue(
+        self::assertTrue(
             $attrValidateSelect->invokeArgs(
                 $this->object,
                 [&$value, $arr],
@@ -220,7 +220,7 @@ class FormDisplayTest extends AbstractTestCase
 
         $arr = ['1' => 'foobar'];
         $value = 0;
-        $this->assertFalse(
+        self::assertFalse(
             $attrValidateSelect->invokeArgs(
                 $this->object,
                 [&$value, $arr],
@@ -233,14 +233,14 @@ class FormDisplayTest extends AbstractTestCase
      */
     public function testHasErrors(): void
     {
-        $this->assertFalse($this->object->hasErrors());
+        self::assertFalse($this->object->hasErrors());
 
         (new ReflectionProperty(FormDisplay::class, 'errors'))->setValue(
             $this->object,
             [1, 2],
         );
 
-        $this->assertTrue($this->object->hasErrors());
+        self::assertTrue($this->object->hasErrors());
     }
 
     /**
@@ -248,18 +248,18 @@ class FormDisplayTest extends AbstractTestCase
      */
     public function testGetDocLink(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             'index.php?route=/url&url='
             . 'https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_Servers_3_test_2_',
             $this->object->getDocLink('Servers/3/test/2/'),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             '',
             $this->object->getDocLink('Import'),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             '',
             $this->object->getDocLink('Export'),
         );
@@ -272,12 +272,12 @@ class FormDisplayTest extends AbstractTestCase
     {
         $method = new ReflectionMethod(FormDisplay::class, 'getOptName');
 
-        $this->assertEquals(
+        self::assertEquals(
             'Servers_',
             $method->invoke($this->object, 'Servers/1/'),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Servers_23_',
             $method->invoke($this->object, 'Servers/1/23/'),
         );
@@ -293,7 +293,7 @@ class FormDisplayTest extends AbstractTestCase
         $attrUserprefs = new ReflectionProperty(FormDisplay::class, 'userprefsDisallow');
 
         $method->invoke($this->object, null);
-        $this->assertEquals(
+        self::assertEquals(
             [],
             $attrUserprefs->getValue($this->object),
         );
@@ -328,7 +328,7 @@ class FormDisplayTest extends AbstractTestCase
 
         $expect['comment_warning'] = 1;
 
-        $this->assertEquals($expect, $opts);
+        self::assertEquals($expect, $opts);
 
         // ZipDump, GZipDump, BZipDump
         $method->invokeArgs(
@@ -346,9 +346,9 @@ class FormDisplayTest extends AbstractTestCase
             'due to missing function gzcompress.';
         }
 
-        $this->assertEquals($comment, $opts['comment']);
+        self::assertEquals($comment, $opts['comment']);
 
-        $this->assertTrue($opts['comment_warning']);
+        self::assertTrue($opts['comment_warning']);
 
         $method->invokeArgs(
             $this->object,
@@ -365,9 +365,9 @@ class FormDisplayTest extends AbstractTestCase
             'due to missing function gzencode.';
         }
 
-        $this->assertEquals($comment, $opts['comment']);
+        self::assertEquals($comment, $opts['comment']);
 
-        $this->assertTrue($opts['comment_warning']);
+        self::assertTrue($opts['comment_warning']);
 
         $method->invokeArgs(
             $this->object,
@@ -384,9 +384,9 @@ class FormDisplayTest extends AbstractTestCase
             'due to missing function bzcompress.';
         }
 
-        $this->assertEquals($comment, $opts['comment']);
+        self::assertEquals($comment, $opts['comment']);
 
-        $this->assertTrue($opts['comment_warning']);
+        self::assertTrue($opts['comment_warning']);
 
         $config = Config::getInstance();
         $config->set('is_setup', false);
@@ -400,20 +400,20 @@ class FormDisplayTest extends AbstractTestCase
             ['MaxDbList', &$opts],
         );
 
-        $this->assertEquals('maximum 10', $opts['comment']);
+        self::assertEquals('maximum 10', $opts['comment']);
 
         $method->invokeArgs(
             $this->object,
             ['MaxTableList', &$opts],
         );
 
-        $this->assertEquals('maximum 10', $opts['comment']);
+        self::assertEquals('maximum 10', $opts['comment']);
 
         $method->invokeArgs(
             $this->object,
             ['QueryHistoryMax', &$opts],
         );
 
-        $this->assertEquals('maximum 10', $opts['comment']);
+        self::assertEquals('maximum 10', $opts['comment']);
     }
 }

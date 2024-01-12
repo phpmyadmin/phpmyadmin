@@ -52,14 +52,14 @@ class StructureTest extends TestBase
         $this->waitForElement('id', 'functionConfirmOkButton')->click();
 
         $success = $this->waitForElement('cssSelector', '.alert-success');
-        $this->assertStringContainsString('MySQL returned an empty result', $success->getText());
+        self::assertStringContainsString('MySQL returned an empty result', $success->getText());
 
         $this->dbQuery(
             'SELECT CONCAT("Count: ", COUNT(*)) as c FROM `' . $this->databaseName . '`.`test_table`',
             function (): void {
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                self::assertTrue($this->isElementPresent('className', 'table_results'));
                 // [ ] | Edit | Copy | Delete | 1 | 5
-                $this->assertEquals('Count: 0', $this->getCellByTableClass('table_results', 1, 1));
+                self::assertEquals('Count: 0', $this->getCellByTableClass('table_results', 1, 1));
             },
         );
     }
@@ -85,8 +85,8 @@ class StructureTest extends TestBase
         $this->dbQuery(
             'SHOW TABLES FROM `' . $this->databaseName . '`;',
             function (): void {
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
-                $this->assertFalse($this->isElementPresent('cssSelector', '.table_results tbody tr'));
+                self::assertTrue($this->isElementPresent('className', 'table_results'));
+                self::assertFalse($this->isElementPresent('cssSelector', '.table_results tbody tr'));
             },
         );
     }

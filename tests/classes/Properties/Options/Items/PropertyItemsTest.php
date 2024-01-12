@@ -21,14 +21,14 @@ class PropertyItemsTest extends AbstractTestCase
     {
         $object = new BoolPropertyItem(null, 'Text');
 
-        $this->assertEquals(
+        self::assertEquals(
             'Text',
             $object->getText(),
         );
 
         $object->setText('xtext2');
 
-        $this->assertEquals(
+        self::assertEquals(
             'xtext2',
             $object->getText(),
         );
@@ -38,14 +38,14 @@ class PropertyItemsTest extends AbstractTestCase
     {
         $object = new BoolPropertyItem('xname');
 
-        $this->assertEquals(
+        self::assertEquals(
             'xname',
             $object->getName(),
         );
 
         $object->setName('xname2');
 
-        $this->assertEquals(
+        self::assertEquals(
             'xname2',
             $object->getName(),
         );
@@ -55,7 +55,7 @@ class PropertyItemsTest extends AbstractTestCase
     {
         $object = new BoolPropertyItem();
 
-        $this->assertEquals(
+        self::assertEquals(
             'bool',
             $object->getItemType(),
         );
@@ -65,7 +65,7 @@ class PropertyItemsTest extends AbstractTestCase
     {
         $object = new DocPropertyItem();
 
-        $this->assertEquals(
+        self::assertEquals(
             'doc',
             $object->getItemType(),
         );
@@ -75,7 +75,7 @@ class PropertyItemsTest extends AbstractTestCase
     {
         $object = new HiddenPropertyItem();
 
-        $this->assertEquals(
+        self::assertEquals(
             'hidden',
             $object->getItemType(),
         );
@@ -85,7 +85,7 @@ class PropertyItemsTest extends AbstractTestCase
     {
         $object = new MessageOnlyPropertyItem();
 
-        $this->assertEquals(
+        self::assertEquals(
             'messageOnly',
             $object->getItemType(),
         );
@@ -95,7 +95,7 @@ class PropertyItemsTest extends AbstractTestCase
     {
         $object = new RadioPropertyItem();
 
-        $this->assertEquals(
+        self::assertEquals(
             'radio',
             $object->getItemType(),
         );
@@ -105,7 +105,7 @@ class PropertyItemsTest extends AbstractTestCase
     {
         $object = new SelectPropertyItem();
 
-        $this->assertEquals(
+        self::assertEquals(
             'select',
             $object->getItemType(),
         );
@@ -115,7 +115,7 @@ class PropertyItemsTest extends AbstractTestCase
     {
         $object = new TextPropertyItem();
 
-        $this->assertEquals(
+        self::assertEquals(
             'text',
             $object->getItemType(),
         );

@@ -51,7 +51,7 @@ final class ServerRequestFactoryTest extends TestCase
         $serverRequestFactory = new ServerRequestFactory(new $provider());
         $serverRequest = $serverRequestFactory->createServerRequest('GET', 'http://example.com/');
         $actual = (new ReflectionProperty(ServerRequest::class, 'serverRequest'))->getValue($serverRequest);
-        $this->assertInstanceOf($expectedServerRequest, $actual);
+        self::assertInstanceOf($expectedServerRequest, $actual);
     }
 
     /**
@@ -80,7 +80,7 @@ final class ServerRequestFactoryTest extends TestCase
         $serverRequestFactory = ServerRequestFactory::create();
         $actual = (new ReflectionProperty(ServerRequestFactory::class, 'serverRequestFactory'))
             ->getValue($serverRequestFactory);
-        $this->assertInstanceOf($provider, $actual);
+        self::assertInstanceOf($provider, $actual);
     }
 
     /** @psalm-return iterable<string, array{class-string<ServerRequestFactoryInterface>}> */
@@ -130,17 +130,17 @@ final class ServerRequestFactoryTest extends TestCase
 
         $serverRequest = $serverRequestFactory->fromGlobals();
 
-        $this->assertInstanceOf($expectedUri, $serverRequest->getUri());
-        $this->assertSame('GET', $serverRequest->getMethod());
-        $this->assertSame(
+        self::assertInstanceOf($expectedUri, $serverRequest->getUri());
+        self::assertSame('GET', $serverRequest->getMethod());
+        self::assertSame(
             'http://phpmyadmin.local/test-page.php?foo=bar&blob=baz',
             $serverRequest->getUri()->__toString(),
         );
-        $this->assertFalse($serverRequest->isPost());
-        $this->assertSame('default', $serverRequest->getParam('not-exists', 'default'));
-        $this->assertSame('bar', $serverRequest->getParam('foo'));
-        $this->assertSame('baz', $serverRequest->getParam('blob'));
-        $this->assertSame(['foo' => 'bar', 'blob' => 'baz'], $serverRequest->getQueryParams());
+        self::assertFalse($serverRequest->isPost());
+        self::assertSame('default', $serverRequest->getParam('not-exists', 'default'));
+        self::assertSame('bar', $serverRequest->getParam('foo'));
+        self::assertSame('baz', $serverRequest->getParam('blob'));
+        self::assertSame(['foo' => 'bar', 'blob' => 'baz'], $serverRequest->getQueryParams());
     }
 
     /**
@@ -175,26 +175,26 @@ final class ServerRequestFactoryTest extends TestCase
 
         $serverRequest = $serverRequestFactory->fromGlobals();
 
-        $this->assertInstanceOf($expectedUri, $serverRequest->getUri());
-        $this->assertSame(['application/x-www-form-urlencoded'], $serverRequest->getHeader('Content-Type'));
-        $this->assertSame('POST', $serverRequest->getMethod());
-        $this->assertSame(
+        self::assertInstanceOf($expectedUri, $serverRequest->getUri());
+        self::assertSame(['application/x-www-form-urlencoded'], $serverRequest->getHeader('Content-Type'));
+        self::assertSame('POST', $serverRequest->getMethod());
+        self::assertSame(
             'http://phpmyadmin.local/test-page.php?foo=bar&blob=baz',
             $serverRequest->getUri()->__toString(),
         );
-        $this->assertTrue($serverRequest->isPost());
-        $this->assertSame('default', $serverRequest->getParam('not-exists', 'default'));
-        $this->assertSame('bar', $serverRequest->getParam('foo'));
-        $this->assertSame('baz', $serverRequest->getParam('blob'));
-        $this->assertSame(['foo' => 'bar', 'blob' => 'baz'], $serverRequest->getQueryParams());
-        $this->assertSame(
+        self::assertTrue($serverRequest->isPost());
+        self::assertSame('default', $serverRequest->getParam('not-exists', 'default'));
+        self::assertSame('bar', $serverRequest->getParam('foo'));
+        self::assertSame('baz', $serverRequest->getParam('blob'));
+        self::assertSame(['foo' => 'bar', 'blob' => 'baz'], $serverRequest->getQueryParams());
+        self::assertSame(
             ['input1' => 'value1', 'input2' => 'value2', 'input3' => ''],
             $serverRequest->getParsedBody(),
         );
-        $this->assertNull($serverRequest->getParsedBodyParam('foo'));
-        $this->assertSame('value1', $serverRequest->getParsedBodyParam('input1'));
-        $this->assertSame('value2', $serverRequest->getParsedBodyParam('input2'));
-        $this->assertSame('', $serverRequest->getParsedBodyParam('input3', 'default'));
+        self::assertNull($serverRequest->getParsedBodyParam('foo'));
+        self::assertSame('value1', $serverRequest->getParsedBodyParam('input1'));
+        self::assertSame('value2', $serverRequest->getParsedBodyParam('input2'));
+        self::assertSame('', $serverRequest->getParsedBodyParam('input3', 'default'));
     }
 
     /**
@@ -222,10 +222,10 @@ final class ServerRequestFactoryTest extends TestCase
 
         $serverRequest = $serverRequestFactory->fromGlobals();
 
-        $this->assertInstanceOf($expectedUri, $serverRequest->getUri());
-        $this->assertSame('POST', $serverRequest->getMethod());
-        $this->assertNull($serverRequest->getParsedBody());
-        $this->assertSame(
+        self::assertInstanceOf($expectedUri, $serverRequest->getUri());
+        self::assertSame('POST', $serverRequest->getMethod());
+        self::assertNull($serverRequest->getParsedBody());
+        self::assertSame(
             ['Host' => ['example.com'], 'Content-Type' => ['application/json'], 'Content-Length' => ['123']],
             $serverRequest->getHeaders(),
         );
@@ -279,6 +279,6 @@ final class ServerRequestFactoryTest extends TestCase
         }
 
         // This can happen when testing without the development packages.
-        $this->markTestSkipped($provider . ' is not available.');
+        self::markTestSkipped($provider . ' is not available.');
     }
 }

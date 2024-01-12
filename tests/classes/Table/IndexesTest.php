@@ -35,7 +35,7 @@ class IndexesTest extends AbstractTestCase
     {
         $sqlQuery = 'ALTER TABLE `db`.`table` RENAME INDEX `0` TO `ABC`;';
 
-        $this->dbi->expects($this->any())->method('getVersion')
+        $this->dbi->expects(self::any())->method('getVersion')
             ->willReturn(50700);
 
         $index = new Index(['Key_name' => 'ABC']);
@@ -43,18 +43,18 @@ class IndexesTest extends AbstractTestCase
         $indexes = new Indexes($this->dbi);
 
         $sqlResult = $indexes->getSqlQueryForRename('0', $index, Current::$database, Current::$table);
-        $this->assertStringContainsString($sqlQuery, $sqlResult);
+        self::assertStringContainsString($sqlQuery, $sqlResult);
 
         // Error message
         $index->setName('NOT PRIMARY'); // Cannot rename primary so the operation should fail
         $indexes->getSqlQueryForRename('PRIMARY', $index, Current::$database, Current::$table);
         $error = $indexes->getError();
-        $this->assertInstanceOf(Message::class, $error);
+        self::assertInstanceOf(Message::class, $error);
 
         $index->setName('PRIMARY'); // The new name cannot be PRIMARY so the operation should fail
         $indexes->getSqlQueryForRename('NOT PRIMARY', $index, Current::$database, Current::$table);
         $error = $indexes->getError();
-        $this->assertInstanceOf(Message::class, $error);
+        self::assertInstanceOf(Message::class, $error);
     }
 
     public function testGetSqlQueryForIndexCreateOrEdit(): void
@@ -62,7 +62,7 @@ class IndexesTest extends AbstractTestCase
         $table = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $this->dbi->expects($this->any())->method('getTable')
+        $this->dbi->expects(self::any())->method('getTable')
             ->willReturn($table);
         $indexes = new Indexes($this->dbi);
 
@@ -76,7 +76,7 @@ class IndexesTest extends AbstractTestCase
         $sqlQueryExpected = 'ALTER TABLE `pma_db`.`pma_table` DROP PRIMARY KEY, ADD PRIMARY KEY (`id`);';
 
         $_POST['old_index'] = 'PRIMARY';
-        $this->assertEquals(
+        self::assertEquals(
             $sqlQueryExpected,
             $indexes->getSqlQueryForIndexCreateOrEdit('PRIMARY', $index, $db, $table),
         );
@@ -84,6 +84,6 @@ class IndexesTest extends AbstractTestCase
         // Error message
         $index->setName('NOT PRIMARY'); // Cannot rename primary so the operation should fail
         $indexes->getSqlQueryForIndexCreateOrEdit('PRIMARY', $index, $db, $table);
-        $this->assertInstanceOf(Message::class, $indexes->getError());
+        self::assertInstanceOf(Message::class, $indexes->getError());
     }
 }

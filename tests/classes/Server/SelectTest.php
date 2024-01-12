@@ -77,7 +77,7 @@ class SelectTest extends AbstractTestCase
         $server = $config->settings['Servers']['0'];
 
         if ($notOnlyOptions) {
-            $this->assertStringContainsString(
+            self::assertStringContainsString(
                 Util::getScriptNameForOption(
                     $config->settings['DefaultTabServer'],
                     'server',
@@ -85,21 +85,21 @@ class SelectTest extends AbstractTestCase
                 $html,
             );
 
-            $this->assertStringContainsString(
+            self::assertStringContainsString(
                 __('Current server:'),
                 $html,
             );
-            $this->assertStringContainsString(
+            self::assertStringContainsString(
                 '(' . __('Servers') . ')',
                 $html,
             );
         }
 
         //server items
-        $this->assertStringContainsString($server['host'], $html);
-        $this->assertStringContainsString($server['port'], $html);
-        $this->assertStringContainsString($server['only_db'], $html);
-        $this->assertStringContainsString($server['user'], $html);
+        self::assertStringContainsString($server['host'], $html);
+        self::assertStringContainsString($server['port'], $html);
+        self::assertStringContainsString($server['only_db'], $html);
+        self::assertStringContainsString($server['user'], $html);
     }
 
     /** @return mixed[][] */

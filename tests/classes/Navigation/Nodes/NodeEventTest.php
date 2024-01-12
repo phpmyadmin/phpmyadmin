@@ -17,7 +17,7 @@ class NodeEventTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = new NodeEvent('default');
-        $this->assertEquals(
+        self::assertEquals(
             [
                 'text' => [
                     'route' => '/database/events',

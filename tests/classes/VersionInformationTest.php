@@ -51,8 +51,8 @@ class VersionInformationTest extends AbstractTestCase
         unset($_SESSION['cache']['version_check']);
         $versionInformation = new VersionInformation();
         $version = $versionInformation->getLatestVersions();
-        $this->assertIsArray($version);
-        $this->assertNotEmpty($version);
+        self::assertIsArray($version);
+        self::assertNotEmpty($version);
     }
 
     /**
@@ -65,7 +65,7 @@ class VersionInformationTest extends AbstractTestCase
     public function testVersionToInt(string $version, int $numeric): void
     {
         $versionInformation = new VersionInformation();
-        $this->assertEquals(
+        self::assertEquals(
             $numeric,
             $versionInformation->versionToInt($version),
         );
@@ -109,12 +109,12 @@ class VersionInformationTest extends AbstractTestCase
         Config::getInstance()->settings['Servers'] = [[]];
 
         $mockVersionInfo = $this->createPartialMock(VersionInformation::class, ['getPHPVersion', 'getMySQLVersion']);
-        $mockVersionInfo->expects($this->exactly(6))->method('getPHPVersion')->willReturn('5.6.0');
-        $mockVersionInfo->expects($this->exactly(2))->method('getMySQLVersion')->willReturn('5.5.0');
+        $mockVersionInfo->expects(self::exactly(6))->method('getPHPVersion')->willReturn('5.6.0');
+        $mockVersionInfo->expects(self::exactly(2))->method('getMySQLVersion')->willReturn('5.5.0');
 
         $compatible = $mockVersionInfo->getLatestCompatibleVersion($this->releases);
-        $this->assertInstanceOf(Release::class, $compatible);
-        $this->assertEquals('4.4.14.1', $compatible->version);
+        self::assertInstanceOf(Release::class, $compatible);
+        self::assertEquals('4.4.14.1', $compatible->version);
     }
 
     /**
@@ -125,12 +125,12 @@ class VersionInformationTest extends AbstractTestCase
         Config::getInstance()->settings['Servers'] = [[], []];
 
         $mockVersionInfo = $this->createPartialMock(VersionInformation::class, ['getPHPVersion', 'getMySQLVersion']);
-        $mockVersionInfo->expects($this->exactly(6))->method('getPHPVersion')->willReturn('5.6.0');
-        $mockVersionInfo->expects($this->never())->method('getMySQLVersion');
+        $mockVersionInfo->expects(self::exactly(6))->method('getPHPVersion')->willReturn('5.6.0');
+        $mockVersionInfo->expects(self::never())->method('getMySQLVersion');
 
         $compatible = $mockVersionInfo->getLatestCompatibleVersion($this->releases);
-        $this->assertInstanceOf(Release::class, $compatible);
-        $this->assertEquals('4.4.14.1', $compatible->version);
+        self::assertInstanceOf(Release::class, $compatible);
+        self::assertEquals('4.4.14.1', $compatible->version);
     }
 
     /**
@@ -141,12 +141,12 @@ class VersionInformationTest extends AbstractTestCase
         Config::getInstance()->settings['Servers'] = [[], []];
 
         $mockVersionInfo = $this->createPartialMock(VersionInformation::class, ['getPHPVersion', 'getMySQLVersion']);
-        $mockVersionInfo->expects($this->exactly(4))->method('getPHPVersion')->willReturn('5.2.1');
-        $mockVersionInfo->expects($this->never())->method('getMySQLVersion');
+        $mockVersionInfo->expects(self::exactly(4))->method('getPHPVersion')->willReturn('5.2.1');
+        $mockVersionInfo->expects(self::never())->method('getMySQLVersion');
 
         $compatible = $mockVersionInfo->getLatestCompatibleVersion($this->releases);
-        $this->assertInstanceOf(Release::class, $compatible);
-        $this->assertEquals('4.0.10.10', $compatible->version);
+        self::assertInstanceOf(Release::class, $compatible);
+        self::assertEquals('4.0.10.10', $compatible->version);
     }
 
     /**
@@ -165,11 +165,11 @@ class VersionInformationTest extends AbstractTestCase
         Config::getInstance()->settings['Servers'] = [];
 
         $mockVersionInfo = $this->createPartialMock(VersionInformation::class, ['getPHPVersion', 'getMySQLVersion']);
-        $mockVersionInfo->expects($this->exactly($conditions[0]))->method('getPHPVersion')->willReturn($conditions[1]);
-        $mockVersionInfo->expects($this->never())->method('getMySQLVersion');
+        $mockVersionInfo->expects(self::exactly($conditions[0]))->method('getPHPVersion')->willReturn($conditions[1]);
+        $mockVersionInfo->expects(self::never())->method('getMySQLVersion');
 
         $compatible = $mockVersionInfo->getLatestCompatibleVersion($versions);
-        $this->assertEquals($matchedLastVersion, $compatible->version ?? null);
+        self::assertEquals($matchedLastVersion, $compatible->version ?? null);
     }
 
     /**
@@ -249,20 +249,20 @@ class VersionInformationTest extends AbstractTestCase
             ->onlyMethods(['getPHPVersion'])
             ->getMock();
 
-        $mockVersionInfo->expects($this->any())
+        $mockVersionInfo->expects(self::any())
             ->method('getPHPVersion')
             ->willReturn('5.2.4');
 
-        $this->assertTrue($mockVersionInfo->evaluateVersionCondition('PHP', '<=5.3'));
-        $this->assertTrue($mockVersionInfo->evaluateVersionCondition('PHP', '<5.3'));
-        $this->assertTrue($mockVersionInfo->evaluateVersionCondition('PHP', '>=5.2'));
-        $this->assertTrue($mockVersionInfo->evaluateVersionCondition('PHP', '>5.2'));
-        $this->assertTrue($mockVersionInfo->evaluateVersionCondition('PHP', '!=5.3'));
+        self::assertTrue($mockVersionInfo->evaluateVersionCondition('PHP', '<=5.3'));
+        self::assertTrue($mockVersionInfo->evaluateVersionCondition('PHP', '<5.3'));
+        self::assertTrue($mockVersionInfo->evaluateVersionCondition('PHP', '>=5.2'));
+        self::assertTrue($mockVersionInfo->evaluateVersionCondition('PHP', '>5.2'));
+        self::assertTrue($mockVersionInfo->evaluateVersionCondition('PHP', '!=5.3'));
 
-        $this->assertFalse($mockVersionInfo->evaluateVersionCondition('PHP', '<=5.2'));
-        $this->assertFalse($mockVersionInfo->evaluateVersionCondition('PHP', '<5.2'));
-        $this->assertFalse($mockVersionInfo->evaluateVersionCondition('PHP', '>=7.0'));
-        $this->assertFalse($mockVersionInfo->evaluateVersionCondition('PHP', '>7.0'));
-        $this->assertTrue($mockVersionInfo->evaluateVersionCondition('PHP', '!=5.2'));
+        self::assertFalse($mockVersionInfo->evaluateVersionCondition('PHP', '<=5.2'));
+        self::assertFalse($mockVersionInfo->evaluateVersionCondition('PHP', '<5.2'));
+        self::assertFalse($mockVersionInfo->evaluateVersionCondition('PHP', '>=7.0'));
+        self::assertFalse($mockVersionInfo->evaluateVersionCondition('PHP', '>7.0'));
+        self::assertTrue($mockVersionInfo->evaluateVersionCondition('PHP', '!=5.2'));
     }
 }

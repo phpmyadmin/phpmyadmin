@@ -53,11 +53,11 @@ class AdvisorControllerTest extends AbstractTestCase
             new Advisor(DatabaseInterface::getInstance(), new ExpressionLanguage()),
         );
 
-        $controller($this->createStub(ServerRequest::class));
+        $controller(self::createStub(ServerRequest::class));
 
         $expected = $this->template->render('server/status/advisor/index', ['data' => []]);
 
-        $this->assertSame(
+        self::assertSame(
             $expected,
             $this->response->getHTMLResult(),
         );
@@ -88,18 +88,18 @@ class AdvisorControllerTest extends AbstractTestCase
             ],
         ];
 
-        $advisor = $this->createMock(Advisor::class);
+        $advisor = self::createMock(Advisor::class);
         $advisor->method('run')->willReturn($advisorData);
 
         $this->data->dataLoaded = true;
 
         $controller = new AdvisorController($this->response, $this->template, $this->data, $advisor);
 
-        $controller($this->createStub(ServerRequest::class));
+        $controller(self::createStub(ServerRequest::class));
 
         $expected = $this->template->render('server/status/advisor/index', ['data' => $advisorData]);
 
-        $this->assertSame(
+        self::assertSame(
             $expected,
             $this->response->getHTMLResult(),
         );

@@ -41,23 +41,23 @@ class SqlQueryTest extends TestBase
         $this->waitAjax();
 
         $this->waitForElement('cssSelector', 'table.table_results');
-        $this->assertEquals(
+        self::assertEquals(
             1,
             $this->getCellByTableClass('table_results', 1, 1),
         );
-        $this->assertEquals(
+        self::assertEquals(
             1,
             $this->getCellByTableClass('table_results', 1, 2),
         );
-        $this->assertEquals(
+        self::assertEquals(
             2,
             $this->getCellByTableClass('table_results', 1, 3),
         );
-        $this->assertEquals(
+        self::assertEquals(
             4,
             $this->getCellByTableClass('table_results', 1, 4),
         );
-        $this->assertEquals(
+        self::assertEquals(
             7,
             $this->getCellByTableClass('table_results', 1, 5),
         );
@@ -81,15 +81,15 @@ class SqlQueryTest extends TestBase
         $this->waitAjax();
 
         $this->waitForElement('cssSelector', 'table.table_results');
-        $this->assertEquals(
+        self::assertEquals(
             'test_table',
             $this->getCellByTableClass('table_results', 1, 1),
         );
-        $this->assertEquals(
+        self::assertEquals(
             'InnoDB',
             $this->getCellByTableClass('table_results', 1, 2),
         );
-        $this->assertEquals(
+        self::assertEquals(
             4,
             $this->getCellByTableClass('table_results', 1, 5),
         );
@@ -114,19 +114,19 @@ class SqlQueryTest extends TestBase
         $this->waitAjax();
 
         $this->waitForElement('cssSelector', 'table.table_results');
-        $this->assertEquals(
+        self::assertEquals(
             3,
             $this->getCellByTableClass('table_results', 1, 5),
         );
-        $this->assertEquals(
+        self::assertEquals(
             4,
             $this->getCellByTableClass('table_results', 2, 5),
         );
-        $this->assertEquals(
+        self::assertEquals(
             4,
             $this->getCellByTableClass('table_results', 1, 6),
         );
-        $this->assertEquals(
+        self::assertEquals(
             5,
             $this->getCellByTableClass('table_results', 2, 6),
         );
@@ -149,7 +149,7 @@ class SqlQueryTest extends TestBase
         $this->waitAjax();
 
         $this->waitForElement('cssSelector', 'table.table_results');
-        $this->assertEquals(
+        self::assertEquals(
             1,
             $this->getCellByTableClass('table_results', 1, 1),
         );

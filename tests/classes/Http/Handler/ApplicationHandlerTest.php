@@ -22,45 +22,45 @@ final class ApplicationHandlerTest extends TestCase
     #[BackupStaticProperties(true)]
     public function testHandleReturnsResponse(): void
     {
-        $responseRendererMock = $this->createMock(ResponseRenderer::class);
-        $responseRendererMock->expects($this->never())->method('response');
+        $responseRendererMock = self::createMock(ResponseRenderer::class);
+        $responseRendererMock->expects(self::never())->method('response');
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseRendererMock);
-        $request = $this->createStub(ServerRequest::class);
-        $responseStub = new Response($this->createStub(ResponseInterface::class));
-        $appMock = $this->createMock(Application::class);
-        $appMock->expects($this->once())->method('handle')->with($request)->willReturn($responseStub);
+        $request = self::createStub(ServerRequest::class);
+        $responseStub = new Response(self::createStub(ResponseInterface::class));
+        $appMock = self::createMock(Application::class);
+        $appMock->expects(self::once())->method('handle')->with($request)->willReturn($responseStub);
         $handler = new ApplicationHandler($appMock);
         $response = $handler->handle($request);
-        $this->assertSame($response, $responseStub);
+        self::assertSame($response, $responseStub);
     }
 
     #[BackupStaticProperties(true)]
     public function testHandleThrowsExit(): void
     {
-        $responseStub = new Response($this->createStub(ResponseInterface::class));
-        $responseRendererMock = $this->createMock(ResponseRenderer::class);
-        $responseRendererMock->expects($this->once())->method('response')->willReturn($responseStub);
+        $responseStub = new Response(self::createStub(ResponseInterface::class));
+        $responseRendererMock = self::createMock(ResponseRenderer::class);
+        $responseRendererMock->expects(self::once())->method('response')->willReturn($responseStub);
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseRendererMock);
-        $request = $this->createStub(ServerRequest::class);
-        $appMock = $this->createMock(Application::class);
-        $appMock->expects($this->once())->method('handle')->with($request)->willThrowException(new ExitException());
+        $request = self::createStub(ServerRequest::class);
+        $appMock = self::createMock(Application::class);
+        $appMock->expects(self::once())->method('handle')->with($request)->willThrowException(new ExitException());
         $handler = new ApplicationHandler($appMock);
         $response = $handler->handle($request);
-        $this->assertSame($response, $responseStub);
+        self::assertSame($response, $responseStub);
     }
 
     #[BackupStaticProperties(true)]
     public function testHandleReturnsNull(): void
     {
-        $responseStub = new Response($this->createStub(ResponseInterface::class));
-        $responseRendererMock = $this->createMock(ResponseRenderer::class);
-        $responseRendererMock->expects($this->once())->method('response')->willReturn($responseStub);
+        $responseStub = new Response(self::createStub(ResponseInterface::class));
+        $responseRendererMock = self::createMock(ResponseRenderer::class);
+        $responseRendererMock->expects(self::once())->method('response')->willReturn($responseStub);
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseRendererMock);
-        $request = $this->createStub(ServerRequest::class);
-        $appMock = $this->createMock(Application::class);
-        $appMock->expects($this->once())->method('handle')->with($request)->willReturn(null);
+        $request = self::createStub(ServerRequest::class);
+        $appMock = self::createMock(Application::class);
+        $appMock->expects(self::once())->method('handle')->with($request)->willReturn(null);
         $handler = new ApplicationHandler($appMock);
         $response = $handler->handle($request);
-        $this->assertSame($response, $responseStub);
+        self::assertSame($response, $responseStub);
     }
 }

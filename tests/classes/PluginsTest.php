@@ -26,27 +26,27 @@ class PluginsTest extends AbstractTestCase
     public function testGetExport(): void
     {
         $plugins = Plugins::getExport('database', false);
-        $this->assertEquals(['export_type' => 'database', 'single_table' => false], $GLOBALS['plugin_param']);
-        $this->assertIsArray($plugins);
-        $this->assertCount(14, $plugins);
-        $this->assertContainsOnlyInstancesOf(Plugins\ExportPlugin::class, $plugins);
+        self::assertEquals(['export_type' => 'database', 'single_table' => false], $GLOBALS['plugin_param']);
+        self::assertIsArray($plugins);
+        self::assertCount(14, $plugins);
+        self::assertContainsOnlyInstancesOf(Plugins\ExportPlugin::class, $plugins);
     }
 
     public function testGetImport(): void
     {
         $plugins = Plugins::getImport('database');
-        $this->assertEquals('database', $GLOBALS['plugin_param']);
-        $this->assertIsArray($plugins);
-        $this->assertCount(6, $plugins);
-        $this->assertContainsOnlyInstancesOf(Plugins\ImportPlugin::class, $plugins);
+        self::assertEquals('database', $GLOBALS['plugin_param']);
+        self::assertIsArray($plugins);
+        self::assertCount(6, $plugins);
+        self::assertContainsOnlyInstancesOf(Plugins\ImportPlugin::class, $plugins);
     }
 
     public function testGetSchema(): void
     {
         $plugins = Plugins::getSchema();
-        $this->assertIsArray($plugins);
-        $this->assertCount(4, $plugins);
-        $this->assertContainsOnlyInstancesOf(Plugins\SchemaPlugin::class, $plugins);
+        self::assertIsArray($plugins);
+        self::assertCount(4, $plugins);
+        self::assertContainsOnlyInstancesOf(Plugins\SchemaPlugin::class, $plugins);
     }
 
     /** @psalm-param 'Export'|'Import'|'Schema' $section */
@@ -73,7 +73,7 @@ class PluginsTest extends AbstractTestCase
         /** @psalm-suppress InvalidArrayOffset, PossiblyInvalidArrayAssignment */
         Config::getInstance()->settings[$section][$option] = $actualConfig;
         $default = Plugins::getDefault($section, $option);
-        $this->assertSame($expected, $default);
+        self::assertSame($expected, $default);
     }
 
     /**
@@ -134,6 +134,6 @@ class PluginsTest extends AbstractTestCase
             ['name' => 'sql', 'text' => 'SQL', 'is_selected' => false, 'is_binary' => false],
             ['name' => 'xml', 'text' => 'XML', 'is_selected' => true, 'is_binary' => false],
         ];
-        $this->assertEquals($expected, $actual);
+        self::assertEquals($expected, $actual);
     }
 }

@@ -31,7 +31,7 @@ class DbiMysqliTest extends AbstractTestCase
 
     public function testGetClientInfo(): void
     {
-        $this->assertNotEmpty($this->object->getClientInfo());
+        self::assertNotEmpty($this->object->getClientInfo());
     }
 
     /**
@@ -40,13 +40,13 @@ class DbiMysqliTest extends AbstractTestCase
     public function testSelectDb(): void
     {
         $databaseName = 'test';
-        $mysqli = $this->createMock(mysqli::class);
-        $mysqli->expects($this->once())
+        $mysqli = self::createMock(mysqli::class);
+        $mysqli->expects(self::once())
             ->method('select_db')
-            ->with($this->equalTo($databaseName))
+            ->with(self::equalTo($databaseName))
             ->willReturn(true);
 
-        $this->assertTrue($this->object->selectDb($databaseName, new Connection($mysqli)));
+        self::assertTrue($this->object->selectDb($databaseName, new Connection($mysqli)));
     }
 
     /**
@@ -55,13 +55,13 @@ class DbiMysqliTest extends AbstractTestCase
     public function testRealMultiQuery(): void
     {
         $query = 'test';
-        $mysqli = $this->createMock(mysqli::class);
-        $mysqli->expects($this->once())
+        $mysqli = self::createMock(mysqli::class);
+        $mysqli->expects(self::once())
             ->method('multi_query')
-            ->with($this->equalTo($query))
+            ->with(self::equalTo($query))
             ->willReturn(true);
 
-        $this->assertTrue($this->object->realMultiQuery(new Connection($mysqli), $query));
+        self::assertTrue($this->object->realMultiQuery(new Connection($mysqli), $query));
     }
 
     /**
@@ -70,14 +70,14 @@ class DbiMysqliTest extends AbstractTestCase
     public function testrealQuery(): void
     {
         $query = 'test';
-        $mysqliResult = $this->createMock(mysqli_result::class);
-        $mysqli = $this->createMock(mysqli::class);
-        $mysqli->expects($this->once())
+        $mysqliResult = self::createMock(mysqli_result::class);
+        $mysqli = self::createMock(mysqli::class);
+        $mysqli->expects(self::once())
             ->method('query')
-            ->with($this->equalTo($query))
+            ->with(self::equalTo($query))
             ->willReturn($mysqliResult);
 
-        $this->assertInstanceOf(MysqliResult::class, $this->object->realQuery($query, new Connection($mysqli), 0));
+        self::assertInstanceOf(MysqliResult::class, $this->object->realQuery($query, new Connection($mysqli), 0));
     }
 
     /**
@@ -85,12 +85,12 @@ class DbiMysqliTest extends AbstractTestCase
      */
     public function testNextResult(): void
     {
-        $mysqli = $this->createMock(mysqli::class);
-        $mysqli->expects($this->once())
+        $mysqli = self::createMock(mysqli::class);
+        $mysqli->expects(self::once())
             ->method('next_result')
             ->willReturn(true);
 
-        $this->assertTrue($this->object->nextResult(new Connection($mysqli)));
+        self::assertTrue($this->object->nextResult(new Connection($mysqli)));
     }
 
     /**
@@ -98,13 +98,13 @@ class DbiMysqliTest extends AbstractTestCase
      */
     public function testStoreResult(): void
     {
-        $mysqli = $this->createMock(mysqli::class);
-        $mysqliResult = $this->createMock(mysqli_result::class);
-        $mysqli->expects($this->once())
+        $mysqli = self::createMock(mysqli::class);
+        $mysqliResult = self::createMock(mysqli_result::class);
+        $mysqli->expects(self::once())
             ->method('store_result')
             ->willReturn($mysqliResult);
 
-        $this->assertInstanceOf(MysqliResult::class, $this->object->storeResult(new Connection($mysqli)));
+        self::assertInstanceOf(MysqliResult::class, $this->object->storeResult(new Connection($mysqli)));
     }
 
     /**
@@ -113,17 +113,17 @@ class DbiMysqliTest extends AbstractTestCase
     public function testEscapeString(): void
     {
         $string = 'test';
-        $mysqli = $this->createMock(mysqli::class);
-        $mysqli->expects($this->once())
+        $mysqli = self::createMock(mysqli::class);
+        $mysqli->expects(self::once())
             ->method('real_escape_string')
             ->willReturn($string);
 
-        $this->assertEquals($string, $this->object->escapeString(new Connection($mysqli), $string));
+        self::assertEquals($string, $this->object->escapeString(new Connection($mysqli), $string));
     }
 
     public function testGetWarningCount(): void
     {
         $mysqli = (object) ['warning_count' => 30];
-        $this->assertSame(30, $this->object->getWarningCount(new Connection($mysqli)));
+        self::assertSame(30, $this->object->getWarningCount(new Connection($mysqli)));
     }
 }

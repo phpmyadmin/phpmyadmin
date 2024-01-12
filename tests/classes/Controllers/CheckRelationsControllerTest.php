@@ -38,7 +38,7 @@ class CheckRelationsControllerTest extends AbstractTestCase
         Current::$database = '';
         Current::$table = '';
 
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['create_pmadb', null, null],
             ['fixall_pmadb', null, null],
@@ -53,12 +53,12 @@ class CheckRelationsControllerTest extends AbstractTestCase
 
         $actual = $response->getHTMLResult();
 
-        $this->assertStringContainsString('phpMyAdmin configuration storage', $actual);
-        $this->assertStringContainsString(
+        self::assertStringContainsString('phpMyAdmin configuration storage', $actual);
+        self::assertStringContainsString(
             'Configuration of pmadb…      <span class="text-danger"><strong>not OK</strong></span>',
             $actual,
         );
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'Create</a> a database named \'phpmyadmin\' and setup the phpMyAdmin configuration storage there.',
             $actual,
         );

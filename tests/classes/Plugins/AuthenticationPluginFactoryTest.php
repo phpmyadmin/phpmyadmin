@@ -27,7 +27,7 @@ class AuthenticationPluginFactoryTest extends AbstractTestCase
     {
         Config::getInstance()->selectedServer['auth_type'] = $type;
         $plugin = (new AuthenticationPluginFactory())->create();
-        $this->assertInstanceOf($class, $plugin);
+        self::assertInstanceOf($class, $plugin);
     }
 
     /** @return iterable<string, array{non-empty-string, class-string}> */
@@ -54,11 +54,11 @@ class AuthenticationPluginFactoryTest extends AbstractTestCase
         $factory = new AuthenticationPluginFactory();
         $firstInstance = $factory->create();
         $secondInstance = (new AuthenticationPluginFactory())->create();
-        $this->assertNotSame($firstInstance, $secondInstance);
+        self::assertNotSame($firstInstance, $secondInstance);
         $thirdInstance = $factory->create();
-        $this->assertSame($firstInstance, $thirdInstance);
+        self::assertSame($firstInstance, $thirdInstance);
         $config->selectedServer['auth_type'] = 'config';
         $forthInstance = $factory->create();
-        $this->assertSame($firstInstance, $forthInstance);
+        self::assertSame($firstInstance, $forthInstance);
     }
 }

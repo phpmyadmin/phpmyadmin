@@ -53,7 +53,7 @@ class TrackingControllerTest extends AbstractTestCase
 
         $response = new ResponseRenderer();
         $template = new Template();
-        $trackingChecker = $this->createStub(TrackingChecker::class);
+        $trackingChecker = self::createStub(TrackingChecker::class);
         $relation = new Relation($this->dbi);
         $bookmarkRepository = new BookmarkRepository($this->dbi, $relation);
         (new TrackingController(
@@ -102,6 +102,6 @@ class TrackingControllerTest extends AbstractTestCase
             'main' => $main,
         ]);
 
-        $this->assertSame($expected, $response->getHTMLResult());
+        self::assertSame($expected, $response->getHTMLResult());
     }
 }

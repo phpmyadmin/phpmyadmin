@@ -70,14 +70,14 @@ class AuthenticationConfigTest extends AbstractTestCase
     public function testAuthCheck(): void
     {
         Config::getInstance()->selectedServer = ['user' => 'username', 'password' => 'password'];
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->readCredentials(),
         );
     }
 
     public function testAuthSetUser(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->storeCredentials(),
         );
     }
@@ -104,17 +104,17 @@ class AuthenticationConfigTest extends AbstractTestCase
 
         $html = ob_get_clean();
 
-        $this->assertInstanceOf(ExitException::class, $throwable);
+        self::assertInstanceOf(ExitException::class, $throwable);
 
-        $this->assertIsString($html);
+        self::assertIsString($html);
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'You probably did not create a configuration file. You might want ' .
             'to use the <a href="setup/">setup script</a> to create one.',
             $html,
         );
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<strong>MySQL said: </strong><a href="index.php?route=/url&url=https%3A%2F%2F' .
             'dev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Fserver-error-reference.html"' .
             ' target="mysql_doc">' .
@@ -123,9 +123,9 @@ class AuthenticationConfigTest extends AbstractTestCase
             $html,
         );
 
-        $this->assertStringContainsString('Cannot connect: invalid settings.', $html);
+        self::assertStringContainsString('Cannot connect: invalid settings.', $html);
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<a href="index.php?route=/&server=2&lang=en" '
             . 'class="btn btn-primary mt-1 mb-1 disableAjax">Retry to connect</a>',
             $html,

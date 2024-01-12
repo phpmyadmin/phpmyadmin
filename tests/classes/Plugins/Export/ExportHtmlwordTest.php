@@ -90,37 +90,37 @@ class ExportHtmlwordTest extends AbstractTestCase
         $attrProperties = new ReflectionProperty(ExportHtmlword::class, 'properties');
         $properties = $attrProperties->getValue($this->object);
 
-        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
+        self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        $this->assertEquals(
+        self::assertEquals(
             'Microsoft Word 2000',
             $properties->getText(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'doc',
             $properties->getExtension(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'application/vnd.ms-word',
             $properties->getMimeType(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Options',
             $properties->getOptionsText(),
         );
 
-        $this->assertTrue(
+        self::assertTrue(
             $properties->getForceFile(),
         );
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
+        self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        $this->assertEquals(
+        self::assertEquals(
             'Format Specific Options',
             $options->getName(),
         );
@@ -129,14 +129,14 @@ class ExportHtmlwordTest extends AbstractTestCase
         $generalOptions = $generalOptionsArray->current();
         $generalOptionsArray->next();
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
+        self::assertEquals(
             'dump_what',
             $generalOptions->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Dump table',
             $generalOptions->getText(),
         );
@@ -145,33 +145,33 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $property = $generalProperties->current();
 
-        $this->assertInstanceOf(RadioPropertyItem::class, $property);
+        self::assertInstanceOf(RadioPropertyItem::class, $property);
 
-        $this->assertEquals(
+        self::assertEquals(
             'structure_or_data',
             $property->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             ['structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')],
             $property->getValues(),
         );
 
         $generalOptions = $generalOptionsArray->current();
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
+        self::assertEquals(
             'dump_what',
             $generalOptions->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Data dump options',
             $generalOptions->getText(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'structure',
             $generalOptions->getForce(),
         );
@@ -181,28 +181,28 @@ class ExportHtmlwordTest extends AbstractTestCase
         $property = $generalProperties->current();
         $generalProperties->next();
 
-        $this->assertInstanceOf(TextPropertyItem::class, $property);
+        self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        $this->assertEquals(
+        self::assertEquals(
             'null',
             $property->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Replace NULL with:',
             $property->getText(),
         );
 
         $property = $generalProperties->current();
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        $this->assertEquals(
+        self::assertEquals(
             'columns',
             $property->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Put columns names in the first row',
             $property->getText(),
         );
@@ -227,7 +227,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             </head>
             <body>';
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
 
         // case 2
 
@@ -249,41 +249,41 @@ class ExportHtmlwordTest extends AbstractTestCase
             </head>
             <body>';
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testExportFooter(): void
     {
         ob_start();
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportFooter(),
         );
         $result = ob_get_clean();
 
-        $this->assertEquals('</body></html>', $result);
+        self::assertEquals('</body></html>', $result);
     }
 
     public function testExportDBHeader(): void
     {
         ob_start();
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBHeader('d"b'),
         );
         $result = ob_get_clean();
 
-        $this->assertEquals('<h1>Database d&quot;b</h1>', $result);
+        self::assertEquals('<h1>Database d&quot;b</h1>', $result);
     }
 
     public function testExportDBFooter(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBFooter('testDB'),
         );
     }
 
     public function testExportDBCreate(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBCreate('testDB', 'database'),
         );
     }
@@ -301,7 +301,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         $GLOBALS['save_on_server'] = false;
 
         ob_start();
-        $this->assertTrue($this->object->exportData(
+        self::assertTrue($this->object->exportData(
             'test_db',
             'test_table',
             'localhost',
@@ -309,7 +309,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         ));
         $result = ob_get_clean();
 
-        $this->assertEquals(
+        self::assertEquals(
             '<h2>Dumping data for table test_table</h2>'
             . '<table width="100%" cellspacing="1"><tr class="print-category">'
             . '<td class="print"><strong>id</strong></td>'
@@ -341,26 +341,26 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('getTableIndexes')
             ->with('database', 'view')
             ->willReturn($keys);
 
         $column = new Column('column', '', false, '', null, '');
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('getColumns')
             ->with('database', 'view')
             ->willReturn([$column]);
 
         DatabaseInterface::$instance = $dbi;
 
-        $this->object->expects($this->once())
+        $this->object->expects(self::once())
             ->method('formatOneColumnDefinition')
             ->with($column, ['name1'], 'column')
             ->willReturn('1');
 
-        $this->assertEquals(
+        self::assertEquals(
             '<table width="100%" cellspacing="1">' .
             '<tr class="print-category"><th class="print">Column</th>' .
             '<td class="print"><strong>Type</strong></td>' .
@@ -382,46 +382,46 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         // case 1
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createMock(DummyResult::class);
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->exactly(2))
+        $dbi->expects(self::exactly(2))
             ->method('fetchResult')
             ->willReturn(
                 [],
                 ['fieldname' => ['values' => 'test-', 'transformation' => 'testfoo', 'mimetype' => 'test<']],
             );
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('getTableIndexes')
             ->with('database', '')
             ->willReturn($keys);
 
         $column = new Column('fieldname', '', false, '', null, '');
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('getColumns')
             ->with('database', '')
             ->willReturn([$column]);
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('tryQueryAsControlUser')
             ->willReturn($resultStub);
 
-        $resultStub->expects($this->once())
+        $resultStub->expects(self::once())
             ->method('numRows')
             ->willReturn(1);
 
-        $resultStub->expects($this->once())
+        $resultStub->expects(self::once())
             ->method('fetchAssoc')
             ->willReturn(['comment' => 'testComment']);
 
         DatabaseInterface::$instance = $dbi;
         $this->object->relation = new Relation($dbi);
 
-        $this->object->expects($this->exactly(3))
+        $this->object->expects(self::exactly(3))
             ->method('formatOneColumnDefinition')
             ->with($column, ['name1'])
             ->willReturn('1');
@@ -438,7 +438,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $result = $this->object->getTableDef('database', '', true, true, true);
 
-        $this->assertEquals(
+        self::assertEquals(
             '<table width="100%" cellspacing="1">' .
             '<tr class="print-category"><th class="print">Column</th>' .
             '<td class="print"><strong>Type</strong></td>' .
@@ -452,40 +452,40 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         // case 2
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createMock(DummyResult::class);
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->exactly(2))
+        $dbi->expects(self::exactly(2))
             ->method('fetchResult')
             ->willReturn(
                 ['fieldname' => ['foreign_table' => 'ftable', 'foreign_field' => 'ffield']],
                 ['field' => ['values' => 'test-', 'transformation' => 'testfoo', 'mimetype' => 'test<']],
             );
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('getTableIndexes')
             ->with('database', '')
             ->willReturn($keys);
 
         $column = new Column('fieldname', '', false, '', null, '');
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('getColumns')
             ->with('database', '')
             ->willReturn([$column]);
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('tryQueryAsControlUser')
             ->willReturn($resultStub);
 
-        $resultStub->expects($this->once())
+        $resultStub->expects(self::once())
             ->method('numRows')
             ->willReturn(1);
 
-        $resultStub->expects($this->once())
+        $resultStub->expects(self::once())
             ->method('fetchAssoc')
             ->willReturn(['comment' => 'testComment']);
 
@@ -504,9 +504,9 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $result = $this->object->getTableDef('database', '', true, true, true);
 
-        $this->assertStringContainsString('<td class="print">ftable (ffield)</td>', $result);
+        self::assertStringContainsString('<td class="print">ftable (ffield)</td>', $result);
 
-        $this->assertStringContainsString('<td class="print"></td><td class="print"></td>', $result);
+        self::assertStringContainsString('<td class="print"></td><td class="print"></td>', $result);
 
         // case 3
 
@@ -514,19 +514,19 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('getTableIndexes')
             ->with('database', '')
             ->willReturn($keys);
 
         $column = new Column('fieldname', '', false, '', null, '');
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('getColumns')
             ->with('database', '')
             ->willReturn([$column]);
 
-        $dbi->expects($this->never())
+        $dbi->expects(self::never())
             ->method('tryQuery');
 
         DatabaseInterface::$instance = $dbi;
@@ -540,7 +540,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $result = $this->object->getTableDef('database', '', false, false, false);
 
-        $this->assertEquals(
+        self::assertEquals(
             '<table width="100%" cellspacing="1">' .
             '<tr class="print-category"><th class="print">Column</th>' .
             '<td class="print"><strong>Type</strong></td>' .
@@ -566,7 +566,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         $method = new ReflectionMethod(ExportHtmlword::class, 'getTriggers');
         $result = $method->invoke($this->object, $triggers);
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<td class="print">tna&quot;me</td>' .
             '<td class="print">BEFORE</td>' .
             '<td class="print">UPDATE</td>' .
@@ -579,7 +579,7 @@ class ExportHtmlwordTest extends AbstractTestCase
     {
         ob_start();
         $this->dummyDbi->addSelectDb('test_db');
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
@@ -590,7 +590,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         $this->dummyDbi->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
-        $this->assertEquals(
+        self::assertEquals(
             '<h2>Table structure for table test_table</h2>'
             . '<table width="100%" cellspacing="1"><tr class="print-category">'
             . '<th class="print">Column</th><td class="print"><strong>Type</strong></td>'
@@ -605,7 +605,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
 
         ob_start();
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
@@ -615,7 +615,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertEquals(
+        self::assertEquals(
             '<h2>Triggers test_table</h2><table width="100%" cellspacing="1">'
             . '<tr class="print-category"><th class="print">Name</th>'
             . '<td class="print"><strong>Time</strong></td><td class="print"><strong>Event</strong></td>'
@@ -627,7 +627,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         ob_start();
         $this->dummyDbi->addSelectDb('test_db');
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
@@ -638,7 +638,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         $this->dummyDbi->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
-        $this->assertEquals(
+        self::assertEquals(
             '<h2>Structure for view test_table</h2>'
             . '<table width="100%" cellspacing="1"><tr class="print-category">'
             . '<th class="print">Column</th><td class="print"><strong>Type</strong></td>'
@@ -653,7 +653,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
 
         ob_start();
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
@@ -663,7 +663,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertEquals(
+        self::assertEquals(
             '<h2>Stand-in structure for view test_table</h2>'
             . '<table width="100%" cellspacing="1"><tr class="print-category">'
             . '<th class="print">Column</th><td class="print"><strong>Type</strong></td>'
@@ -687,7 +687,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $uniqueKeys = ['field'];
 
-        $this->assertEquals(
+        self::assertEquals(
             '<tr class="print-category"><td class="print"><em>' .
             '<strong>field</strong></em></td><td class="print">set(abc)</td>' .
             '<td class="print">Yes</td><td class="print">NULL</td>',
@@ -698,7 +698,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $uniqueKeys = ['field'];
 
-        $this->assertEquals(
+        self::assertEquals(
             '<tr class="print-category"><td class="print">fields</td>' .
             '<td class="print">&amp;nbsp;</td><td class="print">No</td>' .
             '<td class="print">def</td>',

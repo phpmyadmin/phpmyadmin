@@ -33,18 +33,18 @@ class ExportRowsControllerTest extends AbstractTestCase
         $_POST['rows_to_delete'] = 'row';
 
         $controller = $this->createMock(ExportController::class);
-        $controller->expects($this->once())->method('__invoke');
+        $controller->expects(self::once())->method('__invoke');
 
         (new ExportRowsController(
             new ResponseRenderer(),
             new Template(),
             $controller,
-        ))($this->createStub(ServerRequest::class));
+        ))(self::createStub(ServerRequest::class));
 
         /** @psalm-suppress InvalidArrayOffset */
-        $this->assertTrue($GLOBALS['single_table']);
+        self::assertTrue($GLOBALS['single_table']);
         /** @psalm-suppress InvalidArrayOffset */
-        $this->assertSame([], $GLOBALS['where_clause']);
+        self::assertSame([], $GLOBALS['where_clause']);
     }
 
     public function testWithoutRowsToDelete(): void
@@ -52,21 +52,21 @@ class ExportRowsControllerTest extends AbstractTestCase
         $_POST['goto'] = 'goto';
 
         $controller = $this->createMock(ExportController::class);
-        $controller->expects($this->never())->method('__invoke');
+        $controller->expects(self::never())->method('__invoke');
 
         $response = new ResponseRenderer();
         (new ExportRowsController(
             $response,
             new Template(),
             $controller,
-        ))($this->createStub(ServerRequest::class));
+        ))(self::createStub(ServerRequest::class));
 
-        $this->assertSame(['message' => 'No row selected.'], $response->getJSONResult());
-        $this->assertFalse($response->hasSuccessState());
+        self::assertSame(['message' => 'No row selected.'], $response->getJSONResult());
+        self::assertFalse($response->hasSuccessState());
         /** @psalm-suppress InvalidArrayOffset */
-        $this->assertNull($GLOBALS['single_table']);
+        self::assertNull($GLOBALS['single_table']);
         /** @psalm-suppress InvalidArrayOffset */
-        $this->assertNull($GLOBALS['where_clause']);
+        self::assertNull($GLOBALS['where_clause']);
     }
 
     public function testWithRowsToDelete(): void
@@ -75,17 +75,17 @@ class ExportRowsControllerTest extends AbstractTestCase
         $_POST['rows_to_delete'] = ['key1' => 'row1', 'key2' => 'row2'];
 
         $controller = $this->createMock(ExportController::class);
-        $controller->expects($this->once())->method('__invoke');
+        $controller->expects(self::once())->method('__invoke');
 
         (new ExportRowsController(
             new ResponseRenderer(),
             new Template(),
             $controller,
-        ))($this->createStub(ServerRequest::class));
+        ))(self::createStub(ServerRequest::class));
 
         /** @psalm-suppress InvalidArrayOffset */
-        $this->assertTrue($GLOBALS['single_table']);
+        self::assertTrue($GLOBALS['single_table']);
         /** @psalm-suppress InvalidArrayOffset */
-        $this->assertSame(['row1', 'row2'], $GLOBALS['where_clause']);
+        self::assertSame(['row1', 'row2'], $GLOBALS['where_clause']);
     }
 }

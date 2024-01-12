@@ -16,7 +16,7 @@ class TriggerTest extends TestCase
 {
     public function testTryFromArrayWithEmptyArray(): void
     {
-        $this->assertNull(Trigger::tryFromArray([]));
+        self::assertNull(Trigger::tryFromArray([]));
     }
 
     /** @param mixed[] $trigger */
@@ -24,13 +24,13 @@ class TriggerTest extends TestCase
     public function testTryFromArrayWithValidValues(array $trigger): void
     {
         $actual = Trigger::tryFromArray($trigger);
-        $this->assertNotNull($actual);
-        $this->assertSame('trigger_name', $actual->name->getName());
-        $this->assertSame(Timing::Before, $actual->timing);
-        $this->assertSame(Event::Update, $actual->event);
-        $this->assertSame('test_table', $actual->table->getName());
-        $this->assertSame('BEGIN END', $actual->statement);
-        $this->assertSame('definer@localhost', $actual->definer);
+        self::assertNotNull($actual);
+        self::assertSame('trigger_name', $actual->name->getName());
+        self::assertSame(Timing::Before, $actual->timing);
+        self::assertSame(Event::Update, $actual->event);
+        self::assertSame('test_table', $actual->table->getName());
+        self::assertSame('BEGIN END', $actual->statement);
+        self::assertSame('definer@localhost', $actual->definer);
     }
 
     /** @return iterable<array-key, array{mixed[]}> */
@@ -63,7 +63,7 @@ class TriggerTest extends TestCase
     #[DataProvider('arrayWithInvalidValuesProvider')]
     public function testTryFromArrayWithInvalidValues(array $trigger): void
     {
-        $this->assertNull(Trigger::tryFromArray($trigger));
+        self::assertNull(Trigger::tryFromArray($trigger));
     }
 
     /** @return iterable<array-key, array{mixed[]}> */
@@ -103,19 +103,19 @@ class TriggerTest extends TestCase
             'Definer' => 'definer@localhost',
         ]);
 
-        $this->assertNotNull($testTrigger);
+        self::assertNotNull($testTrigger);
 
-        $this->assertSame(
+        self::assertSame(
             'DROP TRIGGER IF EXISTS `a_trigger`',
             $testTrigger->getDropSql(),
         );
 
-        $this->assertSame(
+        self::assertSame(
             "CREATE TRIGGER `a_trigger` BEFORE UPDATE ON `test_table2`\n FOR EACH ROW BEGIN END\n//\n",
             $testTrigger->getCreateSql(),
         );
 
-        $this->assertSame(
+        self::assertSame(
             "CREATE TRIGGER `a_trigger` BEFORE UPDATE ON `test_table2`\n FOR EACH ROW BEGIN END\n$$\n",
             $testTrigger->getCreateSql('$$'),
         );

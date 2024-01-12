@@ -37,10 +37,10 @@ class GetColumnsControllerTest extends AbstractTestCase
             $template,
             new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
         );
-        $controller($this->createStub(ServerRequest::class));
+        $controller(self::createStub(ServerRequest::class));
 
         // phpcs:disable Generic.Files.LineLength.TooLong
-        $this->assertSame(
+        self::assertSame(
             '<option selected disabled>Select one…</option><option value="no_such_col">No such column</option><option value="name">name [ varchar(20) ]</option>',
             $response->getHTMLResult(),
         );

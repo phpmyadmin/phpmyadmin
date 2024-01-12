@@ -30,7 +30,7 @@ class NewTablesControllerTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
         $template = new Template();
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['pd', null, json_encode(['ID, task' => [], 'task' => ['timestamp']])],
         ]);
@@ -42,7 +42,7 @@ class NewTablesControllerTest extends AbstractTestCase
         $controller($request);
 
         // phpcs:disable Generic.Files.LineLength.TooLong
-        $this->assertSame(
+        self::assertSame(
             '<p><b>In order to put the original table \'test_table\' into Second normal form we need to create the following tables:</b></p><p><input type="text" name="ID, task" value="test_table">( <u>ID, task</u> )<p><input type="text" name="task" value="table2">( <u>task</u>, timestamp )',
             $response->getHTMLResult(),
         );

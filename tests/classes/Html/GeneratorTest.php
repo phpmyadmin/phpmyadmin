@@ -45,7 +45,7 @@ class GeneratorTest extends AbstractTestCase
         Current::$database = 'test_db';
         Current::$server = 99;
         $database = Current::$database;
-        $this->assertEquals(
+        self::assertEquals(
             '<a href="'
             . Util::getScriptNameForOption(
                 Config::getInstance()->settings['DefaultTabDatabase'],
@@ -67,7 +67,7 @@ class GeneratorTest extends AbstractTestCase
     {
         Current::$server = 99;
         $database = 'test_database';
-        $this->assertEquals(
+        self::assertEquals(
             '<a href="' . Util::getScriptNameForOption(
                 Config::getInstance()->settings['DefaultTabDatabase'],
                 'database',
@@ -87,7 +87,7 @@ class GeneratorTest extends AbstractTestCase
     {
         Current::$server = 99;
         $database = 'test&data\'base';
-        $this->assertEquals(
+        self::assertEquals(
             '<a href="'
             . Util::getScriptNameForOption(
                 Config::getInstance()->settings['DefaultTabDatabase'],
@@ -109,7 +109,7 @@ class GeneratorTest extends AbstractTestCase
     {
         Config::getInstance()->settings['ActionLinksMode'] = 'text';
 
-        $this->assertEquals(
+        self::assertEquals(
             '<span class="text-nowrap"></span>',
             Generator::getIcon('b_comment'),
         );
@@ -122,7 +122,7 @@ class GeneratorTest extends AbstractTestCase
     {
         Config::getInstance()->settings['ActionLinksMode'] = 'icons';
 
-        $this->assertEquals(
+        self::assertEquals(
             '<span class="text-nowrap"><img src="themes/dot.gif" title="" alt="" class="icon ic_b_comment"></span>',
             Generator::getIcon('b_comment'),
         );
@@ -136,7 +136,7 @@ class GeneratorTest extends AbstractTestCase
         Config::getInstance()->settings['ActionLinksMode'] = 'icons';
         $alternateText = 'alt_str';
 
-        $this->assertEquals(
+        self::assertEquals(
             '<span class="text-nowrap"><img src="themes/dot.gif" title="'
             . $alternateText . '" alt="' . $alternateText
             . '" class="icon ic_b_comment"></span>',
@@ -154,7 +154,7 @@ class GeneratorTest extends AbstractTestCase
 
         // Here we are checking for an icon embedded inside a span (i.e not a menu
         // bar icon
-        $this->assertEquals(
+        self::assertEquals(
             '<span class="text-nowrap"><img src="themes/dot.gif" title="'
             . $alternateText . '" alt="' . $alternateText
             . '" class="icon ic_b_comment">&nbsp;' . $alternateText . '</span>',
@@ -176,7 +176,7 @@ class GeneratorTest extends AbstractTestCase
             . '<img src="themes/dot.gif" title="' . __('Documentation') . '" alt="'
             . __('Documentation') . '" class="icon ic_b_help"></a>';
 
-        $this->assertEquals(
+        self::assertEquals(
             $expected,
             Generator::showPHPDocumentation($target),
         );
@@ -200,7 +200,7 @@ class GeneratorTest extends AbstractTestCase
                 [Generator::class, 'linkOrButton'],
                 $params,
             );
-            $this->assertEquals($match, $result);
+            self::assertEquals($match, $result);
         } finally {
             $config->settings['LinkLengthLimit'] = $restore;
         }
@@ -288,7 +288,7 @@ class GeneratorTest extends AbstractTestCase
 
     public function testFormatSql(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             '<code class="sql" dir="ltr"><pre>' . "\n"
             . 'SELECT 1 &lt; 2' . "\n"
             . '</pre></code>',
@@ -297,7 +297,7 @@ class GeneratorTest extends AbstractTestCase
 
         Config::getInstance()->settings['MaxCharactersInDisplayedSQL'] = 6;
 
-        $this->assertEquals(
+        self::assertEquals(
             '<code class="sql" dir="ltr"><pre>' . "\n"
             . 'SELECT[...]' . "\n"
             . '</pre></code>',
@@ -322,7 +322,7 @@ class GeneratorTest extends AbstractTestCase
 
         $config = Config::getInstance();
         $config->selectedServer = ['ssl' => false, 'host' => '127.0.0.1'];
-        $this->assertEquals(
+        self::assertEquals(
             $sslNotUsed,
             Generator::getServerSSL(),
         );
@@ -330,7 +330,7 @@ class GeneratorTest extends AbstractTestCase
         $config->selectedServer = ['ssl' => false, 'host' => 'custom.host'];
         $config->settings['MysqlSslWarningSafeHosts'] = ['localhost', '127.0.0.1'];
 
-        $this->assertEquals(
+        self::assertEquals(
             $sslNotUsedCaution,
             Generator::getServerSSL(),
         );
@@ -338,21 +338,21 @@ class GeneratorTest extends AbstractTestCase
         $config->selectedServer = ['ssl' => false, 'host' => 'custom.host'];
         $config->settings['MysqlSslWarningSafeHosts'] = ['localhost', '127.0.0.1', 'custom.host'];
 
-        $this->assertEquals(
+        self::assertEquals(
             $sslNotUsed,
             Generator::getServerSSL(),
         );
 
         $config->selectedServer = ['ssl' => false, 'ssl_verify' => true, 'host' => 'custom.host'];
 
-        $this->assertEquals(
+        self::assertEquals(
             $sslNotUsed,
             Generator::getServerSSL(),
         );
 
         $config->selectedServer = ['ssl' => true, 'ssl_verify' => false, 'host' => 'custom.host'];
 
-        $this->assertEquals(
+        self::assertEquals(
             '<span class="text-danger">SSL is used with disabled verification</span>'
             . ' <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
             . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
@@ -362,7 +362,7 @@ class GeneratorTest extends AbstractTestCase
 
         $config->selectedServer = ['ssl' => true, 'ssl_verify' => true, 'host' => 'custom.host'];
 
-        $this->assertEquals(
+        self::assertEquals(
             '<span class="text-danger">SSL is used without certification authority</span>'
             . ' <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
             . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
@@ -377,7 +377,7 @@ class GeneratorTest extends AbstractTestCase
             'host' => 'custom.host',
         ];
 
-        $this->assertEquals(
+        self::assertEquals(
             '<span class="">SSL is used</span>'
             . ' <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
             . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
@@ -401,7 +401,7 @@ class GeneratorTest extends AbstractTestCase
         bool $insertMode,
         string $expected,
     ): void {
-        $dbiStub = $this->createStub(DatabaseInterface::class);
+        $dbiStub = self::createStub(DatabaseInterface::class);
         $dbiStub->types = new Types($dbiStub);
         $dbiStub->method('getVersion')->willReturn(50700);
 
@@ -418,7 +418,7 @@ class GeneratorTest extends AbstractTestCase
             $insertMode,
         );
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     /**
@@ -524,9 +524,9 @@ SELECT 1;
 HTML;
         // phpcs:enable
 
-        $this->assertSame($expected, Generator::getMessage('Message [em]one[/em].'));
-        $this->assertArrayNotHasKey('using_bookmark_message', $GLOBALS);
-        $this->assertArrayNotHasKey('special_message', $GLOBALS);
+        self::assertSame($expected, Generator::getMessage('Message [em]one[/em].'));
+        self::assertArrayNotHasKey('using_bookmark_message', $GLOBALS);
+        self::assertArrayNotHasKey('special_message', $GLOBALS);
         SessionCache::remove('profiling_supported');
     }
 
@@ -570,8 +570,8 @@ $sql = "EXPLAIN SELECT 1;";
 HTML;
         // phpcs:enable
 
-        $this->assertSame($expected, Generator::getMessage(Message::success('Message [em]one[/em].')));
-        $this->assertArrayNotHasKey('special_message', $GLOBALS);
+        self::assertSame($expected, Generator::getMessage(Message::success('Message [em]one[/em].')));
+        self::assertArrayNotHasKey('special_message', $GLOBALS);
         SessionCache::remove('profiling_supported');
     }
 }

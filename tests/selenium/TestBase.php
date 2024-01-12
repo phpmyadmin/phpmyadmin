@@ -106,16 +106,16 @@ abstract class TestBase extends TestCase
         parent::setUp();
 
         if ($this->getHubUrl() === '') {
-            $this->markTestSkipped('Selenium testing is not configured.');
+            self::markTestSkipped('Selenium testing is not configured.');
         }
 
         if ($this->getTestSuiteUrl() === '') {
-            $this->markTestSkipped('The ENV "TESTSUITE_URL" is not defined.');
+            self::markTestSkipped('The ENV "TESTSUITE_URL" is not defined.');
         }
 
         if ($this->getTestSuiteUserLogin() === '') {
             //TODO: handle config mode
-            $this->markTestSkipped(
+            self::markTestSkipped(
                 'The ENV "TESTSUITE_USER" is not defined, you may also want to define "TESTSUITE_PASSWORD".',
             );
         }
@@ -414,7 +414,7 @@ abstract class TestBase extends TestCase
             return;
         }
 
-        $this->markTestSkipped('Test user is not a superuser.');
+        self::markTestSkipped('Test user is not a superuser.');
     }
 
     /**
@@ -447,7 +447,7 @@ abstract class TestBase extends TestCase
         }
 
         if (! $this->fixUpPhpMyAdminStorage()) {
-            $this->markTestSkipped('The phpMyAdmin configuration storage is not working.');
+            self::markTestSkipped('The phpMyAdmin configuration storage is not working.');
         }
 
         // If it failed the code already has exited with markTestSkipped
@@ -722,7 +722,7 @@ abstract class TestBase extends TestCase
         $element = $this->webDriver->wait(30, 500)->until(
             WebDriverExpectedCondition::presenceOfElementLocated(WebDriverBy::$func($arg)),
         );
-        $this->assertInstanceOf(RemoteWebElement::class, $element);
+        self::assertInstanceOf(RemoteWebElement::class, $element);
 
         return $element;
     }
@@ -739,7 +739,7 @@ abstract class TestBase extends TestCase
         $element = $this->webDriver->wait($timeout, 500)->until(
             WebDriverExpectedCondition::presenceOfElementLocated(WebDriverBy::$func($arg)),
         );
-        $this->assertInstanceOf(RemoteWebElement::class, $element);
+        self::assertInstanceOf(RemoteWebElement::class, $element);
 
         return $element;
     }
@@ -756,7 +756,7 @@ abstract class TestBase extends TestCase
         $element = $this->webDriver->wait($timeout, 500)->until(
             WebDriverExpectedCondition::visibilityOfElementLocated(WebDriverBy::$func($arg)),
         );
-        $this->assertInstanceOf(WebDriverElement::class, $element);
+        self::assertInstanceOf(WebDriverElement::class, $element);
 
         return $element;
     }
@@ -846,7 +846,7 @@ abstract class TestBase extends TestCase
          * https://github.com/seleniumhq/selenium-google-code-issue-archive/issues/4136
          */
         if ($this->isSafari()) {
-            $this->markTestSkipped('Can not send keys to Safari browser.');
+            self::markTestSkipped('Can not send keys to Safari browser.');
         } else {
             $this->webDriver->getKeyboard()->sendKeys($text);
         }
@@ -865,7 +865,7 @@ abstract class TestBase extends TestCase
          * https://github.com/seleniumhq/selenium-google-code-issue-archive/issues/4136
          */
         if ($this->isSafari()) {
-            $this->markTestSkipped('MoveTo not supported on Safari browser.');
+            self::markTestSkipped('MoveTo not supported on Safari browser.');
         } else {
             $this->webDriver->getMouse()->mouseMove($element->getCoordinates());
         }
@@ -885,7 +885,7 @@ abstract class TestBase extends TestCase
             return $this->webDriver->switchTo()->alert()->getText();
         }
 
-        $this->markTestSkipped('Alerts not supported on Safari browser.');
+        self::markTestSkipped('Alerts not supported on Safari browser.');
     }
 
     /**

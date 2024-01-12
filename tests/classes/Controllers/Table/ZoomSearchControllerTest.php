@@ -61,7 +61,7 @@ final class ZoomSearchControllerTest extends AbstractTestCase
             'max_plot_limit' => 500,
         ]);
 
-        $this->assertSame($expected, $response->getHTMLResult());
+        self::assertSame($expected, $response->getHTMLResult());
     }
 
     public function testChangeTableInfoAction(): void
@@ -123,6 +123,6 @@ HTML;
             'field_value' => $value,
         ];
 
-        $this->assertSame($expected, $response->getJSONResult());
+        self::assertSame($expected, $response->getJSONResult());
     }
 }

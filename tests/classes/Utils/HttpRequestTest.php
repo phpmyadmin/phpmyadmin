@@ -52,7 +52,7 @@ class HttpRequestTest extends AbstractTestCase
             return;
         }
 
-        $this->markTestSkipped('Not supported in CURL SSL backend: ' . ($curl !== false ? $curl['ssl_version'] : '?'));
+        self::markTestSkipped('Not supported in CURL SSL backend: ' . ($curl !== false ? $curl['ssl_version'] : '?'));
     }
 
     /**
@@ -152,7 +152,7 @@ class HttpRequestTest extends AbstractTestCase
     public function testFopen(string $url, string $method, bool $returnOnlyStatus, bool|string|null $expected): void
     {
         if (! ini_get('allow_url_fopen')) {
-            $this->markTestSkipped('Configuration directive allow_url_fopen is not enabled.');
+            self::markTestSkipped('Configuration directive allow_url_fopen is not enabled.');
         }
 
         $result = $this->callFunction(
@@ -179,7 +179,7 @@ class HttpRequestTest extends AbstractTestCase
     public function testCreate(string $url, string $method, bool $returnOnlyStatus, bool|string|null $expected): void
     {
         if (! ini_get('allow_url_fopen')) {
-            $this->markTestSkipped('Configuration directive allow_url_fopen is not enabled.');
+            self::markTestSkipped('Configuration directive allow_url_fopen is not enabled.');
         }
 
         $result = $this->httpRequest->create($url, $method, $returnOnlyStatus);
@@ -195,14 +195,14 @@ class HttpRequestTest extends AbstractTestCase
     private function validateHttp(mixed $result, mixed $expected): void
     {
         if ($expected === true) {
-            $this->assertTrue($result);
+            self::assertTrue($result);
         } elseif ($expected === false) {
-            $this->assertFalse($result);
+            self::assertFalse($result);
         } elseif ($expected === null) {
-            $this->assertNull($result);
+            self::assertNull($result);
         } else {
-            $this->assertNotNull($result, 'The request maybe has failed');
-            $this->assertStringContainsString($expected, $result);
+            self::assertNotNull($result, 'The request maybe has failed');
+            self::assertStringContainsString($expected, $result);
         }
     }
 

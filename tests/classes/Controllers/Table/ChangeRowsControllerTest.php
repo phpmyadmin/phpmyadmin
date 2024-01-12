@@ -32,13 +32,13 @@ class ChangeRowsControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withParsedBody(['rows_to_delete' => 'row']);
 
-        $mock = $this->createMock(ChangeController::class);
-        $mock->expects($this->once())->method('__invoke')->with($request);
+        $mock = self::createMock(ChangeController::class);
+        $mock->expects(self::once())->method('__invoke')->with($request);
 
         (new ChangeRowsController(new ResponseRenderer(), new Template(), $mock))($request);
 
         /** @psalm-suppress InvalidArrayOffset */
-        $this->assertSame([], $GLOBALS['where_clause']);
+        self::assertSame([], $GLOBALS['where_clause']);
     }
 
     public function testWithoutRowsToDelete(): void
@@ -46,16 +46,16 @@ class ChangeRowsControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withParsedBody(['goto' => 'goto']);
 
-        $mock = $this->createMock(ChangeController::class);
-        $mock->expects($this->never())->method('__invoke')->with($request);
+        $mock = self::createMock(ChangeController::class);
+        $mock->expects(self::never())->method('__invoke')->with($request);
 
         $response = new ResponseRenderer();
         (new ChangeRowsController($response, new Template(), $mock))($request);
 
-        $this->assertSame(['message' => 'No row selected.'], $response->getJSONResult());
-        $this->assertFalse($response->hasSuccessState());
+        self::assertSame(['message' => 'No row selected.'], $response->getJSONResult());
+        self::assertFalse($response->hasSuccessState());
         /** @psalm-suppress InvalidArrayOffset */
-        $this->assertNull($GLOBALS['where_clause']);
+        self::assertNull($GLOBALS['where_clause']);
     }
 
     public function testWithRowsToDelete(): void
@@ -63,12 +63,12 @@ class ChangeRowsControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withParsedBody(['goto' => 'goto', 'rows_to_delete' => ['key1' => 'row1', 'key2' => 'row2']]);
 
-        $mock = $this->createMock(ChangeController::class);
-        $mock->expects($this->once())->method('__invoke')->with($request);
+        $mock = self::createMock(ChangeController::class);
+        $mock->expects(self::once())->method('__invoke')->with($request);
 
         (new ChangeRowsController(new ResponseRenderer(), new Template(), $mock))($request);
 
         /** @psalm-suppress InvalidArrayOffset */
-        $this->assertSame(['row1', 'row2'], $GLOBALS['where_clause']);
+        self::assertSame(['row1', 'row2'], $GLOBALS['where_clause']);
     }
 }

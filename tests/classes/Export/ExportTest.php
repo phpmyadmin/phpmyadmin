@@ -57,7 +57,7 @@ class ExportTest extends AbstractTestCase
             ],
         ];
         $actual = $export->mergeAliases($aliases1, $aliases2);
-        $this->assertEquals($expected, $actual);
+        self::assertEquals($expected, $actual);
     }
 
     public function testGetFinalFilenameAndMimetypeForFilename(): void
@@ -71,15 +71,15 @@ class ExportTest extends AbstractTestCase
             new Transformations(),
         );
         $finalFileName = $export->getFinalFilenameAndMimetypeForFilename($exportPlugin, 'zip', 'myfilename');
-        $this->assertSame(['myfilename.php.zip', 'application/zip'], $finalFileName);
+        self::assertSame(['myfilename.php.zip', 'application/zip'], $finalFileName);
         $finalFileName = $export->getFinalFilenameAndMimetypeForFilename($exportPlugin, 'gzip', 'myfilename');
-        $this->assertSame(['myfilename.php.gz', 'application/x-gzip'], $finalFileName);
+        self::assertSame(['myfilename.php.gz', 'application/x-gzip'], $finalFileName);
         $finalFileName = $export->getFinalFilenameAndMimetypeForFilename(
             $exportPlugin,
             'gzip',
             'export.db1.table1.file',
         );
-        $this->assertSame(['export.db1.table1.file.php.gz', 'application/x-gzip'], $finalFileName);
+        self::assertSame(['export.db1.table1.file.php.gz', 'application/x-gzip'], $finalFileName);
     }
 
     public function testExportDatabase(): void
@@ -147,7 +147,7 @@ INSERT INTO test_table (id, name, datetimefield) VALUES
 
 SQL;
 
-        $this->assertSame(htmlspecialchars($expected, ENT_COMPAT), $this->getActualOutputForAssertion());
+        self::assertSame(htmlspecialchars($expected, ENT_COMPAT), $this->getActualOutputForAssertion());
     }
 
     public function testExportServer(): void
@@ -230,7 +230,7 @@ INSERT INTO test_table (id, name, datetimefield) VALUES
 
 SQL;
 
-        $this->assertSame(htmlspecialchars($expected, ENT_COMPAT), $this->getActualOutputForAssertion());
+        self::assertSame(htmlspecialchars($expected, ENT_COMPAT), $this->getActualOutputForAssertion());
     }
 
     public function testGetPageLocationAndSaveMessageForServerExportWithError(): void
@@ -241,8 +241,8 @@ SQL;
         $dbi = $this->createDatabaseInterface();
         $export = new Export($dbi);
         $location = $export->getPageLocationAndSaveMessage('server', Message::error('Error message!'));
-        $this->assertSame('index.php?route=/server/export&server=2&lang=en', $location);
-        $this->assertSame(['danger' => ['Error message!']], (new FlashMessages())->getMessages());
+        self::assertSame('index.php?route=/server/export&server=2&lang=en', $location);
+        self::assertSame(['danger' => ['Error message!']], (new FlashMessages())->getMessages());
     }
 
     public function testGetPageLocationAndSaveMessageForServerExportWithSuccess(): void
@@ -253,8 +253,8 @@ SQL;
         $dbi = $this->createDatabaseInterface();
         $export = new Export($dbi);
         $location = $export->getPageLocationAndSaveMessage('server', Message::success('Success message!'));
-        $this->assertSame('index.php?route=/server/export&server=2&lang=en', $location);
-        $this->assertSame(['success' => ['Success message!']], (new FlashMessages())->getMessages());
+        self::assertSame('index.php?route=/server/export&server=2&lang=en', $location);
+        self::assertSame(['success' => ['Success message!']], (new FlashMessages())->getMessages());
     }
 
     public function testGetPageLocationAndSaveMessageForDatabaseExportWithError(): void
@@ -266,8 +266,8 @@ SQL;
         $dbi = $this->createDatabaseInterface();
         $export = new Export($dbi);
         $location = $export->getPageLocationAndSaveMessage('database', Message::error('Error message!'));
-        $this->assertSame('index.php?route=/database/export&db=test_db&server=2&lang=en', $location);
-        $this->assertSame(['danger' => ['Error message!']], (new FlashMessages())->getMessages());
+        self::assertSame('index.php?route=/database/export&db=test_db&server=2&lang=en', $location);
+        self::assertSame(['danger' => ['Error message!']], (new FlashMessages())->getMessages());
     }
 
     public function testGetPageLocationAndSaveMessageForDatabaseExportWithSuccess(): void
@@ -279,8 +279,8 @@ SQL;
         $dbi = $this->createDatabaseInterface();
         $export = new Export($dbi);
         $location = $export->getPageLocationAndSaveMessage('database', Message::success('Success message!'));
-        $this->assertSame('index.php?route=/database/export&db=test_db&server=2&lang=en', $location);
-        $this->assertSame(['success' => ['Success message!']], (new FlashMessages())->getMessages());
+        self::assertSame('index.php?route=/database/export&db=test_db&server=2&lang=en', $location);
+        self::assertSame(['success' => ['Success message!']], (new FlashMessages())->getMessages());
     }
 
     public function testGetPageLocationAndSaveMessageForTableExportWithError(): void
@@ -293,11 +293,11 @@ SQL;
         $dbi = $this->createDatabaseInterface();
         $export = new Export($dbi);
         $location = $export->getPageLocationAndSaveMessage('table', Message::error('Error message!'));
-        $this->assertSame(
+        self::assertSame(
             'index.php?route=/table/export&db=test_db&table=test_table&single_table=true&server=2&lang=en',
             $location,
         );
-        $this->assertSame(['danger' => ['Error message!']], (new FlashMessages())->getMessages());
+        self::assertSame(['danger' => ['Error message!']], (new FlashMessages())->getMessages());
     }
 
     public function testGetPageLocationAndSaveMessageForTableExportWithSuccess(): void
@@ -310,10 +310,10 @@ SQL;
         $dbi = $this->createDatabaseInterface();
         $export = new Export($dbi);
         $location = $export->getPageLocationAndSaveMessage('table', Message::success('Success message!'));
-        $this->assertSame(
+        self::assertSame(
             'index.php?route=/table/export&db=test_db&table=test_table&single_table=true&server=2&lang=en',
             $location,
         );
-        $this->assertSame(['success' => ['Success message!']], (new FlashMessages())->getMessages());
+        self::assertSame(['success' => ['Success message!']], (new FlashMessages())->getMessages());
     }
 }

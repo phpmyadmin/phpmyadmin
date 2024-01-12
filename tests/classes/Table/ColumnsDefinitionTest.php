@@ -204,7 +204,7 @@ SQL;
             'disable_is' => false,
         ];
 
-        $this->assertEquals($expected, $actual);
+        self::assertEquals($expected, $actual);
     }
 
     /**
@@ -221,7 +221,7 @@ SQL;
     ): void {
         $result = ColumnsDefinition::decorateColumnMetaDefault($type, $default, $isNull);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     /**

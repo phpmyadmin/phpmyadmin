@@ -91,11 +91,11 @@ class AuthenticationCookieTest extends AbstractTestCase
         } catch (Throwable $throwable) {
         }
 
-        $this->assertInstanceOf(ExitException::class, $throwable);
+        self::assertInstanceOf(ExitException::class, $throwable);
         $response = $responseStub->getResponse();
-        $this->assertSame(200, $response->getStatusCode());
-        $this->assertFalse($responseStub->hasSuccessState());
-        $this->assertSame(['redirect_flag' => '1'], $responseStub->getJSONResult());
+        self::assertSame(200, $response->getStatusCode());
+        self::assertFalse($responseStub->hasSuccessState());
+        self::assertSame(['redirect_flag' => '1'], $responseStub->getJSONResult());
     }
 
     private function getAuthErrorMockResponse(): void
@@ -107,7 +107,7 @@ class AuthenticationCookieTest extends AbstractTestCase
             ->onlyMethods(['hasDisplayErrors'])
             ->getMock();
 
-        $mockErrorHandler->expects($this->once())
+        $mockErrorHandler->expects(self::once())
             ->method('hasDisplayErrors')
             ->with()
             ->willReturn(true);
@@ -151,45 +151,45 @@ class AuthenticationCookieTest extends AbstractTestCase
 
         $result = $responseStub->getHTMLResult();
 
-        $this->assertInstanceOf(ExitException::class, $throwable);
+        self::assertInstanceOf(ExitException::class, $throwable);
 
-        $this->assertStringContainsString(' id="imLogo"', $result);
+        self::assertStringContainsString(' id="imLogo"', $result);
 
-        $this->assertStringContainsString('<div class="alert alert-danger" role="alert">', $result);
+        self::assertStringContainsString('<div class="alert alert-danger" role="alert">', $result);
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<form method="post" id="login_form" action="index.php?route=/" name="login_form" ' .
             'class="disableAjax hide js-show">',
             $result,
         );
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<input type="text" name="pma_servername" id="serverNameInput" value="localhost"',
             $result,
         );
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<input type="text" name="pma_username" id="input_username" ' .
             'value="pmauser" class="form-control" autocomplete="username" spellcheck="false" autofocus>',
             $result,
         );
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<input type="password" name="pma_password" id="input_password" ' .
             'value="" class="form-control" autocomplete="current-password" spellcheck="false">',
             $result,
         );
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<select name="server" id="select_server" class="form-select" ' .
             'onchange="document.forms[\'login_form\'].' .
             'elements[\'pma_servername\'].value = \'\'">',
             $result,
         );
 
-        $this->assertStringContainsString('<input type="hidden" name="db" value="testDb">', $result);
+        self::assertStringContainsString('<input type="hidden" name="db" value="testDb">', $result);
 
-        $this->assertStringContainsString('<input type="hidden" name="table" value="testTable">', $result);
+        self::assertStringContainsString('<input type="hidden" name="table" value="testTable">', $result);
     }
 
     #[RunInSeparateProcess]
@@ -221,34 +221,34 @@ class AuthenticationCookieTest extends AbstractTestCase
 
         $result = $responseStub->getHTMLResult();
 
-        $this->assertInstanceOf(ExitException::class, $throwable);
+        self::assertInstanceOf(ExitException::class, $throwable);
 
-        $this->assertStringContainsString('id="imLogo"', $result);
+        self::assertStringContainsString('id="imLogo"', $result);
 
         // Check for language selection if locales are there
         $loc = LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo';
         if (is_readable($loc)) {
-            $this->assertStringContainsString(
+            self::assertStringContainsString(
                 '<select name="lang" class="form-select autosubmit" lang="en" dir="ltr"'
                 . ' id="languageSelect" aria-labelledby="languageSelectLabel">',
                 $result,
             );
         }
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<form method="post" id="login_form" action="index.php?route=/" name="login_form"' .
             ' class="disableAjax hide js-show" autocomplete="off">',
             $result,
         );
 
-        $this->assertStringContainsString('<input type="hidden" name="server" value="2">', $result);
+        self::assertStringContainsString('<input type="hidden" name="server" value="2">', $result);
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<script src="https://www.google.com/recaptcha/api.js?hl=en" async defer></script>',
             $result,
         );
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<input class="btn btn-primary g-recaptcha" data-sitekey="testpubkey"'
             . ' data-callback="recaptchaCallback" value="Log in" type="submit" id="input_go">',
             $result,
@@ -285,36 +285,36 @@ class AuthenticationCookieTest extends AbstractTestCase
 
         $result = $responseStub->getHTMLResult();
 
-        $this->assertInstanceOf(ExitException::class, $throwable);
+        self::assertInstanceOf(ExitException::class, $throwable);
 
-        $this->assertStringContainsString('id="imLogo"', $result);
+        self::assertStringContainsString('id="imLogo"', $result);
 
         // Check for language selection if locales are there
         $loc = LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo';
         if (is_readable($loc)) {
-            $this->assertStringContainsString(
+            self::assertStringContainsString(
                 '<select name="lang" class="form-select autosubmit" lang="en" dir="ltr"'
                 . ' id="languageSelect" aria-labelledby="languageSelectLabel">',
                 $result,
             );
         }
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<form method="post" id="login_form" action="index.php?route=/" name="login_form"' .
             ' class="disableAjax hide js-show" autocomplete="off">',
             $result,
         );
 
-        $this->assertStringContainsString('<input type="hidden" name="server" value="2">', $result);
+        self::assertStringContainsString('<input type="hidden" name="server" value="2">', $result);
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<script src="https://www.google.com/recaptcha/api.js?hl=en" async defer></script>',
             $result,
         );
 
-        $this->assertStringContainsString('<div class="g-recaptcha" data-sitekey="testpubkey"></div>', $result);
+        self::assertStringContainsString('<div class="g-recaptcha" data-sitekey="testpubkey"></div>', $result);
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<input class="btn btn-primary" value="Log in" type="submit" id="input_go">',
             $result,
         );
@@ -337,8 +337,8 @@ class AuthenticationCookieTest extends AbstractTestCase
         $this->object->logOut();
 
         $response = $responseStub->getResponse();
-        $this->assertSame(['https://example.com/logout'], $response->getHeader('Location'));
-        $this->assertSame(302, $response->getStatusCode());
+        self::assertSame(['https://example.com/logout'], $response->getHeader('Location'));
+        self::assertSame(302, $response->getStatusCode());
     }
 
     #[RunInSeparateProcess]
@@ -360,8 +360,8 @@ class AuthenticationCookieTest extends AbstractTestCase
         $this->object->logOut();
 
         $response = $responseStub->getResponse();
-        $this->assertSame(['/phpmyadmin/index.php?route=/&server=2&lang=en'], $response->getHeader('Location'));
-        $this->assertSame(302, $response->getStatusCode());
+        self::assertSame(['/phpmyadmin/index.php?route=/&server=2&lang=en'], $response->getHeader('Location'));
+        self::assertSame(302, $response->getStatusCode());
     }
 
     public function testAuthCheckCaptcha(): void
@@ -375,11 +375,11 @@ class AuthenticationCookieTest extends AbstractTestCase
         $_POST['g-recaptcha-response'] = '';
         $_POST['pma_username'] = 'testPMAUser';
 
-        $this->assertFalse(
+        self::assertFalse(
             $this->object->readCredentials(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Missing Captcha verification, maybe it has been blocked by adblock?',
             $GLOBALS['conn_error'],
         );
@@ -408,10 +408,10 @@ class AuthenticationCookieTest extends AbstractTestCase
         $this->object->logOut();
 
         $response = $responseStub->getResponse();
-        $this->assertSame(['/phpmyadmin/index.php?route=/'], $response->getHeader('Location'));
-        $this->assertSame(302, $response->getStatusCode());
+        self::assertSame(['/phpmyadmin/index.php?route=/'], $response->getHeader('Location'));
+        self::assertSame(302, $response->getStatusCode());
 
-        $this->assertArrayNotHasKey('pmaAuth-0', $_COOKIE);
+        self::assertArrayNotHasKey('pmaAuth-0', $_COOKIE);
     }
 
     #[RunInSeparateProcess]
@@ -438,10 +438,10 @@ class AuthenticationCookieTest extends AbstractTestCase
         $this->object->logOut();
 
         $response = $responseStub->getResponse();
-        $this->assertSame(['/phpmyadmin/index.php?route=/'], $response->getHeader('Location'));
-        $this->assertSame(302, $response->getStatusCode());
+        self::assertSame(['/phpmyadmin/index.php?route=/'], $response->getHeader('Location'));
+        self::assertSame(302, $response->getStatusCode());
 
-        $this->assertArrayNotHasKey('pmaAuth-1', $_COOKIE);
+        self::assertArrayNotHasKey('pmaAuth-1', $_COOKIE);
     }
 
     public function testAuthCheckArbitrary(): void
@@ -458,17 +458,17 @@ class AuthenticationCookieTest extends AbstractTestCase
         $_POST['pma_password'] = 'testPMAPSWD';
         $config->settings['AllowArbitraryServer'] = true;
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->readCredentials(),
         );
 
-        $this->assertEquals('testPMAUser', $this->object->user);
+        self::assertEquals('testPMAUser', $this->object->user);
 
-        $this->assertEquals('testPMAPSWD', $this->object->password);
+        self::assertEquals('testPMAPSWD', $this->object->password);
 
-        $this->assertEquals('testPMAServer', $GLOBALS['pma_auth_server']);
+        self::assertEquals('testPMAServer', $GLOBALS['pma_auth_server']);
 
-        $this->assertArrayNotHasKey('pmaAuth-1', $_COOKIE);
+        self::assertArrayNotHasKey('pmaAuth-1', $_COOKIE);
     }
 
     public function testAuthCheckInvalidCookie(): void
@@ -480,7 +480,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $_COOKIE['pmaUser-1'] = '';
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
 
-        $this->assertFalse(
+        self::assertFalse(
             $this->object->readCredentials(),
         );
     }
@@ -496,7 +496,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $_SESSION['last_access_time'] = time() - 1000;
         $config->settings['LoginCookieValidity'] = 1440;
 
-        $this->assertFalse(
+        self::assertFalse(
             $this->object->readCredentials(),
         );
     }
@@ -524,15 +524,15 @@ class AuthenticationCookieTest extends AbstractTestCase
             ->onlyMethods(['cookieDecrypt'])
             ->getMock();
 
-        $this->object->expects($this->once())
+        $this->object->expects(self::once())
             ->method('cookieDecrypt')
             ->willReturn('testBF');
 
-        $this->assertFalse(
+        self::assertFalse(
             $this->object->readCredentials(),
         );
 
-        $this->assertEquals('testBF', $this->object->user);
+        self::assertEquals('testBF', $this->object->user);
     }
 
     public function testAuthCheckDecryptPassword(): void
@@ -560,17 +560,17 @@ class AuthenticationCookieTest extends AbstractTestCase
             ->onlyMethods(['cookieDecrypt'])
             ->getMock();
 
-        $this->object->expects($this->exactly(2))
+        $this->object->expects(self::exactly(2))
             ->method('cookieDecrypt')
             ->willReturn('{"password":""}');
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->readCredentials(),
         );
 
-        $this->assertTrue($GLOBALS['from_cookie']);
+        self::assertTrue($GLOBALS['from_cookie']);
 
-        $this->assertEquals('', $this->object->password);
+        self::assertEquals('', $this->object->password);
     }
 
     public function testAuthCheckAuthFails(): void
@@ -598,11 +598,11 @@ class AuthenticationCookieTest extends AbstractTestCase
             ->onlyMethods(['showFailure', 'cookieDecrypt'])
             ->getMock();
 
-        $this->object->expects($this->once())
+        $this->object->expects(self::once())
             ->method('cookieDecrypt')
             ->willReturn('testBF');
 
-        $this->object->expects($this->once())
+        $this->object->expects(self::once())
             ->method('showFailure')
             ->willThrowException(new ExitException());
 
@@ -631,14 +631,14 @@ class AuthenticationCookieTest extends AbstractTestCase
 
         $this->object->rememberCredentials();
 
-        $this->assertArrayHasKey('pmaUser-2', $_COOKIE);
+        self::assertArrayHasKey('pmaUser-2', $_COOKIE);
 
-        $this->assertArrayHasKey('pmaAuth-2', $_COOKIE);
+        self::assertArrayHasKey('pmaAuth-2', $_COOKIE);
 
         $arr['password'] = 'testPW';
         $arr['host'] = 'b';
         $arr['port'] = '2';
-        $this->assertEquals($arr, $config->selectedServer);
+        self::assertEquals($arr, $config->selectedServer);
     }
 
     public function testAuthSetUserWithHeaders(): void
@@ -674,7 +674,7 @@ class AuthenticationCookieTest extends AbstractTestCase
             ->onlyMethods(['showLoginForm'])
             ->getMock();
 
-        $this->object->expects($this->exactly(1))
+        $this->object->expects(self::exactly(1))
             ->method('showLoginForm')
             ->willThrowException(new ExitException());
 
@@ -688,13 +688,13 @@ class AuthenticationCookieTest extends AbstractTestCase
         } catch (Throwable $throwable) {
         }
 
-        $this->assertInstanceOf(ExitException::class, $throwable);
+        self::assertInstanceOf(ExitException::class, $throwable);
         $response = $responseStub->getResponse();
-        $this->assertSame(['no-store, no-cache, must-revalidate'], $response->getHeader('Cache-Control'));
-        $this->assertSame(['no-cache'], $response->getHeader('Pragma'));
-        $this->assertSame(200, $response->getStatusCode());
+        self::assertSame(['no-store, no-cache, must-revalidate'], $response->getHeader('Cache-Control'));
+        self::assertSame(['no-cache'], $response->getHeader('Pragma'));
+        self::assertSame(200, $response->getStatusCode());
 
-        $this->assertEquals(
+        self::assertEquals(
             $GLOBALS['conn_error'],
             'Login without a password is forbidden by configuration (see AllowNoPassword)',
         );
@@ -728,16 +728,16 @@ class AuthenticationCookieTest extends AbstractTestCase
         $_POST['pma_password'] = $password;
 
         if ($trueFalse === false) {
-            $this->assertFalse(
+            self::assertFalse(
                 $this->object->readCredentials(),
             );
         } else {
-            $this->assertTrue(
+            self::assertTrue(
                 $this->object->readCredentials(),
             );
         }
 
-        $this->assertEquals($GLOBALS['conn_error'], $connError);
+        self::assertEquals($GLOBALS['conn_error'], $connError);
     }
 
     #[RunInSeparateProcess]
@@ -749,7 +749,7 @@ class AuthenticationCookieTest extends AbstractTestCase
             ->onlyMethods(['showLoginForm'])
             ->getMock();
 
-        $this->object->expects($this->exactly(1))
+        $this->object->expects(self::exactly(1))
             ->method('showLoginForm')
             ->willThrowException(new ExitException());
 
@@ -763,13 +763,13 @@ class AuthenticationCookieTest extends AbstractTestCase
         } catch (Throwable $throwable) {
         }
 
-        $this->assertInstanceOf(ExitException::class, $throwable);
+        self::assertInstanceOf(ExitException::class, $throwable);
         $response = $responseStub->getResponse();
-        $this->assertSame(['no-store, no-cache, must-revalidate'], $response->getHeader('Cache-Control'));
-        $this->assertSame(['no-cache'], $response->getHeader('Pragma'));
-        $this->assertSame(200, $response->getStatusCode());
+        self::assertSame(['no-store, no-cache, must-revalidate'], $response->getHeader('Cache-Control'));
+        self::assertSame(['no-cache'], $response->getHeader('Pragma'));
+        self::assertSame(200, $response->getStatusCode());
 
-        $this->assertEquals($GLOBALS['conn_error'], 'Access denied!');
+        self::assertEquals($GLOBALS['conn_error'], 'Access denied!');
     }
 
     #[RunInSeparateProcess]
@@ -781,7 +781,7 @@ class AuthenticationCookieTest extends AbstractTestCase
             ->onlyMethods(['showLoginForm'])
             ->getMock();
 
-        $this->object->expects($this->exactly(1))
+        $this->object->expects(self::exactly(1))
             ->method('showLoginForm')
             ->willThrowException(new ExitException());
 
@@ -798,13 +798,13 @@ class AuthenticationCookieTest extends AbstractTestCase
         } catch (Throwable $throwable) {
         }
 
-        $this->assertInstanceOf(ExitException::class, $throwable);
+        self::assertInstanceOf(ExitException::class, $throwable);
         $response = $responseStub->getResponse();
-        $this->assertSame(['no-store, no-cache, must-revalidate'], $response->getHeader('Cache-Control'));
-        $this->assertSame(['no-cache'], $response->getHeader('Pragma'));
-        $this->assertSame(200, $response->getStatusCode());
+        self::assertSame(['no-store, no-cache, must-revalidate'], $response->getHeader('Cache-Control'));
+        self::assertSame(['no-cache'], $response->getHeader('Pragma'));
+        self::assertSame(200, $response->getStatusCode());
 
-        $this->assertEquals(
+        self::assertEquals(
             $GLOBALS['conn_error'],
             'You have been automatically logged out due to inactivity of 10 seconds.'
             . ' Once you log in again, you should be able to resume the work where you left off.',
@@ -820,7 +820,7 @@ class AuthenticationCookieTest extends AbstractTestCase
             ->onlyMethods(['showLoginForm'])
             ->getMock();
 
-        $this->object->expects($this->exactly(1))
+        $this->object->expects(self::exactly(1))
             ->method('showLoginForm')
             ->willThrowException(new ExitException());
 
@@ -830,7 +830,7 @@ class AuthenticationCookieTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('getError')
             ->willReturn('');
 
@@ -845,13 +845,13 @@ class AuthenticationCookieTest extends AbstractTestCase
         } catch (Throwable $throwable) {
         }
 
-        $this->assertInstanceOf(ExitException::class, $throwable);
+        self::assertInstanceOf(ExitException::class, $throwable);
         $response = $responseStub->getResponse();
-        $this->assertSame(['no-store, no-cache, must-revalidate'], $response->getHeader('Cache-Control'));
-        $this->assertSame(['no-cache'], $response->getHeader('Pragma'));
-        $this->assertSame(200, $response->getStatusCode());
+        self::assertSame(['no-store, no-cache, must-revalidate'], $response->getHeader('Cache-Control'));
+        self::assertSame(['no-cache'], $response->getHeader('Pragma'));
+        self::assertSame(200, $response->getStatusCode());
 
-        $this->assertEquals($GLOBALS['conn_error'], '#42 Cannot log in to the MySQL server');
+        self::assertEquals($GLOBALS['conn_error'], '#42 Cannot log in to the MySQL server');
     }
 
     #[RunInSeparateProcess]
@@ -863,7 +863,7 @@ class AuthenticationCookieTest extends AbstractTestCase
             ->onlyMethods(['showLoginForm'])
             ->getMock();
 
-        $this->object->expects($this->exactly(1))
+        $this->object->expects(self::exactly(1))
             ->method('showLoginForm')
             ->willThrowException(new ExitException());
 
@@ -871,7 +871,7 @@ class AuthenticationCookieTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('getError')
             ->willReturn('');
 
@@ -888,13 +888,13 @@ class AuthenticationCookieTest extends AbstractTestCase
         } catch (Throwable $throwable) {
         }
 
-        $this->assertInstanceOf(ExitException::class, $throwable);
+        self::assertInstanceOf(ExitException::class, $throwable);
         $response = $responseStub->getResponse();
-        $this->assertSame(['no-store, no-cache, must-revalidate'], $response->getHeader('Cache-Control'));
-        $this->assertSame(['no-cache'], $response->getHeader('Pragma'));
-        $this->assertSame(200, $response->getStatusCode());
+        self::assertSame(['no-store, no-cache, must-revalidate'], $response->getHeader('Cache-Control'));
+        self::assertSame(['no-cache'], $response->getHeader('Pragma'));
+        self::assertSame(200, $response->getStatusCode());
 
-        $this->assertEquals($GLOBALS['conn_error'], 'Cannot log in to the MySQL server');
+        self::assertEquals($GLOBALS['conn_error'], 'Cannot log in to the MySQL server');
     }
 
     public function testGetEncryptionSecretEmpty(): void
@@ -906,8 +906,8 @@ class AuthenticationCookieTest extends AbstractTestCase
 
         $result = $method->invoke($this->object, null);
 
-        $this->assertSame($result, $_SESSION['encryption_key']);
-        $this->assertSame(SODIUM_CRYPTO_SECRETBOX_KEYBYTES, mb_strlen($result, '8bit'));
+        self::assertSame($result, $_SESSION['encryption_key']);
+        self::assertSame(SODIUM_CRYPTO_SECRETBOX_KEYBYTES, mb_strlen($result, '8bit'));
     }
 
     public function testGetEncryptionSecretConfigured(): void
@@ -920,7 +920,7 @@ class AuthenticationCookieTest extends AbstractTestCase
 
         $result = $method->invoke($this->object, null);
 
-        $this->assertSame($key, $result);
+        self::assertSame($key, $result);
     }
 
     public function testGetSessionEncryptionSecretConfigured(): void
@@ -933,28 +933,28 @@ class AuthenticationCookieTest extends AbstractTestCase
 
         $result = $method->invoke($this->object, null);
 
-        $this->assertSame($key, $result);
+        self::assertSame($key, $result);
     }
 
     public function testCookieEncryption(): void
     {
         $key = random_bytes(SODIUM_CRYPTO_SECRETBOX_KEYBYTES);
         $encrypted = $this->object->cookieEncrypt('data123', $key);
-        $this->assertNotFalse(base64_decode($encrypted, true));
-        $this->assertSame('data123', $this->object->cookieDecrypt($encrypted, $key));
+        self::assertNotFalse(base64_decode($encrypted, true));
+        self::assertSame('data123', $this->object->cookieDecrypt($encrypted, $key));
     }
 
     public function testCookieDecryptInvalid(): void
     {
-        $this->assertNull($this->object->cookieDecrypt('', ''));
+        self::assertNull($this->object->cookieDecrypt('', ''));
 
         $key = random_bytes(SODIUM_CRYPTO_SECRETBOX_KEYBYTES);
         $encrypted = $this->object->cookieEncrypt('data123', $key);
-        $this->assertSame('data123', $this->object->cookieDecrypt($encrypted, $key));
+        self::assertSame('data123', $this->object->cookieDecrypt($encrypted, $key));
 
-        $this->assertNull($this->object->cookieDecrypt('', $key));
-        $this->assertNull($this->object->cookieDecrypt($encrypted, ''));
-        $this->assertNull($this->object->cookieDecrypt($encrypted, random_bytes(SODIUM_CRYPTO_SECRETBOX_KEYBYTES)));
+        self::assertNull($this->object->cookieDecrypt('', $key));
+        self::assertNull($this->object->cookieDecrypt($encrypted, ''));
+        self::assertNull($this->object->cookieDecrypt($encrypted, random_bytes(SODIUM_CRYPTO_SECRETBOX_KEYBYTES)));
     }
 
     /** @throws ReflectionException */
@@ -973,12 +973,12 @@ class AuthenticationCookieTest extends AbstractTestCase
         $payload = ['password' => $newPassword, 'server' => 'b 2'];
 
         /** @psalm-suppress EmptyArrayAccess */
-        $this->assertIsString($_COOKIE['pmaAuth-' . Current::$server]);
+        self::assertIsString($_COOKIE['pmaAuth-' . Current::$server]);
         $decryptedCookie = $this->object->cookieDecrypt(
             $_COOKIE['pmaAuth-' . Current::$server],
             $_SESSION['encryption_key'],
         );
-        $this->assertSame(json_encode($payload), $decryptedCookie);
+        self::assertSame(json_encode($payload), $decryptedCookie);
     }
 
     public function testAuthenticate(): void
@@ -1000,15 +1000,15 @@ class AuthenticationCookieTest extends AbstractTestCase
         $result = ob_get_clean();
 
         /* Nothing should be printed */
-        $this->assertEquals('', $result);
+        self::assertEquals('', $result);
 
         /* Verify readCredentials worked */
-        $this->assertEquals('testUser', $this->object->user);
-        $this->assertEquals('testPassword', $this->object->password);
+        self::assertEquals('testUser', $this->object->user);
+        self::assertEquals('testPassword', $this->object->password);
 
         /* Verify storeCredentials worked */
-        $this->assertEquals('testUser', $config->selectedServer['user']);
-        $this->assertEquals('testPassword', $config->selectedServer['password']);
+        self::assertEquals('testUser', $config->selectedServer['user']);
+        self::assertEquals('testPassword', $config->selectedServer['password']);
     }
 
     /**
@@ -1058,13 +1058,13 @@ class AuthenticationCookieTest extends AbstractTestCase
         $result = $responseStub->getHTMLResult();
 
         if ($expected !== '') {
-            $this->assertInstanceOf(ExitException::class, $throwable ?? null);
+            self::assertInstanceOf(ExitException::class, $throwable ?? null);
         }
 
         if ($expected === '') {
-            $this->assertEquals($expected, $result);
+            self::assertEquals($expected, $result);
         } else {
-            $this->assertStringContainsString($expected, $result);
+            self::assertStringContainsString($expected, $result);
         }
 
         ErrorHandler::$instance = null;

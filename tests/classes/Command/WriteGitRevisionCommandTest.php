@@ -20,14 +20,14 @@ class WriteGitRevisionCommandTest extends AbstractTestCase
     public function testGetGeneratedClassValidVersion(): void
     {
         if (! class_exists(Command::class)) {
-            $this->markTestSkipped('The Symfony Console is missing');
+            self::markTestSkipped('The Symfony Console is missing');
         }
 
         $this->command = $this->getMockBuilder(WriteGitRevisionCommand::class)
             ->onlyMethods(['gitCli'])
             ->getMock();
 
-        $this->command->expects($this->exactly(3))->method('gitCli')->willReturnMap([
+        $this->command->expects(self::exactly(3))->method('gitCli')->willReturnMap([
             ['describe --always', 'RELEASE_5_1_0-638-g1c018e2a6c'],
             ['log -1 --format="%H"', '1c018e2a6c6d518c4a2dde059e49f33af67c4636'],
             ['symbolic-ref -q HEAD', 'refs/heads/cli-rev-info'],
@@ -57,7 +57,7 @@ return [
 ];
 
 PHP;
-        $this->assertSame(
+        self::assertSame(
             sprintf(
                 $template,
                 'RELEASE_5_1_0-638-g1c018e2a6c',

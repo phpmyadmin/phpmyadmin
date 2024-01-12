@@ -91,18 +91,18 @@ class ConfigTest extends AbstractTestCase
         $defaultConfig = $this->createConfig();
         $tmpConfig = tempnam('./', 'config.test.inc.php');
         if ($tmpConfig === false) {
-            $this->markTestSkipped('Creating a temporary file does not work');
+            self::markTestSkipped('Creating a temporary file does not work');
         }
 
-        $this->assertFileExists($tmpConfig);
+        self::assertFileExists($tmpConfig);
 
         // end of setup
 
         // Test loading an empty file does not change the default config
         $config = new Config();
         $config->loadAndCheck($tmpConfig);
-        $this->assertSame($defaultConfig->settings, $config->settings);
-        $this->assertEquals($defaultConfig->getSettings(), $config->getSettings());
+        self::assertSame($defaultConfig->settings, $config->settings);
+        self::assertEquals($defaultConfig->getSettings(), $config->getSettings());
 
         $contents = <<<'PHP'
 <?php
@@ -115,15 +115,15 @@ PHP;
         $config = new Config();
         $config->loadAndCheck($tmpConfig);
         $defaultConfig->set('environment', 'development');
-        $this->assertSame($defaultConfig->settings, $config->settings);
-        $this->assertArrayHasKey('environment', $config->settings);
-        $this->assertSame($config->settings['environment'], 'development');
-        $this->assertArrayNotHasKey('UnknownKey', $config->settings);
-        $this->assertEquals($defaultConfig->getSettings(), $config->getSettings());
+        self::assertSame($defaultConfig->settings, $config->settings);
+        self::assertArrayHasKey('environment', $config->settings);
+        self::assertSame($config->settings['environment'], 'development');
+        self::assertArrayNotHasKey('UnknownKey', $config->settings);
+        self::assertEquals($defaultConfig->getSettings(), $config->getSettings());
 
         // Teardown
         unlink($tmpConfig);
-        $this->assertFalse(file_exists($tmpConfig));
+        self::assertFalse(file_exists($tmpConfig));
     }
 
     /**
@@ -134,7 +134,7 @@ PHP;
     {
         $this->object->checkSystem();
 
-        $this->assertIsBool($this->object->get('PMA_IS_WINDOWS'));
+        self::assertIsBool($this->object->get('PMA_IS_WINDOWS'));
     }
 
     /**
@@ -147,13 +147,13 @@ PHP;
         $this->object->set('PMA_USR_BROWSER_AGENT', 'IE');
         $this->object->set('PMA_USR_BROWSER_VER', 6);
         $this->object->checkOutputCompression();
-        $this->assertTrue($this->object->get('OBGzip'));
+        self::assertTrue($this->object->get('OBGzip'));
 
         $this->object->set('OBGzip', 'auto');
         $this->object->set('PMA_USR_BROWSER_AGENT', 'MOZILLA');
         $this->object->set('PMA_USR_BROWSER_VER', 5);
         $this->object->checkOutputCompression();
-        $this->assertTrue($this->object->get('OBGzip'));
+        self::assertTrue($this->object->get('OBGzip'));
     }
 
     /**
@@ -173,14 +173,14 @@ PHP;
     ): void {
         $_SERVER['HTTP_USER_AGENT'] = $agent;
         $this->object->checkClient();
-        $this->assertEquals($os, $this->object->get('PMA_USR_OS'));
-        $this->assertEquals($browser, $this->object->get('PMA_USR_BROWSER_AGENT'));
+        self::assertEquals($os, $this->object->get('PMA_USR_OS'));
+        self::assertEquals($browser, $this->object->get('PMA_USR_BROWSER_AGENT'));
 
         if ($version === null) {
             return;
         }
 
-        $this->assertEquals(
+        self::assertEquals(
             $version,
             $this->object->get('PMA_USR_BROWSER_VER'),
         );
@@ -258,17 +258,17 @@ PHP;
     {
         $this->object->set('GD2Available', 'yes');
         $this->object->checkGd2();
-        $this->assertEquals(1, $this->object->get('PMA_IS_GD2'));
+        self::assertEquals(1, $this->object->get('PMA_IS_GD2'));
 
         $this->object->set('GD2Available', 'no');
         $this->object->checkGd2();
-        $this->assertEquals(0, $this->object->get('PMA_IS_GD2'));
+        self::assertEquals(0, $this->object->get('PMA_IS_GD2'));
 
         $this->object->set('GD2Available', 'auto');
 
         if (! function_exists('imagecreatetruecolor')) {
             $this->object->checkGd2();
-            $this->assertEquals(
+            self::assertEquals(
                 0,
                 $this->object->get('PMA_IS_GD2'),
                 'imagecreatetruecolor does not exist, PMA_IS_GD2 should be 0',
@@ -279,13 +279,13 @@ PHP;
             $this->object->checkGd2();
             $gdNfo = gd_info();
             if (str_contains($gdNfo['GD Version'], '2.')) {
-                $this->assertEquals(
+                self::assertEquals(
                     1,
                     $this->object->get('PMA_IS_GD2'),
                     'GD Version >= 2, PMA_IS_GD2 should be 1',
                 );
             } else {
-                $this->assertEquals(
+                self::assertEquals(
                     0,
                     $this->object->get('PMA_IS_GD2'),
                     'GD Version < 2, PMA_IS_GD2 should be 0',
@@ -305,13 +305,13 @@ PHP;
 
         // TODO: The variable $v clearly is incorrect. Was this meant to be $a?
         if (str_contains($v, '2.')) {
-            $this->assertEquals(
+            self::assertEquals(
                 1,
                 $this->object->get('PMA_IS_GD2'),
                 'PMA_IS_GD2 should be 1',
             );
         } else {
-            $this->assertEquals(
+            self::assertEquals(
                 0,
                 $this->object->get('PMA_IS_GD2'),
                 'PMA_IS_GD2 should be 0',
@@ -328,21 +328,21 @@ PHP;
 
         if (defined('PHP_OS')) {
             if (stristr(PHP_OS, 'darwin')) {
-                $this->assertFalse($this->object->get('PMA_IS_WINDOWS'));
+                self::assertFalse($this->object->get('PMA_IS_WINDOWS'));
             } elseif (stristr(PHP_OS, 'win')) {
-                $this->assertTrue($this->object->get('PMA_IS_WINDOWS'));
+                self::assertTrue($this->object->get('PMA_IS_WINDOWS'));
             } elseif (stristr(PHP_OS, 'OS/2')) {
-                $this->assertTrue($this->object->get('PMA_IS_WINDOWS'));
+                self::assertTrue($this->object->get('PMA_IS_WINDOWS'));
             } elseif (stristr(PHP_OS, 'Linux')) {
-                $this->assertFalse($this->object->get('PMA_IS_WINDOWS'));
+                self::assertFalse($this->object->get('PMA_IS_WINDOWS'));
             } else {
-                $this->markTestIncomplete('Not known PHP_OS: ' . PHP_OS);
+                self::markTestIncomplete('Not known PHP_OS: ' . PHP_OS);
             }
         } else {
-            $this->assertEquals(0, $this->object->get('PMA_IS_WINDOWS'));
+            self::assertEquals(0, $this->object->get('PMA_IS_WINDOWS'));
 
             define('PHP_OS', 'Windows');
-            $this->assertTrue($this->object->get('PMA_IS_WINDOWS'));
+            self::assertTrue($this->object->get('PMA_IS_WINDOWS'));
         }
     }
 
@@ -351,11 +351,11 @@ PHP;
         $object = new Config();
         $settings = new Settings([]);
         $config = $settings->asArray();
-        $this->assertIsArray($config['Servers']);
-        $this->assertEquals($settings, $object->getSettings());
-        $this->assertEquals($config, $object->default);
-        $this->assertSame($config, $object->settings);
-        $this->assertSame($config, $object->baseSettings);
+        self::assertIsArray($config['Servers']);
+        self::assertEquals($settings, $object->getSettings());
+        self::assertEquals($config, $object->default);
+        self::assertSame($config, $object->settings);
+        self::assertSame($config, $object->baseSettings);
     }
 
     /**
@@ -364,13 +364,13 @@ PHP;
     public function testCheckConfigSource(): void
     {
         $this->object->setSource('unexisted.config.php');
-        $this->assertFalse($this->object->checkConfigSource());
-        $this->assertEquals(0, $this->object->sourceMtime);
+        self::assertFalse($this->object->checkConfigSource());
+        self::assertEquals(0, $this->object->sourceMtime);
 
         $this->object->setSource(TEST_PATH . 'tests/test_data/config.inc.php');
 
-        $this->assertNotEmpty($this->object->getSource());
-        $this->assertTrue($this->object->checkConfigSource());
+        self::assertNotEmpty($this->object->getSource());
+        self::assertTrue($this->object->checkConfigSource());
     }
 
     /**
@@ -378,11 +378,11 @@ PHP;
      */
     public function testGetAndSet(): void
     {
-        $this->assertNull($this->object->get('unresisting_setting'));
+        self::assertNull($this->object->get('unresisting_setting'));
 
         $this->object->set('test_setting', 'test_value');
 
-        $this->assertEquals('test_value', $this->object->get('test_setting'));
+        self::assertEquals('test_value', $this->object->get('test_setting'));
     }
 
     /**
@@ -392,11 +392,11 @@ PHP;
     {
         echo $this->object->getSource();
 
-        $this->assertEmpty($this->object->getSource(), 'Source is null by default');
+        self::assertEmpty($this->object->getSource(), 'Source is null by default');
 
         $this->object->setSource(ROOT_PATH . 'config.sample.inc.php');
 
-        $this->assertEquals(
+        self::assertEquals(
             ROOT_PATH . 'config.sample.inc.php',
             $this->object->getSource(),
             'Cant set new source',
@@ -444,7 +444,7 @@ PHP;
 
         $this->object->set('is_https', null);
         $this->object->set('PmaAbsoluteUri', $pmaAbsoluteUri);
-        $this->assertEquals($expected, $this->object->isHttps());
+        self::assertEquals($expected, $this->object->isHttps());
     }
 
     /**
@@ -500,7 +500,7 @@ PHP;
         $_SERVER['REQUEST_URI'] = '';
         $_SERVER['PATH_INFO'] = '';
         $this->object->set('PmaAbsoluteUri', $absolute);
-        $this->assertEquals($expected, $this->object->getRootPath());
+        self::assertEquals($expected, $this->object->getRootPath());
     }
 
     /**
@@ -534,9 +534,9 @@ PHP;
     public function testLoad(string $source, bool $result): void
     {
         if ($result) {
-            $this->assertTrue($this->object->load($source));
+            self::assertTrue($this->object->load($source));
         } else {
-            $this->assertFalse($this->object->load($source));
+            self::assertFalse($this->object->load($source));
         }
     }
 
@@ -560,12 +560,12 @@ PHP;
     {
         $this->object->setUserValue(null, 'lang', 'cs', 'en');
         $this->object->setUserValue('TEST_COOKIE_USER_VAL', '', 'cfg_val_1');
-        $this->assertEquals(
+        self::assertEquals(
             $this->object->getUserValue('TEST_COOKIE_USER_VAL', 'fail'),
             'cfg_val_1',
         );
         $this->object->setUserValue(null, 'NavigationWidth', 300);
-        $this->assertSame($this->object->settings['NavigationWidth'], 300);
+        self::assertSame($this->object->settings['NavigationWidth'], 300);
     }
 
     /**
@@ -573,7 +573,7 @@ PHP;
      */
     public function testGetUserValue(): void
     {
-        $this->assertEquals($this->object->getUserValue('test_val', 'val'), 'val');
+        self::assertEquals($this->object->getUserValue('test_val', 'val'), 'val');
     }
 
     /**
@@ -584,15 +584,15 @@ PHP;
         //load file permissions for the current permissions file
         $perms = @fileperms($this->object->getSource());
         //testing for permissions for no configuration file
-        $this->assertFalse($perms !== false && ($perms & 2));
+        self::assertFalse($perms !== false && ($perms & 2));
 
         //load file permissions for the current permissions file
         $perms = @fileperms($this->permTestObj->getSource());
 
         if ($perms !== false && ($perms & 2)) {
-            $this->assertTrue((bool) $this->permTestObj->get('PMA_IS_WINDOWS'));
+            self::assertTrue((bool) $this->permTestObj->get('PMA_IS_WINDOWS'));
         } else {
-            $this->assertFalse((bool) $this->permTestObj->get('PMA_IS_WINDOWS'));
+            self::assertFalse((bool) $this->permTestObj->get('PMA_IS_WINDOWS'));
         }
     }
 
@@ -602,7 +602,7 @@ PHP;
     public function testSetCookie(): void
     {
         $this->object->set('is_https', false);
-        $this->assertFalse(
+        self::assertFalse(
             $this->object->setCookie(
                 'TEST_DEF_COOKIE',
                 'test_def_123',
@@ -610,7 +610,7 @@ PHP;
             ),
         );
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->setCookie(
                 'TEST_CONFIG_COOKIE',
                 'test_val_123',
@@ -619,7 +619,7 @@ PHP;
             ),
         );
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->setCookie(
                 'TEST_CONFIG_COOKIE',
                 '',
@@ -628,7 +628,7 @@ PHP;
         );
 
         $_COOKIE['TEST_MANUAL_COOKIE'] = 'some_test_val';
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->setCookie(
                 'TEST_MANUAL_COOKIE',
                 'other',
@@ -644,14 +644,14 @@ PHP;
     public function testGetTempDir(): void
     {
         $dir = realpath(sys_get_temp_dir());
-        $this->assertNotFalse($dir);
-        $this->assertDirectoryExists($dir);
-        $this->assertDirectoryIsWritable($dir);
+        self::assertNotFalse($dir);
+        self::assertDirectoryExists($dir);
+        self::assertDirectoryIsWritable($dir);
 
         (new ReflectionProperty(Config::class, 'tempDir'))->setValue(null, []);
         $this->object->set('TempDir', $dir . DIRECTORY_SEPARATOR);
         // Check no double slash is here
-        $this->assertEquals(
+        self::assertEquals(
             $dir . DIRECTORY_SEPARATOR . 'upload',
             $this->object->getTempDir('upload'),
         );
@@ -665,13 +665,13 @@ PHP;
     public function testGetUploadTempDir(): void
     {
         $dir = realpath(sys_get_temp_dir());
-        $this->assertNotFalse($dir);
-        $this->assertDirectoryExists($dir);
-        $this->assertDirectoryIsWritable($dir);
+        self::assertNotFalse($dir);
+        self::assertDirectoryExists($dir);
+        self::assertDirectoryIsWritable($dir);
 
         $this->object->set('TempDir', $dir . DIRECTORY_SEPARATOR);
 
-        $this->assertEquals(
+        self::assertEquals(
             $this->object->getTempDir('upload'),
             $this->object->getUploadTempDir(),
         );
@@ -690,19 +690,19 @@ PHP;
         $config = new Config();
         $config->config = new Settings(['Servers' => $settings, 'ServerDefault' => 1]);
         $selectedServer = $config->selectServer($request);
-        $this->assertSame($expected, $selectedServer);
-        $this->assertGreaterThanOrEqual(0, $selectedServer);
-        $this->assertArrayHasKey('Server', $config->settings);
-        $this->assertSame($expected, $config->server);
+        self::assertSame($expected, $selectedServer);
+        self::assertGreaterThanOrEqual(0, $selectedServer);
+        self::assertArrayHasKey('Server', $config->settings);
+        self::assertSame($expected, $config->server);
         if ($expected >= 1) {
-            $this->assertTrue($config->hasSelectedServer());
+            self::assertTrue($config->hasSelectedServer());
             $expectedServer = $config->config->Servers[$expected]->asArray();
-            $this->assertSame($expectedServer, $config->settings['Server']);
-            $this->assertSame($expectedServer, $config->selectedServer);
+            self::assertSame($expectedServer, $config->settings['Server']);
+            self::assertSame($expectedServer, $config->selectedServer);
         } else {
-            $this->assertFalse($config->hasSelectedServer());
-            $this->assertSame([], $config->settings['Server']);
-            $this->assertSame((new Server())->asArray(), $config->selectedServer);
+            self::assertFalse($config->hasSelectedServer());
+            self::assertSame([], $config->settings['Server']);
+            self::assertSame((new Server())->asArray(), $config->selectedServer);
         }
     }
 
@@ -738,7 +738,7 @@ PHP;
     public function testGetConnectionParams(array $serverCfg, ConnectionType $connectionType, array $expected): void
     {
         $result = Config::getConnectionParams(new Server($serverCfg), $connectionType);
-        $this->assertEquals(new Server($expected), $result);
+        self::assertEquals(new Server($expected), $result);
     }
 
     /**
@@ -880,7 +880,7 @@ PHP;
     ): void {
         $actual = Config::getConnectionParams(new Server(['host' => $host, 'port' => $port]), $connectionType);
         $expected = new Server(['host' => $expectedHost, 'port' => $expectedPort]);
-        $this->assertEquals($expected, $actual);
+        self::assertEquals($expected, $actual);
     }
 
     /** @psalm-return iterable<string, array{ConnectionType, string, string, string, string}> */

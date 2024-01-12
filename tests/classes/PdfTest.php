@@ -28,7 +28,7 @@ class PdfTest extends AbstractTestCase
     public function testBasic(): void
     {
         $arr = new Pdf();
-        $this->assertStringContainsString('PDF', $arr->getPDFData());
+        self::assertStringContainsString('PDF', $arr->getPDFData());
     }
 
     /**
@@ -39,7 +39,7 @@ class PdfTest extends AbstractTestCase
     {
         $arr = new Pdf();
         $arr->setAlias('{00}', '32');
-        $this->assertStringContainsString('PDF', $arr->getPDFData());
+        self::assertStringContainsString('PDF', $arr->getPDFData());
     }
 
     /**
@@ -61,6 +61,6 @@ class PdfTest extends AbstractTestCase
         $pdf->setMargins(0, 0);
         $pdf->setDrawColor(200, 200, 200);
         $pdf->Line(0, 0, 100, 100);
-        $this->assertStringContainsString('PDF', $pdf->getPDFData());
+        self::assertStringContainsString('PDF', $pdf->getPDFData());
     }
 }

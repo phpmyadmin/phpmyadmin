@@ -21,12 +21,12 @@ final class NodeColumnTest extends AbstractTestCase
             'default' => null,
             'nullable' => '',
         ]);
-        $this->assertSame('actor_id', $nodeColumn->name);
-        $this->assertSame(NodeType::Object, $nodeColumn->type);
-        $this->assertFalse($nodeColumn->isGroup);
-        $this->assertSame('actor_id (PRI, smallint)', $nodeColumn->displayName);
-        $this->assertSame(['image' => 'b_primary', 'title' => 'Column'], $nodeColumn->icon);
-        $this->assertSame(
+        self::assertSame('actor_id', $nodeColumn->name);
+        self::assertSame(NodeType::Object, $nodeColumn->type);
+        self::assertFalse($nodeColumn->isGroup);
+        self::assertSame('actor_id (PRI, smallint)', $nodeColumn->displayName);
+        self::assertSame(['image' => 'b_primary', 'title' => 'Column'], $nodeColumn->icon);
+        self::assertSame(
             [
                 'text' => [
                     'route' => '/table/structure/change',
@@ -40,7 +40,7 @@ final class NodeColumnTest extends AbstractTestCase
             ],
             $nodeColumn->links,
         );
-        $this->assertSame('field', $nodeColumn->urlParamName);
+        self::assertSame('field', $nodeColumn->urlParamName);
     }
 
     public function testColumnNodeWithTruncatedDefaultValue(): void
@@ -52,8 +52,8 @@ final class NodeColumnTest extends AbstractTestCase
             'default' => 'current_timestamp()',
             'nullable' => '',
         ]);
-        $this->assertSame('last_update (timestamp, curren...)', $nodeColumn->displayName);
-        $this->assertSame(['image' => 'pause', 'title' => 'Column'], $nodeColumn->icon);
+        self::assertSame('last_update (timestamp, curren...)', $nodeColumn->displayName);
+        self::assertSame(['image' => 'pause', 'title' => 'Column'], $nodeColumn->icon);
     }
 
     public function testColumnNodeWithTruncatedDefaultValue2(): void
@@ -65,8 +65,8 @@ final class NodeColumnTest extends AbstractTestCase
             'default' => 'default',
             'nullable' => 'nullable',
         ]);
-        $this->assertSame('email (UNI, varchar, defaul..., nullable)', $nodeColumn->displayName);
-        $this->assertSame(['image' => 'bd_primary', 'title' => 'Column'], $nodeColumn->icon);
+        self::assertSame('email (UNI, varchar, defaul..., nullable)', $nodeColumn->displayName);
+        self::assertSame(['image' => 'bd_primary', 'title' => 'Column'], $nodeColumn->icon);
     }
 
     public function testColumnNodeWithoutTruncatedDefaultValue(): void
@@ -78,7 +78,7 @@ final class NodeColumnTest extends AbstractTestCase
             'default' => 'column',
             'nullable' => '',
         ]);
-        $this->assertSame('email (varchar, column)', $nodeColumn->displayName);
-        $this->assertSame(['image' => 'pause', 'title' => 'Column'], $nodeColumn->icon);
+        self::assertSame('email (varchar, column)', $nodeColumn->displayName);
+        self::assertSame(['image' => 'pause', 'title' => 'Column'], $nodeColumn->icon);
     }
 }

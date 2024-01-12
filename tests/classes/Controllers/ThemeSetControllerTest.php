@@ -34,18 +34,18 @@ class ThemeSetControllerTest extends AbstractTestCase
     {
         Config::getInstance()->settings['ThemeManager'] = true;
 
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['set_theme', null, 'theme_name']]);
 
-        $themeManager = $this->createMock(ThemeManager::class);
-        $themeManager->expects($this->once())->method('setActiveTheme')->with($this->equalTo('theme_name'));
-        $themeManager->expects($this->once())->method('setThemeCookie');
+        $themeManager = self::createMock(ThemeManager::class);
+        $themeManager->expects(self::once())->method('setActiveTheme')->with(self::equalTo('theme_name'));
+        $themeManager->expects(self::once())->method('setThemeCookie');
 
-        $userPreferences = $this->createMock(UserPreferences::class);
-        $userPreferences->expects($this->once())->method('load')
+        $userPreferences = self::createMock(UserPreferences::class);
+        $userPreferences->expects(self::once())->method('load')
             ->willReturn(['config_data' => ['ThemeDefault' => 'pmahomme']]);
-        $userPreferences->expects($this->once())->method('save')
-            ->with($this->equalTo(['ThemeDefault' => 'theme_name']));
+        $userPreferences->expects(self::once())->method('save')
+            ->with(self::equalTo(['ThemeDefault' => 'theme_name']));
 
         (new ThemeSetController(new ResponseRenderer(), new Template(), $themeManager, $userPreferences))($request);
     }
@@ -58,16 +58,16 @@ class ThemeSetControllerTest extends AbstractTestCase
     {
         Config::getInstance()->settings['ThemeManager'] = $hasThemes;
 
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['set_theme', null, $themeName]]);
 
-        $themeManager = $this->createMock(ThemeManager::class);
-        $themeManager->expects($this->never())->method('setActiveTheme');
-        $themeManager->expects($this->never())->method('setThemeCookie');
+        $themeManager = self::createMock(ThemeManager::class);
+        $themeManager->expects(self::never())->method('setActiveTheme');
+        $themeManager->expects(self::never())->method('setThemeCookie');
 
-        $userPreferences = $this->createMock(UserPreferences::class);
-        $userPreferences->expects($this->never())->method('load');
-        $userPreferences->expects($this->never())->method('save');
+        $userPreferences = self::createMock(UserPreferences::class);
+        $userPreferences->expects(self::never())->method('load');
+        $userPreferences->expects(self::never())->method('save');
 
         (new ThemeSetController(new ResponseRenderer(), new Template(), $themeManager, $userPreferences))($request);
     }

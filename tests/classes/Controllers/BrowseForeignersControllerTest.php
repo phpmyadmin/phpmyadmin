@@ -27,7 +27,7 @@ final class BrowseForeignersControllerTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = true;
 
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['db', null, 'sakila'],
             ['table', null, 'film_actor'],
@@ -165,6 +165,6 @@ HTML;
             new Relation($dbi),
         ))($request);
 
-        $this->assertSame($expected, $response->getHTMLResult());
+        self::assertSame($expected, $response->getHTMLResult());
     }
 }

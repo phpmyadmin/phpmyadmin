@@ -103,41 +103,41 @@ class CreateTest extends TestBase
         $this->waitForElement('id', 'table_structure_id');
 
         // make assertions for first row
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'test_id',
             $this->byCssSelector('label[for=checkbox_row_1]')->getText(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'int(14)',
             $this->getCellByTableId('tablestructure', 1, 4),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'UNSIGNED',
             $this->getCellByTableId('tablestructure', 1, 6),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'No',
             $this->getCellByTableId('tablestructure', 1, 7),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'None',
             $this->getCellByTableId('tablestructure', 1, 8),
         );
-        $this->assertEquals(
+        self::assertEquals(
             'comm1',
             $this->getCellByTableId('tablestructure', 1, 9),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'AUTO_INCREMENT',
             $this->getCellByTableId('tablestructure', 1, 10),
         );
 
-        $this->assertFalse(
+        self::assertFalse(
             $this->isElementPresent(
                 'cssSelector',
                 'table#tablestructure tbody tr:nth-child(1) "
@@ -146,32 +146,32 @@ class CreateTest extends TestBase
         );
 
         // make assertions for second row
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'test_column',
             $this->byCssSelector('label[for=checkbox_row_2]')->getText(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'varchar(10)',
             $this->getCellByTableId('tablestructure', 2, 4),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'utf8mb4_general_ci',
             $this->getCellByTableId('tablestructure', 2, 5),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Yes',
             $this->getCellByTableId('tablestructure', 2, 7),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'def',
             $this->getCellByTableId('tablestructure', 2, 8),
         );
 
-        $this->assertFalse(
+        self::assertFalse(
             $this->isElementPresent(
                 'cssSelector',
                 'css=ul.table-structure-actions:nth-child(2) li.primary a',

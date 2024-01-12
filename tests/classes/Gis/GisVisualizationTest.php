@@ -43,7 +43,7 @@ class GisVisualizationTest extends AbstractTestCase
                 ],
             ],
         );
-        $this->assertNull($dataSet);
+        self::assertNull($dataSet);
 
         $dataSet = $this->callFunction(
             $gis,
@@ -59,7 +59,7 @@ class GisVisualizationTest extends AbstractTestCase
                 ],
             ],
         );
-        $this->assertEquals(
+        self::assertEquals(
             new ScaleData(
                 offsetX: -45.35714285714286,
                 offsetY: 42.85714285714286,
@@ -81,7 +81,7 @@ class GisVisualizationTest extends AbstractTestCase
                 ],
             ],
         );
-        $this->assertEquals(
+        self::assertEquals(
             new ScaleData(
                 scale: 32.30769230769231,
                 offsetX: -2.7857142857142865,
@@ -105,7 +105,7 @@ class GisVisualizationTest extends AbstractTestCase
             [''],
         );
 
-        $this->assertEquals('SELECT ASTEXT(`abc`) AS `abc`, SRID(`abc`) AS `srid` FROM () AS `temp_gis`', $queryString);
+        self::assertEquals('SELECT ASTEXT(`abc`) AS `abc`, SRID(`abc`) AS `srid` FROM () AS `temp_gis`', $queryString);
     }
 
     /**
@@ -121,7 +121,7 @@ class GisVisualizationTest extends AbstractTestCase
             [''],
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'SELECT ST_ASTEXT(`abc`) AS `abc`, ST_SRID(`abc`) AS `srid` FROM () AS `temp_gis`',
             $queryString,
         );
@@ -140,7 +140,7 @@ class GisVisualizationTest extends AbstractTestCase
             ['SELECT 1 FROM foo;'],
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'SELECT ST_ASTEXT(`abc`) AS `abc`, ST_SRID(`abc`) AS `srid` FROM (SELECT 1 FROM foo) AS `temp_gis`',
             $queryString,
         );
@@ -164,7 +164,7 @@ class GisVisualizationTest extends AbstractTestCase
             [''],
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'SELECT `country name`, ST_ASTEXT(`country_geom`) AS `country_geom`,'
             . ' ST_SRID(`country_geom`) AS `srid` FROM () AS `temp_gis`',
             $queryString,
@@ -186,7 +186,7 @@ class GisVisualizationTest extends AbstractTestCase
             [''],
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'SELECT ST_ASTEXT(`abc`) AS `abc`, ST_SRID(`abc`) AS `srid` FROM () AS `temp_gis` LIMIT 10',
             $queryString,
         );
@@ -201,7 +201,7 @@ class GisVisualizationTest extends AbstractTestCase
             [''],
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'SELECT ST_ASTEXT(`abc`) AS `abc`, ST_SRID(`abc`) AS `srid` FROM () AS `temp_gis` LIMIT 10, 15',
             $queryString,
         );
@@ -220,7 +220,7 @@ class GisVisualizationTest extends AbstractTestCase
             [''],
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'SELECT ST_ASTEXT(`abc`, \'axis-order=long-lat\') AS `abc`, ST_SRID(`abc`) AS `srid` FROM () AS `temp_gis`',
             $queryString,
         );
@@ -239,7 +239,7 @@ class GisVisualizationTest extends AbstractTestCase
             [''],
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'SELECT ST_ASTEXT(`abc`) AS `abc`, ST_SRID(`abc`) AS `srid` FROM () AS `temp_gis`',
             $queryString,
         );

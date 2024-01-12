@@ -33,10 +33,10 @@ class AccountLockControllerTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
-        $this->dbiStub = $this->createStub(DatabaseInterface::class);
+        $this->dbiStub = self::createStub(DatabaseInterface::class);
         $this->dbiStub->method('isMariaDB')->willReturn(true);
 
-        $this->requestStub = $this->createStub(ServerRequest::class);
+        $this->requestStub = self::createStub(ServerRequest::class);
         $this->requestStub->method('isAjax')->willReturn(true);
         $this->requestStub->method('getParsedBodyParam')->willReturn('test.user', 'test.host');
 
@@ -52,14 +52,14 @@ class AccountLockControllerTest extends AbstractTestCase
     public function testWithValidAccount(): void
     {
         $this->dbiStub->method('getVersion')->willReturn(100402);
-        $this->dbiStub->method('tryQuery')->willReturn($this->createStub(DummyResult::class));
+        $this->dbiStub->method('tryQuery')->willReturn(self::createStub(DummyResult::class));
 
         ($this->controller)($this->requestStub);
 
         $message = Message::success('The account test.user@test.host has been successfully locked.');
-        $this->assertEquals(200, $this->responseRendererStub->getResponse()->getStatusCode());
-        $this->assertTrue($this->responseRendererStub->hasSuccessState());
-        $this->assertEquals(['message' => $message->getDisplay()], $this->responseRendererStub->getJSONResult());
+        self::assertEquals(200, $this->responseRendererStub->getResponse()->getStatusCode());
+        self::assertTrue($this->responseRendererStub->hasSuccessState());
+        self::assertEquals(['message' => $message->getDisplay()], $this->responseRendererStub->getJSONResult());
     }
 
     public function testWithInvalidAccount(): void
@@ -71,9 +71,9 @@ class AccountLockControllerTest extends AbstractTestCase
         ($this->controller)($this->requestStub);
 
         $message = Message::error('Invalid account.');
-        $this->assertEquals(400, $this->responseRendererStub->getResponse()->getStatusCode());
-        $this->assertFalse($this->responseRendererStub->hasSuccessState());
-        $this->assertEquals(['message' => $message->getDisplay()], $this->responseRendererStub->getJSONResult());
+        self::assertEquals(400, $this->responseRendererStub->getResponse()->getStatusCode());
+        self::assertFalse($this->responseRendererStub->hasSuccessState());
+        self::assertEquals(['message' => $message->getDisplay()], $this->responseRendererStub->getJSONResult());
     }
 
     public function testWithUnsupportedServer(): void
@@ -83,8 +83,8 @@ class AccountLockControllerTest extends AbstractTestCase
         ($this->controller)($this->requestStub);
 
         $message = Message::error('Account locking is not supported.');
-        $this->assertEquals(400, $this->responseRendererStub->getResponse()->getStatusCode());
-        $this->assertFalse($this->responseRendererStub->hasSuccessState());
-        $this->assertEquals(['message' => $message->getDisplay()], $this->responseRendererStub->getJSONResult());
+        self::assertEquals(400, $this->responseRendererStub->getResponse()->getStatusCode());
+        self::assertFalse($this->responseRendererStub->hasSuccessState());
+        self::assertEquals(['message' => $message->getDisplay()], $this->responseRendererStub->getJSONResult());
     }
 }

@@ -44,7 +44,7 @@ class BdbTest extends AbstractTestCase
      */
     public function testGetVariables(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             $this->object->getVariables(),
             [
                 'version_bdb' => ['title' => __('Version information')],
@@ -71,7 +71,7 @@ class BdbTest extends AbstractTestCase
      */
     public function testGetVariablesLikePattern(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             $this->object->getVariablesLikePattern(),
             '%bdb%',
         );
@@ -82,7 +82,7 @@ class BdbTest extends AbstractTestCase
      */
     public function testGetMysqlHelpPage(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             $this->object->getMysqlHelpPage(),
             'bdb',
         );

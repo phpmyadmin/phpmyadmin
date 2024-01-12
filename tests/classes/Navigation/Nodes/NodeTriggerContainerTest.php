@@ -17,13 +17,13 @@ class NodeTriggerContainerTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = new NodeTriggerContainer();
-        $this->assertEquals(
+        self::assertEquals(
             [
                 'text' => ['route' => '/triggers', 'params' => ['db' => null, 'table' => null]],
                 'icon' => ['route' => '/triggers', 'params' => ['db' => null, 'table' => null]],
             ],
             $parent->links,
         );
-        $this->assertEquals('triggers', $parent->realName);
+        self::assertEquals('triggers', $parent->realName);
     }
 }

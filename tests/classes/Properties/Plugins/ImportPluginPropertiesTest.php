@@ -35,7 +35,7 @@ class ImportPluginPropertiesTest extends AbstractTestCase
 
     public function testGetItemType(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             'import',
             $this->object->getItemType(),
         );
@@ -50,7 +50,7 @@ class ImportPluginPropertiesTest extends AbstractTestCase
     {
         $this->object->setOptionsText('options123');
 
-        $this->assertEquals(
+        self::assertEquals(
             'options123',
             $this->object->getOptionsText(),
         );
@@ -65,7 +65,7 @@ class ImportPluginPropertiesTest extends AbstractTestCase
     {
         $this->object->setMimeType('mime123');
 
-        $this->assertEquals(
+        self::assertEquals(
             'mime123',
             $this->object->getMimeType(),
         );

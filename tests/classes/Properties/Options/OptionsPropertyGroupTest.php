@@ -41,10 +41,10 @@ class OptionsPropertyGroupTest extends AbstractTestCase
         $this->stub->addProperty($propertyItem);
         $this->stub->addProperty($propertyItem);
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->stub->getProperties()->contains($propertyItem),
         );
-        $this->assertEquals(
+        self::assertEquals(
             1,
             $this->stub->getNrOfProperties(),
         );
@@ -55,19 +55,19 @@ class OptionsPropertyGroupTest extends AbstractTestCase
         $propertyItem = new BoolPropertyItem();
 
         $this->stub->addProperty($propertyItem);
-        $this->assertTrue(
+        self::assertTrue(
             $this->stub->getProperties()->contains($propertyItem),
         );
 
         $this->stub->removeProperty($propertyItem);
-        $this->assertFalse(
+        self::assertFalse(
             $this->stub->getProperties()->contains($propertyItem),
         );
     }
 
     public function testGetGroup(): void
     {
-        $this->assertInstanceOf(
+        self::assertInstanceOf(
             OptionsPropertyGroup::class,
             $this->stub->getGroup(),
         );
@@ -78,7 +78,7 @@ class OptionsPropertyGroupTest extends AbstractTestCase
         $propertyItem = new BoolPropertyItem();
         $this->stub->addProperty($propertyItem);
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->stub->getProperties()->contains($propertyItem),
         );
     }
@@ -90,7 +90,7 @@ class OptionsPropertyGroupTest extends AbstractTestCase
         $this->stub->addProperty($propertyItem);
         $propertyItem2 = new BoolPropertyItem();
         $this->stub->addProperty($propertyItem2);
-        $this->assertEquals(
+        self::assertEquals(
             2,
             $this->stub->getNrOfProperties(),
         );

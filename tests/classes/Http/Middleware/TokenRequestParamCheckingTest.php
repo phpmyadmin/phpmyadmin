@@ -25,10 +25,10 @@ final class TokenRequestParamCheckingTest extends TestCase
         $_POST['test'] = 'test';
         $_SESSION[' PMA_token '] = 'token';
         $middleware->checkTokenRequestParam();
-        $this->assertFalse($GLOBALS['token_mismatch']);
-        $this->assertTrue($GLOBALS['token_provided']);
-        $this->assertArrayHasKey('test', $_POST);
-        $this->assertEquals('test', $_POST['test']);
+        self::assertFalse($GLOBALS['token_mismatch']);
+        self::assertTrue($GLOBALS['token_provided']);
+        self::assertArrayHasKey('test', $_POST);
+        self::assertEquals('test', $_POST['test']);
     }
 
     public function testCheckTokenRequestParamWithGetMethod(): void
@@ -42,8 +42,8 @@ final class TokenRequestParamCheckingTest extends TestCase
 
         $_SERVER['REQUEST_METHOD'] = 'GET';
         $middleware->checkTokenRequestParam();
-        $this->assertTrue($GLOBALS['token_mismatch']);
-        $this->assertFalse($GLOBALS['token_provided']);
+        self::assertTrue($GLOBALS['token_mismatch']);
+        self::assertFalse($GLOBALS['token_provided']);
     }
 
     public function testCheckTokenRequestParamWithoutToken(): void
@@ -58,9 +58,9 @@ final class TokenRequestParamCheckingTest extends TestCase
         $_SERVER['REQUEST_METHOD'] = 'POST';
         $_POST['test'] = 'test';
         $middleware->checkTokenRequestParam();
-        $this->assertTrue($GLOBALS['token_mismatch']);
-        $this->assertFalse($GLOBALS['token_provided']);
-        $this->assertArrayNotHasKey('test', $_POST);
+        self::assertTrue($GLOBALS['token_mismatch']);
+        self::assertFalse($GLOBALS['token_provided']);
+        self::assertArrayNotHasKey('test', $_POST);
     }
 
     public function testCheckTokenRequestParamWithTokenMismatch(): void
@@ -77,8 +77,8 @@ final class TokenRequestParamCheckingTest extends TestCase
         $_POST['test'] = 'test';
         $_SESSION[' PMA_token '] = 'mismatch';
         $middleware->checkTokenRequestParam();
-        $this->assertTrue($GLOBALS['token_mismatch']);
-        $this->assertTrue($GLOBALS['token_provided']);
-        $this->assertArrayNotHasKey('test', $_POST);
+        self::assertTrue($GLOBALS['token_mismatch']);
+        self::assertTrue($GLOBALS['token_provided']);
+        self::assertArrayNotHasKey('test', $_POST);
     }
 }

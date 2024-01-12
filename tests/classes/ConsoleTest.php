@@ -22,7 +22,7 @@ class ConsoleTest extends AbstractTestCase
         $relation = new Relation($dbi);
         $bookmarkRepository = new BookmarkRepository($dbi, $relation);
         $console = new Console($relation, new Template(), $bookmarkRepository);
-        $this->assertEquals(['console.js'], $console->getScripts());
+        self::assertEquals(['console.js'], $console->getScripts());
     }
 
     public function testSetAjax(): void
@@ -33,10 +33,10 @@ class ConsoleTest extends AbstractTestCase
         $bookmarkRepository = new BookmarkRepository($dbi, $relation);
         $console = new Console($relation, new Template(), $bookmarkRepository);
 
-        $this->assertFalse($isAjax->getValue($console));
+        self::assertFalse($isAjax->getValue($console));
         $console->setAjax(true);
-        $this->assertTrue($isAjax->getValue($console));
+        self::assertTrue($isAjax->getValue($console));
         $console->setAjax(false);
-        $this->assertFalse($isAjax->getValue($console));
+        self::assertFalse($isAjax->getValue($console));
     }
 }

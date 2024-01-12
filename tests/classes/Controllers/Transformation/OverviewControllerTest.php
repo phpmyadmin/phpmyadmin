@@ -40,25 +40,25 @@ class OverviewControllerTest extends AbstractTestCase
 
         $controller = new OverviewController($response, new Template(), new Transformations());
 
-        $controller($this->createStub(ServerRequest::class));
+        $controller(self::createStub(ServerRequest::class));
         $actual = $response->getHTMLResult();
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             __('Available media types'),
             $actual,
         );
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'id="transformation">' . __('Available browser display transformations'),
             $actual,
         );
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'id="input_transformation">' . __('Available input transformations'),
             $actual,
         );
-        $this->assertStringContainsString('Text/Plain', $actual);
-        $this->assertStringContainsString('Image/JPEG: Inline', $actual);
-        $this->assertStringContainsString('Displays a clickable thumbnail.', $actual);
-        $this->assertStringContainsString('Image/JPEG: Upload', $actual);
-        $this->assertStringContainsString('Image upload functionality which also displays a thumbnail.', $actual);
+        self::assertStringContainsString('Text/Plain', $actual);
+        self::assertStringContainsString('Image/JPEG: Inline', $actual);
+        self::assertStringContainsString('Displays a clickable thumbnail.', $actual);
+        self::assertStringContainsString('Image/JPEG: Upload', $actual);
+        self::assertStringContainsString('Image upload functionality which also displays a thumbnail.', $actual);
     }
 }

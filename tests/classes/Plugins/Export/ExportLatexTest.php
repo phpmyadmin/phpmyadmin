@@ -90,33 +90,33 @@ class ExportLatexTest extends AbstractTestCase
         $method = new ReflectionMethod(ExportLatex::class, 'setProperties');
         $properties = $method->invoke($this->object, null);
 
-        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
+        self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        $this->assertEquals(
+        self::assertEquals(
             'LaTeX',
             $properties->getText(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'tex',
             $properties->getExtension(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'application/x-tex',
             $properties->getMimeType(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Options',
             $properties->getOptionsText(),
         );
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
+        self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        $this->assertEquals(
+        self::assertEquals(
             'Format Specific Options',
             $options->getName(),
         );
@@ -126,9 +126,9 @@ class ExportLatexTest extends AbstractTestCase
         $generalOptions = $generalOptionsArray->current();
         $generalOptionsArray->next();
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
+        self::assertEquals(
             'general_opts',
             $generalOptions->getName(),
         );
@@ -137,14 +137,14 @@ class ExportLatexTest extends AbstractTestCase
 
         $property = $generalProperties->current();
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        $this->assertEquals(
+        self::assertEquals(
             'caption',
             $property->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Include table caption',
             $property->getText(),
         );
@@ -152,14 +152,14 @@ class ExportLatexTest extends AbstractTestCase
         $generalOptions = $generalOptionsArray->current();
         $generalOptionsArray->next();
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
+        self::assertEquals(
             'dump_what',
             $generalOptions->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Dump table',
             $generalOptions->getText(),
         );
@@ -168,14 +168,14 @@ class ExportLatexTest extends AbstractTestCase
 
         $property = $generalProperties->current();
 
-        $this->assertInstanceOf(RadioPropertyItem::class, $property);
+        self::assertInstanceOf(RadioPropertyItem::class, $property);
 
-        $this->assertEquals(
+        self::assertEquals(
             'structure_or_data',
             $property->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             ['structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')],
             $property->getValues(),
         );
@@ -184,19 +184,19 @@ class ExportLatexTest extends AbstractTestCase
         $generalOptions = $generalOptionsArray->current();
         $generalOptionsArray->next();
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
+        self::assertEquals(
             'structure',
             $generalOptions->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Object creation options',
             $generalOptions->getText(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'data',
             $generalOptions->getForce(),
         );
@@ -206,19 +206,19 @@ class ExportLatexTest extends AbstractTestCase
         $property = $generalProperties->current();
         $generalProperties->next();
 
-        $this->assertInstanceOf(TextPropertyItem::class, $property);
+        self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        $this->assertEquals(
+        self::assertEquals(
             'structure_caption',
             $property->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Table caption:',
             $property->getText(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'faq6-27',
             $property->getDoc(),
         );
@@ -226,19 +226,19 @@ class ExportLatexTest extends AbstractTestCase
         $property = $generalProperties->current();
         $generalProperties->next();
 
-        $this->assertInstanceOf(TextPropertyItem::class, $property);
+        self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        $this->assertEquals(
+        self::assertEquals(
             'structure_continued_caption',
             $property->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Table caption (continued):',
             $property->getText(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'faq6-27',
             $property->getDoc(),
         );
@@ -246,19 +246,19 @@ class ExportLatexTest extends AbstractTestCase
         $property = $generalProperties->current();
         $generalProperties->next();
 
-        $this->assertInstanceOf(TextPropertyItem::class, $property);
+        self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        $this->assertEquals(
+        self::assertEquals(
             'structure_label',
             $property->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Label key:',
             $property->getText(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'faq6-27',
             $property->getDoc(),
         );
@@ -266,14 +266,14 @@ class ExportLatexTest extends AbstractTestCase
         $property = $generalProperties->current();
         $generalProperties->next();
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        $this->assertEquals(
+        self::assertEquals(
             'relation',
             $property->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Display foreign key relationships',
             $property->getText(),
         );
@@ -281,28 +281,28 @@ class ExportLatexTest extends AbstractTestCase
         $property = $generalProperties->current();
         $generalProperties->next();
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        $this->assertEquals(
+        self::assertEquals(
             'comments',
             $property->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Display comments',
             $property->getText(),
         );
 
         $property = $generalProperties->current();
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        $this->assertEquals(
+        self::assertEquals(
             'mime',
             $property->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Display media types',
             $property->getText(),
         );
@@ -310,19 +310,19 @@ class ExportLatexTest extends AbstractTestCase
         // data options
         $generalOptions = $generalOptionsArray->current();
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
+        self::assertEquals(
             'data',
             $generalOptions->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Data dump options',
             $generalOptions->getText(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'structure',
             $generalOptions->getForce(),
         );
@@ -332,14 +332,14 @@ class ExportLatexTest extends AbstractTestCase
         $property = $generalProperties->current();
         $generalProperties->next();
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        $this->assertEquals(
+        self::assertEquals(
             'columns',
             $property->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Put columns names in the first row:',
             $property->getText(),
         );
@@ -347,19 +347,19 @@ class ExportLatexTest extends AbstractTestCase
         $property = $generalProperties->current();
         $generalProperties->next();
 
-        $this->assertInstanceOf(TextPropertyItem::class, $property);
+        self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        $this->assertEquals(
+        self::assertEquals(
             'data_caption',
             $property->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Table caption:',
             $property->getText(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'faq6-27',
             $property->getDoc(),
         );
@@ -367,19 +367,19 @@ class ExportLatexTest extends AbstractTestCase
         $property = $generalProperties->current();
         $generalProperties->next();
 
-        $this->assertInstanceOf(TextPropertyItem::class, $property);
+        self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        $this->assertEquals(
+        self::assertEquals(
             'data_continued_caption',
             $property->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Table caption (continued):',
             $property->getText(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'faq6-27',
             $property->getDoc(),
         );
@@ -387,33 +387,33 @@ class ExportLatexTest extends AbstractTestCase
         $property = $generalProperties->current();
         $generalProperties->next();
 
-        $this->assertInstanceOf(TextPropertyItem::class, $property);
+        self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        $this->assertEquals(
+        self::assertEquals(
             'data_label',
             $property->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Label key:',
             $property->getText(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'faq6-27',
             $property->getDoc(),
         );
 
         $property = $generalProperties->current();
 
-        $this->assertInstanceOf(TextPropertyItem::class, $property);
+        self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        $this->assertEquals(
+        self::assertEquals(
             'null',
             $property->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Replace NULL with:',
             $property->getText(),
         );
@@ -426,7 +426,7 @@ class ExportLatexTest extends AbstractTestCase
 
         $generalOptionsArray = $options->getProperties();
 
-        $this->assertCount(4, $generalOptionsArray);
+        self::assertCount(4, $generalOptionsArray);
     }
 
     public function testExportHeader(): void
@@ -436,19 +436,19 @@ class ExportLatexTest extends AbstractTestCase
         $config->selectedServer['host'] = 'localhost';
 
         ob_start();
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportHeader(),
         );
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
+        self::assertIsString($result);
 
-        $this->assertStringContainsString("\n% Host: localhost:80", $result);
+        self::assertStringContainsString("\n% Host: localhost:80", $result);
     }
 
     public function testExportFooter(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportFooter(),
         );
     }
@@ -457,21 +457,21 @@ class ExportLatexTest extends AbstractTestCase
     {
         $this->expectOutputString("% \n% Database: 'testDB'\n% \n");
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBHeader('testDB'),
         );
     }
 
     public function testExportDBFooter(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBFooter('testDB'),
         );
     }
 
     public function testExportDBCreate(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBCreate('testDB', 'database'),
         );
     }
@@ -489,7 +489,7 @@ class ExportLatexTest extends AbstractTestCase
         $config->selectedServer['verbose'] = 'verb';
 
         ob_start();
-        $this->assertTrue($this->object->exportData(
+        self::assertTrue($this->object->exportData(
             'test_db',
             'test_table',
             'localhost',
@@ -497,7 +497,7 @@ class ExportLatexTest extends AbstractTestCase
         ));
         $result = ob_get_clean();
 
-        $this->assertEquals(
+        self::assertEquals(
             "\n" . '%' . "\n" .
             '% Data: test_table' . "\n" .
             '%' . "\n" .
@@ -520,7 +520,7 @@ class ExportLatexTest extends AbstractTestCase
         unset($GLOBALS['latex_columns']);
 
         ob_start();
-        $this->assertTrue($this->object->exportData(
+        self::assertTrue($this->object->exportData(
             'test_db',
             'test_table',
             'localhost',
@@ -528,8 +528,8 @@ class ExportLatexTest extends AbstractTestCase
         ));
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
-        $this->assertEquals(
+        self::assertIsString($result);
+        self::assertEquals(
             "\n" . '%' . "\n" .
             '% Data: test_table' . "\n" .
             '%' . "\n" .
@@ -550,18 +550,18 @@ class ExportLatexTest extends AbstractTestCase
 
         // case 1
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createMock(DummyResult::class);
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('getTableIndexes')
             ->with('database', '')
             ->willReturn($keys);
 
-        $dbi->expects($this->exactly(2))
+        $dbi->expects(self::exactly(2))
             ->method('fetchResult')
             ->willReturn(
                 [],
@@ -572,20 +572,20 @@ class ExportLatexTest extends AbstractTestCase
             new Column('name1', 'set(abc)enum123', true, 'PRI', null, ''),
             new Column('fields', '', false, 'COMP', 'def', ''),
         ];
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('getColumns')
             ->with('database', '')
             ->willReturn($columns);
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('tryQueryAsControlUser')
             ->willReturn($resultStub);
 
-        $resultStub->expects($this->once())
+        $resultStub->expects(self::once())
             ->method('numRows')
             ->willReturn(1);
 
-        $resultStub->expects($this->once())
+        $resultStub->expects(self::once())
             ->method('fetchAssoc')
             ->willReturn(['comment' => 'testComment']);
 
@@ -606,7 +606,7 @@ class ExportLatexTest extends AbstractTestCase
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         ob_start();
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportStructure(
                 'database',
                 '',
@@ -620,7 +620,7 @@ class ExportLatexTest extends AbstractTestCase
         $result = ob_get_clean();
 
         //echo $result; die;
-        $this->assertEquals(
+        self::assertEquals(
             "\n" . '%' . "\n" .
             '% Structure: ' . "\n" .
             '%' . "\n" .
@@ -645,38 +645,38 @@ class ExportLatexTest extends AbstractTestCase
 
         // case 2
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createMock(DummyResult::class);
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->exactly(2))
+        $dbi->expects(self::exactly(2))
             ->method('fetchResult')
             ->willReturn(
                 ['name1' => ['foreign_table' => 'ftable', 'foreign_field' => 'ffield'], 'foreign_keys_data' => []],
                 ['field' => ['values' => 'test-', 'transformation' => 'testfoo', 'mimetype' => 'test<']],
             );
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('getTableIndexes')
             ->with('database', '')
             ->willReturn($keys);
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('getColumns')
             ->with('database', '')
             ->willReturn($columns);
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('tryQueryAsControlUser')
             ->willReturn($resultStub);
 
-        $resultStub->expects($this->once())
+        $resultStub->expects(self::once())
             ->method('numRows')
             ->willReturn(1);
 
-        $resultStub->expects($this->once())
+        $resultStub->expects(self::once())
             ->method('fetchAssoc')
             ->willReturn(['comment' => 'testComment']);
 
@@ -694,7 +694,7 @@ class ExportLatexTest extends AbstractTestCase
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         ob_start();
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportStructure(
                 'database',
                 '',
@@ -707,9 +707,9 @@ class ExportLatexTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
+        self::assertIsString($result);
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '\\textbf{\\textit{name1}} & set(abc) & Yes & NULL & ' .
             'ftable (ffield) &  &  \\\\ \\hline',
             $result,
@@ -721,17 +721,17 @@ class ExportLatexTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('getTableIndexes')
             ->with('database', '')
             ->willReturn($keys);
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('getColumns')
             ->with('database', '')
             ->willReturn($columns);
 
-        $dbi->expects($this->never())
+        $dbi->expects(self::never())
             ->method('tryQuery');
 
         DatabaseInterface::$instance = $dbi;
@@ -752,7 +752,7 @@ class ExportLatexTest extends AbstractTestCase
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         ob_start();
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportStructure(
                 'database',
                 '',
@@ -762,14 +762,14 @@ class ExportLatexTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
+        self::assertIsString($result);
 
-        $this->assertStringContainsString('\\caption{latexstructure} \\label{latexlabel}', $result);
+        self::assertStringContainsString('\\caption{latexstructure} \\label{latexlabel}', $result);
 
-        $this->assertStringContainsString('caption{latexcontinued}', $result);
+        self::assertStringContainsString('caption{latexcontinued}', $result);
 
         // case 4
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportStructure(
                 'database',
                 '',
@@ -781,7 +781,7 @@ class ExportLatexTest extends AbstractTestCase
 
     public function testTexEscape(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             '\\$\\%\\{foo\\&bar\\}\\#\\_\\^',
             ExportLatex::texEscape('$%{foo&bar}#_^'),
         );

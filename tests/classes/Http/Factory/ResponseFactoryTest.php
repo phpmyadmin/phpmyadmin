@@ -36,10 +36,10 @@ final class ResponseFactoryTest extends TestCase
         $this->skipIfNotAvailable($provider);
         $responseFactory = new ResponseFactory(new $provider());
         $response = $responseFactory->createResponse(StatusCodeInterface::STATUS_NOT_FOUND, 'Not Found');
-        $this->assertSame(StatusCodeInterface::STATUS_NOT_FOUND, $response->getStatusCode());
-        $this->assertSame('Not Found', $response->getReasonPhrase());
+        self::assertSame(StatusCodeInterface::STATUS_NOT_FOUND, $response->getStatusCode());
+        self::assertSame('Not Found', $response->getReasonPhrase());
         $actual = (new ReflectionProperty(Response::class, 'response'))->getValue($response);
-        $this->assertInstanceOf($expectedResponse, $actual);
+        self::assertInstanceOf($expectedResponse, $actual);
     }
 
     /** @psalm-return iterable<string, array{class-string<ResponseFactoryInterface>, class-string<ResponseInterface>}> */
@@ -61,7 +61,7 @@ final class ResponseFactoryTest extends TestCase
         (new ReflectionProperty(ResponseFactory::class, 'providers'))->setValue(null, [$provider]);
         $responseFactory = ResponseFactory::create();
         $actual = (new ReflectionProperty(ResponseFactory::class, 'responseFactory'))->getValue($responseFactory);
-        $this->assertInstanceOf($provider, $actual);
+        self::assertInstanceOf($provider, $actual);
     }
 
     /** @psalm-return iterable<string, array{class-string<ResponseFactoryInterface>}> */
@@ -91,6 +91,6 @@ final class ResponseFactoryTest extends TestCase
         }
 
         // This can happen when testing without the development packages.
-        $this->markTestSkipped($provider . ' is not available.');
+        self::markTestSkipped($provider . ' is not available.');
     }
 }

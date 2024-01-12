@@ -57,12 +57,12 @@ class StructureTest extends TestBase
         $this->waitAjax();
         $this->waitForElement('id', 'tablestructure');
 
-        $this->assertEquals(
+        self::assertEquals(
             'val3',
             $this->byCssSelector('label[for=checkbox_row_4]')->getText(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'int(11)',
             $this->getCellByTableId('tablestructure', 4, 4),
         );
@@ -79,7 +79,7 @@ class StructureTest extends TestBase
 
         $this->waitUntilElementIsPresent('className', 'append_fields_form', 30);
 
-        $this->assertEquals('val', $this->byId('field_0_1')->getAttribute('value'));
+        self::assertEquals('val', $this->byId('field_0_1')->getAttribute('value'));
         $this->byId('field_0_1')->clear();
         $this->byId('field_0_1')->sendKeys('val3');
         $this->byCssSelector("input[name='do_save_data']")->click();
@@ -89,7 +89,7 @@ class StructureTest extends TestBase
 
         $this->waitForElement('id', 'tablestructure');
 
-        $this->assertEquals(
+        self::assertEquals(
             'val3',
             $this->waitForElement('cssSelector', 'label[for=checkbox_row_2]')->getText(),
         );
@@ -108,10 +108,10 @@ class StructureTest extends TestBase
         $this->waitForElement('cssSelector', "input[id='buttonYes']")->click();
 
         $success = $this->waitForElement('cssSelector', '.alert-success');
-        $this->assertStringContainsString('2 columns have been dropped successfully.', $success->getText());
+        self::assertStringContainsString('2 columns have been dropped successfully.', $success->getText());
         $this->waitAjax();
 
-        $this->assertFalse(
+        self::assertFalse(
             $this->isElementPresent(
                 'cssSelector',
                 'label[for=checkbox_row_2]',

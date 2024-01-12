@@ -31,7 +31,7 @@ class FirstStepControllerTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
         $template = new Template();
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['tables', null, ['test_table']]]);
 
         $controller = new FirstStepController(
@@ -42,7 +42,7 @@ class FirstStepControllerTest extends AbstractTestCase
         $controller($request);
 
         // phpcs:disable Generic.Files.LineLength.TooLong
-        $this->assertSame([
+        self::assertSame([
             'legendText' => 'Step 3.1 Find transitive dependencies',
             'headText' => 'Please answer the following question(s) carefully to obtain a correct normalization.',
             'subText' => 'For each column below, please select the <b>minimal set</b> of columns among given set whose values combined together are sufficient to determine the value of the column.<br>Note: A column may have no transitive dependency, in that case you don\'t have to select any.',

@@ -18,13 +18,13 @@ class LogoutControllerTest extends AbstractTestCase
     {
         $GLOBALS['token_mismatch'] = false;
 
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('isPost')->willReturn(true);
 
-        $authPlugin = $this->createMock(AuthenticationPlugin::class);
-        $authPlugin->expects($this->once())->method('logOut');
+        $authPlugin = self::createMock(AuthenticationPlugin::class);
+        $authPlugin->expects(self::once())->method('logOut');
 
-        $factory = $this->createStub(AuthenticationPluginFactory::class);
+        $factory = self::createStub(AuthenticationPluginFactory::class);
         $factory->method('create')->willReturn($authPlugin);
 
         (new LogoutController($factory))($request);

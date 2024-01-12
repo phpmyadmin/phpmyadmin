@@ -24,28 +24,28 @@ class WebauthnLibServerTest extends TestCase
             return;
         }
 
-        $this->markTestSkipped('Package "web-auth/webauthn-lib" is required.');
+        self::markTestSkipped('Package "web-auth/webauthn-lib" is required.');
     }
 
     public function testGetCredentialCreationOptions(): void
     {
-        $server = new WebauthnLibServer($this->createStub(TwoFactor::class));
+        $server = new WebauthnLibServer(self::createStub(TwoFactor::class));
         $options = $server->getCredentialCreationOptions('user_name', 'user_id', 'test.localhost');
-        $this->assertNotEmpty($options['challenge']);
-        $this->assertNotEmpty($options['pubKeyCredParams']);
-        $this->assertNotEmpty($options['attestation']);
-        $this->assertSame('phpMyAdmin (test.localhost)', $options['rp']['name']);
-        $this->assertSame('test.localhost', $options['rp']['id']);
-        $this->assertSame('user_name', $options['user']['name']);
-        $this->assertSame('user_name', $options['user']['displayName']);
-        $this->assertSame(base64_encode('user_id'), $options['user']['id']);
-        $this->assertArrayHasKey('authenticatorAttachment', $options['authenticatorSelection']);
-        $this->assertSame('cross-platform', $options['authenticatorSelection']['authenticatorAttachment']);
+        self::assertNotEmpty($options['challenge']);
+        self::assertNotEmpty($options['pubKeyCredParams']);
+        self::assertNotEmpty($options['attestation']);
+        self::assertSame('phpMyAdmin (test.localhost)', $options['rp']['name']);
+        self::assertSame('test.localhost', $options['rp']['id']);
+        self::assertSame('user_name', $options['user']['name']);
+        self::assertSame('user_name', $options['user']['displayName']);
+        self::assertSame(base64_encode('user_id'), $options['user']['id']);
+        self::assertArrayHasKey('authenticatorAttachment', $options['authenticatorSelection']);
+        self::assertSame('cross-platform', $options['authenticatorSelection']['authenticatorAttachment']);
     }
 
     public function testGetCredentialRequestOptions(): void
     {
-        $twoFactor = $this->createStub(TwoFactor::class);
+        $twoFactor = self::createStub(TwoFactor::class);
         $twoFactor->config = [
             'backend' => 'WebAuthn',
             'settings' => [
@@ -70,9 +70,9 @@ class WebauthnLibServerTest extends TestCase
 
         $server = new WebauthnLibServer($twoFactor);
         $options = $server->getCredentialRequestOptions('user_name', 'userHandle1', 'test.localhost', []);
-        $this->assertNotEmpty($options['challenge']);
-        $this->assertSame('test.localhost', $options['rpId']);
-        $this->assertEquals(
+        self::assertNotEmpty($options['challenge']);
+        self::assertSame('test.localhost', $options['rpId']);
+        self::assertEquals(
             [['type' => 'public-key', 'id' => 'cHVibGljS2V5Q3JlZGVudGlhbElkMQ==']],
             $options['allowCredentials'],
         );

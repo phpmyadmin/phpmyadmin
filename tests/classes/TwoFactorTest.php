@@ -151,58 +151,58 @@ class TwoFactorTest extends AbstractTestCase
 
     public function testNone(): void
     {
-        $request = new ServerRequest($this->createStub(ServerRequestInterface::class));
+        $request = new ServerRequest(self::createStub(ServerRequestInterface::class));
         $object = $this->getTwoFactorAndLoadConfig('user', ['type' => 'db']);
         $backend = $object->getBackend();
-        $this->assertEquals('', $backend::$id);
+        self::assertEquals('', $backend::$id);
         // Is always valid
-        $this->assertTrue($object->check($request, true));
+        self::assertTrue($object->check($request, true));
         // Test session persistence
-        $this->assertTrue($object->check($request));
-        $this->assertTrue($object->check($request));
-        $this->assertEquals('', $object->render($request));
+        self::assertTrue($object->check($request));
+        self::assertTrue($object->check($request));
+        self::assertEquals('', $object->render($request));
 
         $this->dummyDbi->assertAllQueriesConsumed();
 
         $this->loadResultForConfig(['type' => 'db']);
         $this->loadQueriesForConfigure('');
 
-        $this->assertTrue($object->configure($request, ''));
-        $this->assertEquals('', $object->setup($request));
+        self::assertTrue($object->configure($request, ''));
+        self::assertEquals('', $object->setup($request));
     }
 
     public function testSimple(): void
     {
-        $request = new ServerRequest($this->createStub(ServerRequestInterface::class));
+        $request = new ServerRequest(self::createStub(ServerRequestInterface::class));
         $config = Config::getInstance();
         $config->settings['DBG']['simple2fa'] = true;
         $object = $this->getTwoFactorAndLoadConfig('user', ['type' => 'db', 'backend' => 'simple']);
         $backend = $object->getBackend();
-        $this->assertEquals('simple', $backend::$id);
+        self::assertEquals('simple', $backend::$id);
         $config->settings['DBG']['simple2fa'] = false;
 
         unset($_POST['2fa_confirm']);
-        $this->assertFalse($object->check($request, true));
+        self::assertFalse($object->check($request, true));
 
         $_POST['2fa_confirm'] = 1;
-        $this->assertTrue($object->check($request, true));
+        self::assertTrue($object->check($request, true));
         unset($_POST['2fa_confirm']);
 
         /* Test rendering */
-        $this->assertNotEquals('', $object->render($request));
-        $this->assertEquals('', $object->setup($request));
+        self::assertNotEquals('', $object->render($request));
+        self::assertEquals('', $object->setup($request));
     }
 
     public function testLoad(): void
     {
         $object = $this->getTwoFactorAndLoadConfig('user', null);
         $backend = $object->getBackend();
-        $this->assertEquals('', $backend::$id);
+        self::assertEquals('', $backend::$id);
     }
 
     public function testConfigureSimple(): void
     {
-        $request = new ServerRequest($this->createStub(ServerRequestInterface::class));
+        $request = new ServerRequest(self::createStub(ServerRequestInterface::class));
         $config = Config::getInstance();
         $config->settings['DBG']['simple2fa'] = true;
         $object = $this->getTwoFactorAndLoadConfig('user', null);
@@ -212,18 +212,18 @@ class TwoFactorTest extends AbstractTestCase
         $this->loadResultForConfig([]);
         $this->loadQueriesForConfigure('simple');
 
-        $this->assertTrue($object->configure($request, 'simple'));
+        self::assertTrue($object->configure($request, 'simple'));
         $backend = $object->getBackend();
-        $this->assertEquals('simple', $backend::$id);
+        self::assertEquals('simple', $backend::$id);
 
         $this->dummyDbi->assertAllQueriesConsumed();
 
         $this->loadResultForConfig([]);
         $this->loadQueriesForConfigure('');
 
-        $this->assertTrue($object->configure($request, ''));
+        self::assertTrue($object->configure($request, ''));
         $backend = $object->getBackend();
-        $this->assertEquals('', $backend::$id);
+        self::assertEquals('', $backend::$id);
 
         $this->dummyDbi->assertAllQueriesConsumed();
 
@@ -231,7 +231,7 @@ class TwoFactorTest extends AbstractTestCase
 
         $config->settings['DBG']['simple2fa'] = false;
         $object = $this->getTwoFactorAndLoadConfig('user', null);
-        $this->assertFalse($object->configure($request, 'simple'));
+        self::assertFalse($object->configure($request, 'simple'));
         $this->dummyDbi->assertAllQueriesConsumed();
     }
 
@@ -242,20 +242,20 @@ class TwoFactorTest extends AbstractTestCase
     {
         parent::setLanguage();
 
-        $request = new ServerRequest($this->createStub(ServerRequestInterface::class));
+        $request = new ServerRequest(self::createStub(ServerRequestInterface::class));
 
         $object = $this->getTwoFactorAndLoadConfig('user', null);
         if (! in_array('application', $object->getAvailable(), true)) {
-            $this->markTestSkipped('google2fa not available');
+            self::markTestSkipped('google2fa not available');
         }
 
         /* Without providing code this should fail */
         unset($_POST['2fa_code']);
-        $this->assertFalse($object->configure($request, 'application'));
+        self::assertFalse($object->configure($request, 'application'));
 
         /* Invalid code */
         $_POST['2fa_code'] = 'invalid';
-        $this->assertFalse($object->configure($request, 'application'));
+        self::assertFalse($object->configure($request, 'application'));
 
         /* Generate valid code */
         /** @var Application $app */
@@ -270,67 +270,67 @@ class TwoFactorTest extends AbstractTestCase
         $this->loadResultForConfig([]);
         $this->loadQueriesForConfigure('application', ['secret' => $object->config['settings']['secret']]);
 
-        $this->assertTrue($object->configure($request, 'application'));
+        self::assertTrue($object->configure($request, 'application'));
 
         $this->dummyDbi->assertAllQueriesConsumed();
         unset($_POST['2fa_code']);
 
         /* Check code */
         unset($_POST['2fa_code']);
-        $this->assertFalse($object->check($request, true));
+        self::assertFalse($object->check($request, true));
         $_POST['2fa_code'] = 'invalid';
-        $this->assertFalse($object->check($request, true));
+        self::assertFalse($object->check($request, true));
         $_POST['2fa_code'] = $google2fa->oathTotp(
             $object->config['settings']['secret'],
             $google2fa->getTimestamp(),
         );
-        $this->assertTrue($object->check($request, true));
+        self::assertTrue($object->check($request, true));
         unset($_POST['2fa_code']);
 
         /* Test rendering */
-        $this->assertNotEquals('', $object->render($request));
-        $this->assertNotEquals('', $object->setup($request));
+        self::assertNotEquals('', $object->render($request));
+        self::assertNotEquals('', $object->setup($request));
     }
 
     public function testKey(): void
     {
         parent::setLanguage();
 
-        $request = new ServerRequest($this->createStub(ServerRequestInterface::class));
+        $request = new ServerRequest(self::createStub(ServerRequestInterface::class));
 
         $object = $this->getTwoFactorAndLoadConfig('user', null);
         if (! in_array('key', $object->getAvailable(), true)) {
-            $this->markTestSkipped('u2f-php-server not available');
+            self::markTestSkipped('u2f-php-server not available');
         }
 
         $_SESSION['registrationRequest'] = null;
         /* Without providing code this should fail */
         unset($_POST['u2f_registration_response']);
-        $this->assertFalse($object->configure($request, 'key'));
+        self::assertFalse($object->configure($request, 'key'));
 
         /* Invalid code */
         $_POST['u2f_registration_response'] = 'invalid';
-        $this->assertFalse($object->configure($request, 'key'));
+        self::assertFalse($object->configure($request, 'key'));
 
         /* Invalid code */
         $_POST['u2f_registration_response'] = '[]';
-        $this->assertFalse($object->configure($request, 'key'));
+        self::assertFalse($object->configure($request, 'key'));
 
         /* Without providing code this should fail */
         unset($_POST['u2f_authentication_response']);
-        $this->assertFalse($object->check($request, true));
+        self::assertFalse($object->check($request, true));
 
         /* Invalid code */
         $_POST['u2f_authentication_response'] = 'invalid';
-        $this->assertFalse($object->check($request, true));
+        self::assertFalse($object->check($request, true));
 
         /* Invalid code */
         $_POST['u2f_authentication_response'] = '[]';
-        $this->assertFalse($object->check($request, true));
+        self::assertFalse($object->check($request, true));
 
         /* Test rendering */
-        $this->assertNotEquals('', $object->render($request));
-        $this->assertNotEquals('', $object->setup($request));
+        self::assertNotEquals('', $object->render($request));
+        self::assertNotEquals('', $object->setup($request));
     }
 
     /**
@@ -341,19 +341,19 @@ class TwoFactorTest extends AbstractTestCase
         $config = Config::getInstance();
         $object = $this->getTwoFactorAndLoadConfig('user', null);
         $config->set('PmaAbsoluteUri', 'http://demo.example.com');
-        $this->assertEquals('http://demo.example.com', $object->getBackend()->getAppId(true));
-        $this->assertEquals('demo.example.com', $object->getBackend()->getAppId(false));
+        self::assertEquals('http://demo.example.com', $object->getBackend()->getAppId(true));
+        self::assertEquals('demo.example.com', $object->getBackend()->getAppId(false));
         $config->set('PmaAbsoluteUri', 'https://demo.example.com:123');
-        $this->assertEquals('https://demo.example.com:123', $object->getBackend()->getAppId(true));
-        $this->assertEquals('demo.example.com', $object->getBackend()->getAppId(false));
+        self::assertEquals('https://demo.example.com:123', $object->getBackend()->getAppId(true));
+        self::assertEquals('demo.example.com', $object->getBackend()->getAppId(false));
         $config->set('PmaAbsoluteUri', '');
         $config->set('is_https', true);
         $_SERVER['HTTP_HOST'] = 'pma.example.com';
-        $this->assertEquals('https://pma.example.com', $object->getBackend()->getAppId(true));
-        $this->assertEquals('pma.example.com', $object->getBackend()->getAppId(false));
+        self::assertEquals('https://pma.example.com', $object->getBackend()->getAppId(true));
+        self::assertEquals('pma.example.com', $object->getBackend()->getAppId(false));
         $config->set('is_https', false);
-        $this->assertEquals('http://pma.example.com', $object->getBackend()->getAppId(true));
-        $this->assertEquals('pma.example.com', $object->getBackend()->getAppId(false));
+        self::assertEquals('http://pma.example.com', $object->getBackend()->getAppId(true));
+        self::assertEquals('pma.example.com', $object->getBackend()->getAppId(false));
     }
 
     /**
@@ -362,11 +362,11 @@ class TwoFactorTest extends AbstractTestCase
      */
     public function testKeyAuthentication(): void
     {
-        $request = new ServerRequest($this->createStub(ServerRequestInterface::class));
+        $request = new ServerRequest(self::createStub(ServerRequestInterface::class));
 
         $object = $this->getTwoFactorAndLoadConfig('user', null);
         if (! in_array('key', $object->getAvailable(), true)) {
-            $this->markTestSkipped('u2f-php-server not available');
+            self::markTestSkipped('u2f-php-server not available');
         }
 
         $_SESSION['registrationRequest'] = new RegistrationRequest(
@@ -374,10 +374,10 @@ class TwoFactorTest extends AbstractTestCase
             'http://demo.example.com',
         );
         unset($_POST['u2f_registration_response']);
-        $this->assertFalse($object->configure($request, 'key'));
+        self::assertFalse($object->configure($request, 'key'));
 
         $_POST['u2f_registration_response'] = '';
-        $this->assertFalse($object->configure($request, 'key'));
+        self::assertFalse($object->configure($request, 'key'));
 
         $_POST['u2f_registration_response'] = '{ "registrationData": "BQQtEmhWVgvbh-8GpjsHbj_d5F'
             . 'B9iNoRL8mNEq34-ANufKWUpVdIj6BSB_m3eMoZ3GqnaDy3RA5eWP8mhTkT1Ht3QAk1GsmaPIQgXgvrBk'
@@ -426,13 +426,13 @@ class TwoFactorTest extends AbstractTestCase
             ],
         ]);
 
-        $this->assertTrue($object->configure($request, 'key'));
+        self::assertTrue($object->configure($request, 'key'));
 
         unset($_POST['u2f_authentication_response']);
-        $this->assertFalse($object->check($request, true));
+        self::assertFalse($object->check($request, true));
 
         $_POST['u2f_authentication_response'] = '';
-        $this->assertFalse($object->check($request, true));
+        self::assertFalse($object->check($request, true));
 
         $_SESSION['authenticationRequest'] = [
             new SignRequest([
@@ -441,7 +441,7 @@ class TwoFactorTest extends AbstractTestCase
                 'appId' => 'http://demo.example.com',
             ]),
         ];
-        $this->assertFalse($object->check($request, true));
+        self::assertFalse($object->check($request, true));
         $_POST['u2f_authentication_response'] = '{ "signatureData": "AQAAAAQwRQIhAI6FSrMD3KUUtkpiP0'
             . 'jpIEakql-HNhwWFngyw553pS1CAiAKLjACPOhxzZXuZsVO8im-HStEcYGC50PKhsGp_SUAng==", '
             . '"clientData": "eyAiY2hhbGxlbmdlIjogImZFbmM5b1Y3OUVhQmdLNUJvTkVSVTVnUEtNMlhHWVd'
@@ -474,7 +474,7 @@ class TwoFactorTest extends AbstractTestCase
                 ],
             ],
         ]);
-        $this->assertTrue($object->check($request, true));
+        self::assertTrue($object->check($request, true));
         $this->dummyDbi->assertAllQueriesConsumed();
     }
 
@@ -487,7 +487,7 @@ class TwoFactorTest extends AbstractTestCase
         $config->settings['DBG']['simple2fa'] = true;
         $object = $this->getTwoFactorAndLoadConfig('user', null);
         $backends = $object->getAllBackends();
-        $this->assertCount(
+        self::assertCount(
             count($object->getAvailable()) + 1,
             $backends,
         );

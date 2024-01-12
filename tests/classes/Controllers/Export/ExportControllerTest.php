@@ -199,8 +199,8 @@ SQL;
         $exportController($request);
         $output = $this->getActualOutputForAssertion();
 
-        $this->assertStringNotContainsString('Missing parameter: what', $output);
-        $this->assertStringNotContainsString('Missing parameter: export_type', $output);
-        $this->assertStringContainsString(htmlspecialchars($expectedOutput, ENT_COMPAT), $output);
+        self::assertStringNotContainsString('Missing parameter: what', $output);
+        self::assertStringNotContainsString('Missing parameter: export_type', $output);
+        self::assertStringContainsString(htmlspecialchars($expectedOutput, ENT_COMPAT), $output);
     }
 }

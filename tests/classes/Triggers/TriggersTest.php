@@ -70,8 +70,8 @@ class TriggersTest extends AbstractTestCase
         $_POST['item_table'] = $table;
         $_POST['item_definition'] = $definition;
 
-        $this->assertEquals($query, $this->triggers->getQueryFromRequest());
-        $this->assertCount($numErr, $GLOBALS['errors']);
+        self::assertEquals($query, $this->triggers->getQueryFromRequest());
+        self::assertCount($numErr, $GLOBALS['errors']);
     }
 
     /**
@@ -150,7 +150,7 @@ class TriggersTest extends AbstractTestCase
                 'Definer' => 'definer@localhost',
             ]),
         ];
-        $this->assertEquals($expected, $triggers);
+        self::assertEquals($expected, $triggers);
     }
 
     public function testGetDetails2(): void
@@ -174,7 +174,7 @@ class TriggersTest extends AbstractTestCase
                 'Definer' => 'definer2@localhost',
             ]),
         ];
-        $this->assertEquals($expected, $triggers);
+        self::assertEquals($expected, $triggers);
     }
 
     public function testGetDetails3(): void
@@ -200,7 +200,7 @@ class TriggersTest extends AbstractTestCase
                 'Definer' => 'definer@localhost',
             ]),
         ];
-        $this->assertEquals($expected, $triggers);
+        self::assertEquals($expected, $triggers);
     }
 
     public function testGetDetails4(): void
@@ -226,6 +226,6 @@ class TriggersTest extends AbstractTestCase
                 'Definer' => 'definer@localhost',
             ]),
         ];
-        $this->assertEquals($expected, $triggers);
+        self::assertEquals($expected, $triggers);
     }
 }

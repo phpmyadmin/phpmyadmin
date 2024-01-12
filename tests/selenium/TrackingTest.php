@@ -61,22 +61,22 @@ class TrackingTest extends TestBase
         $this->byPartialLinkText('Tracking report')->click();
         $this->waitForElement('xpath', "//h3[contains(., 'Tracking report')]");
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'DROP TABLE IF EXISTS `test_table`',
             $this->getCellByTableId('ddl_versions', 1, 4),
         );
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'CREATE TABLE `test_table` (',
             $this->getCellByTableId('ddl_versions', 2, 4),
         );
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'UPDATE test_table SET val = val + 1',
             $this->getCellByTableId('dml_versions', 1, 4),
         );
 
-        $this->assertStringNotContainsString(
+        self::assertStringNotContainsString(
             'DELETE FROM test_table WHERE val = 3',
             $this->byId('dml_versions')->getText(),
         );
@@ -88,16 +88,16 @@ class TrackingTest extends TestBase
 
         $this->waitAjax();
 
-        $this->assertFalse(
+        self::assertFalse(
             $this->isElementPresent('id', 'dml_versions'),
         );
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'DROP TABLE IF EXISTS `test_table`',
             $this->getCellByTableId('ddl_versions', 1, 4),
         );
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'CREATE TABLE `test_table` (',
             $this->getCellByTableId('ddl_versions', 2, 4),
         );
@@ -109,16 +109,16 @@ class TrackingTest extends TestBase
 
         $this->waitAjax();
 
-        $this->assertFalse(
+        self::assertFalse(
             $this->isElementPresent('id', 'ddl_versions'),
         );
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'UPDATE test_table SET val = val + 1',
             $this->getCellByTableId('dml_versions', 1, 4),
         );
 
-        $this->assertStringNotContainsString(
+        self::assertStringNotContainsString(
             'DELETE FROM test_table WHERE val = 3',
             $this->byId('dml_versions')->getText(),
         );
@@ -133,7 +133,7 @@ class TrackingTest extends TestBase
         $this->byCssSelector("input[value='Deactivate now']")->click();
         $this->waitForElement('cssSelector', "input[value='Activate now']");
         $this->executeSqlAndReturnToTableTracking();
-        $this->assertFalse(
+        self::assertFalse(
             $this->isElementPresent('id', 'dml_versions'),
         );
     }
@@ -160,18 +160,18 @@ class TrackingTest extends TestBase
 
         $this->waitAjax();
         $success = $this->waitForElement('cssSelector', '.alert-success');
-        $this->assertStringContainsString('Tracking data deleted successfully.', $success->getText());
+        self::assertStringContainsString('Tracking data deleted successfully.', $success->getText());
 
         // Can not use getCellByTableId,
         // since this is under 'th' and not 'td'
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'test_table',
             $this->waitForElement(
                 'cssSelector',
                 'table#noversions tbody tr:nth-child(1) th:nth-child(2)',
             )->getText(),
         );
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'test_table_2',
             $this->waitForElement(
                 'cssSelector',
@@ -189,22 +189,22 @@ class TrackingTest extends TestBase
         $this->byPartialLinkText('Structure snapshot')->click();
         $this->waitForElement('id', 'tablestructure');
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'id',
             $this->getCellByTableId('tablestructure', 1, 2),
         );
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'val',
             $this->getCellByTableId('tablestructure', 2, 2),
         );
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'PRIMARY',
             $this->getCellByTableId('tablestructure_indexes', 1, 1),
         );
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'id',
             $this->getCellByTableId('tablestructure_indexes', 1, 5),
         );

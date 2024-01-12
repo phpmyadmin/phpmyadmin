@@ -15846,52 +15846,52 @@ parameters:
 			path: src/ZipExtension.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'formula' and array\\{id\\: non\\-empty\\-string, name\\: string, precondition\\?\\: non\\-empty\\-string, formula\\: non\\-empty\\-string, test\\: non\\-empty\\-string, issue\\: string, recommendation\\: string, justification\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'formula' and array\\{id\\: non\\-empty\\-string, name\\: string, precondition\\?\\: non\\-empty\\-string, formula\\: non\\-empty\\-string, test\\: non\\-empty\\-string, issue\\: string, recommendation\\: string, justification\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Advisory/RulesTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'id' and array\\{id\\: non\\-empty\\-string, name\\: string, precondition\\?\\: non\\-empty\\-string, formula\\: non\\-empty\\-string, test\\: non\\-empty\\-string, issue\\: string, recommendation\\: string, justification\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'id' and array\\{id\\: non\\-empty\\-string, name\\: string, precondition\\?\\: non\\-empty\\-string, formula\\: non\\-empty\\-string, test\\: non\\-empty\\-string, issue\\: string, recommendation\\: string, justification\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Advisory/RulesTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'issue' and array\\{id\\: non\\-empty\\-string, name\\: string, precondition\\?\\: non\\-empty\\-string, formula\\: non\\-empty\\-string, test\\: non\\-empty\\-string, issue\\: string, recommendation\\: string, justification\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'issue' and array\\{id\\: non\\-empty\\-string, name\\: string, precondition\\?\\: non\\-empty\\-string, formula\\: non\\-empty\\-string, test\\: non\\-empty\\-string, issue\\: string, recommendation\\: string, justification\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Advisory/RulesTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'justification' and array\\{id\\: non\\-empty\\-string, name\\: string, precondition\\?\\: non\\-empty\\-string, formula\\: non\\-empty\\-string, test\\: non\\-empty\\-string, issue\\: string, recommendation\\: string, justification\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'justification' and array\\{id\\: non\\-empty\\-string, name\\: string, precondition\\?\\: non\\-empty\\-string, formula\\: non\\-empty\\-string, test\\: non\\-empty\\-string, issue\\: string, recommendation\\: string, justification\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Advisory/RulesTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'name' and array\\{id\\: non\\-empty\\-string, name\\: string, precondition\\?\\: non\\-empty\\-string, formula\\: non\\-empty\\-string, test\\: non\\-empty\\-string, issue\\: string, recommendation\\: string, justification\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'name' and array\\{id\\: non\\-empty\\-string, name\\: string, precondition\\?\\: non\\-empty\\-string, formula\\: non\\-empty\\-string, test\\: non\\-empty\\-string, issue\\: string, recommendation\\: string, justification\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Advisory/RulesTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'recommendation' and array\\{id\\: non\\-empty\\-string, name\\: string, precondition\\?\\: non\\-empty\\-string, formula\\: non\\-empty\\-string, test\\: non\\-empty\\-string, issue\\: string, recommendation\\: string, justification\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'recommendation' and array\\{id\\: non\\-empty\\-string, name\\: string, precondition\\?\\: non\\-empty\\-string, formula\\: non\\-empty\\-string, test\\: non\\-empty\\-string, issue\\: string, recommendation\\: string, justification\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Advisory/RulesTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'test' and array\\{id\\: non\\-empty\\-string, name\\: string, precondition\\?\\: non\\-empty\\-string, formula\\: non\\-empty\\-string, test\\: non\\-empty\\-string, issue\\: string, recommendation\\: string, justification\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'test' and array\\{id\\: non\\-empty\\-string, name\\: string, precondition\\?\\: non\\-empty\\-string, formula\\: non\\-empty\\-string, test\\: non\\-empty\\-string, issue\\: string, recommendation\\: string, justification\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Advisory/RulesTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 3
 			path: tests/classes/BrowseForeignersTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$string of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringEndsWith\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$string of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringEndsWith\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: tests/classes/BrowseForeignersTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$string of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringStartsWith\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$string of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringStartsWith\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: tests/classes/BrowseForeignersTest.php
 
@@ -15901,12 +15901,12 @@ parameters:
 			path: tests/classes/CacheTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Charsets\\\\\\\\Charset' and PhpMyAdmin\\\\Charsets\\\\Charset will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Charsets\\\\\\\\Charset' and PhpMyAdmin\\\\Charsets\\\\Charset will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Charsets/CharsetTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Charsets\\\\\\\\Collation' and PhpMyAdmin\\\\Charsets\\\\Collation will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Charsets\\\\\\\\Collation' and PhpMyAdmin\\\\Charsets\\\\Collation will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Charsets/CollationTest.php
 
@@ -15946,27 +15946,27 @@ parameters:
 			path: tests/classes/Config/DescriptionTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int\\<1, max\\>, non\\-empty\\-array\\<'AllowDeny'\\|'AllowNoPassword'\\|'AllowRoot'\\|'auth_http_realm'\\|'auth_type'\\|'bookmarktable'\\|'central_columns'\\|'column_info'\\|'compress'\\|'control_compress'\\|'control_hide…'\\|'control_socket'\\|'control_ssl'\\|'control_ssl_ca'\\|'control_ssl_ca_path'\\|'control_ssl_cert'\\|'control_ssl_ciphers'\\|'control_ssl_key'\\|'control_ssl_verify'\\|'controlhost'\\|'controlpass'\\|'controlport'\\|'controluser'\\|'designer_settings'\\|'DisableIS'\\|'export_templates'\\|'favorite'\\|'hide_db'\\|'history'\\|'host'\\|'LogoutURL'\\|'MaxTableUiprefs'\\|'navigationhiding'\\|'only_db'\\|'password'\\|'pdf_pages'\\|'pmadb'\\|'port'\\|'recent'\\|'relation'\\|'savedsearches'\\|'SessionTimeZone'\\|'SignonCookieParams'\\|'SignonScript'\\|'SignonSession'\\|'SignonURL'\\|'socket'\\|'ssl'\\|'ssl_ca'\\|'ssl_ca_path'\\|'ssl_cert'\\|'ssl_ciphers'\\|'ssl_key'\\|'ssl_verify'\\|'table_coords'\\|'table_info'\\|'table_uiprefs'\\|'tracking'\\|'user'\\|'userconfig'\\|'usergroups'\\|'users'\\|'verbose', array\\<array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string\\>\\|bool\\|int\\<1, max\\>\\|string\\|null\\>\\> will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int\\<1, max\\>, non\\-empty\\-array\\<'AllowDeny'\\|'AllowNoPassword'\\|'AllowRoot'\\|'auth_http_realm'\\|'auth_type'\\|'bookmarktable'\\|'central_columns'\\|'column_info'\\|'compress'\\|'control_compress'\\|'control_hide…'\\|'control_socket'\\|'control_ssl'\\|'control_ssl_ca'\\|'control_ssl_ca_path'\\|'control_ssl_cert'\\|'control_ssl_ciphers'\\|'control_ssl_key'\\|'control_ssl_verify'\\|'controlhost'\\|'controlpass'\\|'controlport'\\|'controluser'\\|'designer_settings'\\|'DisableIS'\\|'export_templates'\\|'favorite'\\|'hide_db'\\|'history'\\|'host'\\|'LogoutURL'\\|'MaxTableUiprefs'\\|'navigationhiding'\\|'only_db'\\|'password'\\|'pdf_pages'\\|'pmadb'\\|'port'\\|'recent'\\|'relation'\\|'savedsearches'\\|'SessionTimeZone'\\|'SignonCookieParams'\\|'SignonScript'\\|'SignonSession'\\|'SignonURL'\\|'socket'\\|'ssl'\\|'ssl_ca'\\|'ssl_ca_path'\\|'ssl_cert'\\|'ssl_ciphers'\\|'ssl_key'\\|'ssl_verify'\\|'table_coords'\\|'table_info'\\|'table_uiprefs'\\|'tracking'\\|'user'\\|'userconfig'\\|'usergroups'\\|'users'\\|'verbose', array\\<array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string\\>\\|bool\\|int\\<1, max\\>\\|string\\|null\\>\\> will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Config/DescriptionTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with non\\-empty\\-array\\<'AllowDeny'\\|'AllowNoPassword'\\|'AllowRoot'\\|'auth_http_realm'\\|'auth_type'\\|'bookmarktable'\\|'central_columns'\\|'column_info'\\|'compress'\\|'control_compress'\\|'control_hide…'\\|'control_socket'\\|'control_ssl'\\|'control_ssl_ca'\\|'control_ssl_ca_path'\\|'control_ssl_cert'\\|'control_ssl_ciphers'\\|'control_ssl_key'\\|'control_ssl_verify'\\|'controlhost'\\|'controlpass'\\|'controlport'\\|'controluser'\\|'designer_settings'\\|'DisableIS'\\|'export_templates'\\|'favorite'\\|'hide_db'\\|'history'\\|'host'\\|'LogoutURL'\\|'MaxTableUiprefs'\\|'navigationhiding'\\|'only_db'\\|'password'\\|'pdf_pages'\\|'pmadb'\\|'port'\\|'recent'\\|'relation'\\|'savedsearches'\\|'SessionTimeZone'\\|'SignonCookieParams'\\|'SignonScript'\\|'SignonSession'\\|'SignonURL'\\|'socket'\\|'ssl'\\|'ssl_ca'\\|'ssl_ca_path'\\|'ssl_cert'\\|'ssl_ciphers'\\|'ssl_key'\\|'ssl_verify'\\|'table_coords'\\|'table_info'\\|'table_uiprefs'\\|'tracking'\\|'user'\\|'userconfig'\\|'usergroups'\\|'users'\\|'verbose', array\\<array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string\\>\\|bool\\|int\\<1, max\\>\\|string\\|null\\> will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with non\\-empty\\-array\\<'AllowDeny'\\|'AllowNoPassword'\\|'AllowRoot'\\|'auth_http_realm'\\|'auth_type'\\|'bookmarktable'\\|'central_columns'\\|'column_info'\\|'compress'\\|'control_compress'\\|'control_hide…'\\|'control_socket'\\|'control_ssl'\\|'control_ssl_ca'\\|'control_ssl_ca_path'\\|'control_ssl_cert'\\|'control_ssl_ciphers'\\|'control_ssl_key'\\|'control_ssl_verify'\\|'controlhost'\\|'controlpass'\\|'controlport'\\|'controluser'\\|'designer_settings'\\|'DisableIS'\\|'export_templates'\\|'favorite'\\|'hide_db'\\|'history'\\|'host'\\|'LogoutURL'\\|'MaxTableUiprefs'\\|'navigationhiding'\\|'only_db'\\|'password'\\|'pdf_pages'\\|'pmadb'\\|'port'\\|'recent'\\|'relation'\\|'savedsearches'\\|'SessionTimeZone'\\|'SignonCookieParams'\\|'SignonScript'\\|'SignonSession'\\|'SignonURL'\\|'socket'\\|'ssl'\\|'ssl_ca'\\|'ssl_ca_path'\\|'ssl_cert'\\|'ssl_ciphers'\\|'ssl_key'\\|'ssl_verify'\\|'table_coords'\\|'table_info'\\|'table_uiprefs'\\|'tracking'\\|'user'\\|'userconfig'\\|'usergroups'\\|'users'\\|'verbose', array\\<array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string\\>\\|bool\\|int\\<1, max\\>\\|string\\|null\\> will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Config/DescriptionTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Config/DescriptionTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with string will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with string will always evaluate to true\\.$#"
 			count: 3
 			path: tests/classes/Config/DescriptionTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with null will always evaluate to false\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with null will always evaluate to false\\.$#"
 			count: 1
 			path: tests/classes/Config/FormDisplayTest.php
 
@@ -15976,12 +15976,12 @@ parameters:
 			path: tests/classes/Config/FormDisplayTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Forms\\\\\\\\BaseFormList' and PhpMyAdmin\\\\Config\\\\Forms\\\\BaseFormList will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Forms\\\\\\\\BaseFormList' and PhpMyAdmin\\\\Config\\\\Forms\\\\BaseFormList will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Config/Forms/FormListTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with string will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with string will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Config/Forms/FormListTest.php
 
@@ -16066,37 +16066,37 @@ parameters:
 			path: tests/classes/Config/Settings/SchemaTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\Console' and PhpMyAdmin\\\\Config\\\\Settings\\\\Console will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\Console' and PhpMyAdmin\\\\Config\\\\Settings\\\\Console will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Config/SettingsTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\Debug' and PhpMyAdmin\\\\Config\\\\Settings\\\\Debug will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\Debug' and PhpMyAdmin\\\\Config\\\\Settings\\\\Debug will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Config/SettingsTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\Export' and PhpMyAdmin\\\\Config\\\\Settings\\\\Export will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\Export' and PhpMyAdmin\\\\Config\\\\Settings\\\\Export will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Config/SettingsTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\Import' and PhpMyAdmin\\\\Config\\\\Settings\\\\Import will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\Import' and PhpMyAdmin\\\\Config\\\\Settings\\\\Import will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Config/SettingsTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\Schema' and PhpMyAdmin\\\\Config\\\\Settings\\\\Schema will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\Schema' and PhpMyAdmin\\\\Config\\\\Settings\\\\Schema will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Config/SettingsTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\SqlQueryBox' and PhpMyAdmin\\\\Config\\\\Settings\\\\SqlQueryBox will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\SqlQueryBox' and PhpMyAdmin\\\\Config\\\\Settings\\\\SqlQueryBox will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Config/SettingsTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\Transformations' and PhpMyAdmin\\\\Config\\\\Settings\\\\Transformations will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\Transformations' and PhpMyAdmin\\\\Config\\\\Settings\\\\Transformations will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Config/SettingsTest.php
 
@@ -16111,17 +16111,17 @@ parameters:
 			path: tests/classes/Config/SettingsTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with arguments 'relation', array\\{version\\: string, user\\: string\\|null, db\\: string\\|null, bookmark\\: string\\|null, central_columns\\: string\\|null, column_info\\: string\\|null, designer_settings\\: string\\|null, export_templates\\: string\\|null, \\.\\.\\.\\} and 'The cache is…' will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with arguments 'relation', array\\{version\\: string, user\\: string\\|null, db\\: string\\|null, bookmark\\: string\\|null, central_columns\\: string\\|null, column_info\\: string\\|null, designer_settings\\: string\\|null, export_templates\\: string\\|null, \\.\\.\\.\\} and 'The cache is…' will always evaluate to true\\.$#"
 			count: 3
 			path: tests/classes/ConfigStorage/RelationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with '' and '' will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with '' and '' will always evaluate to true\\.$#"
 			count: 2
 			path: tests/classes/ConfigStorage/RelationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with 'db_pma' and 'db_pma' will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with 'db_pma' and 'db_pma' will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/ConfigStorage/RelationTest.php
 
@@ -16131,12 +16131,12 @@ parameters:
 			path: tests/classes/ConfigStorage/RelationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'Server' and array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\} will always evaluate to false\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'Server' and array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\} will always evaluate to false\\.$#"
 			count: 1
 			path: tests/classes/ConfigTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int\\<1, max\\>, array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\> will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int\\<1, max\\>, array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\> will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/ConfigTest.php
 
@@ -16206,22 +16206,22 @@ parameters:
 			path: tests/classes/Controllers/Database/StructureControllerTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$array of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayNotHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$array of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayNotHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
 			count: 1
 			path: tests/classes/Controllers/Database/StructureControllerTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 4
 			path: tests/classes/Controllers/Database/StructureControllerTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringNotContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringNotContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: tests/classes/Controllers/Database/StructureControllerTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 4
 			path: tests/classes/Controllers/NavigationControllerTest.php
 
@@ -16236,12 +16236,12 @@ parameters:
 			path: tests/classes/Controllers/Server/BinlogControllerTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 3
 			path: tests/classes/Controllers/Server/Databases/CreateControllerTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: tests/classes/Controllers/Server/Databases/DestroyControllerTest.php
 
@@ -16346,7 +16346,7 @@ parameters:
 			path: tests/classes/CoreTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$array of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayNotHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$array of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayNotHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
 			count: 12
 			path: tests/classes/CoreTest.php
 
@@ -16356,7 +16356,7 @@ parameters:
 			path: tests/classes/Crypto/CryptoTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<string\\> will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<string\\> will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Database/CentralColumnsTest.php
 
@@ -16366,7 +16366,7 @@ parameters:
 			path: tests/classes/Database/CentralColumnsTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$needle of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$needle of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: tests/classes/Database/CentralColumnsTest.php
 
@@ -16386,12 +16386,12 @@ parameters:
 			path: tests/classes/Database/DesignerTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Dbal\\\\\\\\ResultInterface' and PhpMyAdmin\\\\Dbal\\\\ResultInterface will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Dbal\\\\\\\\ResultInterface' and PhpMyAdmin\\\\Dbal\\\\ResultInterface will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/DatabaseInterfaceTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\SystemDatabase' and PhpMyAdmin\\\\SystemDatabase will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\SystemDatabase' and PhpMyAdmin\\\\SystemDatabase will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/DatabaseInterfaceTest.php
 
@@ -16481,7 +16481,7 @@ parameters:
 			path: tests/classes/Display/ResultsTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 4
 			path: tests/classes/Display/ResultsTest.php
 
@@ -16501,12 +16501,12 @@ parameters:
 			path: tests/classes/Export/OptionsTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$array of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$array of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
 			count: 1
 			path: tests/classes/FlashMessagesTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$array of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayNotHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$array of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayNotHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
 			count: 1
 			path: tests/classes/FlashMessagesTest.php
 
@@ -16591,7 +16591,7 @@ parameters:
 			path: tests/classes/Html/GeneratorTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with true will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with true will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Import/AjaxTest.php
 
@@ -16666,152 +16666,152 @@ parameters:
 			path: tests/classes/Navigation/Nodes/NodeTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'extra' and array\\{legendText\\: string, headText\\: string, queryError\\: bool, extra\\: PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'extra' and array\\{legendText\\: string, headText\\: string, queryError\\: bool, extra\\: PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'extra' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\|false\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'extra' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\|false\\} will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'extra' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'extra' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\} will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'extra' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'extra' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string\\} will always evaluate to true\\.$#"
 			count: 2
 			path: tests/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'extra' and array\\{legendText\\: string, headText\\: string, subText\\: string, hasPrimaryKey\\: string, extra\\: string\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'extra' and array\\{legendText\\: string, headText\\: string, subText\\: string, hasPrimaryKey\\: string, extra\\: string\\} will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'hasPrimaryKey' and array\\{legendText\\: string, headText\\: string, subText\\: string, hasPrimaryKey\\: string, extra\\: string\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'hasPrimaryKey' and array\\{legendText\\: string, headText\\: string, subText\\: string, hasPrimaryKey\\: string, extra\\: string\\} will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'headText' and array\\{legendText\\: string, headText\\: string, queryError\\: bool, extra\\: PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'headText' and array\\{legendText\\: string, headText\\: string, queryError\\: bool, extra\\: PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'headText' and array\\{legendText\\: string, headText\\: string, queryError\\: string\\|false, extra\\?\\: string\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'headText' and array\\{legendText\\: string, headText\\: string, queryError\\: string\\|false, extra\\?\\: string\\} will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'headText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\|false\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'headText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\|false\\} will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'headText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'headText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\} will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'headText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'headText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string\\} will always evaluate to true\\.$#"
 			count: 2
 			path: tests/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'headText' and array\\{legendText\\: string, headText\\: string, subText\\: string, hasPrimaryKey\\: string, extra\\: string\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'headText' and array\\{legendText\\: string, headText\\: string, subText\\: string, hasPrimaryKey\\: string, extra\\: string\\} will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'legendText' and array\\{legendText\\: string, headText\\: string, queryError\\: bool, extra\\: PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'legendText' and array\\{legendText\\: string, headText\\: string, queryError\\: bool, extra\\: PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'legendText' and array\\{legendText\\: string, headText\\: string, queryError\\: string\\|false, extra\\?\\: string\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'legendText' and array\\{legendText\\: string, headText\\: string, queryError\\: string\\|false, extra\\?\\: string\\} will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'legendText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\|false\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'legendText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\|false\\} will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'legendText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'legendText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\} will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'legendText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'legendText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string\\} will always evaluate to true\\.$#"
 			count: 2
 			path: tests/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'legendText' and array\\{legendText\\: string, headText\\: string, subText\\: string, hasPrimaryKey\\: string, extra\\: string\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'legendText' and array\\{legendText\\: string, headText\\: string, subText\\: string, hasPrimaryKey\\: string, extra\\: string\\} will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'message' and array\\{queryError\\: bool, message\\: PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'message' and array\\{queryError\\: bool, message\\: PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'primary_key' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\|false\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'primary_key' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\|false\\} will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'primary_key' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'primary_key' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\} will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'queryError' and array\\{legendText\\: string, headText\\: string, queryError\\: bool, extra\\: PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'queryError' and array\\{legendText\\: string, headText\\: string, queryError\\: bool, extra\\: PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'queryError' and array\\{legendText\\: string, headText\\: string, queryError\\: string\\|false, extra\\?\\: string\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'queryError' and array\\{legendText\\: string, headText\\: string, queryError\\: string\\|false, extra\\?\\: string\\} will always evaluate to true\\.$#"
 			count: 2
 			path: tests/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'queryError' and array\\{queryError\\: bool, message\\: PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'queryError' and array\\{queryError\\: bool, message\\: PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'subText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\|false\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'subText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\|false\\} will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'subText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'subText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\} will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'subText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'subText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string\\} will always evaluate to true\\.$#"
 			count: 2
 			path: tests/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'subText' and array\\{legendText\\: string, headText\\: string, subText\\: string, hasPrimaryKey\\: string, extra\\: string\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'subText' and array\\{legendText\\: string, headText\\: string, subText\\: string, hasPrimaryKey\\: string, extra\\: string\\} will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Message' and PhpMyAdmin\\\\Message will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Message' and PhpMyAdmin\\\\Message will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/NormalizationTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: tests/classes/NormalizationTest.php
 
@@ -16821,12 +16821,12 @@ parameters:
 			path: tests/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotFalse\\(\\) with string will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotFalse\\(\\) with string will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/OpenDocumentTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\StatementInfo' and PhpMyAdmin\\\\StatementInfo will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\StatementInfo' and PhpMyAdmin\\\\StatementInfo will always evaluate to true\\.$#"
 			count: 2
 			path: tests/classes/ParseAnalyzeTest.php
 
@@ -16836,7 +16836,7 @@ parameters:
 			path: tests/classes/Partitioning/TablePartitionDefinitionTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 3
 			path: tests/classes/PdfTest.php
 
@@ -16851,7 +16851,7 @@ parameters:
 			path: tests/classes/Plugins/Auth/AuthenticationConfigTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with 32 and 0 will always evaluate to false\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with 32 and 0 will always evaluate to false\\.$#"
 			count: 1
 			path: tests/classes/Plugins/Auth/AuthenticationCookieTest.php
 
@@ -16901,7 +16901,7 @@ parameters:
 			path: tests/classes/Plugins/Auth/AuthenticationSignonTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: tests/classes/Plugins/Export/ExportHtmlwordTest.php
 
@@ -16931,7 +16931,7 @@ parameters:
 			path: tests/classes/Plugins/Export/ExportOdtTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 11
 			path: tests/classes/Plugins/Export/ExportOdtTest.php
 
@@ -16946,7 +16946,7 @@ parameters:
 			path: tests/classes/Plugins/Export/ExportSqlTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 10
 			path: tests/classes/Plugins/Export/ExportSqlTest.php
 
@@ -16981,12 +16981,12 @@ parameters:
 			path: tests/classes/Plugins/Import/ImportCsvTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 6
 			path: tests/classes/Plugins/Import/ImportCsvTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with 'auto' will always evaluate to false\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with 'auto' will always evaluate to false\\.$#"
 			count: 1
 			path: tests/classes/Plugins/Import/ImportLdiTest.php
 
@@ -17001,7 +17001,7 @@ parameters:
 			path: tests/classes/Plugins/Import/ImportLdiTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 6
 			path: tests/classes/Plugins/Import/ImportLdiTest.php
 
@@ -17011,7 +17011,7 @@ parameters:
 			path: tests/classes/Plugins/Import/ImportMediawikiTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 5
 			path: tests/classes/Plugins/Import/ImportMediawikiTest.php
 
@@ -17026,7 +17026,7 @@ parameters:
 			path: tests/classes/Plugins/Import/ImportOdsTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 13
 			path: tests/classes/Plugins/Import/ImportOdsTest.php
 
@@ -17036,7 +17036,7 @@ parameters:
 			path: tests/classes/Plugins/Import/ImportShpTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 7
 			path: tests/classes/Plugins/Import/ImportShpTest.php
 
@@ -17046,7 +17046,7 @@ parameters:
 			path: tests/classes/Plugins/Import/ImportSqlTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 3
 			path: tests/classes/Plugins/Import/ImportSqlTest.php
 
@@ -17056,7 +17056,7 @@ parameters:
 			path: tests/classes/Plugins/Import/ImportXmlTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 5
 			path: tests/classes/Plugins/Import/ImportXmlTest.php
 
@@ -17066,17 +17066,17 @@ parameters:
 			path: tests/classes/Plugins/Transformations/TransformationPluginsTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int, PhpMyAdmin\\\\Plugins\\\\ExportPlugin\\> will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int, PhpMyAdmin\\\\Plugins\\\\ExportPlugin\\> will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/PluginsTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int, PhpMyAdmin\\\\Plugins\\\\ImportPlugin\\> will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int, PhpMyAdmin\\\\Plugins\\\\ImportPlugin\\> will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/PluginsTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int, PhpMyAdmin\\\\Plugins\\\\SchemaPlugin\\> will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int, PhpMyAdmin\\\\Plugins\\\\SchemaPlugin\\> will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/PluginsTest.php
 
@@ -17086,7 +17086,7 @@ parameters:
 			path: tests/classes/PluginsTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Properties\\\\\\\\Options\\\\\\\\OptionsPropertyGroup' and PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup&PHPUnit\\\\Framework\\\\MockObject\\\\MockObject will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Properties\\\\\\\\Options\\\\\\\\OptionsPropertyGroup' and PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup&PHPUnit\\\\Framework\\\\MockObject\\\\MockObject will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Properties/Options/OptionsPropertyGroupTest.php
 
@@ -17096,7 +17096,7 @@ parameters:
 			path: tests/classes/Replication/ReplicationGuiTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$directory of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertDirectoryIsWritable\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$directory of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertDirectoryIsWritable\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: tests/classes/Routing/RoutingTest.php
 
@@ -17106,22 +17106,22 @@ parameters:
 			path: tests/classes/Routing/RoutingTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Server\\\\\\\\Plugin' and PhpMyAdmin\\\\Server\\\\Plugin will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Server\\\\\\\\Plugin' and PhpMyAdmin\\\\Server\\\\Plugin will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Server/PluginTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Server\\\\\\\\Plugin' and PhpMyAdmin\\\\Server\\\\Plugin will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Server\\\\\\\\Plugin' and PhpMyAdmin\\\\Server\\\\Plugin will always evaluate to true\\.$#"
 			count: 2
 			path: tests/classes/Server/PluginsTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<PhpMyAdmin\\\\Server\\\\Plugin\\> will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<PhpMyAdmin\\\\Server\\\\Plugin\\> will always evaluate to true\\.$#"
 			count: 2
 			path: tests/classes/Server/PluginsTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int\\|string, string\\> will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int\\|string, string\\> will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Server/PluginsTest.php
 
@@ -17131,12 +17131,12 @@ parameters:
 			path: tests/classes/Server/PluginsTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 0 and array\\{string, PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 0 and array\\{string, PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
 			count: 3
 			path: tests/classes/Server/PrivilegesTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 1 and array\\{string, PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 1 and array\\{string, PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
 			count: 3
 			path: tests/classes/Server/PrivilegesTest.php
 
@@ -17176,7 +17176,7 @@ parameters:
 			path: tests/classes/Server/SelectTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$needle of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$needle of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 4
 			path: tests/classes/Server/SelectTest.php
 
@@ -17186,7 +17186,7 @@ parameters:
 			path: tests/classes/Server/SelectTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Server\\\\\\\\SysInfo\\\\\\\\Base' and PhpMyAdmin\\\\Server\\\\SysInfo\\\\Base will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Server\\\\\\\\SysInfo\\\\\\\\Base' and PhpMyAdmin\\\\Server\\\\SysInfo\\\\Base will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Server/SysInfo/SysInfoTest.php
 
@@ -17261,7 +17261,7 @@ parameters:
 			path: tests/classes/Stubs/ResponseRenderer.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Table\\\\\\\\Table' and PhpMyAdmin\\\\Table\\\\Table will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Table\\\\\\\\Table' and PhpMyAdmin\\\\Table\\\\Table will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Table/TableTest.php
 
@@ -17271,27 +17271,27 @@ parameters:
 			path: tests/classes/Table/TableTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 3
 			path: tests/classes/Table/TableTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringNotContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringNotContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: tests/classes/Table/TableTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Theme/ThemeManagerTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with true will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with true will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Theme/ThemeManagerTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Theme\\\\\\\\Theme' and PhpMyAdmin\\\\Theme\\\\Theme will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Theme\\\\\\\\Theme' and PhpMyAdmin\\\\Theme\\\\Theme will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Theme/ThemeTest.php
 
@@ -17311,7 +17311,7 @@ parameters:
 			path: tests/classes/Tracking/TrackingTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 5
 			path: tests/classes/Tracking/TrackingTest.php
 
@@ -17381,7 +17381,7 @@ parameters:
 			path: tests/classes/UserPreferencesTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\) expects Countable\\|iterable, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\) expects Countable\\|iterable, mixed given\\.$#"
 			count: 1
 			path: tests/classes/UserPreferencesTest.php
 
@@ -17421,7 +17421,7 @@ parameters:
 			path: tests/classes/UtilTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$array of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayNotHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$array of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayNotHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
 			count: 2
 			path: tests/classes/UtilTest.php
 
@@ -17441,12 +17441,12 @@ parameters:
 			path: tests/classes/Utils/HttpRequestTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$needle of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$needle of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: tests/classes/Utils/HttpRequestTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: tests/classes/Utils/HttpRequestTest.php
 
@@ -17466,7 +17466,7 @@ parameters:
 			path: tests/classes/Utils/SessionCacheTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$array of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayNotHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$array of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayNotHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
 			count: 2
 			path: tests/classes/Utils/SessionCacheTest.php
 
@@ -17486,27 +17486,27 @@ parameters:
 			path: tests/classes/VersionInformationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsBool\\(\\) with true will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsBool\\(\\) with true will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/VersionTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsInt\\(\\) with 0 will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsInt\\(\\) with 0 will always evaluate to true\\.$#"
 			count: 2
 			path: tests/classes/VersionTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsInt\\(\\) with 6 will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsInt\\(\\) with 6 will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/VersionTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsString\\(\\) with 'dev' will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsString\\(\\) with 'dev' will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/VersionTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsString\\(\\) with non\\-falsy\\-string will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsString\\(\\) with non\\-falsy\\-string will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/VersionTest.php
 
@@ -17561,7 +17561,7 @@ parameters:
 			path: tests/config.e2e.inc.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebElement will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebElement will always evaluate to true\\.$#"
 			count: 1
 			path: tests/selenium/Database/OperationsTest.php
 

@@ -18,8 +18,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['format' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->format);
-        $this->assertSame($expected, $exportArray['format']);
+        self::assertSame($expected, $export->format);
+        self::assertSame($expected, $exportArray['format']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -47,8 +47,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['method' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->method);
-        $this->assertSame($expected, $exportArray['method']);
+        self::assertSame($expected, $export->method);
+        self::assertSame($expected, $exportArray['method']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -66,8 +66,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['compression' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->compression);
-        $this->assertSame($expected, $exportArray['compression']);
+        self::assertSame($expected, $export->compression);
+        self::assertSame($expected, $exportArray['compression']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -85,8 +85,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['lock_tables' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->lock_tables);
-        $this->assertSame($expected, $exportArray['lock_tables']);
+        self::assertSame($expected, $export->lock_tables);
+        self::assertSame($expected, $exportArray['lock_tables']);
     }
 
     /** @return iterable<string, array{mixed, bool}> */
@@ -103,8 +103,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['as_separate_files' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->as_separate_files);
-        $this->assertSame($expected, $exportArray['as_separate_files']);
+        self::assertSame($expected, $export->as_separate_files);
+        self::assertSame($expected, $exportArray['as_separate_files']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -112,8 +112,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['asfile' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->asfile);
-        $this->assertSame($expected, $exportArray['asfile']);
+        self::assertSame($expected, $export->asfile);
+        self::assertSame($expected, $exportArray['asfile']);
     }
 
     /** @return iterable<string, array{mixed, bool}> */
@@ -130,8 +130,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['charset' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->charset);
-        $this->assertSame($expected, $exportArray['charset']);
+        self::assertSame($expected, $export->charset);
+        self::assertSame($expected, $exportArray['charset']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -148,8 +148,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['onserver' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->onserver);
-        $this->assertSame($expected, $exportArray['onserver']);
+        self::assertSame($expected, $export->onserver);
+        self::assertSame($expected, $exportArray['onserver']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -157,8 +157,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['onserver_overwrite' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->onserver_overwrite);
-        $this->assertSame($expected, $exportArray['onserver_overwrite']);
+        self::assertSame($expected, $export->onserver_overwrite);
+        self::assertSame($expected, $exportArray['onserver_overwrite']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -166,8 +166,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['quick_export_onserver' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->quick_export_onserver);
-        $this->assertSame($expected, $exportArray['quick_export_onserver']);
+        self::assertSame($expected, $export->quick_export_onserver);
+        self::assertSame($expected, $exportArray['quick_export_onserver']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -175,8 +175,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['quick_export_onserver_overwrite' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->quick_export_onserver_overwrite);
-        $this->assertSame($expected, $exportArray['quick_export_onserver_overwrite']);
+        self::assertSame($expected, $export->quick_export_onserver_overwrite);
+        self::assertSame($expected, $exportArray['quick_export_onserver_overwrite']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -184,8 +184,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['remember_file_template' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->remember_file_template);
-        $this->assertSame($expected, $exportArray['remember_file_template']);
+        self::assertSame($expected, $export->remember_file_template);
+        self::assertSame($expected, $exportArray['remember_file_template']);
     }
 
     #[DataProvider('valuesForFileTemplateTableProvider')]
@@ -193,8 +193,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['file_template_table' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->file_template_table);
-        $this->assertSame($expected, $exportArray['file_template_table']);
+        self::assertSame($expected, $export->file_template_table);
+        self::assertSame($expected, $exportArray['file_template_table']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -211,8 +211,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['file_template_database' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->file_template_database);
-        $this->assertSame($expected, $exportArray['file_template_database']);
+        self::assertSame($expected, $export->file_template_database);
+        self::assertSame($expected, $exportArray['file_template_database']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -229,8 +229,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['file_template_server' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->file_template_server);
-        $this->assertSame($expected, $exportArray['file_template_server']);
+        self::assertSame($expected, $export->file_template_server);
+        self::assertSame($expected, $exportArray['file_template_server']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -247,8 +247,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['codegen_structure_or_data' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->codegen_structure_or_data);
-        $this->assertSame($expected, $exportArray['codegen_structure_or_data']);
+        self::assertSame($expected, $export->codegen_structure_or_data);
+        self::assertSame($expected, $exportArray['codegen_structure_or_data']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -266,8 +266,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['codegen_format' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->codegen_format);
-        $this->assertSame($expected, $exportArray['codegen_format']);
+        self::assertSame($expected, $export->codegen_format);
+        self::assertSame($expected, $exportArray['codegen_format']);
     }
 
     /** @return iterable<string, array{mixed, int}> */
@@ -286,8 +286,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['ods_columns' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->ods_columns);
-        $this->assertSame($expected, $exportArray['ods_columns']);
+        self::assertSame($expected, $export->ods_columns);
+        self::assertSame($expected, $exportArray['ods_columns']);
     }
 
     #[DataProvider('valuesForOdsNullProvider')]
@@ -295,8 +295,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['ods_null' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->ods_null);
-        $this->assertSame($expected, $exportArray['ods_null']);
+        self::assertSame($expected, $export->ods_null);
+        self::assertSame($expected, $exportArray['ods_null']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -313,8 +313,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['odt_structure_or_data' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->odt_structure_or_data);
-        $this->assertSame($expected, $exportArray['odt_structure_or_data']);
+        self::assertSame($expected, $export->odt_structure_or_data);
+        self::assertSame($expected, $exportArray['odt_structure_or_data']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -332,8 +332,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['odt_columns' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->odt_columns);
-        $this->assertSame($expected, $exportArray['odt_columns']);
+        self::assertSame($expected, $export->odt_columns);
+        self::assertSame($expected, $exportArray['odt_columns']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -341,8 +341,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['odt_relation' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->odt_relation);
-        $this->assertSame($expected, $exportArray['odt_relation']);
+        self::assertSame($expected, $export->odt_relation);
+        self::assertSame($expected, $exportArray['odt_relation']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -350,8 +350,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['odt_comments' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->odt_comments);
-        $this->assertSame($expected, $exportArray['odt_comments']);
+        self::assertSame($expected, $export->odt_comments);
+        self::assertSame($expected, $exportArray['odt_comments']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -359,8 +359,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['odt_mime' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->odt_mime);
-        $this->assertSame($expected, $exportArray['odt_mime']);
+        self::assertSame($expected, $export->odt_mime);
+        self::assertSame($expected, $exportArray['odt_mime']);
     }
 
     #[DataProvider('valuesForOdtNullProvider')]
@@ -368,8 +368,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['odt_null' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->odt_null);
-        $this->assertSame($expected, $exportArray['odt_null']);
+        self::assertSame($expected, $export->odt_null);
+        self::assertSame($expected, $exportArray['odt_null']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -386,8 +386,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['htmlword_structure_or_data' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->htmlword_structure_or_data);
-        $this->assertSame($expected, $exportArray['htmlword_structure_or_data']);
+        self::assertSame($expected, $export->htmlword_structure_or_data);
+        self::assertSame($expected, $exportArray['htmlword_structure_or_data']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -395,8 +395,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['htmlword_columns' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->htmlword_columns);
-        $this->assertSame($expected, $exportArray['htmlword_columns']);
+        self::assertSame($expected, $export->htmlword_columns);
+        self::assertSame($expected, $exportArray['htmlword_columns']);
     }
 
     #[DataProvider('valuesForHtmlwordNullProvider')]
@@ -404,8 +404,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['htmlword_null' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->htmlword_null);
-        $this->assertSame($expected, $exportArray['htmlword_null']);
+        self::assertSame($expected, $export->htmlword_null);
+        self::assertSame($expected, $exportArray['htmlword_null']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -422,8 +422,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['texytext_structure_or_data' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->texytext_structure_or_data);
-        $this->assertSame($expected, $exportArray['texytext_structure_or_data']);
+        self::assertSame($expected, $export->texytext_structure_or_data);
+        self::assertSame($expected, $exportArray['texytext_structure_or_data']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -431,8 +431,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['texytext_columns' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->texytext_columns);
-        $this->assertSame($expected, $exportArray['texytext_columns']);
+        self::assertSame($expected, $export->texytext_columns);
+        self::assertSame($expected, $exportArray['texytext_columns']);
     }
 
     #[DataProvider('valuesForTexytextNullProvider')]
@@ -440,8 +440,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['texytext_null' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->texytext_null);
-        $this->assertSame($expected, $exportArray['texytext_null']);
+        self::assertSame($expected, $export->texytext_null);
+        self::assertSame($expected, $exportArray['texytext_null']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -458,8 +458,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['csv_columns' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->csv_columns);
-        $this->assertSame($expected, $exportArray['csv_columns']);
+        self::assertSame($expected, $export->csv_columns);
+        self::assertSame($expected, $exportArray['csv_columns']);
     }
 
     #[DataProvider('structureOrDataWithDefaultDataProvider')]
@@ -467,8 +467,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['csv_structure_or_data' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->csv_structure_or_data);
-        $this->assertSame($expected, $exportArray['csv_structure_or_data']);
+        self::assertSame($expected, $export->csv_structure_or_data);
+        self::assertSame($expected, $exportArray['csv_structure_or_data']);
     }
 
     #[DataProvider('valuesForCsvNullProvider')]
@@ -476,8 +476,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['csv_null' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->csv_null);
-        $this->assertSame($expected, $exportArray['csv_null']);
+        self::assertSame($expected, $export->csv_null);
+        self::assertSame($expected, $exportArray['csv_null']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -494,8 +494,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['csv_separator' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->csv_separator);
-        $this->assertSame($expected, $exportArray['csv_separator']);
+        self::assertSame($expected, $export->csv_separator);
+        self::assertSame($expected, $exportArray['csv_separator']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -512,8 +512,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['csv_enclosed' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->csv_enclosed);
-        $this->assertSame($expected, $exportArray['csv_enclosed']);
+        self::assertSame($expected, $export->csv_enclosed);
+        self::assertSame($expected, $exportArray['csv_enclosed']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -530,8 +530,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['csv_escaped' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->csv_escaped);
-        $this->assertSame($expected, $exportArray['csv_escaped']);
+        self::assertSame($expected, $export->csv_escaped);
+        self::assertSame($expected, $exportArray['csv_escaped']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -548,8 +548,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['csv_terminated' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->csv_terminated);
-        $this->assertSame($expected, $exportArray['csv_terminated']);
+        self::assertSame($expected, $export->csv_terminated);
+        self::assertSame($expected, $exportArray['csv_terminated']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -566,8 +566,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['csv_removeCRLF' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->csv_removeCRLF);
-        $this->assertSame($expected, $exportArray['csv_removeCRLF']);
+        self::assertSame($expected, $export->csv_removeCRLF);
+        self::assertSame($expected, $exportArray['csv_removeCRLF']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -575,8 +575,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['excel_columns' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->excel_columns);
-        $this->assertSame($expected, $exportArray['excel_columns']);
+        self::assertSame($expected, $export->excel_columns);
+        self::assertSame($expected, $exportArray['excel_columns']);
     }
 
     #[DataProvider('valuesForExcelNullProvider')]
@@ -584,8 +584,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['excel_null' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->excel_null);
-        $this->assertSame($expected, $exportArray['excel_null']);
+        self::assertSame($expected, $export->excel_null);
+        self::assertSame($expected, $exportArray['excel_null']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -602,8 +602,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['excel_edition' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->excel_edition);
-        $this->assertSame($expected, $exportArray['excel_edition']);
+        self::assertSame($expected, $export->excel_edition);
+        self::assertSame($expected, $exportArray['excel_edition']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -621,8 +621,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['excel_removeCRLF' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->excel_removeCRLF);
-        $this->assertSame($expected, $exportArray['excel_removeCRLF']);
+        self::assertSame($expected, $export->excel_removeCRLF);
+        self::assertSame($expected, $exportArray['excel_removeCRLF']);
     }
 
     #[DataProvider('structureOrDataWithDefaultDataProvider')]
@@ -630,8 +630,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['excel_structure_or_data' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->excel_structure_or_data);
-        $this->assertSame($expected, $exportArray['excel_structure_or_data']);
+        self::assertSame($expected, $export->excel_structure_or_data);
+        self::assertSame($expected, $exportArray['excel_structure_or_data']);
     }
 
     #[DataProvider('structureOrDataWithDefaultStructureOrDataProvider')]
@@ -639,8 +639,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['latex_structure_or_data' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->latex_structure_or_data);
-        $this->assertSame($expected, $exportArray['latex_structure_or_data']);
+        self::assertSame($expected, $export->latex_structure_or_data);
+        self::assertSame($expected, $exportArray['latex_structure_or_data']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -648,8 +648,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['latex_columns' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->latex_columns);
-        $this->assertSame($expected, $exportArray['latex_columns']);
+        self::assertSame($expected, $export->latex_columns);
+        self::assertSame($expected, $exportArray['latex_columns']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -657,8 +657,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['latex_relation' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->latex_relation);
-        $this->assertSame($expected, $exportArray['latex_relation']);
+        self::assertSame($expected, $export->latex_relation);
+        self::assertSame($expected, $exportArray['latex_relation']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -666,8 +666,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['latex_comments' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->latex_comments);
-        $this->assertSame($expected, $exportArray['latex_comments']);
+        self::assertSame($expected, $export->latex_comments);
+        self::assertSame($expected, $exportArray['latex_comments']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -675,8 +675,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['latex_mime' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->latex_mime);
-        $this->assertSame($expected, $exportArray['latex_mime']);
+        self::assertSame($expected, $export->latex_mime);
+        self::assertSame($expected, $exportArray['latex_mime']);
     }
 
     #[DataProvider('valuesForLatexNullProvider')]
@@ -684,8 +684,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['latex_null' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->latex_null);
-        $this->assertSame($expected, $exportArray['latex_null']);
+        self::assertSame($expected, $export->latex_null);
+        self::assertSame($expected, $exportArray['latex_null']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -702,8 +702,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['latex_caption' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->latex_caption);
-        $this->assertSame($expected, $exportArray['latex_caption']);
+        self::assertSame($expected, $export->latex_caption);
+        self::assertSame($expected, $exportArray['latex_caption']);
     }
 
     #[DataProvider('valuesForLatexStructureCaptionProvider')]
@@ -711,8 +711,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['latex_structure_caption' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->latex_structure_caption);
-        $this->assertSame($expected, $exportArray['latex_structure_caption']);
+        self::assertSame($expected, $export->latex_structure_caption);
+        self::assertSame($expected, $exportArray['latex_structure_caption']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -729,8 +729,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['latex_structure_continued_caption' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->latex_structure_continued_caption);
-        $this->assertSame($expected, $exportArray['latex_structure_continued_caption']);
+        self::assertSame($expected, $export->latex_structure_continued_caption);
+        self::assertSame($expected, $exportArray['latex_structure_continued_caption']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -747,8 +747,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['latex_data_caption' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->latex_data_caption);
-        $this->assertSame($expected, $exportArray['latex_data_caption']);
+        self::assertSame($expected, $export->latex_data_caption);
+        self::assertSame($expected, $exportArray['latex_data_caption']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -765,8 +765,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['latex_data_continued_caption' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->latex_data_continued_caption);
-        $this->assertSame($expected, $exportArray['latex_data_continued_caption']);
+        self::assertSame($expected, $export->latex_data_continued_caption);
+        self::assertSame($expected, $exportArray['latex_data_continued_caption']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -783,8 +783,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['latex_data_label' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->latex_data_label);
-        $this->assertSame($expected, $exportArray['latex_data_label']);
+        self::assertSame($expected, $export->latex_data_label);
+        self::assertSame($expected, $exportArray['latex_data_label']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -801,8 +801,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['latex_structure_label' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->latex_structure_label);
-        $this->assertSame($expected, $exportArray['latex_structure_label']);
+        self::assertSame($expected, $export->latex_structure_label);
+        self::assertSame($expected, $exportArray['latex_structure_label']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -819,8 +819,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['mediawiki_structure_or_data' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->mediawiki_structure_or_data);
-        $this->assertSame($expected, $exportArray['mediawiki_structure_or_data']);
+        self::assertSame($expected, $export->mediawiki_structure_or_data);
+        self::assertSame($expected, $exportArray['mediawiki_structure_or_data']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -828,8 +828,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['mediawiki_caption' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->mediawiki_caption);
-        $this->assertSame($expected, $exportArray['mediawiki_caption']);
+        self::assertSame($expected, $export->mediawiki_caption);
+        self::assertSame($expected, $exportArray['mediawiki_caption']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -837,8 +837,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['mediawiki_headers' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->mediawiki_headers);
-        $this->assertSame($expected, $exportArray['mediawiki_headers']);
+        self::assertSame($expected, $export->mediawiki_headers);
+        self::assertSame($expected, $exportArray['mediawiki_headers']);
     }
 
     #[DataProvider('structureOrDataWithDefaultDataProvider')]
@@ -846,8 +846,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['ods_structure_or_data' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->ods_structure_or_data);
-        $this->assertSame($expected, $exportArray['ods_structure_or_data']);
+        self::assertSame($expected, $export->ods_structure_or_data);
+        self::assertSame($expected, $exportArray['ods_structure_or_data']);
     }
 
     #[DataProvider('structureOrDataWithDefaultDataProvider')]
@@ -855,8 +855,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['pdf_structure_or_data' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->pdf_structure_or_data);
-        $this->assertSame($expected, $exportArray['pdf_structure_or_data']);
+        self::assertSame($expected, $export->pdf_structure_or_data);
+        self::assertSame($expected, $exportArray['pdf_structure_or_data']);
     }
 
     #[DataProvider('structureOrDataWithDefaultDataProvider')]
@@ -864,8 +864,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['phparray_structure_or_data' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->phparray_structure_or_data);
-        $this->assertSame($expected, $exportArray['phparray_structure_or_data']);
+        self::assertSame($expected, $export->phparray_structure_or_data);
+        self::assertSame($expected, $exportArray['phparray_structure_or_data']);
     }
 
     #[DataProvider('structureOrDataWithDefaultDataProvider')]
@@ -873,8 +873,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['json_structure_or_data' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->json_structure_or_data);
-        $this->assertSame($expected, $exportArray['json_structure_or_data']);
+        self::assertSame($expected, $export->json_structure_or_data);
+        self::assertSame($expected, $exportArray['json_structure_or_data']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -882,8 +882,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['json_pretty_print' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->json_pretty_print);
-        $this->assertSame($expected, $exportArray['json_pretty_print']);
+        self::assertSame($expected, $export->json_pretty_print);
+        self::assertSame($expected, $exportArray['json_pretty_print']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -891,8 +891,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['json_unicode' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->json_unicode);
-        $this->assertSame($expected, $exportArray['json_unicode']);
+        self::assertSame($expected, $export->json_unicode);
+        self::assertSame($expected, $exportArray['json_unicode']);
     }
 
     #[DataProvider('structureOrDataWithDefaultStructureOrDataProvider')]
@@ -900,8 +900,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_structure_or_data' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_structure_or_data);
-        $this->assertSame($expected, $exportArray['sql_structure_or_data']);
+        self::assertSame($expected, $export->sql_structure_or_data);
+        self::assertSame($expected, $exportArray['sql_structure_or_data']);
     }
 
     #[DataProvider('valuesForSqlCompatibilityProvider')]
@@ -909,8 +909,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_compatibility' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_compatibility);
-        $this->assertSame($expected, $exportArray['sql_compatibility']);
+        self::assertSame($expected, $export->sql_compatibility);
+        self::assertSame($expected, $exportArray['sql_compatibility']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -935,8 +935,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_include_comments' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_include_comments);
-        $this->assertSame($expected, $exportArray['sql_include_comments']);
+        self::assertSame($expected, $export->sql_include_comments);
+        self::assertSame($expected, $exportArray['sql_include_comments']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -944,8 +944,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_disable_fk' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_disable_fk);
-        $this->assertSame($expected, $exportArray['sql_disable_fk']);
+        self::assertSame($expected, $export->sql_disable_fk);
+        self::assertSame($expected, $exportArray['sql_disable_fk']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -953,8 +953,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_views_as_tables' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_views_as_tables);
-        $this->assertSame($expected, $exportArray['sql_views_as_tables']);
+        self::assertSame($expected, $export->sql_views_as_tables);
+        self::assertSame($expected, $exportArray['sql_views_as_tables']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -962,8 +962,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_metadata' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_metadata);
-        $this->assertSame($expected, $exportArray['sql_metadata']);
+        self::assertSame($expected, $export->sql_metadata);
+        self::assertSame($expected, $exportArray['sql_metadata']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -971,8 +971,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_use_transaction' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_use_transaction);
-        $this->assertSame($expected, $exportArray['sql_use_transaction']);
+        self::assertSame($expected, $export->sql_use_transaction);
+        self::assertSame($expected, $exportArray['sql_use_transaction']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -980,8 +980,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_create_database' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_create_database);
-        $this->assertSame($expected, $exportArray['sql_create_database']);
+        self::assertSame($expected, $export->sql_create_database);
+        self::assertSame($expected, $exportArray['sql_create_database']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -989,8 +989,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_drop_database' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_drop_database);
-        $this->assertSame($expected, $exportArray['sql_drop_database']);
+        self::assertSame($expected, $export->sql_drop_database);
+        self::assertSame($expected, $exportArray['sql_drop_database']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -998,8 +998,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_drop_table' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_drop_table);
-        $this->assertSame($expected, $exportArray['sql_drop_table']);
+        self::assertSame($expected, $export->sql_drop_table);
+        self::assertSame($expected, $exportArray['sql_drop_table']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -1007,8 +1007,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_if_not_exists' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_if_not_exists);
-        $this->assertSame($expected, $exportArray['sql_if_not_exists']);
+        self::assertSame($expected, $export->sql_if_not_exists);
+        self::assertSame($expected, $exportArray['sql_if_not_exists']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -1016,8 +1016,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_view_current_user' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_view_current_user);
-        $this->assertSame($expected, $exportArray['sql_view_current_user']);
+        self::assertSame($expected, $export->sql_view_current_user);
+        self::assertSame($expected, $exportArray['sql_view_current_user']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -1025,8 +1025,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_or_replace_view' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_or_replace_view);
-        $this->assertSame($expected, $exportArray['sql_or_replace_view']);
+        self::assertSame($expected, $export->sql_or_replace_view);
+        self::assertSame($expected, $exportArray['sql_or_replace_view']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -1034,8 +1034,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_procedure_function' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_procedure_function);
-        $this->assertSame($expected, $exportArray['sql_procedure_function']);
+        self::assertSame($expected, $export->sql_procedure_function);
+        self::assertSame($expected, $exportArray['sql_procedure_function']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -1043,8 +1043,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_create_table' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_create_table);
-        $this->assertSame($expected, $exportArray['sql_create_table']);
+        self::assertSame($expected, $export->sql_create_table);
+        self::assertSame($expected, $exportArray['sql_create_table']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -1052,8 +1052,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_create_view' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_create_view);
-        $this->assertSame($expected, $exportArray['sql_create_view']);
+        self::assertSame($expected, $export->sql_create_view);
+        self::assertSame($expected, $exportArray['sql_create_view']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -1061,8 +1061,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_create_trigger' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_create_trigger);
-        $this->assertSame($expected, $exportArray['sql_create_trigger']);
+        self::assertSame($expected, $export->sql_create_trigger);
+        self::assertSame($expected, $exportArray['sql_create_trigger']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -1070,8 +1070,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_auto_increment' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_auto_increment);
-        $this->assertSame($expected, $exportArray['sql_auto_increment']);
+        self::assertSame($expected, $export->sql_auto_increment);
+        self::assertSame($expected, $exportArray['sql_auto_increment']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -1079,8 +1079,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_backquotes' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_backquotes);
-        $this->assertSame($expected, $exportArray['sql_backquotes']);
+        self::assertSame($expected, $export->sql_backquotes);
+        self::assertSame($expected, $exportArray['sql_backquotes']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -1088,8 +1088,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_dates' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_dates);
-        $this->assertSame($expected, $exportArray['sql_dates']);
+        self::assertSame($expected, $export->sql_dates);
+        self::assertSame($expected, $exportArray['sql_dates']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -1097,8 +1097,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_relation' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_relation);
-        $this->assertSame($expected, $exportArray['sql_relation']);
+        self::assertSame($expected, $export->sql_relation);
+        self::assertSame($expected, $exportArray['sql_relation']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -1106,8 +1106,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_truncate' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_truncate);
-        $this->assertSame($expected, $exportArray['sql_truncate']);
+        self::assertSame($expected, $export->sql_truncate);
+        self::assertSame($expected, $exportArray['sql_truncate']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -1115,8 +1115,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_delayed' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_delayed);
-        $this->assertSame($expected, $exportArray['sql_delayed']);
+        self::assertSame($expected, $export->sql_delayed);
+        self::assertSame($expected, $exportArray['sql_delayed']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -1124,8 +1124,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_ignore' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_ignore);
-        $this->assertSame($expected, $exportArray['sql_ignore']);
+        self::assertSame($expected, $export->sql_ignore);
+        self::assertSame($expected, $exportArray['sql_ignore']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -1133,8 +1133,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_utc_time' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_utc_time);
-        $this->assertSame($expected, $exportArray['sql_utc_time']);
+        self::assertSame($expected, $export->sql_utc_time);
+        self::assertSame($expected, $exportArray['sql_utc_time']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -1142,8 +1142,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_hex_for_binary' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_hex_for_binary);
-        $this->assertSame($expected, $exportArray['sql_hex_for_binary']);
+        self::assertSame($expected, $export->sql_hex_for_binary);
+        self::assertSame($expected, $exportArray['sql_hex_for_binary']);
     }
 
     #[DataProvider('valuesForSqlTypeProvider')]
@@ -1151,8 +1151,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_type' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_type);
-        $this->assertSame($expected, $exportArray['sql_type']);
+        self::assertSame($expected, $export->sql_type);
+        self::assertSame($expected, $exportArray['sql_type']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -1170,8 +1170,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_max_query_size' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_max_query_size);
-        $this->assertSame($expected, $exportArray['sql_max_query_size']);
+        self::assertSame($expected, $export->sql_max_query_size);
+        self::assertSame($expected, $exportArray['sql_max_query_size']);
     }
 
     /** @return iterable<string, array{mixed, int}> */
@@ -1188,8 +1188,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_mime' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_mime);
-        $this->assertSame($expected, $exportArray['sql_mime']);
+        self::assertSame($expected, $export->sql_mime);
+        self::assertSame($expected, $exportArray['sql_mime']);
     }
 
     #[DataProvider('valuesForSqlHeaderCommentProvider')]
@@ -1197,8 +1197,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_header_comment' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_header_comment);
-        $this->assertSame($expected, $exportArray['sql_header_comment']);
+        self::assertSame($expected, $export->sql_header_comment);
+        self::assertSame($expected, $exportArray['sql_header_comment']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -1215,8 +1215,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['sql_insert_syntax' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->sql_insert_syntax);
-        $this->assertSame($expected, $exportArray['sql_insert_syntax']);
+        self::assertSame($expected, $export->sql_insert_syntax);
+        self::assertSame($expected, $exportArray['sql_insert_syntax']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -1236,8 +1236,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['pdf_report_title' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->pdf_report_title);
-        $this->assertSame($expected, $exportArray['pdf_report_title']);
+        self::assertSame($expected, $export->pdf_report_title);
+        self::assertSame($expected, $exportArray['pdf_report_title']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -1254,8 +1254,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['xml_structure_or_data' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->xml_structure_or_data);
-        $this->assertSame($expected, $exportArray['xml_structure_or_data']);
+        self::assertSame($expected, $export->xml_structure_or_data);
+        self::assertSame($expected, $exportArray['xml_structure_or_data']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -1263,8 +1263,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['xml_export_struc' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->xml_export_struc);
-        $this->assertSame($expected, $exportArray['xml_export_struc']);
+        self::assertSame($expected, $export->xml_export_struc);
+        self::assertSame($expected, $exportArray['xml_export_struc']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -1272,8 +1272,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['xml_export_events' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->xml_export_events);
-        $this->assertSame($expected, $exportArray['xml_export_events']);
+        self::assertSame($expected, $export->xml_export_events);
+        self::assertSame($expected, $exportArray['xml_export_events']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -1281,8 +1281,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['xml_export_functions' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->xml_export_functions);
-        $this->assertSame($expected, $exportArray['xml_export_functions']);
+        self::assertSame($expected, $export->xml_export_functions);
+        self::assertSame($expected, $exportArray['xml_export_functions']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -1290,8 +1290,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['xml_export_procedures' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->xml_export_procedures);
-        $this->assertSame($expected, $exportArray['xml_export_procedures']);
+        self::assertSame($expected, $export->xml_export_procedures);
+        self::assertSame($expected, $exportArray['xml_export_procedures']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -1299,8 +1299,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['xml_export_tables' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->xml_export_tables);
-        $this->assertSame($expected, $exportArray['xml_export_tables']);
+        self::assertSame($expected, $export->xml_export_tables);
+        self::assertSame($expected, $exportArray['xml_export_tables']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -1308,8 +1308,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['xml_export_triggers' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->xml_export_triggers);
-        $this->assertSame($expected, $exportArray['xml_export_triggers']);
+        self::assertSame($expected, $export->xml_export_triggers);
+        self::assertSame($expected, $exportArray['xml_export_triggers']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -1317,8 +1317,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['xml_export_views' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->xml_export_views);
-        $this->assertSame($expected, $exportArray['xml_export_views']);
+        self::assertSame($expected, $export->xml_export_views);
+        self::assertSame($expected, $exportArray['xml_export_views']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -1326,8 +1326,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['xml_export_contents' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->xml_export_contents);
-        $this->assertSame($expected, $exportArray['xml_export_contents']);
+        self::assertSame($expected, $export->xml_export_contents);
+        self::assertSame($expected, $exportArray['xml_export_contents']);
     }
 
     #[DataProvider('structureOrDataWithDefaultDataProvider')]
@@ -1335,8 +1335,8 @@ class ExportTest extends TestCase
     {
         $export = new Export(['yaml_structure_or_data' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->yaml_structure_or_data);
-        $this->assertSame($expected, $exportArray['yaml_structure_or_data']);
+        self::assertSame($expected, $export->yaml_structure_or_data);
+        self::assertSame($expected, $exportArray['yaml_structure_or_data']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -1344,7 +1344,7 @@ class ExportTest extends TestCase
     {
         $export = new Export(['remove_definer_from_definitions' => $actual]);
         $exportArray = $export->asArray();
-        $this->assertSame($expected, $export->remove_definer_from_definitions);
-        $this->assertSame($expected, $exportArray['remove_definer_from_definitions']);
+        self::assertSame($expected, $export->remove_definer_from_definitions);
+        self::assertSame($expected, $exportArray['remove_definer_from_definitions']);
     }
 }

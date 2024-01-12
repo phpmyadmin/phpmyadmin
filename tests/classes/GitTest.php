@@ -70,11 +70,11 @@ class GitTest extends AbstractTestCase
 
         $gitLocation = '';
 
-        $this->assertTrue($this->object->isGitRevision($gitLocation));
+        self::assertTrue($this->object->isGitRevision($gitLocation));
 
-        $this->assertFalse($this->object->hasGitInformation());
+        self::assertFalse($this->object->hasGitInformation());
 
-        $this->assertEquals('.cachedgitlocation', $gitLocation);
+        self::assertEquals('.cachedgitlocation', $gitLocation);
     }
 
     /**
@@ -83,7 +83,7 @@ class GitTest extends AbstractTestCase
     public function testIsGitRevisionSkipped(): void
     {
         $this->object = new Git(false);
-        $this->assertFalse(
+        self::assertFalse(
             $this->object->isGitRevision($gitLocation),
         );
     }
@@ -94,31 +94,31 @@ class GitTest extends AbstractTestCase
     #[Group('git-revision')]
     public function testIsGitRevisionLocalGitDir(): void
     {
-        $this->assertFalse(
+        self::assertFalse(
             $this->object->isGitRevision(),
         );
 
-        $this->assertFalse($this->object->hasGitInformation());
+        self::assertFalse($this->object->hasGitInformation());
 
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
 
         mkdir($this->testDir . '.git');
 
-        $this->assertFalse(
+        self::assertFalse(
             $this->object->isGitRevision(),
         );
 
-        $this->assertFalse($this->object->hasGitInformation());
+        self::assertFalse($this->object->hasGitInformation());
 
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
 
         file_put_contents($this->testDir . '.git/config', '');
 
-        $this->assertTrue($this->object->isGitRevision());
+        self::assertTrue($this->object->isGitRevision());
 
-        $this->assertFalse($this->object->hasGitInformation());
+        self::assertFalse($this->object->hasGitInformation());
 
         unlink($this->testDir . '.git/config');
         rmdir($this->testDir . '.git');
@@ -131,31 +131,31 @@ class GitTest extends AbstractTestCase
     public function testIsGitRevisionExternalGitDir(): void
     {
         file_put_contents($this->testDir . '.git', 'gitdir: ' . $this->testDir . '.customgitdir');
-        $this->assertFalse(
+        self::assertFalse(
             $this->object->isGitRevision(),
         );
 
-        $this->assertFalse($this->object->hasGitInformation());
+        self::assertFalse($this->object->hasGitInformation());
 
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
 
         mkdir($this->testDir . '.customgitdir');
 
-        $this->assertTrue($this->object->isGitRevision());
+        self::assertTrue($this->object->isGitRevision());
 
-        $this->assertFalse($this->object->hasGitInformation());
+        self::assertFalse($this->object->hasGitInformation());
 
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
 
         file_put_contents($this->testDir . '.git', 'random data here');
 
-        $this->assertFalse(
+        self::assertFalse(
             $this->object->isGitRevision(),
         );
 
-        $this->assertFalse($this->object->hasGitInformation());
+        self::assertFalse($this->object->hasGitInformation());
 
         unlink($this->testDir . '.git');
         rmdir($this->testDir . '.customgitdir');
@@ -172,14 +172,14 @@ class GitTest extends AbstractTestCase
 
         $commit = $this->object->checkGitRevision();
 
-        $this->assertNull($commit);
-        $this->assertFalse($this->object->hasGitInformation());
+        self::assertNull($commit);
+        self::assertFalse($this->object->hasGitInformation());
 
         file_put_contents($this->testDir . '.git/HEAD', 'ref: refs/remotes/origin/master');
 
         $commit = $this->object->checkGitRevision();
 
-        $this->assertNull($commit);
+        self::assertNull($commit);
 
         file_put_contents(
             $this->testDir . '.git/packed-refs',
@@ -203,24 +203,24 @@ class GitTest extends AbstractTestCase
             $commit === null
             && ! isset($_SESSION['PMA_VERSION_REMOTECOMMIT_8d660283c5c88a04bac7a2b3aa9ad9eaff0fd05e'])
         ) {
-            $this->markTestSkipped('Unable to get remote commit information.');
+            self::markTestSkipped('Unable to get remote commit information.');
         }
 
-        $this->assertIsArray($commit);
-        $this->assertSame('8d660283c5c88a04bac7a2b3aa9ad9eaff0fd05e', $commit['hash']);
-        $this->assertSame('master', $commit['branch']);
-        $this->assertSame(
+        self::assertIsArray($commit);
+        self::assertSame('8d660283c5c88a04bac7a2b3aa9ad9eaff0fd05e', $commit['hash']);
+        self::assertSame('master', $commit['branch']);
+        self::assertSame(
             'Update po files' . "\n\n" . '[ci skip]' . "\n\n" . 'Signed-off-by: phpMyAdmin bot <bot@phpmyadmin.net>',
             $commit['message'],
         );
-        $this->assertTrue($commit['is_remote_commit']);
-        $this->assertTrue($commit['is_remote_branch']);
-        $this->assertSame('phpMyAdmin bot', $commit['author']['name']);
-        $this->assertSame('bot@phpmyadmin.net', $commit['author']['email']);
-        $this->assertSame('2023-05-14T00:19:49Z', $commit['author']['date']);
-        $this->assertSame('phpMyAdmin bot', $commit['committer']['name']);
-        $this->assertSame('bot@phpmyadmin.net', $commit['committer']['email']);
-        $this->assertSame('2023-05-14T00:19:49Z', $commit['committer']['date']);
+        self::assertTrue($commit['is_remote_commit']);
+        self::assertTrue($commit['is_remote_branch']);
+        self::assertSame('phpMyAdmin bot', $commit['author']['name']);
+        self::assertSame('bot@phpmyadmin.net', $commit['author']['email']);
+        self::assertSame('2023-05-14T00:19:49Z', $commit['author']['date']);
+        self::assertSame('phpMyAdmin bot', $commit['committer']['name']);
+        self::assertSame('bot@phpmyadmin.net', $commit['committer']['email']);
+        self::assertSame('2023-05-14T00:19:49Z', $commit['committer']['date']);
     }
 
     /**
@@ -234,8 +234,8 @@ class GitTest extends AbstractTestCase
 
         $commit = $this->object->checkGitRevision();
 
-        $this->assertNull($commit);
-        $this->assertFalse($this->object->hasGitInformation());
+        self::assertNull($commit);
+        self::assertFalse($this->object->hasGitInformation());
 
         file_put_contents($this->testDir . '.git/HEAD', 'ref: refs/remotes/origin/master');
         mkdir($this->testDir . '.git/refs/remotes/origin', 0777, true);
@@ -246,8 +246,8 @@ class GitTest extends AbstractTestCase
         mkdir($this->testDir . '.git/objects/pack', 0777, true);//default = 0777, recursive mode
         $commit = $this->object->checkGitRevision();
 
-        $this->assertNull($commit);
-        $this->assertFalse($this->object->hasGitInformation());
+        self::assertNull($commit);
+        self::assertFalse($this->object->hasGitInformation());
 
         unlink($this->testDir . '.git/refs/remotes/origin/master');
         rmdir($this->testDir . '.git/refs/remotes/origin');
@@ -271,14 +271,14 @@ class GitTest extends AbstractTestCase
 
         $commit = $this->object->checkGitRevision();
 
-        $this->assertNull($commit);
-        $this->assertFalse($this->object->hasGitInformation());
+        self::assertNull($commit);
+        self::assertFalse($this->object->hasGitInformation());
 
         file_put_contents($this->testDir . '.git/HEAD', 'ref: refs/remotes/origin/master');
 
         $commit = $this->object->checkGitRevision();
 
-        $this->assertNull($commit);
+        self::assertNull($commit);
 
         file_put_contents(
             $this->testDir . '.git/packed-refs',
@@ -311,24 +311,24 @@ class GitTest extends AbstractTestCase
             $commit === null
             && ! isset($_SESSION['PMA_VERSION_REMOTECOMMIT_8d660283c5c88a04bac7a2b3aa9ad9eaff0fd05e'])
         ) {
-            $this->markTestSkipped('Unable to get remote commit information.');
+            self::markTestSkipped('Unable to get remote commit information.');
         }
 
-        $this->assertIsArray($commit);
-        $this->assertSame('8d660283c5c88a04bac7a2b3aa9ad9eaff0fd05e', $commit['hash']);
-        $this->assertSame('master', $commit['branch']);
-        $this->assertSame(
+        self::assertIsArray($commit);
+        self::assertSame('8d660283c5c88a04bac7a2b3aa9ad9eaff0fd05e', $commit['hash']);
+        self::assertSame('master', $commit['branch']);
+        self::assertSame(
             'Update po files' . "\n\n" . '[ci skip]' . "\n\n" . 'Signed-off-by: phpMyAdmin bot <bot@phpmyadmin.net>',
             $commit['message'],
         );
-        $this->assertTrue($commit['is_remote_commit']);
-        $this->assertTrue($commit['is_remote_branch']);
-        $this->assertSame('phpMyAdmin bot', $commit['author']['name']);
-        $this->assertSame('bot@phpmyadmin.net', $commit['author']['email']);
-        $this->assertSame('2023-05-14T00:19:49Z', $commit['author']['date']);
-        $this->assertSame('phpMyAdmin bot', $commit['committer']['name']);
-        $this->assertSame('bot@phpmyadmin.net', $commit['committer']['email']);
-        $this->assertSame('2023-05-14T00:19:49Z', $commit['committer']['date']);
+        self::assertTrue($commit['is_remote_commit']);
+        self::assertTrue($commit['is_remote_branch']);
+        self::assertSame('phpMyAdmin bot', $commit['author']['name']);
+        self::assertSame('bot@phpmyadmin.net', $commit['author']['email']);
+        self::assertSame('2023-05-14T00:19:49Z', $commit['author']['date']);
+        self::assertSame('phpMyAdmin bot', $commit['committer']['name']);
+        self::assertSame('bot@phpmyadmin.net', $commit['committer']['email']);
+        self::assertSame('2023-05-14T00:19:49Z', $commit['committer']['date']);
     }
 
     /**
@@ -339,9 +339,9 @@ class GitTest extends AbstractTestCase
         $this->object = new Git(false);
         $commit = $this->object->checkGitRevision();
 
-        $this->assertNull($commit);
+        self::assertNull($commit);
 
-        $this->assertFalse($this->object->hasGitInformation());
+        self::assertFalse($this->object->hasGitInformation());
     }
 
     /**
@@ -352,9 +352,9 @@ class GitTest extends AbstractTestCase
         $_SESSION['git_location'] = 'customdir/.git';
         $_SESSION['is_git_revision'] = true;
         $gitFolder = '';
-        $this->assertTrue($this->object->isGitRevision($gitFolder));
+        self::assertTrue($this->object->isGitRevision($gitFolder));
 
-        $this->assertEquals($gitFolder, 'customdir/.git');
+        self::assertEquals($gitFolder, 'customdir/.git');
     }
 
     /**
@@ -365,10 +365,10 @@ class GitTest extends AbstractTestCase
         $_SESSION['is_git_revision'] = false;
         $_SESSION['git_location'] = null;
         $gitFolder = 'defaultvaluebyref';
-        $this->assertFalse($this->object->isGitRevision($gitFolder));
+        self::assertFalse($this->object->isGitRevision($gitFolder));
 
         // Assert that the value is replaced by cached one
-        $this->assertEquals($gitFolder, null);
+        self::assertEquals($gitFolder, null);
     }
 
     /**
@@ -379,10 +379,10 @@ class GitTest extends AbstractTestCase
         $_SESSION['is_git_revision'] = false;
         $_SESSION['git_location'] = 'randomdir/.git';
         $gitFolder = 'defaultvaluebyref';
-        $this->assertFalse($this->object->isGitRevision($gitFolder));
+        self::assertFalse($this->object->isGitRevision($gitFolder));
 
         // Assert that the value is replaced by cached one
-        $this->assertEquals($gitFolder, 'randomdir/.git');
+        self::assertEquals($gitFolder, 'randomdir/.git');
     }
 
     /**
@@ -425,7 +425,7 @@ class GitTest extends AbstractTestCase
             ],
         );
 
-        $this->assertSame([
+        self::assertSame([
             ['name' => 'William Desportes', 'email' => 'williamdes@wdes.fr', 'date' => '2022-07-13 14:56:40 +0200'],
             ['name' => 'William Desportes', 'email' => 'williamdes@wdes.fr', 'date' => '2022-07-13 14:56:40 +0200'],
             'Remove ignore config.inc.php for psalm because '

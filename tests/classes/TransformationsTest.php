@@ -55,7 +55,7 @@ class TransformationsTest extends AbstractTestCase
     #[DataProvider('getOptionsData')]
     public function testGetOptions(string $input, array $expected): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             $expected,
             $this->transformations->getOptions($input),
         );
@@ -81,7 +81,7 @@ class TransformationsTest extends AbstractTestCase
     #[RunInSeparateProcess]
     public function testGetTypes(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             [
                 'mimetype' => [
                     'Application/Octetstream' => 'Application/Octetstream',
@@ -177,7 +177,7 @@ class TransformationsTest extends AbstractTestCase
             'column_info' => 'column_info',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
-        $this->assertEquals(
+        self::assertEquals(
             [
                 'o' => [
                     'column_name' => 'o',
@@ -209,16 +209,16 @@ class TransformationsTest extends AbstractTestCase
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $dbi->expects($this->any())
+        $dbi->expects(self::any())
             ->method('tryQuery')
-            ->willReturn($this->createStub(DummyResult::class));
+            ->willReturn(self::createStub(DummyResult::class));
         DatabaseInterface::$instance = $dbi;
 
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 
         // Case 1 : no configuration storage
         $actual = $this->transformations->clear('db');
-        $this->assertFalse($actual);
+        self::assertFalse($actual);
 
         $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',
@@ -229,15 +229,15 @@ class TransformationsTest extends AbstractTestCase
 
         // Case 2 : database delete
         $actual = $this->transformations->clear('db');
-        $this->assertTrue($actual);
+        self::assertTrue($actual);
 
         // Case 3 : table delete
         $actual = $this->transformations->clear('db', 'table');
-        $this->assertTrue($actual);
+        self::assertTrue($actual);
 
         // Case 4 : column delete
         $actual = $this->transformations->clear('db', 'table', 'col');
-        $this->assertTrue($actual);
+        self::assertTrue($actual);
     }
 
     /**
@@ -247,7 +247,7 @@ class TransformationsTest extends AbstractTestCase
     #[DataProvider('fixupData')]
     public function testFixup(string $value, string $expected): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             $expected,
             $this->transformations->fixUpMime($value),
         );
@@ -274,7 +274,7 @@ class TransformationsTest extends AbstractTestCase
     #[DataProvider('providerGetDescription')]
     public function testGetDescription(string $file, string $expectedDescription): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             $expectedDescription,
             $this->transformations->getDescription($file),
         );
@@ -299,7 +299,7 @@ class TransformationsTest extends AbstractTestCase
     #[DataProvider('providerGetName')]
     public function testGetName(string $file, string $expectedName): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             $expectedName,
             $this->transformations->getName($file),
         );

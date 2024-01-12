@@ -54,7 +54,7 @@ class UserPreferencesTest extends AbstractTestCase
         $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
         $userPreferences->pageInit(new ConfigFile());
 
-        $this->assertEquals(
+        self::assertEquals(
             ['Servers' => [1 => ['hide_db' => 'testval123']]],
             $_SESSION['ConfigFile' . Current::$server],
         );
@@ -74,21 +74,21 @@ class UserPreferencesTest extends AbstractTestCase
         $userPreferences = new UserPreferences($dbi1, new Relation($dbi1), new Template());
         $result = $userPreferences->load();
 
-        $this->assertCount(3, $result);
+        self::assertCount(3, $result);
 
-        $this->assertEquals(
+        self::assertEquals(
             [],
             $result['config_data'],
         );
 
-        $this->assertEqualsWithDelta(
+        self::assertEqualsWithDelta(
             time(),
             $result['mtime'],
             2,
             '',
         );
 
-        $this->assertEquals('session', $result['type']);
+        self::assertEquals('session', $result['type']);
 
         // case 2
         $relationParameters = RelationParameters::fromArray([
@@ -106,18 +106,18 @@ class UserPreferencesTest extends AbstractTestCase
         $query = 'SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts '
             . 'FROM `pma\'db`.`testconf` WHERE `username` = \'user\'';
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('fetchSingleRow')
             ->with($query, DatabaseInterface::FETCH_ASSOC, ConnectionType::ControlUser)
             ->willReturn(['ts' => '123', 'config_data' => json_encode([1, 2])]);
-        $dbi->expects($this->any())
+        $dbi->expects(self::any())
             ->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
         $result = $userPreferences->load();
 
-        $this->assertEquals(
+        self::assertEquals(
             ['config_data' => [1, 2], 'mtime' => 123, 'type' => 'db'],
             $result,
         );
@@ -138,17 +138,17 @@ class UserPreferencesTest extends AbstractTestCase
         $userPreferences = new UserPreferences($dbi1, new Relation($dbi1), new Template());
         $result = $userPreferences->save([1]);
 
-        $this->assertTrue($result);
+        self::assertTrue($result);
 
-        $this->assertCount(2, $_SESSION['userconfig']);
+        self::assertCount(2, $_SESSION['userconfig']);
 
-        $this->assertEquals(
+        self::assertEquals(
             [1],
             $_SESSION['userconfig']['db'],
         );
 
         /* TODO: This breaks sometimes as there might be time difference! */
-        $this->assertEqualsWithDelta(
+        self::assertEqualsWithDelta(
             time(),
             $_SESSION['userconfig']['ts'],
             2,
@@ -161,7 +161,7 @@ class UserPreferencesTest extends AbstractTestCase
             $assert = false;
         }
 
-        $this->assertTrue($assert);
+        self::assertTrue($assert);
 
         // case 2
         $relationParameters = RelationParameters::fromArray([
@@ -181,24 +181,24 @@ class UserPreferencesTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('fetchValue')
             ->with($query1, 0, ConnectionType::ControlUser)
             ->willReturn('1');
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('tryQuery')
             ->with($query2, ConnectionType::ControlUser)
-            ->willReturn($this->createStub(DummyResult::class));
+            ->willReturn(self::createStub(DummyResult::class));
 
-        $dbi->expects($this->any())
+        $dbi->expects(self::any())
             ->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $userPreferences = new UserPreferences($dbi, new Relation($dbi1), new Template());
         $result = $userPreferences->save([1]);
 
-        $this->assertTrue($result);
+        self::assertTrue($result);
 
         // case 3
 
@@ -211,29 +211,29 @@ class UserPreferencesTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('fetchValue')
             ->with($query1, 0, ConnectionType::ControlUser)
             ->willReturn(false);
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('tryQuery')
             ->with($query2, ConnectionType::ControlUser)
             ->willReturn(false);
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('getError')
             ->with(ConnectionType::ControlUser)
             ->willReturn('err1');
-        $dbi->expects($this->any())
+        $dbi->expects(self::any())
             ->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $userPreferences = new UserPreferences($dbi, new Relation($dbi1), new Template());
         $result = $userPreferences->save([1]);
 
-        $this->assertInstanceOf(Message::class, $result);
-        $this->assertEquals(
+        self::assertInstanceOf(Message::class, $result);
+        self::assertEquals(
             'Could not save configuration<br><br>err1'
             . '<br><br>The phpMyAdmin configuration storage database could not be accessed.',
             $result->getMessage(),
@@ -261,7 +261,7 @@ class UserPreferencesTest extends AbstractTestCase
             ],
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             ['Server' => ['hide_db' => 1]],
             $result,
         );
@@ -280,7 +280,7 @@ class UserPreferencesTest extends AbstractTestCase
             ['DBG/sql' => true],
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             ['DBG' => ['sql' => true]],
             $result,
         );
@@ -302,15 +302,15 @@ class UserPreferencesTest extends AbstractTestCase
 
         $dbi = DatabaseInterface::getInstance();
         $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
-        $this->assertTrue(
+        self::assertTrue(
             $userPreferences->persistOption('Server/hide_db', 'val', 'val'),
         );
 
-        $this->assertTrue(
+        self::assertTrue(
             $userPreferences->persistOption('Server/hide_db', 'val2', 'val'),
         );
 
-        $this->assertTrue(
+        self::assertTrue(
             $userPreferences->persistOption('Server/hide_db2', 'val', 'val'),
         );
     }
@@ -336,8 +336,8 @@ class UserPreferencesTest extends AbstractTestCase
         );
 
         $response = $responseStub->getResponse();
-        $this->assertSame(['/phpmyadmin/file.html?a=b&saved=1&server=2#h+ash'], $response->getHeader('Location'));
-        $this->assertSame(302, $response->getStatusCode());
+        self::assertSame(['/phpmyadmin/file.html?a=b&saved=1&server=2#h+ash'], $response->getHeader('Location'));
+        self::assertSame(302, $response->getStatusCode());
     }
 
     /**
@@ -350,28 +350,28 @@ class UserPreferencesTest extends AbstractTestCase
 
         $dbi = DatabaseInterface::getInstance();
         $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
-        $this->assertEquals(
+        self::assertEquals(
             '',
             $userPreferences->autoloadGetHeader(),
         );
 
-        $this->assertTrue($_SESSION['userprefs_autoload']);
+        self::assertTrue($_SESSION['userprefs_autoload']);
 
         $_REQUEST['prefs_autoload'] = 'nohide';
         Config::getInstance()->settings['ServerDefault'] = 1;
         $result = $userPreferences->autoloadGetHeader();
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<form action="' . Url::getFromRoute('/preferences/manage') . '" method="post" class="disableAjax">',
             $result,
         );
 
-        $this->assertStringContainsString('<input type="hidden" name="token" value="token"', $result);
+        self::assertStringContainsString('<input type="hidden" name="token" value="token"', $result);
 
-        $this->assertStringContainsString('<input type="hidden" name="json" value="">', $result);
+        self::assertStringContainsString('<input type="hidden" name="json" value="">', $result);
 
-        $this->assertStringContainsString('<input type="hidden" name="submit_import" value="1">', $result);
+        self::assertStringContainsString('<input type="hidden" name="submit_import" value="1">', $result);
 
-        $this->assertStringContainsString('<input type="hidden" name="return_url" value="?">', $result);
+        self::assertStringContainsString('<input type="hidden" name="return_url" value="?">', $result);
     }
 }

@@ -23,16 +23,16 @@ class JavaScriptMessagesControllerTest extends TestCase
     {
         $response = (new JavaScriptMessagesController(ResponseFactory::create()))();
         $actual = (string) $response->getBody();
-        $this->assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
+        self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
 
-        $this->assertStringStartsWith('window.Messages = {', $actual);
-        $this->assertStringEndsWith('};', $actual);
+        self::assertStringStartsWith('window.Messages = {', $actual);
+        self::assertStringEndsWith('};', $actual);
 
         $json = substr($actual, strlen('window.Messages = '), -1);
         $array = json_decode($json, true);
 
-        $this->assertIsArray($array);
-        $this->assertArrayHasKey('strDoYouReally', $array);
-        $this->assertEquals('Do you really want to execute "%s"?', $array['strDoYouReally']);
+        self::assertIsArray($array);
+        self::assertArrayHasKey('strDoYouReally', $array);
+        self::assertEquals('Do you really want to execute "%s"?', $array['strDoYouReally']);
     }
 }

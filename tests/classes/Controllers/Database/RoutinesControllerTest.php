@@ -240,7 +240,7 @@ final class RoutinesControllerTest extends AbstractTestCase
 HTML;
         // phpcs:enable
 
-        $this->assertSame($expected, $actual);
+        self::assertSame($expected, $actual);
     }
 
     public function testWithoutRoutines(): void
@@ -333,6 +333,6 @@ HTML;
 HTML;
         // phpcs:enable
 
-        $this->assertSame($expected, $actual);
+        self::assertSame($expected, $actual);
     }
 }

@@ -37,10 +37,10 @@ class FourthStepControllerTest extends AbstractTestCase
             $template,
             new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
         );
-        $controller($this->createStub(ServerRequest::class));
+        $controller(self::createStub(ServerRequest::class));
 
         // phpcs:disable Generic.Files.LineLength.TooLong
-        $this->assertSame([
+        self::assertSame([
             'legendText' => 'Step 1.4 Remove redundant columns',
             'headText' => 'Do you have a group of columns which on combining gives an existing column? For example, if you have first_name, last_name and full_name then combining first_name and last_name gives full_name which is redundant.',
             'subText' => 'Check the columns which are redundant and click on remove. If no redundant column, click on \'No redundant column\'',

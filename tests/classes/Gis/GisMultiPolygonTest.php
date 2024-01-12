@@ -74,7 +74,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
     public function testGenerateWkt(array $gisData, int $index, string $empty, string $output): void
     {
         $object = GisMultiPolygon::singleton();
-        $this->assertEquals($output, $object->generateWkt($gisData, $index, $empty));
+        self::assertEquals($output, $object->generateWkt($gisData, $index, $empty));
     }
 
     /**
@@ -134,7 +134,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
     public function testGenerateParams(string $wkt, array $params): void
     {
         $object = GisMultiPolygon::singleton();
-        $this->assertEquals($params, $object->generateParams($wkt));
+        self::assertEquals($params, $object->generateParams($wkt));
     }
 
     /**
@@ -163,7 +163,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
     public function testGetShape(array $rowData, string $shape): void
     {
         $object = GisMultiPolygon::singleton();
-        $this->assertEquals($shape, $object->getShape($rowData));
+        self::assertEquals($shape, $object->getShape($rowData));
     }
 
     /**
@@ -220,7 +220,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
     public function testGetExtent(string $spatial, Extent $extent): void
     {
         $object = GisMultiPolygon::singleton();
-        $this->assertEquals($extent, $object->getExtent($spatial));
+        self::assertEquals($extent, $object->getExtent($spatial));
     }
 
     /**
@@ -248,7 +248,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
     {
         $object = GisMultiPolygon::singleton();
         $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
-        $this->assertNotNull($image);
+        self::assertNotNull($image);
         $object->prepareRowAsPng(
             'MULTIPOLYGON(((5 5,95 5,95 95,5 95,5 5),(10 10,10 40,40 40,40 10,10 10),(60 60,90 60,90 90,60 90,6'
             . '0 60)),((-5 -5,-95 -5,-95 -95,-5 -95,-5 -5),(-10 -10,-10 -40,-40 -40,-40 -10,-10 -10),(-60 -60,-90'
@@ -258,13 +258,13 @@ class GisMultiPolygonTest extends GisGeomTestCase
             new ScaleData(offsetX: -202, offsetY: -125, scale: 0.50, height: 124),
             $image,
         );
-        $this->assertEquals(200, $image->width());
-        $this->assertEquals(124, $image->height());
+        self::assertEquals(200, $image->width());
+        self::assertEquals(124, $image->height());
 
         $fileExpected = $this->testDir . '/multipolygon-expected.png';
         $fileActual = $this->testDir . '/multipolygon-actual.png';
-        $this->assertTrue($image->png($fileActual));
-        $this->assertFileEquals($fileExpected, $fileActual);
+        self::assertTrue($image->png($fileActual));
+        self::assertFileEquals($fileExpected, $fileActual);
     }
 
     /**
@@ -287,7 +287,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
         $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
 
         $fileExpected = $this->testDir . '/multipolygon-expected.pdf';
-        $this->assertStringEqualsFile($fileExpected, $pdf->Output(dest: 'S'));
+        self::assertStringEqualsFile($fileExpected, $pdf->Output(dest: 'S'));
     }
 
     /**
@@ -330,7 +330,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
     ): void {
         $object = GisMultiPolygon::singleton();
         $svg = $object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
-        $this->assertEquals($output, $svg);
+        self::assertEquals($output, $svg);
     }
 
     /**
@@ -377,7 +377,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
     ): void {
         $object = GisMultiPolygon::singleton();
         $ol = $object->prepareRowAsOl($spatial, $srid, $label, $color);
-        $this->assertEquals($output, $ol);
+        self::assertEquals($output, $ol);
     }
 
     /**

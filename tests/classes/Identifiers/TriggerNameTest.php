@@ -20,17 +20,17 @@ final class TriggerNameTest extends TestCase
     public function testValidName(string $validName): void
     {
         $name = TriggerName::from($validName);
-        $this->assertEquals($validName, $name->getName());
-        $this->assertEquals($validName, (string) $name);
+        self::assertEquals($validName, $name->getName());
+        self::assertEquals($validName, (string) $name);
     }
 
     #[DataProvider('providerForTestValidNames')]
     public function testTryFromValueValidName(string $validName): void
     {
         $name = TriggerName::tryFrom($validName);
-        $this->assertNotNull($name);
-        $this->assertEquals($validName, $name->getName());
-        $this->assertEquals($validName, (string) $name);
+        self::assertNotNull($name);
+        self::assertEquals($validName, $name->getName());
+        self::assertEquals($validName, (string) $name);
     }
 
     /** @return iterable<int, string[]> */
@@ -44,7 +44,7 @@ final class TriggerNameTest extends TestCase
     #[DataProvider('providerForTestInvalidNames')]
     public function testInvalidNames(mixed $name, string $exceptionMessage): void
     {
-        $this->assertNull(TriggerName::tryFrom($name));
+        self::assertNull(TriggerName::tryFrom($name));
         $this->expectException(InvalidTriggerName::class);
         $this->expectExceptionMessage($exceptionMessage);
         TriggerName::from($name);

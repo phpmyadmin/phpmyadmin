@@ -85,10 +85,10 @@ class SaveControllerTest extends AbstractTestCase
         );
         $dbi = $this->createDatabaseInterface($dummyDbi);
 
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
 
-        $mock = $this->createMock(StructureController::class);
-        $mock->expects($this->once())->method('__invoke')->with($request);
+        $mock = self::createMock(StructureController::class);
+        $mock->expects(self::once())->method('__invoke')->with($request);
 
         (new SaveController(
             new ResponseRenderer(),
@@ -99,7 +99,7 @@ class SaveControllerTest extends AbstractTestCase
             $mock,
         ))($request);
 
-        $this->assertArrayNotHasKey('selected', $_POST);
+        self::assertArrayNotHasKey('selected', $_POST);
     }
 
     public function testAdjustColumnPrivileges(): void
@@ -118,10 +118,10 @@ class SaveControllerTest extends AbstractTestCase
             new Relation($dbi),
             new Transformations(),
             $dbi,
-            $this->createStub(StructureController::class),
+            self::createStub(StructureController::class),
         );
 
-        $this->assertFalse(
+        self::assertFalse(
             $method->invokeArgs($ctrl, [[]]),
         );
     }

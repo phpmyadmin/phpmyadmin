@@ -116,7 +116,7 @@ class EventsTest extends TestBase
         $this->byCssSelector('div.ui-dialog-buttonset button:nth-child(1)')->click();
 
         $success = $this->waitForElement('cssSelector', '.alert-success');
-        $this->assertStringContainsString('Event `test_event` has been created', $success->getText());
+        self::assertStringContainsString('Event `test_event` has been created', $success->getText());
         $this->waitForElementNotPresent(
             'xpath',
             '//div[@id=\'alertLabel\' and not(contains(@style,\'display: none;\'))]',
@@ -125,7 +125,7 @@ class EventsTest extends TestBase
         // Refresh the page
         $this->webDriver->navigate()->refresh();
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->isElementPresent(
                 'xpath',
                 "//td[contains(., 'test_event')]",
@@ -136,10 +136,10 @@ class EventsTest extends TestBase
             'USE `' . $this->databaseName . '`;'
             . 'SHOW EVENTS WHERE Db=\'' . $this->databaseName . '\' AND Name=\'test_event\';',
             function (): void {
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
-                $this->assertEquals($this->databaseName, $this->getCellByTableClass('table_results', 1, 1));
-                $this->assertEquals('test_event', $this->getCellByTableClass('table_results', 1, 2));
-                $this->assertEquals('RECURRING', $this->getCellByTableClass('table_results', 1, 5));
+                self::assertTrue($this->isElementPresent('className', 'table_results'));
+                self::assertEquals($this->databaseName, $this->getCellByTableClass('table_results', 1, 1));
+                self::assertEquals('test_event', $this->getCellByTableClass('table_results', 1, 2));
+                self::assertEquals('RECURRING', $this->getCellByTableClass('table_results', 1, 5));
             },
         );
 
@@ -147,9 +147,9 @@ class EventsTest extends TestBase
         $this->dbQuery(
             'SELECT * FROM `' . $this->databaseName . '`.`test_table`',
             function (): void {
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                self::assertTrue($this->isElementPresent('className', 'table_results'));
                 // [ ] | Edit | Copy | Delete | 1 | <number>
-                $this->assertGreaterThan(2, (int) $this->getCellByTableClass('table_results', 1, 6));
+                self::assertGreaterThan(2, (int) $this->getCellByTableClass('table_results', 1, 6));
             },
         );
     }
@@ -176,15 +176,15 @@ class EventsTest extends TestBase
         $this->byCssSelector('div.ui-dialog-buttonset button:nth-child(1)')->click();
 
         $success = $this->waitForElement('cssSelector', '.alert-success');
-        $this->assertStringContainsString('Event `test_event` has been modified', $success->getText());
+        self::assertStringContainsString('Event `test_event` has been modified', $success->getText());
 
         sleep(2);
         $this->dbQuery(
             'SELECT * FROM `' . $this->databaseName . '`.`test_table`',
             function (): void {
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                self::assertTrue($this->isElementPresent('className', 'table_results'));
                 // [ ] | Edit | Copy | Delete | 4
-                $this->assertGreaterThan(3, (int) $this->getCellByTableClass('table_results', 1, 6));
+                self::assertGreaterThan(3, (int) $this->getCellByTableClass('table_results', 1, 6));
             },
         );
     }
@@ -211,8 +211,8 @@ class EventsTest extends TestBase
             'USE `' . $this->databaseName . '`;'
             . 'SHOW EVENTS WHERE Db=\'' . $this->databaseName . '\' AND Name=\'test_event\';',
             function (): void {
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
-                $this->assertFalse($this->isElementPresent('cssSelector', '.table_results tbody tr'));
+                self::assertTrue($this->isElementPresent('className', 'table_results'));
+                self::assertFalse($this->isElementPresent('cssSelector', '.table_results tbody tr'));
             },
         );
     }

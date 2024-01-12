@@ -44,8 +44,8 @@ class CreateDropDatabaseTest extends TestBase
         $this->dbQuery(
             'SHOW DATABASES LIKE \'' . $this->databaseName . '\';',
             function (): void {
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
-                $this->assertEquals($this->databaseName, $this->getCellByTableClass('table_results', 1, 1));
+                self::assertTrue($this->isElementPresent('className', 'table_results'));
+                self::assertEquals($this->databaseName, $this->getCellByTableClass('table_results', 1, 1));
             },
         );
 
@@ -83,8 +83,8 @@ class CreateDropDatabaseTest extends TestBase
         $this->dbQuery(
             'SHOW DATABASES LIKE \'' . $this->databaseName . '\';',
             function (): void {
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
-                $this->assertFalse($this->isElementPresent('cssSelector', '.table_results tbody tr'));
+                self::assertTrue($this->isElementPresent('className', 'table_results'));
+                self::assertFalse($this->isElementPresent('cssSelector', '.table_results tbody tr'));
             },
         );
     }

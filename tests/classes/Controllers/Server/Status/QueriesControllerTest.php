@@ -65,7 +65,7 @@ class QueriesControllerTest extends AbstractTestCase
         $controller = new QueriesController($response, new Template(), $this->data, DatabaseInterface::getInstance());
 
         $this->dummyDbi->addSelectDb('mysql');
-        $controller($this->createStub(ServerRequest::class));
+        $controller(self::createStub(ServerRequest::class));
         $this->dummyDbi->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 
@@ -75,26 +75,26 @@ class QueriesControllerTest extends AbstractTestCase
 
         $questionsFromStart = __('Questions since startup:') . ' ' . Util::formatNumber($totalQueries, 0);
 
-        $this->assertStringContainsString('<h3>', $html);
-        $this->assertStringContainsString($questionsFromStart, $html);
+        self::assertStringContainsString('<h3>', $html);
+        self::assertStringContainsString($questionsFromStart, $html);
 
-        $this->assertStringContainsString('per hour:', $html);
-        $this->assertStringContainsString(Util::formatNumber($totalQueries * $hourFactor, 0), $html);
+        self::assertStringContainsString('per hour:', $html);
+        self::assertStringContainsString(Util::formatNumber($totalQueries * $hourFactor, 0), $html);
 
         $valuePerMinute = Util::formatNumber($totalQueries * 60 / $this->data->status['Uptime'], 0);
-        $this->assertStringContainsString('per minute:', $html);
-        $this->assertStringContainsString(htmlspecialchars($valuePerMinute), $html);
+        self::assertStringContainsString('per minute:', $html);
+        self::assertStringContainsString(htmlspecialchars($valuePerMinute), $html);
 
-        $this->assertStringContainsString('Statements', $html);
+        self::assertStringContainsString('Statements', $html);
 
-        $this->assertStringContainsString('Change Db', $html);
-        $this->assertStringContainsString('54', $html);
-        $this->assertStringContainsString('Select', $html);
-        $this->assertStringContainsString('Set Option', $html);
-        $this->assertStringContainsString('Show Databases', $html);
-        $this->assertStringContainsString('Show Status', $html);
-        $this->assertStringContainsString('Show Tables', $html);
+        self::assertStringContainsString('Change Db', $html);
+        self::assertStringContainsString('54', $html);
+        self::assertStringContainsString('Select', $html);
+        self::assertStringContainsString('Set Option', $html);
+        self::assertStringContainsString('Show Databases', $html);
+        self::assertStringContainsString('Show Status', $html);
+        self::assertStringContainsString('Show Tables', $html);
 
-        $this->assertStringContainsString('<canvas id="query-statistics-chart" data-chart-data="', $html);
+        self::assertStringContainsString('<canvas id="query-statistics-chart" data-chart-data="', $html);
     }
 }

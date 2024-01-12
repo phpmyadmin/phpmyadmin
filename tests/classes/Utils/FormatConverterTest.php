@@ -25,7 +25,7 @@ class FormatConverterTest extends AbstractTestCase
     public function testBinaryToIp(string $expected, string $input, bool $isBinary): void
     {
         $result = FormatConverter::binaryToIp($input, $isBinary);
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     /**
@@ -60,7 +60,7 @@ class FormatConverterTest extends AbstractTestCase
     public function testIpToBinary(string $expected, string $input): void
     {
         $result = FormatConverter::ipToBinary($input);
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     /**
@@ -83,7 +83,7 @@ class FormatConverterTest extends AbstractTestCase
     public function testIpToLong(string $expected, string $input): void
     {
         $result = FormatConverter::ipToLong($input);
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     /**
@@ -106,7 +106,7 @@ class FormatConverterTest extends AbstractTestCase
     public function testLongToIp(string $expected, string $input): void
     {
         $result = FormatConverter::longToIp($input);
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     /**

@@ -161,7 +161,7 @@ class StructureControllerTest extends AbstractTestCase
             'route' => '/table/structure',
         ]);
 
-        $this->assertSame($expected, $response->getHTMLResult());
+        self::assertSame($expected, $response->getHTMLResult());
 
         $this->dummyDbi->assertAllSelectsConsumed();
         $this->dummyDbi->assertAllQueriesConsumed();

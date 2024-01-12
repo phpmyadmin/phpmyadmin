@@ -65,7 +65,7 @@ class LogVarsControllerTest extends AbstractTestCase
             $dbi,
         );
 
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('isAjax')->willReturn(true);
         $request->method('getParsedBodyParam')->willReturnMap([['varName', null, 'varName']]);
 
@@ -74,6 +74,6 @@ class LogVarsControllerTest extends AbstractTestCase
         $this->dummyDbi->assertAllSelectsConsumed();
         $ret = $response->getJSONResult();
 
-        $this->assertEquals($value, $ret['message']);
+        self::assertEquals($value, $ret['message']);
     }
 }

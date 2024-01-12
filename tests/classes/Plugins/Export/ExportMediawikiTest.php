@@ -76,33 +76,33 @@ class ExportMediawikiTest extends AbstractTestCase
         $attrProperties = new ReflectionProperty(ExportMediawiki::class, 'properties');
         $properties = $attrProperties->getValue($this->object);
 
-        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
+        self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        $this->assertEquals(
+        self::assertEquals(
             'MediaWiki Table',
             $properties->getText(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'mediawiki',
             $properties->getExtension(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'text/plain',
             $properties->getMimeType(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Options',
             $properties->getOptionsText(),
         );
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
+        self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        $this->assertEquals(
+        self::assertEquals(
             'Format Specific Options',
             $options->getName(),
         );
@@ -110,14 +110,14 @@ class ExportMediawikiTest extends AbstractTestCase
         $generalOptionsArray = $options->getProperties();
         $generalOptions = $generalOptionsArray->current();
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
+        self::assertEquals(
             'general_opts',
             $generalOptions->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Dump table',
             $generalOptions->getText(),
         );
@@ -127,28 +127,28 @@ class ExportMediawikiTest extends AbstractTestCase
         $property = $generalProperties->current();
         $generalProperties->next();
 
-        $this->assertInstanceOf(OptionsPropertySubgroup::class, $property);
+        self::assertInstanceOf(OptionsPropertySubgroup::class, $property);
 
-        $this->assertEquals(
+        self::assertEquals(
             'dump_table',
             $property->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Dump table',
             $property->getText(),
         );
 
         $sgHeader = $property->getSubgroupHeader();
 
-        $this->assertInstanceOf(RadioPropertyItem::class, $sgHeader);
+        self::assertInstanceOf(RadioPropertyItem::class, $sgHeader);
 
-        $this->assertEquals(
+        self::assertEquals(
             'structure_or_data',
             $sgHeader->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             ['structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')],
             $sgHeader->getValues(),
         );
@@ -156,28 +156,28 @@ class ExportMediawikiTest extends AbstractTestCase
         $property = $generalProperties->current();
         $generalProperties->next();
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        $this->assertEquals(
+        self::assertEquals(
             'caption',
             $property->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Export table names',
             $property->getText(),
         );
 
         $property = $generalProperties->current();
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        $this->assertEquals(
+        self::assertEquals(
             'headers',
             $property->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Export table headers',
             $property->getText(),
         );
@@ -185,35 +185,35 @@ class ExportMediawikiTest extends AbstractTestCase
 
     public function testExportHeader(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportHeader(),
         );
     }
 
     public function testExportFooter(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportFooter(),
         );
     }
 
     public function testExportDBHeader(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBHeader('testDB'),
         );
     }
 
     public function testExportDBFooter(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBFooter('testDB'),
         );
     }
 
     public function testExportDBCreate(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBCreate('testDB', 'database'),
         );
     }
@@ -232,7 +232,7 @@ class ExportMediawikiTest extends AbstractTestCase
             new Column('fields', '', false, 'COMP', 'def', 'ext'),
         ];
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('getColumns')
             ->with('db', 'table')
             ->willReturn($columns);
@@ -242,7 +242,7 @@ class ExportMediawikiTest extends AbstractTestCase
         $GLOBALS['mediawiki_headers'] = true;
 
         ob_start();
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportStructure(
                 'db',
                 'table',
@@ -252,7 +252,7 @@ class ExportMediawikiTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertEquals(
+        self::assertEquals(
             "\n<!--\n" .
             "Table structure for `table`\n" .
             "-->\n" .
@@ -290,7 +290,7 @@ class ExportMediawikiTest extends AbstractTestCase
         $GLOBALS['mediawiki_headers'] = true;
 
         ob_start();
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportData(
                 'test_db',
                 'test_table',
@@ -300,7 +300,7 @@ class ExportMediawikiTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertEquals(
+        self::assertEquals(
             "\n<!--\n" .
             "Table data for `test_table`\n" .
             "-->\n" .

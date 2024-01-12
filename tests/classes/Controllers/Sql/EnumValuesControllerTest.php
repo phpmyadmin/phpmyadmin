@@ -45,7 +45,7 @@ class EnumValuesControllerTest extends AbstractTestCase
         Current::$database = 'cvv';
         Current::$table = 'enums';
 
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['db', null, 'cvv'],
             ['table', null, 'enums'],
@@ -75,9 +75,9 @@ class EnumValuesControllerTest extends AbstractTestCase
         );
         $sqlController($request);
 
-        $this->assertFalse($responseRenderer->hasSuccessState(), 'expected the request to fail');
+        self::assertFalse($responseRenderer->hasSuccessState(), 'expected the request to fail');
 
-        $this->assertSame(['message' => 'Error in processing request'], $responseRenderer->getJSONResult());
+        self::assertSame(['message' => 'Error in processing request'], $responseRenderer->getJSONResult());
     }
 
     public function testGetEnumValuesSuccess(): void
@@ -101,7 +101,7 @@ class EnumValuesControllerTest extends AbstractTestCase
         Current::$database = 'cvv';
         Current::$table = 'enums';
 
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['db', null, 'cvv'],
             ['table', null, 'enums'],
@@ -131,9 +131,9 @@ class EnumValuesControllerTest extends AbstractTestCase
         );
         $sqlController($request);
 
-        $this->assertTrue($responseRenderer->hasSuccessState(), 'expected the request not to fail');
+        self::assertTrue($responseRenderer->hasSuccessState(), 'expected the request not to fail');
 
-        $this->assertSame(
+        self::assertSame(
             [
                 'dropdown' => '<select>' . "\n"
                     . '      <option value="&lt;script&gt;alert(&quot;ok&quot;)&lt;/script&gt;">'

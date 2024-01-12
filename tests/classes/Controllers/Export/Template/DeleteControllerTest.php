@@ -37,7 +37,7 @@ class DeleteControllerTest extends AbstractTestCase
         Config::getInstance()->selectedServer['user'] = 'user';
 
         $response = new ResponseRenderer();
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturn('1');
 
         (new DeleteController(
@@ -47,6 +47,6 @@ class DeleteControllerTest extends AbstractTestCase
             new Relation($this->dbi),
         ))($request);
 
-        $this->assertTrue($response->hasSuccessState());
+        self::assertTrue($response->hasSuccessState());
     }
 }

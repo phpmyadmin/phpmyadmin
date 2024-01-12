@@ -57,11 +57,11 @@ class TrackerTest extends AbstractTestCase
      */
     public function testEnabled(): void
     {
-        $this->assertFalse(Tracker::isEnabled());
+        self::assertFalse(Tracker::isEnabled());
         Tracker::enable();
-        $this->assertTrue(Tracker::isEnabled());
+        self::assertTrue(Tracker::isEnabled());
         Tracker::disable();
-        $this->assertFalse(Tracker::isEnabled());
+        self::assertFalse(Tracker::isEnabled());
     }
 
     /**
@@ -69,9 +69,9 @@ class TrackerTest extends AbstractTestCase
      */
     public function testIsActive(): void
     {
-        $this->assertFalse(Tracker::isEnabled());
+        self::assertFalse(Tracker::isEnabled());
 
-        $this->assertFalse(
+        self::assertFalse(
             Tracker::isActive(),
         );
 
@@ -80,7 +80,7 @@ class TrackerTest extends AbstractTestCase
         $relationParameters = RelationParameters::fromArray([]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $this->assertFalse(
+        self::assertFalse(
             Tracker::isActive(),
         );
 
@@ -91,7 +91,7 @@ class TrackerTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $this->assertTrue(
+        self::assertTrue(
             Tracker::isActive(),
         );
     }
@@ -101,9 +101,9 @@ class TrackerTest extends AbstractTestCase
      */
     public function testIsTracked(): void
     {
-        $this->assertFalse(Tracker::isEnabled());
+        self::assertFalse(Tracker::isEnabled());
 
-        $this->assertFalse(
+        self::assertFalse(
             Tracker::isTracked('', ''),
         );
 
@@ -112,7 +112,7 @@ class TrackerTest extends AbstractTestCase
         $relationParameters = RelationParameters::fromArray([]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $this->assertFalse(
+        self::assertFalse(
             Tracker::isTracked('', ''),
         );
 
@@ -123,11 +123,11 @@ class TrackerTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $this->assertTrue(
+        self::assertTrue(
             Tracker::isTracked('pma_test_db', 'pma_test_table'),
         );
 
-        $this->assertFalse(
+        self::assertFalse(
             Tracker::isTracked('pma_test_db', 'pma_test_table2'),
         );
     }
@@ -140,7 +140,7 @@ class TrackerTest extends AbstractTestCase
         $date = Util::date('Y-m-d H:i:s');
         Config::getInstance()->selectedServer['user'] = 'pma_test_user';
 
-        $this->assertEquals(
+        self::assertEquals(
             '# log ' . $date . " pma_test_user\n",
             Tracker::getLogComment(),
         );
@@ -172,34 +172,34 @@ class TrackerTest extends AbstractTestCase
             new ColumnFull('field1', 'int(11)', null, false, 'PRI', null, '', '', ''),
             new ColumnFull('field2', 'text', null, false, '', null, '', '', ''),
         ];
-        $dbi->expects($this->once())->method('getColumns')
+        $dbi->expects(self::once())->method('getColumns')
             ->with('pma_test', 'pma_tbl')
             ->willReturn($getColumnsResult);
 
         $getIndexesResult = [['Table' => 'pma_tbl', 'Field' => 'field1', 'Key' => 'PRIMARY']];
-        $dbi->expects($this->once())->method('getTableIndexes')
+        $dbi->expects(self::once())->method('getTableIndexes')
             ->with('pma_test', 'pma_tbl')
             ->willReturn($getIndexesResult);
 
         $showTableStatusQuery = 'SHOW TABLE STATUS FROM `pma_test` WHERE Name = \'pma_tbl\'';
         $useStatement = 'USE `pma_test`';
         $showCreateTableQuery = 'SHOW CREATE TABLE `pma_test`.`pma_tbl`';
-        $dbi->expects($this->exactly(3))->method('tryQuery')->willReturnMap([
+        $dbi->expects(self::exactly(3))->method('tryQuery')->willReturnMap([
             [$showTableStatusQuery, ConnectionType::User, DatabaseInterface::QUERY_BUFFERED, true, $resultStub],
             [$useStatement, ConnectionType::User, DatabaseInterface::QUERY_BUFFERED, true, $resultStub],
             [$showCreateTableQuery, ConnectionType::User, DatabaseInterface::QUERY_BUFFERED, true, $resultStub],
         ]);
 
-        $dbi->expects($this->any())->method('query')
+        $dbi->expects(self::any())->method('query')
             ->willReturn($resultStub);
 
-        $dbi->expects($this->any())->method('getCompatibilities')
+        $dbi->expects(self::any())->method('getCompatibilities')
             ->willReturn([]);
-        $dbi->expects($this->any())->method('quoteString')
+        $dbi->expects(self::any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;
-        $this->assertTrue(Tracker::createVersion('pma_test', 'pma_tbl', '1', '11', true));
+        self::assertTrue(Tracker::createVersion('pma_test', 'pma_tbl', '1', '11', true));
     }
 
     /**
@@ -224,16 +224,16 @@ class TrackerTest extends AbstractTestCase
             . ' \'\', \'# log %d-%d-%d %d:%d:%d pma_test_user' . "\n" . 'SHOW DATABASES\', \'' . "\n"
             . '\', \'CREATE DATABASE,ALTER DATABASE,DROP DATABASE\')';
 
-        $dbi->expects($this->exactly(1))
+        $dbi->expects(self::exactly(1))
             ->method('queryAsControlUser')
-            ->with($this->matches($expectedMainQuery))
+            ->with(self::matches($expectedMainQuery))
             ->willReturn($resultStub);
 
-        $dbi->expects($this->any())->method('quoteString')
+        $dbi->expects(self::any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;
-        $this->assertTrue(Tracker::createDatabaseVersion('pma_test', '1', 'SHOW DATABASES'));
+        self::assertTrue(Tracker::createDatabaseVersion('pma_test', '1', 'SHOW DATABASES'));
     }
 
     /**
@@ -264,12 +264,12 @@ class TrackerTest extends AbstractTestCase
         " AND `table_name` = '" . $tablename . "'" .
         " AND `version` = '" . $version . "'";
 
-        $dbi->expects($this->exactly(1))
+        $dbi->expects(self::exactly(1))
             ->method('queryAsControlUser')
             ->with($sqlQuery)
             ->willReturn($resultStub);
 
-        $dbi->expects($this->any())->method('quoteString')
+        $dbi->expects(self::any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;
@@ -323,21 +323,21 @@ class TrackerTest extends AbstractTestCase
     ): void {
         $result = Tracker::parseQuery($query);
 
-        $this->assertEquals($type, $result['type']);
+        self::assertEquals($type, $result['type']);
 
-        $this->assertEquals($identifier, $result['identifier']);
+        self::assertEquals($identifier, $result['identifier']);
 
-        $this->assertEquals($tableName, $result['tablename']);
+        self::assertEquals($tableName, $result['tablename']);
 
         if ($db !== null && $db !== '') {
-            $this->assertEquals($db, Current::$database);
+            self::assertEquals($db, Current::$database);
         }
 
         if ($tableNameAfterRename === null || $tableNameAfterRename === '') {
             return;
         }
 
-        $this->assertEquals($result['tablename_after_rename'], $tableNameAfterRename);
+        self::assertEquals($result['tablename_after_rename'], $tableNameAfterRename);
     }
 
     /**

@@ -155,7 +155,7 @@ final class IndexControllerTest extends AbstractTestCase
 HTML;
         // phpcs:enable
 
-        $this->assertSame($expected, $actual);
+        self::assertSame($expected, $actual);
     }
 
     public function testWithoutTriggers(): void
@@ -244,7 +244,7 @@ HTML;
 HTML;
         // phpcs:enable
 
-        $this->assertSame($expected, $actual);
+        self::assertSame($expected, $actual);
     }
 
     /**
@@ -267,7 +267,7 @@ HTML;
 
         $method = (new ReflectionClass(IndexController::class))->getMethod('getDataFromRequest');
 
-        $dbi = $this->createStub(DatabaseInterface::class);
+        $dbi = self::createStub(DatabaseInterface::class);
         DatabaseInterface::$instance = $dbi;
         $template = new Template();
         $response = new ResponseRenderer();
@@ -280,12 +280,12 @@ HTML;
         );
 
         $request = $this->createMock(ServerRequest::class);
-        $request->expects($this->any())
+        $request->expects(self::any())
             ->method('getParsedBodyParam')
             ->willReturn('foo');
 
         $output = $method->invoke($indexController, $request);
-        $this->assertEquals($out, $output);
+        self::assertEquals($out, $output);
     }
 
     /**

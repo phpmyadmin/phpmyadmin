@@ -63,33 +63,33 @@ class ExportCodegenTest extends AbstractTestCase
         $attrProperties = new ReflectionProperty(ExportCodegen::class, 'properties');
         $properties = $attrProperties->getValue($this->object);
 
-        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
+        self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        $this->assertEquals(
+        self::assertEquals(
             'CodeGen',
             $properties->getText(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'cs',
             $properties->getExtension(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'text/cs',
             $properties->getMimeType(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Options',
             $properties->getOptionsText(),
         );
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
+        self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        $this->assertEquals(
+        self::assertEquals(
             'Format Specific Options',
             $options->getName(),
         );
@@ -97,9 +97,9 @@ class ExportCodegenTest extends AbstractTestCase
         $generalOptionsArray = $options->getProperties();
         $generalOptions = $generalOptionsArray->current();
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
+        self::assertEquals(
             'general_opts',
             $generalOptions->getName(),
         );
@@ -109,28 +109,28 @@ class ExportCodegenTest extends AbstractTestCase
         $hidden = $generalProperties->current();
         $generalProperties->next();
 
-        $this->assertInstanceOf(HiddenPropertyItem::class, $hidden);
+        self::assertInstanceOf(HiddenPropertyItem::class, $hidden);
 
-        $this->assertEquals(
+        self::assertEquals(
             'structure_or_data',
             $hidden->getName(),
         );
 
         $select = $generalProperties->current();
 
-        $this->assertInstanceOf(SelectPropertyItem::class, $select);
+        self::assertInstanceOf(SelectPropertyItem::class, $select);
 
-        $this->assertEquals(
+        self::assertEquals(
             'format',
             $select->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Format:',
             $select->getText(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             ['NHibernate C# DO', 'NHibernate XML'],
             $select->getValues(),
         );
@@ -138,28 +138,28 @@ class ExportCodegenTest extends AbstractTestCase
 
     public function testExportHeader(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportHeader(),
         );
     }
 
     public function testExportFooter(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportFooter(),
         );
     }
 
     public function testExportDBHeader(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBHeader('testDB'),
         );
     }
 
     public function testExportDBFooter(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBFooter('testDB'),
         );
     }
@@ -177,8 +177,8 @@ class ExportCodegenTest extends AbstractTestCase
         $this->object->exportData('test_db', 'test_table', 'localhost', 'SELECT * FROM `test_db`.`test_table`;');
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
-        $this->assertEquals(
+        self::assertIsString($result);
+        self::assertEquals(
             '<?xml version="1.0" encoding="utf-8" ?>' . "\n"
             . '<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Test_db" assembly="Test_db">' . "\n"
             . '    <class name="Test_table" table="Test_table">' . "\n"
@@ -206,17 +206,17 @@ class ExportCodegenTest extends AbstractTestCase
 
     public function testCgMakeIdentifier(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             '_Ⅲfoo',
             ExportCodegen::cgMakeIdentifier('Ⅲ{}96`{}foo', true),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'TestⅢ',
             ExportCodegen::cgMakeIdentifier('`98testⅢ{}96`{}', true),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'testⅢ',
             ExportCodegen::cgMakeIdentifier('`98testⅢ{}96`{}', false),
         );
@@ -227,7 +227,7 @@ class ExportCodegenTest extends AbstractTestCase
         $method = new ReflectionMethod(ExportCodegen::class, 'handleNHibernateCSBody');
         $result = $method->invoke($this->object, 'test_db', 'test_table');
 
-        $this->assertEquals(
+        self::assertEquals(
             'using System;' . "\n" .
             'using System.Collections;' . "\n" .
             'using System.Collections.Generic;' . "\n" .
@@ -279,7 +279,7 @@ class ExportCodegenTest extends AbstractTestCase
         $method = new ReflectionMethod(ExportCodegen::class, 'handleNHibernateXMLBody');
         $result = $method->invoke($this->object, 'test_db', 'test_table');
 
-        $this->assertEquals(
+        self::assertEquals(
             '<?xml version="1.0" encoding="utf-8" ?>' . "\n" .
             '<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Test_db" assembly="Test_db">' . "\n" .
             '    <class name="Test_table" table="Test_table">' . "\n" .

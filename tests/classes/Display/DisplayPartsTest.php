@@ -23,25 +23,25 @@ class DisplayPartsTest extends TestCase
             'hasTextButton' => true,
             'hasPrintLink' => true,
         ]);
-        $this->assertTrue($displayParts->hasEditLink);
-        $this->assertSame(DeleteLinkEnum::DELETE_ROW, $displayParts->deleteLink);
-        $this->assertTrue($displayParts->hasSortLink);
-        $this->assertTrue($displayParts->hasNavigationBar);
-        $this->assertTrue($displayParts->hasBookmarkForm);
-        $this->assertTrue($displayParts->hasTextButton);
-        $this->assertTrue($displayParts->hasPrintLink);
+        self::assertTrue($displayParts->hasEditLink);
+        self::assertSame(DeleteLinkEnum::DELETE_ROW, $displayParts->deleteLink);
+        self::assertTrue($displayParts->hasSortLink);
+        self::assertTrue($displayParts->hasNavigationBar);
+        self::assertTrue($displayParts->hasBookmarkForm);
+        self::assertTrue($displayParts->hasTextButton);
+        self::assertTrue($displayParts->hasPrintLink);
     }
 
     public function testWith(): void
     {
         $displayParts = DisplayParts::fromArray([]);
-        $this->assertFalse($displayParts->hasEditLink);
-        $this->assertSame(DeleteLinkEnum::NO_DELETE, $displayParts->deleteLink);
-        $this->assertFalse($displayParts->hasSortLink);
-        $this->assertFalse($displayParts->hasNavigationBar);
-        $this->assertFalse($displayParts->hasBookmarkForm);
-        $this->assertFalse($displayParts->hasTextButton);
-        $this->assertFalse($displayParts->hasPrintLink);
+        self::assertFalse($displayParts->hasEditLink);
+        self::assertSame(DeleteLinkEnum::NO_DELETE, $displayParts->deleteLink);
+        self::assertFalse($displayParts->hasSortLink);
+        self::assertFalse($displayParts->hasNavigationBar);
+        self::assertFalse($displayParts->hasBookmarkForm);
+        self::assertFalse($displayParts->hasTextButton);
+        self::assertFalse($displayParts->hasPrintLink);
 
         $displayParts = $displayParts->with([
             'hasEditLink' => true,
@@ -52,21 +52,21 @@ class DisplayPartsTest extends TestCase
             'hasTextButton' => true,
             'hasPrintLink' => true,
         ]);
-        $this->assertTrue($displayParts->hasEditLink);
-        $this->assertSame(DeleteLinkEnum::KILL_PROCESS, $displayParts->deleteLink);
-        $this->assertTrue($displayParts->hasSortLink);
-        $this->assertTrue($displayParts->hasNavigationBar);
-        $this->assertTrue($displayParts->hasBookmarkForm);
-        $this->assertTrue($displayParts->hasTextButton);
-        $this->assertTrue($displayParts->hasPrintLink);
+        self::assertTrue($displayParts->hasEditLink);
+        self::assertSame(DeleteLinkEnum::KILL_PROCESS, $displayParts->deleteLink);
+        self::assertTrue($displayParts->hasSortLink);
+        self::assertTrue($displayParts->hasNavigationBar);
+        self::assertTrue($displayParts->hasBookmarkForm);
+        self::assertTrue($displayParts->hasTextButton);
+        self::assertTrue($displayParts->hasPrintLink);
 
         $displayParts = $displayParts->with([]);
-        $this->assertTrue($displayParts->hasEditLink);
-        $this->assertSame(DeleteLinkEnum::KILL_PROCESS, $displayParts->deleteLink);
-        $this->assertTrue($displayParts->hasSortLink);
-        $this->assertTrue($displayParts->hasNavigationBar);
-        $this->assertTrue($displayParts->hasBookmarkForm);
-        $this->assertTrue($displayParts->hasTextButton);
-        $this->assertTrue($displayParts->hasPrintLink);
+        self::assertTrue($displayParts->hasEditLink);
+        self::assertSame(DeleteLinkEnum::KILL_PROCESS, $displayParts->deleteLink);
+        self::assertTrue($displayParts->hasSortLink);
+        self::assertTrue($displayParts->hasNavigationBar);
+        self::assertTrue($displayParts->hasBookmarkForm);
+        self::assertTrue($displayParts->hasTextButton);
+        self::assertTrue($displayParts->hasPrintLink);
     }
 }

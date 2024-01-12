@@ -27,10 +27,10 @@ final class ApplicationTest extends AbstractTestCase
     #[BackupStaticProperties(true)]
     public function testRunWithConfigError(): void
     {
-        $errorHandler = $this->createStub(ErrorHandler::class);
+        $errorHandler = self::createStub(ErrorHandler::class);
 
-        $config = $this->createMock(Config::class);
-        $config->expects($this->once())->method('loadAndCheck')
+        $config = self::createMock(Config::class);
+        $config->expects(self::once())->method('loadAndCheck')
             ->willThrowException(new ConfigException('Failed to load phpMyAdmin configuration.'));
         $config->config = new Config\Settings([]);
 
@@ -45,6 +45,6 @@ final class ApplicationTest extends AbstractTestCase
         $application->run();
 
         $output = $this->getActualOutputForAssertion();
-        $this->assertSame($expected, $output);
+        self::assertSame($expected, $output);
     }
 }

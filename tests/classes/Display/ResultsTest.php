@@ -96,7 +96,7 @@ class ResultsTest extends AbstractTestCase
      */
     public function testisSelect(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->callFunction(
                 $this->object,
                 DisplayResults::class,
@@ -108,7 +108,7 @@ class ResultsTest extends AbstractTestCase
 
     public function testGetClassForDateTimeRelatedFieldsCase1(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             'datetimefield',
             $this->callFunction(
                 $this->object,
@@ -121,7 +121,7 @@ class ResultsTest extends AbstractTestCase
 
     public function testGetClassForDateTimeRelatedFieldsCase2(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             'datefield',
             $this->callFunction(
                 $this->object,
@@ -134,7 +134,7 @@ class ResultsTest extends AbstractTestCase
 
     public function testGetClassForDateTimeRelatedFieldsCase3(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             'text',
             $this->callFunction(
                 $this->object,
@@ -151,7 +151,7 @@ class ResultsTest extends AbstractTestCase
     public function testGetOffsetsCase1(): void
     {
         $_SESSION['tmpval']['max_rows'] = DisplayResults::ALL_ROWS;
-        $this->assertEquals(
+        self::assertEquals(
             [0, 0],
             $this->callFunction(
                 $this->object,
@@ -169,7 +169,7 @@ class ResultsTest extends AbstractTestCase
     {
         $_SESSION['tmpval']['max_rows'] = 5;
         $_SESSION['tmpval']['pos'] = 4;
-        $this->assertEquals(
+        self::assertEquals(
             [9, 0],
             $this->callFunction(
                 $this->object,
@@ -252,7 +252,7 @@ class ResultsTest extends AbstractTestCase
             ],
         ];
 
-        $this->assertEquals(
+        self::assertEquals(
             $output,
             $this->callFunction(
                 $this->object,
@@ -303,7 +303,7 @@ class ResultsTest extends AbstractTestCase
     ): void {
         (new ReflectionProperty(DisplayResults::class, 'fieldsMeta'))->setValue($this->object, $fieldsMeta);
 
-        $this->assertEquals(
+        self::assertEquals(
             $output,
             $this->callFunction(
                 $this->object,
@@ -324,7 +324,7 @@ class ResultsTest extends AbstractTestCase
             [StatementInfo::fromArray(Query::getAll($query))],
         );
 
-        $this->assertEquals([
+        self::assertEquals([
             'db_name' => true,
             'tbl' => true,
             'id' => true,
@@ -359,7 +359,7 @@ class ResultsTest extends AbstractTestCase
     {
         $_SESSION['tmpval']['pftext'] = $pftext;
         Config::getInstance()->settings['LimitChars'] = $limitChars;
-        $this->assertEquals(
+        self::assertEquals(
             $output,
             $this->callFunction(
                 $this->object,
@@ -438,7 +438,7 @@ class ResultsTest extends AbstractTestCase
         $_SESSION['tmpval']['display_binary'] = $displayBinary;
         $_SESSION['tmpval']['display_blob'] = $displayBlob;
         Config::getInstance()->settings['LimitChars'] = 50;
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             $output,
             $this->callFunction(
                 $this->object,
@@ -613,8 +613,8 @@ class ResultsTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->settings['LimitChars'] = 50;
         $config->settings['ProtectBinary'] = $protectBinary;
-        $statementInfo = $this->createStub(StatementInfo::class);
-        $this->assertStringContainsString(
+        $statementInfo = self::createStub(StatementInfo::class);
+        self::assertStringContainsString(
             $output,
             $this->callFunction(
                 $this->object,
@@ -682,7 +682,7 @@ class ResultsTest extends AbstractTestCase
             ->getMock();
 
         // MIME transformations
-        $dbi->expects($this->exactly(1))
+        $dbi->expects(self::exactly(1))
             ->method('fetchResult')
             ->willReturn(
                 [
@@ -717,9 +717,9 @@ class ResultsTest extends AbstractTestCase
         );
 
         // Dateformat
-        $this->assertStringContainsString('Jan 01, 1970 at 01:00 AM', $output);
+        self::assertStringContainsString('Jan 01, 1970 at 01:00 AM', $output);
         // Bool2Text
-        $this->assertStringContainsString('>T<', $output);
+        self::assertStringContainsString('>T<', $output);
     }
 
     /** @return mixed[][] */
@@ -802,31 +802,31 @@ class ResultsTest extends AbstractTestCase
             [$urlParams, $colName],
         );
         $out = urldecode(htmlspecialchars_decode($output));
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'name="url-remove-order" value="index.php?route=/sql&sql_query=' . $sqlRemove,
             $out,
             'The remove query should be found',
         );
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'name="url-add-order" value="index.php?route=/sql&sql_query=' . $sqlAdd,
             $out,
             'The add query should be found',
         );
 
         $firstLine = explode("\n", $out)[0] ?? '';
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'url-remove-order',
             $firstLine,
             'The first line should contain url-remove-order input',
         );
-        $this->assertStringNotContainsString(
+        self::assertStringNotContainsString(
             'url-add-order',
             $firstLine,
             'The first line should contain NOT url-add-order input',
         );
 
-        $this->assertStringContainsString($urlParamsRemove, $firstLine, 'The first line should contain the URL params');
+        self::assertStringContainsString($urlParamsRemove, $firstLine, 'The first line should contain the URL params');
     }
 
     /** @see https://github.com/phpmyadmin/phpmyadmin/issues/16836 */
@@ -838,14 +838,14 @@ class ResultsTest extends AbstractTestCase
             'buildValueDisplay',
             ['my_class', false, '  special value  '],
         );
-        $this->assertSame('<td class="text-start my_class">  special value  </td>' . "\n", $output);
+        self::assertSame('<td class="text-start my_class">  special value  </td>' . "\n", $output);
         $output = $this->callFunction(
             $this->object,
             DisplayResults::class,
             'buildValueDisplay',
             ['my_class', false, '0x11e6ac0cfb1e8bf3bf48b827ebdafb0b'],
         );
-        $this->assertSame('<td class="text-start my_class">0x11e6ac0cfb1e8bf3bf48b827ebdafb0b</td>' . "\n", $output);
+        self::assertSame('<td class="text-start my_class">0x11e6ac0cfb1e8bf3bf48b827ebdafb0b</td>' . "\n", $output);
         $output = $this->callFunction(
             $this->object,
             DisplayResults::class,
@@ -856,7 +856,7 @@ class ResultsTest extends AbstractTestCase
                 '0x11e6ac0cfb1e8bf3bf48b827ebdafb0b',
             ],
         );
-        $this->assertSame(
+        self::assertSame(
             '<td class="text-start my_class condition">0x11e6ac0cfb1e8bf3bf48b827ebdafb0b</td>' . "\n",
             $output,
         );
@@ -873,7 +873,7 @@ class ResultsTest extends AbstractTestCase
         $object = new DisplayResults($this->dbi, $db, $table, 2, '', $query);
         $object->setConfigParamsForDisplayTable($analyzedSqlResults);
 
-        $this->assertSame('F', $_SESSION['tmpval']['pftext']);
+        self::assertSame('F', $_SESSION['tmpval']['pftext']);
 
         $query = 'ANALYZE NO_WRITE_TO_BINLOG TABLE test_table';
         [$analyzedSqlResults] = ParseAnalyze::sqlQuery($query, $db);
@@ -881,7 +881,7 @@ class ResultsTest extends AbstractTestCase
         $object = new DisplayResults($this->dbi, $db, $table, 2, '', $query);
         $object->setConfigParamsForDisplayTable($analyzedSqlResults);
 
-        $this->assertSame('P', $_SESSION['tmpval']['pftext']);
+        self::assertSame('P', $_SESSION['tmpval']['pftext']);
     }
 
     /**
@@ -912,9 +912,9 @@ class ResultsTest extends AbstractTestCase
         $object = new DisplayResults($this->dbi, $db, $table, 2, '', $query);
         $object->setConfigParamsForDisplayTable($analyzedSqlResults);
 
-        $this->assertArrayHasKey('tmpval', $_SESSION);
-        $this->assertIsArray($_SESSION['tmpval']);
-        $this->assertSame($expected, $_SESSION['tmpval']);
+        self::assertArrayHasKey('tmpval', $_SESSION);
+        self::assertIsArray($_SESSION['tmpval']);
+        self::assertSame($expected, $_SESSION['tmpval']);
     }
 
     /** @return mixed[][] */
@@ -1201,7 +1201,7 @@ class ResultsTest extends AbstractTestCase
             'hasPrintLink' => true,
         ]);
 
-        $this->assertNotFalse($dtResult);
+        self::assertNotFalse($dtResult);
         $actual = $object->getTable($dtResult, $displayParts, $statementInfo);
 
         $template = new Template();
@@ -1416,7 +1416,7 @@ class ResultsTest extends AbstractTestCase
             'text_dir' => 'ltr',
         ]);
 
-        $this->assertEquals($tableTemplate, $actual);
+        self::assertEquals($tableTemplate, $actual);
     }
 
     public function testGetTable2(): void
@@ -1494,7 +1494,7 @@ class ResultsTest extends AbstractTestCase
             'hasPrintLink' => true,
         ]);
 
-        $this->assertNotFalse($dtResult);
+        self::assertNotFalse($dtResult);
         $actual = $object->getTable($dtResult, $displayParts, $statementInfo);
 
         $template = new Template();
@@ -1651,7 +1651,7 @@ class ResultsTest extends AbstractTestCase
             'text_dir' => 'ltr',
         ]);
 
-        $this->assertEquals($tableTemplate, $actual);
+        self::assertEquals($tableTemplate, $actual);
     }
 
     /** @return array<string, array{string, string, int}> */
@@ -1758,7 +1758,7 @@ class ResultsTest extends AbstractTestCase
             ],
         );
 
-        $this->assertSame([
+        self::assertSame([
             "\n" . 'ORDER BY `Country`.`FoundedIn` ' . $querySortDirection, // singleSortOrder
             "\n" . 'ORDER BY `Country`.`Code` ASC, `Country`.`FoundedIn` ' . $querySortDirection, // sortOrderColumns
             '', // orderImg
@@ -1778,7 +1778,7 @@ class ResultsTest extends AbstractTestCase
             ],
         );
 
-        $this->assertSame([
+        self::assertSame([
             "\n" . 'ORDER BY `Country`.`Code2` ' . $querySortDirection, // singleSortOrder
             "\n" . 'ORDER BY `Country`.`Code` ASC, `Country`.`Code2` ' . $querySortDirection, // sortOrderColumns
             '', // orderImg
@@ -1805,7 +1805,7 @@ class ResultsTest extends AbstractTestCase
             ],
         );
 
-        $this->assertSame([
+        self::assertSame([
             "\n" . 'ORDER BY `Country`.`Code2` ' . $querySortDirection, // singleSortOrder
             "\n" . 'ORDER BY `Country`.`Continent` DESC, `Country`.`Region` ASC'
                 . ', `Country`.`Population` ASC, `Country`.`Code2` ' . $querySortDirection, // sortOrderColumns

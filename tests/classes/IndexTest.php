@@ -62,35 +62,35 @@ class IndexTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $index = new Index($this->params);
-        $this->assertEquals(
+        self::assertEquals(
             'PMA_Index_comment',
             $index->getComment(),
         );
-        $this->assertEquals(
+        self::assertEquals(
             'PMA_Comment',
             $index->getRemarks(),
         );
-        $this->assertEquals(
+        self::assertEquals(
             'PMA_Index_choice',
             $index->getChoice(),
         );
-        $this->assertEquals(
+        self::assertEquals(
             'PMA_Packed',
             $index->getPacked(),
         );
-        $this->assertEquals(
+        self::assertEquals(
             'PMA_Non_unique',
             $index->getNonUnique(),
         );
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'PMA_Comment',
             $index->getComments(),
         );
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'PMA_Index_comment',
             $index->getComments(),
         );
-        $this->assertEquals(
+        self::assertEquals(
             'PMA_Index_choice',
             $index->getChoice(),
         );
@@ -103,10 +103,10 @@ class IndexTest extends AbstractTestCase
     {
         $this->params['Non_unique'] = '0';
         $index = new Index($this->params);
-        $this->assertTrue(
+        self::assertTrue(
             $index->isUnique(),
         );
-        $this->assertEquals(
+        self::assertEquals(
             'Yes',
             $index->isUnique(true),
         );
@@ -119,10 +119,10 @@ class IndexTest extends AbstractTestCase
     {
         $index = new Index();
         $index->addColumns($this->params['columns']);
-        $this->assertTrue($index->hasColumn('column1'));
-        $this->assertTrue($index->hasColumn('column2'));
-        $this->assertTrue($index->hasColumn('column3'));
-        $this->assertEquals(
+        self::assertTrue($index->hasColumn('column1'));
+        self::assertTrue($index->hasColumn('column2'));
+        self::assertTrue($index->hasColumn('column3'));
+        self::assertEquals(
             3,
             $index->getColumnCount(),
         );
@@ -135,7 +135,7 @@ class IndexTest extends AbstractTestCase
     {
         $index = new Index();
         $index->setName('PMA_name');
-        $this->assertEquals(
+        self::assertEquals(
             'PMA_name',
             $index->getName(),
         );
@@ -148,19 +148,19 @@ class IndexTest extends AbstractTestCase
 
         $indexColumns = $index->getColumns();
         $indexColumn = $indexColumns['column1'];
-        $this->assertEquals(
+        self::assertEquals(
             'column1',
             $indexColumn->getName(),
         );
-        $this->assertEquals(
+        self::assertEquals(
             '1',
             $indexColumn->getSeqInIndex(),
         );
-        $this->assertEquals(
+        self::assertEquals(
             'Collation1',
             $indexColumn->getCollation(),
         );
-        $this->assertEquals(
+        self::assertEquals(
             '1',
             $indexColumn->getCardinality(),
         );

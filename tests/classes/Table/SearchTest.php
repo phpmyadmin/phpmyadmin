@@ -32,14 +32,14 @@ class SearchTest extends AbstractTestCase
         $_POST['order'] = 'asc';
         $_POST['customWhereClause'] = "name='pma'";
 
-        $this->assertEquals(
+        self::assertEquals(
             'SELECT DISTINCT *  FROM `PMA` WHERE name=\'pma\' ORDER BY `name` asc',
             $this->search->buildSqlQuery(),
         );
 
         unset($_POST['customWhereClause']);
 
-        $this->assertEquals(
+        self::assertEquals(
             'SELECT DISTINCT *  FROM `PMA` ORDER BY `name` asc',
             $this->search->buildSqlQuery(),
         );
@@ -62,7 +62,7 @@ class SearchTest extends AbstractTestCase
             . ' AND `id` > value2 AND `index` IS NULL AND `index2` LIKE \'%value4%\''
             . ' AND `index3` REGEXP ^value5$ AND `index4` IN (value6) AND `index5`'
             . ' BETWEEN value7 AND value8 ORDER BY `name` asc';
-        $this->assertEquals(
+        self::assertEquals(
             $expected,
             $this->search->buildSqlQuery(),
         );
@@ -73,14 +73,14 @@ class SearchTest extends AbstractTestCase
         $_POST['zoom_submit'] = true;
         $_POST['table'] = 'PMA';
 
-        $this->assertEquals(
+        self::assertEquals(
             'SELECT *  FROM `PMA`',
             $this->search->buildSqlQuery(),
         );
 
         $_POST['customWhereClause'] = '`table` = \'WhereClause\'';
 
-        $this->assertEquals(
+        self::assertEquals(
             'SELECT *  FROM `PMA` WHERE `table` = \'WhereClause\'',
             $this->search->buildSqlQuery(),
         );
@@ -91,7 +91,7 @@ class SearchTest extends AbstractTestCase
         $_POST['criteriaValues'] = ['10', '2', '', ''];
         $_POST['criteriaColumnTypes'] = ['int(11)', 'int(11)', 'int(11)', 'int(11)'];
 
-        $this->assertEquals(
+        self::assertEquals(
             'SELECT *  FROM `PMA` WHERE `b` <= 10 AND `a` = 2 AND `c` IS NULL AND `d` IS NOT NULL',
             $this->search->buildSqlQuery(),
         );
@@ -102,14 +102,14 @@ class SearchTest extends AbstractTestCase
         $_POST['zoom_submit'] = true;
         $_POST['table'] = 'PMA';
 
-        $this->assertEquals(
+        self::assertEquals(
             'SELECT *  FROM `PMA`',
             $this->search->buildSqlQuery(),
         );
 
         $_POST['customWhereClause'] = '`table` = \'WhereClause\'';
 
-        $this->assertEquals(
+        self::assertEquals(
             'SELECT *  FROM `PMA` WHERE `table` = \'WhereClause\'',
             $this->search->buildSqlQuery(),
         );
@@ -121,7 +121,7 @@ class SearchTest extends AbstractTestCase
         $_POST['criteriaValues'] = ['1'];
         $_POST['criteriaColumnTypes'] = ['geometry'];
 
-        $this->assertEquals(
+        self::assertEquals(
             'SELECT *  FROM `PMA` WHERE Dimension(`b`) = \'1\'',
             $this->search->buildSqlQuery(),
         );
@@ -132,14 +132,14 @@ class SearchTest extends AbstractTestCase
         $_POST['zoom_submit'] = true;
         $_POST['table'] = 'PMA';
 
-        $this->assertEquals(
+        self::assertEquals(
             'SELECT *  FROM `PMA`',
             $this->search->buildSqlQuery(),
         );
 
         $_POST['customWhereClause'] = '`table` = \'WhereClause\'';
 
-        $this->assertEquals(
+        self::assertEquals(
             'SELECT *  FROM `PMA` WHERE `table` = \'WhereClause\'',
             $this->search->buildSqlQuery(),
         );
@@ -151,7 +151,7 @@ class SearchTest extends AbstractTestCase
         $_POST['criteriaValues'] = ['PG-13'];
         $_POST['criteriaColumnTypes'] = ['enum(\'G\', \'PG\', \'PG-13\', \'R\', \'NC-17\')'];
 
-        $this->assertEquals(
+        self::assertEquals(
             'SELECT *  FROM `PMA` WHERE `rating` = \'PG-13\'',
             $this->search->buildSqlQuery(),
         );
@@ -162,14 +162,14 @@ class SearchTest extends AbstractTestCase
         $_POST['zoom_submit'] = true;
         $_POST['table'] = 'PMA';
 
-        $this->assertEquals(
+        self::assertEquals(
             'SELECT *  FROM `PMA`',
             $this->search->buildSqlQuery(),
         );
 
         $_POST['customWhereClause'] = '';
 
-        $this->assertEquals(
+        self::assertEquals(
             'SELECT *  FROM `PMA`',
             $this->search->buildSqlQuery(),
         );
@@ -181,7 +181,7 @@ class SearchTest extends AbstractTestCase
         $_POST['criteriaValues'] = ['07ca1fdd-4805-11ed-a4dc-0242ac110002'];
         $_POST['criteriaColumnTypes'] = ['uuid'];
 
-        $this->assertEquals(
+        self::assertEquals(
             "SELECT *  FROM `PMA` WHERE `id` = '07ca1fdd-4805-11ed-a4dc-0242ac110002'",
             $this->search->buildSqlQuery(),
         );
@@ -201,6 +201,6 @@ class SearchTest extends AbstractTestCase
         $_POST['ajax_request'] = 'true';
         $_POST['displayAllColumns'] = 'true';
 
-        $this->assertSame('SELECT *  FROM `world_cities`', $this->search->buildSqlQuery());
+        self::assertSame('SELECT *  FROM `world_cities`', $this->search->buildSqlQuery());
     }
 }

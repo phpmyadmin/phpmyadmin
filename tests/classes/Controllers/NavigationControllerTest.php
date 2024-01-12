@@ -135,19 +135,19 @@ class NavigationControllerTest extends AbstractTestCase
 
         $_POST['full'] = '1';
 
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('isAjax')->willReturn(true);
 
         $navigationController($request);
-        $this->assertTrue($responseRenderer->hasSuccessState(), 'expected the request not to fail');
+        self::assertTrue($responseRenderer->hasSuccessState(), 'expected the request not to fail');
 
         $responseMessage = $responseRenderer->getJSONResult()['message'];
 
-        $this->assertStringContainsString('<div id=\'pma_navigation_tree_content\'>', $responseMessage);
+        self::assertStringContainsString('<div id=\'pma_navigation_tree_content\'>', $responseMessage);
 
         // root.air-balloon_burner_dev2
         // cm9vdA==.YWlyLWJhbGxvb25fYnVybmVyX2RldjI=
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<div id=\'pma_navigation_tree_content\'>' . "\n"
             . '  <ul>' . "\n"
             . '      <li class="first database">' . "\n"
@@ -289,15 +289,15 @@ class NavigationControllerTest extends AbstractTestCase
 
         $_POST['full'] = '1';
 
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('isAjax')->willReturn(true);
 
         $navigationController($request);
-        $this->assertTrue($responseRenderer->hasSuccessState(), 'expected the request not to fail');
+        self::assertTrue($responseRenderer->hasSuccessState(), 'expected the request not to fail');
 
         $responseMessage = $responseRenderer->getJSONResult()['message'];
 
-        $this->assertStringContainsString('<div id=\'pma_navigation_tree_content\'>', $responseMessage);
+        self::assertStringContainsString('<div id=\'pma_navigation_tree_content\'>', $responseMessage);
 
         $dbTemplate = '  <li class="database database">' . "\n"
             . '    <div class="block">' . "\n"
@@ -387,7 +387,7 @@ class NavigationControllerTest extends AbstractTestCase
 
         // root.air-balloon_burner_dev2
         // cm9vdA==.YWlyLWJhbGxvb25fYnVybmVyX2RldjI=
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<div id=\'pma_navigation_tree_content\'>' . "\n"
             . '  <ul>' . "\n"
             . '      <li class="first navGroup">' . "\n"

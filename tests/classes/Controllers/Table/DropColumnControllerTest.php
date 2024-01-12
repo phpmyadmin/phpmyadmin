@@ -43,7 +43,7 @@ class DropColumnControllerTest extends AbstractTestCase
         $dummyDbi->addResult('ALTER TABLE `test_table` DROP `name`, DROP `datetimefield`;', true);
         $dbi = $this->createDatabaseInterface($dummyDbi);
 
-        $this->assertArrayNotHasKey('flashMessages', $_SESSION);
+        self::assertArrayNotHasKey('flashMessages', $_SESSION);
 
         (new DropColumnController(
             new ResponseRenderer(),
@@ -51,10 +51,10 @@ class DropColumnControllerTest extends AbstractTestCase
             $dbi,
             new FlashMessages(),
             new RelationCleanup($dbi, new Relation($dbi)),
-        ))($this->createStub(ServerRequest::class));
+        ))(self::createStub(ServerRequest::class));
 
-        $this->assertArrayHasKey('flashMessages', $_SESSION);
+        self::assertArrayHasKey('flashMessages', $_SESSION);
         /** @psalm-suppress InvalidArrayOffset */
-        $this->assertSame(['success' => ['2 columns have been dropped successfully.']], $_SESSION['flashMessages']);
+        self::assertSame(['success' => ['2 columns have been dropped successfully.']], $_SESSION['flashMessages']);
     }
 }
