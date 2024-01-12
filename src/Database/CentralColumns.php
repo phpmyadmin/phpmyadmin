@@ -248,11 +248,9 @@ class CentralColumns
      * are added to central list otherwise the $field_select is considered as
      * list of columns and these columns are added to central list if not already added
      *
-     * @param string[] $fieldSelect if $isTable is true selected tables list
-     *                            otherwise selected columns list
-     * @param bool     $isTable     if passed array is of tables or columns
-     * @param string   $table       if $isTable is false, then table name to
-     *                              which columns belong
+     * @param string[]    $fieldSelect if $isTable is true selected tables list otherwise selected columns list
+     * @param bool        $isTable     if passed array is of tables or columns
+     * @param string|null $table       if $isTable is false, then table name to which columns belong
      *
      * @return true|Message
      */

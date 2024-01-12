@@ -328,8 +328,8 @@ class File
     /**
      * sets the name if the file to the one selected in the tbl_change form
      *
-     * @param string $key       the md5 hash of the column name
-     * @param string $rownumber number of row to process
+     * @param string      $key       the md5 hash of the column name
+     * @param string|null $rownumber number of row to process
      */
     public function setSelectedFromTblChangeRequest(
         string $key,

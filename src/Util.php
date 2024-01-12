@@ -129,8 +129,8 @@ class Util
      *
      * checks if the string is quoted and removes this quotes
      *
-     * @param string $quotedString string to remove quotes from
-     * @param string $quote        type of quote to remove
+     * @param string      $quotedString string to remove quotes from
+     * @param string|null $quote        type of quote to remove
      *
      * @return string unquoted string
      */

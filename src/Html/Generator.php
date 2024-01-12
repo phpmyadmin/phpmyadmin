@@ -82,9 +82,9 @@ class Generator
     /**
      * Get a link to variable documentation
      *
-     * @param string $name       The variable name
-     * @param bool   $useMariaDB Use only MariaDB documentation
-     * @param string $text       (optional) The text for the link
+     * @param string      $name       The variable name
+     * @param bool        $useMariaDB Use only MariaDB documentation
+     * @param string|null $text       (optional) The text for the link
      *
      * @return string link or empty string
      */

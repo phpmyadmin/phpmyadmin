@@ -866,11 +866,11 @@ class Config
      * sets cookie if value is different from current cookie value,
      * or removes if value is equal to default
      *
-     * @param string $cookie   name of cookie to remove
-     * @param string $value    new cookie value
-     * @param string $default  default value
-     * @param int    $validity validity of cookie in seconds (default is one month)
-     * @param bool   $httponly whether cookie is only for HTTP (and not for scripts)
+     * @param string      $cookie   name of cookie to remove
+     * @param string      $value    new cookie value
+     * @param string|null $default  default value
+     * @param int|null    $validity validity of cookie in seconds (default is one month)
+     * @param bool        $httponly whether cookie is only for HTTP (and not for scripts)
      */
     public function setCookie(
         string $cookie,
