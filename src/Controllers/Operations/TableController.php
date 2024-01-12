@@ -241,13 +241,12 @@ class TableController extends AbstractController
             $tableAlters = $this->operations->getTableAltersArray(
                 $pmaTable,
                 $createOptions['pack_keys'],
-                (empty($createOptions['checksum']) ? '0' : '1'),
-                ($createOptions['page_checksum'] ?? ''),
-                (empty($createOptions['delay_key_write']) ? '0' : '1'),
+                empty($createOptions['checksum']) ? '0' : '1',
+                $createOptions['page_checksum'] ?? '',
+                empty($createOptions['delay_key_write']) ? '0' : '1',
                 $createOptions['row_format'] ?? $pmaTable->getRowFormat(),
                 $newTblStorageEngine,
-                (isset($createOptions['transactional'])
-                    && $createOptions['transactional'] == '0' ? '0' : '1'),
+                isset($createOptions['transactional']) && $createOptions['transactional'] == '0' ? '0' : '1',
                 $tableCollation,
                 $tableStorageEngine,
             );

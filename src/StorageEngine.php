@@ -73,7 +73,7 @@ class StorageEngine
 
         $this->engine = $engine;
         $this->title = $storageEngines[$engine]['Engine'];
-        $this->comment = ($storageEngines[$engine]['Comment'] ?? '');
+        $this->comment = $storageEngines[$engine]['Comment'] ?? '';
         $this->support = match ($storageEngines[$engine]['Support']) {
             'DEFAULT' => self::SUPPORT_DEFAULT,
             'YES' => self::SUPPORT_YES,

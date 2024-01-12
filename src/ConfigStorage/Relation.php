@@ -768,15 +768,15 @@ class Relation
             $value = (string) $value;
 
             if (mb_check_encoding($key, 'utf-8') && ! preg_match('/[\x00-\x08\x0B\x0C\x0E-\x1F\x80-\x9F]/u', $key)) {
-                $selected = ($key === $data);
+                $selected = $key === $data;
                 // show as text if it's valid utf-8
                 $key = htmlspecialchars($key);
             } else {
                 $key = '0x' . bin2hex($key);
                 if (str_contains($data, '0x')) {
-                    $selected = ($key === trim($data));
+                    $selected = $key === trim($data);
                 } else {
-                    $selected = ($key === '0x' . $data);
+                    $selected = $key === '0x' . $data;
                 }
             }
 

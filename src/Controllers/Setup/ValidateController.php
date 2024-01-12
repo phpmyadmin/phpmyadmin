@@ -39,7 +39,7 @@ final class ValidateController
         /** @var mixed $valuesParam */
         $valuesParam = $request->getParsedBodyParam('values');
         $values = json_decode(is_string($valuesParam) ? $valuesParam : '');
-        if (! ($values instanceof stdClass)) {
+        if (! $values instanceof stdClass) {
             return $response->write((string) json_encode(['success' => false, 'message' => __('Wrong data')]));
         }
 

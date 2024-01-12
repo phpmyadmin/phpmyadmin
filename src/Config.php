@@ -633,7 +633,7 @@ class Config
         }
 
         $perms = @fileperms($this->getSource());
-        if ($perms === false || (! ($perms & 2))) {
+        if ($perms === false || ! ($perms & 2)) {
             return;
         }
 

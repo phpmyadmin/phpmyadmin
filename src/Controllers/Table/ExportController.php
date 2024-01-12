@@ -69,7 +69,7 @@ class ExportController extends AbstractController
         if (! empty($GLOBALS['sql_query'])) {
             $parser = new Parser($GLOBALS['sql_query']);
 
-            if (! empty($parser->statements[0]) && ($parser->statements[0] instanceof SelectStatement)) {
+            if (! empty($parser->statements[0]) && $parser->statements[0] instanceof SelectStatement) {
                 // Checking if the WHERE clause has to be replaced.
                 $replaces = [];
                 if (! empty($GLOBALS['where_clause']) && is_array($GLOBALS['where_clause'])) {

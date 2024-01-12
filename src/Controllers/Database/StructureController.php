@@ -839,7 +839,7 @@ final class StructureController extends AbstractController
             $tblsize = $currentTable['Data_length']
                 + $currentTable['Index_length'];
             $sumSize += $tblsize;
-            [$formattedSize, $unit] = Util::formatByteDown($tblsize, 3, ($tblsize > 0 ? 1 : 0));
+            [$formattedSize, $unit] = Util::formatByteDown($tblsize, 3, $tblsize > 0 ? 1 : 0);
         }
 
         return [$currentTable, $formattedSize, $unit, $sumSize];
@@ -864,7 +864,7 @@ final class StructureController extends AbstractController
             /** @var int $tblsize */
             $tblsize = $currentTable['Data_length'] + $currentTable['Index_length'];
             $sumSize += $tblsize;
-            [$formattedSize, $unit] = Util::formatByteDown($tblsize, 3, ($tblsize > 0 ? 1 : 0));
+            [$formattedSize, $unit] = Util::formatByteDown($tblsize, 3, $tblsize > 0 ? 1 : 0);
         }
 
         return [$currentTable, $formattedSize, $unit, $sumSize];

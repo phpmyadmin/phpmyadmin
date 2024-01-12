@@ -39,7 +39,6 @@ use function htmlspecialchars;
 use function implode;
 use function in_array;
 use function ini_get;
-use function intval;
 use function is_array;
 use function is_string;
 use function json_encode;
@@ -278,7 +277,7 @@ class Generator
         // and the column does not have the
         // ON UPDATE DEFAULT TIMESTAMP attribute.
         if (
-            ($trueType === 'timestamp')
+            $trueType === 'timestamp'
             && $firstTimestamp
             && ($defaultValue === null || $defaultValue === '')
             && $extra !== 'on update CURRENT_TIMESTAMP'

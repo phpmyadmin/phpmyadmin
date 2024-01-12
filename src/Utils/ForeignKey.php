@@ -23,7 +23,7 @@ final class ForeignKey
     public static function isSupported(string $engine): bool
     {
         $engine = strtoupper($engine);
-        if (($engine === 'INNODB') || ($engine === 'PBXT')) {
+        if ($engine === 'INNODB' || $engine === 'PBXT') {
             return true;
         }
 

@@ -343,8 +343,8 @@ class Sql
                 || $statementInfo->isAnalyse)
             && $statementInfo->selectFrom
             && ($statementInfo->selectExpression === []
-                || ((count($statementInfo->selectExpression) === 1)
-                    && ($statementInfo->selectExpression[0] === '*')))
+                || (count($statementInfo->selectExpression) === 1
+                    && $statementInfo->selectExpression[0] === '*'))
             && count($statementInfo->selectTables) === 1;
     }
 

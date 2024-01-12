@@ -250,11 +250,11 @@ class InsertEdit
         $config = Config::getInstance();
         switch ($which) {
             case 'function':
-                $params['ShowFunctionFields'] = ($isShow ? 0 : 1);
+                $params['ShowFunctionFields'] = $isShow ? 0 : 1;
                 $params['ShowFieldTypesInDataEditView'] = $config->settings['ShowFieldTypesInDataEditView'];
                 break;
             case 'type':
-                $params['ShowFieldTypesInDataEditView'] = ($isShow ? 0 : 1);
+                $params['ShowFieldTypesInDataEditView'] = $isShow ? 0 : 1;
                 $params['ShowFunctionFields'] = $config->settings['ShowFunctionFields'];
                 break;
         }
@@ -486,7 +486,7 @@ class InsertEdit
     private function getSelectOptionForUpload(string $vkey, string $fieldHashMd5): string
     {
         $files = $this->fileListing->getFileSelectOptions(
-            Util::userDir((Config::getInstance()->settings['UploadDir'] ?? '')),
+            Util::userDir(Config::getInstance()->settings['UploadDir'] ?? ''),
         );
 
         if ($files === false) {

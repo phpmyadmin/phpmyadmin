@@ -23,7 +23,7 @@ final class AssetExtension extends AbstractExtension
     {
         if ($this->themeManager === null) {
             $themeManager = ContainerBuilder::getContainer()->get(ThemeManager::class);
-            if (! ($themeManager instanceof ThemeManager)) {
+            if (! $themeManager instanceof ThemeManager) {
                 return '';
             }
 

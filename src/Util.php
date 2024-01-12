@@ -387,7 +387,7 @@ class Util
                 /* l10n: Thousands separator */
                 __(','),
             );
-            if (($originalValue != 0) && (floatval($value) == 0)) {
+            if ($originalValue != 0 && floatval($value) == 0) {
                 return ' <' . (1 / 10 ** $digitsRight);
             }
 
@@ -961,11 +961,11 @@ class Util
             }
 
             $printType = (string) preg_replace('@zerofill@', '', $printType, -1, $zerofillCount);
-            $zerofill = ($zerofillCount > 0);
+            $zerofill = $zerofillCount > 0;
             $printType = (string) preg_replace('@unsigned@', '', $printType, -1, $unsignedCount);
-            $unsigned = ($unsignedCount > 0);
+            $unsigned = $unsignedCount > 0;
             $printType = (string) preg_replace('@\/\*!100301 compressed\*\/@', '', $printType, -1, $compressedCount);
-            $compressed = ($compressedCount > 0);
+            $compressed = $compressedCount > 0;
             $printType = trim($printType);
         }
 

@@ -198,7 +198,7 @@ class Operations
                     $table,
                     $newDatabaseName->getName(),
                     $table,
-                    ($copyMode ?? 'data'),
+                    $copyMode ?? 'data',
                     $move,
                     'db_copy',
                     isset($_POST['drop_if_exists']) && $_POST['drop_if_exists'] === 'true',

@@ -166,9 +166,9 @@ class BrowseForeigners
                 . htmlspecialchars((string) $_POST['rownumber']) . '">';
         }
 
-        $filterValue = (isset($_POST['foreign_filter'])
+        $filterValue = isset($_POST['foreign_filter'])
             ? htmlspecialchars($_POST['foreign_filter'])
-            : '');
+            : '';
         $output .= '<div class="col-auto">'
             . '<label class="form-label" for="input_foreign_filter">' . __('Search:') . '</label></div>' . "\n"
             . '<div class="col-auto"><input class="form-control" type="text" name="foreign_filter" '

@@ -162,7 +162,7 @@ class Import
                 $GLOBALS['msg'] .= __('MySQL returned an empty result set (i.e. zero rows).');
             }
 
-            if (($aNumRows > 0) || $isUseQuery) {
+            if ($aNumRows > 0 || $isUseQuery) {
                 $sqlData[] = $sql;
             }
         }
@@ -1112,7 +1112,7 @@ class Import
                         $tempSQLStr .= (string) $tables[$i][self::ROWS][$j][$k];
                     } else {
                         if ($analyses != null) {
-                            $isVarchar = ($analyses[$i][self::TYPES][$colCount] === self::VARCHAR);
+                            $isVarchar = $analyses[$i][self::TYPES][$colCount] === self::VARCHAR;
                         } else {
                             $isVarchar = ! is_numeric($tables[$i][self::ROWS][$j][$k]);
                         }
@@ -1348,10 +1348,10 @@ class Import
 
         // Check if query is supported.
         if (
-            ! (($statement instanceof InsertStatement)
-            || ($statement instanceof UpdateStatement)
-            || ($statement instanceof DeleteStatement)
-            || ($statement instanceof ReplaceStatement))
+            ! ($statement instanceof InsertStatement
+            || $statement instanceof UpdateStatement
+            || $statement instanceof DeleteStatement
+            || $statement instanceof ReplaceStatement)
         ) {
             return false;
         }
@@ -1455,7 +1455,7 @@ class Import
             : '';
 
         return $fileListing->getFileSelectOptions(
-            Util::userDir((Config::getInstance()->settings['UploadDir'] ?? '')),
+            Util::userDir(Config::getInstance()->settings['UploadDir'] ?? ''),
             $matcher,
             $active,
         );

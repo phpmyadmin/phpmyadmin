@@ -235,7 +235,7 @@ class ImportMediawiki extends ImportPlugin
                         $curTableName = '';
                     }
                     // What's after the row tag is now only attributes
-                } elseif (($firstCharacter === '|') || ($firstCharacter === '!')) {
+                } elseif ($firstCharacter === '|' || $firstCharacter === '!') {
                     // Check cell elements
 
                     // Header cells

@@ -586,7 +586,7 @@ class Plugins
                     // check for hidden properties
                     $noOptions = true;
                     foreach ($propertyMainGroup->getProperties() as $propertyItem) {
-                        if (! ($propertyItem instanceof HiddenPropertyItem)) {
+                        if (! $propertyItem instanceof HiddenPropertyItem) {
                             $noOptions = false;
                             break;
                         }

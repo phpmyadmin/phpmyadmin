@@ -657,7 +657,7 @@ class Table implements Stringable
         $rowCount = null;
 
         if (! $forceExact) {
-            if (($cache->getCachedTableContent($this->dbName, $this->name, 'Rows') === null) && ! $isView) {
+            if ($cache->getCachedTableContent($this->dbName, $this->name, 'Rows') === null && ! $isView) {
                 $this->dbi->getTablesFull($this->dbName, $this->name);
             }
 
@@ -2138,7 +2138,7 @@ class Table implements Stringable
 
             // this is an alteration and the old constraint has been dropped
             // without creation of a new one
-            if (! $drop || ($tmpErrorCreate === '' || $tmpErrorCreate === false)) {
+            if (! $drop || $tmpErrorCreate === '' || $tmpErrorCreate === false) {
                 continue;
             }
 

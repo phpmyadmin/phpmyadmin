@@ -91,7 +91,7 @@ class IpAllowDeny
         // perform a range match
         for ($i = 0; $i < 4; $i++) {
             if (preg_match('|\[([0-9]+)\-([0-9]+)\]|', $maskocts[$i], $regs)) {
-                if (($ipocts[$i] > $regs[2]) || ($ipocts[$i] < $regs[1])) {
+                if ($ipocts[$i] > $regs[2] || $ipocts[$i] < $regs[1]) {
                     $result = false;
                 }
             } elseif ($maskocts[$i] !== $ipocts[$i]) {
@@ -157,7 +157,7 @@ class IpAllowDeny
                 $lastHex = bin2hex((string) inet_pton($lastIp));
 
                 // check if the IP to test is within the range
-                $result = ($ipHex >= $firstHex && $ipHex <= $lastHex);
+                $result = $ipHex >= $firstHex && $ipHex <= $lastHex;
             }
 
             return $result;
@@ -200,7 +200,7 @@ class IpAllowDeny
             }
 
             // check if the IP to test is within the range
-            $result = ($ipHex >= $firstHex && $ipHex <= $lastHex);
+            $result = $ipHex >= $firstHex && $ipHex <= $lastHex;
         }
 
         return $result;
@@ -269,8 +269,8 @@ class IpAllowDeny
 
             // check for username
             if (
-                ($ruleData[1] !== '%') //wildcarded first
-                && (! hash_equals($ruleData[1], $username))
+                $ruleData[1] !== '%' //wildcarded first
+                && ! hash_equals($ruleData[1], $username)
             ) {
                 continue;
             }
