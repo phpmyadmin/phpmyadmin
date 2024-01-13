@@ -14,6 +14,8 @@ use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Utils\SessionCache;
 use stdClass;
 
+use function array_keys;
+
 /**
  * @covers \PhpMyAdmin\DatabaseInterface
  */
@@ -581,6 +583,23 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
         $actual = $this->dbi->getTablesFull('test_db');
         $this->assertEquals($expected, $actual);
+    }
+
+    public function testGetTablesFullBug18913(): void
+    {
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        $GLOBALS['cfg']['NaturalOrder'] = false;
+
+        $expected = ['0', '1', '42'];
+
+        $this->dummyDbi->addResult('SHOW TABLE STATUS FROM `test_db_bug_18913`', [
+            ['0', ''],
+            ['1', ''],
+            ['42', ''],
+        ], ['Name', 'Engine']);
+
+        $actual = $this->dbi->getTablesFull('test_db_bug_18913');
+        $this->assertEquals($expected, array_keys($actual));
     }
 
     /**
