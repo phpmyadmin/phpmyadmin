@@ -2698,10 +2698,10 @@ function onloadEnumSetEditor (): void {
 function getAddIndexEventHandler () {
     return function (event) {
         event.preventDefault();
-        var hadAddButtonHidden = $(this).closest('fieldset').find('.add_fields').hasClass('hide');
+        var hadAddButtonHidden = $(this).closest('.card-body').find('.add_fields').hasClass('hide');
         if (hadAddButtonHidden === false) {
             var rowsToAdd = $(this)
-                .closest('fieldset')
+                .closest('.card-body')
                 .find('.slider')
                 .slider('value');
 
@@ -2893,7 +2893,7 @@ function showIndexEditDialog ($outer) {
         min: 1,
         max: 16,
         slide: function (event, ui) {
-            $(this).closest('fieldset').find('input[type=submit]').val(
+            $(this).closest('.card-body').find('input[type=submit]').val(
                 window.sprintf(window.Messages.strAddToIndex, ui.value)
             );
         }
