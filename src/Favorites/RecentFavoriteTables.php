@@ -122,7 +122,7 @@ class RecentFavoriteTables
     private function getFromDb(): array
     {
         // Read from phpMyAdmin database, if recent tables is not in session
-        $sqlQuery = ' SELECT `tables` FROM ' . $this->getPmaTable()
+        $sqlQuery = 'SELECT `tables` FROM ' . $this->getPmaTable()
             . ' WHERE `username` = '
             . $this->dbi->quoteString(Config::getInstance()->selectedServer['user'], Connection::TYPE_CONTROL);
 
