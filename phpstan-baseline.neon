@@ -2001,29 +2001,9 @@ parameters:
 			path: src/Controllers/Database/Structure/CopyTableWithPrefixController.php
 
 		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 2
-			path: src/Controllers/Database/Structure/DropFormController.php
-
-		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/DropFormController.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/DropFormController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Database/Structure/DropFormController.php
-
-		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/DropTableController.php
 
 		-
 			message: "#^Cannot access offset 'table_limit_offset' on mixed\\.$#"
@@ -2033,11 +2013,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'table_limit_offset…' on mixed\\.$#"
 			count: 1
-			path: src/Controllers/Database/Structure/DropTableController.php
-
-		-
-			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
-			count: 2
 			path: src/Controllers/Database/Structure/DropTableController.php
 
 		-
@@ -2056,22 +2031,7 @@ parameters:
 			path: src/Controllers/Database/Structure/DropTableController.php
 
 		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Database/Structure/DropTableController.php
-
-		-
 			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:tryQuery\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/DropTableController.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/DropTableController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\ConfigStorage\\\\RelationCleanup\\:\\:table\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/DropTableController.php
 

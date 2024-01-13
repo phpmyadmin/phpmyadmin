@@ -15,7 +15,6 @@ use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
 use function htmlspecialchars;
-use function in_array;
 
 final class DropFormController extends AbstractController
 {
@@ -26,6 +25,7 @@ final class DropFormController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
+        /** @var string[] $selected */
         $selected = $request->getParsedBodyParam('selected_tbl', []);
 
         if (empty($selected)) {
@@ -35,14 +35,12 @@ final class DropFormController extends AbstractController
             return;
         }
 
-        $views = $this->dbi->getVirtualTables(Current::$database);
-
         $fullQueryViews = '';
         $fullQuery = '';
 
         foreach ($selected as $selectedValue) {
             $current = $selectedValue;
-            if ($views !== [] && in_array($current, $views)) {
+            if ($this->dbi->getTable(Current::$database, $current)->isView()) {
                 $fullQueryViews .= ($fullQueryViews === '' ? 'DROP VIEW ' : ', ')
                     . Util::backquote(htmlspecialchars($current));
             } else {
@@ -62,10 +60,6 @@ final class DropFormController extends AbstractController
         $urlParams = ['db' => Current::$database];
         foreach ($selected as $selectedValue) {
             $urlParams['selected'][] = $selectedValue;
-        }
-
-        foreach ($views as $current) {
-            $urlParams['views'][] = $current;
         }
 
         $this->render('database/structure/drop_form', [

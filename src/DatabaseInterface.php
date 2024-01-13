@@ -604,31 +604,6 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * Get VIEWs in a particular database
-     *
-     * @param string $db Database name to look in
-     *
-     * @return Table[] Set of VIEWs inside the database
-     */
-    public function getVirtualTables(string $db): array
-    {
-        /** @var string[] $tablesFull */
-        $tablesFull = array_column($this->getTablesFull($db), 'TABLE_NAME');
-        $views = [];
-
-        foreach ($tablesFull as $table) {
-            $table = $this->getTable($db, $table);
-            if (! $table->isView()) {
-                continue;
-            }
-
-            $views[] = $table;
-        }
-
-        return $views;
-    }
-
-    /**
      * returns array with databases containing extended infos about them
      *
      * @param string|null $database    database

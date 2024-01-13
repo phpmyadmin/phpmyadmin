@@ -1337,17 +1337,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/Structure/DropFormController.php">
-    <MixedArgument>
-      <code>$current</code>
-      <code>$current</code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code>$current</code>
-      <code>$selected</code>
-      <code>$selectedValue</code>
-      <code>$selectedValue</code>
-      <code><![CDATA[$urlParams['selected'][]]]></code>
-    </MixedAssignment>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
@@ -1363,15 +1352,6 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['reload']]]></code>
     </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code>$current</code>
-      <code>$current</code>
-      <code>$selected</code>
-      <code>$selected[$i]</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code>$selected[$i]</code>
-    </PossiblyInvalidCast>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>

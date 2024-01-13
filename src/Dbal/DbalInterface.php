@@ -108,15 +108,6 @@ interface DbalInterface
     ): array;
 
     /**
-     * Get VIEWs in a particular database
-     *
-     * @param string $db Database name to look in
-     *
-     * @return Table[] Set of VIEWs inside the database
-     */
-    public function getVirtualTables(string $db): array;
-
-    /**
      * returns array with databases containing extended infos about them
      *
      * @param string|null $database    database

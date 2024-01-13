@@ -18,7 +18,6 @@ use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
 use function count;
-use function in_array;
 
 final class DropTableController extends AbstractController
 {
@@ -36,9 +35,8 @@ final class DropTableController extends AbstractController
     {
         $GLOBALS['reload'] = $_POST['reload'] ?? $GLOBALS['reload'] ?? null;
         $multBtn = $_POST['mult_btn'] ?? '';
+        /** @var string[] $selected */
         $selected = $_POST['selected'] ?? [];
-
-        $views = $this->dbi->getVirtualTables(Current::$database);
 
         if ($multBtn !== __('Yes')) {
             $GLOBALS['message'] = Message::success(__('No change'));
@@ -59,7 +57,7 @@ final class DropTableController extends AbstractController
             $this->relationCleanup->table(Current::$database, $selected[$i]);
             $current = $selected[$i];
 
-            if ($views !== [] && in_array($current, $views)) {
+            if ($this->dbi->getTable(Current::$database, $current)->isView()) {
                 $sqlQueryViews .= ($sqlQueryViews === '' ? 'DROP VIEW ' : ', ') . Util::backquote($current);
             } else {
                 $GLOBALS['sql_query'] .= (empty($GLOBALS['sql_query']) ? 'DROP TABLE ' : ', ')
