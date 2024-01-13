@@ -1496,6 +1496,11 @@ parameters:
 			path: libraries/classes/Controllers/Table/ChangeController.php
 
 		-
+			message: "#^Variable \\$original_sql_query in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/DeleteRowsController.php
+
+		-
 			message: "#^Parameter \\#2 \\$list of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:replaceClauses\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\TokensList, PhpMyAdmin\\\\SqlParser\\\\TokensList\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ExportController.php
@@ -3307,6 +3312,11 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$internalMediaType \\(string\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Variable \\$sessionMaxRows in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
