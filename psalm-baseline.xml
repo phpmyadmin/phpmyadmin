@@ -11695,8 +11695,6 @@
     </MixedReturnTypeCoercion>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['constraint_name'][$masterFieldMd5]]]></code>
-      <code><![CDATA[$fields[$column]['expr']]]></code>
-      <code><![CDATA[$options['expr']]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidArrayOffset>
       <code><![CDATA[$_POST['constraint_name'][$masterFieldMd5]]]></code>
@@ -15722,6 +15720,7 @@
       <code><![CDATA['']]></code>
     </DocblockTypeContradiction>
     <InternalMethod>
+      <code>asString</code>
       <code>name</code>
       <code>status</code>
     </InternalMethod>
