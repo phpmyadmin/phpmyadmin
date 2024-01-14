@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-01-07 00:19+0000\n"
+"POT-Creation-Date: 2024-01-14 00:21+0000\n"
 "PO-Revision-Date: 2023-12-08 16:06+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -124,9 +124,9 @@ msgstr "Poslije %s"
 #: resources/templates/server/status/processes/list.twig:72
 #: resources/templates/table/zoom_search/index.twig:60
 #: resources/templates/table/zoom_search/index.twig:117
-#: src/Config/ConfigFile.php:556
+#: src/Config/ConfigFile.php:553
 #: src/Controllers/JavaScriptMessagesController.php:219
-#: src/Display/Results.php:962 src/Plugins/Export/ExportSql.php:2052
+#: src/Display/Results.php:960 src/Plugins/Export/ExportSql.php:2053
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "bez kompresije"
@@ -205,8 +205,8 @@ msgstr "Dodaj stupac/stupce"
 #: resources/templates/view_create.twig:122 src/BrowseForeigners.php:179
 #: src/Controllers/JavaScriptMessagesController.php:335
 #: src/Controllers/Server/PrivilegesController.php:294
-#: src/Normalization.php:227 src/Tracking/Tracking.php:305
-#: src/Tracking/Tracking.php:447
+#: src/Normalization.php:227 src/Tracking/Tracking.php:306
+#: src/Tracking/Tracking.php:448
 msgid "Go"
 msgstr "Kreni"
 
@@ -357,7 +357,7 @@ msgstr "Lokalno"
 #: resources/templates/table/zoom_search/result_form.twig:79
 #: resources/templates/table/zoom_search/result_form.twig:95
 #: src/Controllers/JavaScriptMessagesController.php:146
-#: src/Tracking/Tracking.php:206 src/Tracking/Tracking.php:588
+#: src/Tracking/Tracking.php:207 src/Tracking/Tracking.php:589
 msgid "Close"
 msgstr "Zatvori"
 
@@ -524,8 +524,8 @@ msgstr "Korisnik"
 #: resources/templates/database/structure/structure_table_row.twig:48
 #: resources/templates/server/privileges/privileges_table.twig:356
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:1
-#: src/Config/ConfigFile.php:520 src/Config/ConfigFile.php:534
-#: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
+#: src/Config/ConfigFile.php:517 src/Config/ConfigFile.php:531
+#: src/Config/ConfigFile.php:585 src/Config/ConfigFile.php:595
 #: src/Config/Forms/User/ExportForm.php:53
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
@@ -533,8 +533,8 @@ msgstr "Korisnik"
 #: src/Import/Import.php:1246 src/Menu.php:220 src/Menu.php:324
 #: src/Navigation/Nodes/NodeColumn.php:40
 #: src/Navigation/Nodes/NodeDatabase.php:56
-#: src/Navigation/Nodes/NodeTable.php:289 src/Util.php:1055 src/Util.php:1482
-#: src/Util.php:1499
+#: src/Navigation/Nodes/NodeTable.php:289 src/Util.php:1056 src/Util.php:1483
+#: src/Util.php:1500
 msgid "Structure"
 msgstr "Struktura"
 
@@ -576,7 +576,7 @@ msgstr "Naziv"
 #: resources/templates/table/structure/display_structure.twig:475
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:6
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:5
-#: resources/templates/table/zoom_search/index.twig:36 src/InsertEdit.php:291
+#: resources/templates/table/zoom_search/index.twig:36 src/InsertEdit.php:290
 #: src/Plugins/Export/ExportHtmlword.php:266
 #: src/Plugins/Export/ExportHtmlword.php:359
 #: src/Plugins/Export/ExportLatex.php:506 src/Plugins/Export/ExportOdt.php:364
@@ -816,7 +816,7 @@ msgstr "Povrat"
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
-#: src/Html/Generator.php:698 src/Html/MySQLDocumentation.php:49
+#: src/Html/Generator.php:696 src/Html/MySQLDocumentation.php:49
 #: src/Sanitize.php:188
 msgid "Documentation"
 msgstr "Dokumentacija"
@@ -845,7 +845,7 @@ msgstr ""
 #: resources/templates/relation/check_relations.twig:462
 #: resources/templates/relation/check_relations.twig:487
 #: resources/templates/relation/check_relations.twig:512
-#: src/Config/ConfigFile.php:571 src/Config/ConfigFile.php:608
+#: src/Config/ConfigFile.php:568 src/Config/ConfigFile.php:605
 msgid "Disabled"
 msgstr "Onemogućeno"
 
@@ -988,8 +988,8 @@ msgstr "unutar upita"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:399
-#: src/Display/Results.php:2548 src/Html/Generator.php:547
-#: src/Html/Generator.php:813
+#: src/Display/Results.php:2541 src/Html/Generator.php:545
+#: src/Html/Generator.php:811
 msgid "Edit"
 msgstr "Uređivanje"
 
@@ -1007,7 +1007,7 @@ msgstr "Uređivanje"
 #: resources/templates/setup/home/index.twig:68
 #: resources/templates/sql/query.twig:184
 #: src/Controllers/JavaScriptMessagesController.php:400
-#: src/Display/Results.php:2607 src/Tracking/Tracking.php:230
+#: src/Display/Results.php:2600 src/Tracking/Tracking.php:231
 msgid "Delete"
 msgstr "Izbriši"
 
@@ -1028,8 +1028,8 @@ msgstr "Izbriši"
 #: resources/templates/table/relation/foreign_key_row.twig:91
 #: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:138
 #: src/Plugins/Export/ExportOdt.php:182
-#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1574
-#: src/Server/Privileges.php:1576 src/Server/Status/Processes.php:93
+#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1575
+#: src/Server/Privileges.php:1577 src/Server/Status/Processes.php:93
 msgid "Database"
 msgstr "Baza podataka"
 
@@ -1061,18 +1061,18 @@ msgstr "SQL povijest"
 #: resources/templates/database/routines/editor_form.twig:57
 #: resources/templates/table/structure/display_table_stats.twig:96
 #: src/Import/Import.php:1216 src/Import/Import.php:1247
-#: src/Plugins/Export/ExportCodegen.php:65 src/Plugins/Export/ExportCsv.php:43
+#: src/Plugins/Export/ExportCodegen.php:52 src/Plugins/Export/ExportCsv.php:43
 #: src/Plugins/Export/ExportExcel.php:37
 #: src/Plugins/Export/ExportHtmlword.php:47
 #: src/Plugins/Export/ExportJson.php:67 src/Plugins/Export/ExportLatex.php:68
 #: src/Plugins/Export/ExportMediawiki.php:44
 #: src/Plugins/Export/ExportOds.php:51 src/Plugins/Export/ExportOdt.php:60
 #: src/Plugins/Export/ExportPdf.php:60 src/Plugins/Export/ExportPhparray.php:43
-#: src/Plugins/Export/ExportSql.php:114
+#: src/Plugins/Export/ExportSql.php:115
 #: src/Plugins/Export/ExportTexytext.php:46 src/Plugins/Export/ExportXml.php:76
 #: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:68
 #: src/Plugins/Import/ImportLdi.php:52
-#: src/Plugins/Import/ImportMediawiki.php:57
+#: src/Plugins/Import/ImportMediawiki.php:56
 #: src/Plugins/Import/ImportOds.php:49 src/Plugins/Import/ImportShp.php:69
 #: src/Plugins/Import/ImportSql.php:41 src/Plugins/Import/ImportXml.php:47
 msgid "Options"
@@ -1111,7 +1111,7 @@ msgstr "Objasni SQL"
 
 #: resources/templates/console/display.twig:43
 #: resources/templates/console/display.twig:201
-#: resources/templates/sql/profiling_chart.twig:1 src/Html/Generator.php:634
+#: resources/templates/sql/profiling_chart.twig:1 src/Html/Generator.php:632
 msgid "Profiling"
 msgstr "Izrada profila"
 
@@ -1219,7 +1219,7 @@ msgstr ""
 #: resources/templates/server/status/processes/index.twig:14
 #: resources/templates/server/status/variables/index.twig:37
 #: src/Config/Descriptions.php:928 src/Export/Export.php:1238
-#: src/Html/Generator.php:603
+#: src/Html/Generator.php:601
 msgid "Refresh"
 msgstr "Osvježi"
 
@@ -1881,9 +1881,9 @@ msgstr "Vrsta događaja"
 #: resources/templates/database/events/index.twig:45
 #: resources/templates/database/tracking/tables.twig:16
 #: resources/templates/table/tracking/main.twig:30
-#: src/Config/ConfigFile.php:580
+#: src/Config/ConfigFile.php:577
 #: src/Controllers/JavaScriptMessagesController.php:286 src/Menu.php:452
-#: src/Server/Status/Processes.php:96 src/Util.php:1469
+#: src/Server/Status/Processes.php:96 src/Util.php:1470
 msgid "Status"
 msgstr "Stanje"
 
@@ -1950,8 +1950,8 @@ msgstr ""
 #: resources/templates/database/events/index.twig:3 src/Menu.php:383
 #: src/Navigation/Nodes/NodeEventContainer.php:23
 #: src/Navigation/Nodes/NodeEventContainer.php:25
-#: src/Plugins/Export/ExportSql.php:950 src/Plugins/Export/ExportXml.php:100
-#: src/Util.php:1491
+#: src/Plugins/Export/ExportSql.php:951 src/Plugins/Export/ExportXml.php:100
+#: src/Util.php:1492
 msgid "Events"
 msgstr "Događaji"
 
@@ -2013,8 +2013,8 @@ msgstr "Označi sve"
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:384 src/Menu.php:247
-#: src/Menu.php:349 src/Menu.php:471 src/Server/Privileges.php:1291
-#: src/Util.php:1471 src/Util.php:1486 src/Util.php:1503
+#: src/Menu.php:349 src/Menu.php:471 src/Server/Privileges.php:1292
+#: src/Util.php:1472 src/Util.php:1487 src/Util.php:1504
 msgid "Export"
 msgstr "Izvoz"
 
@@ -2042,7 +2042,7 @@ msgstr "Izvoz"
 #: resources/templates/triggers/list.twig:18
 #: resources/templates/triggers/list.twig:21
 #: resources/templates/triggers/row.twig:52
-#: resources/templates/triggers/row.twig:58 src/Operations.php:522
+#: resources/templates/triggers/row.twig:58 src/Operations.php:523
 msgid "Drop"
 msgstr "Ispusti"
 
@@ -2095,7 +2095,7 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "Izradi novu tablicu u bazi podataka %s"
 
 #: resources/templates/database/export/index.twig:13
-#: src/Navigation/Navigation.php:213
+#: src/Navigation/Navigation.php:211
 #, fuzzy
 #| msgid "Tables"
 msgid "Tables:"
@@ -2188,7 +2188,7 @@ msgid "criteria"
 msgstr "Kriterij"
 
 #: resources/templates/database/multi_table_query/form.twig:50
-#: src/Util.php:2001
+#: src/Util.php:2003
 msgid "Sort"
 msgstr "Presloži"
 
@@ -2199,8 +2199,8 @@ msgstr "Presloži"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:22
 #: resources/templates/table/search/index.twig:154
-#: src/Config/ConfigFile.php:556 src/Display/Results.php:1502
-#: src/Display/Results.php:1509 src/Util.php:2009 src/Util.php:2026
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1497
+#: src/Display/Results.php:1504 src/Util.php:2011 src/Util.php:2028
 msgid "Ascending"
 msgstr "Uzlazno"
 
@@ -2211,8 +2211,8 @@ msgstr "Uzlazno"
 #: resources/templates/server/status/processes/list.twig:11
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:159
-#: src/Config/ConfigFile.php:556 src/Display/Results.php:1497
-#: src/Display/Results.php:1514 src/Util.php:2014 src/Util.php:2031
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1492
+#: src/Display/Results.php:1509 src/Util.php:2016 src/Util.php:2033
 msgid "Descending"
 msgstr "Silazno"
 
@@ -2225,8 +2225,8 @@ msgstr "Dodaj %s"
 #. l10n: Notes
 #: resources/templates/database/multi_table_query/form.twig:73
 #: resources/templates/test/gettext/gettext.twig:0
-#: resources/templates/test/gettext/notes.twig:0 src/Config/ConfigFile.php:547
-#: src/Config/ConfigFile.php:559 src/Config/ConfigFile.php:567
+#: resources/templates/test/gettext/notes.twig:0 src/Config/ConfigFile.php:544
+#: src/Config/ConfigFile.php:556 src/Config/ConfigFile.php:564
 #, fuzzy
 #| msgid "Test"
 msgid "Text"
@@ -2262,7 +2262,7 @@ msgid "Update query"
 msgstr "Ažuriraj upit"
 
 #: resources/templates/database/multi_table_query/form.twig:165
-#: src/Html/Generator.php:572
+#: src/Html/Generator.php:570
 #, fuzzy
 #| msgid "Submit Query"
 msgid "Submit query"
@@ -2335,21 +2335,21 @@ msgstr "naziv baze podataka"
 #: resources/templates/database/operations/index.twig:124
 #: resources/templates/database/structure/copy_form.twig:17
 #: resources/templates/table/operations/index.twig:267
-#: src/Tracking/Tracking.php:290
+#: src/Tracking/Tracking.php:291
 msgid "Structure only"
 msgstr "Samo strukturu"
 
 #: resources/templates/database/operations/index.twig:133
 #: resources/templates/database/structure/copy_form.twig:14
 #: resources/templates/table/operations/index.twig:277
-#: src/Tracking/Tracking.php:296
+#: src/Tracking/Tracking.php:297
 msgid "Structure and data"
 msgstr "Strukturu i podatke"
 
 #: resources/templates/database/operations/index.twig:139
 #: resources/templates/database/structure/copy_form.twig:21
 #: resources/templates/table/operations/index.twig:283
-#: src/Tracking/Tracking.php:293
+#: src/Tracking/Tracking.php:294
 msgid "Data only"
 msgstr "Samo podatke"
 
@@ -2425,9 +2425,9 @@ msgstr "Naziv zapisnika"
 #: resources/templates/server/privileges/privileges_summary.twig:15
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:21
-#: src/Config/ConfigFile.php:584
+#: src/Config/ConfigFile.php:581
 #: src/Controllers/Server/PrivilegesController.php:412 src/Menu.php:263
-#: src/Menu.php:371 src/Util.php:1489 src/Util.php:1505
+#: src/Menu.php:371 src/Util.php:1490 src/Util.php:1506
 msgid "Privileges"
 msgstr "Privilegije"
 
@@ -2472,7 +2472,7 @@ msgstr "Rutine"
 #: resources/templates/server/privileges/new_user_ajax.twig:45
 #: resources/templates/server/privileges/users_overview.twig:75
 #: resources/templates/table/privileges/index.twig:84
-#: src/Server/Privileges.php:1283
+#: src/Server/Privileges.php:1284
 #, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit privileges"
@@ -2480,7 +2480,7 @@ msgstr "Uredi privilegije"
 
 #: resources/templates/database/privileges/index.twig:100
 #: resources/templates/table/privileges/index.twig:104
-#: src/Server/Privileges.php:2070
+#: src/Server/Privileges.php:2071
 #, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
@@ -2503,7 +2503,7 @@ msgstr "S odabirom:"
 
 #: resources/templates/database/privileges/index.twig:122
 #: resources/templates/table/privileges/index.twig:126
-#: src/Server/Privileges.php:1227
+#: src/Server/Privileges.php:1228
 msgid "Not enough privilege to view users."
 msgstr ""
 
@@ -2598,13 +2598,13 @@ msgstr "Rutine"
 
 #: resources/templates/database/routines/execute_form.twig:18
 #: resources/templates/table/search/index.twig:36
-#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:290
+#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:289
 #: src/Navigation/Nodes/NodeFunction.php:26
 msgid "Function"
 msgstr "Funkcija"
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:377
-#: src/Util.php:1490
+#: src/Util.php:1491
 msgid "Routines"
 msgstr "Rutine"
 
@@ -2614,10 +2614,10 @@ msgstr "Rutine"
 #: resources/templates/database/structure/structure_table_row.twig:53
 #: resources/templates/server/databases/index.twig:76
 #: resources/templates/server/databases/index.twig:77
-#: src/Config/ConfigFile.php:524 src/Config/ConfigFile.php:538
-#: src/Config/ConfigFile.php:592 src/Config/ConfigFile.php:602 src/Menu.php:229
-#: src/Menu.php:333 src/Navigation/Nodes/NodeTable.php:290 src/Util.php:1057
-#: src/Util.php:1484 src/Util.php:1501
+#: src/Config/ConfigFile.php:521 src/Config/ConfigFile.php:535
+#: src/Config/ConfigFile.php:589 src/Config/ConfigFile.php:599 src/Menu.php:229
+#: src/Menu.php:333 src/Navigation/Nodes/NodeTable.php:290 src/Util.php:1058
+#: src/Util.php:1485 src/Util.php:1502
 msgid "Search"
 msgstr "Traži"
 
@@ -2719,9 +2719,9 @@ msgstr[1] "%s poklapanja unutar tablice <i>%s</i>"
 #: resources/templates/database/search/results.twig:32
 #: resources/templates/database/structure/structure_table_row.twig:43
 #: resources/templates/table/structure/display_structure.twig:282
-#: src/Config/ConfigFile.php:528 src/Config/ConfigFile.php:542
-#: src/Config/ConfigFile.php:606 src/Menu.php:213
-#: src/Navigation/Nodes/NodeTable.php:293 src/Util.php:1059 src/Util.php:1498
+#: src/Config/ConfigFile.php:525 src/Config/ConfigFile.php:539
+#: src/Config/ConfigFile.php:603 src/Menu.php:213
+#: src/Navigation/Nodes/NodeTable.php:293 src/Util.php:1060 src/Util.php:1499
 msgid "Browse"
 msgstr "Pretraživanje"
 
@@ -2750,7 +2750,7 @@ msgstr[2] "%s tablice"
 #: resources/templates/database/structure/body_for_table_summary.twig:11
 #: resources/templates/database/structure/table_header.twig:10
 #: resources/templates/server/replication/index.twig:4 src/Menu.php:503
-#: src/Server/Status/Data.php:149 src/Util.php:1475
+#: src/Server/Status/Data.php:149 src/Util.php:1476
 msgid "Replication"
 msgstr "Replikacija"
 
@@ -2868,7 +2868,7 @@ msgid "Copy table with prefix"
 msgstr "Kopiraj tablicu sa prefiksom"
 
 #: resources/templates/database/structure/check_all_tables.twig:32
-#: src/Menu.php:411 src/Util.php:1495
+#: src/Menu.php:411 src/Util.php:1496
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Central columns"
@@ -2902,7 +2902,7 @@ msgstr ""
 
 #: resources/templates/database/structure/copy_form.twig:2
 #: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:241
-#: src/Plugins/Export/ExportSql.php:887 src/Plugins/Export/ExportXml.php:373
+#: src/Plugins/Export/ExportSql.php:888 src/Plugins/Export/ExportXml.php:373
 #: src/Plugins/Export/Helpers/Pdf.php:176
 #, fuzzy
 #| msgid "Database"
@@ -2994,8 +2994,8 @@ msgstr "Prikaži pune upite"
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:29
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
-#: src/Plugins/Export/ExportXml.php:441 src/Server/Privileges.php:1580
-#: src/Server/Privileges.php:1582
+#: src/Plugins/Export/ExportXml.php:441 src/Server/Privileges.php:1581
+#: src/Server/Privileges.php:1583
 msgid "Table"
 msgstr "Tablica"
 
@@ -3012,7 +3012,7 @@ msgstr "Prikaz"
 #: resources/templates/database/structure/structure_table_row.twig:122
 #: resources/templates/database/structure/structure_table_row.twig:184
 #: src/Controllers/Operations/TableController.php:125
-#: src/Controllers/Operations/TableController.php:334
+#: src/Controllers/Operations/TableController.php:333
 #: src/Controllers/Table/StructureController.php:164
 #: src/Navigation/Nodes/NodeView.php:26
 msgid "View"
@@ -3042,9 +3042,9 @@ msgid "Replicated"
 msgstr "Replikacija"
 
 #: resources/templates/database/structure/structure_table_row.twig:59
-#: resources/templates/sql/query.twig:74 src/Config/ConfigFile.php:526
-#: src/Config/ConfigFile.php:540 src/Config/ConfigFile.php:604 src/Menu.php:240
-#: src/Navigation/Nodes/NodeTable.php:291 src/Util.php:1058 src/Util.php:1502
+#: resources/templates/sql/query.twig:74 src/Config/ConfigFile.php:523
+#: src/Config/ConfigFile.php:537 src/Config/ConfigFile.php:601 src/Menu.php:240
+#: src/Navigation/Nodes/NodeTable.php:291 src/Util.php:1059 src/Util.php:1503
 msgid "Insert"
 msgstr "Umetni"
 
@@ -3146,13 +3146,13 @@ msgstr "Verzije"
 
 #: resources/templates/database/tracking/tables.twig:115
 #: resources/templates/table/tracking/main.twig:73
-#: src/Tracking/Tracking.php:205
+#: src/Tracking/Tracking.php:206
 msgid "Tracking report"
 msgstr "Izvještaj o praćenju"
 
 #: resources/templates/database/tracking/tables.twig:126
 #: resources/templates/table/tracking/main.twig:80
-#: src/Tracking/Tracking.php:587
+#: src/Tracking/Tracking.php:588
 msgid "Structure snapshot"
 msgstr "Snimak strukture"
 
@@ -3266,14 +3266,14 @@ msgid "Extra options"
 msgstr "Opcije tablice"
 
 #: resources/templates/display/results/table.twig:209
-#: src/Display/Results.php:1145
+#: src/Display/Results.php:1143
 #, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Djelomični tekstovi"
 
 #: resources/templates/display/results/table.twig:213
-#: src/Display/Results.php:1149
+#: src/Display/Results.php:1147
 #, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
@@ -3320,7 +3320,7 @@ msgstr ""
 #: resources/templates/display/results/table.twig:321
 #: resources/templates/gis_data_editor_form.twig:62
 #: src/Controllers/JavaScriptMessagesController.php:487
-#: src/Display/Results.php:2552 src/Html/Generator.php:80
+#: src/Display/Results.php:2545 src/Html/Generator.php:78
 msgid "Copy"
 msgstr "Kopiraj"
 
@@ -3361,7 +3361,7 @@ msgstr ""
 #: src/Controllers/Table/Partition/DropController.php:57
 #: src/Controllers/Table/Partition/RebuildController.php:57
 #: src/Controllers/Table/Partition/TruncateController.php:57
-#: src/Html/Generator.php:764 src/Import/Import.php:146 src/InsertEdit.php:494
+#: src/Html/Generator.php:762 src/Import/Import.php:146 src/InsertEdit.php:493
 #: src/Message.php:145
 msgid "Error"
 msgstr "Pogreška"
@@ -3453,7 +3453,7 @@ msgstr "Ažurirano"
 
 #: resources/templates/export.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:131
-#: src/Html/Generator.php:788
+#: src/Html/Generator.php:786
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
@@ -3480,7 +3480,7 @@ msgstr ""
 msgid "Custom - display all possible options"
 msgstr "Opcije izvoza baze podataka"
 
-#: resources/templates/export.twig:125 src/Plugins/Export/ExportCodegen.php:79
+#: resources/templates/export.twig:125 src/Plugins/Export/ExportCodegen.php:66
 #, fuzzy
 #| msgid "Format"
 msgid "Format:"
@@ -3811,7 +3811,7 @@ msgstr ""
 #: resources/templates/header.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
 #: src/Controllers/JavaScriptMessagesController.php:216 src/Menu.php:481
-#: src/Util.php:1473
+#: src/Util.php:1474
 #, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
@@ -3937,7 +3937,7 @@ msgid "Server connection:"
 msgstr "Povezivanje poslužitelja:"
 
 #: resources/templates/home/index.twig:193
-#: src/Plugins/Export/ExportLatex.php:214 src/Plugins/Export/ExportSql.php:719
+#: src/Plugins/Export/ExportLatex.php:214 src/Plugins/Export/ExportSql.php:720
 #: src/Plugins/Export/ExportXml.php:220
 msgid "Server version:"
 msgstr "Verzija poslužitelja:"
@@ -4044,7 +4044,7 @@ msgstr "Dodijeli"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:1
 #: src/Controllers/JavaScriptMessagesController.php:434
-#: src/Export/Export.php:1274 src/Html/Generator.php:879
+#: src/Export/Export.php:1274 src/Html/Generator.php:877
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Nazad"
@@ -4055,8 +4055,8 @@ msgstr "Nazad"
 #: resources/templates/server/status/monitor/index.twig:61
 #: src/Config/Forms/User/ImportForm.php:58
 #: src/Controllers/JavaScriptMessagesController.php:321 src/Menu.php:256
-#: src/Menu.php:359 src/Menu.php:476 src/Util.php:1472 src/Util.php:1487
-#: src/Util.php:1504
+#: src/Menu.php:359 src/Menu.php:476 src/Util.php:1473 src/Util.php:1488
+#: src/Util.php:1505
 msgid "Import"
 msgstr "Uvoz"
 
@@ -4099,7 +4099,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr ""
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:495
+#: src/InsertEdit.php:494
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Mapu koju ste odabrali za potrebe učitavanja nije moguće dohvatiti."
 
@@ -4436,8 +4436,8 @@ msgstr "SQL rezultat"
 #: resources/templates/server/export/index.twig:6
 #: resources/templates/server/export/index.twig:11
 #: resources/templates/server/privileges/user_properties.twig:20
-#: src/Config/ConfigFile.php:578 src/Config/Descriptions.php:728
-#: src/Config/Descriptions.php:739 src/Menu.php:442 src/Util.php:1467
+#: src/Config/ConfigFile.php:575 src/Config/Descriptions.php:728
+#: src/Config/Descriptions.php:739 src/Menu.php:442 src/Util.php:1468
 msgid "Databases"
 msgstr "Baze podataka"
 
@@ -4664,7 +4664,7 @@ msgstr ""
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:44
 #: src/Controllers/Database/Structure/EmptyTableController.php:51
-#: src/Controllers/Operations/TableController.php:350
+#: src/Controllers/Operations/TableController.php:349
 #: src/Controllers/Table/DropColumnController.php:63
 #: src/Controllers/Table/ReplaceController.php:296 src/Core.php:501
 msgid "No change"
@@ -4918,7 +4918,7 @@ msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
 #: resources/templates/server/binlog/index.twig:2 src/Menu.php:496
-#: src/Server/Status/Data.php:144 src/Util.php:1474
+#: src/Server/Status/Data.php:144 src/Util.php:1475
 msgid "Binary log"
 msgstr "Binarni zapisnik"
 
@@ -5075,8 +5075,8 @@ msgstr "Opis"
 
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:20
-#: resources/templates/sql/query.twig:188 src/Config/ConfigFile.php:582
-#: src/Menu.php:509 src/Server/Status/Data.php:211 src/Util.php:1476
+#: resources/templates/sql/query.twig:188 src/Config/ConfigFile.php:579
+#: src/Menu.php:509 src/Server/Status/Data.php:211 src/Util.php:1477
 msgid "Variables"
 msgstr "Varijable"
 
@@ -5103,7 +5103,7 @@ msgid "Importing into the current server"
 msgstr "Prijavljivanje na MySQL poslužitelj nije moguće"
 
 #: resources/templates/server/plugins/index.twig:3 src/Menu.php:524
-#: src/Util.php:1478
+#: src/Util.php:1479
 msgid "Plugins"
 msgstr "Dodatci"
 
@@ -5239,7 +5239,7 @@ msgstr "Korisnik"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:25
 #: resources/templates/server/privileges/edit_routine_privileges.twig:43
 #: resources/templates/server/privileges/edit_routine_privileges.twig:58
-#: src/Server/Privileges.php:1586 src/Server/Privileges.php:1588
+#: src/Server/Privileges.php:1587 src/Server/Privileges.php:1589
 #, fuzzy
 #| msgid "Routines"
 msgid "Routine"
@@ -5253,7 +5253,7 @@ msgid ""
 msgstr ""
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
-#: src/Server/Privileges.php:1587
+#: src/Server/Privileges.php:1588
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
@@ -5418,7 +5418,7 @@ msgstr "Web poslužitelj"
 #: resources/templates/server/privileges/privileges_summary.twig:19
 #: resources/templates/server/privileges/privileges_table.twig:6
 #: resources/templates/server/privileges/privileges_table.twig:267
-#: src/Server/Privileges.php:1581
+#: src/Server/Privileges.php:1582
 msgid "Table-specific privileges"
 msgstr "Privilegije specifične za tablicu"
 
@@ -5453,7 +5453,7 @@ msgstr "Dodaj privilegije za sljedeću tablicu"
 #: resources/templates/server/privileges/privileges_table.twig:11
 #: resources/templates/server/privileges/privileges_table.twig:286
 #: resources/templates/server/privileges/privileges_table.twig:287
-#: src/Server/Privileges.php:307
+#: src/Server/Privileges.php:308
 msgid "Allows reading data."
 msgstr "Dopušta čitanje podataka."
 
@@ -5461,7 +5461,7 @@ msgstr "Dopušta čitanje podataka."
 #: resources/templates/server/privileges/privileges_table.twig:57
 #: resources/templates/server/privileges/privileges_table.twig:84
 #: resources/templates/server/privileges/privileges_table.twig:111
-#: resources/templates/table/search/index.twig:127 src/InsertEdit.php:503
+#: resources/templates/table/search/index.twig:127 src/InsertEdit.php:502
 msgid "Or"
 msgstr "Ili"
 
@@ -5482,20 +5482,20 @@ msgstr "bez kompresije"
 #: resources/templates/server/privileges/privileges_table.twig:38
 #: resources/templates/server/privileges/privileges_table.twig:299
 #: resources/templates/server/privileges/privileges_table.twig:300
-#: src/Server/Privileges.php:308
+#: src/Server/Privileges.php:309
 msgid "Allows inserting and replacing data."
 msgstr "Dopušta umetanje i zamjenu podataka."
 
 #: resources/templates/server/privileges/privileges_table.twig:65
 #: resources/templates/server/privileges/privileges_table.twig:312
 #: resources/templates/server/privileges/privileges_table.twig:313
-#: src/Server/Privileges.php:309
+#: src/Server/Privileges.php:310
 msgid "Allows changing data."
 msgstr "Dopušta mijenjanje podataka."
 
 #: resources/templates/server/privileges/privileges_table.twig:92
 #: resources/templates/server/privileges/privileges_table.twig:676
-#: src/Server/Privileges.php:317
+#: src/Server/Privileges.php:318
 msgid "Has no effect in this MySQL version."
 msgstr "Nema učinka u ovoj verziji MySQL-a."
 
@@ -5503,7 +5503,7 @@ msgstr "Nema učinka u ovoj verziji MySQL-a."
 #: resources/templates/server/privileges/privileges_table.twig:125
 #: resources/templates/server/privileges/privileges_table.twig:325
 #: resources/templates/server/privileges/privileges_table.twig:326
-#: src/Server/Privileges.php:287 src/Server/Privileges.php:310
+#: src/Server/Privileges.php:288 src/Server/Privileges.php:311
 msgid "Allows deleting data."
 msgstr "Dopušta brisanje podataka."
 
@@ -5511,7 +5511,7 @@ msgstr "Dopušta brisanje podataka."
 #: resources/templates/server/privileges/privileges_table.twig:137
 #: resources/templates/server/privileges/privileges_table.twig:364
 #: resources/templates/server/privileges/privileges_table.twig:372
-#: src/Server/Privileges.php:288
+#: src/Server/Privileges.php:289
 msgid "Allows creating new tables."
 msgstr "Dopušta izradu novih tablica."
 
@@ -5519,7 +5519,7 @@ msgstr "Dopušta izradu novih tablica."
 #: resources/templates/server/privileges/privileges_table.twig:149
 #: resources/templates/server/privileges/privileges_table.twig:412
 #: resources/templates/server/privileges/privileges_table.twig:420
-#: src/Server/Privileges.php:289
+#: src/Server/Privileges.php:290
 msgid "Allows dropping tables."
 msgstr "Dopušta odbacivanje tablica."
 
@@ -5536,7 +5536,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:174
 #: resources/templates/server/privileges/privileges_table.twig:398
 #: resources/templates/server/privileges/privileges_table.twig:399
-#: src/Server/Privileges.php:290 src/Server/Privileges.php:318
+#: src/Server/Privileges.php:291 src/Server/Privileges.php:319
 msgid "Allows creating and dropping indexes."
 msgstr "Dopušta izradu i odbacivanje indeksa."
 
@@ -5544,7 +5544,7 @@ msgstr "Dopušta izradu i odbacivanje indeksa."
 #: resources/templates/server/privileges/privileges_table.twig:186
 #: resources/templates/server/privileges/privileges_table.twig:385
 #: resources/templates/server/privileges/privileges_table.twig:386
-#: src/Server/Privileges.php:291 src/Server/Privileges.php:319
+#: src/Server/Privileges.php:292 src/Server/Privileges.php:320
 msgid "Allows altering the structure of existing tables."
 msgstr "Dopušta izmjenu strukture postojećih tablice."
 
@@ -5554,8 +5554,8 @@ msgstr "Dopušta izmjenu strukture postojećih tablice."
 #: resources/templates/server/privileges/privileges_table.twig:500
 #: resources/templates/server/privileges/privileges_table.twig:514
 #: resources/templates/server/privileges/privileges_table.twig:515
-#: src/Server/Privileges.php:292 src/Server/Privileges.php:338
-#: src/Server/Privileges.php:342
+#: src/Server/Privileges.php:293 src/Server/Privileges.php:339
+#: src/Server/Privileges.php:343
 msgid "Allows creating new views."
 msgstr "Dopušta izradu novih prikaza."
 
@@ -5563,8 +5563,8 @@ msgstr "Dopušta izradu novih prikaza."
 #: resources/templates/server/privileges/privileges_table.twig:210
 #: resources/templates/server/privileges/privileges_table.twig:446
 #: resources/templates/server/privileges/privileges_table.twig:447
-#: src/Server/Privileges.php:293 src/Server/Privileges.php:343
-#: src/Server/Privileges.php:345
+#: src/Server/Privileges.php:294 src/Server/Privileges.php:344
+#: src/Server/Privileges.php:346
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Dopušta izvođenje upita SHOW CREATE VIEW."
 
@@ -5572,7 +5572,7 @@ msgstr "Dopušta izvođenje upita SHOW CREATE VIEW."
 #: resources/templates/server/privileges/privileges_table.twig:222
 #: resources/templates/server/privileges/privileges_table.twig:542
 #: resources/templates/server/privileges/privileges_table.twig:543
-#: src/Server/Privileges.php:294 src/Server/Privileges.php:340
+#: src/Server/Privileges.php:295 src/Server/Privileges.php:341
 #, fuzzy
 #| msgid "Allows creating and dropping triggers"
 msgid "Allows creating and dropping triggers."
@@ -5581,7 +5581,7 @@ msgstr "Omogućuje izradu i uklanjanje okidača"
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: resources/templates/server/privileges/privileges_table.twig:233
 #: resources/templates/server/privileges/privileges_table.twig:236
-#: src/Server/Privileges.php:351 src/Server/Privileges.php:360
+#: src/Server/Privileges.php:352 src/Server/Privileges.php:361
 #, fuzzy
 #| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
@@ -5599,55 +5599,55 @@ msgid "Global privileges"
 msgstr "Opće privilegije"
 
 #: resources/templates/server/privileges/privileges_table.twig:265
-#: src/Server/Privileges.php:1575
+#: src/Server/Privileges.php:1576
 msgid "Database-specific privileges"
 msgstr "Privilegije specifične za bazu podataka"
 
 #: resources/templates/server/privileges/privileges_table.twig:339
 #: resources/templates/server/privileges/privileges_table.twig:340
-#: src/Server/Privileges.php:316
+#: src/Server/Privileges.php:317
 msgid "Allows importing data from and exporting data into files."
 msgstr "Dopušta uvoz i izvoz podataka iz datoteka."
 
 #: resources/templates/server/privileges/privileges_table.twig:364
 #: resources/templates/server/privileges/privileges_table.twig:372
-#: src/Server/Privileges.php:311
+#: src/Server/Privileges.php:312
 msgid "Allows creating new databases and tables."
 msgstr "Dopušta izradu novih baze podataka i tablice."
 
 #: resources/templates/server/privileges/privileges_table.twig:412
 #: resources/templates/server/privileges/privileges_table.twig:420
-#: src/Server/Privileges.php:312
+#: src/Server/Privileges.php:313
 msgid "Allows dropping databases and tables."
 msgstr "Dopušta odbacivanje baza podataka i tablica."
 
 #: resources/templates/server/privileges/privileges_table.twig:433
 #: resources/templates/server/privileges/privileges_table.twig:434
-#: src/Server/Privileges.php:330
+#: src/Server/Privileges.php:331
 msgid "Allows creating temporary tables."
 msgstr "Dopušta izradu privremenih tablica."
 
 #: resources/templates/server/privileges/privileges_table.twig:459
 #: resources/templates/server/privileges/privileges_table.twig:460
-#: src/Server/Privileges.php:362
+#: src/Server/Privileges.php:363
 msgid "Allows creating stored routines."
 msgstr "Dopušta izradu pohranjenih rutina."
 
 #: resources/templates/server/privileges/privileges_table.twig:472
 #: resources/templates/server/privileges/privileges_table.twig:473
-#: src/Server/Privileges.php:363
+#: src/Server/Privileges.php:364
 msgid "Allows altering and dropping stored routines."
 msgstr "Dopušta izmjenu i odbacivanje pohranjenih rutina."
 
 #: resources/templates/server/privileges/privileges_table.twig:485
 #: resources/templates/server/privileges/privileges_table.twig:486
-#: src/Server/Privileges.php:365
+#: src/Server/Privileges.php:366
 msgid "Allows executing stored routines."
 msgstr "Dopušta pokretanje pohranjenih rutina."
 
 #: resources/templates/server/privileges/privileges_table.twig:529
 #: resources/templates/server/privileges/privileges_table.twig:530
-#: src/Server/Privileges.php:339
+#: src/Server/Privileges.php:340
 #, fuzzy
 #| msgid "Allows to set up events for the event scheduler"
 msgid "Allows to set up events for the event scheduler."
@@ -5666,7 +5666,7 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:582
 #: resources/templates/server/privileges/privileges_table.twig:584
-#: src/Server/Privileges.php:325
+#: src/Server/Privileges.php:326
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -5678,7 +5678,7 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:596
 #: resources/templates/server/privileges/privileges_table.twig:597
-#: src/Server/Privileges.php:315
+#: src/Server/Privileges.php:316
 #, fuzzy
 #| msgid "Allows viewing processes of all users"
 msgid "Allows viewing processes of all users."
@@ -5686,7 +5686,7 @@ msgstr "Omogućuje pregledavanje procesa za sve korisnike"
 
 #: resources/templates/server/privileges/privileges_table.twig:609
 #: resources/templates/server/privileges/privileges_table.twig:610
-#: src/Server/Privileges.php:313
+#: src/Server/Privileges.php:314
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Dopušta ponovno učitavanje postavki poslužitelja i pražnjenje privremene "
@@ -5694,19 +5694,19 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:622
 #: resources/templates/server/privileges/privileges_table.twig:623
-#: src/Server/Privileges.php:314
+#: src/Server/Privileges.php:315
 msgid "Allows shutting down the server."
 msgstr "Dopušta gašenje poslužitelja."
 
 #: resources/templates/server/privileges/privileges_table.twig:635
 #: resources/templates/server/privileges/privileges_table.twig:636
-#: src/Server/Privileges.php:320
+#: src/Server/Privileges.php:321
 msgid "Gives access to the complete list of databases."
 msgstr "Daje pristup cjelokupnom popisu baza podataka."
 
 #: resources/templates/server/privileges/privileges_table.twig:663
 #: resources/templates/server/privileges/privileges_table.twig:664
-#: src/Server/Privileges.php:331
+#: src/Server/Privileges.php:332
 msgid "Allows locking tables for the current thread."
 msgstr "Dopušta zaključavanje tablica u trenutnoj grani."
 
@@ -5728,7 +5728,7 @@ msgstr "Nema učinka u ovoj verziji MySQL-a."
 
 #: resources/templates/server/privileges/privileges_table.twig:691
 #: resources/templates/server/privileges/privileges_table.twig:692
-#: src/Server/Privileges.php:336
+#: src/Server/Privileges.php:337
 #, fuzzy
 #| msgid "Allows the user to ask where the slaves / masters are."
 msgid "Allows the user to ask where the replicas / primaries are."
@@ -5737,7 +5737,7 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:704
 #: resources/templates/server/privileges/privileges_table.twig:705
-#: src/Server/Privileges.php:332
+#: src/Server/Privileges.php:333
 #, fuzzy
 #| msgid "Needed for the replication slaves."
 msgid "Needed for the replication replicas."
@@ -5745,7 +5745,7 @@ msgstr "Potrebno za replikacijske potčinjene."
 
 #: resources/templates/server/privileges/privileges_table.twig:717
 #: resources/templates/server/privileges/privileges_table.twig:718
-#: src/Server/Privileges.php:364
+#: src/Server/Privileges.php:365
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Dopušta izradu, odbacivanje i preimenovanje korisničkih naloga."
 
@@ -5939,7 +5939,7 @@ msgstr ""
 
 #: resources/templates/server/replication/change_primary.twig:22
 #: resources/templates/server/replication/primary_add_replica_user.twig:24
-#: src/Plugins/Export/ExportLatex.php:206 src/Plugins/Export/ExportSql.php:708
+#: src/Plugins/Export/ExportLatex.php:206 src/Plugins/Export/ExportSql.php:709
 #: src/Plugins/Export/ExportXml.php:211
 #, fuzzy
 #| msgid "Host"
@@ -6445,13 +6445,13 @@ msgstr ""
 
 #. l10n: shortcuts for Kilobyte
 #: resources/templates/server/status/monitor/index.twig:163
-#: src/Controllers/JavaScriptMessagesController.php:205 src/Util.php:299
+#: src/Controllers/JavaScriptMessagesController.php:205 src/Util.php:300
 msgid "KiB"
 msgstr "kB"
 
 #. l10n: shortcuts for Megabyte
 #: resources/templates/server/status/monitor/index.twig:167
-#: src/Controllers/JavaScriptMessagesController.php:206 src/Util.php:301
+#: src/Controllers/JavaScriptMessagesController.php:206 src/Util.php:302
 msgid "MiB"
 msgstr "MB"
 
@@ -6537,7 +6537,7 @@ msgid "Start auto refresh"
 msgstr ""
 
 #: resources/templates/server/status/processes/list.twig:43
-#: src/Display/Results.php:2626
+#: src/Display/Results.php:2619
 msgid "Kill"
 msgstr "Eliminiraj"
 
@@ -6963,8 +6963,8 @@ msgstr "Izrada profila"
 #: src/Controllers/Table/Partition/RebuildController.php:51
 #: src/Controllers/Table/Partition/RepairController.php:50
 #: src/Controllers/Table/Partition/TruncateController.php:51
-#: src/Controllers/Table/RelationController.php:137
-#: src/Database/Routines.php:981 src/Display/Results.php:3221
+#: src/Controllers/Table/RelationController.php:140
+#: src/Database/Routines.php:984 src/Display/Results.php:3214
 #: src/Message.php:129
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully."
@@ -7332,7 +7332,7 @@ msgstr ""
 #: resources/templates/table/index_form.twig:199
 #: src/Controllers/JavaScriptMessagesController.php:486
 #: src/Controllers/JavaScriptMessagesController.php:637
-#: src/Error/ErrorHandler.php:410 src/InsertEdit.php:1542
+#: src/Error/ErrorHandler.php:410 src/InsertEdit.php:1541
 msgid "Ignore"
 msgstr "Ignoriraj"
 
@@ -7567,8 +7567,8 @@ msgid "Check referential integrity"
 msgstr "Provjeri referencijalan integritet:"
 
 #: resources/templates/table/operations/view.twig:3
-#: src/Config/ConfigFile.php:594 src/Menu.php:274 src/Menu.php:284
-#: src/Menu.php:364 src/Util.php:1060 src/Util.php:1488 src/Util.php:1506
+#: src/Config/ConfigFile.php:591 src/Menu.php:274 src/Menu.php:284
+#: src/Menu.php:364 src/Util.php:1061 src/Util.php:1489 src/Util.php:1507
 msgid "Operations"
 msgstr "Operacije"
 
@@ -7799,32 +7799,32 @@ msgid "Index length"
 msgstr "Duljina retka"
 
 #: resources/templates/table/structure/display_partitions.twig:85
-#: src/Operations.php:505
+#: src/Operations.php:506
 msgid "Analyze"
 msgstr "Analiziraj"
 
 #: resources/templates/table/structure/display_partitions.twig:95
-#: src/Operations.php:506
+#: src/Operations.php:507
 msgid "Check"
 msgstr "Provjeri"
 
 #: resources/templates/table/structure/display_partitions.twig:105
-#: src/Operations.php:507
+#: src/Operations.php:508
 msgid "Optimize"
 msgstr "Optimiziraj"
 
 #: resources/templates/table/structure/display_partitions.twig:115
-#: src/Operations.php:508
+#: src/Operations.php:509
 msgid "Rebuild"
 msgstr "Ponovno izgradi"
 
 #: resources/templates/table/structure/display_partitions.twig:125
-#: src/Operations.php:509
+#: src/Operations.php:510
 msgid "Repair"
 msgstr "Popravi"
 
 #: resources/templates/table/structure/display_partitions.twig:135
-#: src/Operations.php:510
+#: src/Operations.php:511
 msgid "Truncate"
 msgstr ""
 
@@ -8173,9 +8173,9 @@ msgstr "Vrsta izvoza"
 #: src/Navigation/Nodes/NodeTriggerContainer.php:27
 #: src/Plugins/Export/ExportHtmlword.php:534
 #: src/Plugins/Export/ExportOdt.php:657 src/Plugins/Export/ExportPdf.php:251
-#: src/Plugins/Export/ExportSql.php:1924
+#: src/Plugins/Export/ExportSql.php:1925
 #: src/Plugins/Export/ExportTexytext.php:498
-#: src/Plugins/Export/ExportXml.php:120 src/Util.php:1492 src/Util.php:1508
+#: src/Plugins/Export/ExportXml.php:120 src/Util.php:1493 src/Util.php:1509
 msgid "Triggers"
 msgstr "Okidači"
 
@@ -9805,73 +9805,73 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Naziv tablice"
 
-#: src/Config/ConfigFile.php:522 src/Config/ConfigFile.php:536
-#: src/Config/ConfigFile.php:590 src/Config/ConfigFile.php:600
+#: src/Config/ConfigFile.php:519 src/Config/ConfigFile.php:533
+#: src/Config/ConfigFile.php:587 src/Config/ConfigFile.php:597
 #: src/Config/Descriptions.php:755 src/Menu.php:225 src/Menu.php:329
-#: src/Menu.php:447 src/Navigation/Nodes/NodeTable.php:292 src/Util.php:1056
-#: src/Util.php:1468 src/Util.php:1483 src/Util.php:1500
+#: src/Menu.php:447 src/Navigation/Nodes/NodeTable.php:292 src/Util.php:1057
+#: src/Util.php:1469 src/Util.php:1484 src/Util.php:1501
 msgid "SQL"
 msgstr "SQL"
 
-#: src/Config/ConfigFile.php:547 src/Config/ConfigFile.php:559
-#: src/Config/ConfigFile.php:567
+#: src/Config/ConfigFile.php:544 src/Config/ConfigFile.php:556
+#: src/Config/ConfigFile.php:564
 #, fuzzy
 #| msgid "Ins"
 msgid "Icons"
 msgstr "Ins"
 
-#: src/Config/ConfigFile.php:547 src/Config/ConfigFile.php:554
-#: src/Config/ConfigFile.php:559 src/Config/ConfigFile.php:567
+#: src/Config/ConfigFile.php:544 src/Config/ConfigFile.php:551
+#: src/Config/ConfigFile.php:556 src/Config/ConfigFile.php:564
 msgid "Both"
 msgstr "Oboje"
 
-#: src/Config/ConfigFile.php:551
+#: src/Config/ConfigFile.php:548
 msgid "Nowhere"
 msgstr "Nigdje"
 
-#: src/Config/ConfigFile.php:552
+#: src/Config/ConfigFile.php:549
 msgid "Left"
 msgstr "Lijevo"
 
-#: src/Config/ConfigFile.php:553
+#: src/Config/ConfigFile.php:550
 msgid "Right"
 msgstr "Desno"
 
-#: src/Config/ConfigFile.php:569
+#: src/Config/ConfigFile.php:566
 msgid "Click"
 msgstr ""
 
-#: src/Config/ConfigFile.php:570
+#: src/Config/ConfigFile.php:567
 msgid "Double click"
 msgstr ""
 
-#: src/Config/ConfigFile.php:573
+#: src/Config/ConfigFile.php:570
 msgid "key"
 msgstr ""
 
-#: src/Config/ConfigFile.php:573
+#: src/Config/ConfigFile.php:570
 #, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "display column"
 msgstr "Prikazivanje stupca komentara"
 
-#: src/Config/ConfigFile.php:576
+#: src/Config/ConfigFile.php:573
 #, fuzzy
 #| msgid "Welcome to %s"
 msgid "Welcome"
 msgstr "Dobro došli u %s"
 
-#: src/Config/ConfigFile.php:608
+#: src/Config/ConfigFile.php:605
 msgid "Open"
 msgstr "Otvori"
 
-#: src/Config/ConfigFile.php:608
+#: src/Config/ConfigFile.php:605
 #, fuzzy
 #| msgid "Unclosed quote"
 msgid "Closed"
 msgstr "Navodnik nije zatvoren"
 
-#: src/Config/ConfigFile.php:610
+#: src/Config/ConfigFile.php:607
 #: src/Controllers/JavaScriptMessagesController.php:741
 #, fuzzy
 #| msgid "Mon"
@@ -9879,7 +9879,7 @@ msgctxt "Week day name"
 msgid "Monday"
 msgstr "Pon"
 
-#: src/Config/ConfigFile.php:611
+#: src/Config/ConfigFile.php:608
 #: src/Controllers/JavaScriptMessagesController.php:742
 #, fuzzy
 #| msgid "Tue"
@@ -9887,7 +9887,7 @@ msgctxt "Week day name"
 msgid "Tuesday"
 msgstr "Uto"
 
-#: src/Config/ConfigFile.php:612
+#: src/Config/ConfigFile.php:609
 #: src/Controllers/JavaScriptMessagesController.php:743
 #, fuzzy
 #| msgid "Wednesday"
@@ -9895,7 +9895,7 @@ msgctxt "Week day name"
 msgid "Wednesday"
 msgstr "Srijeda"
 
-#: src/Config/ConfigFile.php:613
+#: src/Config/ConfigFile.php:610
 #: src/Controllers/JavaScriptMessagesController.php:744
 #, fuzzy
 #| msgid "Thursday"
@@ -9903,7 +9903,7 @@ msgctxt "Week day name"
 msgid "Thursday"
 msgstr "ČEtvrtak"
 
-#: src/Config/ConfigFile.php:614
+#: src/Config/ConfigFile.php:611
 #: src/Controllers/JavaScriptMessagesController.php:745
 #, fuzzy
 #| msgid "Fri"
@@ -9911,7 +9911,7 @@ msgctxt "Week day name"
 msgid "Friday"
 msgstr "Pet"
 
-#: src/Config/ConfigFile.php:615
+#: src/Config/ConfigFile.php:612
 #: src/Controllers/JavaScriptMessagesController.php:746
 #, fuzzy
 #| msgid "Saturday"
@@ -9919,7 +9919,7 @@ msgctxt "Week day name"
 msgid "Saturday"
 msgstr "Subota"
 
-#: src/Config/ConfigFile.php:616
+#: src/Config/ConfigFile.php:613
 #: src/Controllers/JavaScriptMessagesController.php:740
 #, fuzzy
 #| msgid "Sun"
@@ -9927,101 +9927,101 @@ msgctxt "Week day name"
 msgid "Sunday"
 msgstr "Ned"
 
-#: src/Config/ConfigFile.php:619
+#: src/Config/ConfigFile.php:616
 msgid "Ask before sending error reports"
 msgstr ""
 
-#: src/Config/ConfigFile.php:620
+#: src/Config/ConfigFile.php:617
 msgid "Always send error reports"
 msgstr ""
 
-#: src/Config/ConfigFile.php:621
+#: src/Config/ConfigFile.php:618
 msgid "Never send error reports"
 msgstr ""
 
-#: src/Config/ConfigFile.php:624
+#: src/Config/ConfigFile.php:621
 #, fuzzy
 #| msgid "Reset to default"
 msgid "Server default"
 msgstr "Resetiraj na zadano"
 
-#: src/Config/ConfigFile.php:625
+#: src/Config/ConfigFile.php:622
 #, fuzzy
 #| msgid "Enabled"
 msgid "Enable"
 msgstr "Omogućeno"
 
-#: src/Config/ConfigFile.php:626
+#: src/Config/ConfigFile.php:623
 #, fuzzy
 #| msgid "Disabled"
 msgid "Disable"
 msgstr "Onemogućeno"
 
-#: src/Config/ConfigFile.php:666 src/Config/ConfigFile.php:719
-#: src/Config/ConfigFile.php:731 src/Config/ConfigFile.php:739
-#: src/Config/ConfigFile.php:744 src/Plugins/Export/ExportHtmlword.php:62
+#: src/Config/ConfigFile.php:663 src/Config/ConfigFile.php:716
+#: src/Config/ConfigFile.php:728 src/Config/ConfigFile.php:736
+#: src/Config/ConfigFile.php:741 src/Plugins/Export/ExportHtmlword.php:62
 #: src/Plugins/Export/ExportLatex.php:94
 #: src/Plugins/Export/ExportMediawiki.php:64
 #: src/Plugins/Export/ExportOdt.php:75 src/Plugins/Export/ExportPdf.php:85
-#: src/Plugins/Export/ExportSql.php:213
+#: src/Plugins/Export/ExportSql.php:214
 #: src/Plugins/Export/ExportTexytext.php:61
 #, fuzzy
 msgid "structure"
 msgstr "Strukturu"
 
-#: src/Config/ConfigFile.php:667 src/Config/ConfigFile.php:720
-#: src/Config/ConfigFile.php:732 src/Config/ConfigFile.php:740
-#: src/Config/ConfigFile.php:745 src/Plugins/Export/ExportHtmlword.php:62
+#: src/Config/ConfigFile.php:664 src/Config/ConfigFile.php:717
+#: src/Config/ConfigFile.php:729 src/Config/ConfigFile.php:737
+#: src/Config/ConfigFile.php:742 src/Plugins/Export/ExportHtmlword.php:62
 #: src/Plugins/Export/ExportLatex.php:94
 #: src/Plugins/Export/ExportMediawiki.php:64
 #: src/Plugins/Export/ExportOdt.php:75 src/Plugins/Export/ExportPdf.php:85
-#: src/Plugins/Export/ExportSql.php:213
+#: src/Plugins/Export/ExportSql.php:214
 #: src/Plugins/Export/ExportTexytext.php:61
 msgid "data"
 msgstr "Podatci"
 
-#: src/Config/ConfigFile.php:668 src/Config/ConfigFile.php:721
-#: src/Config/ConfigFile.php:733 src/Config/ConfigFile.php:741
-#: src/Config/ConfigFile.php:746 src/Plugins/Export/ExportHtmlword.php:62
+#: src/Config/ConfigFile.php:665 src/Config/ConfigFile.php:718
+#: src/Config/ConfigFile.php:730 src/Config/ConfigFile.php:738
+#: src/Config/ConfigFile.php:743 src/Plugins/Export/ExportHtmlword.php:62
 #: src/Plugins/Export/ExportLatex.php:94
 #: src/Plugins/Export/ExportMediawiki.php:64
 #: src/Plugins/Export/ExportOdt.php:75 src/Plugins/Export/ExportPdf.php:85
-#: src/Plugins/Export/ExportSql.php:213
+#: src/Plugins/Export/ExportSql.php:214
 #: src/Plugins/Export/ExportTexytext.php:61
 #, fuzzy
 #| msgid "Structure and data"
 msgid "structure and data"
 msgstr "Strukturu i podatke"
 
-#: src/Config/ConfigFile.php:671
+#: src/Config/ConfigFile.php:668
 msgid "Quick - display only the minimal options to configure"
 msgstr ""
 
-#: src/Config/ConfigFile.php:672
+#: src/Config/ConfigFile.php:669
 msgid "Custom - display all possible options to configure"
 msgstr ""
 
-#: src/Config/ConfigFile.php:673
+#: src/Config/ConfigFile.php:670
 msgid "Custom - like above, but without the quick/custom choice"
 msgstr ""
 
-#: src/Config/ConfigFile.php:725
+#: src/Config/ConfigFile.php:722
 #, fuzzy
 #| msgid "Complete inserts"
 msgid "complete inserts"
 msgstr "Dovrši umetanja"
 
-#: src/Config/ConfigFile.php:726
+#: src/Config/ConfigFile.php:723
 #, fuzzy
 #| msgid "Extended inserts"
 msgid "extended inserts"
 msgstr "Proširena umetanja"
 
-#: src/Config/ConfigFile.php:727
+#: src/Config/ConfigFile.php:724
 msgid "both of the above"
 msgstr "oboje navedeno"
 
-#: src/Config/ConfigFile.php:728
+#: src/Config/ConfigFile.php:725
 msgid "neither of the above"
 msgstr "ništa od navedenog"
 
@@ -10161,7 +10161,7 @@ msgid ""
 msgstr ""
 
 #: src/Config/Descriptions.php:168 src/Config/Descriptions.php:708
-#: src/Plugins/Export/ExportSql.php:313
+#: src/Plugins/Export/ExportSql.php:314
 msgid "Exclude definition of current user"
 msgstr ""
 
@@ -11416,7 +11416,7 @@ msgstr "Predložak naziva datoteka"
 #: src/Plugins/Export/ExportMediawiki.php:54
 #: src/Plugins/Export/ExportMediawiki.php:60
 #: src/Plugins/Export/ExportOdt.php:70 src/Plugins/Export/ExportPdf.php:81
-#: src/Plugins/Export/ExportSql.php:209
+#: src/Plugins/Export/ExportSql.php:210
 #: src/Plugins/Export/ExportTexytext.php:56
 #, fuzzy
 #| msgid "%s table(s)"
@@ -11489,11 +11489,11 @@ msgstr "Izrada/Ažuriranje/Provjera datuma"
 msgid "Use delayed inserts"
 msgstr "Upotrijebi odgođena umetanja"
 
-#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:178
+#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:179
 msgid "Disable foreign key checks"
 msgstr "Onemogući provjere stranih znakova"
 
-#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:188
+#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:189
 #, fuzzy
 #| msgid "Create table on database %s"
 msgid "Export views as tables"
@@ -11515,7 +11515,7 @@ msgid ""
 "creation)"
 msgstr ""
 
-#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:319
+#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:320
 #, fuzzy, php-format
 #| msgid "Session value"
 msgid "%s view"
@@ -11529,7 +11529,7 @@ msgstr "Upotrijebi ignoriranje umetaka"
 msgid "Syntax to use when inserting data"
 msgstr ""
 
-#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:446
+#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:447
 msgid "Maximal length of created query"
 msgstr "Najveća duljina izrađenog upita"
 
@@ -11538,7 +11538,7 @@ msgstr "Najveća duljina izrađenog upita"
 msgid "Export type"
 msgstr "Vrsta izvoza"
 
-#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:168
+#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:169
 msgid "Enclose export in a transaction"
 msgstr "Izvoz uključi u transakciju"
 
@@ -12358,11 +12358,11 @@ msgstr "Statistike redova"
 msgid "Skip locked tables"
 msgstr "Prikaži otvorene tablice"
 
-#: src/Config/Descriptions.php:927 src/Html/Generator.php:522
+#: src/Config/Descriptions.php:927 src/Html/Generator.php:520
 msgid "Explain SQL"
 msgstr "Objasni SQL"
 
-#: src/Config/Descriptions.php:929 src/Html/Generator.php:583
+#: src/Config/Descriptions.php:929 src/Html/Generator.php:581
 #, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
@@ -12498,40 +12498,40 @@ msgstr "Ostalo"
 msgid "Server connection collation"
 msgstr "Način upoređivanja kod povezivanja na poslužitelj"
 
-#: src/Config/FormDisplay.php:578
+#: src/Config/FormDisplay.php:580
 #, php-format
 msgid "Missing data for %s"
 msgstr ""
 
-#: src/Config/FormDisplay.php:618 src/Config/Validator.php:586
+#: src/Config/FormDisplay.php:620 src/Config/Validator.php:587
 #: src/Controllers/JavaScriptMessagesController.php:824
 #, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value!"
 msgstr "Netočna vrijednost"
 
-#: src/Config/FormDisplay.php:766
+#: src/Config/FormDisplay.php:767
 #, fuzzy
 #| msgid "Variable"
 msgid "unavailable"
 msgstr "Varijabla"
 
-#: src/Config/FormDisplay.php:768
+#: src/Config/FormDisplay.php:769
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr ""
 
-#: src/Config/FormDisplay.php:790
+#: src/Config/FormDisplay.php:791
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr ""
 
-#: src/Config/FormDisplay.php:799
+#: src/Config/FormDisplay.php:800
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr ""
 
-#: src/Config/FormDisplay.php:819
+#: src/Config/FormDisplay.php:820
 #, php-format
 msgid "maximum %s"
 msgstr "maksimum %s"
@@ -12718,11 +12718,11 @@ msgstr ""
 msgid "Server %d"
 msgstr "Poslužitelj"
 
-#: src/ConfigStorage/Relation.php:1257
+#: src/ConfigStorage/Relation.php:1245
 msgid "no description"
 msgstr "bez opisa"
 
-#: src/ConfigStorage/Relation.php:1454
+#: src/ConfigStorage/Relation.php:1442
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -12754,76 +12754,76 @@ msgstr "Baza podataka za korisnika"
 msgid "Table-level tabs"
 msgstr "Naziv tablice"
 
-#: src/Config/Validator.php:242
+#: src/Config/Validator.php:243
 #, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Could not connect to the database server!"
 msgstr "Neuspješno spajanje na MySQL server"
 
-#: src/Config/Validator.php:278
+#: src/Config/Validator.php:279
 #, fuzzy
 #| msgid "Authentication type"
 msgid "Invalid authentication type!"
 msgstr "Tip autentifikacije"
 
-#: src/Config/Validator.php:283
+#: src/Config/Validator.php:284
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
 
-#: src/Config/Validator.php:289
+#: src/Config/Validator.php:290
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
 msgstr ""
 
-#: src/Config/Validator.php:296
+#: src/Config/Validator.php:297
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
 
-#: src/Config/Validator.php:349
+#: src/Config/Validator.php:350
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 
-#: src/Config/Validator.php:356
+#: src/Config/Validator.php:357
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
 msgstr ""
 
-#: src/Config/Validator.php:447
+#: src/Config/Validator.php:448
 #, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value:"
 msgstr "Netočna vrijednost"
 
-#: src/Config/Validator.php:458
+#: src/Config/Validator.php:459
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Netočna IP adresa: %s"
 
-#: src/Config/Validator.php:521
+#: src/Config/Validator.php:522
 #: src/Controllers/JavaScriptMessagesController.php:823
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Not a valid port number!"
 msgstr "Netočan broj porta"
 
-#: src/Config/Validator.php:543
+#: src/Config/Validator.php:544
 #: src/Controllers/JavaScriptMessagesController.php:821
 #, fuzzy
 #| msgid "Not a positive number"
 msgid "Not a positive number!"
 msgstr "Nije pozitivan broj"
 
-#: src/Config/Validator.php:565
+#: src/Config/Validator.php:566
 #: src/Controllers/JavaScriptMessagesController.php:822
 #, fuzzy
 #| msgid "Not a positive number"
 msgid "Not a non-negative number!"
 msgstr "Nije pozitivan broj"
 
-#: src/Config/Validator.php:604
+#: src/Config/Validator.php:605
 #: src/Controllers/JavaScriptMessagesController.php:825
 #, php-format
 msgid "Value must be less than or equal to %s!"
@@ -13133,7 +13133,7 @@ msgid "Success!"
 msgstr ""
 
 #: src/Controllers/Database/StructureController.php:580
-#: src/Display/Results.php:3508
+#: src/Display/Results.php:3501
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -13617,12 +13617,12 @@ msgid "The user name is empty!"
 msgstr "Korisničko ime je prazno!"
 
 #: src/Controllers/JavaScriptMessagesController.php:143
-#: src/Server/Privileges.php:764 src/UserPassword.php:39
+#: src/Server/Privileges.php:765 src/UserPassword.php:39
 msgid "The password is empty!"
 msgstr "Lozinka je prazna!"
 
 #: src/Controllers/JavaScriptMessagesController.php:144
-#: src/Server/Privileges.php:762 src/UserPassword.php:43
+#: src/Server/Privileges.php:763 src/UserPassword.php:43
 msgid "The passwords aren't the same!"
 msgstr "Lozinke se ne podudaraju!"
 
@@ -13659,14 +13659,14 @@ msgid "Other"
 msgstr "Ostalo"
 
 #. l10n: Thousands separator
-#: src/Controllers/JavaScriptMessagesController.php:161 src/Util.php:387
-#: src/Util.php:419
+#: src/Controllers/JavaScriptMessagesController.php:161 src/Util.php:388
+#: src/Util.php:420
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: src/Controllers/JavaScriptMessagesController.php:163 src/Util.php:385
-#: src/Util.php:417
+#: src/Controllers/JavaScriptMessagesController.php:163 src/Util.php:386
+#: src/Util.php:418
 msgid "."
 msgstr "."
 
@@ -13787,27 +13787,27 @@ msgid "Bytes received"
 msgstr "Primljeno"
 
 #. l10n: shortcuts for Byte
-#: src/Controllers/JavaScriptMessagesController.php:204 src/Util.php:297
+#: src/Controllers/JavaScriptMessagesController.php:204 src/Util.php:298
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Gigabyte
-#: src/Controllers/JavaScriptMessagesController.php:207 src/Util.php:303
+#: src/Controllers/JavaScriptMessagesController.php:207 src/Util.php:304
 msgid "GiB"
 msgstr "GB"
 
 #. l10n: shortcuts for Terabyte
-#: src/Controllers/JavaScriptMessagesController.php:208 src/Util.php:305
+#: src/Controllers/JavaScriptMessagesController.php:208 src/Util.php:306
 msgid "TiB"
 msgstr "TB"
 
 #. l10n: shortcuts for Petabyte
-#: src/Controllers/JavaScriptMessagesController.php:209 src/Util.php:307
+#: src/Controllers/JavaScriptMessagesController.php:209 src/Util.php:308
 msgid "PiB"
 msgstr "PB"
 
 #. l10n: shortcuts for Exabyte
-#: src/Controllers/JavaScriptMessagesController.php:210 src/Util.php:309
+#: src/Controllers/JavaScriptMessagesController.php:210 src/Util.php:310
 msgid "EiB"
 msgstr "EB"
 
@@ -15075,7 +15075,7 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "Tablica %s već postoji!"
 
-#: src/Controllers/JavaScriptMessagesController.php:712 src/InsertEdit.php:275
+#: src/Controllers/JavaScriptMessagesController.php:712 src/InsertEdit.php:274
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Sakrij"
@@ -15164,91 +15164,91 @@ msgctxt "Month name"
 msgid "December"
 msgstr "Prosinac"
 
-#: src/Controllers/JavaScriptMessagesController.php:728 src/Util.php:496
+#: src/Controllers/JavaScriptMessagesController.php:728 src/Util.php:497
 #, fuzzy
 #| msgid "Jan"
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "Sij"
 
-#: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:497
+#: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:498
 #, fuzzy
 #| msgid "Feb"
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "Velj"
 
-#: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:498
+#: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:499
 #, fuzzy
 #| msgid "Mar"
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "Ožu"
 
-#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:499
+#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:500
 #, fuzzy
 #| msgid "Apr"
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "Tra"
 
-#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:500
+#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:501
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "Svi"
 
-#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:501
+#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:502
 #, fuzzy
 #| msgid "Jun"
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "Lip"
 
-#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:502
+#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:503
 #, fuzzy
 #| msgid "Jul"
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "Srp"
 
-#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:503
+#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:504
 #, fuzzy
 #| msgid "Aug"
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "Kol"
 
-#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:504
+#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:505
 #, fuzzy
 #| msgid "Sep"
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "Ruj"
 
-#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:505
+#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:506
 #, fuzzy
 #| msgid "Oct"
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "Lis"
 
-#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:506
+#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:507
 #, fuzzy
 #| msgid "Nov"
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "Stu"
 
-#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:507
+#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:508
 #, fuzzy
 #| msgid "Dec"
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "Pro"
 
-#: src/Controllers/JavaScriptMessagesController.php:747 src/Util.php:510
+#: src/Controllers/JavaScriptMessagesController.php:747 src/Util.php:511
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -15256,42 +15256,42 @@ msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "Ned"
 
-#: src/Controllers/JavaScriptMessagesController.php:748 src/Util.php:511
+#: src/Controllers/JavaScriptMessagesController.php:748 src/Util.php:512
 #, fuzzy
 #| msgid "Mon"
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "Pon"
 
-#: src/Controllers/JavaScriptMessagesController.php:749 src/Util.php:512
+#: src/Controllers/JavaScriptMessagesController.php:749 src/Util.php:513
 #, fuzzy
 #| msgid "Tue"
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "Uto"
 
-#: src/Controllers/JavaScriptMessagesController.php:750 src/Util.php:513
+#: src/Controllers/JavaScriptMessagesController.php:750 src/Util.php:514
 #, fuzzy
 #| msgid "Wed"
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "Sri"
 
-#: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:514
+#: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:515
 #, fuzzy
 #| msgid "Thu"
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "Čet"
 
-#: src/Controllers/JavaScriptMessagesController.php:752 src/Util.php:515
+#: src/Controllers/JavaScriptMessagesController.php:752 src/Util.php:516
 #, fuzzy
 #| msgid "Fri"
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "Pet"
 
-#: src/Controllers/JavaScriptMessagesController.php:753 src/Util.php:516
+#: src/Controllers/JavaScriptMessagesController.php:753 src/Util.php:517
 #, fuzzy
 #| msgid "Sat"
 msgctxt "Short week day name for Saturday"
@@ -15619,7 +15619,7 @@ msgid "String"
 msgstr "Redovi završeni s"
 
 #: src/Controllers/Operations/Database/CollationController.php:46
-#: src/Controllers/Operations/TableController.php:280
+#: src/Controllers/Operations/TableController.php:279
 msgid "No collation provided."
 msgstr ""
 
@@ -16510,7 +16510,7 @@ msgstr "Izrađen je favorit %s"
 #: src/Controllers/Table/IndexesController.php:141
 #: src/Controllers/Table/IndexRenameController.php:130
 #: src/Controllers/Table/Structure/PartitioningController.php:265
-#: src/Controllers/Table/Structure/SaveController.php:213
+#: src/Controllers/Table/Structure/SaveController.php:211
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Tablica %1$s uspješno je izmijenjena."
@@ -16588,8 +16588,8 @@ msgid "There is an issue with your request."
 msgstr "Provjeri tablicu"
 
 #: src/Controllers/Table/GetFieldController.php:83
-#: src/Database/Routines.php:998 src/Import/Import.php:162
-#: src/InsertEdit.php:201 src/Sql.php:854
+#: src/Database/Routines.php:1001 src/Import/Import.php:162
+#: src/InsertEdit.php:200 src/Sql.php:854
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL je vratio prazan komplet rezultata (npr. nula redova)."
 
@@ -16625,13 +16625,13 @@ msgstr "Naziv tablice je prazan!"
 msgid "Invalid database or table name."
 msgstr "Neispravan naziv tablice"
 
-#: src/Controllers/Table/RelationController.php:272
+#: src/Controllers/Table/RelationController.php:275
 #, fuzzy
 #| msgid "Thread %s was successfully killed."
 msgid "Display column was successfully updated."
 msgstr "Grana %s uspješno je prekinuta."
 
-#: src/Controllers/Table/RelationController.php:306
+#: src/Controllers/Table/RelationController.php:309
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationships were successfully updated."
@@ -16649,8 +16649,8 @@ msgid "The columns have been moved successfully."
 msgstr "Odabrani korisnici uspješno su izbrisani."
 
 #: src/Controllers/Table/Structure/PartitioningController.php:257
-#: src/Controllers/Table/Structure/SaveController.php:263
-#: src/Tracking/Tracking.php:779
+#: src/Controllers/Table/Structure/SaveController.php:261
+#: src/Tracking/Tracking.php:780
 #, fuzzy
 #| msgid "Query type"
 msgid "Query error"
@@ -16664,7 +16664,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/Controllers/Table/Structure/SaveController.php:208
+#: src/Controllers/Table/Structure/SaveController.php:206
 #, fuzzy, php-format
 #| msgid "Table %1$s has been altered successfully."
 msgid ""
@@ -16729,31 +16729,31 @@ msgstr ""
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
 
-#: src/Database/CentralColumns.php:267 src/Database/CentralColumns.php:368
-#: src/Database/CentralColumns.php:568
+#: src/Database/CentralColumns.php:265 src/Database/CentralColumns.php:366
+#: src/Database/CentralColumns.php:566
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
 msgstr ""
 
-#: src/Database/CentralColumns.php:322
+#: src/Database/CentralColumns.php:320
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
 
-#: src/Database/CentralColumns.php:337
+#: src/Database/CentralColumns.php:335
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not add columns!"
 msgstr "Nije moguće učitati zadanu konfiguraciju iz: \"%1$s\""
 
-#: src/Database/CentralColumns.php:414
+#: src/Database/CentralColumns.php:412
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
 
-#: src/Database/CentralColumns.php:428
+#: src/Database/CentralColumns.php:426
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not remove columns!"
@@ -16840,7 +16840,7 @@ msgstr "Nije moguće učitati dodatke za uvoz. Provjerite svoju instalaciju!"
 #: src/Database/Events.php:90 src/Database/Events.php:99
 #: src/Database/Events.php:125 src/Database/Routines.php:101
 #: src/Database/Routines.php:126 src/Database/Routines.php:204
-#: src/Database/Routines.php:958 src/Triggers/Triggers.php:83
+#: src/Database/Routines.php:961 src/Triggers/Triggers.php:83
 #: src/Triggers/Triggers.php:92 src/Triggers/Triggers.php:119
 #, php-format
 msgid "The following query has failed: \"%s\""
@@ -16849,8 +16849,8 @@ msgstr ""
 #: src/Database/Events.php:94 src/Database/Events.php:103
 #: src/Database/Events.php:129 src/Database/Events.php:354
 #: src/Database/Routines.php:105 src/Database/Routines.php:130
-#: src/Database/Routines.php:208 src/Database/Routines.php:962
-#: src/Database/Routines.php:1210 src/Html/Generator.php:829
+#: src/Database/Routines.php:208 src/Database/Routines.php:965
+#: src/Database/Routines.php:1213 src/Html/Generator.php:827
 #: src/Triggers/Triggers.php:87 src/Triggers/Triggers.php:96
 #: src/Triggers/Triggers.php:123 src/Triggers/Triggers.php:243
 msgid "MySQL said: "
@@ -16878,7 +16878,7 @@ msgstr ""
 "<b>Jedna ili više grešaka se dogodila prilikom procesiranja vašeg zahtjeva:</"
 "b>"
 
-#: src/Database/Events.php:261 src/Database/Routines.php:760
+#: src/Database/Events.php:261 src/Database/Routines.php:763
 #: src/Triggers/Triggers.php:184
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr ""
@@ -16909,12 +16909,12 @@ msgstr ""
 msgid "Sorry, we failed to restore the dropped event."
 msgstr ""
 
-#: src/Database/Events.php:352 src/Database/Routines.php:1208
+#: src/Database/Events.php:352 src/Database/Routines.php:1211
 #: src/Triggers/Triggers.php:241
 msgid "The backed up query was:"
 msgstr ""
 
-#: src/DatabaseInterface.php:1161
+#: src/DatabaseInterface.php:1160
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -16922,19 +16922,19 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: src/DatabaseInterface.php:1203
+#: src/DatabaseInterface.php:1202
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Failed to set configured collation connection!"
 msgstr "Nije moguće učitati zadanu konfiguraciju iz: \"%1$s\""
 
-#: src/DatabaseInterface.php:1664
+#: src/DatabaseInterface.php:1646
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Povezivanje kontrolnih korisnika na način kako je definirano u vašoj "
 "konfiguraciji nije uspjelo."
 
-#: src/Database/Routines.php:82 src/Database/Routines.php:768
+#: src/Database/Routines.php:82 src/Database/Routines.php:771
 #, fuzzy, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid routine type: \"%s\""
@@ -16958,42 +16958,42 @@ msgstr "Tablica %s je odbačen"
 msgid "Routine %1$s has been modified."
 msgstr "Tablica %s je odbačen"
 
-#: src/Database/Routines.php:601
+#: src/Database/Routines.php:604
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
 
-#: src/Database/Routines.php:619
+#: src/Database/Routines.php:622
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr ""
 
-#: src/Database/Routines.php:639 src/Database/Routines.php:706
+#: src/Database/Routines.php:642 src/Database/Routines.php:709
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
 
-#: src/Database/Routines.php:688
+#: src/Database/Routines.php:691
 msgid "You must provide a valid return type for the routine."
 msgstr ""
 
-#: src/Database/Routines.php:776
+#: src/Database/Routines.php:779
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "You must provide a routine name!"
 msgstr "Neispravan naziv tablice"
 
-#: src/Database/Routines.php:840
+#: src/Database/Routines.php:843
 msgid "You must provide a routine definition."
 msgstr ""
 
-#: src/Database/Routines.php:974
+#: src/Database/Routines.php:977
 #, fuzzy, php-format
 #| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
 msgstr "Dopušta pokretanje pohranjenih rutina."
 
-#: src/Database/Routines.php:989
+#: src/Database/Routines.php:992
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
@@ -17001,7 +17001,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/Database/Routines.php:1207
+#: src/Database/Routines.php:1210
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr ""
 
@@ -17012,36 +17012,36 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: src/Display/Results.php:2583 src/Display/Results.php:2598
+#: src/Display/Results.php:2576 src/Display/Results.php:2591
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Redak je izbrisan"
 
-#: src/Display/Results.php:3517
+#: src/Display/Results.php:3510
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "Prikazivanje redaka"
 
-#: src/Display/Results.php:3531
+#: src/Display/Results.php:3524
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr ""
 
-#: src/Display/Results.php:3536
+#: src/Display/Results.php:3529
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%s total"
 msgstr "ukupno"
 
-#: src/Display/Results.php:3549 src/Sql.php:860
+#: src/Display/Results.php:3542 src/Sql.php:860
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "Upit je trajao %01.4f sek"
 
-#: src/Display/Results.php:3856
+#: src/Display/Results.php:3848
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -17539,60 +17539,60 @@ msgstr ""
 msgid "Session not found."
 msgstr "PHP ekstenzija"
 
-#: src/Html/Generator.php:148
+#: src/Html/Generator.php:146
 #, fuzzy, php-format
 #| msgid "Jump to database \"%s\"."
 msgid "Jump to database “%s”."
 msgstr "Skoči do baze podataka \"%s\"."
 
-#: src/Html/Generator.php:214
+#: src/Html/Generator.php:212
 msgid "SSL is not being used"
 msgstr ""
 
-#: src/Html/Generator.php:221
+#: src/Html/Generator.php:219
 msgid "SSL is used with disabled verification"
 msgstr ""
 
-#: src/Html/Generator.php:223
+#: src/Html/Generator.php:221
 msgid "SSL is used without certification authority"
 msgstr ""
 
-#: src/Html/Generator.php:226
+#: src/Html/Generator.php:224
 msgid "SSL is used"
 msgstr ""
 
-#: src/Html/Generator.php:329
+#: src/Html/Generator.php:327
 msgid "The PHP function password_hash() with default options."
 msgstr ""
 
-#: src/Html/Generator.php:330
+#: src/Html/Generator.php:328
 msgid "password_hash() PHP function"
 msgstr ""
 
-#: src/Html/Generator.php:531
+#: src/Html/Generator.php:529
 msgid "Skip Explain SQL"
 msgstr "Preskoči Objasni SQL"
 
-#: src/Html/Generator.php:563
+#: src/Html/Generator.php:561
 #, fuzzy
 #| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "Bez PHP koda"
 
-#: src/Html/Generator.php:648
+#: src/Html/Generator.php:646
 #, fuzzy
 #| msgid "Print view"
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Prikaz ispisa"
 
-#: src/Html/Generator.php:771
+#: src/Html/Generator.php:769
 #, fuzzy
 #| msgid "Static data"
 msgid "Static analysis:"
 msgstr "Statički podatci"
 
-#: src/Html/Generator.php:774
+#: src/Html/Generator.php:772
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr ""
@@ -17746,22 +17746,22 @@ msgid ""
 msgstr ""
 "Indeksi %1$s i %2$s izgledaju jednakim i jednog od njih moguće je ukloniti."
 
-#: src/InsertEdit.php:504
+#: src/InsertEdit.php:503
 #, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
 msgstr "mapa učitavanja web poslužitelja"
 
-#: src/InsertEdit.php:937 src/Sql.php:851
+#: src/InsertEdit.php:936 src/Sql.php:851
 msgid "Showing SQL query"
 msgstr "Prikazivanje SQL upita"
 
-#: src/InsertEdit.php:961 src/Sql.php:831
+#: src/InsertEdit.php:960 src/Sql.php:831
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Umetnut ID retka: %1$d"
 
-#: src/LanguageManager.php:967
+#: src/LanguageManager.php:957
 msgid "Ignoring unsupported language code."
 msgstr ""
 
@@ -17775,7 +17775,7 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr ""
 
-#: src/Menu.php:290 src/Menu.php:397 src/Util.php:1493 src/Util.php:1507
+#: src/Menu.php:290 src/Menu.php:397 src/Util.php:1494 src/Util.php:1508
 msgid "Tracking"
 msgstr "Praćenje"
 
@@ -17783,11 +17783,11 @@ msgstr "Praćenje"
 msgid "Database seems to be empty!"
 msgstr "Baza podataka izgleda praznom!"
 
-#: src/Menu.php:341 src/Util.php:1485
+#: src/Menu.php:341 src/Util.php:1486
 msgid "Query"
 msgstr "Upit"
 
-#: src/Menu.php:404 src/Util.php:1494
+#: src/Menu.php:404 src/Util.php:1495
 msgid "Designer"
 msgstr "Kreator"
 
@@ -17797,11 +17797,11 @@ msgstr "Kreator"
 msgid "User accounts"
 msgstr "Korisnik"
 
-#: src/Menu.php:514 src/Util.php:1477
+#: src/Menu.php:514 src/Util.php:1478
 msgid "Charsets"
 msgstr "Tablice znakova"
 
-#: src/Menu.php:519 src/Util.php:1479
+#: src/Menu.php:519 src/Util.php:1480
 msgid "Engines"
 msgstr "Pogoni"
 
@@ -17829,31 +17829,31 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "Umetnuto redaka: %1$d."
 msgstr[1] "Umetnuto redaka: %1$d."
 
-#: src/Navigation/Navigation.php:209
+#: src/Navigation/Navigation.php:207
 #, fuzzy
 #| msgid "Column names"
 msgid "Groups:"
 msgstr "Nazivi stupaca"
 
-#: src/Navigation/Navigation.php:210
+#: src/Navigation/Navigation.php:208
 #, fuzzy
 #| msgid "Events"
 msgid "Events:"
 msgstr "Događaji"
 
-#: src/Navigation/Navigation.php:211
+#: src/Navigation/Navigation.php:209
 #, fuzzy
 #| msgid "Functions"
 msgid "Functions:"
 msgstr "Funkcije"
 
-#: src/Navigation/Navigation.php:212
+#: src/Navigation/Navigation.php:210
 #, fuzzy
 #| msgid "Procedures"
 msgid "Procedures:"
 msgstr "Postupci"
 
-#: src/Navigation/Navigation.php:214
+#: src/Navigation/Navigation.php:212
 #, fuzzy
 #| msgid "View"
 msgid "Views:"
@@ -17912,7 +17912,7 @@ msgstr "Novo"
 
 #: src/Navigation/Nodes/NodeFunctionContainer.php:23
 #: src/Navigation/Nodes/NodeFunctionContainer.php:25
-#: src/Plugins/Export/ExportSql.php:590 src/Plugins/Export/ExportXml.php:105
+#: src/Plugins/Export/ExportSql.php:591 src/Plugins/Export/ExportXml.php:105
 msgid "Functions"
 msgstr "Funkcije"
 
@@ -17936,7 +17936,7 @@ msgstr ""
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:23
 #: src/Navigation/Nodes/NodeProcedureContainer.php:25
-#: src/Plugins/Export/ExportSql.php:579 src/Plugins/Export/ExportXml.php:110
+#: src/Plugins/Export/ExportSql.php:580 src/Plugins/Export/ExportXml.php:110
 msgid "Procedures"
 msgstr "Postupci"
 
@@ -18224,43 +18224,43 @@ msgstr ""
 msgid "No partial dependencies found!"
 msgstr ""
 
-#: src/Operations.php:524
+#: src/Operations.php:525
 #, fuzzy
 #| msgid "Close"
 msgid "Coalesce"
 msgstr "Zatvori"
 
-#: src/Operations.php:875
+#: src/Operations.php:874
 msgid "Can't move table to same one!"
 msgstr "Premještanje u istu tablicu nije moguće!"
 
-#: src/Operations.php:877
+#: src/Operations.php:876
 msgid "Can't copy table to same one!"
 msgstr "Kopiranje u istu tablicu nije moguće!"
 
-#: src/Operations.php:901
+#: src/Operations.php:900
 #, fuzzy, php-format
 #| msgid "Table %s has been moved to %s."
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Tablica %s premještena je u %s."
 
-#: src/Operations.php:907
+#: src/Operations.php:906
 #, fuzzy, php-format
 #| msgid "Table %s has been copied to %s."
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Tablica %s kopirana je u %s."
 
-#: src/Operations.php:913
+#: src/Operations.php:912
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Tablica %s premještena je u %s."
 
-#: src/Operations.php:917
+#: src/Operations.php:916
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Tablica %s kopirana je u %s."
 
-#: src/Operations.php:940
+#: src/Operations.php:939
 msgid "The table name is empty!"
 msgstr "Naziv tablice je prazan!"
 
@@ -18431,25 +18431,25 @@ msgid "Data dump options"
 msgstr "Opcije izvoza baze podataka"
 
 #: src/Plugins/Export/ExportHtmlword.php:189
-#: src/Plugins/Export/ExportOdt.php:240 src/Plugins/Export/ExportSql.php:2172
+#: src/Plugins/Export/ExportOdt.php:240 src/Plugins/Export/ExportSql.php:2173
 #: src/Plugins/Export/ExportTexytext.php:173
 msgid "Dumping data for table"
 msgstr "Izbacivanje podataka za tablicu"
 
 #: src/Plugins/Export/ExportHtmlword.php:525
-#: src/Plugins/Export/ExportOdt.php:647 src/Plugins/Export/ExportSql.php:1910
+#: src/Plugins/Export/ExportOdt.php:647 src/Plugins/Export/ExportSql.php:1911
 #: src/Plugins/Export/ExportTexytext.php:491
 msgid "Table structure for table"
 msgstr "Tablična struktura za tablicu"
 
 #: src/Plugins/Export/ExportHtmlword.php:542
-#: src/Plugins/Export/ExportOdt.php:667 src/Plugins/Export/ExportSql.php:1967
+#: src/Plugins/Export/ExportOdt.php:667 src/Plugins/Export/ExportSql.php:1968
 #: src/Plugins/Export/ExportTexytext.php:504
 msgid "Structure for view"
 msgstr "Struktura za pregledavanje"
 
 #: src/Plugins/Export/ExportHtmlword.php:548
-#: src/Plugins/Export/ExportOdt.php:675 src/Plugins/Export/ExportSql.php:1999
+#: src/Plugins/Export/ExportOdt.php:675 src/Plugins/Export/ExportSql.php:2000
 #: src/Plugins/Export/ExportTexytext.php:508
 msgid "Stand-in structure for view"
 msgstr "Unutarnja struktura za pregledavanje"
@@ -18475,7 +18475,7 @@ msgid "Structure of table @TABLE@"
 msgstr "Struktura tablice @TABLE@"
 
 #: src/Plugins/Export/ExportLatex.php:104 src/Plugins/Export/ExportOdt.php:85
-#: src/Plugins/Export/ExportSql.php:225
+#: src/Plugins/Export/ExportSql.php:226
 #, fuzzy
 #| msgid "Transformation options"
 msgid "Object creation options"
@@ -18503,7 +18503,7 @@ msgid "Label key:"
 msgstr "Ključ oznake"
 
 #: src/Plugins/Export/ExportLatex.php:130 src/Plugins/Export/ExportOdt.php:93
-#: src/Plugins/Export/ExportSql.php:150
+#: src/Plugins/Export/ExportSql.php:151
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Display foreign key relationships"
@@ -18516,7 +18516,7 @@ msgid "Display comments"
 msgstr "Prikazivanje stupca komentara"
 
 #: src/Plugins/Export/ExportLatex.php:143 src/Plugins/Export/ExportOdt.php:106
-#: src/Plugins/Export/ExportSql.php:158
+#: src/Plugins/Export/ExportSql.php:159
 #, fuzzy
 #| msgid "Available MIME types"
 msgid "Display media types"
@@ -18528,21 +18528,21 @@ msgstr "Raspoložive MIME vrste"
 msgid "Put columns names in the first row:"
 msgstr "Nazive polja stavi u prvi red"
 
-#: src/Plugins/Export/ExportLatex.php:212 src/Plugins/Export/ExportSql.php:715
+#: src/Plugins/Export/ExportLatex.php:212 src/Plugins/Export/ExportSql.php:716
 #: src/Plugins/Export/ExportXml.php:218
 #, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
 msgstr "Vrijeme generiranja"
 
-#: src/Plugins/Export/ExportLatex.php:215 src/Plugins/Export/ExportSql.php:721
+#: src/Plugins/Export/ExportLatex.php:215 src/Plugins/Export/ExportSql.php:722
 #: src/Plugins/Export/ExportXml.php:221
 #, fuzzy
 #| msgid "PHP Version"
 msgid "PHP Version:"
 msgstr "PHP verzija"
 
-#: src/Plugins/Export/ExportLatex.php:304 src/Plugins/Export/ExportSql.php:2052
+#: src/Plugins/Export/ExportLatex.php:304 src/Plugins/Export/ExportSql.php:2053
 #, fuzzy
 #| msgid "Data"
 msgid "Data:"
@@ -18601,257 +18601,257 @@ msgstr "Strukturu"
 msgid "Stand in"
 msgstr "i potom"
 
-#: src/Plugins/Export/ExportSql.php:129
+#: src/Plugins/Export/ExportSql.php:130
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:136
+#: src/Plugins/Export/ExportSql.php:137
 #, fuzzy
 #| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr "Dodaj prilagođeni komentar u zaglavlje (\"\\n\" razdvaja retke)"
 
-#: src/Plugins/Export/ExportSql.php:142
+#: src/Plugins/Export/ExportSql.php:143
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:195
+#: src/Plugins/Export/ExportSql.php:196
 #, fuzzy
 #| msgid "Export type"
 msgid "Export metadata"
 msgstr "Vrsta izvoza"
 
-#: src/Plugins/Export/ExportSql.php:233
+#: src/Plugins/Export/ExportSql.php:234
 #, fuzzy
 #| msgid "Statements"
 msgid "Add statements:"
 msgstr "Izjave"
 
-#: src/Plugins/Export/ExportSql.php:241 src/Plugins/Export/ExportSql.php:250
-#: src/Plugins/Export/ExportSql.php:267 src/Plugins/Export/ExportSql.php:276
-#: src/Plugins/Export/ExportSql.php:300 src/Plugins/Export/ExportSql.php:328
-#: src/Plugins/Export/ExportSql.php:337
+#: src/Plugins/Export/ExportSql.php:242 src/Plugins/Export/ExportSql.php:251
+#: src/Plugins/Export/ExportSql.php:268 src/Plugins/Export/ExportSql.php:277
+#: src/Plugins/Export/ExportSql.php:301 src/Plugins/Export/ExportSql.php:329
+#: src/Plugins/Export/ExportSql.php:338
 #, fuzzy, php-format
 #| msgid "Statements"
 msgid "Add %s statement"
 msgstr "Izjave"
 
-#: src/Plugins/Export/ExportSql.php:283
+#: src/Plugins/Export/ExportSql.php:284
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:290
+#: src/Plugins/Export/ExportSql.php:291
 #, fuzzy, php-format
 #| msgid "Session value"
 msgid "%s value"
 msgstr "Vrijednost sesije"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
-#: src/Plugins/Export/ExportSql.php:307
+#: src/Plugins/Export/ExportSql.php:308
 msgid "Use simple view export"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:346
+#: src/Plugins/Export/ExportSql.php:347
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:361
+#: src/Plugins/Export/ExportSql.php:362
 #, fuzzy
 #| msgid "Transformation options"
 msgid "Data creation options"
 msgstr "Opcije preoblikovanja"
 
-#: src/Plugins/Export/ExportSql.php:366 src/Plugins/Export/ExportSql.php:2130
+#: src/Plugins/Export/ExportSql.php:367 src/Plugins/Export/ExportSql.php:2131
 msgid "Truncate table before insert"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:373
+#: src/Plugins/Export/ExportSql.php:374
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:379
+#: src/Plugins/Export/ExportSql.php:380
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:388 src/Plugins/Export/ExportSql.php:415
+#: src/Plugins/Export/ExportSql.php:389 src/Plugins/Export/ExportSql.php:416
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:399
+#: src/Plugins/Export/ExportSql.php:400
 msgid "Function to use when dumping data:"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:410
+#: src/Plugins/Export/ExportSql.php:411
 msgid "Syntax to use when inserting data:"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:420
+#: src/Plugins/Export/ExportSql.php:421
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:425
+#: src/Plugins/Export/ExportSql.php:426
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:430
+#: src/Plugins/Export/ExportSql.php:431
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:435
+#: src/Plugins/Export/ExportSql.php:436
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:454
+#: src/Plugins/Export/ExportSql.php:455
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:463
+#: src/Plugins/Export/ExportSql.php:464
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:539
+#: src/Plugins/Export/ExportSql.php:540
 msgid "It appears your database uses routines;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:542 src/Plugins/Export/ExportSql.php:1479
-#: src/Plugins/Export/ExportSql.php:1955
+#: src/Plugins/Export/ExportSql.php:543 src/Plugins/Export/ExportSql.php:1480
+#: src/Plugins/Export/ExportSql.php:1956
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1006
+#: src/Plugins/Export/ExportSql.php:1007
 #, fuzzy
 #| msgid "data"
 msgid "Metadata"
 msgstr "Podatci"
 
-#: src/Plugins/Export/ExportSql.php:1067
+#: src/Plugins/Export/ExportSql.php:1068
 #, fuzzy, php-format
 #| msgid "Dumping data for table"
 msgid "Metadata for table %s"
 msgstr "Izbacivanje podataka za tablicu"
 
-#: src/Plugins/Export/ExportSql.php:1074
+#: src/Plugins/Export/ExportSql.php:1075
 #, fuzzy, php-format
 #| msgid "Create table on database %s"
 msgid "Metadata for database %s"
 msgstr "Izradi novu tablicu u bazi podataka %s"
 
-#: src/Plugins/Export/ExportSql.php:1391
+#: src/Plugins/Export/ExportSql.php:1392
 #, fuzzy, php-format
 #| msgid "Table structure for table"
 msgid "Error reading structure for table %s:"
 msgstr "Tablična struktura za tablicu"
 
-#: src/Plugins/Export/ExportSql.php:1476
+#: src/Plugins/Export/ExportSql.php:1477
 msgid "It appears your database uses views;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1622
+#: src/Plugins/Export/ExportSql.php:1623
 msgid "Constraints for dumped tables"
 msgstr "Ograničenja za izbačene tablice"
 
-#: src/Plugins/Export/ExportSql.php:1623
+#: src/Plugins/Export/ExportSql.php:1624
 msgid "Constraints for table"
 msgstr "Ograničenja za tablicu"
 
-#: src/Plugins/Export/ExportSql.php:1650
+#: src/Plugins/Export/ExportSql.php:1651
 #, fuzzy
 #| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
 msgstr "Ograničenja za izbačene tablice"
 
-#: src/Plugins/Export/ExportSql.php:1651
+#: src/Plugins/Export/ExportSql.php:1652
 #, fuzzy
 #| msgid "Inside tables:"
 msgid "Indexes for table"
 msgstr "Unutar tablica:"
 
-#: src/Plugins/Export/ExportSql.php:1681
+#: src/Plugins/Export/ExportSql.php:1682
 #, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "Dodaj vrijednost AUTO_INCREMENT"
 
-#: src/Plugins/Export/ExportSql.php:1682
+#: src/Plugins/Export/ExportSql.php:1683
 #, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
 msgstr "Dodaj vrijednost AUTO_INCREMENT"
 
-#: src/Plugins/Export/ExportSql.php:1753
+#: src/Plugins/Export/ExportSql.php:1754
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "MIME VRSTE ZA TABLICU"
 
-#: src/Plugins/Export/ExportSql.php:1778
+#: src/Plugins/Export/ExportSql.php:1779
 #, fuzzy
 #| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "RELACIJE TABLICE"
 
-#: src/Plugins/Export/ExportSql.php:1952
+#: src/Plugins/Export/ExportSql.php:1953
 msgid "It appears your table uses triggers;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1982
+#: src/Plugins/Export/ExportSql.php:1983
 #, fuzzy, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
 msgstr "Struktura za pregledavanje"
 
-#: src/Plugins/Export/ExportSql.php:2002
+#: src/Plugins/Export/ExportSql.php:2003
 msgid "(See below for the actual view)"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:2063
+#: src/Plugins/Export/ExportSql.php:2064
 #, fuzzy, php-format
 #| msgid "Allows reading data."
 msgid "Error reading data for table %s:"
 msgstr "Dopušta čitanje podataka."
 
-#: src/Plugins/Export/ExportSql.php:2658
+#: src/Plugins/Export/ExportSql.php:2659
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:587
 #, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
 msgstr "Izrada"
 
-#: src/Plugins/Export/ExportSql.php:2668
+#: src/Plugins/Export/ExportSql.php:2669
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:598
 #, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
 msgstr "Posljednje ažuriranje"
 
-#: src/Plugins/Export/ExportSql.php:2678
+#: src/Plugins/Export/ExportSql.php:2679
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:609
 #, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
 msgstr "Posljednja provjera"
 
-#: src/Plugins/Export/ExportSql.php:2701
+#: src/Plugins/Export/ExportSql.php:2702
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
@@ -18939,11 +18939,11 @@ msgstr "Nazivi stupaca"
 msgid "This plugin does not support compressed imports!"
 msgstr "Ovaj dodatak ne podržava uvoz komprimiranih datoteka!"
 
-#: src/Plugins/Import/ImportMediawiki.php:54
+#: src/Plugins/Import/ImportMediawiki.php:53
 msgid "MediaWiki Table"
 msgstr ""
 
-#: src/Plugins/Import/ImportMediawiki.php:270
+#: src/Plugins/Import/ImportMediawiki.php:269
 #, fuzzy, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid format of mediawiki input on line: <br>%s."
@@ -19140,7 +19140,7 @@ msgstr ""
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:70
-#: src/Util.php:521
+#: src/Util.php:522
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%B %d, %Y u %I:%M %p"
 
@@ -19198,7 +19198,7 @@ msgstr ""
 "postavljena na vrijednost 1, spriječit će omatanje i osigurati prikaz ispisa "
 "u jednom retku (zadano: 1)."
 
-#: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:122
+#: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:118
 #, php-format
 msgid ""
 "You are using the external transformation command line options field, which "
@@ -19535,8 +19535,8 @@ msgstr "Traži u bazi podataka"
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
-#: src/Server/Plugins.php:53 src/Server/Privileges.php:631
-#: src/Server/Privileges.php:3275
+#: src/Server/Plugins.php:53 src/Server/Privileges.php:632
+#: src/Server/Privileges.php:3276
 #, fuzzy
 #| msgid "Documentation"
 msgid "Native MySQL authentication"
@@ -19571,66 +19571,66 @@ msgstr "Dokumentacija"
 msgid "Account locking is not supported."
 msgstr ""
 
-#: src/Server/Privileges.php:264
+#: src/Server/Privileges.php:265
 msgid "No privileges."
 msgstr "Bez privilegija."
 
-#: src/Server/Privileges.php:270
+#: src/Server/Privileges.php:271
 msgid "Includes all privileges except GRANT."
 msgstr "Obuhvaća sve privilegije osim GRANT (Podari)."
 
-#: src/Server/Privileges.php:891
+#: src/Server/Privileges.php:892
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Lozinka za %s uspješno je promijenjena."
 
-#: src/Server/Privileges.php:939
+#: src/Server/Privileges.php:940
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Opozvali ste privilegije za %s."
 
-#: src/Server/Privileges.php:1287
+#: src/Server/Privileges.php:1288
 msgid "Revoke"
 msgstr "Opozovi"
 
-#: src/Server/Privileges.php:1892
+#: src/Server/Privileges.php:1893
 msgid "No users selected for deleting!"
 msgstr "Nema odabranih korisnika za uklanjanje!"
 
-#: src/Server/Privileges.php:1895
+#: src/Server/Privileges.php:1896
 msgid "Reloading the privileges"
 msgstr "Ponovno učitavanje privilegija"
 
-#: src/Server/Privileges.php:1920
+#: src/Server/Privileges.php:1921
 msgid "The selected users have been deleted successfully."
 msgstr "Odabrani korisnici uspješno su izbrisani."
 
-#: src/Server/Privileges.php:1994
+#: src/Server/Privileges.php:1995
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Ažurirali ste privilegije za %s."
 
-#: src/Server/Privileges.php:2151
+#: src/Server/Privileges.php:2152
 #, php-format
 msgid "Deleting %s"
 msgstr "Brisanje %s"
 
-#: src/Server/Privileges.php:2182
+#: src/Server/Privileges.php:2183
 msgid "The privileges were reloaded successfully."
 msgstr "Privilegije su uspješno učitane."
 
-#: src/Server/Privileges.php:2283
+#: src/Server/Privileges.php:2284
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Korisnik %s već postoji!"
 
-#: src/Server/Privileges.php:2527
+#: src/Server/Privileges.php:2528
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "Privilegije"
 
-#: src/Server/Privileges.php:2615
+#: src/Server/Privileges.php:2616
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -19648,7 +19648,7 @@ msgstr ""
 "može se razlikovati od privilegija koje upotrebljava poslužitelj. U tom je "
 "slučaju potrebno %sponovo učitati privilegije%s prije nastavljanja rada."
 
-#: src/Server/Privileges.php:2631
+#: src/Server/Privileges.php:2632
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -19667,11 +19667,11 @@ msgstr ""
 "može se razlikovati od privilegija koje upotrebljava poslužitelj. U tom je "
 "slučaju potrebno %sponovo učitati privilegije%s prije nastavljanja rada."
 
-#: src/Server/Privileges.php:2919
+#: src/Server/Privileges.php:2920
 msgid "You have added a new user."
 msgstr "Dodali ste novog korisnika."
 
-#: src/Server/Privileges.php:3368
+#: src/Server/Privileges.php:3369
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -19937,88 +19937,88 @@ msgstr ""
 msgid "Data manipulation statement"
 msgstr ""
 
-#: src/Tracking/Tracking.php:209
+#: src/Tracking/Tracking.php:210
 msgid "Tracking statements"
 msgstr ""
 
-#: src/Tracking/Tracking.php:225
+#: src/Tracking/Tracking.php:226
 #, fuzzy
 #| msgid "Allows inserting and replacing data."
 msgid "Delete tracking data row from report"
 msgstr "Dopušta umetanje i zamjenu podataka."
 
-#: src/Tracking/Tracking.php:235
+#: src/Tracking/Tracking.php:236
 #, fuzzy
 #| msgid "No databases"
 msgid "No data"
 msgstr "Nema baza podataka"
 
-#: src/Tracking/Tracking.php:347 src/Tracking/Tracking.php:418
+#: src/Tracking/Tracking.php:348 src/Tracking/Tracking.php:419
 #, php-format
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr ""
 
-#: src/Tracking/Tracking.php:438
+#: src/Tracking/Tracking.php:439
 msgid "SQL dump (file download)"
 msgstr ""
 
-#: src/Tracking/Tracking.php:440
+#: src/Tracking/Tracking.php:441
 msgid "SQL dump"
 msgstr ""
 
-#: src/Tracking/Tracking.php:443
+#: src/Tracking/Tracking.php:444
 msgid "This option will replace your table and contained data."
 msgstr ""
 
-#: src/Tracking/Tracking.php:445
+#: src/Tracking/Tracking.php:446
 msgid "SQL execution"
 msgstr ""
 
-#: src/Tracking/Tracking.php:449
+#: src/Tracking/Tracking.php:450
 #, fuzzy, php-format
 msgid "Export as %s"
 msgstr "Vrsta izvoza"
 
-#: src/Tracking/Tracking.php:605
+#: src/Tracking/Tracking.php:606
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr ""
 
-#: src/Tracking/Tracking.php:839
+#: src/Tracking/Tracking.php:840
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
 msgstr ""
 
-#: src/Tracking/Tracking.php:843
+#: src/Tracking/Tracking.php:844
 msgid "Comment out these two lines if you do not need them."
 msgstr ""
 
-#: src/Tracking/Tracking.php:854
+#: src/Tracking/Tracking.php:855
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr ""
 
-#: src/Tracking/Tracking.php:887
+#: src/Tracking/Tracking.php:888
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr ""
 
-#: src/Tracking/Tracking.php:910
+#: src/Tracking/Tracking.php:911
 #, php-format
 msgid "Tracking for %1$s was activated at version %2$s."
 msgstr ""
 
-#: src/Tracking/Tracking.php:913
+#: src/Tracking/Tracking.php:914
 #, php-format
 msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr ""
 
-#: src/Tracking/Tracking.php:1008
+#: src/Tracking/Tracking.php:1009
 #, fuzzy, php-format
 msgid "Version %1$s of %2$s was deleted."
 msgstr "Izradi relaciju"
 
-#: src/Tracking/Tracking.php:1039
+#: src/Tracking/Tracking.php:1040
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr ""
@@ -20350,27 +20350,27 @@ msgstr ""
 "Pohrana konfiguracije za phpMyAdmin je deaktivirana. Kako biste saznali "
 "razloge deaktivacije, kliknite %sovdje%s."
 
-#: src/Util.php:123
+#: src/Util.php:124
 #, php-format
 msgid "Max: %s%s"
 msgstr "Najv: %s%s"
 
-#: src/Util.php:544
+#: src/Util.php:545
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr ""
 
-#: src/Util.php:546
+#: src/Util.php:547
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr ""
 
-#: src/Util.php:618
+#: src/Util.php:619
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dana, %s sati, %s minuta i %s sekunda"
 
-#: src/Util.php:1470
+#: src/Util.php:1471
 #, fuzzy
 #| msgid "User"
 msgid "Users"
