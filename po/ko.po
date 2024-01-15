@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2023-12-30 21:39+0000\n"
+"PO-Revision-Date: 2024-01-16 15:06+0000\n"
 "Last-Translator: Yong Kim <kim@nhn.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/5-2/ko/"
 ">\n"
@@ -4607,10 +4607,9 @@ msgid ""
 "based protection may not be reliable if your IP belongs to an ISP where "
 "thousands of users, including you, are connected to."
 msgstr ""
-"만약 필요한 경우, %1$shost authentication%2$s 설정과 %3$strusted proxies "
-"list%4$s에서 추가적인 보안 설정을 하세요. 그러나 귀하의 IP가 귀하를 포함하여 "
-"수천 명의 사용자가 연결되어 있는 ISP에 속한 경우에는 IP 기반 보호가 안정적이"
-"지 않을 수 있습니다."
+"필요한 경우 추가 보호 설정을 사용하세요 - %1$s호스트 인증%2$s 설정과 %3$"
+"s신뢰할 수 있는 프록시 목록%4$s. 그러나 IP가 수천 명의 사용자가 연결되어 "
+"있는 ISP에 속해 있는 경우 IP 기반 보호는 신뢰할 수 없을 수 있습니다."
 
 #: libraries/classes/Config/ServerConfigChecks.php:195
 #, php-format
@@ -4663,8 +4662,8 @@ msgid ""
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%3$ssession.gc_maxlifetime%4$s보다 큰 %1$sLogin cookie validity%2$s은 불규칙"
-"적인 세션 파기를 유발할 수 있습니다(현재 session.gc_maxlifetime은 %5$d)."
+"%1$s로그인 쿠키 유효기간%2$s이 %3$ssession.gc_maxlifetime%4$s 보다 길다면 "
+"무작위로 세션이 무효화될 수 있습니다(현재 세션.gc_maxlifetime은 %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:407
 #, php-format
@@ -4689,18 +4688,16 @@ msgstr ""
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
-msgstr ""
-"%1$sBzip2 compression and decompression%2$s는 (%3$s) 기능이 필요하지만 시스템"
-"에 없습니다."
+msgstr "%1$sBzip2 압축 및 압축 해제%2$s에는 (%3$s)가 필요하지만 이 시스템에서 사용할 "
+"수 없는 함수입니다."
 
 #: libraries/classes/Config/ServerConfigChecks.php:503
 #, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
-msgstr ""
-"%1$sGZip compression and decompression%2$s은 (%3$s) 기능이 필요하지만 시스템"
-"에 없습니다."
+msgstr "%1$GZip 압축 및 압축 해제%2$s에는 (%3$s)가 필요하지만 이 시스템에서 사용할 "
+"수 없는 함수입니다."
 
 #: libraries/classes/ConfigStorage/Relation.php:1365
 msgid "no description"
@@ -5530,7 +5527,7 @@ msgstr "Y값"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:128
 msgid "Please enter the SQL query first."
-msgstr "SQL 쿼리를 먼저 입력해주세요."
+msgstr "먼저 SQL 쿼리를 입력하세요."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:131
 msgid "The host name is empty!"
@@ -8262,7 +8259,7 @@ msgstr "행: %1$s, 열: %2$s, 오류: %3$s"
 #: libraries/classes/Controllers/Table/Structure/ChangeController.php:91
 #, php-format
 msgid "Failed to get description of column %s!"
-msgstr "컬럼 %s의 설명을 가져오는데 실패!"
+msgstr "열 %s에 대한 설명을 얻을 수 없습니다!"
 
 #: libraries/classes/Controllers/Table/StructureController.php:226
 #: templates/columns_definitions/column_attributes.twig:112
@@ -10336,7 +10333,7 @@ msgstr "테이블명이 없습니다!"
 
 #: libraries/classes/Partitioning/Maintenance.php:141
 msgid "This table is a view, it can not be truncated."
-msgstr "이 테이블은 뷰이므로, 비울 수 없습니다."
+msgstr "이 테이블은 뷰이므로 비울 수 없습니다."
 
 #: libraries/classes/Pdf.php:136
 msgid "Error while creating PDF:"
@@ -10964,7 +10961,7 @@ msgstr "마지막 검사:"
 #: libraries/classes/Plugins/Export/ExportSql.php:1529
 #, php-format
 msgid "Error reading structure for table %s:"
-msgstr "%s 테이블의 테이블 구조를 읽어오지 못함:"
+msgstr "테이블 %s의 구조를 읽는 중 오류:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1611
 msgid "It appears your database uses views;"
@@ -11009,7 +11006,7 @@ msgstr "테이블에서 트리거를 사용하는 것 같습니다;"
 #: libraries/classes/Plugins/Export/ExportSql.php:2156
 #, php-format
 msgid "Structure for view %s exported as a table"
-msgstr "테이블로 내보낸 뷰 %s의 구조"
+msgstr "테이블로 내보낸 %s 뷰의 구조"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2176
 msgid "(See below for the actual view)"
@@ -11018,7 +11015,7 @@ msgstr "(실제 뷰는 아래 참조)"
 #: libraries/classes/Plugins/Export/ExportSql.php:2244
 #, php-format
 msgid "Error reading data for table %s:"
-msgstr "%s테이블의 데이터 읽기 오류:"
+msgstr "테이블 %s의 데이터를 읽는 동안 발생한 오류:"
 
 #: libraries/classes/Plugins/Export/ExportXml.php:94
 msgid "Object creation options (all are recommended)"
