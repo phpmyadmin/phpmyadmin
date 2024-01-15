@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-01-14 00:21+0000\n"
-"PO-Revision-Date: 2023-12-30 14:55+0000\n"
+"PO-Revision-Date: 2024-01-16 15:06+0000\n"
 "Last-Translator: Yong Kim <kim@nhn.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ko/>\n"
@@ -2995,7 +2995,7 @@ msgstr "오류 보고서 전송"
 
 #: resources/templates/error/simple.twig:2
 msgid "Something went wrong"
-msgstr ""
+msgstr "문제가 발생했습니다"
 
 #: resources/templates/error/simple.twig:7
 #: resources/templates/modals/index_dialog_modal.twig:26
@@ -3309,7 +3309,7 @@ msgstr "외관 설정"
 
 #: resources/templates/header.twig:76 resources/templates/home/index.twig:152
 msgid "Color mode for the theme"
-msgstr ""
+msgstr "테마용 컬러 모드"
 
 #: resources/templates/header.twig:79 resources/templates/home/index.twig:155
 #, fuzzy
@@ -3320,7 +3320,7 @@ msgstr "오른쪽"
 #: resources/templates/header.twig:81 resources/templates/home/index.twig:157
 msgctxt "Dark color mode of the theme"
 msgid "Dark"
-msgstr ""
+msgstr "다크"
 
 #: resources/templates/header.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
@@ -3843,7 +3843,7 @@ msgstr "확인"
 
 #: resources/templates/modals/function_confirm.twig:6
 msgid "Ok"
-msgstr ""
+msgstr "OK"
 
 #: resources/templates/modals/unhide_nav_item.twig:1
 msgid "Show hidden navigation tree items."
@@ -5821,7 +5821,7 @@ msgstr "시간 당 ø"
 
 #: resources/templates/server/status/queries/index.twig:52
 msgid "Pie chart with the most frequent statements."
-msgstr ""
+msgstr "가장 빈번하게 사용되는 문장이 포함된 원형 차트."
 
 #: resources/templates/server/status/status/index.twig:6
 #, php-format
@@ -6522,7 +6522,7 @@ msgstr "편집/삽입"
 
 #: resources/templates/table/insert/continue_insertion_form.twig:14
 msgid "Amount of rows to insert"
-msgstr ""
+msgstr "삽입할 열 수"
 
 #: resources/templates/table/maintenance/checksum.twig:12
 msgid "Checksum"
@@ -9431,7 +9431,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:328
 msgid "Allow users to create bookmarks that are available for all other users"
-msgstr ""
+msgstr "사용자가 다른 모든 사용자가 사용할 수 있는 북마크를 만들 수 있도록 허용합니다"
 
 #: src/Config/Descriptions.php:330
 msgid ""
@@ -10839,7 +10839,7 @@ msgstr "쿼리 기록 길이"
 
 #: src/Config/Descriptions.php:851
 msgid "Allow shared bookmarks between users"
-msgstr ""
+msgstr "사용자 간 북마크 공유 허용"
 
 #: src/Config/Descriptions.php:852
 msgid "Recoding engine"
@@ -11378,16 +11378,16 @@ msgid "You should use SSL connections if your database server supports it."
 msgstr "데이터베이스 서버가 지원한다면 SSL 연결을 사용해야 합니다."
 
 #: src/Config/ServerConfigChecks.php:149
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
 "authentication%2$s settings and %3$strusted proxies list%4$s. However, IP-"
 "based protection may not be reliable if your IP belongs to an ISP where "
 "thousands of users, including you, are connected to."
 msgstr ""
-"만약 이것이 필요하다고 느낀다면, 추가적인 보안 설정을 하세요 - %shost "
-"authentication%s 설정과 %strusted proxies list%s. 하지만 IP 기반 보안은, 당신"
-"이 수천명의 사용자와 함께 쓰는 IP 대역을 사용할경우 그다지 안전하지 않습니다."
+"필요한 경우 추가 보호 설정을 사용하세요 - %1$s호스트 인증%2$s 설정과 %3$"
+"s신뢰할 수 있는 프록시 목록%4$s. 그러나 IP가 수천 명의 사용자가 연결되어 "
+"있는 ISP에 속해 있는 경우 IP 기반 보호는 신뢰할 수 없을 수 있습니다."
 
 #: src/Config/ServerConfigChecks.php:175
 #, php-format
@@ -11435,14 +11435,14 @@ msgid ""
 msgstr "%sZip 압축%s을 하기 위한 함수 %s가 현재 시스템에서 사용할 수 없습니다."
 
 #: src/Config/ServerConfigChecks.php:318
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%ssession.gc_maxlifetime%s보다 큰 %sLogin cookie validity%s은 불규칙적으로 세"
-"션 파기를 유발할 수 있습니다(현재 session.gc_maxlifetime은 %d)."
+"%1$s로그인 쿠키 유효기간%2$s이 %3$ssession.gc_maxlifetime%4$s 보다 길다면 "
+"무작위로 세션이 무효화될 수 있습니다(현재 세션.gc_maxlifetime은 %5$d)."
 
 #: src/Config/ServerConfigChecks.php:340
 #, php-format
@@ -11463,22 +11463,20 @@ msgstr ""
 "%sLogin cookie validity%s은 그 값 이하의 값을 가져야합니다."
 
 #: src/Config/ServerConfigChecks.php:401
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
-msgstr ""
-"%sBzip2 compression and decompression%s는 (%s) 기능이 필요한데, 이 기능은 이 "
-"시스템이서는 사용할 수 없습니다."
+msgstr "%1$sBzip2 압축 및 압축 해제%2$s에는 (%3$s)가 필요하지만 이 시스템에서 사용할 "
+"수 없는 함수입니다."
 
 #: src/Config/ServerConfigChecks.php:432
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
-msgstr ""
-"%sGZip compression and decompression%s은 (%s) 기능이 필요한데, 이 기능은 이 "
-"시스템이서는 사용할 수 없습니다."
+msgstr "%1$GZip 압축 및 압축 해제%2$s에는 (%3$s)가 필요하지만 이 시스템에서 사용할 "
+"수 없는 함수입니다."
 
 #: src/Config/Settings.php:3165
 #, php-format
@@ -11866,7 +11864,8 @@ msgstr ""
 msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
-msgstr ""
+msgstr "[code]$cfg['UseDbSearch'][/code] 구성으로 데이터베이스 내부 검색을 "
+"비활성화할 수 있습니다."
 
 #: src/Controllers/Database/Structure/CentralColumns/AddController.php:49
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:50
@@ -12339,9 +12338,8 @@ msgid "Y values"
 msgstr "Y값"
 
 #: src/Controllers/JavaScriptMessagesController.php:138
-#, fuzzy
 msgid "Please enter the SQL query first."
-msgstr "같은 값을 한번 더 입력하세요"
+msgstr "먼저 SQL 쿼리를 입력하세요."
 
 #: src/Controllers/JavaScriptMessagesController.php:141
 msgid "The host name is empty!"
@@ -16535,7 +16533,7 @@ msgstr "테이블명이 없습니다!"
 
 #: src/Partitioning/Maintenance.php:142
 msgid "This table is a view, it can not be truncated."
-msgstr ""
+msgstr "이 테이블은 뷰이므로 비울 수 없습니다."
 
 #: src/Pdf.php:138
 msgid "Error while creating PDF:"
@@ -16582,7 +16580,7 @@ msgstr "세션유효기간이 만료되었습니다. 다시 로그인하세요."
 
 #: src/Plugins/Auth/AuthenticationCookie.php:236
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
-msgstr ""
+msgstr "Captcha 인증이 누락되었거나 애드블록에 의해 차단되었나요?"
 
 #: src/Plugins/Auth/AuthenticationCookie.php:271
 msgid "Failed to connect to the reCAPTCHA service!"
@@ -16976,9 +16974,9 @@ msgid "Metadata for database %s"
 msgstr "%s 데이터베이스용 메타데이터"
 
 #: src/Plugins/Export/ExportSql.php:1392
-#, fuzzy, php-format
+#, php-format
 msgid "Error reading structure for table %s:"
-msgstr "테이블 구조"
+msgstr "테이블 %s의 구조를 읽는 중 오류:"
 
 #: src/Plugins/Export/ExportSql.php:1477
 msgid "It appears your database uses views;"
@@ -17021,18 +17019,18 @@ msgid "It appears your table uses triggers;"
 msgstr "테이블에서 트리거를 사용하는 것 같습니다;"
 
 #: src/Plugins/Export/ExportSql.php:1983
-#, fuzzy, php-format
+#, php-format
 msgid "Structure for view %s exported as a table"
-msgstr "뷰 구조"
+msgstr "테이블로 내보낸 %s 뷰의 구조"
 
 #: src/Plugins/Export/ExportSql.php:2003
 msgid "(See below for the actual view)"
 msgstr "(실제 뷰는 아래 참조)"
 
 #: src/Plugins/Export/ExportSql.php:2064
-#, fuzzy, php-format
+#, php-format
 msgid "Error reading data for table %s:"
-msgstr "데이터 읽기 오류:"
+msgstr "테이블 %s의 데이터를 읽는 동안 발생한 오류:"
 
 #: src/Plugins/Export/ExportSql.php:2659
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:587
@@ -17342,6 +17340,15 @@ msgid ""
 "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
+"Linux 만: 외부 애플리케이션을 실행하고 표준 입력을 통해 열 데이터를 "
+"공급합니다. 애플리케이션의 표준 출력을 반환합니다. 기본값은 pretty-print "
+"HTML 코드를 위한 Tidy입니다. 보안상의 이유로 src/Plugins/Transformations/Abs/"
+"ExternalTransformationsPlugin.php 파일을 수동으로 편집하여 사용할 수 있도록 "
+"설정할 도구를 나열해야 합니다. 그런 다음 첫 번째 옵션은 사용하려는 "
+"프로그램의 번호입니다. 두 번째 옵션은 기록상의 이유로 비워 두어야 합니다. 세 "
+"번째 옵션은 1로 설정하면 htmlspecialchars()를 사용하여 출력을 변환합니다("
+"기본값 1). 네 번째 옵션은 1로 설정하면 줄 바꿈을 방지하고 출력이 모두 한 "
+"줄에 표시되도록 합니다(기본값 1)."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:118
 #, php-format
