@@ -54,7 +54,7 @@ class RoutinesController extends AbstractController
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['urlParams'] ??= null;
 
-        $this->addScriptFiles(['database/routines.js']);
+        $this->addScriptFiles(['database/routines.js', 'sql.js']);
 
         $type = $_REQUEST['type'] ?? null;
 

@@ -60,7 +60,8 @@
         </tr>
         <tr>
           <td class="text-nowrap">{% trans 'Definition' %}</td>
-          <td><textarea name="item_definition" rows="15" cols="40">{{ item.item_definition }}</textarea></td>
+          <td><textarea name="item_definition" rows="15" cols="40">{{ item.item_definition }}</textarea><br>
+            <input type="button" value="{{ 'Format'|trans }}" id="format" class="btn btn-secondary button sqlbutton"></td>
         </tr>
         <tr>
           <td class="text-nowrap">{% trans 'Definer' %}</td>

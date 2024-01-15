@@ -384,6 +384,7 @@ const DatabaseEvents = {
                 eventEditor: true,
             };
             that.syntaxHiglighter = Functions.getSqlEditor($elm, {}, 'vertical', linterOptions);
+            window.codeMirrorEditor = that.syntaxHiglighter;
         }); // end $.get()
     },
 

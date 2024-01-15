@@ -50,7 +50,7 @@ final class IndexController extends AbstractController
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
-        $this->addScriptFiles(['triggers.js']);
+        $this->addScriptFiles(['triggers.js', 'sql.js']);
 
         if (! $request->isAjax()) {
             $config = Config::getInstance();
