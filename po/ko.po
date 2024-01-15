@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2023-12-30 21:39+0000\n"
+"PO-Revision-Date: 2024-01-16 14:06+0000\n"
 "Last-Translator: Yong Kim <kim@nhn.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/5-1/ko/"
 ">\n"
@@ -270,22 +270,16 @@ msgid "Suboptimal caching method."
 msgstr "차선책 캐싱 방식."
 
 #: libraries/advisory_rules_generic.php:192
-#, fuzzy
-#| msgid ""
-#| "You are using the MySQL Query cache with a fairly high traffic database. "
-#| "It might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-#| "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL "
-#| "Query cache, especially if you have multiple slaves."
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
 "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
-"꽤 많은 트래픽을 쓰는 데이터베이스에 MySQL 쿼리 캐시를 사용중입니다. MySQL 쿼"
-"리 캐시 대신 <a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached."
-"html\">memcached</a>를 사용하는게 나을 수 있습니다. 만약 다수의 slave가 있다"
-"면 더욱 권장합니다."
+"꽤 많은 트래픽을 쓰는 데이터베이스에 MySQL 쿼리 캐시를 사용중입니다. MySQL "
+"쿼리 캐시 대신 <a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached"
+".html\">memcached</a>를 사용하는게 나을 수 있습니다. 만약 다수의 slave가 "
+"있다면 더욱 권장합니다."
 
 #: libraries/advisory_rules_generic.php:198
 #, php-format
@@ -1708,24 +1702,22 @@ msgid "Enable bzip2 compression for import operations."
 msgstr "가져오기 작업 시 bzip2 압축을 활성화합니다."
 
 #: libraries/classes/Config/Descriptions.php:88
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the URL for your reCaptcha v2 compatible API."
-msgstr "당신의 도메인의 reCaptcha 서비스를 위한 개인키를 입력하세요."
+msgstr "reCaptcha v2 호환 API의 URL을 입력합니다."
 
 #: libraries/classes/Config/Descriptions.php:89
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCaptcha v2 compatible "
 "API."
-msgstr ""
+msgstr "reCaptcha v2 호환 API에 대한 콘텐츠-보안-정책 스니펫을 입력해 주세요."
 
 #: libraries/classes/Config/Descriptions.php:90
 msgid "Enter the request parameter used by your reCaptcha v2 compatible API."
-msgstr ""
+msgstr "reCaptcha v2 호환 API에서 사용하는 요청 매개변수를 입력해 주세요."
 
 #: libraries/classes/Config/Descriptions.php:91
 msgid "Enter the response parameter used by your reCaptcha v2 compatible API."
-msgstr ""
+msgstr "reCaptcha v2 호환 API에서 사용하는 응답 매개변수를 입력해 주세요."
 
 #: libraries/classes/Config/Descriptions.php:92
 msgid "Enter your public key for your domain reCaptcha service."
@@ -1736,10 +1728,8 @@ msgid "Enter your private key for your domain reCaptcha service."
 msgstr "당신의 도메인의 reCaptcha 서비스를 위한 개인키를 입력하세요."
 
 #: libraries/classes/Config/Descriptions.php:94
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your siteverify URL for your reCaptcha service."
-msgstr "당신의 도메인의 reCaptcha 서비스를 위한 개인키를 입력하세요."
+msgstr "reCaptcha 서비스에 대한 사이트확인 URL을 입력합니다."
 
 #: libraries/classes/Config/Descriptions.php:96
 msgid ""
@@ -4244,19 +4234,19 @@ msgstr "ZIP"
 
 #: libraries/classes/Config/Descriptions.php:976
 msgid "URL for reCaptcha v2 API"
-msgstr ""
+msgstr "reCaptcha v2 API용 URL"
 
 #: libraries/classes/Config/Descriptions.php:977
 msgid "Content-Security-Policy snippet for reCaptcha v2 API"
-msgstr ""
+msgstr "reCaptcha v2 API용 콘텐츠-보안-정책 스니펫"
 
 #: libraries/classes/Config/Descriptions.php:978
 msgid "Request parameter for reCaptcha v2 API"
-msgstr ""
+msgstr "reCaptcha v2 API의 요청 매개변수"
 
 #: libraries/classes/Config/Descriptions.php:979
 msgid "Response parameter for reCaptcha v2 API"
-msgstr ""
+msgstr "reCaptcha v2 API의 응답 매개변수"
 
 #: libraries/classes/Config/Descriptions.php:980
 msgid "Public key for reCaptcha"
@@ -4268,7 +4258,7 @@ msgstr "reCaptcha용 개인 키(Private key)"
 
 #: libraries/classes/Config/Descriptions.php:982
 msgid "URL for reCaptcha siteverify"
-msgstr ""
+msgstr "reCaptcha 사이트 확인용 URL"
 
 #: libraries/classes/Config/Descriptions.php:983
 msgid "Send error reports"
@@ -4298,14 +4288,8 @@ msgid "Show current browsing query"
 msgstr "현재 탐색 중인 쿼리 보기"
 
 #: libraries/classes/Config/Descriptions.php:989
-#, fuzzy
-#| msgid ""
-#| "Execute queries on Enter and insert new line with Shift + Enter. To make "
-#| "this permanent, view settings."
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
-msgstr ""
-"Enter키로 쿼리를 실행하고 Shift + Enter키로 새로운 줄에 쿼리를 작성하세요. "
-"이 설정을 영구적으로 적용하려면, 설정을 확인하시기 바랍니다."
+msgstr "Enter로 쿼리를 실행하고 Shift + Enter로 새 줄을 삽입합니다."
 
 #: libraries/classes/Config/Descriptions.php:990
 #: templates/console/display.twig:168
@@ -4704,21 +4688,16 @@ msgid "You should use SSL connections if your database server supports it."
 msgstr "데이터베이스 서버가 지원한다면 SSL 연결을 사용해야 합니다."
 
 #: libraries/classes/Config/ServerConfigChecks.php:175
-#, fuzzy, php-format
-#| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%shost authentication%s settings and %strusted proxies list%s. However, "
-#| "IP-based protection may not be reliable if your IP belongs to an ISP "
-#| "where thousands of users, including you, are connected to."
+#, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
 "authentication%2$s settings and %3$strusted proxies list%4$s. However, IP-"
 "based protection may not be reliable if your IP belongs to an ISP where "
 "thousands of users, including you, are connected to."
 msgstr ""
-"만약 이것이 필요하다고 느낀다면, 추가적인 보안 설정을 하세요 - %shost "
-"authentication%s 설정과 %strusted proxies list%s. 하지만 IP 기반 보안은, 당신"
-"이 수천명의 사용자와 함께 쓰는 IP 대역을 사용할경우 그다지 안전하지 않습니다."
+"필요한 경우 추가 보호 설정을 사용하세요 - %1$s호스트 인증%2$s 설정과 %3$"
+"s신뢰할 수 있는 프록시 목록%4$s. 그러나 IP가 수천 명의 사용자가 연결되어 "
+"있는 ISP에 속해 있는 경우 IP 기반 보호는 신뢰할 수 없을 수 있습니다."
 
 #: libraries/classes/Config/ServerConfigChecks.php:200
 #, php-format
@@ -4773,18 +4752,14 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "키는 문자, 숫자 [em]그리고[/em] 특수문자가 포함되어야 합니다."
 
 #: libraries/classes/Config/ServerConfigChecks.php:428
-#, fuzzy, php-format
-#| msgid ""
-#| "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may "
-#| "cause random session invalidation (currently session.gc_maxlifetime is "
-#| "%d)."
+#, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%ssession.gc_maxlifetime%s보다 큰 %sLogin cookie validity%s은 불규칙적으로 세"
-"션 파기를 유발할 수 있습니다(현재 session.gc_maxlifetime은 %d)."
+"%1$s로그인 쿠키 유효기간%2$s이 %3$ssession.gc_maxlifetime%4$s 보다 길다면 "
+"무작위로 세션이 무효화될 수 있습니다(현재 세션.gc_maxlifetime은 %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:450
 #, php-format
@@ -4805,28 +4780,20 @@ msgstr ""
 "%sLogin cookie validity%s은 그 값 이하의 값을 가져야합니다."
 
 #: libraries/classes/Config/ServerConfigChecks.php:515
-#, fuzzy, php-format
-#| msgid ""
-#| "%sBzip2 compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
-msgstr ""
-"%sBzip2 compression and decompression%s는 (%s) 기능이 필요한데, 이 기능은 이 "
-"시스템이서는 사용할 수 없습니다."
+msgstr "%1$sBzip2 압축 및 압축 해제%2$s에는 (%3$s)가 필요하지만 이 시스템에서 사용할 "
+"수 없는 함수입니다."
 
 #: libraries/classes/Config/ServerConfigChecks.php:547
-#, fuzzy, php-format
-#| msgid ""
-#| "%sGZip compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
-msgstr ""
-"%sGZip compression and decompression%s은 (%s) 기능이 필요한데, 이 기능은 이 "
-"시스템이서는 사용할 수 없습니다."
+msgstr "%1$GZip 압축 및 압축 해제%2$s에는 (%3$s)가 필요하지만 이 시스템에서 사용할 "
+"수 없는 함수입니다."
 
 #: libraries/classes/Config/Validator.php:233
 msgid "Could not connect to the database server!"
@@ -5544,10 +5511,8 @@ msgid "Y values"
 msgstr "Y값"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:126
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "같은 값을 한번 더 입력하세요"
+msgstr "먼저 SQL 쿼리를 입력하세요."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:129
 msgid "The host name is empty!"
@@ -6408,14 +6373,10 @@ msgid "Are you sure?"
 msgstr "확실합니까?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:410
-#, fuzzy
-#| msgid ""
-#| "This action may change some of the columns definition.<br/>Are you sure "
-#| "you want to continue?"
 msgid ""
 "This action may change some of the columns definition.<br>Are you sure you "
 "want to continue?"
-msgstr "컬럼 정의의 일부가 변경될 수도 있습니다.<br/>계속하겠습니까?"
+msgstr "이 작업으로 인해 일부 열의 정의가 변경될 수 있습니다.<br>계속하시겠습니까?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:413
 msgid "Continue"
@@ -7962,17 +7923,17 @@ msgstr "첫 번째 테이블의 전체 스캔을 수행한 조인 횟수입니�
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:615
 msgid "The number of temporary tables currently open by the slave SQL thread."
-msgstr ""
+msgstr "슬레이브 SQL 스레드에서 현재 열려 있는 임시 테이블의 수입니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:619
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
-msgstr ""
+msgstr "복제 슬레이브 SQL 스레드가 트랜잭션을 재시도한 (시작 이후) 총 횟수입니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:623
 msgid "This is ON if this server is a slave that is connected to a master."
-msgstr ""
+msgstr "이 서버가 마스터에 연결된 슬레이브인 경우 ON 입니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:626
 msgid ""
@@ -8245,10 +8206,9 @@ msgid "The columns have been moved successfully."
 msgstr "열이 정상적으로 이동했습니다."
 
 #: libraries/classes/Controllers/Table/StructureController.php:746
-#, fuzzy, php-format
-#| msgid "Failed to get real row count."
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "실제 줄 갯수 알아오기 실패."
+msgstr "열 %s에 대한 설명을 얻을 수 없습니다!"
 
 #: libraries/classes/Controllers/Table/StructureController.php:987
 #: libraries/classes/Controllers/Table/StructureController.php:1271
@@ -8434,10 +8394,8 @@ msgid "FOREIGN KEY relationship has been removed."
 msgstr "FOREIGN KEY 릴레이션이 제거되었습니다."
 
 #: libraries/classes/Database/Designer/Common.php:770
-#, fuzzy
-#| msgid "Error: FOREIGN KEY relation could not be removed!"
 msgid "Error: FOREIGN KEY relationship could not be removed!"
-msgstr "오류: 외래키 릴레이션을 제거할 수 없습니다!"
+msgstr "오류: FOREIGN KEY 관계를 제거할 수 없습니다!"
 
 #: libraries/classes/Database/Designer/Common.php:806
 msgid "Error: Internal relationship could not be removed!"
@@ -8843,7 +8801,8 @@ msgstr "권한 조정"
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
-msgstr ""
+msgstr "이 작업을 수행할 수 있는 충분한 권한이 없습니다. 자세한 내용은 문서를 "
+"참조하세요"
 
 #: libraries/classes/Database/Routines.php:996
 #: libraries/classes/Database/Triggers.php:450
@@ -10693,7 +10652,8 @@ msgstr "캡차 값이 틀렸습니다. 다시 해보세요!"
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 1000 characters."
-msgstr ""
+msgstr "비밀번호가 너무 깁니다. 서비스 거부 공격을 방지하기 위해 phpMyAdmin에서는 "
+"비밀번호를 1000자 미만으로 제한합니다."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:372
 msgid "You are not allowed to log in to this MySQL server!"
@@ -11205,10 +11165,9 @@ msgid "Last check:"
 msgstr "마지막 검사:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1558
-#, fuzzy, php-format
-#| msgid "Table structure for table"
+#, php-format
 msgid "Error reading structure for table %s:"
-msgstr "테이블 구조"
+msgstr "테이블 %s의 구조를 읽는 중 오류:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1649
 msgid "It appears your database uses views;"
@@ -11251,20 +11210,18 @@ msgid "It appears your table uses triggers;"
 msgstr "테이블에서 트리거를 사용하는 것 같습니다;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2228
-#, fuzzy, php-format
-#| msgid "Structure for view"
+#, php-format
 msgid "Structure for view %s exported as a table"
-msgstr "뷰 구조"
+msgstr "테이블로 내보낸 %s 뷰의 구조"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2252
 msgid "(See below for the actual view)"
 msgstr "(실제 뷰는 아래 참조)"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2332
-#, fuzzy, php-format
-#| msgid "Error reading data:"
+#, php-format
 msgid "Error reading data for table %s:"
-msgstr "데이터 읽기 오류:"
+msgstr "테이블 %s의 데이터를 읽는 동안 발생한 오류:"
 
 #: libraries/classes/Plugins/Export/ExportXml.php:109
 msgid "Object creation options (all are recommended)"
@@ -11780,7 +11737,7 @@ msgstr "하드웨어 보안 키(FIDO U2F)"
 #: libraries/classes/Plugins/TwoFactor/Key.php:216
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
-msgstr ""
+msgstr "FIDO U2F를 지원하는 하드웨어 보안 토큰을 사용하여 인증을 제공합니다."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:73
 #, php-format
@@ -11890,10 +11847,8 @@ msgid "Display Features"
 msgstr "기능 표시"
 
 #: libraries/classes/Relation.php:221
-#, fuzzy
-#| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
-msgstr "PDF 생성"
+msgstr "PDF 디자이너 및 생성"
 
 #: libraries/classes/Relation.php:232
 msgid "Displaying Column Comments"
@@ -11920,10 +11875,8 @@ msgid "Persistent recently used tables"
 msgstr "영속적인 최근 사용한 테이블"
 
 #: libraries/classes/Relation.php:294
-#, fuzzy
-#| msgid "Persistent recently used tables"
 msgid "Persistent favorite tables"
-msgstr "영속적인 최근 사용한 테이블"
+msgstr "즐겨찾기 테이블 보존"
 
 #: libraries/classes/Relation.php:305
 msgid "Persistent tables' UI preferences"
@@ -11947,19 +11900,15 @@ msgstr "Query-By-Example 검색을 저장"
 
 #: libraries/classes/Relation.php:377
 msgid "Managing Central list of columns"
-msgstr ""
+msgstr "중앙 열 목록 관리"
 
 #: libraries/classes/Relation.php:388
-#, fuzzy
-#| msgid "Remember table's sorting"
 msgid "Remembering Designer Settings"
-msgstr "테이블의 정렬 순서 기억하기"
+msgstr "디자이너 설정 기억하기"
 
 #: libraries/classes/Relation.php:399
-#, fuzzy
-#| msgid "Invalid export type"
 msgid "Saving export templates"
-msgstr "잘못된 내보내기 타입"
+msgstr "내보내기 템플릿 저장"
 
 #: libraries/classes/Relation.php:1834
 msgid "no description"
@@ -12049,10 +11998,8 @@ msgstr ""
 "마스터의 로그 위치를 읽어올 수 없습니다. 마스터 쪽의 권한 문제일 수 있습니다."
 
 #: libraries/classes/ReplicationGui.php:566
-#, fuzzy
-#| msgid "Unable to change master"
 msgid "Unable to change master!"
-msgstr "마스터를 변경할 수 없음"
+msgstr "마스터를 변경할 수 없습니다!"
 
 #: libraries/classes/ReplicationGui.php:570
 #, php-format
@@ -14648,9 +14595,6 @@ msgid "Returns"
 msgstr "반환값"
 
 #: templates/database/routines/index.twig:62
-#, fuzzy
-#| msgctxt "Create new procedure"
-#| msgid "New"
 msgctxt "Create new routine"
 msgid "New"
 msgstr "새로운"
@@ -15198,7 +15142,7 @@ msgstr "출력를 텍스트로 표시"
 #: templates/export.twig:400
 #, php-format
 msgid "Skip tables larger than %s MiB"
-msgstr ""
+msgstr "%s MiB보다 큰 테이블 건너뛰기"
 
 #: templates/export.twig:406 templates/import.twig:204
 msgid "Format-specific options:"
@@ -15208,7 +15152,7 @@ msgstr "형식 특정 옵션 :"
 msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
-msgstr ""
+msgstr "아래로 스크롤하여 선택한 형식의 옵션을 채우고 다른 형식의 옵션은 무시합니다."
 
 #: templates/export.twig:416 templates/import.twig:215
 msgid "Encoding Conversion:"
@@ -15485,10 +15429,8 @@ msgid "Browse your computer:"
 msgstr "업로드 파일:"
 
 #: templates/import.twig:62
-#, fuzzy
-#| msgid "Browse your computer:"
 msgid "Browse your computer"
-msgstr "업로드 파일:"
+msgstr "내 컴퓨터에서 찾기"
 
 #: templates/import.twig:68 templates/import.twig:101
 msgid "You may also drag and drop a file on any page."
@@ -15522,29 +15464,22 @@ msgid ""
 msgstr "이전 가져오기 시간이 초과되었습니다. 다시 전송한 후 %d 위치에서 계속됩니다."
 
 #: templates/import.twig:165
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be a good way to import "
-#| "large files, however it can break transactions.)</i>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
-"PHP 실행 시간 제한이 근접하였을 때 가져오기를 일시 중지하기. <i>(대용량의 파"
-"일들을 가져올 때 유용합니다. 하지만 트랜잭션이 유지되지 않을 수 있습니다.)</"
-"i>"
+"스크립트에서 PHP 시간 초과 제한에 가까워진 것을 감지한 경우 가져오기 중단을 "
+"허용합니다. <em>(이 방법은 대용량 파일을 가져올 때 유용할 수 있지만 "
+"트랜잭션이 중단될 수 있습니다.)</em>"
 
 #: templates/import.twig:172
 msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr "첫 번째 쿼리부터 건너뛸 SQL 쿼리의 수:"
 
 #: templates/import.twig:189
-#, fuzzy
-#| msgid "Options"
 msgid "Other options:"
-msgstr "옵션"
+msgstr "기타 옵션:"
 
 #: templates/indexes.twig:38
 #: templates/table/structure/display_structure.twig:446
@@ -16150,10 +16085,8 @@ msgid "Character sets and collations"
 msgstr "문자집합과 문자정렬순서"
 
 #: templates/server/collations/index.twig:32
-#, fuzzy
-#| msgid "Default"
 msgid "(default)"
-msgstr "기본값"
+msgstr "(기본값)"
 
 #: templates/server/databases/index.twig:6
 msgid "Databases statistics"
@@ -16660,12 +16593,12 @@ msgstr "사용자명과 같은 이름의 데이터베이스를 삭제합니다."
 
 #: templates/server/replication/change_master.twig:5
 msgid "Slave configuration"
-msgstr ""
+msgstr "슬레이브 구성"
 
 #: templates/server/replication/change_master.twig:6
 #: templates/server/replication/slave_configuration.twig:97
 msgid "Change or reconfigure master server"
-msgstr ""
+msgstr "마스터 서버 변경 또는 재구성"
 
 #: templates/server/replication/change_master.twig:9
 msgid ""
@@ -16680,16 +16613,12 @@ msgid "Port:"
 msgstr "포트:"
 
 #: templates/server/replication/index.twig:21
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
-msgstr ""
-"이 서버는 복제 프로세스에서 마스터로 구성되지 않았습니다. <a href=\"%s\">구성"
-"</a>하시겠습니까?"
+msgstr "이 서버가 복제 프로세스에서 마스터로 구성되지 않았습니다. "
+"%s구성%s하시겠습니까?"
 
 #: templates/server/replication/index.twig:43
 msgid "No privileges"
@@ -16722,6 +16651,11 @@ msgid ""
 "can choose to ignore all databases by default and allow only certain "
 "databases to be replicated. Please select the mode:"
 msgstr ""
+"이 서버는 복제 프로세스에서 마스터 서버로 구성되어 있지 않습니다. 모든 "
+"데이터베이스를 복제하고 일부 데이터베이스를 무시하거나(대부분의 "
+"데이터베이스를 복제하려는 경우 유용), 기본적으로 모든 데이터베이스를 "
+"무시하고 특정 데이터베이스만 복제할 수 있도록 선택할 수 있습니다. 모드를 "
+"선택하세요:"
 
 #: templates/server/replication/master_configuration.twig:9
 msgid "Replicate all databases; Ignore:"
@@ -16743,18 +16677,13 @@ msgstr "이제 my.cnf의 [mysqld] 섹션 끝에 다음 줄을 추가한 후 MySQ
 "시작하세요."
 
 #: templates/server/replication/master_configuration.twig:21
-#, fuzzy
-#| msgid ""
-#| "Once you restarted MySQL server, please click on Go button. Afterwards, "
-#| "you should see a message informing you, that this server <b>is</b> "
-#| "configured as master."
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as master."
 msgstr ""
-"MySQL 서버를 재시작 했으면 실행(Go) 버튼을 클릭하세요. 그 후, 서버가 마스터"
-"로 <b>설정되었다</b>는 안내 메시지를 볼 수 있을겁니다."
+"MySQL 서버를 재시작한 후 이동 버튼을 클릭합니다. 그러면 이 서버가 마스터로 "
+"구성<strong>되었다</strong>는 메시지가 표시됩니다."
 
 #: templates/server/replication/master_replication.twig:5
 msgid "This server is configured as master in a replication process."
@@ -16768,13 +16697,11 @@ msgstr "연결된 슬레이브 보기"
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
-msgstr ""
+msgstr "이 목록에는 --report-host=host_name 옵션으로 시작한 슬레이브만 표시됩니다."
 
 #: templates/server/replication/slave_configuration.twig:5
-#, fuzzy
-#| msgid "Insecure connection"
 msgid "Master connection:"
-msgstr "보호되지 않은 연결"
+msgstr "마스터 연결:"
 
 #: templates/server/replication/slave_configuration.twig:25
 msgid "Slave SQL Thread not running!"
@@ -16787,7 +16714,7 @@ msgstr "슬레이브 IO 쓰레드가 동작하지 않습니다!"
 #: templates/server/replication/slave_configuration.twig:31
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
-msgstr ""
+msgstr "서버가 복제 프로세스에서 슬레이브로 구성되어 있습니다. 어떻게 하시겠습니까:"
 
 #: templates/server/replication/slave_configuration.twig:34
 msgid "See slave status table"
@@ -16823,7 +16750,7 @@ msgstr "에러 관리:"
 
 #: templates/server/replication/slave_configuration.twig:77
 msgid "Skipping errors might lead into unsynchronized master and slave!"
-msgstr ""
+msgstr "건너뛰기 오류로 인해 마스터와 슬레이브가 동기화되지 않을 수 있습니다!"
 
 #: templates/server/replication/slave_configuration.twig:81
 msgid "Skip current error"
@@ -16835,16 +16762,12 @@ msgid "Skip next %s errors."
 msgstr "다음 %s 오류를 건너뜁니다."
 
 #: templates/server/replication/slave_configuration.twig:107
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
-msgstr ""
-"이 서버는 복제 프로세스에서 슬레이브로 구성되지 않았습니다. <a href=\"%s\">구"
-"성</a>하시겠습니까?"
+msgstr "이 서버는 복제 프로세스에서 슬레이브로 구성되지 않았습니다. "
+"%s구성%s하시겠습니까?"
 
 #: templates/server/replication/status_table.twig:6
 msgid "Master status"
@@ -17231,11 +17154,11 @@ msgstr ""
 
 #: templates/server/status/status/index.twig:61
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
-msgstr ""
+msgstr "이 MySQL 서버는 <b>복제</b> 프로세스에서 <b>마스터</b>로 작동합니다."
 
 #: templates/server/status/status/index.twig:63
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
-msgstr ""
+msgstr "이 MySQL 서버는 <b>복제</b> 프로세스에서 <b>슬레이브</b>로 작동합니다."
 
 #: templates/server/status/status/index.twig:69
 msgid "Replication status"
