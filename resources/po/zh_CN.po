@@ -4,9 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-01-14 00:21+0000\n"
-"PO-Revision-Date: 2023-11-05 17:14+0000\n"
-"Last-Translator: \"White Night(SZTU)\" <127086499+WhiteNight-SZTU@users."
-"noreply.github.com>\n"
+"PO-Revision-Date: 2024-01-16 15:06+0000\n"
+"Last-Translator: yangyangdaji <1504305527@qq.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -14,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.2-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:30
 #: resources/templates/database/central_columns/edit_table_row.twig:22
@@ -3261,10 +3260,8 @@ msgid "Javascript must be enabled past this point!"
 msgstr "该处必须启用 Javascript！"
 
 #: resources/templates/header.twig:46
-#, fuzzy
-#| msgid "Add user account"
 msgid "Open user account menu"
-msgstr "新增用户账户"
+msgstr "打开用户帐户菜单"
 
 #: resources/templates/header.twig:57
 #: resources/templates/navigation/main.twig:35
@@ -3273,22 +3270,16 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin 文档"
 
 #: resources/templates/header.twig:62
-#, fuzzy
-#| msgid "MariaDB Documentation"
 msgid "MariaDB documentation"
 msgstr "MariaDB 文档"
 
 #: resources/templates/header.twig:62
-#, fuzzy
-#| msgid "MySQL Documentation"
 msgid "MySQL documentation"
 msgstr "MySQL 文档"
 
 #: resources/templates/header.twig:73
-#, fuzzy
-#| msgid "Appearance settings"
 msgid "Appearance:"
-msgstr "外观设置"
+msgstr "外观："
 
 #: resources/templates/header.twig:76 resources/templates/home/index.twig:152
 msgid "Color mode for the theme"
@@ -7002,7 +6993,6 @@ msgid "Reset zoom"
 msgstr "重置缩放"
 
 #: resources/templates/test/gettext/pgettext.twig:0
-#, fuzzy
 msgctxt "Text context"
 msgid "Text"
 msgstr "文字"
@@ -7014,7 +7004,7 @@ msgstr "文字"
 #| msgid "Use tables"
 msgid "One table"
 msgid_plural "%count% tables"
-msgstr[0] "使用表"
+msgstr[0] "一个表"
 
 #: resources/templates/transformation_overview.twig:1
 msgid "Available media types"
@@ -13120,7 +13110,7 @@ msgstr "已是最新"
 
 #: src/Controllers/JavaScriptMessagesController.php:617
 msgid "There was an error in loading the Git information."
-msgstr "加载Git信息时出错。"
+msgstr "加载 Git 信息时出错。"
 
 #: src/Controllers/JavaScriptMessagesController.php:620
 msgid ""
@@ -16043,10 +16033,8 @@ msgid "The table name is empty!"
 msgstr "表名不能为空！"
 
 #: src/Partitioning/Maintenance.php:142
-#, fuzzy
-#| msgid "This is a read-only variable and can not be edited"
 msgid "This table is a view, it can not be truncated."
-msgstr "这是一个只读变量，无法编辑"
+msgstr "该表是一个视图，不能截断。"
 
 #: src/Pdf.php:138
 msgid "Error while creating PDF:"
