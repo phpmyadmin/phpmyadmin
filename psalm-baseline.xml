@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.19.0@06b71be009a6bd6d81b9811855d6629b9fe90e1b">
+<files psalm-version="5.19.1@b9583493b08eb36259c0f6b746a787c4c9b3ac45">
   <file src="app/services_loader.php">
     <MixedArgument>
       <code>$argumentName</code>
@@ -5526,7 +5526,6 @@
     <PossiblyNullArgument>
       <code><![CDATA[$statementInfo->parser->list]]></code>
       <code><![CDATA[$statementInfo->parser->list]]></code>
-      <code><![CDATA[$statementInfo->parser->list]]></code>
     </PossiblyNullArgument>
     <PossiblyNullArrayAccess>
       <code><![CDATA[$firstStatement->order[$key]]]></code>
@@ -5812,10 +5811,6 @@
     <PossiblyNullArrayAccess>
       <code><![CDATA[$error['message']]]></code>
     </PossiblyNullArrayAccess>
-    <RedundantCondition>
-      <code>mb_strtolower($userExtension) !== $requiredExtension</code>
-      <code>mb_strtolower($userExtension) !== $requiredExtension</code>
-    </RedundantCondition>
   </file>
   <file src="src/Export/Options.php">
     <DeprecatedMethod>
@@ -6314,10 +6309,6 @@
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
-    <RedundantCondition>
-      <code>mb_strtolower($userExtension) !== $requiredExtension</code>
-      <code>mb_strtolower($userExtension) !== $requiredExtension</code>
-    </RedundantCondition>
   </file>
   <file src="src/Git.php">
     <ArgumentTypeCoercion>
