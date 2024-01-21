@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-01-14 00:21+0000\n"
+"POT-Creation-Date: 2024-01-21 00:20+0000\n"
 "PO-Revision-Date: 2024-01-17 19:47+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -9431,7 +9431,8 @@ msgstr ""
 
 #: src/Config/Descriptions.php:328
 msgid "Allow users to create bookmarks that are available for all other users"
-msgstr "사용자가 다른 모든 사용자가 사용할 수 있는 북마크를 만들 수 있도록 허용합니다"
+msgstr ""
+"사용자가 다른 모든 사용자가 사용할 수 있는 북마크를 만들 수 있도록 허용합니다"
 
 #: src/Config/Descriptions.php:330
 msgid ""
@@ -11385,9 +11386,9 @@ msgid ""
 "based protection may not be reliable if your IP belongs to an ISP where "
 "thousands of users, including you, are connected to."
 msgstr ""
-"필요한 경우 추가 보호 설정을 사용하세요 - %1$s호스트 인증%2$s 설정과 %3$"
-"s신뢰할 수 있는 프록시 목록%4$s. 그러나 IP가 수천 명의 사용자가 연결되어 "
-"있는 ISP에 속해 있는 경우 IP 기반 보호는 신뢰할 수 없을 수 있습니다."
+"필요한 경우 추가 보호 설정을 사용하세요 - %1$s호스트 인증%2$s 설정과 %3$s신뢰"
+"할 수 있는 프록시 목록%4$s. 그러나 IP가 수천 명의 사용자가 연결되어 있는 ISP"
+"에 속해 있는 경우 IP 기반 보호는 신뢰할 수 없을 수 있습니다."
 
 #: src/Config/ServerConfigChecks.php:175
 #, php-format
@@ -11441,8 +11442,8 @@ msgid ""
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%1$s로그인 쿠키 유효기간%2$s이 %3$ssession.gc_maxlifetime%4$s 보다 길다면 "
-"무작위로 세션이 무효화될 수 있습니다(현재 세션.gc_maxlifetime은 %5$d)."
+"%1$s로그인 쿠키 유효기간%2$s이 %3$ssession.gc_maxlifetime%4$s 보다 길다면 무"
+"작위로 세션이 무효화될 수 있습니다(현재 세션.gc_maxlifetime은 %5$d)."
 
 #: src/Config/ServerConfigChecks.php:340
 #, php-format
@@ -11467,7 +11468,8 @@ msgstr ""
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
-msgstr "%1$sBzip2 압축 및 압축 해제%2$s에는 (%3$s)가 필요하지만 이 시스템에서 사용할 "
+msgstr ""
+"%1$sBzip2 압축 및 압축 해제%2$s에는 (%3$s)가 필요하지만 이 시스템에서 사용할 "
 "수 없는 함수입니다."
 
 #: src/Config/ServerConfigChecks.php:432
@@ -11475,7 +11477,8 @@ msgstr "%1$sBzip2 압축 및 압축 해제%2$s에는 (%3$s)가 필요하지만 �
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
-msgstr "%1$sGZip 압축 및 압축 해제%2$s에는 (%3$s)가 필요하지만 이 시스템에서 사용할 "
+msgstr ""
+"%1$sGZip 압축 및 압축 해제%2$s에는 (%3$s)가 필요하지만 이 시스템에서 사용할 "
 "수 없는 함수입니다."
 
 #: src/Config/Settings.php:3165
@@ -11864,8 +11867,9 @@ msgstr ""
 msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
-msgstr "[code]$cfg['UseDbSearch'][/code] 구성으로 데이터베이스 내부 검색을 "
-"비활성화할 수 있습니다."
+msgstr ""
+"[code]$cfg['UseDbSearch'][/code] 구성으로 데이터베이스 내부 검색을 비활성화"
+"할 수 있습니다."
 
 #: src/Controllers/Database/Structure/CentralColumns/AddController.php:49
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:50
@@ -17340,15 +17344,15 @@ msgid ""
 "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
-"Linux 만: 외부 애플리케이션을 실행하고 표준 입력을 통해 열 데이터를 "
-"공급합니다. 애플리케이션의 표준 출력을 반환합니다. 기본값은 pretty-print "
-"HTML 코드를 위한 Tidy입니다. 보안상의 이유로 src/Plugins/Transformations/Abs/"
+"Linux 만: 외부 애플리케이션을 실행하고 표준 입력을 통해 열 데이터를 공급합니"
+"다. 애플리케이션의 표준 출력을 반환합니다. 기본값은 pretty-print HTML 코드를 "
+"위한 Tidy입니다. 보안상의 이유로 src/Plugins/Transformations/Abs/"
 "ExternalTransformationsPlugin.php 파일을 수동으로 편집하여 사용할 수 있도록 "
-"설정할 도구를 나열해야 합니다. 그런 다음 첫 번째 옵션은 사용하려는 "
-"프로그램의 번호입니다. 두 번째 옵션은 기록상의 이유로 비워 두어야 합니다. 세 "
-"번째 옵션은 1로 설정하면 htmlspecialchars()를 사용하여 출력을 변환합니다("
-"기본값 1). 네 번째 옵션은 1로 설정하면 줄 바꿈을 방지하고 출력이 모두 한 "
-"줄에 표시되도록 합니다(기본값 1)."
+"설정할 도구를 나열해야 합니다. 그런 다음 첫 번째 옵션은 사용하려는 프로그램"
+"의 번호입니다. 두 번째 옵션은 기록상의 이유로 비워 두어야 합니다. 세 번째 옵"
+"션은 1로 설정하면 htmlspecialchars()를 사용하여 출력을 변환합니다(기본값 1). "
+"네 번째 옵션은 1로 설정하면 줄 바꿈을 방지하고 출력이 모두 한 줄에 표시되도"
+"록 합니다(기본값 1)."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:118
 #, php-format
