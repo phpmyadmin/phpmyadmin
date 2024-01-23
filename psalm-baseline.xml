@@ -4273,13 +4273,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/VersionCheckController.php">
-    <MixedArgument>
-      <code><![CDATA[$versionDetails->releases]]></code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code>$date</code>
-      <code>$version</code>
-    </MixedAssignment>
     <PossiblyUnusedParam>
       <code>$request</code>
     </PossiblyUnusedParam>
@@ -11084,12 +11077,6 @@
     </PossiblyNullOperand>
   </file>
   <file src="src/Setup/Index.php">
-    <MixedArgument>
-      <code>$date</code>
-      <code>$date</code>
-      <code>$version</code>
-      <code><![CDATA[$versionData->releases]]></code>
-    </MixedArgument>
     <MixedArrayAccess>
       <code>$messages[$id]</code>
       <code><![CDATA[$msg['active']]]></code>
@@ -11107,7 +11094,6 @@
       <code>$messages[$id]</code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code>$date</code>
       <code>$id</code>
       <code>$id</code>
       <code>$id</code>
@@ -11119,7 +11105,6 @@
       <code>$msg</code>
       <code>$removeIds[]</code>
       <code>$type</code>
-      <code>$version</code>
     </MixedAssignment>
   </file>
   <file src="src/Sql.php">
@@ -12286,14 +12271,7 @@
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
-    <LessSpecificReturnStatement>
-      <code>$data</code>
-    </LessSpecificReturnStatement>
     <MixedArgument>
-      <code><![CDATA[$latestRelease['version']]]></code>
-      <code>$mysqlVersions</code>
-      <code>$phpVersions</code>
-      <code><![CDATA[$release->version]]></code>
       <code>$response</code>
     </MixedArgument>
     <MixedArrayAccess>
@@ -12304,25 +12282,12 @@
       <code><![CDATA[$_SESSION['cache']['version_check']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code>$mysqlVersions</code>
-      <code>$phpVersions</code>
-      <code>$release</code>
       <code>$response</code>
       <code>$response</code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$_SESSION['cache']['version_check']['timestamp']]]></code>
     </MixedOperand>
-    <MixedPropertyFetch>
-      <code><![CDATA[$release->date]]></code>
-      <code><![CDATA[$release->mysql_versions]]></code>
-      <code><![CDATA[$release->php_versions]]></code>
-      <code><![CDATA[$release->version]]></code>
-      <code><![CDATA[$release->version]]></code>
-    </MixedPropertyFetch>
-    <MoreSpecificReturnType>
-      <code>stdClass|null</code>
-    </MoreSpecificReturnType>
     <PossiblyInvalidArgument>
       <code>$response</code>
     </PossiblyInvalidArgument>

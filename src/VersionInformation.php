@@ -8,13 +8,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Utils\HttpRequest;
-use stdClass;
 
 use function count;
 use function explode;
 use function intval;
+use function is_array;
 use function is_numeric;
-use function is_object;
 use function is_string;
 use function json_decode;
 use function preg_match;
@@ -34,9 +33,9 @@ class VersionInformation
     /**
      * Returns information with latest version from phpmyadmin.net
      *
-     * @return stdClass|null JSON decoded object with the data
+     * @return Release[]|null JSON decoded object with the data
      */
-    public function getLatestVersion(): stdClass|null
+    public function getLatestVersions(): array|null
     {
         if (! Config::getInstance()->settings['VersionCheck']) {
             return null;
@@ -59,10 +58,10 @@ class VersionInformation
 
         $response = $response ?: '{}';
         /* Parse response */
-        $data = json_decode($response);
+        $data = json_decode($response, true);
 
         /* Basic sanity checking */
-        if (! is_object($data) || empty($data->version) || empty($data->releases) || empty($data->date)) {
+        if (! is_array($data) || ! isset($data['releases']) || ! is_array($data['releases'])) {
             return null;
         }
 
@@ -70,7 +69,18 @@ class VersionInformation
             $_SESSION['cache']['version_check'] = ['response' => $response, 'timestamp' => time()];
         }
 
-        return $data;
+        $releases = [];
+        /** @var string[] $release */
+        foreach ($data['releases'] as $release) {
+            $releases[] = new Release(
+                $release['version'],
+                $release['date'],
+                $release['php_versions'],
+                $release['mysql_versions'],
+            );
+        }
+
+        return $releases;
     }
 
     /**
@@ -137,17 +147,16 @@ class VersionInformation
      * Returns the version and date of the latest phpMyAdmin version compatible
      * with the available PHP and MySQL versions
      *
-     * @param mixed[] $releases array of information related to each version
+     * @param Release[] $releases array of information related to each version
      *
-     * @return mixed[]|null containing the version and date of latest compatible version
+     * @return Release|null containing the version and date of latest compatible version
      */
-    public function getLatestCompatibleVersion(array $releases): array|null
+    public function getLatestCompatibleVersion(array $releases): Release|null
     {
         // Maintains the latest compatible version
         $latestRelease = null;
         foreach ($releases as $release) {
-            // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-            $phpVersions = $release->php_versions;
+            $phpVersions = $release->phpVersions;
             $phpConditions = explode(',', $phpVersions);
             foreach ($phpConditions as $phpCondition) {
                 if (! $this->evaluateVersionCondition('PHP', $phpCondition)) {
@@ -159,8 +168,7 @@ class VersionInformation
             // We evaluate MySQL version constraint if there are only
             // one server configured.
             if (count(Config::getInstance()->settings['Servers']) === 1) {
-                // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-                $mysqlVersions = $release->mysql_versions;
+                $mysqlVersions = $release->mysqlVersions;
                 $mysqlConditions = explode(',', $mysqlVersions);
                 foreach ($mysqlConditions as $mysqlCondition) {
                     if (! $this->evaluateVersionCondition('MySQL', $mysqlCondition)) {
@@ -170,11 +178,11 @@ class VersionInformation
             }
 
             // To compare the current release with the previous latest release or no release is set
-            if ($latestRelease !== null && ! version_compare($latestRelease['version'], $release->version, '<')) {
+            if ($latestRelease !== null && ! version_compare($latestRelease->version, $release->version, '<')) {
                 continue;
             }
 
-            $latestRelease = ['version' => $release->version, 'date' => $release->date];
+            $latestRelease = $release;
         }
 
         // no compatible version

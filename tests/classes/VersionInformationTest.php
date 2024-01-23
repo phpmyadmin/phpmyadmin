@@ -5,16 +5,16 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Release;
 use PhpMyAdmin\VersionInformation;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Group;
-use stdClass;
 
 #[CoversClass(VersionInformation::class)]
 class VersionInformationTest extends AbstractTestCase
 {
-    /** @var stdClass[] */
+    /** @var Release[] */
     private array $releases;
 
     /**
@@ -29,28 +29,14 @@ class VersionInformationTest extends AbstractTestCase
 
         $this->releases = [];
 
-        // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        $release = new stdClass();
-        $release->date = '2015-09-08';
-        $release->php_versions = '>=5.3,<7.1';
-        $release->version = '4.4.14.1';
-        $release->mysql_versions = '>=5.5';
+        $release = new Release('4.4.14.1', '2015-09-08', '>=5.3,<7.1', '>=5.5');
         $this->releases[] = $release;
 
-        $release = new stdClass();
-        $release->date = '2015-09-09';
-        $release->php_versions = '>=5.3,<7.0';
-        $release->version = '4.4.13.3';
-        $release->mysql_versions = '>=5.5';
+        $release = new Release('4.4.13.3', '2015-09-09', '>=5.3,<7.0', '>=5.5');
         $this->releases[] = $release;
 
-        $release = new stdClass();
-        $release->date = '2015-05-13';
-        $release->php_versions = '>=5.2,<5.3';
-        $release->version = '4.0.10.10';
-        $release->mysql_versions = '>=5.0';
+        $release = new Release('4.0.10.10', '2015-05-13', '>=5.2,<5.3', '>=5.0');
         $this->releases[] = $release;
-        // phpcs:enable
     }
 
     /**
@@ -64,10 +50,9 @@ class VersionInformationTest extends AbstractTestCase
         Config::getInstance()->settings['VersionCheck'] = true;
         unset($_SESSION['cache']['version_check']);
         $versionInformation = new VersionInformation();
-        $version = $versionInformation->getLatestVersion();
-        $this->assertIsObject($version);
-        $this->assertNotEmpty($version->version);
-        $this->assertNotEmpty($version->date);
+        $version = $versionInformation->getLatestVersions();
+        $this->assertIsArray($version);
+        $this->assertNotEmpty($version);
     }
 
     /**
@@ -128,8 +113,8 @@ class VersionInformationTest extends AbstractTestCase
         $mockVersionInfo->expects($this->exactly(2))->method('getMySQLVersion')->willReturn('5.5.0');
 
         $compatible = $mockVersionInfo->getLatestCompatibleVersion($this->releases);
-        $this->assertIsArray($compatible);
-        $this->assertEquals('4.4.14.1', $compatible['version']);
+        $this->assertInstanceOf(Release::class, $compatible);
+        $this->assertEquals('4.4.14.1', $compatible->version);
     }
 
     /**
@@ -144,8 +129,8 @@ class VersionInformationTest extends AbstractTestCase
         $mockVersionInfo->expects($this->never())->method('getMySQLVersion');
 
         $compatible = $mockVersionInfo->getLatestCompatibleVersion($this->releases);
-        $this->assertIsArray($compatible);
-        $this->assertEquals('4.4.14.1', $compatible['version']);
+        $this->assertInstanceOf(Release::class, $compatible);
+        $this->assertEquals('4.4.14.1', $compatible->version);
     }
 
     /**
@@ -160,14 +145,14 @@ class VersionInformationTest extends AbstractTestCase
         $mockVersionInfo->expects($this->never())->method('getMySQLVersion');
 
         $compatible = $mockVersionInfo->getLatestCompatibleVersion($this->releases);
-        $this->assertIsArray($compatible);
-        $this->assertEquals('4.0.10.10', $compatible['version']);
+        $this->assertInstanceOf(Release::class, $compatible);
+        $this->assertEquals('4.0.10.10', $compatible->version);
     }
 
     /**
      * Tests getLatestCompatibleVersion() with an new PHP version
      *
-     * @param list<object>       $versions           The versions to use
+     * @param list<Release>      $versions           The versions to use
      * @param array{int, string} $conditions         The conditions that will be executed
      * @param string|null        $matchedLastVersion The version that will be matched
      */
@@ -184,140 +169,70 @@ class VersionInformationTest extends AbstractTestCase
         $mockVersionInfo->expects($this->never())->method('getMySQLVersion');
 
         $compatible = $mockVersionInfo->getLatestCompatibleVersion($versions);
-        $this->assertEquals($matchedLastVersion, $compatible['version'] ?? null);
+        $this->assertEquals($matchedLastVersion, $compatible->version ?? null);
     }
 
     /**
      * Provider for testGetLatestCompatibleVersionWithNewPHPVersion
      * Returns the conditions to be used for mocks
      *
-     * @return list<array{list<object>, array{int, string}, string|null}>
+     * @return list<array{list<Release>, array{int, string}, string|null}>
      */
     public static function dataProviderVersionConditions(): array
     {
         return [
             [
                 [
-                    ((object) [
-                        'date' => '2019-12-26',
-                        'php_versions' => '>=5.5,<8.0',
-                        'version' => '4.9.3',
-                        'mysql_versions' => '>=5.5',
-                    ]),
-                    ((object) [
-                        'date' => '2019-12-26',
-                        'php_versions' => '>=7.1,<8.0',
-                        'version' => '5.0.0',
-                        'mysql_versions' => '>=5.5',
-                    ]),
+                    new Release('4.9.3', '2019-12-26', '>=5.5,<8.0', '>=5.5'),
+                    new Release('5.0.0', '2019-12-26', '>=7.1,<8.0', '>=5.5'),
                 ],
                 [3, '7.0.0'],
                 '4.9.3',
             ],
             [
                 [
-                    ((object) [
-                        'date' => '2019-12-26',
-                        'php_versions' => '>=5.5,<7.0',
-                        'version' => '6.0.0',
-                        'mysql_versions' => '>=5.5',
-                    ]),
-                    ((object) [
-                        'date' => '2019-12-26',
-                        'php_versions' => '>=7.1,<8.0',
-                        'version' => '5.0.0',
-                        'mysql_versions' => '>=5.5',
-                    ]),
+                    new Release('6.0.0', '2019-12-26', '>=5.5,<7.0', '>=5.5'),
+                    new Release('5.0.0', '2019-12-26', '>=7.1,<8.0', '>=5.5'),
                 ],
                 [3, '5.6.0'],
                 '6.0.0',
             ],
             [
                 [
-                    ((object) [
-                        'date' => '2019-12-26',
-                        'php_versions' => '>=5.5,<7.0',
-                        'version' => '6.0.0-rc1',
-                        'mysql_versions' => '>=5.5',
-                    ]),
-                    ((object) [
-                        'date' => '2019-12-26',
-                        'php_versions' => '>=7.1,<8.0',
-                        'version' => '6.0.0-rc2',
-                        'mysql_versions' => '>=5.5',
-                    ]),
+                    new Release('6.0.0-rc1', '2019-12-26', '>=5.5,<7.0', '>=5.5'),
+                    new Release('6.0.0-rc2', '2019-12-26', '>=7.1,<8.0', '>=5.5'),
                 ],
                 [3, '5.6.0'],
                 '6.0.0-rc1',
             ],
             [
                 [
-                    ((object) [
-                        'date' => '2019-12-26',
-                        'php_versions' => '>=5.5,<7.0',
-                        'version' => '6.0.0',
-                        'mysql_versions' => '>=5.5',
-                    ]),
-                    ((object) [
-                        'date' => '2019-12-26',
-                        'php_versions' => '>=7.1,<8.0',
-                        'version' => '5.0.0',
-                        'mysql_versions' => '>=5.5',
-                    ]),
+                    new Release('6.0.0', '2019-12-26', '>=5.5,<7.0', '>=5.5'),
+                    new Release('5.0.0', '2019-12-26', '>=7.1,<8.0', '>=5.5'),
                 ],
                 [3, '7.0.0'],
                 null,
             ],
             [
                 [
-                    ((object) [
-                        'date' => '2019-12-26',
-                        'php_versions' => '>=5.5,<7.0',
-                        'version' => '6.0.0',
-                        'mysql_versions' => '>=5.5',
-                    ]),
-                    ((object) [
-                        'date' => '2019-12-26',
-                        'php_versions' => '>=7.1,<8.0',
-                        'version' => '5.0.0',
-                        'mysql_versions' => '>=5.5',
-                    ]),
+                    new Release('6.0.0', '2019-12-26', '>=5.5,<7.0', '>=5.5'),
+                    new Release('5.0.0', '2019-12-26', '>=7.1,<8.0', '>=5.5'),
                 ],
                 [4, '7.1.0'],
                 '5.0.0',
             ],
             [
                 [
-                    ((object) [
-                        'date' => '2019-12-26',
-                        'php_versions' => '>=5.5,<8.0',
-                        'version' => '4.9.3',
-                        'mysql_versions' => '>=5.5',
-                    ]),
-                    ((object) [
-                        'date' => '2019-12-26',
-                        'php_versions' => '>=7.1,<8.0',
-                        'version' => '5.0.0',
-                        'mysql_versions' => '>=5.5',
-                    ]),
+                    new Release('4.9.3', '2019-12-26', '>=5.5,<8.0', '>=5.5'),
+                    new Release('5.0.0', '2019-12-26', '>=7.1,<8.0', '>=5.5'),
                 ],
                 [4, '7.1.0'],
                 '5.0.0',
             ],
             [
                 [
-                    ((object) [
-                        'date' => '2019-12-26',
-                        'php_versions' => '>=7.1,<8.0',
-                        'version' => '5.0.0',
-                        'mysql_versions' => '>=5.5',
-                    ]),
-                    ((object) [
-                        'date' => '2019-12-26',
-                        'php_versions' => '>=5.5,<8.0',
-                        'version' => '4.9.3',
-                        'mysql_versions' => '>=5.5',
-                    ]),
+                    new Release('5.0.0', '2019-12-26', '>=7.1,<8.0', '>=5.5'),
+                    new Release('4.9.3', '2019-12-26', '>=5.5,<8.0', '>=5.5'),
                 ],
                 [4, '7.2.0'],
                 '5.0.0',

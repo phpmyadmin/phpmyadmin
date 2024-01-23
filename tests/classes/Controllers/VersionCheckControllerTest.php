@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers;
 use PhpMyAdmin\Controllers\VersionCheckController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Release;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -28,30 +29,16 @@ class VersionCheckControllerTest extends AbstractTestCase
     public function testWithLatestCompatibleVersion(): void
     {
         $_GET = [];
-        $versionInfo = (object) [
-            'date' => '2022-02-11',
-            'version' => '5.1.3',
-            'releases' => [
-                (object) [
-                    'date' => '2022-02-11',
-                    'php_versions' => '>=7.1,<8.1',
-                    'version' => '5.1.3',
-                    'mysql_versions' => '>=5.5',
-                ],
-                (object) [
-                    'date' => '2022-02-11',
-                    'php_versions' => '>=5.5,<8.0',
-                    'version' => '4.9.10',
-                    'mysql_versions' => '>=5.5',
-                ],
-            ],
+        $versionInfo = [
+            new Release('5.1.3', '2022-02-11', '>=7.1,<8.1', '>=5.5'),
+            new Release('4.9.10', '2022-02-11', '>=5.5,<8.0', '>=5.5'),
         ];
 
         $versionInformation = $this->createMock(VersionInformation::class);
-        $versionInformation->expects($this->once())->method('getLatestVersion')->willReturn($versionInfo);
+        $versionInformation->expects($this->once())->method('getLatestVersions')->willReturn($versionInfo);
         $versionInformation->expects($this->once())->method('getLatestCompatibleVersion')
-            ->with($this->equalTo($versionInfo->releases))
-            ->willReturn(['version' => '5.1.3', 'date' => '2022-02-11']);
+            ->with($this->equalTo($versionInfo))
+            ->willReturn($versionInfo[0]);
 
         (new VersionCheckController(
             new ResponseRenderer(),
@@ -67,29 +54,15 @@ class VersionCheckControllerTest extends AbstractTestCase
     public function testWithoutLatestCompatibleVersion(): void
     {
         $_GET = [];
-        $versionInfo = (object) [
-            'date' => '2022-02-11',
-            'version' => '5.1.3',
-            'releases' => [
-                (object) [
-                    'date' => '2022-02-11',
-                    'php_versions' => '>=7.1,<8.1',
-                    'version' => '5.1.3',
-                    'mysql_versions' => '>=5.5',
-                ],
-                (object) [
-                    'date' => '2022-02-11',
-                    'php_versions' => '>=5.5,<8.0',
-                    'version' => '4.9.10',
-                    'mysql_versions' => '>=5.5',
-                ],
-            ],
+        $versionInfo = [
+            new Release('5.1.3', '2022-02-11', '>=7.1,<8.1', '>=5.5'),
+            new Release('4.9.10', '2022-02-11', '>=5.5,<8.0', '>=5.5'),
         ];
 
         $versionInformation = $this->createMock(VersionInformation::class);
-        $versionInformation->expects($this->once())->method('getLatestVersion')->willReturn($versionInfo);
+        $versionInformation->expects($this->once())->method('getLatestVersions')->willReturn($versionInfo);
         $versionInformation->expects($this->once())->method('getLatestCompatibleVersion')
-            ->with($this->equalTo($versionInfo->releases))
+            ->with($this->equalTo($versionInfo))
             ->willReturn(null);
 
         (new VersionCheckController(
@@ -108,7 +81,7 @@ class VersionCheckControllerTest extends AbstractTestCase
         $_GET = [];
 
         $versionInformation = $this->createMock(VersionInformation::class);
-        $versionInformation->expects($this->once())->method('getLatestVersion')->willReturn(null);
+        $versionInformation->expects($this->once())->method('getLatestVersions')->willReturn(null);
         $versionInformation->expects($this->never())->method('getLatestCompatibleVersion');
 
         (new VersionCheckController(
