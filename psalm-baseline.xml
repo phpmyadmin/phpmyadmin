@@ -6470,7 +6470,6 @@
       <code><![CDATA[! $config->get('DisableShortcutKeys')]]></code>
       <code><![CDATA[empty($_REQUEST['message'])]]></code>
       <code><![CDATA[empty($_REQUEST['recent_table'])]]></code>
-      <code>empty($message)</code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Html/Generator.php">
@@ -10690,11 +10689,6 @@
       <code><![CDATA[isset($_COOKIE[$key]) && ! is_string($_COOKIE[$key])]]></code>
     </TypeDoesNotContainType>
   </file>
-  <file src="src/Scripts.php">
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[! empty($this->files[$hash])]]></code>
-    </RedundantConditionGivenDocblockType>
-  </file>
   <file src="src/Server/Plugin.php">
     <MixedArgument>
       <code><![CDATA[$state['authVersion'] ?? null]]></code>
@@ -12184,10 +12178,6 @@
     </MixedArrayTypeCoercion>
     <RiskyTruthyFalsyComparison>
       <code>$restrictToTable</code>
-      <code><![CDATA[empty($expression->alias)]]></code>
-      <code><![CDATA[empty($expression->column)]]></code>
-      <code>empty($row)</code>
-      <code>empty($row)</code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Url.php">

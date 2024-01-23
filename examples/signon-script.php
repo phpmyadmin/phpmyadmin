@@ -23,7 +23,7 @@ declare(strict_types=1);
 function get_login_credentials(string $user): array
 {
     /* Optionally we can use passed username */
-    if (! empty($user)) {
+    if ($user !== '') {
         return [$user, 'password'];
     }
 

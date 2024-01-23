@@ -390,7 +390,7 @@ class Header
             $message = $_REQUEST['message'];
         }
 
-        if (! empty($message)) {
+        if ($message !== '') {
             if (isset($GLOBALS['buffer_message'])) {
                 $bufferMessage = $GLOBALS['buffer_message'];
             }
