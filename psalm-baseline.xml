@@ -11297,11 +11297,7 @@
       <code><![CDATA[$mysqlVars[$row['Variable_name']]['title']]]></code>
       <code><![CDATA[$mysqlVars[$row['Variable_name']]['type']]]></code>
       <code><![CDATA[$mysqlVars[$row['Variable_name']]['value']]]></code>
-      <code><![CDATA[$storageEngines[$engine]['Support']]]></code>
     </MixedArrayAssignment>
-    <MixedArrayOffset>
-      <code><![CDATA[$engines[$details['Engine']]]]></code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code>$dataLength</code>
       <code>$decodedData</code>
@@ -11309,11 +11305,9 @@
       <code>$indexLength</code>
       <code>$mroongaData</code>
       <code><![CDATA[$mysqlVars[$row['Variable_name']]]]></code>
-      <code><![CDATA[$this->comment]]></code>
-      <code><![CDATA[$this->title]]></code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code>mixed[][]</code>
+      <code><![CDATA[array<string, array{Engine: string, Comment: string, Support: string}>]]></code>
       <code>string</code>
     </MixedInferredReturnType>
     <MixedOperand>
