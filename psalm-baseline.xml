@@ -1024,16 +1024,9 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
     </InvalidArrayOffset>
-    <MixedArgument>
-      <code><![CDATA[$event['name']]]></code>
-    </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$event['name']]]></code>
-    </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code>$event</code>
       <code><![CDATA[$item['item_original_name']]]></code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
@@ -4778,11 +4771,6 @@
     <MixedArgument>
       <code><![CDATA[$GLOBALS['errors']]]></code>
     </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$event['Name']]]></code>
-      <code><![CDATA[$event['Status']]]></code>
-      <code><![CDATA[$event['Type']]]></code>
-    </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
@@ -4796,7 +4784,6 @@
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code>$event</code>
       <code><![CDATA[$retval['item_comment']]]></code>
       <code><![CDATA[$retval['item_definer']]]></code>
       <code><![CDATA[$retval['item_definition']]]></code>
