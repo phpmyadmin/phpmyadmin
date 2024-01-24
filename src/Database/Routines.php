@@ -14,7 +14,7 @@ use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\TokensList;
-use PhpMyAdmin\SqlParser\Utils\Routine;
+use PhpMyAdmin\SqlParser\Utils\Routine as RoutineUtils;
 use PhpMyAdmin\UserPrivileges;
 use PhpMyAdmin\Util;
 
@@ -451,7 +451,7 @@ class Routines
             $body = (string) $routine['ROUTINE_DEFINITION'];
         }
 
-        $params = Routine::getParameters($stmt);
+        $params = RoutineUtils::getParameters($stmt);
         $retval['item_num_params'] = $params['num'];
         $retval['item_param_dir'] = $params['dir'];
         $retval['item_param_name'] = $params['name'];
@@ -1107,24 +1107,23 @@ class Routines
     /**
      * Creates the contents for a row in the list of routines
      *
-     * @param array{db:string, name:string, type:string, definer:string, returns:string} $routine
-     * @param string                                                                     $rowClass Additional class
+     * @param string $rowClass Additional class
      *
      * @return mixed[]
      */
-    public function getRow(array $routine, string $rowClass = ''): array
+    public function getRow(Routine $routine, string $rowClass = ''): array
     {
         $sqlDrop = sprintf(
             'DROP %s IF EXISTS %s',
-            $routine['type'],
-            Util::backquote($routine['name']),
+            $routine->type,
+            Util::backquote($routine->name),
         );
 
         // this is for our purpose to decide whether to
         // show the edit link or not, so we need the DEFINER for the routine
         $where = 'ROUTINE_SCHEMA ' . Util::getCollateForIS() . '=' . $this->dbi->quoteString(Current::$database)
-            . ' AND SPECIFIC_NAME=' . $this->dbi->quoteString($routine['name'])
-            . ' AND ROUTINE_TYPE=' . $this->dbi->quoteString($routine['type']);
+            . ' AND SPECIFIC_NAME=' . $this->dbi->quoteString($routine->name)
+            . ' AND ROUTINE_TYPE=' . $this->dbi->quoteString($routine->type);
         $query = 'SELECT `DEFINER` FROM INFORMATION_SCHEMA.ROUTINES WHERE ' . $where . ';';
         $routineDefiner = $this->dbi->fetchValue($query);
 
@@ -1152,10 +1151,10 @@ class Routines
         // we will show a dialog to get values for these parameters,
         // otherwise we can execute it directly.
 
-        if ($routine['type'] === 'FUNCTION') {
-            $definition = self::getFunctionDefinition($this->dbi, Current::$database, $routine['name']);
+        if ($routine->type === 'FUNCTION') {
+            $definition = self::getFunctionDefinition($this->dbi, Current::$database, $routine->name);
         } else {
-            $definition = self::getProcedureDefinition($this->dbi, Current::$database, $routine['name']);
+            $definition = self::getProcedureDefinition($this->dbi, Current::$database, $routine->name);
         }
 
         $executeAction = '';
@@ -1166,12 +1165,12 @@ class Routines
             /** @var CreateStatement $stmt */
             $stmt = $parser->statements[0];
 
-            $params = Routine::getParameters($stmt);
+            $params = RoutineUtils::getParameters($stmt);
 
             if ($hasExecutePrivilege) {
                 $executeAction = 'execute_routine';
                 for ($i = 0; $i < $params['num']; $i++) {
-                    if ($routine['type'] === 'PROCEDURE' && $params['dir'][$i] === 'OUT') {
+                    if ($routine->type === 'PROCEDURE' && $params['dir'][$i] === 'OUT') {
                         continue;
                     }
 
@@ -1223,7 +1222,7 @@ class Routines
      * @param string|null $which PROCEDURE | FUNCTION or null for both
      * @param string      $name  name of the routine (to fetch a specific routine)
      *
-     * @return array{db:string, name:string, type:string, definer:string, returns:string}[]
+     * @return Routine[]
      */
     public static function getDetails(
         DatabaseInterface $dbi,
@@ -1263,13 +1262,13 @@ class Routines
         $ret = [];
         /** @var array{Db:string, Name:string, Type:string, Definer:string, DTD_IDENTIFIER:string|null} $routine */
         foreach ($routines as $routine) {
-            $ret[] = [
-                'db' => $routine['Db'],
-                'name' => $routine['Name'],
-                'type' => $routine['Type'],
-                'definer' => $routine['Definer'],
-                'returns' => $routine['DTD_IDENTIFIER'] ?? '',
-            ];
+            $ret[] = new Routine(
+                $routine['Db'],
+                $routine['Name'],
+                $routine['Type'],
+                $routine['Definer'],
+                $routine['DTD_IDENTIFIER'] ?? '',
+            );
         }
 
         // Sort results by name

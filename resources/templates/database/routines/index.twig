@@ -5,7 +5,7 @@
   </h2>
 
   <div class="d-flex flex-wrap my-3">
-    {%- if items is not empty %}
+    {%- if has_any_routines %}
     <div>
       <div class="input-group">
         <div class="input-group-text">
@@ -31,7 +31,7 @@
     </div>
     {%- endif %}
 
-    <div{{ items is not empty ? ' class="ms-2"' }}>
+    <div{{ has_any_routines ? ' class="ms-2"' }}>
       <a class="ajax add_anchor btn btn-primary{{ not has_privilege ? ' disabled' }}" href="{{ url('/database/routines', {'db': db, 'table': table, 'add_item': true}) }}" role="button"{{ not has_privilege ? ' tabindex="-1" aria-disabled="true"' }}>
         {{ get_icon('b_routine_add', 'Create new routine'|trans) }}
       </a>
@@ -41,11 +41,11 @@
   <form id="rteListForm" class="ajax" action="{{ url('/database/routines') }}">
     {{ get_hidden_inputs(db, table) }}
 
-    <div id="nothing2display"{{ items is not empty ? ' class="hide"' }}>
+    <div id="nothing2display"{{ has_any_routines ? ' class="hide"' }}>
       {{ 'There are no routines to display.'|trans|notice }}
     </div>
 
-    <table id="routinesTable" class="table table-striped table-hover{{ items is empty ? ' hide' }} data w-auto">
+    <table id="routinesTable" class="table table-striped table-hover{{ not has_any_routines ? ' hide' }} data w-auto">
       <thead>
       <tr>
         <th></th>

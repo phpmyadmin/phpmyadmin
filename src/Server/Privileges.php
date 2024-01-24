@@ -1727,11 +1727,11 @@ class Privileges
 
             $routines = [];
             foreach ($routineData as $routine) {
-                if (in_array($routine['name'], $foundRows, true)) {
+                if (in_array($routine->name, $foundRows, true)) {
                     continue;
                 }
 
-                $routines[] = $routine['name'];
+                $routines[] = $routine->name;
             }
 
             $data['routines'] = $routines;
@@ -3224,8 +3224,8 @@ class Privileges
         $routineName = mb_strtolower($routineName);
 
         foreach ($routineData as $routine) {
-            if (mb_strtolower($routine['name']) === $routineName) {
-                return $routine['type'];
+            if (mb_strtolower($routine->name) === $routineName) {
+                return $routine->type;
             }
         }
 

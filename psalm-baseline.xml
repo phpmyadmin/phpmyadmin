@@ -4830,6 +4830,13 @@
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
+  <file src="src/Database/Routine.php">
+    <PossiblyUnusedProperty>
+      <code>$db</code>
+      <code>$definer</code>
+      <code>$returns</code>
+    </PossiblyUnusedProperty>
+  </file>
   <file src="src/Database/Routines.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>

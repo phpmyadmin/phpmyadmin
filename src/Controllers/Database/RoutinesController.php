@@ -484,7 +484,7 @@ class RoutinesController extends AbstractController
         $this->render('database/routines/index', [
             'db' => Current::$database,
             'table' => Current::$table,
-            'items' => $items,
+            'has_any_routines' => $items !== [],
             'rows' => $rows,
             'has_privilege' => Util::currentUserHasPrivilege('CREATE ROUTINE', Current::$database, Current::$table),
         ]);
