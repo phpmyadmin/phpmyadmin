@@ -1260,15 +1260,9 @@ class Routines
         }
 
         $ret = [];
-        /** @var array{Db:string, Name:string, Type:string, Definer:string, DTD_IDENTIFIER:string|null} $routine */
+        /** @var array{Name:string, Type:string, DTD_IDENTIFIER:string|null} $routine */
         foreach ($routines as $routine) {
-            $ret[] = new Routine(
-                $routine['Db'],
-                $routine['Name'],
-                $routine['Type'],
-                $routine['Definer'],
-                $routine['DTD_IDENTIFIER'] ?? '',
-            );
+            $ret[] = new Routine($routine['Name'], $routine['Type'], $routine['DTD_IDENTIFIER'] ?? '');
         }
 
         // Sort results by name

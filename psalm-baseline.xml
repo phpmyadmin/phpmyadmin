@@ -4832,8 +4832,6 @@
   </file>
   <file src="src/Database/Routine.php">
     <PossiblyUnusedProperty>
-      <code>$db</code>
-      <code>$definer</code>
       <code>$returns</code>
     </PossiblyUnusedProperty>
   </file>
