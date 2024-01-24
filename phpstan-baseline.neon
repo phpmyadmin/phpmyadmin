@@ -2001,11 +2001,6 @@ parameters:
 			path: src/Controllers/Database/Structure/CopyTableWithPrefixController.php
 
 		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/DropFormController.php
-
-		-
 			message: "#^Cannot access offset 'table_limit_offset' on mixed\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/DropTableController.php

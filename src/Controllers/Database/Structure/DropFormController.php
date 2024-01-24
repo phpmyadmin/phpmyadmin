@@ -28,7 +28,7 @@ final class DropFormController extends AbstractController
         /** @var string[] $selected */
         $selected = $request->getParsedBodyParam('selected_tbl', []);
 
-        if (empty($selected)) {
+        if ($selected === []) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
@@ -39,13 +39,12 @@ final class DropFormController extends AbstractController
         $fullQuery = '';
 
         foreach ($selected as $selectedValue) {
-            $current = $selectedValue;
-            if ($this->dbi->getTable(Current::$database, $current)->isView()) {
+            if ($this->dbi->getTable(Current::$database, $selectedValue)->isView()) {
                 $fullQueryViews .= ($fullQueryViews === '' ? 'DROP VIEW ' : ', ')
-                    . Util::backquote(htmlspecialchars($current));
+                    . Util::backquote(htmlspecialchars($selectedValue));
             } else {
                 $fullQuery .= ($fullQuery === '' ? 'DROP TABLE ' : ', ')
-                    . Util::backquote(htmlspecialchars($current));
+                    . Util::backquote(htmlspecialchars($selectedValue));
             }
         }
 

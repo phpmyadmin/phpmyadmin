@@ -17,7 +17,6 @@ use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
-use function count;
 
 final class DropTableController extends AbstractController
 {
@@ -51,17 +50,15 @@ final class DropTableController extends AbstractController
         $defaultFkCheckValue = ForeignKey::handleDisableCheckInit();
         $GLOBALS['sql_query'] = '';
         $sqlQueryViews = '';
-        $selectedCount = count($selected);
 
-        for ($i = 0; $i < $selectedCount; $i++) {
-            $this->relationCleanup->table(Current::$database, $selected[$i]);
-            $current = $selected[$i];
+        foreach ($selected as $selectedValue) {
+            $this->relationCleanup->table(Current::$database, $selectedValue);
 
-            if ($this->dbi->getTable(Current::$database, $current)->isView()) {
-                $sqlQueryViews .= ($sqlQueryViews === '' ? 'DROP VIEW ' : ', ') . Util::backquote($current);
+            if ($this->dbi->getTable(Current::$database, $selectedValue)->isView()) {
+                $sqlQueryViews .= ($sqlQueryViews === '' ? 'DROP VIEW ' : ', ') . Util::backquote($selectedValue);
             } else {
                 $GLOBALS['sql_query'] .= (empty($GLOBALS['sql_query']) ? 'DROP TABLE ' : ', ')
-                    . Util::backquote($current);
+                    . Util::backquote($selectedValue);
             }
 
             $GLOBALS['reload'] = 1;
