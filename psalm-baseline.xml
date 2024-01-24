@@ -1149,8 +1149,6 @@
       <code><![CDATA[$GLOBALS['errors']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code>$item</code>
-      <code>$routine</code>
       <code><![CDATA[$routine['item_param_length'][$i]]]></code>
       <code><![CDATA[$routine['item_param_name'][$i]]]></code>
     </MixedArgument>
@@ -1185,8 +1183,6 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code>$item</code>
-      <code>$routine</code>
       <code><![CDATA[$routine['item_num_params']]]></code>
       <code><![CDATA[$routine['item_num_params']]]></code>
       <code><![CDATA[$routine['item_original_name']]]></code>
@@ -4834,6 +4830,11 @@
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
+  <file src="src/Database/Routine.php">
+    <PossiblyUnusedProperty>
+      <code>$returns</code>
+    </PossiblyUnusedProperty>
+  </file>
   <file src="src/Database/Routines.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
@@ -4876,12 +4877,6 @@
       <code><![CDATA[$routine['item_param_type'][$i]]]></code>
       <code><![CDATA[$routine['item_param_type'][$i]]]></code>
       <code><![CDATA[$routine['item_param_type'][$i]]]></code>
-      <code><![CDATA[$routine['name']]]></code>
-      <code><![CDATA[$routine['name']]]></code>
-      <code><![CDATA[$routine['name']]]></code>
-      <code><![CDATA[$routine['name']]]></code>
-      <code><![CDATA[$routine['type']]]></code>
-      <code><![CDATA[$routine['type']]]></code>
       <code>$value</code>
       <code>$value</code>
       <code>$value</code>
@@ -4900,11 +4895,6 @@
       <code>$priv[5]</code>
       <code>$priv[6]</code>
       <code>$priv[7]</code>
-      <code><![CDATA[$routine['DTD_IDENTIFIER']]]></code>
-      <code><![CDATA[$routine['Db']]]></code>
-      <code><![CDATA[$routine['Definer']]]></code>
-      <code><![CDATA[$routine['Name']]]></code>
-      <code><![CDATA[$routine['Type']]]></code>
       <code><![CDATA[$routine['item_param_dir'][$i]]]></code>
       <code><![CDATA[$routine['item_param_dir'][$i]]]></code>
       <code><![CDATA[$routine['item_param_length_arr'][$i]]]></code>
@@ -4966,7 +4956,6 @@
       <code><![CDATA[$retval['item_name']]]></code>
       <code><![CDATA[$retval['item_sqldataaccess']]]></code>
       <code><![CDATA[$retval['item_type']]]></code>
-      <code>$routine</code>
       <code>$string</code>
       <code>$value</code>
       <code>$value</code>
@@ -10607,7 +10596,6 @@
       <code>$passwordSetReal</code>
       <code>$privilege</code>
       <code>$realSqlQuery</code>
-      <code><![CDATA[$routine['name']]]></code>
       <code>$row</code>
       <code>$row</code>
       <code><![CDATA[$row1['Type']]]></code>
@@ -10643,10 +10631,6 @@
       <code><![CDATA[$privilege['Host']]]></code>
       <code><![CDATA[$privilege['User']]]></code>
       <code><![CDATA[$privilege['User']]]></code>
-      <code><![CDATA[$routine['name']]]></code>
-      <code><![CDATA[$routine['name']]]></code>
-      <code><![CDATA[$routine['name']]]></code>
-      <code><![CDATA[$routine['type']]]></code>
       <code><![CDATA[$row['Db']]]></code>
       <code><![CDATA[$row['Grant_priv']]]></code>
       <code><![CDATA[$row['Proc_priv']]]></code>
@@ -10698,9 +10682,6 @@
       <code>$queries[]</code>
       <code>$queries[]</code>
       <code>$queries[]</code>
-      <code>$routine</code>
-      <code>$routine</code>
-      <code>$routines[]</code>
       <code>$row</code>
       <code><![CDATA[$row['password']]]></code>
       <code><![CDATA[$row['password']]]></code>
@@ -10714,7 +10695,6 @@
       <code>$value</code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code>string</code>
       <code>string|null</code>
     </MixedInferredReturnType>
     <MixedOperand>
@@ -10726,7 +10706,6 @@
       <code>$sqlQuery</code>
     </MixedOperand>
     <MixedReturnStatement>
-      <code><![CDATA[$routine['type']]]></code>
       <code><![CDATA[$row['password']]]></code>
     </MixedReturnStatement>
     <MixedReturnTypeCoercion>
