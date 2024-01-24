@@ -1776,18 +1776,13 @@ parameters:
 			path: src/Controllers/Database/DesignerController.php
 
 		-
-			message: "#^Cannot access offset 'name' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Database/EventsController.php
-
-		-
 			message: "#^Cannot call method isSuccess\\(\\) on mixed\\.$#"
 			count: 1
 			path: src/Controllers/Database/EventsController.php
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 18
+			count: 16
 			path: src/Controllers/Database/EventsController.php
 
 		-
@@ -1797,7 +1792,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 3
+			count: 2
 			path: src/Controllers/Database/EventsController.php
 
 		-
@@ -6933,21 +6928,6 @@ parameters:
 		-
 			message: "#^Cannot access an offset on mixed\\.$#"
 			count: 6
-			path: src/Database/Events.php
-
-		-
-			message: "#^Cannot access offset 'Name' on mixed\\.$#"
-			count: 1
-			path: src/Database/Events.php
-
-		-
-			message: "#^Cannot access offset 'Status' on mixed\\.$#"
-			count: 1
-			path: src/Database/Events.php
-
-		-
-			message: "#^Cannot access offset 'Type' on mixed\\.$#"
-			count: 1
 			path: src/Database/Events.php
 
 		-

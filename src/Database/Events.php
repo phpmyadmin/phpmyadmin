@@ -362,7 +362,7 @@ class Events
      * @param string $db   db name
      * @param string $name event name
      *
-     * @return mixed[] information about EVENTs
+     * @return array{name:string, type:string, status:string}[] information about EVENTs
      */
     public function getDetails(string $db, string $name = ''): array
     {
@@ -381,6 +381,7 @@ class Events
         $result = [];
         $events = $this->dbi->fetchResult($query);
 
+        /** @var string[] $event */
         foreach ($events as $event) {
             $result[] = ['name' => $event['Name'], 'type' => $event['Type'], 'status' => $event['Status']];
         }

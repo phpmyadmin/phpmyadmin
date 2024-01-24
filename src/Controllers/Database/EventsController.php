@@ -86,25 +86,23 @@ final class EventsController extends AbstractController
                             mb_strtoupper($_POST['item_name']),
                         ),
                     );
-                    if (! empty($event)) {
-                        $sqlDrop = sprintf(
-                            'DROP EVENT IF EXISTS %s',
-                            Util::backquote($event['name']),
-                        );
-                        $this->response->addJSON(
-                            'new_row',
-                            $this->template->render('database/events/row', [
-                                'db' => Current::$database,
-                                'table' => Current::$table,
-                                'event' => $event,
-                                'has_privilege' => Util::currentUserHasPrivilege('EVENT', Current::$database),
-                                'sql_drop' => $sqlDrop,
-                                'row_class' => '',
-                            ]),
-                        );
-                    }
+                    $sqlDrop = sprintf(
+                        'DROP EVENT IF EXISTS %s',
+                        Util::backquote($event['name']),
+                    );
+                    $this->response->addJSON(
+                        'new_row',
+                        $this->template->render('database/events/row', [
+                            'db' => Current::$database,
+                            'table' => Current::$table,
+                            'event' => $event,
+                            'has_privilege' => Util::currentUserHasPrivilege('EVENT', Current::$database),
+                            'sql_drop' => $sqlDrop,
+                            'row_class' => '',
+                        ]),
+                    );
 
-                    $this->response->addJSON('insert', ! empty($event));
+                    $this->response->addJSON('insert', true);
                     $this->response->addJSON('message', $output);
                 } else {
                     $this->response->setRequestStatus(false);
