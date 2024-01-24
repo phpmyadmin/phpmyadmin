@@ -24,8 +24,6 @@ use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
-use function count;
-use function is_string;
 
 final class EmptyTableController extends AbstractController
 {
@@ -45,7 +43,8 @@ final class EmptyTableController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $multBtn = $_POST['mult_btn'] ?? '';
-        $selected = $_POST['selected'] ?? [];
+        /** @var string[] $selected */
+        $selected = $request->getParsedBodyParam('selected', []);
 
         if ($multBtn !== __('Yes')) {
             $this->flash->addMessage('success', __('No change'));
@@ -57,15 +56,14 @@ final class EmptyTableController extends AbstractController
         $defaultFkCheckValue = ForeignKey::handleDisableCheckInit();
 
         $GLOBALS['sql_query'] = '';
-        $selectedCount = count($selected);
 
-        for ($i = 0; $i < $selectedCount; $i++) {
-            if (! is_string($selected[$i]) || Table::get($selected[$i], Current::$database, $this->dbi)->isView()) {
+        foreach ($selected as $selectedValue) {
+            if (Table::get($selectedValue, Current::$database, $this->dbi)->isView()) {
                 continue;
             }
 
             $aQuery = 'TRUNCATE ';
-            $aQuery .= Util::backquote($selected[$i]);
+            $aQuery .= Util::backquote($selectedValue);
 
             $GLOBALS['sql_query'] .= $aQuery . ';' . "\n";
             $this->dbi->selectDb(Current::$database);

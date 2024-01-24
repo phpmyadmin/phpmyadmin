@@ -97,8 +97,9 @@ class TrackingController extends AbstractController
                 ),
             )->getDisplay());
         } elseif ($request->hasBodyParam('submit_mult')) {
-            $selectedTable = $request->getParsedBodyParam('selected_tbl');
-            if (! empty($selectedTable)) {
+        /** @var string[] $selectedTable */
+            $selectedTable = $request->getParsedBodyParam('selected_tbl', []);
+            if ($selectedTable !== []) {
                 if ($request->getParsedBodyParam('submit_mult') === 'delete_tracking') {
                     foreach ($selectedTable as $table) {
                         $this->tracking->deleteTracking(Current::$database, $table);

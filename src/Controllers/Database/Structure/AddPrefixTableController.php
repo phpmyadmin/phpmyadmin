@@ -14,8 +14,6 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
-use function count;
-
 final class AddPrefixTableController extends AbstractController
 {
     public function __construct(
@@ -29,15 +27,14 @@ final class AddPrefixTableController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
+        /** @var string[] $selected */
         $selected = $request->getParsedBodyParam('selected', []);
 
         $GLOBALS['sql_query'] = '';
-        $selectedCount = count($selected);
 
-        for ($i = 0; $i < $selectedCount; $i++) {
-            $newTableName = $request->getParsedBodyParam('add_prefix', '') . $selected[$i];
-            $aQuery = 'ALTER TABLE ' . Util::backquote($selected[$i])
-                . ' RENAME ' . Util::backquote($newTableName);
+        foreach ($selected as $selectedValue) {
+            $newTableName = $request->getParsedBodyParam('add_prefix', '') . $selectedValue;
+            $aQuery = 'ALTER TABLE ' . Util::backquote($selectedValue) . ' RENAME ' . Util::backquote($newTableName);
 
             $GLOBALS['sql_query'] .= $aQuery . ';' . "\n";
             $this->dbi->selectDb(Current::$database);
