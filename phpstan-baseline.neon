@@ -1917,7 +1917,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 24
+			count: 23
 			path: src/Controllers/Database/RoutinesController.php
 
 		-
@@ -1933,11 +1933,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, mixed given\\.$#"
 			count: 1
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
-			message: "#^Parameter \\#1 \\$routine of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getRow\\(\\) expects array, mixed given\\.$#"
-			count: 2
 			path: src/Controllers/Database/RoutinesController.php
 
 		-
@@ -6996,31 +6991,6 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
-			message: "#^Cannot access offset 'DTD_IDENTIFIER' on mixed\\.$#"
-			count: 1
-			path: src/Database/Routines.php
-
-		-
-			message: "#^Cannot access offset 'Db' on mixed\\.$#"
-			count: 1
-			path: src/Database/Routines.php
-
-		-
-			message: "#^Cannot access offset 'Definer' on mixed\\.$#"
-			count: 1
-			path: src/Database/Routines.php
-
-		-
-			message: "#^Cannot access offset 'Name' on mixed\\.$#"
-			count: 1
-			path: src/Database/Routines.php
-
-		-
-			message: "#^Cannot access offset 'Type' on mixed\\.$#"
-			count: 1
-			path: src/Database/Routines.php
-
-		-
 			message: "#^Cannot access offset 'value' on mixed\\.$#"
 			count: 1
 			path: src/Database/Routines.php
@@ -7132,7 +7102,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 10
+			count: 9
 			path: src/Database/Routines.php
 
 		-
@@ -7157,7 +7127,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, mixed given\\.$#"
-			count: 5
+			count: 3
 			path: src/Database/Routines.php
 
 		-
@@ -7221,18 +7191,13 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
-			message: "#^Parameter \\#2 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Database/Routines.php
-
-		-
 			message: "#^Parameter \\#3 \\$name of static method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getFunctionDefinition\\(\\) expects string, mixed given\\.$#"
-			count: 3
+			count: 2
 			path: src/Database/Routines.php
 
 		-
 			message: "#^Parameter \\#3 \\$name of static method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getProcedureDefinition\\(\\) expects string, mixed given\\.$#"
-			count: 3
+			count: 2
 			path: src/Database/Routines.php
 
 		-
@@ -13951,17 +13916,7 @@ parameters:
 			path: src/Server/Privileges.php
 
 		-
-			message: "#^Cannot access offset 'name' on mixed\\.$#"
-			count: 3
-			path: src/Server/Privileges.php
-
-		-
 			message: "#^Cannot access offset 'privs' on mixed\\.$#"
-			count: 1
-			path: src/Server/Privileges.php
-
-		-
-			message: "#^Cannot access offset 'type' on mixed\\.$#"
 			count: 1
 			path: src/Server/Privileges.php
 
@@ -14007,11 +13962,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getDataForDBInfo\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Server/Privileges.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getRoutineType\\(\\) should return string but returns mixed\\.$#"
 			count: 1
 			path: src/Server/Privileges.php
 
@@ -14137,7 +14087,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function mb_strtolower expects string, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: src/Server/Privileges.php
 
 		-

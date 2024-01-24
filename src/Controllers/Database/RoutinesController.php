@@ -145,7 +145,7 @@ class RoutinesController extends AbstractController
                     'new_row',
                     $this->template->render('database/routines/row', $this->routines->getRow($routine)),
                 );
-                $this->response->addJSON('insert', ! empty($routine));
+                $this->response->addJSON('insert', true);
                 $this->response->addJSON('message', $output);
                 $this->response->addJSON('tableType', 'routines');
 

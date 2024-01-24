@@ -1107,8 +1107,8 @@ class Routines
     /**
      * Creates the contents for a row in the list of routines
      *
-     * @param mixed[] $routine  An array of routine data
-     * @param string  $rowClass Additional class
+     * @param array{db:string, name:string, type:string, definer:string, returns:string} $routine
+     * @param string                                                                     $rowClass Additional class
      *
      * @return mixed[]
      */
@@ -1223,7 +1223,7 @@ class Routines
      * @param string|null $which PROCEDURE | FUNCTION or null for both
      * @param string      $name  name of the routine (to fetch a specific routine)
      *
-     * @return mixed[] information about PROCEDUREs or FUNCTIONs
+     * @return array{db:string, name:string, type:string, definer:string, returns:string}[]
      */
     public static function getDetails(
         DatabaseInterface $dbi,
@@ -1261,6 +1261,7 @@ class Routines
         }
 
         $ret = [];
+        /** @var array{Db:string, Name:string, Type:string, Definer:string, DTD_IDENTIFIER:string|null} $routine */
         foreach ($routines as $routine) {
             $ret[] = [
                 'db' => $routine['Db'],
