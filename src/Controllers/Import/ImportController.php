@@ -33,6 +33,7 @@ use function __;
 use function _ngettext;
 use function in_array;
 use function ini_get;
+use function ini_parse_quantity;
 use function ini_set;
 use function intval;
 use function is_array;
@@ -41,14 +42,11 @@ use function is_numeric;
 use function is_string;
 use function is_uploaded_file;
 use function mb_strlen;
-use function mb_strtolower;
 use function min;
 use function preg_match;
 use function preg_quote;
 use function preg_replace;
-use function substr;
 use function time;
-use function trim;
 
 final class ImportController extends AbstractController
 {
@@ -72,7 +70,6 @@ final class ImportController extends AbstractController
         $GLOBALS['message'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['memory_limit'] ??= null;
         $GLOBALS['read_limit'] ??= null;
         $GLOBALS['finished'] ??= null;
         $GLOBALS['offset'] ??= null;
@@ -387,28 +384,21 @@ final class ImportController extends AbstractController
         }
 
         // We can not read all at once, otherwise we can run out of memory
-        $GLOBALS['memory_limit'] = trim((string) ini_get('memory_limit'));
+        // Calculate value of the limit
+        $memoryLimit = (string) ini_get('memory_limit');
+        $memoryLimit = ini_parse_quantity($memoryLimit);
         // 2 MB as default
-        if (empty($GLOBALS['memory_limit'])) {
-            $GLOBALS['memory_limit'] = 2 * 1024 * 1024;
+        if ($memoryLimit === 0) {
+            $memoryLimit = 2 * 1024 * 1024;
         }
 
         // In case no memory limit we work on 10MB chunks
-        if ($GLOBALS['memory_limit'] === '-1') {
-            $GLOBALS['memory_limit'] = 10 * 1024 * 1024;
+        if ($memoryLimit === -1) {
+            $memoryLimit = 10 * 1024 * 1024;
         }
 
-        // Calculate value of the limit
-        $memoryUnit = mb_strtolower(substr((string) $GLOBALS['memory_limit'], -1));
-        $GLOBALS['memory_limit'] = match ($memoryUnit) {
-            'm' => (int) substr((string) $GLOBALS['memory_limit'], 0, -1) * 1024 * 1024,
-            'k' => (int) substr((string) $GLOBALS['memory_limit'], 0, -1) * 1024,
-            'g' => (int) substr((string) $GLOBALS['memory_limit'], 0, -1) * 1024 * 1024 * 1024,
-            default => (int) $GLOBALS['memory_limit'],
-        };
-
         // Just to be sure, there might be lot of memory needed for uncompression
-        $GLOBALS['read_limit'] = $GLOBALS['memory_limit'] / 8;
+        $GLOBALS['read_limit'] = $memoryLimit / 8;
 
         // handle filenames
         if (
