@@ -2014,7 +2014,6 @@
       <code><![CDATA[$GLOBALS['max_sql_len']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['my_die']]]></code>
-      <code><![CDATA[$GLOBALS['read_multiply']]]></code>
       <code><![CDATA[$GLOBALS['reset_charset']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
       <code><![CDATA[$GLOBALS['run_query']]]></code>
@@ -2075,7 +2074,6 @@
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['noplugin']]]></code>
-      <code><![CDATA[$GLOBALS['read_multiply']]]></code>
       <code><![CDATA[$GLOBALS['reset_charset']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
       <code><![CDATA[$GLOBALS['run_query']]]></code>
@@ -6760,7 +6758,6 @@
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['my_die']]]></code>
-      <code><![CDATA[$GLOBALS['read_multiply']]]></code>
       <code><![CDATA[$GLOBALS['run_query']]]></code>
       <code><![CDATA[$GLOBALS['skip_queries']]]></code>
       <code><![CDATA[$GLOBALS['sql_query_disabled']]]></code>
@@ -6772,9 +6769,6 @@
     <MixedArgument>
       <code>$active</code>
       <code>$additionalSql[$i]</code>
-      <code>$size</code>
-      <code>$size</code>
-      <code>$size</code>
       <code>$table[self::COL_NAMES]</code>
       <code>$table[self::ROWS]</code>
       <code>$table[self::TBL_NAME]</code>
@@ -6860,9 +6854,6 @@
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['my_die']]]></code>
-      <code><![CDATA[$GLOBALS['offset']]]></code>
-      <code><![CDATA[$GLOBALS['read_multiply']]]></code>
-      <code><![CDATA[$GLOBALS['read_multiply']]]></code>
       <code><![CDATA[$GLOBALS['run_query']]]></code>
       <code><![CDATA[$GLOBALS['skip_queries']]]></code>
       <code><![CDATA[$GLOBALS['skip_queries']]]></code>
@@ -6876,7 +6867,6 @@
       <code>$collation</code>
       <code>$importPlugin</code>
       <code>$size</code>
-      <code>$size</code>
       <code>$table</code>
     </MixedAssignment>
     <MixedInferredReturnType>
@@ -6889,8 +6879,6 @@
     <MixedOperand>
       <code><![CDATA[$GLOBALS['executed_queries']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
-      <code><![CDATA[$GLOBALS['read_multiply']]]></code>
-      <code><![CDATA[$GLOBALS['read_multiply']]]></code>
       <code><![CDATA[$GLOBALS['skip_queries']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
       <code>$charset</code>
@@ -6898,7 +6886,6 @@
       <code>$collation</code>
       <code>$collation</code>
       <code><![CDATA[$importPlugin->getProperties()->getExtension()]]></code>
-      <code>$size</code>
       <code>$size</code>
       <code>$size[self::D]</code>
       <code>max($size[self::D], $oldD)</code>
@@ -6929,8 +6916,6 @@
     <PossiblyNullOperand>
       <code><![CDATA[$GLOBALS['executed_queries']]]></code>
       <code><![CDATA[$GLOBALS['maximum_time']]]></code>
-      <code><![CDATA[$GLOBALS['read_multiply']]]></code>
-      <code><![CDATA[$GLOBALS['read_multiply']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
     </PossiblyNullOperand>
     <RedundantCondition>

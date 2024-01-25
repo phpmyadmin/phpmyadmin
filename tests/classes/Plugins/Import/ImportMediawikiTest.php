@@ -53,7 +53,7 @@ class ImportMediawikiTest extends AbstractTestCase
 
         $GLOBALS['import_file'] = 'tests/test_data/phpmyadmin.mediawiki';
         $GLOBALS['import_text'] = 'ImportMediawiki_Test';
-        $GLOBALS['read_multiply'] = 10;
+        ImportSettings::$readMultiply = 10;
         $GLOBALS['import_type'] = 'Mediawiki';
     }
 

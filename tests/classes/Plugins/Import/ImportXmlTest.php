@@ -57,7 +57,7 @@ class ImportXmlTest extends AbstractTestCase
         $GLOBALS['import_file'] = 'tests/test_data/phpmyadmin_importXML_For_Testing.xml';
         $GLOBALS['import_text'] = 'ImportXml_Test';
         $GLOBALS['compression'] = 'none';
-        $GLOBALS['read_multiply'] = 10;
+        ImportSettings::$readMultiply = 10;
         $GLOBALS['import_type'] = 'Xml';
     }
 

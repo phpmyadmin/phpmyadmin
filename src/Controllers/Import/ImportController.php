@@ -90,7 +90,6 @@ final class ImportController extends AbstractController
         $GLOBALS['result'] ??= null;
         $GLOBALS['import_file_name'] ??= null;
         $GLOBALS['import_notice'] ??= null;
-        $GLOBALS['read_multiply'] ??= null;
 
         ImportSettings::$charsetOfFile = (string) $request->getParsedBodyParam('charset_of_file');
         $GLOBALS['format'] = $request->getParsedBodyParam('format', '');
@@ -285,7 +284,7 @@ final class ImportController extends AbstractController
         // set default values
         $GLOBALS['timeout_passed'] = false;
         $GLOBALS['error'] = false;
-        $GLOBALS['read_multiply'] = 1;
+        ImportSettings::$readMultiply = 1;
         $GLOBALS['finished'] = false;
         $GLOBALS['offset'] = 0;
         $GLOBALS['max_sql_len'] = 0;
@@ -510,7 +509,7 @@ final class ImportController extends AbstractController
                     min($skip, $GLOBALS['read_limit']),
                 );
                 // Disable read progressivity, otherwise we eat all memory!
-                $GLOBALS['read_multiply'] = 1;
+                ImportSettings::$readMultiply = 1;
                 $skip -= $GLOBALS['read_limit'];
             }
 

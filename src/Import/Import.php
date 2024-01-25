@@ -208,7 +208,7 @@ class Import
         $GLOBALS['sql_query_disabled'] ??= null;
         $GLOBALS['run_query'] ??= null;
 
-        $GLOBALS['read_multiply'] = 1;
+        ImportSettings::$readMultiply = 1;
         if ($this->importRunBuffer === null) {
             // Do we have something to push into buffer?
             $this->importRunBuffer = $sql !== '' ? $sql . ';' : null;
@@ -315,16 +315,14 @@ class Import
      */
     public function getNextChunk(File|null $importHandle = null, int $size = 32768): string|bool
     {
-        $GLOBALS['read_multiply'] ??= null;
-
         // Add some progression while reading large amount of data
-        if ($GLOBALS['read_multiply'] <= 8) {
-            $size *= $GLOBALS['read_multiply'];
+        if (ImportSettings::$readMultiply <= 8) {
+            $size *= ImportSettings::$readMultiply;
         } else {
             $size *= 8;
         }
 
-        $GLOBALS['read_multiply']++;
+        ImportSettings::$readMultiply++;
 
         // We can not read too much
         if ($size > $GLOBALS['read_limit']) {

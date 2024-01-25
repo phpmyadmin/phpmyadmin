@@ -49,7 +49,7 @@ class ImportSqlTest extends AbstractTestCase
         $GLOBALS['import_file'] = 'tests/test_data/pma_bookmark.sql';
         $GLOBALS['import_text'] = 'ImportSql_Test';
         $GLOBALS['compression'] = 'none';
-        $GLOBALS['read_multiply'] = 10;
+        ImportSettings::$readMultiply = 10;
         $GLOBALS['import_type'] = 'Xml';
     }
 

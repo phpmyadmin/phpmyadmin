@@ -62,7 +62,7 @@ class ImportOdsTest extends AbstractTestCase
         /**
          * Load interface for zip extension.
         */
-        $GLOBALS['read_multiply'] = 10;
+        ImportSettings::$readMultiply = 10;
         $GLOBALS['import_type'] = 'ods';
 
         //variable for Ods

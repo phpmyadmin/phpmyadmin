@@ -61,7 +61,7 @@ class ImportShpTest extends AbstractTestCase
         $this->object = new ImportShp();
 
         $GLOBALS['compression'] = 'application/zip';
-        $GLOBALS['read_multiply'] = 10;
+        ImportSettings::$readMultiply = 10;
         $GLOBALS['import_type'] = 'ods';
         Current::$database = '';
         Current::$table = '';
