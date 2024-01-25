@@ -40,7 +40,7 @@ class ImportLdiTest extends AbstractTestCase
         $GLOBALS['executed_queries'] = null;
         $GLOBALS['skip_queries'] = null;
         $GLOBALS['run_query'] = null;
-        $GLOBALS['go_sql'] = null;
+        ImportSettings::$goSql = false;
         //setting
         $GLOBALS['plugin_param'] = 'table';
         $GLOBALS['finished'] = false;

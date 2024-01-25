@@ -53,7 +53,7 @@ class ImportCsvTest extends AbstractTestCase
         $GLOBALS['max_sql_len'] = null;
         $GLOBALS['executed_queries'] = null;
         $GLOBALS['run_query'] = null;
-        $GLOBALS['go_sql'] = null;
+        ImportSettings::$goSql = false;
 
         $this->object = new ImportCsv();
 

@@ -10,4 +10,5 @@ final class ImportSettings
     public static string $charsetOfFile = '';
     public static int $readMultiply = 0;
     public static int $readLimit = 0;
+    public static bool $goSql = false;
 }

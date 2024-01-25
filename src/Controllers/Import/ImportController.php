@@ -77,7 +77,6 @@ final class ImportController extends AbstractController
         $GLOBALS['maximum_time'] ??= null;
         $GLOBALS['timeout_passed'] ??= null;
         $GLOBALS['import_file'] ??= null;
-        $GLOBALS['go_sql'] ??= null;
         $GLOBALS['sql_file'] ??= null;
         $GLOBALS['error'] ??= null;
         $GLOBALS['max_sql_len'] ??= null;
@@ -289,7 +288,7 @@ final class ImportController extends AbstractController
         $GLOBALS['max_sql_len'] = 0;
         $GLOBALS['sql_query'] = '';
         $GLOBALS['sql_query_disabled'] = false;
-        $GLOBALS['go_sql'] = false;
+        ImportSettings::$goSql = false;
         $GLOBALS['executed_queries'] = 0;
         $GLOBALS['run_query'] = true;
         ImportSettings::$charsetConversion = false;
@@ -378,7 +377,7 @@ final class ImportController extends AbstractController
         // Do no run query if we show PHP code
         if (isset($GLOBALS['show_as_php'])) {
             $GLOBALS['run_query'] = false;
-            $GLOBALS['go_sql'] = true;
+            ImportSettings::$goSql = true;
         }
 
         // We can not read all at once, otherwise we can run out of memory
@@ -659,7 +658,7 @@ final class ImportController extends AbstractController
             }
         }
 
-        if ($GLOBALS['go_sql']) {
+        if (ImportSettings::$goSql) {
             if ($queriesToBeExecuted === []) {
                 $queriesToBeExecuted = [$GLOBALS['sql_query']];
             }

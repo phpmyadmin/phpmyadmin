@@ -2006,7 +2006,6 @@
       <code><![CDATA[$GLOBALS['ajax_reload']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['executed_queries']]]></code>
-      <code><![CDATA[$GLOBALS['go_sql']]]></code>
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
       <code><![CDATA[$GLOBALS['max_sql_len']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
@@ -2033,7 +2032,6 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['executed_queries']]]></code>
       <code><![CDATA[$GLOBALS['format']]]></code>
-      <code><![CDATA[$GLOBALS['go_sql']]]></code>
       <code><![CDATA[$GLOBALS['import_file']]]></code>
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
       <code><![CDATA[$GLOBALS['import_type']]]></code>
@@ -6679,7 +6677,6 @@
     </DocblockTypeContradiction>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['executed_queries']]]></code>
-      <code><![CDATA[$GLOBALS['go_sql']]]></code>
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
       <code><![CDATA[$GLOBALS['local_import_file']]]></code>
       <code><![CDATA[$GLOBALS['max_sql_len']]]></code>
@@ -6775,7 +6772,6 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['executed_queries']]]></code>
       <code><![CDATA[$GLOBALS['executed_queries']]]></code>
-      <code><![CDATA[$GLOBALS['go_sql']]]></code>
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
       <code><![CDATA[$GLOBALS['max_sql_len']]]></code>
       <code><![CDATA[$GLOBALS['max_sql_len']]]></code>
@@ -6850,11 +6846,9 @@
       <code><![CDATA[$GLOBALS['result'] == false]]></code>
     </RedundantCondition>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $GLOBALS['go_sql']]]></code>
       <code><![CDATA[! $GLOBALS['sql_query_disabled']]]></code>
       <code><![CDATA[! $GLOBALS['sql_query_disabled']]]></code>
       <code><![CDATA[! $GLOBALS['sql_query_disabled']]]></code>
-      <code><![CDATA[$GLOBALS['go_sql']]]></code>
       <code><![CDATA[$GLOBALS['run_query']]]></code>
       <code><![CDATA[$GLOBALS['run_query']]]></code>
       <code><![CDATA[$GLOBALS['run_query']]]></code>

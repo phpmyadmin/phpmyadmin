@@ -50,7 +50,7 @@ class ImportOdsTest extends AbstractTestCase
         $GLOBALS['executed_queries'] = null;
         $GLOBALS['run_query'] = null;
         $GLOBALS['sql_query'] = '';
-        $GLOBALS['go_sql'] = null;
+        ImportSettings::$goSql = false;
         $this->object = new ImportOds();
 
         //setting

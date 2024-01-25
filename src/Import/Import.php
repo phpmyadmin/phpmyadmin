@@ -198,7 +198,6 @@ class Import
      */
     public function runQuery(string $sql, array &$sqlData): void
     {
-        $GLOBALS['go_sql'] ??= null;
         $GLOBALS['complete_query'] ??= null;
         $GLOBALS['display_query'] ??= null;
         $GLOBALS['msg'] ??= null;
@@ -236,7 +235,7 @@ class Import
         $GLOBALS['executed_queries']++;
 
         if ($GLOBALS['run_query'] && $GLOBALS['executed_queries'] < 50) {
-            $GLOBALS['go_sql'] = true;
+            ImportSettings::$goSql = true;
 
             if (! $GLOBALS['sql_query_disabled']) {
                 $GLOBALS['complete_query'] = $GLOBALS['sql_query'];
@@ -250,10 +249,10 @@ class Import
             $sqlData[] = $this->importRunBuffer;
         } elseif ($GLOBALS['run_query']) {
             /* Handle rollback from go_sql */
-            if ($GLOBALS['go_sql'] && $sqlData !== []) {
+            if (ImportSettings::$goSql && $sqlData !== []) {
                 $queries = $sqlData;
                 $sqlData = [];
-                $GLOBALS['go_sql'] = false;
+                ImportSettings::$goSql = false;
 
                 foreach ($queries as $query) {
                     $this->executeQuery($query, $sqlData);
@@ -266,7 +265,7 @@ class Import
         // check length of query unless we decided to pass it to /sql
         // (if $run_query is false, we are just displaying so show
         // the complete query in the textarea)
-        if (! $GLOBALS['go_sql'] && $GLOBALS['run_query'] && ! empty($GLOBALS['sql_query'])) {
+        if (! ImportSettings::$goSql && $GLOBALS['run_query'] && ! empty($GLOBALS['sql_query'])) {
             if (
                 mb_strlen($GLOBALS['sql_query']) > 50000
                 || $GLOBALS['executed_queries'] > 50

@@ -44,7 +44,7 @@ class ImportXmlTest extends AbstractTestCase
         $GLOBALS['sql_query'] = '';
         $GLOBALS['executed_queries'] = null;
         $GLOBALS['run_query'] = null;
-        $GLOBALS['go_sql'] = null;
+        ImportSettings::$goSql = false;
 
         $this->object = new ImportXml();
 
