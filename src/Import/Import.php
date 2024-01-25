@@ -339,7 +339,7 @@ class Import
             }
 
             $r = mb_substr($GLOBALS['import_text'], 0, $size);
-            $GLOBALS['offset'] += $size;
+            ImportSettings::$offset += $size;
             $GLOBALS['import_text'] = mb_substr($GLOBALS['import_text'], $size);
 
             return $r;
@@ -351,7 +351,7 @@ class Import
 
         $result = $importHandle->read($size);
         $GLOBALS['finished'] = $importHandle->eof();
-        $GLOBALS['offset'] += $size;
+        ImportSettings::$offset += $size;
 
         if (ImportSettings::$charsetConversion) {
             return Encoding::convertString(ImportSettings::$charsetOfFile, 'utf-8', $result);
@@ -364,7 +364,7 @@ class Import
          *
          * @todo BOM could be used for charset autodetection
          */
-        if ($GLOBALS['offset'] == $size) {
+        if (ImportSettings::$offset === $size) {
             return $this->skipByteOrderMarksFromContents($result);
         }
 

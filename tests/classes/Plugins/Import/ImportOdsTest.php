@@ -56,7 +56,7 @@ class ImportOdsTest extends AbstractTestCase
         //setting
         $GLOBALS['finished'] = false;
         ImportSettings::$readLimit = 100000000;
-        $GLOBALS['offset'] = 0;
+        ImportSettings::$offset = 0;
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
         /**

@@ -19,4 +19,5 @@ final class ImportSettings
     public static array $failedQueries = [];
     public static bool $timeoutPassed = false;
     public static string $importNotice = '';
+    public static int $offset = 0;
 }

@@ -2876,7 +2876,17 @@ parameters:
 			path: src/Controllers/Import/ImportController.php
 
 		-
+			message: "#^Result of \\|\\| is always true\\.$#"
+			count: 1
+			path: src/Controllers/Import/ImportController.php
+
+		-
 			message: "#^Static property PhpMyAdmin\\\\Import\\\\ImportSettings\\:\\:\\$readLimit \\(int\\) does not accept float\\|int\\<min, \\-1\\>\\|int\\<1, max\\>\\.$#"
+			count: 1
+			path: src/Controllers/Import/ImportController.php
+
+		-
+			message: "#^Strict comparison using \\=\\=\\= between 0 and 0 will always evaluate to true\\.$#"
 			count: 1
 			path: src/Controllers/Import/ImportController.php
 

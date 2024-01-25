@@ -119,7 +119,7 @@ class ImportSql extends ImportPlugin
 
                 // Subtract data we didn't handle yet and stop processing.
                 if ($newData === false) {
-                    $GLOBALS['offset'] -= mb_strlen($bq->query);
+                    ImportSettings::$offset -= mb_strlen($bq->query);
                     break;
                 }
 

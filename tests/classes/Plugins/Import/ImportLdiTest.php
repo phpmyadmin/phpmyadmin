@@ -45,7 +45,7 @@ class ImportLdiTest extends AbstractTestCase
         $GLOBALS['plugin_param'] = 'table';
         $GLOBALS['finished'] = false;
         ImportSettings::$readLimit = 100000000;
-        $GLOBALS['offset'] = 0;
+        ImportSettings::$offset = 0;
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
 

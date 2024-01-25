@@ -71,7 +71,7 @@ class ImportXml extends ImportPlugin
             $data = $this->import->getNextChunk($importHandle);
             if ($data === false) {
                 /* subtract data we didn't handle yet and stop processing */
-                $GLOBALS['offset'] -= strlen($buffer);
+                ImportSettings::$offset -= strlen($buffer);
                 break;
             }
 

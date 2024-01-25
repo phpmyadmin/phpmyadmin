@@ -72,7 +72,6 @@ final class ImportController extends AbstractController
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['finished'] ??= null;
-        $GLOBALS['offset'] ??= null;
         $GLOBALS['timestamp'] ??= null;
         $GLOBALS['maximum_time'] ??= null;
         $GLOBALS['import_file'] ??= null;
@@ -279,7 +278,7 @@ final class ImportController extends AbstractController
         $GLOBALS['error'] = false;
         ImportSettings::$readMultiply = 1;
         $GLOBALS['finished'] = false;
-        $GLOBALS['offset'] = 0;
+        ImportSettings::$offset = 0;
         ImportSettings::$maxSqlLength = 0;
         $GLOBALS['sql_query'] = '';
         ImportSettings::$sqlQueryDisabled = false;
@@ -594,7 +593,7 @@ final class ImportController extends AbstractController
         // Did we hit timeout? Tell it user.
         if (ImportSettings::$timeoutPassed) {
             $GLOBALS['urlParams']['timeout_passed'] = '1';
-            $GLOBALS['urlParams']['offset'] = $GLOBALS['offset'];
+            $GLOBALS['urlParams']['offset'] = ImportSettings::$offset;
             if (isset($GLOBALS['local_import_file'])) {
                 $GLOBALS['urlParams']['local_import_file'] = $GLOBALS['local_import_file'];
             }
@@ -610,7 +609,7 @@ final class ImportController extends AbstractController
             $GLOBALS['message']->addParamHtml('<a href="' . $importUrl . '">');
             $GLOBALS['message']->addParamHtml('</a>');
 
-            if ($GLOBALS['offset'] == 0 || (isset($originalSkip) && $originalSkip == $GLOBALS['offset'])) {
+            if (ImportSettings::$offset === 0 || (isset($originalSkip) && $originalSkip == ImportSettings::$offset)) {
                 $GLOBALS['message']->addText(
                     __(
                         'However on last run no data has been parsed,'
@@ -639,7 +638,7 @@ final class ImportController extends AbstractController
             );
 
             $GLOBALS['reload'] = $statementInfo->reload;
-            $GLOBALS['offset'] = $statementInfo->offset;
+            ImportSettings::$offset = (int) $statementInfo->offset;
 
             if (Current::$table != $tableFromSql && $tableFromSql !== '') {
                 Current::$table = $tableFromSql;
@@ -664,7 +663,7 @@ final class ImportController extends AbstractController
                     Current::$database,
                 );
 
-                $GLOBALS['offset'] = $statementInfo->offset;
+                ImportSettings::$offset = (int) $statementInfo->offset;
                 $GLOBALS['reload'] = $statementInfo->reload;
 
                 // Check if User is allowed to issue a 'DROP DATABASE' Statement

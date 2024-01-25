@@ -51,7 +51,7 @@ class ImportXmlTest extends AbstractTestCase
         //setting
         $GLOBALS['finished'] = false;
         ImportSettings::$readLimit = 100000000;
-        $GLOBALS['offset'] = 0;
+        ImportSettings::$offset = 0;
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
         $GLOBALS['import_file'] = 'tests/test_data/phpmyadmin_importXML_For_Testing.xml';
