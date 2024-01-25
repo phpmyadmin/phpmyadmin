@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Plugins\Import;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportSql;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -29,7 +30,7 @@ class ImportSqlTest extends AbstractTestCase
         $GLOBALS['error'] = null;
         $GLOBALS['timeout_passed'] = null;
         $GLOBALS['maximum_time'] = null;
-        $GLOBALS['charset_conversion'] = null;
+        ImportSettings::$charsetConversion = false;
         $GLOBALS['skip_queries'] = null;
         $GLOBALS['max_sql_len'] = null;
         $GLOBALS['sql_query'] = '';

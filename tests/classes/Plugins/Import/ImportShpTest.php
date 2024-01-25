@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportShp;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -34,7 +35,7 @@ class ImportShpTest extends AbstractTestCase
         $GLOBALS['error'] = null;
         $GLOBALS['buffer'] = null;
         $GLOBALS['maximum_time'] = null;
-        $GLOBALS['charset_conversion'] = null;
+        ImportSettings::$charsetConversion = false;
         $GLOBALS['eof'] = null;
         Current::$database = '';
         $GLOBALS['skip_queries'] = null;

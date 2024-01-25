@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
@@ -94,7 +95,6 @@ class ImportLdi extends AbstractImportCsv
     {
         $GLOBALS['finished'] ??= null;
         $GLOBALS['import_file'] ??= null;
-        $GLOBALS['charset_conversion'] ??= null;
         $GLOBALS['ldi_local_option'] ??= null;
         $GLOBALS['ldi_replace'] ??= null;
         $GLOBALS['ldi_ignore'] ??= null;
@@ -111,7 +111,7 @@ class ImportLdi extends AbstractImportCsv
             $compression = $importHandle->getCompression();
         }
 
-        if ($GLOBALS['import_file'] === 'none' || $compression !== 'none' || $GLOBALS['charset_conversion']) {
+        if ($GLOBALS['import_file'] === 'none' || $compression !== 'none' || ImportSettings::$charsetConversion) {
             // We handle only some kind of data!
             $GLOBALS['message'] = Message::error(
                 __('This plugin does not support compressed imports!'),

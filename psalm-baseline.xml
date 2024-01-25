@@ -2007,7 +2007,6 @@
     </DocblockTypeContradiction>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['ajax_reload']]]></code>
-      <code><![CDATA[$GLOBALS['charset_conversion']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['executed_queries']]]></code>
       <code><![CDATA[$GLOBALS['go_sql']]]></code>
@@ -2063,7 +2062,6 @@
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['ajax_reload']]]></code>
-      <code><![CDATA[$GLOBALS['charset_conversion']]]></code>
       <code><![CDATA[$GLOBALS['charset_of_file']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['executed_queries']]]></code>
@@ -6756,7 +6754,6 @@
       <code><![CDATA[empty($parser->statements[0])]]></code>
     </DocblockTypeContradiction>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['charset_conversion']]]></code>
       <code><![CDATA[$GLOBALS['charset_of_file']]]></code>
       <code><![CDATA[$GLOBALS['executed_queries']]]></code>
       <code><![CDATA[$GLOBALS['go_sql']]]></code>
@@ -6858,7 +6855,6 @@
       <code>$typeArray[$analyses[$i][self::TYPES][$j]]</code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['charset_conversion']]]></code>
       <code><![CDATA[$GLOBALS['charset_of_file']]]></code>
       <code><![CDATA[$GLOBALS['executed_queries']]]></code>
       <code><![CDATA[$GLOBALS['executed_queries']]]></code>
@@ -9373,7 +9369,6 @@
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['charset_conversion']]]></code>
       <code><![CDATA[$GLOBALS['ldi_columns']]]></code>
       <code><![CDATA[$GLOBALS['ldi_enclosed']]]></code>
       <code><![CDATA[$GLOBALS['ldi_escaped']]]></code>
@@ -9390,7 +9385,6 @@
       <code><![CDATA[$GLOBALS['ldi_escaped']]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['charset_conversion']]]></code>
       <code><![CDATA[$GLOBALS['ldi_columns']]]></code>
       <code><![CDATA[$GLOBALS['ldi_enclosed']]]></code>
       <code><![CDATA[$GLOBALS['ldi_escaped']]]></code>

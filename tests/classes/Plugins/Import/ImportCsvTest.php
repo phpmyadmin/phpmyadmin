@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportCsv;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -47,7 +48,7 @@ class ImportCsvTest extends AbstractTestCase
         $GLOBALS['csv_columns'] = null;
         $GLOBALS['timeout_passed'] = null;
         $GLOBALS['maximum_time'] = null;
-        $GLOBALS['charset_conversion'] = null;
+        ImportSettings::$charsetConversion = false;
         $GLOBALS['skip_queries'] = null;
         $GLOBALS['max_sql_len'] = null;
         $GLOBALS['executed_queries'] = null;

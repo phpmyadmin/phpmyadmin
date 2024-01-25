@@ -17,6 +17,7 @@ use PhpMyAdmin\File;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\Import;
+use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Plugins;
@@ -73,7 +74,6 @@ final class ImportController extends AbstractController
         $GLOBALS['read_limit'] ??= null;
         $GLOBALS['finished'] ??= null;
         $GLOBALS['offset'] ??= null;
-        $GLOBALS['charset_conversion'] ??= null;
         $GLOBALS['timestamp'] ??= null;
         $GLOBALS['maximum_time'] ??= null;
         $GLOBALS['timeout_passed'] ??= null;
@@ -294,7 +294,7 @@ final class ImportController extends AbstractController
         $GLOBALS['go_sql'] = false;
         $GLOBALS['executed_queries'] = 0;
         $GLOBALS['run_query'] = true;
-        $GLOBALS['charset_conversion'] = false;
+        ImportSettings::$charsetConversion = false;
         $GLOBALS['reset_charset'] = false;
         $GLOBALS['msg'] = 'Sorry an unexpected error happened!';
 
@@ -491,7 +491,7 @@ final class ImportController extends AbstractController
         // Convert the file's charset if necessary
         if (Encoding::isSupported() && isset($GLOBALS['charset_of_file'])) {
             if ($GLOBALS['charset_of_file'] !== 'utf-8') {
-                $GLOBALS['charset_conversion'] = true;
+                ImportSettings::$charsetConversion = true;
             }
         } elseif (isset($GLOBALS['charset_of_file']) && $GLOBALS['charset_of_file'] !== 'utf-8') {
             $this->dbi->query('SET NAMES \'' . $GLOBALS['charset_of_file'] . '\'');

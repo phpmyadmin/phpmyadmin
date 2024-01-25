@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportLdi;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
@@ -28,7 +29,7 @@ class ImportLdiTest extends AbstractTestCase
         parent::setUp();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $GLOBALS['charset_conversion'] = null;
+        ImportSettings::$charsetConversion = false;
         $GLOBALS['ldi_terminated'] = null;
         $GLOBALS['ldi_escaped'] = null;
         $GLOBALS['ldi_columns'] = null;

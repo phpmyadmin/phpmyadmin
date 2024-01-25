@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportOds;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -42,7 +43,7 @@ class ImportOdsTest extends AbstractTestCase
         $GLOBALS['error'] = null;
         $GLOBALS['timeout_passed'] = null;
         $GLOBALS['maximum_time'] = null;
-        $GLOBALS['charset_conversion'] = null;
+        ImportSettings::$charsetConversion = false;
         Current::$database = '';
         $GLOBALS['skip_queries'] = null;
         $GLOBALS['max_sql_len'] = null;
