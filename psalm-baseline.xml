@@ -3056,14 +3056,9 @@
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Controllers/Table/ChartController.php">
-    <InvalidArgument occurrences="2">
-      <code>$rows</code>
+    <InvalidArgument occurrences="1">
       <code>$start</code>
     </InvalidArgument>
-    <InvalidScalarArgument occurrences="2">
-      <code>$_REQUEST['pos']</code>
-      <code>$_REQUEST['session_max_rows']</code>
-    </InvalidScalarArgument>
     <MixedArgument occurrences="7">
       <code>$db</code>
       <code>$db</code>
@@ -3079,6 +3074,11 @@
     <MixedAssignment occurrences="1">
       <code>$url_params['db']</code>
     </MixedAssignment>
+    <PossiblyInvalidArgument occurrences="3">
+      <code>$_REQUEST['pos']</code>
+      <code>$_REQUEST['session_max_rows']</code>
+      <code>$rows</code>
+    </PossiblyInvalidArgument>
     <PossiblyInvalidOperand occurrences="4">
       <code>$_REQUEST['pos']</code>
       <code>$_REQUEST['pos']</code>
@@ -16133,7 +16133,8 @@
     </TypeDoesNotContainType>
   </file>
   <file src="test/classes/Plugins/Import/ImportMediawikiTest.php">
-    <MixedArgument occurrences="1">
+    <MixedArgument occurrences="2">
+      <code>$import_notice</code>
       <code>$import_notice</code>
     </MixedArgument>
   </file>
