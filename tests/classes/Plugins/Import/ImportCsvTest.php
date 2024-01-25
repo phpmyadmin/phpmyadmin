@@ -58,7 +58,7 @@ class ImportCsvTest extends AbstractTestCase
         $this->object = new ImportCsv();
 
         //setting
-        $GLOBALS['finished'] = false;
+        ImportSettings::$finished = false;
         ImportSettings::$readLimit = 100000000;
         ImportSettings::$offset = 0;
         Config::getInstance()->selectedServer['DisableIS'] = false;
@@ -139,7 +139,7 @@ class ImportCsvTest extends AbstractTestCase
             $GLOBALS['sql_query'],
         );
 
-        self::assertTrue($GLOBALS['finished']);
+        self::assertTrue(ImportSettings::$finished);
     }
 
     /**
@@ -173,7 +173,7 @@ class ImportCsvTest extends AbstractTestCase
             $GLOBALS['sql_query'],
         );
 
-        self::assertTrue($GLOBALS['finished']);
+        self::assertTrue(ImportSettings::$finished);
 
         unset($_REQUEST['csv_new_tbl_name']);
         unset($_REQUEST['csv_new_db_name']);
@@ -226,7 +226,7 @@ class ImportCsvTest extends AbstractTestCase
             $GLOBALS['sql_query'],
         );
 
-        self::assertTrue($GLOBALS['finished']);
+        self::assertTrue(ImportSettings::$finished);
     }
 
     /**
@@ -268,7 +268,7 @@ class ImportCsvTest extends AbstractTestCase
             $GLOBALS['sql_query'],
         );
 
-        self::assertTrue($GLOBALS['finished']);
+        self::assertTrue(ImportSettings::$finished);
         $this->dummyDbi->assertAllQueriesConsumed();
     }
 
@@ -313,7 +313,7 @@ class ImportCsvTest extends AbstractTestCase
             $GLOBALS['sql_query'],
         );
 
-        self::assertTrue($GLOBALS['finished']);
+        self::assertTrue(ImportSettings::$finished);
         $this->dummyDbi->assertAllQueriesConsumed();
     }
 }

@@ -67,7 +67,6 @@ class ImportMediawiki extends ImportPlugin
     public function doImport(File|null $importHandle = null): array
     {
         $GLOBALS['error'] ??= null;
-        $GLOBALS['finished'] ??= null;
 
         $sqlStatements = [];
 
@@ -99,7 +98,7 @@ class ImportMediawiki extends ImportPlugin
         $inTableHeader = false;
 
         /** @infection-ignore-all */
-        while (! $GLOBALS['finished'] && ! $GLOBALS['error'] && ! ImportSettings::$timeoutPassed) {
+        while (! ImportSettings::$finished && ! $GLOBALS['error'] && ! ImportSettings::$timeoutPassed) {
             $data = $this->import->getNextChunk($importHandle);
 
             if ($data === false) {
@@ -131,7 +130,7 @@ class ImportMediawiki extends ImportPlugin
             $fullBufferLinesCount = count($bufferLines);
             // If the reading is not finalized, the final line of the current chunk
             // will not be complete
-            if (! $GLOBALS['finished']) {
+            if (! ImportSettings::$finished) {
                 $lastChunkLine = $bufferLines[--$fullBufferLinesCount];
             }
 

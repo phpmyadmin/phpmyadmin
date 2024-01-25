@@ -93,7 +93,6 @@ class ImportLdi extends AbstractImportCsv
      */
     public function doImport(File|null $importHandle = null): array
     {
-        $GLOBALS['finished'] ??= null;
         $GLOBALS['import_file'] ??= null;
         $GLOBALS['ldi_local_option'] ??= null;
         $GLOBALS['ldi_replace'] ??= null;
@@ -185,7 +184,7 @@ class ImportLdi extends AbstractImportCsv
 
         $this->import->runQuery($sql, $sqlStatements);
         $this->import->runQuery('', $sqlStatements);
-        $GLOBALS['finished'] = true;
+        ImportSettings::$finished = true;
 
         return $sqlStatements;
     }

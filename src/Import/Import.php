@@ -325,7 +325,7 @@ class Import
             return false;
         }
 
-        if ($GLOBALS['finished']) {
+        if (ImportSettings::$finished) {
             return true;
         }
 
@@ -333,7 +333,7 @@ class Import
             // Well this is not yet supported and tested,
             // but should return content of textarea
             if (mb_strlen($GLOBALS['import_text']) < $size) {
-                $GLOBALS['finished'] = true;
+                ImportSettings::$finished = true;
 
                 return $GLOBALS['import_text'];
             }
@@ -350,7 +350,7 @@ class Import
         }
 
         $result = $importHandle->read($size);
-        $GLOBALS['finished'] = $importHandle->eof();
+        ImportSettings::$finished = $importHandle->eof();
         ImportSettings::$offset += $size;
 
         if (ImportSettings::$charsetConversion) {

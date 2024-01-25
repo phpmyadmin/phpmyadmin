@@ -54,7 +54,7 @@ class ImportOdsTest extends AbstractTestCase
         $this->object = new ImportOds();
 
         //setting
-        $GLOBALS['finished'] = false;
+        ImportSettings::$finished = false;
         ImportSettings::$readLimit = 100000000;
         ImportSettings::$offset = 0;
         Config::getInstance()->selectedServer['DisableIS'] = false;
@@ -148,7 +148,7 @@ class ImportOdsTest extends AbstractTestCase
         self::assertStringContainsString('Edit settings for `pma_bookmark`', ImportSettings::$importNotice);
 
         //asset that the import process is finished
-        self::assertTrue($GLOBALS['finished']);
+        self::assertTrue(ImportSettings::$finished);
     }
 
     /** @return mixed[] */
@@ -262,6 +262,6 @@ class ImportOdsTest extends AbstractTestCase
         self::assertStringContainsString('Edit settings for `Shop`', ImportSettings::$importNotice);
 
         //asset that the import process is finished
-        self::assertTrue($GLOBALS['finished']);
+        self::assertTrue(ImportSettings::$finished);
     }
 }

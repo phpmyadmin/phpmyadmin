@@ -43,7 +43,7 @@ class ImportLdiTest extends AbstractTestCase
         ImportSettings::$goSql = false;
         //setting
         $GLOBALS['plugin_param'] = 'table';
-        $GLOBALS['finished'] = false;
+        ImportSettings::$finished = false;
         ImportSettings::$readLimit = 100000000;
         ImportSettings::$offset = 0;
         $config = Config::getInstance();
@@ -143,7 +143,7 @@ class ImportLdiTest extends AbstractTestCase
             $GLOBALS['sql_query'],
         );
 
-        self::assertTrue($GLOBALS['finished']);
+        self::assertTrue(ImportSettings::$finished);
     }
 
     /**
@@ -210,6 +210,6 @@ class ImportLdiTest extends AbstractTestCase
         //IGNORE
         self::assertStringContainsString('IGNORE 1 LINES', $GLOBALS['sql_query']);
 
-        self::assertTrue($GLOBALS['finished']);
+        self::assertTrue(ImportSettings::$finished);
     }
 }

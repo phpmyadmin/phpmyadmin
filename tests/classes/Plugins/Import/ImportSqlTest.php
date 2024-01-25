@@ -41,7 +41,7 @@ class ImportSqlTest extends AbstractTestCase
         $this->object = new ImportSql();
 
         //setting
-        $GLOBALS['finished'] = false;
+        ImportSettings::$finished = false;
         ImportSettings::$readLimit = 100000000;
         ImportSettings::$offset = 0;
         Config::getInstance()->selectedServer['DisableIS'] = false;
@@ -94,6 +94,6 @@ class ImportSqlTest extends AbstractTestCase
             $GLOBALS['sql_query'],
         );
 
-        self::assertTrue($GLOBALS['finished']);
+        self::assertTrue(ImportSettings::$finished);
     }
 }

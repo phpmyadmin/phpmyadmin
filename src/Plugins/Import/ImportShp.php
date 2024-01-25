@@ -17,6 +17,7 @@ use PhpMyAdmin\Gis\GisMultiPoint;
 use PhpMyAdmin\Gis\GisPoint;
 use PhpMyAdmin\Gis\GisPolygon;
 use PhpMyAdmin\Import\Import;
+use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
@@ -82,7 +83,7 @@ class ImportShp extends ImportPlugin
         $GLOBALS['import_file'] ??= null;
         $GLOBALS['local_import_file'] ??= null;
         $GLOBALS['message'] ??= null;
-        $GLOBALS['finished'] = false;
+        ImportSettings::$finished = false;
 
         if ($importHandle === null || $this->zipExtension === null) {
             return [];
@@ -287,7 +288,7 @@ class ImportShp extends ImportPlugin
         $sqlStatements = [];
         $this->import->buildSql($dbName, $tables, $analyses, createDb:$createDb, sqlData:$sqlStatements);
 
-        $GLOBALS['finished'] = true;
+        ImportSettings::$finished = true;
         $GLOBALS['error'] = false;
 
         // Commit any possible data in buffers
@@ -300,7 +301,7 @@ class ImportShp extends ImportPlugin
      * Returns specified number of bytes from the buffer.
      * Buffer automatically fetches next chunk of data when the buffer
      * falls short.
-     * Sets $eof when $GLOBALS['finished'] is set and the buffer falls short.
+     * Sets $eof when ImportSettings::$finished is set and the buffer falls short.
      *
      * @param int $length number of bytes
      */
@@ -313,7 +314,7 @@ class ImportShp extends ImportPlugin
         $import = new Import();
 
         if (strlen((string) $GLOBALS['buffer']) < $length) {
-            if ($GLOBALS['finished']) {
+            if (ImportSettings::$finished) {
                 $GLOBALS['eof'] = true;
             } else {
                 $GLOBALS['buffer'] .= $import->getNextChunk($GLOBALS['importHandle']);

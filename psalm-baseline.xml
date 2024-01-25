@@ -9281,8 +9281,8 @@
       <code>string[]</code>
     </PossiblyUnusedReturnValue>
     <RedundantCondition>
-      <code><![CDATA[! $GLOBALS['finished']]]></code>
-      <code><![CDATA[$GLOBALS['finished']]]></code>
+      <code>! ImportSettings::$finished</code>
+      <code>ImportSettings::$finished</code>
     </RedundantCondition>
   </file>
   <file src="src/Plugins/Import/ImportOds.php">

@@ -58,7 +58,6 @@ class ImportXml extends ImportPlugin
     public function doImport(File|null $importHandle = null): array
     {
         $GLOBALS['error'] ??= null;
-        $GLOBALS['finished'] ??= null;
 
         $buffer = '';
 
@@ -67,7 +66,7 @@ class ImportXml extends ImportPlugin
          * it can process compressed files
          */
         /** @infection-ignore-all */
-        while (! $GLOBALS['finished'] && ! $GLOBALS['error'] && ! ImportSettings::$timeoutPassed) {
+        while (! ImportSettings::$finished && ! $GLOBALS['error'] && ! ImportSettings::$timeoutPassed) {
             $data = $this->import->getNextChunk($importHandle);
             if ($data === false) {
                 /* subtract data we didn't handle yet and stop processing */
@@ -102,7 +101,7 @@ class ImportXml extends ImportPlugin
                 'The XML file specified was either malformed or incomplete. Please correct the issue and try again.',
             ))->getDisplay();
             unset($xml);
-            $GLOBALS['finished'] = false;
+            ImportSettings::$finished = false;
 
             return [];
         }
@@ -163,7 +162,7 @@ class ImportXml extends ImportPlugin
                 'The XML file specified was either malformed or incomplete. Please correct the issue and try again.',
             ))->getDisplay();
             unset($xml);
-            $GLOBALS['finished'] = false;
+            ImportSettings::$finished = false;
 
             return [];
         }

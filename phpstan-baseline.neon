@@ -2746,6 +2746,16 @@ parameters:
 			path: src/Controllers/Import/ImportController.php
 
 		-
+			message: "#^Left side of && is always false\\.$#"
+			count: 1
+			path: src/Controllers/Import/ImportController.php
+
+		-
+			message: "#^Negated boolean expression is always true\\.$#"
+			count: 1
+			path: src/Controllers/Import/ImportController.php
+
+		-
 			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
 			count: 1
 			path: src/Controllers/Import/ImportController.php
@@ -11872,11 +11882,6 @@ parameters:
 
 		-
 			message: "#^Negated boolean expression is always true\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportMediawiki.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, array\\|float\\|int\\|string\\|false\\|null given\\.$#"
 			count: 1
 			path: src/Plugins/Import/ImportMediawiki.php
 

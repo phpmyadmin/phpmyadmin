@@ -49,7 +49,7 @@ class ImportXmlTest extends AbstractTestCase
         $this->object = new ImportXml();
 
         //setting
-        $GLOBALS['finished'] = false;
+        ImportSettings::$finished = false;
         ImportSettings::$readLimit = 100000000;
         ImportSettings::$offset = 0;
         Config::getInstance()->selectedServer['DisableIS'] = false;
@@ -141,6 +141,6 @@ class ImportXmlTest extends AbstractTestCase
         self::assertStringContainsString('Edit settings for `phpmyadmintest`', ImportSettings::$importNotice);
         self::assertStringContainsString('Go to table: `pma_bookmarktest`', ImportSettings::$importNotice);
         self::assertStringContainsString('Edit settings for `pma_bookmarktest`', ImportSettings::$importNotice);
-        self::assertTrue($GLOBALS['finished']);
+        self::assertTrue(ImportSettings::$finished);
     }
 }

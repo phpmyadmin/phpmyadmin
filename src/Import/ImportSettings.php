@@ -20,4 +20,5 @@ final class ImportSettings
     public static bool $timeoutPassed = false;
     public static string $importNotice = '';
     public static int $offset = 0;
+    public static bool $finished = false;
 }

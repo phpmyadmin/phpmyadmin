@@ -71,7 +71,6 @@ final class ImportController extends AbstractController
         $GLOBALS['message'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['finished'] ??= null;
         $GLOBALS['timestamp'] ??= null;
         $GLOBALS['maximum_time'] ??= null;
         $GLOBALS['import_file'] ??= null;
@@ -277,7 +276,7 @@ final class ImportController extends AbstractController
         ImportSettings::$timeoutPassed = false;
         $GLOBALS['error'] = false;
         ImportSettings::$readMultiply = 1;
-        $GLOBALS['finished'] = false;
+        ImportSettings::$finished = false;
         ImportSettings::$offset = 0;
         ImportSettings::$maxSqlLength = 0;
         $GLOBALS['sql_query'] = '';
@@ -495,7 +494,7 @@ final class ImportController extends AbstractController
         // Something to skip? (because timeout has passed)
         if (! $GLOBALS['error'] && $request->hasBodyParam('skip')) {
             $originalSkip = $skip = intval($request->getParsedBodyParam('skip'));
-            while ($skip > 0 && ! $GLOBALS['finished']) {
+            while ($skip > 0 && ! ImportSettings::$finished) {
                 $this->import->getNextChunk(
                     $importHandle ?? null,
                     min($skip, ImportSettings::$readLimit),
@@ -558,7 +557,7 @@ final class ImportController extends AbstractController
             $GLOBALS['error'] = false; // unset error marker, it was used just to skip processing
         } elseif ($idBookmark !== 0 && $actionBookmark === 1) {
             $GLOBALS['message'] = Message::notice(__('Showing bookmark'));
-        } elseif ($GLOBALS['finished'] && ! $GLOBALS['error']) {
+        } elseif (ImportSettings::$finished && ! $GLOBALS['error']) {
             // Do not display the query with message, we do it separately
             $GLOBALS['display_query'] = ';';
             if ($GLOBALS['import_type'] !== 'query') {

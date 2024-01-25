@@ -103,7 +103,7 @@ class ImportSql extends ImportPlugin
         /**
          * Will be set in Import::getNextChunk().
          */
-        $GLOBALS['finished'] = false;
+        ImportSettings::$finished = false;
 
         $sqlStatements = [];
 
@@ -125,7 +125,7 @@ class ImportSql extends ImportPlugin
 
                 // Checking if the input buffer has finished.
                 if ($newData === true) {
-                    $GLOBALS['finished'] = true;
+                    ImportSettings::$finished = true;
                     /** @infection-ignore-all */
                     break;
                 }

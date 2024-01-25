@@ -47,7 +47,7 @@ class ImportShpTest extends AbstractTestCase
 
         //setting
         $GLOBALS['plugin_param'] = 'table';
-        $GLOBALS['finished'] = false;
+        ImportSettings::$finished = false;
         ImportSettings::$readLimit = 100000000;
         ImportSettings::$offset = 0;
         Config::getInstance()->selectedServer['DisableIS'] = false;
@@ -225,6 +225,6 @@ class ImportShpTest extends AbstractTestCase
         self::assertStringContainsString('Edit settings for `TBL_NAME`', $importNotice);
 
         //asset that the import process is finished
-        self::assertTrue($GLOBALS['finished']);
+        self::assertTrue(ImportSettings::$finished);
     }
 }

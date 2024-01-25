@@ -171,8 +171,6 @@ class ImportCsv extends AbstractImportCsv
         // $csv_replace and $csv_ignore should have been here,
         // but we use directly from $_POST
 
-        $GLOBALS['finished'] ??= null;
-
         $replacements = ['\\n' => "\n", '\\t' => "\t", '\\r' => "\r"];
         $GLOBALS['csv_terminated'] = strtr($GLOBALS['csv_terminated'], $replacements);
         $GLOBALS['csv_enclosed'] = strtr($GLOBALS['csv_enclosed'], $replacements);
@@ -232,7 +230,7 @@ class ImportCsv extends AbstractImportCsv
         $maxCols = 0;
         $csvTerminatedLen = mb_strlen($GLOBALS['csv_terminated']);
         $dbi = DatabaseInterface::getInstance();
-        while (! ($GLOBALS['finished'] && $i >= $len) && ! $GLOBALS['error'] && ! ImportSettings::$timeoutPassed) {
+        while (! (ImportSettings::$finished && $i >= $len) && ! $GLOBALS['error'] && ! ImportSettings::$timeoutPassed) {
             $data = $this->import->getNextChunk($importHandle);
             if ($data === false) {
                 // subtract data we didn't handle yet and stop processing
@@ -246,7 +244,7 @@ class ImportCsv extends AbstractImportCsv
                 unset($data);
 
                 // Force a trailing new line at EOF to prevent parsing problems
-                if ($GLOBALS['finished'] && $buffer) {
+                if (ImportSettings::$finished && $buffer) {
                     $finalch = mb_substr($buffer, -1);
                     if ($GLOBALS['csv_new_line'] === 'auto' && $finalch != "\r" && $finalch != "\n") {
                         $buffer .= "\n";
@@ -367,7 +365,7 @@ class ImportCsv extends AbstractImportCsv
 
                         $value .= $ch;
                         if ($i === $len - 1) {
-                            if (! $GLOBALS['finished']) {
+                            if (! ImportSettings::$finished) {
                                 $fail = true;
                             }
 
@@ -401,7 +399,7 @@ class ImportCsv extends AbstractImportCsv
 
                     // Need to strip trailing enclosing char?
                     if ($needEnd && $ch == $GLOBALS['csv_enclosed']) {
-                        if ($GLOBALS['finished'] && $i === $len - 1) {
+                        if (ImportSettings::$finished && $i === $len - 1) {
                             $ch = null;
                         } elseif ($i === $len - 1) {
                             $i = $fallbacki;
@@ -425,7 +423,7 @@ class ImportCsv extends AbstractImportCsv
                     if (
                         $ch == $GLOBALS['csv_new_line']
                         || ($GLOBALS['csv_new_line'] === 'auto' && ($ch == "\r" || $ch == "\n"))
-                        || ($GLOBALS['finished'] && $i === $len - 1)
+                        || (ImportSettings::$finished && $i === $len - 1)
                     ) {
                         $csvFinish = true;
                     }
@@ -464,7 +462,7 @@ class ImportCsv extends AbstractImportCsv
                 }
 
                 if ($GLOBALS['csv_new_line'] === 'auto' && $ch == "\r") { // Handle "\r\n"
-                    if ($i >= ($len - 2) && ! $GLOBALS['finished']) {
+                    if ($i >= ($len - 2) && ! ImportSettings::$finished) {
                         break; // We need more data to decide new line
                     }
 
@@ -555,13 +553,13 @@ class ImportCsv extends AbstractImportCsv
                 $lasti = -1;
                 $ch = mb_substr($buffer, 0, 1);
                 if ($maxLines > 0 && $line == $maxLinesConstraint) {
-                    $GLOBALS['finished'] = 1;
+                    ImportSettings::$finished = true;
                     break;
                 }
             }
 
             if ($maxLines > 0 && $line == $maxLinesConstraint) {
-                $GLOBALS['finished'] = 1;
+                ImportSettings::$finished = true;
                 break;
             }
         }
