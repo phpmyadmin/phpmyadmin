@@ -6673,7 +6673,6 @@
       <code><![CDATA[$GLOBALS['local_import_file']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
-      <code><![CDATA[$GLOBALS['my_die']]]></code>
       <code><![CDATA[$GLOBALS['run_query']]]></code>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
@@ -6751,9 +6750,6 @@
       <code>$tables[$i][self::TBL_NAME]</code>
       <code>$tables[$n][self::TBL_NAME]</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$GLOBALS['my_die'][]]]></code>
-    </MixedArrayAssignment>
     <MixedArrayOffset>
       <code>$typeArray[$analyses[$i][self::TYPES][$j]]</code>
     </MixedArrayOffset>
@@ -6761,7 +6757,6 @@
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
-      <code><![CDATA[$GLOBALS['my_die']]]></code>
       <code><![CDATA[$GLOBALS['run_query']]]></code>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>

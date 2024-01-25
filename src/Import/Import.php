@@ -138,9 +138,8 @@ class Import
         $isUseQuery = mb_stripos($sql, 'use ') !== false;
 
         $GLOBALS['msg'] = '# ';
-        if ($GLOBALS['result'] === false) { // execution failed
-            $GLOBALS['my_die'] ??= [];
-            $GLOBALS['my_die'][] = ['sql' => $sql, 'error' => $dbi->getError()];
+        if ($GLOBALS['result'] === false) {
+            ImportSettings::$failedQueries[] = ['sql' => $sql, 'error' => $dbi->getError()];
 
             $GLOBALS['msg'] .= __('Error');
 

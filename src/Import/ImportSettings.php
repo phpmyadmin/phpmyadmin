@@ -15,4 +15,6 @@ final class ImportSettings
     public static int $maxSqlLength = 0;
     public static int $skipQueries = 0;
     public static int $executedQueries = 0;
+    /** @var array{sql:string, error:string}[] */
+    public static array $failedQueries = [];
 }

@@ -2681,16 +2681,6 @@ parameters:
 			path: src/Controllers/HomeController.php
 
 		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Cannot access offset 'error' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
 			message: "#^Cannot access offset 'go_back_url' on mixed\\.$#"
 			count: 4
 			path: src/Controllers/Import/ImportController.php
@@ -2713,11 +2703,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'reload' on mixed\\.$#"
 			count: 5
-			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Cannot access offset 'sql' on mixed\\.$#"
-			count: 1
 			path: src/Controllers/Import/ImportController.php
 
 		-
@@ -2796,11 +2781,6 @@ parameters:
 			path: src/Controllers/Import/ImportController.php
 
 		-
-			message: "#^Parameter \\#1 \\$serverMessage of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:mysqlDie\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
 			message: "#^Parameter \\#1 \\$sqlQuery of method PhpMyAdmin\\\\Import\\\\Import\\:\\:handleRollbackRequest\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Import/ImportController.php
@@ -2847,11 +2827,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$sqlQuery of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getMessage\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Parameter \\#2 \\$sqlQuery of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:mysqlDie\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Import/ImportController.php
 
@@ -8844,11 +8819,6 @@ parameters:
 			message: "#^Variable static method call on PhpMyAdmin\\\\Import\\\\Ajax\\.$#"
 			count: 1
 			path: src/Import/Ajax.php
-
-		-
-			message: "#^Cannot access an offset on mixed\\.$#"
-			count: 1
-			path: src/Import/Import.php
 
 		-
 			message: "#^Cannot access offset 0 on mixed\\.$#"

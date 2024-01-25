@@ -648,11 +648,8 @@ final class ImportController extends AbstractController
             }
         }
 
-        // There was an error?
-        if (isset($GLOBALS['my_die'])) {
-            foreach ($GLOBALS['my_die'] as $die) {
-                Generator::mysqlDie($die['error'], $die['sql'], false, $GLOBALS['errorUrl'], $GLOBALS['error']);
-            }
+        foreach (ImportSettings::$failedQueries as $die) {
+            Generator::mysqlDie($die['error'], $die['sql'], false, $GLOBALS['errorUrl'], $GLOBALS['error']);
         }
 
         if (ImportSettings::$goSql) {
