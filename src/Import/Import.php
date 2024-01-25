@@ -325,8 +325,8 @@ class Import
         ImportSettings::$readMultiply++;
 
         // We can not read too much
-        if ($size > $GLOBALS['read_limit']) {
-            $size = $GLOBALS['read_limit'];
+        if ($size > ImportSettings::$readLimit) {
+            $size = ImportSettings::$readLimit;
         }
 
         if ($this->checkTimeout()) {

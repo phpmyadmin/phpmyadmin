@@ -2841,7 +2841,7 @@ parameters:
 			path: src/Controllers/Import/ImportController.php
 
 		-
-			message: "#^Parameter \\#2 \\$size of method PhpMyAdmin\\\\Import\\\\Import\\:\\:getNextChunk\\(\\) expects int, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$size of method PhpMyAdmin\\\\Import\\\\Import\\:\\:getNextChunk\\(\\) expects int, float\\|int\\<min, \\-1\\>\\|int\\<1, max\\> given\\.$#"
 			count: 1
 			path: src/Controllers/Import/ImportController.php
 
@@ -2902,6 +2902,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#8 \\$goto of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndGetQueryResponse\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Import/ImportController.php
+
+		-
+			message: "#^Static property PhpMyAdmin\\\\Import\\\\ImportSettings\\:\\:\\$readLimit \\(int\\) does not accept float\\|int\\<min, \\-1\\>\\|int\\<1, max\\>\\.$#"
 			count: 1
 			path: src/Controllers/Import/ImportController.php
 
@@ -8981,11 +8986,6 @@ parameters:
 			path: src/Import/Import.php
 
 		-
-			message: "#^Parameter \\#1 \\$size of method PhpMyAdmin\\\\File\\:\\:read\\(\\) expects int, mixed given\\.$#"
-			count: 1
-			path: src/Import/Import.php
-
-		-
 			message: "#^Parameter \\#1 \\$sql of method PhpMyAdmin\\\\Import\\\\Import\\:\\:runQuery\\(\\) expects string, \\(array\\<int, string\\>\\|string\\|null\\) given\\.$#"
 			count: 1
 			path: src/Import/Import.php
@@ -9011,17 +9011,7 @@ parameters:
 			path: src/Import/Import.php
 
 		-
-			message: "#^Parameter \\#2 \\$start of function mb_substr expects int, mixed given\\.$#"
-			count: 1
-			path: src/Import/Import.php
-
-		-
 			message: "#^Parameter \\#3 \\$active of method PhpMyAdmin\\\\FileListing\\:\\:getFileSelectOptions\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Import/Import.php
-
-		-
-			message: "#^Parameter \\#3 \\$length of function mb_substr expects int\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Import/Import.php
 

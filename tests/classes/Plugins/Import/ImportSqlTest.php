@@ -42,7 +42,7 @@ class ImportSqlTest extends AbstractTestCase
 
         //setting
         $GLOBALS['finished'] = false;
-        $GLOBALS['read_limit'] = 100000000;
+        ImportSettings::$readLimit = 100000000;
         $GLOBALS['offset'] = 0;
         Config::getInstance()->selectedServer['DisableIS'] = false;
 

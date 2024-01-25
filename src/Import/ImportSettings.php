@@ -9,4 +9,5 @@ final class ImportSettings
     public static bool $charsetConversion = false;
     public static string $charsetOfFile = '';
     public static int $readMultiply = 0;
+    public static int $readLimit = 0;
 }

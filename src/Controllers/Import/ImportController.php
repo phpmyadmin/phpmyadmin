@@ -71,7 +71,6 @@ final class ImportController extends AbstractController
         $GLOBALS['message'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['read_limit'] ??= null;
         $GLOBALS['finished'] ??= null;
         $GLOBALS['offset'] ??= null;
         $GLOBALS['timestamp'] ??= null;
@@ -397,7 +396,7 @@ final class ImportController extends AbstractController
         }
 
         // Just to be sure, there might be lot of memory needed for uncompression
-        $GLOBALS['read_limit'] = $memoryLimit / 8;
+        ImportSettings::$readLimit = $memoryLimit / 8;
 
         // handle filenames
         if (
@@ -506,11 +505,11 @@ final class ImportController extends AbstractController
             while ($skip > 0 && ! $GLOBALS['finished']) {
                 $this->import->getNextChunk(
                     $importHandle ?? null,
-                    min($skip, $GLOBALS['read_limit']),
+                    min($skip, ImportSettings::$readLimit),
                 );
                 // Disable read progressivity, otherwise we eat all memory!
                 ImportSettings::$readMultiply = 1;
-                $skip -= $GLOBALS['read_limit'];
+                $skip -= ImportSettings::$readLimit;
             }
 
             unset($skip);

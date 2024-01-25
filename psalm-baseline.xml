@@ -2002,9 +2002,6 @@
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
-    <DocblockTypeContradiction>
-      <code>$importPlugin == null</code>
-    </DocblockTypeContradiction>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['ajax_reload']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
@@ -2013,7 +2010,6 @@
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
       <code><![CDATA[$GLOBALS['max_sql_len']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
-      <code><![CDATA[$GLOBALS['my_die']]]></code>
       <code><![CDATA[$GLOBALS['reset_charset']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
       <code><![CDATA[$GLOBALS['run_query']]]></code>
@@ -2022,40 +2018,13 @@
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
     </InvalidArrayOffset>
-    <MixedArgument>
-      <code><![CDATA[$GLOBALS['import_file']]]></code>
-      <code><![CDATA[$GLOBALS['import_file']]]></code>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
-      <code><![CDATA[$GLOBALS['import_type']]]></code>
-      <code><![CDATA[$GLOBALS['local_import_file']]]></code>
-      <code><![CDATA[$_SESSION['Import_message']['go_back_url']]]></code>
-      <code><![CDATA[$die['error']]]></code>
-      <code><![CDATA[$die['sql']]]></code>
-      <code>$importHandle ?? null</code>
-      <code><![CDATA[$request->getParsedBodyParam('bkm_label')]]></code>
-      <code><![CDATA[$request->getParsedBodyParam('bkm_label')]]></code>
-      <code><![CDATA[$request->getParsedBodyParam('sql_query')]]></code>
-      <code><![CDATA[$request->getParsedBodyParam('sql_query')]]></code>
-      <code>Current::$table</code>
-    </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$GLOBALS['urlParams']]]></code>
-      <code><![CDATA[$GLOBALS['urlParams']]]></code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess>
-      <code><![CDATA[$_SESSION['Import_message']['go_back_url']]]></code>
-      <code><![CDATA[$die['error']]]></code>
-      <code><![CDATA[$die['sql']]]></code>
-    </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['Import_message']['go_back_url']]]></code>
       <code><![CDATA[$_SESSION['Import_message']['go_back_url']]]></code>
       <code><![CDATA[$_SESSION['Import_message']['go_back_url']]]></code>
-      <code><![CDATA[$_SESSION['Import_message']['message']]]></code>
-      <code><![CDATA[$_SESSION['Import_message']['message']]]></code>
-      <code><![CDATA[$_SESSION['Import_message']['message']]]></code>
-      <code><![CDATA[$_SESSION['Import_message']['message']]]></code>
-      <code><![CDATA[$_SESSION['Import_message']['message']]]></code>
       <code><![CDATA[$_SESSION['Import_message']['message']]]></code>
       <code><![CDATA[$_SESSION['Import_message']['message']]]></code>
     </MixedArrayAssignment>
@@ -2083,60 +2052,19 @@
       <code><![CDATA[$GLOBALS['sql_query_disabled']]]></code>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
-      <code><![CDATA[$GLOBALS['urlParams']['local_import_file']]]></code>
       <code>$bookmarkVariables</code>
       <code>$consoleMessageId</code>
-      <code>$die</code>
     </MixedAssignment>
-    <MixedMethodCall>
-      <code>close</code>
-    </MixedMethodCall>
-    <MixedOperand>
-      <code><![CDATA[$GLOBALS['local_import_file']]]></code>
-    </MixedOperand>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[min($skip, $GLOBALS['read_limit'])]]></code>
-    </PossiblyInvalidArgument>
-    <RedundantCondition>
-      <code><![CDATA[! $GLOBALS['finished']]]></code>
-      <code><![CDATA[$GLOBALS['offset'] == 0]]></code>
-      <code><![CDATA[$GLOBALS['result'] === false]]></code>
-      <code><![CDATA[is_array($_FILES['import_file'])]]></code>
-      <code><![CDATA[is_array($_FILES['import_file'])]]></code>
-      <code><![CDATA[is_string($_FILES['import_file']['name'])]]></code>
-      <code><![CDATA[is_string($_FILES['import_file']['name'])]]></code>
-      <code><![CDATA[is_string($_FILES['import_file']['tmp_name'])]]></code>
-      <code><![CDATA[isset($_FILES['import_file'])
-                    && is_array($_FILES['import_file'])]]></code>
-      <code><![CDATA[isset($_FILES['import_file'])
-                    && is_array($_FILES['import_file'])
-                    && isset($_FILES['import_file']['name'])
-                    && is_string($_FILES['import_file']['name'])]]></code>
-      <code><![CDATA[isset($_FILES['import_file'])
-            && is_array($_FILES['import_file'])]]></code>
-      <code><![CDATA[isset($_FILES['import_file'])
-            && is_array($_FILES['import_file'])
-            && isset($_FILES['import_file']['name'], $_FILES['import_file']['tmp_name'])
-            && is_string($_FILES['import_file']['name'])]]></code>
-    </RedundantCondition>
+    <PossiblyInvalidPropertyAssignmentValue>
+      <code>$memoryLimit / 8</code>
+    </PossiblyInvalidPropertyAssignmentValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($GLOBALS['goto'])]]></code>
-      <code><![CDATA[empty($GLOBALS['import_file'])]]></code>
-      <code><![CDATA[empty($GLOBALS['import_notice'])]]></code>
-      <code><![CDATA[empty($GLOBALS['import_text'])]]></code>
-      <code><![CDATA[empty($GLOBALS['import_text'])]]></code>
-      <code><![CDATA[empty($GLOBALS['import_text'])]]></code>
-      <code><![CDATA[empty($GLOBALS['local_import_file'])]]></code>
       <code><![CDATA[empty($GLOBALS['sql_file'])]]></code>
     </RiskyTruthyFalsyComparison>
-    <TypeDoesNotContainType>
-      <code><![CDATA[$GLOBALS['finished']]]></code>
-      <code><![CDATA[$GLOBALS['finished']]]></code>
-      <code><![CDATA[$GLOBALS['result']]]></code>
-      <code><![CDATA[$GLOBALS['result']]]></code>
-      <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
-      <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
-    </TypeDoesNotContainType>
+    <UnusedProperty>
+      <code>$sql</code>
+    </UnusedProperty>
   </file>
   <file src="src/Controllers/Import/SimulateDmlController.php">
     <ArgumentTypeCoercion>
@@ -6926,7 +6854,6 @@
       <code><![CDATA[! $GLOBALS['sql_query_disabled']]]></code>
       <code><![CDATA[! $GLOBALS['sql_query_disabled']]]></code>
       <code><![CDATA[! $GLOBALS['sql_query_disabled']]]></code>
-      <code><![CDATA[$GLOBALS['charset_conversion']]]></code>
       <code><![CDATA[$GLOBALS['go_sql']]]></code>
       <code><![CDATA[$GLOBALS['run_query']]]></code>
       <code><![CDATA[$GLOBALS['run_query']]]></code>
@@ -9386,9 +9313,6 @@
     <PossiblyUnusedReturnValue>
       <code>string[]</code>
     </PossiblyUnusedReturnValue>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$GLOBALS['charset_conversion']]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Plugins/Import/ImportMediawiki.php">
     <DeprecatedMethod>
@@ -9816,6 +9740,11 @@
     <UnusedClass>
       <code>UploadSession</code>
     </UnusedClass>
+  </file>
+  <file src="src/Plugins/ImportPlugin.php">
+    <PossiblyUnusedReturnValue>
+      <code>string[]</code>
+    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Plugins/Schema/Dia/DiaRelationSchema.php">
     <MixedArgument>
