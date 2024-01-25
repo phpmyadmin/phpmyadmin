@@ -6769,6 +6769,7 @@
       <code><![CDATA[$importPlugin->getProperties()->getExtension()]]></code>
       <code>$size</code>
       <code>$size[self::D]</code>
+      <code>ImportSettings::$maximumTime</code>
       <code>max($size[self::D], $oldD)</code>
       <code>max($size[self::M], $oldM)</code>
     </MixedOperand>
@@ -6795,7 +6796,6 @@
       <code>$sqlDelimiter</code>
     </PossiblyInvalidCast>
     <PossiblyNullOperand>
-      <code><![CDATA[$GLOBALS['maximum_time']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
     </PossiblyNullOperand>
     <RedundantCondition>

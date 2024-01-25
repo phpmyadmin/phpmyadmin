@@ -97,9 +97,8 @@ class Import
     public function checkTimeout(): bool
     {
         $GLOBALS['timestamp'] ??= null;
-        $GLOBALS['maximum_time'] ??= null;
 
-        if ($GLOBALS['maximum_time'] == 0) {
+        if (ImportSettings::$maximumTime === 0) {
             return false;
         }
 
@@ -109,7 +108,7 @@ class Import
             /* 5 in next row might be too much */
         }
 
-        if (time() - $GLOBALS['timestamp'] > $GLOBALS['maximum_time'] - 5) {
+        if (time() - $GLOBALS['timestamp'] > ImportSettings::$maximumTime - 5) {
             ImportSettings::$timeoutPassed = true;
 
             return true;

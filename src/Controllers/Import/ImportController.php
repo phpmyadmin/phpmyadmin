@@ -72,7 +72,6 @@ final class ImportController extends AbstractController
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['timestamp'] ??= null;
-        $GLOBALS['maximum_time'] ??= null;
         $GLOBALS['import_file'] ??= null;
         $GLOBALS['sql_file'] ??= null;
         $GLOBALS['error'] ??= null;
@@ -265,10 +264,10 @@ final class ImportController extends AbstractController
         }
 
         $GLOBALS['timestamp'] = time();
-        $GLOBALS['maximum_time'] = 0;
+        ImportSettings::$maximumTime = 0;
         $maxExecutionTime = (int) ini_get('max_execution_time');
         if ($request->hasBodyParam('allow_interrupt') && $maxExecutionTime >= 1) {
-            $GLOBALS['maximum_time'] = $maxExecutionTime - 1; // Give 1 second for phpMyAdmin to exit nicely
+            ImportSettings::$maximumTime = $maxExecutionTime - 1; // Give 1 second for phpMyAdmin to exit nicely
         }
 
         // set default values

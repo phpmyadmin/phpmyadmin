@@ -22,4 +22,5 @@ final class ImportSettings
     public static int $offset = 0;
     public static bool $finished = false;
     public static bool $runQuery = false;
+    public static int $maximumTime = 0;
 }

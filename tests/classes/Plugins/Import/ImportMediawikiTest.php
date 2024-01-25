@@ -32,7 +32,7 @@ class ImportMediawikiTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['error'] = null;
         ImportSettings::$timeoutPassed = false;
-        $GLOBALS['maximum_time'] = null;
+        ImportSettings::$maximumTime = 0;
         ImportSettings::$charsetConversion = false;
         Current::$database = '';
         ImportSettings::$skipQueries = 0;

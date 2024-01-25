@@ -34,7 +34,7 @@ class ImportShpTest extends AbstractTestCase
 
         $GLOBALS['error'] = null;
         $GLOBALS['buffer'] = null;
-        $GLOBALS['maximum_time'] = null;
+        ImportSettings::$maximumTime = 0;
         ImportSettings::$charsetConversion = false;
         $GLOBALS['eof'] = null;
         Current::$database = '';

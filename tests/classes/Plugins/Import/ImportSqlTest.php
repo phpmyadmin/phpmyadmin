@@ -29,7 +29,7 @@ class ImportSqlTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['error'] = null;
         ImportSettings::$timeoutPassed = false;
-        $GLOBALS['maximum_time'] = null;
+        ImportSettings::$maximumTime = 0;
         ImportSettings::$charsetConversion = false;
         ImportSettings::$skipQueries = 0;
         ImportSettings::$maxSqlLength = 0;

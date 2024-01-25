@@ -42,7 +42,7 @@ class ImportOdsTest extends AbstractTestCase
         $GLOBALS['plugin_param'] = 'csv';
         $GLOBALS['error'] = null;
         ImportSettings::$timeoutPassed = false;
-        $GLOBALS['maximum_time'] = null;
+        ImportSettings::$maximumTime = 0;
         ImportSettings::$charsetConversion = false;
         Current::$database = '';
         ImportSettings::$skipQueries = 0;
