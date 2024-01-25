@@ -315,7 +315,6 @@ class Import
      */
     public function getNextChunk(File|null $importHandle = null, int $size = 32768): string|bool
     {
-        $GLOBALS['charset_of_file'] ??= null;
         $GLOBALS['read_multiply'] ??= null;
 
         // Add some progression while reading large amount of data
@@ -365,7 +364,7 @@ class Import
         $GLOBALS['offset'] += $size;
 
         if (ImportSettings::$charsetConversion) {
-            return Encoding::convertString($GLOBALS['charset_of_file'], 'utf-8', $result);
+            return Encoding::convertString(ImportSettings::$charsetOfFile, 'utf-8', $result);
         }
 
         /**

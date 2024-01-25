@@ -2062,7 +2062,6 @@
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['ajax_reload']]]></code>
-      <code><![CDATA[$GLOBALS['charset_of_file']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['executed_queries']]]></code>
       <code><![CDATA[$GLOBALS['format']]]></code>
@@ -2095,7 +2094,6 @@
       <code>close</code>
     </MixedMethodCall>
     <MixedOperand>
-      <code><![CDATA[$GLOBALS['charset_of_file']]]></code>
       <code><![CDATA[$GLOBALS['local_import_file']]]></code>
     </MixedOperand>
     <PossiblyInvalidArgument>
@@ -6754,7 +6752,6 @@
       <code><![CDATA[empty($parser->statements[0])]]></code>
     </DocblockTypeContradiction>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['charset_of_file']]]></code>
       <code><![CDATA[$GLOBALS['executed_queries']]]></code>
       <code><![CDATA[$GLOBALS['go_sql']]]></code>
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
@@ -6773,7 +6770,6 @@
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['charset_of_file']]]></code>
       <code>$active</code>
       <code>$additionalSql[$i]</code>
       <code>$size</code>
@@ -6855,7 +6851,6 @@
       <code>$typeArray[$analyses[$i][self::TYPES][$j]]</code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['charset_of_file']]]></code>
       <code><![CDATA[$GLOBALS['executed_queries']]]></code>
       <code><![CDATA[$GLOBALS['executed_queries']]]></code>
       <code><![CDATA[$GLOBALS['go_sql']]]></code>
@@ -6931,9 +6926,6 @@
       <code>$additionalSql[$i]</code>
       <code>$sqlDelimiter</code>
     </PossiblyInvalidCast>
-    <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['charset_of_file']]]></code>
-    </PossiblyNullArgument>
     <PossiblyNullOperand>
       <code><![CDATA[$GLOBALS['executed_queries']]]></code>
       <code><![CDATA[$GLOBALS['maximum_time']]]></code>

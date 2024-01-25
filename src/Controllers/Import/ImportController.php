@@ -92,7 +92,7 @@ final class ImportController extends AbstractController
         $GLOBALS['import_notice'] ??= null;
         $GLOBALS['read_multiply'] ??= null;
 
-        $GLOBALS['charset_of_file'] = $request->getParsedBodyParam('charset_of_file');
+        ImportSettings::$charsetOfFile = (string) $request->getParsedBodyParam('charset_of_file');
         $GLOBALS['format'] = $request->getParsedBodyParam('format', '');
         $GLOBALS['import_type'] = $request->getParsedBodyParam('import_type');
         $GLOBALS['is_js_confirmed'] = $request->getParsedBodyParam('is_js_confirmed');
@@ -489,12 +489,13 @@ final class ImportController extends AbstractController
         }
 
         // Convert the file's charset if necessary
-        if (Encoding::isSupported() && isset($GLOBALS['charset_of_file'])) {
-            if ($GLOBALS['charset_of_file'] !== 'utf-8') {
-                ImportSettings::$charsetConversion = true;
-            }
-        } elseif (isset($GLOBALS['charset_of_file']) && $GLOBALS['charset_of_file'] !== 'utf-8') {
-            $this->dbi->query('SET NAMES \'' . $GLOBALS['charset_of_file'] . '\'');
+        if (
+            Encoding::isSupported()
+            && ImportSettings::$charsetOfFile !== '' && ImportSettings::$charsetOfFile !== 'utf-8'
+        ) {
+            ImportSettings::$charsetConversion = true;
+        } elseif (ImportSettings::$charsetOfFile !== '' && ImportSettings::$charsetOfFile !== 'utf-8') {
+            $this->dbi->query('SET NAMES \'' . ImportSettings::$charsetOfFile . '\'');
             // We can not show query in this case, it is in different charset
             $GLOBALS['sql_query_disabled'] = true;
             $GLOBALS['reset_charset'] = true;

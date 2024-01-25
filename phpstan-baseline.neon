@@ -2741,6 +2741,11 @@ parameters:
 			path: src/Controllers/Import/ImportController.php
 
 		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
+			path: src/Controllers/Import/ImportController.php
+
+		-
 			message: "#^Casting to string something that's already string\\.$#"
 			count: 1
 			path: src/Controllers/Import/ImportController.php
@@ -8982,11 +8987,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$sql of method PhpMyAdmin\\\\Import\\\\Import\\:\\:runQuery\\(\\) expects string, \\(array\\<int, string\\>\\|string\\|null\\) given\\.$#"
-			count: 1
-			path: src/Import/Import.php
-
-		-
-			message: "#^Parameter \\#1 \\$srcCharset of static method PhpMyAdmin\\\\Encoding\\:\\:convertString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Import/Import.php
 
