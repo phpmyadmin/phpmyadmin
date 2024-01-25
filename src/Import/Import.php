@@ -130,7 +130,6 @@ class Import
     {
         $GLOBALS['error'] ??= null;
         $GLOBALS['msg'] ??= null;
-        $GLOBALS['sql_query_disabled'] ??= null;
         $dbi = DatabaseInterface::getInstance();
         $GLOBALS['result'] = $dbi->tryQuery($sql);
 
@@ -167,7 +166,7 @@ class Import
             }
         }
 
-        if (! $GLOBALS['sql_query_disabled']) {
+        if (! ImportSettings::$sqlQueryDisabled) {
             $GLOBALS['sql_query'] .= $GLOBALS['msg'] . "\n";
         }
 
@@ -204,7 +203,6 @@ class Import
         $GLOBALS['skip_queries'] ??= null;
         $GLOBALS['executed_queries'] ??= null;
         $GLOBALS['max_sql_len'] ??= null;
-        $GLOBALS['sql_query_disabled'] ??= null;
         $GLOBALS['run_query'] ??= null;
 
         ImportSettings::$readMultiply = 1;
@@ -228,7 +226,7 @@ class Import
             $GLOBALS['max_sql_len'],
             mb_strlen($this->importRunBuffer),
         );
-        if (! $GLOBALS['sql_query_disabled']) {
+        if (! ImportSettings::$sqlQueryDisabled) {
             $GLOBALS['sql_query'] .= $this->importRunBuffer;
         }
 
@@ -237,7 +235,7 @@ class Import
         if ($GLOBALS['run_query'] && $GLOBALS['executed_queries'] < 50) {
             ImportSettings::$goSql = true;
 
-            if (! $GLOBALS['sql_query_disabled']) {
+            if (! ImportSettings::$sqlQueryDisabled) {
                 $GLOBALS['complete_query'] = $GLOBALS['sql_query'];
                 $GLOBALS['display_query'] = $GLOBALS['sql_query'];
             } else {
@@ -272,7 +270,7 @@ class Import
                 || $GLOBALS['max_sql_len'] > 1000
             ) {
                 $GLOBALS['sql_query'] = '';
-                $GLOBALS['sql_query_disabled'] = true;
+                ImportSettings::$sqlQueryDisabled = true;
             }
         }
 

@@ -72,7 +72,7 @@ class ImportSqlTest extends AbstractTestCase
     {
         //$sql_query_disabled will show the import SQL detail
 
-        $GLOBALS['sql_query_disabled'] = false;
+        ImportSettings::$sqlQueryDisabled = false;
 
         //Mock DBI
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

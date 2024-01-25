@@ -11,4 +11,5 @@ final class ImportSettings
     public static int $readMultiply = 0;
     public static int $readLimit = 0;
     public static bool $goSql = false;
+    public static bool $sqlQueryDisabled = false;
 }

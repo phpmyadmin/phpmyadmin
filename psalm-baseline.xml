@@ -2013,7 +2013,6 @@
       <code><![CDATA[$GLOBALS['result']]]></code>
       <code><![CDATA[$GLOBALS['run_query']]]></code>
       <code><![CDATA[$GLOBALS['sql_file']]]></code>
-      <code><![CDATA[$GLOBALS['sql_query_disabled']]]></code>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
     </InvalidArrayOffset>
@@ -2047,7 +2046,6 @@
       <code><![CDATA[$GLOBALS['show_as_php']]]></code>
       <code><![CDATA[$GLOBALS['skip_queries']]]></code>
       <code><![CDATA[$GLOBALS['sql_file']]]></code>
-      <code><![CDATA[$GLOBALS['sql_query_disabled']]]></code>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
       <code>$bookmarkVariables</code>
@@ -6685,8 +6683,6 @@
       <code><![CDATA[$GLOBALS['my_die']]]></code>
       <code><![CDATA[$GLOBALS['run_query']]]></code>
       <code><![CDATA[$GLOBALS['skip_queries']]]></code>
-      <code><![CDATA[$GLOBALS['sql_query_disabled']]]></code>
-      <code><![CDATA[$GLOBALS['sql_query_disabled']]]></code>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
@@ -6781,8 +6777,6 @@
       <code><![CDATA[$GLOBALS['run_query']]]></code>
       <code><![CDATA[$GLOBALS['skip_queries']]]></code>
       <code><![CDATA[$GLOBALS['skip_queries']]]></code>
-      <code><![CDATA[$GLOBALS['sql_query_disabled']]]></code>
-      <code><![CDATA[$GLOBALS['sql_query_disabled']]]></code>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
       <code>$active</code>

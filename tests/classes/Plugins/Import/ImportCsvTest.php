@@ -121,7 +121,7 @@ class ImportCsvTest extends AbstractTestCase
     {
         //$sql_query_disabled will show the import SQL detail
 
-        $GLOBALS['sql_query_disabled'] = false;
+        ImportSettings::$sqlQueryDisabled = false;
 
         $importHandle = new File($GLOBALS['import_file']);
         $importHandle->open();
@@ -150,7 +150,7 @@ class ImportCsvTest extends AbstractTestCase
     {
         //$sql_query_disabled will show the import SQL detail
 
-        $GLOBALS['sql_query_disabled'] = false;
+        ImportSettings::$sqlQueryDisabled = false;
 
         $importHandle = new File($GLOBALS['import_file']);
         $importHandle->open();
@@ -207,7 +207,7 @@ class ImportCsvTest extends AbstractTestCase
     {
         //$sql_query_disabled will show the import SQL detail
 
-        $GLOBALS['sql_query_disabled'] = false;
+        ImportSettings::$sqlQueryDisabled = false;
 
         $importHandle = new File($GLOBALS['import_file']);
         $importHandle->open();
@@ -237,7 +237,7 @@ class ImportCsvTest extends AbstractTestCase
     {
         //$sql_query_disabled will show the import SQL detail
 
-        $GLOBALS['sql_query_disabled'] = false;
+        ImportSettings::$sqlQueryDisabled = false;
         $GLOBALS['import_type'] = 'query';
         $GLOBALS['import_file'] = 'none';
         $GLOBALS['csv_terminated'] = ',';
@@ -280,7 +280,7 @@ class ImportCsvTest extends AbstractTestCase
     {
         //$sql_query_disabled will show the import SQL detail
 
-        $GLOBALS['sql_query_disabled'] = false;
+        ImportSettings::$sqlQueryDisabled = false;
         $GLOBALS['import_type'] = 'query';
         $GLOBALS['import_file'] = 'none';
         $GLOBALS['csv_terminated'] = ',';

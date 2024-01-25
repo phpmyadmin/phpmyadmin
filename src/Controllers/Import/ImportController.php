@@ -81,7 +81,6 @@ final class ImportController extends AbstractController
         $GLOBALS['error'] ??= null;
         $GLOBALS['max_sql_len'] ??= null;
         $GLOBALS['msg'] ??= null;
-        $GLOBALS['sql_query_disabled'] ??= null;
         $GLOBALS['executed_queries'] ??= null;
         $GLOBALS['run_query'] ??= null;
         $GLOBALS['reset_charset'] ??= null;
@@ -287,7 +286,7 @@ final class ImportController extends AbstractController
         $GLOBALS['offset'] = 0;
         $GLOBALS['max_sql_len'] = 0;
         $GLOBALS['sql_query'] = '';
-        $GLOBALS['sql_query_disabled'] = false;
+        ImportSettings::$sqlQueryDisabled = false;
         ImportSettings::$goSql = false;
         $GLOBALS['executed_queries'] = 0;
         $GLOBALS['run_query'] = true;
@@ -494,7 +493,7 @@ final class ImportController extends AbstractController
         } elseif (ImportSettings::$charsetOfFile !== '' && ImportSettings::$charsetOfFile !== 'utf-8') {
             $this->dbi->query('SET NAMES \'' . ImportSettings::$charsetOfFile . '\'');
             // We can not show query in this case, it is in different charset
-            $GLOBALS['sql_query_disabled'] = true;
+            ImportSettings::$sqlQueryDisabled = true;
             $GLOBALS['reset_charset'] = true;
         }
 

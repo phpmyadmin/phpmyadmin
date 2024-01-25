@@ -130,7 +130,7 @@ class ImportShpTest extends AbstractTestCase
         //$sql_query_disabled will show the import SQL detail
         //$import_notice will show the import detail result
 
-        $GLOBALS['sql_query_disabled'] = false;
+        ImportSettings::$sqlQueryDisabled = false;
         Current::$database = '';
 
         //Test function called
@@ -165,7 +165,7 @@ class ImportShpTest extends AbstractTestCase
         //$sql_query_disabled will show the import SQL detail
         //$import_notice will show the import detail result
 
-        $GLOBALS['sql_query_disabled'] = false;
+        ImportSettings::$sqlQueryDisabled = false;
         Current::$database = '';
 
         //Test function called

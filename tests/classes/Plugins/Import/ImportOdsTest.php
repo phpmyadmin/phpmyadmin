@@ -111,7 +111,7 @@ class ImportOdsTest extends AbstractTestCase
         //$sql_query_disabled will show the import SQL detail
         //$import_notice will show the import detail result
 
-        $GLOBALS['sql_query_disabled'] = false;
+        ImportSettings::$sqlQueryDisabled = false;
 
         $GLOBALS['import_file'] = 'tests/test_data/db_test.ods';
         $_REQUEST['ods_empty_rows'] = true;
@@ -168,7 +168,7 @@ class ImportOdsTest extends AbstractTestCase
         //$sql_query_disabled will show the import SQL detail
         //$import_notice will show the import detail result
 
-        $GLOBALS['sql_query_disabled'] = false;
+        ImportSettings::$sqlQueryDisabled = false;
 
         $GLOBALS['import_file'] = 'tests/test_data/import-slim.ods.xml';
         $_REQUEST['ods_col_names'] = true;

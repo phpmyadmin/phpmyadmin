@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Import\Import;
+use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -34,7 +35,7 @@ class ImportTest extends AbstractTestCase
         $GLOBALS['display_query'] = null;
         $GLOBALS['skip_queries'] = null;
         $GLOBALS['max_sql_len'] = null;
-        $GLOBALS['sql_query_disabled'] = null;
+        ImportSettings::$sqlQueryDisabled = false;
         $GLOBALS['executed_queries'] = null;
         $this->import = new Import();
     }
