@@ -51,7 +51,7 @@ class ImportCsvTest extends AbstractTestCase
         ImportSettings::$charsetConversion = false;
         ImportSettings::$skipQueries = 0;
         ImportSettings::$maxSqlLength = 0;
-        $GLOBALS['executed_queries'] = null;
+        ImportSettings::$executedQueries = 0;
         $GLOBALS['run_query'] = null;
         ImportSettings::$goSql = false;
 

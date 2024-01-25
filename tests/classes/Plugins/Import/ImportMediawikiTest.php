@@ -39,7 +39,7 @@ class ImportMediawikiTest extends AbstractTestCase
         ImportSettings::$maxSqlLength = 0;
         ImportSettings::$sqlQueryDisabled = false;
         $GLOBALS['sql_query'] = '';
-        $GLOBALS['executed_queries'] = null;
+        ImportSettings::$executedQueries = 0;
         $GLOBALS['run_query'] = null;
         ImportSettings::$goSql = false;
         $GLOBALS['plugin_param'] = 'database';

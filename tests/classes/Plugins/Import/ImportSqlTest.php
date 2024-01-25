@@ -34,7 +34,7 @@ class ImportSqlTest extends AbstractTestCase
         ImportSettings::$skipQueries = 0;
         ImportSettings::$maxSqlLength = 0;
         $GLOBALS['sql_query'] = '';
-        $GLOBALS['executed_queries'] = null;
+        ImportSettings::$executedQueries = 0;
         $GLOBALS['run_query'] = null;
         ImportSettings::$goSql = false;
 

@@ -36,7 +36,7 @@ class ImportTest extends AbstractTestCase
         ImportSettings::$skipQueries = 0;
         ImportSettings::$maxSqlLength = 0;
         ImportSettings::$sqlQueryDisabled = false;
-        $GLOBALS['executed_queries'] = null;
+        ImportSettings::$executedQueries = 0;
         $this->import = new Import();
     }
 

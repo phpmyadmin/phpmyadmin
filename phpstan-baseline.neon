@@ -2861,11 +2861,6 @@ parameters:
 			path: src/Controllers/Import/ImportController.php
 
 		-
-			message: "#^Parameter \\#3 \\$number of function _ngettext expects int, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
 			message: "#^Parameter \\#3 \\$param of static method PhpMyAdmin\\\\Plugins\\:\\:getPlugin\\(\\) expects array\\{export_type\\: string, single_table\\: bool\\}\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Import/ImportController.php

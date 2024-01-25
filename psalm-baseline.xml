@@ -2005,7 +2005,6 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['ajax_reload']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['executed_queries']]]></code>
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['reset_charset']]]></code>
@@ -2028,7 +2027,6 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['ajax_reload']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['executed_queries']]]></code>
       <code><![CDATA[$GLOBALS['format']]]></code>
       <code><![CDATA[$GLOBALS['import_file']]]></code>
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
@@ -6671,7 +6669,6 @@
       <code><![CDATA[empty($parser->statements[0])]]></code>
     </DocblockTypeContradiction>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['executed_queries']]]></code>
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
       <code><![CDATA[$GLOBALS['local_import_file']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
@@ -6761,8 +6758,6 @@
       <code>$typeArray[$analyses[$i][self::TYPES][$j]]</code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['executed_queries']]]></code>
-      <code><![CDATA[$GLOBALS['executed_queries']]]></code>
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
@@ -6786,7 +6781,6 @@
       <code>getProperties</code>
     </MixedMethodCall>
     <MixedOperand>
-      <code><![CDATA[$GLOBALS['executed_queries']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
       <code>$charset</code>
@@ -6822,7 +6816,6 @@
       <code>$sqlDelimiter</code>
     </PossiblyInvalidCast>
     <PossiblyNullOperand>
-      <code><![CDATA[$GLOBALS['executed_queries']]]></code>
       <code><![CDATA[$GLOBALS['maximum_time']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
     </PossiblyNullOperand>

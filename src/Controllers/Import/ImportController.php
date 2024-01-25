@@ -80,7 +80,6 @@ final class ImportController extends AbstractController
         $GLOBALS['sql_file'] ??= null;
         $GLOBALS['error'] ??= null;
         $GLOBALS['msg'] ??= null;
-        $GLOBALS['executed_queries'] ??= null;
         $GLOBALS['run_query'] ??= null;
         $GLOBALS['reset_charset'] ??= null;
         $GLOBALS['result'] ??= null;
@@ -287,7 +286,7 @@ final class ImportController extends AbstractController
         $GLOBALS['sql_query'] = '';
         ImportSettings::$sqlQueryDisabled = false;
         ImportSettings::$goSql = false;
-        $GLOBALS['executed_queries'] = 0;
+        ImportSettings::$executedQueries = 0;
         $GLOBALS['run_query'] = true;
         ImportSettings::$charsetConversion = false;
         $GLOBALS['reset_charset'] = false;
@@ -571,11 +570,11 @@ final class ImportController extends AbstractController
                     . _ngettext(
                         'Import has been successfully finished, %d query executed.',
                         'Import has been successfully finished, %d queries executed.',
-                        $GLOBALS['executed_queries'],
+                        ImportSettings::$executedQueries,
                     )
                     . '</em>',
                 );
-                $GLOBALS['message']->addParam($GLOBALS['executed_queries']);
+                $GLOBALS['message']->addParam(ImportSettings::$executedQueries);
 
                 if (! empty($GLOBALS['import_notice'])) {
                     $GLOBALS['message']->addHtml($GLOBALS['import_notice']);
