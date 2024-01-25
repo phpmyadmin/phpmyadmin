@@ -202,7 +202,6 @@ class Import
         $GLOBALS['msg'] ??= null;
         $GLOBALS['skip_queries'] ??= null;
         $GLOBALS['executed_queries'] ??= null;
-        $GLOBALS['max_sql_len'] ??= null;
         $GLOBALS['run_query'] ??= null;
 
         ImportSettings::$readMultiply = 1;
@@ -222,8 +221,8 @@ class Import
             return;
         }
 
-        $GLOBALS['max_sql_len'] = max(
-            $GLOBALS['max_sql_len'],
+        ImportSettings::$maxSqlLength = max(
+            ImportSettings::$maxSqlLength,
             mb_strlen($this->importRunBuffer),
         );
         if (! ImportSettings::$sqlQueryDisabled) {
@@ -267,7 +266,7 @@ class Import
             if (
                 mb_strlen($GLOBALS['sql_query']) > 50000
                 || $GLOBALS['executed_queries'] > 50
-                || $GLOBALS['max_sql_len'] > 1000
+                || ImportSettings::$maxSqlLength > 1000
             ) {
                 $GLOBALS['sql_query'] = '';
                 ImportSettings::$sqlQueryDisabled = true;

@@ -2007,7 +2007,6 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['executed_queries']]]></code>
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
-      <code><![CDATA[$GLOBALS['max_sql_len']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['reset_charset']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
@@ -2036,7 +2035,6 @@
       <code><![CDATA[$GLOBALS['import_type']]]></code>
       <code><![CDATA[$GLOBALS['is_js_confirmed']]]></code>
       <code><![CDATA[$GLOBALS['local_import_file']]]></code>
-      <code><![CDATA[$GLOBALS['max_sql_len']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['noplugin']]]></code>
@@ -6677,7 +6675,6 @@
       <code><![CDATA[$GLOBALS['executed_queries']]]></code>
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
       <code><![CDATA[$GLOBALS['local_import_file']]]></code>
-      <code><![CDATA[$GLOBALS['max_sql_len']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['my_die']]]></code>
@@ -6769,8 +6766,6 @@
       <code><![CDATA[$GLOBALS['executed_queries']]]></code>
       <code><![CDATA[$GLOBALS['executed_queries']]]></code>
       <code><![CDATA[$GLOBALS['import_notice']]]></code>
-      <code><![CDATA[$GLOBALS['max_sql_len']]]></code>
-      <code><![CDATA[$GLOBALS['max_sql_len']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['my_die']]]></code>

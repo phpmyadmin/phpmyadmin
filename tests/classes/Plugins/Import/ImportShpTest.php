@@ -39,7 +39,7 @@ class ImportShpTest extends AbstractTestCase
         $GLOBALS['eof'] = null;
         Current::$database = '';
         $GLOBALS['skip_queries'] = null;
-        $GLOBALS['max_sql_len'] = null;
+        ImportSettings::$maxSqlLength = 0;
         $GLOBALS['sql_query'] = '';
         $GLOBALS['executed_queries'] = null;
         $GLOBALS['run_query'] = null;

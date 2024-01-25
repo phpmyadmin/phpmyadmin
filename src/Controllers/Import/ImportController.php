@@ -79,7 +79,6 @@ final class ImportController extends AbstractController
         $GLOBALS['import_file'] ??= null;
         $GLOBALS['sql_file'] ??= null;
         $GLOBALS['error'] ??= null;
-        $GLOBALS['max_sql_len'] ??= null;
         $GLOBALS['msg'] ??= null;
         $GLOBALS['executed_queries'] ??= null;
         $GLOBALS['run_query'] ??= null;
@@ -284,7 +283,7 @@ final class ImportController extends AbstractController
         ImportSettings::$readMultiply = 1;
         $GLOBALS['finished'] = false;
         $GLOBALS['offset'] = 0;
-        $GLOBALS['max_sql_len'] = 0;
+        ImportSettings::$maxSqlLength = 0;
         $GLOBALS['sql_query'] = '';
         ImportSettings::$sqlQueryDisabled = false;
         ImportSettings::$goSql = false;

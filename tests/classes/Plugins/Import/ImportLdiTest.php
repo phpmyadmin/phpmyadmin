@@ -35,7 +35,7 @@ class ImportLdiTest extends AbstractTestCase
         $GLOBALS['ldi_columns'] = null;
         $GLOBALS['ldi_enclosed'] = null;
         $GLOBALS['ldi_new_line'] = null;
-        $GLOBALS['max_sql_len'] = null;
+        ImportSettings::$maxSqlLength = 0;
         $GLOBALS['sql_query'] = '';
         $GLOBALS['executed_queries'] = null;
         $GLOBALS['skip_queries'] = null;

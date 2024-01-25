@@ -39,7 +39,7 @@ class ImportXmlTest extends AbstractTestCase
         ImportSettings::$charsetConversion = false;
         Current::$database = '';
         $GLOBALS['skip_queries'] = null;
-        $GLOBALS['max_sql_len'] = null;
+        ImportSettings::$maxSqlLength = 0;
         ImportSettings::$sqlQueryDisabled = false;
         $GLOBALS['sql_query'] = '';
         $GLOBALS['executed_queries'] = null;

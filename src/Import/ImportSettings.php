@@ -12,4 +12,5 @@ final class ImportSettings
     public static int $readLimit = 0;
     public static bool $goSql = false;
     public static bool $sqlQueryDisabled = false;
+    public static int $maxSqlLength = 0;
 }

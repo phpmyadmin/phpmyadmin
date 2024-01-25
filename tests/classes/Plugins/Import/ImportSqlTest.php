@@ -32,7 +32,7 @@ class ImportSqlTest extends AbstractTestCase
         $GLOBALS['maximum_time'] = null;
         ImportSettings::$charsetConversion = false;
         $GLOBALS['skip_queries'] = null;
-        $GLOBALS['max_sql_len'] = null;
+        ImportSettings::$maxSqlLength = 0;
         $GLOBALS['sql_query'] = '';
         $GLOBALS['executed_queries'] = null;
         $GLOBALS['run_query'] = null;
