@@ -21,4 +21,5 @@ final class ImportSettings
     public static string $importNotice = '';
     public static int $offset = 0;
     public static bool $finished = false;
+    public static bool $runQuery = false;
 }

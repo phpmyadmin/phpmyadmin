@@ -198,7 +198,6 @@ class Import
         $GLOBALS['complete_query'] ??= null;
         $GLOBALS['display_query'] ??= null;
         $GLOBALS['msg'] ??= null;
-        $GLOBALS['run_query'] ??= null;
 
         ImportSettings::$readMultiply = 1;
         if ($this->importRunBuffer === null) {
@@ -227,7 +226,7 @@ class Import
 
         ImportSettings::$executedQueries++;
 
-        if ($GLOBALS['run_query'] && ImportSettings::$executedQueries < 50) {
+        if (ImportSettings::$runQuery && ImportSettings::$executedQueries < 50) {
             ImportSettings::$goSql = true;
 
             if (! ImportSettings::$sqlQueryDisabled) {
@@ -240,7 +239,7 @@ class Import
 
             $GLOBALS['sql_query'] = $this->importRunBuffer;
             $sqlData[] = $this->importRunBuffer;
-        } elseif ($GLOBALS['run_query']) {
+        } elseif (ImportSettings::$runQuery) {
             /* Handle rollback from go_sql */
             if (ImportSettings::$goSql && $sqlData !== []) {
                 $queries = $sqlData;
@@ -258,7 +257,7 @@ class Import
         // check length of query unless we decided to pass it to /sql
         // (if $run_query is false, we are just displaying so show
         // the complete query in the textarea)
-        if (! ImportSettings::$goSql && $GLOBALS['run_query'] && ! empty($GLOBALS['sql_query'])) {
+        if (! ImportSettings::$goSql && ImportSettings::$runQuery && ! empty($GLOBALS['sql_query'])) {
             if (
                 mb_strlen($GLOBALS['sql_query']) > 50000
                 || ImportSettings::$executedQueries > 50

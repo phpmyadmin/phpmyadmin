@@ -312,7 +312,7 @@ class ImportTest extends AbstractTestCase
      */
     public function testRunQuery(): void
     {
-        $GLOBALS['run_query'] = true;
+        ImportSettings::$runQuery = true;
         $sqlData = [];
 
         $this->import->runQuery('SELECT 1', $sqlData);

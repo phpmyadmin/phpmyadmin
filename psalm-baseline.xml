@@ -2007,7 +2007,6 @@
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['reset_charset']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
-      <code><![CDATA[$GLOBALS['run_query']]]></code>
       <code><![CDATA[$GLOBALS['sql_file']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
     </InvalidArrayOffset>
@@ -2034,7 +2033,6 @@
       <code><![CDATA[$GLOBALS['noplugin']]]></code>
       <code><![CDATA[$GLOBALS['reset_charset']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
-      <code><![CDATA[$GLOBALS['run_query']]]></code>
       <code><![CDATA[$GLOBALS['show_as_php']]]></code>
       <code><![CDATA[$GLOBALS['sql_file']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
@@ -6665,7 +6663,6 @@
       <code><![CDATA[$GLOBALS['local_import_file']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
-      <code><![CDATA[$GLOBALS['run_query']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
@@ -6746,7 +6743,6 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
-      <code><![CDATA[$GLOBALS['run_query']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
       <code>$active</code>
       <code>$cellValue</code>

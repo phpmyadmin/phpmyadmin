@@ -48,7 +48,7 @@ class ImportOdsTest extends AbstractTestCase
         ImportSettings::$skipQueries = 0;
         ImportSettings::$maxSqlLength = 0;
         ImportSettings::$executedQueries = 0;
-        $GLOBALS['run_query'] = null;
+        ImportSettings::$runQuery = false;
         $GLOBALS['sql_query'] = '';
         ImportSettings::$goSql = false;
         $this->object = new ImportOds();

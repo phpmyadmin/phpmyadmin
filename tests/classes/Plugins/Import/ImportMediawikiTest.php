@@ -40,7 +40,7 @@ class ImportMediawikiTest extends AbstractTestCase
         ImportSettings::$sqlQueryDisabled = false;
         $GLOBALS['sql_query'] = '';
         ImportSettings::$executedQueries = 0;
-        $GLOBALS['run_query'] = null;
+        ImportSettings::$runQuery = false;
         ImportSettings::$goSql = false;
         $GLOBALS['plugin_param'] = 'database';
         $this->object = new ImportMediawiki();

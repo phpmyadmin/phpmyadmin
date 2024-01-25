@@ -77,7 +77,6 @@ final class ImportController extends AbstractController
         $GLOBALS['sql_file'] ??= null;
         $GLOBALS['error'] ??= null;
         $GLOBALS['msg'] ??= null;
-        $GLOBALS['run_query'] ??= null;
         $GLOBALS['reset_charset'] ??= null;
         $GLOBALS['result'] ??= null;
         $GLOBALS['import_file_name'] ??= null;
@@ -283,7 +282,7 @@ final class ImportController extends AbstractController
         ImportSettings::$sqlQueryDisabled = false;
         ImportSettings::$goSql = false;
         ImportSettings::$executedQueries = 0;
-        $GLOBALS['run_query'] = true;
+        ImportSettings::$runQuery = true;
         ImportSettings::$charsetConversion = false;
         $GLOBALS['reset_charset'] = false;
         $GLOBALS['msg'] = 'Sorry an unexpected error happened!';
@@ -340,7 +339,7 @@ final class ImportController extends AbstractController
                         return;
                     }
 
-                    $GLOBALS['run_query'] = false;
+                    ImportSettings::$runQuery = false;
                     break;
                 case 2: // bookmarked query that have to be deleted
                     $bookmark = $this->bookmarkRepository->get($config->selectedServer['user'], $idBookmark);
@@ -361,7 +360,7 @@ final class ImportController extends AbstractController
                         return;
                     }
 
-                    $GLOBALS['run_query'] = false;
+                    ImportSettings::$runQuery = false;
                     $GLOBALS['error'] = true; // this is kind of hack to skip processing the query
                     break;
             }
@@ -369,7 +368,7 @@ final class ImportController extends AbstractController
 
         // Do no run query if we show PHP code
         if (isset($GLOBALS['show_as_php'])) {
-            $GLOBALS['run_query'] = false;
+            ImportSettings::$runQuery = false;
             ImportSettings::$goSql = true;
         }
 
