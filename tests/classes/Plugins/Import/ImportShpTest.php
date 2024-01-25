@@ -136,7 +136,7 @@ class ImportShpTest extends AbstractTestCase
         //Test function called
         $this->runImport('tests/test_data/dresden_osm.shp.zip');
 
-        $this->assertMessages($GLOBALS['import_notice']);
+        $this->assertMessages(ImportSettings::$importNotice);
 
         $endsWith = "13.737122 51.0542065)))'))";
 
@@ -205,7 +205,7 @@ class ImportShpTest extends AbstractTestCase
         self::assertStringContainsString("GeomFromText('POINT(1294523.1759236", $GLOBALS['sql_query']);
 
         //asset that all databases and tables are imported
-        $this->assertMessages($GLOBALS['import_notice']);
+        $this->assertMessages(ImportSettings::$importNotice);
     }
 
     /**

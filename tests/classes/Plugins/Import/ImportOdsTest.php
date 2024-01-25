@@ -140,12 +140,12 @@ class ImportOdsTest extends AbstractTestCase
         //asset that all databases and tables are imported
         self::assertStringContainsString(
             'The following structures have either been created or altered.',
-            $GLOBALS['import_notice'],
+            ImportSettings::$importNotice,
         );
-        self::assertStringContainsString('Go to database: `ODS_DB`', $GLOBALS['import_notice']);
-        self::assertStringContainsString('Edit settings for `ODS_DB`', $GLOBALS['import_notice']);
-        self::assertStringContainsString('Go to table: `pma_bookmark`', $GLOBALS['import_notice']);
-        self::assertStringContainsString('Edit settings for `pma_bookmark`', $GLOBALS['import_notice']);
+        self::assertStringContainsString('Go to database: `ODS_DB`', ImportSettings::$importNotice);
+        self::assertStringContainsString('Edit settings for `ODS_DB`', ImportSettings::$importNotice);
+        self::assertStringContainsString('Go to table: `pma_bookmark`', ImportSettings::$importNotice);
+        self::assertStringContainsString('Edit settings for `pma_bookmark`', ImportSettings::$importNotice);
 
         //asset that the import process is finished
         self::assertTrue($GLOBALS['finished']);
@@ -254,12 +254,12 @@ class ImportOdsTest extends AbstractTestCase
         //asset that all databases and tables are imported
         self::assertStringContainsString(
             'The following structures have either been created or altered.',
-            $GLOBALS['import_notice'],
+            ImportSettings::$importNotice,
         );
-        self::assertStringContainsString('Go to database: `ODS_DB`', $GLOBALS['import_notice']);
-        self::assertStringContainsString('Edit settings for `ODS_DB`', $GLOBALS['import_notice']);
-        self::assertStringContainsString('Go to table: `Shop`', $GLOBALS['import_notice']);
-        self::assertStringContainsString('Edit settings for `Shop`', $GLOBALS['import_notice']);
+        self::assertStringContainsString('Go to database: `ODS_DB`', ImportSettings::$importNotice);
+        self::assertStringContainsString('Edit settings for `ODS_DB`', ImportSettings::$importNotice);
+        self::assertStringContainsString('Go to table: `Shop`', ImportSettings::$importNotice);
+        self::assertStringContainsString('Edit settings for `Shop`', ImportSettings::$importNotice);
 
         //asset that the import process is finished
         self::assertTrue($GLOBALS['finished']);

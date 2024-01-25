@@ -940,10 +940,8 @@ class Import
         array|null $options = null,
         array &$sqlData = [],
     ): void {
-        $GLOBALS['import_notice'] ??= null;
-
         /* Needed to quell the beast that is Message */
-        $GLOBALS['import_notice'] = null;
+        ImportSettings::$importNotice = '';
 
         /* Take care of the options */
         $collation = $options['db_collation'] ?? 'utf8_general_ci';
@@ -1273,7 +1271,7 @@ class Import
 
         $message .= '</ul></ul>';
 
-        $GLOBALS['import_notice'] = $message;
+        ImportSettings::$importNotice = $message;
     }
 
     /**

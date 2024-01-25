@@ -2737,7 +2737,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 13
+			count: 12
 			path: src/Controllers/Import/ImportController.php
 
 		-
@@ -2757,11 +2757,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$filename of function is_uploaded_file expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Parameter \\#1 \\$message of method PhpMyAdmin\\\\Message\\:\\:addHtml\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Import/ImportController.php
 
@@ -16911,11 +16906,6 @@ parameters:
 			path: tests/classes/Plugins/Import/ImportMediawikiTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
-			count: 5
-			path: tests/classes/Plugins/Import/ImportMediawikiTest.php
-
-		-
 			message: "#^Class PhpMyAdmin\\\\Tests\\\\Plugins\\\\Import\\\\ImportOdsTest has an uninitialized property \\$dbi\\. Give it default value or assign it in the constructor\\.$#"
 			count: 1
 			path: tests/classes/Plugins/Import/ImportOdsTest.php
@@ -16927,13 +16917,8 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
-			count: 13
+			count: 3
 			path: tests/classes/Plugins/Import/ImportOdsTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$importNotice of method PhpMyAdmin\\\\Tests\\\\Plugins\\\\Import\\\\ImportShpTest\\:\\:assertMessages\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: tests/classes/Plugins/Import/ImportShpTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
@@ -16953,11 +16938,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\File constructor expects bool\\|string, mixed given\\.$#"
 			count: 1
-			path: tests/classes/Plugins/Import/ImportXmlTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
-			count: 5
 			path: tests/classes/Plugins/Import/ImportXmlTest.php
 
 		-

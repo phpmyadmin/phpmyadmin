@@ -2004,7 +2004,6 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['ajax_reload']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['reset_charset']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
@@ -2027,7 +2026,6 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['format']]]></code>
       <code><![CDATA[$GLOBALS['import_file']]]></code>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
       <code><![CDATA[$GLOBALS['import_type']]]></code>
       <code><![CDATA[$GLOBALS['is_js_confirmed']]]></code>
       <code><![CDATA[$GLOBALS['local_import_file']]]></code>
@@ -6664,7 +6662,6 @@
       <code><![CDATA[empty($parser->statements[0])]]></code>
     </DocblockTypeContradiction>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
       <code><![CDATA[$GLOBALS['local_import_file']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
@@ -6747,7 +6744,6 @@
       <code>$typeArray[$analyses[$i][self::TYPES][$j]]</code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['run_query']]]></code>
@@ -14973,37 +14969,11 @@
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
-    </InvalidArrayOffset>
-    <MixedArgument>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
-    </MixedArgument>
   </file>
   <file src="tests/classes/Plugins/Import/ImportOdsTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
-    </InvalidArrayOffset>
-    <MixedArgument>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
-    </MixedArgument>
     <PossiblyUnusedMethod>
       <code>dataProviderOdsEmptyRows</code>
     </PossiblyUnusedMethod>
@@ -15012,14 +14982,6 @@
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
-    </InvalidArrayOffset>
-    <MixedArgument>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
-    </MixedArgument>
     <RedundantCondition>
       <code>assertFalse</code>
     </RedundantCondition>
@@ -15033,16 +14995,6 @@
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
-    </InvalidArrayOffset>
-    <MixedArgument>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
-      <code><![CDATA[$GLOBALS['import_notice']]]></code>
-    </MixedArgument>
   </file>
   <file src="tests/classes/Plugins/Schema/DiaRelationSchemaTest.php">
     <DeprecatedMethod>

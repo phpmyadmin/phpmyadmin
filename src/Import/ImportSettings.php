@@ -18,4 +18,5 @@ final class ImportSettings
     /** @var array{sql:string, error:string}[] */
     public static array $failedQueries = [];
     public static bool $timeoutPassed = false;
+    public static string $importNotice = '';
 }

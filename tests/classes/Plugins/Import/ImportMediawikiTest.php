@@ -130,12 +130,12 @@ class ImportMediawikiTest extends AbstractTestCase
         //asset that all databases and tables are imported
         self::assertStringContainsString(
             'The following structures have either been created or altered.',
-            $GLOBALS['import_notice'],
+            ImportSettings::$importNotice,
         );
-        self::assertStringContainsString('Go to database: `mediawiki_DB`', $GLOBALS['import_notice']);
-        self::assertStringContainsString('Edit settings for `mediawiki_DB`', $GLOBALS['import_notice']);
-        self::assertStringContainsString('Go to table: `pma_bookmarktest`', $GLOBALS['import_notice']);
-        self::assertStringContainsString('Edit settings for `pma_bookmarktest`', $GLOBALS['import_notice']);
+        self::assertStringContainsString('Go to database: `mediawiki_DB`', ImportSettings::$importNotice);
+        self::assertStringContainsString('Edit settings for `mediawiki_DB`', ImportSettings::$importNotice);
+        self::assertStringContainsString('Go to table: `pma_bookmarktest`', ImportSettings::$importNotice);
+        self::assertStringContainsString('Edit settings for `pma_bookmarktest`', ImportSettings::$importNotice);
         self::assertTrue($GLOBALS['finished']);
     }
 }

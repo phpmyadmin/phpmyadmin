@@ -83,7 +83,6 @@ final class ImportController extends AbstractController
         $GLOBALS['reset_charset'] ??= null;
         $GLOBALS['result'] ??= null;
         $GLOBALS['import_file_name'] ??= null;
-        $GLOBALS['import_notice'] ??= null;
 
         ImportSettings::$charsetOfFile = (string) $request->getParsedBodyParam('charset_of_file');
         $GLOBALS['format'] = $request->getParsedBodyParam('format', '');
@@ -575,8 +574,8 @@ final class ImportController extends AbstractController
                 );
                 $GLOBALS['message']->addParam(ImportSettings::$executedQueries);
 
-                if (! empty($GLOBALS['import_notice'])) {
-                    $GLOBALS['message']->addHtml($GLOBALS['import_notice']);
+                if (ImportSettings::$importNotice !== '') {
+                    $GLOBALS['message']->addHtml(ImportSettings::$importNotice);
                 }
 
                 if (! empty($GLOBALS['local_import_file'])) {
