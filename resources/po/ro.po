@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-01-21 00:20+0000\n"
-"PO-Revision-Date: 2023-10-21 03:00+0000\n"
+"PO-Revision-Date: 2024-01-26 03:52+0000\n"
 "Last-Translator: Vlăduț Ilie <vladilie94@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ro/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 5.1\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:30
 #: resources/templates/database/central_columns/edit_table_row.twig:22
@@ -17096,6 +17096,8 @@ msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
 "you log in again, you should be able to resume the work where you left off."
 msgstr ""
+"Te-am deconectat automat din cauza inactivității de %s secunde. Odată ce te "
+"conectezi din nou, ar trebui să poți relua munca de unde ai rămas."
 
 #: src/Plugins/AuthenticationPlugin.php:189
 #: src/Plugins/AuthenticationPlugin.php:192
