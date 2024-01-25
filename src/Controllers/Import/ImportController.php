@@ -93,7 +93,7 @@ final class ImportController extends AbstractController
         $GLOBALS['is_js_confirmed'] = $request->getParsedBodyParam('is_js_confirmed');
         $GLOBALS['message_to_show'] = $request->getParsedBodyParam('message_to_show');
         $GLOBALS['noplugin'] = $request->getParsedBodyParam('noplugin');
-        $GLOBALS['skip_queries'] = $request->getParsedBodyParam('skip_queries');
+        ImportSettings::$skipQueries = (int) $request->getParsedBodyParam('skip_queries');
         $GLOBALS['local_import_file'] = $request->getParsedBodyParam('local_import_file');
         $GLOBALS['show_as_php'] = $request->getParsedBodyParam('show_as_php');
 

@@ -49,7 +49,7 @@ class ImportCsvTest extends AbstractTestCase
         $GLOBALS['timeout_passed'] = null;
         $GLOBALS['maximum_time'] = null;
         ImportSettings::$charsetConversion = false;
-        $GLOBALS['skip_queries'] = null;
+        ImportSettings::$skipQueries = 0;
         ImportSettings::$maxSqlLength = 0;
         $GLOBALS['executed_queries'] = null;
         $GLOBALS['run_query'] = null;

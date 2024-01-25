@@ -38,7 +38,7 @@ class ImportShpTest extends AbstractTestCase
         ImportSettings::$charsetConversion = false;
         $GLOBALS['eof'] = null;
         Current::$database = '';
-        $GLOBALS['skip_queries'] = null;
+        ImportSettings::$skipQueries = 0;
         ImportSettings::$maxSqlLength = 0;
         $GLOBALS['sql_query'] = '';
         $GLOBALS['executed_queries'] = null;

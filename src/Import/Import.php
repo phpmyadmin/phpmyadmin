@@ -200,7 +200,6 @@ class Import
         $GLOBALS['complete_query'] ??= null;
         $GLOBALS['display_query'] ??= null;
         $GLOBALS['msg'] ??= null;
-        $GLOBALS['skip_queries'] ??= null;
         $GLOBALS['executed_queries'] ??= null;
         $GLOBALS['run_query'] ??= null;
 
@@ -213,8 +212,8 @@ class Import
         }
 
         // Should we skip something?
-        if ($GLOBALS['skip_queries'] > 0) {
-            $GLOBALS['skip_queries']--;
+        if (ImportSettings::$skipQueries > 0) {
+            ImportSettings::$skipQueries--;
             // Do we have something to push into buffer?
             $this->importRunBuffer = $sql !== '' ? $sql . ';' : null;
 

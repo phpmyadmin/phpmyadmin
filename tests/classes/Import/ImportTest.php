@@ -33,7 +33,7 @@ class ImportTest extends AbstractTestCase
         Config::getInstance()->settings['ServerDefault'] = '';
         $GLOBALS['complete_query'] = null;
         $GLOBALS['display_query'] = null;
-        $GLOBALS['skip_queries'] = null;
+        ImportSettings::$skipQueries = 0;
         ImportSettings::$maxSqlLength = 0;
         ImportSettings::$sqlQueryDisabled = false;
         $GLOBALS['executed_queries'] = null;

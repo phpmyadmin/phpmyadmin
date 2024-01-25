@@ -38,7 +38,7 @@ class ImportLdiTest extends AbstractTestCase
         ImportSettings::$maxSqlLength = 0;
         $GLOBALS['sql_query'] = '';
         $GLOBALS['executed_queries'] = null;
-        $GLOBALS['skip_queries'] = null;
+        ImportSettings::$skipQueries = 0;
         $GLOBALS['run_query'] = null;
         ImportSettings::$goSql = false;
         //setting
@@ -186,7 +186,7 @@ class ImportLdiTest extends AbstractTestCase
         $GLOBALS['ldi_terminated'] = ',';
         $GLOBALS['ldi_enclosed'] = ')';
         $GLOBALS['ldi_new_line'] = 'newline_mark';
-        $GLOBALS['skip_queries'] = true;
+        ImportSettings::$skipQueries = 1;
 
         $importHandle = new File($GLOBALS['import_file']);
         $importHandle->open();

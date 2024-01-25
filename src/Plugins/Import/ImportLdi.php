@@ -102,7 +102,6 @@ class ImportLdi extends AbstractImportCsv
         $GLOBALS['ldi_enclosed'] ??= null;
         $GLOBALS['ldi_escaped'] ??= null;
         $GLOBALS['ldi_new_line'] ??= null;
-        $GLOBALS['skip_queries'] ??= null;
         $GLOBALS['ldi_columns'] ??= null;
 
         $sqlStatements = [];
@@ -156,9 +155,9 @@ class ImportLdi extends AbstractImportCsv
             $sql .= ' LINES TERMINATED BY \'' . $GLOBALS['ldi_new_line'] . '\'';
         }
 
-        if ($GLOBALS['skip_queries'] > 0) {
-            $sql .= ' IGNORE ' . $GLOBALS['skip_queries'] . ' LINES';
-            $GLOBALS['skip_queries'] = 0;
+        if (ImportSettings::$skipQueries > 0) {
+            $sql .= ' IGNORE ' . ImportSettings::$skipQueries . ' LINES';
+            ImportSettings::$skipQueries = 0;
         }
 
         if (strlen((string) $GLOBALS['ldi_columns']) > 0) {

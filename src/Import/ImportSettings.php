@@ -13,4 +13,5 @@ final class ImportSettings
     public static bool $goSql = false;
     public static bool $sqlQueryDisabled = false;
     public static int $maxSqlLength = 0;
+    public static int $skipQueries = 0;
 }

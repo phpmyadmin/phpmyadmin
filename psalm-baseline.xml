@@ -2042,7 +2042,6 @@
       <code><![CDATA[$GLOBALS['result']]]></code>
       <code><![CDATA[$GLOBALS['run_query']]]></code>
       <code><![CDATA[$GLOBALS['show_as_php']]]></code>
-      <code><![CDATA[$GLOBALS['skip_queries']]]></code>
       <code><![CDATA[$GLOBALS['sql_file']]]></code>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
@@ -6679,7 +6678,6 @@
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['my_die']]]></code>
       <code><![CDATA[$GLOBALS['run_query']]]></code>
-      <code><![CDATA[$GLOBALS['skip_queries']]]></code>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
@@ -6770,8 +6768,6 @@
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['my_die']]]></code>
       <code><![CDATA[$GLOBALS['run_query']]]></code>
-      <code><![CDATA[$GLOBALS['skip_queries']]]></code>
-      <code><![CDATA[$GLOBALS['skip_queries']]]></code>
       <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
       <code>$active</code>
@@ -6792,7 +6788,6 @@
     <MixedOperand>
       <code><![CDATA[$GLOBALS['executed_queries']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
-      <code><![CDATA[$GLOBALS['skip_queries']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
       <code>$charset</code>
       <code>$charset</code>
@@ -9264,7 +9259,6 @@
       <code><![CDATA[$GLOBALS['ldi_new_line']]]></code>
       <code><![CDATA[$GLOBALS['ldi_replace']]]></code>
       <code><![CDATA[$GLOBALS['ldi_terminated']]]></code>
-      <code><![CDATA[$GLOBALS['skip_queries']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['ldi_columns']]]></code>
@@ -9280,12 +9274,10 @@
       <code><![CDATA[$GLOBALS['ldi_new_line']]]></code>
       <code><![CDATA[$GLOBALS['ldi_replace']]]></code>
       <code><![CDATA[$GLOBALS['ldi_terminated']]]></code>
-      <code><![CDATA[$GLOBALS['skip_queries']]]></code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$GLOBALS['ldi_new_line']]]></code>
       <code><![CDATA[$GLOBALS['ldi_terminated']]]></code>
-      <code><![CDATA[$GLOBALS['skip_queries']]]></code>
     </MixedOperand>
     <PossiblyNullArgument>
       <code><![CDATA[$GLOBALS['import_file']]]></code>
