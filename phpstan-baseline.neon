@@ -2741,6 +2741,11 @@ parameters:
 			path: src/Controllers/Import/ImportController.php
 
 		-
+			message: "#^If condition is always false\\.$#"
+			count: 1
+			path: src/Controllers/Import/ImportController.php
+
+		-
 			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
 			count: 1
 			path: src/Controllers/Import/ImportController.php
@@ -10362,7 +10367,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins.php
 
 		-

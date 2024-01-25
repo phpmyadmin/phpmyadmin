@@ -17,4 +17,5 @@ final class ImportSettings
     public static int $executedQueries = 0;
     /** @var array{sql:string, error:string}[] */
     public static array $failedQueries = [];
+    public static bool $timeoutPassed = false;
 }

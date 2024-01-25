@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\Import;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
@@ -66,7 +67,6 @@ class ImportMediawiki extends ImportPlugin
     public function doImport(File|null $importHandle = null): array
     {
         $GLOBALS['error'] ??= null;
-        $GLOBALS['timeout_passed'] ??= null;
         $GLOBALS['finished'] ??= null;
 
         $sqlStatements = [];
@@ -99,7 +99,7 @@ class ImportMediawiki extends ImportPlugin
         $inTableHeader = false;
 
         /** @infection-ignore-all */
-        while (! $GLOBALS['finished'] && ! $GLOBALS['error'] && ! $GLOBALS['timeout_passed']) {
+        while (! $GLOBALS['finished'] && ! $GLOBALS['error'] && ! ImportSettings::$timeoutPassed) {
             $data = $this->import->getNextChunk($importHandle);
 
             if ($data === false) {

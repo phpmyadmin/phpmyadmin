@@ -17,6 +17,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Import\Import;
+use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\ResponseRenderer;
@@ -150,7 +151,7 @@ final class ImportController extends AbstractController
             'local_import_file' => $localImportFile,
             'is_upload' => $config->get('enable_upload'),
             'upload_dir' => $config->settings['UploadDir'] ?? null,
-            'timeout_passed_global' => $GLOBALS['timeout_passed'] ?? null,
+            'timeout_passed_global' => ImportSettings::$timeoutPassed,
             'compressions' => $compressions,
             'is_encoding_supported' => Encoding::isSupported(),
             'encodings' => Encoding::listEncodings(),

@@ -75,7 +75,6 @@ final class ImportController extends AbstractController
         $GLOBALS['offset'] ??= null;
         $GLOBALS['timestamp'] ??= null;
         $GLOBALS['maximum_time'] ??= null;
-        $GLOBALS['timeout_passed'] ??= null;
         $GLOBALS['import_file'] ??= null;
         $GLOBALS['sql_file'] ??= null;
         $GLOBALS['error'] ??= null;
@@ -277,7 +276,7 @@ final class ImportController extends AbstractController
         }
 
         // set default values
-        $GLOBALS['timeout_passed'] = false;
+        ImportSettings::$timeoutPassed = false;
         $GLOBALS['error'] = false;
         ImportSettings::$readMultiply = 1;
         $GLOBALS['finished'] = false;
@@ -594,7 +593,7 @@ final class ImportController extends AbstractController
         }
 
         // Did we hit timeout? Tell it user.
-        if ($GLOBALS['timeout_passed']) {
+        if (ImportSettings::$timeoutPassed) {
             $GLOBALS['urlParams']['timeout_passed'] = '1';
             $GLOBALS['urlParams']['offset'] = $GLOBALS['offset'];
             if (isset($GLOBALS['local_import_file'])) {

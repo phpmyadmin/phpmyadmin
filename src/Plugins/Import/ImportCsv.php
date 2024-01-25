@@ -13,6 +13,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
@@ -170,7 +171,6 @@ class ImportCsv extends AbstractImportCsv
         // $csv_replace and $csv_ignore should have been here,
         // but we use directly from $_POST
 
-        $GLOBALS['timeout_passed'] ??= null;
         $GLOBALS['finished'] ??= null;
 
         $replacements = ['\\n' => "\n", '\\t' => "\t", '\\r' => "\r"];
@@ -232,7 +232,7 @@ class ImportCsv extends AbstractImportCsv
         $maxCols = 0;
         $csvTerminatedLen = mb_strlen($GLOBALS['csv_terminated']);
         $dbi = DatabaseInterface::getInstance();
-        while (! ($GLOBALS['finished'] && $i >= $len) && ! $GLOBALS['error'] && ! $GLOBALS['timeout_passed']) {
+        while (! ($GLOBALS['finished'] && $i >= $len) && ! $GLOBALS['error'] && ! ImportSettings::$timeoutPassed) {
             $data = $this->import->getNextChunk($importHandle);
             if ($data === false) {
                 // subtract data we didn't handle yet and stop processing

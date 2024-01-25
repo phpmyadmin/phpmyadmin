@@ -98,20 +98,19 @@ class Import
     {
         $GLOBALS['timestamp'] ??= null;
         $GLOBALS['maximum_time'] ??= null;
-        $GLOBALS['timeout_passed'] ??= null;
 
         if ($GLOBALS['maximum_time'] == 0) {
             return false;
         }
 
-        if ($GLOBALS['timeout_passed']) {
+        if (ImportSettings::$timeoutPassed) {
             return true;
 
             /* 5 in next row might be too much */
         }
 
         if (time() - $GLOBALS['timestamp'] > $GLOBALS['maximum_time'] - 5) {
-            $GLOBALS['timeout_passed'] = true;
+            ImportSettings::$timeoutPassed = true;
 
             return true;
         }
@@ -1439,7 +1438,7 @@ class Import
 
         $matcher = '@\.(' . $extensions . ')(\.(' . $fileListing->supportedDecompressions() . '))?$@';
 
-        $active = isset($GLOBALS['timeout_passed'], $GLOBALS['local_import_file']) && $GLOBALS['timeout_passed']
+        $active = isset($GLOBALS['local_import_file']) && ImportSettings::$timeoutPassed
             ? $GLOBALS['local_import_file']
             : '';
 

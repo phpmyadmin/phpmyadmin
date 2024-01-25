@@ -1158,7 +1158,6 @@
     </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
     </InvalidArrayOffset>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']]]></code>
@@ -2011,7 +2010,6 @@
       <code><![CDATA[$GLOBALS['result']]]></code>
       <code><![CDATA[$GLOBALS['run_query']]]></code>
       <code><![CDATA[$GLOBALS['sql_file']]]></code>
-      <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
     </InvalidArrayOffset>
     <MixedArgumentTypeCoercion>
@@ -2041,7 +2039,6 @@
       <code><![CDATA[$GLOBALS['run_query']]]></code>
       <code><![CDATA[$GLOBALS['show_as_php']]]></code>
       <code><![CDATA[$GLOBALS['sql_file']]]></code>
-      <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
       <code>$bookmarkVariables</code>
       <code>$consoleMessageId</code>
@@ -2662,7 +2659,6 @@
     </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
     </InvalidArrayOffset>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']]]></code>
@@ -3457,7 +3453,6 @@
     </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
     </InvalidArrayOffset>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']]]></code>
@@ -6674,8 +6669,6 @@
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['run_query']]]></code>
-      <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
-      <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
@@ -6758,7 +6751,6 @@
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['run_query']]]></code>
-      <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
       <code>$active</code>
       <code>$cellValue</code>
@@ -6818,13 +6810,9 @@
       <code><![CDATA[$GLOBALS['result'] == false]]></code>
     </RedundantCondition>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $GLOBALS['sql_query_disabled']]]></code>
-      <code><![CDATA[! $GLOBALS['sql_query_disabled']]]></code>
-      <code><![CDATA[! $GLOBALS['sql_query_disabled']]]></code>
       <code><![CDATA[$GLOBALS['run_query']]]></code>
       <code><![CDATA[$GLOBALS['run_query']]]></code>
       <code><![CDATA[$GLOBALS['run_query']]]></code>
-      <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code>$error</code>
     </RiskyTruthyFalsyComparison>
   </file>
@@ -7858,10 +7846,6 @@
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
-      <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
-    </InvalidArrayOffset>
     <InvalidReturnStatement>
       <code><![CDATA[$GLOBALS[$name] ?? $name ?? '']]></code>
     </InvalidReturnStatement>
@@ -9157,7 +9141,6 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['csv_new_line']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code>$values[count($values) - 1]</code>
       <code>$values[count($values) - 1]</code>
     </InvalidArrayOffset>
@@ -9186,7 +9169,6 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['csv_new_line']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code>$colName</code>
       <code>$columnNames</code>
       <code>$fields[]</code>
@@ -9227,9 +9209,6 @@
     <PossiblyUnusedReturnValue>
       <code>string[]</code>
     </PossiblyUnusedReturnValue>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $GLOBALS['timeout_passed']]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Plugins/Import/ImportLdi.php">
     <DeprecatedMethod>
@@ -9281,9 +9260,6 @@
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
-    </InvalidArrayOffset>
     <InvalidNullableReturnType>
       <code>string</code>
     </InvalidNullableReturnType>
@@ -9297,7 +9273,6 @@
       <code>$table[2][0]</code>
     </MixedArrayAccess>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code>$cell</code>
     </MixedAssignment>
     <NullableReturnStatement>
@@ -9313,14 +9288,8 @@
       <code><![CDATA[! $GLOBALS['finished']]]></code>
       <code><![CDATA[$GLOBALS['finished']]]></code>
     </RedundantCondition>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $GLOBALS['timeout_passed']]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Plugins/Import/ImportOds.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code>$cellAttrs</code>
       <code>$colNames</code>
@@ -9366,7 +9335,6 @@
       <code>$tempRows[$i]</code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code>$attr</code>
       <code>$attr</code>
       <code>$cell</code>
@@ -9402,7 +9370,6 @@
       <code>string[]</code>
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $GLOBALS['timeout_passed']]]></code>
       <code><![CDATA[$_REQUEST['ods_empty_rows'] ?? false]]></code>
       <code><![CDATA[$_REQUEST['ods_recognize_currency']]]></code>
       <code><![CDATA[$_REQUEST['ods_recognize_percentages']]]></code>
@@ -9478,9 +9445,6 @@
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
-    </InvalidArrayOffset>
     <MixedArgumentTypeCoercion>
       <code>$sqlModes</code>
     </MixedArgumentTypeCoercion>
@@ -9488,7 +9452,6 @@
       <code>$values[$val]</code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code>$sqlModes[]</code>
       <code>$val</code>
       <code>$values[$val]</code>
@@ -9502,17 +9465,8 @@
     <PossiblyUnusedReturnValue>
       <code>string[]</code>
     </PossiblyUnusedReturnValue>
-    <RedundantCondition>
-      <code><![CDATA[! $GLOBALS['timeout_passed']]]></code>
-    </RedundantCondition>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $GLOBALS['timeout_passed']]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Plugins/Import/ImportXml.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
-    </InvalidArrayOffset>
     <MixedArrayAccess>
       <code><![CDATA[$attrs['name']]]></code>
       <code><![CDATA[$rowAttr['name']]]></code>
@@ -9522,7 +9476,6 @@
       <code><![CDATA[$tblAttr['name']]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['timeout_passed']]]></code>
       <code>$attrs</code>
       <code>$rowAttr</code>
       <code>$tblAttr</code>
@@ -9550,7 +9503,6 @@
       <code>string[]</code>
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $GLOBALS['timeout_passed']]]></code>
       <code>$xml</code>
     </RiskyTruthyFalsyComparison>
     <UnusedVariable>

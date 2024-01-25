@@ -48,35 +48,35 @@ class ImportTest extends AbstractTestCase
         //Reinit values.
         $GLOBALS['timestamp'] = time();
         $GLOBALS['maximum_time'] = 0;
-        $GLOBALS['timeout_passed'] = false;
+        ImportSettings::$timeoutPassed = false;
 
         self::assertFalse($this->import->checkTimeout());
 
         //Reinit values.
         $GLOBALS['timestamp'] = time();
         $GLOBALS['maximum_time'] = 0;
-        $GLOBALS['timeout_passed'] = true;
+        ImportSettings::$timeoutPassed = true;
 
         self::assertFalse($this->import->checkTimeout());
 
         //Reinit values.
         $GLOBALS['timestamp'] = time();
         $GLOBALS['maximum_time'] = 30;
-        $GLOBALS['timeout_passed'] = true;
+        ImportSettings::$timeoutPassed = true;
 
         self::assertTrue($this->import->checkTimeout());
 
         //Reinit values.
         $GLOBALS['timestamp'] = time() - 15;
         $GLOBALS['maximum_time'] = 30;
-        $GLOBALS['timeout_passed'] = false;
+        ImportSettings::$timeoutPassed = false;
 
         self::assertFalse($this->import->checkTimeout());
 
         //Reinit values.
         $GLOBALS['timestamp'] = time() - 60;
         $GLOBALS['maximum_time'] = 30;
-        $GLOBALS['timeout_passed'] = false;
+        ImportSettings::$timeoutPassed = false;
 
         self::assertTrue($this->import->checkTimeout());
     }

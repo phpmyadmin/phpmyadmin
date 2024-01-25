@@ -7,6 +7,7 @@ namespace PhpMyAdmin;
 use FilesystemIterator;
 use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Plugins\Plugin;
@@ -205,7 +206,7 @@ class Plugins
         if (
             isset($_GET[$opt])
             || ! isset($_GET['repopulate'])
-            && ((! empty($GLOBALS['timeout_passed']) && isset($_REQUEST[$opt]))
+            && ((ImportSettings::$timeoutPassed && isset($_REQUEST[$opt]))
                 || ! empty(Config::getInstance()->settings[$section][$opt]))
         ) {
             return ' checked="checked"';
@@ -231,7 +232,7 @@ class Plugins
             return htmlspecialchars($_GET[$opt]);
         }
 
-        if (isset($GLOBALS['timeout_passed'], $_REQUEST[$opt]) && $GLOBALS['timeout_passed']) {
+        if (isset($_REQUEST[$opt]) && ImportSettings::$timeoutPassed) {
             return htmlspecialchars($_REQUEST[$opt]);
         }
 
