@@ -80,7 +80,6 @@ class ImportShp extends ImportPlugin
     public function doImport(File|null $importHandle = null): array
     {
         $GLOBALS['error'] ??= null;
-        $GLOBALS['import_file'] ??= null;
         $GLOBALS['local_import_file'] ??= null;
         $GLOBALS['message'] ??= null;
         ImportSettings::$finished = false;
@@ -97,7 +96,7 @@ class ImportShp extends ImportPlugin
         $shp = new ShapeFileImport(1);
         // If the zip archive has more than one file,
         // get the correct content to the buffer from .shp file.
-        if ($compression === 'application/zip' && $this->zipExtension->getNumberOfFiles($GLOBALS['import_file']) > 1) {
+        if ($compression === 'application/zip' && $this->zipExtension->getNumberOfFiles(ImportSettings::$importFile) > 1) {
             if ($importHandle->openZip('/^.*\.shp$/i') === false) {
                 $GLOBALS['message'] = Message::error(
                     __('There was an error importing the ESRI shape file: "%s".'),
@@ -116,11 +115,11 @@ class ImportShp extends ImportPlugin
             // If we can extract the zip archive to 'TempDir'
             // and use the files in it for import
             if ($compression === 'application/zip' && $temp !== null) {
-                $dbfFileName = $this->zipExtension->findFile($GLOBALS['import_file'], '/^.*\.dbf$/i');
+                $dbfFileName = $this->zipExtension->findFile(ImportSettings::$importFile, '/^.*\.dbf$/i');
                 // If the corresponding .dbf file is in the zip archive
                 if ($dbfFileName !== false) {
                     // Extract the .dbf file and point to it.
-                    $extracted = $this->zipExtension->extract($GLOBALS['import_file'], $dbfFileName);
+                    $extracted = $this->zipExtension->extract(ImportSettings::$importFile, $dbfFileName);
                     if ($extracted !== false) {
                         // remove filename extension, e.g.
                         // dresden_osm.shp/gis.osm_transport_a_v06.dbf
@@ -152,7 +151,7 @@ class ImportShp extends ImportPlugin
                 // to load extra data.
                 // Replace the .shp with .*,
                 // so the bsShapeFiles library correctly locates .dbf file.
-                $shp->fileName = mb_substr($GLOBALS['import_file'], 0, -4) . '.*';
+                $shp->fileName = mb_substr(ImportSettings::$importFile, 0, -4) . '.*';
             }
         }
 

@@ -323,7 +323,7 @@ class Import
             return true;
         }
 
-        if ($GLOBALS['import_file'] === 'none') {
+        if (ImportSettings::$importFile === 'none') {
             // Well this is not yet supported and tested,
             // but should return content of textarea
             if (mb_strlen($GLOBALS['import_text']) < $size) {

@@ -54,7 +54,7 @@ class ImportXmlTest extends AbstractTestCase
         ImportSettings::$offset = 0;
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
-        $GLOBALS['import_file'] = 'tests/test_data/phpmyadmin_importXML_For_Testing.xml';
+        ImportSettings::$importFile = 'tests/test_data/phpmyadmin_importXML_For_Testing.xml';
         $GLOBALS['import_text'] = 'ImportXml_Test';
         $GLOBALS['compression'] = 'none';
         ImportSettings::$readMultiply = 10;
@@ -113,7 +113,7 @@ class ImportXmlTest extends AbstractTestCase
             ->getMock();
         DatabaseInterface::$instance = $dbi;
 
-        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
         //Test function called

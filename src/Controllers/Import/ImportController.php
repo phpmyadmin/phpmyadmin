@@ -71,7 +71,6 @@ final class ImportController extends AbstractController
         $GLOBALS['message'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['import_file'] ??= null;
         $GLOBALS['error'] ??= null;
         $GLOBALS['result'] ??= null;
         $GLOBALS['import_file_name'] ??= null;
@@ -386,7 +385,7 @@ final class ImportController extends AbstractController
             && is_string($_FILES['import_file']['name'])
             && is_string($_FILES['import_file']['tmp_name'])
         ) {
-            $GLOBALS['import_file'] = $_FILES['import_file']['tmp_name'];
+            ImportSettings::$importFile = $_FILES['import_file']['tmp_name'];
             $GLOBALS['import_file_name'] = $_FILES['import_file']['name'];
         }
 
@@ -394,7 +393,7 @@ final class ImportController extends AbstractController
             // sanitize $local_import_file as it comes from a POST
             $GLOBALS['local_import_file'] = Core::securePath($GLOBALS['local_import_file']);
 
-            $GLOBALS['import_file'] = Util::userDir($config->settings['UploadDir'])
+            ImportSettings::$importFile = Util::userDir($config->settings['UploadDir'])
                 . $GLOBALS['local_import_file'];
 
             /**
@@ -402,20 +401,20 @@ final class ImportController extends AbstractController
              * (user can create symlink to file they can not access,
              * but phpMyAdmin can).
              */
-            if (@is_link($GLOBALS['import_file'])) {
-                $GLOBALS['import_file'] = 'none';
+            if (@is_link(ImportSettings::$importFile)) {
+                ImportSettings::$importFile = 'none';
             }
-        } elseif (empty($GLOBALS['import_file']) || ! is_uploaded_file($GLOBALS['import_file'])) {
-            $GLOBALS['import_file'] = 'none';
+        } elseif (empty(ImportSettings::$importFile) || ! is_uploaded_file(ImportSettings::$importFile)) {
+            ImportSettings::$importFile = 'none';
         }
 
         // Do we have file to import?
 
-        if ($GLOBALS['import_file'] !== 'none' && ! $GLOBALS['error']) {
+        if (ImportSettings::$importFile !== 'none' && ! $GLOBALS['error']) {
             /**
              *  Handle file compression
              */
-            $importHandle = new File($GLOBALS['import_file']);
+            $importHandle = new File(ImportSettings::$importFile);
             $importHandle->checkUploadedFile();
             if ($importHandle->isError()) {
                 /** @var Message $errorMessage */

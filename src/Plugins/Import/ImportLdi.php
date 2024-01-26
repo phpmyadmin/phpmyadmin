@@ -93,7 +93,6 @@ class ImportLdi extends AbstractImportCsv
      */
     public function doImport(File|null $importHandle = null): array
     {
-        $GLOBALS['import_file'] ??= null;
         $GLOBALS['ldi_local_option'] ??= null;
         $GLOBALS['ldi_replace'] ??= null;
         $GLOBALS['ldi_ignore'] ??= null;
@@ -109,7 +108,7 @@ class ImportLdi extends AbstractImportCsv
             $compression = $importHandle->getCompression();
         }
 
-        if ($GLOBALS['import_file'] === 'none' || $compression !== 'none' || ImportSettings::$charsetConversion) {
+        if (ImportSettings::$importFile === 'none' || $compression !== 'none' || ImportSettings::$charsetConversion) {
             // We handle only some kind of data!
             $GLOBALS['message'] = Message::error(
                 __('This plugin does not support compressed imports!'),
@@ -125,7 +124,7 @@ class ImportLdi extends AbstractImportCsv
         }
 
         $dbi = DatabaseInterface::getInstance();
-        $sql .= ' INFILE ' . $dbi->quoteString($GLOBALS['import_file']);
+        $sql .= ' INFILE ' . $dbi->quoteString(ImportSettings::$importFile);
         if (isset($GLOBALS['ldi_replace'])) {
             $sql .= ' REPLACE';
         } elseif (isset($GLOBALS['ldi_ignore'])) {

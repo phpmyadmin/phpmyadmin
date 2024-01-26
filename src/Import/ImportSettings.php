@@ -25,4 +25,5 @@ final class ImportSettings
     public static int $maximumTime = 0;
     public static int $timestamp = 0;
     public static string $message = '';
+    public static string $importFile = '';
 }

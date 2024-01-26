@@ -51,7 +51,7 @@ class ImportMediawikiTest extends AbstractTestCase
         ImportSettings::$offset = 0;
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
-        $GLOBALS['import_file'] = 'tests/test_data/phpmyadmin.mediawiki';
+        ImportSettings::$importFile = 'tests/test_data/phpmyadmin.mediawiki';
         $GLOBALS['import_text'] = 'ImportMediawiki_Test';
         ImportSettings::$readMultiply = 10;
         $GLOBALS['import_type'] = 'Mediawiki';
@@ -108,7 +108,7 @@ class ImportMediawikiTest extends AbstractTestCase
             ->getMock();
         DatabaseInterface::$instance = $dbi;
 
-        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
         //Test function called

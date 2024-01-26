@@ -74,7 +74,7 @@ class ImportShpTest extends AbstractTestCase
      */
     protected function runImport(string $filename): void
     {
-        $GLOBALS['import_file'] = $filename;
+        ImportSettings::$importFile = $filename;
 
         $importHandle = new File($filename);
         $importHandle->setDecompressContent(true);

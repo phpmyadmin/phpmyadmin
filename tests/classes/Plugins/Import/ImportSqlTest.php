@@ -46,7 +46,7 @@ class ImportSqlTest extends AbstractTestCase
         ImportSettings::$offset = 0;
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
-        $GLOBALS['import_file'] = 'tests/test_data/pma_bookmark.sql';
+        ImportSettings::$importFile = 'tests/test_data/pma_bookmark.sql';
         $GLOBALS['import_text'] = 'ImportSql_Test';
         $GLOBALS['compression'] = 'none';
         ImportSettings::$readMultiply = 10;
@@ -80,7 +80,7 @@ class ImportSqlTest extends AbstractTestCase
             ->getMock();
         DatabaseInterface::$instance = $dbi;
 
-        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
         //Test function called

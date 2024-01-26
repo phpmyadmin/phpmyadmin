@@ -49,7 +49,7 @@ class ImportLdiTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
 
-        $GLOBALS['import_file'] = 'tests/test_data/db_test_ldi.csv';
+        ImportSettings::$importFile = 'tests/test_data/db_test_ldi.csv';
         $GLOBALS['import_text'] = 'ImportLdi_Test';
         ImportSettings::$readMultiply = 10;
         $GLOBALS['import_type'] = 'csv';
@@ -131,7 +131,7 @@ class ImportLdiTest extends AbstractTestCase
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         DatabaseInterface::$instance = $dbi;
 
-        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
         //Test function called
@@ -152,7 +152,7 @@ class ImportLdiTest extends AbstractTestCase
     #[Group('medium')]
     public function testDoImportInvalidFile(): void
     {
-        $GLOBALS['import_file'] = 'none';
+        ImportSettings::$importFile = 'none';
 
         //Test function called
         (new ImportLdi())->doImport();
@@ -188,7 +188,7 @@ class ImportLdiTest extends AbstractTestCase
         $GLOBALS['ldi_new_line'] = 'newline_mark';
         ImportSettings::$skipQueries = 1;
 
-        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
         //Test function called

@@ -63,7 +63,7 @@ class ImportCsvTest extends AbstractTestCase
         ImportSettings::$offset = 0;
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
-        $GLOBALS['import_file'] = 'tests/test_data/db_test.csv';
+        ImportSettings::$importFile = 'tests/test_data/db_test.csv';
         $GLOBALS['import_text'] = 'ImportCsv_Test';
         $GLOBALS['compression'] = 'none';
         ImportSettings::$readMultiply = 10;
@@ -74,7 +74,7 @@ class ImportCsvTest extends AbstractTestCase
         $GLOBALS['csv_enclosed'] = '"';
         $GLOBALS['csv_escaped'] = '"';
         $GLOBALS['csv_new_line'] = 'auto';
-        $GLOBALS['import_file_name'] = basename($GLOBALS['import_file'], '.csv');
+        $GLOBALS['import_file_name'] = basename(ImportSettings::$importFile, '.csv');
 
         //$_SESSION
 
@@ -123,7 +123,7 @@ class ImportCsvTest extends AbstractTestCase
 
         ImportSettings::$sqlQueryDisabled = false;
 
-        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
         //Test function called
@@ -152,10 +152,10 @@ class ImportCsvTest extends AbstractTestCase
 
         ImportSettings::$sqlQueryDisabled = false;
 
-        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
-        $GLOBALS['import_file'] = 'tests/test_data/db_test_partial_import.csv';
+        ImportSettings::$importFile = 'tests/test_data/db_test_partial_import.csv';
         $_REQUEST['csv_new_tbl_name'] = 'ImportTestTable';
         $_REQUEST['csv_new_db_name'] = 'ImportTestDb';
         $_REQUEST['csv_partial_import'] = 5;
@@ -209,7 +209,7 @@ class ImportCsvTest extends AbstractTestCase
 
         ImportSettings::$sqlQueryDisabled = false;
 
-        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
         //Test function called
@@ -239,7 +239,7 @@ class ImportCsvTest extends AbstractTestCase
 
         ImportSettings::$sqlQueryDisabled = false;
         $GLOBALS['import_type'] = 'query';
-        $GLOBALS['import_file'] = 'none';
+        ImportSettings::$importFile = 'none';
         $GLOBALS['csv_terminated'] = ',';
         $GLOBALS['import_text'] = '"Row 1","Row 2"' . "\n" . '"123","456"';
 
@@ -282,7 +282,7 @@ class ImportCsvTest extends AbstractTestCase
 
         ImportSettings::$sqlQueryDisabled = false;
         $GLOBALS['import_type'] = 'query';
-        $GLOBALS['import_file'] = 'none';
+        ImportSettings::$importFile = 'none';
         $GLOBALS['csv_terminated'] = ',';
         $GLOBALS['import_text'] = '"Row 1","Row 2"' . "\n" . '"123","456"';
 

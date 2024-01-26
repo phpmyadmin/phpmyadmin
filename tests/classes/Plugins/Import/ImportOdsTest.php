@@ -113,14 +113,14 @@ class ImportOdsTest extends AbstractTestCase
 
         ImportSettings::$sqlQueryDisabled = false;
 
-        $GLOBALS['import_file'] = 'tests/test_data/db_test.ods';
+        ImportSettings::$importFile = 'tests/test_data/db_test.ods';
         $_REQUEST['ods_empty_rows'] = true;
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
 
-        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle = new File(ImportSettings::$importFile);
         $importHandle->setDecompressContent(true);
         $importHandle->open();
 
@@ -170,7 +170,7 @@ class ImportOdsTest extends AbstractTestCase
 
         ImportSettings::$sqlQueryDisabled = false;
 
-        $GLOBALS['import_file'] = 'tests/test_data/import-slim.ods.xml';
+        ImportSettings::$importFile = 'tests/test_data/import-slim.ods.xml';
         $_REQUEST['ods_col_names'] = true;
         $_REQUEST['ods_empty_rows'] = $odsEmptyRowsMode;
 
@@ -178,7 +178,7 @@ class ImportOdsTest extends AbstractTestCase
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
 
-        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle = new File(ImportSettings::$importFile);
         $importHandle->setDecompressContent(false);// Not compressed
         $importHandle->open();
 

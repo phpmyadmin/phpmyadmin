@@ -9194,6 +9194,7 @@
       <code><![CDATA[$GLOBALS['ldi_columns']]]></code>
       <code><![CDATA[$GLOBALS['ldi_enclosed']]]></code>
       <code><![CDATA[$GLOBALS['ldi_escaped']]]></code>
+      <code>ImportSettings::$importFile</code>
     </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['ldi_columns']]]></code>
@@ -9210,7 +9211,6 @@
       <code><![CDATA[$GLOBALS['ldi_terminated']]]></code>
     </MixedOperand>
     <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['import_file']]]></code>
       <code><![CDATA[$GLOBALS['ldi_columns']]]></code>
       <code><![CDATA[$GLOBALS['ldi_enclosed']]]></code>
       <code><![CDATA[$GLOBALS['ldi_escaped']]]></code>
@@ -9387,10 +9387,6 @@
     <PossiblyNullArgument>
       <code><![CDATA[$GLOBALS['buffer']]]></code>
       <code><![CDATA[$GLOBALS['buffer']]]></code>
-      <code><![CDATA[$GLOBALS['import_file']]]></code>
-      <code><![CDATA[$GLOBALS['import_file']]]></code>
-      <code><![CDATA[$GLOBALS['import_file']]]></code>
-      <code><![CDATA[$GLOBALS['import_file']]]></code>
       <code><![CDATA[$shp->getDBFHeader()]]></code>
     </PossiblyNullArgument>
     <PossiblyNullIterator>
