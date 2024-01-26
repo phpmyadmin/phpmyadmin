@@ -2008,7 +2008,6 @@
       <code><![CDATA[$GLOBALS['reset_charset']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
       <code><![CDATA[$GLOBALS['sql_file']]]></code>
-      <code><![CDATA[$GLOBALS['timestamp']]]></code>
     </InvalidArrayOffset>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$GLOBALS['urlParams']]]></code>
@@ -2035,7 +2034,6 @@
       <code><![CDATA[$GLOBALS['result']]]></code>
       <code><![CDATA[$GLOBALS['show_as_php']]]></code>
       <code><![CDATA[$GLOBALS['sql_file']]]></code>
-      <code><![CDATA[$GLOBALS['timestamp']]]></code>
       <code>$bookmarkVariables</code>
       <code>$consoleMessageId</code>
     </MixedAssignment>
@@ -2065,9 +2063,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Import/StatusController.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['timestamp']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$_SESSION['Import_message']['message'] ?? '']]></code>
       <code><![CDATA[$request->getQueryParam('id')]]></code>
@@ -2075,9 +2070,6 @@
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['Import_message']['message']]]></code>
     </MixedArrayAssignment>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['timestamp']]]></code>
-    </MixedAssignment>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
@@ -6663,7 +6655,6 @@
       <code><![CDATA[$GLOBALS['local_import_file']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
-      <code><![CDATA[$GLOBALS['timestamp']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code>$active</code>
@@ -6743,7 +6734,6 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['msg']]]></code>
-      <code><![CDATA[$GLOBALS['timestamp']]]></code>
       <code>$active</code>
       <code>$cellValue</code>
       <code>$charset</code>
@@ -6761,7 +6751,6 @@
     </MixedMethodCall>
     <MixedOperand>
       <code><![CDATA[$GLOBALS['msg']]]></code>
-      <code><![CDATA[$GLOBALS['timestamp']]]></code>
       <code>$charset</code>
       <code>$charset</code>
       <code>$collation</code>
@@ -6795,9 +6784,6 @@
       <code>$additionalSql[$i]</code>
       <code>$sqlDelimiter</code>
     </PossiblyInvalidCast>
-    <PossiblyNullOperand>
-      <code><![CDATA[$GLOBALS['timestamp']]]></code>
-    </PossiblyNullOperand>
     <RedundantCondition>
       <code><![CDATA[$GLOBALS['result'] == false]]></code>
     </RedundantCondition>

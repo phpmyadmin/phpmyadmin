@@ -71,7 +71,6 @@ final class ImportController extends AbstractController
         $GLOBALS['message'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['timestamp'] ??= null;
         $GLOBALS['import_file'] ??= null;
         $GLOBALS['sql_file'] ??= null;
         $GLOBALS['error'] ??= null;
@@ -263,7 +262,7 @@ final class ImportController extends AbstractController
             ini_set('memory_limit', $config->settings['MemoryLimit']);
         }
 
-        $GLOBALS['timestamp'] = time();
+        ImportSettings::$timestamp = time();
         ImportSettings::$maximumTime = 0;
         $maxExecutionTime = (int) ini_get('max_execution_time');
         if ($request->hasBodyParam('allow_interrupt') && $maxExecutionTime >= 1) {
