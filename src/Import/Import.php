@@ -1430,8 +1430,8 @@ class Import
 
         $matcher = '@\.(' . $extensions . ')(\.(' . $fileListing->supportedDecompressions() . '))?$@';
 
-        $active = isset($GLOBALS['local_import_file']) && ImportSettings::$timeoutPassed
-            ? $GLOBALS['local_import_file']
+        $active = ImportSettings::$localImportFile !== '' && ImportSettings::$timeoutPassed
+            ? ImportSettings::$localImportFile
             : '';
 
         return $fileListing->getFileSelectOptions(

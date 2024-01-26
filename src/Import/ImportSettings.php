@@ -28,4 +28,5 @@ final class ImportSettings
     public static string $importFile = '';
     public static string $importType = '';
     public static string $importFileName = '';
+    public static string $localImportFile = '';
 }

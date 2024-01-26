@@ -81,7 +81,7 @@ final class ImportController extends AbstractController
         $GLOBALS['message_to_show'] = $request->getParsedBodyParam('message_to_show');
         $GLOBALS['noplugin'] = $request->getParsedBodyParam('noplugin');
         ImportSettings::$skipQueries = (int) $request->getParsedBodyParam('skip_queries');
-        $GLOBALS['local_import_file'] = $request->getParsedBodyParam('local_import_file');
+        ImportSettings::$localImportFile = (string) $request->getParsedBodyParam('local_import_file');
         $GLOBALS['show_as_php'] = $request->getParsedBodyParam('show_as_php');
 
         // reset import messages for ajax request
@@ -384,12 +384,12 @@ final class ImportController extends AbstractController
             ImportSettings::$importFileName = $_FILES['import_file']['name'];
         }
 
-        if (! empty($GLOBALS['local_import_file']) && $config->settings['UploadDir'] !== '') {
+        if (ImportSettings::$localImportFile !== '' && $config->settings['UploadDir'] !== '') {
             // sanitize $local_import_file as it comes from a POST
-            $GLOBALS['local_import_file'] = Core::securePath($GLOBALS['local_import_file']);
+            ImportSettings::$localImportFile = Core::securePath(ImportSettings::$localImportFile);
 
             ImportSettings::$importFile = Util::userDir($config->settings['UploadDir'])
-                . $GLOBALS['local_import_file'];
+                . ImportSettings::$localImportFile;
 
             /**
              * Do not allow symlinks to avoid security issues
@@ -558,8 +558,8 @@ final class ImportController extends AbstractController
                     $GLOBALS['message']->addHtml(ImportSettings::$importNotice);
                 }
 
-                if (! empty($GLOBALS['local_import_file'])) {
-                    $GLOBALS['message']->addText('(' . $GLOBALS['local_import_file'] . ')');
+                if (ImportSettings::$localImportFile !== '') {
+                    $GLOBALS['message']->addText('(' . ImportSettings::$localImportFile . ')');
                 } elseif (
                     isset($_FILES['import_file'])
                     && is_array($_FILES['import_file'])
@@ -575,8 +575,8 @@ final class ImportController extends AbstractController
         if (ImportSettings::$timeoutPassed) {
             $GLOBALS['urlParams']['timeout_passed'] = '1';
             $GLOBALS['urlParams']['offset'] = ImportSettings::$offset;
-            if (isset($GLOBALS['local_import_file'])) {
-                $GLOBALS['urlParams']['local_import_file'] = $GLOBALS['local_import_file'];
+            if (ImportSettings::$localImportFile !== '') {
+                $GLOBALS['urlParams']['local_import_file'] = ImportSettings::$localImportFile;
             }
 
             $importUrl = $GLOBALS['errorUrl'] = $GLOBALS['goto'] . Url::getCommon($GLOBALS['urlParams'], '&');

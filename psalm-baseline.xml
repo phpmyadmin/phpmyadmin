@@ -2020,7 +2020,6 @@
       <code><![CDATA[$GLOBALS['ajax_reload']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['is_js_confirmed']]]></code>
-      <code><![CDATA[$GLOBALS['local_import_file']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
       <code><![CDATA[$GLOBALS['noplugin']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
@@ -2033,7 +2032,6 @@
     </PossiblyInvalidPropertyAssignmentValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($GLOBALS['goto'])]]></code>
-      <code><![CDATA[empty($GLOBALS['sql_file'])]]></code>
     </RiskyTruthyFalsyComparison>
     <UnusedProperty>
       <code>$sql</code>
@@ -6640,9 +6638,6 @@
     <DocblockTypeContradiction>
       <code><![CDATA[empty($parser->statements[0])]]></code>
     </DocblockTypeContradiction>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['local_import_file']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code>$active</code>
       <code>$additionalSql[$i]</code>
@@ -6772,10 +6767,8 @@
       <code><![CDATA[$GLOBALS['result'] == false]]></code>
     </RedundantCondition>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$GLOBALS['run_query']]]></code>
-      <code><![CDATA[$GLOBALS['run_query']]]></code>
-      <code><![CDATA[$GLOBALS['run_query']]]></code>
       <code>$error</code>
+      <code>ImportSettings::$runQuery</code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Index.php">
@@ -9345,7 +9338,6 @@
       <code><![CDATA[$GLOBALS['buffer']]]></code>
       <code><![CDATA[$GLOBALS['eof']]]></code>
       <code><![CDATA[$GLOBALS['importHandle']]]></code>
-      <code><![CDATA[$GLOBALS['local_import_file']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['buffer']]]></code>
@@ -9370,7 +9362,6 @@
       <code><![CDATA[$GLOBALS['buffer']]]></code>
       <code><![CDATA[$GLOBALS['eof']]]></code>
       <code><![CDATA[$GLOBALS['importHandle']]]></code>
-      <code><![CDATA[$GLOBALS['local_import_file']]]></code>
       <code>$c</code>
       <code>$colNames[]</code>
     </MixedAssignment>
@@ -9393,9 +9384,6 @@
     <PossiblyUnusedReturnValue>
       <code>string[]</code>
     </PossiblyUnusedReturnValue>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($GLOBALS['local_import_file'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Plugins/Import/ImportSql.php">
     <DeprecatedMethod>

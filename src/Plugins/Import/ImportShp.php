@@ -80,7 +80,6 @@ class ImportShp extends ImportPlugin
     public function doImport(File|null $importHandle = null): array
     {
         $GLOBALS['error'] ??= null;
-        $GLOBALS['local_import_file'] ??= null;
         $GLOBALS['message'] ??= null;
         ImportSettings::$finished = false;
 
@@ -143,7 +142,7 @@ class ImportShp extends ImportPlugin
                     }
                 }
             } elseif (
-                ! empty($GLOBALS['local_import_file'])
+                ImportSettings::$localImportFile !== ''
                 && ! empty($config->settings['UploadDir'])
                 && $compression === 'none'
             ) {
