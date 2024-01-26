@@ -74,7 +74,6 @@ final class ImportController extends AbstractController
         $GLOBALS['import_file'] ??= null;
         $GLOBALS['sql_file'] ??= null;
         $GLOBALS['error'] ??= null;
-        $GLOBALS['msg'] ??= null;
         $GLOBALS['reset_charset'] ??= null;
         $GLOBALS['result'] ??= null;
         $GLOBALS['import_file_name'] ??= null;
@@ -283,7 +282,7 @@ final class ImportController extends AbstractController
         ImportSettings::$runQuery = true;
         ImportSettings::$charsetConversion = false;
         $GLOBALS['reset_charset'] = false;
-        $GLOBALS['msg'] = 'Sorry an unexpected error happened!';
+        ImportSettings::$message = 'Sorry an unexpected error happened!';
 
         $GLOBALS['result'] = false;
 
@@ -738,14 +737,14 @@ final class ImportController extends AbstractController
             }
 
             $this->response->setRequestStatus(true);
-            $this->response->addJSON('message', Message::success($GLOBALS['msg']));
+            $this->response->addJSON('message', Message::success(ImportSettings::$message));
             $this->response->addJSON(
                 'sql_query',
-                Generator::getMessage($GLOBALS['msg'], $GLOBALS['sql_query'], 'success'),
+                Generator::getMessage(ImportSettings::$message, $GLOBALS['sql_query'], 'success'),
             );
         } elseif ($GLOBALS['result'] === false) {
             $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', Message::error($GLOBALS['msg']));
+            $this->response->addJSON('message', Message::error(ImportSettings::$message));
         } else {
             /** @psalm-suppress UnresolvableInclude */
             include ROOT_PATH . $GLOBALS['goto'];

@@ -125,7 +125,6 @@ class Import
     public function executeQuery(string $sql, array &$sqlData): void
     {
         $GLOBALS['error'] ??= null;
-        $GLOBALS['msg'] ??= null;
         $dbi = DatabaseInterface::getInstance();
         $GLOBALS['result'] = $dbi->tryQuery($sql);
 
@@ -133,11 +132,11 @@ class Import
         // while running multiple queries
         $isUseQuery = mb_stripos($sql, 'use ') !== false;
 
-        $GLOBALS['msg'] = '# ';
+        ImportSettings::$message = '# ';
         if ($GLOBALS['result'] === false) {
             ImportSettings::$failedQueries[] = ['sql' => $sql, 'error' => $dbi->getError()];
 
-            $GLOBALS['msg'] .= __('Error');
+            ImportSettings::$message .= __('Error');
 
             if (! Config::getInstance()->settings['IgnoreMultiSubmitErrors']) {
                 $GLOBALS['error'] = true;
@@ -148,12 +147,12 @@ class Import
             $aNumRows = (int) $GLOBALS['result']->numRows();
             $aAffectedRows = (int) @$dbi->affectedRows();
             if ($aNumRows > 0) {
-                $GLOBALS['msg'] .= __('Rows') . ': ' . $aNumRows;
+                ImportSettings::$message .= __('Rows') . ': ' . $aNumRows;
             } elseif ($aAffectedRows > 0) {
                 $message = Message::getMessageForAffectedRows($aAffectedRows);
-                $GLOBALS['msg'] .= $message->getMessage();
+                ImportSettings::$message .= $message->getMessage();
             } else {
-                $GLOBALS['msg'] .= __('MySQL returned an empty result set (i.e. zero rows).');
+                ImportSettings::$message .= __('MySQL returned an empty result set (i.e. zero rows).');
             }
 
             if ($aNumRows > 0 || $isUseQuery) {
@@ -162,7 +161,7 @@ class Import
         }
 
         if (! ImportSettings::$sqlQueryDisabled) {
-            $GLOBALS['sql_query'] .= $GLOBALS['msg'] . "\n";
+            $GLOBALS['sql_query'] .= ImportSettings::$message . "\n";
         }
 
         // If a 'USE <db>' SQL-clause was found and the query
@@ -194,7 +193,6 @@ class Import
     {
         $GLOBALS['complete_query'] ??= null;
         $GLOBALS['display_query'] ??= null;
-        $GLOBALS['msg'] ??= null;
 
         ImportSettings::$readMultiply = 1;
         if ($this->importRunBuffer === null) {
@@ -273,7 +271,7 @@ class Import
             return;
         }
 
-        $GLOBALS['msg'] .= __('[ROLLBACK occurred.]');
+        ImportSettings::$message .= __('[ROLLBACK occurred.]');
     }
 
     /**

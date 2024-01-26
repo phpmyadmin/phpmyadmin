@@ -24,4 +24,5 @@ final class ImportSettings
     public static bool $runQuery = false;
     public static int $maximumTime = 0;
     public static int $timestamp = 0;
+    public static string $message = '';
 }

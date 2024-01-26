@@ -2771,11 +2771,6 @@ parameters:
 			path: src/Controllers/Import/ImportController.php
 
 		-
-			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getMessage\\(\\) expects PhpMyAdmin\\\\Message\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
 			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\File constructor expects bool\\|string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Import/ImportController.php
@@ -2802,16 +2797,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function mb_strlen expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of static method PhpMyAdmin\\\\Message\\:\\:error\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of static method PhpMyAdmin\\\\Message\\:\\:success\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Import/ImportController.php
 
@@ -5926,32 +5911,7 @@ parameters:
 			path: src/Controllers/Triggers/IndexController.php
 
 		-
-			message: "#^Cannot access offset 'error' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/UserPasswordController.php
-
-		-
-			message: "#^Cannot access offset 'msg' on mixed\\.$#"
-			count: 2
-			path: src/Controllers/UserPasswordController.php
-
-		-
-			message: "#^Cannot call method getDisplay\\(\\) on mixed\\.$#"
-			count: 1
-			path: src/Controllers/UserPasswordController.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, array\\<array\\<int\\|string, array\\<array\\<string\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string\\|null\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string given\\.$#"
-			count: 1
-			path: src/Controllers/UserPasswordController.php
-
-		-
-			message: "#^Parameter \\#1 \\$content of method PhpMyAdmin\\\\ResponseRenderer\\:\\:addHTML\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/UserPasswordController.php
-
-		-
-			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getMessage\\(\\) expects PhpMyAdmin\\\\Message\\|string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/UserPasswordController.php
 
@@ -8871,13 +8831,8 @@ parameters:
 			path: src/Import/Import.php
 
 		-
-			message: "#^Cannot call method numRows\\(\\) on mixed\\.$#"
-			count: 1
-			path: src/Import/Import.php
-
-		-
 			message: "#^Cannot cast mixed to int\\.$#"
-			count: 2
+			count: 1
 			path: src/Import/Import.php
 
 		-

@@ -2004,7 +2004,6 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['ajax_reload']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['reset_charset']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
       <code><![CDATA[$GLOBALS['sql_file']]]></code>
@@ -2028,7 +2027,6 @@
       <code><![CDATA[$GLOBALS['is_js_confirmed']]]></code>
       <code><![CDATA[$GLOBALS['local_import_file']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
-      <code><![CDATA[$GLOBALS['msg']]]></code>
       <code><![CDATA[$GLOBALS['noplugin']]]></code>
       <code><![CDATA[$GLOBALS['reset_charset']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
@@ -4236,10 +4234,9 @@
     </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['change_password_message']]]></code>
-      <code><![CDATA[$GLOBALS['msg']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['msg']->getDisplay()]]></code>
+      <code><![CDATA[$message->getDisplay()]]></code>
       <code>$password</code>
       <code>$pmaPw</code>
       <code>$pmaPw2</code>
@@ -4247,7 +4244,6 @@
     </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['change_password_message']]]></code>
-      <code><![CDATA[$GLOBALS['msg']]]></code>
       <code>$noPass</code>
       <code>$password</code>
       <code>$pmaPw</code>
@@ -6653,8 +6649,6 @@
     </DocblockTypeContradiction>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['local_import_file']]]></code>
-      <code><![CDATA[$GLOBALS['msg']]]></code>
-      <code><![CDATA[$GLOBALS['msg']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code>$active</code>
@@ -6732,8 +6726,6 @@
       <code>$typeArray[$analyses[$i][self::TYPES][$j]]</code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['msg']]]></code>
-      <code><![CDATA[$GLOBALS['msg']]]></code>
       <code>$active</code>
       <code>$cellValue</code>
       <code>$charset</code>
@@ -6750,7 +6742,6 @@
       <code>getProperties</code>
     </MixedMethodCall>
     <MixedOperand>
-      <code><![CDATA[$GLOBALS['msg']]]></code>
       <code>$charset</code>
       <code>$charset</code>
       <code>$collation</code>
