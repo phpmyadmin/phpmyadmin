@@ -73,7 +73,6 @@ final class ImportController extends AbstractController
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['import_file'] ??= null;
         $GLOBALS['error'] ??= null;
-        $GLOBALS['reset_charset'] ??= null;
         $GLOBALS['result'] ??= null;
         $GLOBALS['import_file_name'] ??= null;
 
@@ -274,7 +273,7 @@ final class ImportController extends AbstractController
         ImportSettings::$executedQueries = 0;
         ImportSettings::$runQuery = true;
         ImportSettings::$charsetConversion = false;
-        $GLOBALS['reset_charset'] = false;
+        $resetCharset = false;
         ImportSettings::$message = 'Sorry an unexpected error happened!';
 
         $GLOBALS['result'] = false;
@@ -477,7 +476,7 @@ final class ImportController extends AbstractController
             $this->dbi->query('SET NAMES \'' . ImportSettings::$charsetOfFile . '\'');
             // We can not show query in this case, it is in different charset
             ImportSettings::$sqlQueryDisabled = true;
-            $GLOBALS['reset_charset'] = true;
+            $resetCharset = true;
         }
 
         // Something to skip? (because timeout has passed)
@@ -534,7 +533,7 @@ final class ImportController extends AbstractController
         }
 
         // Reset charset back, if we did some changes
-        if ($GLOBALS['reset_charset']) {
+        if ($resetCharset) {
             $this->dbi->query('SET CHARACTER SET ' . $this->dbi->getDefaultCharset());
             $this->dbi->setCollation($this->dbi->getDefaultCollation());
         }

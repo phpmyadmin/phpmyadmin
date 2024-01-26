@@ -2004,7 +2004,6 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['ajax_reload']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['reset_charset']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
     </InvalidArrayOffset>
     <MixedArgumentTypeCoercion>
@@ -2025,7 +2024,6 @@
       <code><![CDATA[$GLOBALS['local_import_file']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
       <code><![CDATA[$GLOBALS['noplugin']]]></code>
-      <code><![CDATA[$GLOBALS['reset_charset']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
       <code><![CDATA[$GLOBALS['show_as_php']]]></code>
       <code>$bookmarkVariables</code>
