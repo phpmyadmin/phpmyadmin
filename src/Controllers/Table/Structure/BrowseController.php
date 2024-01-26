@@ -11,7 +11,6 @@ use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -44,7 +43,6 @@ final class BrowseController extends AbstractController
      */
     private function displayTableBrowseForSelectedColumns(string $goto): void
     {
-        $GLOBALS['active_page'] = Url::getFromRoute('/sql');
         $fields = [];
         foreach ($_POST['selected_fld'] as $sval) {
             $fields[] = Util::backquote($sval);

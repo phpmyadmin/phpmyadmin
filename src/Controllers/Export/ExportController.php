@@ -61,7 +61,6 @@ final class ExportController extends AbstractController
         $GLOBALS['table_select'] ??= null;
         $GLOBALS['time_start'] ??= null;
         $GLOBALS['charset'] ??= null;
-        $GLOBALS['active_page'] ??= null;
         $GLOBALS['table_data'] ??= null;
 
         /** @var array<string, string> $postParams */
@@ -300,7 +299,6 @@ final class ExportController extends AbstractController
                     $GLOBALS['message'] = Message::error(
                         __('No tables found in database.'),
                     );
-                    $GLOBALS['active_page'] = Url::getFromRoute('/database/export');
                     /** @var DatabaseExportController $controller */
                     $controller = ContainerBuilder::getContainer()->get(DatabaseExportController::class);
                     $controller($request);

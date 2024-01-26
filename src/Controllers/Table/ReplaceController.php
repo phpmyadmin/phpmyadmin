@@ -68,7 +68,6 @@ final class ReplaceController extends AbstractController
 
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['unsaved_values'] ??= null;
-        $GLOBALS['active_page'] ??= null;
         $GLOBALS['disp_query'] ??= null;
         $GLOBALS['disp_message'] ??= null;
         $GLOBALS['query'] ??= null;
@@ -478,7 +477,6 @@ final class ReplaceController extends AbstractController
 
     private function moveBackToCallingScript(string $gotoInclude, ServerRequest $request): void
     {
-        $GLOBALS['active_page'] = $gotoInclude;
         if ($gotoInclude === '/sql') {
             ($this->sqlController)($request);
 

@@ -8,7 +8,6 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 
 use function __;
 use function array_values;
@@ -26,7 +25,6 @@ final class ExportRowsController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['active_page'] ??= null;
         $GLOBALS['single_table'] ??= null;
         $GLOBALS['where_clause'] ??= null;
 
@@ -48,8 +46,6 @@ final class ExportRowsController extends AbstractController
         if (isset($_POST['rows_to_delete']) && is_array($_POST['rows_to_delete'])) {
             $GLOBALS['where_clause'] = array_values($_POST['rows_to_delete']);
         }
-
-        $GLOBALS['active_page'] = Url::getFromRoute('/table/export');
 
         ($this->exportController)($request);
     }

@@ -23,7 +23,6 @@ class ExportRowsControllerTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Current::$server = 2;
-        $GLOBALS['active_page'] = null;
         $GLOBALS['single_table'] = null;
         $GLOBALS['where_clause'] = null;
         $_POST = [];
@@ -42,8 +41,6 @@ class ExportRowsControllerTest extends AbstractTestCase
             $controller,
         ))($this->createStub(ServerRequest::class));
 
-        /** @psalm-suppress InvalidArrayOffset */
-        $this->assertSame('index.php?route=/table/export&server=2&lang=en', $GLOBALS['active_page']);
         /** @psalm-suppress InvalidArrayOffset */
         $this->assertTrue($GLOBALS['single_table']);
         /** @psalm-suppress InvalidArrayOffset */
@@ -67,8 +64,6 @@ class ExportRowsControllerTest extends AbstractTestCase
         $this->assertSame(['message' => 'No row selected.'], $response->getJSONResult());
         $this->assertFalse($response->hasSuccessState());
         /** @psalm-suppress InvalidArrayOffset */
-        $this->assertNull($GLOBALS['active_page']);
-        /** @psalm-suppress InvalidArrayOffset */
         $this->assertNull($GLOBALS['single_table']);
         /** @psalm-suppress InvalidArrayOffset */
         $this->assertNull($GLOBALS['where_clause']);
@@ -88,8 +83,6 @@ class ExportRowsControllerTest extends AbstractTestCase
             $controller,
         ))($this->createStub(ServerRequest::class));
 
-        /** @psalm-suppress InvalidArrayOffset */
-        $this->assertSame('index.php?route=/table/export&server=2&lang=en', $GLOBALS['active_page']);
         /** @psalm-suppress InvalidArrayOffset */
         $this->assertTrue($GLOBALS['single_table']);
         /** @psalm-suppress InvalidArrayOffset */

@@ -16,7 +16,6 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
@@ -38,7 +37,6 @@ final class DeleteRowsController extends AbstractController
         $GLOBALS['goto'] ??= null;
         $GLOBALS['disp_message'] ??= null;
         $GLOBALS['disp_query'] ??= null;
-        $GLOBALS['active_page'] ??= null;
 
         $multBtn = $_POST['mult_btn'] ?? '';
         $selected = $_POST['selected'] ?? [];
@@ -82,8 +80,6 @@ final class DeleteRowsController extends AbstractController
         if ($request->hasBodyParam('original_sql_query')) {
             $GLOBALS['sql_query'] = $request->getParsedBodyParam('original_sql_query', '');
         }
-
-        $GLOBALS['active_page'] = Url::getFromRoute('/sql');
 
         $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
             null,
