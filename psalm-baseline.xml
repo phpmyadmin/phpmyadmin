@@ -9160,7 +9160,6 @@
       <code><![CDATA[$GLOBALS['csv_escaped']]]></code>
       <code><![CDATA[$GLOBALS['csv_new_line']]]></code>
       <code><![CDATA[$GLOBALS['csv_terminated']]]></code>
-      <code><![CDATA[$GLOBALS['import_file_name']]]></code>
     </PossiblyNullArgument>
     <PossiblyNullOperand>
       <code>$ch</code>

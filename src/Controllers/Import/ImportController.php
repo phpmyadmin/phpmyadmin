@@ -73,7 +73,6 @@ final class ImportController extends AbstractController
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['error'] ??= null;
         $GLOBALS['result'] ??= null;
-        $GLOBALS['import_file_name'] ??= null;
 
         ImportSettings::$charsetOfFile = (string) $request->getParsedBodyParam('charset_of_file');
         $format = $request->getParsedBodyParam('format', '');
@@ -382,7 +381,7 @@ final class ImportController extends AbstractController
             && is_string($_FILES['import_file']['tmp_name'])
         ) {
             ImportSettings::$importFile = $_FILES['import_file']['tmp_name'];
-            $GLOBALS['import_file_name'] = $_FILES['import_file']['name'];
+            ImportSettings::$importFileName = $_FILES['import_file']['name'];
         }
 
         if (! empty($GLOBALS['local_import_file']) && $config->settings['UploadDir'] !== '') {

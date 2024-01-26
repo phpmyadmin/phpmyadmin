@@ -694,9 +694,7 @@ class ImportCsv extends AbstractImportCsv
 
     private function getTableNameFromImport(string $databaseName): string
     {
-        $GLOBALS['import_file_name'] ??= null;
-
-        $importFileName = basename($GLOBALS['import_file_name'], '.csv');
+        $importFileName = basename(ImportSettings::$importFileName, '.csv');
         $importFileName = mb_strtolower($importFileName);
         $importFileName = (string) preg_replace('/[^a-zA-Z0-9_]/', '_', $importFileName);
 

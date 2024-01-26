@@ -11736,11 +11736,6 @@ parameters:
 			path: src/Plugins/Import/ImportCsv.php
 
 		-
-			message: "#^Parameter \\#1 \\$path of function basename expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportCsv.php
-
-		-
 			message: "#^Parameter \\#1 \\$serverMessage of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:mysqlDie\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Plugins/Import/ImportCsv.php

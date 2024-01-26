@@ -74,7 +74,7 @@ class ImportCsvTest extends AbstractTestCase
         $GLOBALS['csv_enclosed'] = '"';
         $GLOBALS['csv_escaped'] = '"';
         $GLOBALS['csv_new_line'] = 'auto';
-        $GLOBALS['import_file_name'] = basename(ImportSettings::$importFile, '.csv');
+        ImportSettings::$importFileName = basename(ImportSettings::$importFile, '.csv');
 
         //$_SESSION
 
@@ -135,7 +135,7 @@ class ImportCsvTest extends AbstractTestCase
             $GLOBALS['sql_query'],
         );
         self::assertStringContainsString(
-            'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`' . $GLOBALS['import_file_name'] . '`',
+            'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`' . ImportSettings::$importFileName . '`',
             $GLOBALS['sql_query'],
         );
 
@@ -222,7 +222,7 @@ class ImportCsvTest extends AbstractTestCase
         );
 
         self::assertStringContainsString(
-            'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`' . $GLOBALS['import_file_name'] . '`',
+            'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`' . ImportSettings::$importFileName . '`',
             $GLOBALS['sql_query'],
         );
 

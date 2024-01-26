@@ -27,4 +27,5 @@ final class ImportSettings
     public static string $message = '';
     public static string $importFile = '';
     public static string $importType = '';
+    public static string $importFileName = '';
 }
