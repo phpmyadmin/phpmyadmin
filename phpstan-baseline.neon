@@ -2727,7 +2727,7 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 1
+			count: 2
 			path: src/Controllers/Import/ImportController.php
 
 		-
@@ -2813,11 +2813,6 @@ parameters:
 		-
 			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, mixed given\\.$#"
 			count: 5
-			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Parameter \\#3 \\$param of static method PhpMyAdmin\\\\Plugins\\:\\:getPlugin\\(\\) expects array\\{export_type\\: string, single_table\\: bool\\}\\|string\\|null, mixed given\\.$#"
-			count: 1
 			path: src/Controllers/Import/ImportController.php
 
 		-

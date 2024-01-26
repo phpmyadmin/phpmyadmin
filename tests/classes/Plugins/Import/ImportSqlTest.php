@@ -50,7 +50,7 @@ class ImportSqlTest extends AbstractTestCase
         $GLOBALS['import_text'] = 'ImportSql_Test';
         $GLOBALS['compression'] = 'none';
         ImportSettings::$readMultiply = 10;
-        $GLOBALS['import_type'] = 'Xml';
+        ImportSettings::$importType = 'Xml';
     }
 
     /**

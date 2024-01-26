@@ -67,7 +67,7 @@ class ImportCsvTest extends AbstractTestCase
         $GLOBALS['import_text'] = 'ImportCsv_Test';
         $GLOBALS['compression'] = 'none';
         ImportSettings::$readMultiply = 10;
-        $GLOBALS['import_type'] = 'Xml';
+        ImportSettings::$importType = 'Xml';
 
         //separator for csv
         $GLOBALS['csv_terminated'] = "\015";
@@ -238,7 +238,7 @@ class ImportCsvTest extends AbstractTestCase
         //$sql_query_disabled will show the import SQL detail
 
         ImportSettings::$sqlQueryDisabled = false;
-        $GLOBALS['import_type'] = 'query';
+        ImportSettings::$importType = 'query';
         ImportSettings::$importFile = 'none';
         $GLOBALS['csv_terminated'] = ',';
         $GLOBALS['import_text'] = '"Row 1","Row 2"' . "\n" . '"123","456"';
@@ -281,7 +281,7 @@ class ImportCsvTest extends AbstractTestCase
         //$sql_query_disabled will show the import SQL detail
 
         ImportSettings::$sqlQueryDisabled = false;
-        $GLOBALS['import_type'] = 'query';
+        ImportSettings::$importType = 'query';
         ImportSettings::$importFile = 'none';
         $GLOBALS['csv_terminated'] = ',';
         $GLOBALS['import_text'] = '"Row 1","Row 2"' . "\n" . '"123","456"';

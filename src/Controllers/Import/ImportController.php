@@ -77,7 +77,7 @@ final class ImportController extends AbstractController
 
         ImportSettings::$charsetOfFile = (string) $request->getParsedBodyParam('charset_of_file');
         $format = $request->getParsedBodyParam('format', '');
-        $GLOBALS['import_type'] = $request->getParsedBodyParam('import_type');
+        ImportSettings::$importType = (string) $request->getParsedBodyParam('import_type');
         $GLOBALS['is_js_confirmed'] = $request->getParsedBodyParam('is_js_confirmed');
         $GLOBALS['message_to_show'] = $request->getParsedBodyParam('message_to_show');
         $GLOBALS['noplugin'] = $request->getParsedBodyParam('noplugin');
@@ -123,7 +123,7 @@ final class ImportController extends AbstractController
 
             // run SQL query
             $GLOBALS['import_text'] = $GLOBALS['sql_query'];
-            $GLOBALS['import_type'] = 'query';
+            ImportSettings::$importType = 'query';
             $format = 'sql';
             $_SESSION['sql_from_query_box'] = true;
 
@@ -155,7 +155,7 @@ final class ImportController extends AbstractController
             $GLOBALS['sql_query'] = '';
         } elseif ($request->hasBodyParam('id_bookmark')) {
             // run bookmark
-            $GLOBALS['import_type'] = 'query';
+            ImportSettings::$importType = 'query';
             $format = 'sql';
         }
 
@@ -207,10 +207,6 @@ final class ImportController extends AbstractController
 
         Core::setPostAsGlobal($postPatterns);
 
-        if (! $this->checkParameters(['import_type'])) {
-            return;
-        }
-
         // We don't want anything special in format
         $format = Core::securePath($format);
 
@@ -223,11 +219,11 @@ final class ImportController extends AbstractController
         }
 
         // Create error and goto url
-        if ($GLOBALS['import_type'] === 'table') {
+        if (ImportSettings::$importType === 'table') {
             $GLOBALS['goto'] = Url::getFromRoute('/table/import');
-        } elseif ($GLOBALS['import_type'] === 'database') {
+        } elseif (ImportSettings::$importType === 'database') {
             $GLOBALS['goto'] = Url::getFromRoute('/database/import');
-        } elseif ($GLOBALS['import_type'] === 'server') {
+        } elseif (ImportSettings::$importType === 'server') {
             $GLOBALS['goto'] = Url::getFromRoute('/server/import');
         } elseif (empty($GLOBALS['goto']) || ! preg_match('@^index\.php$@i', $GLOBALS['goto'])) {
             if (Current::$table !== '' && Current::$database !== '') {
@@ -500,7 +496,7 @@ final class ImportController extends AbstractController
 
         if (! $GLOBALS['error']) {
             /** @var ImportPlugin $importPlugin */
-            $importPlugin = Plugins::getPlugin('import', $format, $GLOBALS['import_type']);
+            $importPlugin = Plugins::getPlugin('import', $format, ImportSettings::$importType);
             if ($importPlugin == null) {
                 $GLOBALS['message'] = Message::error(
                     __('Could not load import plugins, please check your installation!'),
@@ -547,7 +543,7 @@ final class ImportController extends AbstractController
         } elseif (ImportSettings::$finished && ! $GLOBALS['error']) {
             // Do not display the query with message, we do it separately
             $GLOBALS['display_query'] = ';';
-            if ($GLOBALS['import_type'] !== 'query') {
+            if (ImportSettings::$importType !== 'query') {
                 $GLOBALS['message'] = Message::success(
                     '<em>'
                     . _ngettext(

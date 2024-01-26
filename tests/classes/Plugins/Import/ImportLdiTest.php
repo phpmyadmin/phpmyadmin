@@ -52,7 +52,7 @@ class ImportLdiTest extends AbstractTestCase
         ImportSettings::$importFile = 'tests/test_data/db_test_ldi.csv';
         $GLOBALS['import_text'] = 'ImportLdi_Test';
         ImportSettings::$readMultiply = 10;
-        $GLOBALS['import_type'] = 'csv';
+        ImportSettings::$importType = 'csv';
 
         //setting for Ldi
         $config->settings['Import']['ldi_replace'] = false;
