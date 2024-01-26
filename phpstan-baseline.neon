@@ -2811,11 +2811,6 @@ parameters:
 			path: src/Controllers/Import/ImportController.php
 
 		-
-			message: "#^Parameter \\#2 \\$format of static method PhpMyAdmin\\\\Plugins\\:\\:getPlugin\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
 			message: "#^Parameter \\#2 \\$size of method PhpMyAdmin\\\\Import\\\\Import\\:\\:getNextChunk\\(\\) expects int, float\\|int\\<min, \\-1\\>\\|int\\<1, max\\> given\\.$#"
 			count: 1
 			path: src/Controllers/Import/ImportController.php

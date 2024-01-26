@@ -78,7 +78,7 @@ final class ImportController extends AbstractController
         $GLOBALS['import_file_name'] ??= null;
 
         ImportSettings::$charsetOfFile = (string) $request->getParsedBodyParam('charset_of_file');
-        $GLOBALS['format'] = $request->getParsedBodyParam('format', '');
+        $format = $request->getParsedBodyParam('format', '');
         $GLOBALS['import_type'] = $request->getParsedBodyParam('import_type');
         $GLOBALS['is_js_confirmed'] = $request->getParsedBodyParam('is_js_confirmed');
         $GLOBALS['message_to_show'] = $request->getParsedBodyParam('message_to_show');
@@ -126,7 +126,7 @@ final class ImportController extends AbstractController
             // run SQL query
             $GLOBALS['import_text'] = $GLOBALS['sql_query'];
             $GLOBALS['import_type'] = 'query';
-            $GLOBALS['format'] = 'sql';
+            $format = 'sql';
             $_SESSION['sql_from_query_box'] = true;
 
             // If there is a request to ROLLBACK when finished.
@@ -158,7 +158,7 @@ final class ImportController extends AbstractController
         } elseif ($request->hasBodyParam('id_bookmark')) {
             // run bookmark
             $GLOBALS['import_type'] = 'query';
-            $GLOBALS['format'] = 'sql';
+            $format = 'sql';
         }
 
         // If we didn't get any parameters, either user called this directly, or
@@ -196,7 +196,7 @@ final class ImportController extends AbstractController
          * We only need to load the selected plugin
          */
 
-        if (! in_array($GLOBALS['format'], ['csv', 'ldi', 'mediawiki', 'ods', 'shp', 'sql', 'xml'], true)) {
+        if (! in_array($format, ['csv', 'ldi', 'mediawiki', 'ods', 'shp', 'sql', 'xml'], true)) {
             // this should not happen for a normal user
             // but only during an attack
             $this->response->setRequestStatus(false);
@@ -205,16 +205,16 @@ final class ImportController extends AbstractController
             return;
         }
 
-        $postPatterns = ['/^' . $GLOBALS['format'] . '_/'];
+        $postPatterns = ['/^' . $format . '_/'];
 
         Core::setPostAsGlobal($postPatterns);
 
-        if (! $this->checkParameters(['import_type', 'format'])) {
+        if (! $this->checkParameters(['import_type'])) {
             return;
         }
 
         // We don't want anything special in format
-        $GLOBALS['format'] = Core::securePath($GLOBALS['format']);
+        $format = Core::securePath($format);
 
         if (Current::$table !== '' && Current::$database !== '') {
             $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
@@ -502,7 +502,7 @@ final class ImportController extends AbstractController
 
         if (! $GLOBALS['error']) {
             /** @var ImportPlugin $importPlugin */
-            $importPlugin = Plugins::getPlugin('import', $GLOBALS['format'], $GLOBALS['import_type']);
+            $importPlugin = Plugins::getPlugin('import', $format, $GLOBALS['import_type']);
             if ($importPlugin == null) {
                 $GLOBALS['message'] = Message::error(
                     __('Could not load import plugins, please check your installation!'),
