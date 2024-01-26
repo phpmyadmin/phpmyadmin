@@ -72,7 +72,6 @@ final class ImportController extends AbstractController
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['import_file'] ??= null;
-        $GLOBALS['sql_file'] ??= null;
         $GLOBALS['error'] ??= null;
         $GLOBALS['reset_charset'] ??= null;
         $GLOBALS['result'] ??= null;
@@ -156,12 +155,6 @@ final class ImportController extends AbstractController
             }
 
             $GLOBALS['sql_query'] = '';
-        } elseif (! empty($GLOBALS['sql_file'])) {
-            // run uploaded SQL file
-            $GLOBALS['import_file'] = $GLOBALS['sql_file'];
-            $GLOBALS['import_type'] = 'queryfile';
-            $GLOBALS['format'] = 'sql';
-            unset($GLOBALS['sql_file']);
         } elseif ($request->hasBodyParam('id_bookmark')) {
             // run bookmark
             $GLOBALS['import_type'] = 'query';
