@@ -50,7 +50,6 @@ class AddFieldController extends AbstractController
     {
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['message'] ??= null;
-        $GLOBALS['active_page'] ??= null;
 
         /** @var string|null $numberOfFields */
         $numberOfFields = $request->getParsedBodyParam('num_fields');
@@ -182,8 +181,6 @@ class AddFieldController extends AbstractController
 
             return;
         }
-
-        $GLOBALS['active_page'] = Url::getFromRoute('/table/structure');
 
         $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
 

@@ -23,7 +23,6 @@ class ChangeRowsControllerTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Current::$server = 2;
-        $GLOBALS['active_page'] = null;
         $GLOBALS['where_clause'] = null;
         $_POST = [];
     }
@@ -38,8 +37,6 @@ class ChangeRowsControllerTest extends AbstractTestCase
 
         (new ChangeRowsController(new ResponseRenderer(), new Template(), $mock))($request);
 
-        /** @psalm-suppress InvalidArrayOffset */
-        $this->assertSame('index.php?route=/table/change&server=2&lang=en', $GLOBALS['active_page']);
         /** @psalm-suppress InvalidArrayOffset */
         $this->assertSame([], $GLOBALS['where_clause']);
     }
@@ -58,8 +55,6 @@ class ChangeRowsControllerTest extends AbstractTestCase
         $this->assertSame(['message' => 'No row selected.'], $response->getJSONResult());
         $this->assertFalse($response->hasSuccessState());
         /** @psalm-suppress InvalidArrayOffset */
-        $this->assertNull($GLOBALS['active_page']);
-        /** @psalm-suppress InvalidArrayOffset */
         $this->assertNull($GLOBALS['where_clause']);
     }
 
@@ -73,8 +68,6 @@ class ChangeRowsControllerTest extends AbstractTestCase
 
         (new ChangeRowsController(new ResponseRenderer(), new Template(), $mock))($request);
 
-        /** @psalm-suppress InvalidArrayOffset */
-        $this->assertSame('index.php?route=/table/change&server=2&lang=en', $GLOBALS['active_page']);
         /** @psalm-suppress InvalidArrayOffset */
         $this->assertSame(['row1', 'row2'], $GLOBALS['where_clause']);
     }

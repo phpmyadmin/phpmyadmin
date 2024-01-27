@@ -1709,7 +1709,6 @@
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
@@ -1756,7 +1755,6 @@
       <code><![CDATA[$_SESSION['tmpval']['aliases']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['charset']]]></code>
       <code><![CDATA[$GLOBALS['codegen_format']]]></code>
       <code><![CDATA[$GLOBALS['codegen_structure_or_data']]]></code>
@@ -2012,7 +2010,6 @@
       <code>$importPlugin == null</code>
     </DocblockTypeContradiction>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['ajax_reload']]]></code>
       <code><![CDATA[$GLOBALS['charset_conversion']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
@@ -2069,7 +2066,6 @@
       <code><![CDATA[$_SESSION['Import_message']['message']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['ajax_reload']]]></code>
       <code><![CDATA[$GLOBALS['charset_conversion']]]></code>
       <code><![CDATA[$GLOBALS['charset_of_file']]]></code>
@@ -3196,7 +3192,6 @@
   </file>
   <file src="src/Controllers/Table/AddFieldController.php">
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
@@ -3206,7 +3201,6 @@
       <code><![CDATA[$_POST['field_transformation_options'][$fieldindex]]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
@@ -3276,11 +3270,9 @@
   </file>
   <file src="src/Controllers/Table/ChangeRowsController.php">
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['where_clause']]]></code>
     </InvalidArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['where_clause']]]></code>
       <code>$rowsToDelete</code>
     </MixedAssignment>
@@ -3365,7 +3357,6 @@
       <code><![CDATA[$_REQUEST['pos']]]></code>
     </InvalidArgument>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['disp_query']]]></code>
     </InvalidArrayOffset>
@@ -3376,7 +3367,6 @@
       <code>$row</code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['disp_query']]]></code>
       <code><![CDATA[$GLOBALS['sql_query']]]></code>
@@ -3438,12 +3428,10 @@
   </file>
   <file src="src/Controllers/Table/ExportRowsController.php">
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
       <code><![CDATA[$GLOBALS['where_clause']]]></code>
     </InvalidArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
       <code><![CDATA[$GLOBALS['where_clause']]]></code>
     </MixedAssignment>
@@ -3679,7 +3667,6 @@
       <code>$insertErrors</code>
     </InvalidArgument>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['disp_query']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
@@ -3729,7 +3716,6 @@
       <code>$mimeMap[$columnName]</code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['active_page']]]></code>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['disp_query']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>

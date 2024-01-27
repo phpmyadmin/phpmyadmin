@@ -8,7 +8,6 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 
 use function __;
 use function array_values;
@@ -26,7 +25,6 @@ final class ChangeRowsController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['active_page'] ??= null;
         $GLOBALS['where_clause'] ??= null;
 
         $rowsToDelete = $request->getParsedBodyParam('rows_to_delete');
@@ -49,8 +47,6 @@ final class ChangeRowsController extends AbstractController
         if (is_array($rowsToDelete)) {
             $GLOBALS['where_clause'] = array_values($rowsToDelete);
         }
-
-        $GLOBALS['active_page'] = Url::getFromRoute('/table/change');
 
         ($this->changeController)($request);
     }

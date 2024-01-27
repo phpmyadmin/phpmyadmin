@@ -94,7 +94,6 @@ final class ImportController extends AbstractController
         $GLOBALS['import_file_name'] ??= null;
         $GLOBALS['import_notice'] ??= null;
         $GLOBALS['read_multiply'] ??= null;
-        $GLOBALS['active_page'] ??= null;
 
         $GLOBALS['charset_of_file'] = $request->getParsedBodyParam('charset_of_file');
         $GLOBALS['format'] = $request->getParsedBodyParam('format', '');
@@ -773,7 +772,6 @@ final class ImportController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', Message::error($GLOBALS['msg']));
         } else {
-            $GLOBALS['active_page'] = $GLOBALS['goto'];
             /** @psalm-suppress UnresolvableInclude */
             include ROOT_PATH . $GLOBALS['goto'];
         }
