@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-01-21 00:20+0000\n"
+"POT-Creation-Date: 2024-01-28 00:19+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -804,7 +804,7 @@ msgstr "Απενεργοποιημένη"
 #: src/Controllers/Database/Structure/DropTableController.php:43
 #: src/Controllers/Database/Structure/EmptyTableController.php:50
 #: src/Controllers/JavaScriptMessagesController.php:501
-#: src/Controllers/Table/DeleteRowsController.php:57
+#: src/Controllers/Table/DeleteRowsController.php:55
 #: src/Controllers/Table/DropColumnController.php:46
 #: src/Controllers/Table/Structure/PrimaryController.php:109
 #: src/IndexColumn.php:148 src/Index.php:470
@@ -2659,7 +2659,7 @@ msgstr "Λεξικό δεδομένων"
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:87
 #: src/Controllers/Database/TrackingController.php:135
-#: src/Controllers/Export/ExportController.php:301
+#: src/Controllers/Export/ExportController.php:300
 msgid "No tables found in database."
 msgstr "Δεν βρέθηκαν πίνακες στη βάση δεδομένων."
 
@@ -4295,7 +4295,7 @@ msgstr "Έχετε ενεργοποιήσει την πιστοποίηση δύ
 #: src/Controllers/Database/Structure/EmptyTableController.php:51
 #: src/Controllers/Operations/TableController.php:349
 #: src/Controllers/Table/DropColumnController.php:63
-#: src/Controllers/Table/ReplaceController.php:296 src/Core.php:501
+#: src/Controllers/Table/ReplaceController.php:295 src/Core.php:501
 msgid "No change"
 msgstr "Χωρίς αλλαγή"
 
@@ -6578,7 +6578,7 @@ msgstr "Αποτελέμσατα προφίλ"
 
 #: resources/templates/sql/query.twig:6
 #: src/Controllers/Operations/ViewController.php:117
-#: src/Controllers/Table/DeleteRowsController.php:78
+#: src/Controllers/Table/DeleteRowsController.php:76
 #: src/Controllers/Table/FindReplaceController.php:121
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:74
 #: src/Controllers/Table/Maintenance/CheckController.php:74
@@ -12533,8 +12533,8 @@ msgstr ""
 #: src/Controllers/Operations/ViewController.php:64
 #: src/Controllers/Operations/ViewController.php:69
 #: src/Controllers/Server/Databases/DestroyController.php:59
-#: src/Controllers/Table/AddFieldController.php:162
-#: src/Controllers/Table/AddFieldController.php:167
+#: src/Controllers/Table/AddFieldController.php:161
+#: src/Controllers/Table/AddFieldController.php:166
 #: src/Controllers/Table/ChangeController.php:69
 #: src/Controllers/Table/ChangeController.php:74
 #: src/Controllers/Table/ChartController.php:104
@@ -12575,15 +12575,15 @@ msgstr ""
 msgid "No databases selected."
 msgstr "Δεν έχετε επιλέξει βάσεις δεδομένων."
 
-#: src/Controllers/Database/EventsController.php:144
+#: src/Controllers/Database/EventsController.php:142
 msgid "Add event"
 msgstr "Προσθήκη συμβάντος"
 
-#: src/Controllers/Database/EventsController.php:148
+#: src/Controllers/Database/EventsController.php:146
 msgid "Edit event"
 msgstr "Επεξεργασία συμβάντος"
 
-#: src/Controllers/Database/EventsController.php:197
+#: src/Controllers/Database/EventsController.php:195
 #: src/Controllers/Database/RoutinesController.php:288
 #: src/Controllers/Database/RoutinesController.php:318
 #: src/Controllers/Database/RoutinesController.php:386
@@ -12591,17 +12591,17 @@ msgstr "Επεξεργασία συμβάντος"
 msgid "Error in processing request:"
 msgstr "Σφάλμα στην προώθηση αιτημάτος:"
 
-#: src/Controllers/Database/EventsController.php:199
+#: src/Controllers/Database/EventsController.php:197
 #, php-format
 msgid "No event with name %1$s found in database %2$s."
 msgstr "Κανένα συμβάν με ονομασία %1$s δεν βρέθηκε στη βάση δεδομένων %2$s."
 
-#: src/Controllers/Database/EventsController.php:225
+#: src/Controllers/Database/EventsController.php:223
 #, php-format
 msgid "Export of event %s"
 msgstr "Εξαγωγή του συμβάντος %s"
 
-#: src/Controllers/Database/EventsController.php:243
+#: src/Controllers/Database/EventsController.php:241
 #, fuzzy, php-format
 #| msgid "No event with name %1$s found in database %2$s."
 msgid ""
@@ -12616,7 +12616,7 @@ msgstr ""
 "Αδύνατη η φόρτωση προσθέτων εξαγωγής, για αυτό εξέξτε την εγκατάστασή σας!"
 
 #: src/Controllers/Database/ImportController.php:82
-#: src/Controllers/Import/ImportController.php:539
+#: src/Controllers/Import/ImportController.php:538
 #: src/Controllers/Server/ImportController.php:62
 #: src/Controllers/Table/ImportController.php:102
 msgid "Could not load import plugins, please check your installation!"
@@ -12654,8 +12654,8 @@ msgstr "Δεν έχετε τα απαραίτητα δικαιώματα για 
 #: src/Controllers/Operations/TableController.php:108
 #: src/Controllers/Operations/ViewController.php:78
 #: src/Controllers/Operations/ViewController.php:83
-#: src/Controllers/Table/AddFieldController.php:176
-#: src/Controllers/Table/AddFieldController.php:181
+#: src/Controllers/Table/AddFieldController.php:175
+#: src/Controllers/Table/AddFieldController.php:180
 #: src/Controllers/Table/ChangeController.php:83
 #: src/Controllers/Table/ChangeController.php:88
 #: src/Controllers/Table/ChartController.php:118
@@ -12822,11 +12822,11 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "Ίσως θέλετε να ανανεώσετε τη σελίδα."
 
-#: src/Controllers/Export/ExportController.php:112 src/Export/Export.php:1224
+#: src/Controllers/Export/ExportController.php:111 src/Export/Export.php:1224
 msgid "Bad type!"
 msgstr "Μη έγκυρος τύπος!"
 
-#: src/Controllers/Export/ExportController.php:193
+#: src/Controllers/Export/ExportController.php:192
 msgid "Bad parameters!"
 msgstr "Μη έγκυρες παράμετροι!"
 
@@ -12948,7 +12948,7 @@ msgstr ""
 "Εξαιτίας αυτού ορισμένα χαρακτηριστικά όπως αναφορές σφαλμάτων ή έλεγχοι "
 "εκδόσης είναι απενεργοποιημένα."
 
-#: src/Controllers/Import/ImportController.php:196
+#: src/Controllers/Import/ImportController.php:195
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -12957,23 +12957,23 @@ msgstr ""
 "Πιθανόν προσπαθήσατε να αποστείλετε πολύ μεγάλο αρχείο. Λεπτομέρειες στην "
 "%sτεκμηρίωση%s για τρόπους αντιμετώπισης αυτού του περιορισμού."
 
-#: src/Controllers/Import/ImportController.php:228
+#: src/Controllers/Import/ImportController.php:227
 #, fuzzy
 #| msgid "Incorrect form specified!"
 msgid "Incorrect format parameter"
 msgstr "Ορίστηκε λάθος φόρμα!"
 
-#: src/Controllers/Import/ImportController.php:348
-#: src/Controllers/Import/ImportController.php:579
+#: src/Controllers/Import/ImportController.php:347
+#: src/Controllers/Import/ImportController.php:578
 msgid "Showing bookmark"
 msgstr "Εμφάνιση σελιδοδείκτη"
 
-#: src/Controllers/Import/ImportController.php:368
-#: src/Controllers/Import/ImportController.php:575
+#: src/Controllers/Import/ImportController.php:367
+#: src/Controllers/Import/ImportController.php:574
 msgid "The bookmark has been deleted."
 msgstr "Η ετικέτα διεγράφη."
 
-#: src/Controllers/Import/ImportController.php:487
+#: src/Controllers/Import/ImportController.php:486
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -12983,14 +12983,14 @@ msgstr ""
 "μέγεθος του αρχείου υπερβαίνει το μέγιστο επιτρεπτό μέγεθος από τη ρύθμιση "
 "της ΡΗΡ. Δείτε τις [doc@faq1-16]ΣΑΕ 1.16[/doc]."
 
-#: src/Controllers/Import/ImportController.php:587
+#: src/Controllers/Import/ImportController.php:586
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Η εισαγωγή ολοκληρώθηκε επιτυχώς, %d ερώτημα εκτελέστηκε."
 msgstr[1] "Η εισαγωγή ολοκληρώθηκε επιτυχώς, %d ερωτήματα εκτελέστηκαν."
 
-#: src/Controllers/Import/ImportController.php:624
+#: src/Controllers/Import/ImportController.php:623
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -12999,7 +12999,7 @@ msgstr ""
 "Το χρονικό όριο του κώδικα εξαντλήθηκε, οπότε αν θέλετε να τελειώσετε την "
 "εισαγωγή, %sεπανυποβάλτε το ίδιο αρχείο%s και η εισαγωγή θα συνεχίσει."
 
-#: src/Controllers/Import/ImportController.php:634
+#: src/Controllers/Import/ImportController.php:633
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -13008,7 +13008,7 @@ msgstr ""
 "σημαίνει ότι το phpMyAdmin δεν θα μπορέσει να τελειώσει την εισαγωγή εκτός "
 "και αν αυξήσετε τα χρονικά όρια της php."
 
-#: src/Controllers/Import/ImportController.php:700
+#: src/Controllers/Import/ImportController.php:699
 #: src/Controllers/Sql/SqlController.php:165
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Οι εντολές «DROP DATABASE» έχουν απενεργοποιηθεί."
@@ -16039,7 +16039,7 @@ msgstr "Ο σελιδοδείκτης %s έχει δημιουργηθεί."
 msgid "Bookmark not created!"
 msgstr "Ο σελιδοδείκτης δεν δημιουργήθηκε!"
 
-#: src/Controllers/Table/AddFieldController.php:133
+#: src/Controllers/Table/AddFieldController.php:132
 #: src/Controllers/Table/IndexesController.php:141
 #: src/Controllers/Table/IndexRenameController.php:130
 #: src/Controllers/Table/Structure/PartitioningController.php:265
@@ -16048,9 +16048,9 @@ msgstr "Ο σελιδοδείκτης δεν δημιουργήθηκε!"
 msgid "Table %1$s has been altered successfully."
 msgstr "Ο πίνακας %1$s αλλάχτηκε επιτυχώς."
 
-#: src/Controllers/Table/ChangeRowsController.php:39
+#: src/Controllers/Table/ChangeRowsController.php:37
 #: src/Controllers/Table/DeleteConfirmController.php:43
-#: src/Controllers/Table/ExportRowsController.php:35
+#: src/Controllers/Table/ExportRowsController.php:33
 msgid "No row selected."
 msgstr "Δεν επιλέχθηκε εγγραφή."
 
@@ -16085,7 +16085,7 @@ msgstr "Ο πίνακας %s υπάρχει ήδη!"
 #: src/Controllers/Table/DropColumnConfirmationController.php:43
 #: src/Controllers/Table/DropColumnController.php:40
 #: src/Controllers/Table/Structure/AbstractIndexController.php:38
-#: src/Controllers/Table/Structure/BrowseController.php:32
+#: src/Controllers/Table/Structure/BrowseController.php:31
 #: src/Controllers/Table/Structure/CentralColumnsAddController.php:38
 #: src/Controllers/Table/Structure/CentralColumnsRemoveController.php:39
 #: src/Controllers/Table/Structure/ChangeController.php:52
@@ -16161,7 +16161,7 @@ msgstr "Η προβολή της στήλης ενημερώθηκε επιτυ�
 msgid "Internal relationships were successfully updated."
 msgstr "Οι εσωτερικές συσχετίσεις έχουν ενημερωθεί επιτυχώς."
 
-#: src/Controllers/Table/ReplaceController.php:195
+#: src/Controllers/Table/ReplaceController.php:194
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Γραμμή: %1$s, Στήλη: %2$s, Σφάλμα: %3$s"
@@ -16344,7 +16344,7 @@ msgstr "Το ακόλουθο ερώτημα έχει αποτύχει: «%s»"
 #: src/Database/Events.php:129 src/Database/Events.php:354
 #: src/Database/Routines.php:105 src/Database/Routines.php:130
 #: src/Database/Routines.php:208 src/Database/Routines.php:965
-#: src/Database/Routines.php:1213 src/Html/Generator.php:827
+#: src/Database/Routines.php:1212 src/Html/Generator.php:827
 #: src/Triggers/Triggers.php:87 src/Triggers/Triggers.php:96
 #: src/Triggers/Triggers.php:123 src/Triggers/Triggers.php:243
 msgid "MySQL said: "
@@ -16395,7 +16395,7 @@ msgstr "Πρέπει να δώσετε έναν προσδιορισμό συμ�
 msgid "Sorry, we failed to restore the dropped event."
 msgstr "Συγνώμη, αποτύχαμε να επαναφέρουμε το συμβάν διαγραφής."
 
-#: src/Database/Events.php:352 src/Database/Routines.php:1211
+#: src/Database/Events.php:352 src/Database/Routines.php:1210
 #: src/Triggers/Triggers.php:241
 msgid "The backed up query was:"
 msgstr "Το εφεδρικό ερώτημα ήταν:"
@@ -16484,7 +16484,7 @@ msgstr[0] ""
 msgstr[1] ""
 "%d εγγραφές επηρεάστηκαν από την τελευταία δήλωση μέσα στη διαδικασία."
 
-#: src/Database/Routines.php:1210
+#: src/Database/Routines.php:1209
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Συγνώμη, αποτύχαμε να επαναφέρουμε τη διαγραμμένη ρουτίνα."
 

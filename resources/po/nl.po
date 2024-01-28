@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-01-21 00:20+0000\n"
+"POT-Creation-Date: 2024-01-28 00:19+0000\n"
 "PO-Revision-Date: 2023-05-09 14:50+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -799,7 +799,7 @@ msgstr "Uitgeschakeld"
 #: src/Controllers/Database/Structure/DropTableController.php:43
 #: src/Controllers/Database/Structure/EmptyTableController.php:50
 #: src/Controllers/JavaScriptMessagesController.php:501
-#: src/Controllers/Table/DeleteRowsController.php:57
+#: src/Controllers/Table/DeleteRowsController.php:55
 #: src/Controllers/Table/DropColumnController.php:46
 #: src/Controllers/Table/Structure/PrimaryController.php:109
 #: src/IndexColumn.php:148 src/Index.php:470
@@ -2612,7 +2612,7 @@ msgstr "Data woordenboek"
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:87
 #: src/Controllers/Database/TrackingController.php:135
-#: src/Controllers/Export/ExportController.php:301
+#: src/Controllers/Export/ExportController.php:300
 msgid "No tables found in database."
 msgstr "Geen tabellen gevonden in de database."
 
@@ -4153,7 +4153,7 @@ msgstr "U hebt tweeweg authentificatie geactiveerd."
 #: src/Controllers/Database/Structure/EmptyTableController.php:51
 #: src/Controllers/Operations/TableController.php:349
 #: src/Controllers/Table/DropColumnController.php:63
-#: src/Controllers/Table/ReplaceController.php:296 src/Core.php:501
+#: src/Controllers/Table/ReplaceController.php:295 src/Core.php:501
 msgid "No change"
 msgstr "Geen verandering"
 
@@ -6237,7 +6237,7 @@ msgstr "Profiling-resultaten"
 
 #: resources/templates/sql/query.twig:6
 #: src/Controllers/Operations/ViewController.php:117
-#: src/Controllers/Table/DeleteRowsController.php:78
+#: src/Controllers/Table/DeleteRowsController.php:76
 #: src/Controllers/Table/FindReplaceController.php:121
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:74
 #: src/Controllers/Table/Maintenance/CheckController.php:74
@@ -11979,8 +11979,8 @@ msgstr ""
 #: src/Controllers/Operations/ViewController.php:64
 #: src/Controllers/Operations/ViewController.php:69
 #: src/Controllers/Server/Databases/DestroyController.php:59
-#: src/Controllers/Table/AddFieldController.php:162
-#: src/Controllers/Table/AddFieldController.php:167
+#: src/Controllers/Table/AddFieldController.php:161
+#: src/Controllers/Table/AddFieldController.php:166
 #: src/Controllers/Table/ChangeController.php:69
 #: src/Controllers/Table/ChangeController.php:74
 #: src/Controllers/Table/ChartController.php:104
@@ -12021,15 +12021,15 @@ msgstr ""
 msgid "No databases selected."
 msgstr "Er zijn geen databases geselecteerd."
 
-#: src/Controllers/Database/EventsController.php:144
+#: src/Controllers/Database/EventsController.php:142
 msgid "Add event"
 msgstr "Gebeurtenis toevoegen"
 
-#: src/Controllers/Database/EventsController.php:148
+#: src/Controllers/Database/EventsController.php:146
 msgid "Edit event"
 msgstr "Gebeurtenis bewerken"
 
-#: src/Controllers/Database/EventsController.php:197
+#: src/Controllers/Database/EventsController.php:195
 #: src/Controllers/Database/RoutinesController.php:288
 #: src/Controllers/Database/RoutinesController.php:318
 #: src/Controllers/Database/RoutinesController.php:386
@@ -12037,17 +12037,17 @@ msgstr "Gebeurtenis bewerken"
 msgid "Error in processing request:"
 msgstr "Fout tijdens het uitvoeren van de opdracht:"
 
-#: src/Controllers/Database/EventsController.php:199
+#: src/Controllers/Database/EventsController.php:197
 #, php-format
 msgid "No event with name %1$s found in database %2$s."
 msgstr "Geen gebeurtenis met naam %1$s gevonden in database %2$s."
 
-#: src/Controllers/Database/EventsController.php:225
+#: src/Controllers/Database/EventsController.php:223
 #, php-format
 msgid "Export of event %s"
 msgstr "Export van gebeurtenis %s"
 
-#: src/Controllers/Database/EventsController.php:243
+#: src/Controllers/Database/EventsController.php:241
 #, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
@@ -12064,7 +12064,7 @@ msgstr ""
 "installatie!"
 
 #: src/Controllers/Database/ImportController.php:82
-#: src/Controllers/Import/ImportController.php:539
+#: src/Controllers/Import/ImportController.php:538
 #: src/Controllers/Server/ImportController.php:62
 #: src/Controllers/Table/ImportController.php:102
 msgid "Could not load import plugins, please check your installation!"
@@ -12100,8 +12100,8 @@ msgstr "U heeft niet voldoende rechten om de gebruikers te administreren!"
 #: src/Controllers/Operations/TableController.php:108
 #: src/Controllers/Operations/ViewController.php:78
 #: src/Controllers/Operations/ViewController.php:83
-#: src/Controllers/Table/AddFieldController.php:176
-#: src/Controllers/Table/AddFieldController.php:181
+#: src/Controllers/Table/AddFieldController.php:175
+#: src/Controllers/Table/AddFieldController.php:180
 #: src/Controllers/Table/ChangeController.php:83
 #: src/Controllers/Table/ChangeController.php:88
 #: src/Controllers/Table/ChartController.php:118
@@ -12262,11 +12262,11 @@ msgstr "Als u problemen ondervindt, meld dan handmatig een bug."
 msgid "You may want to refresh the page."
 msgstr "Misschien wilt u de pagina vernieuwen."
 
-#: src/Controllers/Export/ExportController.php:112 src/Export/Export.php:1224
+#: src/Controllers/Export/ExportController.php:111 src/Export/Export.php:1224
 msgid "Bad type!"
 msgstr "Verkeerd type!"
 
-#: src/Controllers/Export/ExportController.php:193
+#: src/Controllers/Export/ExportController.php:192
 msgid "Bad parameters!"
 msgstr "Verkeerde parameters!"
 
@@ -12396,7 +12396,7 @@ msgstr ""
 "Hierdoor zijn ook een aantal functies zoals foutregistratie of versie "
 "controle uitgeschakeld."
 
-#: src/Controllers/Import/ImportController.php:196
+#: src/Controllers/Import/ImportController.php:195
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -12405,21 +12405,21 @@ msgstr ""
 "U probeerde waarschijnlijk een bestand te uploaden dat te groot is. Zie "
 "%sdocumentatie%s om deze limiet te omzeilen."
 
-#: src/Controllers/Import/ImportController.php:228
+#: src/Controllers/Import/ImportController.php:227
 msgid "Incorrect format parameter"
 msgstr "Onjuist parameterformaat"
 
-#: src/Controllers/Import/ImportController.php:348
-#: src/Controllers/Import/ImportController.php:579
+#: src/Controllers/Import/ImportController.php:347
+#: src/Controllers/Import/ImportController.php:578
 msgid "Showing bookmark"
 msgstr "Toon bladwijzer"
 
-#: src/Controllers/Import/ImportController.php:368
-#: src/Controllers/Import/ImportController.php:575
+#: src/Controllers/Import/ImportController.php:367
+#: src/Controllers/Import/ImportController.php:574
 msgid "The bookmark has been deleted."
 msgstr "De bladwijzer is verwijderd."
 
-#: src/Controllers/Import/ImportController.php:487
+#: src/Controllers/Import/ImportController.php:486
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -12430,14 +12430,14 @@ msgstr ""
 "bestandsgrootte zoals opgegeven in de PHP-configuratie. Zie [doc@faq1-16]FAQ "
 "1.16[/doc]."
 
-#: src/Controllers/Import/ImportController.php:587
+#: src/Controllers/Import/ImportController.php:586
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Het importeren is geslaagd, %d query uitgevoerd."
 msgstr[1] "Het importeren is geslaagd, %d queries uitgevoerd."
 
-#: src/Controllers/Import/ImportController.php:624
+#: src/Controllers/Import/ImportController.php:623
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -12446,7 +12446,7 @@ msgstr ""
 "De maximale uitvoertijd is verstreken, als u het importeren wilt afmaken, "
 "%sresubmit dezelfde file%s opnieuw en de import zal hervat worden."
 
-#: src/Controllers/Import/ImportController.php:634
+#: src/Controllers/Import/ImportController.php:633
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -12455,7 +12455,7 @@ msgstr ""
 "dit dat phpMyAdmin het importeren niet kan afmaken, tenzij de "
 "tijdsbeperkingen van PHP worden versoepeld."
 
-#: src/Controllers/Import/ImportController.php:700
+#: src/Controllers/Import/ImportController.php:699
 #: src/Controllers/Sql/SqlController.php:165
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" opdrachten zijn uitgeschakeld."
@@ -15333,7 +15333,7 @@ msgstr "Bladwijzer %s is aangemaakt."
 msgid "Bookmark not created!"
 msgstr "Bladwijzer niet aangemaakt!"
 
-#: src/Controllers/Table/AddFieldController.php:133
+#: src/Controllers/Table/AddFieldController.php:132
 #: src/Controllers/Table/IndexesController.php:141
 #: src/Controllers/Table/IndexRenameController.php:130
 #: src/Controllers/Table/Structure/PartitioningController.php:265
@@ -15342,9 +15342,9 @@ msgstr "Bladwijzer niet aangemaakt!"
 msgid "Table %1$s has been altered successfully."
 msgstr "Tabel %1$s is succesvol bijgewerkt."
 
-#: src/Controllers/Table/ChangeRowsController.php:39
+#: src/Controllers/Table/ChangeRowsController.php:37
 #: src/Controllers/Table/DeleteConfirmController.php:43
-#: src/Controllers/Table/ExportRowsController.php:35
+#: src/Controllers/Table/ExportRowsController.php:33
 msgid "No row selected."
 msgstr "Geen rij geselecteerd."
 
@@ -15380,7 +15380,7 @@ msgstr "Tabel %s bestaat reeds!"
 #: src/Controllers/Table/DropColumnConfirmationController.php:43
 #: src/Controllers/Table/DropColumnController.php:40
 #: src/Controllers/Table/Structure/AbstractIndexController.php:38
-#: src/Controllers/Table/Structure/BrowseController.php:32
+#: src/Controllers/Table/Structure/BrowseController.php:31
 #: src/Controllers/Table/Structure/CentralColumnsAddController.php:38
 #: src/Controllers/Table/Structure/CentralColumnsRemoveController.php:39
 #: src/Controllers/Table/Structure/ChangeController.php:52
@@ -15447,7 +15447,7 @@ msgstr "De weergavekolom is succesvol bijgewerkt."
 msgid "Internal relationships were successfully updated."
 msgstr "Interne relaties zijn succesvol bijgewerkt."
 
-#: src/Controllers/Table/ReplaceController.php:195
+#: src/Controllers/Table/ReplaceController.php:194
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Rij: %1$s, Kolom: %2$s, Fout: %3$s"
@@ -15626,7 +15626,7 @@ msgstr "De volgende query is mislukt: \"%s\""
 #: src/Database/Events.php:129 src/Database/Events.php:354
 #: src/Database/Routines.php:105 src/Database/Routines.php:130
 #: src/Database/Routines.php:208 src/Database/Routines.php:965
-#: src/Database/Routines.php:1213 src/Html/Generator.php:827
+#: src/Database/Routines.php:1212 src/Html/Generator.php:827
 #: src/Triggers/Triggers.php:87 src/Triggers/Triggers.php:96
 #: src/Triggers/Triggers.php:123 src/Triggers/Triggers.php:243
 msgid "MySQL said: "
@@ -15677,7 +15677,7 @@ msgstr "Vul een definitie voor de gebeurtenis in."
 msgid "Sorry, we failed to restore the dropped event."
 msgstr "Sorry, het herstellen van de verwijderde gebeurtenis is mislukt."
 
-#: src/Database/Events.php:352 src/Database/Routines.php:1211
+#: src/Database/Events.php:352 src/Database/Routines.php:1210
 #: src/Triggers/Triggers.php:241
 msgid "The backed up query was:"
 msgstr "De gebackupte query was:"
@@ -15765,7 +15765,7 @@ msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "%d regel beïnvloed door het laatste statement in de procedure."
 msgstr[1] "%d regels beïnvloed door het laatste statement in de procedure."
 
-#: src/Database/Routines.php:1210
+#: src/Database/Routines.php:1209
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Het terugzetten van de verwijderde routine is mislukt."
 

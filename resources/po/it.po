@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-01-21 00:20+0000\n"
+"POT-Creation-Date: 2024-01-28 00:19+0000\n"
 "PO-Revision-Date: 2023-11-13 17:46+0000\n"
 "Last-Translator: Benito Alessandrino <bennygames.yt@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -798,7 +798,7 @@ msgstr "Disabilitata"
 #: src/Controllers/Database/Structure/DropTableController.php:43
 #: src/Controllers/Database/Structure/EmptyTableController.php:50
 #: src/Controllers/JavaScriptMessagesController.php:501
-#: src/Controllers/Table/DeleteRowsController.php:57
+#: src/Controllers/Table/DeleteRowsController.php:55
 #: src/Controllers/Table/DropColumnController.php:46
 #: src/Controllers/Table/Structure/PrimaryController.php:109
 #: src/IndexColumn.php:148 src/Index.php:470
@@ -2609,7 +2609,7 @@ msgstr "Dizionario dei dati"
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:87
 #: src/Controllers/Database/TrackingController.php:135
-#: src/Controllers/Export/ExportController.php:301
+#: src/Controllers/Export/ExportController.php:300
 msgid "No tables found in database."
 msgstr "Non ci sono tabelle nel database."
 
@@ -4157,7 +4157,7 @@ msgstr "Hai abilitato l'autenticazione a due fattori."
 #: src/Controllers/Database/Structure/EmptyTableController.php:51
 #: src/Controllers/Operations/TableController.php:349
 #: src/Controllers/Table/DropColumnController.php:63
-#: src/Controllers/Table/ReplaceController.php:296 src/Core.php:501
+#: src/Controllers/Table/ReplaceController.php:295 src/Core.php:501
 msgid "No change"
 msgstr "Nessun cambiamento"
 
@@ -6223,7 +6223,7 @@ msgstr "Grafico a torta con i risultati del profiling."
 
 #: resources/templates/sql/query.twig:6
 #: src/Controllers/Operations/ViewController.php:117
-#: src/Controllers/Table/DeleteRowsController.php:78
+#: src/Controllers/Table/DeleteRowsController.php:76
 #: src/Controllers/Table/FindReplaceController.php:121
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:74
 #: src/Controllers/Table/Maintenance/CheckController.php:74
@@ -11999,8 +11999,8 @@ msgstr "Esiste già una pagina chiamata \"%s\" per favore scegli un altro nome."
 #: src/Controllers/Operations/ViewController.php:64
 #: src/Controllers/Operations/ViewController.php:69
 #: src/Controllers/Server/Databases/DestroyController.php:59
-#: src/Controllers/Table/AddFieldController.php:162
-#: src/Controllers/Table/AddFieldController.php:167
+#: src/Controllers/Table/AddFieldController.php:161
+#: src/Controllers/Table/AddFieldController.php:166
 #: src/Controllers/Table/ChangeController.php:69
 #: src/Controllers/Table/ChangeController.php:74
 #: src/Controllers/Table/ChartController.php:104
@@ -12041,15 +12041,15 @@ msgstr "Esiste già una pagina chiamata \"%s\" per favore scegli un altro nome."
 msgid "No databases selected."
 msgstr "Nessun database selezionato."
 
-#: src/Controllers/Database/EventsController.php:144
+#: src/Controllers/Database/EventsController.php:142
 msgid "Add event"
 msgstr "Aggiungi evento"
 
-#: src/Controllers/Database/EventsController.php:148
+#: src/Controllers/Database/EventsController.php:146
 msgid "Edit event"
 msgstr "Modifica evento"
 
-#: src/Controllers/Database/EventsController.php:197
+#: src/Controllers/Database/EventsController.php:195
 #: src/Controllers/Database/RoutinesController.php:288
 #: src/Controllers/Database/RoutinesController.php:318
 #: src/Controllers/Database/RoutinesController.php:386
@@ -12057,17 +12057,17 @@ msgstr "Modifica evento"
 msgid "Error in processing request:"
 msgstr "Errore nell'elaborazione della richiesta:"
 
-#: src/Controllers/Database/EventsController.php:199
+#: src/Controllers/Database/EventsController.php:197
 #, php-format
 msgid "No event with name %1$s found in database %2$s."
 msgstr "Non é stata trovato alcun evento con nome %1$s nel database %2$s."
 
-#: src/Controllers/Database/EventsController.php:225
+#: src/Controllers/Database/EventsController.php:223
 #, php-format
 msgid "Export of event %s"
 msgstr "Esportazione dell'evento %s"
 
-#: src/Controllers/Database/EventsController.php:243
+#: src/Controllers/Database/EventsController.php:241
 #, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
@@ -12084,7 +12084,7 @@ msgstr ""
 "installazione!"
 
 #: src/Controllers/Database/ImportController.php:82
-#: src/Controllers/Import/ImportController.php:539
+#: src/Controllers/Import/ImportController.php:538
 #: src/Controllers/Server/ImportController.php:62
 #: src/Controllers/Table/ImportController.php:102
 msgid "Could not load import plugins, please check your installation!"
@@ -12121,8 +12121,8 @@ msgstr "Non hai le autorizzazioni per amministrare i dati degli utenti!"
 #: src/Controllers/Operations/TableController.php:108
 #: src/Controllers/Operations/ViewController.php:78
 #: src/Controllers/Operations/ViewController.php:83
-#: src/Controllers/Table/AddFieldController.php:176
-#: src/Controllers/Table/AddFieldController.php:181
+#: src/Controllers/Table/AddFieldController.php:175
+#: src/Controllers/Table/AddFieldController.php:180
 #: src/Controllers/Table/ChangeController.php:83
 #: src/Controllers/Table/ChangeController.php:88
 #: src/Controllers/Table/ChartController.php:118
@@ -12284,11 +12284,11 @@ msgstr "In caso di problemi inviare il rapporto manualmente."
 msgid "You may want to refresh the page."
 msgstr "Si consiglia di aggiornare la pagina."
 
-#: src/Controllers/Export/ExportController.php:112 src/Export/Export.php:1224
+#: src/Controllers/Export/ExportController.php:111 src/Export/Export.php:1224
 msgid "Bad type!"
 msgstr "Tipo errato!"
 
-#: src/Controllers/Export/ExportController.php:193
+#: src/Controllers/Export/ExportController.php:192
 msgid "Bad parameters!"
 msgstr "Parametri errati!"
 
@@ -12421,7 +12421,7 @@ msgstr ""
 "questo motivo alcune funzioni quali, ad esempio, il reporting egli errori o "
 "il check della versione, sono disabilitate."
 
-#: src/Controllers/Import/ImportController.php:196
+#: src/Controllers/Import/ImportController.php:195
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -12430,21 +12430,21 @@ msgstr ""
 "Stai probabilmente cercando di caricare sul server un file troppo grande. "
 "Fai riferimento alla %sdocumentazione%s se desideri aggirare questo limite."
 
-#: src/Controllers/Import/ImportController.php:228
+#: src/Controllers/Import/ImportController.php:227
 msgid "Incorrect format parameter"
 msgstr "Parametro formato incorretto"
 
-#: src/Controllers/Import/ImportController.php:348
-#: src/Controllers/Import/ImportController.php:579
+#: src/Controllers/Import/ImportController.php:347
+#: src/Controllers/Import/ImportController.php:578
 msgid "Showing bookmark"
 msgstr "Visualizzazione segnalibri"
 
-#: src/Controllers/Import/ImportController.php:368
-#: src/Controllers/Import/ImportController.php:575
+#: src/Controllers/Import/ImportController.php:367
+#: src/Controllers/Import/ImportController.php:574
 msgid "The bookmark has been deleted."
 msgstr "Il segnalibro è stato cancellato."
 
-#: src/Controllers/Import/ImportController.php:487
+#: src/Controllers/Import/ImportController.php:486
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -12455,14 +12455,14 @@ msgstr ""
 "configurazione di PHP per l'upload di un file. Vedi [doc@faq1-16]FAQ 1.16[/"
 "doc]."
 
-#: src/Controllers/Import/ImportController.php:587
+#: src/Controllers/Import/ImportController.php:586
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Importazione eseguita con successo, %d query eseguita."
 msgstr[1] "Importazione eseguita con successo, %d query eseguite."
 
-#: src/Controllers/Import/ImportController.php:624
+#: src/Controllers/Import/ImportController.php:623
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -12472,7 +12472,7 @@ msgstr ""
 "l'importazione %sreinvia lo stesso file%s ed il processo riprenderà dal "
 "punto in cui si era interrotto."
 
-#: src/Controllers/Import/ImportController.php:634
+#: src/Controllers/Import/ImportController.php:633
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -12481,7 +12481,7 @@ msgstr ""
 "evidenzia che il limite di tempo impostato nella configurazione è troppo "
 "basso per consentire a phpMyAdmin di terminare l'operazione."
 
-#: src/Controllers/Import/ImportController.php:700
+#: src/Controllers/Import/ImportController.php:699
 #: src/Controllers/Sql/SqlController.php:165
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "I comandi \"DROP DATABASE\" sono disabilitati."
@@ -15378,7 +15378,7 @@ msgstr "Segnalibro %s creato."
 msgid "Bookmark not created!"
 msgstr "Segnalibro non creato!"
 
-#: src/Controllers/Table/AddFieldController.php:133
+#: src/Controllers/Table/AddFieldController.php:132
 #: src/Controllers/Table/IndexesController.php:141
 #: src/Controllers/Table/IndexRenameController.php:130
 #: src/Controllers/Table/Structure/PartitioningController.php:265
@@ -15387,9 +15387,9 @@ msgstr "Segnalibro non creato!"
 msgid "Table %1$s has been altered successfully."
 msgstr "La tabella %1$s è già stata modificata con successo."
 
-#: src/Controllers/Table/ChangeRowsController.php:39
+#: src/Controllers/Table/ChangeRowsController.php:37
 #: src/Controllers/Table/DeleteConfirmController.php:43
-#: src/Controllers/Table/ExportRowsController.php:35
+#: src/Controllers/Table/ExportRowsController.php:33
 msgid "No row selected."
 msgstr "Nessuna riga selezionata."
 
@@ -15425,7 +15425,7 @@ msgstr "La tabella %s esiste già!"
 #: src/Controllers/Table/DropColumnConfirmationController.php:43
 #: src/Controllers/Table/DropColumnController.php:40
 #: src/Controllers/Table/Structure/AbstractIndexController.php:38
-#: src/Controllers/Table/Structure/BrowseController.php:32
+#: src/Controllers/Table/Structure/BrowseController.php:31
 #: src/Controllers/Table/Structure/CentralColumnsAddController.php:38
 #: src/Controllers/Table/Structure/CentralColumnsRemoveController.php:39
 #: src/Controllers/Table/Structure/ChangeController.php:52
@@ -15490,7 +15490,7 @@ msgstr "Il campo display è stato aggiornato con successo."
 msgid "Internal relationships were successfully updated."
 msgstr "Le relazioni interne sono state aggiornate con successo."
 
-#: src/Controllers/Table/ReplaceController.php:195
+#: src/Controllers/Table/ReplaceController.php:194
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Riga: %1$s, Campo: %2$s, Errore: %3$s"
@@ -15670,7 +15670,7 @@ msgstr "La seguente query è fallita: \"%s\""
 #: src/Database/Events.php:129 src/Database/Events.php:354
 #: src/Database/Routines.php:105 src/Database/Routines.php:130
 #: src/Database/Routines.php:208 src/Database/Routines.php:965
-#: src/Database/Routines.php:1213 src/Html/Generator.php:827
+#: src/Database/Routines.php:1212 src/Html/Generator.php:827
 #: src/Triggers/Triggers.php:87 src/Triggers/Triggers.php:96
 #: src/Triggers/Triggers.php:123 src/Triggers/Triggers.php:243
 msgid "MySQL said: "
@@ -15722,7 +15722,7 @@ msgid "Sorry, we failed to restore the dropped event."
 msgstr ""
 "Ci dispiace, non siamo riusciti a ripristinare l'evento che è stato rimosso."
 
-#: src/Database/Events.php:352 src/Database/Routines.php:1211
+#: src/Database/Events.php:352 src/Database/Routines.php:1210
 #: src/Triggers/Triggers.php:241
 msgid "The backed up query was:"
 msgstr "La query di backup è:"
@@ -15816,7 +15816,7 @@ msgstr[1] ""
 "%d righe influenzate dall'ultima istruzione eseguita all'interno della "
 "procedura."
 
-#: src/Database/Routines.php:1210
+#: src/Database/Routines.php:1209
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr ""
 "Ci dispiace, non siamo riusciti a ripristinare la routine che é stata "

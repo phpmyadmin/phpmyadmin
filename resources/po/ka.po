@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-01-21 00:20+0000\n"
+"POT-Creation-Date: 2024-01-28 00:19+0000\n"
 "PO-Revision-Date: 2023-04-16 17:22+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -786,7 +786,7 @@ msgstr "გათიშულია"
 #: src/Controllers/Database/Structure/DropTableController.php:43
 #: src/Controllers/Database/Structure/EmptyTableController.php:50
 #: src/Controllers/JavaScriptMessagesController.php:501
-#: src/Controllers/Table/DeleteRowsController.php:57
+#: src/Controllers/Table/DeleteRowsController.php:55
 #: src/Controllers/Table/DropColumnController.php:46
 #: src/Controllers/Table/Structure/PrimaryController.php:109
 #: src/IndexColumn.php:148 src/Index.php:470
@@ -2586,7 +2586,7 @@ msgstr "მონაცემების ლექსიკონი"
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:87
 #: src/Controllers/Database/TrackingController.php:135
-#: src/Controllers/Export/ExportController.php:301
+#: src/Controllers/Export/ExportController.php:300
 msgid "No tables found in database."
 msgstr ""
 
@@ -4063,7 +4063,7 @@ msgstr ""
 #: src/Controllers/Database/Structure/EmptyTableController.php:51
 #: src/Controllers/Operations/TableController.php:349
 #: src/Controllers/Table/DropColumnController.php:63
-#: src/Controllers/Table/ReplaceController.php:296 src/Core.php:501
+#: src/Controllers/Table/ReplaceController.php:295 src/Core.php:501
 msgid "No change"
 msgstr "ცვლილების გარეშე"
 
@@ -6028,7 +6028,7 @@ msgstr "პროფილირების შედეგები"
 
 #: resources/templates/sql/query.twig:6
 #: src/Controllers/Operations/ViewController.php:117
-#: src/Controllers/Table/DeleteRowsController.php:78
+#: src/Controllers/Table/DeleteRowsController.php:76
 #: src/Controllers/Table/FindReplaceController.php:121
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:74
 #: src/Controllers/Table/Maintenance/CheckController.php:74
@@ -11267,8 +11267,8 @@ msgstr ""
 #: src/Controllers/Operations/ViewController.php:64
 #: src/Controllers/Operations/ViewController.php:69
 #: src/Controllers/Server/Databases/DestroyController.php:59
-#: src/Controllers/Table/AddFieldController.php:162
-#: src/Controllers/Table/AddFieldController.php:167
+#: src/Controllers/Table/AddFieldController.php:161
+#: src/Controllers/Table/AddFieldController.php:166
 #: src/Controllers/Table/ChangeController.php:69
 #: src/Controllers/Table/ChangeController.php:74
 #: src/Controllers/Table/ChartController.php:104
@@ -11309,15 +11309,15 @@ msgstr ""
 msgid "No databases selected."
 msgstr ""
 
-#: src/Controllers/Database/EventsController.php:144
+#: src/Controllers/Database/EventsController.php:142
 msgid "Add event"
 msgstr "მოვლენის დამატება"
 
-#: src/Controllers/Database/EventsController.php:148
+#: src/Controllers/Database/EventsController.php:146
 msgid "Edit event"
 msgstr "მოვლენის ჩასწორება"
 
-#: src/Controllers/Database/EventsController.php:197
+#: src/Controllers/Database/EventsController.php:195
 #: src/Controllers/Database/RoutinesController.php:288
 #: src/Controllers/Database/RoutinesController.php:318
 #: src/Controllers/Database/RoutinesController.php:386
@@ -11325,17 +11325,17 @@ msgstr "მოვლენის ჩასწორება"
 msgid "Error in processing request:"
 msgstr "მოთხოვნის დამუშავების შეცდომა:"
 
-#: src/Controllers/Database/EventsController.php:199
+#: src/Controllers/Database/EventsController.php:197
 #, php-format
 msgid "No event with name %1$s found in database %2$s."
 msgstr "მოვლენა %1$s ბაზაში %2$s აღმოჩენილი არაა."
 
-#: src/Controllers/Database/EventsController.php:225
+#: src/Controllers/Database/EventsController.php:223
 #, php-format
 msgid "Export of event %s"
 msgstr "%s მოვლენის გატანა"
 
-#: src/Controllers/Database/EventsController.php:243
+#: src/Controllers/Database/EventsController.php:241
 #, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
@@ -11350,7 +11350,7 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 
 #: src/Controllers/Database/ImportController.php:82
-#: src/Controllers/Import/ImportController.php:539
+#: src/Controllers/Import/ImportController.php:538
 #: src/Controllers/Server/ImportController.php:62
 #: src/Controllers/Table/ImportController.php:102
 msgid "Could not load import plugins, please check your installation!"
@@ -11385,8 +11385,8 @@ msgstr "მომხმარებლების ადმინისტრ�
 #: src/Controllers/Operations/TableController.php:108
 #: src/Controllers/Operations/ViewController.php:78
 #: src/Controllers/Operations/ViewController.php:83
-#: src/Controllers/Table/AddFieldController.php:176
-#: src/Controllers/Table/AddFieldController.php:181
+#: src/Controllers/Table/AddFieldController.php:175
+#: src/Controllers/Table/AddFieldController.php:180
 #: src/Controllers/Table/ChangeController.php:83
 #: src/Controllers/Table/ChangeController.php:88
 #: src/Controllers/Table/ChartController.php:118
@@ -11533,11 +11533,11 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr ""
 
-#: src/Controllers/Export/ExportController.php:112 src/Export/Export.php:1224
+#: src/Controllers/Export/ExportController.php:111 src/Export/Export.php:1224
 msgid "Bad type!"
 msgstr "არასწორი ტიპი!"
 
-#: src/Controllers/Export/ExportController.php:193
+#: src/Controllers/Export/ExportController.php:192
 msgid "Bad parameters!"
 msgstr "შეუსაბამობაა პარამეტრებში!"
 
@@ -11634,54 +11634,54 @@ msgid ""
 "this some features such as error reporting or version check are disabled."
 msgstr ""
 
-#: src/Controllers/Import/ImportController.php:196
+#: src/Controllers/Import/ImportController.php:195
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
 
-#: src/Controllers/Import/ImportController.php:228
+#: src/Controllers/Import/ImportController.php:227
 msgid "Incorrect format parameter"
 msgstr "ფორმატის არასწორი პარამეტრი"
 
-#: src/Controllers/Import/ImportController.php:348
-#: src/Controllers/Import/ImportController.php:579
+#: src/Controllers/Import/ImportController.php:347
+#: src/Controllers/Import/ImportController.php:578
 msgid "Showing bookmark"
 msgstr "სანიშნის ჩვენება"
 
-#: src/Controllers/Import/ImportController.php:368
-#: src/Controllers/Import/ImportController.php:575
+#: src/Controllers/Import/ImportController.php:367
+#: src/Controllers/Import/ImportController.php:574
 msgid "The bookmark has been deleted."
 msgstr ""
 
-#: src/Controllers/Import/ImportController.php:487
+#: src/Controllers/Import/ImportController.php:486
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 
-#: src/Controllers/Import/ImportController.php:587
+#: src/Controllers/Import/ImportController.php:586
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] ""
 
-#: src/Controllers/Import/ImportController.php:624
+#: src/Controllers/Import/ImportController.php:623
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
 
-#: src/Controllers/Import/ImportController.php:634
+#: src/Controllers/Import/ImportController.php:633
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
 
-#: src/Controllers/Import/ImportController.php:700
+#: src/Controllers/Import/ImportController.php:699
 #: src/Controllers/Sql/SqlController.php:165
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr ""
@@ -14273,7 +14273,7 @@ msgstr "სანიშნი %s შეიქმნა."
 msgid "Bookmark not created!"
 msgstr "სანიშნი არ შექმნილა!"
 
-#: src/Controllers/Table/AddFieldController.php:133
+#: src/Controllers/Table/AddFieldController.php:132
 #: src/Controllers/Table/IndexesController.php:141
 #: src/Controllers/Table/IndexRenameController.php:130
 #: src/Controllers/Table/Structure/PartitioningController.php:265
@@ -14282,9 +14282,9 @@ msgstr "სანიშნი არ შექმნილა!"
 msgid "Table %1$s has been altered successfully."
 msgstr ""
 
-#: src/Controllers/Table/ChangeRowsController.php:39
+#: src/Controllers/Table/ChangeRowsController.php:37
 #: src/Controllers/Table/DeleteConfirmController.php:43
-#: src/Controllers/Table/ExportRowsController.php:35
+#: src/Controllers/Table/ExportRowsController.php:33
 msgid "No row selected."
 msgstr "მწკრივი არჩეული არაა."
 
@@ -14319,7 +14319,7 @@ msgstr "ცხრილი %s უკვე არსებობს!"
 #: src/Controllers/Table/DropColumnConfirmationController.php:43
 #: src/Controllers/Table/DropColumnController.php:40
 #: src/Controllers/Table/Structure/AbstractIndexController.php:38
-#: src/Controllers/Table/Structure/BrowseController.php:32
+#: src/Controllers/Table/Structure/BrowseController.php:31
 #: src/Controllers/Table/Structure/CentralColumnsAddController.php:38
 #: src/Controllers/Table/Structure/CentralColumnsRemoveController.php:39
 #: src/Controllers/Table/Structure/ChangeController.php:52
@@ -14385,7 +14385,7 @@ msgstr ""
 msgid "Internal relationships were successfully updated."
 msgstr "შიდა ურთიერთობები წარმატებით განახლდა."
 
-#: src/Controllers/Table/ReplaceController.php:195
+#: src/Controllers/Table/ReplaceController.php:194
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
@@ -14557,7 +14557,7 @@ msgstr ""
 #: src/Database/Events.php:129 src/Database/Events.php:354
 #: src/Database/Routines.php:105 src/Database/Routines.php:130
 #: src/Database/Routines.php:208 src/Database/Routines.php:965
-#: src/Database/Routines.php:1213 src/Html/Generator.php:827
+#: src/Database/Routines.php:1212 src/Html/Generator.php:827
 #: src/Triggers/Triggers.php:87 src/Triggers/Triggers.php:96
 #: src/Triggers/Triggers.php:123 src/Triggers/Triggers.php:243
 msgid "MySQL said: "
@@ -14607,7 +14607,7 @@ msgstr ""
 msgid "Sorry, we failed to restore the dropped event."
 msgstr ""
 
-#: src/Database/Events.php:352 src/Database/Routines.php:1211
+#: src/Database/Events.php:352 src/Database/Routines.php:1210
 #: src/Triggers/Triggers.php:241
 msgid "The backed up query was:"
 msgstr ""
@@ -14686,7 +14686,7 @@ msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] ""
 
-#: src/Database/Routines.php:1210
+#: src/Database/Routines.php:1209
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr ""
 
