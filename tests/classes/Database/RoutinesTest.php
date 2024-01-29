@@ -8,7 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Types;
 use PhpMyAdmin\UserPrivileges;
@@ -250,8 +250,8 @@ class RoutinesTest extends AbstractTestCase
         $dbi->expects($this->any())
             ->method('quoteString')
             ->willReturnMap([
-                ['foo', Connection::TYPE_USER, "'foo'"],
-                ["foo's bar", Connection::TYPE_USER, "'foo\'s bar'"],
+                ['foo', ConnectionType::User, "'foo'"],
+                ["foo's bar", ConnectionType::User, "'foo\'s bar'"],
             ]);
         DatabaseInterface::$instance = $dbi;
 

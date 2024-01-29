@@ -9,7 +9,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Dbal\Statement;
 use PhpMyAdmin\Html\Generator;
@@ -1828,8 +1828,8 @@ class PrivilegesTest extends AbstractTestCase
         $userQuery = 'SELECT * FROM `mysql`.`user` WHERE `User` = ? AND `Host` = ?;';
         $globalPrivQuery = 'SELECT * FROM `mysql`.`global_priv` WHERE `User` = ? AND `Host` = ?;';
         $dbi->expects($this->exactly(2))->method('prepare')->willReturnMap([
-            [$userQuery, Connection::TYPE_USER, $mysqliStmtStub],
-            [$globalPrivQuery, Connection::TYPE_USER, $mysqliStmtStub],
+            [$userQuery, ConnectionType::User, $mysqliStmtStub],
+            [$globalPrivQuery, ConnectionType::User, $mysqliStmtStub],
         ]);
 
         $mysqliResultStub->expects($this->exactly(2))

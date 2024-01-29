@@ -15,8 +15,6 @@ use PhpMyAdmin\Table\Table;
 
 /**
  * Main interface for database interactions
- *
- * @psalm-import-type ConnectionType from Connection
  */
 interface DbalInterface
 {
@@ -29,11 +27,10 @@ interface DbalInterface
      * @param string $query             SQL query to execute
      * @param int    $options           optional query options
      * @param bool   $cacheAffectedRows whether to cache affected rows
-     * @psalm-param ConnectionType $connectionType
      */
     public function query(
         string $query,
-        int $connectionType = Connection::TYPE_USER,
+        ConnectionType $connectionType = ConnectionType::User,
         int $options = 0,
         bool $cacheAffectedRows = true,
     ): ResultInterface;
@@ -44,11 +41,10 @@ interface DbalInterface
      * @param string $query             query to run
      * @param int    $options           query options
      * @param bool   $cacheAffectedRows whether to cache affected row
-     * @psalm-param ConnectionType $connectionType
      */
     public function tryQuery(
         string $query,
-        int $connectionType = Connection::TYPE_USER,
+        ConnectionType $connectionType = ConnectionType::User,
         int $options = 0,
         bool $cacheAffectedRows = true,
     ): mixed;
@@ -57,22 +53,20 @@ interface DbalInterface
      * Send multiple SQL queries to the database server and execute the first one
      *
      * @param string $multiQuery multi query statement to execute
-     * @psalm-param ConnectionType $connectionType
      */
     public function tryMultiQuery(
         string $multiQuery = '',
-        int $connectionType = Connection::TYPE_USER,
+        ConnectionType $connectionType = ConnectionType::User,
     ): bool;
 
     /**
      * returns array with table names for given db
      *
      * @param string $database name of database
-     * @psalm-param ConnectionType $connectionType
      *
      * @return array<int, string>   tables names
      */
-    public function getTables(string $database, int $connectionType = Connection::TYPE_USER): array;
+    public function getTables(string $database, ConnectionType $connectionType = ConnectionType::User): array;
 
     /**
      * returns array of all tables in given db or dbs
@@ -96,7 +90,6 @@ interface DbalInterface
      * @param string         $sortBy       table attribute to sort by
      * @param string         $sortOrder    direction to sort (ASC or DESC)
      * @param string|null    $tableType    whether table or view
-     * @psalm-param ConnectionType $connectionType
      *
      * @return mixed[]           list of tables in given db(s)
      *
@@ -111,7 +104,7 @@ interface DbalInterface
         string $sortBy = 'Name',
         string $sortOrder = 'ASC',
         string|null $tableType = null,
-        int $connectionType = Connection::TYPE_USER,
+        ConnectionType $connectionType = ConnectionType::User,
     ): array;
 
     /**
@@ -132,7 +125,6 @@ interface DbalInterface
      * @param string      $sortOrder   ASC or DESC
      * @param int         $limitOffset starting offset for LIMIT
      * @param bool|int    $limitCount  row count for LIMIT or true for $cfg['MaxDbList']
-     * @psalm-param ConnectionType $connectionType
      *
      * @return mixed[]
      *
@@ -141,7 +133,7 @@ interface DbalInterface
     public function getDatabasesFull(
         string|null $database = null,
         bool $forceStats = false,
-        int $connectionType = Connection::TYPE_USER,
+        ConnectionType $connectionType = ConnectionType::User,
         string $sortBy = 'SCHEMA_NAME',
         string $sortOrder = 'ASC',
         int $limitOffset = 0,
@@ -155,7 +147,6 @@ interface DbalInterface
      * @param string|null $database name of database
      * @param string|null $table    name of table to retrieve columns from
      * @param string|null $column   name of specific column
-     * @psalm-param ConnectionType $connectionType
      *
      * @return mixed[]
      */
@@ -163,7 +154,7 @@ interface DbalInterface
         string|null $database = null,
         string|null $table = null,
         string|null $column = null,
-        int $connectionType = Connection::TYPE_USER,
+        ConnectionType $connectionType = ConnectionType::User,
     ): array;
 
     /**
@@ -173,7 +164,6 @@ interface DbalInterface
      * @param string $table    name of table to retrieve columns from
      * @param string $column   name of column
      * @param T      $full     whether to return full info or only column names
-     * @psalm-param ConnectionType $connectionType
      *
      * @psalm-return (T is true ? ColumnFull : Column)|null
      *
@@ -184,7 +174,7 @@ interface DbalInterface
         string $table,
         string $column,
         bool $full = false,
-        int $connectionType = Connection::TYPE_USER,
+        ConnectionType $connectionType = ConnectionType::User,
     ): ColumnFull|Column|null;
 
     /**
@@ -193,7 +183,6 @@ interface DbalInterface
      * @param string $database name of database
      * @param string $table    name of table to retrieve columns from
      * @param T      $full     whether to return full info or only column names
-     * @psalm-param ConnectionType $connectionType
      *
      * @return ColumnFull[]|Column[]
      * @psalm-return (T is true ? ColumnFull[] : Column[])
@@ -204,7 +193,7 @@ interface DbalInterface
         string $database,
         string $table,
         bool $full = false,
-        int $connectionType = Connection::TYPE_USER,
+        ConnectionType $connectionType = ConnectionType::User,
     ): array;
 
     /**
@@ -212,14 +201,13 @@ interface DbalInterface
      *
      * @param string $database name of database
      * @param string $table    name of table to retrieve columns from
-     * @psalm-param ConnectionType $connectionType
      *
      * @return string[]
      */
     public function getColumnNames(
         string $database,
         string $table,
-        int $connectionType = Connection::TYPE_USER,
+        ConnectionType $connectionType = ConnectionType::User,
     ): array;
 
     /**
@@ -227,7 +215,6 @@ interface DbalInterface
      *
      * @param string $database name of database
      * @param string $table    name of the table whose indexes are to be retrieved
-     * @psalm-param ConnectionType $connectionType
      *
      * @return array<int, array<string, string|null>>
      * @psalm-return array<int, array{
@@ -252,7 +239,7 @@ interface DbalInterface
     public function getTableIndexes(
         string $database,
         string $table,
-        int $connectionType = Connection::TYPE_USER,
+        ConnectionType $connectionType = ConnectionType::User,
     ): array;
 
     /**
@@ -260,14 +247,13 @@ interface DbalInterface
      *
      * @param string $var  mysql server variable name
      * @param int    $type DatabaseInterface::GETVAR_SESSION | DatabaseInterface::GETVAR_GLOBAL
-     * @psalm-param ConnectionType $connectionType
      *
      * @return false|string|null value for mysql server variable
      */
     public function getVariable(
         string $var,
         int $type = DatabaseInterface::GETVAR_SESSION,
-        int $connectionType = Connection::TYPE_USER,
+        ConnectionType $connectionType = ConnectionType::User,
     ): false|string|null;
 
     /**
@@ -275,12 +261,11 @@ interface DbalInterface
      *
      * @param string $var   variable name
      * @param string $value value to set
-     * @psalm-param ConnectionType $connectionType
      */
     public function setVariable(
         string $var,
         string $value,
-        int $connectionType = Connection::TYPE_USER,
+        ConnectionType $connectionType = ConnectionType::User,
     ): bool;
 
     /**
@@ -311,7 +296,6 @@ interface DbalInterface
      *
      * @param string     $query The query to execute
      * @param int|string $field field to fetch the value from, starting at 0, with 0 being default
-     * @psalm-param ConnectionType $connectionType
      *
      * @return string|false|null value of first field in first row from result
      *               or false if not found
@@ -319,7 +303,7 @@ interface DbalInterface
     public function fetchValue(
         string $query,
         int|string $field = 0,
-        int $connectionType = Connection::TYPE_USER,
+        ConnectionType $connectionType = ConnectionType::User,
     ): string|false|null;
 
     /**
@@ -335,12 +319,11 @@ interface DbalInterface
      * @param string $query The query to execute
      * @param string $type  NUM|ASSOC returned array should either numeric associative or both
      * @psalm-param self::FETCH_NUM|self::FETCH_ASSOC $type
-     * @psalm-param ConnectionType $connectionType
      */
     public function fetchSingleRow(
         string $query,
         string $type = DbalInterface::FETCH_ASSOC,
-        int $connectionType = Connection::TYPE_USER,
+        ConnectionType $connectionType = ConnectionType::User,
     ): array|null;
 
     /**
@@ -388,7 +371,6 @@ interface DbalInterface
      * @param string                  $query query to execute
      * @param string|int|mixed[]|null $key   field-name or offset used as key for array or array of those
      * @param string|int|null         $value value-name or offset used as value for array
-     * @psalm-param ConnectionType $connectionType
      *
      * @return mixed[] resultrows or values indexed by $key
      */
@@ -396,7 +378,7 @@ interface DbalInterface
         string $query,
         string|int|array|null $key = null,
         string|int|null $value = null,
-        int $connectionType = Connection::TYPE_USER,
+        ConnectionType $connectionType = ConnectionType::User,
     ): array;
 
     /**
@@ -409,11 +391,9 @@ interface DbalInterface
     /**
      * returns warnings for last query
      *
-     * @psalm-param ConnectionType $connectionType
-     *
      * @return mixed[] warnings
      */
-    public function getWarnings(int $connectionType = Connection::TYPE_USER): array;
+    public function getWarnings(ConnectionType $connectionType = ConnectionType::User): array;
 
     /**
      * gets the current user with host
@@ -453,44 +433,39 @@ interface DbalInterface
     /**
      * Connects to the database server.
      *
-     * @param int|null $target How to store connection link, defaults to $mode
-     * @psalm-param ConnectionType $connectionType
-     * @psalm-param ConnectionType|null $target
+     * @param ConnectionType|null $target How to store connection link, defaults to $connectionType
      */
-    public function connect(Server $currentServer, int $connectionType, int|null $target = null): Connection|null;
+    public function connect(
+        Server $currentServer,
+        ConnectionType $connectionType,
+        ConnectionType|null $target = null,
+    ): Connection|null;
 
     /**
      * selects given database
      *
      * @param string|DatabaseName $dbname database name to select
-     * @psalm-param ConnectionType $connectionType
      */
-    public function selectDb(string|DatabaseName $dbname, int $connectionType = Connection::TYPE_USER): bool;
+    public function selectDb(string|DatabaseName $dbname, ConnectionType $connectionType = ConnectionType::User): bool;
 
     /**
      * Prepare next result from multi_query
-     *
-     * @psalm-param ConnectionType $connectionType
      */
-    public function nextResult(int $connectionType = Connection::TYPE_USER): ResultInterface|false;
+    public function nextResult(ConnectionType $connectionType = ConnectionType::User): ResultInterface|false;
 
     /**
      * Returns a string representing the type of connection used
      *
-     * @psalm-param ConnectionType $connectionType
-     *
      * @return string|bool type of connection used
      */
-    public function getHostInfo(int $connectionType = Connection::TYPE_USER): string|bool;
+    public function getHostInfo(ConnectionType $connectionType = ConnectionType::User): string|bool;
 
     /**
      * Returns the version of the MySQL protocol used
      *
-     * @psalm-param ConnectionType $connectionType
-     *
      * @return int|bool version of the MySQL protocol used
      */
-    public function getProtoInfo(int $connectionType = Connection::TYPE_USER): int|bool;
+    public function getProtoInfo(ConnectionType $connectionType = ConnectionType::User): int|bool;
 
     /**
      * returns a string that represents the client library version
@@ -501,10 +476,8 @@ interface DbalInterface
 
     /**
      * Returns last error message or an empty string if no errors occurred.
-     *
-     * @psalm-param ConnectionType $connectionType
      */
-    public function getError(int $connectionType = Connection::TYPE_USER): string;
+    public function getError(ConnectionType $connectionType = ConnectionType::User): string;
 
     /**
      * returns the number of rows returned by last query
@@ -519,20 +492,20 @@ interface DbalInterface
     /**
      * returns last inserted auto_increment id for given $link
      * or $GLOBALS['userlink']
-     *
-     * @psalm-param ConnectionType $connectionType
      */
-    public function insertId(int $connectionType = Connection::TYPE_USER): int;
+    public function insertId(ConnectionType $connectionType = ConnectionType::User): int;
 
     /**
      * returns the number of rows affected by last query
      *
      * @param bool $getFromCache whether to retrieve from cache
-     * @psalm-param ConnectionType $connectionType
      *
      * @psalm-return int|numeric-string
      */
-    public function affectedRows(int $connectionType = Connection::TYPE_USER, bool $getFromCache = true): int|string;
+    public function affectedRows(
+        ConnectionType $connectionType = ConnectionType::User,
+        bool $getFromCache = true,
+    ): int|string;
 
     /**
      * returns metainfo for fields in $result
@@ -547,13 +520,12 @@ interface DbalInterface
      * Returns properly quoted string for use in MySQL queries.
      *
      * @param string $str string to be quoted
-     * @psalm-param ConnectionType $connectionType
      *
      * @psalm-return non-empty-string
      *
      * @psalm-taint-escape sql
      */
-    public function quoteString(string $str, int $connectionType = Connection::TYPE_USER): string;
+    public function quoteString(string $str, ConnectionType $connectionType = ConnectionType::User): string;
 
     /**
      * Returns properly escaped string for use in MySQL LIKE clauses.
@@ -633,7 +605,6 @@ interface DbalInterface
      * Prepare an SQL statement for execution.
      *
      * @param string $query The query, as a string.
-     * @psalm-param ConnectionType $connectionType
      */
-    public function prepare(string $query, int $connectionType = Connection::TYPE_USER): Statement|null;
+    public function prepare(string $query, ConnectionType $connectionType = ConnectionType::User): Statement|null;
 }

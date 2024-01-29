@@ -11,7 +11,7 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Types;
@@ -200,7 +200,7 @@ class CentralColumnsTest extends AbstractTestCase
                 'SELECT count(db_name) FROM `pma_central_columns` WHERE db_name = \'phpmyadmin\';',
                 null,
                 null,
-                Connection::TYPE_CONTROL,
+                ConnectionType::ControlUser,
             )
             ->willReturn([3]);
 
@@ -260,7 +260,7 @@ class CentralColumnsTest extends AbstractTestCase
                 . "WHERE db_name = 'PMA_db' AND col_name IN ('id','col1','col2');",
                 null,
                 null,
-                Connection::TYPE_CONTROL,
+                ConnectionType::ControlUser,
             )
             ->willReturn(['id', 'col1']);
         $this->assertEquals(
@@ -287,7 +287,7 @@ class CentralColumnsTest extends AbstractTestCase
                 . "WHERE db_name = 'PMA_db' AND col_name IN ('id','col1','col2');",
                 null,
                 null,
-                Connection::TYPE_CONTROL,
+                ConnectionType::ControlUser,
             )
             ->willReturn(array_slice($this->columnData, 0, 2));
         $this->assertEquals(
@@ -367,7 +367,7 @@ class CentralColumnsTest extends AbstractTestCase
                 . "WHERE db_name = 'phpmyadmin' AND col_name IN ('col1','col2');",
                 null,
                 null,
-                Connection::TYPE_CONTROL,
+                ConnectionType::ControlUser,
             )
             ->willReturn($this->columnData);
         $result = $this->centralColumns->getHtmlForEditingPage(
@@ -402,7 +402,7 @@ class CentralColumnsTest extends AbstractTestCase
                 'SELECT * FROM `pma_central_columns` WHERE db_name = \'phpmyadmin\';',
                 null,
                 null,
-                Connection::TYPE_CONTROL,
+                ConnectionType::ControlUser,
             )
             ->willReturn($this->columnData);
         $this->assertEquals(
@@ -427,7 +427,7 @@ class CentralColumnsTest extends AbstractTestCase
                 . "NOT IN ('id','col1','col2');",
                 null,
                 null,
-                Connection::TYPE_CONTROL,
+                ConnectionType::ControlUser,
             )
             ->willReturn($this->columnData);
         $this->assertEquals(
@@ -450,7 +450,7 @@ class CentralColumnsTest extends AbstractTestCase
                 'SELECT * FROM `pma_central_columns` WHERE db_name = \'phpmyadmin\' AND col_name IN (\'col1\');',
                 null,
                 null,
-                Connection::TYPE_CONTROL,
+                ConnectionType::ControlUser,
             )
             ->willReturn(array_slice($this->columnData, 1, 1));
         $this->assertEquals(

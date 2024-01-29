@@ -7,7 +7,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Identifiers\DatabaseName;
 
 use function __;
@@ -89,7 +89,7 @@ class UserPreferences
             . ' FROM ' . $queryTable
             . ' WHERE `username` = '
             . $this->dbi->quoteString((string) $relationParameters->user);
-        $row = $this->dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, Connection::TYPE_CONTROL);
+        $row = $this->dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, ConnectionType::ControlUser);
         if (! is_array($row) || ! isset($row['config_data']) || ! isset($row['ts'])) {
             return ['config_data' => [], 'mtime' => time(), 'type' => 'db'];
         }
@@ -135,7 +135,7 @@ class UserPreferences
             . ' WHERE `username` = '
             . $this->dbi->quoteString($relationParameters->user);
 
-        $hasConfig = $this->dbi->fetchValue($query, 0, Connection::TYPE_CONTROL);
+        $hasConfig = $this->dbi->fetchValue($query, 0, ConnectionType::ControlUser);
         $configData = json_encode($configArray);
         if ($hasConfig) {
             $query = 'UPDATE ' . $queryTable
@@ -155,10 +155,10 @@ class UserPreferences
             unset($_SESSION['cache'][$cacheKey]['userprefs']);
         }
 
-        if (! $this->dbi->tryQuery($query, Connection::TYPE_CONTROL)) {
+        if (! $this->dbi->tryQuery($query, ConnectionType::ControlUser)) {
             $message = Message::error(__('Could not save configuration'));
             $message->addMessage(
-                Message::error($this->dbi->getError(Connection::TYPE_CONTROL)),
+                Message::error($this->dbi->getError(ConnectionType::ControlUser)),
                 '<br><br>',
             );
             if (! $this->hasAccessToDatabase($relationParameters->db)) {
@@ -188,7 +188,7 @@ class UserPreferences
                 );
         }
 
-        return (bool) $this->dbi->fetchSingleRow($query, 'ASSOC', Connection::TYPE_CONTROL);
+        return (bool) $this->dbi->fetchSingleRow($query, 'ASSOC', ConnectionType::ControlUser);
     }
 
     /**

@@ -9,7 +9,7 @@ namespace PhpMyAdmin\Plugins\Export\Helpers;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Pdf as PdfLib;
@@ -673,7 +673,7 @@ class Pdf extends PdfLib
         /**
          * Pass 1 for column widths
          */
-        $this->results = $dbi->query($query, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
+        $this->results = $dbi->query($query, ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED);
         $numFields = $this->results->numFields();
         $fields = $dbi->getFieldsMeta($this->results);
 
@@ -796,7 +796,7 @@ class Pdf extends PdfLib
 
         // Pass 2
 
-        $this->results = $dbi->query($query, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
+        $this->results = $dbi->query($query, ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED);
         $this->setY($this->tMargin);
         $this->AddPage();
         $this->setFont(PdfLib::PMA_PDF_FONT, '', 9);

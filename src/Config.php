@@ -7,7 +7,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Config\Settings;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Exceptions\ConfigException;
 use PhpMyAdmin\Routing\Routing;
 use PhpMyAdmin\Theme\ThemeManager;
@@ -70,7 +70,6 @@ use const PHP_URL_SCHEME;
 /**
  * Configuration handling
  *
- * @psalm-import-type ConnectionType from Connection
  * @psalm-import-type ServerSettingsType from Server
  * @psalm-import-type SettingsType from Settings
  */
@@ -1105,12 +1104,10 @@ class Config
 
     /**
      * Return connection parameters for the database server
-     *
-     * @psalm-param ConnectionType $connectionType
      */
-    public static function getConnectionParams(Server $currentServer, int $connectionType): Server
+    public static function getConnectionParams(Server $currentServer, ConnectionType $connectionType): Server
     {
-        if ($connectionType !== Connection::TYPE_CONTROL) {
+        if ($connectionType !== ConnectionType::ControlUser) {
             if ($currentServer->host !== '' && $currentServer->port !== '') {
                 return $currentServer;
             }

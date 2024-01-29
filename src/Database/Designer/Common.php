@@ -8,7 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Table\Table;
@@ -245,7 +245,7 @@ class Common
                 . '.' . Util::backquote($pdfFeature->tableCoords) . '
             WHERE pdf_page_number = ' . $pg;
 
-        return $this->dbi->fetchResult($query, 'name', null, Connection::TYPE_CONTROL);
+        return $this->dbi->fetchResult($query, 'name', null, ConnectionType::ControlUser);
     }
 
     /**
@@ -266,7 +266,7 @@ class Common
             . ' FROM ' . Util::backquote($pdfFeature->database)
             . '.' . Util::backquote($pdfFeature->pdfPages)
             . ' WHERE ' . Util::backquote('page_nr') . ' = ' . $pg;
-        $pageName = $this->dbi->fetchValue($query, 0, Connection::TYPE_CONTROL);
+        $pageName = $this->dbi->fetchValue($query, 0, ConnectionType::ControlUser);
 
         return $pageName !== false ? $pageName : null;
     }
@@ -314,10 +314,10 @@ class Common
         $query = 'SELECT `page_nr`'
             . ' FROM ' . Util::backquote($pdfFeature->database)
             . '.' . Util::backquote($pdfFeature->pdfPages)
-            . ' WHERE `db_name` = ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL)
-            . ' AND `page_descr` = ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL);
+            . ' WHERE `db_name` = ' . $this->dbi->quoteString($db, ConnectionType::ControlUser)
+            . ' AND `page_descr` = ' . $this->dbi->quoteString($db, ConnectionType::ControlUser);
 
-        $defaultPageNo = $this->dbi->fetchValue($query, 0, Connection::TYPE_CONTROL);
+        $defaultPageNo = $this->dbi->fetchValue($query, 0, ConnectionType::ControlUser);
 
         return is_string($defaultPageNo) ? intval($defaultPageNo) : -1;
     }
@@ -338,8 +338,8 @@ class Common
         $query = 'SELECT `page_nr`'
             . ' FROM ' . Util::backquote($pdfFeature->database)
             . '.' . Util::backquote($pdfFeature->pdfPages)
-            . ' WHERE `page_descr` = ' . $this->dbi->quoteString($pg, Connection::TYPE_CONTROL);
-        $pageNos = $this->dbi->fetchResult($query, null, null, Connection::TYPE_CONTROL);
+            . ' WHERE `page_descr` = ' . $this->dbi->quoteString($pg, ConnectionType::ControlUser);
+        $pageNos = $this->dbi->fetchResult($query, null, null, ConnectionType::ControlUser);
 
         return $pageNos !== [];
     }
@@ -367,9 +367,9 @@ class Common
         $query = 'SELECT MIN(`page_nr`)'
             . ' FROM ' . Util::backquote($pdfFeature->database)
             . '.' . Util::backquote($pdfFeature->pdfPages)
-            . ' WHERE `db_name` = ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL);
+            . ' WHERE `db_name` = ' . $this->dbi->quoteString($db, ConnectionType::ControlUser);
 
-        $minPageNo = $this->dbi->fetchValue($query, 0, Connection::TYPE_CONTROL);
+        $minPageNo = $this->dbi->fetchValue($query, 0, ConnectionType::ControlUser);
 
         return is_string($minPageNo) ? intval($minPageNo) : -1;
     }
@@ -402,7 +402,7 @@ class Common
             return false;
         }
 
-        $pageId = $this->dbi->quoteString((string) $pg, Connection::TYPE_CONTROL);
+        $pageId = $this->dbi->quoteString((string) $pg, ConnectionType::ControlUser);
 
         $query = 'DELETE FROM '
             . Util::backquote($pdfFeature->database)
@@ -423,11 +423,11 @@ class Common
                 . Util::backquote($pdfFeature->tableCoords)
                 . ' (`db_name`, `table_name`, `pdf_page_number`, `x`, `y`)'
                 . ' VALUES ('
-                . $this->dbi->quoteString($db, Connection::TYPE_CONTROL) . ', '
-                . $this->dbi->quoteString($tab, Connection::TYPE_CONTROL) . ', '
+                . $this->dbi->quoteString($db, ConnectionType::ControlUser) . ', '
+                . $this->dbi->quoteString($tab, ConnectionType::ControlUser) . ', '
                 . $pageId . ', '
-                . $this->dbi->quoteString($_POST['t_x'][$key], Connection::TYPE_CONTROL) . ', '
-                . $this->dbi->quoteString($_POST['t_y'][$key], Connection::TYPE_CONTROL) . ')';
+                . $this->dbi->quoteString($_POST['t_x'][$key], ConnectionType::ControlUser) . ', '
+                . $this->dbi->quoteString($_POST['t_y'][$key], ConnectionType::ControlUser) . ')';
 
             $this->dbi->queryAsControlUser($query);
         }
@@ -574,18 +574,18 @@ class Common
             . '(master_db, master_table, master_field, '
             . 'foreign_db, foreign_table, foreign_field)'
             . ' values('
-            . $this->dbi->quoteString($db2, Connection::TYPE_CONTROL) . ', '
-            . $this->dbi->quoteString($t2, Connection::TYPE_CONTROL) . ', '
-            . $this->dbi->quoteString($f2, Connection::TYPE_CONTROL) . ', '
-            . $this->dbi->quoteString($db1, Connection::TYPE_CONTROL) . ', '
-            . $this->dbi->quoteString($t1, Connection::TYPE_CONTROL) . ', '
-            . $this->dbi->quoteString($f1, Connection::TYPE_CONTROL) . ')';
+            . $this->dbi->quoteString($db2, ConnectionType::ControlUser) . ', '
+            . $this->dbi->quoteString($t2, ConnectionType::ControlUser) . ', '
+            . $this->dbi->quoteString($f2, ConnectionType::ControlUser) . ', '
+            . $this->dbi->quoteString($db1, ConnectionType::ControlUser) . ', '
+            . $this->dbi->quoteString($t1, ConnectionType::ControlUser) . ', '
+            . $this->dbi->quoteString($f1, ConnectionType::ControlUser) . ')';
 
         if ($this->dbi->tryQueryAsControlUser($q)) {
             return [true, __('Internal relationship has been added.')];
         }
 
-        $error = $this->dbi->getError(Connection::TYPE_CONTROL);
+        $error = $this->dbi->getError(ConnectionType::ControlUser);
 
         return [false, __('Error: Internal relationship could not be added!') . '<br>' . $error];
     }
@@ -632,17 +632,17 @@ class Common
         $deleteQuery = 'DELETE FROM '
             . Util::backquote($relationFeature->database) . '.'
             . Util::backquote($relationFeature->relation) . ' WHERE '
-            . 'master_db = ' . $this->dbi->quoteString($db2, Connection::TYPE_CONTROL)
-            . ' AND master_table = ' . $this->dbi->quoteString($t2, Connection::TYPE_CONTROL)
-            . ' AND master_field = ' . $this->dbi->quoteString($f2, Connection::TYPE_CONTROL)
-            . ' AND foreign_db = ' . $this->dbi->quoteString($db1, Connection::TYPE_CONTROL)
-            . ' AND foreign_table = ' . $this->dbi->quoteString($t1, Connection::TYPE_CONTROL)
-            . ' AND foreign_field = ' . $this->dbi->quoteString($f1, Connection::TYPE_CONTROL);
+            . 'master_db = ' . $this->dbi->quoteString($db2, ConnectionType::ControlUser)
+            . ' AND master_table = ' . $this->dbi->quoteString($t2, ConnectionType::ControlUser)
+            . ' AND master_field = ' . $this->dbi->quoteString($f2, ConnectionType::ControlUser)
+            . ' AND foreign_db = ' . $this->dbi->quoteString($db1, ConnectionType::ControlUser)
+            . ' AND foreign_table = ' . $this->dbi->quoteString($t1, ConnectionType::ControlUser)
+            . ' AND foreign_field = ' . $this->dbi->quoteString($f1, ConnectionType::ControlUser);
 
         $result = $this->dbi->tryQueryAsControlUser($deleteQuery);
 
         if (! $result) {
-            $error = $this->dbi->getError(Connection::TYPE_CONTROL);
+            $error = $this->dbi->getError(ConnectionType::ControlUser);
 
             return [false, __('Error: Internal relationship could not be removed!') . '<br>' . $error];
         }
@@ -670,12 +670,12 @@ class Common
                 . ' FROM ' . Util::backquote($cfgDesigner['db'])
                 . '.' . Util::backquote($cfgDesigner['table'])
                 . ' WHERE username = '
-                . $this->dbi->quoteString($cfgDesigner['user'], Connection::TYPE_CONTROL) . ';';
+                . $this->dbi->quoteString($cfgDesigner['user'], ConnectionType::ControlUser) . ';';
 
             $origData = $this->dbi->fetchSingleRow(
                 $origDataQuery,
                 DatabaseInterface::FETCH_ASSOC,
-                Connection::TYPE_CONTROL,
+                ConnectionType::ControlUser,
             );
 
             if ($origData !== null && $origData !== []) {
@@ -686,9 +686,9 @@ class Common
                 $saveQuery = 'UPDATE '
                     . Util::backquote($cfgDesigner['db'])
                     . '.' . Util::backquote($cfgDesigner['table'])
-                    . ' SET settings_data = ' . $this->dbi->quoteString($origData, Connection::TYPE_CONTROL)
+                    . ' SET settings_data = ' . $this->dbi->quoteString($origData, ConnectionType::ControlUser)
                     . ' WHERE username = '
-                    . $this->dbi->quoteString($cfgDesigner['user'], Connection::TYPE_CONTROL) . ';';
+                    . $this->dbi->quoteString($cfgDesigner['user'], ConnectionType::ControlUser) . ';';
 
                 $this->dbi->queryAsControlUser($saveQuery);
             } else {
@@ -698,8 +698,8 @@ class Common
                     . Util::backquote($cfgDesigner['db'])
                     . '.' . Util::backquote($cfgDesigner['table'])
                     . ' (username, settings_data)'
-                    . ' VALUES(' . $this->dbi->quoteString($cfgDesigner['user'], Connection::TYPE_CONTROL)
-                    . ', ' . $this->dbi->quoteString(json_encode($saveData), Connection::TYPE_CONTROL) . ');';
+                    . ' VALUES(' . $this->dbi->quoteString($cfgDesigner['user'], ConnectionType::ControlUser)
+                    . ', ' . $this->dbi->quoteString(json_encode($saveData), ConnectionType::ControlUser) . ');';
 
                 $this->dbi->queryAsControlUser($query);
             }

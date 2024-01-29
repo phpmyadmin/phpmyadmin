@@ -10,7 +10,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Query\Utilities;
@@ -95,7 +95,7 @@ class DatabasesController extends AbstractController
             $this->databases = $this->dbi->getDatabasesFull(
                 null,
                 $this->hasStatistics,
-                Connection::TYPE_USER,
+                ConnectionType::User,
                 $this->sortBy,
                 $this->sortOrder,
                 $position,

@@ -18,7 +18,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Plugins\TransformationsInterface;
 
 use function array_shift;
@@ -296,8 +296,8 @@ class Transformations
                     . '`input_transformation_options`'
             . ' FROM ' . Util::backquote($browserTransformationFeature->database) . '.'
             . Util::backquote($browserTransformationFeature->columnInfo)
-            . ' WHERE `db_name` = ' . $dbi->quoteString($db, Connection::TYPE_CONTROL)
-            . ' AND `table_name` = ' . $dbi->quoteString($table, Connection::TYPE_CONTROL)
+            . ' WHERE `db_name` = ' . $dbi->quoteString($db, ConnectionType::ControlUser)
+            . ' AND `table_name` = ' . $dbi->quoteString($table, ConnectionType::ControlUser)
             . ' AND ( `mimetype` != \'\'' . (! $strict ?
                 ' OR `transformation` != \'\''
                 . ' OR `transformation_options` != \'\''
@@ -314,7 +314,7 @@ class Transformations
          *     input_transformation_options: string
          * }> $result
          */
-        $result = $dbi->fetchResult($comQry, 'column_name', null, Connection::TYPE_CONTROL);
+        $result = $dbi->fetchResult($comQry, 'column_name', null, ConnectionType::ControlUser);
 
         foreach ($result as $column => $values) {
             // convert mimetype to new format (f.e. Text_Plain, etc)
@@ -387,9 +387,9 @@ class Transformations
                     `comment`
                FROM ' . Util::backquote($browserTransformationFeature->database) . '.'
             . Util::backquote($browserTransformationFeature->columnInfo) . '
-              WHERE `db_name`     = ' . $dbi->quoteString($db, Connection::TYPE_CONTROL) . '
-                AND `table_name`  = ' . $dbi->quoteString($table, Connection::TYPE_CONTROL) . '
-                AND `column_name` = ' . $dbi->quoteString($key, Connection::TYPE_CONTROL);
+              WHERE `db_name`     = ' . $dbi->quoteString($db, ConnectionType::ControlUser) . '
+                AND `table_name`  = ' . $dbi->quoteString($table, ConnectionType::ControlUser) . '
+                AND `column_name` = ' . $dbi->quoteString($key, ConnectionType::ControlUser);
 
         $testRs = $dbi->queryAsControlUser($testQry);
 
@@ -402,15 +402,15 @@ class Transformations
                     . Util::backquote($browserTransformationFeature->columnInfo)
                     . ' SET '
                     . '`mimetype` = '
-                    . $dbi->quoteString($mimetype, Connection::TYPE_CONTROL) . ', '
+                    . $dbi->quoteString($mimetype, ConnectionType::ControlUser) . ', '
                     . '`transformation` = '
-                    . $dbi->quoteString($transformation, Connection::TYPE_CONTROL) . ', '
+                    . $dbi->quoteString($transformation, ConnectionType::ControlUser) . ', '
                     . '`transformation_options` = '
-                    . $dbi->quoteString($transformationOpts, Connection::TYPE_CONTROL) . ', '
+                    . $dbi->quoteString($transformationOpts, ConnectionType::ControlUser) . ', '
                     . '`input_transformation` = '
-                    . $dbi->quoteString($inputTransform, Connection::TYPE_CONTROL) . ', '
+                    . $dbi->quoteString($inputTransform, ConnectionType::ControlUser) . ', '
                     . '`input_transformation_options` = '
-                    . $dbi->quoteString($inputTransformOpts, Connection::TYPE_CONTROL);
+                    . $dbi->quoteString($inputTransformOpts, ConnectionType::ControlUser);
             } else {
                 $updQuery = 'DELETE FROM '
                     . Util::backquote($browserTransformationFeature->database)
@@ -418,9 +418,9 @@ class Transformations
             }
 
             $updQuery .= '
-                WHERE `db_name`     = ' . $dbi->quoteString($db, Connection::TYPE_CONTROL) . '
-                  AND `table_name`  = ' . $dbi->quoteString($table, Connection::TYPE_CONTROL) . '
-                  AND `column_name` = ' . $dbi->quoteString($key, Connection::TYPE_CONTROL);
+                WHERE `db_name`     = ' . $dbi->quoteString($db, ConnectionType::ControlUser) . '
+                  AND `table_name`  = ' . $dbi->quoteString($table, ConnectionType::ControlUser) . '
+                  AND `column_name` = ' . $dbi->quoteString($key, ConnectionType::ControlUser);
         } elseif ($hasValue) {
             $updQuery = 'INSERT INTO '
                 . Util::backquote($browserTransformationFeature->database)
@@ -429,14 +429,14 @@ class Transformations
                 . 'transformation, transformation_options, '
                 . 'input_transformation, input_transformation_options) '
                 . ' VALUES('
-                . $dbi->quoteString($db, Connection::TYPE_CONTROL) . ','
-                . $dbi->quoteString($table, Connection::TYPE_CONTROL) . ','
-                . $dbi->quoteString($key, Connection::TYPE_CONTROL) . ','
-                . $dbi->quoteString($mimetype, Connection::TYPE_CONTROL) . ','
-                . $dbi->quoteString($transformation, Connection::TYPE_CONTROL) . ','
-                . $dbi->quoteString($transformationOpts, Connection::TYPE_CONTROL) . ','
-                . $dbi->quoteString($inputTransform, Connection::TYPE_CONTROL) . ','
-                . $dbi->quoteString($inputTransformOpts, Connection::TYPE_CONTROL) . ')';
+                . $dbi->quoteString($db, ConnectionType::ControlUser) . ','
+                . $dbi->quoteString($table, ConnectionType::ControlUser) . ','
+                . $dbi->quoteString($key, ConnectionType::ControlUser) . ','
+                . $dbi->quoteString($mimetype, ConnectionType::ControlUser) . ','
+                . $dbi->quoteString($transformation, ConnectionType::ControlUser) . ','
+                . $dbi->quoteString($transformationOpts, ConnectionType::ControlUser) . ','
+                . $dbi->quoteString($inputTransform, ConnectionType::ControlUser) . ','
+                . $dbi->quoteString($inputTransformOpts, ConnectionType::ControlUser) . ')';
         }
 
         if (isset($updQuery)) {

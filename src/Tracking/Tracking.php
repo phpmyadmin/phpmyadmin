@@ -12,7 +12,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
@@ -75,11 +75,11 @@ class Tracking
             '/*NOTRACK*/' . "\n" . 'DELETE FROM %s.%s WHERE `db_name` = %s AND `table_name` = %s',
             Util::backquote($trackingFeature->database),
             Util::backquote($trackingFeature->tracking),
-            $this->dbi->quoteString($dbName, Connection::TYPE_CONTROL),
-            $this->dbi->quoteString($tableName, Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($dbName, ConnectionType::ControlUser),
+            $this->dbi->quoteString($tableName, ConnectionType::ControlUser),
         );
         if ($version !== '') {
-            $sqlQuery .= ' AND `version` = ' . $this->dbi->quoteString($version, Connection::TYPE_CONTROL);
+            $sqlQuery .= ' AND `version` = ' . $this->dbi->quoteString($version, ConnectionType::ControlUser);
         }
 
         return (bool) $this->dbi->queryAsControlUser($sqlQuery);
@@ -134,8 +134,8 @@ class Tracking
             'SELECT * FROM %s.%s WHERE db_name = %s AND table_name = %s ORDER BY version DESC',
             Util::backquote($trackingFeature->database),
             Util::backquote($trackingFeature->tracking),
-            $this->dbi->quoteString($db, Connection::TYPE_CONTROL),
-            $this->dbi->quoteString($table, Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($db, ConnectionType::ControlUser),
+            $this->dbi->quoteString($table, ConnectionType::ControlUser),
         );
 
         return $this->dbi->queryAsControlUser($query);
@@ -644,13 +644,14 @@ class Tracking
             'SELECT * FROM %s.%s WHERE `db_name` = %s',
             Util::backquote($trackingFeature->database),
             Util::backquote($trackingFeature->tracking),
-            $this->dbi->quoteString($dbname, Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($dbname, ConnectionType::ControlUser),
         );
         if ($tablename !== '') {
-            $sqlQuery .= ' AND `table_name` = ' . $this->dbi->quoteString($tablename, Connection::TYPE_CONTROL) . ' ';
+            $sqlQuery .= ' AND `table_name` = '
+                . $this->dbi->quoteString($tablename, ConnectionType::ControlUser) . ' ';
         }
 
-        $sqlQuery .= ' AND `version` = ' . $this->dbi->quoteString($version, Connection::TYPE_CONTROL)
+        $sqlQuery .= ' AND `version` = ' . $this->dbi->quoteString($version, ConnectionType::ControlUser)
             . ' ORDER BY `version` DESC LIMIT 1';
 
         $mixed = $this->dbi->queryAsControlUser($sqlQuery)->fetchAssoc();
@@ -814,10 +815,10 @@ class Tracking
             Util::backquote($trackingFeature->database),
             Util::backquote($trackingFeature->tracking),
             $logType->getColumnName(),
-            $this->dbi->quoteString($newDataProcessed, Connection::TYPE_CONTROL),
-            $this->dbi->quoteString($dbName, Connection::TYPE_CONTROL),
-            $this->dbi->quoteString($tableName, Connection::TYPE_CONTROL),
-            $this->dbi->quoteString($version, Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($newDataProcessed, ConnectionType::ControlUser),
+            $this->dbi->quoteString($dbName, ConnectionType::ControlUser),
+            $this->dbi->quoteString($tableName, ConnectionType::ControlUser),
+            $this->dbi->quoteString($version, ConnectionType::ControlUser),
         );
 
         $result = $this->dbi->queryAsControlUser($sqlQuery);
@@ -1136,7 +1137,7 @@ class Tracking
         // Prepare statement to get HEAD version
         $allTablesQuery = ' SELECT table_name, MAX(version) as version FROM '
             . Util::backquote($trackingFeature->database) . '.' . Util::backquote($trackingFeature->tracking)
-            . ' WHERE db_name = ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL)
+            . ' WHERE db_name = ' . $this->dbi->quoteString($db, ConnectionType::ControlUser)
             . '  GROUP BY table_name ORDER BY table_name ASC';
 
         $allTablesResult = $this->dbi->queryAsControlUser($allTablesQuery);
@@ -1148,9 +1149,9 @@ class Tracking
             [$tableName, $versionNumber] = $oneResult;
             $tableQuery = ' SELECT * FROM '
                 . Util::backquote($trackingFeature->database) . '.' . Util::backquote($trackingFeature->tracking)
-                . ' WHERE `db_name` = ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL)
-                . ' AND `table_name`  = ' . $this->dbi->quoteString($tableName, Connection::TYPE_CONTROL)
-                . ' AND `version` = ' . $this->dbi->quoteString($versionNumber, Connection::TYPE_CONTROL);
+                . ' WHERE `db_name` = ' . $this->dbi->quoteString($db, ConnectionType::ControlUser)
+                . ' AND `table_name`  = ' . $this->dbi->quoteString($tableName, ConnectionType::ControlUser)
+                . ' AND `version` = ' . $this->dbi->quoteString($versionNumber, ConnectionType::ControlUser);
 
             $versions[] = $this->dbi->queryAsControlUser($tableQuery)->fetchAssoc();
         }

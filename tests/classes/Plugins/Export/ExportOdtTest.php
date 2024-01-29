@@ -9,7 +9,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Identifiers\TriggerName;
@@ -379,7 +379,7 @@ class ExportOdtTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('SELECT', Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('SELECT', ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED)
             ->willReturn($resultStub);
 
         $resultStub->expects($this->once())
@@ -448,7 +448,7 @@ class ExportOdtTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('SELECT', Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('SELECT', ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED)
             ->willReturn($resultStub);
 
         $resultStub->expects($this->once())
@@ -500,7 +500,7 @@ class ExportOdtTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('SELECT', Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('SELECT', ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED)
             ->willReturn($resultStub);
 
         $resultStub->expects($this->once())

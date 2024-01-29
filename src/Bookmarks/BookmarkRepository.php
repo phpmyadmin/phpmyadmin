@@ -11,7 +11,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Features\BookmarkFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Util;
 
@@ -93,7 +93,7 @@ final class BookmarkRepository
 
         $query .= ' ORDER BY label ASC';
 
-        $result = $this->dbi->fetchResult($query, null, null, Connection::TYPE_CONTROL);
+        $result = $this->dbi->fetchResult($query, null, null, ConnectionType::ControlUser);
 
         $bookmarks = [];
         foreach ($result as $row) {
@@ -131,7 +131,7 @@ final class BookmarkRepository
 
         $query .= ' LIMIT 1';
 
-        $result = $this->dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, Connection::TYPE_CONTROL);
+        $result = $this->dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, ConnectionType::ControlUser);
         if ($result !== null) {
             return $this->createFromRow($result);
         }
@@ -159,7 +159,7 @@ final class BookmarkRepository
             . ' AND user = ' . $this->dbi->quoteString($user)
             . ' LIMIT 1';
 
-        $result = $this->dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, Connection::TYPE_CONTROL);
+        $result = $this->dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, ConnectionType::ControlUser);
         if ($result !== null) {
             return $this->createFromRow($result);
         }

@@ -11,7 +11,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Features\NavigationItemsHidingFeature;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\NodeType;
 use PhpMyAdmin\UserPrivileges;
@@ -631,7 +631,7 @@ class Node
                 . $dbi->quoteString(Config::getInstance()->selectedServer['user'])
                 . ' GROUP BY `db_name`';
 
-            return $dbi->fetchResult($sqlQuery, 'db_name', 'count', Connection::TYPE_CONTROL);
+            return $dbi->fetchResult($sqlQuery, 'db_name', 'count', ConnectionType::ControlUser);
         }
 
         return null;

@@ -8,7 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Depends;
@@ -43,7 +43,6 @@ use const INFO_MODULES;
 use const PHP_OS;
 use const TEST_PATH;
 
-/** @psalm-import-type ConnectionType from Connection */
 #[CoversClass(Config::class)]
 class ConfigTest extends AbstractTestCase
 {
@@ -734,10 +733,9 @@ PHP;
      *
      * @param mixed[] $serverCfg Server configuration
      * @param mixed[] $expected  Expected result
-     * @psalm-param ConnectionType $connectionType
      */
     #[DataProvider('connectionParams')]
-    public function testGetConnectionParams(array $serverCfg, int $connectionType, array $expected): void
+    public function testGetConnectionParams(array $serverCfg, ConnectionType $connectionType, array $expected): void
     {
         $result = Config::getConnectionParams(new Server($serverCfg), $connectionType);
         $this->assertEquals(new Server($expected), $result);
@@ -780,7 +778,7 @@ PHP;
         return [
             [
                 $cfgBasic,
-                Connection::TYPE_USER,
+                ConnectionType::User,
                 [
                     'user' => 'u',
                     'password' => 'pass',
@@ -796,7 +794,7 @@ PHP;
             ],
             [
                 $cfgBasic,
-                Connection::TYPE_CONTROL,
+                ConnectionType::ControlUser,
                 [
                     'user' => 'u2',
                     'password' => 'p2',
@@ -810,7 +808,7 @@ PHP;
             ],
             [
                 $cfgSsl,
-                Connection::TYPE_USER,
+                ConnectionType::User,
                 [
                     'user' => 'u',
                     'password' => 'pass',
@@ -826,7 +824,7 @@ PHP;
             ],
             [
                 $cfgSsl,
-                Connection::TYPE_CONTROL,
+                ConnectionType::ControlUser,
                 [
                     'user' => 'u2',
                     'password' => 'p2',
@@ -840,7 +838,7 @@ PHP;
             ],
             [
                 $cfgControlSsl,
-                Connection::TYPE_USER,
+                ConnectionType::User,
                 [
                     'user' => 'u',
                     'password' => 'pass',
@@ -857,7 +855,7 @@ PHP;
             ],
             [
                 $cfgControlSsl,
-                Connection::TYPE_CONTROL,
+                ConnectionType::ControlUser,
                 [
                     'user' => 'u2',
                     'password' => 'p2',
@@ -872,10 +870,9 @@ PHP;
         ];
     }
 
-    /** @psalm-param ConnectionType $connectionType */
     #[DataProvider('connectionParamsWhenConnectionIsUserOrAuxiliaryProvider')]
     public function testGetConnectionParamsWhenConnectionIsUserOrAuxiliary(
-        int $connectionType,
+        ConnectionType $connectionType,
         string $host,
         string $port,
         string $expectedHost,
@@ -889,15 +886,15 @@ PHP;
     /** @psalm-return iterable<string, array{ConnectionType, string, string, string, string}> */
     public static function connectionParamsWhenConnectionIsUserOrAuxiliaryProvider(): iterable
     {
-        yield 'user with only port empty' => [Connection::TYPE_USER, 'test.host', '', 'test.host', '0'];
-        yield 'user with only host empty' => [Connection::TYPE_USER, '', '12345', 'localhost', '12345'];
-        yield 'user with host and port empty' => [Connection::TYPE_USER, '', '', 'localhost', '0'];
-        yield 'user with host and port defined' => [Connection::TYPE_USER, 'test.host', '12345', 'test.host', '12345'];
-        yield 'aux with only port empty' => [Connection::TYPE_AUXILIARY, 'test.host', '', 'test.host', '0'];
-        yield 'aux with only host empty' => [Connection::TYPE_AUXILIARY, '', '12345', 'localhost', '12345'];
-        yield 'aux with host and port empty' => [Connection::TYPE_AUXILIARY, '', '', 'localhost', '0'];
+        yield 'user with only port empty' => [ConnectionType::User, 'test.host', '', 'test.host', '0'];
+        yield 'user with only host empty' => [ConnectionType::User, '', '12345', 'localhost', '12345'];
+        yield 'user with host and port empty' => [ConnectionType::User, '', '', 'localhost', '0'];
+        yield 'user with host and port defined' => [ConnectionType::User, 'test.host', '12345', 'test.host', '12345'];
+        yield 'aux with only port empty' => [ConnectionType::Auxiliary, 'test.host', '', 'test.host', '0'];
+        yield 'aux with only host empty' => [ConnectionType::Auxiliary, '', '12345', 'localhost', '12345'];
+        yield 'aux with host and port empty' => [ConnectionType::Auxiliary, '', '', 'localhost', '0'];
         yield 'aux with host and port defined' => [
-            Connection::TYPE_AUXILIARY,
+            ConnectionType::Auxiliary,
             'test.host',
             '12345',
             'test.host',

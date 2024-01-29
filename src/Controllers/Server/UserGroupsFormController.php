@@ -10,7 +10,7 @@ use PhpMyAdmin\ConfigStorage\Features\ConfigurableMenusFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -81,7 +81,7 @@ final class UserGroupsFormController extends AbstractController
             $userTable,
             $this->dbi->quoteString($username),
         );
-        $userGroup = $this->dbi->fetchValue($sqlQuery, 0, Connection::TYPE_CONTROL);
+        $userGroup = $this->dbi->fetchValue($sqlQuery, 0, ConnectionType::ControlUser);
 
         $allUserGroups = [];
         $sqlQuery = 'SELECT DISTINCT `usergroup` FROM ' . $groupTable;

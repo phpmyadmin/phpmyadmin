@@ -9,7 +9,7 @@ use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
@@ -119,19 +119,19 @@ class CentralColumns
         }
 
         $pmadb = $cfgCentralColumns['db'];
-        $this->dbi->selectDb($pmadb, Connection::TYPE_CONTROL);
+        $this->dbi->selectDb($pmadb, ConnectionType::ControlUser);
         $centralListTable = $cfgCentralColumns['table'];
         //get current values of $db from central column list
         if ($num == 0) {
             $query = 'SELECT * FROM ' . Util::backquote($centralListTable) . ' '
-                . 'WHERE db_name = ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL) . ';';
+                . 'WHERE db_name = ' . $this->dbi->quoteString($db, ConnectionType::ControlUser) . ';';
         } else {
             $query = 'SELECT * FROM ' . Util::backquote($centralListTable) . ' '
-                . 'WHERE db_name = ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL) . ' '
+                . 'WHERE db_name = ' . $this->dbi->quoteString($db, ConnectionType::ControlUser) . ' '
                 . 'LIMIT ' . $from . ', ' . $num . ';';
         }
 
-        $hasList = $this->dbi->fetchResult($query, null, null, Connection::TYPE_CONTROL);
+        $hasList = $this->dbi->fetchResult($query, null, null, ConnectionType::ControlUser);
         $this->handleColumnExtra($hasList);
 
         return $hasList;
@@ -152,12 +152,12 @@ class CentralColumns
         }
 
         $pmadb = $cfgCentralColumns['db'];
-        $this->dbi->selectDb($pmadb, Connection::TYPE_CONTROL);
+        $this->dbi->selectDb($pmadb, ConnectionType::ControlUser);
         $centralListTable = $cfgCentralColumns['table'];
         $query = 'SELECT count(db_name) FROM '
             . Util::backquote($centralListTable) . ' '
-            . 'WHERE db_name = ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL) . ';';
-        $res = $this->dbi->fetchResult($query, null, null, Connection::TYPE_CONTROL);
+            . 'WHERE db_name = ' . $this->dbi->quoteString($db, ConnectionType::ControlUser) . ';';
+        $res = $this->dbi->fetchResult($query, null, null, ConnectionType::ControlUser);
         if (isset($res[0])) {
             return (int) $res[0];
         }
@@ -188,18 +188,18 @@ class CentralColumns
         $cols = $this->getWhereInColumns($cols);
 
         $pmadb = $cfgCentralColumns['db'];
-        $this->dbi->selectDb($pmadb, Connection::TYPE_CONTROL);
+        $this->dbi->selectDb($pmadb, ConnectionType::ControlUser);
         $centralListTable = $cfgCentralColumns['table'];
         if ($allFields) {
             $query = 'SELECT * FROM ' . Util::backquote($centralListTable) . ' WHERE db_name = '
-                . $this->dbi->quoteString($db, Connection::TYPE_CONTROL) . ' AND col_name IN (' . $cols . ');';
-            $hasList = $this->dbi->fetchResult($query, null, null, Connection::TYPE_CONTROL);
+                . $this->dbi->quoteString($db, ConnectionType::ControlUser) . ' AND col_name IN (' . $cols . ');';
+            $hasList = $this->dbi->fetchResult($query, null, null, ConnectionType::ControlUser);
             $this->handleColumnExtra($hasList);
         } else {
             $query = 'SELECT col_name FROM '
                 . Util::backquote($centralListTable) . ' WHERE db_name = '
-                . $this->dbi->quoteString($db, Connection::TYPE_CONTROL) . ' AND col_name IN (' . $cols . ');';
-            $hasList = $this->dbi->fetchResult($query, null, null, Connection::TYPE_CONTROL);
+                . $this->dbi->quoteString($db, ConnectionType::ControlUser) . ' AND col_name IN (' . $cols . ');';
+            $hasList = $this->dbi->fetchResult($query, null, null, ConnectionType::ControlUser);
         }
 
         return $hasList;
@@ -233,14 +233,14 @@ class CentralColumns
 
         return 'INSERT INTO '
             . Util::backquote($centralListTable) . ' '
-            . 'VALUES ( ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL) . ' ,'
-            . $this->dbi->quoteString($def->field, Connection::TYPE_CONTROL) . ','
-            . $this->dbi->quoteString($type, Connection::TYPE_CONTROL) . ','
-            . $this->dbi->quoteString((string) $length, Connection::TYPE_CONTROL) . ','
-            . $this->dbi->quoteString($collation, Connection::TYPE_CONTROL) . ','
-            . $this->dbi->quoteString($isNull, Connection::TYPE_CONTROL) . ','
+            . 'VALUES ( ' . $this->dbi->quoteString($db, ConnectionType::ControlUser) . ' ,'
+            . $this->dbi->quoteString($def->field, ConnectionType::ControlUser) . ','
+            . $this->dbi->quoteString($type, ConnectionType::ControlUser) . ','
+            . $this->dbi->quoteString((string) $length, ConnectionType::ControlUser) . ','
+            . $this->dbi->quoteString($collation, ConnectionType::ControlUser) . ','
+            . $this->dbi->quoteString($isNull, ConnectionType::ControlUser) . ','
             . '\'' . implode(',', [$extra, $attribute])
-            . '\',' . $this->dbi->quoteString($default, Connection::TYPE_CONTROL) . ');';
+            . '\',' . $this->dbi->quoteString($default, ConnectionType::ControlUser) . ');';
     }
 
     /**
@@ -329,12 +329,12 @@ class CentralColumns
             );
         }
 
-        $this->dbi->selectDb($pmadb, Connection::TYPE_CONTROL);
+        $this->dbi->selectDb($pmadb, ConnectionType::ControlUser);
         foreach ($insQuery as $query) {
-            if (! $this->dbi->tryQuery($query, Connection::TYPE_CONTROL)) {
+            if (! $this->dbi->tryQuery($query, ConnectionType::ControlUser)) {
                 $message = Message::error(__('Could not add columns!'));
                 $message->addMessage(
-                    Message::rawError($this->dbi->getError(Connection::TYPE_CONTROL)),
+                    Message::rawError($this->dbi->getError(ConnectionType::ControlUser)),
                 );
                 break;
             }
@@ -416,17 +416,17 @@ class CentralColumns
             );
         }
 
-        $this->dbi->selectDb($pmadb, Connection::TYPE_CONTROL);
+        $this->dbi->selectDb($pmadb, ConnectionType::ControlUser);
 
         $cols = $this->getWhereInColumns($cols);
         $query = 'DELETE FROM ' . Util::backquote($centralListTable) . ' WHERE db_name = '
-            . $this->dbi->quoteString($database, Connection::TYPE_CONTROL) . ' AND col_name IN (' . $cols . ');';
+            . $this->dbi->quoteString($database, ConnectionType::ControlUser) . ' AND col_name IN (' . $cols . ');';
 
-        if (! $this->dbi->tryQuery($query, Connection::TYPE_CONTROL)) {
+        if (! $this->dbi->tryQuery($query, ConnectionType::ControlUser)) {
             $message = Message::error(__('Could not remove columns!'));
             $message->addHtml('<br>' . htmlspecialchars($cols) . '<br>');
             $message->addMessage(
-                Message::rawError($this->dbi->getError(Connection::TYPE_CONTROL)),
+                Message::rawError($this->dbi->getError(ConnectionType::ControlUser)),
             );
         }
 
@@ -480,7 +480,7 @@ class CentralColumns
                     ) {
                         $query .= ' DEFAULT ' . $this->dbi->quoteString(
                             (string) $column['col_default'],
-                            Connection::TYPE_CONTROL,
+                            ConnectionType::ControlUser,
                         );
                     } else {
                         $query .= ' DEFAULT ' . $column['col_default'];
@@ -568,7 +568,7 @@ class CentralColumns
         }
 
         $centralTable = $cfgCentralColumns['table'];
-        $this->dbi->selectDb($cfgCentralColumns['db'], Connection::TYPE_CONTROL);
+        $this->dbi->selectDb($cfgCentralColumns['db'], ConnectionType::ControlUser);
         if ($origColName == '') {
             $def = new ColumnFull(
                 $colName,
@@ -584,20 +584,20 @@ class CentralColumns
             $query = $this->getInsertQuery($def, $db, $centralTable);
         } else {
             $query = 'UPDATE ' . Util::backquote($centralTable)
-                . ' SET col_type = ' . $this->dbi->quoteString($colType, Connection::TYPE_CONTROL)
-                . ', col_name = ' . $this->dbi->quoteString($colName, Connection::TYPE_CONTROL)
-                . ', col_length = ' . $this->dbi->quoteString($colLength, Connection::TYPE_CONTROL)
+                . ' SET col_type = ' . $this->dbi->quoteString($colType, ConnectionType::ControlUser)
+                . ', col_name = ' . $this->dbi->quoteString($colName, ConnectionType::ControlUser)
+                . ', col_length = ' . $this->dbi->quoteString($colLength, ConnectionType::ControlUser)
                 . ', col_isNull = ' . $colIsNull
-                . ', col_collation = ' . $this->dbi->quoteString($collation, Connection::TYPE_CONTROL)
+                . ', col_collation = ' . $this->dbi->quoteString($collation, ConnectionType::ControlUser)
                 . ', col_extra = \''
                 . implode(',', [$colExtra, $colAttribute]) . '\''
-                . ', col_default = ' . $this->dbi->quoteString($colDefault, Connection::TYPE_CONTROL)
-                . ' WHERE db_name = ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL)
-                . ' AND col_name = ' . $this->dbi->quoteString($origColName, Connection::TYPE_CONTROL);
+                . ', col_default = ' . $this->dbi->quoteString($colDefault, ConnectionType::ControlUser)
+                . ' WHERE db_name = ' . $this->dbi->quoteString($db, ConnectionType::ControlUser)
+                . ' AND col_name = ' . $this->dbi->quoteString($origColName, ConnectionType::ControlUser);
         }
 
-        if (! $this->dbi->tryQuery($query, Connection::TYPE_CONTROL)) {
-            return Message::error($this->dbi->getError(Connection::TYPE_CONTROL));
+        if (! $this->dbi->tryQuery($query, ConnectionType::ControlUser)) {
+            return Message::error($this->dbi->getError(ConnectionType::ControlUser));
         }
 
         return true;
@@ -719,12 +719,12 @@ class CentralColumns
         $centralTable = $cfgCentralColumns['table'];
         if ($table === '') {
             $query = 'SELECT * FROM ' . Util::backquote($centralTable) . ' '
-                . 'WHERE db_name = ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL) . ';';
+                . 'WHERE db_name = ' . $this->dbi->quoteString($db, ConnectionType::ControlUser) . ';';
         } else {
             $this->dbi->selectDb($db);
             $columns = $this->dbi->getColumnNames($db, $table);
             $query = 'SELECT * FROM ' . Util::backquote($centralTable) . ' '
-                . 'WHERE db_name = ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL);
+                . 'WHERE db_name = ' . $this->dbi->quoteString($db, ConnectionType::ControlUser);
             if ($columns !== []) {
                 $query .= ' AND col_name NOT IN (' . $this->getWhereInColumns($columns) . ')';
             }
@@ -732,8 +732,8 @@ class CentralColumns
             $query .= ';';
         }
 
-        $this->dbi->selectDb($cfgCentralColumns['db'], Connection::TYPE_CONTROL);
-        $columnsList = $this->dbi->fetchResult($query, null, null, Connection::TYPE_CONTROL);
+        $this->dbi->selectDb($cfgCentralColumns['db'], ConnectionType::ControlUser);
+        $columnsList = $this->dbi->fetchResult($query, null, null, ConnectionType::ControlUser);
         $this->handleColumnExtra($columnsList);
 
         return $columnsList;
@@ -807,13 +807,13 @@ class CentralColumns
         }
 
         $pmadb = $cfgCentralColumns['db'];
-        $this->dbi->selectDb($pmadb, Connection::TYPE_CONTROL);
+        $this->dbi->selectDb($pmadb, ConnectionType::ControlUser);
         $centralListTable = $cfgCentralColumns['table'];
         //get current values of $db from central column list
         $query = 'SELECT COUNT(db_name) FROM ' . Util::backquote($centralListTable) . ' '
-            . 'WHERE db_name = ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL)
+            . 'WHERE db_name = ' . $this->dbi->quoteString($db, ConnectionType::ControlUser)
             . ($num === 0 ? '' : 'LIMIT ' . $from . ', ' . $num) . ';';
-        $result = $this->dbi->fetchResult($query, null, null, Connection::TYPE_CONTROL);
+        $result = $this->dbi->fetchResult($query, null, null, ConnectionType::ControlUser);
 
         if (isset($result[0])) {
             return (int) $result[0];
@@ -937,7 +937,7 @@ class CentralColumns
     private function getWhereInColumns(array $columns): string
     {
         return implode(',', array_map(
-            fn (string $string): string => $this->dbi->quoteString($string, Connection::TYPE_CONTROL),
+            fn (string $string): string => $this->dbi->quoteString($string, ConnectionType::ControlUser),
             $columns,
         ));
     }

@@ -10,7 +10,7 @@ use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Exceptions\AuthenticationPluginException;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
@@ -105,11 +105,11 @@ final class Authentication implements MiddlewareInterface
          */
         $controlConnection = null;
         if ($currentServer->controlUser !== '') {
-            $controlConnection = $dbi->connect($currentServer, Connection::TYPE_CONTROL);
+            $controlConnection = $dbi->connect($currentServer, ConnectionType::ControlUser);
         }
 
         // Connects to the server (validates user's login)
-        $userConnection = $dbi->connect($currentServer, Connection::TYPE_USER);
+        $userConnection = $dbi->connect($currentServer, ConnectionType::User);
         if ($userConnection === null) {
             $auth->showFailure('mysql-denied');
         }
@@ -122,6 +122,6 @@ final class Authentication implements MiddlewareInterface
          * Open separate connection for control queries, this is needed to avoid problems with table locking used in
          * main connection and phpMyAdmin issuing queries to configuration storage, which is not locked by that time.
          */
-        $dbi->connect($currentServer, Connection::TYPE_USER, Connection::TYPE_CONTROL);
+        $dbi->connect($currentServer, ConnectionType::User, ConnectionType::ControlUser);
     }
 }

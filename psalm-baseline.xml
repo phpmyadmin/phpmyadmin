@@ -5058,9 +5058,6 @@
     <DeprecatedProperty>
       <code>Routing::$route</code>
     </DeprecatedProperty>
-    <InvalidDocblock>
-      <code>private array $connections = [];</code>
-    </InvalidDocblock>
     <InvalidOperand>
       <code><![CDATA[$row['Data_free']]]></code>
       <code><![CDATA[$row['Data_length']]]></code>
@@ -5072,18 +5069,6 @@
     <MixedArgument>
       <code>$a</code>
       <code>$b</code>
-      <code><![CDATA[$this->connections[$connectionType]]]></code>
-      <code><![CDATA[$this->connections[$connectionType]]]></code>
-      <code><![CDATA[$this->connections[$connectionType]]]></code>
-      <code><![CDATA[$this->connections[$connectionType]]]></code>
-      <code><![CDATA[$this->connections[$connectionType]]]></code>
-      <code><![CDATA[$this->connections[$connectionType]]]></code>
-      <code><![CDATA[$this->connections[$connectionType]]]></code>
-      <code><![CDATA[$this->connections[$connectionType]]]></code>
-      <code><![CDATA[$this->connections[$connectionType]]]></code>
-      <code><![CDATA[$this->connections[$connectionType]]]></code>
-      <code><![CDATA[$this->connections[$connectionType]]]></code>
-      <code><![CDATA[$this->connections[$connectionType]]]></code>
       <code><![CDATA[$this->versionComment]]></code>
       <code><![CDATA[$this->versionString]]></code>
     </MixedArgument>

@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tracking;
 use PhpMyAdmin\ConfigStorage\Features\TrackingFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Util;
 
@@ -67,7 +67,7 @@ class TrackingChecker
             JOIN %s.%s USING(table_name, version)",
             Util::backquote($this->trackingFeature->database),
             Util::backquote($this->trackingFeature->tracking),
-            $this->dbi->quoteString($dbName, Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($dbName, ConnectionType::ControlUser),
             Util::backquote($this->trackingFeature->database),
             Util::backquote($this->trackingFeature->tracking),
         );

@@ -9,7 +9,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Template;
@@ -78,12 +78,12 @@ class NormalizationTest extends AbstractTestCase
             ->method('getColumnNames')
             ->willReturn(['id', 'col1', 'col2']);
         $map = [
-            ['PMA_db', 'PMA_table1', Connection::TYPE_USER, []],
-            ['PMA_db', 'PMA_table', Connection::TYPE_USER, [['Key_name' => 'PRIMARY', 'Column_name' => 'id']]],
+            ['PMA_db', 'PMA_table1', ConnectionType::User, []],
+            ['PMA_db', 'PMA_table', ConnectionType::User, [['Key_name' => 'PRIMARY', 'Column_name' => 'id']]],
             [
                 'PMA_db',
                 'PMA_table2',
-                Connection::TYPE_USER,
+                ConnectionType::User,
                 [['Key_name' => 'PRIMARY','Column_name' => 'id'], ['Key_name' => 'PRIMARY','Column_name' => 'col1']],
             ],
         ];

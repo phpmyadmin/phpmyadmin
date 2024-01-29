@@ -8,7 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\ListDatabase;
 use PhpMyAdmin\Query\Cache;
 use PhpMyAdmin\SqlParser\Context;
@@ -82,35 +82,35 @@ class TableTest extends AbstractTestCase
                 $sqlAnalyzeStructureTrue,
                 null,
                 null,
-                Connection::TYPE_USER,
+                ConnectionType::User,
                 [['COLUMN_NAME' => 'COLUMN_NAME', 'DATA_TYPE' => 'DATA_TYPE']],
             ],
             [
                 $getUniqueColumnsSql . ' WHERE (Non_unique = 0)',
                 ['Key_name', null],
                 'Column_name',
-                Connection::TYPE_USER,
+                ConnectionType::User,
                 [['index1'], ['index3'], ['index5']],
             ],
             [
                 $getUniqueColumnsSql,
                 'Column_name',
                 'Column_name',
-                Connection::TYPE_USER,
+                ConnectionType::User,
                 ['column1', 'column3', 'column5', 'ACCESSIBLE', 'ADD', 'ALL'],
             ],
             [
                 'SHOW COLUMNS FROM `PMA`.`PMA_BookMark`',
                 'Field',
                 'Field',
-                Connection::TYPE_USER,
+                ConnectionType::User,
                 ['column1', 'column3', 'column5', 'ACCESSIBLE', 'ADD', 'ALL'],
             ],
             [
                 'SHOW COLUMNS FROM `PMA`.`PMA_BookMark`',
                 null,
                 null,
-                Connection::TYPE_USER,
+                ConnectionType::User,
                 [
                     [
                         'Field' => 'COLUMN_NAME1',
@@ -134,7 +134,7 @@ class TableTest extends AbstractTestCase
                 'SHOW TRIGGERS FROM `PMA` LIKE \'PMA_BookMark\';',
                 null,
                 null,
-                Connection::TYPE_USER,
+                ConnectionType::User,
                 [
                     [
                         'Trigger' => 'name1',
@@ -166,7 +166,7 @@ class TableTest extends AbstractTestCase
                 'SHOW TRIGGERS FROM `PMA` LIKE \'PMA_.BookMark\';',
                 null,
                 null,
-                Connection::TYPE_USER,
+                ConnectionType::User,
                 [
                     [
                         'Trigger' => 'name1',
@@ -197,21 +197,21 @@ class TableTest extends AbstractTestCase
         ];
 
         $fetchValue = [
-            [$sqlIsViewTrue, 0, Connection::TYPE_USER, 'PMA_BookMark'],
-            [$sqlCopyData, 0, Connection::TYPE_USER, false],
-            [$sqlIsViewFalse, 0, Connection::TYPE_USER, false],
-            [$sqlIsUpdatableViewTrue, 0, Connection::TYPE_USER, 'PMA_BookMark'],
-            [$sqlIsUpdatableViewFalse, 0, Connection::TYPE_USER, false],
+            [$sqlIsViewTrue, 0, ConnectionType::User, 'PMA_BookMark'],
+            [$sqlCopyData, 0, ConnectionType::User, false],
+            [$sqlIsViewFalse, 0, ConnectionType::User, false],
+            [$sqlIsUpdatableViewTrue, 0, ConnectionType::User, 'PMA_BookMark'],
+            [$sqlIsUpdatableViewFalse, 0, ConnectionType::User, false],
             [
                 "SELECT 1 FROM information_schema.VIEWS WHERE TABLE_SCHEMA = 'aa' AND TABLE_NAME = 'ad'",
                 0,
-                Connection::TYPE_USER,
+                ConnectionType::User,
                 'ad',
             ],
             [
                 "SELECT 1 FROM information_schema.VIEWS WHERE TABLE_SCHEMA = 'bb' AND TABLE_NAME = 'ad'",
                 0,
-                Connection::TYPE_USER,
+                ConnectionType::User,
                 false,
             ],
         ];
@@ -1363,19 +1363,19 @@ class TableTest extends AbstractTestCase
             ->willReturnMap([
                 [
                     'SHOW CREATE TABLE `aa`.`ad`',
-                    Connection::TYPE_USER,
+                    ConnectionType::User,
                     DatabaseInterface::QUERY_BUFFERED,
                     true,
                     $resultStub,
                 ],
                 [
                     'SHOW TABLE STATUS FROM `aa` WHERE Name = \'ad\'',
-                    Connection::TYPE_USER,
+                    ConnectionType::User,
                     DatabaseInterface::QUERY_BUFFERED,
                     true,
                     $resultStub,
                 ],
-                ['USE `aa`', Connection::TYPE_USER, DatabaseInterface::QUERY_BUFFERED, true, $resultStub],
+                ['USE `aa`', ConnectionType::User, DatabaseInterface::QUERY_BUFFERED, true, $resultStub],
             ]);
         $resultStub->expects($this->any())
             ->method('fetchRow')

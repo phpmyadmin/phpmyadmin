@@ -8,6 +8,7 @@ use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\ResultInterface;
 
 use function explode;
@@ -15,8 +16,6 @@ use function mb_strtoupper;
 
 /**
  * Replication helpers
- *
- * @psalm-import-type ConnectionType from Connection
  */
 class Replication
 {
@@ -50,12 +49,14 @@ class Replication
      *                             possible values: SQL_THREAD or IO_THREAD or null.
      *                             If it is set to null, it controls both
      *                             SQL_THREAD and IO_THREAD
-     * @psalm-param ConnectionType $connectionType
      *
      * @return ResultInterface|false|int output of DatabaseInterface::tryQuery
      */
-    public function replicaControl(string $action, string|null $control, int $connectionType): ResultInterface|false|int
-    {
+    public function replicaControl(
+        string $action,
+        string|null $control,
+        ConnectionType $connectionType,
+    ): ResultInterface|false|int {
         $action = mb_strtoupper($action);
         $control = $control !== null ? mb_strtoupper($control) : '';
 
@@ -80,7 +81,6 @@ class Replication
      * @param mixed[] $pos      position of mysql replication, array should contain fields File and Position
      * @param bool    $stop     shall we stop replica?
      * @param bool    $start    shall we start replica?
-     * @psalm-param ConnectionType $connectionType
      *
      * @return ResultInterface|false output of CHANGE MASTER mysql command
      */
@@ -92,7 +92,7 @@ class Replication
         array $pos,
         bool $stop,
         bool $start,
-        int $connectionType,
+        ConnectionType $connectionType,
     ): ResultInterface|false {
         if ($stop) {
             $this->replicaControl('STOP', null, $connectionType);
@@ -142,19 +142,17 @@ class Replication
 
         // 5th parameter set to true means that it's an auxiliary connection
         // and we must not go back to login page if it fails
-        return $this->dbi->connect($currentServer, Connection::TYPE_AUXILIARY);
+        return $this->dbi->connect($currentServer, ConnectionType::Auxiliary);
     }
 
     /**
      * Fetches position and file of current binary log on primary
      *
-     * @psalm-param ConnectionType $connectionType
-     *
      * @return mixed[] an array containing File and Position in MySQL replication
      * on primary server, useful for {@see Replication::replicaChangePrimary()}.
      * @phpstan-return array{'File'?: string, 'Position'?: string}
      */
-    public function replicaBinLogPrimary(int $connectionType): array
+    public function replicaBinLogPrimary(ConnectionType $connectionType): array
     {
         $data = $this->dbi->fetchResult('SHOW MASTER STATUS', null, null, $connectionType);
         $output = [];

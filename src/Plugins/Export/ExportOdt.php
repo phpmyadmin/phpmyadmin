@@ -9,7 +9,7 @@ namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\Column;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\OpenDocument;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -230,7 +230,7 @@ class ExportOdt extends ExportPlugin
         $this->initAlias($aliases, $dbAlias, $tableAlias);
         $dbi = DatabaseInterface::getInstance();
         // Gets the data from the database
-        $result = $dbi->query($sqlQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
+        $result = $dbi->query($sqlQuery, ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED);
         $fieldsCnt = $result->numFields();
         $fieldsMeta = $dbi->getFieldsMeta($result);
 

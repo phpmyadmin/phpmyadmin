@@ -7331,7 +7331,7 @@ parameters:
 			path: src/DatabaseInterface.php
 
 		-
-			message: "#^Parameter \\#1 \\$callback of function array_map expects \\(callable\\(mixed\\)\\: mixed\\)\\|null, Closure\\(string, 0\\|1\\|2\\=\\)\\: non\\-empty\\-string given\\.$#"
+			message: "#^Parameter \\#1 \\$callback of function array_map expects \\(callable\\(mixed\\)\\: mixed\\)\\|null, Closure\\(string, PhpMyAdmin\\\\Dbal\\\\ConnectionType\\=\\)\\: non\\-empty\\-string given\\.$#"
 			count: 1
 			path: src/DatabaseInterface.php
 

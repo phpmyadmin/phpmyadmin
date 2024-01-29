@@ -14,7 +14,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Server\Select;
@@ -154,10 +154,10 @@ class Navigation
         $sqlQuery = 'INSERT INTO ' . $navTable
             . '(`username`, `item_name`, `item_type`, `db_name`, `table_name`)'
             . ' VALUES ('
-            . $this->dbi->quoteString(Config::getInstance()->selectedServer['user'], Connection::TYPE_CONTROL) . ','
-            . $this->dbi->quoteString($itemName, Connection::TYPE_CONTROL) . ','
-            . $this->dbi->quoteString($itemType, Connection::TYPE_CONTROL) . ','
-            . $this->dbi->quoteString($dbName, Connection::TYPE_CONTROL) . ','
+            . $this->dbi->quoteString(Config::getInstance()->selectedServer['user'], ConnectionType::ControlUser) . ','
+            . $this->dbi->quoteString($itemName, ConnectionType::ControlUser) . ','
+            . $this->dbi->quoteString($itemType, ConnectionType::ControlUser) . ','
+            . $this->dbi->quoteString($dbName, ConnectionType::ControlUser) . ','
             . "'')";
         $this->dbi->tryQueryAsControlUser($sqlQuery);
     }
@@ -185,10 +185,10 @@ class Navigation
         $sqlQuery = 'DELETE FROM ' . $navTable
             . ' WHERE'
             . ' `username`='
-            . $this->dbi->quoteString(Config::getInstance()->selectedServer['user'], Connection::TYPE_CONTROL)
-            . ' AND `item_name`=' . $this->dbi->quoteString($itemName, Connection::TYPE_CONTROL)
-            . ' AND `item_type`=' . $this->dbi->quoteString($itemType, Connection::TYPE_CONTROL)
-            . ' AND `db_name`=' . $this->dbi->quoteString($dbName, Connection::TYPE_CONTROL);
+            . $this->dbi->quoteString(Config::getInstance()->selectedServer['user'], ConnectionType::ControlUser)
+            . ' AND `item_name`=' . $this->dbi->quoteString($itemName, ConnectionType::ControlUser)
+            . ' AND `item_type`=' . $this->dbi->quoteString($itemType, ConnectionType::ControlUser)
+            . ' AND `db_name`=' . $this->dbi->quoteString($dbName, ConnectionType::ControlUser);
         $this->dbi->tryQueryAsControlUser($sqlQuery);
     }
 
@@ -231,8 +231,8 @@ class Navigation
             . '.' . Util::backquote($navigationItemsHidingFeature->navigationHiding);
         $sqlQuery = 'SELECT `item_name`, `item_type` FROM ' . $navTable
             . ' WHERE `username`='
-            . $this->dbi->quoteString(Config::getInstance()->selectedServer['user'], Connection::TYPE_CONTROL)
-            . ' AND `db_name`=' . $this->dbi->quoteString($database, Connection::TYPE_CONTROL)
+            . $this->dbi->quoteString(Config::getInstance()->selectedServer['user'], ConnectionType::ControlUser)
+            . ' AND `db_name`=' . $this->dbi->quoteString($database, ConnectionType::ControlUser)
             . " AND `table_name`=''";
         $result = $this->dbi->tryQueryAsControlUser($sqlQuery);
 

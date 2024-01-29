@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\OpenDocument;
 use PhpMyAdmin\Plugins\ExportPlugin;
@@ -204,7 +204,7 @@ class ExportOds extends ExportPlugin
         $this->initAlias($aliases, $dbAlias, $tableAlias);
         $dbi = DatabaseInterface::getInstance();
         // Gets the data from the database
-        $result = $dbi->query($sqlQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
+        $result = $dbi->query($sqlQuery, ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED);
         $fieldsCnt = $result->numFields();
         $fieldsMeta = $dbi->getFieldsMeta($result);
 

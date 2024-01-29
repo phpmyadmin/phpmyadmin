@@ -10,7 +10,7 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Designer\Common;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
@@ -72,7 +72,7 @@ class CommonTest extends AbstractTestCase
             WHERE pdf_page_number = " . $pg,
                 'name',
                 null,
-                Connection::TYPE_CONTROL,
+                ConnectionType::ControlUser,
             );
         DatabaseInterface::$instance = $dbi;
 
@@ -99,7 +99,7 @@ class CommonTest extends AbstractTestCase
                 'SELECT `page_descr` FROM `pmadb`.`pdf_pages`'
                 . ' WHERE `page_nr` = ' . $pg,
                 0,
-                Connection::TYPE_CONTROL,
+                ConnectionType::ControlUser,
             )
             ->willReturn($pageName);
         DatabaseInterface::$instance = $dbi;
@@ -155,7 +155,7 @@ class CommonTest extends AbstractTestCase
                 . " WHERE `db_name` = '" . $db . "'"
                 . " AND `page_descr` = '" . $db . "'",
                 0,
-                Connection::TYPE_CONTROL,
+                ConnectionType::ControlUser,
             )
             ->willReturn($defaultPg);
         $dbi->expects($this->any())->method('quoteString')
@@ -186,7 +186,7 @@ class CommonTest extends AbstractTestCase
                 . " WHERE `db_name` = '" . $db . "'"
                 . " AND `page_descr` = '" . $db . "'",
                 0,
-                Connection::TYPE_CONTROL,
+                ConnectionType::ControlUser,
             )
             ->willReturn(false);
         $dbi->expects($this->any())->method('quoteString')
@@ -218,7 +218,7 @@ class CommonTest extends AbstractTestCase
                 . " WHERE `db_name` = '" . $db . "'"
                 . " AND `page_descr` = '" . $db . "'",
                 0,
-                Connection::TYPE_CONTROL,
+                ConnectionType::ControlUser,
             )
             ->willReturn($defaultPg);
         $dbi->expects($this->any())->method('quoteString')
