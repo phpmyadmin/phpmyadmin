@@ -727,6 +727,28 @@ class Types
         return ['tinyint', 'smallint', 'mediumint', 'int', 'bigint'];
     }
 
+    public function mapAliasToMysqlType(string $alias): string
+    {
+        return [
+            'BOOL' => 'TINYINT',
+            'BOOLEAN' => 'TINYINT',
+            'CHARACTER VARYING' => 'VARCHAR',
+            'FIXED' => 'DECIMAL',
+            'FLOAT4' => 'FLOAT',
+            'FLOAT8' => 'DOUBLE',
+            'INT1' => 'TINYINT',
+            'INT2' => 'SMALLINT',
+            'INT3' => 'MEDIUMINT',
+            'INT4' => 'INT',
+            'INT8' => 'BIGINT',
+            'LONG VARBINARY' => 'MEDIUMBLOB',
+            'LONG VARCHAR' => 'MEDIUMTEXT',
+            'LONG' => 'MEDIUMTEXT',
+            'MIDDLEINT' => 'MEDIUMINT',
+            'NUMERIC' => 'DECIMAL',
+        ][$alias] ?? $alias;
+    }
+
     /**
      * Returns an array of float types
      *

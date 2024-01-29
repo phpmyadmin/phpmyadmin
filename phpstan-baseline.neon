@@ -7091,6 +7091,11 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
+			message: "#^Parameter \\#1 \\$alias of method PhpMyAdmin\\\\Types\\:\\:mapAliasToMysqlType\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Database/Routines.php
+
+		-
 			message: "#^Parameter \\#1 \\$haystack of function str_contains expects string, mixed given\\.$#"
 			count: 1
 			path: src/Database/Routines.php
@@ -7117,11 +7122,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$quotedString of static method PhpMyAdmin\\\\Util\\:\\:unQuote\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Database/Routines.php
-
-		-
-			message: "#^Parameter \\#1 \\$selected of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getSupportedDatatypes\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Database/Routines.php
 
