@@ -211,7 +211,15 @@ class Routines
             // Try to restore the backup query
             $result = $this->dbi->tryQuery($createRoutine);
             if (! $result) {
-                $errors = $this->checkResult($createRoutine, $errors);
+                // OMG, this is really bad! We dropped the query,
+                // failed to create a new one
+                // and now even the backup query does not execute!
+                // This should not happen, but we better handle
+                // this just in case.
+                $errors[] = __('Sorry, we failed to restore the dropped routine.') . '<br>'
+                . __('The backed up query was:')
+                . '"' . htmlspecialchars($createRoutine) . '"<br>'
+                . __('MySQL said: ') . $this->dbi->getError();
             }
 
             return [$errors, null];
@@ -1193,27 +1201,6 @@ class Routines
             'has_execute_privilege' => $hasExecutePrivilege,
             'execute_action' => $executeAction,
         ];
-    }
-
-    /**
-     * @param string  $createStatement Query
-     * @param mixed[] $errors          Errors
-     *
-     * @return mixed[]
-     */
-    private function checkResult(string $createStatement, array $errors): array
-    {
-        // OMG, this is really bad! We dropped the query,
-        // failed to create a new one
-        // and now even the backup query does not execute!
-        // This should not happen, but we better handle
-        // this just in case.
-        $errors[] = __('Sorry, we failed to restore the dropped routine.') . '<br>'
-            . __('The backed up query was:')
-            . '"' . htmlspecialchars($createStatement) . '"<br>'
-            . __('MySQL said: ') . $this->dbi->getError();
-
-        return $errors;
     }
 
     /**
