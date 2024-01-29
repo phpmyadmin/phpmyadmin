@@ -14,8 +14,6 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Template;
 
-use function count;
-
 final class CopyTableController extends AbstractController
 {
     public function __construct(
@@ -29,16 +27,17 @@ final class CopyTableController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
+        /** @var string[] $selected */
         $selected = $request->getParsedBodyParam('selected', []);
+        /** @var string $targetDb */
         $targetDb = $request->getParsedBodyParam('target_db');
-        $selectedCount = count($selected);
 
-        for ($i = 0; $i < $selectedCount; $i++) {
+        foreach ($selected as $selectedValue) {
             Table::moveCopy(
                 Current::$database,
-                $selected[$i],
+                $selectedValue,
                 $targetDb,
-                $selected[$i],
+                $selectedValue,
                 $request->getParsedBodyParam('what'),
                 false,
                 'one_table',
@@ -49,7 +48,7 @@ final class CopyTableController extends AbstractController
                 continue;
             }
 
-            $this->operations->adjustPrivilegesCopyTable(Current::$database, $selected[$i], $targetDb, $selected[$i]);
+            $this->operations->adjustPrivilegesCopyTable(Current::$database, $selectedValue, $targetDb, $selectedValue);
         }
 
         $GLOBALS['message'] = Message::success();

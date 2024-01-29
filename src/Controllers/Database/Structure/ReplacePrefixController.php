@@ -14,7 +14,6 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
-use function count;
 use function mb_strlen;
 use function mb_substr;
 
@@ -31,24 +30,23 @@ final class ReplacePrefixController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
+        /** @var string[] $selected */
         $selected = $request->getParsedBodyParam('selected', []);
         $fromPrefix = $request->getParsedBodyParam('from_prefix', '');
         $toPrefix = $request->getParsedBodyParam('to_prefix', '');
 
         $GLOBALS['sql_query'] = '';
-        $selectedCount = count($selected);
 
-        for ($i = 0; $i < $selectedCount; $i++) {
-            $current = $selected[$i];
-            $subFromPrefix = mb_substr($current, 0, mb_strlen((string) $fromPrefix));
+        foreach ($selected as $selectedValue) {
+            $subFromPrefix = mb_substr($selectedValue, 0, mb_strlen((string) $fromPrefix));
 
             if ($subFromPrefix === $fromPrefix) {
-                $newTableName = $toPrefix . mb_substr($current, mb_strlen($fromPrefix));
+                $newTableName = $toPrefix . mb_substr($selectedValue, mb_strlen($fromPrefix));
             } else {
-                $newTableName = $current;
+                $newTableName = $selectedValue;
             }
 
-            $aQuery = 'ALTER TABLE ' . Util::backquote($selected[$i])
+            $aQuery = 'ALTER TABLE ' . Util::backquote($selectedValue)
                 . ' RENAME ' . Util::backquote($newTableName);
 
             $GLOBALS['sql_query'] .= $aQuery . ';' . "\n";

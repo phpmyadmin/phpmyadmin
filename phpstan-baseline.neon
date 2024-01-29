@@ -1986,94 +1986,9 @@ parameters:
 			path: src/Controllers/Database/SqlController.php
 
 		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/AddPrefixController.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/AddPrefixController.php
-
-		-
-			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
-			count: 2
-			path: src/Controllers/Database/Structure/AddPrefixTableController.php
-
-		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/AddPrefixTableController.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/AddPrefixTableController.php
-
-		-
 			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:deleteColumnsFromList\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/CentralColumns/RemoveController.php
-
-		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/ChangePrefixFormController.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/ChangePrefixFormController.php
-
-		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/CopyFormController.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/CopyFormController.php
-
-		-
-			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
-			count: 4
-			path: src/Controllers/Database/Structure/CopyTableController.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/CopyTableController.php
-
-		-
-			message: "#^Parameter \\#2 \\$oldTable of method PhpMyAdmin\\\\Operations\\:\\:adjustPrivilegesCopyTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/CopyTableController.php
-
-		-
-			message: "#^Parameter \\#2 \\$sourceTable of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/CopyTableController.php
-
-		-
-			message: "#^Parameter \\#3 \\$newDb of method PhpMyAdmin\\\\Operations\\:\\:adjustPrivilegesCopyTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/CopyTableController.php
-
-		-
-			message: "#^Parameter \\#3 \\$targetDb of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/CopyTableController.php
-
-		-
-			message: "#^Parameter \\#4 \\$newTable of method PhpMyAdmin\\\\Operations\\:\\:adjustPrivilegesCopyTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/CopyTableController.php
-
-		-
-			message: "#^Parameter \\#4 \\$targetTable of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/CopyTableController.php
 
 		-
 			message: "#^Parameter \\#5 \\$what of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
@@ -2081,27 +1996,7 @@ parameters:
 			path: src/Controllers/Database/Structure/CopyTableController.php
 
 		-
-			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/CopyTableWithPrefixController.php
-
-		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/CopyTableWithPrefixController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function mb_substr expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/CopyTableWithPrefixController.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/CopyTableWithPrefixController.php
-
-		-
-			message: "#^Parameter \\#2 \\$sourceTable of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/CopyTableWithPrefixController.php
 
@@ -2181,32 +2076,7 @@ parameters:
 			path: src/Controllers/Database/Structure/DropTableController.php
 
 		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/EmptyFormController.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/EmptyFormController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/EmptyFormController.php
-
-		-
-			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/EmptyTableController.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/EmptyTableController.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/EmptyTableController.php
 
@@ -2276,39 +2146,9 @@ parameters:
 			path: src/Controllers/Database/Structure/RealRowCountController.php
 
 		-
-			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
-			count: 2
-			path: src/Controllers/Database/Structure/ReplacePrefixController.php
-
-		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/ReplacePrefixController.php
-
-		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Database/Structure/ReplacePrefixController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function mb_substr expects string, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Database/Structure/ReplacePrefixController.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/ReplacePrefixController.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/ShowCreateController.php
-
-		-
-			message: "#^Parameter \\#1 \\$selected of method PhpMyAdmin\\\\Controllers\\\\Database\\\\Structure\\\\ShowCreateController\\:\\:getShowCreateTables\\(\\) expects array\\<string\\>, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/ShowCreateController.php
 
 		-
 			message: "#^Call to function array_search\\(\\) requires parameter \\#3 to be set\\.$#"
@@ -2506,22 +2346,12 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: src/Controllers/Database/TrackingController.php
-
-		-
 			message: "#^Cannot access offset 'back' on mixed\\.$#"
 			count: 1
 			path: src/Controllers/Database/TrackingController.php
 
 		-
 			message: "#^Cannot access offset 'goto' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Database/TrackingController.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 1
 			path: src/Controllers/Database/TrackingController.php
 
@@ -2537,7 +2367,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$tableName of method PhpMyAdmin\\\\Tracking\\\\Tracking\\:\\:deleteTracking\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: src/Controllers/Database/TrackingController.php
 
 		-

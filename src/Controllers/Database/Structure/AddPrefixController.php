@@ -14,9 +14,10 @@ final class AddPrefixController extends AbstractController
 {
     public function __invoke(ServerRequest $request): void
     {
+        /** @var string[] $selected */
         $selected = $request->getParsedBodyParam('selected_tbl', []);
 
-        if (empty($selected)) {
+        if ($selected === []) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 

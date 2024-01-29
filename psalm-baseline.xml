@@ -1282,25 +1282,7 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="src/Controllers/Database/Structure/AddPrefixController.php">
-    <MixedAssignment>
-      <code><![CDATA[$params['selected'][]]]></code>
-      <code>$selected</code>
-      <code>$selectedValue</code>
-    </MixedAssignment>
-  </file>
   <file src="src/Controllers/Database/Structure/AddPrefixTableController.php">
-    <MixedArgument>
-      <code>$selected</code>
-      <code>$selected[$i]</code>
-    </MixedArgument>
-    <MixedArrayAccess>
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
-    </MixedArrayAccess>
-    <MixedAssignment>
-      <code>$selected</code>
-    </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$request->getParsedBodyParam('add_prefix', '')]]></code>
     </MixedOperand>
@@ -1329,60 +1311,22 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="src/Controllers/Database/Structure/ChangePrefixFormController.php">
-    <MixedAssignment>
-      <code>$selected</code>
-      <code>$selectedValue</code>
-      <code><![CDATA[$urlParams['selected'][]]]></code>
-    </MixedAssignment>
-  </file>
   <file src="src/Controllers/Database/Structure/CopyFormController.php">
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
-    <MixedAssignment>
-      <code>$selected</code>
-      <code>$selectedValue</code>
-      <code><![CDATA[$urlParams['selected'][]]]></code>
-    </MixedAssignment>
   </file>
   <file src="src/Controllers/Database/Structure/CopyTableController.php">
     <MixedArgument>
       <code><![CDATA[$request->getParsedBodyParam('what')]]></code>
-      <code>$selected</code>
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
-      <code>$targetDb</code>
     </MixedArgument>
-    <MixedArrayAccess>
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
-    </MixedArrayAccess>
-    <MixedAssignment>
-      <code>$selected</code>
-      <code>$targetDb</code>
-    </MixedAssignment>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/Structure/CopyTableWithPrefixController.php">
-    <MixedArgument>
-      <code>$current</code>
-      <code>$current</code>
-      <code>$selected</code>
-    </MixedArgument>
-    <MixedArrayAccess>
-      <code>$selected[$i]</code>
-    </MixedArrayAccess>
     <MixedAssignment>
-      <code>$current</code>
       <code>$fromPrefix</code>
-      <code>$selected</code>
       <code>$toPrefix</code>
     </MixedAssignment>
     <MixedOperand>
@@ -1432,22 +1376,10 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="src/Controllers/Database/Structure/EmptyFormController.php">
-    <MixedArgument>
-      <code>$selectedValue</code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code>$selected</code>
-      <code>$selectedValue</code>
-    </MixedAssignment>
-  </file>
   <file src="src/Controllers/Database/Structure/EmptyTableController.php">
     <InvalidArgument>
       <code><![CDATA[$_REQUEST['pos']]]></code>
     </InvalidArgument>
-    <PossiblyInvalidArgument>
-      <code>$selected</code>
-    </PossiblyInvalidArgument>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
@@ -1511,22 +1443,8 @@
     </PossiblyNullArgument>
   </file>
   <file src="src/Controllers/Database/Structure/ReplacePrefixController.php">
-    <MixedArgument>
-      <code>$current</code>
-      <code>$current</code>
-      <code>$newTableName</code>
-      <code>$selected</code>
-      <code>$selected[$i]</code>
-    </MixedArgument>
-    <MixedArrayAccess>
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
-    </MixedArrayAccess>
     <MixedAssignment>
-      <code>$current</code>
       <code>$fromPrefix</code>
-      <code>$newTableName</code>
-      <code>$selected</code>
       <code>$toPrefix</code>
     </MixedAssignment>
     <MixedOperand>
@@ -1537,12 +1455,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/Structure/ShowCreateController.php">
-    <MixedArgument>
-      <code>$selected</code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code>$selected</code>
-    </MixedAssignment>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
@@ -1659,12 +1571,9 @@
       <code><![CDATA[$request->getParsedBodyParam('table')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('version')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('version')]]></code>
-      <code>$table</code>
     </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code>$selectedTable</code>
-      <code>$table</code>
     </MixedAssignment>
     <PossiblyUnusedMethod>
       <code>__construct</code>
