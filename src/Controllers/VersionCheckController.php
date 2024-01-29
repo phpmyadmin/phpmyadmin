@@ -39,7 +39,7 @@ class VersionCheckController extends AbstractController
             header(sprintf('%s: %s', $name, $value));
         }
 
-        $versionDetails = $this->versionInformation->getLatestVersion();
+        $versionDetails = $this->versionInformation->getLatestVersions();
 
         if ($versionDetails === null) {
             echo json_encode([]);
@@ -47,14 +47,14 @@ class VersionCheckController extends AbstractController
             return;
         }
 
-        $latestCompatible = $this->versionInformation->getLatestCompatibleVersion($versionDetails->releases);
+        $latestCompatible = $this->versionInformation->getLatestCompatibleVersion($versionDetails);
         $version = '';
         $date = '';
         if ($latestCompatible != null) {
-            $version = $latestCompatible['version'];
-            $date = $latestCompatible['date'];
+            $version = $latestCompatible->version;
+            $date = $latestCompatible->date;
         }
 
-        echo json_encode(['version' => ! empty($version) ? $version : '', 'date' => ! empty($date) ? $date : '']);
+        echo json_encode(['version' => $version, 'date' => $date]);
     }
 }

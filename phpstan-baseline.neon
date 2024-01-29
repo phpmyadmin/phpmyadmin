@@ -6236,16 +6236,6 @@ parameters:
 			path: src/Controllers/UserPasswordController.php
 
 		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 2
-			path: src/Controllers/VersionCheckController.php
-
-		-
-			message: "#^Parameter \\#1 \\$releases of method PhpMyAdmin\\\\VersionInformation\\:\\:getLatestCompatibleVersion\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/VersionCheckController.php
-
-		-
 			message: "#^Cannot access offset 'back' on mixed\\.$#"
 			count: 1
 			path: src/Controllers/View/CreateController.php
@@ -14576,31 +14566,6 @@ parameters:
 			path: src/Setup/Index.php
 
 		-
-			message: "#^Parameter \\#1 \\$releases of method PhpMyAdmin\\\\VersionInformation\\:\\:getLatestCompatibleVersion\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: src/Setup/Index.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 2
-			path: src/Setup/Index.php
-
-		-
-			message: "#^Parameter \\#1 \\$version of method PhpMyAdmin\\\\VersionInformation\\:\\:versionToInt\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Setup/Index.php
-
-		-
-			message: "#^Parameter \\#2 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Setup/Index.php
-
-		-
-			message: "#^Parameter \\#3 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Setup/Index.php
-
-		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$expr\\.$#"
 			count: 2
 			path: src/Sql.php
@@ -16101,21 +16066,6 @@ parameters:
 			path: src/Utils/SessionCache.php
 
 		-
-			message: "#^Access to an undefined property object\\:\\:\\$date\\.$#"
-			count: 1
-			path: src/VersionInformation.php
-
-		-
-			message: "#^Access to an undefined property object\\:\\:\\$releases\\.$#"
-			count: 1
-			path: src/VersionInformation.php
-
-		-
-			message: "#^Access to an undefined property object\\:\\:\\$version\\.$#"
-			count: 1
-			path: src/VersionInformation.php
-
-		-
 			message: "#^Cannot access offset 'response' on mixed\\.$#"
 			count: 1
 			path: src/VersionInformation.php
@@ -16131,37 +16081,7 @@ parameters:
 			path: src/VersionInformation.php
 
 		-
-			message: "#^Cannot access property \\$date on mixed\\.$#"
-			count: 1
-			path: src/VersionInformation.php
-
-		-
-			message: "#^Cannot access property \\$mysql_versions on mixed\\.$#"
-			count: 1
-			path: src/VersionInformation.php
-
-		-
-			message: "#^Cannot access property \\$php_versions on mixed\\.$#"
-			count: 1
-			path: src/VersionInformation.php
-
-		-
-			message: "#^Cannot access property \\$version on mixed\\.$#"
-			count: 2
-			path: src/VersionInformation.php
-
-		-
 			message: "#^Comparison operation \"\\>\\=\" between int\\<1, max\\> and 1 is always true\\.$#"
-			count: 1
-			path: src/VersionInformation.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 3
-			path: src/VersionInformation.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\VersionInformation\\:\\:getLatestVersion\\(\\) should return stdClass\\|null but returns object\\.$#"
 			count: 1
 			path: src/VersionInformation.php
 
@@ -16172,21 +16092,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$json of function json_decode expects string, mixed given\\.$#"
-			count: 1
-			path: src/VersionInformation.php
-
-		-
-			message: "#^Parameter \\#1 \\$version1 of function version_compare expects string, mixed given\\.$#"
-			count: 1
-			path: src/VersionInformation.php
-
-		-
-			message: "#^Parameter \\#2 \\$string of function explode expects string, mixed given\\.$#"
-			count: 2
-			path: src/VersionInformation.php
-
-		-
-			message: "#^Parameter \\#2 \\$version2 of function version_compare expects string, mixed given\\.$#"
 			count: 1
 			path: src/VersionInformation.php
 

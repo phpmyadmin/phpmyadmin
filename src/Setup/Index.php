@@ -116,7 +116,7 @@ class Index
 
         // Fetch data
         $versionInformation = new VersionInformation();
-        $versionData = $versionInformation->getLatestVersion();
+        $versionData = $versionInformation->getLatestVersions();
 
         if ($versionData === null) {
             self::messagesSet(
@@ -131,13 +131,13 @@ class Index
             return;
         }
 
-        $latestCompatible = $versionInformation->getLatestCompatibleVersion($versionData->releases);
+        $latestCompatible = $versionInformation->getLatestCompatibleVersion($versionData);
         if ($latestCompatible == null) {
             return;
         }
 
-        $version = $latestCompatible['version'];
-        $date = $latestCompatible['date'];
+        $version = $latestCompatible->version;
+        $date = $latestCompatible->date;
 
         $versionUpstream = $versionInformation->versionToInt($version);
 
