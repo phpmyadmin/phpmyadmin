@@ -101,6 +101,7 @@ final class RelationController extends AbstractController
         // updates for foreign keys
         $multiEditColumnsName = $_POST['foreign_key_fields_name'] ?? null;
         $previewSqlData = '';
+        $displayQuery = '';
         $seenError = false;
 
         // (for now, one index name only; we keep the definitions if the
@@ -133,7 +134,7 @@ final class RelationController extends AbstractController
             return;
         }
 
-        if (! empty($displayQuery) && ! $seenError) {
+        if ($displayQuery !== '' && ! $seenError) {
             $GLOBALS['display_query'] = $displayQuery;
             $this->response->addHTML(
                 Generator::getMessage(

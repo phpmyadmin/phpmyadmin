@@ -1987,15 +1987,15 @@ class Table implements Stringable
     /**
      * Function to handle foreign key updates
      *
-     * @param mixed[] $destinationForeignDb     destination foreign database
-     * @param mixed[] $multiEditColumnsName     multi edit column names
-     * @param mixed[] $destinationForeignTable  destination foreign table
-     * @param mixed[] $destinationForeignColumn destination foreign column
-     * @param mixed[] $optionsArray             options array
-     * @param string  $table                    current table
-     * @param mixed[] $existrelForeign          db, table, column
+     * @param mixed[]  $destinationForeignDb     destination foreign database
+     * @param mixed[]  $multiEditColumnsName     multi edit column names
+     * @param mixed[]  $destinationForeignTable  destination foreign table
+     * @param mixed[]  $destinationForeignColumn destination foreign column
+     * @param string[] $optionsArray             options array
+     * @param string   $table                    current table
+     * @param mixed[]  $existrelForeign          db, table, column
      *
-     * @return mixed[]
+     * @return array{string, string, string, bool}
      */
     public function updateForeignKeys(
         array $destinationForeignDb,
