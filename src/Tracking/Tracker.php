@@ -12,7 +12,7 @@ use PhpMyAdmin\ConfigStorage\Features\TrackingFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\SqlParser\Parser;
@@ -111,11 +111,11 @@ class Tracker
                 . ' ORDER BY version DESC LIMIT 1',
             Util::backquote($trackingFeature->database),
             Util::backquote($trackingFeature->tracking),
-            $dbi->quoteString($dbName, Connection::TYPE_CONTROL),
-            $dbi->quoteString($tableName, Connection::TYPE_CONTROL),
+            $dbi->quoteString($dbName, ConnectionType::ControlUser),
+            $dbi->quoteString($tableName, ConnectionType::ControlUser),
         );
 
-        $result = $dbi->fetchValue($sqlQuery, 0, Connection::TYPE_CONTROL) == 1;
+        $result = $dbi->fetchValue($sqlQuery, 0, ConnectionType::ControlUser) == 1;
 
         self::$trackingCache[$dbName][$tableName] = $result;
 
@@ -221,15 +221,15 @@ class Tracker
                 . ' values (%s, %s, %s, %s, %s, %s, %s, %s, %s)',
             Util::backquote($trackingFeature->database),
             Util::backquote($trackingFeature->tracking),
-            $dbi->quoteString($dbName, Connection::TYPE_CONTROL),
-            $dbi->quoteString($tableName, Connection::TYPE_CONTROL),
-            $dbi->quoteString($version, Connection::TYPE_CONTROL),
-            $dbi->quoteString($date, Connection::TYPE_CONTROL),
-            $dbi->quoteString($date, Connection::TYPE_CONTROL),
-            $dbi->quoteString($snapshot, Connection::TYPE_CONTROL),
-            $dbi->quoteString($createSql, Connection::TYPE_CONTROL),
-            $dbi->quoteString("\n", Connection::TYPE_CONTROL),
-            $dbi->quoteString($trackingSet, Connection::TYPE_CONTROL),
+            $dbi->quoteString($dbName, ConnectionType::ControlUser),
+            $dbi->quoteString($tableName, ConnectionType::ControlUser),
+            $dbi->quoteString($version, ConnectionType::ControlUser),
+            $dbi->quoteString($date, ConnectionType::ControlUser),
+            $dbi->quoteString($date, ConnectionType::ControlUser),
+            $dbi->quoteString($snapshot, ConnectionType::ControlUser),
+            $dbi->quoteString($createSql, ConnectionType::ControlUser),
+            $dbi->quoteString("\n", ConnectionType::ControlUser),
+            $dbi->quoteString($trackingSet, ConnectionType::ControlUser),
         );
 
         $dbi->queryAsControlUser($sqlQuery);
@@ -283,15 +283,15 @@ class Tracker
                 . ' values (%s, %s, %s, %s, %s, %s, %s, %s, %s)',
             Util::backquote($trackingFeature->database),
             Util::backquote($trackingFeature->tracking),
-            $dbi->quoteString($dbName, Connection::TYPE_CONTROL),
-            $dbi->quoteString('', Connection::TYPE_CONTROL),
-            $dbi->quoteString($version, Connection::TYPE_CONTROL),
-            $dbi->quoteString($date, Connection::TYPE_CONTROL),
-            $dbi->quoteString($date, Connection::TYPE_CONTROL),
-            $dbi->quoteString('', Connection::TYPE_CONTROL),
-            $dbi->quoteString($createSql, Connection::TYPE_CONTROL),
-            $dbi->quoteString("\n", Connection::TYPE_CONTROL),
-            $dbi->quoteString($trackingSet, Connection::TYPE_CONTROL),
+            $dbi->quoteString($dbName, ConnectionType::ControlUser),
+            $dbi->quoteString('', ConnectionType::ControlUser),
+            $dbi->quoteString($version, ConnectionType::ControlUser),
+            $dbi->quoteString($date, ConnectionType::ControlUser),
+            $dbi->quoteString($date, ConnectionType::ControlUser),
+            $dbi->quoteString('', ConnectionType::ControlUser),
+            $dbi->quoteString($createSql, ConnectionType::ControlUser),
+            $dbi->quoteString("\n", ConnectionType::ControlUser),
+            $dbi->quoteString($trackingSet, ConnectionType::ControlUser),
         );
 
         return (bool) $dbi->queryAsControlUser($sqlQuery);
@@ -324,9 +324,9 @@ class Tracker
             Util::backquote($trackingFeature->database),
             Util::backquote($trackingFeature->tracking),
             $newState,
-            $dbi->quoteString($dbName, Connection::TYPE_CONTROL),
-            $dbi->quoteString($tableName, Connection::TYPE_CONTROL),
-            $dbi->quoteString($version, Connection::TYPE_CONTROL),
+            $dbi->quoteString($dbName, ConnectionType::ControlUser),
+            $dbi->quoteString($tableName, ConnectionType::ControlUser),
+            $dbi->quoteString($version, ConnectionType::ControlUser),
         );
 
         return (bool) $dbi->queryAsControlUser($sqlQuery);
@@ -379,8 +379,8 @@ class Tracker
             'SELECT MAX(version) FROM %s.%s WHERE `db_name` = %s AND `table_name` = %s',
             Util::backquote($trackingFeature->database),
             Util::backquote($trackingFeature->tracking),
-            $dbi->quoteString($dbname, Connection::TYPE_CONTROL),
-            $dbi->quoteString($tablename, Connection::TYPE_CONTROL),
+            $dbi->quoteString($dbname, ConnectionType::ControlUser),
+            $dbi->quoteString($tablename, ConnectionType::ControlUser),
         );
 
         if ($statement != '') {
@@ -644,15 +644,15 @@ class Tracker
             Util::backquote($trackingFeature->tracking),
             Util::backquote($saveTo),
             Util::backquote($saveTo),
-            $dbi->quoteString("\n" . $query, Connection::TYPE_CONTROL),
-            $dbi->quoteString($date, Connection::TYPE_CONTROL),
+            $dbi->quoteString("\n" . $query, ConnectionType::ControlUser),
+            $dbi->quoteString($date, ConnectionType::ControlUser),
         );
 
         // If table was renamed we have to change
         // the tablename attribute in pma_tracking too
         if ($result['identifier'] === 'RENAME TABLE') {
             $sqlQuery .= ', `table_name` = '
-                . $dbi->quoteString($result['tablename_after_rename'], Connection::TYPE_CONTROL)
+                . $dbi->quoteString($result['tablename_after_rename'], ConnectionType::ControlUser)
                 . ' ';
         }
 
@@ -666,9 +666,9 @@ class Tracker
             ' AND `db_name` = %s ' .
             ' AND `table_name` = %s ' .
             ' AND `version` = %s ',
-            $dbi->quoteString($dbname, Connection::TYPE_CONTROL),
-            $dbi->quoteString($result['tablename'], Connection::TYPE_CONTROL),
-            $dbi->quoteString((string) $version, Connection::TYPE_CONTROL),
+            $dbi->quoteString($dbname, ConnectionType::ControlUser),
+            $dbi->quoteString($result['tablename'], ConnectionType::ControlUser),
+            $dbi->quoteString((string) $version, ConnectionType::ControlUser),
         );
 
         $dbi->queryAsControlUser($sqlQuery);
@@ -683,7 +683,7 @@ class Tracker
             '/*NOTRACK*/ SELECT 1 FROM %s.%s WHERE tracking_active = 1 AND db_name = %s LIMIT 1',
             Util::backquote($trackingFeature->database),
             Util::backquote($trackingFeature->tracking),
-            $dbi->quoteString($dbname, Connection::TYPE_CONTROL),
+            $dbi->quoteString($dbname, ConnectionType::ControlUser),
         );
 
         return $dbi->queryAsControlUser($sqlQuery)->fetchValue() !== false;

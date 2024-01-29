@@ -9,7 +9,7 @@ namespace PhpMyAdmin\Bookmarks;
 
 use PhpMyAdmin\ConfigStorage\Features\BookmarkFeature;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Util;
 
 use function count;
@@ -95,7 +95,7 @@ class Bookmark
             . $this->dbi->quoteString($this->query) . ', '
             . $this->dbi->quoteString($this->label) . ')';
 
-        return (bool) $this->dbi->query($query, Connection::TYPE_CONTROL);
+        return (bool) $this->dbi->query($query, ConnectionType::ControlUser);
     }
 
     /**
@@ -107,7 +107,7 @@ class Bookmark
             . '.' . Util::backquote($this->bookmarkFeature->bookmark)
             . ' WHERE id = ' . $this->id;
 
-        return (bool) $this->dbi->tryQuery($query, Connection::TYPE_CONTROL);
+        return (bool) $this->dbi->tryQuery($query, ConnectionType::ControlUser);
     }
 
     /**

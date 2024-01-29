@@ -11,7 +11,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
@@ -124,7 +124,7 @@ class RecentFavoriteTables
         // Read from phpMyAdmin database, if recent tables is not in session
         $sqlQuery = 'SELECT `tables` FROM ' . $this->getPmaTable()
             . ' WHERE `username` = '
-            . $this->dbi->quoteString(Config::getInstance()->selectedServer['user'], Connection::TYPE_CONTROL);
+            . $this->dbi->quoteString(Config::getInstance()->selectedServer['user'], ConnectionType::ControlUser);
 
         $result = $this->dbi->tryQueryAsControlUser($sqlQuery);
         if ($result !== false) {
@@ -149,7 +149,7 @@ class RecentFavoriteTables
             . ' VALUES (' . $this->dbi->quoteString($username) . ', '
             . $this->dbi->quoteString(json_encode($this->tables)) . ')';
 
-        $success = $this->dbi->tryQuery($sqlQuery, Connection::TYPE_CONTROL);
+        $success = $this->dbi->tryQuery($sqlQuery, ConnectionType::ControlUser);
 
         if ($success === false) {
             $message = Message::error(match ($this->tableType) {
@@ -158,7 +158,7 @@ class RecentFavoriteTables
             });
 
             $message->addMessage(
-                Message::rawError($this->dbi->getError(Connection::TYPE_CONTROL)),
+                Message::rawError($this->dbi->getError(ConnectionType::ControlUser)),
                 '<br><br>',
             );
 

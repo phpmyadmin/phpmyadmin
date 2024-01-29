@@ -15,6 +15,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
@@ -418,20 +419,20 @@ class Privileges
             . '.' . Util::backquote($configurableMenusFeature->users);
 
         $sqlQuery = 'SELECT `usergroup` FROM ' . $userTable
-            . ' WHERE `username` = ' . $this->dbi->quoteString($username, Connection::TYPE_CONTROL);
-        $oldUserGroup = $this->dbi->fetchValue($sqlQuery, 0, Connection::TYPE_CONTROL);
+            . ' WHERE `username` = ' . $this->dbi->quoteString($username, ConnectionType::ControlUser);
+        $oldUserGroup = $this->dbi->fetchValue($sqlQuery, 0, ConnectionType::ControlUser);
 
         if ($oldUserGroup === false) {
             $updQuery = 'INSERT INTO ' . $userTable . '(`username`, `usergroup`)'
-                . ' VALUES (' . $this->dbi->quoteString($username, Connection::TYPE_CONTROL) . ', '
-                . $this->dbi->quoteString($userGroup, Connection::TYPE_CONTROL) . ')';
+                . ' VALUES (' . $this->dbi->quoteString($username, ConnectionType::ControlUser) . ', '
+                . $this->dbi->quoteString($userGroup, ConnectionType::ControlUser) . ')';
         } elseif ($userGroup === '') {
             $updQuery = 'DELETE FROM ' . $userTable
-                . ' WHERE `username`=' . $this->dbi->quoteString($username, Connection::TYPE_CONTROL);
+                . ' WHERE `username`=' . $this->dbi->quoteString($username, ConnectionType::ControlUser);
         } elseif ($oldUserGroup != $userGroup) {
             $updQuery = 'UPDATE ' . $userTable
-                . ' SET `usergroup`=' . $this->dbi->quoteString($userGroup, Connection::TYPE_CONTROL)
-                . ' WHERE `username`=' . $this->dbi->quoteString($username, Connection::TYPE_CONTROL);
+                . ' SET `usergroup`=' . $this->dbi->quoteString($userGroup, ConnectionType::ControlUser)
+                . ' WHERE `username`=' . $this->dbi->quoteString($username, ConnectionType::ControlUser);
         } else {
             return;
         }
@@ -1310,7 +1311,7 @@ class Privileges
             . '.' . Util::backquote($configurableMenusFeature->userGroups);
         $sqlQuery = 'SELECT COUNT(*) FROM ' . $userGroupTable;
 
-        return (int) $this->dbi->fetchValue($sqlQuery, 0, Connection::TYPE_CONTROL);
+        return (int) $this->dbi->fetchValue($sqlQuery, 0, ConnectionType::ControlUser);
     }
 
     /**
@@ -1333,7 +1334,7 @@ class Privileges
             . ' WHERE `username` = \'' . $username . '\''
             . ' LIMIT 1';
 
-        $usergroup = $this->dbi->fetchValue($sqlQuery, 0, Connection::TYPE_CONTROL);
+        $usergroup = $this->dbi->fetchValue($sqlQuery, 0, ConnectionType::ControlUser);
 
         if ($usergroup === false) {
             return null;

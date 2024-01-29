@@ -11,7 +11,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Features\NavigationItemsHidingFeature;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Url;
@@ -306,11 +306,11 @@ class NodeDatabase extends Node
         $dbi = DatabaseInterface::getInstance();
         $sqlQuery = 'SELECT `item_name` FROM ' . $navTable
             . ' WHERE `username`='
-            . $dbi->quoteString($relationParameters->user, Connection::TYPE_CONTROL)
+            . $dbi->quoteString($relationParameters->user, ConnectionType::ControlUser)
             . ' AND `item_type`='
-            . $dbi->quoteString($type, Connection::TYPE_CONTROL)
+            . $dbi->quoteString($type, ConnectionType::ControlUser)
             . ' AND `db_name`='
-            . $dbi->quoteString($this->realName, Connection::TYPE_CONTROL);
+            . $dbi->quoteString($this->realName, ConnectionType::ControlUser);
         $result = $dbi->tryQueryAsControlUser($sqlQuery);
         $hiddenItems = [];
         if ($result instanceof ResultInterface) {

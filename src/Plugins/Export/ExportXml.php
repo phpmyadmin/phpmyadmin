@@ -9,7 +9,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -433,7 +433,7 @@ class ExportXml extends ExportPlugin
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
         if (isset($GLOBALS['xml_export_contents']) && $GLOBALS['xml_export_contents']) {
-            $result = $dbi->query($sqlQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
+            $result = $dbi->query($sqlQuery, ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED);
 
             $columnsCnt = $result->numFields();
             $columns = $result->getFieldNames();

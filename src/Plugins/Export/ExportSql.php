@@ -13,7 +13,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -2057,7 +2057,7 @@ class ExportSql extends ExportPlugin
             return $this->export->outputHandler($head);
         }
 
-        $result = $dbi->tryQuery($sqlQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
+        $result = $dbi->tryQuery($sqlQuery, ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED);
         // a possible error: the table has crashed
         $tmpError = $dbi->getError();
         if ($tmpError !== '') {

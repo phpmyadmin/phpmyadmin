@@ -9,7 +9,7 @@ namespace PhpMyAdmin\ConfigStorage;
 
 use PhpMyAdmin\ConfigStorage\Features\ConfigurableMenusFeature;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -47,7 +47,7 @@ class UserGroups
             . '.' . Util::backquote($configurableMenusFeature->users);
         $dbi = DatabaseInterface::getInstance();
         $sqlQuery = 'SELECT `username` FROM ' . $usersTable
-            . ' WHERE `usergroup`=' . $dbi->quoteString($userGroup, Connection::TYPE_CONTROL);
+            . ' WHERE `usergroup`=' . $dbi->quoteString($userGroup, ConnectionType::ControlUser);
         $result = $dbi->tryQueryAsControlUser($sqlQuery);
         if ($result) {
             $i = 0;
@@ -162,7 +162,7 @@ class UserGroups
             'DELETE FROM %s.%s WHERE `usergroup`=%s',
             Util::backquote($configurableMenusFeature->database),
             Util::backquote($configurableMenusFeature->users),
-            $dbi->quoteString($userGroupName, Connection::TYPE_CONTROL),
+            $dbi->quoteString($userGroupName, ConnectionType::ControlUser),
         );
         $dbi->queryAsControlUser($statement);
 
@@ -170,7 +170,7 @@ class UserGroups
             'DELETE FROM %s.%s WHERE `usergroup`=%s',
             Util::backquote($configurableMenusFeature->database),
             Util::backquote($configurableMenusFeature->userGroups),
-            $dbi->quoteString($userGroupName, Connection::TYPE_CONTROL),
+            $dbi->quoteString($userGroupName, ConnectionType::ControlUser),
         );
         $dbi->queryAsControlUser($statement);
     }
@@ -206,7 +206,7 @@ class UserGroups
                 . '.' . Util::backquote($configurableMenusFeature->userGroups);
             $dbi = DatabaseInterface::getInstance();
             $sqlQuery = 'SELECT * FROM ' . $groupTable
-                . ' WHERE `usergroup`=' . $dbi->quoteString($userGroup, Connection::TYPE_CONTROL);
+                . ' WHERE `usergroup`=' . $dbi->quoteString($userGroup, ConnectionType::ControlUser);
             $result = $dbi->tryQueryAsControlUser($sqlQuery);
             if ($result) {
                 foreach ($result as $row) {
@@ -301,7 +301,7 @@ class UserGroups
         $dbi = DatabaseInterface::getInstance();
         if (! $new) {
             $sqlQuery = 'DELETE FROM ' . $groupTable
-                . ' WHERE `usergroup`=' . $dbi->quoteString($userGroup, Connection::TYPE_CONTROL) . ';';
+                . ' WHERE `usergroup`=' . $dbi->quoteString($userGroup, ConnectionType::ControlUser) . ';';
             $dbi->queryAsControlUser($sqlQuery);
         }
 
@@ -318,8 +318,8 @@ class UserGroups
 
                 $tabName = $tabGroupName . '_' . $tab;
                 $allowed = isset($_POST[$tabName]) && $_POST[$tabName] === 'Y';
-                $sqlQuery .= '(' . $dbi->quoteString($userGroup, Connection::TYPE_CONTROL)
-                    . ', ' . $dbi->quoteString($tabName, Connection::TYPE_CONTROL) . ", '"
+                $sqlQuery .= '(' . $dbi->quoteString($userGroup, ConnectionType::ControlUser)
+                    . ', ' . $dbi->quoteString($tabName, ConnectionType::ControlUser) . ", '"
                     . ($allowed ? 'Y' : 'N') . "')";
                 $first = false;
             }

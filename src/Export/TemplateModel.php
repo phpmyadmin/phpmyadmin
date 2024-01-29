@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Export;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Util;
@@ -25,17 +25,17 @@ final class TemplateModel
                 . ' VALUES (%s, %s, %s, %s);',
             Util::backquote($db),
             Util::backquote($table),
-            $this->dbi->quoteString($template->getUsername(), Connection::TYPE_CONTROL),
-            $this->dbi->quoteString($template->getExportType(), Connection::TYPE_CONTROL),
-            $this->dbi->quoteString($template->getName(), Connection::TYPE_CONTROL),
-            $this->dbi->quoteString($template->getData(), Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($template->getUsername(), ConnectionType::ControlUser),
+            $this->dbi->quoteString($template->getExportType(), ConnectionType::ControlUser),
+            $this->dbi->quoteString($template->getName(), ConnectionType::ControlUser),
+            $this->dbi->quoteString($template->getData(), ConnectionType::ControlUser),
         );
         $result = $this->dbi->tryQueryAsControlUser($query);
         if ($result !== false) {
             return '';
         }
 
-        return $this->dbi->getError(Connection::TYPE_CONTROL);
+        return $this->dbi->getError(ConnectionType::ControlUser);
     }
 
     public function delete(DatabaseName $db, TableName $table, string $user, int $id): string
@@ -45,14 +45,14 @@ final class TemplateModel
             Util::backquote($db),
             Util::backquote($table),
             $id,
-            $this->dbi->quoteString($user, Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($user, ConnectionType::ControlUser),
         );
         $result = $this->dbi->tryQueryAsControlUser($query);
         if ($result !== false) {
             return '';
         }
 
-        return $this->dbi->getError(Connection::TYPE_CONTROL);
+        return $this->dbi->getError(ConnectionType::ControlUser);
     }
 
     public function load(DatabaseName $db, TableName $table, string $user, int $id): Template|string
@@ -62,11 +62,11 @@ final class TemplateModel
             Util::backquote($db),
             Util::backquote($table),
             $id,
-            $this->dbi->quoteString($user, Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($user, ConnectionType::ControlUser),
         );
         $result = $this->dbi->tryQueryAsControlUser($query);
         if ($result === false) {
-            return $this->dbi->getError(Connection::TYPE_CONTROL);
+            return $this->dbi->getError(ConnectionType::ControlUser);
         }
 
         $data = [];
@@ -89,16 +89,16 @@ final class TemplateModel
             'UPDATE %s.%s SET `template_data` = %s WHERE `id` = %d AND `username` = %s;',
             Util::backquote($db),
             Util::backquote($table),
-            $this->dbi->quoteString($template->getData(), Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($template->getData(), ConnectionType::ControlUser),
             $template->getId(),
-            $this->dbi->quoteString($template->getUsername(), Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($template->getUsername(), ConnectionType::ControlUser),
         );
         $result = $this->dbi->tryQueryAsControlUser($query);
         if ($result !== false) {
             return '';
         }
 
-        return $this->dbi->getError(Connection::TYPE_CONTROL);
+        return $this->dbi->getError(ConnectionType::ControlUser);
     }
 
     /** @return Template[]|string */
@@ -108,12 +108,12 @@ final class TemplateModel
             'SELECT * FROM %s.%s WHERE `username` = %s AND `export_type` = %s ORDER BY `template_name`;',
             Util::backquote($db),
             Util::backquote($table),
-            $this->dbi->quoteString($user, Connection::TYPE_CONTROL),
-            $this->dbi->quoteString($exportType, Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($user, ConnectionType::ControlUser),
+            $this->dbi->quoteString($exportType, ConnectionType::ControlUser),
         );
         $result = $this->dbi->tryQueryAsControlUser($query);
         if ($result === false) {
-            return $this->dbi->getError(Connection::TYPE_CONTROL);
+            return $this->dbi->getError(ConnectionType::ControlUser);
         }
 
         $templates = [];

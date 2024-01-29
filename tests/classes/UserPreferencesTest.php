@@ -10,7 +10,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -108,7 +108,7 @@ class UserPreferencesTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('fetchSingleRow')
-            ->with($query, DatabaseInterface::FETCH_ASSOC, Connection::TYPE_CONTROL)
+            ->with($query, DatabaseInterface::FETCH_ASSOC, ConnectionType::ControlUser)
             ->willReturn(['ts' => '123', 'config_data' => json_encode([1, 2])]);
         $dbi->expects($this->any())
             ->method('quoteString')
@@ -183,12 +183,12 @@ class UserPreferencesTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('fetchValue')
-            ->with($query1, 0, Connection::TYPE_CONTROL)
+            ->with($query1, 0, ConnectionType::ControlUser)
             ->willReturn('1');
 
         $dbi->expects($this->once())
             ->method('tryQuery')
-            ->with($query2, Connection::TYPE_CONTROL)
+            ->with($query2, ConnectionType::ControlUser)
             ->willReturn($this->createStub(DummyResult::class));
 
         $dbi->expects($this->any())
@@ -213,17 +213,17 @@ class UserPreferencesTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('fetchValue')
-            ->with($query1, 0, Connection::TYPE_CONTROL)
+            ->with($query1, 0, ConnectionType::ControlUser)
             ->willReturn(false);
 
         $dbi->expects($this->once())
             ->method('tryQuery')
-            ->with($query2, Connection::TYPE_CONTROL)
+            ->with($query2, ConnectionType::ControlUser)
             ->willReturn(false);
 
         $dbi->expects($this->once())
             ->method('getError')
-            ->with(Connection::TYPE_CONTROL)
+            ->with(ConnectionType::ControlUser)
             ->willReturn('err1');
         $dbi->expects($this->any())
             ->method('quoteString')

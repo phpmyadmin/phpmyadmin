@@ -8,7 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\VariablesController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
@@ -57,8 +57,8 @@ class VariablesControllerTest extends AbstractTestCase
         $serverGlobalVariables = ['auto_increment_increment' => '0', 'auto_increment_offset' => '12'];
 
         $fetchResult = [
-            ['SHOW SESSION VARIABLES;', 0, 1, Connection::TYPE_USER, $serverSessionVariables],
-            ['SHOW GLOBAL VARIABLES;', 0, 1, Connection::TYPE_USER, $serverGlobalVariables],
+            ['SHOW SESSION VARIABLES;', 0, 1, ConnectionType::User, $serverSessionVariables],
+            ['SHOW GLOBAL VARIABLES;', 0, 1, ConnectionType::User, $serverGlobalVariables],
         ];
 
         $dbi->expects($this->any())->method('fetchResult')

@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Routing\Routing;
 use PhpMyAdmin\Tracking\Tracker;
@@ -117,7 +117,7 @@ class Menu
                 . " AND `tab` LIKE '" . $level . "%'"
                 . ' AND `usergroup` = (SELECT usergroup FROM '
                 . $userTable . ' WHERE `username` = '
-                . $this->dbi->quoteString($config->selectedServer['user'], Connection::TYPE_CONTROL) . ')';
+                . $this->dbi->quoteString($config->selectedServer['user'], ConnectionType::ControlUser) . ')';
 
             $result = $this->dbi->tryQueryAsControlUser($sqlQuery);
             if ($result) {

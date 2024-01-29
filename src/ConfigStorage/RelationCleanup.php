@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\ConfigStorage;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Util;
 
 use function sprintf;
@@ -38,9 +38,9 @@ class RelationCleanup
                 'DELETE FROM %s.%s WHERE db_name = %s AND table_name = %s AND column_name = %s',
                 Util::backquote($columnCommentsFeature->database),
                 Util::backquote($columnCommentsFeature->columnInfo),
-                $this->dbi->quoteString($db, Connection::TYPE_CONTROL),
-                $this->dbi->quoteString($table, Connection::TYPE_CONTROL),
-                $this->dbi->quoteString($column, Connection::TYPE_CONTROL),
+                $this->dbi->quoteString($db, ConnectionType::ControlUser),
+                $this->dbi->quoteString($table, ConnectionType::ControlUser),
+                $this->dbi->quoteString($column, ConnectionType::ControlUser),
             );
             $this->dbi->queryAsControlUser($statement);
         }
@@ -50,9 +50,9 @@ class RelationCleanup
                 'DELETE FROM %s.%s WHERE db_name = %s AND table_name = %s AND display_field = %s',
                 Util::backquote($displayFeature->database),
                 Util::backquote($displayFeature->tableInfo),
-                $this->dbi->quoteString($db, Connection::TYPE_CONTROL),
-                $this->dbi->quoteString($table, Connection::TYPE_CONTROL),
-                $this->dbi->quoteString($column, Connection::TYPE_CONTROL),
+                $this->dbi->quoteString($db, ConnectionType::ControlUser),
+                $this->dbi->quoteString($table, ConnectionType::ControlUser),
+                $this->dbi->quoteString($column, ConnectionType::ControlUser),
             );
             $this->dbi->queryAsControlUser($statement);
         }
@@ -65,9 +65,9 @@ class RelationCleanup
             'DELETE FROM %s.%s WHERE master_db = %s AND master_table = %s AND master_field = %s',
             Util::backquote($relationFeature->database),
             Util::backquote($relationFeature->relation),
-            $this->dbi->quoteString($db, Connection::TYPE_CONTROL),
-            $this->dbi->quoteString($table, Connection::TYPE_CONTROL),
-            $this->dbi->quoteString($column, Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($db, ConnectionType::ControlUser),
+            $this->dbi->quoteString($table, ConnectionType::ControlUser),
+            $this->dbi->quoteString($column, ConnectionType::ControlUser),
         );
         $this->dbi->queryAsControlUser($statement);
 
@@ -75,9 +75,9 @@ class RelationCleanup
             'DELETE FROM %s.%s WHERE foreign_db = %s AND foreign_table = %s AND foreign_field = %s',
             Util::backquote($relationFeature->database),
             Util::backquote($relationFeature->relation),
-            $this->dbi->quoteString($db, Connection::TYPE_CONTROL),
-            $this->dbi->quoteString($table, Connection::TYPE_CONTROL),
-            $this->dbi->quoteString($column, Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($db, ConnectionType::ControlUser),
+            $this->dbi->quoteString($table, ConnectionType::ControlUser),
+            $this->dbi->quoteString($column, ConnectionType::ControlUser),
         );
         $this->dbi->queryAsControlUser($statement);
     }
@@ -103,8 +103,8 @@ class RelationCleanup
                 'DELETE FROM %s.%s WHERE db_name = %s AND table_name = %s',
                 Util::backquote($columnCommentsFeature->database),
                 Util::backquote($columnCommentsFeature->columnInfo),
-                $this->dbi->quoteString($db, Connection::TYPE_CONTROL),
-                $this->dbi->quoteString($table, Connection::TYPE_CONTROL),
+                $this->dbi->quoteString($db, ConnectionType::ControlUser),
+                $this->dbi->quoteString($table, ConnectionType::ControlUser),
             );
             $this->dbi->queryAsControlUser($statement);
         }
@@ -114,8 +114,8 @@ class RelationCleanup
                 'DELETE FROM %s.%s WHERE db_name = %s AND table_name = %s',
                 Util::backquote($displayFeature->database),
                 Util::backquote($displayFeature->tableInfo),
-                $this->dbi->quoteString($db, Connection::TYPE_CONTROL),
-                $this->dbi->quoteString($table, Connection::TYPE_CONTROL),
+                $this->dbi->quoteString($db, ConnectionType::ControlUser),
+                $this->dbi->quoteString($table, ConnectionType::ControlUser),
             );
             $this->dbi->queryAsControlUser($statement);
         }
@@ -125,8 +125,8 @@ class RelationCleanup
                 'DELETE FROM %s.%s WHERE db_name = %s AND table_name = %s',
                 Util::backquote($pdfFeature->database),
                 Util::backquote($pdfFeature->tableCoords),
-                $this->dbi->quoteString($db, Connection::TYPE_CONTROL),
-                $this->dbi->quoteString($table, Connection::TYPE_CONTROL),
+                $this->dbi->quoteString($db, ConnectionType::ControlUser),
+                $this->dbi->quoteString($table, ConnectionType::ControlUser),
             );
             $this->dbi->queryAsControlUser($statement);
         }
@@ -136,8 +136,8 @@ class RelationCleanup
                 'DELETE FROM %s.%s WHERE master_db = %s AND master_table = %s',
                 Util::backquote($relationFeature->database),
                 Util::backquote($relationFeature->relation),
-                $this->dbi->quoteString($db, Connection::TYPE_CONTROL),
-                $this->dbi->quoteString($table, Connection::TYPE_CONTROL),
+                $this->dbi->quoteString($db, ConnectionType::ControlUser),
+                $this->dbi->quoteString($table, ConnectionType::ControlUser),
             );
             $this->dbi->queryAsControlUser($statement);
 
@@ -145,8 +145,8 @@ class RelationCleanup
                 'DELETE FROM %s.%s WHERE foreign_db = %s AND foreign_table = %s',
                 Util::backquote($relationFeature->database),
                 Util::backquote($relationFeature->relation),
-                $this->dbi->quoteString($db, Connection::TYPE_CONTROL),
-                $this->dbi->quoteString($table, Connection::TYPE_CONTROL),
+                $this->dbi->quoteString($db, ConnectionType::ControlUser),
+                $this->dbi->quoteString($table, ConnectionType::ControlUser),
             );
             $this->dbi->queryAsControlUser($statement);
         }
@@ -156,8 +156,8 @@ class RelationCleanup
                 'DELETE FROM %s.%s WHERE db_name = %s AND table_name = %s',
                 Util::backquote($uiPreferencesFeature->database),
                 Util::backquote($uiPreferencesFeature->tableUiPrefs),
-                $this->dbi->quoteString($db, Connection::TYPE_CONTROL),
-                $this->dbi->quoteString($table, Connection::TYPE_CONTROL),
+                $this->dbi->quoteString($db, ConnectionType::ControlUser),
+                $this->dbi->quoteString($table, ConnectionType::ControlUser),
             );
             $this->dbi->queryAsControlUser($statement);
         }
@@ -170,9 +170,9 @@ class RelationCleanup
             'DELETE FROM %s.%s WHERE db_name = %s AND (table_name = %s OR (item_name = %s AND item_type = \'table\'))',
             Util::backquote($navigationItemsHidingFeature->database),
             Util::backquote($navigationItemsHidingFeature->navigationHiding),
-            $this->dbi->quoteString($db, Connection::TYPE_CONTROL),
-            $this->dbi->quoteString($table, Connection::TYPE_CONTROL),
-            $this->dbi->quoteString($table, Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($db, ConnectionType::ControlUser),
+            $this->dbi->quoteString($table, ConnectionType::ControlUser),
+            $this->dbi->quoteString($table, ConnectionType::ControlUser),
         );
         $this->dbi->queryAsControlUser($statement);
     }
@@ -204,7 +204,7 @@ class RelationCleanup
                 'DELETE FROM %s.%s WHERE db_name = %s',
                 Util::backquote($columnCommentsFeature->database),
                 Util::backquote($columnCommentsFeature->columnInfo),
-                $this->dbi->quoteString($db, Connection::TYPE_CONTROL),
+                $this->dbi->quoteString($db, ConnectionType::ControlUser),
             );
             $this->dbi->queryAsControlUser($statement);
         }
@@ -214,7 +214,7 @@ class RelationCleanup
                 'DELETE FROM %s.%s WHERE dbase = %s',
                 Util::backquote($bookmarkFeature->database),
                 Util::backquote($bookmarkFeature->bookmark),
-                $this->dbi->quoteString($db, Connection::TYPE_CONTROL),
+                $this->dbi->quoteString($db, ConnectionType::ControlUser),
             );
             $this->dbi->queryAsControlUser($statement);
         }
@@ -224,7 +224,7 @@ class RelationCleanup
                 'DELETE FROM %s.%s WHERE db_name = %s',
                 Util::backquote($displayFeature->database),
                 Util::backquote($displayFeature->tableInfo),
-                $this->dbi->quoteString($db, Connection::TYPE_CONTROL),
+                $this->dbi->quoteString($db, ConnectionType::ControlUser),
             );
             $this->dbi->queryAsControlUser($statement);
         }
@@ -234,7 +234,7 @@ class RelationCleanup
                 'DELETE FROM %s.%s WHERE db_name = %s',
                 Util::backquote($pdfFeature->database),
                 Util::backquote($pdfFeature->pdfPages),
-                $this->dbi->quoteString($db, Connection::TYPE_CONTROL),
+                $this->dbi->quoteString($db, ConnectionType::ControlUser),
             );
             $this->dbi->queryAsControlUser($statement);
 
@@ -242,7 +242,7 @@ class RelationCleanup
                 'DELETE FROM %s.%s WHERE db_name = %s',
                 Util::backquote($pdfFeature->database),
                 Util::backquote($pdfFeature->tableCoords),
-                $this->dbi->quoteString($db, Connection::TYPE_CONTROL),
+                $this->dbi->quoteString($db, ConnectionType::ControlUser),
             );
             $this->dbi->queryAsControlUser($statement);
         }
@@ -252,7 +252,7 @@ class RelationCleanup
                 'DELETE FROM %s.%s WHERE master_db = %s',
                 Util::backquote($relationFeature->database),
                 Util::backquote($relationFeature->relation),
-                $this->dbi->quoteString($db, Connection::TYPE_CONTROL),
+                $this->dbi->quoteString($db, ConnectionType::ControlUser),
             );
             $this->dbi->queryAsControlUser($statement);
 
@@ -260,7 +260,7 @@ class RelationCleanup
                 'DELETE FROM %s.%s WHERE foreign_db = %s',
                 Util::backquote($relationFeature->database),
                 Util::backquote($relationFeature->relation),
-                $this->dbi->quoteString($db, Connection::TYPE_CONTROL),
+                $this->dbi->quoteString($db, ConnectionType::ControlUser),
             );
             $this->dbi->queryAsControlUser($statement);
         }
@@ -270,7 +270,7 @@ class RelationCleanup
                 'DELETE FROM %s.%s WHERE db_name = %s',
                 Util::backquote($uiPreferencesFeature->database),
                 Util::backquote($uiPreferencesFeature->tableUiPrefs),
-                $this->dbi->quoteString($db, Connection::TYPE_CONTROL),
+                $this->dbi->quoteString($db, ConnectionType::ControlUser),
             );
             $this->dbi->queryAsControlUser($statement);
         }
@@ -280,7 +280,7 @@ class RelationCleanup
                 'DELETE FROM %s.%s WHERE db_name = %s',
                 Util::backquote($navigationItemsHidingFeature->database),
                 Util::backquote($navigationItemsHidingFeature->navigationHiding),
-                $this->dbi->quoteString($db, Connection::TYPE_CONTROL),
+                $this->dbi->quoteString($db, ConnectionType::ControlUser),
             );
             $this->dbi->queryAsControlUser($statement);
         }
@@ -290,7 +290,7 @@ class RelationCleanup
                 'DELETE FROM %s.%s WHERE db_name = %s',
                 Util::backquote($savedQueryByExampleSearchesFeature->database),
                 Util::backquote($savedQueryByExampleSearchesFeature->savedSearches),
-                $this->dbi->quoteString($db, Connection::TYPE_CONTROL),
+                $this->dbi->quoteString($db, ConnectionType::ControlUser),
             );
             $this->dbi->queryAsControlUser($statement);
         }
@@ -303,7 +303,7 @@ class RelationCleanup
             'DELETE FROM %s.%s WHERE db_name = %s',
             Util::backquote($centralColumnsFeature->database),
             Util::backquote($centralColumnsFeature->centralColumns),
-            $this->dbi->quoteString($db, Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($db, ConnectionType::ControlUser),
         );
         $this->dbi->queryAsControlUser($statement);
     }
@@ -336,7 +336,7 @@ class RelationCleanup
                 'DELETE FROM %s.%s WHERE `user` = %s',
                 Util::backquote($bookmarkFeature->database),
                 Util::backquote($bookmarkFeature->bookmark),
-                $this->dbi->quoteString($username, Connection::TYPE_CONTROL),
+                $this->dbi->quoteString($username, ConnectionType::ControlUser),
             );
             $this->dbi->queryAsControlUser($statement);
         }
@@ -346,7 +346,7 @@ class RelationCleanup
                 'DELETE FROM %s.%s WHERE `username` = %s',
                 Util::backquote($sqlHistoryFeature->database),
                 Util::backquote($sqlHistoryFeature->history),
-                $this->dbi->quoteString($username, Connection::TYPE_CONTROL),
+                $this->dbi->quoteString($username, ConnectionType::ControlUser),
             );
             $this->dbi->queryAsControlUser($statement);
         }
@@ -356,7 +356,7 @@ class RelationCleanup
                 'DELETE FROM %s.%s WHERE `username` = %s',
                 Util::backquote($recentlyUsedTablesFeature->database),
                 Util::backquote($recentlyUsedTablesFeature->recent),
-                $this->dbi->quoteString($username, Connection::TYPE_CONTROL),
+                $this->dbi->quoteString($username, ConnectionType::ControlUser),
             );
             $this->dbi->queryAsControlUser($statement);
         }
@@ -366,7 +366,7 @@ class RelationCleanup
                 'DELETE FROM %s.%s WHERE `username` = %s',
                 Util::backquote($favoriteTablesFeature->database),
                 Util::backquote($favoriteTablesFeature->favorite),
-                $this->dbi->quoteString($username, Connection::TYPE_CONTROL),
+                $this->dbi->quoteString($username, ConnectionType::ControlUser),
             );
             $this->dbi->queryAsControlUser($statement);
         }
@@ -376,7 +376,7 @@ class RelationCleanup
                 'DELETE FROM %s.%s WHERE `username` = %s',
                 Util::backquote($uiPreferencesFeature->database),
                 Util::backquote($uiPreferencesFeature->tableUiPrefs),
-                $this->dbi->quoteString($username, Connection::TYPE_CONTROL),
+                $this->dbi->quoteString($username, ConnectionType::ControlUser),
             );
             $this->dbi->queryAsControlUser($statement);
         }
@@ -386,7 +386,7 @@ class RelationCleanup
                 'DELETE FROM %s.%s WHERE `username` = %s',
                 Util::backquote($userPreferencesFeature->database),
                 Util::backquote($userPreferencesFeature->userConfig),
-                $this->dbi->quoteString($username, Connection::TYPE_CONTROL),
+                $this->dbi->quoteString($username, ConnectionType::ControlUser),
             );
             $this->dbi->queryAsControlUser($statement);
         }
@@ -396,7 +396,7 @@ class RelationCleanup
                 'DELETE FROM %s.%s WHERE `username` = %s',
                 Util::backquote($configurableMenusFeature->database),
                 Util::backquote($configurableMenusFeature->users),
-                $this->dbi->quoteString($username, Connection::TYPE_CONTROL),
+                $this->dbi->quoteString($username, ConnectionType::ControlUser),
             );
             $this->dbi->queryAsControlUser($statement);
         }
@@ -406,7 +406,7 @@ class RelationCleanup
                 'DELETE FROM %s.%s WHERE `username` = %s',
                 Util::backquote($navigationItemsHidingFeature->database),
                 Util::backquote($navigationItemsHidingFeature->navigationHiding),
-                $this->dbi->quoteString($username, Connection::TYPE_CONTROL),
+                $this->dbi->quoteString($username, ConnectionType::ControlUser),
             );
             $this->dbi->queryAsControlUser($statement);
         }
@@ -416,7 +416,7 @@ class RelationCleanup
                 'DELETE FROM %s.%s WHERE `username` = %s',
                 Util::backquote($savedQueryByExampleSearchesFeature->database),
                 Util::backquote($savedQueryByExampleSearchesFeature->savedSearches),
-                $this->dbi->quoteString($username, Connection::TYPE_CONTROL),
+                $this->dbi->quoteString($username, ConnectionType::ControlUser),
             );
             $this->dbi->queryAsControlUser($statement);
         }
@@ -429,7 +429,7 @@ class RelationCleanup
             'DELETE FROM %s.%s WHERE `username` = %s',
             Util::backquote($databaseDesignerSettingsFeature->database),
             Util::backquote($databaseDesignerSettingsFeature->designerSettings),
-            $this->dbi->quoteString($username, Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($username, ConnectionType::ControlUser),
         );
         $this->dbi->queryAsControlUser($statement);
     }

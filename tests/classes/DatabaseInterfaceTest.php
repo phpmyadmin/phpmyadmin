@@ -8,7 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Dbal\Statement;
@@ -639,7 +639,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $dummyDbi->addSelectDb('db1');
         $dummyDbi->addSelectDb('db2');
 
-        $databaseList = $dbi->getDatabasesFull(null, true, Connection::TYPE_USER, 'SCHEMA_DATA_LENGTH', 'ASC', 0, 100);
+        $databaseList = $dbi->getDatabasesFull(null, true, ConnectionType::User, 'SCHEMA_DATA_LENGTH', 'ASC', 0, 100);
 
         $this->assertSame([
             [
@@ -678,7 +678,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
             ->with($this->isType('object'), $this->equalTo($query))
             ->willReturn($stmtStub);
         $dbi = $this->createDatabaseInterface($dummyDbi);
-        $stmt = $dbi->prepare($query, Connection::TYPE_CONTROL);
+        $stmt = $dbi->prepare($query, ConnectionType::ControlUser);
         $this->assertSame($stmtStub, $stmt);
     }
 

@@ -11,7 +11,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Identifiers\TriggerName;
@@ -293,8 +293,8 @@ class ExportTexytextTest extends AbstractTestCase
         $dbi->expects($this->exactly(2))
             ->method('getColumns')
             ->willReturnMap([
-                ['db', 'table', false, Connection::TYPE_USER, [$column]],
-                ['db', 'table', true, Connection::TYPE_USER, [$columnFull]],
+                ['db', 'table', false, ConnectionType::User, [$column]],
+                ['db', 'table', true, ConnectionType::User, [$columnFull]],
             ]);
 
         DatabaseInterface::$instance = $dbi;

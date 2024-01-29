@@ -10,7 +10,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tracking\Tracker;
@@ -185,9 +185,9 @@ class TrackerTest extends AbstractTestCase
         $useStatement = 'USE `pma_test`';
         $showCreateTableQuery = 'SHOW CREATE TABLE `pma_test`.`pma_tbl`';
         $dbi->expects($this->exactly(3))->method('tryQuery')->willReturnMap([
-            [$showTableStatusQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_BUFFERED, true, $resultStub],
-            [$useStatement, Connection::TYPE_USER, DatabaseInterface::QUERY_BUFFERED, true, $resultStub],
-            [$showCreateTableQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_BUFFERED, true, $resultStub],
+            [$showTableStatusQuery, ConnectionType::User, DatabaseInterface::QUERY_BUFFERED, true, $resultStub],
+            [$useStatement, ConnectionType::User, DatabaseInterface::QUERY_BUFFERED, true, $resultStub],
+            [$showCreateTableQuery, ConnectionType::User, DatabaseInterface::QUERY_BUFFERED, true, $resultStub],
         ]);
 
         $dbi->expects($this->any())->method('query')

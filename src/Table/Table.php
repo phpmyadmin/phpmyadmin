@@ -11,7 +11,7 @@ use PhpMyAdmin\ConfigStorage\Features\UiPreferencesFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
@@ -804,14 +804,14 @@ class Table implements Stringable
         $whereParts = [];
         foreach ($whereFields as $where => $value) {
             $whereParts[] = Util::backquote((string) $where) . ' = '
-                . $dbi->quoteString((string) $value, Connection::TYPE_CONTROL);
+                . $dbi->quoteString((string) $value, ConnectionType::ControlUser);
         }
 
         $newParts = [];
         $newValueParts = [];
         foreach ($newFields as $where => $value) {
             $newParts[] = Util::backquote((string) $where);
-            $newValueParts[] = $dbi->quoteString((string) $value, Connection::TYPE_CONTROL);
+            $newValueParts[] = $dbi->quoteString((string) $value, ConnectionType::ControlUser);
         }
 
         $tableCopyQuery = '
@@ -831,7 +831,7 @@ class Table implements Stringable
                     continue;
                 }
 
-                $valueParts[] = $dbi->quoteString($val, Connection::TYPE_CONTROL);
+                $valueParts[] = $dbi->quoteString($val, ConnectionType::ControlUser);
             }
 
             $newTableQuery = 'INSERT IGNORE INTO '
@@ -1210,9 +1210,9 @@ class Table implements Stringable
                 . '.'
                 . Util::backquote($relationParameters->columnCommentsFeature->columnInfo)
                 . ' WHERE '
-                . ' db_name = ' . $dbi->quoteString($sourceDb, Connection::TYPE_CONTROL)
+                . ' db_name = ' . $dbi->quoteString($sourceDb, ConnectionType::ControlUser)
                 . ' AND '
-                . ' table_name = ' . $dbi->quoteString($sourceTable, Connection::TYPE_CONTROL),
+                . ' table_name = ' . $dbi->quoteString($sourceTable, ConnectionType::ControlUser),
             );
 
             // Write every comment as new copied entry. [MIME]
@@ -1224,15 +1224,16 @@ class Table implements Stringable
                     . ($relationParameters->browserTransformationFeature !== null
                         ? ', mimetype, transformation, transformation_options'
                         : '')
-                    . ') VALUES(' . $dbi->quoteString($targetDb, Connection::TYPE_CONTROL)
-                    . ',' . $dbi->quoteString($targetTable, Connection::TYPE_CONTROL) . ','
-                    . $dbi->quoteString($commentsCopyRow['column_name'], Connection::TYPE_CONTROL)
+                    . ') VALUES(' . $dbi->quoteString($targetDb, ConnectionType::ControlUser)
+                    . ',' . $dbi->quoteString($targetTable, ConnectionType::ControlUser) . ','
+                    . $dbi->quoteString($commentsCopyRow['column_name'], ConnectionType::ControlUser)
                     . ','
-                    . $dbi->quoteString($commentsCopyRow['comment'], Connection::TYPE_CONTROL)
+                    . $dbi->quoteString($commentsCopyRow['comment'], ConnectionType::ControlUser)
                     . ($relationParameters->browserTransformationFeature !== null
-                        ? ',' . $dbi->quoteString($commentsCopyRow['mimetype'], Connection::TYPE_CONTROL)
-                        . ',' . $dbi->quoteString($commentsCopyRow['transformation'], Connection::TYPE_CONTROL)
-                        . ',' . $dbi->quoteString($commentsCopyRow['transformation_options'], Connection::TYPE_CONTROL)
+                        ? ',' . $dbi->quoteString($commentsCopyRow['mimetype'], ConnectionType::ControlUser)
+                        . ',' . $dbi->quoteString($commentsCopyRow['transformation'], ConnectionType::ControlUser)
+                        . ','
+                        . $dbi->quoteString($commentsCopyRow['transformation_options'], ConnectionType::ControlUser)
                         : '')
                     . ')';
                 $dbi->queryAsControlUser($newCommentQuery);
@@ -1581,9 +1582,9 @@ class Table implements Stringable
             'SELECT `prefs` FROM %s.%s WHERE `username` = %s AND `db_name` = %s AND `table_name` = %s',
             Util::backquote($uiPreferencesFeature->database),
             Util::backquote($uiPreferencesFeature->tableUiPrefs),
-            $this->dbi->quoteString(Config::getInstance()->selectedServer['user'], Connection::TYPE_CONTROL),
-            $this->dbi->quoteString($this->dbName, Connection::TYPE_CONTROL),
-            $this->dbi->quoteString($this->name, Connection::TYPE_CONTROL),
+            $this->dbi->quoteString(Config::getInstance()->selectedServer['user'], ConnectionType::ControlUser),
+            $this->dbi->quoteString($this->dbName, ConnectionType::ControlUser),
+            $this->dbi->quoteString($this->name, ConnectionType::ControlUser),
         );
 
         $value = $this->dbi->queryAsControlUser($sqlQuery)->fetchValue();
@@ -1608,19 +1609,19 @@ class Table implements Stringable
         $username = $config->selectedServer['user'];
         $sqlQuery = ' REPLACE INTO ' . $table
             . ' (username, db_name, table_name, prefs) VALUES ('
-            . $this->dbi->quoteString($username, Connection::TYPE_CONTROL) . ', '
-            . $this->dbi->quoteString($this->dbName, Connection::TYPE_CONTROL) . ', '
-            . $this->dbi->quoteString($this->name, Connection::TYPE_CONTROL) . ', '
-            . $this->dbi->quoteString((string) json_encode($this->uiprefs), Connection::TYPE_CONTROL) . ')';
+            . $this->dbi->quoteString($username, ConnectionType::ControlUser) . ', '
+            . $this->dbi->quoteString($this->dbName, ConnectionType::ControlUser) . ', '
+            . $this->dbi->quoteString($this->name, ConnectionType::ControlUser) . ', '
+            . $this->dbi->quoteString((string) json_encode($this->uiprefs), ConnectionType::ControlUser) . ')';
 
-        $success = $this->dbi->tryQuery($sqlQuery, Connection::TYPE_CONTROL);
+        $success = $this->dbi->tryQuery($sqlQuery, ConnectionType::ControlUser);
 
         if (! $success) {
             $message = Message::error(
                 __('Could not save table UI preferences!'),
             );
             $message->addMessage(
-                Message::rawError($this->dbi->getError(Connection::TYPE_CONTROL)),
+                Message::rawError($this->dbi->getError(ConnectionType::ControlUser)),
                 '<br><br>',
             );
 
@@ -1635,7 +1636,7 @@ class Table implements Stringable
         if ($rowsCount > $maxRows) {
             $numRowsToDelete = $rowsCount - $maxRows;
             $sqlQuery = ' DELETE FROM ' . $table . ' ORDER BY last_update ASC LIMIT ' . $numRowsToDelete;
-            $success = $this->dbi->tryQuery($sqlQuery, Connection::TYPE_CONTROL);
+            $success = $this->dbi->tryQuery($sqlQuery, ConnectionType::ControlUser);
 
             if (! $success) {
                 $message = Message::error(sprintf(
@@ -1643,7 +1644,7 @@ class Table implements Stringable
                     MySQLDocumentation::showDocumentation('config', 'cfg_Servers_MaxTableUiprefs'),
                 ));
                 $message->addMessage(
-                    Message::rawError($this->dbi->getError(Connection::TYPE_CONTROL)),
+                    Message::rawError($this->dbi->getError(ConnectionType::ControlUser)),
                     '<br><br>',
                 );
 
@@ -1893,9 +1894,9 @@ class Table implements Stringable
                 . Util::backquote($displayFeature->database)
                 . '.' . Util::backquote($displayFeature->tableInfo)
                 . '(db_name, table_name, display_field) VALUES('
-                . $this->dbi->quoteString($this->dbName, Connection::TYPE_CONTROL) . ','
-                . $this->dbi->quoteString($this->name, Connection::TYPE_CONTROL) . ','
-                . $this->dbi->quoteString($displayField, Connection::TYPE_CONTROL) . ')';
+                . $this->dbi->quoteString($this->dbName, ConnectionType::ControlUser) . ','
+                . $this->dbi->quoteString($this->name, ConnectionType::ControlUser) . ','
+                . $this->dbi->quoteString($displayField, ConnectionType::ControlUser) . ')';
         }
 
         $this->dbi->queryAsControlUser($updQuery);
@@ -1933,12 +1934,12 @@ class Table implements Stringable
                         . '(master_db, master_table, master_field, foreign_db,'
                         . ' foreign_table, foreign_field)'
                         . ' values('
-                        . $this->dbi->quoteString($this->dbName, Connection::TYPE_CONTROL) . ', '
-                        . $this->dbi->quoteString($this->name, Connection::TYPE_CONTROL) . ', '
-                        . $this->dbi->quoteString($masterField, Connection::TYPE_CONTROL) . ', '
-                        . $this->dbi->quoteString($foreignDb, Connection::TYPE_CONTROL) . ', '
-                        . $this->dbi->quoteString($foreignTable, Connection::TYPE_CONTROL) . ','
-                        . $this->dbi->quoteString($foreignField, Connection::TYPE_CONTROL) . ')';
+                        . $this->dbi->quoteString($this->dbName, ConnectionType::ControlUser) . ', '
+                        . $this->dbi->quoteString($this->name, ConnectionType::ControlUser) . ', '
+                        . $this->dbi->quoteString($masterField, ConnectionType::ControlUser) . ', '
+                        . $this->dbi->quoteString($foreignDb, ConnectionType::ControlUser) . ', '
+                        . $this->dbi->quoteString($foreignTable, ConnectionType::ControlUser) . ','
+                        . $this->dbi->quoteString($foreignField, ConnectionType::ControlUser) . ')';
                 } elseif (
                     $existrel[$masterField]['foreign_db'] != $foreignDb
                     || $existrel[$masterField]['foreign_table'] != $foreignTable
@@ -1948,28 +1949,28 @@ class Table implements Stringable
                         . Util::backquote($relationFeature->database)
                         . '.' . Util::backquote($relationFeature->relation)
                         . ' SET foreign_db       = '
-                        . $this->dbi->quoteString($foreignDb, Connection::TYPE_CONTROL) . ', '
+                        . $this->dbi->quoteString($foreignDb, ConnectionType::ControlUser) . ', '
                         . ' foreign_table    = '
-                        . $this->dbi->quoteString($foreignTable, Connection::TYPE_CONTROL) . ', '
+                        . $this->dbi->quoteString($foreignTable, ConnectionType::ControlUser) . ', '
                         . ' foreign_field    = '
-                        . $this->dbi->quoteString($foreignField, Connection::TYPE_CONTROL) . ' '
+                        . $this->dbi->quoteString($foreignField, ConnectionType::ControlUser) . ' '
                         . ' WHERE master_db  = '
-                        . $this->dbi->quoteString($this->dbName, Connection::TYPE_CONTROL)
+                        . $this->dbi->quoteString($this->dbName, ConnectionType::ControlUser)
                         . ' AND master_table = '
-                        . $this->dbi->quoteString($this->name, Connection::TYPE_CONTROL)
+                        . $this->dbi->quoteString($this->name, ConnectionType::ControlUser)
                         . ' AND master_field = '
-                        . $this->dbi->quoteString($masterField, Connection::TYPE_CONTROL);
+                        . $this->dbi->quoteString($masterField, ConnectionType::ControlUser);
                 }
             } elseif (isset($existrel[$masterField])) {
                 $updQuery = 'DELETE FROM '
                     . Util::backquote($relationFeature->database)
                     . '.' . Util::backquote($relationFeature->relation)
                     . ' WHERE master_db  = '
-                    . $this->dbi->quoteString($this->dbName, Connection::TYPE_CONTROL)
+                    . $this->dbi->quoteString($this->dbName, ConnectionType::ControlUser)
                     . ' AND master_table = '
-                    . $this->dbi->quoteString($this->name, Connection::TYPE_CONTROL)
+                    . $this->dbi->quoteString($this->name, ConnectionType::ControlUser)
                     . ' AND master_field = '
-                    . $this->dbi->quoteString($masterField, Connection::TYPE_CONTROL);
+                    . $this->dbi->quoteString($masterField, ConnectionType::ControlUser);
             }
 
             if (! isset($updQuery)) {
