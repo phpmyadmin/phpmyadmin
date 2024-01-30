@@ -672,7 +672,10 @@ class Sql
                     $statement->limit = false;
                 }
 
-                if (! $statementInfo->isGroup && ! $statementInfo->distinct && count($statement->expr) === 1) {
+                if (
+                    ! $statementInfo->isGroup && ! $statementInfo->distinct && ! $statementInfo->union
+                    && count($statement->expr) === 1
+                ) {
                     $statement->expr[0] = new Expression();
                     $statement->expr[0]->expr = '1';
                 }
