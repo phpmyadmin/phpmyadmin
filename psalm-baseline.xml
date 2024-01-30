@@ -5130,7 +5130,6 @@
       <code>$resultTarget[$row[$keyIndex]]</code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
-      <code>$resultRows[$row[$key]]</code>
       <code>$row[$keyIndex]</code>
       <code>$row[$keyIndex]</code>
       <code>$row[$keyIndex]</code>
@@ -5201,6 +5200,7 @@
       <code><![CDATA[$_SERVER['SCRIPT_NAME']]]></code>
     </PossiblyNullArgument>
     <PossiblyNullArrayOffset>
+      <code>$resultRows</code>
       <code>$resultTarget</code>
       <code>$resultTarget</code>
     </PossiblyNullArrayOffset>

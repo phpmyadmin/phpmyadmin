@@ -1248,7 +1248,7 @@ class DatabaseInterface implements DbalInterface
      * @param string          $mode   either self::FETCH_NUM, self::FETCH_ASSOC or self::FETCH_BOTH
      * @psalm-param self::FETCH_NUM|self::FETCH_ASSOC $mode
      *
-     * @return mixed[]
+     * @return array<string|null>
      */
     private function fetchByMode(ResultInterface $result, string $mode): array
     {
