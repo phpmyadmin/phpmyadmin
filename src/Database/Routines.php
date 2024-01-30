@@ -1017,11 +1017,11 @@ class Routines
     /**
      * Browse row array
      *
-     * @param mixed[] $row Columns
+     * @param (string|null)[] $row Columns
      */
-    private function browseRow(array $row): string|null
+    private function browseRow(array $row): string
     {
-        $output = null;
+        $output = '';
         foreach ($row as $value) {
             if ($value === null) {
                 $value = '<i>NULL</i>';
