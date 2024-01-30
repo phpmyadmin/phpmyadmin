@@ -10076,16 +10076,6 @@ parameters:
 			path: src/Operations.php
 
 		-
-			message: "#^Parameter \\#2 \\$sourceTable of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Operations.php
-
-		-
-			message: "#^Parameter \\#4 \\$targetTable of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Operations.php
-
-		-
 			message: "#^Parameter \\#5 \\$what of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Operations.php

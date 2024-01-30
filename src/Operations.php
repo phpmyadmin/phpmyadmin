@@ -112,7 +112,7 @@ class Operations
      * @param ExportSql $exportSqlPlugin export plugin instance
      * @param string    $db              database name
      *
-     * @return mixed[]
+     * @return string[]
      */
     public function getViewsAndCreateSqlViewStandIn(
         array $tables,
@@ -260,9 +260,9 @@ class Operations
     /**
      * Handle the views, return the boolean value whether table rename/copy or not
      *
-     * @param mixed[] $views views as an array
-     * @param bool    $move  whether database name is empty or not
-     * @param string  $db    database name
+     * @param string[] $views views as an array
+     * @param bool     $move  whether database name is empty or not
+     * @param string   $db    database name
      */
     public function handleTheViews(array $views, bool $move, string $db, DatabaseName $newDatabaseName): void
     {
