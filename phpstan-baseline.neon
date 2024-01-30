@@ -5486,6 +5486,11 @@ parameters:
 			path: src/Controllers/Table/Structure/MoveColumnsController.php
 
 		-
+			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
+			count: 16
+			path: src/Controllers/Table/Structure/PartitioningController.php
+
+		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 6
 			path: src/Controllers/Table/Structure/PartitioningController.php
@@ -5501,7 +5506,7 @@ parameters:
 			path: src/Controllers/Table/Structure/PartitioningController.php
 
 		-
-			message: "#^Offset 'partition_by' on array\\{partition_by\\: string, partition_expr\\: string, partition_count\\: mixed, subpartition_by\\: string, subpartition_expr\\: string, subpartition_count\\: int, can_have_subpartitions\\: bool\\} in isset\\(\\) always exists and is not nullable\\.$#"
+			message: "#^Offset 'partition_by' on array\\{partition_by\\: string, partition_expr\\: string, partition_count\\: mixed, subpartition_by\\: string, subpartition_expr\\: string, subpartition_count\\: mixed, can_have_subpartitions\\: bool\\} in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/PartitioningController.php
 
@@ -5512,7 +5517,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\>\\|null given\\.$#"
-			count: 1
+			count: 2
 			path: src/Controllers/Table/Structure/PartitioningController.php
 
 		-
@@ -6871,6 +6876,11 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
+			message: "#^Cannot access property \\$options on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
+			count: 1
+			path: src/Database/Routines.php
+
+		-
 			message: "#^Cannot access property \\$parameters on PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\|null\\.$#"
 			count: 1
 			path: src/Database/Routines.php
@@ -7383,6 +7393,16 @@ parameters:
 		-
 			message: "#^Cannot access property \\$alias on mixed\\.$#"
 			count: 1
+			path: src/Display/Results.php
+
+		-
+			message: "#^Cannot access property \\$column on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			count: 1
+			path: src/Display/Results.php
+
+		-
+			message: "#^Cannot access property \\$expr on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			count: 2
 			path: src/Display/Results.php
 
 		-
@@ -11332,12 +11352,12 @@ parameters:
 
 		-
 			message: "#^Cannot access property \\$expr on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 2
+			count: 3
 			path: src/Plugins/Export/ExportSql.php
 
 		-
 			message: "#^Cannot access property \\$table on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 5
+			count: 7
 			path: src/Plugins/Export/ExportSql.php
 
 		-
@@ -11461,7 +11481,7 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Parameter \\#2 \\$id of method PhpMyAdmin\\\\Plugins\\\\ExportPlugin\\:\\:getAlias\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$id of method PhpMyAdmin\\\\Plugins\\\\ExportPlugin\\:\\:getAlias\\(\\) expects string, bool\\|float\\|int\\|string given\\.$#"
 			count: 1
 			path: src/Plugins/Export/ExportSql.php
 
@@ -11502,11 +11522,6 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$name \\(string\\|null\\) does not accept mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$table \\(string\\|null\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Plugins/Export/ExportSql.php
 
@@ -14461,6 +14476,11 @@ parameters:
 			path: src/Sql.php
 
 		-
+			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
+			count: 1
+			path: src/Sql.php
+
+		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 12
 			path: src/Sql.php
@@ -15006,6 +15026,11 @@ parameters:
 			path: src/Table/Table.php
 
 		-
+			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
+			count: 2
+			path: src/Table/Table.php
+
+		-
 			message: "#^Cannot cast mixed to int\\.$#"
 			count: 1
 			path: src/Table/Table.php
@@ -15302,7 +15327,7 @@ parameters:
 
 		-
 			message: "#^Cannot access property \\$table on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 4
+			count: 6
 			path: src/Tracking/Tracker.php
 
 		-
@@ -15361,7 +15386,7 @@ parameters:
 			path: src/Tracking/Tracker.php
 
 		-
-			message: "#^Static property PhpMyAdmin\\\\Current\\:\\:\\$database \\(string\\) does not accept mixed\\.$#"
+			message: "#^Static property PhpMyAdmin\\\\Current\\:\\:\\$database \\(string\\) does not accept bool\\|float\\|int\\|string\\.$#"
 			count: 1
 			path: src/Tracking/Tracker.php
 
