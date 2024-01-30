@@ -26,7 +26,7 @@ class FileListing
      * @param string $dir        directory to list
      * @param string $expression regular expression to match files
      *
-     * @return mixed[]|bool sorted file list on success, false on failure
+     * @return string[]|false sorted file list on success, false on failure
      */
     public function getDirContent(string $dir, string $expression = ''): array|bool
     {
