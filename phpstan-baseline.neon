@@ -3446,12 +3446,7 @@ parameters:
 			path: src/Controllers/Server/DatabasesController.php
 
 		-
-			message: "#^Cannot access offset 'raw' on mixed\\.$#"
-			count: 2
-			path: src/Controllers/Server/DatabasesController.php
-
-		-
-			message: "#^Cannot access offset \\(int\\|string\\) on mixed\\.$#"
+			message: "#^Cannot access offset string on mixed\\.$#"
 			count: 2
 			path: src/Controllers/Server/DatabasesController.php
 

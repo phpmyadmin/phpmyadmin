@@ -198,7 +198,7 @@ class DatabasesController extends AbstractController
      * @param mixed[] $primaryInfo
      * @param mixed[] $replicaInfo
      *
-     * @return mixed[]
+     * @return array{databases:mixed[], total_statistics:mixed[]}
      */
     private function getDatabases(array $primaryInfo, array $replicaInfo): array
     {
@@ -280,7 +280,7 @@ class DatabasesController extends AbstractController
     /**
      * Prepares the statistics columns
      *
-     * @return mixed[]
+     * @return array<string, array{title: string, format: 'number'|'byte', raw: int}>
      */
     private function getStatisticsColumns(): array
     {

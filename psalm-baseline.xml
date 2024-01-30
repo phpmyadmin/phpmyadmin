@@ -2700,12 +2700,7 @@
       <code><![CDATA[$database['SCHEMA_NAME']]]></code>
       <code><![CDATA[$database['SCHEMA_NAME']]]></code>
       <code><![CDATA[$database['SCHEMA_NAME']]]></code>
-      <code><![CDATA[$totalStatistics[$key]['raw']]]></code>
     </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$statistics[$key]['raw']]]></code>
-      <code><![CDATA[$totalStatistics[$key]['raw']]]></code>
-    </MixedArrayAssignment>
     <MixedArrayOffset>
       <code><![CDATA[$databases[$database['SCHEMA_NAME']]]]></code>
       <code><![CDATA[$databases[$database['SCHEMA_NAME']]]]></code>
@@ -2717,11 +2712,7 @@
       <code>$key</code>
       <code>$key</code>
       <code>$key</code>
-      <code><![CDATA[$totalStatistics[$key]['raw']]]></code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$totalStatistics[$key]['raw']]]></code>
-    </MixedOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[$params['sort_by']]]></code>
       <code><![CDATA[$params['sort_order']]]></code>
