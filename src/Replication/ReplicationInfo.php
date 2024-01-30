@@ -125,7 +125,7 @@ final class ReplicationInfo
     /**
      * @param mixed[] $status
      *
-     * @return mixed[]
+     * @return string[]
      */
     private function fill(array $status, string $key): array
     {
@@ -138,11 +138,7 @@ final class ReplicationInfo
 
     private function setPrimaryInfo(): void
     {
-        $this->primaryInfo = ['status' => false];
-
-        if ($this->primaryStatus !== []) {
-            $this->primaryInfo['status'] = true;
-        }
+        $this->primaryInfo = ['status' => $this->primaryStatus !== []];
 
         if (! $this->primaryInfo['status']) {
             return;
@@ -160,11 +156,7 @@ final class ReplicationInfo
 
     private function setReplicaInfo(): void
     {
-        $this->replicaInfo = ['status' => false];
-
-        if ($this->replicaStatus !== []) {
-            $this->replicaInfo['status'] = true;
-        }
+        $this->replicaInfo = ['status' => $this->replicaStatus !== []];
 
         if (! $this->replicaInfo['status']) {
             return;
