@@ -743,8 +743,6 @@
       <code><![CDATA[$_SESSION['sql_history'][]]]></code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
-      <code>$foreign[$field]</code>
-      <code>$foreign[$field]</code>
       <code>$foreign[$key]</code>
       <code><![CDATA[$oneKey['ref_index_list'][$columnIndex]]]></code>
     </MixedArrayOffset>
@@ -752,11 +750,9 @@
       <code>$childReferences</code>
       <code>$column</code>
       <code>$columns</code>
-      <code>$field</code>
       <code>$foreignDb</code>
       <code>$foreignField</code>
       <code>$foreignTable</code>
-      <code>$foreign[$field]</code>
       <code>$foreign[$key]</code>
       <code><![CDATA[$foreigner['constraint']]]></code>
       <code><![CDATA[$foreigner['foreign_db']]]></code>
@@ -768,7 +764,6 @@
       <code><![CDATA[$foreigners['foreign_keys_data']]]></code>
       <code>$key</code>
       <code>$oneKey</code>
-      <code>$relations</code>
       <code>$value</code>
       <code>$value</code>
     </MixedAssignment>
@@ -14159,16 +14154,6 @@
     <PropertyTypeCoercion>
       <code><![CDATA[Config::getInstance()->settings]]></code>
     </PropertyTypeCoercion>
-  </file>
-  <file src="tests/classes/InternalRelationsTest.php">
-    <MixedAssignment>
-      <code>$field</code>
-      <code>$field</code>
-    </MixedAssignment>
-    <RedundantCondition>
-      <code>assertIsArray</code>
-      <code>assertIsArray</code>
-    </RedundantCondition>
   </file>
   <file src="tests/classes/IpAllowDenyTest.php">
     <DeprecatedMethod>
