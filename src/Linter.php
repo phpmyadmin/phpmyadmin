@@ -92,7 +92,7 @@ class Linter
      *
      * @param string $query The query to be checked.
      *
-     * @return mixed[]
+     * @return (string|int)[][]
      */
     public static function lint(string $query): array
     {
