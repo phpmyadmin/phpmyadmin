@@ -2210,12 +2210,6 @@ class DatabaseInterface implements DbalInterface
      */
     public function getDbCollation(string $db): string
     {
-        if (Utilities::isSystemSchema($db)) {
-            // We don't have to check the collation of the virtual
-            // information_schema database: We know it!
-            return 'utf8_general_ci';
-        }
-
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             // this is slow with thousands of databases
             $sql = 'SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA'
