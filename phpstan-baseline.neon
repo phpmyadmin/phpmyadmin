@@ -5011,16 +5011,6 @@ parameters:
 			path: src/Controllers/Table/ReplaceController.php
 
 		-
-			message: "#^Parameter \\#1 \\$rows of static method PhpMyAdmin\\\\Message\\:\\:getMessageForAffectedRows\\(\\) expects int, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ReplaceController.php
-
-		-
-			message: "#^Parameter \\#1 \\$rows of static method PhpMyAdmin\\\\Message\\:\\:getMessageForInsertedRows\\(\\) expects int, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ReplaceController.php
-
-		-
 			message: "#^Parameter \\#1 \\$state of method PhpMyAdmin\\\\ResponseRenderer\\:\\:setRequestStatus\\(\\) expects bool, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ReplaceController.php

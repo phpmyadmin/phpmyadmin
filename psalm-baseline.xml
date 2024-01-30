@@ -3622,10 +3622,8 @@
       <code>$columnName</code>
       <code>$columnName</code>
       <code>$columnName</code>
-      <code>$errorMessages</code>
       <code>$extraData</code>
       <code><![CDATA[$fields['multi_edit']]]></code>
-      <code>$lastMessages</code>
       <code>$multiEditColumnsPrev[$key] ?? null</code>
       <code><![CDATA[$multiEditColumnsType[$key] ?? '']]></code>
       <code><![CDATA[$multiEditFuncs[$key] ?? '']]></code>
@@ -3637,9 +3635,6 @@
       <code><![CDATA[$request->getParsedBodyParam('db')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('table')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('transform_fields_list')]]></code>
-      <code>$totalAffectedRows</code>
-      <code>$totalAffectedRows</code>
-      <code>$warningMessages</code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$extraData['relations']]]></code>
