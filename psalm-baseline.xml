@@ -4361,9 +4361,6 @@
       <code>$partition</code>
       <code>$subpartition</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code>$definitions</code>
-    </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$column['col_index']]]></code>
       <code><![CDATA[$column['size']]]></code>
