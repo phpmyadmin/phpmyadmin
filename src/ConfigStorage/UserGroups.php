@@ -93,9 +93,9 @@ class UserGroups
             foreach ($userGroups as $groupName => $tabs) {
                 $userGroupVal = [];
                 $userGroupVal['name'] = $groupName;
-                $userGroupVal['serverTab'] = self::getAllowedTabNames($tabs, 'server');
-                $userGroupVal['dbTab'] = self::getAllowedTabNames($tabs, 'db');
-                $userGroupVal['tableTab'] = self::getAllowedTabNames($tabs, 'table');
+                $userGroupVal['serverTab'] = self::getAllowedTabNames($tabs, UserGroupLevel::Server);
+                $userGroupVal['dbTab'] = self::getAllowedTabNames($tabs, UserGroupLevel::Database);
+                $userGroupVal['tableTab'] = self::getAllowedTabNames($tabs, UserGroupLevel::Table);
                 $userGroupVal['userGroupUrl'] = Url::getFromRoute('/server/user-groups');
                 $userGroupVal['viewUsersUrl'] = Url::getCommon(
                     ['viewUsers' => 1, 'userGroup' => $groupName],
@@ -132,17 +132,16 @@ class UserGroups
      * Returns the list of allowed menu tab names
      * based on a data row from usergroup table.
      *
-     * @param mixed[] $row   row of usergroup table
-     * @param string  $level 'server', 'db' or 'table'
+     * @param mixed[] $row row of usergroup table
      *
      * @return string comma separated list of allowed menu tab names
      */
-    public static function getAllowedTabNames(array $row, string $level): string
+    public static function getAllowedTabNames(array $row, UserGroupLevel $level): string
     {
         $tabNames = [];
         $tabs = Util::getMenuTabList($level);
         foreach ($tabs as $tab => $tabName) {
-            if (isset($row[$level . '_' . $tab]) && $row[$level . '_' . $tab] !== 'Y') {
+            if (isset($row[$level->value . '_' . $tab]) && $row[$level->value . '_' . $tab] !== 'Y') {
                 continue;
             }
 
@@ -227,17 +226,17 @@ class UserGroups
 
         $tabList = self::getTabList(
             __('Server-level tabs'),
-            'server',
+            UserGroupLevel::Server,
             $allowedTabs['server'],
         );
         $tabList .= self::getTabList(
             __('Database-level tabs'),
-            'db',
+            UserGroupLevel::Database,
             $allowedTabs['db'],
         );
         $tabList .= self::getTabList(
             __('Table-level tabs'),
-            'table',
+            UserGroupLevel::Table,
             $allowedTabs['table'],
         );
 
@@ -257,12 +256,11 @@ class UserGroups
      * tabs of 'server', 'db' or 'table' levels.
      *
      * @param string  $title    title of the checkbox group
-     * @param string  $level    'server', 'db' or 'table'
      * @param mixed[] $selected array of selected allowed tabs
      *
      * @return string HTML for checkbox groups
      */
-    public static function getTabList(string $title, string $level, array $selected): string
+    public static function getTabList(string $title, UserGroupLevel $level, array $selected): string
     {
         $tabs = Util::getMenuTabList($level);
         $tabDetails = [];
@@ -278,7 +276,7 @@ class UserGroups
 
         return $template->render('server/user_groups/tab_list', [
             'title' => $title,
-            'level' => $level,
+            'level' => $level->value,
             'tab_details' => $tabDetails,
         ]);
     }
@@ -294,7 +292,6 @@ class UserGroups
         string $userGroup,
         bool $new = false,
     ): void {
-        $tabs = Util::getMenuTabList();
         $groupTable = Util::backquote($configurableMenusFeature->database)
             . '.' . Util::backquote($configurableMenusFeature->userGroups);
 
@@ -309,14 +306,13 @@ class UserGroups
             . '(`usergroup`, `tab`, `allowed`)'
             . ' VALUES ';
         $first = true;
-        /** @var array<string, string> $tabGroup */
-        foreach ($tabs as $tabGroupName => $tabGroup) {
-            foreach (array_keys($tabGroup) as $tab) {
+        foreach (UserGroupLevel::cases() as $tabGroupName) {
+            foreach (array_keys(Util::getMenuTabList($tabGroupName)) as $tab) {
                 if (! $first) {
                     $sqlQuery .= ', ';
                 }
 
-                $tabName = $tabGroupName . '_' . $tab;
+                $tabName = $tabGroupName->value . '_' . $tab;
                 $allowed = isset($_POST[$tabName]) && $_POST[$tabName] === 'Y';
                 $sqlQuery .= '(' . $dbi->quoteString($userGroup, ConnectionType::ControlUser)
                     . ', ' . $dbi->quoteString($tabName, ConnectionType::ControlUser) . ", '"
