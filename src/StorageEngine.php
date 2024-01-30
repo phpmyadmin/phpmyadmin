@@ -67,13 +67,13 @@ class StorageEngine
     public function __construct(string $engine)
     {
         $storageEngines = self::getStorageEngines();
-        if (empty($storageEngines[$engine])) {
+        if (! array_key_exists($engine, $storageEngines)) {
             return;
         }
 
         $this->engine = $engine;
         $this->title = $storageEngines[$engine]['Engine'];
-        $this->comment = $storageEngines[$engine]['Comment'] ?? '';
+        $this->comment = $storageEngines[$engine]['Comment'];
         $this->support = match ($storageEngines[$engine]['Support']) {
             'DEFAULT' => self::SUPPORT_DEFAULT,
             'YES' => self::SUPPORT_YES,
@@ -85,7 +85,7 @@ class StorageEngine
     /**
      * Returns array of storage engines
      *
-     * @return mixed[][] array of storage engines
+     * @return array<string, array{Engine: string, Comment: string, Support: string}>
      *
      * @staticvar array $storage_engines storage engines
      */
@@ -95,6 +95,7 @@ class StorageEngine
 
         if ($storageEngines == null) {
             $dbi = DatabaseInterface::getInstance();
+            /** @var array<string, array{Engine: string, Comment: string, Support: string}> $storageEngines */
             $storageEngines = $dbi->fetchResult('SHOW STORAGE ENGINES', 'Engine');
             if (! $dbi->isMariaDB() && $dbi->getVersion() >= 50708) {
                 $disabled = (string) SessionCache::get(
@@ -269,9 +270,7 @@ class StorageEngine
             return true;
         }
 
-        $storageEngines = self::getStorageEngines();
-
-        return isset($storageEngines[$engine]);
+        return array_key_exists($engine, self::getStorageEngines());
     }
 
     /**
