@@ -7016,11 +7016,6 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
-			message: "#^Parameter \\#2 \\.\\.\\.\\$arrays of function array_merge expects array, mixed given\\.$#"
-			count: 1
-			path: src/Database/Routines.php
-
-		-
 			message: "#^Parameter \\#3 \\$name of static method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getFunctionDefinition\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Database/Routines.php

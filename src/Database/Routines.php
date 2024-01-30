@@ -190,7 +190,7 @@ class Routines
      * @param string  $createRoutine    Query to restore routine
      * @param mixed[] $privilegesBackup Privileges backup
      *
-     * @return mixed[]
+     * @return array{string[], Message|null}
      */
     public function create(
         string $routineQuery,

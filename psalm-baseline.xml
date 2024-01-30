@@ -5077,7 +5077,6 @@
       <code>$itemParamType[$i]</code>
       <code>$itemParamType[$i]</code>
       <code>$itemParamType[$i]</code>
-      <code>$newErrors</code>
       <code><![CDATA[$routine['SPECIFIC_NAME']]]></code>
       <code><![CDATA[$routine['SPECIFIC_NAME']]]></code>
       <code><![CDATA[$routine['item_name']]]></code>
@@ -5240,6 +5239,7 @@
       <code>$itemDefinition</code>
     </PossiblyInvalidOperand>
     <PossiblyNullArgument>
+      <code><![CDATA[$GLOBALS['message']]]></code>
       <code>$createRoutine</code>
       <code><![CDATA[$stmt->return->parameters]]></code>
     </PossiblyNullArgument>
