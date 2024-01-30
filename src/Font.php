@@ -22,7 +22,7 @@ class Font
     /**
      * Get list with characters and the corresponding width modifiers.
      *
-     * @return mixed[] with characters and corresponding width modifier
+     * @return (float|string[])[][] with characters and corresponding width modifier
      */
     public function getCharLists(): array
     {
