@@ -2265,7 +2265,6 @@
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
     </InvalidArrayOffset>
     <MixedArgumentTypeCoercion>
-      <code>$tableAlters</code>
       <code>is_array($partitionNames) ? $partitionNames : []</code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>

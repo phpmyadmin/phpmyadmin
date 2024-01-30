@@ -609,7 +609,7 @@ class Operations
      * @param string $transactional       value of transactional
      * @param string $tableCollation      collation of the table
      *
-     * @return mixed[]
+     * @return string[]
      */
     public function getTableAltersArray(
         Table $pmaTable,
