@@ -17,7 +17,7 @@ use function __;
 
 final class AccountUnlockController extends AbstractController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private AccountLocking $model)
+    public function __construct(ResponseRenderer $response, Template $template, private AccountLocking $accountLocking)
     {
         parent::__construct($response, $template);
     }
@@ -34,7 +34,7 @@ final class AccountUnlockController extends AbstractController
         $hostName = $request->getParsedBodyParam('hostname');
 
         try {
-            $this->model->unlock($userName, $hostName);
+            $this->accountLocking->unlock($userName, $hostName);
         } catch (Throwable $exception) {
             $this->response->setStatusCode(StatusCodeInterface::STATUS_BAD_REQUEST);
             $this->response->setRequestStatus(false);
