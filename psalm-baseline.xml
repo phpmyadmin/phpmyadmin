@@ -14542,9 +14542,6 @@
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
     </InvalidPropertyAssignmentValue>
-    <MixedArgument>
-      <code><![CDATA[$result1['html']]]></code>
-    </MixedArgument>
     <MixedAssignment>
       <code>$result</code>
     </MixedAssignment>
