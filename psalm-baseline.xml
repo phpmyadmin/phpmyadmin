@@ -13338,16 +13338,9 @@
     <MixedAssignment>
       <code>$output</code>
     </MixedAssignment>
-    <MixedMethodCall>
-      <code>method</code>
-      <code>willReturn</code>
-    </MixedMethodCall>
     <PossiblyUnusedMethod>
       <code>providerGetDataFromRequest</code>
     </PossiblyUnusedMethod>
-    <UndefinedInterfaceMethod>
-      <code>expects</code>
-    </UndefinedInterfaceMethod>
   </file>
   <file src="tests/classes/CoreTest.php">
     <DeprecatedMethod>

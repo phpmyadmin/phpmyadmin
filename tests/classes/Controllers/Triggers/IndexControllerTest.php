@@ -279,7 +279,7 @@ HTML;
             new DbTableExists($dbi),
         );
 
-        $request = $this->createStub(ServerRequest::class);
+        $request = $this->createMock(ServerRequest::class);
         $request->expects($this->any())
             ->method('getParsedBodyParam')
             ->willReturn('foo');
