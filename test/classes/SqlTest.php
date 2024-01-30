@@ -571,6 +571,14 @@ class SqlTest extends AbstractTestCase
                 false,
                 'SELECT COUNT(*) FROM (SELECT DISTINCT country_id FROM city ) as cnt',
             ],
+            [
+                'SELECT * FROM t1 UNION SELECT * FROM t2;',
+                ['max_rows' => -1, 'pos' => 0],
+                25,
+                109,
+                false,
+                'SELECT COUNT(*) FROM (SELECT * FROM t1 UNION SELECT * FROM t2 ) as cnt',
+            ],
         ];
     }
 

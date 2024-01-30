@@ -752,6 +752,7 @@ class Sql
                 if (
                     $analyzedSqlResults['is_group'] === false
                     && $analyzedSqlResults['distinct'] === false
+                    && $analyzedSqlResults['union'] === false
                     && count($statement->expr) === 1
                 ) {
                     $statement->expr[0] = new Expression();
