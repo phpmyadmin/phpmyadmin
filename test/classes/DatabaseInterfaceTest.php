@@ -278,12 +278,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
     public function testGetDbCollation(): void
     {
         $GLOBALS['server'] = 1;
-        // test case for system schema
-        $this->assertEquals(
-            'utf8_general_ci',
-            $this->dbi->getDbCollation('information_schema')
-        );
-
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['DBG']['sql'] = false;
 
@@ -291,6 +285,16 @@ class DatabaseInterfaceTest extends AbstractTestCase
             'utf8_general_ci',
             $this->dbi->getDbCollation('pma_test')
         );
+
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+
+        $this->dummyDbi->addSelectDb('information_schema');
+        $GLOBALS['db'] = 'information_schema';
+
+        $this->dummyDbi->removeDefaultResults();
+        $this->dummyDbi->addResult('SELECT @@collation_database', [['utf8mb3_general_ci']], ['@@collation_database']);
+
+        $this->assertEquals('utf8mb3_general_ci', $this->dbi->getDbCollation('information_schema'));
     }
 
     /**
