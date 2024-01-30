@@ -4135,21 +4135,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Transformation/OverviewController.php">
-    <MixedArgument>
-      <code><![CDATA[$types[$type . '_file'][$key]]]></code>
-    </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$types[$type . '_file'][$key]]]></code>
-    </MixedArrayAccess>
-    <MixedArrayOffset>
-      <code><![CDATA[$types[$type . '_file'][$key]]]></code>
-      <code><![CDATA[$types['empty_mimetype'][$mimeType]]]></code>
-    </MixedArrayOffset>
-    <MixedAssignment>
-      <code>$key</code>
-      <code>$mimeType</code>
-      <code>$transformation</code>
-    </MixedAssignment>
     <PossiblyUnusedParam>
       <code>$request</code>
     </PossiblyUnusedParam>
@@ -11444,7 +11429,6 @@
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']] ?? []]]></code>
-      <code><![CDATA[$availableMime[$mimeType . '_file'][$mimekey]]]></code>
       <code><![CDATA[$columnMeta['Default']]]></code>
       <code><![CDATA[$columnMeta['DefaultValue']]]></code>
       <code><![CDATA[$columnMeta['Field']]]></code>
@@ -11457,13 +11441,11 @@
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
-      <code><![CDATA[$availableMime[$mimeType . '_file'][$mimekey]]]></code>
       <code><![CDATA[$columnMeta['column_status']['isEditable']]]></code>
       <code><![CDATA[$columnMeta['column_status']['isEditable']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
-      <code><![CDATA[$availableMime[$mimeType . '_file_quoted'][$mimekey]]]></code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
       <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
@@ -12058,7 +12040,7 @@
       <code>$updQuery</code>
     </MixedArgument>
     <MixedInferredReturnType>
-      <code>mixed[]</code>
+      <code>string[][]</code>
     </MixedInferredReturnType>
     <MixedReturnStatement>
       <code>$stack</code>

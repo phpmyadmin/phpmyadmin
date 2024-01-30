@@ -5801,21 +5801,6 @@ parameters:
 			path: src/Controllers/TableController.php
 
 		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 2
-			path: src/Controllers/Transformation/OverviewController.php
-
-		-
-			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 2
-			path: src/Controllers/Transformation/OverviewController.php
-
-		-
-			message: "#^Parameter \\#1 \\$file of method PhpMyAdmin\\\\Transformations\\:\\:getDescription\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Transformation/OverviewController.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 1
 			path: src/Controllers/Transformation/WrapperController.php
@@ -14386,11 +14371,6 @@ parameters:
 			path: src/Table/ColumnsDefinition.php
 
 		-
-			message: "#^Cannot access offset \\(int\\|string\\) on mixed\\.$#"
-			count: 2
-			path: src/Table/ColumnsDefinition.php
-
-		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
 			count: 2
 			path: src/Table/ColumnsDefinition.php
@@ -14417,11 +14397,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:checkChildForeignReferences\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function preg_quote expects string, mixed given\\.$#"
 			count: 1
 			path: src/Table/ColumnsDefinition.php
 
@@ -15091,7 +15066,7 @@ parameters:
 			path: src/Tracking/Tracking.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Transformations\\:\\:getAvailableMimeTypes\\(\\) should return array but returns mixed\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Transformations\\:\\:getAvailableMimeTypes\\(\\) should return array\\<array\\<string\\>\\> but returns mixed\\.$#"
 			count: 1
 			path: src/Transformations.php
 

@@ -108,7 +108,7 @@ class Transformations
     /**
      * Gets all available MIME-types
      *
-     * @return mixed[]    array[mimetype], array[transformation]
+     * @return string[][]    array[mimetype], array[transformation]
      *
      * @staticvar array $stack
      */
