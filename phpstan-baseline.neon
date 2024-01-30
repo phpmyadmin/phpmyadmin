@@ -9386,6 +9386,11 @@ parameters:
 			path: src/Linter.php
 
 		-
+			message: "#^Parameter \\#1 \\$lines of static method PhpMyAdmin\\\\Linter\\:\\:findLineNumberAndColumn\\(\\) expects array\\<int, int\\>, array\\<int\\> given\\.$#"
+			count: 2
+			path: src/Linter.php
+
+		-
 			message: "#^Parameter \\#2 \\$pos of static method PhpMyAdmin\\\\Linter\\:\\:findLineNumberAndColumn\\(\\) expects int, mixed given\\.$#"
 			count: 1
 			path: src/Linter.php

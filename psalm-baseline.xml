@@ -7015,15 +7015,13 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Linter.php">
+    <ArgumentTypeCoercion>
+      <code>$lines</code>
+      <code>$lines</code>
+    </ArgumentTypeCoercion>
     <InvalidOperand>
       <code>$error[3]</code>
     </InvalidOperand>
-    <MixedAssignment>
-      <code>$lineStart</code>
-    </MixedAssignment>
-    <MixedOperand>
-      <code>$lines[$line]</code>
-    </MixedOperand>
     <PossiblyNullOperand>
       <code>$error[3]</code>
     </PossiblyNullOperand>
