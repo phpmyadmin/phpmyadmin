@@ -459,7 +459,7 @@ class Operations
     /**
      * Get array of possible row formats
      *
-     * @return mixed[]
+     * @return string[][]
      */
     public function getPossibleRowFormat(): array
     {
