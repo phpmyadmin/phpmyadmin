@@ -2713,17 +2713,6 @@
       <code>$key</code>
       <code>$key</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$params['sort_by']]]></code>
-      <code><![CDATA[$params['sort_order']]]></code>
-    </PossiblyInvalidArgument>
-    <RiskyCast>
-      <code><![CDATA[$params['pos']]]></code>
-    </RiskyCast>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($params['pos'])]]></code>
-      <code><![CDATA[empty($params['statistics'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Server/EnginesController.php">
     <PossiblyUnusedParam>

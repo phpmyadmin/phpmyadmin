@@ -8,7 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -56,7 +56,14 @@ class DatabasesControllerTest extends AbstractTestCase
             ['SCHEMA_NAME'],
         );
         $this->dummyDbi->addSelectDb('mysql');
-        $controller(self::createStub(ServerRequest::class));
+        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
+            ->withQueryParams([
+                'statistics' => '',
+                'pos' => '',
+                'sort_by' => '',
+                'sort_order' => '',
+            ]);
+        $controller($request);
         $this->dummyDbi->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();
 
@@ -82,12 +89,16 @@ class DatabasesControllerTest extends AbstractTestCase
 
         $config->settings['ShowCreateDb'] = true;
         UserPrivileges::$isCreateDatabase = true;
-        $_REQUEST['statistics'] = '1';
-        $_REQUEST['sort_by'] = 'SCHEMA_TABLES';
-        $_REQUEST['sort_order'] = 'desc';
 
+        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
+            ->withQueryParams([
+                'statistics' => '1',
+                'pos' => '',
+                'sort_by' => 'SCHEMA_TABLES',
+                'sort_order' => 'desc',
+            ]);
         $this->dummyDbi->addSelectDb('mysql');
-        $controller(self::createStub(ServerRequest::class));
+        $controller($request);
         $this->dummyDbi->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();
 

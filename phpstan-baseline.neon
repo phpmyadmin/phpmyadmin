@@ -3462,7 +3462,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 2
+			count: 1
 			path: src/Controllers/Server/DatabasesController.php
 
 		-
@@ -3481,11 +3481,6 @@ parameters:
 			path: src/Controllers/Server/DatabasesController.php
 
 		-
-			message: "#^Parameter \\#1 \\$sortBy of method PhpMyAdmin\\\\Controllers\\\\Server\\\\DatabasesController\\:\\:setSortDetails\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Server/DatabasesController.php
-
-		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Server/DatabasesController.php
@@ -3493,11 +3488,6 @@ parameters:
 		-
 			message: "#^Parameter \\#2 \\$haystack of function array_search expects array, mixed given\\.$#"
 			count: 4
-			path: src/Controllers/Server/DatabasesController.php
-
-		-
-			message: "#^Parameter \\#2 \\$sortOrder of method PhpMyAdmin\\\\Controllers\\\\Server\\\\DatabasesController\\:\\:setSortDetails\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
 			path: src/Controllers/Server/DatabasesController.php
 
 		-
