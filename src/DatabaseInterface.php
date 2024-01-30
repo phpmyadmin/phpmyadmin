@@ -1368,7 +1368,7 @@ class DatabaseInterface implements DbalInterface
     /**
      * Get supported SQL compatibility modes
      *
-     * @return mixed[] supported SQL compatibility modes
+     * @return string[] supported SQL compatibility modes
      */
     public function getCompatibilities(): array
     {

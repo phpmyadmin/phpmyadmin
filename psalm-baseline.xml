@@ -8489,9 +8489,6 @@
       <code><![CDATA[$rel['foreign_field']]]></code>
       <code><![CDATA[$rel['foreign_table']]]></code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code>$compats</code>
-    </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$aliases[$oldDatabase]['tables']]]></code>
       <code><![CDATA[$aliases[$oldDatabase]['tables'][$oldTable]]]></code>
@@ -9383,13 +9380,8 @@
     <MixedArgumentTypeCoercion>
       <code>$sqlModes</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayOffset>
-      <code>$values[$val]</code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code>$sqlModes[]</code>
-      <code>$val</code>
-      <code>$values[$val]</code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['sql_delimiter']]]></code>

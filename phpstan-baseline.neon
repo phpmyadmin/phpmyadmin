@@ -11166,11 +11166,6 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Parameter \\#1 \\$compats of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql\\:\\:addCompatOptions\\(\\) expects array\\<string\\>, array given\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
 			message: "#^Parameter \\#1 \\$haystack of function str_contains expects string, string\\|null given\\.$#"
 			count: 3
 			path: src/Plugins/Export/ExportSql.php
