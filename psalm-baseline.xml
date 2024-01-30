@@ -82,8 +82,6 @@
       <code>$descriptions[$indexByDescription]</code>
       <code>$descriptions[$indexByKeyname]</code>
       <code><![CDATA[$foreignData['the_total'] / $this->settings->maxRows]]></code>
-      <code>$horizontalCount</code>
-      <code>$indexByDescription</code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$relrow[$foreignData['foreign_display']]]]></code>
@@ -102,7 +100,6 @@
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$foreignData['the_total']]]></code>
-      <code>$html</code>
     </MixedOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['foreign_filter']]]></code>

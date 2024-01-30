@@ -156,17 +156,7 @@ parameters:
 			path: src/BrowseForeigners.php
 
 		-
-			message: "#^Parameter \\#1 \\$horizontalCount of method PhpMyAdmin\\\\BrowseForeigners\\:\\:getHtmlForOneKey\\(\\) expects int, mixed given\\.$#"
-			count: 1
-			path: src/BrowseForeigners.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 1
-			path: src/BrowseForeigners.php
-
-		-
-			message: "#^Parameter \\#6 \\$indexByDescription of method PhpMyAdmin\\\\BrowseForeigners\\:\\:getHtmlForOneKey\\(\\) expects int, mixed given\\.$#"
 			count: 1
 			path: src/BrowseForeigners.php
 
