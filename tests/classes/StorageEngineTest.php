@@ -35,8 +35,7 @@ class StorageEngineTest extends AbstractTestCase
 
     protected DbiDummy $dummyDbi;
 
-    /** @var StorageEngine&MockObject */
-    protected StorageEngine $object;
+    protected StorageEngine&MockObject $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

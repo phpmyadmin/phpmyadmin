@@ -19,12 +19,7 @@ use ReflectionProperty;
 #[CoversClass(NodeDatabase::class)]
 class NodeDatabaseChildTest extends AbstractTestCase
 {
-    /**
-     * Mock of NodeDatabaseChild
-     *
-     * @var NodeDatabaseChild&MockObject
-     */
-    protected NodeDatabaseChild $object;
+    protected NodeDatabaseChild&MockObject $object;
 
     /**
      * Sets up the fixture.

@@ -12,8 +12,7 @@ use PHPUnit\Framework\MockObject\MockObject;
 #[CoversClass(OptionsPropertyItem::class)]
 class OptionsPropertyItemTest extends AbstractTestCase
 {
-    /** @var OptionsPropertyItem&MockObject */
-    protected OptionsPropertyItem $stub;
+    protected OptionsPropertyItem&MockObject $stub;
 
     /**
      * Configures global environment.
