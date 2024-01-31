@@ -3104,7 +3104,7 @@ class Privileges
             if ($_POST['pred_password'] === 'keep') {
                 $createUserReal = sprintf($createUserStmt, $slashedPassword);
             } elseif ($_POST['pred_password'] === 'none') {
-                $createUserReal = sprintf($createUserStmt, '');
+                $createUserReal = sprintf($createUserStmt, "''");
             } else {
                 if (
                     ! ((Compatibility::isMariaDb() && $isMariaDBPwdPluginActive)
@@ -3125,7 +3125,7 @@ class Privileges
             // and pre-5.2.0 MariaDB versions
             $passwordSetReal = sprintf($passwordSetStmt, $slashedUsername, $slashedHostname, $slashedPassword);
         } elseif ($_POST['pred_password'] === 'none') {
-            $passwordSetReal = sprintf($passwordSetStmt, $slashedUsername, $slashedHostname, '');
+            $passwordSetReal = sprintf($passwordSetStmt, $slashedUsername, $slashedHostname, "''");
         } else {
             $hashedPassword = $this->getHashedPassword($_POST['pma_pw']);
             $passwordSetReal = sprintf($passwordSetStmt, $slashedUsername, $slashedHostname, $hashedPassword);
