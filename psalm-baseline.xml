@@ -11269,7 +11269,6 @@
       <code>$alterUserQuery</code>
       <code>$alterUserQuery</code>
       <code>$alterUserQuery</code>
-      <code>$passwordSetShow</code>
       <code><![CDATA[$privilege['Host']]]></code>
       <code><![CDATA[$privilege['User']]]></code>
     </PossiblyNullOperand>
@@ -11295,9 +11294,6 @@
       <code><![CDATA[empty($_POST['pma_pw2'])]]></code>
       <code><![CDATA[empty($_POST['userGroup'])]]></code>
       <code><![CDATA[empty($_REQUEST['ajax_page_request'])]]></code>
-      <code>empty($passwordSetReal)</code>
-      <code>empty($passwordSetReal)</code>
-      <code>empty($passwordSetReal)</code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Server/Select.php">

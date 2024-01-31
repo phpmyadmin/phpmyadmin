@@ -2313,7 +2313,7 @@ class Privileges
                 $error = true;
             }
 
-            if (isset($_POST['authentication_plugin']) && ! empty($passwordSetReal)) {
+            if (isset($_POST['authentication_plugin']) && $passwordSetReal !== '') {
                 $this->setProperPasswordHashing($_POST['authentication_plugin']);
                 if ($this->dbi->tryQuery($passwordSetReal)) {
                     $sqlQuery .= $passwordSetShow;
@@ -2355,7 +2355,7 @@ class Privileges
         $queries[] = $createUserReal;
         $queries[] = $realSqlQuery;
 
-        if (isset($_POST['authentication_plugin']) && ! empty($passwordSetReal)) {
+        if (isset($_POST['authentication_plugin']) && $passwordSetReal !== '') {
             $this->setProperPasswordHashing($_POST['authentication_plugin']);
 
             $queries[] = $passwordSetReal;
@@ -2367,7 +2367,7 @@ class Privileges
         $tmpCount = count($queries);
         $queriesForDisplay[$tmpCount - 2] = $createUserShow;
 
-        if (! empty($passwordSetReal)) {
+        if ($passwordSetReal !== '') {
             $queriesForDisplay[$tmpCount - 3] = $createUserShow;
             $queriesForDisplay[$tmpCount - 2] = $sqlQuery;
             $queriesForDisplay[$tmpCount - 1] = $passwordSetShow;
@@ -3010,7 +3010,7 @@ class Privileges
      * @param string $hostname host name
      * @param string $password password
      *
-     * @return array{string, string, string, string, string|null, string|null, string, string}
+     * @return array{string, string, string, string, string, string, string, string}
      */
     public function getSqlQueriesForDisplayAndAddUser(string $username, string $hostname, string $password): array
     {
@@ -3071,7 +3071,7 @@ class Privileges
             (Compatibility::isMySqlOrPerconaDb() && $serverVersion >= 50706)
             || (Compatibility::isMariaDb() && $serverVersion >= 50200)
         ) {
-            $passwordSetReal = null;
+            $passwordSetReal = '';
 
             // Required for binding '%' with '%s'
             $createUserStmt = str_replace('%', '%%', $createUserStmt);
@@ -3181,10 +3181,10 @@ class Privileges
             || (Compatibility::isMariaDb()
             && $serverVersion >= 50200)
         ) {
-            $passwordSetReal = null;
-            $passwordSetShow = null;
+            $passwordSetReal = '';
+            $passwordSetShow = '';
         } else {
-            if ($passwordSetReal !== null) {
+            if ($passwordSetReal !== '') {
                 $passwordSetReal .= ';';
             }
 
