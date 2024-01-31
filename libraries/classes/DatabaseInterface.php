@@ -25,6 +25,7 @@ use PhpMyAdmin\Utils\SessionCache;
 
 use function __;
 use function array_column;
+use function array_combine;
 use function array_diff;
 use function array_keys;
 use function array_map;
@@ -595,11 +596,15 @@ class DatabaseInterface implements DbalInterface
                 }
 
                 if ($sortValues) {
+                    // See https://stackoverflow.com/a/32461188 for the explanation of below hack
+                    $keys = array_keys($each_tables);
                     if ($sort_order === 'DESC') {
-                        array_multisort($sortValues, SORT_DESC, $each_tables);
+                        array_multisort($sortValues, SORT_DESC, $each_tables, $keys);
                     } else {
-                        array_multisort($sortValues, SORT_ASC, $each_tables);
+                        array_multisort($sortValues, SORT_ASC, $each_tables, $keys);
                     }
+
+                    $each_tables = array_combine($keys, $each_tables);
                 }
 
                 // cleanup the temporary sort array
