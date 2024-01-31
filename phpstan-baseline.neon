@@ -326,16 +326,6 @@ parameters:
 			path: src/Command/TwigLintCommand.php
 
 		-
-			message: "#^Parameter \\#1 \\$filePath of method PhpMyAdmin\\\\Command\\\\TwigLintCommand\\:\\:getTemplateContents\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Command/TwigLintCommand.php
-
-		-
-			message: "#^Parameter \\#2 \\$file of method PhpMyAdmin\\\\Command\\\\TwigLintCommand\\:\\:validate\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Command/TwigLintCommand.php
-
-		-
 			message: "#^Parameter \\#2 \\$template of method PhpMyAdmin\\\\Command\\\\TwigLintCommand\\:\\:renderException\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Command/TwigLintCommand.php
@@ -352,11 +342,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#4 \\$file of method PhpMyAdmin\\\\Command\\\\TwigLintCommand\\:\\:renderException\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Command/TwigLintCommand.php
-
-		-
-			message: "#^Parameter \\#4 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Command/TwigLintCommand.php
 

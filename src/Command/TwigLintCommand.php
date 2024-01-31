@@ -67,7 +67,7 @@ class TwigLintCommand extends Command
         $this->addOption('show-deprecations', null, InputOption::VALUE_NONE, 'Show deprecations as errors');
     }
 
-    /** @return mixed[] */
+    /** @return string[] */
     protected function findFiles(string $baseFolder): array
     {
         /* Open the handle */
@@ -252,7 +252,7 @@ class TwigLintCommand extends Command
         }
     }
 
-    /** @return mixed[] */
+    /** @return string[] */
     private function getContext(string $template, int $line, int $context = 3): array
     {
         $lines = explode("\n", $template);

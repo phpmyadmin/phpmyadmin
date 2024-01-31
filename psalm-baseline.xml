@@ -176,8 +176,6 @@
   </file>
   <file src="src/Command/TwigLintCommand.php">
     <MixedArgument>
-      <code>$code</code>
-      <code>$file</code>
       <code><![CDATA[$info['exception']]]></code>
       <code><![CDATA[$info['file']]]></code>
       <code><![CDATA[$info['file']]]></code>
@@ -205,8 +203,6 @@
       <code><![CDATA[$info['valid']]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
-      <code>$code</code>
-      <code>$file</code>
       <code>$info</code>
       <code>$showDeprecations</code>
     </MixedAssignment>
