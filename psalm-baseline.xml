@@ -4465,21 +4465,6 @@
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
     <MixedArgument>
-      <code>$centralListTable</code>
-      <code>$centralListTable</code>
-      <code>$centralListTable</code>
-      <code>$centralListTable</code>
-      <code>$centralListTable</code>
-      <code>$centralListTable</code>
-      <code>$centralListTable</code>
-      <code>$centralListTable</code>
-      <code>$centralListTable</code>
-      <code>$centralTable</code>
-      <code>$centralTable</code>
-      <code>$centralTable</code>
-      <code>$centralTable</code>
-      <code><![CDATA[$cfgCentralColumns['db']]]></code>
-      <code><![CDATA[$cfgCentralColumns['db']]]></code>
       <code>$columnDefault[$i]</code>
       <code>$columnExtra[$i]</code>
       <code><![CDATA[$column['col_name']]]></code>
@@ -4495,12 +4480,6 @@
       <code><![CDATA[$params['field_type'][$i]]]></code>
       <code><![CDATA[$params['orig_col_name']]]></code>
       <code><![CDATA[$params['orig_col_name'][$i]]]></code>
-      <code>$pmadb</code>
-      <code>$pmadb</code>
-      <code>$pmadb</code>
-      <code>$pmadb</code>
-      <code>$pmadb</code>
-      <code>$pmadb</code>
       <code>$row</code>
       <code><![CDATA[$row['col_extra']]]></code>
       <code><![CDATA[$rowsMeta[$rowNum]['DefaultValue']]]></code>
@@ -4546,14 +4525,6 @@
       <code><![CDATA[$row['col_extra']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code>$centralListTable</code>
-      <code>$centralListTable</code>
-      <code>$centralListTable</code>
-      <code>$centralListTable</code>
-      <code>$centralListTable</code>
-      <code>$centralListTable</code>
-      <code>$centralTable</code>
-      <code>$centralTable</code>
       <code>$cols[]</code>
       <code>$column</code>
       <code>$columnDefault</code>
@@ -4564,12 +4535,6 @@
       <code>$field</code>
       <code>$length</code>
       <code><![CDATA[$meta['DefaultValue']]]></code>
-      <code>$pmadb</code>
-      <code>$pmadb</code>
-      <code>$pmadb</code>
-      <code>$pmadb</code>
-      <code>$pmadb</code>
-      <code>$pmadb</code>
       <code>$row</code>
       <code>$row</code>
       <code>$row</code>
@@ -4578,7 +4543,7 @@
       <code>$type</code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code>mixed[]|bool</code>
+      <code>string[]|false</code>
     </MixedInferredReturnType>
     <MixedOperand>
       <code><![CDATA[$column['col_attribute']]]></code>

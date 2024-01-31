@@ -74,7 +74,7 @@ class CentralColumns
     /**
      * Defines the central_columns parameters for the current user
      *
-     * @return mixed[]|bool the central_columns parameters for the current user
+     * @return string[]|false the central_columns parameters for the current user
      */
     public function getParams(): array|bool
     {

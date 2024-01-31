@@ -6246,7 +6246,7 @@ parameters:
 			path: src/Database/CentralColumns.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getParams\\(\\) should return array\\|bool but returns mixed\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getParams\\(\\) should return array\\<string\\>\\|false but returns mixed\\.$#"
 			count: 1
 			path: src/Database/CentralColumns.php
 
@@ -6292,7 +6292,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
-			count: 9
+			count: 1
 			path: src/Database/CentralColumns.php
 
 		-
@@ -6302,7 +6302,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 11
+			count: 1
 			path: src/Database/CentralColumns.php
 
 		-
@@ -6358,11 +6358,6 @@ parameters:
 		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumn\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: src/Database/CentralColumns.php
-
-		-
-			message: "#^Parameter \\#3 \\$centralListTable of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getInsertQuery\\(\\) expects string, mixed given\\.$#"
-			count: 3
 			path: src/Database/CentralColumns.php
 
 		-
