@@ -596,7 +596,7 @@ final class StructureController extends AbstractController
      * @param mixed[] $replicaInfo
      * @param string  $table       table name
      *
-     * @return mixed[]
+     * @return array{bool, bool}
      */
     private function getReplicationStatus(array $replicaInfo, string $table): array
     {
