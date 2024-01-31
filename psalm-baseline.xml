@@ -1018,7 +1018,6 @@
       <code><![CDATA[$request->getQueryParam('db')]]></code>
       <code><![CDATA[$request->getQueryParam('db')]]></code>
       <code><![CDATA[$request->getQueryParam('db')]]></code>
-      <code>$success</code>
       <code>$table</code>
       <code>$table</code>
     </MixedArgument>

@@ -1651,11 +1651,6 @@ parameters:
 			path: src/Controllers/Database/DesignerController.php
 
 		-
-			message: "#^Parameter \\#1 \\$state of method PhpMyAdmin\\\\ResponseRenderer\\:\\:setRequestStatus\\(\\) expects bool, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/DesignerController.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/DesignerController.php
