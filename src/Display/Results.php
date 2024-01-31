@@ -1025,7 +1025,7 @@ class Results
      *
      * @see getTableHeaders()
      *
-     * @return mixed[] table comments
+     * @return string[][] table comments
      */
     private function getTableCommentsArray(StatementInfo $statementInfo): array
     {
