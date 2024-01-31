@@ -13238,27 +13238,7 @@
   <file src="tests/classes/Controllers/Table/RelationControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
-    <MixedMethodCall>
-      <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>willReturn</code>
-      <code>willReturn</code>
-      <code>willReturn</code>
-      <code>willReturn</code>
-    </MixedMethodCall>
-    <UndefinedMethod>
-      <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
-    </UndefinedMethod>
   </file>
   <file src="tests/classes/Controllers/Table/ReplaceControllerTest.php">
     <DeprecatedMethod>

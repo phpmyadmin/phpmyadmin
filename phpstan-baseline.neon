@@ -16406,21 +16406,6 @@ parameters:
 			path: tests/classes/Controllers/Server/VariablesControllerTest.php
 
 		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\DatabaseInterface\\:\\:expects\\(\\)\\.$#"
-			count: 4
-			path: tests/classes/Controllers/Table/RelationControllerTest.php
-
-		-
-			message: "#^Cannot call method method\\(\\) on mixed\\.$#"
-			count: 4
-			path: tests/classes/Controllers/Table/RelationControllerTest.php
-
-		-
-			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
-			count: 4
-			path: tests/classes/Controllers/Table/RelationControllerTest.php
-
-		-
 			message: "#^PHPDoc tag @var for variable \\$result has no value type specified in iterable type array\\.$#"
 			count: 2
 			path: tests/classes/Controllers/Table/ReplaceControllerTest.php
