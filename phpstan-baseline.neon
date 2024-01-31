@@ -4831,21 +4831,6 @@ parameters:
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: src/Controllers/Table/RelationController.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/RelationController.php
-
-		-
-			message: "#^Parameter \\#1 \\$content of method PhpMyAdmin\\\\ResponseRenderer\\:\\:addHTML\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/RelationController.php
-
-		-
 			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/RelationController.php
@@ -4877,11 +4862,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Table\\\\Table constructor expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/RelationController.php
-
-		-
-			message: "#^Parameter \\#1 \\$queryData of static method PhpMyAdmin\\\\Core\\:\\:previewSQL\\(\\) expects array\\|string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/RelationController.php
 
@@ -15187,16 +15167,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#6 \\$name of method PhpMyAdmin\\\\Table\\\\Table\\:\\:getSQLToCreateForeignKey\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 2
-			path: src/Table/Table.php
-
-		-
-			message: "#^Parameter \\#7 \\$onDelete of method PhpMyAdmin\\\\Table\\\\Table\\:\\:getSQLToCreateForeignKey\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 2
-			path: src/Table/Table.php
-
-		-
-			message: "#^Parameter \\#8 \\$onUpdate of method PhpMyAdmin\\\\Table\\\\Table\\:\\:getSQLToCreateForeignKey\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 2
 			path: src/Table/Table.php
 

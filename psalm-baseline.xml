@@ -3724,8 +3724,6 @@
     <MixedArgument>
       <code>$foreignDb</code>
       <code>$foreignTable</code>
-      <code>$html</code>
-      <code>$previewSqlData</code>
       <code><![CDATA[array_key_exists('foreign_keys_data', $relationsForeign)
                     ? $relationsForeign['foreign_keys_data']
                     : []]]></code>
@@ -3738,7 +3736,6 @@
       <code><![CDATA[$oneKey['ref_table_name']]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['display_query']]]></code>
       <code>$existrelForeign</code>
       <code>$foreignDb</code>
       <code>$foreignTable</code>
@@ -3769,7 +3766,6 @@
       <code>$foreignTable</code>
     </PossiblyInvalidCast>
     <RiskyTruthyFalsyComparison>
-      <code>! $seenError</code>
       <code>$foreignDb</code>
       <code>$foreignDb</code>
       <code>$foreignTable</code>
@@ -12023,10 +12019,6 @@
       <code>$masterField</code>
       <code>$oneField</code>
       <code>$oneField</code>
-      <code><![CDATA[$optionsArray[$_POST['on_delete'][$masterFieldMd5]]]]></code>
-      <code><![CDATA[$optionsArray[$_POST['on_update'][$masterFieldMd5]]]]></code>
-      <code><![CDATA[$optionsArray[$existrelForeign[$masterFieldMd5]['on_delete'] ?? ''] ?? null]]></code>
-      <code><![CDATA[$optionsArray[$existrelForeign[$masterFieldMd5]['on_update'] ?? ''] ?? null]]></code>
       <code><![CDATA[$options['expr']]]></code>
       <code><![CDATA[$row['Type']]]></code>
       <code><![CDATA[$this->uiprefs[$property]]]></code>
