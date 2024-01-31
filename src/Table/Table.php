@@ -217,12 +217,12 @@ class Table implements Stringable
         }
 
         // use cached data or load information with SHOW command
-        if (
-            $this->dbi->getCache()->getCachedTableContent($this->dbName, $this->name) !== null
-            || Config::getInstance()->selectedServer['DisableIS']
-        ) {
+        $type = $this->dbi->getCache()->getCachedTableContent($this->dbName, $this->name, 'TABLE_TYPE');
+        if ($type === null && Config::getInstance()->selectedServer['DisableIS']) {
             $type = $this->getStatusInfo('TABLE_TYPE');
+        }
 
+        if ($type !== null) {
             return $type === 'VIEW' || $type === 'SYSTEM VIEW';
         }
 

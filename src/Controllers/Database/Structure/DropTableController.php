@@ -17,8 +17,6 @@ use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
-use function count;
-use function in_array;
 
 final class DropTableController extends AbstractController
 {
@@ -36,9 +34,8 @@ final class DropTableController extends AbstractController
     {
         $GLOBALS['reload'] = $_POST['reload'] ?? $GLOBALS['reload'] ?? null;
         $multBtn = $_POST['mult_btn'] ?? '';
+        /** @var string[] $selected */
         $selected = $_POST['selected'] ?? [];
-
-        $views = $this->dbi->getVirtualTables(Current::$database);
 
         if ($multBtn !== __('Yes')) {
             $GLOBALS['message'] = Message::success(__('No change'));
@@ -53,17 +50,15 @@ final class DropTableController extends AbstractController
         $defaultFkCheckValue = ForeignKey::handleDisableCheckInit();
         $GLOBALS['sql_query'] = '';
         $sqlQueryViews = '';
-        $selectedCount = count($selected);
 
-        for ($i = 0; $i < $selectedCount; $i++) {
-            $this->relationCleanup->table(Current::$database, $selected[$i]);
-            $current = $selected[$i];
+        foreach ($selected as $selectedValue) {
+            $this->relationCleanup->table(Current::$database, $selectedValue);
 
-            if ($views !== [] && in_array($current, $views)) {
-                $sqlQueryViews .= ($sqlQueryViews === '' ? 'DROP VIEW ' : ', ') . Util::backquote($current);
+            if ($this->dbi->getTable(Current::$database, $selectedValue)->isView()) {
+                $sqlQueryViews .= ($sqlQueryViews === '' ? 'DROP VIEW ' : ', ') . Util::backquote($selectedValue);
             } else {
                 $GLOBALS['sql_query'] .= (empty($GLOBALS['sql_query']) ? 'DROP TABLE ' : ', ')
-                    . Util::backquote($current);
+                    . Util::backquote($selectedValue);
             }
 
             $GLOBALS['reload'] = 1;
