@@ -384,7 +384,7 @@ interface DbalInterface
     /**
      * returns warnings for last query
      *
-     * @return mixed[] warnings
+     * @return Warning[] warnings
      */
     public function getWarnings(ConnectionType $connectionType = ConnectionType::User): array;
 
