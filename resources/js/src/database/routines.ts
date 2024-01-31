@@ -400,7 +400,7 @@ const DatabaseRoutines = {
                 routineEditor: true,
             };
             that.syntaxHiglighter = Functions.getSqlEditor($elm, {}, 'vertical', linterOptions);
-
+            window.codeMirrorEditor = that.syntaxHiglighter;
             // Execute item-specific code
             that.postDialogShow(data);
         }); // end $.get()

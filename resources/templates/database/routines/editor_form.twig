@@ -117,7 +117,8 @@
         <tr>
           <td class="text-nowrap">{% trans 'Definition' %}</td>
           <td>
-            <textarea name="item_definition" rows="15" cols="40">{{ routine.item_definition }}</textarea>
+            <textarea name="item_definition" rows="15" cols="40">{{ routine.item_definition }}</textarea><br>
+            <input type="button" value="{{ 'Format'|trans }}" id="format" class="btn btn-secondary button sqlbutton">
           </td>
         </tr>
         <tr>
