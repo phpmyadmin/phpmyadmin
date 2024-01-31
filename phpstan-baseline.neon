@@ -17357,7 +17357,7 @@ parameters:
 
 		-
 			message: "#^Cannot call method getMessage\\(\\) on mixed\\.$#"
-			count: 6
+			count: 5
 			path: tests/classes/Server/PrivilegesTest.php
 
 		-

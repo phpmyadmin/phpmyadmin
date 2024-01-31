@@ -910,7 +910,7 @@ class Privileges
      * @param string $hostname  host name
      * @param string $itemType  item type
      *
-     * @return mixed[] ($message, $sql_query)
+     * @return array{Message, string} ($message, $sql_query)
      */
     public function getMessageAndSqlQueryForPrivilegesRevoke(
         string $dbname,

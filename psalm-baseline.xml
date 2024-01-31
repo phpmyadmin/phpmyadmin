@@ -15616,7 +15616,6 @@
       <code>getMessage</code>
       <code>getMessage</code>
       <code>getMessage</code>
-      <code>getMessage</code>
     </MixedMethodCall>
     <PossiblyUnusedMethod>
       <code>providerUnEscapeMysqlWildcards</code>
