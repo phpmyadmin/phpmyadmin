@@ -126,7 +126,7 @@ parameters:
 			path: src/Bookmarks/Bookmark.php
 
 		-
-			message: "#^Parameter \\#1 \\$row of method PhpMyAdmin\\\\Bookmarks\\\\BookmarkRepository\\:\\:createFromRow\\(\\) expects array\\<string\\>, array given\\.$#"
+			message: "#^Parameter \\#1 \\$row of method PhpMyAdmin\\\\Bookmarks\\\\BookmarkRepository\\:\\:createFromRow\\(\\) expects array\\<string\\>, array\\<string\\|null\\> given\\.$#"
 			count: 2
 			path: src/Bookmarks/BookmarkRepository.php
 
@@ -1212,7 +1212,7 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getDisplayField\\(\\) should return string but returns mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/ConfigStorage/Relation.php
 
 		-
@@ -3856,13 +3856,8 @@ parameters:
 			path: src/Controllers/Server/UserGroupsFormController.php
 
 		-
-			message: "#^Offset 1 does not exist on array\\|null\\.$#"
+			message: "#^Offset 1 does not exist on array\\<string\\|null\\>\\|null\\.$#"
 			count: 2
-			path: src/Controllers/Server/Variables/GetVariableController.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Util\\:\\:formatByteDown\\(\\) expects float\\|int\\|string\\|null, mixed given\\.$#"
-			count: 1
 			path: src/Controllers/Server/Variables/GetVariableController.php
 
 		-
@@ -3871,7 +3866,7 @@ parameters:
 			path: src/Controllers/Server/Variables/SetVariableController.php
 
 		-
-			message: "#^Offset 1 does not exist on array\\|null\\.$#"
+			message: "#^Offset 1 does not exist on array\\<string\\|null\\>\\|null\\.$#"
 			count: 1
 			path: src/Controllers/Server/Variables/SetVariableController.php
 
@@ -3891,7 +3886,7 @@ parameters:
 			path: src/Controllers/Server/Variables/SetVariableController.php
 
 		-
-			message: "#^Parameter \\#2 \\$value of method PhpMyAdmin\\\\Controllers\\\\Server\\\\Variables\\\\SetVariableController\\:\\:formatVariable\\(\\) expects int\\|string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$value of method PhpMyAdmin\\\\Controllers\\\\Server\\\\Variables\\\\SetVariableController\\:\\:formatVariable\\(\\) expects int\\|string, string\\|null given\\.$#"
 			count: 1
 			path: src/Controllers/Server/Variables/SetVariableController.php
 
@@ -6412,7 +6407,7 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 2
+			count: 1
 			path: src/Database/Designer.php
 
 		-
@@ -6511,7 +6506,7 @@ parameters:
 			path: src/Database/Designer/Common.php
 
 		-
-			message: "#^Parameter \\#1 \\$json of function json_decode expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$json of function json_decode expects string, string\\|null given\\.$#"
 			count: 1
 			path: src/Database/Designer/Common.php
 
@@ -6666,11 +6661,6 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
-			message: "#^Cannot cast mixed to string\\.$#"
-			count: 1
-			path: src/Database/Routines.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 22
 			path: src/Database/Routines.php
@@ -6792,12 +6782,22 @@ parameters:
 
 		-
 			message: "#^Parameter \\#3 \\$name of static method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getFunctionDefinition\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			count: 1
+			path: src/Database/Routines.php
+
+		-
+			message: "#^Parameter \\#3 \\$name of static method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getFunctionDefinition\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
 			path: src/Database/Routines.php
 
 		-
 			message: "#^Parameter \\#3 \\$name of static method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getProcedureDefinition\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			count: 1
+			path: src/Database/Routines.php
+
+		-
+			message: "#^Parameter \\#3 \\$name of static method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getProcedureDefinition\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
 			path: src/Database/Routines.php
 
 		-
@@ -6867,11 +6867,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:affectedRows\\(\\) should return int\\|numeric\\-string but returns mixed\\.$#"
-			count: 1
-			path: src/DatabaseInterface.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchSingleRow\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/DatabaseInterface.php
 
@@ -6974,11 +6969,6 @@ parameters:
 			message: "#^Short ternary operator is not allowed\\. Use null coalesce operator if applicable or consider using long ternary\\.$#"
 			count: 1
 			path: src/DatabaseInterface.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbalInterface\\:\\:fetchSingleRow\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Dbal/DbalInterface.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:fetchAllAssoc\\(\\) should return array\\<int, array\\<string\\|null\\>\\> but returns array\\.$#"
@@ -13446,22 +13436,17 @@ parameters:
 			path: src/Server/Privileges.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getDataForChangeOrCopyUser\\(\\) should return string\\|null but returns mixed\\.$#"
-			count: 1
-			path: src/Server/Privileges.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getDataForDBInfo\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Server/Privileges.php
 
 		-
-			message: "#^Offset '@@old_passwords' does not exist on array\\|null\\.$#"
+			message: "#^Offset '@@old_passwords' does not exist on array\\<string\\|null\\>\\|null\\.$#"
 			count: 1
 			path: src/Server/Privileges.php
 
 		-
-			message: "#^Offset 'Type' does not exist on array\\|null\\.$#"
+			message: "#^Offset 'Type' does not exist on array\\<string\\|null\\>\\|null\\.$#"
 			count: 4
 			path: src/Server/Privileges.php
 
@@ -13516,7 +13501,7 @@ parameters:
 			path: src/Server/Privileges.php
 
 		-
-			message: "#^Parameter \\#1 \\$haystack of function mb_strpos expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$haystack of function mb_strpos expects string, string\\|null given\\.$#"
 			count: 3
 			path: src/Server/Privileges.php
 
@@ -13576,7 +13561,7 @@ parameters:
 			path: src/Server/Privileges.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function mb_substr expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$string of function mb_substr expects string, string\\|null given\\.$#"
 			count: 1
 			path: src/Server/Privileges.php
 
@@ -14101,7 +14086,7 @@ parameters:
 			path: src/Sql.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Sql\\:\\:getFullValuesForSetColumn\\(\\) should return string but returns mixed\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Sql\\:\\:getFullValuesForSetColumn\\(\\) should return string but returns string\\|null\\.$#"
 			count: 1
 			path: src/Sql.php
 
@@ -14313,11 +14298,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$haystack of function mb_stripos expects string, string\\|null given\\.$#"
 			count: 1
-			path: src/StorageEngine.php
-
-		-
-			message: "#^Parameter \\#1 \\$json of function json_decode expects string, mixed given\\.$#"
-			count: 2
 			path: src/StorageEngine.php
 
 		-
@@ -14618,11 +14598,6 @@ parameters:
 		-
 			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
 			count: 2
-			path: src/Table/Table.php
-
-		-
-			message: "#^Cannot cast mixed to int\\.$#"
-			count: 1
 			path: src/Table/Table.php
 
 		-
@@ -15243,6 +15218,11 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, string\\|false given\\.$#"
 			count: 2
+			path: src/UserPreferences.php
+
+		-
+			message: "#^Ternary operator condition is always true\\.$#"
+			count: 1
 			path: src/UserPreferences.php
 
 		-

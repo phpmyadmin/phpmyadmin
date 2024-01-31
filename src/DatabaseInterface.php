@@ -1216,6 +1216,8 @@ class DatabaseInterface implements DbalInterface
      * @param string $query The query to execute
      * @param string $type  NUM|ASSOC|BOTH returned array should either numeric associative or both
      * @psalm-param DatabaseInterface::FETCH_NUM|DatabaseInterface::FETCH_ASSOC $type
+     *
+     * @return array<string|null>|null
      */
     public function fetchSingleRow(
         string $query,

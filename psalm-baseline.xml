@@ -63,13 +63,13 @@
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
+    <InvalidArgument>
+      <code>$result</code>
+      <code>$result</code>
+    </InvalidArgument>
     <MixedArgument>
       <code>$row</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code>$result</code>
-      <code>$result</code>
-    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code>$row</code>
     </MixedAssignment>
@@ -806,7 +806,6 @@
     <MixedReturnStatement>
       <code><![CDATA[$column['COLUMN_NAME']]]></code>
       <code>$foreigners[$column]</code>
-      <code><![CDATA[$row['display_field']]]></code>
     </MixedReturnStatement>
     <MoreSpecificReturnType>
       <code><![CDATA[array{
@@ -2928,9 +2927,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Server/Variables/GetVariableController.php">
-    <MixedArgument>
-      <code>$varValue[1]</code>
-    </MixedArgument>
     <PossiblyNullArrayAccess>
       <code>$varValue[1]</code>
     </PossiblyNullArrayAccess>
@@ -2939,9 +2935,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Server/Variables/SetVariableController.php">
-    <MixedArgument>
-      <code>$varValue[1]</code>
-    </MixedArgument>
     <PossiblyInvalidArgument>
       <code>$formattedValue</code>
     </PossiblyInvalidArgument>
@@ -4241,10 +4234,6 @@
       <code><![CDATA[$GLOBALS['sql_query']]]></code>
       <code>$db</code>
       <code>$table</code>
-      <code><![CDATA[$viewData['as']]]></code>
-      <code><![CDATA[$viewData['definer']]]></code>
-      <code><![CDATA[$viewData['sql_security']]]></code>
-      <code><![CDATA[$viewData['with']]]></code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$view['as']]]></code>
@@ -4253,6 +4242,9 @@
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($viewData['as'])]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Core.php">
     <ArgumentTypeCoercion>
@@ -4652,7 +4644,6 @@
       <code>$oneField</code>
       <code><![CDATA[$oneKey['constraint']]]></code>
       <code><![CDATA[$oneKey['ref_index_list'][$index]]]></code>
-      <code><![CDATA[$origData['settings_data']]]></code>
       <code>$tab</code>
       <code><![CDATA[$value['foreign_field']]]></code>
     </MixedArgument>
@@ -4712,6 +4703,9 @@
     <PossiblyInvalidIterator>
       <code><![CDATA[$_POST['t_h']]]></code>
     </PossiblyInvalidIterator>
+    <PossiblyNullArgument>
+      <code><![CDATA[$origData['settings_data']]]></code>
+    </PossiblyNullArgument>
     <PossiblyNullArrayOffset>
       <code>$indexArray1</code>
       <code>$indexArray2</code>
@@ -4752,17 +4746,6 @@
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$retval['item_comment']]]></code>
-      <code><![CDATA[$retval['item_definer']]]></code>
-      <code><![CDATA[$retval['item_definition']]]></code>
-      <code><![CDATA[$retval['item_ends']]]></code>
-      <code><![CDATA[$retval['item_execute_at']]]></code>
-      <code><![CDATA[$retval['item_interval_field']]]></code>
-      <code><![CDATA[$retval['item_interval_value']]]></code>
-      <code><![CDATA[$retval['item_name']]]></code>
-      <code><![CDATA[$retval['item_starts']]]></code>
-      <code><![CDATA[$retval['item_status']]]></code>
-      <code><![CDATA[$retval['item_type']]]></code>
       <code>$string</code>
     </MixedAssignment>
     <MixedOperand>
@@ -4851,8 +4834,6 @@
       <code>$itemParamType[$i]</code>
       <code>$itemParamType[$i]</code>
       <code>$itemParamType[$i]</code>
-      <code><![CDATA[$routine['SPECIFIC_NAME']]]></code>
-      <code><![CDATA[$routine['SPECIFIC_NAME']]]></code>
       <code><![CDATA[$routine['item_name']]]></code>
       <code><![CDATA[$routine['item_name']]]></code>
       <code><![CDATA[$routine['item_name']]]></code>
@@ -4932,11 +4913,7 @@
       <code>$i</code>
       <code>$opt</code>
       <code>$options[]</code>
-      <code><![CDATA[$retval['item_comment']]]></code>
       <code><![CDATA[$retval['item_definer']]]></code>
-      <code><![CDATA[$retval['item_name']]]></code>
-      <code><![CDATA[$retval['item_sqldataaccess']]]></code>
-      <code><![CDATA[$retval['item_type']]]></code>
       <code>$string</code>
       <code>$value</code>
       <code>$value</code>
@@ -5008,6 +4985,8 @@
     <PossiblyNullArgument>
       <code><![CDATA[$GLOBALS['message']]]></code>
       <code>$createRoutine</code>
+      <code><![CDATA[$routine['SPECIFIC_NAME']]]></code>
+      <code><![CDATA[$routine['SPECIFIC_NAME']]]></code>
       <code><![CDATA[$stmt->return->parameters]]></code>
     </PossiblyNullArgument>
     <PossiblyNullIterator>
@@ -5047,6 +5026,7 @@
       <code>empty($itemParamName)</code>
       <code>empty($itemParamType)</code>
       <code>empty($itemSecurityType)</code>
+      <code><![CDATA[empty($routine['DTD_IDENTIFIER'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Database/Search.php">
@@ -10705,10 +10685,6 @@
       <code>$paramTableName</code>
       <code>$row</code>
       <code>$row</code>
-      <code><![CDATA[$row1['Type']]]></code>
-      <code><![CDATA[$row1['Type']]]></code>
-      <code><![CDATA[$row1['Type']]]></code>
-      <code><![CDATA[$row1['Type']]]></code>
       <code><![CDATA[$row['Proc_priv']]]></code>
       <code><![CDATA[$row['Proc_priv']]]></code>
       <code><![CDATA[$row['Proc_priv']]]></code>
@@ -10755,7 +10731,6 @@
       <code><![CDATA[$groupAssignment[$host['User']]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code>$GLOBALS[$key]</code>
       <code><![CDATA[$GLOBALS['new_username']]]></code>
       <code><![CDATA[$GLOBALS['pred_hostname']]]></code>
       <code><![CDATA[$GLOBALS['pred_username']]]></code>
@@ -10768,7 +10743,6 @@
       <code>$name</code>
       <code>$oneGrant</code>
       <code><![CDATA[$onePrivilege['name']]]></code>
-      <code>$origValue</code>
       <code>$paramDbName</code>
       <code>$paramRoutineName</code>
       <code>$paramTableName</code>
@@ -10776,27 +10750,16 @@
       <code><![CDATA[$privilege['table']]]></code>
       <code>$queries[$tmpCount]</code>
       <code>$row</code>
-      <code><![CDATA[$row['password']]]></code>
-      <code><![CDATA[$row['password']]]></code>
-      <code><![CDATA[$row['password']]]></code>
-      <code><![CDATA[$row['password']]]></code>
       <code>$sqlQuery</code>
       <code>$sqlQuery</code>
       <code>$user</code>
       <code>$usernameLength</code>
       <code>$val</code>
-      <code>$value</code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>string|null</code>
-    </MixedInferredReturnType>
     <MixedOperand>
       <code>$oneGrant</code>
       <code>$origValue</code>
     </MixedOperand>
-    <MixedReturnStatement>
-      <code><![CDATA[$row['password']]]></code>
-    </MixedReturnStatement>
     <MixedReturnTypeCoercion>
       <code>$extraData</code>
       <code>(string|bool)[]</code>
@@ -10918,6 +10881,8 @@
       <code><![CDATA[empty($_POST['pma_pw2'])]]></code>
       <code><![CDATA[empty($_POST['userGroup'])]]></code>
       <code><![CDATA[empty($_REQUEST['ajax_page_request'])]]></code>
+      <code><![CDATA[empty($row['password'])]]></code>
+      <code><![CDATA[empty($row['password'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Server/Select.php">
@@ -11196,6 +11161,9 @@
       <code><![CDATA[$GLOBALS['show_as_php']]]></code>
       <code><![CDATA[$GLOBALS['show_as_php']]]></code>
     </InvalidArrayOffset>
+    <InvalidNullableReturnType>
+      <code>string</code>
+    </InvalidNullableReturnType>
     <MixedArgument>
       <code><![CDATA[$foreignData['foreign_field']]]></code>
       <code>$numberOfLine / $maxRows</code>
@@ -11230,7 +11198,6 @@
       <code>int</code>
       <code>int</code>
       <code>int|numeric-string</code>
-      <code>string</code>
     </MixedInferredReturnType>
     <MixedOperand>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
@@ -11247,7 +11214,6 @@
     <MixedReturnStatement>
       <code>$pos</code>
       <code>$pos</code>
-      <code>$row[$column]</code>
       <code>$unlimNumRows</code>
       <code>$unlimNumRows</code>
       <code>@((int) ceil($numberOfLine / $maxRows) - 1) * $maxRows</code>
@@ -11255,6 +11221,9 @@
     <NoValue>
       <code><![CDATA[$statementInfo->statement->where]]></code>
     </NoValue>
+    <NullableReturnStatement>
+      <code>$row[$column]</code>
+    </NullableReturnStatement>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['bkm_label']]]></code>
       <code><![CDATA[$_POST['dropped_column'] ?? null]]></code>
@@ -11351,8 +11320,6 @@
       <code><![CDATA[$details['value']]]></code>
       <code><![CDATA[$details['value']]]></code>
       <code><![CDATA[$details['value']]]></code>
-      <code><![CDATA[$result[0] ?? '']]></code>
-      <code><![CDATA[$result[0] ?? '']]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$decodedData['disk_usage']]]></code>
@@ -12185,6 +12152,9 @@
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
+    <DocblockTypeContradiction>
+      <code>[]</code>
+    </DocblockTypeContradiction>
     <MixedArgumentTypeCoercion>
       <code>$path</code>
       <code>$urlParams</code>
@@ -12202,6 +12172,9 @@
     <PossiblyNullOperand>
       <code>$hash</code>
     </PossiblyNullOperand>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[is_string($row['config_data'])]]></code>
+    </RedundantConditionGivenDocblockType>
     <RiskyTruthyFalsyComparison>
       <code>$hasConfig</code>
     </RiskyTruthyFalsyComparison>
