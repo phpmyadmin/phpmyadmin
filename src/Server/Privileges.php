@@ -1930,7 +1930,7 @@ class Privileges
     /**
      * Update the privileges and return the success or error message
      *
-     * @return mixed[] success message or error message for update
+     * @return array{string, Message} success message or error message for update
      */
     public function updatePrivileges(
         string $username,

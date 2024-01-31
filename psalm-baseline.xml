@@ -2844,12 +2844,10 @@
     </PossiblyUnusedParam>
   </file>
   <file src="src/Controllers/Server/PrivilegesController.php">
-    <InvalidArgument>
-      <code><![CDATA[$GLOBALS['sql_query']]]></code>
-    </InvalidArgument>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['dbname']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code><![CDATA[$GLOBALS['sql_query'][$key]]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['message']]]></code>
@@ -2876,6 +2874,9 @@
       <code><![CDATA[$GLOBALS['message']]]></code>
       <code>$dbName</code>
     </MixedAssignment>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[$GLOBALS['sql_query']]]></code>
+    </PossiblyInvalidArgument>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($GLOBALS['message'])]]></code>
       <code><![CDATA[empty($GLOBALS['message'])]]></code>
@@ -2883,9 +2884,6 @@
       <code>empty($routinename)</code>
       <code>empty($routinename)</code>
     </RiskyTruthyFalsyComparison>
-    <UnusedVariable>
-      <code>$key</code>
-    </UnusedVariable>
   </file>
   <file src="src/Controllers/Server/ReplicationController.php">
     <InvalidArrayOffset>
@@ -15605,9 +15603,6 @@
       <code>$sqlQuery</code>
     </MixedArgument>
     <MixedMethodCall>
-      <code>getMessage</code>
-      <code>getMessage</code>
-      <code>getMessage</code>
       <code>getMessage</code>
       <code>getMessage</code>
     </MixedMethodCall>
