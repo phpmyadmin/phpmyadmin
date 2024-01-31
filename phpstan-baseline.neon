@@ -13897,7 +13897,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:tryQuery\\(\\) expects string, mixed given\\.$#"
-			count: 3
+			count: 1
 			path: src/Server/Privileges.php
 
 		-
@@ -13941,11 +13941,6 @@ parameters:
 			path: src/Server/Privileges.php
 
 		-
-			message: "#^Parameter \\#2 \\$realSqlQuery of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:addUserAndCreateDatabase\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Server/Privileges.php
-
-		-
 			message: "#^Parameter \\#2 \\$string of function explode expects string, mixed given\\.$#"
 			count: 6
 			path: src/Server/Privileges.php
@@ -13967,11 +13962,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Server/Privileges.php
-
-		-
-			message: "#^Parameter \\#3 \\$sqlQuery of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:addUserAndCreateDatabase\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Server/Privileges.php
 
@@ -14003,16 +13993,6 @@ parameters:
 		-
 			message: "#^Parameter \\#6 \\$routinename of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getUserLink\\(\\) expects string, mixed given\\.$#"
 			count: 2
-			path: src/Server/Privileges.php
-
-		-
-			message: "#^Parameter \\#7 \\$alterRealSqlQuery of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:addUserAndCreateDatabase\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Server/Privileges.php
-
-		-
-			message: "#^Parameter \\#8 \\$alterSqlQuery of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:addUserAndCreateDatabase\\(\\) expects string, mixed given\\.$#"
-			count: 1
 			path: src/Server/Privileges.php
 
 		-
@@ -17357,16 +17337,6 @@ parameters:
 
 		-
 			message: "#^PHPDoc tag @var for variable \\$actual has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: tests/classes/Server/PrivilegesTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$realSqlQuery of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:addUserAndCreateDatabase\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: tests/classes/Server/PrivilegesTest.php
-
-		-
-			message: "#^Parameter \\#3 \\$sqlQuery of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:addUserAndCreateDatabase\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: tests/classes/Server/PrivilegesTest.php
 

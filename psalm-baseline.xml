@@ -11073,17 +11073,12 @@
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['dbname']]]></code>
-      <code>$alterRealSqlQuery</code>
-      <code>$alterSqlQuery</code>
-      <code>$createUserReal</code>
       <code>$paramDbName</code>
       <code>$paramDbName</code>
       <code>$paramRoutineName</code>
       <code>$paramRoutineName</code>
       <code>$paramTableName</code>
       <code>$paramTableName</code>
-      <code>$passwordSetReal</code>
-      <code>$realSqlQuery</code>
       <code>$row</code>
       <code>$row</code>
       <code><![CDATA[$row1['Type']]]></code>
@@ -11098,7 +11093,6 @@
       <code><![CDATA[$row['Table_priv']]]></code>
       <code><![CDATA[$row['Table_priv']]]></code>
       <code><![CDATA[$row['Table_priv']]]></code>
-      <code>$sqlQuery</code>
       <code>$sqlQuery</code>
       <code>$sqlQuery</code>
       <code>$user</code>
@@ -11156,15 +11150,7 @@
       <code>$paramTableName</code>
       <code><![CDATA[$privilege['routine']]]></code>
       <code><![CDATA[$privilege['table']]]></code>
-      <code>$queriesForDisplay[$tmpCount - 1]</code>
-      <code>$queriesForDisplay[$tmpCount - 1]</code>
-      <code>$queriesForDisplay[$tmpCount - 2]</code>
-      <code>$queriesForDisplay[$tmpCount - 2]</code>
-      <code>$queriesForDisplay[$tmpCount - 3]</code>
       <code>$queries[$tmpCount]</code>
-      <code>$queries[]</code>
-      <code>$queries[]</code>
-      <code>$queries[]</code>
       <code>$row</code>
       <code><![CDATA[$row['password']]]></code>
       <code><![CDATA[$row['password']]]></code>
@@ -11181,10 +11167,8 @@
       <code>string|null</code>
     </MixedInferredReturnType>
     <MixedOperand>
-      <code>$createUserShow</code>
       <code>$oneGrant</code>
       <code>$origValue</code>
-      <code>$sqlQuery</code>
     </MixedOperand>
     <MixedReturnStatement>
       <code><![CDATA[$row['password']]]></code>
@@ -11285,6 +11269,7 @@
       <code>$alterUserQuery</code>
       <code>$alterUserQuery</code>
       <code>$alterUserQuery</code>
+      <code>$passwordSetShow</code>
       <code><![CDATA[$privilege['Host']]]></code>
       <code><![CDATA[$privilege['User']]]></code>
     </PossiblyNullOperand>
@@ -11310,6 +11295,9 @@
       <code><![CDATA[empty($_POST['pma_pw2'])]]></code>
       <code><![CDATA[empty($_POST['userGroup'])]]></code>
       <code><![CDATA[empty($_REQUEST['ajax_page_request'])]]></code>
+      <code>empty($passwordSetReal)</code>
+      <code>empty($passwordSetReal)</code>
+      <code>empty($passwordSetReal)</code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Server/Select.php">
@@ -15598,10 +15586,6 @@
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code>$realSqlQuery</code>
-      <code>$sqlQuery</code>
-    </MixedArgument>
     <MixedMethodCall>
       <code>getMessage</code>
       <code>getMessage</code>

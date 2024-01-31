@@ -2309,20 +2309,18 @@ class Privileges
         if (empty($_POST['change_copy'])) {
             $error = false;
 
-            if ($createUserReal !== null) {
-                if (! $this->dbi->tryQuery($createUserReal)) {
-                    $error = true;
-                }
-
-                if (isset($_POST['authentication_plugin']) && ! empty($passwordSetReal)) {
-                    $this->setProperPasswordHashing($_POST['authentication_plugin']);
-                    if ($this->dbi->tryQuery($passwordSetReal)) {
-                        $sqlQuery .= $passwordSetShow;
-                    }
-                }
-
-                $sqlQuery = $createUserShow . $sqlQuery;
+            if (! $this->dbi->tryQuery($createUserReal)) {
+                $error = true;
             }
+
+            if (isset($_POST['authentication_plugin']) && ! empty($passwordSetReal)) {
+                $this->setProperPasswordHashing($_POST['authentication_plugin']);
+                if ($this->dbi->tryQuery($passwordSetReal)) {
+                    $sqlQuery .= $passwordSetShow;
+                }
+            }
+
+            $sqlQuery = $createUserShow . $sqlQuery;
 
             [$sqlQuery, $message] = $this->addUserAndCreateDatabase(
                 $error,
@@ -2354,10 +2352,7 @@ class Privileges
         $oldUserGroup = $_POST['old_usergroup'] ?? '';
         $this->setUserGroup($_POST['username'], $oldUserGroup);
 
-        if ($createUserReal !== null) {
-            $queries[] = $createUserReal;
-        }
-
+        $queries[] = $createUserReal;
         $queries[] = $realSqlQuery;
 
         if (isset($_POST['authentication_plugin']) && ! empty($passwordSetReal)) {
@@ -2370,9 +2365,7 @@ class Privileges
         // $queries_for_display, at the same position occupied
         // by the real query in $queries
         $tmpCount = count($queries);
-        if (isset($createUserReal)) {
-            $queriesForDisplay[$tmpCount - 2] = $createUserShow;
-        }
+        $queriesForDisplay[$tmpCount - 2] = $createUserShow;
 
         if (! empty($passwordSetReal)) {
             $queriesForDisplay[$tmpCount - 3] = $createUserShow;
@@ -3017,8 +3010,7 @@ class Privileges
      * @param string $hostname host name
      * @param string $password password
      *
-     * @return mixed[] ($create_user_real, $create_user_show, $real_sql_query, $sql_query
-     *                $password_set_real, $password_set_show, $alter_real_sql_query, $alter_sql_query)
+     * @return array{string, string, string, string, string|null, string|null, string, string}
      */
     public function getSqlQueriesForDisplayAndAddUser(string $username, string $hostname, string $password): array
     {
