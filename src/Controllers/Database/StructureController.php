@@ -551,7 +551,7 @@ final class StructureController extends AbstractController
      * @param mixed[] $currentTable array containing details about the table
      * @param bool    $tableIsView  whether the table is a view
      *
-     * @return mixed[]
+     * @return array{bool, string}
      */
     private function isRowCountApproximated(
         array $currentTable,
