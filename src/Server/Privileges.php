@@ -3231,7 +3231,7 @@ class Privileges
      * @param string $database Database name
      * @param string $routine  Routine name
      *
-     * @return mixed[]
+     * @return array<string, string>
      */
     private function getRoutinePrivileges(
         string $username,
