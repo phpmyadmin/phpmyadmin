@@ -104,7 +104,7 @@ jobs:
         uses: ramsey/composer-install@v2
 
       - name: Set up Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '16'
           cache: 'yarn'
@@ -149,7 +149,7 @@ jobs:
           ./tests/stop-local-server
 
       - name: Upload screenshots
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: ${{ failure() }}
         with:
           name: selenium-screenshots

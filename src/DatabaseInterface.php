@@ -30,6 +30,7 @@ use stdClass;
 
 use function __;
 use function array_column;
+use function array_combine;
 use function array_diff;
 use function array_keys;
 use function array_map;
@@ -577,11 +578,15 @@ class DatabaseInterface implements DbalInterface
                 }
 
                 if ($sortValues !== []) {
+                    // See https://stackoverflow.com/a/32461188 for the explanation of below hack
+                    $keys = array_keys($eachTables);
                     if ($sortOrder === 'DESC') {
-                        array_multisort($sortValues, SORT_DESC, $eachTables);
+                        array_multisort($sortValues, SORT_DESC, $eachTables, $keys);
                     } else {
-                        array_multisort($sortValues, SORT_ASC, $eachTables);
+                        array_multisort($sortValues, SORT_ASC, $eachTables, $keys);
                     }
+
+                    $eachTables = array_combine($keys, $eachTables);
                 }
 
                 // cleanup the temporary sort array

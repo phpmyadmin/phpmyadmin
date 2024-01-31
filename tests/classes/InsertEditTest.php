@@ -1369,6 +1369,13 @@ class InsertEditTest extends AbstractTestCase
 
         $this->assertEquals('', Current::$table);
 
+        $GLOBALS['goto'] = 'index.php?route=/sql&server=2';
+
+        $this->assertEquals(
+            '/sql',
+            $this->insertEdit->getGotoInclude('index'),
+        );
+
         $_POST['after_insert'] = 'new_insert';
         $this->assertEquals(
             '/table/change',

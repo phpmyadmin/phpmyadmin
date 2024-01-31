@@ -21,6 +21,8 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use ReflectionProperty;
 
+use function array_keys;
+
 #[CoversClass(DatabaseInterface::class)]
 class DatabaseInterfaceTest extends AbstractTestCase
 {
@@ -461,6 +463,27 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
         $actual = $dbi->getTablesFull('test_db');
         $this->assertEquals($expected, $actual);
+    }
+
+    public function testGetTablesFullBug18913(): void
+    {
+        $dbiDummy = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = true;
+        $config->settings['NaturalOrder'] = false;
+
+        $expected = ['0', '1', '42'];
+
+        $dbiDummy->addResult('SHOW TABLE STATUS FROM `test_db_bug_18913`', [
+            ['0', ''],
+            ['1', ''],
+            ['42', ''],
+        ], ['Name', 'Engine']);
+
+        $actual = $dbi->getTablesFull('test_db_bug_18913');
+        $this->assertEquals($expected, array_keys($actual));
     }
 
     /**

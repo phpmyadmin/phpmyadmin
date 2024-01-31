@@ -40,7 +40,7 @@ jobs:
       - name: Cache coding-standard
         # Allow the previous check to fail but not abort
         if: always()
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: .phpcs-cache
           key: phpcs-cache
