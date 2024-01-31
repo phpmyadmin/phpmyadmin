@@ -16431,59 +16431,9 @@ parameters:
 			path: tests/classes/Controllers/Server/VariablesControllerTest.php
 
 		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\DatabaseInterface\\:\\:expects\\(\\)\\.$#"
-			count: 4
-			path: tests/classes/Controllers/Table/RelationControllerTest.php
-
-		-
-			message: "#^Cannot call method method\\(\\) on mixed\\.$#"
-			count: 4
-			path: tests/classes/Controllers/Table/RelationControllerTest.php
-
-		-
-			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
-			count: 4
-			path: tests/classes/Controllers/Table/RelationControllerTest.php
-
-		-
 			message: "#^PHPDoc tag @var for variable \\$result has no value type specified in iterable type array\\.$#"
 			count: 2
 			path: tests/classes/Controllers/Table/ReplaceControllerTest.php
-
-		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\DatabaseInterface\\:\\:expects\\(\\)\\.$#"
-			count: 1
-			path: tests/classes/Controllers/Table/SearchControllerTest.php
-
-		-
-			message: "#^Cannot call method method\\(\\) on mixed\\.$#"
-			count: 1
-			path: tests/classes/Controllers/Table/SearchControllerTest.php
-
-		-
-			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
-			count: 1
-			path: tests/classes/Controllers/Table/SearchControllerTest.php
-
-		-
-			message: "#^Cannot call method with\\(\\) on mixed\\.$#"
-			count: 1
-			path: tests/classes/Controllers/Table/SearchControllerTest.php
-
-		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Http\\\\ServerRequest&PHPUnit\\\\Framework\\\\MockObject\\\\Stub\\:\\:expects\\(\\)\\.$#"
-			count: 1
-			path: tests/classes/Controllers/Triggers/IndexControllerTest.php
-
-		-
-			message: "#^Cannot call method method\\(\\) on mixed\\.$#"
-			count: 1
-			path: tests/classes/Controllers/Triggers/IndexControllerTest.php
-
-		-
-			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
-			count: 1
-			path: tests/classes/Controllers/Triggers/IndexControllerTest.php
 
 		-
 			message: "#^Cannot access offset 'arr' on mixed\\.$#"
@@ -16541,11 +16491,6 @@ parameters:
 			path: tests/classes/Crypto/CryptoTest.php
 
 		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\DatabaseInterface\\:\\:expects\\(\\)\\.$#"
-			count: 10
-			path: tests/classes/Database/CentralColumnsTest.php
-
-		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<string\\> will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Database/CentralColumnsTest.php
@@ -16553,26 +16498,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 0 on mixed\\.$#"
 			count: 1
-			path: tests/classes/Database/CentralColumnsTest.php
-
-		-
-			message: "#^Cannot call method method\\(\\) on mixed\\.$#"
-			count: 10
-			path: tests/classes/Database/CentralColumnsTest.php
-
-		-
-			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
-			count: 9
-			path: tests/classes/Database/CentralColumnsTest.php
-
-		-
-			message: "#^Cannot call method willReturnOnConsecutiveCalls\\(\\) on mixed\\.$#"
-			count: 1
-			path: tests/classes/Database/CentralColumnsTest.php
-
-		-
-			message: "#^Cannot call method with\\(\\) on mixed\\.$#"
-			count: 7
 			path: tests/classes/Database/CentralColumnsTest.php
 
 		-
@@ -17486,11 +17411,6 @@ parameters:
 			path: tests/classes/Stubs/ResponseRenderer.php
 
 		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\DatabaseInterface\\:\\:expects\\(\\)\\.$#"
-			count: 4
-			path: tests/classes/Table/TableTest.php
-
-		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Table\\\\\\\\Table' and PhpMyAdmin\\\\Table\\\\Table will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Table/TableTest.php
@@ -17498,21 +17418,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'SCHEMA_TABLES' on mixed\\.$#"
 			count: 1
-			path: tests/classes/Table/TableTest.php
-
-		-
-			message: "#^Cannot call method method\\(\\) on mixed\\.$#"
-			count: 4
-			path: tests/classes/Table/TableTest.php
-
-		-
-			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
-			count: 2
-			path: tests/classes/Table/TableTest.php
-
-		-
-			message: "#^Cannot call method willReturnMap\\(\\) on mixed\\.$#"
-			count: 2
 			path: tests/classes/Table/TableTest.php
 
 		-

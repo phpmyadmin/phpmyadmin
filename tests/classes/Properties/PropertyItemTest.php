@@ -12,8 +12,7 @@ use PHPUnit\Framework\MockObject\MockObject;
 #[CoversClass(PropertyItem::class)]
 class PropertyItemTest extends AbstractTestCase
 {
-    /** @var PropertyItem&MockObject */
-    protected PropertyItem $stub;
+    protected PropertyItem&MockObject $stub;
 
     /**
      * Configures global environment.

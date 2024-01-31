@@ -19,11 +19,9 @@ use PHPUnit\Framework\MockObject\Stub;
 #[CoversClass(AccountUnlockController::class)]
 class AccountUnlockControllerTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface&Stub */
-    private DatabaseInterface $dbiStub;
+    private DatabaseInterface&Stub $dbiStub;
 
-    /** @var ServerRequest&Stub  */
-    private ServerRequest $requestStub;
+    private ServerRequest&Stub $requestStub;
 
     private ResponseRenderer $responseRendererStub;
 

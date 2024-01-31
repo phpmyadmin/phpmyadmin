@@ -13,8 +13,7 @@ use PHPUnit\Framework\MockObject\Stub;
 #[CoversClass(Types::class)]
 class TypesByDatabaseVersionTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface&Stub */
-    private DatabaseInterface $dbiStub;
+    private DatabaseInterface&Stub $dbiStub;
 
     protected Types $object;
 
