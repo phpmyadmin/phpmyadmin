@@ -158,7 +158,7 @@ class ErrorReport
      *
      * @param string $url the url to sanitize
      *
-     * @return mixed[] the uri and script name
+     * @return array{string, string} the uri and script name
      */
     private function sanitizeUrl(string $url): array
     {

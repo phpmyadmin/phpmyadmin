@@ -5654,18 +5654,9 @@
       <code><![CDATA[$level['uri']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code><![CDATA[$exception['uri']]]></code>
-      <code><![CDATA[$exception['uri']]]></code>
       <code>$level</code>
-      <code><![CDATA[$level['scriptname']]]></code>
-      <code><![CDATA[$level['uri']]]></code>
       <code>$line</code>
-      <code><![CDATA[$report['script_name']]]></code>
-      <code><![CDATA[$report['script_name']]]></code>
     </MixedAssignment>
-    <MixedStringOffsetAssignment>
-      <code><![CDATA[$exception['uri']]]></code>
-    </MixedStringOffsetAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['url']]]></code>
       <code><![CDATA[$exception['stack']]]></code>
