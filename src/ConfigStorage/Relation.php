@@ -414,9 +414,9 @@ class Relation
         $isMysql = mb_strtolower($db) === 'mysql';
         if (($isInformationSchema || $isMysql) && ($source === 'internal' || $source === 'both')) {
             if ($isInformationSchema) {
-                $internalRelations = InternalRelations::getInformationSchema();
+                $internalRelations = InternalRelations::INFORMATION_SCHEMA;
             } else {
-                $internalRelations = InternalRelations::getMySql();
+                $internalRelations = InternalRelations::MYSQL;
             }
 
             if (isset($internalRelations[$table])) {
