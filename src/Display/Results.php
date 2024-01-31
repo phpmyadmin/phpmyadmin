@@ -1194,8 +1194,7 @@ class Results
      *                                                      or column isn't visible(string array)
      * @param int|string|null    $colVisibElement           element of $col_visib array
      *
-     * @return mixed[]   2 element array - $orderLink, $sortedHeaderHtml
-     * @psalm-return array{
+     * @return array{
      *   column_name: string,
      *   order_link: string,
      *   comments: string,
