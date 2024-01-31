@@ -1154,10 +1154,6 @@
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']]]></code>
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']]]></code>
     </MixedArrayAccess>
-    <MixedArrayOffset>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code>$idKey</code>
@@ -1165,6 +1161,10 @@
     <MixedMethodCall>
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getIdKey()]]></code>
     </MixedMethodCall>
+    <PossiblyInvalidArrayOffset>
+      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
+      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
+    </PossiblyInvalidArrayOffset>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
@@ -2631,10 +2631,6 @@
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']]]></code>
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']]]></code>
     </MixedArrayAccess>
-    <MixedArrayOffset>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code>$idKey</code>
@@ -2642,6 +2638,10 @@
     <MixedMethodCall>
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getIdKey()]]></code>
     </MixedMethodCall>
+    <PossiblyInvalidArrayOffset>
+      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
+      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
+    </PossiblyInvalidArrayOffset>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
@@ -3417,10 +3417,6 @@
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']]]></code>
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']]]></code>
     </MixedArrayAccess>
-    <MixedArrayOffset>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code>$idKey</code>
@@ -3428,6 +3424,10 @@
     <MixedMethodCall>
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getIdKey()]]></code>
     </MixedMethodCall>
+    <PossiblyInvalidArrayOffset>
+      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
+      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
+    </PossiblyInvalidArrayOffset>
   </file>
   <file src="src/Controllers/Table/IndexRenameController.php">
     <DeprecatedMethod>
