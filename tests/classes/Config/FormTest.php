@@ -53,9 +53,9 @@ class FormTest extends AbstractTestCase
     #[Group('medium')]
     public function testContructor(): void
     {
-        $this->assertEquals(1, $this->object->index);
-        $this->assertEquals('pma_form_name', $this->object->name);
-        $this->assertArrayHasKey('pma_form1', $this->object->fields);
+        self::assertEquals(1, $this->object->index);
+        self::assertEquals('pma_form_name', $this->object->name);
+        self::assertArrayHasKey('pma_form1', $this->object->fields);
     }
 
     /**
@@ -68,11 +68,11 @@ class FormTest extends AbstractTestCase
             ['7' => 'Seven'],
         );
 
-        $this->assertNull(
+        self::assertNull(
             $this->object->getOptionType('123/4/5/6'),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Seven',
             $this->object->getOptionType('123/4/5/7'),
         );
@@ -83,17 +83,17 @@ class FormTest extends AbstractTestCase
      */
     public function testGetOptionValueList(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             ['NHibernate C# DO', 'NHibernate XML'],
             $this->object->getOptionValueList('Export/codegen_format'),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             ['auto' => 'auto', '1' => 1, '0' => 0],
             $this->object->getOptionValueList('OBGzip'),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             ['none' => 'Nowhere', 'left' => 'Left', 'right' => 'Right', 'both' => 'Both'],
             $this->object->getOptionValueList('RowActionLinks'),
         );
@@ -113,16 +113,16 @@ class FormTest extends AbstractTestCase
 
         $result = $this->object->fields;
 
-        $this->assertCount(4, $result);
+        self::assertCount(4, $result);
 
-        $this->assertEquals('pma_form1', $result['pma_form1']);
+        self::assertEquals('pma_form1', $result['pma_form1']);
 
-        $this->assertEquals('pma_form2', $result['pma_form2']);
+        self::assertEquals('pma_form2', $result['pma_form2']);
 
-        $this->assertEquals('preffoo/foo/bar/test', $result[0]);
+        self::assertEquals('preffoo/foo/bar/test', $result[0]);
 
         // needs regexp because the counter is static
-        $this->assertMatchesRegularExpression('/^preffoo\/foo\/bar\/\:group\:end\:\d+$/', $result[1]);
+        self::assertMatchesRegularExpression('/^preffoo\/foo\/bar\/\:group\:end\:\d+$/', $result[1]);
     }
 
     /**
@@ -139,22 +139,22 @@ class FormTest extends AbstractTestCase
 
         $result = $this->object->fields;
 
-        $this->assertCount(2, $result);
+        self::assertCount(2, $result);
 
-        $this->assertEquals('foo/bar/test', $result['test']);
+        self::assertEquals('foo/bar/test', $result['test']);
 
         unset($result['test']);
 
         // needs regexp because the counter is static
         $key = array_keys($result)[0];
-        $this->assertIsString($key);
+        self::assertIsString($key);
 
-        $this->assertMatchesRegularExpression('/^\:group\:end\:(\d+)$/', $key);
+        self::assertMatchesRegularExpression('/^\:group\:end\:(\d+)$/', $key);
 
         preg_match('/^\:group\:end\:(\d+)$/', $key, $matches);
         $digit = $matches[1];
 
-        $this->assertEquals('foo/bar/:group:end:' . $digit, $result[':group:end:' . $digit]);
+        self::assertEquals('foo/bar/:group:end:' . $digit, $result[':group:end:' . $digit]);
     }
 
     /**
@@ -176,7 +176,7 @@ class FormTest extends AbstractTestCase
 
         $method->invoke($this->object, null);
 
-        $this->assertEquals(
+        self::assertEquals(
             ['pma_form1' => 'integer', 'pma_form2' => 'select', ':group:end:0' => 'group', '1' => 'NULL'],
             $attrFieldsTypes->getValue($this->object),
         );
@@ -192,16 +192,16 @@ class FormTest extends AbstractTestCase
             ->onlyMethods(['readFormPaths', 'readTypes'])
             ->getMock();
 
-        $this->object->expects($this->exactly(1))
+        $this->object->expects(self::exactly(1))
             ->method('readFormPaths')
             ->with(['testForm']);
 
-        $this->object->expects($this->exactly(1))
+        $this->object->expects(self::exactly(1))
             ->method('readTypes');
 
         $this->object->loadForm('pmaform', ['testForm']);
 
-        $this->assertEquals('pmaform', $this->object->name);
+        self::assertEquals('pmaform', $this->object->name);
     }
 
     /**
@@ -214,7 +214,7 @@ class FormTest extends AbstractTestCase
             ->onlyMethods(['readFormPaths', 'readTypes'])
             ->getMock();
 
-        $this->object->expects($this->exactly(1))->method('readFormPaths')->with([
+        $this->object->expects(self::exactly(1))->method('readFormPaths')->with([
             ':group:OpenDocument-OpenOffice 試算表',
             'group:test/data',
             'Export/ods_columns',

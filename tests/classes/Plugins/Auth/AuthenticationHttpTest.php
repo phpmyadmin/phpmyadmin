@@ -74,8 +74,8 @@ class AuthenticationHttpTest extends AbstractTestCase
         $this->object->logOut();
 
         $response = $responseStub->getResponse();
-        $this->assertSame(['https://example.com/logout'], $response->getHeader('Location'));
-        $this->assertSame(302, $response->getStatusCode());
+        self::assertSame(['https://example.com/logout'], $response->getHeader('Location'));
+        self::assertSame(302, $response->getStatusCode());
     }
 
     #[RunInSeparateProcess]
@@ -94,10 +94,10 @@ class AuthenticationHttpTest extends AbstractTestCase
         } catch (Throwable $throwable) {
         }
 
-        $this->assertInstanceOf(ExitException::class, $throwable);
+        self::assertInstanceOf(ExitException::class, $throwable);
         $response = $responseStub->getResponse();
-        $this->assertSame(['Basic realm="phpMyAdmin verboseMessag"'], $response->getHeader('WWW-Authenticate'));
-        $this->assertSame(401, $response->getStatusCode());
+        self::assertSame(['Basic realm="phpMyAdmin verboseMessag"'], $response->getHeader('WWW-Authenticate'));
+        self::assertSame(401, $response->getStatusCode());
     }
 
     #[RunInSeparateProcess]
@@ -117,10 +117,10 @@ class AuthenticationHttpTest extends AbstractTestCase
         } catch (Throwable $throwable) {
         }
 
-        $this->assertInstanceOf(ExitException::class, $throwable);
+        self::assertInstanceOf(ExitException::class, $throwable);
         $response = $responseStub->getResponse();
-        $this->assertSame(['Basic realm="phpMyAdmin hst"'], $response->getHeader('WWW-Authenticate'));
-        $this->assertSame(401, $response->getStatusCode());
+        self::assertSame(['Basic realm="phpMyAdmin hst"'], $response->getHeader('WWW-Authenticate'));
+        self::assertSame(401, $response->getStatusCode());
     }
 
     #[RunInSeparateProcess]
@@ -140,10 +140,10 @@ class AuthenticationHttpTest extends AbstractTestCase
         } catch (Throwable $throwable) {
         }
 
-        $this->assertInstanceOf(ExitException::class, $throwable);
+        self::assertInstanceOf(ExitException::class, $throwable);
         $response = $responseStub->getResponse();
-        $this->assertSame(['Basic realm="realmmessage"'], $response->getHeader('WWW-Authenticate'));
-        $this->assertSame(401, $response->getStatusCode());
+        self::assertSame(['Basic realm="realmmessage"'], $response->getHeader('WWW-Authenticate'));
+        self::assertSame(401, $response->getStatusCode());
     }
 
     /**
@@ -172,14 +172,14 @@ class AuthenticationHttpTest extends AbstractTestCase
 
         $_REQUEST['old_usr'] = $oldUsr;
 
-        $this->assertEquals(
+        self::assertEquals(
             $expectedReturn,
             $this->object->readCredentials(),
         );
 
-        $this->assertEquals($expectedUser, $this->object->user);
+        self::assertEquals($expectedUser, $this->object->user);
 
-        $this->assertEquals($expectedPass, $this->object->password);
+        self::assertEquals($expectedPass, $this->object->password);
 
         unset($_SERVER[$userIndex]);
         unset($_SERVER[$passIndex]);
@@ -227,17 +227,17 @@ class AuthenticationHttpTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer['user'] = 'testUser';
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->storeCredentials(),
         );
 
-        $this->assertEquals('testUser', $config->selectedServer['user']);
+        self::assertEquals('testUser', $config->selectedServer['user']);
 
-        $this->assertEquals('testPass', $config->selectedServer['password']);
+        self::assertEquals('testPass', $config->selectedServer['password']);
 
-        $this->assertArrayNotHasKey('PHP_AUTH_PW', $_SERVER);
+        self::assertArrayNotHasKey('PHP_AUTH_PW', $_SERVER);
 
-        $this->assertEquals(2, Current::$server);
+        self::assertEquals(2, Current::$server);
 
         // case 2
         $this->object->user = 'testUser';
@@ -246,16 +246,16 @@ class AuthenticationHttpTest extends AbstractTestCase
 
         $config->selectedServer = ['host' => 'a', 'user' => 'user2'];
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->storeCredentials(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             ['user' => 'testUser', 'password' => 'testPass', 'host' => 'a'],
             $config->selectedServer,
         );
 
-        $this->assertEquals(2, Current::$server);
+        self::assertEquals(2, Current::$server);
 
         // case 3
         Current::$server = 3;
@@ -265,16 +265,16 @@ class AuthenticationHttpTest extends AbstractTestCase
 
         $config->selectedServer = ['host' => 'a', 'user' => 'user2'];
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->storeCredentials(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             ['user' => 'testUser', 'password' => 'testPass', 'host' => 'a'],
             $config->selectedServer,
         );
 
-        $this->assertEquals(3, Current::$server);
+        self::assertEquals(3, Current::$server);
     }
 
     #[Group('medium')]
@@ -291,7 +291,7 @@ class AuthenticationHttpTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->exactly(3))
+        $dbi->expects(self::exactly(3))
             ->method('getError')
             ->willReturn('error 123', 'error 321', '');
 
@@ -306,18 +306,18 @@ class AuthenticationHttpTest extends AbstractTestCase
 
         $result = ob_get_clean();
 
-        $this->assertInstanceOf(ExitException::class, $throwable);
+        self::assertInstanceOf(ExitException::class, $throwable);
 
-        $this->assertIsString($result);
+        self::assertIsString($result);
 
-        $this->assertStringContainsString('<p>error 123</p>', $result);
+        self::assertStringContainsString('<p>error 123</p>', $result);
 
         $this->object = $this->getMockBuilder(AuthenticationHttp::class)
             ->disableOriginalConstructor()
             ->onlyMethods(['authForm'])
             ->getMock();
 
-        $this->object->expects($this->exactly(2))
+        $this->object->expects(self::exactly(2))
             ->method('authForm')
             ->willThrowException(new ExitException());
         // case 2

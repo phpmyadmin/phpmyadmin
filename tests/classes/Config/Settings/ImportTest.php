@@ -18,8 +18,8 @@ class ImportTest extends TestCase
     {
         $import = new Import(['format' => $actual]);
         $importArray = $import->asArray();
-        $this->assertSame($expected, $import->format);
-        $this->assertSame($expected, $importArray['format']);
+        self::assertSame($expected, $import->format);
+        self::assertSame($expected, $importArray['format']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -38,8 +38,8 @@ class ImportTest extends TestCase
     {
         $import = new Import(['charset' => $actual]);
         $importArray = $import->asArray();
-        $this->assertSame($expected, $import->charset);
-        $this->assertSame($expected, $importArray['charset']);
+        self::assertSame($expected, $import->charset);
+        self::assertSame($expected, $importArray['charset']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -56,8 +56,8 @@ class ImportTest extends TestCase
     {
         $import = new Import(['allow_interrupt' => $actual]);
         $importArray = $import->asArray();
-        $this->assertSame($expected, $import->allow_interrupt);
-        $this->assertSame($expected, $importArray['allow_interrupt']);
+        self::assertSame($expected, $import->allow_interrupt);
+        self::assertSame($expected, $importArray['allow_interrupt']);
     }
 
     /** @return iterable<string, array{mixed, bool}> */
@@ -74,8 +74,8 @@ class ImportTest extends TestCase
     {
         $import = new Import(['skip_queries' => $actual]);
         $importArray = $import->asArray();
-        $this->assertSame($expected, $import->skip_queries);
-        $this->assertSame($expected, $importArray['skip_queries']);
+        self::assertSame($expected, $import->skip_queries);
+        self::assertSame($expected, $importArray['skip_queries']);
     }
 
     /** @return iterable<string, array{mixed, int}> */
@@ -93,8 +93,8 @@ class ImportTest extends TestCase
     {
         $import = new Import(['sql_compatibility' => $actual]);
         $importArray = $import->asArray();
-        $this->assertSame($expected, $import->sql_compatibility);
-        $this->assertSame($expected, $importArray['sql_compatibility']);
+        self::assertSame($expected, $import->sql_compatibility);
+        self::assertSame($expected, $importArray['sql_compatibility']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -119,8 +119,8 @@ class ImportTest extends TestCase
     {
         $import = new Import(['sql_no_auto_value_on_zero' => $actual]);
         $importArray = $import->asArray();
-        $this->assertSame($expected, $import->sql_no_auto_value_on_zero);
-        $this->assertSame($expected, $importArray['sql_no_auto_value_on_zero']);
+        self::assertSame($expected, $import->sql_no_auto_value_on_zero);
+        self::assertSame($expected, $importArray['sql_no_auto_value_on_zero']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -128,8 +128,8 @@ class ImportTest extends TestCase
     {
         $import = new Import(['sql_read_as_multibytes' => $actual]);
         $importArray = $import->asArray();
-        $this->assertSame($expected, $import->sql_read_as_multibytes);
-        $this->assertSame($expected, $importArray['sql_read_as_multibytes']);
+        self::assertSame($expected, $import->sql_read_as_multibytes);
+        self::assertSame($expected, $importArray['sql_read_as_multibytes']);
     }
 
     /** @return iterable<string, array{mixed, bool}> */
@@ -146,8 +146,8 @@ class ImportTest extends TestCase
     {
         $import = new Import(['csv_replace' => $actual]);
         $importArray = $import->asArray();
-        $this->assertSame($expected, $import->csv_replace);
-        $this->assertSame($expected, $importArray['csv_replace']);
+        self::assertSame($expected, $import->csv_replace);
+        self::assertSame($expected, $importArray['csv_replace']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -155,8 +155,8 @@ class ImportTest extends TestCase
     {
         $import = new Import(['csv_ignore' => $actual]);
         $importArray = $import->asArray();
-        $this->assertSame($expected, $import->csv_ignore);
-        $this->assertSame($expected, $importArray['csv_ignore']);
+        self::assertSame($expected, $import->csv_ignore);
+        self::assertSame($expected, $importArray['csv_ignore']);
     }
 
     #[DataProvider('valuesForCsvTerminatedProvider')]
@@ -164,8 +164,8 @@ class ImportTest extends TestCase
     {
         $import = new Import(['csv_terminated' => $actual]);
         $importArray = $import->asArray();
-        $this->assertSame($expected, $import->csv_terminated);
-        $this->assertSame($expected, $importArray['csv_terminated']);
+        self::assertSame($expected, $import->csv_terminated);
+        self::assertSame($expected, $importArray['csv_terminated']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -182,8 +182,8 @@ class ImportTest extends TestCase
     {
         $import = new Import(['csv_enclosed' => $actual]);
         $importArray = $import->asArray();
-        $this->assertSame($expected, $import->csv_enclosed);
-        $this->assertSame($expected, $importArray['csv_enclosed']);
+        self::assertSame($expected, $import->csv_enclosed);
+        self::assertSame($expected, $importArray['csv_enclosed']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -200,8 +200,8 @@ class ImportTest extends TestCase
     {
         $import = new Import(['csv_escaped' => $actual]);
         $importArray = $import->asArray();
-        $this->assertSame($expected, $import->csv_escaped);
-        $this->assertSame($expected, $importArray['csv_escaped']);
+        self::assertSame($expected, $import->csv_escaped);
+        self::assertSame($expected, $importArray['csv_escaped']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -218,8 +218,8 @@ class ImportTest extends TestCase
     {
         $import = new Import(['csv_new_line' => $actual]);
         $importArray = $import->asArray();
-        $this->assertSame($expected, $import->csv_new_line);
-        $this->assertSame($expected, $importArray['csv_new_line']);
+        self::assertSame($expected, $import->csv_new_line);
+        self::assertSame($expected, $importArray['csv_new_line']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -236,8 +236,8 @@ class ImportTest extends TestCase
     {
         $import = new Import(['csv_columns' => $actual]);
         $importArray = $import->asArray();
-        $this->assertSame($expected, $import->csv_columns);
-        $this->assertSame($expected, $importArray['csv_columns']);
+        self::assertSame($expected, $import->csv_columns);
+        self::assertSame($expected, $importArray['csv_columns']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -254,8 +254,8 @@ class ImportTest extends TestCase
     {
         $import = new Import(['csv_col_names' => $actual]);
         $importArray = $import->asArray();
-        $this->assertSame($expected, $import->csv_col_names);
-        $this->assertSame($expected, $importArray['csv_col_names']);
+        self::assertSame($expected, $import->csv_col_names);
+        self::assertSame($expected, $importArray['csv_col_names']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -263,8 +263,8 @@ class ImportTest extends TestCase
     {
         $import = new Import(['ldi_replace' => $actual]);
         $importArray = $import->asArray();
-        $this->assertSame($expected, $import->ldi_replace);
-        $this->assertSame($expected, $importArray['ldi_replace']);
+        self::assertSame($expected, $import->ldi_replace);
+        self::assertSame($expected, $importArray['ldi_replace']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -272,8 +272,8 @@ class ImportTest extends TestCase
     {
         $import = new Import(['ldi_ignore' => $actual]);
         $importArray = $import->asArray();
-        $this->assertSame($expected, $import->ldi_ignore);
-        $this->assertSame($expected, $importArray['ldi_ignore']);
+        self::assertSame($expected, $import->ldi_ignore);
+        self::assertSame($expected, $importArray['ldi_ignore']);
     }
 
     #[DataProvider('valuesForLdiTerminatedProvider')]
@@ -281,8 +281,8 @@ class ImportTest extends TestCase
     {
         $import = new Import(['ldi_terminated' => $actual]);
         $importArray = $import->asArray();
-        $this->assertSame($expected, $import->ldi_terminated);
-        $this->assertSame($expected, $importArray['ldi_terminated']);
+        self::assertSame($expected, $import->ldi_terminated);
+        self::assertSame($expected, $importArray['ldi_terminated']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -299,8 +299,8 @@ class ImportTest extends TestCase
     {
         $import = new Import(['ldi_enclosed' => $actual]);
         $importArray = $import->asArray();
-        $this->assertSame($expected, $import->ldi_enclosed);
-        $this->assertSame($expected, $importArray['ldi_enclosed']);
+        self::assertSame($expected, $import->ldi_enclosed);
+        self::assertSame($expected, $importArray['ldi_enclosed']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -317,8 +317,8 @@ class ImportTest extends TestCase
     {
         $import = new Import(['ldi_escaped' => $actual]);
         $importArray = $import->asArray();
-        $this->assertSame($expected, $import->ldi_escaped);
-        $this->assertSame($expected, $importArray['ldi_escaped']);
+        self::assertSame($expected, $import->ldi_escaped);
+        self::assertSame($expected, $importArray['ldi_escaped']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -335,8 +335,8 @@ class ImportTest extends TestCase
     {
         $import = new Import(['ldi_new_line' => $actual]);
         $importArray = $import->asArray();
-        $this->assertSame($expected, $import->ldi_new_line);
-        $this->assertSame($expected, $importArray['ldi_new_line']);
+        self::assertSame($expected, $import->ldi_new_line);
+        self::assertSame($expected, $importArray['ldi_new_line']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -353,8 +353,8 @@ class ImportTest extends TestCase
     {
         $import = new Import(['ldi_columns' => $actual]);
         $importArray = $import->asArray();
-        $this->assertSame($expected, $import->ldi_columns);
-        $this->assertSame($expected, $importArray['ldi_columns']);
+        self::assertSame($expected, $import->ldi_columns);
+        self::assertSame($expected, $importArray['ldi_columns']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -371,8 +371,8 @@ class ImportTest extends TestCase
     {
         $import = new Import(['ldi_local_option' => $actual]);
         $importArray = $import->asArray();
-        $this->assertSame($expected, $import->ldi_local_option);
-        $this->assertSame($expected, $importArray['ldi_local_option']);
+        self::assertSame($expected, $import->ldi_local_option);
+        self::assertSame($expected, $importArray['ldi_local_option']);
     }
 
     /** @return iterable<string, array{mixed, string|bool}> */
@@ -390,8 +390,8 @@ class ImportTest extends TestCase
     {
         $import = new Import(['ods_col_names' => $actual]);
         $importArray = $import->asArray();
-        $this->assertSame($expected, $import->ods_col_names);
-        $this->assertSame($expected, $importArray['ods_col_names']);
+        self::assertSame($expected, $import->ods_col_names);
+        self::assertSame($expected, $importArray['ods_col_names']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -399,8 +399,8 @@ class ImportTest extends TestCase
     {
         $import = new Import(['ods_empty_rows' => $actual]);
         $importArray = $import->asArray();
-        $this->assertSame($expected, $import->ods_empty_rows);
-        $this->assertSame($expected, $importArray['ods_empty_rows']);
+        self::assertSame($expected, $import->ods_empty_rows);
+        self::assertSame($expected, $importArray['ods_empty_rows']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -408,8 +408,8 @@ class ImportTest extends TestCase
     {
         $import = new Import(['ods_recognize_percentages' => $actual]);
         $importArray = $import->asArray();
-        $this->assertSame($expected, $import->ods_recognize_percentages);
-        $this->assertSame($expected, $importArray['ods_recognize_percentages']);
+        self::assertSame($expected, $import->ods_recognize_percentages);
+        self::assertSame($expected, $importArray['ods_recognize_percentages']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -417,7 +417,7 @@ class ImportTest extends TestCase
     {
         $import = new Import(['ods_recognize_currency' => $actual]);
         $importArray = $import->asArray();
-        $this->assertSame($expected, $import->ods_recognize_currency);
-        $this->assertSame($expected, $importArray['ods_recognize_currency']);
+        self::assertSame($expected, $import->ods_recognize_currency);
+        self::assertSame($expected, $importArray['ods_recognize_currency']);
     }
 }

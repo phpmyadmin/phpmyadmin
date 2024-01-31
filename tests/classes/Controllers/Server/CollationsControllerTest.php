@@ -47,20 +47,20 @@ class CollationsControllerTest extends AbstractTestCase
         $controller = new CollationsController($response, new Template(), DatabaseInterface::getInstance());
 
         $this->dummyDbi->addSelectDb('mysql');
-        $controller($this->createStub(ServerRequest::class));
+        $controller(self::createStub(ServerRequest::class));
         $this->dummyDbi->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();
 
-        $this->assertStringContainsString('<div><strong>latin1</strong></div>', $actual);
-        $this->assertStringContainsString('<div>cp1252 West European</div>', $actual);
-        $this->assertStringContainsString('<div><strong>latin1_swedish_ci</strong></div>', $actual);
-        $this->assertStringContainsString('<div>Swedish, case-insensitive</div>', $actual);
-        $this->assertStringContainsString('<span class="badge bg-secondary text-dark">default</span>', $actual);
-        $this->assertStringContainsString('<div><strong>utf8</strong></div>', $actual);
-        $this->assertStringContainsString('<div>UTF-8 Unicode</div>', $actual);
-        $this->assertStringContainsString('<div><strong>utf8_bin</strong></div>', $actual);
-        $this->assertStringContainsString('<div>Unicode, binary</div>', $actual);
-        $this->assertStringContainsString('<div><strong>utf8_general_ci</strong></div>', $actual);
-        $this->assertStringContainsString('<div>Unicode, case-insensitive</div>', $actual);
+        self::assertStringContainsString('<div><strong>latin1</strong></div>', $actual);
+        self::assertStringContainsString('<div>cp1252 West European</div>', $actual);
+        self::assertStringContainsString('<div><strong>latin1_swedish_ci</strong></div>', $actual);
+        self::assertStringContainsString('<div>Swedish, case-insensitive</div>', $actual);
+        self::assertStringContainsString('<span class="badge bg-secondary text-dark">default</span>', $actual);
+        self::assertStringContainsString('<div><strong>utf8</strong></div>', $actual);
+        self::assertStringContainsString('<div>UTF-8 Unicode</div>', $actual);
+        self::assertStringContainsString('<div><strong>utf8_bin</strong></div>', $actual);
+        self::assertStringContainsString('<div>Unicode, binary</div>', $actual);
+        self::assertStringContainsString('<div><strong>utf8_general_ci</strong></div>', $actual);
+        self::assertStringContainsString('<div>Unicode, case-insensitive</div>', $actual);
     }
 }

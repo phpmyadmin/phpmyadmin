@@ -49,17 +49,17 @@ class ScriptsTest extends AbstractTestCase
 
         $actual = $this->object->getDisplay();
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'src="js/dist/common.js?v=' . rawurlencode(Version::VERSION) . '"',
             $actual,
         );
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'window.AJAX.scriptHandler.add(\'vendor\/codemirror\/lib\/codemirror.js\', false);',
             $actual,
         );
-        $this->assertStringContainsString('window.AJAX.scriptHandler.add(\'common.js\', true);', $actual);
-        $this->assertStringContainsString('window.AJAX.fireOnload(\'common.js\')', $actual);
-        $this->assertStringNotContainsString(
+        self::assertStringContainsString('window.AJAX.scriptHandler.add(\'common.js\', true);', $actual);
+        self::assertStringContainsString('window.AJAX.fireOnload(\'common.js\')', $actual);
+        self::assertStringNotContainsString(
             'window.AJAX.fireOnload(\'vendor\/codemirror\/lib\/codemirror.js\')',
             $actual,
         );
@@ -74,7 +74,7 @@ class ScriptsTest extends AbstractTestCase
 
         $actual = $this->object->getDisplay();
 
-        $this->assertStringContainsString('alert(\'CodeAdded\');', $actual);
+        self::assertStringContainsString('alert(\'CodeAdded\');', $actual);
     }
 
     /**
@@ -86,7 +86,7 @@ class ScriptsTest extends AbstractTestCase
         $this->object->addFile('vendor/codemirror/lib/codemirror.js');
 
         $this->object->addFile('common.js');
-        $this->assertEquals(
+        self::assertEquals(
             [['name' => 'vendor/codemirror/lib/codemirror.js', 'fire' => 0], ['name' => 'common.js', 'fire' => 1]],
             $this->object->getFiles(),
         );
@@ -101,14 +101,14 @@ class ScriptsTest extends AbstractTestCase
 
         // Assert empty _files property of
         // Scripts
-        $this->assertEquals([], $reflection->getValue($this->object));
+        self::assertEquals([], $reflection->getValue($this->object));
 
         // Add one script file
         $file = 'common.js';
         $hash = 'd7716810d825f4b55d18727c3ccb24e6';
         $files = [$hash => ['has_onload' => 1, 'filename' => 'common.js', 'params' => []]];
         $this->object->addFile($file);
-        $this->assertEquals($files, $reflection->getValue($this->object));
+        self::assertEquals($files, $reflection->getValue($this->object));
     }
 
     /**
@@ -124,6 +124,6 @@ class ScriptsTest extends AbstractTestCase
             '347a57484fcd6ea6d8a125e6e1d31f78' => ['has_onload' => 1, 'filename' => 'sql.js', 'params' => []],
         ];
         $this->object->addFiles($filenames);
-        $this->assertEquals($files, $reflection->getValue($this->object));
+        self::assertEquals($files, $reflection->getValue($this->object));
     }
 }

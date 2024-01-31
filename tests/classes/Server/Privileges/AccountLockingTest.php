@@ -16,16 +16,16 @@ class AccountLockingTest extends TestCase
 {
     public function testLockWithValidAccount(): void
     {
-        $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->once())->method('isMariaDB')->willReturn(true);
-        $dbi->expects($this->once())->method('getVersion')->willReturn(100402);
-        $dbi->expects($this->exactly(2))->method('quoteString')
+        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi->expects(self::once())->method('isMariaDB')->willReturn(true);
+        $dbi->expects(self::once())->method('getVersion')->willReturn(100402);
+        $dbi->expects(self::exactly(2))->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('tryQuery')
-            ->with($this->equalTo('ALTER USER \'test.user\'@\'test.host\' ACCOUNT LOCK;'))
-            ->willReturn($this->createStub(DummyResult::class));
-        $dbi->expects($this->never())->method('getError');
+            ->with(self::equalTo('ALTER USER \'test.user\'@\'test.host\' ACCOUNT LOCK;'))
+            ->willReturn(self::createStub(DummyResult::class));
+        $dbi->expects(self::never())->method('getError');
 
         $accountLocking = new AccountLocking($dbi);
         $accountLocking->lock('test.user', 'test.host');
@@ -33,16 +33,16 @@ class AccountLockingTest extends TestCase
 
     public function testLockWithInvalidAccount(): void
     {
-        $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->once())->method('isMariaDB')->willReturn(true);
-        $dbi->expects($this->once())->method('getVersion')->willReturn(100402);
-        $dbi->expects($this->exactly(2))->method('quoteString')
+        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi->expects(self::once())->method('isMariaDB')->willReturn(true);
+        $dbi->expects(self::once())->method('getVersion')->willReturn(100402);
+        $dbi->expects(self::exactly(2))->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('tryQuery')
-            ->with($this->equalTo('ALTER USER \'test.user\'@\'test.host\' ACCOUNT LOCK;'))
+            ->with(self::equalTo('ALTER USER \'test.user\'@\'test.host\' ACCOUNT LOCK;'))
             ->willReturn(false);
-        $dbi->expects($this->once())->method('getError')->willReturn('Invalid account.');
+        $dbi->expects(self::once())->method('getError')->willReturn('Invalid account.');
 
         $accountLocking = new AccountLocking($dbi);
 
@@ -54,12 +54,12 @@ class AccountLockingTest extends TestCase
 
     public function testLockWithUnsupportedServer(): void
     {
-        $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->once())->method('isMariaDB')->willReturn(true);
-        $dbi->expects($this->once())->method('getVersion')->willReturn(100401);
-        $dbi->expects($this->never())->method('quoteString');
-        $dbi->expects($this->never())->method('tryQuery');
-        $dbi->expects($this->never())->method('getError');
+        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi->expects(self::once())->method('isMariaDB')->willReturn(true);
+        $dbi->expects(self::once())->method('getVersion')->willReturn(100401);
+        $dbi->expects(self::never())->method('quoteString');
+        $dbi->expects(self::never())->method('tryQuery');
+        $dbi->expects(self::never())->method('getError');
 
         $accountLocking = new AccountLocking($dbi);
 
@@ -71,16 +71,16 @@ class AccountLockingTest extends TestCase
 
     public function testUnlockWithValidAccount(): void
     {
-        $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->once())->method('isMariaDB')->willReturn(true);
-        $dbi->expects($this->once())->method('getVersion')->willReturn(100402);
-        $dbi->expects($this->exactly(2))->method('quoteString')
+        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi->expects(self::once())->method('isMariaDB')->willReturn(true);
+        $dbi->expects(self::once())->method('getVersion')->willReturn(100402);
+        $dbi->expects(self::exactly(2))->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('tryQuery')
-            ->with($this->equalTo('ALTER USER \'test.user\'@\'test.host\' ACCOUNT UNLOCK;'))
-            ->willReturn($this->createStub(DummyResult::class));
-        $dbi->expects($this->never())->method('getError');
+            ->with(self::equalTo('ALTER USER \'test.user\'@\'test.host\' ACCOUNT UNLOCK;'))
+            ->willReturn(self::createStub(DummyResult::class));
+        $dbi->expects(self::never())->method('getError');
 
         $accountLocking = new AccountLocking($dbi);
         $accountLocking->unlock('test.user', 'test.host');
@@ -88,16 +88,16 @@ class AccountLockingTest extends TestCase
 
     public function testUnlockWithInvalidAccount(): void
     {
-        $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->once())->method('isMariaDB')->willReturn(true);
-        $dbi->expects($this->once())->method('getVersion')->willReturn(100402);
-        $dbi->expects($this->exactly(2))->method('quoteString')
+        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi->expects(self::once())->method('isMariaDB')->willReturn(true);
+        $dbi->expects(self::once())->method('getVersion')->willReturn(100402);
+        $dbi->expects(self::exactly(2))->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('tryQuery')
-            ->with($this->equalTo('ALTER USER \'test.user\'@\'test.host\' ACCOUNT UNLOCK;'))
+            ->with(self::equalTo('ALTER USER \'test.user\'@\'test.host\' ACCOUNT UNLOCK;'))
             ->willReturn(false);
-        $dbi->expects($this->once())->method('getError')->willReturn('Invalid account.');
+        $dbi->expects(self::once())->method('getError')->willReturn('Invalid account.');
 
         $accountLocking = new AccountLocking($dbi);
 
@@ -109,12 +109,12 @@ class AccountLockingTest extends TestCase
 
     public function testUnlockWithUnsupportedServer(): void
     {
-        $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->once())->method('isMariaDB')->willReturn(false);
-        $dbi->expects($this->once())->method('getVersion')->willReturn(50705);
-        $dbi->expects($this->never())->method('quoteString');
-        $dbi->expects($this->never())->method('tryQuery');
-        $dbi->expects($this->never())->method('getError');
+        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi->expects(self::once())->method('isMariaDB')->willReturn(false);
+        $dbi->expects(self::once())->method('getVersion')->willReturn(50705);
+        $dbi->expects(self::never())->method('quoteString');
+        $dbi->expects(self::never())->method('tryQuery');
+        $dbi->expects(self::never())->method('getError');
 
         $accountLocking = new AccountLocking($dbi);
 

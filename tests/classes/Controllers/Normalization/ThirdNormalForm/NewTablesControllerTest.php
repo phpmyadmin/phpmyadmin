@@ -39,7 +39,7 @@ class NewTablesControllerTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
         $template = new Template();
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['tables', null, $tables], ['pd', null, $pd]]);
 
         $controller = new NewTablesController(
@@ -50,7 +50,7 @@ class NewTablesControllerTest extends AbstractTestCase
         $controller($request);
 
         // phpcs:disable Generic.Files.LineLength.TooLong
-        $this->assertSame([
+        self::assertSame([
             'html' => '<p><b>In order to put the original table \'test_table\' into Third normal form we need to create the following tables:</b></p><p><input type="text" name="test_table" value="test_table">( <u>event</u>, TypeOfEvent, period, Start_time, NameOfVenue, LocationOfVenue )<p><input type="text" name="table2" value="table2">( <u>NameOfVenue</u>, DateOfEvent )<p><input type="text" name="table3" value="table3">( <u>period</u>, NumberOfGuests )',
             'newTables' => [
                 'test_table' => [

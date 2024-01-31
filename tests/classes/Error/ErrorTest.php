@@ -48,7 +48,7 @@ class ErrorTest extends AbstractTestCase
         $bt = [['file' => 'bt1', 'line' => 2, 'function' => 'bar', 'args' => ['foo' => $this]]];
         $this->object->setBacktrace($bt);
         $bt[0]['args']['foo'] = '<Class:PhpMyAdmin\Tests\Error\ErrorTest>';
-        $this->assertEquals($bt, $this->object->getBacktrace());
+        self::assertEquals($bt, $this->object->getBacktrace());
     }
 
     /**
@@ -57,7 +57,7 @@ class ErrorTest extends AbstractTestCase
     public function testSetLine(): void
     {
         $this->object->setLine(15);
-        $this->assertEquals(15, $this->object->getLine());
+        self::assertEquals(15, $this->object->getLine());
     }
 
     /**
@@ -70,7 +70,7 @@ class ErrorTest extends AbstractTestCase
     public function testSetFile(string $file, string $expected): void
     {
         $this->object->setFile($file);
-        $this->assertEquals($expected, $this->object->getFile());
+        self::assertEquals($expected, $this->object->getFile());
     }
 
     /**
@@ -96,7 +96,7 @@ class ErrorTest extends AbstractTestCase
      */
     public function testGetHash(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             1,
             preg_match('/^([a-z0-9]*)$/', $this->object->getHash()),
         );
@@ -107,7 +107,7 @@ class ErrorTest extends AbstractTestCase
      */
     public function testGetBacktraceDisplay(): void
     {
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'PHPUnit\Framework\TestRunner->run(<Class:PhpMyAdmin\Tests\Error\ErrorTest>)',
             $this->object->getBacktraceDisplay(),
         );
@@ -119,18 +119,18 @@ class ErrorTest extends AbstractTestCase
     public function testGetDisplay(): void
     {
         $actual = $this->object->getDisplay();
-        $this->assertStringStartsWith(
+        self::assertStringStartsWith(
             '<div class="alert alert-danger" role="alert"><p><strong>Warning</strong> in error.txt#15</p>'
             . '<img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> Compile Error'
             . '<p class="mt-3"><strong>Backtrace</strong></p><ol class="list-group"><li class="list-group-item">',
             $actual,
         );
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'PHPUnit\Framework\TestRunner->run(<Class:PhpMyAdmin\Tests\Error\ErrorTest>)</li>'
             . '<li class="list-group-item">',
             $actual,
         );
-        $this->assertStringEndsWith('</li></ol></div>' . "\n", $actual);
+        self::assertStringEndsWith('</li></ol></div>' . "\n", $actual);
     }
 
     /**
@@ -138,7 +138,7 @@ class ErrorTest extends AbstractTestCase
      */
     public function testGetHtmlTitle(): void
     {
-        $this->assertEquals('Warning: Compile Error', $this->object->getHtmlTitle());
+        self::assertEquals('Warning: Compile Error', $this->object->getHtmlTitle());
     }
 
     /**
@@ -146,7 +146,7 @@ class ErrorTest extends AbstractTestCase
      */
     public function testGetTitle(): void
     {
-        $this->assertEquals('Warning: Compile Error', $this->object->getTitle());
+        self::assertEquals('Warning: Compile Error', $this->object->getTitle());
     }
 
     /**
@@ -164,9 +164,9 @@ class ErrorTest extends AbstractTestCase
         $this->object->setBacktrace($bt);
 
         // case: full backtrace
-        $this->assertCount(4, $this->object->getBacktrace());
+        self::assertCount(4, $this->object->getBacktrace());
 
         // case: first 2 frames
-        $this->assertCount(2, $this->object->getBacktrace(2));
+        self::assertCount(2, $this->object->getBacktrace(2));
     }
 }

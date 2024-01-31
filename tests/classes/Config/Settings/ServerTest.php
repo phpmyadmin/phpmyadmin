@@ -17,8 +17,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['host' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->host);
-        $this->assertSame($expected, $serverArray['host']);
+        self::assertSame($expected, $server->host);
+        self::assertSame($expected, $serverArray['host']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -35,8 +35,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['port' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->port);
-        $this->assertSame($expected, $serverArray['port']);
+        self::assertSame($expected, $server->port);
+        self::assertSame($expected, $serverArray['port']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -53,8 +53,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['socket' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->socket);
-        $this->assertSame($expected, $serverArray['socket']);
+        self::assertSame($expected, $server->socket);
+        self::assertSame($expected, $serverArray['socket']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -71,8 +71,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['ssl' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->ssl);
-        $this->assertSame($expected, $serverArray['ssl']);
+        self::assertSame($expected, $server->ssl);
+        self::assertSame($expected, $serverArray['ssl']);
     }
 
     /** @return iterable<string, array{mixed, bool}> */
@@ -89,8 +89,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['ssl_key' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->sslKey);
-        $this->assertSame($expected, $serverArray['ssl_key']);
+        self::assertSame($expected, $server->sslKey);
+        self::assertSame($expected, $serverArray['ssl_key']);
     }
 
     /** @return iterable<string, array{mixed, string|null}> */
@@ -107,8 +107,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['ssl_cert' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->sslCert);
-        $this->assertSame($expected, $serverArray['ssl_cert']);
+        self::assertSame($expected, $server->sslCert);
+        self::assertSame($expected, $serverArray['ssl_cert']);
     }
 
     #[DataProvider('valuesForSslOptionsProvider')]
@@ -116,8 +116,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['ssl_ca' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->sslCa);
-        $this->assertSame($expected, $serverArray['ssl_ca']);
+        self::assertSame($expected, $server->sslCa);
+        self::assertSame($expected, $serverArray['ssl_ca']);
     }
 
     #[DataProvider('valuesForSslOptionsProvider')]
@@ -125,8 +125,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['ssl_ca_path' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->sslCaPath);
-        $this->assertSame($expected, $serverArray['ssl_ca_path']);
+        self::assertSame($expected, $server->sslCaPath);
+        self::assertSame($expected, $serverArray['ssl_ca_path']);
     }
 
     #[DataProvider('valuesForSslOptionsProvider')]
@@ -134,8 +134,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['ssl_ciphers' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->sslCiphers);
-        $this->assertSame($expected, $serverArray['ssl_ciphers']);
+        self::assertSame($expected, $server->sslCiphers);
+        self::assertSame($expected, $serverArray['ssl_ciphers']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -143,8 +143,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['ssl_verify' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->sslVerify);
-        $this->assertSame($expected, $serverArray['ssl_verify']);
+        self::assertSame($expected, $server->sslVerify);
+        self::assertSame($expected, $serverArray['ssl_verify']);
     }
 
     /** @return iterable<string, array{mixed, bool}> */
@@ -161,8 +161,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['compress' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->compress);
-        $this->assertSame($expected, $serverArray['compress']);
+        self::assertSame($expected, $server->compress);
+        self::assertSame($expected, $serverArray['compress']);
     }
 
     #[DataProvider('valuesForControlHostProvider')]
@@ -170,8 +170,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['controlhost' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->controlHost);
-        $this->assertSame($expected, $serverArray['controlhost']);
+        self::assertSame($expected, $server->controlHost);
+        self::assertSame($expected, $serverArray['controlhost']);
     }
 
     #[DataProvider('valuesForControlHostProvider')]
@@ -179,8 +179,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['control_host' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->controlHost);
-        $this->assertSame($expected, $serverArray['controlhost']);
+        self::assertSame($expected, $server->controlHost);
+        self::assertSame($expected, $serverArray['controlhost']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -197,8 +197,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['controlport' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->controlPort);
-        $this->assertSame($expected, $serverArray['controlport']);
+        self::assertSame($expected, $server->controlPort);
+        self::assertSame($expected, $serverArray['controlport']);
     }
 
     #[DataProvider('valuesForControlPortProvider')]
@@ -206,8 +206,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['control_port' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->controlPort);
-        $this->assertSame($expected, $serverArray['controlport']);
+        self::assertSame($expected, $server->controlPort);
+        self::assertSame($expected, $serverArray['controlport']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -224,8 +224,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['controluser' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->controlUser);
-        $this->assertSame($expected, $serverArray['controluser']);
+        self::assertSame($expected, $server->controlUser);
+        self::assertSame($expected, $serverArray['controluser']);
     }
 
     #[DataProvider('valuesForControlUserProvider')]
@@ -233,8 +233,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['control_user' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->controlUser);
-        $this->assertSame($expected, $serverArray['controluser']);
+        self::assertSame($expected, $server->controlUser);
+        self::assertSame($expected, $serverArray['controluser']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -251,8 +251,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['controlpass' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->controlPass);
-        $this->assertSame($expected, $serverArray['controlpass']);
+        self::assertSame($expected, $server->controlPass);
+        self::assertSame($expected, $serverArray['controlpass']);
     }
 
     #[DataProvider('valuesForControlPassProvider')]
@@ -260,8 +260,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['control_pass' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->controlPass);
-        $this->assertSame($expected, $serverArray['controlpass']);
+        self::assertSame($expected, $server->controlPass);
+        self::assertSame($expected, $serverArray['controlpass']);
     }
 
     #[DataProvider('valuesForControlPassProvider')]
@@ -269,8 +269,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['control_password' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->controlPass);
-        $this->assertSame($expected, $serverArray['controlpass']);
+        self::assertSame($expected, $server->controlPass);
+        self::assertSame($expected, $serverArray['controlpass']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -287,8 +287,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['control_socket' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->controlSocket);
-        $this->assertSame($expected, $serverArray['control_socket']);
+        self::assertSame($expected, $server->controlSocket);
+        self::assertSame($expected, $serverArray['control_socket']);
     }
 
     /** @return iterable<string, array{mixed, string|null}> */
@@ -305,8 +305,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['control_ssl' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->controlSsl);
-        $this->assertSame($expected, $serverArray['control_ssl']);
+        self::assertSame($expected, $server->controlSsl);
+        self::assertSame($expected, $serverArray['control_ssl']);
     }
 
     /** @return iterable<string, array{mixed, bool|null}> */
@@ -323,8 +323,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['control_ssl_key' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->controlSslKey);
-        $this->assertSame($expected, $serverArray['control_ssl_key']);
+        self::assertSame($expected, $server->controlSslKey);
+        self::assertSame($expected, $serverArray['control_ssl_key']);
     }
 
     #[DataProvider('valuesForSslOptionsProvider')]
@@ -332,8 +332,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['control_ssl_cert' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->controlSslCert);
-        $this->assertSame($expected, $serverArray['control_ssl_cert']);
+        self::assertSame($expected, $server->controlSslCert);
+        self::assertSame($expected, $serverArray['control_ssl_cert']);
     }
 
     #[DataProvider('valuesForSslOptionsProvider')]
@@ -341,8 +341,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['control_ssl_ca' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->controlSslCa);
-        $this->assertSame($expected, $serverArray['control_ssl_ca']);
+        self::assertSame($expected, $server->controlSslCa);
+        self::assertSame($expected, $serverArray['control_ssl_ca']);
     }
 
     #[DataProvider('valuesForSslOptionsProvider')]
@@ -350,8 +350,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['control_ssl_ca_path' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->controlSslCaPath);
-        $this->assertSame($expected, $serverArray['control_ssl_ca_path']);
+        self::assertSame($expected, $server->controlSslCaPath);
+        self::assertSame($expected, $serverArray['control_ssl_ca_path']);
     }
 
     #[DataProvider('valuesForSslOptionsProvider')]
@@ -359,8 +359,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['control_ssl_ciphers' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->controlSslCiphers);
-        $this->assertSame($expected, $serverArray['control_ssl_ciphers']);
+        self::assertSame($expected, $server->controlSslCiphers);
+        self::assertSame($expected, $serverArray['control_ssl_ciphers']);
     }
 
     #[DataProvider('valuesForControlSslVerifyProvider')]
@@ -368,8 +368,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['control_ssl_verify' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->controlSslVerify);
-        $this->assertSame($expected, $serverArray['control_ssl_verify']);
+        self::assertSame($expected, $server->controlSslVerify);
+        self::assertSame($expected, $serverArray['control_ssl_verify']);
     }
 
     /** @return iterable<string, array{mixed, bool|null}> */
@@ -386,8 +386,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['control_compress' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->controlCompress);
-        $this->assertSame($expected, $serverArray['control_compress']);
+        self::assertSame($expected, $server->controlCompress);
+        self::assertSame($expected, $serverArray['control_compress']);
     }
 
     /** @return iterable<string, array{mixed, bool|null}> */
@@ -404,8 +404,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['control_hide_connection_errors' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->controlHideConnectionErrors);
-        $this->assertSame($expected, $serverArray['control_hide_connection_errors']);
+        self::assertSame($expected, $server->controlHideConnectionErrors);
+        self::assertSame($expected, $serverArray['control_hide_connection_errors']);
     }
 
     /** @return iterable<string, array{mixed, bool|null}> */
@@ -422,8 +422,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['auth_type' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->authType);
-        $this->assertSame($expected, $serverArray['auth_type']);
+        self::assertSame($expected, $server->authType);
+        self::assertSame($expected, $serverArray['auth_type']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -442,8 +442,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['auth_http_realm' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->authHttpRealm);
-        $this->assertSame($expected, $serverArray['auth_http_realm']);
+        self::assertSame($expected, $server->authHttpRealm);
+        self::assertSame($expected, $serverArray['auth_http_realm']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -460,8 +460,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['user' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->user);
-        $this->assertSame($expected, $serverArray['user']);
+        self::assertSame($expected, $server->user);
+        self::assertSame($expected, $serverArray['user']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -478,8 +478,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['password' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->password);
-        $this->assertSame($expected, $serverArray['password']);
+        self::assertSame($expected, $server->password);
+        self::assertSame($expected, $serverArray['password']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -496,8 +496,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['SignonSession' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->signonSession);
-        $this->assertSame($expected, $serverArray['SignonSession']);
+        self::assertSame($expected, $server->signonSession);
+        self::assertSame($expected, $serverArray['SignonSession']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -515,8 +515,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['SignonCookieParams' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->signonCookieParams);
-        $this->assertSame($expected, $serverArray['SignonCookieParams']);
+        self::assertSame($expected, $server->signonCookieParams);
+        self::assertSame($expected, $serverArray['SignonCookieParams']);
     }
 
     /** @return iterable<string, array{mixed, array<string, int|string|bool>}> */
@@ -584,8 +584,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['SignonScript' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->signonScript);
-        $this->assertSame($expected, $serverArray['SignonScript']);
+        self::assertSame($expected, $server->signonScript);
+        self::assertSame($expected, $serverArray['SignonScript']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -602,8 +602,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['SignonURL' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->signonUrl);
-        $this->assertSame($expected, $serverArray['SignonURL']);
+        self::assertSame($expected, $server->signonUrl);
+        self::assertSame($expected, $serverArray['SignonURL']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -620,8 +620,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['LogoutURL' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->logoutUrl);
-        $this->assertSame($expected, $serverArray['LogoutURL']);
+        self::assertSame($expected, $server->logoutUrl);
+        self::assertSame($expected, $serverArray['LogoutURL']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -639,8 +639,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['only_db' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->onlyDb);
-        $this->assertSame($expected, $serverArray['only_db']);
+        self::assertSame($expected, $server->onlyDb);
+        self::assertSame($expected, $serverArray['only_db']);
     }
 
     /** @return iterable<string, array{mixed, string|string[]}> */
@@ -658,8 +658,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['hide_db' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->hideDb);
-        $this->assertSame($expected, $serverArray['hide_db']);
+        self::assertSame($expected, $server->hideDb);
+        self::assertSame($expected, $serverArray['hide_db']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -676,8 +676,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['verbose' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->verbose);
-        $this->assertSame($expected, $serverArray['verbose']);
+        self::assertSame($expected, $server->verbose);
+        self::assertSame($expected, $serverArray['verbose']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -694,8 +694,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['pmadb' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->pmaDb);
-        $this->assertSame($expected, $serverArray['pmadb']);
+        self::assertSame($expected, $server->pmaDb);
+        self::assertSame($expected, $serverArray['pmadb']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -712,8 +712,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['bookmarktable' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->bookmarkTable);
-        $this->assertSame($expected, $serverArray['bookmarktable']);
+        self::assertSame($expected, $server->bookmarkTable);
+        self::assertSame($expected, $serverArray['bookmarktable']);
     }
 
     /** @return iterable<string, array{mixed, string|false}> */
@@ -731,8 +731,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['relation' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->relation);
-        $this->assertSame($expected, $serverArray['relation']);
+        self::assertSame($expected, $server->relation);
+        self::assertSame($expected, $serverArray['relation']);
     }
 
     #[DataProvider('valuesForConfigStorageTablesProvider')]
@@ -740,8 +740,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['table_info' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->tableInfo);
-        $this->assertSame($expected, $serverArray['table_info']);
+        self::assertSame($expected, $server->tableInfo);
+        self::assertSame($expected, $serverArray['table_info']);
     }
 
     #[DataProvider('valuesForConfigStorageTablesProvider')]
@@ -749,8 +749,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['pdf_pages' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->pdfPages);
-        $this->assertSame($expected, $serverArray['pdf_pages']);
+        self::assertSame($expected, $server->pdfPages);
+        self::assertSame($expected, $serverArray['pdf_pages']);
     }
 
     #[DataProvider('valuesForConfigStorageTablesProvider')]
@@ -758,8 +758,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['column_info' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->columnInfo);
-        $this->assertSame($expected, $serverArray['column_info']);
+        self::assertSame($expected, $server->columnInfo);
+        self::assertSame($expected, $serverArray['column_info']);
     }
 
     #[DataProvider('valuesForConfigStorageTablesProvider')]
@@ -767,8 +767,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['history' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->history);
-        $this->assertSame($expected, $serverArray['history']);
+        self::assertSame($expected, $server->history);
+        self::assertSame($expected, $serverArray['history']);
     }
 
     #[DataProvider('valuesForConfigStorageTablesProvider')]
@@ -776,8 +776,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['recent' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->recent);
-        $this->assertSame($expected, $serverArray['recent']);
+        self::assertSame($expected, $server->recent);
+        self::assertSame($expected, $serverArray['recent']);
     }
 
     #[DataProvider('valuesForConfigStorageTablesProvider')]
@@ -785,8 +785,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['favorite' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->favorite);
-        $this->assertSame($expected, $serverArray['favorite']);
+        self::assertSame($expected, $server->favorite);
+        self::assertSame($expected, $serverArray['favorite']);
     }
 
     #[DataProvider('valuesForConfigStorageTablesProvider')]
@@ -794,8 +794,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['table_uiprefs' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->tableUiPrefs);
-        $this->assertSame($expected, $serverArray['table_uiprefs']);
+        self::assertSame($expected, $server->tableUiPrefs);
+        self::assertSame($expected, $serverArray['table_uiprefs']);
     }
 
     #[DataProvider('valuesForConfigStorageTablesProvider')]
@@ -803,8 +803,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['tracking' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->tracking);
-        $this->assertSame($expected, $serverArray['tracking']);
+        self::assertSame($expected, $server->tracking);
+        self::assertSame($expected, $serverArray['tracking']);
     }
 
     #[DataProvider('valuesForConfigStorageTablesProvider')]
@@ -812,8 +812,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['userconfig' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->userConfig);
-        $this->assertSame($expected, $serverArray['userconfig']);
+        self::assertSame($expected, $server->userConfig);
+        self::assertSame($expected, $serverArray['userconfig']);
     }
 
     #[DataProvider('valuesForConfigStorageTablesProvider')]
@@ -821,8 +821,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['users' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->users);
-        $this->assertSame($expected, $serverArray['users']);
+        self::assertSame($expected, $server->users);
+        self::assertSame($expected, $serverArray['users']);
     }
 
     #[DataProvider('valuesForConfigStorageTablesProvider')]
@@ -830,8 +830,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['usergroups' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->userGroups);
-        $this->assertSame($expected, $serverArray['usergroups']);
+        self::assertSame($expected, $server->userGroups);
+        self::assertSame($expected, $serverArray['usergroups']);
     }
 
     #[DataProvider('valuesForConfigStorageTablesProvider')]
@@ -839,8 +839,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['navigationhiding' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->navigationHiding);
-        $this->assertSame($expected, $serverArray['navigationhiding']);
+        self::assertSame($expected, $server->navigationHiding);
+        self::assertSame($expected, $serverArray['navigationhiding']);
     }
 
     #[DataProvider('valuesForConfigStorageTablesProvider')]
@@ -848,8 +848,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['savedsearches' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->savedSearches);
-        $this->assertSame($expected, $serverArray['savedsearches']);
+        self::assertSame($expected, $server->savedSearches);
+        self::assertSame($expected, $serverArray['savedsearches']);
     }
 
     #[DataProvider('valuesForConfigStorageTablesProvider')]
@@ -857,8 +857,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['central_columns' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->centralColumns);
-        $this->assertSame($expected, $serverArray['central_columns']);
+        self::assertSame($expected, $server->centralColumns);
+        self::assertSame($expected, $serverArray['central_columns']);
     }
 
     #[DataProvider('valuesForConfigStorageTablesProvider')]
@@ -866,8 +866,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['designer_settings' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->designerSettings);
-        $this->assertSame($expected, $serverArray['designer_settings']);
+        self::assertSame($expected, $server->designerSettings);
+        self::assertSame($expected, $serverArray['designer_settings']);
     }
 
     #[DataProvider('valuesForConfigStorageTablesProvider')]
@@ -875,8 +875,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['export_templates' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->exportTemplates);
-        $this->assertSame($expected, $serverArray['export_templates']);
+        self::assertSame($expected, $server->exportTemplates);
+        self::assertSame($expected, $serverArray['export_templates']);
     }
 
     #[DataProvider('valuesForMaxTableUiPrefsProvider')]
@@ -884,8 +884,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['MaxTableUiprefs' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->maxTableUiPrefs);
-        $this->assertSame($expected, $serverArray['MaxTableUiprefs']);
+        self::assertSame($expected, $server->maxTableUiPrefs);
+        self::assertSame($expected, $serverArray['MaxTableUiprefs']);
     }
 
     /** @return iterable<string, array{mixed, int}> */
@@ -903,8 +903,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['SessionTimeZone' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->sessionTimeZone);
-        $this->assertSame($expected, $serverArray['SessionTimeZone']);
+        self::assertSame($expected, $server->sessionTimeZone);
+        self::assertSame($expected, $serverArray['SessionTimeZone']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -921,8 +921,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['AllowRoot' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->allowRoot);
-        $this->assertSame($expected, $serverArray['AllowRoot']);
+        self::assertSame($expected, $server->allowRoot);
+        self::assertSame($expected, $serverArray['AllowRoot']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -930,8 +930,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['AllowNoPassword' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->allowNoPassword);
-        $this->assertSame($expected, $serverArray['AllowNoPassword']);
+        self::assertSame($expected, $server->allowNoPassword);
+        self::assertSame($expected, $serverArray['AllowNoPassword']);
     }
 
     /** @param array<string, string|string[]> $expected */
@@ -940,8 +940,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['AllowDeny' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->allowDeny);
-        $this->assertSame($expected, $serverArray['AllowDeny']);
+        self::assertSame($expected, $server->allowDeny);
+        self::assertSame($expected, $serverArray['AllowDeny']);
     }
 
     /** @return iterable<string, array{mixed, array<string, string|string[]>}> */
@@ -970,8 +970,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['DisableIS' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->disableIS);
-        $this->assertSame($expected, $serverArray['DisableIS']);
+        self::assertSame($expected, $server->disableIS);
+        self::assertSame($expected, $serverArray['DisableIS']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -979,8 +979,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['tracking_version_auto_create' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->trackingVersionAutoCreate);
-        $this->assertSame($expected, $serverArray['tracking_version_auto_create']);
+        self::assertSame($expected, $server->trackingVersionAutoCreate);
+        self::assertSame($expected, $serverArray['tracking_version_auto_create']);
     }
 
     #[DataProvider('valuesForTrackingDefaultStatementsProvider')]
@@ -988,8 +988,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['tracking_default_statements' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->trackingDefaultStatements);
-        $this->assertSame($expected, $serverArray['tracking_default_statements']);
+        self::assertSame($expected, $server->trackingDefaultStatements);
+        self::assertSame($expected, $serverArray['tracking_default_statements']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -1011,8 +1011,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['tracking_add_drop_view' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->trackingAddDropView);
-        $this->assertSame($expected, $serverArray['tracking_add_drop_view']);
+        self::assertSame($expected, $server->trackingAddDropView);
+        self::assertSame($expected, $serverArray['tracking_add_drop_view']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -1020,8 +1020,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['tracking_add_drop_table' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->trackingAddDropTable);
-        $this->assertSame($expected, $serverArray['tracking_add_drop_table']);
+        self::assertSame($expected, $server->trackingAddDropTable);
+        self::assertSame($expected, $serverArray['tracking_add_drop_table']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -1029,8 +1029,8 @@ class ServerTest extends TestCase
     {
         $server = new Server(['tracking_add_drop_database' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->trackingAddDropDatabase);
-        $this->assertSame($expected, $serverArray['tracking_add_drop_database']);
+        self::assertSame($expected, $server->trackingAddDropDatabase);
+        self::assertSame($expected, $serverArray['tracking_add_drop_database']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -1038,7 +1038,7 @@ class ServerTest extends TestCase
     {
         $server = new Server(['hide_connection_errors' => $actual]);
         $serverArray = $server->asArray();
-        $this->assertSame($expected, $server->hideConnectionErrors);
-        $this->assertSame($expected, $serverArray['hide_connection_errors']);
+        self::assertSame($expected, $server->hideConnectionErrors);
+        self::assertSame($expected, $serverArray['hide_connection_errors']);
     }
 }

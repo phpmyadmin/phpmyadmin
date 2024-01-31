@@ -61,7 +61,7 @@ class GisPolygonTest extends GisGeomTestCase
     public function testGenerateWkt(array $gisData, int $index, string $empty, string $output): void
     {
         $object = GisPolygon::singleton();
-        $this->assertEquals($output, $object->generateWkt($gisData, $index, $empty));
+        self::assertEquals($output, $object->generateWkt($gisData, $index, $empty));
     }
 
     /**
@@ -107,7 +107,7 @@ class GisPolygonTest extends GisGeomTestCase
     public function testGenerateParams(string $wkt, array $params): void
     {
         $object = GisPolygon::singleton();
-        $this->assertEquals($params, $object->generateParams($wkt));
+        self::assertEquals($params, $object->generateParams($wkt));
     }
 
     /**
@@ -135,7 +135,7 @@ class GisPolygonTest extends GisGeomTestCase
     public function testGetExtent(string $spatial, Extent $extent): void
     {
         $object = GisPolygon::singleton();
-        $this->assertEquals($extent, $object->getExtent($spatial));
+        self::assertEquals($extent, $object->getExtent($spatial));
     }
 
     /**
@@ -159,7 +159,7 @@ class GisPolygonTest extends GisGeomTestCase
     {
         $object = GisPolygon::singleton();
         $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
-        $this->assertNotNull($image);
+        self::assertNotNull($image);
         $object->prepareRowAsPng(
             'POLYGON((0 0,100 0,100 100,0 100,0 0),(10 10,10 40,40 40,40 10,10 10),(60 60,90 60,90 90,60 90,60 60))',
             'image',
@@ -167,13 +167,13 @@ class GisPolygonTest extends GisGeomTestCase
             new ScaleData(offsetX: -56, offsetY: -16, scale: 0.94, height: 124),
             $image,
         );
-        $this->assertEquals(200, $image->width());
-        $this->assertEquals(124, $image->height());
+        self::assertEquals(200, $image->width());
+        self::assertEquals(124, $image->height());
 
         $fileExpected = $this->testDir . '/polygon-expected.png';
         $fileActual = $this->testDir . '/polygon-actual.png';
-        $this->assertTrue($image->png($fileActual));
-        $this->assertFileEquals($fileExpected, $fileActual);
+        self::assertTrue($image->png($fileActual));
+        self::assertFileEquals($fileExpected, $fileActual);
     }
 
     /**
@@ -196,7 +196,7 @@ class GisPolygonTest extends GisGeomTestCase
         $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
 
         $fileExpected = $this->testDir . '/polygon-expected.pdf';
-        $this->assertStringEqualsFile($fileExpected, $pdf->Output(dest: 'S'));
+        self::assertStringEqualsFile($fileExpected, $pdf->Output(dest: 'S'));
     }
 
     /**
@@ -238,7 +238,7 @@ class GisPolygonTest extends GisGeomTestCase
     ): void {
         $object = GisPolygon::singleton();
         $svg = $object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
-        $this->assertEquals($output, $svg);
+        self::assertEquals($output, $svg);
     }
 
     /**
@@ -280,7 +280,7 @@ class GisPolygonTest extends GisGeomTestCase
     ): void {
         $object = GisPolygon::singleton();
         $ol = $object->prepareRowAsOl($spatial, $srid, $label, $color);
-        $this->assertEquals($output, $ol);
+        self::assertEquals($output, $ol);
     }
 
     /**

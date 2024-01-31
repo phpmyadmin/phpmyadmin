@@ -46,7 +46,7 @@ class ServerSettingsTest extends TestBase
         $ele->click();
 
         $success = $this->waitUntilElementIsPresent('cssSelector', '.alert-success', 5000);
-        $this->assertStringContainsString('Configuration has been saved', $success->getText());
+        self::assertStringContainsString('Configuration has been saved', $success->getText());
     }
 
     /**
@@ -67,7 +67,7 @@ class ServerSettingsTest extends TestBase
         $ele->sendKeys($this->databaseName);
 
         $this->saveConfig();
-        $this->assertFalse(
+        self::assertFalse(
             $this->isElementPresent('partialLinkText', $this->databaseName),
         );
 
@@ -75,7 +75,7 @@ class ServerSettingsTest extends TestBase
 
         $this->waitForElement('name', 'Servers-1-hide_db')->clear();
         $this->saveConfig();
-        $this->assertTrue(
+        self::assertTrue(
             $this->isElementPresent('partialLinkText', $this->databaseName),
         );
     }
@@ -92,18 +92,18 @@ class ServerSettingsTest extends TestBase
         $this->waitForElement('className', 'nav-tabs');
 
         $this->byPartialLinkText('SQL Query box')->click();
-        $this->assertTrue(
+        self::assertTrue(
             $this->byId('Sql_box')->isDisplayed(),
         );
-        $this->assertFalse(
+        self::assertFalse(
             $this->byId('Sql_queries')->isDisplayed(),
         );
 
         $this->byCssSelector("a[href='#Sql_queries']")->click();
-        $this->assertFalse(
+        self::assertFalse(
             $this->byId('Sql_box')->isDisplayed(),
         );
-        $this->assertTrue(
+        self::assertTrue(
             $this->byId('Sql_queries')->isDisplayed(),
         );
     }
@@ -121,14 +121,14 @@ class ServerSettingsTest extends TestBase
             ->click();
         $this->saveConfig();
         sleep(1);
-        $this->assertFalse(
+        self::assertFalse(
             $this->isElementPresent('id', 'imgpmalogo'),
         );
 
         $this->byCssSelector("a[href='#NavigationDisplayLogo']")->click();
         $this->saveConfig();
         sleep(1);
-        $this->assertTrue(
+        self::assertTrue(
             $this->isElementPresent('id', 'imgpmalogo'),
         );
     }

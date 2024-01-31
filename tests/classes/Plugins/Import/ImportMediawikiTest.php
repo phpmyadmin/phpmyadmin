@@ -74,20 +74,20 @@ class ImportMediawikiTest extends AbstractTestCase
     public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
-        $this->assertEquals(
+        self::assertEquals(
             __('MediaWiki Table'),
             $properties->getText(),
         );
-        $this->assertEquals(
+        self::assertEquals(
             'txt',
             $properties->getExtension(),
         );
-        $this->assertEquals(
+        self::assertEquals(
             'text/plain',
             $properties->getMimeType(),
         );
-        $this->assertNull($properties->getOptions());
-        $this->assertEquals(
+        self::assertNull($properties->getOptions());
+        self::assertEquals(
             __('Options'),
             $properties->getOptionsText(),
         );
@@ -127,14 +127,14 @@ class ImportMediawikiTest extends AbstractTestCase
         */
 
         //asset that all databases and tables are imported
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'The following structures have either been created or altered.',
             $GLOBALS['import_notice'],
         );
-        $this->assertStringContainsString('Go to database: `mediawiki_DB`', $GLOBALS['import_notice']);
-        $this->assertStringContainsString('Edit settings for `mediawiki_DB`', $GLOBALS['import_notice']);
-        $this->assertStringContainsString('Go to table: `pma_bookmarktest`', $GLOBALS['import_notice']);
-        $this->assertStringContainsString('Edit settings for `pma_bookmarktest`', $GLOBALS['import_notice']);
-        $this->assertTrue($GLOBALS['finished']);
+        self::assertStringContainsString('Go to database: `mediawiki_DB`', $GLOBALS['import_notice']);
+        self::assertStringContainsString('Edit settings for `mediawiki_DB`', $GLOBALS['import_notice']);
+        self::assertStringContainsString('Go to table: `pma_bookmarktest`', $GLOBALS['import_notice']);
+        self::assertStringContainsString('Edit settings for `pma_bookmarktest`', $GLOBALS['import_notice']);
+        self::assertTrue($GLOBALS['finished']);
     }
 }

@@ -58,7 +58,7 @@ class CommonTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('fetchResult')
             ->with(
                 "
@@ -93,7 +93,7 @@ class CommonTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('fetchValue')
             ->with(
                 'SELECT `page_descr` FROM `pmadb`.`pdf_pages`'
@@ -108,7 +108,7 @@ class CommonTest extends AbstractTestCase
 
         $result = $this->designerCommon->getPageName($pg);
 
-        $this->assertEquals($pageName, $result);
+        self::assertEquals($pageName, $result);
     }
 
     /**
@@ -118,13 +118,13 @@ class CommonTest extends AbstractTestCase
     {
         $pg = 1;
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createMock(DummyResult::class);
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->exactly(2))
+        $dbi->expects(self::exactly(2))
             ->method('queryAsControlUser')
             ->willReturn($resultStub, $resultStub);
 
@@ -132,7 +132,7 @@ class CommonTest extends AbstractTestCase
         $this->designerCommon = new Common(DatabaseInterface::getInstance(), new Relation($dbi));
 
         $result = $this->designerCommon->deletePage($pg);
-        $this->assertTrue($result);
+        self::assertTrue($result);
     }
 
     /**
@@ -148,7 +148,7 @@ class CommonTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('fetchValue')
             ->with(
                 'SELECT `page_nr` FROM `pmadb`.`pdf_pages`'
@@ -158,14 +158,14 @@ class CommonTest extends AbstractTestCase
                 ConnectionType::ControlUser,
             )
             ->willReturn($defaultPg);
-        $dbi->expects($this->any())->method('quoteString')
+        $dbi->expects(self::any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;
         $this->designerCommon = new Common(DatabaseInterface::getInstance(), new Relation($dbi));
 
         $result = $this->designerCommon->getDefaultPage($db);
-        $this->assertEquals($defaultPg, $result);
+        self::assertEquals($defaultPg, $result);
     }
 
     /**
@@ -179,7 +179,7 @@ class CommonTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('fetchValue')
             ->with(
                 'SELECT `page_nr` FROM `pmadb`.`pdf_pages`'
@@ -189,14 +189,14 @@ class CommonTest extends AbstractTestCase
                 ConnectionType::ControlUser,
             )
             ->willReturn(false);
-        $dbi->expects($this->any())->method('quoteString')
+        $dbi->expects(self::any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;
         $this->designerCommon = new Common(DatabaseInterface::getInstance(), new Relation($dbi));
 
         $result = $this->designerCommon->getDefaultPage($db);
-        $this->assertEquals(-1, $result);
+        self::assertEquals(-1, $result);
     }
 
     /**
@@ -211,7 +211,7 @@ class CommonTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('fetchValue')
             ->with(
                 'SELECT `page_nr` FROM `pmadb`.`pdf_pages`'
@@ -221,14 +221,14 @@ class CommonTest extends AbstractTestCase
                 ConnectionType::ControlUser,
             )
             ->willReturn($defaultPg);
-        $dbi->expects($this->any())->method('quoteString')
+        $dbi->expects(self::any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;
         $this->designerCommon = new Common(DatabaseInterface::getInstance(), new Relation($dbi));
 
         $result = $this->designerCommon->getLoadingPage($db);
-        $this->assertEquals($defaultPg, $result);
+        self::assertEquals($defaultPg, $result);
     }
 
     /**
@@ -243,7 +243,7 @@ class CommonTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->exactly(2))
+        $dbi->expects(self::exactly(2))
             ->method('fetchValue')
             ->willReturn(false, $firstPg);
 
@@ -251,7 +251,7 @@ class CommonTest extends AbstractTestCase
         $this->designerCommon = new Common(DatabaseInterface::getInstance(), new Relation($dbi));
 
         $result = $this->designerCommon->getLoadingPage($db);
-        $this->assertEquals($firstPg, $result);
+        self::assertEquals($firstPg, $result);
     }
 
     private function loadTestDataForRelationDeleteAddTests(string $createTableString): void
@@ -355,7 +355,7 @@ class CommonTest extends AbstractTestCase
 
         $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
-        $this->assertSame([false, 'Error: Relational features are disabled!'], $result);
+        self::assertSame([false, 'Error: Relational features are disabled!'], $result);
     }
 
     public function testRemoveRelationWorkingRelationDb(): void
@@ -398,7 +398,7 @@ class CommonTest extends AbstractTestCase
 
         $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
-        $this->assertSame([true, 'Internal relationship has been removed.'], $result);
+        self::assertSame([true, 'Internal relationship has been removed.'], $result);
     }
 
     public function testRemoveRelationWorkingRelationDbFoundFk(): void
@@ -461,7 +461,7 @@ class CommonTest extends AbstractTestCase
 
         $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
-        $this->assertSame([true, 'FOREIGN KEY relationship has been removed.'], $result);
+        self::assertSame([true, 'FOREIGN KEY relationship has been removed.'], $result);
     }
 
     public function testRemoveRelationWorkingRelationDbDeleteFails(): void
@@ -504,6 +504,6 @@ class CommonTest extends AbstractTestCase
 
         $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
-        $this->assertSame([false, 'Error: Internal relationship could not be removed!<br>'], $result);
+        self::assertSame([false, 'Error: Internal relationship could not be removed!<br>'], $result);
     }
 }

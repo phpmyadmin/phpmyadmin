@@ -31,18 +31,18 @@ class UniqueControllerTest extends AbstractTestCase
         $dbiDummy->addResult('ALTER TABLE `test_table` ADD UNIQUE(`test_field`);', true);
         $dbi = $this->createDatabaseInterface($dbiDummy);
         DatabaseInterface::$instance = $dbi;
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['selected_fld', [], ['test_field']]]);
-        $controllerStub = $this->createMock(StructureController::class);
-        $controllerStub->expects($this->once())->method('__invoke')->with($request);
+        $controllerStub = self::createMock(StructureController::class);
+        $controllerStub->expects(self::once())->method('__invoke')->with($request);
 
         $indexes = new Indexes(DatabaseInterface::getInstance());
         $controller = new UniqueController(new ResponseRenderer(), new Template(), $controllerStub, $indexes);
         $controller($request);
 
-        $this->assertEquals(Message::success(), $GLOBALS['message']);
+        self::assertEquals(Message::success(), $GLOBALS['message']);
         /** @psalm-suppress TypeDoesNotContainType */
-        $this->assertSame('ALTER TABLE `test_table` ADD UNIQUE(`test_field`);', $GLOBALS['sql_query']);
+        self::assertSame('ALTER TABLE `test_table` ADD UNIQUE(`test_field`);', $GLOBALS['sql_query']);
         $dbiDummy->assertAllSelectsConsumed();
         $dbiDummy->assertAllQueriesConsumed();
     }
@@ -59,18 +59,18 @@ class UniqueControllerTest extends AbstractTestCase
         $dbiDummy->addResult('ALTER TABLE `test_table` ADD UNIQUE(`test_field1`, `test_field2`);', true);
         $dbi = $this->createDatabaseInterface($dbiDummy);
         DatabaseInterface::$instance = $dbi;
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['selected_fld', [], ['test_field1', 'test_field2']]]);
-        $controllerStub = $this->createMock(StructureController::class);
-        $controllerStub->expects($this->once())->method('__invoke')->with($request);
+        $controllerStub = self::createMock(StructureController::class);
+        $controllerStub->expects(self::once())->method('__invoke')->with($request);
 
         $indexes = new Indexes(DatabaseInterface::getInstance());
         $controller = new UniqueController(new ResponseRenderer(), new Template(), $controllerStub, $indexes);
         $controller($request);
 
-        $this->assertEquals(Message::success(), $GLOBALS['message']);
+        self::assertEquals(Message::success(), $GLOBALS['message']);
         /** @psalm-suppress TypeDoesNotContainType */
-        $this->assertSame('ALTER TABLE `test_table` ADD UNIQUE(`test_field1`, `test_field2`);', $GLOBALS['sql_query']);
+        self::assertSame('ALTER TABLE `test_table` ADD UNIQUE(`test_field1`, `test_field2`);', $GLOBALS['sql_query']);
         $dbiDummy->assertAllSelectsConsumed();
         $dbiDummy->assertAllQueriesConsumed();
     }
@@ -84,22 +84,22 @@ class UniqueControllerTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['selected_fld', [], null]]);
-        $controllerStub = $this->createMock(StructureController::class);
-        $controllerStub->expects($this->never())->method('__invoke');
+        $controllerStub = self::createMock(StructureController::class);
+        $controllerStub->expects(self::never())->method('__invoke');
         $response = new ResponseRenderer();
 
         $indexes = new Indexes(DatabaseInterface::getInstance());
         $controller = new UniqueController($response, new Template(), $controllerStub, $indexes);
         $controller($request);
 
-        $this->assertFalse($response->hasSuccessState());
-        $this->assertSame(['message' => 'No column selected.'], $response->getJSONResult());
+        self::assertFalse($response->hasSuccessState());
+        self::assertSame(['message' => 'No column selected.'], $response->getJSONResult());
         /** @psalm-suppress RedundantCondition */
-        $this->assertNull($GLOBALS['message']);
+        self::assertNull($GLOBALS['message']);
         /** @psalm-suppress RedundantCondition */
-        $this->assertNull($GLOBALS['sql_query']);
+        self::assertNull($GLOBALS['sql_query']);
     }
 
     public function testAddUniqueKeyWithError(): void
@@ -115,21 +115,21 @@ class UniqueControllerTest extends AbstractTestCase
         $dbiDummy->addErrorCode('#1062 - Duplicate entry &#039;2&#039; for key &#039;test_field&#039;');
         $dbi = $this->createDatabaseInterface($dbiDummy);
         DatabaseInterface::$instance = $dbi;
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['selected_fld', [], ['test_field']]]);
-        $controllerStub = $this->createMock(StructureController::class);
-        $controllerStub->expects($this->once())->method('__invoke')->with($request);
+        $controllerStub = self::createMock(StructureController::class);
+        $controllerStub->expects(self::once())->method('__invoke')->with($request);
 
         $indexes = new Indexes(DatabaseInterface::getInstance());
         $controller = new UniqueController(new ResponseRenderer(), new Template(), $controllerStub, $indexes);
         $controller($request);
 
-        $this->assertEquals(
+        self::assertEquals(
             Message::error('#1062 - Duplicate entry &#039;2&#039; for key &#039;test_field&#039;'),
             $GLOBALS['message'],
         );
         /** @psalm-suppress TypeDoesNotContainType */
-        $this->assertSame('ALTER TABLE `test_table` ADD UNIQUE(`test_field`);', $GLOBALS['sql_query']);
+        self::assertSame('ALTER TABLE `test_table` ADD UNIQUE(`test_field`);', $GLOBALS['sql_query']);
         $dbiDummy->assertAllSelectsConsumed();
         $dbiDummy->assertAllQueriesConsumed();
         $dbiDummy->assertAllErrorCodesConsumed();

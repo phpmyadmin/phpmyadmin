@@ -26,7 +26,7 @@ final class ResponseTest extends TestCase
     private function getResponse(string $provider): Response
     {
         if (! class_exists($provider)) {
-            $this->markTestSkipped($provider . ' is not available.');
+            self::markTestSkipped($provider . ' is not available.');
         }
 
         return (new ResponseFactory(new $provider()))->createResponse();
@@ -48,8 +48,8 @@ final class ResponseTest extends TestCase
     {
         $response = $this->getResponse($provider)->withProtocolVersion('1.0');
         $newResponse = $response->withProtocolVersion('1.1');
-        $this->assertSame('1.0', $response->getProtocolVersion());
-        $this->assertSame('1.1', $newResponse->getProtocolVersion());
+        self::assertSame('1.0', $response->getProtocolVersion());
+        self::assertSame('1.1', $newResponse->getProtocolVersion());
     }
 
     /** @psalm-param class-string<ResponseFactoryInterface> $provider */
@@ -57,20 +57,20 @@ final class ResponseTest extends TestCase
     public function testHeaders(string $provider): void
     {
         $response = $this->getResponse($provider);
-        $this->assertSame([], $response->getHeaders());
+        self::assertSame([], $response->getHeaders());
         $response = $response->withHeader('Content-Type', 'application/json');
-        $this->assertTrue($response->hasHeader('Content-Type'));
-        $this->assertSame(['application/json'], $response->getHeader('Content-Type'));
-        $this->assertSame('application/json', $response->getHeaderLine('Content-Type'));
+        self::assertTrue($response->hasHeader('Content-Type'));
+        self::assertSame(['application/json'], $response->getHeader('Content-Type'));
+        self::assertSame('application/json', $response->getHeaderLine('Content-Type'));
         $response = $response->withAddedHeader('Content-Type', 'text/html');
         $newResponse = $response->withHeader('Content-Length', '123');
-        $this->assertSame(['Content-Type' => ['application/json', 'text/html']], $response->getHeaders());
-        $this->assertSame(
+        self::assertSame(['Content-Type' => ['application/json', 'text/html']], $response->getHeaders());
+        self::assertSame(
             ['Content-Type' => ['application/json', 'text/html'], 'Content-Length' => ['123']],
             $newResponse->getHeaders(),
         );
         $newResponse = $newResponse->withoutHeader('Content-Type');
-        $this->assertSame(['Content-Length' => ['123']], $newResponse->getHeaders());
+        self::assertSame(['Content-Length' => ['123']], $newResponse->getHeaders());
     }
 
     /** @psalm-param class-string<ResponseFactoryInterface> $provider */
@@ -82,8 +82,8 @@ final class ResponseTest extends TestCase
         $newBody = $this->getResponse($provider)->getBody();
         $newBody->write('bar');
         $newResponse = $response->withBody($newBody);
-        $this->assertSame('foo', (string) $response->getBody());
-        $this->assertSame('bar', (string) $newResponse->getBody());
+        self::assertSame('foo', (string) $response->getBody());
+        self::assertSame('bar', (string) $newResponse->getBody());
     }
 
     /** @psalm-param class-string<ResponseFactoryInterface> $provider */
@@ -92,10 +92,10 @@ final class ResponseTest extends TestCase
     {
         $response = $this->getResponse($provider)->withStatus(StatusCodeInterface::STATUS_OK, 'OK');
         $newResponse = $response->withStatus(StatusCodeInterface::STATUS_NOT_FOUND, 'Not Found');
-        $this->assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
-        $this->assertSame('OK', $response->getReasonPhrase());
-        $this->assertSame(StatusCodeInterface::STATUS_NOT_FOUND, $newResponse->getStatusCode());
-        $this->assertSame('Not Found', $newResponse->getReasonPhrase());
+        self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
+        self::assertSame('OK', $response->getReasonPhrase());
+        self::assertSame(StatusCodeInterface::STATUS_NOT_FOUND, $newResponse->getStatusCode());
+        self::assertSame('Not Found', $newResponse->getReasonPhrase());
     }
 
     /** @psalm-param class-string<ResponseFactoryInterface> $provider */
@@ -105,8 +105,8 @@ final class ResponseTest extends TestCase
         $response = $this->getResponse($provider);
         $response->getBody()->write('foo');
         $sameResponse = $response->write('bar');
-        $this->assertSame('foobar', (string) $response->getBody());
-        $this->assertSame('foobar', (string) $sameResponse->getBody());
-        $this->assertSame($response, $sameResponse);
+        self::assertSame('foobar', (string) $response->getBody());
+        self::assertSame('foobar', (string) $sameResponse->getBody());
+        self::assertSame($response, $sameResponse);
     }
 }

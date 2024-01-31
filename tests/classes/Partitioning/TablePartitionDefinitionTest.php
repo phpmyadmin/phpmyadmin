@@ -139,7 +139,7 @@ class TablePartitionDefinitionTest extends TestCase
         $_POST['ignored_key'] = 'ignored_value';
 
         $actual = TablePartitionDefinition::getDetails();
-        $this->assertEquals($expected, $actual);
+        self::assertEquals($expected, $actual);
     }
 
     /**
@@ -233,7 +233,7 @@ class TablePartitionDefinitionTest extends TestCase
         ];
 
         $actual = TablePartitionDefinition::getDetails();
-        $this->assertEquals($expected, $actual);
+        self::assertEquals($expected, $actual);
     }
 
     #[DataProvider('providerGetDetailsWithMaxPartitions')]
@@ -241,11 +241,11 @@ class TablePartitionDefinitionTest extends TestCase
     {
         $_POST = ['partition_count' => $partitionCountFromPost];
         $actual = TablePartitionDefinition::getDetails();
-        $this->assertArrayHasKey('partition_count', $actual);
-        $this->assertArrayHasKey('partitions', $actual);
-        $this->assertSame($partitionCount, $actual['partition_count']);
-        $this->assertIsArray($actual['partitions']);
-        $this->assertEquals($partitionCount, count($actual['partitions']));
+        self::assertArrayHasKey('partition_count', $actual);
+        self::assertArrayHasKey('partitions', $actual);
+        self::assertSame($partitionCount, $actual['partition_count']);
+        self::assertIsArray($actual['partitions']);
+        self::assertEquals($partitionCount, count($actual['partitions']));
     }
 
     /** @psalm-return array{0: int, 1: string}[] */

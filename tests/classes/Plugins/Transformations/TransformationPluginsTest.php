@@ -417,7 +417,7 @@ class TransformationPluginsTest extends AbstractTestCase
         }
 
         $reflectionMethod = new ReflectionMethod($object, $method);
-        $this->assertEquals(
+        self::assertEquals(
             $expected,
             $reflectionMethod->invokeArgs($object, $args),
         );
@@ -667,11 +667,11 @@ class TransformationPluginsTest extends AbstractTestCase
         string $error = '',
     ): void {
         $actual = $object->applyTransformation(...$applyArgs);
-        $this->assertEquals($transformed, $actual);
+        self::assertEquals($transformed, $actual);
 
         // For output transformation plugins, this method may not exist
         if (method_exists($object, 'isSuccess')) {
-            $this->assertEquals(
+            self::assertEquals(
                 $success,
                 $object->isSuccess(),
             );
@@ -682,7 +682,7 @@ class TransformationPluginsTest extends AbstractTestCase
             return;
         }
 
-        $this->assertEquals(
+        self::assertEquals(
             $error,
             $object->getError(),
         );

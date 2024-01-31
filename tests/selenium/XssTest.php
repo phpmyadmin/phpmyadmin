@@ -29,7 +29,7 @@ class XssTest extends TestBase
     public function testQueryTabWithNullValue(): void
     {
         if ($this->isSafari()) {
-            $this->markTestSkipped('Alerts not supported on Safari browser.');
+            self::markTestSkipped('Alerts not supported on Safari browser.');
         }
 
         $this->waitForElement('partialLinkText', 'SQL')->click();
@@ -37,6 +37,6 @@ class XssTest extends TestBase
 
         $this->waitForElement('id', 'querybox');
         $this->byId('button_submit_query')->click();
-        $this->assertEquals('Missing value in the form!', $this->alertText());
+        self::assertEquals('Missing value in the form!', $this->alertText());
     }
 }

@@ -40,7 +40,7 @@ class FindReplaceControllerTest extends AbstractTestCase
             new ColumnFull('Field1', 'Type1', 'Collation1', false, '', null, '', '', ''),
             new ColumnFull('Field2', 'Type2', 'Collation2', false, '', null, '', '', ''),
         ];
-        $dbi->expects($this->any())->method('getColumns')
+        $dbi->expects(self::any())->method('getColumns')
             ->willReturn($columns);
 
         $showCreateTable = "CREATE TABLE `table` (
@@ -54,9 +54,9 @@ class FindReplaceControllerTest extends AbstractTestCase
         ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin "
             . "COMMENT='table'";
 
-        $dbi->expects($this->any())->method('fetchValue')
+        $dbi->expects(self::any())->method('fetchValue')
             ->willReturn($showCreateTable);
-        $dbi->expects($this->any())->method('quoteString')
+        $dbi->expects(self::any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;
@@ -82,7 +82,7 @@ class FindReplaceControllerTest extends AbstractTestCase
         $result = 'UPDATE `table` SET `Field1` = '
             . "REPLACE(`Field1`, 'Field', 'Column') "
             . "WHERE `Field1` LIKE '%Field%' COLLATE UTF-8_bin";
-        $this->assertEquals($result, $sqlQuery);
+        self::assertEquals($result, $sqlQuery);
     }
 
     public function testReplaceWithRegex(): void
@@ -108,6 +108,6 @@ class FindReplaceControllerTest extends AbstractTestCase
         $result = 'UPDATE `table` SET `Field1` = `Field1`'
             . " WHERE `Field1` RLIKE 'Field' COLLATE UTF-8_bin";
 
-        $this->assertEquals($result, $sqlQuery);
+        self::assertEquals($result, $sqlQuery);
     }
 }

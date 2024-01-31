@@ -264,43 +264,43 @@ class SettingsTest extends TestCase
         $settingsArray = $settings->asArray();
         foreach (array_keys($expectedValues) as $key) {
             if ($key === 'Console') {
-                $this->assertInstanceOf(Console::class, $settings->Console);
+                self::assertInstanceOf(Console::class, $settings->Console);
                 continue;
             }
 
             if ($key === 'DBG') {
-                $this->assertInstanceOf(Debug::class, $settings->DBG);
+                self::assertInstanceOf(Debug::class, $settings->DBG);
                 continue;
             }
 
             if ($key === 'Export') {
-                $this->assertInstanceOf(Export::class, $settings->Export);
+                self::assertInstanceOf(Export::class, $settings->Export);
                 continue;
             }
 
             if ($key === 'Import') {
-                $this->assertInstanceOf(Import::class, $settings->Import);
+                self::assertInstanceOf(Import::class, $settings->Import);
                 continue;
             }
 
             if ($key === 'Schema') {
-                $this->assertInstanceOf(Schema::class, $settings->Schema);
+                self::assertInstanceOf(Schema::class, $settings->Schema);
                 continue;
             }
 
             if ($key === 'SQLQuery') {
-                $this->assertInstanceOf(SqlQueryBox::class, $settings->SQLQuery);
+                self::assertInstanceOf(SqlQueryBox::class, $settings->SQLQuery);
                 continue;
             }
 
             if ($key === 'DefaultTransformations') {
-                $this->assertInstanceOf(Transformations::class, $settings->DefaultTransformations);
+                self::assertInstanceOf(Transformations::class, $settings->DefaultTransformations);
                 continue;
             }
 
-            $this->assertSame($expected[$key], $settings->$key);
-            $this->assertArrayHasKey($key, $settingsArray);
-            $this->assertSame($expected[$key], $settingsArray[$key]);
+            self::assertSame($expected[$key], $settings->$key);
+            self::assertArrayHasKey($key, $settingsArray);
+            self::assertSame($expected[$key], $settingsArray[$key]);
         }
     }
 
@@ -994,8 +994,8 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['PmaAbsoluteUri' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->PmaAbsoluteUri);
-        $this->assertSame($expected, $settingsArray['PmaAbsoluteUri']);
+        self::assertSame($expected, $settings->PmaAbsoluteUri);
+        self::assertSame($expected, $settingsArray['PmaAbsoluteUri']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -1012,8 +1012,8 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['AuthLog' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->authLog);
-        $this->assertSame($expected, $settingsArray['AuthLog']);
+        self::assertSame($expected, $settings->authLog);
+        self::assertSame($expected, $settingsArray['AuthLog']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -1030,8 +1030,8 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['AuthLogSuccess' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->authLogSuccess);
-        $this->assertSame($expected, $settingsArray['AuthLogSuccess']);
+        self::assertSame($expected, $settings->authLogSuccess);
+        self::assertSame($expected, $settingsArray['AuthLogSuccess']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -1039,8 +1039,8 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['PmaNoRelation_DisableWarning' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->PmaNoRelation_DisableWarning);
-        $this->assertSame($expected, $settingsArray['PmaNoRelation_DisableWarning']);
+        self::assertSame($expected, $settings->PmaNoRelation_DisableWarning);
+        self::assertSame($expected, $settingsArray['PmaNoRelation_DisableWarning']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -1048,8 +1048,8 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['SuhosinDisableWarning' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->SuhosinDisableWarning);
-        $this->assertSame($expected, $settingsArray['SuhosinDisableWarning']);
+        self::assertSame($expected, $settings->SuhosinDisableWarning);
+        self::assertSame($expected, $settingsArray['SuhosinDisableWarning']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -1057,8 +1057,8 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['LoginCookieValidityDisableWarning' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->LoginCookieValidityDisableWarning);
-        $this->assertSame($expected, $settingsArray['LoginCookieValidityDisableWarning']);
+        self::assertSame($expected, $settings->LoginCookieValidityDisableWarning);
+        self::assertSame($expected, $settingsArray['LoginCookieValidityDisableWarning']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -1066,8 +1066,8 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['ReservedWordDisableWarning' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->ReservedWordDisableWarning);
-        $this->assertSame($expected, $settingsArray['ReservedWordDisableWarning']);
+        self::assertSame($expected, $settings->ReservedWordDisableWarning);
+        self::assertSame($expected, $settingsArray['ReservedWordDisableWarning']);
     }
 
     #[DataProvider('valuesForTranslationWarningThresholdProvider')]
@@ -1075,8 +1075,8 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['TranslationWarningThreshold' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->TranslationWarningThreshold);
-        $this->assertSame($expected, $settingsArray['TranslationWarningThreshold']);
+        self::assertSame($expected, $settings->TranslationWarningThreshold);
+        self::assertSame($expected, $settingsArray['TranslationWarningThreshold']);
     }
 
     /** @return iterable<string, array{mixed, int}> */
@@ -1094,8 +1094,8 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['AllowThirdPartyFraming' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->AllowThirdPartyFraming);
-        $this->assertSame($expected, $settingsArray['AllowThirdPartyFraming']);
+        self::assertSame($expected, $settings->AllowThirdPartyFraming);
+        self::assertSame($expected, $settingsArray['AllowThirdPartyFraming']);
     }
 
     /** @return iterable<string, array{mixed, bool|string}> */
@@ -1113,8 +1113,8 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['blowfish_secret' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->blowfish_secret);
-        $this->assertSame($expected, $settingsArray['blowfish_secret']);
+        self::assertSame($expected, $settings->blowfish_secret);
+        self::assertSame($expected, $settingsArray['blowfish_secret']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -1132,9 +1132,9 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['Servers' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertEquals($expected, $settings->Servers);
+        self::assertEquals($expected, $settings->Servers);
         $expectedArray = array_map(static fn (Server $server): array => $server->asArray(), $expected);
-        $this->assertSame($expectedArray, $settingsArray['Servers']);
+        self::assertSame($expectedArray, $settingsArray['Servers']);
     }
 
     /** @return iterable<string, array{mixed, array<int, Server>}> */
@@ -1160,8 +1160,8 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['ServerDefault' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->ServerDefault);
-        $this->assertSame($expected, $settingsArray['ServerDefault']);
+        self::assertSame($expected, $settings->ServerDefault);
+        self::assertSame($expected, $settingsArray['ServerDefault']);
     }
 
     /** @return iterable<string, array{mixed, int}> */
@@ -1178,8 +1178,8 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['VersionCheck' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->VersionCheck);
-        $this->assertSame($expected, $settingsArray['VersionCheck']);
+        self::assertSame($expected, $settings->VersionCheck);
+        self::assertSame($expected, $settingsArray['VersionCheck']);
     }
 
     #[DataProvider('valuesForProxyUrlProvider')]
@@ -1187,8 +1187,8 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['ProxyUrl' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->ProxyUrl);
-        $this->assertSame($expected, $settingsArray['ProxyUrl']);
+        self::assertSame($expected, $settings->ProxyUrl);
+        self::assertSame($expected, $settingsArray['ProxyUrl']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -1205,8 +1205,8 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['ProxyUser' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->ProxyUser);
-        $this->assertSame($expected, $settingsArray['ProxyUser']);
+        self::assertSame($expected, $settings->ProxyUser);
+        self::assertSame($expected, $settingsArray['ProxyUser']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -1223,8 +1223,8 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['ProxyPass' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->ProxyPass);
-        $this->assertSame($expected, $settingsArray['ProxyPass']);
+        self::assertSame($expected, $settings->ProxyPass);
+        self::assertSame($expected, $settingsArray['ProxyPass']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -1241,8 +1241,8 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['MaxDbList' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->MaxDbList);
-        $this->assertSame($expected, $settingsArray['MaxDbList']);
+        self::assertSame($expected, $settings->MaxDbList);
+        self::assertSame($expected, $settingsArray['MaxDbList']);
     }
 
     /** @return iterable<string, array{mixed, int}> */
@@ -1259,8 +1259,8 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['MaxTableList' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->MaxTableList);
-        $this->assertSame($expected, $settingsArray['MaxTableList']);
+        self::assertSame($expected, $settings->MaxTableList);
+        self::assertSame($expected, $settingsArray['MaxTableList']);
     }
 
     /** @return iterable<string, array{mixed, int}> */
@@ -1277,8 +1277,8 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['ShowHint' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->ShowHint);
-        $this->assertSame($expected, $settingsArray['ShowHint']);
+        self::assertSame($expected, $settings->ShowHint);
+        self::assertSame($expected, $settingsArray['ShowHint']);
     }
 
     #[DataProvider('valuesForMaxCharactersInDisplayedSQLProvider')]
@@ -1286,8 +1286,8 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['MaxCharactersInDisplayedSQL' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->MaxCharactersInDisplayedSQL);
-        $this->assertSame($expected, $settingsArray['MaxCharactersInDisplayedSQL']);
+        self::assertSame($expected, $settings->MaxCharactersInDisplayedSQL);
+        self::assertSame($expected, $settingsArray['MaxCharactersInDisplayedSQL']);
     }
 
     /** @return iterable<string, array{mixed, int}> */
@@ -1304,8 +1304,8 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['OBGzip' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->OBGzip);
-        $this->assertSame($expected, $settingsArray['OBGzip']);
+        self::assertSame($expected, $settings->OBGzip);
+        self::assertSame($expected, $settingsArray['OBGzip']);
     }
 
     /** @return iterable<string, array{mixed, string|bool}> */
@@ -1323,8 +1323,8 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['PersistentConnections' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->PersistentConnections);
-        $this->assertSame($expected, $settingsArray['PersistentConnections']);
+        self::assertSame($expected, $settings->PersistentConnections);
+        self::assertSame($expected, $settingsArray['PersistentConnections']);
     }
 
     #[DataProvider('valuesForExecTimeLimitProvider')]
@@ -1332,8 +1332,8 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['ExecTimeLimit' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->ExecTimeLimit);
-        $this->assertSame($expected, $settingsArray['ExecTimeLimit']);
+        self::assertSame($expected, $settings->ExecTimeLimit);
+        self::assertSame($expected, $settingsArray['ExecTimeLimit']);
     }
 
     /** @return iterable<string, array{mixed, int}> */
@@ -1350,8 +1350,8 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['SessionSavePath' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->SessionSavePath);
-        $this->assertSame($expected, $settingsArray['SessionSavePath']);
+        self::assertSame($expected, $settings->SessionSavePath);
+        self::assertSame($expected, $settingsArray['SessionSavePath']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -1368,8 +1368,8 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['ShowAll' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->showAll);
-        $this->assertSame($expected, $settingsArray['ShowAll']);
+        self::assertSame($expected, $settings->showAll);
+        self::assertSame($expected, $settingsArray['ShowAll']);
     }
 
     /** @return iterable<string, array{mixed, bool}> */
@@ -1386,8 +1386,8 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['MaxRows' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->maxRows);
-        $this->assertSame($expected, $settingsArray['MaxRows']);
+        self::assertSame($expected, $settings->maxRows);
+        self::assertSame($expected, $settingsArray['MaxRows']);
     }
 
     /** @return iterable<string, array{mixed, int}> */
@@ -1404,8 +1404,8 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['LimitChars' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->limitChars);
-        $this->assertSame($expected, $settingsArray['LimitChars']);
+        self::assertSame($expected, $settings->limitChars);
+        self::assertSame($expected, $settingsArray['LimitChars']);
     }
 
     /** @return iterable<string, array{mixed, int}> */
@@ -1422,8 +1422,8 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['RepeatCells' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->repeatCells);
-        $this->assertSame($expected, $settingsArray['RepeatCells']);
+        self::assertSame($expected, $settings->repeatCells);
+        self::assertSame($expected, $settingsArray['RepeatCells']);
     }
 
     /** @return iterable<string, array{mixed, int}> */
@@ -1440,8 +1440,8 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['ZeroConf' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->zeroConf);
-        $this->assertSame($expected, $settingsArray['ZeroConf']);
+        self::assertSame($expected, $settings->zeroConf);
+        self::assertSame($expected, $settingsArray['ZeroConf']);
     }
 
     /** @return iterable<string, array{mixed, bool}> */
@@ -1459,8 +1459,8 @@ class SettingsTest extends TestCase
     {
         $settings = new Settings(['MysqlMinVersion' => $actual]);
         $settingsArray = $settings->asArray();
-        $this->assertSame($expected, $settings->mysqlMinVersion);
-        $this->assertSame($expected, $settingsArray['MysqlMinVersion']);
+        self::assertSame($expected, $settings->mysqlMinVersion);
+        self::assertSame($expected, $settingsArray['MysqlMinVersion']);
     }
 
     /** @return iterable<string, array{mixed, array{internal: int, human: string}}> */

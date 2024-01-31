@@ -31,7 +31,7 @@ class RefreshControllerTest extends AbstractTestCase
             $template,
             new Console($relation, $template, $bookmarkRepository),
         );
-        $controller($this->createStub(ServerRequest::class));
-        $this->assertSame(['console_message_bookmark' => ''], $response->getJSONResult());
+        $controller(self::createStub(ServerRequest::class));
+        self::assertSame(['console_message_bookmark' => ''], $response->getJSONResult());
     }
 }

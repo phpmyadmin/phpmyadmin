@@ -18,8 +18,8 @@ class SqlQueryBoxTest extends TestCase
         $sqlQueryBox = new SqlQueryBox(['Edit' => $actual]);
         $sqlQueryBoxArray = $sqlQueryBox->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        $this->assertSame($expected, $sqlQueryBox->Edit);
-        $this->assertSame($expected, $sqlQueryBoxArray['Edit']);
+        self::assertSame($expected, $sqlQueryBox->Edit);
+        self::assertSame($expected, $sqlQueryBoxArray['Edit']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -28,8 +28,8 @@ class SqlQueryBoxTest extends TestCase
         $sqlQueryBox = new SqlQueryBox(['Explain' => $actual]);
         $sqlQueryBoxArray = $sqlQueryBox->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        $this->assertSame($expected, $sqlQueryBox->Explain);
-        $this->assertSame($expected, $sqlQueryBoxArray['Explain']);
+        self::assertSame($expected, $sqlQueryBox->Explain);
+        self::assertSame($expected, $sqlQueryBoxArray['Explain']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -38,8 +38,8 @@ class SqlQueryBoxTest extends TestCase
         $sqlQueryBox = new SqlQueryBox(['ShowAsPHP' => $actual]);
         $sqlQueryBoxArray = $sqlQueryBox->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        $this->assertSame($expected, $sqlQueryBox->ShowAsPHP);
-        $this->assertSame($expected, $sqlQueryBoxArray['ShowAsPHP']);
+        self::assertSame($expected, $sqlQueryBox->ShowAsPHP);
+        self::assertSame($expected, $sqlQueryBoxArray['ShowAsPHP']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -48,8 +48,8 @@ class SqlQueryBoxTest extends TestCase
         $sqlQueryBox = new SqlQueryBox(['Refresh' => $actual]);
         $sqlQueryBoxArray = $sqlQueryBox->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        $this->assertSame($expected, $sqlQueryBox->Refresh);
-        $this->assertSame($expected, $sqlQueryBoxArray['Refresh']);
+        self::assertSame($expected, $sqlQueryBox->Refresh);
+        self::assertSame($expected, $sqlQueryBoxArray['Refresh']);
     }
 
     /** @return iterable<string, array{mixed, bool}> */

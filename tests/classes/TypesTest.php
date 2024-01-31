@@ -31,8 +31,8 @@ class TypesTest extends AbstractTestCase
      */
     public function testUnary(): void
     {
-        $this->assertTrue($this->object->isUnaryOperator('IS NULL'));
-        $this->assertFalse($this->object->isUnaryOperator('='));
+        self::assertTrue($this->object->isUnaryOperator('IS NULL'));
+        self::assertFalse($this->object->isUnaryOperator('='));
     }
 
     /**
@@ -40,7 +40,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetUnaryOperators(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             ['IS NULL', 'IS NOT NULL', "= ''", "!= ''"],
             $this->object->getUnaryOperators(),
         );
@@ -51,7 +51,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetNullOperators(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             ['IS NULL', 'IS NOT NULL'],
             $this->object->getNullOperators(),
         );
@@ -62,7 +62,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetEnumOperators(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             ['=', '!='],
             $this->object->getEnumOperators(),
         );
@@ -73,7 +73,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testgetTextOperators(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             [
                 'LIKE',
                 'LIKE %...%',
@@ -100,7 +100,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetNumberOperators(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             [
                 '=',
                 '>',
@@ -126,7 +126,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetUUIDOperators(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             ['=', '!=', 'LIKE', 'LIKE %...%', 'NOT LIKE', 'NOT LIKE %...%', 'IN (...)', 'NOT IN (...)'],
             $this->object->getUUIDOperators(),
         );
@@ -142,7 +142,7 @@ class TypesTest extends AbstractTestCase
     #[DataProvider('providerForGetTypeOperators')]
     public function testGetTypeOperators(string $type, bool $null, string|array $output): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             $output,
             $this->object->getTypeOperators($type, $null),
         );
@@ -239,7 +239,7 @@ class TypesTest extends AbstractTestCase
         string $selectedOperator,
         string $output,
     ): void {
-        $this->assertEquals(
+        self::assertEquals(
             $output,
             $this->object->getTypeOperatorsHtml($type, $null, $selectedOperator),
         );
@@ -265,7 +265,7 @@ class TypesTest extends AbstractTestCase
     #[DataProvider('providerForTestGetTypeDescription')]
     public function testGetTypeDescription(string $type): void
     {
-        $this->assertNotEquals(
+        self::assertNotEquals(
             '',
             $this->object->getTypeDescription($type),
         );
@@ -276,7 +276,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetUnknownTypeDescription(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             '',
             $this->object->getTypeDescription('UNKNOWN'),
         );
@@ -342,7 +342,7 @@ class TypesTest extends AbstractTestCase
     #[DataProvider('providerFortTestGetFunctionsClass')]
     public function testGetFunctionsClass(string $class, array $output): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             $output,
             $this->object->getFunctionsClass($class),
         );
@@ -501,7 +501,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetFunctions(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             [
                 'AES_DECRYPT',
                 'AES_ENCRYPT',
@@ -548,7 +548,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetAllFunctions(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             [
                 'ABS',
                 'ACOS',
@@ -678,7 +678,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetAttributes(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             ['', 'BINARY', 'UNSIGNED', 'UNSIGNED ZEROFILL', 'on update CURRENT_TIMESTAMP'],
             $this->object->getAttributes(),
         );
@@ -689,7 +689,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetColumns(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             [
                 0 => 'INT',
                 1 => 'VARCHAR',
@@ -755,7 +755,7 @@ class TypesTest extends AbstractTestCase
     #[DataProvider('providerFortTestGetTypeClass')]
     public function testGetTypeClass(string $type, string $output): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             $output,
             $this->object->getTypeClass($type),
         );

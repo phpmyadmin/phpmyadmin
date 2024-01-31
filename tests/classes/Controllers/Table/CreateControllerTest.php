@@ -261,6 +261,6 @@ class CreateControllerTest extends AbstractTestCase
             new ColumnsDefinition($dbi, $relation, $transformations),
         ))($request);
 
-        $this->assertSame($expected, $response->getHTMLResult());
+        self::assertSame($expected, $response->getHTMLResult());
     }
 }

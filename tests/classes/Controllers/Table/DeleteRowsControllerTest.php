@@ -52,7 +52,7 @@ class DeleteRowsControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface($dummyDbi);
         DatabaseInterface::$instance = $dbi;
 
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('hasBodyParam')->willReturnMap([['original_sql_query', true]]);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['original_sql_query', '', 'SELECT * FROM `test_db`.`test_table`'],
@@ -61,7 +61,7 @@ class DeleteRowsControllerTest extends AbstractTestCase
         $response = new ResponseRenderer();
         (new DeleteRowsController($response, new Template(), $dbi))($request);
         $actual = $response->getHTMLResult();
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<div class="alert alert-success border-top-0 border-start-0 border-end-0 rounded-bottom-0 mb-0"'
             . ' role="alert">' . "\n"
             . '  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_success">'
@@ -69,10 +69,10 @@ class DeleteRowsControllerTest extends AbstractTestCase
             . '</div>',
             $actual,
         );
-        $this->assertStringContainsString('DELETE FROM `test_table` WHERE `test_table`.`id` = 3 LIMIT 1;', $actual);
-        $this->assertStringContainsString('Showing rows 0 -  1 (2 total, Query took', $actual);
-        $this->assertStringContainsString('SELECT * FROM `test_db`.`test_table`', $actual);
-        $this->assertStringContainsString(
+        self::assertStringContainsString('DELETE FROM `test_table` WHERE `test_table`.`id` = 3 LIMIT 1;', $actual);
+        self::assertStringContainsString('Showing rows 0 -  1 (2 total, Query took', $actual);
+        self::assertStringContainsString('SELECT * FROM `test_db`.`test_table`', $actual);
+        self::assertStringContainsString(
             '<td data-decimals="0" data-type="string" data-originallength="4" class="data text pre_wrap">abcd</td>',
             $actual,
         );

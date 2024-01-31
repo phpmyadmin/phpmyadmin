@@ -53,6 +53,6 @@ class DeleteConfirmControllerTest extends AbstractTestCase
             ]);
 
         (new DeleteConfirmController($response, $template, new DbTableExists($dbi)))($request);
-        $this->assertSame($expected, $response->getHTMLResult());
+        self::assertSame($expected, $response->getHTMLResult());
     }
 }

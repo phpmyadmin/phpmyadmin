@@ -34,7 +34,7 @@ class SearchTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->any())
+        $dbi->expects(self::any())
             ->method('getColumns')
             ->with('pma', 'table1')
             ->willReturn([
@@ -42,7 +42,7 @@ class SearchTest extends AbstractTestCase
                 new Column('column2', '', false, '', null, ''),
             ]);
 
-        $dbi->expects($this->any())
+        $dbi->expects(self::any())
             ->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
@@ -74,7 +74,7 @@ class SearchTest extends AbstractTestCase
         $_POST['criteriaSearchString'] = 'search string';
 
         $this->object = new Search(DatabaseInterface::getInstance(), 'pma_test', new Template());
-        $this->assertEquals(
+        self::assertEquals(
             $expected,
             $this->callFunction(
                 $this->object,
@@ -130,7 +130,7 @@ class SearchTest extends AbstractTestCase
      */
     public function testGetSearchSqls(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             [
                 'select_columns' => 'SELECT * FROM `pma`.`table1` WHERE FALSE',
                 'select_count' => 'SELECT COUNT(*) AS `count` FROM `pma`.`table1` WHERE FALSE',
@@ -150,7 +150,7 @@ class SearchTest extends AbstractTestCase
      */
     public function testGetSearchResults(): void
     {
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'Search results for "<em></em>" :',
             $this->object->getSearchResults(),
         );
@@ -164,18 +164,18 @@ class SearchTest extends AbstractTestCase
         $main = $this->object->getMainHtml();
 
         // test selection form
-        $this->assertStringContainsString('<form', $main);
-        $this->assertStringContainsString(
+        self::assertStringContainsString('<form', $main);
+        self::assertStringContainsString(
             '<button id="togglesearchformlink" class="btn btn-primary my-1"></button>',
             $main,
         );
-        $this->assertStringContainsString('criteriaSearchType', $main);
+        self::assertStringContainsString('criteriaSearchType', $main);
 
         // test result divs
-        $this->assertStringContainsString('<div id="table-info"', $main);
-        $this->assertStringContainsString('<a id="table-link"', $main);
-        $this->assertStringContainsString('<div id="browse-results"', $main);
-        $this->assertStringContainsString('<div id="sqlqueryform"', $main);
-        $this->assertStringContainsString('<button class="btn btn-secondary" id="togglequerybox"', $main);
+        self::assertStringContainsString('<div id="table-info"', $main);
+        self::assertStringContainsString('<a id="table-link"', $main);
+        self::assertStringContainsString('<div id="browse-results"', $main);
+        self::assertStringContainsString('<div id="sqlqueryform"', $main);
+        self::assertStringContainsString('<button class="btn btn-secondary" id="togglequerybox"', $main);
     }
 }

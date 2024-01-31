@@ -35,13 +35,13 @@ class PluginsTest extends AbstractTestCase
 
         $plugins = $this->plugins->getAll();
 
-        $this->assertIsArray($plugins);
-        $this->assertNotEmpty($plugins);
+        self::assertIsArray($plugins);
+        self::assertNotEmpty($plugins);
 
         $plugin = $plugins[0];
 
-        $this->assertInstanceOf(Plugin::class, $plugin);
-        $this->assertSame([
+        self::assertInstanceOf(Plugin::class, $plugin);
+        self::assertSame([
             'name' => 'BLACKHOLE',
             'version' => '1.0',
             'status' => 'ACTIVE',
@@ -68,13 +68,13 @@ class PluginsTest extends AbstractTestCase
 
         $plugins = $this->plugins->getAll();
 
-        $this->assertIsArray($plugins);
-        $this->assertNotEmpty($plugins);
+        self::assertIsArray($plugins);
+        self::assertNotEmpty($plugins);
 
         $plugin = $plugins[0];
 
-        $this->assertInstanceOf(Plugin::class, $plugin);
-        $this->assertSame([
+        self::assertInstanceOf(Plugin::class, $plugin);
+        self::assertSame([
             'name' => 'partition',
             'version' => null,
             'status' => 'ACTIVE',
@@ -95,9 +95,9 @@ class PluginsTest extends AbstractTestCase
     {
         $this->plugins = new Plugins(DatabaseInterface::getInstance());
         $plugins = $this->plugins->getAuthentication();
-        $this->assertIsArray($plugins);
-        $this->assertNotEmpty($plugins);
-        $this->assertEquals(
+        self::assertIsArray($plugins);
+        self::assertNotEmpty($plugins);
+        self::assertEquals(
             [
                 'mysql_old_password' => __('Old MySQL-4.0 authentication'),
                 'mysql_native_password' => __('Native MySQL authentication'),

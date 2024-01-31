@@ -29,7 +29,7 @@ final class QueueRequestHandlerTest extends TestCase
             ->withAttribute('attribute', ['Initial']);
         $response = $handler->handle($request);
         $response->getBody()->write('Last');
-        $this->assertSame(
+        self::assertSame(
             'Initial, First before, Second before, Fallback, Second after, First after, Last',
             (string) $response->getBody(),
         );
@@ -46,7 +46,7 @@ final class QueueRequestHandlerTest extends TestCase
             ->withAttribute('early', true);
         $response = $handler->handle($request);
         $response->getBody()->write('Last');
-        $this->assertSame('Initial, First before, Early, First after, Last', (string) $response->getBody());
+        self::assertSame('Initial, First before, Early, First after, Last', (string) $response->getBody());
     }
 
     private function getFallbackHandler(): RequestHandler

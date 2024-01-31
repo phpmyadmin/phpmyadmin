@@ -65,33 +65,33 @@ class ExportJsonTest extends AbstractTestCase
         $attrProperties = new ReflectionProperty(ExportJson::class, 'properties');
         $properties = $attrProperties->getValue($this->object);
 
-        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
+        self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        $this->assertEquals(
+        self::assertEquals(
             'JSON',
             $properties->getText(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'json',
             $properties->getExtension(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'text/plain',
             $properties->getMimeType(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Options',
             $properties->getOptionsText(),
         );
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
+        self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        $this->assertEquals(
+        self::assertEquals(
             'Format Specific Options',
             $options->getName(),
         );
@@ -99,9 +99,9 @@ class ExportJsonTest extends AbstractTestCase
         $generalOptionsArray = $options->getProperties();
         $generalOptions = $generalOptionsArray->current();
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
+        self::assertEquals(
             'general_opts',
             $generalOptions->getName(),
         );
@@ -110,9 +110,9 @@ class ExportJsonTest extends AbstractTestCase
 
         $property = $generalProperties->current();
 
-        $this->assertInstanceOf(HiddenPropertyItem::class, $property);
+        self::assertInstanceOf(HiddenPropertyItem::class, $property);
 
-        $this->assertEquals(
+        self::assertEquals(
             'structure_or_data',
             $property->getName(),
         );
@@ -127,7 +127,7 @@ class ExportJsonTest extends AbstractTestCase
             . "\n",
         );
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportHeader(),
         );
     }
@@ -136,7 +136,7 @@ class ExportJsonTest extends AbstractTestCase
     {
         $this->expectOutputString(']' . "\n");
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportFooter(),
         );
     }
@@ -145,21 +145,21 @@ class ExportJsonTest extends AbstractTestCase
     {
         $this->expectOutputString('{"type":"database","name":"testDB"},' . "\n");
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBHeader('testDB'),
         );
     }
 
     public function testExportDBFooter(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBFooter('testDB'),
         );
     }
 
     public function testExportDBCreate(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBCreate('testDB', 'database'),
         );
     }
@@ -176,7 +176,7 @@ class ExportJsonTest extends AbstractTestCase
             . '}' . "\n",
         );
 
-        $this->assertTrue($this->object->exportData(
+        self::assertTrue($this->object->exportData(
             'test_db',
             'test_table',
             'localhost',
@@ -198,7 +198,7 @@ class ExportJsonTest extends AbstractTestCase
             . "]\n}\n",
         );
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportData(
                 'test_db',
                 'test_table_complex',
@@ -221,7 +221,7 @@ class ExportJsonTest extends AbstractTestCase
             . "]\n}\n",
         );
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportRawQuery(
                 'example.com',
                 null,

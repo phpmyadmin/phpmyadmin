@@ -64,7 +64,7 @@ class RoutinesTest extends AbstractTestCase
             $_REQUEST[$key] = $value;
         }
 
-        $this->assertEquals($out, $this->routines->getDataFromRequest());
+        self::assertEquals($out, $this->routines->getDataFromRequest());
     }
 
     /**
@@ -247,7 +247,7 @@ class RoutinesTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->types = new Types($dbi);
-        $dbi->expects($this->any())
+        $dbi->expects(self::any())
             ->method('quoteString')
             ->willReturnMap([
                 ['foo', ConnectionType::User, "'foo'"],
@@ -259,8 +259,8 @@ class RoutinesTest extends AbstractTestCase
 
         unset($_POST);
         $_POST = $request;
-        $this->assertEquals($query, $routines->getQueryFromRequest());
-        $this->assertCount($numErr, $GLOBALS['errors']);
+        self::assertEquals($query, $routines->getQueryFromRequest());
+        self::assertCount($numErr, $GLOBALS['errors']);
 
         // reset
         DatabaseInterface::$instance = $oldDbi;
@@ -494,7 +494,7 @@ class RoutinesTest extends AbstractTestCase
         );
 
         $names = Routines::getFunctionNames($this->createDatabaseInterface($dbiDummy), 'test_db');
-        $this->assertSame(['test_func1', 'test_func2'], $names);
+        self::assertSame(['test_func1', 'test_func2'], $names);
 
         $dbiDummy->assertAllQueriesConsumed();
     }
@@ -509,7 +509,7 @@ class RoutinesTest extends AbstractTestCase
         );
 
         $names = Routines::getFunctionNames($this->createDatabaseInterface($dbiDummy), 'test_db');
-        $this->assertSame([], $names);
+        self::assertSame([], $names);
 
         $dbiDummy->assertAllQueriesConsumed();
     }
@@ -530,7 +530,7 @@ class RoutinesTest extends AbstractTestCase
         );
 
         $names = Routines::getProcedureNames($this->createDatabaseInterface($dbiDummy), 'test_db');
-        $this->assertSame(['test_proc1', 'test_proc2'], $names);
+        self::assertSame(['test_proc1', 'test_proc2'], $names);
 
         $dbiDummy->assertAllQueriesConsumed();
     }
@@ -549,7 +549,7 @@ class RoutinesTest extends AbstractTestCase
         );
 
         $names = Routines::getProcedureNames($this->createDatabaseInterface($dbiDummy), 'test_db');
-        $this->assertSame([], $names);
+        self::assertSame([], $names);
 
         $dbiDummy->assertAllQueriesConsumed();
     }

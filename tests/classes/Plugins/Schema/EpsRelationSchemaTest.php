@@ -65,12 +65,12 @@ class EpsRelationSchemaTest extends AbstractTestCase
     #[Group('medium')]
     public function testConstructor(): void
     {
-        $this->assertEquals(33, $this->object->getPageNumber());
-        $this->assertTrue($this->object->isShowColor());
-        $this->assertTrue($this->object->isShowKeys());
-        $this->assertTrue($this->object->isTableDimension());
-        $this->assertTrue($this->object->isAllTableSameWidth());
-        $this->assertEquals('L', $this->object->getOrientation());
+        self::assertEquals(33, $this->object->getPageNumber());
+        self::assertTrue($this->object->isShowColor());
+        self::assertTrue($this->object->isShowKeys());
+        self::assertTrue($this->object->isTableDimension());
+        self::assertTrue($this->object->isAllTableSameWidth());
+        self::assertEquals('L', $this->object->getOrientation());
     }
 
     /**
@@ -80,6 +80,6 @@ class EpsRelationSchemaTest extends AbstractTestCase
     public function testSetPageNumber(): void
     {
         $this->object->setPageNumber(33);
-        $this->assertEquals(33, $this->object->getPageNumber());
+        self::assertEquals(33, $this->object->getPageNumber());
     }
 }

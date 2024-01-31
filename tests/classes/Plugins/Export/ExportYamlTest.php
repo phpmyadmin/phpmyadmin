@@ -70,28 +70,28 @@ class ExportYamlTest extends AbstractTestCase
         $attrProperties = new ReflectionProperty(ExportYaml::class, 'properties');
         $properties = $attrProperties->getValue($this->object);
 
-        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
+        self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        $this->assertEquals(
+        self::assertEquals(
             'YAML',
             $properties->getText(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'yml',
             $properties->getExtension(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'text/yaml',
             $properties->getMimeType(),
         );
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
+        self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        $this->assertEquals(
+        self::assertEquals(
             'Format Specific Options',
             $options->getName(),
         );
@@ -100,9 +100,9 @@ class ExportYamlTest extends AbstractTestCase
 
         $generalOptions = $generalOptionsArray->current();
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
+        self::assertEquals(
             'general_opts',
             $generalOptions->getName(),
         );
@@ -111,47 +111,47 @@ class ExportYamlTest extends AbstractTestCase
 
         $property = $generalProperties->current();
 
-        $this->assertInstanceOf(HiddenPropertyItem::class, $property);
+        self::assertInstanceOf(HiddenPropertyItem::class, $property);
     }
 
     public function testExportHeader(): void
     {
         ob_start();
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportHeader(),
         );
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
+        self::assertIsString($result);
 
-        $this->assertStringContainsString("%YAML 1.1\n---\n", $result);
+        self::assertStringContainsString("%YAML 1.1\n---\n", $result);
     }
 
     public function testExportFooter(): void
     {
         $this->expectOutputString("...\n");
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportFooter(),
         );
     }
 
     public function testExportDBHeader(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBHeader('&db'),
         );
     }
 
     public function testExportDBFooter(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBFooter('&db'),
         );
     }
 
     public function testExportDBCreate(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBCreate('testDB', 'database'),
         );
     }
@@ -159,7 +159,7 @@ class ExportYamlTest extends AbstractTestCase
     public function testExportData(): void
     {
         ob_start();
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportData(
                 'test_db',
                 'test_table',
@@ -169,7 +169,7 @@ class ExportYamlTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertEquals(
+        self::assertEquals(
             '# test_db.test_table' . "\n" .
             '-' . "\n" .
             '  id: 1' . "\n" .

@@ -74,10 +74,10 @@ class NavigationTest extends AbstractTestCase
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('tryQueryAsControlUser')
             ->with($expectedQuery);
-        $dbi->expects($this->any())->method('quoteString')
+        $dbi->expects(self::any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;
@@ -96,11 +96,11 @@ class NavigationTest extends AbstractTestCase
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('tryQueryAsControlUser')
             ->with($expectedQuery);
 
-        $dbi->expects($this->any())->method('quoteString')
+        $dbi->expects(self::any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         DatabaseInterface::$instance = $dbi;
         $this->object = new Navigation(new Template(), new Relation($dbi), $dbi);
@@ -113,8 +113,8 @@ class NavigationTest extends AbstractTestCase
     public function testGetItemUnhideDialog(): void
     {
         $html = $this->object->getItemUnhideDialog('db');
-        $this->assertStringContainsString('<td>tableName</td>', $html);
-        $this->assertStringContainsString(
+        self::assertStringContainsString('<td>tableName</td>', $html);
+        self::assertStringContainsString(
             '<a class="unhideNavItem ajax" href="' . Url::getFromRoute('/navigation') . '" data-post="'
             . 'unhideNavItem=1&itemType=table&'
             . 'itemName=tableName&dbName=db&lang=en">',

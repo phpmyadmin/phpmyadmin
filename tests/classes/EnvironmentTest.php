@@ -18,7 +18,7 @@ class EnvironmentTest extends AbstractTestCase
      */
     public function testPhpVersion(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             version_compare('8.1.2', PHP_VERSION, '<='),
             'phpMyAdmin requires PHP 8.1.2 or above',
         );

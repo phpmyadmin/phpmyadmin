@@ -67,9 +67,9 @@ class ProceduresTest extends TestBase
                 $this->waitForElement('cssSelector', '.collapse .card-footer input[type=submit]')->click();
                 $this->waitAjax();
                 sleep(2);// Waitfor the new results
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                self::assertTrue($this->isElementPresent('className', 'table_results'));
                 $sqlMode = $this->getCellByTableClass('table_results', 1, 1);
-                $this->assertNotEmpty($sqlMode);
+                self::assertNotEmpty($sqlMode);
             },
         );
 
@@ -83,7 +83,7 @@ class ProceduresTest extends TestBase
     {
         if ($this->originalSqlMode !== '') {
             $this->dbQuery("SET GLOBAL sql_mode = '" . $this->originalSqlMode . "';");
-            $this->assertEquals(
+            self::assertEquals(
                 $this->originalSqlMode,
                 $this->getSqlMode(),
             );
@@ -156,13 +156,13 @@ class ProceduresTest extends TestBase
         $this->byCssSelector('div.ui-dialog-buttonset button:nth-child(1)')->click();
 
         $success = $this->waitForElement('cssSelector', '.alert-success');
-        $this->assertStringContainsString('Routine `test_procedure` has been created', $success->getText());
+        self::assertStringContainsString('Routine `test_procedure` has been created', $success->getText());
 
         $this->dbQuery(
             "SHOW PROCEDURE STATUS WHERE Db='" . $this->databaseName . "'",
             function (): void {
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
-                $this->assertEquals($this->databaseName, $this->getCellByTableClass('table_results', 1, 1));
+                self::assertTrue($this->isElementPresent('className', 'table_results'));
+                self::assertEquals($this->databaseName, $this->getCellByTableClass('table_results', 1, 1));
             },
         );
 
@@ -189,7 +189,7 @@ class ProceduresTest extends TestBase
         $this->byCssSelector('div.ui-dialog-buttonset button:nth-child(1)')->click();
 
         $success = $this->waitForElement('cssSelector', '.alert-success');
-        $this->assertStringContainsString('Routine `test_procedure` has been modified', $success->getText());
+        self::assertStringContainsString('Routine `test_procedure` has been modified', $success->getText());
 
         $this->executeProcedure('test_procedure', 14);
     }
@@ -214,8 +214,8 @@ class ProceduresTest extends TestBase
         $this->dbQuery(
             "SHOW PROCEDURE STATUS WHERE Db='" . $this->databaseName . "'",
             function (): void {
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
-                $this->assertFalse($this->isElementPresent('cssSelector', '.table_results tbody tr'));
+                self::assertTrue($this->isElementPresent('className', 'table_results'));
+                self::assertFalse($this->isElementPresent('cssSelector', '.table_results tbody tr'));
             },
         );
     }
@@ -238,6 +238,6 @@ class ProceduresTest extends TestBase
         $this->waitUntilElementIsVisible('cssSelector', 'span#PMA_slidingMessage', 30);
         sleep(2);// Give more chances to the JS effect to finish
         $head = $this->byCssSelector('span#PMA_slidingMessage table tbody')->getText();
-        $this->assertEquals("outp\n" . $length, $head);
+        self::assertEquals("outp\n" . $length, $head);
     }
 }

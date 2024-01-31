@@ -28,7 +28,7 @@ class TwigLintCommandTest extends AbstractTestCase
     public function setUp(): void
     {
         if (! class_exists(Command::class)) {
-            $this->markTestSkipped('The Symfony Console is missing');
+            self::markTestSkipped('The Symfony Console is missing');
         }
 
         parent::setUp();
@@ -44,7 +44,7 @@ class TwigLintCommandTest extends AbstractTestCase
             TEST_PATH . 'tests/classes/_data/file_listing/subfolder/one.ini',
         ]);
 
-        $this->assertSame('key=value' . "\n", $contents);
+        self::assertSame('key=value' . "\n", $contents);
     }
 
     public function testFindFiles(): void
@@ -55,7 +55,7 @@ class TwigLintCommandTest extends AbstractTestCase
         // Sort results to avoid file system test specific failures
         sort($filesFound, SORT_NATURAL);
 
-        $this->assertEquals([
+        self::assertEquals([
             $path . DIRECTORY_SEPARATOR . 'one.txt',
             $path . DIRECTORY_SEPARATOR . 'subfolder' . DIRECTORY_SEPARATOR . 'one.ini',
             $path . DIRECTORY_SEPARATOR . 'subfolder' . DIRECTORY_SEPARATOR . 'zero.txt',
@@ -71,7 +71,7 @@ class TwigLintCommandTest extends AbstractTestCase
         // Sort results to avoid file system test specific failures
         sort($filesInfos, SORT_REGULAR);
 
-        $this->assertEquals([
+        self::assertEquals([
             ['template' => '', 'file' => $path . DIRECTORY_SEPARATOR . 'one.txt', 'valid' => true],
             ['template' => '', 'file' => $path . DIRECTORY_SEPARATOR . 'two.md', 'valid' => true],
             [
@@ -93,13 +93,13 @@ class TwigLintCommandTest extends AbstractTestCase
             ->onlyMethods(['getTemplateContents', 'findFiles'])
             ->getMock();
 
-        $command->expects($this->exactly(1))
+        $command->expects(self::exactly(1))
             ->method('findFiles')
             ->willReturn(
                 ['foo.twig', 'foo-invalid.twig'],
             );
 
-        $command->expects($this->exactly(2))->method('getTemplateContents')->willReturnMap([
+        $command->expects(self::exactly(2))->method('getTemplateContents')->willReturnMap([
             ['foo.twig', '{{ file }}'],
             ['foo-invalid.twig', '{{ file }'],
         ]);
@@ -108,7 +108,7 @@ class TwigLintCommandTest extends AbstractTestCase
             TEST_PATH . 'tests/classes/_data/file_listing',
         ]);
 
-        $this->assertEquals([
+        self::assertEquals([
             ['template' => '{{ file }}', 'file' => 'foo.twig', 'valid' => true],
             [
                 'template' => '{{ file }',
@@ -127,14 +127,14 @@ class TwigLintCommandTest extends AbstractTestCase
     {
         $context = $this->callFunction($this->command, TwigLintCommand::class, 'getContext', ['{{ file }', 0]);
 
-        $this->assertEquals([1 => '{{ file }'], $context);
+        self::assertEquals([1 => '{{ file }'], $context);
 
         $context = $this->callFunction($this->command, TwigLintCommand::class, 'getContext', ['{{ file }', 3]);
 
-        $this->assertEquals([1 => '{{ file }'], $context);
+        self::assertEquals([1 => '{{ file }'], $context);
 
         $context = $this->callFunction($this->command, TwigLintCommand::class, 'getContext', ['{{ file }', 5]);
 
-        $this->assertEquals([], $context);
+        self::assertEquals([], $context);
     }
 }

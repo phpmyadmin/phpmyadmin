@@ -102,31 +102,31 @@ class SqlQueryFormTest extends AbstractTestCase
         $html = $this->sqlQueryForm->getHtml('PMA_db', 'PMA_table', $query);
 
         //validate 1: query
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             htmlspecialchars($query),
             $html,
         );
 
         //validate 2: enable auto select text in textarea
         $autoSel = ' data-textarea-auto-select="true"';
-        $this->assertStringContainsString($autoSel, $html);
+        self::assertStringContainsString($autoSel, $html);
 
         //validate 3: MySQLDocumentation::show
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             MySQLDocumentation::show('SELECT'),
             $html,
         );
 
         //validate 4: $fields_list
-        $this->assertStringContainsString('<input type="button" value="DELETE" id="delete"', $html);
-        $this->assertStringContainsString('<input type="button" value="UPDATE" id="update"', $html);
-        $this->assertStringContainsString('<input type="button" value="INSERT" id="insert"', $html);
-        $this->assertStringContainsString('<input type="button" value="SELECT" id="select"', $html);
-        $this->assertStringContainsString('<input type="button" value="SELECT *" id="selectall"', $html);
+        self::assertStringContainsString('<input type="button" value="DELETE" id="delete"', $html);
+        self::assertStringContainsString('<input type="button" value="UPDATE" id="update"', $html);
+        self::assertStringContainsString('<input type="button" value="INSERT" id="insert"', $html);
+        self::assertStringContainsString('<input type="button" value="SELECT" id="select"', $html);
+        self::assertStringContainsString('<input type="button" value="SELECT *" id="selectall"', $html);
 
         //validate 5: Clear button
-        $this->assertStringContainsString('<input type="button" value="DELETE" id="delete"', $html);
-        $this->assertStringContainsString(
+        self::assertStringContainsString('<input type="button" value="DELETE" id="delete"', $html);
+        self::assertStringContainsString(
             __('Clear'),
             $html,
         );
@@ -143,35 +143,35 @@ class SqlQueryFormTest extends AbstractTestCase
         $html = $this->sqlQueryForm->getHtml('PMA_db', 'PMA_table', $query);
 
         //validate 1: query
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             htmlspecialchars($query),
             $html,
         );
 
         //validate 2: $enctype
         $enctype = ' enctype="multipart/form-data">';
-        $this->assertStringContainsString($enctype, $html);
+        self::assertStringContainsString($enctype, $html);
 
         //validate 3: sqlqueryform
-        $this->assertStringContainsString('id="sqlqueryform" name="sqlform"', $html);
+        self::assertStringContainsString('id="sqlqueryform" name="sqlform"', $html);
 
         //validate 4: $db, $table
         $table = Current::$table;
         $db = Current::$database;
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             Url::getHiddenInputs($db, $table),
             $html,
         );
 
         //validate 5: $goto
         $goto = empty($GLOBALS['goto']) ? Url::getFromRoute('/table/sql') : $GLOBALS['goto'];
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             htmlspecialchars($goto),
             $html,
         );
 
         //validate 6: Kanji encoding form
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             Encoding::kanjiEncodingForm(),
             $html,
         );

@@ -46,7 +46,7 @@ class ExportTest extends TestBase
         $text = $this->doExport('server', $plugin);
 
         foreach ($expected as $str) {
-            $this->assertStringContainsString($str, $text);
+            self::assertStringContainsString($str, $text);
         }
     }
 
@@ -65,7 +65,7 @@ class ExportTest extends TestBase
         $text = $this->doExport('db', $plugin);
 
         foreach ($expected as $str) {
-            $this->assertStringContainsString($str, $text);
+            self::assertStringContainsString($str, $text);
         }
     }
 
@@ -86,7 +86,7 @@ class ExportTest extends TestBase
         $text = $this->doExport('table', $plugin);
 
         foreach ($expected as $str) {
-            $this->assertStringContainsString($str, $text);
+            self::assertStringContainsString($str, $text);
         }
     }
 

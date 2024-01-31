@@ -99,6 +99,6 @@ class SqlControllerTest extends AbstractTestCase
             $pageSettings,
             new DbTableExists($this->dbi),
         ))($request);
-        $this->assertSame($expected, $response->getHTMLResult());
+        self::assertSame($expected, $response->getHTMLResult());
     }
 }

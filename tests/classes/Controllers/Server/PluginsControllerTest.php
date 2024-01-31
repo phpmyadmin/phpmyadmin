@@ -60,15 +60,15 @@ class PluginsControllerTest extends AbstractTestCase
             'PLUGIN_STATUS' => 'ACTIVE',
         ];
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createMock(DummyResult::class);
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('query')
             ->willReturn($resultStub);
-        $resultStub->expects($this->exactly(1))
+        $resultStub->expects(self::exactly(1))
             ->method('fetchAllAssoc')
             ->willReturn([$row]);
 
@@ -76,22 +76,22 @@ class PluginsControllerTest extends AbstractTestCase
 
         $controller = new PluginsController($response, new Template(), new Plugins($dbi), $this->dbi);
         $this->dummyDbi->addSelectDb('mysql');
-        $controller($this->createStub(ServerRequest::class));
+        $controller(self::createStub(ServerRequest::class));
         $this->dummyDbi->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();
 
         //validate 1:Items
-        $this->assertStringContainsString('<th scope="col">Plugin</th>', $actual);
-        $this->assertStringContainsString('<th scope="col">Description</th>', $actual);
-        $this->assertStringContainsString('<th scope="col">Version</th>', $actual);
-        $this->assertStringContainsString('<th scope="col">Author</th>', $actual);
-        $this->assertStringContainsString('<th scope="col">License</th>', $actual);
+        self::assertStringContainsString('<th scope="col">Plugin</th>', $actual);
+        self::assertStringContainsString('<th scope="col">Description</th>', $actual);
+        self::assertStringContainsString('<th scope="col">Version</th>', $actual);
+        self::assertStringContainsString('<th scope="col">Author</th>', $actual);
+        self::assertStringContainsString('<th scope="col">License</th>', $actual);
 
         //validate 2: one Item HTML
-        $this->assertStringContainsString('plugin_name1', $actual);
-        $this->assertStringContainsString('<td>plugin_description1</td>', $actual);
-        $this->assertStringContainsString('<td>plugin_version1</td>', $actual);
-        $this->assertStringContainsString('<td>plugin_author1</td>', $actual);
-        $this->assertStringContainsString('<td>plugin_license1</td>', $actual);
+        self::assertStringContainsString('plugin_name1', $actual);
+        self::assertStringContainsString('<td>plugin_description1</td>', $actual);
+        self::assertStringContainsString('<td>plugin_version1</td>', $actual);
+        self::assertStringContainsString('<td>plugin_author1</td>', $actual);
+        self::assertStringContainsString('<td>plugin_license1</td>', $actual);
     }
 }

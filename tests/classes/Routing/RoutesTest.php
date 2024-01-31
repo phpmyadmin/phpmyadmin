@@ -351,7 +351,7 @@ final class RoutesTest extends TestCase
 
         $routeCollector = new RouteCollector(new RouteParserStd(), new DataGeneratorGroupCountBased());
         Routes::collect($routeCollector);
-        $this->assertSame(
+        self::assertSame(
             [
                 ['GET' => $expectedGetRoutes, 'POST' => $expectedPostRoutes],
                 ['GET' => $expectedRegexGetRoutes, 'POST' => $expectedRegexPostRoutes],

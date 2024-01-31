@@ -28,7 +28,7 @@ class GetFieldControllerTest extends AbstractTestCase
         Current::$database = 'test_db';
         Current::$table = 'table_with_blob';
 
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getQueryParam')->willReturnMap([
             ['transform_key', '', 'file' ],
             ['sql_query', '', 'SELECT * FROM `test_db`.`table_with_blob`'],

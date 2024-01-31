@@ -49,7 +49,7 @@ class SimulateDmlTest extends AbstractTestCase
 
         $dummyDbi->assertAllSelectsConsumed();
         $dummyDbi->assertAllQueriesConsumed();
-        $this->assertEquals([
+        self::assertEquals([
             'sql_query' => Generator::formatSql($sqlQuery),
             'matched_rows' => count($result),
             'matched_rows_url' => $matchedRowsUrl,

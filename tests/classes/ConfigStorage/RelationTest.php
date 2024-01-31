@@ -42,7 +42,7 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->addSelectDb('phpmyadmin');
         $db = 'information_schema';
         $table = 'CHARACTER_SETS';
-        $this->assertEquals(
+        self::assertEquals(
             'DESCRIPTION',
             $relation->getDisplayField($db, $table),
         );
@@ -50,14 +50,14 @@ class RelationTest extends AbstractTestCase
 
         $db = 'information_schema';
         $table = 'TABLES';
-        $this->assertEquals(
+        self::assertEquals(
             'TABLE_COMMENT',
             $relation->getDisplayField($db, $table),
         );
 
         $db = 'information_schema';
         $table = 'PMA';
-        $this->assertSame(
+        self::assertSame(
             '',
             $relation->getDisplayField($db, $table),
         );
@@ -80,7 +80,7 @@ class RelationTest extends AbstractTestCase
             new ColumnFull('field1', 'int(11)', null, false, '', null, '', '', 'Comment1'),
             new ColumnFull('field2', 'text', null, false, '', null, '', '', 'Comment1'),
         ];
-        $dbi->expects($this->any())->method('getColumns')
+        $dbi->expects(self::any())->method('getColumns')
             ->willReturn($getColumnsResult);
 
         $relation = new Relation($dbi);
@@ -88,14 +88,14 @@ class RelationTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
 
         $db = 'information_schema';
-        $this->assertEquals(
+        self::assertEquals(
             [''],
             $relation->getComments($db),
         );
 
         $db = 'information_schema';
         $table = 'TABLES';
-        $this->assertEquals(
+        self::assertEquals(
             ['field1' => 'Comment1', 'field2' => 'Comment1'],
             $relation->getComments($db, $table),
         );
@@ -106,18 +106,18 @@ class RelationTest extends AbstractTestCase
      */
     public function testPMATryUpgradeTransformations(): void
     {
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createMock(DummyResult::class);
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $dbi->expects($this->any())
+        $dbi->expects(self::any())
             ->method('tryQueryAsControlUser')
             ->willReturn($resultStub);
-        $resultStub->expects($this->any())
+        $resultStub->expects(self::any())
             ->method('numRows')
             ->willReturn(0);
-        $dbi->expects($this->any())
+        $dbi->expects(self::any())
             ->method('getError')
             ->willReturn('Error', '');
         DatabaseInterface::$instance = $dbi;
@@ -130,17 +130,17 @@ class RelationTest extends AbstractTestCase
 
         // Case 1
         $actual = $relation->tryUpgradeTransformations();
-        $this->assertFalse($actual);
+        self::assertFalse($actual);
 
         // Case 2
         $actual = $relation->tryUpgradeTransformations();
-        $this->assertTrue($actual);
+        self::assertTrue($actual);
     }
 
     public function testSearchColumnInForeignersError(): void
     {
         $relation = new Relation($this->createDatabaseInterface());
-        $this->assertFalse($relation->searchColumnInForeigners([], 'id'));
+        self::assertFalse($relation->searchColumnInForeigners([], 'id'));
     }
 
     /**
@@ -179,7 +179,7 @@ class RelationTest extends AbstractTestCase
         $expected['on_delete'] = 'CASCADE';
         $expected['on_update'] = 'CASCADE';
 
-        $this->assertEquals($expected, $foreigner);
+        self::assertEquals($expected, $foreigner);
     }
 
     public function testFixPmaTablesNothingWorks(): void
@@ -251,7 +251,7 @@ class RelationTest extends AbstractTestCase
             'userconfigwork' => true,
             'userconfig' => 'pma__userconfig',
         ]);
-        $this->assertSame($relationParameters->toArray(), $relation->getRelationParameters()->toArray());
+        self::assertSame($relationParameters->toArray(), $relation->getRelationParameters()->toArray());
 
         $dummyDbi->assertAllQueriesConsumed();
         $dummyDbi->assertAllSelectsConsumed();
@@ -510,20 +510,20 @@ class RelationTest extends AbstractTestCase
             true,
         );
 
-        $this->assertSame('', $config->selectedServer['pmadb']);
+        self::assertSame('', $config->selectedServer['pmadb']);
 
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 
         $relation->fixPmaTables('db_pma', true);
-        $this->assertArrayNotHasKey('message', $GLOBALS);
-        $this->assertSame('db_pma', $config->selectedServer['pmadb']);
+        self::assertArrayNotHasKey('message', $GLOBALS);
+        self::assertSame('db_pma', $config->selectedServer['pmadb']);
 
         $relationParameters = RelationParameters::fromArray([
             'db' => 'db_pma',
             'userconfigwork' => true,
             'userconfig' => 'pma__userconfig',
         ]);
-        $this->assertSame($relationParameters->toArray(), $relation->getRelationParameters()->toArray());
+        self::assertSame($relationParameters->toArray(), $relation->getRelationParameters()->toArray());
 
         $dummyDbi->assertAllQueriesConsumed();
         $dummyDbi->assertAllSelectsConsumed();
@@ -790,22 +790,22 @@ class RelationTest extends AbstractTestCase
             true,
         );
 
-        $this->assertSame('db_pma', $config->selectedServer['pmadb']);
+        self::assertSame('db_pma', $config->selectedServer['pmadb']);
 
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 
         $dummyDbi->addSelectDb('db_pma');
         $dummyDbi->addSelectDb('db_pma');
         $relation->fixPmaTables('db_pma', true);
-        $this->assertArrayNotHasKey('message', $GLOBALS);
-        $this->assertSame('db_pma', $config->selectedServer['pmadb']);
+        self::assertArrayNotHasKey('message', $GLOBALS);
+        self::assertSame('db_pma', $config->selectedServer['pmadb']);
 
         $relationParameters = RelationParameters::fromArray([
             'db' => 'db_pma',
             'userconfigwork' => true,
             'userconfig' => 'pma__userconfig',
         ]);
-        $this->assertSame($relationParameters->toArray(), $relation->getRelationParameters()->toArray());
+        self::assertSame($relationParameters->toArray(), $relation->getRelationParameters()->toArray());
 
         $dummyDbi->assertAllQueriesConsumed();
         $dummyDbi->assertAllSelectsConsumed();
@@ -865,17 +865,17 @@ class RelationTest extends AbstractTestCase
         );
         $dummyDbi->addSelectDb('db_pma');
 
-        $this->assertSame('', $config->selectedServer['pmadb']);
+        self::assertSame('', $config->selectedServer['pmadb']);
 
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 
         $relation->fixPmaTables('db_pma', true);
 
-        $this->assertArrayHasKey('message', $GLOBALS);
-        $this->assertSame('MYSQL_ERROR', $GLOBALS['message']);
-        $this->assertSame('', $config->selectedServer['pmadb']);
+        self::assertArrayHasKey('message', $GLOBALS);
+        self::assertSame('MYSQL_ERROR', $GLOBALS['message']);
+        self::assertSame('', $config->selectedServer['pmadb']);
 
-        $this->assertNull((new ReflectionProperty(Relation::class, 'cache'))->getValue());
+        self::assertNull((new ReflectionProperty(Relation::class, 'cache'))->getValue());
 
         $dummyDbi->assertAllQueriesConsumed();
         $dummyDbi->assertAllErrorCodesConsumed();
@@ -902,13 +902,13 @@ class RelationTest extends AbstractTestCase
         );
         $dummyDbi->addSelectDb('phpmyadmin');
 
-        $this->assertArrayNotHasKey('errno', $GLOBALS);
+        self::assertArrayNotHasKey('errno', $GLOBALS);
 
-        $this->assertTrue(
+        self::assertTrue(
             $relation->createPmaDatabase('phpmyadmin'),
         );
 
-        $this->assertArrayNotHasKey('message', $GLOBALS);
+        self::assertArrayNotHasKey('message', $GLOBALS);
 
         $dummyDbi->assertAllQueriesConsumed();
         $dummyDbi->assertAllErrorCodesConsumed();
@@ -928,12 +928,12 @@ class RelationTest extends AbstractTestCase
 
         $GLOBALS['errno'] = 1044;// ER_DBACCESS_DENIED_ERROR
 
-        $this->assertFalse(
+        self::assertFalse(
             $relation->createPmaDatabase('phpmyadmin'),
         );
 
-        $this->assertArrayHasKey('message', $GLOBALS);
-        $this->assertSame(
+        self::assertArrayHasKey('message', $GLOBALS);
+        self::assertSame(
             'You do not have necessary privileges to create a database named'
             . ' \'phpmyadmin\'. You may go to \'Operations\' tab of any'
             . ' database to set up the phpMyAdmin configuration storage there.',
@@ -957,12 +957,12 @@ class RelationTest extends AbstractTestCase
 
         $GLOBALS['errno'] = 1040;
 
-        $this->assertFalse(
+        self::assertFalse(
             $relation->createPmaDatabase('pma_1040'),
         );
 
-        $this->assertArrayHasKey('message', $GLOBALS);
-        $this->assertSame('Too many connections', $GLOBALS['message']);
+        self::assertArrayHasKey('message', $GLOBALS);
+        self::assertSame('Too many connections', $GLOBALS['message']);
 
         $dummyDbi->assertAllQueriesConsumed();
         $dummyDbi->assertAllErrorCodesConsumed();
@@ -1363,7 +1363,7 @@ class RelationTest extends AbstractTestCase
             ]),
         ];
 
-        $this->assertSame(
+        self::assertSame(
             $data,
             $relation->getCreateTableSqlQueries([]),
         );
@@ -1390,7 +1390,7 @@ class RelationTest extends AbstractTestCase
             '  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
         ]);
 
-        $this->assertSame(
+        self::assertSame(
             $data,
             $relation->getCreateTableSqlQueries(['pma__export_templates' => 'db_exporttemplates_pma']),
         );
@@ -1436,9 +1436,9 @@ class RelationTest extends AbstractTestCase
 
         // Should all be false for server = 0
         $relationParameters = RelationParameters::fromArray([]);
-        $this->assertSame($relationParameters->toArray(), $relation->getRelationParameters()->toArray());
+        self::assertSame($relationParameters->toArray(), $relation->getRelationParameters()->toArray());
 
-        $this->assertEquals([
+        self::assertEquals([
             'userconfig' => 'pma__userconfig',
             'pmadb' => false,// This is the expected value for server = 0
         ], $config->selectedServer);
@@ -1503,9 +1503,9 @@ class RelationTest extends AbstractTestCase
             'userconfigwork' => true,
             'userconfig' => 'pma__userconfig',
         ]);
-        $this->assertSame($relationParameters->toArray(), $relation->getRelationParameters()->toArray());
+        self::assertSame($relationParameters->toArray(), $relation->getRelationParameters()->toArray());
 
-        $this->assertSame([
+        self::assertSame([
             'user' => '',
             'pmadb' => 'phpmyadmin',
             'bookmarktable' => '',
@@ -1589,9 +1589,9 @@ class RelationTest extends AbstractTestCase
             'userconfigwork' => false,
             'userconfig' => 'pma__userconfig',
         ]);
-        $this->assertSame($relationParameters->toArray(), $relation->getRelationParameters()->toArray());
+        self::assertSame($relationParameters->toArray(), $relation->getRelationParameters()->toArray());
 
-        $this->assertSame([
+        self::assertSame([
             'user' => '',
             'pmadb' => 'phpmyadmin',
             'bookmarktable' => '',
@@ -1670,7 +1670,7 @@ class RelationTest extends AbstractTestCase
         $relation = new Relation($dbi);
         $relation->initRelationParamsCache();
 
-        $this->assertArrayHasKey(
+        self::assertArrayHasKey(
             'relation',
             $relation->getRelationParameters()->toArray(),
             'The cache is expected to be filled because the custom override'
@@ -1698,9 +1698,9 @@ class RelationTest extends AbstractTestCase
             'userconfigwork' => true,
             'userconfig' => 'pma__userconfig_custom',
         ]);
-        $this->assertSame($relationParameters->toArray(), $relationData->toArray());
+        self::assertSame($relationParameters->toArray(), $relationData->toArray());
 
-        $this->assertSame([
+        self::assertSame([
             'user' => '',
             'pmadb' => 'PMA-storage',
             'bookmarktable' => '',
@@ -1785,7 +1785,7 @@ class RelationTest extends AbstractTestCase
          * The method above does't initialize Relation param cache.
          * A proper test is needed to verify that the user disabled features result in disabled Relation cache.
          */
-        $this->assertArrayHasKey(
+        self::assertArrayHasKey(
             'relation',
             $relation->getRelationParameters()->toArray(),
             'The cache is expected to be filled because the custom override'
@@ -1816,10 +1816,10 @@ class RelationTest extends AbstractTestCase
             'trackingwork' => false,
             'tracking' => false,
         ]);
-        $this->assertSame($relationParameters->toArray(), $relationData->toArray());
-        $this->assertNull($relationParameters->trackingFeature, 'The feature should not be enabled');
+        self::assertSame($relationParameters->toArray(), $relationData->toArray());
+        self::assertNull($relationParameters->trackingFeature, 'The feature should not be enabled');
 
-        $this->assertSame([
+        self::assertSame([
             'user' => '',
             'pmadb' => 'PMA-storage',
             'bookmarktable' => '',
@@ -1904,7 +1904,7 @@ class RelationTest extends AbstractTestCase
         $relation = new Relation($dbi);
         $relation->initRelationParamsCache();
 
-        $this->assertArrayHasKey(
+        self::assertArrayHasKey(
             'relation',
             $relation->getRelationParameters()->toArray(),
             'The cache is expected to be filled because the custom override'
@@ -1924,10 +1924,10 @@ class RelationTest extends AbstractTestCase
             'favorite' => 'pma__favorite_custom',
             'favoritework' => true,
         ]);
-        $this->assertSame($relationParameters->toArray(), $relationData->toArray());
-        $this->assertNull($relationParameters->trackingFeature, 'The feature should not be enabled');
+        self::assertSame($relationParameters->toArray(), $relationData->toArray());
+        self::assertNull($relationParameters->trackingFeature, 'The feature should not be enabled');
 
-        $this->assertSame([
+        self::assertSame([
             'user' => '',
             'pmadb' => 'PMA-storage',
             'bookmarktable' => '',
@@ -1984,8 +1984,8 @@ class RelationTest extends AbstractTestCase
 
         $relation = new Relation($dbi);
 
-        $this->assertFalse($relation->arePmadbTablesDefined());
-        $this->assertFalse($relation->arePmadbTablesAllDisabled());
+        self::assertFalse($relation->arePmadbTablesDefined());
+        self::assertFalse($relation->arePmadbTablesAllDisabled());
 
         $config->selectedServer['bookmarktable'] = '';
         $config->selectedServer['relation'] = '';
@@ -2007,8 +2007,8 @@ class RelationTest extends AbstractTestCase
         $config->selectedServer['designer_settings'] = '';
         $config->selectedServer['export_templates'] = '';
 
-        $this->assertFalse($relation->arePmadbTablesDefined());
-        $this->assertFalse($relation->arePmadbTablesAllDisabled());
+        self::assertFalse($relation->arePmadbTablesDefined());
+        self::assertFalse($relation->arePmadbTablesAllDisabled());
 
         $config->selectedServer['bookmarktable'] = 'pma__bookmark';
         $config->selectedServer['relation'] = 'pma__relation';
@@ -2030,8 +2030,8 @@ class RelationTest extends AbstractTestCase
         $config->selectedServer['designer_settings'] = 'pma__designer_settings';
         $config->selectedServer['export_templates'] = 'pma__export_templates';
 
-        $this->assertTrue($relation->arePmadbTablesDefined());
-        $this->assertFalse($relation->arePmadbTablesAllDisabled());
+        self::assertTrue($relation->arePmadbTablesDefined());
+        self::assertFalse($relation->arePmadbTablesAllDisabled());
 
         $config->selectedServer['bookmarktable'] = 'pma__bookmark';
         $config->selectedServer['relation'] = 'pma__relation';
@@ -2053,8 +2053,8 @@ class RelationTest extends AbstractTestCase
         $config->selectedServer['designer_settings'] = 'pma__designer_settings';
         $config->selectedServer['export_templates'] = 'pma__export_templates';
 
-        $this->assertTrue($relation->arePmadbTablesDefined());
-        $this->assertFalse($relation->arePmadbTablesAllDisabled());
+        self::assertTrue($relation->arePmadbTablesDefined());
+        self::assertFalse($relation->arePmadbTablesAllDisabled());
 
         $config->selectedServer['bookmarktable'] = 'pma__bookmark';
         $config->selectedServer['relation'] = 'pma__relation';
@@ -2076,8 +2076,8 @@ class RelationTest extends AbstractTestCase
         $config->selectedServer['designer_settings'] = 'pma__designer_settings';
         $config->selectedServer['export_templates'] = 'pma__export_templates';
 
-        $this->assertFalse($relation->arePmadbTablesDefined());
-        $this->assertFalse($relation->arePmadbTablesAllDisabled());
+        self::assertFalse($relation->arePmadbTablesDefined());
+        self::assertFalse($relation->arePmadbTablesAllDisabled());
 
         $config->selectedServer['bookmarktable'] = false; //'pma__bookmark';
         $config->selectedServer['relation'] = false; //'pma__relation';
@@ -2099,8 +2099,8 @@ class RelationTest extends AbstractTestCase
         $config->selectedServer['designer_settings'] = false; //'pma__designer_settings';
         $config->selectedServer['export_templates'] = false; //'pma__export_templates';
 
-        $this->assertFalse($relation->arePmadbTablesDefined());
-        $this->assertTrue($relation->arePmadbTablesAllDisabled());
+        self::assertFalse($relation->arePmadbTablesDefined());
+        self::assertTrue($relation->arePmadbTablesAllDisabled());
     }
 
     /**

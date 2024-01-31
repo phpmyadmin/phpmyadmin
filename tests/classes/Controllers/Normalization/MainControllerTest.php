@@ -44,29 +44,29 @@ class MainControllerTest extends AbstractTestCase
         $response = new ResponseRenderer();
 
         $controller = new MainController($response, new Template());
-        $controller($this->createStub(ServerRequest::class));
+        $controller(self::createStub(ServerRequest::class));
 
         $files = $response->getHeader()->getScripts()->getFiles();
-        $this->assertTrue(
+        self::assertTrue(
             in_array(['name' => 'normalization.js', 'fire' => 1], $files, true),
             'normalization.js script was not included in the response.',
         );
-        $this->assertTrue(
+        self::assertTrue(
             in_array(['name' => 'vendor/jquery/jquery.uitablefilter.js', 'fire' => 0], $files, true),
             'vendor/jquery/jquery.uitablefilter.js script was not included in the response.',
         );
 
         $output = $response->getHTMLResult();
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<form method="post" action="index.php?route=/normalization/1nf/step1&lang=en"'
             . ' name="normalize" id="normalizeTable"',
             $output,
         );
-        $this->assertStringContainsString('<input type="hidden" name="db" value="test_db">', $output);
-        $this->assertStringContainsString('<input type="hidden" name="table" value="test_table">', $output);
-        $this->assertStringContainsString('type="radio" name="normalizeTo"', $output);
-        $this->assertStringContainsString('id="normalizeToRadio1" value="1nf" checked>', $output);
-        $this->assertStringContainsString('id="normalizeToRadio2" value="2nf">', $output);
-        $this->assertStringContainsString('id="normalizeToRadio3" value="3nf">', $output);
+        self::assertStringContainsString('<input type="hidden" name="db" value="test_db">', $output);
+        self::assertStringContainsString('<input type="hidden" name="table" value="test_table">', $output);
+        self::assertStringContainsString('type="radio" name="normalizeTo"', $output);
+        self::assertStringContainsString('id="normalizeToRadio1" value="1nf" checked>', $output);
+        self::assertStringContainsString('id="normalizeToRadio2" value="2nf">', $output);
+        self::assertStringContainsString('id="normalizeToRadio3" value="3nf">', $output);
     }
 }

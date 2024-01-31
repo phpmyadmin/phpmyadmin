@@ -39,7 +39,7 @@ class MoveRepeatingGroupTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
         $template = new Template();
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['repeatingColumns', null, 'col1, col2'],
             ['newTable', null, 'new_table'],
@@ -55,6 +55,6 @@ class MoveRepeatingGroupTest extends AbstractTestCase
         $controller($request);
 
         $message = Message::success('Selected repeating group has been moved to the table \'test_table\'');
-        $this->assertSame(['queryError' => false, 'message' => $message->getDisplay()], $response->getJSONResult());
+        self::assertSame(['queryError' => false, 'message' => $message->getDisplay()], $response->getJSONResult());
     }
 }

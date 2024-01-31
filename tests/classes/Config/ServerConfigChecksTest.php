@@ -77,7 +77,7 @@ class ServerConfigChecksTest extends AbstractTestCase
 
         $configChecker->performConfigChecks();
 
-        $this->assertEquals(
+        self::assertEquals(
             [
                 'Servers/1/ssl',
                 'Servers/1/auth_type',
@@ -90,7 +90,7 @@ class ServerConfigChecksTest extends AbstractTestCase
             array_keys($_SESSION['messages']['notice']),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             ['LoginCookieValidity', 'GZipDump', 'BZipDump', 'ZipDump_import', 'ZipDump_export'],
             array_keys($_SESSION['messages']['error']),
         );
@@ -120,14 +120,14 @@ class ServerConfigChecksTest extends AbstractTestCase
          * @psalm-suppress TypeDoesNotContainType
          */
         $secret = $_SESSION[$this->sessionID]['blowfish_secret'] ?? '';
-        $this->assertIsString($secret);
-        $this->assertSame(SODIUM_CRYPTO_SECRETBOX_KEYBYTES, mb_strlen($secret, '8bit'));
+        self::assertIsString($secret);
+        self::assertSame(SODIUM_CRYPTO_SECRETBOX_KEYBYTES, mb_strlen($secret, '8bit'));
         $messages = $_SESSION['messages'] ?? null;
-        $this->assertIsArray($messages);
-        $this->assertArrayHasKey('notice', $messages);
-        $this->assertIsArray($messages['notice']);
-        $this->assertArrayHasKey('blowfish_secret_created', $messages['notice']);
-        $this->assertArrayNotHasKey('error', $messages);
+        self::assertIsArray($messages);
+        self::assertArrayHasKey('notice', $messages);
+        self::assertIsArray($messages['notice']);
+        self::assertArrayHasKey('blowfish_secret_created', $messages['notice']);
+        self::assertArrayNotHasKey('error', $messages);
     }
 
     /**
@@ -150,14 +150,14 @@ class ServerConfigChecksTest extends AbstractTestCase
          * @psalm-suppress TypeDoesNotContainType
          */
         $secret = $_SESSION[$this->sessionID]['blowfish_secret'] ?? '';
-        $this->assertIsString($secret);
-        $this->assertSame(SODIUM_CRYPTO_SECRETBOX_KEYBYTES, mb_strlen($secret, '8bit'));
+        self::assertIsString($secret);
+        self::assertSame(SODIUM_CRYPTO_SECRETBOX_KEYBYTES, mb_strlen($secret, '8bit'));
         $messages = $_SESSION['messages'] ?? null;
-        $this->assertIsArray($messages);
-        $this->assertArrayHasKey('notice', $messages);
-        $this->assertIsArray($messages['notice']);
-        $this->assertArrayHasKey('blowfish_secret_created', $messages['notice']);
-        $this->assertArrayNotHasKey('error', $messages);
+        self::assertIsArray($messages);
+        self::assertArrayHasKey('notice', $messages);
+        self::assertIsArray($messages['notice']);
+        self::assertArrayHasKey('blowfish_secret_created', $messages['notice']);
+        self::assertArrayNotHasKey('error', $messages);
     }
 
     /**
@@ -178,13 +178,13 @@ class ServerConfigChecksTest extends AbstractTestCase
          * @psalm-suppress TypeDoesNotContainType
          */
         $secret = $_SESSION[$this->sessionID]['blowfish_secret'] ?? '';
-        $this->assertIsString($secret);
-        $this->assertSame(SODIUM_CRYPTO_SECRETBOX_KEYBYTES, mb_strlen($secret, '8bit'));
+        self::assertIsString($secret);
+        self::assertSame(SODIUM_CRYPTO_SECRETBOX_KEYBYTES, mb_strlen($secret, '8bit'));
         $messages = $_SESSION['messages'] ?? null;
-        $this->assertIsArray($messages);
-        $this->assertArrayHasKey('notice', $messages);
-        $this->assertIsArray($messages['notice']);
-        $this->assertArrayNotHasKey('blowfish_secret_created', $messages['notice']);
-        $this->assertArrayNotHasKey('error', $messages);
+        self::assertIsArray($messages);
+        self::assertArrayHasKey('notice', $messages);
+        self::assertIsArray($messages['notice']);
+        self::assertArrayNotHasKey('blowfish_secret_created', $messages['notice']);
+        self::assertArrayNotHasKey('error', $messages);
     }
 }

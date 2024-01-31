@@ -63,15 +63,15 @@ class ErrorReportTest extends AbstractTestCase
     public function testGetData(): void
     {
         $actual = $this->errorReport->getData('unknown');
-        $this->assertEquals([], $actual);
+        self::assertEquals([], $actual);
 
         $actual = $this->errorReport->getData('php');
-        $this->assertEquals([], $actual);
+        self::assertEquals([], $actual);
 
         $_SESSION['prev_errors'] = [];
 
         $actual = $this->errorReport->getData('php');
-        $this->assertEquals([], $actual);
+        self::assertEquals([], $actual);
 
         $_SESSION['prev_errors'] = [new Error(0, 'error 0', 'file', 1), new Error(1, 'error 1', 'file', 2)];
 
@@ -108,7 +108,7 @@ class ErrorReportTest extends AbstractTestCase
         ];
 
         $actual = $this->errorReport->getData('php');
-        $this->assertEquals($report, $actual);
+        self::assertEquals($report, $actual);
     }
 
     public function testSend(): void
@@ -120,7 +120,7 @@ class ErrorReportTest extends AbstractTestCase
         $httpRequest = $this->getMockBuilder(HttpRequest::class)
             ->onlyMethods(['create'])
             ->getMock();
-        $httpRequest->expects($this->once())
+        $httpRequest->expects(self::once())
             ->method('create')
             ->with(
                 $submissionUrl,
@@ -139,7 +139,7 @@ class ErrorReportTest extends AbstractTestCase
         );
         $this->errorReport->setSubmissionUrl($submissionUrl);
 
-        $this->assertEquals($return, $this->errorReport->send($report));
+        self::assertEquals($return, $this->errorReport->send($report));
     }
 
     public function testGetForm(): void
@@ -147,7 +147,7 @@ class ErrorReportTest extends AbstractTestCase
         $_POST['exception'] = [];
 
         $form = $this->errorReport->getForm();
-        $this->assertStringContainsString('<pre class="pre-scrollable">[]</pre>', $form);
+        self::assertStringContainsString('<pre class="pre-scrollable">[]</pre>', $form);
 
         $context = [
             'Widget.prototype = {',
@@ -213,7 +213,7 @@ class ErrorReportTest extends AbstractTestCase
         $expectedData = json_encode($report, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 
         $form = $this->errorReport->getForm();
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<pre class="pre-scrollable">' . htmlspecialchars((string) $expectedData, ENT_QUOTES) . '</pre>',
             $form,
         );
@@ -278,7 +278,7 @@ class ErrorReportTest extends AbstractTestCase
         $data['stack'][1]['context'][1] = '!function(e,t){"use strict";"object"='
                                         . '=typeof module&&"object"==typeof modul//...';
 
-        $this->assertEquals($data, $actual['exception']);
+        self::assertEquals($data, $actual['exception']);
     }
 
     /**
@@ -322,7 +322,7 @@ class ErrorReportTest extends AbstractTestCase
     public function testSanitizeUrl(string $url, array $result): void
     {
         // $this->errorReport->sanitizeUrl
-        $this->assertSame(
+        self::assertSame(
             $result,
             $this->callFunction(
                 $this->errorReport,

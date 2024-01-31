@@ -33,33 +33,33 @@ class RoutingTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->settings['environment'] = null;
 
-        $this->assertDirectoryIsWritable(CACHE_DIR);
+        self::assertDirectoryIsWritable(CACHE_DIR);
 
         // Valid cache file.
-        $this->assertTrue(copy($validCacheFilename, $cacheFilename));
+        self::assertTrue(copy($validCacheFilename, $cacheFilename));
         $dispatcher = Routing::getDispatcher();
-        $this->assertSame($expected, $dispatcher->dispatch('GET', '/'));
-        $this->assertFileEquals($validCacheFilename, $cacheFilename);
+        self::assertSame($expected, $dispatcher->dispatch('GET', '/'));
+        self::assertFileEquals($validCacheFilename, $cacheFilename);
 
         // Invalid cache file.
-        $this->assertTrue(copy($invalidCacheFilename, $cacheFilename));
+        self::assertTrue(copy($invalidCacheFilename, $cacheFilename));
         $dispatcher = Routing::getDispatcher();
-        $this->assertSame($expected, $dispatcher->dispatch('GET', '/'));
-        $this->assertFileNotEquals($invalidCacheFilename, $cacheFilename);
+        self::assertSame($expected, $dispatcher->dispatch('GET', '/'));
+        self::assertFileNotEquals($invalidCacheFilename, $cacheFilename);
 
         // Create new cache file.
-        $this->assertTrue(unlink($cacheFilename));
+        self::assertTrue(unlink($cacheFilename));
 
-        $this->assertFileDoesNotExist($cacheFilename);
+        self::assertFileDoesNotExist($cacheFilename);
 
         $dispatcher = Routing::getDispatcher();
-        $this->assertSame($expected, $dispatcher->dispatch('GET', '/'));
-        $this->assertFileExists($cacheFilename);
+        self::assertSame($expected, $dispatcher->dispatch('GET', '/'));
+        self::assertFileExists($cacheFilename);
 
         // Without a cache file.
         $config->settings['environment'] = 'development';
         $dispatcher = Routing::getDispatcher();
-        $this->assertSame($expected, $dispatcher->dispatch('GET', '/'));
+        self::assertSame($expected, $dispatcher->dispatch('GET', '/'));
     }
 
     /**
@@ -75,7 +75,7 @@ class RoutingTest extends AbstractTestCase
         $_SERVER['REQUEST_URI'] = $request;
         $_SERVER['PATH_INFO'] = $pathInfo;
         $actual = Routing::getCleanPathInfo();
-        $this->assertEquals($expected, $actual);
+        self::assertEquals($expected, $actual);
     }
 
     /** @return array<array{string, string, string, string}> */

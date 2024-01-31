@@ -55,7 +55,7 @@ class SetVersionCommandTest extends AbstractTestCase
     public function testGetGeneratedClassInvalidVersion(string $version): void
     {
         if (! class_exists(Command::class)) {
-            $this->markTestSkipped('The Symfony Console is missing');
+            self::markTestSkipped('The Symfony Console is missing');
         }
 
         $this->expectException(RangeException::class);
@@ -167,7 +167,7 @@ class SetVersionCommandTest extends AbstractTestCase
     public function testGetGeneratedClassValidVersion(string $version, string $content): void
     {
         if (! class_exists(Command::class)) {
-            $this->markTestSkipped('The Symfony Console is missing');
+            self::markTestSkipped('The Symfony Console is missing');
         }
 
         $output = $this->callFunction(
@@ -197,7 +197,7 @@ final class Version
 }
 
 PHP;
-        $this->assertSame(
+        self::assertSame(
             sprintf($template, $content),
             $output,
         );

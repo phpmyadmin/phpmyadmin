@@ -45,7 +45,7 @@ class QueryAnalyzerControllerTest extends AbstractTestCase
         $statusData = new Data($dbi, $config);
         $controller = new QueryAnalyzerController($response, new Template(), $statusData, new Monitor($dbi), $dbi);
 
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('isAjax')->willReturn(true);
         $request->method('getParsedBodyParam')->willReturnMap([['database', '', 'database'], ['query', '', 'query']]);
 
@@ -55,12 +55,12 @@ class QueryAnalyzerControllerTest extends AbstractTestCase
         $dummyDbi->assertAllSelectsConsumed();
         $ret = $response->getJSONResult();
 
-        $this->assertEquals('cached_affected_rows', $ret['message']['affectedRows']);
-        $this->assertEquals(
+        self::assertEquals('cached_affected_rows', $ret['message']['affectedRows']);
+        self::assertEquals(
             [],
             $ret['message']['profiling'],
         );
-        $this->assertEquals(
+        self::assertEquals(
             [$value],
             $ret['message']['explain'],
         );

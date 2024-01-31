@@ -17,15 +17,15 @@ class RelationCleanupTest extends AbstractTestCase
 {
     public function testColumnWithoutRelations(): void
     {
-        $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->never())->method('queryAsControlUser');
+        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi->expects(self::never())->method('queryAsControlUser');
 
         (new RelationCleanup($dbi, new Relation($dbi)))->column('database', 'table', 'column');
     }
 
     public function testColumnWithRelations(): void
     {
-        $relation = $this->createStub(Relation::class);
+        $relation = self::createStub(Relation::class);
         $relation->method('getRelationParameters')->willReturn(RelationParameters::fromArray([
             'user' => 'user',
             'db' => 'pmadb',
@@ -37,11 +37,11 @@ class RelationCleanupTest extends AbstractTestCase
             'column_info' => 'column_info',
         ]));
 
-        $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->any())->method('quoteString')
+        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi->expects(self::any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
-        $result = $this->createStub(ResultInterface::class);
-        $dbi->expects($this->exactly(4))->method('queryAsControlUser')->willReturnMap([
+        $result = self::createStub(ResultInterface::class);
+        $dbi->expects(self::exactly(4))->method('queryAsControlUser')->willReturnMap([
             [
                 "DELETE FROM `pmadb`.`column_info` WHERE db_name = 'database' AND"
                 . " table_name = 'table' AND column_name = 'column'",
@@ -69,15 +69,15 @@ class RelationCleanupTest extends AbstractTestCase
 
     public function testTableWithoutRelations(): void
     {
-        $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->never())->method('queryAsControlUser');
+        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi->expects(self::never())->method('queryAsControlUser');
 
         (new RelationCleanup($dbi, new Relation($dbi)))->table('database', 'table');
     }
 
     public function testTableWithRelations(): void
     {
-        $relation = $this->createStub(Relation::class);
+        $relation = self::createStub(Relation::class);
         $relation->method('getRelationParameters')->willReturn(RelationParameters::fromArray([
             'user' => 'user',
             'db' => 'pmadb',
@@ -96,11 +96,11 @@ class RelationCleanupTest extends AbstractTestCase
             'navigationhiding' => 'navigationhiding',
         ]));
 
-        $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->any())->method('quoteString')
+        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi->expects(self::any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
-        $result = $this->createStub(ResultInterface::class);
-        $dbi->expects($this->exactly(7))->method('queryAsControlUser')->willReturnMap([
+        $result = self::createStub(ResultInterface::class);
+        $dbi->expects(self::exactly(7))->method('queryAsControlUser')->willReturnMap([
             ["DELETE FROM `pmadb`.`column_info` WHERE db_name = 'database' AND table_name = 'table'", $result],
             ["DELETE FROM `pmadb`.`table_info` WHERE db_name = 'database' AND table_name = 'table'", $result],
             ["DELETE FROM `pmadb`.`table_coords` WHERE db_name = 'database' AND table_name = 'table'", $result],
@@ -119,15 +119,15 @@ class RelationCleanupTest extends AbstractTestCase
 
     public function testDatabaseWithoutRelations(): void
     {
-        $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->never())->method('queryAsControlUser');
+        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi->expects(self::never())->method('queryAsControlUser');
 
         (new RelationCleanup($dbi, new Relation($dbi)))->database('database');
     }
 
     public function testDatabaseWithRelations(): void
     {
-        $relation = $this->createStub(Relation::class);
+        $relation = self::createStub(Relation::class);
         $relation->method('getRelationParameters')->willReturn(RelationParameters::fromArray([
             'user' => 'user',
             'db' => 'pmadb',
@@ -152,11 +152,11 @@ class RelationCleanupTest extends AbstractTestCase
             'central_columns' => 'central_columns',
         ]));
 
-        $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->any())->method('quoteString')
+        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi->expects(self::any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
-        $result = $this->createStub(ResultInterface::class);
-        $dbi->expects($this->exactly(11))->method('queryAsControlUser')->willReturnMap([
+        $result = self::createStub(ResultInterface::class);
+        $dbi->expects(self::exactly(11))->method('queryAsControlUser')->willReturnMap([
             ["DELETE FROM `pmadb`.`column_info` WHERE db_name = 'database'", $result],
             ["DELETE FROM `pmadb`.`bookmark` WHERE dbase = 'database'", $result],
             ["DELETE FROM `pmadb`.`table_info` WHERE db_name = 'database'", $result],
@@ -175,15 +175,15 @@ class RelationCleanupTest extends AbstractTestCase
 
     public function testUserWithoutRelations(): void
     {
-        $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->never())->method('queryAsControlUser');
+        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi->expects(self::never())->method('queryAsControlUser');
 
         (new RelationCleanup($dbi, new Relation($dbi)))->user('user');
     }
 
     public function testUserWithRelations(): void
     {
-        $relation = $this->createStub(Relation::class);
+        $relation = self::createStub(Relation::class);
         $relation->method('getRelationParameters')->willReturn(RelationParameters::fromArray([
             'user' => 'user',
             'db' => 'pmadb',
@@ -210,11 +210,11 @@ class RelationCleanupTest extends AbstractTestCase
             'designer_settings' => 'designer_settings',
         ]));
 
-        $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->any())->method('quoteString')
+        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi->expects(self::any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
-        $result = $this->createStub(ResultInterface::class);
-        $dbi->expects($this->exactly(10))->method('queryAsControlUser')->willReturnMap([
+        $result = self::createStub(ResultInterface::class);
+        $dbi->expects(self::exactly(10))->method('queryAsControlUser')->willReturnMap([
             ["DELETE FROM `pmadb`.`bookmark` WHERE `user` = 'user'", $result],
             ["DELETE FROM `pmadb`.`history` WHERE `username` = 'user'", $result],
             ["DELETE FROM `pmadb`.`recent` WHERE `username` = 'user'", $result],

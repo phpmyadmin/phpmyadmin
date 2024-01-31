@@ -20,17 +20,17 @@ final class DbTableExistsTest extends AbstractTestCase
         $dbiDummy->addSelectDb('test_db');
         $dbi = $this->createDatabaseInterface($dbiDummy);
         $dbTableExists = new DbTableExists($dbi);
-        $this->assertTrue($dbTableExists->selectDatabase(DatabaseName::from('test_db')));
+        self::assertTrue($dbTableExists->selectDatabase(DatabaseName::from('test_db')));
         $dbiDummy->assertAllSelectsConsumed();
     }
 
     public function testHasDatabaseWithNoDatabase(): void
     {
         $db = DatabaseName::from('test_db');
-        $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->once())->method('selectDb')->with($db)->willReturn(false);
+        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi->expects(self::once())->method('selectDb')->with($db)->willReturn(false);
         $dbTableExists = new DbTableExists($dbi);
-        $this->assertFalse($dbTableExists->selectDatabase($db));
+        self::assertFalse($dbTableExists->selectDatabase($db));
     }
 
     public function testHasTable(): void
@@ -40,9 +40,9 @@ final class DbTableExistsTest extends AbstractTestCase
         $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']], ['1']);
         $dbi = $this->createDatabaseInterface($dbiDummy);
         $dbTableExists = new DbTableExists($dbi);
-        $this->assertTrue($dbTableExists->hasTable(DatabaseName::from('test_db'), TableName::from('test_table')));
+        self::assertTrue($dbTableExists->hasTable(DatabaseName::from('test_db'), TableName::from('test_table')));
         // cached result
-        $this->assertTrue($dbTableExists->hasTable(DatabaseName::from('test_db'), TableName::from('test_table')));
+        self::assertTrue($dbTableExists->hasTable(DatabaseName::from('test_db'), TableName::from('test_table')));
         $dbiDummy->assertAllQueriesConsumed();
     }
 
@@ -53,9 +53,9 @@ final class DbTableExistsTest extends AbstractTestCase
         $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']], ['1']);
         $dbi = $this->createDatabaseInterface($dbiDummy);
         $dbTableExists = new DbTableExists($dbi);
-        $this->assertTrue($dbTableExists->hasTable(DatabaseName::from('test_db'), TableName::from('test_table')));
+        self::assertTrue($dbTableExists->hasTable(DatabaseName::from('test_db'), TableName::from('test_table')));
         // cached result
-        $this->assertTrue($dbTableExists->hasTable(DatabaseName::from('test_db'), TableName::from('test_table')));
+        self::assertTrue($dbTableExists->hasTable(DatabaseName::from('test_db'), TableName::from('test_table')));
         $dbiDummy->assertAllQueriesConsumed();
     }
 
@@ -66,7 +66,7 @@ final class DbTableExistsTest extends AbstractTestCase
         $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', false);
         $dbi = $this->createDatabaseInterface($dbiDummy);
         $dbTableExists = new DbTableExists($dbi);
-        $this->assertFalse($dbTableExists->hasTable(DatabaseName::from('test_db'), TableName::from('test_table')));
+        self::assertFalse($dbTableExists->hasTable(DatabaseName::from('test_db'), TableName::from('test_table')));
         $dbiDummy->assertAllQueriesConsumed();
     }
 }

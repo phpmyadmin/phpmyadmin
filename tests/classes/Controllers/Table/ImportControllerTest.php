@@ -94,6 +94,6 @@ class ImportControllerTest extends AbstractTestCase
 
         $response = new ResponseRenderer();
         (new ImportController($response, $template, $dbi, $pageSettings, new DbTableExists($dbi)))($request);
-        $this->assertSame($expected, $response->getHTMLResult());
+        self::assertSame($expected, $response->getHTMLResult());
     }
 }

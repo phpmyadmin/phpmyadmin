@@ -59,7 +59,7 @@ class SearchControllerTest extends AbstractTestCase
             new ColumnFull('Field1', 'Type1', 'Collation1', false, '', null, '', '', ''),
             new ColumnFull('Field2', 'Type2', 'Collation2', false, '', null, '', '', ''),
         ];
-        $this->mockedDbi->expects($this->any())->method('getColumns')
+        $this->mockedDbi->expects(self::any())->method('getColumns')
             ->willReturn($columns);
 
         $showCreateTable = "CREATE TABLE `pma_bookmark` (
@@ -73,7 +73,7 @@ class SearchControllerTest extends AbstractTestCase
         ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin "
         . "COMMENT='Bookmarks'";
 
-        $this->mockedDbi->expects($this->any())->method('fetchValue')
+        $this->mockedDbi->expects(self::any())->method('fetchValue')
             ->willReturn($showCreateTable);
 
         DatabaseInterface::$instance = $this->mockedDbi;
@@ -89,7 +89,7 @@ class SearchControllerTest extends AbstractTestCase
     {
         $expected = 'SELECT MIN(`column`) AS `min`, MAX(`column`) AS `max` FROM `PMA`.`PMA_BookMark`';
 
-        $this->mockedDbi->expects($this->any())
+        $this->mockedDbi->expects(self::any())
             ->method('fetchSingleRow')
             ->with($expected)
             ->willReturn([$expected]);
@@ -104,7 +104,7 @@ class SearchControllerTest extends AbstractTestCase
         );
 
         $result = $ctrl->getColumnMinMax('column');
-        $this->assertEquals([$expected], $result);
+        self::assertEquals([$expected], $result);
     }
 
     /**
@@ -155,6 +155,6 @@ class SearchControllerTest extends AbstractTestCase
         $ctrl->getDataRowAction();
 
         $json = $this->response->getJSONResult();
-        $this->assertEquals($expected, $json['row_info']);
+        self::assertEquals($expected, $json['row_info']);
     }
 }

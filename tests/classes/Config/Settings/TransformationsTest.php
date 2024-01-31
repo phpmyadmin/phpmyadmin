@@ -19,8 +19,8 @@ class TransformationsTest extends TestCase
         $transformations = new Transformations(['Substring' => $actual]);
         $transformationsArray = $transformations->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        $this->assertSame($expected, $transformations->Substring);
-        $this->assertSame($expected, $transformationsArray['Substring']);
+        self::assertSame($expected, $transformations->Substring);
+        self::assertSame($expected, $transformationsArray['Substring']);
     }
 
     /** @return iterable<string, array{mixed, array<int, int|string>}> */
@@ -44,8 +44,8 @@ class TransformationsTest extends TestCase
         $transformations = new Transformations(['Bool2Text' => $actual]);
         $transformationsArray = $transformations->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        $this->assertSame($expected, $transformations->Bool2Text);
-        $this->assertSame($expected, $transformationsArray['Bool2Text']);
+        self::assertSame($expected, $transformations->Bool2Text);
+        self::assertSame($expected, $transformationsArray['Bool2Text']);
     }
 
     /** @return iterable<string, array{mixed, array<int, string>}> */
@@ -67,8 +67,8 @@ class TransformationsTest extends TestCase
         $transformations = new Transformations(['External' => $actual]);
         $transformationsArray = $transformations->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        $this->assertSame($expected, $transformations->External);
-        $this->assertSame($expected, $transformationsArray['External']);
+        self::assertSame($expected, $transformations->External);
+        self::assertSame($expected, $transformationsArray['External']);
     }
 
     /** @return iterable<string, array{mixed, array<int, int|string>}> */
@@ -93,8 +93,8 @@ class TransformationsTest extends TestCase
         $transformations = new Transformations(['PreApPend' => $actual]);
         $transformationsArray = $transformations->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        $this->assertSame($expected, $transformations->PreApPend);
-        $this->assertSame($expected, $transformationsArray['PreApPend']);
+        self::assertSame($expected, $transformations->PreApPend);
+        self::assertSame($expected, $transformationsArray['PreApPend']);
     }
 
     /** @return iterable<string, array{mixed, array<int, string>}> */
@@ -116,8 +116,8 @@ class TransformationsTest extends TestCase
         $transformations = new Transformations(['Hex' => $actual]);
         $transformationsArray = $transformations->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        $this->assertSame($expected, $transformations->Hex);
-        $this->assertSame($expected, $transformationsArray['Hex']);
+        self::assertSame($expected, $transformations->Hex);
+        self::assertSame($expected, $transformationsArray['Hex']);
     }
 
     /** @return iterable<string, array{mixed, array<int, int>}> */
@@ -138,8 +138,8 @@ class TransformationsTest extends TestCase
         $transformations = new Transformations(['DateFormat' => $actual]);
         $transformationsArray = $transformations->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        $this->assertSame($expected, $transformations->DateFormat);
-        $this->assertSame($expected, $transformationsArray['DateFormat']);
+        self::assertSame($expected, $transformations->DateFormat);
+        self::assertSame($expected, $transformationsArray['DateFormat']);
     }
 
     /** @return iterable<string, array{mixed, array<int, int|string>}> */
@@ -163,8 +163,8 @@ class TransformationsTest extends TestCase
         $transformations = new Transformations(['Inline' => $actual]);
         $transformationsArray = $transformations->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        $this->assertSame($expected, $transformations->Inline);
-        $this->assertSame($expected, $transformationsArray['Inline']);
+        self::assertSame($expected, $transformations->Inline);
+        self::assertSame($expected, $transformationsArray['Inline']);
     }
 
     /** @return iterable<string, array{mixed, array<int|string, int|string|array<string, string>|null>}> */
@@ -195,8 +195,8 @@ class TransformationsTest extends TestCase
         $transformations = new Transformations(['TextImageLink' => $actual]);
         $transformationsArray = $transformations->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        $this->assertSame($expected, $transformations->TextImageLink);
-        $this->assertSame($expected, $transformationsArray['TextImageLink']);
+        self::assertSame($expected, $transformations->TextImageLink);
+        self::assertSame($expected, $transformationsArray['TextImageLink']);
     }
 
     /** @return iterable<string, array{mixed, array<int, int|string|null>}> */
@@ -220,8 +220,8 @@ class TransformationsTest extends TestCase
         $transformations = new Transformations(['TextLink' => $actual]);
         $transformationsArray = $transformations->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        $this->assertSame($expected, $transformations->TextLink);
-        $this->assertSame($expected, $transformationsArray['TextLink']);
+        self::assertSame($expected, $transformations->TextLink);
+        self::assertSame($expected, $transformationsArray['TextLink']);
     }
 
     /** @return iterable<string, array{mixed, array<int, string|bool|null>}> */

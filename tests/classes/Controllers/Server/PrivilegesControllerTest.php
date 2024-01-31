@@ -61,7 +61,7 @@ class PrivilegesControllerTest extends AbstractTestCase
         );
         // phpcs:enable
 
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
 
         $request->method('getParsedBodyParam')->willReturnMap([['old_username', '', ''], ['old_hostname', '', '']]);
 
@@ -71,17 +71,17 @@ class PrivilegesControllerTest extends AbstractTestCase
         (new PrivilegesController($response, new Template(), new Relation($this->dbi), $this->dbi))($request);
 
         $actual = $response->getHTMLResult();
-        $this->assertStringContainsString('User accounts overview', $actual);
-        $this->assertStringContainsString(
+        self::assertStringContainsString('User accounts overview', $actual);
+        self::assertStringContainsString(
             'id="checkbox_sel_users_1" value="pma&amp;amp;#27;localhost" name="selected_usr[]"',
             $actual,
         );
-        $this->assertStringContainsString('<code><dfn title="No privileges.">USAGE</dfn></code>', $actual);
-        $this->assertStringContainsString(
+        self::assertStringContainsString('<code><dfn title="No privileges.">USAGE</dfn></code>', $actual);
+        self::assertStringContainsString(
             'id="checkbox_sel_users_2" value="root&amp;amp;#27;localhost" name="selected_usr[]"',
             $actual,
         );
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<code><dfn title="Includes all privileges except GRANT.">ALL PRIVILEGES</dfn></code>',
             $actual,
         );

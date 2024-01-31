@@ -21,9 +21,9 @@ class SchemaExportControllerTest extends AbstractTestCase
     {
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['db', null, 'test_db'], ['export_type', null, 'svg']]);
-        $export = $this->createStub(Export::class);
+        $export = self::createStub(Export::class);
         $export->method('getExportSchemaInfo')->willReturn([
             'fileName' => 'file.svg',
             'mediaType' => 'image/svg+xml',
@@ -34,9 +34,9 @@ class SchemaExportControllerTest extends AbstractTestCase
         $controller = new SchemaExportController($export, $response);
         $controller($request);
         $output = $this->getActualOutputForAssertion();
-        $this->assertSame('file data', $output);
-        $this->assertTrue($response->isDisabled());
-        $this->assertSame('', $response->getHTMLResult());
-        $this->assertSame([], $response->getJSONResult());
+        self::assertSame('file data', $output);
+        self::assertTrue($response->isDisabled());
+        self::assertSame('', $response->getHTMLResult());
+        self::assertSame([], $response->getJSONResult());
     }
 }

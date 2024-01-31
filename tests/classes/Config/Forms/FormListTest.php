@@ -45,23 +45,23 @@ class FormListTest extends AbstractTestCase
         $cf = new ConfigFile(Config::getInstance()->baseSettings);
 
         /* Static API */
-        $this->assertTrue($class::isValid('Export'));
-        $this->assertEquals($prefix, $class::get('Export'));
+        self::assertTrue($class::isValid('Export'));
+        self::assertEquals($prefix, $class::get('Export'));
         foreach ($class::getAllFormNames() as $form) {
             $formClass = $class::get($form);
-            $this->assertNotNull($formClass);
-            $this->assertNotNull($formClass::getName());
+            self::assertNotNull($formClass);
+            self::assertNotNull($formClass::getName());
         }
 
-        $this->assertContains('Export/texytext_columns', $class::getFields());
+        self::assertContains('Export/texytext_columns', $class::getFields());
 
         /* Instance handling */
         $forms = new $class($cf);
-        $this->assertInstanceOf(BaseFormList::class, $forms);
-        $this->assertFalse($forms->process());
+        self::assertInstanceOf(BaseFormList::class, $forms);
+        self::assertFalse($forms->process());
         $forms->fixErrors();
-        $this->assertFalse($forms->hasErrors());
-        $this->assertEquals('', $forms->displayErrors());
+        self::assertFalse($forms->hasErrors());
+        self::assertEquals('', $forms->displayErrors());
     }
 
     /**

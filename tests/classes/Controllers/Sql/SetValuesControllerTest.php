@@ -42,7 +42,7 @@ class SetValuesControllerTest extends AbstractTestCase
         $this->dummyDbi->addResult('SHOW COLUMNS FROM `cvv`.`enums` LIKE \'set\'', false);
         $this->dummyDbi->addResult('SHOW INDEXES FROM `cvv`.`enums`', false);
 
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['ajax_request', null, true],
             ['db', null, 'cvv'],
@@ -76,9 +76,9 @@ class SetValuesControllerTest extends AbstractTestCase
         );
         $sqlController($request);
 
-        $this->assertFalse($responseRenderer->hasSuccessState(), 'expected the request to fail');
+        self::assertFalse($responseRenderer->hasSuccessState(), 'expected the request to fail');
 
-        $this->assertSame(['message' => 'Error in processing request'], $responseRenderer->getJSONResult());
+        self::assertSame(['message' => 'Error in processing request'], $responseRenderer->getJSONResult());
     }
 
     public function testSuccess(): void
@@ -99,7 +99,7 @@ class SetValuesControllerTest extends AbstractTestCase
         );
         $this->dummyDbi->addResult('SHOW INDEXES FROM `cvv`.`enums`', []);
 
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['ajax_request', null, true],
             ['db', null, 'cvv'],
@@ -133,9 +133,9 @@ class SetValuesControllerTest extends AbstractTestCase
         );
         $sqlController($request);
 
-        $this->assertTrue($responseRenderer->hasSuccessState(), 'expected the request not to fail');
+        self::assertTrue($responseRenderer->hasSuccessState(), 'expected the request not to fail');
 
-        $this->assertSame(
+        self::assertSame(
             [
                 'select' => '<select class="resize-vertical" size="5" multiple>' . "\n"
                     . '      <option value="&lt;script&gt;alert(&quot;ok&quot;)&lt;/script&gt;">'

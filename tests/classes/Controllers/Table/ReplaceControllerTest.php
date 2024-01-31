@@ -80,7 +80,7 @@ class ReplaceControllerTest extends AbstractTestCase
         $_POST['relational_display'] = 'K';
         $_POST['goto'] = 'index.php?route=/sql';
 
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['sql_query', null, ''],
             ['clause_is_unique', null, 1],
@@ -101,7 +101,7 @@ class ReplaceControllerTest extends AbstractTestCase
         $template = new Template();
         $response = new ResponseRenderer();
 
-        $pageSettings = $this->createStub(PageSettings::class);
+        $pageSettings = self::createStub(PageSettings::class);
         $bookmarkRepository = new BookmarkRepository($dbi, $relation);
         $sqlController = new SqlController(
             $response,
@@ -140,11 +140,11 @@ class ReplaceControllerTest extends AbstractTestCase
         $replaceController($request);
         $output = $response->getHTMLResult();
         $this->dummyDbi->assertAllSelectsConsumed();
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'class="icon ic_s_success"> Showing rows 0 -  1 (2 total, Query took',
             $output,
         );
-        $this->assertStringContainsString('SELECT * FROM `test_tbl`', $output);
+        self::assertStringContainsString('SELECT * FROM `test_tbl`', $output);
     }
 
     /**
@@ -152,7 +152,7 @@ class ReplaceControllerTest extends AbstractTestCase
      */
     public function testGetParamsForUpdateOrInsert(): void
     {
-        $request1 = $this->createStub(ServerRequest::class);
+        $request1 = self::createStub(ServerRequest::class);
         $request1->method('getParsedBodyParam')->willReturnMap([
             ['where_clause', null, 'LIMIT 1'],
             ['submit_type', null, 'showinsert'],
@@ -179,13 +179,13 @@ class ReplaceControllerTest extends AbstractTestCase
             [$request1],
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             [['LIMIT 1'], true, true],
             $result,
         );
 
         // case 2 (else)
-        $request2 = $this->createStub(ServerRequest::class);
+        $request2 = self::createStub(ServerRequest::class);
         $request2->method('getParsedBodyParam')->willReturnMap([
             ['fields', null, ['multi_edit' => ['a' => 'b', 'c' => 'd']]],
         ]);
@@ -198,7 +198,7 @@ class ReplaceControllerTest extends AbstractTestCase
             [$request2],
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             [['a', 'c'], false, true],
             $result,
         );

@@ -45,7 +45,7 @@ final class CreateControllerTest extends AbstractTestCase
         $template = new Template();
         $controller = new CreateController($response, $template, $this->dbi);
 
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['new_db', null, 'test_db_error'],
             ['db_collation', null, null],
@@ -54,14 +54,14 @@ final class CreateControllerTest extends AbstractTestCase
         $controller($request);
         $actual = $response->getJSONResult();
 
-        $this->assertArrayHasKey('message', $actual);
-        $this->assertStringContainsString('<div class="alert alert-danger" role="alert">', $actual['message']);
+        self::assertArrayHasKey('message', $actual);
+        self::assertStringContainsString('<div class="alert alert-danger" role="alert">', $actual['message']);
 
         $response = new ResponseRenderer();
 
         $controller = new CreateController($response, $template, $this->dbi);
 
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('isAjax')->willReturn(true);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['new_db', null, 'test_db'],
@@ -71,9 +71,9 @@ final class CreateControllerTest extends AbstractTestCase
         $controller($request);
         $actual = $response->getJSONResult();
 
-        $this->assertArrayHasKey('message', $actual);
-        $this->assertStringContainsString('<div class="alert alert-success" role="alert">', $actual['message']);
-        $this->assertStringContainsString(
+        self::assertArrayHasKey('message', $actual);
+        self::assertStringContainsString('<div class="alert alert-success" role="alert">', $actual['message']);
+        self::assertStringContainsString(
             sprintf(__('Database %1$s has been created.'), 'test_db'),
             $actual['message'],
         );

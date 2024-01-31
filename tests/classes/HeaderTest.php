@@ -67,7 +67,7 @@ class HeaderTest extends AbstractTestCase
     {
         $header = $this->getNewHeaderInstance();
         $header->disable();
-        $this->assertEquals(
+        self::assertEquals(
             '',
             $header->getDisplay(),
         );
@@ -80,7 +80,7 @@ class HeaderTest extends AbstractTestCase
     {
         Current::$server = 0;
         $header = $this->getNewHeaderInstance();
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<title>phpMyAdmin</title>',
             $header->getDisplay(),
         );
@@ -93,7 +93,7 @@ class HeaderTest extends AbstractTestCase
     {
         $header = $this->getNewHeaderInstance();
         $header->setBodyId('PMA_header_id');
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'PMA_header_id',
             $header->getDisplay(),
         );
@@ -105,7 +105,7 @@ class HeaderTest extends AbstractTestCase
     public function testGetJsParams(): void
     {
         $header = $this->getNewHeaderInstance();
-        $this->assertArrayHasKey(
+        self::assertArrayHasKey(
             'common_query',
             $header->getJsParams(),
         );
@@ -114,7 +114,7 @@ class HeaderTest extends AbstractTestCase
     public function testGetJsParamsCode(): void
     {
         $header = $this->getNewHeaderInstance();
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'window.Navigation.update(window.CommonParams.setAll(',
             $header->getJsParamsCode(),
         );
@@ -126,7 +126,7 @@ class HeaderTest extends AbstractTestCase
     public function testGetMessage(): void
     {
         $header = $this->getNewHeaderInstance();
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'phpmyadminmessage',
             $header->getMessage(),
         );
@@ -142,7 +142,7 @@ class HeaderTest extends AbstractTestCase
         $header = $this->getNewHeaderInstance();
         $header->disableWarnings();
 
-        $this->assertFalse($reflection->getValue($header));
+        self::assertFalse($reflection->getValue($header));
     }
 
     #[DataProvider('providerForTestGetHttpHeaders')]
@@ -189,7 +189,7 @@ class HeaderTest extends AbstractTestCase
         }
 
         $headers = $this->callFunction($header, Header::class, 'getHttpHeaders', []);
-        $this->assertSame($expected, $headers);
+        self::assertSame($expected, $headers);
     }
 
     /** @return mixed[][] */
@@ -276,24 +276,24 @@ class HeaderTest extends AbstractTestCase
             ['name' => 'menu_resizer.js', 'fire' => 1],
             ['name' => 'main.js', 'fire' => 1],
         ];
-        $this->assertSame($expected, $scripts->getFiles());
+        self::assertSame($expected, $scripts->getFiles());
     }
 
     public function testSetAjax(): void
     {
         $header = $this->getNewHeaderInstance();
         $console = (new ReflectionProperty(Header::class, 'console'))->getValue($header);
-        $this->assertInstanceOf(Console::class, $console);
+        self::assertInstanceOf(Console::class, $console);
         $isAjax = new ReflectionProperty(Header::class, 'isAjax');
         $consoleIsAjax = new ReflectionProperty(Console::class, 'isAjax');
 
-        $this->assertFalse($isAjax->getValue($header));
-        $this->assertFalse($consoleIsAjax->getValue($console));
+        self::assertFalse($isAjax->getValue($header));
+        self::assertFalse($consoleIsAjax->getValue($console));
         $header->setAjax(true);
-        $this->assertTrue($isAjax->getValue($header));
-        $this->assertTrue($consoleIsAjax->getValue($console));
+        self::assertTrue($isAjax->getValue($header));
+        self::assertTrue($consoleIsAjax->getValue($console));
         $header->setAjax(false);
-        $this->assertFalse($isAjax->getValue($header));
-        $this->assertFalse($consoleIsAjax->getValue($console));
+        self::assertFalse($isAjax->getValue($header));
+        self::assertFalse($consoleIsAjax->getValue($console));
     }
 }

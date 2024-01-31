@@ -48,7 +48,7 @@ class CreateControllerTest extends AbstractTestCase
 
         $response = new ResponseRenderer();
         $template = new Template();
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['exportType', '', 'type'],
             ['templateName', '', 'name'],
@@ -85,7 +85,7 @@ class CreateControllerTest extends AbstractTestCase
             'selected_template' => null,
         ]);
 
-        $this->assertTrue($response->hasSuccessState());
-        $this->assertEquals(['data' => $options], $response->getJSONResult());
+        self::assertTrue($response->hasSuccessState());
+        self::assertEquals(['data' => $options], $response->getJSONResult());
     }
 }

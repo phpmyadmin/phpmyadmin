@@ -27,7 +27,7 @@ class SanitizeTest extends AbstractTestCase
      */
     public function testXssInHref(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             '[a@javascript:alert(&#039;XSS&#039;);@target]link</a>',
             Sanitize::convertBBCode('[a@javascript:alert(\'XSS\');@target]link[/a]'),
         );
@@ -41,7 +41,7 @@ class SanitizeTest extends AbstractTestCase
         $lang = $GLOBALS['lang'];
 
         unset($GLOBALS['lang']);
-        $this->assertEquals(
+        self::assertEquals(
             '<a href="index.php?route=/url&url=https%3A%2F%2Fwww.phpmyadmin.net%2F" target="target">link</a>',
             Sanitize::convertBBCode('[a@https://www.phpmyadmin.net/@target]link[/a]'),
         );
@@ -58,7 +58,7 @@ class SanitizeTest extends AbstractTestCase
     #[DataProvider('docLinks')]
     public function testDoc(string $link, string $expected): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             '<a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2F'
                 . $expected . '" target="documentation">doclink</a>',
             Sanitize::convertBBCode('[doc@' . $link . ']doclink[/doc]'),
@@ -85,7 +85,7 @@ class SanitizeTest extends AbstractTestCase
      */
     public function testInvalidTarget(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             '[a@./Documentation.html@INVALID9]doc</a>',
             Sanitize::convertBBCode('[a@./Documentation.html@INVALID9]doc[/a]'),
         );
@@ -96,7 +96,7 @@ class SanitizeTest extends AbstractTestCase
      */
     public function testLinkDocXss(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             '[a@./Documentation.html&quot; onmouseover=&quot;alert(foo)&quot;]doc</a>',
             Sanitize::convertBBCode('[a@./Documentation.html" onmouseover="alert(foo)"]doc[/a]'),
         );
@@ -107,7 +107,7 @@ class SanitizeTest extends AbstractTestCase
      */
     public function testLinkAndXssInHref(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             '<a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2F">doc</a>'
                 . '[a@javascript:alert(&#039;XSS&#039;);@target]link</a>',
             Sanitize::convertBBCode(
@@ -121,7 +121,7 @@ class SanitizeTest extends AbstractTestCase
      */
     public function testHtmlTags(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             '&lt;div onclick=&quot;&quot;&gt;',
             Sanitize::convertBBCode('<div onclick="">'),
         );
@@ -132,7 +132,7 @@ class SanitizeTest extends AbstractTestCase
      */
     public function testBBCode(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             '<strong>strong</strong>',
             Sanitize::convertBBCode('[strong]strong[/strong]'),
         );
@@ -143,7 +143,7 @@ class SanitizeTest extends AbstractTestCase
      */
     public function testSanitizeFilename(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             'File_name_123',
             Sanitize::sanitizeFilename('File_name 123'),
         );
@@ -159,7 +159,7 @@ class SanitizeTest extends AbstractTestCase
     #[DataProvider('variables')]
     public function testGetJsValue(string $key, string|bool|int|array $value, string $expected): void
     {
-        $this->assertEquals($expected, Sanitize::getJsValue($key, $value));
+        self::assertEquals($expected, Sanitize::getJsValue($key, $value));
     }
 
     /**
@@ -193,9 +193,9 @@ class SanitizeTest extends AbstractTestCase
         $_REQUEST['second'] = 1;
         $allowList = ['allow', 'second'];
         Sanitize::removeRequestVars($allowList);
-        $this->assertArrayNotHasKey('foo', $_REQUEST);
-        $this->assertArrayNotHasKey('second', $_REQUEST);
-        $this->assertArrayHasKey('allow', $_REQUEST);
+        self::assertArrayNotHasKey('foo', $_REQUEST);
+        self::assertArrayNotHasKey('second', $_REQUEST);
+        self::assertArrayHasKey('allow', $_REQUEST);
     }
 
     /**
@@ -235,7 +235,7 @@ class SanitizeTest extends AbstractTestCase
     #[DataProvider('dataProviderCheckLinks')]
     public function testCheckLink(bool $expected, string $url, bool $http, bool $other): void
     {
-        $this->assertSame(
+        self::assertSame(
             $expected,
             Sanitize::checkLink($url, $http, $other),
         );

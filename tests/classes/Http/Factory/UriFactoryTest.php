@@ -37,7 +37,7 @@ final class UriFactoryTest extends TestCase
         $this->skipIfNotAvailable($provider);
         $uriFactory = new UriFactory(new $provider());
         $uri = $uriFactory->createUri('https://www.phpmyadmin.net/');
-        $this->assertInstanceOf($expectedUri, $uri);
+        self::assertInstanceOf($expectedUri, $uri);
     }
 
     /** @psalm-return iterable<string, array{class-string<UriFactoryInterface>, class-string<UriInterface>}> */
@@ -59,7 +59,7 @@ final class UriFactoryTest extends TestCase
         (new ReflectionProperty(UriFactory::class, 'providers'))->setValue(null, [$provider]);
         $uriFactory = UriFactory::create();
         $actual = (new ReflectionProperty(UriFactory::class, 'uriFactory'))->getValue($uriFactory);
-        $this->assertInstanceOf($provider, $actual);
+        self::assertInstanceOf($provider, $actual);
     }
 
     /** @psalm-return iterable<string, array{class-string<UriFactoryInterface>}> */
@@ -96,7 +96,7 @@ final class UriFactoryTest extends TestCase
             'QUERY_STRING' => 'route=/server/plugins',
             'HTTP_HOST' => 'example.com:8080',
         ]);
-        $this->assertSame('http://username:password@example.com:8080/index.php?route=/server/plugins', (string) $uri);
+        self::assertSame('http://username:password@example.com:8080/index.php?route=/server/plugins', (string) $uri);
     }
 
     /** @psalm-param class-string<UriFactoryInterface> $provider */
@@ -111,7 +111,7 @@ final class UriFactoryTest extends TestCase
             'SERVER_NAME' => 'example.com',
             'HTTPS' => 'on',
         ]);
-        $this->assertSame('https://username@example.com', (string) $uri);
+        self::assertSame('https://username@example.com', (string) $uri);
     }
 
     /** @psalm-param class-string<UriFactoryInterface> $provider */
@@ -125,7 +125,7 @@ final class UriFactoryTest extends TestCase
             'HTTPS' => 'off',
             'REQUEST_URI' => '/index.php?route=/server/plugins',
         ]);
-        $this->assertSame('http://[2001:db8::1]/index.php?route=/server/plugins', (string) $uri);
+        self::assertSame('http://[2001:db8::1]/index.php?route=/server/plugins', (string) $uri);
     }
 
     /** @psalm-param class-string<UriFactoryInterface> $provider */
@@ -136,6 +136,6 @@ final class UriFactoryTest extends TestCase
         }
 
         // This can happen when testing without the development packages.
-        $this->markTestSkipped($provider . ' is not available.');
+        self::markTestSkipped($provider . ' is not available.');
     }
 }

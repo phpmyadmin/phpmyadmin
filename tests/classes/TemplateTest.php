@@ -38,12 +38,12 @@ class TemplateTest extends AbstractTestCase
     public function testGetTwigEnvironment(): void
     {
         $twig = Template::getTwigEnvironment(null, false);
-        $this->assertFalse($twig->isDebug());
-        $this->assertFalse(TransNode::$enableAddDebugInfo);
+        self::assertFalse($twig->isDebug());
+        self::assertFalse(TransNode::$enableAddDebugInfo);
 
         $twig = Template::getTwigEnvironment(null, true);
-        $this->assertTrue($twig->isDebug());
-        $this->assertTrue(TransNode::$enableAddDebugInfo);
+        self::assertTrue($twig->isDebug());
+        self::assertTrue(TransNode::$enableAddDebugInfo);
     }
 
     /**
@@ -55,8 +55,8 @@ class TemplateTest extends AbstractTestCase
     public function testSet(string $data): void
     {
         $result = $this->template->render($data, ['variable1' => 'value1', 'variable2' => 'value2']);
-        $this->assertStringContainsString('value1', $result);
-        $this->assertStringContainsString('value2', $result);
+        self::assertStringContainsString('value1', $result);
+        self::assertStringContainsString('value2', $result);
     }
 
     /**
@@ -79,7 +79,7 @@ class TemplateTest extends AbstractTestCase
     #[DataProvider('providerTestDynamicRender')]
     public function testDynamicRender(string $templateFile, string $key, string $value): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             $value,
             $this->template->render($templateFile, [$key => $value]),
         );
@@ -113,7 +113,7 @@ class TemplateTest extends AbstractTestCase
     #[DataProvider('providerTestRender')]
     public function testRender(string $templateFile, string $expectedResult): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             $expectedResult,
             $this->template->render($templateFile),
         );
@@ -139,7 +139,7 @@ class TemplateTest extends AbstractTestCase
     #[DataProvider('providerTestRenderGettext')]
     public function testRenderGettext(string $templateFile, array $renderParams, string $expectedResult): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             $expectedResult,
             $this->template->render($templateFile, $renderParams),
         );
@@ -170,26 +170,26 @@ class TemplateTest extends AbstractTestCase
         $twigEnvCacheProperty = new ReflectionProperty(Template::class, 'twig');
         $twigEnvCacheProperty->setValue(null, null);
         $template = new Template();
-        $this->assertSame("static content\n", $template->render('test/static'));
+        self::assertSame("static content\n", $template->render('test/static'));
         $twigEnv = $twigEnvCacheProperty->getValue();
-        $this->assertInstanceOf(Environment::class, $twigEnv);
+        self::assertInstanceOf(Environment::class, $twigEnv);
         $template2 = new Template();
-        $this->assertSame("static content\n", $template2->render('test/static'));
-        $this->assertSame($twigEnv, $twigEnvCacheProperty->getValue());
+        self::assertSame("static content\n", $template2->render('test/static'));
+        self::assertSame($twigEnv, $twigEnvCacheProperty->getValue());
     }
 
     public function testDisableCache(): void
     {
         (new ReflectionProperty(Template::class, 'twig'))->setValue(null, null);
-        $template = new Template($this->createStub(Config::class));
+        $template = new Template(self::createStub(Config::class));
         $template->disableCache();
         $twig = (new ReflectionProperty(Template::class, 'twig'))->getValue();
-        $this->assertInstanceOf(Environment::class, $twig);
-        $this->assertFalse($twig->getCache());
-        $twig->setCache($this->createStub(CacheInterface::class));
-        $this->assertNotFalse($twig->getCache());
+        self::assertInstanceOf(Environment::class, $twig);
+        self::assertFalse($twig->getCache());
+        $twig->setCache(self::createStub(CacheInterface::class));
+        self::assertNotFalse($twig->getCache());
         $template->disableCache();
-        $this->assertFalse($twig->getCache());
+        self::assertFalse($twig->getCache());
         (new ReflectionProperty(Template::class, 'twig'))->setValue(null, null);
     }
 }

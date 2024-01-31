@@ -15,27 +15,27 @@ final class NodeColumnContainerTest extends AbstractTestCase
     public function testColumnContainer(): void
     {
         $nodeColumnContainer = new NodeColumnContainer();
-        $this->assertSame('Columns', $nodeColumnContainer->name);
-        $this->assertSame(NodeType::Container, $nodeColumnContainer->type);
-        $this->assertFalse($nodeColumnContainer->isGroup);
-        $this->assertSame(['image' => 'pause', 'title' => 'Columns'], $nodeColumnContainer->icon);
-        $this->assertSame(
+        self::assertSame('Columns', $nodeColumnContainer->name);
+        self::assertSame(NodeType::Container, $nodeColumnContainer->type);
+        self::assertFalse($nodeColumnContainer->isGroup);
+        self::assertSame(['image' => 'pause', 'title' => 'Columns'], $nodeColumnContainer->icon);
+        self::assertSame(
             [
                 'text' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
                 'icon' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
             ],
             $nodeColumnContainer->links,
         );
-        $this->assertSame('columns', $nodeColumnContainer->realName);
-        $this->assertCount(1, $nodeColumnContainer->children);
-        $this->assertArrayHasKey(0, $nodeColumnContainer->children);
+        self::assertSame('columns', $nodeColumnContainer->realName);
+        self::assertCount(1, $nodeColumnContainer->children);
+        self::assertArrayHasKey(0, $nodeColumnContainer->children);
         $newNode = $nodeColumnContainer->children[0];
-        $this->assertSame('New', $newNode->name);
-        $this->assertSame('New', $newNode->title);
-        $this->assertTrue($newNode->isNew);
-        $this->assertSame('new_column italics', $newNode->classes);
-        $this->assertSame(['image' => 'b_column_add', 'title' => 'New'], $newNode->icon);
-        $this->assertSame(
+        self::assertSame('New', $newNode->name);
+        self::assertSame('New', $newNode->title);
+        self::assertTrue($newNode->isNew);
+        self::assertSame('new_column italics', $newNode->classes);
+        self::assertSame(['image' => 'b_column_add', 'title' => 'New'], $newNode->icon);
+        self::assertSame(
             [
                 'text' => [
                     'route' => '/table/add-field',

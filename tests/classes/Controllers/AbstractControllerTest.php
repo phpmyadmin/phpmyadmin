@@ -48,9 +48,9 @@ class AbstractControllerTest extends AbstractTestCase
         $message .= '[br]';
         $expected = Message::error($message)->getDisplay();
 
-        $this->assertFalse($controller->testCheckParameters(['param1', 'param2']));
-        $this->assertSame($expected, $response->getHTMLResult());
-        $this->assertSame(400, $response->getResponse()->getStatusCode());
+        self::assertFalse($controller->testCheckParameters(['param1', 'param2']));
+        self::assertSame($expected, $response->getHTMLResult());
+        self::assertSame(400, $response->getResponse()->getStatusCode());
     }
 
     public function testCheckParametersWithAllParameters(): void
@@ -71,8 +71,8 @@ class AbstractControllerTest extends AbstractTestCase
         $GLOBALS['param1'] = 'param1';
         $GLOBALS['param2'] = 'param2';
 
-        $this->assertTrue($controller->testCheckParameters(['param1', 'param2']));
-        $this->assertSame(200, $response->getResponse()->getStatusCode());
+        self::assertTrue($controller->testCheckParameters(['param1', 'param2']));
+        self::assertSame(200, $response->getResponse()->getStatusCode());
     }
 
     public function testSendErrorResponseWithJson(): void
@@ -90,10 +90,10 @@ class AbstractControllerTest extends AbstractTestCase
 
         $controller->testSendErrorResponse('Error message.', 404);
 
-        $this->assertSame(404, $response->getResponse()->getStatusCode());
-        $this->assertFalse($response->hasSuccessState());
-        $this->assertSame('', $response->getHTMLResult());
-        $this->assertSame(['isErrorResponse' => true, 'message' => 'Error message.'], $response->getJSONResult());
+        self::assertSame(404, $response->getResponse()->getStatusCode());
+        self::assertFalse($response->hasSuccessState());
+        self::assertSame('', $response->getHTMLResult());
+        self::assertSame(['isErrorResponse' => true, 'message' => 'Error message.'], $response->getJSONResult());
     }
 
     public function testSendErrorResponseWithHtml(): void
@@ -111,12 +111,12 @@ class AbstractControllerTest extends AbstractTestCase
 
         $controller->testSendErrorResponse('Error message.', 404);
 
-        $this->assertSame(404, $response->getResponse()->getStatusCode());
-        $this->assertFalse($response->hasSuccessState());
-        $this->assertSame(
+        self::assertSame(404, $response->getResponse()->getStatusCode());
+        self::assertFalse($response->hasSuccessState());
+        self::assertSame(
             Message::error('Error message.')->getDisplay(),
             $response->getHTMLResult(),
         );
-        $this->assertSame([], $response->getJSONResult());
+        self::assertSame([], $response->getJSONResult());
     }
 }

@@ -35,20 +35,20 @@ class VersionCheckControllerTest extends AbstractTestCase
         ];
 
         $versionInformation = $this->createMock(VersionInformation::class);
-        $versionInformation->expects($this->once())->method('getLatestVersions')->willReturn($versionInfo);
-        $versionInformation->expects($this->once())->method('getLatestCompatibleVersion')
-            ->with($this->equalTo($versionInfo))
+        $versionInformation->expects(self::once())->method('getLatestVersions')->willReturn($versionInfo);
+        $versionInformation->expects(self::once())->method('getLatestCompatibleVersion')
+            ->with(self::equalTo($versionInfo))
             ->willReturn($versionInfo[0]);
 
         (new VersionCheckController(
             new ResponseRenderer(),
             new Template(),
             $versionInformation,
-        ))($this->createStub(ServerRequest::class));
+        ))(self::createStub(ServerRequest::class));
 
         $output = $this->getActualOutputForAssertion();
-        $this->assertTrue(isset($_GET['ajax_request']));
-        $this->assertSame('{"version":"5.1.3","date":"2022-02-11"}', $output);
+        self::assertTrue(isset($_GET['ajax_request']));
+        self::assertSame('{"version":"5.1.3","date":"2022-02-11"}', $output);
     }
 
     public function testWithoutLatestCompatibleVersion(): void
@@ -60,20 +60,20 @@ class VersionCheckControllerTest extends AbstractTestCase
         ];
 
         $versionInformation = $this->createMock(VersionInformation::class);
-        $versionInformation->expects($this->once())->method('getLatestVersions')->willReturn($versionInfo);
-        $versionInformation->expects($this->once())->method('getLatestCompatibleVersion')
-            ->with($this->equalTo($versionInfo))
+        $versionInformation->expects(self::once())->method('getLatestVersions')->willReturn($versionInfo);
+        $versionInformation->expects(self::once())->method('getLatestCompatibleVersion')
+            ->with(self::equalTo($versionInfo))
             ->willReturn(null);
 
         (new VersionCheckController(
             new ResponseRenderer(),
             new Template(),
             $versionInformation,
-        ))($this->createStub(ServerRequest::class));
+        ))(self::createStub(ServerRequest::class));
 
         $output = $this->getActualOutputForAssertion();
-        $this->assertTrue(isset($_GET['ajax_request']));
-        $this->assertSame('{"version":"","date":""}', $output);
+        self::assertTrue(isset($_GET['ajax_request']));
+        self::assertSame('{"version":"","date":""}', $output);
     }
 
     public function testWithoutLatestVersion(): void
@@ -81,17 +81,17 @@ class VersionCheckControllerTest extends AbstractTestCase
         $_GET = [];
 
         $versionInformation = $this->createMock(VersionInformation::class);
-        $versionInformation->expects($this->once())->method('getLatestVersions')->willReturn(null);
-        $versionInformation->expects($this->never())->method('getLatestCompatibleVersion');
+        $versionInformation->expects(self::once())->method('getLatestVersions')->willReturn(null);
+        $versionInformation->expects(self::never())->method('getLatestCompatibleVersion');
 
         (new VersionCheckController(
             new ResponseRenderer(),
             new Template(),
             $versionInformation,
-        ))($this->createStub(ServerRequest::class));
+        ))(self::createStub(ServerRequest::class));
 
         $output = $this->getActualOutputForAssertion();
-        $this->assertTrue(isset($_GET['ajax_request']));
-        $this->assertSame('[]', $output);
+        self::assertTrue(isset($_GET['ajax_request']));
+        self::assertSame('[]', $output);
     }
 }

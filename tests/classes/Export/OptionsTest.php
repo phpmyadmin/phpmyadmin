@@ -70,9 +70,9 @@ class OptionsTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->any())->method('getColumnsFull')
+        $dbi->expects(self::any())->method('getColumnsFull')
             ->willReturn($columnsInfo);
-        $dbi->expects($this->any())->method('getCompatibilities')
+        $dbi->expects(self::any())->method('getCompatibilities')
             ->willReturn([]);
 
         DatabaseInterface::$instance = $dbi;
@@ -129,6 +129,6 @@ class OptionsTest extends AbstractTestCase
             'filename_template' => 'user value for test',
         ];
 
-        $this->assertEquals($expected, $actual);
+        self::assertEquals($expected, $actual);
     }
 }

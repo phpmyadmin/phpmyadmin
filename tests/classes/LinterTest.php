@@ -29,9 +29,9 @@ class LinterTest extends AbstractTestCase
      */
     public function testGetLines(): void
     {
-        $this->assertEquals([0], Linter::getLines(''));
-        $this->assertEquals([0, 2], Linter::getLines("a\nb"));
-        $this->assertEquals([0, 4, 7], Linter::getLines("abc\nde\n"));
+        self::assertEquals([0], Linter::getLines(''));
+        self::assertEquals([0, 2], Linter::getLines("a\nb"));
+        self::assertEquals([0, 4, 7], Linter::getLines("abc\nde\n"));
     }
 
     /**
@@ -50,19 +50,19 @@ class LinterTest extends AbstractTestCase
         //      ( a, 0), ( b, 1), ( c, 2), (\n, 3),
         //      ( d, 4), ( e, 5), (\n, 6),
         //      (\n, 7).
-        $this->assertEquals(
+        self::assertEquals(
             [1, 0],
             Linter::findLineNumberAndColumn([0, 4, 7], 4),
         );
-        $this->assertEquals(
+        self::assertEquals(
             [1, 1],
             Linter::findLineNumberAndColumn([0, 4, 7], 5),
         );
-        $this->assertEquals(
+        self::assertEquals(
             [1, 2],
             Linter::findLineNumberAndColumn([0, 4, 7], 6),
         );
-        $this->assertEquals(
+        self::assertEquals(
             [2, 0],
             Linter::findLineNumberAndColumn([0, 4, 7], 7),
         );
@@ -77,7 +77,7 @@ class LinterTest extends AbstractTestCase
     #[DataProvider('lintProvider')]
     public function testLint(array $expected, string $query): void
     {
-        $this->assertEquals($expected, Linter::lint($query));
+        self::assertEquals($expected, Linter::lint($query));
     }
 
     /**

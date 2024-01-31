@@ -25,7 +25,7 @@ class DropColumnConfirmationControllerTest extends AbstractTestCase
 
     public function testWithValidParameters(): void
     {
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['db', null, 'test_db'],
             ['table', null, 'test_table'],
@@ -50,15 +50,15 @@ class DropColumnConfirmationControllerTest extends AbstractTestCase
 
         (new DropColumnConfirmationController($response, $template, new DbTableExists($dbi)))($request);
 
-        $this->assertSame(200, $response->getResponse()->getStatusCode());
-        $this->assertTrue($response->hasSuccessState());
-        $this->assertSame([], $response->getJSONResult());
-        $this->assertSame($expected, $response->getHTMLResult());
+        self::assertSame(200, $response->getResponse()->getStatusCode());
+        self::assertTrue($response->hasSuccessState());
+        self::assertSame([], $response->getJSONResult());
+        self::assertSame($expected, $response->getHTMLResult());
     }
 
     public function testWithoutFields(): void
     {
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['db', null, 'test_db'],
             ['table', null, 'test_table'],
@@ -74,15 +74,15 @@ class DropColumnConfirmationControllerTest extends AbstractTestCase
             new DbTableExists(DatabaseInterface::getInstance()),
         ))($request);
 
-        $this->assertSame(400, $response->getResponse()->getStatusCode());
-        $this->assertFalse($response->hasSuccessState());
-        $this->assertSame(['isErrorResponse' => true, 'message' => 'No column selected.'], $response->getJSONResult());
-        $this->assertSame('', $response->getHTMLResult());
+        self::assertSame(400, $response->getResponse()->getStatusCode());
+        self::assertFalse($response->hasSuccessState());
+        self::assertSame(['isErrorResponse' => true, 'message' => 'No column selected.'], $response->getJSONResult());
+        self::assertSame('', $response->getHTMLResult());
     }
 
     public function testWithoutDatabaseAndTable(): void
     {
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['db', null, null],
             ['table', null, null],
@@ -98,12 +98,12 @@ class DropColumnConfirmationControllerTest extends AbstractTestCase
             new DbTableExists(DatabaseInterface::getInstance()),
         ))($request);
 
-        $this->assertSame(400, $response->getResponse()->getStatusCode());
-        $this->assertFalse($response->hasSuccessState());
-        $this->assertSame([
+        self::assertSame(400, $response->getResponse()->getStatusCode());
+        self::assertFalse($response->hasSuccessState());
+        self::assertSame([
             'isErrorResponse' => true,
             'message' => 'The database name must be a non-empty string.',
         ], $response->getJSONResult());
-        $this->assertSame('', $response->getHTMLResult());
+        self::assertSame('', $response->getHTMLResult());
     }
 }

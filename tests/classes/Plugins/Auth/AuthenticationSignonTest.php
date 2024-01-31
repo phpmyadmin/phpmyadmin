@@ -74,11 +74,11 @@ class AuthenticationSignonTest extends AbstractTestCase
 
         $result = ob_get_clean();
 
-        $this->assertInstanceOf(ExitException::class, $throwable);
+        self::assertInstanceOf(ExitException::class, $throwable);
 
-        $this->assertIsString($result);
+        self::assertIsString($result);
 
-        $this->assertStringContainsString('You must set SignonURL!', $result);
+        self::assertStringContainsString('You must set SignonURL!', $result);
     }
 
     #[RunInSeparateProcess]
@@ -95,8 +95,8 @@ class AuthenticationSignonTest extends AbstractTestCase
         $this->object->logOut();
 
         $response = $responseStub->getResponse();
-        $this->assertSame(['https://example.com/logoutURL'], $response->getHeader('Location'));
-        $this->assertSame(302, $response->getStatusCode());
+        self::assertSame(['https://example.com/logoutURL'], $response->getHeader('Location'));
+        self::assertSame(302, $response->getStatusCode());
     }
 
     #[RunInSeparateProcess]
@@ -114,8 +114,8 @@ class AuthenticationSignonTest extends AbstractTestCase
         $this->object->logOut();
 
         $response = $responseStub->getResponse();
-        $this->assertSame(['https://example.com/SignonURL'], $response->getHeader('Location'));
-        $this->assertSame(302, $response->getStatusCode());
+        self::assertSame(['https://example.com/SignonURL'], $response->getHeader('Location'));
+        self::assertSame(302, $response->getStatusCode());
     }
 
     public function testAuthCheckEmpty(): void
@@ -123,7 +123,7 @@ class AuthenticationSignonTest extends AbstractTestCase
         Config::getInstance()->selectedServer['SignonURL'] = 'https://example.com/SignonURL';
         $_SESSION['LAST_SIGNON_URL'] = 'https://example.com/SignonDiffURL';
 
-        $this->assertFalse(
+        self::assertFalse(
             $this->object->readCredentials(),
         );
     }
@@ -140,15 +140,15 @@ class AuthenticationSignonTest extends AbstractTestCase
         $config->selectedServer['port'] = '80';
         $config->selectedServer['user'] = 'user';
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->readCredentials(),
         );
 
-        $this->assertEquals('user', $this->object->user);
+        self::assertEquals('user', $this->object->user);
 
-        $this->assertEquals('password', $this->object->password);
+        self::assertEquals('password', $this->object->password);
 
-        $this->assertEquals('https://example.com/SignonURL', $_SESSION['LAST_SIGNON_URL']);
+        self::assertEquals('https://example.com/SignonURL', $_SESSION['LAST_SIGNON_URL']);
     }
 
     #[RunInSeparateProcess]
@@ -183,10 +183,10 @@ class AuthenticationSignonTest extends AbstractTestCase
         $this->object->logOut();
 
         $response = $responseStub->getResponse();
-        $this->assertSame(['https://example.com/SignonURL'], $response->getHeader('Location'));
-        $this->assertSame(302, $response->getStatusCode());
+        self::assertSame(['https://example.com/SignonURL'], $response->getHeader('Location'));
+        self::assertSame(302, $response->getStatusCode());
 
-        $this->assertEquals(
+        self::assertEquals(
             (new Server([
                 'SignonURL' => 'https://example.com/SignonURL',
                 'SignonScript' => '',
@@ -199,17 +199,17 @@ class AuthenticationSignonTest extends AbstractTestCase
             $config->selectedServer,
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             $sessionName,
             session_name(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             $sessionID,
             session_id(),
         );
 
-        $this->assertArrayNotHasKey('LAST_SIGNON_URL', $_SESSION);
+        self::assertArrayNotHasKey('LAST_SIGNON_URL', $_SESSION);
     }
 
     public function testAuthCheckKeep(): void
@@ -231,13 +231,13 @@ class AuthenticationSignonTest extends AbstractTestCase
         $_SESSION['PMA_single_signon_cfgupdate'] = ['foo' => 'bar'];
         $_SESSION['PMA_single_signon_token'] = 'pmaToken';
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->readCredentials(),
         );
 
-        $this->assertEquals('user123', $this->object->user);
+        self::assertEquals('user123', $this->object->user);
 
-        $this->assertEquals('pass123', $this->object->password);
+        self::assertEquals('pass123', $this->object->password);
     }
 
     public function testAuthSetUser(): void
@@ -245,14 +245,14 @@ class AuthenticationSignonTest extends AbstractTestCase
         $this->object->user = 'testUser123';
         $this->object->password = 'testPass123';
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->storeCredentials(),
         );
 
         $config = Config::getInstance();
-        $this->assertEquals('testUser123', $config->selectedServer['user']);
+        self::assertEquals('testUser123', $config->selectedServer['user']);
 
-        $this->assertEquals('testPass123', $config->selectedServer['password']);
+        self::assertEquals('testPass123', $config->selectedServer['password']);
     }
 
     public function testAuthFailsForbidden(): void
@@ -265,7 +265,7 @@ class AuthenticationSignonTest extends AbstractTestCase
             ->onlyMethods(['showLoginForm'])
             ->getMock();
 
-        $this->object->expects($this->exactly(1))
+        $this->object->expects(self::exactly(1))
             ->method('showLoginForm')
             ->willThrowException(new ExitException());
 
@@ -274,7 +274,7 @@ class AuthenticationSignonTest extends AbstractTestCase
         } catch (ExitException) {
         }
 
-        $this->assertEquals(
+        self::assertEquals(
             'Login without a password is forbidden by configuration (see AllowNoPassword)',
             $_SESSION['PMA_single_signon_error_message'],
         );
@@ -290,7 +290,7 @@ class AuthenticationSignonTest extends AbstractTestCase
             ->onlyMethods(['showLoginForm'])
             ->getMock();
 
-        $this->object->expects($this->exactly(1))
+        $this->object->expects(self::exactly(1))
             ->method('showLoginForm')
             ->willThrowException(new ExitException());
 
@@ -299,7 +299,7 @@ class AuthenticationSignonTest extends AbstractTestCase
         } catch (ExitException) {
         }
 
-        $this->assertEquals('Access denied!', $_SESSION['PMA_single_signon_error_message']);
+        self::assertEquals('Access denied!', $_SESSION['PMA_single_signon_error_message']);
     }
 
     public function testAuthFailsTimeout(): void
@@ -313,7 +313,7 @@ class AuthenticationSignonTest extends AbstractTestCase
             ->onlyMethods(['showLoginForm'])
             ->getMock();
 
-        $this->object->expects($this->exactly(1))
+        $this->object->expects(self::exactly(1))
             ->method('showLoginForm')
             ->willThrowException(new ExitException());
 
@@ -324,7 +324,7 @@ class AuthenticationSignonTest extends AbstractTestCase
         } catch (ExitException) {
         }
 
-        $this->assertEquals(
+        self::assertEquals(
             'You have been automatically logged out due to inactivity of'
             . ' 1440 seconds. Once you log in again, you should be able to'
             . ' resume the work where you left off.',
@@ -342,7 +342,7 @@ class AuthenticationSignonTest extends AbstractTestCase
             ->onlyMethods(['showLoginForm'])
             ->getMock();
 
-        $this->object->expects($this->exactly(1))
+        $this->object->expects(self::exactly(1))
             ->method('showLoginForm')
             ->willThrowException(new ExitException());
 
@@ -350,7 +350,7 @@ class AuthenticationSignonTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('getError')
             ->willReturn('error<123>');
 
@@ -361,7 +361,7 @@ class AuthenticationSignonTest extends AbstractTestCase
         } catch (ExitException) {
         }
 
-        $this->assertEquals('error&lt;123&gt;', $_SESSION['PMA_single_signon_error_message']);
+        self::assertEquals('error&lt;123&gt;', $_SESSION['PMA_single_signon_error_message']);
     }
 
     public function testAuthFailsConnect(): void
@@ -375,7 +375,7 @@ class AuthenticationSignonTest extends AbstractTestCase
             ->onlyMethods(['showLoginForm'])
             ->getMock();
 
-        $this->object->expects($this->exactly(1))
+        $this->object->expects(self::exactly(1))
             ->method('showLoginForm')
             ->willThrowException(new ExitException());
 
@@ -383,7 +383,7 @@ class AuthenticationSignonTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('getError')
             ->willReturn('');
 
@@ -394,7 +394,7 @@ class AuthenticationSignonTest extends AbstractTestCase
         } catch (ExitException) {
         }
 
-        $this->assertEquals('Cannot log in to the MySQL server', $_SESSION['PMA_single_signon_error_message']);
+        self::assertEquals('Cannot log in to the MySQL server', $_SESSION['PMA_single_signon_error_message']);
     }
 
     public function testSetCookieParamsDefaults(): void
@@ -415,7 +415,7 @@ class AuthenticationSignonTest extends AbstractTestCase
             'samesite' => '',
         ];
 
-        $this->assertSame(
+        self::assertSame(
             $defaultOptions,
             session_get_cookie_params(),
         );

@@ -59,33 +59,33 @@ class ProcessesControllerTest extends AbstractTestCase
         );
 
         $this->dummyDbi->addSelectDb('mysql');
-        $controller($this->createStub(ServerRequest::class));
+        $controller(self::createStub(ServerRequest::class));
         $this->dummyDbi->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'Note: Enabling the auto refresh here might cause '
             . 'heavy traffic between the web server and the MySQL server.',
             $html,
         );
         // Test tab links
-        $this->assertStringContainsString('<div class="tabLinks row">', $html);
-        $this->assertStringContainsString('<a id="toggleRefresh" href="#">', $html);
-        $this->assertStringContainsString('play', $html);
-        $this->assertStringContainsString('Start auto refresh', $html);
-        $this->assertStringContainsString('<select id="id_refreshRate"', $html);
-        $this->assertStringContainsString('<option value="5" selected>', $html);
-        $this->assertStringContainsString('5 seconds', $html);
+        self::assertStringContainsString('<div class="tabLinks row">', $html);
+        self::assertStringContainsString('<a id="toggleRefresh" href="#">', $html);
+        self::assertStringContainsString('play', $html);
+        self::assertStringContainsString('Start auto refresh', $html);
+        self::assertStringContainsString('<select id="id_refreshRate"', $html);
+        self::assertStringContainsString('<option value="5" selected>', $html);
+        self::assertStringContainsString('5 seconds', $html);
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<table id="tableprocesslist" class="table table-striped table-hover sortable w-auto">',
             $html,
         );
-        $this->assertStringContainsString('<th>Processes</th>', $html);
-        $this->assertStringContainsString('Show full queries', $html);
-        $this->assertStringContainsString('index.php?route=/server/status/processes', $html);
+        self::assertStringContainsString('<th>Processes</th>', $html);
+        self::assertStringContainsString('Show full queries', $html);
+        self::assertStringContainsString('index.php?route=/server/status/processes', $html);
 
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['column_name', '', 'Database'],
             ['order_by_field', '', 'Db'],
@@ -98,11 +98,11 @@ class ProcessesControllerTest extends AbstractTestCase
         $this->dummyDbi->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 
-        $this->assertStringContainsString('Truncate shown queries', $html);
-        $this->assertStringContainsString('Database', $html);
-        $this->assertStringContainsString('DESC', $html);
+        self::assertStringContainsString('Truncate shown queries', $html);
+        self::assertStringContainsString('Database', $html);
+        self::assertStringContainsString('DESC', $html);
 
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['column_name', '', 'Host'],
             ['order_by_field', '', 'Host'],
@@ -115,7 +115,7 @@ class ProcessesControllerTest extends AbstractTestCase
         $this->dummyDbi->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 
-        $this->assertStringContainsString('Host', $html);
-        $this->assertStringContainsString('ASC', $html);
+        self::assertStringContainsString('Host', $html);
+        self::assertStringContainsString('ASC', $html);
     }
 }

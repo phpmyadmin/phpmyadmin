@@ -56,31 +56,31 @@ class ShowEngineControllerTest extends AbstractTestCase
 
         $enginePlugin = StorageEngine::getEngine('Pbxt');
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             htmlspecialchars($enginePlugin->getTitle()),
             $actual,
         );
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             MySQLDocumentation::show($enginePlugin->getMysqlHelpPage()),
             $actual,
         );
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             htmlspecialchars($enginePlugin->getComment()),
             $actual,
         );
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             __('Variables'),
             $actual,
         );
-        $this->assertStringContainsString('index.php?route=/server/engines/Pbxt/Documentation', $actual);
-        $this->assertStringContainsString(
+        self::assertStringContainsString('index.php?route=/server/engines/Pbxt/Documentation', $actual);
+        self::assertStringContainsString(
             $enginePlugin->getSupportInformationMessage(),
             $actual,
         );
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'There is no detailed status information available for this storage engine.',
             $actual,
         );

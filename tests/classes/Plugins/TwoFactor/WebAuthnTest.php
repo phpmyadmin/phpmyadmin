@@ -28,9 +28,9 @@ class WebAuthnTest extends AbstractTestCase
 {
     public function testIdNameAndDescription(): void
     {
-        $this->assertSame('WebAuthn', WebAuthn::$id);
-        $this->assertSame('Hardware Security Key (WebAuthn/FIDO2)', WebAuthn::getName());
-        $this->assertSame(
+        self::assertSame('WebAuthn', WebAuthn::$id);
+        self::assertSame('Hardware Security Key (WebAuthn/FIDO2)', WebAuthn::getName());
+        self::assertSame(
             'Provides authentication using hardware security tokens supporting the WebAuthn/FIDO2 protocol,'
             . ' such as a YubiKey.',
             WebAuthn::getDescription(),
@@ -45,12 +45,12 @@ class WebAuthnTest extends AbstractTestCase
         $GLOBALS['lang'] = 'en';
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
-        $uri = $this->createStub(UriInterface::class);
+        $uri = self::createStub(UriInterface::class);
         $uri->method('getHost')->willReturn('test.localhost');
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getUri')->willReturn($uri);
 
-        $twoFactor = $this->createStub(TwoFactor::class);
+        $twoFactor = self::createStub(TwoFactor::class);
         $twoFactor->user = 'test_user';
         $twoFactor->config = [
             'backend' => 'WebAuthn',
@@ -73,12 +73,12 @@ class WebAuthnTest extends AbstractTestCase
             'allowCredentials' => [['type' => 'public-key', 'id' => 'cHVibGljS2V5Q3JlZGVudGlhbElkMQ']],
             'timeout' => 60000,
         ];
-        $server = $this->createMock(Server::class);
-        $server->expects($this->once())->method('getCredentialRequestOptions')->with(
-            $this->equalTo('test_user'),
-            $this->anything(),
-            $this->equalTo('test.localhost'),
-            $this->equalTo([['type' => 'public-key', 'id' => 'cHVibGljS2V5Q3JlZGVudGlhbElkMQ']]),
+        $server = self::createMock(Server::class);
+        $server->expects(self::once())->method('getCredentialRequestOptions')->with(
+            self::equalTo('test_user'),
+            self::anything(),
+            self::equalTo('test.localhost'),
+            self::equalTo([['type' => 'public-key', 'id' => 'cHVibGljS2V5Q3JlZGVudGlhbElkMQ']]),
         )->willReturn($expectedRequestOptions);
 
         $webAuthn = new WebAuthn($twoFactor);
@@ -86,18 +86,18 @@ class WebAuthnTest extends AbstractTestCase
         $actual = $webAuthn->render($request);
 
         $optionsFromSession = $_SESSION['WebAuthnCredentialRequestOptions'] ?? null;
-        $this->assertIsString($optionsFromSession);
-        $this->assertJson($optionsFromSession);
-        $this->assertEquals($expectedRequestOptions, json_decode($optionsFromSession, true));
+        self::assertIsString($optionsFromSession);
+        self::assertJson($optionsFromSession);
+        self::assertEquals($expectedRequestOptions, json_decode($optionsFromSession, true));
 
-        $this->assertStringContainsString('id="webauthn_request_response"', $actual);
-        $this->assertStringContainsString('name="webauthn_request_response"', $actual);
-        $this->assertStringContainsString('value=""', $actual);
-        $this->assertStringContainsString('data-request-options="', $actual);
-        $this->assertSame('', $webAuthn->getError());
+        self::assertStringContainsString('id="webauthn_request_response"', $actual);
+        self::assertStringContainsString('name="webauthn_request_response"', $actual);
+        self::assertStringContainsString('value=""', $actual);
+        self::assertStringContainsString('data-request-options="', $actual);
+        self::assertSame('', $webAuthn->getError());
 
         $files = ResponseRenderer::getInstance()->getHeader()->getScripts()->getFiles();
-        $this->assertContains('webauthn.js', array_column($files, 'name'));
+        self::assertContains('webauthn.js', array_column($files, 'name'));
     }
 
     #[BackupStaticProperties(true)]
@@ -108,12 +108,12 @@ class WebAuthnTest extends AbstractTestCase
         $GLOBALS['lang'] = 'en';
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
-        $uri = $this->createStub(UriInterface::class);
+        $uri = self::createStub(UriInterface::class);
         $uri->method('getHost')->willReturn('test.localhost');
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getUri')->willReturn($uri);
 
-        $twoFactor = $this->createStub(TwoFactor::class);
+        $twoFactor = self::createStub(TwoFactor::class);
         $twoFactor->user = 'test_user';
 
         $expectedCreationOptions = [
@@ -125,11 +125,11 @@ class WebAuthnTest extends AbstractTestCase
             'timeout' => 60000,
             'attestation' => 'none',
         ];
-        $server = $this->createMock(Server::class);
-        $server->expects($this->once())->method('getCredentialCreationOptions')->with(
-            $this->equalTo('test_user'),
-            $this->anything(),
-            $this->equalTo('test.localhost'),
+        $server = self::createMock(Server::class);
+        $server->expects(self::once())->method('getCredentialCreationOptions')->with(
+            self::equalTo('test_user'),
+            self::anything(),
+            self::equalTo('test.localhost'),
         )->willReturn($expectedCreationOptions);
 
         $webAuthn = new WebAuthn($twoFactor);
@@ -137,80 +137,80 @@ class WebAuthnTest extends AbstractTestCase
         $actual = $webAuthn->setup($request);
 
         $optionsFromSession = $_SESSION['WebAuthnCredentialCreationOptions'] ?? null;
-        $this->assertIsString($optionsFromSession);
-        $this->assertJson($optionsFromSession);
-        $this->assertEquals($expectedCreationOptions, json_decode($optionsFromSession, true));
+        self::assertIsString($optionsFromSession);
+        self::assertJson($optionsFromSession);
+        self::assertEquals($expectedCreationOptions, json_decode($optionsFromSession, true));
 
-        $this->assertStringContainsString('id="webauthn_creation_response"', $actual);
-        $this->assertStringContainsString('name="webauthn_creation_response"', $actual);
-        $this->assertStringContainsString('value=""', $actual);
-        $this->assertStringContainsString('data-creation-options="', $actual);
-        $this->assertSame('', $webAuthn->getError());
+        self::assertStringContainsString('id="webauthn_creation_response"', $actual);
+        self::assertStringContainsString('name="webauthn_creation_response"', $actual);
+        self::assertStringContainsString('value=""', $actual);
+        self::assertStringContainsString('data-creation-options="', $actual);
+        self::assertSame('', $webAuthn->getError());
 
         $files = ResponseRenderer::getInstance()->getHeader()->getScripts()->getFiles();
-        $this->assertContains('webauthn.js', array_column($files, 'name'));
+        self::assertContains('webauthn.js', array_column($files, 'name'));
     }
 
     public function testConfigure(): void
     {
         $_SESSION = [];
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['webauthn_creation_response', '', '']]);
-        $webAuthn = new WebAuthn($this->createStub(TwoFactor::class));
-        $this->assertFalse($webAuthn->configure($request));
-        $this->assertSame('', $webAuthn->getError());
+        $webAuthn = new WebAuthn(self::createStub(TwoFactor::class));
+        self::assertFalse($webAuthn->configure($request));
+        self::assertSame('', $webAuthn->getError());
     }
 
     public function testConfigure2(): void
     {
         $_SESSION['WebAuthnCredentialCreationOptions'] = '';
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['webauthn_creation_response', '', '{}']]);
-        $webAuthn = new WebAuthn($this->createStub(TwoFactor::class));
-        $this->assertFalse($webAuthn->configure($request));
-        $this->assertStringContainsString('Two-factor authentication failed:', $webAuthn->getError());
+        $webAuthn = new WebAuthn(self::createStub(TwoFactor::class));
+        self::assertFalse($webAuthn->configure($request));
+        self::assertStringContainsString('Two-factor authentication failed:', $webAuthn->getError());
     }
 
     public function testConfigure3(): void
     {
         $_SESSION['WebAuthnCredentialCreationOptions'] = '{}';
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['webauthn_creation_response', '', '{}']]);
 
-        $server = $this->createMock(Server::class);
-        $server->expects($this->once())->method('parseAndValidateAttestationResponse')
+        $server = self::createMock(Server::class);
+        $server->expects(self::once())->method('parseAndValidateAttestationResponse')
             ->willThrowException(new WebAuthnException());
 
-        $webAuthn = new WebAuthn($this->createStub(TwoFactor::class));
+        $webAuthn = new WebAuthn(self::createStub(TwoFactor::class));
         $webAuthn->setServer($server);
-        $this->assertFalse($webAuthn->configure($request));
-        $this->assertStringContainsString('Two-factor authentication failed.', $webAuthn->getError());
+        self::assertFalse($webAuthn->configure($request));
+        self::assertStringContainsString('Two-factor authentication failed.', $webAuthn->getError());
     }
 
     public function testConfigure4(): void
     {
         $_SESSION['WebAuthnCredentialCreationOptions'] = '{}';
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['webauthn_creation_response', '', '{}']]);
 
-        $twoFactor = $this->createStub(TwoFactor::class);
+        $twoFactor = self::createStub(TwoFactor::class);
         $twoFactor->config = ['backend' => '', 'settings' => []];
 
         // base64url of publicKeyCredentialId1
         $credential = ['publicKeyCredentialId' => 'cHVibGljS2V5Q3JlZGVudGlhbElkMQ', 'userHandle' => 'userHandle'];
-        $server = $this->createMock(Server::class);
-        $server->expects($this->once())->method('parseAndValidateAttestationResponse')->with(
-            $this->equalTo('{}'),
-            $this->equalTo('{}'),
-            $this->equalTo($request),
+        $server = self::createMock(Server::class);
+        $server->expects(self::once())->method('parseAndValidateAttestationResponse')->with(
+            self::equalTo('{}'),
+            self::equalTo('{}'),
+            self::equalTo($request),
         )->willReturn($credential);
 
         $webAuthn = new WebAuthn($twoFactor);
         $webAuthn->setServer($server);
-        $this->assertTrue($webAuthn->configure($request));
+        self::assertTrue($webAuthn->configure($request));
         /** @psalm-var array{backend: string, settings: mixed[]} $config */
         $config = $twoFactor->config;
-        $this->assertSame(
+        self::assertSame(
             [
                 'backend' => '',
                 'settings' => [
@@ -225,46 +225,46 @@ class WebAuthnTest extends AbstractTestCase
     public function testCheck(): void
     {
         $_SESSION = [];
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['webauthn_request_response', '', '']]);
-        $webAuthn = new WebAuthn($this->createStub(TwoFactor::class));
-        $this->assertFalse($webAuthn->check($request));
-        $this->assertSame('', $webAuthn->getError());
+        $webAuthn = new WebAuthn(self::createStub(TwoFactor::class));
+        self::assertFalse($webAuthn->check($request));
+        self::assertSame('', $webAuthn->getError());
     }
 
     public function testCheck2(): void
     {
         $_SESSION['WebAuthnCredentialRequestOptions'] = '';
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['webauthn_request_response', '', '{}']]);
-        $webAuthn = new WebAuthn($this->createStub(TwoFactor::class));
-        $this->assertFalse($webAuthn->check($request));
-        $this->assertStringContainsString('Two-factor authentication failed:', $webAuthn->getError());
+        $webAuthn = new WebAuthn(self::createStub(TwoFactor::class));
+        self::assertFalse($webAuthn->check($request));
+        self::assertStringContainsString('Two-factor authentication failed:', $webAuthn->getError());
     }
 
     public function testCheck3(): void
     {
         $_SESSION['WebAuthnCredentialRequestOptions'] = '{"challenge":"challenge"}';
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['webauthn_request_response', '', '{}']]);
 
-        $server = $this->createMock(Server::class);
-        $server->expects($this->once())->method('parseAndValidateAssertionResponse')
+        $server = self::createMock(Server::class);
+        $server->expects(self::once())->method('parseAndValidateAssertionResponse')
             ->willThrowException(new WebAuthnException());
 
-        $webAuthn = new WebAuthn($this->createStub(TwoFactor::class));
+        $webAuthn = new WebAuthn(self::createStub(TwoFactor::class));
         $webAuthn->setServer($server);
-        $this->assertFalse($webAuthn->check($request));
-        $this->assertStringContainsString('Two-factor authentication failed.', $webAuthn->getError());
+        self::assertFalse($webAuthn->check($request));
+        self::assertStringContainsString('Two-factor authentication failed.', $webAuthn->getError());
     }
 
     public function testCheck4(): void
     {
         $_SESSION['WebAuthnCredentialRequestOptions'] = '{"challenge":"challenge"}';
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['webauthn_request_response', '', '{}']]);
 
-        $twoFactor = $this->createStub(TwoFactor::class);
+        $twoFactor = self::createStub(TwoFactor::class);
         $twoFactor->config = [
             'backend' => 'WebAuthn',
             'settings' => [
@@ -279,16 +279,16 @@ class WebAuthnTest extends AbstractTestCase
             ],
         ];
 
-        $server = $this->createMock(Server::class);
-        $server->expects($this->once())->method('parseAndValidateAssertionResponse')->with(
-            $this->equalTo('{}'),
-            $this->equalTo([['type' => 'public-key', 'id' => 'cHVibGljS2V5Q3JlZGVudGlhbElkMQ']]),
-            $this->equalTo('challenge'),
-            $this->equalTo($request),
+        $server = self::createMock(Server::class);
+        $server->expects(self::once())->method('parseAndValidateAssertionResponse')->with(
+            self::equalTo('{}'),
+            self::equalTo([['type' => 'public-key', 'id' => 'cHVibGljS2V5Q3JlZGVudGlhbElkMQ']]),
+            self::equalTo('challenge'),
+            self::equalTo($request),
         );
 
         $webAuthn = new WebAuthn($twoFactor);
         $webAuthn->setServer($server);
-        $this->assertTrue($webAuthn->check($request));
+        self::assertTrue($webAuthn->check($request));
     }
 }

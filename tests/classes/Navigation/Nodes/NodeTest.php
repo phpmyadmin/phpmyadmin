@@ -21,37 +21,37 @@ final class NodeTest extends AbstractTestCase
     public function testNewNode(): void
     {
         $node = new Node('Object Node');
-        $this->assertSame('Object Node', $node->name);
-        $this->assertSame('Object Node', $node->realName);
-        $this->assertSame(NodeType::Object, $node->type);
-        $this->assertFalse($node->isGroup);
+        self::assertSame('Object Node', $node->name);
+        self::assertSame('Object Node', $node->realName);
+        self::assertSame(NodeType::Object, $node->type);
+        self::assertFalse($node->isGroup);
     }
 
     public function testNewNodeWithEmptyName(): void
     {
         $node = new Node('');
-        $this->assertSame('', $node->name);
-        $this->assertSame('', $node->realName);
-        $this->assertSame(NodeType::Object, $node->type);
-        $this->assertFalse($node->isGroup);
+        self::assertSame('', $node->name);
+        self::assertSame('', $node->realName);
+        self::assertSame(NodeType::Object, $node->type);
+        self::assertFalse($node->isGroup);
     }
 
     public function testNewContainerNode(): void
     {
         $node = new Node('Container Node', NodeType::Container);
-        $this->assertSame('Container Node', $node->name);
-        $this->assertSame('Container Node', $node->realName);
-        $this->assertSame(NodeType::Container, $node->type);
-        $this->assertFalse($node->isGroup);
+        self::assertSame('Container Node', $node->name);
+        self::assertSame('Container Node', $node->realName);
+        self::assertSame(NodeType::Container, $node->type);
+        self::assertFalse($node->isGroup);
     }
 
     public function testNewGroupNode(): void
     {
         $node = new Node('Group Node', NodeType::Object, true);
-        $this->assertSame('Group Node', $node->name);
-        $this->assertSame('Group Node', $node->realName);
-        $this->assertSame(NodeType::Object, $node->type);
-        $this->assertTrue($node->isGroup);
+        self::assertSame('Group Node', $node->name);
+        self::assertSame('Group Node', $node->realName);
+        self::assertSame(NodeType::Object, $node->type);
+        self::assertTrue($node->isGroup);
     }
 
     /** @psalm-suppress DocblockTypeContradiction */
@@ -60,17 +60,17 @@ final class NodeTest extends AbstractTestCase
         $parent = new Node('parent');
         $childOne = new Node('child one');
         $childTwo = new Node('child two');
-        $this->assertSame([], $parent->children);
-        $this->assertNull($childOne->parent);
-        $this->assertNull($childTwo->parent);
+        self::assertSame([], $parent->children);
+        self::assertNull($childOne->parent);
+        self::assertNull($childTwo->parent);
         $parent->addChild($childOne);
-        $this->assertSame([$childOne], $parent->children);
-        $this->assertSame($parent, $childOne->parent);
-        $this->assertNull($childTwo->parent);
+        self::assertSame([$childOne], $parent->children);
+        self::assertSame($parent, $childOne->parent);
+        self::assertNull($childTwo->parent);
         $parent->addChild($childTwo);
-        $this->assertSame([$childOne, $childTwo], $parent->children);
-        $this->assertSame($parent, $childOne->parent);
-        $this->assertSame($parent, $childTwo->parent);
+        self::assertSame([$childOne, $childTwo], $parent->children);
+        self::assertSame($parent, $childOne->parent);
+        self::assertSame($parent, $childTwo->parent);
     }
 
     public function testGetChildNode(): void
@@ -78,20 +78,20 @@ final class NodeTest extends AbstractTestCase
         $parent = new Node('parent');
         $child = new Node('child real name');
         $child->name = 'child';
-        $this->assertNull($parent->getChild('child'));
-        $this->assertNull($parent->getChild('child', true));
-        $this->assertNull($parent->getChild('child real name'));
-        $this->assertNull($parent->getChild('child real name', true));
+        self::assertNull($parent->getChild('child'));
+        self::assertNull($parent->getChild('child', true));
+        self::assertNull($parent->getChild('child real name'));
+        self::assertNull($parent->getChild('child real name', true));
         $parent->addChild($child);
-        $this->assertSame($child, $parent->getChild('child'));
-        $this->assertNull($parent->getChild('child', true));
-        $this->assertNull($parent->getChild('child real name'));
-        $this->assertSame($child, $parent->getChild('child real name', true));
+        self::assertSame($child, $parent->getChild('child'));
+        self::assertNull($parent->getChild('child', true));
+        self::assertNull($parent->getChild('child real name'));
+        self::assertSame($child, $parent->getChild('child real name', true));
         $child->isNew = true;
-        $this->assertNull($parent->getChild('child'));
-        $this->assertNull($parent->getChild('child', true));
-        $this->assertNull($parent->getChild('child real name'));
-        $this->assertSame($child, $parent->getChild('child real name', true));
+        self::assertNull($parent->getChild('child'));
+        self::assertNull($parent->getChild('child', true));
+        self::assertNull($parent->getChild('child real name'));
+        self::assertSame($child, $parent->getChild('child real name', true));
     }
 
     public function testRemoveChildNode(): void
@@ -104,10 +104,10 @@ final class NodeTest extends AbstractTestCase
         $parent->addChild($childTwo);
         $parent->addChild($childThree);
         $parent->addChild($childTwo);
-        $this->assertSame([0 => $childOne, 1 => $childTwo, 2 => $childThree, 3 => $childTwo], $parent->children);
+        self::assertSame([0 => $childOne, 1 => $childTwo, 2 => $childThree, 3 => $childTwo], $parent->children);
         $parent->removeChild('child two');
         /** @psalm-suppress DocblockTypeContradiction */
-        $this->assertSame([0 => $childOne, 2 => $childThree, 3 => $childTwo], $parent->children);
+        self::assertSame([0 => $childOne, 2 => $childThree, 3 => $childTwo], $parent->children);
     }
 
     public function testParents(): void
@@ -123,17 +123,17 @@ final class NodeTest extends AbstractTestCase
         $dbGroup->addChild($dbTwo);
         $dbOne->addChild($tableContainer);
         $tableContainer->addChild($table);
-        $this->assertSame([], $dbContainer->parents(false, true));
-        $this->assertSame([$dbContainer], $dbContainer->parents(true, true));
-        $this->assertSame([$dbContainer], $dbGroup->parents(false, true, true));
-        $this->assertSame([$dbGroup, $dbContainer], $dbGroup->parents(true, true, true));
-        $this->assertSame([$dbOne], $table->parents());
-        $this->assertSame([$table, $dbOne], $table->parents(true));
-        $this->assertSame([$tableContainer, $dbOne, $dbContainer], $table->parents(false, true));
-        $this->assertSame([$table, $tableContainer, $dbOne, $dbContainer], $table->parents(true, true));
-        $this->assertSame([$dbOne], $table->parents(false, false, true));
-        $this->assertSame([$tableContainer, $dbOne, $dbGroup, $dbContainer], $table->parents(false, true, true));
-        $this->assertSame(
+        self::assertSame([], $dbContainer->parents(false, true));
+        self::assertSame([$dbContainer], $dbContainer->parents(true, true));
+        self::assertSame([$dbContainer], $dbGroup->parents(false, true, true));
+        self::assertSame([$dbGroup, $dbContainer], $dbGroup->parents(true, true, true));
+        self::assertSame([$dbOne], $table->parents());
+        self::assertSame([$table, $dbOne], $table->parents(true));
+        self::assertSame([$tableContainer, $dbOne, $dbContainer], $table->parents(false, true));
+        self::assertSame([$table, $tableContainer, $dbOne, $dbContainer], $table->parents(true, true));
+        self::assertSame([$dbOne], $table->parents(false, false, true));
+        self::assertSame([$tableContainer, $dbOne, $dbGroup, $dbContainer], $table->parents(false, true, true));
+        self::assertSame(
             [$table, $tableContainer, $dbOne, $dbGroup, $dbContainer],
             $table->parents(true, true, true),
         );
@@ -146,20 +146,20 @@ final class NodeTest extends AbstractTestCase
         $grandchild = new Node('grandchild');
         $parent->addChild($child);
         $child->addChild($grandchild);
-        $this->assertFalse($parent->realParent());
-        $this->assertSame($parent, $child->realParent());
-        $this->assertSame($child, $grandchild->realParent());
+        self::assertFalse($parent->realParent());
+        self::assertSame($parent, $child->realParent());
+        self::assertSame($child, $grandchild->realParent());
     }
 
     public function testNodeHasChildren(): void
     {
         $parent = new Node('parent');
         $child = new Node('child');
-        $this->assertFalse($parent->hasChildren(true));
-        $this->assertFalse($parent->hasChildren(false));
+        self::assertFalse($parent->hasChildren(true));
+        self::assertFalse($parent->hasChildren(false));
         $parent->addChild($child);
-        $this->assertTrue($parent->hasChildren(true));
-        $this->assertTrue($parent->hasChildren(false));
+        self::assertTrue($parent->hasChildren(true));
+        self::assertTrue($parent->hasChildren(false));
     }
 
     public function testNodeHasChildrenWithContainers(): void
@@ -168,17 +168,17 @@ final class NodeTest extends AbstractTestCase
         $containerOne = new Node('container 1', NodeType::Container);
         $containerTwo = new Node('container 2', NodeType::Container);
         $child = new Node('child');
-        $this->assertFalse($parent->hasChildren());
-        $this->assertFalse($parent->hasChildren(false));
+        self::assertFalse($parent->hasChildren());
+        self::assertFalse($parent->hasChildren(false));
         $parent->addChild($containerOne);
-        $this->assertTrue($parent->hasChildren());
-        $this->assertFalse($parent->hasChildren(false));
+        self::assertTrue($parent->hasChildren());
+        self::assertFalse($parent->hasChildren(false));
         $containerOne->addChild($containerTwo);
-        $this->assertTrue($parent->hasChildren());
-        $this->assertFalse($parent->hasChildren(false));
+        self::assertTrue($parent->hasChildren());
+        self::assertFalse($parent->hasChildren(false));
         $containerTwo->addChild($child);
-        $this->assertTrue($parent->hasChildren());
-        $this->assertTrue($parent->hasChildren(false));
+        self::assertTrue($parent->hasChildren());
+        self::assertTrue($parent->hasChildren(false));
     }
 
     public function testNodeHasSiblings(): void
@@ -187,10 +187,10 @@ final class NodeTest extends AbstractTestCase
         $childOne = new Node('child one');
         $childTwo = new Node('child two');
         $parent->addChild($childOne);
-        $this->assertFalse($parent->hasSiblings());
-        $this->assertFalse($childOne->hasSiblings());
+        self::assertFalse($parent->hasSiblings());
+        self::assertFalse($childOne->hasSiblings());
         $parent->addChild($childTwo);
-        $this->assertTrue($childOne->hasSiblings());
+        self::assertTrue($childOne->hasSiblings());
     }
 
     public function testNodeHasSiblingsWithContainers(): void
@@ -202,14 +202,14 @@ final class NodeTest extends AbstractTestCase
         $childTwo = new Node('child two');
         $parent->addChild($childOne);
         $parent->addChild($containerOne);
-        $this->assertFalse($childOne->hasSiblings(), 'An empty container node should not be considered a sibling.');
+        self::assertFalse($childOne->hasSiblings(), 'An empty container node should not be considered a sibling.');
         $containerOne->addChild($containerTwo);
-        $this->assertFalse(
+        self::assertFalse(
             $childOne->hasSiblings(),
             'A container node with empty children should not be considered a sibling.',
         );
         $containerOne->addChild($childTwo);
-        $this->assertTrue($childOne->hasSiblings(), 'A container node with children should be considered a sibling.');
+        self::assertTrue($childOne->hasSiblings(), 'A container node with children should be considered a sibling.');
     }
 
     public function testNodeHasSiblingsForNodesAtLevelThree(): void
@@ -222,31 +222,31 @@ final class NodeTest extends AbstractTestCase
         $child->addChild($grandchild);
         $grandchild->addChild($greatGrandchild);
         // Should return false for node that are two levels deeps
-        $this->assertFalse($grandchild->hasSiblings());
+        self::assertFalse($grandchild->hasSiblings());
         // Should return true for node that are three levels deeps
-        $this->assertTrue($greatGrandchild->hasSiblings());
+        self::assertTrue($greatGrandchild->hasSiblings());
     }
 
     public function testNumChildren(): void
     {
         $parent = new Node('parent');
-        $this->assertSame(0, $parent->numChildren());
+        self::assertSame(0, $parent->numChildren());
         $child = new Node('child one');
         $parent->addChild($child);
-        $this->assertSame(1, $parent->numChildren());
+        self::assertSame(1, $parent->numChildren());
         // add a direct grandchild, this one doesn't count as it's not enclosed in a CONTAINER
         $child->addChild(new Node('child two'));
-        $this->assertSame(1, $parent->numChildren());
+        self::assertSame(1, $parent->numChildren());
         // add a container, this one doesn't count wither
         $container = new Node('container', NodeType::Container);
         $parent->addChild($container);
-        $this->assertSame(1, $parent->numChildren());
+        self::assertSame(1, $parent->numChildren());
         // add a grandchild to container, this one counts
         $container->addChild(new Node('child three'));
-        $this->assertSame(2, $parent->numChildren());
+        self::assertSame(2, $parent->numChildren());
         // add another grandchild to container, this one counts
         $container->addChild(new Node('child four'));
-        $this->assertSame(3, $parent->numChildren());
+        self::assertSame(3, $parent->numChildren());
     }
 
     public function testGetPaths(): void
@@ -260,7 +260,7 @@ final class NodeTest extends AbstractTestCase
         $group->addChild($childOne);
         $childOne->addChild($container);
         $container->addChild($childTwo);
-        $this->assertSame(
+        self::assertSame(
             [
                 'aPath' => 'cGFyZW50.Y2hpbGQgb25l.Y29udGFpbmVy.Y2hpbGQgdHdv',
                 'aPath_clean' => ['parent', 'child one', 'container', 'child two'],
@@ -278,10 +278,10 @@ final class NodeTest extends AbstractTestCase
 
         // Vanilla case
         $node = new Node('default');
-        $this->assertSame('WHERE TRUE ', $method->invoke($node, 'SCHEMA_NAME'));
+        self::assertSame('WHERE TRUE ', $method->invoke($node, 'SCHEMA_NAME'));
 
         // When a schema names is passed as search clause
-        $this->assertSame(
+        self::assertSame(
             "WHERE TRUE AND `SCHEMA_NAME` LIKE '%schemaName%' ",
             $method->invoke($node, 'SCHEMA_NAME', 'schemaName'),
         );
@@ -293,7 +293,7 @@ final class NodeTest extends AbstractTestCase
 
         // When hide_db regular expression is present
         $config->selectedServer['hide_db'] = 'regexpHideDb';
-        $this->assertSame(
+        self::assertSame(
             "WHERE TRUE AND `SCHEMA_NAME` NOT REGEXP 'regexpHideDb' ",
             $method->invoke($node, 'SCHEMA_NAME'),
         );
@@ -301,7 +301,7 @@ final class NodeTest extends AbstractTestCase
 
         // When only_db directive is present and it's a single db
         $config->selectedServer['only_db'] = 'stringOnlyDb';
-        $this->assertSame(
+        self::assertSame(
             "WHERE TRUE AND ( `SCHEMA_NAME` LIKE 'stringOnlyDb' ) ",
             $method->invoke($node, 'SCHEMA_NAME'),
         );
@@ -309,7 +309,7 @@ final class NodeTest extends AbstractTestCase
 
         // When only_db directive is present and it's an array of dbs
         $config->selectedServer['only_db'] = ['onlyDbOne', 'onlyDbTwo'];
-        $this->assertSame(
+        self::assertSame(
             'WHERE TRUE AND ( `SCHEMA_NAME` LIKE \'onlyDbOne\' OR `SCHEMA_NAME` LIKE \'onlyDbTwo\' ) ',
             $method->invoke($node, 'SCHEMA_NAME'),
         );
@@ -353,9 +353,9 @@ final class NodeTest extends AbstractTestCase
 
         $node = new Node('node');
 
-        $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->once())->method('fetchResult')->with($expectedSql);
-        $dbi->expects($this->any())->method('quoteString')
+        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi->expects(self::once())->method('fetchResult')->with($expectedSql);
+        $dbi->expects(self::any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         DatabaseInterface::$instance = $dbi;
         $node->getData($relationParameters, '', 10);
@@ -385,8 +385,8 @@ final class NodeTest extends AbstractTestCase
 
         $node = new Node('node');
 
-        $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->once())->method('fetchResult')->with($expectedSql);
+        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi->expects(self::once())->method('fetchResult')->with($expectedSql);
 
         DatabaseInterface::$instance = $dbi;
         $node->getData($relationParameters, '', 10);
@@ -412,27 +412,27 @@ final class NodeTest extends AbstractTestCase
 
         $node = new Node('node');
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createMock(DummyResult::class);
 
-        $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->once())
+        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi->expects(self::once())
             ->method('tryQuery')
             ->with("SHOW DATABASES WHERE TRUE AND `Database` LIKE '%db%' ")
             ->willReturn($resultStub);
-        $resultStub->expects($this->exactly(3))
+        $resultStub->expects(self::exactly(3))
             ->method('fetchRow')
             ->willReturn(['0' => 'db'], ['0' => 'aa_db'], []);
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('fetchResult')
             ->with(
                 "SHOW DATABASES WHERE TRUE AND `Database` LIKE '%db%' AND ("
                 . " LOCATE('db_', CONCAT(`Database`, '_')) = 1"
                 . " OR LOCATE('aa_', CONCAT(`Database`, '_')) = 1 )",
             );
-        $dbi->expects($this->any())->method('escapeMysqlWildcards')
+        $dbi->expects(self::any())->method('escapeMysqlWildcards')
             ->willReturnArgument(0);
-        $dbi->expects($this->any())->method('quoteString')
+        $dbi->expects(self::any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;
@@ -459,10 +459,10 @@ final class NodeTest extends AbstractTestCase
 
         $node = new Node('node');
 
-        $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->once())->method('fetchValue')->with($query);
+        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi->expects(self::once())->method('fetchValue')->with($query);
         DatabaseInterface::$instance = $dbi;
-        $this->assertSame(0, $node->getPresence());
+        self::assertSame(0, $node->getPresence());
     }
 
     /**
@@ -479,10 +479,10 @@ final class NodeTest extends AbstractTestCase
         $query .= 'WHERE TRUE ';
 
         $node = new Node('node');
-        $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->once())->method('fetchValue')->with($query);
+        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi->expects(self::once())->method('fetchValue')->with($query);
         DatabaseInterface::$instance = $dbi;
-        $this->assertSame(0, $node->getPresence());
+        self::assertSame(0, $node->getPresence());
     }
 
     /**
@@ -497,41 +497,41 @@ final class NodeTest extends AbstractTestCase
 
         $node = new Node('node');
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createMock(DummyResult::class);
 
         // test with no search clause
-        $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->once())
+        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi->expects(self::once())
             ->method('tryQuery')
             ->with('SHOW DATABASES WHERE TRUE ')
             ->willReturn($resultStub);
 
         DatabaseInterface::$instance = $dbi;
-        $this->assertSame(0, $node->getPresence());
+        self::assertSame(0, $node->getPresence());
 
         // test with a search clause
-        $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->once())
+        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi->expects(self::once())
             ->method('tryQuery')
             ->with("SHOW DATABASES WHERE TRUE AND `Database` LIKE '%dbname%' ")
             ->willReturn($resultStub);
-        $dbi->expects($this->any())->method('escapeMysqlWildcards')
+        $dbi->expects(self::any())->method('escapeMysqlWildcards')
             ->willReturnArgument(0);
-        $dbi->expects($this->any())->method('quoteString')
+        $dbi->expects(self::any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;
-        $this->assertSame(0, $node->getPresence('', 'dbname'));
+        self::assertSame(0, $node->getPresence('', 'dbname'));
     }
 
     public function testGetInstanceForNewNode(): void
     {
         $node = (new Node())->getInstanceForNewNode('New', 'new_database italics');
-        $this->assertEquals('New', $node->name);
-        $this->assertEquals(NodeType::Object, $node->type);
-        $this->assertFalse($node->isGroup);
-        $this->assertEquals('New', $node->title);
-        $this->assertTrue($node->isNew);
-        $this->assertEquals('new_database italics', $node->classes);
+        self::assertEquals('New', $node->name);
+        self::assertEquals(NodeType::Object, $node->type);
+        self::assertFalse($node->isGroup);
+        self::assertEquals('New', $node->title);
+        self::assertTrue($node->isNew);
+        self::assertEquals('new_database italics', $node->classes);
     }
 }

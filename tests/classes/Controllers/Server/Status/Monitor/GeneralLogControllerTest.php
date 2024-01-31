@@ -62,7 +62,7 @@ class GeneralLogControllerTest extends AbstractTestCase
             $dbi,
         );
 
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('isAjax')->willReturn(true);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['time_start', null, '0'],
@@ -78,8 +78,8 @@ class GeneralLogControllerTest extends AbstractTestCase
         $resultRows = [$value, $value2];
         $resultSum = ['argument' => 10, 'TOTAL' => 21, 'argument3' => 11];
 
-        $this->assertEquals(2, $ret['message']['numRows']);
-        $this->assertEquals($resultRows, $ret['message']['rows']);
-        $this->assertEquals($resultSum, $ret['message']['sum']);
+        self::assertEquals(2, $ret['message']['numRows']);
+        self::assertEquals($resultRows, $ret['message']['rows']);
+        self::assertEquals($resultSum, $ret['message']['sum']);
     }
 }

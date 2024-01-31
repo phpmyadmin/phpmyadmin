@@ -108,37 +108,37 @@ class ExportOdtTest extends AbstractTestCase
         $method = new ReflectionMethod(ExportOdt::class, 'setProperties');
         $properties = $method->invoke($this->object, null);
 
-        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
+        self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        $this->assertEquals(
+        self::assertEquals(
             'OpenDocument Text',
             $properties->getText(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'odt',
             $properties->getExtension(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'application/vnd.oasis.opendocument.text',
             $properties->getMimeType(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Options',
             $properties->getOptionsText(),
         );
 
-        $this->assertTrue(
+        self::assertTrue(
             $properties->getForceFile(),
         );
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
+        self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        $this->assertEquals(
+        self::assertEquals(
             'Format Specific Options',
             $options->getName(),
         );
@@ -148,14 +148,14 @@ class ExportOdtTest extends AbstractTestCase
         $generalOptions = $generalOptionsArray->current();
         $generalOptionsArray->next();
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
+        self::assertEquals(
             'general_opts',
             $generalOptions->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Dump table',
             $generalOptions->getText(),
         );
@@ -164,14 +164,14 @@ class ExportOdtTest extends AbstractTestCase
 
         $property = $generalProperties->current();
 
-        $this->assertInstanceOf(RadioPropertyItem::class, $property);
+        self::assertInstanceOf(RadioPropertyItem::class, $property);
 
-        $this->assertEquals(
+        self::assertEquals(
             'structure_or_data',
             $property->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             ['structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')],
             $property->getValues(),
         );
@@ -179,19 +179,19 @@ class ExportOdtTest extends AbstractTestCase
         $generalOptions = $generalOptionsArray->current();
         $generalOptionsArray->next();
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
+        self::assertEquals(
             'structure',
             $generalOptions->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Object creation options',
             $generalOptions->getText(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'data',
             $generalOptions->getForce(),
         );
@@ -201,14 +201,14 @@ class ExportOdtTest extends AbstractTestCase
         $property = $generalProperties->current();
         $generalProperties->next();
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        $this->assertEquals(
+        self::assertEquals(
             'relation',
             $property->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Display foreign key relationships',
             $property->getText(),
         );
@@ -216,28 +216,28 @@ class ExportOdtTest extends AbstractTestCase
         $property = $generalProperties->current();
         $generalProperties->next();
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        $this->assertEquals(
+        self::assertEquals(
             'comments',
             $property->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Display comments',
             $property->getText(),
         );
 
         $property = $generalProperties->current();
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        $this->assertEquals(
+        self::assertEquals(
             'mime',
             $property->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Display media types',
             $property->getText(),
         );
@@ -245,19 +245,19 @@ class ExportOdtTest extends AbstractTestCase
         // hide structure
         $generalOptions = $generalOptionsArray->current();
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
+        self::assertEquals(
             'data',
             $generalOptions->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Data dump options',
             $generalOptions->getText(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'structure',
             $generalOptions->getForce(),
         );
@@ -267,28 +267,28 @@ class ExportOdtTest extends AbstractTestCase
         $property = $generalProperties->current();
         $generalProperties->next();
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        $this->assertEquals(
+        self::assertEquals(
             'columns',
             $property->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Put columns names in the first row',
             $property->getText(),
         );
 
         $property = $generalProperties->current();
 
-        $this->assertInstanceOf(TextPropertyItem::class, $property);
+        self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        $this->assertEquals(
+        self::assertEquals(
             'null',
             $property->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Replace NULL with:',
             $property->getText(),
         );
@@ -301,27 +301,27 @@ class ExportOdtTest extends AbstractTestCase
 
         $generalOptionsArray = $options->getProperties();
 
-        $this->assertCount(3, $generalOptionsArray);
+        self::assertCount(3, $generalOptionsArray);
     }
 
     public function testExportHeader(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportHeader(),
         );
 
-        $this->assertStringContainsString('<office:document-content', $GLOBALS['odt_buffer']);
-        $this->assertStringContainsString('office:version', $GLOBALS['odt_buffer']);
+        self::assertStringContainsString('<office:document-content', $GLOBALS['odt_buffer']);
+        self::assertStringContainsString('office:version', $GLOBALS['odt_buffer']);
     }
 
     public function testExportFooter(): void
     {
         $GLOBALS['odt_buffer'] = 'header';
-        $this->assertTrue($this->object->exportFooter());
+        self::assertTrue($this->object->exportFooter());
         $output = $this->getActualOutputForAssertion();
-        $this->assertMatchesRegularExpression('/^504b.*636f6e74656e742e786d6c/', bin2hex($output));
-        $this->assertStringContainsString('header', $GLOBALS['odt_buffer']);
-        $this->assertStringContainsString(
+        self::assertMatchesRegularExpression('/^504b.*636f6e74656e742e786d6c/', bin2hex($output));
+        self::assertStringContainsString('header', $GLOBALS['odt_buffer']);
+        self::assertStringContainsString(
             '</office:text></office:body></office:document-content>',
             $GLOBALS['odt_buffer'],
         );
@@ -331,25 +331,25 @@ class ExportOdtTest extends AbstractTestCase
     {
         $GLOBALS['odt_buffer'] = 'header';
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBHeader('d&b'),
         );
 
-        $this->assertStringContainsString('header', $GLOBALS['odt_buffer']);
+        self::assertStringContainsString('header', $GLOBALS['odt_buffer']);
 
-        $this->assertStringContainsString('Database d&amp;b</text:h>', $GLOBALS['odt_buffer']);
+        self::assertStringContainsString('Database d&amp;b</text:h>', $GLOBALS['odt_buffer']);
     }
 
     public function testExportDBFooter(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBFooter('testDB'),
         );
     }
 
     public function testExportDBCreate(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBCreate('testDB', 'database'),
         );
     }
@@ -370,23 +370,23 @@ class ExportOdtTest extends AbstractTestCase
             FieldHelper::fromArray(['type' => MYSQLI_TYPE_DECIMAL, 'flags' => MYSQLI_NUM_FLAG]),
             FieldHelper::fromArray(['type' => MYSQLI_TYPE_STRING]),
         ];
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createMock(DummyResult::class);
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('getFieldsMeta')
             ->with($resultStub)
             ->willReturn($fields);
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('query')
             ->with('SELECT', ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED)
             ->willReturn($resultStub);
 
-        $resultStub->expects($this->once())
+        $resultStub->expects(self::once())
             ->method('numFields')
             ->willReturn(4);
 
-        $resultStub->expects($this->exactly(2))
+        $resultStub->expects(self::exactly(2))
             ->method('fetchRow')
             ->willReturn([null, 'a<b', 'a>b', 'a&b'], []);
 
@@ -395,7 +395,7 @@ class ExportOdtTest extends AbstractTestCase
         $GLOBALS['foo_null'] = '&';
         unset($GLOBALS['foo_columns']);
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportData(
                 'db',
                 'ta<ble',
@@ -404,7 +404,7 @@ class ExportOdtTest extends AbstractTestCase
             ),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             '<text:h text:outline-level="2" text:style-name="Heading_2" ' .
             'text:is-list-header="true">Dumping data for table ta&lt;ble</text:h>' .
             '<table:table table:name="ta&lt;ble_structure"><table:table-column ' .
@@ -439,23 +439,23 @@ class ExportOdtTest extends AbstractTestCase
             ]),
         ];
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createMock(DummyResult::class);
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('getFieldsMeta')
             ->with($resultStub)
             ->willReturn($fields);
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('query')
             ->with('SELECT', ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED)
             ->willReturn($resultStub);
 
-        $resultStub->expects($this->once())
+        $resultStub->expects(self::once())
             ->method('numFields')
             ->willReturn(2);
 
-        $resultStub->expects($this->exactly(1))
+        $resultStub->expects(self::exactly(1))
             ->method('fetchRow')
             ->willReturn([]);
 
@@ -464,7 +464,7 @@ class ExportOdtTest extends AbstractTestCase
         $GLOBALS['foo_null'] = '&';
         $GLOBALS['foo_columns'] = true;
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportData(
                 'db',
                 'table',
@@ -473,7 +473,7 @@ class ExportOdtTest extends AbstractTestCase
             ),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             '<text:h text:outline-level="2" text:style-name="Heading_2" text:' .
             'is-list-header="true">Dumping data for table table</text:h><table:' .
             'table table:name="table_structure"><table:table-column table:number-' .
@@ -491,23 +491,23 @@ class ExportOdtTest extends AbstractTestCase
 
         $flags = [];
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createMock(DummyResult::class);
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('getFieldsMeta')
             ->with($resultStub)
             ->willReturn($flags);
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('query')
             ->with('SELECT', ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED)
             ->willReturn($resultStub);
 
-        $resultStub->expects($this->once())
+        $resultStub->expects(self::once())
             ->method('numFields')
             ->willReturn(0);
 
-        $resultStub->expects($this->once())
+        $resultStub->expects(self::once())
             ->method('fetchRow')
             ->willReturn([]);
 
@@ -518,7 +518,7 @@ class ExportOdtTest extends AbstractTestCase
         $GLOBALS['foo_null'] = '&';
         $GLOBALS['odt_buffer'] = '';
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportData(
                 'db',
                 'table',
@@ -527,7 +527,7 @@ class ExportOdtTest extends AbstractTestCase
             ),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             '<text:h text:outline-level="2" text:style-name="Heading_2" ' .
             'text:is-list-header="true">Dumping data for table table</text:h>' .
             '<table:table table:name="table_structure"><table:table-column ' .
@@ -540,13 +540,13 @@ class ExportOdtTest extends AbstractTestCase
     public function testGetTableDefStandIn(): void
     {
         $this->dummyDbi->addSelectDb('test_db');
-        $this->assertSame(
+        self::assertSame(
             $this->object->getTableDefStandIn('test_db', 'test_table'),
             '',
         );
         $this->dummyDbi->assertAllSelectsConsumed();
 
-        $this->assertEquals(
+        self::assertEquals(
             '<table:table table:name="test_table_data">'
             . '<table:table-column table:number-columns-repeated="4"/><table:table-row>'
             . '<table:table-cell office:value-type="string"><text:p>Column</text:p>'
@@ -582,13 +582,13 @@ class ExportOdtTest extends AbstractTestCase
 
         // case 1
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createMock(DummyResult::class);
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->exactly(2))
+        $dbi->expects(self::exactly(2))
             ->method('fetchResult')
             ->willReturn(
                 [],
@@ -596,27 +596,27 @@ class ExportOdtTest extends AbstractTestCase
             );
 
         $column = new Column('fieldname', '', false, '', null, '');
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('getColumns')
             ->with('database', '')
             ->willReturn([$column]);
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('tryQueryAsControlUser')
             ->willReturn($resultStub);
 
-        $resultStub->expects($this->once())
+        $resultStub->expects(self::once())
             ->method('numRows')
             ->willReturn(1);
 
-        $resultStub->expects($this->once())
+        $resultStub->expects(self::once())
             ->method('fetchAssoc')
             ->willReturn(['comment' => 'testComment']);
 
         DatabaseInterface::$instance = $dbi;
         $this->object->relation = new Relation($dbi);
 
-        $this->object->expects($this->exactly(2))
+        $this->object->expects(self::exactly(2))
             ->method('formatOneColumnDefinition')
             ->with($column)
             ->willReturn('1');
@@ -631,7 +631,7 @@ class ExportOdtTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->getTableDef(
                 'database',
                 '',
@@ -641,22 +641,22 @@ class ExportOdtTest extends AbstractTestCase
             ),
         );
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<table:table table:name="_structure"><table:table-column table:number-columns-repeated="6"/>',
             $GLOBALS['odt_buffer'],
         );
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<table:table-cell office:value-type="string"><text:p>Comments</text:p></table:table-cell>',
             $GLOBALS['odt_buffer'],
         );
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<table:table-cell office:value-type="string"><text:p>Media type</text:p></table:table-cell>',
             $GLOBALS['odt_buffer'],
         );
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '</table:table-row>1<table:table-cell office:value-type="string">' .
             '<text:p></text:p></table:table-cell><table:table-cell office:value-' .
             'type="string"><text:p>Test&lt;</text:p></table:table-cell>' .
@@ -666,13 +666,13 @@ class ExportOdtTest extends AbstractTestCase
 
         // case 2
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createMock(DummyResult::class);
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->exactly(2))
+        $dbi->expects(self::exactly(2))
             ->method('fetchResult')
             ->willReturn(
                 ['fieldname' => ['foreign_table' => 'ftable', 'foreign_field' => 'ffield']],
@@ -680,20 +680,20 @@ class ExportOdtTest extends AbstractTestCase
             );
 
         $column = new Column('fieldname', '', false, '', null, '');
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('getColumns')
             ->with('database', '')
             ->willReturn([$column]);
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('tryQueryAsControlUser')
             ->willReturn($resultStub);
 
-        $resultStub->expects($this->once())
+        $resultStub->expects(self::once())
             ->method('numRows')
             ->willReturn(1);
 
-        $resultStub->expects($this->once())
+        $resultStub->expects(self::once())
             ->method('fetchAssoc')
             ->willReturn(['comment' => 'testComment']);
 
@@ -710,7 +710,7 @@ class ExportOdtTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->getTableDef(
                 'database',
                 '',
@@ -720,7 +720,7 @@ class ExportOdtTest extends AbstractTestCase
             ),
         );
 
-        $this->assertStringContainsString('<text:p>ftable (ffield)</text:p>', $GLOBALS['odt_buffer']);
+        self::assertStringContainsString('<text:p>ftable (ffield)</text:p>', $GLOBALS['odt_buffer']);
     }
 
     public function testGetTriggers(): void
@@ -739,24 +739,24 @@ class ExportOdtTest extends AbstractTestCase
         $method = new ReflectionMethod(ExportOdt::class, 'getTriggers');
         $result = $method->invoke($this->object, 'ta<ble', $triggers);
 
-        $this->assertSame($result, $GLOBALS['odt_buffer']);
+        self::assertSame($result, $GLOBALS['odt_buffer']);
 
-        $this->assertStringContainsString('<table:table table:name="ta&lt;ble_triggers">', $result);
+        self::assertStringContainsString('<table:table table:name="ta&lt;ble_triggers">', $result);
 
-        $this->assertStringContainsString('<text:p>tna&quot;me</text:p>', $result);
+        self::assertStringContainsString('<text:p>tna&quot;me</text:p>', $result);
 
-        $this->assertStringContainsString('<text:p>AFTER</text:p>', $result);
+        self::assertStringContainsString('<text:p>AFTER</text:p>', $result);
 
-        $this->assertStringContainsString('<text:p>INSERT</text:p>', $result);
+        self::assertStringContainsString('<text:p>INSERT</text:p>', $result);
 
-        $this->assertStringContainsString('<text:p>def</text:p>', $result);
+        self::assertStringContainsString('<text:p>def</text:p>', $result);
     }
 
     public function testExportStructure(): void
     {
         // case 1
         $this->dummyDbi->addSelectDb('test_db');
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
@@ -766,7 +766,7 @@ class ExportOdtTest extends AbstractTestCase
         );
         $this->dummyDbi->assertAllSelectsConsumed();
 
-        $this->assertEquals(
+        self::assertEquals(
             '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
             . 'Table structure for table test_table</text:h><table:table table:name="test_table_structure">'
             . '<table:table-column table:number-columns-repeated="4"/><table:table-row>'
@@ -796,7 +796,7 @@ class ExportOdtTest extends AbstractTestCase
         // case 2
         $GLOBALS['odt_buffer'] = '';
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
@@ -805,7 +805,7 @@ class ExportOdtTest extends AbstractTestCase
             ),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
             . 'Triggers test_table</text:h><table:table table:name="test_table_triggers">'
             . '<table:table-column table:number-columns-repeated="4"/><table:table-row>'
@@ -826,7 +826,7 @@ class ExportOdtTest extends AbstractTestCase
         $GLOBALS['odt_buffer'] = '';
 
         $this->dummyDbi->addSelectDb('test_db');
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
@@ -836,7 +836,7 @@ class ExportOdtTest extends AbstractTestCase
         );
         $this->dummyDbi->assertAllSelectsConsumed();
 
-        $this->assertEquals(
+        self::assertEquals(
             '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
             . 'Structure for view test_table</text:h><table:table table:name="test_table_structure">'
             . '<table:table-column table:number-columns-repeated="4"/><table:table-row>'
@@ -866,7 +866,7 @@ class ExportOdtTest extends AbstractTestCase
         // case 4
         $this->dummyDbi->addSelectDb('test_db');
         $GLOBALS['odt_buffer'] = '';
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
@@ -876,7 +876,7 @@ class ExportOdtTest extends AbstractTestCase
         );
         $this->dummyDbi->assertAllSelectsConsumed();
 
-        $this->assertEquals(
+        self::assertEquals(
             '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
             . 'Stand-in structure for view test_table</text:h><table:table table:name="test_table_data">'
             . '<table:table-column table:number-columns-repeated="4"/><table:table-row>'
@@ -912,7 +912,7 @@ class ExportOdtTest extends AbstractTestCase
 
         $colAlias = 'alias';
 
-        $this->assertEquals(
+        self::assertEquals(
             '<table:table-row><table:table-cell office:value-type="string">' .
             '<text:p>alias</text:p></table:table-cell><table:table-cell off' .
             'ice:value-type="string"><text:p>set(abc)</text:p></table:table' .
@@ -924,7 +924,7 @@ class ExportOdtTest extends AbstractTestCase
 
         $column = new Column('fields', '', false, 'COMP', 'def', '');
 
-        $this->assertEquals(
+        self::assertEquals(
             '<table:table-row><table:table-cell office:value-type="string">' .
             '<text:p>fields</text:p></table:table-cell><table:table-cell off' .
             'ice:value-type="string"><text:p>&amp;nbsp;</text:p></table:table' .

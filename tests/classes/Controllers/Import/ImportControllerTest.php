@@ -51,7 +51,7 @@ class ImportControllerTest extends AbstractTestCase
             . 'FROM table1 A' . "\n"
             . 'WHERE A.nomEtablissement = :nomEta AND foo = :1 AND `:a` IS NULL';
 
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['db', null, Current::$database],
             ['table', null, Current::$table],
@@ -113,9 +113,9 @@ class ImportControllerTest extends AbstractTestCase
 
         $output = $responseRenderer->getHTMLResult();
 
-        $this->assertStringContainsString('MySQL returned an empty result set (i.e. zero rows).', $output);
+        self::assertStringContainsString('MySQL returned an empty result set (i.e. zero rows).', $output);
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'SELECT A.*' . "\n" . 'FROM table1 A' . "\n"
                 . 'WHERE A.nomEtablissement = \'Saint-Louis - Châteaulin\' AND foo = 4 AND `:a` IS NULL',
             $output,

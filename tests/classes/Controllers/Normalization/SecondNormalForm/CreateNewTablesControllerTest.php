@@ -36,7 +36,7 @@ class CreateNewTablesControllerTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
         $template = new Template();
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['pd', null, json_encode(['ID, task' => [], 'task' => ['timestamp']])],
             ['newTablesName', null, json_encode(['ID, task' => 'batch_log2', 'task' => 'table2'])],
@@ -49,7 +49,7 @@ class CreateNewTablesControllerTest extends AbstractTestCase
         );
         $controller($request);
 
-        $this->assertSame([
+        self::assertSame([
             'legendText' => 'End of step',
             'headText' => '<h3>The second step of normalization is complete for table \'test_table\'.</h3>',
             'queryError' => false,

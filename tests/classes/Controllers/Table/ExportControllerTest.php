@@ -117,7 +117,7 @@ class ExportControllerTest extends AbstractTestCase
             $template,
             new Options(new Relation($dbi), new TemplateModel($dbi)),
             $pageSettings,
-        ))($this->createStub(ServerRequest::class));
-        $this->assertSame($expected, $response->getHTMLResult());
+        ))(self::createStub(ServerRequest::class));
+        self::assertSame($expected, $response->getHTMLResult());
     }
 }

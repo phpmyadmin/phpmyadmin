@@ -21,11 +21,11 @@ class ServerRequestTest extends TestCase
     #[DataProvider('providerForTestGetRoute')]
     public function testGetRoute(string $expected, array $get, array $post): void
     {
-        $requestStub = $this->createStub(ServerRequestInterface::class);
+        $requestStub = self::createStub(ServerRequestInterface::class);
         $requestStub->method('getQueryParams')->willReturn($get);
         $requestStub->method('getParsedBody')->willReturn($post);
         $request = new ServerRequest($requestStub);
-        $this->assertSame($expected, $request->getRoute());
+        self::assertSame($expected, $request->getRoute());
     }
 
     /**
@@ -51,45 +51,45 @@ class ServerRequestTest extends TestCase
     public function testGetQueryParam(): void
     {
         $queryParams = ['key1' => 'value1', 'key2' => ['value2'], 'key4' => ''];
-        $requestStub = $this->createStub(ServerRequestInterface::class);
+        $requestStub = self::createStub(ServerRequestInterface::class);
         $requestStub->method('getQueryParams')->willReturn($queryParams);
         $request = new ServerRequest($requestStub);
-        $this->assertSame('value1', $request->getQueryParam('key1'));
-        $this->assertSame('value1', $request->getQueryParam('key1', 'default'));
-        $this->assertSame(['value2'], $request->getQueryParam('key2'));
-        $this->assertSame(['value2'], $request->getQueryParam('key2', 'default'));
-        $this->assertNull($request->getQueryParam('key3'));
-        $this->assertSame('default', $request->getQueryParam('key3', 'default'));
-        $this->assertSame('', $request->getQueryParam('key4'));
-        $this->assertSame('', $request->getQueryParam('key4', 'default'));
+        self::assertSame('value1', $request->getQueryParam('key1'));
+        self::assertSame('value1', $request->getQueryParam('key1', 'default'));
+        self::assertSame(['value2'], $request->getQueryParam('key2'));
+        self::assertSame(['value2'], $request->getQueryParam('key2', 'default'));
+        self::assertNull($request->getQueryParam('key3'));
+        self::assertSame('default', $request->getQueryParam('key3', 'default'));
+        self::assertSame('', $request->getQueryParam('key4'));
+        self::assertSame('', $request->getQueryParam('key4', 'default'));
     }
 
     public function testHasBodyParam(): void
     {
         $queryParams = ['key1' => 'value1', 'key2' => ['value2'], 'key4' => ''];
-        $requestStub = $this->createStub(ServerRequestInterface::class);
+        $requestStub = self::createStub(ServerRequestInterface::class);
         $requestStub->method('getParsedBody')->willReturn($queryParams);
         $request = new ServerRequest($requestStub);
-        $this->assertTrue($request->hasBodyParam('key1'));
-        $this->assertTrue($request->hasBodyParam('key2'));
-        $this->assertFalse($request->hasBodyParam('key3'));
-        $this->assertTrue($request->hasBodyParam('key4'));
+        self::assertTrue($request->hasBodyParam('key1'));
+        self::assertTrue($request->hasBodyParam('key2'));
+        self::assertFalse($request->hasBodyParam('key3'));
+        self::assertTrue($request->hasBodyParam('key4'));
     }
 
     public function testHasQueryParam(): void
     {
         $queryParams = ['key1' => 'value1', 'key2' => ['value2'], 'key4' => ''];
-        $requestStub = $this->createStub(ServerRequestInterface::class);
+        $requestStub = self::createStub(ServerRequestInterface::class);
         $requestStub->method('getQueryParams')->willReturn($queryParams);
         $request = new ServerRequest($requestStub);
-        $this->assertTrue($request->hasQueryParam('key1'));
-        $this->assertTrue($request->has('key1'));
-        $this->assertTrue($request->hasQueryParam('key2'));
-        $this->assertTrue($request->has('key2'));
-        $this->assertFalse($request->hasQueryParam('key3'));
-        $this->assertFalse($request->has('key3'));
-        $this->assertTrue($request->hasQueryParam('key4'));
-        $this->assertTrue($request->has('key4'));
+        self::assertTrue($request->hasQueryParam('key1'));
+        self::assertTrue($request->has('key1'));
+        self::assertTrue($request->hasQueryParam('key2'));
+        self::assertTrue($request->has('key2'));
+        self::assertFalse($request->hasQueryParam('key3'));
+        self::assertFalse($request->has('key3'));
+        self::assertTrue($request->hasQueryParam('key4'));
+        self::assertTrue($request->has('key4'));
     }
 
     /**
@@ -104,7 +104,7 @@ class ServerRequestTest extends TestCase
             $request = $request->withAddedHeader($name, $value);
         }
 
-        $this->assertSame($expected, $request->isAjax());
+        self::assertSame($expected, $request->isAjax());
     }
 
     /** @return iterable<int, array{bool, string, string, array<string, string>, array<string, string>|null}> */

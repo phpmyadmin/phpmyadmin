@@ -20,17 +20,17 @@ class TableNameTest extends TestCase
     public function testValidName(string $validName): void
     {
         $name = TableName::from($validName);
-        $this->assertEquals($validName, $name->getName());
-        $this->assertEquals($validName, (string) $name);
+        self::assertEquals($validName, $name->getName());
+        self::assertEquals($validName, (string) $name);
     }
 
     #[DataProvider('providerForTestValidNames')]
     public function testTryFromValueValidName(string $validName): void
     {
         $name = TableName::tryFrom($validName);
-        $this->assertNotNull($name);
-        $this->assertEquals($validName, $name->getName());
-        $this->assertEquals($validName, (string) $name);
+        self::assertNotNull($name);
+        self::assertEquals($validName, $name->getName());
+        self::assertEquals($validName, (string) $name);
     }
 
     /** @return iterable<int, string[]> */
@@ -44,7 +44,7 @@ class TableNameTest extends TestCase
     #[DataProvider('providerForTestInvalidNames')]
     public function testInvalidNames(mixed $name, string $exceptionMessage): void
     {
-        $this->assertNull(TableName::tryFrom($name));
+        self::assertNull(TableName::tryFrom($name));
         $this->expectException(InvalidTableName::class);
         $this->expectExceptionMessage($exceptionMessage);
         TableName::from($name);

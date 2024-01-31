@@ -46,7 +46,7 @@ class LoadControllerTest extends AbstractTestCase
         Config::getInstance()->selectedServer['user'] = 'user';
 
         $response = new ResponseRenderer();
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturn('1');
 
         (new LoadController(
@@ -56,7 +56,7 @@ class LoadControllerTest extends AbstractTestCase
             new Relation($this->dbi),
         ))($request);
 
-        $this->assertTrue($response->hasSuccessState());
-        $this->assertEquals(['data' => 'data1'], $response->getJSONResult());
+        self::assertTrue($response->hasSuccessState());
+        self::assertEquals(['data' => 'data1'], $response->getJSONResult());
     }
 }

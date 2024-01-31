@@ -25,13 +25,13 @@ class PartitionTest extends AbstractTestCase
     public function testGetPartitionMethodReturnsNull(): void
     {
         $actual = Partition::getPartitionMethod('database', 'no_partition_method');
-        $this->assertNull($actual);
+        self::assertNull($actual);
     }
 
     public function testGetPartitionMethodWithRangeMethod(): void
     {
         $actual = Partition::getPartitionMethod('database', 'range_partition_method');
-        $this->assertEquals('RANGE', $actual);
+        self::assertEquals('RANGE', $actual);
     }
 
     /** @param array<int, array<string, string>> $pluginValue */
@@ -40,12 +40,12 @@ class PartitionTest extends AbstractTestCase
     #[RunInSeparateProcess]
     public function testHavePartitioning(bool $expected, int $version, string|false $varValue, array $pluginValue): void
     {
-        $mock = $this->createStub(DatabaseInterface::class);
+        $mock = self::createStub(DatabaseInterface::class);
         $mock->method('getVersion')->willReturn($version);
         $mock->method('fetchValue')->willReturn($varValue);
         $mock->method('fetchResult')->willReturn($pluginValue);
         DatabaseInterface::$instance = $mock;
-        $this->assertSame($expected, Partition::havePartitioning());
+        self::assertSame($expected, Partition::havePartitioning());
     }
 
     /**

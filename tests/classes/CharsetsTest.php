@@ -34,19 +34,19 @@ class CharsetsTest extends AbstractTestCase
         );
 
         $charset = Charsets::getServerCharset($dbi, false);
-        $this->assertSame('utf8', $charset->getName());
+        self::assertSame('utf8', $charset->getName());
 
         $charset = Charsets::getServerCharset($dbi, false);
-        $this->assertSame('Unknown', $charset->getName());
+        self::assertSame('Unknown', $charset->getName());
 
         $charset = Charsets::getServerCharset($dbi, false);
-        $this->assertSame('utf8', $charset->getName());
+        self::assertSame('utf8', $charset->getName());
 
         $charset = Charsets::getServerCharset($dbi, false);
-        $this->assertSame('utf8mb4', $charset->getName());
+        self::assertSame('utf8mb4', $charset->getName());
 
         $charset = Charsets::getServerCharset($dbi, false);
-        $this->assertSame('utf8mb4', $charset->getName());
+        self::assertSame('utf8mb4', $charset->getName());
 
         $dummyDbi->assertAllQueriesConsumed();
     }
@@ -54,19 +54,19 @@ class CharsetsTest extends AbstractTestCase
     public function testFindCollationByName(): void
     {
         $dbi = $this->createDatabaseInterface();
-        $this->assertNull(Charsets::findCollationByName($dbi, false, ''));
-        $this->assertNull(Charsets::findCollationByName($dbi, false, 'invalid'));
+        self::assertNull(Charsets::findCollationByName($dbi, false, ''));
+        self::assertNull(Charsets::findCollationByName($dbi, false, 'invalid'));
         $actual = Charsets::findCollationByName($dbi, false, 'utf8_general_ci');
-        $this->assertInstanceOf(Charsets\Collation::class, $actual);
-        $this->assertSame('utf8_general_ci', $actual->getName());
+        self::assertInstanceOf(Charsets\Collation::class, $actual);
+        self::assertSame('utf8_general_ci', $actual->getName());
     }
 
     public function testGetCharsetsWithIS(): void
     {
         $dbi = $this->createDatabaseInterface();
         $charsets = Charsets::getCharsets($dbi, false);
-        $this->assertCount(4, $charsets);
-        $this->assertContainsOnlyInstancesOf(Charsets\Charset::class, $charsets);
+        self::assertCount(4, $charsets);
+        self::assertContainsOnlyInstancesOf(Charsets\Charset::class, $charsets);
     }
 
     public function testGetCharsetsWithoutIS(): void
@@ -85,18 +85,18 @@ class CharsetsTest extends AbstractTestCase
         );
 
         $charsets = Charsets::getCharsets($dbi, true);
-        $this->assertCount(4, $charsets);
-        $this->assertContainsOnlyInstancesOf(Charsets\Charset::class, $charsets);
+        self::assertCount(4, $charsets);
+        self::assertContainsOnlyInstancesOf(Charsets\Charset::class, $charsets);
     }
 
     public function testGetCollationsWithIS(): void
     {
         $dbi = $this->createDatabaseInterface();
         $collations = Charsets::getCollations($dbi, false);
-        $this->assertCount(4, $collations);
-        $this->assertContainsOnly('array', $collations);
+        self::assertCount(4, $collations);
+        self::assertContainsOnly('array', $collations);
         foreach ($collations as $collation) {
-            $this->assertContainsOnlyInstancesOf(Charsets\Collation::class, $collation);
+            self::assertContainsOnlyInstancesOf(Charsets\Collation::class, $collation);
         }
     }
 
@@ -105,10 +105,10 @@ class CharsetsTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface();
         $dbi->setVersion(['@@version' => '10.10.0-MariaDB']);
         $collations = Charsets::getCollations($dbi, false);
-        $this->assertCount(4, $collations);
-        $this->assertContainsOnly('array', $collations);
+        self::assertCount(4, $collations);
+        self::assertContainsOnly('array', $collations);
         foreach ($collations as $collation) {
-            $this->assertContainsOnlyInstancesOf(Charsets\Collation::class, $collation);
+            self::assertContainsOnlyInstancesOf(Charsets\Collation::class, $collation);
         }
     }
 
@@ -129,10 +129,10 @@ class CharsetsTest extends AbstractTestCase
         );
 
         $collations = Charsets::getCollations($dbi, true);
-        $this->assertCount(4, $collations);
-        $this->assertContainsOnly('array', $collations);
+        self::assertCount(4, $collations);
+        self::assertContainsOnly('array', $collations);
         foreach ($collations as $collation) {
-            $this->assertContainsOnlyInstancesOf(Charsets\Collation::class, $collation);
+            self::assertContainsOnlyInstancesOf(Charsets\Collation::class, $collation);
         }
     }
 }

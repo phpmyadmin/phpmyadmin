@@ -25,7 +25,7 @@ class AddControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['db', null, null],
             ['label', null, null],
@@ -36,7 +36,7 @@ class AddControllerTest extends AbstractTestCase
         $bookmarkRepository = new BookmarkRepository($dbi, $relation);
         $controller = new AddController($response, new Template(), $bookmarkRepository);
         $controller($request);
-        $this->assertSame(['message' => 'Incomplete params'], $response->getJSONResult());
+        self::assertSame(['message' => 'Incomplete params'], $response->getJSONResult());
     }
 
     public function testWithoutRelationParameters(): void
@@ -46,7 +46,7 @@ class AddControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['db', null, 'test'],
             ['label', null, 'test'],
@@ -57,7 +57,7 @@ class AddControllerTest extends AbstractTestCase
         $bookmarkRepository = new BookmarkRepository($dbi, $relation);
         $controller = new AddController($response, new Template(), $bookmarkRepository);
         $controller($request);
-        $this->assertSame(['message' => 'Failed'], $response->getJSONResult());
+        self::assertSame(['message' => 'Failed'], $response->getJSONResult());
     }
 
     public function testWithValidParameters(): void
@@ -80,7 +80,7 @@ class AddControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface($dbiDummy);
         DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['db', null, 'test_db'],
             ['label', null, 'test_label'],
@@ -91,7 +91,7 @@ class AddControllerTest extends AbstractTestCase
         $bookmarkRepository = new BookmarkRepository($dbi, $relation);
         $controller = new AddController($response, new Template(), $bookmarkRepository);
         $controller($request);
-        $this->assertSame(
+        self::assertSame(
             [
                 'message' => 'Succeeded',
                 'data' => [

@@ -40,8 +40,8 @@ class AddNewPrimaryControllerTest extends AbstractTestCase
             $template,
             new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
         );
-        $controller($this->createStub(ServerRequest::class));
+        $controller(self::createStub(ServerRequest::class));
 
-        $this->assertStringContainsString('<table id="table_columns"', $response->getHTMLResult());
+        self::assertStringContainsString('<table id="table_columns"', $response->getHTMLResult());
     }
 }

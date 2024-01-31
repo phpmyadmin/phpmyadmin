@@ -19,15 +19,15 @@ class MysqliResultTest extends AbstractTestCase
     public function testFetchAssoc(): void
     {
         $expected = [['foo' => 'bar'], null];
-        $mysqliResult = $this->createMock(mysqli_result::class);
-        $mysqliResult->expects($this->exactly(2))
+        $mysqliResult = self::createMock(mysqli_result::class);
+        $mysqliResult->expects(self::exactly(2))
             ->method('fetch_assoc')
             ->willReturn(...$expected);
 
         $result = new MysqliResult($mysqliResult);
 
-        $this->assertSame(['foo' => 'bar'], $result->fetchAssoc());
-        $this->assertSame([], $result->fetchAssoc());
+        self::assertSame(['foo' => 'bar'], $result->fetchAssoc());
+        self::assertSame([], $result->fetchAssoc());
     }
 
     /**
@@ -36,15 +36,15 @@ class MysqliResultTest extends AbstractTestCase
     public function testFetchRow(): void
     {
         $expected = [['bar'], null];
-        $mysqliResult = $this->createMock(mysqli_result::class);
-        $mysqliResult->expects($this->exactly(2))
+        $mysqliResult = self::createMock(mysqli_result::class);
+        $mysqliResult->expects(self::exactly(2))
             ->method('fetch_row')
             ->willReturn(...$expected);
 
         $result = new MysqliResult($mysqliResult);
 
-        $this->assertSame(['bar'], $result->fetchRow());
-        $this->assertSame([], $result->fetchRow());
+        self::assertSame(['bar'], $result->fetchRow());
+        self::assertSame([], $result->fetchRow());
     }
 
     /**
@@ -53,14 +53,14 @@ class MysqliResultTest extends AbstractTestCase
     public function testDataSeek(): void
     {
         $offset = 1;
-        $mysqliResult = $this->createMock(mysqli_result::class);
-        $mysqliResult->expects($this->once())
+        $mysqliResult = self::createMock(mysqli_result::class);
+        $mysqliResult->expects(self::once())
             ->method('data_seek')
-            ->with($this->equalTo($offset))
+            ->with(self::equalTo($offset))
             ->willReturn(true);
 
         $result = new MysqliResult($mysqliResult);
 
-        $this->assertTrue($result->seek($offset));
+        self::assertTrue($result->seek($offset));
     }
 }

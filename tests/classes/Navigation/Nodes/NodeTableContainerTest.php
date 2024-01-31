@@ -17,14 +17,14 @@ class NodeTableContainerTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = new NodeTableContainer();
-        $this->assertEquals(
+        self::assertEquals(
             [
                 'text' => ['route' => '/database/structure', 'params' => ['tbl_type' => 'table', 'db' => null]],
                 'icon' => ['route' => '/database/structure', 'params' => ['tbl_type' => 'table', 'db' => null]],
             ],
             $parent->links,
         );
-        $this->assertEquals('tables', $parent->realName);
-        $this->assertStringContainsString('tableContainer', $parent->classes);
+        self::assertEquals('tables', $parent->realName);
+        self::assertStringContainsString('tableContainer', $parent->classes);
     }
 }

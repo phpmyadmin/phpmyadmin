@@ -36,17 +36,17 @@ class SystemDatabaseTest extends AbstractTestCase
          */
         Config::getInstance()->selectedServer['pmadb'] = '';
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createMock(DummyResult::class);
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->any())
+        $dbi->expects(self::any())
             ->method('tryQuery')
             ->willReturn($resultStub);
 
-        $dbi->expects($this->any())
+        $dbi->expects(self::any())
             ->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
@@ -76,7 +76,7 @@ class SystemDatabaseTest extends AbstractTestCase
         $ret = $this->sysDb->getExistingTransformationData($db);
 
         //validate that is the same as $dbi->tryQuery
-        $this->assertInstanceOf(DummyResult::class, $ret);
+        self::assertInstanceOf(DummyResult::class, $ret);
     }
 
     /**
@@ -84,9 +84,9 @@ class SystemDatabaseTest extends AbstractTestCase
      */
     public function testPMAGetNewTransformationDataSql(): void
     {
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createMock(DummyResult::class);
 
-        $resultStub->expects($this->any())
+        $resultStub->expects(self::any())
             ->method('fetchAssoc')
             ->willReturn([
                 'table_name' => 'table_name',
@@ -109,7 +109,7 @@ class SystemDatabaseTest extends AbstractTestCase
             . "('PMA_db', 'view_name', 'column_name', 'comment', 'mimetype', "
             . "'transformation', 'transformation_options')";
 
-        $this->assertEquals($sql, $ret);
+        self::assertEquals($sql, $ret);
     }
 
     public function testGetColumnMapFromSql(): void
@@ -141,11 +141,11 @@ class SystemDatabaseTest extends AbstractTestCase
         $systemDatabase = new SystemDatabase($dbi);
         $columnMap = $systemDatabase->getColumnMapFromSql($sqlQuery, $viewColumns);
 
-        $this->assertEquals(
+        self::assertEquals(
             new SystemColumn('meta1_table', 'meta1_name', 'view_columns1'),
             $columnMap[0],
         );
-        $this->assertEquals(
+        self::assertEquals(
             new SystemColumn('meta2_table', 'meta2_name', 'view_columns2'),
             $columnMap[1],
         );

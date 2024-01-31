@@ -30,9 +30,9 @@ class GisFactoryTest extends AbstractTestCase
     {
         $geometry = GisFactory::fromType($type);
         if ($classString === null) {
-            $this->assertNull($geometry);
+            self::assertNull($geometry);
         } else {
-            $this->assertInstanceOf($classString, $geometry);
+            self::assertInstanceOf($classString, $geometry);
         }
     }
 
@@ -66,9 +66,9 @@ class GisFactoryTest extends AbstractTestCase
     {
         $geometry = GisFactory::fromWkt($wkt);
         if ($classString === null) {
-            $this->assertNull($geometry);
+            self::assertNull($geometry);
         } else {
-            $this->assertInstanceOf($classString, $geometry);
+            self::assertInstanceOf($classString, $geometry);
         }
     }
 

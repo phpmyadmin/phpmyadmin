@@ -16,10 +16,10 @@ class MysqliStatementTest extends TestCase
 {
     public function testGetResult(): void
     {
-        $mysqliStmt = $this->createMock(mysqli_stmt::class);
-        $mysqliStmt->expects($this->once())->method('get_result')->willReturn(false);
+        $mysqliStmt = self::createMock(mysqli_stmt::class);
+        $mysqliStmt->expects(self::once())->method('get_result')->willReturn(false);
         $statement = new MysqliStatement($mysqliStmt);
         $result = $statement->getResult();
-        $this->assertInstanceOf(MysqliResult::class, $result);
+        self::assertInstanceOf(MysqliResult::class, $result);
     }
 }

@@ -43,7 +43,7 @@ class OperationsTest extends TestBase
         $this->byName('comment')->sendKeys('comment_foobar');
         $this->byCssSelector("form#formDatabaseComment input[type='submit']")->click();
 
-        $this->assertNotNull(
+        self::assertNotNull(
             $this->waitForElement(
                 'xpath',
                 "//span[@class='breadcrumb-comment' and contains(., 'comment_foobar')]",
@@ -74,16 +74,16 @@ class OperationsTest extends TestBase
         $this->dbQuery(
             'SHOW DATABASES LIKE \'' . $newDbName . '\'',
             function () use ($newDbName): void {
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
-                $this->assertEquals($newDbName, $this->getCellByTableClass('table_results', 1, 1));
+                self::assertTrue($this->isElementPresent('className', 'table_results'));
+                self::assertEquals($newDbName, $this->getCellByTableClass('table_results', 1, 1));
             },
         );
 
         $this->dbQuery(
             'SHOW DATABASES LIKE \'' . $this->databaseName . '\'',
             function (): void {
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
-                $this->assertFalse($this->isElementPresent('cssSelector', '.table_results tbody tr'));
+                self::assertTrue($this->isElementPresent('className', 'table_results'));
+                self::assertFalse($this->isElementPresent('cssSelector', '.table_results tbody tr'));
             },
         );
 
@@ -109,7 +109,7 @@ class OperationsTest extends TestBase
         $this->byCssSelector('form#copy_db_form input[name="submit_copy"]')->click();
 
         $success = $this->waitForElement('cssSelector', '.alert-success');
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'Database ' . $this->databaseName . ' has been copied to ' . $newDbName,
             $success->getText(),
         );
@@ -117,8 +117,8 @@ class OperationsTest extends TestBase
         $this->dbQuery(
             'SHOW DATABASES LIKE \'' . $newDbName . '\'',
             function () use ($newDbName): void {
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
-                $this->assertEquals($newDbName, $this->getCellByTableClass('table_results', 1, 1));
+                self::assertTrue($this->isElementPresent('className', 'table_results'));
+                self::assertEquals($newDbName, $this->getCellByTableClass('table_results', 1, 1));
             },
         );
 

@@ -68,14 +68,14 @@ class NodeDatabaseChildTest extends AbstractTestCase
 
         $parent = new NodeDatabase('parent');
         $parent->addChild($this->object);
-        $this->object->expects($this->once())
+        $this->object->expects(self::once())
             ->method('getItemType')
             ->willReturn('itemType');
         $html = $this->object->getHtmlForControlButtons($relationParameters->navigationItemsHidingFeature);
 
-        $this->assertStringStartsWith('<span class="navItemControls">', $html);
-        $this->assertStringEndsWith('</span>', $html);
-        $this->assertStringContainsString(
+        self::assertStringStartsWith('<span class="navItemControls">', $html);
+        self::assertStringEndsWith('</span>', $html);
+        self::assertStringContainsString(
             '<a href="' . Url::getFromRoute('/navigation') . '" data-post="'
             . 'hideNavItem=1&itemType=itemType&itemName=child'
             . '&dbName=parent&lang=en" class="hideNavItem ajax">',

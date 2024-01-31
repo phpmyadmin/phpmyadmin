@@ -39,10 +39,10 @@ class TablesControllerTest extends AbstractTestCase
         $responseRenderer = new ResponseRenderer();
         $multiTableQueryController = new TablesController($responseRenderer, new Template(), $this->dbi);
 
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getQueryParam')->willReturn($_GET['tables'], $_GET['db']);
         $multiTableQueryController($request);
-        $this->assertSame(
+        self::assertSame(
             [
                 'foreignKeyConstrains' => [
                     [

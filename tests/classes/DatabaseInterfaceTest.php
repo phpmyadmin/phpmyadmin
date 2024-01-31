@@ -50,7 +50,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         DatabaseInterface::$instance = null;
         $instanceOne = DatabaseInterface::getInstance();
         $instanceTwo = DatabaseInterface::getInstance();
-        $this->assertSame($instanceOne, $instanceTwo);
+        self::assertSame($instanceOne, $instanceTwo);
     }
 
     /**
@@ -75,9 +75,9 @@ class DatabaseInterfaceTest extends AbstractTestCase
             $dummyDbi->addResult('SELECT CURRENT_USER();', $value);
         }
 
-        $this->assertEquals($expected, $dbi->getCurrentUserAndHost());
+        self::assertEquals($expected, $dbi->getCurrentUserAndHost());
 
-        $this->assertEquals($string, $dbi->getCurrentUser());
+        self::assertEquals($string, $dbi->getCurrentUser());
 
         $dummyDbi->assertAllQueriesConsumed();
     }
@@ -103,7 +103,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
     {
         $dbi = $this->createDatabaseInterface();
         $sd = $dbi->getSystemDatabase();
-        $this->assertInstanceOf(SystemDatabase::class, $sd);
+        self::assertInstanceOf(SystemDatabase::class, $sd);
     }
 
     /**
@@ -120,11 +120,11 @@ class DatabaseInterfaceTest extends AbstractTestCase
             ->onlyMethods(['fetchSingleRow', 'query', 'setVersion'])
             ->getMock();
 
-        $mock->expects($this->once())
+        $mock->expects(self::once())
             ->method('fetchSingleRow')
             ->willReturn(null);
 
-        $mock->expects($this->never())->method('setVersion');
+        $mock->expects(self::never())->method('setVersion');
 
         $mock->postConnect(new Server(['SessionTimeZone' => '']));
     }
@@ -147,11 +147,11 @@ class DatabaseInterfaceTest extends AbstractTestCase
             ->onlyMethods(['fetchSingleRow', 'query', 'setVersion'])
             ->getMock();
 
-        $mock->expects($this->once())
+        $mock->expects(self::once())
             ->method('fetchSingleRow')
             ->willReturn($versionQueryResult);
 
-        $mock->expects($this->once())->method('setVersion')->with($versionQueryResult);
+        $mock->expects(self::once())->method('setVersion')->with($versionQueryResult);
 
         $mock->postConnect(new Server(['SessionTimeZone' => '']));
     }
@@ -181,15 +181,15 @@ class DatabaseInterfaceTest extends AbstractTestCase
             ->onlyMethods(['fetchSingleRow', 'query'])
             ->getMock();
 
-        $mock->expects($this->once())
+        $mock->expects(self::once())
             ->method('fetchSingleRow')
             ->willReturn($version);
 
         $mock->postConnect(new Server(['SessionTimeZone' => '']));
 
-        $this->assertEquals($mock->getVersion(), $versionInt);
-        $this->assertEquals($mock->isMariaDB(), $isMariaDb);
-        $this->assertEquals($mock->isPercona(), $isPercona);
+        self::assertEquals($mock->getVersion(), $versionInt);
+        self::assertEquals($mock->isMariaDB(), $isMariaDb);
+        self::assertEquals($mock->isPercona(), $isPercona);
     }
 
     /**
@@ -204,7 +204,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $config->selectedServer['DisableIS'] = false;
         $config->settings['DBG']['sql'] = false;
 
-        $this->assertEquals(
+        self::assertEquals(
             'utf8_general_ci',
             $dbi->getDbCollation('pma_test'),
         );
@@ -217,7 +217,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $dbiDummy->removeDefaultResults();
         $dbiDummy->addResult('SELECT @@collation_database', [['utf8mb3_general_ci']], ['@@collation_database']);
 
-        $this->assertEquals('utf8mb3_general_ci', $dbi->getDbCollation('information_schema'));
+        self::assertEquals('utf8mb3_general_ci', $dbi->getDbCollation('information_schema'));
     }
 
     /**
@@ -227,7 +227,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
     {
         $dbi = $this->createDatabaseInterface();
         Config::getInstance()->settings['DBG']['sql'] = true;
-        $this->assertEquals('utf8_general_ci', $dbi->getServerCollation());
+        self::assertEquals('utf8_general_ci', $dbi->getServerCollation());
     }
 
     /**
@@ -240,7 +240,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
     #[DataProvider('errorData')]
     public function testFormatError(int $errorNumber, string $errorMessage, string $match): void
     {
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             $match,
             Utilities::formatError($errorNumber, $errorMessage),
         );
@@ -276,7 +276,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
         $dummyDbi->addResult('SELECT @@basedir', $value);
 
-        $this->assertEquals(
+        self::assertEquals(
             $expected,
             $dbi->isAmazonRds(),
         );
@@ -311,10 +311,10 @@ class DatabaseInterfaceTest extends AbstractTestCase
     public function testVersion(string $version, int $expected, int $major, bool $upgrade): void
     {
         $verInt = Utilities::versionToInt($version);
-        $this->assertEquals($expected, $verInt);
-        $this->assertEquals($major, (int) ($verInt / 10000));
+        self::assertEquals($expected, $verInt);
+        self::assertEquals($major, (int) ($verInt / 10000));
         $mysqlMinVersion = 50500;
-        $this->assertEquals($upgrade, $verInt < $mysqlMinVersion);
+        self::assertEquals($upgrade, $verInt < $mysqlMinVersion);
     }
 
     /** @return mixed[][] */
@@ -404,7 +404,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         ];
 
         $actual = $dbi->getTablesFull('test_db');
-        $this->assertEquals($expected, $actual);
+        self::assertEquals($expected, $actual);
     }
 
     public function testGetTablesFullWithInformationSchema(): void
@@ -462,7 +462,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         ];
 
         $actual = $dbi->getTablesFull('test_db');
-        $this->assertEquals($expected, $actual);
+        self::assertEquals($expected, $actual);
     }
 
     public function testGetTablesFullBug18913(): void
@@ -483,7 +483,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         ], ['Name', 'Engine']);
 
         $actual = $dbi->getTablesFull('test_db_bug_18913');
-        $this->assertEquals($expected, array_keys($actual));
+        self::assertEquals($expected, array_keys($actual));
     }
 
     /**
@@ -499,15 +499,15 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $dummyDbi->addResult($sql, true);
         $dummyDbi->addResult('Invalid query', false);
 
-        $this->assertInstanceOf(
+        self::assertInstanceOf(
             ResultInterface::class,
             $dbi->queryAsControlUser($sql),
         );
-        $this->assertInstanceOf(
+        self::assertInstanceOf(
             ResultInterface::class,
             $dbi->tryQueryAsControlUser($sql),
         );
-        $this->assertFalse($dbi->tryQueryAsControlUser('Invalid query'));
+        self::assertFalse($dbi->tryQueryAsControlUser('Invalid query'));
     }
 
     public function testGetDatabasesFullDisabledISAndSortIntColumn(): void
@@ -669,7 +669,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
         $databaseList = $dbi->getDatabasesFull(null, true, ConnectionType::User, 'SCHEMA_DATA_LENGTH', 'ASC', 0, 100);
 
-        $this->assertSame([
+        self::assertSame([
             [
                 'SCHEMA_NAME' => 'db2',
                 'DEFAULT_COLLATION_NAME' => 'utf8_general_ci',
@@ -700,14 +700,14 @@ class DatabaseInterfaceTest extends AbstractTestCase
     public function testPrepare(): void
     {
         $query = 'SELECT * FROM `mysql`.`user` WHERE `User` = ? AND `Host` = ?;';
-        $stmtStub = $this->createStub(Statement::class);
+        $stmtStub = self::createStub(Statement::class);
         $dummyDbi = $this->createMock(DbiExtension::class);
-        $dummyDbi->expects($this->once())->method('prepare')
-            ->with($this->isType('object'), $this->equalTo($query))
+        $dummyDbi->expects(self::once())->method('prepare')
+            ->with(self::isType('object'), self::equalTo($query))
             ->willReturn($stmtStub);
         $dbi = $this->createDatabaseInterface($dummyDbi);
         $stmt = $dbi->prepare($query, ConnectionType::ControlUser);
-        $this->assertSame($stmtStub, $stmt);
+        self::assertSame($stmtStub, $stmt);
     }
 
     /**
@@ -731,10 +731,10 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
         $dbi->setVersion($version);
 
-        $this->assertEquals($versionInt, $dbi->getVersion());
-        $this->assertEquals($isMariaDb, $dbi->isMariaDB());
-        $this->assertEquals($isPercona, $dbi->isPercona());
-        $this->assertEquals($version['@@version'], $dbi->getVersionString());
+        self::assertEquals($versionInt, $dbi->getVersion());
+        self::assertEquals($isMariaDb, $dbi->isMariaDB());
+        self::assertEquals($isPercona, $dbi->isPercona());
+        self::assertEquals($version['@@version'], $dbi->getVersionString());
     }
 
     /**
@@ -776,7 +776,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $expectedResult = $result !== false ? [[$result]] : [];
         $dbiDummy->addResult('SELECT @@lower_case_table_names', $expectedResult, ['@@lower_case_table_names']);
         $dbi = $this->createDatabaseInterface($dbiDummy);
-        $this->assertSame($expected, $dbi->getLowerCaseNames());
+        self::assertSame($expected, $dbi->getLowerCaseNames());
         $dbiDummy->assertAllQueriesConsumed();
     }
 

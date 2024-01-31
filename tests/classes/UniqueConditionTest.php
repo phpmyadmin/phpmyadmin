@@ -34,14 +34,14 @@ class UniqueConditionTest extends AbstractTestCase
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
         $actual = new UniqueCondition([], []);
-        $this->assertEquals(['', false, []], [
+        self::assertEquals(['', false, []], [
             $actual->getWhereClause(),
             $actual->isClauseUnique(),
             $actual->getConditionArray(),
         ]);
 
         $actual = new UniqueCondition([], [], true);
-        $this->assertEquals(['', true, []], [
+        self::assertEquals(['', true, []], [
             $actual->getWhereClause(),
             $actual->isClauseUnique(),
             $actual->getConditionArray(),
@@ -149,7 +149,7 @@ class UniqueConditionTest extends AbstractTestCase
             'value',
             0x1,
         ], false, 'table');
-        $this->assertEquals(
+        self::assertEquals(
             [
                 '`table`.`field1` IS NULL AND `table`.`field2` = \'value\\\'s\' AND `table`.`field3` = 123456'
                 . ' AND `table`.`field4` = 123.456 AND `table`.`field5` = CAST(0x76616c7565 AS BINARY)'
@@ -188,7 +188,7 @@ class UniqueConditionTest extends AbstractTestCase
         ];
 
         $actual = new UniqueCondition($meta, [str_repeat('*', 1001)]);
-        $this->assertEquals(
+        self::assertEquals(
             ['CHAR_LENGTH(`table`.`field`)  = 1001', false, ['`table`.`field`' => ' = 1001']],
             [$actual->getWhereClause(), $actual->isClauseUnique(), $actual->getConditionArray()],
         );
@@ -215,7 +215,7 @@ class UniqueConditionTest extends AbstractTestCase
         ];
 
         $actual = new UniqueCondition($meta, [1, 'value']);
-        $this->assertEquals(['`table`.`id` = 1', true, ['`table`.`id`' => '= 1']], [
+        self::assertEquals(['`table`.`id` = 1', true, ['`table`.`id`' => '= 1']], [
             $actual->getWhereClause(),
             $actual->isClauseUnique(),
             $actual->getConditionArray(),
@@ -243,7 +243,7 @@ class UniqueConditionTest extends AbstractTestCase
         ];
 
         $actual = new UniqueCondition($meta, ['unique', 'value']);
-        $this->assertEquals(['`table`.`id` = \'unique\'', true, ['`table`.`id`' => '= \'unique\'']], [
+        self::assertEquals(['`table`.`id` = \'unique\'', true, ['`table`.`id`' => '= \'unique\'']], [
             $actual->getWhereClause(),
             $actual->isClauseUnique(),
             $actual->getConditionArray(),
@@ -267,7 +267,7 @@ class UniqueConditionTest extends AbstractTestCase
 
         $actual = new UniqueCondition($meta, $row);
 
-        $this->assertEquals($expected, [
+        self::assertEquals($expected, [
             $actual->getWhereClause(),
             $actual->isClauseUnique(),
             $actual->getConditionArray(),

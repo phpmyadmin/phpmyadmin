@@ -68,37 +68,37 @@ class ExportPdfTest extends AbstractTestCase
         $attrProperties = new ReflectionProperty(ExportPdf::class, 'properties');
         $properties = $attrProperties->getValue($this->object);
 
-        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
+        self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        $this->assertEquals(
+        self::assertEquals(
             'PDF',
             $properties->getText(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'pdf',
             $properties->getExtension(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'application/pdf',
             $properties->getMimeType(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Options',
             $properties->getOptionsText(),
         );
 
-        $this->assertTrue(
+        self::assertTrue(
             $properties->getForceFile(),
         );
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
+        self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        $this->assertEquals(
+        self::assertEquals(
             'Format Specific Options',
             $options->getName(),
         );
@@ -108,9 +108,9 @@ class ExportPdfTest extends AbstractTestCase
         $generalOptions = $generalOptionsArray->current();
         $generalOptionsArray->next();
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
+        self::assertEquals(
             'general_opts',
             $generalOptions->getName(),
         );
@@ -119,23 +119,23 @@ class ExportPdfTest extends AbstractTestCase
 
         $property = $generalProperties->current();
 
-        $this->assertInstanceOf(TextPropertyItem::class, $property);
+        self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        $this->assertEquals(
+        self::assertEquals(
             'report_title',
             $property->getName(),
         );
 
         $generalOptions = $generalOptionsArray->current();
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
+        self::assertEquals(
             'dump_what',
             $generalOptions->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Dump table',
             $generalOptions->getText(),
         );
@@ -144,14 +144,14 @@ class ExportPdfTest extends AbstractTestCase
 
         $property = $generalProperties->current();
 
-        $this->assertInstanceOf(RadioPropertyItem::class, $property);
+        self::assertInstanceOf(RadioPropertyItem::class, $property);
 
-        $this->assertEquals(
+        self::assertEquals(
             'structure_or_data',
             $property->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             ['structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')],
             $property->getValues(),
         );
@@ -163,16 +163,16 @@ class ExportPdfTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $pdf->expects($this->once())
+        $pdf->expects(self::once())
             ->method('Open');
 
-        $pdf->expects($this->once())
+        $pdf->expects(self::once())
             ->method('setTopMargin');
 
         $attrPdf = new ReflectionProperty(ExportPdf::class, 'pdf');
         $attrPdf->setValue($this->object, $pdf);
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportHeader(),
         );
     }
@@ -183,35 +183,35 @@ class ExportPdfTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $pdf->expects($this->once())
+        $pdf->expects(self::once())
             ->method('getPDFData')
             ->willReturn('');
 
         $attrPdf = new ReflectionProperty(ExportPdf::class, 'pdf');
         $attrPdf->setValue($this->object, $pdf);
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportFooter(),
         );
     }
 
     public function testExportDBHeader(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBHeader('testDB'),
         );
     }
 
     public function testExportDBFooter(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBFooter('testDB'),
         );
     }
 
     public function testExportDBCreate(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBCreate('testDB', 'database'),
         );
     }
@@ -222,14 +222,14 @@ class ExportPdfTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $pdf->expects($this->once())
+        $pdf->expects(self::once())
             ->method('mysqlReport')
             ->with('SELECT');
 
         $attrPdf = new ReflectionProperty(ExportPdf::class, 'pdf');
         $attrPdf->setValue($this->object, $pdf);
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportData(
                 'db',
                 'table',
@@ -250,7 +250,7 @@ class ExportPdfTest extends AbstractTestCase
         $setter->invoke($this->object, new Pdf());
 
         $getter = new ReflectionMethod(ExportPdf::class, 'getPdf');
-        $this->assertInstanceOf(
+        self::assertInstanceOf(
             Pdf::class,
             $getter->invoke($this->object),
         );

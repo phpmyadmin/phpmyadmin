@@ -102,11 +102,11 @@ class ImportCsvTest extends AbstractTestCase
     public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
-        $this->assertEquals(
+        self::assertEquals(
             __('CSV'),
             $properties->getText(),
         );
-        $this->assertEquals(
+        self::assertEquals(
             'csv',
             $properties->getExtension(),
         );
@@ -129,16 +129,16 @@ class ImportCsvTest extends AbstractTestCase
         $this->object->doImport($importHandle);
 
         //asset that all sql are executed
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'CREATE DATABASE IF NOT EXISTS `CSV_DB 1` DEFAULT CHARACTER',
             $GLOBALS['sql_query'],
         );
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`' . $GLOBALS['import_file_name'] . '`',
             $GLOBALS['sql_query'],
         );
 
-        $this->assertTrue($GLOBALS['finished']);
+        self::assertTrue($GLOBALS['finished']);
     }
 
     /**
@@ -163,16 +163,16 @@ class ImportCsvTest extends AbstractTestCase
         $this->object->doImport($importHandle);
 
         //asset that all sql are executed
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'CREATE DATABASE IF NOT EXISTS `ImportTestDb` DEFAULT CHARACTER',
             $GLOBALS['sql_query'],
         );
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'CREATE TABLE IF NOT EXISTS `ImportTestDb`.`ImportTestTable`',
             $GLOBALS['sql_query'],
         );
 
-        $this->assertTrue($GLOBALS['finished']);
+        self::assertTrue($GLOBALS['finished']);
 
         unset($_REQUEST['csv_new_tbl_name']);
         unset($_REQUEST['csv_new_db_name']);
@@ -188,11 +188,11 @@ class ImportCsvTest extends AbstractTestCase
         $GLOBALS['plugin_param'] = 'table';
         $this->object = new ImportCsv();
         $properties = $this->object->getProperties();
-        $this->assertEquals(
+        self::assertEquals(
             __('CSV'),
             $properties->getText(),
         );
-        $this->assertEquals(
+        self::assertEquals(
             'csv',
             $properties->getExtension(),
         );
@@ -215,17 +215,17 @@ class ImportCsvTest extends AbstractTestCase
         $this->object->doImport($importHandle);
 
         //asset that all sql are executed
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'CREATE DATABASE IF NOT EXISTS `CSV_DB 1` DEFAULT CHARACTER',
             $GLOBALS['sql_query'],
         );
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`' . $GLOBALS['import_file_name'] . '`',
             $GLOBALS['sql_query'],
         );
 
-        $this->assertTrue($GLOBALS['finished']);
+        self::assertTrue($GLOBALS['finished']);
     }
 
     /**
@@ -259,7 +259,7 @@ class ImportCsvTest extends AbstractTestCase
 
         $this->object->doImport();
 
-        $this->assertSame(
+        self::assertSame(
             'CREATE DATABASE IF NOT EXISTS `CSV_DB 1` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;;'
             . 'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`db_test` (`COL 1` varchar(5), `COL 2` varchar(5))'
             . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;;INSERT INTO `CSV_DB 1`.`db_test`'
@@ -267,7 +267,7 @@ class ImportCsvTest extends AbstractTestCase
             $GLOBALS['sql_query'],
         );
 
-        $this->assertTrue($GLOBALS['finished']);
+        self::assertTrue($GLOBALS['finished']);
         $this->dummyDbi->assertAllQueriesConsumed();
     }
 
@@ -304,7 +304,7 @@ class ImportCsvTest extends AbstractTestCase
 
         $this->object->doImport();
 
-        $this->assertSame(
+        self::assertSame(
             'CREATE DATABASE IF NOT EXISTS `CSV_DB 1` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;;'
             . 'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`db_test` (`Row 1` int(3), `Row 2` int(3))'
             . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;;INSERT INTO `CSV_DB 1`.`db_test`'
@@ -312,7 +312,7 @@ class ImportCsvTest extends AbstractTestCase
             $GLOBALS['sql_query'],
         );
 
-        $this->assertTrue($GLOBALS['finished']);
+        self::assertTrue($GLOBALS['finished']);
         $this->dummyDbi->assertAllQueriesConsumed();
     }
 }

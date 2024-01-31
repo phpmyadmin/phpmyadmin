@@ -51,7 +51,7 @@ class UrlTest extends AbstractTestCase
         $expected = '?db=db'
             . $separator . $expected;
 
-        $this->assertEquals($expected, Url::getCommon(['db' => 'db']));
+        self::assertEquals($expected, Url::getCommon(['db' => 'db']));
     }
 
     /**
@@ -69,7 +69,7 @@ class UrlTest extends AbstractTestCase
             . $separator . 'table=table'
             . $separator . $expected;
         $params = ['db' => 'db', 'table' => 'table'];
-        $this->assertEquals($expected, Url::getCommon($params));
+        self::assertEquals($expected, Url::getCommon($params));
     }
 
     /**
@@ -85,7 +85,7 @@ class UrlTest extends AbstractTestCase
 
         $expected = '#ABC#db=db' . $separator . 'table=table' . $separator
             . $expected;
-        $this->assertEquals(
+        self::assertEquals(
             $expected,
             Url::getCommonRaw(
                 ['db' => 'db', 'table' => 'table'],
@@ -104,7 +104,7 @@ class UrlTest extends AbstractTestCase
 
         $separator = Url::getArgSeparator();
         $expected = '?server=2' . $separator . 'lang=en';
-        $this->assertEquals($expected, Url::getCommon());
+        self::assertEquals($expected, Url::getCommon());
     }
 
     /**
@@ -118,7 +118,7 @@ class UrlTest extends AbstractTestCase
             'field' => '%1\$s',
             'change_column' => 1,
         ]);
-        $this->assertEquals(
+        self::assertEquals(
             'index.php?route=/test&db=%253%5C%24s&table=%252%5C%24s&field=%251%5C%24s&change_column=1&lang=en',
             $generatedUrl,
         );
@@ -137,9 +137,9 @@ class UrlTest extends AbstractTestCase
         ]);
         $expectedUrl = 'index.php?route=/test&db=%26test%3D_database%3D'
         . '&table=%26test%3D_database%3D&field=%26test%3D_database%3D&change_column=1&lang=en';
-        $this->assertEquals($expectedUrl, $generatedUrl);
+        self::assertEquals($expectedUrl, $generatedUrl);
 
-        $this->assertEquals(
+        self::assertEquals(
             'index.php?route=/test&db=&test=_database=&table=&'
             . 'test=_database=&field=&test=_database=&change_column=1&lang=en',
             urldecode(
@@ -161,7 +161,7 @@ class UrlTest extends AbstractTestCase
             'book' => false,
             'worm' => false,
         ]);
-        $this->assertEquals(
+        self::assertEquals(
             'index.php?route=/test&db=%3Cscript+src%3D%22https%3A%2F%2Fdomain.tld%2Fsvn'
             . '%2Ftrunk%2Fhtml5.js%22%3E%3C%2Fscript%3E&table=%3Cscript+src%3D%22'
             . 'https%3A%2F%2Fdomain.tld%2Fmaybeweshouldusegit%2Ftrunk%2Fhtml5.js%22%3E%3C%2F'
@@ -173,10 +173,10 @@ class UrlTest extends AbstractTestCase
     public function testGetHiddenFields(): void
     {
         $_SESSION = [];
-        $this->assertSame('', Url::getHiddenFields([]));
+        self::assertSame('', Url::getHiddenFields([]));
 
         $_SESSION = [' PMA_token ' => '<b>token</b>'];
-        $this->assertSame(
+        self::assertSame(
             '<input type="hidden" name="token" value="&lt;b&gt;token&lt;/b&gt;">',
             Url::getHiddenFields([]),
         );
@@ -186,7 +186,7 @@ class UrlTest extends AbstractTestCase
     {
         Config::getInstance()->set('URLQueryEncryption', false);
         $params = ['db' => 'test_db', 'table' => 'test_table', 'pos' => 0];
-        $this->assertEquals('db=test_db&table=test_table&pos=0', Url::buildHttpQuery($params));
+        self::assertEquals('db=test_db&table=test_table&pos=0', Url::buildHttpQuery($params));
     }
 
     public function testBuildHttpQueryWithUrlQueryEncryptionEnabled(): void
@@ -198,18 +198,18 @@ class UrlTest extends AbstractTestCase
 
         $params = ['db' => 'test_db', 'table' => 'test_table', 'pos' => 0];
         $query = Url::buildHttpQuery($params);
-        $this->assertStringStartsWith('pos=0&eq=', $query);
+        self::assertStringStartsWith('pos=0&eq=', $query);
         parse_str($query, $queryParams);
-        $this->assertCount(2, $queryParams);
-        $this->assertSame('0', $queryParams['pos']);
-        $this->assertTrue(is_string($queryParams['eq']));
-        $this->assertNotSame('', $queryParams['eq']);
-        $this->assertMatchesRegularExpression('/^[a-zA-Z0-9-_=]+$/', $queryParams['eq']);
+        self::assertCount(2, $queryParams);
+        self::assertSame('0', $queryParams['pos']);
+        self::assertTrue(is_string($queryParams['eq']));
+        self::assertNotSame('', $queryParams['eq']);
+        self::assertMatchesRegularExpression('/^[a-zA-Z0-9-_=]+$/', $queryParams['eq']);
 
         $decrypted = Url::decryptQuery($queryParams['eq']);
-        $this->assertNotNull($decrypted);
-        $this->assertJson($decrypted);
-        $this->assertSame('{"db":"test_db","table":"test_table"}', $decrypted);
+        self::assertNotNull($decrypted);
+        self::assertJson($decrypted);
+        self::assertSame('{"db":"test_db","table":"test_table"}', $decrypted);
     }
 
     public function testQueryEncryption(): void
@@ -221,12 +221,12 @@ class UrlTest extends AbstractTestCase
 
         $query = '{"db":"test_db","table":"test_table"}';
         $encrypted = Url::encryptQuery($query);
-        $this->assertNotSame($query, $encrypted);
-        $this->assertNotSame('', $encrypted);
-        $this->assertMatchesRegularExpression('/^[a-zA-Z0-9-_=]+$/', $encrypted);
+        self::assertNotSame($query, $encrypted);
+        self::assertNotSame('', $encrypted);
+        self::assertMatchesRegularExpression('/^[a-zA-Z0-9-_=]+$/', $encrypted);
 
         $decrypted = Url::decryptQuery($encrypted);
-        $this->assertSame($query, $decrypted);
+        self::assertSame($query, $decrypted);
     }
 
     /** @param string|false $iniValue */

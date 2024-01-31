@@ -45,10 +45,10 @@ class CheckUserPrivilegesTest extends AbstractTestCase
         // call the to-be-tested function
         $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust($showGrants);
 
-        $this->assertTrue(UserPrivileges::$column);
-        $this->assertTrue(UserPrivileges::$database);
-        $this->assertTrue(UserPrivileges::$routines);
-        $this->assertTrue(UserPrivileges::$table);
+        self::assertTrue(UserPrivileges::$column);
+        self::assertTrue(UserPrivileges::$database);
+        self::assertTrue(UserPrivileges::$routines);
+        self::assertTrue(UserPrivileges::$table);
 
         // re-initialise the privileges
         $this->setUp();
@@ -59,10 +59,10 @@ class CheckUserPrivilegesTest extends AbstractTestCase
         // call the to-be-tested function
         $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust($showGrants);
 
-        $this->assertTrue(UserPrivileges::$column);
-        $this->assertTrue(UserPrivileges::$database);
-        $this->assertTrue(UserPrivileges::$routines);
-        $this->assertTrue(UserPrivileges::$table);
+        self::assertTrue(UserPrivileges::$column);
+        self::assertTrue(UserPrivileges::$database);
+        self::assertTrue(UserPrivileges::$routines);
+        self::assertTrue(UserPrivileges::$table);
 
         // re-initialise the privileges
         $this->setUp();
@@ -73,10 +73,10 @@ class CheckUserPrivilegesTest extends AbstractTestCase
         // call the to-be-tested function
         $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust($showGrants);
 
-        $this->assertTrue(UserPrivileges::$column);
-        $this->assertTrue(UserPrivileges::$database);
-        $this->assertTrue(UserPrivileges::$routines);
-        $this->assertTrue(UserPrivileges::$table);
+        self::assertTrue(UserPrivileges::$column);
+        self::assertTrue(UserPrivileges::$database);
+        self::assertTrue(UserPrivileges::$routines);
+        self::assertTrue(UserPrivileges::$table);
 
         // re-initialise the privileges
         $this->setUp();
@@ -87,9 +87,9 @@ class CheckUserPrivilegesTest extends AbstractTestCase
         // call the to-be-tested function
         $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust($showGrants);
 
-        $this->assertFalse(UserPrivileges::$column);
-        $this->assertTrue(UserPrivileges::$database);
-        $this->assertFalse(UserPrivileges::$routines);
-        $this->assertFalse(UserPrivileges::$table);
+        self::assertFalse(UserPrivileges::$column);
+        self::assertTrue(UserPrivileges::$database);
+        self::assertFalse(UserPrivileges::$routines);
+        self::assertFalse(UserPrivileges::$table);
     }
 }

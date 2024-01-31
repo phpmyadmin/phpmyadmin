@@ -17,8 +17,8 @@ class DebugTest extends TestCase
     {
         $debug = new Debug(['sql' => $actual]);
         $debugArray = $debug->asArray();
-        $this->assertSame($expected, $debug->sql);
-        $this->assertSame($expected, $debugArray['sql']);
+        self::assertSame($expected, $debug->sql);
+        self::assertSame($expected, $debugArray['sql']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -26,8 +26,8 @@ class DebugTest extends TestCase
     {
         $debug = new Debug(['sqllog' => $actual]);
         $debugArray = $debug->asArray();
-        $this->assertSame($expected, $debug->sqllog);
-        $this->assertSame($expected, $debugArray['sqllog']);
+        self::assertSame($expected, $debug->sqllog);
+        self::assertSame($expected, $debugArray['sqllog']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -35,8 +35,8 @@ class DebugTest extends TestCase
     {
         $debug = new Debug(['demo' => $actual]);
         $debugArray = $debug->asArray();
-        $this->assertSame($expected, $debug->demo);
-        $this->assertSame($expected, $debugArray['demo']);
+        self::assertSame($expected, $debug->demo);
+        self::assertSame($expected, $debugArray['demo']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -44,8 +44,8 @@ class DebugTest extends TestCase
     {
         $debug = new Debug(['simple2fa' => $actual]);
         $debugArray = $debug->asArray();
-        $this->assertSame($expected, $debug->simple2fa);
-        $this->assertSame($expected, $debugArray['simple2fa']);
+        self::assertSame($expected, $debug->simple2fa);
+        self::assertSame($expected, $debugArray['simple2fa']);
     }
 
     /** @return iterable<string, array{mixed, bool}> */

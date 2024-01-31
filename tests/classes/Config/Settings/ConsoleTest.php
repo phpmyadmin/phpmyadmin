@@ -18,8 +18,8 @@ class ConsoleTest extends TestCase
         $console = new Console(['StartHistory' => $actual]);
         $consoleArray = $console->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        $this->assertSame($expected, $console->StartHistory);
-        $this->assertSame($expected, $consoleArray['StartHistory']);
+        self::assertSame($expected, $console->StartHistory);
+        self::assertSame($expected, $consoleArray['StartHistory']);
     }
 
     /** @return iterable<string, array{mixed, bool}> */
@@ -37,8 +37,8 @@ class ConsoleTest extends TestCase
         $console = new Console(['AlwaysExpand' => $actual]);
         $consoleArray = $console->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        $this->assertSame($expected, $console->AlwaysExpand);
-        $this->assertSame($expected, $consoleArray['AlwaysExpand']);
+        self::assertSame($expected, $console->AlwaysExpand);
+        self::assertSame($expected, $consoleArray['AlwaysExpand']);
     }
 
     #[DataProvider('booleanWithDefaultTrueProvider')]
@@ -47,8 +47,8 @@ class ConsoleTest extends TestCase
         $console = new Console(['CurrentQuery' => $actual]);
         $consoleArray = $console->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        $this->assertSame($expected, $console->CurrentQuery);
-        $this->assertSame($expected, $consoleArray['CurrentQuery']);
+        self::assertSame($expected, $console->CurrentQuery);
+        self::assertSame($expected, $consoleArray['CurrentQuery']);
     }
 
     /** @return iterable<string, array{mixed, bool}> */
@@ -66,8 +66,8 @@ class ConsoleTest extends TestCase
         $console = new Console(['EnterExecutes' => $actual]);
         $consoleArray = $console->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        $this->assertSame($expected, $console->EnterExecutes);
-        $this->assertSame($expected, $consoleArray['EnterExecutes']);
+        self::assertSame($expected, $console->EnterExecutes);
+        self::assertSame($expected, $consoleArray['EnterExecutes']);
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
@@ -76,8 +76,8 @@ class ConsoleTest extends TestCase
         $console = new Console(['DarkTheme' => $actual]);
         $consoleArray = $console->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        $this->assertSame($expected, $console->DarkTheme);
-        $this->assertSame($expected, $consoleArray['DarkTheme']);
+        self::assertSame($expected, $console->DarkTheme);
+        self::assertSame($expected, $consoleArray['DarkTheme']);
     }
 
     #[DataProvider('valuesForModeProvider')]
@@ -86,8 +86,8 @@ class ConsoleTest extends TestCase
         $console = new Console(['Mode' => $actual]);
         $consoleArray = $console->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        $this->assertSame($expected, $console->Mode);
-        $this->assertSame($expected, $consoleArray['Mode']);
+        self::assertSame($expected, $console->Mode);
+        self::assertSame($expected, $consoleArray['Mode']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -106,8 +106,8 @@ class ConsoleTest extends TestCase
         $console = new Console(['Height' => $actual]);
         $consoleArray = $console->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        $this->assertSame($expected, $console->Height);
-        $this->assertSame($expected, $consoleArray['Height']);
+        self::assertSame($expected, $console->Height);
+        self::assertSame($expected, $consoleArray['Height']);
     }
 
     /** @return iterable<string, array{mixed, int}> */
@@ -125,8 +125,8 @@ class ConsoleTest extends TestCase
         $console = new Console(['GroupQueries' => $actual]);
         $consoleArray = $console->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        $this->assertSame($expected, $console->GroupQueries);
-        $this->assertSame($expected, $consoleArray['GroupQueries']);
+        self::assertSame($expected, $console->GroupQueries);
+        self::assertSame($expected, $consoleArray['GroupQueries']);
     }
 
     #[DataProvider('valuesForOrderByProvider')]
@@ -135,8 +135,8 @@ class ConsoleTest extends TestCase
         $console = new Console(['OrderBy' => $actual]);
         $consoleArray = $console->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        $this->assertSame($expected, $console->OrderBy);
-        $this->assertSame($expected, $consoleArray['OrderBy']);
+        self::assertSame($expected, $console->OrderBy);
+        self::assertSame($expected, $consoleArray['OrderBy']);
     }
 
     /** @return iterable<string, array{mixed, string}> */
@@ -155,8 +155,8 @@ class ConsoleTest extends TestCase
         $console = new Console(['Order' => $actual]);
         $consoleArray = $console->asArray();
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        $this->assertSame($expected, $console->Order);
-        $this->assertSame($expected, $consoleArray['Order']);
+        self::assertSame($expected, $console->Order);
+        self::assertSame($expected, $consoleArray['Order']);
     }
 
     /** @return iterable<string, array{mixed, string}> */

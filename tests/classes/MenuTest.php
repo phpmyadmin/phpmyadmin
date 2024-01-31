@@ -43,7 +43,7 @@ class MenuTest extends AbstractTestCase
     public function testServer(): void
     {
         $menu = new Menu($this->dbi, new Template(), '', '');
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'floating_menubar',
             $menu->getDisplay(),
         );
@@ -55,7 +55,7 @@ class MenuTest extends AbstractTestCase
     public function testDatabase(): void
     {
         $menu = new Menu($this->dbi, new Template(), 'pma_test', '');
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'floating_menubar',
             $menu->getDisplay(),
         );
@@ -67,7 +67,7 @@ class MenuTest extends AbstractTestCase
     public function testTable(): void
     {
         $menu = new Menu($this->dbi, new Template(), 'pma_test', 'table1');
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'floating_menubar',
             $menu->getDisplay(),
         );
@@ -80,7 +80,7 @@ class MenuTest extends AbstractTestCase
     {
         $menu = new Menu($this->dbi, new Template(), 'pma_test', '');
         $menu->setTable('table1');
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'table1',
             $menu->getDisplay(),
         );

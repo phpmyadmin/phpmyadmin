@@ -32,7 +32,7 @@ class LanguageTest extends AbstractTestCase
 
         $loc = LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo';
         if (! is_readable($loc)) {
-            $this->markTestSkipped('Missing compiled locales.');
+            self::markTestSkipped('Missing compiled locales.');
         }
 
         $this->manager = new LanguageManager();
@@ -61,8 +61,8 @@ class LanguageTest extends AbstractTestCase
 
         $langs = $this->manager->availableLocales();
 
-        $this->assertCount(2, $langs);
-        $this->assertContains('cs', $langs);
+        self::assertCount(2, $langs);
+        self::assertContains('cs', $langs);
         $config->set('FilterLanguages', '');
     }
 
@@ -75,8 +75,8 @@ class LanguageTest extends AbstractTestCase
 
         $langs = $this->manager->availableLocales();
 
-        $this->assertContains('cs', $langs);
-        $this->assertContains('en', $langs);
+        self::assertContains('cs', $langs);
+        self::assertContains('en', $langs);
     }
 
     /**
@@ -85,8 +85,8 @@ class LanguageTest extends AbstractTestCase
     public function testList(): void
     {
         $langs = $this->manager->listLocaleDir();
-        $this->assertContains('cs', $langs);
-        $this->assertContains('en', $langs);
+        self::assertContains('cs', $langs);
+        self::assertContains('en', $langs);
     }
 
     /**
@@ -95,11 +95,11 @@ class LanguageTest extends AbstractTestCase
     public function testLanguages(): void
     {
         $langs = $this->manager->availableLanguages();
-        $this->assertGreaterThan(1, count($langs));
+        self::assertGreaterThan(1, count($langs));
 
         /* Ensure we have name for every language */
         foreach ($langs as $lang) {
-            $this->assertNotEquals(
+            self::assertNotEquals(
                 $lang->getCode(),
                 strtolower($lang->getEnglishName()),
                 'Maybe this language does not exist in LanguageManager class'
@@ -115,12 +115,12 @@ class LanguageTest extends AbstractTestCase
     {
         Config::getInstance()->set('FilterLanguages', '');
         $czech = $this->manager->getLanguage('cs');
-        $this->assertNotFalse($czech);
-        $this->assertEquals('cs_CZ', $czech->getMySQLLocale());
+        self::assertNotFalse($czech);
+        self::assertEquals('cs_CZ', $czech->getMySQLLocale());
 
         $azerbaijani = $this->manager->getLanguage('az');
-        $this->assertNotFalse($azerbaijani);
-        $this->assertEquals('', $azerbaijani->getMySQLLocale());
+        self::assertNotFalse($azerbaijani);
+        self::assertEquals('', $azerbaijani->getMySQLLocale());
     }
 
     /**
@@ -129,7 +129,7 @@ class LanguageTest extends AbstractTestCase
     public function testSortedLanguages(): void
     {
         $langs = $this->manager->sortedLanguages();
-        $this->assertGreaterThan(1, count($langs));
+        self::assertGreaterThan(1, count($langs));
     }
 
     /**
@@ -139,11 +139,11 @@ class LanguageTest extends AbstractTestCase
     {
         Config::getInstance()->set('FilterLanguages', '');
         $lang = $this->manager->getLanguage('cs');
-        $this->assertNotFalse($lang);
-        $this->assertEquals('Czech', $lang->getEnglishName());
-        $this->assertEquals('Čeština', $lang->getNativeName());
+        self::assertNotFalse($lang);
+        self::assertEquals('Czech', $lang->getEnglishName());
+        self::assertEquals('Čeština', $lang->getNativeName());
         $lang = $this->manager->getLanguage('nonexisting');
-        $this->assertFalse($lang);
+        self::assertFalse($lang);
     }
 
     /**
@@ -171,7 +171,7 @@ class LanguageTest extends AbstractTestCase
     ): void {
         if ($expect !== 'en' && ! file_exists(LOCALE_PATH . '/' . $expect . '/LC_MESSAGES/phpmyadmin.mo')) {
             // This could happen after removing incomplete .mo files.
-            $this->markTestSkipped('Locale file does not exists: ' . $expect);
+            self::markTestSkipped('Locale file does not exists: ' . $expect);
         }
 
         $config = Config::getInstance();
@@ -187,7 +187,7 @@ class LanguageTest extends AbstractTestCase
 
         $lang = $this->manager->selectLanguage();
 
-        $this->assertEquals($expect, $lang->getCode());
+        self::assertEquals($expect, $lang->getCode());
 
         $config->set('Lang', '');
         $_POST['lang'] = '';
@@ -243,14 +243,14 @@ class LanguageTest extends AbstractTestCase
         Config::getInstance()->set('FilterLanguages', '');
         /* We should be able to set the language */
         $lang = $this->manager->getLanguage($locale);
-        $this->assertNotFalse($lang);
+        self::assertNotFalse($lang);
         $lang->activate();
 
         /* Grab some texts */
-        $this->assertStringContainsString('%s', _ngettext('%s table', '%s tables', 10));
-        $this->assertStringContainsString('%s', _ngettext('%s table', '%s tables', 1));
+        self::assertStringContainsString('%s', _ngettext('%s table', '%s tables', 10));
+        self::assertStringContainsString('%s', _ngettext('%s table', '%s tables', 1));
 
-        $this->assertEquals(
+        self::assertEquals(
             $locale,
             $this->manager->getCurrentLanguage()->getCode(),
         );

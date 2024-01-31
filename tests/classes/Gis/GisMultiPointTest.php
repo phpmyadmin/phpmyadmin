@@ -60,7 +60,7 @@ class GisMultiPointTest extends GisGeomTestCase
     public function testGenerateWkt(array $gisData, int $index, string $empty, string $output): void
     {
         $object = GisMultiPoint::singleton();
-        $this->assertEquals($output, $object->generateWkt($gisData, $index, $empty));
+        self::assertEquals($output, $object->generateWkt($gisData, $index, $empty));
     }
 
     /**
@@ -71,7 +71,7 @@ class GisMultiPointTest extends GisGeomTestCase
         $gisData = ['numpoints' => 2, 'points' => [0 => ['x' => 5.02, 'y' => 8.45], 1 => ['x' => 6.14, 'y' => 0.15]]];
 
         $object = GisMultiPoint::singleton();
-        $this->assertEquals('MULTIPOINT(5.02 8.45,6.14 0.15)', $object->getShape($gisData));
+        self::assertEquals('MULTIPOINT(5.02 8.45,6.14 0.15)', $object->getShape($gisData));
     }
 
     /**
@@ -84,7 +84,7 @@ class GisMultiPointTest extends GisGeomTestCase
     public function testGenerateParams(string $wkt, array $params): void
     {
         $object = GisMultiPoint::singleton();
-        $this->assertEquals($params, $object->generateParams($wkt));
+        self::assertEquals($params, $object->generateParams($wkt));
     }
 
     /**
@@ -121,7 +121,7 @@ class GisMultiPointTest extends GisGeomTestCase
     public function testGetExtent(string $spatial, Extent $extent): void
     {
         $object = GisMultiPoint::singleton();
-        $this->assertEquals($extent, $object->getExtent($spatial));
+        self::assertEquals($extent, $object->getExtent($spatial));
     }
 
     /**
@@ -141,7 +141,7 @@ class GisMultiPointTest extends GisGeomTestCase
     {
         $object = GisMultiPoint::singleton();
         $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
-        $this->assertNotNull($image);
+        self::assertNotNull($image);
         $object->prepareRowAsPng(
             'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
             'image',
@@ -149,13 +149,13 @@ class GisMultiPointTest extends GisGeomTestCase
             new ScaleData(offsetX: -18, offsetY: 14, scale: 1.71, height: 124),
             $image,
         );
-        $this->assertEquals(200, $image->width());
-        $this->assertEquals(124, $image->height());
+        self::assertEquals(200, $image->width());
+        self::assertEquals(124, $image->height());
 
         $fileExpected = $this->testDir . '/multipoint-expected.png';
         $fileActual = $this->testDir . '/multipoint-actual.png';
-        $this->assertTrue($image->png($fileActual));
-        $this->assertFileEquals($fileExpected, $fileActual);
+        self::assertTrue($image->png($fileActual));
+        self::assertFileEquals($fileExpected, $fileActual);
     }
 
     /**
@@ -180,7 +180,7 @@ class GisMultiPointTest extends GisGeomTestCase
         $fileExpectedArch = $this->testDir . '/multipoint-expected-' . $this->getArch() . '.pdf';
         $fileExpectedGeneric = $this->testDir . '/multipoint-expected.pdf';
         $fileExpected = file_exists($fileExpectedArch) ? $fileExpectedArch : $fileExpectedGeneric;
-        $this->assertStringEqualsFile($fileExpected, $pdf->Output(dest: 'S'));
+        self::assertStringEqualsFile($fileExpected, $pdf->Output(dest: 'S'));
     }
 
     /**
@@ -221,7 +221,7 @@ class GisMultiPointTest extends GisGeomTestCase
     ): void {
         $object = GisMultiPoint::singleton();
         $svg = $object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
-        $this->assertEquals($output, $svg);
+        self::assertEquals($output, $svg);
     }
 
     /**
@@ -271,7 +271,7 @@ class GisMultiPointTest extends GisGeomTestCase
     ): void {
         $object = GisMultiPoint::singleton();
         $ol = $object->prepareRowAsOl($spatial, $srid, $label, $color);
-        $this->assertEquals($output, $ol);
+        self::assertEquals($output, $ol);
     }
 
     /**

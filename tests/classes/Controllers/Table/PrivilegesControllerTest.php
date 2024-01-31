@@ -41,11 +41,11 @@ class PrivilegesControllerTest extends AbstractTestCase
 
         $privileges = [];
 
-        $serverPrivileges = $this->createMock(Privileges::class);
+        $serverPrivileges = self::createMock(Privileges::class);
         $serverPrivileges->method('getAllPrivileges')
             ->willReturn($privileges);
 
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParam')->willReturnMap([['db', null, 'db'], ['table', null, 'table']]);
 
         $response = new ResponseRenderer();
@@ -57,38 +57,38 @@ class PrivilegesControllerTest extends AbstractTestCase
         ))($request);
         $actual = $response->getHTMLResult();
 
-        $this->assertStringContainsString(Current::$database . '.' . Current::$table, $actual);
+        self::assertStringContainsString(Current::$database . '.' . Current::$table, $actual);
 
         //validate 2: Url::getCommon
         $item = Url::getCommon(['db' => Current::$database, 'table' => Current::$table], '');
-        $this->assertStringContainsString($item, $actual);
+        self::assertStringContainsString($item, $actual);
 
         //validate 3: items
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             __('User'),
             $actual,
         );
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             __('Host'),
             $actual,
         );
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             __('Type'),
             $actual,
         );
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             __('Privileges'),
             $actual,
         );
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             __('Grant'),
             $actual,
         );
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             __('Action'),
             $actual,
         );
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             __('No user found'),
             $actual,
         );
@@ -96,37 +96,37 @@ class PrivilegesControllerTest extends AbstractTestCase
 
     public function testWithInvalidDatabaseName(): void
     {
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParam')->willReturnMap([['db', null, ''], ['table', null, 'table']]);
 
         $response = new ResponseRenderer();
         (new PrivilegesController(
             $response,
             new Template(),
-            $this->createStub(Privileges::class),
+            self::createStub(Privileges::class),
             $this->createDatabaseInterface(),
         ))($request);
         $actual = $response->getHTMLResult();
 
-        $this->assertStringContainsString('<div class="alert alert-danger" role="alert">', $actual);
-        $this->assertStringContainsString('The database name must be a non-empty string.', $actual);
+        self::assertStringContainsString('<div class="alert alert-danger" role="alert">', $actual);
+        self::assertStringContainsString('The database name must be a non-empty string.', $actual);
     }
 
     public function testWithInvalidTableName(): void
     {
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParam')->willReturnMap([['db', null, 'db'], ['table', null, '']]);
 
         $response = new ResponseRenderer();
         (new PrivilegesController(
             $response,
             new Template(),
-            $this->createStub(Privileges::class),
+            self::createStub(Privileges::class),
             $this->createDatabaseInterface(),
         ))($request);
         $actual = $response->getHTMLResult();
 
-        $this->assertStringContainsString('<div class="alert alert-danger" role="alert">', $actual);
-        $this->assertStringContainsString('The table name must be a non-empty string.', $actual);
+        self::assertStringContainsString('<div class="alert alert-danger" role="alert">', $actual);
+        self::assertStringContainsString('The table name must be a non-empty string.', $actual);
     }
 }

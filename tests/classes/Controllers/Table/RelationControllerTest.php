@@ -63,12 +63,12 @@ class RelationControllerTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
         // Test the situation when the table is a view
-        $tableMock->expects($this->any())->method('isView')
+        $tableMock->expects(self::any())->method('isView')
             ->willReturn(true);
-        $tableMock->expects($this->any())->method('getColumns')
+        $tableMock->expects(self::any())->method('getColumns')
             ->willReturn($viewColumns);
 
-        $this->dbi->expects($this->any())->method('getTable')
+        $this->dbi->expects(self::any())->method('getTable')
             ->willReturn($tableMock);
 
         $ctrl = new RelationController(
@@ -80,7 +80,7 @@ class RelationControllerTest extends AbstractTestCase
 
         $ctrl->getDropdownValueForTable();
         $json = $this->response->getJSONResult();
-        $this->assertEquals($viewColumns, $json['columns']);
+        self::assertEquals($viewColumns, $json['columns']);
     }
 
     /**
@@ -96,12 +96,12 @@ class RelationControllerTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
         // Test the situation when the table is a view
-        $tableMock->expects($this->any())->method('isView')
+        $tableMock->expects(self::any())->method('isView')
             ->willReturn(false);
-        $tableMock->expects($this->any())->method('getIndexedColumns')
+        $tableMock->expects(self::any())->method('getIndexedColumns')
             ->willReturn($indexedColumns);
 
-        $this->dbi->expects($this->any())->method('getTable')
+        $this->dbi->expects(self::any())->method('getTable')
             ->willReturn($tableMock);
 
         $ctrl = new RelationController(
@@ -113,7 +113,7 @@ class RelationControllerTest extends AbstractTestCase
 
         $ctrl->getDropdownValueForTable();
         $json = $this->response->getJSONResult();
-        $this->assertEquals($indexedColumns, $json['columns']);
+        self::assertEquals($indexedColumns, $json['columns']);
     }
 
     /**
@@ -125,11 +125,11 @@ class RelationControllerTest extends AbstractTestCase
     {
         $resultStub = $this->createMock(DummyResult::class);
 
-        $this->dbi->expects($this->exactly(1))
+        $this->dbi->expects(self::exactly(1))
             ->method('query')
             ->willReturn($resultStub);
 
-        $resultStub->expects($this->any())
+        $resultStub->expects(self::any())
             ->method('getIterator')
             ->willReturnCallback(static function (): Generator {
                 yield from [['Engine' => 'InnoDB', 'Name' => 'table']];
@@ -145,7 +145,7 @@ class RelationControllerTest extends AbstractTestCase
         $_POST['foreign'] = 'true';
         $ctrl->getDropdownValueForDatabase('INNODB');
         $json = $this->response->getJSONResult();
-        $this->assertEquals(
+        self::assertEquals(
             ['table'],
             $json['tables'],
         );
@@ -160,11 +160,11 @@ class RelationControllerTest extends AbstractTestCase
     {
         $resultStub = $this->createMock(DummyResult::class);
 
-        $this->dbi->expects($this->exactly(1))
+        $this->dbi->expects(self::exactly(1))
             ->method('query')
             ->willReturn($resultStub);
 
-        $resultStub->expects($this->any())
+        $resultStub->expects(self::any())
             ->method('fetchAllColumn')
             ->willReturn(['table']);
 
@@ -178,7 +178,7 @@ class RelationControllerTest extends AbstractTestCase
         $_POST['foreign'] = 'false';
         $ctrl->getDropdownValueForDatabase('INNODB');
         $json = $this->response->getJSONResult();
-        $this->assertEquals(
+        self::assertEquals(
             ['table'],
             $json['tables'],
         );

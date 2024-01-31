@@ -30,7 +30,7 @@ class ForeignKeyTest extends AbstractTestCase
     #[DataProvider('providerIsSupported')]
     public function testIsSupported(string $a, bool $e): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             $e,
             ForeignKey::isSupported($a),
         );
@@ -50,17 +50,17 @@ class ForeignKeyTest extends AbstractTestCase
     {
         $config = Config::getInstance();
         $config->settings['DefaultForeignKeyChecks'] = 'enable';
-        $this->assertTrue(
+        self::assertTrue(
             ForeignKey::isCheckEnabled(),
         );
 
         $config->settings['DefaultForeignKeyChecks'] = 'disable';
-        $this->assertFalse(
+        self::assertFalse(
             ForeignKey::isCheckEnabled(),
         );
 
         $config->settings['DefaultForeignKeyChecks'] = 'default';
-        $this->assertTrue(
+        self::assertTrue(
             ForeignKey::isCheckEnabled(),
         );
     }
@@ -81,16 +81,16 @@ class ForeignKeyTest extends AbstractTestCase
 
         $_REQUEST['fk_checks'] = $checksValue;
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('getVariable')
             ->willReturn('ON');
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('setVariable')
             ->with('FOREIGN_KEY_CHECKS', $setVariableParam)
             ->willReturn(true);
 
-        $this->assertTrue(ForeignKey::handleDisableCheckInit());
+        self::assertTrue(ForeignKey::handleDisableCheckInit());
     }
 
     #[DataProvider('providerCheckInit')]
@@ -103,16 +103,16 @@ class ForeignKeyTest extends AbstractTestCase
 
         $_REQUEST['fk_checks'] = $checksValue;
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('getVariable')
             ->willReturn('OFF');
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('setVariable')
             ->with('FOREIGN_KEY_CHECKS', $setVariableParam)
             ->willReturn(true);
 
-        $this->assertFalse(ForeignKey::handleDisableCheckInit());
+        self::assertFalse(ForeignKey::handleDisableCheckInit());
     }
 
     /** @return mixed[][] */
@@ -129,7 +129,7 @@ class ForeignKeyTest extends AbstractTestCase
             ->getMock();
         DatabaseInterface::$instance = $dbi;
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('setVariable')
             ->with('FOREIGN_KEY_CHECKS', $setVariableParam)
             ->willReturn(true);

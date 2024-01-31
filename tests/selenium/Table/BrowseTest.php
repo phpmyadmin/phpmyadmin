@@ -49,17 +49,17 @@ class BrowseTest extends TestBase
         $this->byPartialLinkText('name')->click();
         $this->waitAjax();
 
-        $this->assertEquals(
+        self::assertEquals(
             '1',
             $this->getCellByTableClass('table_results', 1, 5),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             '3',
             $this->getCellByTableClass('table_results', 2, 5),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             '2',
             $this->getCellByTableClass('table_results', 3, 5),
         );
@@ -68,17 +68,17 @@ class BrowseTest extends TestBase
         $this->byPartialLinkText('name')->click();
         $this->waitAjax();
 
-        $this->assertEquals(
+        self::assertEquals(
             '2',
             $this->getCellByTableClass('table_results', 1, 5),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             '1',
             $this->getCellByTableClass('table_results', 2, 5),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             '3',
             $this->getCellByTableClass('table_results', 3, 5),
         );
@@ -88,17 +88,17 @@ class BrowseTest extends TestBase
         $this->waitAjax();
 
         $this->getCellByTableClass('table_results', 1, 5);
-        $this->assertEquals(
+        self::assertEquals(
             '3',
             $this->getCellByTableClass('table_results', 1, 5),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             '1',
             $this->getCellByTableClass('table_results', 2, 5),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             '2',
             $this->getCellByTableClass('table_results', 3, 5),
         );
@@ -107,17 +107,17 @@ class BrowseTest extends TestBase
         $this->byPartialLinkText('datetimefield')->click();
         $this->waitAjax();
 
-        $this->assertEquals(
+        self::assertEquals(
             '2',
             $this->getCellByTableClass('table_results', 1, 5),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             '1',
             $this->getCellByTableClass('table_results', 2, 5),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             '3',
             $this->getCellByTableClass('table_results', 3, 5),
         );
@@ -138,17 +138,17 @@ class BrowseTest extends TestBase
         $this->waitAjax();
         $this->waitForElement('id', 'insertForm');
 
-        $this->assertEquals(
+        self::assertEquals(
             '2',
             $this->byId('field_1_3')->getAttribute('value'),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'foo',
             $this->byId('field_2_3')->getAttribute('value'),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             '2010-01-20 02:00:02',
             $this->byId('field_3_3')->getAttribute('value'),
         );
@@ -165,14 +165,14 @@ class BrowseTest extends TestBase
 
         $this->waitAjax();
         $success = $this->waitForElement('className', 'alert-success');
-        $this->assertStringContainsString('1 row affected', $success->getText());
+        self::assertStringContainsString('1 row affected', $success->getText());
 
-        $this->assertEquals(
+        self::assertEquals(
             'foobar',
             $this->getCellByTableClass('table_results', 2, 6),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             '2009-01-02 00:00:00',
             $this->getCellByTableClass('table_results', 2, 7),
         );
@@ -189,7 +189,7 @@ class BrowseTest extends TestBase
         $this->moveto($element);
         $this->doubleclick();
 
-        $this->assertEquals(
+        self::assertEquals(
             $this->waitForElement(
                 'xpath',
                 "//div[not(contains(@style,'display: none;'))]//textarea[contains(@class, 'edit_box')]",
@@ -204,9 +204,9 @@ class BrowseTest extends TestBase
 
         $this->waitAjax();
         $success = $this->waitForElement('cssSelector', 'span.ajax_notification .alert-success');
-        $this->assertStringContainsString('1 row affected', $success->getText());
+        self::assertStringContainsString('1 row affected', $success->getText());
 
-        $this->assertEquals(
+        self::assertEquals(
             'abcde',
             $this->getCellByTableClass('table_results', 1, 6),
         );
@@ -223,12 +223,12 @@ class BrowseTest extends TestBase
         $this->click();
         $this->waitForElement('id', 'insertForm');
 
-        $this->assertEquals(
+        self::assertEquals(
             'Abcd',
             $this->byId('field_2_3')->getAttribute('value'),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             '2012-01-20 02:00:02',
             $this->byId('field_3_3')->getAttribute('value'),
         );
@@ -243,14 +243,14 @@ class BrowseTest extends TestBase
 
         $this->waitAjax();
         $success = $this->waitForElement('className', 'alert-success');
-        $this->assertStringContainsString('1 row inserted', $success->getText());
+        self::assertStringContainsString('1 row inserted', $success->getText());
 
-        $this->assertEquals(
+        self::assertEquals(
             'ABCDEFG',
             $this->getCellByTableClass('table_results', 4, 6),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             '2012-01-02 00:00:00',
             $this->getCellByTableClass('table_results', 4, 7),
         );
@@ -280,14 +280,14 @@ class BrowseTest extends TestBase
 
         $this->waitAjax();
         $success = $this->waitForElement('className', 'alert-success');
-        $this->assertStringContainsString('Showing rows', $success->getText());
+        self::assertStringContainsString('Showing rows', $success->getText());
 
-        $this->assertEquals(
+        self::assertEquals(
             '1',
             $this->getCellByTableClass('table_results', 1, 5),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             '3',
             $this->getCellByTableClass('table_results', 2, 5),
         );
@@ -312,14 +312,14 @@ class BrowseTest extends TestBase
             'cssSelector',
             '.sqlqueryresults > .result_query:nth-child(1) > .alert-success',
         );
-        $this->assertStringContainsString('Your SQL query has been executed successfully.', $success->getText());
+        self::assertStringContainsString('Your SQL query has been executed successfully.', $success->getText());
         $success = $this->waitForElement(
             'cssSelector',
             '.sqlqueryresults > .result_query:nth-child(2) > .alert-success',
         );
-        $this->assertStringContainsString('Showing rows', $success->getText());
+        self::assertStringContainsString('Showing rows', $success->getText());
 
-        $this->assertFalse(
+        self::assertFalse(
             $this->isElementPresent(
                 'cssSelector',
                 'table.table_results tbody tr:nth-child(2)',

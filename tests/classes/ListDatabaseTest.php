@@ -42,7 +42,7 @@ class ListDatabaseTest extends AbstractTestCase
         $config->selectedServer['DisableIS'] = false;
         $config->selectedServer['only_db'] = ['single\\_db'];
         $arr = new ListDatabase($dbi, $config, new CheckUserPrivileges($dbi));
-        $this->assertTrue($arr->exists('single_db'));
+        self::assertTrue($arr->exists('single_db'));
     }
 
     public function testGetList(): void
@@ -54,13 +54,13 @@ class ListDatabaseTest extends AbstractTestCase
         $arr = new ListDatabase($dbi, $config, new CheckUserPrivileges($dbi));
 
         Current::$database = 'db';
-        $this->assertEquals(
+        self::assertEquals(
             [['name' => 'single_db', 'is_selected' => false]],
             $arr->getList(),
         );
 
         Current::$database = 'single_db';
-        $this->assertEquals(
+        self::assertEquals(
             [['name' => 'single_db', 'is_selected' => true]],
             $arr->getList(),
         );
@@ -72,7 +72,7 @@ class ListDatabaseTest extends AbstractTestCase
     public function testCheckHideDatabase(): void
     {
         Config::getInstance()->selectedServer['hide_db'] = 'single\\_db';
-        $this->assertEquals(
+        self::assertEquals(
             $this->callFunction(
                 $this->object,
                 ListDatabase::class,

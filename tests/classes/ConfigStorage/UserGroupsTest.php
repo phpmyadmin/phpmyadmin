@@ -49,24 +49,24 @@ class UserGroupsTest extends AbstractTestCase
     {
         $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups` ORDER BY `usergroup` ASC';
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createMock(DummyResult::class);
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('tryQueryAsControlUser')
             ->with($expectedQuery)
             ->willReturn($resultStub);
-        $resultStub->expects($this->once())
+        $resultStub->expects(self::once())
             ->method('numRows')
             ->willReturn(0);
         DatabaseInterface::$instance = $dbi;
 
         $html = UserGroups::getHtmlForUserGroupsTable($this->configurableMenusFeature);
-        $this->assertStringNotContainsString('<table id="userGroupsTable">', $html);
+        self::assertStringNotContainsString('<table id="userGroupsTable">', $html);
         $urlTag = '<a class="btn btn-primary" href="' . Url::getFromRoute('/server/user-groups', ['addUserGroup' => 1]);
-        $this->assertStringContainsString($urlTag, $html);
+        self::assertStringContainsString($urlTag, $html);
     }
 
     /**
@@ -75,14 +75,14 @@ class UserGroupsTest extends AbstractTestCase
     public function testGetHtmlForUserGroupsTableWithUserGroups(): void
     {
         $html = UserGroups::getHtmlForUserGroupsTable($this->configurableMenusFeature);
-        $this->assertStringContainsString('<td>user&lt;br&gt;group</td>', $html);
+        self::assertStringContainsString('<td>user&lt;br&gt;group</td>', $html);
         $urlTag = '<a class="" href="' . Url::getFromRoute('/server/user-groups') . '" data-post="'
             . Url::getCommon(['viewUsers' => 1, 'userGroup' => 'user<br>group'], '');
-        $this->assertStringContainsString($urlTag, $html);
+        self::assertStringContainsString($urlTag, $html);
         $urlTag = '<a class="" href="' . Url::getFromRoute('/server/user-groups') . '" data-post="'
             . Url::getCommon(['editUserGroup' => 1, 'userGroup' => 'user<br>group'], '');
-        $this->assertStringContainsString($urlTag, $html);
-        $this->assertStringContainsString(
+        self::assertStringContainsString($urlTag, $html);
+        self::assertStringContainsString(
             '<button type="button" class="btn btn-link" data-bs-toggle="modal"'
             . ' data-bs-target="#deleteUserGroupModal" data-user-group="user&lt;br&gt;group">',
             $html,
@@ -97,13 +97,13 @@ class UserGroupsTest extends AbstractTestCase
         $userDelQuery = 'DELETE FROM `pmadb`.`users` WHERE `usergroup`=\'ug\'';
         $userGrpDelQuery = 'DELETE FROM `pmadb`.`usergroups` WHERE `usergroup`=\'ug\'';
 
-        $result = $this->createStub(ResultInterface::class);
-        $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->exactly(2))->method('queryAsControlUser')->willReturnMap([
+        $result = self::createStub(ResultInterface::class);
+        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi->expects(self::exactly(2))->method('queryAsControlUser')->willReturnMap([
             [$userDelQuery, $result],
             [$userGrpDelQuery, $result],
         ]);
-        $dbi->expects($this->any())->method('quoteString')
+        $dbi->expects(self::any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         UserGroups::delete($dbi, $this->configurableMenusFeature, 'ug');
@@ -116,41 +116,41 @@ class UserGroupsTest extends AbstractTestCase
     {
         // adding a user group
         $html = UserGroups::getHtmlToEditUserGroup($this->configurableMenusFeature);
-        $this->assertStringContainsString('<input type="hidden" name="addUserGroupSubmit" value="1"', $html);
-        $this->assertStringContainsString('<input class="form-control" type="text" name="userGroup"', $html);
+        self::assertStringContainsString('<input type="hidden" name="addUserGroupSubmit" value="1"', $html);
+        self::assertStringContainsString('<input class="form-control" type="text" name="userGroup"', $html);
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createMock(DummyResult::class);
 
         $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups` WHERE `usergroup`=\'user<br>group\'';
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('tryQueryAsControlUser')
             ->with($expectedQuery)
             ->willReturn($resultStub);
-        $resultStub->expects($this->exactly(1))
+        $resultStub->expects(self::exactly(1))
             ->method('getIterator')
             ->willReturnCallback(static function (): Generator {
                 yield from [['usergroup' => 'user<br>group', 'tab' => 'server_sql', 'allowed' => 'Y']];
             });
-        $dbi->expects($this->any())->method('quoteString')
+        $dbi->expects(self::any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;
 
         // editing a user group
         $html = UserGroups::getHtmlToEditUserGroup($this->configurableMenusFeature, 'user<br>group');
-        $this->assertStringContainsString('Edit user group: \'user&lt;br&gt;group\'', $html);
-        $this->assertStringContainsString('<input type="hidden" name="userGroup" value="user&lt;br&gt;group"', $html);
-        $this->assertStringContainsString('<input type="hidden" name="editUserGroupSubmit" value="1"', $html);
-        $this->assertStringContainsString('<input type="hidden" name="editUserGroupSubmit" value="1"', $html);
-        $this->assertStringContainsString(
+        self::assertStringContainsString('Edit user group: \'user&lt;br&gt;group\'', $html);
+        self::assertStringContainsString('<input type="hidden" name="userGroup" value="user&lt;br&gt;group"', $html);
+        self::assertStringContainsString('<input type="hidden" name="editUserGroupSubmit" value="1"', $html);
+        self::assertStringContainsString('<input type="hidden" name="editUserGroupSubmit" value="1"', $html);
+        self::assertStringContainsString(
             '<input class="form-check-input checkall" type="checkbox"'
             . ' checked="checked" name="server_sql" id="server_sql" value="Y">',
             $html,
         );
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<input class="form-check-input checkall" type="checkbox"'
             . ' name="server_databases" id="server_databases" value="Y">',
             $html,
@@ -166,8 +166,8 @@ class UserGroupsTest extends AbstractTestCase
         $dummyDbi->addResult('SELECT `username` FROM `pmadb`.`users` WHERE `usergroup`=\'user<br>group\'', []);
 
         $output = UserGroups::getHtmlForListingUsersofAGroup($this->configurableMenusFeature, 'user<br>group');
-        $this->assertStringContainsString('Users of \'user&lt;br&gt;group\' user group', $output);
-        $this->assertStringContainsString('No users were found belonging to this user group.', $output);
+        self::assertStringContainsString('Users of \'user&lt;br&gt;group\' user group', $output);
+        self::assertStringContainsString('No users were found belonging to this user group.', $output);
     }
 
     public function testGetHtmlForListingUsersOfAGroupWithUsers(): void
@@ -183,11 +183,11 @@ class UserGroupsTest extends AbstractTestCase
         );
 
         $output = UserGroups::getHtmlForListingUsersofAGroup($this->configurableMenusFeature, 'user<br>group');
-        $this->assertStringContainsString('Users of \'user&lt;br&gt;group\' user group', $output);
-        $this->assertStringContainsString('<td>1</td>', $output);
-        $this->assertStringContainsString('<td>user&lt;br&gt;one</td>', $output);
-        $this->assertStringContainsString('<td>2</td>', $output);
-        $this->assertStringContainsString('<td>user&lt;br&gt;two</td>', $output);
-        $this->assertStringNotContainsString('No users were found belonging to this user group.', $output);
+        self::assertStringContainsString('Users of \'user&lt;br&gt;group\' user group', $output);
+        self::assertStringContainsString('<td>1</td>', $output);
+        self::assertStringContainsString('<td>user&lt;br&gt;one</td>', $output);
+        self::assertStringContainsString('<td>2</td>', $output);
+        self::assertStringContainsString('<td>user&lt;br&gt;two</td>', $output);
+        self::assertStringNotContainsString('No users were found belonging to this user group.', $output);
     }
 }

@@ -54,7 +54,7 @@ class GisGeometryTest extends AbstractTestCase
             'getCoordinatesExtent',
             [$pointSet],
         );
-        $this->assertEquals($expected, $extent);
+        self::assertEquals($expected, $extent);
     }
 
     /**
@@ -85,7 +85,7 @@ class GisGeometryTest extends AbstractTestCase
     #[DataProvider('providerForTestParseWktAndSrid')]
     public function testParseWktAndSrid(string $value, array $output): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             $output,
             $this->callFunction(
                 $this->object,
@@ -137,7 +137,7 @@ class GisGeometryTest extends AbstractTestCase
             'extractPointsInternal',
             [$pointSet, $scaleData, $linear],
         );
-        $this->assertEquals($output, $points);
+        self::assertEquals($output, $points);
     }
 
     /**

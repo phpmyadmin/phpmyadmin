@@ -37,9 +37,9 @@ class DbiDummyTest extends AbstractTestCase
 
     public function testGetClientInfo(): void
     {
-        $this->assertNotEmpty($this->dummyDbi->getClientInfo());
+        self::assertNotEmpty($this->dummyDbi->getClientInfo());
         // Call the DatabaseInterface
-        $this->assertSame($this->dbi->getClientInfo(), $this->dummyDbi->getClientInfo());
+        self::assertSame($this->dbi->getClientInfo(), $this->dummyDbi->getClientInfo());
     }
 
     /**
@@ -49,7 +49,7 @@ class DbiDummyTest extends AbstractTestCase
      */
     public function testQuery(): void
     {
-        $this->assertInstanceOf(DummyResult::class, $this->dbi->tryQuery('SELECT 1'));
+        self::assertInstanceOf(DummyResult::class, $this->dbi->tryQuery('SELECT 1'));
     }
 
     /**
@@ -60,8 +60,8 @@ class DbiDummyTest extends AbstractTestCase
     public function testFetch(): void
     {
         $result = $this->dbi->tryQuery('SELECT 1');
-        $this->assertNotFalse($result);
-        $this->assertSame(['1'], $result->fetchRow());
+        self::assertNotFalse($result);
+        self::assertSame(['1'], $result->fetchRow());
     }
 
     /**
@@ -73,7 +73,7 @@ class DbiDummyTest extends AbstractTestCase
     #[DataProvider('schemaData')]
     public function testSystemSchema(string $schema, bool $expected): void
     {
-        $this->assertEquals($expected, Utilities::isSystemSchema($schema));
+        self::assertEquals($expected, Utilities::isSystemSchema($schema));
     }
 
     /** @return array<array{string, bool}> */
@@ -92,7 +92,7 @@ class DbiDummyTest extends AbstractTestCase
     #[DataProvider('errorData')]
     public function testFormatError(int $number, string $message, string $expected): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             $expected,
             Utilities::formatError($number, $message),
         );

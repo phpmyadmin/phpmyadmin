@@ -93,28 +93,28 @@ class ExportTexytextTest extends AbstractTestCase
         $attrProperties = new ReflectionProperty(ExportTexytext::class, 'properties');
         $properties = $attrProperties->getValue($this->object);
 
-        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
+        self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        $this->assertEquals(
+        self::assertEquals(
             'Texy! text',
             $properties->getText(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'txt',
             $properties->getExtension(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'text/plain',
             $properties->getMimeType(),
         );
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
+        self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        $this->assertEquals(
+        self::assertEquals(
             'Format Specific Options',
             $options->getName(),
         );
@@ -124,14 +124,14 @@ class ExportTexytextTest extends AbstractTestCase
         $generalOptions = $generalOptionsArray->current();
         $generalOptionsArray->next();
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
+        self::assertEquals(
             'general_opts',
             $generalOptions->getName(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'Dump table',
             $generalOptions->getText(),
         );
@@ -140,13 +140,13 @@ class ExportTexytextTest extends AbstractTestCase
 
         $property = $generalProperties->current();
 
-        $this->assertInstanceOf(RadioPropertyItem::class, $property);
+        self::assertInstanceOf(RadioPropertyItem::class, $property);
 
         $generalOptions = $generalOptionsArray->current();
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
+        self::assertEquals(
             'data',
             $generalOptions->getName(),
         );
@@ -156,18 +156,18 @@ class ExportTexytextTest extends AbstractTestCase
         $property = $generalProperties->current();
         $generalProperties->next();
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        $this->assertEquals(
+        self::assertEquals(
             'columns',
             $property->getName(),
         );
 
         $property = $generalProperties->current();
 
-        $this->assertInstanceOf(TextPropertyItem::class, $property);
+        self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        $this->assertEquals(
+        self::assertEquals(
             'null',
             $property->getName(),
         );
@@ -175,14 +175,14 @@ class ExportTexytextTest extends AbstractTestCase
 
     public function testExportHeader(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportHeader(),
         );
     }
 
     public function testExportFooter(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportFooter(),
         );
     }
@@ -190,21 +190,21 @@ class ExportTexytextTest extends AbstractTestCase
     public function testExportDBHeader(): void
     {
         $this->expectOutputString("===Database testDb\n\n");
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBHeader('testDb'),
         );
     }
 
     public function testExportDBFooter(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBFooter('testDB'),
         );
     }
 
     public function testExportDBCreate(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBCreate('testDB', 'database'),
         );
     }
@@ -216,7 +216,7 @@ class ExportTexytextTest extends AbstractTestCase
         $GLOBALS['foo_null'] = '>';
 
         ob_start();
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportData(
                 'test_db',
                 'test_table',
@@ -226,8 +226,8 @@ class ExportTexytextTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
-        $this->assertEquals(
+        self::assertIsString($result);
+        self::assertEquals(
             '== Dumping data for table test_table' . "\n\n"
                 . '|------' . "\n"
                 . '|id|name|datetimefield' . "\n"
@@ -245,7 +245,7 @@ class ExportTexytextTest extends AbstractTestCase
         $result = $this->object->getTableDefStandIn('test_db', 'test_table');
         $this->dummyDbi->assertAllSelectsConsumed();
 
-        $this->assertEquals(
+        self::assertEquals(
             '|------' . "\n"
             . '|Column|Type|Null|Default' . "\n"
             . '|------' . "\n"
@@ -271,26 +271,26 @@ class ExportTexytextTest extends AbstractTestCase
 
         $keys = [['Non_unique' => 0, 'Column_name' => 'cname'], ['Non_unique' => 1, 'Column_name' => 'cname2']];
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('getTableIndexes')
             ->with('db', 'table')
             ->willReturn($keys);
 
-        $dbi->expects($this->exactly(2))
+        $dbi->expects(self::exactly(2))
             ->method('fetchResult')
             ->willReturn(
                 ['fname' => ['foreign_table' => '<ftable', 'foreign_field' => 'ffield>']],
                 ['fname' => ['values' => 'test-', 'transformation' => 'testfoo', 'mimetype' => 'test<']],
             );
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('fetchValue')
             ->willReturn('SELECT a FROM b');
 
         $column = new Column('fname', '', false, '', null, '');
         $columnFull = new ColumnFull('fname', '', null, false, '', null, '', '', 'comm');
 
-        $dbi->expects($this->exactly(2))
+        $dbi->expects(self::exactly(2))
             ->method('getColumns')
             ->willReturnMap([
                 ['db', 'table', false, ConnectionType::User, [$column]],
@@ -300,7 +300,7 @@ class ExportTexytextTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $this->object->relation = new Relation($dbi);
 
-        $this->object->expects($this->exactly(1))
+        $this->object->expects(self::exactly(1))
             ->method('formatOneColumnDefinition')
             ->with($column, ['cname'])
             ->willReturn('1');
@@ -317,7 +317,7 @@ class ExportTexytextTest extends AbstractTestCase
 
         $result = $this->object->getTableDef('db', 'table', true, true, true);
 
-        $this->assertStringContainsString('1|&lt;ftable (ffield&gt;)|comm|Test&lt;', $result);
+        self::assertStringContainsString('1|&lt;ftable (ffield&gt;)|comm|Test&lt;', $result);
     }
 
     public function testGetTriggers(): void
@@ -335,9 +335,9 @@ class ExportTexytextTest extends AbstractTestCase
 
         $result = $this->object->getTriggers($triggers);
 
-        $this->assertStringContainsString('|tna"me|BEFORE|DELETE|def', $result);
+        self::assertStringContainsString('|tna"me|BEFORE|DELETE|def', $result);
 
-        $this->assertStringContainsString('|Name|Time|Event|Definition', $result);
+        self::assertStringContainsString('|Name|Time|Event|Definition', $result);
     }
 
     public function testExportStructure(): void
@@ -345,7 +345,7 @@ class ExportTexytextTest extends AbstractTestCase
         // case 1
         ob_start();
         $this->dummyDbi->addSelectDb('test_db');
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
@@ -356,8 +356,8 @@ class ExportTexytextTest extends AbstractTestCase
         $this->dummyDbi->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
-        $this->assertEquals(
+        self::assertIsString($result);
+        self::assertEquals(
             '== Table structure for table test_table' . "\n\n"
             . '|------' . "\n"
             . '|Column|Type|Null|Default' . "\n"
@@ -370,7 +370,7 @@ class ExportTexytextTest extends AbstractTestCase
 
         // case 2
         ob_start();
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
@@ -380,7 +380,7 @@ class ExportTexytextTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertEquals(
+        self::assertEquals(
             '== Triggers test_table' . "\n\n"
             . '|------' . "\n"
             . '|Name|Time|Event|Definition' . "\n"
@@ -392,7 +392,7 @@ class ExportTexytextTest extends AbstractTestCase
         // case 3
         ob_start();
         $this->dummyDbi->addSelectDb('test_db');
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
@@ -403,7 +403,7 @@ class ExportTexytextTest extends AbstractTestCase
         $this->dummyDbi->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
-        $this->assertEquals(
+        self::assertEquals(
             '== Structure for view test_table' . "\n\n"
             . '|------' . "\n"
             . '|Column|Type|Null|Default' . "\n"
@@ -417,7 +417,7 @@ class ExportTexytextTest extends AbstractTestCase
         // case 4
         ob_start();
         $this->dummyDbi->addSelectDb('test_db');
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
@@ -428,7 +428,7 @@ class ExportTexytextTest extends AbstractTestCase
         $this->dummyDbi->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
-        $this->assertEquals(
+        self::assertEquals(
             '== Stand-in structure for view test_table' . "\n\n"
             . '|------' . "\n"
             . '|Column|Type|Null|Default' . "\n"
@@ -446,7 +446,7 @@ class ExportTexytextTest extends AbstractTestCase
 
         $uniqueKeys = ['field'];
 
-        $this->assertEquals(
+        self::assertEquals(
             '|//**field**//|set(abc)|Yes|NULL',
             $this->object->formatOneColumnDefinition($cols, $uniqueKeys),
         );
@@ -455,7 +455,7 @@ class ExportTexytextTest extends AbstractTestCase
 
         $uniqueKeys = ['field'];
 
-        $this->assertEquals(
+        self::assertEquals(
             '|fields|&amp;nbsp;|No|def',
             $this->object->formatOneColumnDefinition($cols, $uniqueKeys),
         );

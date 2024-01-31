@@ -18,16 +18,16 @@ class RulesTest extends TestCase
     public function testRules(callable $rulesFactory): void
     {
         $rules = $rulesFactory();
-        $this->assertNotEmpty($rules);
+        self::assertNotEmpty($rules);
         foreach ($rules as $rule) {
-            $this->assertArrayHasKey('id', $rule);
-            $this->assertArrayHasKey('name', $rule);
-            $this->assertArrayHasKey('formula', $rule);
-            $this->assertArrayHasKey('test', $rule);
-            $this->assertArrayHasKey('issue', $rule);
-            $this->assertArrayHasKey('recommendation', $rule);
-            $this->assertArrayHasKey('justification', $rule);
-            $this->assertContainsOnly('string', $rule);
+            self::assertArrayHasKey('id', $rule);
+            self::assertArrayHasKey('name', $rule);
+            self::assertArrayHasKey('formula', $rule);
+            self::assertArrayHasKey('test', $rule);
+            self::assertArrayHasKey('issue', $rule);
+            self::assertArrayHasKey('recommendation', $rule);
+            self::assertArrayHasKey('justification', $rule);
+            self::assertContainsOnly('string', $rule);
         }
     }
 

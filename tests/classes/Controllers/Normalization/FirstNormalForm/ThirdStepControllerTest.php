@@ -37,10 +37,10 @@ class ThirdStepControllerTest extends AbstractTestCase
             $template,
             new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
         );
-        $controller($this->createStub(ServerRequest::class));
+        $controller(self::createStub(ServerRequest::class));
 
         // phpcs:disable Generic.Files.LineLength.TooLong
-        $this->assertSame([
+        self::assertSame([
             'legendText' => 'Step 1.3 Move repeating groups',
             'headText' => 'Do you have a group of two or more columns that are closely related and are all repeating the same attribute? For example, a table that holds data on books might have columns such as book_id, author1, author2, author3 and so on which form a repeating group. In this case a new table (book_id, author) should be created.',
             'subText' => 'Check the columns which form a repeating group. If no such group, click on \'No repeating group\'',

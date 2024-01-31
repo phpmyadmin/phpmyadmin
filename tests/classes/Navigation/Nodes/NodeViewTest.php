@@ -17,15 +17,15 @@ class NodeViewTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = new NodeView('default');
-        $this->assertEquals(
+        self::assertEquals(
             [
                 'text' => ['route' => '/sql', 'params' => ['pos' => 0, 'db' => null, 'table' => null]],
                 'icon' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
             ],
             $parent->links,
         );
-        $this->assertEquals('b_props', $parent->icon['image']);
-        $this->assertEquals('View', $parent->icon['title']);
-        $this->assertStringContainsString('view', $parent->classes);
+        self::assertEquals('b_props', $parent->icon['image']);
+        self::assertEquals('View', $parent->icon['title']);
+        self::assertStringContainsString('view', $parent->classes);
     }
 }

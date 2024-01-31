@@ -54,12 +54,12 @@ class FormProcessingTest extends AbstractTestCase
             ->onlyMethods(['process', 'getDisplay'])
             ->getMock();
 
-        $formDisplay->expects($this->once())
+        $formDisplay->expects(self::once())
             ->method('process')
             ->with(false)
             ->willReturn(false);
 
-        $formDisplay->expects($this->once())
+        $formDisplay->expects(self::once())
             ->method('getDisplay');
 
         FormProcessing::process($formDisplay);
@@ -70,12 +70,12 @@ class FormProcessingTest extends AbstractTestCase
             ->onlyMethods(['process', 'hasErrors', 'displayErrors'])
             ->getMock();
 
-        $formDisplay->expects($this->once())
+        $formDisplay->expects(self::once())
             ->method('process')
             ->with(false)
             ->willReturn(true);
 
-        $formDisplay->expects($this->once())
+        $formDisplay->expects(self::once())
             ->method('hasErrors')
             ->with()
             ->willReturn(true);
@@ -84,15 +84,15 @@ class FormProcessingTest extends AbstractTestCase
         FormProcessing::process($formDisplay);
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
+        self::assertIsString($result);
 
-        $this->assertStringContainsString('<div class="error">', $result);
+        self::assertStringContainsString('<div class="error">', $result);
 
-        $this->assertStringContainsString('mode=revert', $result);
+        self::assertStringContainsString('mode=revert', $result);
 
-        $this->assertStringContainsString('<a class="btn" href="../setup/index.php?route=/setup&', $result);
+        self::assertStringContainsString('<a class="btn" href="../setup/index.php?route=/setup&', $result);
 
-        $this->assertStringContainsString('mode=edit', $result);
+        self::assertStringContainsString('mode=edit', $result);
 
         // case 3
         $formDisplay = $this->getMockBuilder(FormDisplay::class)
@@ -100,12 +100,12 @@ class FormProcessingTest extends AbstractTestCase
             ->onlyMethods(['process', 'hasErrors'])
             ->getMock();
 
-        $formDisplay->expects($this->once())
+        $formDisplay->expects(self::once())
             ->method('process')
             ->with(false)
             ->willReturn(true);
 
-        $formDisplay->expects($this->once())
+        $formDisplay->expects(self::once())
             ->method('hasErrors')
             ->with()
             ->willReturn(false);
@@ -115,9 +115,9 @@ class FormProcessingTest extends AbstractTestCase
         } catch (Throwable $throwable) {
         }
 
-        $this->assertInstanceOf(ExitException::class, $throwable ?? null);
+        self::assertInstanceOf(ExitException::class, $throwable ?? null);
         $response = $responseStub->getResponse();
-        $this->assertSame(['../setup/index.php?route=%2Fsetup&lang=en'], $response->getHeader('Location'));
-        $this->assertSame(303, $response->getStatusCode());
+        self::assertSame(['../setup/index.php?route=%2Fsetup&lang=en'], $response->getHeader('Location'));
+        self::assertSame(303, $response->getStatusCode());
     }
 }

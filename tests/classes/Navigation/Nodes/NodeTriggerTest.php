@@ -17,7 +17,7 @@ class NodeTriggerTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = new NodeTrigger('default');
-        $this->assertEquals(
+        self::assertEquals(
             [
                 'text' => [
                     'route' => '/triggers',

@@ -77,28 +77,28 @@ class ExportXmlTest extends AbstractTestCase
         $attrProperties = new ReflectionProperty(ExportXml::class, 'properties');
         $properties = $attrProperties->getValue($this->object);
 
-        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
+        self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        $this->assertEquals(
+        self::assertEquals(
             'XML',
             $properties->getText(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'xml',
             $properties->getExtension(),
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             'text/xml',
             $properties->getMimeType(),
         );
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
+        self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        $this->assertEquals(
+        self::assertEquals(
             'Format Specific Options',
             $options->getName(),
         );
@@ -108,9 +108,9 @@ class ExportXmlTest extends AbstractTestCase
         $generalOptions = $generalOptionsArray->current();
         $generalOptionsArray->next();
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
+        self::assertEquals(
             'general_opts',
             $generalOptions->getName(),
         );
@@ -119,14 +119,14 @@ class ExportXmlTest extends AbstractTestCase
 
         $property = $generalProperties->current();
 
-        $this->assertInstanceOf(HiddenPropertyItem::class, $property);
+        self::assertInstanceOf(HiddenPropertyItem::class, $property);
 
         $generalOptions = $generalOptionsArray->current();
         $generalOptionsArray->next();
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
+        self::assertEquals(
             'structure',
             $generalOptions->getName(),
         );
@@ -135,29 +135,29 @@ class ExportXmlTest extends AbstractTestCase
 
         $property = $generalProperties->current();
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         $property = $generalProperties->current();
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         $property = $generalProperties->current();
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         $property = $generalProperties->current();
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         $property = $generalProperties->current();
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         $generalOptions = $generalOptionsArray->current();
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
+        self::assertEquals(
             'data',
             $generalOptions->getName(),
         );
@@ -166,7 +166,7 @@ class ExportXmlTest extends AbstractTestCase
 
         $property = $generalProperties->current();
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
     }
 
     #[Group('medium')]
@@ -209,15 +209,15 @@ class ExportXmlTest extends AbstractTestCase
         $functions = [['Db' => 'd<"b', 'Name' => 'fn', 'Type' => 'FUNCTION']];
         $procedures = [['Db' => 'd<"b', 'Name' => 'pr', 'Type' => 'PROCEDURE']];
 
-        $dbi->expects($this->exactly(5))
+        $dbi->expects(self::exactly(5))
             ->method('fetchResult')
             ->willReturn($result, $result, $triggers, $functions, $procedures);
 
-        $dbi->expects($this->exactly(3))
+        $dbi->expects(self::exactly(3))
             ->method('fetchValue')
             ->willReturn(false, 'fndef', 'prdef');
 
-        $dbi->expects($this->once())
+        $dbi->expects(self::once())
             ->method('getTable')
             ->willReturn(new Table('table', 'd<"b', $dbi));
 
@@ -227,20 +227,20 @@ class ExportXmlTest extends AbstractTestCase
         Current::$table = 'table';
 
         ob_start();
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportHeader(),
         );
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
+        self::assertIsString($result);
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '&lt;pma_xml_export version=&quot;1.0&quot; xmlns:pma=&quot;' .
             'https://www.phpmyadmin.net/some_doc_url/&quot;&gt;',
             $result,
         );
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '&lt;pma:structure_schemas&gt;' . "\n" .
             '        &lt;pma:database name=&quot;d&amp;lt;&amp;quot;b&quot; collat' .
             'ion=&quot;utf8_general_ci&quot; charset=&quot;utf-8&quot;&gt;' . "\n" .
@@ -280,15 +280,15 @@ class ExportXmlTest extends AbstractTestCase
 
         $result3 = ['t2' => [null, '"tbl"']];
 
-        $dbi->expects($this->exactly(3))
+        $dbi->expects(self::exactly(3))
             ->method('fetchResult')
             ->willReturn($result1, $result2, $result3);
 
-        $dbi->expects($this->exactly(2))
+        $dbi->expects(self::exactly(2))
             ->method('fetchValue')
             ->willReturn('table', false);
 
-        $dbi->expects($this->any())
+        $dbi->expects(self::any())
             ->method('getTable')
             ->willReturn(new Table('table', 'd<"b', $dbi));
 
@@ -297,14 +297,14 @@ class ExportXmlTest extends AbstractTestCase
         $GLOBALS['tables'] = ['t1', 't2'];
 
         ob_start();
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportHeader(),
         );
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
+        self::assertIsString($result);
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '&lt;pma:structure_schemas&gt;' . "\n" .
             '        &lt;pma:database name=&quot;d&amp;lt;&amp;quot;b&quot; collat' .
             'ion=&quot;utf8_general_ci&quot; charset=&quot;utf-8&quot;&gt;' . "\n" .
@@ -317,7 +317,7 @@ class ExportXmlTest extends AbstractTestCase
     public function testExportFooter(): void
     {
         $this->expectOutputString('&lt;/pma_xml_export&gt;');
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportFooter(),
         );
     }
@@ -327,18 +327,18 @@ class ExportXmlTest extends AbstractTestCase
         $GLOBALS['xml_export_contents'] = true;
 
         ob_start();
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBHeader('&db'),
         );
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
+        self::assertIsString($result);
 
-        $this->assertStringContainsString('&lt;database name=&quot;&amp;amp;db&quot;&gt;', $result);
+        self::assertStringContainsString('&lt;database name=&quot;&amp;amp;db&quot;&gt;', $result);
 
         $GLOBALS['xml_export_contents'] = false;
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBHeader('&db'),
         );
     }
@@ -348,25 +348,25 @@ class ExportXmlTest extends AbstractTestCase
         $GLOBALS['xml_export_contents'] = true;
 
         ob_start();
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBFooter('&db'),
         );
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
+        self::assertIsString($result);
 
-        $this->assertStringContainsString('&lt;/database&gt;', $result);
+        self::assertStringContainsString('&lt;/database&gt;', $result);
 
         $GLOBALS['xml_export_contents'] = false;
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBFooter('&db'),
         );
     }
 
     public function testExportDBCreate(): void
     {
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportDBCreate('testDB', 'database'),
         );
     }
@@ -378,7 +378,7 @@ class ExportXmlTest extends AbstractTestCase
         $GLOBALS['output_charset_conversion'] = false;
 
         ob_start();
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->exportData(
                 'test_db',
                 'test_table',
@@ -388,8 +388,8 @@ class ExportXmlTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
-        $this->assertEquals(
+        self::assertIsString($result);
+        self::assertEquals(
             '        <!-- Table test_table -->' . "\n"
             . '        <table name="test_table">' . "\n"
             . '            <column name="id">1</column>' . "\n"

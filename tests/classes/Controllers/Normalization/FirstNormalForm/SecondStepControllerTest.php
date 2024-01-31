@@ -34,9 +34,9 @@ class SecondStepControllerTest extends AbstractTestCase
             $template,
             new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
         );
-        $controller($this->createStub(ServerRequest::class));
+        $controller(self::createStub(ServerRequest::class));
 
-        $this->assertSame([
+        self::assertSame([
             'legendText' => 'Step 1.2 Have a primary key',
             'headText' => 'Primary key already exists.',
             'subText' => 'Taking you to next step…',

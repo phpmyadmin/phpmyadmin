@@ -74,7 +74,7 @@ class FooterTest extends AbstractTestCase
             ['count' => 1, 'time' => 2.5, 'query' => 'SELECT * FROM `db` WHERE 1'],
         ];
 
-        $this->assertEquals(
+        self::assertEquals(
             '{"queries":[{"count":1,"time":0.2,"query":"SELECT * FROM `pma_bookmark` WHERE 1"},'
             . '{"count":1,"time":2.5,"query":"SELECT * FROM `db` WHERE 1"}]}',
             $this->object->getDebugMessage(),
@@ -92,7 +92,7 @@ class FooterTest extends AbstractTestCase
         $object->child->parent = $object;
 
         $this->callFunction($this->object, Footer::class, 'removeRecursion', [&$object]);
-        $this->assertEquals(
+        self::assertEquals(
             '{"child":{"parent":"***RECURSION***"},"childIterator":"***ITERATOR***"}',
             json_encode($object),
         );
@@ -105,7 +105,7 @@ class FooterTest extends AbstractTestCase
     {
         $footer = new Footer(new Template());
         $footer->disable();
-        $this->assertEquals(
+        self::assertEquals(
             '',
             $footer->getDisplay(),
         );
@@ -116,7 +116,7 @@ class FooterTest extends AbstractTestCase
         $template = new Template();
         $footer = new Footer($template);
         $footer->setAjax(true);
-        $this->assertEquals(
+        self::assertEquals(
             $template->render('modals/function_confirm') . "\n"
             . $template->render('modals/add_index') . "\n"
             . $template->render('modals/page_settings') . "\n",
@@ -130,7 +130,7 @@ class FooterTest extends AbstractTestCase
     public function testGetScripts(): void
     {
         $footer = new Footer(new Template());
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<script data-cfasync="false">',
             $footer->getScripts()->getDisplay(),
         );
@@ -143,7 +143,7 @@ class FooterTest extends AbstractTestCase
     public function testDisplay(): void
     {
         $footer = new Footer(new Template());
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'Open new phpMyAdmin window',
             $footer->getDisplay(),
         );
@@ -157,7 +157,7 @@ class FooterTest extends AbstractTestCase
         $template = new Template();
         $footer = new Footer($template);
         $footer->setMinimal();
-        $this->assertEquals(
+        self::assertEquals(
             $template->render('modals/function_confirm') . "\n"
             . $template->render('modals/add_index') . "\n"
             . $template->render('modals/page_settings')
@@ -171,10 +171,10 @@ class FooterTest extends AbstractTestCase
         $isAjax = new ReflectionProperty(Footer::class, 'isAjax');
         $footer = new Footer(new Template());
 
-        $this->assertFalse($isAjax->getValue($footer));
+        self::assertFalse($isAjax->getValue($footer));
         $footer->setAjax(true);
-        $this->assertTrue($isAjax->getValue($footer));
+        self::assertTrue($isAjax->getValue($footer));
         $footer->setAjax(false);
-        $this->assertFalse($isAjax->getValue($footer));
+        self::assertFalse($isAjax->getValue($footer));
     }
 }

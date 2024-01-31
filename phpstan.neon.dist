@@ -26,12 +26,3 @@ parameters:
     checkDynamicProperties: true
     checkTooWideReturnTypesInProtectedAndPublicMethods: true
     checkImplicitMixed: true
-    ignoreErrors:
-        -
-            message: '#Dynamic call to static method PHPUnit\\Framework\\Assert::[a-zA-Z]+\(\)\.#'
-            paths:
-                - tests/classes/*
-                - tests/selenium/*
-        -
-            message: '#Dynamic call to static method PHPUnit\\Framework\\TestCase::[a-zA-Z]+\(\)\.#'
-            path: tests/classes/*

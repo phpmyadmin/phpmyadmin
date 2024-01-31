@@ -44,7 +44,7 @@ class InnodbTest extends AbstractTestCase
      */
     public function testGetVariables(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             [
                 'innodb_data_home_dir' => [
                     'title' => __('Data home directory'),
@@ -103,7 +103,7 @@ class InnodbTest extends AbstractTestCase
      */
     public function testGetVariablesLikePattern(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             'innodb\\_%',
             $this->object->getVariablesLikePattern(),
         );
@@ -114,12 +114,12 @@ class InnodbTest extends AbstractTestCase
      */
     public function testGetInfoPages(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             [],
             $this->object->getInfoPages(),
         );
         $this->object->support = 2;
-        $this->assertEquals(
+        self::assertEquals(
             ['Bufferpool' => 'Buffer Pool', 'Status' => 'InnoDB Status'],
             $this->object->getInfoPages(),
         );
@@ -130,7 +130,7 @@ class InnodbTest extends AbstractTestCase
      */
     public function testGetPageBufferpool(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             '<table class="table table-striped table-hover w-auto float-start caption-top">' . "\n" .
             '    <caption>' . "\n" .
             '        Buffer Pool Usage' . "\n" .
@@ -213,7 +213,7 @@ class InnodbTest extends AbstractTestCase
      */
     public function testGetPageStatus(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             '<pre id="pre_innodb_status">' . "\n\n" . '</pre>' . "\n",
             $this->object->getPageStatus(),
         );
@@ -224,12 +224,12 @@ class InnodbTest extends AbstractTestCase
      */
     public function testGetPage(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             '',
             $this->object->getPage('Status'),
         );
         $this->object->support = 2;
-        $this->assertEquals(
+        self::assertEquals(
             '<pre id="pre_innodb_status">' . "\n\n" . '</pre>' . "\n",
             $this->object->getPage('Status'),
         );
@@ -240,7 +240,7 @@ class InnodbTest extends AbstractTestCase
      */
     public function testGetMysqlHelpPage(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             'innodb-storage-engine',
             $this->object->getMysqlHelpPage(),
         );
@@ -251,7 +251,7 @@ class InnodbTest extends AbstractTestCase
      */
     public function testGetInnodbPluginVersion(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             '1.1.8',
             $this->object->getInnodbPluginVersion(),
         );
@@ -262,7 +262,7 @@ class InnodbTest extends AbstractTestCase
      */
     public function testSupportsFilePerTable(): void
     {
-        $this->assertFalse(
+        self::assertFalse(
             $this->object->supportsFilePerTable(),
         );
     }
@@ -272,7 +272,7 @@ class InnodbTest extends AbstractTestCase
      */
     public function testGetInnodbFileFormat(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             'Antelope',
             $this->object->getInnodbFileFormat(),
         );

@@ -113,6 +113,6 @@ class GisVisualizationControllerTest extends AbstractTestCase
 
         $response = new ResponseRenderer();
         (new GisVisualizationController($response, $template, $dbi, new DbTableExists($dbi)))($request);
-        $this->assertSame($expected, $response->getHTMLResult());
+        self::assertSame($expected, $response->getHTMLResult());
     }
 }

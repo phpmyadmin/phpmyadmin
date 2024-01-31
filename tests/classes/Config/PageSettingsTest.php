@@ -47,7 +47,7 @@ class PageSettingsTest extends AbstractTestCase
         $object = new PageSettings(new UserPreferences($dbi, new Relation($dbi), new Template()));
         $object->init('NonExistent');
 
-        $this->assertEquals('', $object->getHTML());
+        self::assertEquals('', $object->getHTML());
     }
 
     /**
@@ -67,7 +67,7 @@ class PageSettingsTest extends AbstractTestCase
         $html = $object->getHTML();
 
         // Test some sample parts
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<div id="page_settings_modal">'
             . '<div class="page_settings">'
             . '<form method="post" '
@@ -76,9 +76,9 @@ class PageSettingsTest extends AbstractTestCase
             $html,
         );
 
-        $this->assertStringContainsString('<input type="hidden" name="submit_save" value="Browse">', $html);
+        self::assertStringContainsString('<input type="hidden" name="submit_save" value="Browse">', $html);
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             "window.Config.registerFieldValidator('MaxRows', 'validatePositiveNumber', true);\n"
             . "window.Config.registerFieldValidator('RepeatCells', 'validateNonNegativeNumber', true);\n"
             . "window.Config.registerFieldValidator('LimitChars', 'validatePositiveNumber', true);\n",
@@ -100,8 +100,8 @@ class PageSettingsTest extends AbstractTestCase
         $html = $pageSettings->getHTML();
 
         // Test some sample parts
-        $this->assertStringContainsString('<div id="pma_navigation_settings">', $html);
+        self::assertStringContainsString('<div id="pma_navigation_settings">', $html);
 
-        $this->assertStringContainsString('<input type="hidden" name="submit_save" value="Navi">', $html);
+        self::assertStringContainsString('<input type="hidden" name="submit_save" value="Navi">', $html);
     }
 }

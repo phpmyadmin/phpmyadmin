@@ -43,7 +43,7 @@ class OptionsPropertyOneItemTest extends AbstractTestCase
     {
         $this->stub->setValues([1, 2]);
 
-        $this->assertEquals(
+        self::assertEquals(
             [1, 2],
             $this->stub->getValues(),
         );
@@ -58,7 +58,7 @@ class OptionsPropertyOneItemTest extends AbstractTestCase
     {
         $this->stub->setLen(12);
 
-        $this->assertEquals(
+        self::assertEquals(
             12,
             $this->stub->getLen(),
         );
@@ -73,7 +73,7 @@ class OptionsPropertyOneItemTest extends AbstractTestCase
     {
         $this->stub->setForce('force123');
 
-        $this->assertEquals(
+        self::assertEquals(
             'force123',
             $this->stub->getForce(),
         );
@@ -88,7 +88,7 @@ class OptionsPropertyOneItemTest extends AbstractTestCase
     {
         $this->stub->setDoc('doc123');
 
-        $this->assertEquals(
+        self::assertEquals(
             'doc123',
             $this->stub->getDoc(),
         );
@@ -103,7 +103,7 @@ class OptionsPropertyOneItemTest extends AbstractTestCase
     {
         $this->stub->setSize(22);
 
-        $this->assertEquals(
+        self::assertEquals(
             22,
             $this->stub->getSize(),
         );

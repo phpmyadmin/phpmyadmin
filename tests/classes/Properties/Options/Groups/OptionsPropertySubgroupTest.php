@@ -35,7 +35,7 @@ class OptionsPropertySubgroupTest extends AbstractTestCase
 
     public function testGetItemType(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             'subgroup',
             $this->object->getItemType(),
         );
@@ -51,7 +51,7 @@ class OptionsPropertySubgroupTest extends AbstractTestCase
         $propertyItem = new OptionsPropertySubgroup();
         $this->object->setSubgroupHeader($propertyItem);
 
-        $this->assertEquals(
+        self::assertEquals(
             $propertyItem,
             $this->object->getSubgroupHeader(),
         );

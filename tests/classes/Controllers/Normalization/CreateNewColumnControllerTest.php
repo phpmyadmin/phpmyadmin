@@ -34,7 +34,7 @@ class CreateNewColumnControllerTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
         $template = new Template();
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['numFields', null, '1']]);
 
         $controller = new CreateNewColumnController(
@@ -44,6 +44,6 @@ class CreateNewColumnControllerTest extends AbstractTestCase
         );
         $controller($request);
 
-        $this->assertStringContainsString('<table id="table_columns"', $response->getHTMLResult());
+        self::assertStringContainsString('<table id="table_columns"', $response->getHTMLResult());
     }
 }

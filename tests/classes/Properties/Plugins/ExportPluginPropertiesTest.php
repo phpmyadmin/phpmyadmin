@@ -35,7 +35,7 @@ class ExportPluginPropertiesTest extends AbstractTestCase
 
     public function testGetItemType(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             'export',
             $this->object->getItemType(),
         );
@@ -50,7 +50,7 @@ class ExportPluginPropertiesTest extends AbstractTestCase
     {
         $this->object->setForceFile(true);
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->object->getForceFile(),
         );
     }

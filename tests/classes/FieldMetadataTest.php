@@ -19,81 +19,81 @@ class FieldMetadataTest extends AbstractTestCase
     public function testEmptyConstruct(): void
     {
         $fm = FieldHelper::fromArray(['type' => -1]);
-        $this->assertSame('', $fm->getMappedType());
-        $this->assertFalse($fm->isBinary());
-        $this->assertFalse($fm->isEnum());
-        $this->assertFalse($fm->isUniqueKey());
-        $this->assertFalse($fm->isUnsigned());
-        $this->assertFalse($fm->isZerofill());
-        $this->assertFalse($fm->isSet());
-        $this->assertFalse($fm->isNotNull());
-        $this->assertFalse($fm->isPrimaryKey());
-        $this->assertFalse($fm->isMultipleKey());
-        $this->assertFalse($fm->isBlob());
+        self::assertSame('', $fm->getMappedType());
+        self::assertFalse($fm->isBinary());
+        self::assertFalse($fm->isEnum());
+        self::assertFalse($fm->isUniqueKey());
+        self::assertFalse($fm->isUnsigned());
+        self::assertFalse($fm->isZerofill());
+        self::assertFalse($fm->isSet());
+        self::assertFalse($fm->isNotNull());
+        self::assertFalse($fm->isPrimaryKey());
+        self::assertFalse($fm->isMultipleKey());
+        self::assertFalse($fm->isBlob());
     }
 
     public function testIsBinary(): void
     {
         $fm = FieldHelper::fromArray(['type' => MYSQLI_TYPE_STRING, 'charsetnr' => 63]);
-        $this->assertTrue($fm->isBinary());
-        $this->assertFalse($fm->isEnum());
-        $this->assertFalse($fm->isUniqueKey());
-        $this->assertFalse($fm->isUnsigned());
-        $this->assertFalse($fm->isZerofill());
-        $this->assertFalse($fm->isSet());
-        $this->assertFalse($fm->isNotNull());
-        $this->assertFalse($fm->isPrimaryKey());
-        $this->assertFalse($fm->isMultipleKey());
-        $this->assertFalse($fm->isBlob());
+        self::assertTrue($fm->isBinary());
+        self::assertFalse($fm->isEnum());
+        self::assertFalse($fm->isUniqueKey());
+        self::assertFalse($fm->isUnsigned());
+        self::assertFalse($fm->isZerofill());
+        self::assertFalse($fm->isSet());
+        self::assertFalse($fm->isNotNull());
+        self::assertFalse($fm->isPrimaryKey());
+        self::assertFalse($fm->isMultipleKey());
+        self::assertFalse($fm->isBlob());
     }
 
     public function testIsNumeric(): void
     {
         $fm = FieldHelper::fromArray(['type' => MYSQLI_TYPE_INT24, 'flags' => MYSQLI_NUM_FLAG]);
-        $this->assertSame('int', $fm->getMappedType());
-        $this->assertFalse($fm->isBinary());
-        $this->assertFalse($fm->isEnum());
-        $this->assertFalse($fm->isUniqueKey());
-        $this->assertFalse($fm->isUnsigned());
-        $this->assertFalse($fm->isZerofill());
-        $this->assertFalse($fm->isSet());
-        $this->assertFalse($fm->isNotNull());
-        $this->assertFalse($fm->isPrimaryKey());
-        $this->assertFalse($fm->isMultipleKey());
-        $this->assertTrue($fm->isNumeric());
-        $this->assertFalse($fm->isBlob());
+        self::assertSame('int', $fm->getMappedType());
+        self::assertFalse($fm->isBinary());
+        self::assertFalse($fm->isEnum());
+        self::assertFalse($fm->isUniqueKey());
+        self::assertFalse($fm->isUnsigned());
+        self::assertFalse($fm->isZerofill());
+        self::assertFalse($fm->isSet());
+        self::assertFalse($fm->isNotNull());
+        self::assertFalse($fm->isPrimaryKey());
+        self::assertFalse($fm->isMultipleKey());
+        self::assertTrue($fm->isNumeric());
+        self::assertFalse($fm->isBlob());
     }
 
     public function testIsBlob(): void
     {
         $fm = FieldHelper::fromArray(['type' => -1, 'flags' => MYSQLI_BLOB_FLAG]);
-        $this->assertSame('', $fm->getMappedType());
-        $this->assertFalse($fm->isBinary());
-        $this->assertFalse($fm->isEnum());
-        $this->assertFalse($fm->isUniqueKey());
-        $this->assertFalse($fm->isUnsigned());
-        $this->assertFalse($fm->isZerofill());
-        $this->assertFalse($fm->isSet());
-        $this->assertFalse($fm->isNotNull());
-        $this->assertFalse($fm->isPrimaryKey());
-        $this->assertFalse($fm->isMultipleKey());
-        $this->assertTrue($fm->isBlob());
+        self::assertSame('', $fm->getMappedType());
+        self::assertFalse($fm->isBinary());
+        self::assertFalse($fm->isEnum());
+        self::assertFalse($fm->isUniqueKey());
+        self::assertFalse($fm->isUnsigned());
+        self::assertFalse($fm->isZerofill());
+        self::assertFalse($fm->isSet());
+        self::assertFalse($fm->isNotNull());
+        self::assertFalse($fm->isPrimaryKey());
+        self::assertFalse($fm->isMultipleKey());
+        self::assertTrue($fm->isBlob());
     }
 
     public function testIsNumericFloat(): void
     {
         $fm = FieldHelper::fromArray(['type' => MYSQLI_TYPE_FLOAT, 'flags' => MYSQLI_NUM_FLAG]);
-        $this->assertSame('real', $fm->getMappedType());
-        $this->assertFalse($fm->isBinary());
-        $this->assertFalse($fm->isEnum());
-        $this->assertFalse($fm->isUniqueKey());
-        $this->assertFalse($fm->isUnsigned());
-        $this->assertFalse($fm->isZerofill());
-        $this->assertFalse($fm->isSet());
-        $this->assertFalse($fm->isNotNull());
-        $this->assertFalse($fm->isPrimaryKey());
-        $this->assertFalse($fm->isMultipleKey());
-        $this->assertTrue($fm->isNumeric());
-        $this->assertFalse($fm->isBlob());
+        self::assertSame('real', $fm->getMappedType());
+        self::assertFalse($fm->isBinary());
+        self::assertFalse($fm->isEnum());
+        self::assertFalse($fm->isUniqueKey());
+        self::assertFalse($fm->isUnsigned());
+        self::assertFalse($fm->isZerofill());
+        self::assertFalse($fm->isSet());
+        self::assertFalse($fm->isNotNull());
+        self::assertFalse($fm->isPrimaryKey());
+        self::assertFalse($fm->isMultipleKey());
+        self::assertTrue($fm->isNumeric());
+        self::assertFalse($fm->isBlob());
     }
 }

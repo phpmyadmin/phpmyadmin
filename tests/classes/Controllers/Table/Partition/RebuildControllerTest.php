@@ -25,7 +25,7 @@ class RebuildControllerTest extends AbstractTestCase
         string|null $table,
         string $message,
     ): void {
-        $request = $this->createStub(ServerRequest::class);
+        $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['partition_name', null, $partition]]);
         $request->method('getParam')->willReturnMap([['db', null, $db], ['table', null, $table]]);
         $dbi = $this->createDatabaseInterface();
@@ -35,7 +35,7 @@ class RebuildControllerTest extends AbstractTestCase
         $controller = new RebuildController($response, new Template(), new Maintenance($dbi));
         $controller($request);
 
-        $this->assertSame(Message::error($message)->getDisplay(), $response->getHTMLResult());
+        self::assertSame(Message::error($message)->getDisplay(), $response->getHTMLResult());
     }
 
     /** @return array<int, array{string|null, string|null, string|null, non-empty-string}> */

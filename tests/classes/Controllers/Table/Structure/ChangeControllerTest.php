@@ -55,7 +55,7 @@ class ChangeControllerTest extends AbstractTestCase
 
         $method->invokeArgs($ctrl, [[$_REQUEST['field']]]);
         $actual = $response->getHTMLResult();
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<input id="field_0_1"' . "\n"
             . '        type="text"' . "\n"
             . '    name="field_name[0]"' . "\n"
@@ -66,6 +66,6 @@ class ChangeControllerTest extends AbstractTestCase
             . '    value="_id">' . "\n",
             $actual,
         );
-        $this->assertStringContainsString('id="enumEditorModal"', $actual);
+        self::assertStringContainsString('id="enumEditorModal"', $actual);
     }
 }
