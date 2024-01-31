@@ -11085,7 +11085,6 @@
       <code>$paramTableName</code>
       <code>$paramTableName</code>
       <code>$passwordSetReal</code>
-      <code>$privilege</code>
       <code>$realSqlQuery</code>
       <code>$row</code>
       <code>$row</code>
@@ -11118,10 +11117,6 @@
       <code><![CDATA[$host['User']]]></code>
       <code><![CDATA[$host['User']]]></code>
       <code><![CDATA[$host['privs']]]></code>
-      <code><![CDATA[$privilege['Host']]]></code>
-      <code><![CDATA[$privilege['Host']]]></code>
-      <code><![CDATA[$privilege['User']]]></code>
-      <code><![CDATA[$privilege['User']]]></code>
       <code><![CDATA[$row['Db']]]></code>
       <code><![CDATA[$row['Grant_priv']]]></code>
       <code><![CDATA[$row['Proc_priv']]]></code>
@@ -11161,7 +11156,6 @@
       <code>$paramDbName</code>
       <code>$paramRoutineName</code>
       <code>$paramTableName</code>
-      <code>$privilege</code>
       <code><![CDATA[$privilege['routine']]]></code>
       <code><![CDATA[$privilege['table']]]></code>
       <code>$queriesForDisplay[$tmpCount - 1]</code>
@@ -11192,8 +11186,6 @@
       <code>$createUserShow</code>
       <code>$oneGrant</code>
       <code>$origValue</code>
-      <code><![CDATA[$privilege['Host']]]></code>
-      <code><![CDATA[$privilege['User']]]></code>
       <code>$sqlQuery</code>
     </MixedOperand>
     <MixedReturnStatement>
@@ -11295,6 +11287,8 @@
       <code>$alterUserQuery</code>
       <code>$alterUserQuery</code>
       <code>$alterUserQuery</code>
+      <code><![CDATA[$privilege['Host']]]></code>
+      <code><![CDATA[$privilege['User']]]></code>
     </PossiblyNullOperand>
     <PossiblyUndefinedArrayOffset>
       <code>$row1[0]</code>

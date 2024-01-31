@@ -1124,7 +1124,7 @@ class Privileges
         return $privilege;
     }
 
-    /** @return mixed[] */
+    /** @return array<int, array<string|null>> */
     private function getGlobalAndDatabasePrivileges(DatabaseName $db): array
     {
         $listOfPrivileges = '`Select_priv`,
@@ -1185,7 +1185,7 @@ class Privileges
         return $result->fetchAllAssoc();
     }
 
-    /** @return mixed[] */
+    /** @return array<int, array<string|null>> */
     private function getTablePrivileges(DatabaseName $db, TableName $table): array
     {
         $query = '
@@ -1207,7 +1207,7 @@ class Privileges
         return $result->fetchAllAssoc();
     }
 
-    /** @return mixed[] */
+    /** @return array<int, array<string|null>> */
     private function getRoutinesPrivileges(DatabaseName $db): array
     {
         $query = '
