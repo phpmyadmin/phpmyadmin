@@ -2940,12 +2940,11 @@
   </file>
   <file src="src/Controllers/Server/Variables/SetVariableController.php">
     <MixedArgument>
-      <code>$formattedValue</code>
       <code>$varValue[1]</code>
     </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$json['variable']]]></code>
-    </MixedAssignment>
+    <PossiblyInvalidArgument>
+      <code>$formattedValue</code>
+    </PossiblyInvalidArgument>
     <PossiblyNullArgument>
       <code>$varValue[1]</code>
     </PossiblyNullArgument>

@@ -3886,7 +3886,7 @@ parameters:
 			path: src/Controllers/Server/Variables/SetVariableController.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, int\\|string given\\.$#"
 			count: 1
 			path: src/Controllers/Server/Variables/SetVariableController.php
 
