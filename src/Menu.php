@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\UserGroupLevel;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Routing\Routing;
@@ -72,14 +73,14 @@ class Menu
             $tabs = $this->getTableTabs();
             $urlParams['db'] = $this->db;
             $urlParams['table'] = $this->table;
-            $level = 'table';
+            $level = UserGroupLevel::Table;
         } elseif ($this->db !== '') {
             $tabs = $this->getDbTabs();
             $urlParams['db'] = $this->db;
-            $level = 'db';
+            $level = UserGroupLevel::Database;
         } else {
             $tabs = $this->getServerTabs();
-            $level = 'server';
+            $level = UserGroupLevel::Server;
         }
 
         $allowedTabs = $this->getAllowedTabs($level);
@@ -92,18 +93,16 @@ class Menu
     /**
      * Returns a list of allowed tabs for the current user for the given level
      *
-     * @param string $level 'server', 'db' or 'table' level
-     *
      * @return mixed[] list of allowed tabs
      */
-    private function getAllowedTabs(string $level): array
+    private function getAllowedTabs(UserGroupLevel $level): array
     {
-        $cacheKey = 'menu-levels-' . $level;
+        $cacheKey = 'menu-levels-' . $level->value;
         if (SessionCache::has($cacheKey)) {
             return SessionCache::get($cacheKey);
         }
 
-        $allowedTabs = Util::getMenuTabList($level) ?? [];
+        $allowedTabs = Util::getMenuTabList($level);
         $configurableMenusFeature = $this->relation->getRelationParameters()->configurableMenusFeature;
         if ($configurableMenusFeature !== null) {
             $groupTable = Util::backquote($configurableMenusFeature->database)
@@ -114,7 +113,7 @@ class Menu
             $config = Config::getInstance();
             $sqlQuery = 'SELECT `tab` FROM ' . $groupTable
                 . " WHERE `allowed` = 'N'"
-                . " AND `tab` LIKE '" . $level . "%'"
+                . " AND `tab` LIKE '" . $level->value . "%'"
                 . ' AND `usergroup` = (SELECT usergroup FROM '
                 . $userTable . ' WHERE `username` = '
                 . $this->dbi->quoteString($config->selectedServer['user'], ConnectionType::ControlUser) . ')';

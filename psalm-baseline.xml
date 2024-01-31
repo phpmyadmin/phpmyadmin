@@ -868,24 +868,6 @@
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
-    <MixedArgumentTypeCoercion>
-      <code>$tabNames</code>
-    </MixedArgumentTypeCoercion>
-    <MixedAssignment>
-      <code>$tab</code>
-      <code>$tab</code>
-      <code><![CDATA[$tabDetail['tab']]]></code>
-      <code><![CDATA[$tabDetail['tab_name']]]></code>
-      <code>$tabGroupName</code>
-      <code>$tabName</code>
-      <code>$tabName</code>
-      <code>$tabNames[]</code>
-    </MixedAssignment>
-    <MixedOperand>
-      <code>$tab</code>
-      <code>$tab</code>
-      <code>$tabGroupName</code>
-    </MixedOperand>
     <PossiblyNullArgument>
       <code>$key</code>
     </PossiblyNullArgument>
@@ -894,11 +876,6 @@
       <code>$userGroups</code>
       <code>$userGroups[$groupName]</code>
     </PossiblyNullArrayOffset>
-    <PossiblyNullIterator>
-      <code>$tabs</code>
-      <code>$tabs</code>
-      <code>$tabs</code>
-    </PossiblyNullIterator>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$result->numRows()]]></code>
     </RiskyTruthyFalsyComparison>

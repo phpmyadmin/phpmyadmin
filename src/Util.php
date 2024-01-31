@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\ConfigStorage\UserGroupLevel;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Query\Compatibility;
@@ -1457,14 +1458,12 @@ class Util
     /**
      * Return the list of tabs for the menu with corresponding names
      *
-     * @param string|null $level 'server', 'db' or 'table' level
-     *
-     * @return mixed[]|null list of tabs for the menu
+     * @return array<string, string> list of tabs for the menu
      */
-    public static function getMenuTabList(string|null $level = null): array|null
+    public static function getMenuTabList(UserGroupLevel $level): array
     {
-        $tabList = [
-            'server' => [
+        return match ($level) {
+            UserGroupLevel::Server => [
                 'databases' => __('Databases'),
                 'sql' => __('SQL'),
                 'status' => __('Status'),
@@ -1479,7 +1478,7 @@ class Util
                 'plugins' => __('Plugins'),
                 'engine' => __('Engines'),
             ],
-            'db' => [
+            UserGroupLevel::Database => [
                 'structure' => __('Structure'),
                 'sql' => __('SQL'),
                 'search' => __('Search'),
@@ -1495,7 +1494,7 @@ class Util
                 'designer' => __('Designer'),
                 'central_columns' => __('Central columns'),
             ],
-            'table' => [
+            UserGroupLevel::Table => [
                 'browse' => __('Browse'),
                 'structure' => __('Structure'),
                 'sql' => __('SQL'),
@@ -1508,17 +1507,7 @@ class Util
                 'tracking' => __('Tracking'),
                 'triggers' => __('Triggers'),
             ],
-        ];
-
-        if ($level === null) {
-            return $tabList;
-        }
-
-        if (array_key_exists($level, $tabList)) {
-            return $tabList[$level];
-        }
-
-        return null;
+        };
     }
 
     /**

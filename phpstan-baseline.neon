@@ -1466,11 +1466,6 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
-			message: "#^Argument of an invalid type array\\|null supplied for foreach, only iterables are supported\\.$#"
-			count: 3
-			path: src/ConfigStorage/UserGroups.php
-
-		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
 			count: 1
 			path: src/ConfigStorage/UserGroups.php
