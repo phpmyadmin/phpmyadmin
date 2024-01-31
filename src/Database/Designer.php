@@ -17,7 +17,6 @@ use PhpMyAdmin\Util;
 use stdClass;
 
 use function __;
-use function intval;
 use function is_array;
 use function json_decode;
 use function str_contains;
@@ -74,7 +73,7 @@ class Designer
      *
      * @param string $db database name
      *
-     * @return mixed[] array of schema page id and names
+     * @return array<string|null> array of schema page id and names
      */
     private function getPageIdsAndNames(string $db): array
     {
@@ -94,12 +93,7 @@ class Designer
             return [];
         }
 
-        $result = [];
-        while ($currPage = $pageRs->fetchAssoc()) {
-            $result[intval($currPage['page_nr'])] = $currPage['page_descr'];
-        }
-
-        return $result;
+        return $pageRs->fetchAllKeyPair();
     }
 
     /**

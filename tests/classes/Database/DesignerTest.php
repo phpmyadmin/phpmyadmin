@@ -68,13 +68,12 @@ class DesignerTest extends AbstractTestCase
             )
             ->willReturn($resultStub);
 
-        $resultStub->expects($this->exactly(3))
-            ->method('fetchAssoc')
-            ->willReturn(
-                ['page_nr' => '1', 'page_descr' => 'page1'],
-                ['page_nr' => '2', 'page_descr' => 'page2'],
-                [],
-            );
+        $resultStub->expects($this->exactly(1))
+            ->method('fetchAllKeyPair')
+            ->willReturn([
+                '1' => 'page1',
+                '2' => 'page2',
+            ]);
 
         $dbi->expects($this->any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
