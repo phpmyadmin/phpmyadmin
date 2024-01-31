@@ -16486,11 +16486,6 @@ parameters:
 			path: tests/classes/Crypto/CryptoTest.php
 
 		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\DatabaseInterface\\:\\:expects\\(\\)\\.$#"
-			count: 10
-			path: tests/classes/Database/CentralColumnsTest.php
-
-		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<string\\> will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Database/CentralColumnsTest.php
@@ -16498,26 +16493,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 0 on mixed\\.$#"
 			count: 1
-			path: tests/classes/Database/CentralColumnsTest.php
-
-		-
-			message: "#^Cannot call method method\\(\\) on mixed\\.$#"
-			count: 10
-			path: tests/classes/Database/CentralColumnsTest.php
-
-		-
-			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
-			count: 9
-			path: tests/classes/Database/CentralColumnsTest.php
-
-		-
-			message: "#^Cannot call method willReturnOnConsecutiveCalls\\(\\) on mixed\\.$#"
-			count: 1
-			path: tests/classes/Database/CentralColumnsTest.php
-
-		-
-			message: "#^Cannot call method with\\(\\) on mixed\\.$#"
-			count: 7
 			path: tests/classes/Database/CentralColumnsTest.php
 
 		-
