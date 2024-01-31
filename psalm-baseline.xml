@@ -5025,7 +5025,6 @@
       <code>$itemParamType[$i]</code>
       <code>$itemParamType[$i]</code>
       <code>$itemParamType[$i]</code>
-      <code>$newErrors</code>
       <code><![CDATA[$routine['SPECIFIC_NAME']]]></code>
       <code><![CDATA[$routine['SPECIFIC_NAME']]]></code>
       <code><![CDATA[$routine['item_name']]]></code>
@@ -5041,7 +5040,6 @@
       <code><![CDATA[$routine['item_param_type'][$i]]]></code>
       <code><![CDATA[$routine['item_param_type'][$i]]]></code>
       <code><![CDATA[$routine['item_param_type'][$i]]]></code>
-      <code>$value</code>
       <code>$value</code>
       <code>$value</code>
       <code>$value</code>
@@ -5053,12 +5051,6 @@
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$opt['value']]]></code>
-      <code>$priv[0]</code>
-      <code>$priv[1]</code>
-      <code>$priv[2]</code>
-      <code>$priv[5]</code>
-      <code>$priv[6]</code>
-      <code>$priv[7]</code>
       <code><![CDATA[$routine['item_param_dir'][$i]]]></code>
       <code><![CDATA[$routine['item_param_dir'][$i]]]></code>
       <code><![CDATA[$routine['item_param_length_arr'][$i]]]></code>
@@ -5114,7 +5106,6 @@
       <code>$i</code>
       <code>$opt</code>
       <code>$options[]</code>
-      <code>$priv</code>
       <code><![CDATA[$retval['item_comment']]]></code>
       <code><![CDATA[$retval['item_definer']]]></code>
       <code><![CDATA[$retval['item_name']]]></code>
@@ -5124,32 +5115,33 @@
       <code>$value</code>
       <code>$value</code>
       <code>$value</code>
-      <code>$value</code>
     </MixedAssignment>
     <MixedOperand>
       <code>$itemParamLength[$i]</code>
       <code>$itemParamType[$i]</code>
       <code>$itemParamType[$i]</code>
-      <code>$priv[0]</code>
-      <code>$priv[1]</code>
-      <code>$priv[2]</code>
-      <code>$priv[5]</code>
-      <code>$priv[6]</code>
-      <code>$priv[7]</code>
       <code>$string</code>
     </MixedOperand>
+    <MixedReturnTypeCoercion>
+      <code><![CDATA[$this->dbi->fetchResult($privilegesBackupQuery, 0)]]></code>
+      <code>string[][]</code>
+    </MixedReturnTypeCoercion>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['funcs'][$routine['item_param_name'][$i]]]]></code>
       <code><![CDATA[$_POST['item_comment']]]></code>
       <code><![CDATA[$_POST['item_isdeterministic']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_POST['item_original_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
       <code><![CDATA[$_POST['item_original_type']]]></code>
+      <code><![CDATA[$_POST['item_original_type']]]></code>
       <code><![CDATA[$_POST['item_returnopts_num']]]></code>
       <code><![CDATA[$_POST['item_returnopts_text']]]></code>
+      <code><![CDATA[$_POST['item_type']]]></code>
       <code>$itemDefiner</code>
       <code>$itemName</code>
       <code>$itemReturnType</code>
@@ -5165,10 +5157,14 @@
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['item_comment']]]></code>
       <code><![CDATA[$_POST['item_isdeterministic']]]></code>
+      <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
+      <code><![CDATA[$_POST['item_original_name']]]></code>
+      <code><![CDATA[$_POST['item_original_type']]]></code>
       <code><![CDATA[$_POST['item_returnopts_num']]]></code>
       <code><![CDATA[$_POST['item_returnopts_text']]]></code>
+      <code><![CDATA[$_POST['item_type']]]></code>
       <code>$itemReturnType</code>
       <code>$itemReturnType</code>
       <code>$itemReturnType</code>
@@ -5179,15 +5175,12 @@
       <code><![CDATA[$retval['item_param_dir']]]></code>
     </PossiblyInvalidIterator>
     <PossiblyInvalidOperand>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_original_name']]]></code>
-      <code><![CDATA[$_POST['item_original_type']]]></code>
       <code><![CDATA[$_POST['item_original_type']]]></code>
       <code><![CDATA[$_POST['item_returnlength']]]></code>
-      <code><![CDATA[$_POST['item_type']]]></code>
       <code>$itemDefinition</code>
     </PossiblyInvalidOperand>
     <PossiblyNullArgument>
+      <code><![CDATA[$GLOBALS['message']]]></code>
       <code>$createRoutine</code>
       <code><![CDATA[$stmt->return->parameters]]></code>
     </PossiblyNullArgument>
@@ -5197,8 +5190,6 @@
     </PossiblyNullIterator>
     <PossiblyNullOperand>
       <code><![CDATA[$_POST['item_original_type']]]></code>
-      <code>$output</code>
-      <code><![CDATA[$this->browseRow($row)]]></code>
     </PossiblyNullOperand>
     <PossiblyNullPropertyFetch>
       <code><![CDATA[$stmt->return->name]]></code>

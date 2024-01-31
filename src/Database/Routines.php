@@ -160,7 +160,7 @@ class Routines
     /**
      * Backup the privileges
      *
-     * @return mixed[]
+     * @return string[][]
      */
     public function backupPrivileges(): array
     {
@@ -176,9 +176,8 @@ class Routines
 
         $privilegesBackupQuery = 'SELECT * FROM ' . Util::backquote('mysql')
         . '.' . Util::backquote('procs_priv')
-        . ' where Routine_name = "' . $_POST['item_original_name']
-        . '" AND Routine_type = "' . $_POST['item_original_type']
-        . '";';
+        . ' WHERE Routine_name = ' . $this->dbi->quoteString($_POST['item_original_name'])
+        . ' AND Routine_type = ' . $this->dbi->quoteString($_POST['item_original_type']);
 
         return $this->dbi->fetchResult($privilegesBackupQuery, 0);
     }
@@ -186,11 +185,11 @@ class Routines
     /**
      * Create the routine
      *
-     * @param string  $routineQuery     Query to create routine
-     * @param string  $createRoutine    Query to restore routine
-     * @param mixed[] $privilegesBackup Privileges backup
+     * @param string     $routineQuery     Query to create routine
+     * @param string     $createRoutine    Query to restore routine
+     * @param string[][] $privilegesBackup Privileges backup
      *
-     * @return mixed[]
+     * @return array{string[], Message|null}
      */
     public function create(
         string $routineQuery,
@@ -211,7 +210,15 @@ class Routines
             // Try to restore the backup query
             $result = $this->dbi->tryQuery($createRoutine);
             if (! $result) {
-                $errors = $this->checkResult($createRoutine, $errors);
+                // OMG, this is really bad! We dropped the query,
+                // failed to create a new one
+                // and now even the backup query does not execute!
+                // This should not happen, but we better handle
+                // this just in case.
+                $errors[] = __('Sorry, we failed to restore the dropped routine.') . '<br>'
+                . __('The backed up query was:')
+                . '"' . htmlspecialchars($createRoutine) . '"<br>'
+                . __('MySQL said: ') . $this->dbi->getError();
             }
 
             return [$errors, null];
@@ -227,13 +234,13 @@ class Routines
                 $adjustProcPrivilege = 'INSERT INTO '
                     . Util::backquote('mysql') . '.'
                     . Util::backquote('procs_priv')
-                    . ' VALUES("' . $priv[0] . '", "'
-                    . $priv[1] . '", "' . $priv[2] . '", "'
-                    . $_POST['item_name'] . '", "'
-                    . $_POST['item_type'] . '", "'
-                    . $priv[5] . '", "'
-                    . $priv[6] . '", "'
-                    . $priv[7] . '");';
+                    . ' VALUES(' . $this->dbi->quoteString($priv[0]) . ', '
+                    . $this->dbi->quoteString($priv[1]) . ', ' . $this->dbi->quoteString($priv[2]) . ', '
+                    . $this->dbi->quoteString($_POST['item_name']) . ', '
+                    . $this->dbi->quoteString($_POST['item_type']) . ', '
+                    . $this->dbi->quoteString($priv[5]) . ', '
+                    . $this->dbi->quoteString($priv[6]) . ', '
+                    . $this->dbi->quoteString($priv[7]) . ');';
                 $this->dbi->query($adjustProcPrivilege);
                 $resultAdjust = true;
             }
@@ -1010,11 +1017,11 @@ class Routines
     /**
      * Browse row array
      *
-     * @param mixed[] $row Columns
+     * @param (string|null)[] $row Columns
      */
-    private function browseRow(array $row): string|null
+    private function browseRow(array $row): string
     {
-        $output = null;
+        $output = '';
         foreach ($row as $value) {
             if ($value === null) {
                 $value = '<i>NULL</i>';
@@ -1193,27 +1200,6 @@ class Routines
             'has_execute_privilege' => $hasExecutePrivilege,
             'execute_action' => $executeAction,
         ];
-    }
-
-    /**
-     * @param string  $createStatement Query
-     * @param mixed[] $errors          Errors
-     *
-     * @return mixed[]
-     */
-    private function checkResult(string $createStatement, array $errors): array
-    {
-        // OMG, this is really bad! We dropped the query,
-        // failed to create a new one
-        // and now even the backup query does not execute!
-        // This should not happen, but we better handle
-        // this just in case.
-        $errors[] = __('Sorry, we failed to restore the dropped routine.') . '<br>'
-            . __('The backed up query was:')
-            . '"' . htmlspecialchars($createStatement) . '"<br>'
-            . __('MySQL said: ') . $this->dbi->getError();
-
-        return $errors;
     }
 
     /**
