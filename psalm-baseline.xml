@@ -13084,10 +13084,6 @@
   <file src="tests/classes/Controllers/Server/VariablesControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <MixedArrayAccess>
       <code>$formattedValue</code>

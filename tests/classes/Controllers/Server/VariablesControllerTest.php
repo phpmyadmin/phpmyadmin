@@ -29,6 +29,8 @@ use function str_replace;
 #[CoversClass(VariablesController::class)]
 class VariablesControllerTest extends AbstractTestCase
 {
+    private DatabaseInterface&MockObject $mockedDbi;
+
     protected function setUp(): void
     {
         parent::setUp();
@@ -41,7 +43,7 @@ class VariablesControllerTest extends AbstractTestCase
         Current::$table = 'table';
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+        $this->mockedDbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -61,10 +63,8 @@ class VariablesControllerTest extends AbstractTestCase
             ['SHOW GLOBAL VARIABLES;', 0, 1, ConnectionType::User, $serverGlobalVariables],
         ];
 
-        $dbi->expects($this->any())->method('fetchResult')
+        $this->mockedDbi->expects($this->any())->method('fetchResult')
             ->willReturnMap($fetchResult);
-
-        DatabaseInterface::$instance = $dbi;
     }
 
     public function testIndex(): void
@@ -73,14 +73,12 @@ class VariablesControllerTest extends AbstractTestCase
 
         $resultStub = $this->createMock(DummyResult::class);
 
-        /** @var MockObject&DatabaseInterface $dbi */
-        $dbi = DatabaseInterface::getInstance();
-        $dbi->expects($this->once())
+        $this->mockedDbi->expects($this->once())
             ->method('tryQuery')
             ->with('SHOW SESSION VARIABLES;')
             ->willReturn($resultStub);
 
-        $controller = new VariablesController($response, new Template(), $dbi);
+        $controller = new VariablesController($response, new Template(), $this->mockedDbi);
 
         $controller($this->createStub(ServerRequest::class));
         $html = $response->getHTMLResult();
@@ -123,7 +121,7 @@ class VariablesControllerTest extends AbstractTestCase
         $controller = new VariablesController(
             ResponseRenderer::getInstance(),
             new Template(),
-            DatabaseInterface::getInstance(),
+            $this->mockedDbi,
         );
 
         $nameForValueByte = 'byte_variable';
@@ -189,7 +187,7 @@ class VariablesControllerTest extends AbstractTestCase
         $controller = new VariablesController(
             ResponseRenderer::getInstance(),
             new Template(),
-            DatabaseInterface::getInstance(),
+            $this->mockedDbi,
         );
 
         $nameForValueByte = 'wsrep_replicated_bytes';
@@ -242,7 +240,7 @@ class VariablesControllerTest extends AbstractTestCase
         $controller = new VariablesController(
             ResponseRenderer::getInstance(),
             new Template(),
-            DatabaseInterface::getInstance(),
+            $this->mockedDbi,
         );
 
         $nameForValueByte = 'wsrep_replicated_bytes';
