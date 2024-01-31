@@ -18,11 +18,14 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\MockObject\MockObject;
 use ReflectionProperty;
 
 #[CoversClass(Table::class)]
 class TableTest extends AbstractTestCase
 {
+    private DatabaseInterface&MockObject $mockedDbi;
+
     /**
      * Configures environment
      */
@@ -268,6 +271,7 @@ class TableTest extends AbstractTestCase
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;
+        $this->mockedDbi = $dbi;
     }
 
     protected function tearDown(): void
@@ -282,7 +286,7 @@ class TableTest extends AbstractTestCase
      */
     public function testCreate(): void
     {
-        $table = new Table('table1', 'pma_test', DatabaseInterface::getInstance());
+        $table = new Table('table1', 'pma_test', $this->mockedDbi);
         $this->assertInstanceOf(Table::class, $table);
     }
 
@@ -291,7 +295,7 @@ class TableTest extends AbstractTestCase
      */
     public function testConstruct(): void
     {
-        $table = new Table('PMA_BookMark', 'PMA', DatabaseInterface::getInstance());
+        $table = new Table('PMA_BookMark', 'PMA', $this->mockedDbi);
         $this->assertEquals(
             'PMA_BookMark',
             $table->__toString(),
@@ -315,7 +319,7 @@ class TableTest extends AbstractTestCase
      */
     public function testGetName(): void
     {
-        $table = new Table('table1', 'pma_test', DatabaseInterface::getInstance());
+        $table = new Table('table1', 'pma_test', $this->mockedDbi);
         $this->assertEquals(
             'table1',
             $table->getName(),
@@ -339,7 +343,7 @@ class TableTest extends AbstractTestCase
      */
     public function testGetLastErrorAndMessage(): void
     {
-        $table = new Table('table1', 'pma_test', DatabaseInterface::getInstance());
+        $table = new Table('table1', 'pma_test', $this->mockedDbi);
         $table->errors[] = 'error1';
         $table->errors[] = 'error2';
         $table->errors[] = 'error3';
@@ -408,19 +412,18 @@ class TableTest extends AbstractTestCase
      */
     public function testIsView(): void
     {
-        $dbi = DatabaseInterface::getInstance();
-        $table = new Table('', '', $dbi);
+        $table = new Table('', '', $this->mockedDbi);
         $this->assertFalse(
             $table->isView(),
         );
 
         //validate that it is the same as DBI fetchResult
-        $table = new Table('PMA_BookMark', 'PMA', $dbi);
+        $table = new Table('PMA_BookMark', 'PMA', $this->mockedDbi);
         $this->assertTrue(
             $table->isView(),
         );
 
-        $table = new Table('PMA_BookMark_2', 'PMA', $dbi);
+        $table = new Table('PMA_BookMark_2', 'PMA', $this->mockedDbi);
         $this->assertFalse(
             $table->isView(),
         );
@@ -910,19 +913,18 @@ class TableTest extends AbstractTestCase
      */
     public function testIsUpdatableView(): void
     {
-        $dbi = DatabaseInterface::getInstance();
-        $table = new Table('', '', $dbi);
+        $table = new Table('', '', $this->mockedDbi);
         $this->assertFalse(
             $table->isUpdatableView(),
         );
 
         //validate that it is the same as DBI fetchResult
-        $table = new Table('PMA_BookMark', 'PMA', $dbi);
+        $table = new Table('PMA_BookMark', 'PMA', $this->mockedDbi);
         $this->assertTrue(
             $table->isUpdatableView(),
         );
 
-        $table = new Table('PMA_BookMark_2', 'PMA', $dbi);
+        $table = new Table('PMA_BookMark_2', 'PMA', $this->mockedDbi);
         $this->assertFalse(
             $table->isUpdatableView(),
         );
@@ -933,9 +935,7 @@ class TableTest extends AbstractTestCase
      */
     public function testIsMergeCase1(): void
     {
-        $dbi = DatabaseInterface::getInstance();
-
-        $tableObj = new Table('PMA_BookMark', 'PMA', $dbi);
+        $tableObj = new Table('PMA_BookMark', 'PMA', $this->mockedDbi);
         $this->assertFalse(
             $tableObj->isMerge(),
         );
@@ -946,10 +946,9 @@ class TableTest extends AbstractTestCase
      */
     public function testIsMergeCase2(): void
     {
-        $dbi = DatabaseInterface::getInstance();
-        $dbi->getCache()->cacheTableValue('PMA', 'PMA_BookMark', 'ENGINE', 'MERGE');
+        $this->mockedDbi->getCache()->cacheTableValue('PMA', 'PMA_BookMark', 'ENGINE', 'MERGE');
 
-        $tableObj = new Table('PMA_BookMark', 'PMA', $dbi);
+        $tableObj = new Table('PMA_BookMark', 'PMA', $this->mockedDbi);
         $this->assertTrue(
             $tableObj->isMerge(),
         );
@@ -960,10 +959,9 @@ class TableTest extends AbstractTestCase
      */
     public function testIsMergeCase3(): void
     {
-        $dbi = DatabaseInterface::getInstance();
-        $dbi->getCache()->cacheTableValue('PMA', 'PMA_BookMark', 'ENGINE', 'MRG_MYISAM');
+        $this->mockedDbi->getCache()->cacheTableValue('PMA', 'PMA_BookMark', 'ENGINE', 'MRG_MYISAM');
 
-        $tableObj = new Table('PMA_BookMark', 'PMA', $dbi);
+        $tableObj = new Table('PMA_BookMark', 'PMA', $this->mockedDbi);
         $this->assertTrue(
             $tableObj->isMerge(),
         );
@@ -974,7 +972,7 @@ class TableTest extends AbstractTestCase
      */
     public function testIsMergeCase4(): void
     {
-        $tableObj = new Table('PMA_BookMark', 'PMA', DatabaseInterface::getInstance());
+        $tableObj = new Table('PMA_BookMark', 'PMA', $this->mockedDbi);
         $this->assertFalse(
             $tableObj->isMerge(),
         );
@@ -1035,10 +1033,9 @@ class TableTest extends AbstractTestCase
         $table = 'PMA_BookMark';
         $db = 'PMA';
 
-        $dbi = DatabaseInterface::getInstance();
-        $dbi->expects($this->any())->method('tryQuery')->willReturn($this->createMock(DummyResult::class));
+        $this->mockedDbi->expects($this->any())->method('tryQuery')->willReturn($this->createMock(DummyResult::class));
 
-        $table = new Table($table, $db, $dbi);
+        $table = new Table($table, $db, $this->mockedDbi);
 
         //rename to same name
         $tableNew = 'PMA_BookMark';
@@ -1084,7 +1081,7 @@ class TableTest extends AbstractTestCase
         $table = 'PMA_BookMark';
         $db = 'PMA';
 
-        $table = new Table($table, $db, DatabaseInterface::getInstance());
+        $table = new Table($table, $db, $this->mockedDbi);
         $return = $table->getUniqueColumns();
         $expect = ['`PMA`.`PMA_BookMark`.`index1`', '`PMA`.`PMA_BookMark`.`index3`', '`PMA`.`PMA_BookMark`.`index5`'];
         $this->assertEquals($expect, $return);
@@ -1098,7 +1095,7 @@ class TableTest extends AbstractTestCase
         $table = 'PMA_BookMark';
         $db = 'PMA';
 
-        $table = new Table($table, $db, DatabaseInterface::getInstance());
+        $table = new Table($table, $db, $this->mockedDbi);
         $return = $table->getIndexedColumns();
         $expect = [
             '`PMA`.`PMA_BookMark`.`column1`',
@@ -1153,7 +1150,7 @@ class TableTest extends AbstractTestCase
         $foreignTable = 'foreignTable';
         $foreignField = ['foreignField1', 'foreignField2'];
 
-        $tableObj = new Table('PMA_table', 'db', DatabaseInterface::getInstance());
+        $tableObj = new Table('PMA_table', 'db', $this->mockedDbi);
 
         $sql = $this->callFunction(
             $tableObj,
@@ -1188,7 +1185,7 @@ class TableTest extends AbstractTestCase
         $table = 'PMA_BookMark';
         $db = 'PMA';
 
-        $table = new Table($table, $db, DatabaseInterface::getInstance());
+        $table = new Table($table, $db, $this->mockedDbi);
         $return = $table->getColumns();
         $expect = [
             '`PMA`.`PMA_BookMark`.`column1`',
@@ -1210,7 +1207,7 @@ class TableTest extends AbstractTestCase
      */
     public function testCheckIfMinRecordsExist(): void
     {
-        $oldDbi = DatabaseInterface::getInstance();
+        $oldDbi = $this->mockedDbi;
 
         $resultStub = $this->createMock(DummyResult::class);
 
@@ -1267,7 +1264,7 @@ class TableTest extends AbstractTestCase
             ->method('numRows')
             ->willReturn(20);
 
-        $dbi = clone DatabaseInterface::getInstance();
+        $dbi = clone $this->mockedDbi;
         $dbi->expects($this->any())->method('tryQuery')
             ->willReturn($resultStub);
 
@@ -1289,7 +1286,7 @@ class TableTest extends AbstractTestCase
         $tableName = 'PMA_BookMark';
         $db = 'PMA';
 
-        $table = new Table($tableName, $db, DatabaseInterface::getInstance());
+        $table = new Table($tableName, $db, $this->mockedDbi);
 
         $property = Table::PROP_COLUMN_ORDER;
         $value = 'UiProp_value';
@@ -1324,13 +1321,12 @@ class TableTest extends AbstractTestCase
 
         unset($GLOBALS['sql_drop_table']);
 
-        $dbi = DatabaseInterface::getInstance();
         $getTableMap = [
-            [$targetDb, $targetTable, new Table($targetTable, $targetDb, $dbi)],
-            ['aa', 'ad', new Table('ad', 'aa', $dbi)],
+            [$targetDb, $targetTable, new Table($targetTable, $targetDb, $this->mockedDbi)],
+            ['aa', 'ad', new Table('ad', 'aa', $this->mockedDbi)],
         ];
 
-        $dbi->expects($this->any())->method('getTable')
+        $this->mockedDbi->expects($this->any())->method('getTable')
             ->willReturnMap($getTableMap);
 
         $return = Table::moveCopy($sourceDb, $sourceTable, $targetDb, $targetTable, $what, $move, $mode, true);
@@ -1359,7 +1355,7 @@ class TableTest extends AbstractTestCase
 
         // Renaming DB with a view bug
         $resultStub = $this->createMock(DummyResult::class);
-        $dbi->expects($this->any())->method('tryQuery')
+        $this->mockedDbi->expects($this->any())->method('tryQuery')
             ->willReturnMap([
                 [
                     'SHOW CREATE TABLE `aa`.`ad`',

@@ -14937,25 +14937,6 @@
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['sql_drop_table']]]></code>
@@ -14965,25 +14946,9 @@
       <code>$sql</code>
       <code>$sql</code>
     </MixedAssignment>
-    <MixedMethodCall>
-      <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>willReturn</code>
-      <code>willReturn</code>
-      <code>willReturnMap</code>
-      <code>willReturnMap</code>
-    </MixedMethodCall>
     <PossiblyUnusedMethod>
       <code>dataValidateName</code>
     </PossiblyUnusedMethod>
-    <UndefinedMethod>
-      <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
-    </UndefinedMethod>
   </file>
   <file src="tests/classes/TemplateTest.php">
     <PossiblyUnusedMethod>
