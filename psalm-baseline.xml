@@ -13248,16 +13248,7 @@
   <file src="tests/classes/Controllers/Table/SearchControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
-    <MixedMethodCall>
-      <code>method</code>
-      <code>willReturn</code>
-      <code>with</code>
-    </MixedMethodCall>
-    <UndefinedMethod>
-      <code>expects</code>
-    </UndefinedMethod>
   </file>
   <file src="tests/classes/Controllers/Table/SqlControllerTest.php">
     <DeprecatedMethod>
