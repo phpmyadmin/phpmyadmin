@@ -9881,7 +9881,7 @@ parameters:
 			path: src/Navigation/Nodes/ObjectFetcher.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\ObjectFetcher\\:\\:getTablesOrViews\\(\\) should return array\\<string\\> but returns array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\ObjectFetcher\\:\\:getTablesAndViews\\(\\) should return array\\<array\\{name\\: string, type\\: string\\}\\> but returns array\\.$#"
 			count: 1
 			path: src/Navigation/Nodes/ObjectFetcher.php
 

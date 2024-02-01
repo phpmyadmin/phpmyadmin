@@ -8,6 +8,8 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Util;
 
+use function in_array;
+
 class ObjectFetcher
 {
     /** @var string[]|null */
@@ -34,11 +36,11 @@ class ObjectFetcher
      */
     public function getTables(string $realName, string $searchClause): array
     {
-        if ($this->tables !== null) {
-            return $this->tables;
+        if ($this->tables === null) {
+            $this->bufferTablesAndViews($realName, $searchClause);
         }
 
-        return $this->tables = $this->getTablesOrViews('tables', $realName, $searchClause);
+        return $this->tables;
     }
 
     /**
@@ -50,11 +52,11 @@ class ObjectFetcher
      */
     public function getViews(string $realName, string $searchClause): array
     {
-        if ($this->views !== null) {
-            return $this->views;
+        if ($this->views === null) {
+            $this->bufferTablesAndViews($realName, $searchClause);
         }
 
-        return $this->views = $this->getTablesOrViews('views', $realName, $searchClause);
+        return $this->views;
     }
 
     /**
@@ -139,22 +141,39 @@ class ObjectFetcher
     }
 
     /**
+     * @psalm-assert string[] $this->tables
+     * @phpstan-assert string[] $this->tables
+     * @psalm-assert string[] $this->views
+     * @phpstan-assert string[] $this->views
+     */
+    private function bufferTablesAndViews(string $realName, string $searchClause): void
+    {
+        $this->tables = [];
+        $this->views = [];
+        $tablesAndViews = $this->getTablesAndViews($realName, $searchClause);
+
+        foreach ($tablesAndViews as $tableOrView) {
+            if (in_array($tableOrView['type'], ['BASE TABLE', 'SYSTEM VERSIONED'], true)) {
+                $this->tables[] = $tableOrView['name'];
+            } else {
+                $this->views[] = $tableOrView['name'];
+            }
+        }
+    }
+
+    /**
      * Returns the list of tables or views inside this database
      *
-     * @param string $which        tables|views
      * @param string $searchClause A string used to filter the results of the query
      *
-     * @return string[]
+     * @return array{name:string, type:string}[]
      */
-    private function getTablesOrViews(string $which, string $realName, string $searchClause): array
+    private function getTablesAndViews(string $realName, string $searchClause): array
     {
-        $condition = $which === 'tables' ? 'IN' : 'NOT IN';
-
         if (! $this->config->selectedServer['DisableIS']) {
-            $query = 'SELECT `TABLE_NAME` AS `name` ';
+            $query = 'SELECT `TABLE_NAME` AS `name`, `TABLE_TYPE` AS `type` ';
             $query .= 'FROM `INFORMATION_SCHEMA`.`TABLES` ';
             $query .= 'WHERE `TABLE_SCHEMA`=' . $this->dbi->quoteString($realName);
-            $query .= ' AND `TABLE_TYPE` ' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
             if ($searchClause !== '') {
                 $query .= ' AND `TABLE_NAME` LIKE ';
                 $query .= $this->dbi->quoteString('%' . $this->dbi->escapeMysqlWildcards($searchClause) . '%');
@@ -165,9 +184,8 @@ class ObjectFetcher
             return $this->dbi->fetchResult($query);
         }
 
-        $query = ' SHOW FULL TABLES FROM ';
+        $query = 'SHOW FULL TABLES FROM ';
         $query .= Util::backquote($realName);
-        $query .= ' WHERE `Table_type` ' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
         if ($searchClause !== '') {
             $query .= 'AND ' . Util::backquote('Tables_in_' . $realName) . ' LIKE ';
             $query .= $this->dbi->quoteString('%' . $this->dbi->escapeMysqlWildcards($searchClause) . '%');
@@ -176,8 +194,10 @@ class ObjectFetcher
         $retval = [];
         $handle = $this->dbi->tryQuery($query);
         if ($handle !== false) {
-            /** @var string[] $retval */
-            $retval = $handle->fetchAllColumn();
+            while ($row = $handle->fetchRow()) {
+                /** @var string[] $row */
+                $retval[] = ['name' => $row[0], 'type' => $row[1]];
+            }
         }
 
         return $retval;

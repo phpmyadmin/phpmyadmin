@@ -7550,7 +7550,7 @@
       <code><![CDATA[$this->dbi->fetchResult($query)]]></code>
       <code><![CDATA[$this->dbi->fetchResult($query)]]></code>
       <code><![CDATA[$this->dbi->fetchResult($query)]]></code>
-      <code>string[]</code>
+      <code>array{name:string, type:string}[]</code>
       <code>string[]</code>
       <code>string[]</code>
     </MixedReturnTypeCoercion>
