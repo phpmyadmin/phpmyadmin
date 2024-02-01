@@ -452,9 +452,7 @@ class NodeDatabase extends Node
         $retval = [];
         $handle = $dbi->tryQuery($query);
         if ($handle !== false) {
-            while ($arr = $handle->fetchAssoc()) {
-                $retval[] = $arr['Name'];
-            }
+            $retval = $handle->fetchAllColumn('Name');
         }
 
         return $retval;
@@ -526,9 +524,7 @@ class NodeDatabase extends Node
         $retval = [];
         $handle = $dbi->tryQuery($query);
         if ($handle !== false) {
-            while ($arr = $handle->fetchAssoc()) {
-                $retval[] = $arr['Name'];
-            }
+            $retval = $handle->fetchAllColumn('Name');
         }
 
         return $retval;
