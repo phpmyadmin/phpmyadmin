@@ -8724,6 +8724,11 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeDatabase.php">
+    <InvalidArgument occurrences="3">
+      <code>usort($retval, 'strnatcasecmp')</code>
+      <code>usort($retval, 'strnatcasecmp')</code>
+      <code>usort($retval, 'strnatcasecmp')</code>
+    </InvalidArgument>
     <InvalidReturnStatement occurrences="4">
       <code>$retval</code>
       <code>$retval</code>
