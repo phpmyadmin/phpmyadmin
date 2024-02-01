@@ -20,6 +20,7 @@ use PhpMyAdmin\Util;
 use function __;
 use function array_slice;
 use function in_array;
+use function strnatcasecmp;
 use function substr;
 use function usort;
 
@@ -274,6 +275,15 @@ class NodeDatabase extends Node
             default => [],
         };
 
+        $config = Config::getInstance();
+        $maxItems = $config->settings['MaxNavigationItems'];
+
+        if ($config->settings['NaturalOrder']) {
+            usort($retval, strnatcasecmp(...));
+        }
+
+        $retval = array_slice($retval, $pos, $maxItems);
+
         // Remove hidden items so that they are not displayed in navigation tree
         if ($relationParameters->navigationItemsHidingFeature !== null) {
             $hiddenItems = $this->getHiddenItems($relationParameters, substr($type, 0, -1));
@@ -337,7 +347,6 @@ class NodeDatabase extends Node
         $condition = $which === 'tables' ? 'IN' : 'NOT IN';
 
         $config = Config::getInstance();
-        $maxItems = $config->settings['MaxNavigationItems'];
         $dbi = DatabaseInterface::getInstance();
         if (! $config->selectedServer['DisableIS']) {
             $query = 'SELECT `TABLE_NAME` AS `name` ';
@@ -352,13 +361,8 @@ class NodeDatabase extends Node
             }
 
             $query .= 'ORDER BY `TABLE_NAME` ASC ';
-            $retval = $dbi->fetchResult($query);
 
-            if ($config->settings['NaturalOrder']) {
-                usort($retval, 'strnatcasecmp');
-            }
-
-            return array_slice($retval, $pos, $maxItems);
+            return $dbi->fetchResult($query);
         }
 
         $query = ' SHOW FULL TABLES FROM ';
@@ -377,11 +381,7 @@ class NodeDatabase extends Node
             $retval = $handle->fetchAllColumn();
         }
 
-        if ($config->settings['NaturalOrder']) {
-            usort($retval, 'strnatcasecmp');
-        }
-
-        return array_slice($retval, $pos, $maxItems);
+        return $retval;
     }
 
     /**
@@ -422,7 +422,6 @@ class NodeDatabase extends Node
     private function getRoutines(string $routineType, int $pos, string $searchClause): array
     {
         $config = Config::getInstance();
-        $maxItems = $config->settings['MaxNavigationItems'];
         $dbi = DatabaseInterface::getInstance();
         if (! $config->selectedServer['DisableIS']) {
             $query = 'SELECT `ROUTINE_NAME` AS `name` ';
@@ -438,13 +437,8 @@ class NodeDatabase extends Node
             }
 
             $query .= 'ORDER BY `ROUTINE_NAME` ASC ';
-            $retval = $dbi->fetchResult($query);
 
-            if ($config->settings['NaturalOrder']) {
-                usort($retval, 'strnatcasecmp');
-            }
-
-            return array_slice($retval, $pos, $maxItems);
+            return $dbi->fetchResult($query);
         }
 
         $query = 'SHOW ' . $routineType . ' STATUS WHERE `Db`=' . $dbi->quoteString($this->realName) . ' ';
@@ -463,11 +457,7 @@ class NodeDatabase extends Node
             }
         }
 
-        if ($config->settings['NaturalOrder']) {
-            usort($retval, 'strnatcasecmp');
-        }
-
-        return array_slice($retval, $pos, $maxItems);
+        return $retval;
     }
 
     /**
@@ -507,7 +497,6 @@ class NodeDatabase extends Node
     private function getEvents(int $pos, string $searchClause): array
     {
         $config = Config::getInstance();
-        $maxItems = $config->settings['MaxNavigationItems'];
         $dbi = DatabaseInterface::getInstance();
         if (! $config->selectedServer['DisableIS']) {
             $query = 'SELECT `EVENT_NAME` AS `name` ';
@@ -522,13 +511,8 @@ class NodeDatabase extends Node
             }
 
             $query .= 'ORDER BY `EVENT_NAME` ASC ';
-            $retval = $dbi->fetchResult($query);
 
-            if ($config->settings['NaturalOrder']) {
-                usort($retval, 'strnatcasecmp');
-            }
-
-            return array_slice($retval, $pos, $maxItems);
+            return $dbi->fetchResult($query);
         }
 
         $query = 'SHOW EVENTS FROM ' . Util::backquote($this->realName) . ' ';
@@ -547,11 +531,7 @@ class NodeDatabase extends Node
             }
         }
 
-        if ($config->settings['NaturalOrder']) {
-            usort($retval, 'strnatcasecmp');
-        }
-
-        return array_slice($retval, $pos, $maxItems);
+        return $retval;
     }
 
     /**
