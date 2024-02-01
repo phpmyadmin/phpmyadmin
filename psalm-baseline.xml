@@ -7506,41 +7506,9 @@
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
-    <InvalidReturnStatement>
-      <code><![CDATA[$dbi->queryAndGetNumRows($query)]]></code>
-      <code><![CDATA[$dbi->queryAndGetNumRows($query)]]></code>
-      <code><![CDATA[$dbi->queryAndGetNumRows($query)]]></code>
-      <code><![CDATA[$dbi->queryAndGetNumRows($query)]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code>int</code>
-      <code>int</code>
-      <code>int</code>
-      <code>int</code>
-    </InvalidReturnType>
-    <MixedArgumentTypeCoercion>
-      <code>usort($retval, strnatcasecmp(...))</code>
-    </MixedArgumentTypeCoercion>
-    <MixedReturnTypeCoercion>
-      <code>$retval</code>
-      <code>string[]</code>
-    </MixedReturnTypeCoercion>
   </file>
   <file src="src/Navigation/Nodes/NodeDatabaseChild.php">
     <PossiblyInvalidPropertyFetch>
@@ -7576,6 +7544,16 @@
     <PossiblyUnusedProperty>
       <code>$secondIcon</code>
     </PossiblyUnusedProperty>
+  </file>
+  <file src="src/Navigation/Nodes/ObjectFetcher.php">
+    <MixedReturnTypeCoercion>
+      <code><![CDATA[$this->dbi->fetchResult($query)]]></code>
+      <code><![CDATA[$this->dbi->fetchResult($query)]]></code>
+      <code><![CDATA[$this->dbi->fetchResult($query)]]></code>
+      <code>string[]</code>
+      <code>string[]</code>
+      <code>string[]</code>
+    </MixedReturnTypeCoercion>
   </file>
   <file src="src/Normalization.php">
     <DeprecatedMethod>

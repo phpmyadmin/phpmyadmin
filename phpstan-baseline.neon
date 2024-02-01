@@ -9851,36 +9851,6 @@ parameters:
 			path: src/Navigation/Nodes/NodeColumn.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeDatabase\\:\\:getData\\(\\) should return array\\<string\\> but returns array\\.$#"
-			count: 1
-			path: src/Navigation/Nodes/NodeDatabase.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeDatabase\\:\\:getEventCount\\(\\) should return int but returns int\\|string\\.$#"
-			count: 1
-			path: src/Navigation/Nodes/NodeDatabase.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeDatabase\\:\\:getFunctionCount\\(\\) should return int but returns int\\|string\\.$#"
-			count: 1
-			path: src/Navigation/Nodes/NodeDatabase.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeDatabase\\:\\:getProcedureCount\\(\\) should return int but returns int\\|string\\.$#"
-			count: 1
-			path: src/Navigation/Nodes/NodeDatabase.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeDatabase\\:\\:getTableOrViewCount\\(\\) should return int but returns int\\|string\\.$#"
-			count: 1
-			path: src/Navigation/Nodes/NodeDatabase.php
-
-		-
-			message: "#^Parameter \\#2 \\$callback of function usort expects callable\\(mixed, mixed\\)\\: int, Closure\\(string, string\\)\\: int\\<\\-1, 1\\> given\\.$#"
-			count: 1
-			path: src/Navigation/Nodes/NodeDatabase.php
-
-		-
 			message: "#^Cannot access property \\$realName on PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|false\\.$#"
 			count: 1
 			path: src/Navigation/Nodes/NodeDatabaseChild.php
@@ -9899,6 +9869,21 @@ parameters:
 			message: "#^Parameter \\#1 \\$columnSpecification of static method PhpMyAdmin\\\\Util\\:\\:extractColumnSpec\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: src/Navigation/Nodes/NodeTable.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\ObjectFetcher\\:\\:getEventsFromDb\\(\\) should return array\\<string\\> but returns array\\.$#"
+			count: 1
+			path: src/Navigation/Nodes/ObjectFetcher.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\ObjectFetcher\\:\\:getRoutines\\(\\) should return array\\<string\\> but returns array\\.$#"
+			count: 1
+			path: src/Navigation/Nodes/ObjectFetcher.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\ObjectFetcher\\:\\:getTablesOrViews\\(\\) should return array\\<string\\> but returns array\\.$#"
+			count: 1
+			path: src/Navigation/Nodes/ObjectFetcher.php
 
 		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
