@@ -10,6 +10,9 @@ use PhpMyAdmin\Dbal\MysqliResult;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 
+use const MYSQLI_ASSOC;
+use const MYSQLI_NUM;
+
 #[CoversClass(DbiMysqli::class)]
 class MysqliResultTest extends AbstractTestCase
 {
@@ -62,5 +65,25 @@ class MysqliResultTest extends AbstractTestCase
         $result = new MysqliResult($mysqliResult);
 
         self::assertTrue($result->seek($offset));
+    }
+
+    /**
+     * Test for fetchAllColumn
+     */
+    public function testFetchAllColumn(): void
+    {
+        $mysqliResult = self::createMock(mysqli_result::class);
+        $mysqliResult->expects(self::exactly(3))
+            ->method('fetch_all')
+            ->willReturnMap([
+                [MYSQLI_ASSOC, [['foo' => 'bar']]],
+                [MYSQLI_NUM, [['baz', 'foobar']]],
+            ]);
+
+        $result = new MysqliResult($mysqliResult);
+
+        self::assertSame(['baz'], $result->fetchAllColumn());
+        self::assertSame(['foobar'], $result->fetchAllColumn(1));
+        self::assertSame(['bar'], $result->fetchAllColumn('foo'));
     }
 }

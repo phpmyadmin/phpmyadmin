@@ -19,6 +19,7 @@ use function is_bool;
 use function is_string;
 
 use const MYSQLI_ASSOC;
+use const MYSQLI_NUM;
 
 /**
  * Extension independent database result
@@ -121,12 +122,12 @@ final class MysqliResult implements ResultInterface
     }
 
     /**
-     * Returns values from the first column of each row
+     * Returns values from the selected column of each row
      *
      * @return array<int, string|null>
      * @psalm-return list<string|null>
      */
-    public function fetchAllColumn(): array
+    public function fetchAllColumn(int|string $column = 0): array
     {
         if ($this->result === null) {
             return [];
@@ -135,7 +136,9 @@ final class MysqliResult implements ResultInterface
         // This function should return all rows, not only the remaining rows
         $this->result->data_seek(0);
 
-        return array_column($this->result->fetch_all(), 0);
+        $result = is_string($column) ? $this->result->fetch_all(MYSQLI_ASSOC) : $this->result->fetch_all(MYSQLI_NUM);
+
+        return array_column($result, $column);
     }
 
     /**

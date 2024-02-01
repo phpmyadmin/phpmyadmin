@@ -5386,7 +5386,7 @@
     </InvalidReturnType>
     <MixedReturnTypeCoercion>
       <code><![CDATA[array<array-key, string|null>]]></code>
-      <code><![CDATA[array_column($this->result->fetch_all(), 0)]]></code>
+      <code>array_column($result, $column)</code>
       <code><![CDATA[array_column($this->result->fetch_all(), 1, 0)]]></code>
       <code><![CDATA[list<string|null>]]></code>
     </MixedReturnTypeCoercion>
@@ -15520,6 +15520,11 @@
     <InvalidReturnType>
       <code><![CDATA[array<array-key, string|null>]]></code>
     </InvalidReturnType>
+    <MixedReturnTypeCoercion>
+      <code><![CDATA[array_column($this->fetchAllAssoc(), $column)]]></code>
+      <code><![CDATA[array_column($this->result, $column)]]></code>
+      <code><![CDATA[list<string|null>]]></code>
+    </MixedReturnTypeCoercion>
     <PossiblyUnusedReturnValue>
       <code>bool</code>
     </PossiblyUnusedReturnValue>
