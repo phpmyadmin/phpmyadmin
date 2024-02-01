@@ -20,14 +20,14 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivileges;
 use PhpMyAdmin\Util;
+use Webmozart\Assert\Assert;
 
 use function __;
 use function array_keys;
 use function array_search;
 use function count;
-use function in_array;
-use function mb_strtolower;
 use function str_contains;
+use function strtolower;
 
 /**
  * Handles viewing and creating and deleting databases
@@ -49,6 +49,17 @@ class DatabasesController extends AbstractController
     /** @var bool whether to show database statistics */
     private bool $hasStatistics = false;
 
+    private const SORT_BY_ALLOWED_LIST = [
+        'SCHEMA_NAME',
+        'DEFAULT_COLLATION_NAME',
+        'SCHEMA_TABLES',
+        'SCHEMA_TABLE_ROWS',
+        'SCHEMA_DATA_LENGTH',
+        'SCHEMA_INDEX_LENGTH',
+        'SCHEMA_LENGTH',
+        'SCHEMA_DATA_FREE',
+    ];
+
     public function __construct(
         ResponseRenderer $response,
         Template $template,
@@ -64,12 +75,16 @@ class DatabasesController extends AbstractController
     {
         $GLOBALS['errorUrl'] ??= null;
 
-        $params = [
-            'statistics' => $_REQUEST['statistics'] ?? null,
-            'pos' => $_REQUEST['pos'] ?? null,
-            'sort_by' => $_REQUEST['sort_by'] ?? null,
-            'sort_order' => $_REQUEST['sort_order'] ?? null,
-        ];
+        $this->hasStatistics = ! empty($request->getParam('statistics'));
+        $position = (int) $request->getParam('pos');
+
+        $sortBy = $request->getParam('sort_by', '');
+        Assert::string($sortBy);
+        $this->sortBy = self::SORT_BY_ALLOWED_LIST[array_search($sortBy, self::SORT_BY_ALLOWED_LIST, true)];
+
+        $sortOrder = $request->getParam('sort_order', '');
+        Assert::string($sortOrder);
+        $this->sortOrder = strtolower($sortOrder) !== 'desc' ? 'asc' : 'desc';
 
         $this->addScriptFiles(['server/databases.js']);
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
@@ -83,10 +98,6 @@ class DatabasesController extends AbstractController
 
         $primaryInfo = $replicationInfo->getPrimaryInfo();
         $replicaInfo = $replicationInfo->getReplicaInfo();
-
-        $this->setSortDetails($params['sort_by'], $params['sort_order']);
-        $this->hasStatistics = ! empty($params['statistics']);
-        $position = ! empty($params['pos']) ? (int) $params['pos'] : 0;
 
         /**
          * Gets the databases list
@@ -160,45 +171,10 @@ class DatabasesController extends AbstractController
     }
 
     /**
-     * Extracts parameters sort order and sort by
-     *
-     * @param string|null $sortBy    sort by
-     * @param string|null $sortOrder sort order
-     */
-    private function setSortDetails(string|null $sortBy, string|null $sortOrder): void
-    {
-        if ($sortBy === null || $sortBy === '') {
-            $this->sortBy = 'SCHEMA_NAME';
-        } else {
-            $sortByAllowList = [
-                'SCHEMA_NAME',
-                'DEFAULT_COLLATION_NAME',
-                'SCHEMA_TABLES',
-                'SCHEMA_TABLE_ROWS',
-                'SCHEMA_DATA_LENGTH',
-                'SCHEMA_INDEX_LENGTH',
-                'SCHEMA_LENGTH',
-                'SCHEMA_DATA_FREE',
-            ];
-            $this->sortBy = 'SCHEMA_NAME';
-            if (in_array($sortBy, $sortByAllowList, true)) {
-                $this->sortBy = $sortBy;
-            }
-        }
-
-        $this->sortOrder = 'asc';
-        if (! isset($sortOrder) || mb_strtolower($sortOrder) !== 'desc') {
-            return;
-        }
-
-        $this->sortOrder = 'desc';
-    }
-
-    /**
      * @param mixed[] $primaryInfo
      * @param mixed[] $replicaInfo
      *
-     * @return mixed[]
+     * @return array{databases:mixed[], total_statistics:mixed[]}
      */
     private function getDatabases(array $primaryInfo, array $replicaInfo): array
     {
@@ -280,7 +256,7 @@ class DatabasesController extends AbstractController
     /**
      * Prepares the statistics columns
      *
-     * @return mixed[]
+     * @return array<string, array{title: string, format: 'number'|'byte', raw: int}>
      */
     private function getStatisticsColumns(): array
     {
