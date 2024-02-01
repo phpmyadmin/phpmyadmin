@@ -7332,11 +7332,6 @@
       <code>$item</code>
       <code>$item</code>
       <code>$item</code>
-      <code>$item</code>
-      <code>$item</code>
-      <code>$item</code>
-      <code>$item</code>
-      <code>$item</code>
       <code>$path</code>
       <code>$path[0]</code>
       <code>$path[0]</code>
@@ -7360,7 +7355,6 @@
     </MixedArrayAccess>
     <MixedAssignment>
       <code>$db</code>
-      <code>$item</code>
       <code>$item</code>
       <code>$part</code>
       <code>$path</code>
@@ -7543,6 +7537,10 @@
     <MixedArgumentTypeCoercion>
       <code>usort($retval, strnatcasecmp(...))</code>
     </MixedArgumentTypeCoercion>
+    <MixedReturnTypeCoercion>
+      <code>$retval</code>
+      <code>string[]</code>
+    </MixedReturnTypeCoercion>
   </file>
   <file src="src/Navigation/Nodes/NodeDatabaseChild.php">
     <PossiblyInvalidPropertyFetch>

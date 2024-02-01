@@ -258,7 +258,7 @@ class NodeDatabase extends Node
      * @param int    $pos          The offset of the list within the results
      * @param string $searchClause A string used to filter the results of the query
      *
-     * @return mixed[]
+     * @return string[]
      */
     public function getData(
         RelationParameters $relationParameters,
