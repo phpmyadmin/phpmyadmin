@@ -18,8 +18,10 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
+use function array_slice;
 use function in_array;
 use function substr;
+use function usort;
 
 /**
  * Represents a database node in the navigation tree
@@ -350,9 +352,13 @@ class NodeDatabase extends Node
             }
 
             $query .= 'ORDER BY `TABLE_NAME` ASC ';
-            $query .= 'LIMIT ' . $pos . ', ' . $maxItems;
+            $retval = $dbi->fetchResult($query);
 
-            return $dbi->fetchResult($query);
+            if ($config->settings['NaturalOrder']) {
+                usort($retval, 'strnatcasecmp');
+            }
+
+            return array_slice($retval, $pos, $maxItems);
         }
 
         $query = ' SHOW FULL TABLES FROM ';
@@ -368,20 +374,14 @@ class NodeDatabase extends Node
         $retval = [];
         $handle = $dbi->tryQuery($query);
         if ($handle !== false) {
-            $count = 0;
-            if ($handle->seek($pos)) {
-                while ($arr = $handle->fetchRow()) {
-                    if ($count >= $maxItems) {
-                        break;
-                    }
-
-                    $retval[] = $arr[0];
-                    $count++;
-                }
-            }
+            $retval = $handle->fetchAllColumn();
         }
 
-        return $retval;
+        if ($config->settings['NaturalOrder']) {
+            usort($retval, 'strnatcasecmp');
+        }
+
+        return array_slice($retval, $pos, $maxItems);
     }
 
     /**
@@ -438,9 +438,13 @@ class NodeDatabase extends Node
             }
 
             $query .= 'ORDER BY `ROUTINE_NAME` ASC ';
-            $query .= 'LIMIT ' . $pos . ', ' . $maxItems;
+            $retval = $dbi->fetchResult($query);
 
-            return $dbi->fetchResult($query);
+            if ($config->settings['NaturalOrder']) {
+                usort($retval, 'strnatcasecmp');
+            }
+
+            return array_slice($retval, $pos, $maxItems);
         }
 
         $query = 'SHOW ' . $routineType . ' STATUS WHERE `Db`=' . $dbi->quoteString($this->realName) . ' ';
@@ -454,20 +458,16 @@ class NodeDatabase extends Node
         $retval = [];
         $handle = $dbi->tryQuery($query);
         if ($handle !== false) {
-            $count = 0;
-            if ($handle->seek($pos)) {
-                while ($arr = $handle->fetchAssoc()) {
-                    if ($count >= $maxItems) {
-                        break;
-                    }
-
-                    $retval[] = $arr['Name'];
-                    $count++;
-                }
+            while ($arr = $handle->fetchAssoc()) {
+                $retval[] = $arr['Name'];
             }
         }
 
-        return $retval;
+        if ($config->settings['NaturalOrder']) {
+            usort($retval, 'strnatcasecmp');
+        }
+
+        return array_slice($retval, $pos, $maxItems);
     }
 
     /**
@@ -522,9 +522,13 @@ class NodeDatabase extends Node
             }
 
             $query .= 'ORDER BY `EVENT_NAME` ASC ';
-            $query .= 'LIMIT ' . $pos . ', ' . $maxItems;
+            $retval = $dbi->fetchResult($query);
 
-            return $dbi->fetchResult($query);
+            if ($config->settings['NaturalOrder']) {
+                usort($retval, 'strnatcasecmp');
+            }
+
+            return array_slice($retval, $pos, $maxItems);
         }
 
         $query = 'SHOW EVENTS FROM ' . Util::backquote($this->realName) . ' ';
@@ -538,20 +542,16 @@ class NodeDatabase extends Node
         $retval = [];
         $handle = $dbi->tryQuery($query);
         if ($handle !== false) {
-            $count = 0;
-            if ($handle->seek($pos)) {
-                while ($arr = $handle->fetchAssoc()) {
-                    if ($count >= $maxItems) {
-                        break;
-                    }
-
-                    $retval[] = $arr['Name'];
-                    $count++;
-                }
+            while ($arr = $handle->fetchAssoc()) {
+                $retval[] = $arr['Name'];
             }
         }
 
-        return $retval;
+        if ($config->settings['NaturalOrder']) {
+            usort($retval, 'strnatcasecmp');
+        }
+
+        return array_slice($retval, $pos, $maxItems);
     }
 
     /**

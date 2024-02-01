@@ -7527,6 +7527,11 @@
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
+    <InvalidArgument>
+      <code><![CDATA[usort($retval, 'strnatcasecmp')]]></code>
+      <code><![CDATA[usort($retval, 'strnatcasecmp')]]></code>
+      <code><![CDATA[usort($retval, 'strnatcasecmp')]]></code>
+    </InvalidArgument>
     <InvalidReturnStatement>
       <code><![CDATA[$dbi->queryAndGetNumRows($query)]]></code>
       <code><![CDATA[$dbi->queryAndGetNumRows($query)]]></code>
@@ -7539,6 +7544,11 @@
       <code>int</code>
       <code>int</code>
     </InvalidReturnType>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[usort($retval, 'strnatcasecmp')]]></code>
+      <code><![CDATA[usort($retval, 'strnatcasecmp')]]></code>
+      <code><![CDATA[usort($retval, 'strnatcasecmp')]]></code>
+    </MixedArgumentTypeCoercion>
   </file>
   <file src="src/Navigation/Nodes/NodeDatabaseChild.php">
     <PossiblyInvalidPropertyFetch>

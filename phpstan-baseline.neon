@@ -9891,6 +9891,16 @@ parameters:
 			path: src/Navigation/Nodes/NodeDatabase.php
 
 		-
+			message: "#^Parameter \\#2 \\$callback of function usort expects callable\\(mixed, mixed\\)\\: int, 'strnatcasecmp' given\\.$#"
+			count: 3
+			path: src/Navigation/Nodes/NodeDatabase.php
+
+		-
+			message: "#^Parameter \\#2 \\$callback of function usort expects callable\\(string\\|null, string\\|null\\)\\: int, 'strnatcasecmp' given\\.$#"
+			count: 3
+			path: src/Navigation/Nodes/NodeDatabase.php
+
+		-
 			message: "#^Cannot access property \\$realName on PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|false\\.$#"
 			count: 1
 			path: src/Navigation/Nodes/NodeDatabaseChild.php
