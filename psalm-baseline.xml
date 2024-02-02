@@ -14794,6 +14794,14 @@
       <code>[]</code>
     </InvalidPropertyAssignmentValue>
   </file>
+  <file src="tests/classes/Navigation/Nodes/ObjectFetcherTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="tests/classes/NormalizationTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>

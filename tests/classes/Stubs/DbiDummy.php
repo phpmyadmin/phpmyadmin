@@ -1042,13 +1042,8 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query' => "SHOW FULL TABLES FROM `default` WHERE `Table_type` IN('BASE TABLE', 'SYSTEM VERSIONED')",
+                'query' => 'SHOW FULL TABLES FROM `default`',
                 'result' => [['test1', 'BASE TABLE'], ['test2', 'BASE TABLE']],
-            ],
-            [
-                'query' => 'SHOW FULL TABLES FROM `default` '
-                    . "WHERE `Table_type` NOT IN('BASE TABLE', 'SYSTEM VERSIONED')",
-                'result' => [],
             ],
             [
                 'query' => "SHOW FUNCTION STATUS WHERE `Db`='default'",

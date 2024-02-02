@@ -119,7 +119,7 @@ class ObjectFetcher
                 $query .= $this->dbi->quoteString('%' . $this->dbi->escapeMysqlWildcards($searchClause) . '%');
             }
 
-            $query .= ' ORDER BY `EVENT_NAME` ASC ';
+            $query .= ' ORDER BY `EVENT_NAME` ASC';
 
             return $this->dbi->fetchResult($query);
         }
@@ -179,7 +179,7 @@ class ObjectFetcher
                 $query .= $this->dbi->quoteString('%' . $this->dbi->escapeMysqlWildcards($searchClause) . '%');
             }
 
-            $query .= ' ORDER BY `TABLE_NAME` ASC ';
+            $query .= ' ORDER BY `TABLE_NAME` ASC';
 
             return $this->dbi->fetchResult($query);
         }
@@ -187,7 +187,7 @@ class ObjectFetcher
         $query = 'SHOW FULL TABLES FROM ';
         $query .= Util::backquote($realName);
         if ($searchClause !== '') {
-            $query .= 'AND ' . Util::backquote('Tables_in_' . $realName) . ' LIKE ';
+            $query .= ' WHERE ' . Util::backquote('Tables_in_' . $realName) . ' LIKE ';
             $query .= $this->dbi->quoteString('%' . $this->dbi->escapeMysqlWildcards($searchClause) . '%');
         }
 
@@ -216,15 +216,14 @@ class ObjectFetcher
         if (! $this->config->selectedServer['DisableIS']) {
             $query = 'SELECT `ROUTINE_NAME` AS `name` ';
             $query .= 'FROM `INFORMATION_SCHEMA`.`ROUTINES` ';
-            $query .= 'WHERE `ROUTINE_SCHEMA` '
-                . Util::getCollateForIS() . '=' . $this->dbi->quoteString($realName);
-            $query .= "AND `ROUTINE_TYPE`='" . $routineType . "' ";
+            $query .= 'WHERE `ROUTINE_SCHEMA` ' . Util::getCollateForIS() . '=' . $this->dbi->quoteString($realName);
+            $query .= " AND `ROUTINE_TYPE`='" . $routineType . "'";
             if ($searchClause !== '') {
-                $query .= 'AND `ROUTINE_NAME` LIKE ';
+                $query .= ' AND `ROUTINE_NAME` LIKE ';
                 $query .= $this->dbi->quoteString('%' . $this->dbi->escapeMysqlWildcards($searchClause) . '%');
             }
 
-            $query .= 'ORDER BY `ROUTINE_NAME` ASC ';
+            $query .= ' ORDER BY `ROUTINE_NAME` ASC';
 
             return $this->dbi->fetchResult($query);
         }
