@@ -9740,9 +9740,6 @@
       <code>$_SESSION</code>
       <code>$_SESSION</code>
     </PossiblyNullArrayOffset>
-    <UnusedClass>
-      <code>UploadNoplugin</code>
-    </UnusedClass>
   </file>
   <file src="src/Plugins/Import/Upload/UploadProgress.php">
     <MixedArgument>
