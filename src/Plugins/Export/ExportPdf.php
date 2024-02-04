@@ -264,23 +264,11 @@ class ExportPdf extends ExportPlugin
         $pdf->setAliases($aliases);
         $pdf->setPurpose($purpose);
 
-        /**
-         * comment display set true as presently in pdf
-         * format, no option is present to take user input.
-         */
-        switch ($exportMode) {
-            case 'create_table':
-            case 'create_view':
-                $pdf->getTableDef($db, $table, $doRelation, true, $doMime);
-                break;
-            case 'triggers':
-                $pdf->getTriggers($db, $table);
-                break;
-            case 'stand_in':
-                // export a stand-in definition to resolve view dependencies
-                // Yet to develop this function
-                //$pdf->getTableDefStandIn($db, $table);
-        }
+        match ($exportMode) {
+            'create_table', 'create_view' => $pdf->getTableDef($db, $table, $doRelation, true, $doMime),
+            'triggers' => $pdf->getTriggers($db, $table),
+            default => true,
+        };
 
         return true;
     }
