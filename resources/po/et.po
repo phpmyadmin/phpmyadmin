@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-01-28 00:19+0000\n"
+"POT-Creation-Date: 2024-02-04 00:18+0000\n"
 "PO-Revision-Date: 2023-11-25 02:27+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -147,12 +147,12 @@ msgstr "veerg(ud)"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:40
 #: resources/templates/database/designer/main.twig:1096
-#: resources/templates/database/events/editor_form.twig:120
+#: resources/templates/database/events/editor_form.twig:121
 #: resources/templates/database/operations/index.twig:15
 #: resources/templates/database/operations/index.twig:70
 #: resources/templates/database/operations/index.twig:181
 #: resources/templates/database/operations/index.twig:221
-#: resources/templates/database/routines/editor_form.twig:185
+#: resources/templates/database/routines/editor_form.twig:186
 #: resources/templates/database/routines/execute_form.twig:54
 #: resources/templates/display/results/table.twig:269
 #: resources/templates/modals/add_index.twig:6
@@ -193,7 +193,7 @@ msgstr "veerg(ud)"
 #: resources/templates/table/structure/display_structure.twig:453
 #: resources/templates/table/structure/display_structure.twig:571
 #: resources/templates/table/zoom_search/index.twig:145
-#: resources/templates/triggers/editor_form.twig:74
+#: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:122 src/BrowseForeigners.php:179
 #: src/Controllers/JavaScriptMessagesController.php:335
 #: src/Controllers/Server/PrivilegesController.php:294
@@ -430,8 +430,8 @@ msgstr "Mootor"
 #: resources/templates/columns_definitions/partitions.twig:84
 #: resources/templates/config/form_display/input.twig:53
 #: resources/templates/database/data_dictionary/index.twig:80
-#: resources/templates/database/events/editor_form.twig:103
-#: resources/templates/database/routines/editor_form.twig:168
+#: resources/templates/database/events/editor_form.twig:104
+#: resources/templates/database/routines/editor_form.twig:169
 #: resources/templates/database/structure/table_header.twig:46
 #: resources/templates/indexes.twig:24
 #: resources/templates/table/structure/display_partitions.twig:31
@@ -477,11 +477,11 @@ msgstr "Sõlmede grupp"
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:714
-#: src/Import/Import.php:1246 src/Menu.php:220 src/Menu.php:324
+#: src/Import/Import.php:1246 src/Menu.php:219 src/Menu.php:323
 #: src/Navigation/Nodes/NodeColumn.php:40
-#: src/Navigation/Nodes/NodeDatabase.php:56
-#: src/Navigation/Nodes/NodeTable.php:289 src/Util.php:1056 src/Util.php:1483
-#: src/Util.php:1500
+#: src/Navigation/Nodes/NodeDatabase.php:58
+#: src/Navigation/Nodes/NodeTable.php:289 src/Util.php:1057 src/Util.php:1482
+#: src/Util.php:1499
 msgid "Structure"
 msgstr "Struktuur"
 
@@ -641,7 +641,7 @@ msgstr "Null"
 #: resources/templates/columns_definitions/table_fields_definitions.twig:35
 #: resources/templates/database/operations/index.twig:67
 #: resources/templates/database/operations/index.twig:172
-#: resources/templates/database/routines/editor_form.twig:131
+#: resources/templates/database/routines/editor_form.twig:132
 #: resources/templates/database/structure/copy_form.twig:39
 #: resources/templates/table/operations/index.twig:78
 #: resources/templates/table/operations/index.twig:114
@@ -795,8 +795,8 @@ msgstr "Keelatud"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:33
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:23
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
-#: src/Controllers/Database/Structure/DropTableController.php:43
-#: src/Controllers/Database/Structure/EmptyTableController.php:50
+#: src/Controllers/Database/Structure/DropTableController.php:40
+#: src/Controllers/Database/Structure/EmptyTableController.php:49
 #: src/Controllers/JavaScriptMessagesController.php:501
 #: src/Controllers/Table/DeleteRowsController.php:55
 #: src/Controllers/Table/DropColumnController.php:46
@@ -945,8 +945,8 @@ msgstr "Kustuta"
 #: resources/templates/table/relation/foreign_key_row.twig:91
 #: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:138
 #: src/Plugins/Export/ExportOdt.php:182
-#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1575
-#: src/Server/Privileges.php:1577 src/Server/Status/Processes.php:93
+#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1576
+#: src/Server/Privileges.php:1578 src/Server/Status/Processes.php:93
 msgid "Database"
 msgstr "Andmebaas"
 
@@ -1329,7 +1329,7 @@ msgstr "Viitab aadressile"
 #: resources/templates/indexes.twig:1
 #: resources/templates/table/structure/display_structure.twig:459
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:1
-#: src/Controllers/Server/DatabasesController.php:291
+#: src/Controllers/Server/DatabasesController.php:267
 #: src/Navigation/Nodes/NodeIndexContainer.php:25
 #: src/Navigation/Nodes/NodeIndexContainer.php:27
 msgid "Indexes"
@@ -1655,8 +1655,8 @@ msgstr "Sündmuse nimi"
 #: resources/templates/database/tracking/tables.twig:16
 #: resources/templates/table/tracking/main.twig:30
 #: src/Config/ConfigFile.php:577
-#: src/Controllers/JavaScriptMessagesController.php:286 src/Menu.php:452
-#: src/Server/Status/Processes.php:96 src/Util.php:1470
+#: src/Controllers/JavaScriptMessagesController.php:286 src/Menu.php:451
+#: src/Server/Status/Processes.php:96 src/Util.php:1469
 msgid "Status"
 msgstr "Olek"
 
@@ -1699,22 +1699,32 @@ msgstr "Lõpp"
 msgid "Definition"
 msgstr "Definitsioon"
 
-#: resources/templates/database/events/editor_form.twig:91
+#: resources/templates/database/events/editor_form.twig:92
+#: resources/templates/database/routines/editor_form.twig:121
+#: resources/templates/import.twig:154 resources/templates/import.twig:160
+#: resources/templates/sql/query.twig:40
+#: resources/templates/table/structure/display_table_stats.twig:83
+#: resources/templates/triggers/editor_form.twig:64
+#: src/Config/Descriptions.php:638 src/Config/Descriptions.php:654
+msgid "Format"
+msgstr "Formaat"
+
+#: resources/templates/database/events/editor_form.twig:92
 msgid "On completion preserve"
 msgstr "Lõpetamisel säilita"
 
-#: resources/templates/database/events/editor_form.twig:97
-#: resources/templates/database/routines/editor_form.twig:145
-#: resources/templates/triggers/editor_form.twig:63
+#: resources/templates/database/events/editor_form.twig:98
+#: resources/templates/database/routines/editor_form.twig:146
+#: resources/templates/triggers/editor_form.twig:64
 #: resources/templates/view_create.twig:50
 msgid "Definer"
 msgstr "Määraja"
 
-#: resources/templates/database/events/index.twig:3 src/Menu.php:383
+#: resources/templates/database/events/index.twig:3 src/Menu.php:382
 #: src/Navigation/Nodes/NodeEventContainer.php:23
 #: src/Navigation/Nodes/NodeEventContainer.php:25
 #: src/Plugins/Export/ExportSql.php:951 src/Plugins/Export/ExportXml.php:100
-#: src/Util.php:1492
+#: src/Util.php:1491
 msgid "Events"
 msgstr "Sündmused"
 
@@ -1773,9 +1783,9 @@ msgstr "Vali kõik"
 #: resources/templates/triggers/list.twig:18
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
-#: src/Controllers/JavaScriptMessagesController.php:384 src/Menu.php:247
-#: src/Menu.php:349 src/Menu.php:471 src/Server/Privileges.php:1292
-#: src/Util.php:1472 src/Util.php:1487 src/Util.php:1504
+#: src/Controllers/JavaScriptMessagesController.php:384 src/Menu.php:246
+#: src/Menu.php:348 src/Menu.php:470 src/Server/Privileges.php:1293
+#: src/Util.php:1471 src/Util.php:1486 src/Util.php:1503
 msgid "Export"
 msgstr "Ekspordi"
 
@@ -1857,7 +1867,7 @@ msgstr "Tabelid:"
 #: resources/templates/database/export/index.twig:16
 #: resources/templates/database/structure/show_create.twig:5
 #: src/Config/Descriptions.php:743
-#: src/Controllers/Server/DatabasesController.php:288
+#: src/Controllers/Server/DatabasesController.php:264
 #: src/Navigation/Nodes/NodeTableContainer.php:23
 #: src/Navigation/Nodes/NodeTableContainer.php:25
 #: src/Plugins/Export/ExportXml.php:115 src/Server/Status/Data.php:151
@@ -1871,7 +1881,7 @@ msgstr "Tabelid"
 #: src/Config/Forms/User/ExportForm.php:106
 #: src/Config/Forms/User/ExportForm.php:131
 #: src/Config/Forms/User/ExportForm.php:137
-#: src/Controllers/Server/DatabasesController.php:290
+#: src/Controllers/Server/DatabasesController.php:266
 msgid "Data"
 msgstr "Andmed"
 
@@ -1927,7 +1937,7 @@ msgid "criteria"
 msgstr "kriteerium"
 
 #: resources/templates/database/multi_table_query/form.twig:50
-#: src/Util.php:2003
+#: src/Util.php:1992
 msgid "Sort"
 msgstr "Sorteeri"
 
@@ -1939,7 +1949,7 @@ msgstr "Sorteeri"
 #: resources/templates/table/operations/index.twig:22
 #: resources/templates/table/search/index.twig:154
 #: src/Config/ConfigFile.php:553 src/Display/Results.php:1497
-#: src/Display/Results.php:1504 src/Util.php:2011 src/Util.php:2028
+#: src/Display/Results.php:1504 src/Util.php:2000 src/Util.php:2017
 msgid "Ascending"
 msgstr "Kasvav"
 
@@ -1951,7 +1961,7 @@ msgstr "Kasvav"
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:159
 #: src/Config/ConfigFile.php:553 src/Display/Results.php:1492
-#: src/Display/Results.php:1509 src/Util.php:2016 src/Util.php:2033
+#: src/Display/Results.php:1509 src/Util.php:2005 src/Util.php:2022
 msgid "Descending"
 msgstr "Kahanev"
 
@@ -1994,7 +2004,7 @@ msgid "Submit query"
 msgstr "Saada päring"
 
 #: resources/templates/database/operations/index.twig:2
-#: src/Navigation/Nodes/NodeDatabase.php:48
+#: src/Navigation/Nodes/NodeDatabase.php:50
 msgid "Database operations"
 msgstr "Toimingud andmebaasiga"
 
@@ -2137,8 +2147,8 @@ msgstr "Hosti nimi"
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:21
 #: src/Config/ConfigFile.php:581
-#: src/Controllers/Server/PrivilegesController.php:412 src/Menu.php:263
-#: src/Menu.php:371 src/Util.php:1490 src/Util.php:1506
+#: src/Controllers/Server/PrivilegesController.php:412 src/Menu.php:262
+#: src/Menu.php:370 src/Util.php:1489 src/Util.php:1505
 msgid "Privileges"
 msgstr "Õigused"
 
@@ -2181,13 +2191,13 @@ msgstr "funktsioon"
 #: resources/templates/server/privileges/new_user_ajax.twig:45
 #: resources/templates/server/privileges/users_overview.twig:75
 #: resources/templates/table/privileges/index.twig:84
-#: src/Server/Privileges.php:1284
+#: src/Server/Privileges.php:1285
 msgid "Edit privileges"
 msgstr "Muuda õiguseid"
 
 #: resources/templates/database/privileges/index.twig:100
 #: resources/templates/table/privileges/index.twig:104
-#: src/Server/Privileges.php:2071
+#: src/Server/Privileges.php:2072
 msgid "No user found."
 msgstr "Kasutajat ei leitud."
 
@@ -2208,7 +2218,7 @@ msgstr "Valitutega:"
 
 #: resources/templates/database/privileges/index.twig:122
 #: resources/templates/table/privileges/index.twig:126
-#: src/Server/Privileges.php:1228
+#: src/Server/Privileges.php:1229
 msgid "Not enough privilege to view users."
 msgstr "Puuduvad õigused kasutajate kuvamiseks."
 
@@ -2260,11 +2270,11 @@ msgstr "Pöördumise valikud"
 msgid "Charset"
 msgstr "Märgitabel"
 
-#: resources/templates/database/routines/editor_form.twig:120
+#: resources/templates/database/routines/editor_form.twig:121
 msgid "Is deterministic"
 msgstr "Ette määratud"
 
-#: resources/templates/database/routines/editor_form.twig:140
+#: resources/templates/database/routines/editor_form.twig:141
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details."
@@ -2272,11 +2282,11 @@ msgstr ""
 "Sul puuduvad selle operatsiooni teostamiseks õigused. Täpsemalt vaata palun "
 "dokumentatsioonist."
 
-#: resources/templates/database/routines/editor_form.twig:149
+#: resources/templates/database/routines/editor_form.twig:150
 msgid "Security type"
 msgstr "Turvalisuse tüüp"
 
-#: resources/templates/database/routines/editor_form.twig:157
+#: resources/templates/database/routines/editor_form.twig:158
 msgid "SQL data access"
 msgstr "SQL andmete juurdepääs"
 
@@ -2292,8 +2302,8 @@ msgstr "Funktsiooni parameetrid"
 msgid "Function"
 msgstr "Funktsioon"
 
-#: resources/templates/database/routines/index.twig:3 src/Menu.php:377
-#: src/Util.php:1491
+#: resources/templates/database/routines/index.twig:3 src/Menu.php:376
+#: src/Util.php:1490
 msgid "Routines"
 msgstr "Funktsioonid"
 
@@ -2304,9 +2314,9 @@ msgstr "Funktsioonid"
 #: resources/templates/server/databases/index.twig:76
 #: resources/templates/server/databases/index.twig:77
 #: src/Config/ConfigFile.php:521 src/Config/ConfigFile.php:535
-#: src/Config/ConfigFile.php:589 src/Config/ConfigFile.php:599 src/Menu.php:229
-#: src/Menu.php:333 src/Navigation/Nodes/NodeTable.php:290 src/Util.php:1058
-#: src/Util.php:1485 src/Util.php:1502
+#: src/Config/ConfigFile.php:589 src/Config/ConfigFile.php:599 src/Menu.php:228
+#: src/Menu.php:332 src/Navigation/Nodes/NodeTable.php:290 src/Util.php:1059
+#: src/Util.php:1484 src/Util.php:1501
 msgid "Search"
 msgstr "Otsi"
 
@@ -2396,8 +2406,8 @@ msgstr[1] "%1$s vastet <strong>%2$s</strong> tabelis"
 #: resources/templates/database/structure/structure_table_row.twig:43
 #: resources/templates/table/structure/display_structure.twig:282
 #: src/Config/ConfigFile.php:525 src/Config/ConfigFile.php:539
-#: src/Config/ConfigFile.php:603 src/Menu.php:213
-#: src/Navigation/Nodes/NodeTable.php:293 src/Util.php:1060 src/Util.php:1499
+#: src/Config/ConfigFile.php:603 src/Menu.php:212
+#: src/Navigation/Nodes/NodeTable.php:293 src/Util.php:1061 src/Util.php:1498
 msgid "Browse"
 msgstr "Vaata"
 
@@ -2420,8 +2430,8 @@ msgstr[1] "%s tabelit"
 
 #: resources/templates/database/structure/body_for_table_summary.twig:11
 #: resources/templates/database/structure/table_header.twig:10
-#: resources/templates/server/replication/index.twig:4 src/Menu.php:503
-#: src/Server/Status/Data.php:149 src/Util.php:1476
+#: resources/templates/server/replication/index.twig:4 src/Menu.php:502
+#: src/Server/Status/Data.php:149 src/Util.php:1475
 msgid "Replication"
 msgstr "Paljundamine"
 
@@ -2430,7 +2440,7 @@ msgid "Sum"
 msgstr "Summa"
 
 #: resources/templates/database/structure/body_for_table_summary.twig:40
-#: src/StorageEngine.php:416
+#: src/StorageEngine.php:415
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s on selle MySQL serveri vaikimisi varundusmootor."
@@ -2525,7 +2535,7 @@ msgid "Copy table with prefix"
 msgstr "Kopeeri tabel koos eesliitega"
 
 #: resources/templates/database/structure/check_all_tables.twig:32
-#: src/Menu.php:411 src/Util.php:1496
+#: src/Menu.php:410 src/Util.php:1495
 msgid "Central columns"
 msgstr "Kesksed veerud"
 
@@ -2606,7 +2616,7 @@ msgstr "Andmesõnastik"
 #: resources/templates/database/structure/index.twig:25
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:87
-#: src/Controllers/Database/TrackingController.php:135
+#: src/Controllers/Database/TrackingController.php:136
 #: src/Controllers/Export/ExportController.php:300
 msgid "No tables found in database."
 msgstr "Andmebaasist tabeleid ei leitud."
@@ -2631,8 +2641,8 @@ msgstr "Kuvatakse loomise päringuid"
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:29
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
-#: src/Plugins/Export/ExportXml.php:441 src/Server/Privileges.php:1581
-#: src/Server/Privileges.php:1583
+#: src/Plugins/Export/ExportXml.php:441 src/Server/Privileges.php:1582
+#: src/Server/Privileges.php:1584
 msgid "Table"
 msgstr "Tabel"
 
@@ -2675,8 +2685,8 @@ msgstr "Paljundatud"
 
 #: resources/templates/database/structure/structure_table_row.twig:59
 #: resources/templates/sql/query.twig:74 src/Config/ConfigFile.php:523
-#: src/Config/ConfigFile.php:537 src/Config/ConfigFile.php:601 src/Menu.php:240
-#: src/Navigation/Nodes/NodeTable.php:291 src/Util.php:1059 src/Util.php:1503
+#: src/Config/ConfigFile.php:537 src/Config/ConfigFile.php:601 src/Menu.php:239
+#: src/Navigation/Nodes/NodeTable.php:291 src/Util.php:1060 src/Util.php:1502
 msgid "Insert"
 msgstr "Lisa"
 
@@ -2688,7 +2698,7 @@ msgstr "kasutusel"
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:230
 #: resources/templates/table/structure/display_table_stats.twig:118
-#: src/Controllers/Server/DatabasesController.php:289 src/Import/Import.php:157
+#: src/Controllers/Server/DatabasesController.php:265 src/Import/Import.php:157
 msgid "Rows"
 msgstr "Ridu"
 
@@ -2707,7 +2717,7 @@ msgstr "Suurus"
 
 #: resources/templates/database/structure/table_header.twig:38
 #: resources/templates/table/structure/display_table_stats.twig:31
-#: src/Controllers/Server/DatabasesController.php:293
+#: src/Controllers/Server/DatabasesController.php:269
 msgid "Overhead"
 msgstr "Ballast"
 
@@ -3332,8 +3342,8 @@ msgstr "Tume"
 
 #: resources/templates/header.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
-#: src/Controllers/JavaScriptMessagesController.php:216 src/Menu.php:481
-#: src/Util.php:1474
+#: src/Controllers/JavaScriptMessagesController.php:216 src/Menu.php:480
+#: src/Util.php:1473
 msgid "Settings"
 msgstr "Sätted"
 
@@ -3560,9 +3570,9 @@ msgstr "Tagasi"
 #: resources/templates/preferences/manage/main.twig:3
 #: resources/templates/server/status/monitor/index.twig:61
 #: src/Config/Forms/User/ImportForm.php:58
-#: src/Controllers/JavaScriptMessagesController.php:321 src/Menu.php:256
-#: src/Menu.php:359 src/Menu.php:476 src/Util.php:1473 src/Util.php:1488
-#: src/Util.php:1505
+#: src/Controllers/JavaScriptMessagesController.php:321 src/Menu.php:255
+#: src/Menu.php:358 src/Menu.php:475 src/Util.php:1472 src/Util.php:1487
+#: src/Util.php:1504
 msgid "Import"
 msgstr "Impordi"
 
@@ -3651,13 +3661,6 @@ msgstr "Jäta vahele nii palju SQL päringuid, alates esimesest:"
 #: resources/templates/import.twig:145
 msgid "Other options"
 msgstr "Muud valikud"
-
-#: resources/templates/import.twig:154 resources/templates/import.twig:160
-#: resources/templates/sql/query.twig:40
-#: resources/templates/table/structure/display_table_stats.twig:83
-#: src/Config/Descriptions.php:638 src/Config/Descriptions.php:654
-msgid "Format"
-msgstr "Formaat"
 
 #: resources/templates/indexes.twig:40
 #: resources/templates/table/structure/display_structure.twig:506
@@ -3914,7 +3917,7 @@ msgstr "SQL üleslaadimine"
 #: resources/templates/server/export/index.twig:11
 #: resources/templates/server/privileges/user_properties.twig:20
 #: src/Config/ConfigFile.php:575 src/Config/Descriptions.php:728
-#: src/Config/Descriptions.php:739 src/Menu.php:442 src/Util.php:1468
+#: src/Config/Descriptions.php:739 src/Menu.php:441 src/Util.php:1467
 msgid "Databases"
 msgstr "Andmebaasid"
 
@@ -4131,8 +4134,8 @@ msgid "You have enabled two factor authentication."
 msgstr "Oled lubanud kaheastmelise autentimise."
 
 #: resources/templates/preview_sql.twig:3
-#: src/Controllers/Database/Structure/DropTableController.php:44
-#: src/Controllers/Database/Structure/EmptyTableController.php:51
+#: src/Controllers/Database/Structure/DropTableController.php:41
+#: src/Controllers/Database/Structure/EmptyTableController.php:50
 #: src/Controllers/Operations/TableController.php:349
 #: src/Controllers/Table/DropColumnController.php:63
 #: src/Controllers/Table/ReplaceController.php:295 src/Core.php:501
@@ -4348,8 +4351,8 @@ msgstr ""
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr "Uuendatud seadistuse faili laadimiseks logi phpMyAdmini uuesti sisse."
 
-#: resources/templates/server/binlog/index.twig:2 src/Menu.php:496
-#: src/Server/Status/Data.php:144 src/Util.php:1475
+#: resources/templates/server/binlog/index.twig:2 src/Menu.php:495
+#: src/Server/Status/Data.php:144 src/Util.php:1474
 msgid "Binary log"
 msgstr "Binaarne logi"
 
@@ -4483,7 +4486,7 @@ msgstr "Kirjeldus"
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:20
 #: resources/templates/sql/query.twig:188 src/Config/ConfigFile.php:579
-#: src/Menu.php:509 src/Server/Status/Data.php:211 src/Util.php:1477
+#: src/Menu.php:508 src/Server/Status/Data.php:211 src/Util.php:1476
 msgid "Variables"
 msgstr "Muutujad"
 
@@ -4503,8 +4506,8 @@ msgstr "Andmebaaside eksportimine käesolevast serverist"
 msgid "Importing into the current server"
 msgstr "Importimine käesolevasse serverisse"
 
-#: resources/templates/server/plugins/index.twig:3 src/Menu.php:524
-#: src/Util.php:1479
+#: resources/templates/server/plugins/index.twig:3 src/Menu.php:523
+#: src/Util.php:1478
 msgid "Plugins"
 msgstr "Pluginad"
 
@@ -4615,7 +4618,7 @@ msgstr "Kasutaja konto"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:25
 #: resources/templates/server/privileges/edit_routine_privileges.twig:43
 #: resources/templates/server/privileges/edit_routine_privileges.twig:58
-#: src/Server/Privileges.php:1587 src/Server/Privileges.php:1589
+#: src/Server/Privileges.php:1588 src/Server/Privileges.php:1590
 msgid "Routine"
 msgstr "Funktsioon"
 
@@ -4628,7 +4631,7 @@ msgstr ""
 "Märkus: sa proovid muuta õiguseid kontol, mida kasutasid sisse logimiseks."
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
-#: src/Server/Privileges.php:1588
+#: src/Server/Privileges.php:1589
 msgid "Routine-specific privileges"
 msgstr "Funktsioonipõhised õigused"
 
@@ -4776,7 +4779,7 @@ msgstr "Muuda kasutaja grupp"
 #: resources/templates/server/privileges/privileges_summary.twig:19
 #: resources/templates/server/privileges/privileges_table.twig:6
 #: resources/templates/server/privileges/privileges_table.twig:267
-#: src/Server/Privileges.php:1582
+#: src/Server/Privileges.php:1583
 msgid "Table-specific privileges"
 msgstr "Tabelipõhised õigused"
 
@@ -4805,7 +4808,7 @@ msgstr "Lisa õiguseid järgnevale funktsioonile:"
 #: resources/templates/server/privileges/privileges_table.twig:11
 #: resources/templates/server/privileges/privileges_table.twig:286
 #: resources/templates/server/privileges/privileges_table.twig:287
-#: src/Server/Privileges.php:308
+#: src/Server/Privileges.php:309
 msgid "Allows reading data."
 msgstr "Lubab lugeda andmeid."
 
@@ -4832,20 +4835,20 @@ msgstr "Puudub"
 #: resources/templates/server/privileges/privileges_table.twig:38
 #: resources/templates/server/privileges/privileges_table.twig:299
 #: resources/templates/server/privileges/privileges_table.twig:300
-#: src/Server/Privileges.php:309
+#: src/Server/Privileges.php:310
 msgid "Allows inserting and replacing data."
 msgstr "Lubab lisada ja asendada andmeid."
 
 #: resources/templates/server/privileges/privileges_table.twig:65
 #: resources/templates/server/privileges/privileges_table.twig:312
 #: resources/templates/server/privileges/privileges_table.twig:313
-#: src/Server/Privileges.php:310
+#: src/Server/Privileges.php:311
 msgid "Allows changing data."
 msgstr "Lubab muuta andmeid."
 
 #: resources/templates/server/privileges/privileges_table.twig:92
 #: resources/templates/server/privileges/privileges_table.twig:676
-#: src/Server/Privileges.php:318
+#: src/Server/Privileges.php:319
 msgid "Has no effect in this MySQL version."
 msgstr "Muudatusi selles MySQL versioonis ei toimunud."
 
@@ -4853,7 +4856,7 @@ msgstr "Muudatusi selles MySQL versioonis ei toimunud."
 #: resources/templates/server/privileges/privileges_table.twig:125
 #: resources/templates/server/privileges/privileges_table.twig:325
 #: resources/templates/server/privileges/privileges_table.twig:326
-#: src/Server/Privileges.php:288 src/Server/Privileges.php:311
+#: src/Server/Privileges.php:289 src/Server/Privileges.php:312
 msgid "Allows deleting data."
 msgstr "Lubab kustutada andmeid."
 
@@ -4861,7 +4864,7 @@ msgstr "Lubab kustutada andmeid."
 #: resources/templates/server/privileges/privileges_table.twig:137
 #: resources/templates/server/privileges/privileges_table.twig:364
 #: resources/templates/server/privileges/privileges_table.twig:372
-#: src/Server/Privileges.php:289
+#: src/Server/Privileges.php:290
 msgid "Allows creating new tables."
 msgstr "Lubab luua uusi tabeleid."
 
@@ -4869,7 +4872,7 @@ msgstr "Lubab luua uusi tabeleid."
 #: resources/templates/server/privileges/privileges_table.twig:149
 #: resources/templates/server/privileges/privileges_table.twig:412
 #: resources/templates/server/privileges/privileges_table.twig:420
-#: src/Server/Privileges.php:290
+#: src/Server/Privileges.php:291
 msgid "Allows dropping tables."
 msgstr "Lubab kustutada tabeleid."
 
@@ -4888,7 +4891,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:174
 #: resources/templates/server/privileges/privileges_table.twig:398
 #: resources/templates/server/privileges/privileges_table.twig:399
-#: src/Server/Privileges.php:291 src/Server/Privileges.php:319
+#: src/Server/Privileges.php:292 src/Server/Privileges.php:320
 msgid "Allows creating and dropping indexes."
 msgstr "Lubab luua ja kustutada indekseid."
 
@@ -4896,7 +4899,7 @@ msgstr "Lubab luua ja kustutada indekseid."
 #: resources/templates/server/privileges/privileges_table.twig:186
 #: resources/templates/server/privileges/privileges_table.twig:385
 #: resources/templates/server/privileges/privileges_table.twig:386
-#: src/Server/Privileges.php:292 src/Server/Privileges.php:320
+#: src/Server/Privileges.php:293 src/Server/Privileges.php:321
 msgid "Allows altering the structure of existing tables."
 msgstr "Lubab muuta olemasolevate tabelite struktuuri."
 
@@ -4906,8 +4909,8 @@ msgstr "Lubab muuta olemasolevate tabelite struktuuri."
 #: resources/templates/server/privileges/privileges_table.twig:500
 #: resources/templates/server/privileges/privileges_table.twig:514
 #: resources/templates/server/privileges/privileges_table.twig:515
-#: src/Server/Privileges.php:293 src/Server/Privileges.php:339
-#: src/Server/Privileges.php:343
+#: src/Server/Privileges.php:294 src/Server/Privileges.php:340
+#: src/Server/Privileges.php:344
 msgid "Allows creating new views."
 msgstr "Lubab luua uusi vaateid."
 
@@ -4915,8 +4918,8 @@ msgstr "Lubab luua uusi vaateid."
 #: resources/templates/server/privileges/privileges_table.twig:210
 #: resources/templates/server/privileges/privileges_table.twig:446
 #: resources/templates/server/privileges/privileges_table.twig:447
-#: src/Server/Privileges.php:294 src/Server/Privileges.php:344
-#: src/Server/Privileges.php:346
+#: src/Server/Privileges.php:295 src/Server/Privileges.php:345
+#: src/Server/Privileges.php:347
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Lubab teostada SHOW CREATE VIEW päringuid."
 
@@ -4924,14 +4927,14 @@ msgstr "Lubab teostada SHOW CREATE VIEW päringuid."
 #: resources/templates/server/privileges/privileges_table.twig:222
 #: resources/templates/server/privileges/privileges_table.twig:542
 #: resources/templates/server/privileges/privileges_table.twig:543
-#: src/Server/Privileges.php:295 src/Server/Privileges.php:341
+#: src/Server/Privileges.php:296 src/Server/Privileges.php:342
 msgid "Allows creating and dropping triggers."
 msgstr "Lubab luua ja kustutada päästikuid."
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: resources/templates/server/privileges/privileges_table.twig:233
 #: resources/templates/server/privileges/privileges_table.twig:236
-#: src/Server/Privileges.php:352 src/Server/Privileges.php:361
+#: src/Server/Privileges.php:353 src/Server/Privileges.php:362
 msgid "Allows deleting historical rows."
 msgstr "Lubab ajalooliste ridade kustutamise."
 
@@ -4945,55 +4948,55 @@ msgid "Global privileges"
 msgstr "Globaalsed õigused"
 
 #: resources/templates/server/privileges/privileges_table.twig:265
-#: src/Server/Privileges.php:1576
+#: src/Server/Privileges.php:1577
 msgid "Database-specific privileges"
 msgstr "Andmebaasipõhised õigused"
 
 #: resources/templates/server/privileges/privileges_table.twig:339
 #: resources/templates/server/privileges/privileges_table.twig:340
-#: src/Server/Privileges.php:317
+#: src/Server/Privileges.php:318
 msgid "Allows importing data from and exporting data into files."
 msgstr "Lubab andmeid failidest importida ja failideks eksportida."
 
 #: resources/templates/server/privileges/privileges_table.twig:364
 #: resources/templates/server/privileges/privileges_table.twig:372
-#: src/Server/Privileges.php:312
+#: src/Server/Privileges.php:313
 msgid "Allows creating new databases and tables."
 msgstr "Lubab luua uusi andmebaase ja tabeleid."
 
 #: resources/templates/server/privileges/privileges_table.twig:412
 #: resources/templates/server/privileges/privileges_table.twig:420
-#: src/Server/Privileges.php:313
+#: src/Server/Privileges.php:314
 msgid "Allows dropping databases and tables."
 msgstr "Lubab kustutada andmebaase ja tabeleid."
 
 #: resources/templates/server/privileges/privileges_table.twig:433
 #: resources/templates/server/privileges/privileges_table.twig:434
-#: src/Server/Privileges.php:331
+#: src/Server/Privileges.php:332
 msgid "Allows creating temporary tables."
 msgstr "Lubab luua ajutisi tabeleid."
 
 #: resources/templates/server/privileges/privileges_table.twig:459
 #: resources/templates/server/privileges/privileges_table.twig:460
-#: src/Server/Privileges.php:363
+#: src/Server/Privileges.php:364
 msgid "Allows creating stored routines."
 msgstr "Lubab luua salvestatud funktsioone."
 
 #: resources/templates/server/privileges/privileges_table.twig:472
 #: resources/templates/server/privileges/privileges_table.twig:473
-#: src/Server/Privileges.php:364
+#: src/Server/Privileges.php:365
 msgid "Allows altering and dropping stored routines."
 msgstr "Lubab muuta ja kustutada salvestatud funktsioone."
 
 #: resources/templates/server/privileges/privileges_table.twig:485
 #: resources/templates/server/privileges/privileges_table.twig:486
-#: src/Server/Privileges.php:366
+#: src/Server/Privileges.php:367
 msgid "Allows executing stored routines."
 msgstr "Lubab käivitada salvestatud funktsioone."
 
 #: resources/templates/server/privileges/privileges_table.twig:529
 #: resources/templates/server/privileges/privileges_table.twig:530
-#: src/Server/Privileges.php:340
+#: src/Server/Privileges.php:341
 msgid "Allows to set up events for the event scheduler."
 msgstr "Võimaldab luua sündmuste ajastajale sündmuseid."
 
@@ -5009,7 +5012,7 @@ msgstr "Lubab õiguste tabelit laadimata lisada kasutajaid ja õigusi."
 
 #: resources/templates/server/privileges/privileges_table.twig:582
 #: resources/templates/server/privileges/privileges_table.twig:584
-#: src/Server/Privileges.php:326
+#: src/Server/Privileges.php:327
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -5021,31 +5024,31 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:596
 #: resources/templates/server/privileges/privileges_table.twig:597
-#: src/Server/Privileges.php:316
+#: src/Server/Privileges.php:317
 msgid "Allows viewing processes of all users."
 msgstr "Lubab kõikide kasutajate protsesside vaatamist."
 
 #: resources/templates/server/privileges/privileges_table.twig:609
 #: resources/templates/server/privileges/privileges_table.twig:610
-#: src/Server/Privileges.php:314
+#: src/Server/Privileges.php:315
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr "Lubab serveri sätteid uuesti laadida ja tühjendada serveri vahemälu."
 
 #: resources/templates/server/privileges/privileges_table.twig:622
 #: resources/templates/server/privileges/privileges_table.twig:623
-#: src/Server/Privileges.php:315
+#: src/Server/Privileges.php:316
 msgid "Allows shutting down the server."
 msgstr "Lubab serveri välja lülitada."
 
 #: resources/templates/server/privileges/privileges_table.twig:635
 #: resources/templates/server/privileges/privileges_table.twig:636
-#: src/Server/Privileges.php:321
+#: src/Server/Privileges.php:322
 msgid "Gives access to the complete list of databases."
 msgstr "Annab ligipääsu kogu andmebaaside nimekirjale."
 
 #: resources/templates/server/privileges/privileges_table.twig:663
 #: resources/templates/server/privileges/privileges_table.twig:664
-#: src/Server/Privileges.php:332
+#: src/Server/Privileges.php:333
 msgid "Allows locking tables for the current thread."
 msgstr "Lubab käesoleva lõimu jaoks tabeleid lukustada."
 
@@ -5063,19 +5066,19 @@ msgstr "Pole kasutusel selles MySQLi versioonis."
 
 #: resources/templates/server/privileges/privileges_table.twig:691
 #: resources/templates/server/privileges/privileges_table.twig:692
-#: src/Server/Privileges.php:337
+#: src/Server/Privileges.php:338
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr "Lubab kasutajal küsida jäljendite ja originaalide asukohti."
 
 #: resources/templates/server/privileges/privileges_table.twig:704
 #: resources/templates/server/privileges/privileges_table.twig:705
-#: src/Server/Privileges.php:333
+#: src/Server/Privileges.php:334
 msgid "Needed for the replication replicas."
 msgstr "Vajalik tiražeerimiskoopiatele."
 
 #: resources/templates/server/privileges/privileges_table.twig:717
 #: resources/templates/server/privileges/privileges_table.twig:718
-#: src/Server/Privileges.php:365
+#: src/Server/Privileges.php:366
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Lubab luua, kustutada ja ümber nimetada kasutajakontosid."
 
@@ -5737,13 +5740,13 @@ msgstr "Kasuta jagajat"
 
 #. l10n: shortcuts for Kilobyte
 #: resources/templates/server/status/monitor/index.twig:163
-#: src/Controllers/JavaScriptMessagesController.php:205 src/Util.php:300
+#: src/Controllers/JavaScriptMessagesController.php:205 src/Util.php:301
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: resources/templates/server/status/monitor/index.twig:167
-#: src/Controllers/JavaScriptMessagesController.php:206 src/Util.php:302
+#: src/Controllers/JavaScriptMessagesController.php:206 src/Util.php:303
 msgid "MiB"
 msgstr "MiB"
 
@@ -6181,8 +6184,8 @@ msgstr "Pirukagraafik profileerimise tulemustega."
 #: src/Controllers/Table/Partition/RebuildController.php:51
 #: src/Controllers/Table/Partition/RepairController.php:50
 #: src/Controllers/Table/Partition/TruncateController.php:51
-#: src/Controllers/Table/RelationController.php:140
-#: src/Database/Routines.php:984 src/Display/Results.php:3214
+#: src/Controllers/Table/RelationController.php:141
+#: src/Database/Routines.php:993 src/Display/Results.php:3214
 #: src/Message.php:129
 msgid "Your SQL query has been executed successfully."
 msgstr "Sinu SQL päring teostati edukalt."
@@ -6687,8 +6690,8 @@ msgid "Check referential integrity"
 msgstr "Kontrolli pärinevust"
 
 #: resources/templates/table/operations/view.twig:3
-#: src/Config/ConfigFile.php:591 src/Menu.php:274 src/Menu.php:284
-#: src/Menu.php:364 src/Util.php:1061 src/Util.php:1489 src/Util.php:1507
+#: src/Config/ConfigFile.php:591 src/Menu.php:273 src/Menu.php:283
+#: src/Menu.php:363 src/Util.php:1062 src/Util.php:1488 src/Util.php:1506
 msgid "Operations"
 msgstr "Tegevused"
 
@@ -7015,7 +7018,7 @@ msgid "Effective"
 msgstr "Efektiivne"
 
 #: resources/templates/table/structure/display_table_stats.twig:44
-#: src/Controllers/Server/DatabasesController.php:292
+#: src/Controllers/Server/DatabasesController.php:268
 #: src/Controllers/Server/Status/StatusController.php:137
 #: src/Controllers/Server/Status/StatusController.php:187
 msgid "Total"
@@ -7178,14 +7181,14 @@ msgstr "Sündmus"
 msgid "Export of trigger %s"
 msgstr "Eksportimine päästik %s"
 
-#: resources/templates/triggers/list.twig:3 src/Menu.php:297 src/Menu.php:390
+#: resources/templates/triggers/list.twig:3 src/Menu.php:296 src/Menu.php:389
 #: src/Navigation/Nodes/NodeTriggerContainer.php:25
 #: src/Navigation/Nodes/NodeTriggerContainer.php:27
 #: src/Plugins/Export/ExportHtmlword.php:534
 #: src/Plugins/Export/ExportOdt.php:657 src/Plugins/Export/ExportPdf.php:251
 #: src/Plugins/Export/ExportSql.php:1925
 #: src/Plugins/Export/ExportTexytext.php:498
-#: src/Plugins/Export/ExportXml.php:120 src/Util.php:1493 src/Util.php:1509
+#: src/Plugins/Export/ExportXml.php:120 src/Util.php:1492 src/Util.php:1508
 msgid "Triggers"
 msgstr "Päästikud"
 
@@ -8787,9 +8790,9 @@ msgstr "Vietnami"
 
 #: src/Config/ConfigFile.php:519 src/Config/ConfigFile.php:533
 #: src/Config/ConfigFile.php:587 src/Config/ConfigFile.php:597
-#: src/Config/Descriptions.php:755 src/Menu.php:225 src/Menu.php:329
-#: src/Menu.php:447 src/Navigation/Nodes/NodeTable.php:292 src/Util.php:1057
-#: src/Util.php:1469 src/Util.php:1484 src/Util.php:1501
+#: src/Config/Descriptions.php:755 src/Menu.php:224 src/Menu.php:328
+#: src/Menu.php:446 src/Navigation/Nodes/NodeTable.php:292 src/Util.php:1058
+#: src/Util.php:1468 src/Util.php:1483 src/Util.php:1500
 msgid "SQL"
 msgstr "SQL"
 
@@ -11443,22 +11446,22 @@ msgstr "Vaikimisi teisendused"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr "Sätete salvestamine nurjus; saadetud häälestus sisaldab vigu!"
 
-#: src/Config.php:612
+#: src/Config.php:611
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Olemasolev seadistusfail (%s) ei ole loetav."
 
-#: src/Config.php:648
+#: src/Config.php:647
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Seadistusfailil on valed õigused. See ei tohiks olla kõikide jaoks "
 "kirjutatav!"
 
-#: src/Config.php:662
+#: src/Config.php:661
 msgid "Failed to read configuration file!"
 msgstr "Seadistuse faili lugemine ebaõnnestus!"
 
-#: src/Config.php:664
+#: src/Config.php:663
 msgid "This usually means there is a syntax error in it."
 msgstr "See tähendab tavaliselt, et selles on süntaksi viga."
 
@@ -11620,15 +11623,15 @@ msgstr ""
 msgid "View users"
 msgstr "Kuva kasutajad"
 
-#: src/ConfigStorage/UserGroups.php:229
+#: src/ConfigStorage/UserGroups.php:228
 msgid "Server-level tabs"
 msgstr "Serveri tasemete sakid"
 
-#: src/ConfigStorage/UserGroups.php:234
+#: src/ConfigStorage/UserGroups.php:233
 msgid "Database-level tabs"
 msgstr "Andmebaasi tasemete sakid"
 
-#: src/ConfigStorage/UserGroups.php:239
+#: src/ConfigStorage/UserGroups.php:238
 msgid "Table-level tabs"
 msgstr "Tabeli tasemete sakid"
 
@@ -11886,15 +11889,15 @@ msgid "You do not have the privileges to administrate the users!"
 msgstr "Sul puuduvad kasutajate haldamise õigused!"
 
 #: src/Controllers/Database/RoutinesController.php:86
-#: src/Controllers/Database/Structure/AddPrefixController.php:21
+#: src/Controllers/Database/Structure/AddPrefixController.php:22
 #: src/Controllers/Database/Structure/CentralColumns/AddController.php:39
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:40
 #: src/Controllers/Database/Structure/CentralColumns/RemoveController.php:39
-#: src/Controllers/Database/Structure/ChangePrefixFormController.php:21
-#: src/Controllers/Database/Structure/CopyFormController.php:22
+#: src/Controllers/Database/Structure/ChangePrefixFormController.php:22
+#: src/Controllers/Database/Structure/CopyFormController.php:23
 #: src/Controllers/Database/Structure/DropFormController.php:33
-#: src/Controllers/Database/Structure/EmptyFormController.php:24
-#: src/Controllers/Database/Structure/ShowCreateController.php:30
+#: src/Controllers/Database/Structure/EmptyFormController.php:25
+#: src/Controllers/Database/Structure/ShowCreateController.php:31
 #: src/Controllers/Export/TablesController.php:29
 #: src/Controllers/JavaScriptMessagesController.php:355
 #: src/Controllers/Operations/TableController.php:103
@@ -12015,7 +12018,7 @@ msgid "Favorite List is full!"
 msgstr "Lemmikute nimekiri on täis!"
 
 #: src/Controllers/Database/TrackingController.php:83
-#: src/Controllers/Database/TrackingController.php:108
+#: src/Controllers/Database/TrackingController.php:109
 msgid "Tracking data deleted successfully."
 msgstr "Jälgimise andmed kustutati edukalt."
 
@@ -12026,11 +12029,11 @@ msgid ""
 msgstr ""
 "Versioon %1$s loodi valitud tabelitele; nende jälgimine on aktiveeritud."
 
-#: src/Controllers/Database/TrackingController.php:125
+#: src/Controllers/Database/TrackingController.php:126
 msgid "No tables selected."
 msgstr "Ühtegi tabelit ei ole valitud."
 
-#: src/Controllers/Database/TrackingController.php:164
+#: src/Controllers/Database/TrackingController.php:165
 msgid "Database Log"
 msgstr "Andmebaasi logi"
 
@@ -12491,12 +12494,12 @@ msgid "The user name is empty!"
 msgstr "Kasutajanimi on tühi!"
 
 #: src/Controllers/JavaScriptMessagesController.php:143
-#: src/Server/Privileges.php:765 src/UserPassword.php:39
+#: src/Server/Privileges.php:766 src/UserPassword.php:39
 msgid "The password is empty!"
 msgstr "Parool on tühi!"
 
 #: src/Controllers/JavaScriptMessagesController.php:144
-#: src/Server/Privileges.php:763 src/UserPassword.php:43
+#: src/Server/Privileges.php:764 src/UserPassword.php:43
 msgid "The passwords aren't the same!"
 msgstr "Paroolid ei kattu!"
 
@@ -12527,14 +12530,14 @@ msgid "Other"
 msgstr "Muud"
 
 #. l10n: Thousands separator
-#: src/Controllers/JavaScriptMessagesController.php:161 src/Util.php:388
-#: src/Util.php:420
+#: src/Controllers/JavaScriptMessagesController.php:161 src/Util.php:389
+#: src/Util.php:421
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: src/Controllers/JavaScriptMessagesController.php:163 src/Util.php:386
-#: src/Util.php:418
+#: src/Controllers/JavaScriptMessagesController.php:163 src/Util.php:387
+#: src/Util.php:419
 msgid "."
 msgstr "."
 
@@ -12635,27 +12638,27 @@ msgid "Bytes received"
 msgstr "Vastuvõetud baidid"
 
 #. l10n: shortcuts for Byte
-#: src/Controllers/JavaScriptMessagesController.php:204 src/Util.php:298
+#: src/Controllers/JavaScriptMessagesController.php:204 src/Util.php:299
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Gigabyte
-#: src/Controllers/JavaScriptMessagesController.php:207 src/Util.php:304
+#: src/Controllers/JavaScriptMessagesController.php:207 src/Util.php:305
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
-#: src/Controllers/JavaScriptMessagesController.php:208 src/Util.php:306
+#: src/Controllers/JavaScriptMessagesController.php:208 src/Util.php:307
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
-#: src/Controllers/JavaScriptMessagesController.php:209 src/Util.php:308
+#: src/Controllers/JavaScriptMessagesController.php:209 src/Util.php:309
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
-#: src/Controllers/JavaScriptMessagesController.php:210 src/Util.php:310
+#: src/Controllers/JavaScriptMessagesController.php:210 src/Util.php:311
 msgid "EiB"
 msgstr "EiB"
 
@@ -13882,97 +13885,97 @@ msgctxt "Month name"
 msgid "December"
 msgstr "Detsember"
 
-#: src/Controllers/JavaScriptMessagesController.php:728 src/Util.php:497
+#: src/Controllers/JavaScriptMessagesController.php:728 src/Util.php:498
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "Jaan"
 
-#: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:498
+#: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:499
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "Veebr"
 
-#: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:499
+#: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:500
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "Märts"
 
-#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:500
+#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:501
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "Apr"
 
-#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:501
+#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:502
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "Mai"
 
-#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:502
+#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:503
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "Juun"
 
-#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:503
+#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:504
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "Juul"
 
-#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:504
+#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:505
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "Aug"
 
-#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:505
+#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:506
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "Sept"
 
-#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:506
+#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:507
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "Okt"
 
-#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:507
+#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:508
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "Nov"
 
-#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:508
+#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:509
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "Dets"
 
-#: src/Controllers/JavaScriptMessagesController.php:747 src/Util.php:511
+#: src/Controllers/JavaScriptMessagesController.php:747 src/Util.php:512
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "Püh"
 
-#: src/Controllers/JavaScriptMessagesController.php:748 src/Util.php:512
+#: src/Controllers/JavaScriptMessagesController.php:748 src/Util.php:513
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "E"
 
-#: src/Controllers/JavaScriptMessagesController.php:749 src/Util.php:513
+#: src/Controllers/JavaScriptMessagesController.php:749 src/Util.php:514
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "T"
 
-#: src/Controllers/JavaScriptMessagesController.php:750 src/Util.php:514
+#: src/Controllers/JavaScriptMessagesController.php:750 src/Util.php:515
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "K"
 
-#: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:515
+#: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:516
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "N"
 
-#: src/Controllers/JavaScriptMessagesController.php:752 src/Util.php:516
+#: src/Controllers/JavaScriptMessagesController.php:752 src/Util.php:517
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "R"
 
-#: src/Controllers/JavaScriptMessagesController.php:753 src/Util.php:517
+#: src/Controllers/JavaScriptMessagesController.php:753 src/Util.php:518
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "L"
@@ -15062,7 +15065,7 @@ msgstr "Valed andmed"
 msgid "Wrong data or no validation for %s"
 msgstr "Valed andmed või puudub %s valideerimine"
 
-#: src/Controllers/Sql/SqlController.php:234 src/Sql.php:1045
+#: src/Controllers/Sql/SqlController.php:234 src/Sql.php:1048
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Loodi järjehoidja %s."
@@ -15143,8 +15146,8 @@ msgid "There is an issue with your request."
 msgstr "Sinu päring ei läbinud turvalisuse kontrolli."
 
 #: src/Controllers/Table/GetFieldController.php:83
-#: src/Database/Routines.php:1001 src/Import/Import.php:162
-#: src/InsertEdit.php:200 src/Sql.php:854
+#: src/Database/Routines.php:1010 src/Import/Import.php:162
+#: src/InsertEdit.php:200 src/Sql.php:857
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL tagastas tühja tulemuse (s.t nulliread)."
 
@@ -15174,11 +15177,11 @@ msgstr "Partitsiooni nimi ei saa olla tühi sõne."
 msgid "Invalid database or table name."
 msgstr "Vigane andmebaasi või tabeli nimi."
 
-#: src/Controllers/Table/RelationController.php:275
+#: src/Controllers/Table/RelationController.php:276
 msgid "Display column was successfully updated."
 msgstr "Kuva veergu uuendati edukalt."
 
-#: src/Controllers/Table/RelationController.php:309
+#: src/Controllers/Table/RelationController.php:310
 msgid "Internal relationships were successfully updated."
 msgstr "Siseseosete värskendamine õnnestus."
 
@@ -15193,7 +15196,7 @@ msgstr "Veerud on edukalt liigutatud."
 
 #: src/Controllers/Table/Structure/PartitioningController.php:257
 #: src/Controllers/Table/Structure/SaveController.php:261
-#: src/Tracking/Tracking.php:780
+#: src/Tracking/Tracking.php:781
 msgid "Query error"
 msgstr "Päringu viga"
 
@@ -15340,14 +15343,14 @@ msgstr "Viga: Nurjus siseseose kustutamine!"
 msgid "Internal relationship has been removed."
 msgstr "Siseseos on kustutatud."
 
-#: src/Database/Designer.php:118
+#: src/Database/Designer.php:112
 msgid "Could not load schema plugins, please check your installation!"
 msgstr "Skeemi pluginaid ei suudetud laadida, palun kontrolli oma paigaldust!"
 
 #: src/Database/Events.php:90 src/Database/Events.php:99
 #: src/Database/Events.php:125 src/Database/Routines.php:101
-#: src/Database/Routines.php:126 src/Database/Routines.php:204
-#: src/Database/Routines.php:961 src/Triggers/Triggers.php:83
+#: src/Database/Routines.php:126 src/Database/Routines.php:203
+#: src/Database/Routines.php:970 src/Triggers/Triggers.php:83
 #: src/Triggers/Triggers.php:92 src/Triggers/Triggers.php:119
 #, php-format
 msgid "The following query has failed: \"%s\""
@@ -15356,8 +15359,8 @@ msgstr "Järgnev päring ebaõnnestus: \"%s\""
 #: src/Database/Events.php:94 src/Database/Events.php:103
 #: src/Database/Events.php:129 src/Database/Events.php:354
 #: src/Database/Routines.php:105 src/Database/Routines.php:130
-#: src/Database/Routines.php:208 src/Database/Routines.php:965
-#: src/Database/Routines.php:1212 src/Html/Generator.php:827
+#: src/Database/Routines.php:207 src/Database/Routines.php:221
+#: src/Database/Routines.php:974 src/Html/Generator.php:827
 #: src/Triggers/Triggers.php:87 src/Triggers/Triggers.php:96
 #: src/Triggers/Triggers.php:123 src/Triggers/Triggers.php:243
 msgid "MySQL said: "
@@ -15378,7 +15381,7 @@ msgstr "%1$s sündmus on loodud."
 msgid "One or more errors have occurred while processing your request:"
 msgstr "Sinu päringu töötlemisel esines vähemalt üks viga:"
 
-#: src/Database/Events.php:261 src/Database/Routines.php:763
+#: src/Database/Events.php:261 src/Database/Routines.php:772
 #: src/Triggers/Triggers.php:184
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "Määraja peab olema formaadis \"kasutajanimi@hostinimi\"!"
@@ -15407,12 +15410,12 @@ msgstr "Sa pead andma sündmuse definitsiooni."
 msgid "Sorry, we failed to restore the dropped event."
 msgstr "Vabanda, meil ei õnnestunud kustutatud sündmust taastada."
 
-#: src/Database/Events.php:352 src/Database/Routines.php:1210
+#: src/Database/Events.php:352 src/Database/Routines.php:219
 #: src/Triggers/Triggers.php:241
 msgid "The backed up query was:"
 msgstr "Varundatud päring oli:"
 
-#: src/DatabaseInterface.php:1160
+#: src/DatabaseInterface.php:1126
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -15423,15 +15426,15 @@ msgstr ""
 "kontrolli häälestuses sätet [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/"
 "em]. phpMyAdmin kasutab hetkel andmebaasi serveri vaikimisi ajatsooni."
 
-#: src/DatabaseInterface.php:1202
+#: src/DatabaseInterface.php:1168
 msgid "Failed to set configured collation connection!"
 msgstr "Seadistatud sortimise ühenduse määramine ebaõnnestus!"
 
-#: src/DatabaseInterface.php:1646
+#: src/DatabaseInterface.php:1608
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "Sinu seadistuses määratud kontrollkasutajaga ühendamine ebaõnnestus."
 
-#: src/Database/Routines.php:82 src/Database/Routines.php:771
+#: src/Database/Routines.php:82 src/Database/Routines.php:780
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Vale funktsiooni tüüp: \"%s\""
@@ -15441,26 +15444,30 @@ msgstr "Vale funktsiooni tüüp: \"%s\""
 msgid "Routine %1$s has been created."
 msgstr "%1$s funktsioon on loodud."
 
-#: src/Database/Routines.php:261
+#: src/Database/Routines.php:218
+msgid "Sorry, we failed to restore the dropped routine."
+msgstr "Vabanda, me ei suutnud kustutatud funktsiooni taastada."
+
+#: src/Database/Routines.php:268
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "Funktsiooni %1$s on muudetud. Õiguseid on vastavalt kohandatud."
 
-#: src/Database/Routines.php:266
+#: src/Database/Routines.php:273
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "%1$s funktsiooni on muudetud."
 
-#: src/Database/Routines.php:604
+#: src/Database/Routines.php:613
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "Sa pead andma igale funktsiooni parameetrile nime ja tüübi."
 
-#: src/Database/Routines.php:622
+#: src/Database/Routines.php:631
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "Parameetrile anti vale suund \"%s\"."
 
-#: src/Database/Routines.php:642 src/Database/Routines.php:709
+#: src/Database/Routines.php:651 src/Database/Routines.php:718
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -15468,33 +15475,29 @@ msgstr ""
 "Sa pead andma ENUM, SET, VARCHAR ja VARBINARY tüüpi funktsiooni "
 "parameetritele pikkuse/väärtused."
 
-#: src/Database/Routines.php:691
+#: src/Database/Routines.php:700
 msgid "You must provide a valid return type for the routine."
 msgstr "Sa pead andma funktsioonile õige pöördumise tüübi."
 
-#: src/Database/Routines.php:779
+#: src/Database/Routines.php:788
 msgid "You must provide a routine name!"
 msgstr "Sa pead andma funktsiooni nime!"
 
-#: src/Database/Routines.php:843
+#: src/Database/Routines.php:852
 msgid "You must provide a routine definition."
 msgstr "Sa pead andma funktsiooni definitsiooni."
 
-#: src/Database/Routines.php:977
+#: src/Database/Routines.php:986
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "%s funktsiooni käivitamise tulemused"
 
-#: src/Database/Routines.php:992
+#: src/Database/Routines.php:1001
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "Protseduuri viimane käsk mõjutas %d rida."
 msgstr[1] "Protseduuri viimane käsk mõjutas %d rida."
-
-#: src/Database/Routines.php:1209
-msgid "Sorry, we failed to restore the dropped routine."
-msgstr "Vabanda, me ei suutnud kustutatud funktsiooni taastada."
 
 #: src/Dbal/DbiMysqli.php:121
 #, php-format
@@ -15524,7 +15527,7 @@ msgstr "Kokku %1$s, päringus %2$s"
 msgid "%s total"
 msgstr "kokku: %s"
 
-#: src/Display/Results.php:3542 src/Sql.php:860
+#: src/Display/Results.php:3542 src/Sql.php:863
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "päring kestis %01.4f sekundit."
@@ -16124,7 +16127,7 @@ msgstr "Trigeri nimi võib olla kuni %d märki pikk."
 msgid "The trigger name cannot end with a space character."
 msgstr "Trigeri nimi ei saa lõppeda tühikuga."
 
-#: src/Import/Import.php:288 src/Sql.php:868
+#: src/Import/Import.php:288 src/Sql.php:871
 msgid "[ROLLBACK occurred.]"
 msgstr "[Toimus tagasipööramine.]"
 
@@ -16192,11 +16195,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "veebiserveri üleslaadimiskataloog:"
 
-#: src/InsertEdit.php:936 src/Sql.php:851
+#: src/InsertEdit.php:936 src/Sql.php:854
 msgid "Showing SQL query"
 msgstr "Näitan SQL päringut"
 
-#: src/InsertEdit.php:960 src/Sql.php:831
+#: src/InsertEdit.php:960 src/Sql.php:834
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Lisatud rea id: %1$d"
@@ -16216,31 +16219,31 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr "%1$s (<code>%2$s</code> lähedal)"
 
-#: src/Menu.php:290 src/Menu.php:397 src/Util.php:1494 src/Util.php:1508
+#: src/Menu.php:289 src/Menu.php:396 src/Util.php:1493 src/Util.php:1507
 msgid "Tracking"
 msgstr "Jälgimine"
 
-#: src/Menu.php:338 src/Menu.php:346 src/Menu.php:354
+#: src/Menu.php:337 src/Menu.php:345 src/Menu.php:353
 msgid "Database seems to be empty!"
 msgstr "Andmebaas tundub olevat tühi!"
 
-#: src/Menu.php:341 src/Util.php:1486
+#: src/Menu.php:340 src/Util.php:1485
 msgid "Query"
 msgstr "Päring"
 
-#: src/Menu.php:404 src/Util.php:1495
+#: src/Menu.php:403 src/Util.php:1494
 msgid "Designer"
 msgstr "Kujundaja"
 
-#: src/Menu.php:465
+#: src/Menu.php:464
 msgid "User accounts"
 msgstr "Kasutajate kontod"
 
-#: src/Menu.php:514 src/Util.php:1478
+#: src/Menu.php:513 src/Util.php:1477
 msgid "Charsets"
 msgstr "Märgitabelid"
 
-#: src/Menu.php:519 src/Util.php:1480
+#: src/Menu.php:518 src/Util.php:1479
 msgid "Engines"
 msgstr "Mootorid"
 
@@ -17480,7 +17483,7 @@ msgstr ""
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:70
-#: src/Util.php:522
+#: src/Util.php:523
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%B %d, %Y kell %I:%M %p"
 
@@ -17846,8 +17849,8 @@ msgstr "Viga 404! Lehekülge %s ei leitud."
 msgid "Error 405! Request method not allowed."
 msgstr "Viga 405! Päringu meetod on keelatud."
 
-#: src/Server/Plugins.php:53 src/Server/Privileges.php:632
-#: src/Server/Privileges.php:3276
+#: src/Server/Plugins.php:53 src/Server/Privileges.php:633
+#: src/Server/Privileges.php:3269
 msgid "Native MySQL authentication"
 msgstr "MySQLi omavahenditega autentimine"
 
@@ -17872,65 +17875,65 @@ msgstr "Vana MySQL-4.0 autentimine"
 msgid "Account locking is not supported."
 msgstr "Konto lukustamist ei toetata."
 
-#: src/Server/Privileges.php:265
+#: src/Server/Privileges.php:266
 msgid "No privileges."
 msgstr "Õigused puuduvad."
 
-#: src/Server/Privileges.php:271
+#: src/Server/Privileges.php:272
 msgid "Includes all privileges except GRANT."
 msgstr "Sisaldab kõiki õigusi, v.a GRANT."
 
-#: src/Server/Privileges.php:892
+#: src/Server/Privileges.php:893
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "%s parool on edukalt vahetatud."
 
-#: src/Server/Privileges.php:940
+#: src/Server/Privileges.php:941
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Tühistasid %s õigused."
 
-#: src/Server/Privileges.php:1288
+#: src/Server/Privileges.php:1289
 msgid "Revoke"
 msgstr "Tühista"
 
-#: src/Server/Privileges.php:1893
+#: src/Server/Privileges.php:1894
 msgid "No users selected for deleting!"
 msgstr "Kustutavaid kasutajaid pole valitud!"
 
-#: src/Server/Privileges.php:1896
+#: src/Server/Privileges.php:1897
 msgid "Reloading the privileges"
 msgstr "Õiguste uuesti laadimine"
 
-#: src/Server/Privileges.php:1921
+#: src/Server/Privileges.php:1922
 msgid "The selected users have been deleted successfully."
 msgstr "Valitud kasutajad on edukalt kustutatud."
 
-#: src/Server/Privileges.php:1995
+#: src/Server/Privileges.php:1996
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Uuendasid %s õigusi."
 
-#: src/Server/Privileges.php:2152
+#: src/Server/Privileges.php:2153
 #, php-format
 msgid "Deleting %s"
 msgstr "%s kustutamine"
 
-#: src/Server/Privileges.php:2183
+#: src/Server/Privileges.php:2184
 msgid "The privileges were reloaded successfully."
 msgstr "Õigused on edukalt uuesti laetud."
 
-#: src/Server/Privileges.php:2284
+#: src/Server/Privileges.php:2285
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Kasutaja %s on juba olemas!"
 
-#: src/Server/Privileges.php:2528
+#: src/Server/Privileges.php:2522
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s õigused"
 
-#: src/Server/Privileges.php:2616
+#: src/Server/Privileges.php:2610
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -17942,7 +17945,7 @@ msgstr ""
 "Tabelite sisu võib erineda serveri kasutatavatest, kui neid on käsitsi "
 "muudetud. Sellisel juhul peaksid enne jätkamist %sõigused uuesti laadima%s."
 
-#: src/Server/Privileges.php:2632
+#: src/Server/Privileges.php:2626
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -17955,11 +17958,11 @@ msgstr ""
 "muudetud. Sellisel juhul peab õigused uuesti laadima, kuid hetkel puudub sul "
 "uuesti laadimise (RELOAD) õigus."
 
-#: src/Server/Privileges.php:2920
+#: src/Server/Privileges.php:2914
 msgid "You have added a new user."
 msgstr "Lisasid uue kasutaja."
 
-#: src/Server/Privileges.php:3369
+#: src/Server/Privileges.php:3362
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -18063,11 +18066,11 @@ msgstr "Uut stabiilset versiooni saadaval ei ole"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "\"%s\" järjehoidjat kasutatakse vaikimisi sirvimise päringuna."
 
-#: src/Sql.php:848
+#: src/Sql.php:851
 msgid "Showing as PHP code"
 msgstr "Näitan PHP koodina"
 
-#: src/Sql.php:1213
+#: src/Sql.php:1216
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18077,7 +18080,7 @@ msgstr ""
 "märkekastide, hariliku muutmisega, kopeerimisega ja kustutamisega seotud "
 "funksionaalsus ei ole saadaval. %s"
 
-#: src/Sql.php:1227
+#: src/Sql.php:1230
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -18102,22 +18105,22 @@ msgstr "Teosta SQL päring(ud) %s andmebaasis"
 msgid "Run SQL query/queries on table %s"
 msgstr "Teosta SQL päring(ud) tabelil %s"
 
-#: src/StorageEngine.php:320
+#: src/StorageEngine.php:319
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr "Detailne staatuse teave antud varundusmootori kohta puudub."
 
-#: src/StorageEngine.php:417
+#: src/StorageEngine.php:416
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s on saadaval selles MySQL serveris."
 
-#: src/StorageEngine.php:418
+#: src/StorageEngine.php:417
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s on keelatud selle MySQL serveri jaoks."
 
-#: src/StorageEngine.php:419
+#: src/StorageEngine.php:418
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "See MySQL server ei toeta %s varundusmootorit."
@@ -18149,24 +18152,24 @@ msgstr "Lähteandmebaasi `%s` ei leitud!"
 msgid "Target database `%s` was not found!"
 msgstr "Sihtandmebaasi `%s` ei leitud!"
 
-#: src/Table/Table.php:1319
+#: src/Table/Table.php:1320
 msgid "Invalid database:"
 msgstr "Vigane andmebaas:"
 
-#: src/Table/Table.php:1337
+#: src/Table/Table.php:1338
 msgid "Invalid table name:"
 msgstr "Vigane tabeli nimi:"
 
-#: src/Table/Table.php:1383
+#: src/Table/Table.php:1384
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "%1$s tabeli uueks nimeks sai %2$s."
 
-#: src/Table/Table.php:1620
+#: src/Table/Table.php:1621
 msgid "Could not save table UI preferences!"
 msgstr "Tabeli kasutajaliidese eelistusi ei saanud salvestada!"
 
-#: src/Table/Table.php:1642
+#: src/Table/Table.php:1643
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -18175,7 +18178,7 @@ msgstr ""
 "Tabeli UI eelistuste puhastamine ebaõnnestus (vaata $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: src/Table/Table.php:1770
+#: src/Table/Table.php:1771
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -18185,7 +18188,7 @@ msgstr ""
 "Ei saanud salvestada UI muudatust \"%s\". Muudatused ei säili, kui "
 "värskendad seda lehte. Palun kontrolli, kas tabeli struktuuri on muudetud."
 
-#: src/Table/Table.php:2124
+#: src/Table/Table.php:2125
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Viga võõrvõtme loomisel kohas %1$s (kontrolli andmete tüüpe)"
@@ -18270,7 +18273,7 @@ msgstr "Ekspordi kui %s"
 msgid "Version %s snapshot (SQL code)"
 msgstr "Versiooni %s hetkepilt (SQL kood)"
 
-#: src/Tracking/Tracking.php:840
+#: src/Tracking/Tracking.php:841
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
@@ -18278,35 +18281,35 @@ msgstr ""
 "Ajutise andmebaasi loomisega ja kasutamisega saad käivitada tõmmise. Palun "
 "veendu, et sul on selle jaoks õigusi."
 
-#: src/Tracking/Tracking.php:844
+#: src/Tracking/Tracking.php:845
 msgid "Comment out these two lines if you do not need them."
 msgstr "Kustuta need kaks rida, kui sa ei vaja neid."
 
-#: src/Tracking/Tracking.php:855
+#: src/Tracking/Tracking.php:856
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr "SQL käsud on eksporditud. Palun kopeeri tõmmis või käivita see."
 
-#: src/Tracking/Tracking.php:888
+#: src/Tracking/Tracking.php:889
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr "`%s` tabeli jälgimise raport"
 
-#: src/Tracking/Tracking.php:911
+#: src/Tracking/Tracking.php:912
 #, php-format
 msgid "Tracking for %1$s was activated at version %2$s."
 msgstr "%1$s jälgimine aktiveeriti versioonil %2$s."
 
-#: src/Tracking/Tracking.php:914
+#: src/Tracking/Tracking.php:915
 #, php-format
 msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "%1$s jälgimine deaktiveeriti versioonil %2$s."
 
-#: src/Tracking/Tracking.php:1009
+#: src/Tracking/Tracking.php:1010
 #, php-format
 msgid "Version %1$s of %2$s was deleted."
 msgstr "Versioon %1$s kokku %2$s. versioonist kustutati."
 
-#: src/Tracking/Tracking.php:1040
+#: src/Tracking/Tracking.php:1041
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr "Versioon %1$s on loodud, %2$s jälgimine on aktiveeritud."
@@ -18665,27 +18668,27 @@ msgstr "Ei saanud seadistust salvestada"
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr "phpMyAdmini seadistuste salvestamise andmebaasile puudub juurdepääs."
 
-#: src/Util.php:124
+#: src/Util.php:125
 #, php-format
 msgid "Max: %s%s"
 msgstr "Maksimaalne: %s%s"
 
-#: src/Util.php:545
+#: src/Util.php:546
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr "PL"
 
-#: src/Util.php:547
+#: src/Util.php:548
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr "EL"
 
-#: src/Util.php:619
+#: src/Util.php:620
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s päeva, %s tundi, %s minutit ja %s sekundit"
 
-#: src/Util.php:1471
+#: src/Util.php:1470
 msgid "Users"
 msgstr "Kasutajad"
 
