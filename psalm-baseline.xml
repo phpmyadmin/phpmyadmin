@@ -14526,9 +14526,14 @@
       <code><![CDATA[['ssl' => true, 'ssl_verify' => false, 'host' => 'custom.host']]]></code>
       <code><![CDATA[['ssl' => true, 'ssl_verify' => true, 'host' => 'custom.host']]]></code>
     </InvalidPropertyAssignmentValue>
-    <MixedAssignment>
-      <code>$result</code>
-    </MixedAssignment>
+    <MixedArgument>
+      <code>$params</code>
+      <code>$params</code>
+      <code>$params</code>
+      <code>$params</code>
+      <code>$params</code>
+      <code>$params</code>
+    </MixedArgument>
     <PossiblyUnusedMethod>
       <code>linksOrButtons</code>
       <code>providerForTestGetDefaultFunctionForField</code>

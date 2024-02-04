@@ -19,7 +19,6 @@ use PHPUnit\Framework\Attributes\Group;
 
 use function __;
 use function _pgettext;
-use function call_user_func_array;
 use function htmlspecialchars;
 use function urlencode;
 
@@ -196,10 +195,7 @@ class GeneratorTest extends AbstractTestCase
         $restore = $config->settings['LinkLengthLimit'] ?? 1000;
         $config->settings['LinkLengthLimit'] = $limit;
         try {
-            $result = call_user_func_array(
-                [Generator::class, 'linkOrButton'],
-                $params,
-            );
+            $result = Generator::linkOrButton(...$params);
             self::assertEquals($match, $result);
         } finally {
             $config->settings['LinkLengthLimit'] = $restore;
