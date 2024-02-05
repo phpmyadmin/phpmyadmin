@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-02-04 00:18+0000\n"
-"PO-Revision-Date: 2023-11-27 23:09+0000\n"
-"Last-Translator: Piotr Kasprzyk <ciri@ciri.pl>\n"
+"PO-Revision-Date: 2024-02-05 13:10+0000\n"
+"Last-Translator: sebastians17 <sebastians117.ss@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:30
 #: resources/templates/database/central_columns/edit_table_row.twig:22
@@ -3301,10 +3301,8 @@ msgid "Javascript must be enabled past this point!"
 msgstr "Obsługa javascript musi być włączona!"
 
 #: resources/templates/header.twig:46
-#, fuzzy
-#| msgid "Add user account"
 msgid "Open user account menu"
-msgstr "Dodaj konto użytkownika"
+msgstr "Otwórz menu konta użytkownika"
 
 #: resources/templates/header.twig:57
 #: resources/templates/navigation/main.twig:35
@@ -3313,22 +3311,16 @@ msgid "phpMyAdmin documentation"
 msgstr "Dokumentacja phpMyAdmina"
 
 #: resources/templates/header.twig:62
-#, fuzzy
-#| msgid "MariaDB Documentation"
 msgid "MariaDB documentation"
 msgstr "Dokumentacja MariaDB"
 
 #: resources/templates/header.twig:62
-#, fuzzy
-#| msgid "MySQL Documentation"
 msgid "MySQL documentation"
 msgstr "Dokumentacja MySQL"
 
 #: resources/templates/header.twig:73
-#, fuzzy
-#| msgid "Appearance settings"
 msgid "Appearance:"
-msgstr "Ustawienia wyglądu"
+msgstr "Wygląd:"
 
 #: resources/templates/header.twig:76 resources/templates/home/index.twig:152
 msgid "Color mode for the theme"
@@ -5257,10 +5249,8 @@ msgid "Save changes"
 msgstr "Zapisz zmiany"
 
 #: resources/templates/server/replication/change_primary.twig:4
-#, fuzzy
-#| msgid "Change or reconfigure primary server"
 msgid "Replica configuration - Change or reconfigure primary server"
-msgstr "Zmień lub skonfiguruj ponownie serwer główny"
+msgstr "Konfiguracja replikacji - Zmień lub skonfiguruj ponownie serwer główny"
 
 #: resources/templates/server/replication/change_primary.twig:8
 msgid ""
@@ -7158,7 +7148,6 @@ msgid "Reset zoom"
 msgstr "Reset powiększenia"
 
 #: resources/templates/test/gettext/pgettext.twig:0
-#, fuzzy
 msgctxt "Text context"
 msgid "Text"
 msgstr "Tekst"
@@ -7166,13 +7155,11 @@ msgstr "Tekst"
 #. l10n: Number of tables
 #: resources/templates/test/gettext/plural_notes.twig:0
 #: resources/templates/test/gettext/plural.twig:0
-#, fuzzy
-#| msgid "Use tables"
 msgid "One table"
 msgid_plural "%count% tables"
-msgstr[0] "Użyj tabel"
-msgstr[1] "Użyj tabel"
-msgstr[2] "Użyj tabel"
+msgstr[0] "Jedna tabela"
+msgstr[1] "%count% tabel"
+msgstr[2] "%count% tabel"
 
 #: resources/templates/transformation_overview.twig:1
 msgid "Available media types"
@@ -12388,13 +12375,10 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Masz zamiar ZNISZCZYĆ całą bazę danych!"
 
 #: src/Controllers/JavaScriptMessagesController.php:55
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr ""
 "Nie można zmienić nazwy bazy danych na taką samą. Zmień nazwę i spróbuj "
-"ponownie"
+"ponownie."
 
 #: src/Controllers/JavaScriptMessagesController.php:57
 msgid "You are about to DESTROY a complete table!"
@@ -13728,8 +13712,6 @@ msgid "up to date"
 msgstr "aktualna"
 
 #: src/Controllers/JavaScriptMessagesController.php:617
-#, fuzzy
-#| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
 msgstr "Wystąpił błąd podczas ładowania informacji Git."
 
@@ -16856,10 +16838,8 @@ msgid "The table name is empty!"
 msgstr "Nazwa tabeli jest pusta!"
 
 #: src/Partitioning/Maintenance.php:142
-#, fuzzy
-#| msgid "This is a read-only variable and can not be edited"
 msgid "This table is a view, it can not be truncated."
-msgstr "Jest to zmienna tylko do odczytu i nie można jej edytować"
+msgstr "Ta tabela jest tylko do odczytu, i nie można jej wyczyścić."
 
 #: src/Pdf.php:138
 msgid "Error while creating PDF:"
