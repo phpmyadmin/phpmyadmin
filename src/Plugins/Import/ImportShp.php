@@ -95,7 +95,10 @@ class ImportShp extends ImportPlugin
         $shp = new ShapeFileImport(1);
         // If the zip archive has more than one file,
         // get the correct content to the buffer from .shp file.
-        if ($compression === 'application/zip' && $this->zipExtension->getNumberOfFiles(ImportSettings::$importFile) > 1) {
+        if (
+            $compression === 'application/zip'
+            && $this->zipExtension->getNumberOfFiles(ImportSettings::$importFile) > 1
+        ) {
             if ($importHandle->openZip('/^.*\.shp$/i') === false) {
                 $GLOBALS['message'] = Message::error(
                     __('There was an error importing the ESRI shape file: "%s".'),
