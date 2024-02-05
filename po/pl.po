@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2023-12-11 09:06+0000\n"
-"Last-Translator: Adrian Wanic <adrianwanic@gmail.com>\n"
+"PO-Revision-Date: 2024-02-05 13:10+0000\n"
+"Last-Translator: sebastians17 <sebastians117.ss@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
 ">\n"
 "Language: pl\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5945,7 +5945,6 @@ msgid "Total memory"
 msgstr "Pamięć ogółem"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:176
-#, fuzzy
 msgid "Cached memory"
 msgstr "Pamięć podręczna"
 
@@ -10853,10 +10852,8 @@ msgid "The table name is empty!"
 msgstr "Nazwa tabeli jest pusta!"
 
 #: libraries/classes/Partitioning/Maintenance.php:141
-#, fuzzy
-#| msgid "This is a read-only variable and can not be edited"
 msgid "This table is a view, it can not be truncated."
-msgstr "Jest to zmienna tylko do odczytu i nie można jej edytować"
+msgstr "Ta tabela jest tylko do odczytu, i nie można jej wyczyścić."
 
 #: libraries/classes/Pdf.php:136
 #, fuzzy
