@@ -41,6 +41,7 @@ use function http_build_query;
 use function implode;
 use function in_array;
 use function ini_get;
+use function ini_parse_quantity;
 use function is_array;
 use function is_file;
 use function is_numeric;
@@ -54,10 +55,8 @@ use function preg_match;
 use function preg_replace;
 use function str_contains;
 use function strlen;
-use function strtolower;
 use function substr;
 use function time;
-use function trim;
 
 use const ENT_COMPAT;
 
@@ -262,21 +261,7 @@ class Export
      */
     public function getMemoryLimit(): int
     {
-        $memoryLimit = trim((string) ini_get('memory_limit'));
-        $memoryLimitNumber = (int) substr($memoryLimit, 0, -1);
-        $lowerLastChar = strtolower(substr($memoryLimit, -1));
-        // 2 MB as default
-        if ($memoryLimit === '' || $memoryLimit === '0' || $memoryLimit === '-1') {
-            $memoryLimit = 2 * 1024 * 1024;
-        } elseif ($lowerLastChar === 'm') {
-            $memoryLimit = $memoryLimitNumber * 1024 * 1024;
-        } elseif ($lowerLastChar === 'k') {
-            $memoryLimit = $memoryLimitNumber * 1024;
-        } elseif ($lowerLastChar === 'g') {
-            $memoryLimit = $memoryLimitNumber * 1024 * 1024 * 1024;
-        } else {
-            $memoryLimit = (int) $memoryLimit;
-        }
+        $memoryLimit = ini_parse_quantity((string) ini_get('memory_limit'));
 
         // Some of memory is needed for other things and as threshold.
         // During export I had allocated (see memory_get_usage function)
