@@ -100,7 +100,7 @@ class Sql
             );
 
             // TODO: Avoid reparsing the query.
-            $statementInfo = StatementInfo::fromArray(Query::getAll($fullSqlQuery));
+            $statementInfo = StatementInfo::fromStatementInfo(Query::getAll($fullSqlQuery));
         } else {
             // Store the remembered table into session.
             $tableObject->setUiProp(

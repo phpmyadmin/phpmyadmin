@@ -6,6 +6,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statement;
+use PhpMyAdmin\SqlParser\Utils\StatementInfo as SqlParserStatementInfo;
 
 /** @psalm-immutable */
 class StatementInfo
@@ -124,6 +125,44 @@ class StatementInfo
             $info['statement'] ?? null,
             $info['select_tables'] ?? [],
             $info['select_expr'] ?? [],
+        );
+    }
+
+    public static function fromStatementInfo(SqlParserStatementInfo $statementInfo): self
+    {
+        /** @psalm-suppress DeprecatedProperty */
+        return new self(
+            $statementInfo->flags->distinct,
+            $statementInfo->flags->dropDatabase,
+            $statementInfo->flags->group,
+            $statementInfo->flags->having,
+            $statementInfo->flags->isAffected,
+            $statementInfo->flags->isAnalyse,
+            $statementInfo->flags->isCount,
+            $statementInfo->flags->isDelete,
+            $statementInfo->flags->isExplain,
+            $statementInfo->flags->isExport,
+            $statementInfo->flags->isFunc,
+            $statementInfo->flags->isGroup,
+            $statementInfo->flags->isInsert,
+            $statementInfo->flags->isMaint,
+            $statementInfo->flags->isProcedure,
+            $statementInfo->flags->isReplace,
+            $statementInfo->flags->isSelect,
+            $statementInfo->flags->isShow,
+            $statementInfo->flags->isSubQuery,
+            $statementInfo->flags->join,
+            $statementInfo->flags->limit,
+            $statementInfo->flags->offset,
+            $statementInfo->flags->order,
+            $statementInfo->flags->queryType?->value ?? false,
+            $statementInfo->flags->reload,
+            $statementInfo->flags->selectFrom,
+            $statementInfo->flags->union,
+            $statementInfo->parser,
+            $statementInfo->statement,
+            $statementInfo->selectTables,
+            $statementInfo->selectExpressions,
         );
     }
 }

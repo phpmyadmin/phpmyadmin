@@ -7850,14 +7850,6 @@
       <code><![CDATA['data']]></code>
     </TypeDoesNotContainNull>
   </file>
-  <file src="src/ParseAnalyze.php">
-    <ArgumentTypeCoercion>
-      <code>$info</code>
-    </ArgumentTypeCoercion>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($info['select_tables'])]]></code>
-    </RiskyTruthyFalsyComparison>
-  </file>
   <file src="src/Partitioning/Maintenance.php">
     <MixedArrayAccess>
       <code><![CDATA[$row['Table']]]></code>
@@ -11504,9 +11496,6 @@
     </MixedAssignment>
   </file>
   <file src="src/Sql.php">
-    <ArgumentTypeCoercion>
-      <code>Query::getAll($fullSqlQuery)</code>
-    </ArgumentTypeCoercion>
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -14165,11 +14154,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/classes/Display/ResultsTest.php">
-    <ArgumentTypeCoercion>
-      <code>Query::getAll($query)</code>
-      <code>Query::getAll($query)</code>
-      <code><![CDATA[Query::getAll('SELECT * FROM pma')]]></code>
-    </ArgumentTypeCoercion>
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
