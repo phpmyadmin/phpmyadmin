@@ -101,7 +101,7 @@ class ResultsTest extends AbstractTestCase
                 $this->object,
                 DisplayResults::class,
                 'isSelect',
-                [StatementInfo::fromArray(Query::getAll('SELECT * FROM pma'))],
+                [StatementInfo::fromStatementInfo(Query::getAll('SELECT * FROM pma'))],
             ),
         );
     }
@@ -321,7 +321,7 @@ class ResultsTest extends AbstractTestCase
             $this->object,
             DisplayResults::class,
             'setHighlightedColumnGlobalField',
-            [StatementInfo::fromArray(Query::getAll($query))],
+            [StatementInfo::fromStatementInfo(Query::getAll($query))],
         );
 
         self::assertEquals([
@@ -712,7 +712,7 @@ class ResultsTest extends AbstractTestCase
                 'disabled',
                 false,
                 $query,
-                StatementInfo::fromArray(Query::getAll($query)),
+                StatementInfo::fromStatementInfo(Query::getAll($query)),
             ],
         );
 

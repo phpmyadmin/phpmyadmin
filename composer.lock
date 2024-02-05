@@ -454,12 +454,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpmyadmin/sql-parser.git",
-                "reference": "0e24506244a1f4dde047af1eb71a32c8cb5a6e75"
+                "reference": "c4efadf4562ad049a7244b90664c03cd568c3ebc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpmyadmin/sql-parser/zipball/0e24506244a1f4dde047af1eb71a32c8cb5a6e75",
-                "reference": "0e24506244a1f4dde047af1eb71a32c8cb5a6e75",
+                "url": "https://api.github.com/repos/phpmyadmin/sql-parser/zipball/c4efadf4562ad049a7244b90664c03cd568c3ebc",
+                "reference": "c4efadf4562ad049a7244b90664c03cd568c3ebc",
                 "shasum": ""
             },
             "require": {
@@ -538,7 +538,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2024-02-01T15:02:04+00:00"
+            "time": "2024-02-05T17:02:03+00:00"
         },
         {
             "name": "phpmyadmin/twig-i18n-extension",

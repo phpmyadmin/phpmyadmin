@@ -10206,51 +10206,6 @@ parameters:
 			path: src/Operations.php
 
 		-
-			message: "#^Cannot access offset 0 on mixed\\.$#"
-			count: 3
-			path: src/ParseAnalyze.php
-
-		-
-			message: "#^Cannot access offset 1 on mixed\\.$#"
-			count: 1
-			path: src/ParseAnalyze.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 2
-			path: src/ParseAnalyze.php
-
-		-
-			message: "#^Offset 'select_tables' does not exist on array\\{distinct\\?\\: bool, drop_database\\?\\: bool, group\\?\\: bool, having\\?\\: bool, is_affected\\?\\: bool, is_analyse\\?\\: bool, is_count\\?\\: bool, is_delete\\?\\: bool, \\.\\.\\.\\}\\.$#"
-			count: 1
-			path: src/ParseAnalyze.php
-
-		-
-			message: "#^Offset 'select_tables' on array\\{distinct\\?\\: bool, drop_database\\?\\: bool, group\\?\\: bool, having\\?\\: bool, is_affected\\?\\: bool, is_analyse\\?\\: bool, is_count\\?\\: bool, is_delete\\?\\: bool, \\.\\.\\.\\} in empty\\(\\) does not exist\\.$#"
-			count: 1
-			path: src/ParseAnalyze.php
-
-		-
-			message: "#^Offset 'select_tables' on array\\{distinct\\?\\: bool, drop_database\\?\\: bool, group\\?\\: bool, having\\?\\: bool, is_affected\\?\\: bool, is_analyse\\?\\: bool, is_count\\?\\: bool, is_delete\\?\\: bool, \\.\\.\\.\\} in isset\\(\\) does not exist\\.$#"
-			count: 1
-			path: src/ParseAnalyze.php
-
-		-
-			message: "#^Offset 'select_tables' on array\\{distinct\\?\\: bool, drop_database\\?\\: bool, group\\?\\: bool, having\\?\\: bool, is_affected\\?\\: bool, is_analyse\\?\\: bool, is_count\\?\\: bool, is_delete\\?\\: bool, \\.\\.\\.\\} on left side of \\?\\? does not exist\\.$#"
-			count: 1
-			path: src/ParseAnalyze.php
-
-		-
-			message: "#^Parameter \\#1 \\$info of static method PhpMyAdmin\\\\StatementInfo\\:\\:fromArray\\(\\) expects array\\{distinct\\: bool, drop_database\\: bool, group\\: bool, having\\: bool, is_affected\\: bool, is_analyse\\: bool, is_count\\: bool, is_delete\\: bool, \\.\\.\\.\\}, array\\{distinct\\?\\: bool, drop_database\\?\\: bool, group\\?\\: bool, having\\?\\: bool, is_affected\\?\\: bool, is_analyse\\?\\: bool, is_count\\?\\: bool, is_delete\\?\\: bool, \\.\\.\\.\\} given\\.$#"
-			count: 1
-			path: src/ParseAnalyze.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
-			count: 1
-			path: src/ParseAnalyze.php
-
-		-
 			message: "#^Cannot access offset 'Table' on mixed\\.$#"
 			count: 4
 			path: src/Partitioning/Maintenance.php
@@ -14416,11 +14371,6 @@ parameters:
 			path: src/Sql.php
 
 		-
-			message: "#^Parameter \\#1 \\$info of static method PhpMyAdmin\\\\StatementInfo\\:\\:fromArray\\(\\) expects array\\{distinct\\: bool, drop_database\\: bool, group\\: bool, having\\: bool, is_affected\\: bool, is_analyse\\: bool, is_count\\: bool, is_delete\\: bool, \\.\\.\\.\\}, array\\{distinct\\?\\: bool, drop_database\\?\\: bool, group\\?\\: bool, having\\?\\: bool, is_affected\\?\\: bool, is_analyse\\?\\: bool, is_count\\?\\: bool, is_delete\\?\\: bool, \\.\\.\\.\\} given\\.$#"
-			count: 1
-			path: src/Sql.php
-
-		-
 			message: "#^Parameter \\#1 \\$rows of static method PhpMyAdmin\\\\Message\\:\\:getMessageForAffectedRows\\(\\) expects int, int\\|string given\\.$#"
 			count: 2
 			path: src/Sql.php
@@ -16463,11 +16413,6 @@ parameters:
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:dataProviderForTestHandleNonPrintableContents\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 2
-			path: tests/classes/Display/ResultsTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$info of static method PhpMyAdmin\\\\StatementInfo\\:\\:fromArray\\(\\) expects array\\{distinct\\: bool, drop_database\\: bool, group\\: bool, having\\: bool, is_affected\\: bool, is_analyse\\: bool, is_count\\: bool, is_delete\\: bool, \\.\\.\\.\\}, array\\{distinct\\?\\: bool, drop_database\\?\\: bool, group\\?\\: bool, having\\?\\: bool, is_affected\\?\\: bool, is_analyse\\?\\: bool, is_count\\?\\: bool, is_delete\\?\\: bool, \\.\\.\\.\\} given\\.$#"
-			count: 3
 			path: tests/classes/Display/ResultsTest.php
 
 		-
